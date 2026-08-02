@@ -490,7 +490,8 @@ async function start() {
   }
 
   // Groepsweergave — op naam gesorteerd, zodat gelijke props uit
-  // verschillende kits naast elkaar komen te staan.
+  // verschillende kits naast elkaar komen te staan. Een groep die zelf een
+  // tabblad noemt (het bouwpakket) komt daar terecht in plaats van hiertussen.
   for (const groep of data.groepen) {
     const modellen = data.modellen
       .filter((m) => m.groep === groep.id && !eigenTabblad.has(m.kit))
@@ -499,7 +500,7 @@ async function start() {
     registreer(
       maakSectie({
         id: `groep-${groep.id}`,
-        weergave: 'groepen',
+        weergave: groep.tabblad ?? 'groepen',
         soort: 'groep',
         titel: groep.naam,
         aantal: modellen.length,
