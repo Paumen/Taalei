@@ -415,12 +415,20 @@ async function start() {
     });
   };
 
+  // Een kit staat op zichzelf als geen enkele andere kit uit hetzelfde palet
+  // put. Dat is precies wat de uitleg hieronder beweert, en het hangt niet aan
+  // de volgorde waarin de paletten in catalog.json staan.
+  const kitsPerPalet = new Map();
+  for (const kit of data.kits) {
+    if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
+  }
+  const paletten = new Map((data.paletten ?? []).map((p) => [p.id, p]));
+
   // Kitweergave — modellen in bestandsvolgorde, zoals ze in de kit zitten.
-  const gedeeldPalet = data.paletten?.[0]?.id;
   for (const kit of data.kits) {
     const modellen = data.modellen.filter((m) => m.kit === kit.slug);
     const kleur = KIT_KLEUREN[kit.slug];
-    const eigenPalet = kit.palet && kit.palet !== gedeeldPalet;
+    const eigenPalet = kit.palet && kitsPerPalet.get(kit.palet) === 1;
     registreer(
       maakSectie({
         id: `kit-${kit.slug}`,
@@ -429,7 +437,7 @@ async function start() {
         aantal: modellen.length,
         kleur,
         uitleg: eigenPalet
-          ? `Staat op zichzelf: eigen texture-atlas (${kit.atlas}) en eigen kleuren, gedeeld met geen enkele andere kit.`
+          ? `Staat op zichzelf: eigen texture-atlas (${paletten.get(kit.palet)?.atlas}) en eigen kleuren, gedeeld met geen enkele andere kit.`
           : null,
         bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
       }),

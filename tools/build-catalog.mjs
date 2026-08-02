@@ -312,8 +312,10 @@ for (const slug of kitSlugs) {
     url: meta?.url ?? null,
     licentie: `kits/${slug}/LICENSE.txt`,
     aantal: bestanden.length,
-    atlas: `kits/${slug}/Textures/colormap.png`,
     // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
+    // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
+    // heeft weliswaar een eigen Textures/colormap.png, maar bij de zes kits
+    // die het gedeelde palet gebruiken is dat een kopie van dezelfde sheet.
     palet: modellen.find((m) => m.kit === slug && m.palet)?.palet ?? null,
   });
 }
@@ -326,7 +328,12 @@ for (const slug of kitSlugs) {
 const tel = () => {
   for (const p of palet.paletten) for (const cel of p.cellen.values()) cel.aantal = 0;
   for (const model of modellen) {
+    if (model.kleuren.length === 0) continue;
     const cellen = palet.paletten.find((p) => p.id === model.palet)?.cellen;
+    // Kleuren zonder palet kunnen niet bestaan — ze komen uit hetzelfde
+    // palet.json-record — maar als dat ooit scheefloopt is een duidelijke
+    // fout beter dan een TypeError diep in de telling.
+    if (!cellen) throw new Error(`${model.id} heeft kleuren maar geen bekend palet (${model.palet})`);
     for (const hex of model.kleuren) cellen.get(hex).aantal++;
   }
 };
