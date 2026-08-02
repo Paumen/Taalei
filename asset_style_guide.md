@@ -2,9 +2,14 @@
 
 For an LLM creating or adjusting assets.
 
+## 0. Look
+- Cubish, chunky, Iconic, story book, near-caricature.
+- Detail count stays low.
+
 ## 1. Color
-- All colors come from `palet.json`. One shared colormap image only: assets color themselves by pointing UVs at its cells.
-- A new color only on explicit request, and always added to the shared colormap.
+- Colors come from `palet.json`.
+- One shared colormap image only: assets color themselves by pointing UVs at its cells.
+- A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Cave kit is exempt from above rules.
 
 ## 2. Geometry
@@ -16,9 +21,8 @@ For an LLM creating or adjusting assets.
 - Faces use flat palette colors; existing gradient cells may be used — no invented shades. Light and shadow come from the scene at render time.
 
 ## 4. Scale
-- World grid: one wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit. Tolerance 5%.
-- Modular pieces follow this unit, footprints in whole or half units. Footprint = the grid tiles the piece occupies, not its bounding box. Detail may overhang the tile (eaves, handrails, banners)
-- Props are sized to sit believably against that grid.
+- One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit. Tolerance 5%.
+- Nothing thinner than 0.05 units.
 
 ## 5. Origin and orientation
 Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
