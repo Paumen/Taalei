@@ -14,7 +14,7 @@ export const GROEPEN = [
   { id: 'terrein', naam: 'Grond & terrein', kort: 'Grond', kleur: '#8a5d4b',
     beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
-    beschrijving: 'Modulaire gangen, ruimtes en cave-templates. Alleen renderen ná de ingang (hoge tri-count).' },
+    beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouw', naam: 'Muren, daken & bouwwerken', kort: 'Muren & daken', kleur: '#995a41',
     beschrijving: 'Wanden, daken, gebouwdelen en molens.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
@@ -45,13 +45,22 @@ export const GROEPEN = [
     beschrijving: 'Levende have. Nu alleen vissen; uitbreidbaar met de Quaternius-fishpack.' },
 ];
 
+/**
+ * Kits die één ondeelbaar geheel zijn: elk model erin gaat naar dezelfde
+ * groep, ongeacht wat de bestandsnaam zegt. De grot staat helemaal op zichzelf
+ * — eigen texture-atlas, eigen kleuren — en `gate`, `ladder` en `stairs` uit
+ * die kit zijn grotwerk, geen tuinhek of dorpstrap. Ze tussen de props van de
+ * andere kits zetten suggereert een uitwisselbaarheid die er niet is.
+ */
+const KIT_GROEPEN = {
+  'modular-cave-kit': 'grot',
+};
+
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
 const uitzonderingen = {
   'platformer-kit/arrow': 'borden',      // wegwijzerbord, geen projectiel
   'platformer-kit/arrows': 'borden',     // idem
   'platformer-kit/lock': 'mechaniek',    // hangslot bij een poort
-  'modular-cave-kit/gate-rock': 'grot',  // dichtgevallen grotingang
-  'modular-cave-kit/gate-overhang': 'grot',
   'fantasy-town-kit/blade': 'bouw',      // wiek van de molen
   'fantasy-town-kit/wheel': 'bouw',      // waterrad
   'survival-kit/resource-stone': 'rotsen',
@@ -142,6 +151,7 @@ export function nederlandseTrefwoorden(model) {
  * @returns {string} groep-id
  */
 export function bepaalGroep(kit, model) {
+  if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   const sleutel = `${kit}/${model}`;
   if (uitzonderingen[sleutel]) return uitzonderingen[sleutel];
   for (const [patroon, groep] of regels) {
