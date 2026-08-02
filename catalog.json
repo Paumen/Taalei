@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 287,
+ "totaal": 299,
  "kits": [
   {
    "slug": "fantasy-town-kit",
@@ -9,6 +9,15 @@
    "url": "https://kenney.nl/assets/fantasy-town-kit",
    "licentie": "kits/fantasy-town-kit/LICENSE.txt",
    "aantal": 70,
+   "palet": "gedeeld"
+  },
+  {
+   "slug": "helden-kit",
+   "naam": "Helden Kit",
+   "kort": "Helden",
+   "url": null,
+   "licentie": "kits/helden-kit/LICENSE.txt",
+   "aantal": 12,
    "palet": "gedeeld"
   },
   {
@@ -98,7 +107,7 @@
    "kort": "Bouwwerken",
    "kleur": "#877a63",
    "beschrijving": "Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten.",
-   "aantal": 33
+   "aantal": 34
   },
   {
    "id": "verbinding",
@@ -138,7 +147,15 @@
    "kort": "Rotsen",
    "kleur": "#9da4c4",
    "beschrijving": "Rotsblokken, keien en losse stenen voor berg, grot en kust.",
-   "aantal": 27
+   "aantal": 33
+  },
+  {
+   "id": "water",
+   "naam": "Water & watervallen",
+   "kort": "Water",
+   "kleur": "#3da679",
+   "beschrijving": "Watertegels, watervalstukken en schuim voor rivier, meer en waterval. De watervlakken tegelen op het 1×1-raster; een waterval stapelt per klifniveau: top boven, voet onder.",
+   "aantal": 5
   },
   {
    "id": "schepen",
@@ -213,19 +230,19 @@
      "hex": "#995a41",
      "naam": "bruin",
      "textuur": null,
-     "aantal": 78
+     "aantal": 79
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
-     "aantal": 47
+     "aantal": 54
     },
     {
      "hex": "#3da679",
      "naam": "groen",
      "textuur": null,
-     "aantal": 45
+     "aantal": 49
     },
     {
      "hex": "#dd9f79",
@@ -243,13 +260,13 @@
      "hex": "#dcdce9",
      "naam": "lichtblauw",
      "textuur": null,
-     "aantal": 25
+     "aantal": 30
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
-     "aantal": 18
+     "aantal": 19
     },
     {
      "hex": "#474a58",
@@ -261,13 +278,19 @@
      "hex": "#e76047",
      "naam": "rood",
      "textuur": null,
-     "aantal": 8
+     "aantal": 9
     },
     {
      "hex": "#ffb349",
      "naam": "oranje",
      "textuur": null,
-     "aantal": 7
+     "aantal": 8
+    },
+    {
+     "hex": "#6cb588",
+     "naam": "groen",
+     "textuur": null,
+     "aantal": 4
     },
     {
      "hex": "#f0c59d",
@@ -1654,6 +1677,260 @@
    "pad": "kits/fantasy-town-kit/windmill.glb",
    "bytes": 49352,
    "driehoeken": 732,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif-gras-hoek-binnen",
+   "naam": "klif-gras-hoek-binnen",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg",
+    "gras",
+    "hoek",
+    "binnenhoek"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6cb588",
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif-gras-hoek-binnen.glb",
+   "bytes": 13764,
+   "driehoeken": 138,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif-gras-hoek",
+   "naam": "klif-gras-hoek",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg",
+    "gras",
+    "hoek"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6cb588",
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif-gras-hoek.glb",
+   "bytes": 12104,
+   "driehoeken": 120,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif-gras",
+   "naam": "klif-gras",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg",
+    "gras"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6cb588",
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif-gras.glb",
+   "bytes": 8280,
+   "driehoeken": 82,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif-hoek-binnen",
+   "naam": "klif-hoek-binnen",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg",
+    "hoek",
+    "binnenhoek"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif-hoek-binnen.glb",
+   "bytes": 12632,
+   "driehoeken": 122,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif-hoek",
+   "naam": "klif-hoek",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg",
+    "hoek"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif-hoek.glb",
+   "bytes": 10988,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/klif",
+   "naam": "klif",
+   "kit": "helden-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "klif",
+    "rots",
+    "wand",
+    "berg"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/helden-kit/klif.glb",
+   "bytes": 7428,
+   "driehoeken": 70,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/schuim",
+   "naam": "schuim",
+   "kit": "helden-kit",
+   "groep": "water",
+   "trefwoorden": [
+    "schuim",
+    "golven",
+    "plons"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dcdce9"
+   ],
+   "pad": "kits/helden-kit/schuim.glb",
+   "bytes": 6520,
+   "driehoeken": 68,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/vuurtoren",
+   "naam": "vuurtoren",
+   "kit": "helden-kit",
+   "groep": "bouwwerken",
+   "trefwoorden": [
+    "vuurtoren",
+    "toren",
+    "licht",
+    "baken"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#6d738a",
+    "#995a41",
+    "#dcdce9",
+    "#e76047",
+    "#ffb349"
+   ],
+   "pad": "kits/helden-kit/vuurtoren.glb",
+   "bytes": 62664,
+   "driehoeken": 886,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/water",
+   "naam": "water",
+   "kit": "helden-kit",
+   "groep": "water",
+   "trefwoorden": [
+    "water",
+    "meer",
+    "rivier"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679"
+   ],
+   "pad": "kits/helden-kit/water.glb",
+   "bytes": 5168,
+   "driehoeken": 42,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/waterval-top",
+   "naam": "waterval-top",
+   "kit": "helden-kit",
+   "groep": "water",
+   "trefwoorden": [
+    "waterval",
+    "water"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#dcdce9"
+   ],
+   "pad": "kits/helden-kit/waterval-top.glb",
+   "bytes": 5576,
+   "driehoeken": 46,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/waterval-voet",
+   "naam": "waterval-voet",
+   "kit": "helden-kit",
+   "groep": "water",
+   "trefwoorden": [
+    "waterval",
+    "water",
+    "voet",
+    "plons"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#dcdce9"
+   ],
+   "pad": "kits/helden-kit/waterval-voet.glb",
+   "bytes": 12420,
+   "driehoeken": 134,
+   "materialen": 1
+  },
+  {
+   "id": "helden-kit/waterval",
+   "naam": "waterval",
+   "kit": "helden-kit",
+   "groep": "water",
+   "trefwoorden": [
+    "waterval",
+    "water"
+   ],
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#dcdce9"
+   ],
+   "pad": "kits/helden-kit/waterval.glb",
+   "bytes": 3660,
+   "driehoeken": 24,
    "materialen": 1
   },
   {
@@ -5400,6 +5677,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
+    "#6cb588",
     "#dd9f79",
     "#f0c59d"
    ],
