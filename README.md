@@ -55,14 +55,19 @@ zoekwoorden aan.
 ### Publiceren
 
 De workflow in `.github/workflows/static.yml` publiceert de repo naar GitHub
-Pages bij elke commit op `main`, en kan handmatig via *Actions → Run workflow*.
-De site staat op <https://paumen.github.io/Taalei/>.
+Pages bij elke commit, op elke branch. De site staat op
+<https://paumen.github.io/Taalei/>.
 
-Vanaf een feature-branch deployen kan niet zomaar: de `github-pages`-omgeving
-staat standaard alleen de default branch toe en weigert de run voordat er een
-runner start. Wil je branch-previews, zet dan in *Settings → Environments →
-github-pages* de **Deployment branches** op *All branches* en haal `branches`
-uit de workflow. Pages heeft één live site, dus de laatste push wint.
+Daarvoor zijn twee instellingen nodig, allebei eenmalig:
+
+1. *Settings → Pages → Source* op **GitHub Actions**.
+2. *Settings → Environments → github-pages → Deployment branches* op **All
+   branches**. Staat die nog op de default branch, dan weigert GitHub elke
+   deploy vanaf een feature-branch voordat er een runner start: de run faalt
+   binnen een paar seconden en heeft geen logs.
+
+Pages heeft één live site, dus de laatst gepushte branch wint: werk je op twee
+branches tegelijk, dan zie je steeds die van de laatste push.
 
 ## Bestanden
 
