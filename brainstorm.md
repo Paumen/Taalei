@@ -19,12 +19,13 @@ Oefenen met taal op een onderbouwde en leuke manier.
 ## Narrative
 - Aankomst op een nieuw eiland, dingen progressief ontdekken. (Kind heeft waarschijnlijk weinig plezier in gewone taaltaken en huiswerk; dit is een frisse start en niet "more of the same". Herkent het kind iets → mooi, snel door. Zo niet → geen probleem, (her)ontdekken.)
 - Eilandkaart met gebieden als modules/levels; later een 2e/3e eiland.
+- In oefeningen hakken, plakken, timmeren, als grondstof hout, planken, erts, om verder te komen/kunnen bruggen, ladders, boten bouwen,
 
 ## Gebieden / Modules / Zones
 Startkamp, strand, bos, berg, grot, vulkaan, zee, underwater, lake, river, waterfalls, bloementuin, vuurtoren, dock/harbor, schip, luchtballon.
 
 ## Objecten / Props
-Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon.
+Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon, wood saw, wood axe, haamer and nails, iron ore, trees, bridges, ladders, chests, tonnes, crates, fences, boats, .
 
 ## Wel doen
 - Niveau doelgroep
