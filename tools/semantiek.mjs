@@ -15,15 +15,11 @@ export const GROEPEN = [
     beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
-  { id: 'bouwpakket', naam: 'Bouwpakket fantasy-town', kort: 'Bouwpakket', kleur: '#a8762a',
+  { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
     tabblad: 'bouwpakket',
-    beschrijving: 'De wanden, daken en de pilaar van fantasy-town-kit: modulaire delen die op één raster aan elkaar klikken en alleen op elkaar passen. Eigen tabblad, want vijfendertig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
-  { id: 'muren', naam: 'Muren, deuren & ramen', kort: 'Muren', kleur: '#995a41',
-    beschrijving: 'Wanden en wat erin zit: deuren, deuropeningen, ramen, bogen en hoekstukken. Het bouwpakket van fantasy-town staat op zijn eigen tabblad.' },
-  { id: 'daken', naam: 'Daken & dakdelen', kort: 'Daken', kleur: '#b8503c',
-    beschrijving: 'Dakvlakken, hoeken, nokken en dakkapellen om een gebouw mee af te dekken. De dakdelen van fantasy-town staan op het bouwpakket-tabblad.' },
-  { id: 'bouwwerken', naam: 'Bouwwerken, platforms & molens', kort: 'Bouwwerken', kleur: '#877a63',
-    beschrijving: 'Complete gebouwtjes, molens, platforms, vlonders, pilaren, planken en balkons — bouwdelen die geen muur en geen dak zijn.' },
+    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Eigen tabblad, want veertig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
+  { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
+    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
     beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
@@ -63,24 +59,25 @@ const KIT_GROEPEN = {
 
 /**
  * Het modulaire bouwpakket binnen een kit: delen die op één raster aan elkaar
- * klikken en daardoor alleen op elkaar passen. Anders dan bij de grot gaat het
- * niet om een hele kit — de bomen, karren en molens van fantasy-town zijn losse
- * props en horen gewoon bij hun soortgenoten uit de andere kits.
+ * klikken en daardoor alleen op elkaar passen, plus de molens die uit datzelfde
+ * bouwwerk bestaan (`blade` is de wiek van de windmolen). Anders dan bij de grot
+ * gaat het niet om een hele kit — de bomen, karren en hekken van fantasy-town
+ * zijn losse props en horen gewoon bij hun soortgenoten uit de andere kits.
  *
- * De uitzonderingen gaan hier vóór: `blade` en `wheel` beginnen niet met een
- * pakketwoord, maar zouden dat wel doen als er ooit een `wall-`-molenwiek komt.
+ * De uitzonderingen gaan hier vóór, zodat een model dat toevallig met een
+ * pakketwoord begint er alsnog uit gehaald kan worden.
  */
 const BOUWPAKKETTEN = [
-  ['fantasy-town-kit', /^(wall|roof|pillar)\b/],
+  ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
+  ['mini-dungeon', /^column\b/],
 ];
 
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
 const uitzonderingen = {
-  'platformer-kit/arrow': 'borden',        // wegwijzerbord, geen projectiel
-  'platformer-kit/arrows': 'borden',       // idem
-  'platformer-kit/lock': 'items',          // hangslot bij een poort
-  'fantasy-town-kit/blade': 'bouwwerken',  // wiek van de molen
-  'fantasy-town-kit/wheel': 'bouwwerken',  // waterrad
+  'platformer-kit/arrow': 'borden',         // wegwijzerbord, geen projectiel
+  'platformer-kit/arrows': 'borden',        // idem
+  'platformer-kit/lock': 'items',           // hangslot bij een poort
+  'fantasy-town-kit/wheel': 'gereedschap',  // waterrad, maar los inzetbaar als wiel
   'survival-kit/resource-stone': 'rotsen',
   'survival-kit/resource-stone-large': 'rotsen',
   'pirate-kit/hole': 'terrein',
@@ -106,11 +103,9 @@ const regels = [
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|stone|stones)\b/, 'rotsen'],
   [/^(floor|patch|dirt|hole)\b/, 'terrein'],
-  // Daken staan boven de andere twee bouwregels: `building-roof` en
-  // `structure-roof` heten naar hun gebouw, maar het zijn daken.
-  [/^roof\b|-roof\b/, 'daken'],
-  [/^wall\b/, 'muren'],
-  [/^(building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
+  // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
+  // uit de andere kits, en alles wat je eromheen bouwt.
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
 ];
 
 /**

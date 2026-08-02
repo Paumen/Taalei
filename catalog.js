@@ -27,10 +27,10 @@ const KIT_KLEUREN = {
  * Groep-ids die niet meer bestaan → de groep waar hun modellen nu staan. Een
  * oude link (#groep-bouw) komt zo nog steeds ergens zinnigs uit in plaats van
  * op de standaardweergave. Bij een splitsing wijst de oude id naar het grootste
- * deel: `bouw` viel uiteen in muren, daken en bouwwerken.
+ * deel: `bouw` viel uiteen in het bouwpakket en de bouwwerken.
  */
 const GROEP_ALIASSEN = {
-  bouw: 'muren',
+  bouw: 'bouwwerken',
   mechaniek: 'items',
 };
 
