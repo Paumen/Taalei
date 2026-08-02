@@ -16,7 +16,7 @@ export const GROEPEN = [
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'Modulaire gangen, ruimtes en cave-templates. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouw', naam: 'Muren, daken & bouwwerken', kort: 'Muren & daken', kleur: '#995a41',
-    beschrijving: 'Wanden, daken, gebouwdelen, molens en fonteinen.' },
+    beschrijving: 'Wanden, daken, gebouwdelen en molens.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
     beschrijving: 'Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
