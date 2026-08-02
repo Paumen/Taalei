@@ -1,11 +1,15 @@
 /**
  * Taaleiland 3D-catalogus.
  *
- * Twee weergaven over dezelfde dataset: per kit (waar komt het vandaan) en
- * per semantische groep (wat is het). De 3D-previews worden pas aangemaakt
- * als een kaart in de buurt van het scherm komt en weer opgeruimd zodra hij
- * ver weg is — met bijna 300 modellen × 2 weergaven zou alles tegelijk laden de
- * pagina onbruikbaar maken. Bij het opruimen bewaren we het laatste frame,
+ * Drie weergaven over dezelfde dataset: per kit (waar komt het vandaan), per
+ * semantische groep (wat is het), en de grot. Die laatste deelt geen atlas en
+ * geen kleur met de rest, dus hij staat niet tussen de andere kits maar op een
+ * eigen tabblad.
+ *
+ * De 3D-previews worden pas aangemaakt als een kaart in de buurt van het
+ * scherm komt en weer opgeruimd zodra hij ver weg is — met bijna 300 modellen,
+ * de meeste in twee weergaven, zou alles tegelijk laden de pagina onbruikbaar
+ * maken. Bij het opruimen bewaren we het laatste frame,
  * zodat terugscrollen niets opnieuw hoeft te downloaden.
  */
 
@@ -47,6 +51,9 @@ let huidigeWeergave = 'kits';
 const gekozenKleuren = new Set();
 
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
+
+/** Stalengroepen per palet, om ze per weergave te tonen of te verbergen. */
+const kleurgroepen = [];
 
 /* ---------- opmaakhulpjes ---------- */
 
@@ -147,6 +154,7 @@ function maakKaart(model, kits, groepen, weergave) {
   const item = {
     element: kaart,
     weergave,
+    palet: model.palet,
     kleuren: model.kleuren.map((hex) => kleurSleutel(model.palet, hex)),
     zoektekst: [
       model.naam,
@@ -162,11 +170,13 @@ function maakKaart(model, kits, groepen, weergave) {
   return item;
 }
 
-function maakSectie({ id, weergave, titel, aantal, kleur, uitleg, bron }) {
+function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron }) {
   const sectie = document.createElement('section');
   sectie.className = 'sectie';
   sectie.id = id;
   sectie.dataset.weergave = weergave;
+  // 'kit' of 'groep' — bepaalt of de kop de herkomst al noemt; zie catalog.css.
+  sectie.dataset.soort = soort;
   if (kleur) sectie.style.setProperty('--sectie-kleur', kleur);
 
   const kop = document.createElement('div');
@@ -312,6 +322,7 @@ function bouwKleurbalk(paletten) {
       const knop = document.createElement('button');
       knop.type = 'button';
       knop.className = 'staal';
+      knop.dataset.sleutel = sleutel;
       knop.style.setProperty('--staal-kleur', kleur.hex);
       knop.style.setProperty('--vink', vinkKleur(kleur.hex));
       knop.setAttribute('aria-pressed', 'false');
@@ -333,6 +344,7 @@ function bouwKleurbalk(paletten) {
 
     groep.append(label, stalen);
     houder.append(groep);
+    kleurgroepen.push({ palet: palet.id, element: groep });
   }
 
   wisknop.addEventListener('click', () => {
@@ -351,6 +363,21 @@ function pasWeergaveToe(weergave) {
     knop.setAttribute('aria-selected', String(knop.dataset.weergave === weergave));
   }
   paneel.setAttribute('aria-labelledby', `tab-${weergave}`);
+
+  // Alleen de paletten tonen die in deze weergave iets kunnen filteren: op het
+  // grot-tabblad zou een gedeeld staal altijd nul modellen opleveren.
+  const aanwezig = new Set(kaarten.filter((k) => k.weergave === weergave).map((k) => k.palet));
+  for (const groep of kleurgroepen) {
+    groep.element.hidden = !aanwezig.has(groep.palet);
+    if (!groep.element.hidden) continue;
+    // Een staal dat je niet meer ziet, mag ook niet meer stilletjes filteren.
+    for (const knop of groep.element.querySelectorAll('.staal')) {
+      gekozenKleuren.delete(knop.dataset.sleutel);
+      knop.setAttribute('aria-pressed', 'false');
+    }
+  }
+  document.querySelector('#kleurbalk-wis').hidden = gekozenKleuren.size === 0;
+
   filter();
 }
 
@@ -424,21 +451,25 @@ async function start() {
   }
   const paletten = new Map((data.paletten ?? []).map((p) => [p.id, p]));
 
+  // Kits die op zichzelf staan krijgen een eigen tabblad in plaats van een
+  // sectie tussen de andere kits. Ze delen geen atlas en geen kleur met de
+  // rest, dus naast elkaar zetten suggereert een samenhang die er niet is.
+  const opZichzelf = data.kits.filter((k) => k.palet && kitsPerPalet.get(k.palet) === 1);
+  const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
+
   // Kitweergave — modellen in bestandsvolgorde, zoals ze in de kit zitten.
   for (const kit of data.kits) {
+    if (eigenTabblad.has(kit.slug)) continue;
     const modellen = data.modellen.filter((m) => m.kit === kit.slug);
     const kleur = KIT_KLEUREN[kit.slug];
-    const eigenPalet = kit.palet && kitsPerPalet.get(kit.palet) === 1;
     registreer(
       maakSectie({
         id: `kit-${kit.slug}`,
         weergave: 'kits',
+        soort: 'kit',
         titel: kit.naam,
         aantal: modellen.length,
         kleur,
-        uitleg: eigenPalet
-          ? `Staat op zichzelf: eigen texture-atlas (${paletten.get(kit.palet)?.atlas}) en eigen kleuren, gedeeld met geen enkele andere kit.`
-          : null,
         bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
       }),
       kit.kort ?? kit.naam,
@@ -451,13 +482,14 @@ async function start() {
   // verschillende kits naast elkaar komen te staan.
   for (const groep of data.groepen) {
     const modellen = data.modellen
-      .filter((m) => m.groep === groep.id)
+      .filter((m) => m.groep === groep.id && !eigenTabblad.has(m.kit))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl') || a.kit.localeCompare(b.kit));
     if (modellen.length === 0) continue;
     registreer(
       maakSectie({
         id: `groep-${groep.id}`,
         weergave: 'groepen',
+        soort: 'groep',
         titel: groep.naam,
         aantal: modellen.length,
         kleur: groep.kleur,
@@ -465,6 +497,28 @@ async function start() {
       }),
       groep.kort ?? groep.naam,
       groep.kleur,
+      modellen,
+    );
+  }
+
+  // Grotweergave — de losstaande kit, op zijn eigen tabblad. De sectie houdt
+  // zijn oude id, zodat bestaande links naar #kit-modular-cave-kit blijven werken.
+  for (const kit of opZichzelf) {
+    const modellen = data.modellen.filter((m) => m.kit === kit.slug);
+    const kleur = KIT_KLEUREN[kit.slug];
+    registreer(
+      maakSectie({
+        id: `kit-${kit.slug}`,
+        weergave: 'grot',
+        soort: 'kit',
+        titel: kit.naam,
+        aantal: modellen.length,
+        kleur,
+        uitleg: `Staat op zichzelf: eigen texture-atlas (${paletten.get(kit.palet)?.atlas}) en eigen kleuren, gedeeld met geen enkele andere kit. Daarom een eigen tabblad — deze modellen zijn niet uitwisselbaar met die van de andere kits.`,
+        bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
+      }),
+      kit.kort ?? kit.naam,
+      kleur,
       modellen,
     );
   }
@@ -481,10 +535,26 @@ async function start() {
 
   zoekveld.addEventListener('input', filter);
 
-  // Deeplinks: #groepen, maar ook #groep-rotsen of #kit-pirate-kit.
+  // De groepen van een losstaande kit hebben geen eigen sectie meer in de
+  // groepsweergave; een oude link daarheen hoort op het tabblad van die kit
+  // uit te komen in plaats van op de standaardweergave.
+  const aliassen = new Map();
+  for (const kit of opZichzelf) {
+    for (const model of data.modellen) {
+      if (model.kit === kit.slug) aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
+    }
+  }
+
+  // Deeplinks: #kits, #groepen en #grot, maar ook #groep-rotsen of
+  // #kit-pirate-kit. Bij een sectie-anker vragen we de sectie zelf in welke
+  // weergave hij hoort; dan blijven links kloppen als een kit verhuist.
   const anker = location.hash.slice(1);
-  pasWeergaveToe(anker.startsWith('groep') ? 'groepen' : 'kits');
-  if (anker.includes('-')) document.getElementById(anker)?.scrollIntoView();
+  const doelSectie = anker
+    ? document.getElementById(anker) ?? document.getElementById(aliassen.get(anker) ?? '')
+    : null;
+  const weergaven = new Set([...document.querySelectorAll('.schakelaar button')].map((k) => k.dataset.weergave));
+  pasWeergaveToe(doelSectie?.dataset.weergave ?? (weergaven.has(anker) ? anker : 'kits'));
+  doelSectie?.scrollIntoView();
 }
 
 start().catch((fout) => {
