@@ -196,13 +196,16 @@ for (let i = 0; i < 12; i += 1) {
   const a = (i / 12) * Math.PI * 2;
   balk(0.015, 0.075, 0.015, [Math.cos(a) * 0.228, 1.145, Math.sin(a) * 0.228], -a, CEL.donker);
 }
-reling(0.231, 0.014, ZIJDEN, 1.183, CEL.donker);
+reling(0.231, 0.011, ZIJDEN, 1.183, CEL.donker);
 
-// lantaarnhuis: lamp met roeden eromheen, plaat en dak
-cilinder(0.135, 0.145, 0.185, 10, 1.22, CEL.amber);
+// Lantaarnhuis. De roeden staan op straal 0.141, zodat hun buitenkant op
+// 0.148 blijft en het dak (0.165) er zichtbaar overheen steekt — dat overstek
+// is wat de lantaarn licht houdt. Het glas is daarom iets smaller dan de
+// roeden, anders verdwijnen ze erin.
+cilinder(0.130, 0.138, 0.185, 10, 1.22, CEL.amber);
 for (let i = 0; i < 10; i += 1) {
   const a = (i / 10) * Math.PI * 2;
-  balk(0.014, 0.185, 0.014, [Math.cos(a) * 0.152, 1.22, Math.sin(a) * 0.152], -a, CEL.donker);
+  balk(0.014, 0.185, 0.014, [Math.cos(a) * 0.141, 1.22, Math.sin(a) * 0.141], -a, CEL.donker);
 }
 cilinder(0.165, 0.165, 0.022, 10, 1.322, CEL.donker);
 kegel(0.165, 0.15, 10, 1.408, CEL.staal);
@@ -215,8 +218,9 @@ const straalOp = (y) => {
 const dz = straalOp(0.27);
 balk(0.125, 0.225, 0.030, [0, 0.28, dz + 0.004], 0, CEL.zand);
 balk(0.090, 0.185, 0.030, [0, 0.27, dz + 0.014], 0, CEL.hout);
-// De stoep blijft binnen de sokkel, anders bepaalt hij de footprint.
-balk(0.160, 0.030, 0.070, [0, 0.16, dz + 0.020], 0, CEL.steen);
+// De stoep steekt net zo ver uit als in de schets, maar blijft binnen de
+// sokkel (0.33) — anders bepaalt hij de footprint in plaats van de sokkel.
+balk(0.160, 0.030, 0.090, [0, 0.16, dz + 0.025], 0, CEL.steen);
 
 /* -- op het raster zetten -------------------------------------------------
  * §4: de footprint moet op hele of halve units vallen. De sokkel is met 16
