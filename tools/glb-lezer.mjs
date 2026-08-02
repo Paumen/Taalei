@@ -51,9 +51,17 @@ export function leesGlb(pad) {
  */
 export function leesAccessor(glb, index) {
   const acc = glb.json.accessors[index];
+  if (!acc) throw new Error(`accessor ${index} bestaat niet`);
   if (acc.sparse) throw new Error('sparse accessors worden niet ondersteund');
-  const [Type, bytes] = COMPONENT[acc.componentType];
+
+  // Zonder deze twee controles klapt een onbekend type verderop om in een
+  // "Type is not a constructor" of een NaN-offset, en dan zoek je lang.
+  const component = COMPONENT[acc.componentType];
+  if (!component) throw new Error(`accessor ${index}: onbekende componentType ${acc.componentType}`);
   const kolommen = AANTAL[acc.type];
+  if (kolommen === undefined) throw new Error(`accessor ${index}: onbekend type "${acc.type}"`);
+
+  const [Type, bytes] = component;
   const rijen = acc.count;
 
   if (acc.bufferView === undefined) {

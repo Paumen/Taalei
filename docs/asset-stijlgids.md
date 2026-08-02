@@ -38,7 +38,7 @@ Before delivering: render from a few angles, check against these rules (flat-pie
 `kits/` and exits non-zero on a hard violation. Use `--kit <slug>` to narrow it
 down and `--json` for the full per-model numbers.
 
-The script separates two kinds of finding:
+The script separates two kinds of findings:
 
 - **Overtredingen** — things it can call wrong on its own: a color that does not
   come from the shared colormap, UVs pointing outside `palet.json`, a circle of
