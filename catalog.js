@@ -38,6 +38,8 @@ const kaarten = [];
 const secties = [];
 
 let huidigeWeergave = 'kits';
+/** Aangeklikte kleuren; leeg = geen kleurfilter. Meerdere kleuren = OF. */
+const gekozenKleuren = new Set();
 
 /* ---------- opmaakhulpjes ---------- */
 
@@ -138,6 +140,7 @@ function maakKaart(model, kits, groepen, weergave) {
   const item = {
     element: kaart,
     weergave,
+    kleuren: model.kleuren,
     zoektekst: [
       model.naam,
       model.kit,
@@ -275,6 +278,49 @@ detailKopieer.addEventListener('click', async () => {
   setTimeout(() => { detailKopieer.textContent = 'Kopieer pad'; }, 1600);
 });
 
+/* ---------- kleurfilter ---------- */
+
+/** Wit of donker vinkje, afhankelijk van hoe licht het staal is. */
+function vinkKleur(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
+}
+
+function bouwKleurbalk(kleuren) {
+  const houder = document.querySelector('#kleurbalk-stalen');
+  const wisknop = document.querySelector('#kleurbalk-wis');
+
+  for (const kleur of kleuren) {
+    const knop = document.createElement('button');
+    knop.type = 'button';
+    knop.className = 'staal';
+    knop.style.setProperty('--staal-kleur', kleur.hex);
+    knop.style.setProperty('--vink', vinkKleur(kleur.hex));
+    knop.setAttribute('aria-pressed', 'false');
+    // Meerdere cellen kunnen dezelfde grove naam krijgen; de hex houdt ze uit elkaar.
+    knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} modellen${kleur.textuur ? ` · ${kleur.textuur}` : ''}`;
+    knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} modellen`);
+
+    knop.addEventListener('click', () => {
+      const aan = !gekozenKleuren.has(kleur.hex);
+      if (aan) gekozenKleuren.add(kleur.hex);
+      else gekozenKleuren.delete(kleur.hex);
+      knop.setAttribute('aria-pressed', String(aan));
+      wisknop.hidden = gekozenKleuren.size === 0;
+      filter();
+    });
+
+    houder.append(knop);
+  }
+
+  wisknop.addEventListener('click', () => {
+    gekozenKleuren.clear();
+    for (const knop of houder.querySelectorAll('.staal')) knop.setAttribute('aria-pressed', 'false');
+    wisknop.hidden = true;
+    filter();
+  });
+}
+
 /* ---------- weergave en filter ---------- */
 
 function pasWeergaveToe(weergave) {
@@ -291,16 +337,18 @@ function filter() {
   let zichtbaar = 0;
 
   for (const kaart of kaarten) {
-    const treffer = !term || kaart.zoektekst.includes(term);
+    const treffer =
+      (!term || kaart.zoektekst.includes(term)) &&
+      (gekozenKleuren.size === 0 || kaart.kleuren.some((hex) => gekozenKleuren.has(hex)));
     kaart.element.hidden = !treffer;
     if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
   }
 
   for (const sectie of secties) {
     const inWeergave = sectie.element.dataset.weergave === huidigeWeergave;
-    const aantal = term
-      ? sectie.kaarten.filter((k) => !k.element.hidden).length
-      : sectie.kaarten.length;
+    // Altijd op de zichtbare kaarten tellen: zoeken en kleurfilter kunnen
+    // los van elkaar aanstaan, dus de zoekterm alleen zegt niets.
+    const aantal = sectie.kaarten.filter((k) => !k.element.hidden).length;
 
     sectie.element.hidden = !inWeergave || aantal === 0;
     sectie.springitem.hidden = sectie.element.hidden;
@@ -315,7 +363,8 @@ function filter() {
 /* ---------- opstarten ---------- */
 
 async function start() {
-  const respons = await fetch('catalog.json');
+  const versie = document.querySelector('meta[name="catalogus-versie"]')?.content;
+  const respons = await fetch(versie ? `catalog.json?v=${versie}` : 'catalog.json');
   if (!respons.ok) throw new Error(`catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
 
@@ -357,7 +406,7 @@ async function start() {
         extras: kit.zones,
         bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
       }),
-      kit.naam,
+      kit.kort ?? kit.naam,
       kleur,
       modellen,
     );
@@ -379,11 +428,13 @@ async function start() {
         kleur: groep.kleur,
         uitleg: groep.beschrijving,
       }),
-      groep.naam,
+      groep.kort ?? groep.naam,
       groep.kleur,
       modellen,
     );
   }
+
+  bouwKleurbalk(data.kleuren ?? []);
 
   for (const knop of document.querySelectorAll('.schakelaar button')) {
     knop.addEventListener('click', () => {

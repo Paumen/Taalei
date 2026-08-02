@@ -169,6 +169,81 @@ a { color: var(--accent); }
 
 .springlijst .telling { color: var(--inkt-zacht); }
 
+/* ---------- kleurfilter ---------- */
+
+.kleurbalk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px clamp(16px, 4vw, 40px);
+  border-bottom: 1px solid var(--lijn);
+  background: var(--papier);
+}
+
+.kleurbalk-label {
+  flex: none;
+  font-size: 12px;
+  color: var(--inkt-zacht);
+}
+
+.kleurbalk-stalen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
+}
+
+.staal {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, .18);
+  border-radius: 7px;
+  background: var(--staal-kleur);
+  cursor: pointer;
+}
+
+.staal:hover { transform: scale(1.08); }
+.staal:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.staal[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px var(--papier), 0 0 0 4px var(--inkt);
+}
+
+/* Vinkje in een kleur die tegen de staalkleur afsteekt. */
+.staal[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 6px;
+  height: 11px;
+  border: solid var(--vink, #fff);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+.kleurbalk-wis {
+  flex: none;
+  padding: 4px 11px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.kleurbalk-wis[hidden] { display: none; }
+
+@media (max-width: 560px) {
+  .kleurbalk { gap: 7px; padding: 8px clamp(16px, 4vw, 40px); }
+  .kleurbalk-label { display: none; }
+  .staal { width: 22px; height: 22px; border-radius: 6px; }
+}
+
 /* ---------- secties ---------- */
 
 main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
