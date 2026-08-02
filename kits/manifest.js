@@ -1,4 +1,4 @@
-/* generated from the downloaded Kenney kits — model lists per kit */
+/* model lists per kit — Kenney-kits plus de eigen taalei-kit */
 window.KENNEY_KITS = [
  {
   "slug": "survival-kit",
@@ -339,6 +339,14 @@ window.KENNEY_KITS = [
    "wall-opening",
    "wood-structure",
    "wood-support"
+  ]
+ },
+ {
+  "slug": "taalei-kit",
+  "name": "Taalei Kit",
+  "url": null,
+  "models": [
+   "lighthouse"
   ]
  }
 ];
