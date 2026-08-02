@@ -1,0 +1,4366 @@
+{
+ "gegenereerd": "node tools/build-catalog.mjs",
+ "totaal": 292,
+ "kits": [
+  {
+   "slug": "fantasy-town-kit",
+   "naam": "Fantasy Town Kit",
+   "url": "https://kenney.nl/assets/fantasy-town-kit",
+   "zones": [
+    "Startkamp",
+    "dorp"
+   ],
+   "licentie": "kits/fantasy-town-kit/LICENSE.txt",
+   "aantal": 75
+  },
+  {
+   "slug": "mini-dungeon",
+   "naam": "Mini Dungeon",
+   "url": "https://kenney.nl/assets/mini-dungeon",
+   "zones": [
+    "Vulkaanpad",
+    "Grot"
+   ],
+   "licentie": "kits/mini-dungeon/LICENSE.txt",
+   "aantal": 21
+  },
+  {
+   "slug": "mini-forest",
+   "naam": "Mini Forest",
+   "url": "https://kenney.nl/assets/mini-forest",
+   "zones": [
+    "Palmenbos"
+   ],
+   "licentie": "kits/mini-forest/LICENSE.txt",
+   "aantal": 20
+  },
+  {
+   "slug": "modular-cave-kit",
+   "naam": "Modular Cave Kit",
+   "url": "https://kenney.nl/assets/modular-cave-kit",
+   "zones": [
+    "Geheime Grot"
+   ],
+   "licentie": "kits/modular-cave-kit/LICENSE.txt",
+   "aantal": 40
+  },
+  {
+   "slug": "pirate-kit",
+   "naam": "Pirate Kit",
+   "url": "https://kenney.nl/assets/pirate-kit",
+   "zones": [
+    "Zinnenzee",
+    "Schip"
+   ],
+   "licentie": "kits/pirate-kit/LICENSE.txt",
+   "aantal": 50
+  },
+  {
+   "slug": "platformer-kit",
+   "naam": "Platformer Kit",
+   "url": "https://kenney.nl/assets/platformer-kit",
+   "zones": [
+    "Klimrots"
+   ],
+   "licentie": "kits/platformer-kit/LICENSE.txt",
+   "aantal": 36
+  },
+  {
+   "slug": "survival-kit",
+   "naam": "Survival Kit",
+   "url": "https://kenney.nl/assets/survival-kit",
+   "zones": [
+    "Startkamp"
+   ],
+   "licentie": "kits/survival-kit/LICENSE.txt",
+   "aantal": 50
+  }
+ ],
+ "groepen": [
+  {
+   "id": "terrein",
+   "naam": "Grond & terrein",
+   "kleur": "#8a5d4b",
+   "beschrijving": "Vloeren, grondvlakken en ondergrond om een zone op te bouwen.",
+   "aantal": 15
+  },
+  {
+   "id": "grot",
+   "naam": "Grot & gangen",
+   "kleur": "#5c4a52",
+   "beschrijving": "Modulaire gangen, ruimtes en cave-templates. Alleen renderen ná de ingang (hoge tri-count).",
+   "aantal": 35
+  },
+  {
+   "id": "bouw",
+   "naam": "Muren, daken & bouwwerken",
+   "kleur": "#995a41",
+   "beschrijving": "Wanden, daken, gebouwdelen, molens en fonteinen.",
+   "aantal": 69
+  },
+  {
+   "id": "verbinding",
+   "naam": "Trappen, bruggen & platforms",
+   "kleur": "#c98a5a",
+   "beschrijving": "Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor \"woordplakken\".",
+   "aantal": 25
+  },
+  {
+   "id": "hek",
+   "naam": "Hekken, palen & poorten",
+   "kleur": "#b08968",
+   "beschrijving": "Afbakening van paden en zones, en doorgangen die open of dicht kunnen.",
+   "aantal": 23
+  },
+  {
+   "id": "bomen",
+   "naam": "Bomen & palmen",
+   "kleur": "#3da679",
+   "beschrijving": "Losse bomen en palmen voor bos, strand en dorp.",
+   "aantal": 17
+  },
+  {
+   "id": "planten",
+   "naam": "Planten, gras & bloemen",
+   "kleur": "#6cb588",
+   "beschrijving": "Kleine begroeiing en decoratie op de grond.",
+   "aantal": 10
+  },
+  {
+   "id": "rotsen",
+   "naam": "Rotsen & stenen",
+   "kleur": "#9da4c4",
+   "beschrijving": "Rotsblokken, keien en losse stenen voor berg, grot en kust.",
+   "aantal": 27
+  },
+  {
+   "id": "schepen",
+   "naam": "Schepen & varen",
+   "kleur": "#474a58",
+   "beschrijving": "Schepen, boten, masten en kanonnen voor de Zinnenzee.",
+   "aantal": 15
+  },
+  {
+   "id": "kamp",
+   "naam": "Kamp & vuur",
+   "kleur": "#e76047",
+   "beschrijving": "Tenten en kampvuren — de basis van het Startkamp.",
+   "aantal": 6
+  },
+  {
+   "id": "opslag",
+   "naam": "Kisten, vaten & grondstoffen",
+   "kleur": "#dd9f79",
+   "beschrijving": "Containers en grondstoffen; goed inzetbaar als beloning of verzamelplek.",
+   "aantal": 17
+  },
+  {
+   "id": "gereedschap",
+   "naam": "Gereedschap & wapens",
+   "kleur": "#6d738a",
+   "beschrijving": "Bijl, hamer, boog — koppelbaar aan mechanieken als \"woordhakken\".",
+   "aantal": 11
+  },
+  {
+   "id": "borden",
+   "naam": "Borden, vlaggen & doelen",
+   "kleur": "#ffb349",
+   "beschrijving": "Wegwijzers, banners en doelen. Dragers voor tekst en instructie.",
+   "aantal": 12
+  },
+  {
+   "id": "items",
+   "naam": "Verzamelobjecten",
+   "kleur": "#f1976c",
+   "beschrijving": "Munt, sleutel, ster, hart — voorzichtig inzetten, geen punten-economie.",
+   "aantal": 4
+  },
+  {
+   "id": "mechaniek",
+   "naam": "Mechaniek & interactie",
+   "kleur": "#ff8744",
+   "beschrijving": "Hendel, veer, slot, val: objecten die op een actie reageren.",
+   "aantal": 4
+  },
+  {
+   "id": "dieren",
+   "naam": "Dieren",
+   "kleur": "#3e8fd0",
+   "beschrijving": "Levende have. Nu alleen vissen; uitbreidbaar met de Quaternius-fishpack.",
+   "aantal": 2
+  }
+ ],
+ "modellen": [
+  {
+   "id": "fantasy-town-kit/balcony-wall-fence",
+   "naam": "balcony-wall-fence",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "balkon",
+    "muur",
+    "wand",
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/fantasy-town-kit/balcony-wall-fence.glb",
+   "bytes": 8016,
+   "driehoeken": 102,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/balcony-wall",
+   "naam": "balcony-wall",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "balkon",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/fantasy-town-kit/balcony-wall.glb",
+   "bytes": 5448,
+   "driehoeken": 64,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/banner-green",
+   "naam": "banner-green",
+   "kit": "fantasy-town-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "banier",
+    "vaandel"
+   ],
+   "pad": "kits/fantasy-town-kit/banner-green.glb",
+   "bytes": 7336,
+   "driehoeken": 102,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/banner-red",
+   "naam": "banner-red",
+   "kit": "fantasy-town-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "banier",
+    "vaandel"
+   ],
+   "pad": "kits/fantasy-town-kit/banner-red.glb",
+   "bytes": 7188,
+   "driehoeken": 98,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/blade",
+   "naam": "blade",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "wiek"
+   ],
+   "pad": "kits/fantasy-town-kit/blade.glb",
+   "bytes": 13332,
+   "driehoeken": 180,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/cart-high",
+   "naam": "cart-high",
+   "kit": "fantasy-town-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "kar",
+    "wagen"
+   ],
+   "pad": "kits/fantasy-town-kit/cart-high.glb",
+   "bytes": 61860,
+   "driehoeken": 1028,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/cart",
+   "naam": "cart",
+   "kit": "fantasy-town-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "kar",
+    "wagen"
+   ],
+   "pad": "kits/fantasy-town-kit/cart.glb",
+   "bytes": 37260,
+   "driehoeken": 608,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/fence-broken",
+   "naam": "fence-broken",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/fantasy-town-kit/fence-broken.glb",
+   "bytes": 8548,
+   "driehoeken": 124,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/fence-curved",
+   "naam": "fence-curved",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/fantasy-town-kit/fence-curved.glb",
+   "bytes": 17992,
+   "driehoeken": 308,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/fence-gate",
+   "naam": "fence-gate",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining",
+    "poort"
+   ],
+   "pad": "kits/fantasy-town-kit/fence-gate.glb",
+   "bytes": 32508,
+   "driehoeken": 560,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/fence",
+   "naam": "fence",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/fantasy-town-kit/fence.glb",
+   "bytes": 5636,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/fountain-round-detail",
+   "naam": "fountain-round-detail",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "fontein"
+   ],
+   "pad": "kits/fantasy-town-kit/fountain-round-detail.glb",
+   "bytes": 95032,
+   "driehoeken": 1628,
+   "materialen": 2
+  },
+  {
+   "id": "fantasy-town-kit/fountain-round",
+   "naam": "fountain-round",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "fontein"
+   ],
+   "pad": "kits/fantasy-town-kit/fountain-round.glb",
+   "bytes": 59124,
+   "driehoeken": 1002,
+   "materialen": 2
+  },
+  {
+   "id": "fantasy-town-kit/overhang",
+   "naam": "overhang",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "afdak"
+   ],
+   "pad": "kits/fantasy-town-kit/overhang.glb",
+   "bytes": 5612,
+   "driehoeken": 68,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/pillar-wood",
+   "naam": "pillar-wood",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "pilaar",
+    "zuil",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/pillar-wood.glb",
+   "bytes": 4044,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/planks-half",
+   "naam": "planks-half",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "planken",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/planks-half.glb",
+   "bytes": 7308,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/planks-opening",
+   "naam": "planks-opening",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "planken",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/planks-opening.glb",
+   "bytes": 11640,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/planks",
+   "naam": "planks",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "planken",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/planks.glb",
+   "bytes": 7964,
+   "driehoeken": 96,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/poles-horizontal",
+   "naam": "poles-horizontal",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "palen"
+   ],
+   "pad": "kits/fantasy-town-kit/poles-horizontal.glb",
+   "bytes": 4232,
+   "driehoeken": 40,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/poles",
+   "naam": "poles",
+   "kit": "fantasy-town-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "palen"
+   ],
+   "pad": "kits/fantasy-town-kit/poles.glb",
+   "bytes": 3264,
+   "driehoeken": 28,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/rock-large",
+   "naam": "rock-large",
+   "kit": "fantasy-town-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/fantasy-town-kit/rock-large.glb",
+   "bytes": 13432,
+   "driehoeken": 200,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/rock-small",
+   "naam": "rock-small",
+   "kit": "fantasy-town-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/fantasy-town-kit/rock-small.glb",
+   "bytes": 8988,
+   "driehoeken": 128,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/rock-wide",
+   "naam": "rock-wide",
+   "kit": "fantasy-town-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/fantasy-town-kit/rock-wide.glb",
+   "bytes": 10860,
+   "driehoeken": 156,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-corner-inner",
+   "naam": "roof-corner-inner",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-corner-inner.glb",
+   "bytes": 3456,
+   "driehoeken": 30,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-corner-round",
+   "naam": "roof-corner-round",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-corner-round.glb",
+   "bytes": 4380,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-corner",
+   "naam": "roof-corner",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-corner.glb",
+   "bytes": 3824,
+   "driehoeken": 36,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-flat",
+   "naam": "roof-flat",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-flat.glb",
+   "bytes": 2756,
+   "driehoeken": 20,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-gable-detail",
+   "naam": "roof-gable-detail",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-gable-detail.glb",
+   "bytes": 8616,
+   "driehoeken": 128,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-gable-end",
+   "naam": "roof-gable-end",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-gable-end.glb",
+   "bytes": 4568,
+   "driehoeken": 50,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-gable-top",
+   "naam": "roof-gable-top",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-gable-top.glb",
+   "bytes": 4892,
+   "driehoeken": 56,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-left",
+   "naam": "roof-left",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-left.glb",
+   "bytes": 9140,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-point",
+   "naam": "roof-point",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-point.glb",
+   "bytes": 4596,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-right",
+   "naam": "roof-right",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-right.glb",
+   "bytes": 9208,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/roof-window",
+   "naam": "roof-window",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "dak",
+    "raam"
+   ],
+   "pad": "kits/fantasy-town-kit/roof-window.glb",
+   "bytes": 11152,
+   "driehoeken": 176,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-stone-corner",
+   "naam": "stairs-stone-corner",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "steen"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-stone-corner.glb",
+   "bytes": 9104,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-stone-round",
+   "naam": "stairs-stone-round",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "steen"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-stone-round.glb",
+   "bytes": 12648,
+   "driehoeken": 154,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-wide-wood-handrail",
+   "naam": "stairs-wide-wood-handrail",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-wide-wood-handrail.glb",
+   "bytes": 30844,
+   "driehoeken": 560,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-wide-wood",
+   "naam": "stairs-wide-wood",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-wide-wood.glb",
+   "bytes": 23328,
+   "driehoeken": 424,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-wood-handrail",
+   "naam": "stairs-wood-handrail",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-wood-handrail.glb",
+   "bytes": 31072,
+   "driehoeken": 568,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/stairs-wood",
+   "naam": "stairs-wood",
+   "kit": "fantasy-town-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/stairs-wood.glb",
+   "bytes": 23556,
+   "driehoeken": 432,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/tree-crooked",
+   "naam": "tree-crooked",
+   "kit": "fantasy-town-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/fantasy-town-kit/tree-crooked.glb",
+   "bytes": 13668,
+   "driehoeken": 178,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/tree-high-crooked",
+   "naam": "tree-high-crooked",
+   "kit": "fantasy-town-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/fantasy-town-kit/tree-high-crooked.glb",
+   "bytes": 15388,
+   "driehoeken": 210,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/tree-high-round",
+   "naam": "tree-high-round",
+   "kit": "fantasy-town-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/fantasy-town-kit/tree-high-round.glb",
+   "bytes": 9380,
+   "driehoeken": 126,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/tree-high",
+   "naam": "tree-high",
+   "kit": "fantasy-town-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/fantasy-town-kit/tree-high.glb",
+   "bytes": 14664,
+   "driehoeken": 200,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/tree",
+   "naam": "tree",
+   "kit": "fantasy-town-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/fantasy-town-kit/tree.glb",
+   "bytes": 12924,
+   "driehoeken": 168,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-arch-top",
+   "naam": "wall-wood-arch-top",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-arch-top.glb",
+   "bytes": 9192,
+   "driehoeken": 146,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-arch",
+   "naam": "wall-wood-arch",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-arch.glb",
+   "bytes": 3720,
+   "driehoeken": 32,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-block-half",
+   "naam": "wall-wood-block-half",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-block-half.glb",
+   "bytes": 6244,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-block",
+   "naam": "wall-wood-block",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-block.glb",
+   "bytes": 6204,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-broken",
+   "naam": "wall-wood-broken",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-broken.glb",
+   "bytes": 11680,
+   "driehoeken": 166,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-corner-diagonal-half",
+   "naam": "wall-wood-corner-diagonal-half",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-corner-diagonal-half.glb",
+   "bytes": 3700,
+   "driehoeken": 34,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-corner-diagonal",
+   "naam": "wall-wood-corner-diagonal",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-corner-diagonal.glb",
+   "bytes": 4528,
+   "driehoeken": 48,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-corner-edge",
+   "naam": "wall-wood-corner-edge",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-corner-edge.glb",
+   "bytes": 4104,
+   "driehoeken": 40,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-corner",
+   "naam": "wall-wood-corner",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-corner.glb",
+   "bytes": 5028,
+   "driehoeken": 52,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-curved",
+   "naam": "wall-wood-curved",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-curved.glb",
+   "bytes": 8200,
+   "driehoeken": 120,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-detail-cross",
+   "naam": "wall-wood-detail-cross",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-detail-cross.glb",
+   "bytes": 6192,
+   "driehoeken": 80,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-detail-diagonal",
+   "naam": "wall-wood-detail-diagonal",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-detail-diagonal.glb",
+   "bytes": 4972,
+   "driehoeken": 56,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-detail-horizontal",
+   "naam": "wall-wood-detail-horizontal",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-detail-horizontal.glb",
+   "bytes": 4672,
+   "driehoeken": 46,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-diagonal",
+   "naam": "wall-wood-diagonal",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-diagonal.glb",
+   "bytes": 3964,
+   "driehoeken": 38,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-door",
+   "naam": "wall-wood-door",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "deur"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-door.glb",
+   "bytes": 21872,
+   "driehoeken": 376,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-doorway-base",
+   "naam": "wall-wood-doorway-base",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "deuropening"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-doorway-base.glb",
+   "bytes": 5884,
+   "driehoeken": 64,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-doorway-square-wide-curved",
+   "naam": "wall-wood-doorway-square-wide-curved",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "deuropening"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-doorway-square-wide-curved.glb",
+   "bytes": 10180,
+   "driehoeken": 166,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-doorway-square",
+   "naam": "wall-wood-doorway-square",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "deuropening"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-doorway-square.glb",
+   "bytes": 6312,
+   "driehoeken": 82,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-half",
+   "naam": "wall-wood-half",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-half.glb",
+   "bytes": 3688,
+   "driehoeken": 32,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-rounded",
+   "naam": "wall-wood-rounded",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-rounded.glb",
+   "bytes": 8996,
+   "driehoeken": 136,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-side",
+   "naam": "wall-wood-side",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-side.glb",
+   "bytes": 3056,
+   "driehoeken": 22,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-slope",
+   "naam": "wall-wood-slope",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-slope.glb",
+   "bytes": 6224,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-window-glass",
+   "naam": "wall-wood-window-glass",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "raam"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-window-glass.glb",
+   "bytes": 8024,
+   "driehoeken": 122,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-window-round",
+   "naam": "wall-wood-window-round",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "raam"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-window-round.glb",
+   "bytes": 16800,
+   "driehoeken": 294,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood-window-shutters",
+   "naam": "wall-wood-window-shutters",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout",
+    "raam",
+    "luiken"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood-window-shutters.glb",
+   "bytes": 7652,
+   "driehoeken": 122,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wall-wood",
+   "naam": "wall-wood",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand",
+    "hout"
+   ],
+   "pad": "kits/fantasy-town-kit/wall-wood.glb",
+   "bytes": 3672,
+   "driehoeken": 32,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/watermill-wide",
+   "naam": "watermill-wide",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "watermolen",
+    "molen"
+   ],
+   "pad": "kits/fantasy-town-kit/watermill-wide.glb",
+   "bytes": 37568,
+   "driehoeken": 600,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/watermill",
+   "naam": "watermill",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "watermolen",
+    "molen"
+   ],
+   "pad": "kits/fantasy-town-kit/watermill.glb",
+   "bytes": 37552,
+   "driehoeken": 600,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/wheel",
+   "naam": "wheel",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "wiel"
+   ],
+   "pad": "kits/fantasy-town-kit/wheel.glb",
+   "bytes": 12304,
+   "driehoeken": 192,
+   "materialen": 1
+  },
+  {
+   "id": "fantasy-town-kit/windmill",
+   "naam": "windmill",
+   "kit": "fantasy-town-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "windmolen",
+    "molen"
+   ],
+   "pad": "kits/fantasy-town-kit/windmill.glb",
+   "bytes": 49352,
+   "driehoeken": 732,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/banner",
+   "naam": "banner",
+   "kit": "mini-dungeon",
+   "groep": "borden",
+   "trefwoorden": [
+    "banier",
+    "vaandel"
+   ],
+   "pad": "kits/mini-dungeon/banner.glb",
+   "bytes": 13684,
+   "driehoeken": 200,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/barrel",
+   "naam": "barrel",
+   "kit": "mini-dungeon",
+   "groep": "opslag",
+   "trefwoorden": [
+    "vat",
+    "ton"
+   ],
+   "pad": "kits/mini-dungeon/barrel.glb",
+   "bytes": 9976,
+   "driehoeken": 148,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/chest",
+   "naam": "chest",
+   "kit": "mini-dungeon",
+   "groep": "opslag",
+   "trefwoorden": [
+    "kist",
+    "schatkist"
+   ],
+   "pad": "kits/mini-dungeon/chest.glb",
+   "bytes": 25704,
+   "driehoeken": 288,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/coin",
+   "naam": "coin",
+   "kit": "mini-dungeon",
+   "groep": "items",
+   "trefwoorden": [
+    "munt",
+    "geld"
+   ],
+   "pad": "kits/mini-dungeon/coin.glb",
+   "bytes": 15704,
+   "driehoeken": 252,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/column",
+   "naam": "column",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "zuil",
+    "pilaar"
+   ],
+   "pad": "kits/mini-dungeon/column.glb",
+   "bytes": 8044,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/dirt",
+   "naam": "dirt",
+   "kit": "mini-dungeon",
+   "groep": "terrein",
+   "trefwoorden": [
+    "aarde",
+    "grond",
+    "modder"
+   ],
+   "pad": "kits/mini-dungeon/dirt.glb",
+   "bytes": 2316,
+   "driehoeken": 12,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/floor-detail",
+   "naam": "floor-detail",
+   "kit": "mini-dungeon",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/mini-dungeon/floor-detail.glb",
+   "bytes": 8468,
+   "driehoeken": 102,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/floor",
+   "naam": "floor",
+   "kit": "mini-dungeon",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/mini-dungeon/floor.glb",
+   "bytes": 1620,
+   "driehoeken": 2,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/gate",
+   "naam": "gate",
+   "kit": "mini-dungeon",
+   "groep": "hek",
+   "trefwoorden": [
+    "poort",
+    "hek"
+   ],
+   "pad": "kits/mini-dungeon/gate.glb",
+   "bytes": 11736,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/key",
+   "naam": "key",
+   "kit": "mini-dungeon",
+   "groep": "items",
+   "trefwoorden": [
+    "sleutel"
+   ],
+   "pad": "kits/mini-dungeon/key.glb",
+   "bytes": 11988,
+   "driehoeken": 176,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/pot",
+   "naam": "pot",
+   "kit": "mini-dungeon",
+   "groep": "opslag",
+   "trefwoorden": [
+    "pot",
+    "kruik"
+   ],
+   "pad": "kits/mini-dungeon/pot.glb",
+   "bytes": 18688,
+   "driehoeken": 284,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/rocks",
+   "naam": "rocks",
+   "kit": "mini-dungeon",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/mini-dungeon/rocks.glb",
+   "bytes": 13092,
+   "driehoeken": 190,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/stairs",
+   "naam": "stairs",
+   "kit": "mini-dungeon",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap"
+   ],
+   "pad": "kits/mini-dungeon/stairs.glb",
+   "bytes": 8240,
+   "driehoeken": 124,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/stones",
+   "naam": "stones",
+   "kit": "mini-dungeon",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "stenen"
+   ],
+   "pad": "kits/mini-dungeon/stones.glb",
+   "bytes": 17168,
+   "driehoeken": 248,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/trap",
+   "naam": "trap",
+   "kit": "mini-dungeon",
+   "groep": "mechaniek",
+   "trefwoorden": [
+    "val",
+    "valluik"
+   ],
+   "pad": "kits/mini-dungeon/trap.glb",
+   "bytes": 31640,
+   "driehoeken": 408,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wall-half",
+   "naam": "wall-half",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/mini-dungeon/wall-half.glb",
+   "bytes": 11256,
+   "driehoeken": 150,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wall-narrow",
+   "naam": "wall-narrow",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/mini-dungeon/wall-narrow.glb",
+   "bytes": 16376,
+   "driehoeken": 234,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wall-opening",
+   "naam": "wall-opening",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/mini-dungeon/wall-opening.glb",
+   "bytes": 13628,
+   "driehoeken": 200,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wall",
+   "naam": "wall",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/mini-dungeon/wall.glb",
+   "bytes": 12884,
+   "driehoeken": 186,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wood-structure",
+   "naam": "wood-structure",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "hout",
+    "bouwwerk",
+    "constructie"
+   ],
+   "pad": "kits/mini-dungeon/wood-structure.glb",
+   "bytes": 18500,
+   "driehoeken": 256,
+   "materialen": 1
+  },
+  {
+   "id": "mini-dungeon/wood-support",
+   "naam": "wood-support",
+   "kit": "mini-dungeon",
+   "groep": "bouw",
+   "trefwoorden": [
+    "hout"
+   ],
+   "pad": "kits/mini-dungeon/wood-support.glb",
+   "bytes": 8052,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/bridge",
+   "naam": "bridge",
+   "kit": "mini-forest",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "brug"
+   ],
+   "pad": "kits/mini-forest/bridge.glb",
+   "bytes": 22844,
+   "driehoeken": 372,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/building-platform",
+   "naam": "building-platform",
+   "kit": "mini-forest",
+   "groep": "bouw",
+   "trefwoorden": [
+    "gebouw",
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/mini-forest/building-platform.glb",
+   "bytes": 33592,
+   "driehoeken": 508,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/building-roof",
+   "naam": "building-roof",
+   "kit": "mini-forest",
+   "groep": "bouw",
+   "trefwoorden": [
+    "gebouw",
+    "dak"
+   ],
+   "pad": "kits/mini-forest/building-roof.glb",
+   "bytes": 22408,
+   "driehoeken": 324,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/building-structure",
+   "naam": "building-structure",
+   "kit": "mini-forest",
+   "groep": "bouw",
+   "trefwoorden": [
+    "gebouw",
+    "bouwwerk",
+    "constructie"
+   ],
+   "pad": "kits/mini-forest/building-structure.glb",
+   "bytes": 11632,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/fence",
+   "naam": "fence",
+   "kit": "mini-forest",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/mini-forest/fence.glb",
+   "bytes": 21056,
+   "driehoeken": 330,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/flag",
+   "naam": "flag",
+   "kit": "mini-forest",
+   "groep": "borden",
+   "trefwoorden": [
+    "vlag"
+   ],
+   "pad": "kits/mini-forest/flag.glb",
+   "bytes": 11852,
+   "driehoeken": 162,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/ladder",
+   "naam": "ladder",
+   "kit": "mini-forest",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "ladder"
+   ],
+   "pad": "kits/mini-forest/ladder.glb",
+   "bytes": 15708,
+   "driehoeken": 216,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/patch-dirt",
+   "naam": "patch-dirt",
+   "kit": "mini-forest",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "aarde",
+    "grond",
+    "modder"
+   ],
+   "pad": "kits/mini-forest/patch-dirt.glb",
+   "bytes": 7312,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/patch-grass",
+   "naam": "patch-grass",
+   "kit": "mini-forest",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "gras"
+   ],
+   "pad": "kits/mini-forest/patch-grass.glb",
+   "bytes": 20840,
+   "driehoeken": 295,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/plant",
+   "naam": "plant",
+   "kit": "mini-forest",
+   "groep": "planten",
+   "trefwoorden": [
+    "plant"
+   ],
+   "pad": "kits/mini-forest/plant.glb",
+   "bytes": 15704,
+   "driehoeken": 156,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/rocks-high",
+   "naam": "rocks-high",
+   "kit": "mini-forest",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/mini-forest/rocks-high.glb",
+   "bytes": 22404,
+   "driehoeken": 342,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/rocks-low",
+   "naam": "rocks-low",
+   "kit": "mini-forest",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/mini-forest/rocks-low.glb",
+   "bytes": 22412,
+   "driehoeken": 342,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/rocks-ramp",
+   "naam": "rocks-ramp",
+   "kit": "mini-forest",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/mini-forest/rocks-ramp.glb",
+   "bytes": 16312,
+   "driehoeken": 234,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/stones",
+   "naam": "stones",
+   "kit": "mini-forest",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "stenen"
+   ],
+   "pad": "kits/mini-forest/stones.glb",
+   "bytes": 16324,
+   "driehoeken": 236,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/target",
+   "naam": "target",
+   "kit": "mini-forest",
+   "groep": "borden",
+   "trefwoorden": [
+    "doel",
+    "schietschijf"
+   ],
+   "pad": "kits/mini-forest/target.glb",
+   "bytes": 12616,
+   "driehoeken": 188,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/tent",
+   "naam": "tent",
+   "kit": "mini-forest",
+   "groep": "kamp",
+   "trefwoorden": [
+    "tent"
+   ],
+   "pad": "kits/mini-forest/tent.glb",
+   "bytes": 54064,
+   "driehoeken": 847,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/tree-high",
+   "naam": "tree-high",
+   "kit": "mini-forest",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/mini-forest/tree-high.glb",
+   "bytes": 21768,
+   "driehoeken": 266,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/tree",
+   "naam": "tree",
+   "kit": "mini-forest",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/mini-forest/tree.glb",
+   "bytes": 16468,
+   "driehoeken": 182,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/weapon-arrow",
+   "naam": "weapon-arrow",
+   "kit": "mini-forest",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "wapen",
+    "pijl",
+    "wegwijzer"
+   ],
+   "pad": "kits/mini-forest/weapon-arrow.glb",
+   "bytes": 5296,
+   "driehoeken": 58,
+   "materialen": 1
+  },
+  {
+   "id": "mini-forest/weapon-bow",
+   "naam": "weapon-bow",
+   "kit": "mini-forest",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "wapen",
+    "boog"
+   ],
+   "pad": "kits/mini-forest/weapon-bow.glb",
+   "bytes": 6216,
+   "driehoeken": 80,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-corner",
+   "naam": "corridor-corner",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-corner.glb",
+   "bytes": 46056,
+   "driehoeken": 624,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-end",
+   "naam": "corridor-end",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-end.glb",
+   "bytes": 89004,
+   "driehoeken": 1324,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-intersection",
+   "naam": "corridor-intersection",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-intersection.glb",
+   "bytes": 17240,
+   "driehoeken": 244,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-junction",
+   "naam": "corridor-junction",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-junction.glb",
+   "bytes": 38632,
+   "driehoeken": 564,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-transition",
+   "naam": "corridor-transition",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-transition.glb",
+   "bytes": 151316,
+   "driehoeken": 2276,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-wide-corner",
+   "naam": "corridor-wide-corner",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-wide-corner.glb",
+   "bytes": 105008,
+   "driehoeken": 1516,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-wide-end",
+   "naam": "corridor-wide-end",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-wide-end.glb",
+   "bytes": 160940,
+   "driehoeken": 2428,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-wide-intersection",
+   "naam": "corridor-wide-intersection",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-wide-intersection.glb",
+   "bytes": 18088,
+   "driehoeken": 256,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-wide-junction",
+   "naam": "corridor-wide-junction",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-wide-junction.glb",
+   "bytes": 63156,
+   "driehoeken": 940,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor-wide",
+   "naam": "corridor-wide",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor-wide.glb",
+   "bytes": 108144,
+   "driehoeken": 1624,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/corridor",
+   "naam": "corridor",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "gang",
+    "tunnel",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/corridor.glb",
+   "bytes": 59916,
+   "driehoeken": 884,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/gate-metal-bars",
+   "naam": "gate-metal-bars",
+   "kit": "modular-cave-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "poort",
+    "hek"
+   ],
+   "pad": "kits/modular-cave-kit/gate-metal-bars.glb",
+   "bytes": 47508,
+   "driehoeken": 720,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/gate-overhang",
+   "naam": "gate-overhang",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "poort",
+    "hek",
+    "afdak"
+   ],
+   "pad": "kits/modular-cave-kit/gate-overhang.glb",
+   "bytes": 7312,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/gate-rock",
+   "naam": "gate-rock",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "poort",
+    "hek",
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/modular-cave-kit/gate-rock.glb",
+   "bytes": 22300,
+   "driehoeken": 360,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/gate",
+   "naam": "gate",
+   "kit": "modular-cave-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "poort",
+    "hek"
+   ],
+   "pad": "kits/modular-cave-kit/gate.glb",
+   "bytes": 37476,
+   "driehoeken": 592,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/ladder",
+   "naam": "ladder",
+   "kit": "modular-cave-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "ladder"
+   ],
+   "pad": "kits/modular-cave-kit/ladder.glb",
+   "bytes": 12320,
+   "driehoeken": 160,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-corner",
+   "naam": "room-corner",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-corner.glb",
+   "bytes": 249676,
+   "driehoeken": 3612,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-large-variation",
+   "naam": "room-large-variation",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-large-variation.glb",
+   "bytes": 544220,
+   "driehoeken": 7956,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-large",
+   "naam": "room-large",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-large.glb",
+   "bytes": 553240,
+   "driehoeken": 8080,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-small-variation",
+   "naam": "room-small-variation",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-small-variation.glb",
+   "bytes": 265332,
+   "driehoeken": 3868,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-small",
+   "naam": "room-small",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-small.glb",
+   "bytes": 238168,
+   "driehoeken": 3356,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-wide-variation",
+   "naam": "room-wide-variation",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-wide-variation.glb",
+   "bytes": 458228,
+   "driehoeken": 6704,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/room-wide",
+   "naam": "room-wide",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "kamer",
+    "ruimte",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/room-wide.glb",
+   "bytes": 378268,
+   "driehoeken": 5460,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/stairs-wide",
+   "naam": "stairs-wide",
+   "kit": "modular-cave-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap"
+   ],
+   "pad": "kits/modular-cave-kit/stairs-wide.glb",
+   "bytes": 163756,
+   "driehoeken": 2506,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/stairs",
+   "naam": "stairs",
+   "kit": "modular-cave-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "trap"
+   ],
+   "pad": "kits/modular-cave-kit/stairs.glb",
+   "bytes": 157136,
+   "driehoeken": 2386,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-corner",
+   "naam": "template-corner",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/template-corner.glb",
+   "bytes": 42240,
+   "driehoeken": 564,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-detail",
+   "naam": "template-detail",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot"
+   ],
+   "pad": "kits/modular-cave-kit/template-detail.glb",
+   "bytes": 22832,
+   "driehoeken": 320,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-big",
+   "naam": "template-floor-big",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-big.glb",
+   "bytes": 44912,
+   "driehoeken": 636,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-detail-a",
+   "naam": "template-floor-detail-a",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-detail-a.glb",
+   "bytes": 15964,
+   "driehoeken": 204,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-detail",
+   "naam": "template-floor-detail",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-detail.glb",
+   "bytes": 15956,
+   "driehoeken": 204,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-layer-hole",
+   "naam": "template-floor-layer-hole",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond",
+    "gat",
+    "kuil"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-layer-hole.glb",
+   "bytes": 28604,
+   "driehoeken": 384,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-layer-raised",
+   "naam": "template-floor-layer-raised",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-layer-raised.glb",
+   "bytes": 23556,
+   "driehoeken": 312,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor-layer",
+   "naam": "template-floor-layer",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor-layer.glb",
+   "bytes": 13456,
+   "driehoeken": 168,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-floor",
+   "naam": "template-floor",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/modular-cave-kit/template-floor.glb",
+   "bytes": 1812,
+   "driehoeken": 4,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall-corner",
+   "naam": "template-wall-corner",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall-corner.glb",
+   "bytes": 5228,
+   "driehoeken": 60,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall-detail-a",
+   "naam": "template-wall-detail-a",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall-detail-a.glb",
+   "bytes": 29248,
+   "driehoeken": 420,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall-half",
+   "naam": "template-wall-half",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall-half.glb",
+   "bytes": 14152,
+   "driehoeken": 192,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall-stairs",
+   "naam": "template-wall-stairs",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand",
+    "trap"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall-stairs.glb",
+   "bytes": 7800,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall-top",
+   "naam": "template-wall-top",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall-top.glb",
+   "bytes": 10948,
+   "driehoeken": 148,
+   "materialen": 1
+  },
+  {
+   "id": "modular-cave-kit/template-wall",
+   "naam": "template-wall",
+   "kit": "modular-cave-kit",
+   "groep": "grot",
+   "trefwoorden": [
+    "sjabloon",
+    "grot",
+    "muur",
+    "wand"
+   ],
+   "pad": "kits/modular-cave-kit/template-wall.glb",
+   "bytes": 30624,
+   "driehoeken": 440,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/boat-row-large",
+   "naam": "boat-row-large",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "boot",
+    "roeiboot"
+   ],
+   "pad": "kits/pirate-kit/boat-row-large.glb",
+   "bytes": 11504,
+   "driehoeken": 174,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/boat-row-small",
+   "naam": "boat-row-small",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "boot",
+    "roeiboot"
+   ],
+   "pad": "kits/pirate-kit/boat-row-small.glb",
+   "bytes": 12564,
+   "driehoeken": 168,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/bottle-large",
+   "naam": "bottle-large",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "fles"
+   ],
+   "pad": "kits/pirate-kit/bottle-large.glb",
+   "bytes": 8700,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/bottle",
+   "naam": "bottle",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "fles"
+   ],
+   "pad": "kits/pirate-kit/bottle.glb",
+   "bytes": 9752,
+   "driehoeken": 124,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/cannon-ball",
+   "naam": "cannon-ball",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "kanon"
+   ],
+   "pad": "kits/pirate-kit/cannon-ball.glb",
+   "bytes": 5292,
+   "driehoeken": 48,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/cannon-mobile",
+   "naam": "cannon-mobile",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "kanon"
+   ],
+   "pad": "kits/pirate-kit/cannon-mobile.glb",
+   "bytes": 31024,
+   "driehoeken": 472,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/cannon",
+   "naam": "cannon",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "kanon"
+   ],
+   "pad": "kits/pirate-kit/cannon.glb",
+   "bytes": 17336,
+   "driehoeken": 232,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/chest",
+   "naam": "chest",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "kist",
+    "schatkist"
+   ],
+   "pad": "kits/pirate-kit/chest.glb",
+   "bytes": 18836,
+   "driehoeken": 232,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/crate-bottles",
+   "naam": "crate-bottles",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "krat",
+    "kist"
+   ],
+   "pad": "kits/pirate-kit/crate-bottles.glb",
+   "bytes": 40644,
+   "driehoeken": 572,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/crate",
+   "naam": "crate",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "krat",
+    "kist"
+   ],
+   "pad": "kits/pirate-kit/crate.glb",
+   "bytes": 6684,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/flag-high",
+   "naam": "flag-high",
+   "kit": "pirate-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "vlag"
+   ],
+   "pad": "kits/pirate-kit/flag-high.glb",
+   "bytes": 10892,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/flag",
+   "naam": "flag",
+   "kit": "pirate-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "vlag"
+   ],
+   "pad": "kits/pirate-kit/flag.glb",
+   "bytes": 10876,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/grass-plant",
+   "naam": "grass-plant",
+   "kit": "pirate-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "gras",
+    "plant"
+   ],
+   "pad": "kits/pirate-kit/grass-plant.glb",
+   "bytes": 10192,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/grass",
+   "naam": "grass",
+   "kit": "pirate-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "gras"
+   ],
+   "pad": "kits/pirate-kit/grass.glb",
+   "bytes": 6516,
+   "driehoeken": 72,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/hole",
+   "naam": "hole",
+   "kit": "pirate-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "gat",
+    "kuil"
+   ],
+   "pad": "kits/pirate-kit/hole.glb",
+   "bytes": 19776,
+   "driehoeken": 286,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/mast-ropes",
+   "naam": "mast-ropes",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "mast",
+    "touwen"
+   ],
+   "pad": "kits/pirate-kit/mast-ropes.glb",
+   "bytes": 25320,
+   "driehoeken": 350,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/mast",
+   "naam": "mast",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "mast"
+   ],
+   "pad": "kits/pirate-kit/mast.glb",
+   "bytes": 21680,
+   "driehoeken": 302,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/palm-bend",
+   "naam": "palm-bend",
+   "kit": "pirate-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "palm",
+    "palmboom",
+    "boom"
+   ],
+   "pad": "kits/pirate-kit/palm-bend.glb",
+   "bytes": 25464,
+   "driehoeken": 338,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/palm-detailed-bend",
+   "naam": "palm-detailed-bend",
+   "kit": "pirate-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "palm",
+    "palmboom",
+    "boom"
+   ],
+   "pad": "kits/pirate-kit/palm-detailed-bend.glb",
+   "bytes": 36084,
+   "driehoeken": 482,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/palm-detailed-straight",
+   "naam": "palm-detailed-straight",
+   "kit": "pirate-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "palm",
+    "palmboom",
+    "boom"
+   ],
+   "pad": "kits/pirate-kit/palm-detailed-straight.glb",
+   "bytes": 36028,
+   "driehoeken": 482,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/palm-straight",
+   "naam": "palm-straight",
+   "kit": "pirate-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "palm",
+    "palmboom",
+    "boom"
+   ],
+   "pad": "kits/pirate-kit/palm-straight.glb",
+   "bytes": 25476,
+   "driehoeken": 338,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/patch-grass-foliage",
+   "naam": "patch-grass-foliage",
+   "kit": "pirate-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "gras",
+    "begroeiing"
+   ],
+   "pad": "kits/pirate-kit/patch-grass-foliage.glb",
+   "bytes": 21556,
+   "driehoeken": 300,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/patch-grass",
+   "naam": "patch-grass",
+   "kit": "pirate-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "gras"
+   ],
+   "pad": "kits/pirate-kit/patch-grass.glb",
+   "bytes": 6136,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/patch-sand-foliage",
+   "naam": "patch-sand-foliage",
+   "kit": "pirate-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "zand",
+    "strand",
+    "begroeiing"
+   ],
+   "pad": "kits/pirate-kit/patch-sand-foliage.glb",
+   "bytes": 43736,
+   "driehoeken": 636,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/patch-sand",
+   "naam": "patch-sand",
+   "kit": "pirate-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/pirate-kit/patch-sand.glb",
+   "bytes": 7360,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/platform-planks",
+   "naam": "platform-planks",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder",
+    "planken",
+    "hout"
+   ],
+   "pad": "kits/pirate-kit/platform-planks.glb",
+   "bytes": 4848,
+   "driehoeken": 48,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/platform",
+   "naam": "platform",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/pirate-kit/platform.glb",
+   "bytes": 5608,
+   "driehoeken": 60,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-a",
+   "naam": "rocks-a",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/pirate-kit/rocks-a.glb",
+   "bytes": 19376,
+   "driehoeken": 264,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-b",
+   "naam": "rocks-b",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/pirate-kit/rocks-b.glb",
+   "bytes": 21896,
+   "driehoeken": 300,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-c",
+   "naam": "rocks-c",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/pirate-kit/rocks-c.glb",
+   "bytes": 17264,
+   "driehoeken": 232,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-sand-a",
+   "naam": "rocks-sand-a",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/pirate-kit/rocks-sand-a.glb",
+   "bytes": 39564,
+   "driehoeken": 552,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-sand-b",
+   "naam": "rocks-sand-b",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/pirate-kit/rocks-sand-b.glb",
+   "bytes": 37076,
+   "driehoeken": 516,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/rocks-sand-c",
+   "naam": "rocks-sand-c",
+   "kit": "pirate-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/pirate-kit/rocks-sand-c.glb",
+   "bytes": 32408,
+   "driehoeken": 448,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-ghost",
+   "naam": "ship-ghost",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-ghost.glb",
+   "bytes": 108420,
+   "driehoeken": 1703,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-large",
+   "naam": "ship-large",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-large.glb",
+   "bytes": 108400,
+   "driehoeken": 1849,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-medium",
+   "naam": "ship-medium",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-medium.glb",
+   "bytes": 100924,
+   "driehoeken": 1723,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-pirate-large",
+   "naam": "ship-pirate-large",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-pirate-large.glb",
+   "bytes": 123188,
+   "driehoeken": 1938,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-pirate-medium",
+   "naam": "ship-pirate-medium",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-pirate-medium.glb",
+   "bytes": 115728,
+   "driehoeken": 1812,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-pirate-small",
+   "naam": "ship-pirate-small",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-pirate-small.glb",
+   "bytes": 91420,
+   "driehoeken": 1461,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-small",
+   "naam": "ship-small",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot"
+   ],
+   "pad": "kits/pirate-kit/ship-small.glb",
+   "bytes": 81052,
+   "driehoeken": 1370,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/ship-wreck",
+   "naam": "ship-wreck",
+   "kit": "pirate-kit",
+   "groep": "schepen",
+   "trefwoorden": [
+    "schip",
+    "boot",
+    "wrak"
+   ],
+   "pad": "kits/pirate-kit/ship-wreck.glb",
+   "bytes": 156220,
+   "driehoeken": 2282,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-fence-sides",
+   "naam": "structure-fence-sides",
+   "kit": "pirate-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/pirate-kit/structure-fence-sides.glb",
+   "bytes": 31040,
+   "driehoeken": 436,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-fence",
+   "naam": "structure-fence",
+   "kit": "pirate-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/pirate-kit/structure-fence.glb",
+   "bytes": 24948,
+   "driehoeken": 356,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-platform-dock-small",
+   "naam": "structure-platform-dock-small",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/pirate-kit/structure-platform-dock-small.glb",
+   "bytes": 22484,
+   "driehoeken": 312,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-platform-dock",
+   "naam": "structure-platform-dock",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/pirate-kit/structure-platform-dock.glb",
+   "bytes": 23276,
+   "driehoeken": 324,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-platform-small",
+   "naam": "structure-platform-small",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/pirate-kit/structure-platform-small.glb",
+   "bytes": 16212,
+   "driehoeken": 208,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-platform",
+   "naam": "structure-platform",
+   "kit": "pirate-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/pirate-kit/structure-platform.glb",
+   "bytes": 17004,
+   "driehoeken": 220,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure-roof",
+   "naam": "structure-roof",
+   "kit": "pirate-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "dak"
+   ],
+   "pad": "kits/pirate-kit/structure-roof.glb",
+   "bytes": 24096,
+   "driehoeken": 348,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/structure",
+   "naam": "structure",
+   "kit": "pirate-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie"
+   ],
+   "pad": "kits/pirate-kit/structure.glb",
+   "bytes": 19620,
+   "driehoeken": 276,
+   "materialen": 1
+  },
+  {
+   "id": "pirate-kit/tool-paddle",
+   "naam": "tool-paddle",
+   "kit": "pirate-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "peddel",
+    "roeispaan"
+   ],
+   "pad": "kits/pirate-kit/tool-paddle.glb",
+   "bytes": 5088,
+   "driehoeken": 60,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/arrow",
+   "naam": "arrow",
+   "kit": "platformer-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "pijl",
+    "wegwijzer"
+   ],
+   "pad": "kits/platformer-kit/arrow.glb",
+   "bytes": 5556,
+   "driehoeken": 64,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/arrows",
+   "naam": "arrows",
+   "kit": "platformer-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "pijlen",
+    "wegwijzer"
+   ],
+   "pad": "kits/platformer-kit/arrows.glb",
+   "bytes": 7140,
+   "driehoeken": 88,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/crate-strong",
+   "naam": "crate-strong",
+   "kit": "platformer-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "krat",
+    "kist"
+   ],
+   "pad": "kits/platformer-kit/crate-strong.glb",
+   "bytes": 29212,
+   "driehoeken": 428,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/crate",
+   "naam": "crate",
+   "kit": "platformer-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "krat",
+    "kist"
+   ],
+   "pad": "kits/platformer-kit/crate.glb",
+   "bytes": 10100,
+   "driehoeken": 156,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-broken",
+   "naam": "fence-broken",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-broken.glb",
+   "bytes": 15216,
+   "driehoeken": 216,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-corner-curved",
+   "naam": "fence-corner-curved",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-corner-curved.glb",
+   "bytes": 11032,
+   "driehoeken": 160,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-corner",
+   "naam": "fence-corner",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-corner.glb",
+   "bytes": 7256,
+   "driehoeken": 92,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-low-broken",
+   "naam": "fence-low-broken",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-low-broken.glb",
+   "bytes": 7508,
+   "driehoeken": 100,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-low-corner-curved",
+   "naam": "fence-low-corner-curved",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-low-corner-curved.glb",
+   "bytes": 15044,
+   "driehoeken": 216,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-low-corner",
+   "naam": "fence-low-corner",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-low-corner.glb",
+   "bytes": 8568,
+   "driehoeken": 116,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-low-straight",
+   "naam": "fence-low-straight",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-low-straight.glb",
+   "bytes": 5896,
+   "driehoeken": 72,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-rope",
+   "naam": "fence-rope",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining",
+    "touw"
+   ],
+   "pad": "kits/platformer-kit/fence-rope.glb",
+   "bytes": 13188,
+   "driehoeken": 180,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/fence-straight",
+   "naam": "fence-straight",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/platformer-kit/fence-straight.glb",
+   "bytes": 4816,
+   "driehoeken": 48,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/flowers-tall",
+   "naam": "flowers-tall",
+   "kit": "platformer-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "bloemen"
+   ],
+   "pad": "kits/platformer-kit/flowers-tall.glb",
+   "bytes": 27404,
+   "driehoeken": 398,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/flowers",
+   "naam": "flowers",
+   "kit": "platformer-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "bloemen"
+   ],
+   "pad": "kits/platformer-kit/flowers.glb",
+   "bytes": 18232,
+   "driehoeken": 264,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/grass",
+   "naam": "grass",
+   "kit": "platformer-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "gras"
+   ],
+   "pad": "kits/platformer-kit/grass.glb",
+   "bytes": 6516,
+   "driehoeken": 72,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/heart",
+   "naam": "heart",
+   "kit": "platformer-kit",
+   "groep": "items",
+   "trefwoorden": [
+    "hart"
+   ],
+   "pad": "kits/platformer-kit/heart.glb",
+   "bytes": 4376,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/ladder-broken",
+   "naam": "ladder-broken",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "ladder"
+   ],
+   "pad": "kits/platformer-kit/ladder-broken.glb",
+   "bytes": 7756,
+   "driehoeken": 92,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/ladder-long",
+   "naam": "ladder-long",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "ladder"
+   ],
+   "pad": "kits/platformer-kit/ladder-long.glb",
+   "bytes": 7480,
+   "driehoeken": 88,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/ladder",
+   "naam": "ladder",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "ladder"
+   ],
+   "pad": "kits/platformer-kit/ladder.glb",
+   "bytes": 5320,
+   "driehoeken": 56,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/lever",
+   "naam": "lever",
+   "kit": "platformer-kit",
+   "groep": "mechaniek",
+   "trefwoorden": [
+    "hendel"
+   ],
+   "pad": "kits/platformer-kit/lever.glb",
+   "bytes": 15932,
+   "driehoeken": 134,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/lock",
+   "naam": "lock",
+   "kit": "platformer-kit",
+   "groep": "mechaniek",
+   "trefwoorden": [
+    "slot"
+   ],
+   "pad": "kits/platformer-kit/lock.glb",
+   "bytes": 6792,
+   "driehoeken": 100,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/mushrooms",
+   "naam": "mushrooms",
+   "kit": "platformer-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "paddenstoelen"
+   ],
+   "pad": "kits/platformer-kit/mushrooms.glb",
+   "bytes": 9744,
+   "driehoeken": 126,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/plant",
+   "naam": "plant",
+   "kit": "platformer-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "plant"
+   ],
+   "pad": "kits/platformer-kit/plant.glb",
+   "bytes": 9296,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/platform-fortified",
+   "naam": "platform-fortified",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/platformer-kit/platform-fortified.glb",
+   "bytes": 8804,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/platform-overhang",
+   "naam": "platform-overhang",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder",
+    "afdak"
+   ],
+   "pad": "kits/platformer-kit/platform-overhang.glb",
+   "bytes": 6152,
+   "driehoeken": 68,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/platform-ramp",
+   "naam": "platform-ramp",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/platformer-kit/platform-ramp.glb",
+   "bytes": 7256,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/platform",
+   "naam": "platform",
+   "kit": "platformer-kit",
+   "groep": "verbinding",
+   "trefwoorden": [
+    "platform",
+    "vlonder"
+   ],
+   "pad": "kits/platformer-kit/platform.glb",
+   "bytes": 7168,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/poles",
+   "naam": "poles",
+   "kit": "platformer-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "palen"
+   ],
+   "pad": "kits/platformer-kit/poles.glb",
+   "bytes": 17096,
+   "driehoeken": 268,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/rocks",
+   "naam": "rocks",
+   "kit": "platformer-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rotsen",
+    "stenen"
+   ],
+   "pad": "kits/platformer-kit/rocks.glb",
+   "bytes": 6948,
+   "driehoeken": 100,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/sign",
+   "naam": "sign",
+   "kit": "platformer-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "bord",
+    "wegwijzer"
+   ],
+   "pad": "kits/platformer-kit/sign.glb",
+   "bytes": 6424,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/spring",
+   "naam": "spring",
+   "kit": "platformer-kit",
+   "groep": "mechaniek",
+   "trefwoorden": [
+    "veer",
+    "springveer"
+   ],
+   "pad": "kits/platformer-kit/spring.glb",
+   "bytes": 27144,
+   "driehoeken": 356,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/star",
+   "naam": "star",
+   "kit": "platformer-kit",
+   "groep": "items",
+   "trefwoorden": [
+    "ster"
+   ],
+   "pad": "kits/platformer-kit/star.glb",
+   "bytes": 4652,
+   "driehoeken": 30,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/stones",
+   "naam": "stones",
+   "kit": "platformer-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "stenen"
+   ],
+   "pad": "kits/platformer-kit/stones.glb",
+   "bytes": 9736,
+   "driehoeken": 120,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/tree-pine-small",
+   "naam": "tree-pine-small",
+   "kit": "platformer-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom",
+    "den",
+    "dennenboom"
+   ],
+   "pad": "kits/platformer-kit/tree-pine-small.glb",
+   "bytes": 15816,
+   "driehoeken": 204,
+   "materialen": 1
+  },
+  {
+   "id": "platformer-kit/tree-pine",
+   "naam": "tree-pine",
+   "kit": "platformer-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom",
+    "den",
+    "dennenboom"
+   ],
+   "pad": "kits/platformer-kit/tree-pine.glb",
+   "bytes": 15776,
+   "driehoeken": 204,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/bottle-large",
+   "naam": "bottle-large",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "fles"
+   ],
+   "pad": "kits/survival-kit/bottle-large.glb",
+   "bytes": 7520,
+   "driehoeken": 96,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/bottle",
+   "naam": "bottle",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "fles"
+   ],
+   "pad": "kits/survival-kit/bottle.glb",
+   "bytes": 7504,
+   "driehoeken": 96,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/bucket",
+   "naam": "bucket",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "emmer"
+   ],
+   "pad": "kits/survival-kit/bucket.glb",
+   "bytes": 5720,
+   "driehoeken": 68,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/campfire-fishing-stand",
+   "naam": "campfire-fishing-stand",
+   "kit": "survival-kit",
+   "groep": "kamp",
+   "trefwoorden": [
+    "kampvuur",
+    "vuur"
+   ],
+   "pad": "kits/survival-kit/campfire-fishing-stand.glb",
+   "bytes": 7384,
+   "driehoeken": 100,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/campfire-pit",
+   "naam": "campfire-pit",
+   "kit": "survival-kit",
+   "groep": "kamp",
+   "trefwoorden": [
+    "kampvuur",
+    "vuur"
+   ],
+   "pad": "kits/survival-kit/campfire-pit.glb",
+   "bytes": 18864,
+   "driehoeken": 305,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/campfire-stand",
+   "naam": "campfire-stand",
+   "kit": "survival-kit",
+   "groep": "kamp",
+   "trefwoorden": [
+    "kampvuur",
+    "vuur"
+   ],
+   "pad": "kits/survival-kit/campfire-stand.glb",
+   "bytes": 6088,
+   "driehoeken": 76,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/chest",
+   "naam": "chest",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "kist",
+    "schatkist"
+   ],
+   "pad": "kits/survival-kit/chest.glb",
+   "bytes": 25828,
+   "driehoeken": 322,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/fence-doorway",
+   "naam": "fence-doorway",
+   "kit": "survival-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining",
+    "deuropening"
+   ],
+   "pad": "kits/survival-kit/fence-doorway.glb",
+   "bytes": 9800,
+   "driehoeken": 108,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/fence-fortified",
+   "naam": "fence-fortified",
+   "kit": "survival-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/survival-kit/fence-fortified.glb",
+   "bytes": 9632,
+   "driehoeken": 120,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/fence",
+   "naam": "fence",
+   "kit": "survival-kit",
+   "groep": "hek",
+   "trefwoorden": [
+    "hek",
+    "omheining"
+   ],
+   "pad": "kits/survival-kit/fence.glb",
+   "bytes": 4772,
+   "driehoeken": 48,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/fish-large",
+   "naam": "fish-large",
+   "kit": "survival-kit",
+   "groep": "dieren",
+   "trefwoorden": [
+    "vis"
+   ],
+   "pad": "kits/survival-kit/fish-large.glb",
+   "bytes": 22096,
+   "driehoeken": 233,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/fish",
+   "naam": "fish",
+   "kit": "survival-kit",
+   "groep": "dieren",
+   "trefwoorden": [
+    "vis"
+   ],
+   "pad": "kits/survival-kit/fish.glb",
+   "bytes": 22052,
+   "driehoeken": 233,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/floor-hole",
+   "naam": "floor-hole",
+   "kit": "survival-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vloer",
+    "grond",
+    "gat",
+    "kuil"
+   ],
+   "pad": "kits/survival-kit/floor-hole.glb",
+   "bytes": 11704,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/floor-old",
+   "naam": "floor-old",
+   "kit": "survival-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/survival-kit/floor-old.glb",
+   "bytes": 7248,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/floor",
+   "naam": "floor",
+   "kit": "survival-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/survival-kit/floor.glb",
+   "bytes": 7236,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/grass-large",
+   "naam": "grass-large",
+   "kit": "survival-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "gras"
+   ],
+   "pad": "kits/survival-kit/grass-large.glb",
+   "bytes": 13348,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/grass",
+   "naam": "grass",
+   "kit": "survival-kit",
+   "groep": "planten",
+   "trefwoorden": [
+    "gras"
+   ],
+   "pad": "kits/survival-kit/grass.glb",
+   "bytes": 4500,
+   "driehoeken": 36,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/patch-grass-large",
+   "naam": "patch-grass-large",
+   "kit": "survival-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "gras"
+   ],
+   "pad": "kits/survival-kit/patch-grass-large.glb",
+   "bytes": 2828,
+   "driehoeken": 33,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/patch-grass",
+   "naam": "patch-grass",
+   "kit": "survival-kit",
+   "groep": "terrein",
+   "trefwoorden": [
+    "vlak",
+    "grondvlak",
+    "gras"
+   ],
+   "pad": "kits/survival-kit/patch-grass.glb",
+   "bytes": 2812,
+   "driehoeken": 33,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/resource-planks",
+   "naam": "resource-planks",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "trefwoorden": [
+    "grondstof",
+    "planken",
+    "hout"
+   ],
+   "pad": "kits/survival-kit/resource-planks.glb",
+   "bytes": 6460,
+   "driehoeken": 72,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/resource-stone-large",
+   "naam": "resource-stone-large",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "grondstof",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/resource-stone-large.glb",
+   "bytes": 9032,
+   "driehoeken": 132,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/resource-stone",
+   "naam": "resource-stone",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "grondstof",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/resource-stone.glb",
+   "bytes": 4132,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-a",
+   "naam": "rock-a",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/rock-a.glb",
+   "bytes": 7748,
+   "driehoeken": 104,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-b",
+   "naam": "rock-b",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/rock-b.glb",
+   "bytes": 10892,
+   "driehoeken": 156,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-c",
+   "naam": "rock-c",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/rock-c.glb",
+   "bytes": 8392,
+   "driehoeken": 120,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-flat-grass",
+   "naam": "rock-flat-grass",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen",
+    "gras"
+   ],
+   "pad": "kits/survival-kit/rock-flat-grass.glb",
+   "bytes": 45548,
+   "driehoeken": 758,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-flat",
+   "naam": "rock-flat",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen"
+   ],
+   "pad": "kits/survival-kit/rock-flat.glb",
+   "bytes": 17544,
+   "driehoeken": 274,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-sand-a",
+   "naam": "rock-sand-a",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/survival-kit/rock-sand-a.glb",
+   "bytes": 6956,
+   "driehoeken": 92,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-sand-b",
+   "naam": "rock-sand-b",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/survival-kit/rock-sand-b.glb",
+   "bytes": 12564,
+   "driehoeken": 180,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/rock-sand-c",
+   "naam": "rock-sand-c",
+   "kit": "survival-kit",
+   "groep": "rotsen",
+   "trefwoorden": [
+    "rots",
+    "steen",
+    "zand",
+    "strand"
+   ],
+   "pad": "kits/survival-kit/rock-sand-c.glb",
+   "bytes": 10016,
+   "driehoeken": 144,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/signpost-single",
+   "naam": "signpost-single",
+   "kit": "survival-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "wegwijzer",
+    "bord"
+   ],
+   "pad": "kits/survival-kit/signpost-single.glb",
+   "bytes": 3476,
+   "driehoeken": 28,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/signpost",
+   "naam": "signpost",
+   "kit": "survival-kit",
+   "groep": "borden",
+   "trefwoorden": [
+    "wegwijzer",
+    "bord"
+   ],
+   "pad": "kits/survival-kit/signpost.glb",
+   "bytes": 4468,
+   "driehoeken": 44,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/structure-canvas",
+   "naam": "structure-canvas",
+   "kit": "survival-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "zeil",
+    "doek"
+   ],
+   "pad": "kits/survival-kit/structure-canvas.glb",
+   "bytes": 8056,
+   "driehoeken": 96,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/structure-floor",
+   "naam": "structure-floor",
+   "kit": "survival-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "vloer",
+    "grond"
+   ],
+   "pad": "kits/survival-kit/structure-floor.glb",
+   "bytes": 13620,
+   "driehoeken": 164,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/structure-roof",
+   "naam": "structure-roof",
+   "kit": "survival-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie",
+    "dak"
+   ],
+   "pad": "kits/survival-kit/structure-roof.glb",
+   "bytes": 15304,
+   "driehoeken": 188,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/structure",
+   "naam": "structure",
+   "kit": "survival-kit",
+   "groep": "bouw",
+   "trefwoorden": [
+    "bouwwerk",
+    "constructie"
+   ],
+   "pad": "kits/survival-kit/structure.glb",
+   "bytes": 6964,
+   "driehoeken": 80,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tent-canvas",
+   "naam": "tent-canvas",
+   "kit": "survival-kit",
+   "groep": "kamp",
+   "trefwoorden": [
+    "tent",
+    "zeil",
+    "doek"
+   ],
+   "pad": "kits/survival-kit/tent-canvas.glb",
+   "bytes": 12004,
+   "driehoeken": 148,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tent",
+   "naam": "tent",
+   "kit": "survival-kit",
+   "groep": "kamp",
+   "trefwoorden": [
+    "tent"
+   ],
+   "pad": "kits/survival-kit/tent.glb",
+   "bytes": 9928,
+   "driehoeken": 124,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tool-axe",
+   "naam": "tool-axe",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "bijl"
+   ],
+   "pad": "kits/survival-kit/tool-axe.glb",
+   "bytes": 6288,
+   "driehoeken": 84,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tool-hammer",
+   "naam": "tool-hammer",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "hamer"
+   ],
+   "pad": "kits/survival-kit/tool-hammer.glb",
+   "bytes": 4868,
+   "driehoeken": 52,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tool-hoe",
+   "naam": "tool-hoe",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "schoffel"
+   ],
+   "pad": "kits/survival-kit/tool-hoe.glb",
+   "bytes": 4928,
+   "driehoeken": 58,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tool-pickaxe",
+   "naam": "tool-pickaxe",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "houweel",
+    "pikhouweel"
+   ],
+   "pad": "kits/survival-kit/tool-pickaxe.glb",
+   "bytes": 5952,
+   "driehoeken": 74,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tool-shovel",
+   "naam": "tool-shovel",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "gereedschap",
+    "schep"
+   ],
+   "pad": "kits/survival-kit/tool-shovel.glb",
+   "bytes": 8336,
+   "driehoeken": 124,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tree-log-small",
+   "naam": "tree-log-small",
+   "kit": "survival-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/survival-kit/tree-log-small.glb",
+   "bytes": 6700,
+   "driehoeken": 88,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tree-log",
+   "naam": "tree-log",
+   "kit": "survival-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/survival-kit/tree-log.glb",
+   "bytes": 6668,
+   "driehoeken": 88,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tree-tall",
+   "naam": "tree-tall",
+   "kit": "survival-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/survival-kit/tree-tall.glb",
+   "bytes": 17420,
+   "driehoeken": 254,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/tree",
+   "naam": "tree",
+   "kit": "survival-kit",
+   "groep": "bomen",
+   "trefwoorden": [
+    "boom"
+   ],
+   "pad": "kits/survival-kit/tree.glb",
+   "bytes": 15700,
+   "driehoeken": 226,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/workbench-anvil",
+   "naam": "workbench-anvil",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "werkbank"
+   ],
+   "pad": "kits/survival-kit/workbench-anvil.glb",
+   "bytes": 21212,
+   "driehoeken": 298,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/workbench-grind",
+   "naam": "workbench-grind",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "werkbank"
+   ],
+   "pad": "kits/survival-kit/workbench-grind.glb",
+   "bytes": 17452,
+   "driehoeken": 232,
+   "materialen": 1
+  },
+  {
+   "id": "survival-kit/workbench",
+   "naam": "workbench",
+   "kit": "survival-kit",
+   "groep": "gereedschap",
+   "trefwoorden": [
+    "werkbank"
+   ],
+   "pad": "kits/survival-kit/workbench.glb",
+   "bytes": 18628,
+   "driehoeken": 236,
+   "materialen": 1
+  }
+ ]
+}
