@@ -43,29 +43,51 @@ function leesKitMetadata() {
 }
 
 /* -- kleuren --------------------------------------------------------------
- * kits/palet.json beschrijft per cel van de gedeelde colormap welke modellen
- * die kleur gebruiken. We draaien dat om naar model → kleuren, zodat je in de
- * catalogus op kleur kunt filteren.
+ * kits/palet.json beschrijft per palet, per cel van de bijbehorende colormap,
+ * welke modellen die kleur gebruiken. We draaien dat om naar model → kleuren,
+ * zodat je in de catalogus op kleur kunt filteren.
+ *
+ * Er zijn twee paletten, want er zijn twee atlassen: de zes kits die de
+ * gedeelde kits/colormap.png gebruiken, en de grot met zijn eigen sheet. Een
+ * model hoort bij precies één palet; dezelfde hex in beide paletten is dus
+ * niet dezelfde filterknop.
  */
 function leesPalet() {
-  const palet = JSON.parse(readFileSync(join(KITS_DIR, 'palet.json'), 'utf8'));
-  const perModel = new Map(); // 'kit/model' → Set(hex)
-  const cellen = new Map(); // hex → { hex, naam, aantal }
+  const bestand = JSON.parse(readFileSync(join(KITS_DIR, 'palet.json'), 'utf8'));
+  const perModel = new Map(); // 'kit/model' → { palet, hexen: Set(hex) }
+  const paletten = [];
 
-  for (const cel of palet.cellen ?? []) {
-    const hex = String(cel.kleur).toLowerCase();
-    if (!cellen.has(hex)) {
-      cellen.set(hex, { hex, naam: kleurNaam(hex), textuur: cel.textuur ?? null, aantal: 0 });
-    }
-    for (const bron of cel.bronnen ?? []) {
-      for (const model of bron.modellen ?? []) {
-        const sleutel = `${bron.kit}/${model}`;
-        if (!perModel.has(sleutel)) perModel.set(sleutel, new Set());
-        perModel.get(sleutel).add(hex);
+  for (const palet of bestand.paletten ?? []) {
+    const cellen = new Map(); // hex → { hex, naam, textuur, aantal }
+
+    for (const cel of palet.cellen ?? []) {
+      const hex = String(cel.kleur).toLowerCase();
+      if (!cellen.has(hex)) {
+        cellen.set(hex, { hex, naam: kleurNaam(hex), textuur: cel.textuur ?? null, aantal: 0 });
+      }
+      for (const bron of cel.bronnen ?? []) {
+        for (const model of bron.modellen ?? []) {
+          const sleutel = `${bron.kit}/${model}`;
+          const bestaand = perModel.get(sleutel);
+          if (!bestaand) {
+            perModel.set(sleutel, { palet: palet.id, hexen: new Set([hex]) });
+          } else if (bestaand.palet !== palet.id) {
+            // De scheiding is het hele punt: één model mag niet uit twee
+            // atlassen tegelijk komen, anders zegt het kleurfilter niets meer.
+            throw new Error(
+              `${sleutel} staat zowel in palet '${bestaand.palet}' als in '${palet.id}'`,
+            );
+          } else {
+            bestaand.hexen.add(hex);
+          }
+        }
       }
     }
+
+    paletten.push({ id: palet.id, naam: palet.naam, atlas: palet.atlas, cellen });
   }
-  return { perModel, cellen };
+
+  return { perModel, paletten };
 }
 
 /**
@@ -75,6 +97,15 @@ function leesPalet() {
  * elkaar dat het onderscheid op het scherm toch niet te zien is.
  */
 const SAMENVOEG_ONDER = 4;
+
+/**
+ * ...maar alleen als de buur ook echt dichtbij ligt. In het gedeelde palet
+ * gebeurt het samenvoegen over afstanden tot ~90; het grot-palet is zo klein
+ * dat de dichtstbijzijnde buur van het staalblauw van `gate-metal-bars` een
+ * bruine rotskleur is (afstand ~200). Zo'n staal samenvoegen liegt over wat
+ * je ziet, dus die blijft staan.
+ */
+const SAMENVOEG_AFSTAND = 120;
 
 const hexNaarRgb = (hex) =>
   [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
@@ -252,7 +283,8 @@ for (const slug of kitSlugs) {
     const trefwoorden = nederlandseTrefwoorden(naam);
     if (trefwoorden.length === 0) zonderTrefwoord.push(`${slug}/${naam}`);
 
-    const kleuren = [...(palet.perModel.get(`${slug}/${naam}`) ?? [])].sort();
+    const uitPalet = palet.perModel.get(`${slug}/${naam}`);
+    const kleuren = [...(uitPalet?.hexen ?? [])].sort();
     if (kleuren.length === 0) zonderKleur.push(`${slug}/${naam}`);
 
     modellen.push({
@@ -261,6 +293,9 @@ for (const slug of kitSlugs) {
       kit: slug,
       groep,
       trefwoorden,
+      // Het palet hoort bij de kleuren: dezelfde hex uit een ander palet is
+      // een andere atlas en dus een andere filterknop.
+      palet: uitPalet?.palet ?? null,
       kleuren,
       pad,
       bytes: statSync(join(dir, bestand)).size,
@@ -277,37 +312,59 @@ for (const slug of kitSlugs) {
     url: meta?.url ?? null,
     licentie: `kits/${slug}/LICENSE.txt`,
     aantal: bestanden.length,
+    // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
+    // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
+    // heeft weliswaar een eigen Textures/colormap.png, maar bij de zes kits
+    // die het gedeelde palet gebruiken is dat een kopie van dezelfde sheet.
+    palet: modellen.find((m) => m.kit === slug && m.palet)?.palet ?? null,
   });
 }
 
-/* -- zeldzame kleuren samenvoegen ----------------------------------------- */
+/* -- zeldzame kleuren samenvoegen -----------------------------------------
+ * Per palet, want een kleur uit de gedeelde atlas en een kleur uit de
+ * grot-atlas zijn losse stalen; die mogen nooit in elkaar opgaan.
+ */
 
 const tel = () => {
-  for (const cel of palet.cellen.values()) cel.aantal = 0;
+  for (const p of palet.paletten) for (const cel of p.cellen.values()) cel.aantal = 0;
   for (const model of modellen) {
-    for (const hex of model.kleuren) palet.cellen.get(hex).aantal++;
+    if (model.kleuren.length === 0) continue;
+    const cellen = palet.paletten.find((p) => p.id === model.palet)?.cellen;
+    // Kleuren zonder palet kunnen niet bestaan — ze komen uit hetzelfde
+    // palet.json-record — maar als dat ooit scheefloopt is een duidelijke
+    // fout beter dan een TypeError diep in de telling.
+    if (!cellen) throw new Error(`${model.id} heeft kleuren maar geen bekend palet (${model.palet})`);
+    for (const hex of model.kleuren) cellen.get(hex).aantal++;
   }
 };
 
 tel();
 
-const blijft = [...palet.cellen.values()].filter((c) => c.aantal >= SAMENVOEG_ONDER);
-const samenvoegingen = new Map(); // oude hex → nieuwe hex
+const samenvoegingen = []; // [paletId, oude hex, nieuwe hex]
 
-for (const cel of palet.cellen.values()) {
-  if (cel.aantal === 0 || cel.aantal >= SAMENVOEG_ONDER) continue;
-  const doel = blijft.reduce((beste, kandidaat) =>
-    kleurAfstand(cel.hex, kandidaat.hex) < kleurAfstand(cel.hex, beste.hex) ? kandidaat : beste,
-  );
-  samenvoegingen.set(cel.hex, doel.hex);
-}
+for (const p of palet.paletten) {
+  const blijft = [...p.cellen.values()].filter((c) => c.aantal >= SAMENVOEG_ONDER);
+  const perPalet = new Map();
 
-if (samenvoegingen.size > 0) {
-  for (const model of modellen) {
-    model.kleuren = [...new Set(model.kleuren.map((hex) => samenvoegingen.get(hex) ?? hex))].sort();
+  for (const cel of p.cellen.values()) {
+    if (cel.aantal === 0 || cel.aantal >= SAMENVOEG_ONDER || blijft.length === 0) continue;
+    const doel = blijft.reduce((beste, kandidaat) =>
+      kleurAfstand(cel.hex, kandidaat.hex) < kleurAfstand(cel.hex, beste.hex) ? kandidaat : beste,
+    );
+    if (kleurAfstand(cel.hex, doel.hex) > SAMENVOEG_AFSTAND) continue;
+    perPalet.set(cel.hex, doel.hex);
+    samenvoegingen.push([p.id, cel.hex, doel.hex]);
   }
-  tel();
+
+  if (perPalet.size > 0) {
+    for (const model of modellen) {
+      if (model.palet !== p.id) continue;
+      model.kleuren = [...new Set(model.kleuren.map((hex) => perPalet.get(hex) ?? hex))].sort();
+    }
+  }
 }
+
+if (samenvoegingen.length > 0) tel();
 
 const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
@@ -319,9 +376,14 @@ const catalogus = {
   })),
   // Alleen cellen die daadwerkelijk aan een bestaand model hangen; op donkerste
   // eerst, zodat de filterbalk een herkenbare volgorde houdt.
-  kleuren: [...palet.cellen.values()]
-    .filter((k) => k.aantal > 0)
-    .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
+  paletten: palet.paletten.map((p) => ({
+    id: p.id,
+    naam: p.naam,
+    atlas: p.atlas,
+    kleuren: [...p.cellen.values()]
+      .filter((k) => k.aantal > 0)
+      .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
+  })),
   modellen,
 };
 
@@ -332,13 +394,25 @@ console.log(`${modellen.length} modellen in ${kits.length} kits → catalog.json
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }
-for (const [oud, nieuw] of samenvoegingen) {
-  const doel = palet.cellen.get(nieuw);
-  console.log(`samengevoegd: ${oud} → ${nieuw} (${doel.naam})`);
+for (const [paletId, oud, nieuw] of samenvoegingen) {
+  const doel = palet.paletten.find((p) => p.id === paletId).cellen.get(nieuw);
+  console.log(`samengevoegd in ${paletId}: ${oud} → ${nieuw} (${doel.naam})`);
 }
-console.log(`${catalogus.kleuren.length} kleuren uit palet.json:`);
-for (const k of catalogus.kleuren) {
-  console.log(`  ${String(k.aantal).padStart(3)}  ${k.hex}  ${k.naam}`);
+for (const p of catalogus.paletten) {
+  console.log(`palet ${p.id} — ${p.kleuren.length} kleuren uit ${p.atlas}:`);
+  for (const k of p.kleuren) {
+    console.log(`  ${String(k.aantal).padStart(3)}  ${k.hex}  ${k.naam}`);
+  }
+}
+
+/* Elke kit hoort in precies één palet; anders is de atlasscheiding lek. */
+const paletPerKit = new Map();
+for (const model of modellen) {
+  if (!paletPerKit.has(model.kit)) paletPerKit.set(model.kit, new Set());
+  if (model.palet) paletPerKit.get(model.kit).add(model.palet);
+}
+for (const [kit, gebruikt] of paletPerKit) {
+  if (gebruikt.size > 1) console.warn(`! ${kit} put uit meer dan één palet: ${[...gebruikt].join(', ')}`);
 }
 if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonderMetadata.join(', ')}`);
 if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
