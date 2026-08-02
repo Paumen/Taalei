@@ -22,14 +22,15 @@ For an LLM creating or adjusting assets.
 - Faces use flat palette colors; existing gradient cells may be used.
 
 ## 4. Scale
-- One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit. Tolerance 5%.
-- Nothing thinner than 0.05 units.
+- One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
+- Assets may stretch multiple units.
+- Nothing thinner than 0.02 units.
 
 ## 5. Origin and orientation
 Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
 
 ## Reference Assets
-Render and look, not just read.
+Render and look before creating new assets, not just read.
 
 palm-detailed-bend
 ship-large
