@@ -3,7 +3,8 @@
 For an LLM creating or adjusting assets.
 
 ## 0. Look
-- Cubish, chunky, Iconic, story book, near-caricature.
+- Faceted, iconic, story book.
+- Toy-like, cubish/chunky, objects are slightly caricatured, .
 - Detail count stays low.
 
 ## 1. Color
@@ -27,3 +28,21 @@ For an LLM creating or adjusting assets.
 ## 5. Origin and orientation
 Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
 
+## Reference Assets
+Render and look, not just read.
+
+palm-detailed-bend
+ship-large
+boat-row-small
+cannon-mobile
+tent-canvas
+crate-bottles
+gate-metal-bars
+template-floor-layer-hole
+windmill
+watermill
+bridge (mini forest)
+mast-ropes
+structure-fence-sides
+workbench-anvil
+campfire-pit
