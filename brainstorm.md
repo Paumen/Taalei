@@ -22,10 +22,10 @@ Oefenen met taal op een onderbouwde en leuke manier.
 - In oefeningen hakken, plakken, timmeren, als grondstof hout, planken, erts, om verder te komen/kunnen bruggen, ladders, boten bouwen,
 
 ## Gebieden / Modules / Zones
-Startkamp, strand, bos, berg, grot, vulkaan, zee, underwater, lake, river, waterfalls, bloementuin, vuurtoren, dock/harbor, schip, luchtballon.
+Startkamp, strand, bos, berg, grot, vulkaan, zee, underwater, lake, river, waterfalls, bloementuin, vuurtoren, dock/harbor, schip, luchtballon, bridges jungle.
 
-## Objecten / Props
-Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon, wood saw, wood axe, haamer and nails, iron ore, trees, bridges, ladders, chests, tonnes, crates, fences, boats, .
+## Objecten / Props (ideas)
+Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon, wood saw, wood axe, haamer and nails, iron ore, trees, bridges, ladders, chests, tonnes, crates, fences, boats, shipwreck field, a ruined district, a market quarter, a storm belt, Shipwreck shallows, Sea caves, beached whale skeleton, wind/watermill, Collosal statue, Sea arch you can sail through, Blowhole that erupts on a timer. 
 
 ## Wel doen
 - Niveau doelgroep
