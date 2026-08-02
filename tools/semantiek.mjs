@@ -15,10 +15,13 @@ export const GROEPEN = [
     beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
-  { id: 'bouw', naam: 'Muren, daken & bouwwerken', kort: 'Muren & daken', kleur: '#995a41',
-    beschrijving: 'Wanden, daken, gebouwdelen en molens.' },
-  { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
-    beschrijving: 'Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor "woordplakken".' },
+  { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
+    tabblad: 'bouwpakket',
+    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Eigen tabblad, want veertig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
+  { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
+    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten.' },
+  { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
+    beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
     beschrijving: 'Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.' },
   { id: 'bomen', naam: 'Bomen & palmen', kort: 'Bomen', kleur: '#3da679',
@@ -37,10 +40,8 @@ export const GROEPEN = [
     beschrijving: 'Bijl, hamer, boog — koppelbaar aan mechanieken als "woordhakken".' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
-  { id: 'items', naam: 'Verzamelobjecten', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster, hart — voorzichtig inzetten, geen punten-economie.' },
-  { id: 'mechaniek', naam: 'Mechaniek & interactie', kort: 'Mechaniek', kleur: '#ff8744',
-    beschrijving: 'Hendel, veer, slot, val: objecten die op een actie reageren.' },
+  { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer, slot en val: kleine losse objecten die je oppakt of die op een actie reageren. Voorzichtig inzetten, geen punten-economie.' },
   { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
     beschrijving: 'Levende have. Nu alleen vissen; uitbreidbaar met de Quaternius-fishpack.' },
 ];
@@ -56,20 +57,33 @@ const KIT_GROEPEN = {
   'modular-cave-kit': 'grot',
 };
 
+/**
+ * Het modulaire bouwpakket binnen een kit: delen die op één raster aan elkaar
+ * klikken en daardoor alleen op elkaar passen, plus de molens die uit datzelfde
+ * bouwwerk bestaan (`blade` is de wiek van de windmolen). Anders dan bij de grot
+ * gaat het niet om een hele kit — de bomen, karren en hekken van fantasy-town
+ * zijn losse props en horen gewoon bij hun soortgenoten uit de andere kits.
+ *
+ * De uitzonderingen gaan hier vóór, zodat een model dat toevallig met een
+ * pakketwoord begint er alsnog uit gehaald kan worden.
+ */
+const BOUWPAKKETTEN = [
+  ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
+  ['mini-dungeon', /^column\b/],
+];
+
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
 const uitzonderingen = {
-  'platformer-kit/arrow': 'borden',      // wegwijzerbord, geen projectiel
-  'platformer-kit/arrows': 'borden',     // idem
-  'platformer-kit/lock': 'mechaniek',    // hangslot bij een poort
-  'fantasy-town-kit/blade': 'bouw',      // wiek van de molen
-  'fantasy-town-kit/wheel': 'bouw',      // waterrad
+  'platformer-kit/arrow': 'borden',         // wegwijzerbord, geen projectiel
+  'platformer-kit/arrows': 'borden',        // idem
+  'platformer-kit/lock': 'items',           // hangslot bij een poort
+  'fantasy-town-kit/wheel': 'gereedschap',  // waterrad, maar los inzetbaar als wiel
   'survival-kit/resource-stone': 'rotsen',
   'survival-kit/resource-stone-large': 'rotsen',
   'pirate-kit/hole': 'terrein',
   'pirate-kit/grass-plant': 'planten',
   'mini-forest/target': 'borden',
-  'mini-forest/building-platform': 'bouw', // vloer van het boomhuis, geen looppad
-  'mini-dungeon/trap': 'mechaniek',
+  'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'terrein',
 };
 
@@ -81,16 +95,17 @@ const regels = [
   [/^fish/, 'dieren'],
   [/^(tool|weapon|workbench)-|^workbench$/, 'gereedschap'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
-  [/^(coin|key|star|heart)$/, 'items'],
-  [/^(lever|spring|trap|lock)$/, 'mechaniek'],
+  [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
   [/^(chest|barrel|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
-  [/^(stairs|ladder|bridge)\b|platform/, 'verbinding'],
+  [/^(stairs|ladder|bridge)\b/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
   [/^(tree|palm)\b/, 'bomen'],
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|stone|stones)\b/, 'rotsen'],
   [/^(floor|patch|dirt|hole)\b/, 'terrein'],
-  [/^(wall|roof|building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouw'],
+  // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
+  // uit de andere kits, en alles wat je eromheen bouwt.
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
 ];
 
 /**
@@ -154,6 +169,9 @@ export function bepaalGroep(kit, model) {
   if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   const sleutel = `${kit}/${model}`;
   if (uitzonderingen[sleutel]) return uitzonderingen[sleutel];
+  for (const [pakketKit, patroon] of BOUWPAKKETTEN) {
+    if (kit === pakketKit && patroon.test(model)) return 'bouwpakket';
+  }
   for (const [patroon, groep] of regels) {
     if (patroon.test(model)) return groep;
   }
