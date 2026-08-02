@@ -23,6 +23,17 @@ const KIT_KLEUREN = {
   'mini-dungeon': '#6d738a',
 };
 
+/**
+ * Groep-ids die niet meer bestaan → de groep waar hun modellen nu staan. Een
+ * oude link (#groep-bouw) komt zo nog steeds ergens zinnigs uit in plaats van
+ * op de standaardweergave. Bij een splitsing wijst de oude id naar het grootste
+ * deel: `bouw` viel uiteen in muren, daken en bouwwerken.
+ */
+const GROEP_ALIASSEN = {
+  bouw: 'muren',
+  mechaniek: 'items',
+};
+
 /** Vanaf hoeveel driehoeken een model extra aandacht verdient in een scene. */
 const ZWAAR_VANAF = 1500;
 
@@ -535,10 +546,14 @@ async function start() {
 
   zoekveld.addEventListener('input', filter);
 
+  // Groepen die zijn hernoemd, samengevoegd of gesplitst; zie GROEP_ALIASSEN.
+  const aliassen = new Map(
+    Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
+  );
+
   // De groepen van een losstaande kit hebben geen eigen sectie meer in de
   // groepsweergave; een oude link daarheen hoort op het tabblad van die kit
   // uit te komen in plaats van op de standaardweergave.
-  const aliassen = new Map();
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {
       if (model.kit === kit.slug) aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);

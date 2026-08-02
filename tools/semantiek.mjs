@@ -15,8 +15,12 @@ export const GROEPEN = [
     beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
-  { id: 'bouw', naam: 'Muren, daken & bouwwerken', kort: 'Muren & daken', kleur: '#995a41',
-    beschrijving: 'Wanden, daken, gebouwdelen en molens.' },
+  { id: 'muren', naam: 'Muren, deuren & ramen', kort: 'Muren', kleur: '#995a41',
+    beschrijving: 'Wanden en wat erin zit: deuren, deuropeningen, ramen, bogen en hoekstukken.' },
+  { id: 'daken', naam: 'Daken & dakdelen', kort: 'Daken', kleur: '#b8503c',
+    beschrijving: 'Dakvlakken, hoeken, nokken en dakkapellen om een gebouw mee af te dekken.' },
+  { id: 'bouwwerken', naam: 'Bouwwerken & molens', kort: 'Bouwwerken', kleur: '#877a63',
+    beschrijving: 'Complete gebouwtjes, molens, pilaren, planken en balkons — bouwdelen die geen muur en geen dak zijn.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
     beschrijving: 'Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
@@ -37,10 +41,8 @@ export const GROEPEN = [
     beschrijving: 'Bijl, hamer, boog — koppelbaar aan mechanieken als "woordhakken".' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
-  { id: 'items', naam: 'Verzamelobjecten', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster, hart — voorzichtig inzetten, geen punten-economie.' },
-  { id: 'mechaniek', naam: 'Mechaniek & interactie', kort: 'Mechaniek', kleur: '#ff8744',
-    beschrijving: 'Hendel, veer, slot, val: objecten die op een actie reageren.' },
+  { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer, slot en val: kleine losse objecten die je oppakt of die op een actie reageren. Voorzichtig inzetten, geen punten-economie.' },
   { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
     beschrijving: 'Levende have. Nu alleen vissen; uitbreidbaar met de Quaternius-fishpack.' },
 ];
@@ -58,18 +60,18 @@ const KIT_GROEPEN = {
 
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
 const uitzonderingen = {
-  'platformer-kit/arrow': 'borden',      // wegwijzerbord, geen projectiel
-  'platformer-kit/arrows': 'borden',     // idem
-  'platformer-kit/lock': 'mechaniek',    // hangslot bij een poort
-  'fantasy-town-kit/blade': 'bouw',      // wiek van de molen
-  'fantasy-town-kit/wheel': 'bouw',      // waterrad
+  'platformer-kit/arrow': 'borden',        // wegwijzerbord, geen projectiel
+  'platformer-kit/arrows': 'borden',       // idem
+  'platformer-kit/lock': 'items',          // hangslot bij een poort
+  'fantasy-town-kit/blade': 'bouwwerken',  // wiek van de molen
+  'fantasy-town-kit/wheel': 'bouwwerken',  // waterrad
   'survival-kit/resource-stone': 'rotsen',
   'survival-kit/resource-stone-large': 'rotsen',
   'pirate-kit/hole': 'terrein',
   'pirate-kit/grass-plant': 'planten',
   'mini-forest/target': 'borden',
-  'mini-forest/building-platform': 'bouw', // vloer van het boomhuis, geen looppad
-  'mini-dungeon/trap': 'mechaniek',
+  'mini-forest/building-platform': 'bouwwerken', // vloer van het boomhuis, geen looppad
+  'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'terrein',
 };
 
@@ -81,8 +83,7 @@ const regels = [
   [/^fish/, 'dieren'],
   [/^(tool|weapon|workbench)-|^workbench$/, 'gereedschap'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
-  [/^(coin|key|star|heart)$/, 'items'],
-  [/^(lever|spring|trap|lock)$/, 'mechaniek'],
+  [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
   [/^(chest|barrel|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
   [/^(stairs|ladder|bridge)\b|platform/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
@@ -90,7 +91,11 @@ const regels = [
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|stone|stones)\b/, 'rotsen'],
   [/^(floor|patch|dirt|hole)\b/, 'terrein'],
-  [/^(wall|roof|building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouw'],
+  // Daken staan boven de andere twee bouwregels: `building-roof` en
+  // `structure-roof` heten naar hun gebouw, maar het zijn daken.
+  [/^roof\b|-roof\b/, 'daken'],
+  [/^wall\b/, 'muren'],
+  [/^(building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
 ];
 
 /**
