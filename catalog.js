@@ -44,6 +44,14 @@ let huidigeWeergave = 'kits';
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
+/** Alle tekst uit catalog.json gaat via textContent, nooit via innerHTML. */
+function span(klasse, tekst = '') {
+  const element = document.createElement('span');
+  element.className = klasse;
+  element.textContent = tekst;
+  return element;
+}
+
 /* ---------- 3D-preview aan- en afkoppelen ---------- */
 
 const waarnemer = new IntersectionObserver(
@@ -116,13 +124,13 @@ function maakKaart(model, kits, groepen, weergave) {
 
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
-  tekst.innerHTML = `
-    <span class="kaart-naam">${model.naam}</span>
-    <span class="kaart-meta">
-      <span class="kaart-merk">${kit?.naam ?? model.kit}</span>
-      <span class="kaart-tri ${zwaar ? 'zwaar' : ''}">${getal.format(model.driehoeken)} tri</span>
-      <span class="kaart-grootte">${bytesLeesbaar(model.bytes)}</span>
-    </span>`;
+  const meta = span('kaart-meta');
+  meta.append(
+    span('kaart-merk', kit?.naam ?? model.kit),
+    span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`),
+    span('kaart-grootte', bytesLeesbaar(model.bytes)),
+  );
+  tekst.append(span('kaart-naam', model.naam), meta);
 
   kaart.append(vak, tekst);
   kaart.addEventListener('click', () => toonDetail(model, kit, groep));
@@ -197,8 +205,9 @@ function maakSpringitem(sectie, titel, aantal, kleur) {
   const link = document.createElement('a');
   link.href = `#${sectie.id}`;
   link.dataset.weergave = sectie.dataset.weergave;
-  link.innerHTML = `<span class="stip"></span>${titel} <span class="telling">${aantal}</span>`;
-  if (kleur) link.querySelector('.stip').style.background = kleur;
+  const stip = span('stip');
+  if (kleur) stip.style.background = kleur;
+  link.append(stip, document.createTextNode(`${titel} `), span('telling', String(aantal)));
   springlijst.append(link);
   return link;
 }
@@ -223,9 +232,15 @@ function toonDetail(model, kit, groep) {
     ['Zones', kit?.zones?.length ? kit.zones.join(', ') : '—'],
     ['Licentie', `CC0 — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
-  document.querySelector('#detail-gegevens').innerHTML = rijen
-    .map(([sleutel, waarde]) => `<dt>${sleutel}</dt><dd>${waarde}</dd>`)
-    .join('');
+  const gegevens = document.querySelector('#detail-gegevens');
+  gegevens.replaceChildren();
+  for (const [sleutel, waarde] of rijen) {
+    const naam = document.createElement('dt');
+    naam.textContent = sleutel;
+    const waardeEl = document.createElement('dd');
+    waardeEl.textContent = waarde;
+    gegevens.append(naam, waardeEl);
+  }
 
   const download = document.querySelector('#detail-download');
   download.href = model.pad;
