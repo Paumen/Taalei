@@ -60,11 +60,15 @@ Pages bij elke commit, op elke branch. De site staat op
 
 Daarvoor zijn twee instellingen nodig, allebei eenmalig:
 
-1. *Settings → Pages → Source* op **GitHub Actions**.
+1. *Settings → Pages → Source* op **GitHub Actions**. Staat die op *Deploy from
+   a branch*, dan moet een deployment van precies die branch komen.
 2. *Settings → Environments → github-pages → Deployment branches* op **All
-   branches**. Staat die nog op de default branch, dan weigert GitHub elke
-   deploy vanaf een feature-branch voordat er een runner start: de run faalt
-   binnen een paar seconden en heeft geen logs.
+   branches**, als daar een regel staat die alleen de default branch toelaat.
+
+Blokkeert een van de twee, dan weigert GitHub de deployment vóórdat de workflow
+draait: de run faalt binnen een paar seconden, zonder runner en zonder logs. Een
+run die wél op een runner start en daar faalt, is een echt probleem in de
+workflow — dat onderscheid is het snelste diagnosemiddel.
 
 Pages heeft één live site, dus de laatst gepushte branch wint: werk je op twee
 branches tegelijk, dan zie je steeds die van de laatste push.
