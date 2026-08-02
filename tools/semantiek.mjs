@@ -30,6 +30,8 @@ export const GROEPEN = [
     beschrijving: 'Kleine begroeiing en decoratie op de grond.' },
   { id: 'rotsen', naam: 'Rotsen & stenen', kort: 'Rotsen', kleur: '#9da4c4',
     beschrijving: 'Rotsblokken, keien en losse stenen voor berg, grot en kust.' },
+  { id: 'water', naam: 'Water & watervallen', kort: 'Water', kleur: '#3da679',
+    beschrijving: 'Watertegels, watervalstukken en schuim voor rivier, meer en waterval. De watervlakken tegelen op het 1×1-raster; een waterval stapelt per klifniveau: top boven, voet onder.' },
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
     beschrijving: 'Schepen, boten, masten en kanonnen voor de Zinnenzee.' },
   { id: 'kamp', naam: 'Kamp & vuur', kort: 'Kamp', kleur: '#e76047',
@@ -91,6 +93,8 @@ const uitzonderingen = {
 const regels = [
   // Eigen held-objecten (helden-kit) hebben Nederlandse namen.
   [/^vuurtoren\b/, 'bouwwerken'],
+  [/^(water|waterval|schuim)\b/, 'water'],
+  [/^klif\b/, 'rotsen'],
   [/^(corridor|room|template)\b/, 'grot'],
   [/^campfire|^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
@@ -145,7 +149,12 @@ const WOORDENBOEK = {
   target: ['doel', 'schietschijf'], template: ['sjabloon', 'grot'],
   tent: ['tent'], tool: ['gereedschap'],
   trap: ['val', 'valluik'], tree: ['boom'], wall: ['muur', 'wand'],
-  vuurtoren: ['vuurtoren', 'toren', 'licht', 'baken'], // helden-kit heet Nederlands
+  // De helden-kit heet Nederlands; deze namen zijn hun eigen trefwoord.
+  vuurtoren: ['vuurtoren', 'toren', 'licht', 'baken'],
+  klif: ['klif', 'rots', 'wand', 'berg'], water: ['water', 'meer', 'rivier'],
+  waterval: ['waterval', 'water'], schuim: ['schuim', 'golven', 'plons'],
+  gras: ['gras'], hoek: ['hoek'], binnen: ['binnenhoek'],
+  voet: ['voet', 'plons'],
   watermill: ['watermolen', 'molen'], weapon: ['wapen'], wheel: ['wiel'],
   window: ['raam'], windmill: ['windmolen', 'molen'], wood: ['hout'],
   workbench: ['werkbank'], wreck: ['wrak'],

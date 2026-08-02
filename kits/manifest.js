@@ -6,6 +6,17 @@ window.KENNEY_KITS = [
   "name": "Helden Kit",
   "url": null,
   "models": [
+   "klif",
+   "klif-gras",
+   "klif-gras-hoek",
+   "klif-gras-hoek-binnen",
+   "klif-hoek",
+   "klif-hoek-binnen",
+   "schuim",
+   "water",
+   "waterval",
+   "waterval-top",
+   "waterval-voet",
    "vuurtoren"
   ]
  },
