@@ -2,13 +2,15 @@
 name: Deploy static content to Pages
 
 on:
-  # Deployt bij elke commit op main. Andere branches kunnen niet automatisch
-  # deployen: de github-pages-omgeving laat standaard alleen de default branch
-  # toe en weigert de run vóór er een runner start. Wil je ook vanaf een
-  # feature-branch publiceren, zet dan in Settings → Environments → github-pages
-  # de "Deployment branches" op All branches; daarna kan `branches` hier weg.
+  # Deployt bij elke commit, op elke branch.
+  #
+  # Vereist dat Settings → Environments → github-pages → "Deployment branches"
+  # op "All branches" staat. Staat die nog op de default branch, dan weigert
+  # GitHub de deployment vóór er een runner start en faalt de run in enkele
+  # seconden zonder logs — dat is de omgevingscontrole, niet deze workflow.
+  #
+  # Pages heeft één live site, dus de laatst gepushte branch wint.
   push:
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
