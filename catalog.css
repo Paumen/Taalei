@@ -201,6 +201,9 @@ a { color: var(--accent); }
   min-width: 0;
 }
 
+/* `display: flex` wint van het [hidden]-attribuut in de UA-stylesheet. */
+.kleurgroep[hidden] { display: none; }
+
 .kleurgroep + .kleurgroep {
   padding-left: 18px;
   border-left: 1px solid var(--lijn);
@@ -410,10 +413,13 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   background: var(--merk-kleur, var(--inkt-zacht));
 }
 
-/* In de kitweergave staat de kit al boven de sectie; daar is het label ruis
-   en is er ruimte voor de bestandsgrootte. In de groepsweergave andersom. */
-.sectie[data-weergave="kits"] .kaart-merk { display: none; }
-.sectie[data-weergave="groepen"] .kaart-grootte { display: none; }
+/* Boven een kitsectie staat de kit al in de kop; daar is het label ruis en is
+   er ruimte voor de bestandsgrootte. Bij een groepsectie andersom: die mengt
+   kits, dus dan is de herkomst juist het interessante. Dit hangt aan de soort
+   sectie, niet aan de weergave, zodat een kit die naar een eigen tabblad
+   verhuist zich vanzelf goed gedraagt. */
+.sectie[data-soort="kit"] .kaart-merk { display: none; }
+.sectie[data-soort="groep"] .kaart-grootte { display: none; }
 
 .leeg {
   display: none;
