@@ -37,7 +37,7 @@ function leesKitMetadata() {
 
   const meta = new Map();
   for (const kit of kits) {
-    meta.set(kit.slug, { naam: kit.name, url: kit.url, zones: kit.zone });
+    meta.set(kit.slug, { naam: kit.name, url: kit.url });
   }
   return meta;
 }
@@ -248,7 +248,6 @@ for (const slug of kitSlugs) {
     // "Fantasy Town Kit" → "Fantasy Town": in de filterbalk is dat achtervoegsel ruis.
     kort: (meta?.naam ?? slug).replace(/\s+Kit$/, ''),
     url: meta?.url ?? null,
-    zones: meta?.zones ? meta.zones.split(',').map((z) => z.trim()) : [],
     licentie: `kits/${slug}/LICENSE.txt`,
     aantal: bestanden.length,
   });

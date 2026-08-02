@@ -19,7 +19,7 @@ const KIT_KLEUREN = {
   'mini-dungeon': '#6d738a',
 };
 
-/** Vanaf hoeveel driehoeken een model extra aandacht verdient bij het bouwen van een zone. */
+/** Vanaf hoeveel driehoeken een model extra aandacht verdient in een scene. */
 const ZWAAR_VANAF = 1500;
 
 const getal = new Intl.NumberFormat('nl-NL');
@@ -145,7 +145,6 @@ function maakKaart(model, kits, groepen, weergave) {
       model.naam,
       model.kit,
       kit?.naam ?? '',
-      kit?.zones?.join(' ') ?? '',
       groep?.naam ?? '',
       model.trefwoorden.join(' '),
     ].join(' ').toLowerCase(),
@@ -156,7 +155,7 @@ function maakKaart(model, kits, groepen, weergave) {
   return item;
 }
 
-function maakSectie({ id, weergave, titel, aantal, kleur, uitleg, extras = [], bron }) {
+function maakSectie({ id, weergave, titel, aantal, kleur, uitleg, bron }) {
   const sectie = document.createElement('section');
   sectie.className = 'sectie';
   sectie.id = id;
@@ -174,13 +173,6 @@ function maakSectie({ id, weergave, titel, aantal, kleur, uitleg, extras = [], b
   aantalEl.textContent = `${aantal} modellen`;
 
   kop.append(titelEl, aantalEl);
-
-  for (const extra of extras) {
-    const chip = document.createElement('span');
-    chip.className = 'zone';
-    chip.textContent = extra;
-    kop.append(chip);
-  }
 
   if (uitleg) {
     const p = document.createElement('p');
@@ -232,7 +224,6 @@ function toonDetail(model, kit, groep) {
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
     ['Materialen', getal.format(model.materialen)],
     ['Grootte', bytesLeesbaar(model.bytes)],
-    ['Zones', kit?.zones?.length ? kit.zones.join(', ') : '—'],
     ['Licentie', `CC0 — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
@@ -403,7 +394,6 @@ async function start() {
         titel: kit.naam,
         aantal: modellen.length,
         kleur,
-        extras: kit.zones,
         bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
       }),
       kit.kort ?? kit.naam,
