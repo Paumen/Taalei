@@ -53,7 +53,7 @@ Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, wate
 
 ## Visueel, audio, animatie
 
-**3D-kits**
+**3D-kits** — stijlbeschrijving van de gedownloade modellen: [`kits/stijl.md`](kits/stijl.md)
 - https://kenney.nl/assets/survival-kit
 - https://kenney.nl/assets/pirate-kit
 - https://kenney.nl/assets/modular-cave-kit
