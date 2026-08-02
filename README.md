@@ -58,17 +58,20 @@ De workflow in `.github/workflows/static.yml` publiceert de repo naar GitHub
 Pages bij elke commit, op elke branch. De site staat op
 <https://paumen.github.io/Taalei/>.
 
-Daarvoor zijn twee instellingen nodig, allebei eenmalig:
+De enige vereiste instelling is *Settings → Pages → Source* op **GitHub
+Actions**.
 
-1. *Settings → Pages → Source* op **GitHub Actions**. Staat die op *Deploy from
-   a branch*, dan moet een deployment van precies die branch komen.
-2. *Settings → Environments → github-pages → Deployment branches* op **All
-   branches**, als daar een regel staat die alleen de default branch toelaat.
+De deploy-job is bewust niet aan de `github-pages`-omgeving gekoppeld. Met
+`environment: github-pages` toetst GitHub de deployment aan de branch-regels van
+die omgeving, en dat weigerde elke run vanaf een andere branch dan `main` binnen
+twee seconden — zonder runner en zonder logs. Zonder die koppeling draait de job
+gewoon en gaat de deployment via de Pages-API, waarvoor `pages: write` en
+`id-token: write` volstaan.
 
-Blokkeert een van de twee, dan weigert GitHub de deployment vóórdat de workflow
-draait: de run faalt binnen een paar seconden, zonder runner en zonder logs. Een
-run die wél op een runner start en daar faalt, is een echt probleem in de
-workflow — dat onderscheid is het snelste diagnosemiddel.
+Dat verschil is meteen het handigste diagnosemiddel: faalt een run zónder
+toegewezen runner en zonder logs, dan is hij geweigerd vóórdat de workflow
+draaide en zit het in een instelling. Faalt hij óp een runner, dan is er een
+echt probleem in de workflow.
 
 Pages heeft één live site, dus de laatst gepushte branch wint: werk je op twee
 branches tegelijk, dan zie je steeds die van de laatste push.
