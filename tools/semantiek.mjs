@@ -19,10 +19,12 @@ export const GROEPEN = [
     beschrijving: 'Wanden en wat erin zit: deuren, deuropeningen, ramen, bogen en hoekstukken.' },
   { id: 'daken', naam: 'Daken & dakdelen', kort: 'Daken', kleur: '#b8503c',
     beschrijving: 'Dakvlakken, hoeken, nokken en dakkapellen om een gebouw mee af te dekken.' },
-  { id: 'bouwwerken', naam: 'Bouwwerken & molens', kort: 'Bouwwerken', kleur: '#877a63',
-    beschrijving: 'Complete gebouwtjes, molens, pilaren, planken en balkons — bouwdelen die geen muur en geen dak zijn.' },
-  { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
-    beschrijving: 'Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor "woordplakken".' },
+  { id: 'bouwwerken', naam: 'Bouwwerken, platforms & molens', kort: 'Bouwwerken', kleur: '#877a63',
+    beschrijving: 'Complete gebouwtjes, molens, platforms, vlonders, pilaren, planken en balkons — bouwdelen die geen muur en geen dak zijn.' },
+  { id: 'trappen', naam: 'Trappen', kort: 'Trappen', kleur: '#7f92a8',
+    beschrijving: 'Stenen en houten trappen, recht en gebogen, met en zonder leuning.' },
+  { id: 'verbinding', naam: 'Bruggen & ladders', kort: 'Bruggen', kleur: '#c98a5a',
+    beschrijving: 'Waarmee je een afstand of hoogte overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
     beschrijving: 'Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.' },
   { id: 'bomen', naam: 'Bomen & palmen', kort: 'Bomen', kleur: '#3da679',
@@ -70,7 +72,6 @@ const uitzonderingen = {
   'pirate-kit/hole': 'terrein',
   'pirate-kit/grass-plant': 'planten',
   'mini-forest/target': 'borden',
-  'mini-forest/building-platform': 'bouwwerken', // vloer van het boomhuis, geen looppad
   'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'terrein',
 };
@@ -85,7 +86,8 @@ const regels = [
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
   [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
   [/^(chest|barrel|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
-  [/^(stairs|ladder|bridge)\b|platform/, 'verbinding'],
+  [/^stairs\b/, 'trappen'],
+  [/^(ladder|bridge)\b/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
   [/^(tree|palm)\b/, 'bomen'],
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
@@ -95,7 +97,7 @@ const regels = [
   // `structure-roof` heten naar hun gebouw, maar het zijn daken.
   [/^roof\b|-roof\b/, 'daken'],
   [/^wall\b/, 'muren'],
-  [/^(building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
+  [/^(building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
 ];
 
 /**
