@@ -23,6 +23,17 @@ const KIT_KLEUREN = {
   'mini-dungeon': '#6d738a',
 };
 
+/**
+ * Groep-ids die niet meer bestaan → de groep waar hun modellen nu staan. Een
+ * oude link (#groep-bouw) komt zo nog steeds ergens zinnigs uit in plaats van
+ * op de standaardweergave. Bij een splitsing wijst de oude id naar het grootste
+ * deel: `bouw` viel uiteen in het bouwpakket en de bouwwerken.
+ */
+const GROEP_ALIASSEN = {
+  bouw: 'bouwwerken',
+  mechaniek: 'items',
+};
+
 /** Vanaf hoeveel driehoeken een model extra aandacht verdient in een scene. */
 const ZWAAR_VANAF = 1500;
 
@@ -479,7 +490,8 @@ async function start() {
   }
 
   // Groepsweergave — op naam gesorteerd, zodat gelijke props uit
-  // verschillende kits naast elkaar komen te staan.
+  // verschillende kits naast elkaar komen te staan. Een groep die zelf een
+  // tabblad noemt (het bouwpakket) komt daar terecht in plaats van hiertussen.
   for (const groep of data.groepen) {
     const modellen = data.modellen
       .filter((m) => m.groep === groep.id && !eigenTabblad.has(m.kit))
@@ -488,7 +500,7 @@ async function start() {
     registreer(
       maakSectie({
         id: `groep-${groep.id}`,
-        weergave: 'groepen',
+        weergave: groep.tabblad ?? 'groepen',
         soort: 'groep',
         titel: groep.naam,
         aantal: modellen.length,
@@ -535,10 +547,14 @@ async function start() {
 
   zoekveld.addEventListener('input', filter);
 
+  // Groepen die zijn hernoemd, samengevoegd of gesplitst; zie GROEP_ALIASSEN.
+  const aliassen = new Map(
+    Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
+  );
+
   // De groepen van een losstaande kit hebben geen eigen sectie meer in de
   // groepsweergave; een oude link daarheen hoort op het tabblad van die kit
   // uit te komen in plaats van op de standaardweergave.
-  const aliassen = new Map();
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {
       if (model.kit === kit.slug) aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
