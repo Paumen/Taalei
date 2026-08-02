@@ -69,6 +69,34 @@ function leesPalet() {
 }
 
 /**
+ * Cellen die aan minder dan zoveel modellen hangen, gaan op in de
+ * dichtstbijzijnde kleur die wél blijft. Een staal voor één model levert een
+ * filterknop op die niets filtert; de kleuren liggen bovendien zo dicht bij
+ * elkaar dat het onderscheid op het scherm toch niet te zien is.
+ */
+const SAMENVOEG_ONDER = 4;
+
+const hexNaarRgb = (hex) =>
+  [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
+/**
+ * Afstand tussen twee kleuren volgens de "redmean"-benadering: goedkoper dan
+ * een Lab-conversie en dicht genoeg bij wat het oog doet om de juiste buur te
+ * kiezen.
+ */
+function kleurAfstand(a, b) {
+  const [r1, g1, b1] = hexNaarRgb(a);
+  const [r2, g2, b2] = hexNaarRgb(b);
+  const rGemiddeld = (r1 + r2) / 2;
+  const dr = r1 - r2;
+  const dg = g1 - g2;
+  const db = b1 - b2;
+  return Math.sqrt(
+    (2 + rGemiddeld / 256) * dr * dr + 4 * dg * dg + (2 + (255 - rGemiddeld) / 256) * db * db,
+  );
+}
+
+/**
  * Grove Nederlandse benaming van een hex-kleur, zodat de filterknoppen iets
  * zeggen. Bewust ruw: het gaat om herkenning, niet om precisie.
  */
@@ -226,7 +254,6 @@ for (const slug of kitSlugs) {
 
     const kleuren = [...(palet.perModel.get(`${slug}/${naam}`) ?? [])].sort();
     if (kleuren.length === 0) zonderKleur.push(`${slug}/${naam}`);
-    for (const hex of kleuren) palet.cellen.get(hex).aantal++;
 
     modellen.push({
       id: `${slug}/${naam}`,
@@ -253,6 +280,35 @@ for (const slug of kitSlugs) {
   });
 }
 
+/* -- zeldzame kleuren samenvoegen ----------------------------------------- */
+
+const tel = () => {
+  for (const cel of palet.cellen.values()) cel.aantal = 0;
+  for (const model of modellen) {
+    for (const hex of model.kleuren) palet.cellen.get(hex).aantal++;
+  }
+};
+
+tel();
+
+const blijft = [...palet.cellen.values()].filter((c) => c.aantal >= SAMENVOEG_ONDER);
+const samenvoegingen = new Map(); // oude hex → nieuwe hex
+
+for (const cel of palet.cellen.values()) {
+  if (cel.aantal === 0 || cel.aantal >= SAMENVOEG_ONDER) continue;
+  const doel = blijft.reduce((beste, kandidaat) =>
+    kleurAfstand(cel.hex, kandidaat.hex) < kleurAfstand(cel.hex, beste.hex) ? kandidaat : beste,
+  );
+  samenvoegingen.set(cel.hex, doel.hex);
+}
+
+if (samenvoegingen.size > 0) {
+  for (const model of modellen) {
+    model.kleuren = [...new Set(model.kleuren.map((hex) => samenvoegingen.get(hex) ?? hex))].sort();
+  }
+  tel();
+}
+
 const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
   totaal: modellen.length,
@@ -275,6 +331,10 @@ schrijfVersie();
 console.log(`${modellen.length} modellen in ${kits.length} kits → catalog.json`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
+}
+for (const [oud, nieuw] of samenvoegingen) {
+  const doel = palet.cellen.get(nieuw);
+  console.log(`samengevoegd: ${oud} → ${nieuw} (${doel.naam})`);
 }
 console.log(`${catalogus.kleuren.length} kleuren uit palet.json:`);
 for (const k of catalogus.kleuren) {
