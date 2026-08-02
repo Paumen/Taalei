@@ -19,7 +19,7 @@ For an LLM creating or adjusting assets.
 
 ## 3. Outlines and shading
 - No outlines; only on explicit request per asset.
-- Faces use flat palette colors; existing gradient cells may be used — no invented shades. Light and shadow come from the scene at render time.
+- Faces use flat palette colors; existing gradient cells may be used.
 
 ## 4. Scale
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit. Tolerance 5%.
