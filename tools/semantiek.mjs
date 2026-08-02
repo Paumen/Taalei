@@ -81,7 +81,7 @@ const regels = [
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|stone|stones)\b/, 'rotsen'],
   [/^(floor|patch|dirt|hole)\b/, 'terrein'],
-  [/^(wall|roof|building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouw'],
+  [/^(wall|roof|building|structure|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain|lighthouse)\b/, 'bouw'],
 ];
 
 /**
@@ -103,7 +103,8 @@ const WOORDENBOEK = {
   floor: ['vloer', 'grond'], flowers: ['bloemen'], foliage: ['begroeiing'],
   fountain: ['fontein'], gate: ['poort', 'hek'], grass: ['gras'],
   hammer: ['hamer'], heart: ['hart'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
-  key: ['sleutel'], ladder: ['ladder'], lever: ['hendel'], lock: ['slot'],
+  key: ['sleutel'], ladder: ['ladder'], lever: ['hendel'],
+  lighthouse: ['vuurtoren', 'toren', 'baken'], lock: ['slot'],
   mast: ['mast'], mushrooms: ['paddenstoelen'], overhang: ['afdak'],
   paddle: ['peddel', 'roeispaan'], palm: ['palm', 'palmboom', 'boom'],
   patch: ['vlak', 'grondvlak'], pickaxe: ['houweel', 'pikhouweel'],
