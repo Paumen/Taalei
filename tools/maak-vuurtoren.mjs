@@ -4,10 +4,14 @@
  * Draai vanuit de repo-root:  node tools/maak-vuurtoren.mjs
  *
  * Het model volgt asset_style_guide.md:
- * - alle kleuren zijn bestaande cellen uit de gedeelde colormap (zie KLEUR);
- *   de UV van elk vlak wijst naar het midden van zo'n cel;
- * - platte-stukken-bouw: de toren is een 12-zijdige veelhoek, de lantaarn en
+ * - alle kleuren zijn bestaande cellen uit de gedeelde colormap (zie CEL);
+ *   de UV van elk vlak wijst naar een gradiënttrede binnen zo'n cel — de
+ *   schacht wisselt per vlakje tussen de twee middelste treden, wat het
+ *   handgemaakte lapjeswerk geeft zonder nieuwe kleuren te verzinnen;
+ * - platte-stukken-bouw: de toren is een 14-zijdige veelhoek, de lantaarn en
  *   het dak zijn 8-zijdig (max 16 per volledige cirkel);
+ * - de schacht loopt hol toe (exponent < 1), zodat hij aan de voet
+ *   uitwaaiert in plaats van als een rechte kegel te eindigen;
  * - basis op Y = 0, pivot in het midden van de voetafdruk (2 × 2 tegels,
  *   diameter 1,76 — de stoep aan de +Z-kant blijft binnen de tegelrand);
  * - vlakke shading: elk vlak heeft eigen vertices met de vlaknormaal, licht
@@ -23,18 +27,28 @@ const DOEL = join(ROOT, 'kits', 'helden-kit', 'vuurtoren.glb');
 
 /* -- kleuren ---------------------------------------------------------------
  * Celcoördinaten uit kits/palet.json (gedeeld palet). Elke cel is een blok
- * van 32 px breed en 128 px hoog in de 512×512-atlas; de representatieve
- * kleur ligt in het verticale midden, dus u = (kolom + ½)/16, v = (blok + ½)/4.
+ * van 32 px breed en 128 px hoog in de 512×512-atlas: vier gradiënttreden
+ * van 32 px boven elkaar. `rij` kiest een trede (0 = lichtst, 3 = donkerst);
+ * rij 1,5 is het blokmidden, de representatieve kleur uit palet.json.
  */
-const cel = (kolom, blok) => [(kolom + 0.5) / 16, (blok + 0.5) / 4];
+const CEL = {
+  steen:  [15, 3], // #6d738a — plint, stoep, omloop
+  rood:   [7, 0],  // #e76047 — banden en dak
+  wit:    [5, 2],  // #dcdce9 — banden
+  hout:   [12, 0], // #995a41 — deur
+  donker: [10, 0], // #3e3e44 — reling, kraag, lantaarnkooi, raamopeningen
+  lamp:   [6, 0],  // #ffb349 — het licht zelf
+};
+const uvCel = ([kolom, blok], rij = 1.5) =>
+  [(kolom + 0.5) / 16, (blok * 128 + 16 + rij * 32) / 512];
+const KLEUR = Object.fromEntries(
+  Object.entries(CEL).map(([naam, c]) => [naam, uvCel(c)]),
+);
 
-const KLEUR = {
-  steen:  cel(15, 3), // #6d738a — plint, stoep, omloop
-  rood:   cel(7, 0),  // #e76047 — banden en dak
-  wit:    cel(5, 2),  // #dcdce9 — banden
-  hout:   cel(12, 0), // #995a41 — deur
-  donker: cel(10, 0), // #3e3e44 — reling, lantaarnkooi, raamopeningen
-  lamp:   cel(6, 0),  // #ffb349 — het licht zelf
+/** Deterministische ruis voor de tintwisseling per vlakje. */
+const ruis = (a, b) => {
+  const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453;
+  return s - Math.floor(s);
 };
 
 /* -- geometrie-opbouw ------------------------------------------------------
@@ -152,30 +166,52 @@ function paaltje(rMidden, halfBreedte, y0, y1, hoek, kleur) {
 
 /* -- de vuurtoren ---------------------------------------------------------- */
 
+const ZIJDEN = 14; // de toren zelf; lantaarn en dak blijven 8-zijdig
+
 // Plint: lage stenen voet met richel waar de schacht op staat.
 const PLINT_R = 0.88, PLINT_H = 0.25, SCHACHT_R0 = 0.75;
-schijf(12, PLINT_R, 0, KLEUR.steen, false);
-trommel(12, PLINT_R, 0, PLINT_R, PLINT_H, KLEUR.steen);
-ringvlak(12, SCHACHT_R0, PLINT_R, PLINT_H, KLEUR.steen);
+schijf(ZIJDEN, PLINT_R, 0, KLEUR.steen, false);
+trommel(ZIJDEN, PLINT_R, 0, PLINT_R, PLINT_H, KLEUR.steen);
+ringvlak(ZIJDEN, SCHACHT_R0, PLINT_R, PLINT_H, KLEUR.steen);
 
-// Schacht: vier banden rood/wit, taps van R 0,75 naar R 0,48.
-const SCHACHT_TOP = 4.65;
-const straal = (y) => SCHACHT_R0 - ((SCHACHT_R0 - 0.48) / (SCHACHT_TOP - PLINT_H)) * (y - PLINT_H);
-const banden = [
-  [PLINT_H, 1.35, KLEUR.rood],
-  [1.35, 2.45, KLEUR.wit],
-  [2.45, 3.55, KLEUR.rood],
-  [3.55, SCHACHT_TOP, KLEUR.wit],
-];
-for (const [y0, y1, kleur] of banden) {
-  trommel(12, straal(y0), y0, straal(y1), y1, kleur);
+// Schacht: vijf smalle banden, wit onder en boven. De straal volgt een
+// machtsfunctie in plaats van een rechte lijn: onderaan waaiert de toren
+// uit, bovenin loopt hij bijna recht — de klassieke vuurtorenlijn.
+const SCHACHT_TOP = 4.65, SCHACHT_R1 = 0.48;
+const straal = (y) => {
+  const t = (y - PLINT_H) / (SCHACHT_TOP - PLINT_H);
+  return SCHACHT_R0 + (SCHACHT_R1 - SCHACHT_R0) * Math.pow(t, 0.82);
+};
+const BANDEN = 5, RINGEN_PER_BAND = 2;
+const BAND_H = (SCHACHT_TOP - PLINT_H) / BANDEN;
+for (let band = 0; band < BANDEN; band++) {
+  const celVanBand = band % 2 === 0 ? CEL.wit : CEL.rood;
+  for (let sub = 0; sub < RINGEN_PER_BAND; sub++) {
+    const ringIndex = band * RINGEN_PER_BAND + sub;
+    const y0 = PLINT_H + (ringIndex * BAND_H) / RINGEN_PER_BAND;
+    const y1 = PLINT_H + ((ringIndex + 1) * BAND_H) / RINGEN_PER_BAND;
+    const h = hoeken(ZIJDEN);
+    for (let z = 0; z < ZIJDEN; z++) {
+      // Per vlakje één van de twee middelste gradiënttreden van de cel:
+      // bestaand kleurverloop uit de atlas, dus geen verzonnen tint.
+      const rij = 1 + Math.round(ruis(ringIndex * 7 + 1, z * 3 + 2));
+      vlak(uvCel(celVanBand, rij),
+        op(straal(y0), y0, h[z]), op(straal(y0), y0, h[z + 1]),
+        op(straal(y1), y1, h[z + 1]), op(straal(y1), y1, h[z]));
+    }
+  }
 }
+
+// Donkere metalen kraag waar de schacht de omloop raakt.
+const KRAAG_H = 0.10, KRAAG_R = straal(SCHACHT_TOP) + 0.015;
+ringvlak(ZIJDEN, straal(SCHACHT_TOP - KRAAG_H), KRAAG_R, SCHACHT_TOP - KRAAG_H, KLEUR.donker, false);
+trommel(ZIJDEN, KRAAG_R, SCHACHT_TOP - KRAAG_H, KRAAG_R, SCHACHT_TOP, KLEUR.donker);
 
 // Omloop: stenen vloer die uitsteekt, met reling van paaltjes en een leuning.
 const OMLOOP_R = 0.70, OMLOOP_Y0 = SCHACHT_TOP, OMLOOP_Y1 = 4.77;
-ringvlak(12, straal(SCHACHT_TOP), OMLOOP_R, OMLOOP_Y0, KLEUR.steen, false);
-trommel(12, OMLOOP_R, OMLOOP_Y0, OMLOOP_R, OMLOOP_Y1, KLEUR.steen);
-schijf(12, OMLOOP_R, OMLOOP_Y1, KLEUR.steen);
+ringvlak(ZIJDEN, straal(SCHACHT_TOP), OMLOOP_R, OMLOOP_Y0, KLEUR.steen, false);
+trommel(ZIJDEN, OMLOOP_R, OMLOOP_Y0, OMLOOP_R, OMLOOP_Y1, KLEUR.steen);
+schijf(ZIJDEN, OMLOOP_R, OMLOOP_Y1, KLEUR.steen);
 
 const RELING_R = 0.645, RELING_TOP = 5.08, LEUNING_H = 0.05;
 for (const hoek of hoeken(12).slice(0, 12)) {
@@ -206,9 +242,11 @@ kegel(4, 0.028, 6.24, 6.34, KLEUR.donker);
 
 // Deur aan de +Z-kant: houten paneel met afgeschuinde bovenhoeken, iets
 // vóór de schacht. De achterkant verdwijnt in de muur en blijft dicht.
-const DEUR = { y0: PLINT_H, y1: 0.95, half: 0.19, schuin: 0.10, voor: 0.78, achter: 0.63 };
+// De diepte volgt de muur: apotheem = afstand van de as tot het vlakmidden.
+const apotheem = (y) => straal(y) * Math.cos(Math.PI / ZIJDEN);
 {
-  const { y0, y1, half, schuin, voor, achter } = DEUR;
+  const y0 = PLINT_H, y1 = 0.95, half = 0.19, schuin = 0.10;
+  const voor = apotheem(y0) + 0.05, achter = apotheem(y1) - 0.10;
   const profiel = [ // tegen de klok in, gezien vanaf +Z
     [-half, y0], [half, y0], [half, y1 - schuin],
     [half - schuin, y1], [-half + schuin, y1], [-half, y1 - schuin],
@@ -224,15 +262,17 @@ const DEUR = { y0: PLINT_H, y1: 0.95, half: 0.19, schuin: 0.10, voor: 0.78, acht
 // Stoep voor de deur: één stenen traptrede tot aan de tegelrand (z = 1,0).
 blok(-0.30, 0, 0.84, 0.30, PLINT_H, 1.00, KLEUR.steen, ['achter', 'onder']);
 
-// Ramen: donkere openingen op de +Z-kant, kleiner naarmate de toren smaller wordt.
+// Ramen: donkere openingen op de +Z-kant, om en om op een rode en witte
+// band, kleiner naarmate de toren smaller wordt.
 const RAMEN = [
-  { midden: 1.90, half: 0.085, hoogte: 0.26, voor: 0.660, achter: 0.50 },
-  { midden: 3.00, half: 0.075, hoogte: 0.24, voor: 0.600, achter: 0.50 },
-  { midden: 4.05, half: 0.065, hoogte: 0.22, voor: 0.545, achter: 0.44 },
+  { midden: 1.55, half: 0.085, hoogte: 0.26 },
+  { midden: 2.45, half: 0.075, hoogte: 0.24 },
+  { midden: 3.35, half: 0.065, hoogte: 0.22 },
 ];
 for (const raam of RAMEN) {
   const y0 = raam.midden - raam.hoogte / 2, y1 = raam.midden + raam.hoogte / 2;
-  blok(-raam.half, y0, raam.achter, raam.half, y1, raam.voor, KLEUR.donker, ['achter']);
+  const voor = apotheem(y0) + 0.025, achter = apotheem(y1) - 0.06;
+  blok(-raam.half, y0, achter, raam.half, y1, voor, KLEUR.donker, ['achter']);
 }
 
 /* -- controles uit de stijlgids ------------------------------------------- */
