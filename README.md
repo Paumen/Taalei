@@ -10,20 +10,23 @@ doelgroep en de uitgangspunten.
 3D-preview per model. De catalogus staat op GitHub Pages en heeft twee
 weergaven over dezelfde 292 modellen:
 
-- **Kits** — gegroepeerd per Kenney-kit, met de zones waarvoor de kit bedoeld
-  is en een link naar de bron.
+- **Kits** — gegroepeerd per Kenney-kit, met een link naar de bron.
 - **Semantische groepen** — gegroepeerd op wat een model *is* (bomen, rotsen,
   hekken, schepen …), op naam gesorteerd zodat dezelfde prop uit verschillende
-  kits naast elkaar staat. Handig om overlap te zien en om per zone een
-  consistente set te kiezen.
+  kits naast elkaar staat. Handig om overlap te zien en om een consistente set
+  bij elkaar te zoeken.
 
 Per model tonen we het aantal driehoeken en de bestandsgrootte. Modellen vanaf
 1.500 driehoeken worden rood gemarkeerd; die zijn relevant voor de
 rendering-budgetten (de `modular-cave-kit` zit gemiddeld op ~1.570 driehoeken en
 wordt daarom pas geladen zodra je de grot in gaat).
 
-Zoeken kan in het Nederlands: "boom", "kist", "wegwijzer" en "startkamp" vinden
-respectievelijk `tree`, `chest`, `signpost` en alles uit de startkamp-zones.
+Boven het rooster staan de kleurcellen uit `kits/palet.json` als filter: klik een
+kleur aan om alleen modellen te zien die hem gebruiken. Meerdere kleuren tegelijk
+werken als OF, en het filter combineert met de zoekbalk en met beide weergaven.
+
+Zoeken kan in het Nederlands: "boom", "kist" en "wegwijzer" vinden
+respectievelijk `tree`, `chest` en `signpost`.
 
 ### Lokaal bekijken
 
@@ -81,9 +84,9 @@ branches tegelijk, dan zie je steeds die van de laatste push.
 | Pad | Wat |
 | --- | --- |
 | `kits/` | Zeven Kenney-kits (CC0), inclusief textures en `LICENSE.txt` per kit |
-| `kits/manifest.js` | Kit-metadata: naam, bronlink en de zones waarvoor de kit bedoeld is |
+| `kits/manifest.js` | Kit-metadata: naam en bronlink per kit |
 | `kits/palet.json` | Kleurcellen van de gedeelde colormap en welke modellen ze gebruiken |
-| `catalog.json` | Gegenereerd — modellen met kit, groep, driehoeken en grootte |
+| `catalog.json` | Gegenereerd — modellen met kit, groep, kleuren, driehoeken en grootte |
 | `vendor/model-viewer.min.js` | `<model-viewer>` van Google, meegeleverd zodat de pagina geen externe verzoeken doet |
 
 Alle 3D-kits komen van [Kenney](https://kenney.nl/) en zijn CC0.

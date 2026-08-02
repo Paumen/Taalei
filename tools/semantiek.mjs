@@ -12,7 +12,7 @@
 
 export const GROEPEN = [
   { id: 'terrein', naam: 'Grond & terrein', kort: 'Grond', kleur: '#8a5d4b',
-    beschrijving: 'Vloeren, grondvlakken en ondergrond om een zone op te bouwen.' },
+    beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'Modulaire gangen, ruimtes en cave-templates. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouw', naam: 'Muren, daken & bouwwerken', kort: 'Muren & daken', kleur: '#995a41',
@@ -20,7 +20,7 @@ export const GROEPEN = [
   { id: 'verbinding', naam: 'Trappen, bruggen & platforms', kort: 'Trappen & bruggen', kleur: '#c98a5a',
     beschrijving: 'Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
-    beschrijving: 'Afbakening van paden en zones, en doorgangen die open of dicht kunnen.' },
+    beschrijving: 'Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.' },
   { id: 'bomen', naam: 'Bomen & palmen', kort: 'Bomen', kleur: '#3da679',
     beschrijving: 'Losse bomen en palmen voor bos, strand en dorp.' },
   { id: 'planten', naam: 'Planten, gras & bloemen', kort: 'Planten', kleur: '#6cb588',
