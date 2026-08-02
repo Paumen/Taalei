@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { runInNewContext } from 'node:vm';
 import { GROEPEN, bepaalGroep, nederlandseTrefwoorden } from './semantiek.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -19,13 +20,22 @@ const KITS_DIR = join(ROOT, 'kits');
 
 /* -- kit-metadata ---------------------------------------------------------
  * kits/manifest.js is een browser-script (window.KENNEY_KITS = [...]).
- * We lezen alleen de metadata eruit; de modellijst komt van schijf.
+ * We voeren het uit in een lege context met alleen een nep-`window`, zodat we
+ * niet afhankelijk zijn van de opmaak van het bestand. De modellijst uit het
+ * manifest negeren we; die komt van schijf.
  */
 function leesKitMetadata() {
   const bron = readFileSync(join(KITS_DIR, 'manifest.js'), 'utf8');
-  const json = bron.slice(bron.indexOf('['), bron.lastIndexOf(']') + 1);
+  const context = { window: {} };
+  runInNewContext(bron, context, { timeout: 5000, filename: 'kits/manifest.js' });
+
+  const kits = context.window.KENNEY_KITS;
+  if (!Array.isArray(kits)) {
+    throw new Error('kits/manifest.js zet geen window.KENNEY_KITS-array');
+  }
+
   const meta = new Map();
-  for (const kit of JSON.parse(json)) {
+  for (const kit of kits) {
     meta.set(kit.slug, { naam: kit.name, url: kit.url, zones: kit.zone });
   }
   return meta;

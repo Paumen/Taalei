@@ -1,8 +1,8 @@
 # Taaleiland
 
-Taalgame voor basisschoolkinderen (groep 5–6) die moeite hebben met Nederlandse
-taal. Zie [`brainstorm.md`](brainstorm.md) voor het concept, de doelgroep en de
-uitgangspunten.
+Taalgame voor basisschoolkinderen (groep 5–6) die moeite hebben met de
+Nederlandse taal. Zie [`brainstorm.md`](brainstorm.md) voor het concept, de
+doelgroep en de uitgangspunten.
 
 ## 3D-catalogus
 
@@ -55,7 +55,13 @@ zoekwoorden aan.
 ### Publiceren
 
 De workflow in `.github/workflows/static.yml` publiceert de repo naar GitHub
-Pages bij een push naar `main`, en kan handmatig via *Actions → Run workflow*.
+Pages bij elke commit, op elke branch, en kan handmatig via *Actions → Run
+workflow*. Pages heeft één live site, dus de laatste push wint: werk je op twee
+branches tegelijk, dan zie je steeds de branch waar je het laatst naartoe
+gepusht hebt.
+
+Zet in *Settings → Pages* de **Source** op **GitHub Actions**, anders doet de
+workflow niets. De site komt op <https://paumen.github.io/Taalei/>.
 
 ## Bestanden
 
