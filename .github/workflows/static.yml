@@ -35,9 +35,11 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # Bewust geen `environment: github-pages`. Die koppeling laat GitHub de
+    # deployment toetsen aan de branch-regels van die omgeving, en dat weigerde
+    # elke run vanaf een andere branch dan main binnen twee seconden, zonder
+    # runner en zonder logs. Zonder de koppeling draait de job gewoon; de
+    # deployment zelf gaat via de Pages-API met de permissions hieronder.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
