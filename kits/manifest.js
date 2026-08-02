@@ -1,5 +1,14 @@
-/* generated from the downloaded Kenney kits — model lists per kit */
+/* generated from the downloaded Kenney kits — model lists per kit.
+   helden-kit is eigen werk (zie tools/maak-*.mjs) en is met de hand toegevoegd. */
 window.KENNEY_KITS = [
+ {
+  "slug": "helden-kit",
+  "name": "Helden Kit",
+  "url": null,
+  "models": [
+   "vuurtoren"
+  ]
+ },
  {
   "slug": "survival-kit",
   "name": "Survival Kit",

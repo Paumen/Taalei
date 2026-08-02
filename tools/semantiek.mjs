@@ -89,6 +89,8 @@ const uitzonderingen = {
 
 /** [regex, groep] — eerste match wint. */
 const regels = [
+  // Eigen held-objecten (helden-kit) hebben Nederlandse namen.
+  [/^vuurtoren\b/, 'bouwwerken'],
   [/^(corridor|room|template)\b/, 'grot'],
   [/^campfire|^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
@@ -143,6 +145,7 @@ const WOORDENBOEK = {
   target: ['doel', 'schietschijf'], template: ['sjabloon', 'grot'],
   tent: ['tent'], tool: ['gereedschap'],
   trap: ['val', 'valluik'], tree: ['boom'], wall: ['muur', 'wand'],
+  vuurtoren: ['vuurtoren', 'toren', 'licht', 'baken'], // helden-kit heet Nederlands
   watermill: ['watermolen', 'molen'], weapon: ['wapen'], wheel: ['wiel'],
   window: ['raam'], windmill: ['windmolen', 'molen'], wood: ['hout'],
   workbench: ['werkbank'], wreck: ['wrak'],
