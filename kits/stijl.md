@@ -36,7 +36,7 @@ palet, waardoor de hele wereld als één samenhangend geheel oogt.
 - **Vriendelijk, niet kinderachtig.** Er zit slijtage en avontuur in het
   materiaal (`wall-wood-broken`, `ship-wreck`, `fence-low-broken`), maar geen
   bloed, geen grimmigheid, geen babyvormen. Precies de "not too childish"-lijn
-  uit `brainstorm.md`.
+  uit [`brainstorm.md`](../brainstorm.md).
 
 ## 2. Raster en pivot
 
@@ -65,8 +65,8 @@ technische winst.
   kolom 5 loopt van `#f0976c` bovenin naar `#b76746` onderin. De "schaduw" zit
   dus ingebakken in de textuur, niet in de belichting.
 - Één cel is een echte textuur in plaats van een effen kleur: cel `[0,0]`
-  beslaat 4 kolommen en bevat de rotswand van de grot-kit (`palet.json`,
-  `"drempel": 4`).
+  beslaat 4 kolommen en bevat de rotswand van de grot-kit
+  ([`kits/palet.json`](palet.json), `"drempel": 4`).
 
 Het palet (de 21 gevulde cellen, kleur gemeten in het midden van de cel):
 
@@ -101,9 +101,9 @@ verzamelbare taal-items en doelen mogen die accentkleuren lenen, decor niet.
 - Eén materiaal `colormap`: `metallicFactor = 0`, geen roughness-override
   (dus 1,0 → volledig mat), `doubleSided: true`, `baseColorTexture` = de atlas.
   Geen normal maps, geen emissie, geen glans.
-- De sampler staat overal op `minFilter 9987` (LINEAR_MIPMAP_LINEAR) — nodig,
-  omdat een gradiëntatlas met harde filtering gaat banden en bleeden. De
-  survival-kit week hier tot voor kort van af en is bijgetrokken.
+- De sampler staat overal op `minFilter 9987` (LINEAR_MIPMAP_LINEAR): met
+  mipmaps wordt de gradiënt op afstand netjes uitgemiddeld in plaats van te
+  flikkeren. De survival-kit week hier tot voor kort van af en is bijgetrokken.
 - Enige uitzondering: `Water` in de fantasy-town-fonteinen — geen textuur, een
   blauw `baseColorFactor` met `alphaMode: BLEND` (alpha 0,6).
 - Gevolg: alle 292 modellen delen één textuur en één materiaal, en zijn dus in
@@ -125,8 +125,9 @@ machinaal bruikbaar:
 - Meest voorkomende woorden over alle 292 namen: `wall` (38), `wood` (33),
   `fence` (20), `corner` (17), `roof` (14), `tree` (13).
 
-`manifest.js` bevat de volledige modellijst per kit met de zone-koppeling;
-`palet.json` legt vast welk model welke paletcel gebruikt.
+[`kits/manifest.js`](manifest.js) bevat de volledige modellijst per kit met de
+zone-koppeling; [`kits/palet.json`](palet.json) legt vast welk model welke
+paletcel gebruikt.
 
 ## 6. Budget per kit
 
@@ -141,8 +142,9 @@ machinaal bruikbaar:
 | modular-cave-kit | 40 | 62.704 | 1.567 | `room-large` (8.080) |
 
 De grot-kit is de uitschieter: 14% van de modellen, maar **50% van alle
-driehoeken**. Dat bevestigt de aanpak uit `brainstorm.md` — grot pas laden en
-renderen zodra het kind door de ingang gaat, en dan als enige zone.
+driehoeken**. Dat bevestigt de aanpak uit [`brainstorm.md`](../brainstorm.md) —
+grot pas laden en renderen zodra het kind door de ingang gaat, en dan als
+enige zone.
 
 ## 7. Wat dit betekent voor Taaleiland
 
@@ -169,3 +171,26 @@ bestaan. Vlakke kleurvlakken met harde randen sluiten naadloos aan.
 
 **Licentie.** De kits zijn van Kenney (CC0), zie `LICENSE.txt` per kit.
 Vermelding is niet verplicht maar wel netjes.
+
+## Verantwoording: hoe deze cijfers gemeten zijn
+
+Alle getallen hierboven komen uit de `.glb`-bestanden zelf, niet uit de
+kit-beschrijvingen van Kenney. Er staat bewust geen script in de repo — dit is
+een momentopname, geen build-stap. Wijzigen de kits, controleer dan deze punten
+opnieuw door de JSON-chunk van elke `.glb` te parsen (bytes 12 e.v., chunktype
+`0x4E4F534A`):
+
+- **Driehoeken** — som van `accessors[primitive.indices].count / 3` over alle
+  primitives.
+- **Harde randen** — aantal `POSITION`-vertices versus het aantal *unieke*
+  posities; is dat eerste ruim groter, dan zijn de normalen per vlak gesplitst.
+- **Raster en pivot** — `accessors[POSITION].min` / `.max` per model; `min.y`
+  hoort 0 te zijn en de voetafdruk een veelvoud van 1.
+- **Paletgebruik** — de `TEXCOORD_0`-waarden; die horen op celmiddens te vallen
+  (u = (kolom + 0,5) / 16) op een van de vijf v-stappen binnen de rij. Wijkt een
+  model af, dan sampelt het een ongeschilderde cel en wordt het zwart — precies
+  het probleem dat de fonteinen hadden.
+- **Materiaal en sampler** — `materials` en `samplers` in de JSON-chunk; er
+  hoort één `colormap`-materiaal te zijn met `minFilter 9987`.
+- **Atlas** — `md5sum kits/colormap.png kits/*/Textures/colormap.png` moet één
+  hash geven voor alle acht kopieën.
