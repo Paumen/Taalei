@@ -8,7 +8,9 @@
    "kort": "Fantasy Town",
    "url": "https://kenney.nl/assets/fantasy-town-kit",
    "licentie": "kits/fantasy-town-kit/LICENSE.txt",
-   "aantal": 70
+   "aantal": 70,
+   "atlas": "kits/fantasy-town-kit/Textures/colormap.png",
+   "palet": "gedeeld"
   },
   {
    "slug": "mini-dungeon",
@@ -16,7 +18,9 @@
    "kort": "Mini Dungeon",
    "url": "https://kenney.nl/assets/mini-dungeon",
    "licentie": "kits/mini-dungeon/LICENSE.txt",
-   "aantal": 21
+   "aantal": 21,
+   "atlas": "kits/mini-dungeon/Textures/colormap.png",
+   "palet": "gedeeld"
   },
   {
    "slug": "mini-forest",
@@ -24,7 +28,9 @@
    "kort": "Mini Forest",
    "url": "https://kenney.nl/assets/mini-forest",
    "licentie": "kits/mini-forest/LICENSE.txt",
-   "aantal": 20
+   "aantal": 20,
+   "atlas": "kits/mini-forest/Textures/colormap.png",
+   "palet": "gedeeld"
   },
   {
    "slug": "modular-cave-kit",
@@ -32,7 +38,9 @@
    "kort": "Modular Cave",
    "url": "https://kenney.nl/assets/modular-cave-kit",
    "licentie": "kits/modular-cave-kit/LICENSE.txt",
-   "aantal": 40
+   "aantal": 40,
+   "atlas": "kits/modular-cave-kit/Textures/colormap.png",
+   "palet": "grot"
   },
   {
    "slug": "pirate-kit",
@@ -40,7 +48,9 @@
    "kort": "Pirate",
    "url": "https://kenney.nl/assets/pirate-kit",
    "licentie": "kits/pirate-kit/LICENSE.txt",
-   "aantal": 50
+   "aantal": 50,
+   "atlas": "kits/pirate-kit/Textures/colormap.png",
+   "palet": "gedeeld"
   },
   {
    "slug": "platformer-kit",
@@ -48,7 +58,9 @@
    "kort": "Platformer",
    "url": "https://kenney.nl/assets/platformer-kit",
    "licentie": "kits/platformer-kit/LICENSE.txt",
-   "aantal": 36
+   "aantal": 36,
+   "atlas": "kits/platformer-kit/Textures/colormap.png",
+   "palet": "gedeeld"
   },
   {
    "slug": "survival-kit",
@@ -56,7 +68,9 @@
    "kort": "Survival",
    "url": "https://kenney.nl/assets/survival-kit",
    "licentie": "kits/survival-kit/LICENSE.txt",
-   "aantal": 50
+   "aantal": 50,
+   "atlas": "kits/survival-kit/Textures/colormap.png",
+   "palet": "gedeeld"
   }
  ],
  "groepen": [
@@ -73,8 +87,8 @@
    "naam": "Grot & gangen",
    "kort": "Grot",
    "kleur": "#5c4a52",
-   "beschrijving": "Modulaire gangen, ruimtes en cave-templates. Alleen renderen ná de ingang (hoge tri-count).",
-   "aantal": 35
+   "beschrijving": "De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).",
+   "aantal": 40
   },
   {
    "id": "bouw",
@@ -90,7 +104,7 @@
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
    "beschrijving": "Alles waarmee je hoogteverschil of afstand overbrugt — bruikbaar voor \"woordplakken\".",
-   "aantal": 25
+   "aantal": 22
   },
   {
    "id": "hek",
@@ -98,7 +112,7 @@
    "kort": "Hekken",
    "kleur": "#b08968",
    "beschrijving": "Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.",
-   "aantal": 23
+   "aantal": 21
   },
   {
    "id": "bomen",
@@ -189,96 +203,116 @@
    "aantal": 2
   }
  ],
- "kleuren": [
+ "paletten": [
   {
-   "hex": "#d07b56",
-   "naam": "oranje",
-   "textuur": null,
-   "aantal": 179
+   "id": "gedeeld",
+   "naam": "Gedeelde kits",
+   "atlas": "kits/colormap.png",
+   "kleuren": [
+    {
+     "hex": "#d07b56",
+     "naam": "oranje",
+     "textuur": null,
+     "aantal": 179
+    },
+    {
+     "hex": "#995a41",
+     "naam": "bruin",
+     "textuur": null,
+     "aantal": 78
+    },
+    {
+     "hex": "#6d738a",
+     "naam": "lichtgrijs",
+     "textuur": null,
+     "aantal": 47
+    },
+    {
+     "hex": "#3da679",
+     "naam": "groen",
+     "textuur": null,
+     "aantal": 45
+    },
+    {
+     "hex": "#dd9f79",
+     "naam": "oranje",
+     "textuur": null,
+     "aantal": 40
+    },
+    {
+     "hex": "#9da4c4",
+     "naam": "blauw",
+     "textuur": null,
+     "aantal": 38
+    },
+    {
+     "hex": "#dcdce9",
+     "naam": "lichtblauw",
+     "textuur": null,
+     "aantal": 25
+    },
+    {
+     "hex": "#3e3e44",
+     "naam": "grijs",
+     "textuur": null,
+     "aantal": 18
+    },
+    {
+     "hex": "#474a58",
+     "naam": "grijs",
+     "textuur": null,
+     "aantal": 9
+    },
+    {
+     "hex": "#e76047",
+     "naam": "rood",
+     "textuur": null,
+     "aantal": 8
+    },
+    {
+     "hex": "#ffb349",
+     "naam": "oranje",
+     "textuur": null,
+     "aantal": 7
+    },
+    {
+     "hex": "#f0c59d",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "aantal": 4
+    }
+   ]
   },
   {
-   "hex": "#995a41",
-   "naam": "bruin",
-   "textuur": null,
-   "aantal": 78
-  },
-  {
-   "hex": "#6d738a",
-   "naam": "lichtgrijs",
-   "textuur": null,
-   "aantal": 47
-  },
-  {
-   "hex": "#3da679",
-   "naam": "groen",
-   "textuur": null,
-   "aantal": 45
-  },
-  {
-   "hex": "#dd9f79",
-   "naam": "oranje",
-   "textuur": null,
-   "aantal": 40
-  },
-  {
-   "hex": "#9da4c4",
-   "naam": "blauw",
-   "textuur": null,
-   "aantal": 39
-  },
-  {
-   "hex": "#a16d58",
-   "naam": "oranje",
-   "textuur": null,
-   "aantal": 36
-  },
-  {
-   "hex": "#8a5d4b",
-   "naam": "bruin",
-   "textuur": null,
-   "aantal": 29
-  },
-  {
-   "hex": "#ba7554",
-   "naam": "oranje",
-   "textuur": "rotswand (modular-cave)",
-   "aantal": 25
-  },
-  {
-   "hex": "#dcdce9",
-   "naam": "lichtblauw",
-   "textuur": null,
-   "aantal": 25
-  },
-  {
-   "hex": "#3e3e44",
-   "naam": "grijs",
-   "textuur": null,
-   "aantal": 18
-  },
-  {
-   "hex": "#474a58",
-   "naam": "grijs",
-   "textuur": null,
-   "aantal": 9
-  },
-  {
-   "hex": "#e76047",
-   "naam": "rood",
-   "textuur": null,
-   "aantal": 8
-  },
-  {
-   "hex": "#ffb349",
-   "naam": "oranje",
-   "textuur": null,
-   "aantal": 7
-  },
-  {
-   "hex": "#f0c59d",
-   "naam": "lichtoranje",
-   "textuur": null,
-   "aantal": 4
+   "id": "grot",
+   "naam": "Grot",
+   "atlas": "kits/modular-cave-kit/Textures/colormap.png",
+   "kleuren": [
+    {
+     "hex": "#a16d58",
+     "naam": "oranje",
+     "textuur": null,
+     "aantal": 36
+    },
+    {
+     "hex": "#8a5d4b",
+     "naam": "bruin",
+     "textuur": null,
+     "aantal": 29
+    },
+    {
+     "hex": "#ba7554",
+     "naam": "oranje",
+     "textuur": "rotswand",
+     "aantal": 25
+    },
+    {
+     "hex": "#9da4c4",
+     "naam": "blauw",
+     "textuur": null,
+     "aantal": 1
+    }
+   ]
   }
  ],
  "modellen": [
@@ -294,6 +328,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -313,6 +348,7 @@
     "muur",
     "wand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -330,6 +366,7 @@
     "banier",
     "vaandel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -348,6 +385,7 @@
     "banier",
     "vaandel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -365,6 +403,7 @@
    "trefwoorden": [
     "wiek"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#f0c59d"
@@ -383,6 +422,7 @@
     "kar",
     "wagen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -403,6 +443,7 @@
     "kar",
     "wagen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -422,6 +463,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -440,6 +482,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -458,6 +501,7 @@
     "omheining",
     "poort"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -477,6 +521,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -493,6 +538,7 @@
    "trefwoorden": [
     "afdak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -512,6 +558,7 @@
     "zuil",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#d07b56"
@@ -530,6 +577,7 @@
     "planken",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -547,6 +595,7 @@
     "planken",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -564,6 +613,7 @@
     "planken",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -580,6 +630,7 @@
    "trefwoorden": [
     "palen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -596,6 +647,7 @@
    "trefwoorden": [
     "palen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -613,6 +665,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -630,6 +683,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -647,6 +701,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -663,6 +718,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a"
@@ -680,6 +736,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a"
@@ -697,6 +754,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a"
@@ -714,6 +772,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -730,6 +789,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -748,6 +808,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -766,6 +827,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -784,6 +846,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -802,6 +865,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -818,6 +882,7 @@
    "trefwoorden": [
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -837,6 +902,7 @@
     "dak",
     "raam"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#6d738a",
@@ -857,6 +923,7 @@
     "trap",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#dcdce9"
@@ -875,6 +942,7 @@
     "trap",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -892,6 +960,7 @@
     "trap",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -909,6 +978,7 @@
     "trap",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -926,6 +996,7 @@
     "trap",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -943,6 +1014,7 @@
     "trap",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -959,6 +1031,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -976,6 +1049,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -993,6 +1067,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -1010,6 +1085,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -1027,6 +1103,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -1046,6 +1123,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#995a41",
@@ -1066,6 +1144,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#995a41",
@@ -1086,6 +1165,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1105,6 +1185,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1124,6 +1205,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1143,6 +1225,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1162,6 +1245,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1181,6 +1265,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1200,6 +1285,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1219,6 +1305,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1238,6 +1325,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1257,6 +1345,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1276,6 +1365,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1296,6 +1386,7 @@
     "hout",
     "deur"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1316,6 +1407,7 @@
     "hout",
     "deuropening"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1336,6 +1428,7 @@
     "hout",
     "deuropening"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#995a41",
@@ -1357,6 +1450,7 @@
     "hout",
     "deuropening"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1376,6 +1470,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1395,6 +1490,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1415,6 +1511,7 @@
     "hout",
     "raam"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1435,6 +1532,7 @@
     "hout",
     "raam"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1456,6 +1554,7 @@
     "raam",
     "luiken"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1475,6 +1574,7 @@
     "wand",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -1493,6 +1593,7 @@
     "watermolen",
     "molen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -1512,6 +1613,7 @@
     "watermolen",
     "molen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -1530,6 +1632,7 @@
    "trefwoorden": [
     "wiel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#9da4c4",
@@ -1549,6 +1652,7 @@
     "windmolen",
     "molen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#f0c59d"
@@ -1567,6 +1671,7 @@
     "banier",
     "vaandel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -1585,6 +1690,7 @@
     "vat",
     "ton"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -1603,6 +1709,7 @@
     "kist",
     "schatkist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#9da4c4",
@@ -1622,6 +1729,7 @@
     "munt",
     "geld"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#ffb349"
    ],
@@ -1639,6 +1747,7 @@
     "zuil",
     "pilaar"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#9da4c4"
@@ -1658,6 +1767,7 @@
     "grond",
     "modder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44"
    ],
@@ -1675,6 +1785,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4"
    ],
@@ -1692,6 +1803,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4"
    ],
@@ -1709,6 +1821,7 @@
     "poort",
     "hek"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -1726,6 +1839,7 @@
    "trefwoorden": [
     "sleutel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#ffb349"
    ],
@@ -1743,6 +1857,7 @@
     "pot",
     "kruik"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -1761,6 +1876,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -1777,6 +1893,7 @@
    "trefwoorden": [
     "trap"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -1793,6 +1910,7 @@
    "trefwoorden": [
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -1810,6 +1928,7 @@
     "val",
     "valluik"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#6d738a",
@@ -1829,6 +1948,7 @@
     "muur",
     "wand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#6d738a",
@@ -1848,6 +1968,7 @@
     "muur",
     "wand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#6d738a",
@@ -1867,6 +1988,7 @@
     "muur",
     "wand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#9da4c4"
@@ -1885,6 +2007,7 @@
     "muur",
     "wand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#9da4c4"
@@ -1904,6 +2027,7 @@
     "bouwwerk",
     "constructie"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -1921,6 +2045,7 @@
    "trefwoorden": [
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -1938,6 +2063,7 @@
    "trefwoorden": [
     "brug"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -1957,6 +2083,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -1976,6 +2103,7 @@
     "gebouw",
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -1996,6 +2124,7 @@
     "bouwwerk",
     "constructie"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -2014,6 +2143,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -2031,6 +2161,7 @@
    "trefwoorden": [
     "vlag"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -2049,6 +2180,7 @@
    "trefwoorden": [
     "ladder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -2069,6 +2201,7 @@
     "grond",
     "modder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -2087,6 +2220,7 @@
     "grondvlak",
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -2103,6 +2237,7 @@
    "trefwoorden": [
     "plant"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -2120,6 +2255,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -2137,6 +2273,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -2154,6 +2291,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -2170,6 +2308,7 @@
    "trefwoorden": [
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -2187,6 +2326,7 @@
     "doel",
     "schietschijf"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#d07b56",
@@ -2206,6 +2346,7 @@
    "trefwoorden": [
     "tent"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9",
@@ -2224,6 +2365,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -2241,6 +2383,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -2260,6 +2403,7 @@
     "pijl",
     "wegwijzer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -2278,6 +2422,7 @@
     "wapen",
     "boog"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56",
@@ -2298,6 +2443,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2318,6 +2464,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2338,12 +2485,13 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58",
     "#ba7554"
    ],
    "pad": "kits/modular-cave-kit/corridor-intersection.glb",
-   "bytes": 17240,
+   "bytes": 17232,
    "driehoeken": 244,
    "materialen": 1
   },
@@ -2357,6 +2505,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2377,6 +2526,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2397,6 +2547,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2417,6 +2568,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2437,12 +2589,13 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58",
     "#ba7554"
    ],
    "pad": "kits/modular-cave-kit/corridor-wide-intersection.glb",
-   "bytes": 18088,
+   "bytes": 18076,
    "driehoeken": 256,
    "materialen": 1
   },
@@ -2456,6 +2609,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2476,6 +2630,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2496,6 +2651,7 @@
     "tunnel",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2510,11 +2666,12 @@
    "id": "modular-cave-kit/gate-metal-bars",
    "naam": "gate-metal-bars",
    "kit": "modular-cave-kit",
-   "groep": "hek",
+   "groep": "grot",
    "trefwoorden": [
     "poort",
     "hek"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#9da4c4",
@@ -2535,6 +2692,7 @@
     "hek",
     "afdak"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
@@ -2554,6 +2712,7 @@
     "rots",
     "steen"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
@@ -2566,11 +2725,12 @@
    "id": "modular-cave-kit/gate",
    "naam": "gate",
    "kit": "modular-cave-kit",
-   "groep": "hek",
+   "groep": "grot",
    "trefwoorden": [
     "poort",
     "hek"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58"
@@ -2584,10 +2744,11 @@
    "id": "modular-cave-kit/ladder",
    "naam": "ladder",
    "kit": "modular-cave-kit",
-   "groep": "verbinding",
+   "groep": "grot",
    "trefwoorden": [
     "ladder"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58"
@@ -2607,6 +2768,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2627,6 +2789,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2647,6 +2810,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2667,6 +2831,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2687,6 +2852,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2707,6 +2873,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2727,6 +2894,7 @@
     "ruimte",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2741,10 +2909,11 @@
    "id": "modular-cave-kit/stairs-wide",
    "naam": "stairs-wide",
    "kit": "modular-cave-kit",
-   "groep": "verbinding",
+   "groep": "grot",
    "trefwoorden": [
     "trap"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2759,10 +2928,11 @@
    "id": "modular-cave-kit/stairs",
    "naam": "stairs",
    "kit": "modular-cave-kit",
-   "groep": "verbinding",
+   "groep": "grot",
    "trefwoorden": [
     "trap"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2782,6 +2952,7 @@
     "sjabloon",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2801,6 +2972,7 @@
     "sjabloon",
     "grot"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58"
@@ -2821,6 +2993,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58",
@@ -2842,12 +3015,13 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58",
     "#ba7554"
    ],
    "pad": "kits/modular-cave-kit/template-floor-detail-a.glb",
-   "bytes": 15964,
+   "bytes": 15952,
    "driehoeken": 204,
    "materialen": 1
   },
@@ -2862,12 +3036,13 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58",
     "#ba7554"
    ],
    "pad": "kits/modular-cave-kit/template-floor-detail.glb",
-   "bytes": 15956,
+   "bytes": 15944,
    "driehoeken": 204,
    "materialen": 1
   },
@@ -2884,6 +3059,7 @@
     "gat",
     "kuil"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b"
    ],
@@ -2903,6 +3079,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b"
    ],
@@ -2922,11 +3099,12 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b"
    ],
    "pad": "kits/modular-cave-kit/template-floor-layer.glb",
-   "bytes": 13456,
+   "bytes": 13452,
    "driehoeken": 168,
    "materialen": 1
   },
@@ -2941,6 +3119,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "grot",
    "kleuren": [
     "#ba7554"
    ],
@@ -2960,6 +3139,7 @@
     "muur",
     "wand"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
@@ -2979,6 +3159,7 @@
     "muur",
     "wand"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58"
@@ -2999,6 +3180,7 @@
     "muur",
     "wand"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
@@ -3019,11 +3201,12 @@
     "wand",
     "trap"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
    "pad": "kits/modular-cave-kit/template-wall-stairs.glb",
-   "bytes": 7800,
+   "bytes": 7796,
    "driehoeken": 104,
    "materialen": 1
   },
@@ -3038,11 +3221,12 @@
     "muur",
     "wand"
    ],
+   "palet": "grot",
    "kleuren": [
     "#a16d58"
    ],
    "pad": "kits/modular-cave-kit/template-wall-top.glb",
-   "bytes": 10948,
+   "bytes": 10944,
    "driehoeken": 148,
    "materialen": 1
   },
@@ -3057,6 +3241,7 @@
     "muur",
     "wand"
    ],
+   "palet": "grot",
    "kleuren": [
     "#8a5d4b",
     "#a16d58"
@@ -3075,6 +3260,7 @@
     "boot",
     "roeiboot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -3093,6 +3279,7 @@
     "boot",
     "roeiboot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -3109,6 +3296,7 @@
    "trefwoorden": [
     "fles"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -3126,6 +3314,7 @@
    "trefwoorden": [
     "fles"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#dd9f79"
@@ -3143,6 +3332,7 @@
    "trefwoorden": [
     "kanon"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#474a58"
    ],
@@ -3159,6 +3349,7 @@
    "trefwoorden": [
     "kanon"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#474a58",
@@ -3178,6 +3369,7 @@
    "trefwoorden": [
     "kanon"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#474a58",
@@ -3197,6 +3389,7 @@
     "kist",
     "schatkist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#9da4c4",
@@ -3216,6 +3409,7 @@
     "krat",
     "kist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#995a41",
@@ -3236,6 +3430,7 @@
     "krat",
     "kist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3253,6 +3448,7 @@
    "trefwoorden": [
     "vlag"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56",
@@ -3271,6 +3467,7 @@
    "trefwoorden": [
     "vlag"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56",
@@ -3290,6 +3487,7 @@
     "gras",
     "plant"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -3306,6 +3504,7 @@
    "trefwoorden": [
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -3323,6 +3522,7 @@
     "gat",
     "kuil"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#dd9f79"
@@ -3341,6 +3541,7 @@
     "mast",
     "touwen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#474a58",
     "#995a41",
@@ -3360,6 +3561,7 @@
    "trefwoorden": [
     "mast"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#474a58",
     "#995a41",
@@ -3380,6 +3582,7 @@
     "palmboom",
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -3399,6 +3602,7 @@
     "palmboom",
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -3418,6 +3622,7 @@
     "palmboom",
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -3437,6 +3642,7 @@
     "palmboom",
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -3457,6 +3663,7 @@
     "gras",
     "begroeiing"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -3475,6 +3682,7 @@
     "grondvlak",
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -3495,6 +3703,7 @@
     "strand",
     "begroeiing"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -3514,6 +3723,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -3533,6 +3743,7 @@
     "planken",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3551,6 +3762,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3569,6 +3781,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -3586,6 +3799,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -3603,6 +3817,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -3622,6 +3837,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -3642,6 +3858,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -3662,6 +3879,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -3680,6 +3898,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#3e3e44"
@@ -3698,6 +3917,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#995a41",
@@ -3719,6 +3939,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#995a41",
@@ -3740,6 +3961,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#474a58",
@@ -3763,6 +3985,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#474a58",
@@ -3786,6 +4009,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#474a58",
@@ -3809,6 +4033,7 @@
     "schip",
     "boot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
     "#995a41",
@@ -3831,6 +4056,7 @@
     "boot",
     "wrak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#3e3e44",
@@ -3854,6 +4080,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -3875,6 +4102,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -3896,6 +4124,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3916,6 +4145,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3936,6 +4166,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3956,6 +4187,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -3975,6 +4207,7 @@
     "constructie",
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -3993,6 +4226,7 @@
     "bouwwerk",
     "constructie"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -4013,6 +4247,7 @@
     "peddel",
     "roeispaan"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4030,6 +4265,7 @@
     "pijl",
     "wegwijzer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4048,6 +4284,7 @@
     "pijlen",
     "wegwijzer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4066,6 +4303,7 @@
     "krat",
     "kist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#995a41",
@@ -4086,6 +4324,7 @@
     "krat",
     "kist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4104,6 +4343,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4122,6 +4362,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4140,6 +4381,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4158,6 +4400,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4176,6 +4419,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4194,6 +4438,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4212,6 +4457,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4231,6 +4477,7 @@
     "omheining",
     "touw"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56",
@@ -4250,6 +4497,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4267,6 +4515,7 @@
    "trefwoorden": [
     "bloemen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#e76047",
@@ -4285,6 +4534,7 @@
    "trefwoorden": [
     "bloemen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#e76047",
     "#ffb349"
@@ -4302,6 +4552,7 @@
    "trefwoorden": [
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -4318,6 +4569,7 @@
    "trefwoorden": [
     "hart"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#e76047"
    ],
@@ -4334,6 +4586,7 @@
    "trefwoorden": [
     "ladder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4351,6 +4604,7 @@
    "trefwoorden": [
     "ladder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4368,6 +4622,7 @@
    "trefwoorden": [
     "ladder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4385,6 +4640,7 @@
    "trefwoorden": [
     "hendel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#474a58",
     "#6d738a",
@@ -4403,6 +4659,7 @@
    "trefwoorden": [
     "slot"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#d07b56",
@@ -4421,6 +4678,7 @@
    "trefwoorden": [
     "paddenstoelen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
     "#e76047"
@@ -4438,6 +4696,7 @@
    "trefwoorden": [
     "plant"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -4455,6 +4714,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4474,6 +4734,7 @@
     "vlonder",
     "afdak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4492,6 +4753,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4510,6 +4772,7 @@
     "platform",
     "vlonder"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4527,6 +4790,7 @@
    "trefwoorden": [
     "palen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4545,6 +4809,7 @@
     "rotsen",
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -4562,6 +4827,7 @@
     "bord",
     "wegwijzer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#995a41",
     "#d07b56"
@@ -4580,6 +4846,7 @@
     "veer",
     "springveer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#9da4c4",
@@ -4598,6 +4865,7 @@
    "trefwoorden": [
     "ster"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#ffb349"
    ],
@@ -4614,6 +4882,7 @@
    "trefwoorden": [
     "stenen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a"
    ],
@@ -4632,6 +4901,7 @@
     "den",
     "dennenboom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -4651,6 +4921,7 @@
     "den",
     "dennenboom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -4668,6 +4939,7 @@
    "trefwoorden": [
     "fles"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -4685,6 +4957,7 @@
    "trefwoorden": [
     "fles"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56",
@@ -4703,6 +4976,7 @@
    "trefwoorden": [
     "emmer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -4721,6 +4995,7 @@
     "kampvuur",
     "vuur"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4738,6 +5013,7 @@
     "kampvuur",
     "vuur"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -4756,6 +5032,7 @@
     "kampvuur",
     "vuur"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4773,6 +5050,7 @@
     "kist",
     "schatkist"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -4792,6 +5070,7 @@
     "omheining",
     "deuropening"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4809,6 +5088,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4826,6 +5106,7 @@
     "hek",
     "omheining"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4842,6 +5123,7 @@
    "trefwoorden": [
     "vis"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#dcdce9",
@@ -4860,6 +5142,7 @@
    "trefwoorden": [
     "vis"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9",
@@ -4881,6 +5164,7 @@
     "gat",
     "kuil"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4898,6 +5182,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4915,6 +5200,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -4931,6 +5217,7 @@
    "trefwoorden": [
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -4947,6 +5234,7 @@
    "trefwoorden": [
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -4965,6 +5253,7 @@
     "grondvlak",
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -4983,6 +5272,7 @@
     "grondvlak",
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679"
    ],
@@ -5001,6 +5291,7 @@
     "planken",
     "hout"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5018,6 +5309,7 @@
     "grondstof",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5035,6 +5327,7 @@
     "grondstof",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5052,6 +5345,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#dd9f79"
@@ -5070,6 +5364,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#dd9f79"
@@ -5088,6 +5383,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
     "#dd9f79"
@@ -5107,6 +5403,7 @@
     "steen",
     "gras"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#dd9f79",
@@ -5126,6 +5423,7 @@
     "rots",
     "steen"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5145,6 +5443,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5164,6 +5463,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5183,6 +5483,7 @@
     "zand",
     "strand"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
    ],
@@ -5200,6 +5501,7 @@
     "wegwijzer",
     "bord"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5217,6 +5519,7 @@
     "wegwijzer",
     "bord"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5236,6 +5539,7 @@
     "zeil",
     "doek"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -5256,6 +5560,7 @@
     "vloer",
     "grond"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5274,6 +5579,7 @@
     "constructie",
     "dak"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5291,6 +5597,7 @@
     "bouwwerk",
     "constructie"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5309,6 +5616,7 @@
     "zeil",
     "doek"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dcdce9"
@@ -5326,6 +5634,7 @@
    "trefwoorden": [
     "tent"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
    ],
@@ -5343,6 +5652,7 @@
     "gereedschap",
     "bijl"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5361,6 +5671,7 @@
     "gereedschap",
     "hamer"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5379,6 +5690,7 @@
     "gereedschap",
     "schoffel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5398,6 +5710,7 @@
     "houweel",
     "pikhouweel"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5416,6 +5729,7 @@
     "gereedschap",
     "schep"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5433,6 +5747,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -5450,6 +5765,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
     "#dd9f79"
@@ -5467,6 +5783,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -5484,6 +5801,7 @@
    "trefwoorden": [
     "boom"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#3da679",
     "#d07b56"
@@ -5501,6 +5819,7 @@
    "trefwoorden": [
     "werkbank"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5518,6 +5837,7 @@
    "trefwoorden": [
     "werkbank"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56"
@@ -5535,6 +5855,7 @@
    "trefwoorden": [
     "werkbank"
    ],
+   "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
     "#d07b56",
