@@ -31,7 +31,10 @@ const RIJEN = 4;
 const CEL = {
   wit: { cel: [5, 2], t: 0.35 },        // #dcdce9 — witte torenbanden
   rood: { cel: [7, 0], t: 0.5 },        // #e76047 — rode torenbanden
-  steen: { cel: [3, 2], t: 0.6 },       // #9da4c4 — sokkel en stoep
+  // Sokkel en stoep staan onderaan en dragen het geheel; donker leest als
+  // zwaar. Zelfde cel als het smeedwerk, maar dieper in het verloop, zodat
+  // de basis nog iets donkerder is dan de balustrade erboven.
+  steen: { cel: [10, 0], t: 0.78 },     // #38383c — sokkel en stoep
   donker: { cel: [10, 0], t: 0.5 },     // #3e3e44 — smeedwerk, dak
   staal: { cel: [6, 1], t: 0.5 },       // #474a58 — omloopvloer
   hout: { cel: [4, 1], t: 0.5 },        // #8a5d4b — deur
