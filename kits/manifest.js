@@ -4,7 +4,6 @@ window.KENNEY_KITS = [
   "slug": "survival-kit",
   "name": "Survival Kit",
   "url": "https://kenney.nl/assets/survival-kit",
-  "zone": "Startkamp",
   "models": [
    "bottle",
    "bottle-large",
@@ -62,7 +61,6 @@ window.KENNEY_KITS = [
   "slug": "pirate-kit",
   "name": "Pirate Kit",
   "url": "https://kenney.nl/assets/pirate-kit",
-  "zone": "Zinnenzee, Schip",
   "models": [
    "boat-row-large",
    "boat-row-small",
@@ -120,7 +118,6 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
-  "zone": "Geheime Grot",
   "models": [
    "corridor",
    "corridor-corner",
@@ -168,7 +165,6 @@ window.KENNEY_KITS = [
   "slug": "mini-forest",
   "name": "Mini Forest",
   "url": "https://kenney.nl/assets/mini-forest",
-  "zone": "Palmenbos",
   "models": [
    "bridge",
    "building-platform",
@@ -196,7 +192,6 @@ window.KENNEY_KITS = [
   "slug": "fantasy-town-kit",
   "name": "Fantasy Town Kit",
   "url": "https://kenney.nl/assets/fantasy-town-kit",
-  "zone": "Startkamp, dorp",
   "models": [
    "balcony-wall",
    "balcony-wall-fence",
@@ -279,7 +274,6 @@ window.KENNEY_KITS = [
   "slug": "platformer-kit",
   "name": "Platformer Kit",
   "url": "https://kenney.nl/assets/platformer-kit",
-  "zone": "Klimrots",
   "models": [
    "arrow",
    "arrows",
@@ -323,7 +317,6 @@ window.KENNEY_KITS = [
   "slug": "mini-dungeon",
   "name": "Mini Dungeon",
   "url": "https://kenney.nl/assets/mini-dungeon",
-  "zone": "Vulkaanpad, Grot",
   "models": [
    "banner",
    "barrel",

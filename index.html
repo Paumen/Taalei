@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — 3D-catalogus</title>
+<meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit en per semantische groep.">
+<meta name="catalogus-versie" content="9acd0b9cc5">
+<link rel="stylesheet" href="catalog.css?v=9acd0b9cc5">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+</head>
+<body>
+
+<header class="kop">
+  <div class="kop-titel">
+    <h1>Taaleiland — 3D-catalogus</h1>
+    <p class="kop-sub" id="samenvatting">Catalogus laden…</p>
+  </div>
+
+  <div class="kop-bediening">
+    <div class="schakelaar" role="tablist" aria-label="Weergave">
+      <button role="tab" id="tab-kits" aria-controls="paneel" aria-selected="true" data-weergave="kits">Kits</button>
+      <button role="tab" id="tab-groepen" aria-controls="paneel" aria-selected="false" data-weergave="groepen">Semantische groepen</button>
+    </div>
+
+    <div class="zoek">
+      <input type="search" id="zoek" placeholder="Zoek op naam, kit of groep…" autocomplete="off" aria-label="Zoeken">
+      <span class="zoek-telling" id="zoek-telling" aria-live="polite"></span>
+    </div>
+  </div>
+</header>
+
+<nav class="springlijst" id="springlijst" aria-label="Naar sectie"></nav>
+
+<div class="kleurbalk" id="kleurbalk">
+  <span class="kleurbalk-label">Kleur</span>
+  <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter op kleur"></div>
+  <button class="kleurbalk-wis" id="kleurbalk-wis" hidden>Wis kleuren</button>
+</div>
+
+<main id="paneel" role="tabpanel" aria-labelledby="tab-kits"></main>
+
+<p class="leeg" id="leeg" hidden>Geen modellen gevonden.</p>
+
+<footer class="voet">
+  <p>
+    3D-kits van <a href="https://kenney.nl/" rel="noopener">Kenney</a> (CC0). Zie de
+    <code>LICENSE.txt</code> in elke kitmap.
+    Catalogus gegenereerd met <code>node tools/build-catalog.mjs</code>.
+  </p>
+</footer>
+
+<dialog class="detail" id="detail">
+  <button class="detail-sluit" id="detail-sluit" aria-label="Sluiten">&times;</button>
+  <div class="detail-viewer" id="detail-viewer"></div>
+  <div class="detail-info">
+    <h2 id="detail-naam"></h2>
+    <p class="detail-herkomst" id="detail-herkomst"></p>
+    <dl id="detail-gegevens"></dl>
+    <div class="detail-acties">
+      <button id="detail-kopieer">Kopieer pad</button>
+      <a id="detail-download" download>Download .glb</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="vendor/model-viewer.min.js" type="module"></script>
+<script src="catalog.js?v=9acd0b9cc5" type="module"></script>
+</body>
+</html>

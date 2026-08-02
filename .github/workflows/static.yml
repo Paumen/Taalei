@@ -2,9 +2,20 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Deployt bij elke commit, op elke branch.
+  #
+  # Werkt dit niet — de run faalt binnen enkele seconden, zonder runner en
+  # zonder logs — dan wordt de deployment door GitHub geweigerd vóórdat deze
+  # workflow iets doet. Twee instellingen bepalen dat:
+  #
+  #   1. Settings → Pages → Source. Staat die op "Deploy from a branch", dan
+  #      moet een deployment van díé branch komen. Zet hem op "GitHub Actions".
+  #   2. Settings → Environments → github-pages → Deployment branches. Is er
+  #      een regel die alleen de default branch toelaat, zet die dan op
+  #      "All branches".
+  #
+  # Pages heeft één live site, dus de laatst gepushte branch wint.
   push:
-    branches: []
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,9 +35,11 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # Bewust geen `environment: github-pages`. Die koppeling laat GitHub de
+    # deployment toetsen aan de branch-regels van die omgeving, en dat weigerde
+    # elke run vanaf een andere branch dan main binnen twee seconden, zonder
+    # runner en zonder logs. Zonder de koppeling draait de job gewoon; de
+    # deployment zelf gaat via de Pages-API met de permissions hieronder.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
