@@ -261,6 +261,7 @@ function resize(){
 }
 function frame(){
   resize();
+  const delta = clock.getDelta();
   const H = renderer.domElement.clientHeight;
   for(let i = 0; i < cells.length; i++){
     const c = cells[i];
@@ -272,7 +273,7 @@ function frame(){
     c.cam.aspect = r.width/r.height;
     c.cam.updateProjectionMatrix();
     if(!REDUCED){
-      c.spec.stage.turn.rotation.y += c.spec.spin*0.0125;
+      c.spec.stage.turn.rotation.y += c.spec.spin*0.75*delta;
     }
     renderer.render(c.spec.stage.scene, c.cam);
   }
