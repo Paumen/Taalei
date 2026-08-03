@@ -98,24 +98,83 @@ function kustStraal(hoek) {
 }
 
 /**
- * Gewogen streefhoogte én reliëf van alle zones op een punt; dichtbij weegt
- * zwaarder. Reliëf gaat door dezelfde weging heen, zodat een vlakke zone naast
- * een ruige zone geleidelijk ruiger wordt in plaats van met een naad.
+ * Hoeveel ruis er lokaal op mag. Dit is het enige wat nog gewogen wordt
+ * gemiddeld over de zones: een vlakke zone naast een ruige wordt geleidelijk
+ * ruiger in plaats van met een naad. De hóógte komt niet meer uit deze weging —
+ * middelen maakte van elke berg een plateau en van het hele eiland een wig.
  */
-function zoneWaarden(x, z) {
-  let hoog = 0;
-  let relief = 0;
+function zoneRelief(x, z) {
+  let som = 0;
   let gewicht = 0;
   for (const zone of zones) {
     const dx = x - zone.x;
     const dz = z - zone.z;
-    const d = Math.sqrt(dx * dx + dz * dz);
-    const w = 1 / (d * d * d + 40);
-    hoog += zone.hoogte * w;
-    relief += (zone.relief ?? 1) * w;
+    const w = 1 / (dx * dx + dz * dz + 60);
+    som += (zone.relief ?? 1) * w;
     gewicht += w;
   }
-  return { hoogte: hoog / gewicht, relief: relief / gewicht };
+  return som / gewicht;
+}
+
+/** Afstand van een punt tot een lijnstuk — voor ruggen en dalen. */
+function totSegment(px, pz, [ax, az], [bx, bz]) {
+  const vx = bx - ax;
+  const vz = bz - az;
+  const l2 = vx * vx + vz * vz;
+  const t = l2 ? klem(((px - ax) * vx + (pz - az) * vz) / l2, 0, 1) : 0;
+  return Math.hypot(px - (ax + vx * t), pz - (az + vz * t));
+}
+
+/**
+ * De landvorm: een flauwe koepel, met daaroverheen de toppen en ruggen. Ze
+ * worden met max gecombineerd en niet opgeteld of gemiddeld — optellen laat
+ * twee bergen naast elkaar tot één te hoge bult groeien, middelen strijkt ze
+ * allebei plat. Max houdt elke top op zijn eigen hoogte en laat op de plek waar
+ * twee vormen elkaar snijden een graat achter, wat precies is wat een
+ * gefacetteerd terrein nodig heeft.
+ */
+const landvorm = plan.landvorm;
+
+function landHoogte(x, z, inlandsDeel) {
+  let h = landvorm.koepel.hoogte * Math.pow(inlandsDeel, landvorm.koepel.macht);
+
+  for (const top of landvorm.toppen) {
+    const d = Math.hypot(x - top.x, z - top.z);
+    if (d >= top.straal) continue;
+    h = Math.max(h, top.hoogte * Math.pow(1 - d / top.straal, top.macht));
+  }
+
+  for (const rug of landvorm.ruggen) {
+    const d = totSegment(x, z, rug.van, rug.tot);
+    if (d >= rug.breedte) continue;
+    h = Math.max(h, rug.hoogte * Math.pow(1 - d / rug.breedte, 1.5));
+  }
+
+  /* Dalen tellen niet op maar nemen de diepste: waar twee dalen samenkomen
+   * hoort een dalmond te liggen, geen put. En een dal mag de grond wel
+   * uitvlakken maar niet doorgraven tot onder zeeniveau — dat zou midden op het
+   * eiland een gat slaan. */
+  let uitgraven = 0;
+  for (const dal of landvorm.dalen) {
+    const d = totSegment(x, z, dal.van, dal.tot);
+    if (d >= dal.breedte) continue;
+    uitgraven = Math.max(uitgraven, dal.diepte * Math.pow(1 - d / dal.breedte, 1.5));
+  }
+
+  return Math.max(h - uitgraven, Math.min(h, 0.6));
+}
+
+/**
+ * Het plafond dat een verticale kust onmogelijk maakt: op `d` eenheden van de
+ * kustlijn mag het land hoogstens `d * helling` hoog zijn. De helling zelf
+ * verloopt met de hoek, zodat er flauwe baaien naast steile kapen liggen in
+ * plaats van één gelijkmatige kegelrok rondom.
+ */
+function kustPlafond(d, hoek) {
+  const k = kust.golflengte;
+  const n = fbm(Math.cos(hoek) * k * 1.7 + 61, Math.sin(hoek) * k * 1.7 + 61, zaad + 11, 2);
+  const helling = kust.maxHelling * (1 - kust.hellingVariatie / 2 + kust.hellingVariatie * n);
+  return d * helling;
 }
 
 /** Index van de zone waar dit punt het dichtst bij ligt. */
@@ -138,23 +197,46 @@ for (let iz = 0; iz < N; iz++) {
     const x = wx(ix);
     const z = wx(iz);
     const r = Math.hypot(x, z);
-    const straal = kustStraal(Math.atan2(z, x));
-
-    /* t = 0 op de kustlijn, 1 een strandbreedte landinwaarts, negatief op zee. */
-    const t = (straal - r) / kust.strandbreedte;
+    const hoek = Math.atan2(z, x);
+    const straal = kustStraal(hoek);
+    const binnen = straal - r; // eenheden landinwaarts vanaf de kustlijn
 
     let h;
-    if (t <= 0) {
+    if (binnen <= 0) {
       // Zeebodem: loopt door onder water, steeds dieper naar buiten toe.
-      h = t * kust.zeebodem;
+      h = (binnen / kust.strandbreedte) * kust.zeebodem;
     } else {
-      const land = soepel(klem(t, 0, 1));
+      const land = soepel(klem(binnen / kust.strandbreedte, 0, 1));
       const detail = (fbm(x / ruis.golflengte, z / ruis.golflengte, zaad + 7, ruis.octaven) - 0.5) * 2;
-      const { hoogte: streef, relief } = zoneWaarden(x, z);
-      h = streef * land + detail * ruis.hoogte * relief * land;
+      h = landHoogte(x, z, klem(binnen / straal, 0, 1));
+      h += detail * ruis.hoogte * zoneRelief(x, z) * land;
+      // Geen muur aan zee: het plafond wint altijd.
+      h = Math.min(h, kustPlafond(binnen, hoek));
     }
 
     hoogte[iz * N + ix] = h;
+  }
+}
+
+/* Zones trekken de grond binnen hun eigen invloed naar hun streefhoogte. Pas
+ * hierna, zodat ze de landvorm bijsturen in plaats van hem te bepalen: een
+ * kampplek moet vlak liggen, maar mag de berg ernaast niet platslaan. */
+for (const zone of zones) {
+  const invloed = zone.invloed ?? 0;
+  if (!invloed) continue;
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
+      if (d > invloed) continue;
+      const i = iz * N + ix;
+      if (hoogte[i] <= plan.zeeniveau && zone.hoogte > plan.zeeniveau) continue; // niet de zee inlopen
+      /* Zwak, en de rand van de invloedscirkel wordt met de ruis vervaagd:
+       * trekt een zone te hard, dan staat er een ronde bult in het landschap
+       * die de cirkel verraadt. */
+      const rafel = 0.75 + fbm(wx(ix) / 9, wx(iz) / 9, zaad + 23, 2) * 0.5;
+      const mengen = (1 - soepel(klem((d / invloed) * rafel, 0, 1))) * 0.5;
+      hoogte[i] += (zone.hoogte - hoogte[i]) * mengen;
+    }
   }
 }
 
@@ -182,17 +264,20 @@ for (const zone of zones) {
   }
 }
 
+/* De krater moet dieper uithollen dan de kegel over diezelfde afstand zakt,
+ * anders blijft het midden het hoogste punt en is de "krater" een bult. Daarom
+ * staat de diepte los in de json en is de kegel er vlak van boven op gemaakt
+ * (lage macht), zodat de rand echt boven de bodem uitkomt. */
 for (const zone of zones) {
   if (!zone.krater) continue;
+  const { straal, diepte } = zone.krater;
   for (let iz = 0; iz < N; iz++) {
     for (let ix = 0; ix < N; ix++) {
       const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
-      if (d > zone.krater) continue;
+      if (d > straal) continue;
       const i = iz * N + ix;
-      // Komvormig: diep in het midden, niets aan de rand.
-      const diep = (1 - soepel(d / zone.krater)) * 9;
-      hoogte[i] -= diep;
-      if (d < zone.krater * 0.55) isKrater[i] = 1;
+      hoogte[i] -= (1 - soepel(d / straal)) * diepte;
+      if (d < straal * 0.55) isKrater[i] = 1;
     }
   }
 }
@@ -226,11 +311,11 @@ const uvVan = ([kolom, rij]) => [(kolom + 0.5) / 16, (rij + 0.5) / 4];
 function kies(gemiddeld, hellingGraden, krater) {
   if (krater) return cel.lava;
   if (gemiddeld < 0.9) return cel.zand;
-  if (hellingGraden > 38) return cel.rots;
-  if (gemiddeld > 30) return cel.top;
-  if (gemiddeld > 20) return cel.rots;
-  if (gemiddeld > 12) return cel.aarde;
-  if (gemiddeld > 3) return cel.gras;
+  if (hellingGraden > 40) return cel.rots;
+  if (gemiddeld > 32) return cel.top;
+  if (gemiddeld > 24) return cel.rots;
+  if (gemiddeld > 15) return cel.aarde;
+  if (gemiddeld > 4) return cel.gras;
   return cel.weide;
 }
 
@@ -275,6 +360,11 @@ for (let iz = 0; iz < N - 1; iz++) {
     const c = [x0, h01, z1];
     const d = [x1, h11, z1];
 
+    /* Diep water hoeft geen bodem: die zie je nooit, hij kost driehoeken, en
+     * aan de hoeken van het vierkante domein steekt hij onder het ronde
+     * zeevlak vandaan. */
+    if (h00 < -8 && h10 < -8 && h01 < -8 && h11 < -8) continue;
+
     const krater = isKrater[iz * N + ix] === 1;
 
     /* Twee keer: eerst met een voorlopige uv om de helling te meten, dan pas
@@ -298,21 +388,29 @@ for (let iz = 0; iz < N - 1; iz++) {
 const water = nieuweStapel();
 const uvWater = uvVan(cel.water);
 const zee = plan.zeeniveau;
-const rand = halve + 24;
-driehoek(water, [-rand, zee, -rand], [-rand, zee, rand], [rand, zee, -rand], uvWater);
-driehoek(water, [rand, zee, -rand], [-rand, zee, rand], [rand, zee, rand], uvWater);
-
-for (const meer of meerVlakken) {
-  const zijden = 16; // stijlgids §2: maximaal 16 vlakke stukken per cirkel
+/**
+ * Watervlak als waaier van driehoeken. De volgorde is hoek 1 vóór hoek 0: bij
+ * de omgekeerde volgorde wijst de normaal naar beneden en staat het water in
+ * het donker.
+ */
+function schijf(x, y, z, straal, zijden) {
   for (let i = 0; i < zijden; i++) {
     const a0 = (i / zijden) * Math.PI * 2;
     const a1 = ((i + 1) / zijden) * Math.PI * 2;
     driehoek(water,
-      [meer.x, meer.y, meer.z],
-      [meer.x + Math.cos(a0) * meer.straal, meer.y, meer.z + Math.sin(a0) * meer.straal],
-      [meer.x + Math.cos(a1) * meer.straal, meer.y, meer.z + Math.sin(a1) * meer.straal],
+      [x, y, z],
+      [x + Math.cos(a1) * straal, y, z + Math.sin(a1) * straal],
+      [x + Math.cos(a0) * straal, y, z + Math.sin(a0) * straal],
       uvWater);
   }
+}
+
+/* Ruim over de hoeken van het vierkante domein heen; reikt de zee daar niet
+ * tot, dan steekt de zeebodem als een punt buiten het water uit. */
+schijf(0, zee, 0, halve * Math.SQRT2 + 10, 48);
+
+for (const meer of meerVlakken) {
+  schijf(meer.x, meer.y, meer.z, meer.straal, 16); // stijlgids §2: max 16 per cirkel
 }
 
 /* -- glb ------------------------------------------------------------------
@@ -621,10 +719,12 @@ function renderAanzicht(hoekGraden, elevatieGraden, breedtePx) {
   let r = [f[2], 0, -f[0]];
   const rl = Math.hypot(r[0], r[1], r[2]) || 1;
   r = r.map((v) => v / rl);
+  /* f × r, niet r × f: die laatste wijst omlaag en zet het hele eiland
+   * ondersteboven — bergen onder water, zeebodem in de lucht. */
   const u = [
-    r[1] * f[2] - r[2] * f[1],
-    r[2] * f[0] - r[0] * f[2],
-    r[0] * f[1] - r[1] * f[0],
+    f[1] * r[2] - f[2] * r[1],
+    f[2] * r[0] - f[0] * r[2],
+    f[0] * r[1] - f[1] * r[0],
   ];
 
   const opScherm = (p) => [
@@ -743,20 +843,43 @@ console.log(`  hoogste punt ${hoogst.toFixed(1)}, landoppervlak ${(landCellen * 
 console.log(`eiland/plattegrond.png — ${PB} x ${PB}\n`);
 
 const problemen = [];
-console.log('zone            hoogte  gemeten  afstand tot kustlijn');
+console.log('zone            streef  gemeten  landinw.  plafond');
 for (const zone of zones) {
   const gemeten = hoogteOp(zone.x, zone.z);
-  const r = Math.hypot(zone.x, zone.z);
-  const speling = kustStraal(Math.atan2(zone.z, zone.x)) - r;
+  const hoek = Math.atan2(zone.z, zone.x);
+  const binnen = kustStraal(hoek) - Math.hypot(zone.x, zone.z);
+  const plafond = kustPlafond(binnen, hoek);
   console.log(
-    `${zone.id.padEnd(14)} ${String(zone.hoogte).padStart(6)}  ${gemeten.toFixed(1).padStart(7)}  ${speling.toFixed(1).padStart(6)}`,
+    `${zone.id.padEnd(14)} ${String(zone.hoogte).padStart(6)}  ${gemeten.toFixed(1).padStart(7)}`
+    + `  ${binnen.toFixed(1).padStart(8)}  ${plafond.toFixed(1).padStart(7)}`,
   );
-  if (speling < 0) problemen.push(`${zone.id} ligt buiten de kustlijn (${speling.toFixed(1)})`);
+  if (binnen < 0) problemen.push(`${zone.id} ligt buiten de kustlijn (${binnen.toFixed(1)})`);
   if (zone.hoogte > 0 && gemeten < plan.zeeniveau) problemen.push(`${zone.id} staat onder water (${gemeten.toFixed(1)})`);
   if (zone.pad && Math.abs(gemeten - snap(zone.hoogte)) > 0.05) {
     problemen.push(`${zone.id} heeft een pad maar ligt niet vlak (${gemeten.toFixed(2)} i.p.v. ${snap(zone.hoogte)})`);
   }
+  /* Het kustplafond wint van de streefhoogte. Ligt een zone te dicht op zee voor
+   * de hoogte die hij wil, dan zakt hij stilzwijgend weg; dat moet opvallen. */
+  if (zone.hoogte > plafond + 0.5) {
+    problemen.push(
+      `${zone.id} wil ${zone.hoogte} maar het kustplafond staat maar ${plafond.toFixed(1)} toe`
+      + ` — verder landinwaarts zetten of lager maken`,
+    );
+  }
 }
+
+/* Steilste overgang op het hele eiland. Loopt die tegen de 90°, dan staat er
+ * ergens alsnog een muur. */
+let steilste = 0;
+for (let iz = 0; iz < N - 1; iz++) {
+  for (let ix = 0; ix < N - 1; ix++) {
+    const h = hoogte[iz * N + ix];
+    const dx = Math.abs(hoogte[iz * N + ix + 1] - h);
+    const dz = Math.abs(hoogte[(iz + 1) * N + ix] - h);
+    steilste = Math.max(steilste, Math.max(dx, dz) / stap);
+  }
+}
+console.log(`\nsteilste overgang: ${(Math.atan(steilste) * 180 / Math.PI).toFixed(0)}°`);
 
 if (problemen.length) {
   console.log(`\n${problemen.length} probleem(en):`);
