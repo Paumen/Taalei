@@ -16,6 +16,7 @@ For an LLM creating or adjusting assets.
 ## 2. Geometry
 - Flat-piece construction, always. Round shapes must be visibly built from flat pieces.
 - Max 16 flat pieces per full circle equivalent.
+- Max 12 flat pieces per full circle equivalent if full circle equivalent < 1x1 unit. 
 
 ## 3. Outlines and shading
 - No outlines; only on explicit request per asset.
