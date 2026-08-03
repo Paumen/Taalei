@@ -9,10 +9,14 @@ For an LLM creating or adjusting assets.
 
 ## 1. Color
 - Colors come from `palet.json`.
-- One shared colormap image only: assets color themselves by pointing UVs at its cells.
+- One shared colormap image: assets color themselves by pointing UVs at its cells.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
+- defaults:
+* alphaMode: "OPAQUE"
+* roughnessFactor: 1
+* metallicFactor: 0 
 
 ## 2. Geometry
 - Flat-piece construction. Round shapes visibly built from flat pieces.
@@ -26,11 +30,13 @@ For an LLM creating or adjusting assets.
 ## 4. Scale
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
-- Nothing thinner than 0.02 units.
+- No solid pieces thinner than 0.02 units.
 - Max 1000 tris per 1x1x1 unit.
 
 ## 5. Origin and orientation
-Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
+- Default on Y = 0; pivot at footprint centre in X/Z.
+- Deviate deliberately, for a functional reason.
+- Split nodes put their origin at the joint.
 
 ## 6. Reference Assets
 - You must render and look reference assets before creating new assets, not just read.
