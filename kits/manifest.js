@@ -1,4 +1,5 @@
-/* generated from the downloaded Kenney kits — model lists per kit */
+/* generated from the downloaded Kenney kits — model lists per kit;
+   taaleiland-kit is eigen werk en staat er met de hand bij */
 window.KENNEY_KITS = [
  {
   "slug": "survival-kit",
@@ -334,6 +335,14 @@ window.KENNEY_KITS = [
    "wall-opening",
    "wood-structure",
    "wood-support"
+  ]
+ },
+ {
+  "slug": "taaleiland-kit",
+  "name": "Taaleiland Kit",
+  "url": null,
+  "models": [
+   "lighthouse"
   ]
  }
 ];
