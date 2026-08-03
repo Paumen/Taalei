@@ -39,6 +39,11 @@ const kleurgroepen = [];
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
+const eenheid = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 2 });
+
+const afmeting = (wdh) =>
+  Array.isArray(wdh) ? `${wdh.map((v) => eenheid.format(v)).join(' × ')} units` : '—';
+
 function span(klasse, tekst = '') {
   const element = document.createElement('span');
   element.className = klasse;
@@ -205,7 +210,9 @@ function toonDetail(model, kit, groep) {
 
   const rijen = [
     ['Bestand', model.pad],
+    ['Afmetingen (b × d × h)', afmeting(model.wdh)],
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
+    ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
     ['Grootte', bytesLeesbaar(model.bytes)],
     ['Licentie', `CC0 — ${kit?.licentie ?? 'zie kitmap'}`],
