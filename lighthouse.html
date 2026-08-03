@@ -56,9 +56,9 @@ function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, fl
 
 function stage(sky, ground, keyPos){
   const scene = new THREE.Scene();
-  scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.85));
-  scene.add(new THREE.AmbientLight(col('#EFEAE0'), 0.18));
-  const key = new THREE.DirectionalLight(col('#FFF6E8'), 0.9);
+  scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.58));
+  scene.add(new THREE.AmbientLight(col('#EFEAE0'), 0.09));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), 1.2);
   key.position.set(keyPos[0], keyPos[1], keyPos[2]);
   scene.add(key);
   const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
@@ -145,26 +145,22 @@ function lighthouse(){
   const CREAM = 0xf6f6f9, RED = 0xd5564d;               /* white [5,8], red [7,3] */
   const TIMBER = '#444754', TIMBER_DK = '#36363a', TIMBER_MD = '#4a4d5b'; /* dark timber (palet slate/grey cells) */
   const DOOR_WOOD = '#875541';                          /* wood [12,3] */
-  const STONE = '#c3c3d9', STONE_LT = '#d4d4e4';        /* light stone [5,11] [5,10] */
   const GOLD = '#ffbc50';                               /* gold [6,1] */
 
   const SIDES = 12;
 
-  /* low light-stone foot */
-  solid.push(part(new THREE.CylinderGeometry(0.345, 0.37, 0.055, SIDES), STONE, [tf([0, 0.0275, 0])]));
-  solid.push(part(new THREE.CylinderGeometry(0.315, 0.34, 0.075, SIDES), STONE_LT, [tf([0, 0.0925, 0])]));
-
-  /* flared tower — strong storybook sweep, five bands */
+  /* extra-chunky flared tower straight to the ground — five bands, red first
+     so the silhouette is anchored at the foot and red also meets the crown */
   const BANDS = 5, PER = 2;
-  const y0 = 0.13, y1 = 1.13, r0 = 0.315, r1 = 0.155, PW = 0.68;
+  const y0 = 0, y1 = 1.05, r0 = 0.4, r1 = 0.24, PW = 0.78;
   const rings = [];
   for(let i = 0; i <= BANDS*PER; i++){
     const t = i/(BANDS*PER);
     rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, PW)});
   }
   solid.push(part(spun(rings, SIDES, function(i){
-    return Math.floor(i/PER) % 2 === 0 ? CREAM : RED;
-  }, 0.04)));
+    return Math.floor(i/PER) % 2 === 0 ? RED : CREAM;
+  }, 0.12)));
 
   const rAt = function(y){
     const t = (y - y0)/(y1 - y0);
@@ -174,42 +170,42 @@ function lighthouse(){
   const da = Math.PI/2 - Math.PI/SIDES, dry = Math.PI/2 - da;
   const dp = function(d, y){ return [Math.cos(da)*d, y, Math.sin(da)*d]; };
 
-  /* corbel + thin gallery plate */
-  solid.push(part(new THREE.CylinderGeometry(0.26, 0.165, 0.075, SIDES), TIMBER_MD, [tf([0, 1.165, 0])]));
-  solid.push(part(new THREE.CylinderGeometry(0.29, 0.29, 0.03, SIDES), TIMBER, [tf([0, 1.217, 0])]));
+  /* corbel grows straight out of the tower top into a modest gallery */
+  solid.push(part(new THREE.CylinderGeometry(0.3, 0.245, 0.075, SIDES), TIMBER_MD, [tf([0, 1.0875, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.34, 0.34, 0.03, SIDES), TIMBER, [tf([0, 1.14, 0])]));
 
-  /* dark timber railing: 12 slim posts + rail ring */
+  /* dark timber railing: 12 posts + rail ring */
   for(let i = 0; i < SIDES; i++){
     const a = i/SIDES*Math.PI*2;
-    solid.push(part(new THREE.BoxGeometry(0.016, 0.09, 0.016), TIMBER_DK,
-      [tf([Math.cos(a)*0.27, 1.276, Math.sin(a)*0.27], [0, -a, 0])]));
+    solid.push(part(new THREE.BoxGeometry(0.02, 0.09, 0.02), TIMBER_DK,
+      [tf([Math.cos(a)*0.315, 1.2, Math.sin(a)*0.315], [0, -a, 0])]));
   }
-  solid.push(part(new THREE.TorusGeometry(0.272, 0.011, 4, SIDES), TIMBER_DK,
-    [tf([0, 1.325, 0], [Math.PI/2, 0, 0])]));
+  solid.push(part(new THREE.TorusGeometry(0.318, 0.013, 4, SIDES), TIMBER_DK,
+    [tf([0, 1.25, 0], [Math.PI/2, 0, 0])]));
 
-  /* lantern: dark drum, eight slim bars, dark fascia, gold trim band */
-  solid.push(part(new THREE.CylinderGeometry(0.15, 0.15, 0.04, SIDES), TIMBER_DK, [tf([0, 1.252, 0])]));
+  /* lantern: dark drum, eight bars, dark fascia, gold trim band */
+  solid.push(part(new THREE.CylinderGeometry(0.185, 0.185, 0.04, SIDES), TIMBER_DK, [tf([0, 1.175, 0])]));
   for(let i = 0; i < 8; i++){
     const a = i/8*Math.PI*2;
-    solid.push(part(new THREE.BoxGeometry(0.02, 0.2, 0.02), TIMBER_DK,
-      [tf([Math.cos(a)*0.126, 1.37, Math.sin(a)*0.126], [0, -a, 0])]));
+    solid.push(part(new THREE.BoxGeometry(0.025, 0.2, 0.025), TIMBER_DK,
+      [tf([Math.cos(a)*0.155, 1.295, Math.sin(a)*0.155], [0, -a, 0])]));
   }
-  solid.push(part(new THREE.CylinderGeometry(0.155, 0.155, 0.026, SIDES), TIMBER_DK, [tf([0, 1.482, 0])]));
-  solid.push(part(new THREE.TorusGeometry(0.148, 0.012, 4, SIDES), GOLD,
-    [tf([0, 1.5, 0], [Math.PI/2, 0, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.19, 0.19, 0.026, SIDES), TIMBER_DK, [tf([0, 1.407, 0])]));
+  solid.push(part(new THREE.TorusGeometry(0.182, 0.013, 4, SIDES), GOLD,
+    [tf([0, 1.425, 0], [Math.PI/2, 0, 0])]));
 
-  /* squat cap — short wide cone like the reference, gold button */
-  solid.push(part(new THREE.ConeGeometry(0.205, 0.155, SIDES), TIMBER, [tf([0, 1.573, 0])]));
-  solid.push(part(new THREE.IcosahedronGeometry(0.022, 0), GOLD, [tf([0, 1.662, 0])]));
+  /* turret cap — cone flush with the fascia (no overhang), gold button */
+  solid.push(part(new THREE.ConeGeometry(0.205, 0.175, SIDES), TIMBER, [tf([0, 1.5075, 0])]));
+  solid.push(part(new THREE.IcosahedronGeometry(0.025, 0), GOLD, [tf([0, 1.605, 0])]));
 
-  /* door with awning: cream frame, dark door, gold knob, plank canopy, stone step */
-  const dr = rAt(0.3);
-  solid.push(part(new THREE.BoxGeometry(0.13, 0.24, 0.03), CREAM, [tf(dp(dr + 0.004, 0.28), [0, dry, 0])]));
-  solid.push(part(new THREE.BoxGeometry(0.095, 0.2, 0.03), DOOR_WOOD, [tf(dp(dr + 0.014, 0.27), [0, dry, 0])]));
-  solid.push(part(new THREE.BoxGeometry(0.014, 0.014, 0.014), GOLD, [tf(dp(dr + 0.032, 0.26), [0, dry, 0], [1, 1, 1])]));
-  solid.push(part(new THREE.BoxGeometry(0.14, 0.03, 0.09), STONE, [tf(dp(dr + 0.06, 0.145), [0, dry, 0])]));
+  /* door: cream frame, dark wooden door, gold knob, dark step */
+  const dr = rAt(0.28);
+  solid.push(part(new THREE.BoxGeometry(0.14, 0.26, 0.03), CREAM, [tf(dp(dr + 0.004, 0.26), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.105, 0.22, 0.03), DOOR_WOOD, [tf(dp(dr + 0.014, 0.25), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.016, 0.016, 0.016), GOLD, [tf(dp(dr + 0.032, 0.24), [0, dry, 0], [1, 1, 1])]));
+  solid.push(part(new THREE.BoxGeometry(0.15, 0.07, 0.1), TIMBER_MD, [tf(dp(rAt(0.05) + 0.045, 0.035), [0, dry, 0])]));
 
-  /* kit scale: windmill reference is 3.11 units tall — ×2 puts the lighthouse at 3.4 */
+  /* kit scale: windmill reference is 3.11 units tall — ×2 puts the lighthouse at 3.2 */
   const model = new THREE.Group();
   model.scale.setScalar(2);
   st.turn.add(model);
@@ -217,34 +213,34 @@ function lighthouse(){
 
   /* the rest stays separate: transparent or animated */
 
-  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.115, 0.128, 0.2, 8), new THREE.MeshPhongMaterial({
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.155, 0.2, 8), new THREE.MeshPhongMaterial({
     color: col('#ffcd5e'), emissive: col('#b8860b'), flatShading:true, shininess:0,
     specular:col('#000000'), transparent:true, opacity:0.96
   }));
-  lamp.position.y = 1.37;
+  lamp.position.y = 1.295;
   model.add(lamp);
 
   const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.21, 0), new THREE.MeshBasicMaterial({
     color: col('#ffbc50'), transparent:true, opacity:0.14, depthWrite:false
   }));
-  glow.position.y = 1.37;
+  glow.position.y = 1.295;
   model.add(glow);
 
   /* warm spill from the lamp onto the eaves and deck */
   const spill = new THREE.PointLight(col('#ffcd5e'), 0.55, 4.5);
-  spill.position.y = 1.37;
+  spill.position.y = 1.295;
   model.add(spill);
 
   /* two sweeping beams */
   const beams = new THREE.Group();
-  beams.position.y = 1.37;
+  beams.position.y = 1.295;
   model.add(beams);
   [1, -1].forEach(function(s){
-    const b = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.85, 8, 1, true), new THREE.MeshBasicMaterial({
+    const b = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.85, 8, 1, true), new THREE.MeshBasicMaterial({
       color: col('#ffcd5e'), transparent:true, opacity:0.1, depthWrite:false, side:THREE.DoubleSide
     }));
     b.rotation.z = s*Math.PI/2;
-    b.position.x = s*0.55;
+    b.position.x = s*0.58;
     beams.add(b);
   });
 
