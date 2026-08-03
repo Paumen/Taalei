@@ -123,6 +123,27 @@ deksel(0.62, 3.3, 'donker', 0.6, true);
 mantel(0.62, 3.3, 0.62, 3.46, 'donker', 0.5, 0.3);
 deksel(0.62, 3.46, 'donker', 0.25);
 
+// Reling op de omloop: acht stevige posten met een handrail-ring erboven.
+// De ring is een enkele achthoekige wand; het materiaal is doubleSided,
+// dus hij is van binnen en buiten zichtbaar.
+const relingR = 0.57, relingPost = 0.05, postTop = 3.82;
+for (let i = 0; i < N; i++) {
+  const hoek = (i / N) * Math.PI * 2; // op de hoekpunten van de omloop
+  const px = relingR * Math.sin(hoek), pz = relingR * Math.cos(hoek);
+  const w = relingPost / 2;
+  const A = [px - w, 3.46, pz + w], B = [px + w, 3.46, pz + w];
+  const C = [px + w, postTop, pz + w], D = [px - w, postTop, pz + w];
+  const E = [px - w, 3.46, pz - w], F = [px + w, 3.46, pz - w];
+  const G = [px + w, postTop, pz - w], H = [px - w, postTop, pz - w];
+  const u0 = uv('donker', 0.55), u1 = uv('donker', 0.3);
+  quad(A, B, C, D, u0, u1);
+  quad(F, E, H, G, u0, u1);
+  quad(E, A, D, H, u0, u1);
+  quad(B, F, G, C, u0, u1);
+  quad(D, C, G, H, u1, u1);
+}
+mantel(relingR, 3.72, relingR, 3.78, 'donker', 0.45, 0.3);
+
 // Lantaarn: warm geel licht
 mantel(0.4, 3.46, 0.4, 4.01, 'geel', 0.55, 0.1);
 
