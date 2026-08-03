@@ -239,6 +239,7 @@ function normaalMatrix(m) {
  *   eiland   houd daarna alleen het grootste aaneengesloten stuk
  *   hercel   { 'kolom/rij': 'kolom/rij' } verplaatst uv's naar een andere paletcel
  *   facetten vervang de normalen door één normaal per driehoek
+ *   groep    'body' of 'blades' — welke van de twee tekenopdrachten dit wordt
  * @param {...number[]} matrices  van buiten naar binnen, zoals je ze leest
  */
 function zet(pad, opties, ...matrices) {
@@ -324,11 +325,11 @@ function zet(pad, opties, ...matrices) {
           t.push(uvs[j * 2], uvs[j * 2 + 1]);
         }
       }
-      delen.push({ posities: p, normalen: n, uvs: t, indices: nieuw });
+      delen.push({ groep: opties.groep ?? 'body', posities: p, normalen: n, uvs: t, indices: nieuw });
       continue;
     }
 
-    delen.push({ posities, normalen, uvs, indices });
+    delen.push({ groep: opties.groep ?? 'body', posities, normalen, uvs, indices });
   }
 }
 
@@ -467,9 +468,10 @@ function bouwMolen(naam) {
    * Het kruis moet vrij langs de romp én langs de dakrand kunnen draaien, en die
    * steken allebei verder uit dan de kap op naafhoogte. Het kruis kan dus niet
    * tegen de kap aan staan; daar zit in het echt ook een as tussen. */
-  const naafY = BOVEN + kap.hoogte * 0.25;
+  const naafY = BOVEN + kap.hoogte * 0.15;
   const naafX = Math.max(kap.voorkant, PLINT_BREED * 0.975) + WIEK_DIK + 0.06;
-  zet('fantasy-town-kit/windmill', { hercel: { '5/3': '5/2' } }, T(naafX, naafY, 0));
+  zet('fantasy-town-kit/windmill', { groep: 'blades', hercel: { '5/3': '5/2' } },
+    T(naafX, naafY, 0));
 
   /* De bovenas: `pillar-wood` een kwartslag gekanteld, van de hartlijn van de
    * molen tot in het blok van de naaf. Hij begint op x = 0 en niet net binnen de
@@ -479,40 +481,57 @@ function bouwMolen(naam) {
    * is: op deze afstand is 0.16 een speldenprik en blijft het kruis er los naast
    * hangen. */
   const AS_DIK = 2.2;
-  zet('fantasy-town-kit/pillar-wood', {},
+  zet('fantasy-town-kit/pillar-wood', { groep: 'blades' },
     T(0, naafY, 0), samenstellen({ r: [0, 0, -Math.sin(Math.PI / 4), Math.cos(Math.PI / 4)] }),
     S(AS_DIK, naafX + 0.12, AS_DIK));
 
-  return schrijfGlb(naam);
+  return schrijfGlb(naam, [naafX, naafY, 0]);
 }
 
 /* -- wegschrijven ---------------------------------------------------------
- * Eén mesh, één primitive, één opaak materiaal `colormap` dat via een externe
- * URI naar Textures/colormap.png wijst: precies de vorm die de Kenney-bestanden
- * ook hebben.
+ * Twee tekenopdrachten: de romp en de wieken. Ze staan in twee meshes op twee
+ * nodes en niet in één mesh met twee primitives, want dan zouden ze dezelfde
+ * transform delen. De wieken hangen aan een eigen node met de naaf als
+ * oorsprong, zodat een draaiing om de x-as van die node precies de wieken laat
+ * draaien en verder niets. De bovenas zit bij de wieken: die draait mee.
+ *
+ * Eén opaak materiaal `colormap` dat via een externe URI naar
+ * Textures/colormap.png wijst, precies zoals de Kenney-bestanden.
  */
-function schrijfGlb(naam) {
-  const posities = [];
-  const normalen = [];
-  const uvs = [];
-  const indices = [];
+const GROEPEN = ['body', 'blades'];
+
+function schrijfGlb(naam, spil) {
   /* Alleen de hoekpunten die een driehoek ook echt gebruikt. De filters op
    * `zet` gooien driehoeken weg maar laten de hoekpuntenlijst heel; zonder deze
    * stap schrijven we de weggelaten poten en palmbladeren van structure-roof
    * alsnog mee. */
-  for (const deel of delen) {
-    const hernummerd = new Map();
-    for (const oud of deel.indices) {
-      let nieuw = hernummerd.get(oud);
-      if (nieuw === undefined) {
-        nieuw = posities.length / 3;
-        hernummerd.set(oud, nieuw);
-        posities.push(deel.posities[oud * 3], deel.posities[oud * 3 + 1], deel.posities[oud * 3 + 2]);
-        normalen.push(deel.normalen[oud * 3], deel.normalen[oud * 3 + 1], deel.normalen[oud * 3 + 2]);
-        uvs.push(deel.uvs[oud * 2], deel.uvs[oud * 2 + 1]);
+  const posities = [];
+  const normalen = [];
+  const uvs = [];
+  const indices = [];
+  const stukken = [];
+
+  for (const groep of GROEPEN) {
+    const vanaf = indices.length;
+    // De wieken worden om hun eigen naaf geschreven; de node zet ze weer op plek.
+    const verschuif = groep === 'blades' ? spil : [0, 0, 0];
+    for (const deel of delen.filter((d) => d.groep === groep)) {
+      const hernummerd = new Map();
+      for (const oud of deel.indices) {
+        let nieuw = hernummerd.get(oud);
+        if (nieuw === undefined) {
+          nieuw = posities.length / 3;
+          hernummerd.set(oud, nieuw);
+          for (let c = 0; c < 3; c++) {
+            posities.push(deel.posities[oud * 3 + c] - verschuif[c]);
+            normalen.push(deel.normalen[oud * 3 + c]);
+          }
+          uvs.push(deel.uvs[oud * 2], deel.uvs[oud * 2 + 1]);
+        }
+        indices.push(nieuw);
       }
-      indices.push(nieuw);
     }
+    stukken.push({ groep, vanaf, aantal: indices.length - vanaf, verschuif });
   }
 
   const aantal = posities.length / 3;
@@ -520,24 +539,44 @@ function schrijfGlb(naam) {
   const posBuf = Buffer.alloc(aantal * 12);
   const norBuf = Buffer.alloc(aantal * 12);
   const uvBuf = Buffer.alloc(aantal * 8);
-  const min = [Infinity, Infinity, Infinity];
-  const max = [-Infinity, -Infinity, -Infinity];
 
   for (let i = 0; i < aantal; i++) {
     for (let c = 0; c < 3; c++) {
-      const waarde = Math.fround(posities[i * 3 + c]);
-      posBuf.writeFloatLE(waarde, i * 12 + c * 4);
+      posBuf.writeFloatLE(Math.fround(posities[i * 3 + c]), i * 12 + c * 4);
       norBuf.writeFloatLE(Math.fround(normalen[i * 3 + c]), i * 12 + c * 4);
-      min[c] = Math.min(min[c], waarde);
-      max[c] = Math.max(max[c], waarde);
     }
     uvBuf.writeFloatLE(Math.fround(uvs[i * 2]), i * 8);
     uvBuf.writeFloatLE(Math.fround(uvs[i * 2 + 1]), i * 8 + 4);
   }
 
+  /* min/max per stuk, want elke primitive heeft zijn eigen POSITION-accessor. */
+  for (const stuk of stukken) {
+    const min = [Infinity, Infinity, Infinity];
+    const max = [-Infinity, -Infinity, -Infinity];
+    let laagste = Infinity;
+    let hoogste = -1;
+    for (let i = stuk.vanaf; i < stuk.vanaf + stuk.aantal; i++) {
+      laagste = Math.min(laagste, indices[i]);
+      hoogste = Math.max(hoogste, indices[i]);
+    }
+    for (let v = laagste; v <= hoogste; v++) {
+      for (let c = 0; c < 3; c++) {
+        const waarde = Math.fround(posities[v * 3 + c]);
+        min[c] = Math.min(min[c], waarde);
+        max[c] = Math.max(max[c], waarde);
+      }
+    }
+    Object.assign(stuk, { min, max, eersteHoek: laagste, hoeken: hoogste - laagste + 1 });
+  }
+
   const idxBuf = Buffer.alloc(indices.length * (groteIndices ? 4 : 2));
-  indices.forEach((waarde, i) =>
-    groteIndices ? idxBuf.writeUInt32LE(waarde, i * 4) : idxBuf.writeUInt16LE(waarde, i * 2));
+  for (const stuk of stukken) {
+    for (let i = stuk.vanaf; i < stuk.vanaf + stuk.aantal; i++) {
+      const waarde = indices[i] - stuk.eersteHoek;
+      if (groteIndices) idxBuf.writeUInt32LE(waarde, i * 4);
+      else idxBuf.writeUInt16LE(waarde, i * 2);
+    }
+  }
 
   const blokken = [posBuf, norBuf, uvBuf, idxBuf];
   const views = [];
@@ -557,11 +596,21 @@ function schrijfGlb(naam) {
     },
     scene: 0,
     scenes: [{ nodes: [0], name: naam }],
-    nodes: [{ mesh: 0, name: naam }],
-    meshes: [{
-      name: naam,
-      primitives: [{ attributes: { POSITION: 0, NORMAL: 1, TEXCOORD_0: 2 }, indices: 3, material: 0 }],
-    }],
+    /* De wieken hangen als kind onder de romp: verplaats je de molen, dan gaan
+     * ze mee, en draai je alleen deze node om zijn x-as, dan draaien alleen de
+     * wieken. De oorsprong van die node is de naaf. */
+    nodes: [
+      { mesh: 0, name: naam, children: [1] },
+      { mesh: 1, name: 'blades', translation: stukken[1].verschuif.map((v) => Math.fround(v)) },
+    ],
+    meshes: GROEPEN.map((groep, i) => ({
+      name: groep,
+      primitives: [{
+        attributes: { POSITION: i * 3, NORMAL: i * 3 + 1, TEXCOORD_0: i * 3 + 2 },
+        indices: 6 + i,
+        material: 0,
+      }],
+    })),
     materials: [{
       name: 'colormap',
       doubleSided: true,
@@ -570,11 +619,21 @@ function schrijfGlb(naam) {
     textures: [{ sampler: 0, source: 0, name: 'colormap' }],
     images: [{ uri: 'Textures/colormap.png', name: 'colormap' }],
     samplers: [{ magFilter: 9728, minFilter: 9728 }],
+    /* Per stuk een eigen venster op dezelfde drie buffers, zodat de indices per
+     * mesh bij nul beginnen en de bounding box klopt. */
     accessors: [
-      { bufferView: 0, componentType: 5126, count: aantal, type: 'VEC3', min, max },
-      { bufferView: 1, componentType: 5126, count: aantal, type: 'VEC3' },
-      { bufferView: 2, componentType: 5126, count: aantal, type: 'VEC2' },
-      { bufferView: 3, componentType: groteIndices ? 5125 : 5123, count: indices.length, type: 'SCALAR' },
+      ...stukken.flatMap((stuk) => [
+        { bufferView: 0, byteOffset: stuk.eersteHoek * 12, componentType: 5126, count: stuk.hoeken, type: 'VEC3', min: stuk.min, max: stuk.max },
+        { bufferView: 1, byteOffset: stuk.eersteHoek * 12, componentType: 5126, count: stuk.hoeken, type: 'VEC3' },
+        { bufferView: 2, byteOffset: stuk.eersteHoek * 8, componentType: 5126, count: stuk.hoeken, type: 'VEC2' },
+      ]),
+      ...stukken.map((stuk) => ({
+        bufferView: 3,
+        byteOffset: stuk.vanaf * (groteIndices ? 4 : 2),
+        componentType: groteIndices ? 5125 : 5123,
+        count: stuk.aantal,
+        type: 'SCALAR',
+      })),
     ],
     bufferViews: views.map((view, i) => ({ ...view, target: i === 3 ? 34963 : 34962 })),
     buffers: [{ byteLength: bin.length }],
@@ -596,11 +655,22 @@ function schrijfGlb(naam) {
   writeFileSync(join(KITS, 'taalei-kit', `${naam}.glb`),
     Buffer.concat([kop, jsonKop, jsonPad, binKop, bin]));
 
+  /* Buitenmaat over beide stukken heen, met de node-verschuiving er weer bij. */
+  const wereldMin = [Infinity, Infinity, Infinity];
+  const wereldMax = [-Infinity, -Infinity, -Infinity];
+  for (const stuk of stukken) {
+    for (let c = 0; c < 3; c++) {
+      wereldMin[c] = Math.min(wereldMin[c], stuk.min[c] + stuk.verschuif[c]);
+      wereldMax[c] = Math.max(wereldMax[c], stuk.max[c] + stuk.verschuif[c]);
+    }
+  }
+
   return {
     naam,
-    maat: [max[0] - min[0], max[2] - min[2], max[1] - min[1]],
+    maat: [0, 2, 1].map((c) => wereldMax[c] - wereldMin[c]),
     driehoeken: indices.length / 3,
     hoekpunten: aantal,
+    tekenopdrachten: stukken.length,
   };
 }
 
@@ -609,5 +679,5 @@ for (const naam of Object.keys(KAPPEN)) {
   console.log(
     `kits/taalei-kit/${uit.naam}.glb — ${uit.maat.map((v) => v.toFixed(3)).join(' × ')} (b × d × h)`,
   );
-  console.log(`  ${uit.driehoeken} driehoeken, ${uit.hoekpunten} hoekpunten, 1 tekenopdracht`);
+  console.log(`  ${uit.driehoeken} driehoeken, ${uit.hoekpunten} hoekpunten, ${uit.tekenopdrachten} tekenopdrachten`);
 }
