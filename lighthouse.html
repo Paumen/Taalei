@@ -145,7 +145,8 @@ function lighthouse(){
   const CREAM = 0xf6f6f9, RED = 0xd5564d;               /* white [5,8], red [7,3] */
   const TIMBER = '#444754', TIMBER_DK = '#36363a', TIMBER_MD = '#4a4d5b'; /* dark timber (palet slate/grey cells) */
   const DOOR_WOOD = '#875541';                          /* wood [12,3] */
-  const STONE = '#c3c3d9', STONE_LT = '#d4d4e4';        /* light stone [5,11] [5,10] */
+  /* foot matches the crown so the tower is bracketed by the same dark timber */
+  const STONE = '#36363a', STONE_LT = '#444754';        /* same cells as the crown */
   const GOLD = '#ffbc50';                               /* gold [6,1] */
 
   const SIDES = 12;
@@ -199,8 +200,8 @@ function lighthouse(){
   solid.push(part(new THREE.TorusGeometry(0.195, 0.013, 4, SIDES), GOLD,
     [tf([0, 1.446, 0], [Math.PI/2, 0, 0])]));
 
-  /* variant C cap: squat wide cone sitting on the fascia, no ornament */
-  solid.push(part(new THREE.ConeGeometry(0.271, 0.155, SIDES), TIMBER, [tf([0, 1.523, 0])]));
+  /* cap: squat cone flush with the fascia, no overhang, no ornament */
+  solid.push(part(new THREE.ConeGeometry(0.205, 0.155, SIDES), TIMBER, [tf([0, 1.523, 0])]));
 
   /* door standing on the stone foot: cream frame, dark wooden door, gold knob */
   const dr = rAt(0.3);
