@@ -57,8 +57,8 @@ function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, fl
 function stage(sky, ground, keyPos){
   const scene = new THREE.Scene();
   scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.85));
-  scene.add(new THREE.AmbientLight(col('#E6EAEE'), 0.16));
-  const key = new THREE.DirectionalLight(col('#FFF6E8'), 0.85);
+  scene.add(new THREE.AmbientLight(col('#EFEAE0'), 0.18));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), 0.9);
   key.position.set(keyPos[0], keyPos[1], keyPos[2]);
   scene.add(key);
   const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
@@ -143,62 +143,62 @@ function lighthouse(){
 
   /* palette — all values are cells of the shared colormap (kits/colormap.png) */
   const CREAM = 0xf6f6f9, RED = 0xd5564d;               /* white [5,8], red [7,3] */
-  const WOOD = '#9e5b41', WOOD_DK = '#875541', WOOD_LT = '#cd8861'; /* wood [12,1] [12,3] [13,3] */
-  const STONE = '#737990';                              /* slate [15,13] */
+  const WOOD = '#9e5b41', WOOD_DK = '#875541';          /* wood [12,1] [12,3] */
+  const STONE = '#5b6179';                              /* slate [15,15] */
 
-  const SIDES = 12, BANDS = 4, PER = 2;
+  const SIDES = 12, BANDS = 5, PER = 2;
 
-  /* chunky caricature: wide foot, strong taper, slight concave sweep */
-  const y0 = 0.12, y1 = 1.0, r0 = 0.36, r1 = 0.2;
+  /* toy taper: wide foot, slender waist, slight concave sweep */
+  const y0 = 0.12, y1 = 1.12, r0 = 0.32, r1 = 0.175;
   const rings = [];
   for(let i = 0; i <= BANDS*PER; i++){
     const t = i/(BANDS*PER);
-    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, 0.8)});
+    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, 0.85)});
   }
   solid.push(part(spun(rings, SIDES, function(i){
     return Math.floor(i/PER) % 2 === 0 ? CREAM : RED;
-  }, 0.06)));
+  }, 0.05)));
 
   /* stone plinth — part of the building, not terrain */
-  solid.push(part(new THREE.CylinderGeometry(0.38, 0.41, 0.12, SIDES), STONE, [tf([0, 0.06, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.34, 0.365, 0.12, SIDES), STONE, [tf([0, 0.06, 0])]));
 
-  /* wooden gallery deck, chunky overhang */
-  solid.push(part(new THREE.CylinderGeometry(0.31, 0.26, 0.07, SIDES), WOOD_LT, [tf([0, 1.03, 0])]));
+  /* wooden gallery deck */
+  solid.push(part(new THREE.CylinderGeometry(0.275, 0.23, 0.06, SIDES), WOOD, [tf([0, 1.14, 0])]));
 
-  /* wooden railing: 12 chunky posts + one rail ring */
+  /* dark wooden railing: 12 posts + one rail ring */
   for(let i = 0; i < SIDES; i++){
     const a = i/SIDES*Math.PI*2;
-    solid.push(part(new THREE.BoxGeometry(0.026, 0.1, 0.026), WOOD_DK,
-      [tf([Math.cos(a)*0.285, 1.115, Math.sin(a)*0.285], [0, -a, 0])]));
+    solid.push(part(new THREE.BoxGeometry(0.022, 0.095, 0.022), WOOD_DK,
+      [tf([Math.cos(a)*0.255, 1.215, Math.sin(a)*0.255], [0, -a, 0])]));
   }
-  solid.push(part(new THREE.TorusGeometry(0.288, 0.015, 4, SIDES), WOOD,
-    [tf([0, 1.168, 0], [Math.PI/2, 0, 0])]));
+  solid.push(part(new THREE.TorusGeometry(0.258, 0.014, 4, SIDES), WOOD_DK,
+    [tf([0, 1.265, 0], [Math.PI/2, 0, 0])]));
 
-  /* lantern room: wooden sill, 6 chunky wooden mullions, wooden fascia */
-  solid.push(part(new THREE.CylinderGeometry(0.185, 0.185, 0.035, SIDES), WOOD, [tf([0, 1.075, 0])]));
-  for(let i = 0; i < 6; i++){
-    const a = i/6*Math.PI*2;
-    solid.push(part(new THREE.BoxGeometry(0.03, 0.19, 0.03), WOOD_DK,
-      [tf([Math.cos(a)*0.155, 1.19, Math.sin(a)*0.155], [0, -a, 0])]));
+  /* lantern room: dark wood sill, 8 mullions and fascia so the lamp glows against them */
+  solid.push(part(new THREE.CylinderGeometry(0.17, 0.17, 0.03, SIDES), WOOD_DK, [tf([0, 1.18, 0])]));
+  for(let i = 0; i < 8; i++){
+    const a = i/8*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.024, 0.18, 0.024), WOOD_DK,
+      [tf([Math.cos(a)*0.14, 1.285, Math.sin(a)*0.14], [0, -a, 0])]));
   }
-  solid.push(part(new THREE.CylinderGeometry(0.19, 0.19, 0.03, SIDES), WOOD, [tf([0, 1.295, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.175, 0.175, 0.026, SIDES), WOOD_DK, [tf([0, 1.388, 0])]));
 
-  /* wooden cap: fat 12-sided cone + button finial */
-  solid.push(part(new THREE.ConeGeometry(0.235, 0.21, SIDES), WOOD, [tf([0, 1.41, 0])]));
-  solid.push(part(new THREE.CylinderGeometry(0.02, 0.028, 0.05, 6), WOOD_DK, [tf([0, 1.53, 0])]));
+  /* wooden cap: trim 12-sided cone + button finial */
+  solid.push(part(new THREE.ConeGeometry(0.2, 0.17, SIDES), WOOD, [tf([0, 1.485, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.018, 0.026, 0.045, 6), WOOD_DK, [tf([0, 1.59, 0])]));
 
-  /* door: cream frame, wooden door, wooden step */
+  /* door: cream frame, dark wooden door, light wooden step */
   const rAt = function(y){
     const t = (y - y0)/(y1 - y0);
-    return (r0 + (r1-r0)*Math.pow(t, 0.8)) * Math.cos(Math.PI/SIDES);
+    return (r0 + (r1-r0)*Math.pow(t, 0.85)) * Math.cos(Math.PI/SIDES);
   };
   /* door sits centred on a facet: +Z lands on an edge with 12 sides, so swing half a facet */
   const da = Math.PI/2 - Math.PI/SIDES, dry = Math.PI/2 - da;
   const dp = function(d, y){ return [Math.cos(da)*d, y, Math.sin(da)*d]; };
   const dr = rAt(0.3);
-  solid.push(part(new THREE.BoxGeometry(0.15, 0.26, 0.035), CREAM, [tf(dp(dr + 0.004, 0.28), [0, dry, 0])]));
-  solid.push(part(new THREE.BoxGeometry(0.11, 0.215, 0.035), WOOD_DK, [tf(dp(dr + 0.016, 0.27), [0, dry, 0])]));
-  solid.push(part(new THREE.BoxGeometry(0.18, 0.04, 0.12), WOOD_LT, [tf(dp(dr + 0.09, 0.14), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.13, 0.24, 0.03), CREAM, [tf(dp(dr + 0.004, 0.28), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.095, 0.2, 0.03), WOOD_DK, [tf(dp(dr + 0.014, 0.27), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.16, 0.036, 0.11), STONE, [tf(dp(dr + 0.07, 0.14), [0, dry, 0])]));
 
   /* kit scale: windmill reference is 3.11 units tall — ×2 puts the lighthouse at 3.1 */
   const model = new THREE.Group();
@@ -208,20 +208,20 @@ function lighthouse(){
 
   /* the two below stay separate: transparent */
 
-  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.15, 0.19, 8), new THREE.MeshPhongMaterial({
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.125, 0.135, 0.18, 8), new THREE.MeshPhongMaterial({
     color: col('#ffcd5e'), emissive: col('#9C7616'), flatShading:true, shininess:0,
     specular:col('#000000'), transparent:true, opacity:0.94
   }));
-  lamp.position.y = 1.19;
+  lamp.position.y = 1.285;
   model.add(lamp);
 
   const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.24, 0), new THREE.MeshBasicMaterial({
     color: col('#ffbc50'), transparent:true, opacity:0.15, depthWrite:false
   }));
-  glow.position.y = 1.19;
+  glow.position.y = 1.285;
   model.add(glow);
 
-  return {stage:st, cam:[0, 3.0, 6.2], look:[0, 1.4, 0], spin:0.15};
+  return {stage:st, cam:[0, 2.9, 6.05], look:[0, 1.42, 0], spin:0.15};
 }
 
 /* ---------- assembly ---------- */
