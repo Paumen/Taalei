@@ -467,16 +467,21 @@ function bouwMolen(naam) {
    * Het kruis moet vrij langs de romp én langs de dakrand kunnen draaien, en die
    * steken allebei verder uit dan de kap op naafhoogte. Het kruis kan dus niet
    * tegen de kap aan staan; daar zit in het echt ook een as tussen. */
-  const naafY = BOVEN + kap.hoogte * 0.45;
+  const naafY = BOVEN + kap.hoogte * 0.25;
   const naafX = Math.max(kap.voorkant, PLINT_BREED * 0.975) + WIEK_DIK + 0.06;
   zet('fantasy-town-kit/windmill', { hercel: { '5/3': '5/2' } }, T(naafX, naafY, 0));
 
-  /* De bovenas: `pillar-wood` een kwartslag gekanteld, van binnen de kap tot in
-   * het blok van de naaf, zodat het wiekenkruis ergens aan vastzit. */
-  const asVan = kapVoorkantOp(naafY) - 0.15;
+  /* De bovenas: `pillar-wood` een kwartslag gekanteld, van de hartlijn van de
+   * molen tot in het blok van de naaf. Hij begint op x = 0 en niet net binnen de
+   * kap, want waar de kap op naafhoogte precies eindigt hangt van de kapvorm af;
+   * vanaf de as zelf beginnen laat gegarandeerd geen kier vallen, en het stuk
+   * binnen de kap zie je toch niet. Ruim twee keer zo dik als de paal van zichzelf
+   * is: op deze afstand is 0.16 een speldenprik en blijft het kruis er los naast
+   * hangen. */
+  const AS_DIK = 2.2;
   zet('fantasy-town-kit/pillar-wood', {},
-    T(asVan, naafY, 0), samenstellen({ r: [0, 0, -Math.sin(Math.PI / 4), Math.cos(Math.PI / 4)] }),
-    S(1, naafX + 0.12 - asVan, 1), T(0, 0, 0));
+    T(0, naafY, 0), samenstellen({ r: [0, 0, -Math.sin(Math.PI / 4), Math.cos(Math.PI / 4)] }),
+    S(AS_DIK, naafX + 0.12, AS_DIK));
 
   return schrijfGlb(naam);
 }
