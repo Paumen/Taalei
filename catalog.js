@@ -1,18 +1,3 @@
-/**
- * Taaleiland 3D-catalogus.
- *
- * Drie weergaven over dezelfde dataset: per kit (waar komt het vandaan), per
- * semantische groep (wat is het), en de grot. Die laatste deelt geen atlas en
- * geen kleur met de rest, dus hij staat niet tussen de andere kits maar op een
- * eigen tabblad.
- *
- * De 3D-previews worden pas aangemaakt als een kaart in de buurt van het
- * scherm komt en weer opgeruimd zodra hij ver weg is — met bijna 300 modellen,
- * de meeste in twee weergaven, zou alles tegelijk laden de pagina onbruikbaar
- * maken. Bij het opruimen bewaren we het laatste frame,
- * zodat terugscrollen niets opnieuw hoeft te downloaden.
- */
-
 const KIT_KLEUREN = {
   'survival-kit': '#6cb588',
   'pirate-kit': '#474a58',
@@ -23,18 +8,11 @@ const KIT_KLEUREN = {
   'mini-dungeon': '#6d738a',
 };
 
-/**
- * Groep-ids die niet meer bestaan → de groep waar hun modellen nu staan. Een
- * oude link (#groep-bouw) komt zo nog steeds ergens zinnigs uit in plaats van
- * op de standaardweergave. Bij een splitsing wijst de oude id naar het grootste
- * deel: `bouw` viel uiteen in het bouwpakket en de bouwwerken.
- */
 const GROEP_ALIASSEN = {
   bouw: 'bouwwerken',
   mechaniek: 'items',
 };
 
-/** Vanaf hoeveel driehoeken een model extra aandacht verdient in een scene. */
 const ZWAAR_VANAF = 1500;
 
 const getal = new Intl.NumberFormat('nl-NL');
@@ -47,39 +25,26 @@ const leegmelding = document.querySelector('#leeg');
 const samenvatting = document.querySelector('#samenvatting');
 const detail = document.querySelector('#detail');
 
-/** Alle kaarten, met de tekst waarop gezocht wordt. */
 const kaarten = [];
-/** Alle secties, met hun kaarten en het bijbehorende springlijst-item. */
 const secties = [];
 
 let huidigeWeergave = 'kits';
-/**
- * Aangeklikte kleuren als `palet|hex`; leeg = geen kleurfilter, meerdere = OF.
- * De grot heeft zijn eigen texture-atlas, dus dezelfde hex kan in twee
- * paletten voorkomen (#9da4c4 is er zowel gedeeld staal als grotstaal). Op de
- * hex alleen filteren zou die twee door elkaar halen.
- */
+
 const gekozenKleuren = new Set();
 
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
 
-/** Stalengroepen per palet, om ze per weergave te tonen of te verbergen. */
 const kleurgroepen = [];
-
-/* ---------- opmaakhulpjes ---------- */
 
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
-/** Alle tekst uit catalog.json gaat via textContent, nooit via innerHTML. */
 function span(klasse, tekst = '') {
   const element = document.createElement('span');
   element.className = klasse;
   element.textContent = tekst;
   return element;
 }
-
-/* ---------- 3D-preview aan- en afkoppelen ---------- */
 
 const waarnemer = new IntersectionObserver(
   (waarnemingen) => {
@@ -104,7 +69,7 @@ function koppelViewer(vak) {
   viewer.setAttribute('exposure', '1.05');
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('disable-zoom', '');
-  viewer.setAttribute('loading', 'eager'); // wij bepalen zelf wanneer, via de waarnemer
+  viewer.setAttribute('loading', 'eager');
   vak.replaceChildren(viewer);
 }
 
@@ -112,13 +77,10 @@ function ontkoppelViewer(vak) {
   const viewer = vak.querySelector('model-viewer');
   if (!viewer) return;
 
-  // Laatste frame vasthouden zodat het rooster gevuld blijft bij terugscrollen.
   if (viewer.loaded && !vak.dataset.momentopname) {
     try {
       vak.dataset.momentopname = viewer.toDataURL('image/webp', 0.72);
-    } catch {
-      /* toDataURL kan falen als de WebGL-context net is vrijgegeven; dan tonen we de achtergrond. */
-    }
+    } catch {}
   }
 
   if (vak.dataset.momentopname) {
@@ -131,8 +93,6 @@ function ontkoppelViewer(vak) {
     vak.replaceChildren();
   }
 }
-
-/* ---------- kaarten en secties ---------- */
 
 function maakKaart(model, kits, groepen, weergave) {
   const kit = kits.get(model.kit);
@@ -172,7 +132,6 @@ function maakKaart(model, kits, groepen, weergave) {
       model.kit,
       kit?.naam ?? '',
       groep?.naam ?? '',
-      model.trefwoorden.join(' '),
     ].join(' ').toLowerCase(),
   };
   kaarten.push(item);
@@ -186,7 +145,6 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
   sectie.className = 'sectie';
   sectie.id = id;
   sectie.dataset.weergave = weergave;
-  // 'kit' of 'groep' — bepaalt of de kop de herkomst al noemt; zie catalog.css.
   sectie.dataset.soort = soort;
   if (kleur) sectie.style.setProperty('--sectie-kleur', kleur);
 
@@ -234,8 +192,6 @@ function maakSpringitem(sectie, titel, aantal, kleur) {
   springlijst.append(link);
   return link;
 }
-
-/* ---------- detailvenster ---------- */
 
 const detailViewer = document.querySelector('#detail-viewer');
 const detailKopieer = document.querySelector('#detail-kopieer');
@@ -297,19 +253,11 @@ detailKopieer.addEventListener('click', async () => {
   setTimeout(() => { detailKopieer.textContent = 'Kopieer pad'; }, 1600);
 });
 
-/* ---------- kleurfilter ---------- */
-
-/** Wit of donker vinkje, afhankelijk van hoe licht het staal is. */
 function vinkKleur(hex) {
   const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
 }
 
-/**
- * Eén stalengroep per palet — per texture-atlas dus. De atlassen zijn los van
- * elkaar, en dat moet je aan de balk kunnen zien: een grotstaal filtert nooit
- * iets uit de andere kits, ook niet als de hex toevallig gelijk is.
- */
 function bouwKleurbalk(paletten) {
   const houder = document.querySelector('#kleurbalk-stalen');
   const wisknop = document.querySelector('#kleurbalk-wis');
@@ -337,7 +285,6 @@ function bouwKleurbalk(paletten) {
       knop.style.setProperty('--staal-kleur', kleur.hex);
       knop.style.setProperty('--vink', vinkKleur(kleur.hex));
       knop.setAttribute('aria-pressed', 'false');
-      // Meerdere cellen kunnen dezelfde grove naam krijgen; de hex houdt ze uit elkaar.
       knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} modellen · ${palet.naam}${kleur.textuur ? ` · ${kleur.textuur}` : ''}`;
       knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} modellen, ${palet.naam}`);
 
@@ -366,8 +313,6 @@ function bouwKleurbalk(paletten) {
   });
 }
 
-/* ---------- weergave en filter ---------- */
-
 function pasWeergaveToe(weergave) {
   huidigeWeergave = weergave;
   for (const knop of document.querySelectorAll('.schakelaar button')) {
@@ -375,13 +320,10 @@ function pasWeergaveToe(weergave) {
   }
   paneel.setAttribute('aria-labelledby', `tab-${weergave}`);
 
-  // Alleen de paletten tonen die in deze weergave iets kunnen filteren: op het
-  // grot-tabblad zou een gedeeld staal altijd nul modellen opleveren.
   const aanwezig = new Set(kaarten.filter((k) => k.weergave === weergave).map((k) => k.palet));
   for (const groep of kleurgroepen) {
     groep.element.hidden = !aanwezig.has(groep.palet);
     if (!groep.element.hidden) continue;
-    // Een staal dat je niet meer ziet, mag ook niet meer stilletjes filteren.
     for (const knop of groep.element.querySelectorAll('.staal')) {
       gekozenKleuren.delete(knop.dataset.sleutel);
       knop.setAttribute('aria-pressed', 'false');
@@ -406,8 +348,6 @@ function filter() {
 
   for (const sectie of secties) {
     const inWeergave = sectie.element.dataset.weergave === huidigeWeergave;
-    // Altijd op de zichtbare kaarten tellen: zoeken en kleurfilter kunnen
-    // los van elkaar aanstaan, dus de zoekterm alleen zegt niets.
     const aantal = sectie.kaarten.filter((k) => !k.element.hidden).length;
 
     sectie.element.hidden = !inWeergave || aantal === 0;
@@ -419,8 +359,6 @@ function filter() {
   zoekTelling.textContent = term ? `${zichtbaar}` : '';
   leegmelding.hidden = zichtbaar > 0;
 }
-
-/* ---------- opstarten ---------- */
 
 async function start() {
   const versie = document.querySelector('meta[name="catalogus-versie"]')?.content;
@@ -453,22 +391,15 @@ async function start() {
     });
   };
 
-  // Een kit staat op zichzelf als geen enkele andere kit uit hetzelfde palet
-  // put. Dat is precies wat de uitleg hieronder beweert, en het hangt niet aan
-  // de volgorde waarin de paletten in catalog.json staan.
   const kitsPerPalet = new Map();
   for (const kit of data.kits) {
     if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
   }
   const paletten = new Map((data.paletten ?? []).map((p) => [p.id, p]));
 
-  // Kits die op zichzelf staan krijgen een eigen tabblad in plaats van een
-  // sectie tussen de andere kits. Ze delen geen atlas en geen kleur met de
-  // rest, dus naast elkaar zetten suggereert een samenhang die er niet is.
   const opZichzelf = data.kits.filter((k) => k.palet && kitsPerPalet.get(k.palet) === 1);
   const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
 
-  // Kitweergave — modellen in bestandsvolgorde, zoals ze in de kit zitten.
   for (const kit of data.kits) {
     if (eigenTabblad.has(kit.slug)) continue;
     const modellen = data.modellen.filter((m) => m.kit === kit.slug);
@@ -489,9 +420,6 @@ async function start() {
     );
   }
 
-  // Groepsweergave — op naam gesorteerd, zodat gelijke props uit
-  // verschillende kits naast elkaar komen te staan. Een groep die zelf een
-  // tabblad noemt (het bouwpakket) komt daar terecht in plaats van hiertussen.
   for (const groep of data.groepen) {
     const modellen = data.modellen
       .filter((m) => m.groep === groep.id && !eigenTabblad.has(m.kit))
@@ -505,7 +433,6 @@ async function start() {
         titel: groep.naam,
         aantal: modellen.length,
         kleur: groep.kleur,
-        uitleg: groep.beschrijving,
       }),
       groep.kort ?? groep.naam,
       groep.kleur,
@@ -513,8 +440,6 @@ async function start() {
     );
   }
 
-  // Grotweergave — de losstaande kit, op zijn eigen tabblad. De sectie houdt
-  // zijn oude id, zodat bestaande links naar #kit-modular-cave-kit blijven werken.
   for (const kit of opZichzelf) {
     const modellen = data.modellen.filter((m) => m.kit === kit.slug);
     const kleur = KIT_KLEUREN[kit.slug];
@@ -547,23 +472,16 @@ async function start() {
 
   zoekveld.addEventListener('input', filter);
 
-  // Groepen die zijn hernoemd, samengevoegd of gesplitst; zie GROEP_ALIASSEN.
   const aliassen = new Map(
     Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
   );
 
-  // De groepen van een losstaande kit hebben geen eigen sectie meer in de
-  // groepsweergave; een oude link daarheen hoort op het tabblad van die kit
-  // uit te komen in plaats van op de standaardweergave.
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {
       if (model.kit === kit.slug) aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
     }
   }
 
-  // Deeplinks: #kits, #groepen en #grot, maar ook #groep-rotsen of
-  // #kit-pirate-kit. Bij een sectie-anker vragen we de sectie zelf in welke
-  // weergave hij hoort; dan blijven links kloppen als een kit verhuist.
   const anker = location.hash.slice(1);
   const doelSectie = anker
     ? document.getElementById(anker) ?? document.getElementById(aliassen.get(anker) ?? '')

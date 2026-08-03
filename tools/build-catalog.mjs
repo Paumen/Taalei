@@ -14,7 +14,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROEPEN, bepaalGroep, nederlandseTrefwoorden } from './semantiek.mjs';
+import { GROEPEN, bepaalGroep } from './semantiek.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -229,6 +229,102 @@ function telDriehoeken(gltf) {
   return totaal;
 }
 
+/* -- afmetingen en tekenopdrachten ----------------------------------------
+ * Een node draagt zijn eigen transform (los TRS of een kant-en-klare matrix)
+ * en die van zijn ouders. Om te weten hoe groot een model in de scène staat
+ * moeten de hoeken van elke primitive dus door de wereldmatrix heen.
+ */
+const EENHEIDSMATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+
+/** Kolom-major, zoals glTF ze aanlevert: r = a × b. */
+function maalMatrix(a, b) {
+  const r = new Array(16).fill(0);
+  for (let kolom = 0; kolom < 4; kolom++) {
+    for (let rij = 0; rij < 4; rij++) {
+      let som = 0;
+      for (let k = 0; k < 4; k++) som += a[k * 4 + rij] * b[kolom * 4 + k];
+      r[kolom * 4 + rij] = som;
+    }
+  }
+  return r;
+}
+
+/** Node-transform als matrix; `matrix` wint van losse translation/rotation/scale. */
+function nodeMatrix(node) {
+  if (node.matrix) return node.matrix;
+
+  const [tx, ty, tz] = node.translation ?? [0, 0, 0];
+  const [qx, qy, qz, qw] = node.rotation ?? [0, 0, 0, 1];
+  const [sx, sy, sz] = node.scale ?? [1, 1, 1];
+  const x2 = qx + qx, y2 = qy + qy, z2 = qz + qz;
+  const xx = qx * x2, xy = qx * y2, xz = qx * z2;
+  const yy = qy * y2, yz = qy * z2, zz = qz * z2;
+  const wx = qw * x2, wy = qw * y2, wz = qw * z2;
+
+  return [
+    (1 - (yy + zz)) * sx, (xy + wz) * sx, (xz - wy) * sx, 0,
+    (xy - wz) * sy, (1 - (xx + zz)) * sy, (yz + wx) * sy, 0,
+    (xz + wy) * sz, (yz - wx) * sz, (1 - (xx + yy)) * sz, 0,
+    tx, ty, tz, 1,
+  ];
+}
+
+/**
+ * Afmetingen (breedte × diepte × hoogte, dus X × Z × Y) en tekenopdrachten,
+ * beide zoals de scène ze oplevert. Elke primitive is één tekenopdracht: een
+ * model van zes losse delen kost zes calls, ook als ze hetzelfde materiaal
+ * delen. De bounding box komt uit de min/max van de POSITION-accessors — die
+ * geeft de glTF-schrijver mee, dus de vertexdata zelf hoeft er niet aan te
+ * pas te komen. Roteert een node, dan is de box van de acht getransformeerde
+ * hoeken iets ruimer dan de echte vorm; dat is de prijs van niet inlezen.
+ */
+function meetScene(gltf) {
+  const accessors = gltf.accessors ?? [];
+  const nodes = gltf.nodes ?? [];
+  const scene = gltf.scenes?.[gltf.scene ?? 0];
+  const min = [Infinity, Infinity, Infinity];
+  const max = [-Infinity, -Infinity, -Infinity];
+  const gezien = new Set();
+  let calls = 0;
+
+  const loop = (index, ouderMatrix) => {
+    if (gezien.has(index)) return; // cyclus-beveiliging, net als in telDriehoeken
+    gezien.add(index);
+    const node = nodes[index];
+    if (!node) return;
+    const wereld = maalMatrix(ouderMatrix, nodeMatrix(node));
+
+    for (const prim of gltf.meshes?.[node.mesh]?.primitives ?? []) {
+      calls++;
+      const positie = accessors[prim.attributes?.POSITION];
+      if (!positie?.min || !positie?.max) continue;
+
+      for (let hoek = 0; hoek < 8; hoek++) {
+        const p = [
+          hoek & 1 ? positie.max[0] : positie.min[0],
+          hoek & 2 ? positie.max[1] : positie.min[1],
+          hoek & 4 ? positie.max[2] : positie.min[2],
+        ];
+        for (let as = 0; as < 3; as++) {
+          const waarde =
+            wereld[as] * p[0] + wereld[4 + as] * p[1] + wereld[8 + as] * p[2] + wereld[12 + as];
+          if (waarde < min[as]) min[as] = waarde;
+          if (waarde > max[as]) max[as] = waarde;
+        }
+      }
+    }
+
+    for (const kind of node.children ?? []) loop(kind, wereld);
+  };
+
+  for (const index of scene?.nodes ?? []) loop(index, EENHEIDSMATRIX);
+
+  // Op drie decimalen: de kits zijn op 0.01 units ontworpen, en zonder afronden
+  // zet de float-rekenarij hier 1.0000000298023224 in de catalogus.
+  const meet = (as) => (min[as] === Infinity ? 0 : Math.round((max[as] - min[as]) * 1000) / 1000);
+  return { wdh: [meet(0), meet(2), meet(1)], calls };
+}
+
 /* -- versiestempel --------------------------------------------------------
  * GitHub Pages serveert met `cache-control: max-age=600`. Zonder versie in de
  * URL kijk je na een deploy dus tot tien minuten naar oude CSS of JS, of erger:
@@ -263,7 +359,6 @@ const kits = [];
 const modellen = [];
 const zonderMetadata = [];
 const zonderGroep = [];
-const zonderTrefwoord = [];
 const zonderKleur = [];
 
 for (const slug of kitSlugs) {
@@ -278,10 +373,9 @@ for (const slug of kitSlugs) {
     const naam = bestand.replace(/\.glb$/, '');
     const pad = `kits/${slug}/${bestand}`;
     const gltf = leesGlbJson(join(dir, bestand));
+    const scene = meetScene(gltf);
     const groep = bepaalGroep(slug, naam);
     if (groep === 'overig') zonderGroep.push(`${slug}/${naam}`);
-    const trefwoorden = nederlandseTrefwoorden(naam);
-    if (trefwoorden.length === 0) zonderTrefwoord.push(`${slug}/${naam}`);
 
     const uitPalet = palet.perModel.get(`${slug}/${naam}`);
     const kleuren = [...(uitPalet?.hexen ?? [])].sort();
@@ -292,7 +386,6 @@ for (const slug of kitSlugs) {
       naam,
       kit: slug,
       groep,
-      trefwoorden,
       // Het palet hoort bij de kleuren: dezelfde hex uit een ander palet is
       // een andere atlas en dus een andere filterknop.
       palet: uitPalet?.palet ?? null,
@@ -301,6 +394,9 @@ for (const slug of kitSlugs) {
       bytes: statSync(join(dir, bestand)).size,
       driehoeken: telDriehoeken(gltf),
       materialen: (gltf.materials ?? []).length,
+      // Breedte × diepte × hoogte in rastereenheden (1 = één wand-/vloersegment).
+      wdh: scene.wdh,
+      calls: scene.calls,
     });
   }
 
@@ -370,7 +466,7 @@ const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
   totaal: modellen.length,
   kits,
-  groepen: GROEPEN.map((g) => ({
+  groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
   })),
@@ -418,7 +514,4 @@ if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonde
 if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
 if (zonderKleur.length) {
   console.warn(`! ${zonderKleur.length} modellen zonder kleur in palet.json (kleurfilter slaat ze over)`);
-}
-if (zonderTrefwoord.length) {
-  console.warn(`! geen Nederlands trefwoord (vul WOORDENBOEK aan in tools/semantiek.mjs): ${zonderTrefwoord.join(', ')}`);
 }
