@@ -1052,6 +1052,87 @@ for (const av of AANZICHTEN) {
   schrijfPng(join(UIT, `aanzicht-${av.naam}.png`), HP, HP, renderAanzicht(av.hoek, av.elevatie, HP));
 }
 
+
+/* -- viewer ---------------------------------------------------------------
+ * Een losse html-pagina waarin het model te draaien en te zoomen is. De
+ * geometrie gaat als base64 mee in de pagina zelf: posities als int16 ten
+ * opzichte van de omhullende doos, kleur als drie bytes per hoekpunt, met de
+ * kleur al uit de colormap van de eigen kit gehaald. Zo hoeft de pagina niets
+ * na te vragen en werkt hij ook waar externe verzoeken geblokkeerd zijn.
+ *
+ * Normalen gaan niet mee: de fragmentshader leidt de vlaknormaal af uit de
+ * afgeleiden van de wereldpositie, wat precies plat schaduwen is.
+ */
+function schrijfViewer(pad) {
+  const totaal = netten.reduce((som, n) => som + n.pos.length / 3, 0);
+  const min = [Infinity, Infinity, Infinity];
+  const max = [-Infinity, -Infinity, -Infinity];
+  for (const net of netten) {
+    for (let i = 0; i < net.pos.length; i += 3) {
+      for (let c = 0; c < 3; c++) {
+        const v = net.pos[i + c];
+        if (v < min[c]) min[c] = v;
+        if (v > max[c]) max[c] = v;
+      }
+    }
+  }
+  const schaal = [0, 1, 2].map((c) => (max[c] - min[c]) / 32767 || 1);
+
+  const posities = new Int16Array(totaal * 3);
+  const kleuren = new Uint8Array(totaal * 3);
+  const groepen = [];
+  let hoek = 0;
+
+  for (const net of netten) {
+    const vanaf = hoek;
+    for (let i = 0; i < net.pos.length; i += 3) {
+      for (let c = 0; c < 3; c++) {
+        posities[hoek * 3 + c] = Math.round((net.pos[i + c] - min[c]) / schaal[c]);
+      }
+      const rgb = net.png.kleurOp(net.uv[(i / 3) * 2], net.uv[(i / 3) * 2 + 1]);
+      kleuren[hoek * 3] = rgb[0];
+      kleuren[hoek * 3 + 1] = rgb[1];
+      kleuren[hoek * 3 + 2] = rgb[2];
+      hoek++;
+    }
+    /* Alles wat geen terrein of water is, is een neergezet stuk; die zitten in
+     * één knop bij elkaar. */
+    const laag = net.naam === 'terrein' || net.naam === 'water' ? net.naam : 'stukken';
+    const bestaand = groepen.find((g) => g.naam === laag && g.vanaf + g.aantal === vanaf);
+    if (bestaand) bestaand.aantal += hoek - vanaf;
+    else groepen.push({ naam: laag, vanaf, aantal: hoek - vanaf });
+  }
+
+  const meta = {
+    onderschrift: `Grof blokmodel, ${maat} × ${maat} eenheden. Kit-onderdelen staan op ware grootte.`,
+    min,
+    schaal,
+    midden: [0, (min[1] + max[1]) / 2, 0],
+    // Kaderen op het eiland en niet op de zee eromheen; die is ruim twee keer
+    // zo breed en zou het eiland tot een postzegel in beeld maken.
+    omvang: maat,
+    groepen,
+    cijfers: [
+      ['Breedte', `${maat} eenheden`],
+      ['Hoogste punt', hoogst.toFixed(1)],
+      ['Land', `${Math.round(landCellen * stap * stap)} eenheden²`],
+      ['Driehoeken', (totaal / 3).toLocaleString('nl-NL')],
+      ['Zones', String(zones.length)],
+      ['Stukken', String(geplaatst.length)],
+    ],
+  };
+
+  const sjabloon = readFileSync(join(ROOT, 'tools', 'viewer-sjabloon.html'), 'utf8');
+  writeFileSync(pad, sjabloon
+    .split('__TITEL__').join('Taaleiland — grof blokmodel')
+    .replace('__META__', JSON.stringify(meta))
+    .replace('__POSITIES__', Buffer.from(posities.buffer).toString('base64'))
+    .replace('__KLEUREN__', Buffer.from(kleuren.buffer).toString('base64')));
+
+  return totaal;
+}
+
+
 /* -- verslag --------------------------------------------------------------- */
 
 let hoogst = -Infinity;
@@ -1067,7 +1148,8 @@ const propDriehoeken = geplaatst.reduce((som, s) => som + s.driehoeken, 0);
 console.log(`eiland/eiland-grof.glb — ${maat} x ${maat} eenheden, raster ${stap}`);
 console.log(`  ${driehoeken} driehoeken (${propDriehoeken} in ${geplaatst.length} losse stukken), ${(bytes / 1024 / 1024).toFixed(2)} MB`);
 console.log(`  hoogste punt ${hoogst.toFixed(1)}, landoppervlak ${Math.round(landCellen * stap * stap)} eenheden²`);
-console.log(`eiland/plattegrond.png en ${AANZICHTEN.length} aanzichten\n`);
+schrijfViewer(join(UIT, 'eiland.html'));
+console.log(`eiland/plattegrond.png, ${AANZICHTEN.length} aanzichten en eiland.html\n`);
 
 const problemen = [];
 console.log('zone            streef  gemeten  landinw.  plafond');

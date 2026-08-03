@@ -1,0 +1,473 @@
+<!--
+  Sjabloon voor eiland/eiland.html. tools/bouw-eiland.mjs vult de plaatshouders
+  in: de titel, het meta-blok en de twee base64-blokken met geometrie.
+
+  Let op: de namen van die plaatshouders staan bewust nergens anders in dit
+  bestand. Ze worden op de eerste treffer vervangen, dus een vermelding in een
+  commentaar zou de echte plek stilletjes overslaan.
+
+  De geometrie zit als base64 in de pagina zelf: posities als int16 ten opzichte
+  van de omhullende doos, kleuren als drie bytes per hoekpunt. Er wordt dus geen
+  enkel bestand nagevraagd — de pagina werkt los van de repo, offline, en in een
+  sandbox die geen externe verzoeken toestaat.
+
+  Plat schaduwen gebeurt in de fragmentshader met dFdx/dFdy op de wereldpositie.
+  Daardoor hoeven er geen normalen mee, wat een derde van de gegevens scheelt.
+-->
+<meta charset="utf-8">
+<title>__TITEL__</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --grond: #0e1418;
+    --paneel: rgba(14, 20, 24, 0.82);
+    --lijn: rgba(150, 190, 200, 0.18);
+    --tekst: #dbe6e8;
+    --zacht: #8ba3ab;
+    --accent: #3fa9bf;
+    --zand: #f0c59d;
+    --doek: 14, 20, 24;
+  }
+  :root[data-theme="light"],
+  html:not([data-theme="dark"]) {
+    --grond: #e7ecec;
+    --paneel: rgba(255, 255, 255, 0.88);
+    --lijn: rgba(20, 50, 60, 0.14);
+    --tekst: #16242a;
+    --zacht: #5a7078;
+    --accent: #1d7f96;
+    --zand: #a9743f;
+    --doek: 231, 236, 236;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      --grond: #0e1418;
+      --paneel: rgba(14, 20, 24, 0.82);
+      --lijn: rgba(150, 190, 200, 0.18);
+      --tekst: #dbe6e8;
+      --zacht: #8ba3ab;
+      --accent: #3fa9bf;
+      --zand: #f0c59d;
+      --doek: 14, 20, 24;
+    }
+  }
+  :root[data-theme="dark"] {
+    --grond: #0e1418;
+    --paneel: rgba(14, 20, 24, 0.82);
+    --lijn: rgba(150, 190, 200, 0.18);
+    --tekst: #dbe6e8;
+    --zacht: #8ba3ab;
+    --accent: #3fa9bf;
+    --zand: #f0c59d;
+    --doek: 14, 20, 24;
+  }
+
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--grond);
+    color: var(--tekst);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+  canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+  canvas.sleept { cursor: grabbing; }
+
+  .hud {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+  }
+  .hud > * { pointer-events: auto; }
+  .linksboven { top: 16px; left: 16px; max-width: min(300px, calc(100vw - 32px)); }
+  .linksonder { bottom: 16px; left: 16px; }
+
+  .kaart {
+    background: var(--paneel);
+    border: 1px solid var(--lijn);
+    border-radius: 10px;
+    padding: 12px 14px;
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .onderschrift {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: var(--zacht);
+    line-height: 1.45;
+  }
+
+  dl {
+    margin: 10px 0 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3px 12px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  dt { color: var(--zacht); }
+  dd { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+  .lagen { display: flex; flex-wrap: wrap; gap: 6px; }
+  button {
+    font: inherit;
+    font-size: 12px;
+    color: var(--zacht);
+    background: var(--paneel);
+    border: 1px solid var(--lijn);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  button:hover { color: var(--tekst); }
+  button[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .hulp {
+    font-size: 11.5px;
+    color: var(--zacht);
+    line-height: 1.6;
+  }
+  .hulp b { color: var(--tekst); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .linksboven dl { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    button { transition: none; }
+  }
+</style>
+
+<canvas id="doek"></canvas>
+
+<div class="hud linksboven">
+  <div class="kaart">
+    <h1>__TITEL__</h1>
+    <p class="onderschrift" id="onderschrift"></p>
+    <dl id="cijfers"></dl>
+  </div>
+  <div class="lagen">
+    <button type="button" data-laag="terrein" aria-pressed="true">Terrein</button>
+    <button type="button" data-laag="water" aria-pressed="true">Water</button>
+    <button type="button" data-laag="stukken" aria-pressed="true">Stukken</button>
+  </div>
+</div>
+
+<div class="hud linksonder">
+  <p class="kaart hulp">
+    <b>Slepen</b> draait · <b>Scrollen</b> zoomt · <b>Shift + slepen</b> schuift<br>
+    <b>R</b> zet de camera terug
+  </p>
+</div>
+
+<script type="module">
+const META = __META__;
+
+/* base64 → typed array, zonder omweg via een blob. */
+function uitBase64(tekst, Soort) {
+  const ruw = atob(tekst);
+  const bytes = new Uint8Array(ruw.length);
+  for (let i = 0; i < ruw.length; i++) bytes[i] = ruw.charCodeAt(i);
+  return new Soort(bytes.buffer);
+}
+
+const posities = uitBase64('__POSITIES__', Int16Array);
+const kleuren = uitBase64('__KLEUREN__', Uint8Array);
+
+const doek = document.getElementById('doek');
+const gl = doek.getContext('webgl2', { antialias: true, alpha: false });
+if (!gl) {
+  document.getElementById('onderschrift').textContent =
+    'Deze browser heeft geen WebGL 2; het model kan niet getekend worden.';
+  throw new Error('geen webgl2');
+}
+
+/* -- shaders --------------------------------------------------------------
+ * De vlaknormaal komt uit de afgeleiden van de wereldpositie. Dat is precies
+ * plat schaduwen, en het scheelt een normaal per hoekpunt.
+ */
+const VERT = `#version 300 es
+in vec3 aPos;
+in vec3 aKleur;
+uniform mat4 uMvp;
+uniform vec3 uMin;
+uniform vec3 uSchaal;
+out vec3 vWereld;
+out vec3 vKleur;
+void main() {
+  vec3 p = uMin + aPos * uSchaal;
+  vWereld = p;
+  vKleur = aKleur;
+  gl_Position = uMvp * vec4(p, 1.0);
+}`;
+
+const FRAG = `#version 300 es
+precision highp float;
+in vec3 vWereld;
+in vec3 vKleur;
+uniform vec3 uLicht;
+out vec4 uitKleur;
+void main() {
+  vec3 n = normalize(cross(dFdx(vWereld), dFdy(vWereld)));
+  if (n.y < 0.0) n = -n;                      // altijd de bovenkant belichten
+  float direct = max(dot(n, normalize(uLicht)), 0.0);
+  float hemel = 0.5 + 0.5 * n.y;              // zachte opvulling van boven
+  uitKleur = vec4(vKleur * (0.34 + 0.52 * direct + 0.20 * hemel), 1.0);
+}`;
+
+function bouwShader(soort, bron) {
+  const s = gl.createShader(soort);
+  gl.shaderSource(s, bron);
+  gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+  return s;
+}
+const programma = gl.createProgram();
+gl.attachShader(programma, bouwShader(gl.VERTEX_SHADER, VERT));
+gl.attachShader(programma, bouwShader(gl.FRAGMENT_SHADER, FRAG));
+gl.linkProgram(programma);
+if (!gl.getProgramParameter(programma, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(programma));
+gl.useProgram(programma);
+
+const vao = gl.createVertexArray();
+gl.bindVertexArray(vao);
+
+const posBuf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+gl.bufferData(gl.ARRAY_BUFFER, posities, gl.STATIC_DRAW);
+const aPos = gl.getAttribLocation(programma, 'aPos');
+gl.enableVertexAttribArray(aPos);
+gl.vertexAttribPointer(aPos, 3, gl.SHORT, false, 0, 0);
+
+const kleurBuf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, kleurBuf);
+gl.bufferData(gl.ARRAY_BUFFER, kleuren, gl.STATIC_DRAW);
+const aKleur = gl.getAttribLocation(programma, 'aKleur');
+gl.enableVertexAttribArray(aKleur);
+gl.vertexAttribPointer(aKleur, 3, gl.UNSIGNED_BYTE, true, 0, 0);
+
+const uMvp = gl.getUniformLocation(programma, 'uMvp');
+gl.uniform3fv(gl.getUniformLocation(programma, 'uMin'), META.min);
+gl.uniform3fv(gl.getUniformLocation(programma, 'uSchaal'), META.schaal);
+gl.uniform3fv(gl.getUniformLocation(programma, 'uLicht'), [-0.45, 0.82, -0.35]);
+
+gl.enable(gl.DEPTH_TEST);
+gl.enable(gl.CULL_FACE);
+gl.cullFace(gl.BACK);
+
+/* -- matrices -------------------------------------------------------------- */
+
+function perspectief(fov, verhouding, dichtbij, veraf) {
+  const f = 1 / Math.tan(fov / 2);
+  return [
+    f / verhouding, 0, 0, 0,
+    0, f, 0, 0,
+    0, 0, (veraf + dichtbij) / (dichtbij - veraf), -1,
+    0, 0, (2 * veraf * dichtbij) / (dichtbij - veraf), 0,
+  ];
+}
+
+function kijkNaar(oog, doelpunt, omhoog) {
+  const z = normaliseer([oog[0] - doelpunt[0], oog[1] - doelpunt[1], oog[2] - doelpunt[2]]);
+  const x = normaliseer(kruis(omhoog, z));
+  const y = kruis(z, x);
+  return [
+    x[0], y[0], z[0], 0,
+    x[1], y[1], z[1], 0,
+    x[2], y[2], z[2], 0,
+    -punt(x, oog), -punt(y, oog), -punt(z, oog), 1,
+  ];
+}
+
+const kruis = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const punt = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const normaliseer = (v) => {
+  const l = Math.hypot(v[0], v[1], v[2]) || 1;
+  return [v[0] / l, v[1] / l, v[2] / l];
+};
+
+function maal(a, b) {
+  const r = new Float32Array(16);
+  for (let k = 0; k < 4; k++) {
+    for (let i = 0; i < 4; i++) {
+      let som = 0;
+      for (let j = 0; j < 4; j++) som += a[j * 4 + i] * b[k * 4 + j];
+      r[k * 4 + i] = som;
+    }
+  }
+  return r;
+}
+
+/* -- camera ---------------------------------------------------------------- */
+
+const BEGIN = {
+  draai: Math.PI * 0.25,
+  hoogte: 0.60,
+  afstand: META.omvang * 1.55,
+  doelpunt: [...META.midden],
+};
+const cam = { ...BEGIN, doelpunt: [...BEGIN.doelpunt] };
+
+function zetTerug() {
+  cam.draai = BEGIN.draai;
+  cam.hoogte = BEGIN.hoogte;
+  cam.afstand = BEGIN.afstand;
+  cam.doelpunt = [...BEGIN.doelpunt];
+  vraagTeken();
+}
+
+const klem = (v, a, b) => Math.min(b, Math.max(a, v));
+
+let sleept = null;
+doek.addEventListener('pointerdown', (e) => {
+  doek.setPointerCapture(e.pointerId);
+  doek.classList.add('sleept');
+  sleept = { x: e.clientX, y: e.clientY, schuiven: e.shiftKey || e.button === 2 };
+});
+doek.addEventListener('pointermove', (e) => {
+  if (!sleept) return;
+  const dx = e.clientX - sleept.x;
+  const dy = e.clientY - sleept.y;
+  sleept.x = e.clientX;
+  sleept.y = e.clientY;
+
+  if (sleept.schuiven) {
+    // Schuiven in het vlak van het scherm, geschaald met de zoom.
+    const f = cam.afstand * 0.0016;
+    cam.doelpunt[0] += (-dx * Math.cos(cam.draai) + dy * Math.sin(cam.draai)) * f;
+    cam.doelpunt[2] += (-dx * Math.sin(cam.draai) - dy * Math.cos(cam.draai)) * f;
+  } else {
+    cam.draai -= dx * 0.007;
+    cam.hoogte = klem(cam.hoogte + dy * 0.007, -1.45, 1.45);
+  }
+  vraagTeken();
+});
+for (const soort of ['pointerup', 'pointercancel']) {
+  doek.addEventListener(soort, () => { sleept = null; doek.classList.remove('sleept'); });
+}
+doek.addEventListener('contextmenu', (e) => e.preventDefault());
+
+doek.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  cam.afstand = klem(cam.afstand * Math.exp(e.deltaY * 0.0012), META.omvang * 0.12, META.omvang * 9);
+  vraagTeken();
+}, { passive: false });
+
+/* Twee vingers: knijpen zoomt. */
+const vingers = new Map();
+doek.addEventListener('pointerdown', (e) => vingers.set(e.pointerId, e));
+doek.addEventListener('pointermove', (e) => {
+  if (!vingers.has(e.pointerId)) return;
+  const oud = [...vingers.values()];
+  vingers.set(e.pointerId, e);
+  if (oud.length !== 2) return;
+  const nieuw = [...vingers.values()];
+  const was = Math.hypot(oud[0].clientX - oud[1].clientX, oud[0].clientY - oud[1].clientY);
+  const is = Math.hypot(nieuw[0].clientX - nieuw[1].clientX, nieuw[0].clientY - nieuw[1].clientY);
+  if (was > 0 && is > 0) {
+    cam.afstand = klem(cam.afstand * (was / is), META.omvang * 0.12, META.omvang * 9);
+    sleept = null;
+    vraagTeken();
+  }
+});
+for (const soort of ['pointerup', 'pointercancel']) {
+  doek.addEventListener(soort, (e) => vingers.delete(e.pointerId));
+}
+
+addEventListener('keydown', (e) => {
+  if (e.key === 'r' || e.key === 'R') zetTerug();
+});
+
+/* -- lagen ----------------------------------------------------------------- */
+
+const zichtbaar = new Set(META.groepen.map((g) => g.naam));
+for (const knop of document.querySelectorAll('[data-laag]')) {
+  knop.addEventListener('click', () => {
+    const naam = knop.dataset.laag;
+    if (zichtbaar.has(naam)) zichtbaar.delete(naam); else zichtbaar.add(naam);
+    knop.setAttribute('aria-pressed', String(zichtbaar.has(naam)));
+    vraagTeken();
+  });
+}
+
+/* -- tekenen --------------------------------------------------------------- */
+
+function grondkleur() {
+  const g = getComputedStyle(document.documentElement).getPropertyValue('--doek').trim();
+  const [r, gr, b] = g.split(',').map((v) => Number(v.trim()) / 255);
+  return [r, gr, b];
+}
+
+let gepland = false;
+function vraagTeken() {
+  if (gepland) return;
+  gepland = true;
+  requestAnimationFrame(teken);
+}
+
+function pasMaatAan() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const b = Math.round(doek.clientWidth * dpr);
+  const h = Math.round(doek.clientHeight * dpr);
+  if (doek.width !== b || doek.height !== h) {
+    doek.width = b;
+    doek.height = h;
+  }
+}
+
+function teken() {
+  gepland = false;
+  pasMaatAan();
+  gl.viewport(0, 0, doek.width, doek.height);
+  const [r, g, b] = grondkleur();
+  gl.clearColor(r, g, b, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  const straal = Math.cos(cam.hoogte) * cam.afstand;
+  const oog = [
+    cam.doelpunt[0] + Math.cos(cam.draai) * straal,
+    cam.doelpunt[1] + Math.sin(cam.hoogte) * cam.afstand,
+    cam.doelpunt[2] + Math.sin(cam.draai) * straal,
+  ];
+  const beeld = kijkNaar(oog, cam.doelpunt, [0, 1, 0]);
+  const proj = perspectief(0.72, doek.width / doek.height, META.omvang * 0.01, META.omvang * 30);
+  gl.uniformMatrix4fv(uMvp, false, maal(proj, beeld));
+
+  gl.bindVertexArray(vao);
+  for (const groep of META.groepen) {
+    if (!zichtbaar.has(groep.naam)) continue;
+    gl.drawArrays(gl.TRIANGLES, groep.vanaf, groep.aantal);
+  }
+}
+
+addEventListener('resize', vraagTeken);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', vraagTeken);
+new MutationObserver(vraagTeken).observe(document.documentElement, {
+  attributes: true, attributeFilter: ['data-theme'],
+});
+
+/* -- teksten --------------------------------------------------------------- */
+
+document.getElementById('onderschrift').textContent = META.onderschrift;
+const cijfers = document.getElementById('cijfers');
+for (const [naam, waarde] of META.cijfers) {
+  const dt = document.createElement('dt');
+  dt.textContent = naam;
+  const dd = document.createElement('dd');
+  dd.textContent = waarde;
+  cijfers.append(dt, dd);
+}
+
+vraagTeken();
+</script>
