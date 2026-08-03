@@ -11,6 +11,7 @@ For an LLM creating or adjusting assets.
 - Colors come from `palet.json`.
 - One shared colormap image only: assets color themselves by pointing UVs at its cells.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
+- Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
 
 ## 2. Geometry
@@ -20,6 +21,7 @@ For an LLM creating or adjusting assets.
 ## 3. Outlines and shading
 - No outlines; only on explicit request per asset.
 - Faces use flat palette colors; existing gradient cells may be used.
+- No shadow casting in assets.
 
 ## 4. Scale
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
