@@ -4,7 +4,7 @@ For an LLM creating or adjusting assets.
 
 ## 0. Look
 - Faceted, iconic, story book.
-- Toy-like, cubish/chunky, objects are slightly caricatured, .
+- Toy-like, chunky-ish, objects slightly caricatured, .
 - Detail count stays low.
 
 ## 1. Color
@@ -15,11 +15,11 @@ For an LLM creating or adjusting assets.
 - Cave kit is exempt from above rules.
 
 ## 2. Geometry
-- Flat-piece construction, always. Round shapes must be visibly built from flat pieces.
+- Flat-piece construction. Round shapes visibly built from flat pieces.
 - Max 16 flat pieces per full circle equivalent.
 
 ## 3. Outlines and shading
-- No outlines; only on explicit request per asset.
+- Avoid outlines; unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Faces use flat palette colors; existing gradient cells may be used.
 - No shadow casting in assets.
 
@@ -27,6 +27,7 @@ For an LLM creating or adjusting assets.
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
 - Nothing thinner than 0.02 units.
+- Max 1000 tris per 1x1x1 unit.
 
 ## 5. Origin and orientation
 Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
