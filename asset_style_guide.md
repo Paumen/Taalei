@@ -37,6 +37,7 @@ For an LLM creating or adjusting assets.
 - Default on Y = 0; pivot at footprint centre in X/Z.
 - Deviate deliberately, for a functional reason.
 - Split nodes put their origin at the joint.
+- Objects with distinctive moving features should draw in two or more calls. Eg windmill blades, ship sails, chest cap, etc.
 
 ## 6. Reference Assets
 - You must render and look reference assets before creating new assets, not just read.
