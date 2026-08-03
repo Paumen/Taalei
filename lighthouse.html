@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lighthouse — storybook specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Martian+Mono:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FFFFFF;--ink:#181B17;--faint:#8A8F86;--rule:#DDDFD9;--mark:#2E3C86}
+  *{box-sizing:border-box}
+  html{background:var(--paper);color:var(--ink)}
+  body{margin:0;background:transparent;font-family:"Martian Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased}
+  #gl{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
+  main{max-width:760px;margin:0 auto;padding:14px 12px 22px}
+  header{display:flex;align-items:baseline;gap:8px;padding-bottom:8px}
+  h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.02em;margin:0}
+  header p{margin:0;font-size:8px;line-height:1.5;color:var(--faint);letter-spacing:.02em;font-weight:300}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+  figure{margin:0;padding:6px 0 9px;border-top:1px solid var(--rule)}
+  .view{aspect-ratio:1/1;width:100%}
+  .nm{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:11px;letter-spacing:-.01em}
+  .tech{font-size:7.5px;line-height:1.45;color:var(--faint);font-weight:300;letter-spacing:.01em;margin-top:1px}
+  .tri{font-size:7.5px;color:var(--mark);font-weight:500;letter-spacing:.04em;margin-top:2px}
+  @media (max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<main>
+  <header>
+    <h1>Lighthouse</h1>
+    <p>reference · new — both flat-shaded, one WebGL context</p>
+  </header>
+
+  <div class="grid">
+    <figure><div class="view" data-scene="reference"></div><figcaption>
+      <div class="nm">Reference</div>
+      <div class="tech">the original specimen: 14-sided tower, slate gallery and glazing bars, stone plinth</div>
+      <div class="tri" data-tri="reference"></div></figcaption></figure>
+
+    <figure><div class="view" data-scene="lighthouse"></div><figcaption>
+      <div class="nm">New</div>
+      <div class="tech">12 facets, extra-chunky flare, dark timber crown seated flush on the tower, sweeping beams</div>
+      <div class="tri" data-tri="lighthouse"></div></figcaption></figure>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.setClearAlpha(0);
+renderer.setScissorTest(true);
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function col(hex){ return new THREE.Color(hex).convertSRGBToLinear(); }
+function hash2(x, y){ const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+
+function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, flatShading:true, shininess:0, specular:col('#000000'), side:side || THREE.FrontSide}); }
+
+/* L carries the per-specimen light rig so the two can be lit differently */
+function stage(sky, ground, keyPos, L){
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(col(sky), col(ground), L.hemi));
+  scene.add(new THREE.AmbientLight(col(L.ambCol), L.amb));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), L.key);
+  key.position.set(keyPos[0], keyPos[1], keyPos[2]);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
+  fill.position.set(-2, 1, -2.5);
+  scene.add(fill);
+  const turn = new THREE.Group();
+  scene.add(turn);
+  return {scene:scene, turn:turn};
+}
+
+/* ---------- merge helpers ---------- */
+
+function tf(p, r, s){
+  const o = new THREE.Object3D();
+  if(p) o.position.set(p[0], p[1], p[2]);
+  if(r) o.rotation.set(r[0], r[1], r[2]);
+  if(s) o.scale.set(s[0], s[1], s[2]);
+  o.updateMatrix();
+  return o.matrix;
+}
+
+function part(geo, hex, mats){
+  const g = geo.index ? geo.toNonIndexed() : geo;
+  if(mats) for(let i = 0; i < mats.length; i++) g.applyMatrix4(mats[i]);
+  if(!g.attributes.color){
+    const n = g.attributes.position.count, c = new Float32Array(n*3), t = col(hex);
+    for(let i = 0; i < n; i++){ c[i*3] = t.r; c[i*3+1] = t.g; c[i*3+2] = t.b; }
+    g.setAttribute('color', new THREE.BufferAttribute(c, 3));
+  }
+  return g;
+}
+
+function merge(list){
+  let n = 0;
+  for(let i = 0; i < list.length; i++) n += list[i].attributes.position.count;
+  const pos = new Float32Array(n*3), cols = new Float32Array(n*3);
+  let off = 0;
+  for(let i = 0; i < list.length; i++){
+    const g = list[i];
+    pos.set(g.attributes.position.array, off);
+    cols.set(g.attributes.color.array, off);
+    off += g.attributes.position.count*3;
+    g.dispose();
+  }
+  const out = new THREE.BufferGeometry();
+  out.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  out.setAttribute('color', new THREE.BufferAttribute(cols, 3));
+  out.computeVertexNormals();
+  return out;
+}
+
+function spun(rings, sides, colorFn, jitter){
+  const pos = [], cols = [], tmp = new THREE.Color();
+  for(let i = 0; i < rings.length-1; i++){
+    for(let s = 0; s < sides; s++){
+      const a0 = s/sides*Math.PI*2, a1 = (s+1)/sides*Math.PI*2;
+      const A = [rings[i].r*Math.cos(a0), rings[i].y, rings[i].r*Math.sin(a0)];
+      const B = [rings[i].r*Math.cos(a1), rings[i].y, rings[i].r*Math.sin(a1)];
+      const C = [rings[i+1].r*Math.cos(a1), rings[i+1].y, rings[i+1].r*Math.sin(a1)];
+      const D = [rings[i+1].r*Math.cos(a0), rings[i+1].y, rings[i+1].r*Math.sin(a0)];
+      tmp.set(colorFn(i, s)).convertSRGBToLinear();
+      if(jitter) tmp.multiplyScalar(1 - jitter*0.5 + hash2(i*7+1, s*3+2)*jitter);
+      [A,C,B, A,D,C].forEach(function(v){ pos.push(v[0],v[1],v[2]); cols.push(tmp.r,tmp.g,tmp.b); });
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+  g.computeVertexNormals();
+  return g;
+}
+
+/* ---------- reference specimen, unchanged from the shared example ---------- */
+
+function reference(){
+  const st = stage('#D7E4EE', '#6A6F64', [3.2, 4, 2.2], {hemi:0.85, ambCol:'#DCE4EC', amb:0.14, key:0.85});
+  const rim = new THREE.DirectionalLight(col('#FFE8C4'), 0.3);
+  rim.position.set(-2.5, 1.2, -2);
+  st.scene.add(rim);
+
+  const solid = [];
+
+  const SIDES = 14, BANDS = 5, PER = 2;
+  const y0 = 0.15, y1 = 1.06, r0 = 0.285, r1 = 0.158;
+  const rings = [];
+  for(let i = 0; i <= BANDS*PER; i++){
+    const t = i/(BANDS*PER);
+    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, 0.88)});
+  }
+  solid.push(part(spun(rings, SIDES, function(i){
+    return Math.floor(i/PER) % 2 === 0 ? 0xF4EFE3 : 0xB2413A;
+  }, 0.07)));
+
+  solid.push(part(new THREE.CylinderGeometry(0.3, 0.33, 0.1, SIDES), '#8E8878', [tf([0, 0.11, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.185, 0.185, 0.028, SIDES), '#3E444A', [tf([0, 1.05, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.245, 0.215, 0.045, SIDES), '#39404A', [tf([0, 1.086, 0])]));
+
+  for(let i = 0; i < 12; i++){
+    const a = i/12*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.015, 0.075, 0.015), '#2F353D',
+      [tf([Math.cos(a)*0.228, 1.145, Math.sin(a)*0.228], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.TorusGeometry(0.231, 0.011, 4, 14), '#2F353D',
+    [tf([0, 1.183, 0], [Math.PI/2, 0, 0])]));
+
+  for(let i = 0; i < 10; i++){
+    const a = i/10*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.014, 0.185, 0.014), '#333A42',
+      [tf([Math.cos(a)*0.141, 1.22, Math.sin(a)*0.141], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.CylinderGeometry(0.165, 0.165, 0.022, 10), '#333A42', [tf([0, 1.322, 0])]));
+  solid.push(part(new THREE.ConeGeometry(0.165, 0.15, 10), '#39404A', [tf([0, 1.408, 0])]));
+
+  const rAt = function(y){
+    const t = (y - y0)/(y1 - y0);
+    return (r0 + (r1-r0)*Math.pow(t, 0.88)) * Math.cos(Math.PI/SIDES);
+  };
+  const dr = rAt(0.27);
+  solid.push(part(new THREE.BoxGeometry(0.125, 0.225, 0.03), '#E4DDCE', [tf([0, 0.28, dr + 0.004])]));
+  solid.push(part(new THREE.BoxGeometry(0.09, 0.185, 0.03), '#4B3A2B', [tf([0, 0.27, dr + 0.014])]));
+  solid.push(part(new THREE.BoxGeometry(0.16, 0.03, 0.09), '#8E8878', [tf([0, 0.16, dr + 0.04])]));
+
+  st.turn.add(new THREE.Mesh(merge(solid), flatVC()));
+
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.145, 0.185, 10), new THREE.MeshPhongMaterial({
+    color: col('#F7DE94'), emissive: col('#9C7616'), flatShading:true, shininess:0,
+    specular:col('#000000'), transparent:true, opacity:0.94
+  }));
+  lamp.position.y = 1.22;
+  st.turn.add(lamp);
+
+  const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.23, 1), new THREE.MeshBasicMaterial({
+    color: col('#F6D686'), transparent:true, opacity:0.17, depthWrite:false
+  }));
+  glow.position.y = 1.22;
+  st.turn.add(glow);
+
+  return {stage:st, cam:[0, 1.45, 3.02], look:[0, 0.68, 0], spin:0.15};
+}
+
+/* ---------- new specimen ---------- */
+
+function lighthouse(){
+  const st = stage('#F2ECE2', '#B9B4A8', [3.2, 4, 2.2], {hemi:0.58, ambCol:'#EFEAE0', amb:0.09, key:1.2});
+  const rim = new THREE.DirectionalLight(col('#FFE8C4'), 0.3);
+  rim.position.set(-2.5, 1.2, -2);
+  st.scene.add(rim);
+
+  const solid = [];
+
+  /* palette — all values are cells of the shared colormap / palet.json */
+  const CREAM = 0xf6f6f9, RED = 0xd5564d;               /* white [5,8], red [7,3] */
+  const TIMBER = '#444754', TIMBER_DK = '#36363a', TIMBER_MD = '#4a4d5b'; /* dark timber (palet slate/grey cells) */
+  const DOOR_WOOD = '#875541';                          /* wood [12,3] */
+  /* foot matches the crown so the tower is bracketed by the same dark timber */
+  const STONE = '#36363a', STONE_LT = '#444754';        /* same cells as the crown */
+  const GOLD = '#ffbc50';                               /* gold [6,1] */
+
+  const SIDES = 12;
+
+  /* two-step foot in the crown's dark timber */
+  solid.push(part(new THREE.CylinderGeometry(0.43, 0.455, 0.055, SIDES), STONE, [tf([0, 0.0275, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.4, 0.425, 0.075, SIDES), STONE_LT, [tf([0, 0.0925, 0])]));
+
+  /* variant C tower: extra-chunky flare, five bands — cream at the foot and
+     cream again under the railing */
+  const BANDS = 5, PER = 2;
+  const y0 = 0.13, y1 = 1.05, r0 = 0.4, r1 = 0.24, PW = 0.78;
+  const rings = [];
+  for(let i = 0; i <= BANDS*PER; i++){
+    const t = i/(BANDS*PER);
+    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, PW)});
+  }
+  solid.push(part(spun(rings, SIDES, function(i){
+    return Math.floor(i/PER) % 2 === 0 ? CREAM : RED;
+  }, 0.04)));
+
+  const rAt = function(y){
+    const t = (y - y0)/(y1 - y0);
+    return (r0 + (r1-r0)*Math.pow(t, PW)) * Math.cos(Math.PI/SIDES);
+  };
+  /* facet-centred azimuth: +Z lands on an edge with 12 sides, so swing half a facet */
+  const da = Math.PI/2 - Math.PI/SIDES, dry = Math.PI/2 - da;
+  const dp = function(d, y){ return [Math.cos(da)*d, y, Math.sin(da)*d]; };
+
+  /* variant C crown, seated flush on the tower top (bottom radius = r1) */
+  solid.push(part(new THREE.CylinderGeometry(0.343, r1, 0.1, SIDES), TIMBER_MD, [tf([0, 1.1, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.383, 0.383, 0.03, SIDES), TIMBER, [tf([0, 1.165, 0])]));
+
+  /* dark timber railing: 12 posts + rail ring */
+  for(let i = 0; i < SIDES; i++){
+    const a = i/SIDES*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.021, 0.09, 0.021), TIMBER_DK,
+      [tf([Math.cos(a)*0.356, 1.225, Math.sin(a)*0.356], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.TorusGeometry(0.359, 0.014, 4, SIDES), TIMBER_DK,
+    [tf([0, 1.27, 0], [Math.PI/2, 0, 0])]));
+
+  /* lantern: dark drum, eight bars, dark fascia */
+  solid.push(part(new THREE.CylinderGeometry(0.198, 0.198, 0.04, SIDES), TIMBER_DK, [tf([0, 1.2, 0])]));
+  for(let i = 0; i < 8; i++){
+    const a = i/8*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.026, 0.2, 0.026), TIMBER_DK,
+      [tf([Math.cos(a)*0.166, 1.32, Math.sin(a)*0.166], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.CylinderGeometry(0.205, 0.205, 0.026, SIDES), TIMBER_DK, [tf([0, 1.433, 0])]));
+
+  /* cap: squat cone flush with the fascia, no overhang, no ornament */
+  solid.push(part(new THREE.ConeGeometry(0.205, 0.155, SIDES), TIMBER, [tf([0, 1.523, 0])]));
+
+  /* door standing on the stone foot: cream frame, dark wooden door, gold knob */
+  const dr = rAt(0.3);
+  solid.push(part(new THREE.BoxGeometry(0.14, 0.26, 0.03), CREAM, [tf(dp(dr + 0.004, 0.29), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.105, 0.22, 0.03), DOOR_WOOD, [tf(dp(dr + 0.014, 0.28), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.016, 0.016, 0.016), GOLD, [tf(dp(dr + 0.033, 0.27), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.15, 0.03, 0.08), STONE, [tf(dp(rAt(0.145) + 0.03, 0.145), [0, dry, 0])]));
+
+  /* kit scale: windmill reference is 3.11 units tall — ×2 puts the lighthouse at 3.2 */
+  const model = new THREE.Group();
+  model.scale.setScalar(2);
+  st.turn.add(model);
+  model.add(new THREE.Mesh(merge(solid), flatVC()));
+
+  /* the rest stays separate: transparent or animated */
+
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.152, 0.169, 0.2, 8), new THREE.MeshPhongMaterial({
+    color: col('#ffcd5e'), emissive: col('#b8860b'), flatShading:true, shininess:0,
+    specular:col('#000000'), transparent:true, opacity:0.96
+  }));
+  lamp.position.y = 1.32;
+  model.add(lamp);
+
+  const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.23, 0), new THREE.MeshBasicMaterial({
+    color: col('#ffbc50'), transparent:true, opacity:0.14, depthWrite:false
+  }));
+  glow.position.y = 1.32;
+  model.add(glow);
+
+  /* warm spill from the lamp onto the eaves and deck */
+  const spill = new THREE.PointLight(col('#ffcd5e'), 0.55, 4.5);
+  spill.position.y = 1.32;
+  model.add(spill);
+
+  /* two sweeping beams */
+  const beams = new THREE.Group();
+  beams.position.y = 1.32;
+  model.add(beams);
+  [1, -1].forEach(function(s){
+    const b = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.85, 8, 1, true), new THREE.MeshBasicMaterial({
+      color: col('#ffcd5e'), transparent:true, opacity:0.1, depthWrite:false, side:THREE.DoubleSide
+    }));
+    b.rotation.z = s*Math.PI/2;
+    b.position.x = s*0.58;
+    beams.add(b);
+  });
+
+  const spec = {stage:st, cam:[0, 2.95, 6.0], look:[0, 1.5, 0], spin:0.15};
+  spec.tick = function(t){
+    beams.rotation.y = t*0.4;
+    const f = 1 + Math.sin(t*6.3)*0.08 + Math.sin(t*9.7)*0.05;
+    lamp.material.emissiveIntensity = f;
+    spill.intensity = 0.45 + f*0.12;
+    glow.material.opacity = 0.11 + f*0.035;
+  };
+  return spec;
+}
+
+/* ---------- assembly ---------- */
+
+const builders = {reference:reference, lighthouse:lighthouse};
+const cells = [];
+const clock = new THREE.Clock();
+Object.keys(builders).forEach(function(key){
+  const el = document.querySelector('[data-scene="' + key + '"]');
+  if(!el) return;
+  const spec = builders[key]();
+  const cam = new THREE.PerspectiveCamera(34, 1, 0.1, 50);
+  cam.position.set(spec.cam[0], spec.cam[1], spec.cam[2]);
+  cam.lookAt(spec.look[0], spec.look[1], spec.look[2]);
+  spec.stage.turn.rotation.y = 0.5;
+  cells.push({el:el, spec:spec, cam:cam});
+  let tris = 0, calls = 0;
+  spec.stage.scene.traverse(function(o){
+    if(!o.geometry) return;
+    if(o.isMesh){
+      calls++;
+      const g = o.geometry;
+      tris += g.index ? g.index.count/3 : g.attributes.position.count/3;
+    } else if(o.isLine){
+      calls++;
+    }
+  });
+  const out = document.querySelector('[data-tri="' + key + '"]');
+  if(out) out.textContent = Math.round(tris).toLocaleString('en-US') + ' tri · ' + calls + ' draw';
+});
+
+function resize(){
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if(canvas.width !== Math.floor(w*renderer.getPixelRatio()) || canvas.height !== Math.floor(h*renderer.getPixelRatio())){
+    renderer.setSize(w, h, false);
+  }
+}
+function frame(){
+  resize();
+  const delta = clock.getDelta();
+  const H = renderer.domElement.clientHeight;
+  for(let i = 0; i < cells.length; i++){
+    const c = cells[i];
+    const r = c.el.getBoundingClientRect();
+    if(r.bottom < 0 || r.top > H || r.width === 0) continue;
+    const bottom = H - r.bottom;
+    renderer.setViewport(r.left, bottom, r.width, r.height);
+    renderer.setScissor(r.left, bottom, r.width, r.height);
+    c.cam.aspect = r.width/r.height;
+    c.cam.updateProjectionMatrix();
+    if(!REDUCED){
+      c.spec.stage.turn.rotation.y += c.spec.spin*0.75*delta;
+      if(c.spec.tick) c.spec.tick(clock.getElapsedTime());
+    }
+    renderer.render(c.spec.stage.scene, c.cam);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
