@@ -36,7 +36,7 @@ const KITS = join(ROOT, 'kits');
 const UIT = join(ROOT, 'eiland');
 
 const plan = JSON.parse(readFileSync(join(UIT, 'eiland.json'), 'utf8'));
-const { maat, stap, zaad, kust, ruis, landvorm } = plan;
+const { maat, stap, zaad, kust, ruis, landvorm, maten } = plan;
 const zones = plan.zones;
 const cel = plan.cellen;
 
@@ -175,7 +175,7 @@ function landHoogte(x, z, inlandsDeel) {
     uitgraven = Math.max(uitgraven, dal.diepte * Math.pow(1 - d / dal.breedte, 1.5));
   }
 
-  return Math.max(h - uitgraven, Math.min(h, 0.6));
+  return Math.max(h - uitgraven, Math.min(h, maten.dalvloer));
 }
 
 /* -- hoogtekaart ---------------------------------------------------------- */
@@ -219,7 +219,7 @@ for (const zone of zones) {
       if (d > invloed) continue;
       const i = iz * N + ix;
       if (hoogte[i] <= plan.zeeniveau && zone.hoogte > plan.zeeniveau) continue;
-      const rafel = 0.75 + fbm(wx(ix) / 9, wx(iz) / 9, zaad + 23, 2) * 0.5;
+      const rafel = 0.75 + fbm(wx(ix) / (maten.hellingMonster * 9), wx(iz) / (maten.hellingMonster * 9), zaad + 23, 2) * 0.5;
       const mengen = (1 - soepel(klem((d / invloed) * rafel, 0, 1))) * 0.5;
       hoogte[i] += (zone.hoogte - hoogte[i]) * mengen;
     }
@@ -228,7 +228,7 @@ for (const zone of zones) {
 
 /* Pads: binnen de cirkel exact vlak op een hoogte die op 0.25 valt, zodat er
  * straks een kit-onderdeel op kan staan zonder te zweven. */
-const snap = (v) => Math.round(v * 4) / 4;
+const snap = (v) => Math.round(v / maten.padStap) * maten.padStap;
 
 for (const zone of zones) {
   if (!zone.pad) continue;
@@ -270,8 +270,8 @@ for (const zone of zones) {
       const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
       if (d > zone.water) continue;
       const i = iz * N + ix;
-      const kom = (1 - soepel(d / zone.water)) * 3.5;
-      hoogte[i] = Math.min(hoogte[i], spiegel - 0.2) - kom * 0.4;
+      const kom = (1 - soepel(d / zone.water)) * maten.meerKom;
+      hoogte[i] = Math.min(hoogte[i], spiegel - maten.meerRand) - kom * 0.4;
       if (d < zone.water * 0.92) isMeer[i] = 1;
     }
   }
@@ -293,8 +293,9 @@ function hoogteOp(x, z) {
 
 /** Helling in graden op een punt. */
 function hellingOp(x, z) {
-  const dx = (hoogteOp(x + 1, z) - hoogteOp(x - 1, z)) / 2;
-  const dz = (hoogteOp(x, z + 1) - hoogteOp(x, z - 1)) / 2;
+  const m = maten.hellingMonster;
+  const dx = (hoogteOp(x + m, z) - hoogteOp(x - m, z)) / (2 * m);
+  const dz = (hoogteOp(x, z + m) - hoogteOp(x, z - m)) / (2 * m);
   return (Math.atan(Math.hypot(dx, dz)) * 180) / Math.PI;
 }
 
@@ -321,8 +322,11 @@ for (const rivier of plan.rivieren ?? []) {
   for (let i = 0; i < rivier.punten.length - 1; i++) {
     const [ax, az] = rivier.punten[i];
     const [bx, bz] = rivier.punten[i + 1];
+    /* Stapgrootte hangt aan de wereldmaat: een vaste stap van twee eenheden
+     * is op een klein eiland een vijfde van de kaart, en dan valt een waterval
+     * in één reuzenstap in plaats van in een trap. */
     const lengte = Math.hypot(bx - ax, bz - az);
-    const stappen = Math.max(1, Math.round(lengte / 2));
+    const stappen = Math.max(1, Math.round(lengte / (maten.hellingMonster * 2)));
     for (let s = 0; s < stappen; s++) {
       const t = s / stappen;
       monsters.push({ x: ax + (bx - ax) * t, z: az + (bz - az) * t });
@@ -340,7 +344,7 @@ for (const rivier of plan.rivieren ?? []) {
 
   // Bedding uitsnijden: parabolisch profiel, diepst in het midden.
   const half = rivier.breedte / 2;
-  const rand = half + 3;
+  const rand = half + maten.rivierOever;
   for (let iz = 0; iz < N; iz++) {
     for (let ix = 0; ix < N; ix++) {
       const x = wx(ix);
@@ -375,12 +379,13 @@ const uvVan = ([kolom, rij]) => [(kolom + 0.5) / 16, (rij + 0.5) / 4];
 
 function kies(gemiddeld, hellingGraden, krater) {
   if (krater) return cel.lava;
-  if (gemiddeld < 0.9) return cel.zand;
+  const g = maten.kleurgrens;
+  if (gemiddeld < g.zand) return cel.zand;
   if (hellingGraden > 40) return cel.rots;
-  if (gemiddeld > 32) return cel.top;
-  if (gemiddeld > 24) return cel.rots;
-  if (gemiddeld > 15) return cel.aarde;
-  if (gemiddeld > 4) return cel.gras;
+  if (gemiddeld > g.top) return cel.top;
+  if (gemiddeld > g.rots) return cel.rots;
+  if (gemiddeld > g.aarde) return cel.aarde;
+  if (gemiddeld > g.gras) return cel.gras;
   return cel.weide;
 }
 
@@ -425,7 +430,8 @@ for (let iz = 0; iz < N - 1; iz++) {
 
     /* Diep water hoeft geen bodem: die zie je nooit, hij kost driehoeken, en
      * aan de hoeken van het domein steekt hij onder het zeevlak vandaan. */
-    if (h00 < -8 && h10 < -8 && h01 < -8 && h11 < -8) continue;
+    const trim = maten.diepwaterTrim;
+    if (h00 < trim && h10 < trim && h01 < trim && h11 < trim) continue;
 
     const krater = isKrater[iz * N + ix] === 1;
     const a = [x0, h00, z0];
@@ -468,7 +474,7 @@ const diepteOp = (x, z) => (Math.abs(x) >= halve || Math.abs(z) >= halve
  * halve eenheid over een strand dat op nul begint zet het strand onder water.
  */
 function golfHoogte(x, z) {
-  const demping = klem(diepteOp(x, z) / 3, 0, 1);
+  const demping = klem(diepteOp(x, z) / maten.golfDemping, 0, 1);
   const lang = (fbm(x / golf.deining.golflengte, z / golf.deining.golflengte, zaad + 41, 2) - 0.5) * 2;
   const kort = (fbm(x / golf.kabbel.golflengte, z / golf.kabbel.golflengte, zaad + 53, 2) - 0.5) * 2;
   return zeeNiveau + (lang * golf.deining.hoogte + kort * golf.kabbel.hoogte) * demping;
@@ -534,7 +540,7 @@ for (const rivier of rivieren) {
     const val = (a.y - b.y) / len; // hoe steil het water hier valt
     const uv = uvVan(val > 0.35 ? cel.schuim : cel.zeeOndiep);
 
-    const spiegel = 0.12;
+    const spiegel = maten.rivierSpiegel;
     const p0 = [a.x - nx, a.y + spiegel, a.z - nz];
     const p1 = [a.x + nx, a.y + spiegel, a.z + nz];
     const p2 = [b.x - nx, b.y + spiegel, b.z - nz];
@@ -632,7 +638,7 @@ for (const groep of plan.strooisel ?? []) {
     const x = zone.x + Math.cos(hoek) * straal;
     const z = zone.z + Math.sin(hoek) * straal;
 
-    if (hoogteOp(x, z) < (groep.minHoogte ?? 1)) continue;
+    if (hoogteOp(x, z) < (groep.minHoogte ?? maten.dalvloer)) continue;
     if (hellingOp(x, z) > (groep.maxHelling ?? 22)) continue;
     if (opPad(x, z)) continue;
     const tussen = groep.tussenruimte ?? 2.5;
@@ -798,8 +804,8 @@ function schrijfPng(pad, breedte, hoogtePx, rgb) {
 
 /* -- plattegrond ----------------------------------------------------------- */
 
-const SCHAAL = 4; // pixels per eenheid
-const PB = maat * SCHAAL;
+const SCHAAL = Math.max(1, Math.round(768 / maat)); // pixels per eenheid
+const PB = Math.round(maat * SCHAAL);
 const beeld = Buffer.alloc(PB * PB * 3);
 const zoneVan = new Int16Array(PB * PB).fill(-1); // -1 = zee
 const atlas = terrein.png;
@@ -824,11 +830,12 @@ for (let py = 0; py < PB; py++) {
 
     let kleur;
     if (h <= zeeNiveau) {
-      const diep = klem(-h / 12, 0, 1);
+      const diep = klem(-h / maten.plattegrondDiepte, 0, 1);
       kleur = kleurVanCel(waterCel(x, z)).map((v) => Math.round(v * (1 - diep * 0.45)));
     } else {
-      const dx = hoogteOp(x + 1, z) - hoogteOp(x - 1, z);
-      const dz = hoogteOp(x, z + 1) - hoogteOp(x, z - 1);
+      const m = maten.hellingMonster;
+      const dx = (hoogteOp(x + m, z) - hoogteOp(x - m, z)) / m;
+      const dz = (hoogteOp(x, z + m) - hoogteOp(x, z - m)) / m;
       const helling = (Math.atan(Math.hypot(dx, dz) / 2) * 180) / Math.PI;
       const inMeer = meerVlakken.some((m) => Math.hypot(x - m.x, z - m.z) < m.straal && h < m.y);
       const inKrater = zones.some((zo) => zo.krater && Math.hypot(x - zo.x, z - zo.z) < zo.krater.straal * 0.55);
@@ -916,7 +923,7 @@ function ring(x, z, straal, dikte, kleur) {
 }
 
 // Elk neergezet stuk als stipje, zodat de kaart en het model bij elkaar horen.
-for (const stuk of geplaatst) ring(stuk.x, stuk.z, 0.5, 1, [20, 20, 24]);
+for (const stuk of geplaatst) ring(stuk.x, stuk.z, maten.speling, 1, [20, 20, 24]);
 
 zones.forEach((zone, i) => {
   if (zone.pad) ring(zone.x, zone.z, zone.pad, 0.9, [255, 255, 255]);
@@ -1078,12 +1085,12 @@ for (const zone of zones) {
   if (!zone.nat && zone.hoogte > 0 && gemeten < zeeNiveau) {
     problemen.push(`${zone.id} staat onder water (${gemeten.toFixed(1)})`);
   }
-  if (zone.pad && Math.abs(gemeten - snap(zone.hoogte)) > 0.05) {
+  if (zone.pad && Math.abs(gemeten - snap(zone.hoogte)) > maten.padStap * 0.2) {
     problemen.push(`${zone.id} heeft een pad maar ligt niet vlak (${gemeten.toFixed(2)} i.p.v. ${snap(zone.hoogte)})`);
   }
   /* Het kustplafond wint van de streefhoogte. Ligt een zone te dicht op zee
    * voor de hoogte die hij wil, dan zakt hij stilzwijgend weg. */
-  if (!zone.krater && zone.hoogte > plafond + 0.5) {
+  if (!zone.krater && zone.hoogte > plafond + maten.speling) {
     problemen.push(
       `${zone.id} wil ${zone.hoogte} maar het kustplafond staat maar ${plafond.toFixed(1)} toe`
       + ' — verder landinwaarts zetten of lager maken',
@@ -1104,7 +1111,7 @@ console.log(`\nsteilste overgang: ${((Math.atan(steilste) * 180) / Math.PI).toFi
 // Staat er iets in het water dat daar niet hoort?
 for (const stuk of geplaatst) {
   const y = hoogteOp(stuk.x, stuk.z);
-  if (y < zeeNiveau - 0.5 && !stuk.naam.includes('ship') && !stuk.naam.includes('boat')) {
+  if (y < zeeNiveau - maten.speling && !stuk.naam.includes('ship') && !stuk.naam.includes('boat')) {
     problemen.push(`${stuk.naam} staat onder water op (${stuk.x.toFixed(0)}, ${stuk.z.toFixed(0)})`);
   }
 }

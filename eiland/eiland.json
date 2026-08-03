@@ -1,125 +1,584 @@
 {
-  "versie": 2,
-  "zaad": 20260803,
-
-  "maat": 192,
-  "stap": 2,
-  "zeeniveau": 0,
-
-  "kust": {
-    "straal": 84,
-    "grilligheid": 0.50,
-    "golflengte": 2.2,
-    "strandbreedte": 11,
-    "zeebodem": 5,
-
-    "//": "maxHelling is het plafond: op `d` eenheden van de kustlijn mag het land hoogstens d * maxHelling hoog zijn. Dit maakt een verticale kust onmogelijk. hellingVariatie laat dat plafond per hoek verlopen, zodat er zowel flauwe baaien als steile kapen ontstaan.",
-    "maxHelling": 0.8,
-    "hellingVariatie": 0.7
+ "versie": 2,
+ "zaad": 20260803,
+ "maat": 38.4,
+ "stap": 0.4,
+ "zeeniveau": 0,
+ "kust": {
+  "straal": 16.8,
+  "grilligheid": 0.5,
+  "golflengte": 2.2,
+  "strandbreedte": 2.2,
+  "zeebodem": 1.0,
+  "//": "maxHelling is het plafond: op `d` eenheden van de kustlijn mag het land hoogstens d * maxHelling hoog zijn. Dit maakt een verticale kust onmogelijk. hellingVariatie laat dat plafond per hoek verlopen, zodat er zowel flauwe baaien als steile kapen ontstaan.",
+  "maxHelling": 0.8,
+  "hellingVariatie": 0.7
+ },
+ "ruis": {
+  "hoogte": 0.52,
+  "golflengte": 5.2,
+  "octaven": 4
+ },
+ "//zee": "Het zeevlak is een eigen raster met golven, geen platte plaat: plat geschaduwd breekt elke facet het licht anders en dat is de ruwe zee die bij deze stijl hoort. `straal` moet ruim over het terrein heen reiken, anders steekt de zeebodem eronder vandaan.",
+ "zee": {
+  "straal": 26.0,
+  "stap": 0.6,
+  "deining": {
+   "golflengte": 4.4,
+   "hoogte": 0.09
   },
-
-  "ruis": {
-    "hoogte": 2.6,
-    "golflengte": 26,
-    "octaven": 4
+  "kabbel": {
+   "golflengte": 1.6,
+   "hoogte": 0.036
   },
-
-  "//zee": "Het zeevlak is een eigen raster met golven, geen platte plaat: plat geschaduwd breekt elke facet het licht anders en dat is de ruwe zee die bij deze stijl hoort. `straal` moet ruim over het terrein heen reiken, anders steekt de zeebodem eronder vandaan.",
-  "zee": {
-    "straal": 130,
-    "stap": 3,
-    "deining": { "golflengte": 22, "hoogte": 0.45 },
-    "kabbel":  { "golflengte": 8,  "hoogte": 0.18 },
-    "ondiepte": 4.0,
-    "schuimdiepte": 0.35
+  "ondiepte": 0.8,
+  "schuimdiepte": 0.07
+ },
+ "maten": {
+  "//": "Wereldmaten die het script nodig heeft. Ze staan hier en niet in de code, zodat het hele eiland in één keer op maat te zetten is. `padStap` is de uitzondering: die hangt aan de kits (1 eenheid = 1 vloersegment) en schaalt dus niet mee.",
+  "padStap": 0.25,
+  "dalvloer": 0.12,
+  "diepwaterTrim": -1.6,
+  "hellingMonster": 0.2,
+  "meerKom": 0.7,
+  "meerRand": 0.04,
+  "rivierOever": 0.6,
+  "rivierSpiegel": 0.12,
+  "golfDemping": 0.6,
+  "plattegrondDiepte": 2.4,
+  "kleurgrens": {
+   "zand": 0.18,
+   "gras": 0.8,
+   "aarde": 3.0,
+   "rots": 4.8,
+   "top": 6.4
   },
-
-  "//landvorm": "De vorm van het eiland zelf, los van de zones. Toppen en ruggen worden met max gecombineerd, niet gemiddeld — middelen maakt van elke berg een plateau. De naden die max achterlaat zijn juist de graten, en dat past bij een gefacetteerd terrein. Dalen gaan er daarna vanaf.",
-  "landvorm": {
-    "koepel": { "hoogte": 5, "macht": 1.4 },
-
-    "toppen": [
-      { "id": "vulkaankegel",   "x":  10, "z": -34, "hoogte": 44, "straal": 42, "macht": 0.8 },
-      { "id": "bergtop",        "x": -40, "z": -28, "hoogte": 27, "straal": 32, "macht": 1.6 },
-      { "id": "bergschouder",   "x": -52, "z":  -8, "hoogte": 17, "straal": 24, "macht": 1.5 },
-      { "id": "watervalklif",   "x":  -4, "z": -16, "hoogte": 20, "straal": 20, "macht": 1.4 },
-      { "id": "jungleheuvel",   "x":  46, "z":   4, "hoogte": 11, "straal": 26, "macht": 1.3 },
-      { "id": "vuurtorenkaap",  "x":  72, "z":  -4, "hoogte":  8, "straal": 14, "macht": 1.2 }
+  "speling": 0.1
+ },
+ "//landvorm": "De vorm van het eiland zelf, los van de zones. Toppen en ruggen worden met max gecombineerd, niet gemiddeld — middelen maakt van elke berg een plateau. De naden die max achterlaat zijn juist de graten, en dat past bij een gefacetteerd terrein. Dalen gaan er daarna vanaf.",
+ "landvorm": {
+  "koepel": {
+   "hoogte": 1.0,
+   "macht": 1.4
+  },
+  "toppen": [
+   {
+    "id": "vulkaankegel",
+    "x": 2.0,
+    "z": -6.8,
+    "hoogte": 8.8,
+    "straal": 8.4,
+    "macht": 0.8
+   },
+   {
+    "id": "bergtop",
+    "x": -8.0,
+    "z": -5.6,
+    "hoogte": 5.4,
+    "straal": 6.4,
+    "macht": 1.6
+   },
+   {
+    "id": "bergschouder",
+    "x": -10.4,
+    "z": -1.6,
+    "hoogte": 3.4,
+    "straal": 4.8,
+    "macht": 1.5
+   },
+   {
+    "id": "watervalklif",
+    "x": -0.8,
+    "z": -3.2,
+    "hoogte": 4.0,
+    "straal": 4.0,
+    "macht": 1.4
+   },
+   {
+    "id": "jungleheuvel",
+    "x": 9.2,
+    "z": 0.8,
+    "hoogte": 2.2,
+    "straal": 5.2,
+    "macht": 1.3
+   },
+   {
+    "id": "vuurtorenkaap",
+    "x": 14.4,
+    "z": -0.8,
+    "hoogte": 1.6,
+    "straal": 2.8,
+    "macht": 1.2
+   }
+  ],
+  "ruggen": [
+   {
+    "id": "berg-vulkaan",
+    "van": [
+     -8.0,
+     -5.6
     ],
-
-    "ruggen": [
-      { "id": "berg-vulkaan",   "van": [-40, -28], "tot": [ 10, -34], "hoogte": 20, "breedte": 20 },
-      { "id": "vulkaan-ballon", "van": [ 10, -34], "tot": [ 34, -46], "hoogte": 21, "breedte": 18 },
-      { "id": "berg-bos",       "van": [-40, -28], "tot": [-60,  10], "hoogte": 14, "breedte": 18 },
-      { "id": "klif-bruggen",   "van": [ -4, -16], "tot": [-36,  26], "hoogte": 11, "breedte": 14 }
+    "tot": [
+     2.0,
+     -6.8
     ],
-
-    "dalen": [
-      { "id": "meerdal",     "van": [-18,   2], "tot": [  4, 30], "diepte": 6, "breedte": 16 },
-      { "id": "rivierdal",   "van": [  4,  30], "tot": [  2, 68], "diepte": 4, "breedte": 14 },
-      { "id": "haveninham",  "van": [ 52,  42], "tot": [ 64, 32], "diepte": 5, "breedte": 12 }
-    ]
+    "hoogte": 4.0,
+    "breedte": 4.0
+   },
+   {
+    "id": "vulkaan-ballon",
+    "van": [
+     2.0,
+     -6.8
+    ],
+    "tot": [
+     6.8,
+     -9.2
+    ],
+    "hoogte": 4.2,
+    "breedte": 3.6
+   },
+   {
+    "id": "berg-bos",
+    "van": [
+     -8.0,
+     -5.6
+    ],
+    "tot": [
+     -12.0,
+     2.0
+    ],
+    "hoogte": 2.8,
+    "breedte": 3.6
+   },
+   {
+    "id": "klif-bruggen",
+    "van": [
+     -0.8,
+     -3.2
+    ],
+    "tot": [
+     -7.2,
+     5.2
+    ],
+    "hoogte": 2.2,
+    "breedte": 2.8
+   }
+  ],
+  "dalen": [
+   {
+    "id": "meerdal",
+    "van": [
+     -3.6,
+     0.4
+    ],
+    "tot": [
+     0.8,
+     6.0
+    ],
+    "diepte": 1.2,
+    "breedte": 3.2
+   },
+   {
+    "id": "rivierdal",
+    "van": [
+     0.8,
+     6.0
+    ],
+    "tot": [
+     0.4,
+     13.6
+    ],
+    "diepte": 0.8,
+    "breedte": 2.8
+   },
+   {
+    "id": "haveninham",
+    "van": [
+     10.4,
+     8.4
+    ],
+    "tot": [
+     12.8,
+     6.4
+    ],
+    "diepte": 1.0,
+    "breedte": 2.4
+   }
+  ]
+ },
+ "//zones": "Zones sturen de vorm niet meer; ze trekken de grond alleen binnen hun eigen `invloed` naar hun streefhoogte, en binnen `pad` maken ze hem exact vlak. `relief` schaalt de ruis lokaal: 0 is biljartlaken, 2 is ruig.",
+ "zones": [
+  {
+   "id": "strand",
+   "naam": "Strand",
+   "x": 0.0,
+   "z": 14.0,
+   "hoogte": 0.12,
+   "relief": 0.2,
+   "invloed": 3.6,
+   "pad": 0.0,
+   "band": "zee"
   },
-
-  "//zones": "Zones sturen de vorm niet meer; ze trekken de grond alleen binnen hun eigen `invloed` naar hun streefhoogte, en binnen `pad` maken ze hem exact vlak. `relief` schaalt de ruis lokaal: 0 is biljartlaken, 2 is ruig.",
-
-  "zones": [
-    { "id": "strand",      "naam": "Strand",           "x":   0, "z":  70, "hoogte":  0.6, "relief": 0.2, "invloed": 18, "pad": 0, "band": "zee"    },
-    { "id": "startkamp",   "naam": "Startkamp",        "x":   6, "z":  58, "hoogte":  2.5, "relief": 0.3, "invloed": 16, "pad": 9, "band": "laag"   },
-    { "id": "haven",       "naam": "Haven / dock",     "x":  48, "z":  50, "hoogte":  1.0, "relief": 0.2, "invloed": 14, "pad": 8, "band": "zee"    },
-    { "id": "wrak",        "naam": "Wrakondiepten",    "x":  70, "z":  24, "hoogte": -1.2, "relief": 0.4, "invloed": 16, "pad": 0, "band": "zee"    },
-    { "id": "vuurtoren",   "naam": "Vuurtoren",        "x":  72, "z":  -4, "hoogte":  7.0, "relief": 1.1, "invloed": 12, "pad": 6, "band": "laag"   },
-    { "id": "bloementuin", "naam": "Bloementuin",      "x": -42, "z":  52, "hoogte":  3.5, "relief": 0.3, "invloed": 16, "pad": 8, "band": "laag"   },
-    { "id": "bos",         "naam": "Bos",              "x": -62, "z":  16, "hoogte":  6.0, "relief": 0.7, "invloed": 20, "pad": 0, "band": "laag"   },
-    { "id": "bruggen",     "naam": "Bruggen / ravijn", "x": -36, "z":  26, "hoogte": 10.0, "relief": 1.6, "invloed": 12, "pad": 5, "band": "midden" },
-    { "id": "rivier",      "naam": "Rivier",           "x":   4, "z":  30, "hoogte":  5.0, "nat": true, "relief": 0.5, "invloed": 18, "pad": 0, "band": "midden" },
-    { "id": "meer",        "naam": "Meer",             "x": -18, "z":   2, "hoogte": 11.0, "nat": true, "relief": 0.4, "invloed": 18, "pad": 0, "band": "midden", "water": 14 },
-    { "id": "watervallen", "naam": "Watervallen",      "x":  -4, "z": -16, "hoogte": 19.0, "relief": 1.5, "invloed": 14, "pad": 0, "band": "midden" },
-    { "id": "jungle",      "naam": "Jungle",           "x":  46, "z":  12, "hoogte":  8.0, "relief": 0.9, "invloed": 20, "pad": 0, "band": "midden" },
-    { "id": "berg",        "naam": "Berg",             "x": -40, "z": -28, "hoogte": 26.0, "relief": 2.0, "invloed": 16, "pad": 0, "band": "hoog"   },
-    { "id": "grot",        "naam": "Grotingang",       "x": -60, "z": -20, "hoogte": 13.0, "relief": 1.4, "invloed": 10, "pad": 6, "band": "hoog"   },
-    { "id": "vulkaan",     "naam": "Vulkaan",          "x":  10, "z": -34, "hoogte": 36.0, "relief": 1.0, "invloed": 12, "pad": 0, "band": "top", "krater": { "straal": 11, "diepte": 18 } },
-    { "id": "luchtballon", "naam": "Luchtballon",      "x":  34, "z": -46, "hoogte": 20.0, "relief": 0.6, "invloed": 12, "pad": 8, "band": "top"   }
-  ],
-
-  "//rivieren": "Polylijnen die eerst in het terrein worden gesneden en daarna water krijgen. De spiegel wordt monotoon dalend gemaakt; waar het terrein hard wegvalt ontstaat vanzelf een waterval.",
-  "rivieren": [
-    { "id": "bergbeek",    "breedte": 4, "diepte": 1.0,
-      "punten": [[-6, -19], [-9, -13], [-13, -6], [-17, 0]] },
-    { "id": "hoofdrivier", "breedte": 6, "diepte": 1.4,
-      "punten": [[-17, 12], [-9, 21], [2, 30], [-2, 42], [-9, 53], [-13, 65], [-14, 77]] }
-  ],
-
-  "//stukken": "Referentiemaat, geen aankleding. Een eiland van 192 eenheden zegt niets tot er een schip naast ligt en een boom op staat.",
-  "stukken": [
-    { "model": "taalei-kit/lighthouse", "zone": "vuurtoren", "draai": 0 },
-    { "model": "pirate-kit/ship-large", "zone": "haven", "verschuif": [11, 13], "draai": 205, "opWater": true },
-    { "model": "pirate-kit/ship-wreck", "zone": "wrak",  "verschuif": [-4, 2],  "draai": 40,  "opWater": true },
-    { "model": "taalei-kit/windmill",   "zone": "startkamp", "verschuif": [-7, 5], "draai": 30 }
-  ],
-
-  "strooisel": [
-    { "zone": "bos",         "straal": 24, "aantal": 40, "tussenruimte": 3.0, "maxHelling": 28,
-      "modellen": ["mini-forest/tree", "mini-forest/tree-high", "survival-kit/tree", "survival-kit/tree-tall"] },
-    { "zone": "jungle",      "straal": 22, "aantal": 20, "tussenruimte": 3.5,
-      "modellen": ["pirate-kit/palm-detailed-bend", "pirate-kit/palm-detailed-straight"] },
-    { "zone": "strand",      "straal": 22, "aantal": 10, "tussenruimte": 4.0, "minHoogte": 0.8, "maxHelling": 26,
-      "modellen": ["pirate-kit/palm-bend", "pirate-kit/palm-straight"] },
-    { "zone": "bloementuin", "straal": 16, "aantal": 12, "tussenruimte": 3.0,
-      "modellen": ["fantasy-town-kit/tree", "fantasy-town-kit/tree-crooked"] }
-  ],
-
-  "//cellen": "Cel [kolom, rij] in kits/colormap.png (16 kolommen x 4 rijen).",
-  "cellen": {
-    "zand":   [5, 3],
-    "gras":   [5, 1],
-    "weide":  [2, 1],
-    "aarde":  [12, 0],
-    "rots":   [3, 2],
-    "top":    [5, 2],
-    "lava":      [9, 1],
-    "zeeOndiep": [0, 2],
-    "zeeDiep":   [1, 2],
-    "schuim":    [2, 2]
+  {
+   "id": "startkamp",
+   "naam": "Startkamp",
+   "x": 1.2,
+   "z": 11.6,
+   "hoogte": 0.5,
+   "relief": 0.3,
+   "invloed": 3.2,
+   "pad": 1.8,
+   "band": "laag"
+  },
+  {
+   "id": "haven",
+   "naam": "Haven / dock",
+   "x": 9.6,
+   "z": 10.0,
+   "hoogte": 0.2,
+   "relief": 0.2,
+   "invloed": 2.8,
+   "pad": 1.6,
+   "band": "zee"
+  },
+  {
+   "id": "wrak",
+   "naam": "Wrakondiepten",
+   "x": 14.0,
+   "z": 4.8,
+   "hoogte": -0.24,
+   "relief": 0.4,
+   "invloed": 3.2,
+   "pad": 0.0,
+   "band": "zee"
+  },
+  {
+   "id": "vuurtoren",
+   "naam": "Vuurtoren",
+   "x": 14.4,
+   "z": -0.8,
+   "hoogte": 1.4,
+   "relief": 1.1,
+   "invloed": 2.4,
+   "pad": 1.2,
+   "band": "laag"
+  },
+  {
+   "id": "bloementuin",
+   "naam": "Bloementuin",
+   "x": -8.4,
+   "z": 10.4,
+   "hoogte": 0.7,
+   "relief": 0.3,
+   "invloed": 3.2,
+   "pad": 1.6,
+   "band": "laag"
+  },
+  {
+   "id": "bos",
+   "naam": "Bos",
+   "x": -12.4,
+   "z": 3.2,
+   "hoogte": 1.2,
+   "relief": 0.7,
+   "invloed": 4.0,
+   "pad": 0.0,
+   "band": "laag"
+  },
+  {
+   "id": "bruggen",
+   "naam": "Bruggen / ravijn",
+   "x": -7.2,
+   "z": 5.2,
+   "hoogte": 2.0,
+   "relief": 1.6,
+   "invloed": 2.4,
+   "pad": 1.0,
+   "band": "midden"
+  },
+  {
+   "id": "rivier",
+   "naam": "Rivier",
+   "x": 0.8,
+   "z": 6.0,
+   "hoogte": 1.0,
+   "nat": true,
+   "relief": 0.5,
+   "invloed": 3.6,
+   "pad": 0.0,
+   "band": "midden"
+  },
+  {
+   "id": "meer",
+   "naam": "Meer",
+   "x": -3.6,
+   "z": 0.4,
+   "hoogte": 2.2,
+   "nat": true,
+   "relief": 0.4,
+   "invloed": 3.6,
+   "pad": 0.0,
+   "band": "midden",
+   "water": 2.8
+  },
+  {
+   "id": "watervallen",
+   "naam": "Watervallen",
+   "x": -0.8,
+   "z": -3.2,
+   "hoogte": 3.8,
+   "relief": 1.5,
+   "invloed": 2.8,
+   "pad": 0.0,
+   "band": "midden"
+  },
+  {
+   "id": "jungle",
+   "naam": "Jungle",
+   "x": 9.2,
+   "z": 2.4,
+   "hoogte": 1.6,
+   "relief": 0.9,
+   "invloed": 4.0,
+   "pad": 0.0,
+   "band": "midden"
+  },
+  {
+   "id": "berg",
+   "naam": "Berg",
+   "x": -8.0,
+   "z": -5.6,
+   "hoogte": 5.2,
+   "relief": 2.0,
+   "invloed": 3.2,
+   "pad": 0.0,
+   "band": "hoog"
+  },
+  {
+   "id": "grot",
+   "naam": "Grotingang",
+   "x": -12.0,
+   "z": -4.0,
+   "hoogte": 2.6,
+   "relief": 1.4,
+   "invloed": 2.0,
+   "pad": 1.2,
+   "band": "hoog"
+  },
+  {
+   "id": "vulkaan",
+   "naam": "Vulkaan",
+   "x": 2.0,
+   "z": -6.8,
+   "hoogte": 7.2,
+   "relief": 1.0,
+   "invloed": 2.4,
+   "pad": 0.0,
+   "band": "top",
+   "krater": {
+    "straal": 2.2,
+    "diepte": 3.6
+   }
+  },
+  {
+   "id": "luchtballon",
+   "naam": "Luchtballon",
+   "x": 6.8,
+   "z": -9.2,
+   "hoogte": 4.0,
+   "relief": 0.6,
+   "invloed": 2.4,
+   "pad": 1.6,
+   "band": "top"
   }
+ ],
+ "//rivieren": "Polylijnen die eerst in het terrein worden gesneden en daarna water krijgen. De spiegel wordt monotoon dalend gemaakt; waar het terrein hard wegvalt ontstaat vanzelf een waterval.",
+ "rivieren": [
+  {
+   "id": "bergbeek",
+   "breedte": 0.56,
+   "diepte": 0.2,
+   "punten": [
+    [
+     -1.2,
+     -3.8
+    ],
+    [
+     -1.8,
+     -2.6
+    ],
+    [
+     -2.6,
+     -1.2
+    ],
+    [
+     -3.4,
+     0.0
+    ]
+   ]
+  },
+  {
+   "id": "hoofdrivier",
+   "breedte": 0.84,
+   "diepte": 0.28,
+   "punten": [
+    [
+     -3.4,
+     2.4
+    ],
+    [
+     -1.8,
+     4.2
+    ],
+    [
+     0.4,
+     6.0
+    ],
+    [
+     -0.4,
+     8.4
+    ],
+    [
+     -1.8,
+     10.6
+    ],
+    [
+     -2.6,
+     13.0
+    ],
+    [
+     -2.8,
+     15.4
+    ]
+   ]
+  }
+ ],
+ "//stukken": "Referentiemaat, geen aankleding. Een eiland van 192 eenheden zegt niets tot er een schip naast ligt en een boom op staat.",
+ "stukken": [
+  {
+   "model": "taalei-kit/lighthouse",
+   "zone": "vuurtoren",
+   "draai": 0
+  },
+  {
+   "model": "pirate-kit/ship-large",
+   "zone": "haven",
+   "verschuif": [
+    2.2,
+    2.6
+   ],
+   "draai": 205,
+   "opWater": true
+  },
+  {
+   "model": "pirate-kit/ship-wreck",
+   "zone": "wrak",
+   "verschuif": [
+    -0.8,
+    0.4
+   ],
+   "draai": 40,
+   "opWater": true
+  },
+  {
+   "model": "taalei-kit/windmill",
+   "zone": "startkamp",
+   "verschuif": [
+    -1.4,
+    1.0
+   ],
+   "draai": 30
+  }
+ ],
+ "strooisel": [
+  {
+   "zone": "bos",
+   "straal": 4.8,
+   "aantal": 40,
+   "tussenruimte": 0.6,
+   "maxHelling": 28,
+   "modellen": [
+    "mini-forest/tree",
+    "mini-forest/tree-high",
+    "survival-kit/tree",
+    "survival-kit/tree-tall"
+   ]
+  },
+  {
+   "zone": "jungle",
+   "straal": 4.4,
+   "aantal": 20,
+   "tussenruimte": 0.7,
+   "modellen": [
+    "pirate-kit/palm-detailed-bend",
+    "pirate-kit/palm-detailed-straight"
+   ]
+  },
+  {
+   "zone": "strand",
+   "straal": 4.4,
+   "aantal": 10,
+   "tussenruimte": 0.8,
+   "minHoogte": 0.16,
+   "maxHelling": 26,
+   "modellen": [
+    "pirate-kit/palm-bend",
+    "pirate-kit/palm-straight"
+   ]
+  },
+  {
+   "zone": "bloementuin",
+   "straal": 3.2,
+   "aantal": 12,
+   "tussenruimte": 0.6,
+   "modellen": [
+    "fantasy-town-kit/tree",
+    "fantasy-town-kit/tree-crooked"
+   ]
+  }
+ ],
+ "//cellen": "Cel [kolom, rij] in kits/colormap.png (16 kolommen x 4 rijen).",
+ "cellen": {
+  "zand": [
+   5,
+   3
+  ],
+  "gras": [
+   5,
+   1
+  ],
+  "weide": [
+   2,
+   1
+  ],
+  "aarde": [
+   12,
+   0
+  ],
+  "rots": [
+   3,
+   2
+  ],
+  "top": [
+   5,
+   2
+  ],
+  "lava": [
+   9,
+   1
+  ],
+  "zeeOndiep": [
+   0,
+   2
+  ],
+  "zeeDiep": [
+   1,
+   2
+  ],
+  "schuim": [
+   2,
+   2
+  ]
+ }
 }
