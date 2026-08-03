@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lighthouse — storybook specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Martian+Mono:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FFFFFF;--ink:#181B17;--faint:#8A8F86;--rule:#DDDFD9;--mark:#2E3C86}
+  *{box-sizing:border-box}
+  html{background:var(--paper);color:var(--ink)}
+  body{margin:0;background:transparent;font-family:"Martian Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased}
+  #gl{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
+  main{max-width:420px;margin:0 auto;padding:14px 12px 22px}
+  header{display:flex;align-items:baseline;gap:8px;padding-bottom:8px}
+  h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.02em;margin:0}
+  header p{margin:0;font-size:8px;line-height:1.5;color:var(--faint);letter-spacing:.02em;font-weight:300}
+  figure{margin:0;padding:6px 0 9px;border-top:1px solid var(--rule)}
+  .view{aspect-ratio:1/1;width:100%}
+  .nm{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:11px;letter-spacing:-.01em}
+  .tech{font-size:7.5px;line-height:1.45;color:var(--faint);font-weight:300;letter-spacing:.01em;margin-top:1px}
+  .tri{font-size:7.5px;color:var(--mark);font-weight:500;letter-spacing:.04em;margin-top:2px}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<main>
+  <header>
+    <h1>Lighthouse</h1>
+    <p>storybook · 12 facets · wooden roof &amp; railing</p>
+  </header>
+
+  <figure><div class="view" data-scene="lighthouse"></div><figcaption>
+    <div class="nm">Lighthouse</div>
+    <div class="tech">chunky tapered tower, wooden gallery, railing and cap — one vertex-coloured mesh; only the lamp and its glow stay separate</div>
+    <div class="tri" data-tri="lighthouse"></div></figcaption></figure>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.setClearAlpha(0);
+renderer.setScissorTest(true);
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function col(hex){ return new THREE.Color(hex).convertSRGBToLinear(); }
+function hash2(x, y){ const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+
+function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, flatShading:true, shininess:0, specular:col('#000000'), side:side || THREE.FrontSide}); }
+
+function stage(sky, ground, keyPos){
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.85));
+  scene.add(new THREE.AmbientLight(col('#E6EAEE'), 0.16));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), 0.85);
+  key.position.set(keyPos[0], keyPos[1], keyPos[2]);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
+  fill.position.set(-2, 1, -2.5);
+  scene.add(fill);
+  const turn = new THREE.Group();
+  scene.add(turn);
+  return {scene:scene, turn:turn};
+}
+
+/* ---------- merge helpers ---------- */
+
+function tf(p, r, s){
+  const o = new THREE.Object3D();
+  if(p) o.position.set(p[0], p[1], p[2]);
+  if(r) o.rotation.set(r[0], r[1], r[2]);
+  if(s) o.scale.set(s[0], s[1], s[2]);
+  o.updateMatrix();
+  return o.matrix;
+}
+
+function part(geo, hex, mats){
+  const g = geo.index ? geo.toNonIndexed() : geo;
+  if(mats) for(let i = 0; i < mats.length; i++) g.applyMatrix4(mats[i]);
+  if(!g.attributes.color){
+    const n = g.attributes.position.count, c = new Float32Array(n*3), t = col(hex);
+    for(let i = 0; i < n; i++){ c[i*3] = t.r; c[i*3+1] = t.g; c[i*3+2] = t.b; }
+    g.setAttribute('color', new THREE.BufferAttribute(c, 3));
+  }
+  return g;
+}
+
+function merge(list){
+  let n = 0;
+  for(let i = 0; i < list.length; i++) n += list[i].attributes.position.count;
+  const pos = new Float32Array(n*3), cols = new Float32Array(n*3);
+  let off = 0;
+  for(let i = 0; i < list.length; i++){
+    const g = list[i];
+    pos.set(g.attributes.position.array, off);
+    cols.set(g.attributes.color.array, off);
+    off += g.attributes.position.count*3;
+    g.dispose();
+  }
+  const out = new THREE.BufferGeometry();
+  out.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  out.setAttribute('color', new THREE.BufferAttribute(cols, 3));
+  out.computeVertexNormals();
+  return out;
+}
+
+function spun(rings, sides, colorFn, jitter){
+  const pos = [], cols = [], tmp = new THREE.Color();
+  for(let i = 0; i < rings.length-1; i++){
+    for(let s = 0; s < sides; s++){
+      const a0 = s/sides*Math.PI*2, a1 = (s+1)/sides*Math.PI*2;
+      const A = [rings[i].r*Math.cos(a0), rings[i].y, rings[i].r*Math.sin(a0)];
+      const B = [rings[i].r*Math.cos(a1), rings[i].y, rings[i].r*Math.sin(a1)];
+      const C = [rings[i+1].r*Math.cos(a1), rings[i+1].y, rings[i+1].r*Math.sin(a1)];
+      const D = [rings[i+1].r*Math.cos(a0), rings[i+1].y, rings[i+1].r*Math.sin(a0)];
+      tmp.set(colorFn(i, s)).convertSRGBToLinear();
+      if(jitter) tmp.multiplyScalar(1 - jitter*0.5 + hash2(i*7+1, s*3+2)*jitter);
+      [A,C,B, A,D,C].forEach(function(v){ pos.push(v[0],v[1],v[2]); cols.push(tmp.r,tmp.g,tmp.b); });
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+  g.computeVertexNormals();
+  return g;
+}
+
+/* ---------- specimen ---------- */
+
+function lighthouse(){
+  const st = stage('#EAF1F7', '#B9B4A8', [3.2, 4, 2.2]);
+  const rim = new THREE.DirectionalLight(col('#FFE8C4'), 0.3);
+  rim.position.set(-2.5, 1.2, -2);
+  st.scene.add(rim);
+
+  const solid = [];
+
+  /* palette — all values are cells of the shared colormap (kits/colormap.png) */
+  const CREAM = 0xf6f6f9, RED = 0xd5564d;               /* white [5,8], red [7,3] */
+  const WOOD = '#9e5b41', WOOD_DK = '#875541', WOOD_LT = '#cd8861'; /* wood [12,1] [12,3] [13,3] */
+  const STONE = '#737990';                              /* slate [15,13] */
+
+  const SIDES = 12, BANDS = 4, PER = 2;
+
+  /* chunky caricature: wide foot, strong taper, slight concave sweep */
+  const y0 = 0.12, y1 = 1.0, r0 = 0.36, r1 = 0.2;
+  const rings = [];
+  for(let i = 0; i <= BANDS*PER; i++){
+    const t = i/(BANDS*PER);
+    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, 0.8)});
+  }
+  solid.push(part(spun(rings, SIDES, function(i){
+    return Math.floor(i/PER) % 2 === 0 ? CREAM : RED;
+  }, 0.06)));
+
+  /* stone plinth — part of the building, not terrain */
+  solid.push(part(new THREE.CylinderGeometry(0.38, 0.41, 0.12, SIDES), STONE, [tf([0, 0.06, 0])]));
+
+  /* wooden gallery deck, chunky overhang */
+  solid.push(part(new THREE.CylinderGeometry(0.31, 0.26, 0.07, SIDES), WOOD_LT, [tf([0, 1.03, 0])]));
+
+  /* wooden railing: 12 chunky posts + one rail ring */
+  for(let i = 0; i < SIDES; i++){
+    const a = i/SIDES*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.026, 0.1, 0.026), WOOD_DK,
+      [tf([Math.cos(a)*0.285, 1.115, Math.sin(a)*0.285], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.TorusGeometry(0.288, 0.015, 4, SIDES), WOOD,
+    [tf([0, 1.168, 0], [Math.PI/2, 0, 0])]));
+
+  /* lantern room: wooden sill, 6 chunky wooden mullions, wooden fascia */
+  solid.push(part(new THREE.CylinderGeometry(0.185, 0.185, 0.035, SIDES), WOOD, [tf([0, 1.075, 0])]));
+  for(let i = 0; i < 6; i++){
+    const a = i/6*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.03, 0.19, 0.03), WOOD_DK,
+      [tf([Math.cos(a)*0.155, 1.19, Math.sin(a)*0.155], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.CylinderGeometry(0.19, 0.19, 0.03, SIDES), WOOD, [tf([0, 1.295, 0])]));
+
+  /* wooden cap: fat 12-sided cone + button finial */
+  solid.push(part(new THREE.ConeGeometry(0.235, 0.21, SIDES), WOOD, [tf([0, 1.41, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.02, 0.028, 0.05, 6), WOOD_DK, [tf([0, 1.53, 0])]));
+
+  /* door: cream frame, wooden door, wooden step */
+  const rAt = function(y){
+    const t = (y - y0)/(y1 - y0);
+    return (r0 + (r1-r0)*Math.pow(t, 0.8)) * Math.cos(Math.PI/SIDES);
+  };
+  /* door sits centred on a facet: +Z lands on an edge with 12 sides, so swing half a facet */
+  const da = Math.PI/2 - Math.PI/SIDES, dry = Math.PI/2 - da;
+  const dp = function(d, y){ return [Math.cos(da)*d, y, Math.sin(da)*d]; };
+  const dr = rAt(0.3);
+  solid.push(part(new THREE.BoxGeometry(0.15, 0.26, 0.035), CREAM, [tf(dp(dr + 0.004, 0.28), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.11, 0.215, 0.035), WOOD_DK, [tf(dp(dr + 0.016, 0.27), [0, dry, 0])]));
+  solid.push(part(new THREE.BoxGeometry(0.18, 0.04, 0.12), WOOD_LT, [tf(dp(dr + 0.09, 0.14), [0, dry, 0])]));
+
+  /* kit scale: windmill reference is 3.11 units tall — ×2 puts the lighthouse at 3.1 */
+  const model = new THREE.Group();
+  model.scale.setScalar(2);
+  st.turn.add(model);
+  model.add(new THREE.Mesh(merge(solid), flatVC()));
+
+  /* the two below stay separate: transparent */
+
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.15, 0.19, 8), new THREE.MeshPhongMaterial({
+    color: col('#ffcd5e'), emissive: col('#9C7616'), flatShading:true, shininess:0,
+    specular:col('#000000'), transparent:true, opacity:0.94
+  }));
+  lamp.position.y = 1.19;
+  model.add(lamp);
+
+  const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.24, 0), new THREE.MeshBasicMaterial({
+    color: col('#ffbc50'), transparent:true, opacity:0.15, depthWrite:false
+  }));
+  glow.position.y = 1.19;
+  model.add(glow);
+
+  return {stage:st, cam:[0, 3.0, 6.2], look:[0, 1.4, 0], spin:0.15};
+}
+
+/* ---------- assembly ---------- */
+
+const builders = {lighthouse:lighthouse};
+const cells = [];
+const clock = new THREE.Clock();
+Object.keys(builders).forEach(function(key){
+  const el = document.querySelector('[data-scene="' + key + '"]');
+  if(!el) return;
+  const spec = builders[key]();
+  const cam = new THREE.PerspectiveCamera(34, 1, 0.1, 50);
+  cam.position.set(spec.cam[0], spec.cam[1], spec.cam[2]);
+  cam.lookAt(spec.look[0], spec.look[1], spec.look[2]);
+  spec.stage.turn.rotation.y = 0.5;
+  cells.push({el:el, spec:spec, cam:cam});
+  let tris = 0, calls = 0;
+  spec.stage.scene.traverse(function(o){
+    if(!o.geometry) return;
+    if(o.isMesh){
+      calls++;
+      const g = o.geometry;
+      tris += g.index ? g.index.count/3 : g.attributes.position.count/3;
+    } else if(o.isLine){
+      calls++;
+    }
+  });
+  const out = document.querySelector('[data-tri="' + key + '"]');
+  if(out) out.textContent = Math.round(tris).toLocaleString('en-US') + ' tri · ' + calls + ' draw';
+});
+
+function resize(){
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if(canvas.width !== Math.floor(w*renderer.getPixelRatio()) || canvas.height !== Math.floor(h*renderer.getPixelRatio())){
+    renderer.setSize(w, h, false);
+  }
+}
+function frame(){
+  resize();
+  const H = renderer.domElement.clientHeight;
+  for(let i = 0; i < cells.length; i++){
+    const c = cells[i];
+    const r = c.el.getBoundingClientRect();
+    if(r.bottom < 0 || r.top > H || r.width === 0) continue;
+    const bottom = H - r.bottom;
+    renderer.setViewport(r.left, bottom, r.width, r.height);
+    renderer.setScissor(r.left, bottom, r.width, r.height);
+    c.cam.aspect = r.width/r.height;
+    c.cam.updateProjectionMatrix();
+    if(!REDUCED){
+      c.spec.stage.turn.rotation.y += c.spec.spin*0.0125;
+    }
+    renderer.render(c.spec.stage.scene, c.cam);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
