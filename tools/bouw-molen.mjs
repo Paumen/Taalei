@@ -213,11 +213,32 @@ function grootsteEiland(posities, indices) {
 let delen = [];
 
 /**
+ * Normaalmatrix: de geïnverteerde getransponeerde van de linkerbovenhoek. Bij
+ * een niet-uniforme schaal kantelt een normaal anders dan een richtingsvector,
+ * dus de gewone matrix erop loslaten geeft normalen die scheef staan op hun
+ * eigen vlak — en daarmee een verkeerd belichte, gladgestreken vorm.
+ */
+function normaalMatrix(m) {
+  const a = [m[0], m[1], m[2], m[4], m[5], m[6], m[8], m[9], m[10]];
+  const [c00, c01, c02] = [a[4] * a[8] - a[5] * a[7], a[5] * a[6] - a[3] * a[8], a[3] * a[7] - a[4] * a[6]];
+  const det = a[0] * c00 + a[1] * c01 + a[2] * c02;
+  if (Math.abs(det) < 1e-12) return a;
+  // De cofactormatrix is de geïnverteerde getransponeerde op een factor det na,
+  // en die factor verdwijnt bij het normaliseren.
+  return [
+    c00, c01, c02,
+    a[2] * a[7] - a[1] * a[8], a[0] * a[8] - a[2] * a[6], a[1] * a[6] - a[0] * a[7],
+    a[1] * a[5] - a[2] * a[4], a[2] * a[3] - a[0] * a[5], a[0] * a[4] - a[1] * a[3],
+  ];
+}
+
+/**
  * @param {string} pad  kit/model, zonder .glb
  * @param {object} opties
- *   yVanaf  houd alleen driehoeken die volledig boven deze lokale hoogte liggen
- *   eiland  houd daarna alleen het grootste aaneengesloten stuk
- *   hercel  { 'kolom/rij': 'kolom/rij' } verplaatst uv's naar een andere paletcel
+ *   yVanaf   houd alleen driehoeken die volledig boven deze lokale hoogte liggen
+ *   eiland   houd daarna alleen het grootste aaneengesloten stuk
+ *   hercel   { 'kolom/rij': 'kolom/rij' } verplaatst uv's naar een andere paletcel
+ *   facetten vervang de normalen door één normaal per driehoek
  * @param {...number[]} matrices  van buiten naar binnen, zoals je ze leest
  */
 function zet(pad, opties, ...matrices) {
@@ -225,6 +246,7 @@ function zet(pad, opties, ...matrices) {
 
   for (const stuk of leesModel(pad)) {
     const m = maalMatrix(matrix, stuk.matrix);
+    const nm = normaalMatrix(m);
     const aantal = stuk.posities.length / 3;
     const posities = new Float64Array(aantal * 3);
     const normalen = new Float64Array(aantal * 3);
@@ -236,9 +258,9 @@ function zet(pad, opties, ...matrices) {
       posities[i * 3 + 2] = m[2] * x + m[6] * y + m[10] * z + m[14];
 
       const [a, b, c] = [stuk.normalen[i * 3], stuk.normalen[i * 3 + 1], stuk.normalen[i * 3 + 2]];
-      const nx = m[0] * a + m[4] * b + m[8] * c;
-      const ny = m[1] * a + m[5] * b + m[9] * c;
-      const nz = m[2] * a + m[6] * b + m[10] * c;
+      const nx = nm[0] * a + nm[3] * b + nm[6] * c;
+      const ny = nm[1] * a + nm[4] * b + nm[7] * c;
+      const nz = nm[2] * a + nm[5] * b + nm[8] * c;
       const lengte = Math.hypot(nx, ny, nz) || 1;
       normalen[i * 3] = nx / lengte;
       normalen[i * 3 + 1] = ny / lengte;
@@ -282,6 +304,30 @@ function zet(pad, opties, ...matrices) {
       }
     }
 
+    if (opties.facetten) {
+      // De koepel van structure-roof is gladgeschaduwd: één normaal per hoekpunt,
+      // gemiddeld over de aanliggende vlakken. Dat leest als een bol, niet als
+      // vlakke stukken. Elke driehoek krijgt daarom zijn eigen hoekpunten en zijn
+      // eigen normaal, zoals de rest van de kits het doet.
+      const p = [], n = [], t = [], nieuw = [];
+      for (let i = 0; i < indices.length; i += 3) {
+        const hoek = [0, 1, 2].map((k) => indices[i + k]);
+        const [A, B, C] = hoek.map((j) => [posities[j * 3], posities[j * 3 + 1], posities[j * 3 + 2]]);
+        const u = [B[0] - A[0], B[1] - A[1], B[2] - A[2]];
+        const v = [C[0] - A[0], C[1] - A[1], C[2] - A[2]];
+        const vlak = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+        const lengte = Math.hypot(...vlak) || 1;
+        for (const j of hoek) {
+          nieuw.push(p.length / 3);
+          p.push(posities[j * 3], posities[j * 3 + 1], posities[j * 3 + 2]);
+          n.push(vlak[0] / lengte, vlak[1] / lengte, vlak[2] / lengte);
+          t.push(uvs[j * 2], uvs[j * 2 + 1]);
+        }
+      }
+      delen.push({ posities: p, normalen: n, uvs: t, indices: nieuw });
+      continue;
+    }
+
     delen.push({ posities, normalen, uvs, indices });
   }
 }
@@ -295,8 +341,12 @@ function zet(pad, opties, ...matrices) {
  * voetafdruk vormen samen een achthoek: vier rechte vlakken en vier schuine
  * hoeken. Dat is acht vlakke stukken per cirkel, ruim binnen de zestien uit
  * asset_style_guide.md, en het is de enige achthoek die de kit al kan maken.
- * Elke ring staat een stap smaller dan die eronder; dat geeft de romp de taps
- * toelopende vorm van een molen zonder één nieuw vlak te tekenen.
+ *
+ * Alle ringen even breed, en dat is een eis, geen keuze. Een wandpaneel is 0.05
+ * dik; laat je elke ring krimpen, dan verspringt hij radiaal verder dan die 0.05
+ * en overlappen twee ringen elkaar niet meer. De mantel is dan geen gesloten
+ * schil maar een stapel losse ringen met ringvormige spleten ertussen, en daar
+ * kijk je van bovenaf dwars doorheen.
  */
 const HOEKEN = [0, -90, 180, 90]; // schuine hoek naar +x+z, -x+z, -x-z, +x-z
 
@@ -318,8 +368,11 @@ function ring(y, schaal, hoogte, { voorkantOpen = false } = {}) {
 }
 
 const PLINT_HOOG = 0.22;
-const RINGEN = [1.0, 0.92, 0.84]; // breedtefactor per verdieping
-const BOVEN = PLINT_HOOG + RINGEN.length;
+const VERDIEPINGEN = 3;
+const BOVEN = PLINT_HOOG + VERDIEPINGEN;
+/* De plint mag iets breder, maar niet breder dan de wanddikte toelaat: bij meer
+ * dan 1.054 laat hij dezelfde spleet vallen als een krimpende ring zou doen. */
+const PLINT_BREED = 1.04;
 
 /* De halve dikte van het wiekenkruis: de naaf moet zo ver voor de kap staan dat
  * het kruis er vrij langs draait. */
@@ -339,11 +392,15 @@ const KAPPEN = {
   windmill() {
     const BREED = 1.234; // gemeten breedte van de koepel in structure-roof
     const HOOG = 0.56;   // en de hoogte, van y = 0.8 tot y = 1.36
-    const schaal = (2 * RINGEN.at(-1)) / BREED;
+    /* Eén procent ruimer dan de romp, zodat de kap er overal net overheen valt;
+     * precies passend laat vanuit loodrecht boven twee haarscherpe spleetjes bij
+     * de schuine hoeken open. */
+    const schaal = 2.02 / BREED;
     const rek = 1.35;
-    zet('pirate-kit/structure-roof', { yVanaf: 0.79, eiland: true, hercel: { '13/0': '6/1' } },
+    zet('pirate-kit/structure-roof',
+      { yVanaf: 0.79, eiland: true, facetten: true, hercel: { '13/0': '6/1' } },
       T(0, BOVEN - 0.8 * schaal * rek, 0), S(schaal, schaal * rek, schaal));
-    return { hoogte: HOOG * schaal * rek, voorkant: (BREED / 2) * schaal };
+    return { hoogte: HOOG * schaal * rek, voorkant: 0.6 * schaal };
   },
 
   /* Vier `roof-corner-round` op ware grootte. Elk stuk is een hoek van een
@@ -364,35 +421,62 @@ const KAPPEN = {
 function bouwMolen(naam) {
   delen = [];
 
-  ring(0, 1.06, PLINT_HOOG);       // plint: dezelfde ring, plat gedrukt en iets breder
-  RINGEN.forEach((schaal, i) => ring(PLINT_HOOG + i, schaal, 1, { voorkantOpen: i === 0 }));
-
-  /* Deur en raam staan gelijk met de hoekstijlen van hun eigen ring; de
-   * wandpanelen liggen 0.025 dieper, dus er ligt nergens vlak op vlak. */
-  zet('fantasy-town-kit/wall-wood-doorway-square', {},
-    T(0, PLINT_HOOG, 0), S(RINGEN[0], 1, RINGEN[0]), T(0.5, 0, 0));
-  zet('fantasy-town-kit/wall-wood-window-shutters', {},
-    T(0, PLINT_HOOG + 1, 0), S(RINGEN[1], 1, RINGEN[1]), T(0.5, 0, 0));
-
-  /* Vloer. Zonder vloer kijk je van bovenaf dwars door de deuropening en onder
-   * de wanden door heen — en dat is precies de hoek waaronder een speler de
-   * molen ziet. Twee `roof-flat`-platen, één recht en één 45 graden gedraaid,
-   * dekken samen de achthoek af: het grootste vierkant dat er in zijn eentje in
-   * past laat aan vier kanten een spleet vrij. Van dakgroen naar donker hout. */
-  for (const graden of [0, 45]) {
-    zet('fantasy-town-kit/roof-flat', { hercel: { '5/1': '12/0' } },
-      T(0, 0.16, 0), R(graden), S(1.42, 1, 1.42));
+  ring(0, PLINT_BREED, PLINT_HOOG); // plint: dezelfde ring, plat gedrukt
+  /* Verdieping 0 en 1 staan aan de voorkant open: daar komen de deur en het raam
+   * in. Laat je de wandhelft staan en zet je het stuk ervoor, dan liggen frame en
+   * wandpaneel vlak op vlak en gaan ze flikkeren. */
+  for (let i = 0; i < VERDIEPINGEN; i++) {
+    ring(PLINT_HOOG + i, 1, 1, { voorkantOpen: i < 2 });
   }
 
+  zet('fantasy-town-kit/wall-wood-doorway-square', {}, T(0.5, PLINT_HOOG, 0));
+  zet('fantasy-town-kit/wall-wood-window-shutters', {}, T(0.5, PLINT_HOOG + 1, 0));
+
+  /* Vloer. Zonder vloer kijk je door de deuropening naar beneden onder de molen
+   * door. Een vierkante plaat helpt niet: het grootste vierkant dat in de
+   * achthoek past reikt tot 0.72 en laat op de vier rechte vlakken een spleet
+   * open, en twee gekruiste vierkanten maken samen een achtpuntige ster — de
+   * achthoek is hun snijding, niet hun vereniging. Daarom dezelfde koepel als bij
+   * de kap, plat gedrukt: die is zelf achthoekig. Een kwartslag gedraaid vallen
+   * zijn punten op de rechte vlakken, zodat de vloer daar tot aan de wand komt. */
+  const VLOER = 1.368; // zo dat de punten precies op de wand uitkomen
+  zet('pirate-kit/structure-roof', { yVanaf: 0.79, eiland: true, hercel: { '13/0': '12/0' } },
+    T(0, 0.16, 0), R(45), S(VLOER, 0.1, VLOER), T(0, -0.8, 0));
+
+  const kapVanaf = delen.length;
   const kap = KAPPEN[naam]();
+  /* Hoe ver de kap op een gegeven hoogte naar voren komt. Aan de naaf van de
+   * wieken hangt dat af: meet je hem op het breedste punt van de kap, dan hangt
+   * het wiekenkruis los in de lucht op de hoogte waar het echt zit. */
+  const kapVoorkantOp = (y) => {
+    let max = -Infinity;
+    for (const deel of delen.slice(kapVanaf)) {
+      for (let i = 0; i < deel.posities.length; i += 3) {
+        if (Math.abs(deel.posities[i + 1] - y) < 0.12) max = Math.max(max, deel.posities[i]);
+      }
+    }
+    return max;
+  };
 
   /* Wieken. `fantasy-town-kit/windmill.glb` is precies het wiekenkruis en verder
    * niets: naaf op de oorsprong, kruis in het y-z-vlak, dus het kijkt al naar
    * +x. Op ware grootte, zonder schaal: kleiner gemaakt reiken de wieken
    * nauwelijks voorbij de romp en valt precies weg waar een molen aan te
-   * herkennen is. */
-  zet('fantasy-town-kit/windmill', { hercel: { '5/3': '5/2' } },
-    T(kap.voorkant + WIEK_DIK + 0.06, BOVEN + kap.hoogte * 0.45, 0));
+   * herkennen is.
+   *
+   * Het kruis moet vrij langs de romp én langs de dakrand kunnen draaien, en die
+   * steken allebei verder uit dan de kap op naafhoogte. Het kruis kan dus niet
+   * tegen de kap aan staan; daar zit in het echt ook een as tussen. */
+  const naafY = BOVEN + kap.hoogte * 0.45;
+  const naafX = Math.max(kap.voorkant, PLINT_BREED * 0.975) + WIEK_DIK + 0.06;
+  zet('fantasy-town-kit/windmill', { hercel: { '5/3': '5/2' } }, T(naafX, naafY, 0));
+
+  /* De bovenas: `pillar-wood` een kwartslag gekanteld, van binnen de kap tot in
+   * het blok van de naaf, zodat het wiekenkruis ergens aan vastzit. */
+  const asVan = kapVoorkantOp(naafY) - 0.15;
+  zet('fantasy-town-kit/pillar-wood', {},
+    T(asVan, naafY, 0), samenstellen({ r: [0, 0, -Math.sin(Math.PI / 4), Math.cos(Math.PI / 4)] }),
+    S(1, naafX + 0.12 - asVan, 1), T(0, 0, 0));
 
   return schrijfGlb(naam);
 }
@@ -407,12 +491,23 @@ function schrijfGlb(naam) {
   const normalen = [];
   const uvs = [];
   const indices = [];
+  /* Alleen de hoekpunten die een driehoek ook echt gebruikt. De filters op
+   * `zet` gooien driehoeken weg maar laten de hoekpuntenlijst heel; zonder deze
+   * stap schrijven we de weggelaten poten en palmbladeren van structure-roof
+   * alsnog mee. */
   for (const deel of delen) {
-    const basis = posities.length / 3;
-    posities.push(...deel.posities);
-    normalen.push(...deel.normalen);
-    uvs.push(...deel.uvs);
-    for (const i of deel.indices) indices.push(basis + i);
+    const hernummerd = new Map();
+    for (const oud of deel.indices) {
+      let nieuw = hernummerd.get(oud);
+      if (nieuw === undefined) {
+        nieuw = posities.length / 3;
+        hernummerd.set(oud, nieuw);
+        posities.push(deel.posities[oud * 3], deel.posities[oud * 3 + 1], deel.posities[oud * 3 + 2]);
+        normalen.push(deel.normalen[oud * 3], deel.normalen[oud * 3 + 1], deel.normalen[oud * 3 + 2]);
+        uvs.push(deel.uvs[oud * 2], deel.uvs[oud * 2 + 1]);
+      }
+      indices.push(nieuw);
+    }
   }
 
   const aantal = posities.length / 3;
