@@ -105,7 +105,7 @@ const regels = [
   [/^(floor|patch|dirt|hole)\b/, 'terrein'],
   // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
   // uit de andere kits, en alles wat je eromheen bouwt.
-  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain)\b/, 'bouwwerken'],
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain|lighthouse)\b/, 'bouwwerken'],
 ];
 
 /**
@@ -127,7 +127,8 @@ const WOORDENBOEK = {
   floor: ['vloer', 'grond'], flowers: ['bloemen'], foliage: ['begroeiing'],
   fountain: ['fontein'], gate: ['poort', 'hek'], grass: ['gras'],
   hammer: ['hamer'], heart: ['hart'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
-  key: ['sleutel'], ladder: ['ladder'], lever: ['hendel'], lock: ['slot'],
+  key: ['sleutel'], ladder: ['ladder'], lever: ['hendel'],
+  lighthouse: ['vuurtoren', 'toren', 'baken'], lock: ['slot'],
   mast: ['mast'], mushrooms: ['paddenstoelen'], overhang: ['afdak'],
   paddle: ['peddel', 'roeispaan'], palm: ['palm', 'palmboom', 'boom'],
   patch: ['vlak', 'grondvlak'], pickaxe: ['houweel', 'pikhouweel'],
