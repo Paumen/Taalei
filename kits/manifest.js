@@ -335,5 +335,14 @@ window.KENNEY_KITS = [
    "wood-structure",
    "wood-support"
   ]
+ },
+ {
+  /* geen Kenney-kit: eigen assets, zie kits/taalei-kit/LICENSE.txt */
+  "slug": "taalei-kit",
+  "name": "Taalei Kit",
+  "url": null,
+  "models": [
+   "lighthouse"
+  ]
  }
 ];
