@@ -29,12 +29,12 @@
 <main>
   <header>
     <h1>Lighthouse</h1>
-    <p>storybook · 12 facets · dark timber crown · gold trim</p>
+    <p>storybook · 12 facets · dark timber crown</p>
   </header>
 
   <figure><div class="view" data-scene="lighthouse"></div><figcaption>
     <div class="nm">Lighthouse</div>
-    <div class="tech">flared tower, corbelled gallery, dark timber lantern and cap with gold trim — one vertex-coloured mesh; lamp, glow and sweeping beams stay separate</div>
+    <div class="tech">flared tower, corbelled gallery, dark timber lantern and cap — one vertex-coloured mesh; lamp, glow and sweeping beams stay separate</div>
     <div class="tri" data-tri="lighthouse"></div></figcaption></figure>
 </main>
 
@@ -197,8 +197,6 @@ function lighthouse(){
       [tf([Math.cos(a)*0.166, 1.32, Math.sin(a)*0.166], [0, -a, 0])]));
   }
   solid.push(part(new THREE.CylinderGeometry(0.205, 0.205, 0.026, SIDES), TIMBER_DK, [tf([0, 1.433, 0])]));
-  solid.push(part(new THREE.TorusGeometry(0.195, 0.013, 4, SIDES), GOLD,
-    [tf([0, 1.446, 0], [Math.PI/2, 0, 0])]));
 
   /* cap: squat cone flush with the fascia, no overhang, no ornament */
   solid.push(part(new THREE.ConeGeometry(0.205, 0.155, SIDES), TIMBER, [tf([0, 1.523, 0])]));
