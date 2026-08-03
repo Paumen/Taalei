@@ -1,0 +1,55 @@
+{
+  "versie": 1,
+  "zaad": 20260803,
+
+  "maat": 192,
+  "stap": 2,
+  "zeeniveau": 0,
+
+  "kust": {
+    "straal": 84,
+    "grilligheid": 0.38,
+    "golflengte": 2.2,
+    "strandbreedte": 11,
+    "zeebodem": 5
+  },
+
+  "ruis": {
+    "hoogte": 2.6,
+    "golflengte": 26,
+    "octaven": 4
+  },
+
+  "//": "Zones zijn nu niets meer dan een middelpunt, een streefhoogte, een reliëf en eventueel een vlakke pad-cirkel. Genoeg om de vorm en de hoogte-opbouw van het eiland te beoordelen; polygonen, paden en dressing komen later. `relief` schaalt de ruis lokaal: 0 is biljartlaken, 2 is ruig.",
+
+  "zones": [
+    { "id": "strand",      "naam": "Strand",           "x":   0, "z":  74, "hoogte":  0.6, "relief": 0.2, "pad": 0,  "band": "zee"  },
+    { "id": "startkamp",   "naam": "Startkamp",        "x":   4, "z":  58, "hoogte":  2.5, "relief": 0.3, "pad": 9,  "band": "laag" },
+    { "id": "haven",       "naam": "Haven / dock",     "x":  46, "z":  52, "hoogte":  1.0, "relief": 0.2, "pad": 8,  "band": "zee"  },
+    { "id": "wrak",        "naam": "Wrakondiepten",    "x":  70, "z":  22, "hoogte": -1.2, "relief": 0.4, "pad": 0,  "band": "zee"  },
+    { "id": "vuurtoren",   "naam": "Vuurtoren",        "x":  74, "z":  -6, "hoogte":  7.0, "relief": 1.1, "pad": 6,  "band": "laag" },
+    { "id": "bloementuin", "naam": "Bloementuin",      "x": -40, "z":  54, "hoogte":  3.5, "relief": 0.3, "pad": 8,  "band": "laag" },
+    { "id": "bos",         "naam": "Bos",              "x": -62, "z":  14, "hoogte":  6.0, "relief": 0.7, "pad": 0,  "band": "laag" },
+    { "id": "bruggen",     "naam": "Bruggen / ravijn", "x": -34, "z":  26, "hoogte":  9.0, "relief": 1.6, "pad": 5,  "band": "midden" },
+    { "id": "rivier",      "naam": "Rivier",           "x":   2, "z":  26, "hoogte":  5.0, "relief": 0.5, "pad": 0,  "band": "midden" },
+    { "id": "meer",        "naam": "Meer",             "x": -16, "z":  -2, "hoogte": 10.0, "relief": 0.4, "pad": 0,  "band": "midden", "water": 14 },
+    { "id": "watervallen", "naam": "Watervallen",      "x":  -2, "z": -20, "hoogte": 18.0, "relief": 1.5, "pad": 0,  "band": "midden" },
+    { "id": "jungle",      "naam": "Jungle",           "x":  44, "z":  10, "hoogte":  8.0, "relief": 0.9, "pad": 0,  "band": "midden" },
+    { "id": "berg",        "naam": "Berg",             "x": -42, "z": -40, "hoogte": 24.0, "relief": 2.0, "pad": 0,  "band": "hoog" },
+    { "id": "grot",        "naam": "Grotingang",       "x": -62, "z": -22, "hoogte": 15.0, "relief": 1.4, "pad": 6,  "band": "hoog" },
+    { "id": "vulkaan",     "naam": "Vulkaan",          "x":  16, "z": -50, "hoogte": 36.0, "relief": 1.0, "pad": 0,  "band": "top", "krater": 11 },
+    { "id": "luchtballon", "naam": "Luchtballon",      "x":  40, "z": -58, "hoogte": 26.0, "relief": 0.6, "pad": 8,  "band": "top" }
+  ],
+
+  "//cellen": "Cel [kolom, rij] in kits/colormap.png (16 kolommen x 4 rijen).",
+  "cellen": {
+    "zand":   [5, 3],
+    "gras":   [5, 1],
+    "weide":  [2, 1],
+    "aarde":  [12, 0],
+    "rots":   [3, 2],
+    "top":    [5, 2],
+    "lava":   [9, 1],
+    "water":  [15, 3]
+  }
+}
