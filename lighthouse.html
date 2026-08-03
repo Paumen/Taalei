@@ -151,7 +151,7 @@ function lighthouse(){
 
   const SIDES = 12;
 
-  /* two-step light stone foot */
+  /* two-step foot in the crown's dark timber */
   solid.push(part(new THREE.CylinderGeometry(0.43, 0.455, 0.055, SIDES), STONE, [tf([0, 0.0275, 0])]));
   solid.push(part(new THREE.CylinderGeometry(0.4, 0.425, 0.075, SIDES), STONE_LT, [tf([0, 0.0925, 0])]));
 
@@ -189,7 +189,7 @@ function lighthouse(){
   solid.push(part(new THREE.TorusGeometry(0.359, 0.014, 4, SIDES), TIMBER_DK,
     [tf([0, 1.27, 0], [Math.PI/2, 0, 0])]));
 
-  /* lantern: dark drum, eight bars, dark fascia, gold trim band */
+  /* lantern: dark drum, eight bars, dark fascia */
   solid.push(part(new THREE.CylinderGeometry(0.198, 0.198, 0.04, SIDES), TIMBER_DK, [tf([0, 1.2, 0])]));
   for(let i = 0; i < 8; i++){
     const a = i/8*Math.PI*2;
