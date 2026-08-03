@@ -21,9 +21,11 @@ For an LLM creating or adjusting assets.
 ## 2. Geometry
 - Flat-piece construction. Round shapes visibly built from flat pieces.
 - Max 16 flat pieces per full circle equivalent.
+- Max 12 flat pieces for objects smaller than 1x1x1 per full circle equivalent.
+- Max 12 flat pieces for objects smaller than 0.5x0.5x0.5 per full circle equivalent.
 
 ## 3. Outlines and shading
-- Avoid outlines; unless it's cor part of the pieces appearance. Add note to PO when you used it.
+- Avoid outlines; unless it's distinctive core feature  of the object's appearance. Add note to PO when you used it.
 - Faces use flat palette colors; existing gradient cells may be used.
 - No shadow casting in assets.
 
