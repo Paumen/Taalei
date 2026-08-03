@@ -41,8 +41,8 @@ tent-canvas
 crate-bottles
 gate-metal-bars
 template-floor-layer-hole
-windmill
-watermill
+windmill (blades only)
+watermill (Rad only)
 bridge (mini forest)
 mast-ropes
 structure-fence-sides
