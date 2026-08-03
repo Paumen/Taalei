@@ -14,7 +14,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROEPEN, bepaalGroep, nederlandseTrefwoorden } from './semantiek.mjs';
+import { GROEPEN, bepaalGroep } from './semantiek.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -263,7 +263,6 @@ const kits = [];
 const modellen = [];
 const zonderMetadata = [];
 const zonderGroep = [];
-const zonderTrefwoord = [];
 const zonderKleur = [];
 
 for (const slug of kitSlugs) {
@@ -280,8 +279,6 @@ for (const slug of kitSlugs) {
     const gltf = leesGlbJson(join(dir, bestand));
     const groep = bepaalGroep(slug, naam);
     if (groep === 'overig') zonderGroep.push(`${slug}/${naam}`);
-    const trefwoorden = nederlandseTrefwoorden(naam);
-    if (trefwoorden.length === 0) zonderTrefwoord.push(`${slug}/${naam}`);
 
     const uitPalet = palet.perModel.get(`${slug}/${naam}`);
     const kleuren = [...(uitPalet?.hexen ?? [])].sort();
@@ -292,7 +289,6 @@ for (const slug of kitSlugs) {
       naam,
       kit: slug,
       groep,
-      trefwoorden,
       // Het palet hoort bij de kleuren: dezelfde hex uit een ander palet is
       // een andere atlas en dus een andere filterknop.
       palet: uitPalet?.palet ?? null,
@@ -370,7 +366,7 @@ const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
   totaal: modellen.length,
   kits,
-  groepen: GROEPEN.map((g) => ({
+  groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
   })),
@@ -418,7 +414,4 @@ if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonde
 if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
 if (zonderKleur.length) {
   console.warn(`! ${zonderKleur.length} modellen zonder kleur in palet.json (kleurfilter slaat ze over)`);
-}
-if (zonderTrefwoord.length) {
-  console.warn(`! geen Nederlands trefwoord (vul WOORDENBOEK aan in tools/semantiek.mjs): ${zonderTrefwoord.join(', ')}`);
 }
