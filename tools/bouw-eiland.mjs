@@ -1095,12 +1095,17 @@ function schrijfViewer(pad) {
       kleuren[hoek * 3 + 2] = rgb[2];
       hoek++;
     }
-    /* Alles wat geen terrein of water is, is een neergezet stuk; die zitten in
-     * één knop bij elkaar. */
-    const laag = net.naam === 'terrein' || net.naam === 'water' ? net.naam : 'stukken';
-    const bestaand = groepen.find((g) => g.naam === laag && g.vanaf + g.aantal === vanaf);
-    if (bestaand) bestaand.aantal += hoek - vanaf;
-    else groepen.push({ naam: laag, vanaf, aantal: hoek - vanaf });
+    /* Eén groep per net, want zo staat het ook in de .glb: elke kit heeft zijn
+     * eigen colormap en dus zijn eigen tekenopdracht. Ze samenvoegen tot één
+     * groep zou de viewer minder tekenopdrachten laten zien dan er in het echt
+     * zijn, en juist dat getal wil je kunnen aflezen. `laag` is alleen waar de
+     * knoppen op filteren. */
+    groepen.push({
+      naam: net.naam,
+      laag: net.naam === 'terrein' || net.naam === 'water' ? net.naam : 'stukken',
+      vanaf,
+      aantal: hoek - vanaf,
+    });
   }
 
   const meta = {

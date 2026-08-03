@@ -84,6 +84,7 @@
   .hud > * { pointer-events: auto; }
   .linksboven { top: 16px; left: 16px; max-width: min(300px, calc(100vw - 32px)); }
   .linksonder { bottom: 16px; left: 16px; }
+  .rechtsonder { bottom: 16px; right: 16px; align-items: flex-end; }
 
   .kaart {
     background: var(--paneel);
@@ -134,6 +135,15 @@
   button[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
   button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+  .meting {
+    margin: 0;
+    grid-template-columns: auto auto;
+    gap: 2px 14px;
+    font-size: 11.5px;
+  }
+  .meting dt { text-transform: lowercase; letter-spacing: 0.02em; }
+  .meting dd { text-align: right; color: var(--accent); }
+
   .hulp {
     font-size: 11.5px;
     color: var(--zacht);
@@ -162,6 +172,15 @@
     <button type="button" data-laag="water" aria-pressed="true">Water</button>
     <button type="button" data-laag="stukken" aria-pressed="true">Stukken</button>
   </div>
+</div>
+
+<div class="hud rechtsonder">
+  <dl class="kaart meting" id="meting">
+    <dt>fps</dt><dd id="fps">–</dd>
+    <dt>frame</dt><dd id="frame">–</dd>
+    <dt>tekenopdrachten</dt><dd id="opdrachten">–</dd>
+    <dt>driehoeken</dt><dd id="driehoeken">–</dd>
+  </dl>
 </div>
 
 <div class="hud linksonder">
@@ -391,7 +410,7 @@ addEventListener('keydown', (e) => {
 
 /* -- lagen ----------------------------------------------------------------- */
 
-const zichtbaar = new Set(META.groepen.map((g) => g.naam));
+const zichtbaar = new Set(META.groepen.map((g) => g.laag));
 for (const knop of document.querySelectorAll('[data-laag]')) {
   knop.addEventListener('click', () => {
     const naam = knop.dataset.laag;
@@ -409,11 +428,31 @@ function grondkleur() {
   return [r, gr, b];
 }
 
-let gepland = false;
-function vraagTeken() {
-  if (gepland) return;
-  gepland = true;
-  requestAnimationFrame(teken);
+/* De lus loopt door in plaats van alleen na een wijziging te tekenen. Dat kost
+ * meer dan nodig voor een stilstaand beeld, maar zonder doorlopende frames is
+ * een fps-meting niets waard: je zou de tijd meten tussen twee muisbewegingen. */
+function vraagTeken() { /* de lus tekent toch elk frame */ }
+
+const meter = {
+  frames: 0,
+  sinds: performance.now(),
+  fps: document.getElementById('fps'),
+  frame: document.getElementById('frame'),
+  opdrachten: document.getElementById('opdrachten'),
+  driehoeken: document.getElementById('driehoeken'),
+};
+
+function meet(nu, opdrachten, driehoeken) {
+  meter.frames++;
+  const verstreken = nu - meter.sinds;
+  if (verstreken < 500) return;
+  const fps = (meter.frames * 1000) / verstreken;
+  meter.fps.textContent = fps.toFixed(0);
+  meter.frame.textContent = `${(verstreken / meter.frames).toFixed(1)} ms`;
+  meter.opdrachten.textContent = String(opdrachten);
+  meter.driehoeken.textContent = driehoeken.toLocaleString('nl-NL');
+  meter.frames = 0;
+  meter.sinds = nu;
 }
 
 function pasMaatAan() {
@@ -426,8 +465,7 @@ function pasMaatAan() {
   }
 }
 
-function teken() {
-  gepland = false;
+function teken(nu) {
   pasMaatAan();
   gl.viewport(0, 0, doek.width, doek.height);
   const [r, g, b] = grondkleur();
@@ -445,10 +483,17 @@ function teken() {
   gl.uniformMatrix4fv(uMvp, false, maal(proj, beeld));
 
   gl.bindVertexArray(vao);
+  let opdrachten = 0;
+  let driehoeken = 0;
   for (const groep of META.groepen) {
-    if (!zichtbaar.has(groep.naam)) continue;
+    if (!zichtbaar.has(groep.laag)) continue;
     gl.drawArrays(gl.TRIANGLES, groep.vanaf, groep.aantal);
+    opdrachten++;
+    driehoeken += groep.aantal / 3;
   }
+
+  meet(nu ?? performance.now(), opdrachten, driehoeken);
+  requestAnimationFrame(teken);
 }
 
 addEventListener('resize', vraagTeken);
@@ -469,5 +514,5 @@ for (const [naam, waarde] of META.cijfers) {
   cijfers.append(dt, dd);
 }
 
-vraagTeken();
+requestAnimationFrame(teken);
 </script>
