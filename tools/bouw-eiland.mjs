@@ -1,0 +1,1212 @@
+/**
+ * Grof blokmodel van het hele eiland — vorm, zones en wat referentiemaat.
+ *
+ * Draai vanuit de repo-root:  node tools/bouw-eiland.mjs
+ *
+ * Dit is bewust lelijk. Het beantwoordt één vraag: klopt de vorm, de
+ * hoogte-opbouw en de ligging van de zones ten opzichte van elkaar? Er staat
+ * alleen genoeg op om de maat te kunnen zien — een schip, een vuurtoren, wat
+ * bomen. Alles komt uit eiland/eiland.json; het script zelf bevat geen enkele
+ * coördinaat.
+ *
+ * Wat eruit komt:
+ *   eiland/eiland-grof.glb     terrein, water en de referentiestukken
+ *   eiland/plattegrond.png     bovenaanzicht met hoogteschaduw en zonemerken
+ *   eiland/aanzicht-*.png      vier hoeken plus een laag silhouet
+ *
+ * De vorm zit in `landvorm`: een flauwe koepel met toppen, ruggen en dalen, met
+ * max gecombineerd zodat elke top zijn eigen hoogte houdt. Zones sturen de vorm
+ * niet, ze trekken de grond alleen lokaal bij en stempelen hun vlakke pad. Het
+ * kustplafond maakt een verticale kust onmogelijk. Kleur volgt uit hoogte en
+ * steilte en wijst naar cellen van kits/colormap.png — er komt geen kleur bij.
+ *
+ * Elke kit heeft zijn eigen colormap, dus referentiestukken krijgen per kit een
+ * eigen materiaal in plaats van dat hun uv's naar de gedeelde atlas worden
+ * omgerekend. Dat scheelt een omrekening die stilletjes fout kan gaan.
+ */
+
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname, resolve, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { deflateSync } from 'node:zlib';
+import { leesModel, leesPng } from './lezen.mjs';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const KITS = join(ROOT, 'kits');
+const UIT = join(ROOT, 'eiland');
+
+const plan = JSON.parse(readFileSync(join(UIT, 'eiland.json'), 'utf8'));
+const { maat, stap, zaad, kust, ruis, landvorm, maten } = plan;
+const zones = plan.zones;
+const cel = plan.cellen;
+
+/* -- ruis -----------------------------------------------------------------
+ * Waardenruis met een hash in plaats van een tabel, zodat hetzelfde zaad altijd
+ * hetzelfde eiland geeft ongeacht in welke volgorde er gevraagd wordt. Elke
+ * zone strooit uit zijn eigen stroom (zie `zaadVanTekst`), zodat een wijziging
+ * aan het bos de bomen in de jungle niet opnieuw schudt.
+ */
+function hash(ix, iz, korrel) {
+  let h = Math.imul(ix | 0, 374761393) ^ Math.imul(iz | 0, 668265263) ^ Math.imul(korrel | 0, 1274126177);
+  h = Math.imul(h ^ (h >>> 13), 1274126177);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+}
+
+function zaadVanTekst(tekst) {
+  let h = 2166136261;
+  for (const teken of tekst) {
+    h ^= teken.charCodeAt(0);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function waardenRuis(x, z, korrel) {
+  const x0 = Math.floor(x);
+  const z0 = Math.floor(z);
+  const fx = x - x0;
+  const fz = z - z0;
+  const sx = fx * fx * (3 - 2 * fx);
+  const sz = fz * fz * (3 - 2 * fz);
+  const boven = hash(x0, z0, korrel) + (hash(x0 + 1, z0, korrel) - hash(x0, z0, korrel)) * sx;
+  const onder = hash(x0, z0 + 1, korrel) + (hash(x0 + 1, z0 + 1, korrel) - hash(x0, z0 + 1, korrel)) * sx;
+  return boven + (onder - boven) * sz;
+}
+
+/** Meerdere octaven op elkaar; grof eerst, fijn erbovenop. */
+function fbm(x, z, korrel, octaven) {
+  let som = 0;
+  let gewicht = 0;
+  let amplitude = 1;
+  let frequentie = 1;
+  for (let i = 0; i < octaven; i++) {
+    som += waardenRuis(x * frequentie, z * frequentie, korrel + i * 101) * amplitude;
+    gewicht += amplitude;
+    amplitude *= 0.5;
+    frequentie *= 2;
+  }
+  return som / gewicht;
+}
+
+const klem = (v, laag, hoog) => (v < laag ? laag : v > hoog ? hoog : v);
+const soepel = (t) => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
+
+const N = Math.round(maat / stap) + 1;
+const halve = maat / 2;
+const wx = (i) => -halve + i * stap;
+
+/**
+ * Straal van de kustlijn onder een gegeven hoek. Drie schalen over elkaar: de
+ * lobben maken schiereilanden en diepe baaien, de middelste golft de lijn, de
+ * fijnste knaagt hem stuk. De ruis wordt op een cirkel bemonsterd zodat hij
+ * vanzelf rondloopt en er bij hoek nul geen naad valt.
+ */
+function kustStraal(hoek) {
+  const k = kust.golflengte;
+  const lob = fbm(Math.cos(hoek) * k + 32, Math.sin(hoek) * k + 32, zaad, 2);
+  const mid = fbm(Math.cos(hoek) * k * 2.5 + 17, Math.sin(hoek) * k * 2.5 + 17, zaad + 5, 2);
+  const fijn = fbm(Math.cos(hoek) * k * 6 + 91, Math.sin(hoek) * k * 6 + 91, zaad + 3, 2);
+  const n = lob * 0.6 + mid * 0.28 + fijn * 0.12;
+  return kust.straal * (1 - kust.grilligheid / 2 + kust.grilligheid * n);
+}
+
+/**
+ * Het plafond dat een verticale kust onmogelijk maakt: op `d` eenheden van de
+ * kustlijn mag het land hoogstens `d * helling` hoog zijn. De helling verloopt
+ * met de hoek, zodat er flauwe baaien naast steile kapen liggen in plaats van
+ * één gelijkmatige kegelrok rondom.
+ */
+function kustPlafond(d, hoek) {
+  const k = kust.golflengte;
+  const n = fbm(Math.cos(hoek) * k * 1.7 + 61, Math.sin(hoek) * k * 1.7 + 61, zaad + 11, 2);
+  return d * kust.maxHelling * (1 - kust.hellingVariatie / 2 + kust.hellingVariatie * n);
+}
+
+/** Hoeveel ruis er lokaal op het terrein mag; gewogen over de zones. */
+function zoneRelief(x, z) {
+  let som = 0;
+  let gewicht = 0;
+  for (const zone of zones) {
+    const w = 1 / ((x - zone.x) ** 2 + (z - zone.z) ** 2 + 60);
+    som += (zone.relief ?? 1) * w;
+    gewicht += w;
+  }
+  return som / gewicht;
+}
+
+/** Afstand van een punt tot een lijnstuk — voor ruggen en dalen. */
+function totSegment(px, pz, [ax, az], [bx, bz]) {
+  const vx = bx - ax;
+  const vz = bz - az;
+  const l2 = vx * vx + vz * vz;
+  const t = l2 ? klem(((px - ax) * vx + (pz - az) * vz) / l2, 0, 1) : 0;
+  return Math.hypot(px - (ax + vx * t), pz - (az + vz * t));
+}
+
+/**
+ * De landvorm. Toppen en ruggen worden met max gecombineerd en niet opgeteld of
+ * gemiddeld — optellen laat twee bergen naast elkaar tot één te hoge bult
+ * groeien, middelen strijkt ze allebei plat. Max houdt elke top op zijn eigen
+ * hoogte en laat op de snijlijn een graat achter, precies wat een gefacetteerd
+ * terrein nodig heeft.
+ */
+function landHoogte(x, z, inlandsDeel) {
+  let h = landvorm.koepel.hoogte * Math.pow(inlandsDeel, landvorm.koepel.macht);
+
+  for (const top of landvorm.toppen) {
+    const d = Math.hypot(x - top.x, z - top.z);
+    if (d >= top.straal) continue;
+    h = Math.max(h, top.hoogte * Math.pow(1 - d / top.straal, top.macht));
+  }
+
+  for (const rug of landvorm.ruggen) {
+    const d = totSegment(x, z, rug.van, rug.tot);
+    if (d >= rug.breedte) continue;
+    h = Math.max(h, rug.hoogte * Math.pow(1 - d / rug.breedte, 1.5));
+  }
+
+  /* Dalen nemen de diepste in plaats van op te tellen: waar twee dalen
+   * samenkomen hoort een dalmond te liggen, geen put. En een dal mag de grond
+   * uitvlakken maar niet doorgraven tot onder zeeniveau. */
+  let uitgraven = 0;
+  for (const dal of landvorm.dalen) {
+    const d = totSegment(x, z, dal.van, dal.tot);
+    if (d >= dal.breedte) continue;
+    uitgraven = Math.max(uitgraven, dal.diepte * Math.pow(1 - d / dal.breedte, 1.5));
+  }
+
+  return Math.max(h - uitgraven, Math.min(h, maten.dalvloer));
+}
+
+/* -- hoogtekaart ---------------------------------------------------------- */
+
+const hoogte = new Float32Array(N * N);
+const isMeer = new Uint8Array(N * N);
+const isKrater = new Uint8Array(N * N);
+
+for (let iz = 0; iz < N; iz++) {
+  for (let ix = 0; ix < N; ix++) {
+    const x = wx(ix);
+    const z = wx(iz);
+    const hoek = Math.atan2(z, x);
+    const straal = kustStraal(hoek);
+    const binnen = straal - Math.hypot(x, z); // eenheden landinwaarts
+
+    let h;
+    if (binnen <= 0) {
+      h = (binnen / kust.strandbreedte) * kust.zeebodem;
+    } else {
+      const land = soepel(klem(binnen / kust.strandbreedte, 0, 1));
+      const detail = (fbm(x / ruis.golflengte, z / ruis.golflengte, zaad + 7, ruis.octaven) - 0.5) * 2;
+      h = landHoogte(x, z, klem(binnen / straal, 0, 1));
+      h += detail * ruis.hoogte * zoneRelief(x, z) * land;
+      h = Math.min(h, kustPlafond(binnen, hoek)); // geen muur aan zee
+    }
+
+    hoogte[iz * N + ix] = h;
+  }
+}
+
+/* Zones trekken de grond binnen hun eigen invloed bij. Zwak, en met een rand
+ * die door de ruis wordt vervaagd: trekt een zone te hard, dan staat er een
+ * ronde bult in het landschap die de invloedscirkel verraadt. */
+for (const zone of zones) {
+  const invloed = zone.invloed ?? 0;
+  if (!invloed) continue;
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
+      if (d > invloed) continue;
+      const i = iz * N + ix;
+      if (hoogte[i] <= plan.zeeniveau && zone.hoogte > plan.zeeniveau) continue;
+      const rafel = 0.75 + fbm(wx(ix) / (maten.hellingMonster * 9), wx(iz) / (maten.hellingMonster * 9), zaad + 23, 2) * 0.5;
+      const mengen = (1 - soepel(klem((d / invloed) * rafel, 0, 1))) * 0.5;
+      hoogte[i] += (zone.hoogte - hoogte[i]) * mengen;
+    }
+  }
+}
+
+/* Pads: binnen de cirkel exact vlak op een hoogte die op 0.25 valt, zodat er
+ * straks een kit-onderdeel op kan staan zonder te zweven. */
+const snap = (v) => Math.round(v / maten.padStap) * maten.padStap;
+
+for (const zone of zones) {
+  if (!zone.pad) continue;
+  const vlak = snap(zone.hoogte);
+  const rand = zone.pad * 1.6;
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
+      if (d > rand) continue;
+      const i = iz * N + ix;
+      const mengen = 1 - soepel((d - zone.pad) / (rand - zone.pad));
+      hoogte[i] += (vlak - hoogte[i]) * mengen;
+    }
+  }
+}
+
+/* De krater moet dieper uithollen dan de kegel over diezelfde afstand zakt,
+ * anders blijft het midden het hoogste punt en is de "krater" een bult. */
+for (const zone of zones) {
+  if (!zone.krater) continue;
+  const { straal, diepte } = zone.krater;
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
+      if (d > straal) continue;
+      const i = iz * N + ix;
+      hoogte[i] -= (1 - soepel(d / straal)) * diepte;
+      if (d < straal * 0.55) isKrater[i] = 1;
+    }
+  }
+}
+
+const meerVlakken = [];
+for (const zone of zones) {
+  if (!zone.water) continue;
+  const spiegel = snap(zone.hoogte - 0.5);
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const d = Math.hypot(wx(ix) - zone.x, wx(iz) - zone.z);
+      if (d > zone.water) continue;
+      const i = iz * N + ix;
+      const kom = (1 - soepel(d / zone.water)) * maten.meerKom;
+      hoogte[i] = Math.min(hoogte[i], spiegel - maten.meerRand) - kom * 0.4;
+      if (d < zone.water * 0.92) isMeer[i] = 1;
+    }
+  }
+  meerVlakken.push({ x: zone.x, z: zone.z, straal: zone.water * 0.92, y: spiegel });
+}
+
+/** Hoogte op een willekeurig punt, bilineair uit het raster. */
+function hoogteOp(x, z) {
+  const fx = klem((x + halve) / stap, 0, N - 1.001);
+  const fz = klem((z + halve) / stap, 0, N - 1.001);
+  const ix = Math.floor(fx);
+  const iz = Math.floor(fz);
+  const tx = fx - ix;
+  const tz = fz - iz;
+  const boven = hoogte[iz * N + ix] + (hoogte[iz * N + ix + 1] - hoogte[iz * N + ix]) * tx;
+  const onder = hoogte[(iz + 1) * N + ix] + (hoogte[(iz + 1) * N + ix + 1] - hoogte[(iz + 1) * N + ix]) * tx;
+  return boven + (onder - boven) * tz;
+}
+
+/** Helling in graden op een punt. */
+function hellingOp(x, z) {
+  const m = maten.hellingMonster;
+  const dx = (hoogteOp(x + m, z) - hoogteOp(x - m, z)) / (2 * m);
+  const dz = (hoogteOp(x, z + m) - hoogteOp(x, z - m)) / (2 * m);
+  return (Math.atan(Math.hypot(dx, dz)) * 180) / Math.PI;
+}
+
+/** Ligt dit punt op een vlakke pad? Daar hoort niets gestrooid te worden. */
+function opPad(x, z) {
+  return zones.some((zone) => zone.pad && Math.hypot(x - zone.x, z - zone.z) < zone.pad * 1.6);
+}
+
+/* -- rivieren -------------------------------------------------------------
+ * Een dal zonder water is een droge geul. Een rivier wordt eerst in het terrein
+ * gesneden en daarna als lint water erbovenop gelegd.
+ *
+ * De spiegel mag nooit omhoog lopen — water stroomt niet bergop. Daarom wordt
+ * de hoogte langs het lint monotoon dalend gemaakt: elk punt neemt op zijn
+ * hoogst de hoogte van het vorige. Waar het terrein daaronder hard wegvalt
+ * ontstaat vanzelf een steil stuk, en dat is de waterval.
+ */
+const rivieren = [];
+
+for (const rivier of plan.rivieren ?? []) {
+  const monsters = [];
+
+  // Polylijn opdelen in stapjes van ongeveer twee eenheden.
+  for (let i = 0; i < rivier.punten.length - 1; i++) {
+    const [ax, az] = rivier.punten[i];
+    const [bx, bz] = rivier.punten[i + 1];
+    /* Stapgrootte hangt aan de wereldmaat: een vaste stap van twee eenheden
+     * is op een klein eiland een vijfde van de kaart, en dan valt een waterval
+     * in één reuzenstap in plaats van in een trap. */
+    const lengte = Math.hypot(bx - ax, bz - az);
+    const stappen = Math.max(1, Math.round(lengte / (maten.hellingMonster * 2)));
+    for (let s = 0; s < stappen; s++) {
+      const t = s / stappen;
+      monsters.push({ x: ax + (bx - ax) * t, z: az + (bz - az) * t });
+    }
+  }
+  const laatste = rivier.punten[rivier.punten.length - 1];
+  monsters.push({ x: laatste[0], z: laatste[1] });
+
+  // Terrein aflezen, daarna monotoon dalend maken.
+  let vorige = Infinity;
+  for (const m of monsters) {
+    m.y = Math.min(hoogteOp(m.x, m.z), vorige);
+    vorige = m.y;
+  }
+
+  // Bedding uitsnijden: parabolisch profiel, diepst in het midden.
+  const half = rivier.breedte / 2;
+  const rand = half + maten.rivierOever;
+  for (let iz = 0; iz < N; iz++) {
+    for (let ix = 0; ix < N; ix++) {
+      const x = wx(ix);
+      const z = wx(iz);
+      let dichtst = null;
+      let besteD = Infinity;
+      for (const m of monsters) {
+        const d = Math.hypot(x - m.x, z - m.z);
+        if (d < besteD) { besteD = d; dichtst = m; }
+      }
+      if (besteD > rand) continue;
+      /* Pads zijn onaantastbaar: daar moet straks iets op kunnen staan. Loopt
+       * een rivier er dwars doorheen, dan is de route fout en niet de pad —
+       * daarom snijdt hij hier niet, en klaagt de controle verderop. */
+      if (opPad(x, z)) continue;
+      const deel = klem(besteD / rand, 0, 1);
+      const bed = dichtst.y - rivier.diepte * (1 - deel * deel);
+      const i = iz * N + ix;
+      if (bed < hoogte[i]) hoogte[i] = bed;
+    }
+  }
+
+  rivieren.push({ ...rivier, monsters });
+}
+
+/* -- kleur ----------------------------------------------------------------
+ * Per driehoek, uit hoogte en steilte. Dit is het enige wat een gegenereerd
+ * terrein "echt" laat lezen zonder er iets op te zetten: steile vlakken zijn
+ * rots, vlakke zijn begroeid, laag is zand, hoog is kaal.
+ */
+const uvVan = ([kolom, rij]) => [(kolom + 0.5) / 16, (rij + 0.5) / 4];
+
+function kies(gemiddeld, hellingGraden, krater) {
+  if (krater) return cel.lava;
+  const g = maten.kleurgrens;
+  if (gemiddeld < g.zand) return cel.zand;
+  if (hellingGraden > 40) return cel.rots;
+  if (gemiddeld > g.top) return cel.top;
+  if (gemiddeld > g.rots) return cel.rots;
+  if (gemiddeld > g.aarde) return cel.aarde;
+  if (gemiddeld > g.gras) return cel.gras;
+  return cel.weide;
+}
+
+/* -- netten ---------------------------------------------------------------
+ * Niet-geïndexeerd: elke driehoek heeft zijn eigen drie hoekpunten met de
+ * normaal van het vlak. Dat is precies wat plat schaduwen betekent. Elk net
+ * hoort bij één textuur; de kits hebben allemaal hun eigen colormap.
+ */
+function nieuwNet(naam, textuur) {
+  return { naam, textuur, pos: [], nor: [], uv: [], png: leesPng(join(ROOT, textuur)) };
+}
+
+function driehoek(net, a, b, c, uv) {
+  const ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2];
+  const vx = c[0] - a[0], vy = c[1] - a[1], vz = c[2] - a[2];
+  let nx = uy * vz - uz * vy;
+  let ny = uz * vx - ux * vz;
+  let nz = ux * vy - uy * vx;
+  const len = Math.hypot(nx, ny, nz) || 1;
+  nx /= len; ny /= len; nz /= len;
+  for (const p of [a, b, c]) {
+    net.pos.push(p[0], p[1], p[2]);
+    net.nor.push(nx, ny, nz);
+    net.uv.push(uv[0], uv[1]);
+  }
+}
+
+const GEDEELD = 'kits/colormap.png';
+const terrein = nieuwNet('terrein', GEDEELD);
+const water = nieuwNet('water', GEDEELD);
+
+/* -- terrein --------------------------------------------------------------- */
+
+for (let iz = 0; iz < N - 1; iz++) {
+  for (let ix = 0; ix < N - 1; ix++) {
+    const x0 = wx(ix), x1 = wx(ix + 1);
+    const z0 = wx(iz), z1 = wx(iz + 1);
+    const h00 = hoogte[iz * N + ix];
+    const h10 = hoogte[iz * N + ix + 1];
+    const h01 = hoogte[(iz + 1) * N + ix];
+    const h11 = hoogte[(iz + 1) * N + ix + 1];
+
+    /* Diep water hoeft geen bodem: die zie je nooit, hij kost driehoeken, en
+     * aan de hoeken van het domein steekt hij onder het zeevlak vandaan. */
+    const trim = maten.diepwaterTrim;
+    if (h00 < trim && h10 < trim && h01 < trim && h11 < trim) continue;
+
+    const krater = isKrater[iz * N + ix] === 1;
+    const a = [x0, h00, z0];
+    const b = [x1, h10, z0];
+    const c = [x0, h01, z1];
+    const d = [x1, h11, z1];
+
+    for (const [p, q, r] of [[a, c, b], [b, c, d]]) {
+      const gem = (p[1] + q[1] + r[1]) / 3;
+      const ux = q[0] - p[0], uy = q[1] - p[1], uz = q[2] - p[2];
+      const vx = r[0] - p[0], vy = r[1] - p[1], vz = r[2] - p[2];
+      const ny = uz * vx - ux * vz;
+      const len = Math.hypot(uy * vz - uz * vy, ny, ux * vy - uy * vx) || 1;
+      const helling = (Math.acos(klem(Math.abs(ny / len), 0, 1)) * 180) / Math.PI;
+      driehoek(terrein, p, q, r, uvVan(kies(gem, helling, krater)));
+    }
+  }
+}
+
+/* -- water ----------------------------------------------------------------
+ * Geen vlakke plaat maar een eigen raster met golven erop. Plat geschaduwd
+ * breekt dat het licht per facet, en dat is precies de ruwe zee die bij deze
+ * stijl hoort. Twee schalen: een lange deining en een korte kabbel.
+ */
+const golf = plan.zee;
+const zeeNiveau = plan.zeeniveau;
+
+/**
+ * Diepte van het water op een punt: hoe ver de bodem onder de spiegel ligt.
+ * Buiten het terreindomein is het gewoon diep — `hoogteOp` klemt daar op de
+ * randwaarde van het raster, en die randwaarde varieert per zijde, wat als
+ * rechthoekige vlakken in de open zee te zien is.
+ */
+const diepteOp = (x, z) => (Math.abs(x) >= halve || Math.abs(z) >= halve
+  ? 99
+  : zeeNiveau - hoogteOp(x, z));
+
+/**
+ * Golfhoogte. Vlak bij de kust wordt de uitslag gedempt: een deining van een
+ * halve eenheid over een strand dat op nul begint zet het strand onder water.
+ */
+function golfHoogte(x, z) {
+  const demping = klem(diepteOp(x, z) / maten.golfDemping, 0, 1);
+  const lang = (fbm(x / golf.deining.golflengte, z / golf.deining.golflengte, zaad + 41, 2) - 0.5) * 2;
+  const kort = (fbm(x / golf.kabbel.golflengte, z / golf.kabbel.golflengte, zaad + 53, 2) - 0.5) * 2;
+  return zeeNiveau + (lang * golf.deining.hoogte + kort * golf.kabbel.hoogte) * demping;
+}
+
+/**
+ * Kleur van een stuk water, uit de diepte eronder. Dit is wat een watervlak
+ * ook echt als water laat lezen: schuim op de branding, licht op de ondiepte,
+ * donker daarbuiten. Eén egale kleur leest als beton, hoe golvend ook.
+ */
+function waterCel(x, z) {
+  const d = diepteOp(x, z);
+  if (d < golf.schuimdiepte) return cel.schuim;
+  if (d < golf.ondiepte) return cel.zeeOndiep;
+  return cel.zeeDiep;
+}
+
+{
+  const buiten = golf.straal;
+  const s = golf.stap;
+  const M = Math.ceil((buiten * 2) / s) + 1;
+  const px = (i) => -buiten + i * s;
+
+  for (let iz = 0; iz < M - 1; iz++) {
+    for (let ix = 0; ix < M - 1; ix++) {
+      const x0 = px(ix), x1 = px(ix + 1);
+      const z0 = px(iz), z1 = px(iz + 1);
+      const mx = (x0 + x1) / 2;
+      const mz = (z0 + z1) / 2;
+      // Rond uitsnijden: een rechte zeerand leest als een tafelblad.
+      if (Math.hypot(mx, mz) > buiten) continue;
+      /* Geen water over land. De marge is klein en negatief: laat je hem
+       * ruim staan, dan loopt het zeevlak het strand op en wordt de hele kust
+       * één brede schuimband in plaats van een randje branding. */
+      if (diepteOp(x0, z0) < 0 && diepteOp(x1, z1) < 0
+        && diepteOp(x1, z0) < 0 && diepteOp(x0, z1) < 0) continue;
+
+      const uv = uvVan(waterCel(mx, mz));
+      const a = [x0, golfHoogte(x0, z0), z0];
+      const b = [x1, golfHoogte(x1, z0), z0];
+      const c = [x0, golfHoogte(x0, z1), z1];
+      const d = [x1, golfHoogte(x1, z1), z1];
+      driehoek(water, a, c, b, uv);
+      driehoek(water, b, c, d, uv);
+    }
+  }
+}
+
+/* Rivierlinten. Elk paar monsters wordt een strookje water, haaks op de
+ * looprichting. Valt de spiegel tussen twee monsters hard weg, dan staat dat
+ * strookje bijna rechtop — dat is de waterval, en die krijgt schuim. */
+for (const rivier of rivieren) {
+  const half = rivier.breedte * 0.42;
+  const { monsters } = rivier;
+  for (let i = 0; i < monsters.length - 1; i++) {
+    const a = monsters[i];
+    const b = monsters[i + 1];
+    const dx = b.x - a.x;
+    const dz = b.z - a.z;
+    const len = Math.hypot(dx, dz) || 1;
+    const nx = (-dz / len) * half;
+    const nz = (dx / len) * half;
+    const val = (a.y - b.y) / len; // hoe steil het water hier valt
+    const uv = uvVan(val > 0.35 ? cel.schuim : cel.zeeOndiep);
+
+    const spiegel = maten.rivierSpiegel;
+    const p0 = [a.x - nx, a.y + spiegel, a.z - nz];
+    const p1 = [a.x + nx, a.y + spiegel, a.z + nz];
+    const p2 = [b.x - nx, b.y + spiegel, b.z - nz];
+    const p3 = [b.x + nx, b.y + spiegel, b.z + nz];
+    driehoek(water, p0, p2, p1, uv);
+    driehoek(water, p1, p2, p3, uv);
+  }
+}
+
+/* Meren blijven vlak: een plas van dertig eenheden kabbelt niet zichtbaar.
+ * Volgorde hoek 1 vóór hoek 0, anders wijst de normaal omlaag en staat het
+ * water in het donker. */
+for (const meer of meerVlakken) {
+  const zijden = 16; // stijlgids §2: max 16 vlakke stukken per cirkel
+  const uv = uvVan(cel.zeeOndiep);
+  for (let i = 0; i < zijden; i++) {
+    const a0 = (i / zijden) * Math.PI * 2;
+    const a1 = ((i + 1) / zijden) * Math.PI * 2;
+    driehoek(water,
+      [meer.x, meer.y, meer.z],
+      [meer.x + Math.cos(a1) * meer.straal, meer.y, meer.z + Math.sin(a1) * meer.straal],
+      [meer.x + Math.cos(a0) * meer.straal, meer.y, meer.z + Math.sin(a0) * meer.straal],
+      uv);
+  }
+}
+
+/* -- referentiestukken ----------------------------------------------------
+ * Een eiland zonder iets erop heeft geen maat: 192 eenheden zegt niets tot er
+ * een schip naast ligt. Deze stukken staan er alleen om die maat te tonen, niet
+ * omdat de aankleding al vaststaat.
+ */
+const netPerKit = new Map();
+const modelCache = new Map();
+const geplaatst = [];
+
+function netVoorKit(kit) {
+  if (!netPerKit.has(kit)) {
+    const textuur = kit === 'taalei-kit'
+      ? `kits/${kit}/Textures/colormap.png`
+      : `kits/${kit}/Textures/colormap.png`;
+    netPerKit.set(kit, nieuwNet(kit, textuur));
+  }
+  return netPerKit.get(kit);
+}
+
+function haalModel(naam) {
+  if (!modelCache.has(naam)) modelCache.set(naam, leesModel(join(KITS, `${naam}.glb`)));
+  return modelCache.get(naam);
+}
+
+/** Eén exemplaar neerzetten: draaien om de y-as, schalen, verplaatsen. */
+function zetNeer(naam, x, y, z, draaiGraden, schaal) {
+  const model = haalModel(naam);
+  const net = netVoorKit(naam.split('/')[0]);
+  const a = (draaiGraden * Math.PI) / 180;
+  const ca = Math.cos(a);
+  const sa = Math.sin(a);
+
+  for (let i = 0; i < model.posities.length; i += 3) {
+    const px = model.posities[i] * schaal;
+    const py = model.posities[i + 1] * schaal;
+    const pz = model.posities[i + 2] * schaal;
+    net.pos.push(px * ca + pz * sa + x, py + y, -px * sa + pz * ca + z);
+    const nx = model.normalen[i];
+    const ny = model.normalen[i + 1];
+    const nz = model.normalen[i + 2];
+    net.nor.push(nx * ca + nz * sa, ny, -nx * sa + nz * ca);
+  }
+  for (const v of model.uvs) net.uv.push(v);
+  geplaatst.push({ naam, x, z, driehoeken: model.posities.length / 9 });
+}
+
+for (const prop of plan.stukken ?? []) {
+  const zone = zones.find((z) => z.id === prop.zone);
+  if (!zone) throw new Error(`stuk verwijst naar onbekende zone: ${prop.zone}`);
+  const [dx, dz] = prop.verschuif ?? [0, 0];
+  const x = zone.x + dx;
+  const z = zone.z + dz;
+  const y = prop.opWater ? zeeNiveau - 0.35 : hoogteOp(x, z);
+  zetNeer(prop.model, x, y, z, prop.draai ?? 0, prop.schaal ?? 1);
+}
+
+/* Strooien: per zone een eigen zaadstroom, zodat een wijziging aan de ene zone
+ * de andere niet opnieuw schudt. Afwijzen is goedkoper dan slim plaatsen, dus
+ * er wordt net zo lang geprikt tot het er staan mag of de pogingen op zijn. */
+for (const groep of plan.strooisel ?? []) {
+  const zone = zones.find((z) => z.id === groep.zone);
+  if (!zone) throw new Error(`strooisel verwijst naar onbekende zone: ${groep.zone}`);
+  const korrel = zaadVanTekst(groep.zone) ^ zaad;
+  const gezet = [];
+
+  for (let poging = 0; gezet.length < groep.aantal && poging < groep.aantal * 25; poging++) {
+    const hoek = hash(poging, 1, korrel) * Math.PI * 2;
+    const straal = Math.sqrt(hash(poging, 2, korrel)) * groep.straal;
+    const x = zone.x + Math.cos(hoek) * straal;
+    const z = zone.z + Math.sin(hoek) * straal;
+
+    if (hoogteOp(x, z) < (groep.minHoogte ?? maten.dalvloer)) continue;
+    if (hellingOp(x, z) > (groep.maxHelling ?? 22)) continue;
+    if (opPad(x, z)) continue;
+    const tussen = groep.tussenruimte ?? 2.5;
+    if (gezet.some((p) => Math.hypot(p[0] - x, p[1] - z) < tussen)) continue;
+
+    const keus = groep.modellen[Math.floor(hash(poging, 3, korrel) * groep.modellen.length) % groep.modellen.length];
+    zetNeer(keus, x, hoogteOp(x, z) - 0.1, z,
+      hash(poging, 4, korrel) * 360,
+      (groep.schaal ?? 1) * (0.85 + hash(poging, 5, korrel) * 0.4));
+    gezet.push([x, z]);
+  }
+
+  if (gezet.length < groep.aantal) {
+    console.log(`  let op: ${groep.zone} kreeg ${gezet.length} van de ${groep.aantal} gevraagde stuks`);
+  }
+}
+
+const netten = [terrein, water, ...netPerKit.values()];
+
+/* -- glb ------------------------------------------------------------------
+ * Eén node en mesh per net, en per unieke textuur één materiaal. Zonder
+ * indices: mode TRIANGLES leest de hoekpunten gewoon op volgorde.
+ */
+function schrijfGlb(pad) {
+  const blokken = [];
+  const views = [];
+  const accessors = [];
+  const meshes = [];
+  let lengte = 0;
+
+  const voegToe = (waarden) => {
+    const buf = Buffer.alloc(waarden.length * 4);
+    for (let i = 0; i < waarden.length; i++) buf.writeFloatLE(Math.fround(waarden[i]), i * 4);
+    blokken.push(buf);
+    views.push({ buffer: 0, byteOffset: lengte, byteLength: buf.length, target: 34962 });
+    lengte += buf.length + ((4 - (buf.length % 4)) % 4);
+    return views.length - 1;
+  };
+
+  const texturen = [...new Set(netten.map((n) => n.textuur))];
+
+  for (const net of netten) {
+    const aantal = net.pos.length / 3;
+    const min = [Infinity, Infinity, Infinity];
+    const max = [-Infinity, -Infinity, -Infinity];
+    for (let i = 0; i < aantal; i++) {
+      for (let c = 0; c < 3; c++) {
+        const v = Math.fround(net.pos[i * 3 + c]);
+        if (v < min[c]) min[c] = v;
+        if (v > max[c]) max[c] = v;
+      }
+    }
+    const basis = accessors.length;
+    const vPos = voegToe(net.pos);
+    const vNor = voegToe(net.nor);
+    const vUv = voegToe(net.uv);
+    accessors.push(
+      { bufferView: vPos, componentType: 5126, count: aantal, type: 'VEC3', min, max },
+      { bufferView: vNor, componentType: 5126, count: aantal, type: 'VEC3' },
+      { bufferView: vUv, componentType: 5126, count: aantal, type: 'VEC2' },
+    );
+    meshes.push({
+      name: net.naam,
+      primitives: [{
+        attributes: { POSITION: basis, NORMAL: basis + 1, TEXCOORD_0: basis + 2 },
+        material: texturen.indexOf(net.textuur),
+      }],
+    });
+  }
+
+  const bin = Buffer.alloc(lengte);
+  blokken.forEach((blok, i) => blok.copy(bin, views[i].byteOffset));
+
+  const gltf = {
+    asset: {
+      generator: 'taaleiland/bouw-eiland.mjs',
+      version: '2.0',
+      extras: { taaleiland: { versie: plan.versie, soort: 'grofmodel', zaad } },
+    },
+    scene: 0,
+    scenes: [{ nodes: netten.map((_, i) => i), name: 'eiland' }],
+    nodes: netten.map((net, i) => ({ mesh: i, name: net.naam })),
+    meshes,
+    materials: texturen.map((t, i) => ({
+      name: t,
+      doubleSided: false,
+      pbrMetallicRoughness: {
+        baseColorTexture: { index: i },
+        metallicFactor: 0,
+        roughnessFactor: 1,
+      },
+    })),
+    textures: texturen.map((_, i) => ({ sampler: 0, source: i })),
+    // Relatief vanaf eiland/, want daar komt de .glb te staan.
+    images: texturen.map((t) => ({ uri: relative(UIT, join(ROOT, t)).split('\\').join('/') })),
+    samplers: [{ magFilter: 9728, minFilter: 9728 }],
+    accessors,
+    bufferViews: views,
+    buffers: [{ byteLength: bin.length }],
+  };
+
+  const jsonBuf = Buffer.from(JSON.stringify(gltf), 'utf8');
+  const jsonPad = Buffer.concat([jsonBuf, Buffer.alloc((4 - (jsonBuf.length % 4)) % 4, 0x20)]);
+  const kop = Buffer.alloc(12);
+  kop.writeUInt32LE(0x46546c67, 0);
+  kop.writeUInt32LE(2, 4);
+  kop.writeUInt32LE(12 + 8 + jsonPad.length + 8 + bin.length, 8);
+  const jsonKop = Buffer.alloc(8);
+  jsonKop.writeUInt32LE(jsonPad.length, 0);
+  jsonKop.writeUInt32LE(0x4e4f534a, 4);
+  const binKop = Buffer.alloc(8);
+  binKop.writeUInt32LE(bin.length, 0);
+  binKop.writeUInt32LE(0x004e4942, 4);
+
+  const alles = Buffer.concat([kop, jsonKop, jsonPad, binKop, bin]);
+  writeFileSync(pad, alles);
+  return alles.length;
+}
+
+/* -- png schrijven --------------------------------------------------------- */
+
+const CRC = (() => {
+  const tabel = new Int32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+    tabel[n] = c;
+  }
+  return (buf) => {
+    let c = -1;
+    for (let i = 0; i < buf.length; i++) c = tabel[(c ^ buf[i]) & 255] ^ (c >>> 8);
+    return (c ^ -1) >>> 0;
+  };
+})();
+
+function schrijfPng(pad, breedte, hoogtePx, rgb) {
+  const stapPx = breedte * 3;
+  const rauw = Buffer.alloc((stapPx + 1) * hoogtePx);
+  for (let y = 0; y < hoogtePx; y++) {
+    rauw[y * (stapPx + 1)] = 0; // filter: geen
+    rgb.copy(rauw, y * (stapPx + 1) + 1, y * stapPx, (y + 1) * stapPx);
+  }
+  const brok = (type, data) => {
+    const len = Buffer.alloc(4);
+    len.writeUInt32BE(data.length, 0);
+    const romp = Buffer.concat([Buffer.from(type, 'ascii'), data]);
+    const crc = Buffer.alloc(4);
+    crc.writeUInt32BE(CRC(romp), 0);
+    return Buffer.concat([len, romp, crc]);
+  };
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(breedte, 0);
+  ihdr.writeUInt32BE(hoogtePx, 4);
+  ihdr[8] = 8; // bits per kanaal
+  ihdr[9] = 2; // rgb
+  writeFileSync(pad, Buffer.concat([
+    Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
+    brok('IHDR', ihdr),
+    brok('IDAT', deflateSync(rauw, { level: 9 })),
+    brok('IEND', Buffer.alloc(0)),
+  ]));
+}
+
+/* -- plattegrond ----------------------------------------------------------- */
+
+const SCHAAL = Math.max(1, Math.round(768 / maat)); // pixels per eenheid
+const PB = Math.round(maat * SCHAAL);
+const beeld = Buffer.alloc(PB * PB * 3);
+const zoneVan = new Int16Array(PB * PB).fill(-1); // -1 = zee
+const atlas = terrein.png;
+
+function dichtstbij(x, z) {
+  let beste = 0;
+  let besteD = Infinity;
+  for (let i = 0; i < zones.length; i++) {
+    const d = Math.hypot(x - zones[i].x, z - zones[i].z);
+    if (d < besteD) { besteD = d; beste = i; }
+  }
+  return beste;
+}
+
+const kleurVanCel = (c) => atlas.kleurOp(...uvVan(c));
+
+for (let py = 0; py < PB; py++) {
+  for (let px = 0; px < PB; px++) {
+    const x = -halve + (px + 0.5) / SCHAAL;
+    const z = -halve + (py + 0.5) / SCHAAL;
+    const h = hoogteOp(x, z);
+
+    let kleur;
+    if (h <= zeeNiveau) {
+      const diep = klem(-h / maten.plattegrondDiepte, 0, 1);
+      kleur = kleurVanCel(waterCel(x, z)).map((v) => Math.round(v * (1 - diep * 0.45)));
+    } else {
+      const m = maten.hellingMonster;
+      const dx = (hoogteOp(x + m, z) - hoogteOp(x - m, z)) / m;
+      const dz = (hoogteOp(x, z + m) - hoogteOp(x, z - m)) / m;
+      const helling = (Math.atan(Math.hypot(dx, dz) / 2) * 180) / Math.PI;
+      const inMeer = meerVlakken.some((m) => Math.hypot(x - m.x, z - m.z) < m.straal && h < m.y);
+      const inKrater = zones.some((zo) => zo.krater && Math.hypot(x - zo.x, z - zo.z) < zo.krater.straal * 0.55);
+      const basis = kleurVanCel(inMeer ? cel.zeeOndiep : kies(h, helling, inKrater));
+      const licht = klem(0.72 + (-dx - dz) * 0.1, 0.45, 1.25);
+      kleur = basis.map((v) => klem(Math.round(v * licht), 0, 255));
+      zoneVan[py * PB + px] = dichtstbij(x, z);
+    }
+
+    const i = (py * PB + px) * 3;
+    beeld[i] = kleur[0];
+    beeld[i + 1] = kleur[1];
+    beeld[i + 2] = kleur[2];
+  }
+}
+
+/* Zonegrenzen: waar de dichtstbijzijnde zone verandert. Puur een hulplijn — het
+ * terrein weet er niets van, en de echte zones worden later polygonen. */
+{
+  const grens = Buffer.from(beeld);
+  for (let py = 1; py < PB - 1; py++) {
+    for (let px = 1; px < PB - 1; px++) {
+      const hier = zoneVan[py * PB + px];
+      if (hier < 0) continue;
+      if (hier === zoneVan[py * PB + px + 1] && hier === zoneVan[(py + 1) * PB + px]) continue;
+      const i = (py * PB + px) * 3;
+      for (let c = 0; c < 3; c++) grens[i + c] = Math.round(beeld[i + c] * 0.45);
+    }
+  }
+  grens.copy(beeld);
+}
+
+function vulBlok(px0, py0, breed, hoog, kleur) {
+  for (let py = Math.max(0, py0); py < Math.min(PB, py0 + hoog); py++) {
+    for (let px = Math.max(0, px0); px < Math.min(PB, px0 + breed); px++) {
+      const i = (py * PB + px) * 3;
+      beeld[i] = kleur[0];
+      beeld[i + 1] = kleur[1];
+      beeld[i + 2] = kleur[2];
+    }
+  }
+}
+
+/* Cijfers 3 x 5. Namen passen niet op deze schaal; het nummer verwijst naar de
+ * legenda die het script uitprint. */
+const CIJFERS = [
+  0b111101101101111, 0b010110010010111, 0b111001111100111, 0b111001111001111,
+  0b101101111001001, 0b111100111001111, 0b111100111101111, 0b111001001001001,
+  0b111101111101111, 0b111101111001111,
+];
+
+function tekenGetal(x, z, getal) {
+  const s = 3;
+  const tekens = String(getal).split('');
+  const breed = tekens.length * 4 * s - s;
+  const hoog = 5 * s;
+  let px = Math.round((x + halve) * SCHAAL - breed / 2);
+  const py = Math.round((z + halve) * SCHAAL - hoog / 2);
+  vulBlok(px - 3, py - 3, breed + 6, hoog + 6, [26, 26, 30]);
+  for (const teken of tekens) {
+    const masker = CIJFERS[Number(teken)];
+    for (let rij = 0; rij < 5; rij++) {
+      for (let kolom = 0; kolom < 3; kolom++) {
+        if (!((masker >> (14 - (rij * 3 + kolom))) & 1)) continue;
+        vulBlok(px + kolom * s, py + rij * s, s, s, [255, 255, 255]);
+      }
+    }
+    px += 4 * s;
+  }
+}
+
+function ring(x, z, straal, dikte, kleur) {
+  const cx = (x + halve) * SCHAAL;
+  const cz = (z + halve) * SCHAAL;
+  const rp = straal * SCHAAL;
+  for (let py = Math.max(0, Math.floor(cz - rp - dikte)); py <= Math.min(PB - 1, Math.ceil(cz + rp + dikte)); py++) {
+    for (let px = Math.max(0, Math.floor(cx - rp - dikte)); px <= Math.min(PB - 1, Math.ceil(cx + rp + dikte)); px++) {
+      if (Math.abs(Math.hypot(px + 0.5 - cx, py + 0.5 - cz) - rp) > dikte) continue;
+      const i = (py * PB + px) * 3;
+      beeld[i] = kleur[0];
+      beeld[i + 1] = kleur[1];
+      beeld[i + 2] = kleur[2];
+    }
+  }
+}
+
+// Elk neergezet stuk als stipje, zodat de kaart en het model bij elkaar horen.
+for (const stuk of geplaatst) ring(stuk.x, stuk.z, maten.speling, 1, [20, 20, 24]);
+
+zones.forEach((zone, i) => {
+  if (zone.pad) ring(zone.x, zone.z, zone.pad, 0.9, [255, 255, 255]);
+  tekenGetal(zone.x, zone.z, i + 1);
+});
+
+/* -- aanzichten -----------------------------------------------------------
+ * Een plattegrond laat de indeling zien maar niet de vorm; daarvoor moet je er
+ * schuin op kijken. Deze rasteraar tekent precies de driehoeken die ook in de
+ * .glb staan, met de kleur die hun uv in de colormap van hun eigen kit
+ * aanwijst, dus wat je hier ziet is het model en geen tweede weergave ervan.
+ *
+ * Orthografisch, want een eiland beoordeel je op silhouet en niet op
+ * perspectief, en met een z-buffer omdat de bergen voor de zee langs komen.
+ */
+function renderAanzicht(hoekGraden, elevatieGraden, HP) {
+  const th = (hoekGraden * Math.PI) / 180;
+  const ph = (elevatieGraden * Math.PI) / 180;
+
+  const f = [-Math.cos(ph) * Math.cos(th), -Math.sin(ph), -Math.cos(ph) * Math.sin(th)];
+  let r = [f[2], 0, -f[0]];
+  const rl = Math.hypot(r[0], r[1], r[2]) || 1;
+  r = r.map((v) => v / rl);
+  /* f × r, niet r × f: die laatste wijst omlaag en zet het hele eiland
+   * ondersteboven — bergen onder water, zeebodem in de lucht. */
+  const u = [
+    f[1] * r[2] - f[2] * r[1],
+    f[2] * r[0] - f[0] * r[2],
+    f[0] * r[1] - f[1] * r[0],
+  ];
+
+  const opScherm = (x, y, z) => [
+    x * r[0] + y * r[1] + z * r[2],
+    x * u[0] + y * u[1] + z * u[2],
+    x * f[0] + y * f[1] + z * f[2],
+  ];
+
+  /* Uitsnede op het terrein alleen; het zeevlak steekt ver buiten het eiland
+   * en zou het anders wegdrukken. */
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (let i = 0; i < terrein.pos.length; i += 3) {
+    const [sx, sy] = opScherm(terrein.pos[i], terrein.pos[i + 1], terrein.pos[i + 2]);
+    if (sx < minX) minX = sx;
+    if (sx > maxX) maxX = sx;
+    if (sy < minY) minY = sy;
+    if (sy > maxY) maxY = sy;
+  }
+  const marge = 0.04;
+  const schaal = Math.min(
+    (HP * (1 - marge * 2)) / (maxX - minX),
+    (HP * (1 - marge * 2)) / (maxY - minY),
+  );
+  const midX = (minX + maxX) / 2;
+  const midY = (minY + maxY) / 2;
+
+  const doek = Buffer.alloc(HP * HP * 3);
+  for (let i = 0; i < HP * HP; i++) {
+    doek[i * 3] = 22; doek[i * 3 + 1] = 24; doek[i * 3 + 2] = 30;
+  }
+  const diepte = new Float32Array(HP * HP).fill(Infinity);
+
+  const LICHT = (() => {
+    const l = [-0.45, 0.82, -0.35];
+    const len = Math.hypot(l[0], l[1], l[2]);
+    return l.map((v) => v / len);
+  })();
+
+  for (const net of netten) {
+    for (let t = 0; t < net.pos.length; t += 9) {
+      const punten = [0, 1, 2].map((k) => {
+        const [sx, sy, sz] = opScherm(net.pos[t + k * 3], net.pos[t + k * 3 + 1], net.pos[t + k * 3 + 2]);
+        return [(sx - midX) * schaal + HP / 2, HP / 2 - (sy - midY) * schaal, sz];
+      });
+
+      const lambert = klem(
+        net.nor[t] * LICHT[0] + net.nor[t + 1] * LICHT[1] + net.nor[t + 2] * LICHT[2], 0, 1,
+      );
+      const basis = net.png.kleurOp(net.uv[(t / 3) * 2], net.uv[(t / 3) * 2 + 1]);
+      const licht = 0.42 + lambert * 0.75;
+      const kleur = basis.map((v) => klem(Math.round(v * licht), 0, 255));
+
+      const [a, b, c] = punten;
+      const opp = (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+      if (Math.abs(opp) < 1e-9) continue;
+      const px0 = Math.max(0, Math.floor(Math.min(a[0], b[0], c[0])));
+      const px1 = Math.min(HP - 1, Math.ceil(Math.max(a[0], b[0], c[0])));
+      const py0 = Math.max(0, Math.floor(Math.min(a[1], b[1], c[1])));
+      const py1 = Math.min(HP - 1, Math.ceil(Math.max(a[1], b[1], c[1])));
+
+      for (let py = py0; py <= py1; py++) {
+        for (let px = px0; px <= px1; px++) {
+          const x = px + 0.5;
+          const y = py + 0.5;
+          const w0 = ((b[0] - a[0]) * (y - a[1]) - (b[1] - a[1]) * (x - a[0])) / opp;
+          const w1 = ((x - a[0]) * (c[1] - a[1]) - (y - a[1]) * (c[0] - a[0])) / opp;
+          if (w0 < 0 || w1 < 0 || w0 + w1 > 1) continue;
+          const d = a[2] + (b[2] - a[2]) * w1 + (c[2] - a[2]) * w0;
+          const i = py * HP + px;
+          if (d >= diepte[i]) continue;
+          diepte[i] = d;
+          doek[i * 3] = kleur[0];
+          doek[i * 3 + 1] = kleur[1];
+          doek[i * 3 + 2] = kleur[2];
+        }
+      }
+    }
+  }
+  return doek;
+}
+
+/* -- wegschrijven ---------------------------------------------------------- */
+
+mkdirSync(UIT, { recursive: true });
+const bytes = schrijfGlb(join(UIT, 'eiland-grof.glb'));
+schrijfPng(join(UIT, 'plattegrond.png'), PB, PB, beeld);
+
+const AANZICHTEN = [
+  { naam: 'zuidoost', hoek: 45, elevatie: 34 },
+  { naam: 'zuidwest', hoek: 135, elevatie: 34 },
+  { naam: 'noordwest', hoek: 225, elevatie: 34 },
+  { naam: 'noordoost', hoek: 315, elevatie: 34 },
+  { naam: 'silhouet', hoek: 20, elevatie: 9 },
+];
+const HP = 900;
+for (const av of AANZICHTEN) {
+  schrijfPng(join(UIT, `aanzicht-${av.naam}.png`), HP, HP, renderAanzicht(av.hoek, av.elevatie, HP));
+}
+
+
+/* -- viewer ---------------------------------------------------------------
+ * Een losse html-pagina waarin het model te draaien en te zoomen is. De
+ * geometrie gaat als base64 mee in de pagina zelf: posities als int16 ten
+ * opzichte van de omhullende doos, kleur als drie bytes per hoekpunt, met de
+ * kleur al uit de colormap van de eigen kit gehaald. Zo hoeft de pagina niets
+ * na te vragen en werkt hij ook waar externe verzoeken geblokkeerd zijn.
+ *
+ * Normalen gaan niet mee: de fragmentshader leidt de vlaknormaal af uit de
+ * afgeleiden van de wereldpositie, wat precies plat schaduwen is.
+ */
+function schrijfViewer(pad) {
+  const totaal = netten.reduce((som, n) => som + n.pos.length / 3, 0);
+  const min = [Infinity, Infinity, Infinity];
+  const max = [-Infinity, -Infinity, -Infinity];
+  for (const net of netten) {
+    for (let i = 0; i < net.pos.length; i += 3) {
+      for (let c = 0; c < 3; c++) {
+        const v = net.pos[i + c];
+        if (v < min[c]) min[c] = v;
+        if (v > max[c]) max[c] = v;
+      }
+    }
+  }
+  const schaal = [0, 1, 2].map((c) => (max[c] - min[c]) / 32767 || 1);
+
+  const posities = new Int16Array(totaal * 3);
+  const kleuren = new Uint8Array(totaal * 3);
+  const groepen = [];
+  let hoek = 0;
+
+  for (const net of netten) {
+    const vanaf = hoek;
+    for (let i = 0; i < net.pos.length; i += 3) {
+      for (let c = 0; c < 3; c++) {
+        posities[hoek * 3 + c] = Math.round((net.pos[i + c] - min[c]) / schaal[c]);
+      }
+      const rgb = net.png.kleurOp(net.uv[(i / 3) * 2], net.uv[(i / 3) * 2 + 1]);
+      kleuren[hoek * 3] = rgb[0];
+      kleuren[hoek * 3 + 1] = rgb[1];
+      kleuren[hoek * 3 + 2] = rgb[2];
+      hoek++;
+    }
+    /* Eén groep per net, want zo staat het ook in de .glb: elke kit heeft zijn
+     * eigen colormap en dus zijn eigen tekenopdracht. Ze samenvoegen tot één
+     * groep zou de viewer minder tekenopdrachten laten zien dan er in het echt
+     * zijn, en juist dat getal wil je kunnen aflezen. `laag` is alleen waar de
+     * knoppen op filteren. */
+    groepen.push({
+      naam: net.naam,
+      laag: net.naam === 'terrein' || net.naam === 'water' ? net.naam : 'stukken',
+      vanaf,
+      aantal: hoek - vanaf,
+    });
+  }
+
+  const meta = {
+    onderschrift: `Grof blokmodel, ${maat} × ${maat} eenheden. Kit-onderdelen staan op ware grootte.`,
+    min,
+    schaal,
+    midden: [0, (min[1] + max[1]) / 2, 0],
+    // Kaderen op het eiland en niet op de zee eromheen; die is ruim twee keer
+    // zo breed en zou het eiland tot een postzegel in beeld maken.
+    omvang: maat,
+    groepen,
+    cijfers: [
+      ['Breedte', `${maat} eenheden`],
+      ['Hoogste punt', hoogst.toFixed(1)],
+      ['Land', `${Math.round(landCellen * stap * stap)} eenheden²`],
+      ['Driehoeken', (totaal / 3).toLocaleString('nl-NL')],
+      ['Zones', String(zones.length)],
+      ['Stukken', String(geplaatst.length)],
+    ],
+  };
+
+  const sjabloon = readFileSync(join(ROOT, 'tools', 'viewer-sjabloon.html'), 'utf8');
+  writeFileSync(pad, sjabloon
+    .split('__TITEL__').join('Taaleiland — grof blokmodel')
+    .replace('__META__', JSON.stringify(meta))
+    .replace('__POSITIES__', Buffer.from(posities.buffer).toString('base64'))
+    .replace('__KLEUREN__', Buffer.from(kleuren.buffer).toString('base64')));
+
+  return totaal;
+}
+
+
+/* -- verslag --------------------------------------------------------------- */
+
+let hoogst = -Infinity;
+let landCellen = 0;
+for (const h of hoogte) {
+  if (h > hoogst) hoogst = h;
+  if (h > zeeNiveau) landCellen++;
+}
+
+const driehoeken = netten.reduce((som, n) => som + n.pos.length / 9, 0);
+const propDriehoeken = geplaatst.reduce((som, s) => som + s.driehoeken, 0);
+
+console.log(`eiland/eiland-grof.glb — ${maat} x ${maat} eenheden, raster ${stap}`);
+console.log(`  ${driehoeken} driehoeken (${propDriehoeken} in ${geplaatst.length} losse stukken), ${(bytes / 1024 / 1024).toFixed(2)} MB`);
+console.log(`  hoogste punt ${hoogst.toFixed(1)}, landoppervlak ${Math.round(landCellen * stap * stap)} eenheden²`);
+schrijfViewer(join(UIT, 'eiland.html'));
+console.log(`eiland/plattegrond.png, ${AANZICHTEN.length} aanzichten en eiland.html\n`);
+
+const problemen = [];
+console.log('zone            streef  gemeten  landinw.  plafond');
+for (const zone of zones) {
+  const gemeten = hoogteOp(zone.x, zone.z);
+  const hoek = Math.atan2(zone.z, zone.x);
+  const binnen = kustStraal(hoek) - Math.hypot(zone.x, zone.z);
+  const plafond = kustPlafond(binnen, hoek);
+  console.log(
+    `${zone.id.padEnd(14)} ${String(zone.hoogte).padStart(6)}  ${gemeten.toFixed(1).padStart(7)}`
+    + `  ${binnen.toFixed(1).padStart(8)}  ${plafond.toFixed(1).padStart(7)}`,
+  );
+  if (binnen < 0) problemen.push(`${zone.id} ligt buiten de kustlijn (${binnen.toFixed(1)})`);
+  // `nat` markeert een zone die zelf water is; die hoort onder de spiegel te liggen.
+  if (!zone.nat && zone.hoogte > 0 && gemeten < zeeNiveau) {
+    problemen.push(`${zone.id} staat onder water (${gemeten.toFixed(1)})`);
+  }
+  if (zone.pad && Math.abs(gemeten - snap(zone.hoogte)) > maten.padStap * 0.2) {
+    problemen.push(`${zone.id} heeft een pad maar ligt niet vlak (${gemeten.toFixed(2)} i.p.v. ${snap(zone.hoogte)})`);
+  }
+  /* Het kustplafond wint van de streefhoogte. Ligt een zone te dicht op zee
+   * voor de hoogte die hij wil, dan zakt hij stilzwijgend weg. */
+  if (!zone.krater && zone.hoogte > plafond + maten.speling) {
+    problemen.push(
+      `${zone.id} wil ${zone.hoogte} maar het kustplafond staat maar ${plafond.toFixed(1)} toe`
+      + ' — verder landinwaarts zetten of lager maken',
+    );
+  }
+}
+
+let steilste = 0;
+for (let iz = 0; iz < N - 1; iz++) {
+  for (let ix = 0; ix < N - 1; ix++) {
+    const h = hoogte[iz * N + ix];
+    steilste = Math.max(steilste,
+      Math.max(Math.abs(hoogte[iz * N + ix + 1] - h), Math.abs(hoogte[(iz + 1) * N + ix] - h)) / stap);
+  }
+}
+console.log(`\nsteilste overgang: ${((Math.atan(steilste) * 180) / Math.PI).toFixed(0)}°`);
+
+// Staat er iets in het water dat daar niet hoort?
+for (const stuk of geplaatst) {
+  const y = hoogteOp(stuk.x, stuk.z);
+  if (y < zeeNiveau - maten.speling && !stuk.naam.includes('ship') && !stuk.naam.includes('boat')) {
+    problemen.push(`${stuk.naam} staat onder water op (${stuk.x.toFixed(0)}, ${stuk.z.toFixed(0)})`);
+  }
+}
+
+if (problemen.length) {
+  console.log(`\n${problemen.length} probleem(en):`);
+  for (const p of problemen) console.log(`  - ${p}`);
+  process.exitCode = 1;
+} else {
+  console.log('\nGeen problemen.');
+}
