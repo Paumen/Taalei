@@ -8,7 +8,7 @@
 
   "kust": {
     "straal": 84,
-    "grilligheid": 0.38,
+    "grilligheid": 0.50,
     "golflengte": 2.2,
     "strandbreedte": 11,
     "zeebodem": 5,
@@ -22,6 +22,16 @@
     "hoogte": 2.6,
     "golflengte": 26,
     "octaven": 4
+  },
+
+  "//zee": "Het zeevlak is een eigen raster met golven, geen platte plaat: plat geschaduwd breekt elke facet het licht anders en dat is de ruwe zee die bij deze stijl hoort. `straal` moet ruim over het terrein heen reiken, anders steekt de zeebodem eronder vandaan.",
+  "zee": {
+    "straal": 130,
+    "stap": 3,
+    "deining": { "golflengte": 22, "hoogte": 0.45 },
+    "kabbel":  { "golflengte": 8,  "hoogte": 0.18 },
+    "ondiepte": 4.0,
+    "schuimdiepte": 0.35
   },
 
   "//landvorm": "De vorm van het eiland zelf, los van de zones. Toppen en ruggen worden met max gecombineerd, niet gemiddeld — middelen maakt van elke berg een plateau. De naden die max achterlaat zijn juist de graten, en dat past bij een gefacetteerd terrein. Dalen gaan er daarna vanaf.",
@@ -62,14 +72,41 @@
     { "id": "bloementuin", "naam": "Bloementuin",      "x": -42, "z":  52, "hoogte":  3.5, "relief": 0.3, "invloed": 16, "pad": 8, "band": "laag"   },
     { "id": "bos",         "naam": "Bos",              "x": -62, "z":  16, "hoogte":  6.0, "relief": 0.7, "invloed": 20, "pad": 0, "band": "laag"   },
     { "id": "bruggen",     "naam": "Bruggen / ravijn", "x": -36, "z":  26, "hoogte": 10.0, "relief": 1.6, "invloed": 12, "pad": 5, "band": "midden" },
-    { "id": "rivier",      "naam": "Rivier",           "x":   4, "z":  30, "hoogte":  5.0, "relief": 0.5, "invloed": 18, "pad": 0, "band": "midden" },
-    { "id": "meer",        "naam": "Meer",             "x": -18, "z":   2, "hoogte": 11.0, "relief": 0.4, "invloed": 18, "pad": 0, "band": "midden", "water": 14 },
+    { "id": "rivier",      "naam": "Rivier",           "x":   4, "z":  30, "hoogte":  5.0, "nat": true, "relief": 0.5, "invloed": 18, "pad": 0, "band": "midden" },
+    { "id": "meer",        "naam": "Meer",             "x": -18, "z":   2, "hoogte": 11.0, "nat": true, "relief": 0.4, "invloed": 18, "pad": 0, "band": "midden", "water": 14 },
     { "id": "watervallen", "naam": "Watervallen",      "x":  -4, "z": -16, "hoogte": 19.0, "relief": 1.5, "invloed": 14, "pad": 0, "band": "midden" },
     { "id": "jungle",      "naam": "Jungle",           "x":  46, "z":  12, "hoogte":  8.0, "relief": 0.9, "invloed": 20, "pad": 0, "band": "midden" },
     { "id": "berg",        "naam": "Berg",             "x": -40, "z": -28, "hoogte": 26.0, "relief": 2.0, "invloed": 16, "pad": 0, "band": "hoog"   },
     { "id": "grot",        "naam": "Grotingang",       "x": -60, "z": -20, "hoogte": 13.0, "relief": 1.4, "invloed": 10, "pad": 6, "band": "hoog"   },
     { "id": "vulkaan",     "naam": "Vulkaan",          "x":  10, "z": -34, "hoogte": 36.0, "relief": 1.0, "invloed": 12, "pad": 0, "band": "top", "krater": { "straal": 11, "diepte": 18 } },
     { "id": "luchtballon", "naam": "Luchtballon",      "x":  34, "z": -46, "hoogte": 20.0, "relief": 0.6, "invloed": 12, "pad": 8, "band": "top"   }
+  ],
+
+  "//rivieren": "Polylijnen die eerst in het terrein worden gesneden en daarna water krijgen. De spiegel wordt monotoon dalend gemaakt; waar het terrein hard wegvalt ontstaat vanzelf een waterval.",
+  "rivieren": [
+    { "id": "bergbeek",    "breedte": 4, "diepte": 1.0,
+      "punten": [[-6, -19], [-9, -13], [-13, -6], [-17, 0]] },
+    { "id": "hoofdrivier", "breedte": 6, "diepte": 1.4,
+      "punten": [[-17, 12], [-9, 21], [2, 30], [-2, 42], [-9, 53], [-13, 65], [-14, 77]] }
+  ],
+
+  "//stukken": "Referentiemaat, geen aankleding. Een eiland van 192 eenheden zegt niets tot er een schip naast ligt en een boom op staat.",
+  "stukken": [
+    { "model": "taalei-kit/lighthouse", "zone": "vuurtoren", "draai": 0 },
+    { "model": "pirate-kit/ship-large", "zone": "haven", "verschuif": [11, 13], "draai": 205, "opWater": true },
+    { "model": "pirate-kit/ship-wreck", "zone": "wrak",  "verschuif": [-4, 2],  "draai": 40,  "opWater": true },
+    { "model": "taalei-kit/windmill",   "zone": "startkamp", "verschuif": [-7, 5], "draai": 30 }
+  ],
+
+  "strooisel": [
+    { "zone": "bos",         "straal": 24, "aantal": 40, "tussenruimte": 3.0, "maxHelling": 28,
+      "modellen": ["mini-forest/tree", "mini-forest/tree-high", "survival-kit/tree", "survival-kit/tree-tall"] },
+    { "zone": "jungle",      "straal": 22, "aantal": 20, "tussenruimte": 3.5,
+      "modellen": ["pirate-kit/palm-detailed-bend", "pirate-kit/palm-detailed-straight"] },
+    { "zone": "strand",      "straal": 22, "aantal": 10, "tussenruimte": 4.0, "minHoogte": 0.8, "maxHelling": 26,
+      "modellen": ["pirate-kit/palm-bend", "pirate-kit/palm-straight"] },
+    { "zone": "bloementuin", "straal": 16, "aantal": 12, "tussenruimte": 3.0,
+      "modellen": ["fantasy-town-kit/tree", "fantasy-town-kit/tree-crooked"] }
   ],
 
   "//cellen": "Cel [kolom, rij] in kits/colormap.png (16 kolommen x 4 rijen).",
@@ -80,7 +117,9 @@
     "aarde":  [12, 0],
     "rots":   [3, 2],
     "top":    [5, 2],
-    "lava":   [9, 1],
-    "water":  [15, 3]
+    "lava":      [9, 1],
+    "zeeOndiep": [0, 2],
+    "zeeDiep":   [1, 2],
+    "schuim":    [2, 2]
   }
 }
