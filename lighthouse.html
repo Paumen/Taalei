@@ -13,15 +13,17 @@
   html{background:var(--paper);color:var(--ink)}
   body{margin:0;background:transparent;font-family:"Martian Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased}
   #gl{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
-  main{max-width:420px;margin:0 auto;padding:14px 12px 22px}
+  main{max-width:760px;margin:0 auto;padding:14px 12px 22px}
   header{display:flex;align-items:baseline;gap:8px;padding-bottom:8px}
   h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.02em;margin:0}
   header p{margin:0;font-size:8px;line-height:1.5;color:var(--faint);letter-spacing:.02em;font-weight:300}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
   figure{margin:0;padding:6px 0 9px;border-top:1px solid var(--rule)}
   .view{aspect-ratio:1/1;width:100%}
   .nm{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:11px;letter-spacing:-.01em}
   .tech{font-size:7.5px;line-height:1.45;color:var(--faint);font-weight:300;letter-spacing:.01em;margin-top:1px}
   .tri{font-size:7.5px;color:var(--mark);font-weight:500;letter-spacing:.04em;margin-top:2px}
+  @media (max-width:520px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -29,13 +31,20 @@
 <main>
   <header>
     <h1>Lighthouse</h1>
-    <p>storybook · 12 facets · dark timber crown</p>
+    <p>reference · new — both flat-shaded, one WebGL context</p>
   </header>
 
-  <figure><div class="view" data-scene="lighthouse"></div><figcaption>
-    <div class="nm">Lighthouse</div>
-    <div class="tech">flared tower, corbelled gallery, dark timber lantern and cap — one vertex-coloured mesh; lamp, glow and sweeping beams stay separate</div>
-    <div class="tri" data-tri="lighthouse"></div></figcaption></figure>
+  <div class="grid">
+    <figure><div class="view" data-scene="reference"></div><figcaption>
+      <div class="nm">Reference</div>
+      <div class="tech">the original specimen: 14-sided tower, slate gallery and glazing bars, stone plinth</div>
+      <div class="tri" data-tri="reference"></div></figcaption></figure>
+
+    <figure><div class="view" data-scene="lighthouse"></div><figcaption>
+      <div class="nm">New</div>
+      <div class="tech">12 facets, extra-chunky flare, dark timber crown seated flush on the tower, sweeping beams</div>
+      <div class="tri" data-tri="lighthouse"></div></figcaption></figure>
+  </div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -54,11 +63,12 @@ function hash2(x, y){ const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; re
 
 function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, flatShading:true, shininess:0, specular:col('#000000'), side:side || THREE.FrontSide}); }
 
-function stage(sky, ground, keyPos){
+/* L carries the per-specimen light rig so the two can be lit differently */
+function stage(sky, ground, keyPos, L){
   const scene = new THREE.Scene();
-  scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.58));
-  scene.add(new THREE.AmbientLight(col('#EFEAE0'), 0.09));
-  const key = new THREE.DirectionalLight(col('#FFF6E8'), 1.2);
+  scene.add(new THREE.HemisphereLight(col(sky), col(ground), L.hemi));
+  scene.add(new THREE.AmbientLight(col(L.ambCol), L.amb));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), L.key);
   key.position.set(keyPos[0], keyPos[1], keyPos[2]);
   scene.add(key);
   const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
@@ -131,10 +141,78 @@ function spun(rings, sides, colorFn, jitter){
   return g;
 }
 
-/* ---------- specimen ---------- */
+/* ---------- reference specimen, unchanged from the shared example ---------- */
+
+function reference(){
+  const st = stage('#D7E4EE', '#6A6F64', [3.2, 4, 2.2], {hemi:0.85, ambCol:'#DCE4EC', amb:0.14, key:0.85});
+  const rim = new THREE.DirectionalLight(col('#FFE8C4'), 0.3);
+  rim.position.set(-2.5, 1.2, -2);
+  st.scene.add(rim);
+
+  const solid = [];
+
+  const SIDES = 14, BANDS = 5, PER = 2;
+  const y0 = 0.15, y1 = 1.06, r0 = 0.285, r1 = 0.158;
+  const rings = [];
+  for(let i = 0; i <= BANDS*PER; i++){
+    const t = i/(BANDS*PER);
+    rings.push({y: y0 + (y1-y0)*t, r: r0 + (r1-r0)*Math.pow(t, 0.88)});
+  }
+  solid.push(part(spun(rings, SIDES, function(i){
+    return Math.floor(i/PER) % 2 === 0 ? 0xF4EFE3 : 0xB2413A;
+  }, 0.07)));
+
+  solid.push(part(new THREE.CylinderGeometry(0.3, 0.33, 0.1, SIDES), '#8E8878', [tf([0, 0.11, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.185, 0.185, 0.028, SIDES), '#3E444A', [tf([0, 1.05, 0])]));
+  solid.push(part(new THREE.CylinderGeometry(0.245, 0.215, 0.045, SIDES), '#39404A', [tf([0, 1.086, 0])]));
+
+  for(let i = 0; i < 12; i++){
+    const a = i/12*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.015, 0.075, 0.015), '#2F353D',
+      [tf([Math.cos(a)*0.228, 1.145, Math.sin(a)*0.228], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.TorusGeometry(0.231, 0.011, 4, 14), '#2F353D',
+    [tf([0, 1.183, 0], [Math.PI/2, 0, 0])]));
+
+  for(let i = 0; i < 10; i++){
+    const a = i/10*Math.PI*2;
+    solid.push(part(new THREE.BoxGeometry(0.014, 0.185, 0.014), '#333A42',
+      [tf([Math.cos(a)*0.141, 1.22, Math.sin(a)*0.141], [0, -a, 0])]));
+  }
+  solid.push(part(new THREE.CylinderGeometry(0.165, 0.165, 0.022, 10), '#333A42', [tf([0, 1.322, 0])]));
+  solid.push(part(new THREE.ConeGeometry(0.165, 0.15, 10), '#39404A', [tf([0, 1.408, 0])]));
+
+  const rAt = function(y){
+    const t = (y - y0)/(y1 - y0);
+    return (r0 + (r1-r0)*Math.pow(t, 0.88)) * Math.cos(Math.PI/SIDES);
+  };
+  const dr = rAt(0.27);
+  solid.push(part(new THREE.BoxGeometry(0.125, 0.225, 0.03), '#E4DDCE', [tf([0, 0.28, dr + 0.004])]));
+  solid.push(part(new THREE.BoxGeometry(0.09, 0.185, 0.03), '#4B3A2B', [tf([0, 0.27, dr + 0.014])]));
+  solid.push(part(new THREE.BoxGeometry(0.16, 0.03, 0.09), '#8E8878', [tf([0, 0.16, dr + 0.04])]));
+
+  st.turn.add(new THREE.Mesh(merge(solid), flatVC()));
+
+  const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.145, 0.185, 10), new THREE.MeshPhongMaterial({
+    color: col('#F7DE94'), emissive: col('#9C7616'), flatShading:true, shininess:0,
+    specular:col('#000000'), transparent:true, opacity:0.94
+  }));
+  lamp.position.y = 1.22;
+  st.turn.add(lamp);
+
+  const glow = new THREE.Mesh(new THREE.IcosahedronGeometry(0.23, 1), new THREE.MeshBasicMaterial({
+    color: col('#F6D686'), transparent:true, opacity:0.17, depthWrite:false
+  }));
+  glow.position.y = 1.22;
+  st.turn.add(glow);
+
+  return {stage:st, cam:[0, 1.45, 3.02], look:[0, 0.68, 0], spin:0.15};
+}
+
+/* ---------- new specimen ---------- */
 
 function lighthouse(){
-  const st = stage('#F2ECE2', '#B9B4A8', [3.2, 4, 2.2]);
+  const st = stage('#F2ECE2', '#B9B4A8', [3.2, 4, 2.2], {hemi:0.58, ambCol:'#EFEAE0', amb:0.09, key:1.2});
   const rim = new THREE.DirectionalLight(col('#FFE8C4'), 0.3);
   rim.position.set(-2.5, 1.2, -2);
   st.scene.add(rim);
@@ -260,7 +338,7 @@ function lighthouse(){
 
 /* ---------- assembly ---------- */
 
-const builders = {lighthouse:lighthouse};
+const builders = {reference:reference, lighthouse:lighthouse};
 const cells = [];
 const clock = new THREE.Clock();
 Object.keys(builders).forEach(function(key){
