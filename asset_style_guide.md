@@ -33,7 +33,7 @@ Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for 
 
 ## 6. Reference Assets
 - You must render and look reference assets before creating new assets, not just read.
-- You must render at least two reference assets next to a new asset when validating.
+- You must render at least two reference assets next to a new asset at same scale when validating.
 
 palm-detailed-bend
 ship-large
