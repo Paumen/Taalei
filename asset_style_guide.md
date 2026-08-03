@@ -29,8 +29,9 @@ For an LLM creating or adjusting assets.
 ## 5. Origin and orientation
 Base on Y = 0; pivot at footprint centre in X/Z. Deviate only deliberately, for a functional reason.
 
-## Reference Assets
-Render and look before creating new assets, not just read.
+## 6. Reference Assets
+- You must render and look reference assets before creating new assets, not just read.
+- You must render at least two reference assets next to a new asset when validating.
 
 palm-detailed-bend
 ship-large
