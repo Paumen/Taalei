@@ -12,7 +12,6 @@ For an LLM creating or adjusting assets.
 - One shared colormap image only: assets color themselves by pointing UVs at its cells.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
-- Cave kit is exempt from above rules.
 
 ## 2. Geometry
 - Flat-piece construction, always. Round shapes must be visibly built from flat pieces.
