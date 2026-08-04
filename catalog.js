@@ -13,7 +13,7 @@ const GROEP_ALIASSEN = {
   mechaniek: 'items',
 };
 
-const ZWAAR_VANAF = 1500;
+const ZWAAR_VANAF = 5000;
 
 const getal = new Intl.NumberFormat('nl-NL');
 
