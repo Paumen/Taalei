@@ -203,6 +203,7 @@ Niet alles is een zone. Een zone is van ver herkenbaar, vult een ingezoomde weer
 
 Leeg: welke zones, hoeveel, in welke volgorde, en welke hindernis waar.
 
+> [!TIP]
 **Props** (brainstorm.md): vuurtoren, planken, schelpen, waterval, luchtballon, zaag, bijl, hamer en spijkers, erts, bomen, bruggen, ladders, kisten, tonnen, kratten, hekken, boten, scheepswrakveld, ruïnewijk, marktwijk, stormgordel, zeegrotten, walvisskelet, molen, kolossaal standbeeld, zeeboog, blaasgat dat op tijd uitbarst.
 
 **Verzamelen.** Pets. Grondstoffen.
