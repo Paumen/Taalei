@@ -366,7 +366,10 @@ function schrijfGlb(naam, { bosScherp }) {
 
   bouwTerrein({ bosScherp });
   bouwStrand();
-  bouwBrug();
+  // De brug is het enige dat het kind zelf neerzet. In de vage stand ligt hij er
+  // dus niet: dat is de stand vóór het bouwen, en met een brug die er al ligt is
+  // er niets meer op te lossen.
+  if (bosScherp) bouwBrug();
   bouwBos({ scherp: bosScherp });
 
   // Mesh 0 is het terrein; daarna één mesh per uniek kitmodel. Hetzelfde model
