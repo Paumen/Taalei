@@ -314,11 +314,19 @@ function bouwStrand() {
  * is het brugdeel uit mini-forest daar te klein voor: op een strand van 20 breed
  * valt een dek van 0.8 weg. Iets groter, drie delen achter elkaar, en hij ligt
  * met beide uiteinden een halve eenheid op de oever.
+ *
+ * Vóór het bouwen staat hij er als schim: dezelfde vorm, plat in de vage kleur.
+ * Zonder dat is de kreek alleen een gat en weet het kind niet dat daar iets moet
+ * komen, laat staan wát — en §9 eist dat je in één blik ziet wat er nu moet,
+ * zonder te lezen. Het is dezelfde beeldtaal als het vage bos: vorm zonder
+ * kleur betekent overal "dit is er nog niet".
  */
-function bouwBrug() {
+function bouwBrug({ gebouwd }) {
   const midden = (KREEK[0] + KREEK[1]) / 2;
   for (const verschuif of [-1.35, 0, 1.35]) {
-    zet('mini-forest/bridge', [BRUG_X, midden + verschuif], { y: 0.18, draai: 90, schaal: 1.3 });
+    zet('mini-forest/bridge', [BRUG_X, midden + verschuif], {
+      y: 0.18, draai: 90, schaal: 1.3, cel: gebouwd ? null : 'bosVaag',
+    });
   }
 }
 
@@ -366,10 +374,7 @@ function schrijfGlb(naam, { bosScherp }) {
 
   bouwTerrein({ bosScherp });
   bouwStrand();
-  // De brug is het enige dat het kind zelf neerzet. In de vage stand ligt hij er
-  // dus niet: dat is de stand vóór het bouwen, en met een brug die er al ligt is
-  // er niets meer op te lossen.
-  if (bosScherp) bouwBrug();
+  bouwBrug({ gebouwd: bosScherp });
   bouwBos({ scherp: bosScherp });
 
   // Mesh 0 is het terrein; daarna één mesh per uniek kitmodel. Hetzelfde model
