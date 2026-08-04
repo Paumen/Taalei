@@ -342,9 +342,7 @@ window.KENNEY_KITS = [
   "name": "Taalei Kit",
   "url": null,
   "models": [
-   "lighthouse",
-   "windmill",
-   "windmill-hip-roof"
+   "lighthouse"
   ]
  }
 ];
