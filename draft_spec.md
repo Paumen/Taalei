@@ -326,7 +326,7 @@ Gok, expliciet als gok. Ze volgen uit een half uur per week (productspecificatie
 
 Game design §3 laat open waaruit "vaag" bestaat. Drie standen, en geen mist-shader — die kost meer en leest slechter op een telefoon dan gewoon wegnemen.
 
-- **Vaag.** Alleen het terrein, in één vlakke paletkleur richting de horizonkleur. Geen props, geen beweging. Silhouet is herkenbaar: je ziet dát het bos is.
+- **Vaag.** Terrein én de grote props, alles plat in dezelfde lichte kleur. De vormen staan er, de kleuren niet: je ziet dát het een bos is, je ziet niet wat erin staat. Kleine props en beweging ontbreken. Weglaten mag niet — game design §3 eist dat het hele eiland vanaf het begin te zien is, en een leeg vlak geeft het kind niets om naartoe te willen.
 - **Half.** Terrein op eigen kleur, de grote props staan er. Kleine props en beweging ontbreken.
 - **Scherp.** Alles, plus beweging: golfrand, rook uit het kampvuur, een wapperende vlag.
 

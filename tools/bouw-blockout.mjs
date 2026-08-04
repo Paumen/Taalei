@@ -9,8 +9,8 @@
  * en dat is niet meer dan een paar platte vlakken en zijkanten.
  *
  * Er komen twee bestanden uit, dezelfde indeling in twee standen uit plak §5:
- *   blockout/strand-vaag.glb    het bos is één vlakke kleur, geen props
- *   blockout/strand-scherp.glb  het bos heeft zijn kleur en zijn bomen
+ *   blockout/strand-vaag.glb    het bos staat er, plat in één kleur
+ *   blockout/strand-scherp.glb  het bos heeft zijn eigen kleuren en zijn kleine props
  * Naast elkaar bekeken laten ze zien wat het kind ziet veranderen op het moment
  * dat de brug klaar is.
  *
@@ -114,8 +114,9 @@ const nodeMatrix = (node) => node.matrix
  * dus er gaat bij dat samenvoegen niets verloren.
  */
 const gelezen = new Map();
-function leesModel(pad) {
-  if (gelezen.has(pad)) return gelezen.get(pad);
+function leesModel(pad, vlakkeCel) {
+  const sleutel = vlakkeCel ? `${pad}#${vlakkeCel}` : pad;
+  if (gelezen.has(sleutel)) return gelezen.get(sleutel);
   const { json, bin } = leesGlb(join(KITS, `${pad}.glb`));
   const posities = [];
   const normalen = [];
@@ -153,8 +154,18 @@ function leesModel(pad) {
   };
   for (const index of json.scenes[json.scene ?? 0].nodes) loop(index, EENHEID);
 
+  // Alle uv's naar één cel: het model houdt zijn vorm, maar verliest zijn kleuren
+  // en daarmee zijn detail. Dat is wat "vager" hier betekent.
+  if (vlakkeCel) {
+    const [u, v] = uvVanCel(CEL[vlakkeCel]);
+    for (let i = 0; i < uvs.length; i += 2) {
+      uvs[i] = u;
+      uvs[i + 1] = v;
+    }
+  }
+
   const model = { posities, normalen, uvs, indices };
-  gelezen.set(pad, model);
+  gelezen.set(sleutel, model);
   return model;
 }
 
@@ -218,12 +229,15 @@ function blok([x0, z0], [x1, z1], y0, y1, celTop, celZij) {
 /**
  * @param {string} pad     kit/model, zonder .glb
  * @param {number[]} plek  [x, z] in rastereenheden
- * @param {object} opties  y hoogte, draai in graden om de y-as, schaal
+ * @param {object} opties  y hoogte, draai in graden om de y-as, schaal,
+ *   cel  naam uit CEL; plat naar die ene kleur, voor de vage stand
  */
-function zet(pad, [x, z], { y = STRAND_TOP, draai = 0, schaal = 1 } = {}) {
+function zet(pad, [x, z], { y = STRAND_TOP, draai = 0, schaal = 1, cel = null } = {}) {
   const half = (draai * Math.PI) / 360;
   plaatsingen.push({
     pad,
+    cel,
+    sleutel: cel ? `${pad}#${cel}` : pad,
     naam: `${pad.split('/')[1]}-${plaatsingen.length}`,
     translation: [x, y, z],
     rotation: [0, Math.sin(half), 0, Math.cos(half)],
@@ -308,24 +322,37 @@ function bouwBrug() {
   }
 }
 
-function bouwBos() {
+/**
+ * Het bos staat er in beide standen. Game design §3: het hele eiland is vanaf
+ * het begin te zien, geen mist en geen sloten — wat nog niet gedaan is, is
+ * vager. Vager is niet weg. Een leeg groen vlak vertelt het kind niet dat daar
+ * een bos ligt, en dan is er ook niets om naartoe te willen.
+ *
+ * Vaag is hier dus: dezelfde bomen op dezelfde plek, maar plat in de kleur van
+ * het terrein eromheen. Je ziet de vorm, je ziet niet wat het is. De kleine
+ * props blijven wel weg; die zijn te klein om als silhouet iets te doen.
+ */
+function bouwBos({ scherp }) {
+  const cel = scherp ? null : 'bosVaag';
+
   const bomen = [
     [5.0, 26.0, 0], [8.5, 24.2, 40], [16.0, 25.5, -30],
     [20.0, 27.5, 70], [11.0, 28.6, 15], [6.5, 29.5, -60], [18.5, 23.4, 100],
     [3.4, 24.6, 25], [21.6, 30.0, -15],
   ];
-  for (const [x, z, draai] of bomen) zet('mini-forest/tree', [x, z], { draai });
+  for (const [x, z, draai] of bomen) zet('mini-forest/tree', [x, z], { draai, cel });
 
   for (const [x, z, draai] of [[12.6, 24.8, 0], [9.6, 27.2, 50], [15.2, 29.2, -25], [4.2, 28.0, 80]]) {
-    zet('mini-forest/tree-high', [x, z], { draai });
+    zet('mini-forest/tree-high', [x, z], { draai, cel });
   }
 
+  zet('mini-forest/rocks-low', [21.4, 24.6], { draai: 20, cel });
+  zet('mini-forest/rocks-low', [2.6, 27.4], { draai: -35, cel });
+
+  if (!scherp) return;
   for (const [x, z] of [[10.0, 23.2], [13.8, 26.4], [7.2, 25.6], [17.6, 27.8], [19.2, 24.6], [6.0, 22.8], [14.6, 22.6]]) {
     zet('mini-forest/plant', [x, z]);
   }
-
-  zet('mini-forest/rocks-low', [21.4, 24.6], { draai: 20 });
-  zet('mini-forest/rocks-low', [2.6, 27.4], { draai: -35 });
 }
 
 /* -- wegschrijven ---------------------------------------------------------
@@ -340,12 +367,13 @@ function schrijfGlb(naam, { bosScherp }) {
   bouwTerrein({ bosScherp });
   bouwStrand();
   bouwBrug();
-  if (bosScherp) bouwBos();
+  bouwBos({ scherp: bosScherp });
 
-  // Mesh 0 is het terrein; daarna één mesh per uniek kitmodel.
-  const paden = [...new Set(plaatsingen.map((p) => p.pad))];
-  const meshVan = new Map(paden.map((pad, i) => [pad, i + 1]));
-  const modellen = [terrein, ...paden.map(leesModel)];
+  // Mesh 0 is het terrein; daarna één mesh per uniek kitmodel. Hetzelfde model
+  // in twee kleurstanden is twee meshes: de uv's zitten in de hoekpunten.
+  const sleutels = [...new Map(plaatsingen.map((p) => [p.sleutel, p])).values()];
+  const meshVan = new Map(sleutels.map((p, i) => [p.sleutel, i + 1]));
+  const modellen = [terrein, ...sleutels.map((p) => leesModel(p.pad, p.cel))];
 
   const posities = [];
   const normalen = [];
@@ -419,7 +447,7 @@ function schrijfGlb(naam, { bosScherp }) {
   const nodes = [
     { mesh: 0, name: 'terrein' },
     ...plaatsingen.map((p) => ({
-      mesh: meshVan.get(p.pad),
+      mesh: meshVan.get(p.sleutel),
       name: p.naam,
       translation: p.translation.map(Math.fround),
       rotation: p.rotation.map(Math.fround),
@@ -436,7 +464,7 @@ function schrijfGlb(naam, { bosScherp }) {
     scene: 0,
     scenes: [{ nodes: nodes.map((_, i) => i), name: naam }],
     nodes,
-    meshes: ['terrein', ...paden].map((bron, i) => ({
+    meshes: ["terrein", ...sleutels.map((p) => p.sleutel)].map((bron, i) => ({
       name: bron,
       primitives: [{
         attributes: { POSITION: i * 3, NORMAL: i * 3 + 1, TEXCOORD_0: i * 3 + 2 },
