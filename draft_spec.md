@@ -167,7 +167,7 @@ Mogelijke voorbeelden:
 - *Steen* — daarna.
 - *Erts* — daarna.
 
-Eén grondstof tegelijk in omloop; de volgorde is eenrichtingsverkeer (§3).
+De volgorde is grotendeels eenrichtingsverkeer (§3, en de knop in productspecificatie §6).
 
 **Inspanning, niet correctheid.** Een oefening afmaken levert de grondstof op. Fouten kosten niets.
 
@@ -270,13 +270,13 @@ Leeg: muziek, omgevingsgeluid.
 
 **MVP.** Ongeveer drie maanden inhoud, of minder mits een eerlijke dwarsdoorsnede: meerdere zones, meerdere oefenvormen, hergebruik van een vorm, meerdere woordniveaus, grondstoffen, bouwen, een doorgang, zichtbare voortgang, iets te ontdekken.
 
-**Vóór de MVP komt de verticale plak.** Zie deel 3.
+**Vóór de MVP komt de verticale plak.** Zie het volgende deel.
 
 ---
 
 # Taaleiland — verticale plak
 
-Niet de eerste hap van de MVP, maar het goedkoopste experiment dat de aannames uit deel 2 kan omvergooien. Alles hieronder is een gok die opgeschreven is zodat hij weerlegd kan worden — geen besluit dat vastligt.
+Niet de eerste hap van de MVP, maar het goedkoopste experiment dat de aannames uit het game design document kan omvergooien. Alles hieronder is een gok die opgeschreven is zodat hij weerlegd kan worden — geen besluit dat vastligt.
 
 ## 1. Wat de plak moet beantwoorden
 
@@ -284,24 +284,24 @@ Vier vragen die op papier niet te beantwoorden zijn.
 
 1. **Leest de koppeling als oorzaak en gevolg?** Snapt een kind van negen dat het hout uit het hakken kwam, of voelt het als een sticker op een quiz? Toets uit §6 van de productspecificatie: *zou het kunnen uitleggen waarom dit hier gebeurt?*
 2. **Draagt vaag → scherp de voortgang?** Ziet het kind zonder uitleg dat er iets veranderd is, en wil het de volgende zone scherp maken?
-3. **Voelt een zitting af als de doorgang nog niet open is?** Deel 2 §3 eist dat elke zitting eindigt met iets dat er eerst niet was; §5 eist dat een doorgang meerdere zittingen kost. Die twee vechten. De plak zet er een antwoord tegenover (§4 hieronder).
-4. **Is een vorm mét wereldbetekenis merkbaar sterker dan een zonder?** Daarom draait de plak twee vormen naast elkaar: hakken (hakt echt hout door) en het voorgelezen woord aanwijzen (heeft bewust geen tegenhanger, deel 2 §6). Als het verschil niet te zien is in wat een kind zelf kiest, is de knop uit productspecificatie §6 minder waard dan gedacht.
+3. **Voelt een zitting af als de doorgang nog niet open is?** Game design §3 eist dat elke zitting eindigt met iets dat er eerst niet was; §5 eist dat een doorgang meerdere zittingen kost. Die twee vechten. De plak zet er een antwoord tegenover (§4 hieronder).
+4. **Is een vorm mét wereldbetekenis merkbaar sterker dan een zonder?** Daarom draait de plak twee vormen naast elkaar: hakken (hakt echt hout door) en het voorgelezen woord aanwijzen (heeft bewust geen tegenhanger, game design §6). Als het verschil niet te zien is in wat een kind zelf kiest, is de knop uit productspecificatie §6 minder waard dan gedacht.
 
 ## 2. Omvang
 
 Één zone, twee oefenvormen, één grondstof, één doorgang, één zone erachter die scherp wordt.
 
-**Strand met startkamp** — aankomst op het eiland (deel 2 §8). Aangespoeld drijfhout ligt op het strand. Achter het strand loopt een kreek; daarachter ligt het **bos**, vaag. Een **brug** over de kreek is de doorgang. Het bos wordt scherp en de plak stopt.
+**Strand met startkamp** — aankomst op het eiland (game design §8). Aangespoeld drijfhout ligt op het strand. Achter het strand loopt een kreek; daarachter ligt het **bos**, vaag. Een **brug** over de kreek is de doorgang. Het bos wordt scherp en de plak stopt.
 
 Waarom strand en niet bos: het bos is waar bomen staan, en die zijn het waard om te bewaren voor een volle zone. Drijfhout geeft dezelfde hakbeweging zonder het bos op te maken. En aankomst is de plek waar het verhaal toch al begint.
 
 ## 3. Oefenvormen
 
-**Hakken — klanken scheiden.** Het woord staat als één stuk drijfhout in beeld en wordt voorgelezen (Web Speech API). Het kind veegt van boven naar beneden op de plek waar een klank ophoudt: `r|aa|m`. Klanken, geen letters — `aa` blijft één stuk. Bij elke goede veeg valt het hout uit elkaar en klinkt de klank. Bij een misser stuitert de bijl terug, wordt de klank uitgesproken, en mag het kind meteen opnieuw. Niets raakt kwijt, niets telt af. Geen klok.
+**Hakken — klanken scheiden.** Het woord staat als één stuk drijfhout in beeld en wordt voorgelezen. Het kind veegt van boven naar beneden op de plek waar een klank ophoudt: `r|aa|m`. Klanken, geen letters — `aa` blijft één stuk. Bij elke goede veeg valt het hout uit elkaar. Bij een misser stuitert de bijl terug en mag het kind meteen opnieuw. Niets raakt kwijt, niets telt af. Geen klok.
 
 **Voorgelezen woord aanwijzen — luisteren en herkennen.** Vier woorden in beeld, één wordt voorgelezen, het kind tikt het aan. Bewust zonder wereldbetekenis (zie §1.4).
 
-**Ronde.** 6 items, ongeveer anderhalve minuut. Bij duidelijke beheersing stopt de ronde eerder (deel 2 §4) — richtlijn: vier achtereen foutloos en zonder aarzelen.
+**Ronde.** 6 items, ongeveer anderhalve minuut. Bij duidelijke beheersing stopt de ronde eerder (game design §4) — richtlijn: vier achtereen foutloos en zonder aarzelen.
 
 **Woorden.** Vier niveaus, per niveau ongeveer 40 woorden, opgebouwd naar klankstructuur: mk, km, mkm, mkkm (brainstorm.md). Zelfde zone, zelfde taken, alleen de woordenlijst verschilt — geen kind kan aan het scherm zien op welke stand het staat.
 
@@ -320,11 +320,11 @@ Gok, expliciet als gok. Ze volgen uit een half uur per week (productspecificatie
 
 **Zo eindigt elke zitting toch af.** De brug loopt over meerdere zittingen, maar het overschot gaat naar kleine bouwsels die *binnen* één zitting klaar zijn: een steiger, een vuurplaats, een uitkijkpunt, een hek. Het kind kiest welke. De zitting sluit op de zoneweergave met het nieuwe ding in beeld — ook als de brug nog een zitting weg is.
 
-**En daar zit meteen de autonomie.** Deel 2 §3 laat open waar de keuze zit terwijl de doorgangen lineair zijn. Antwoord voor de plak: keuze *binnen* een zone, nooit in de volgorde ervan. Twee plekken — met welke oefenvorm de zitting begint, en welk los bouwsel het overschot krijgt. Beide zijn zichtbaar en omkeerbaar; geen van beide vertakt de inhoud.
+**En daar zit meteen de autonomie.** Game design §3 laat open waar de keuze zit terwijl de doorgangen lineair zijn. Antwoord voor de plak: keuze *binnen* een zone, nooit in de volgorde ervan. Twee plekken — met welke oefenvorm de zitting begint, en welk los bouwsel het overschot krijgt. Beide zijn zichtbaar en omkeerbaar; geen van beide vertakt de inhoud.
 
 ## 5. Vaag → scherp
 
-Deel 2 §3 laat open waaruit "vaag" bestaat. Drie standen, en geen mist-shader — die kost meer en leest slechter op een telefoon dan gewoon wegnemen.
+Game design §3 laat open waaruit "vaag" bestaat. Drie standen, en geen mist-shader — die kost meer en leest slechter op een telefoon dan gewoon wegnemen.
 
 - **Vaag.** Alleen het terrein, in één vlakke paletkleur richting de horizonkleur. Geen props, geen beweging. Silhouet is herkenbaar: je ziet dát het bos is.
 - **Half.** Terrein op eigen kleur, de grote props staan er. Kleine props en beweging ontbreken.
@@ -345,11 +345,11 @@ Alles staat al in de kits — er hoeft niets nieuws gemaakt te worden voor de pl
 | Bos erachter | `mini-forest`: `tree`, `tree-high`, `plant`, `patch-grass` |
 | Landmark op afstand | `taalei-kit`: `lighthouse` |
 
-Gedeeld palet en colormap volgens `asset_style_guide.md`. De grot blijft buiten de plak (deel 2 §12).
+Gedeeld palet en colormap volgens `asset_style_guide.md`. De grot blijft buiten de plak (game design §12).
 
 ## 7. Wat bewust open blijft
 
-Verhaal en wie er verder op het eiland is (deel 2 §8). Muziek en omgevingsgeluid (§11) — alleen terugkoppeling bij hakken en bouwen. Zone 3 en verder, en welke hindernis waar. Steen en erts. Tempo- en drillrondes (§6): pas zinvol als de gewone ronde staat. Eilandkaart met meerdere eilanden. Het ouderaccount en de behandelaarsvrijgave — de plak draait lokaal, zonder account.
+Verhaal en wie er verder op het eiland is (game design §8). Muziek en omgevingsgeluid (§11) — alleen terugkoppeling bij hakken en bouwen. Zone 3 en verder, en welke hindernis waar. Steen en erts. Tempo- en drillrondes (§6): pas zinvol als de gewone ronde staat. Eilandkaart met meerdere eilanden. Het ouderaccount en de behandelaarsvrijgave — de plak draait lokaal, zonder account.
 
 ## 8. Waaraan we het afmeten
 
