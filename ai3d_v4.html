@@ -309,6 +309,10 @@ function balloon(){
   flame.position.y = -0.75;
   body.add(flame);
 
+  /* the basket footprint. The uprights stand on these corners and the lower
+     cords land on the same four points, so they move together. */
+  const CORNERS = [[0.09,0.09],[-0.09,0.09],[0.09,-0.09],[-0.09,-0.09]];
+
   /* §5: split node pivots on its joint — the top of the corner uprights,
      where the four suspension cords land — not on the basket's own centre */
   const basket = new THREE.Group();
@@ -330,7 +334,7 @@ function balloon(){
     band.position.y = y;
     basket.add(band);
   });
-  [[0.09,0.09],[-0.09,0.09],[0.09,-0.09],[-0.09,-0.09]].forEach(function(p){
+  CORNERS.forEach(function(p){
     const up = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.15, 0.02), trim);
     up.position.set(p[0], -0.075, p[1]);
     basket.add(up);
@@ -341,7 +345,7 @@ function balloon(){
     const a = i/8*Math.PI*2;
     cords.push(Math.cos(a)*0.098, -0.63, Math.sin(a)*0.098, Math.cos(a)*0.082, -0.7, Math.sin(a)*0.082);
   }
-  [[0.09,0.09],[-0.09,0.09],[0.09,-0.09],[-0.09,-0.09]].forEach(function(p){
+  CORNERS.forEach(function(p){
     cords.push(p[0]*0.55, -0.71, p[1]*0.55, p[0], -0.82, p[1]);
   });
   const cg = new THREE.BufferGeometry();
