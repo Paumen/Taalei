@@ -3,34 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Balloon — 7 color variants</title>
+<title>Balloon — envelope only, terracotta</title>
 <style>
   html,body{margin:0;height:100%;background:#E7E9E3;color:#181B17;
     font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
-  #gl{position:fixed;inset:0;width:100%;height:100%;display:block}
-  #grid{position:relative;display:grid;gap:2px;padding:28px 12px 12px;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    grid-auto-rows:1fr;height:100%;box-sizing:border-box}
-  .cell{position:relative;min-height:180px}
-  .cell .tag{position:absolute;left:8px;bottom:6px;color:#767C71;letter-spacing:.04em;
-    pointer-events:none;white-space:nowrap}
-  .cell .tag b{color:#181B17;font-weight:400}
-  .cell .sw{display:inline-block;width:7px;height:7px;margin-left:3px;
-    vertical-align:baseline;border:1px solid rgba(24,27,23,.18)}
-  .cell .hex{color:#9AA097;letter-spacing:.02em}
-  #hud{position:fixed;left:12px;top:8px;color:#767C71;letter-spacing:.04em;pointer-events:none}
+  #gl{display:block;width:100%;height:100%}
+  #hud{position:fixed;left:12px;top:12px;color:#767C71;letter-spacing:.04em}
 </style>
 </head>
 <body>
 <canvas id="gl"></canvas>
-<div id="grid"></div>
 <div id="hud"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
 (function(){
 const canvas = document.getElementById('gl');
-const grid = document.getElementById('grid');
 const renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.outputEncoding = THREE.sRGBEncoding;
@@ -91,31 +79,9 @@ function seamLines(rings, sides, from, to){
   return g;
 }
 
-/* ---------- palette ----------
-   Every value below is a cell colour from kits/palet.json (palet "gedeeld"),
-   so the variants stay inside the shared colormap. No new colours introduced. */
-
-const P = {
-  peach:   '#f1976c', terracotta:'#d07b56', amber:  '#ffb349', brick: '#b2413a',
-  ink:     '#3e3e44', brown:     '#995a41', tan:    '#dd9f79', mint:  '#6cb588',
-  green:   '#3da679', slate:     '#474a58', orange: '#ff8744', peri:  '#9da4c4',
-  bone:    '#f0ece3', sand:      '#f0c59d', steel:  '#6d738a'
-};
-
-/* base = gore field, a = top cap + every 4th gore, b = bottom band + every 4th gore */
-const VARIANTS = [
-  {name:'terracotta', base:P.bone,  a:P.terracotta, b:P.steel, tape:P.steel},
-  {name:'ember',      base:P.sand,  a:P.brick,      b:P.orange,tape:P.brown},
-  {name:'meadow',     base:P.bone,  a:P.green,      b:P.mint,  tape:P.slate},
-  {name:'dusk',       base:P.peri,  a:P.brick,      b:P.slate, tape:P.slate},
-  {name:'honey',      base:P.bone,  a:P.amber,      b:P.brown, tape:P.brown},
-  {name:'coral',      base:P.tan,   a:P.peach,      b:P.brick, tape:P.brown},
-  {name:'slate',      base:P.bone,  a:P.slate,      b:P.peri,  tape:P.slate}
-];
-
 /* ---------- balloon: envelope, crown, tapes, mouth cap ---------- */
 
-function balloon(v){
+function balloon(){
   const st = stage('#E2EAF2', '#787E86', [2.6, 4, 3]);
   const rim = new THREE.DirectionalLight(col('#FFE4BC'), 0.28);
   rim.position.set(-2.5, 0.8, -2.2);
@@ -132,28 +98,32 @@ function balloon(v){
   ];
   const rings = prof.map(function(p){ return {r:p[0], y:p[1]}; });
   const GORES = 16;
-  const BASE = v.base, A = v.a, B = v.b;
+
+  /* terracotta colourway — all four values are cells from the shared palette
+     in kits/palet.json ("gedeeld"); no colour outside the colormap. */
+  const BONE = 0xf0ece3, CLAY = 0xd07b56, STEEL = 0x6d738a, INK = '#3e3e44';
+  const STEEL_HEX = '#6d738a';
 
   const envelope = spun(rings, GORES, function(i, s){
-    if(i <= 1) return B;
-    if(i >= 10) return A;
+    if(i <= 1) return STEEL;
+    if(i >= 10) return CLAY;
     const k = s % 4;
-    return k === 1 ? A : (k === 3 ? B : BASE);
+    return k === 1 ? CLAY : (k === 3 ? STEEL : BONE);
   }, 0.05);
   body.add(new THREE.Mesh(envelope, flatVC()));
 
-  const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.064, GORES), flat(P.ink));
+  const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.064, GORES), flat(INK));
   crown.position.y = 2.488;
   body.add(crown);
 
   /* PO note: outlines. Seam tapes are kept as a core feature of the envelope.
      Opaque per PO decision — no transparency is used anywhere in this asset. */
   const tapes = new THREE.LineSegments(seamLines(rings, GORES, 0, rings.length-1),
-    new THREE.LineBasicMaterial({color: col(v.tape)}));
+    new THREE.LineBasicMaterial({color: col(STEEL_HEX)}));
   body.add(tapes);
 
   /* mouth cap — closes the envelope's bottom opening the skirt used to hide */
-  const mouth = new THREE.Mesh(new THREE.CircleGeometry(0.22, GORES), flat(P.ink));
+  const mouth = new THREE.Mesh(new THREE.CircleGeometry(0.22, GORES), flat(INK));
   mouth.rotation.x = Math.PI/2;
   mouth.position.y = -2.08;
   body.add(mouth);
@@ -165,48 +135,32 @@ function balloon(v){
   return spec;
 }
 
-/* ---------- viewer: one renderer, one shared camera, 7 scissored cells ---------- */
+/* ---------- viewer ---------- */
 
-function sw(hex){ return '<i class="sw" style="background:' + hex + '"></i>'; }
-
-const views = VARIANTS.map(function(v){
-  const cell = document.createElement('div');
-  cell.className = 'cell';
-  const tag = document.createElement('div');
-  tag.className = 'tag';
-  tag.innerHTML = '<b>' + v.name + '</b> ' + sw(v.base) + sw(v.a) + sw(v.b) +
-    ' <span class="hex">' + [v.base, v.a, v.b].join(' ').replace(/#/g, '') + '</span>';
-  cell.appendChild(tag);
-  grid.appendChild(cell);
-  const spec = balloon(v);
-  spec.stage.turn.rotation.y = 0.5;
-  return {el:cell, spec:spec, variant:v};
-});
-
-const first = views[0].spec;
+const spec = balloon();
 const camera = new THREE.PerspectiveCamera(34, 1, 0.4, 200);
-camera.position.set(first.cam[0], first.cam[1], first.cam[2]);
-/* one control rig on the grid overlay — all seven orbit together, so colour is
-   the only thing that differs between cells */
-const controls = new THREE.OrbitControls(camera, grid);
-controls.target.set(first.look[0], first.look[1], first.look[2]);
+camera.position.set(spec.cam[0], spec.cam[1], spec.cam[2]);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(spec.look[0], spec.look[1], spec.look[2]);
 controls.enableDamping = true;
+spec.stage.turn.rotation.y = 0.5;
 
 let tris = 0, calls = 0;
-first.stage.scene.traverse(function(o){
+spec.stage.scene.traverse(function(o){
   if(!o.geometry) return;
   if(o.isMesh){ calls++; const g = o.geometry;
     tris += g.index ? g.index.count/3 : g.attributes.position.count/3; }
   else if(o.isLine){ calls++; }
 });
 document.getElementById('hud').textContent =
-  'balloon, envelope only · ' + VARIANTS.length + ' variants · ' + Math.round(tris) +
-  ' tri · ' + calls + ' draw each · palette: kits/palet.json · drag to orbit all';
+  'balloon, envelope only · terracotta · ' + Math.round(tris) + ' tri · ' + calls + ' draw · drag to orbit';
 
 function resize(){
-  const w = window.innerWidth, h = window.innerHeight;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
   if(canvas.width !== Math.floor(w*renderer.getPixelRatio()) || canvas.height !== Math.floor(h*renderer.getPixelRatio())){
     renderer.setSize(w, h, false);
+    camera.aspect = w/h;
+    camera.updateProjectionMatrix();
   }
 }
 
@@ -214,27 +168,11 @@ const clock = new THREE.Clock();
 function frame(){
   resize();
   const t = clock.getElapsedTime();
-  const vh = window.innerHeight;
+  spec.stage.turn.rotation.y += spec.spin*0.0125;
+  if(spec.bob) spec.stage.turn.position.y = Math.sin(t*0.9)*0.14;
+  if(spec.tick) spec.tick(t);
   controls.update();
-
-  views.forEach(function(view){
-    const spec = view.spec;
-    spec.stage.turn.rotation.y += spec.spin*0.0125;
-    if(spec.bob) spec.stage.turn.position.y = Math.sin(t*0.9)*0.14;
-    if(spec.tick) spec.tick(t);
-
-    const r = view.el.getBoundingClientRect();
-    if(r.bottom < 0 || r.top > vh || r.right < 0 || r.left > window.innerWidth) return;
-    const w = r.width, h = r.height;
-    if(w < 1 || h < 1) return;
-    renderer.setViewport(r.left, vh - r.bottom, w, h);
-    renderer.setScissor(r.left, vh - r.bottom, w, h);
-    renderer.setScissorTest(true);
-    camera.aspect = w/h;
-    camera.updateProjectionMatrix();
-    renderer.render(spec.stage.scene, camera);
-  });
-
+  renderer.render(spec.stage.scene, camera);
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
