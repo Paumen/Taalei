@@ -116,12 +116,10 @@ const HOUT = TERRACOTTA;
 const VLECHT_LICHT = -14;
 const VLECHT_DONKER = 16;
 /** Alles wat geen vlechtwerk is — voetring, rand, hoekstukken, sloffen,
- *  stijlen — staat nog een stuk dieper in dezelfde cel, zodat het als beslag
- *  van de mand af leest en niet als een vierde vlechtband. Dieper dan dit kan
- *  niet: met de offsets erbij staat het beslag op de onderste rij van de cel,
- *  en het verloop van tan is vlak. Wil je meer verschil, dan is er een tweede
- *  cel nodig. */
-const BESLAG = 50;
+ *  stijlen — staat op de paletkleur van de tancel zelf. Het verschil met het
+ *  vlechtwerk komt van de cel ernaast, niet van de diepte binnen deze: zand
+ *  en tan verlopen allebei te vlak om dat met dv alleen te halen. */
+const BESLAG = 0;
 /** dv verschuift binnen de verloopstrook van de cel: positief = donkerder. */
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
 
