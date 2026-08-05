@@ -71,9 +71,9 @@ function hash2(x, y) {
   return s - Math.floor(s);
 }
 
-/** ±12 texels binnen dezelfde verloopstrook: net genoeg om vlakken te laten
- * leven, te weinig om als een andere paletkleur te lezen. */
-const trilling = (a, b) => Math.round((hash2(a, b) - 0.5) * 24);
+/** ±6 texels binnen dezelfde verloopstrook: net genoeg om vlakken te laten
+ * leven, te weinig om als vlekken te lezen. */
+const trilling = (a, b) => Math.round((hash2(a, b) - 0.5) * 12);
 
 const punt = (r, y, hoek) => [r * Math.cos(hoek), y, r * Math.sin(hoek)];
 
@@ -132,7 +132,13 @@ function envelop(m, yMond) {
       const B = punt(r0, yMond + y0, a1);
       const C = punt(r1, yMond + y1, a1);
       const D = punt(r1, yMond + y1, a0);
-      const celUv = uv(baanKleur(band, baan), trilling(band * 7 + 1, baan * 3 + 2));
+      const kleur = baanKleur(band, baan);
+      // De witte cel loopt naar onderen snel naar grijsroze; alleen omhoog
+      // (lichter) variëren houdt de witte banen warm in plaats van vuil.
+      const dv = kleur === WIT
+        ? -Math.round(hash2(band * 7 + 1, baan * 3 + 2) * 10)
+        : trilling(band * 7 + 1, baan * 3 + 2);
+      const celUv = uv(kleur, dv);
       m.driehoek(A, C, B, celUv);
       m.driehoek(A, D, C, celUv);
     }
@@ -193,7 +199,7 @@ function envelop(m, yMond) {
  * touwen; de touwen lopen van de vier randhoeken naar de mondring.
  */
 function mand(m, yMond) {
-  const ONDER_HALF = 0.42, BOVEN_HALF = 0.5, HOOGTE = 0.72;
+  const ONDER_HALF = 0.46, BOVEN_HALF = 0.56, HOOGTE = 0.78;
   const hoekpunt = (half, y, i) => [half * (i === 0 || i === 3 ? 1 : -1), y, half * (i < 2 ? -1 : 1)];
 
   /* wanden (buitenkant; binnenkant komt gratis mee via doubleSided) */
@@ -218,7 +224,7 @@ function mand(m, yMond) {
   );
 
   /* rand: vierkant lijstwerk dat iets uitsteekt, inktzwart */
-  const RAND_UIT = 0.54, RAND_IN = 0.46, RAND_TOP = 0.84;
+  const RAND_UIT = 0.62, RAND_IN = 0.5, RAND_TOP = 0.9;
   for (let i = 0; i < 4; i++) {
     const j = (i + 1) % 4;
     m.vlak( // buitenkant
@@ -239,7 +245,7 @@ function mand(m, yMond) {
   }
 
   /* brander: blokje tussen de touwen, onder de mond */
-  const B_HALF = 0.09, B_ONDER = yMond - 0.34, B_BOVEN = yMond - 0.18;
+  const B_HALF = 0.1, B_ONDER = yMond - 0.36, B_BOVEN = yMond - 0.16;
   const b = (y, i) => hoekpunt(B_HALF, y, i);
   for (let i = 0; i < 4; i++) {
     const j = (i + 1) % 4;
@@ -250,12 +256,39 @@ function mand(m, yMond) {
 }
 
 /* touwen: van de vier randhoeken van de mand naar de mondring, elk op zijn
- * eigen diagonaal zodat hoek en mondpunt recht boven elkaar uitkomen */
+ * eigen diagonaal zodat hoek en mondpunt recht boven elkaar uitkomen.
+ * Geen lijnen maar dunne driezijdige prisma's (doorsnede 0.026 — boven het
+ * minimum van 0.015 uit de stijlgids): een 1-pixel-lijn maakt de mand los
+ * van de ballon zodra je uitzoomt. De uiteinden steken in de rand en de
+ * envelop, dus eindkappen zijn niet nodig. */
 function touwen(m, yMond) {
-  const RAND_IN = 0.46, RAND_TOP = 0.84;
+  const DIKTE = 0.013;
   for (const sx of [1, -1]) for (const sz of [1, -1]) {
     const hoek = Math.atan2(sz, sx);
-    m.lijn([RAND_IN * sx, RAND_TOP, RAND_IN * sz], punt(0.22, yMond, hoek));
+    const P0 = [0.52 * sx, 0.84, 0.52 * sz];
+    const P1 = punt(0.19, yMond + 0.04, hoek);
+    const d = [P1[0] - P0[0], P1[1] - P0[1], P1[2] - P0[2]];
+    const dl = Math.hypot(...d);
+    const richting = d.map((c) => c / dl);
+    // basisvlak loodrecht op het touw
+    let u = [richting[1], -richting[0], 0];
+    const ul = Math.hypot(...u) || 1;
+    u = u.map((c) => c / ul);
+    const v = [
+      richting[1] * u[2] - richting[2] * u[1],
+      richting[2] * u[0] - richting[0] * u[2],
+      richting[0] * u[1] - richting[1] * u[0],
+    ];
+    const rib = (P, a) => [
+      P[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * DIKTE,
+      P[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * DIKTE,
+      P[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * DIKTE,
+    ];
+    for (let z = 0; z < 3; z++) {
+      const a0 = (z / 3) * Math.PI * 2;
+      const a1 = ((z + 1) / 3) * Math.PI * 2;
+      m.vlak(rib(P0, a0), rib(P0, a1), rib(P1, a1), rib(P1, a0), uv(STAAL, -10));
+    }
   }
 }
 
@@ -410,7 +443,7 @@ function controleerEnvelop(m) {
 }
 
 {
-  const MOND = 1.28; // mand 0–0.84, touwen tot de mond, envelop daarboven
+  const MOND = 1.36; // mand 0–0.9, touwen tot de mond, envelop daarboven
   const m = maakModel();
   envelop(m, MOND);
   controleerEnvelop(m);
