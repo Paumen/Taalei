@@ -97,7 +97,9 @@ const regels = [
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
   [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
   [/^(chest|barrel|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
-  [/^(stairs|ladder|bridge)\b/, 'verbinding'],
+  // De luchtballon hoort bij het overbruggen van hoogte: in draft_spec.md is
+  // hij de route naar het onbereikbare plateau.
+  [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
   [/^(tree|palm)\b/, 'bomen'],
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
@@ -115,7 +117,8 @@ const regels = [
  */
 const WOORDENBOEK = {
   arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
-  axe: ['bijl'], balcony: ['balkon'], banner: ['banier', 'vaandel'],
+  axe: ['bijl'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
+  banner: ['banier', 'vaandel'],
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
   bottle: ['fles'], bow: ['boog'], bridge: ['brug'], bucket: ['emmer'],
   building: ['gebouw'], campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
