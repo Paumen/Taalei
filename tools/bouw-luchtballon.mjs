@@ -25,32 +25,34 @@
  *
  * Het onderstel mag meer detail hebben dan een gewone kit-asset: het is het
  * enige stuk waar je van dichtbij naar kijkt. Van onder naar boven: twee
- * landingssloffen, een vierkante rieten mand met vlechtwerk, drie horizontale
- * ribben en leren hoekbeschermers, twee gasflessen met slangen, vier stijlen
- * naar de branderring, de brander zelf, en zestien kabels die op de naden van
- * de envelop uitkomen.
+ * landingssloffen, een vierkante rieten mand met vlechtwerk, staken en leren
+ * hoekbeschermers, vier stijlen naar de branderring, de brander zelf, en
+ * zestien touwen die op de naden van de envelop uitkomen.
  *
  * Kleuren komen uit kits/palet.json ("gedeeld"); aan het palet zelf is niets
  * toegevoegd. Het onderstel gebruikt wel drie cellen die de envelop niet
  * gebruikte; die staan nu in palet.json op naam van balloon.
  *
- *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop
+ *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
  *   terracotta    #d07b56  cel 5/0   accentbanen en kruin
- *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, kabels,
- *                                    gasflessen, brander, slangen
- *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, branderring, stijlen
- *   riet          #dd9f79  cel 13/0  het vlechtwerk van de mand
- *   bruin         #995a41  cel 12/0  ribben, rand, hoekbeschermers, sloffen
+ *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, brander
+ *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, branderring, stijlen,
+ *                                    en het beslag van de mand
+ *   riet          #dd9f79  cel 13/0  het vlechtwerk en de vloer van de mand
+ *   bruin         #995a41  cel 12/0  de staken van de mand
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *
- * De verloopstrook van één cel spant maar ± 8% helderheid, te weinig om het
- * vlechtwerk van zijn omlijsting te scheiden. Vandaar twee bruinen: licht
- * riet voor de panelen, donker bruin voor alles wat eromheen zit.
+ * Het vlechtwerk en de staken zijn twee treden die naast elkaar liggen; het
+ * verschil móét uit twee cellen komen, want binnen één cel spant de
+ * verloopstrook maar ± 8% en het buitenvlak van een staak ligt evenwijdig
+ * aan de wand, dus ook van schaduw valt niets te verwachten. Alles wat geen
+ * vlechtwerk is — rand, hoeken, bodem, sloffen — is inktzwart beslag en dus
+ * geen derde bruin: het hoort bij de ring en de stijlen.
  *
  * PO-notities:
  *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
- *     naden leest de envelop als een gladde bal. De kabels zijn géén lijnen
- *     maar dunne staven — een kabel is een onderdeel, geen contour.
+ *     naden leest de envelop als een gladde bal. De touwen zijn géén lijnen
+ *     maar dunne staven — een touw is een onderdeel, geen contour.
  *   - Geen transparantie of emissive; de mond van de brander is een gewoon
  *     amberkleurig paletvlak.
  *   - Oorsprong: spil in het midden van de voetafdruk, Y = 0 onder de
@@ -58,7 +60,7 @@
  *     tilt de scène hem op. Let op: dat is verplaatst — vóór het onderstel
  *     lag Y = 0 bij de hals, dus een scène die de oude balloon ophing moet
  *     0.95 minder optillen.
- *   - 1172 driehoeken, ruim boven wat een kit-asset gewend is. Ze zitten
+ *   - 1284 driehoeken, ruim boven wat een kit-asset gewend is. Ze zitten
  *     vrijwel allemaal in het onderstel; dat is de afspraak voor dit model.
  */
 
@@ -72,7 +74,6 @@ const KIT = join(ROOT, 'kits', 'taalei-kit');
 const BANEN = 16;      // banen van de envelop; het maximum uit de stijlgids
 const BANDEN = 12;     // hoogtebanden van de envelop
 const RING_ZIJDEN = 8; // branderring en de keel van de brander
-const FLES_ZIJDEN = 8; // gasflessen
 
 /* -- paletcellen ----------------------------------------------------------
  * De gedeelde colormap is 512 × 512: 16 kolommen × 4 rijen, elke cel een
@@ -144,6 +145,32 @@ function blok(m, [x0, y0, z0], [x1, y1, z1], kleurCel, dv = 0, { onder = true, b
   m.vlak([x1, y0, z0], [x0, y0, z0], [x0, y1, z0], [x1, y1, z0], c);   // -z
   if (boven) m.vlak([x0, y1, z0], [x0, y1, z1], [x1, y1, z1], [x1, y1, z0], c);
   if (onder) m.vlak([x0, y0, z1], [x0, y0, z0], [x1, y0, z0], [x1, y0, z1], c);
+}
+
+/**
+ * Band tussen twee gesloten ringen van evenveel punten: `onder` en `boven`.
+ * De ringen lopen met de hoek mee, net als de gedraaide vormen hierboven, dus
+ * de band kijkt naar buiten. Draai de twee argumenten om en hij kijkt naar
+ * binnen — zo maak je met dezelfde ring een buiten- en een binnenwand.
+ */
+function band(m, onder, boven, celUv) {
+  for (let i = 0; i < onder.length; i++) {
+    const j = (i + 1) % onder.length;
+    m.driehoek(onder[i], boven[j], onder[j], celUv);
+    m.driehoek(onder[i], boven[i], boven[j], celUv);
+  }
+}
+
+/** Deksel over een gesloten ring, met de normaal omhoog of omlaag. */
+function deksel(m, ring, omhoog, celUv) {
+  const mx = ring.reduce((s, p) => s + p[0], 0) / ring.length;
+  const mz = ring.reduce((s, p) => s + p[2], 0) / ring.length;
+  const midden = [mx, ring[0][1], mz];
+  for (let i = 0; i < ring.length; i++) {
+    const j = (i + 1) % ring.length;
+    if (omhoog) m.driehoek(midden, ring[j], ring[i], celUv);
+    else m.driehoek(midden, ring[i], ring[j], celUv);
+  }
 }
 
 /**
@@ -373,106 +400,113 @@ function wand(j, s, y, uit = MAND_HALF) {
   return [nx * uit + nz * s, y, nz * uit - nx * s];
 }
 
-/** @returns hoogte van de bovenkant van de rand */
-function mand(m) {
-  /* twee sloffen: de ballon staat erop en ze houden de mand van de grond */
-  for (const kant of [-1, 1]) {
-    blok(m, [kant * 0.15 - 0.04, 0, -MAND_HALF - 0.03],
-      [kant * 0.15 + 0.04, SLOF_H, MAND_HALF + 0.03], BRUIN, 26, { onder: false });
-  }
+/* De mand geeft terug hoe hoog zijn rand ligt en op welke vier punten het
+ * tuig erop mag landen.
+ *
+ * Vierkante rieten mand op twee landingssloffen. Het vlechtwerk is een raster
+ * van 4 wanden × 4 rijen × 6 kolommen, om en om een lichtere en donkerdere
+ * greep uit dezelfde verloopstrook. Daaroverheen staan per wand drie staken
+ * en op de hoeken beschermers, en bovenop een opgerolde rand.
+ *
+ * De staken staan rechtop en niet dwars, en dat is het hele punt: met
+ * horizontale ribben over de rijen heen telde het oog alleen banden en werd
+ * de mand een zebra.
+ *
+ * Het materiaal is doubleSided, dus de binnenkant van de wanden is gewoon
+ * zichtbaar; de bovenkant van de bodemplaat is de vloer.
+ */
+function mand() {
+  /* Riet voor de panelen, één trede donkerder riet voor de staken erover,
+   * en inktzwart voor alles wat geen vlechtwerk is: rand, hoeken, bodem en
+   * sloffen. Dat laatste is beslag, geen derde bruin — het hoort bij de ring
+   * en de stijlen, en juist doordat het duidelijk ander materiaal is botst
+   * het niet met de twee bruinen die wél naast elkaar liggen. */
+  const [paneel, staak, omlijsting] = [RIET, BRUIN, INKT];
 
-  /* bodemplaat, met de vloer in riet */
-  blok(m, [-MAND_HALF, SLOF_H, -MAND_HALF], [MAND_HALF, VLOER, MAND_HALF], BRUIN, 20, { boven: false });
-  m.vlak([-MAND_HALF, VLOER, -MAND_HALF], [-MAND_HALF, VLOER, MAND_HALF],
-    [MAND_HALF, VLOER, MAND_HALF], [MAND_HALF, VLOER, -MAND_HALF], uv(RIET, 22));
+  const randTop = MAND_H + MAND_HALF * 0.12 * 1.4;
 
-  /* vlechtwerk */
-  const RIJEN = 4, KOLOMMEN = 6;
-  for (let j = 0; j < 4; j++) {
-    for (let rij = 0; rij < RIJEN; rij++) {
-      const y0 = VLOER + (MAND_H - VLOER) * (rij / RIJEN);
-      const y1 = VLOER + (MAND_H - VLOER) * ((rij + 1) / RIJEN);
-      for (let kol = 0; kol < KOLOMMEN; kol++) {
-        const s0 = MAND_HALF * (2 * (kol / KOLOMMEN) - 1);
-        const s1 = MAND_HALF * (2 * ((kol + 1) / KOLOMMEN) - 1);
-        const dv = (rij + kol) % 2 ? -28 : 20;
-        m.vlak(wand(j, s0, y0), wand(j, s1, y0), wand(j, s1, y1), wand(j, s0, y1), uv(RIET, dv));
+  const bouw = (m) => {
+    /* twee sloffen: de ballon staat erop en ze houden de mand van de grond */
+    for (const kant of [-1, 1]) {
+      blok(m, [kant * 0.15 - 0.04, 0, -MAND_HALF - 0.03],
+        [kant * 0.15 + 0.04, SLOF_H, MAND_HALF + 0.03], omlijsting, 40, { onder: false });
+    }
+
+    /* bodemplaat, met de vloer in het paneelriet */
+    blok(m, [-MAND_HALF, SLOF_H, -MAND_HALF], [MAND_HALF, VLOER, MAND_HALF], omlijsting, 34, { boven: false });
+    m.vlak([-MAND_HALF, VLOER, -MAND_HALF], [-MAND_HALF, VLOER, MAND_HALF],
+      [MAND_HALF, VLOER, MAND_HALF], [MAND_HALF, VLOER, -MAND_HALF], uv(paneel, 22));
+
+    /* vlechtwerk */
+    const RIJEN = 4, KOLOMMEN = 6;
+    for (let j = 0; j < 4; j++) {
+      for (let rij = 0; rij < RIJEN; rij++) {
+        const y0 = VLOER + (MAND_H - VLOER) * (rij / RIJEN);
+        const y1 = VLOER + (MAND_H - VLOER) * ((rij + 1) / RIJEN);
+        for (let kol = 0; kol < KOLOMMEN; kol++) {
+          const s0 = MAND_HALF * (2 * (kol / KOLOMMEN) - 1);
+          const s1 = MAND_HALF * (2 * ((kol + 1) / KOLOMMEN) - 1);
+          const dv = (rij + kol) % 2 ? -12 : 10;
+          m.vlak(wand(j, s0, y0), wand(j, s1, y0), wand(j, s1, y1), wand(j, s0, y1), uv(paneel, dv));
+        }
       }
     }
-  }
 
-  /* horizontale ribben: liggende balkjes tussen de hoekbeschermers door. De
-   * kopse kanten en de binnenkant verdwijnen in de wand, dus die slaan we
-   * over — alleen buiten-, boven- en ondervlak zijn te zien. */
-  const eind = MAND_HALF - HOEK_IN;
-  const UIT = MAND_HALF + RIB_UIT;
-  for (const deel of [0.26, 0.56, 0.86]) {
-    const y = VLOER + (MAND_H - VLOER) * deel;
-    const [y0, y1] = [y - 0.026, y + 0.026];
-    for (let j = 0; j < 4; j++) {
-      const p = (s, hoogte, uit) => wand(j, s, hoogte, uit);
-      m.vlak(p(-eind, y0, UIT), p(eind, y0, UIT), p(eind, y1, UIT), p(-eind, y1, UIT), uv(BRUIN, 8));
-      m.vlak(p(-eind, y1, MAND_HALF), p(-eind, y1, UIT), p(eind, y1, UIT), p(eind, y1, MAND_HALF), uv(BRUIN, -12));
-      m.vlak(p(eind, y0, MAND_HALF), p(eind, y0, UIT), p(-eind, y0, UIT), p(-eind, y0, MAND_HALF), uv(BRUIN, 34));
+    /* staken: de staande tenen waar het riet omheen gevlochten is. Het
+     * buitenvlak van een staak ligt evenwijdig aan de wand en krijgt dus
+     * exact dezelfde normaal, dus van schaduw valt niets te verwachten, en
+     * binnen één cel scheelt de verloopstrook maar ± 8%. Het verschil moet
+     * dus uit een andere paletcel komen. */
+    const STAAK = MAND_HALF + 0.016;
+    for (const s of [-0.16, 0, 0.16]) {
+      const [s0, s1] = [s - 0.016, s + 0.016];
+      for (let j = 0; j < 4; j++) {
+        const p = (sw, hoogte, uit) => wand(j, sw, hoogte, uit);
+        m.vlak(p(s0, VLOER, STAAK), p(s1, VLOER, STAAK), p(s1, MAND_H, STAAK), p(s0, MAND_H, STAAK), uv(staak, 10));
+        m.vlak(p(s1, VLOER, STAAK), p(s1, VLOER, MAND_HALF), p(s1, MAND_H, MAND_HALF), p(s1, MAND_H, STAAK), uv(staak, 30));
+        m.vlak(p(s0, VLOER, MAND_HALF), p(s0, VLOER, STAAK), p(s0, MAND_H, STAAK), p(s0, MAND_H, MAND_HALF), uv(staak, 30));
+      }
     }
-  }
 
-  /* leren hoekbeschermers: over de hoek heen, van de bodem tot onder de rand */
-  for (const [sx, sz] of MAND_HOEKEN) {
-    const x = [sx * (MAND_HALF - HOEK_IN), sx * (MAND_HALF + HOEK_UIT)].sort((a, b) => a - b);
-    const z = [sz * (MAND_HALF - HOEK_IN), sz * (MAND_HALF + HOEK_UIT)].sort((a, b) => a - b);
-    blok(m, [x[0], SLOF_H, z[0]], [x[1], MAND_H + 0.01, z[1]], BRUIN, 32, { onder: false });
-  }
-
-  /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen */
-  const d = MAND_HALF * 0.15;
-  const RAND = [
-    [MAND_HALF, MAND_H], [MAND_HALF + d, MAND_H + d * 0.7], [MAND_HALF + d, MAND_H + d * 1.4],
-    [MAND_HALF - d * 1.3, MAND_H + d * 1.4], [MAND_HALF - d * 1.3, MAND_H],
-  ];
-  for (let s = 0; s < RAND.length - 1; s++) {
-    const [h0, y0] = RAND[s], [h1, y1] = RAND[s + 1];
-    for (let i = 0; i < 4; i++) {
-      m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i + 1), mandHoek(h0, y0, i + 1), uv(BRUIN, 28));
-      m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i), mandHoek(h1, y1, i + 1), uv(BRUIN, 28));
+    /* hoekbeschermers: over de hoek heen, van de bodem tot onder de rand */
+    for (const [sx, sz] of MAND_HOEKEN) {
+      const x = [sx * (MAND_HALF - HOEK_IN), sx * (MAND_HALF + HOEK_UIT)].sort((a, b) => a - b);
+      const z = [sz * (MAND_HALF - HOEK_IN), sz * (MAND_HALF + HOEK_UIT)].sort((a, b) => a - b);
+      blok(m, [x[0], SLOF_H, z[0]], [x[1], MAND_H + 0.01, z[1]], omlijsting, 26, { onder: false });
     }
-  }
 
-  return MAND_H + d * 1.4;
+    /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen.
+     * Smal gehouden — een brede rol legt een dikke kraag over de mand en er
+     * blijft te weinig vlechtwerk over om nog mand te heten. */
+    const d = MAND_HALF * 0.12;
+    const RAND = [
+      [MAND_HALF, MAND_H], [MAND_HALF + d, MAND_H + d * 0.7], [MAND_HALF + d, MAND_H + d * 1.4],
+      [MAND_HALF - d * 1.1, MAND_H + d * 1.4], [MAND_HALF - d * 1.1, MAND_H],
+    ];
+    for (let s = 0; s < RAND.length - 1; s++) {
+      const [h0, y0] = RAND[s], [h1, y1] = RAND[s + 1];
+      for (let i = 0; i < 4; i++) {
+        m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i + 1), mandHoek(h0, y0, i + 1), uv(omlijsting, 16));
+        m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i), mandHoek(h1, y1, i + 1), uv(omlijsting, 16));
+      }
+    }
+  };
+
+  return {
+    bouw,
+    randTop,
+    voeten: MAND_HOEKEN.map(([sx, sz]) => [sx * MAND_HALF * 0.94, sz * MAND_HALF * 0.94]),
+  };
 }
 
-/* -- gasflessen ------------------------------------------------------------
- * Twee staande flessen tegen de achterwand, met een kraan erop. Ze komen tot
- * net onder de rand: hoog genoeg om ze van schuin boven te zien — de hoek
- * waaronder de catalogus kijkt — en laag genoeg om de omtrek van de mand
- * heel te laten. De slangen lopen van de kraan naar de brander.
- */
-const FLES = { r: 0.055, h: 0.30, x: 0.105, z: -0.105 };
-
-function gasflessen(m) {
-  for (const kant of [-1, 1]) {
-    const [cx, cz] = [kant * FLES.x, FLES.z];
-    const p = (r, y, a) => [cx + r * Math.cos(a), y, cz + r * Math.sin(a)];
-    const top = VLOER + FLES.h;
-    for (let k = 0; k < FLES_ZIJDEN; k++) {
-      const a0 = (k / FLES_ZIJDEN) * Math.PI * 2;
-      const a1 = ((k + 1) / FLES_ZIJDEN) * Math.PI * 2;
-      m.vlak(p(FLES.r, VLOER, a0), p(FLES.r, top, a0), p(FLES.r, top, a1), p(FLES.r, VLOER, a1), uv(STAAL, 6));
-      m.driehoek([cx, top, cz], p(FLES.r, top, a1), p(FLES.r, top, a0), uv(STAAL, -10));
-    }
-    /* kraan */
-    blok(m, [cx - 0.022, top, cz - 0.022], [cx + 0.022, top + 0.035, cz + 0.022], INKT, 4, { onder: false });
-  }
-}
-
-/* -- tuig: stijlen, branderring, brander, slangen en kabels -----------------
+/* -- tuig: stijlen, branderring, brander en touwen --------------------------
  * De opbouw van een echte ballon: op de mandhoeken staan vier stijlen, die
  * dragen de branderring; in het midden van de ring zit de brander; en aan de
- * ring hangen de kabels die naar de halsrand lopen. De kabels staan op de
+ * ring hangen de touwen die naar de halsrand lopen. De touwen staan op de
  * naden van de envelop, zodat ze de banen voortzetten in plaats van er
  * dwars op te staan.
  */
-function tuig(m, { ringR, ringOnder, ringBoven, yHals }) {
+function tuig(m, { ringR, ringOnder, ringBoven, yHals, voeten, randTop }) {
   /* branderring: achthoekige band */
   const rIn = ringR * 0.72;
   const RING = [
@@ -488,14 +522,14 @@ function tuig(m, { ringR, ringOnder, ringBoven, yHals }) {
     }
   }
 
-  /* stijlen: van de hoeken van de mand schuin omhoog naar de ring. Beide
-   * uiteinden steken net in het onderdeel waar ze op aansluiten — onder in de
-   * opgerolde rand, boven in de band van de ring, van onderaf. Een staaf die
-   * ergens in de lucht ophoudt heeft geen eindvlak en loopt dan in het beeld
-   * uit op een punt; die zie je als een dolk onder de ring hangen. */
-  for (const [sx, sz] of MAND_HOEKEN) {
-    const hoek = Math.atan2(sz, sx);
-    staaf(m, [MAND_HALF * 0.94 * sx, MAND_H + 0.04, MAND_HALF * 0.94 * sz],
+  /* stijlen: van de mand schuin omhoog naar de ring. Beide uiteinden steken
+   * net in het onderdeel waar ze op aansluiten — onder in de rand, boven in
+   * de band van de ring, van onderaf. Een staaf die ergens in de lucht
+   * ophoudt heeft geen eindvlak en loopt dan in het beeld uit op een punt;
+   * die zie je als een dolk onder de ring hangen. */
+  for (const [vx, vz] of voeten) {
+    const hoek = Math.atan2(vz, vx);
+    staaf(m, [vx, randTop - 0.03, vz],
       punt(ringR * 0.86, ringBoven - 0.008, hoek), 0.026, INKT, 6, 4);
   }
 
@@ -518,17 +552,28 @@ function tuig(m, { ringR, ringOnder, ringBoven, yHals }) {
     m.driehoek([0, keelTop, 0], punt(keelR * 0.94, keelTop, a1), punt(keelR * 0.94, keelTop, a0), uv(AMBER, -20));
   }
 
-  /* slangen: van de kraan op elke fles naar het branderblok. Dun en
-   * staalblauw, want als zwarte staaf leest een slang als een vijfde stijl. */
-  for (const kant of [-1, 1]) {
-    staaf(m, [kant * FLES.x, VLOER + FLES.h + 0.03, FLES.z],
-      [kant * bHalf * 0.8, bOnder + 0.06, -bHalf * 0.8], 0.016, STAAL, 34);
-  }
-
-  /* kabels: van de ring naar de halsrand, op de naadposities van de envelop */
+  /* touwen: van de ring naar de halsrand, op de naadposities van de envelop.
+   *
+   * Ze zijn touw en geen staal: kabelkleurig grijsblauw, kaarsrecht en in
+   * één stuk lazen ze als tralies van een kooi. Nu in het zand van de
+   * paletcel 5/3, dunner dan de stijlen, en in drie schotjes langs een boog
+   * die halverwege iets naar buiten staat — precies de rondte die een touw
+   * onder spanning aan een wijdere halsrand maakt. De knik per schotje geeft
+   * bovendien een lichtverschil per stuk, zoals een gedraaide streng. */
+  const TOUW_DEEL = 3;
+  const BOCHT = 0.022;
   for (let baan = 0; baan < BANEN; baan++) {
     const hoek = (baan / BANEN) * Math.PI * 2;
-    staaf(m, punt(ringR * 0.99, ringBoven - 0.015, hoek), punt(HALS * 0.97, yHals + 0.03, hoek), 0.018, STAAL, -8);
+    const [r0, y0] = [ringR * 0.99, ringBoven - 0.015];
+    const [r1, y1] = [HALS * 0.97, yHals + 0.03];
+    const opTouw = (t) => punt(
+      r0 + (r1 - r0) * t + BOCHT * Math.sin(Math.PI * t),
+      y0 + (y1 - y0) * t,
+      hoek,
+    );
+    for (let d = 0; d < TOUW_DEEL; d++) {
+      staaf(m, opTouw(d / TOUW_DEEL), opTouw((d + 1) / TOUW_DEEL), 0.015, WIT, 10 + d * 14);
+    }
   }
 }
 
@@ -671,15 +716,15 @@ function controleerEnvelop(m, vanaf = 0) {
 /* -- het model ------------------------------------------------------------- */
 
 const RING_R = 0.22;   // branderring net binnen de mandbreedte
-const TUIG = 0.5;      // vrije hoogte tussen mandrand en hals
+const TUIG = 0.62;     // vrije hoogte tussen mandrand en hals
 
 {
   const m = maakModel();
-  const randTop = mand(m);
-  gasflessen(m);
+  const { bouw, randTop, voeten } = mand();
+  bouw(m);
   const yHals = randTop + TUIG;
   const ringOnder = randTop + TUIG * 0.42;
-  tuig(m, { ringR: RING_R, ringOnder, ringBoven: ringOnder + 0.05, yHals });
+  tuig(m, { ringR: RING_R, ringOnder, ringBoven: ringOnder + 0.05, yHals, voeten, randTop });
   const vanaf = m.posities.length / 3;
   envelop(m, PROFIEL, yHals);
   controleerEnvelop(m, vanaf);
