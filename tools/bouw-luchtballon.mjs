@@ -29,25 +29,31 @@
  * hoekbeschermers, vier stijlen naar de branderring, de brander zelf, en
  * zestien touwen die op de naden van de envelop uitkomen.
  *
- * Kleuren komen uit kits/palet.json ("gedeeld"); aan het palet zelf is niets
- * toegevoegd. Het onderstel gebruikt wel drie cellen die de envelop niet
- * gebruikte; die staan nu in palet.json op naam van balloon.
+ * Kleuren komen uit kits/palet.json ("gedeeld"). Er is één kleur bij gekomen —
+ * stro, cel 11/0 — en het onderstel gebruikt daarnaast cellen die de envelop
+ * niet gebruikte; die staan nu allemaal in palet.json op naam van balloon.
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
  *   terracotta    #d07b56  cel 5/0   accentbanen en kruin
  *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, brander
  *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, branderring, stijlen,
  *                                    en het beslag van de mand
- *   riet          #dd9f79  cel 13/0  het vlechtwerk en de vloer van de mand
+ *   stro          #cda66f  cel 11/0  het vlechtwerk en de vloer van de mand
  *   bruin         #995a41  cel 12/0  de staken van de mand
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *
- * Het vlechtwerk en de staken zijn twee treden die naast elkaar liggen; het
- * verschil móét uit twee cellen komen, want binnen één cel spant de
- * verloopstrook maar ± 8% en het buitenvlak van een staak ligt evenwijdig
- * aan de wand, dus ook van schaduw valt niets te verwachten. Alles wat geen
- * vlechtwerk is — rand, hoeken, bodem, sloffen — is inktzwart beslag en dus
- * geen derde bruin: het hoort bij de ring en de stijlen.
+ * Stro (11/0) is nieuw in de gedeelde colormap. Alle warme cellen die er al
+ * waren — zand, riet, terracotta, oranje — staan op tint 20-25° en trekken
+ * naar zalm; een mand wil geler en doffer dan dat. #cda66f staat op 36° met
+ * halve verzadiging en leest daardoor als gevlochten stro in plaats van als
+ * aardewerk. De cel stond leeg (zwart) en werd door geen enkel model
+ * gebruikt; alleen die 32 × 128 texels zijn overschreven.
+ *
+ * Het verschil tussen paneel en staak móét uit twee cellen komen, want binnen
+ * één cel spant de verloopstrook maar ± 8% en het buitenvlak van een staak
+ * ligt evenwijdig aan de wand, dus ook van schaduw valt niets te verwachten.
+ * Alles wat geen vlechtwerk is — rand, hoeken, bodem, sloffen — is inktzwart
+ * beslag en dus geen derde houttint: het hoort bij de ring en de stijlen.
  *
  * PO-notities:
  *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
@@ -59,7 +65,16 @@
  *     sloffen. De ballon staat dus op de grond; wil je hem laten zweven, dan
  *     tilt de scène hem op. Let op: dat is verplaatst — vóór het onderstel
  *     lag Y = 0 bij de hals, dus een scène die de oude balloon ophing moet
- *     0.95 minder optillen.
+ *     1.07 minder optillen.
+ *   - Nieuwe kleur in de gedeelde colormap: stro #cda66f op cel 11/0. Zie
+ *     hierboven waarom geen van de bestaande cellen volstond. De atlas staat
+ *     acht keer op schijf — kits/colormap.png plus een kopie in de Textures
+ *     van elke kit die hem deelt — en alle acht zijn bijgewerkt; de modellen
+ *     lezen namelijk de kopie in hun eigen kit, niet kits/colormap.png.
+ *   - De kleurfilter van de catalogus vouwt kleuren die minder dan vier
+ *     modellen gebruiken samen met hun naaste buur, dus stro valt daar
+ *     voorlopig onder riet. Dat is de bestaande drempel uit palet.json en
+ *     raakt alleen de filterknop, niet het model.
  *   - 1284 driehoeken, ruim boven wat een kit-asset gewend is. Ze zitten
  *     vrijwel allemaal in het onderstel; dat is de afspraak voor dit model.
  */
@@ -88,6 +103,7 @@ const STAAL = cel(15, 3);
 const INKT = cel(10, 0);
 const BRUIN = cel(12, 0);
 const RIET = cel(13, 0);
+const STRO = cel(11, 0);
 const AMBER = cel(6, 0);
 /** dv verschuift binnen de verloopstrook van de cel: positief = donkerder. */
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
@@ -416,12 +432,12 @@ function wand(j, s, y, uit = MAND_HALF) {
  * zichtbaar; de bovenkant van de bodemplaat is de vloer.
  */
 function mand() {
-  /* Riet voor de panelen, één trede donkerder riet voor de staken erover,
-   * en inktzwart voor alles wat geen vlechtwerk is: rand, hoeken, bodem en
-   * sloffen. Dat laatste is beslag, geen derde bruin — het hoort bij de ring
-   * en de stijlen, en juist doordat het duidelijk ander materiaal is botst
-   * het niet met de twee bruinen die wél naast elkaar liggen. */
-  const [paneel, staak, omlijsting] = [RIET, BRUIN, INKT];
+  /* Stro voor de panelen, bruin voor de staken erover, en inktzwart voor
+   * alles wat geen vlechtwerk is: rand, hoeken, bodem en sloffen. Dat laatste
+   * is beslag, geen derde houttint — het hoort bij de ring en de stijlen, en
+   * juist doordat het duidelijk ander materiaal is botst het niet met het
+   * stro en het bruin. */
+  const [paneel, staak, omlijsting] = [STRO, BRUIN, INKT];
 
   const randTop = MAND_H + MAND_HALF * 0.12 * 1.4;
 
