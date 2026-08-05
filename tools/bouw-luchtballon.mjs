@@ -18,12 +18,13 @@
  * het kleurverloop van de touwen van pirate-kit/mast-ropes.
  *
  * Volgens asset_style_guide.md:
- * - 2.36 x 2.42 voetafdruk, 4.56 hoog; mand 0.9 breed, op y = 0, pivot in het
- *   midden. De ballon staat naast de vuurtoren (4.27) en het grote schip.
+ * - 2.36 x 2.42 voetafdruk, 4.38 hoog; mand 0.9 breed, hals 0.36, op y = 0,
+ *   pivot in het midden. De ballon staat naast de vuurtoren (4.27) en het
+ *   grote schip.
  * - Rond werk is 14 stukken per cirkel (de ballon) en 8 voor de brander, die
  *   kleiner is dan 0.5 x 0.5 x 0.5. Het touw is 0.045 breed, als bij Kenney;
  *   verder is niets dunner dan 0.07.
- * - 496 driehoeken, 1488 hoekpunten, 19 per unit³.
+ * - 496 driehoeken, 1488 hoekpunten, 20 per unit³.
  * - Twee tekenopdrachten: de mand staat stil, `ballon` hangt aan een eigen node
  *   met zijn oorsprong op het brandersframe — het punt waar de touwen vastzitten
  *   en waar de ballon dus omheen wiegt.
@@ -97,27 +98,30 @@ const STEEL = 0.06;              // halve dikte van de branderstaander
 
 const TOUW_R = 0.026;            // omgeschreven straal; 0.045 breed, als bij mast-ropes
 const MOND_Y = 1.55;
-const MOND_R = 0.60;
+const MOND_R = 0.18;
 
 /** Het scharnier: hier komen de touwen op de staanders en hier wiegt de ballon omheen. */
 const SCHARNIER = FRAME_Y;
 
 /**
- * Doorsnede van de ballon, van de mond naar de kroon. De bol zit bovenin: een
- * ballon is breed onder zijn kruin en loopt van daar naar beneden toe naar de
- * mond. Het breedste punt ligt op ruim zestig procent van de hoogte.
+ * Doorsnede van de ballon, van de mond naar de kroon: de eerste doorsnede,
+ * verticaal gespiegeld. Zowel de stralen als de tussenafstanden zijn omgedraaid,
+ * dus de vorm is precies dezelfde, alleen andersom: een smalle hals boven de
+ * mand die snel uitloopt, het breedste punt hoog, en een brede kroon.
+ *
+ * Totale hoogte en voetafdruk blijven daardoor gelijk aan de eerste versie.
  */
 const RINGEN = [
   [MOND_Y, MOND_R],
-  [1.76, 0.78],   // einde van de gouden band bij de mond
-  [2.14, 0.97],
-  [2.54, 1.10],
-  [2.94, 1.18],
-  [3.32, 1.21],   // breedste punt
-  [3.68, 1.18],
-  [4.02, 1.05],
-  [4.32, 0.78],
-  [4.56, 0.25],   // begin van de gouden kroon
+  [1.78, 0.48],   // einde van de gouden band bij de mond
+  [2.13, 0.82],
+  [2.51, 1.06],
+  [2.88, 1.18],
+  [3.23, 1.21],   // breedste punt
+  [3.59, 1.17],
+  [3.93, 1.02],
+  [4.21, 0.80],
+  [4.38, 0.62],   // begin van de gouden kroon
 ];
 
 /* -- meshbouw -------------------------------------------------------------
