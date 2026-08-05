@@ -1,5 +1,6 @@
 /**
- * Bouwt kits/taalei-kit/balloon.glb: een luchtballon met envelop en tuig.
+ * Bouwt de luchtballonnen van kits/taalei-kit: balloon.glb (envelop en tuig,
+ * zonder mand) en drie mandvarianten daarop.
  *
  * Draai vanuit de repo-root:  node tools/bouw-luchtballon.mjs
  * Controleer daarna met:      node tools/toets-ballon.mjs
@@ -26,27 +27,50 @@
  * Het tuig mag meer detail hebben dan een gewone kit-asset: het is het enige
  * stuk waar je van dichtbij naar kijkt.
  *
- * Kleuren komen uit kits/palet.json ("gedeeld"); aan het palet is niets
- * toegevoegd. Het tuig gebruikt geen cel die de envelop niet al gebruikte.
+ * -- manden -----------------------------------------------------------------
+ * balloon.glb houdt het bij de ring. Daarnaast staan er drie varianten mét
+ * mand, zodat je er één kunt kiezen zonder de kale ballon kwijt te raken:
+ *
+ *   balloon-basket-round   rond, gevlochten riet, leren voet- en bovenrand,
+ *                          aan vier leren stijlen
+ *   balloon-basket-square  afgeknot vierkant riet — de vorm van een echte
+ *                          ballonmand — met leren hoekstukken, een gestoffeerde
+ *                          rand en twee sloffen onder de bodem
+ *   balloon-basket-crate   recht vrachtkrat van staande planken tussen vier
+ *                          hoekstijlen, twee ijzeren banden, aan vier touwen
+ *
+ * De mand is ± 0.75 breed tegenover 3.78 voor de envelop (1 : 5). Dat is de
+ * verhouding van een echte ballon; groter maken leest als een gondel.
+ *
+ * Kleuren komen uit kits/palet.json ("gedeeld").
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
- *   terracotta    #d07b56  cel 5/0   accentbanen en kruin
+ *   terracotta    #d07b56  cel 5/0   accentbanen, kruin, planken en bodems
  *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, brander
- *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, branderring
+ *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, ring, kratbanden
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
+ *   leerbruin     #995a41  cel 12/0  randen, hoekstukken, stijlen, sloffen
+ *   riet          #b98d5e  cel 14/0  het vlechtwerk van de twee rieten manden
  *
  * PO-notities:
+ *   - Riet is nieuw in het gedeelde palet: cel 14/0, naast het tan van 13/0 en
+ *     het leerbruin van 12/0. Geen bestaande cel kwam in de buurt — tan is te
+ *     roze en te licht voor vlechtwerk, terracotta trekt naar rood. De cel is
+ *     in dezelfde opzet als de rest geschilderd (verticale verloopstrook, de
+ *     paletkleur op de middelste rij) en in álle kopieën van de gedeelde
+ *     colormap bijgewerkt, zodat die identiek blijven.
  *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
  *     naden leest de envelop als een gladde bal. De touwen zijn géén lijnen
  *     maar dunne staven — een touw is een onderdeel, geen contour.
  *   - Geen transparantie of emissive; de mond van de brander is een gewoon
  *     amberkleurig paletvlak.
- *   - Oorsprong: spil in het midden van de voetafdruk, Y = 0 onder de
- *     brander. Let op: dat is verplaatst — vóór het tuig lag Y = 0 bij de
- *     hals, dus een scène die de oude balloon ophing moet hem 0.42 minder
- *     optillen.
- *   - 884 driehoeken tegenover 480 voor de kale envelop; de dichtheid blijft
- *     met 13 tri/unit³ ver onder de limiet.
+ *   - Oorsprong: spil in het midden van de voetafdruk, Y = 0 onder het laagste
+ *     punt. Bij balloon.glb is dat de brander, bij de varianten de bodem van
+ *     de mand; die zijn dus 0.7 à 0.8 hoger dan balloon.glb (4.98 tegenover
+ *     5.65 – 5.76 totaal). Een scène die van de ene op de andere overstapt
+ *     moet het ophangpunt navenant bijstellen.
+ *   - 884 driehoeken voor balloon.glb, 1112 – 1204 met mand; de dichtheid
+ *     blijft met 15 tri/unit³ ver onder de limiet.
  */
 
 import { writeFileSync } from 'node:fs';
@@ -72,6 +96,9 @@ const TERRACOTTA = cel(5, 0);
 const STAAL = cel(15, 3);
 const INKT = cel(10, 0);
 const AMBER = cel(6, 0);
+const LEER = cel(12, 0);
+const RIET = cel(14, 0);
+const HOUT = TERRACOTTA;
 /** dv verschuift binnen de verloopstrook van de cel: positief = donkerder. */
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
 
@@ -385,6 +412,227 @@ function tuig(m, { ringR, ringOnder, ringBoven, yHals }) {
   }
 }
 
+/* -- gereedschap voor de manden ---------------------------------------------
+ * Een mand is een lage, brede vorm van vlakke stukken. Alles hieronder werkt
+ * op een grondvlak: een lijst (x, z)-punten op oplopende hoek, die je op elke
+ * hoogte met een schaalfactor groter of kleiner zet. Zo zijn een ronde en een
+ * vierkante mand hetzelfde stukje code met een ander grondvlak.
+ */
+
+/** Regelmatige veelhoek op straal 1. */
+const veelhoek = (zijden, draai = 0) =>
+  Array.from({ length: zijden }, (_, i) => {
+    const a = ((i + draai) / zijden) * Math.PI * 2;
+    return [Math.cos(a), Math.sin(a)];
+  });
+
+/**
+ * Vierkant met afgesneden hoeken, op halve zijde 1. Een echte ballonmand is
+ * vierkant met ronde hoeken; afsnijden is daar de vlakke-stukken-versie van,
+ * en de vier schuine hoekvlakken zijn meteen de plek voor de leren hoekstukken.
+ */
+function afgeknotVierkant(snee) {
+  const k = 1 - snee;
+  return [[1, k], [k, 1], [-k, 1], [-1, k], [-1, -k], [-k, -1], [k, -1], [1, -k]];
+}
+
+/** Wand tussen twee doorsneden van hetzelfde grondvlak. */
+function schil(m, grond, y0, s0, y1, s1, kleur, binnen = false) {
+  for (let i = 0; i < grond.length; i++) {
+    const a = grond[i], b = grond[(i + 1) % grond.length];
+    const A0 = [a[0] * s0, y0, a[1] * s0], B0 = [b[0] * s0, y0, b[1] * s0];
+    const A1 = [a[0] * s1, y1, a[1] * s1], B1 = [b[0] * s1, y1, b[1] * s1];
+    const c = typeof kleur === 'function' ? kleur(i) : kleur;
+    if (binnen) m.vlak(A0, B0, B1, A1, c); else m.vlak(A0, A1, B1, B0, c);
+  }
+}
+
+/** Vlakke ring tussen twee schalen van het grondvlak, op één hoogte. */
+function krans(m, grond, y, sBuiten, sBinnen, celUv, omhoog = true) {
+  for (let i = 0; i < grond.length; i++) {
+    const a = grond[i], b = grond[(i + 1) % grond.length];
+    const A = [a[0] * sBuiten, y, a[1] * sBuiten];
+    const B = [b[0] * sBuiten, y, b[1] * sBuiten];
+    const C = [b[0] * sBinnen, y, b[1] * sBinnen];
+    const D = [a[0] * sBinnen, y, a[1] * sBinnen];
+    if (omhoog) m.vlak(A, D, C, B, celUv); else m.vlak(A, B, C, D, celUv);
+  }
+}
+
+/** Dichte bodem of deksel op één hoogte. */
+function deksel(m, grond, y, s, celUv, omhoog = true) {
+  for (let i = 0; i < grond.length; i++) {
+    const a = grond[i], b = grond[(i + 1) % grond.length];
+    const A = [a[0] * s, y, a[1] * s], B = [b[0] * s, y, b[1] * s];
+    if (omhoog) m.driehoek([0, y, 0], B, A, celUv); else m.driehoek([0, y, 0], A, B, celUv);
+  }
+}
+
+/** Deterministische kleurschommeling per vlak, in texels binnen de cel. */
+const schommel = (i, zaad, sterkte) => Math.round((hash2(i * 5 + zaad, zaad) - 0.5) * sterkte);
+
+/* -- de drie manden ---------------------------------------------------------
+ * Elke mandfunctie bouwt vanaf Y = 0 omhoog en geeft terug hoe hoog de rand
+ * komt; daarboven zet het model de stijlen, de branderring en de envelop. De
+ * mand is ± 0.75 breed tegenover 3.78 voor de envelop (1 : 5), zoals de
+ * verhouding bij een echte ballon.
+ *
+ * De drie ontwerpen verschillen in silhouet, materiaal én ophanging, zodat je
+ * ze van een afstand uit elkaar houdt:
+ *
+ *   round   rond, gevlochten riet, leren rand, vier leren stijlen
+ *   square  afgeknot vierkant, riet met leren hoekstukken en sloffen eronder
+ *   crate   recht vierkant, planken met ijzeren banden, aan vier touwen
+ */
+
+const MAND_LUCHT = 0.20; // vrije hoogte tussen mandrand en branderring
+
+/**
+ * Vier stijlen of touwen van de mand naar de onderkant van de branderring, op
+ * de diagonalen. Ze grijpen aan de bínnenkant van de rand aan, niet op de
+ * buitenrand: daar staat de mand het dichtst bij de ring, en dat scheelt genoeg
+ * spreiding om vier dragers te houden in plaats van vier spinnenpoten.
+ */
+function ophanging(m, { r, randHoogte, ringOnder, dikte, kleurCel, dv, zijden, voet: hoogte = -0.06 }) {
+  for (let k = 0; k < 4; k++) {
+    const hoek = (k / 4 + 1 / 8) * Math.PI * 2;
+    const voet = punt(r, randHoogte + hoogte, hoek);
+    const kop = punt(RING_R * 0.9, ringOnder + 0.02, hoek);
+    staaf(m, voet, kop, dikte, kleurCel, dv, zijden);
+  }
+}
+
+/**
+ * Rond, gevlochten: twaalf vlakken rondom, licht uitlopend naar boven, in
+ * drie vlechtlagen met per vlak een tint verschil. Zonder dat tintverschil is
+ * het een gladde emmer; mét leest het als vlechtwerk zonder dat er ook maar
+ * één driehoek bijkomt.
+ */
+function mandRond(m) {
+  const grond = veelhoek(12, 0.5);
+  const LAGEN = [[0.05, 0.30], [0.17, 0.325], [0.29, 0.35], [0.41, 0.365]];
+  const RAND = 0.48;
+
+  deksel(m, grond, 0, 0.30, uv(LEER, 22), false);       // onderkant
+  schil(m, grond, 0, 0.30, 0.05, 0.30, uv(LEER, 14));   // voetrand
+  for (let laag = 0; laag < LAGEN.length - 1; laag++) {
+    const [y0, s0] = LAGEN[laag], [y1, s1] = LAGEN[laag + 1];
+    // Per laag een grondtint, per vlak nog een kleine schommeling: zo lopen de
+    // vlechtlagen als banden rond, maar blijft geen enkel vlak identiek.
+    const basis = laag % 2 ? 12 : -10;
+    schil(m, grond, y0, s0, y1, s1, (i) => uv(RIET, basis + schommel(i, laag + 1, 14)));
+    schil(m, grond, y0, s0 - 0.045, y1, s1 - 0.045, uv(RIET, 26), true);
+  }
+  deksel(m, grond, 0.05, 0.30, uv(HOUT, 18));           // bodemplank
+  // Leren rand: rolt over de bovenkant heen en steekt iets uit.
+  schil(m, grond, 0.41, 0.385, RAND, 0.385, uv(LEER));
+  krans(m, grond, RAND, 0.385, 0.315, uv(LEER, -10));
+  schil(m, grond, 0.41, 0.315, RAND, 0.315, uv(LEER, 18), true);
+  krans(m, grond, 0.41, 0.385, 0.365, uv(LEER, 24), false);
+  return RAND;
+}
+
+/**
+ * Afgeknot vierkant, gevlochten: de vorm van een echte ballonmand. De vier
+ * schuine hoekvlakken krijgen leer (hoekbeschermers), en onder de bodem lopen
+ * twee houten sloffen — waar een ballonmand bij de landing op glijdt.
+ */
+function mandVierkantRiet(m) {
+  const grond = afgeknotVierkant(0.24);
+  const SLOF = 0.055;
+  const LAGEN = [[SLOF, 0.33], [0.19, 0.345], [0.33, 0.355], [0.44, 0.36]];
+  const RAND = 0.52;
+  // Zijde i loopt van punt i naar punt i+1; de even zijden zijn de schuine
+  // hoekvlakken, en die krijgen het leer.
+  const isHoek = (i) => i % 2 === 0;
+
+  deksel(m, grond, SLOF, 0.315, uv(LEER, 26), false);
+  for (let laag = 0; laag < LAGEN.length - 1; laag++) {
+    const [y0, s0] = LAGEN[laag], [y1, s1] = LAGEN[laag + 1];
+    const basis = laag % 2 ? 14 : -8;
+    schil(m, grond, y0, s0, y1, s1, (i) => (isHoek(i)
+      ? uv(LEER, 6 + laag * 8)
+      : uv(RIET, basis + schommel(i, laag + 2, 12))));
+    schil(m, grond, y0, s0 - 0.04, y1, s1 - 0.04, uv(RIET, 28), true);
+  }
+  deksel(m, grond, SLOF, 0.315, uv(HOUT, 16));
+  // Gestoffeerde rand: dikker dan de wand, rondom in leer.
+  schil(m, grond, 0.44, 0.385, RAND, 0.385, uv(LEER, -6));
+  krans(m, grond, RAND, 0.385, 0.30, uv(LEER, -14));
+  schil(m, grond, 0.44, 0.30, RAND, 0.30, uv(LEER, 20), true);
+  krans(m, grond, 0.44, 0.385, 0.35, uv(LEER, 26), false);
+  // Twee sloffen onder de bodem: waar een ballonmand bij de landing op glijdt.
+  // Ze staan naar buiten en zijn smal genoeg om als losse balken te lezen —
+  // breder gingen ze samen met de bodem op in één plint.
+  for (const z of [-0.225, 0.225]) {
+    blok(m, [-0.26, 0, z - 0.028], [0.26, SLOF, z + 0.028], LEER, 16, { boven: false });
+  }
+  return RAND;
+}
+
+/**
+ * Recht vierkant krat: staande planken tussen vier stevige hoekstijlen, twee
+ * ijzeren banden eromheen en een ijzeren randprofiel. Hangt niet aan stijlen
+ * maar aan vier touwen, in dezelfde kleur als het touwwerk boven de ring —
+ * vracht die je ergens afzet, geen passagiersmand.
+ */
+function mandKrat(m) {
+  const H = 0.345;         // halve breedte tot aan de planken
+  const POST = 0.08;       // dikte van een hoekstijl
+  const VLOER = 0.07;
+  const RAND = 0.50;
+  const vierkant = [[1, 1], [-1, 1], [-1, -1], [1, -1]];
+  const PLANKEN = 5;
+
+  // Vier hoekstijlen, van de grond tot net boven de rand: daar knopen de
+  // touwen aan vast. Ze steken onderaan iets uit als pootjes, zodat het krat
+  // op zijn hoeken staat en niet op zijn planken.
+  for (const [sx, sz] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) {
+    const x = sx * (H - POST / 2), z = sz * (H - POST / 2);
+    blok(m, [x - POST / 2, 0, z - POST / 2], [x + POST / 2, RAND + 0.03, z + POST / 2], LEER, 18);
+  }
+
+  // Zijwanden: per zijde vijf staande planken met elk een eigen tint.
+  for (let k = 0; k < 4; k++) {
+    const hoek = (k / 4) * Math.PI * 2;
+    const uit = [Math.cos(hoek), 0, Math.sin(hoek)];
+    const langs = [-Math.sin(hoek), 0, Math.cos(hoek)];
+    const P = (u, y, d) => [uit[0] * d + langs[0] * u, y, uit[2] * d + langs[2] * u];
+    const rek = H - POST;
+    for (let p = 0; p < PLANKEN; p++) {
+      const u0 = -rek + (2 * rek * p) / PLANKEN;
+      const u1 = -rek + (2 * rek * (p + 1)) / PLANKEN;
+      // Om en om een lichtere en een donkere plank, met daar bovenop nog wat
+      // schommeling: zonder dat verschil is een zijde één oranje vlak en zie
+      // je de planken pas als je er met je neus bovenop staat.
+      const c = uv(HOUT, (p % 2 ? 26 : -6) + schommel(p, k + 3, 12));
+      m.vlak(P(u0, VLOER, H), P(u0, RAND, H), P(u1, RAND, H), P(u1, VLOER, H), c);
+      m.vlak(P(u0, VLOER, H - 0.035), P(u1, VLOER, H - 0.035), P(u1, RAND, H - 0.035), P(u0, RAND, H - 0.035), uv(HOUT, 26));
+    }
+    m.vlak(P(-rek, VLOER, H), P(-rek, VLOER, H - 0.035), P(rek, VLOER, H - 0.035), P(rek, VLOER, H), uv(HOUT, 30));
+  }
+
+  // Bodem: een dichte plaat met een donkere onderkant eronder.
+  deksel(m, vierkant, VLOER, H, uv(HOUT, 14));
+  deksel(m, vierkant, VLOER - 0.035, H, uv(HOUT, 30), false);
+  schil(m, vierkant, VLOER - 0.035, H, VLOER, H, uv(HOUT, 26));
+
+  // Twee ijzeren banden om de planken heen, en bovenop een houten randlijst.
+  // Drie ijzeren banden was er één te veel: dan telt het oog donkere strepen
+  // in plaats van dat het een krat ziet.
+  for (const [y0, y1] of [[0.14, 0.175], [0.33, 0.365]]) {
+    const s = H + 0.018;
+    schil(m, vierkant, y0, s, y1, s, uv(INKT, 8));
+    krans(m, vierkant, y1, s, H - 0.01, uv(INKT, -6));
+    krans(m, vierkant, y0, s, H - 0.01, uv(INKT, 16), false);
+  }
+  const sRand = H + 0.022;
+  schil(m, vierkant, RAND - 0.05, sRand, RAND, sRand, uv(LEER, 4));
+  krans(m, vierkant, RAND, sRand, H - 0.03, uv(LEER, -8));
+  krans(m, vierkant, RAND - 0.05, sRand, H - 0.01, uv(LEER, 22), false);
+  return RAND;
+}
+
 /* -- glb schrijven -------------------------------------------------------- */
 
 /** sRGB-hex → lineaire factor, want baseColorFactor is lineair. */
@@ -529,14 +777,33 @@ const RING_ONDER = 0.01; // het branderblok steekt 0.01 onder de ring uit; zo
                          // ligt het laagste punt van het model precies op Y=0
 const TUIG = 0.36;       // vrije hoogte tussen ring en hals
 
-{
+/**
+ * balloon.glb blijft wat het was: envelop en tuig, met de ring als onderste
+ * onderdeel. De drie mandvarianten zetten er een mand onder; die groeit naar
+ * beneden, dus alles bóven de mand schuift mee omhoog en Y = 0 ligt weer onder
+ * het laagste punt — nu de bodem van de mand.
+ */
+const VARIANTEN = [
+  { naam: 'balloon' },
+  { naam: 'balloon-basket-round', mand: mandRond, ophangen: { r: 0.31, dikte: 0.030, kleurCel: LEER, dv: 2, zijden: 4 } },
+  { naam: 'balloon-basket-square', mand: mandVierkantRiet, ophangen: { r: 0.34, dikte: 0.032, kleurCel: LEER, dv: 2, zijden: 4 } },
+  // Het krat hangt aan touwen die aan de koppen van de hoekstijlen vastzitten;
+  // die staan verder uit het midden dan een mandrand, dus krijgt het meer
+  // lucht tot de ring — anders staan de touwen te ver open.
+  { naam: 'balloon-basket-crate', mand: mandKrat, lucht: 0.29, ophangen: { r: 0.425, voet: 0.015, dikte: 0.022, kleurCel: WIT, dv: 12, zijden: 3 } },
+];
+
+for (const variant of VARIANTEN) {
   const m = maakModel();
-  const yHals = RING_ONDER + RING_H + TUIG;
-  tuig(m, { ringR: RING_R, ringOnder: RING_ONDER, ringBoven: RING_ONDER + RING_H, yHals });
+  const randHoogte = variant.mand ? variant.mand(m) : 0;
+  const ringOnder = variant.mand ? randHoogte + (variant.lucht ?? MAND_LUCHT) : RING_ONDER;
+  const yHals = ringOnder + RING_H + TUIG;
+  tuig(m, { ringR: RING_R, ringOnder, ringBoven: ringOnder + RING_H, yHals });
+  if (variant.mand) ophanging(m, { ...variant.ophangen, randHoogte, ringOnder });
   const vanaf = m.posities.length / 3;
   envelop(m, PROFIEL, yHals);
   controleerEnvelop(m, vanaf);
-  schrijfGlb('balloon', m);
+  schrijfGlb(variant.naam, m);
 }
 
 console.log(
