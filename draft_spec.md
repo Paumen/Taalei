@@ -60,7 +60,7 @@ De toets bij elke stand: zou een kind van negen kunnen uitleggen waarom dit hier
 
 **Niet vooruitlopen.** Een regel die het kind nog niet is tegengekomen — bij de behandelaar of op school — komt hier niet aan bod. Zo kan de module de behandeling nooit tegenspreken.
 
-**Niet afrekenen.** Geen streaks en of iets verliezen als je fout maakt.
+**Niet afrekenen.** Geen streaks, en niets verliezen als je een fout maakt.
 
 **Niets persoonlijk over het kind vastleggen.** Geen naam, leeftijd, foto of stemopname. Geen tracking of analytics: alles wat de module bijhoudt blijft op het toestel. Het enige dat het toestel verlaat is de voortgang onder het ouderaccount — niets naar derden, niets voor productverbetering. Geen advertenties.
 
@@ -101,8 +101,8 @@ Daarom kan eiland 1 grotendeels gratis. Werkt het concept, dan ontstaat er ruimt
 
 1. Eilanden — 2D, kaart
 2. Eiland — 3D, overzicht
-2. Zone — 3D, lager en dichterbij
-3. Oefening — 2D
+3. Zone — 3D, lager en dichterbij
+4. Oefening — 2D
 
 ## 2. Kernspel
 
@@ -163,7 +163,11 @@ Mogelijke voorbeelden:
 
 ## 5. Economie
 
-- *Bouwmateriaal* — komt uit de taken van een zone.
+- *Hout* — komt uit de taken van de eerste zones.
+- *Steen* — daarna.
+- *Erts* — daarna.
+
+De volgorde is grotendeels eenrichtingsverkeer (§3, en de knop in productspecificatie §6).
 
 **Inspanning, niet correctheid.** Een oefening afmaken levert de grondstof op. Fouten kosten niets.
 
@@ -185,11 +189,13 @@ Mogelijke voorbeelden:
 | Zelf een zin of verhaaltje maken | productie in plaats van herkenning | *open* |
 
 > [!TIP]
-**Spellingcategorieën.** au/ou, ei/ij, andere weetwoorden, open en gesloten lettergreep, woordherkenning. 
-woordflitsen
-vul in: ij of ei, au of ou, v f, s z, ch cht, c s k, th of t, x y q, ch als SJ, b als p, g of ch, g als zj, tie als tsie, etc
-sterke werkwoorden
-ij/ei-woorden die beide bestaan: leiden – lijden.
+> **Spellingcategorieën.**
+> - au/ou, ei/ij, andere weetwoorden
+> - open en gesloten lettergreep
+> - woordherkenning, woordflitsen
+> - vul in: ij of ei, au of ou, v of f, s of z, ch of cht, c/s/k, th of t, x/y/q, ch als sj, b als p, g of ch, g als zj, tie als tsie
+> - sterke werkwoorden
+> - ij/ei-woorden die beide bestaan: leiden – lijden
 
 **Automatiseren mag met tempo en drill.** Korte snelle rondes, "beat je eigen tijd" tegen jezelf, herhaling met spaced repetition.
 
@@ -230,7 +236,7 @@ Leeg: of er een doorlopend verhaal is, wie er verder op het eiland is, waarom he
 
 **Toegankelijkheid.** Lettergrootte instelbaar. Geen tijdsdruk waar die niet bedoeld is.
 
-Bij een fout krijgt kind direct herkansing. Eventueel met uitlegof vertraging element om doorklikken te voorkomen.
+Bij een fout krijgt het kind direct een herkansing. Eventueel met uitleg of een vertragend element, om doorklikken te voorkomen.
 
 Alles touch first.
 
@@ -263,6 +269,98 @@ Leeg: muziek, omgevingsgeluid.
 ## 13. Productie
 
 **MVP.** Ongeveer drie maanden inhoud, of minder mits een eerlijke dwarsdoorsnede: meerdere zones, meerdere oefenvormen, hergebruik van een vorm, meerdere woordniveaus, grondstoffen, bouwen, een doorgang, zichtbare voortgang, iets te ontdekken.
+
+**Vóór de MVP komt de verticale plak.** Zie het volgende deel.
+
+---
+
+# Taaleiland — verticale plak
+
+Niet de eerste hap van de MVP, maar het goedkoopste experiment dat de aannames uit het game design document kan omvergooien. Alles hieronder is een gok die opgeschreven is zodat hij weerlegd kan worden — geen besluit dat vastligt.
+
+## 1. Wat de plak moet beantwoorden
+
+Vier vragen die op papier niet te beantwoorden zijn.
+
+1. **Leest de koppeling als oorzaak en gevolg?** Snapt een kind van negen dat het hout uit het hakken kwam, of voelt het als een sticker op een quiz? Toets uit §6 van de productspecificatie: *zou het kunnen uitleggen waarom dit hier gebeurt?*
+2. **Draagt vaag → scherp de voortgang?** Ziet het kind zonder uitleg dat er iets veranderd is, en wil het de volgende zone scherp maken?
+3. **Voelt een zitting af als de doorgang nog niet open is?** Game design §3 eist dat elke zitting eindigt met iets dat er eerst niet was; §5 eist dat een doorgang meerdere zittingen kost. Die twee vechten. De plak zet er een antwoord tegenover (§4 hieronder).
+4. **Is een vorm mét wereldbetekenis merkbaar sterker dan een zonder?** Daarom draait de plak twee vormen naast elkaar: hakken (hakt echt hout door) en het voorgelezen woord aanwijzen (heeft bewust geen tegenhanger, game design §6). Als het verschil niet te zien is in wat een kind zelf kiest, is de knop uit productspecificatie §6 minder waard dan gedacht.
+
+## 2. Omvang
+
+Één zone, twee oefenvormen, één grondstof, één doorgang, één zone erachter die scherp wordt.
+
+**Strand met startkamp** — aankomst op het eiland (game design §8). Aangespoeld drijfhout ligt op het strand. Achter het strand loopt een kreek; daarachter ligt het **bos**, vaag. Een **brug** over de kreek is de doorgang. Het bos wordt scherp en de plak stopt.
+
+Waarom strand en niet bos: het bos is waar bomen staan, en die zijn het waard om te bewaren voor een volle zone. Drijfhout geeft dezelfde hakbeweging zonder het bos op te maken. En aankomst is de plek waar het verhaal toch al begint.
+
+## 3. Oefenvormen
+
+**Hakken — klanken scheiden.** Het woord staat als één stuk drijfhout in beeld en wordt voorgelezen. Het kind veegt van boven naar beneden op de plek waar een klank ophoudt: `r|aa|m`. Klanken, geen letters — `aa` blijft één stuk. Bij elke goede veeg valt het hout uit elkaar. Bij een misser stuitert de bijl terug en mag het kind meteen opnieuw. Niets raakt kwijt, niets telt af. Geen klok.
+
+**Voorgelezen woord aanwijzen — luisteren en herkennen.** Vier woorden in beeld, één wordt voorgelezen, het kind tikt het aan. Bewust zonder wereldbetekenis (zie §1.4).
+
+**Ronde.** 6 items, ongeveer anderhalve minuut. Bij duidelijke beheersing stopt de ronde eerder (game design §4) — richtlijn: vier achtereen foutloos en zonder aarzelen.
+
+**Woorden.** Vier niveaus, per niveau ongeveer 40 woorden, opgebouwd naar klankstructuur: mk, km, mkm, mkkm (brainstorm.md). Zelfde zone, zelfde taken, alleen de woordenlijst verschilt — geen kind kan aan het scherm zien op welke stand het staat.
+
+## 4. Getallen
+
+Gok, expliciet als gok. Ze volgen uit een half uur per week (productspecificatie §5) en drie maanden inhoud over ongeveer zes zones.
+
+| | |
+|---|---|
+| Ronde | 6 items, ~90 seconden |
+| Ronde afgemaakt | 1 hout, ongeacht fouten |
+| Zitting | ~10 minuten: 3 ronden, dan bouwen |
+| Zone strand | ~6 zittingen, ~18 hout |
+| Brug (doorgang) | 9 hout |
+| Rest | ~9 hout aan losse bouwsels in de zone |
+
+**Zo eindigt elke zitting toch af.** De brug loopt over meerdere zittingen, maar het overschot gaat naar kleine bouwsels die *binnen* één zitting klaar zijn: een steiger, een vuurplaats, een uitkijkpunt, een hek. Het kind kiest welke. De zitting sluit op de zoneweergave met het nieuwe ding in beeld — ook als de brug nog een zitting weg is.
+
+**En daar zit meteen de autonomie.** Game design §3 laat open waar de keuze zit terwijl de doorgangen lineair zijn. Antwoord voor de plak: keuze *binnen* een zone, nooit in de volgorde ervan. Twee plekken — met welke oefenvorm de zitting begint, en welk los bouwsel het overschot krijgt. Beide zijn zichtbaar en omkeerbaar; geen van beide vertakt de inhoud.
+
+## 5. Vaag → scherp
+
+Game design §3 laat open waaruit "vaag" bestaat. Drie standen, en geen mist-shader — die kost meer en leest slechter op een telefoon dan gewoon wegnemen.
+
+- **Vaag.** Terrein én de grote props, alles plat in dezelfde lichte kleur. De vormen staan er, de kleuren niet: je ziet dát het een bos is, je ziet niet wat erin staat. Kleine props en beweging ontbreken. Weglaten mag niet — game design §3 eist dat het hele eiland vanaf het begin te zien is, en een leeg vlak geeft het kind niets om naartoe te willen.
+- **Half.** Terrein op eigen kleur, de grote props staan er. Kleine props en beweging ontbreken.
+- **Scherp.** Alles, plus beweging: golfrand, rook uit het kampvuur, een wapperende vlag.
+
+De overgang is de beloning. Bij het leggen van de laatste plank houdt de camera stil op de kreek en kleurt het bos over in ongeveer anderhalve seconde. Dat moment is het enige echte spektakel in de plak; als het niet landt, weten we dat ook.
+
+## 6. Assets
+
+Alles staat al in de kits — er hoeft niets nieuws gemaakt te worden voor de plak.
+
+| Nodig | Waar |
+|---|---|
+| Strandgrond, rotsen | `survival-kit`: `rock-sand-a/b/c`, `rock-flat` |
+| Startkamp | `survival-kit`: `tent-canvas`, `campfire-pit`, `chest` |
+| Drijfhout, voorraad | `survival-kit`: `resource-planks`, `bucket`, `fence` |
+| Brug | `mini-forest`: `bridge` |
+| Bos erachter | `mini-forest`: `tree`, `tree-high`, `plant`, `patch-grass` |
+| Landmark op afstand | `taalei-kit`: `lighthouse` |
+
+Gedeeld palet en colormap volgens `asset_style_guide.md`. De grot blijft buiten de plak (game design §12).
+
+## 7. Wat bewust open blijft
+
+Verhaal en wie er verder op het eiland is (game design §8). Muziek en omgevingsgeluid (§11) — alleen terugkoppeling bij hakken en bouwen. Zone 3 en verder, en welke hindernis waar. Steen en erts. Tempo- en drillrondes (§6): pas zinvol als de gewone ronde staat. Eilandkaart met meerdere eilanden. Het ouderaccount en de behandelaarsvrijgave — de plak draait lokaal, zonder account.
+
+## 8. Waaraan we het afmeten
+
+Drie tot vijf kinderen uit de doelgroep, twee zittingen elk, met een volwassene erbij die niet uitlegt.
+
+- Het kind zegt of laat zien waar het hout vandaan kwam, zonder dat het gevraagd is.
+- Het kind merkt de overgang van het bos op.
+- Het kind wil een tweede zitting.
+- Bij vrije keuze tussen de twee oefenvormen: verschuift de keuze richting hakken?
+
+Geen van deze vier is een cijfer. Als drie van de vier tegenvallen, klopt de hoofdlus niet en is dat goedkoop nieuws.
 
 ---
 

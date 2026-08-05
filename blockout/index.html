@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — blockout strandzone</title>
+<meta name="description" content="Blockout van de strandzone uit de verticale plak: het kamp, de kreek, de brug en het bos erachter, in de stand vaag en de stand scherp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<style>
+  :root { color-scheme: light dark; --rand: #0002; --zacht: #0000000a; }
+  @media (prefers-color-scheme: dark) { :root { --rand: #fff3; --zacht: #ffffff0d; } }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 1.5rem;
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  .sub { margin: 0 0 1.5rem; opacity: .7; max-width: 62ch; }
+  .paar { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  figure { margin: 0; border: 1px solid var(--rand); border-radius: 10px; overflow: hidden; background: var(--zacht); }
+  model-viewer { width: 100%; height: 60vh; min-height: 340px; display: block; }
+  figcaption { padding: .6rem .85rem; border-top: 1px solid var(--rand); font-size: .9rem; }
+  figcaption b { font-weight: 600; }
+  .noot { margin-top: 1.5rem; max-width: 68ch; opacity: .75; font-size: .9rem; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+</style>
+</head>
+<body>
+
+<h1>Blockout — strandzone</h1>
+<p class="sub">De indeling uit de verticale plak: aankomst op het strand, het kamp, drijfhout als grondstof, de kreek als grens en het bos erachter. Dezelfde indeling in twee standen; het verschil is wat het kind ziet gebeuren op het moment dat de brug klaar is.</p>
+
+<div class="paar">
+  <figure>
+    <model-viewer
+      src="strand-vaag.glb"
+      alt="Strandzone met het bos in de vage stand: de bomen staan er, plat in één kleur."
+      camera-orbit="196deg 62deg 46m"
+      camera-target="12m 0m 17m"
+      min-camera-orbit="auto auto auto"
+      max-camera-orbit="auto 85deg auto"
+      environment-image="neutral"
+      shadow-intensity="0.6"
+      shadow-softness="0.9"
+      exposure="1.05"
+      interaction-prompt="none"
+      camera-controls
+      loading="eager"></model-viewer>
+    <figcaption><b>Vaag.</b> De bomen staan er, plat in één kleur. Je ziet dát het een bos is, niet wat erin staat.</figcaption>
+  </figure>
+
+  <figure>
+    <model-viewer
+      src="strand-scherp.glb"
+      alt="Strandzone met het bos in de scherpe stand: eigen kleur en bomen."
+      camera-orbit="196deg 62deg 46m"
+      camera-target="12m 0m 17m"
+      min-camera-orbit="auto auto auto"
+      max-camera-orbit="auto 85deg auto"
+      environment-image="neutral"
+      shadow-intensity="0.6"
+      shadow-softness="0.9"
+      exposure="1.05"
+      interaction-prompt="none"
+      camera-controls
+      loading="eager"></model-viewer>
+    <figcaption><b>Scherp.</b> Het bos heeft zijn eigen kleur en zijn bomen. Dit is wat de brug oplevert.</figcaption>
+  </figure>
+</div>
+
+<p class="noot">De oefening zelf staat in een eigen blockout: <a href="oefening.html">hakken en aanwijzen</a>, in ditzelfde palet.</p>
+
+<p class="noot">Gebouwd met <code>node tools/bouw-blockout.mjs</code>. Alle props komen uit de bestaande kits; alleen het terrein is hier getekend, uit paletcellen die al in <code>kits/palet.json</code> staan. Een blockout houdt elke plaatsing een eigen node, zodat een prop te verzetten is zonder de geometrie aan te raken — dat kost een tekenopdracht per prop en is dus geen maat voor wat de echte zone straks kost.</p>
+
+<script src="../vendor/model-viewer.min.js" type="module"></script>
+</body>
+</html>

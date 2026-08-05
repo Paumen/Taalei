@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Speelbare versie van de verticale plak: hakken levert hout, hout bouwt de brug, en dan wordt het bos aan de overkant scherp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27><text y=%2714%27 font-size=%2714%27>🏝️</text></svg>">
+<title>Taaleiland — speelbare plak</title>
+<style>
+  :root {
+    /* Uit kits/palet.json — de kleuren van de zone zelf, er komt er geen bij. */
+    --zand: #f0c59d;
+    --zand-diep: #dd9f79;
+    --hout-licht: #f1976c;
+    --hout: #d07b56;
+    --hout-diep: #995a41;
+    --donker: #3e3e44;
+    --groen: #3da679;
+    --vaag: #9da4c4;
+    --zee: #6d738a;
+
+    /* Neutralen met een warme zandzweem, geen kaal grijs. */
+    --grond: #faf4ee;
+    --paneel: #fffdfa;
+    --inkt: #2f2a26;
+    --gedempt: #7d6f63;
+    --rand: #e8dac9;
+    --schaduw: 0 1px 2px #4a3a2a12, 0 8px 24px #4a3a2a0f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --grond: #22262e;
+      --paneel: #2a2f38;
+      --inkt: #ece7e0;
+      --gedempt: #9aa1ac;
+      --rand: #39404b;
+      --schaduw: 0 1px 2px #0004, 0 8px 24px #0003;
+    }
+  }
+  :root[data-theme="dark"] {
+    --grond: #22262e; --paneel: #2a2f38; --inkt: #ece7e0;
+    --gedempt: #9aa1ac; --rand: #39404b;
+    --schaduw: 0 1px 2px #0004, 0 8px 24px #0003;
+  }
+  :root[data-theme="light"] {
+    --grond: #faf4ee; --paneel: #fffdfa; --inkt: #2f2a26;
+    --gedempt: #7d6f63; --rand: #e8dac9;
+    --schaduw: 0 1px 2px #4a3a2a12, 0 8px 24px #4a3a2a0f;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--grond);
+    color: var(--inkt);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .omslag { max-width: 1180px; margin: 0 auto; padding: clamp(1rem, 3vw, 2rem); }
+
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .6rem 1rem; margin-bottom: 1.2rem; }
+  h1 { font-size: clamp(1.3rem, 3vw, 1.75rem); margin: 0; letter-spacing: -.015em; text-wrap: balance; }
+  .lead { margin: 0; color: var(--gedempt); max-width: 62ch; font-size: .95rem; }
+  .standen { margin-left: auto; display: flex; gap: .3rem; background: var(--paneel);
+             border: 1px solid var(--rand); border-radius: 999px; padding: .22rem; }
+  .standen button {
+    font: inherit; font-size: .82rem; border: 0; background: none; color: var(--gedempt);
+    padding: .3rem .75rem; border-radius: 999px; cursor: pointer;
+  }
+  .standen button[aria-pressed="true"] { background: var(--hout-diep); color: #fff; }
+  .standen button:focus-visible { outline: 2px solid var(--hout); outline-offset: 2px; }
+
+  .paneel-rij { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 940px) { .paneel-rij { grid-template-columns: 1.05fr 1fr; align-items: start; } }
+
+  .kaart {
+    background: var(--paneel); border: 1px solid var(--rand);
+    border-radius: 14px; box-shadow: var(--schaduw); overflow: hidden;
+  }
+  .kaart-kop {
+    display: flex; align-items: center; gap: .6rem;
+    padding: .7rem .9rem; border-bottom: 1px solid var(--rand);
+  }
+  .kaart-kop h2 { font-size: .82rem; margin: 0; text-transform: uppercase;
+                  letter-spacing: .09em; color: var(--gedempt); font-weight: 650; }
+
+  /* -- zone -- */
+  .zone { position: relative; aspect-ratio: 4 / 3; background: #eef2f4; }
+  @media (prefers-color-scheme: dark) { .zone { background: #1b1f26; } }
+  :root[data-theme="dark"] .zone { background: #1b1f26; }
+  :root[data-theme="light"] .zone { background: #eef2f4; }
+  .zone model-viewer { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #na { opacity: 0; transition: opacity 1.4s ease; }
+  #na.aan { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { #na { transition: none; } }
+
+  .melding {
+    position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+    background: #000000b8; color: #fff; padding: .45rem .9rem; border-radius: 999px;
+    font-size: .85rem; opacity: 0; transition: opacity .5s ease; pointer-events: none;
+    backdrop-filter: blur(3px); white-space: nowrap;
+  }
+  .melding.aan { opacity: 1; }
+
+  /* -- voorraad en brug -- */
+  .voorraad { display: flex; align-items: center; gap: .8rem; padding: .8rem .9rem; flex-wrap: wrap; }
+  .teller { display: flex; align-items: center; gap: .4rem; font-weight: 700;
+            font-variant-numeric: tabular-nums; color: var(--hout-diep); }
+  @media (prefers-color-scheme: dark) { .teller { color: var(--hout-licht); } }
+  :root[data-theme="dark"] .teller { color: var(--hout-licht); }
+  :root[data-theme="light"] .teller { color: var(--hout-diep); }
+  .teller.groei { animation: tik .5s ease; }
+  @keyframes tik { 0%,100% { transform: none; } 35% { transform: scale(1.28); } }
+  @media (prefers-reduced-motion: reduce) { .teller.groei { animation: none; } }
+
+  .brug { display: flex; align-items: center; gap: .55rem; margin-left: auto; }
+  .brug .label { font-size: .8rem; color: var(--gedempt); }
+  .planken { display: flex; gap: 3px; }
+  .plank { width: 15px; height: 20px; border-radius: 2px;
+           background: var(--rand); transition: background .3s ease; }
+  .plank.er { background: var(--hout); box-shadow: inset 0 -6px 0 #0000001f; }
+
+  /* -- oefening -- */
+  .doek { padding: 1rem .9rem 1.3rem; display: flex; flex-direction: column;
+          align-items: center; gap: 1rem; min-height: 380px; justify-content: center; }
+  .stappen { display: flex; gap: 5px; }
+  .stap { width: 20px; height: 8px; border-radius: 2px; background: var(--rand); }
+  .stap.klaar { background: var(--hout-diep); }
+  .stap.nu { background: var(--donker); }
+  @media (prefers-color-scheme: dark) { .stap.nu { background: var(--zand); } }
+  :root[data-theme="dark"] .stap.nu { background: var(--zand); }
+  :root[data-theme="light"] .stap.nu { background: var(--donker); }
+
+  /* het hout waarop het woord staat */
+  .balk { display: flex; gap: 0; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .stuk {
+    display: flex; position: relative; background: var(--hout);
+    border-top: 9px solid var(--hout-licht);
+    border-bottom: 7px solid var(--hout-diep);
+    transition: transform .35s ease, opacity .35s ease;
+  }
+  .stuk:first-child { border-radius: 5px 0 0 5px; }
+  .stuk:last-child { border-radius: 0 5px 5px 0; }
+  .stuk.los { border-radius: 5px; }
+  .letter {
+    font-size: clamp(2.1rem, 8.5vw, 3.1rem); font-weight: 800; letter-spacing: .02em;
+    color: #34302c; padding: .34em .1em; line-height: 1;
+  }
+  /* Hakplek tússen elke twee letters — niet alleen op de goede grenzen, anders
+     wijst het scherm het antwoord aan. */
+  .hak {
+    position: relative; width: 20px; margin: 0 -10px; z-index: 2; cursor: grab;
+    background: none; border: 0; padding: 0; align-self: stretch;
+  }
+  .hak::before {
+    content: ""; position: absolute; left: 50%; top: 6px; bottom: 6px; width: 2px;
+    transform: translateX(-50%); background: #00000026; border-radius: 2px;
+  }
+  .hak:hover::before, .hak:focus-visible::before { background: #00000066; width: 3px; }
+  .hak:focus-visible { outline: 2px solid var(--donker); outline-offset: 1px; border-radius: 3px; }
+  .balk.klaar .hak { display: none; }
+
+  .stuk.mis { animation: stuiter .34s ease; }
+  @keyframes stuiter { 0%,100% { transform: none; } 30% { transform: translateY(-9px) rotate(-1.4deg); } 65% { transform: translateY(2px); } }
+  @media (prefers-reduced-motion: reduce) { .stuk.mis { animation: none; } }
+
+  .kaarten { display: flex; flex-direction: column; gap: .6rem; width: min(300px, 100%); }
+  .kaarten button {
+    font: inherit; font-size: 1.6rem; font-weight: 800; letter-spacing: .03em;
+    color: #34302c; background: var(--hout); border: 0;
+    border-top: 8px solid var(--hout-licht); border-bottom: 6px solid var(--hout-diep);
+    border-radius: 6px; padding: .5rem; cursor: pointer;
+  }
+  .kaarten button.gekozen { background: var(--hout-diep); color: #f0ece3;
+                            border-top-color: var(--zand-diep); }
+  .kaarten button:focus-visible { outline: 2px solid var(--donker); outline-offset: 2px; }
+
+  .luid {
+    background: none; border: 0; cursor: pointer; padding: .4rem; border-radius: 8px;
+    color: var(--inkt); display: inline-flex;
+  }
+  .luid:focus-visible { outline: 2px solid var(--hout); outline-offset: 2px; }
+
+  .kiezer { display: flex; flex-direction: column; gap: .7rem; align-items: center; text-align: center; }
+  .kiezer p { margin: 0; color: var(--gedempt); font-size: .9rem; }
+  .knop {
+    font: inherit; font-weight: 600; cursor: pointer;
+    background: var(--hout-diep); color: #fff; border: 0;
+    padding: .6rem 1.15rem; border-radius: 10px;
+  }
+  .knop.stil { background: none; color: var(--inkt); border: 1px solid var(--rand); }
+  .knop:focus-visible { outline: 2px solid var(--hout); outline-offset: 2px; }
+  .keuzes { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; }
+
+  .voet { margin-top: 1.2rem; color: var(--gedempt); font-size: .87rem; max-width: 70ch; }
+  .voet strong { color: var(--inkt); font-weight: 620; }
+  .voet p { margin: 0 0 .5rem; }
+</style>
+</head>
+<body>
+
+<div class="omslag">
+  <header>
+    <div>
+      <h1>Taaleiland — speelbare plak</h1>
+      <p class="lead">Hak het woord in klanken. Elke afgemaakte ronde levert hout, en met genoeg hout ligt de brug er. Dan verandert er iets aan de overkant.</p>
+    </div>
+    <div class="standen" role="group" aria-label="Aantallen">
+      <button type="button" data-stand="kort" aria-pressed="true">Kort</button>
+      <button type="button" data-stand="echt" aria-pressed="false">Echte aantallen</button>
+    </div>
+  </header>
+
+  <div class="paneel-rij">
+    <section class="kaart">
+      <div class="kaart-kop"><h2>De zone</h2></div>
+      <div class="zone">
+        <model-viewer id="voor" src="strand-vaag.glb" alt="De strandzone; het bos aan de overkant is nog vaag en de brug is nog een schim."
+          camera-orbit="196deg 62deg 46m" camera-target="12m 0m 17m" max-camera-orbit="auto 85deg auto"
+          environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
+          interaction-prompt="none" camera-controls loading="eager"></model-viewer>
+        <model-viewer id="na" src="strand-scherp.glb" alt="Dezelfde zone met de brug gebouwd en het bos in eigen kleur."
+          camera-orbit="196deg 62deg 46m" camera-target="12m 0m 17m" max-camera-orbit="auto 85deg auto"
+          environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
+          interaction-prompt="none" camera-controls loading="eager" aria-hidden="true"></model-viewer>
+        <div class="melding" id="melding"></div>
+      </div>
+      <div class="voorraad">
+        <span class="teller" id="teller">
+          <svg width="22" height="15" viewBox="0 0 20 14" aria-hidden="true">
+            <polygon points="1,5 15,5 19,2 5,2" fill="#dd9f79"></polygon>
+            <rect x="1" y="5" width="14" height="7" fill="#d07b56"></rect>
+            <polygon points="15,5 19,2 19,9 15,12" fill="#995a41"></polygon>
+          </svg>
+          <span id="houtGetal">0</span>
+        </span>
+        <span class="brug">
+          <span class="label" id="brugLabel">brug</span>
+          <span class="planken" id="planken"></span>
+        </span>
+      </div>
+    </section>
+
+    <section class="kaart">
+      <div class="kaart-kop">
+        <h2 id="vormNaam">Oefening</h2>
+        <span class="stappen" id="stappen" style="margin-left:auto"></span>
+      </div>
+      <div class="doek" id="doek"></div>
+    </section>
+  </div>
+
+  <div class="voet">
+    <p><strong>Wat hier getoetst wordt.</strong> Of de koppeling als oorzaak en gevolg leest — dat het hout uit het hakken kwam en niet uit een beloningspotje. En of de omslag van de overkant het waard is om voor door te gaan.</p>
+    <p><strong>Wat er bewust niet is.</strong> Geen klok, geen score, geen streak, geen sterren. Een misser kost niets en mag meteen opnieuw. De enige teller is hout, en die loopt alleen op.</p>
+    <p><strong>Wat een gok is.</strong> De veeg op de klankgrens als gebaar, de aantallen, en dat de hakplekken tussen álle letters zitten in plaats van alleen op de goede grenzen — anders wijst het scherm het antwoord aan.</p>
+  </div>
+</div>
+
+<script type="module" src="../vendor/model-viewer.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* Woorden met hun klankopdeling. mkm met een tweetekenklinker: precies het
+     geval waarin "hak per letter" fout gaat en het kind moet horen dat aa één
+     klank is. */
+  const WOORDEN = [
+    ['raam', ['r', 'aa', 'm']], ['boom', ['b', 'oo', 'm']], ['vuur', ['v', 'uu', 'r']],
+    ['zeep', ['z', 'ee', 'p']], ['maan', ['m', 'aa', 'n']], ['boot', ['b', 'oo', 't']],
+    ['kaas', ['k', 'aa', 's']], ['neus', ['n', 'eu', 's']], ['peer', ['p', 'ee', 'r']],
+    ['huis', ['h', 'ui', 's']], ['geit', ['g', 'ei', 't']], ['boek', ['b', 'oe', 'k']],
+    ['doos', ['d', 'oo', 's']], ['teen', ['t', 'ee', 'n']], ['buur', ['b', 'uu', 'r']],
+    ['muis', ['m', 'ui', 's']], ['peen', ['p', 'ee', 'n']], ['gaas', ['g', 'aa', 's']],
+  ];
+
+  const STANDEN = {
+    kort: { items: 3, brug: 4 },
+    echt: { items: 6, brug: 9 },
+  };
+
+  const doek = document.getElementById('doek');
+  const stappenBalk = document.getElementById('stappen');
+  const vormNaam = document.getElementById('vormNaam');
+  const houtGetal = document.getElementById('houtGetal');
+  const teller = document.getElementById('teller');
+  const planken = document.getElementById('planken');
+  const brugLabel = document.getElementById('brugLabel');
+  const melding = document.getElementById('melding');
+  const voor = document.getElementById('voor');
+  const na = document.getElementById('na');
+
+  let stand = STANDEN.kort;
+  let hout = 0;
+  let item = 0;
+  let pot = [];
+  let af = false;
+
+  /* De twee weergaven liggen op elkaar; wie draait, sleept de ander mee, zodat
+     de omslag niet ook een camerasprong is. */
+  let bezig = false;
+  const koppel = (van, naar) => van.addEventListener('camera-change', () => {
+    if (bezig) return;
+    bezig = true;
+    naar.cameraOrbit = van.getCameraOrbit().toString();
+    naar.cameraTarget = van.getCameraTarget().toString();
+    requestAnimationFrame(() => { bezig = false; });
+  });
+  koppel(voor, na);
+  koppel(na, voor);
+
+  function toonMelding(tekst) {
+    melding.textContent = tekst;
+    melding.classList.add('aan');
+    setTimeout(() => melding.classList.remove('aan'), 3600);
+  }
+
+  function tekenVoorraad() {
+    houtGetal.textContent = String(hout);
+    planken.replaceChildren();
+    for (let i = 0; i < stand.brug; i++) {
+      const p = document.createElement('i');
+      p.className = 'plank' + (i < Math.min(hout, stand.brug) ? ' er' : '');
+      planken.appendChild(p);
+    }
+    brugLabel.textContent = hout >= stand.brug ? 'brug af' : 'brug';
+  }
+
+  function tekenStappen() {
+    stappenBalk.replaceChildren();
+    for (let i = 0; i < stand.items; i++) {
+      const s = document.createElement('i');
+      s.className = 'stap' + (i < item ? ' klaar' : i === item ? ' nu' : '');
+      stappenBalk.appendChild(s);
+    }
+  }
+
+  const spreek = (tekst) => {
+    if (!('speechSynthesis' in window)) return false;
+    try {
+      const u = new SpeechSynthesisUtterance(tekst);
+      u.lang = 'nl-NL';
+      u.rate = 0.85;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
+      return true;
+    } catch (e) { return false; }
+  };
+
+  function luidsprekerKnop(tekst) {
+    const b = document.createElement('button');
+    b.className = 'luid';
+    b.type = 'button';
+    b.setAttribute('aria-label', 'lees het woord voor');
+    b.innerHTML = '<svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">'
+      + '<polygon points="6,15 14,15 23,7 23,33 14,25 6,25" fill="currentColor"></polygon>'
+      + '<path d="M28 12 q7 8 0 16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"></path>'
+      + '</svg>';
+    b.addEventListener('click', () => spreek(tekst));
+    return b;
+  }
+
+  /* -- hakken ------------------------------------------------------------ */
+  function hakken(woord, klanken) {
+    vormNaam.textContent = 'Hakken';
+    doek.replaceChildren();
+    doek.appendChild(luidsprekerKnop(woord));
+    spreek(woord);
+
+    // De goede grenzen als letterposities: r|aa|m in "raam" is 1 en 3.
+    const goed = new Set();
+    let n = 0;
+    for (let i = 0; i < klanken.length - 1; i++) { n += klanken[i].length; goed.add(n); }
+
+    const balk = document.createElement('div');
+    balk.className = 'balk';
+    // Elk stuk is een aaneengesloten reeks letters die nog niet gesplitst is.
+    let stukken = [{ van: 0, tot: woord.length }];
+
+    function teken() {
+      balk.replaceChildren();
+      stukken.forEach((s, si) => {
+        const el = document.createElement('div');
+        el.className = 'stuk' + (stukken.length > 1 ? ' los' : '');
+        for (let i = s.van; i < s.tot; i++) {
+          const l = document.createElement('span');
+          l.className = 'letter';
+          l.textContent = woord[i];
+          el.appendChild(l);
+          if (i < s.tot - 1) el.appendChild(hakKnop(i + 1, el));
+        }
+        balk.appendChild(el);
+        if (si < stukken.length - 1) {
+          const gat = document.createElement('span');
+          gat.style.width = '14px';
+          balk.appendChild(gat);
+        }
+      });
+      if (stukken.length === klanken.length) balk.classList.add('klaar');
+    }
+
+    function hakKnop(pos, stukEl) {
+      const b = document.createElement('button');
+      b.className = 'hak';
+      b.type = 'button';
+      b.setAttribute('aria-label', 'hak hier');
+      let startY = null;
+      b.addEventListener('pointerdown', (e) => { startY = e.clientY; b.setPointerCapture(e.pointerId); });
+      b.addEventListener('pointerup', () => {
+        // Een veeg naar beneden is het bedoelde gebaar, maar een tik telt net zo
+        // goed: niemand mag vastlopen op de bediening in plaats van op de taal.
+        startY = null;
+        probeer(pos, stukEl);
+      });
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); probeer(pos, stukEl); }
+      });
+      return b;
+    }
+
+    function probeer(pos, stukEl) {
+      if (!goed.has(pos)) {
+        stukEl.classList.remove('mis');
+        void stukEl.offsetWidth;
+        stukEl.classList.add('mis');
+        spreek(woord);
+        return;
+      }
+      const i = stukken.findIndex((s) => s.van < pos && pos < s.tot);
+      if (i < 0) return;
+      const s = stukken[i];
+      stukken.splice(i, 1, { van: s.van, tot: pos }, { van: pos, tot: s.tot });
+      teken();
+      if (stukken.length === klanken.length) setTimeout(volgende, 620);
+    }
+
+    teken();
+    doek.appendChild(balk);
+  }
+
+  /* -- voorgelezen woord aanwijzen --------------------------------------- */
+  function aanwijzen(woord) {
+    vormNaam.textContent = 'Aanwijzen';
+    doek.replaceChildren();
+    doek.appendChild(luidsprekerKnop(woord));
+    const gesproken = spreek(woord);
+
+    const anderen = WOORDEN.map((w) => w[0]).filter((w) => w !== woord);
+    const keuze = [woord];
+    while (keuze.length < 4) {
+      const k = anderen[Math.floor(Math.random() * anderen.length)];
+      if (!keuze.includes(k)) keuze.push(k);
+    }
+    keuze.sort(() => Math.random() - 0.5);
+
+    const lijst = document.createElement('div');
+    lijst.className = 'kaarten';
+    for (const w of keuze) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = w;
+      b.addEventListener('click', () => {
+        if (w !== woord) { b.classList.add('gekozen'); spreek(woord); return; }
+        b.classList.add('gekozen');
+        setTimeout(volgende, 520);
+      });
+      lijst.appendChild(b);
+    }
+    doek.appendChild(lijst);
+
+    if (!gesproken) {
+      const p = document.createElement('p');
+      p.style.cssText = 'color:var(--gedempt);font-size:.85rem;margin:0;text-align:center;max-width:34ch';
+      p.textContent = 'Deze browser leest niet voor. Het gezochte woord is ' + woord + '.';
+      doek.appendChild(p);
+    }
+  }
+
+  /* -- verloop ----------------------------------------------------------- */
+  function volgende() {
+    item += 1;
+    tekenStappen();
+    if (item >= stand.items) return rondeAf();
+    speelItem();
+  }
+
+  function speelItem() {
+    const [woord, klanken] = pot[item % pot.length];
+    if (vorm === 'hakken') hakken(woord, klanken); else aanwijzen(woord);
+  }
+
+  let vorm = 'hakken';
+
+  function rondeAf() {
+    hout += 1;
+    tekenVoorraad();
+    teller.classList.remove('groei');
+    void teller.offsetWidth;
+    teller.classList.add('groei');
+
+    if (hout >= stand.brug && !af) return brugKlaar();
+
+    doek.replaceChildren();
+    const k = document.createElement('div');
+    k.className = 'kiezer';
+    const h = document.createElement('p');
+    h.innerHTML = 'Ronde af. <strong>Eén hout erbij.</strong> Nog '
+      + (stand.brug - hout) + ' voor de brug.';
+    k.appendChild(h);
+    const p = document.createElement('p');
+    p.textContent = 'Waarmee begin je de volgende?';
+    k.appendChild(p);
+    const keuzes = document.createElement('div');
+    keuzes.className = 'keuzes';
+    for (const [sleutel, naam] of [['hakken', 'Hakken'], ['aanwijzen', 'Aanwijzen']]) {
+      const b = document.createElement('button');
+      b.className = 'knop' + (sleutel === 'hakken' ? '' : ' stil');
+      b.type = 'button';
+      b.textContent = naam;
+      b.addEventListener('click', () => startRonde(sleutel));
+      keuzes.appendChild(b);
+    }
+    k.appendChild(keuzes);
+    doek.appendChild(k);
+  }
+
+  function brugKlaar() {
+    af = true;
+    na.classList.add('aan');
+    na.removeAttribute('aria-hidden');
+    voor.setAttribute('aria-hidden', 'true');
+    toonMelding('De brug ligt er. Het bos is scherp.');
+
+    doek.replaceChildren();
+    const k = document.createElement('div');
+    k.className = 'kiezer';
+    const h = document.createElement('p');
+    h.innerHTML = '<strong>De brug is af.</strong> Het bos aan de overkant heeft zijn kleur gekregen.';
+    k.appendChild(h);
+    const p = document.createElement('p');
+    p.textContent = 'In het echt kost dit meerdere zittingen, verdeeld over ongeveer twee weken.';
+    k.appendChild(p);
+    const b = document.createElement('button');
+    b.className = 'knop';
+    b.type = 'button';
+    b.textContent = 'Opnieuw';
+    b.addEventListener('click', () => herstart());
+    k.appendChild(b);
+    doek.appendChild(k);
+  }
+
+  function startRonde(gekozenVorm) {
+    vorm = gekozenVorm;
+    item = 0;
+    pot = WOORDEN.slice().sort(() => Math.random() - 0.5);
+    tekenStappen();
+    speelItem();
+  }
+
+  function herstart() {
+    hout = 0;
+    af = false;
+    na.classList.remove('aan');
+    na.setAttribute('aria-hidden', 'true');
+    voor.removeAttribute('aria-hidden');
+    tekenVoorraad();
+    startRonde('hakken');
+  }
+
+  for (const b of document.querySelectorAll('.standen button')) {
+    b.addEventListener('click', () => {
+      for (const a of document.querySelectorAll('.standen button')) {
+        a.setAttribute('aria-pressed', String(a === b));
+      }
+      stand = STANDEN[b.dataset.stand];
+      herstart();
+    });
+  }
+
+  tekenVoorraad();
+  startRonde('hakken');
+})();
+</script>
+</body>
+</html>
