@@ -203,59 +203,72 @@ function envelop(m, yMond, vanRing = 0) {
 }
 
 /* -- mand, brander en kabels ----------------------------------------------
- * Achthoekige rieten mand — geen kist maar een mand — nadrukkelijk smaller
+ * Vierkante rieten mand — de klassieke ballonmand — nadrukkelijk smaller
  * dan de mond van de envelop erboven. Menselijke maat: de deur van de
  * vuurtoren is ± 0.85 eenheid, dus de mandrand ligt op borsthoogte (0.64)
  * en wie erin staat steekt er ruim bovenuit. Vlechtwerk in twee grepen uit
  * de bruine verloopstrook, opgerolde rand in donkerder bruin (geen inkten
  * kistlijstwerk). Het materiaal is doubleSided, dus de binnenkant van de
  * wanden is gewoon zichtbaar; binnenin ligt een vloer.
+ *
+ * De vier hoeken staan op oplopende hoek (−45°, 45°, 135°, 225°), zodat de
+ * winding dezelfde kant op loopt als bij de gedraaide vormen hierboven.
  */
-const MAND_ZIJDEN = 8;
-const MAND_HOEK = (k) => ((k + 0.5) / MAND_ZIJDEN) * Math.PI * 2;
+const MAND_HOEKEN = [[1, -1], [1, 1], [-1, 1], [-1, -1]];
+const mandHoek = (half, y, i) => {
+  const [sx, sz] = MAND_HOEKEN[i % 4];
+  return [half * sx, y, half * sz];
+};
+/** punt op zijde i, t van 0 (hoek i) tot 1 (hoek i+1) */
+const mandZijde = (half, y, i, t) => {
+  const A = mandHoek(half, y, i), B = mandHoek(half, y, i + 1);
+  return [A[0] + (B[0] - A[0]) * t, y, A[2] + (B[2] - A[2]) * t];
+};
 
-function mand(m, yMond) {
-  const R_ONDER = 0.44, R_BOVEN = 0.5, HOOGTE = 0.55;
+function mand(m) {
+  const HALF_ONDER = 0.3, HALF_BOVEN = 0.35, HOOGTE = 0.5;
+  const halfOp = (y) => HALF_ONDER + (HALF_BOVEN - HALF_ONDER) * (y / HOOGTE);
 
-  /* wanden: 8 zijden × 2 rijen vlechtvakken; variatie alleen per vak van
-   * het vlechtwerk, de vakken van één zijde liggen in hetzelfde vlak */
-  for (let rij = 0; rij < 2; rij++) {
-    const y0 = (rij / 2) * HOOGTE, y1 = ((rij + 1) / 2) * HOOGTE;
-    const r0 = R_ONDER + (R_BOVEN - R_ONDER) * (y0 / HOOGTE);
-    const r1 = R_ONDER + (R_BOVEN - R_ONDER) * (y1 / HOOGTE);
-    for (let k = 0; k < MAND_ZIJDEN; k++) {
-      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
-      const A = punt(r0, y0, a0), B = punt(r0, y0, a1);
-      const C = punt(r1, y1, a1), D = punt(r1, y1, a0);
-      const dv = (rij + k) % 2 ? -12 : 12;
-      m.driehoek(A, C, B, uv(BRUIN, dv));
-      m.driehoek(A, D, C, uv(BRUIN, dv));
+  /* wanden: 4 zijden × 3 kolommen × 2 rijen vlechtvakken; variatie alleen
+   * per vak, de vakken van één zijde liggen in hetzelfde vlak */
+  const KOLOMMEN = 3, RIJEN = 2;
+  for (let i = 0; i < 4; i++) {
+    for (let rij = 0; rij < RIJEN; rij++) {
+      const y0 = (rij / RIJEN) * HOOGTE, y1 = ((rij + 1) / RIJEN) * HOOGTE;
+      const h0 = halfOp(y0), h1 = halfOp(y1);
+      for (let kol = 0; kol < KOLOMMEN; kol++) {
+        const t0 = kol / KOLOMMEN, t1 = (kol + 1) / KOLOMMEN;
+        const A = mandZijde(h0, y0, i, t0), B = mandZijde(h0, y0, i, t1);
+        const C = mandZijde(h1, y1, i, t1), D = mandZijde(h1, y1, i, t0);
+        const dv = (rij + kol) % 2 ? -12 : 12;
+        m.driehoek(A, C, B, uv(BRUIN, dv));
+        m.driehoek(A, D, C, uv(BRUIN, dv));
+      }
     }
   }
 
   /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen —
    * donkerder bruin, als de dikke gevlochten rand van een echte mand */
   const RAND = [
-    [R_BOVEN, HOOGTE], [R_BOVEN + 0.06, HOOGTE + 0.045],
-    [R_BOVEN + 0.06, HOOGTE + 0.09], [R_BOVEN - 0.09, HOOGTE + 0.09],
-    [R_BOVEN - 0.09, HOOGTE],
+    [HALF_BOVEN, HOOGTE], [HALF_BOVEN + 0.06, HOOGTE + 0.045],
+    [HALF_BOVEN + 0.06, HOOGTE + 0.09], [HALF_BOVEN - 0.08, HOOGTE + 0.09],
+    [HALF_BOVEN - 0.08, HOOGTE],
   ];
   for (let s = 0; s < RAND.length - 1; s++) {
-    const [r0, y0] = RAND[s], [r1, y1] = RAND[s + 1];
-    for (let k = 0; k < MAND_ZIJDEN; k++) {
-      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
-      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(BRUIN, 28));
-      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(BRUIN, 28));
+    const [h0, y0] = RAND[s], [h1, y1] = RAND[s + 1];
+    for (let i = 0; i < 4; i++) {
+      const A = mandHoek(h0, y0, i), B = mandHoek(h0, y0, i + 1);
+      const C = mandHoek(h1, y1, i + 1), D = mandHoek(h1, y1, i);
+      m.driehoek(A, C, B, uv(BRUIN, 28));
+      m.driehoek(A, D, C, uv(BRUIN, 28));
     }
   }
 
   /* bodem (naar beneden) en vloer binnenin (naar boven) */
-  for (let k = 0; k < MAND_ZIJDEN; k++) {
-    const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
-    m.driehoek([0, 0, 0], punt(R_ONDER, 0, a0), punt(R_ONDER, 0, a1), uv(BRUIN, 20));
-    m.driehoek([0, 0.08, 0], punt(R_ONDER, 0.08, a1), punt(R_ONDER, 0.08, a0), uv(BRUIN, 26));
+  for (let i = 0; i < 4; i++) {
+    m.driehoek([0, 0, 0], mandHoek(HALF_ONDER, 0, i), mandHoek(HALF_ONDER, 0, i + 1), uv(BRUIN, 20));
+    m.driehoek([0, 0.08, 0], mandHoek(HALF_ONDER, 0.08, i + 1), mandHoek(HALF_ONDER, 0.08, i), uv(BRUIN, 26));
   }
-
 }
 
 /* -- tuig: branderring, brander en staanders -------------------------------
@@ -263,8 +276,10 @@ function mand(m, yMond) {
  * dragen de branderring; in het midden van de ring zit de brander; en aan
  * de ring hangen de kabels die naar de envelop lopen (zie kabels()).
  */
-const RING_R_UIT = 0.32, RING_R_IN = 0.24;
-const RING_ONDER = 0.95, RING_BOVEN = 1.0;
+const RING_ZIJDEN = 8;
+const RING_HOEK = (k) => ((k + 0.5) / RING_ZIJDEN) * Math.PI * 2;
+const RING_R_UIT = 0.4, RING_R_IN = 0.29;
+const RING_ONDER = 0.7, RING_BOVEN = 0.76;
 
 function tuig(m) {
   /* branderring: achthoekige band, inktzwart */
@@ -274,8 +289,8 @@ function tuig(m) {
   ];
   for (let s = 0; s < RING.length - 1; s++) {
     const [r0, y0] = RING[s], [r1, y1] = RING[s + 1];
-    for (let k = 0; k < MAND_ZIJDEN; k++) {
-      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
+    for (let k = 0; k < RING_ZIJDEN; k++) {
+      const a0 = RING_HOEK(k - 0.5), a1 = RING_HOEK(k + 0.5);
       m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(INKT));
       m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(INKT));
     }
@@ -283,7 +298,7 @@ function tuig(m) {
 
   /* brander: blokje midden in de ring, met een terracotta bovenvlak als
    * vlampoort — gewoon een paletkleur, geen emissive */
-  const B_HALF = 0.09, B_ONDER = RING_ONDER, B_BOVEN = RING_BOVEN + 0.16;
+  const B_HALF = 0.1, B_ONDER = RING_ONDER - 0.02, B_BOVEN = RING_BOVEN + 0.16;
   const b = (y, i) => [B_HALF * (i === 0 || i === 3 ? 1 : -1), y, B_HALF * (i < 2 ? -1 : 1)];
   for (let i = 0; i < 4; i++) {
     const j = (i + 1) % 4;
@@ -292,47 +307,59 @@ function tuig(m) {
   m.vlak(b(B_BOVEN, 0), b(B_BOVEN, 1), b(B_BOVEN, 2), b(B_BOVEN, 3), uv(TERRACOTTA, -20));
   m.vlak(b(B_ONDER, 3), b(B_ONDER, 2), b(B_ONDER, 1), b(B_ONDER, 0), uv(INKT, 16));
 
-  /* staanders: vier schuine stijlen van de mandrand naar de ring — de
-   * zichtbare bevestiging van het tuig aan de mand. Driezijdige prisma's
-   * (doorsnede 0.028, boven het minimum van 0.015 uit de stijlgids). */
-  const DIKTE = 0.014;
-  for (const k of [0, 2, 4, 6]) {
-    const hoek = MAND_HOEK(k);
-    const P0 = punt(0.46, 0.6, hoek);
-    const P1 = punt(RING_R_UIT - 0.03, RING_ONDER + 0.03, hoek);
-    const d = [P1[0] - P0[0], P1[1] - P0[1], P1[2] - P0[2]];
-    const dl = Math.hypot(...d);
-    const richting = d.map((c) => c / dl);
-    let u = [richting[1], -richting[0], 0];
-    const ul = Math.hypot(...u) || 1;
-    u = u.map((c) => c / ul);
-    const v = [
-      richting[1] * u[2] - richting[2] * u[1],
-      richting[2] * u[0] - richting[0] * u[2],
-      richting[0] * u[1] - richting[1] * u[0],
-    ];
-    const rib = (P, a) => [
-      P[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * DIKTE,
-      P[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * DIKTE,
-      P[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * DIKTE,
-    ];
-    for (let z = 0; z < 3; z++) {
-      const a0 = (z / 3) * Math.PI * 2;
-      const a1 = ((z + 1) / 3) * Math.PI * 2;
-      m.vlak(rib(P0, a0), rib(P0, a1), rib(P1, a1), rib(P1, a0), uv(INKT));
-    }
+  /* staanders: vier schuine stijlen van de hoeken van de mandrand naar de
+   * ring — de zichtbare bevestiging van het tuig aan de mand. */
+  for (let i = 0; i < 4; i++) {
+    const [sx, sz] = MAND_HOEKEN[i];
+    const hoek = Math.atan2(sz, sx);
+    staaf(m, [0.32 * sx, 0.52, 0.32 * sz], punt(RING_R_UIT - 0.04, RING_ONDER + 0.03, hoek), 0.024, INKT);
   }
 }
 
-/* kabels: acht dunne lijnen — hetzelfde lijnmateriaal als de naden — van de
- * branderring omhoog en naar buiten naar de bredere mondring, op de
- * hoekpunten van de achthoek zodat elke kabel bij een naadpositie van de
- * envelop uitkomt. Dikke touwprisma's lazen als stokken; de kabels van een
- * echte ballon zijn juist dun. */
+/**
+ * Driezijdig prisma tussen twee punten: de dunste vorm die de stijlgids
+ * toestaat zonder in outlines te vervallen. `dikte` is de kleinste maat van
+ * de doorsnede — bij een gelijkzijdige driehoek is dat de afstand van een
+ * punt tot de overstaande zijde, dus 1.5 × de omgeschreven straal. Die maat
+ * moet boven het minimum van 0.015 units blijven; met de omgeschreven straal
+ * rekenen zou een te dun staafje opleveren. De uiteinden steken in de
+ * aangrenzende delen, dus eindkappen zijn niet nodig.
+ */
+function staaf(m, P0, P1, dikte, kleurCel, dv = 0) {
+  const straal = dikte / 1.5;
+  const d = [P1[0] - P0[0], P1[1] - P0[1], P1[2] - P0[2]];
+  const dl = Math.hypot(...d) || 1;
+  const richting = d.map((c) => c / dl);
+  let u = [richting[1], -richting[0], 0];
+  const ul = Math.hypot(...u) || 1;
+  u = u.map((c) => c / ul);
+  const v = [
+    richting[1] * u[2] - richting[2] * u[1],
+    richting[2] * u[0] - richting[0] * u[2],
+    richting[0] * u[1] - richting[1] * u[0],
+  ];
+  const rib = (P, a) => [
+    P[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * straal,
+    P[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * straal,
+    P[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * straal,
+  ];
+  for (let z = 0; z < 3; z++) {
+    const a0 = (z / 3) * Math.PI * 2;
+    const a1 = ((z + 1) / 3) * Math.PI * 2;
+    m.vlak(rib(P0, a0), rib(P0, a1), rib(P1, a1), rib(P1, a0), uv(kleurCel, dv));
+  }
+}
+
+/* kabels: acht dunne staven van de branderring omhoog en naar buiten naar de
+ * bredere mondring, op de hoekpunten van de achthoek zodat elke kabel bij een
+ * naadpositie van de envelop uitkomt. Bewust geometrie en geen lijnen: de
+ * stijlgids houdt outlines voor op een onderscheidend kenmerk (hier de
+ * naden), en een kabel is gewoon een dun onderdeel. Op 0.018 doorsnede — net
+ * boven het minimum van 0.015 — blijven ze zo dun als de stijlgids toelaat. */
 function kabels(m, yMond) {
-  for (let k = 0; k < MAND_ZIJDEN; k++) {
-    const hoek = MAND_HOEK(k);
-    m.lijn(punt(RING_R_UIT - 0.01, RING_BOVEN, hoek), punt(0.57, yMond + 0.02, hoek));
+  for (let k = 0; k < RING_ZIJDEN; k++) {
+    const hoek = RING_HOEK(k);
+    staaf(m, punt(RING_R_UIT - 0.01, RING_BOVEN, hoek), punt(0.57, yMond + 0.02, hoek), 0.018, STAAL, -10);
   }
 }
 
