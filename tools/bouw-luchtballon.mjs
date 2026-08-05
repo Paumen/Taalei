@@ -256,9 +256,34 @@ function mand(m, yMond) {
     m.driehoek([0, 0.08, 0], punt(R_ONDER, 0.08, a1), punt(R_ONDER, 0.08, a0), uv(BRUIN, 26));
   }
 
-  /* brander: blokje vlak onder de mond, met een terracotta bovenvlak als
+}
+
+/* -- tuig: branderring, brander en staanders -------------------------------
+ * De opbouw van een echte ballon: aan de mandrand staan vier staanders, die
+ * dragen de branderring; in het midden van de ring zit de brander; en aan
+ * de ring hangen de kabels die naar de envelop lopen (zie kabels()).
+ */
+const RING_R_UIT = 0.32, RING_R_IN = 0.24;
+const RING_ONDER = 0.95, RING_BOVEN = 1.0;
+
+function tuig(m) {
+  /* branderring: achthoekige band, inktzwart */
+  const RING = [
+    [RING_R_UIT, RING_ONDER], [RING_R_UIT, RING_BOVEN],
+    [RING_R_IN, RING_BOVEN], [RING_R_IN, RING_ONDER], [RING_R_UIT, RING_ONDER],
+  ];
+  for (let s = 0; s < RING.length - 1; s++) {
+    const [r0, y0] = RING[s], [r1, y1] = RING[s + 1];
+    for (let k = 0; k < MAND_ZIJDEN; k++) {
+      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(INKT));
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(INKT));
+    }
+  }
+
+  /* brander: blokje midden in de ring, met een terracotta bovenvlak als
    * vlampoort — gewoon een paletkleur, geen emissive */
-  const B_HALF = 0.09, B_ONDER = yMond - 0.28, B_BOVEN = yMond - 0.1;
+  const B_HALF = 0.09, B_ONDER = RING_ONDER, B_BOVEN = RING_BOVEN + 0.16;
   const b = (y, i) => [B_HALF * (i === 0 || i === 3 ? 1 : -1), y, B_HALF * (i < 2 ? -1 : 1)];
   for (let i = 0; i < 4; i++) {
     const j = (i + 1) % 4;
@@ -266,17 +291,48 @@ function mand(m, yMond) {
   }
   m.vlak(b(B_BOVEN, 0), b(B_BOVEN, 1), b(B_BOVEN, 2), b(B_BOVEN, 3), uv(TERRACOTTA, -20));
   m.vlak(b(B_ONDER, 3), b(B_ONDER, 2), b(B_ONDER, 1), b(B_ONDER, 0), uv(INKT, 16));
+
+  /* staanders: vier schuine stijlen van de mandrand naar de ring — de
+   * zichtbare bevestiging van het tuig aan de mand. Driezijdige prisma's
+   * (doorsnede 0.028, boven het minimum van 0.015 uit de stijlgids). */
+  const DIKTE = 0.014;
+  for (const k of [0, 2, 4, 6]) {
+    const hoek = MAND_HOEK(k);
+    const P0 = punt(0.46, 0.6, hoek);
+    const P1 = punt(RING_R_UIT - 0.03, RING_ONDER + 0.03, hoek);
+    const d = [P1[0] - P0[0], P1[1] - P0[1], P1[2] - P0[2]];
+    const dl = Math.hypot(...d);
+    const richting = d.map((c) => c / dl);
+    let u = [richting[1], -richting[0], 0];
+    const ul = Math.hypot(...u) || 1;
+    u = u.map((c) => c / ul);
+    const v = [
+      richting[1] * u[2] - richting[2] * u[1],
+      richting[2] * u[0] - richting[0] * u[2],
+      richting[0] * u[1] - richting[1] * u[0],
+    ];
+    const rib = (P, a) => [
+      P[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * DIKTE,
+      P[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * DIKTE,
+      P[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * DIKTE,
+    ];
+    for (let z = 0; z < 3; z++) {
+      const a0 = (z / 3) * Math.PI * 2;
+      const a1 = ((z + 1) / 3) * Math.PI * 2;
+      m.vlak(rib(P0, a0), rib(P0, a1), rib(P1, a1), rib(P1, a0), uv(INKT));
+    }
+  }
 }
 
 /* kabels: acht dunne lijnen — hetzelfde lijnmateriaal als de naden — van de
- * mandrand omhoog en licht naar buiten naar de bredere mondring, op de
+ * branderring omhoog en naar buiten naar de bredere mondring, op de
  * hoekpunten van de achthoek zodat elke kabel bij een naadpositie van de
- * envelop uitkomt. Dikke touwprisma's lazen als stokken; kabels van een
+ * envelop uitkomt. Dikke touwprisma's lazen als stokken; de kabels van een
  * echte ballon zijn juist dun. */
 function kabels(m, yMond) {
   for (let k = 0; k < MAND_ZIJDEN; k++) {
     const hoek = MAND_HOEK(k);
-    m.lijn(punt(0.52, 0.62, hoek), punt(0.57, yMond + 0.02, hoek));
+    m.lijn(punt(RING_R_UIT - 0.01, RING_BOVEN, hoek), punt(0.57, yMond + 0.02, hoek));
   }
 }
 
@@ -431,15 +487,16 @@ function controleerEnvelop(m, banden = PROFIEL.length - 1) {
 }
 
 {
-  /* envelop afgeknot op ring 1 (mond ~1.2 breed), achthoekige mand met de
-   * rand op borsthoogte (0.64) en smaller dan de mond, dunne kabels: de
-   * envelop domineert zoals bij een echte ballon en de mand hangt er
-   * zichtbaar in, niet los onder. */
-  const MOND = 1.06;
+  /* de opbouw van een echte ballon, van onder naar boven: mand (rand op
+   * borsthoogte 0.64, smaller dan de mond), staanders naar de branderring
+   * met de brander erin, en van de ring dunne kabels naar de mond van de
+   * afgeknotte envelop (~1.2 breed). */
+  const MOND = 1.32;
   const m = maakModel();
   envelop(m, MOND, 1);
   controleerEnvelop(m, PROFIEL.length - 2);
-  mand(m, MOND);
+  mand(m);
+  tuig(m);
   kabels(m, MOND);
   schrijfGlb('balloon-basket', m);
 }
