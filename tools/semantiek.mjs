@@ -85,6 +85,9 @@ const uitzonderingen = {
   'mini-forest/target': 'borden',
   'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'terrein',
+  // Overbrugt een hoogte zonder eroverheen te bouwen (draft_spec: "luchtballon
+  // → onbereikbaar plateau"), dus bij de trappen en bruggen.
+  'taalei-kit/hot-air-balloon': 'verbinding',
 };
 
 /** [regex, groep] — eerste match wint. */
@@ -115,7 +118,8 @@ const regels = [
  */
 const WOORDENBOEK = {
   arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
-  axe: ['bijl'], balcony: ['balkon'], banner: ['banier', 'vaandel'],
+  axe: ['bijl'], balcony: ['balkon'], balloon: ['ballon', 'luchtballon'],
+  banner: ['banier', 'vaandel'],
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
   bottle: ['fles'], bow: ['boog'], bridge: ['brug'], bucket: ['emmer'],
   building: ['gebouw'], campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
