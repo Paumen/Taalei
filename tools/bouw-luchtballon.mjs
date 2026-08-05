@@ -141,11 +141,13 @@ function envelop(m, yMond, vanRing = 0) {
       const C = punt(r1, y1, a1);
       const D = punt(r1, y1, a0);
       const kleur = baanKleur(band, baan);
-      // De witte cel loopt naar onderen snel naar grijsroze; alleen omhoog
-      // (lichter) variëren houdt de witte banen warm in plaats van vuil.
+      // Iedere baan is over zijn hele lengte één greep uit de strook: variatie
+      // per báán, nooit per band — anders tekenen zich horizontale ringen af
+      // en die heeft een echte ballon niet. De witte cel alleen omhoog
+      // (lichter), want naar onderen loopt hij snel naar grijsroze.
       const dv = kleur === WIT
-        ? -Math.round(hash2(band * 7 + 1, baan * 3 + 2) * 10)
-        : trilling(band * 7 + 1, baan * 3 + 2);
+        ? -Math.round(hash2(baan * 3 + 2, 7) * 8)
+        : Math.round((hash2(baan * 3 + 2, 3) - 0.5) * 10);
       const celUv = uv(kleur, dv);
       m.driehoek(A, C, B, celUv);
       m.driehoek(A, D, C, celUv);
@@ -200,75 +202,64 @@ function envelop(m, yMond, vanRing = 0) {
   }
 }
 
-/* -- mand, brander en touwen ---------------------------------------------
- * Forse vierkante rieten mand — op de rand breder dan de mond erboven,
- * zoals bij een speelgoedballon — met een taps toelopend lijf, een
- * inktzwarte rand en een vloer erin (het materiaal is doubleSided, dus de
- * binnenkant van de wanden is gewoon zichtbaar). De brander hangt vlak
- * onder de mond; de touwen lopen kort en steil van de randhoeken omhoog.
+/* -- mand, brander en kabels ----------------------------------------------
+ * Achthoekige rieten mand — geen kist maar een mand — nadrukkelijk smaller
+ * dan de mond van de envelop erboven. Menselijke maat: de deur van de
+ * vuurtoren is ± 0.85 eenheid, dus de mandrand ligt op borsthoogte (0.64)
+ * en wie erin staat steekt er ruim bovenuit. Vlechtwerk in twee grepen uit
+ * de bruine verloopstrook, opgerolde rand in donkerder bruin (geen inkten
+ * kistlijstwerk). Het materiaal is doubleSided, dus de binnenkant van de
+ * wanden is gewoon zichtbaar; binnenin ligt een vloer.
  */
-function mand(m, yMond) {
-  const ONDER_HALF = 0.55, BOVEN_HALF = 0.65, HOOGTE = 0.85;
-  const hoekpunt = (half, y, i) => [half * (i === 0 || i === 3 ? 1 : -1), y, half * (i < 2 ? -1 : 1)];
+const MAND_ZIJDEN = 8;
+const MAND_HOEK = (k) => ((k + 0.5) / MAND_ZIJDEN) * Math.PI * 2;
 
-  /* wanden in een raster van 4 × 3 vakken, om en om een lichtere en
-   * donkerdere greep uit dezelfde bruine verloopstrook: het vlechtwerk,
-   * plat geschaduwd zoals de rest van de kit. De vakken van één wand
-   * liggen in hetzelfde vlak; alleen de kleur wisselt. */
-  const VAKKEN_H = 4, VAKKEN_V = 3;
-  for (let i = 0; i < 4; i++) {
-    const j = (i + 1) % 4;
-    const rand = (y, t) => {
-      const half = ONDER_HALF + (BOVEN_HALF - ONDER_HALF) * (y / HOOGTE);
-      const A = hoekpunt(half, y, i), B = hoekpunt(half, y, j);
-      return [A[0] + (B[0] - A[0]) * t, y, A[2] + (B[2] - A[2]) * t];
-    };
-    for (let rij = 0; rij < VAKKEN_V; rij++) {
-      for (let kol = 0; kol < VAKKEN_H; kol++) {
-        const t0 = kol / VAKKEN_H, t1 = (kol + 1) / VAKKEN_H;
-        const y0 = (rij / VAKKEN_V) * HOOGTE, y1 = ((rij + 1) / VAKKEN_V) * HOOGTE;
-        const dv = (rij + kol) % 2 ? -14 : 10;
-        m.vlak(rand(y0, t0), rand(y0, t1), rand(y1, t1), rand(y1, t0), uv(BRUIN, dv));
-      }
+function mand(m, yMond) {
+  const R_ONDER = 0.44, R_BOVEN = 0.5, HOOGTE = 0.55;
+
+  /* wanden: 8 zijden × 2 rijen vlechtvakken; variatie alleen per vak van
+   * het vlechtwerk, de vakken van één zijde liggen in hetzelfde vlak */
+  for (let rij = 0; rij < 2; rij++) {
+    const y0 = (rij / 2) * HOOGTE, y1 = ((rij + 1) / 2) * HOOGTE;
+    const r0 = R_ONDER + (R_BOVEN - R_ONDER) * (y0 / HOOGTE);
+    const r1 = R_ONDER + (R_BOVEN - R_ONDER) * (y1 / HOOGTE);
+    for (let k = 0; k < MAND_ZIJDEN; k++) {
+      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
+      const A = punt(r0, y0, a0), B = punt(r0, y0, a1);
+      const C = punt(r1, y1, a1), D = punt(r1, y1, a0);
+      const dv = (rij + k) % 2 ? -12 : 12;
+      m.driehoek(A, C, B, uv(BRUIN, dv));
+      m.driehoek(A, D, C, uv(BRUIN, dv));
     }
   }
-  /* bodem (naar beneden) en vloer binnenin (naar boven) */
-  m.vlak(
-    hoekpunt(ONDER_HALF, 0, 3), hoekpunt(ONDER_HALF, 0, 2),
-    hoekpunt(ONDER_HALF, 0, 1), hoekpunt(ONDER_HALF, 0, 0),
-    uv(BRUIN, 20),
-  );
-  m.vlak(
-    hoekpunt(ONDER_HALF, 0.14, 0), hoekpunt(ONDER_HALF, 0.14, 1),
-    hoekpunt(ONDER_HALF, 0.14, 2), hoekpunt(ONDER_HALF, 0.14, 3),
-    uv(BRUIN, 26),
-  );
 
-  /* rand: vierkant lijstwerk dat iets uitsteekt, inktzwart */
-  const RAND_UIT = 0.72, RAND_IN = 0.58, RAND_TOP = 0.98;
-  for (let i = 0; i < 4; i++) {
-    const j = (i + 1) % 4;
-    m.vlak( // buitenkant
-      hoekpunt(RAND_UIT, HOOGTE, i), hoekpunt(RAND_UIT, HOOGTE, j),
-      hoekpunt(RAND_UIT, RAND_TOP, j), hoekpunt(RAND_UIT, RAND_TOP, i),
-      uv(INKT),
-    );
-    m.vlak( // binnenkant
-      hoekpunt(RAND_IN, RAND_TOP, i), hoekpunt(RAND_IN, RAND_TOP, j),
-      hoekpunt(RAND_IN, HOOGTE, j), hoekpunt(RAND_IN, HOOGTE, i),
-      uv(INKT),
-    );
-    m.vlak( // bovenkant van het lijstwerk
-      hoekpunt(RAND_UIT, RAND_TOP, i), hoekpunt(RAND_UIT, RAND_TOP, j),
-      hoekpunt(RAND_IN, RAND_TOP, j), hoekpunt(RAND_IN, RAND_TOP, i),
-      uv(INKT, -14),
-    );
+  /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen —
+   * donkerder bruin, als de dikke gevlochten rand van een echte mand */
+  const RAND = [
+    [R_BOVEN, HOOGTE], [R_BOVEN + 0.06, HOOGTE + 0.045],
+    [R_BOVEN + 0.06, HOOGTE + 0.09], [R_BOVEN - 0.09, HOOGTE + 0.09],
+    [R_BOVEN - 0.09, HOOGTE],
+  ];
+  for (let s = 0; s < RAND.length - 1; s++) {
+    const [r0, y0] = RAND[s], [r1, y1] = RAND[s + 1];
+    for (let k = 0; k < MAND_ZIJDEN; k++) {
+      const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(BRUIN, 28));
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(BRUIN, 28));
+    }
+  }
+
+  /* bodem (naar beneden) en vloer binnenin (naar boven) */
+  for (let k = 0; k < MAND_ZIJDEN; k++) {
+    const a0 = MAND_HOEK(k - 0.5), a1 = MAND_HOEK(k + 0.5);
+    m.driehoek([0, 0, 0], punt(R_ONDER, 0, a0), punt(R_ONDER, 0, a1), uv(BRUIN, 20));
+    m.driehoek([0, 0.08, 0], punt(R_ONDER, 0.08, a1), punt(R_ONDER, 0.08, a0), uv(BRUIN, 26));
   }
 
   /* brander: blokje vlak onder de mond, met een terracotta bovenvlak als
    * vlampoort — gewoon een paletkleur, geen emissive */
-  const B_HALF = 0.12, B_ONDER = yMond - 0.38, B_BOVEN = yMond - 0.16;
-  const b = (y, i) => hoekpunt(B_HALF, y, i);
+  const B_HALF = 0.09, B_ONDER = yMond - 0.28, B_BOVEN = yMond - 0.1;
+  const b = (y, i) => [B_HALF * (i === 0 || i === 3 ? 1 : -1), y, B_HALF * (i < 2 ? -1 : 1)];
   for (let i = 0; i < 4; i++) {
     const j = (i + 1) % 4;
     m.vlak(b(B_ONDER, i), b(B_ONDER, j), b(B_BOVEN, j), b(B_BOVEN, i), uv(INKT, 8));
@@ -277,40 +268,15 @@ function mand(m, yMond) {
   m.vlak(b(B_ONDER, 3), b(B_ONDER, 2), b(B_ONDER, 1), b(B_ONDER, 0), uv(INKT, 16));
 }
 
-/* touwen: van de vier randhoeken van de mand kort en steil omhoog naar de
- * mondring, elk op zijn eigen diagonaal. Geen lijnen maar driezijdige
- * prisma's (doorsnede 0.036 — boven het minimum van 0.015 uit de
- * stijlgids): een 1-pixel-lijn maakt de mand los van de ballon zodra je
- * uitzoomt. De uiteinden steken in de rand en de envelop, dus eindkappen
- * zijn niet nodig. */
-function touwen(m, yMond) {
-  const DIKTE = 0.018;
-  for (const sx of [1, -1]) for (const sz of [1, -1]) {
-    const hoek = Math.atan2(sz, sx);
-    const P0 = [0.62 * sx, 0.92, 0.62 * sz];
-    const P1 = punt(0.5, yMond + 0.06, hoek);
-    const d = [P1[0] - P0[0], P1[1] - P0[1], P1[2] - P0[2]];
-    const dl = Math.hypot(...d);
-    const richting = d.map((c) => c / dl);
-    // basisvlak loodrecht op het touw
-    let u = [richting[1], -richting[0], 0];
-    const ul = Math.hypot(...u) || 1;
-    u = u.map((c) => c / ul);
-    const v = [
-      richting[1] * u[2] - richting[2] * u[1],
-      richting[2] * u[0] - richting[0] * u[2],
-      richting[0] * u[1] - richting[1] * u[0],
-    ];
-    const rib = (P, a) => [
-      P[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * DIKTE,
-      P[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * DIKTE,
-      P[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * DIKTE,
-    ];
-    for (let z = 0; z < 3; z++) {
-      const a0 = (z / 3) * Math.PI * 2;
-      const a1 = ((z + 1) / 3) * Math.PI * 2;
-      m.vlak(rib(P0, a0), rib(P0, a1), rib(P1, a1), rib(P1, a0), uv(STAAL, -10));
-    }
+/* kabels: acht dunne lijnen — hetzelfde lijnmateriaal als de naden — van de
+ * mandrand omhoog en licht naar buiten naar de bredere mondring, op de
+ * hoekpunten van de achthoek zodat elke kabel bij een naadpositie van de
+ * envelop uitkomt. Dikke touwprisma's lazen als stokken; kabels van een
+ * echte ballon zijn juist dun. */
+function kabels(m, yMond) {
+  for (let k = 0; k < MAND_ZIJDEN; k++) {
+    const hoek = MAND_HOEK(k);
+    m.lijn(punt(0.52, 0.62, hoek), punt(0.57, yMond + 0.02, hoek));
   }
 }
 
@@ -465,14 +431,15 @@ function controleerEnvelop(m, banden = PROFIEL.length - 1) {
 }
 
 {
-  /* mand 0–0.98, korte touwen, envelop afgeknot op ring 1: de brede rok
-   * (mond ~1.2 breed, mand 1.44 op de rand) maakt er één voertuig van in
-   * plaats van een druppel met een loshangend potje eronder. */
-  const MOND = 1.4;
+  /* envelop afgeknot op ring 1 (mond ~1.2 breed), achthoekige mand met de
+   * rand op borsthoogte (0.64) en smaller dan de mond, dunne kabels: de
+   * envelop domineert zoals bij een echte ballon en de mand hangt er
+   * zichtbaar in, niet los onder. */
+  const MOND = 1.06;
   const m = maakModel();
   envelop(m, MOND, 1);
   controleerEnvelop(m, PROFIEL.length - 2);
   mand(m, MOND);
-  touwen(m, MOND);
+  kabels(m, MOND);
   schrijfGlb('balloon-basket', m);
 }
