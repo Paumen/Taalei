@@ -101,8 +101,7 @@ function balloon(){
 
   /* terracotta colourway — all four values are cells from the shared palette
      in kits/palet.json ("gedeeld"); no colour outside the colormap. */
-  const BONE = 0xf0ece3, CLAY = 0xd07b56, STEEL = 0x6d738a, INK = '#3e3e44';
-  const STEEL_HEX = '#6d738a';
+  const BONE = 0xf0ece3, CLAY = 0xd07b56, STEEL = 0x6d738a, INK = 0x3e3e44;
 
   const envelope = spun(rings, GORES, function(i, s){
     if(i <= 1) return STEEL;
@@ -119,7 +118,7 @@ function balloon(){
   /* PO note: outlines. Seam tapes are kept as a core feature of the envelope.
      Opaque per PO decision — no transparency is used anywhere in this asset. */
   const tapes = new THREE.LineSegments(seamLines(rings, GORES, 0, rings.length-1),
-    new THREE.LineBasicMaterial({color: col(STEEL_HEX)}));
+    new THREE.LineBasicMaterial({color: col(STEEL)}));
   body.add(tapes);
 
   /* mouth cap — closes the envelope's bottom opening the skirt used to hide */
