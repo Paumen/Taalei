@@ -148,35 +148,78 @@ const RMAX = 1.888;      // grootste straal
 const HOOGTE = 4.5;      // hals tot kroon
 const HALS = 0.3;        // straal van de halsopening
 const KROON = 0.2;       // straal van de kroonplaat
-const T_MAX = 0.6;       // grootste omtrek op 60% van de hoogte
+const T_MAX = 0.624;     // grootste omtrek op 62% van de hoogte, als in de studie
 const P_ONDER = 0.85;    // vulling van de kegel onder de grootste omtrek
 
 /**
- * Exponent van de kruinkoepel. De kruin van de ontwerpstudie is nagemeten een
- * kwartcirkel: op 49%, 69% en 85% van de koepelhoogte zit die op 0.879, 0.720
- * en 0.498 van de grootste straal, en een cirkel geeft daar 0.871, 0.723 en
- * 0.521. Vandaar exact 2 — hoger maakt de bovenkant vlak, en dat werd te veel.
+ * De kruin van de ontwerpstudie, uitgedrukt als (hoogte, straal) binnen de
+ * koepel — 0 bij de grootste omtrek, 1 bij de kroonplaat, beide genormaliseerd.
+ * Overgenomen uit het profiel van de studie in plaats van benaderd met een
+ * formule: een kwartcirkel of superellips valt bovenin steeds naast de
+ * originele vorm (te bol bij 85%, te stomp vlak onder de kroon), en het is
+ * juist die bovenkant die de silhouet maakt.
  */
-const N_KRUIN = 2;
+const KRUIN = [
+  [0, 1], [0.269, 0.967], [0.491, 0.865], [0.690, 0.687],
+  [0.853, 0.438], [0.958, 0.154], [1, 0],
+];
 
-/** (straal, hoogte) van hals (y = 0) naar kroon. */
-function profiel() {
-  const p = [];
-  for (let i = 0; i <= BANDEN; i++) {
-    const t = i / BANDEN;
-    let r;
-    if (t <= T_MAX) {
-      // onderkegel: vult snel uit naar de grootste omtrek
-      const v = t / T_MAX;
-      r = HALS + (RMAX - HALS) * Math.pow(Math.sin((Math.PI / 2) * v), P_ONDER);
-    } else {
-      const u = (t - T_MAX) / (1 - T_MAX);
-      r = KROON + (RMAX - KROON) * Math.pow(1 - Math.pow(u, N_KRUIN), 1 / N_KRUIN);
-    }
-    p.push([r, t * HOOGTE]);
+function kruinStraal(u) {
+  for (let i = 0; i < KRUIN.length - 1; i++) {
+    const [u0, r0] = KRUIN[i], [u1, r1] = KRUIN[i + 1];
+    if (u <= u1) return r0 + (r1 - r0) * ((u - u0) / (u1 - u0));
   }
-  p[0][0] = HALS;
-  p[p.length - 1][0] = KROON;
+  return 0;
+}
+
+/** (straal, hoogte) op parameter t ∈ [0,1], van hals naar kroon. */
+function opCurve(t) {
+  let r;
+  if (t <= T_MAX) {
+    // onderkegel: vult snel uit naar de grootste omtrek
+    const v = t / T_MAX;
+    r = HALS + (RMAX - HALS) * Math.pow(Math.sin((Math.PI / 2) * v), P_ONDER);
+  } else {
+    const u = (t - T_MAX) / (1 - T_MAX);
+    r = KROON + (RMAX - KROON) * kruinStraal(u);
+  }
+  return [r, t * HOOGTE];
+}
+
+/**
+ * De ringen worden op gelijke booglengte gezet, niet op gelijke hoogte.
+ * De ontwerpstudie doet dat ook: daar lopen de hoogtestappen van 0.32 onderin
+ * via 0.56 in het midden terug naar 0.072 bij de kroon, precies waar de
+ * omtrek het snelst krimpt. Verdeel je op hoogte, dan stort de bovenste band
+ * in één keer van straal 1.23 naar 0.20 in — een klif in plaats van een
+ * koepel, want de kwartcirkel staat bij de kroon verticaal.
+ */
+function profiel() {
+  const FIJN = 600;
+  const punten = [];
+  const lengtes = [0];
+  for (let i = 0; i <= FIJN; i++) {
+    const p = opCurve(i / FIJN);
+    punten.push(p);
+    if (i > 0) {
+      const q = punten[i - 1];
+      lengtes.push(lengtes[i - 1] + Math.hypot(p[0] - q[0], p[1] - q[1]));
+    }
+  }
+  const totaal = lengtes[FIJN];
+
+  const p = [];
+  let j = 0;
+  for (let i = 0; i <= BANDEN; i++) {
+    const doel = (i / BANDEN) * totaal;
+    while (j < FIJN && lengtes[j + 1] < doel) j++;
+    const span = lengtes[j + 1] - lengtes[j] || 1;
+    const f = Math.min(Math.max((doel - lengtes[j]) / span, 0), 1);
+    const A = punten[j], B = punten[Math.min(j + 1, FIJN)];
+    p.push([A[0] + (B[0] - A[0]) * f, A[1] + (B[1] - A[1]) * f]);
+  }
+  p[0] = [HALS, 0];
+  p[p.length - 1] = [KROON, HOOGTE];
   return p;
 }
 const PROFIEL = profiel();
