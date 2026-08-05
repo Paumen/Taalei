@@ -1,5 +1,5 @@
 // Toetst de ballon-GLB's aan de mechanisch controleerbare regels uit
-// asset_style_guide.md. Draaien vanuit de repo-root.
+// docs/asset_style_guide.md. Draaien vanuit de repo-root.
 import { readFileSync } from 'node:fs';
 
 const PALET = JSON.parse(readFileSync('kits/palet.json', 'utf8'));

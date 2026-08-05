@@ -333,14 +333,14 @@ function meetScene(gltf) {
  */
 function schrijfVersie() {
   const inhoud = ['catalog.json', 'catalog.css', 'catalog.js']
-    .map((naam) => readFileSync(join(ROOT, naam)))
+    .map((naam) => readFileSync(join(ROOT, 'kits', naam)))
     .join('');
   const versie = createHash('sha256').update(inhoud).digest('hex').slice(0, 10);
 
   const pad = join(ROOT, 'index.html');
   const html = readFileSync(pad, 'utf8')
-    .replace(/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`)
-    .replace(/src="catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog.js?v=${versie}"`)
+    .replace(/href="kits\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="kits/catalog.css?v=${versie}"`)
+    .replace(/src="kits\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="kits/catalog.js?v=${versie}"`)
     .replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${versie}">`);
 
   writeFileSync(pad, html);
@@ -483,10 +483,10 @@ const catalogus = {
   modellen,
 };
 
-writeFileSync(join(ROOT, 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
+writeFileSync(join(ROOT, 'kits', 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
 schrijfVersie();
 
-console.log(`${modellen.length} modellen in ${kits.length} kits → catalog.json`);
+console.log(`${modellen.length} modellen in ${kits.length} kits → kits/catalog.json`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }
