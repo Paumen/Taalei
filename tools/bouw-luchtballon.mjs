@@ -46,8 +46,8 @@
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
  *   terracotta    #d07b56  cel 5/0   accentbanen, kruin, planken en bodems
- *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, brander
- *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, ring, kratbanden
+ *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, halsgat, brander
+ *   inktzwart     #3e3e44  cel 10/0  branderring en de banden van het krat
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *   leerbruin     #995a41  cel 12/0  hoekstijlen en randlijst van het krat
  *   zand          #f0c59d  cel 5/3   het vlechtwerk van de twee rieten manden
@@ -65,9 +65,16 @@
  *     het enige dat wél uit meer kleuren bestaat: planken, ijzer en hout.
  *   - Aan het palet is niets toegevoegd: het vlechtwerk gebruikt het tan van
  *     cel 13/0, dat de andere kits al dragen.
- *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
- *     naden leest de envelop als een gladde bal. De touwen zijn géén lijnen
- *     maar dunne staven — een touw is een onderdeel, geen contour.
+ *   - Geen outlines meer: de naadlijnen over de envelop zijn eruit. De banen
+ *     zetten zichzelf al af met kleur, en de lijnen tekenden bovendien de
+ *     facetten van de koepel na. Daarmee volgt de ballon weer de stijlgids
+ *     (§3: outlines vermijden). De touwen waren nooit lijnen maar dunne
+ *     staven — een touw is een onderdeel, geen contour.
+ *   - Kruin en halsgat zijn niet langer inktzwart: de kroonplaat draagt de
+ *     terracotta van de kruin, het halsgat het staalblauw van de halsband.
+ *     Zwart gaf boven en onder een donkere stip op een verder licht doek.
+ *     Alleen de bovenste band is nu kruin (was twee), zodat de strepen ook
+ *     van bovenaf doorlopen.
  *   - Geen transparantie of emissive; de mond van de brander is een gewoon
  *     amberkleurig paletvlak.
  *   - Oorsprong: spil in het midden van de voetafdruk, Y = 0 onder het laagste
@@ -138,7 +145,6 @@ const punt = (r, y, hoek) => [r * Math.cos(hoek), y, r * Math.sin(hoek)];
  */
 function maakModel() {
   const posities = [], normalen = [], uvs = [];
-  const lijnPosities = [], lijnIndices = [];
 
   function driehoek(A, B, C, celUv) {
     const u = [B[0] - A[0], B[1] - A[1], B[2] - A[2]];
@@ -154,13 +160,7 @@ function maakModel() {
 
   const vlak = (A, B, C, D, celUv) => { driehoek(A, B, C, celUv); driehoek(A, C, D, celUv); };
 
-  function lijn(A, B) {
-    const basis = lijnPosities.length / 3;
-    lijnPosities.push(...A, ...B);
-    lijnIndices.push(basis, basis + 1);
-  }
-
-  return { driehoek, vlak, lijn, posities, normalen, uvs, lijnPosities, lijnIndices };
+  return { driehoek, vlak, posities, normalen, uvs };
 }
 
 /**
@@ -296,10 +296,13 @@ function profiel() {
 const PROFIEL = profiel();
 
 /** Onderste band staalblauw als halsband, kruin terracotta, ertussen om de
- * vier banen een accent op een gebroken-witte romp. */
+ * vier banen een accent op een gebroken-witte romp. Alleen de bovenste band is
+ * kruin: liepen de banen twee banden eerder dood, dan werd de top een grote
+ * dop en verloor de ballon zijn strepen precies waar je er van bovenaf op
+ * kijkt. */
 function baanKleur(band, baan) {
   if (band === 0) return STAAL;
-  if (band >= BANDEN - 2) return TERRACOTTA;
+  if (band === BANDEN - 1) return TERRACOTTA;
   const k = baan % 4;
   return k === 1 ? TERRACOTTA : k === 3 ? STAAL : WIT;
 }
@@ -325,46 +328,29 @@ function envelop(m, prof, yHals) {
     }
   }
 
-  /* kroonplaat op de top */
+  /* kroonplaat op de top, in de kleur van de kruin. Zwart maakte er van een
+   * afstand een dot van: een klein donker vlak op een lichte bol trekt alle
+   * aandacht en leest als een gat, niet als de plaat waar de banen samenkomen.
+   * In terracotta loopt de kruin gewoon door tot in de plaat. */
   const top = yHals + prof[prof.length - 1][1];
   for (let baan = 0; baan < BANEN; baan++) {
     const a0 = (baan / BANEN) * Math.PI * 2;
     const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
-    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a1), punt(KROON, top, a1), uv(INKT));
-    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(INKT));
-    m.driehoek([0, top + 0.06, 0], punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(INKT));
+    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a1), punt(KROON, top, a1), uv(TERRACOTTA, 10));
+    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(TERRACOTTA, 10));
+    m.driehoek([0, top + 0.06, 0], punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(TERRACOTTA, -6));
   }
 
   /* halsgat: een korte kegel naar binnen en omhoog, zodat het gat diepte
-   * heeft. Een plat schijfje leest als een dop, niet als een opening. */
+   * heeft. Een plat schijfje leest als een dop, niet als een opening. Het gat
+   * staat in het staalblauw van de halsband, onderin de cel: een keel die de
+   * band naar binnen voortzet. Zwart gaf onderaan dezelfde dot als bovenaan. */
   for (let baan = 0; baan < BANEN; baan++) {
     const a0 = (baan / BANEN) * Math.PI * 2;
     const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
-    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS, yHals, a1), uv(INKT, 14));
-    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a0), punt(HALS * 0.45, yHals + 0.16, a1), uv(INKT, 14));
-    m.driehoek([0, yHals + 0.16, 0], punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS * 0.45, yHals + 0.16, a0), uv(INKT, 20));
-  }
-
-  /* naden: één lijn per baangrens, een fractie buiten het doek langs de
-   * profielnormaal zodat de lijn niet met het vlak vecht om diepte */
-  const AFSTAND = 0.008;
-  const profielNormaal = (i) => {
-    const voor = prof[Math.max(i - 1, 0)];
-    const na = prof[Math.min(i + 1, prof.length - 1)];
-    const [dr, dy] = [na[0] - voor[0], na[1] - voor[1]];
-    const lengte = Math.hypot(dr, dy) || 1;
-    return [dy / lengte, -dr / lengte];
-  };
-  for (let baan = 0; baan < BANEN; baan++) {
-    const hoek = (baan / BANEN) * Math.PI * 2;
-    for (let i = 0; i < prof.length - 1; i++) {
-      const [nr0, ny0] = profielNormaal(i);
-      const [nr1, ny1] = profielNormaal(i + 1);
-      m.lijn(
-        punt(prof[i][0] + nr0 * AFSTAND, yHals + prof[i][1] + ny0 * AFSTAND, hoek),
-        punt(prof[i + 1][0] + nr1 * AFSTAND, yHals + prof[i + 1][1] + ny1 * AFSTAND, hoek),
-      );
-    }
+    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS, yHals, a1), uv(STAAL, 18));
+    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a0), punt(HALS * 0.45, yHals + 0.16, a1), uv(STAAL, 18));
+    m.driehoek([0, yHals + 0.16, 0], punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS * 0.45, yHals + 0.16, a0), uv(STAAL, 26));
   }
 }
 
@@ -656,12 +642,6 @@ function mandKrat(m) {
 
 /* -- glb schrijven -------------------------------------------------------- */
 
-/** sRGB-hex → lineaire factor, want baseColorFactor is lineair. */
-const lineair = (hex) => [1, 3, 5].map((i) => {
-  const c = parseInt(hex.slice(i, i + 2), 16) / 255;
-  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-});
-
 function schrijfGlb(naam, m) {
   const buffers = [];
   let bytes = 0;
@@ -714,15 +694,6 @@ function schrijfGlb(naam, m) {
     },
     indices: accessor(Uint16Array.from({ length: aantal }, (_, i) => i), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER }),
     material: 0,
-  }, {
-    // naden: lijnen (mode 1) kennen geen texture, dus de kleur staat als
-    // factor op een eigen materiaal — dezelfde staalblauwe cel 15/3.
-    attributes: {
-      POSITION: accessor(Float32Array.from(m.lijnPosities), 'VEC3', 5126, { minMax: true, target: ARRAY_BUFFER }),
-    },
-    indices: accessor(Uint16Array.from(m.lijnIndices), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER }),
-    mode: 1,
-    material: 1,
   }];
 
   const gltf = {
@@ -740,10 +711,6 @@ function schrijfGlb(naam, m) {
         name: 'colormap',
         doubleSided: true,
         pbrMetallicRoughness: { baseColorTexture: { index: 0 }, metallicFactor: 0 },
-      },
-      {
-        name: 'seam',
-        pbrMetallicRoughness: { baseColorFactor: [...lineair('#6d738a'), 1], metallicFactor: 0 },
       },
     ],
     textures: [{ sampler: 0, source: 0, name: 'colormap' }],
@@ -773,7 +740,7 @@ function schrijfGlb(naam, m) {
   binChunk.copy(glb, off + 8);
 
   writeFileSync(join(KIT, `${naam}.glb`), glb);
-  console.log(`${naam}: ${aantal / 3} driehoeken, ${m.lijnIndices.length / 2} naadsegmenten, ${glb.length} bytes`);
+  console.log(`${naam}: ${aantal / 3} driehoeken, ${glb.length} bytes`);
 }
 
 /**
