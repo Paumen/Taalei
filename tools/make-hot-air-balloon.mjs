@@ -149,9 +149,14 @@ for (let i = 0; i < ZIJDEN; i++) {
 /* -- mand, brander, touwen ------------------------------------------------- */
 
 // Mand: taps toelopende bak, bodem op Y = 0.
-const MAND_ONDER = 0.30;
-const MAND_BOVEN = 0.37;
+const MAND_ONDER = 0.30;    // halve breedte van de bodem
+const MAND_BOVEN = 0.37;    // halve breedte van de bovenrand
 const MAND_HOOGTE = 0.52;
+const MAND_RAND = 0.045;    // dikte van de balkjes rond de bovenrand
+const FRAME_DIKTE = 0.035;  // stijlen van het branderframe
+const TOUW_DIKTE = 0.025;   // draagtouwen; ondergrens uit de stijlgids is 0.02
+const BRANDER_BLOK = 0.09;  // halve breedte van het branderblokje
+const BRANDER_HOOGTE = 0.12;
 {
   const o = MAND_ONDER, b = MAND_BOVEN, h = MAND_HOOGTE;
   const A = [-o, 0, -o], B = [o, 0, -o], C = [o, 0, o], D = [-o, 0, o];
@@ -164,7 +169,7 @@ const MAND_HOOGTE = 0.52;
   vlak([H, E, A, D], CEL.mand);
 
   // Rand: liggende ring van vier balkjes rond de bovenrand.
-  const r = 0.045;
+  const r = MAND_RAND;
   balk([-b - r, h - 0.02, -b - r], [b + r, h + 2 * r - 0.02, -b + r], CEL.mandRand);
   balk([-b - r, h - 0.02, b - r], [b + r, h + 2 * r - 0.02, b + r], CEL.mandRand);
   balk([-b - r, h - 0.02, -b + r], [-b + r, h + 2 * r - 0.02, b - r], CEL.mandRand);
@@ -180,11 +185,15 @@ const BRANDER_Y = 1.06;
     stijl(
       [sx * voet, MAND_HOOGTE + 0.05, sz * voet],
       [sx * kop, BRANDER_Y, sz * kop],
-      0.035,
+      FRAME_DIKTE,
       CEL.touw,
     );
   }
-  balk([-0.09, BRANDER_Y, -0.09], [0.09, BRANDER_Y + 0.12, 0.09], CEL.brander);
+  balk(
+    [-BRANDER_BLOK, BRANDER_Y, -BRANDER_BLOK],
+    [BRANDER_BLOK, BRANDER_Y + BRANDER_HOOGTE, BRANDER_BLOK],
+    CEL.brander,
+  );
 }
 
 // Vier draagtouwen van de mandhoeken schuin omhoog naar de gele sleeve.
@@ -196,7 +205,7 @@ const BRANDER_Y = 1.06;
     stijl(
       [sx * voet, MAND_HOOGTE + 0.06, sz * voet],
       [sx * r, ySleeve + 0.10, sz * r],
-      0.025,
+      TOUW_DIKTE,
       CEL.touw,
     );
   }
