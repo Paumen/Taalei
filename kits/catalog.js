@@ -369,8 +369,8 @@ function filter() {
 
 async function start() {
   const versie = document.querySelector('meta[name="catalogus-versie"]')?.content;
-  const respons = await fetch(versie ? `catalog.json?v=${versie}` : 'catalog.json');
-  if (!respons.ok) throw new Error(`catalog.json niet gevonden (${respons.status})`);
+  const respons = await fetch(versie ? `kits/catalog.json?v=${versie}` : 'kits/catalog.json');
+  if (!respons.ok) throw new Error(`kits/catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
