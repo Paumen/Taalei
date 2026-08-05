@@ -41,7 +41,7 @@ For an LLM creating or adjusting assets.
 
 ## 6. Reference Assets
 - You must render and look reference assets before creating new assets, not just read.
-- You must render at least two reference assets next to a new asset when validating.
+- You must render at least two reference assets next to a new asset at same scale when validating.
 
 palm-detailed-bend
 ship-large
@@ -49,7 +49,6 @@ boat-row-small
 cannon-mobile
 tent-canvas
 crate-bottles
-gate-metal-bars
 template-floor-layer-hole
 windmill (blades only)
 watermill (Rad only)
@@ -57,4 +56,4 @@ bridge (mini forest)
 mast-ropes
 structure-fence-sides
 workbench-anvil
-campfire-pit
+lighthouse
