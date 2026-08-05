@@ -45,7 +45,7 @@ const ok = (t) => console.log('  ok    ' + t);
 const fout = (t) => { fouten++; console.log('  FOUT  ' + t); };
 const let_op = (t) => { waarschuwingen++; console.log('  let op ' + t); };
 
-for (const naam of ['balloon']) {
+for (const naam of ['balloon', 'balloon-basket-round', 'balloon-basket-square', 'balloon-basket-crate']) {
   const pad = `kits/taalei-kit/${naam}.glb`;
   const { json, bin, bytes } = leesGlb(pad);
   console.log(`\n=== ${naam} (${(bytes / 1024).toFixed(1)} kB)`);
