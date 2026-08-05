@@ -21,8 +21,6 @@ For an LLM creating or adjusting assets.
 ## 2. Geometry
 - Flat-piece construction. Round shapes visibly built from flat pieces.
 - Max 16 flat pieces per full circle equivalent.
-- Max 12 flat pieces for objects smaller than 1x1x1 per full circle equivalent.
-- Max 12 flat pieces for objects smaller than 0.5x0.5x0.5 per full circle equivalent.
 
 ## 3. Outlines and shading
 - Avoid outlines; unless it's distinctive core feature  of the object's appearance. Add note to PO when you used it.
@@ -32,7 +30,7 @@ For an LLM creating or adjusting assets.
 ## 4. Scale
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
-- No solid pieces thinner than 0.02 units.
+- No solid pieces thinner than 0.015 units.
 - Max 1000 tris per 1x1x1 unit.
 
 ## 5. Origin and orientation
