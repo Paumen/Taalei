@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Balloon — 7 color variants</title>
+<style>
+  html,body{margin:0;height:100%;background:#E7E9E3;color:#181B17;
+    font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+  #gl{position:fixed;inset:0;width:100%;height:100%;display:block}
+  #grid{position:relative;display:grid;gap:2px;padding:28px 12px 12px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-rows:1fr;height:100%;box-sizing:border-box}
+  .cell{position:relative;min-height:180px}
+  .cell .tag{position:absolute;left:8px;bottom:6px;color:#767C71;letter-spacing:.04em;
+    pointer-events:none;white-space:nowrap}
+  .cell .tag b{color:#181B17;font-weight:400}
+  .cell .sw{display:inline-block;width:7px;height:7px;margin-left:3px;
+    vertical-align:baseline;border:1px solid rgba(24,27,23,.18)}
+  .cell .hex{color:#9AA097;letter-spacing:.02em}
+  #hud{position:fixed;left:12px;top:8px;color:#767C71;letter-spacing:.04em;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="grid"></div>
+<div id="hud"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const canvas = document.getElementById('gl');
+const grid = document.getElementById('grid');
+const renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.setClearAlpha(0);
+
+function col(hex){ return new THREE.Color(hex).convertSRGBToLinear(); }
+function hash2(x, y){ const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+function flatVC(side){ return new THREE.MeshPhongMaterial({vertexColors:true, flatShading:true, shininess:0, specular:col('#000000'), side:side || THREE.FrontSide}); }
+function flat(hex, side){ return new THREE.MeshPhongMaterial({color:col(hex), flatShading:true, shininess:0, specular:col('#000000'), side:side || THREE.FrontSide}); }
+
+function stage(sky, ground, keyPos){
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(col(sky), col(ground), 0.85));
+  scene.add(new THREE.AmbientLight(col('#DCE4EC'), 0.14));
+  const key = new THREE.DirectionalLight(col('#FFF6E8'), 0.85);
+  key.position.set(keyPos[0], keyPos[1], keyPos[2]);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(col('#C7D6E8'), 0.25);
+  fill.position.set(-2, 1, -2.5);
+  scene.add(fill);
+  const turn = new THREE.Group();
+  scene.add(turn);
+  return {scene:scene, turn:turn};
+}
+
+function spun(rings, sides, colorFn, jitter){
+  const pos = [], cols = [], tmp = new THREE.Color();
+  for(let i = 0; i < rings.length-1; i++){
+    for(let s = 0; s < sides; s++){
+      const a0 = s/sides*Math.PI*2, a1 = (s+1)/sides*Math.PI*2;
+      const A = [rings[i].r*Math.cos(a0), rings[i].y, rings[i].r*Math.sin(a0)];
+      const B = [rings[i].r*Math.cos(a1), rings[i].y, rings[i].r*Math.sin(a1)];
+      const C = [rings[i+1].r*Math.cos(a1), rings[i+1].y, rings[i+1].r*Math.sin(a1)];
+      const D = [rings[i+1].r*Math.cos(a0), rings[i+1].y, rings[i+1].r*Math.sin(a0)];
+      tmp.set(colorFn(i, s)).convertSRGBToLinear();
+      if(jitter) tmp.multiplyScalar(1 - jitter*0.5 + hash2(i*7+1, s*3+2)*jitter);
+      [A,C,B, A,D,C].forEach(function(v){ pos.push(v[0],v[1],v[2]); cols.push(tmp.r,tmp.g,tmp.b); });
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+  g.computeVertexNormals();
+  return g;
+}
+
+function seamLines(rings, sides, from, to){
+  const p = [];
+  for(let s = 0; s < sides; s++){
+    const a = s/sides*Math.PI*2;
+    for(let i = from; i < to; i++){
+      p.push(rings[i].r*Math.cos(a), rings[i].y, rings[i].r*Math.sin(a));
+      p.push(rings[i+1].r*Math.cos(a), rings[i+1].y, rings[i+1].r*Math.sin(a));
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
+  return g;
+}
+
+/* ---------- palette ----------
+   Every value below is a cell colour from kits/palet.json (palet "gedeeld"),
+   so the variants stay inside the shared colormap. No new colours introduced. */
+
+const P = {
+  peach:   '#f1976c', terracotta:'#d07b56', amber:  '#ffb349', brick: '#b2413a',
+  ink:     '#3e3e44', brown:     '#995a41', tan:    '#dd9f79', mint:  '#6cb588',
+  green:   '#3da679', slate:     '#474a58', orange: '#ff8744', peri:  '#9da4c4',
+  bone:    '#f0ece3', sand:      '#f0c59d', steel:  '#6d738a'
+};
+
+/* base = gore field, a = top cap + every 4th gore, b = bottom band + every 4th gore */
+const VARIANTS = [
+  {name:'terracotta', base:P.bone,  a:P.terracotta, b:P.steel, tape:P.steel},
+  {name:'ember',      base:P.sand,  a:P.brick,      b:P.orange,tape:P.brown},
+  {name:'meadow',     base:P.bone,  a:P.green,      b:P.mint,  tape:P.slate},
+  {name:'dusk',       base:P.peri,  a:P.brick,      b:P.slate, tape:P.slate},
+  {name:'honey',      base:P.bone,  a:P.amber,      b:P.brown, tape:P.brown},
+  {name:'coral',      base:P.tan,   a:P.peach,      b:P.brick, tape:P.brown},
+  {name:'slate',      base:P.bone,  a:P.slate,      b:P.peri,  tape:P.slate}
+];
+
+/* ---------- balloon: envelope, crown, tapes, mouth cap ---------- */
+
+function balloon(v){
+  const st = stage('#E2EAF2', '#787E86', [2.6, 4, 3]);
+  const rim = new THREE.DirectionalLight(col('#FFE4BC'), 0.28);
+  rim.position.set(-2.5, 0.8, -2.2);
+  st.scene.add(rim);
+
+  const body = new THREE.Group();
+  body.position.y = 1.2;
+  st.turn.add(body);
+
+  const prof = [
+    [0.22,-2.08],[0.58,-1.76],[0.98,-1.34],[1.34,-0.86],[1.64,-0.3],
+    [1.82,0.26],[1.888,0.76],[1.832,1.22],[1.66,1.6],[1.36,1.94],
+    [0.94,2.22],[0.46,2.4],[0.2,2.472]
+  ];
+  const rings = prof.map(function(p){ return {r:p[0], y:p[1]}; });
+  const GORES = 16;
+  const BASE = v.base, A = v.a, B = v.b;
+
+  const envelope = spun(rings, GORES, function(i, s){
+    if(i <= 1) return B;
+    if(i >= 10) return A;
+    const k = s % 4;
+    return k === 1 ? A : (k === 3 ? B : BASE);
+  }, 0.05);
+  body.add(new THREE.Mesh(envelope, flatVC()));
+
+  const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.064, GORES), flat(P.ink));
+  crown.position.y = 2.488;
+  body.add(crown);
+
+  /* PO note: outlines + transparency — kept from balloon_v2, tape colour now palette-sourced */
+  const tapes = new THREE.LineSegments(seamLines(rings, GORES, 0, rings.length-1),
+    new THREE.LineBasicMaterial({color: col(v.tape), transparent:true, opacity:0.55}));
+  body.add(tapes);
+
+  /* mouth cap — closes the envelope's bottom opening the skirt used to hide */
+  const mouth = new THREE.Mesh(new THREE.CircleGeometry(0.22, GORES), flat(P.ink));
+  mouth.rotation.x = Math.PI/2;
+  mouth.position.y = -2.08;
+  body.add(mouth);
+
+  const spec = {stage:st, cam:[0, 2.48, 10.4], look:[0, 1.4, 0], spin:0.14, bob:true};
+  spec.tick = function(t){
+    body.rotation.z = Math.sin(t*0.55)*0.022;
+  };
+  return spec;
+}
+
+/* ---------- viewer: one renderer, one shared camera, 7 scissored cells ---------- */
+
+function sw(hex){ return '<i class="sw" style="background:' + hex + '"></i>'; }
+
+const views = VARIANTS.map(function(v){
+  const cell = document.createElement('div');
+  cell.className = 'cell';
+  const tag = document.createElement('div');
+  tag.className = 'tag';
+  tag.innerHTML = '<b>' + v.name + '</b> ' + sw(v.base) + sw(v.a) + sw(v.b) +
+    ' <span class="hex">' + [v.base, v.a, v.b].join(' ').replace(/#/g, '') + '</span>';
+  cell.appendChild(tag);
+  grid.appendChild(cell);
+  const spec = balloon(v);
+  spec.stage.turn.rotation.y = 0.5;
+  return {el:cell, spec:spec, variant:v};
+});
+
+const first = views[0].spec;
+const camera = new THREE.PerspectiveCamera(34, 1, 0.4, 200);
+camera.position.set(first.cam[0], first.cam[1], first.cam[2]);
+/* one control rig on the grid overlay — all seven orbit together, so colour is
+   the only thing that differs between cells */
+const controls = new THREE.OrbitControls(camera, grid);
+controls.target.set(first.look[0], first.look[1], first.look[2]);
+controls.enableDamping = true;
+
+let tris = 0, calls = 0;
+first.stage.scene.traverse(function(o){
+  if(!o.geometry) return;
+  if(o.isMesh){ calls++; const g = o.geometry;
+    tris += g.index ? g.index.count/3 : g.attributes.position.count/3; }
+  else if(o.isLine){ calls++; }
+});
+document.getElementById('hud').textContent =
+  'balloon, envelope only · ' + VARIANTS.length + ' variants · ' + Math.round(tris) +
+  ' tri · ' + calls + ' draw each · palette: kits/palet.json · drag to orbit all';
+
+function resize(){
+  const w = window.innerWidth, h = window.innerHeight;
+  if(canvas.width !== Math.floor(w*renderer.getPixelRatio()) || canvas.height !== Math.floor(h*renderer.getPixelRatio())){
+    renderer.setSize(w, h, false);
+  }
+}
+
+const clock = new THREE.Clock();
+function frame(){
+  resize();
+  const t = clock.getElapsedTime();
+  const vh = window.innerHeight;
+  controls.update();
+
+  views.forEach(function(view){
+    const spec = view.spec;
+    spec.stage.turn.rotation.y += spec.spin*0.0125;
+    if(spec.bob) spec.stage.turn.position.y = Math.sin(t*0.9)*0.14;
+    if(spec.tick) spec.tick(t);
+
+    const r = view.el.getBoundingClientRect();
+    if(r.bottom < 0 || r.top > vh || r.right < 0 || r.left > window.innerWidth) return;
+    const w = r.width, h = r.height;
+    if(w < 1 || h < 1) return;
+    renderer.setViewport(r.left, vh - r.bottom, w, h);
+    renderer.setScissor(r.left, vh - r.bottom, w, h);
+    renderer.setScissorTest(true);
+    camera.aspect = w/h;
+    camera.updateProjectionMatrix();
+    renderer.render(spec.stage.scene, camera);
+  });
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
