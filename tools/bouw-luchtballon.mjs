@@ -50,7 +50,7 @@
  *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, ring, kratbanden
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *   leerbruin     #995a41  cel 12/0  hoekstijlen en randlijst van het krat
- *   riet          #b98d5e  cel 14/0  de twee rieten manden, in hun geheel
+ *   tan           #dd9f79  cel 13/0  de twee rieten manden, in hun geheel
  *
  * PO-notities:
  *   - De twee rieten manden staan volledig in die ene rietcel: twee lichte
@@ -59,12 +59,8 @@
  *     die donkere band. Eén materiaal, één kleur; het onderscheid komt van de
  *     banden, niet van een tweede kleur die ernaast gaat liggen. Het krat is
  *     het enige dat wél uit meer kleuren bestaat: planken, ijzer en hout.
- *   - Riet is nieuw in het gedeelde palet: cel 14/0, naast het tan van 13/0 en
- *     het leerbruin van 12/0. Geen bestaande cel kwam in de buurt — tan is te
- *     roze en te licht voor vlechtwerk, terracotta trekt naar rood. De cel is
- *     in dezelfde opzet als de rest geschilderd (verticale verloopstrook, de
- *     paletkleur op de middelste rij) en in álle kopieën van de gedeelde
- *     colormap bijgewerkt, zodat die identiek blijven.
+ *   - Aan het palet is niets toegevoegd: het vlechtwerk gebruikt het tan van
+ *     cel 13/0, dat de andere kits al dragen.
  *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
  *     naden leest de envelop als een gladde bal. De touwen zijn géén lijnen
  *     maar dunne staven — een touw is een onderdeel, geen contour.
@@ -103,15 +99,17 @@ const STAAL = cel(15, 3);
 const INKT = cel(10, 0);
 const AMBER = cel(6, 0);
 const LEER = cel(12, 0);
-const RIET = cel(14, 0);
+const RIET = cel(13, 0);
 const HOUT = TERRACOTTA;
 
 /* De rieten manden staan in één kleur: het vlechtwerk loopt in twee lichte
  * banden met een donkere ertussen, en álles wat eraan vastzit — voetring,
  * rand, hoekstukken, sloffen, stijlen — krijgt precies de tint van die
- * donkere band. Eén materiaal, één kleur; de banden doen het werk. */
-const VLECHT_LICHT = -10;
-const VLECHT_DONKER = 12;
+ * donkere band. Eén materiaal, één kleur; de banden doen het werk. Het
+ * verloop van de tancel is vrij vlak, dus de banden staan wat verder uit
+ * elkaar dan je bij een steilere cel nodig zou hebben. */
+const VLECHT_LICHT = -14;
+const VLECHT_DONKER = 16;
 /** dv verschuift binnen de verloopstrook van de cel: positief = donkerder. */
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
 
