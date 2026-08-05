@@ -2,35 +2,46 @@
  * Bouwt de twee luchtballonnen in kits/taalei-kit/:
  *
  *   balloon         alleen de envelop — het silhouet aan de horizon
- *   balloon-basket  de complete ballon: envelop, touwen, brander en mand
+ *   balloon-basket  de complete ballon: envelop, kabels, branderring met
+ *                   brander, stijlen en mand
  *
  * Draai vanuit de repo-root:  node tools/bouw-luchtballon.mjs
+ * Controleer daarna met:      node tools/toets-ballon.mjs
  *
- * De envelop is een gedraaid profiel van 13 ringen × 16 banen (het maximum
- * van 16 vlakke stukken per cirkel uit de stijlgids), met een kroonplaat op
- * de top en een monddeksel in de onderopening. De naden tussen de banen zijn
- * lijnsegmenten in een tweede primitive — een kernonderdeel van hoe een
- * luchtballon leest, zie de PO-notitie onderaan. Bij balloon-basket hangen
- * de touwen als dezelfde soort lijnen van de mondring naar de mandrand.
+ * -- verhoudingen ----------------------------------------------------------
+ * Uitgangspunt zijn de maten van een echte ballon (envelop ± 20 m, hals
+ * ± 2.5 m, mand ± 1.4 m, mand-tot-hals ± 2 m). Gestileerd mag afwijken, maar
+ * de onderdelen moeten zich tot elkaar verhouden zoals ze dat in het echt
+ * doen, anders klopt er niets van:
  *
- * Kleuren komen uit kits/palet.json ("gedeeld"); de uv's wijzen naar het
- * midden van de cel, met per vlak een kleine verticale verschuiving binnen
- * dezelfde verloopstrook zodat de vlakken niet steriel egaal worden. Er komt
- * geen kleur bij.
+ *   hals : envelop  ≈ 1 : 6      de hals is een smalle keel, geen wijde rok
+ *   mand : envelop  ≈ 1 : 8      de envelop domineert volledig
+ *   mand : hals     ≈ 0.8        de mand hangt bínnen de halsdoorsnede
+ *   ring : mand     ≈ 0.9        de branderring net binnen de mandbreedte
+ *   tuig            ≈ 1.2 × mandhoogte
+ *
+ * -- vorm ------------------------------------------------------------------
+ * Peervormig: onder een kegel naar de hals, de grootste omtrek op 60% van de
+ * hoogte, en daarboven een koepel. De koepel volgt de kruin van de
+ * ontwerpstudie — nagemeten een kwartcirkel; zie N_KRUIN.
+ *
+ * Kleuren komen uit kits/palet.json ("gedeeld"); er komt geen kleur bij.
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop
- *   terracotta    #d07b56  cel 5/0   accentbanen en de top
- *   staalblauw    #6d738a  cel 15/3  accentbanen, onderste ring, naden, touwen
- *   inktzwart     #3e3e44  cel 10/0  kroonplaat, monddeksel, mandrand, brander
+ *   terracotta    #d07b56  cel 5/0   accentbanen, kruin, vlampoort brander
+ *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, naden, kabels
+ *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, ring, brander
  *   bruin         #995a41  cel 12/0  vlechtwerk van de mand
  *
  * PO-notities:
- *   - De naden en touwen zijn lijnen (outlines). Bewust gehouden: zonder
- *     naden leest de vorm als een druppel, niet als een luchtballon.
- *     Ondoorzichtig, geen transparantie of emissive ergens in deze modellen.
- *   - Oorsprong op Y = 0 bij het laagste punt (mond resp. mandbodem), spil
- *     in het midden van de voetafdruk. balloon "zweeft" dus niet zelf;
- *     de scène bepaalt de hoogte. balloon-basket staat op de grond.
+ *   - De naden van de banen zijn lijnen (outlines). Bewust gehouden: zonder
+ *     naden leest de envelop als een gladde bal. De kabels zijn géén lijnen
+ *     maar dunne staven — een kabel is een onderdeel, geen contour.
+ *   - Geen transparantie of emissive; de vlampoort van de brander is een
+ *     gewoon terracotta paletvlak.
+ *   - Oorsprong: spil in het midden van de voetafdruk. balloon staat op Y = 0
+ *     bij de hals (de scène bepaalt de zweefhoogte), balloon-basket op Y = 0
+ *     onder de mand.
  */
 
 import { writeFileSync } from 'node:fs';
@@ -40,16 +51,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KIT = join(ROOT, 'kits', 'taalei-kit');
 
-/* -- profiel --------------------------------------------------------------
- * (straal, hoogte) van mond naar top; hoogte 0 = de mond. Het buikigste punt
- * ligt iets boven het midden, zoals bij een echte envelop.
- */
-const PROFIEL = [
-  [0.22, 0.0], [0.58, 0.32], [0.98, 0.74], [1.34, 1.22], [1.64, 1.78],
-  [1.82, 2.34], [1.888, 2.84], [1.832, 3.3], [1.66, 3.68], [1.36, 4.02],
-  [0.94, 4.3], [0.46, 4.48], [0.2, 4.552],
-];
-const BANEN = 16;
+const BANEN = 16;      // banen van de envelop; het maximum uit de stijlgids
+const RING_ZIJDEN = 8; // branderring
+const BANDEN = 12;     // hoogtebanden van de envelop
 
 /* -- paletcellen ----------------------------------------------------------
  * De gedeelde colormap is 512 × 512: 16 kolommen × 4 rijen, elke cel een
@@ -65,15 +69,11 @@ const INKT = cel(10, 0);
 const BRUIN = cel(12, 0);
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
 
-/** Zelfde hash als in de ontwerpstudie: deterministisch per vlak. */
+/** Deterministische ruis per baan, zodat een run reproduceerbaar is. */
 function hash2(x, y) {
   const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
   return s - Math.floor(s);
 }
-
-/** ±6 texels binnen dezelfde verloopstrook: net genoeg om vlakken te laten
- * leven, te weinig om als vlekken te lezen. */
-const trilling = (a, b) => Math.round((hash2(a, b) - 0.5) * 12);
 
 const punt = (r, y, hoek) => [r * Math.cos(hoek), y, r * Math.sin(hoek)];
 
@@ -109,221 +109,13 @@ function maakModel() {
   return { driehoek, vlak, lijn, posities, normalen, uvs, lijnPosities, lijnIndices };
 }
 
-/* -- envelop --------------------------------------------------------------
- * Onderste twee banden staalblauw, bovenste twee terracotta; daartussen om
- * de vier banen terracotta of staalblauw op een gebroken-witte romp.
- */
-function baanKleur(band, baan) {
-  if (band <= 1) return STAAL;
-  if (band >= PROFIEL.length - 3) return TERRACOTTA;
-  const k = baan % 4;
-  return k === 1 ? TERRACOTTA : k === 3 ? STAAL : WIT;
-}
-
 /**
- * @param yMond hoogte van de mond (onderrand van de envelop)
- * @param vanRing eerste profielring; 0 = de volle druppel met smalle tuit,
- *   hoger = afgeknot met een brede rok, zoals bij de complete ballon —
- *   de smalle tuit leest los van een mand, een brede mond maakt er
- *   één voertuig van.
- */
-function envelop(m, yMond, vanRing = 0) {
-  const dy = yMond - PROFIEL[vanRing][1];
-  for (let band = vanRing; band < PROFIEL.length - 1; band++) {
-    const [r0, y0raw] = PROFIEL[band];
-    const [r1, y1raw] = PROFIEL[band + 1];
-    const y0 = y0raw + dy, y1 = y1raw + dy;
-    for (let baan = 0; baan < BANEN; baan++) {
-      const a0 = (baan / BANEN) * Math.PI * 2;
-      const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
-      const A = punt(r0, y0, a0);
-      const B = punt(r0, y0, a1);
-      const C = punt(r1, y1, a1);
-      const D = punt(r1, y1, a0);
-      const kleur = baanKleur(band, baan);
-      // Iedere baan is over zijn hele lengte één greep uit de strook: variatie
-      // per báán, nooit per band — anders tekenen zich horizontale ringen af
-      // en die heeft een echte ballon niet. De witte cel alleen omhoog
-      // (lichter), want naar onderen loopt hij snel naar grijsroze.
-      const dv = kleur === WIT
-        ? -Math.round(hash2(baan * 3 + 2, 7) * 8)
-        : Math.round((hash2(baan * 3 + 2, 3) - 0.5) * 10);
-      const celUv = uv(kleur, dv);
-      m.driehoek(A, C, B, celUv);
-      m.driehoek(A, D, C, celUv);
-    }
-  }
-
-  /* kroonplaat: 16-hoekig cilindertje op de top, inktzwart */
-  const KROON_R = 0.2;
-  const onder = dy + 4.536;
-  const boven = dy + 4.6;
-  for (let baan = 0; baan < BANEN; baan++) {
-    const a0 = (baan / BANEN) * Math.PI * 2;
-    const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
-    const A = punt(KROON_R, onder, a0);
-    const B = punt(KROON_R, onder, a1);
-    const C = punt(KROON_R, boven, a1);
-    const D = punt(KROON_R, boven, a0);
-    m.driehoek(A, C, B, uv(INKT));
-    m.driehoek(A, D, C, uv(INKT));
-    m.driehoek([0, boven, 0], D, C, uv(INKT));
-  }
-
-  /* monddeksel: de donkere opening, sluit de envelop van onderen */
-  const MOND_R = PROFIEL[vanRing][0] + 0.02;
-  for (let baan = 0; baan < BANEN; baan++) {
-    const a0 = (baan / BANEN) * Math.PI * 2;
-    const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
-    m.driehoek([0, yMond, 0], punt(MOND_R, yMond, a0), punt(MOND_R, yMond, a1), uv(INKT));
-  }
-
-  /* naden: één lijn per baangrens, van mond tot top, een fractie buiten het
-   * doek langs de profielnormaal zodat de lijn niet met het vlak vecht om
-   * diepte. */
-  const NAAD_AFSTAND = 0.008;
-  const profielNormaal = (i) => {
-    const voor = PROFIEL[Math.max(i - 1, 0)];
-    const na = PROFIEL[Math.min(i + 1, PROFIEL.length - 1)];
-    const [dr, dy] = [na[0] - voor[0], na[1] - voor[1]];
-    const lengte = Math.hypot(dr, dy) || 1;
-    return [dy / lengte, -dr / lengte]; // (nr, ny), naar buiten
-  };
-  for (let baan = 0; baan < BANEN; baan++) {
-    const hoek = (baan / BANEN) * Math.PI * 2;
-    for (let i = vanRing; i < PROFIEL.length - 1; i++) {
-      const [nr0, ny0] = profielNormaal(i);
-      const [nr1, ny1] = profielNormaal(i + 1);
-      m.lijn(
-        punt(PROFIEL[i][0] + nr0 * NAAD_AFSTAND, PROFIEL[i][1] + dy + ny0 * NAAD_AFSTAND, hoek),
-        punt(PROFIEL[i + 1][0] + nr1 * NAAD_AFSTAND, PROFIEL[i + 1][1] + dy + ny1 * NAAD_AFSTAND, hoek),
-      );
-    }
-  }
-}
-
-/* -- mand, brander en kabels ----------------------------------------------
- * Vierkante rieten mand — de klassieke ballonmand — nadrukkelijk smaller
- * dan de mond van de envelop erboven. Menselijke maat: de deur van de
- * vuurtoren is ± 0.85 eenheid, dus de mandrand ligt op borsthoogte (0.64)
- * en wie erin staat steekt er ruim bovenuit. Vlechtwerk in twee grepen uit
- * de bruine verloopstrook, opgerolde rand in donkerder bruin (geen inkten
- * kistlijstwerk). Het materiaal is doubleSided, dus de binnenkant van de
- * wanden is gewoon zichtbaar; binnenin ligt een vloer.
- *
- * De vier hoeken staan op oplopende hoek (−45°, 45°, 135°, 225°), zodat de
- * winding dezelfde kant op loopt als bij de gedraaide vormen hierboven.
- */
-const MAND_HOEKEN = [[1, -1], [1, 1], [-1, 1], [-1, -1]];
-const mandHoek = (half, y, i) => {
-  const [sx, sz] = MAND_HOEKEN[i % 4];
-  return [half * sx, y, half * sz];
-};
-/** punt op zijde i, t van 0 (hoek i) tot 1 (hoek i+1) */
-const mandZijde = (half, y, i, t) => {
-  const A = mandHoek(half, y, i), B = mandHoek(half, y, i + 1);
-  return [A[0] + (B[0] - A[0]) * t, y, A[2] + (B[2] - A[2]) * t];
-};
-
-function mand(m) {
-  const HALF_ONDER = 0.3, HALF_BOVEN = 0.35, HOOGTE = 0.5;
-  const halfOp = (y) => HALF_ONDER + (HALF_BOVEN - HALF_ONDER) * (y / HOOGTE);
-
-  /* wanden: 4 zijden × 3 kolommen × 2 rijen vlechtvakken; variatie alleen
-   * per vak, de vakken van één zijde liggen in hetzelfde vlak */
-  const KOLOMMEN = 3, RIJEN = 2;
-  for (let i = 0; i < 4; i++) {
-    for (let rij = 0; rij < RIJEN; rij++) {
-      const y0 = (rij / RIJEN) * HOOGTE, y1 = ((rij + 1) / RIJEN) * HOOGTE;
-      const h0 = halfOp(y0), h1 = halfOp(y1);
-      for (let kol = 0; kol < KOLOMMEN; kol++) {
-        const t0 = kol / KOLOMMEN, t1 = (kol + 1) / KOLOMMEN;
-        const A = mandZijde(h0, y0, i, t0), B = mandZijde(h0, y0, i, t1);
-        const C = mandZijde(h1, y1, i, t1), D = mandZijde(h1, y1, i, t0);
-        const dv = (rij + kol) % 2 ? -12 : 12;
-        m.driehoek(A, C, B, uv(BRUIN, dv));
-        m.driehoek(A, D, C, uv(BRUIN, dv));
-      }
-    }
-  }
-
-  /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen —
-   * donkerder bruin, als de dikke gevlochten rand van een echte mand */
-  const RAND = [
-    [HALF_BOVEN, HOOGTE], [HALF_BOVEN + 0.06, HOOGTE + 0.045],
-    [HALF_BOVEN + 0.06, HOOGTE + 0.09], [HALF_BOVEN - 0.08, HOOGTE + 0.09],
-    [HALF_BOVEN - 0.08, HOOGTE],
-  ];
-  for (let s = 0; s < RAND.length - 1; s++) {
-    const [h0, y0] = RAND[s], [h1, y1] = RAND[s + 1];
-    for (let i = 0; i < 4; i++) {
-      const A = mandHoek(h0, y0, i), B = mandHoek(h0, y0, i + 1);
-      const C = mandHoek(h1, y1, i + 1), D = mandHoek(h1, y1, i);
-      m.driehoek(A, C, B, uv(BRUIN, 28));
-      m.driehoek(A, D, C, uv(BRUIN, 28));
-    }
-  }
-
-  /* bodem (naar beneden) en vloer binnenin (naar boven) */
-  for (let i = 0; i < 4; i++) {
-    m.driehoek([0, 0, 0], mandHoek(HALF_ONDER, 0, i), mandHoek(HALF_ONDER, 0, i + 1), uv(BRUIN, 20));
-    m.driehoek([0, 0.08, 0], mandHoek(HALF_ONDER, 0.08, i + 1), mandHoek(HALF_ONDER, 0.08, i), uv(BRUIN, 26));
-  }
-}
-
-/* -- tuig: branderring, brander en staanders -------------------------------
- * De opbouw van een echte ballon: aan de mandrand staan vier staanders, die
- * dragen de branderring; in het midden van de ring zit de brander; en aan
- * de ring hangen de kabels die naar de envelop lopen (zie kabels()).
- */
-const RING_ZIJDEN = 8;
-const RING_HOEK = (k) => ((k + 0.5) / RING_ZIJDEN) * Math.PI * 2;
-const RING_R_UIT = 0.4, RING_R_IN = 0.29;
-const RING_ONDER = 0.7, RING_BOVEN = 0.76;
-
-function tuig(m) {
-  /* branderring: achthoekige band, inktzwart */
-  const RING = [
-    [RING_R_UIT, RING_ONDER], [RING_R_UIT, RING_BOVEN],
-    [RING_R_IN, RING_BOVEN], [RING_R_IN, RING_ONDER], [RING_R_UIT, RING_ONDER],
-  ];
-  for (let s = 0; s < RING.length - 1; s++) {
-    const [r0, y0] = RING[s], [r1, y1] = RING[s + 1];
-    for (let k = 0; k < RING_ZIJDEN; k++) {
-      const a0 = RING_HOEK(k - 0.5), a1 = RING_HOEK(k + 0.5);
-      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(INKT));
-      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(INKT));
-    }
-  }
-
-  /* brander: blokje midden in de ring, met een terracotta bovenvlak als
-   * vlampoort — gewoon een paletkleur, geen emissive */
-  const B_HALF = 0.1, B_ONDER = RING_ONDER - 0.02, B_BOVEN = RING_BOVEN + 0.16;
-  const b = (y, i) => [B_HALF * (i === 0 || i === 3 ? 1 : -1), y, B_HALF * (i < 2 ? -1 : 1)];
-  for (let i = 0; i < 4; i++) {
-    const j = (i + 1) % 4;
-    m.vlak(b(B_ONDER, i), b(B_ONDER, j), b(B_BOVEN, j), b(B_BOVEN, i), uv(INKT, 8));
-  }
-  m.vlak(b(B_BOVEN, 0), b(B_BOVEN, 1), b(B_BOVEN, 2), b(B_BOVEN, 3), uv(TERRACOTTA, -20));
-  m.vlak(b(B_ONDER, 3), b(B_ONDER, 2), b(B_ONDER, 1), b(B_ONDER, 0), uv(INKT, 16));
-
-  /* staanders: vier schuine stijlen van de hoeken van de mandrand naar de
-   * ring — de zichtbare bevestiging van het tuig aan de mand. */
-  for (let i = 0; i < 4; i++) {
-    const [sx, sz] = MAND_HOEKEN[i];
-    const hoek = Math.atan2(sz, sx);
-    staaf(m, [0.32 * sx, 0.52, 0.32 * sz], punt(RING_R_UIT - 0.04, RING_ONDER + 0.03, hoek), 0.024, INKT);
-  }
-}
-
-/**
- * Driezijdig prisma tussen twee punten: de dunste vorm die de stijlgids
+ * Driezijdige staaf tussen twee punten: de dunste vorm die de stijlgids
  * toestaat zonder in outlines te vervallen. `dikte` is de kleinste maat van
- * de doorsnede — bij een gelijkzijdige driehoek is dat de afstand van een
- * punt tot de overstaande zijde, dus 1.5 × de omgeschreven straal. Die maat
- * moet boven het minimum van 0.015 units blijven; met de omgeschreven straal
- * rekenen zou een te dun staafje opleveren. De uiteinden steken in de
- * aangrenzende delen, dus eindkappen zijn niet nodig.
+ * de doorsnede — bij een gelijkzijdige driehoek de afstand van een punt tot
+ * de overstaande zijde, dus 1.5 × de omgeschreven straal. Rekenen met de
+ * omgeschreven straal zou een staaf onder het minimum van 0.015 opleveren.
+ * De uiteinden steken in de aangrenzende delen; eindkappen zijn niet nodig.
  */
 function staaf(m, P0, P1, dikte, kleurCel, dv = 0) {
   const straal = dikte / 1.5;
@@ -350,16 +142,221 @@ function staaf(m, P0, P1, dikte, kleurCel, dv = 0) {
   }
 }
 
-/* kabels: acht dunne staven van de branderring omhoog en naar buiten naar de
- * bredere mondring, op de hoekpunten van de achthoek zodat elke kabel bij een
- * naadpositie van de envelop uitkomt. Bewust geometrie en geen lijnen: de
- * stijlgids houdt outlines voor op een onderscheidend kenmerk (hier de
- * naden), en een kabel is gewoon een dun onderdeel. Op 0.018 doorsnede — net
- * boven het minimum van 0.015 — blijven ze zo dun als de stijlgids toelaat. */
-function kabels(m, yMond) {
+/* -- envelop --------------------------------------------------------------- */
+
+const RMAX = 1.888;      // grootste straal
+const HOOGTE = 4.5;      // hals tot kroon
+const HALS = 0.3;        // straal van de halsopening
+const KROON = 0.2;       // straal van de kroonplaat
+const T_MAX = 0.6;       // grootste omtrek op 60% van de hoogte
+const P_ONDER = 0.85;    // vulling van de kegel onder de grootste omtrek
+
+/**
+ * Exponent van de kruinkoepel. De kruin van de ontwerpstudie is nagemeten een
+ * kwartcirkel: op 49%, 69% en 85% van de koepelhoogte zit die op 0.879, 0.720
+ * en 0.498 van de grootste straal, en een cirkel geeft daar 0.871, 0.723 en
+ * 0.521. Vandaar exact 2 — hoger maakt de bovenkant vlak, en dat werd te veel.
+ */
+const N_KRUIN = 2;
+
+/** (straal, hoogte) van hals (y = 0) naar kroon. */
+function profiel() {
+  const p = [];
+  for (let i = 0; i <= BANDEN; i++) {
+    const t = i / BANDEN;
+    let r;
+    if (t <= T_MAX) {
+      // onderkegel: vult snel uit naar de grootste omtrek
+      const v = t / T_MAX;
+      r = HALS + (RMAX - HALS) * Math.pow(Math.sin((Math.PI / 2) * v), P_ONDER);
+    } else {
+      const u = (t - T_MAX) / (1 - T_MAX);
+      r = KROON + (RMAX - KROON) * Math.pow(1 - Math.pow(u, N_KRUIN), 1 / N_KRUIN);
+    }
+    p.push([r, t * HOOGTE]);
+  }
+  p[0][0] = HALS;
+  p[p.length - 1][0] = KROON;
+  return p;
+}
+const PROFIEL = profiel();
+
+/** Onderste band staalblauw als halsband, kruin terracotta, ertussen om de
+ * vier banen een accent op een gebroken-witte romp. */
+function baanKleur(band, baan) {
+  if (band === 0) return STAAL;
+  if (band >= BANDEN - 2) return TERRACOTTA;
+  const k = baan % 4;
+  return k === 1 ? TERRACOTTA : k === 3 ? STAAL : WIT;
+}
+
+function envelop(m, prof, yHals) {
+  for (let band = 0; band < prof.length - 1; band++) {
+    const [r0, y0] = prof[band];
+    const [r1, y1] = prof[band + 1];
+    for (let baan = 0; baan < BANEN; baan++) {
+      const a0 = (baan / BANEN) * Math.PI * 2;
+      const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
+      const kleur = baanKleur(band, baan);
+      // Variatie per báán over de hele lengte, nooit per band: anders
+      // tekenen zich horizontale ringen af en die heeft een ballon niet.
+      // De witte cel alleen omhoog (lichter), want naar onderen loopt hij
+      // snel naar grijsroze.
+      const dv = kleur === WIT
+        ? -Math.round(hash2(baan * 3 + 2, 7) * 8)
+        : Math.round((hash2(baan * 3 + 2, 3) - 0.5) * 10);
+      const celUv = uv(kleur, dv);
+      m.driehoek(punt(r0, yHals + y0, a0), punt(r1, yHals + y1, a1), punt(r0, yHals + y0, a1), celUv);
+      m.driehoek(punt(r0, yHals + y0, a0), punt(r1, yHals + y1, a0), punt(r1, yHals + y1, a1), celUv);
+    }
+  }
+
+  /* kroonplaat op de top */
+  const top = yHals + prof[prof.length - 1][1];
+  for (let baan = 0; baan < BANEN; baan++) {
+    const a0 = (baan / BANEN) * Math.PI * 2;
+    const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
+    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a1), punt(KROON, top, a1), uv(INKT));
+    m.driehoek(punt(KROON, top, a0), punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(INKT));
+    m.driehoek([0, top + 0.06, 0], punt(KROON, top + 0.06, a0), punt(KROON, top + 0.06, a1), uv(INKT));
+  }
+
+  /* halsgat: een korte kegel naar binnen en omhoog, zodat het gat diepte
+   * heeft. Een plat schijfje leest als een dop, niet als een opening. */
+  for (let baan = 0; baan < BANEN; baan++) {
+    const a0 = (baan / BANEN) * Math.PI * 2;
+    const a1 = ((baan + 1) / BANEN) * Math.PI * 2;
+    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS, yHals, a1), uv(INKT, 14));
+    m.driehoek(punt(HALS, yHals, a0), punt(HALS * 0.45, yHals + 0.16, a0), punt(HALS * 0.45, yHals + 0.16, a1), uv(INKT, 14));
+    m.driehoek([0, yHals + 0.16, 0], punt(HALS * 0.45, yHals + 0.16, a1), punt(HALS * 0.45, yHals + 0.16, a0), uv(INKT, 20));
+  }
+
+  /* naden: één lijn per baangrens, een fractie buiten het doek langs de
+   * profielnormaal zodat de lijn niet met het vlak vecht om diepte */
+  const AFSTAND = 0.008;
+  const profielNormaal = (i) => {
+    const voor = prof[Math.max(i - 1, 0)];
+    const na = prof[Math.min(i + 1, prof.length - 1)];
+    const [dr, dy] = [na[0] - voor[0], na[1] - voor[1]];
+    const lengte = Math.hypot(dr, dy) || 1;
+    return [dy / lengte, -dr / lengte];
+  };
+  for (let baan = 0; baan < BANEN; baan++) {
+    const hoek = (baan / BANEN) * Math.PI * 2;
+    for (let i = 0; i < prof.length - 1; i++) {
+      const [nr0, ny0] = profielNormaal(i);
+      const [nr1, ny1] = profielNormaal(i + 1);
+      m.lijn(
+        punt(prof[i][0] + nr0 * AFSTAND, yHals + prof[i][1] + ny0 * AFSTAND, hoek),
+        punt(prof[i + 1][0] + nr1 * AFSTAND, yHals + prof[i + 1][1] + ny1 * AFSTAND, hoek),
+      );
+    }
+  }
+}
+
+/* -- mand ------------------------------------------------------------------
+ * Vierkante rieten mand: het vlechtwerk als raster van 4 zijden × 3 kolommen
+ * × 2 rijen, om en om een lichtere en donkerdere greep uit dezelfde bruine
+ * verloopstrook, en een opgerolde rand in donkerder bruin. Het materiaal is
+ * doubleSided, dus de binnenkant van de wanden is gewoon zichtbaar; binnenin
+ * ligt een vloer.
+ *
+ * De vier hoeken staan op oplopende hoek (−45°, 45°, 135°, 225°), zodat de
+ * winding dezelfde kant op loopt als bij de gedraaide vormen hierboven.
+ */
+const MAND_HOEKEN = [[1, -1], [1, 1], [-1, 1], [-1, -1]];
+const mandHoek = (half, y, i) => {
+  const [sx, sz] = MAND_HOEKEN[i % 4];
+  return [half * sx, y, half * sz];
+};
+
+/** @returns hoogte van de bovenkant van de rand */
+function mand(m, half, hoogte) {
+  const onder = half * 0.86;
+  const halfOp = (y) => onder + (half - onder) * (y / hoogte);
+
+  for (let i = 0; i < 4; i++) {
+    const zijde = (h, y, t) => {
+      const A = mandHoek(h, y, i), B = mandHoek(h, y, i + 1);
+      return [A[0] + (B[0] - A[0]) * t, y, A[2] + (B[2] - A[2]) * t];
+    };
+    for (let rij = 0; rij < 2; rij++) {
+      const y0 = (rij / 2) * hoogte, y1 = ((rij + 1) / 2) * hoogte;
+      const h0 = halfOp(y0), h1 = halfOp(y1);
+      for (let kol = 0; kol < 3; kol++) {
+        const t0 = kol / 3, t1 = (kol + 1) / 3;
+        const dv = (rij + kol) % 2 ? -12 : 12;
+        m.driehoek(zijde(h0, y0, t0), zijde(h1, y1, t1), zijde(h0, y0, t1), uv(BRUIN, dv));
+        m.driehoek(zijde(h0, y0, t0), zijde(h1, y1, t0), zijde(h1, y1, t1), uv(BRUIN, dv));
+      }
+    }
+  }
+
+  /* opgerolde rand: uitstulpen, plat bovenvlak, terugrollen naar binnen */
+  const d = half * 0.15;
+  const RAND = [
+    [half, hoogte], [half + d, hoogte + d * 0.7], [half + d, hoogte + d * 1.4],
+    [half - d * 1.3, hoogte + d * 1.4], [half - d * 1.3, hoogte],
+  ];
+  for (let s = 0; s < RAND.length - 1; s++) {
+    const [h0, y0] = RAND[s], [h1, y1] = RAND[s + 1];
+    for (let i = 0; i < 4; i++) {
+      m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i + 1), mandHoek(h0, y0, i + 1), uv(BRUIN, 28));
+      m.driehoek(mandHoek(h0, y0, i), mandHoek(h1, y1, i), mandHoek(h1, y1, i + 1), uv(BRUIN, 28));
+    }
+  }
+
+  /* bodem (naar beneden) en vloer binnenin (naar boven) */
+  for (let i = 0; i < 4; i++) {
+    m.driehoek([0, 0, 0], mandHoek(onder, 0, i), mandHoek(onder, 0, i + 1), uv(BRUIN, 20));
+    m.driehoek([0, hoogte * 0.16, 0], mandHoek(onder, hoogte * 0.16, i + 1), mandHoek(onder, hoogte * 0.16, i), uv(BRUIN, 26));
+  }
+
+  return hoogte + d * 1.4;
+}
+
+/* -- tuig: stijlen, branderring, brander en kabels -------------------------
+ * De opbouw van een echte ballon: op de mandhoeken staan vier stijlen, die
+ * dragen de branderring; in het midden van de ring zit de brander; en aan de
+ * ring hangen de kabels die naar de halsrand lopen.
+ */
+function tuig(m, { mandHalf, mandH, randTop, ringR, ringOnder, ringBoven, yHals }) {
+  /* branderring: achthoekige band */
+  const rIn = ringR * 0.72;
+  const RING = [
+    [ringR, ringOnder], [ringR, ringBoven], [rIn, ringBoven], [rIn, ringOnder], [ringR, ringOnder],
+  ];
+  for (let s = 0; s < RING.length - 1; s++) {
+    const [r0, y0] = RING[s], [r1, y1] = RING[s + 1];
+    for (let k = 0; k < RING_ZIJDEN; k++) {
+      const a0 = ((k + 0.5) / RING_ZIJDEN) * Math.PI * 2;
+      const a1 = ((k + 1.5) / RING_ZIJDEN) * Math.PI * 2;
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a1), punt(r0, y0, a1), uv(INKT));
+      m.driehoek(punt(r0, y0, a0), punt(r1, y1, a0), punt(r1, y1, a1), uv(INKT));
+    }
+  }
+
+  /* brander: blokje midden in de ring, met een terracotta bovenvlak als
+   * vlampoort — gewoon een paletkleur, geen emissive */
+  const bHalf = ringR * 0.42;
+  const bOnder = ringOnder - 0.02, bBoven = ringBoven + (yHals - ringBoven) * 0.42;
+  const b = (y, i) => mandHoek(bHalf, y, i);
+  for (let i = 0; i < 4; i++) m.vlak(b(bOnder, i), b(bOnder, i + 1), b(bBoven, i + 1), b(bBoven, i), uv(INKT, 8));
+  m.vlak(b(bBoven, 0), b(bBoven, 1), b(bBoven, 2), b(bBoven, 3), uv(TERRACOTTA, -20));
+  m.vlak(b(bOnder, 3), b(bOnder, 2), b(bOnder, 1), b(bOnder, 0), uv(INKT, 16));
+
+  /* stijlen: van de mandhoeken schuin omhoog naar de ring */
+  for (let i = 0; i < 4; i++) {
+    const [sx, sz] = MAND_HOEKEN[i];
+    const hoek = Math.atan2(sz, sx);
+    staaf(m, [mandHalf * 0.92 * sx, mandH * 0.9, mandHalf * 0.92 * sz],
+      punt(ringR * 0.9, ringOnder + 0.02, hoek), 0.024, INKT);
+  }
+
+  /* kabels: van de ring naar de halsrand, op de naadposities van de envelop */
   for (let k = 0; k < RING_ZIJDEN; k++) {
-    const hoek = RING_HOEK(k);
-    staaf(m, punt(RING_R_UIT - 0.01, RING_BOVEN, hoek), punt(0.57, yMond + 0.02, hoek), 0.018, STAAL, -10);
+    const hoek = ((k + 0.5) / RING_ZIJDEN) * Math.PI * 2;
+    staaf(m, punt(ringR * 0.96, ringBoven, hoek), punt(HALS * 0.94, yHals + 0.02, hoek), 0.018, STAAL, -10);
   }
 }
 
@@ -415,12 +412,24 @@ function schrijfGlb(naam, m) {
   const ARRAY_BUFFER = 34962;
   const ELEMENT_ARRAY_BUFFER = 34963;
   const aantal = m.posities.length / 3;
-  const iPositie = accessor(Float32Array.from(m.posities), 'VEC3', 5126, { minMax: true, target: ARRAY_BUFFER });
-  const iNormaal = accessor(Float32Array.from(m.normalen), 'VEC3', 5126, { target: ARRAY_BUFFER });
-  const iUv = accessor(Float32Array.from(m.uvs), 'VEC2', 5126, { target: ARRAY_BUFFER });
-  const iIndex = accessor(Uint16Array.from({ length: aantal }, (_, i) => i), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER });
-  const iLijnPositie = accessor(Float32Array.from(m.lijnPosities), 'VEC3', 5126, { minMax: true, target: ARRAY_BUFFER });
-  const iLijnIndex = accessor(Uint16Array.from(m.lijnIndices), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER });
+  const primitives = [{
+    attributes: {
+      POSITION: accessor(Float32Array.from(m.posities), 'VEC3', 5126, { minMax: true, target: ARRAY_BUFFER }),
+      NORMAL: accessor(Float32Array.from(m.normalen), 'VEC3', 5126, { target: ARRAY_BUFFER }),
+      TEXCOORD_0: accessor(Float32Array.from(m.uvs), 'VEC2', 5126, { target: ARRAY_BUFFER }),
+    },
+    indices: accessor(Uint16Array.from({ length: aantal }, (_, i) => i), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER }),
+    material: 0,
+  }, {
+    // naden: lijnen (mode 1) kennen geen texture, dus de kleur staat als
+    // factor op een eigen materiaal — dezelfde staalblauwe cel 15/3.
+    attributes: {
+      POSITION: accessor(Float32Array.from(m.lijnPosities), 'VEC3', 5126, { minMax: true, target: ARRAY_BUFFER }),
+    },
+    indices: accessor(Uint16Array.from(m.lijnIndices), 'SCALAR', 5123, { target: ELEMENT_ARRAY_BUFFER }),
+    mode: 1,
+    material: 1,
+  }];
 
   const gltf = {
     asset: {
@@ -431,25 +440,7 @@ function schrijfGlb(naam, m) {
     scene: 0,
     scenes: [{ nodes: [0], name: naam }],
     nodes: [{ mesh: 0, name: naam }],
-    meshes: [{
-      name: naam,
-      primitives: [
-        {
-          attributes: { POSITION: iPositie, NORMAL: iNormaal, TEXCOORD_0: iUv },
-          indices: iIndex,
-          material: 0,
-        },
-        {
-          // naden en touwen: lijnen (mode 1) kennen geen texture, dus de
-          // kleur staat als factor op een eigen materiaal — dezelfde
-          // staalblauwe cel 15/3.
-          attributes: { POSITION: iLijnPositie },
-          indices: iLijnIndex,
-          mode: 1,
-          material: 1,
-        },
-      ],
-    }],
+    meshes: [{ name: naam, primitives }],
     materials: [
       {
         name: 'colormap',
@@ -487,16 +478,17 @@ function schrijfGlb(naam, m) {
   glb.writeUInt32LE(0x004e4942, off + 4); // 'BIN'
   binChunk.copy(glb, off + 8);
 
-  const pad = join(KIT, `${naam}.glb`);
-  writeFileSync(pad, glb);
-  console.log(`${pad}`);
-  console.log(`  ${aantal / 3} driehoeken, ${m.lijnIndices.length / 2} lijnsegmenten, ${glb.length} bytes`);
+  writeFileSync(join(KIT, `${naam}.glb`), glb);
+  console.log(`${naam}: ${aantal / 3} driehoeken, ${m.lijnIndices.length / 2} naadsegmenten, ${glb.length} bytes`);
 }
 
-/** controle: de envelopvlakken van een model moeten naar buiten wijzen */
-function controleerEnvelop(m, banden = PROFIEL.length - 1) {
+/**
+ * De envelopvlakken moeten naar buiten wijzen. `vanaf` is de hoekpuntindex
+ * waar de envelop begint; bij de complete ballon staan mand en tuig ervoor.
+ */
+function controleerEnvelop(m, vanaf = 0) {
   let som = 0;
-  for (let i = 0; i < BANEN * banden * 6; i++) {
+  for (let i = vanaf; i < vanaf + BANEN * BANDEN * 6; i++) {
     const [x, z] = [m.posities[i * 3], m.posities[i * 3 + 2]];
     const lengte = Math.hypot(x, z) || 1;
     som += (m.normalen[i * 3] * x + m.normalen[i * 3 + 2] * z) / lengte;
@@ -508,22 +500,34 @@ function controleerEnvelop(m, banden = PROFIEL.length - 1) {
 
 {
   const m = maakModel();
-  envelop(m, 0);
+  envelop(m, PROFIEL, 0);
   controleerEnvelop(m);
   schrijfGlb('balloon', m);
 }
 
 {
-  /* de opbouw van een echte ballon, van onder naar boven: mand (rand op
-   * borsthoogte 0.64, smaller dan de mond), staanders naar de branderring
-   * met de brander erin, en van de ring dunne kabels naar de mond van de
-   * afgeknotte envelop (~1.2 breed). */
-  const MOND = 1.32;
+  const MAND_HALF = 0.24;  // mand 0.48 breed — 1 : 7.9 van de envelop,
+                           //  en 0.8 × de hals, dus hij hangt er net binnen
+  const MAND_H = 0.4;
+  const RING_R = 0.22;     // ring net binnen de mandbreedte
+  const TUIG = 0.5;        // vrije hoogte tussen mandrand en hals
+
   const m = maakModel();
-  envelop(m, MOND, 1);
-  controleerEnvelop(m, PROFIEL.length - 2);
-  mand(m);
-  tuig(m);
-  kabels(m, MOND);
+  const randTop = mand(m, MAND_HALF, MAND_H);
+  const yHals = randTop + TUIG;
+  const ringOnder = randTop + TUIG * 0.42;
+  tuig(m, {
+    mandHalf: MAND_HALF, mandH: MAND_H, randTop,
+    ringR: RING_R, ringOnder, ringBoven: ringOnder + 0.05, yHals,
+  });
+  const vanaf = m.posities.length / 3;
+  envelop(m, PROFIEL, yHals);
+  controleerEnvelop(m, vanaf);
   schrijfGlb('balloon-basket', m);
 }
+
+console.log(
+  `verhoudingen: envelop ${(RMAX * 2).toFixed(2)} breed, ` +
+  `hals ${(HALS * 2).toFixed(2)} (1:${(RMAX / HALS).toFixed(1)}), ` +
+  `mand 0.48 (1:${(RMAX * 2 / 0.48).toFixed(1)})`,
+);

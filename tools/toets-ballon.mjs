@@ -78,7 +78,12 @@ for (const naam of ['balloon', 'balloon-basket']) {
   const posities = leesAccessor(json, bin, json.meshes[0].primitives[0].attributes.POSITION);
   // Groepeer op (hoogte, straal): één ring van één gedraaide vorm. Zonder de
   // straal erbij vallen losse onderdelen op dezelfde hoogte — ring, kabels,
-  // staanders — in één hoop en telt de controle veel te veel stukken.
+  // stijlen — in één hoop en telt de controle veel te veel stukken.
+  //
+  // Ook mét de straal erbij kunnen twee onderdelen elkaar overlappen. Een
+  // echte ring van een gedraaide vorm heeft gelijke hoekafstanden; een
+  // toevallige hoop van losse delen niet. Alleen gelijkmatige ringen tellen
+  // dus mee, de rest wordt gemeld als informatie.
   const hoeken = new Map();
   for (const [x, y, z] of posities) {
     const r = Math.hypot(x, z);
@@ -87,9 +92,20 @@ for (const naam of ['balloon', 'balloon-basket']) {
     if (!hoeken.has(sleutel)) hoeken.set(sleutel, new Set());
     hoeken.get(sleutel).add(Math.round(Math.atan2(z, x) * 200));
   }
-  const ergste = [...hoeken.entries()].sort((a, b) => b[1].size - a[1].size)[0];
+  const gelijkmatig = (hoekSet) => {
+    const a = [...hoekSet].map((h) => h / 200).sort((p, q) => p - q);
+    if (a.length < 3) return true;
+    const stappen = a.map((h, i) => (i === 0 ? h + Math.PI * 2 - a[a.length - 1] : h - a[i - 1]));
+    const gem = stappen.reduce((s, v) => s + v, 0) / stappen.length;
+    return stappen.every((s) => Math.abs(s - gem) < gem * 0.1);
+  };
+  const ringen = [...hoeken.entries()].sort((a, b) => b[1].size - a[1].size);
+  const echte = ringen.filter(([, s]) => gelijkmatig(s));
+  const gemengd = ringen.filter(([, s]) => !gelijkmatig(s) && s.size > 16);
+  const ergste = echte[0];
   if (ergste[1].size <= 16) ok(`max ${ergste[1].size} vlakke stukken per cirkel (limiet 16)`);
   else fout(`${ergste[1].size} stukken per cirkel op ${ergste[0]}, limiet is 16`);
+  if (gemengd.length) console.log(`  info  ${gemengd.length} hoogte/straal-groep(en) met overlappende losse delen, niet als cirkel geteld`);
 
   /* 3. Outlines — hoeveel lijnprimitives? */
   const lijnen = json.meshes[0].primitives.filter((p) => p.mode === 1);
