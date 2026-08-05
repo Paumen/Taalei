@@ -21,7 +21,7 @@ export const GROEPEN = [
   { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
     beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
-    beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
+    beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken". Ook de luchtballon staat hier: die haalt je op een plateau waar geen trap heen gaat.' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
     beschrijving: 'Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.' },
   { id: 'bomen', naam: 'Bomen & palmen', kort: 'Bomen', kleur: '#3da679',
@@ -97,7 +97,7 @@ const regels = [
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
   [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
   [/^(chest|barrel|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
-  [/^(stairs|ladder|bridge)\b/, 'verbinding'],
+  [/^(stairs|ladder|bridge|hot-air-balloon)\b/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
   [/^(tree|palm)\b/, 'bomen'],
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
@@ -114,8 +114,10 @@ const regels = [
  * "boom" moet `tree` vinden.
  */
 const WOORDENBOEK = {
-  arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
-  axe: ['bijl'], balcony: ['balkon'], banner: ['banier', 'vaandel'],
+  air: ['lucht'], arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
+  axe: ['bijl'], balcony: ['balkon'],
+  balloon: ['luchtballon', 'ballon', 'heteluchtballon'],
+  banner: ['banier', 'vaandel'],
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
   bottle: ['fles'], bow: ['boog'], bridge: ['brug'], bucket: ['emmer'],
   building: ['gebouw'], campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
