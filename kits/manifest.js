@@ -342,6 +342,7 @@ window.KENNEY_KITS = [
   "name": "Taalei Kit",
   "url": null,
   "models": [
+   "hot-air-balloon",
    "lighthouse"
   ]
  }
