@@ -14,13 +14,18 @@
  * texel van één cel uit de gedeelde colormap — dezelfde truc als de rest van de
  * kits, en dezelfde zes cellen die de vuurtoren al gebruikt.
  *
+ * De vier touwen zijn geen eigen vinding: ze hebben de doorsnede, de dikte en
+ * het kleurverloop van de touwen van pirate-kit/mast-ropes.
+ *
  * Volgens asset_style_guide.md:
- * - 2.4 x 2.4 voetafdruk, 4.52 hoog; mand 0.67 breed, op y = 0, pivot in het
+ * - 2.36 x 2.42 voetafdruk, 4.56 hoog; mand 0.9 breed, op y = 0, pivot in het
  *   midden. De ballon staat naast de vuurtoren (4.27) en het grote schip.
  * - Rond werk is 14 stukken per cirkel (de ballon) en 8 voor de brander, die
- *   kleiner is dan 0.5 x 0.5 x 0.5. Niets dunner dan 0.045.
+ *   kleiner is dan 0.5 x 0.5 x 0.5. Het touw is 0.045 breed, als bij Kenney;
+ *   verder is niets dunner dan 0.07.
+ * - 496 driehoeken, 1488 hoekpunten, 19 per unit³.
  * - Twee tekenopdrachten: de mand staat stil, `ballon` hangt aan een eigen node
- *   met zijn oorsprong op het brandersframe — het punt waar de kabels vastzitten
+ *   met zijn oorsprong op het brandersframe — het punt waar de touwen vastzitten
  *   en waar de ballon dus omheen wiegt.
  */
 
@@ -51,12 +56,21 @@ const KLEUR = {
   goud: texel(6, 0, 1),          // #ffbc50 — band, kroon en brander
   rood: texel(7, 0, 1),          // #b84439 — de rode banen
   room: texel(5, 2, 1),          // #fcf8e8 — de witte banen
-  donker: texel(10, 0, 1),       // #404048 — kabels, staanders, frame
+  donker: texel(10, 0, 1),       // #404048 — staanders en frame
   schaduw: texel(10, 0, 3),      // #36363a — het gat onder in de ballon
   riet: texel(13, 0, 3),         // #cd8861 — de mand
   rietRand: texel(12, 0, 1),     // #9e5b41 — de rand van de mand
   rietDiep: texel(12, 0, 3),     // #875541 — bodem en binnenkant
 };
+
+/**
+ * Touw krijgt niet één texel maar het verloop van cel 13, precies zoals de
+ * touwen van pirate-kit/mast-ropes: licht aan het vrije eind, donkerder waar
+ * het vastzit. De stijlgids staat bestaande verloopcellen toe, en zo is een
+ * ballontouw hetzelfde touw als aan de mast.
+ */
+const TOUW_LICHT = [(13 * CEL_B + CEL_B / 2 + 0.5) / ATLAS, 12.5 / ATLAS];
+const TOUW_DONKER = [(13 * CEL_B + CEL_B / 2 + 0.5) / ATLAS, 115.5 / ATLAS];
 
 /* -- maten ----------------------------------------------------------------
  * Alles in rastereenheden: 1 = één wand-/vloersegment.
@@ -81,28 +95,29 @@ const BRANDER_ONDER = 0.8;
 const BRANDER_BOVEN = 1.16;
 const STEEL = 0.06;              // halve dikte van de branderstaander
 
-const KABEL = 0.028;             // halve dikte
+const TOUW_R = 0.026;            // omgeschreven straal; 0.045 breed, als bij mast-ropes
 const MOND_Y = 1.55;
-const MOND_R = 0.62;
+const MOND_R = 0.60;
 
-/** Het scharnier: hier komen de kabels op de staanders en hier wiegt de ballon omheen. */
+/** Het scharnier: hier komen de touwen op de staanders en hier wiegt de ballon omheen. */
 const SCHARNIER = FRAME_Y;
 
 /**
- * Doorsnede van de ballon, van de mond naar de kroon. Een omgekeerde druppel:
- * snel breed worden, boven de evenaar langzaam intrekken.
+ * Doorsnede van de ballon, van de mond naar de kroon. De bol zit bovenin: een
+ * ballon is breed onder zijn kruin en loopt van daar naar beneden toe naar de
+ * mond. Het breedste punt ligt op ruim zestig procent van de hoogte.
  */
 const RINGEN = [
   [MOND_Y, MOND_R],
-  [1.72, 0.80],   // einde van de gouden band bij de mond
-  [2.00, 1.02],
-  [2.34, 1.17],
-  [2.70, 1.21],
-  [3.05, 1.18],
-  [3.42, 1.06],
-  [3.80, 0.82],
-  [4.15, 0.48],
-  [4.38, 0.18],   // begin van de gouden kroon
+  [1.76, 0.78],   // einde van de gouden band bij de mond
+  [2.14, 0.97],
+  [2.54, 1.10],
+  [2.94, 1.18],
+  [3.32, 1.21],   // breedste punt
+  [3.68, 1.18],
+  [4.02, 1.05],
+  [4.32, 0.78],
+  [4.56, 0.25],   // begin van de gouden kroon
 ];
 
 /* -- meshbouw -------------------------------------------------------------
@@ -126,15 +141,23 @@ const normeer = (v) => {
   return [v[0] / l, v[1] / l, v[2] / l];
 };
 
+/**
+ * `uv` is één cel voor het hele vlak, of een rijtje van één cel per hoekpunt —
+ * dat laatste alleen voor touw, dat een verloop over zijn lengte krijgt.
+ */
+const perHoekpunt = (uv, aantal) =>
+  Array.isArray(uv[0]) ? uv : new Array(aantal).fill(uv);
+
 /** Driehoek p0-p1-p2, tegen de klok in gezien vanaf de goede kant. */
 function driehoek(mesh, p0, p1, p2, uv, normaal) {
   const n = normaal ?? normeer(kruis(trek(p1, p0), trek(p2, p0)));
+  const cellen = perHoekpunt(uv, 3);
   const basis = mesh.pos.length / 3;
-  for (const p of [p0, p1, p2]) {
+  [p0, p1, p2].forEach((p, i) => {
     mesh.pos.push(p[0], p[1], p[2]);
     mesh.nrm.push(n[0], n[1], n[2]);
-    mesh.uv.push(uv[0], uv[1]);
-  }
+    mesh.uv.push(cellen[i][0], cellen[i][1]);
+  });
   mesh.idx.push(basis, basis + 1, basis + 2);
 }
 
@@ -147,8 +170,9 @@ function vlak(mesh, p0, p1, p2, p3, uv) {
   const a = kruis(trek(p1, p0), trek(p3, p0));
   const b = kruis(trek(p2, p1), trek(p0, p1));
   const n = normeer([a[0] + b[0], a[1] + b[1], a[2] + b[2]]);
-  driehoek(mesh, p0, p1, p2, uv, n);
-  driehoek(mesh, p0, p2, p3, uv, n);
+  const c = perHoekpunt(uv, 4);
+  driehoek(mesh, p0, p1, p2, [c[0], c[1], c[2]], n);
+  driehoek(mesh, p0, p2, p3, [c[0], c[2], c[3]], n);
 }
 
 /** Rechthoekige doos van hoek `a` tot hoek `b`, met per zijde dezelfde cel. */
@@ -163,27 +187,41 @@ function doos(mesh, a, b, uv, uvBoven = uv, uvOnder = uv) {
   vlak(mesh, [x0, y0, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1], uvOnder);
 }
 
-/** Balk met vierkante doorsnede van punt `a` naar punt `b` — de kabels. */
-function balk(mesh, a, b, halveDikte, uv) {
+/**
+ * Prisma van punt `a` naar punt `b`, met `zijden` vlakken rondom. Vier zijden is
+ * een balk (het frame); drie is een touw, want zo tekent Kenney touw ook.
+ * `uvA` en `uvB` mogen verschillen: dan loopt er een verloop over de lengte.
+ */
+function prisma(mesh, a, b, straal, zijden, uvA, uvB = uvA) {
   const as = normeer(trek(b, a));
   const hulp = Math.abs(as[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0];
   const u = normeer(kruis(hulp, as));
   const v = normeer(kruis(as, u));
-  const hoek = (p, su, sv) => [
-    p[0] + u[0] * su * halveDikte + v[0] * sv * halveDikte,
-    p[1] + u[1] * su * halveDikte + v[1] * sv * halveDikte,
-    p[2] + u[2] * su * halveDikte + v[2] * sv * halveDikte,
-  ];
-  const tekens = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
-  const onder = tekens.map(([su, sv]) => hoek(a, su, sv));
-  const boven = tekens.map(([su, sv]) => hoek(b, su, sv));
-  for (let i = 0; i < 4; i++) {
-    const j = (i + 1) % 4;
-    vlak(mesh, onder[i], onder[j], boven[j], boven[i], uv);
+  const rand = (p, i) => {
+    const hoek = ((i + 0.5) * 2 * Math.PI) / zijden;
+    const su = Math.cos(hoek) * straal;
+    const sv = Math.sin(hoek) * straal;
+    return [p[0] + u[0] * su + v[0] * sv, p[1] + u[1] * su + v[1] * sv, p[2] + u[2] * su + v[2] * sv];
+  };
+  const onder = Array.from({ length: zijden }, (_, i) => rand(a, i));
+  const boven = Array.from({ length: zijden }, (_, i) => rand(b, i));
+  for (let i = 0; i < zijden; i++) {
+    const j = (i + 1) % zijden;
+    vlak(mesh, onder[i], onder[j], boven[j], boven[i], [uvA, uvA, uvB, uvB]);
   }
-  vlak(mesh, boven[0], boven[1], boven[2], boven[3], uv);
-  vlak(mesh, onder[3], onder[2], onder[1], onder[0], uv);
+  for (let i = 1; i < zijden - 1; i++) {
+    driehoek(mesh, boven[0], boven[i], boven[i + 1], uvB);
+    driehoek(mesh, onder[0], onder[i + 1], onder[i], uvA);
+  }
 }
+
+/** Balk met vierkante doorsnede — het frame boven de mand. */
+const balk = (mesh, a, b, halveDikte, uv) =>
+  prisma(mesh, a, b, halveDikte * Math.SQRT2, 4, uv);
+
+/** Touw: driezijdig, 0.045 breed en met het verloop van cel 13, als bij mast-ropes. */
+const touw = (mesh, laag, hoog) =>
+  prisma(mesh, laag, hoog, TOUW_R, 3, TOUW_LICHT, TOUW_DONKER);
 
 /** Horizontale ring tussen twee vierkanten, bijv. de bovenkant van de mandrand. */
 function ring(mesh, y, halfBinnen, halfBuiten, uv, omhoog = true) {
@@ -354,12 +392,12 @@ for (let i = 0; i < BANEN; i++) {
   );
 }
 
-// Vier kabels van de staanders naar de mond.
+// Vier touwen van de staanders naar de mond.
 for (const [sx, sz] of HOEKEN) {
-  const a = [sx * STAANDER_X, FRAME_Y - y0 - 0.03, sz * STAANDER_X];
+  const laag = [sx * STAANDER_X, FRAME_Y - y0 - 0.03, sz * STAANDER_X];
   const hoek = Math.atan2(sx, sz);
-  const b = [Math.sin(hoek) * MOND_R, MOND_Y - y0 + 0.01, Math.cos(hoek) * MOND_R];
-  balk(ballon, a, b, KABEL, KLEUR.donker);
+  const hoog = [Math.sin(hoek) * MOND_R, MOND_Y - y0 + 0.01, Math.cos(hoek) * MOND_R];
+  touw(ballon, laag, hoog);
 }
 
 /* -- glb schrijven --------------------------------------------------------
