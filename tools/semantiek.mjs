@@ -118,7 +118,7 @@ const regels = [
 const WOORDENBOEK = {
   arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
   axe: ['bijl'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
-  banner: ['banier', 'vaandel'], basket: ['mand', 'korf'],
+  banner: ['banier', 'vaandel'],
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
   bottle: ['fles'], bow: ['boog'], bridge: ['brug'], bucket: ['emmer'],
   building: ['gebouw'], campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
