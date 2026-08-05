@@ -66,7 +66,7 @@
 <body>
 
 <h1>Blockout — oefening</h1>
-<p class="sub">De 2D-weergave uit game design §1, in het palet en de vormentaal van de <a href="index.html">zone</a>. Hetzelfde zand, hetzelfde hout, dezelfde vlakke facetten: de oefening is een stuk van dezelfde wereld van dichtbij, geen los scherm dat er toevallig bovenop ligt. Statische standen — er zit geen interactie in, dit is een indeling.</p>
+<p class="sub">De 2D-weergave uit game design §1, in het palet en de vormentaal van de <a href="index.html">zone</a>. Zelf proberen kan in de <a href="speel.html">speelbare plak</a>. Hetzelfde zand, hetzelfde hout, dezelfde vlakke facetten: de oefening is een stuk van dezelfde wereld van dichtbij, geen los scherm dat er toevallig bovenop ligt. Statische standen — er zit geen interactie in, dit is een indeling.</p>
 
 <h2>Hakken — het woord in klanken splitsen</h2>
 <div class="rij">
@@ -94,22 +94,18 @@
           <path d="M28 12 q7 8 0 16" stroke="#3e3e44" stroke-width="3" fill="none" stroke-linecap="round"/>
         </svg>
 
-        <!-- Het woord is één stuk drijfhout. De klankgrenzen zijn te zien als
-             inkepingen in het hout, niet als lijnen over de letters heen: het
-             hout draagt de opdracht, niet een laagje ui eroverheen. -->
+        <!-- Het woord is één stuk drijfhout: het hout draagt de opdracht, niet
+             een laagje ui eroverheen. Er kan tussen elke twee letters gehakt
+             worden. Alleen de goede grenzen tonen zou het antwoord aanwijzen —
+             dat aa één klank is, moet het kind zelf horen. -->
         <svg width="272" height="150" viewBox="0 0 272 150" aria-label="drijfhout met het woord raam">
           <polygon points="16,52 256,52 244,34 28,34" fill="#f1976c"/>
           <rect x="16" y="52" width="240" height="62" fill="#d07b56"/>
           <polygon points="256,52 244,34 244,96 256,114" fill="#995a41"/>
           <text x="136" y="97" text-anchor="middle" font-size="46" font-weight="700"
                 letter-spacing="7" fill="#3e3e44" font-family="system-ui, sans-serif">raam</text>
-          <!-- klankgrenzen r|aa|m -->
-          <g stroke="#3e3e44" stroke-width="3" stroke-linecap="round" opacity=".45">
-            <path d="M92 30 v10 M92 118 v10"/>
-            <path d="M182 30 v10 M182 118 v10"/>
-          </g>
-          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".45">
-            <path d="M92 40 v78"/><path d="M182 40 v78"/>
+          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".3">
+            <path d="M84 44 v70"/><path d="M136 44 v70"/><path d="M188 44 v70"/>
           </g>
         </svg>
 
@@ -122,7 +118,7 @@
       </div>
       <div class="duim"></div>
     </div>
-    <figcaption><b>Begin.</b> Het woord staat als één stuk hout. Het wordt voorgelezen; de inkepingen laten zien waar gehakt kan worden.</figcaption>
+    <figcaption><b>Begin.</b> Het woord staat als één stuk hout. Het wordt voorgelezen; er kan tussen elke twee letters gehakt worden. Waar de klank ophoudt moet het kind zelf horen.</figcaption>
   </figure>
 
   <!-- 2. eerste hak -->
@@ -163,11 +159,8 @@
           <polygon points="256,52 244,34 244,96 256,114" fill="#995a41"/>
           <text x="177" y="97" text-anchor="middle" font-size="46" font-weight="700"
                 letter-spacing="7" fill="#3e3e44" font-family="system-ui, sans-serif">aam</text>
-          <g stroke="#3e3e44" stroke-width="3" stroke-linecap="round" opacity=".45">
-            <path d="M182 30 v10 M182 118 v10"/>
-          </g>
-          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".45">
-            <path d="M182 40 v78"/>
+          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".3">
+            <path d="M150 44 v70"/><path d="M204 44 v70"/>
           </g>
           <!-- spaanders op de plek van de hak -->
           <g fill="#dd9f79">
@@ -218,12 +211,8 @@
           <polygon points="256,52 244,34 244,96 256,114" fill="#995a41"/>
           <text x="136" y="97" text-anchor="middle" font-size="46" font-weight="700"
                 letter-spacing="7" fill="#3e3e44" font-family="system-ui, sans-serif">raam</text>
-          <g stroke="#3e3e44" stroke-width="3" stroke-linecap="round" opacity=".45">
-            <path d="M92 30 v10 M92 118 v10"/>
-            <path d="M182 30 v10 M182 118 v10"/>
-          </g>
-          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".45">
-            <path d="M92 40 v78"/><path d="M182 40 v78"/>
+          <g stroke="#3e3e44" stroke-width="3" stroke-dasharray="5 7" opacity=".3">
+            <path d="M84 44 v70"/><path d="M136 44 v70"/><path d="M188 44 v70"/>
           </g>
           <!-- de veeg zat tussen de a's; de bijl ketst af, het hout blijft heel -->
           <g stroke="#6d738a" stroke-width="4" stroke-linecap="round" opacity=".8">
@@ -242,7 +231,7 @@
       </div>
       <div class="duim"></div>
     </div>
-    <figcaption><b>Misser.</b> De bijl ketst af, het hout blijft heel, de klank klinkt opnieuw. Er verdwijnt niets en er telt niets af.</figcaption>
+    <figcaption><b>Misser.</b> Gehakt tussen de twee a's. De bijl ketst af, het hout blijft heel, de klank klinkt opnieuw. Er verdwijnt niets en er telt niets af.</figcaption>
   </figure>
 
   <!-- 4. af -->
