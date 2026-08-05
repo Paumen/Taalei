@@ -343,6 +343,7 @@ window.KENNEY_KITS = [
   "url": null,
   "models": [
    "balloon",
+   "balloon-basket",
    "lighthouse"
   ]
  }
