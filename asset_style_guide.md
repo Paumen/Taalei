@@ -49,7 +49,6 @@ boat-row-small
 cannon-mobile
 tent-canvas
 crate-bottles
-gate-metal-bars
 template-floor-layer-hole
 windmill (blades only)
 watermill (Rad only)
@@ -57,4 +56,4 @@ bridge (mini forest)
 mast-ropes
 structure-fence-sides
 workbench-anvil
-campfire-pit
+lighthouse
