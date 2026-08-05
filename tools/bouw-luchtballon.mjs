@@ -50,13 +50,17 @@
  *   inktzwart     #3e3e44  cel 10/0  kroonplaat, halsgat, ring, kratbanden
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *   leerbruin     #995a41  cel 12/0  hoekstijlen en randlijst van het krat
- *   tan           #dd9f79  cel 13/0  de twee rieten manden, in hun geheel
+ *   zand          #f0c59d  cel 5/3   het vlechtwerk van de twee rieten manden
+ *   tan           #dd9f79  cel 13/0  het beslag van die twee: voetring, rand,
+ *                                    hoekstukken, sloffen, stijlen
  *
  * PO-notities:
- *   - De twee rieten manden staan volledig in die ene rietcel: twee lichte
- *     vlechtbanden met een donkere ertussen, en alles wat eraan vastzit —
- *     voetring, rand, hoekstukken, sloffen, stijlen — in precies de tint van
- *     die donkere band. Eén materiaal, één kleur; het onderscheid komt van de
+ *   - De twee rieten manden dragen twee kleuren uit hetzelfde warme hoekje
+ *     van het palet: zand voor het vlechtwerk, tan voor alles wat eraan
+ *     vastzit. Het beslag staat bovendien onderin de tancel, zodat het als
+ *     beslag van de mand af leest en niet als een vierde vlechtband. Binnen
+ *     één cel was dat verschil niet te halen: zowel zand als tan verlopen
+ *     vlak, dus de diepte moet van de tweede cel komen. Eén materiaal, één kleur; het onderscheid komt van de
  *     banden, niet van een tweede kleur die ernaast gaat liggen. Het krat is
  *     het enige dat wél uit meer kleuren bestaat: planken, ijzer en hout.
  *   - Aan het palet is niets toegevoegd: het vlechtwerk gebruikt het tan van
@@ -99,7 +103,8 @@ const STAAL = cel(15, 3);
 const INKT = cel(10, 0);
 const AMBER = cel(6, 0);
 const LEER = cel(12, 0);
-const RIET = cel(13, 0);
+const ZAND = cel(5, 3);   // het vlechtwerk zelf
+const RIET = cel(13, 0);  // het beslag van de mand
 const HOUT = TERRACOTTA;
 
 /* De rieten manden staan in één kleur: het vlechtwerk loopt in twee lichte
@@ -110,6 +115,13 @@ const HOUT = TERRACOTTA;
  * elkaar dan je bij een steilere cel nodig zou hebben. */
 const VLECHT_LICHT = -14;
 const VLECHT_DONKER = 16;
+/** Alles wat geen vlechtwerk is — voetring, rand, hoekstukken, sloffen,
+ *  stijlen — staat nog een stuk dieper in dezelfde cel, zodat het als beslag
+ *  van de mand af leest en niet als een vierde vlechtband. Dieper dan dit kan
+ *  niet: met de offsets erbij staat het beslag op de onderste rij van de cel,
+ *  en het verloop van tan is vlak. Wil je meer verschil, dan is er een tweede
+ *  cel nodig. */
+const BESLAG = 50;
 /** dv verschuift binnen de verloopstrook van de cel: positief = donkerder. */
 const uv = ([x, y], dv = 0) => [(x + 0.5) / 512, (y + dv + 0.5) / 512];
 
@@ -524,22 +536,22 @@ function mandRond(m) {
   const LAGEN = [[0.05, 0.30], [0.17, 0.325], [0.29, 0.35], [0.41, 0.365]];
   const RAND = 0.48;
 
-  deksel(m, grond, 0, 0.30, uv(RIET, VLECHT_DONKER + 10), false);  // onderkant
-  schil(m, grond, 0, 0.30, 0.05, 0.30, uv(RIET, VLECHT_DONKER));   // voetring
+  deksel(m, grond, 0, 0.30, uv(RIET, BESLAG + 10), false);  // onderkant
+  schil(m, grond, 0, 0.30, 0.05, 0.30, uv(RIET, BESLAG));   // voetring
   for (let laag = 0; laag < LAGEN.length - 1; laag++) {
     const [y0, s0] = LAGEN[laag], [y1, s1] = LAGEN[laag + 1];
     // Per laag een grondtint, per vlak nog een kleine schommeling: zo lopen de
     // vlechtlagen als banden rond, maar blijft geen enkel vlak identiek.
     const basis = laag % 2 ? VLECHT_DONKER : VLECHT_LICHT;
-    schil(m, grond, y0, s0, y1, s1, (i) => uv(RIET, basis + schommel(i, laag + 1, 14)));
-    schil(m, grond, y0, s0 - 0.045, y1, s1 - 0.045, uv(RIET, 26), true);
+    schil(m, grond, y0, s0, y1, s1, (i) => uv(ZAND, basis + schommel(i, laag + 1, 14)));
+    schil(m, grond, y0, s0 - 0.045, y1, s1 - 0.045, uv(ZAND, 26), true);
   }
-  deksel(m, grond, 0.05, 0.30, uv(RIET, VLECHT_DONKER + 8));       // bodem
+  deksel(m, grond, 0.05, 0.30, uv(RIET, BESLAG + 8));       // bodem
   // Rand: rolt over de bovenkant heen en steekt iets uit.
-  schil(m, grond, 0.41, 0.385, RAND, 0.385, uv(RIET, VLECHT_DONKER));
-  krans(m, grond, RAND, 0.385, 0.315, uv(RIET, VLECHT_DONKER));
-  schil(m, grond, 0.41, 0.315, RAND, 0.315, uv(RIET, VLECHT_DONKER + 8), true);
-  krans(m, grond, 0.41, 0.385, 0.365, uv(RIET, VLECHT_DONKER + 12), false);
+  schil(m, grond, 0.41, 0.385, RAND, 0.385, uv(RIET, BESLAG));
+  krans(m, grond, RAND, 0.385, 0.315, uv(RIET, BESLAG));
+  schil(m, grond, 0.41, 0.315, RAND, 0.315, uv(RIET, BESLAG + 8), true);
+  krans(m, grond, 0.41, 0.385, 0.365, uv(RIET, BESLAG + 12), false);
   return RAND;
 }
 
@@ -557,26 +569,26 @@ function mandVierkantRiet(m) {
   // hoekvlakken, en die krijgen als hoekstuk de donkere bandtint.
   const isHoek = (i) => i % 2 === 0;
 
-  deksel(m, grond, SLOF, 0.315, uv(RIET, VLECHT_DONKER + 10), false);
+  deksel(m, grond, SLOF, 0.315, uv(RIET, BESLAG + 10), false);
   for (let laag = 0; laag < LAGEN.length - 1; laag++) {
     const [y0, s0] = LAGEN[laag], [y1, s1] = LAGEN[laag + 1];
     const basis = laag % 2 ? VLECHT_DONKER : VLECHT_LICHT;
     schil(m, grond, y0, s0, y1, s1, (i) => (isHoek(i)
-      ? uv(RIET, VLECHT_DONKER)
-      : uv(RIET, basis + schommel(i, laag + 2, 12))));
-    schil(m, grond, y0, s0 - 0.04, y1, s1 - 0.04, uv(RIET, 28), true);
+      ? uv(RIET, BESLAG)
+      : uv(ZAND, basis + schommel(i, laag + 2, 12))));
+    schil(m, grond, y0, s0 - 0.04, y1, s1 - 0.04, uv(ZAND, 28), true);
   }
-  deksel(m, grond, SLOF, 0.315, uv(RIET, VLECHT_DONKER + 8));
+  deksel(m, grond, SLOF, 0.315, uv(RIET, BESLAG + 8));
   // Gestoffeerde rand: dikker dan de wand, in de donkere bandtint.
-  schil(m, grond, 0.44, 0.385, RAND, 0.385, uv(RIET, VLECHT_DONKER));
-  krans(m, grond, RAND, 0.385, 0.30, uv(RIET, VLECHT_DONKER));
-  schil(m, grond, 0.44, 0.30, RAND, 0.30, uv(RIET, VLECHT_DONKER + 8), true);
-  krans(m, grond, 0.44, 0.385, 0.35, uv(RIET, VLECHT_DONKER + 12), false);
+  schil(m, grond, 0.44, 0.385, RAND, 0.385, uv(RIET, BESLAG));
+  krans(m, grond, RAND, 0.385, 0.30, uv(RIET, BESLAG));
+  schil(m, grond, 0.44, 0.30, RAND, 0.30, uv(RIET, BESLAG + 8), true);
+  krans(m, grond, 0.44, 0.385, 0.35, uv(RIET, BESLAG + 12), false);
   // Twee sloffen onder de bodem: waar een ballonmand bij de landing op glijdt.
   // Ze staan naar buiten en zijn smal genoeg om als losse balken te lezen —
   // breder gingen ze samen met de bodem op in één plint.
   for (const z of [-0.225, 0.225]) {
-    blok(m, [-0.26, 0, z - 0.028], [0.26, SLOF, z + 0.028], RIET, VLECHT_DONKER + 6, { boven: false });
+    blok(m, [-0.26, 0, z - 0.028], [0.26, SLOF, z + 0.028], RIET, BESLAG + 6, { boven: false });
   }
   return RAND;
 }
@@ -796,8 +808,8 @@ const TUIG = 0.36;       // vrije hoogte tussen ring en hals
  */
 const VARIANTEN = [
   { naam: 'balloon' },
-  { naam: 'balloon-basket-round', mand: mandRond, ophangen: { r: 0.31, dikte: 0.030, kleurCel: RIET, dv: VLECHT_DONKER, zijden: 4 } },
-  { naam: 'balloon-basket-square', mand: mandVierkantRiet, ophangen: { r: 0.34, dikte: 0.032, kleurCel: RIET, dv: VLECHT_DONKER, zijden: 4 } },
+  { naam: 'balloon-basket-round', mand: mandRond, ophangen: { r: 0.31, dikte: 0.030, kleurCel: RIET, dv: BESLAG, zijden: 4 } },
+  { naam: 'balloon-basket-square', mand: mandVierkantRiet, ophangen: { r: 0.34, dikte: 0.032, kleurCel: RIET, dv: BESLAG, zijden: 4 } },
   // Het krat hangt aan touwen die aan de koppen van de hoekstijlen vastzitten;
   // die staan verder uit het midden dan een mandrand, dus krijgt het meer
   // lucht tot de ring — anders staan de touwen te ver open.
