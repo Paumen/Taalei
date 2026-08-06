@@ -35,13 +35,15 @@ export const GROEPEN = [
     tabblad: 'rotsen',
     beschrijving: 'Rotsblokken, keien, kiezels en losse stenen voor berg, grot en kust, plus de grote rotsformaties waarmee je een gebied afbakent. Eigen tabblad om dezelfde reden als het bouwpakket: de rocks-kit levert tien rotsen in twee tinten met kiezels en formaties erbij, en die verdringen in de groepsweergave alles wat er los naast staat.' },
   { id: 'huisraad', naam: 'Huisraad & meubels', kort: 'Huisraad', kleur: '#c07c8a',
-    beschrijving: 'Wat er binnen staat: tafel, bank en kruk, vloerkleed en het eten zelf — uit de props-kit. De dungeon-kit voegt bedden, stoelen en wandschappen toe. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht.' },
+    beschrijving: 'Het meubilair: tafel, bank, kruk en vloerkleed uit de props-kit, plus de bedden, stoelen en wandschappen van de dungeon-kit. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht, en het eten met de gedekte tafels bij eten & koken.' },
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
     beschrijving: 'Schepen, boten, masten, roeispanen en kanonnen voor de Zinnenzee.' },
-  { id: 'kamp', naam: 'Kamp & vuur', kort: 'Kamp', kleur: '#e76047',
-    beschrijving: 'Tenten en kampvuren — de basis van het Startkamp.' },
+  { id: 'kamp', naam: 'Kamp & tenten', kort: 'Kamp', kleur: '#e76047',
+    beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit en één uit mini-forest. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
+  { id: 'eten', naam: 'Eten & koken', kort: 'Eten', kleur: '#9c3f2e',
+    beschrijving: 'Wat je klaarmaakt en waar je het op zet: de kampvuren en het brandhout, de twee vissen van de survival-kit, het braadstuk, de vleesbout en de paddenstoel, de drie gedekte tafels van de dungeon-kit, en het serviesgoed dat erop hoort — zeven borden en een beker. De kale en kapotte tafels staan bij het huisraad, de kannen en de zak bij de kisten.' },
   { id: 'opslag', naam: 'Kisten, vaten & grondstoffen', kort: 'Kisten', kleur: '#dd9f79',
-    beschrijving: 'Containers, vaatwerk en grondstoffen; goed inzetbaar als beloning of verzamelplek. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen. De dungeon-kit voegt vaten, kruiken, kisten en een reiskist toe. Het serviesgoed hoort er ook bij: kannen, bekers, borden en een zak.' },
+    beschrijving: 'Containers, vaatwerk en grondstoffen; goed inzetbaar als beloning of verzamelplek. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen. De dungeon-kit voegt vaten, kruiken, kisten en een reiskist toe. De vier kannen en de zak horen er ook bij; de bekers en borden staan bij eten & koken.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
     beschrijving: 'Bijl, hamer, boog en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
   { id: 'reisgerei', naam: 'Reisgerei & kaarten', kort: 'Reisgerei', kleur: '#caa06a',
@@ -53,7 +55,7 @@ export const GROEPEN = [
   { id: 'licht', naam: 'Licht & lampen', kort: 'Licht', kleur: '#f2cb45',
     beschrijving: 'Alles wat licht geeft, uit vijf kits bij elkaar: de straatlantaarn en de wandlamp van village-kit, de kaarsen van props en dungeon (los, gesmolten, dun, drievoudig, brandend en gedoofd), het wandschap met kaarsen, de toortsen van dungeon en rpgtools, de lantaarn, en de vuurtoren van Taaleiland zelf. Handig als je een scène wilt uitlichten of een route in het donker wilt markeren.' },
   { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
-    beschrijving: 'Levende have: de twee vissen van de survival-kit en het zeeleven uit de onderwater-kit, van clownvis tot walvis. Alles uit die kit is gerigd en geanimeerd.' },
+    beschrijving: 'Levende have: het zeeleven uit de onderwater-kit, van clownvis tot walvis, alles gerigd en geanimeerd. De twee vissen van de survival-kit staan bij eten & koken — die zijn als voedsel bedoeld.' },
 ];
 
 /**
@@ -134,8 +136,22 @@ const regels = [
   // `starfish` anders bij de rotsen zou kunnen belanden en `shell-` nergens.
   [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'zeebodem'],
-  // `fire` is een vuurschaal en `firewood` het hout ernaast; allebei kampwerk.
-  [/^campfire|^fire\b|^firewood\b|^tent\b|^tent-/, 'kamp'],
+  // Eten en koken: het vuur waar je op kookt en het hout ernaast, de vis en het
+  // vlees, de gedekte tafels en het serviesgoed dat erop staat. Deze regel gaat
+  // vóór kamp, dieren, huisraad en opslag, want daar zaten deze modellen tot nu
+  // toe over verdeeld.
+  //
+  // Twee families verhuizen maar voor een deel mee, dus die staan exact in
+  // plaats van op woord:
+  //   - van de elf tafels alleen de drie gedekte lange en middelgrote. De
+  //     kleine gedekte (`table-small-decorated-a` en `-b`) en de kale en
+  //     kapotte tafels blijven meubels, dus `decorated` is hier geen bruikbaar
+  //     woord om op te matchen.
+  //   - van de zes vissen alleen de twee van de survival-kit, die als voedsel
+  //     bedoeld zijn. De vier soortvissen van de onderwater-kit (`fish-brown`,
+  //     `-clown`, `-dory`, `-tuna`) blijven dieren.
+  [/^(campfire|fire|firewood|plate|roast|meat|mushroom|cup)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'eten'],
+  [/^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
   [/^fish/, 'dieren'],
   [/^(tool|weapon|workbench)-|^workbench$|^broom$/, 'gereedschap'],
@@ -165,19 +181,18 @@ const regels = [
   // meebrengt. `keyring` (een bos dungeonsleutels) hoort bij `key`, niet bij
   // het slot waar hij bij past.
   [/^(key|star|heart|lever|spring|trap|lock)$|^(bell|coin|keyring)\b/, 'items'],
-  // Huisraad is wat er staat: meubels, het vloerkleed en het eten zelf. Het
-  // serviesgoed staat bij de opslag hieronder, de kaarsen bij het licht
-  // hierboven. Deze regel blijft wel vóór de planten staan, want `mushroom`
-  // (enkelvoud, het eten uit de props-kit) mag niet bij `mushrooms` (meervoud,
-  // de begroeiing van mini-forest) belanden. `bed`, `chair` en `shelf`/`shelves`
-  // komen uit de dungeon-kit.
-  [/^(table|bench|stool|carpet|roast|meat|mushroom|bed|chair|shelf|shelves)\b/, 'huisraad'],
+  // Huisraad is het meubilair en het vloerkleed. Het serviesgoed staat bij de
+  // opslag hieronder, de kaarsen bij het licht hierboven, en het eten met de
+  // gedekte tafels bij eten & koken. `table` staat hier nog wel: acht van de elf
+  // tafels zijn kaal of kapot en dus gewoon meubels. `bed`, `chair` en
+  // `shelf`/`shelves` komen uit de dungeon-kit.
+  [/^(table|bench|stool|carpet|bed|chair|shelf|shelves)\b/, 'huisraad'],
   // `crates` (meervoud) staat naast `crate`: de dungeon-kit brengt
   // `crates-stacked` mee, en het gewone `crate\b` matcht dat niet (de `s`
   // breekt de woordgrens). `keg` (vat) en `trunk` (kist) zijn ook uit de
-  // dungeon-kit. Kannen, bekers, borden en de zak horen hier ook: het is
-  // allemaal vaatwerk waar iets in of op gaat.
-  [/^(chest|barrel|box|crate|crates|pot|bucket|bottle|jug|cup|plate|bag|cart|resource|keg|trunk)\b|-bottles$/, 'opslag'],
+  // dungeon-kit. De kannen en de zak horen hier ook: vaatwerk waar iets in gaat.
+  // De bekers en borden staan bij eten & koken, want daar liggen ze op tafel.
+  [/^(chest|barrel|box|crate|crates|pot|bucket|bottle|jug|bag|cart|resource|keg|trunk)\b|-bottles$/, 'opslag'],
   // De luchtballon hoort bij het overbruggen van hoogte: in docs/draft_spec.md is
   // hij de route naar het onbereikbare plateau.
   [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
