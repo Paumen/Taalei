@@ -13,6 +13,10 @@ For an LLM creating or adjusting assets.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
+- Onderwater kit is exempt too: imported pack, no colormap at all. Each material carries
+  its own base colour, listed as the `onderwater` palette in `palet.json`. Do not remap it
+  to the shared colormap — that would recolour every species. New sea assets either join
+  that palette or use the shared colormap; say which.
 - defaults:
 * alphaMode: "OPAQUE"
 * roughnessFactor: 1
@@ -32,6 +36,10 @@ For an LLM creating or adjusting assets.
 - Assets may stretch multiple units.
 - No solid pieces thinner than 0.015 units.
 - Max 1000 tris per 1x1x1 unit.
+- Imported packs get one scale factor for the whole pack, never one per model — that keeps
+  the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25
+  (`tools/importeer-onderwater.mjs`). Its internal proportions are the pack's, oddities
+  included: the hammerhead is 3.4 units long and the whale only 1.1.
 
 ## 5. Origin and orientation
 - Default on Y = 0; pivot at footprint centre in X/Z.

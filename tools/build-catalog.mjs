@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, bepaalGroep } from './semantiek.mjs';
+import { leesGlb, meetScene } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -37,7 +38,15 @@ function leesKitMetadata() {
 
   const meta = new Map();
   for (const kit of kits) {
-    meta.set(kit.slug, { naam: kit.name, url: kit.url });
+    // `tabblad` en `toelichting` staan alleen bij kits die op zichzelf staan:
+    // de grot en de onderwater-kit krijgen een eigen tabblad met een eigen
+    // uitleg waarom ze niet tussen de andere kits horen.
+    meta.set(kit.slug, {
+      naam: kit.name,
+      url: kit.url,
+      tabblad: kit.tabblad ?? null,
+      toelichting: kit.toelichting ?? null,
+    });
   }
   return meta;
 }
@@ -63,7 +72,15 @@ function leesPalet() {
     for (const cel of palet.cellen ?? []) {
       const hex = String(cel.kleur).toLowerCase();
       if (!cellen.has(hex)) {
-        cellen.set(hex, { hex, naam: kleurNaam(hex), textuur: cel.textuur ?? null, aantal: 0 });
+        // `textuur` bij een atlascel, `materiaal` bij een kit zonder atlas:
+        // allebei het antwoord op "waar komt deze kleur vandaan?".
+        cellen.set(hex, {
+          hex,
+          naam: kleurNaam(hex),
+          textuur: cel.textuur ?? null,
+          materiaal: cel.materiaal ?? null,
+          aantal: 0,
+        });
       }
       for (const bron of cel.bronnen ?? []) {
         for (const model of bron.modellen ?? []) {
@@ -84,7 +101,14 @@ function leesPalet() {
       }
     }
 
-    paletten.push({ id: palet.id, naam: palet.naam, atlas: palet.atlas, cellen });
+    paletten.push({
+      id: palet.id,
+      naam: palet.naam,
+      atlas: palet.atlas ?? null,
+      toelichting: palet.toelichting ?? null,
+      drempel: palet.drempel ?? bestand.drempel ?? SAMENVOEG_ONDER,
+      cellen,
+    });
   }
 
   return { perModel, paletten };
@@ -95,6 +119,16 @@ function leesPalet() {
  * dichtstbijzijnde kleur die wél blijft. Een staal voor één model levert een
  * filterknop op die niets filtert; de kleuren liggen bovendien zo dicht bij
  * elkaar dat het onderscheid op het scherm toch niet te zien is.
+ *
+ * Dit is de standaard; palet.json mag hem overschrijven met `drempel`, en een
+ * palet mag dat op zijn beurt weer per palet doen. Dat is nodig omdat de
+ * aanname erachter — veel modellen per cel, cellen die op elkaar lijken —
+ * alleen voor een colormap-atlas opgaat. De onderwater-kit heeft geen atlas
+ * maar een eigen materiaalkleur per soort: daar hángt bijna elke kleur aan één
+ * model, en juist díe kleur is waar je op zoekt. Met de standaarddrempel viel
+ * het groen van de schildpad samen met het grijs van de rotsen (afstand 90) en
+ * het bruin van de zeehond ook (78) — knoppen die dan iets anders filteren dan
+ * ze laten zien.
  */
 const SAMENVOEG_ONDER = 4;
 
@@ -171,159 +205,11 @@ function kleurNaam(hex) {
 }
 
 /* -- .glb uitlezen --------------------------------------------------------
- * GLB-container: 12-byte header, daarna chunks van [lengte, type, data].
- * De eerste chunk is de glTF-JSON; die is genoeg voor tellingen.
+ * Container, afmetingen, driehoeken en tekenopdrachten komen uit tools/glb.mjs;
+ * dat rekent ook de skinning mee, wat voor de geanimeerde onderwater-kit nodig
+ * is. tools/importeer-onderwater.mjs gebruikt dezelfde module, zodat een model
+ * op dezelfde manier wordt opgemeten als het wordt ingeladen.
  */
-function leesGlbJson(pad) {
-  const buf = readFileSync(pad);
-  if (buf.length < 20 || buf.readUInt32LE(0) !== 0x46546c67) {
-    throw new Error(`geen geldige GLB: ${pad}`);
-  }
-  const chunkLengte = buf.readUInt32LE(12);
-  const chunkType = buf.readUInt32LE(16);
-  if (chunkType !== 0x4e4f534a) throw new Error(`eerste chunk is geen JSON: ${pad}`);
-  return JSON.parse(buf.subarray(20, 20 + chunkLengte).toString('utf8'));
-}
-
-/** Driehoeken per mesh, los van hoe vaak die mesh in de scene staat. */
-function driehoekenPerMesh(gltf) {
-  const accessors = gltf.accessors ?? [];
-  return (gltf.meshes ?? []).map((mesh) =>
-    (mesh.primitives ?? []).reduce((totaal, prim) => {
-      const modus = prim.mode ?? 4; // 4 = TRIANGLES
-      if (modus !== 4) return totaal;
-      const acc = prim.indices !== undefined
-        ? accessors[prim.indices]
-        : accessors[prim.attributes?.POSITION];
-      return totaal + Math.floor((acc?.count ?? 0) / 3);
-    }, 0),
-  );
-}
-
-/**
- * Telt driehoeken zoals ze in de scene voorkomen: een mesh die door drie nodes
- * wordt hergebruikt telt drie keer, want dat is wat de GPU tekent.
- */
-function telDriehoeken(gltf) {
-  const perMesh = driehoekenPerMesh(gltf);
-  const nodes = gltf.nodes ?? [];
-  const scene = gltf.scenes?.[gltf.scene ?? 0];
-  const gezien = new Set();
-  let totaal = 0;
-
-  const loop = (index) => {
-    if (gezien.has(index)) return; // cyclus-beveiliging
-    gezien.add(index);
-    const node = nodes[index];
-    if (!node) return;
-    if (node.mesh !== undefined) totaal += perMesh[node.mesh] ?? 0;
-    for (const kind of node.children ?? []) loop(kind);
-  };
-
-  if (scene?.nodes) {
-    for (const index of scene.nodes) loop(index);
-  } else {
-    // Geen scene gedefinieerd: val terug op alle meshes één keer.
-    totaal = perMesh.reduce((a, b) => a + b, 0);
-  }
-  return totaal;
-}
-
-/* -- afmetingen en tekenopdrachten ----------------------------------------
- * Een node draagt zijn eigen transform (los TRS of een kant-en-klare matrix)
- * en die van zijn ouders. Om te weten hoe groot een model in de scène staat
- * moeten de hoeken van elke primitive dus door de wereldmatrix heen.
- */
-const EENHEIDSMATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-
-/** Kolom-major, zoals glTF ze aanlevert: r = a × b. */
-function maalMatrix(a, b) {
-  const r = new Array(16).fill(0);
-  for (let kolom = 0; kolom < 4; kolom++) {
-    for (let rij = 0; rij < 4; rij++) {
-      let som = 0;
-      for (let k = 0; k < 4; k++) som += a[k * 4 + rij] * b[kolom * 4 + k];
-      r[kolom * 4 + rij] = som;
-    }
-  }
-  return r;
-}
-
-/** Node-transform als matrix; `matrix` wint van losse translation/rotation/scale. */
-function nodeMatrix(node) {
-  if (node.matrix) return node.matrix;
-
-  const [tx, ty, tz] = node.translation ?? [0, 0, 0];
-  const [qx, qy, qz, qw] = node.rotation ?? [0, 0, 0, 1];
-  const [sx, sy, sz] = node.scale ?? [1, 1, 1];
-  const x2 = qx + qx, y2 = qy + qy, z2 = qz + qz;
-  const xx = qx * x2, xy = qx * y2, xz = qx * z2;
-  const yy = qy * y2, yz = qy * z2, zz = qz * z2;
-  const wx = qw * x2, wy = qw * y2, wz = qw * z2;
-
-  return [
-    (1 - (yy + zz)) * sx, (xy + wz) * sx, (xz - wy) * sx, 0,
-    (xy - wz) * sy, (1 - (xx + zz)) * sy, (yz + wx) * sy, 0,
-    (xz + wy) * sz, (yz - wx) * sz, (1 - (xx + yy)) * sz, 0,
-    tx, ty, tz, 1,
-  ];
-}
-
-/**
- * Afmetingen (breedte × diepte × hoogte, dus X × Z × Y) en tekenopdrachten,
- * beide zoals de scène ze oplevert. Elke primitive is één tekenopdracht: een
- * model van zes losse delen kost zes calls, ook als ze hetzelfde materiaal
- * delen. De bounding box komt uit de min/max van de POSITION-accessors — die
- * geeft de glTF-schrijver mee, dus de vertexdata zelf hoeft er niet aan te
- * pas te komen. Roteert een node, dan is de box van de acht getransformeerde
- * hoeken iets ruimer dan de echte vorm; dat is de prijs van niet inlezen.
- */
-function meetScene(gltf) {
-  const accessors = gltf.accessors ?? [];
-  const nodes = gltf.nodes ?? [];
-  const scene = gltf.scenes?.[gltf.scene ?? 0];
-  const min = [Infinity, Infinity, Infinity];
-  const max = [-Infinity, -Infinity, -Infinity];
-  const gezien = new Set();
-  let calls = 0;
-
-  const loop = (index, ouderMatrix) => {
-    if (gezien.has(index)) return; // cyclus-beveiliging, net als in telDriehoeken
-    gezien.add(index);
-    const node = nodes[index];
-    if (!node) return;
-    const wereld = maalMatrix(ouderMatrix, nodeMatrix(node));
-
-    for (const prim of gltf.meshes?.[node.mesh]?.primitives ?? []) {
-      calls++;
-      const positie = accessors[prim.attributes?.POSITION];
-      if (!positie?.min || !positie?.max) continue;
-
-      for (let hoek = 0; hoek < 8; hoek++) {
-        const p = [
-          hoek & 1 ? positie.max[0] : positie.min[0],
-          hoek & 2 ? positie.max[1] : positie.min[1],
-          hoek & 4 ? positie.max[2] : positie.min[2],
-        ];
-        for (let as = 0; as < 3; as++) {
-          const waarde =
-            wereld[as] * p[0] + wereld[4 + as] * p[1] + wereld[8 + as] * p[2] + wereld[12 + as];
-          if (waarde < min[as]) min[as] = waarde;
-          if (waarde > max[as]) max[as] = waarde;
-        }
-      }
-    }
-
-    for (const kind of node.children ?? []) loop(kind, wereld);
-  };
-
-  for (const index of scene?.nodes ?? []) loop(index, EENHEIDSMATRIX);
-
-  // Op drie decimalen: de kits zijn op 0.01 units ontworpen, en zonder afronden
-  // zet de float-rekenarij hier 1.0000000298023224 in de catalogus.
-  const meet = (as) => (min[as] === Infinity ? 0 : Math.round((max[as] - min[as]) * 1000) / 1000);
-  return { wdh: [meet(0), meet(2), meet(1)], calls };
-}
 
 /* -- versiestempel --------------------------------------------------------
  * GitHub Pages serveert met `cache-control: max-age=600`. Zonder versie in de
@@ -372,8 +258,9 @@ for (const slug of kitSlugs) {
   for (const bestand of bestanden) {
     const naam = bestand.replace(/\.glb$/, '');
     const pad = `kits/${slug}/${bestand}`;
-    const gltf = leesGlbJson(join(dir, bestand));
-    const scene = meetScene(gltf);
+    const glb = leesGlb(join(dir, bestand));
+    const gltf = glb.json;
+    const scene = meetScene(glb);
     const groep = bepaalGroep(slug, naam);
     if (groep === 'overig') zonderGroep.push(`${slug}/${naam}`);
 
@@ -392,11 +279,17 @@ for (const slug of kitSlugs) {
       kleuren,
       pad,
       bytes: statSync(join(dir, bestand)).size,
-      driehoeken: telDriehoeken(gltf),
+      driehoeken: scene.driehoeken,
       materialen: (gltf.materials ?? []).length,
       // Breedte × diepte × hoogte in rastereenheden (1 = één wand-/vloersegment).
       wdh: scene.wdh,
       calls: scene.calls,
+      // Alleen bij modellen die animaties dragen; dat is nu de onderwater-kit.
+      // De namen zijn die van de pack zelf — je hebt ze nodig om een clip af te
+      // spelen, dus ze staan er zoals ze in het bestand staan.
+      ...((gltf.animations ?? []).length
+        ? { animaties: gltf.animations.map((a, i) => a.name ?? `animatie ${i}`) }
+        : {}),
     });
   }
 
@@ -408,6 +301,10 @@ for (const slug of kitSlugs) {
     url: meta?.url ?? null,
     licentie: `kits/${slug}/LICENSE.txt`,
     aantal: bestanden.length,
+    // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;
+    // zonder tabblad zou hij nergens meer te zien zijn.
+    tabblad: meta?.tabblad ?? null,
+    toelichting: meta?.toelichting ?? null,
     // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
     // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
     // heeft weliswaar een eigen Textures/colormap.png, maar bij de zes kits
@@ -439,11 +336,11 @@ tel();
 const samenvoegingen = []; // [paletId, oude hex, nieuwe hex]
 
 for (const p of palet.paletten) {
-  const blijft = [...p.cellen.values()].filter((c) => c.aantal >= SAMENVOEG_ONDER);
+  const blijft = [...p.cellen.values()].filter((c) => c.aantal >= p.drempel);
   const perPalet = new Map();
 
   for (const cel of p.cellen.values()) {
-    if (cel.aantal === 0 || cel.aantal >= SAMENVOEG_ONDER || blijft.length === 0) continue;
+    if (cel.aantal === 0 || cel.aantal >= p.drempel || blijft.length === 0) continue;
     const doel = blijft.reduce((beste, kandidaat) =>
       kleurAfstand(cel.hex, kandidaat.hex) < kleurAfstand(cel.hex, beste.hex) ? kandidaat : beste,
     );
@@ -476,6 +373,7 @@ const catalogus = {
     id: p.id,
     naam: p.naam,
     atlas: p.atlas,
+    toelichting: p.toelichting,
     kleuren: [...p.cellen.values()]
       .filter((k) => k.aantal > 0)
       .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
@@ -495,7 +393,7 @@ for (const [paletId, oud, nieuw] of samenvoegingen) {
   console.log(`samengevoegd in ${paletId}: ${oud} → ${nieuw} (${doel.naam})`);
 }
 for (const p of catalogus.paletten) {
-  console.log(`palet ${p.id} — ${p.kleuren.length} kleuren uit ${p.atlas}:`);
+  console.log(`palet ${p.id} — ${p.kleuren.length} kleuren uit ${p.atlas ?? 'eigen materialen'}:`);
   for (const k of p.kleuren) {
     console.log(`  ${String(k.aantal).padStart(3)}  ${k.hex}  ${k.naam}`);
   }
@@ -510,6 +408,21 @@ for (const model of modellen) {
 for (const [kit, gebruikt] of paletPerKit) {
   if (gebruikt.size > 1) console.warn(`! ${kit} put uit meer dan één palet: ${[...gebruikt].join(', ')}`);
 }
+/**
+ * Een kit die als enige uit zijn palet put, staat op zichzelf en valt daarmee
+ * buiten zowel de kit- als de groepsweergave. Zonder tabblad in manifest.js is
+ * hij dan nergens meer te zien — een lege plek die je pas in de browser opmerkt.
+ */
+const kitsPerPalet = new Map();
+for (const kit of kits) {
+  if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
+}
+for (const kit of kits) {
+  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad) {
+    console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
+  }
+}
+
 if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonderMetadata.join(', ')}`);
 if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
 if (zonderKleur.length) {

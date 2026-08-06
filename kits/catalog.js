@@ -6,6 +6,7 @@ const KIT_KLEUREN = {
   'fantasy-town-kit': '#995a41',
   'platformer-kit': '#ffb349',
   'mini-dungeon': '#6d738a',
+  'onderwater-kit': '#2fa39b',
 };
 
 const GROEP_ALIASSEN = {
@@ -214,6 +215,10 @@ function toonDetail(model, kit, groep) {
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
+    // Alleen de onderwater-kit is gerigd; bij de rest heeft de rij niets te melden.
+    ...(model.animaties?.length
+      ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
+      : []),
     ['Grootte', bytesLeesbaar(model.bytes)],
     ['Licentie', `CC0 — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
@@ -276,7 +281,7 @@ function bouwKleurbalk(paletten) {
     groep.className = 'kleurgroep';
 
     const label = span('kleurgroep-label', palet.naam);
-    label.title = `Kleuren uit ${palet.atlas}`;
+    label.title = palet.atlas ? `Kleuren uit ${palet.atlas}` : palet.toelichting ?? palet.naam;
 
     const stalen = document.createElement('div');
     stalen.className = 'kleurgroep-stalen';
@@ -292,7 +297,8 @@ function bouwKleurbalk(paletten) {
       knop.style.setProperty('--staal-kleur', kleur.hex);
       knop.style.setProperty('--vink', vinkKleur(kleur.hex));
       knop.setAttribute('aria-pressed', 'false');
-      knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} modellen · ${palet.naam}${kleur.textuur ? ` · ${kleur.textuur}` : ''}`;
+      const herkomst = kleur.textuur ?? kleur.materiaal;
+      knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} modellen · ${palet.naam}${herkomst ? ` · ${herkomst}` : ''}`;
       knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} modellen, ${palet.naam}`);
 
       knop.addEventListener('click', () => {
@@ -398,14 +404,15 @@ async function start() {
     });
   };
 
-  const kitsPerPalet = new Map();
-  for (const kit of data.kits) {
-    if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
-  }
-  const paletten = new Map((data.paletten ?? []).map((p) => [p.id, p]));
-
-  const opZichzelf = data.kits.filter((k) => k.palet && kitsPerPalet.get(k.palet) === 1);
+  // Kits die niet met de andere kits te mengen zijn, staan in een eigen tabblad:
+  // de grot met zijn eigen atlas, de onderwater-kit met zijn eigen
+  // materiaalkleuren. Welke dat zijn zegt de kit zelf (manifest.js → catalog.json),
+  // niet een gok hier — hun modellen zitten immers in geen enkel ander tabblad.
+  const opZichzelf = data.kits.filter((k) => k.tabblad);
   const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
+
+  const bronVan = (url) =>
+    url ? { href: url, tekst: `${new URL(url).host.replace(/^www\./, '')} ↗` } : null;
 
   for (const kit of data.kits) {
     if (eigenTabblad.has(kit.slug)) continue;
@@ -419,7 +426,7 @@ async function start() {
         titel: kit.naam,
         aantal: modellen.length,
         kleur,
-        bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
+        bron: bronVan(kit.url),
       }),
       kit.kort ?? kit.naam,
       kleur,
@@ -453,13 +460,13 @@ async function start() {
     registreer(
       maakSectie({
         id: `kit-${kit.slug}`,
-        weergave: 'grot',
+        weergave: kit.tabblad,
         soort: 'kit',
         titel: kit.naam,
         aantal: modellen.length,
         kleur,
-        uitleg: `Staat op zichzelf: eigen texture-atlas (${paletten.get(kit.palet)?.atlas}) en eigen kleuren, gedeeld met geen enkele andere kit. Daarom een eigen tabblad — deze modellen zijn niet uitwisselbaar met die van de andere kits.`,
-        bron: kit.url ? { href: kit.url, tekst: 'kenney.nl ↗' } : null,
+        uitleg: kit.toelichting,
+        bron: bronVan(kit.url),
       }),
       kit.kort ?? kit.naam,
       kleur,
@@ -483,9 +490,21 @@ async function start() {
     Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
   );
 
+  /**
+   * De grot heeft geen sectie in de groepsweergave, dus #groep-grot bestaat niet;
+   * die link hoort naar de kit zelf te wijzen. Dat mag alleen als de groep
+   * nergens anders voorkomt: de onderwater-kit vult ook `dieren` en `rotsen`, en
+   * daar wonen de vissen van de survival-kit en de keien van alle andere kits —
+   * #groep-dieren moet dus gewoon naar de groepsweergave blijven gaan.
+   */
+  const groepenElders = new Set(
+    data.modellen.filter((m) => !eigenTabblad.has(m.kit)).map((m) => m.groep),
+  );
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {
-      if (model.kit === kit.slug) aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
+      if (model.kit === kit.slug && !groepenElders.has(model.groep)) {
+        aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
+      }
     }
   }
 
