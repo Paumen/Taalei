@@ -42,8 +42,10 @@ export const GROEPEN = [
     beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit en één uit mini-forest. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
   { id: 'eten', naam: 'Eten & koken', kort: 'Eten', kleur: '#9c3f2e',
     beschrijving: 'Wat je klaarmaakt en waar je het op zet: de kampvuren en het brandhout, de twee vissen van de survival-kit, het braadstuk, de vleesbout en de paddenstoel, de drie gedekte tafels van de dungeon-kit, en het serviesgoed dat erop hoort — zeven borden en een beker. De kale en kapotte tafels staan bij het huisraad, de kannen en de zak bij de kisten.' },
-  { id: 'opslag', naam: 'Kisten, vaten & grondstoffen', kort: 'Kisten', kleur: '#dd9f79',
-    beschrijving: 'Containers, vaatwerk en grondstoffen; goed inzetbaar als beloning of verzamelplek. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen. De dungeon-kit voegt vaten, kruiken, kisten en een reiskist toe. De vier kannen en de zak horen er ook bij; de bekers en borden staan bij eten & koken.' },
+  { id: 'opslag', naam: 'Kisten & vaten', kort: 'Kisten', kleur: '#dd9f79',
+    beschrijving: 'Waar je iets in doet: kisten, vaten, kratten, dozen, flessen, emmers en potten uit tien kits, plus de vier kannen en de zak van de props-kit en de drie karren waarmee je het verplaatst. Goed inzetbaar als beloning of verzamelplek. Wat erin zit staat bij de grondstoffen; de bekers en borden staan bij eten & koken.' },
+  { id: 'grondstoffen', naam: 'Grondstoffen & voorraad', kort: 'Grondstoffen', kleur: '#4f7d8c',
+    beschrijving: 'De grondstoffen zelf, los van wat je ze in stopt. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen, plus de plankenstapel van de survival-kit. Bruikbaar als opbrengst, ruilmiddel of bouwvoorraad.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
     beschrijving: 'Bijl, hamer, boog en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
   { id: 'reisgerei', naam: 'Reisgerei & kaarten', kort: 'Reisgerei', kleur: '#caa06a',
@@ -68,15 +70,14 @@ export const GROEPEN = [
  * `resources` is hier niet vanwege een eigen atlas — die deelt gewoon de
  * gedeelde colormap — maar omdat elk van de 56 modellen een grondstof of
  * voorraadstapel is (staven en brokken erts, stenen, hout, textiel,
- * pallet, onderdelen): precies wat de bestaande groep "opslag" al
- * beschrijft. Een woordregel zou hier meer kwaad doen dan goed: `stone-` en
- * `wood-` zijn ook de eerste woorden van bouwpakketonderdelen in andere
- * kits (village-kit/stone-wall-a, mini-dungeon/wood-structure), en die
- * horen niet ineens bij opslag.
+ * pallet, onderdelen): precies de groep "grondstoffen". Een woordregel zou
+ * hier meer kwaad doen dan goed: `stone-` en `wood-` zijn ook de eerste
+ * woorden van bouwpakketonderdelen in andere kits (village-kit/stone-wall-a,
+ * mini-dungeon/wood-structure), en die horen niet ineens bij de grondstoffen.
  */
 const KIT_GROEPEN = {
   'modular-cave-kit': 'grot',
-  resources: 'opslag',
+  resources: 'grondstoffen',
 };
 
 /**
@@ -187,12 +188,18 @@ const regels = [
   // tafels zijn kaal of kapot en dus gewoon meubels. `bed`, `chair` en
   // `shelf`/`shelves` komen uit de dungeon-kit.
   [/^(table|bench|stool|carpet|bed|chair|shelf|shelves)\b/, 'huisraad'],
+  // Grondstoffen staat vóór de kisten: `resource-planks` van de survival-kit is
+  // een stapel hout, geen container. De 56 modellen van de resources-kit zelf
+  // komen via KIT_GROEPEN binnen, niet via deze regel.
+  [/^resource\b/, 'grondstoffen'],
   // `crates` (meervoud) staat naast `crate`: de dungeon-kit brengt
   // `crates-stacked` mee, en het gewone `crate\b` matcht dat niet (de `s`
   // breekt de woordgrens). `keg` (vat) en `trunk` (kist) zijn ook uit de
   // dungeon-kit. De kannen en de zak horen hier ook: vaatwerk waar iets in gaat.
   // De bekers en borden staan bij eten & koken, want daar liggen ze op tafel.
-  [/^(chest|barrel|box|crate|crates|pot|bucket|bottle|jug|bag|cart|resource|keg|trunk)\b|-bottles$/, 'opslag'],
+  // De karren staan hier omdat je er spullen in vervoert; ze zijn geen
+  // grondstof, en een eigen groep voor drie modellen is te smal.
+  [/^(chest|barrel|box|crate|crates|pot|bucket|bottle|jug|bag|cart|keg|trunk)\b|-bottles$/, 'opslag'],
   // De luchtballon hoort bij het overbruggen van hoogte: in docs/draft_spec.md is
   // hij de route naar het onbereikbare plateau.
   [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
