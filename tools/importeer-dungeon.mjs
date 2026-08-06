@@ -28,21 +28,33 @@ const DOEL = join(KITS, 'dungeon');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * Eén factor voor de hele pack (stijlgids §4): "wandhoogte = 1 eenheid" is
- * het ijkpunt. Elke wand is in de bron 4 breed × 4 hoog; op 0,25 komt dat op
- * 1 × 1 uit, mini-dungeon's eigen wand is 1 × 1 × 1,1.
+ * Basisfactor voor de pack: "wandhoogte = 1 eenheid" is het ijkpunt. Elke
+ * wand is in de bron 4 breed × 4 hoog; op 0,25 komt dat op 1 × 1 uit,
+ * mini-dungeon's eigen wand is 1 × 1 × 1,1.
  *
- * Een eerste versie van dit script gaf de meubels, containers en het decor
- * hun eigen factor 1 (ongeschaald), met de redenering dat chair
- * (0,75 × 0,75 × 1,227) op zichzelf een geloofwaardige stoel is. Dat is waar,
- * maar mist het punt: naast een wand van 1 hoog staat een stoel van 1,227
- * hoog dan hoger dan de muur, en een kist (chest, 1,3 hoog) er nog overheen.
- * De verhouding chair/wall in de bron zelf — 1,227 / 4 = 31% — is wél
- * geloofwaardig; die verhouding gaat pas verloren als de twee met een
- * verschillende factor worden geschaald. Vandaar terug naar één factor voor
- * alles, zoals de stijlgids voorschrijft.
+ * De meubels en containers wijken daar bewust van af (MEUBELSCHAAL, 0,35).
+ * De geschiedenis in het kort: een eerste versie gaf ze factor 1, waardoor
+ * een stoel (1,227) boven de muur uitstak; daarna kregen ze de packfactor
+ * 0,25, waardoor ze poppenhuisklein werden naast de rest van de collectie
+ * (stoel 0,31, kist 0,33 tegenover de kistencluster 0,45-0,51 van vier
+ * andere kits). Op 0,35 landen ze op het plateau: kist 0,46, stoel 0,43,
+ * tafel 0,35, bed 1,05 lang — een bed past weer door een deuropening van
+ * één wandhoogte. Dit is een bewuste afwijking van stijlgids §4 (één factor
+ * per pack), gedocumenteerd in docs/asset_size_review.md; de architectuur,
+ * vaten, flessen en fakkels houden de basisfactor.
  */
 const SCHAAL = 0.25;
+
+/** Meubels en containers gaan op 0,35 het raster op; zie de kop hierboven. */
+const MEUBELSCHAAL = 0.35;
+const MEUBELS = new Set([
+  'bed-decorated', 'bed-floor', 'bed-frame',
+  'box-large', 'box-small', 'box-small-decorated', 'box-stacked', 'crates-stacked',
+  'chair', 'stool', 'chest', 'chest-gold', 'trunk-large-c', 'trunk-small-c',
+  'table-long', 'table-long-broken', 'table-long-decorated-a', 'table-long-decorated-c',
+  'table-medium', 'table-medium-broken', 'table-medium-decorated-a',
+  'table-small', 'table-small-decorated-a', 'table-small-decorated-b',
+]);
 
 /** Bronbestand (zonder .gltf) → naam in de kit: underscore → kebab-case. */
 const BRONNEN = [
@@ -132,15 +144,16 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   glb.json.samplers = [{ minFilter: 9987 }];
   for (const mesh of glb.json.meshes) for (const prim of mesh.primitives) prim.material = 0;
 
+  const schaal = MEUBELS.has(naam) ? MEUBELSCHAAL : SCHAAL;
   glb.json.asset = {
     generator: 'tools/importeer-dungeon.mjs',
     version: '2.0',
     extras: {
-      taaleiland: { versie: 1, schaal: SCHAAL, tangenten: 'gestript', palet: 1, bron: 'KayKit Dungeon Asset Pack' },
+      taaleiland: { versie: 1, schaal, tangenten: 'gestript', palet: 1, bron: 'KayKit Dungeon Asset Pack' },
     },
   };
 
-  const voor = zetOpOorsprong(glb, naam, SCHAAL);
+  const voor = zetOpOorsprong(glb, naam, schaal);
   const verdacht = toetsDriehoeken(glb, glb.json.meshes.map((_, i) => i), doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
@@ -148,7 +161,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
 
   const na = meetScene(leesGlb(pad));
   const maat = (m) => m.wdh.map((v) => v.toFixed(2).padStart(5)).join(' × ');
-  console.log(`${bron.padEnd(34)} → ${naam.padEnd(34)} [${SCHAAL}] ${maat(voor)} → ${maat(na)}  ${String(na.driehoeken).padStart(4)} tri  ${omgezet.size} kleur(en)`);
+  console.log(`${bron.padEnd(34)} → ${naam.padEnd(34)} [${schaal}] ${maat(voor)} → ${maat(na)}  ${String(na.driehoeken).padStart(4)} tri  ${omgezet.size} kleur(en)`);
 
   for (const [van, k] of omgezet) {
     if (!perKleur.has(van)) perKleur.set(van, { naar: k.naar, cel: k.cel, afstand: k.afstand, modellen: [] });
