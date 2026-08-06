@@ -326,6 +326,53 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   gap: 10px;
 }
 
+/* De houder draagt het selectievakje boven op de kaart; de kaart zelf blijft
+ * één knop die het detail opent. Het rooster ziet de houder als vak, dus
+ * verbergt filter() de houder en niet meer de kaart. */
+.kaart-houder { position: relative; display: flex; }
+.kaart-houder[hidden] { display: none; }
+.kaart-houder > .kaart { flex: 1; min-width: 0; }
+
+.kaart-kies {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--lijn);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--kaart) 82%, transparent);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+
+/* Uit de weg tot je hem nodig hebt — bij 842 kaarten van 112px telt elke stip
+ * mee. Aangevinkt blijft hij staan, anders zie je je eigen selectie niet. */
+.kaart-houder:hover .kaart-kies,
+.kaart-kies:focus-within,
+.kaart-kies:has(:checked) { opacity: 1; }
+
+/* Zonder muis is er geen hover om hem mee op te roepen. */
+@media (hover: none) { .kaart-kies { opacity: .7; } }
+
+.kaart-kies input {
+  margin: 0;
+  width: 13px;
+  height: 13px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.kaart-houder:has(.kaart-kies :checked) > .kaart {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent), var(--schaduw);
+}
+
 .kaart {
   display: flex;
   flex-direction: column;
@@ -569,6 +616,65 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   .detail-info { border-left: 0; border-top: 1px solid var(--lijn); }
 }
 
+/* ---------- selectiebalk ---------- */
+
+/* Verschijnt pas als er iets gekozen is, en zweeft dan over het rooster: hij
+   hoort bij de selectie, niet bij de pagina. */
+.selectiebalk {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100vw - 24px);
+  padding: 8px 10px 8px 16px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--kaart) 92%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--schaduw), 0 8px 28px rgba(47, 42, 38, .16);
+}
+
+.selectiebalk[hidden] { display: none; }
+
+.selectiebalk-telling {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.selectiebalk button {
+  flex: none;
+  padding: 5px 12px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--papier);
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.selectiebalk button:hover { border-color: var(--accent); }
+
+/* Dezelfde ring als .kaart en .staal. De offset zet hem net buiten de knop, dus
+   hij blijft leesbaar op "Kopieer paden", die zelf al accentkleurig is. */
+.selectiebalk button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.selectiebalk button.primair {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--papier);
+}
+
+/* Anders legt de balk zich over de voet heen zodra je iets kiest. */
+body:has(.selectiebalk:not([hidden])) { padding-bottom: 56px; }
+
 /* Op een telefoon passen er anders maar twee kaarten naast elkaar. Kleinere
    tegels, strakkere tekst: vier per rij, en tikken geeft het grote model. */
 @media (max-width: 560px) {
@@ -591,4 +697,30 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   .kaart-meta { font-size: 9.5px; }
   .kaart-grootte { display: none; }
   .kaart-merk { display: none; }
+
+  /* Vier tegels van 76px naast elkaar: het vakje van 22px zou de helft van de
+     preview afdekken. */
+  .kaart-kies { top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 5px; }
+  .kaart-kies input { width: 11px; height: 11px; }
+
+  /* Drie knoppen naast een telling zijn hier samen breder dan het scherm. Ze
+     mogen dus op een tweede regel; de pilvorm gaat er dan af, want een pil van
+     twee regels hoog is geen pil meer. */
+  .selectiebalk {
+    left: 12px;
+    right: 12px;
+    transform: none;
+    max-width: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 18px;
+    bottom: 10px;
+  }
+
+  .selectiebalk-telling { font-size: 12px; }
+  .selectiebalk button { padding: 5px 10px; font-size: 11.5px; }
+
+  body:has(.selectiebalk:not([hidden])) { padding-bottom: 96px; }
 }
