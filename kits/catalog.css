@@ -504,6 +504,31 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 .detail dt { color: var(--inkt-zacht); }
 .detail dd { margin: 0; overflow-wrap: anywhere; }
 
+/* Alleen zichtbaar bij een model met meer dan één clip; zie catalog.js. */
+.detail-animatie {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--inkt-zacht);
+}
+
+.detail-animatie select {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--lijn);
+  border-radius: 8px;
+  background: var(--papier-diep);
+  color: var(--inkt);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.detail-animatie select:hover { border-color: var(--accent); }
+
 .detail-acties { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .detail-acties button,
