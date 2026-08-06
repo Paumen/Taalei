@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, bepaalGroep } from './semantiek.mjs';
-import { leesGlb, meetScene, driehoekenPerUnit } from './glb.mjs';
+import { leesGlb, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -235,13 +235,7 @@ function schrijfVersie() {
   console.log(`versie ${versie} → index.html`);
 }
 
-/* -- catalogus opbouwen ---------------------------------------------------
- * Het tekenbudget uit docs/asset_style_guide.md §4. Geen harde fout: de kits
- * zijn ingekocht zoals ze zijn, en een model dat erboven zit is een kandidaat
- * om te vereenvoudigen, geen bouwstop. De build noemt ze bij naam zodat de
- * lijst niet stilletjes groeit.
- */
-const BUDGET_PER_UNIT = 1000;
+/* -- catalogus opbouwen --------------------------------------------------- */
 
 const kitMeta = leesKitMetadata();
 const palet = leesPalet();
@@ -375,6 +369,8 @@ if (samenvoegingen.length > 0) tel();
 const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
   totaal: modellen.length,
+  // Zodat de catalogus in de browser de grens niet nog eens hoeft te kennen.
+  budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
@@ -436,6 +432,9 @@ for (const kit of kits) {
   }
 }
 
+/* Boven het budget is geen harde fout: de kits zijn ingekocht zoals ze zijn, en
+ * een model dat erboven zit is een kandidaat om te vereenvoudigen, geen
+ * bouwstop. De build noemt ze bij naam zodat de lijst niet stilletjes groeit. */
 const bovenBudget = modellen
   .filter((m) => m.driehoekenPerUnit > BUDGET_PER_UNIT)
   .sort((a, b) => b.driehoekenPerUnit - a.driehoekenPerUnit);

@@ -29,8 +29,12 @@ const ZWAAR_VANAF = 5000;
  * stijlgids (§4). Los van ZWAAR_VANAF, want dat is een absolute telling: een
  * schip van 5000 driehoeken is groot, een kruk van 1500 is te fijn gemodelleerd
  * — twee verschillende soorten zwaar, allebei het aankijken waard.
+ *
+ * De grens zelf staat in tools/glb.mjs en komt via catalog.json mee; start()
+ * zet hem zodra de catalogus binnen is. Het getal hier is alleen het antwoord
+ * op een catalogus van vóór dat veld.
  */
-const BUDGET_PER_UNIT = 1000;
+let budgetPerUnit = 1000;
 
 const getal = new Intl.NumberFormat('nl-NL');
 
@@ -135,8 +139,10 @@ function ontkoppelViewer(vak) {
 function maakKaart(model, kits, groepen, weergave) {
   const kit = kits.get(model.kit);
   const groep = groepen.get(model.groep);
-  const dichtheid = model.driehoekenPerUnit;
-  const bovenBudget = dichtheid > BUDGET_PER_UNIT;
+  // Een catalogus zonder dit veld is er niet meer, maar hij is er wel geweest;
+  // zonder getal blijft de kaart bij wat hij altijd toonde.
+  const dichtheid = Number.isFinite(model.driehoekenPerUnit) ? model.driehoekenPerUnit : null;
+  const bovenBudget = dichtheid !== null && dichtheid > budgetPerUnit;
   // Eén rood label voor twee redenen: veel driehoeken, of veel driehoeken op
   // weinig ruimte. Wat er precies aan de hand is, staat in de tooltip en in het
   // detailpaneel; op de kaart is het genoeg dat het opvalt.
@@ -157,7 +163,9 @@ function maakKaart(model, kits, groepen, weergave) {
   tekst.className = 'kaart-tekst';
   const meta = span('kaart-meta');
   const tri = span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`);
-  tri.title = `${getal.format(dichtheid)} driehoeken per unit${bovenBudget ? ` — boven het budget van ${getal.format(BUDGET_PER_UNIT)}` : ''}`;
+  if (dichtheid !== null) {
+    tri.title = `${getal.format(dichtheid)} driehoeken per unit${bovenBudget ? ` — boven het budget van ${getal.format(budgetPerUnit)}` : ''}`;
+  }
   meta.append(
     span('kaart-merk', kit?.naam ?? model.kit),
     tri,
@@ -286,9 +294,9 @@ function toonDetail(model, kit, groep) {
     // klein het is (tools/glb.mjs).
     [
       'Driehoeken per unit',
-      model.driehoekenPerUnit === undefined
+      !Number.isFinite(model.driehoekenPerUnit)
         ? '—'
-        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > BUDGET_PER_UNIT ? ` (boven budget van ${getal.format(BUDGET_PER_UNIT)})` : ''}`,
+        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > budgetPerUnit ? ` (boven budget van ${getal.format(budgetPerUnit)})` : ''}`,
     ],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
@@ -578,6 +586,8 @@ async function start() {
   const respons = await fetch(versie ? `kits/catalog.json?v=${versie}` : 'kits/catalog.json');
   if (!respons.ok) throw new Error(`kits/catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
+
+  if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
   const groepen = new Map(data.groepen.map((g) => [g.id, g]));

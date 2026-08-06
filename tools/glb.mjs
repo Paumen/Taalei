@@ -276,7 +276,15 @@ export function meetScene(glb) {
 }
 
 /**
- * Driehoeken per 1×1×1 unit — het tekenbudget uit de stijlgids §4 (max 1000).
+ * Het tekenbudget uit docs/asset_style_guide.md §4, in driehoeken per 1×1×1
+ * unit. Hier en nergens anders: build-catalog.mjs schrijft hem mee in
+ * catalog.json en de catalogus in de browser leest hem daaruit, zodat één
+ * wijziging hier overal doorwerkt.
+ */
+export const BUDGET_PER_UNIT = 1000;
+
+/**
+ * Driehoeken per 1×1×1 unit — afgezet tegen BUDGET_PER_UNIT hierboven.
  *
  * De noemer is niet zomaar b × d × h. Een vloertegel is 1 × 1 × 0 en een munt
  * 0,09 × 0,09 × 0,03: door het rauwe volume gedeeld levert de eerste oneindig
@@ -285,7 +293,7 @@ export function meetScene(glb) {
  *
  * Daarom telt elke as voor minstens één unit mee: het model bezet nu eenmaal
  * een hele rastercel, ook als het die niet vult. Een object dat binnen één cel
- * blijft, krijgt het volle budget van 1000; pas wat over meer cellen uitloopt
+ * blijft, krijgt het volle budget; pas wat over meer cellen uitloopt
  * — de grote schepen, de stapels staven — krijgt er naar rato meer bij.
  *
  * @param {number} driehoeken  telling uit meetScene()
