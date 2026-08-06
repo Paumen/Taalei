@@ -28,7 +28,7 @@
  * stuk waar je van dichtbij naar kijkt.
  *
  * -- manden -----------------------------------------------------------------
- * balloon.glb houdt het bij de ring. Daarnaast staan er drie varianten mét
+ * balloon.glb houdt het bij de ring. Daarnaast staan er twee varianten mét
  * mand, zodat je er één kunt kiezen zonder de kale ballon kwijt te raken:
  *
  *   balloon-basket-round   rond, gevlochten riet, voetring en omgeslagen rand,
@@ -36,8 +36,6 @@
  *   balloon-basket-square  afgeknot vierkant riet — de vorm van een echte
  *                          ballonmand — met hoekstukken, een gestoffeerde rand
  *                          en twee sloffen onder de bodem
- *   balloon-basket-crate   recht vrachtkrat van staande planken tussen vier
- *                          hoekstijlen, twee ijzeren banden, aan vier touwen
  *
  * De mand is ± 0.75 breed tegenover 3.78 voor de envelop (1 : 5). Dat is de
  * verhouding van een echte ballon; groter maken leest als een gondel.
@@ -45,11 +43,10 @@
  * Kleuren komen uit kits/palet.json ("gedeeld").
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
- *   terracotta    #d07b56  cel 5/0   accentbanen, kruin, planken en bodems
+ *   terracotta    #d07b56  cel 5/0   accentbanen, kruin
  *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, halsgat, brander
- *   inktzwart     #3e3e44  cel 10/0  branderring en de banden van het krat
+ *   inktzwart     #3e3e44  cel 10/0  branderring
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
- *   leerbruin     #995a41  cel 12/0  hoekstijlen en randlijst van het krat
  *   zand          #f0c59d  cel 5/3   het vlechtwerk van de twee rieten manden
  *   tan           #dd9f79  cel 13/0  het beslag van die twee: voetring, rand,
  *                                    hoekstukken, sloffen, stijlen
@@ -60,9 +57,9 @@
  *     vastzit. Het beslag staat bovendien onderin de tancel, zodat het als
  *     beslag van de mand af leest en niet als een vierde vlechtband. Binnen
  *     één cel was dat verschil niet te halen: zowel zand als tan verlopen
- *     vlak, dus de diepte moet van de tweede cel komen. Eén materiaal, één kleur; het onderscheid komt van de
- *     banden, niet van een tweede kleur die ernaast gaat liggen. Het krat is
- *     het enige dat wél uit meer kleuren bestaat: planken, ijzer en hout.
+ *     vlak, dus de diepte moet van de tweede cel komen. Eén materiaal, één
+ *     kleur; het onderscheid komt van de banden, niet van een tweede kleur die
+ *     ernaast gaat liggen.
  *   - Aan het palet is niets toegevoegd: het vlechtwerk gebruikt het tan van
  *     cel 13/0, dat de andere kits al dragen.
  *   - Geen outlines meer: de naadlijnen over de envelop zijn eruit. De banen
@@ -109,10 +106,8 @@ const TERRACOTTA = cel(5, 0);
 const STAAL = cel(15, 3);
 const INKT = cel(10, 0);
 const AMBER = cel(6, 0);
-const LEER = cel(12, 0);
 const ZAND = cel(5, 3);   // het vlechtwerk zelf
 const RIET = cel(13, 0);  // het beslag van de mand
-const HOUT = TERRACOTTA;
 
 /* De rieten manden staan in één kleur: het vlechtwerk loopt in twee lichte
  * banden met een donkere ertussen, en álles wat eraan vastzit — voetring,
@@ -478,18 +473,17 @@ function deksel(m, grond, y, s, celUv, omhoog = true) {
 /** Deterministische kleurschommeling per vlak, in texels binnen de cel. */
 const schommel = (i, zaad, sterkte) => Math.round((hash2(i * 5 + zaad, zaad) - 0.5) * sterkte);
 
-/* -- de drie manden ---------------------------------------------------------
+/* -- de twee manden ---------------------------------------------------------
  * Elke mandfunctie bouwt vanaf Y = 0 omhoog en geeft terug hoe hoog de rand
  * komt; daarboven zet het model de stijlen, de branderring en de envelop. De
  * mand is ± 0.75 breed tegenover 3.78 voor de envelop (1 : 5), zoals de
  * verhouding bij een echte ballon.
  *
- * De drie ontwerpen verschillen in silhouet, materiaal én ophanging, zodat je
- * ze van een afstand uit elkaar houdt:
+ * De twee ontwerpen verschillen in silhouet en ophanging, zodat je ze van een
+ * afstand uit elkaar houdt:
  *
  *   round   rond, gevlochten riet, leren rand, vier leren stijlen
  *   square  afgeknot vierkant, riet met leren hoekstukken en sloffen eronder
- *   crate   recht vierkant, planken met ijzeren banden, aan vier touwen
  */
 
 const MAND_LUCHT = 0.20; // vrije hoogte tussen mandrand en branderring
@@ -574,69 +568,6 @@ function mandVierkantRiet(m) {
   for (const z of [-0.225, 0.225]) {
     blok(m, [-0.26, 0, z - 0.028], [0.26, SLOF, z + 0.028], RIET, BESLAG + 6, { boven: false });
   }
-  return RAND;
-}
-
-/**
- * Recht vierkant krat: staande planken tussen vier stevige hoekstijlen, twee
- * ijzeren banden eromheen en een ijzeren randprofiel. Hangt niet aan stijlen
- * maar aan vier touwen, in dezelfde kleur als het touwwerk boven de ring —
- * vracht die je ergens afzet, geen passagiersmand.
- */
-function mandKrat(m) {
-  const H = 0.345;         // halve breedte tot aan de planken
-  const POST = 0.08;       // dikte van een hoekstijl
-  const VLOER = 0.07;
-  const RAND = 0.50;
-  const vierkant = [[1, 1], [-1, 1], [-1, -1], [1, -1]];
-  const PLANKEN = 5;
-
-  // Vier hoekstijlen, van de grond tot net boven de rand: daar knopen de
-  // touwen aan vast. Ze steken onderaan iets uit als pootjes, zodat het krat
-  // op zijn hoeken staat en niet op zijn planken.
-  for (const [sx, sz] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) {
-    const x = sx * (H - POST / 2), z = sz * (H - POST / 2);
-    blok(m, [x - POST / 2, 0, z - POST / 2], [x + POST / 2, RAND + 0.03, z + POST / 2], LEER, 18);
-  }
-
-  // Zijwanden: per zijde vijf staande planken met elk een eigen tint.
-  for (let k = 0; k < 4; k++) {
-    const hoek = (k / 4) * Math.PI * 2;
-    const uit = [Math.cos(hoek), 0, Math.sin(hoek)];
-    const langs = [-Math.sin(hoek), 0, Math.cos(hoek)];
-    const P = (u, y, d) => [uit[0] * d + langs[0] * u, y, uit[2] * d + langs[2] * u];
-    const rek = H - POST;
-    for (let p = 0; p < PLANKEN; p++) {
-      const u0 = -rek + (2 * rek * p) / PLANKEN;
-      const u1 = -rek + (2 * rek * (p + 1)) / PLANKEN;
-      // Om en om een lichtere en een donkere plank, met daar bovenop nog wat
-      // schommeling: zonder dat verschil is een zijde één oranje vlak en zie
-      // je de planken pas als je er met je neus bovenop staat.
-      const c = uv(HOUT, (p % 2 ? 26 : -6) + schommel(p, k + 3, 12));
-      m.vlak(P(u0, VLOER, H), P(u0, RAND, H), P(u1, RAND, H), P(u1, VLOER, H), c);
-      m.vlak(P(u0, VLOER, H - 0.035), P(u1, VLOER, H - 0.035), P(u1, RAND, H - 0.035), P(u0, RAND, H - 0.035), uv(HOUT, 26));
-    }
-    m.vlak(P(-rek, VLOER, H), P(-rek, VLOER, H - 0.035), P(rek, VLOER, H - 0.035), P(rek, VLOER, H), uv(HOUT, 30));
-  }
-
-  // Bodem: een dichte plaat met een donkere onderkant eronder.
-  deksel(m, vierkant, VLOER, H, uv(HOUT, 14));
-  deksel(m, vierkant, VLOER - 0.035, H, uv(HOUT, 30), false);
-  schil(m, vierkant, VLOER - 0.035, H, VLOER, H, uv(HOUT, 26));
-
-  // Twee ijzeren banden om de planken heen, en bovenop een houten randlijst.
-  // Drie ijzeren banden was er één te veel: dan telt het oog donkere strepen
-  // in plaats van dat het een krat ziet.
-  for (const [y0, y1] of [[0.14, 0.175], [0.33, 0.365]]) {
-    const s = H + 0.018;
-    schil(m, vierkant, y0, s, y1, s, uv(INKT, 8));
-    krans(m, vierkant, y1, s, H - 0.01, uv(INKT, -6));
-    krans(m, vierkant, y0, s, H - 0.01, uv(INKT, 16), false);
-  }
-  const sRand = H + 0.022;
-  schil(m, vierkant, RAND - 0.05, sRand, RAND, sRand, uv(LEER, 4));
-  krans(m, vierkant, RAND, sRand, H - 0.03, uv(LEER, -8));
-  krans(m, vierkant, RAND - 0.05, sRand, H - 0.01, uv(LEER, 22), false);
   return RAND;
 }
 
@@ -775,10 +706,6 @@ const VARIANTEN = [
   { naam: 'balloon' },
   { naam: 'balloon-basket-round', mand: mandRond, ophangen: { r: 0.31, dikte: 0.030, kleurCel: RIET, dv: BESLAG, zijden: 4 } },
   { naam: 'balloon-basket-square', mand: mandVierkantRiet, ophangen: { r: 0.34, dikte: 0.032, kleurCel: RIET, dv: BESLAG, zijden: 4 } },
-  // Het krat hangt aan touwen die aan de koppen van de hoekstijlen vastzitten;
-  // die staan verder uit het midden dan een mandrand, dus krijgt het meer
-  // lucht tot de ring — anders staan de touwen te ver open.
-  { naam: 'balloon-basket-crate', mand: mandKrat, lucht: 0.29, ophangen: { r: 0.425, voet: 0.015, dikte: 0.022, kleurCel: WIT, dv: 12, zijden: 3 } },
 ];
 
 for (const variant of VARIANTEN) {
