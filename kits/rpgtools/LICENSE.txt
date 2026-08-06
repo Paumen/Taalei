@@ -1,0 +1,76 @@
+	RPG Tools
+
+			------------------------------
+
+	KayKit : RPG Tools Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat, anders dan bij props en
+	rocks, gewoon in de pack zelf (`License.txt`) — geen aanname van de
+	eigenaar van dit project.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert 102 modellen als .gltf + .bin (naast .fbx en .obj);
+	daarvan zijn er 35 gekozen. De pack noemt zijn bestanden met
+	underscores (`pencil_A_long`); deze repo is overal kebab-case, nodig
+	omdat zowel het kleurfilter als de groep-regels in
+	tools/semantiek.mjs op woordgrens na een `-` matchen en `_` in een
+	JavaScript-regex geen woordgrens is. De namen zijn dus 1-op-1
+	overgezet, verder ongewijzigd:
+
+	  anvil               → anvil                 nail                → nail
+	  axe                 → axe                   pencil_A_long       → pencil-a-long
+	  chisel              → chisel                pencil_B_long       → pencil-b-long
+	  compass_base        → compass-base          pickaxe             → pickaxe
+	  drafting_compass    → drafting-compass      rope_bundle_A       → rope-bundle-a
+	  file                → file                  rope_bundle_B       → rope-bundle-b
+	  grindstone          → grindstone            saw                 → saw
+	  hammer              → hammer                scissors            → scissors
+	  handdrill           → handdrill             screw_B             → screw-b
+	  handplane           → handplane             screwdriver_A_short → screwdriver-a-short
+	  journal_closed      → journal-closed        screwdriver_B_short → screwdriver-b-short
+	  journal_open        → journal-open          shovel              → shovel
+	  knife               → knife                 tongs               → tongs
+	  lantern             → lantern               torch               → torch
+	  magnifying_glass    → magnifying-glass      torch_burnt         → torch-burnt
+	  mallet              → mallet                trowel              → trowel
+	  map_empty           → map-empty             wrench_B            → wrench-b
+	  map_rolled          → map-rolled
+
+	Schaal: gecalibreerd tegen het bestaande gereedschap van de
+	survival-kit, dat al op het raster van deze repo staat (hamer 0,307,
+	houweel 0,48, schep 0,58 hoog). Op een factor 0,4 komen de
+	overeenkomstige RPG Tools-modellen uit op 0,329 / 0,554 / 0,631 —
+	steeds binnen 15% van dat ijkpunt. Eén factor voor de hele pack.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-rpgtools.mjs: rechtstreeks uit .gltf + .bin gelezen
+	(geen FBX2glTF-stap nodig, anders dan bij props en rocks), met de
+	oorsprong op y=0 en het grondvlak gecentreerd.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024
+	(`tools_bits_texture.png`). Die is niet meegekomen: de UV's zijn
+	omgezet naar de gedeelde kits/colormap.png, zodat deze modellen
+	dezelfde kleuren delen met de andere kits en in hetzelfde kleurfilter
+	meedoen. Het bronmateriaal draagt gebakken belichting (schaduw en
+	glans in de textuur zelf), niet de vlakke kleurvlakken van Kenney's
+	kits; vandaar de vele kleine kleurafstanden (tot 91) tussen brontint
+	en cel.
+
+	`map_empty` tekent zijn papiervlak met een tweede, apart aangeleverde
+	atlas (`tools_bits_map_empty.png`) in plaats van de gewone textuur;
+	dat model is in twee rondes hermapt, één per atlas.
+
+	Het kompas, de tekenpasser en het lakzegel op de kaartrol zijn
+	geverfd in een verzadigd hemelsblauw dat in de gedeelde colormap
+	ontbrak — de twee blauwen die er al stonden zijn allebei
+	grijsblauwen zonder verzadiging. Cel [4,2] is daarom toegevoegd,
+	naast het bestaande grijsblauw op [3,2]. De geometrie is verder
+	ongemoeid.

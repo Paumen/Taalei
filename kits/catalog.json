@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 551,
+ "totaal": 586,
  "kits": [
   {
    "slug": "fantasy-town-kit",
@@ -118,6 +118,18 @@
    "licentie": "kits/rocks/LICENSE.txt",
    "licentieLabel": "CC0",
    "aantal": 39,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
+  {
+   "slug": "rpgtools",
+   "naam": "RPG Tools",
+   "kort": "RPG Tools",
+   "url": "https://www.kaylousberg.com",
+   "licentie": "kits/rpgtools/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 35,
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
@@ -278,7 +290,14 @@
    "naam": "Gereedschap & wapens",
    "kort": "Gereedschap",
    "kleur": "#6d738a",
-   "aantal": 13
+   "aantal": 34
+  },
+  {
+   "id": "reisgerei",
+   "naam": "Reisgerei & kaarten",
+   "kort": "Reisgerei",
+   "kleur": "#caa06a",
+   "aantal": 11
   },
   {
    "id": "borden",
@@ -292,7 +311,7 @@
    "naam": "Verzamelobjecten & mechaniek",
    "kort": "Items",
    "kleur": "#f1976c",
-   "aantal": 11
+   "aantal": 14
   },
   {
    "id": "dieren",
@@ -314,56 +333,56 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 185
-    },
-    {
-     "hex": "#995a41",
-     "naam": "bruin",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 108
+     "aantal": 194
     },
     {
      "hex": "#8f785b",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 107
+     "aantal": 127
+    },
+    {
+     "hex": "#995a41",
+     "naam": "bruin",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 127
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 76
+     "aantal": 101
     },
     {
      "hex": "#f0ece3",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 74
-    },
-    {
-     "hex": "#dd9f79",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 63
-    },
-    {
-     "hex": "#3e3e44",
-     "naam": "grijs",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 57
+     "aantal": 81
     },
     {
      "hex": "#9da4c4",
      "naam": "blauw",
      "textuur": null,
      "materiaal": null,
-     "aantal": 55
+     "aantal": 80
+    },
+    {
+     "hex": "#dd9f79",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 75
+    },
+    {
+     "hex": "#3e3e44",
+     "naam": "grijs",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 63
     },
     {
      "hex": "#3da679",
@@ -377,42 +396,42 @@
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 34
+     "aantal": 39
     },
     {
      "hex": "#7f3927",
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 23
-    },
-    {
-     "hex": "#ffb349",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 13
+     "aantal": 30
     },
     {
      "hex": "#474a58",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 11
-    },
-    {
-     "hex": "#b2413a",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 11
+     "aantal": 25
     },
     {
      "hex": "#f0c59d",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 8
+     "aantal": 17
+    },
+    {
+     "hex": "#ffb349",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 17
+    },
+    {
+     "hex": "#b2413a",
+     "naam": "rood",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 14
     },
     {
      "hex": "#6d8d33",
@@ -420,6 +439,13 @@
      "textuur": null,
      "materiaal": null,
      "aantal": 4
+    },
+    {
+     "hex": "#2474b4",
+     "naam": "blauw",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 3
     }
    ]
   },
@@ -8278,6 +8304,839 @@
     3.368,
     0.941,
     0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/anvil",
+   "naam": "anvil",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a"
+   ],
+   "pad": "kits/rpgtools/anvil.glb",
+   "bytes": 16124,
+   "driehoeken": 316,
+   "materialen": 1,
+   "wdh": [
+    0.647,
+    0.3,
+    0.32
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/axe",
+   "naam": "axe",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/rpgtools/axe.glb",
+   "bytes": 23536,
+   "driehoeken": 508,
+   "materialen": 1,
+   "wdh": [
+    0.249,
+    0.09,
+    0.422
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/chisel",
+   "naam": "chisel",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/chisel.glb",
+   "bytes": 11756,
+   "driehoeken": 214,
+   "materialen": 1,
+   "wdh": [
+    0.061,
+    0.061,
+    0.431
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/compass-base",
+   "naam": "compass-base",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ffb349"
+   ],
+   "pad": "kits/rpgtools/compass-base.glb",
+   "bytes": 60144,
+   "driehoeken": 1320,
+   "materialen": 1,
+   "wdh": [
+    0.23,
+    0.279,
+    0.107
+   ],
+   "calls": 4
+  },
+  {
+   "id": "rpgtools/drafting-compass",
+   "naam": "drafting-compass",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/drafting-compass.glb",
+   "bytes": 64396,
+   "driehoeken": 1144,
+   "materialen": 1,
+   "wdh": [
+    0.183,
+    0.071,
+    0.342
+   ],
+   "calls": 4
+  },
+  {
+   "id": "rpgtools/file",
+   "naam": "file",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/file.glb",
+   "bytes": 13348,
+   "driehoeken": 272,
+   "materialen": 1,
+   "wdh": [
+    0.061,
+    0.061,
+    0.388
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/grindstone",
+   "naam": "grindstone",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/rpgtools/grindstone.glb",
+   "bytes": 55144,
+   "driehoeken": 1114,
+   "materialen": 1,
+   "wdh": [
+    0.774,
+    0.908,
+    0.62
+   ],
+   "calls": 2
+  },
+  {
+   "id": "rpgtools/hammer",
+   "naam": "hammer",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d"
+   ],
+   "pad": "kits/rpgtools/hammer.glb",
+   "bytes": 16080,
+   "driehoeken": 396,
+   "materialen": 1,
+   "wdh": [
+    0.217,
+    0.13,
+    0.329
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/handdrill",
+   "naam": "handdrill",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#88796d",
+    "#8f785b",
+    "#995a41"
+   ],
+   "pad": "kits/rpgtools/handdrill.glb",
+   "bytes": 33252,
+   "driehoeken": 898,
+   "materialen": 1,
+   "wdh": [
+    0.175,
+    0.07,
+    0.501
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/handplane",
+   "naam": "handplane",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/handplane.glb",
+   "bytes": 26416,
+   "driehoeken": 650,
+   "materialen": 1,
+   "wdh": [
+    0.159,
+    0.423,
+    0.137
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/journal-closed",
+   "naam": "journal-closed",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#f0ece3"
+   ],
+   "pad": "kits/rpgtools/journal-closed.glb",
+   "bytes": 34260,
+   "driehoeken": 657,
+   "materialen": 1,
+   "wdh": [
+    0.153,
+    0.228,
+    0.317
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/journal-open",
+   "naam": "journal-open",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#f0ece3"
+   ],
+   "pad": "kits/rpgtools/journal-open.glb",
+   "bytes": 26568,
+   "driehoeken": 539,
+   "materialen": 1,
+   "wdh": [
+    0.375,
+    0.138,
+    0.296
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/knife",
+   "naam": "knife",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#8f785b",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/knife.glb",
+   "bytes": 12704,
+   "driehoeken": 228,
+   "materialen": 1,
+   "wdh": [
+    0.115,
+    0.061,
+    0.518
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/lantern",
+   "naam": "lantern",
+   "kit": "rpgtools",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#8f785b",
+    "#9da4c4",
+    "#d07b56",
+    "#f0c59d",
+    "#f0ece3",
+    "#ffb349"
+   ],
+   "pad": "kits/rpgtools/lantern.glb",
+   "bytes": 36036,
+   "driehoeken": 772,
+   "materialen": 1,
+   "wdh": [
+    0.301,
+    0.301,
+    0.443
+   ],
+   "calls": 3
+  },
+  {
+   "id": "rpgtools/magnifying-glass",
+   "naam": "magnifying-glass",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/rpgtools/magnifying-glass.glb",
+   "bytes": 24672,
+   "driehoeken": 570,
+   "materialen": 1,
+   "wdh": [
+    0.185,
+    0.05,
+    0.38
+   ],
+   "calls": 2
+  },
+  {
+   "id": "rpgtools/mallet",
+   "naam": "mallet",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dd9f79",
+    "#f0c59d"
+   ],
+   "pad": "kits/rpgtools/mallet.glb",
+   "bytes": 17400,
+   "driehoeken": 472,
+   "materialen": 1,
+   "wdh": [
+    0.257,
+    0.174,
+    0.393
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/map-empty",
+   "naam": "map-empty",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4",
+    "#8f785b",
+    "#9da4c4",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3"
+   ],
+   "pad": "kits/rpgtools/map-empty.glb",
+   "bytes": 24804,
+   "driehoeken": 596,
+   "materialen": 1,
+   "wdh": [
+    0.775,
+    0.487,
+    0.142
+   ],
+   "calls": 2
+  },
+  {
+   "id": "rpgtools/map-rolled",
+   "naam": "map-rolled",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4",
+    "#8f785b",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3"
+   ],
+   "pad": "kits/rpgtools/map-rolled.glb",
+   "bytes": 12616,
+   "driehoeken": 348,
+   "materialen": 1,
+   "wdh": [
+    0.096,
+    0.488,
+    0.095
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/nail",
+   "naam": "nail",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/nail.glb",
+   "bytes": 4364,
+   "driehoeken": 72,
+   "materialen": 1,
+   "wdh": [
+    0.064,
+    0.064,
+    0.117
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/pencil-a-long",
+   "naam": "pencil-a-long",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#dd9f79",
+    "#f0c59d",
+    "#ffb349"
+   ],
+   "pad": "kits/rpgtools/pencil-a-long.glb",
+   "bytes": 4504,
+   "driehoeken": 48,
+   "materialen": 1,
+   "wdh": [
+    0.034,
+    0.04,
+    0.252
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/pencil-b-long",
+   "naam": "pencil-b-long",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#6d738a",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#ffb349"
+   ],
+   "pad": "kits/rpgtools/pencil-b-long.glb",
+   "bytes": 14664,
+   "driehoeken": 268,
+   "materialen": 1,
+   "wdh": [
+    0.046,
+    0.046,
+    0.259
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/pickaxe",
+   "naam": "pickaxe",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d"
+   ],
+   "pad": "kits/rpgtools/pickaxe.glb",
+   "bytes": 22452,
+   "driehoeken": 508,
+   "materialen": 1,
+   "wdh": [
+    0.579,
+    0.083,
+    0.554
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/rope-bundle-a",
+   "naam": "rope-bundle-a",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/rpgtools/rope-bundle-a.glb",
+   "bytes": 32296,
+   "driehoeken": 1248,
+   "materialen": 1,
+   "wdh": [
+    0.558,
+    0.211,
+    0.101
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/rope-bundle-b",
+   "naam": "rope-bundle-b",
+   "kit": "rpgtools",
+   "groep": "reisgerei",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/rpgtools/rope-bundle-b.glb",
+   "bytes": 23460,
+   "driehoeken": 826,
+   "materialen": 1,
+   "wdh": [
+    0.423,
+    0.382,
+    0.093
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/saw",
+   "naam": "saw",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/rpgtools/saw.glb",
+   "bytes": 27052,
+   "driehoeken": 512,
+   "materialen": 1,
+   "wdh": [
+    0.539,
+    0.052,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/scissors",
+   "naam": "scissors",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/scissors.glb",
+   "bytes": 30664,
+   "driehoeken": 780,
+   "materialen": 1,
+   "wdh": [
+    0.182,
+    0.03,
+    0.481
+   ],
+   "calls": 2
+  },
+  {
+   "id": "rpgtools/screw-b",
+   "naam": "screw-b",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/screw-b.glb",
+   "bytes": 13500,
+   "driehoeken": 264,
+   "materialen": 1,
+   "wdh": [
+    0.064,
+    0.064,
+    0.117
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/screwdriver-a-short",
+   "naam": "screwdriver-a-short",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/screwdriver-a-short.glb",
+   "bytes": 10852,
+   "driehoeken": 190,
+   "materialen": 1,
+   "wdh": [
+    0.061,
+    0.061,
+    0.281
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/screwdriver-b-short",
+   "naam": "screwdriver-b-short",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/screwdriver-b-short.glb",
+   "bytes": 11904,
+   "driehoeken": 216,
+   "materialen": 1,
+   "wdh": [
+    0.061,
+    0.061,
+    0.285
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/shovel",
+   "naam": "shovel",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/rpgtools/shovel.glb",
+   "bytes": 30348,
+   "driehoeken": 810,
+   "materialen": 1,
+   "wdh": [
+    0.215,
+    0.063,
+    0.631
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/tongs",
+   "naam": "tongs",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/rpgtools/tongs.glb",
+   "bytes": 17472,
+   "driehoeken": 340,
+   "materialen": 1,
+   "wdh": [
+    0.165,
+    0.079,
+    0.514
+   ],
+   "calls": 2
+  },
+  {
+   "id": "rpgtools/torch-burnt",
+   "naam": "torch-burnt",
+   "kit": "rpgtools",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#7f3927",
+    "#995a41"
+   ],
+   "pad": "kits/rpgtools/torch-burnt.glb",
+   "bytes": 19136,
+   "driehoeken": 474,
+   "materialen": 1,
+   "wdh": [
+    0.084,
+    0.09,
+    0.467
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/torch",
+   "naam": "torch",
+   "kit": "rpgtools",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41"
+   ],
+   "pad": "kits/rpgtools/torch.glb",
+   "bytes": 19120,
+   "driehoeken": 474,
+   "materialen": 1,
+   "wdh": [
+    0.084,
+    0.09,
+    0.467
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/trowel",
+   "naam": "trowel",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/trowel.glb",
+   "bytes": 12436,
+   "driehoeken": 242,
+   "materialen": 1,
+   "wdh": [
+    0.075,
+    0.203,
+    0.568
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rpgtools/wrench-b",
+   "naam": "wrench-b",
+   "kit": "rpgtools",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/rpgtools/wrench-b.glb",
+   "bytes": 12136,
+   "driehoeken": 212,
+   "materialen": 1,
+   "wdh": [
+    0.106,
+    0.033,
+    0.328
    ],
    "calls": 1
   },

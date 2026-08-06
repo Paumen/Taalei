@@ -674,5 +674,47 @@ window.KENNEY_KITS = [
    "wood-steps",
    "wood-steps-stucco"
   ]
+ },
+ {
+  "slug": "rpgtools",
+  "name": "RPG Tools",
+  "url": "https://www.kaylousberg.com",
+  "models": [
+   "anvil",
+   "axe",
+   "chisel",
+   "compass-base",
+   "drafting-compass",
+   "file",
+   "grindstone",
+   "hammer",
+   "handdrill",
+   "handplane",
+   "journal-closed",
+   "journal-open",
+   "knife",
+   "lantern",
+   "magnifying-glass",
+   "mallet",
+   "map-empty",
+   "map-rolled",
+   "nail",
+   "pencil-a-long",
+   "pencil-b-long",
+   "pickaxe",
+   "rope-bundle-a",
+   "rope-bundle-b",
+   "saw",
+   "scissors",
+   "screw-b",
+   "screwdriver-a-short",
+   "screwdriver-b-short",
+   "shovel",
+   "tongs",
+   "torch",
+   "torch-burnt",
+   "trowel",
+   "wrench-b"
+  ]
  }
 ];
