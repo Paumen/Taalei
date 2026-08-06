@@ -22,8 +22,12 @@ const UIT = path.join(ROOT, 'docs', 'asset_size_review');
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.glb': 'model/gltf-binary' };
 
 const server = http.createServer((req, res) => {
-  let p = decodeURIComponent(req.url.split('?')[0]);
-  const fp = p.startsWith('/three/') ? path.join(THREE, p.slice(7)) : path.join(ROOT, p);
+  const p = decodeURIComponent(req.url.split('?')[0]);
+  const drie = p.startsWith('/three/');
+  const basis = drie ? THREE : ROOT;
+  const fp = path.normalize(path.join(basis, drie ? p.slice(7) : p));
+  /* alleen bestanden binnen de repo of het three-pakket serveren */
+  if (!fp.startsWith(basis + path.sep)) { res.writeHead(403); res.end(); return; }
   try {
     if (!existsSync(fp) || !statSync(fp).isFile()) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { 'content-type': MIME[path.extname(fp)] || 'application/octet-stream' });
@@ -37,11 +41,20 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1800, height: 760 } });
 page.on('pageerror', (err) => console.log('  [fout]', err.message));
 
+let mislukt = 0;
 for (const naam of Object.keys(groups)) {
   await page.goto(`http://127.0.0.1:8931/tools/vergelijk-groottes/index.html?group=${naam}`);
-  await page.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
+  /* FOUT wordt gezet door index.html bij een scriptfout, zodat we niet op de
+   * volle timeout hoeven te wachten */
+  await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 30000 });
+  if (await page.evaluate('window.FOUT === true')) {
+    mislukt++;
+    console.log('MISLUKT', naam);
+    continue;
+  }
   await page.screenshot({ path: path.join(UIT, `${naam}.png`) });
   console.log('ok', naam);
 }
+if (mislukt) process.exitCode = 1;
 await browser.close();
 server.close();
