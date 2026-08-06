@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, bepaalGroep } from './semantiek.mjs';
-import { leesGlb, meetScene } from './glb.mjs';
+import { leesGlb, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -282,6 +282,10 @@ for (const slug of kitSlugs) {
       pad,
       bytes: statSync(join(dir, bestand)).size,
       driehoeken: scene.driehoeken,
+      // Dezelfde telling gedeeld door het volume van de bounding box, zodat een
+      // groot model niet vanzelf "zwaar" heet. De stijlgids (§4) legt de grens
+      // op 1000; een plat model heeft geen volume en dus geen getal.
+      driehoekenPerUnit: driehoekenPerUnit(scene.driehoeken, scene.wdh),
       materialen: (gltf.materials ?? []).length,
       // Breedte × diepte × hoogte in rastereenheden (1 = één wand-/vloersegment).
       wdh: scene.wdh,
@@ -365,6 +369,8 @@ if (samenvoegingen.length > 0) tel();
 const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
   totaal: modellen.length,
+  // Zodat de catalogus in de browser de grens niet nog eens hoeft te kennen.
+  budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
@@ -424,6 +430,27 @@ for (const kit of kits) {
   if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad) {
     console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
   }
+}
+
+/* Boven het budget is geen harde fout: de kits zijn ingekocht zoals ze zijn, en
+ * een model dat erboven zit is een kandidaat om te vereenvoudigen, geen
+ * bouwstop. De build noemt ze bij naam zodat de lijst niet stilletjes groeit. */
+const bovenBudget = modellen
+  .filter((m) => m.driehoekenPerUnit !== null && m.driehoekenPerUnit > BUDGET_PER_UNIT)
+  .sort((a, b) => b.driehoekenPerUnit - a.driehoekenPerUnit);
+const ERGSTE = 25; // de hele lijst is te lang om elke build af te drukken
+if (bovenBudget.length) {
+  console.warn(`! ${bovenBudget.length} modellen boven ${BUDGET_PER_UNIT} driehoeken per unit, de ergste ${Math.min(ERGSTE, bovenBudget.length)}:`);
+  for (const m of bovenBudget.slice(0, ERGSTE)) {
+    console.warn(`  ${String(m.driehoekenPerUnit).padStart(6)}  ${m.id}  (${m.driehoeken} tri, ${m.wdh.join(' × ')})`);
+  }
+  if (bovenBudget.length > ERGSTE) {
+    console.warn(`  … en nog ${bovenBudget.length - ERGSTE}; de hele lijst staat in catalog.json`);
+  }
+}
+const plat = modellen.filter((m) => m.driehoekenPerUnit === null);
+if (plat.length) {
+  console.warn(`! ${plat.length} platte modellen zonder volume, dus zonder dichtheid: ${plat.map((m) => m.id).join(', ')}`);
 }
 
 if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonderMetadata.join(', ')}`);
