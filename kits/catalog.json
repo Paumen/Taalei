@@ -1,7 +1,19 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 699,
+ "totaal": 842,
  "kits": [
+  {
+   "slug": "dungeon",
+   "naam": "Dungeon",
+   "kort": "Dungeon",
+   "url": "https://www.kaylousberg.com",
+   "licentie": "kits/dungeon/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 143,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
   {
    "slug": "fantasy-town-kit",
    "naam": "Fantasy Town Kit",
@@ -229,7 +241,7 @@
    "kort": "Bouwpakket",
    "kleur": "#a8762a",
    "tabblad": "bouwpakket",
-   "aantal": 157
+   "aantal": 233
   },
   {
    "id": "bouwwerken",
@@ -243,7 +255,7 @@
    "naam": "Trappen, bruggen & ladders",
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
-   "aantal": 17
+   "aantal": 26
   },
   {
    "id": "hek",
@@ -286,7 +298,7 @@
    "naam": "Huisraad & servies",
    "kort": "Huisraad",
    "kleur": "#c07c8a",
-   "aantal": 18
+   "aantal": 47
   },
   {
    "id": "schepen",
@@ -307,7 +319,7 @@
    "naam": "Kisten, vaten & grondstoffen",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 89
+   "aantal": 108
   },
   {
    "id": "gereedschap",
@@ -335,7 +347,7 @@
    "naam": "Verzamelobjecten & mechaniek",
    "kort": "Items",
    "kleur": "#f1976c",
-   "aantal": 14
+   "aantal": 24
   },
   {
    "id": "dieren",
@@ -357,119 +369,133 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 220
+     "aantal": 271
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 164
+     "aantal": 234
     },
     {
      "hex": "#995a41",
      "naam": "bruin",
      "textuur": null,
      "materiaal": null,
-     "aantal": 144
-    },
-    {
-     "hex": "#8f785b",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 129
+     "aantal": 200
     },
     {
      "hex": "#9da4c4",
      "naam": "blauw",
      "textuur": null,
      "materiaal": null,
-     "aantal": 125
+     "aantal": 199
+    },
+    {
+     "hex": "#8f785b",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 153
     },
     {
      "hex": "#dd9f79",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 100
-    },
-    {
-     "hex": "#f0ece3",
-     "naam": "lichtoranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 90
+     "aantal": 128
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 63
+     "aantal": 111
+    },
+    {
+     "hex": "#f0ece3",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 111
     },
     {
      "hex": "#7f3927",
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 51
-    },
-    {
-     "hex": "#3da679",
-     "naam": "groen",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 48
+     "aantal": 104
     },
     {
      "hex": "#474a58",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 40
+     "aantal": 103
     },
     {
      "hex": "#88796d",
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 40
+     "aantal": 85
     },
     {
-     "hex": "#ffb349",
-     "naam": "oranje",
+     "hex": "#3da679",
+     "naam": "groen",
      "textuur": null,
      "materiaal": null,
-     "aantal": 29
+     "aantal": 59
     },
     {
      "hex": "#b2413a",
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 27
+     "aantal": 42
+    },
+    {
+     "hex": "#ffb349",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 40
     },
     {
      "hex": "#f0c59d",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 22
+     "aantal": 39
     },
     {
      "hex": "#ff8744",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 17
+     "aantal": 39
     },
     {
      "hex": "#6d8d33",
      "naam": "groen",
      "textuur": null,
      "materiaal": null,
-     "aantal": 12
+     "aantal": 16
+    },
+    {
+     "hex": "#6cb588",
+     "naam": "groen",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 13
+    },
+    {
+     "hex": "#f1976c",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 4
     },
     {
      "hex": "#2474b4",
@@ -848,6 +874,3351 @@
   }
  ],
  "modellen": [
+  {
+   "id": "dungeon/barrel-large-decorated",
+   "naam": "barrel-large-decorated",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/barrel-large-decorated.glb",
+   "bytes": 52720,
+   "driehoeken": 1047,
+   "materialen": 1,
+   "wdh": [
+    1.938,
+    1.855,
+    2.556
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrel-large",
+   "naam": "barrel-large",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/dungeon/barrel-large.glb",
+   "bytes": 27256,
+   "driehoeken": 561,
+   "materialen": 1,
+   "wdh": [
+    1.8,
+    1.8,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrel-small-stack",
+   "naam": "barrel-small-stack",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/dungeon/barrel-small-stack.glb",
+   "bytes": 75020,
+   "driehoeken": 1149,
+   "materialen": 1,
+   "wdh": [
+    1.85,
+    1,
+    1.77
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrel-small",
+   "naam": "barrel-small",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/dungeon/barrel-small.glb",
+   "bytes": 16044,
+   "driehoeken": 207,
+   "materialen": 1,
+   "wdh": [
+    1.001,
+    1.001,
+    1.018
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrier-colum-half",
+   "naam": "barrier-colum-half",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/barrier-colum-half.glb",
+   "bytes": 7632,
+   "driehoeken": 86,
+   "materialen": 1,
+   "wdh": [
+    0.588,
+    0.175,
+    0.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrier-column",
+   "naam": "barrier-column",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/barrier-column.glb",
+   "bytes": 9276,
+   "driehoeken": 110,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.175,
+    0.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrier-corner",
+   "naam": "barrier-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/barrier-corner.glb",
+   "bytes": 10552,
+   "driehoeken": 128,
+   "materialen": 1,
+   "wdh": [
+    0.599,
+    0.599,
+    0.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrier-half",
+   "naam": "barrier-half",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/barrier-half.glb",
+   "bytes": 4368,
+   "driehoeken": 42,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.125,
+    0.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/barrier",
+   "naam": "barrier",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/barrier.glb",
+   "bytes": 7700,
+   "driehoeken": 90,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.125,
+    0.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bed-decorated",
+   "naam": "bed-decorated",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/bed-decorated.glb",
+   "bytes": 71552,
+   "driehoeken": 1410,
+   "materialen": 1,
+   "wdh": [
+    2.606,
+    3.057,
+    1.701
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bed-floor",
+   "naam": "bed-floor",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/bed-floor.glb",
+   "bytes": 8936,
+   "driehoeken": 232,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    3,
+    0.563
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bed-frame",
+   "naam": "bed-frame",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#d07b56",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/bed-frame.glb",
+   "bytes": 14060,
+   "driehoeken": 304,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    3,
+    1.063
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bottle-a-brown",
+   "naam": "bottle-a-brown",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/bottle-a-brown.glb",
+   "bytes": 9240,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    0.368,
+    0.368,
+    0.886
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bottle-a-labeled-brown",
+   "naam": "bottle-a-labeled-brown",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/bottle-a-labeled-brown.glb",
+   "bytes": 9392,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    0.368,
+    0.368,
+    0.886
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bottle-b-brown",
+   "naam": "bottle-b-brown",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/bottle-b-brown.glb",
+   "bytes": 9236,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    0.553,
+    0.553,
+    0.886
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/bottle-c-brown",
+   "naam": "bottle-c-brown",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/bottle-c-brown.glb",
+   "bytes": 9240,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    0.737,
+    0.737,
+    0.906
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/box-large",
+   "naam": "box-large",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/box-large.glb",
+   "bytes": 12816,
+   "driehoeken": 188,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/box-small-decorated",
+   "naam": "box-small-decorated",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/box-small-decorated.glb",
+   "bytes": 55800,
+   "driehoeken": 928,
+   "materialen": 1,
+   "wdh": [
+    1.49,
+    1.487,
+    1.483
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/box-small",
+   "naam": "box-small",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/box-small.glb",
+   "bytes": 12768,
+   "driehoeken": 188,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/box-stacked",
+   "naam": "box-stacked",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#474a58",
+    "#6cb588",
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d"
+   ],
+   "pad": "kits/dungeon/box-stacked.glb",
+   "bytes": 124944,
+   "driehoeken": 2173,
+   "materialen": 1,
+   "wdh": [
+    3.475,
+    3.635,
+    3.309
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle-lit",
+   "naam": "candle-lit",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#b2413a",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/candle-lit.glb",
+   "bytes": 6024,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    0.334,
+    0.329,
+    1.051
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle-melted",
+   "naam": "candle-melted",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/candle-melted.glb",
+   "bytes": 4780,
+   "driehoeken": 66,
+   "materialen": 1,
+   "wdh": [
+    0.334,
+    0.329,
+    0.702
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle-thin-lit",
+   "naam": "candle-thin-lit",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#b2413a",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/candle-thin-lit.glb",
+   "bytes": 6040,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    0.193,
+    0.19,
+    1.051
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle-thin",
+   "naam": "candle-thin",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/candle-thin.glb",
+   "bytes": 4772,
+   "driehoeken": 66,
+   "materialen": 1,
+   "wdh": [
+    0.193,
+    0.19,
+    0.873
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle-triple",
+   "naam": "candle-triple",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/candle-triple.glb",
+   "bytes": 11404,
+   "driehoeken": 198,
+   "materialen": 1,
+   "wdh": [
+    0.501,
+    0.39,
+    0.873
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/candle",
+   "naam": "candle",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/candle.glb",
+   "bytes": 4756,
+   "driehoeken": 66,
+   "materialen": 1,
+   "wdh": [
+    0.334,
+    0.329,
+    0.873
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/ceiling-tile",
+   "naam": "ceiling-tile",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/ceiling-tile.glb",
+   "bytes": 5024,
+   "driehoeken": 60,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.088
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/chair",
+   "naam": "chair",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/chair.glb",
+   "bytes": 19428,
+   "driehoeken": 294,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    0.75,
+    1.227
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/chest-gold",
+   "naam": "chest-gold",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/chest-gold.glb",
+   "bytes": 82972,
+   "driehoeken": 1568,
+   "materialen": 1,
+   "wdh": [
+    1.7,
+    1.446,
+    1.3
+   ],
+   "calls": 2
+  },
+  {
+   "id": "dungeon/chest",
+   "naam": "chest",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/chest.glb",
+   "bytes": 42828,
+   "driehoeken": 728,
+   "materialen": 1,
+   "wdh": [
+    1.7,
+    1.446,
+    1.3
+   ],
+   "calls": 2
+  },
+  {
+   "id": "dungeon/coin-stack-large",
+   "naam": "coin-stack-large",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/coin-stack-large.glb",
+   "bytes": 83964,
+   "driehoeken": 1776,
+   "materialen": 1,
+   "wdh": [
+    1.436,
+    1.659,
+    1.157
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/coin-stack-medium",
+   "naam": "coin-stack-medium",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/coin-stack-medium.glb",
+   "bytes": 47524,
+   "driehoeken": 968,
+   "materialen": 1,
+   "wdh": [
+    0.993,
+    1.034,
+    0.641
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/coin-stack-small",
+   "naam": "coin-stack-small",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/coin-stack-small.glb",
+   "bytes": 22312,
+   "driehoeken": 416,
+   "materialen": 1,
+   "wdh": [
+    0.959,
+    0.896,
+    0.478
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/coin",
+   "naam": "coin",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/coin.glb",
+   "bytes": 5912,
+   "driehoeken": 80,
+   "materialen": 1,
+   "wdh": [
+    0.36,
+    0.36,
+    0.125
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/column",
+   "naam": "column",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/column.glb",
+   "bytes": 4652,
+   "driehoeken": 44,
+   "materialen": 1,
+   "wdh": [
+    0.7,
+    0.7,
+    1.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/crates-stacked",
+   "naam": "crates-stacked",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/crates-stacked.glb",
+   "bytes": 83580,
+   "driehoeken": 1331,
+   "materialen": 1,
+   "wdh": [
+    2.089,
+    2.249,
+    2.142
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-large-rocky",
+   "naam": "floor-dirt-large-rocky",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-large-rocky.glb",
+   "bytes": 13536,
+   "driehoeken": 187,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.098
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-large",
+   "naam": "floor-dirt-large",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-large.glb",
+   "bytes": 8408,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.052
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-a",
+   "naam": "floor-dirt-small-a",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-a.glb",
+   "bytes": 4668,
+   "driehoeken": 45,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.047
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-b",
+   "naam": "floor-dirt-small-b",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-b.glb",
+   "bytes": 3712,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.047
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-c",
+   "naam": "floor-dirt-small-c",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-c.glb",
+   "bytes": 3788,
+   "driehoeken": 33,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.052
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-corner",
+   "naam": "floor-dirt-small-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-corner.glb",
+   "bytes": 5128,
+   "driehoeken": 56,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-d",
+   "naam": "floor-dirt-small-d",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-d.glb",
+   "bytes": 2876,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.035
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-dirt-small-weeds",
+   "naam": "floor-dirt-small-weeds",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-dirt-small-weeds.glb",
+   "bytes": 21120,
+   "driehoeken": 416,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.074
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-allsides",
+   "naam": "floor-foundation-allsides",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-allsides.glb",
+   "bytes": 28620,
+   "driehoeken": 360,
+   "materialen": 1,
+   "wdh": [
+    0.55,
+    0.55,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-corner",
+   "naam": "floor-foundation-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-corner.glb",
+   "bytes": 16060,
+   "driehoeken": 202,
+   "materialen": 1,
+   "wdh": [
+    0.525,
+    0.525,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-diagonal-corner",
+   "naam": "floor-foundation-diagonal-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-diagonal-corner.glb",
+   "bytes": 9300,
+   "driehoeken": 111,
+   "materialen": 1,
+   "wdh": [
+    0.525,
+    0.525,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-front-and-back",
+   "naam": "floor-foundation-front-and-back",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-front-and-back.glb",
+   "bytes": 16072,
+   "driehoeken": 202,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-front-and-sides",
+   "naam": "floor-foundation-front-and-sides",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-front-and-sides.glb",
+   "bytes": 22364,
+   "driehoeken": 281,
+   "materialen": 1,
+   "wdh": [
+    0.55,
+    0.525,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-foundation-front",
+   "naam": "floor-foundation-front",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/dungeon/floor-foundation-front.glb",
+   "bytes": 9768,
+   "driehoeken": 123,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.525,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-big-grate-open",
+   "naam": "floor-tile-big-grate-open",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-big-grate-open.glb",
+   "bytes": 20184,
+   "driehoeken": 284,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.263
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-big-grate",
+   "naam": "floor-tile-big-grate",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-big-grate.glb",
+   "bytes": 20728,
+   "driehoeken": 292,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.263
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-big-spikes",
+   "naam": "floor-tile-big-spikes",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/floor-tile-big-spikes.glb",
+   "bytes": 43360,
+   "driehoeken": 638,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.525
+   ],
+   "calls": 2
+  },
+  {
+   "id": "dungeon/floor-tile-extralarge-grates-open",
+   "naam": "floor-tile-extralarge-grates-open",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-extralarge-grates-open.glb",
+   "bytes": 48716,
+   "driehoeken": 764,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.282
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-extralarge-grates",
+   "naam": "floor-tile-extralarge-grates",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-extralarge-grates.glb",
+   "bytes": 49260,
+   "driehoeken": 772,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.282
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-grate-open",
+   "naam": "floor-tile-grate-open",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-grate-open.glb",
+   "bytes": 11004,
+   "driehoeken": 140,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.257
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-grate",
+   "naam": "floor-tile-grate",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-grate.glb",
+   "bytes": 11128,
+   "driehoeken": 142,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.257
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-large-rocks",
+   "naam": "floor-tile-large-rocks",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/dungeon/floor-tile-large-rocks.glb",
+   "bytes": 21032,
+   "driehoeken": 338,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.159
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-large",
+   "naam": "floor-tile-large",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-large.glb",
+   "bytes": 11372,
+   "driehoeken": 188,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-broken-a",
+   "naam": "floor-tile-small-broken-a",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-broken-a.glb",
+   "bytes": 6580,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-broken-b",
+   "naam": "floor-tile-small-broken-b",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-broken-b.glb",
+   "bytes": 5512,
+   "driehoeken": 76,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-corner",
+   "naam": "floor-tile-small-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-corner.glb",
+   "bytes": 3308,
+   "driehoeken": 31,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-decorated",
+   "naam": "floor-tile-small-decorated",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-decorated.glb",
+   "bytes": 23148,
+   "driehoeken": 390,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.193
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-weeds-a",
+   "naam": "floor-tile-small-weeds-a",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-weeds-a.glb",
+   "bytes": 28464,
+   "driehoeken": 589,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.074
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small-weeds-b",
+   "naam": "floor-tile-small-weeds-b",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small-weeds-b.glb",
+   "bytes": 21948,
+   "driehoeken": 447,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.074
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-tile-small",
+   "naam": "floor-tile-small",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/floor-tile-small.glb",
+   "bytes": 5040,
+   "driehoeken": 66,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.038
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-wood-large-dark",
+   "naam": "floor-wood-large-dark",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/dungeon/floor-wood-large-dark.glb",
+   "bytes": 19992,
+   "driehoeken": 272,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.037
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-wood-large",
+   "naam": "floor-wood-large",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/floor-wood-large.glb",
+   "bytes": 19976,
+   "driehoeken": 272,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.037
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-wood-small-dark",
+   "naam": "floor-wood-small-dark",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/dungeon/floor-wood-small-dark.glb",
+   "bytes": 6600,
+   "driehoeken": 78,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.037
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/floor-wood-small",
+   "naam": "floor-wood-small",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/floor-wood-small.glb",
+   "bytes": 6584,
+   "driehoeken": 78,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.037
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/keg-decorated",
+   "naam": "keg-decorated",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/keg-decorated.glb",
+   "bytes": 116804,
+   "driehoeken": 2058,
+   "materialen": 1,
+   "wdh": [
+    3.519,
+    2,
+    2.051
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/keg",
+   "naam": "keg",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/dungeon/keg.glb",
+   "bytes": 41132,
+   "driehoeken": 807,
+   "materialen": 1,
+   "wdh": [
+    1.8,
+    2,
+    2.051
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/key",
+   "naam": "key",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/key.glb",
+   "bytes": 7548,
+   "driehoeken": 160,
+   "materialen": 1,
+   "wdh": [
+    0.896,
+    0.142,
+    0.403
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/keyring-hanging",
+   "naam": "keyring-hanging",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/keyring-hanging.glb",
+   "bytes": 28724,
+   "driehoeken": 728,
+   "materialen": 1,
+   "wdh": [
+    0.68,
+    0.383,
+    1.22
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/keyring",
+   "naam": "keyring",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/keyring.glb",
+   "bytes": 28704,
+   "driehoeken": 728,
+   "materialen": 1,
+   "wdh": [
+    1.031,
+    1.209,
+    0.261
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/pillar",
+   "naam": "pillar",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a"
+   ],
+   "pad": "kits/dungeon/pillar.glb",
+   "bytes": 9956,
+   "driehoeken": 136,
+   "materialen": 1,
+   "wdh": [
+    0.375,
+    0.375,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/plate-food-a",
+   "naam": "plate-food-a",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6d8d33",
+    "#7f3927",
+    "#88796d",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0ece3",
+    "#f1976c",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/plate-food-a.glb",
+   "bytes": 22640,
+   "driehoeken": 547,
+   "materialen": 1,
+   "wdh": [
+    1.025,
+    0.971,
+    0.788
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/plate-food-b",
+   "naam": "plate-food-b",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6d8d33",
+    "#88796d",
+    "#9da4c4",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/plate-food-b.glb",
+   "bytes": 14016,
+   "driehoeken": 306,
+   "materialen": 1,
+   "wdh": [
+    0.971,
+    0.971,
+    0.236
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/plate-small",
+   "naam": "plate-small",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/plate-small.glb",
+   "bytes": 6788,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    0.485,
+    0.485,
+    0.129
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/plate",
+   "naam": "plate",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/dungeon/plate.glb",
+   "bytes": 6764,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    0.971,
+    0.971,
+    0.129
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/rubble-half",
+   "naam": "rubble-half",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/dungeon/rubble-half.glb",
+   "bytes": 23256,
+   "driehoeken": 390,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.75,
+    0.875
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/rubble-large",
+   "naam": "rubble-large",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/dungeon/rubble-large.glb",
+   "bytes": 44628,
+   "driehoeken": 788,
+   "materialen": 1,
+   "wdh": [
+    2.032,
+    0.796,
+    0.874
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/shelf-large",
+   "naam": "shelf-large",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41"
+   ],
+   "pad": "kits/dungeon/shelf-large.glb",
+   "bytes": 6420,
+   "driehoeken": 76,
+   "materialen": 1,
+   "wdh": [
+    2,
+    0.5,
+    0.45
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/shelf-small-candles",
+   "naam": "shelf-small-candles",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#995a41",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/shelf-small-candles.glb",
+   "bytes": 13404,
+   "driehoeken": 231,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.994
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/shelf-small",
+   "naam": "shelf-small",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41"
+   ],
+   "pad": "kits/dungeon/shelf-small.glb",
+   "bytes": 5340,
+   "driehoeken": 60,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/shelves",
+   "naam": "shelves",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41"
+   ],
+   "pad": "kits/dungeon/shelves.glb",
+   "bytes": 11396,
+   "driehoeken": 152,
+   "materialen": 1,
+   "wdh": [
+    2,
+    0.5,
+    1.95
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-long",
+   "naam": "stairs-long",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-long.glb",
+   "bytes": 33796,
+   "driehoeken": 442,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    2,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-narrow",
+   "naam": "stairs-narrow",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-narrow.glb",
+   "bytes": 27152,
+   "driehoeken": 358,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-wall-left",
+   "naam": "stairs-wall-left",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-wall-left.glb",
+   "bytes": 41072,
+   "driehoeken": 574,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.25,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-wall-right",
+   "naam": "stairs-wall-right",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-wall-right.glb",
+   "bytes": 41076,
+   "driehoeken": 574,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.25,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-walled",
+   "naam": "stairs-walled",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-walled.glb",
+   "bytes": 55020,
+   "driehoeken": 790,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-wide",
+   "naam": "stairs-wide",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs-wide.glb",
+   "bytes": 27148,
+   "driehoeken": 358,
+   "materialen": 1,
+   "wdh": [
+    1.75,
+    1,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-wood-decorated",
+   "naam": "stairs-wood-decorated",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/dungeon/stairs-wood-decorated.glb",
+   "bytes": 140824,
+   "driehoeken": 2537,
+   "materialen": 1,
+   "wdh": [
+    0.825,
+    1.5,
+    1.013
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs-wood",
+   "naam": "stairs-wood",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/stairs-wood.glb",
+   "bytes": 18984,
+   "driehoeken": 296,
+   "materialen": 1,
+   "wdh": [
+    0.825,
+    1.5,
+    1.013
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stairs",
+   "naam": "stairs",
+   "kit": "dungeon",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/stairs.glb",
+   "bytes": 27136,
+   "driehoeken": 358,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1,
+    1.275
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/stool",
+   "naam": "stool",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/stool.glb",
+   "bytes": 12344,
+   "driehoeken": 172,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    0.75,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-long-broken",
+   "naam": "table-long-broken",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/table-long-broken.glb",
+   "bytes": 36732,
+   "driehoeken": 550,
+   "materialen": 1,
+   "wdh": [
+    2.409,
+    4.405,
+    1.266
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-long-decorated-a",
+   "naam": "table-long-decorated-a",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#6d8d33",
+    "#7f3927",
+    "#88796d",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#f1976c",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/table-long-decorated-a.glb",
+   "bytes": 92640,
+   "driehoeken": 1961,
+   "materialen": 1,
+   "wdh": [
+    2.059,
+    4,
+    1.886
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-long-decorated-c",
+   "naam": "table-long-decorated-c",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d"
+   ],
+   "pad": "kits/dungeon/table-long-decorated-c.glb",
+   "bytes": 192804,
+   "driehoeken": 3499,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4.025,
+    2.768
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-long",
+   "naam": "table-long",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/table-long.glb",
+   "bytes": 18340,
+   "driehoeken": 280,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-medium-broken",
+   "naam": "table-medium-broken",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/table-medium-broken.glb",
+   "bytes": 18272,
+   "driehoeken": 247,
+   "materialen": 1,
+   "wdh": [
+    2.277,
+    2.428,
+    0.972
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-medium-decorated-a",
+   "naam": "table-medium-decorated-a",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6cb588",
+    "#6d8d33",
+    "#7f3927",
+    "#88796d",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/table-medium-decorated-a.glb",
+   "bytes": 59044,
+   "driehoeken": 1186,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1.886
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-medium",
+   "naam": "table-medium",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/table-medium.glb",
+   "bytes": 17052,
+   "driehoeken": 256,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-small-decorated-a",
+   "naam": "table-small-decorated-a",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56",
+    "#dd9f79",
+    "#f0ece3"
+   ],
+   "pad": "kits/dungeon/table-small-decorated-a.glb",
+   "bytes": 48716,
+   "driehoeken": 986,
+   "materialen": 1,
+   "wdh": [
+    1.039,
+    1.211,
+    1.621
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-small-decorated-b",
+   "naam": "table-small-decorated-b",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/table-small-decorated-b.glb",
+   "bytes": 88024,
+   "driehoeken": 1576,
+   "materialen": 1,
+   "wdh": [
+    1.013,
+    1,
+    2.157
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/table-small",
+   "naam": "table-small",
+   "kit": "dungeon",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/table-small.glb",
+   "bytes": 13740,
+   "driehoeken": 192,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/torch-lit",
+   "naam": "torch-lit",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#88796d",
+    "#8f785b",
+    "#9da4c4",
+    "#b2413a",
+    "#f0c59d",
+    "#ff8744",
+    "#ffb349"
+   ],
+   "pad": "kits/dungeon/torch-lit.glb",
+   "bytes": 13244,
+   "driehoeken": 270,
+   "materialen": 1,
+   "wdh": [
+    0.55,
+    0.55,
+    1.126
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/torch-mounted",
+   "naam": "torch-mounted",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/torch-mounted.glb",
+   "bytes": 15680,
+   "driehoeken": 278,
+   "materialen": 1,
+   "wdh": [
+    0.55,
+    0.616,
+    1.062
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/torch",
+   "naam": "torch",
+   "kit": "dungeon",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#88796d",
+    "#8f785b",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/torch.glb",
+   "bytes": 11980,
+   "driehoeken": 216,
+   "materialen": 1,
+   "wdh": [
+    0.55,
+    0.55,
+    1.042
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/trunk-large-c",
+   "naam": "trunk-large-c",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/trunk-large-c.glb",
+   "bytes": 14172,
+   "driehoeken": 204,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/trunk-small-c",
+   "naam": "trunk-small-c",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/trunk-small-c.glb",
+   "bytes": 14172,
+   "driehoeken": 204,
+   "materialen": 1,
+   "wdh": [
+    0.675,
+    0.583,
+    0.484
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-arched",
+   "naam": "wall-arched",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-arched.glb",
+   "bytes": 52164,
+   "driehoeken": 724,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-archedwindow-gated-scaffold",
+   "naam": "wall-archedwindow-gated-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-archedwindow-gated-scaffold.glb",
+   "bytes": 44644,
+   "driehoeken": 674,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-archedwindow-gated",
+   "naam": "wall-archedwindow-gated",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-archedwindow-gated.glb",
+   "bytes": 48360,
+   "driehoeken": 732,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-archedwindow-open",
+   "naam": "wall-archedwindow-open",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-archedwindow-open.glb",
+   "bytes": 41568,
+   "driehoeken": 635,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-broken",
+   "naam": "wall-broken",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-broken.glb",
+   "bytes": 53564,
+   "driehoeken": 784,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-corner-gated",
+   "naam": "wall-corner-gated",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-corner-gated.glb",
+   "bytes": 34164,
+   "driehoeken": 557,
+   "materialen": 1,
+   "wdh": [
+    0.625,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-corner-scaffold",
+   "naam": "wall-corner-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-corner-scaffold.glb",
+   "bytes": 37684,
+   "driehoeken": 515,
+   "materialen": 1,
+   "wdh": [
+    0.625,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-corner-small",
+   "naam": "wall-corner-small",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-corner-small.glb",
+   "bytes": 17792,
+   "driehoeken": 223,
+   "materialen": 1,
+   "wdh": [
+    0.375,
+    0.375,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-corner",
+   "naam": "wall-corner",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-corner.glb",
+   "bytes": 32612,
+   "driehoeken": 443,
+   "materialen": 1,
+   "wdh": [
+    0.625,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-cracked",
+   "naam": "wall-cracked",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#3e3e44",
+    "#474a58",
+    "#6cb588",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-cracked.glb",
+   "bytes": 104700,
+   "driehoeken": 2010,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.315,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-crossing",
+   "naam": "wall-crossing",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-crossing.glb",
+   "bytes": 49256,
+   "driehoeken": 698,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-doorway-scaffold",
+   "naam": "wall-doorway-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-doorway-scaffold.glb",
+   "bytes": 61000,
+   "driehoeken": 1150,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 2
+  },
+  {
+   "id": "dungeon/wall-doorway-sides",
+   "naam": "wall-doorway-sides",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-doorway-sides.glb",
+   "bytes": 79936,
+   "driehoeken": 1160,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-doorway-tsplit",
+   "naam": "wall-doorway-tsplit",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-doorway-tsplit.glb",
+   "bytes": 74936,
+   "driehoeken": 1096,
+   "materialen": 1,
+   "wdh": [
+    2,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-doorway",
+   "naam": "wall-doorway",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-doorway.glb",
+   "bytes": 54636,
+   "driehoeken": 1068,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 2
+  },
+  {
+   "id": "dungeon/wall-endcap",
+   "naam": "wall-endcap",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-endcap.glb",
+   "bytes": 17872,
+   "driehoeken": 222,
+   "materialen": 1,
+   "wdh": [
+    0.267,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-gated",
+   "naam": "wall-gated",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-gated.glb",
+   "bytes": 30520,
+   "driehoeken": 449,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-half-endcap-sloped",
+   "naam": "wall-half-endcap-sloped",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-half-endcap-sloped.glb",
+   "bytes": 17584,
+   "driehoeken": 230,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-half-endcap",
+   "naam": "wall-half-endcap",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-half-endcap.glb",
+   "bytes": 20704,
+   "driehoeken": 268,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-half",
+   "naam": "wall-half",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-half.glb",
+   "bytes": 20804,
+   "driehoeken": 272,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-open-scaffold",
+   "naam": "wall-open-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#7f3927",
+    "#995a41",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-open-scaffold.glb",
+   "bytes": 14016,
+   "driehoeken": 196,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-pillar",
+   "naam": "wall-pillar",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-pillar.glb",
+   "bytes": 38420,
+   "driehoeken": 540,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.375,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-scaffold",
+   "naam": "wall-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-scaffold.glb",
+   "bytes": 42704,
+   "driehoeken": 584,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-shelves",
+   "naam": "wall-shelves",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#3e3e44",
+    "#474a58",
+    "#6cb588",
+    "#6d738a",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#995a41",
+    "#9da4c4",
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79",
+    "#f0c59d",
+    "#f0ece3",
+    "#ff8744"
+   ],
+   "pad": "kits/dungeon/wall-shelves.glb",
+   "bytes": 103208,
+   "driehoeken": 1582,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.342,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-sloped",
+   "naam": "wall-sloped",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-sloped.glb",
+   "bytes": 20028,
+   "driehoeken": 257,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-tsplit-sloped",
+   "naam": "wall-tsplit-sloped",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-tsplit-sloped.glb",
+   "bytes": 40472,
+   "driehoeken": 555,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-tsplit",
+   "naam": "wall-tsplit",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall-tsplit.glb",
+   "bytes": 42996,
+   "driehoeken": 596,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.625,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-window-closed-scaffold",
+   "naam": "wall-window-closed-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-window-closed-scaffold.glb",
+   "bytes": 50444,
+   "driehoeken": 736,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-window-closed",
+   "naam": "wall-window-closed",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-window-closed.glb",
+   "bytes": 45376,
+   "driehoeken": 664,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-window-open-scaffold",
+   "naam": "wall-window-open-scaffold",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-window-open-scaffold.glb",
+   "bytes": 46236,
+   "driehoeken": 676,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall-window-open",
+   "naam": "wall-window-open",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#7f3927",
+    "#995a41",
+    "#9da4c4",
+    "#d07b56"
+   ],
+   "pad": "kits/dungeon/wall-window-open.glb",
+   "bytes": 41168,
+   "driehoeken": 604,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "dungeon/wall",
+   "naam": "wall",
+   "kit": "dungeon",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/dungeon/wall.glb",
+   "bytes": 36668,
+   "driehoeken": 494,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
   {
    "id": "fantasy-town-kit/balcony-wall-fence",
    "naam": "balcony-wall-fence",
@@ -3920,7 +7291,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#dd9f79"
+    "#f1976c"
    ],
    "pad": "kits/mini-dungeon/wood-structure.glb",
    "bytes": 18500,
@@ -3941,7 +7312,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#dd9f79"
+    "#f1976c"
    ],
    "pad": "kits/mini-dungeon/wood-support.glb",
    "bytes": 8052,
@@ -8248,7 +11619,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#3da679",
+    "#6cb588",
     "#6d8d33",
     "#dd9f79"
    ],
@@ -8271,6 +11642,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
+    "#6cb588",
     "#9da4c4",
     "#dd9f79"
    ],
@@ -12124,6 +15496,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
+    "#6cb588",
     "#dd9f79",
     "#f0c59d"
    ],
