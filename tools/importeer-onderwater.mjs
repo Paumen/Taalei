@@ -36,7 +36,7 @@
 import { readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { leesGlb, schrijfGlb, meetScene } from './glb.mjs';
+import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOEL = join(ROOT, 'kits', 'onderwater-kit');
@@ -89,33 +89,11 @@ if (ontbreekt.length) throw new Error(`niet gevonden in ${bronMap}: ${ontbreekt.
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
   const glb = leesGlb(join(bronMap, `${bron}.glb`));
-  const voor = meetScene(glb);
 
-  /**
-   * Schaal en oorsprong in één extra wortel-node, in plaats van in de
-   * vertexdata. Dat moet ook: bij een geskind model liggen de vertices in
-   * bindpose-ruimte en bepalen de gewrichten waar ze uitkomen — de mesh
-   * verplaatsen zonder het skelet levert een model op dat bij het eerste
-   * animatieframe terugspringt. Een node boven mesh én armature neemt beide
-   * mee.
-   *
-   * De verschuiving zet het model met zijn voet op y=0 en zijn grondvlak
-   * gecentreerd op x/z (stijlgids §5). In de pack liggen sommige rotsen tot
-   * zes units van de oorsprong, waar ze in de bronscène toevallig stonden.
-   */
-  const wortel = {
-    name: naam,
-    scale: [SCHAAL, SCHAAL, SCHAAL],
-    translation: [
-      -SCHAAL * (voor.min[0] + voor.max[0]) / 2,
-      -SCHAAL * voor.min[1],
-      -SCHAAL * (voor.min[2] + voor.max[2]) / 2,
-    ].map((v) => Math.round(v * 1e6) / 1e6),
-    children: [...glb.json.scenes[glb.json.scene ?? 0].nodes],
-  };
-
-  glb.json.nodes.push(wortel);
-  glb.json.scenes[glb.json.scene ?? 0].nodes = [glb.json.nodes.length - 1];
+  // Schaal en oorsprong in één extra wortel-node; zie zetOpOorsprong(). In de
+  // pack liggen sommige rotsen tot zes units van de oorsprong, waar ze in de
+  // bronscène toevallig stonden.
+  const voor = zetOpOorsprong(glb, naam, SCHAAL);
 
   const pad = join(DOEL, `${naam}.glb`);
   schrijfGlb(pad, glb.json, glb.bin, writeFileSync);

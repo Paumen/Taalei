@@ -346,7 +346,9 @@ window.KENNEY_KITS = [
   "url": "https://quaternius.com/",
   /* Eigen tabblad: geen colormap maar eigen materiaalkleuren, en geanimeerd. */
   "tabblad": "zee",
-  "toelichting": "Staat op zichzelf: geen Kenney-kit maar een pack van Quaternius, met eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Ingeladen op een kwart van de oorspronkelijke maat, zodat de kit op hetzelfde raster past als de rest.",
+  /* Twee herkomsten in één map, dus de kit kan niet in z'n geheel CC0 heten. */
+  "licentieLabel": "CC0, behalve orca en orca-calf",
+  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest; orca en orca-calf zijn eigen assets die hier op kleur en animatie thuishoren.",
   "models": [
    "coral-a",
    "coral-b",
@@ -364,6 +366,9 @@ window.KENNEY_KITS = [
    "fish-tuna",
    "lobster",
    "octopus",
+   /* geen Quaternius: eigen assets, zie kits/onderwater-kit/LICENSE.txt */
+   "orca",
+   "orca-calf",
    "penguin",
    "rock-a",
    "rock-b",
