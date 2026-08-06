@@ -1,0 +1,61 @@
+	Dungeon
+
+			------------------------------
+
+	KayKit : Dungeon Asset Pack (1.1)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf
+	(`License.txt`).
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert 211 modellen als .gltf + .bin (naast .fbx en .obj);
+	143 zijn gekozen: wanden, vloertegels, een plafondtegel, trappen,
+	barrières, een pilaar, puin en een zuil, plus meubels, containers,
+	gereedschap en decor. De bronnamen zijn al gewone Engelse woorden met
+	underscores, 1-op-1 overgezet naar kebab-case — `barrier_colum_half`
+	is een tikfout van de pack zelf (`colum` i.p.v. `column`) en is
+	bewust ongewijzigd overgezet.
+
+	Eén schaalfactor voor de hele pack (stijlgids §4): 0,25. Elke wand is
+	in de bron 4 breed × 4 hoog; op 0,25 komt dat op 1 × 1 uit —
+	mini-dungeon's eigen wand is 1 × 1 × 1,1. Een eerste versie van het
+	importscript gaf de meubels en het decor een eigen factor 1
+	(ongeschaald): op zichzelf een geloofwaardige stoel (0,75 × 0,75 ×
+	1,227), maar naast een wand van 1 hoog kwam die stoel er hoger uit
+	dan de muur, en de kist (chest, 1,3 hoog) er nog overheen. De
+	verhouding stoel/wand in de bron zelf — 1,227 / 4 = 31% — is wél
+	geloofwaardig; die gaat alleen verloren als de twee met een andere
+	factor worden geschaald. Op 0,25 komt chest uit op 0,43 × 0,36 × 0,33
+	en barrel-large op 0,45 × 0,45 × 0,50 — beide vlak naast mini-
+	dungeon's eigen chest (0,50 × 0,50 × 0,45) en barrel (0,52 × 0,52 ×
+	0,48).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-dungeon.mjs: rechtstreeks uit .gltf + .bin gelezen,
+	met de oorsprong op y=0 en het grondvlak gecentreerd.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024
+	(`dungeon_texture.png`). Die is niet meegekomen: de UV's zijn omgezet
+	naar de gedeelde kits/colormap.png. Acht modellen (de getraliede
+	vloertegels en gepoorte wanden) hebben zuiver zwarte hoekpunten voor
+	het traliewerk; zwart ontbreekt in het gedeelde palet met opzet — een
+	zwarte cel zou niet van lege ruimte te onderscheiden zijn, zie
+	tools/importeer-tropical.mjs — en komt daarom uit op #343437, de
+	donkerste kleur die er wél is, op een afstand van 142-159. Alle
+	andere kleuren lagen binnen 110 van een bestaande cel.
+
+	Elk hoekpunt is vóór het hermappen ontkoppeld van de driehoeken die
+	het delen (tools/glb.mjs, `ontvlecht()`): zonder dat kon een
+	hoekpunt op de rand tussen twee sterk verschillende kleuren niet aan
+	beide driehoeken tegelijk gelijk gegeven worden, en sleepte de UV
+	van de ene driehoek dwars over de kleuren tussen de twee cellen heen
+	— zichtbaar als willekeurige strepen op bijvoorbeeld chest-gold. De
+	geometrie is verder ongemoeid.

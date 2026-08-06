@@ -414,3 +414,111 @@ export function compacteer(glb, meshIndexen, attributen = ['POSITION', 'NORMAL',
 
   return { json, bin: Buffer.concat(stukken) };
 }
+
+/* -- ontkoppelen ------------------------------------------------------------
+ * tools/kleurmap.mjs wijst elke driehoek zijn eigen meerderheidskleur toe,
+ * maar kan een hoekpunt dat door twee driehoeken met een verschillende
+ * meerderheid wordt gedeeld niet allebei gelijk geven: welke kant hermapUv()
+ * ook kiest, de andere driehoek blijft over twee cellen heen liggen. Bij een
+ * bronmodel met gebakken belichting (rpgtools, forest, resources, dungeon)
+ * ligt zo'n gedeeld hoekpunt vaak precies op de rand tussen een lichte en een
+ * donkere kleur, en het slepen tussen twee ver uiteenliggende cellen van de
+ * gedeelde colormap veegt dan zichtbaar over de kleuren die daartussen liggen
+ * — een vlag van willekeurige strepen in plaats van een rand.
+ *
+ * De oplossing is elk hoekpunt te ontkoppelen: geen twee driehoeken delen nog
+ * een hoekpunt, dus elke driehoek kan zijn eigen meerderheid onafhankelijk
+ * kiezen. Dat kost geheugen (elke driehoek krijgt een eigen kopie van elk
+ * attribuut in plaats van gedeelde hoekpunten), maar deze kits zijn klein
+ * genoeg dat dat niets uitmaakt.
+ *
+ * Draai dit vóór hermapUv(), op de ruwe, ongewijzigde bronscène.
+ */
+export function ontvlecht(glb, meshIndexen) {
+  const bron = glb.json;
+  const stukken = [];
+  const bufferViews = [];
+  const accessors = [];
+  let lengte = 0;
+
+  const zetVlak = (accessor, minmax) => {
+    while (lengte % 4 !== 0) {
+      stukken.push(Buffer.alloc(1));
+      lengte++;
+    }
+    const Soort = COMPONENT[accessor.componentType];
+    const eenheid = ONDERDELEN[accessor.type] * Soort.BYTES_PER_ELEMENT;
+    bufferViews.push({ buffer: 0, byteOffset: lengte, byteLength: accessor.data.length });
+    stukken.push(accessor.data);
+    lengte += accessor.data.length;
+    accessors.push({
+      bufferView: bufferViews.length - 1,
+      componentType: accessor.componentType,
+      count: accessor.data.length / eenheid,
+      type: accessor.type,
+      ...minmax,
+    });
+    return accessors.length - 1;
+  };
+
+  const meshes = bron.meshes.map((mesh, mi) => {
+    if (!meshIndexen.includes(mi)) return mesh;
+    return {
+      ...mesh,
+      primitives: mesh.primitives.map((prim) => {
+        if (prim.indices === undefined) return prim; // geen indices, niets te ontkoppelen
+
+        const idx = leesAccessor(glb, prim.indices);
+        const n = idx.count;
+        if (n > 65535) throw new Error('ontvlecht(): meer dan 65535 hoekpunten na ontkoppelen, Uint16 past niet meer');
+
+        const attributes = {};
+        for (const [naam, accIndex] of Object.entries(prim.attributes)) {
+          const bronAcc = bron.accessors[accIndex];
+          const gelezen = leesAccessor(glb, accIndex);
+          const breedte = gelezen.breedte;
+          const Soort = COMPONENT[bronAcc.componentType];
+          const data = new Soort(n * breedte);
+          const min = naam === 'POSITION' ? new Array(breedte).fill(Infinity) : null;
+          const max = naam === 'POSITION' ? new Array(breedte).fill(-Infinity) : null;
+          for (let i = 0; i < n; i++) {
+            const oud = idx.data[i];
+            for (let k = 0; k < breedte; k++) {
+              const v = gelezen.data[oud * breedte + k];
+              data[i * breedte + k] = v;
+              if (min) {
+                if (v < min[k]) min[k] = v;
+                if (v > max[k]) max[k] = v;
+              }
+            }
+          }
+          attributes[naam] = zetVlak({
+            componentType: bronAcc.componentType,
+            type: bronAcc.type,
+            data: Buffer.from(data.buffer, data.byteOffset, data.byteLength),
+          }, min ? { min, max } : {});
+        }
+
+        const nieuweIndices = new Uint16Array(n);
+        for (let i = 0; i < n; i++) nieuweIndices[i] = i;
+        const indices = zetVlak({
+          componentType: 5123,
+          type: 'SCALAR',
+          data: Buffer.from(nieuweIndices.buffer),
+        });
+
+        return {
+          attributes,
+          indices,
+          ...(prim.material !== undefined ? { material: prim.material } : {}),
+          ...(prim.mode !== undefined ? { mode: prim.mode } : {}),
+        };
+      }),
+    };
+  });
+
+  return {
+    json: { ...bron, meshes, accessors, bufferViews, buffers: [{ byteLength: lengte }] },
+    bin: Buffer.concat(stukken),
+  };
+}
