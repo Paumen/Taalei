@@ -275,6 +275,37 @@ export function meetScene(glb) {
   };
 }
 
+/**
+ * Het tekenbudget uit docs/asset_style_guide.md §4, in driehoeken per 1×1×1
+ * unit. Hier en nergens anders: build-catalog.mjs schrijft hem mee in
+ * catalog.json en de catalogus in de browser leest hem daaruit, zodat één
+ * wijziging hier overal doorwerkt.
+ */
+export const BUDGET_PER_UNIT = 1000;
+
+/**
+ * Driehoeken per 1×1×1 unit — afgezet tegen BUDGET_PER_UNIT hierboven.
+ *
+ * De noemer is het volume van de bounding box zoals hij is: b × d × h, zonder
+ * ondergrens. Een model dat maar een fractie van een rastercel vult, wordt dus
+ * afgerekend op die fractie — een munt van 0,09 × 0,09 × 0,03 komt op ruim
+ * 300.000 uit. Dat is wat de regel letterlijk zegt: driehoeken per unit ruimte,
+ * niet per bezette cel.
+ *
+ * Een vlak model heeft geen volume en dus geen dichtheid: bij een as op nul is
+ * de uitkomst `null`, niet oneindig. Dat zijn er vier — de twee vloertegels en
+ * de twee grasplekken — en die staan met een handvol driehoeken toch al buiten
+ * elke discussie over budget.
+ *
+ * @param {number} driehoeken  telling uit meetScene()
+ * @param {number[]} wdh       breedte × diepte × hoogte in rastereenheden
+ * @returns {number|null} driehoeken per unit, afgerond; null bij een plat model
+ */
+export function driehoekenPerUnit(driehoeken, wdh) {
+  const units = wdh.reduce((product, maat) => product * maat, 1);
+  return units > 0 ? Math.round(driehoeken / units) : null;
+}
+
 /* -- opschonen ------------------------------------------------------------
  * Een geïmporteerde pack draagt meer mee dan de catalogus kan gebruiken: de
  * tropical-pack levert drie LOD-meshes in één bestand, allemaal in de scène en

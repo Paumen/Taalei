@@ -24,6 +24,18 @@ const GROEP_ALIASSEN = {
 
 const ZWAAR_VANAF = 5000;
 
+/**
+ * Driehoeken per 1×1×1 unit waarboven een model uit de pas loopt met de
+ * stijlgids (§4). Los van ZWAAR_VANAF, want dat is een absolute telling: een
+ * schip van 5000 driehoeken is groot, een kruk van 1500 is te fijn gemodelleerd
+ * — twee verschillende soorten zwaar, allebei het aankijken waard.
+ *
+ * De grens zelf staat in tools/glb.mjs en komt via catalog.json mee; start()
+ * zet hem zodra de catalogus binnen is. Het getal hier is alleen het antwoord
+ * op een catalogus van vóór dat veld.
+ */
+let budgetPerUnit = 1000;
+
 const getal = new Intl.NumberFormat('nl-NL');
 
 const paneel = document.querySelector('#paneel');
@@ -127,7 +139,14 @@ function ontkoppelViewer(vak) {
 function maakKaart(model, kits, groepen, weergave) {
   const kit = kits.get(model.kit);
   const groep = groepen.get(model.groep);
-  const zwaar = model.driehoeken >= ZWAAR_VANAF;
+  // Een catalogus zonder dit veld is er niet meer, maar hij is er wel geweest;
+  // zonder getal blijft de kaart bij wat hij altijd toonde.
+  const dichtheid = Number.isFinite(model.driehoekenPerUnit) ? model.driehoekenPerUnit : null;
+  const bovenBudget = dichtheid !== null && dichtheid > budgetPerUnit;
+  // Eén rood label voor twee redenen: veel driehoeken, of veel driehoeken op
+  // weinig ruimte. Wat er precies aan de hand is, staat in de tooltip en in het
+  // detailpaneel; op de kaart is het genoeg dat het opvalt.
+  const zwaar = model.driehoeken >= ZWAAR_VANAF || bovenBudget;
 
   const kaart = document.createElement('button');
   kaart.type = 'button';
@@ -143,9 +162,13 @@ function maakKaart(model, kits, groepen, weergave) {
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
   const meta = span('kaart-meta');
+  const tri = span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`);
+  if (dichtheid !== null) {
+    tri.title = `${getal.format(dichtheid)} driehoeken per unit${bovenBudget ? ` — boven het budget van ${getal.format(budgetPerUnit)}` : ''}`;
+  }
   meta.append(
     span('kaart-merk', kit?.naam ?? model.kit),
-    span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`),
+    tri,
     span('kaart-grootte', bytesLeesbaar(model.bytes)),
   );
   tekst.append(span('kaart-naam', model.naam), meta);
@@ -266,6 +289,15 @@ function toonDetail(model, kit, groep) {
     ['Bestand', model.pad],
     ['Afmetingen (b × d × h)', afmeting(model.wdh)],
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
+    // Het budget uit de stijlgids: elke as telt voor minstens één unit mee, dus
+    // een model dat binnen één rastercel blijft wordt niet afgerekend op hoe
+    // klein het is (tools/glb.mjs).
+    [
+      'Driehoeken per unit',
+      !Number.isFinite(model.driehoekenPerUnit)
+        ? '—'
+        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > budgetPerUnit ? ` (boven budget van ${getal.format(budgetPerUnit)})` : ''}`,
+    ],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
     // Alleen de onderwater-kit is gerigd; bij de rest heeft de rij niets te melden.
@@ -554,6 +586,8 @@ async function start() {
   const respons = await fetch(versie ? `kits/catalog.json?v=${versie}` : 'kits/catalog.json');
   if (!respons.ok) throw new Error(`kits/catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
+
+  if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
   const groepen = new Map(data.groepen.map((g) => [g.id, g]));
