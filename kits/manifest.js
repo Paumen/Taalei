@@ -407,5 +407,127 @@ window.KENNEY_KITS = [
    "balloon",
    "lighthouse"
   ]
+ },
+ {
+  /* geen Kenney-kit: Low Poly Nature Pack (Lite), zie kits/nature/LICENSE.txt.
+     De pack kwam zonder licentiebestand en zonder packpagina binnen; daarom
+     geen url. Geen eigen tabblad: de modellen zijn omgezet naar de gedeelde
+     colormap en horen dus gewoon tussen de andere kits. */
+  "slug": "nature",
+  "name": "Nature",
+  "url": null,
+  "models": [
+   "branch-a",
+   "mountain-a",
+   "tree-dead"
+  ]
+ },
+ {
+  /* geen Kenney-kit: Tropical Island Pack (Lite), zie kits/tropical/LICENSE.txt.
+     Ook deze pack kwam zonder licentiebestand en zonder packpagina binnen.
+     `chest-a` staat open en `chest-b` dicht; de pack noemt ze `Chest_01` en
+     `Chest_01_2` en zegt daar zelf niets over. */
+  "slug": "tropical",
+  "name": "Tropical",
+  "url": null,
+  "models": [
+   "barrel-a",
+   "chest-a",
+   "chest-b",
+   "palm-a",
+   "pier-a",
+   "plank-a",
+   "plant-a"
+  ]
+ },
+ {
+  /* geen Kenney-kit: Medieval Props (Lite), zie kits/props/LICENSE.txt. Ook
+     deze pack kwam zonder licentiebestand en zonder packpagina binnen.
+     28 van de 48 modellen zijn ingeladen. Zes namen zeggen in de pack niet wat
+     het model is; die heten hier naar wat ze zijn — zie tools/importeer-props.mjs. */
+  "slug": "props",
+  "name": "Props",
+  "url": null,
+  "models": [
+   "bag-a",
+   "barrel-a",
+   "bench-a",
+   "bottle-a",
+   "bottle-b",
+   "bottle-c",
+   "box-a",
+   "bucket-a",
+   "bucket-b",
+   "candle-a",
+   "candle-b",
+   "carpet-a",
+   "cup-a",
+   "fire-a",
+   "firewood-a",
+   "jug-a",
+   "jug-b",
+   "jug-c",
+   "jug-d",
+   "meat-leg-a",
+   "mushroom-a",
+   "plate-a",
+   "plate-b",
+   "plate-c",
+   "roast-a",
+   "stairs-a",
+   "stool-a",
+   "table-a"
+  ]
+ },
+ {
+  /* geen Kenney-kit: Rocks-pack, zie kits/rocks/LICENSE.txt. Kwam als één .fbx
+     met 117 meshes binnen, zonder licentiebestand en zonder packpagina.
+     Elk model bestaat in drie tinten; alleen `.medium` is ingeladen. De rotsen
+     en kiezels zitten er wél twee keer in — `natural`/`cave` en `dirt`/`cave`
+     zijn dezelfde vorm in een andere steensoort. */
+  "slug": "rocks",
+  "name": "Rocks",
+  "url": null,
+  "models": [
+   "debris-a",
+   "debris-b",
+   "pebbles-cave-a",
+   "pebbles-cave-b",
+   "pebbles-cave-c",
+   "pebbles-cave-d",
+   "pebbles-dirt-a",
+   "pebbles-dirt-b",
+   "pebbles-dirt-c",
+   "pebbles-dirt-d",
+   "rock-cave-a",
+   "rock-cave-b",
+   "rock-cave-c",
+   "rock-cave-d",
+   "rock-cave-e",
+   "rock-cave-f",
+   "rock-cave-g",
+   "rock-cave-h",
+   "rock-cave-i",
+   "rock-cave-j",
+   "rock-natural-a",
+   "rock-natural-b",
+   "rock-natural-c",
+   "rock-natural-d",
+   "rock-natural-e",
+   "rock-natural-f",
+   "rock-natural-g",
+   "rock-natural-h",
+   "rock-natural-i",
+   "rock-natural-j",
+   "rockform-arch",
+   "rockform-column",
+   "rockform-corner-hard",
+   "rockform-corner-soft",
+   "rockform-wall-long",
+   "rockform-wall-short-a",
+   "rockform-wall-short-b",
+   "rockwall-corner",
+   "rockwall-straight"
+  ]
  }
 ];

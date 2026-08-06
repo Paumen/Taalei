@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 336,
+ "totaal": 413,
  "kits": [
   {
    "slug": "fantasy-town-kit",
@@ -51,6 +51,18 @@
    "palet": "grot"
   },
   {
+   "slug": "nature",
+   "naam": "Nature",
+   "kort": "Nature",
+   "url": null,
+   "licentie": "kits/nature/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 3,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
+  {
    "slug": "onderwater-kit",
    "naam": "Onderwater",
    "kort": "Onderwater",
@@ -87,6 +99,30 @@
    "palet": "gedeeld"
   },
   {
+   "slug": "props",
+   "naam": "Props",
+   "kort": "Props",
+   "url": null,
+   "licentie": "kits/props/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 28,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
+  {
+   "slug": "rocks",
+   "naam": "Rocks",
+   "kort": "Rocks",
+   "url": null,
+   "licentie": "kits/rocks/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 39,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
+  {
    "slug": "survival-kit",
    "naam": "Survival Kit",
    "kort": "Survival",
@@ -109,6 +145,18 @@
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
+  },
+  {
+   "slug": "tropical",
+   "naam": "Tropical",
+   "kort": "Tropical",
+   "url": null,
+   "licentie": "kits/tropical/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 7,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
   }
  ],
  "groepen": [
@@ -117,7 +165,8 @@
    "naam": "Grond & terrein",
    "kort": "Grond",
    "kleur": "#8a5d4b",
-   "aantal": 15
+   "tabblad": "terrain",
+   "aantal": 16
   },
   {
    "id": "grot",
@@ -139,14 +188,14 @@
    "naam": "Bouwwerken & platforms",
    "kort": "Bouwwerken",
    "kleur": "#877a63",
-   "aantal": 34
+   "aantal": 36
   },
   {
    "id": "verbinding",
    "naam": "Trappen, bruggen & ladders",
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
-   "aantal": 15
+   "aantal": 16
   },
   {
    "id": "hek",
@@ -160,14 +209,14 @@
    "naam": "Bomen & palmen",
    "kort": "Bomen",
    "kleur": "#3da679",
-   "aantal": 17
+   "aantal": 20
   },
   {
    "id": "planten",
    "naam": "Planten, gras & bloemen",
    "kort": "Planten",
    "kleur": "#6cb588",
-   "aantal": 10
+   "aantal": 11
   },
   {
    "id": "zeebodem",
@@ -181,7 +230,15 @@
    "naam": "Rotsen & stenen",
    "kort": "Rotsen",
    "kleur": "#9da4c4",
-   "aantal": 38
+   "tabblad": "rotsen",
+   "aantal": 77
+  },
+  {
+   "id": "huisraad",
+   "naam": "Huisraad & servies",
+   "kort": "Huisraad",
+   "kleur": "#c07c8a",
+   "aantal": 18
   },
   {
    "id": "schepen",
@@ -195,14 +252,14 @@
    "naam": "Kamp & vuur",
    "kort": "Kamp",
    "kleur": "#e76047",
-   "aantal": 6
+   "aantal": 8
   },
   {
    "id": "opslag",
    "naam": "Kisten, vaten & grondstoffen",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 17
+   "aantal": 27
   },
   {
    "id": "gereedschap",
@@ -245,56 +302,70 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 182
+     "aantal": 185
     },
     {
      "hex": "#995a41",
      "naam": "bruin",
      "textuur": null,
      "materiaal": null,
-     "aantal": 79
+     "aantal": 108
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 51
-    },
-    {
-     "hex": "#3da679",
-     "naam": "groen",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 45
+     "aantal": 76
     },
     {
      "hex": "#dd9f79",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 42
-    },
-    {
-     "hex": "#9da4c4",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 38
-    },
-    {
-     "hex": "#f0ece3",
-     "naam": "lichtoranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 29
+     "aantal": 54
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 22
+     "aantal": 53
+    },
+    {
+     "hex": "#3da679",
+     "naam": "groen",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 47
+    },
+    {
+     "hex": "#9da4c4",
+     "naam": "blauw",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 42
+    },
+    {
+     "hex": "#f0ece3",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 32
+    },
+    {
+     "hex": "#474a58",
+     "naam": "grijs",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 11
+    },
+    {
+     "hex": "#b2413a",
+     "naam": "rood",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 11
     },
     {
      "hex": "#ffb349",
@@ -304,25 +375,18 @@
      "aantal": 11
     },
     {
-     "hex": "#474a58",
-     "naam": "grijs",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 10
-    },
-    {
-     "hex": "#b2413a",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 9
-    },
-    {
      "hex": "#f0c59d",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
      "aantal": 7
+    },
+    {
+     "hex": "#6d8d33",
+     "naam": "groen",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 3
     }
    ]
   },
@@ -3886,6 +3950,68 @@
    "calls": 1
   },
   {
+   "id": "nature/branch-a",
+   "naam": "branch-a",
+   "kit": "nature",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/nature/branch-a.glb",
+   "bytes": 56176,
+   "driehoeken": 536,
+   "materialen": 1,
+   "wdh": [
+    1.014,
+    0.646,
+    0.158
+   ],
+   "calls": 1
+  },
+  {
+   "id": "nature/mountain-a",
+   "naam": "mountain-a",
+   "kit": "nature",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#f0ece3"
+   ],
+   "pad": "kits/nature/mountain-a.glb",
+   "bytes": 179316,
+   "driehoeken": 1742,
+   "materialen": 1,
+   "wdh": [
+    16.667,
+    16.667,
+    5.262
+   ],
+   "calls": 1
+  },
+  {
+   "id": "nature/tree-dead",
+   "naam": "tree-dead",
+   "kit": "nature",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/nature/tree-dead.glb",
+   "bytes": 160508,
+   "driehoeken": 1560,
+   "materialen": 1,
+   "wdh": [
+    1.16,
+    0.922,
+    1.706
+   ],
+   "calls": 1
+  },
+  {
    "id": "onderwater-kit/coral-a",
    "naam": "coral-a",
    "kit": "onderwater-kit",
@@ -6756,6 +6882,1373 @@
    "calls": 1
   },
   {
+   "id": "props/bag-a",
+   "naam": "bag-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/bag-a.glb",
+   "bytes": 17048,
+   "driehoeken": 154,
+   "materialen": 1,
+   "wdh": [
+    0.563,
+    0.502,
+    0.663
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/barrel-a",
+   "naam": "barrel-a",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/barrel-a.glb",
+   "bytes": 30260,
+   "driehoeken": 428,
+   "materialen": 1,
+   "wdh": [
+    0.81,
+    0.81,
+    0.995
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bench-a",
+   "naam": "bench-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/bench-a.glb",
+   "bytes": 15752,
+   "driehoeken": 204,
+   "materialen": 1,
+   "wdh": [
+    1.509,
+    0.406,
+    0.432
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bottle-a",
+   "naam": "bottle-a",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#b2413a",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/bottle-a.glb",
+   "bytes": 13880,
+   "driehoeken": 190,
+   "materialen": 1,
+   "wdh": [
+    0.126,
+    0.126,
+    0.214
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bottle-b",
+   "naam": "bottle-b",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#6d8d33",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/bottle-b.glb",
+   "bytes": 12236,
+   "driehoeken": 172,
+   "materialen": 1,
+   "wdh": [
+    0.104,
+    0.104,
+    0.209
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bottle-c",
+   "naam": "bottle-c",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3da679",
+    "#9da4c4",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/bottle-c.glb",
+   "bytes": 13360,
+   "driehoeken": 188,
+   "materialen": 1,
+   "wdh": [
+    0.084,
+    0.084,
+    0.205
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/box-a",
+   "naam": "box-a",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/box-a.glb",
+   "bytes": 22860,
+   "driehoeken": 334,
+   "materialen": 1,
+   "wdh": [
+    0.744,
+    0.744,
+    0.74
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bucket-a",
+   "naam": "bucket-a",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/bucket-a.glb",
+   "bytes": 27284,
+   "driehoeken": 380,
+   "materialen": 1,
+   "wdh": [
+    0.322,
+    0.322,
+    0.318
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/bucket-b",
+   "naam": "bucket-b",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "pad": "kits/props/bucket-b.glb",
+   "bytes": 33824,
+   "driehoeken": 484,
+   "materialen": 1,
+   "wdh": [
+    0.368,
+    0.026,
+    0.242
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/candle-a",
+   "naam": "candle-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/candle-a.glb",
+   "bytes": 5268,
+   "driehoeken": 60,
+   "materialen": 1,
+   "wdh": [
+    0.097,
+    0.097,
+    0.164
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/candle-b",
+   "naam": "candle-b",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/candle-b.glb",
+   "bytes": 5076,
+   "driehoeken": 60,
+   "materialen": 1,
+   "wdh": [
+    0.112,
+    0.112,
+    0.257
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/carpet-a",
+   "naam": "carpet-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/props/carpet-a.glb",
+   "bytes": 5452,
+   "driehoeken": 76,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1,
+    0.02
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/cup-a",
+   "naam": "cup-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/cup-a.glb",
+   "bytes": 54976,
+   "driehoeken": 532,
+   "materialen": 1,
+   "wdh": [
+    0.203,
+    0.135,
+    0.197
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/fire-a",
+   "naam": "fire-a",
+   "kit": "props",
+   "groep": "kamp",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/fire-a.glb",
+   "bytes": 25236,
+   "driehoeken": 248,
+   "materialen": 1,
+   "wdh": [
+    0.454,
+    0.453,
+    0.274
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/firewood-a",
+   "naam": "firewood-a",
+   "kit": "props",
+   "groep": "kamp",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/firewood-a.glb",
+   "bytes": 27376,
+   "driehoeken": 256,
+   "materialen": 1,
+   "wdh": [
+    0.378,
+    0.408,
+    0.252
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/jug-a",
+   "naam": "jug-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/jug-a.glb",
+   "bytes": 17728,
+   "driehoeken": 236,
+   "materialen": 1,
+   "wdh": [
+    0.327,
+    0.327,
+    0.407
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/jug-b",
+   "naam": "jug-b",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/jug-b.glb",
+   "bytes": 17724,
+   "driehoeken": 236,
+   "materialen": 1,
+   "wdh": [
+    0.295,
+    0.295,
+    0.397
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/jug-c",
+   "naam": "jug-c",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/jug-c.glb",
+   "bytes": 14900,
+   "driehoeken": 180,
+   "materialen": 1,
+   "wdh": [
+    0.314,
+    0.321,
+    0.217
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/jug-d",
+   "naam": "jug-d",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/jug-d.glb",
+   "bytes": 17128,
+   "driehoeken": 204,
+   "materialen": 1,
+   "wdh": [
+    0.317,
+    0.295,
+    0.218
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/meat-leg-a",
+   "naam": "meat-leg-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41",
+    "#f0ece3"
+   ],
+   "pad": "kits/props/meat-leg-a.glb",
+   "bytes": 16180,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    0.17,
+    0.064,
+    0.067
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/mushroom-a",
+   "naam": "mushroom-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41",
+    "#dd9f79"
+   ],
+   "pad": "kits/props/mushroom-a.glb",
+   "bytes": 8624,
+   "driehoeken": 70,
+   "materialen": 1,
+   "wdh": [
+    0.122,
+    0.128,
+    0.153
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/plate-a",
+   "naam": "plate-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#9da4c4"
+   ],
+   "pad": "kits/props/plate-a.glb",
+   "bytes": 10036,
+   "driehoeken": 84,
+   "materialen": 1,
+   "wdh": [
+    0.275,
+    0.275,
+    0.023
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/plate-b",
+   "naam": "plate-b",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/props/plate-b.glb",
+   "bytes": 17792,
+   "driehoeken": 160,
+   "materialen": 1,
+   "wdh": [
+    0.239,
+    0.239,
+    0.094
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/plate-c",
+   "naam": "plate-c",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "pad": "kits/props/plate-c.glb",
+   "bytes": 18404,
+   "driehoeken": 166,
+   "materialen": 1,
+   "wdh": [
+    0.387,
+    0.387,
+    0.098
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/roast-a",
+   "naam": "roast-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41",
+    "#f0ece3"
+   ],
+   "pad": "kits/props/roast-a.glb",
+   "bytes": 36980,
+   "driehoeken": 348,
+   "materialen": 1,
+   "wdh": [
+    0.272,
+    0.185,
+    0.133
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/stairs-a",
+   "naam": "stairs-a",
+   "kit": "props",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/props/stairs-a.glb",
+   "bytes": 8592,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    0.68,
+    0.103,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/stool-a",
+   "naam": "stool-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/props/stool-a.glb",
+   "bytes": 18948,
+   "driehoeken": 268,
+   "materialen": 1,
+   "wdh": [
+    0.51,
+    0.406,
+    0.432
+   ],
+   "calls": 1
+  },
+  {
+   "id": "props/table-a",
+   "naam": "table-a",
+   "kit": "props",
+   "groep": "huisraad",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/props/table-a.glb",
+   "bytes": 10708,
+   "driehoeken": 132,
+   "materialen": 1,
+   "wdh": [
+    1.834,
+    0.78,
+    0.798
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/debris-a",
+   "naam": "debris-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/debris-a.glb",
+   "bytes": 32524,
+   "driehoeken": 327,
+   "materialen": 1,
+   "wdh": [
+    2.747,
+    2.716,
+    0.635
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/debris-b",
+   "naam": "debris-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/debris-b.glb",
+   "bytes": 28240,
+   "driehoeken": 285,
+   "materialen": 1,
+   "wdh": [
+    2.607,
+    2.619,
+    0.543
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-cave-a",
+   "naam": "pebbles-cave-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/pebbles-cave-a.glb",
+   "bytes": 16092,
+   "driehoeken": 182,
+   "materialen": 1,
+   "wdh": [
+    0.98,
+    0.827,
+    0.12
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-cave-b",
+   "naam": "pebbles-cave-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/pebbles-cave-b.glb",
+   "bytes": 26468,
+   "driehoeken": 312,
+   "materialen": 1,
+   "wdh": [
+    1.115,
+    0.903,
+    0.098
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-cave-c",
+   "naam": "pebbles-cave-c",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/pebbles-cave-c.glb",
+   "bytes": 30624,
+   "driehoeken": 364,
+   "materialen": 1,
+   "wdh": [
+    1.154,
+    1.278,
+    0.108
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-cave-d",
+   "naam": "pebbles-cave-d",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/pebbles-cave-d.glb",
+   "bytes": 14012,
+   "driehoeken": 156,
+   "materialen": 1,
+   "wdh": [
+    1.107,
+    0.833,
+    0.099
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-dirt-a",
+   "naam": "pebbles-dirt-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/rocks/pebbles-dirt-a.glb",
+   "bytes": 16092,
+   "driehoeken": 182,
+   "materialen": 1,
+   "wdh": [
+    0.98,
+    0.827,
+    0.12
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-dirt-b",
+   "naam": "pebbles-dirt-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/rocks/pebbles-dirt-b.glb",
+   "bytes": 26468,
+   "driehoeken": 312,
+   "materialen": 1,
+   "wdh": [
+    1.115,
+    0.903,
+    0.098
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-dirt-c",
+   "naam": "pebbles-dirt-c",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/rocks/pebbles-dirt-c.glb",
+   "bytes": 30624,
+   "driehoeken": 364,
+   "materialen": 1,
+   "wdh": [
+    1.154,
+    1.278,
+    0.108
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/pebbles-dirt-d",
+   "naam": "pebbles-dirt-d",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/rocks/pebbles-dirt-d.glb",
+   "bytes": 14012,
+   "driehoeken": 156,
+   "materialen": 1,
+   "wdh": [
+    1.107,
+    0.833,
+    0.099
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-a",
+   "naam": "rock-cave-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-a.glb",
+   "bytes": 10872,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1.507,
+    1.468,
+    0.642
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-b",
+   "naam": "rock-cave-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-b.glb",
+   "bytes": 10804,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1.751,
+    1.467,
+    1.295
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-c",
+   "naam": "rock-cave-c",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-c.glb",
+   "bytes": 15892,
+   "driehoeken": 162,
+   "materialen": 1,
+   "wdh": [
+    1.719,
+    1.876,
+    2.971
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-d",
+   "naam": "rock-cave-d",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-d.glb",
+   "bytes": 17708,
+   "driehoeken": 166,
+   "materialen": 1,
+   "wdh": [
+    1.567,
+    1.37,
+    2.125
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-e",
+   "naam": "rock-cave-e",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-e.glb",
+   "bytes": 11984,
+   "driehoeken": 108,
+   "materialen": 1,
+   "wdh": [
+    1.633,
+    1.834,
+    0.871
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-f",
+   "naam": "rock-cave-f",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-f.glb",
+   "bytes": 12352,
+   "driehoeken": 106,
+   "materialen": 1,
+   "wdh": [
+    1.352,
+    1.57,
+    0.672
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-g",
+   "naam": "rock-cave-g",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-g.glb",
+   "bytes": 12728,
+   "driehoeken": 136,
+   "materialen": 1,
+   "wdh": [
+    1.652,
+    1.731,
+    0.528
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-h",
+   "naam": "rock-cave-h",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-h.glb",
+   "bytes": 15788,
+   "driehoeken": 150,
+   "materialen": 1,
+   "wdh": [
+    1.343,
+    1.355,
+    0.794
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-i",
+   "naam": "rock-cave-i",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-i.glb",
+   "bytes": 13104,
+   "driehoeken": 114,
+   "materialen": 1,
+   "wdh": [
+    1.162,
+    1.365,
+    0.878
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-cave-j",
+   "naam": "rock-cave-j",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44"
+   ],
+   "pad": "kits/rocks/rock-cave-j.glb",
+   "bytes": 9524,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1.386,
+    1.151,
+    0.625
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-a",
+   "naam": "rock-natural-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-a.glb",
+   "bytes": 10880,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1.507,
+    1.468,
+    0.642
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-b",
+   "naam": "rock-natural-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-b.glb",
+   "bytes": 10812,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1.751,
+    1.467,
+    1.295
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-c",
+   "naam": "rock-natural-c",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-c.glb",
+   "bytes": 15900,
+   "driehoeken": 162,
+   "materialen": 1,
+   "wdh": [
+    1.719,
+    1.876,
+    2.971
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-d",
+   "naam": "rock-natural-d",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-d.glb",
+   "bytes": 17716,
+   "driehoeken": 166,
+   "materialen": 1,
+   "wdh": [
+    1.567,
+    1.37,
+    2.125
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-e",
+   "naam": "rock-natural-e",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-e.glb",
+   "bytes": 11992,
+   "driehoeken": 108,
+   "materialen": 1,
+   "wdh": [
+    1.633,
+    1.834,
+    0.871
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-f",
+   "naam": "rock-natural-f",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-f.glb",
+   "bytes": 12364,
+   "driehoeken": 106,
+   "materialen": 1,
+   "wdh": [
+    1.352,
+    1.57,
+    0.672
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-g",
+   "naam": "rock-natural-g",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-g.glb",
+   "bytes": 12736,
+   "driehoeken": 136,
+   "materialen": 1,
+   "wdh": [
+    1.652,
+    1.731,
+    0.528
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-h",
+   "naam": "rock-natural-h",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-h.glb",
+   "bytes": 15796,
+   "driehoeken": 150,
+   "materialen": 1,
+   "wdh": [
+    1.343,
+    1.355,
+    0.794
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-i",
+   "naam": "rock-natural-i",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-i.glb",
+   "bytes": 13116,
+   "driehoeken": 114,
+   "materialen": 1,
+   "wdh": [
+    1.162,
+    1.365,
+    0.878
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rock-natural-j",
+   "naam": "rock-natural-j",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rock-natural-j.glb",
+   "bytes": 9532,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1.386,
+    1.151,
+    0.625
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-arch",
+   "naam": "rockform-arch",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-arch.glb",
+   "bytes": 159132,
+   "driehoeken": 1547,
+   "materialen": 1,
+   "wdh": [
+    18.394,
+    5.838,
+    9.28
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-column",
+   "naam": "rockform-column",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-column.glb",
+   "bytes": 26304,
+   "driehoeken": 338,
+   "materialen": 1,
+   "wdh": [
+    6.185,
+    5.616,
+    7.435
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-corner-hard",
+   "naam": "rockform-corner-hard",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-corner-hard.glb",
+   "bytes": 176924,
+   "driehoeken": 1725,
+   "materialen": 1,
+   "wdh": [
+    15.17,
+    15.652,
+    7.697
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-corner-soft",
+   "naam": "rockform-corner-soft",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-corner-soft.glb",
+   "bytes": 176956,
+   "driehoeken": 1725,
+   "materialen": 1,
+   "wdh": [
+    15.182,
+    15.693,
+    7.685
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-wall-long",
+   "naam": "rockform-wall-long",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-wall-long.glb",
+   "bytes": 114556,
+   "driehoeken": 1113,
+   "materialen": 1,
+   "wdh": [
+    21.131,
+    5.901,
+    7.676
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-wall-short-a",
+   "naam": "rockform-wall-short-a",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-wall-short-a.glb",
+   "bytes": 69432,
+   "driehoeken": 674,
+   "materialen": 1,
+   "wdh": [
+    11.489,
+    5.875,
+    7.558
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockform-wall-short-b",
+   "naam": "rockform-wall-short-b",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockform-wall-short-b.glb",
+   "bytes": 58552,
+   "driehoeken": 562,
+   "materialen": 1,
+   "wdh": [
+    10.878,
+    5.78,
+    7.673
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockwall-corner",
+   "naam": "rockwall-corner",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockwall-corner.glb",
+   "bytes": 130872,
+   "driehoeken": 1273,
+   "materialen": 1,
+   "wdh": [
+    2.883,
+    2.626,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "rocks/rockwall-straight",
+   "naam": "rockwall-straight",
+   "kit": "rocks",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a"
+   ],
+   "pad": "kits/rocks/rockwall-straight.glb",
+   "bytes": 134992,
+   "driehoeken": 1314,
+   "materialen": 1,
+   "wdh": [
+    3.368,
+    0.941,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
    "id": "survival-kit/bottle-large",
    "naam": "bottle-large",
    "kit": "survival-kit",
@@ -7890,6 +9383,155 @@
     1.93,
     2.016,
     4.269
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/barrel-a",
+   "naam": "barrel-a",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/tropical/barrel-a.glb",
+   "bytes": 36360,
+   "driehoeken": 704,
+   "materialen": 1,
+   "wdh": [
+    0.396,
+    0.413,
+    0.431
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/chest-a",
+   "naam": "chest-a",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41",
+    "#b2413a"
+   ],
+   "pad": "kits/tropical/chest-a.glb",
+   "bytes": 53760,
+   "driehoeken": 878,
+   "materialen": 1,
+   "wdh": [
+    0.484,
+    0.274,
+    0.201
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/chest-b",
+   "naam": "chest-b",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/chest-b.glb",
+   "bytes": 37516,
+   "driehoeken": 628,
+   "materialen": 1,
+   "wdh": [
+    0.403,
+    0.275,
+    0.171
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/palm-a",
+   "naam": "palm-a",
+   "kit": "tropical",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#6d8d33",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/palm-a.glb",
+   "bytes": 111148,
+   "driehoeken": 2180,
+   "materialen": 1,
+   "wdh": [
+    1.19,
+    1.256,
+    2.062
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/pier-a",
+   "naam": "pier-a",
+   "kit": "tropical",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/pier-a.glb",
+   "bytes": 38332,
+   "driehoeken": 612,
+   "materialen": 1,
+   "wdh": [
+    0.946,
+    1.471,
+    1.255
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/plank-a",
+   "naam": "plank-a",
+   "kit": "tropical",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/tropical/plank-a.glb",
+   "bytes": 3704,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    0.893,
+    0.124,
+    0.019
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/plant-a",
+   "naam": "plant-a",
+   "kit": "tropical",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/tropical/plant-a.glb",
+   "bytes": 69012,
+   "driehoeken": 1456,
+   "materialen": 1,
+   "wdh": [
+    0.717,
+    0.821,
+    0.205
    ],
    "calls": 1
   }
