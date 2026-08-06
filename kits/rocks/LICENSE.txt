@@ -1,0 +1,60 @@
+	Rocks
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx en .blend aangeleverd, in een zip met de
+	naam `Rocks`, zonder licentiebestand en zonder verwijzing naar een
+	maker of een packpagina. De CC0-vermelding hierboven is vastgesteld
+	door de eigenaar van dit project bij het inladen; ze komt niet uit de
+	pack zelf. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Anders dan de andere packs is dit één bestand met 117 meshes naast
+	elkaar. Elk model zit er in drie tinten in — `.light`, `.medium` en
+	`.dark`, telkens dezelfde geometrie met andere UV's. Alleen de
+	`.medium` tinten zijn ingeladen: 39 van de 117 meshes.
+
+	De naamgeving van de pack scheidt met punten; hier is dat kebab-case
+	met letterachtervoegsels, en de `.medium` valt weg omdat het de enige
+	ingeladen tint is:
+
+	  rock1..10.natural.medium   → rock-natural-a .. rock-natural-j
+	  rock1..10.cave.medium      → rock-cave-a .. rock-cave-j
+	  pebbles1..4.dirt.medium    → pebbles-dirt-a .. pebbles-dirt-d
+	  pebbles1..4.caves.medium   → pebbles-cave-a .. pebbles-cave-d
+	  debris1..2.medium          → debris-a, debris-b
+	  rockform.arch.medium       → rockform-arch
+	  rockform.column.medium     → rockform-column
+	  rockform.corner.hard/soft  → rockform-corner-hard, rockform-corner-soft
+	  rockform.wall.long.medium  → rockform-wall-long
+	  rockform.wall.short1/2     → rockform-wall-short-a, rockform-wall-short-b
+	  rockwall.corner.medium     → rockwall-corner
+	  rockwall.straight.medium   → rockwall-straight
+
+	`natural`/`cave` en `dirt`/`caves` zijn wél allebei ingeladen: dat is
+	dezelfde vorm in een andere steensoort, en dat verschil overleeft de
+	omzetting naar de gedeelde colormap — grijs steen, donker grotgesteente
+	en bruine grond komen op drie verschillende cellen uit. De `caves` van
+	de kiezels heet hier `cave`, zodat kiezels en rotsen dezelfde variant
+	hetzelfde noemen.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-rocks.mjs: omgezet naar .glb, uit het gezamenlijke
+	bestand gesneden, gehalveerd zodat de rotsen op hetzelfde raster passen
+	als die van de andere kits, en met de oorsprong op y=0 en het grondvlak
+	gecentreerd.
+
+	De pack heeft een eigen texture-atlas van 512 × 512. Die is niet
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png.
+	Elk model gebruikt in de bron precies één vlakke kleur. De geometrie is
+	verder ongemoeid.
