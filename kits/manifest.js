@@ -407,5 +407,37 @@ window.KENNEY_KITS = [
    "balloon",
    "lighthouse"
   ]
+ },
+ {
+  /* geen Kenney-kit: Low Poly Nature Pack (Lite), zie kits/nature/LICENSE.txt.
+     De pack kwam zonder licentiebestand en zonder packpagina binnen; daarom
+     geen url. Geen eigen tabblad: de modellen zijn omgezet naar de gedeelde
+     colormap en horen dus gewoon tussen de andere kits. */
+  "slug": "nature",
+  "name": "Nature",
+  "url": null,
+  "models": [
+   "branch-a",
+   "mountain-a",
+   "tree-dead"
+  ]
+ },
+ {
+  /* geen Kenney-kit: Tropical Island Pack (Lite), zie kits/tropical/LICENSE.txt.
+     Ook deze pack kwam zonder licentiebestand en zonder packpagina binnen.
+     `chest-a` staat open en `chest-b` dicht; de pack noemt ze `Chest_01` en
+     `Chest_01_2` en zegt daar zelf niets over. */
+  "slug": "tropical",
+  "name": "Tropical",
+  "url": null,
+  "models": [
+   "barrel-a",
+   "chest-a",
+   "chest-b",
+   "palm-a",
+   "pier-a",
+   "plank-a",
+   "plant-a"
+  ]
  }
 ];

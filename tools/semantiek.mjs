@@ -12,7 +12,8 @@
 
 export const GROEPEN = [
   { id: 'terrein', naam: 'Grond & terrein', kort: 'Grond', kleur: '#8a5d4b',
-    beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen.' },
+    tabblad: 'terrain',
+    beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen, plus het landschap zelf: `nature/mountain-a` is met ruim 16 × 16 units geen prop maar een stuk terrein waar je de rest op zet. Eigen tabblad, want die twee schalen — een vloertegel van 1 × 1 en een berg van 16 × 16 — vragen ieder een andere blik dan de props ernaast.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
@@ -107,13 +108,21 @@ const regels = [
   // hij de route naar het onbereikbare plateau.
   [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
   [/^(fence|poles|gate)\b/, 'hek'],
-  [/^(tree|palm)\b/, 'bomen'],
+  // `branch` staat bij de bomen om dezelfde reden als `tree-log` van de
+  // survival-kit: het is geen boom, maar het is er wel van afkomstig en je zet
+  // het bij een boom neer.
+  [/^(tree|palm|branch)\b/, 'bomen'],
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|stone|stones)\b/, 'rotsen'],
-  [/^(floor|patch|dirt|hole)\b/, 'terrein'],
+  // `mountain` en `hills` zijn landschap, geen rotsblok: ze zijn te groot om
+  // ergens neer te zetten, je bouwt eróp. Vandaar terrein en niet rotsen.
+  [/^(floor|patch|dirt|hole|mountain|hills)\b/, 'terrein'],
   // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
   // uit de andere kits, en alles wat je eromheen bouwt.
-  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks|wood|watermill|windmill|fountain|lighthouse)\b/, 'bouwwerken'],
+  // `pier` en `plank` staan hier en niet bij `verbinding`: een steiger loopt het
+  // water in en houdt op, hij verbindt geen twee oevers. De losse plank is er
+  // het bouwmateriaal van.
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks?|pier|wood|watermill|windmill|fountain|lighthouse)\b/, 'bouwwerken'],
 ];
 
 /**
@@ -126,7 +135,8 @@ const WOORDENBOEK = {
   axe: ['bijl'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
   banner: ['banier', 'vaandel'],
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
-  bottle: ['fles'], bow: ['boog'], bridge: ['brug'], brown: ['bruin'],
+  bottle: ['fles'], bow: ['boog'], branch: ['tak'], bridge: ['brug'],
+  brown: ['bruin'],
   bucket: ['emmer'],
   building: ['gebouw'], calf: ['kalf', 'jong'],
   campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
@@ -135,6 +145,7 @@ const WOORDENBOEK = {
   clown: ['clownvis', 'vis'], coin: ['munt', 'geld'],
   column: ['zuil', 'pilaar'], coral: ['koraal'],
   corridor: ['gang', 'tunnel', 'grot'], crab: ['krab'], crate: ['krat', 'kist'],
+  dead: ['dood', 'dode', 'kaal'],
   dirt: ['aarde', 'grond', 'modder'], dollar: ['zanddollar', 'zeeklit', 'schelp'],
   dolphin: ['dolfijn'], door: ['deur'], doorway: ['deuropening'],
   dory: ['doktersvis', 'vis'], eel: ['paling', 'aal'],
@@ -145,14 +156,17 @@ const WOORDENBOEK = {
   hoe: ['schoffel'], hole: ['gat', 'kuil'],
   key: ['sleutel'], ladder: ['ladder'], lever: ['hendel'],
   lighthouse: ['vuurtoren', 'toren', 'baken'], lobster: ['kreeft'], lock: ['slot'],
-  mast: ['mast'], mushrooms: ['paddenstoelen'], octopus: ['octopus', 'inktvis'],
+  mast: ['mast'], mountain: ['berg', 'gebergte'],
+  mushrooms: ['paddenstoelen'], octopus: ['octopus', 'inktvis'],
   overhang: ['afdak'],
   orca: ['orka', 'zwaardwalvis', 'walvis'],
   paddle: ['peddel', 'roeispaan'], palm: ['palm', 'palmboom', 'boom'],
   patch: ['vlak', 'grondvlak'], penguin: ['pinguïn', 'pinguin'],
   pickaxe: ['houweel', 'pikhouweel'],
+  pier: ['steiger', 'aanlegsteiger'],
   pillar: ['pilaar', 'zuil'], pine: ['den', 'dennenboom', 'boom'],
-  plant: ['plant'], planks: ['planken', 'hout'], platform: ['platform', 'vlonder'],
+  plank: ['plank', 'hout'], plant: ['plant'], planks: ['planken', 'hout'],
+  platform: ['platform', 'vlonder'],
   poles: ['palen'], pot: ['pot', 'kruik'], resource: ['grondstof'],
   rock: ['rots', 'steen'], rocks: ['rotsen', 'stenen'], roof: ['dak'],
   room: ['kamer', 'ruimte', 'grot'], rope: ['touw'], ropes: ['touwen'],
