@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 413,
+ "totaal": 551,
  "kits": [
   {
    "slug": "fantasy-town-kit",
@@ -157,6 +157,18 @@
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
+  },
+  {
+   "slug": "village-kit",
+   "naam": "Modular Village",
+   "kort": "Modular Village",
+   "url": null,
+   "licentie": "kits/village-kit/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 138,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
   }
  ],
  "groepen": [
@@ -181,21 +193,21 @@
    "kort": "Bouwpakket",
    "kleur": "#a8762a",
    "tabblad": "bouwpakket",
-   "aantal": 40
+   "aantal": 157
   },
   {
    "id": "bouwwerken",
    "naam": "Bouwwerken & platforms",
    "kort": "Bouwwerken",
    "kleur": "#877a63",
-   "aantal": 36
+   "aantal": 41
   },
   {
    "id": "verbinding",
    "naam": "Trappen, bruggen & ladders",
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
-   "aantal": 16
+   "aantal": 17
   },
   {
    "id": "hek",
@@ -245,7 +257,7 @@
    "naam": "Schepen & varen",
    "kort": "Schepen",
    "kleur": "#474a58",
-   "aantal": 15
+   "aantal": 19
   },
   {
    "id": "kamp",
@@ -259,28 +271,28 @@
    "naam": "Kisten, vaten & grondstoffen",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 27
+   "aantal": 33
   },
   {
    "id": "gereedschap",
    "naam": "Gereedschap & wapens",
    "kort": "Gereedschap",
    "kleur": "#6d738a",
-   "aantal": 12
+   "aantal": 13
   },
   {
    "id": "borden",
    "naam": "Borden, vlaggen & doelen",
    "kort": "Borden",
    "kleur": "#ffb349",
-   "aantal": 12
+   "aantal": 13
   },
   {
    "id": "items",
    "naam": "Verzamelobjecten & mechaniek",
    "kort": "Items",
    "kleur": "#f1976c",
-   "aantal": 8
+   "aantal": 11
   },
   {
    "id": "dieren",
@@ -312,6 +324,13 @@
      "aantal": 108
     },
     {
+     "hex": "#8f785b",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 107
+    },
+    {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
@@ -319,18 +338,32 @@
      "aantal": 76
     },
     {
+     "hex": "#f0ece3",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 74
+    },
+    {
      "hex": "#dd9f79",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 54
+     "aantal": 63
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 53
+     "aantal": 57
+    },
+    {
+     "hex": "#9da4c4",
+     "naam": "blauw",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 55
     },
     {
      "hex": "#3da679",
@@ -340,18 +373,25 @@
      "aantal": 47
     },
     {
-     "hex": "#9da4c4",
-     "naam": "blauw",
+     "hex": "#88796d",
+     "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 42
+     "aantal": 34
     },
     {
-     "hex": "#f0ece3",
-     "naam": "lichtoranje",
+     "hex": "#7f3927",
+     "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 32
+     "aantal": 23
+    },
+    {
+     "hex": "#ffb349",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 13
     },
     {
      "hex": "#474a58",
@@ -368,25 +408,18 @@
      "aantal": 11
     },
     {
-     "hex": "#ffb349",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 11
-    },
-    {
      "hex": "#f0c59d",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 7
+     "aantal": 8
     },
     {
      "hex": "#6d8d33",
      "naam": "groen",
      "textuur": null,
      "materiaal": null,
-     "aantal": 3
+     "aantal": 4
     }
    ]
   },
@@ -9532,6 +9565,2864 @@
     0.717,
     0.821,
     0.205
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/barrel-a-open",
+   "naam": "barrel-a-open",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/barrel-a-open.glb",
+   "bytes": 35984,
+   "driehoeken": 642,
+   "materialen": 1,
+   "wdh": [
+    0.483,
+    0.483,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/barrel-a",
+   "naam": "barrel-a",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/barrel-a.glb",
+   "bytes": 25196,
+   "driehoeken": 452,
+   "materialen": 1,
+   "wdh": [
+    0.483,
+    0.483,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/barrel-b",
+   "naam": "barrel-b",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/barrel-b.glb",
+   "bytes": 27696,
+   "driehoeken": 480,
+   "materialen": 1,
+   "wdh": [
+    0.482,
+    0.507,
+    0.591
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/bell-a",
+   "naam": "bell-a",
+   "kit": "village-kit",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/bell-a.glb",
+   "bytes": 27652,
+   "driehoeken": 410,
+   "materialen": 1,
+   "wdh": [
+    0.952,
+    0.49,
+    1.173
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/boat-a",
+   "naam": "boat-a",
+   "kit": "village-kit",
+   "groep": "schepen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/boat-a.glb",
+   "bytes": 13088,
+   "driehoeken": 184,
+   "materialen": 1,
+   "wdh": [
+    1.125,
+    2.313,
+    0.563
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/boat-b",
+   "naam": "boat-b",
+   "kit": "village-kit",
+   "groep": "schepen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/boat-b.glb",
+   "bytes": 13832,
+   "driehoeken": 200,
+   "materialen": 1,
+   "wdh": [
+    1.069,
+    2.497,
+    0.466
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/boat-oars-a",
+   "naam": "boat-oars-a",
+   "kit": "village-kit",
+   "groep": "schepen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/boat-oars-a.glb",
+   "bytes": 9500,
+   "driehoeken": 124,
+   "materialen": 1,
+   "wdh": [
+    0.629,
+    1.497,
+    0.054
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/boat-oars-b",
+   "naam": "boat-oars-b",
+   "kit": "village-kit",
+   "groep": "schepen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/boat-oars-b.glb",
+   "bytes": 9500,
+   "driehoeken": 124,
+   "materialen": 1,
+   "wdh": [
+    0.389,
+    1.607,
+    0.116
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/broom",
+   "naam": "broom",
+   "kit": "village-kit",
+   "groep": "gereedschap",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#f0c59d"
+   ],
+   "pad": "kits/village-kit/broom.glb",
+   "bytes": 15716,
+   "driehoeken": 236,
+   "materialen": 1,
+   "wdh": [
+    0.125,
+    0.16,
+    0.795
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-beam-short",
+   "naam": "canopy-beam-short",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/canopy-beam-short.glb",
+   "bytes": 2204,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    0.1,
+    1.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-beam",
+   "naam": "canopy-beam",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/canopy-beam.glb",
+   "bytes": 2184,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    0.1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-corner",
+   "naam": "canopy-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-corner.glb",
+   "bytes": 6620,
+   "driehoeken": 86,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.15,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-full",
+   "naam": "canopy-full",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-full.glb",
+   "bytes": 8676,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.3,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-ramp-corner",
+   "naam": "canopy-ramp-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-ramp-corner.glb",
+   "bytes": 6988,
+   "driehoeken": 86,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.15,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-ramp-full",
+   "naam": "canopy-ramp-full",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-ramp-full.glb",
+   "bytes": 9076,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.3,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-ramp-mid",
+   "naam": "canopy-ramp-mid",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-ramp-mid.glb",
+   "bytes": 4848,
+   "driehoeken": 52,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-side",
+   "naam": "canopy-side",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-side.glb",
+   "bytes": 4580,
+   "driehoeken": 52,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.15,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-sides-opposite",
+   "naam": "canopy-sides-opposite",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-sides-opposite.glb",
+   "bytes": 7064,
+   "driehoeken": 92,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.3,
+    1.212
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/canopy-top",
+   "naam": "canopy-top",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/canopy-top.glb",
+   "bytes": 2188,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.112
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cart-a",
+   "naam": "cart-a",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cart-a.glb",
+   "bytes": 64136,
+   "driehoeken": 1040,
+   "materialen": 1,
+   "wdh": [
+    1.8,
+    3.365,
+    1.303
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/chimney-pipe",
+   "naam": "chimney-pipe",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/chimney-pipe.glb",
+   "bytes": 15736,
+   "driehoeken": 240,
+   "materialen": 1,
+   "wdh": [
+    0.766,
+    0.369,
+    1.165
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cobblestone-dirt-transition-a",
+   "naam": "cobblestone-dirt-transition-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cobblestone-dirt-transition-a.glb",
+   "bytes": 27628,
+   "driehoeken": 480,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cobblestone-dirt-transition-b",
+   "naam": "cobblestone-dirt-transition-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cobblestone-dirt-transition-b.glb",
+   "bytes": 25100,
+   "driehoeken": 432,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cobblestone-dirt-transition-c",
+   "naam": "cobblestone-dirt-transition-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cobblestone-dirt-transition-c.glb",
+   "bytes": 25964,
+   "driehoeken": 448,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cobblestone-dirt-transition-d",
+   "naam": "cobblestone-dirt-transition-d",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cobblestone-dirt-transition-d.glb",
+   "bytes": 24860,
+   "driehoeken": 424,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/cobblestone-floor-a",
+   "naam": "cobblestone-floor-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/cobblestone-floor-a.glb",
+   "bytes": 73724,
+   "driehoeken": 1318,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.228
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/crate-a-open",
+   "naam": "crate-a-open",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/crate-a-open.glb",
+   "bytes": 26680,
+   "driehoeken": 508,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/crate-a",
+   "naam": "crate-a",
+   "kit": "village-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/crate-a.glb",
+   "bytes": 24296,
+   "driehoeken": 412,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/dirt-fading-gathered",
+   "naam": "dirt-fading-gathered",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/dirt-fading-gathered.glb",
+   "bytes": 2208,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/dirt-fading",
+   "naam": "dirt-fading",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/dirt-fading.glb",
+   "bytes": 2184,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/dirt-gathered-corner",
+   "naam": "dirt-gathered-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/dirt-gathered-corner.glb",
+   "bytes": 3708,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    0.246
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/dirt-gathered-straight",
+   "naam": "dirt-gathered-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/dirt-gathered-straight.glb",
+   "bytes": 2440,
+   "driehoeken": 16,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.246
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/door-ornate",
+   "naam": "door-ornate",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/door-ornate.glb",
+   "bytes": 26280,
+   "driehoeken": 472,
+   "materialen": 1,
+   "wdh": [
+    0.182,
+    0.74,
+    1.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/door-simple",
+   "naam": "door-simple",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/door-simple.glb",
+   "bytes": 16288,
+   "driehoeken": 268,
+   "materialen": 1,
+   "wdh": [
+    0.178,
+    0.737,
+    1.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/ladder-a",
+   "naam": "ladder-a",
+   "kit": "village-kit",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/ladder-a.glb",
+   "bytes": 19532,
+   "driehoeken": 420,
+   "materialen": 1,
+   "wdh": [
+    1.111,
+    0.678,
+    3.926
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/lamp-street",
+   "naam": "lamp-street",
+   "kit": "village-kit",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d",
+    "#8f785b",
+    "#ffb349"
+   ],
+   "pad": "kits/village-kit/lamp-street.glb",
+   "bytes": 27520,
+   "driehoeken": 462,
+   "materialen": 1,
+   "wdh": [
+    0.997,
+    0.233,
+    1.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/lamp-wall",
+   "naam": "lamp-wall",
+   "kit": "village-kit",
+   "groep": "items",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#88796d",
+    "#8f785b",
+    "#ffb349"
+   ],
+   "pad": "kits/village-kit/lamp-wall.glb",
+   "bytes": 25848,
+   "driehoeken": 438,
+   "materialen": 1,
+   "wdh": [
+    0.822,
+    0.233,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-rake-concave",
+   "naam": "roof-accent-rake-concave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-rake-concave.glb",
+   "bytes": 3524,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-rake-convex",
+   "naam": "roof-accent-rake-convex",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-rake-convex.glb",
+   "bytes": 3520,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-rake-eave",
+   "naam": "roof-accent-rake-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-rake-eave.glb",
+   "bytes": 2228,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.346,
+    0.2,
+    0.446
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-rake-straight",
+   "naam": "roof-accent-rake-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-rake-straight.glb",
+   "bytes": 2224,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-ridge-end",
+   "naam": "roof-accent-ridge-end",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-ridge-end.glb",
+   "bytes": 2816,
+   "driehoeken": 22,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    0.318,
+    0.318
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-accent-ridge",
+   "naam": "roof-accent-ridge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/roof-accent-ridge.glb",
+   "bytes": 2200,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-corner-inner",
+   "naam": "roof-concave-corner-inner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-corner-inner.glb",
+   "bytes": 8116,
+   "driehoeken": 96,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-corner-outer-eave",
+   "naam": "roof-concave-corner-outer-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-corner-outer-eave.glb",
+   "bytes": 11128,
+   "driehoeken": 152,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.309,
+    0.823
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-corner-outer",
+   "naam": "roof-concave-corner-outer",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-corner-outer.glb",
+   "bytes": 7544,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1.045,
+    1.045,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-side-eave-edge",
+   "naam": "roof-concave-side-eave-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-side-eave-edge.glb",
+   "bytes": 12852,
+   "driehoeken": 176,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.2,
+    0.95
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-side-eave",
+   "naam": "roof-concave-side-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-side-eave.glb",
+   "bytes": 9300,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1,
+    0.823
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-side-edge",
+   "naam": "roof-concave-side-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-side-edge.glb",
+   "bytes": 10928,
+   "driehoeken": 146,
+   "materialen": 1,
+   "wdh": [
+    1.045,
+    1.2,
+    0.95
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-concave-side",
+   "naam": "roof-concave-side",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-concave-side.glb",
+   "bytes": 7348,
+   "driehoeken": 88,
+   "materialen": 1,
+   "wdh": [
+    1.045,
+    1,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-corner-inner",
+   "naam": "roof-convex-corner-inner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-corner-inner.glb",
+   "bytes": 8036,
+   "driehoeken": 94,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-corner-outer-eave",
+   "naam": "roof-convex-corner-outer-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-corner-outer-eave.glb",
+   "bytes": 10712,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.309,
+    0.823
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-corner-outer",
+   "naam": "roof-convex-corner-outer",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-corner-outer.glb",
+   "bytes": 7172,
+   "driehoeken": 86,
+   "materialen": 1,
+   "wdh": [
+    1.067,
+    1.067,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-side-eave-edge",
+   "naam": "roof-convex-side-eave-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-side-eave-edge.glb",
+   "bytes": 12844,
+   "driehoeken": 176,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.2,
+    0.95
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-side-eave",
+   "naam": "roof-convex-side-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-side-eave.glb",
+   "bytes": 9288,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1,
+    0.823
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-side-edge",
+   "naam": "roof-convex-side-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-side-edge.glb",
+   "bytes": 10916,
+   "driehoeken": 146,
+   "materialen": 1,
+   "wdh": [
+    1.067,
+    1.2,
+    0.95
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-convex-side",
+   "naam": "roof-convex-side",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-convex-side.glb",
+   "bytes": 7344,
+   "driehoeken": 88,
+   "materialen": 1,
+   "wdh": [
+    1.067,
+    1,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-corner-inner",
+   "naam": "roof-straight-corner-inner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-corner-inner.glb",
+   "bytes": 8124,
+   "driehoeken": 102,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-corner-outer-eave",
+   "naam": "roof-straight-corner-outer-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-corner-outer-eave.glb",
+   "bytes": 10484,
+   "driehoeken": 142,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.309,
+    1.323
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-corner-outer",
+   "naam": "roof-straight-corner-outer",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-corner-outer.glb",
+   "bytes": 6984,
+   "driehoeken": 86,
+   "materialen": 1,
+   "wdh": [
+    1.071,
+    1.071,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-side-eave-edge",
+   "naam": "roof-straight-side-eave-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-side-eave-edge.glb",
+   "bytes": 11360,
+   "driehoeken": 152,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1.2,
+    1.45
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-side-eave",
+   "naam": "roof-straight-side-eave",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-side-eave.glb",
+   "bytes": 9296,
+   "driehoeken": 120,
+   "materialen": 1,
+   "wdh": [
+    1.309,
+    1,
+    1.323
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-side-edge",
+   "naam": "roof-straight-side-edge",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-side-edge.glb",
+   "bytes": 9532,
+   "driehoeken": 122,
+   "materialen": 1,
+   "wdh": [
+    1.071,
+    1.2,
+    1.45
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/roof-straight-side",
+   "naam": "roof-straight-side",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/roof-straight-side.glb",
+   "bytes": 7352,
+   "driehoeken": 88,
+   "materialen": 1,
+   "wdh": [
+    1.071,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/sign-a",
+   "naam": "sign-a",
+   "kit": "village-kit",
+   "groep": "borden",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/sign-a.glb",
+   "bytes": 40984,
+   "driehoeken": 734,
+   "materialen": 1,
+   "wdh": [
+    1.552,
+    0.2,
+    0.958
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-arch",
+   "naam": "stone-arch",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-arch.glb",
+   "bytes": 3920,
+   "driehoeken": 44,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.413
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-curb-a",
+   "naam": "stone-curb-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-curb-a.glb",
+   "bytes": 22780,
+   "driehoeken": 284,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.7,
+    0.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-curb-b",
+   "naam": "stone-curb-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-curb-b.glb",
+   "bytes": 19724,
+   "driehoeken": 244,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.7,
+    0.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-curb-c",
+   "naam": "stone-curb-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-curb-c.glb",
+   "bytes": 22780,
+   "driehoeken": 284,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.7,
+    0.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-curb-d",
+   "naam": "stone-curb-d",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-curb-d.glb",
+   "bytes": 22716,
+   "driehoeken": 284,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.7,
+    0.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-doorway-narrow-tall-a",
+   "naam": "stone-doorway-narrow-tall-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stone-doorway-narrow-tall-a.glb",
+   "bytes": 7692,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-doorway-narrow-tall-b",
+   "naam": "stone-doorway-narrow-tall-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stone-doorway-narrow-tall-b.glb",
+   "bytes": 9344,
+   "driehoeken": 134,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-doorway-wide-tall-a",
+   "naam": "stone-doorway-wide-tall-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stone-doorway-wide-tall-a.glb",
+   "bytes": 55488,
+   "driehoeken": 800,
+   "materialen": 1,
+   "wdh": [
+    1.2,
+    2.3,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-doorway-wide-tall-b",
+   "naam": "stone-doorway-wide-tall-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stone-doorway-wide-tall-b.glb",
+   "bytes": 57364,
+   "driehoeken": 830,
+   "materialen": 1,
+   "wdh": [
+    1.2,
+    2.3,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-stucco-doorway-wide-tall-a",
+   "naam": "stone-stucco-doorway-wide-tall-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stone-stucco-doorway-wide-tall-a.glb",
+   "bytes": 45852,
+   "driehoeken": 636,
+   "materialen": 1,
+   "wdh": [
+    1.2,
+    2.3,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-stucco-doorway-wide-tall-b",
+   "naam": "stone-stucco-doorway-wide-tall-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stone-stucco-doorway-wide-tall-b.glb",
+   "bytes": 48204,
+   "driehoeken": 676,
+   "materialen": 1,
+   "wdh": [
+    1.2,
+    2.3,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-wall-a",
+   "naam": "stone-wall-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-wall-a.glb",
+   "bytes": 7740,
+   "driehoeken": 98,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-wall-b",
+   "naam": "stone-wall-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-wall-b.glb",
+   "bytes": 9324,
+   "driehoeken": 122,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-wall-c",
+   "naam": "stone-wall-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-wall-c.glb",
+   "bytes": 9292,
+   "driehoeken": 122,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-wall-d",
+   "naam": "stone-wall-d",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-wall-d.glb",
+   "bytes": 11072,
+   "driehoeken": 152,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stone-wall-e",
+   "naam": "stone-wall-e",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/stone-wall-e.glb",
+   "bytes": 8420,
+   "driehoeken": 110,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-arch-half-outer",
+   "naam": "stucco-arch-half-outer",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-arch-half-outer.glb",
+   "bytes": 4792,
+   "driehoeken": 56,
+   "materialen": 1,
+   "wdh": [
+    1.1,
+    1.1,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-arch-half",
+   "naam": "stucco-arch-half",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-arch-half.glb",
+   "bytes": 2420,
+   "driehoeken": 16,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.498
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-block",
+   "naam": "stucco-block",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-block.glb",
+   "bytes": 2184,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-doorway-narrow-tall",
+   "naam": "stucco-doorway-narrow-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-doorway-narrow-tall.glb",
+   "bytes": 4892,
+   "driehoeken": 60,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-doorway-wide-tall",
+   "naam": "stucco-doorway-wide-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-doorway-wide-tall.glb",
+   "bytes": 5752,
+   "driehoeken": 76,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-angled-large",
+   "naam": "stucco-support-angled-large",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-angled-large.glb",
+   "bytes": 2468,
+   "driehoeken": 16,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    1,
+    1.206
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-angled-low",
+   "naam": "stucco-support-angled-low",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-angled-low.glb",
+   "bytes": 2244,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    1,
+    0.584
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-angled-small",
+   "naam": "stucco-support-angled-small",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-angled-small.glb",
+   "bytes": 2248,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    0.569,
+    0.603
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-beam-a",
+   "naam": "stucco-support-beam-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-beam-a.glb",
+   "bytes": 2216,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-beam-b",
+   "naam": "stucco-support-beam-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-beam-b.glb",
+   "bytes": 2652,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-beam-c",
+   "naam": "stucco-support-beam-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-beam-c.glb",
+   "bytes": 2652,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-pillar-a",
+   "naam": "stucco-support-pillar-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-pillar-a.glb",
+   "bytes": 2216,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-pillar-b",
+   "naam": "stucco-support-pillar-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-pillar-b.glb",
+   "bytes": 2652,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-support-pillar-c",
+   "naam": "stucco-support-pillar-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/stucco-support-pillar-c.glb",
+   "bytes": 2652,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-double-narrow-tall",
+   "naam": "stucco-window-double-narrow-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-double-narrow-tall.glb",
+   "bytes": 13084,
+   "driehoeken": 216,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-double-narrow",
+   "naam": "stucco-window-double-narrow",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-double-narrow.glb",
+   "bytes": 13072,
+   "driehoeken": 216,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-double-wide-tall",
+   "naam": "stucco-window-double-wide-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-double-wide-tall.glb",
+   "bytes": 13380,
+   "driehoeken": 224,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-double-wide",
+   "naam": "stucco-window-double-wide",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-double-wide.glb",
+   "bytes": 13368,
+   "driehoeken": 224,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-rounded-narrow-tall",
+   "naam": "stucco-window-rounded-narrow-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-rounded-narrow-tall.glb",
+   "bytes": 11460,
+   "driehoeken": 180,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-rounded-narrow",
+   "naam": "stucco-window-rounded-narrow",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-rounded-narrow.glb",
+   "bytes": 11448,
+   "driehoeken": 180,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-rounded-wide-tall",
+   "naam": "stucco-window-rounded-wide-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-rounded-wide-tall.glb",
+   "bytes": 11532,
+   "driehoeken": 182,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-rounded-wide",
+   "naam": "stucco-window-rounded-wide",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-rounded-wide.glb",
+   "bytes": 11516,
+   "driehoeken": 182,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-single-narrow-tall",
+   "naam": "stucco-window-single-narrow-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-single-narrow-tall.glb",
+   "bytes": 9536,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-single-narrow",
+   "naam": "stucco-window-single-narrow",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-single-narrow.glb",
+   "bytes": 9520,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-single-wide-tall",
+   "naam": "stucco-window-single-wide-tall",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-single-wide-tall.glb",
+   "bytes": 9532,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/stucco-window-single-wide",
+   "naam": "stucco-window-single-wide",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/stucco-window-single-wide.glb",
+   "bytes": 9516,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-brace-double",
+   "naam": "waterwheel-flume-brace-double",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-brace-double.glb",
+   "bytes": 3076,
+   "driehoeken": 24,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-brace",
+   "naam": "waterwheel-flume-brace",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-brace.glb",
+   "bytes": 2208,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.05,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-end",
+   "naam": "waterwheel-flume-end",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-end.glb",
+   "bytes": 4508,
+   "driehoeken": 48,
+   "materialen": 1,
+   "wdh": [
+    0.789,
+    0.5,
+    0.446
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-pillar",
+   "naam": "waterwheel-flume-pillar",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-pillar.glb",
+   "bytes": 2216,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-ramp-supported",
+   "naam": "waterwheel-flume-ramp-supported",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-ramp-supported.glb",
+   "bytes": 4804,
+   "driehoeken": 52,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.504
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-ramp",
+   "naam": "waterwheel-flume-ramp",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-ramp.glb",
+   "bytes": 3932,
+   "driehoeken": 40,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.504
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel-flume-straight",
+   "naam": "waterwheel-flume-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel-flume-straight.glb",
+   "bytes": 3944,
+   "driehoeken": 40,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.5,
+    0.254
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/waterwheel",
+   "naam": "waterwheel",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/waterwheel.glb",
+   "bytes": 86752,
+   "driehoeken": 1464,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    4.395,
+    4.395
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/well-a",
+   "naam": "well-a",
+   "kit": "village-kit",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/well-a.glb",
+   "bytes": 82908,
+   "driehoeken": 1208,
+   "materialen": 1,
+   "wdh": [
+    1.362,
+    1.09,
+    1.514
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/well-base-cobblestone",
+   "naam": "well-base-cobblestone",
+   "kit": "village-kit",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/well-base-cobblestone.glb",
+   "bytes": 17156,
+   "driehoeken": 296,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.213
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/well-base-dirt",
+   "naam": "well-base-dirt",
+   "kit": "village-kit",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/well-base-dirt.glb",
+   "bytes": 4560,
+   "driehoeken": 64,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/well-base-grass",
+   "naam": "well-base-grass",
+   "kit": "village-kit",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/village-kit/well-base-grass.glb",
+   "bytes": 4564,
+   "driehoeken": 64,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/well-inside",
+   "naam": "well-inside",
+   "kit": "village-kit",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/village-kit/well-inside.glb",
+   "bytes": 5444,
+   "driehoeken": 80,
+   "materialen": 1,
+   "wdh": [
+    0.665,
+    0.665,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/windmill-blades",
+   "naam": "windmill-blades",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#dd9f79"
+   ],
+   "pad": "kits/village-kit/windmill-blades.glb",
+   "bytes": 45360,
+   "driehoeken": 640,
+   "materialen": 1,
+   "wdh": [
+    1.021,
+    6.999,
+    6.999
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/window-upper-straight",
+   "naam": "window-upper-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#8f785b",
+    "#9da4c4",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/window-upper-straight.glb",
+   "bytes": 30284,
+   "driehoeken": 472,
+   "materialen": 1,
+   "wdh": [
+    1.2,
+    2.619,
+    3.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-baseboard",
+   "naam": "wood-baseboard",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-baseboard.glb",
+   "bytes": 2196,
+   "driehoeken": 12,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-floor-corner",
+   "naam": "wood-floor-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-floor-corner.glb",
+   "bytes": 8148,
+   "driehoeken": 116,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-floor-straight-a",
+   "naam": "wood-floor-straight-a",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-floor-straight-a.glb",
+   "bytes": 6672,
+   "driehoeken": 92,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-floor-straight-b",
+   "naam": "wood-floor-straight-b",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-floor-straight-b.glb",
+   "bytes": 7384,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-floor-straight-c",
+   "naam": "wood-floor-straight-c",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-floor-straight-c.glb",
+   "bytes": 6672,
+   "driehoeken": 92,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-floor-straight-d",
+   "naam": "wood-floor-straight-d",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-floor-straight-d.glb",
+   "bytes": 7384,
+   "driehoeken": 104,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-post-large",
+   "naam": "wood-post-large",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-post-large.glb",
+   "bytes": 3348,
+   "driehoeken": 28,
+   "materialen": 1,
+   "wdh": [
+    0.231,
+    0.231,
+    0.996
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-post-small",
+   "naam": "wood-post-small",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-post-small.glb",
+   "bytes": 2784,
+   "driehoeken": 20,
+   "materialen": 1,
+   "wdh": [
+    0.173,
+    0.173,
+    0.552
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-railing-corner",
+   "naam": "wood-railing-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-railing-corner.glb",
+   "bytes": 11372,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    1.1,
+    1.1,
+    0.683
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-railing-stairs",
+   "naam": "wood-railing-stairs",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-railing-stairs.glb",
+   "bytes": 10224,
+   "driehoeken": 128,
+   "materialen": 1,
+   "wdh": [
+    2,
+    0.2,
+    1.683
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-railing-straight",
+   "naam": "wood-railing-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-railing-straight.glb",
+   "bytes": 6872,
+   "driehoeken": 80,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.683
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-rope-corner",
+   "naam": "wood-rope-corner",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-rope-corner.glb",
+   "bytes": 12924,
+   "driehoeken": 172,
+   "materialen": 1,
+   "wdh": [
+    1.115,
+    1.115,
+    0.996
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-rope-stairs",
+   "naam": "wood-rope-stairs",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-rope-stairs.glb",
+   "bytes": 11648,
+   "driehoeken": 152,
+   "materialen": 1,
+   "wdh": [
+    2.02,
+    0.2,
+    1.641
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-rope-straight",
+   "naam": "wood-rope-straight",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-rope-straight.glb",
+   "bytes": 6456,
+   "driehoeken": 76,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.2,
+    0.65
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-steps-stucco",
+   "naam": "wood-steps-stucco",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b",
+    "#f0ece3"
+   ],
+   "pad": "kits/village-kit/wood-steps-stucco.glb",
+   "bytes": 9344,
+   "driehoeken": 144,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "village-kit/wood-steps",
+   "naam": "wood-steps",
+   "kit": "village-kit",
+   "groep": "bouwpakket",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/village-kit/wood-steps.glb",
+   "bytes": 9544,
+   "driehoeken": 148,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    1.144
    ],
    "calls": 1
   }
