@@ -31,21 +31,17 @@ const DOEL = join(ROOT, 'kits', 'props');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
 
 /**
- * De pack gaat op 0,5 het raster van de repo op.
+ * De pack gaat op 0,6 het raster van de repo op.
  *
- * Een eerste import nam 1 aan met de redenering "één unit = één meter, dus
- * alles staat op ware grootte". Maar de collectie rekent niet in meters: de
- * persoon is er ~0,85 unit (deuropening ≈ 1 wandhoogte), en op factor 1 was
- * elk groot stuk het dubbele van dezelfde voorwerpen elders — het vat 0,99
- * tegenover de consensuston van 0,50, de kist 0,74 tegenover dungeon's
- * box-large 0,52, de tafel 0,80 tegenover survival-kit's werkbank 0,57. Op
- * 0,5 valt dat allemaal samen: vat exact 0,50, kist 0,37, tafel 0,40 met een
- * kruk van 0,22 (zithoogte) ernaast. De prijs is dat het kleingoed — flessen
- * 0,11, borden 0,12 — onder de rest van de collectie duikt; dat is de
- * §4-afweging (één factor per pack), gedocumenteerd in
- * docs/asset_size_review.md.
+ * Een eerste import nam 1 aan ("één unit = één meter"), maar op factor 1
+ * was elk groot stuk ver boven dezelfde voorwerpen elders — het vat 0,99
+ * tegenover tonnen van ~0,5, de tafel 0,80 tegenover survival-kit's
+ * werkbank 0,57. Een halvering bleek weer te streng voor het kleingoed
+ * (flessen 0,11). Op 0,6 (besluit PO) staat het vat op 0,60, de tafel op
+ * 0,48, de kruk op 0,26 en de flessen op 0,13 — één factor per pack
+ * (stijlgids §4), afweging gedocumenteerd in docs/asset_size_review.md.
  */
-const SCHAAL = 0.5;
+const SCHAAL = 0.6;
 
 /**
  * Bronbestand → naam in de kit, kebab-case met letterachtervoegsels.
