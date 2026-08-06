@@ -38,14 +38,15 @@ const DOEL = join(KITS, 'tropical');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * De pack staat op twee keer het raster van de andere kits. De kist is het
- * scherpste ijkpunt: 0,97 units breed waar die van de pirate-kit 0,51 is. De
- * steiger (1,89 breed) en de plank (1,79) komen op een halvering allebei op
- * ongeveer één rastereenheid uit, wat past bij wat ze zijn. Eén factor voor de
- * hele pack (stijlgids §4), dus de palm blijft met 2,06 units hoger dan die van
- * de pirate-kit — dat is de verhouding van de pack zelf.
+ * De pack staat op ruwweg twee keer het raster van de andere kits; een
+ * eerdere import halveerde hem (0,5), maar dat bleek nét te krap: het vat
+ * kwam op 0,43 uit waar de consensuston 0,50 is, en de kistjes op
+ * 0,17-0,20. Op 0,6 staat het vat op 0,52 — midden in de cluster — en
+ * blijven steiger en plank rond één rastereenheid. Eén factor voor de hele
+ * pack (stijlgids §4), dus de palm groeit mee naar 2,47; palmen variëren
+ * toch al (pirate-kit 1,69, modulair-terrein 1,63-2,06).
  */
-const SCHAAL = 0.5;
+const SCHAAL = 0.6;
 
 /**
  * De ene kleur die niet uit kits/colormap.png te halen was.
