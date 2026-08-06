@@ -72,5 +72,12 @@
 	geverfd in een verzadigd hemelsblauw dat in de gedeelde colormap
 	ontbrak — de twee blauwen die er al stonden zijn allebei
 	grijsblauwen zonder verzadiging. Cel [4,2] is daarom toegevoegd,
-	naast het bestaande grijsblauw op [3,2]. De geometrie is verder
-	ongemoeid.
+	naast het bestaande grijsblauw op [3,2].
+
+	Elk hoekpunt is vóór het hermappen ontkoppeld van de driehoeken die
+	het delen (tools/glb.mjs, `ontvlecht()`): zonder dat kon een
+	hoekpunt op de rand tussen een lichte en een donkere tint niet aan
+	beide driehoeken tegelijk gelijk gegeven worden, en sleepte de UV
+	van de ene driehoek dwars over de kleuren tussen de twee cellen heen
+	— zichtbaar als willekeurige strepen op onder meer hammer, saw,
+	scissors en wrench-b. De geometrie is verder ongemoeid.

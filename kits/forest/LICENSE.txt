@@ -51,5 +51,10 @@
 	De pack heeft een eigen texture-atlas van 1024 × 1024
 	(`forest_texture.png`). Die is niet meegekomen: de UV's zijn omgezet
 	naar de gedeelde kits/colormap.png. Geen enkele kleur lag verder dan
-	58 van een bestaande cel — geen nieuwe kleur nodig. De geometrie is
-	verder ongemoeid.
+	58 van een bestaande cel — geen nieuwe kleur nodig.
+
+	Elk hoekpunt is vóór het hermappen ontkoppeld van de driehoeken die
+	het delen (tools/glb.mjs, `ontvlecht()`), zodat een hoekpunt op de
+	rand tussen twee tinten niet met de UV van de ene driehoek dwars over
+	de kleuren tussen twee cellen heen kan slepen. De geometrie is verder
+	ongemoeid.

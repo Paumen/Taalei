@@ -26,7 +26,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer } from './glb.mjs';
+import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
 import { leesPng, schrijfPng } from './png.mjs';
 import {
   doelPunten, hermapUv, toetsDriehoeken, voegGradientCelToe, gevuldeCellen, kopieerColormap, naarHex,
@@ -144,8 +144,9 @@ const perKleur = new Map();
 const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
-  const ruw = leesGltf(bron);
+  let ruw = leesGltf(bron);
   const meshIndexen = ruw.json.meshes.map((_, i) => i);
+  ruw = ontvlecht(ruw, meshIndexen);
 
   const tweedeAtlas = MET_TWEEDE_ATLAS[bron];
   let omgezet, ergsteAfstand, gesnapt;

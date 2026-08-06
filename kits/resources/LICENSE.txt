@@ -45,7 +45,11 @@
 	omgezet naar de gedeelde kits/colormap.png. Geen enkele kleur lag
 	verder dan 84 van een bestaande cel — geen nieuwe kleur nodig. De
 	metalen staven hebben een glanzende highlight die over een groter
-	stuk van de bron-atlas loopt dan de andere modellen in deze repo; dat
-	verklaart waarom sommige driehoeken op meerdere cellen van de
-	gedeelde colormap uitkomen (bijv. gold-bars-stack-large). De
-	geometrie is verder ongemoeid.
+	stuk van de bron-atlas loopt dan de andere modellen in deze repo, en
+	delen daarbij hoekpunten tussen driehoeken met een verschillende
+	meerderheidskleur (bijv. gold-bars-stack-large). Onopgelost zou dat
+	de UV van de ene driehoek dwars over de kleuren tussen twee cellen
+	heen laten slepen — zichtbaar als willekeurige strepen. Elk hoekpunt
+	is daarom vóór het hermappen ontkoppeld van de driehoeken die het
+	delen (tools/glb.mjs, `ontvlecht()`). De geometrie is verder
+	ongemoeid.

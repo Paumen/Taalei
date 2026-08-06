@@ -12,13 +12,13 @@
  * de pack zelf (`colum` i.p.v. `column`) en is bewust ongewijzigd overgezet —
  * dat is de naam die gevraagd is.
  *
- * Twee schaalfamilies in één pack, zie SCHAAL_GROOT/SCHAAL_KLEIN hieronder.
+ * Eén schaalfactor voor de hele pack (stijlgids §4), zie SCHAAL hieronder.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer } from './glb.mjs';
+import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
 import { leesPng } from './png.mjs';
 import { doelPunten, hermapUv, toetsDriehoeken, kopieerColormap } from './kleurmap.mjs';
 
@@ -28,67 +28,21 @@ const DOEL = join(KITS, 'dungeon');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * Deze pack draagt twee schaalfamilies naast elkaar, niet één zoals de
- * andere KayKit-packs in deze catalogus:
+ * Eén factor voor de hele pack (stijlgids §4): "wandhoogte = 1 eenheid" is
+ * het ijkpunt. Elke wand is in de bron 4 breed × 4 hoog; op 0,25 komt dat op
+ * 1 × 1 uit, mini-dungeon's eigen wand is 1 × 1 × 1,1.
  *
- * - de wanden, vloeren, het plafondtegel, de barrières, de pilaar, het puin
- *   en de zuil staan op een eigen bouwraster: elke wand is 4 breed × 4 hoog,
- *   elke vloertegel 4 × 4 of 2 × 2, precies zoals `ceiling_tile` (4 × 4) en
- *   `barrier` (4 breed) daar weer op aansluiten. Op 0,25 komt de wand op
- *   1 breed × 1 hoog uit — mini-dungeon's eigen wand is 1 × 1 × 1,1.
- * - de rest (meubels, containers, gereedschap, decor) staat niet op dat
- *   raster: geen van hun maten is een veelvoud van het rastergetal, en ze
- *   kloppen al tegen wat er staat — chair (0,75 × 0,75 × 1,227) is een
- *   geloofwaardige stoel, key (0,896 × 0,142 × 0,403) ligt vlak naast
- *   mini-dungeon's eigen key (0,591 × 0,157 × 0,356), coin (0,36 × 0,36 ×
- *   0,125) naast mini-dungeon's coin (0,415 × 0,167 × 0,417).
- *
- * Eén uitzondering die er niet is: `chest`/`chest_gold` (1,7 × 1,45 × 1,3)
- * is groter dan elke bestaande "chest" in de catalogus (0,2-0,55), maar
- * intern consistent met de rest van deze pack: tafel, stoel en kruk kloppen
- * allemaal tegen bestaande maten — dus geen apart geval, gewoon een grotere
- * kist dan Kenney's eigen ontwerp.
+ * Een eerste versie van dit script gaf de meubels, containers en het decor
+ * hun eigen factor 1 (ongeschaald), met de redenering dat chair
+ * (0,75 × 0,75 × 1,227) op zichzelf een geloofwaardige stoel is. Dat is waar,
+ * maar mist het punt: naast een wand van 1 hoog staat een stoel van 1,227
+ * hoog dan hoger dan de muur, en een kist (chest, 1,3 hoog) er nog overheen.
+ * De verhouding chair/wall in de bron zelf — 1,227 / 4 = 31% — is wél
+ * geloofwaardig; die verhouding gaat pas verloren als de twee met een
+ * verschillende factor worden geschaald. Vandaar terug naar één factor voor
+ * alles, zoals de stijlgids voorschrijft.
  */
-const SCHAAL_GROOT = 0.25;
-const SCHAAL_KLEIN = 1;
-
-/**
- * Modellen op het bouwraster; alles wat hier niet in staat krijgt SCHAAL_KLEIN.
- *
- * `column` staat hier bewust niet in: die is met 0,7 × 0,7 × 1,4 geen
- * veelvoud van het rastergetal en klopt al tegen mini-dungeon's eigen column
- * (0,5 × 0,5 × 1,1) — een kleine sokkel, geen structurele pilaar zoals
- * `pillar` (die wél de volledige wandhoogte van 4 heeft). Groepering is een
- * apart verhaal: tools/semantiek.mjs zet `column` samen met `pillar` in het
- * bouwpakket, net als bij mini-dungeon.
- */
-const GROOT = new Set([
-  'barrier', 'barrier_colum_half', 'barrier_column', 'barrier_corner', 'barrier_half',
-  'ceiling_tile', 'pillar', 'rubble_half', 'rubble_large',
-  'floor_dirt_large', 'floor_dirt_large_rocky', 'floor_dirt_small_A', 'floor_dirt_small_B',
-  'floor_dirt_small_C', 'floor_dirt_small_D', 'floor_dirt_small_corner', 'floor_dirt_small_weeds',
-  'floor_foundation_allsides', 'floor_foundation_corner', 'floor_foundation_diagonal_corner',
-  'floor_foundation_front', 'floor_foundation_front_and_back', 'floor_foundation_front_and_sides',
-  'floor_tile_big_grate', 'floor_tile_big_grate_open', 'floor_tile_big_spikes',
-  'floor_tile_extralarge_grates', 'floor_tile_extralarge_grates_open',
-  'floor_tile_grate', 'floor_tile_grate_open', 'floor_tile_large', 'floor_tile_large_rocks',
-  'floor_tile_small', 'floor_tile_small_broken_A', 'floor_tile_small_broken_B',
-  'floor_tile_small_corner', 'floor_tile_small_decorated',
-  'floor_tile_small_weeds_A', 'floor_tile_small_weeds_B',
-  'floor_wood_large', 'floor_wood_large_dark', 'floor_wood_small', 'floor_wood_small_dark',
-  'wall', 'wall_Tsplit', 'wall_Tsplit_sloped', 'wall_arched', 'wall_archedwindow_gated',
-  'wall_archedwindow_gated_scaffold', 'wall_archedwindow_open', 'wall_broken', 'wall_corner',
-  'wall_corner_gated', 'wall_corner_scaffold', 'wall_corner_small', 'wall_cracked', 'wall_crossing',
-  'wall_doorway', 'wall_doorway_Tsplit', 'wall_doorway_scaffold', 'wall_doorway_sides',
-  'wall_endcap', 'wall_gated', 'wall_half', 'wall_half_endcap', 'wall_half_endcap_sloped',
-  'wall_open_scaffold', 'wall_pillar', 'wall_scaffold', 'wall_shelves', 'wall_sloped',
-  'wall_window_closed', 'wall_window_closed_scaffold', 'wall_window_open', 'wall_window_open_scaffold',
-  // De trappen staan óók op het bouwraster (hoogte 4-5,1, breedte 4-8), maar
-  // gaan qua groep naar "verbinding" — zie tools/semantiek.mjs — net als de
-  // trappen van fantasy-town, die ook niet in het bouwpakket zitten.
-  'stairs', 'stairs_long', 'stairs_narrow', 'stairs_wall_left', 'stairs_wall_right',
-  'stairs_walled', 'stairs_wide', 'stairs_wood', 'stairs_wood_decorated',
-]);
+const SCHAAL = 0.25;
 
 /** Bronbestand (zonder .gltf) → naam in de kit: underscore → kebab-case. */
 const BRONNEN = [
@@ -161,9 +115,9 @@ const perKleur = new Map();
 const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
-  const schaal = GROOT.has(bron) ? SCHAAL_GROOT : SCHAAL_KLEIN;
-  const ruw = leesGltf(bron);
+  let ruw = leesGltf(bron);
   const meshIndexen = ruw.json.meshes.map((_, i) => i);
+  ruw = ontvlecht(ruw, meshIndexen);
 
   const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen);
   const glb = compacteer(ruw, meshIndexen);
@@ -182,11 +136,11 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
     generator: 'tools/importeer-dungeon.mjs',
     version: '2.0',
     extras: {
-      taaleiland: { versie: 1, schaal, tangenten: 'gestript', palet: 1, bron: 'KayKit Dungeon Asset Pack' },
+      taaleiland: { versie: 1, schaal: SCHAAL, tangenten: 'gestript', palet: 1, bron: 'KayKit Dungeon Asset Pack' },
     },
   };
 
-  const voor = zetOpOorsprong(glb, naam, schaal);
+  const voor = zetOpOorsprong(glb, naam, SCHAAL);
   const verdacht = toetsDriehoeken(glb, glb.json.meshes.map((_, i) => i), doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
@@ -194,7 +148,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
 
   const na = meetScene(leesGlb(pad));
   const maat = (m) => m.wdh.map((v) => v.toFixed(2).padStart(5)).join(' × ');
-  console.log(`${bron.padEnd(34)} → ${naam.padEnd(34)} [${schaal}] ${maat(voor)} → ${maat(na)}  ${String(na.driehoeken).padStart(4)} tri  ${omgezet.size} kleur(en)`);
+  console.log(`${bron.padEnd(34)} → ${naam.padEnd(34)} [${SCHAAL}] ${maat(voor)} → ${maat(na)}  ${String(na.driehoeken).padStart(4)} tri  ${omgezet.size} kleur(en)`);
 
   for (const [van, k] of omgezet) {
     if (!perKleur.has(van)) perKleur.set(van, { naar: k.naar, cel: k.cel, afstand: k.afstand, modellen: [] });
