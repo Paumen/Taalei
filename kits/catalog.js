@@ -24,6 +24,14 @@ const GROEP_ALIASSEN = {
 
 const ZWAAR_VANAF = 5000;
 
+/**
+ * Driehoeken per 1×1×1 unit waarboven een model uit de pas loopt met de
+ * stijlgids (§4). Los van ZWAAR_VANAF, want dat is een absolute telling: een
+ * schip van 5000 driehoeken is groot, een kruk van 1500 is te fijn gemodelleerd
+ * — twee verschillende soorten zwaar, allebei het aankijken waard.
+ */
+const BUDGET_PER_UNIT = 1000;
+
 const getal = new Intl.NumberFormat('nl-NL');
 
 const paneel = document.querySelector('#paneel');
@@ -127,7 +135,12 @@ function ontkoppelViewer(vak) {
 function maakKaart(model, kits, groepen, weergave) {
   const kit = kits.get(model.kit);
   const groep = groepen.get(model.groep);
-  const zwaar = model.driehoeken >= ZWAAR_VANAF;
+  const dichtheid = model.driehoekenPerUnit;
+  const bovenBudget = dichtheid > BUDGET_PER_UNIT;
+  // Eén rood label voor twee redenen: veel driehoeken, of veel driehoeken op
+  // weinig ruimte. Wat er precies aan de hand is, staat in de tooltip en in het
+  // detailpaneel; op de kaart is het genoeg dat het opvalt.
+  const zwaar = model.driehoeken >= ZWAAR_VANAF || bovenBudget;
 
   const kaart = document.createElement('button');
   kaart.type = 'button';
@@ -143,9 +156,11 @@ function maakKaart(model, kits, groepen, weergave) {
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
   const meta = span('kaart-meta');
+  const tri = span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`);
+  tri.title = `${getal.format(dichtheid)} driehoeken per unit${bovenBudget ? ` — boven het budget van ${getal.format(BUDGET_PER_UNIT)}` : ''}`;
   meta.append(
     span('kaart-merk', kit?.naam ?? model.kit),
-    span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`),
+    tri,
     span('kaart-grootte', bytesLeesbaar(model.bytes)),
   );
   tekst.append(span('kaart-naam', model.naam), meta);
@@ -266,6 +281,15 @@ function toonDetail(model, kit, groep) {
     ['Bestand', model.pad],
     ['Afmetingen (b × d × h)', afmeting(model.wdh)],
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
+    // Het budget uit de stijlgids: elke as telt voor minstens één unit mee, dus
+    // een model dat binnen één rastercel blijft wordt niet afgerekend op hoe
+    // klein het is (tools/glb.mjs).
+    [
+      'Driehoeken per unit',
+      model.driehoekenPerUnit === undefined
+        ? '—'
+        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > BUDGET_PER_UNIT ? ` (boven budget van ${getal.format(BUDGET_PER_UNIT)})` : ''}`,
+    ],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
     // Alleen de onderwater-kit is gerigd; bij de rest heeft de rij niets te melden.

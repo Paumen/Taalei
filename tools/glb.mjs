@@ -275,6 +275,28 @@ export function meetScene(glb) {
   };
 }
 
+/**
+ * Driehoeken per 1×1×1 unit — het tekenbudget uit de stijlgids §4 (max 1000).
+ *
+ * De noemer is niet zomaar b × d × h. Een vloertegel is 1 × 1 × 0 en een munt
+ * 0,09 × 0,09 × 0,03: door het rauwe volume gedeeld levert de eerste oneindig
+ * op en de tweede 318.000, terwijl beide met een handvol driehoeken klaar zijn.
+ * Zo'n getal zegt niets over het tekenwerk.
+ *
+ * Daarom telt elke as voor minstens één unit mee: het model bezet nu eenmaal
+ * een hele rastercel, ook als het die niet vult. Een object dat binnen één cel
+ * blijft, krijgt het volle budget van 1000; pas wat over meer cellen uitloopt
+ * — de grote schepen, de stapels staven — krijgt er naar rato meer bij.
+ *
+ * @param {number} driehoeken  telling uit meetScene()
+ * @param {number[]} wdh       breedte × diepte × hoogte in rastereenheden
+ * @returns {number} driehoeken per unit, op een heel getal afgerond
+ */
+export function driehoekenPerUnit(driehoeken, wdh) {
+  const units = wdh.reduce((product, maat) => product * Math.max(maat, 1), 1);
+  return Math.round(driehoeken / units);
+}
+
 /* -- opschonen ------------------------------------------------------------
  * Een geïmporteerde pack draagt meer mee dan de catalogus kan gebruiken: de
  * tropical-pack levert drie LOD-meshes in één bestand, allemaal in de scène en

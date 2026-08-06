@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, bepaalGroep } from './semantiek.mjs';
-import { leesGlb, meetScene } from './glb.mjs';
+import { leesGlb, meetScene, driehoekenPerUnit } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -235,7 +235,13 @@ function schrijfVersie() {
   console.log(`versie ${versie} → index.html`);
 }
 
-/* -- catalogus opbouwen --------------------------------------------------- */
+/* -- catalogus opbouwen ---------------------------------------------------
+ * Het tekenbudget uit docs/asset_style_guide.md §4. Geen harde fout: de kits
+ * zijn ingekocht zoals ze zijn, en een model dat erboven zit is een kandidaat
+ * om te vereenvoudigen, geen bouwstop. De build noemt ze bij naam zodat de
+ * lijst niet stilletjes groeit.
+ */
+const BUDGET_PER_UNIT = 1000;
 
 const kitMeta = leesKitMetadata();
 const palet = leesPalet();
@@ -282,6 +288,10 @@ for (const slug of kitSlugs) {
       pad,
       bytes: statSync(join(dir, bestand)).size,
       driehoeken: scene.driehoeken,
+      // Dezelfde telling afgezet tegen de ruimte die het model inneemt, zodat
+      // een groot model niet vanzelf "zwaar" heet en een klein model niet
+      // vanzelf zuinig. De stijlgids (§4) legt de grens op 1000.
+      driehoekenPerUnit: driehoekenPerUnit(scene.driehoeken, scene.wdh),
       materialen: (gltf.materials ?? []).length,
       // Breedte × diepte × hoogte in rastereenheden (1 = één wand-/vloersegment).
       wdh: scene.wdh,
@@ -423,6 +433,16 @@ for (const kit of kits) {
 for (const kit of kits) {
   if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad) {
     console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
+  }
+}
+
+const bovenBudget = modellen
+  .filter((m) => m.driehoekenPerUnit > BUDGET_PER_UNIT)
+  .sort((a, b) => b.driehoekenPerUnit - a.driehoekenPerUnit);
+if (bovenBudget.length) {
+  console.warn(`! ${bovenBudget.length} modellen boven ${BUDGET_PER_UNIT} driehoeken per unit:`);
+  for (const m of bovenBudget) {
+    console.warn(`  ${String(m.driehoekenPerUnit).padStart(5)}  ${m.id}  (${m.driehoeken} tri, ${m.wdh.join(' × ')})`);
   }
 }
 
