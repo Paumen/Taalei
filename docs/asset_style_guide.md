@@ -35,10 +35,11 @@ For an LLM creating or adjusting assets.
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
 - No solid pieces thinner than 0.015 units.
-- Max 1000 tris per 1x1x1 unit. Measured as tris ÷ (max(w,1) × max(d,1) × max(h,1)),
-  so an asset that stays inside one grid cell gets the full 1000 no matter how small
-  it is, and only an asset spanning more cells gets more. `build-catalog.mjs` records
-  it per model as `driehoekenPerUnit` and names everything above the budget.
+- Max 1000 tris per 1x1x1 unit. Measured as tris ÷ (w × d × h) over the bounding box,
+  with no lower bound on the volume: an asset filling a fraction of a cell is judged on
+  that fraction, so small objects have to stay coarse. A flat asset has no volume and
+  therefore no density. `build-catalog.mjs` records it per model as `driehoekenPerUnit`
+  (`null` when flat) and reports everything above the budget.
 - Imported packs get one scale factor for the whole pack, never one per model — that keeps
   the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25
   (`tools/importeer-onderwater.mjs`). Its internal proportions are the pack's, oddities

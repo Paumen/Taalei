@@ -286,23 +286,24 @@ export const BUDGET_PER_UNIT = 1000;
 /**
  * Driehoeken per 1×1×1 unit — afgezet tegen BUDGET_PER_UNIT hierboven.
  *
- * De noemer is niet zomaar b × d × h. Een vloertegel is 1 × 1 × 0 en een munt
- * 0,09 × 0,09 × 0,03: door het rauwe volume gedeeld levert de eerste oneindig
- * op en de tweede 318.000, terwijl beide met een handvol driehoeken klaar zijn.
- * Zo'n getal zegt niets over het tekenwerk.
+ * De noemer is het volume van de bounding box zoals hij is: b × d × h, zonder
+ * ondergrens. Een model dat maar een fractie van een rastercel vult, wordt dus
+ * afgerekend op die fractie — een munt van 0,09 × 0,09 × 0,03 komt op ruim
+ * 300.000 uit. Dat is wat de regel letterlijk zegt: driehoeken per unit ruimte,
+ * niet per bezette cel.
  *
- * Daarom telt elke as voor minstens één unit mee: het model bezet nu eenmaal
- * een hele rastercel, ook als het die niet vult. Een object dat binnen één cel
- * blijft, krijgt het volle budget; pas wat over meer cellen uitloopt
- * — de grote schepen, de stapels staven — krijgt er naar rato meer bij.
+ * Een vlak model heeft geen volume en dus geen dichtheid: bij een as op nul is
+ * de uitkomst `null`, niet oneindig. Dat zijn er vier — de twee vloertegels en
+ * de twee grasplekken — en die staan met een handvol driehoeken toch al buiten
+ * elke discussie over budget.
  *
  * @param {number} driehoeken  telling uit meetScene()
  * @param {number[]} wdh       breedte × diepte × hoogte in rastereenheden
- * @returns {number} driehoeken per unit, op een heel getal afgerond
+ * @returns {number|null} driehoeken per unit, afgerond; null bij een plat model
  */
 export function driehoekenPerUnit(driehoeken, wdh) {
-  const units = wdh.reduce((product, maat) => product * Math.max(maat, 1), 1);
-  return Math.round(driehoeken / units);
+  const units = wdh.reduce((product, maat) => product * maat, 1);
+  return units > 0 ? Math.round(driehoeken / units) : null;
 }
 
 /* -- opschonen ------------------------------------------------------------
