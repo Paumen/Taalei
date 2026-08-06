@@ -14,7 +14,7 @@ apt
 * imagemagick, graphviz
 
 Browsers
-" Playwright Chromium (+ system deps)
+* Playwright Chromium (+ system deps)
 
 Binaries
 * GitHub CLI (gh), latest release → /usr/local/bin
