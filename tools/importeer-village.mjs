@@ -34,12 +34,18 @@
  *
  * -- schaal ---------------------------------------------------------------
  *
- * De pack staat al op het raster van de repo en wordt dus niet geschaald
- * (stijlgids §4). Dat is niet één ijkpunt maar het hele pakket: een wandsegment
- * is 1,00 × 1,00 met een dikte van 0,06, `Stucco_Block` is 1,00 × 1,00 × 1,00,
- * de vloertegels zijn 1,00 × 1,00 en de brede deuropeningen precies 2,00 hoog —
- * twee wandhoogtes. 108 van de 138 ingeladen modellen hebben een rand die exact
- * op een halve rastereenheid ligt.
+ * De pack gaat op 0,5 het raster van de repo op. Een eerste import nam 1 aan,
+ * omdat de maten zelf op het raster liggen: wandsegmenten van 1,00 × 1,00,
+ * `Stucco_Block` 1,00 × 1,00 × 1,00, vloertegels 1,00 × 1,00, brede
+ * deuropeningen precies 2,00. Maar op factor 1 is álles het dubbele van wat
+ * dezelfde voorwerpen in de rest van de collectie meten (zie
+ * docs/asset_size_review.md): de pack zet zijn raster op halve repo-units.
+ * Op 0,5 valt hij op zijn plek — de roeiboot (1,16) naast die van de
+ * pirate-kit (1,10), de molenwieken (3,50) naast de molen van de
+ * fantasy-town-kit (3,11), het krat (0,50) gelijk aan dat van de
+ * platformer-kit, en de hoge stenen doorgangen op precies één wandhoogte.
+ * De rastermaten blijven rastervast: tegels van 0,50 × 0,50, zoals de kleine
+ * vloertegels van de dungeon-kit.
  *
  * -- oorsprong ------------------------------------------------------------
  *
@@ -81,8 +87,8 @@ const KITS = join(ROOT, 'kits');
 const DOEL = join(KITS, 'village-kit');
 const COLORMAP = join(KITS, 'colormap.png');
 
-/** Zie de kop: de pack staat al op het raster van de repo. */
-const SCHAAL = 1;
+/** Zie de kop: de pack zet zijn raster op halve repo-units. */
+const SCHAAL = 0.5;
 
 /**
  * De drie kleuren die niet uit kits/colormap.png te halen waren.
