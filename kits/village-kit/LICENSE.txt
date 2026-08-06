@@ -23,16 +23,31 @@
 	Anders dan de andere geïmporteerde packs komt deze niet als .fbx maar
 	als 155 losse .obj-bestanden met één gedeelde .mtl ernaast. Er is dus
 	geen omweg via FBX2glTF: tools/importeer-village.mjs leest die twee
-	formaten zelf. Alle 155 modellen zijn ingeladen.
+	formaten zelf.
+
+	Van de 155 modellen in de pack zijn er 138 ingeladen. Deze zeventien
+	niet:
+
+	  Kit_Window_Upper_Convex     Stone_Pillar
+	  Prop_Cart_1_Barrels         Stone_Pillar_Base
+	  Prop_Cart_1_Hay             Stone_Sewer_Grate_1
+	  Prop_Hay_1                  Stone_Sewer_Grate_2
+	  Roof_Prop_Chimney_Stone     Stone_Stairs_Railing
+	  Stone_Arch_Outer            Stone_Steps
+	  Stone_Floor_1               Stone_Steps_Side_1
+	  Stone_Floor_2               Stone_Steps_Side_2
+	  Waterwheel_Flume_Curved
+
+	Ze zijn overgeslagen op verzoek van de eigenaar van dit project, niet
+	om iets aan de modellen zelf. Wie ze alsnog wil, zet de regel terug in
+	NAMEN in tools/importeer-village.mjs en draait het script opnieuw; het
+	script noemt bij elke run op wat het overslaat.
 
 	De naamgeving van de pack scheidt met liggende streepjes en nummert
 	door vanaf 1; hier is dat kebab-case met letterachtervoegsels:
 
 	  Stone_Wall_1..5                → stone-wall-a .. stone-wall-e
 	  Stone_Curb_1..4                → stone-curb-a .. stone-curb-d
-	  Stone_Floor_1..2               → stone-floor-a, stone-floor-b
-	  Stone_Steps_Side_1..2          → stone-steps-side-a, -b
-	  Stone_Sewer_Grate_1..2         → stone-sewer-grate-a, -b
 	  Stone_Doorway_*_1..2           → stone-doorway-*-a, -b
 	  Stone_to_Stucco_Doorway_*      → stone-stucco-doorway-wide-tall-a, -b
 	  Stucco_Window_*                → stucco-window-* (twaalf varianten)
@@ -51,9 +66,10 @@
 	niet over het model. `Prop_`, `Wall_Prop_` en `Roof_Prop_` zeggen
 	alleen dát het een los voorwerp is en waar het hoort, dus
 	`Prop_Barrel_1` heet hier `barrel-a`, `Wall_Prop_Bell_1` `bell-a` en
-	`Roof_Prop_Chimney_Stone` `chimney-stone`. `Stucco_Prop_Support_` wordt
-	`stucco-support-`, en `Kit_Window_Upper_` wordt `window-upper-`: dat
-	zijn geen losse ramen maar twee kant-en-klare bovenverdiepingen.
+	`Roof_Prop_Chimney_Pipe` `chimney-pipe`. `Stucco_Prop_Support_` wordt
+	`stucco-support-`, en `Kit_Window_Upper_Straight` wordt
+	`window-upper-straight`: dat is geen los raam maar een kant-en-klare
+	bovenverdieping.
 
 	Vier namen zeggen niet goed wat het model is. `Prop_Well_Cobblestone`,
 	`_Dirt` en `_Grass` zijn niet drie putten maar drie grondvlakken van
@@ -82,8 +98,8 @@
 	materialen één vlakke kleur, en elke driehoek wijst één materiaal aan.
 	Die kleuren zijn omgezet naar de gedeelde kits/colormap.png. Omdat een
 	hele driehoek daarbij één UV krijgt, kan er geen driehoek over twee
-	cellen komen te liggen. De geometrie is verder ongemoeid; de 38 522
-	driehoeken van de pack staan er alle 38 522 nog.
+	cellen komen te liggen. De geometrie is verder ongemoeid: de 27 952
+	driehoeken van de ingeladen modellen staan er alle 27 952 nog.
 
 	Daarbij zijn er drie kleuren aan de gedeelde colormap toegevoegd, op
 	de lege cellen [8,0], [14,0] en [14,3]: het dakrood, het hout en het

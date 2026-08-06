@@ -18,7 +18,7 @@ export const GROEPEN = [
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
     tabblad: 'bouwpakket',
-    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Het zijn er twee naast elkaar — dat van fantasy-town en dat van de village-kit — en ze passen niet op elkaar; kijk dus ook naar de kit voordat je twee stukken combineert. Eigen tabblad, want honderdzeventig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
+    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Het zijn er twee naast elkaar — dat van fantasy-town en dat van de village-kit — en ze passen niet op elkaar; kijk dus ook naar de kit voordat je twee stukken combineert. Eigen tabblad, want honderdvijftig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
   { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
     beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten. Ook de waterput met zijn onderdelen: de drie grondvlakken die eronder gaan en de schacht die erin zit.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
@@ -76,8 +76,8 @@ const KIT_GROEPEN = {
 const BOUWPAKKETTEN = [
   ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
   ['mini-dungeon', /^column\b/],
-  // De village-kit is bijna helemaal bouwpakket: van de 155 modellen klikken er
-  // 131 op hetzelfde raster aan elkaar. De 24 die overblijven zijn de 21 die de
+  // De village-kit is bijna helemaal bouwpakket: van de 138 modellen klikken er
+  // 117 op hetzelfde raster aan elkaar. De 21 die overblijven zijn de 18 die de
   // pack zelf `Prop_` noemt plus `sign-a`, `bell-a` en `lamp-wall`; die staan
   // los en gaan naar hun soortgenoten uit de andere kits.
   //
@@ -127,8 +127,7 @@ const regels = [
   // iets in bewaart, en `mushroom` (enkelvoud, het eten uit de props-kit) mag
   // niet bij `mushrooms` (meervoud, de begroeiing van mini-forest) belanden.
   [/^(table|bench|stool|jug|plate|cup|candle|carpet|bag|roast|meat|mushroom)\b/, 'huisraad'],
-  // `hay` is de losse hooibaal; de kar mét hooi valt al op `cart`.
-  [/^(chest|barrel|box|crate|pot|bucket|bottle|cart|resource|hay)\b|-bottles$/, 'opslag'],
+  [/^(chest|barrel|box|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
   // De luchtballon hoort bij het overbruggen van hoogte: in docs/draft_spec.md is
   // hij de route naar het onbereikbare plateau.
   [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
@@ -162,7 +161,7 @@ const WOORDENBOEK = {
   accent: ['sierlijst', 'accent'], angled: ['schuin', 'schuine'], arch: ['boog', 'poortboog'],
   arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'], axe: ['bijl'],
   bag: ['zak', 'buidel'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
-  banner: ['banier', 'vaandel'], barrel: ['vat', 'ton'], barrels: ['vaten'],
+  banner: ['banier', 'vaandel'], barrel: ['vat', 'ton'],
   base: ['voet', 'sokkel', 'ondergrond'], baseboard: ['plint'], beam: ['balk', 'draagbalk'],
   bell: ['bel', 'klok', 'luidklok'], bench: ['bank', 'zitbank'], blade: ['wiek'],
   blades: ['wieken', 'wiek'], block: ['blok'], boat: ['boot', 'roeiboot'], bottle: ['fles'],
@@ -185,9 +184,9 @@ const WOORDENBOEK = {
   fire: ['vuur', 'vuurschaal'], firewood: ['brandhout', 'hout'], fish: ['vis'], flag: ['vlag'],
   floor: ['vloer', 'grond'], flowers: ['bloemen'], flume: ['goot', 'molengoot', 'waterloop'],
   foliage: ['begroeiing'], fountain: ['fontein'], full: ['vol', 'heel'], gate: ['poort', 'hek'],
-  gathered: ['opgehoopt', 'hoop'], grass: ['gras'], grate: ['rooster', 'put'],
+  gathered: ['opgehoopt', 'hoop'], grass: ['gras'],
   half: ['half', 'halve'], hammer: ['hamer'], hammerhead: ['hamerhaai', 'haai'], hard: ['hard'],
-  hay: ['hooi', 'hooibaal'], heart: ['hart'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
+  heart: ['hart'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
   inner: ['binnen', 'binnenhoek'], inside: ['binnenkant', 'binnenin'], jug: ['kan', 'kruik'],
   key: ['sleutel'], ladder: ['ladder'], lamp: ['lamp', 'lantaarn'], large: ['groot', 'grote'],
   leg: ['poot', 'bout'], lever: ['hendel'], lighthouse: ['vuurtoren', 'toren', 'baken'],
@@ -211,7 +210,7 @@ const WOORDENBOEK = {
   roof: ['dak'], room: ['kamer', 'ruimte', 'grot'], rope: ['touw'], ropes: ['touwen'],
   rounded: ['rond', 'afgerond'], sand: ['zand', 'strand'],
   scallop: ['sint-jakobsschelp', 'schelp'], seal: ['zeehond', 'rob'],
-  seaweed: ['zeewier', 'wier'], sewer: ['riool'], shark: ['haai'], shell: ['schelp'],
+  seaweed: ['zeewier', 'wier'], shark: ['haai'], shell: ['schelp'],
   ship: ['schip', 'boot'], short: ['kort'], shovel: ['schep'], shutters: ['luiken'],
   side: ['zijkant', 'zijde'], sides: ['zijkanten', 'zijden'], sign: ['bord', 'wegwijzer'],
   signpost: ['wegwijzer', 'bord'], simple: ['eenvoudig', 'simpel'], single: ['enkel', 'enkele'],
