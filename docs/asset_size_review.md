@@ -8,14 +8,24 @@ side-by-side renders of ~110 comparable assets. The renders are in
 `NODE_PATH=$(npm root -g) node tools/vergelijk-groottes/render.mjs`
 (groups defined in `tools/vergelijk-groottes/groups.json`).
 
-The review's biggest catch has already been fixed in this branch: the
-village-kit had been imported at factor 1 while the pack puts its grid on
-half repo-units, so every model in it was exactly 2× too big. It now loads
-at 0.5 (`tools/importeer-village.mjs`), which snaps it onto the rest of the
-collection: its rowboat (1.16) next to pirate-kit's (1.10), its windmill
-blades (3.50) next to fantasy-town-kit's windmill (3.11), its crate (0.50)
-equal to platformer-kit's, and its tall stone doorways at exactly one wall
-height. All numbers and renders below are from after that fix.
+The review's biggest catch has already been fixed in this branch: two kits
+had been imported at factor 1 while their packs put everything at double
+the collection's scale. Both now load at 0.5:
+
+- **village-kit** (`tools/importeer-village.mjs`): its rowboat (1.16) now
+  sits next to pirate-kit's (1.10), its windmill blades (3.50) next to
+  fantasy-town-kit's windmill (3.11), its crate (0.50) equals
+  platformer-kit's, and its tall stone doorways are exactly one wall
+  height.
+- **forest** (`tools/importeer-forest.mjs`): its grass (0.27–0.47) now
+  sits in the 0.13–0.46 grass cluster of five other kits instead of
+  towering over it at 0.54–0.94, its boulders top out at 1.9 next to
+  pirate-kit's 1.5 and modulair-terrein's 2.1, and its bare trees
+  (1.4–3.8) land between nature's dead tree (1.7) and modulair-terrein's
+  oaks. The original import compared its grass *height* against another
+  kit's grass *width* and concluded no scaling was needed.
+
+All numbers and renders below are from after these fixes.
 
 ## 1. The grid is healthy
 
@@ -40,29 +50,31 @@ grid-true, one subdivision finer.
 
 To compare kits quantitatively, each comparable object was expressed as a
 ratio to the cross-kit median for its class (barrels, crates, chests,
-doorways, bottles, torches, axes, picks, shovels, fences, trees, palms,
-ladders, carts, rowboats, windmill rotors, campfires, tables, stools, tents,
-lanterns), then aggregated per kit (geometric mean):
+doorways, bottles, torches, axes, picks, shovels, fences, trees, grass,
+palms, ladders, carts, rowboats, windmill rotors, campfires, tables,
+stools, tents, lanterns, largest boulders), then aggregated per kit
+(geometric mean):
 
 | kit | index | n | notable internal outliers |
 |---|---|---|---|
 | tropical | 0.73 | 3 | chest 0.44 |
-| nature | 0.74 | 1 | — |
 | dungeon | 0.75 | 9 | stool 0.45, table 0.48 vs barrel 1.0 |
+| nature | 0.85 | 1 | — |
+| mini-forest | 0.87 | 5 | — |
+| forest | 0.89 | 3 | — |
 | modular-cave-kit | 0.89 | 2 | — |
 | mini-dungeon | 0.90 | 3 | — |
-| mini-forest | 0.92 | 4 | — |
-| platformer-kit | 0.95 | 4 | — |
+| pirate-kit | 0.91 | 8 | crate 0.62, palisade-fence 2.10 |
 | rpgtools | 0.97 | 5 | — |
-| fantasy-town-kit | 0.98 | 5 | — |
 | village-kit | 0.99 | 7 | barrel 0.51, ladder 1.96 |
-| pirate-kit | 1.06 | 6 | crate 0.62, palisade-fence 2.10 |
-| survival-kit | 1.14 | 10 | palisade-fence 2.47 (a wall, not a field fence) |
-| forest | 1.24 | 1 | — |
+| fantasy-town-kit | 1.01 | 5 | — |
+| platformer-kit | 1.02 | 5 | — |
+| survival-kit | 1.07 | 12 | palisade-fence 2.47 (a wall, not a field fence) |
 | props | 1.29 | 6 | crate 1.48, table 1.52, stool 1.55, barrel 2.04 |
-| modulair-terrein | 1.34 | 8 | palm 1.58, chest 1.61, campfire 2.57 |
+| modulair-terrein | 1.36 | 10 | palm 1.58, chest 1.61, grass 1.65, campfire 2.57 |
+| rocks | 1.54 | 1 | biggest boulders 1.5× the other kits' biggest |
 
-The collection is a single plateau (0.89–1.14 covers ten kits), not two
+The collection is a single plateau (0.85–1.07 covers eleven kits), not two
 camps. What hangs off it:
 
 - **Low end — deliberate caricature.** Dungeon's *furniture* is chibi
@@ -94,12 +106,15 @@ kits, so a person is roughly **0.8–0.9 units**.
 - **Hand tools** (`tools.png`): rpgtools 0.42–0.63 vs survival-kit
   0.48–0.58 — interchangeable.
 - **Field fences** (`fences.png`): 0.38–0.44 across four kits.
+- **Grass** (`grass.png`): 0.13–0.47 across six kits after the forest fix.
 - **Trees** (`trees.png`): mini-forest 1.68 → fantasy-town 2.41 →
-  survival-kit 2.82 → forest 2.9–7.6 reads as a plausible range.
-- **Rocks** (`rocks.png`, `rockforms.png`): boulders 0.4–3.9 across seven
-  kits blend fine. The `rocks` kit `rockform-*` pieces (7.4–9.3 high, up to
-  21 wide) are cliff-scale terrain; they pair with forest's tallest tree
-  (7.6) and are a category of their own, not an error.
+  survival-kit 2.82 → forest's bare trees 1.4–3.8 reads as a plausible
+  range.
+- **Rocks** (`rocks.png`, `rockforms.png`): boulders 0.1–2.1 across seven
+  kits blend fine. The `rocks` kit sits at the top (rock-natural family to
+  3.0), and its `rockform-*` pieces (7.4–9.3 high, up to 21 wide) are
+  cliff-scale terrain — a category of their own, not an error, but by far
+  the largest things in the collection.
 - **Vehicles and mills** (`boats.png`, `carts.png`, `landmarks.png`):
   after the village fix — rowboats 1.10/1.16, carts 1.23/1.34/1.69,
   windmill rotors 3.11/3.50.
@@ -181,5 +196,7 @@ that check; the existing §6 list covers style).
 4. **Re-run this review** after importing a new pack:
    `node tools/vergelijk-groottes/render.mjs` and eyeball the pack's
    barrels/doorways/trees against the reference pieces before committing
-   to a scale factor — the village-kit showed that "the numbers land on
-   the grid" is not enough evidence that the factor is right.
+   to a scale factor — the village-kit and forest showed that "the numbers
+   land on the grid" is not enough evidence that the factor is right, and
+   that like must be compared with like (the original forest import
+   compared grass height against grass width).
