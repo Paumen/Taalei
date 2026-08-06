@@ -47,13 +47,13 @@ export const GROEPEN = [
   { id: 'grondstoffen', naam: 'Grondstoffen & voorraad', kort: 'Grondstoffen', kleur: '#4f7d8c',
     beschrijving: 'De grondstoffen zelf, los van wat je ze in stopt. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen, plus de plankenstapel van de survival-kit. Bruikbaar als opbrengst, ruilmiddel of bouwvoorraad.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
-    beschrijving: 'Bijl, hamer, boog en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
+    beschrijving: 'Bijl, hamer en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
   { id: 'reisgerei', naam: 'Reisgerei & kaarten', kort: 'Reisgerei', kleur: '#caa06a',
     beschrijving: 'Wat een reiziger leest en beschrijft: twee kaarten (een lege en een opgerolde) en een dagboek, open en dicht. Zit helemaal in de rpgtools-kit.' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
   { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer, slot en val: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Voorzichtig inzetten, geen punten-economie.' },
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer en slot: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Voorzichtig inzetten, geen punten-economie.' },
   { id: 'licht', naam: 'Licht & lampen', kort: 'Licht', kleur: '#f2cb45',
     beschrijving: 'Alles wat licht geeft, uit vijf kits bij elkaar: de straatlantaarn en de wandlamp van village-kit, de kaarsen van props en dungeon (los, gesmolten, dun, drievoudig, brandend en gedoofd), het wandschap met kaarsen, de toortsen van dungeon en rpgtools, de lantaarn, en de vuurtoren van Taaleiland zelf. Handig als je een scène wilt uitlichten of een route in het donker wilt markeren.' },
   { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
@@ -135,7 +135,7 @@ const regels = [
   [/^(corridor|room|template)\b/, 'grot'],
   // Zeeleven uit de onderwater-kit. Staat boven de algemene regels omdat
   // `starfish` anders bij de rotsen zou kunnen belanden en `shell-` nergens.
-  [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
+  [/^(crab|dolphin|eel|lobster|octopus|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'zeebodem'],
   // Eten en koken: het vuur waar je op kookt en het hout ernaast, de vis en het
   // vlees, de gedekte tafels en het serviesgoed dat erop staat. Deze regel gaat
@@ -155,7 +155,7 @@ const regels = [
   [/^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
   [/^fish/, 'dieren'],
-  [/^(tool|weapon|workbench)-|^workbench$|^broom$/, 'gereedschap'],
+  [/^(tool|workbench)-|^workbench$|^broom$/, 'gereedschap'],
   // De hele rpgtools-kit aan smids-, timmer- en werkplaatsgereedschap: los
   // opgesomd omdat de namen van de pack zelf geen gemeenschappelijk voorvoegsel
   // hebben (in tegenstelling tot survival-kit's `tool-*`). Het kompas, de
@@ -181,7 +181,7 @@ const regels = [
   // het exacte `key`, omdat de dungeon-kit ook `coin-stack-large/medium/small`
   // meebrengt. `keyring` (een bos dungeonsleutels) hoort bij `key`, niet bij
   // het slot waar hij bij past.
-  [/^(key|star|heart|lever|spring|trap|lock)$|^(bell|coin|keyring)\b/, 'items'],
+  [/^(key|star|heart|lever|spring|lock)$|^(bell|coin|keyring)\b/, 'items'],
   // Huisraad is het meubilair en het vloerkleed. Het serviesgoed staat bij de
   // opslag hieronder, de kaarsen bij het licht hierboven, en het eten met de
   // gedekte tafels bij eten & koken. `table` staat hier nog wel: acht van de elf

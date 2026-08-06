@@ -186,9 +186,7 @@ window.KENNEY_KITS = [
    "target",
    "tent",
    "tree",
-   "tree-high",
-   "weapon-arrow",
-   "weapon-bow"
+   "tree-high"
   ]
  },
  {
@@ -330,7 +328,6 @@ window.KENNEY_KITS = [
    "rocks",
    "stairs",
    "stones",
-   "trap",
    "wall",
    "wall-half",
    "wall-narrow",
@@ -346,9 +343,7 @@ window.KENNEY_KITS = [
   "url": "https://quaternius.com/",
   /* Eigen tabblad: geen colormap maar eigen materiaalkleuren, en geanimeerd. */
   "tabblad": "zee",
-  /* Twee herkomsten in één map, dus de kit kan niet in z'n geheel CC0 heten. */
-  "licentieLabel": "CC0, behalve orca en orca-calf",
-  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest; orca en orca-calf zijn eigen assets die hier op kleur en animatie thuishoren.",
+  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest.",
   "models": [
    "coral-a",
    "coral-b",
@@ -366,9 +361,6 @@ window.KENNEY_KITS = [
    "fish-tuna",
    "lobster",
    "octopus",
-   /* geen Quaternius: eigen assets, zie kits/onderwater-kit/LICENSE.txt */
-   "orca",
-   "orca-calf",
    "penguin",
    "rock-a",
    "rock-b",
@@ -470,7 +462,6 @@ window.KENNEY_KITS = [
    "jug-d",
    "meat-leg-a",
    "mushroom-a",
-   "plate-a",
    "plate-b",
    "plate-c",
    "roast-a",
@@ -899,12 +890,9 @@ window.KENNEY_KITS = [
    "floor-foundation-front",
    "floor-foundation-front-and-back",
    "floor-foundation-front-and-sides",
-   "floor-tile-big-grate",
    "floor-tile-big-grate-open",
    "floor-tile-big-spikes",
-   "floor-tile-extralarge-grates",
    "floor-tile-extralarge-grates-open",
-   "floor-tile-grate",
    "floor-tile-grate-open",
    "floor-tile-large",
    "floor-tile-large-rocks",
