@@ -227,7 +227,7 @@ function toonDetail(model, kit, groep) {
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
     ['Grootte', bytesLeesbaar(model.bytes)],
-    ['Licentie', `CC0 — ${kit?.licentie ?? 'zie kitmap'}`],
+    ['Licentie', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
   gegevens.replaceChildren();
