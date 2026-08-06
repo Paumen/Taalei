@@ -560,7 +560,7 @@ async function start() {
 
   samenvatting.textContent =
     `${data.totaal} modellen · ${data.kits.length} kits · ` +
-    `${data.groepen.filter((g) => g.aantal > 0).length} semantische groepen · ` +
+    `${data.groepen.filter((g) => g.aantal > 0).length} groepen · ` +
     `${data.paletten.length} kleurpaletten`;
 
   const registreer = (sectieDelen, titel, kleur, modellen) => {
