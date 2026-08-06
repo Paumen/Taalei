@@ -297,7 +297,7 @@ const WOORDENBOEK = {
   natural: ['natuurlijk', 'natuursteen'], nugget: ['klompje', 'brok'], nuggets: ['klompjes', 'brokken'],
   oars: ['roeispanen', 'riemen'],
   octopus: ['octopus', 'inktvis'], open: ['open'], opposite: ['tegenover', 'overstaand'],
-  orca: ['orka', 'zwaardwalvis', 'walvis'], ornate: ['sierlijk', 'versierd'],
+  ornate: ['sierlijk', 'versierd'],
   outer: ['buiten', 'buitenhoek'], overhang: ['afdak'], paddle: ['peddel', 'roeispaan'],
   pallet: ['pallet', 'laadbord'],
   palm: ['palm', 'palmboom', 'boom'], parts: ['onderdelen'], patch: ['vlak', 'grondvlak'],
