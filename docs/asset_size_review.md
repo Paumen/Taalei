@@ -10,18 +10,19 @@ side-by-side renders of ~110 comparable assets. The renders are in
 
 ## 0. What was fixed on this branch
 
-Seven scale corrections came out of the review; the collection below is
+Nine scale corrections came out of the review; the collection below is
 described *after* them.
 
 | kit | correction | result |
 |---|---|---|
-| village-kit | pack ×0.5 | rowboat 1.16 next to pirate-kit 1.10; windmill blades 3.50 next to fantasy-town 3.11; crate 0.50 = platformer's; tall doorways exactly 1 wall |
+| village-kit | pack ×0.6 (first 0.5, softened by PO decision) | rowboat 1.39, cart 2.02, crate 0.60, barrel 0.30, windmill blades 4.20; building set tiles its own 0.6-module (doorways 1.20) |
 | forest | pack ×0.5 | grass 0.27–0.47 into the 0.13–0.46 cluster of five kits (the original import compared grass height against grass *width*) |
 | modulair-terrein | pack ×0.5 | palms 1.63 next to 1.69/2.06; chest 0.37, campfire 0.71 into their clusters; terrain tiles become raster-true 0.5 halves |
 | props | pack ×0.6 (first tried 0.5, softened by PO decision) | barrel 0.60, table 0.48, stool 0.26 (seat height), box 0.44; bottles 0.13 as the small side |
 | resources | pack ×0.5 | stone chunks 0.56 next to survival's resource-stones; piles remain readable pickup icons |
 | tropical | 0.5 → 0.6 | barrel 0.43 → 0.52, mid-cluster; pier and plank stay ≈ one module |
 | dungeon | pack 0.25 → 0.35, grid anchor deliberately released (PO decision) | chest 0.46, chair 0.43, bed 1.05, barrel 0.70, bottle 0.31, torch 0.37; walls/floors/doorways now 1.40 |
+| survival-kit | ×0.9 (PO decision; direct kit, no importer — factor recorded in each GLB's extras) | chest 0.46, tree 2.54, doorway 0.93, workbench 0.52, bottle 0.28; index 1.12 → 1.06 |
 
 The dungeon correction went in two steps — first only the furniture subset,
 then (PO decision) the whole pack, restoring one factor per pack (style
@@ -40,10 +41,11 @@ one: modulair-terrein's fences/cedar/minecart and props' tableware
 
 Wall/floor kits on the 1-unit raster: fantasy-town `wall-wood` 1.00,
 modular-cave `template-wall` 1.01, mini-dungeon `wall` 1.10, survival
-palisade 1.03. Village-kit and modulair-terrein sit on half-unit modules
-(tiles 0.50 × 0.50, four per raster cell) — grid-true, one subdivision
-finer. The dungeon kit deliberately left the raster (see §0): its
-architecture is a 1.4-module enclave.
+palisade 0.93. Modulair-terrein sits on half-unit modules (tiles
+0.50 × 0.50, four per raster cell) — grid-true, one subdivision finer.
+Two kits deliberately left the raster by PO decision (§0): the dungeon
+architecture is a 1.4-module enclave, and the village building set a
+0.6-module one (floor tiles 0.60, tall doorways 1.20).
 
 ## 2. One scale plateau
 
@@ -52,30 +54,30 @@ its class (23 classes), aggregated per kit (geometric mean):
 
 | kit | index | n | notable internal outliers |
 |---|---|---|---|
-| modulair-terrein | 0.78 | 10 | cart 0.46, fence 0.55, cedar 0.67 (small side of the pack factor) |
-| props | 0.80 | 6 | bottles 0.41, campfire 0.49 (small side); barrel/table/stool on the plateau |
-| mini-dungeon | 0.86 | 3 | — |
-| modular-cave-kit | 0.89 | 2 | ladder 0.72 (tight rungs) |
+| modulair-terrein | 0.79 | 10 | cart 0.46, fence 0.55, cedar 0.67 (small side of the pack factor) |
+| props | 0.82 | 6 | bottles 0.44, campfire 0.54 (small side); barrel/table/stool on the plateau |
+| mini-dungeon | 0.87 | 3 | — |
 | tropical | 0.90 | 3 | chests 0.53 |
-| mini-forest | 0.93 | 5 | — |
-| village-kit | 0.97 | 7 | barrels 0.45 (half-class), ladder 1.96 (long by intent) |
+| modular-cave-kit | 0.91 | 2 | ladder 0.72 (tight rungs) |
+| mini-forest | 0.94 | 5 | — |
 | pirate-kit | 0.97 | 8 | crate 0.62, palisade 2.20 |
 | nature | 1.00 | 1 | — |
-| dungeon | 1.04 | 9 | doorway 1.38 (the 1.4-module enclave) |
-| fantasy-town-kit | 1.04 | 5 | — |
-| rpgtools | 1.05 | 5 | — |
-| forest | 1.06 | 3 | — |
-| platformer-kit | 1.08 | 5 | — |
-| survival-kit | 1.12 | 12 | palisade 2.59 (a wall, not a field fence) |
+| fantasy-town-kit | 1.03 | 5 | — |
+| dungeon | 1.05 | 9 | doorway 1.45 (the 1.4-module enclave) |
+| survival-kit | 1.06 | 12 | palisade 2.33 (a wall, not a field fence) |
+| forest | 1.07 | 3 | — |
+| platformer-kit | 1.09 | 5 | — |
+| rpgtools | 1.10 | 5 | — |
+| village-kit | 1.14 | 7 | cart 1.51, ladder 2.36; barrel 0.54 (half-class) |
 | rocks | 2.03 | 1 | biggest boulders 2× the other kits' biggest; rockforms are cliff terrain |
 
-Everything sits within 0.78–1.12. The two lowest (modulair-terrein,
+Everything sits within 0.79–1.14. The two lowest (modulair-terrein,
 props) are the documented small sides of their pack factors, not
 misconversions — their person-anchored pieces are on the plateau.
 
-Implied person height: doorways run 0.68–1.10 on the shared raster
-(person ≈ 0.8–0.9 units); the dungeon enclave at 1.40 implies its rooms
-simply have taller walls, not bigger people.
+Implied person height: doorways run 0.81–1.10 on the shared raster
+(person ≈ 0.8–0.9 units); the dungeon enclave at 1.40 implies taller
+rooms, not bigger people.
 
 ## 3. What agrees remarkably well
 
@@ -85,15 +87,17 @@ simply have taller walls, not bigger people.
   gone.
 - **Crates** (`crates.png`): 0.31–0.60 covers everything — pirate 0.31,
   props 0.44, platformer 0.50/0.60, village 0.50, dungeon 0.53.
-- **Chests** (`chests.png`): 0.37–0.51 across five kits including dungeon
-  (0.46); trunks (0.17/0.35) read as luggage below it.
-- **Doorways** (`doors.png`): 0.68–1.10 continuum on the shared raster;
-  beds (1.05 long) pass through them; dungeon's 1.40 opening belongs to
-  its enclave.
-- **Bottles**: loose bottles 0.29–0.36 (dungeon 0.31 = survival 0.31,
-  pirate 0.36 the upper edge); props' 0.13 is the documented small side.
+- **Chests** (`chests.png`): 0.37–0.51 across five kits — dungeon 0.46
+  and survival 0.46 now identical; trunks (0.17/0.35) read as luggage
+  below it.
+- **Doorways** (`doors.png`): 0.81–1.10 continuum on the shared raster
+  (village door 0.81, survival 0.93, others ≈1.0–1.1); beds (1.05 long)
+  pass through them; dungeon's 1.40 and village's 1.20 tall openings
+  belong to their own modules.
+- **Bottles**: loose bottles 0.28–0.36 (survival 0.28, dungeon 0.31,
+  pirate 0.36); props' 0.13 is the documented small side.
 - **Furniture**: dungeon table 0.35 / props table 0.48 / survival
-  workbench 0.57; chair 0.43, stool seats 0.18–0.26.
+  workbench 0.52; chair 0.43, stool seats 0.18–0.26.
 - **Torches**: dungeon 0.37 vs rpgtools 0.47 — close since the bump.
 - **Palms**: 1.63–2.47. **Hand tools**: 0.42–0.63 vs 0.48–0.58.
   **Grass**: 0.13–0.47 across six kits. **Trees**: 1.40–3.81 as a species
@@ -112,10 +116,10 @@ simply have taller walls, not bigger people.
    kits' versions.
 2. **tropical `chest-a`/`chest-b` — 0.21–0.25.** Still half the 0.37–0.51
    cluster; reads as a jewelry box.
-3. **The dungeon enclave** — not an error but a standing constraint:
-   dungeon walls/floors (1.40) do not mate with the 1.00 walls of other
-   kits. Mixed builds should not swap wall segments between dungeon and
-   cave/fantasy-town.
+3. **The off-raster enclaves** — not errors but standing constraints:
+   dungeon architecture tiles a 1.4-module and the village building set a
+   0.6-module; neither mates panel-for-panel with the 1.00 walls of
+   cave/fantasy-town or with each other.
 
 Documented non-issues: onderwater-kit keeps its pack proportions by
 design; resources' pickup icons are stylized-large on purpose; pirate
@@ -130,13 +134,13 @@ candidates earlier dropped out when that kit left the shared raster.
 
 | candidate | size | would anchor |
 |---|---|---|
-| survival-kit `bottle` | h = 0.31 | hand props: tableware, tools ≈ 1–2 bottles |
-| tropical `barrel-a` | h = 0.52 | furniture & containers: crate ≈ 0.6–1 barrel, chest ≈ 0.9, workbench ≈ 1.1 |
+| survival-kit `bottle` | h = 0.28 | hand props: tableware, tools ≈ 1–2 bottles |
+| tropical `barrel-a` | h = 0.52 | furniture & containers: crate ≈ 0.6–1 barrel, chest ≈ 0.9, workbench ≈ 1.0 |
 | fantasy-town-kit `wall-wood` | 0.10 × 1.00 × 1.00 | everything architectural on the shared raster |
-| survival-kit `fence-doorway` | h = 1.03 | the person: doorway ≈ 1 wall unit, person ≈ 0.8–0.9 units |
-| survival-kit `tree` | h = 2.82 | vegetation & landmarks: mid tree ≈ 2.8 walls; landmarks (lighthouse 4.3, balloon 5.7, rockforms 7.6) = 1.5–3 trees |
+| survival-kit `fence-doorway` | h = 0.93 | the person: doorway ≈ 1 wall unit, person ≈ 0.8–0.9 units |
+| survival-kit `tree` | h = 2.54 | vegetation & landmarks: mid tree ≈ 2.5 walls; landmarks (lighthouse 4.3, balloon 5.7, rockforms 7.6) = 1.7–3.7 trees |
 
-Working ratios: bottle : barrel : wall/doorway : tree ≈ 0.3 : 0.5 : 1 : 2.8.
+Working ratios: bottle : barrel : wall/doorway : tree ≈ 0.3 : 0.5 : 1 : 2.5.
 
 ## 6. Recommendations
 
@@ -145,9 +149,9 @@ Working ratios: bottle : barrel : wall/doorway : tree ≈ 0.3 : 0.5 : 1 : 2.8.
    then, nothing is an approved reference.
 2. **Decide the last small-fry case**: tropical's chests — single assets,
    fixable per-model or by preferring the cross-kit alternative.
-3. **Treat the dungeon enclave as a rule**: its architecture tiles a
-   1.4-module and should not be mixed panel-for-panel with 1.0-raster
-   walls.
+3. **Treat the enclaves as a rule**: dungeon (1.4-module) and the
+   village building set (0.6-module) should not be mixed panel-for-panel
+   with 1.0-raster walls.
 4. **Re-run this review after importing a new pack**:
    `node tools/vergelijk-groottes/render.mjs` and eyeball the pack's
    barrels/doorways/trees against §5 before committing to a scale factor —
