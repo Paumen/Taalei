@@ -63,6 +63,37 @@ export function schrijfGlb(pad, json, bin, schrijfBestand) {
   schrijfBestand(pad, Buffer.concat([kop, jsonKop, jsonChunk, binKop, binChunk]));
 }
 
+/**
+ * Zet een model op zijn plek met een extra wortel-node: geschaald, met de voet
+ * op y=0 en het grondvlak gecentreerd op x/z (stijlgids §5).
+ *
+ * Waarom een node en niet de vertexdata: bij een geskind model liggen de
+ * vertices in bindpose-ruimte en bepalen de gewrichten waar ze uitkomen. De
+ * mesh verplaatsen zonder het skelet levert een model op dat bij het eerste
+ * animatieframe terugspringt. Een node boven mesh én armature neemt beide mee.
+ *
+ * Past de scène ter plekke aan.
+ */
+export function zetOpOorsprong(glb, naam, schaal = 1) {
+  const maat = meetScene(glb);
+  const scene = glb.json.scenes[glb.json.scene ?? 0];
+
+  const wortel = {
+    name: naam,
+    scale: [schaal, schaal, schaal],
+    translation: [
+      -schaal * (maat.min[0] + maat.max[0]) / 2,
+      -schaal * maat.min[1],
+      -schaal * (maat.min[2] + maat.max[2]) / 2,
+    ].map((v) => Math.round(v * 1e6) / 1e6),
+    children: [...scene.nodes],
+  };
+
+  glb.json.nodes.push(wortel);
+  scene.nodes = [glb.json.nodes.length - 1];
+  return maat;
+}
+
 /* -- matrices -------------------------------------------------------------
  * Kolom-major, zoals glTF ze aanlevert.
  */

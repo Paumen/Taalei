@@ -94,7 +94,7 @@ const regels = [
   [/^(corridor|room|template)\b/, 'grot'],
   // Zeeleven uit de onderwater-kit. Staat boven de algemene regels omdat
   // `starfish` anders bij de rotsen zou kunnen belanden en `shell-` nergens.
-  [/^(crab|dolphin|eel|lobster|octopus|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
+  [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'zeebodem'],
   [/^campfire|^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
@@ -128,7 +128,8 @@ const WOORDENBOEK = {
   barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
   bottle: ['fles'], bow: ['boog'], bridge: ['brug'], brown: ['bruin'],
   bucket: ['emmer'],
-  building: ['gebouw'], campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
+  building: ['gebouw'], calf: ['kalf', 'jong'],
+  campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
   canvas: ['zeil', 'doek'], cart: ['kar', 'wagen'], cave: ['grot'],
   chest: ['kist', 'schatkist'], clam: ['schelp', 'mossel'],
   clown: ['clownvis', 'vis'], coin: ['munt', 'geld'],
@@ -146,6 +147,7 @@ const WOORDENBOEK = {
   lighthouse: ['vuurtoren', 'toren', 'baken'], lobster: ['kreeft'], lock: ['slot'],
   mast: ['mast'], mushrooms: ['paddenstoelen'], octopus: ['octopus', 'inktvis'],
   overhang: ['afdak'],
+  orca: ['orka', 'zwaardwalvis', 'walvis'],
   paddle: ['peddel', 'roeispaan'], palm: ['palm', 'palmboom', 'boom'],
   patch: ['vlak', 'grondvlak'], penguin: ['pinguïn', 'pinguin'],
   pickaxe: ['houweel', 'pikhouweel'],

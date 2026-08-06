@@ -46,6 +46,8 @@ function leesKitMetadata() {
       url: kit.url,
       tabblad: kit.tabblad ?? null,
       toelichting: kit.toelichting ?? null,
+      // Alle kits zijn CC0; alleen een kit met gemengde herkomst zegt het zelf.
+      licentieLabel: kit.licentieLabel ?? 'CC0',
     });
   }
   return meta;
@@ -300,6 +302,7 @@ for (const slug of kitSlugs) {
     kort: (meta?.naam ?? slug).replace(/\s+Kit$/, ''),
     url: meta?.url ?? null,
     licentie: `kits/${slug}/LICENSE.txt`,
+    licentieLabel: meta?.licentieLabel ?? 'CC0',
     aantal: bestanden.length,
     // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;
     // zonder tabblad zou hij nergens meer te zien zijn.
