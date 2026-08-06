@@ -12,6 +12,9 @@ const KIT_KLEUREN = {
   // colormap is toegevoegd.
   nature: '#7f6a52',
   tropical: '#6d8d33',
+  // De props-kit is hout, aardewerk en ijzer; de rocks-kit is steen.
+  props: '#b7946e',
+  rocks: '#8a91ae',
 };
 
 const GROEP_ALIASSEN = {
