@@ -13,6 +13,10 @@
  * precies wat we nodig hebben — hoekpunten, normalen, driehoeken en per
  * driehoek de naam van een materiaal.
  *
+ * Van de 155 modellen in de pack zijn er 138 gekozen; welke er niet in zitten
+ * staat in kits/village-kit/LICENSE.txt. Het script noemt ze bij het draaien
+ * ook op, zodat een volgende import niet stilzwijgend iets overslaat.
+ *
  * Dit script voegt daarnaast drie kleuren toe aan de gedeelde colormap; zie
  * NIEUWE_CELLEN hieronder.
  *
@@ -34,8 +38,8 @@
  * (stijlgids §4). Dat is niet één ijkpunt maar het hele pakket: een wandsegment
  * is 1,00 × 1,00 met een dikte van 0,06, `Stucco_Block` is 1,00 × 1,00 × 1,00,
  * de vloertegels zijn 1,00 × 1,00 en de brede deuropeningen precies 2,00 hoog —
- * twee wandhoogtes. 118 van de 155 modellen hebben een rand die exact op een
- * halve rastereenheid ligt.
+ * twee wandhoogtes. 108 van de 138 ingeladen modellen hebben een rand die exact
+ * op een halve rastereenheid ligt.
  *
  * -- oorsprong ------------------------------------------------------------
  *
@@ -48,14 +52,15 @@
  * vast in de oorsprong van elk model. Y = 0 is er het vloervlak van het raster,
  * niet de onderkant van het model:
  *
- *   - de vloertegels lopen tot y = -0,10 (hout) en -0,20 (steen en kei): hun
- *     bovenkant ligt op het vloervlak, de dikte hangt eronder;
+ *   - de vloertegels lopen tot y = -0,10 (hout) en -0,20 (kei): hun bovenkant
+ *     ligt op het vloervlak, de dikte hangt eronder;
  *   - dakstukken met een overstek hangen 0,12 tot 0,25 onder y = 0;
  *   - `waterwheel` loopt van -2,20 tot 2,20 en `windmill-blades` van -3,50 tot
  *     3,50: die staan gecentreerd op hun as, want daar draaien ze omheen;
  *   - de wandprops zitten op x ≈ 0,39, tegen het vlak van een muur aan;
- *   - `stone-pillar` en `wood-post-large` staan op een rasterhoek (x/z-midden
- *     op -0,50 / 0,50) in plaats van in het midden van een vak.
+ *   - `wood-post-large`, `wood-post-small` en de drie `stucco-support-pillar`s
+ *     staan op een rasterhoek (x/z-midden op -0,50 / 0,50) in plaats van in het
+ *     midden van een vak.
  *
  * Elk model apart centreren zou dat allemaal weggooien: elke vloertegel zou
  * 0,10 tot 0,20 omhoog springen, elk overstek 0,12 tot 0,25, het waterrad 2,20,
@@ -88,9 +93,9 @@ const SCHAAL = 1;
  * 120). Maar afstand per kleur is hier niet het hele verhaal. De pack zet zijn
  * materialen in families van twee tot vier tinten die op hetzelfde model naast
  * elkaar liggen — de twee dakpantinten op elk dakstuk, de vier houttinten op
- * de kar en het waterrad, de vier steentinten op elke muur en vloer. Wat je
- * ziet is niet de kleur maar het verschil ertussen, en juist dat verschil ging
- * bij het hermappen stuk:
+ * de kar en het waterrad, de vier steentinten op elke muur en kei. Wat je ziet
+ * is niet de kleur maar het verschil ertussen, en juist dat verschil ging bij
+ * het hermappen stuk:
  *
  *   - `Red_Roof` en `Dark_Red_Roof` staan in de bron 81 uit elkaar en kwamen
  *     allebei op cel [7,0] uit, 17 uit elkaar. Alle 21 dakstukken werden
@@ -103,7 +108,7 @@ const SCHAAL = 1;
  *   - Het steen van de pack is warm taupe; elk grijs in het gedeelde palet is
  *     blauwgrijs. De onderlinge contrasten bleven staan, maar de donkerste van
  *     de vier tinten landde op een ándere cel ([6,1]) dan de andere drie
- *     ([15,3]), dus muur en vloer kregen een blauwe tint met een losse
+ *     ([15,3]), dus muur en keiwerk kregen een blauwe tint met een losse
  *     donkergrijze vlek erin.
  *
  * Dit is dus het geval dat stijlgids §1 beschrijft: geen bestaande kleur komt
@@ -207,7 +212,6 @@ const NAMEN = {
   Dirt_Gathered_Corner: 'dirt-gathered-corner',
   Dirt_Gathered_Straight: 'dirt-gathered-straight',
 
-  Kit_Window_Upper_Convex: 'window-upper-convex',
   Kit_Window_Upper_Straight: 'window-upper-straight',
 
   Prop_Barrel_1: 'barrel-a',
@@ -219,11 +223,8 @@ const NAMEN = {
   Prop_Boat_Oars_2: 'boat-oars-b',
   Prop_Broom: 'broom',
   Prop_Cart_1: 'cart-a',
-  Prop_Cart_1_Barrels: 'cart-a-barrels',
-  Prop_Cart_1_Hay: 'cart-a-hay',
   Prop_Crate_1: 'crate-a',
   Prop_Crate_1_Open: 'crate-a-open',
-  Prop_Hay_1: 'hay-a',
   Prop_Ladder_1: 'ladder-a',
   Prop_Lamp_Street: 'lamp-street',
   Prop_Well_1: 'well-a',
@@ -260,10 +261,8 @@ const NAMEN = {
   Roof_Straight_Side_Eave_Edge: 'roof-straight-side-eave-edge',
   Roof_Straight_Side_Edge: 'roof-straight-side-edge',
   Roof_Prop_Chimney_Pipe: 'chimney-pipe',
-  Roof_Prop_Chimney_Stone: 'chimney-stone',
 
   Stone_Arch: 'stone-arch',
-  Stone_Arch_Outer: 'stone-arch-outer',
   Stone_Curb_1: 'stone-curb-a',
   Stone_Curb_2: 'stone-curb-b',
   Stone_Curb_3: 'stone-curb-c',
@@ -272,16 +271,6 @@ const NAMEN = {
   Stone_Doorway_Narrow_Tall_2: 'stone-doorway-narrow-tall-b',
   Stone_Doorway_Wide_Tall_1: 'stone-doorway-wide-tall-a',
   Stone_Doorway_Wide_Tall_2: 'stone-doorway-wide-tall-b',
-  Stone_Floor_1: 'stone-floor-a',
-  Stone_Floor_2: 'stone-floor-b',
-  Stone_Pillar: 'stone-pillar',
-  Stone_Pillar_Base: 'stone-pillar-base',
-  Stone_Sewer_Grate_1: 'stone-sewer-grate-a',
-  Stone_Sewer_Grate_2: 'stone-sewer-grate-b',
-  Stone_Stairs_Railing: 'stone-stairs-railing',
-  Stone_Steps: 'stone-steps',
-  Stone_Steps_Side_1: 'stone-steps-side-a',
-  Stone_Steps_Side_2: 'stone-steps-side-b',
   Stone_Wall_1: 'stone-wall-a',
   Stone_Wall_2: 'stone-wall-b',
   Stone_Wall_3: 'stone-wall-c',
@@ -325,7 +314,6 @@ const NAMEN = {
   Wall_Prop_Windmill_1: 'windmill-blades',
 
   Waterwheel_1: 'waterwheel',
-  Waterwheel_Flume_Curved: 'waterwheel-flume-curved',
   Waterwheel_Flume_End: 'waterwheel-flume-end',
   Waterwheel_Flume_Ramp: 'waterwheel-flume-ramp',
   Waterwheel_Flume_Ramp_Supported: 'waterwheel-flume-ramp-supported',
