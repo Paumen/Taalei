@@ -68,6 +68,10 @@ function koppelViewer(vak) {
   const viewer = document.createElement('model-viewer');
   viewer.src = vak.dataset.src;
   viewer.alt = vak.dataset.alt;
+  // De onderwater-kit is gerigd: laat de vissen zwemmen zolang de kaart in
+  // beeld is. Zonder animatie staat `autoplay` er niet, want dan zet het alleen
+  // een renderlus aan die niets te tekenen heeft.
+  if (vak.dataset.animatie) viewer.setAttribute('autoplay', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('environment-image', 'neutral');
   viewer.setAttribute('shadow-intensity', '0.6');
@@ -114,6 +118,7 @@ function maakKaart(model, kits, groepen, weergave) {
   vak.className = 'kaart-viewer';
   vak.dataset.src = model.pad;
   vak.dataset.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
+  if (model.animaties?.length) vak.dataset.animatie = '1';
 
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
@@ -201,6 +206,8 @@ function maakSpringitem(sectie, titel, aantal, kleur) {
 
 const detailViewer = document.querySelector('#detail-viewer');
 const detailKopieer = document.querySelector('#detail-kopieer');
+const detailAnimatie = document.querySelector('#detail-animatie');
+const detailAnimatieKeuze = document.querySelector('#detail-animatie-keuze');
 let actiefPad = '';
 
 function toonDetail(model, kit, groep) {
@@ -240,16 +247,44 @@ function toonDetail(model, kit, groep) {
   viewer.src = model.pad;
   viewer.alt = `3D-model ${model.naam}`;
   viewer.setAttribute('camera-controls', '');
-  viewer.setAttribute('auto-rotate', '');
-  viewer.setAttribute('rotation-per-second', '18deg');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('environment-image', 'neutral');
   viewer.setAttribute('shadow-intensity', '0.7');
   viewer.setAttribute('shadow-softness', '0.9');
+
+  /**
+   * Een gerigd model speelt zijn eerste clip; bij meer clips kun je kiezen.
+   * De draaitafel gaat dan uit: een schildpad die zwemt én ronddraait laat
+   * geen van beide goed zien. Bij een stilstaand model is dat rondje juist de
+   * enige manier om de achterkant te zien zonder te slepen.
+   */
+  const clips = model.animaties ?? [];
+  if (clips.length) {
+    viewer.setAttribute('autoplay', '');
+    viewer.setAttribute('animation-name', clips[0]);
+  } else {
+    viewer.setAttribute('auto-rotate', '');
+    viewer.setAttribute('rotation-per-second', '18deg');
+  }
+
+  detailAnimatie.hidden = clips.length < 2;
+  detailAnimatieKeuze.replaceChildren(
+    ...clips.map((naam) => {
+      const optie = document.createElement('option');
+      optie.value = naam;
+      optie.textContent = naam;
+      return optie;
+    }),
+  );
+
   detailViewer.replaceChildren(viewer);
 
   detail.showModal();
 }
+
+detailAnimatieKeuze.addEventListener('change', () => {
+  detailViewer.querySelector('model-viewer')?.setAttribute('animation-name', detailAnimatieKeuze.value);
+});
 
 detail.addEventListener('close', () => detailViewer.replaceChildren());
 document.querySelector('#detail-sluit').addEventListener('click', () => detail.close());
