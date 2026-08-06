@@ -12,6 +12,10 @@ const KIT_KLEUREN = {
   // colormap is toegevoegd.
   nature: '#7f6a52',
   tropical: '#6d8d33',
+  // De derde geïmporteerde pack: het grasgroen dat ermee aan de gedeelde
+  // colormap is toegevoegd, iets gedempt zodat het niet met tropical's olijf
+  // en mini-forest's blauwgroen verwisseld wordt.
+  'modulair-terrein': '#4f7a3a',
   // De props-kit is hout, aardewerk en ijzer; de rocks-kit is steen.
   props: '#b7946e',
   rocks: '#8a91ae',

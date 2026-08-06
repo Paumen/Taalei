@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 833,
+ "totaal": 1138,
  "budgetPerUnit": 1000,
  "kits": [
   {
@@ -59,6 +59,18 @@
    "licentie": "kits/mini-forest/LICENSE.txt",
    "licentieLabel": "CC0",
    "aantal": 18,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
+  },
+  {
+   "slug": "modulair-terrein",
+   "naam": "Modulair Terrein",
+   "kort": "Modulair Terrein",
+   "url": null,
+   "licentie": "kits/modulair-terrein/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 305,
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
@@ -227,7 +239,7 @@
    "kort": "Grond",
    "kleur": "#8a5d4b",
    "tabblad": "terrain",
-   "aantal": 16
+   "aantal": 138
   },
   {
    "id": "grot",
@@ -235,6 +247,14 @@
    "kort": "Grot",
    "kleur": "#5c4a52",
    "aantal": 40
+  },
+  {
+   "id": "grotterrein",
+   "naam": "Grotterrein & mijnwerk",
+   "kort": "Grotterrein",
+   "kleur": "#7a6154",
+   "tabblad": "grot",
+   "aantal": 84
   },
   {
    "id": "bouwpakket",
@@ -249,42 +269,42 @@
    "naam": "Bouwwerken & platforms",
    "kort": "Bouwwerken",
    "kleur": "#877a63",
-   "aantal": 40
+   "aantal": 50
   },
   {
    "id": "verbinding",
    "naam": "Trappen, bruggen & ladders",
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
-   "aantal": 26
+   "aantal": 35
   },
   {
    "id": "hek",
    "naam": "Hekken, palen & poorten",
    "kort": "Hekken",
    "kleur": "#b08968",
-   "aantal": 21
+   "aantal": 36
   },
   {
    "id": "bomen",
    "naam": "Bomen & palmen",
    "kort": "Bomen",
    "kleur": "#3da679",
-   "aantal": 26
+   "aantal": 43
   },
   {
    "id": "planten",
    "naam": "Planten, gras & bloemen",
    "kort": "Planten",
    "kleur": "#6cb588",
-   "aantal": 19
+   "aantal": 38
   },
   {
    "id": "zeebodem",
    "naam": "Koraal, zeewier & schelpen",
    "kort": "Zeebodem",
    "kleur": "#2fa39b",
-   "aantal": 14
+   "aantal": 18
   },
   {
    "id": "rotsen",
@@ -292,7 +312,7 @@
    "kort": "Rotsen",
    "kleur": "#9da4c4",
    "tabblad": "rotsen",
-   "aantal": 120
+   "aantal": 140
   },
   {
    "id": "huisraad",
@@ -313,21 +333,21 @@
    "naam": "Kamp & tenten",
    "kort": "Kamp",
    "kleur": "#e76047",
-   "aantal": 3
+   "aantal": 5
   },
   {
    "id": "eten",
    "naam": "Eten & koken",
    "kort": "Eten",
    "kleur": "#9c3f2e",
-   "aantal": 20
+   "aantal": 22
   },
   {
    "id": "opslag",
    "naam": "Kisten & vaten",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 56
+   "aantal": 57
   },
   {
    "id": "grondstoffen",
@@ -387,11 +407,18 @@
    "toelichting": null,
    "kleuren": [
     {
+     "hex": "#8f785b",
+     "naam": "oranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 286
+    },
+    {
      "hex": "#d07b56",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 269
+     "aantal": 272
     },
     {
      "hex": "#6d738a",
@@ -399,6 +426,13 @@
      "textuur": null,
      "materiaal": null,
      "aantal": 233
+    },
+    {
+     "hex": "#88796d",
+     "naam": "lichtgrijs",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 217
     },
     {
      "hex": "#995a41",
@@ -415,39 +449,32 @@
      "aantal": 195
     },
     {
-     "hex": "#8f785b",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 153
-    },
-    {
      "hex": "#dd9f79",
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 127
+     "aantal": 130
     },
     {
      "hex": "#f0ece3",
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 111
+     "aantal": 130
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 107
+     "aantal": 109
     },
     {
      "hex": "#7f3927",
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 104
+     "aantal": 105
     },
     {
      "hex": "#474a58",
@@ -457,11 +484,11 @@
      "aantal": 103
     },
     {
-     "hex": "#88796d",
-     "naam": "lichtgrijs",
+     "hex": "#228b22",
+     "naam": "groen",
      "textuur": null,
      "materiaal": null,
-     "aantal": 82
+     "aantal": 60
     },
     {
      "hex": "#3da679",
@@ -475,7 +502,14 @@
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 42
+     "aantal": 43
+    },
+    {
+     "hex": "#f0c59d",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 41
     },
     {
      "hex": "#ffb349",
@@ -483,13 +517,6 @@
      "textuur": null,
      "materiaal": null,
      "aantal": 40
-    },
-    {
-     "hex": "#f0c59d",
-     "naam": "lichtoranje",
-     "textuur": null,
-     "materiaal": null,
-     "aantal": 39
     },
     {
      "hex": "#ff8744",
@@ -503,7 +530,7 @@
      "naam": "groen",
      "textuur": null,
      "materiaal": null,
-     "aantal": 16
+     "aantal": 29
     },
     {
      "hex": "#6cb588",
@@ -513,6 +540,20 @@
      "aantal": 13
     },
     {
+     "hex": "#206734",
+     "naam": "donkergroen",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 11
+    },
+    {
+     "hex": "#2474b4",
+     "naam": "blauw",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 11
+    },
+    {
      "hex": "#f1976c",
      "naam": "oranje",
      "textuur": null,
@@ -520,11 +561,11 @@
      "aantal": 4
     },
     {
-     "hex": "#2474b4",
-     "naam": "blauw",
+     "hex": "#fbf02d",
+     "naam": "geel",
      "textuur": null,
      "materiaal": null,
-     "aantal": 3
+     "aantal": 4
     }
    ]
   },
@@ -7900,6 +7941,6501 @@
     0.927,
     0.883,
     1.684
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-coconut",
+   "naam": "beach-prop-coconut",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-coconut.glb",
+   "bytes": 4680,
+   "driehoeken": 44,
+   "driehoekenPerUnit": 1026,
+   "materialen": 1,
+   "wdh": [
+    0.35,
+    0.35,
+    0.35
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-docks-corner-supports",
+   "naam": "beach-prop-docks-corner-supports",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-docks-corner-supports.glb",
+   "bytes": 4748,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 47,
+   "materialen": 1,
+   "wdh": [
+    1.016,
+    1.016,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-docks-corner",
+   "naam": "beach-prop-docks-corner",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-docks-corner.glb",
+   "bytes": 18036,
+   "driehoeken": 220,
+   "driehoekenPerUnit": 97,
+   "materialen": 1,
+   "wdh": [
+    1.35,
+    1.35,
+    1.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-docks-steps",
+   "naam": "beach-prop-docks-steps",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-docks-steps.glb",
+   "bytes": 6696,
+   "driehoeken": 76,
+   "driehoekenPerUnit": 63,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.096,
+    1.096
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-docks-straight-supports",
+   "naam": "beach-prop-docks-straight-supports",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-docks-straight-supports.glb",
+   "bytes": 5272,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 248,
+   "materialen": 1,
+   "wdh": [
+    0.216,
+    0.716,
+    1.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-docks-straight",
+   "naam": "beach-prop-docks-straight",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-docks-straight.glb",
+   "bytes": 10220,
+   "driehoeken": 112,
+   "driehoekenPerUnit": 345,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.3,
+    0.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-shell-a",
+   "naam": "beach-prop-shell-a",
+   "kit": "modulair-terrein",
+   "groep": "zeebodem",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-shell-a.glb",
+   "bytes": 4372,
+   "driehoeken": 42,
+   "driehoekenPerUnit": 124644,
+   "materialen": 1,
+   "wdh": [
+    0.108,
+    0.12,
+    0.026
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-shell-b",
+   "naam": "beach-prop-shell-b",
+   "kit": "modulair-terrein",
+   "groep": "zeebodem",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dd9f79"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-shell-b.glb",
+   "bytes": 4368,
+   "driehoeken": 42,
+   "driehoekenPerUnit": 68641,
+   "materialen": 1,
+   "wdh": [
+    0.142,
+    0.139,
+    0.031
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-starfish-a",
+   "naam": "beach-prop-starfish-a",
+   "kit": "modulair-terrein",
+   "groep": "zeebodem",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dd9f79"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-starfish-a.glb",
+   "bytes": 3452,
+   "driehoeken": 28,
+   "driehoekenPerUnit": 30864,
+   "materialen": 1,
+   "wdh": [
+    0.189,
+    0.192,
+    0.025
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-starfish-b",
+   "naam": "beach-prop-starfish-b",
+   "kit": "modulair-terrein",
+   "groep": "zeebodem",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#dd9f79"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-starfish-b.glb",
+   "bytes": 3452,
+   "driehoeken": 28,
+   "driehoekenPerUnit": 20822,
+   "materialen": 1,
+   "wdh": [
+    0.226,
+    0.238,
+    0.025
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-treasure-chest",
+   "naam": "beach-prop-treasure-chest",
+   "kit": "modulair-terrein",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-treasure-chest.glb",
+   "bytes": 43624,
+   "driehoeken": 798,
+   "driehoekenPerUnit": 1495,
+   "materialen": 1,
+   "wdh": [
+    0.971,
+    0.75,
+    0.733
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-tree-palm-a",
+   "naam": "beach-prop-tree-palm-a",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-tree-palm-a.glb",
+   "bytes": 56212,
+   "driehoeken": 762,
+   "driehoekenPerUnit": 27,
+   "materialen": 1,
+   "wdh": [
+    3.042,
+    2.859,
+    3.263
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-tree-palm-b",
+   "naam": "beach-prop-tree-palm-b",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-tree-palm-b.glb",
+   "bytes": 63356,
+   "driehoeken": 866,
+   "driehoekenPerUnit": 25,
+   "materialen": 1,
+   "wdh": [
+    2.687,
+    3.176,
+    4.118
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-prop-tree-palm-c",
+   "naam": "beach-prop-tree-palm-c",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/beach-prop-tree-palm-c.glb",
+   "bytes": 60060,
+   "driehoeken": 816,
+   "driehoekenPerUnit": 22,
+   "materialen": 1,
+   "wdh": [
+    3.417,
+    3.306,
+    3.352
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-corner-inner-2x2",
+   "naam": "beach-terrain-sand-corner-inner-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-corner-inner-2x2.glb",
+   "bytes": 2688,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-corner-inner-4x4",
+   "naam": "beach-terrain-sand-corner-inner-4x4",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-corner-inner-4x4.glb",
+   "bytes": 4568,
+   "driehoeken": 37,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    6,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-corner-outer-2x2",
+   "naam": "beach-terrain-sand-corner-outer-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-corner-outer-2x2.glb",
+   "bytes": 2508,
+   "driehoeken": 15,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-corner-outer-4x4",
+   "naam": "beach-terrain-sand-corner-outer-4x4",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-corner-outer-4x4.glb",
+   "bytes": 4376,
+   "driehoeken": 32,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    6,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-floor-raised",
+   "naam": "beach-terrain-sand-floor-raised",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-floor-raised.glb",
+   "bytes": 1484,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-floor",
+   "naam": "beach-terrain-sand-floor",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-floor.glb",
+   "bytes": 1468,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-side-gentle",
+   "naam": "beach-terrain-sand-side-gentle",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-side-gentle.glb",
+   "bytes": 1768,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    1,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-side-overlap-side",
+   "naam": "beach-terrain-sand-side-overlap-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-side-overlap-side.glb",
+   "bytes": 2624,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-side-sharp",
+   "naam": "beach-terrain-sand-side-sharp",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-side-sharp.glb",
+   "bytes": 1760,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    1,
+    3,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-side-shift-gentle",
+   "naam": "beach-terrain-sand-side-shift-gentle",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-side-shift-gentle.glb",
+   "bytes": 2880,
+   "driehoeken": 23,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    3,
+    7.5,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-side-shift-sharp",
+   "naam": "beach-terrain-sand-side-shift-sharp",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-side-shift-sharp.glb",
+   "bytes": 2876,
+   "driehoeken": 23,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    4.5,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-transition-gentle-sharp-centered",
+   "naam": "beach-terrain-sand-transition-gentle-sharp-centered",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-transition-gentle-sharp-centered.glb",
+   "bytes": 2912,
+   "driehoeken": 23,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-transition-gentle-sharp-flush-base",
+   "naam": "beach-terrain-sand-transition-gentle-sharp-flush-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-transition-gentle-sharp-flush-base.glb",
+   "bytes": 3144,
+   "driehoeken": 29,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/beach-terrain-sand-transition-gentle-sharp-flush-crest",
+   "naam": "beach-terrain-sand-transition-gentle-sharp-flush-crest",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/beach-terrain-sand-transition-gentle-sharp-flush-crest.glb",
+   "bytes": 2812,
+   "driehoeken": 22,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    3,
+    6,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-cliff-terrain-entrance-flat-base",
+   "naam": "cave-cliff-terrain-entrance-flat-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-cliff-terrain-entrance-flat-base.glb",
+   "bytes": 2688,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 24,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-cliff-terrain-entrance-round-base",
+   "naam": "cave-cliff-terrain-entrance-round-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-cliff-terrain-entrance-round-base.glb",
+   "bytes": 4284,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 25,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-cliff-terrain-entrance-round-top-center",
+   "naam": "cave-cliff-terrain-entrance-round-top-center",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-cliff-terrain-entrance-round-top-center.glb",
+   "bytes": 2432,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 13,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-cliff-terrain-entrance-round-top",
+   "naam": "cave-cliff-terrain-entrance-round-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-cliff-terrain-entrance-round-top.glb",
+   "bytes": 5572,
+   "driehoeken": 60,
+   "driehoekenPerUnit": 24,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-entrance",
+   "naam": "cave-prop-entrance",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-entrance.glb",
+   "bytes": 15712,
+   "driehoeken": 278,
+   "driehoekenPerUnit": 138,
+   "materialen": 1,
+   "wdh": [
+    2.415,
+    0.388,
+    2.146
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-hanging-cables-a",
+   "naam": "cave-prop-hanging-cables-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-hanging-cables-a.glb",
+   "bytes": 17064,
+   "driehoeken": 224,
+   "driehoekenPerUnit": 6622,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    1.944,
+    0.174
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-hanging-cables-b",
+   "naam": "cave-prop-hanging-cables-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-hanging-cables-b.glb",
+   "bytes": 17060,
+   "driehoeken": 224,
+   "driehoekenPerUnit": 9295,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    1.928,
+    0.125
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-hanging-cables-c",
+   "naam": "cave-prop-hanging-cables-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-hanging-cables-c.glb",
+   "bytes": 17056,
+   "driehoeken": 224,
+   "driehoekenPerUnit": 6584,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    1.944,
+    0.175
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-hanging-lamp",
+   "naam": "cave-prop-hanging-lamp",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-hanging-lamp.glb",
+   "bytes": 24624,
+   "driehoeken": 394,
+   "driehoekenPerUnit": 5249,
+   "materialen": 1,
+   "wdh": [
+    0.29,
+    0.334,
+    0.775
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-minecart",
+   "naam": "cave-prop-minecart",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-minecart.glb",
+   "bytes": 77328,
+   "driehoeken": 1386,
+   "driehoekenPerUnit": 1877,
+   "materialen": 1,
+   "wdh": [
+    0.7,
+    1.225,
+    0.861
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-pick-large",
+   "naam": "cave-prop-pick-large",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-pick-large.glb",
+   "bytes": 8860,
+   "driehoeken": 116,
+   "driehoekenPerUnit": 637,
+   "materialen": 1,
+   "wdh": [
+    0.448,
+    0.559,
+    0.727
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-pick-small",
+   "naam": "cave-prop-pick-small",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-pick-small.glb",
+   "bytes": 9232,
+   "driehoeken": 126,
+   "driehoekenPerUnit": 14075,
+   "materialen": 1,
+   "wdh": [
+    0.343,
+    0.45,
+    0.058
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-bumpstop",
+   "naam": "cave-prop-railway-bumpstop",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-bumpstop.glb",
+   "bytes": 39996,
+   "driehoeken": 676,
+   "driehoekenPerUnit": 781,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.025,
+    0.844
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-curve-large",
+   "naam": "cave-prop-railway-curve-large",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-curve-large.glb",
+   "bytes": 37756,
+   "driehoeken": 622,
+   "driehoekenPerUnit": 666,
+   "materialen": 1,
+   "wdh": [
+    2.495,
+    2.495,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-curve-small",
+   "naam": "cave-prop-railway-curve-small",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-curve-small.glb",
+   "bytes": 23120,
+   "driehoeken": 370,
+   "driehoekenPerUnit": 1125,
+   "materialen": 1,
+   "wdh": [
+    1.481,
+    1.481,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-hill-gentle",
+   "naam": "cave-prop-railway-hill-gentle",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-hill-gentle.glb",
+   "bytes": 37112,
+   "driehoeken": 612,
+   "driehoekenPerUnit": 135,
+   "materialen": 1,
+   "wdh": [
+    1,
+    4,
+    1.131
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-hill-sharp",
+   "naam": "cave-prop-railway-hill-sharp",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-hill-sharp.glb",
+   "bytes": 25080,
+   "driehoeken": 400,
+   "driehoekenPerUnit": 180,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.114
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-intersection",
+   "naam": "cave-prop-railway-intersection",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-intersection.glb",
+   "bytes": 43988,
+   "driehoeken": 756,
+   "driehoekenPerUnit": 1260,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-straight-a",
+   "naam": "cave-prop-railway-straight-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-straight-a.glb",
+   "bytes": 10116,
+   "driehoeken": 148,
+   "driehoekenPerUnit": 987,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-straight-b",
+   "naam": "cave-prop-railway-straight-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-straight-b.glb",
+   "bytes": 11628,
+   "driehoeken": 176,
+   "driehoekenPerUnit": 1173,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-straight-c",
+   "naam": "cave-prop-railway-straight-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-straight-c.glb",
+   "bytes": 11196,
+   "driehoeken": 168,
+   "driehoekenPerUnit": 1120,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-straight-d",
+   "naam": "cave-prop-railway-straight-d",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-straight-d.glb",
+   "bytes": 9468,
+   "driehoeken": 136,
+   "driehoekenPerUnit": 907,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-railway-switch",
+   "naam": "cave-prop-railway-switch",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-railway-switch.glb",
+   "bytes": 42344,
+   "driehoeken": 714,
+   "driehoekenPerUnit": 1190,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.15
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-stalagmite-connected-base",
+   "naam": "cave-prop-stalagmite-connected-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-stalagmite-connected-base.glb",
+   "bytes": 8092,
+   "driehoeken": 96,
+   "driehoekenPerUnit": 43,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-stalagmite-connected-mid",
+   "naam": "cave-prop-stalagmite-connected-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-stalagmite-connected-mid.glb",
+   "bytes": 3044,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 267,
+   "materialen": 1,
+   "wdh": [
+    0.3,
+    0.3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-stalagmite-connected-top",
+   "naam": "cave-prop-stalagmite-connected-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-stalagmite-connected-top.glb",
+   "bytes": 8092,
+   "driehoeken": 96,
+   "driehoekenPerUnit": 43,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-stalagmite-normal",
+   "naam": "cave-prop-stalagmite-normal",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-stalagmite-normal.glb",
+   "bytes": 10976,
+   "driehoeken": 132,
+   "driehoekenPerUnit": 132,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-stalagmite-tiny",
+   "naam": "cave-prop-stalagmite-tiny",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-stalagmite-tiny.glb",
+   "bytes": 10980,
+   "driehoeken": 132,
+   "driehoekenPerUnit": 98,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    0.6
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-beam-a",
+   "naam": "cave-prop-support-ceiling-beam-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-beam-a.glb",
+   "bytes": 3448,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 237,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.4,
+    0.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-beam-b",
+   "naam": "cave-prop-support-ceiling-beam-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-beam-b.glb",
+   "bytes": 3448,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 237,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.4,
+    0.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-beam-c",
+   "naam": "cave-prop-support-ceiling-beam-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-beam-c.glb",
+   "bytes": 3172,
+   "driehoeken": 29,
+   "driehoekenPerUnit": 181,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.4,
+    0.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-beam-d",
+   "naam": "cave-prop-support-ceiling-beam-d",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-beam-d.glb",
+   "bytes": 3440,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 237,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.4,
+    0.4
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-boards-a",
+   "naam": "cave-prop-support-ceiling-boards-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-boards-a.glb",
+   "bytes": 5100,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 391,
+   "materialen": 1,
+   "wdh": [
+    0.812,
+    2.014,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-boards-b",
+   "naam": "cave-prop-support-ceiling-boards-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-boards-b.glb",
+   "bytes": 4460,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 312,
+   "materialen": 1,
+   "wdh": [
+    0.828,
+    2.016,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-boards-c",
+   "naam": "cave-prop-support-ceiling-boards-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-boards-c.glb",
+   "bytes": 4460,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 310,
+   "materialen": 1,
+   "wdh": [
+    0.83,
+    2.02,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-ceiling-boards-d",
+   "naam": "cave-prop-support-ceiling-boards-d",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-ceiling-boards-d.glb",
+   "bytes": 5104,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 386,
+   "materialen": 1,
+   "wdh": [
+    0.819,
+    2.022,
+    0.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-corner-brace-a",
+   "naam": "cave-prop-support-corner-brace-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-corner-brace-a.glb",
+   "bytes": 2800,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 380,
+   "materialen": 1,
+   "wdh": [
+    0.603,
+    0.2,
+    0.524
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-corner-brace-b",
+   "naam": "cave-prop-support-corner-brace-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-corner-brace-b.glb",
+   "bytes": 2800,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 380,
+   "materialen": 1,
+   "wdh": [
+    0.603,
+    0.2,
+    0.524
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-boards-a",
+   "naam": "cave-prop-support-wall-boards-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-boards-a.glb",
+   "bytes": 5096,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 391,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    2.014,
+    0.812
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-boards-b",
+   "naam": "cave-prop-support-wall-boards-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-boards-b.glb",
+   "bytes": 4452,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 312,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    2.016,
+    0.828
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-boards-c",
+   "naam": "cave-prop-support-wall-boards-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-boards-c.glb",
+   "bytes": 4456,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 310,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    2.02,
+    0.83
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-boards-d",
+   "naam": "cave-prop-support-wall-boards-d",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-boards-d.glb",
+   "bytes": 5100,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 386,
+   "materialen": 1,
+   "wdh": [
+    0.1,
+    2.022,
+    0.819
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-pillar-a",
+   "naam": "cave-prop-support-wall-pillar-a",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-pillar-a.glb",
+   "bytes": 3448,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 608,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-pillar-b",
+   "naam": "cave-prop-support-wall-pillar-b",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-pillar-b.glb",
+   "bytes": 3448,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 608,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-pillar-c",
+   "naam": "cave-prop-support-wall-pillar-c",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-pillar-c.glb",
+   "bytes": 3172,
+   "driehoeken": 29,
+   "driehoekenPerUnit": 464,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-prop-support-wall-pillar-d",
+   "naam": "cave-prop-support-wall-pillar-d",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cave-prop-support-wall-pillar-d.glb",
+   "bytes": 3444,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 608,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    0.25,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-1x1-base",
+   "naam": "cave-terrain-corner-inner-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-1x1-base.glb",
+   "bytes": 4008,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-1x1-mid",
+   "naam": "cave-terrain-corner-inner-1x1-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-1x1-mid.glb",
+   "bytes": 1912,
+   "driehoeken": 8,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-1x1-top",
+   "naam": "cave-terrain-corner-inner-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-1x1-top.glb",
+   "bytes": 4008,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-2x2-base",
+   "naam": "cave-terrain-corner-inner-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-2x2-base.glb",
+   "bytes": 6968,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-2x2-mid",
+   "naam": "cave-terrain-corner-inner-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-2x2-mid.glb",
+   "bytes": 2476,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-2x2-top",
+   "naam": "cave-terrain-corner-inner-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-2x2-top.glb",
+   "bytes": 6964,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-3x3-base",
+   "naam": "cave-terrain-corner-inner-3x3-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-3x3-base.glb",
+   "bytes": 9768,
+   "driehoeken": 120,
+   "driehoekenPerUnit": 13,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-3x3-mid",
+   "naam": "cave-terrain-corner-inner-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-3x3-mid.glb",
+   "bytes": 3036,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-inner-3x3-top",
+   "naam": "cave-terrain-corner-inner-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-inner-3x3-top.glb",
+   "bytes": 9764,
+   "driehoeken": 120,
+   "driehoekenPerUnit": 13,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-1x1-base",
+   "naam": "cave-terrain-corner-outer-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-1x1-base.glb",
+   "bytes": 4008,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-1x1-top",
+   "naam": "cave-terrain-corner-outer-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-1x1-top.glb",
+   "bytes": 4008,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 36,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-2x2-base",
+   "naam": "cave-terrain-corner-outer-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-2x2-base.glb",
+   "bytes": 6968,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-2x2-mid",
+   "naam": "cave-terrain-corner-outer-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-2x2-mid.glb",
+   "bytes": 2476,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 16,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-2x2-top",
+   "naam": "cave-terrain-corner-outer-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-2x2-top.glb",
+   "bytes": 6964,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-3x3-mid",
+   "naam": "cave-terrain-corner-outer-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-3x3-mid.glb",
+   "bytes": 1772,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-corner-outer-3x3-top",
+   "naam": "cave-terrain-corner-outer-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-corner-outer-3x3-top.glb",
+   "bytes": 3036,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    2.5,
+    2.5,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-flat-round-inner",
+   "naam": "cave-terrain-flat-round-inner",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-flat-round-inner.glb",
+   "bytes": 4932,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 26,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-flat-round-mid",
+   "naam": "cave-terrain-flat-round-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-flat-round-mid.glb",
+   "bytes": 2040,
+   "driehoeken": 10,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-flat-round-outer",
+   "naam": "cave-terrain-flat-round-outer",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-flat-round-outer.glb",
+   "bytes": 4800,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 26,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-floor-normal",
+   "naam": "cave-terrain-floor-normal",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-floor-normal.glb",
+   "bytes": 1468,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-floor-raised",
+   "naam": "cave-terrain-floor-raised",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-floor-raised.glb",
+   "bytes": 1472,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-corner-inner-2x2",
+   "naam": "cave-terrain-hill-corner-inner-2x2",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-corner-inner-2x2.glb",
+   "bytes": 2684,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 9,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-corner-inner-4x4",
+   "naam": "cave-terrain-hill-corner-inner-4x4",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-corner-inner-4x4.glb",
+   "bytes": 4488,
+   "driehoeken": 35,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    4,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-corner-outer-2x2",
+   "naam": "cave-terrain-hill-corner-outer-2x2",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-corner-outer-2x2.glb",
+   "bytes": 2508,
+   "driehoeken": 15,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-corner-outer-4x4",
+   "naam": "cave-terrain-hill-corner-outer-4x4",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-corner-outer-4x4.glb",
+   "bytes": 4372,
+   "driehoeken": 32,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    4,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-side-gentle",
+   "naam": "cave-terrain-hill-side-gentle",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-side-gentle.glb",
+   "bytes": 1768,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    1,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-side-overlap-side",
+   "naam": "cave-terrain-hill-side-overlap-side",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-side-overlap-side.glb",
+   "bytes": 2620,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-side-sharp",
+   "naam": "cave-terrain-hill-side-sharp",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-side-sharp.glb",
+   "bytes": 1764,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-side-shift-gentle",
+   "naam": "cave-terrain-hill-side-shift-gentle",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-side-shift-gentle.glb",
+   "bytes": 2804,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    2,
+    5,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-side-shift-sharp",
+   "naam": "cave-terrain-hill-side-shift-sharp",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-side-shift-sharp.glb",
+   "bytes": 2800,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 7,
+   "materialen": 1,
+   "wdh": [
+    2,
+    3,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-transition-gentle-sharp-centered",
+   "naam": "cave-terrain-hill-transition-gentle-sharp-centered",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-transition-gentle-sharp-centered.glb",
+   "bytes": 3304,
+   "driehoeken": 25,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-transition-gentle-sharp-flush-base",
+   "naam": "cave-terrain-hill-transition-gentle-sharp-flush-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-transition-gentle-sharp-flush-base.glb",
+   "bytes": 3600,
+   "driehoeken": 31,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-hill-transition-gentle-sharp-flush-crest",
+   "naam": "cave-terrain-hill-transition-gentle-sharp-flush-crest",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-hill-transition-gentle-sharp-flush-crest.glb",
+   "bytes": 3284,
+   "driehoeken": 26,
+   "driehoekenPerUnit": 7,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-side-base",
+   "naam": "cave-terrain-side-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-side-base.glb",
+   "bytes": 2032,
+   "driehoeken": 10,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-side-incline-base",
+   "naam": "cave-terrain-side-incline-base",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-side-incline-base.glb",
+   "bytes": 3452,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-side-incline-top",
+   "naam": "cave-terrain-side-incline-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-side-incline-top.glb",
+   "bytes": 3452,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-side-mid",
+   "naam": "cave-terrain-side-mid",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-side-mid.glb",
+   "bytes": 1460,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    0,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cave-terrain-side-top",
+   "naam": "cave-terrain-side-top",
+   "kit": "modulair-terrein",
+   "groep": "grotterrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cave-terrain-side-top.glb",
+   "bytes": 2028,
+   "driehoeken": 10,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-prop-bridge-rope-end",
+   "naam": "cliff-prop-bridge-rope-end",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-prop-bridge-rope-end.glb",
+   "bytes": 161204,
+   "driehoeken": 2491,
+   "driehoekenPerUnit": 184,
+   "materialen": 1,
+   "wdh": [
+    2,
+    3.342,
+    2.023
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-prop-bridge-rope-middle-support",
+   "naam": "cliff-prop-bridge-rope-middle-support",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-prop-bridge-rope-middle-support.glb",
+   "bytes": 16324,
+   "driehoeken": 224,
+   "driehoekenPerUnit": 1995,
+   "materialen": 1,
+   "wdh": [
+    1.3,
+    0.106,
+    0.815
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-prop-bridge-rope-middle",
+   "naam": "cliff-prop-bridge-rope-middle",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-prop-bridge-rope-middle.glb",
+   "bytes": 17020,
+   "driehoeken": 248,
+   "driehoekenPerUnit": 250,
+   "materialen": 1,
+   "wdh": [
+    1.25,
+    1.017,
+    0.779
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-prop-rock-a",
+   "naam": "cliff-prop-rock-a",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-prop-rock-a.glb",
+   "bytes": 3276,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 28,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.723,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-prop-rock-b",
+   "naam": "cliff-prop-rock-b",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-prop-rock-b.glb",
+   "bytes": 3292,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 16,
+   "materialen": 1,
+   "wdh": [
+    1.082,
+    0.67,
+    2.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-1x1-base",
+   "naam": "cliff-terrain-corner-inner-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-1x1-base.glb",
+   "bytes": 2620,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 18,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-1x1-mid",
+   "naam": "cliff-terrain-corner-inner-1x1-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-1x1-mid.glb",
+   "bytes": 1776,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-1x1-top",
+   "naam": "cliff-terrain-corner-inner-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-1x1-top.glb",
+   "bytes": 4140,
+   "driehoeken": 41,
+   "driehoekenPerUnit": 34,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-2x2-base",
+   "naam": "cliff-terrain-corner-inner-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-2x2-base.glb",
+   "bytes": 3884,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 9,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-2x2-mid",
+   "naam": "cliff-terrain-corner-inner-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-2x2-mid.glb",
+   "bytes": 2196,
+   "driehoeken": 12,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-2x2-top",
+   "naam": "cliff-terrain-corner-inner-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-2x2-top.glb",
+   "bytes": 6776,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 17,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-3x3-base",
+   "naam": "cliff-terrain-corner-inner-3x3-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-3x3-base.glb",
+   "bytes": 4724,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-3x3-mid",
+   "naam": "cliff-terrain-corner-inner-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-3x3-mid.glb",
+   "bytes": 2476,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-inner-3x3-top",
+   "naam": "cliff-terrain-corner-inner-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-inner-3x3-top.glb",
+   "bytes": 8608,
+   "driehoeken": 108,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-1x1-base",
+   "naam": "cliff-terrain-corner-outer-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-1x1-base.glb",
+   "bytes": 1736,
+   "driehoeken": 5,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-1x1-top",
+   "naam": "cliff-terrain-corner-outer-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-1x1-top.glb",
+   "bytes": 2256,
+   "driehoeken": 12,
+   "driehoekenPerUnit": 40,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-2x2-base",
+   "naam": "cliff-terrain-corner-outer-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-2x2-base.glb",
+   "bytes": 3056,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 9,
+   "materialen": 1,
+   "wdh": [
+    1.617,
+    1.617,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-2x2-mid",
+   "naam": "cliff-terrain-corner-outer-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-2x2-mid.glb",
+   "bytes": 1928,
+   "driehoeken": 8,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1.155,
+    1.155,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-2x2-top",
+   "naam": "cliff-terrain-corner-outer-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-2x2-top.glb",
+   "bytes": 4960,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 17,
+   "materialen": 1,
+   "wdh": [
+    1.617,
+    1.617,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-3x3-base",
+   "naam": "cliff-terrain-corner-outer-3x3-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-3x3-base.glb",
+   "bytes": 3896,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    2.656,
+    2.662,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-3x3-mid",
+   "naam": "cliff-terrain-corner-outer-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-3x3-mid.glb",
+   "bytes": 2208,
+   "driehoeken": 12,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2.173,
+    2.178,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-corner-outer-3x3-top",
+   "naam": "cliff-terrain-corner-outer-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-corner-outer-3x3-top.glb",
+   "bytes": 6868,
+   "driehoeken": 82,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    2.656,
+    2.662,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-base-top-joined-gentle",
+   "naam": "cliff-terrain-hill-base-top-joined-gentle",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-base-top-joined-gentle.glb",
+   "bytes": 8996,
+   "driehoeken": 111,
+   "driehoekenPerUnit": 31,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    4,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-base-top-joined-sharp",
+   "naam": "cliff-terrain-hill-base-top-joined-sharp",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-base-top-joined-sharp.glb",
+   "bytes": 5480,
+   "driehoeken": 59,
+   "driehoekenPerUnit": 33,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-gentle-base",
+   "naam": "cliff-terrain-hill-gentle-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-gentle-base.glb",
+   "bytes": 4716,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    4,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-gentle-top",
+   "naam": "cliff-terrain-hill-gentle-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-gentle-top.glb",
+   "bytes": 10284,
+   "driehoeken": 127,
+   "driehoekenPerUnit": 19,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    4,
+    2.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-sharp-base",
+   "naam": "cliff-terrain-hill-sharp-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-sharp-base.glb",
+   "bytes": 3032,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-hill-sharp-top",
+   "naam": "cliff-terrain-hill-sharp-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-hill-sharp-top.glb",
+   "bytes": 5804,
+   "driehoeken": 63,
+   "driehoekenPerUnit": 19,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    2,
+    2.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-path-steps-center-top",
+   "naam": "cliff-terrain-path-steps-center-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-path-steps-center-top.glb",
+   "bytes": 3604,
+   "driehoeken": 32,
+   "driehoekenPerUnit": 15,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-path-steps-center",
+   "naam": "cliff-terrain-path-steps-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-path-steps-center.glb",
+   "bytes": 3460,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 15,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-path-steps-edge",
+   "naam": "cliff-terrain-path-steps-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-path-steps-edge.glb",
+   "bytes": 3560,
+   "driehoeken": 31,
+   "driehoekenPerUnit": 16,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-path-steps-grass-edge-top",
+   "naam": "cliff-terrain-path-steps-grass-edge-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-path-steps-grass-edge-top.glb",
+   "bytes": 6524,
+   "driehoeken": 83,
+   "driehoekenPerUnit": 32,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-path-steps-grass-edge",
+   "naam": "cliff-terrain-path-steps-grass-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-path-steps-grass-edge.glb",
+   "bytes": 6196,
+   "driehoeken": 78,
+   "driehoekenPerUnit": 30,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-side-base",
+   "naam": "cliff-terrain-side-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-side-base.glb",
+   "bytes": 2176,
+   "driehoeken": 12,
+   "driehoekenPerUnit": 16,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-side-falloff-center",
+   "naam": "cliff-terrain-side-falloff-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-side-falloff-center.glb",
+   "bytes": 2508,
+   "driehoeken": 15,
+   "driehoekenPerUnit": 22,
+   "materialen": 1,
+   "wdh": [
+    0.688,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-side-falloff-edge",
+   "naam": "cliff-terrain-side-falloff-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-side-falloff-edge.glb",
+   "bytes": 3704,
+   "driehoeken": 33,
+   "driehoekenPerUnit": 40,
+   "materialen": 1,
+   "wdh": [
+    0.688,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-side-mid",
+   "naam": "cliff-terrain-side-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-side-mid.glb",
+   "bytes": 1608,
+   "driehoeken": 4,
+   "driehoekenPerUnit": 16,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-side-top",
+   "naam": "cliff-terrain-side-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-side-top.glb",
+   "bytes": 3200,
+   "driehoeken": 27,
+   "driehoekenPerUnit": 30,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-base-flat",
+   "naam": "cliff-terrain-waterfall-base-flat",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-base-flat.glb",
+   "bytes": 3036,
+   "driehoeken": 24,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    1.6,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-base-hill",
+   "naam": "cliff-terrain-waterfall-base-hill",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-base-hill.glb",
+   "bytes": 3560,
+   "driehoeken": 31,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    1.6,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-mid",
+   "naam": "cliff-terrain-waterfall-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-mid.glb",
+   "bytes": 1900,
+   "driehoeken": 8,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    1.1,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-top",
+   "naam": "cliff-terrain-waterfall-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-top.glb",
+   "bytes": 5696,
+   "driehoeken": 62,
+   "driehoekenPerUnit": 9,
+   "materialen": 1,
+   "wdh": [
+    1.6,
+    2,
+    2.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-water-mid-edge",
+   "naam": "cliff-terrain-waterfall-water-mid-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-water-mid-edge.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 40,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-water-mid",
+   "naam": "cliff-terrain-waterfall-water-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-water-mid.glb",
+   "bytes": 1488,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-water-top-edge",
+   "naam": "cliff-terrain-waterfall-water-top-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-water-top-edge.glb",
+   "bytes": 3092,
+   "driehoeken": 25,
+   "driehoekenPerUnit": 26,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.35,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/cliff-terrain-waterfall-water-top",
+   "naam": "cliff-terrain-waterfall-water-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/cliff-terrain-waterfall-water-top.glb",
+   "bytes": 2060,
+   "driehoeken": 10,
+   "driehoekenPerUnit": 11,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.35,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-1x1-base",
+   "naam": "escarpment-terrain-corner-inner-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-1x1-base.glb",
+   "bytes": 3472,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 30,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-1x1-mid",
+   "naam": "escarpment-terrain-corner-inner-1x1-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-1x1-mid.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-1x1-top",
+   "naam": "escarpment-terrain-corner-inner-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-1x1-top.glb",
+   "bytes": 5836,
+   "driehoeken": 65,
+   "driehoekenPerUnit": 54,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-2x2-base",
+   "naam": "escarpment-terrain-corner-inner-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-2x2-base.glb",
+   "bytes": 3472,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 8,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-2x2-mid",
+   "naam": "escarpment-terrain-corner-inner-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-2x2-mid.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-2x2-top",
+   "naam": "escarpment-terrain-corner-inner-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-2x2-top.glb",
+   "bytes": 5836,
+   "driehoeken": 65,
+   "driehoekenPerUnit": 14,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-3x3-base",
+   "naam": "escarpment-terrain-corner-inner-3x3-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-3x3-base.glb",
+   "bytes": 3472,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-3x3-mid",
+   "naam": "escarpment-terrain-corner-inner-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-3x3-mid.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 1,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-inner-3x3-top",
+   "naam": "escarpment-terrain-corner-inner-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-inner-3x3-top.glb",
+   "bytes": 5912,
+   "driehoeken": 67,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-1x1-base",
+   "naam": "escarpment-terrain-corner-outer-1x1-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-1x1-base.glb",
+   "bytes": 2936,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 168,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-1x1-top",
+   "naam": "escarpment-terrain-corner-outer-1x1-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-1x1-top.glb",
+   "bytes": 5240,
+   "driehoeken": 54,
+   "driehoekenPerUnit": 392,
+   "materialen": 1,
+   "wdh": [
+    0.391,
+    0.391,
+    0.9
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-2x2-base",
+   "naam": "escarpment-terrain-corner-outer-2x2-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-2x2-base.glb",
+   "bytes": 3468,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 13,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-2x2-mid",
+   "naam": "escarpment-terrain-corner-outer-2x2-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-2x2-mid.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-2x2-top",
+   "naam": "escarpment-terrain-corner-outer-2x2-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-2x2-top.glb",
+   "bytes": 5772,
+   "driehoeken": 63,
+   "driehoekenPerUnit": 27,
+   "materialen": 1,
+   "wdh": [
+    1.391,
+    1.391,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-3x3-base",
+   "naam": "escarpment-terrain-corner-outer-3x3-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-3x3-base.glb",
+   "bytes": 3468,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    2.5,
+    2.5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-3x3-mid",
+   "naam": "escarpment-terrain-corner-outer-3x3-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-3x3-mid.glb",
+   "bytes": 1784,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-corner-outer-3x3-top",
+   "naam": "escarpment-terrain-corner-outer-3x3-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-corner-outer-3x3-top.glb",
+   "bytes": 5848,
+   "driehoeken": 65,
+   "driehoekenPerUnit": 9,
+   "materialen": 1,
+   "wdh": [
+    2.391,
+    2.391,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-hill-base",
+   "naam": "escarpment-terrain-hill-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-hill-base.glb",
+   "bytes": 3448,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 10,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.5
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-hill-crest-top",
+   "naam": "escarpment-terrain-hill-crest-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-hill-crest-top.glb",
+   "bytes": 4824,
+   "driehoeken": 54,
+   "driehoekenPerUnit": 23,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-hill-top",
+   "naam": "escarpment-terrain-hill-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-hill-top.glb",
+   "bytes": 5780,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 37,
+   "materialen": 1,
+   "wdh": [
+    0.391,
+    2,
+    2.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-side-base",
+   "naam": "escarpment-terrain-side-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-side-base.glb",
+   "bytes": 2040,
+   "driehoeken": 10,
+   "driehoekenPerUnit": 20,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-side-falloff-center",
+   "naam": "escarpment-terrain-side-falloff-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-side-falloff-center.glb",
+   "bytes": 2496,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 89,
+   "materialen": 1,
+   "wdh": [
+    0.179,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-side-falloff-edge",
+   "naam": "escarpment-terrain-side-falloff-edge",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-side-falloff-edge.glb",
+   "bytes": 5956,
+   "driehoeken": 63,
+   "driehoekenPerUnit": 134,
+   "materialen": 1,
+   "wdh": [
+    0.391,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-side-mid",
+   "naam": "escarpment-terrain-side-mid",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-side-mid.glb",
+   "bytes": 1472,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    0,
+    1,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/escarpment-terrain-side-top",
+   "naam": "escarpment-terrain-side-top",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/escarpment-terrain-side-top.glb",
+   "bytes": 2896,
+   "driehoeken": 22,
+   "driehoekenPerUnit": 47,
+   "materialen": 1,
+   "wdh": [
+    0.391,
+    1,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-branch-a",
+   "naam": "hilly-prop-branch-a",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-branch-a.glb",
+   "bytes": 7340,
+   "driehoeken": 94,
+   "driehoekenPerUnit": 464,
+   "materialen": 1,
+   "wdh": [
+    1.811,
+    0.811,
+    0.138
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-branch-b",
+   "naam": "hilly-prop-branch-b",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-branch-b.glb",
+   "bytes": 6384,
+   "driehoeken": 76,
+   "driehoekenPerUnit": 165,
+   "materialen": 1,
+   "wdh": [
+    1.89,
+    0.822,
+    0.296
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-branch-c",
+   "naam": "hilly-prop-branch-c",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-branch-c.glb",
+   "bytes": 6472,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 708,
+   "materialen": 1,
+   "wdh": [
+    1.921,
+    0.2,
+    0.294
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-end-edge",
+   "naam": "hilly-prop-bridge-log-end-edge",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-end-edge.glb",
+   "bytes": 10748,
+   "driehoeken": 140,
+   "driehoekenPerUnit": 129,
+   "materialen": 1,
+   "wdh": [
+    0.9,
+    1.1,
+    1.1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-end",
+   "naam": "hilly-prop-bridge-log-end",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-end.glb",
+   "bytes": 4320,
+   "driehoeken": 42,
+   "driehoekenPerUnit": 100,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.944,
+    0.443
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-middle-edge",
+   "naam": "hilly-prop-bridge-log-middle-edge",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-middle-edge.glb",
+   "bytes": 7316,
+   "driehoeken": 89,
+   "driehoekenPerUnit": 131,
+   "materialen": 1,
+   "wdh": [
+    0.85,
+    1,
+    0.8
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-middle",
+   "naam": "hilly-prop-bridge-log-middle",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-middle.glb",
+   "bytes": 4324,
+   "driehoeken": 42,
+   "driehoekenPerUnit": 178,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.944,
+    0.25
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-post-support",
+   "naam": "hilly-prop-bridge-log-post-support",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-post-support.glb",
+   "bytes": 2476,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 400,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bridge-log-post-top",
+   "naam": "hilly-prop-bridge-log-post-top",
+   "kit": "modulair-terrein",
+   "groep": "verbinding",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bridge-log-post-top.glb",
+   "bytes": 2480,
+   "driehoeken": 16,
+   "driehoekenPerUnit": 701,
+   "materialen": 1,
+   "wdh": [
+    0.2,
+    0.2,
+    0.571
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bush-a",
+   "naam": "hilly-prop-bush-a",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bush-a.glb",
+   "bytes": 5808,
+   "driehoeken": 66,
+   "driehoekenPerUnit": 95,
+   "materialen": 1,
+   "wdh": [
+    1,
+    0.866,
+    0.8
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bush-b",
+   "naam": "hilly-prop-bush-b",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bush-b.glb",
+   "bytes": 17644,
+   "driehoeken": 238,
+   "driehoekenPerUnit": 361,
+   "materialen": 1,
+   "wdh": [
+    0.937,
+    0.937,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bush-c",
+   "naam": "hilly-prop-bush-c",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bush-c.glb",
+   "bytes": 7980,
+   "driehoeken": 97,
+   "driehoekenPerUnit": 116,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.042,
+    0.8
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-bush-d",
+   "naam": "hilly-prop-bush-d",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-bush-d.glb",
+   "bytes": 8720,
+   "driehoeken": 108,
+   "driehoekenPerUnit": 130,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.042,
+    0.8
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-camp-campfire",
+   "naam": "hilly-prop-camp-campfire",
+   "kit": "modulair-terrein",
+   "groep": "eten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-camp-campfire.glb",
+   "bytes": 24444,
+   "driehoeken": 358,
+   "driehoekenPerUnit": 975,
+   "materialen": 1,
+   "wdh": [
+    1.429,
+    1.396,
+    0.184
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-camp-lean-to",
+   "naam": "hilly-prop-camp-lean-to",
+   "kit": "modulair-terrein",
+   "groep": "kamp",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-camp-lean-to.glb",
+   "bytes": 71896,
+   "driehoeken": 1114,
+   "driehoekenPerUnit": 343,
+   "materialen": 1,
+   "wdh": [
+    1.375,
+    1.636,
+    1.445
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-camp-sitting-log",
+   "naam": "hilly-prop-camp-sitting-log",
+   "kit": "modulair-terrein",
+   "groep": "kamp",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-camp-sitting-log.glb",
+   "bytes": 23748,
+   "driehoeken": 366,
+   "driehoekenPerUnit": 593,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    0.815,
+    0.659
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-camp-wood-pile",
+   "naam": "hilly-prop-camp-wood-pile",
+   "kit": "modulair-terrein",
+   "groep": "eten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-camp-wood-pile.glb",
+   "bytes": 21868,
+   "driehoeken": 318,
+   "driehoekenPerUnit": 1088,
+   "materialen": 1,
+   "wdh": [
+    0.891,
+    0.692,
+    0.474
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-cattail-a",
+   "naam": "hilly-prop-cattail-a",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#d07b56"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-cattail-a.glb",
+   "bytes": 7464,
+   "driehoeken": 76,
+   "driehoekenPerUnit": 17529,
+   "materialen": 1,
+   "wdh": [
+    0.082,
+    0.075,
+    0.705
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-cattail-b",
+   "naam": "hilly-prop-cattail-b",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#d07b56"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-cattail-b.glb",
+   "bytes": 7120,
+   "driehoeken": 72,
+   "driehoekenPerUnit": 14936,
+   "materialen": 1,
+   "wdh": [
+    0.074,
+    0.068,
+    0.958
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-boards-a",
+   "naam": "hilly-prop-fence-boards-a",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-boards-a.glb",
+   "bytes": 4440,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 2365,
+   "materialen": 1,
+   "wdh": [
+    1.004,
+    0.05,
+    0.438
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-boards-b",
+   "naam": "hilly-prop-fence-boards-b",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-boards-b.glb",
+   "bytes": 4444,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 2312,
+   "materialen": 1,
+   "wdh": [
+    1.004,
+    0.05,
+    0.448
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-boards-c",
+   "naam": "hilly-prop-fence-boards-c",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-boards-c.glb",
+   "bytes": 4444,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 2259,
+   "materialen": 1,
+   "wdh": [
+    1.005,
+    0.05,
+    0.458
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-boards-d",
+   "naam": "hilly-prop-fence-boards-d",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-boards-d.glb",
+   "bytes": 4444,
+   "driehoeken": 52,
+   "driehoekenPerUnit": 2274,
+   "materialen": 1,
+   "wdh": [
+    1.005,
+    0.05,
+    0.455
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-curve-1x1",
+   "naam": "hilly-prop-fence-curve-1x1",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-curve-1x1.glb",
+   "bytes": 5708,
+   "driehoeken": 62,
+   "driehoekenPerUnit": 63,
+   "materialen": 1,
+   "wdh": [
+    1.15,
+    1.15,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-curve-2x2",
+   "naam": "hilly-prop-fence-curve-2x2",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-curve-2x2.glb",
+   "bytes": 7528,
+   "driehoeken": 88,
+   "driehoekenPerUnit": 25,
+   "materialen": 1,
+   "wdh": [
+    2.15,
+    2.15,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-curve-3x3",
+   "naam": "hilly-prop-fence-curve-3x3",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-curve-3x3.glb",
+   "bytes": 11168,
+   "driehoeken": 140,
+   "driehoekenPerUnit": 19,
+   "materialen": 1,
+   "wdh": [
+    3.15,
+    3.15,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-gate-a",
+   "naam": "hilly-prop-fence-gate-a",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-gate-a.glb",
+   "bytes": 11676,
+   "driehoeken": 168,
+   "driehoekenPerUnit": 664,
+   "materialen": 1,
+   "wdh": [
+    1.125,
+    0.25,
+    0.9
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-gate-b",
+   "naam": "hilly-prop-fence-gate-b",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-gate-b.glb",
+   "bytes": 11676,
+   "driehoeken": 168,
+   "driehoekenPerUnit": 664,
+   "materialen": 1,
+   "wdh": [
+    1.125,
+    0.25,
+    0.9
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-hill-gentle",
+   "naam": "hilly-prop-fence-hill-gentle",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-hill-gentle.glb",
+   "bytes": 7540,
+   "driehoeken": 88,
+   "driehoekenPerUnit": 89,
+   "materialen": 1,
+   "wdh": [
+    4.136,
+    0.15,
+    1.6
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-hill-sharp",
+   "naam": "hilly-prop-fence-hill-sharp",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-hill-sharp.glb",
+   "bytes": 5708,
+   "driehoeken": 62,
+   "driehoekenPerUnit": 110,
+   "materialen": 1,
+   "wdh": [
+    2.15,
+    0.15,
+    1.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-post-a",
+   "naam": "hilly-prop-fence-post-a",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-post-a.glb",
+   "bytes": 2288,
+   "driehoeken": 14,
+   "driehoekenPerUnit": 635,
+   "materialen": 1,
+   "wdh": [
+    0.194,
+    0.15,
+    0.758
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-post-b",
+   "naam": "hilly-prop-fence-post-b",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-post-b.glb",
+   "bytes": 2504,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 853,
+   "materialen": 1,
+   "wdh": [
+    0.186,
+    0.15,
+    0.756
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-post-c",
+   "naam": "hilly-prop-fence-post-c",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-post-c.glb",
+   "bytes": 2720,
+   "driehoeken": 22,
+   "driehoekenPerUnit": 1180,
+   "materialen": 1,
+   "wdh": [
+    0.165,
+    0.15,
+    0.753
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-fence-post-d",
+   "naam": "hilly-prop-fence-post-d",
+   "kit": "modulair-terrein",
+   "groep": "hek",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-fence-post-d.glb",
+   "bytes": 2644,
+   "driehoeken": 20,
+   "driehoekenPerUnit": 865,
+   "materialen": 1,
+   "wdh": [
+    0.203,
+    0.15,
+    0.759
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-daisy",
+   "naam": "hilly-prop-flower-daisy",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#f0ece3",
+    "#fbf02d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-daisy.glb",
+   "bytes": 24592,
+   "driehoeken": 294,
+   "driehoekenPerUnit": 4814,
+   "materialen": 1,
+   "wdh": [
+    0.319,
+    0.364,
+    0.526
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-lily-blue",
+   "naam": "hilly-prop-flower-lily-blue",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#2474b4",
+    "#fbf02d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-lily-blue.glb",
+   "bytes": 26080,
+   "driehoeken": 306,
+   "driehoekenPerUnit": 4792,
+   "materialen": 1,
+   "wdh": [
+    0.322,
+    0.358,
+    0.554
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-lily-pink",
+   "naam": "hilly-prop-flower-lily-pink",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#3e3e44",
+    "#f0c59d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-lily-pink.glb",
+   "bytes": 18924,
+   "driehoeken": 260,
+   "driehoekenPerUnit": 4339,
+   "materialen": 1,
+   "wdh": [
+    0.328,
+    0.315,
+    0.58
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-rose",
+   "naam": "hilly-prop-flower-rose",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#7f3927"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-rose.glb",
+   "bytes": 25396,
+   "driehoeken": 288,
+   "driehoekenPerUnit": 11413,
+   "materialen": 1,
+   "wdh": [
+    0.223,
+    0.23,
+    0.492
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-sunflower",
+   "naam": "hilly-prop-flower-sunflower",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#3e3e44",
+    "#fbf02d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-sunflower.glb",
+   "bytes": 14328,
+   "driehoeken": 138,
+   "driehoekenPerUnit": 1556,
+   "materialen": 1,
+   "wdh": [
+    0.416,
+    0.274,
+    0.778
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-flower-tulip",
+   "naam": "hilly-prop-flower-tulip",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#f0c59d",
+    "#fbf02d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-flower-tulip.glb",
+   "bytes": 12612,
+   "driehoeken": 110,
+   "driehoekenPerUnit": 1807,
+   "materialen": 1,
+   "wdh": [
+    0.345,
+    0.336,
+    0.525
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-grass-clump-a",
+   "naam": "hilly-prop-grass-clump-a",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-grass-clump-a.glb",
+   "bytes": 7508,
+   "driehoeken": 60,
+   "driehoekenPerUnit": 1081,
+   "materialen": 1,
+   "wdh": [
+    0.486,
+    0.378,
+    0.302
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-grass-clump-b",
+   "naam": "hilly-prop-grass-clump-b",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-grass-clump-b.glb",
+   "bytes": 9548,
+   "driehoeken": 80,
+   "driehoekenPerUnit": 485,
+   "materialen": 1,
+   "wdh": [
+    0.578,
+    0.626,
+    0.456
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-grass-clump-c",
+   "naam": "hilly-prop-grass-clump-c",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-grass-clump-c.glb",
+   "bytes": 11592,
+   "driehoeken": 100,
+   "driehoekenPerUnit": 393,
+   "materialen": 1,
+   "wdh": [
+    0.629,
+    0.608,
+    0.666
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-grass-clump-d",
+   "naam": "hilly-prop-grass-clump-d",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-grass-clump-d.glb",
+   "bytes": 13636,
+   "driehoeken": 120,
+   "driehoekenPerUnit": 703,
+   "materialen": 1,
+   "wdh": [
+    0.587,
+    0.568,
+    0.512
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-hollow-trunk",
+   "naam": "hilly-prop-hollow-trunk",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-hollow-trunk.glb",
+   "bytes": 11992,
+   "driehoeken": 168,
+   "driehoekenPerUnit": 258,
+   "materialen": 1,
+   "wdh": [
+    0.92,
+    0.998,
+    0.708
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-mushroom-a",
+   "naam": "hilly-prop-mushroom-a",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#b2413a",
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-mushroom-a.glb",
+   "bytes": 4764,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 3206,
+   "materialen": 1,
+   "wdh": [
+    0.25,
+    0.217,
+    0.276
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-mushroom-b",
+   "naam": "hilly-prop-mushroom-b",
+   "kit": "modulair-terrein",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#d07b56",
+    "#f0ece3"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-mushroom-b.glb",
+   "bytes": 4756,
+   "driehoeken": 48,
+   "driehoekenPerUnit": 830,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.433,
+    0.267
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-rock-a",
+   "naam": "hilly-prop-rock-a",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-rock-a.glb",
+   "bytes": 5448,
+   "driehoeken": 61,
+   "driehoekenPerUnit": 339,
+   "materialen": 1,
+   "wdh": [
+    0.75,
+    0.8,
+    0.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-rock-b",
+   "naam": "hilly-prop-rock-b",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-rock-b.glb",
+   "bytes": 5516,
+   "driehoeken": 61,
+   "driehoekenPerUnit": 111,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.55
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-rock-c",
+   "naam": "hilly-prop-rock-c",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-rock-c.glb",
+   "bytes": 6708,
+   "driehoeken": 79,
+   "driehoekenPerUnit": 53,
+   "materialen": 1,
+   "wdh": [
+    2,
+    1,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-rock-d",
+   "naam": "hilly-prop-rock-d",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-rock-d.glb",
+   "bytes": 6512,
+   "driehoeken": 75,
+   "driehoekenPerUnit": 28,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-ruins-pillar-a",
+   "naam": "hilly-prop-ruins-pillar-a",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-ruins-pillar-a.glb",
+   "bytes": 8380,
+   "driehoeken": 124,
+   "driehoekenPerUnit": 212,
+   "materialen": 1,
+   "wdh": [
+    0.7,
+    0.7,
+    1.194
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-ruins-pillar-b",
+   "naam": "hilly-prop-ruins-pillar-b",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-ruins-pillar-b.glb",
+   "bytes": 8596,
+   "driehoeken": 128,
+   "driehoekenPerUnit": 174,
+   "materialen": 1,
+   "wdh": [
+    0.7,
+    0.7,
+    1.504
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-ruins-pillar-c",
+   "naam": "hilly-prop-ruins-pillar-c",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-ruins-pillar-c.glb",
+   "bytes": 10160,
+   "driehoeken": 154,
+   "driehoekenPerUnit": 170,
+   "materialen": 1,
+   "wdh": [
+    0.7,
+    0.7,
+    1.847
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-ruins-pillar-d",
+   "naam": "hilly-prop-ruins-pillar-d",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-ruins-pillar-d.glb",
+   "bytes": 12528,
+   "driehoeken": 194,
+   "driehoekenPerUnit": 116,
+   "materialen": 1,
+   "wdh": [
+    0.85,
+    1.876,
+    1.045
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-ruins-pillar-e",
+   "naam": "hilly-prop-ruins-pillar-e",
+   "kit": "modulair-terrein",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-ruins-pillar-e.glb",
+   "bytes": 13680,
+   "driehoeken": 207,
+   "driehoekenPerUnit": 73,
+   "materialen": 1,
+   "wdh": [
+    1.44,
+    2.824,
+    0.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-a",
+   "naam": "hilly-prop-stepping-stones-a",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-a.glb",
+   "bytes": 3888,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 1069,
+   "materialen": 1,
+   "wdh": [
+    0.4,
+    0.375,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-b",
+   "naam": "hilly-prop-stepping-stones-b",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-b.glb",
+   "bytes": 3572,
+   "driehoeken": 33,
+   "driehoekenPerUnit": 771,
+   "materialen": 1,
+   "wdh": [
+    0.425,
+    0.425,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-c",
+   "naam": "hilly-prop-stepping-stones-c",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-c.glb",
+   "bytes": 3888,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 1002,
+   "materialen": 1,
+   "wdh": [
+    0.4,
+    0.4,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-d",
+   "naam": "hilly-prop-stepping-stones-d",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-d.glb",
+   "bytes": 5180,
+   "driehoeken": 56,
+   "driehoekenPerUnit": 1219,
+   "materialen": 1,
+   "wdh": [
+    0.457,
+    0.424,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-e",
+   "naam": "hilly-prop-stepping-stones-e",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-e.glb",
+   "bytes": 3252,
+   "driehoeken": 28,
+   "driehoekenPerUnit": 841,
+   "materialen": 1,
+   "wdh": [
+    0.39,
+    0.36,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-f",
+   "naam": "hilly-prop-stepping-stones-f",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-f.glb",
+   "bytes": 3888,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 928,
+   "materialen": 1,
+   "wdh": [
+    0.48,
+    0.36,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-g",
+   "naam": "hilly-prop-stepping-stones-g",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-g.glb",
+   "bytes": 4836,
+   "driehoeken": 51,
+   "driehoekenPerUnit": 1220,
+   "materialen": 1,
+   "wdh": [
+    0.42,
+    0.42,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stepping-stones-h",
+   "naam": "hilly-prop-stepping-stones-h",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stepping-stones-h.glb",
+   "bytes": 3896,
+   "driehoeken": 38,
+   "driehoekenPerUnit": 875,
+   "materialen": 1,
+   "wdh": [
+    0.542,
+    0.338,
+    0.237
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-stump",
+   "naam": "hilly-prop-stump",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-stump.glb",
+   "bytes": 7204,
+   "driehoeken": 100,
+   "driehoekenPerUnit": 775,
+   "materialen": 1,
+   "wdh": [
+    0.433,
+    0.5,
+    0.596
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-cedar-a",
+   "naam": "hilly-prop-tree-cedar-a",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-cedar-a.glb",
+   "bytes": 6568,
+   "driehoeken": 68,
+   "driehoekenPerUnit": 34,
+   "materialen": 1,
+   "wdh": [
+    0.866,
+    1,
+    2.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-cedar-b",
+   "naam": "hilly-prop-tree-cedar-b",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-cedar-b.glb",
+   "bytes": 5592,
+   "driehoeken": 60,
+   "driehoekenPerUnit": 30,
+   "materialen": 1,
+   "wdh": [
+    0.866,
+    1,
+    2.3
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-oak-a",
+   "naam": "hilly-prop-tree-oak-a",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-oak-a.glb",
+   "bytes": 10584,
+   "driehoeken": 140,
+   "driehoekenPerUnit": 25,
+   "materialen": 1,
+   "wdh": [
+    1.299,
+    1.5,
+    2.85
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-oak-b",
+   "naam": "hilly-prop-tree-oak-b",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-oak-b.glb",
+   "bytes": 14116,
+   "driehoeken": 192,
+   "driehoekenPerUnit": 7,
+   "materialen": 1,
+   "wdh": [
+    2.197,
+    2.537,
+    4.678
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-oak-c",
+   "naam": "hilly-prop-tree-oak-c",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-oak-c.glb",
+   "bytes": 19200,
+   "driehoeken": 272,
+   "driehoekenPerUnit": 11,
+   "materialen": 1,
+   "wdh": [
+    2.14,
+    2.368,
+    4.7
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-oak-d",
+   "naam": "hilly-prop-tree-oak-d",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-oak-d.glb",
+   "bytes": 45200,
+   "driehoeken": 662,
+   "driehoekenPerUnit": 14,
+   "materialen": 1,
+   "wdh": [
+    3.363,
+    2.887,
+    4.996
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-pine-a",
+   "naam": "hilly-prop-tree-pine-a",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-pine-a.glb",
+   "bytes": 5752,
+   "driehoeken": 56,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2.375,
+    2.165,
+    3.579
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-pine-b",
+   "naam": "hilly-prop-tree-pine-b",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-pine-b.glb",
+   "bytes": 5916,
+   "driehoeken": 58,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2.6,
+    2.252,
+    3.985
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-prop-tree-pine-c",
+   "naam": "hilly-prop-tree-pine-c",
+   "kit": "modulair-terrein",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#206734",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-prop-tree-pine-c.glb",
+   "bytes": 5048,
+   "driehoeken": 46,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2.489,
+    2.159,
+    3.335
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-grass-floor",
+   "naam": "hilly-terrain-grass-floor",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-grass-floor.glb",
+   "bytes": 1472,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-inner-2x2",
+   "naam": "hilly-terrain-hill-corner-inner-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-inner-2x2.glb",
+   "bytes": 2688,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 5,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-inner-3x3",
+   "naam": "hilly-terrain-hill-corner-inner-3x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-inner-3x3.glb",
+   "bytes": 3260,
+   "driehoeken": 28,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-inner-4x4",
+   "naam": "hilly-terrain-hill-corner-inner-4x4",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-inner-4x4.glb",
+   "bytes": 3724,
+   "driehoeken": 35,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    4,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-outer-2x2",
+   "naam": "hilly-terrain-hill-corner-outer-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-outer-2x2.glb",
+   "bytes": 2512,
+   "driehoeken": 15,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-outer-3x3",
+   "naam": "hilly-terrain-hill-corner-outer-3x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-outer-3x3.glb",
+   "bytes": 3260,
+   "driehoeken": 28,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-corner-outer-4x4",
+   "naam": "hilly-terrain-hill-corner-outer-4x4",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-corner-outer-4x4.glb",
+   "bytes": 3724,
+   "driehoeken": 35,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    4,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-side-gentle",
+   "naam": "hilly-terrain-hill-side-gentle",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-side-gentle.glb",
+   "bytes": 1772,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    1,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-side-overlap-side",
+   "naam": "hilly-terrain-hill-side-overlap-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-side-overlap-side.glb",
+   "bytes": 2628,
+   "driehoeken": 18,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-side-sharp",
+   "naam": "hilly-terrain-hill-side-sharp",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-side-sharp.glb",
+   "bytes": 1768,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-side-shift-gentle",
+   "naam": "hilly-terrain-hill-side-shift-gentle",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-side-shift-gentle.glb",
+   "bytes": 2808,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    5,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-side-shift-sharp",
+   "naam": "hilly-terrain-hill-side-shift-sharp",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-side-shift-sharp.glb",
+   "bytes": 2804,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    2,
+    3,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-centered",
+   "naam": "hilly-terrain-hill-transition-gentle-sharp-centered",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-centered.glb",
+   "bytes": 3308,
+   "driehoeken": 25,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-flush-base",
+   "naam": "hilly-terrain-hill-transition-gentle-sharp-flush-base",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-flush-base.glb",
+   "bytes": 3604,
+   "driehoeken": 31,
+   "driehoekenPerUnit": 4,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-flush-crest",
+   "naam": "hilly-terrain-hill-transition-gentle-sharp-flush-crest",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-hill-transition-gentle-sharp-flush-crest.glb",
+   "bytes": 3288,
+   "driehoeken": 26,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    2,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-center",
+   "naam": "hilly-terrain-path-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-center.glb",
+   "bytes": 1468,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-inner-1x1",
+   "naam": "hilly-terrain-path-corner-inner-1x1",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-inner-1x1.glb",
+   "bytes": 2796,
+   "driehoeken": 21,
+   "driehoekenPerUnit": 420,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    0.5,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-inner-2x2",
+   "naam": "hilly-terrain-path-corner-inner-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-inner-2x2.glb",
+   "bytes": 4172,
+   "driehoeken": 42,
+   "driehoekenPerUnit": 93,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-inner-3x3",
+   "naam": "hilly-terrain-path-corner-inner-3x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-inner-3x3.glb",
+   "bytes": 5664,
+   "driehoeken": 65,
+   "driehoekenPerUnit": 52,
+   "materialen": 1,
+   "wdh": [
+    2.5,
+    2.5,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-outer-1x1",
+   "naam": "hilly-terrain-path-corner-outer-1x1",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-outer-1x1.glb",
+   "bytes": 2880,
+   "driehoeken": 23,
+   "driehoekenPerUnit": 115,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-outer-2x2",
+   "naam": "hilly-terrain-path-corner-outer-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-outer-2x2.glb",
+   "bytes": 4252,
+   "driehoeken": 44,
+   "driehoekenPerUnit": 55,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-outer-3x3",
+   "naam": "hilly-terrain-path-corner-outer-3x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-outer-3x3.glb",
+   "bytes": 5636,
+   "driehoeken": 65,
+   "driehoekenPerUnit": 36,
+   "materialen": 1,
+   "wdh": [
+    3,
+    3,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-outer-4x4",
+   "naam": "hilly-terrain-path-corner-outer-4x4",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-outer-4x4.glb",
+   "bytes": 7084,
+   "driehoeken": 88,
+   "driehoekenPerUnit": 28,
+   "materialen": 1,
+   "wdh": [
+    4,
+    4,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-y-2x2",
+   "naam": "hilly-terrain-path-corner-y-2x2",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-y-2x2.glb",
+   "bytes": 2516,
+   "driehoeken": 17,
+   "driehoekenPerUnit": 285,
+   "materialen": 1,
+   "wdh": [
+    0.597,
+    0.5,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-corner-y-3x3",
+   "naam": "hilly-terrain-path-corner-y-3x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-corner-y-3x3.glb",
+   "bytes": 3744,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 120,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1.5,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-esse-2x3",
+   "naam": "hilly-terrain-path-esse-2x3",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-esse-2x3.glb",
+   "bytes": 3780,
+   "driehoeken": 37,
+   "driehoekenPerUnit": 41,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    3,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-gentle-plain-center",
+   "naam": "hilly-terrain-path-hill-gentle-plain-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-gentle-plain-center.glb",
+   "bytes": 1792,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    1,
+    4,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-gentle-plain-side",
+   "naam": "hilly-terrain-path-hill-gentle-plain-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-gentle-plain-side.glb",
+   "bytes": 3476,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 6,
+   "materialen": 1,
+   "wdh": [
+    1,
+    4,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-sharp-plain-center",
+   "naam": "hilly-terrain-path-hill-sharp-plain-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-sharp-plain-center.glb",
+   "bytes": 1792,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 3,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-sharp-plain-side",
+   "naam": "hilly-terrain-path-hill-sharp-plain-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-sharp-plain-side.glb",
+   "bytes": 3472,
+   "driehoeken": 30,
+   "driehoekenPerUnit": 13,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-sharp-steps-center",
+   "naam": "hilly-terrain-path-hill-sharp-steps-center",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-sharp-steps-center.glb",
+   "bytes": 5872,
+   "driehoeken": 64,
+   "driehoekenPerUnit": 31,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.016
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-hill-sharp-steps-side",
+   "naam": "hilly-terrain-path-hill-sharp-steps-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-hill-sharp-steps-side.glb",
+   "bytes": 10880,
+   "driehoeken": 159,
+   "driehoekenPerUnit": 66,
+   "materialen": 1,
+   "wdh": [
+    1,
+    2,
+    1.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-path-side",
+   "naam": "hilly-terrain-path-side",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#228b22",
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-path-side.glb",
+   "bytes": 1892,
+   "driehoeken": 8,
+   "driehoekenPerUnit": 80,
+   "materialen": 1,
+   "wdh": [
+    0.5,
+    1,
+    0.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-water-curve",
+   "naam": "hilly-terrain-water-curve",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-water-curve.glb",
+   "bytes": 1512,
+   "driehoeken": 3,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-water-flat",
+   "naam": "hilly-terrain-water-flat",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-water-flat.glb",
+   "bytes": 1472,
+   "driehoeken": 2,
+   "driehoekenPerUnit": null,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/hilly-terrain-water-slope",
+   "naam": "hilly-terrain-water-slope",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#2474b4"
+   ],
+   "pad": "kits/modulair-terrein/hilly-terrain-water-slope.glb",
+   "bytes": 1760,
+   "driehoeken": 6,
+   "driehoekenPerUnit": 2,
+   "materialen": 1,
+   "wdh": [
+    2,
+    2,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/mountain-a",
+   "naam": "mountain-a",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/mountain-a.glb",
+   "bytes": 4288,
+   "driehoeken": 46,
+   "driehoekenPerUnit": 0,
+   "materialen": 1,
+   "wdh": [
+    5,
+    5,
+    6.847
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/mountain-b",
+   "naam": "mountain-b",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/mountain-b.glb",
+   "bytes": 4504,
+   "driehoeken": 50,
+   "driehoekenPerUnit": 0,
+   "materialen": 1,
+   "wdh": [
+    5,
+    5,
+    6.83
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/mountain-c",
+   "naam": "mountain-c",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/mountain-c.glb",
+   "bytes": 3772,
+   "driehoeken": 36,
+   "driehoekenPerUnit": 0,
+   "materialen": 1,
+   "wdh": [
+    5,
+    5,
+    6.2
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/mountain-d",
+   "naam": "mountain-d",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/mountain-d.glb",
+   "bytes": 3904,
+   "driehoeken": 41,
+   "driehoekenPerUnit": 0,
+   "materialen": 1,
+   "wdh": [
+    5,
+    5,
+    5.866
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-a",
+   "naam": "shared-prop-boulder-a",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-a.glb",
+   "bytes": 6128,
+   "driehoeken": 78,
+   "driehoekenPerUnit": 135,
+   "materialen": 1,
+   "wdh": [
+    0.878,
+    0.878,
+    0.75
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-b",
+   "naam": "shared-prop-boulder-b",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-b.glb",
+   "bytes": 6624,
+   "driehoeken": 88,
+   "driehoekenPerUnit": 94,
+   "materialen": 1,
+   "wdh": [
+    0.976,
+    0.962,
+    1
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-c",
+   "naam": "shared-prop-boulder-c",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-c.glb",
+   "bytes": 5916,
+   "driehoeken": 74,
+   "driehoekenPerUnit": 44,
+   "materialen": 1,
+   "wdh": [
+    0.963,
+    0.977,
+    1.777
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-d",
+   "naam": "shared-prop-boulder-d",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-d.glb",
+   "bytes": 8608,
+   "driehoeken": 128,
+   "driehoekenPerUnit": 149,
+   "materialen": 1,
+   "wdh": [
+    0.94,
+    0.956,
+    0.959
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-e",
+   "naam": "shared-prop-boulder-e",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-e.glb",
+   "bytes": 6148,
+   "driehoeken": 74,
+   "driehoekenPerUnit": 23,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    3.27
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-prop-boulder-f",
+   "naam": "shared-prop-boulder-f",
+   "kit": "modulair-terrein",
+   "groep": "rotsen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#88796d"
+   ],
+   "pad": "kits/modulair-terrein/shared-prop-boulder-f.glb",
+   "bytes": 8280,
+   "driehoeken": 114,
+   "driehoekenPerUnit": 114,
+   "materialen": 1,
+   "wdh": [
+    1.222,
+    1.005,
+    0.811
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-terrain-dirt-gathered-corner",
+   "naam": "shared-terrain-dirt-gathered-corner",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/shared-terrain-dirt-gathered-corner.glb",
+   "bytes": 2212,
+   "driehoeken": 12,
+   "driehoekenPerUnit": 107,
+   "materialen": 1,
+   "wdh": [
+    1.5,
+    1.5,
+    0.05
+   ],
+   "calls": 1
+  },
+  {
+   "id": "modulair-terrein/shared-terrain-dirt-gathered-straight",
+   "naam": "shared-terrain-dirt-gathered-straight",
+   "kit": "modulair-terrein",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#8f785b"
+   ],
+   "pad": "kits/modulair-terrein/shared-terrain-dirt-gathered-straight.glb",
+   "bytes": 1648,
+   "driehoeken": 4,
+   "driehoekenPerUnit": 80,
+   "materialen": 1,
+   "wdh": [
+    1,
+    1,
+    0.05
    ],
    "calls": 1
   },
