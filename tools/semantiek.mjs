@@ -18,9 +18,9 @@ export const GROEPEN = [
     beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
   { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
     tabblad: 'bouwpakket',
-    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Eigen tabblad, want veertig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
+    beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Het zijn er twee naast elkaar — dat van fantasy-town en dat van de village-kit — en ze passen niet op elkaar; kijk dus ook naar de kit voordat je twee stukken combineert. Eigen tabblad, want honderdzeventig varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
   { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
-    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten.' },
+    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten. Ook de waterput met zijn onderdelen: de drie grondvlakken die eronder gaan en de schacht die erin zit.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
     beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
@@ -37,17 +37,17 @@ export const GROEPEN = [
   { id: 'huisraad', naam: 'Huisraad & servies', kort: 'Huisraad', kleur: '#c07c8a',
     beschrijving: 'Wat er binnen staat en op tafel komt: tafel, bank en kruk, kannen, borden en beker, kaarsen, vloerkleed, zak en het eten zelf. Zit helemaal in de props-kit.' },
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
-    beschrijving: 'Schepen, boten, masten en kanonnen voor de Zinnenzee.' },
+    beschrijving: 'Schepen, boten, masten, roeispanen en kanonnen voor de Zinnenzee.' },
   { id: 'kamp', naam: 'Kamp & vuur', kort: 'Kamp', kleur: '#e76047',
     beschrijving: 'Tenten en kampvuren — de basis van het Startkamp.' },
   { id: 'opslag', naam: 'Kisten, vaten & grondstoffen', kort: 'Kisten', kleur: '#dd9f79',
     beschrijving: 'Containers en grondstoffen; goed inzetbaar als beloning of verzamelplek.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
-    beschrijving: 'Bijl, hamer, boog — koppelbaar aan mechanieken als "woordhakken".' },
+    beschrijving: 'Bijl, hamer, boog en bezem — koppelbaar aan mechanieken als "woordhakken".' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
   { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer, slot en val: kleine losse objecten die je oppakt of die op een actie reageren. Voorzichtig inzetten, geen punten-economie.' },
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer, slot en val: kleine losse objecten die je oppakt of die op een actie reageren. Daar horen de dorpsbel en de twee lampen bij — geen verzamelobjecten, maar wel klein, los en met een functie. Voorzichtig inzetten, geen punten-economie.' },
   { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
     beschrijving: 'Levende have: de twee vissen van de survival-kit en het zeeleven uit de onderwater-kit, van clownvis tot walvis. Alles uit die kit is gerigd en geanimeerd.' },
 ];
@@ -76,6 +76,19 @@ const KIT_GROEPEN = {
 const BOUWPAKKETTEN = [
   ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
   ['mini-dungeon', /^column\b/],
+  // De village-kit is bijna helemaal bouwpakket: van de 155 modellen klikken er
+  // 131 op hetzelfde raster aan elkaar. De 24 die overblijven zijn de 21 die de
+  // pack zelf `Prop_` noemt plus `sign-a`, `bell-a` en `lamp-wall`; die staan
+  // los en gaan naar hun soortgenoten uit de andere kits.
+  //
+  // De wandprops heten in de pack `Wall_Prop_` maar zijn geen losse props: een
+  // deur vult een deuropening van dít pakket en past nergens anders in. Vandaar
+  // dat `door-*` hier valt, net als de schoorstenen op het dak en de
+  // steunbalken tegen de gevel. `bell`, `lamp-wall` en `sign` blijven er buiten:
+  // die zeggen op zichzelf iets — een uithangbord draagt tekst, een bel en een
+  // lamp doen iets — en zijn ook zonder dit pakket bruikbaar. Ze vallen op de
+  // regels hieronder, bij `borden` en `items`.
+  ['village-kit', /^(canopy|chimney|cobblestone|dirt|door|roof|stone|stucco|waterwheel|windmill|wood|window)\b/],
 ];
 
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
@@ -104,14 +117,18 @@ const regels = [
   [/^campfire|^fire\b|^firewood\b|^tent\b|^tent-/, 'kamp'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
   [/^fish/, 'dieren'],
-  [/^(tool|weapon|workbench)-|^workbench$/, 'gereedschap'],
+  [/^(tool|weapon|workbench)-|^workbench$|^broom$/, 'gereedschap'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
-  [/^(coin|key|star|heart|lever|spring|trap|lock)$/, 'items'],
+  // `bell` en `lamp` staan hier om dezelfde reden als `lever` en `spring`: een
+  // kleine losse installatie met een functie. De straatlantaarn en de wandlamp
+  // horen bij elkaar, dus ze gaan allebei deze kant op.
+  [/^(coin|key|star|heart|lever|spring|trap|lock)$|^(bell|lamp)\b/, 'items'],
   // Huisraad vóór de opslag: een kan en een bord zijn geen container waar je
   // iets in bewaart, en `mushroom` (enkelvoud, het eten uit de props-kit) mag
   // niet bij `mushrooms` (meervoud, de begroeiing van mini-forest) belanden.
   [/^(table|bench|stool|jug|plate|cup|candle|carpet|bag|roast|meat|mushroom)\b/, 'huisraad'],
-  [/^(chest|barrel|box|crate|pot|bucket|bottle|cart|resource)\b|-bottles$/, 'opslag'],
+  // `hay` is de losse hooibaal; de kar mét hooi valt al op `cart`.
+  [/^(chest|barrel|box|crate|pot|bucket|bottle|cart|resource|hay)\b|-bottles$/, 'opslag'],
   // De luchtballon hoort bij het overbruggen van hoogte: in docs/draft_spec.md is
   // hij de route naar het onbereikbare plateau.
   [/^(stairs|ladder|bridge|balloon)\b/, 'verbinding'],
@@ -130,7 +147,10 @@ const regels = [
   // `pier` en `plank` staan hier en niet bij `verbinding`: een steiger loopt het
   // water in en houdt op, hij verbindt geen twee oevers. De losse plank is er
   // het bouwmateriaal van.
-  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks?|pier|wood|watermill|windmill|fountain|lighthouse)\b/, 'bouwwerken'],
+  // De put staat hier om dezelfde reden als de fontein: een bouwseltje dat je
+  // ergens neerzet. `well-base-*` en `well-inside` zijn zijn onderdelen — de
+  // drie grondvlakken eronder en de schacht erin — en blijven bij hem staan.
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks?|pier|wood|watermill|windmill|fountain|lighthouse|well)\b/, 'bouwwerken'],
 ];
 
 /**
@@ -139,75 +159,77 @@ const regels = [
  * "boom" moet `tree` vinden.
  */
 const WOORDENBOEK = {
-  arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'],
-  axe: ['bijl'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
-  banner: ['banier', 'vaandel'],
-  barrel: ['vat', 'ton'], blade: ['wiek'], boat: ['boot', 'roeiboot'],
-  bottle: ['fles'], bow: ['boog'], box: ['doos', 'kist'], branch: ['tak'],
-  bench: ['bank', 'zitbank'], bridge: ['brug'],
-  brown: ['bruin'],
-  bucket: ['emmer'], bag: ['zak', 'buidel'],
-  candle: ['kaars'], carpet: ['kleed', 'vloerkleed', 'tapijt'],
-  cave: ['grot', 'grotsteen'], cup: ['beker', 'kroes'],
-  building: ['gebouw'], calf: ['kalf', 'jong'],
-  campfire: ['kampvuur', 'vuur'], cannon: ['kanon'],
-  canvas: ['zeil', 'doek'], cart: ['kar', 'wagen'], cave: ['grot'],
-  chest: ['kist', 'schatkist'], clam: ['schelp', 'mossel'],
-  clown: ['clownvis', 'vis'], coin: ['munt', 'geld'],
-  column: ['zuil', 'pilaar'], coral: ['koraal'],
+  accent: ['sierlijst', 'accent'], angled: ['schuin', 'schuine'], arch: ['boog', 'poortboog'],
+  arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'], axe: ['bijl'],
+  bag: ['zak', 'buidel'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
+  banner: ['banier', 'vaandel'], barrel: ['vat', 'ton'], barrels: ['vaten'],
+  base: ['voet', 'sokkel', 'ondergrond'], baseboard: ['plint'], beam: ['balk', 'draagbalk'],
+  bell: ['bel', 'klok', 'luidklok'], bench: ['bank', 'zitbank'], blade: ['wiek'],
+  blades: ['wieken', 'wiek'], block: ['blok'], boat: ['boot', 'roeiboot'], bottle: ['fles'],
+  bow: ['boog'], box: ['doos', 'kist'], brace: ['schoor', 'steun'], branch: ['tak'],
+  bridge: ['brug'], broom: ['bezem'], brown: ['bruin'], bucket: ['emmer'], building: ['gebouw'],
+  calf: ['kalf', 'jong'], campfire: ['kampvuur', 'vuur'], candle: ['kaars'], cannon: ['kanon'],
+  canopy: ['luifel', 'afdak'], canvas: ['zeil', 'doek'],
+  carpet: ['kleed', 'vloerkleed', 'tapijt'], cart: ['kar', 'wagen'], cave: ['grot'],
+  chest: ['kist', 'schatkist'], chimney: ['schoorsteen'], clam: ['schelp', 'mossel'],
+  clown: ['clownvis', 'vis'], cobblestone: ['kinderkopjes', 'klinkers', 'straatsteen', 'kei'],
+  coin: ['munt', 'geld'], column: ['zuil', 'pilaar'], concave: ['hol', 'holle'],
+  convex: ['bol', 'bolle'], coral: ['koraal'], corner: ['hoek'],
   corridor: ['gang', 'tunnel', 'grot'], crab: ['krab'], crate: ['krat', 'kist'],
-  dead: ['dood', 'dode', 'kaal'], debris: ['puin', 'gruis'],
-  dirt: ['aarde', 'grond', 'modder'],
-  dollar: ['zanddollar', 'zeeklit', 'schelp'],
-  dolphin: ['dolfijn'], door: ['deur'], doorway: ['deuropening'],
-  dory: ['doktersvis', 'vis'], eel: ['paling', 'aal'],
-  fence: ['hek', 'omheining'], fire: ['vuur', 'vuurschaal'],
-  firewood: ['brandhout', 'hout'], fish: ['vis'], flag: ['vlag'],
-  floor: ['vloer', 'grond'], flowers: ['bloemen'], foliage: ['begroeiing'],
-  fountain: ['fontein'], gate: ['poort', 'hek'], grass: ['gras'],
-  hammer: ['hamer'], hammerhead: ['hamerhaai', 'haai'], heart: ['hart'],
-  hard: ['hard'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
-  jug: ['kan', 'kruik'],
-  key: ['sleutel'], ladder: ['ladder'], leg: ['poot', 'bout'],
-  lever: ['hendel'], long: ['lang'],
-  lighthouse: ['vuurtoren', 'toren', 'baken'], lobster: ['kreeft'], lock: ['slot'],
-  mast: ['mast'], meat: ['vlees'], mountain: ['berg', 'gebergte'],
-  mushroom: ['paddenstoel'],
-  mushrooms: ['paddenstoelen'], octopus: ['octopus', 'inktvis'],
-  overhang: ['afdak'],
-  orca: ['orka', 'zwaardwalvis', 'walvis'],
-  natural: ['natuurlijk', 'natuursteen'],
-  paddle: ['peddel', 'roeispaan'], palm: ['palm', 'palmboom', 'boom'],
-  pebbles: ['kiezels', 'keitjes', 'stenen'],
-  patch: ['vlak', 'grondvlak'], penguin: ['pinguïn', 'pinguin'],
-  pickaxe: ['houweel', 'pikhouweel'],
-  pier: ['steiger', 'aanlegsteiger'], plate: ['bord', 'schaal'],
-  pillar: ['pilaar', 'zuil'], pine: ['den', 'dennenboom', 'boom'],
-  plank: ['plank', 'hout'], plant: ['plant'], planks: ['planken', 'hout'],
-  platform: ['platform', 'vlonder'],
-  poles: ['palen'], pot: ['pot', 'kruik'], resource: ['grondstof'],
-  roast: ['gebraad', 'braadstuk', 'kip'],
-  rock: ['rots', 'steen'], rockform: ['rotsformatie', 'rots'],
-  rocks: ['rotsen', 'stenen'], rockwall: ['rotswand', 'muur'], roof: ['dak'],
-  room: ['kamer', 'ruimte', 'grot'], rope: ['touw'], ropes: ['touwen'],
-  sand: ['zand', 'strand'], scallop: ['sint-jakobsschelp', 'schelp'],
-  seal: ['zeehond', 'rob'], seaweed: ['zeewier', 'wier'],
-  shark: ['haai'], shell: ['schelp'], ship: ['schip', 'boot'], shovel: ['schep'],
-  short: ['kort'], shutters: ['luiken'], sign: ['bord', 'wegwijzer'],
-  signpost: ['wegwijzer', 'bord'], soft: ['zacht'],
-  spiral: ['spiraal', 'punt'], spring: ['veer', 'springveer'],
-  squid: ['pijlinktvis', 'inktvis'], stairs: ['trap'], star: ['ster'],
-  stool: ['kruk', 'krukje'], straight: ['recht'],
-  starfish: ['zeester'], stingray: ['rog', 'pijlstaartrog'],
-  stone: ['steen'], stones: ['stenen'], structure: ['bouwwerk', 'constructie'],
-  table: ['tafel'], target: ['doel', 'schietschijf'], template: ['sjabloon', 'grot'],
-  tent: ['tent'], tool: ['gereedschap'],
-  trap: ['val', 'valluik'], tree: ['boom'], tuna: ['tonijn', 'vis'],
-  turtle: ['schildpad', 'zeeschildpad'], wall: ['muur', 'wand'],
-  watermill: ['watermolen', 'molen'], weapon: ['wapen'], whale: ['walvis'],
-  wheel: ['wiel'],
-  window: ['raam'], windmill: ['windmolen', 'molen'], wood: ['hout'],
-  workbench: ['werkbank'], wreck: ['wrak'],
+  cup: ['beker', 'kroes'], curb: ['stoeprand', 'trottoirband'], curved: ['gebogen', 'bocht'],
+  dead: ['dood', 'dode', 'kaal'], debris: ['puin', 'gruis'], dirt: ['aarde', 'grond', 'modder'],
+  dollar: ['zanddollar', 'zeeklit', 'schelp'], dolphin: ['dolfijn'], door: ['deur'],
+  doorway: ['deuropening'], dory: ['doktersvis', 'vis'], double: ['dubbel'],
+  eave: ['overstek', 'dakoverstek', 'goot'], edge: ['rand'], eel: ['paling', 'aal'],
+  end: ['eind', 'uiteinde'], fading: ['uitlopend', 'aflopend'], fence: ['hek', 'omheining'],
+  fire: ['vuur', 'vuurschaal'], firewood: ['brandhout', 'hout'], fish: ['vis'], flag: ['vlag'],
+  floor: ['vloer', 'grond'], flowers: ['bloemen'], flume: ['goot', 'molengoot', 'waterloop'],
+  foliage: ['begroeiing'], fountain: ['fontein'], full: ['vol', 'heel'], gate: ['poort', 'hek'],
+  gathered: ['opgehoopt', 'hoop'], grass: ['gras'], grate: ['rooster', 'put'],
+  half: ['half', 'halve'], hammer: ['hamer'], hammerhead: ['hamerhaai', 'haai'], hard: ['hard'],
+  hay: ['hooi', 'hooibaal'], heart: ['hart'], hoe: ['schoffel'], hole: ['gat', 'kuil'],
+  inner: ['binnen', 'binnenhoek'], inside: ['binnenkant', 'binnenin'], jug: ['kan', 'kruik'],
+  key: ['sleutel'], ladder: ['ladder'], lamp: ['lamp', 'lantaarn'], large: ['groot', 'grote'],
+  leg: ['poot', 'bout'], lever: ['hendel'], lighthouse: ['vuurtoren', 'toren', 'baken'],
+  lobster: ['kreeft'], lock: ['slot'], long: ['lang'], low: ['laag', 'lage'], mast: ['mast'],
+  meat: ['vlees'], mid: ['midden'], mountain: ['berg', 'gebergte'], mushroom: ['paddenstoel'],
+  mushrooms: ['paddenstoelen'], narrow: ['smal', 'smalle'],
+  natural: ['natuurlijk', 'natuursteen'], oars: ['roeispanen', 'riemen'],
+  octopus: ['octopus', 'inktvis'], open: ['open'], opposite: ['tegenover', 'overstaand'],
+  orca: ['orka', 'zwaardwalvis', 'walvis'], ornate: ['sierlijk', 'versierd'],
+  outer: ['buiten', 'buitenhoek'], overhang: ['afdak'], paddle: ['peddel', 'roeispaan'],
+  palm: ['palm', 'palmboom', 'boom'], patch: ['vlak', 'grondvlak'],
+  pebbles: ['kiezels', 'keitjes', 'stenen'], penguin: ['pinguïn', 'pinguin'],
+  pickaxe: ['houweel', 'pikhouweel'], pier: ['steiger', 'aanlegsteiger'],
+  pillar: ['pilaar', 'zuil'], pine: ['den', 'dennenboom', 'boom'], pipe: ['pijp', 'buis'],
+  plank: ['plank', 'hout'], planks: ['planken', 'hout'], plant: ['plant'],
+  plate: ['bord', 'schaal'], platform: ['platform', 'vlonder'], poles: ['palen'],
+  post: ['paal', 'staander'], pot: ['pot', 'kruik'], railing: ['leuning', 'reling', 'balustrade'],
+  rake: ['windveer', 'dakrand'], ramp: ['helling', 'oprit'], resource: ['grondstof'],
+  ridge: ['nok', 'nokrand'], roast: ['gebraad', 'braadstuk', 'kip'], rock: ['rots', 'steen'],
+  rockform: ['rotsformatie', 'rots'], rocks: ['rotsen', 'stenen'], rockwall: ['rotswand', 'muur'],
+  roof: ['dak'], room: ['kamer', 'ruimte', 'grot'], rope: ['touw'], ropes: ['touwen'],
+  rounded: ['rond', 'afgerond'], sand: ['zand', 'strand'],
+  scallop: ['sint-jakobsschelp', 'schelp'], seal: ['zeehond', 'rob'],
+  seaweed: ['zeewier', 'wier'], sewer: ['riool'], shark: ['haai'], shell: ['schelp'],
+  ship: ['schip', 'boot'], short: ['kort'], shovel: ['schep'], shutters: ['luiken'],
+  side: ['zijkant', 'zijde'], sides: ['zijkanten', 'zijden'], sign: ['bord', 'wegwijzer'],
+  signpost: ['wegwijzer', 'bord'], simple: ['eenvoudig', 'simpel'], single: ['enkel', 'enkele'],
+  small: ['klein', 'kleine'], soft: ['zacht'], spiral: ['spiraal', 'punt'],
+  spring: ['veer', 'springveer'], squid: ['pijlinktvis', 'inktvis'], stairs: ['trap'],
+  star: ['ster'], starfish: ['zeester'], steps: ['trap', 'treden', 'traptreden'],
+  stingray: ['rog', 'pijlstaartrog'], stone: ['steen'], stones: ['stenen'],
+  stool: ['kruk', 'krukje'], straight: ['recht'], street: ['straat', 'straatlantaarn'],
+  structure: ['bouwwerk', 'constructie'], stucco: ['stuc', 'pleisterwerk', 'pleister'],
+  support: ['steun', 'schoor', 'steunbalk'], supported: ['gesteund', 'geschoord'],
+  table: ['tafel'], tall: ['hoog', 'hoge'], target: ['doel', 'schietschijf'],
+  template: ['sjabloon', 'grot'], tent: ['tent'], tool: ['gereedschap'],
+  top: ['bovenkant', 'bovenstuk'], transition: ['overgang'], trap: ['val', 'valluik'],
+  tree: ['boom'], tuna: ['tonijn', 'vis'], turtle: ['schildpad', 'zeeschildpad'],
+  upper: ['boven', 'bovenverdieping'], wall: ['muur', 'wand'], watermill: ['watermolen', 'molen'],
+  waterwheel: ['waterrad', 'molenrad', 'rad'], weapon: ['wapen'], well: ['put', 'waterput'],
+  whale: ['walvis'], wheel: ['wiel'], wide: ['breed', 'brede'], windmill: ['windmolen', 'molen'],
+  window: ['raam'], wood: ['hout'], workbench: ['werkbank'], wreck: ['wrak'],
 };
 
 /**
