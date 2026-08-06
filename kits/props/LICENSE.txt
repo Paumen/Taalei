@@ -1,0 +1,56 @@
+	Props
+
+	Medieval Props (Lite)
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`PropsLite_FBX`, zonder licentiebestand en zonder verwijzing naar een
+	maker of een packpagina. De CC0-vermelding hierboven is vastgesteld
+	door de eigenaar van dit project bij het inladen; ze komt niet uit de
+	pack zelf. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Van de 48 modellen in de pack zijn er 28 ingeladen:
+
+	  Bag_01        → bag-a          Furniture_01  → table-a
+	  Barrel_01     → barrel-a       Furniture_02  → bench-a
+	  Bottle_01     → bottle-a       Furniture_03  → stool-a
+	  Bottle_02     → bottle-b       Jug_01        → jug-a
+	  Bottle_03     → bottle-c       Jug_02        → jug-b
+	  Box_01        → box-a          Jug_03        → jug-c
+	  Bucket_01     → bucket-a       Jug_04        → jug-d
+	  Bucket_01_2   → bucket-b       Plate_01      → plate-a
+	  Candle_02     → candle-a       Plate_02      → plate-b
+	  Candle_03     → candle-b       Plate_03      → plate-c
+	  Carpet_01     → carpet-a       Stairs_01     → stairs-a
+	  Cup_01        → cup-a          Food_03       → roast-a
+	  Fire_01       → fire-a         Food_04       → meat-leg-a
+	  Firewood_01   → firewood-a     Food_06       → mushroom-a
+
+	Zes namen zeggen in de pack niet wat het model is. `Furniture_01/02/03`
+	blijken een tafel, een bank en een kruk, en `Food_03/04/06` een
+	gebraden vogel, een stuk vlees aan het bot en een paddenstoel; die
+	heten hier naar wat ze zijn. De letters lopen door vanaf `a` in de
+	volgorde hierboven en volgen dus niet de nummering van de pack —
+	`Candle_01` en `Food_01/02/05` zijn niet ingeladen.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-props.mjs: omgezet naar .glb en met de oorsprong op
+	y=0 en het grondvlak gecentreerd. Er is niet geschaald: deze pack staat
+	al op het raster van de repo.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024. Die is niet
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en in
+	hetzelfde kleurfilter meedoen. De geometrie is verder ongemoeid.

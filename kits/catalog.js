@@ -7,6 +7,14 @@ const KIT_KLEUREN = {
   'platformer-kit': '#ffb349',
   'mini-dungeon': '#6d738a',
   'onderwater-kit': '#2fa39b',
+  // Twee geïmporteerde packs: verweerd bruingrijs voor de tak, de dode boom en
+  // de berg, en het olijfgroen dat met de palm en de plant aan de gedeelde
+  // colormap is toegevoegd.
+  nature: '#7f6a52',
+  tropical: '#6d8d33',
+  // De props-kit is hout, aardewerk en ijzer; de rocks-kit is steen.
+  props: '#b7946e',
+  rocks: '#8a91ae',
 };
 
 const GROEP_ALIASSEN = {

@@ -274,3 +274,143 @@ export function meetScene(glb) {
     calls,
   };
 }
+
+/* -- opschonen ------------------------------------------------------------
+ * Een geïmporteerde pack draagt meer mee dan de catalogus kan gebruiken: de
+ * tropical-pack levert drie LOD-meshes in één bestand, allemaal in de scène en
+ * dus allemaal over elkaar heen getekend, plus een tweede UV-set die nergens
+ * naar verwijst. Deze repo kent geen LOD's — `calls` en `driehoeken` in de
+ * catalogus zijn tekenbudget, geen bovengrens van een detailtrap — dus er blijft
+ * één mesh over en de rest moet er niet alleen uit de scène, maar ook uit het
+ * bestand: anders staan de bytes in catalog.json voor geometrie die niemand ziet.
+ */
+
+/**
+ * Bouwt een nieuw GLB met alleen de opgegeven meshes en attributen. Accessors,
+ * bufferViews en de binaire buffer worden strak opnieuw opgebouwd, zodat er
+ * niets ongebruikts achterblijft.
+ *
+ * De meshes komen als losse nodes in de scène te staan, in de volgorde waarin
+ * ze zijn opgegeven. Materialen, texturen en images gaan ongewijzigd mee; de
+ * importeurs zetten die daarna zelf goed.
+ *
+ * De plaatsing van een mesh blijft staan: de wereldmatrix van de node die hem
+ * aanriep gaat mee als `matrix`. Dat is niet vanzelfsprekend maar wel nodig —
+ * `mountain01` uit de nature-pack hangt aan een node met schaal 0,5, en zonder
+ * die matrix komt de berg er twee keer zo groot uit als de pack hem bedoelde.
+ *
+ * @param {{json: object, bin: Buffer}} glb
+ * @param {number[]} meshIndexen  welke meshes blijven
+ * @param {string[]} attributen   welke vertex-attributen blijven
+ * @returns {{json: object, bin: Buffer}} een nieuw GLB; `glb` blijft ongemoeid
+ */
+export function compacteer(glb, meshIndexen, attributen = ['POSITION', 'NORMAL', 'TEXCOORD_0']) {
+  const bron = glb.json;
+
+  /* Wereldmatrix per node, langs dezelfde weg als meetScene() hem loopt. */
+  const wereld = new Array((bron.nodes ?? []).length).fill(null);
+  const zetWereld = (index, ouder) => {
+    if (wereld[index]) return;
+    const node = bron.nodes[index];
+    if (!node) return;
+    wereld[index] = maalMatrix(ouder, nodeMatrix(node));
+    for (const kind of node.children ?? []) zetWereld(kind, wereld[index]);
+  };
+  for (const index of bron.scenes?.[bron.scene ?? 0]?.nodes ?? []) zetWereld(index, EENHEIDSMATRIX);
+
+  // Mesh → de matrix waarmee de scène hem tekent. Wordt een mesh door meer dan
+  // één node gebruikt, dan telt de eerste; dat komt in deze packs niet voor.
+  const matrixVanMesh = new Map();
+  (bron.nodes ?? []).forEach((node, index) => {
+    if (node.mesh === undefined || !wereld[index]) return;
+    if (!matrixVanMesh.has(node.mesh)) matrixVanMesh.set(node.mesh, wereld[index]);
+  });
+  const stukken = [];
+  const bufferViews = [];
+  const accessors = [];
+  let lengte = 0;
+
+  /* Kopieert één accessor mee en geeft zijn nieuwe index terug. De brondata
+   * wordt daarbij ontvlochten: elke accessor krijgt zijn eigen bufferView zonder
+   * byteStride, wat de glTF-spec toestaat en het rekenwerk hier simpel houdt. */
+  const neem = (index) => {
+    const acc = bron.accessors[index];
+    if (acc.sparse) throw new Error('sparse accessor wordt niet ondersteund');
+
+    const Soort = COMPONENT[acc.componentType];
+    const breedte = ONDERDELEN[acc.type];
+    const eenheid = breedte * Soort.BYTES_PER_ELEMENT;
+    const bv = bron.bufferViews[acc.bufferView];
+    const start = (bv.byteOffset ?? 0) + (acc.byteOffset ?? 0);
+    const stap = bv.byteStride ?? eenheid;
+
+    // Op een veelvoud van vier beginnen: de spec eist dat een accessor uitkomt
+    // op een offset die deelbaar is door zijn componentgrootte.
+    while (lengte % 4 !== 0) {
+      stukken.push(Buffer.alloc(1));
+      lengte++;
+    }
+
+    const uit = Buffer.alloc(acc.count * eenheid);
+    for (let i = 0; i < acc.count; i++) {
+      glb.bin.copy(uit, i * eenheid, start + i * stap, start + i * stap + eenheid);
+    }
+
+    bufferViews.push({
+      buffer: 0,
+      byteOffset: lengte,
+      byteLength: uit.length,
+      ...(bv.target ? { target: bv.target } : {}),
+    });
+    stukken.push(uit);
+    lengte += uit.length;
+
+    accessors.push({
+      bufferView: bufferViews.length - 1,
+      componentType: acc.componentType,
+      count: acc.count,
+      type: acc.type,
+      // min/max is verplicht voor POSITION en verder nooit schadelijk.
+      ...(acc.min ? { min: acc.min } : {}),
+      ...(acc.max ? { max: acc.max } : {}),
+    });
+    return accessors.length - 1;
+  };
+
+  const meshes = meshIndexen.map((mi) => ({
+    name: bron.meshes[mi].name,
+    primitives: bron.meshes[mi].primitives.map((prim) => {
+      const attrs = {};
+      for (const naam of attributen) {
+        if (prim.attributes[naam] !== undefined) attrs[naam] = neem(prim.attributes[naam]);
+      }
+      return {
+        attributes: attrs,
+        ...(prim.indices !== undefined ? { indices: neem(prim.indices) } : {}),
+        ...(prim.material !== undefined ? { material: prim.material } : {}),
+        ...(prim.mode !== undefined ? { mode: prim.mode } : {}),
+      };
+    }),
+  }));
+
+  const json = {
+    asset: bron.asset,
+    scene: 0,
+    scenes: [{ nodes: meshes.map((_, i) => i) }],
+    nodes: meshes.map((mesh, i) => {
+      const matrix = matrixVanMesh.get(meshIndexen[i]) ?? EENHEIDSMATRIX;
+      const eenheid = matrix.every((v, k) => v === EENHEIDSMATRIX[k]);
+      return { mesh: i, name: mesh.name, ...(eenheid ? {} : { matrix }) };
+    }),
+    meshes,
+    accessors,
+    bufferViews,
+    buffers: [{ byteLength: lengte }],
+    ...(bron.materials ? { materials: bron.materials } : {}),
+    ...(bron.textures ? { textures: bron.textures } : {}),
+    ...(bron.images ? { images: bron.images } : {}),
+    ...(bron.samplers ? { samplers: bron.samplers } : {}),
+  };
+
+  return { json, bin: Buffer.concat(stukken) };
+}
