@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 336,
+ "totaal": 346,
  "kits": [
   {
    "slug": "fantasy-town-kit",
@@ -49,6 +49,18 @@
    "tabblad": "grot",
    "toelichting": "Staat op zichzelf: eigen texture-atlas en eigen kleuren, gedeeld met geen enkele andere kit. Daarom een eigen tabblad — deze modellen zijn niet uitwisselbaar met die van de andere kits.",
    "palet": "grot"
+  },
+  {
+   "slug": "nature",
+   "naam": "Nature",
+   "kort": "Nature",
+   "url": null,
+   "licentie": "kits/nature/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 3,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
   },
   {
    "slug": "onderwater-kit",
@@ -109,6 +121,18 @@
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
+  },
+  {
+   "slug": "tropical",
+   "naam": "Tropical",
+   "kort": "Tropical",
+   "url": null,
+   "licentie": "kits/tropical/LICENSE.txt",
+   "licentieLabel": "CC0",
+   "aantal": 7,
+   "tabblad": null,
+   "toelichting": null,
+   "palet": "gedeeld"
   }
  ],
  "groepen": [
@@ -117,7 +141,8 @@
    "naam": "Grond & terrein",
    "kort": "Grond",
    "kleur": "#8a5d4b",
-   "aantal": 15
+   "tabblad": "terrain",
+   "aantal": 16
   },
   {
    "id": "grot",
@@ -139,7 +164,7 @@
    "naam": "Bouwwerken & platforms",
    "kort": "Bouwwerken",
    "kleur": "#877a63",
-   "aantal": 34
+   "aantal": 36
   },
   {
    "id": "verbinding",
@@ -160,14 +185,14 @@
    "naam": "Bomen & palmen",
    "kort": "Bomen",
    "kleur": "#3da679",
-   "aantal": 17
+   "aantal": 20
   },
   {
    "id": "planten",
    "naam": "Planten, gras & bloemen",
    "kort": "Planten",
    "kleur": "#6cb588",
-   "aantal": 10
+   "aantal": 11
   },
   {
    "id": "zeebodem",
@@ -202,7 +227,7 @@
    "naam": "Kisten, vaten & grondstoffen",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 17
+   "aantal": 20
   },
   {
    "id": "gereedschap",
@@ -245,21 +270,21 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 182
+     "aantal": 183
     },
     {
      "hex": "#995a41",
      "naam": "bruin",
      "textuur": null,
      "materiaal": null,
-     "aantal": 79
+     "aantal": 88
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 51
+     "aantal": 53
     },
     {
      "hex": "#3da679",
@@ -273,7 +298,7 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 42
+     "aantal": 43
     },
     {
      "hex": "#9da4c4",
@@ -287,14 +312,14 @@
      "naam": "lichtoranje",
      "textuur": null,
      "materiaal": null,
-     "aantal": 29
+     "aantal": 30
     },
     {
      "hex": "#3e3e44",
      "naam": "grijs",
      "textuur": null,
      "materiaal": null,
-     "aantal": 22
+     "aantal": 26
     },
     {
      "hex": "#ffb349",
@@ -315,7 +340,7 @@
      "naam": "rood",
      "textuur": null,
      "materiaal": null,
-     "aantal": 9
+     "aantal": 10
     },
     {
      "hex": "#f0c59d",
@@ -323,6 +348,13 @@
      "textuur": null,
      "materiaal": null,
      "aantal": 7
+    },
+    {
+     "hex": "#6d8d33",
+     "naam": "groen",
+     "textuur": null,
+     "materiaal": null,
+     "aantal": 2
     }
    ]
   },
@@ -3882,6 +3914,68 @@
     1,
     0.541,
     1.013
+   ],
+   "calls": 1
+  },
+  {
+   "id": "nature/branch-a",
+   "naam": "branch-a",
+   "kit": "nature",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/nature/branch-a.glb",
+   "bytes": 56176,
+   "driehoeken": 536,
+   "materialen": 1,
+   "wdh": [
+    1.014,
+    0.646,
+    0.158
+   ],
+   "calls": 1
+  },
+  {
+   "id": "nature/mountain-a",
+   "naam": "mountain-a",
+   "kit": "nature",
+   "groep": "terrein",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#f0ece3"
+   ],
+   "pad": "kits/nature/mountain-a.glb",
+   "bytes": 179316,
+   "driehoeken": 1742,
+   "materialen": 1,
+   "wdh": [
+    16.667,
+    16.667,
+    5.262
+   ],
+   "calls": 1
+  },
+  {
+   "id": "nature/tree-dead",
+   "naam": "tree-dead",
+   "kit": "nature",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/nature/tree-dead.glb",
+   "bytes": 160508,
+   "driehoeken": 1560,
+   "materialen": 1,
+   "wdh": [
+    1.16,
+    0.922,
+    1.706
    ],
    "calls": 1
   },
@@ -7890,6 +7984,155 @@
     1.93,
     2.016,
     4.269
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/barrel-a",
+   "naam": "barrel-a",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d738a",
+    "#995a41",
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "pad": "kits/tropical/barrel-a.glb",
+   "bytes": 36360,
+   "driehoeken": 704,
+   "materialen": 1,
+   "wdh": [
+    0.396,
+    0.413,
+    0.431
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/chest-a",
+   "naam": "chest-a",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41",
+    "#b2413a"
+   ],
+   "pad": "kits/tropical/chest-a.glb",
+   "bytes": 53760,
+   "driehoeken": 878,
+   "materialen": 1,
+   "wdh": [
+    0.484,
+    0.274,
+    0.201
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/chest-b",
+   "naam": "chest-b",
+   "kit": "tropical",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/chest-b.glb",
+   "bytes": 37516,
+   "driehoeken": 628,
+   "materialen": 1,
+   "wdh": [
+    0.403,
+    0.275,
+    0.171
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/palm-a",
+   "naam": "palm-a",
+   "kit": "tropical",
+   "groep": "bomen",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#6d8d33",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/palm-a.glb",
+   "bytes": 111148,
+   "driehoeken": 2180,
+   "materialen": 1,
+   "wdh": [
+    1.19,
+    1.256,
+    2.062
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/pier-a",
+   "naam": "pier-a",
+   "kit": "tropical",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#3e3e44",
+    "#995a41"
+   ],
+   "pad": "kits/tropical/pier-a.glb",
+   "bytes": 38332,
+   "driehoeken": 612,
+   "materialen": 1,
+   "wdh": [
+    0.946,
+    1.471,
+    1.255
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/plank-a",
+   "naam": "plank-a",
+   "kit": "tropical",
+   "groep": "bouwwerken",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#995a41"
+   ],
+   "pad": "kits/tropical/plank-a.glb",
+   "bytes": 3704,
+   "driehoeken": 36,
+   "materialen": 1,
+   "wdh": [
+    0.893,
+    0.124,
+    0.019
+   ],
+   "calls": 1
+  },
+  {
+   "id": "tropical/plant-a",
+   "naam": "plant-a",
+   "kit": "tropical",
+   "groep": "planten",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#6d8d33"
+   ],
+   "pad": "kits/tropical/plant-a.glb",
+   "bytes": 69012,
+   "driehoeken": 1456,
+   "materialen": 1,
+   "wdh": [
+    0.717,
+    0.821,
+    0.205
    ],
    "calls": 1
   }

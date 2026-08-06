@@ -1,0 +1,44 @@
+	Tropical
+
+	Tropical Island Pack (Lite)
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`TropicalIslandLite_FBX`, zonder licentiebestand en zonder verwijzing
+	naar een maker of een packpagina. De CC0-vermelding hierboven is
+	vastgesteld door de eigenaar van dit project bij het inladen; ze komt
+	niet uit de pack zelf. De maker is niet bekend en er is dus ook niemand
+	om te crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Van de 12 modellen in de pack zijn er zeven ingeladen: `barrel-a`,
+	`chest-a`, `chest-b`, `palm-a`, `pier-a`, `plank-a` en `plant-a` (in de
+	pack `Barrel_04`, `Chest_01`, `Chest_01_2`, `PalmTree_05`, `Pier_02`,
+	`Plank_01` en `Plant_01`).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-tropical.mjs: omgezet naar .glb, gehalveerd zodat ze op
+	hetzelfde raster passen als de rest, en met de oorsprong op y=0 en het
+	grondvlak gecentreerd.
+
+	Elk model in de pack draagt drie detailtrappen (LOD0, LOD1 en LOD2),
+	alle drie als losse mesh in hetzelfde bestand en alle drie in de scène.
+	Deze catalogus kent geen detailtrappen; alleen LOD0 is ingeladen, de
+	andere twee zijn uit het bestand verwijderd.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024. Die is niet
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png.
+	Voor het blad van `palm-a` en `plant-a` is daar één kleur aan toegevoegd
+	— een olijfgroene baan op cel [3,1] — omdat het gedeelde palet alleen
+	blauwgroenen had en de bladeren anders bruin zouden uitkomen. De
+	geometrie is verder ongemoeid.
