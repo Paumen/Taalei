@@ -662,6 +662,10 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 
 .selectiebalk button:hover { border-color: var(--accent); }
 
+/* Dezelfde ring als .kaart en .staal. De offset zet hem net buiten de knop, dus
+   hij blijft leesbaar op "Kopieer paden", die zelf al accentkleurig is. */
+.selectiebalk button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
 .selectiebalk button.primair {
   background: var(--accent);
   border-color: var(--accent);
