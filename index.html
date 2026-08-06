@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D-catalogus</title>
-<meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit, per semantische groep, het modulaire bouwpakket, grond en terrein, rotsen en stenen, de losstaande grot en de onderwaterkit.">
-<meta name="catalogus-versie" content="d98b110e36">
-<link rel="stylesheet" href="kits/catalog.css?v=d98b110e36">
+<meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit, per groep, het modulaire bouwpakket, grond en terrein, rotsen en stenen, de losstaande grot en de onderwaterkit.">
+<meta name="catalogus-versie" content="240debc26a">
+<link rel="stylesheet" href="kits/catalog.css?v=240debc26a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <div class="kop-bediening">
     <div class="schakelaar" role="tablist" aria-label="Weergave">
       <button role="tab" id="tab-kits" aria-controls="paneel" aria-selected="true" data-weergave="kits">Kits</button>
-      <button role="tab" id="tab-groepen" aria-controls="paneel" aria-selected="false" data-weergave="groepen">Semantische groepen</button>
+      <button role="tab" id="tab-groepen" aria-controls="paneel" aria-selected="false" data-weergave="groepen">Groepen</button>
       <button role="tab" id="tab-bouwpakket" aria-controls="paneel" aria-selected="false" data-weergave="bouwpakket">Bouwpakket</button>
       <button role="tab" id="tab-terrain" aria-controls="paneel" aria-selected="false" data-weergave="terrain">Terrein</button>
       <button role="tab" id="tab-rotsen" aria-controls="paneel" aria-selected="false" data-weergave="rotsen">Rotsen</button>
@@ -68,12 +68,20 @@
     </label>
     <div class="detail-acties">
       <button id="detail-kopieer">Kopieer pad</button>
+      <button id="detail-selecteer" aria-pressed="false">Aan selectie toevoegen</button>
       <a id="detail-download" download>Download .glb</a>
     </div>
   </div>
 </dialog>
 
+<div class="selectiebalk" id="selectiebalk" hidden>
+  <span class="selectiebalk-telling" id="selectiebalk-telling" aria-live="polite"></span>
+  <button type="button" id="selectie-alles">Alles in beeld</button>
+  <button type="button" id="selectie-kopieer" class="primair">Kopieer paden</button>
+  <button type="button" id="selectie-wis">Wis</button>
+</div>
+
 <script src="vendor/model-viewer.min.js" type="module"></script>
-<script src="kits/catalog.js?v=d98b110e36" type="module"></script>
+<script src="kits/catalog.js?v=240debc26a" type="module"></script>
 </body>
 </html>

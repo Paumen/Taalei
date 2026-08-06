@@ -39,6 +39,18 @@ const secties = [];
 
 let huidigeWeergave = 'kits';
 
+/**
+ * Selectie hangt aan het pad, niet aan de kaart. Eén model heeft namelijk
+ * meerdere kaarten — hetzelfde vat staat zowel in de kitweergave als in zijn
+ * semantische groep — en die moeten hetzelfde vinkje tonen. Meteen ook de
+ * ontdubbeling: wie in beide tabbladen hetzelfde model aanvinkt, krijgt het
+ * pad één keer op het klembord.
+ */
+const gekozenPaden = new Set();
+const kaartenPerPad = new Map();
+
+let laatsteKeuze = null;
+
 const gekozenKleuren = new Set();
 
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
@@ -141,8 +153,24 @@ function maakKaart(model, kits, groepen, weergave) {
   kaart.append(vak, tekst);
   kaart.addEventListener('click', () => toonDetail(model, kit, groep));
 
+  // Het vinkje is een broer van de kaart, geen kind: een knop in een knop mag
+  // niet, en zo blijft de kaart zelf onveranderd klikbaar naar het detail.
+  const kies = document.createElement('label');
+  kies.className = 'kaart-kies';
+  const vinkje = document.createElement('input');
+  vinkje.type = 'checkbox';
+  vinkje.checked = gekozenPaden.has(model.pad);
+  vinkje.setAttribute('aria-label', `${model.naam} selecteren`);
+  kies.append(vinkje);
+
+  const houder = document.createElement('div');
+  houder.className = 'kaart-houder';
+  houder.append(kaart, kies);
+
   const item = {
-    element: kaart,
+    element: houder,
+    vinkje,
+    pad: model.pad,
     weergave,
     palet: model.palet,
     kleuren: model.kleuren.map((hex) => kleurSleutel(model.palet, hex)),
@@ -154,6 +182,16 @@ function maakKaart(model, kits, groepen, weergave) {
     ].join(' ').toLowerCase(),
   };
   kaarten.push(item);
+
+  const zusjes = kaartenPerPad.get(model.pad);
+  if (zusjes) zusjes.push(item);
+  else kaartenPerPad.set(model.pad, [item]);
+
+  vinkje.addEventListener('click', (e) => {
+    if (e.shiftKey && laatsteKeuze && laatsteKeuze !== item) kiesBereik(item, vinkje.checked);
+    else zetSelectie([model.pad], vinkje.checked);
+    laatsteKeuze = item;
+  });
 
   waarnemer.observe(vak);
   return item;
@@ -288,6 +326,7 @@ function toonDetail(model, kit, groep) {
   detailViewer.replaceChildren(viewer);
 
   detail.showModal();
+  werkSelectieBij();
 }
 
 detailAnimatieKeuze.addEventListener('change', () => {
@@ -306,6 +345,100 @@ detailKopieer.addEventListener('click', async () => {
     detailKopieer.textContent = actiefPad;
   }
   setTimeout(() => { detailKopieer.textContent = 'Kopieer pad'; }, 1600);
+});
+
+/* ---------- selectie ---------- */
+
+const selectiebalk = document.querySelector('#selectiebalk');
+const selectieTelling = document.querySelector('#selectiebalk-telling');
+const selectieKopieer = document.querySelector('#selectie-kopieer');
+const detailSelecteer = document.querySelector('#detail-selecteer');
+
+const zichtbareKaarten = () =>
+  kaarten.filter((k) => k.weergave === huidigeWeergave && !k.element.hidden);
+
+function zetSelectie(paden, aan) {
+  for (const pad of paden) {
+    if (aan) gekozenPaden.add(pad);
+    else gekozenPaden.delete(pad);
+    for (const zusje of kaartenPerPad.get(pad) ?? []) zusje.vinkje.checked = aan;
+  }
+  werkSelectieBij();
+}
+
+/**
+ * Shift-klik trekt de selectie door van de vorige klik tot deze, over de
+ * kaarten die nú in beeld staan. Dus na filteren op "chest" pakt shift precies
+ * de kisten, en niet alles wat er in de ongefilterde catalogus tussen zat.
+ */
+function kiesBereik(tot, aan) {
+  const lijst = zichtbareKaarten();
+  const van = lijst.indexOf(laatsteKeuze);
+  const naar = lijst.indexOf(tot);
+  if (van === -1 || naar === -1) return zetSelectie([tot.pad], aan);
+  const bereik = lijst.slice(Math.min(van, naar), Math.max(van, naar) + 1);
+  zetSelectie(bereik.map((k) => k.pad), aan);
+}
+
+function werkSelectieBij() {
+  const aantal = gekozenPaden.size;
+  selectiebalk.hidden = aantal === 0;
+  selectieTelling.textContent = `${aantal} geselecteerd`;
+  if (detail.open) {
+    const aan = gekozenPaden.has(actiefPad);
+    detailSelecteer.textContent = aan ? 'Uit selectie halen' : 'Aan selectie toevoegen';
+    detailSelecteer.setAttribute('aria-pressed', String(aan));
+  }
+}
+
+/**
+ * Zonder klembordrechten — een pagina die niet over https draait, bijvoorbeeld
+ * vanaf het bestandssysteem — valt de browser terug op een veld dat je met
+ * ctrl-C leegt. Bij één pad past dat nog in het knoplabel, bij zeventig niet.
+ */
+async function naarKlembord(tekst) {
+  try {
+    await navigator.clipboard.writeText(tekst);
+    return true;
+  } catch {}
+
+  const veld = document.createElement('textarea');
+  veld.value = tekst;
+  veld.setAttribute('readonly', '');
+  veld.style.cssText = 'position:fixed;top:0;left:-9999px';
+  document.body.append(veld);
+  veld.select();
+  try {
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    veld.remove();
+  }
+}
+
+selectieKopieer.addEventListener('click', async () => {
+  const aantal = gekozenPaden.size;
+  // Set houdt invoegvolgorde aan: de paden komen eruit in de volgorde waarin ze
+  // zijn aangevinkt, en bij "Alles in beeld" is dat de volgorde op het scherm.
+  const gelukt = await naarKlembord([...gekozenPaden].join('\n'));
+  selectieKopieer.textContent = gelukt
+    ? `${aantal} pad${aantal === 1 ? '' : 'en'} gekopieerd`
+    : 'Kopiëren mislukt';
+  setTimeout(() => { selectieKopieer.textContent = 'Kopieer paden'; }, 1600);
+});
+
+document.querySelector('#selectie-alles').addEventListener('click', () => {
+  zetSelectie(zichtbareKaarten().map((k) => k.pad), true);
+});
+
+document.querySelector('#selectie-wis').addEventListener('click', () => {
+  zetSelectie([...gekozenPaden], false);
+  laatsteKeuze = null;
+});
+
+detailSelecteer.addEventListener('click', () => {
+  zetSelectie([actiefPad], !gekozenPaden.has(actiefPad));
 });
 
 function vinkKleur(hex) {
@@ -427,7 +560,7 @@ async function start() {
 
   samenvatting.textContent =
     `${data.totaal} modellen · ${data.kits.length} kits · ` +
-    `${data.groepen.filter((g) => g.aantal > 0).length} semantische groepen · ` +
+    `${data.groepen.filter((g) => g.aantal > 0).length} groepen · ` +
     `${data.paletten.length} kleurpaletten`;
 
   const registreer = (sectieDelen, titel, kleur, modellen) => {
