@@ -33,15 +33,18 @@ const DOEL = join(KITS, 'forest');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * Vergeleken met wat er al staat: de kleinste rots (Rock_2_A, 0,22 units) ligt
- * in de buurt van de kleinste onderwater-rots (rock-k, 0,17-0,21), de grootste
- * losse rots (Rock_3_R, 4,2-5,2) in de buurt van rocks/rock-natural-c
- * (1,7-3,0, ook de grootste van zijn familie). De grasplukken (0,15-1,4) en de
- * kale bomen (2,9-7,6 hoog) passen naast survival-kit's gras (0,29-0,95) en
- * tree-tall (3,42). Geen van allen wijst op een gemeenschappelijke
- * schaalfactor met deze repo — de pack staat al op het raster. Geen schaling.
+ * De pack gaat op 0,5 het raster van de repo op. Een eerste import nam 1 aan,
+ * maar vergeleek daarvoor de verkeerde maten (grashoogte tegen grasbreedte
+ * van de survival-kit). Op hoogte vergeleken is alles het dubbele van
+ * dezelfde voorwerpen elders (zie docs/asset_size_review.md): gras 0,54-0,94
+ * tegenover 0,13-0,31 bij pirate-, platformer- en survival-kit, de grootste
+ * losse rots 3,9 hoog tegenover 1,2-2,1 bij pirate-kit en modulair-terrein.
+ * Op 0,5 valt het op zijn plek: gras 0,27-0,47 naast de grasplukken van
+ * modulair-terrein (0,30-0,67), rotsen tot 1,9 naast cliff-prop-rock-b
+ * (2,1), en de kale bomen 1,4-3,8 naast nature/tree-dead (1,7) en de eiken
+ * van modulair-terrein (4,7).
  */
-const SCHAAL = 1;
+const SCHAAL = 0.5;
 
 const letters = (n) => Array.from({ length: n }, (_, i) => String.fromCharCode(65 + i));
 

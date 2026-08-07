@@ -284,26 +284,29 @@ export function meetScene(glb) {
 export const BUDGET_PER_UNIT = 1000;
 
 /**
- * Driehoeken per 1×1×1 unit — afgezet tegen BUDGET_PER_UNIT hierboven.
+ * Driehoeken per bezette rastercel — afgezet tegen BUDGET_PER_UNIT hierboven.
  *
- * De noemer is het volume van de bounding box zoals hij is: b × d × h, zonder
- * ondergrens. Een model dat maar een fractie van een rastercel vult, wordt dus
- * afgerekend op die fractie — een munt van 0,09 × 0,09 × 0,03 komt op ruim
- * 300.000 uit. Dat is wat de regel letterlijk zegt: driehoeken per unit ruimte,
- * niet per bezette cel.
+ * De noemer is het aantal cellen dat het model bezet, met één cel als
+ * ondergrens: max(1, b × d) × max(1, h), zoals importeer-village.mjs hem
+ * altijd al rekende. Zonder die ondergrens groeit de dichtheid met 1/maat³
+ * en kan geen enkel klein voorwerp ooit slagen — een schroef van
+ * 0,06 × 0,06 × 0,12 zou op minder dan één driehoek moeten uitkomen. Een
+ * vloertegel van 2 × 2 wordt nog steeds op vier cellen afgerekend en een
+ * emmer kleiner dan één cel krijgt geen korting omdat hij klein is: zijn
+ * budget is precies dat van één cel.
  *
- * Een vlak model heeft geen volume en dus geen dichtheid: bij een as op nul is
- * de uitkomst `null`, niet oneindig. Dat zijn er vier — de twee vloertegels en
- * de twee grasplekken — en die staan met een handvol driehoeken toch al buiten
- * elke discussie over budget.
+ * Een vlak model blijft `null`: het heeft geen volume en de catalogus
+ * rapporteert die modellen apart, met een handvol driehoeken staan ze toch
+ * al buiten elke discussie over budget.
  *
  * @param {number} driehoeken  telling uit meetScene()
  * @param {number[]} wdh       breedte × diepte × hoogte in rastereenheden
- * @returns {number|null} driehoeken per unit, afgerond; null bij een plat model
+ * @returns {number|null} driehoeken per bezette cel, afgerond; null bij een plat model
  */
 export function driehoekenPerUnit(driehoeken, wdh) {
-  const units = wdh.reduce((product, maat) => product * maat, 1);
-  return units > 0 ? Math.round(driehoeken / units) : null;
+  if (wdh.some((maat) => maat === 0)) return null;
+  const cellen = Math.max(1, wdh[0] * wdh[1]) * Math.max(1, wdh[2]);
+  return Math.round(driehoeken / cellen);
 }
 
 /* -- opschonen ------------------------------------------------------------

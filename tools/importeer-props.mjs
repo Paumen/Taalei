@@ -31,16 +31,17 @@ const DOEL = join(ROOT, 'kits', 'props');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
 
 /**
- * Deze pack staat al op het raster van de repo en wordt dus niet geschaald.
+ * De pack gaat op 0,6 het raster van de repo op.
  *
- * Dat is te zien aan de voorwerpen zelf, die stuk voor stuk op ware grootte
- * uitkomen als je één unit als één meter leest: de emmer is 0,32 units (die van
- * survival-kit 0,29), de flessen 0,20 tot 0,21, de borden 0,24 tot 0,39, het
- * vloerkleed 1,50 × 1,00 en de trap precies 2,00 hoog — twee wandhoogtes.
- * Het vat is met 0,99 groter dan dat van mini-dungeon (0,48), maar een vat van
- * een meter hoog is het aannemelijke van de twee.
+ * Een eerste import nam 1 aan ("één unit = één meter"), maar op factor 1
+ * was elk groot stuk ver boven dezelfde voorwerpen elders — het vat 0,99
+ * tegenover tonnen van ~0,5, de tafel 0,80 tegenover survival-kit's
+ * werkbank 0,57. Een halvering bleek weer te streng voor het kleingoed
+ * (flessen 0,11). Op 0,6 (besluit PO) staat het vat op 0,60, de tafel op
+ * 0,48, de kruk op 0,26 en de flessen op 0,13 — één factor per pack
+ * (stijlgids §4), afweging gedocumenteerd in docs/asset_size_review.md.
  */
-const SCHAAL = 1;
+const SCHAAL = 0.6;
 
 /**
  * Bronbestand → naam in de kit, kebab-case met letterachtervoegsels.
