@@ -22,16 +22,17 @@
 	Anders dan de andere packs is dit één bestand met 117 meshes naast
 	elkaar. Elk model zit er in drie tinten in — `.light`, `.medium` en
 	`.dark`, telkens dezelfde geometrie met andere UV's. Alleen de
-	`.medium` tinten zijn ingeladen: 39 van de 117 meshes.
+	`.medium` tinten zijn ingeladen, en van de steensoorten alleen
+	`natural` en `dirt` (de `cave`-varianten — dezelfde vormen in een
+	andere steensoort — zijn later weer verwijderd): 25 van de 117
+	meshes.
 
 	De naamgeving van de pack scheidt met punten; hier is dat kebab-case
 	met letterachtervoegsels, en de `.medium` valt weg omdat het de enige
 	ingeladen tint is:
 
 	  rock1..10.natural.medium   → rock-natural-a .. rock-natural-j
-	  rock1..10.cave.medium      → rock-cave-a .. rock-cave-j
 	  pebbles1..4.dirt.medium    → pebbles-dirt-a .. pebbles-dirt-d
-	  pebbles1..4.caves.medium   → pebbles-cave-a .. pebbles-cave-d
 	  debris1..2.medium          → debris-a, debris-b
 	  rockform.arch.medium       → rockform-arch
 	  rockform.column.medium     → rockform-column
@@ -41,12 +42,6 @@
 	  rockwall.corner.medium     → rockwall-corner
 	  rockwall.straight.medium   → rockwall-straight
 
-	`natural`/`cave` en `dirt`/`caves` zijn wél allebei ingeladen: dat is
-	dezelfde vorm in een andere steensoort, en dat verschil overleeft de
-	omzetting naar de gedeelde colormap — grijs steen, donker grotgesteente
-	en bruine grond komen op drie verschillende cellen uit. De `caves` van
-	de kiezels heet hier `cave`, zodat kiezels en rotsen dezelfde variant
-	hetzelfde noemen.
 
 	Wat er met de bestanden is gebeurd, staat in
 	tools/importeer-rocks.mjs: omgezet naar .glb, uit het gezamenlijke

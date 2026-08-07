@@ -45,7 +45,6 @@ const SCHAAL = 0.35;
 /** Bronbestand (zonder .gltf) → naam in de kit: underscore → kebab-case. */
 const BRONNEN = [
   'barrel_large', 'barrel_large_decorated', 'barrel_small', 'barrel_small_stack',
-  'barrier', 'barrier_colum_half', 'barrier_column', 'barrier_corner', 'barrier_half',
   'bed_decorated', 'bed_floor', 'bed_frame',
   'bottle_A_brown', 'bottle_A_labeled_brown', 'bottle_B_brown', 'bottle_C_brown',
   'box_large', 'box_small', 'box_small_decorated', 'box_stacked',

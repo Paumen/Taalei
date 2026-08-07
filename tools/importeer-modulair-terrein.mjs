@@ -413,6 +413,22 @@ for (const bron of bronnen) {
   namen.set(naam, bron);
 }
 
+/**
+ * Uit de kit verwijderd (besluit PO, PR #41): deze modellen worden bij een
+ * her-import overgeslagen zodat ze niet stilzwijgend terugkomen.
+ */
+const VERWIJDERD = new Set([
+  'cave-prop-hanging-cables-a', 'cave-prop-hanging-cables-b', 'cave-prop-hanging-cables-c',
+  'cave-prop-hanging-lamp',
+  'hilly-prop-bush-a', 'hilly-prop-bush-b', 'hilly-prop-bush-c', 'hilly-prop-bush-d',
+  'hilly-prop-camp-sitting-log',
+  'hilly-prop-tree-oak-a', 'hilly-prop-tree-oak-b', 'hilly-prop-tree-oak-c', 'hilly-prop-tree-oak-d',
+]);
+
+for (const [naam, bron] of [...namen].sort()) {
+  if (VERWIJDERD.has(naam)) { namen.delete(naam); console.log(`overgeslagen (verwijderd): ${naam} (${bron})`); }
+}
+
 let driehoeken = 0;
 let calls = 0;
 const regels = [];

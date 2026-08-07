@@ -2,7 +2,7 @@
 
 Cross-kit review of asset dimensions: are kits over- or undersized relative to
 each other, and which pieces should serve as size references? Based on the
-bounding boxes in `kits/catalog.json` (`wdh`, all 1138 models) plus
+bounding boxes in `kits/catalog.json` (`wdh`, all 1102 models) plus
 side-by-side renders of ~110 comparable assets. The renders are in
 `docs/asset_size_review/*.png` and can be regenerated with
 `NODE_PATH=$(npm root -g) node tools/vergelijk-groottes/render.mjs`
