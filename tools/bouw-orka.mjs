@@ -197,6 +197,41 @@ const vlakmiddens = ({ V, F }) =>
 /** Draait de winding om, zodat de buitenkant de andere kant op wijst. */
 const keerOm = ({ V, F }) => ({ V, F: F.map(([a, b, c]) => [c, b, a]) });
 
+/**
+ * Het getekende volume van een gesloten maas: positief als de driehoeken naar
+ * buiten wijzen, negatief als de maas binnenstebuiten staat.
+ */
+function getekendVolume({ V, F }) {
+  let volume = 0;
+  for (const [a, b, c] of F) {
+    const [p, q, r] = [V[a], V[b], V[c]];
+    volume +=
+      p[0] * (q[1] * r[2] - q[2] * r[1]) -
+      p[1] * (q[0] * r[2] - q[2] * r[0]) +
+      p[2] * (q[0] * r[1] - q[1] * r[0]);
+  }
+  return volume / 6;
+}
+
+/**
+ * Zet een gesloten maas met de goede kant naar buiten.
+ *
+ * Nodig omdat de winding afhangt van de richting waarin de omtrek of de ring
+ * toevallig rondloopt, en dat per onderdeel anders uitpakt: van de aangeleverde
+ * vorm stonden de romp, de borstvinnen en de staart binnenstebuiten en de
+ * rugvin niet. Dat is niet onschuldig. Bij achterkantverwijdering valt de
+ * dichtstbijzijnde wand weg en kijk je dwars door het dier heen — het leest als
+ * doorzichtig — en de staart laat van bovenaf zijn witte onderkant zien in
+ * plaats van zijn zwarte bovenkant. De normalen wijzen dan bovendien naar
+ * binnen, dus ook de belichting klopt niet.
+ *
+ * Het volume beslist, niet een lijst met namen: zo staat elk onderdeel goed,
+ * ook een dat later wordt toegevoegd. De vlekken gaan hier niet langs — dat
+ * zijn open velletjes zonder volume, die richten zich op de romp (zie vlek()
+ * en buikvlek()).
+ */
+const naarBuiten = (maas) => (getekendVolume(maas) < 0 ? keerOm(maas) : maas);
+
 /** Spiegelt in het xy-vlak; de winding moet dan mee omkeren. */
 const spiegel = ({ V, F }) => keerOm({ V: V.map(([x, y, z]) => [x, y, -z]), F });
 
@@ -364,7 +399,7 @@ function romp(st) {
     F.push([snuit, k2, k]);
     F.push([punt, (SPANTEN - 1) * SEGMENTEN + k, (SPANTEN - 1) * SEGMENTEN + k2]);
   }
-  return { V, F };
+  return naarBuiten({ V, F });
 }
 
 /* -- vinnen ---------------------------------------------------------------- */
@@ -400,7 +435,7 @@ function rugvin(kalf) {
     ...ys.map((y) => [voor(y), y]),
     ...ys.slice(1, -1).reverse().map((y) => [achter(y), y]),
   ];
-  return plaat(omtrek, 0.058, [0.03, 0.21, 0.0], [1, 0, 0], [0, 1, 0], [0, 0, 1]);
+  return naarBuiten(plaat(omtrek, 0.058, [0.03, 0.21, 0.0], [1, 0, 0], [0, 1, 0], [0, 0, 1]));
 }
 
 /**
@@ -419,7 +454,7 @@ function borstvinnen(kalf) {
 
   /* Standaardpeddel: koorde langs +x, spanwijdte langs +z, dikte langs y.
    * Daarna kantelen (omlaag) en naar achteren strijken. */
-  const vlak = plaat(omtrek, 0.05, [0, 0, 0], [1, 0, 0], [0, 0, 1], [0, 1, 0]);
+  const vlak = naarBuiten(plaat(omtrek, 0.05, [0, 0, 0], [1, 0, 0], [0, 0, 1], [0, 1, 0]));
   const rechts = verschuif(draai(vlak, -16, -30), [0.4, -0.1, 0.115]);
   return samen([rechts, spiegel(rechts)]);
 }
@@ -437,7 +472,7 @@ function staartvin() {
     ...reeks(0.286, 0, 13).slice(1).map((y) => [achter(y), y]),
   ];
   const omtrek = [...boven, ...boven.slice().reverse().slice(1, -1).map(([x, y]) => [x, -y])];
-  return plaat(omtrek, 0.05, [-1.03, 0.0, 0.0], [1, 0, 0], [0, 0, 1], [0, 1, 0]);
+  return naarBuiten(plaat(omtrek, 0.05, [-1.03, 0.0, 0.0], [1, 0, 0], [0, 0, 1], [0, 1, 0]));
 }
 
 /* -- vlekken ---------------------------------------------------------------

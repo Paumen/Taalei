@@ -156,6 +156,47 @@ for (const naam of ['orca', 'orca-calf']) {
       'enkelzijdig velletje, valt buiten de dikte-eis',
   );
 
+  /* 5b. Winding: elk onderdeel moet met zijn buitenkant naar buiten staan.
+   *     Een binnenstebuiten onderdeel valt weg bij achterkantverwijdering — je
+   *     kijkt dan dwars door het dier heen — en krijgt bovendien normalen die
+   *     naar binnen wijzen, dus ook de belichting klopt niet. Het getekende
+   *     volume verraadt het: negatief betekent omgekeerd. De vlekken zijn open
+   *     velletjes; die worden apart op hun eigen richting gecontroleerd. */
+  const namen = ['romp', 'rugvin', 'staart', 'staart-onderkant', 'borstvinnen', 'buik', 'oog', 'zadel'];
+  let omgekeerd = 0;
+  json.meshes[0].primitives.forEach((prim, i) => {
+    const V = leesAccessor(glb, prim.attributes.POSITION).data;
+    const F = leesAccessor(glb, prim.indices).data;
+    let volume = 0;
+    for (let t = 0; t < F.length; t += 3) {
+      const [p, q, r] = [0, 1, 2].map((k) => [0, 1, 2].map((as) => V[F[t + k] * 3 + as]));
+      volume +=
+        p[0] * (q[1] * r[2] - q[2] * r[1]) -
+        p[1] * (q[0] * r[2] - q[2] * r[0]) +
+        p[2] * (q[0] * r[1] - q[1] * r[0]);
+    }
+    if (volume < 0) {
+      fout(`${namen[i] ?? i} staat binnenstebuiten (getekend volume ${(volume / 6).toFixed(5)})`);
+      omgekeerd++;
+    }
+  });
+  if (omgekeerd === 0) ok(`alle ${json.meshes[0].primitives.length} onderdelen met de buitenkant naar buiten`);
+
+  /* 5c. De staart is zwart van boven en wit van onderen, niet andersom. */
+  const kant = (i) => {
+    const V = leesAccessor(glb, json.meshes[0].primitives[i].attributes.POSITION).data;
+    const F = leesAccessor(glb, json.meshes[0].primitives[i].indices).data;
+    let omhoog = 0;
+    for (let t = 0; t < F.length; t += 3) {
+      const [p, q, r] = [0, 1, 2].map((k) => [0, 1, 2].map((as) => V[F[t + k] * 3 + as]));
+      const [u, v] = [q.map((c, k) => c - p[k]), r.map((c, k) => c - p[k])];
+      omhoog += Math.sign(u[2] * v[0] - u[0] * v[2]); // y-component van u × v
+    }
+    return omhoog;
+  };
+  if (kant(2) > 0 && kant(3) < 0) ok('staart: zwarte bovenkant omhoog, witte onderkant omlaag');
+  else fout('staart staat ondersteboven: de witte onderkant kijkt omhoog');
+
   /* 6. Rig: één skin, gewichten die optellen tot 1, en de zwemclip. */
   const skin = json.skins?.[0];
   if (!skin) fout('geen skin');
