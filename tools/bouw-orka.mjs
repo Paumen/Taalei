@@ -379,12 +379,18 @@ function romp(st) {
     }
   }
 
+  /* De ringen sluiten met de buitenkant naar buiten. In de aangeleverde vorm
+   * liepen ze andersom, terwijl de twee doppen hieronder wél goed stonden — een
+   * romp die vanbinnen niet met zichzelf klopt. Eén keer alles omdraaien lost
+   * dat niet op: dan staan de ringen goed en de doppen verkeerd, en kijk je
+   * door een gat in de snuit naar binnen. Daarom hier de ringen zelf goed en de
+   * doppen ongemoeid. */
   const F = [];
   for (let i = 0; i < SPANTEN - 1; i++) {
     const [a, b] = [i * SEGMENTEN, (i + 1) * SEGMENTEN];
     for (let k = 0; k < SEGMENTEN; k++) {
       const k2 = (k + 1) % SEGMENTEN;
-      F.push([a + k, b + k, a + k2], [a + k2, b + k, b + k2]);
+      F.push([a + k, a + k2, b + k], [a + k2, b + k2, b + k]);
     }
   }
 
@@ -399,7 +405,7 @@ function romp(st) {
     F.push([snuit, k2, k]);
     F.push([punt, (SPANTEN - 1) * SEGMENTEN + k, (SPANTEN - 1) * SEGMENTEN + k2]);
   }
-  return naarBuiten({ V, F });
+  return { V, F };
 }
 
 /* -- vinnen ---------------------------------------------------------------- */
@@ -524,12 +530,29 @@ const BUIKVLEK = [
   [1.0, 0.0],
 ];
 
-function buikvlek(opp, van = 0.012, tot = 0.965, nt = 56, na = 8) {
+/**
+ * Waar de buikvlek begint. De aangeleverde vorm zette hem op 0,012 — ruim een
+ * procent achter de snuitpunt — en daar is de romp nog maar 0,06 breed. De
+ * halve hoek is op dat punt al zo'n 20°, en omdat de vlek 5,5% boven de huid
+ * zweeft loopt hij daar om de punt heen: het dier krijgt een witte neus, van
+ * elke kant zichtbaar. Een orka heeft een zwarte snuit; het wit begint achter
+ * de onderkaak. Op 0,05 is dat het geval — omgerekend zo'n 9 cm bij een dier
+ * van 7 m.
+ *
+ * De hele halve-hoekkromme schuift mee naar achteren; hij wordt niet vooraan
+ * afgesneden. Dat scheelt: BUIKVLEK begint met breedte nul, dus meeschuiven
+ * houdt de spits waarmee de vlek onder de kin begint. Afsnijden op 0,05 zou de
+ * kromme raken waar hij al 70° breed is, en dan houd je een vlek over met een
+ * rechte kop — geverfd, geen tekening.
+ */
+const BUIK_BEGIN = 0.05;
+
+function buikvlek(opp, van = BUIK_BEGIN, tot = 0.965, nt = 56, na = 8) {
   const halfhoek = pchip(BUIKVLEK.map((r) => r[0]), BUIKVLEK.map((r) => r[1]));
   const ts = reeks(van, tot, nt);
   const V = [];
   for (const t of ts) {
-    const h = Math.max(halfhoek(t), 0);
+    const h = Math.max(halfhoek((t - van) / (1 - van)), 0);
     for (const u of reeks(-1, 1, na)) V.push(opp(t, OMLAAG + u * h, 1.055));
   }
   const F = [];

@@ -164,9 +164,34 @@ for (const naam of ['orca', 'orca-calf']) {
    *     velletjes; die worden apart op hun eigen richting gecontroleerd. */
   const namen = ['romp', 'rugvin', 'staart', 'staart-onderkant', 'borstvinnen', 'buik', 'oog', 'zadel'];
   let omgekeerd = 0;
+  let onderling = 0;
   json.meshes[0].primitives.forEach((prim, i) => {
     const V = leesAccessor(glb, prim.attributes.POSITION).data;
     const F = leesAccessor(glb, prim.indices).data;
+
+    /* Draaien alle driehoeken van dit onderdeel dezelfde kant op? Het getekende
+     * volume hieronder ziet dat níét: het is één som over alle vlakken, dus
+     * veertig doppen die de verkeerde kant op staan verdrinken in vijftienhonderd
+     * ringvlakken die goed staan — precies de fout die de aangeleverde romp had.
+     *
+     * Per rib telt daarom hoe vaak hij in dezelfde richting wordt gelopen. Bij
+     * twee buren die het eens zijn, loopt de gedeelde rib bij de één van a naar
+     * b en bij de ander van b naar a. Komt een richting twee keer voor, dan
+     * staan die twee driehoeken tegenover elkaar. Open randen (de vlekken)
+     * hebben ribben die maar één keer voorkomen; die zeggen niets. */
+    const richting = new Map();
+    for (let t = 0; t < F.length; t += 3) {
+      for (const [p, q] of [[0, 1], [1, 2], [2, 0]]) {
+        const sleutel = `${F[t + p]}>${F[t + q]}`;
+        richting.set(sleutel, (richting.get(sleutel) ?? 0) + 1);
+      }
+    }
+    const botsingen = [...richting.values()].filter((n) => n > 1).length;
+    if (botsingen) {
+      fout(`${namen[i] ?? i}: ${botsingen} ribben waar twee driehoeken tegengesteld draaien`);
+      onderling++;
+    }
+
     let volume = 0;
     for (let t = 0; t < F.length; t += 3) {
       const [p, q, r] = [0, 1, 2].map((k) => [0, 1, 2].map((as) => V[F[t + k] * 3 + as]));
@@ -180,7 +205,9 @@ for (const naam of ['orca', 'orca-calf']) {
       omgekeerd++;
     }
   });
-  if (omgekeerd === 0) ok(`alle ${json.meshes[0].primitives.length} onderdelen met de buitenkant naar buiten`);
+  if (omgekeerd === 0 && onderling === 0) {
+    ok(`alle ${json.meshes[0].primitives.length} onderdelen sluitend en met de buitenkant naar buiten`);
+  }
 
   /* 5c. De staart is zwart van boven en wit van onderen, niet andersom. */
   const kant = (i) => {
