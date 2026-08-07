@@ -29,13 +29,15 @@ const DOEL = join(KITS, 'resources');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * Vergeleken met wat er al staat: Copper_Bar (0,40 × 0,80 × 0,25) en
- * Wood_Log_A (0,72 × 1,35 × 0,73) liggen vlak naast survival-kit's
- * resource-planks (0,75 × 1,25) en tree-log-small (0,50 × 1,30 × 0,55). Geen
- * van de 56 modellen wijst op een gemeenschappelijke schaalfactor met deze
- * repo — de pack staat al op het raster. Geen schaling.
+ * De pack gaat op 0,5 het raster van de repo op. Een eerste import nam 1
+ * aan, maar naast de rest van de collectie waren de grondstoffen het
+ * dubbele van wat ze horen te zijn: een goudstaaf van 0,80 lang stak boven
+ * de consensuston (0,50) uit en de steenbrokken (1,12-1,50 breed) waren
+ * twee keer survival-kit's resource-stones. Op 0,5 komen de brokken
+ * (0,56 breed) naast survival-kit's exemplaren te staan en blijven de
+ * stapels leesbare oppak-iconen (planken 0,84, pallet 0,78 breed).
  */
-const SCHAAL = 1;
+const SCHAAL = 0.5;
 
 /** Bronbestand (zonder .gltf) → naam in de kit: PascalCase/underscore → kebab-case. */
 const BRONNEN = [

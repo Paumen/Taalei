@@ -115,12 +115,12 @@ const BOUWPAKKETTEN = [
   // tools/importeer-dungeon.mjs). De trappen staan óók op dat raster maar
   // gaan niet mee — die horen bij "verbinding", net als fantasy-town's eigen
   // trappen, die ook buiten zijn bouwpakket vallen.
-  ['dungeon', /^(wall|floor|ceiling|barrier|pillar|rubble|column)\b/],
+  ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column)\b/],
 ];
 
 /**
  * De modulair-terrein-kit draagt zijn indeling in de naam:
- * `<landschap>-<soort>-<rest>`, bijvoorbeeld `hilly-prop-tree-oak-a` of
+ * `<landschap>-<soort>-<rest>`, bijvoorbeeld `hilly-prop-tree-cedar-a` of
  * `cliff-terrain-corner-outer-2x2-mid`. Die 305 namen op de algemene regels
  * hieronder laten vallen werkt niet: die toetsen op het eerste woord, en dat is
  * hier altijd het landschap.
@@ -142,7 +142,7 @@ const MODULAIR_TERREIN = [
   [/-prop-(tree|branch|stump|hollow-trunk)/, 'bomen'],
   // De kokosnoot ligt in het zand bij de palmen: decoratie op de grond, geen
   // eten. Er is niets om hem mee te bereiden en niemand die hem opeet.
-  [/-prop-(bush|cattail|coconut|flower|grass-clump|mushroom)/, 'planten'],
+  [/-prop-(cattail|coconut|flower|grass-clump|mushroom)/, 'planten'],
   [/-prop-(boulder|rock|stepping-stones)/, 'rotsen'],
   [/-prop-fence-/, 'hek'],
   // Het vuur en het hout ernaast horen bij eten & koken, net als de kampvuren
@@ -280,7 +280,7 @@ const WOORDENBOEK = {
   arch: ['boog', 'poortboog'],
   arrow: ['pijl', 'wegwijzer'], arrows: ['pijlen', 'wegwijzer'], axe: ['bijl'],
   bag: ['zak', 'buidel'], balcony: ['balkon'], balloon: ['luchtballon', 'ballon'],
-  banner: ['banier', 'vaandel'], barrier: ['barrière', 'afzetting'],
+  banner: ['banier', 'vaandel'],
   bare: ['kaal', 'dood'], barrel: ['vat', 'ton'],
   base: ['voet', 'sokkel', 'ondergrond'], baseboard: ['plint'], beach: ['strand', 'kust'],
   beam: ['balk', 'draagbalk'],
@@ -293,8 +293,7 @@ const WOORDENBOEK = {
   brick: ['baksteen', 'steen'], bridge: ['brug'], broken: ['kapot', 'gebroken'],
   broom: ['bezem'], brown: ['bruin'],
   bucket: ['emmer'], building: ['gebouw'], bumpstop: ['stootblok', 'stootbok'],
-  bundle: ['bundel', 'rol'], burnt: ['verbrand', 'gedoofd'], bush: ['struik'],
-  cables: ['kabels', 'snoeren'],
+  bundle: ['bundel', 'rol'], burnt: ['verbrand', 'gedoofd'],
   calf: ['kalf', 'jong'], camp: ['kamp', 'kampplaats'], campfire: ['kampvuur', 'vuur'],
   candle: ['kaars'], cannon: ['kanon'],
   canopy: ['luifel', 'afdak'], canvas: ['zeil', 'doek'],
@@ -403,7 +402,7 @@ const WOORDENBOEK = {
   ship: ['schip', 'boot'], short: ['kort'], shovel: ['schep'], shutters: ['luiken'],
   side: ['zijkant', 'zijde'], sides: ['zijkanten', 'zijden'], sign: ['bord', 'wegwijzer'],
   signpost: ['wegwijzer', 'bord'], silver: ['zilver'], simple: ['eenvoudig', 'simpel'],
-  single: ['enkel', 'enkele'], sitting: ['zit', 'zitten'], slope: ['helling', 'schuin'],
+  single: ['enkel', 'enkele'], slope: ['helling', 'schuin'],
   sloped: ['schuin', 'hellend'],
   small: ['klein', 'kleine'], soft: ['zacht'], spikes: ['spijkers', 'punten'],
   spiral: ['spiraal', 'punt'],

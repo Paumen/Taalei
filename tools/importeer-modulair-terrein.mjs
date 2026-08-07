@@ -18,7 +18,8 @@
  *   2. zet elk materiaal van de pack op een punt in die atlas (zie de kop bij
  *      `plaatsMaterialen`);
  *   3. schrijft per model één .glb met één tekenopdracht;
- *   4. laat schaal en oorsprong met rust — zie SCHAAL en OORSPRONG hieronder.
+ *   4. schaalt met één factor en laat de oorsprong met rust — zie SCHAAL en
+ *      OORSPRONG hieronder.
  *
  * Wat dit script níét doet: het raakt de geometrie niet aan. Er komt geen
  * hoekpunt bij of af, en er beweegt er geen één.
@@ -43,16 +44,20 @@ const COLORMAP = join(KITS, 'colormap.png');
 const MTL = 'Materials_Modular_Terrain.mtl';
 
 /**
- * Geen schaalfactor: deze pack staat al op het raster van de repo.
+ * De pack gaat op 0,5 het raster van de repo op.
  *
- * Dat is niet aangenomen maar nagemeten. `Hilly_Terrain_Grass_Floor` beslaat
- * x[-0,50 … 0,50] en z[-0,50 … 0,50] — exact één wand-/vloersegment, de
- * ijkmaat uit stijlgids §4. De vloertegels, hoeken en zijkanten komen in
- * 1×1-, 2×2-, 3×3- en 4×4-varianten die op datzelfde raster op elkaar
- * aansluiten, en de heuvels lopen in stappen van één unit omhoog. Schalen zou
- * precies dat kapotmaken.
+ * Een eerste import nam 1 aan omdat de terreintegels exact op het raster
+ * gemeten waren (`Hilly_Terrain_Grass_Floor` 1×1, varianten in 1×1 tot 4×4,
+ * heuvels in stappen van één unit). Maar dat de maten op het raster liggen
+ * zegt niet dat de factor klopt: naast de rest van de collectie was alles
+ * het dubbele (zie docs/asset_size_review.md) — palmen van 3,3-4,1 tegenover
+ * 1,7-2,1 elders, schatkist 0,73 tegenover 0,45-0,51, kampvuur 1,43 breed
+ * tegenover ~0,55. Op 0,5 vallen die op hun plek en worden de tegels
+ * 0,5 × 0,5 — nog steeds rastervast (vier halve tegels per vak, zoals de
+ * kleine vloertegels van de dungeon-kit), met heuvelstappen van een halve
+ * unit.
  */
-const SCHAAL = 1;
+const SCHAAL = 0.5;
 
 /**
  * Ook de oorsprong blijft staan, en dat is een bewuste afwijking van de
@@ -307,7 +312,9 @@ function bouwGlb(obj, plaatsing, naam) {
     },
     scene: 0,
     scenes: [{ nodes: [0] }],
-    nodes: [{ name: naam, mesh: 0 }],
+    // De schaal staat op de wortelnode; de oorsprong van de pack blijft
+    // staan, dus schalen om die oorsprong houdt alle stukken passend.
+    nodes: [{ name: naam, mesh: 0, scale: [SCHAAL, SCHAAL, SCHAAL] }],
     meshes: [{
       name: naam,
       primitives: [{
@@ -404,6 +411,22 @@ for (const bron of bronnen) {
   const naam = naarNaam(bron, families);
   if (namen.has(naam)) throw new Error(`${bron} en ${namen.get(naam)} leveren allebei '${naam}'`);
   namen.set(naam, bron);
+}
+
+/**
+ * Uit de kit verwijderd (besluit PO, PR #41): deze modellen worden bij een
+ * her-import overgeslagen zodat ze niet stilzwijgend terugkomen.
+ */
+const VERWIJDERD = new Set([
+  'cave-prop-hanging-cables-a', 'cave-prop-hanging-cables-b', 'cave-prop-hanging-cables-c',
+  'cave-prop-hanging-lamp',
+  'hilly-prop-bush-a', 'hilly-prop-bush-b', 'hilly-prop-bush-c', 'hilly-prop-bush-d',
+  'hilly-prop-camp-sitting-log',
+  'hilly-prop-tree-oak-a', 'hilly-prop-tree-oak-b', 'hilly-prop-tree-oak-c', 'hilly-prop-tree-oak-d',
+]);
+
+for (const [naam, bron] of [...namen].sort()) {
+  if (VERWIJDERD.has(naam)) { namen.delete(naam); console.log(`overgeslagen (verwijderd): ${naam} (${bron})`); }
 }
 
 let driehoeken = 0;

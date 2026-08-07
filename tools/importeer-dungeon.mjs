@@ -28,26 +28,23 @@ const DOEL = join(KITS, 'dungeon');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /**
- * Eén factor voor de hele pack (stijlgids §4): "wandhoogte = 1 eenheid" is
- * het ijkpunt. Elke wand is in de bron 4 breed × 4 hoog; op 0,25 komt dat op
- * 1 × 1 uit, mini-dungeon's eigen wand is 1 × 1 × 1,1.
+ * Eén factor voor de hele pack (stijlgids §4): 0,35.
  *
- * Een eerste versie van dit script gaf de meubels, containers en het decor
- * hun eigen factor 1 (ongeschaald), met de redenering dat chair
- * (0,75 × 0,75 × 1,227) op zichzelf een geloofwaardige stoel is. Dat is waar,
- * maar mist het punt: naast een wand van 1 hoog staat een stoel van 1,227
- * hoog dan hoger dan de muur, en een kist (chest, 1,3 hoog) er nog overheen.
- * De verhouding chair/wall in de bron zelf — 1,227 / 4 = 31% — is wél
- * geloofwaardig; die verhouding gaat pas verloren als de twee met een
- * verschillende factor worden geschaald. Vandaar terug naar één factor voor
- * alles, zoals de stijlgids voorschrijft.
+ * De geschiedenis in drie stappen. Een eerste versie gaf de meubels factor
+ * 1, waardoor een stoel (1,227) boven de muur uitstak. Daarna kreeg alles
+ * 0,25, met "wandhoogte = 1 eenheid" als ijkpunt — maar dan zijn de meubels
+ * poppenhuisklein naast de rest van de collectie (kist 0,33 tegenover de
+ * kistencluster 0,45-0,51 van vier andere kits). Op 0,35 kloppen de
+ * voorwerpen (kist 0,46, stoel 0,43, bed 1,05 lang) en is het rasterijkpunt
+ * bewust losgelaten (besluit PO, zie docs/asset_size_review.md): de wanden
+ * en vloeren meten 1,4 × 1,4 en verkavelen op hun eigen 1,4-module — de
+ * dungeon sluit niet meer 1-op-1 aan op wanden van andere kits.
  */
-const SCHAAL = 0.25;
+const SCHAAL = 0.35;
 
 /** Bronbestand (zonder .gltf) → naam in de kit: underscore → kebab-case. */
 const BRONNEN = [
   'barrel_large', 'barrel_large_decorated', 'barrel_small', 'barrel_small_stack',
-  'barrier', 'barrier_colum_half', 'barrier_column', 'barrier_corner', 'barrier_half',
   'bed_decorated', 'bed_floor', 'bed_frame',
   'bottle_A_brown', 'bottle_A_labeled_brown', 'bottle_B_brown', 'bottle_C_brown',
   'box_large', 'box_small', 'box_small_decorated', 'box_stacked',

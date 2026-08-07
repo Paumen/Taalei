@@ -34,55 +34,16 @@
  *
  * -- schaal ---------------------------------------------------------------
  *
- * De pack staat al op het raster van de repo en wordt dus niet geschaald
- * (stijlgids §4). Dat is niet één ijkpunt maar het hele pakket: een wandsegment
- * is 1,00 × 1,00 met een dikte van 0,06, `Stucco_Block` is 1,00 × 1,00 × 1,00,
- * de vloertegels zijn 1,00 × 1,00 en de brede deuropeningen precies 2,00 hoog —
- * twee wandhoogtes. 108 van de 138 ingeladen modellen hebben een rand die exact
- * op een halve rastereenheid ligt.
- *
- * -- oorsprong ------------------------------------------------------------
- *
- * Hier wijkt deze kit bewust af van stijlgids §5, en dat is de reden dat
- * zetOpOorsprong() uit glb.mjs hier niet gebruikt wordt.
- *
- * De standaardregel — voet op y = 0, pivot op het midden van het grondvlak —
- * gaat uit van een los voorwerp dat je ergens neerzet. Een bouwpakket is dat
- * niet: de stukken moeten ten opzichte van elkáár kloppen, en de pack legt dat
- * vast in de oorsprong van elk model. Y = 0 is er het vloervlak van het raster,
- * niet de onderkant van het model:
- *
- *   - de vloertegels lopen tot y = -0,10 (hout) en -0,20 (kei): hun bovenkant
- *     ligt op het vloervlak, de dikte hangt eronder;
- *   - dakstukken met een overstek hangen 0,12 tot 0,25 onder y = 0;
- *   - `waterwheel` loopt van -2,20 tot 2,20 en `windmill-blades` van -3,50 tot
- *     3,50: die staan gecentreerd op hun as, want daar draaien ze omheen;
- *   - de wandprops zitten op x ≈ 0,39, tegen het vlak van een muur aan;
- *   - `wood-post-large`, `wood-post-small` en de drie `stucco-support-pillar`s
- *     staan op een rasterhoek (x/z-midden op -0,50 / 0,50) in plaats van in het
- *     midden van een vak.
- *
- * Elk model apart centreren zou dat allemaal weggooien: elke vloertegel zou
- * 0,10 tot 0,20 omhoog springen, elk overstek 0,12 tot 0,25, het waterrad 2,20,
- * en de wandprops zouden van hun muur af komen. De stukken passen dan niet
- * meer op elkaar, en dat is het enige waar een bouwpakket voor bestaat. De
- * oorsprong van de pack blijft daarom staan zoals hij is.
+ * De pack gaat op 0,6 het raster van de repo op. Een eerste import nam 1
+ * aan, omdat de maten zelf op een raster liggen (wandsegmenten 1,00,
+ * `Stucco_Block` 1,00³, brede deuropeningen 2,00) — maar naast de rest van
+ * de collectie was alles het dubbele. Een halvering zette de kit strak op
+ * halve modules; op besluit van de PO is dat verzacht naar 0,6. Daarmee
+ * verkavelt het bouwpakket op een eigen 0,6-module (vloertegels 0,60,
+ * hoge doorgangen 1,20) en meten de props: ton 0,30, krat 0,60, kar 2,02,
+ * roeiboot 1,39, molenwieken 4,20.
  */
-
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { leesGlb, schrijfGlb, meetScene } from './glb.mjs';
-import { leesPng, schrijfPng } from './png.mjs';
-import { doelPunten, gevuldeCellen, voegGradientCelToe, kopieerColormap, kleurAfstand, naarHex } from './kleurmap.mjs';
-
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const KITS = join(ROOT, 'kits');
-const DOEL = join(KITS, 'village-kit');
-const COLORMAP = join(KITS, 'colormap.png');
-
-/** Zie de kop: de pack staat al op het raster van de repo. */
-const SCHAAL = 1;
+const SCHAAL = 0.6;
 
 /**
  * De drie kleuren die niet uit kits/colormap.png te halen waren.
