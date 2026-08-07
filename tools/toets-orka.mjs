@@ -1,0 +1,184 @@
+/**
+ * Toetst orca.glb en orca-calf.glb aan de mechanisch controleerbare regels uit
+ * docs/asset_style_guide.md. Draaien vanuit de repo-root:
+ *
+ *   node tools/toets-orka.mjs
+ *
+ * Anders dan tools/toets-ballon.mjs kijkt dit script niet naar uv's: de
+ * onderwater-kit heeft geen colormap maar eigen materiaalkleuren (§1). De
+ * kleurtoets is hier dus dat elke basiskleur als cel in het `onderwater`-palet
+ * van kits/palet.json staat, mét dit model erbij — anders zegt de filterknop
+ * in de catalogus iets anders dan het model laat zien.
+ *
+ * Twee afwijkingen zijn bekend en bewust; het script meldt ze als
+ * aandachtspunt, niet als fout, en noemt ze bij naam zodat ze niet stilletjes
+ * kunnen groeien:
+ *   - twintig segmenten per doorsnede tegen zestien in §2;
+ *   - boven het driehoekbudget van §4.
+ * De onderbouwing staat in de kop van tools/bouw-orka.mjs.
+ */
+
+import { readFileSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const PALET = JSON.parse(readFileSync(join(ROOT, 'kits', 'palet.json'), 'utf8'));
+const ONDERWATER = PALET.paletten.find((p) => p.id === 'onderwater');
+
+let fouten = 0;
+let waarschuwingen = 0;
+const ok = (t) => console.log('  ok    ' + t);
+const fout = (t) => {
+  fouten++;
+  console.log('  FOUT  ' + t);
+};
+const letOp = (t) => {
+  waarschuwingen++;
+  console.log('  let op ' + t);
+};
+
+/** Lineaire basiskleur → sRGB-hex, zoals palet.json de kleuren noteert. */
+const hex = (kleur) =>
+  '#' +
+  kleur
+    .slice(0, 3)
+    .map((c) => {
+      const s = c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055;
+      return Math.round(Math.min(Math.max(s, 0), 1) * 255)
+        .toString(16)
+        .padStart(2, '0');
+    })
+    .join('');
+
+for (const naam of ['orca', 'orca-calf']) {
+  const pad = join(ROOT, 'kits', 'onderwater-kit', `${naam}.glb`);
+  const glb = leesGlb(pad);
+  const { json } = glb;
+  const bytes = readFileSync(pad).length;
+  console.log(`\n=== ${naam} (${(bytes / 1024).toFixed(1)} kB)`);
+
+  /* 1. Kleur — elke basiskleur moet als cel in het onderwater-palet staan, met
+   *    dit model in zijn bronnenlijst. */
+  for (const mat of json.materials) {
+    const kleur = hex(mat.pbrMetallicRoughness?.baseColorFactor ?? [1, 1, 1, 1]);
+    const cel = ONDERWATER.cellen.find((c) => c.kleur === kleur);
+    if (!cel) {
+      fout(`${mat.name}: ${kleur} staat niet in het onderwater-palet`);
+      continue;
+    }
+    const genoemd = cel.bronnen.some((b) => b.kit === 'onderwater-kit' && b.modellen.includes(naam));
+    if (genoemd) ok(`${mat.name} ${kleur} staat in het palet, met ${naam} erbij`);
+    else fout(`${kleur} staat in het palet maar zonder ${naam} in de bronnen`);
+  }
+
+  /* 1b. Materiaaldefaults (§1). Roughness is hier geen 1 maar 0,75 — een
+   *     natte huid glimt; de waarde staat vast in bouw-orka.mjs en wordt hier
+   *     alleen gemeld. */
+  for (const mat of json.materials) {
+    const pbr = mat.pbrMetallicRoughness ?? {};
+    if ((pbr.metallicFactor ?? 1) !== 0) fout(`${mat.name}: metallicFactor ${pbr.metallicFactor ?? 1}, moet 0`);
+    if ((mat.alphaMode ?? 'OPAQUE') !== 'OPAQUE') fout(`${mat.name}: alphaMode ${mat.alphaMode}`);
+    if (mat.emissiveTexture || (mat.emissiveFactor ?? [0, 0, 0]).some((c) => c > 0)) {
+      fout(`${mat.name}: emissive gezet`);
+    }
+    if ((pbr.baseColorFactor ?? [1, 1, 1, 1])[3] !== 1) fout(`${mat.name}: alpha < 1`);
+  }
+  const ruw = [...new Set(json.materials.map((m) => m.pbrMetallicRoughness?.roughnessFactor ?? 1))];
+  ok(`${json.materials.length} materialen: metallic 0, OPAQUE, geen emissive (roughness ${ruw.join('/')})`);
+
+  /* 2. Geometrie — segmenten per doorsnede van de romp. De ringen staan
+   *    dwars op de x-as, dus groeperen op x en niet op hoogte. */
+  const romp = json.meshes[0].primitives[0];
+  const posities = leesAccessor(glb, romp.attributes.POSITION);
+  const ringen = new Map();
+  for (let v = 0; v < posities.count; v++) {
+    const [x, y, z] = [posities.data[v * 3], posities.data[v * 3 + 1], posities.data[v * 3 + 2]];
+    if (Math.hypot(y, z) < 0.01) continue; // snuit- en staartpunt liggen op de as
+    const sleutel = x.toFixed(3);
+    ringen.set(sleutel, (ringen.get(sleutel) ?? 0) + 1);
+  }
+  const breedste = Math.max(...ringen.values());
+  if (breedste <= 16) ok(`max ${breedste} vlakke stukken per doorsnede (limiet 16)`);
+  else letOp(`${breedste} stukken per doorsnede tegen 16 in §2 — bewust, zie bouw-orka.mjs`);
+
+  /* 3. Outlines — lijnprimitives horen er niet te zijn (§3). */
+  const lijnen = json.meshes[0].primitives.filter((p) => p.mode === 1);
+  if (lijnen.length) letOp(`${lijnen.length} lijnprimitive(s), alleen toegestaan met PO-notitie`);
+  else ok('geen outlines');
+
+  /* 4. Schaal en dichtheid (§4), in de scène gemeten zodat de schaal van de
+   *    wortelnode meetelt — het kalf staat op 0,371. */
+  const maat = meetScene(glb);
+  const dichtheid = driehoekenPerUnit(maat.driehoeken, maat.wdh);
+  const afmeting = maat.wdh.map((v) => v.toFixed(2)).join(' × ');
+  if (dichtheid <= BUDGET_PER_UNIT) {
+    ok(`${maat.driehoeken} tri in ${afmeting} = ${dichtheid} tri/unit (limiet ${BUDGET_PER_UNIT})`);
+  } else {
+    letOp(
+      `${dichtheid} tri/unit boven de ${BUDGET_PER_UNIT} van §4 ` +
+        `(${maat.driehoeken} tri in ${afmeting}) — bewust, zie bouw-orka.mjs`,
+    );
+  }
+  console.log(`  info  ${maat.calls} tekenopdrachten`);
+
+  /* 5. Oorsprong (§5): y=0 onderaan, voetafdruk gecentreerd. */
+  if (Math.abs(maat.min[1]) < 0.001) ok('laagste punt op Y = 0');
+  else fout(`laagste punt op Y = ${maat.min[1].toFixed(3)}`);
+  const spilX = (maat.min[0] + maat.max[0]) / 2;
+  const spilZ = (maat.min[2] + maat.max[2]) / 2;
+  if (Math.abs(spilX) < 0.01 && Math.abs(spilZ) < 0.01) ok('spil in het midden van de voetafdruk');
+  else fout(`spil uit het midden: x ${spilX.toFixed(3)}, z ${spilZ.toFixed(3)}`);
+
+  /* 4b. Dikte (§4): geen massief onderdeel dunner dan 0,015, op ware grootte.
+   *     De dikte van een plaat — rugvin, staart, borstvin — is de kleinste maat
+   *     van zijn bounding box.
+   *
+   *     De vlekken en de witte onderkant van de staart tellen niet mee: dat
+   *     zijn geen massieve stukken maar enkelzijdige velletjes op of vlak boven
+   *     de huid, met een bounding box die in één richting nul is. Zo'n velletje
+   *     kán niet aan een dikte-eis voldoen, en de regel gaat er ook niet over. */
+  const schaal = json.nodes[0].scale?.[0] ?? 1;
+  let dunste = Infinity;
+  let velletjes = 0;
+  for (const prim of json.meshes[0].primitives) {
+    const acc = json.accessors[prim.attributes.POSITION];
+    const maten = acc.max.map((v, i) => (v - acc.min[i]) * schaal);
+    const kleinste = Math.min(...maten);
+    if (kleinste < 1e-6) velletjes++;
+    else dunste = Math.min(dunste, kleinste);
+  }
+  if (dunste >= 0.015) ok(`dunste massieve onderdeel ${dunste.toFixed(3)} ≥ 0.015`);
+  else fout(`dunste massieve onderdeel ${dunste.toFixed(3)} < 0.015`);
+  console.log(
+    `  info  ${velletjes} onderdeel${velletjes === 1 ? '' : 'en'} zonder dikte: ` +
+      'enkelzijdig velletje, valt buiten de dikte-eis',
+  );
+
+  /* 6. Rig: één skin, gewichten die optellen tot 1, en de zwemclip. */
+  const skin = json.skins?.[0];
+  if (!skin) fout('geen skin');
+  else {
+    let scheef = 0;
+    for (const prim of json.meshes[0].primitives) {
+      const gewichten = leesAccessor(glb, prim.attributes.WEIGHTS_0);
+      const gewrichten = leesAccessor(glb, prim.attributes.JOINTS_0);
+      for (let v = 0; v < gewichten.count; v++) {
+        const som = [0, 1, 2, 3].reduce((s, k) => s + gewichten.data[v * 4 + k], 0);
+        if (Math.abs(som - 1) > 1e-3) scheef++;
+        for (let k = 0; k < 4; k++) {
+          if (gewrichten.data[v * 4 + k] >= skin.joints.length) scheef++;
+        }
+      }
+    }
+    if (scheef === 0) ok(`${skin.joints.length} gewrichten, alle gewichten tellen op tot 1`);
+    else fout(`${scheef} hoekpunten met scheve gewichten of een gewricht buiten de skin`);
+  }
+  const clip = (json.animations ?? []).find((a) => a.name === 'Swim');
+  if (clip) ok(`animatie "Swim" met ${clip.channels.length} kanalen`);
+  else fout('geen animatie "Swim"');
+}
+
+console.log(`\n${fouten} fouten, ${waarschuwingen} aandachtspunten`);
+process.exit(fouten === 0 ? 0 : 1);
