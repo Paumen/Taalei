@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — proefscène terrein</title>
-<meta name="description" content="Proefscène uit het modulaire terreinpakket: een grasveld met een plateau en een pad dat eroverheen loopt, alleen terreinstukken en geen props.">
+<meta name="description" content="Proefscène uit het modulaire terreinpakket: een eiland met strand, plateau, klifwand en grotmond, alleen terreinstukken en geen props.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 <style>
 :root { color-scheme: light; }
@@ -23,7 +23,7 @@ body {
 
 h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
 
-.sub { max-width: 60ch; margin: 0 0 1rem; color: #5c5a55; }
+.sub { max-width: 62ch; margin: 0 0 1rem; color: #5c5a55; }
 
 model-viewer {
   flex: 1;
@@ -49,17 +49,18 @@ code {
 
 <h1>Proefscène terrein</h1>
 <p class="sub">
-  Een grasveld van 10 × 10 unit met een plateau van één hoogtestap en een pad
-  dat er aan de ene kant op klimt en er aan de andere kant weer af gaat.
-  Alleen terreinstukken uit <code>kits/modulair-terrein</code>, geen props.
-  Sleep om te draaien, scroll om te zoomen.
+  Een eiland van 10 × 14,5 unit, helemaal opgebouwd uit terreinstukken van
+  <code>kits/modulair-terrein</code>, zonder props. Vier families staan naast
+  elkaar: gras en pad, zand met een baai, een klifwand van twee stappen, en een
+  grotmond in die wand. Het pad rijgt ze aan elkaar — van het strand over het
+  plateau tot in de grot. Sleep om te draaien, scroll om te zoomen.
 </p>
 
 <model-viewer
-  src="heuvel.glb"
-  alt="Grasveld met een verhoogd plateau en een pad dat eroverheen loopt"
+  src="eiland.glb"
+  alt="Eiland met een baai, een strand, een verhoogd plateau met een pad eroverheen, en een klifwand met een grotmond"
   camera-controls
-  camera-orbit="35deg 62deg 18m"
+  camera-orbit="205deg 58deg 22m"
   min-camera-orbit="auto 0deg auto"
   max-camera-orbit="auto 89deg auto"
   environment-image="neutral"
@@ -69,7 +70,7 @@ code {
   interaction-prompt="none"></model-viewer>
 
 <p class="voet">
-  Gebouwd met <code>node tools/bouw-scene-heuvel.mjs</code>; de plattegrond
+  Gebouwd met <code>node tools/bouw-scene-eiland.mjs</code>; de plattegrond
   staat in dat bestand. Stukken van
   <a href="https://kenney.nl/" rel="noopener">Kenney</a> (CC0), zie
   <code>kits/modulair-terrein/LICENSE.txt</code>.
