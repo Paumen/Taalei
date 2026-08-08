@@ -339,7 +339,7 @@ window.KENNEY_KITS = [
   "url": "https://quaternius.com/",
   /* Eigen tabblad: geen colormap maar eigen materiaalkleuren, en geanimeerd. */
   "tabblad": "zee",
-  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest.",
+  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
   "models": [
    "coral-a",
    "coral-b",
@@ -357,6 +357,8 @@ window.KENNEY_KITS = [
    "fish-tuna",
    "lobster",
    "octopus",
+   "orca",
+   "orca-calf",
    "penguin",
    "rock-a",
    "rock-b",

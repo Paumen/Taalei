@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 1102,
+ "totaal": 1104,
  "budgetPerUnit": 1000,
  "kits": [
   {
@@ -106,9 +106,9 @@
    "url": "https://quaternius.com/",
    "licentie": "kits/onderwater-kit/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 43,
+   "aantal": 45,
    "tabblad": "zee",
-   "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest.",
+   "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
    "palet": "onderwater"
   },
   {
@@ -396,7 +396,7 @@
    "naam": "Dieren",
    "kort": "Dieren",
    "kleur": "#3e8fd0",
-   "aantal": 18
+   "aantal": 20
   }
  ],
  "paletten": [
@@ -633,6 +633,13 @@
      "aantal": 3
     },
     {
+     "hex": "#272a2f",
+     "naam": "donkergrijs",
+     "textuur": null,
+     "materiaal": "Orca",
+     "aantal": 2
+    },
+    {
      "hex": "#1d1c22",
      "naam": "donkergrijs",
      "textuur": null,
@@ -742,6 +749,20 @@
      "naam": "bruin",
      "textuur": null,
      "materiaal": "Seal",
+     "aantal": 1
+    },
+    {
+     "hex": "#84888f",
+     "naam": "lichtgrijs",
+     "textuur": null,
+     "materiaal": "OrcaSaddle",
+     "aantal": 1
+    },
+    {
+     "hex": "#88898e",
+     "naam": "lichtgrijs",
+     "textuur": null,
+     "materiaal": "OrcaSaddle",
      "aantal": 1
     },
     {
@@ -889,6 +910,20 @@
      "naam": "oranje",
      "textuur": null,
      "materiaal": "ClownFishOrange",
+     "aantal": 1
+    },
+    {
+     "hex": "#f7f8f5",
+     "naam": "wit",
+     "textuur": null,
+     "materiaal": "OrcaWhite",
+     "aantal": 1
+    },
+    {
+     "hex": "#f9f7f2",
+     "naam": "lichtoranje",
+     "textuur": null,
+     "materiaal": "OrcaWhite",
      "aantal": 1
     },
     {
@@ -15353,6 +15388,58 @@
     "Armature|Dart",
     "Armature|Idle",
     "Armature|Walk"
+   ]
+  },
+  {
+   "id": "onderwater-kit/orca-calf",
+   "naam": "orca-calf",
+   "kit": "onderwater-kit",
+   "groep": "dieren",
+   "palet": "onderwater",
+   "kleuren": [
+    "#272a2f",
+    "#88898e",
+    "#f9f7f2"
+   ],
+   "pad": "kits/onderwater-kit/orca-calf.glb",
+   "bytes": 131176,
+   "driehoeken": 2922,
+   "driehoekenPerUnit": 2922,
+   "materialen": 3,
+   "wdh": [
+    0.865,
+    0.402,
+    0.252
+   ],
+   "calls": 8,
+   "animaties": [
+    "Swim"
+   ]
+  },
+  {
+   "id": "onderwater-kit/orca",
+   "naam": "orca",
+   "kit": "onderwater-kit",
+   "groep": "dieren",
+   "palet": "onderwater",
+   "kleuren": [
+    "#272a2f",
+    "#84888f",
+    "#f7f8f5"
+   ],
+   "pad": "kits/onderwater-kit/orca.glb",
+   "bytes": 131160,
+   "driehoeken": 2922,
+   "driehoekenPerUnit": 1133,
+   "materialen": 3,
+   "wdh": [
+    2.331,
+    1.106,
+    0.898
+   ],
+   "calls": 8,
+   "animaties": [
+    "Swim"
    ]
   },
   {

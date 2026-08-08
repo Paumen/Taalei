@@ -181,7 +181,7 @@ const regels = [
   [/^(corridor|room|template)\b/, 'grot'],
   // Zeeleven uit de onderwater-kit. Staat boven de algemene regels omdat
   // `starfish` anders bij de rotsen zou kunnen belanden en `shell-` nergens.
-  [/^(crab|dolphin|eel|lobster|octopus|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
+  [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'dieren'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'zeebodem'],
   // Eten en koken: het vuur waar je op kookt en het hout ernaast, de vis en het
   // vlees, de gedekte tafels en het serviesgoed dat erop staat. Deze regel gaat
@@ -364,6 +364,7 @@ const WOORDENBOEK = {
   nugget: ['klompje', 'brok'], nuggets: ['klompjes', 'brokken'],
   oars: ['roeispanen', 'riemen'],
   octopus: ['octopus', 'inktvis'], open: ['open'], opposite: ['tegenover', 'overstaand'],
+  orca: ['orka', 'zwaardwalvis'],
   ornate: ['sierlijk', 'versierd'],
   outer: ['buiten', 'buitenhoek'], overhang: ['afdak'], overlap: ['overlap', 'overlappend'],
   paddle: ['peddel', 'roeispaan'],
