@@ -28,7 +28,7 @@
  * hieronder zijn ten opzichte daarvan, met y=0 als padhoogte.
  *
  * -- de plattegrond ---------------------------------------------------------
- * Veld van 20 × 29 cellen (10 × 14,5 unit). Van voor naar achter:
+ * Veld van 20 × 30 cellen (10 × 15 unit). Van voor naar achter:
  *
  *     rij  0- 3   baai
  *     rij  4- 6   zandtalud, waar het water op het strand loopt
@@ -37,9 +37,9 @@
  *     rij 11-12   talud omhoog, met de trap in het pad
  *     rij 13-20   plateau, pad op y=0,5
  *     rij 21-22   talud omlaag, met de trap in het pad
- *     rij 23-24   gras
+ *     rij 23-25   gras, tot aan de voet van de wand
  *     rij 25      klifwand van twee stappen, met de grotmond
- *     rij 25-28   terras op y=1,0
+ *     rij 26-29   terras op y=1,0
  *
  * Het pad loopt van het strand tot in de grot en rijgt alles aan elkaar: het
  * klimt over het plateau en eindigt bij de grotmond. Zo raakt elk soort stuk
@@ -62,13 +62,29 @@
  *   wandstukken   een wandstuk is 0,6 hoog terwijl de stap 0,5 is: de voet
  *                 zakt 0,1 onder het maaiveld eronder. Regel: hoogte van een
  *                 afsluitend wandstuk = kaphoogte − 0,6
+ *
+ * -- welke kant een wandstuk op kijkt ---------------------------------------
+ * Elk wandstuk — steilrand, klif, grotmond — heeft zijn gebeeldhouwde kant aan
+ * de +x-kant en zijn platte achterwand aan de -x-kant. Het stuk ligt bovendien
+ * niet midden in zijn cel maar tegen de -x-rand aan, en zijn kap raakt daar de
+ * grond die eróp ligt.
+ *
+ * Daaruit volgt de regel: een wand die naar buiten kijkt in richting r wordt
+ * zo gedraaid dat +x naar r wijst, en komt in de cel áchter de terreinrand te
+ * staan — niet in de laatste terreincel zelf. Andersom (achterwand naar
+ * buiten) hangt de grasrand als een uitstekend velletje over de wand heen; dat
+ * is precies hoe het er fout uitziet.
+ *
+ * De grotmond is de uitzondering: daar zit de wand aan de -x-kant en steekt de
+ * tunnel naar +x, dus die gaat andersom en schuift een kwart cel naar achteren
+ * om met de rest van de wand in één vlak te komen.
  */
 
 import { Scene, CEL } from './terreinscene.mjs';
 
 const UIT = 'scenes/eiland.glb';
 
-const VELD = { breed: 20, diep: 29 };
+const VELD = { breed: 20, diep: 30 };
 
 /* Het plateau in celcoördinaten, en het pad in kolommen. Beide staan midden op
  * de breedte: 6..13 en 9..10 hebben allebei 9,5 als middelpunt, net als het
@@ -124,7 +140,7 @@ for (let i = 0; i < VELD.breed; i++) {
  * grashoogte, en de ronde buitenhoeken laten anders een gat in de hoek. */
 for (let i = 0; i < VELD.breed; i++) {
   if (opPad(i)) continue;
-  for (let j = STRAND.eind + 1; j < KLIF; j++) {
+  for (let j = STRAND.eind + 1; j <= KLIF; j++) {
     if (inPlateau(i, j)) continue;
     s.zet('hilly-terrain-grass-floor', i, j);
   }
@@ -185,7 +201,8 @@ s.zet('hilly-terrain-path-hill-sharp-steps-side', PAD.oost, TALUD.noord, { draai
 /* -- de klifwand met de grotmond -------------------------------------------
  * Een wand van twee stappen: een vlak tussenstuk op 0,0 en het sluitstuk op
  * 0,5, samen een kap op 1,1 — het maaiveld van het terras. De wand kijkt naar
- * -z, dus alle stukken een kwartslag tegen de klok in.
+ * -z, dus +x moet naar -z wijzen: een kwartslag met de klok mee. De kap ligt
+ * dan in de +z-helft van rij KLIF, en het terras begint pas in de rij daarna.
  *
  * Niet cliff-terrain-side-base onderaan, hoe logisch die naam ook klinkt: dat
  * stuk is het puinhellinkje aan de voet van een wand en loopt van beneden-binnen
@@ -196,15 +213,21 @@ s.zet('hilly-terrain-path-hill-sharp-steps-side', PAD.oost, TALUD.noord, { draai
  * De grotmond is één stuk dat de hele wandhoogte beslaat. Hij is één cel breed
  * en het pad twee, dus hij staat op de westelijke padkolom; twee monden naast
  * elkaar zetten werkt niet, want de stukken steken over hun cel heen en lopen
- * dan in elkaar. */
-for (let i = 0; i < VELD.breed; i++) {
+ * dan in elkaar. Hij draait de andere kant op dan de wand — zie de regel
+ * bovenaan — en staat een kwart cel naar achteren, zodat zijn voorvlak in het
+ * vlak van de rotswand valt.
+ *
+ * De wand loopt één cel door voorbij het veld, tot in de rand, zodat er aan de
+ * uiteinden geen naad openblijft. */
+for (let i = -1; i <= VELD.breed; i++) {
   if (i === PAD.west) {
-    s.zet('cave-cliff-terrain-entrance-round-top', i, KLIF, { draai: 270, hoogte: 0.1 });
+    s.zet('cave-cliff-terrain-entrance-round-top', i, KLIF + 0.25, { draai: 270, hoogte: 0.1 });
   } else {
-    s.zet('cliff-terrain-side-mid', i, KLIF, { draai: 270, hoogte: 0 });
-    s.zet('cliff-terrain-side-top', i, KLIF, { draai: 270, hoogte: CEL });
+    s.zet('cliff-terrain-side-mid', i, KLIF, { draai: 90, hoogte: 0 });
+    s.zet('cliff-terrain-side-top', i, KLIF, { draai: 90, hoogte: CEL });
   }
-  for (let j = KLIF; j < VELD.diep; j++) s.zet('hilly-terrain-grass-floor', i, j, { hoogte: TERRAS });
+  if (i < 0 || i >= VELD.breed) continue;
+  for (let j = KLIF + 1; j < VELD.diep; j++) s.zet('hilly-terrain-grass-floor', i, j, { hoogte: TERRAS });
 }
 
 /* Een nis achter de mond, anders kijk je dwars door de berg heen het gras aan
@@ -220,9 +243,13 @@ for (const hoogte of [0, CEL]) {
 
 /* -- de rand van het eiland ------------------------------------------------
  * Zonder rand is het veld een vel papier: van opzij gezien heeft het gras geen
- * dikte. De steilrandstukken staan zo laag dat hun bovenrand precies op
- * maaiveldhoogte uitkomt; de wand zelf zit in de buitenste 0,2 van de cel, dus
- * het vlak eroverheen blijft heel. Ongedraaid staat de wand aan de -x-kant.
+ * dikte. De steilrandstukken staan zo laag dat hun kap precies op maaiveldhoogte
+ * uitkomt.
+ *
+ * De ring ligt één cel búiten het veld: de kap van een steilrandstuk zit tegen
+ * de rand van zijn eigen cel en draagt daar de grond die erop ligt, dus het
+ * stuk hoort naast de laatste terreincel en niet erin. De gebeeldhouwde kant
+ * wijst naar buiten (zie de regel bovenaan).
  *
  * Langs het terras ligt de kap twee stappen hoger; daar gaan er twee vlakke
  * tussenstukken onder, anders staat de wand op niets.
@@ -233,7 +260,7 @@ for (const hoogte of [0, CEL]) {
  * daar: een haakse hoek in plaats van een afgeronde, en geen naad die opengaat.
  */
 function rand(i, j, draai) {
-  if (j < KLIF) {
+  if (j <= KLIF) {
     s.zet('escarpment-terrain-side-top', i, j, { draai, hoogte: -CEL });
     return;
   }
@@ -242,13 +269,13 @@ function rand(i, j, draai) {
   s.zet('escarpment-terrain-side-top', i, j, { draai, hoogte: CEL });
 }
 
-for (let j = 0; j < VELD.diep; j++) {
-  rand(0, j, 0);
-  rand(VELD.breed - 1, j, 180);
+for (let j = -1; j <= VELD.diep; j++) {
+  rand(-1, j, 180);
+  rand(VELD.breed, j, 0);
 }
-for (let i = 0; i < VELD.breed; i++) {
-  rand(i, 0, 270);
-  rand(i, VELD.diep - 1, 90);
+for (let i = -1; i <= VELD.breed; i++) {
+  rand(i, -1, 90);
+  rand(i, VELD.diep, 270);
 }
 
 /* -- wegschrijven ---------------------------------------------------------- */
