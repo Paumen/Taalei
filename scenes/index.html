@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — proefscène terrein</title>
+<meta name="description" content="Proefscène uit het modulaire terreinpakket: een eiland met strand, plateau, klifwand en grotmond, alleen terreinstukken en geen props.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<style>
+:root { color-scheme: light; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1.5rem clamp(1rem, 4vw, 3rem) 2rem;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  color: #2b2b30;
+  background: #f4f1e9;
+}
+
+h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
+
+.sub { max-width: 62ch; margin: 0 0 1rem; color: #5c5a55; }
+
+model-viewer {
+  flex: 1;
+  width: 100%;
+  min-height: 24rem;
+  background: #dfe7ee;
+  border-radius: 0.5rem;
+}
+
+.voet { margin: 1rem 0 0; font-size: 0.85rem; color: #5c5a55; }
+
+a { color: inherit; }
+
+code {
+  padding: 0.1em 0.3em;
+  font-size: 0.95em;
+  background: #e7e2d6;
+  border-radius: 0.25rem;
+}
+</style>
+</head>
+<body>
+
+<h1>Proefscène terrein</h1>
+<p class="sub">
+  Een eiland van 10 × 15 unit, helemaal opgebouwd uit terreinstukken van
+  <code>kits/modulair-terrein</code>, zonder props. Vier families staan naast
+  elkaar: gras en pad, zand met een baai, een klifwand van twee stappen, en een
+  grotmond in die wand. Het pad rijgt ze aan elkaar — van het strand over het
+  plateau tot in de grot. Sleep om te draaien, scroll om te zoomen.
+</p>
+
+<model-viewer
+  src="eiland.glb"
+  alt="Eiland met een baai, een strand, een verhoogd plateau met een pad eroverheen, en een klifwand met een grotmond"
+  camera-controls
+  camera-orbit="205deg 58deg 25m"
+  min-camera-orbit="auto 0deg auto"
+  max-camera-orbit="auto 89deg auto"
+  environment-image="neutral"
+  shadow-intensity="0.7"
+  shadow-softness="0.9"
+  exposure="1.05"
+  interaction-prompt="none"></model-viewer>
+
+<p class="voet">
+  Gebouwd met <code>node tools/bouw-scene-eiland.mjs</code>; de plattegrond
+  staat in dat bestand. Stukken van
+  <a href="https://kenney.nl/" rel="noopener">Kenney</a> (CC0), zie
+  <code>kits/modulair-terrein/LICENSE.txt</code>.
+</p>
+
+<script src="../vendor/model-viewer.min.js" type="module"></script>
+</body>
+</html>
