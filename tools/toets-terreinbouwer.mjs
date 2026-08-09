@@ -376,8 +376,61 @@ await tikBlad.locator('#doek').dispatchEvent('pointerdown', { pointerId: 1, poin
 await tikBlad.locator('#doek').dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch', clientX: tx + 120, clientY: ty + 40, isPrimary: true });
 toets('vegen om rond te kijken plaatst niets', await tel(tikBlad) === 1);
 
-await tikBlad.screenshot({ path: join(ROOT, 'docs/terreinbouwer-smal.png') });
 await tikBlad.close();
+
+/* Een telefoon staand. Hier ging het mis op een manier die op een breed scherm
+ * niet te zien is: `.lijst` stond op `flex: 1`, en dat is `flex-basis: 0`. In
+ * een kolom die zich naar zijn inhoud voegt telt zo'n vak voor niets mee, dus de
+ * lade werd zo hoog als kop, zoekveld en filters samen en de stukken klapten weg
+ * tot een streepje. Het palet stond er, en er viel niets te kiezen.
+ *
+ * Vandaar dat hier niet naar zichtbaarheid wordt gekeken maar naar hoogte: een
+ * lijst van vier beeldpunten is technisch zichtbaar en praktisch onbruikbaar. */
+const telefoon = await versBlad({
+  hasTouch: true,
+  isMobile: true,
+  viewport: { width: 412, height: 915 },
+});
+
+const paletHoogte = await telefoon.evaluate(() =>
+  Math.round(document.getElementById('palet').getBoundingClientRect().height));
+toets(
+  'op een telefoon is de lijst met stukken hoog genoeg om te kiezen',
+  paletHoogte > 200, `${paletHoogte}px hoog`,
+);
+
+const eersteStuk = telefoon.getByRole('option').first();
+toets('en de stukken staan er echt in', await eersteStuk.count() > 0);
+await eersteStuk.scrollIntoViewIfNeeded();
+await eersteStuk.tap();
+toets(
+  'een stuk is aan te tikken',
+  await telefoon.evaluate(() => window.TERREINBOUWER.stand.penseel) !== null,
+);
+
+/* Het raster moet ook nog groot genoeg zijn om op te bouwen. */
+const doekHoogte = await telefoon.evaluate(() =>
+  Math.round(document.querySelector('.doek').getBoundingClientRect().height));
+toets('en het raster houdt ruimte over', doekHoogte > 300, `${doekHoogte}px hoog`);
+
+/* En de rekensom moet kloppen in deze indeling ook. De balk staat hier bóven
+ * het doek in plaats van eroverheen, dus het doek begint niet meer op y = 0;
+ * wie dat vergeet mikt er structureel naast. */
+const [px, py] = await midden(telefoon);
+await telefoon.touchscreen.tap(px, py);
+toets('een tik op een telefoon plaatst een stuk', await tel(telefoon) === 1);
+toets(
+  'en de schaduw staat op het vak dat is aangetikt',
+  await telefoon.evaluate(() => {
+    const T = window.TERREINBOUWER;
+    const stuk = [...T.bouwsel.stukken.values()][0];
+    return stuk && T.stand.hover
+      && stuk.x === T.stand.hover[0] && stuk.z === T.stand.hover[1];
+  }),
+);
+
+await telefoon.screenshot({ path: join(ROOT, 'docs/terreinbouwer-telefoon.png'), fullPage: false });
+await telefoon.close();
 
 /* En andersom: als de bouwer niet opstart moet dat te zíén zijn. Zonder dit
  * blijft er alleen "kit laden…" staan — geen fout, geen aanwijzing, een pagina

@@ -48,13 +48,29 @@ stuur.target.set(0, 0.4, 0);
 stuur.maxPolarAngle = Math.PI / 2 - 0.02; // niet onder de grond kijken
 stuur.update();
 
+/**
+ * De tekenbuffer op de maat van het doek brengen.
+ *
+ * Meet het doek zelf en niet zijn ouder: op een smal scherm staat de balk
+ * boven het doek in plaats van eroverheen, en dan is de ouder hoger dan waar
+ * er getekend wordt. Op een breed scherm komt het op hetzelfde neer.
+ */
 function pasMaatAan() {
-  const { clientWidth: b, clientHeight: h } = doek.parentElement;
+  const kader = doek.getBoundingClientRect();
+  const b = Math.max(1, Math.round(kader.width));
+  const h = Math.max(1, Math.round(kader.height));
   renderer.setSize(b, h, false);
   camera.aspect = b / h;
   camera.updateProjectionMatrix();
 }
+
 addEventListener('resize', pasMaatAan);
+
+/* Niet elke maatverandering is een venstermaatverandering: de balk breekt af
+ * zodra hij niet meer past, en het doek krimpt mee zonder dat het venster iets
+ * doet. Zonder dit blijft de tekenbuffer dan op de oude maat staan en wijst een
+ * tik het verkeerde vak aan. */
+new ResizeObserver(pasMaatAan).observe(doek);
 pasMaatAan();
 
 /* -- raster ---------------------------------------------------------------- */
@@ -246,7 +262,7 @@ function wenkOp(tekst = null) {
     return;
   }
   wenkBalk.hidden = false;
-  wenkBalk.textContent = 'Kies links een stuk — en tik dan op het raster.';
+  wenkBalk.textContent = 'Kies een stuk uit de lijst — en tik dan op het raster.';
 }
 
 /* -- controle tonen -------------------------------------------------------- */
@@ -610,7 +626,7 @@ renderer.domElement.addEventListener('pointerup', (e) => {
   }
   if (modus === 'kies' || !stand.penseel) {
     if (bewoners.length) kies(bewoners[0].id);
-    else if (!stand.penseel) wenkOp('Kies eerst een stuk uit de lijst links.');
+    else if (!stand.penseel) wenkOp('Kies eerst een stuk uit de lijst.');
     return;
   }
   plaats({ naam: stand.penseel, x: vak[0], z: vak[1], laag: stand.laag, slagen: stand.slagen });

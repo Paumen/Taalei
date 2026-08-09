@@ -412,27 +412,77 @@ body {
 .uitleg dd { margin: 0; }
 
 /* -- smal scherm -----------------------------------------------------------
- * Drie kolommen naast elkaar passen niet op een tablet of telefoon. Daaronder
- * gaat het raster bovenaan en schuiven het palet en de controle eronder — het
- * raster blijft daarbij de grootste, want dat is waar gebouwd wordt.
+ * Drie kolommen naast elkaar passen niet op een telefoon. Daaronder gaat het
+ * raster bovenaan en schuiven het palet en de controle eronder, met de pagina
+ * zelf als rolbaar geheel.
  */
 
 @media (width <= 900px) {
+  html,
   body {
-    overflow: auto;
-    grid-template-rows: 60vh auto auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  body {
+    overflow: visible;
     grid-template-columns: 1fr;
   }
 
-  .doek { order: -1; }
+  /* De balk boven het doek in plaats van eroverheen. Zwevend dekte hij op een
+   * telefoon het bovenste derde deel van het raster af — precies het stuk waar
+   * je op wilt bouwen. */
+  .doek {
+    display: flex;
+    height: 62vh;
+    flex-direction: column;
+    order: -1;
+  }
 
+  .doek canvas {
+    height: auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .balk-boven {
+    position: static;
+    order: -1;
+    border-width: 0 0 1px;
+    border-radius: 0;
+  }
+
+  /* Geen hoogtegrens op de lades, en de lijsten een eigen hoogte in plaats van
+   * `flex: 1`.
+   *
+   * Dat laatste is de kern. `flex: 1` is `flex-basis: 0`, en in een kolom die
+   * zich naar zijn inhoud voegt telt zo'n vak dan voor niets mee: de lade wordt
+   * zo hoog als kop, zoekveld en filters samen, en de lijst met stukken klapt
+   * dicht tot een streepje. Op een breed scherm viel dat niet op, want daar
+   * krijgt de lade zijn hoogte van de kolom. Op een telefoon stond het palet er
+   * wel, en waren de stukken er niet — en dus viel er niets te kiezen.
+   */
   .lade {
-    max-height: 60vh;
+    max-height: none;
     border: 0;
     border-top: 1px solid var(--rand);
   }
 
-  .lijst { max-height: 40vh; }
+  .lijst {
+    height: 45vh;
+    max-height: none;
+    flex: none;
+  }
+
+  .lijst-kort {
+    height: auto;
+    max-height: 30vh;
+  }
+
+  .meldingen {
+    min-height: 15vh;
+    flex: none;
+  }
 
   .balk {
     flex-wrap: wrap;
