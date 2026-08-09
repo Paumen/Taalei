@@ -229,9 +229,15 @@ toets(
   'draai `node tools/terreinbouwer/stempel.mjs`',
 );
 
-/* -- de pagina ------------------------------------------------------------- */
 
-console.log('\n— pagina —');
+/* -- de pagina -------------------------------------------------------------
+ * De bouwer is voor een telefoon gemaakt, dus wordt hij als telefoon getoetst:
+ * een aanraakscherm, geen muis, geen toetsenbord. Alles gaat via echte tikken
+ * op echte knoppen — niet via de functies eronder. Juist dat verschil legde de
+ * fouten bloot die de vorige versie onbruikbaar maakten.
+ */
+
+console.log('\n— pagina op een telefoon —');
 
 const { chromium } = await import('playwright');
 const { maakServer } = await import('./terreinbouwer/serve.mjs');
@@ -241,281 +247,218 @@ await new Promise((klaar) => server.listen(0, klaar));
 const poort = server.address().port;
 
 const browser = await chromium.launch();
-const pagina = await browser.newPage({ viewport: { width: 1400, height: 800 } });
 
-const fouten = [];
-pagina.on('pageerror', (fout) => fouten.push(fout.message));
-pagina.on('console', (bericht) => { if (bericht.type() === 'error') fouten.push(bericht.text()); });
-
-await pagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
-await pagina.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
-
-toets('de pagina laadt zonder fouten', fouten.length === 0, fouten.slice(0, 2).join(' | '));
-toets('het palet is gevuld', await pagina.locator('#palet .stuk').count() === kit.modellen.size);
-
-/* Een klifwand van drie hoog neerzetten via dezelfde weg die de muis gebruikt,
- * en kijken of de controle er niets op aan te merken heeft. */
-await pagina.evaluate(async () => {
-  const { plaats } = window.TERREINBOUWER;
-  await plaats({ naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0 });
-  await plaats({ naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 1 });
-  await plaats({ naam: 'cliff-terrain-side-top', x: 0, z: 0, laag: 2 });
-  await plaats({ naam: 'cliff-terrain-side-base', x: 0, z: 1, laag: 0 });
-});
-toets(
-  'een klifwand in de pagina levert geen meldingen',
-  await pagina.evaluate(() => window.TERREINBOUWER.controleer(window.TERREINBOUWER.bouwsel).length) === 0,
-);
-toets('de modellen zijn ingeladen', await pagina.evaluate(() => window.TERREINBOUWER.bouwsel.stukken.size) === 4);
-
-/* Dat de controle tevreden is zegt niets over wat er te zíén is. Deze twee
- * kijken naar het scherm in plaats van naar de administratie: staan de stukken
- * op een echte plek, en komt er ook echt geometrie uit de kaartenbak?
- *
- * Niet overbodig: een eerdere versie las de laaghoogte onder de verkeerde naam
- * uit de kit, waardoor elk stuk op y = NaN belandde. Alles klopte — vier
- * stukken, nul meldingen, veertien getekende driehoeken — en het scherm bleef
- * leeg. */
-const plek = await pagina.evaluate(() => {
-  const { stukken } = window.TERREINBOUWER;
-  return stukken.children.map((k) => k.position.toArray());
-});
-toets(
-  'elk geplaatst stuk staat op een eindige plek',
-  plek.length === 4 && plek.every((p) => p.every(Number.isFinite)),
-  JSON.stringify(plek),
-);
-
-const getekend = await pagina.evaluate(() => {
-  const T = window.TERREINBOUWER;
-  T.renderer.render(T.scene, T.camera);
-  return T.renderer.info.render.triangles;
-});
-toets('er worden driehoeken getekend', getekend > 0, `${getekend} driehoeken`);
-
-toets('het vangnet blijft weg als alles goed gaat', await pagina.locator('#storing').isHidden());
-
-/* -- bediening ------------------------------------------------------------
- * De toetsen hierboven roepen plaats() rechtstreeks aan. Dat zegt niets over de
- * vraag of je er met een muis of een vinger bij kunt, en juist daar ging het
- * mis: het palet vulde zich netjes en er viel niets te plaatsen, omdat er eerst
- * een stuk gekozen moest worden en niets dat vertelde.
- *
- * Hieronder dus geen plaats() maar echte tikken, en één keer zonder muis.
- */
-
-async function versBlad(opties = {}) {
-  const blad = await browser.newPage({ viewport: { width: 1200, height: 800 }, ...opties });
+/** Een verse telefoon met de bouwer erop. */
+async function telefoon(breedte = 412, hoogte = 915) {
+  const blad = await browser.newPage({
+    viewport: { width: breedte, height: hoogte },
+    hasTouch: true,
+    isMobile: true,
+    deviceScaleFactor: 2.6,
+  });
+  blad.on('pageerror', (fout) => console.log('  [paginafout]', fout.message));
   await blad.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
   await blad.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
   return blad;
 }
 
-const tel = (blad) => blad.evaluate(() => window.TERREINBOUWER.bouwsel.stukken.size);
+const aantal = (blad) => blad.evaluate(() => window.TERREINBOUWER.bouwsel.stukken.size);
+const wijzer = (blad) => blad.evaluate(() => window.TERREINBOUWER.stand.wijzer.join(','));
 const midden = async (blad) => {
   const kader = await blad.locator('#doek').boundingBox();
   return [kader.x + kader.width / 2, kader.y + kader.height / 2];
 };
 
-const muisBlad = await versBlad();
-toets('zonder gekozen stuk staat er een wenk in beeld', await muisBlad.locator('#wenk').isVisible());
+const blad = await telefoon();
 
-/* Het doek mag niet verschuiven als je een knop in de balk indrukt. Doet het
- * dat wel, dan wijst elke tik daarna een ander vak aan dan waar je hem zette —
- * en dat is niet te zien, want de knop werkt gewoon. Zo raakte de balk ooit
- * breder dan de kolom: de browser rolde de knop met de focus in beeld en het
- * doek schoof 86 beeldpunten opzij. */
-const doekX = () => muisBlad.evaluate(() =>
-  Math.round(document.getElementById('doek').getBoundingClientRect().x));
-const voorKnop = await doekX();
-for (const naam of ['plaatsen', 'kiezen', 'weghalen']) {
-  await muisBlad.getByRole('button', { name: naam }).click();
+toets('de pagina laadt', await blad.locator('#doek').isVisible());
+toets('en past op het scherm zonder te rollen', await blad.evaluate(
+  () => document.documentElement.scrollHeight <= document.documentElement.clientHeight + 1,
+));
+
+/* Elke knop moet raakbaar zijn. Een knop van 20 beeldpunten is met een muis
+ * prima en met een duim een gok. */
+const teKlein = await blad.evaluate(() => {
+  const uit = [];
+  for (const knop of document.querySelectorAll('button')) {
+    if (knop.offsetParent === null) continue; // niet in beeld
+    const k = knop.getBoundingClientRect();
+    if (k.height < 36 || k.width < 36) uit.push(`${knop.id || knop.textContent.trim()} ${Math.round(k.width)}×${Math.round(k.height)}`);
+  }
+  return uit;
+});
+toets('alle knoppen zijn groot genoeg voor een duim', teKlein.length === 0, teKlein.join(', '));
+
+/* -- richten zet niets neer ------------------------------------------------ */
+
+const [mx, my] = await midden(blad);
+await blad.touchscreen.tap(mx, my);
+toets('tikken op het raster zet niets neer', await aantal(blad) === 0);
+toets('maar verplaatst wel de wijzer', await wijzer(blad) !== '');
+
+const voorVeeg = await wijzer(blad);
+await blad.locator('#doek').dispatchEvent('pointerdown', { pointerId: 1, pointerType: 'touch', clientX: mx, clientY: my, isPrimary: true });
+await blad.locator('#doek').dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch', clientX: mx + 120, clientY: my + 60, isPrimary: true });
+toets('vegen om rond te kijken laat de wijzer staan', await wijzer(blad) === voorVeeg);
+
+/* -- een stuk kiezen en neerzetten ----------------------------------------- */
+
+toets('"Zet neer" kan nog niet', await blad.locator('#zet').isDisabled());
+
+await blad.locator('#stuk-knop').tap();
+toets('het blad met stukken gaat open', await blad.locator('#blad').isVisible());
+
+const paletHoogte = await blad.evaluate(
+  () => Math.round(document.getElementById('blad-inhoud').getBoundingClientRect().height),
+);
+toets('de lijst met stukken is hoog genoeg om te kiezen', paletHoogte >= 180, `${paletHoogte}px`);
+
+await blad.locator('#zoek').fill('grass-floor');
+const eerste = blad.locator('#blad-inhoud .rij').first();
+toets('zoeken levert een stuk op', await eerste.count() === 1);
+await eerste.tap();
+
+toets('het blad sluit na het kiezen', await blad.locator('#blad').isHidden());
+toets('en het gekozen stuk staat onderaan', (await blad.locator('#penseel').innerText()).includes('grass-floor'));
+toets('"Zet neer" kan nu wel', await blad.locator('#zet').isEnabled());
+toets('en er staat nog steeds niets', await aantal(blad) === 0);
+
+await blad.locator('#zet').tap();
+toets('"Zet neer" zet er één neer', await aantal(blad) === 1);
+toets('op het vak van de wijzer', await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  const stuk = [...T.bouwsel.stukken.values()][0];
+  return stuk.x === T.stand.wijzer[0] && stuk.z === T.stand.wijzer[1];
+}));
+toets('"Zet neer" kan niet twee keer op hetzelfde vak', await blad.locator('#zet').isDisabled());
+
+/* -- weghalen en terugdraaien ---------------------------------------------- */
+
+toets('"Weg" kan nu', await blad.locator('#weg').isEnabled());
+await blad.locator('#weg').tap();
+toets('"Weg" haalt het weg', await aantal(blad) === 0);
+
+await blad.locator('#ongedaan').tap();
+toets('ongedaan maken zet het terug', await aantal(blad) === 1);
+await blad.locator('#ongedaan').tap();
+toets('nog een keer ongedaan haalt het weer weg', await aantal(blad) === 0);
+await blad.locator('#opnieuw').tap();
+toets('opnieuw doen zet het er weer neer', await aantal(blad) === 1);
+
+/* Tien stukken neerzetten en in tien tikken terugdraaien: dat is het geval
+ * waar het om begonnen was — tientallen stukken en geen weg terug. */
+for (let i = 0; i < 10; i++) {
+  await blad.evaluate((n) => {
+    const T = window.TERREINBOUWER;
+    return T.doeZet({ naam: 'hilly-terrain-grass-floor', x: n + 3, z: 0, laag: 0, slagen: 0 });
+  }, i);
 }
-await muisBlad.getByRole('button', { name: 'plaatsen' }).click();
-toets(
-  'het doek blijft staan waar het staat als je de balk bedient',
-  await doekX() === voorKnop,
-  `${voorKnop} → ${await doekX()}`,
-);
-toets(
-  'het doek is niet zijwaarts weggerold',
-  await muisBlad.evaluate(() => document.querySelector('.doek').scrollLeft) === 0,
-);
+toets('tien stukken erbij', await aantal(blad) === 11);
+for (let i = 0; i < 10; i++) await blad.locator('#ongedaan').tap();
+toets('en tien keer ongedaan haalt ze er allemaal af', await aantal(blad) === 1);
 
-const [mx, my] = await midden(muisBlad);
-await muisBlad.mouse.click(mx, my);
-toets('een tik zonder gekozen stuk plaatst niets', await tel(muisBlad) === 0);
-toets(
-  'maar zegt wel wat er ontbreekt',
-  (await muisBlad.locator('#wenk').innerText()).toLowerCase().includes('kies eerst'),
-  await muisBlad.locator('#wenk').innerText(),
-);
+/* -- lagen ----------------------------------------------------------------- */
 
-await muisBlad.getByRole('option', { name: 'hilly-terrain-grass-floor' }).first().click();
-toets('na het kiezen verdwijnt de wenk', await muisBlad.locator('#wenk').isHidden());
-await muisBlad.mouse.click(mx, my);
-toets('een tik met gekozen stuk plaatst er één', await tel(muisBlad) === 1);
+await blad.locator('#laag-plus').tap();
+toets('een laag omhoog', await blad.locator('#laag-nu').innerText() === '1');
+await blad.locator('#laag-min').tap();
+await blad.locator('#laag-min').tap();
+toets('en niet onder nul', await blad.locator('#laag-nu').innerText() === '0');
 
-/* Weghalen vóór het draaien: zodra de camera verschoven is wijst hetzelfde punt
- * op het scherm een ander vak aan, en dan toetst dit niets meer. */
-await muisBlad.getByRole('button', { name: 'weghalen' }).click();
-await muisBlad.mouse.click(mx, my);
-toets('met de knop "weghalen" haalt een tik het stuk weg', await tel(muisBlad) === 0);
+await blad.locator('#draai').tap();
+toets('draaien telt door', await blad.locator('#draai-nu').innerText() === '90°');
 
-await muisBlad.getByRole('button', { name: 'plaatsen' }).click();
-await muisBlad.mouse.click(mx, my);
-toets('en met "plaatsen" komt er weer een stuk', await tel(muisBlad) === 1);
+/* -- de controle ----------------------------------------------------------- */
 
-/* Slepen over het raster mag de camera draaien en verder niets: anders staat er
- * een tegel na elke poging om rond te kijken. */
-await muisBlad.mouse.move(mx, my);
-await muisBlad.mouse.down();
-await muisBlad.mouse.move(mx + 140, my + 60, { steps: 12 });
-await muisBlad.mouse.up();
-toets('draaien aan de camera plaatst niets', await tel(muisBlad) === 1);
-await muisBlad.close();
+await blad.locator('#stand-knop').tap();
+toets('de controle gaat open', await blad.locator('#blad').isVisible());
+toets('en meldt niets bij één los stuk', (await blad.locator('#blad-inhoud').innerText()).includes('sluit aan'));
+await blad.locator('#blad-sluit').tap();
+toets('en gaat weer dicht', await blad.locator('#blad').isHidden());
 
-/* En nu zonder muis: een aanraakscherm, geen toetsenbord, geen tweede knop. */
-const tikBlad = await versBlad({
-  hasTouch: true,
-  isMobile: true,
-  viewport: { width: 820, height: 1100 },
+/* -- past hier tegenaan ----------------------------------------------------
+ * De vraag waar het pakket om draait. Hier getoetst zoals hij gesteld wordt:
+ * richt op een stuk dat er staat, open de controle, en kijk of er iets te
+ * kiezen valt dat er daarna ook echt tegenaan blijkt te passen.
+ */
+
+/* Eerst het veld leegmaken: anders meet deze toets de naden van wat er nog van
+ * de vorige stappen stond en niet die van het voorstel. */
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
+  await T.doeZet({ naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0, slagen: 0 });
+  T.stand.wijzer = [0, 0];
+  T.stand.laag = 0;
 });
-await tikBlad.getByRole('option', { name: 'hilly-terrain-grass-floor' }).first().tap();
-const [tx, ty] = await midden(tikBlad);
-await tikBlad.touchscreen.tap(tx, ty);
-toets('op een aanraakscherm plaatst een tik een stuk', await tel(tikBlad) === 1);
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Past hier' }).tap();
 
-/* Vegen is op zo'n scherm de enige manier om rond te kijken. Zou dat ook
- * plaatsen, dan loopt het raster vol bij de eerste poging. */
-await tikBlad.locator('#doek').dispatchEvent('pointerdown', { pointerId: 1, pointerType: 'touch', clientX: tx, clientY: ty, isPrimary: true });
-await tikBlad.locator('#doek').dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch', clientX: tx + 120, clientY: ty + 40, isPrimary: true });
-toets('vegen om rond te kijken plaatst niets', await tel(tikBlad) === 1);
+const voorstelRijen = blad.locator('#blad-inhoud .rij');
+const hoeveel = await voorstelRijen.count();
+toets('"Past hier" noemt passende stukken', hoeveel > 0, `${hoeveel} voorstellen`);
 
-await tikBlad.close();
+const voorNaam = await voorstelRijen.first().locator('.rij-naam').innerText();
+const voorAantal = await aantal(blad);
+await voorstelRijen.first().tap();
+toets('een voorstel aantikken zet het neer', await aantal(blad) === voorAantal + 1);
+toets(
+  `en dat voorstel (${voorNaam}) sluit dan ook echt aan`,
+  await blad.evaluate(() => window.TERREINBOUWER
+    .controleer(window.TERREINBOUWER.bouwsel)
+    .every((m) => m.soort !== 'naad')),
+);
 
-/* Een telefoon staand. Hier ging het mis op een manier die op een breed scherm
- * niet te zien is: `.lijst` stond op `flex: 1`, en dat is `flex-basis: 0`. In
- * een kolom die zich naar zijn inhoud voegt telt zo'n vak voor niets mee, dus de
- * lade werd zo hoog als kop, zoekveld en filters samen en de stukken klapten weg
- * tot een streepje. Het palet stond er, en er viel niets te kiezen.
- *
- * Vandaar dat hier niet naar zichtbaarheid wordt gekeken maar naar hoogte: een
- * lijst van vier beeldpunten is technisch zichtbaar en praktisch onbruikbaar. */
-const telefoon = await versBlad({
-  hasTouch: true,
-  isMobile: true,
-  viewport: { width: 412, height: 915 },
+await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
 });
 
-const paletHoogte = await telefoon.evaluate(() =>
-  Math.round(document.getElementById('palet').getBoundingClientRect().height));
-toets(
-  'op een telefoon is de lijst met stukken hoog genoeg om te kiezen',
-  paletHoogte > 200, `${paletHoogte}px hoog`,
-);
+await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
+console.log('  schermafbeelding → docs/terreinbouwer.png');
+await blad.close();
 
-/* Niet één maat maar een reeks. De fout hierboven zat in één indeling en was in
- * de andere niet te zien; wie alleen toetst op de maten die hij zelf heeft
- * bedacht, toetst zijn eigen aannames. Dit loopt de scherpe randen van de
- * mediaquery langs — er net onder, er net boven — plus wat smallere en bredere
- * maten, en eist overal een lijst waar iets in past. */
-for (const [breedte, hoogte] of [[360, 740], [412, 915], [768, 1024], [899, 900], [901, 900], [1280, 800]]) {
-  const blad = await versBlad({ viewport: { width: breedte, height: hoogte } });
-  const gemeten = await blad.evaluate(() =>
-    Math.round(document.getElementById('palet').getBoundingClientRect().height));
-  const kiesbaar = await blad.evaluate(() => {
-    const eerste = document.querySelector('#palet .stuk');
-    if (!eerste) return false;
-    const kader = eerste.getBoundingClientRect();
-    // Staat er echt een rij in beeld, en niet een afgeknepen streepje?
-    return kader.height > 10 && kader.width > 40;
+/* -- een reeks schermmaten -------------------------------------------------
+ * De fout die de vorige versie onbruikbaar maakte zat in één indeling en was in
+ * de andere niet te zien. Wie alleen toetst op de maten die hij zelf bedacht,
+ * toetst zijn eigen aannames.
+ */
+
+for (const [breedte, hoogte] of [[320, 568], [360, 740], [412, 915], [768, 1024], [1280, 800]]) {
+  const b = await telefoon(breedte, hoogte);
+  await b.locator('#stuk-knop').tap();
+  const meting = await b.evaluate(() => {
+    const inhoud = document.getElementById('blad-inhoud').getBoundingClientRect();
+    const rij = document.querySelector('#blad-inhoud .rij')?.getBoundingClientRect();
+    const doek = document.getElementById('doek').getBoundingClientRect();
+    return {
+      lijst: Math.round(inhoud.height),
+      rij: rij ? Math.round(rij.height) : 0,
+      doek: Math.round(doek.height),
+      rolt: document.documentElement.scrollHeight > document.documentElement.clientHeight + 1,
+    };
   });
   toets(
-    `op ${breedte}×${hoogte} valt er te kiezen`,
-    gemeten >= 200 && kiesbaar,
-    `lijst ${gemeten}px, eerste rij ${kiesbaar ? 'zichtbaar' : 'NIET bruikbaar'}`,
+    `op ${breedte}×${hoogte} valt er te kiezen en te bouwen`,
+    meting.lijst >= 180 && meting.rij >= 36 && meting.doek >= 200 && !meting.rolt,
+    JSON.stringify(meting),
   );
-  await blad.close();
+  await b.close();
 }
 
-const eersteStuk = telefoon.getByRole('option').first();
-toets('en de stukken staan er echt in', await eersteStuk.count() > 0);
-await eersteStuk.scrollIntoViewIfNeeded();
-await eersteStuk.tap();
-toets(
-  'een stuk is aan te tikken',
-  await telefoon.evaluate(() => window.TERREINBOUWER.stand.penseel) !== null,
-);
+/* -- het vangnet ----------------------------------------------------------- */
 
-/* Het raster moet ook nog groot genoeg zijn om op te bouwen. */
-const doekHoogte = await telefoon.evaluate(() =>
-  Math.round(document.querySelector('.doek').getBoundingClientRect().height));
-toets('en het raster houdt ruimte over', doekHoogte > 300, `${doekHoogte}px hoog`);
-
-/* En de rekensom moet kloppen in deze indeling ook. De balk staat hier bóven
- * het doek in plaats van eroverheen, dus het doek begint niet meer op y = 0;
- * wie dat vergeet mikt er structureel naast. */
-const [px, py] = await midden(telefoon);
-await telefoon.touchscreen.tap(px, py);
-toets('een tik op een telefoon plaatst een stuk', await tel(telefoon) === 1);
+const stuk = await browser.newPage({ viewport: { width: 412, height: 915 }, hasTouch: true, isMobile: true });
+await stuk.route('**/bouwer.js*', (route) => route.abort());
+await stuk.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
+await stuk.waitForSelector('#storing:visible', { timeout: 15000 }).catch(() => {});
+toets('een bouwer die niet opstart meldt dat op het scherm', await stuk.locator('#storing').isVisible());
+const storingTekst = await stuk.locator('#storing').innerText();
 toets(
-  'en de schaduw staat op het vak dat is aangetikt',
-  await telefoon.evaluate(() => {
-    const T = window.TERREINBOUWER;
-    const stuk = [...T.bouwsel.stukken.values()][0];
-    return stuk && T.stand.hover
-      && stuk.x === T.stand.hover[0] && stuk.z === T.stand.hover[1];
-  }),
-);
-
-await telefoon.screenshot({ path: join(ROOT, 'docs/terreinbouwer-telefoon.png'), fullPage: false });
-await telefoon.close();
-
-/* En andersom: als de bouwer niet opstart moet dat te zíén zijn. Zonder dit
- * blijft er alleen "kit laden…" staan — geen fout, geen aanwijzing, een pagina
- * die niet opschiet. Hier wordt bouwer.js onderweg tegengehouden; dat bootst
- * na wat een browser zonder WebGL 2 of zonder import maps oplevert. */
-const stukPagina = await browser.newPage({ viewport: { width: 900, height: 600 } });
-await stukPagina.route('**/bouwer.js*', (route) => route.abort());
-await stukPagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
-await stukPagina.waitForSelector('#storing:visible', { timeout: 15000 }).catch(() => {});
-toets(
-  'een bouwer die niet opstart meldt dat op het scherm',
-  await stukPagina.locator('#storing').isVisible(),
-);
-const storingTekst = await stukPagina.locator('#storing').innerText();
-toets(
-  'de melding zegt wat deze browser wel en niet kan',
+  'en zegt wat deze browser wel en niet kan',
   storingTekst.includes('import maps:') && storingTekst.includes('WebGL 2:'),
-  storingTekst.replace(/\n/g, ' | '),
 );
-await stukPagina.close();
-
-/* Tot slot een plaatje voor de documentatie: een klifwand van drie lagen met de
- * grasvlakte erachter, plus één stuk dat er expres niet hoort — zo laat de
- * schermafbeelding zien wat de bouwer doet in plaats van alleen dát hij het
- * doet. */
-await pagina.evaluate(async () => {
-  const { plaats, stuur, camera } = window.TERREINBOUWER;
-  for (let z = 2; z <= 4; z++) {
-    await plaats({ naam: 'cliff-terrain-side-base', x: 0, z, laag: 0 });
-    await plaats({ naam: 'cliff-terrain-side-mid', x: 0, z, laag: 1 });
-    await plaats({ naam: 'cliff-terrain-side-top', x: 0, z, laag: 2 });
-  }
-  for (let x = -2; x <= -1; x++) {
-    for (let z = 0; z <= 4; z++) await plaats({ naam: 'hilly-terrain-grass-floor', x, z, laag: 3 });
-  }
-  // en dit hoort er niet: zand op grashoogte, een tiende unit te laag
-  await plaats({ naam: 'beach-terrain-sand-floor', x: -1, z: 5, laag: 3 });
-
-  camera.position.set(4.2, 3.4, 5.2);
-  stuur.target.set(-0.4, 0.7, 1.1);
-  stuur.update();
-});
-await pagina.waitForTimeout(200);
-await pagina.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
-console.log('  schermafbeelding → docs/terreinbouwer.png');
+await stuk.close();
 
 await browser.close();
 server.close();

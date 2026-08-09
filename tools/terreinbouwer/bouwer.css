@@ -1,6 +1,21 @@
-/* Terreinbouwer — drie kolommen: palet, doek, controle.
- * Kleuren in de geest van de catalogus (kits/catalog.css): zandpapier, inkt,
- * en één signaalkleur per soort melding. */
+/**
+ * Terreinbouwer — voor een telefoon, en voor niets anders.
+ *
+ * Eén kolom, één scherm, geen rollende pagina: kop bovenaan, raster in het
+ * midden, knoppen onderaan waar de duim al is. Er is geen indeling voor brede
+ * schermen en er komt er ook geen; op een breed scherm staat dezelfde kolom in
+ * het midden.
+ *
+ * Wat de vorige versie fout deed en hier niet meer kan:
+ *   - hoogtes die uit `flex: 1` moesten komen. In een kolom die zich naar zijn
+ *     inhoud voegt is dat `flex-basis: 0` en klapt het vak dicht. Alles wat
+ *     hoogte moet hebben, krijgt hier hoogte.
+ *   - een balk die breder werd dan zijn kolom, waarna de browser het raster
+ *     opzij rolde om een knop met de focus in beeld te brengen.
+ *   - muisdingen: zweven, rechtermuisknop, shift.
+ *
+ * Kleuren in de geest van de catalogus (kits/catalog.css).
+ */
 
 :root {
   --papier: #e8e4da;
@@ -12,6 +27,9 @@
   --waarschuwing: #c07a1e;
   --goed: #3d7a3d;
   --aandacht: #2b6cb0;
+
+  /* Niets waar een duim op moet kunnen landen is kleiner dan dit. */
+  --raakmaat: 44px;
 }
 
 * { box-sizing: border-box; }
@@ -20,235 +38,159 @@ html,
 body {
   height: 100%;
   margin: 0;
+  overscroll-behavior: none;
 }
 
 body {
-  display: grid;
+  display: flex;
+  height: 100dvh; /* meebewegen met de adresbalk van de telefoon */
   overflow: hidden;
-  font: 14px/1.45 system-ui, sans-serif;
+  font: 15px/1.4 system-ui, sans-serif;
   color: var(--inkt);
   background: var(--papier);
-  grid-template-columns: 260px 1fr 320px;
-}
-
-/* -- lades ---------------------------------------------------------------- */
-
-.lade {
-  display: flex;
-  overflow: hidden;
   flex-direction: column;
-  background: var(--paneel);
+  -webkit-text-size-adjust: 100%;
 }
 
-.lade-links { border-right: 1px solid var(--rand); }
-.lade-rechts { border-left: 1px solid var(--rand); }
-
-.lade-kop {
-  padding: 12px 14px 8px;
-  border-bottom: 1px solid var(--rand);
-}
-
-.lade-kop h1,
-.lade-kop h2 {
-  margin: 0;
-  font-size: 15px;
-}
-
-.tel {
-  margin: 2px 0 0;
-  color: var(--grijs);
-  font-size: 12px;
-}
-
-.zoek { padding: 10px 14px 6px; }
-
-.zoek input {
-  width: 100%;
-  padding: 6px 8px;
-  border: 1px solid var(--rand);
-  border-radius: 4px;
+button {
   font: inherit;
-  background: #fff;
+  touch-action: manipulation; /* geen wachttijd op dubbeltik */
 }
 
-.filters {
+/* -- kop ------------------------------------------------------------------- */
+
+.kop {
   display: flex;
-  padding: 0 14px 8px;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.filters button {
-  padding: 3px 8px;
-  border: 1px solid var(--rand);
-  border-radius: 999px;
-  color: var(--grijs);
-  font: inherit;
-  font-size: 12px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.filters button[aria-pressed="true"] {
-  border-color: var(--inkt);
-  color: var(--paneel);
-  background: var(--inkt);
-}
-
-/* -- lijsten -------------------------------------------------------------- */
-
-/**
- * De lijst met stukken. `min-height` is geen opsmuk maar een bodem.
- *
- * `flex: 1` is `flex-basis: 0`, en in een kolom die zich naar zijn inhoud voegt
- * telt zo'n vak voor niets mee: de lade wordt dan zo hoog als kop, zoekveld en
- * filters samen en de stukken klappen weg tot een streepje. Dat is precies wat
- * er op een telefoon gebeurde — het palet stond er en er viel niets te kiezen.
- *
- * De indeling voor smalle schermen geeft de lijst inmiddels een eigen hoogte,
- * maar dat is een oplossing per indeling en die dekt alleen de gevallen die ik
- * heb kunnen naspelen. Een ondergrens telt wél mee voor de hoogte van de lade,
- * in élke indeling. Een lijst waar niets in past is nooit goed, dus staat het
- * hier en niet in een mediaquery.
- */
-.lijst {
-  min-height: 200px;
-  overflow-y: auto;
-  flex: 1;
-  padding: 0 8px 12px;
-}
-
-.lijst-kort {
-  max-height: 220px;
+  padding: 6px 8px;
+  padding-top: max(6px, env(safe-area-inset-top));
+  border-bottom: 1px solid var(--rand);
+  background: var(--paneel);
+  gap: 6px;
+  align-items: center;
   flex: none;
 }
 
-.stuk {
+.kop-groep {
   display: flex;
-  width: 100%;
-  padding: 5px 7px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font: inherit;
-  font-size: 12px;
-  text-align: left;
-  background: none;
-  cursor: pointer;
-  gap: 6px;
-  align-items: baseline;
+  gap: 4px;
+  align-items: center;
+  flex: none;
 }
 
-.stuk:hover { background: #e6e1d5; }
-
-.stuk[aria-selected="true"] {
-  border-color: var(--aandacht);
-  background: #dbe7f3;
+.kop-waarde {
+  display: flex;
+  min-width: 34px;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
 }
 
-.stuk-naam {
-  overflow: hidden;
-  flex: 1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.stuk-maat {
+.kop-waarde small {
   color: var(--grijs);
-  font-size: 11px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.kop-waarde output {
+  font-size: 15px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
-/* -- verkenner ------------------------------------------------------------ */
-
-.verkenner {
-  padding: 10px 14px 6px;
-  border-top: 1px solid var(--rand);
+.knop {
+  display: flex;
+  min-width: var(--raakmaat);
+  height: var(--raakmaat);
+  padding: 0 8px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  color: var(--inkt);
+  font-size: 16px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  flex: none;
 }
 
-.verkenner h2 {
-  margin: 0 0 2px;
-  font-size: 13px;
+.knop:disabled {
+  color: #b6b0a4;
+  background: #efece4;
 }
 
-.verkenner-uitleg {
-  margin: 0 0 6px;
-  color: var(--grijs);
+.knop:active:not(:disabled) { background: #e3ded1; }
+
+.knop-breed {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* De enige die mag krimpen als het krap wordt — de rest moet raakbaar blijven. */
+.knop-stand {
+  overflow: hidden;
+  min-width: 0;
   font-size: 12px;
+  white-space: nowrap;
+  flex: 1;
 }
 
-/* -- doek ----------------------------------------------------------------- */
+.knop-stand[data-ernst="fout"] {
+  border-color: var(--fout);
+  color: var(--fout);
+  font-weight: 600;
+}
+
+.knop-stand[data-ernst="waarschuwing"] {
+  border-color: var(--waarschuwing);
+  color: var(--waarschuwing);
+}
+
+.knop-stand[data-ernst="goed"] { color: var(--goed); }
+
+/* -- raster ---------------------------------------------------------------- */
 
 .doek {
   position: relative;
   overflow: hidden;
+  min-height: 0; /* zonder dit weigert een flexvak ooit te krimpen */
+  flex: 1;
 }
 
 .doek canvas {
   display: block;
   width: 100%;
   height: 100%;
+  touch-action: none; /* vegen draait de camera, niet de pagina */
 }
 
-/* De regel over het raster die zegt wat er nu te doen valt. */
 .wenk {
   position: absolute;
-  top: 74px;
+  bottom: 10px;
   left: 50%;
+  max-width: calc(100% - 24px);
   margin: 0;
-  padding: 7px 14px;
-  border: 1px solid var(--rand);
+  padding: 8px 14px;
   border-radius: 999px;
-  color: var(--grijs);
+  color: var(--paneel);
   font-size: 13px;
-  background: rgb(244 241 234 / 94%);
+  text-align: center;
+  background: rgb(43 39 33 / 82%);
   transform: translateX(-50%);
   pointer-events: none;
 }
 
-.wenk[data-let="ja"] {
-  border-color: var(--aandacht);
-  color: var(--aandacht);
-  font-weight: 600;
-}
+.wenk[hidden] { display: none; }
 
-/* Wat een tik op het raster doet. Bestaat omdat shift en de rechtermuisknop
-   niet op elk apparaat bestaan. */
-.modus {
-  display: flex;
-  overflow: hidden;
-  border: 1px solid var(--rand);
-  border-radius: 5px;
-}
-
-.modus button {
-  padding: 3px 9px;
-  border: 0;
-  border-right: 1px solid var(--rand);
-  font: inherit;
-  font-size: 12px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.modus button:last-child { border-right: 0; }
-
-.modus button[aria-pressed="true"] {
-  color: var(--paneel);
-  background: var(--inkt);
-}
-
-/* Vangnet: alleen zichtbaar als de bouwer niet opstart (zie index.html). */
 .storing {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 460px;
-  padding: 16px 20px;
+  top: 12px;
+  right: 12px;
+  left: 12px;
+  padding: 14px 16px;
   border: 1px solid var(--fout);
   border-left-width: 4px;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #fff;
-  transform: translate(-50%, -50%);
 }
 
 .storing h2 {
@@ -270,122 +212,249 @@ body {
   font-family: ui-monospace, monospace;
 }
 
-.balk {
-  position: absolute;
-  left: 12px;
+/* -- voet ------------------------------------------------------------------ */
+
+.voet {
   display: flex;
-  padding: 6px 8px;
-  border: 1px solid var(--rand);
-  border-radius: 6px;
-  background: rgb(244 241 234 / 92%);
-  gap: 8px 14px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* `right` erbij, en afbreken als het niet past.
- *
- * Zonder die twee wordt de balk breder dan de kolom en schuift het doek opzij
- * zodra een knop de aandacht krijgt: de browser rolt een element met de focus
- * in beeld, en `overflow: hidden` houdt dat niet tegen — het verbergt alleen de
- * rolbalk. Het doek verspringt dan tientallen beeldpunten en elke tik erna wijst
- * een ander vak aan dan waar je hem zette. Op een smal scherm gebeurt dat bij de
- * eerste de beste knop. */
-.balk-boven {
-  top: 12px;
-  right: 12px;
-}
-
-.balk-onder {
-  right: 12px;
-  bottom: 12px;
+  padding: 8px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--rand);
+  background: var(--paneel);
   gap: 8px;
+  flex: none;
 }
 
-.veld {
+.stuk-kiezer {
   display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.veld-kop {
-  color: var(--grijs);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.veld output {
-  min-width: 26px;
-  font-variant-numeric: tabular-nums;
-  text-align: center;
-}
-
-.veld-penseel output {
-  min-width: 0;
-  max-width: 260px;
   overflow: hidden;
-  font-size: 12px;
+  min-width: 0;
+  height: 52px;
+  padding: 4px 10px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  background: #fff;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.stuk-kiezer small {
+  color: var(--grijs);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stuk-kiezer span {
+  overflow: hidden;
+  font-size: 13px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.veld-schakels {
-  color: var(--grijs);
-  font-size: 12px;
-  gap: 10px;
+.doe {
+  height: 52px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  flex: none;
 }
 
-.veld-schakels label {
+.doe-zet { background: var(--goed); }
+.doe-weg { background: var(--fout); }
+
+.doe:disabled {
+  color: #b6b0a4;
+  background: #efece4;
+  border-color: var(--rand);
+}
+
+.doe:active:not(:disabled) { filter: brightness(0.88); }
+
+/* -- blad ------------------------------------------------------------------ */
+
+.waas {
+  position: fixed;
+  inset: 0;
+  background: rgb(43 39 33 / 35%);
+}
+
+.blad {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
-  gap: 4px;
+  max-height: 76dvh;
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+  border-radius: 14px 14px 0 0;
+  background: var(--paneel);
+  box-shadow: 0 -8px 24px rgb(43 39 33 / 22%);
+  flex-direction: column;
+}
+
+.blad[hidden],
+.waas[hidden] { display: none; }
+
+.blad-kop {
+  display: flex;
+  padding: 10px 10px 6px 16px;
+  gap: 8px;
+  align-items: center;
+  flex: none;
+}
+
+.blad-kop h2 {
+  margin: 0;
+  font-size: 16px;
+  flex: 1;
+}
+
+.blad-tabs {
+  display: flex;
+  padding: 0 12px 8px;
+  gap: 6px;
+  flex: none;
+}
+
+.blad-tabs:empty { display: none; }
+
+.blad-tabs button {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  font-size: 13px;
+  background: #fff;
+  flex: 1;
+}
+
+.blad-tabs button[aria-pressed="true"] {
+  border-color: var(--inkt);
+  color: var(--paneel);
+  background: var(--inkt);
+}
+
+.blad-zoek { padding: 0 12px 8px; flex: none; }
+.blad-zoek[hidden] { display: none; }
+
+.blad-zoek input {
+  width: 100%;
+  height: var(--raakmaat);
+  padding: 0 12px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 16px; /* onder de 16px zoomt iOS bij het tikken in */
+  background: #fff;
+}
+
+.blad-filters {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 12px 8px;
+  gap: 6px;
+  flex: none;
+  scrollbar-width: none;
+}
+
+.blad-filters:empty { display: none; }
+.blad-filters::-webkit-scrollbar { display: none; }
+
+.blad-filters button {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  color: var(--grijs);
+  font-size: 13px;
+  white-space: nowrap;
+  background: #fff;
+  flex: none;
+}
+
+.blad-filters button[aria-pressed="true"] {
+  border-color: var(--inkt);
+  color: var(--paneel);
+  background: var(--inkt);
+}
+
+/**
+ * De inhoud van het blad rolt, en heeft daarvoor een echte hoogte nodig.
+ *
+ * `min-height` en niet alleen `flex: 1`: dat laatste is `flex-basis: 0`, en
+ * precies daaraan is de vorige versie kapotgegaan — de lijst met stukken telde
+ * niet mee voor de hoogte van zijn ouder en klapte dicht tot een streepje. Met
+ * een ondergrens kan dat niet meer gebeuren, in welke indeling dan ook.
+ */
+.blad-inhoud {
+  min-height: 180px;
+  overflow-y: auto;
+  padding: 0 8px 12px;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* -- rijen in het blad ----------------------------------------------------- */
+
+.rij {
+  display: flex;
+  width: 100%;
+  min-height: var(--raakmaat);
+  padding: 8px 10px;
+  border: 0;
+  border-bottom: 1px solid var(--rand);
+  color: var(--inkt);
+  text-align: left;
+  background: none;
+  gap: 8px;
   align-items: center;
 }
 
-.balk button {
-  padding: 3px 9px;
-  border: 1px solid var(--rand);
-  border-radius: 4px;
-  font: inherit;
-  background: #fff;
-  cursor: pointer;
+.rij:active { background: #e6e1d5; }
+
+.rij[aria-selected="true"] {
+  border-radius: 6px;
+  background: #dbe7f3;
+  box-shadow: inset 3px 0 0 var(--aandacht);
 }
 
-.balk button:hover { background: #ece7db; }
+.rij-naam {
+  overflow: hidden;
+  flex: 1;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-.hulp {
+.rij-bij {
   color: var(--grijs);
   font-size: 11px;
-}
-
-/* -- meldingen ------------------------------------------------------------ */
-
-.meldingen {
-  overflow-y: auto;
-  flex: 1;
-  padding: 8px;
+  font-variant-numeric: tabular-nums;
+  flex: none;
 }
 
 .melding {
   display: block;
   width: 100%;
-  margin-bottom: 4px;
-  padding: 6px 8px 6px 10px;
+  padding: 8px 10px;
   border: 0;
   border-left: 3px solid var(--grijs);
-  border-radius: 3px;
+  border-bottom: 1px solid var(--rand);
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;
   text-align: left;
-  background: #fff;
-  cursor: pointer;
+  background: none;
 }
 
-.melding:hover { background: #f0ece1; }
 .melding[data-ernst="fout"] { border-left-color: var(--fout); }
 .melding[data-ernst="waarschuwing"] { border-left-color: var(--waarschuwing); }
 
-.melding-soort {
+.melding small {
   display: block;
   color: var(--grijs);
   font-size: 10px;
@@ -393,128 +462,41 @@ body {
   letter-spacing: 0.05em;
 }
 
-.geen-meldingen {
-  padding: 10px;
-  color: var(--goed);
-  font-size: 12px;
+.leeg {
+  padding: 16px 12px;
+  color: var(--grijs);
+  font-size: 13px;
 }
 
 .uitleg {
-  padding: 10px 14px 14px;
-  border-top: 1px solid var(--rand);
+  padding: 12px;
   color: var(--grijs);
-  font-size: 11px;
-}
-
-.uitleg h3 {
-  margin: 0 0 6px;
-  color: var(--inkt);
   font-size: 12px;
 }
 
-.uitleg dl {
-  display: grid;
-  margin: 0;
-  gap: 2px 8px;
-  grid-template-columns: auto 1fr;
-}
+.uitleg p { margin: 0 0 8px; }
+.uitleg b { color: var(--inkt); }
 
-.uitleg dt {
-  color: var(--inkt);
-  font-weight: 600;
-}
-
-.uitleg dd { margin: 0; }
-
-/* -- smal scherm -----------------------------------------------------------
- * Drie kolommen naast elkaar passen niet op een telefoon. Daaronder gaat het
- * raster bovenaan en schuiven het palet en de controle eronder, met de pagina
- * zelf als rolbaar geheel.
+/* -- breed scherm ----------------------------------------------------------
+ * Geen tweede indeling, alleen dezelfde kolom in het midden. De bouwer is voor
+ * een telefoon gemaakt; op een groot scherm hoort hij er niet anders uit te
+ * zien, alleen niet belachelijk uitgerekt.
  */
 
-@media (max-width: 900px) {
-  html,
+@media (min-width: 620px) {
   body {
-    height: auto;
-    min-height: 100%;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    border-right: 1px solid var(--rand);
+    border-left: 1px solid var(--rand);
   }
 
-  body {
-    overflow: visible;
-    grid-template-columns: 1fr;
-  }
-
-  /* De balk boven het doek in plaats van eroverheen. Zwevend dekte hij op een
-   * telefoon het bovenste derde deel van het raster af — precies het stuk waar
-   * je op wilt bouwen. */
-  .doek {
-    display: flex;
-    height: 62vh;
-    flex-direction: column;
-    order: -1;
-  }
-
-  .doek canvas {
-    height: auto;
-    flex: 1;
-    min-height: 0;
-  }
-
-  .balk-boven {
-    position: static;
-    order: -1;
-    border-width: 0 0 1px;
-    border-radius: 0;
-  }
-
-  /* Geen hoogtegrens op de lades, en de lijsten een eigen hoogte in plaats van
-   * `flex: 1`.
-   *
-   * Dat laatste is de kern. `flex: 1` is `flex-basis: 0`, en in een kolom die
-   * zich naar zijn inhoud voegt telt zo'n vak dan voor niets mee: de lade wordt
-   * zo hoog als kop, zoekveld en filters samen, en de lijst met stukken klapt
-   * dicht tot een streepje. Op een breed scherm viel dat niet op, want daar
-   * krijgt de lade zijn hoogte van de kolom. Op een telefoon stond het palet er
-   * wel, en waren de stukken er niet — en dus viel er niets te kiezen.
-   */
-  .lade {
-    max-height: none;
-    border: 0;
-    border-top: 1px solid var(--rand);
-  }
-
-  .lijst {
-    height: 45vh;
-    max-height: none;
-    flex: none;
-  }
-
-  .lijst-kort {
-    height: auto;
-    max-height: 30vh;
-  }
-
-  .meldingen {
-    min-height: 15vh;
-    flex: none;
-  }
-
-  .balk {
-    flex-wrap: wrap;
-    gap: 8px 12px;
-  }
-
-  .balk-onder {
-    position: static;
-    margin: 8px 12px 12px;
-  }
-
-  .hulp { display: none; }
-
-  .wenk {
-    top: auto;
-    bottom: 12px;
-    width: max-content;
-    max-width: calc(100% - 24px);
+  .blad {
+    right: auto;
+    left: 50%;
+    width: 100%;
+    max-width: 520px;
+    transform: translateX(-50%);
   }
 }

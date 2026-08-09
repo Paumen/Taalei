@@ -165,8 +165,18 @@ export class Bouwsel {
    * bouwen wil je iets fout kunnen neerzetten en het daarna zien oplichten,
    * niet tegengehouden worden door een dialoogvenster.
    */
-  zet({ naam, x, z, laag, slagen = 0 }) {
-    const id = `s${++this._teller}`;
+  /**
+   * @param {object} gegevens  naam, x, z, laag, slagen — en eventueel een `id`.
+   *
+   * Dat laatste is er voor het terugdraaien. Wie een stuk weghaalt en het
+   * daarna terugzet, wil hetzelfde stuk terug en niet een nieuw exemplaar met
+   * een nieuw nummer: de geschiedenis verwijst naar nummers, en een stap die
+   * naar een verdwenen nummer wijst doet stilletjes niets. Precies dat ging er
+   * mis — twee keer ongedaan maken haalde het tweede stuk niet weg omdat het
+   * ondertussen een ander nummer had gekregen.
+   */
+  zet({ naam, x, z, laag, slagen = 0, id = null }) {
+    if (id === null) id = `s${++this._teller}`;
     const stuk = { id, naam, x, z, laag, slagen: ((slagen % 4) + 4) % 4 };
     this.stukken.set(id, stuk);
     for (const vak of this.kit.vakkenVan(naam, x, z, stuk.slagen)) {
