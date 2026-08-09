@@ -3,24 +3,25 @@
  *
  * Draaien vanuit de repo-root:
  *
- *     NODE_PATH=$(npm root -g) node tools/terreinbouwer/serve.mjs
+ *     node tools/terreinbouwer/serve.mjs
  *
  * Daarna http://127.0.0.1:8932/tools/terreinbouwer/ openen.
  *
  * Waarom een server en geen dubbelklik op index.html: de bouwer laadt de kit
  * met fetch() en de modellen met GLTFLoader, en een browser weigert dat vanaf
- * file://. Dezelfde opzet als tools/vergelijk-groottes/render.mjs, met three
- * uit de globale npm-installatie onder /three/.
+ * file://.
+ *
+ * Verder doet deze server niets bijzonders — hij zet de repo neer zoals GitHub
+ * Pages hem ook neerzet. Three staat in vendor/ en wordt met een relatief pad
+ * geladen, dus wat hier werkt werkt daar ook, en andersom.
  */
 
-import { execSync } from 'node:child_process';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const THREE = path.join(execSync('npm root -g').toString().trim(), 'three');
 const POORT = Number(process.env.POORT ?? 8932);
 
 const MIME = {
@@ -37,12 +38,10 @@ export function maakServer() {
     let pad = decodeURIComponent(req.url.split('?')[0]);
     if (pad.endsWith('/')) pad += 'index.html';
 
-    const drie = pad.startsWith('/three/');
-    const basis = drie ? THREE : ROOT;
-    const bestand = path.normalize(path.join(basis, drie ? pad.slice(7) : pad));
+    const bestand = path.normalize(path.join(ROOT, pad));
 
-    /* Alleen bestanden binnen de repo of het three-pakket serveren. */
-    if (!bestand.startsWith(basis + path.sep)) { res.writeHead(403); res.end(); return; }
+    /* Alleen bestanden binnen de repo serveren. */
+    if (!bestand.startsWith(ROOT + path.sep)) { res.writeHead(403); res.end(); return; }
 
     try {
       if (!existsSync(bestand) || !statSync(bestand).isFile()) { res.writeHead(404); res.end(); return; }

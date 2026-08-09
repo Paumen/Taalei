@@ -16,11 +16,13 @@ import {
   Kit, Bouwsel, controleer, watPast, draaiVak, ZIJDEN, STAP, TEGENOVER,
 } from './aansluiting.js';
 
-const KITMAP = '/kits/modulair-terrein';
+/* Relatief aan deze module, niet aan de wortel van de server: de gepubliceerde
+ * site staat onder /Taalei/ en een absoluut pad zou daar naast de repo grijpen. */
+const KITMAP = new URL('../../kits/modulair-terrein/', import.meta.url).href;
 
 /* -- kit inladen ----------------------------------------------------------- */
 
-const kit = new Kit(await (await fetch(`${KITMAP}/aansluitingen.json`)).json());
+const kit = new Kit(await (await fetch(`${KITMAP}aansluitingen.json`)).json());
 const VAK = kit.vak;
 const LAAG = kit.laagHoogte;
 const bouwsel = new Bouwsel(kit);
@@ -89,7 +91,7 @@ const wachtend = new Map();
 function haalModel(naam) {
   if (!wachtend.has(naam)) {
     wachtend.set(naam, new Promise((klaar, mis) => {
-      lader.load(`${KITMAP}/${naam}.glb`, (gltf) => klaar(gltf.scene), undefined, mis);
+      lader.load(`${KITMAP}${naam}.glb`, (gltf) => klaar(gltf.scene), undefined, mis);
     }));
   }
   return wachtend.get(naam);
@@ -337,7 +339,7 @@ function vulPalet() {
 
   for (const model of kit.data.modellen) {
     if (familieFilter && model.familie !== familieFilter) continue;
-    if (zoek && !model.naam.includes(zoek)) continue;
+    if (zoek && !model.naam.toLowerCase().includes(zoek)) continue;
 
     const knop = maakStukKnop(model, `${model.vakken[0]}×${model.vakken[1]}`, () => {
       stand.penseel = model.naam;

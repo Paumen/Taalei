@@ -6,8 +6,10 @@
 <title>Terreinbouwer — modulair terrein</title>
 <link rel="stylesheet" href="bouwer.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧱</text></svg>">
+<!-- Relatieve paden, geen absolute: zo werkt de bouwer zowel op de lokale
+     server als op de gepubliceerde site, die onder /Taalei/ staat. -->
 <script type="importmap">
-{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+{"imports":{"three":"../../vendor/three/three.module.min.js","three/addons/":"../../vendor/three/addons/"}}
 </script>
 </head>
 <body>
