@@ -97,7 +97,22 @@ body {
 
 /* -- lijsten -------------------------------------------------------------- */
 
+/**
+ * De lijst met stukken. `min-height` is geen opsmuk maar een bodem.
+ *
+ * `flex: 1` is `flex-basis: 0`, en in een kolom die zich naar zijn inhoud voegt
+ * telt zo'n vak voor niets mee: de lade wordt dan zo hoog als kop, zoekveld en
+ * filters samen en de stukken klappen weg tot een streepje. Dat is precies wat
+ * er op een telefoon gebeurde — het palet stond er en er viel niets te kiezen.
+ *
+ * De indeling voor smalle schermen geeft de lijst inmiddels een eigen hoogte,
+ * maar dat is een oplossing per indeling en die dekt alleen de gevallen die ik
+ * heb kunnen naspelen. Een ondergrens telt wél mee voor de hoogte van de lade,
+ * in élke indeling. Een lijst waar niets in past is nooit goed, dus staat het
+ * hier en niet in een mediaquery.
+ */
 .lijst {
+  min-height: 200px;
   overflow-y: auto;
   flex: 1;
   padding: 0 8px 12px;

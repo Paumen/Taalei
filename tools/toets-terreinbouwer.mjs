@@ -415,6 +415,30 @@ toets(
   paletHoogte > 200, `${paletHoogte}px hoog`,
 );
 
+/* Niet één maat maar een reeks. De fout hierboven zat in één indeling en was in
+ * de andere niet te zien; wie alleen toetst op de maten die hij zelf heeft
+ * bedacht, toetst zijn eigen aannames. Dit loopt de scherpe randen van de
+ * mediaquery langs — er net onder, er net boven — plus wat smallere en bredere
+ * maten, en eist overal een lijst waar iets in past. */
+for (const [breedte, hoogte] of [[360, 740], [412, 915], [768, 1024], [899, 900], [901, 900], [1280, 800]]) {
+  const blad = await versBlad({ viewport: { width: breedte, height: hoogte } });
+  const gemeten = await blad.evaluate(() =>
+    Math.round(document.getElementById('palet').getBoundingClientRect().height));
+  const kiesbaar = await blad.evaluate(() => {
+    const eerste = document.querySelector('#palet .stuk');
+    if (!eerste) return false;
+    const kader = eerste.getBoundingClientRect();
+    // Staat er echt een rij in beeld, en niet een afgeknepen streepje?
+    return kader.height > 10 && kader.width > 40;
+  });
+  toets(
+    `op ${breedte}×${hoogte} valt er te kiezen`,
+    gemeten >= 200 && kiesbaar,
+    `lijst ${gemeten}px, eerste rij ${kiesbaar ? 'zichtbaar' : 'NIET bruikbaar'}`,
+  );
+  await blad.close();
+}
+
 const eersteStuk = telefoon.getByRole('option').first();
 toets('en de stukken staan er echt in', await eersteStuk.count() > 0);
 await eersteStuk.scrollIntoViewIfNeeded();
