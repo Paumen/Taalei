@@ -38,6 +38,12 @@
 <main class="doek">
   <canvas id="doek"></canvas>
 
+  <div class="storing" id="storing" hidden>
+    <h2 id="storing-kop">De bouwer start niet</h2>
+    <p id="storing-tekst"></p>
+    <ul id="storing-lijst"></ul>
+  </div>
+
   <div class="balk balk-boven">
     <div class="veld">
       <span class="veld-kop">Laag</span>
@@ -89,6 +95,82 @@
       is geen goedkeuring.</p>
   </div>
 </aside>
+
+<!--
+  Vangnet. bouwer.js is een module met top-level await: struikelt hij, dan
+  gebeurt er niets en blijft er "kit laden…" staan — geen foutmelding, geen
+  aanwijzing, alleen een pagina die niet opschiet. Dat is precies wat er niet
+  moet gebeuren, want de twee waarschijnlijke oorzaken zijn allebei
+  onzichtbaar: een browser zonder WebGL 2 (three.js kan dan niet tekenen) en
+  een browser zonder import maps (dan is `three` geen op te lossen adres).
+
+  Dit is met opzet een gewoon script en geen module: het moet blijven draaien
+  juist wanneer modules het laten afweten.
+-->
+<script>
+(function () {
+  function omgeving() {
+    var regels = [];
+    var kanImportmap = !!(window.HTMLScriptElement && HTMLScriptElement.supports
+      && HTMLScriptElement.supports('importmap'));
+    regels.push('import maps: ' + (kanImportmap
+      ? 'ja'
+      : 'NEE — deze browser kan de bouwer niet laden'));
+
+    var kanWebgl = false;
+    try {
+      kanWebgl = !!document.createElement('canvas').getContext('webgl2');
+    } catch (fout) {
+      kanWebgl = false;
+    }
+    regels.push('WebGL 2: ' + (kanWebgl
+      ? 'ja'
+      : 'NEE — de bouwer tekent met three.js en heeft WebGL 2 nodig'));
+
+    regels.push('adres: ' + location.href);
+    return regels;
+  }
+
+  function toon(tekst) {
+    if (window.KLAAR) return;
+    var bak = document.getElementById('storing');
+    if (!bak || !bak.hidden) return; // de eerste fout is de nuttigste
+    bak.hidden = false;
+    document.getElementById('storing-tekst').textContent = tekst;
+    var lijst = document.getElementById('storing-lijst');
+    omgeving().forEach(function (regel) {
+      var item = document.createElement('li');
+      item.textContent = regel;
+      lijst.appendChild(item);
+    });
+  }
+
+  /* Met capture, want een script dat niet binnenkomt gooit zijn foutmelding op
+   * het element zelf en die borrelt niet omhoog naar window. Zonder capture
+   * zou juist de meest voorkomende mislukking — het bestand komt niet aan —
+   * hier ongezien blijven. */
+  addEventListener('error', function (gebeurtenis) {
+    var doel = gebeurtenis.target;
+    if (doel && doel !== window && doel.src) {
+      toon('Dit bestand kwam niet binnen: ' + doel.src);
+      return;
+    }
+    toon(String(gebeurtenis.message || (gebeurtenis.error && gebeurtenis.error.message) || gebeurtenis.type));
+  }, true);
+  addEventListener('unhandledrejection', function (gebeurtenis) {
+    var reden = gebeurtenis.reason;
+    toon(String((reden && reden.message) || reden));
+  });
+
+  /* Niet elke mislukking gooit iets wat hier langskomt — een import die blijft
+   * hangen bijvoorbeeld. Daarom ook gewoon de klok. */
+  setTimeout(function () {
+    toon('De bouwer is na tien seconden nog niet klaar. Ververs de pagina hard '
+      + '(Ctrl+Shift+R, op een Mac Cmd+Shift+R); blijft het hangen, dan staat '
+      + 'hieronder wat deze browser wel en niet kan.');
+  }, 10000);
+})();
+</script>
 
 <script src="bouwer.js" type="module"></script>
 </body>

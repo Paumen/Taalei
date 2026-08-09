@@ -277,6 +277,28 @@ const getekend = await pagina.evaluate(() => {
 });
 toets('er worden driehoeken getekend', getekend > 0, `${getekend} driehoeken`);
 
+toets('het vangnet blijft weg als alles goed gaat', await pagina.locator('#storing').isHidden());
+
+/* En andersom: als de bouwer niet opstart moet dat te zíén zijn. Zonder dit
+ * blijft er alleen "kit laden…" staan — geen fout, geen aanwijzing, een pagina
+ * die niet opschiet. Hier wordt bouwer.js onderweg tegengehouden; dat bootst
+ * na wat een browser zonder WebGL 2 of zonder import maps oplevert. */
+const stukPagina = await browser.newPage({ viewport: { width: 900, height: 600 } });
+await stukPagina.route('**/bouwer.js', (route) => route.abort());
+await stukPagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
+await stukPagina.waitForSelector('#storing:visible', { timeout: 15000 }).catch(() => {});
+toets(
+  'een bouwer die niet opstart meldt dat op het scherm',
+  await stukPagina.locator('#storing').isVisible(),
+);
+const storingTekst = await stukPagina.locator('#storing').innerText();
+toets(
+  'de melding zegt wat deze browser wel en niet kan',
+  storingTekst.includes('import maps:') && storingTekst.includes('WebGL 2:'),
+  storingTekst.replace(/\n/g, ' | '),
+);
+await stukPagina.close();
+
 /* Tot slot een plaatje voor de documentatie: een klifwand van drie lagen met de
  * grasvlakte erachter, plus één stuk dat er expres niet hoort — zo laat de
  * schermafbeelding zien wat de bouwer doet in plaats van alleen dát hij het
