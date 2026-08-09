@@ -279,6 +279,106 @@ toets('er worden driehoeken getekend', getekend > 0, `${getekend} driehoeken`);
 
 toets('het vangnet blijft weg als alles goed gaat', await pagina.locator('#storing').isHidden());
 
+/* -- bediening ------------------------------------------------------------
+ * De toetsen hierboven roepen plaats() rechtstreeks aan. Dat zegt niets over de
+ * vraag of je er met een muis of een vinger bij kunt, en juist daar ging het
+ * mis: het palet vulde zich netjes en er viel niets te plaatsen, omdat er eerst
+ * een stuk gekozen moest worden en niets dat vertelde.
+ *
+ * Hieronder dus geen plaats() maar echte tikken, en één keer zonder muis.
+ */
+
+async function versBlad(opties = {}) {
+  const blad = await browser.newPage({ viewport: { width: 1200, height: 800 }, ...opties });
+  await blad.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
+  await blad.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
+  return blad;
+}
+
+const tel = (blad) => blad.evaluate(() => window.TERREINBOUWER.bouwsel.stukken.size);
+const midden = async (blad) => {
+  const kader = await blad.locator('#doek').boundingBox();
+  return [kader.x + kader.width / 2, kader.y + kader.height / 2];
+};
+
+const muisBlad = await versBlad();
+toets('zonder gekozen stuk staat er een wenk in beeld', await muisBlad.locator('#wenk').isVisible());
+
+/* Het doek mag niet verschuiven als je een knop in de balk indrukt. Doet het
+ * dat wel, dan wijst elke tik daarna een ander vak aan dan waar je hem zette —
+ * en dat is niet te zien, want de knop werkt gewoon. Zo raakte de balk ooit
+ * breder dan de kolom: de browser rolde de knop met de focus in beeld en het
+ * doek schoof 86 beeldpunten opzij. */
+const doekX = () => muisBlad.evaluate(() =>
+  Math.round(document.getElementById('doek').getBoundingClientRect().x));
+const voorKnop = await doekX();
+for (const naam of ['plaatsen', 'kiezen', 'weghalen']) {
+  await muisBlad.getByRole('button', { name: naam }).click();
+}
+await muisBlad.getByRole('button', { name: 'plaatsen' }).click();
+toets(
+  'het doek blijft staan waar het staat als je de balk bedient',
+  await doekX() === voorKnop,
+  `${voorKnop} → ${await doekX()}`,
+);
+toets(
+  'het doek is niet zijwaarts weggerold',
+  await muisBlad.evaluate(() => document.querySelector('.doek').scrollLeft) === 0,
+);
+
+const [mx, my] = await midden(muisBlad);
+await muisBlad.mouse.click(mx, my);
+toets('een tik zonder gekozen stuk plaatst niets', await tel(muisBlad) === 0);
+toets(
+  'maar zegt wel wat er ontbreekt',
+  (await muisBlad.locator('#wenk').innerText()).toLowerCase().includes('kies eerst'),
+  await muisBlad.locator('#wenk').innerText(),
+);
+
+await muisBlad.getByRole('option', { name: 'hilly-terrain-grass-floor' }).first().click();
+toets('na het kiezen verdwijnt de wenk', await muisBlad.locator('#wenk').isHidden());
+await muisBlad.mouse.click(mx, my);
+toets('een tik met gekozen stuk plaatst er één', await tel(muisBlad) === 1);
+
+/* Weghalen vóór het draaien: zodra de camera verschoven is wijst hetzelfde punt
+ * op het scherm een ander vak aan, en dan toetst dit niets meer. */
+await muisBlad.getByRole('button', { name: 'weghalen' }).click();
+await muisBlad.mouse.click(mx, my);
+toets('met de knop "weghalen" haalt een tik het stuk weg', await tel(muisBlad) === 0);
+
+await muisBlad.getByRole('button', { name: 'plaatsen' }).click();
+await muisBlad.mouse.click(mx, my);
+toets('en met "plaatsen" komt er weer een stuk', await tel(muisBlad) === 1);
+
+/* Slepen over het raster mag de camera draaien en verder niets: anders staat er
+ * een tegel na elke poging om rond te kijken. */
+await muisBlad.mouse.move(mx, my);
+await muisBlad.mouse.down();
+await muisBlad.mouse.move(mx + 140, my + 60, { steps: 12 });
+await muisBlad.mouse.up();
+toets('draaien aan de camera plaatst niets', await tel(muisBlad) === 1);
+await muisBlad.close();
+
+/* En nu zonder muis: een aanraakscherm, geen toetsenbord, geen tweede knop. */
+const tikBlad = await versBlad({
+  hasTouch: true,
+  isMobile: true,
+  viewport: { width: 820, height: 1100 },
+});
+await tikBlad.getByRole('option', { name: 'hilly-terrain-grass-floor' }).first().tap();
+const [tx, ty] = await midden(tikBlad);
+await tikBlad.touchscreen.tap(tx, ty);
+toets('op een aanraakscherm plaatst een tik een stuk', await tel(tikBlad) === 1);
+
+/* Vegen is op zo'n scherm de enige manier om rond te kijken. Zou dat ook
+ * plaatsen, dan loopt het raster vol bij de eerste poging. */
+await tikBlad.locator('#doek').dispatchEvent('pointerdown', { pointerId: 1, pointerType: 'touch', clientX: tx, clientY: ty, isPrimary: true });
+await tikBlad.locator('#doek').dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch', clientX: tx + 120, clientY: ty + 40, isPrimary: true });
+toets('vegen om rond te kijken plaatst niets', await tel(tikBlad) === 1);
+
+await tikBlad.screenshot({ path: join(ROOT, 'docs/terreinbouwer-smal.png') });
+await tikBlad.close();
+
 /* En andersom: als de bouwer niet opstart moet dat te zíén zijn. Zonder dit
  * blijft er alleen "kit laden…" staan — geen fout, geen aanwijzing, een pagina
  * die niet opschiet. Hier wordt bouwer.js onderweg tegengehouden; dat bootst

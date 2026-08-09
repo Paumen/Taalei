@@ -174,6 +174,54 @@ body {
   height: 100%;
 }
 
+/* De regel over het raster die zegt wat er nu te doen valt. */
+.wenk {
+  position: absolute;
+  top: 74px;
+  left: 50%;
+  margin: 0;
+  padding: 7px 14px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  color: var(--grijs);
+  font-size: 13px;
+  background: rgb(244 241 234 / 94%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.wenk[data-let="ja"] {
+  border-color: var(--aandacht);
+  color: var(--aandacht);
+  font-weight: 600;
+}
+
+/* Wat een tik op het raster doet. Bestaat omdat shift en de rechtermuisknop
+   niet op elk apparaat bestaan. */
+.modus {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--rand);
+  border-radius: 5px;
+}
+
+.modus button {
+  padding: 3px 9px;
+  border: 0;
+  border-right: 1px solid var(--rand);
+  font: inherit;
+  font-size: 12px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.modus button:last-child { border-right: 0; }
+
+.modus button[aria-pressed="true"] {
+  color: var(--paneel);
+  background: var(--inkt);
+}
+
 /* Vangnet: alleen zichtbaar als de bouwer niet opstart (zie index.html). */
 .storing {
   position: absolute;
@@ -215,11 +263,23 @@ body {
   border: 1px solid var(--rand);
   border-radius: 6px;
   background: rgb(244 241 234 / 92%);
-  gap: 14px;
+  gap: 8px 14px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.balk-boven { top: 12px; }
+/* `right` erbij, en afbreken als het niet past.
+ *
+ * Zonder die twee wordt de balk breder dan de kolom en schuift het doek opzij
+ * zodra een knop de aandacht krijgt: de browser rolt een element met de focus
+ * in beeld, en `overflow: hidden` houdt dat niet tegen — het verbergt alleen de
+ * rolbalk. Het doek verspringt dan tientallen beeldpunten en elke tik erna wijst
+ * een ander vak aan dan waar je hem zette. Op een smal scherm gebeurt dat bij de
+ * eerste de beste knop. */
+.balk-boven {
+  top: 12px;
+  right: 12px;
+}
 
 .balk-onder {
   right: 12px;
@@ -350,3 +410,46 @@ body {
 }
 
 .uitleg dd { margin: 0; }
+
+/* -- smal scherm -----------------------------------------------------------
+ * Drie kolommen naast elkaar passen niet op een tablet of telefoon. Daaronder
+ * gaat het raster bovenaan en schuiven het palet en de controle eronder — het
+ * raster blijft daarbij de grootste, want dat is waar gebouwd wordt.
+ */
+
+@media (width <= 900px) {
+  body {
+    overflow: auto;
+    grid-template-rows: 60vh auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .doek { order: -1; }
+
+  .lade {
+    max-height: 60vh;
+    border: 0;
+    border-top: 1px solid var(--rand);
+  }
+
+  .lijst { max-height: 40vh; }
+
+  .balk {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .balk-onder {
+    position: static;
+    margin: 8px 12px 12px;
+  }
+
+  .hulp { display: none; }
+
+  .wenk {
+    top: auto;
+    bottom: 12px;
+    width: max-content;
+    max-width: calc(100% - 24px);
+  }
+}

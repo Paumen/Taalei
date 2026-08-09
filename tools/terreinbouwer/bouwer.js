@@ -202,6 +202,9 @@ async function zetSchaduw(naam) {
   if (schaduwNaam !== naam) return; // ondertussen alweer iets anders gekozen
   schaduw = object;
   scene.add(object);
+  // Anders blijft er op een aanraakscherm een doorschijnend stuk op de
+  // oorsprong staan: daar komt geen muis langs die hem verderop zet.
+  werkSchaduwBij();
 }
 
 /* -- stand ----------------------------------------------------------------- */
@@ -214,7 +217,37 @@ const stand = {
   gekozen: null, // id van een geplaatst stuk
   verkennerZijde: 'n',
   toonNaden: true,
+  /* plaatsen, kiezen of weghalen. Bestaat omdat shift en de rechtermuisknop
+   * niet overal bestaan: op een aanraakscherm is er geen tweede knop en geen
+   * toetsenbord, en dan is een knop op het scherm het enige wat overblijft. */
+  modus: 'plaats',
 };
+
+/* -- wenk -----------------------------------------------------------------
+ * De regel over het raster die zegt wat je nu moet doen. Verdwijnt zodra er een
+ * stuk gekozen is, want dan spreekt de rest voor zich.
+ */
+
+const wenkBalk = document.getElementById('wenk');
+let wenkKlok = null;
+
+function wenkOp(tekst = null) {
+  clearTimeout(wenkKlok);
+  if (tekst) {
+    wenkBalk.textContent = tekst;
+    wenkBalk.hidden = false;
+    wenkBalk.dataset.let = 'ja';
+    wenkKlok = setTimeout(() => wenkOp(), 2600);
+    return;
+  }
+  delete wenkBalk.dataset.let;
+  if (stand.penseel) {
+    wenkBalk.hidden = true;
+    return;
+  }
+  wenkBalk.hidden = false;
+  wenkBalk.textContent = 'Kies links een stuk — en tik dan op het raster.';
+}
 
 /* -- controle tonen -------------------------------------------------------- */
 
@@ -320,6 +353,11 @@ function maakStukKnop(model, bijschrift, bijKlik) {
   knop.className = 'stuk';
   knop.setAttribute('role', 'option');
   knop.setAttribute('aria-selected', 'false');
+  knop.draggable = true;
+  knop.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', model.naam);
+    bijKlik();
+  });
 
   const naam = document.createElement('span');
   naam.className = 'stuk-naam';
@@ -345,6 +383,8 @@ function vulPalet() {
       stand.penseel = model.naam;
       penseelUit.textContent = model.naam;
       zetSchaduw(model.naam);
+      zetModus('plaats'); // net iets gekozen: dan wil je plaatsen, niet weghalen
+      wenkOp();
       for (const k of paletBak.children) k.setAttribute('aria-selected', 'false');
       knop.setAttribute('aria-selected', 'true');
     });
@@ -507,7 +547,25 @@ function werkSchaduwBij() {
   schaduw.traverse((k) => { if (k.isMesh) k.material = materiaal; });
 }
 
+/**
+ * Hoeveel de aanwijzer tussen neer en op mag verschuiven en het nog een tik
+ * heten.
+ *
+ * Zonder deze grens plaatst elke poging om de camera te draaien een stuk: het
+ * indrukken is voor de baanbesturing het begin van een sleep en voor de bouwer
+ * het neerzetten van een tegel. Op een aanraakscherm is dat geen randgeval maar
+ * de normale gang van zaken — daar is slepen de énige manier om rond te kijken.
+ * Acht beeldpunten is ruim genoeg voor een trillende vinger en ruim te weinig
+ * voor een bedoelde sleep.
+ */
+const TIK_SPELING = 8;
+
+let neer = null;
+
 renderer.domElement.addEventListener('pointermove', (e) => {
+  // Een aanraakscherm kent geen zweven: daar zou de schaduw pas verspringen
+  // tijdens het slepen, precies wanneer je hem niet wilt zien.
+  if (e.pointerType !== 'mouse') return;
   const vak = vakOnderMuis(e);
   if (!vak) return;
   if (stand.hover && vak[0] === stand.hover[0] && vak[1] === stand.hover[1]) return;
@@ -516,18 +574,43 @@ renderer.domElement.addEventListener('pointermove', (e) => {
 });
 
 renderer.domElement.addEventListener('pointerdown', (e) => {
-  if (e.button !== 0) return;
+  neer = { x: e.clientX, y: e.clientY, id: e.pointerId };
+});
+
+renderer.domElement.addEventListener('pointercancel', () => { neer = null; });
+
+renderer.domElement.addEventListener('pointerup', (e) => {
+  const begin = neer;
+  neer = null;
+  if (!begin || begin.id !== e.pointerId) return;
+  if (Math.hypot(e.clientX - begin.x, e.clientY - begin.y) > TIK_SPELING) return; // gedraaid, niet getikt
+  if (e.button !== 0 && e.pointerType === 'mouse') return;
+
   const vak = vakOnderMuis(e);
   if (!vak) return;
 
+  /* Zonder muis is de tik zelf het aanwijzen: schuif de schaduw mee, zodat er
+   * ook op een aanraakscherm te zien is wáár het volgende stuk terechtkomt en
+   * of het daar past. */
+  if (e.pointerType !== 'mouse') {
+    stand.hover = vak;
+    werkSchaduwBij();
+  }
+
   const bewoners = bouwsel.op(vak[0], vak[1], stand.laag);
 
-  if (e.shiftKey) {
+  /* Met een muis binnen handbereik zijn de sneltoetsen prettiger dan het
+   * omschakelen van de modus; zonder muis zijn ze onbereikbaar. Vandaar
+   * allebei, met de toetsen als voorrang op de modus. */
+  const modus = e.shiftKey ? 'weg' : (e.ctrlKey || e.metaKey) ? 'kies' : stand.modus;
+
+  if (modus === 'weg') {
     for (const b of bewoners) haalWeg(b.id);
     return;
   }
-  if (e.ctrlKey || e.metaKey || !stand.penseel) {
+  if (modus === 'kies' || !stand.penseel) {
     if (bewoners.length) kies(bewoners[0].id);
+    else if (!stand.penseel) wenkOp('Kies eerst een stuk uit de lijst links.');
     return;
   }
   plaats({ naam: stand.penseel, x: vak[0], z: vak[1], laag: stand.laag, slagen: stand.slagen });
@@ -539,6 +622,30 @@ renderer.domElement.addEventListener('contextmenu', (e) => {
   if (!vak) return;
   const bewoners = bouwsel.op(vak[0], vak[1], stand.laag);
   if (bewoners.length) kies(bewoners[0].id);
+});
+
+/* -- slepen ----------------------------------------------------------------
+ * Voor wie een stuk uit de lijst naar het raster trekt in plaats van te tikken.
+ * Werkt alleen met een muis — een aanraakscherm stuurt geen sleepgebeurtenissen
+ * — dus het is een extra weg, nooit de enige.
+ */
+
+renderer.domElement.addEventListener('dragover', (e) => {
+  if (!stand.penseel) return;
+  e.preventDefault(); // pas hierna mag er losgelaten worden
+  const vak = vakOnderMuis(e);
+  if (!vak) return;
+  stand.hover = vak;
+  werkSchaduwBij();
+});
+
+renderer.domElement.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const naam = e.dataTransfer?.getData('text/plain') || stand.penseel;
+  if (!naam || !kit.modellen.has(naam)) return;
+  const vak = vakOnderMuis(e);
+  if (!vak) return;
+  plaats({ naam, x: vak[0], z: vak[1], laag: stand.laag, slagen: stand.slagen });
 });
 
 /* -- bediening ------------------------------------------------------------- */
@@ -557,6 +664,19 @@ function zetDraai(nieuw) {
   stand.slagen = ((nieuw % 4) + 4) % 4;
   draaiUit.textContent = `${stand.slagen * 90}°`;
   werkSchaduwBij();
+}
+
+const modusBak = document.getElementById('modus');
+
+function zetModus(nieuw) {
+  stand.modus = nieuw;
+  for (const knop of modusBak.children) {
+    knop.setAttribute('aria-pressed', String(knop.dataset.modus === nieuw));
+  }
+}
+
+for (const knop of modusBak.children) {
+  knop.addEventListener('click', () => zetModus(knop.dataset.modus));
 }
 
 document.getElementById('laag-min').addEventListener('click', () => zetLaag(stand.laag - 1));
@@ -619,6 +739,7 @@ if (bewaard) await openBouwsel(JSON.parse(bewaard));
 /* -- draaien --------------------------------------------------------------- */
 
 toonControle();
+wenkOp();
 renderer.setAnimationLoop(() => {
   stuur.update();
   renderer.render(scene, camera);

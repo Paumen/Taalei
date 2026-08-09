@@ -38,6 +38,10 @@
 <main class="doek">
   <canvas id="doek"></canvas>
 
+  <p class="wenk" id="wenk">
+    Kies links een stuk — en klik dan op het raster, of sleep het erheen.
+  </p>
+
   <div class="storing" id="storing" hidden>
     <h2 id="storing-kop">De bouwer start niet</h2>
     <p id="storing-tekst"></p>
@@ -59,6 +63,14 @@
       <span class="veld-kop">Stuk</span>
       <output id="penseel">—</output>
     </div>
+    <div class="veld">
+      <span class="veld-kop">Tik</span>
+      <div class="modus" id="modus" role="group" aria-label="Wat een tik op het raster doet">
+        <button type="button" data-modus="plaats" aria-pressed="true">plaatsen</button>
+        <button type="button" data-modus="kies" aria-pressed="false">kiezen</button>
+        <button type="button" data-modus="weg" aria-pressed="false">weghalen</button>
+      </div>
+    </div>
     <div class="veld veld-schakels">
       <label><input type="checkbox" id="toon-raster" checked> Raster</label>
       <label><input type="checkbox" id="toon-naden" checked> Naden</label>
@@ -70,7 +82,7 @@
     <button type="button" id="laad">Open</button>
     <button type="button" id="leeg">Leeg</button>
     <input type="file" id="bestand" accept="application/json" hidden>
-    <span class="hulp">klik = plaatsen · shift+klik = weghalen · rechtermuisknop = kiezen · R = draaien · Q/E = laag</span>
+    <span class="hulp">tik op het raster doet wat er bij <b>Tik</b> staat · slepen draait de camera · met muis: shift+klik = weghalen, R = draaien, Q/E = laag</span>
   </div>
 </main>
 
