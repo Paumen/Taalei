@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terreinbouwer — modulair terrein</title>
+<link rel="stylesheet" href="bouwer.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧱</text></svg>">
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+</head>
+<body>
+
+<aside class="lade lade-links">
+  <header class="lade-kop">
+    <h1>Terreinbouwer</h1>
+    <p class="tel" id="kit-tel">kit laden…</p>
+  </header>
+
+  <div class="zoek">
+    <input type="search" id="zoek" placeholder="Zoek een stuk…" autocomplete="off" aria-label="Zoek een stuk">
+  </div>
+
+  <div class="filters" id="filters" role="group" aria-label="Filter op familie"></div>
+
+  <div class="lijst" id="palet" role="listbox" aria-label="Stukken"></div>
+
+  <div class="verkenner" id="verkenner" hidden>
+    <h2>Past hier tegenaan</h2>
+    <p class="verkenner-uitleg" id="verkenner-uitleg"></p>
+    <div class="lijst lijst-kort" id="verkenner-lijst" role="listbox" aria-label="Passende stukken"></div>
+  </div>
+</aside>
+
+<main class="doek">
+  <canvas id="doek"></canvas>
+
+  <div class="balk balk-boven">
+    <div class="veld">
+      <span class="veld-kop">Laag</span>
+      <button type="button" id="laag-min" aria-label="Laag omlaag">−</button>
+      <output id="laag-nu">0</output>
+      <button type="button" id="laag-plus" aria-label="Laag omhoog">+</button>
+    </div>
+    <div class="veld">
+      <span class="veld-kop">Draai</span>
+      <button type="button" id="draai" aria-label="Draai een kwartslag"><span id="draai-nu">0°</span></button>
+    </div>
+    <div class="veld veld-penseel">
+      <span class="veld-kop">Stuk</span>
+      <output id="penseel">—</output>
+    </div>
+    <div class="veld veld-schakels">
+      <label><input type="checkbox" id="toon-raster" checked> Raster</label>
+      <label><input type="checkbox" id="toon-naden" checked> Naden</label>
+    </div>
+  </div>
+
+  <div class="balk balk-onder">
+    <button type="button" id="bewaar">Bewaar</button>
+    <button type="button" id="laad">Open</button>
+    <button type="button" id="leeg">Leeg</button>
+    <input type="file" id="bestand" accept="application/json" hidden>
+    <span class="hulp">klik = plaatsen · shift+klik = weghalen · rechtermuisknop = kiezen · R = draaien · Q/E = laag</span>
+  </div>
+</main>
+
+<aside class="lade lade-rechts">
+  <header class="lade-kop">
+    <h2>Controle</h2>
+    <p class="tel" id="stand">leeg</p>
+  </header>
+  <div class="meldingen" id="meldingen"></div>
+  <div class="uitleg" id="uitleg">
+    <h3>Wat er gecontroleerd wordt</h3>
+    <dl>
+      <dt>overlap</dt><dd>twee stukken in hetzelfde vak op dezelfde laag</dd>
+      <dt>naad</dt><dd>de doorsnedes langs een gedeelde vakrand vallen niet samen</dd>
+      <dt>zwevend</dt><dd>een stuk dat in het vloervlak is afgesneden en niets onder zich heeft</dd>
+      <dt>stapel</dt><dd>het stuk eronder heeft een andere bovenkant dan dit stuk als onderkant</dd>
+      <dt>trap</dt><dd>-base, -mid en -top staan in de verkeerde volgorde</dd>
+    </dl>
+    <p>Naden worden vergeleken tussen buren op dezelfde laag, en alleen op de
+      voeg zelf. Een kliftop die op de grasvlakte één laag hoger aansluit raakt
+      geen enkele buur op zijn eigen laag: daar meldt de controle niets, en dat
+      is geen goedkeuring.</p>
+  </div>
+</aside>
+
+<script src="bouwer.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+/**
+ * Toetst de terreinbouwer.
+ *
+ * Draaien vanuit de repo-root:
+ *
+ *     NODE_PATH=$(npm root -g) node tools/toets-terreinbouwer.mjs
+ *
+ * Twee delen. Eerst de regels zelf, in Node: aansluiting.js heeft met opzet
+ * geen DOM nodig, dus die is hier gewoon te importeren. Daarna de pagina in een
+ * echte browser, want three.js en de GLTFLoader zijn in Node niet na te doen.
+ *
+ * De gevallen hieronder zijn met de hand aan de geometrie nagerekend (zie de
+ * kop van tools/aansluitingen.mjs). Ze staan er niet om te bevestigen wat de
+ * code doet, maar om te merken wanneer een meting stilletjes verschuift: een
+ * andere afronding, een andere snijtolerantie, en de grasvloer op 0,1 valt weer
+ * samen met de zandvloer op 0.
+ */
+
+import { readFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  Kit, Bouwsel, controleer, watPast, draaiVak, ontdraaiVak,
+} from './terreinbouwer/aansluiting.js';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const kit = new Kit(JSON.parse(readFileSync(join(ROOT, 'kits/modulair-terrein/aansluitingen.json'), 'utf8')));
+
+let mislukt = 0;
+function toets(naam, voorwaarde, toelichting = '') {
+  const goed = voorwaarde === true;
+  if (!goed) mislukt++;
+  console.log(`${goed ? 'ok  ' : 'FOUT'}  ${naam}${goed || !toelichting ? '' : ` — ${toelichting}`}`);
+}
+
+/** Een bouwsel uit een lijstje, kort opgeschreven. */
+function bouw(stukken) {
+  const bouwsel = new Bouwsel(kit);
+  for (const stuk of stukken) bouwsel.zet(stuk);
+  return bouwsel;
+}
+
+const soorten = (meldingen) => [...new Set(meldingen.map((m) => m.soort))].sort().join(',');
+
+/* -- draaien --------------------------------------------------------------- */
+
+console.log('\n— draaien —');
+
+let heenEnWeer = true;
+for (let slagen = 0; slagen < 4; slagen++) {
+  for (const vak of [[0, 0], [1, 0], [0, 1], [2, -3], [-1, 2]]) {
+    const terug = ontdraaiVak(draaiVak(vak, slagen), slagen);
+    if (terug[0] !== vak[0] || terug[1] !== vak[1]) heenEnWeer = false;
+  }
+}
+toets('draaien en terugdraaien komt uit op hetzelfde vak', heenEnWeer);
+toets('een kwartslag stuurt (1,0) naar (0,-1)', JSON.stringify(draaiVak([1, 0], 1)) === '[0,-1]');
+toets('vier kwartslagen is niets', JSON.stringify(draaiVak([2, -3], 4)) === '[2,-3]');
+
+/* Een gedraaid stuk moet zijn profiel meenemen: de oostzijde van een ongedraaid
+ * stuk is de noordzijde van datzelfde stuk na één kwartslag. */
+const kliffMid = 'cliff-terrain-side-mid';
+toets(
+  'na een kwartslag is oost noord geworden',
+  kit.randVan(kliffMid, '0,0', 'n', 1) === kit.randVan(kliffMid, '0,0', 'o', 0),
+);
+
+/* -- naden ----------------------------------------------------------------- */
+
+console.log('\n— naden —');
+
+toets(
+  'drie grasvloeren naast elkaar sluiten aan',
+  controleer(bouw([
+    { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+    { naam: 'hilly-terrain-grass-floor', x: 1, z: 0, laag: 0 },
+    { naam: 'hilly-terrain-grass-floor', x: 2, z: 0, laag: 0 },
+  ])).length === 0,
+);
+
+/* Gras ligt op 0,1 en zand op 0. Dat verschil van een tiende unit is precies
+ * wat een naadcontrole moet zien; een eerdere versie van aansluitingen.mjs
+ * verloor de hoogte van een horizontale rand en noemde deze twee gelijk. */
+const grasNaastZand = controleer(bouw([
+  { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+  { naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0 },
+]));
+toets('gras (0,1) naast zand (0) geeft een naadmelding', soorten(grasNaastZand) === 'naad', soorten(grasNaastZand));
+
+/* Klif en steilrand heten allebei "side-mid" en zijn allebei een halve laag
+ * hoog, maar de klif knikt naar voren en de steilrand niet. Dat verschil zit in
+ * de voorzijde, niet in de zijkanten waarmee ze aan hun buren vastzitten —
+ * dus dít is wat er getoetst kan worden, en niet meer dan dat. */
+toets(
+  'klif-mid en steilrand-mid hebben een verschillende voorzijde',
+  kit.randVan('cliff-terrain-side-mid', '0,0', 'w', 0)
+    !== kit.randVan('escarpment-terrain-side-mid', '0,0', 'w', 0),
+);
+toets(
+  'maar dezelfde zijkant, dus in één wand meldt de naadcontrole niets',
+  controleer(bouw([
+    { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+    { naam: 'escarpment-terrain-side-mid', x: 0, z: 1, laag: 0 },
+  ])).length === 0,
+);
+
+/* Een -base en een -mid náást elkaar in dezelfde wand is wél een echte naadfout:
+ * de base loopt schuin op van 0 naar 0,5 en de mid staat recht. */
+const baseNaastMid = controleer(bouw([
+  { naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
+]));
+toets(
+  'een -base naast een -mid in dezelfde wand geeft een naadmelding',
+  soorten(baseNaastMid) === 'naad', soorten(baseNaastMid),
+);
+
+toets(
+  'twee klif-mids in één wand sluiten aan',
+  controleer(bouw([
+    { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+    { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
+  ])).length === 0,
+);
+
+/* Dezelfde wand, een kwartslag gedraaid: nu loopt hij over x in plaats van
+ * over z. Sluit hij dan nog steeds, dan klopt de draailogica én de afspraak dat
+ * een profiel van links naar rechts van buitenaf wordt gelezen. */
+toets(
+  'twee klif-mids sluiten ook aan na een kwartslag',
+  controleer(bouw([
+    { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0, slagen: 1 },
+    { naam: 'cliff-terrain-side-mid', x: 1, z: 0, laag: 0, slagen: 1 },
+  ])).length === 0,
+);
+
+/* -- stapelen -------------------------------------------------------------- */
+
+console.log('\n— stapelen —');
+
+toets(
+  'base, mid en top op elkaar sluiten aan',
+  controleer(bouw([
+    { naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0 },
+    { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 1 },
+    { naam: 'cliff-terrain-side-top', x: 0, z: 0, laag: 2 },
+  ])).length === 0,
+);
+
+const zwevend = controleer(bouw([{ naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 2 }]));
+toets('een klif-mid zonder onderbouw zweeft', zwevend.some((m) => m.soort === 'zwevend' && m.ernst === 'fout'));
+
+toets(
+  'een dekvlak zonder onderbouw zweeft niet',
+  controleer(bouw([{ naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 3 }]))
+    .every((m) => m.soort !== 'zwevend'),
+);
+
+const omgekeerd = controleer(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 1 },
+]));
+toets('een -base boven een -mid geeft een trapmelding', omgekeerd.some((m) => m.soort === 'trap'));
+
+const overlap = controleer(bouw([
+  { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+  { naam: 'beach-terrain-sand-floor', x: 0, z: 0, laag: 0 },
+]));
+toets('twee stukken in hetzelfde vak is een fout', overlap.some((m) => m.soort === 'overlap' && m.ernst === 'fout'));
+
+/* -- verkenner ------------------------------------------------------------- */
+
+console.log('\n— verkenner —');
+
+/* De belangrijkste eigenschap van watPast(): wat hij aanwijst moet er ook
+ * echt tegenaan passen. Anders belooft de bouwer iets wat de controle daarna
+ * afkeurt, en dan is hij erger dan geen bouwer.
+ *
+ * Voor elk stuk met een niet-lege noordrand: pak wat watPast() teruggeeft, zet
+ * het in het buurvak en kijk of er een naadmelding komt.
+ */
+let voorstellen = 0;
+let afgekeurd = [];
+for (const model of kit.modellen.values()) {
+  const lokaal = Object.keys(model.zijden.n)[0];
+  const rand = kit.randVan(model.naam, lokaal, 'n', 0);
+  if (kit.isOpen(rand)) continue;
+
+  const [lu, lv] = lokaal.split(',').map(Number);
+  for (const kandidaat of watPast(kit, rand, 'z').slice(0, 3)) {
+    const [ku, kv] = kandidaat.lokaal.split(',').map(Number);
+    const [du, dv] = draaiVak([ku, kv], kandidaat.slagen);
+    const meldingen = controleer(bouw([
+      { naam: model.naam, x: -lu, z: -lv, laag: 0 },
+      { naam: kandidaat.naam, x: -du, z: -1 - dv, laag: 0, slagen: kandidaat.slagen },
+    ]));
+    voorstellen++;
+    if (meldingen.some((m) => m.soort === 'naad')) {
+      afgekeurd.push(`${model.naam}.n ← ${kandidaat.naam}@${kandidaat.slagen * 90}°`);
+    }
+  }
+}
+toets(
+  `alle ${voorstellen} voorstellen van de verkenner sluiten ook echt aan`,
+  afgekeurd.length === 0,
+  afgekeurd.slice(0, 3).join('; '),
+);
+
+/* Andersom: wie geen spiegel heeft, krijgt geen voorstellen. */
+const doodlopend = Object.entries(kit.randen).find(([, r]) => !r.spiegel);
+toets(
+  'een doodlopende rand levert geen voorstellen op',
+  watPast(kit, doodlopend[0], 'z').length === 0,
+);
+
+/* -- de pagina ------------------------------------------------------------- */
+
+console.log('\n— pagina —');
+
+const { chromium } = await import('playwright');
+const { maakServer } = await import('./terreinbouwer/serve.mjs');
+
+const server = maakServer();
+await new Promise((klaar) => server.listen(0, klaar));
+const poort = server.address().port;
+
+const browser = await chromium.launch();
+const pagina = await browser.newPage({ viewport: { width: 1400, height: 800 } });
+
+const fouten = [];
+pagina.on('pageerror', (fout) => fouten.push(fout.message));
+pagina.on('console', (bericht) => { if (bericht.type() === 'error') fouten.push(bericht.text()); });
+
+await pagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
+await pagina.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
+
+toets('de pagina laadt zonder fouten', fouten.length === 0, fouten.slice(0, 2).join(' | '));
+toets('het palet is gevuld', await pagina.locator('#palet .stuk').count() === kit.modellen.size);
+
+/* Een klifwand van drie hoog neerzetten via dezelfde weg die de muis gebruikt,
+ * en kijken of de controle er niets op aan te merken heeft. */
+await pagina.evaluate(async () => {
+  const { plaats } = window.TERREINBOUWER;
+  await plaats({ naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0 });
+  await plaats({ naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 1 });
+  await plaats({ naam: 'cliff-terrain-side-top', x: 0, z: 0, laag: 2 });
+  await plaats({ naam: 'cliff-terrain-side-base', x: 0, z: 1, laag: 0 });
+});
+toets(
+  'een klifwand in de pagina levert geen meldingen',
+  await pagina.evaluate(() => window.TERREINBOUWER.controleer(window.TERREINBOUWER.bouwsel).length) === 0,
+);
+toets('de modellen zijn ingeladen', await pagina.evaluate(() => window.TERREINBOUWER.bouwsel.stukken.size) === 4);
+
+/* Dat de controle tevreden is zegt niets over wat er te zíén is. Deze twee
+ * kijken naar het scherm in plaats van naar de administratie: staan de stukken
+ * op een echte plek, en komt er ook echt geometrie uit de kaartenbak?
+ *
+ * Niet overbodig: een eerdere versie las de laaghoogte onder de verkeerde naam
+ * uit de kit, waardoor elk stuk op y = NaN belandde. Alles klopte — vier
+ * stukken, nul meldingen, veertien getekende driehoeken — en het scherm bleef
+ * leeg. */
+const plek = await pagina.evaluate(() => {
+  const { stukken } = window.TERREINBOUWER;
+  return stukken.children.map((k) => k.position.toArray());
+});
+toets(
+  'elk geplaatst stuk staat op een eindige plek',
+  plek.length === 4 && plek.every((p) => p.every(Number.isFinite)),
+  JSON.stringify(plek),
+);
+
+const getekend = await pagina.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  T.renderer.render(T.scene, T.camera);
+  return T.renderer.info.render.triangles;
+});
+toets('er worden driehoeken getekend', getekend > 0, `${getekend} driehoeken`);
+
+/* Tot slot een plaatje voor de documentatie: een klifwand van drie lagen met de
+ * grasvlakte erachter, plus één stuk dat er expres niet hoort — zo laat de
+ * schermafbeelding zien wat de bouwer doet in plaats van alleen dát hij het
+ * doet. */
+await pagina.evaluate(async () => {
+  const { plaats, stuur, camera } = window.TERREINBOUWER;
+  for (let z = 2; z <= 4; z++) {
+    await plaats({ naam: 'cliff-terrain-side-base', x: 0, z, laag: 0 });
+    await plaats({ naam: 'cliff-terrain-side-mid', x: 0, z, laag: 1 });
+    await plaats({ naam: 'cliff-terrain-side-top', x: 0, z, laag: 2 });
+  }
+  for (let x = -2; x <= -1; x++) {
+    for (let z = 0; z <= 4; z++) await plaats({ naam: 'hilly-terrain-grass-floor', x, z, laag: 3 });
+  }
+  // en dit hoort er niet: zand op grashoogte, een tiende unit te laag
+  await plaats({ naam: 'beach-terrain-sand-floor', x: -1, z: 5, laag: 3 });
+
+  camera.position.set(4.2, 3.4, 5.2);
+  stuur.target.set(-0.4, 0.7, 1.1);
+  stuur.update();
+});
+await pagina.waitForTimeout(200);
+await pagina.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
+console.log('  schermafbeelding → docs/terreinbouwer.png');
+
+await browser.close();
+server.close();
+
+console.log(mislukt === 0 ? '\nalles goed' : `\n${mislukt} toetsen mislukt`);
+process.exitCode = mislukt === 0 ? 0 : 1;
