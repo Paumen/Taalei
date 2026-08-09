@@ -213,6 +213,22 @@ toets(
   watPast(kit, doodlopend[0], 'z').length === 0,
 );
 
+/* -- versiestempel --------------------------------------------------------- */
+
+console.log('\n— versiestempel —');
+
+/* Een vergeten stempel is niet te zien: de pagina laadt, met een stylesheet of
+ * een script van de vorige keer ernaast. Daarom is het hier een mislukte toets
+ * en geen raadsel achteraf. */
+const { stempel, metStempel } = await import('./terreinbouwer/stempel.mjs');
+const indexHtml = readFileSync(join(ROOT, 'tools/terreinbouwer/index.html'), 'utf8');
+const nu = stempel();
+toets(
+  `de stempel in index.html is bij de tijd (${nu})`,
+  metStempel(indexHtml, nu) === indexHtml,
+  'draai `node tools/terreinbouwer/stempel.mjs`',
+);
+
 /* -- de pagina ------------------------------------------------------------- */
 
 console.log('\n— pagina —');
@@ -437,7 +453,7 @@ await telefoon.close();
  * die niet opschiet. Hier wordt bouwer.js onderweg tegengehouden; dat bootst
  * na wat een browser zonder WebGL 2 of zonder import maps oplevert. */
 const stukPagina = await browser.newPage({ viewport: { width: 900, height: 600 } });
-await stukPagina.route('**/bouwer.js', (route) => route.abort());
+await stukPagina.route('**/bouwer.js*', (route) => route.abort());
 await stukPagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
 await stukPagina.waitForSelector('#storing:visible', { timeout: 15000 }).catch(() => {});
 toets(

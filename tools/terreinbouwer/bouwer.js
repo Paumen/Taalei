@@ -12,17 +12,31 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import {
-  Kit, Bouwsel, controleer, watPast, draaiVak, ZIJDEN, STAP, TEGENOVER,
-} from './aansluiting.js';
 
 /* Relatief aan deze module, niet aan de wortel van de server: de gepubliceerde
  * site staat onder /Taalei/ en een absoluut pad zou daar naast de repo grijpen. */
 const KITMAP = new URL('../../kits/modulair-terrein/', import.meta.url).href;
 
+/**
+ * De versiestempel die index.html achter dit bestand heeft gezet, doorgegeven
+ * aan alles wat híér nog wordt opgehaald (zie tools/terreinbouwer/stempel.mjs).
+ *
+ * Anders lekt de stempel: index.html haalt een nieuwe bouwer.js op omdat het
+ * adres veranderd is, en die laadt daarna doodleuk de oude aansluiting.js van
+ * een adres dat níét veranderd is. Vandaar dat de import hier dynamisch is en
+ * niet bovenaan staat — een gewone import kan geen adres meekrijgen zonder
+ * bouwstap.
+ */
+const VERSIE = new URL(import.meta.url).searchParams.get('v');
+const vers = (adres) => (VERSIE ? `${adres}?v=${VERSIE}` : adres);
+
+const {
+  Kit, Bouwsel, controleer, watPast, draaiVak, ZIJDEN, STAP, TEGENOVER,
+} = await import(vers('./aansluiting.js'));
+
 /* -- kit inladen ----------------------------------------------------------- */
 
-const kit = new Kit(await (await fetch(`${KITMAP}aansluitingen.json`)).json());
+const kit = new Kit(await (await fetch(vers(`${KITMAP}aansluitingen.json`))).json());
 const VAK = kit.vak;
 const LAAG = kit.laagHoogte;
 const bouwsel = new Bouwsel(kit);
@@ -347,8 +361,26 @@ const penseelUit = document.getElementById('penseel');
 const families = [...new Set(kit.data.modellen.map((m) => m.familie))].sort();
 let familieFilter = null;
 
-document.getElementById('kit-tel').textContent =
-  `${kit.data.modellen.length} stukken · ${Object.keys(kit.randen).length} randprofielen`;
+/**
+ * De regel onder de titel: wat er in de kit zit, plus de versiestempel en de
+ * breedte die de browser rapporteert.
+ *
+ * Die laatste twee staan er om te kunnen nazien wat er op een ander apparaat
+ * gebeurt. Een schermafbeelding zegt dan meteen welke versie er draait en of de
+ * indeling voor smalle schermen aan hoort te staan — twee dingen die anders
+ * alleen te raden zijn, en waar hier al twee rondes op zijn misgegaan.
+ */
+const kitTel = document.getElementById('kit-tel');
+
+function toonKitTel() {
+  const breedte = Math.round(document.documentElement.clientWidth);
+  kitTel.textContent = `${kit.data.modellen.length} stukken · `
+    + `${Object.keys(kit.randen).length} randprofielen · `
+    + `${breedte}px · v${VERSIE ?? 'onbekend'}`;
+}
+
+addEventListener('resize', toonKitTel);
+toonKitTel();
 
 for (const familie of ['alles', ...families]) {
   const knop = document.createElement('button');
