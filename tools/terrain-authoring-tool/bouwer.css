@@ -49,6 +49,28 @@ button {
   flex-wrap: wrap;
 }
 
+.balk {
+  display: flex;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--rand);
+  background: var(--paneel);
+  gap: 8px;
+  align-items: center;
+  flex: none;
+}
+
+.balk[hidden] { display: none; }
+
+.balk-stand {
+  overflow: hidden;
+  flex: 1;
+  color: var(--grijs);
+  font-size: 12px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .kop-groep {
   display: flex;
   gap: 4px;

@@ -317,6 +317,8 @@ const ongedaanKnop = document.getElementById('ongedaan');
 const opnieuwKnop = document.getElementById('opnieuw');
 const penseelUit = document.getElementById('penseel');
 const wenkBalk = document.getElementById('wenk');
+const bouwselBalk = document.getElementById('bouwsel-balk');
+const bouwselStand = document.getElementById('bouwsel-stand');
 
 function opWijzer() {
   const bewoners = bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag);
@@ -350,6 +352,7 @@ function werkBijAlles() {
 
   tekenGemarkeerd();
   werkKijkBalkBij();
+  werkBouwselBalkBij();
 
   werkWenkBij(bewoner);
 }
@@ -460,6 +463,33 @@ function werkKijkBalkBij() {
   document.getElementById('kijk-goed').setAttribute('aria-pressed', String(mijn === 'goed'));
   document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
 }
+
+function werkBouwselBalkBij() {
+  bouwselBalk.hidden = voorbeelden.length === 0 || !!stand.kijk;
+  if (bouwselBalk.hidden) return;
+
+  const index = voorbeelden.findIndex((v) => v.naam === bouwsel.noemer);
+  bouwselStand.textContent = index === -1
+    ? `${voorbeelden.length} bouwsels — kies er een`
+    : `${index + 1} / ${voorbeelden.length} — ${bouwsel.noemer}`;
+}
+
+const bouwselVorigKnop = document.getElementById('bouwsel-vorig');
+const bouwselVolgendKnop = document.getElementById('bouwsel-volgend');
+
+async function stapNaarBouwsel(kies) {
+  bouwselVorigKnop.disabled = true;
+  bouwselVolgendKnop.disabled = true;
+  try {
+    await openBouwsel(kies());
+  } finally {
+    bouwselVorigKnop.disabled = false;
+    bouwselVolgendKnop.disabled = false;
+  }
+}
+
+bouwselVorigKnop.addEventListener('click', () => stapNaarBouwsel(vorigVoorbeeld));
+bouwselVolgendKnop.addEventListener('click', () => stapNaarBouwsel(volgendVoorbeeld));
 
 function volgendVoorbeeld() {
   const nu = voorbeelden.findIndex((v) => v.naam === bouwsel.noemer);
