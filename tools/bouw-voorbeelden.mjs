@@ -56,6 +56,13 @@ const rijZ = (naam, x, vanZ, totZ, laag, slagen = 0) => {
   return uit;
 };
 
+/** Korte schrijfwijze: een rij van hetzelfde stuk langs x. */
+const rijX = (naam, z, vanX, totX, laag, slagen = 0) => {
+  const uit = [];
+  for (let x = vanX; x <= totX; x++) uit.push({ naam, x, z, laag, slagen });
+  return uit;
+};
+
 /** Een vlak van hetzelfde stuk. */
 const vlak = (naam, vanX, totX, vanZ, totZ, laag, slagen = 0) => {
   const uit = [];
@@ -64,47 +71,6 @@ const vlak = (naam, vanX, totX, vanZ, totZ, laag, slagen = 0) => {
   }
   return uit;
 };
-
-/**
- * Zoekt de draaistanden op in plaats van ze te gokken.
- *
- * Bij een hoek of een helling is niet uit het hoofd te zeggen welke kwartslag
- * de goede is; dat hangt van de vorm af, en de vorm staat in de meting. Deze
- * functie probeert alle standen voor elke groep en houdt de stand over waarbij
- * de meeste voegen sluiten.
- *
- * Dat is met opzet de meting als hulpmiddel en niet als scheidsrechter: het
- * levert een bouwsel op dat de kit gebruikt zoals hij in elkaar zit, zodat er
- * iets zinnigs te beoordelen valt. Of het er goed uitziet blijft de vraag die
- * de bouwer moet beantwoorden.
- *
- * @param {object[]} vast      stukken met een vaste stand
- * @param {object[][]} groepen elke groep krijgt één gezamenlijke draaistand
- */
-function metBesteDraai(vast, groepen) {
-  let beste = null;
-
-  const probeer = (standen) => {
-    const stukken = [
-      ...vast,
-      ...groepen.flatMap((groep, i) => groep.map((stuk) => ({ ...stuk, slagen: standen[i] }))),
-    ];
-    const model = new Bouwsel(kit);
-    for (const stuk of stukken) model.zet(stuk);
-    const voegen = naden(model);
-    const score = voegen.filter((n) => n.sluit).length - (voegen.length - voegen.filter((n) => n.sluit).length);
-    if (!beste || score > beste.score) beste = { score, stukken, voegen: voegen.length };
-  };
-
-  const loop = (i, standen) => {
-    if (i === groepen.length) return probeer(standen);
-    for (let s = 0; s < 4; s++) loop(i + 1, [...standen, s]);
-    return undefined;
-  };
-  loop(0, []);
-
-  return beste.stukken;
-}
 
 /**
  * De bouwsels.
@@ -195,6 +161,102 @@ const BOUWSELS = [
       { naam: 'shared-prop-boulder-a', x: -1, z: -1, laag: 0 },
       { naam: 'shared-prop-boulder-c', x: 0, z: 1, laag: 0 },
       { naam: 'hilly-prop-rock-b', x: 1, z: 0, laag: 0 },
+    ],
+  },
+
+  /* ── tweede lichting ─────────────────────────────────────────────────────
+   *
+   * De eerste acht zijn beoordeeld: 353 voegen, waarvan zeven afgekeurd. Die
+   * zeven zeggen samen twee dingen, en die twee dingen sturen deze lichting:
+   *
+   *   - een `-mid` met het gras er één laag hoger náást is fout (4×). Een wand
+   *     moet eerst een `-top` krijgen; dáár ligt het gras tegenaan, en dat is
+   *     zes keer goedgekeurd. Elke wand hieronder eindigt dus in een `-top`.
+   *   - zand tegen gras is fout (3×), en de meting was het daarmee eens. Komt
+   *     hier niet meer voor.
+   *
+   * Wat deze lichting toevoegt is de hoek. Van de 116 modellen in de kit waren
+   * er dertien in gebruik; de hoekstukken — 34 stuks — nog geen. Een wand die
+   * rechtdoor loopt is één soort voeg; een wand die om een hoek gaat is een
+   * andere, en er is geen manier om vooraf te weten of die er goed uitziet.
+   */
+  {
+    naam: 'Klifhoek naar buiten',
+    waarover: 'Een plateau met een punt: twee klifwanden die om een bolle hoek '
+      + 'heen draaien. Het hoekstuk deelt zijn randprofielen met de rechte wand, '
+      + 'dus alles sluit — de vraag is of de hoek zelf niet te scherp oogt.',
+    stukken: [
+      ...rijZ('cliff-terrain-side-base', 0, -1, 0, 0),
+      ...rijZ('cliff-terrain-side-top', 0, -1, 0, 1),
+      { naam: 'cliff-terrain-corner-outer-1x1-base', x: 0, z: 1, laag: 0, slagen: 3 },
+      { naam: 'cliff-terrain-corner-outer-1x1-top', x: 0, z: 1, laag: 1, slagen: 3 },
+      ...rijX('cliff-terrain-side-base', 1, -2, -1, 0, 3),
+      ...rijX('cliff-terrain-side-top', 1, -2, -1, 1, 3),
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -1, 0, 2),
+    ],
+  },
+  {
+    naam: 'Klifhoek naar binnen',
+    waarover: 'Dezelfde wand, maar de hoek gaat de andere kant op: een hap uit '
+      + 'de rand van het plateau. Buiten- en binnenhoek gebruiken hetzelfde paar '
+      + 'randprofielen en zien er totaal anders uit.',
+    stukken: [
+      ...rijZ('cliff-terrain-side-base', 0, -2, -1, 0),
+      ...rijZ('cliff-terrain-side-top', 0, -2, -1, 1),
+      { naam: 'cliff-terrain-corner-inner-1x1-base', x: 0, z: 0, laag: 0 },
+      { naam: 'cliff-terrain-corner-inner-1x1-top', x: 0, z: 0, laag: 1 },
+      ...rijX('cliff-terrain-side-base', 0, 1, 2, 0, 1),
+      ...rijX('cliff-terrain-side-top', 0, 1, 2, 1, 1),
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -2, 2, 2),
+      ...vlak('hilly-terrain-grass-floor', 0, 2, 1, 2, 2),
+    ],
+  },
+  {
+    naam: 'Steilrandhoek naar buiten',
+    waarover: 'Dezelfde hoek in steilrand, en hier zegt de meting iets anders. '
+      + 'De hoekstukken dragen r093/r094 en de rechte wand r083/r084: die passen '
+      + 'niet op elkaar, dus vier voegen sluiten niet. Het ziet er wel rond en '
+      + 'heel uit. Precies zo\u2019n geval waarvoor jouw oordeel er is.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-base', 0, -1, 0, 0),
+      ...rijZ('escarpment-terrain-side-top', 0, -1, 0, 1),
+      { naam: 'escarpment-terrain-corner-outer-1x1-base', x: 0, z: 1, laag: 0, slagen: 3 },
+      { naam: 'escarpment-terrain-corner-outer-1x1-top', x: 0, z: 1, laag: 1, slagen: 3 },
+      ...rijX('escarpment-terrain-side-base', 1, -2, -1, 0, 3),
+      ...rijX('escarpment-terrain-side-top', 1, -2, -1, 1, 3),
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -1, 0, 2),
+    ],
+  },
+  {
+    naam: 'Steilrand met binnenhoek',
+    waarover: 'Drie lagen hoog met een binnenhoek erin: base, mid en top, ook in '
+      + 'het hoekstuk. Hier zitten de stapelvoegen van een hoek in, en die zijn '
+      + 'anders dan die van een rechte wand.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-base', 0, -2, -1, 0),
+      ...rijZ('escarpment-terrain-side-mid', 0, -2, -1, 1),
+      ...rijZ('escarpment-terrain-side-top', 0, -2, -1, 2),
+      { naam: 'escarpment-terrain-corner-inner-1x1-base', x: 0, z: 0, laag: 0 },
+      { naam: 'escarpment-terrain-corner-inner-1x1-mid', x: 0, z: 0, laag: 1 },
+      { naam: 'escarpment-terrain-corner-inner-1x1-top', x: 0, z: 0, laag: 2 },
+      ...rijX('escarpment-terrain-side-base', 0, 1, 2, 0, 1),
+      ...rijX('escarpment-terrain-side-mid', 0, 1, 2, 1, 1),
+      ...rijX('escarpment-terrain-side-top', 0, 1, 2, 2, 1),
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -2, 2, 3),
+      ...vlak('hilly-terrain-grass-floor', 0, 2, 1, 2, 3),
+    ],
+  },
+  {
+    naam: 'Rotsen aan de voet van de wand',
+    waarover: 'Losse rotsen tegen de onderkant van een klifwand. Props hoefden '
+      + 'tot nu toe alleen tegen gras te staan; hier raken ze een wand, en dat is '
+      + 'een ander soort voeg.',
+    stukken: [
+      ...rijZ('cliff-terrain-side-base', 0, -1, 1, 0),
+      ...rijZ('cliff-terrain-side-top', 0, -1, 1, 1),
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -1, 1, 2),
+      { naam: 'cliff-prop-rock-a', x: 1, z: 0, laag: 0 },
+      { naam: 'cliff-prop-rock-b', x: 1, z: 1, laag: 0 },
     ],
   },
 ];

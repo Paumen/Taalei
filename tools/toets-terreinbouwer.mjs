@@ -412,6 +412,65 @@ toets(
   `${klifMid.sleutel} vs ${steilMid.sleutel}`,
 );
 
+/* -- wat de voorbeelden niet meer horen te doen ----------------------------
+ * Dit toetst geen regel van de kit maar een uitkomst van het beoordelen: van de
+ * 353 voegen in de eerste acht bouwsels zijn er zeven afgekeurd, en die zeven
+ * zeggen twee dingen. Ze horen niet in nieuwe voorbeelden terug te komen —
+ * niemand heeft er iets aan om dezelfde afkeuring nog eens te moeten geven.
+ *
+ * Let op wat hier níét staat: dat de bouwer deze dingen zou tegenhouden. Wie
+ * zelf bouwt mag alles neerzetten. Dit gaat alleen over wat wij voorschotelen.
+ */
+
+console.log('\n— wat de voorbeelden niet meer doen —');
+
+const voorbeelden = JSON.parse(
+  readFileSync(join(ROOT, 'tools/terreinbouwer/bouwsels.json'), 'utf8'),
+).bouwsels;
+
+const alleVoegen = voorbeelden.flatMap((v) => {
+  const model = new Bouwsel(kit);
+  model.noemer = v.naam;
+  for (const stuk of v.stukken) model.zet(stuk);
+  return naden(model).map((n) => ({ ...n, bouwsel: v.naam }));
+});
+
+/* De twee patronen die zijn afgekeurd, elk met het bouwsel waarin ze zijn
+ * afgekeurd. Die twee blijven staan: ze zijn beoordeeld, en ze zijn het bewijs.
+ * Weghalen zou de aanleiding wissen, en ze verbouwen zou de oordelen erover
+ * losmaken van waar ze over gingen. Nieuwe voorbeelden mogen ze niet herhalen —
+ * dezelfde afkeuring nog eens moeten geven levert niemand iets op. */
+const AFGEKEURD = [
+  {
+    wat: 'gras naast een -mid in plaats van een -top',
+    waar: 'Klif en steilrand naast elkaar',
+    treft: (n) => n.soort === 'rand'
+      && n.namen.some((naam) => naam.endsWith('-side-mid'))
+      && n.namen.includes('hilly-terrain-grass-floor'),
+  },
+  {
+    wat: 'zand tegen gras',
+    waar: 'Strand',
+    treft: (n) => n.soort === 'zij'
+      && n.namen.includes('beach-terrain-sand-floor')
+      && n.namen.includes('hilly-terrain-grass-floor'),
+  },
+];
+
+for (const { wat, waar, treft } of AFGEKEURD) {
+  const elders = [...new Set(alleVoegen.filter(treft).map((n) => n.bouwsel))]
+    .filter((naam) => naam !== waar);
+  toets(`alleen "${waar}" laat ${wat} zien`, elders.length === 0, elders.join(', '));
+}
+
+/* En elk voorbeeld moet iets te beoordelen opleveren; een bouwsel dat per
+ * ongeluk uit losse stukken bestaat is stil onbruikbaar. */
+toets(
+  'elk voorbeeld levert voegen op',
+  voorbeelden.every((v) => alleVoegen.some((n) => n.bouwsel === v.naam)),
+  voorbeelden.filter((v) => !alleVoegen.some((n) => n.bouwsel === v.naam)).map((v) => v.naam).join(', '),
+);
+
 /* -- versiestempel --------------------------------------------------------- */
 
 console.log('\n— versiestempel —');
