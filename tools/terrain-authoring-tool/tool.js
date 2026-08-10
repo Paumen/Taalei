@@ -23,7 +23,7 @@ const renderer = new THREE.WebGLRenderer({ canvas: doek, antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xe8e4da);
+scene.background = new THREE.Color(0xf2efe7);
 scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.4));
 const zon = new THREE.DirectionalLight(0xffffff, 1.5);
 zon.position.set(4, 8, 5);

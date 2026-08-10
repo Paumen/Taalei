@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 const HIER = dirname(fileURLToPath(import.meta.url));
 
 const INHOUD = [
-  join(HIER, 'bouwer.css'),
-  join(HIER, 'bouwer.js'),
+  join(HIER, 'tool.css'),
+  join(HIER, 'tool.js'),
   join(HIER, 'aansluiting.js'),
   join(HIER, 'bouwsels.json'),
   join(HIER, '..', '..', 'kits', 'modulair-terrein', 'aansluitingen.json'),
@@ -22,7 +22,7 @@ export function stempel() {
 
 export function metStempel(html, versie) {
   return html.replace(
-    /(href|src)="(bouwer\.css|bouwer\.js)(\?v=[0-9a-f]+)?"/g,
+    /(href|src)="(tool\.css|tool\.js)(\?v=[0-9a-f]+)?"/g,
     (_, attribuut, bestand) => `${attribuut}="${bestand}?v=${versie}"`,
   );
 }
