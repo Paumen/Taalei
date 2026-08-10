@@ -1,6 +1,6 @@
 {
  "kit": "modulair-terrein",
- "bron": "data/combinatieoordelen_13.json",
+ "bron": "data/combinatieoordelen_16.json",
  "gemaakt": "tools/leid-aansluitregels-af.mjs",
  "toelichting": "Per combinatie het samengevatte oordeel uit de combinatieoordelen. `goed`/`niet` waar alle voegen het eens zijn, `omstreden` waar bouwsels elkaar tegenspreken — kijk dan bij `bouwsels` welke context wat vond. `meting` telt wat aansluitingen.mjs van diezelfde voegen vond. `∅` is een zijde zonder randprofiel. Duiding: docs/aansluitregels_modulair-terrein.md.",
  "zij": [
@@ -8,11 +8,11 @@
    "randen": "r131|r131",
    "oordeel": "omstreden",
    "steun": {
-    "goed": 723,
+    "goed": 821,
     "niet": 2
    },
    "meting": {
-    "waar": 725,
+    "waar": 823,
     "onwaar": 0,
     "geen": 0
    },
@@ -99,6 +99,14 @@
     },
     "Twee bergen met gras eronder": {
      "goed": 123,
+     "niet": 0
+    },
+    "Poel in het gras": {
+     "goed": 58,
+     "niet": 0
+    },
+    "Steilrand binnenhoek 3x3": {
+     "goed": 40,
      "niet": 0
     }
    },
@@ -193,6 +201,60 @@
     "hilly-terrain-grass-floor@0 + shared-prop-boulder-a@0",
     "hilly-terrain-grass-floor@0 + shared-prop-boulder-c@0",
     "escarpment-terrain-side-falloff-center@0 + hilly-terrain-grass-floor@0"
+   ]
+  },
+  {
+   "randen": "r131|r146",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 64,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 64,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Poel in het gras": {
+     "goed": 64,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-grass-floor@0 + hilly-terrain-water-flat@0",
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-water-flat@0",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-water-flat@0"
+   ]
+  },
+  {
+   "randen": "r146|r146",
+   "oordeel": "omstreden",
+   "steun": {
+    "goed": 40,
+    "niet": 12
+   },
+   "meting": {
+    "waar": 52,
+    "onwaar": 0,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Beek met een boomstam erover": {
+     "goed": 0,
+     "niet": 6
+    },
+    "Beek, tweede poging": {
+     "goed": 0,
+     "niet": 6
+    },
+    "Poel in het gras": {
+     "goed": 40,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-water-flat@0 + hilly-terrain-water-flat@0"
    ]
   },
   {
@@ -448,32 +510,6 @@
    ]
   },
   {
-   "randen": "r146|r146",
-   "oordeel": "niet",
-   "steun": {
-    "goed": 0,
-    "niet": 12
-   },
-   "meting": {
-    "waar": 12,
-    "onwaar": 0,
-    "geen": 0
-   },
-   "bouwsels": {
-    "Beek met een boomstam erover": {
-     "goed": 0,
-     "niet": 6
-    },
-    "Beek, tweede poging": {
-     "goed": 0,
-     "niet": 6
-    }
-   },
-   "vormen": [
-    "hilly-terrain-water-flat@0 + hilly-terrain-water-flat@0"
-   ]
-  },
-  {
    "randen": "r055|r056",
    "oordeel": "goed",
    "steun": {
@@ -508,6 +544,87 @@
     "escarpment-terrain-side-mid@0 + escarpment-terrain-side-mid@0",
     "cliff-terrain-side-mid@0 + escarpment-terrain-side-mid@0",
     "escarpment-terrain-corner-inner-1x1-mid@0 + escarpment-terrain-side-mid@0"
+   ]
+  },
+  {
+   "randen": "r132|r135",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 11,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 11,
+    "onwaar": 0,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Van steil naar flauw": {
+     "goed": 3,
+     "niet": 0
+    },
+    "Poel in het gras": {
+     "goed": 8,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-side-sharp@0",
+    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0",
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-hill-side-sharp@270",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-hill-side-sharp@90"
+   ]
+  },
+  {
+   "randen": "r133|r134",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 11,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 11,
+    "onwaar": 0,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Van steil naar flauw": {
+     "goed": 3,
+     "niet": 0
+    },
+    "Poel in het gras": {
+     "goed": 8,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-side-sharp@0",
+    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0",
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-hill-side-sharp@270",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-hill-side-sharp@90"
+   ]
+  },
+  {
+   "randen": "r146|∅",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 10,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 10,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Poel in het gras": {
+     "goed": 10,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-water-flat@0",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-water-flat@0"
    ]
   },
   {
@@ -574,6 +691,52 @@
     "escarpment-terrain-side-top@270 + escarpment-terrain-side-top@270",
     "escarpment-terrain-corner-inner-1x1-top@0 + escarpment-terrain-side-top@0",
     "escarpment-terrain-corner-inner-1x1-top@0 + escarpment-terrain-side-top@90"
+   ]
+  },
+  {
+   "randen": "r133|r146",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 8,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 8,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Poel in het gras": {
+     "goed": 8,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-water-flat@0",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-water-flat@0"
+   ]
+  },
+  {
+   "randen": "r134|r146",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 8,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 8,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Poel in het gras": {
+     "goed": 8,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "hilly-terrain-hill-side-sharp@270 + hilly-terrain-water-flat@0",
+    "hilly-terrain-hill-side-sharp@90 + hilly-terrain-water-flat@0"
    ]
   },
   {
@@ -957,52 +1120,6 @@
    "vormen": [
     "hilly-terrain-grass-floor@0 + mountain-c@0",
     "hilly-terrain-grass-floor@0 + mountain-d@0"
-   ]
-  },
-  {
-   "randen": "r132|r135",
-   "oordeel": "goed",
-   "steun": {
-    "goed": 3,
-    "niet": 0
-   },
-   "meting": {
-    "waar": 3,
-    "onwaar": 0,
-    "geen": 0
-   },
-   "bouwsels": {
-    "Van steil naar flauw": {
-     "goed": 3,
-     "niet": 0
-    }
-   },
-   "vormen": [
-    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-side-sharp@0",
-    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0"
-   ]
-  },
-  {
-   "randen": "r133|r134",
-   "oordeel": "goed",
-   "steun": {
-    "goed": 3,
-    "niet": 0
-   },
-   "meting": {
-    "waar": 3,
-    "onwaar": 0,
-    "geen": 0
-   },
-   "bouwsels": {
-    "Van steil naar flauw": {
-     "goed": 3,
-     "niet": 0
-    }
-   },
-   "vormen": [
-    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-side-sharp@0",
-    "hilly-terrain-hill-side-sharp@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0"
    ]
   },
   {
@@ -2264,6 +2381,52 @@
    "slagenGelijk": true
   },
   {
+   "stukken": "escarpment-terrain-corner-inner-3x3-base>escarpment-terrain-corner-inner-3x3-mid",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 5,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 5,
+    "onwaar": 0,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Steilrand binnenhoek 3x3": {
+     "goed": 5,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "escarpment-terrain-corner-inner-3x3-base@0 + escarpment-terrain-corner-inner-3x3-mid@0"
+   ],
+   "slagenGelijk": true
+  },
+  {
+   "stukken": "escarpment-terrain-corner-inner-3x3-mid>escarpment-terrain-corner-inner-3x3-top",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 5,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 5,
+    "onwaar": 0,
+    "geen": 0
+   },
+   "bouwsels": {
+    "Steilrand binnenhoek 3x3": {
+     "goed": 5,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "escarpment-terrain-corner-inner-3x3-mid@0 + escarpment-terrain-corner-inner-3x3-top@0"
+   ],
+   "slagenGelijk": true
+  },
+  {
    "stukken": "escarpment-terrain-side-base>escarpment-terrain-side-top",
    "oordeel": "goed",
    "steun": {
@@ -2454,13 +2617,13 @@
    "randen": "r057>r131",
    "oordeel": "goed",
    "steun": {
-    "goed": 28,
+    "goed": 40,
     "niet": 0
    },
    "meting": {
     "waar": 0,
     "onwaar": 0,
-    "geen": 28
+    "geen": 40
    },
    "bouwsels": {
     "Klifwand van drie lagen": {
@@ -2485,6 +2648,14 @@
     },
     "Van steil naar flauw": {
      "goed": 8,
+     "niet": 0
+    },
+    "Poel in het gras": {
+     "goed": 10,
+     "niet": 0
+    },
+    "Steilrand binnenhoek 3x3": {
+     "goed": 2,
      "niet": 0
     }
    },
@@ -2854,6 +3025,33 @@
    ]
   },
   {
+   "randen": "r008>r131",
+   "oordeel": "omstreden",
+   "steun": {
+    "goed": 2,
+    "niet": 2
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 0,
+    "geen": 4
+   },
+   "bouwsels": {
+    "Van steil naar flauw": {
+     "goed": 2,
+     "niet": 0
+    },
+    "Steilrand binnenhoek 3x3": {
+     "goed": 0,
+     "niet": 2
+    }
+   },
+   "vormen": [
+    "hilly-terrain-grass-floor@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0",
+    "escarpment-terrain-corner-inner-3x3-top@0 + hilly-terrain-grass-floor@0"
+   ]
+  },
+  {
    "randen": "r131>r109",
    "oordeel": "goed",
    "steun": {
@@ -2971,28 +3169,6 @@
    "vormen": [
     "hilly-prop-bridge-log-end@180 + hilly-terrain-water-flat@0",
     "hilly-prop-bridge-log-end@0 + hilly-terrain-water-flat@0"
-   ]
-  },
-  {
-   "randen": "r008>r131",
-   "oordeel": "goed",
-   "steun": {
-    "goed": 2,
-    "niet": 0
-   },
-   "meting": {
-    "waar": 0,
-    "onwaar": 0,
-    "geen": 2
-   },
-   "bouwsels": {
-    "Van steil naar flauw": {
-     "goed": 2,
-     "niet": 0
-    }
-   },
-   "vormen": [
-    "hilly-terrain-grass-floor@0 + hilly-terrain-hill-transition-gentle-sharp-flush-base@0"
    ]
   },
   {
@@ -3152,6 +3328,60 @@
    ]
   },
   {
+   "randen": "r089>r131",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 2,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 0,
+    "geen": 2
+   },
+   "bouwsels": {
+    "Steilrand met binnenhoek": {
+     "goed": 1,
+     "niet": 0
+    },
+    "Steilrand binnenhoek 3x3": {
+     "goed": 1,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "escarpment-terrain-corner-inner-1x1-top@0 + hilly-terrain-grass-floor@0",
+    "escarpment-terrain-corner-inner-3x3-top@0 + hilly-terrain-grass-floor@0"
+   ]
+  },
+  {
+   "randen": "r090>r131",
+   "oordeel": "goed",
+   "steun": {
+    "goed": 2,
+    "niet": 0
+   },
+   "meting": {
+    "waar": 0,
+    "onwaar": 0,
+    "geen": 2
+   },
+   "bouwsels": {
+    "Steilrand met binnenhoek": {
+     "goed": 1,
+     "niet": 0
+    },
+    "Steilrand binnenhoek 3x3": {
+     "goed": 1,
+     "niet": 0
+    }
+   },
+   "vormen": [
+    "escarpment-terrain-corner-inner-1x1-top@0 + hilly-terrain-grass-floor@0",
+    "escarpment-terrain-corner-inner-3x3-top@0 + hilly-terrain-grass-floor@0"
+   ]
+  },
+  {
    "randen": "r114>r131",
    "oordeel": "niet",
    "steun": {
@@ -3262,11 +3492,11 @@
    ]
   },
   {
-   "randen": "r089>r131",
-   "oordeel": "goed",
+   "randen": "r087>r131",
+   "oordeel": "niet",
    "steun": {
-    "goed": 1,
-    "niet": 0
+    "goed": 0,
+    "niet": 1
    },
    "meting": {
     "waar": 0,
@@ -3274,21 +3504,21 @@
     "geen": 1
    },
    "bouwsels": {
-    "Steilrand met binnenhoek": {
-     "goed": 1,
-     "niet": 0
+    "Steilrand binnenhoek 3x3": {
+     "goed": 0,
+     "niet": 1
     }
    },
    "vormen": [
-    "escarpment-terrain-corner-inner-1x1-top@0 + hilly-terrain-grass-floor@0"
+    "escarpment-terrain-corner-inner-3x3-top@0 + hilly-terrain-grass-floor@0"
    ]
   },
   {
-   "randen": "r090>r131",
-   "oordeel": "goed",
+   "randen": "r088>r131",
+   "oordeel": "niet",
    "steun": {
-    "goed": 1,
-    "niet": 0
+    "goed": 0,
+    "niet": 1
    },
    "meting": {
     "waar": 0,
@@ -3296,13 +3526,13 @@
     "geen": 1
    },
    "bouwsels": {
-    "Steilrand met binnenhoek": {
-     "goed": 1,
-     "niet": 0
+    "Steilrand binnenhoek 3x3": {
+     "goed": 0,
+     "niet": 1
     }
    },
    "vormen": [
-    "escarpment-terrain-corner-inner-1x1-top@0 + hilly-terrain-grass-floor@0"
+    "escarpment-terrain-corner-inner-3x3-top@0 + hilly-terrain-grass-floor@0"
    ]
   },
   {
@@ -3550,6 +3780,16 @@
    "o": "r134 r135",
    "w": "r132 r133"
   },
+  "hilly-terrain-hill-side-sharp@1": {
+   "n": "r134 r135",
+   "w": "r131 ∅",
+   "z": "r132 r133"
+  },
+  "hilly-terrain-hill-side-sharp@3": {
+   "n": "r132 r133",
+   "o": "r131 ∅",
+   "z": "r134 r135"
+  },
   "hilly-terrain-hill-transition-gentle-sharp-flush-base@0": {
    "n": "r131",
    "o": "r136 r138 r140 r142",
@@ -3557,6 +3797,8 @@
   },
   "hilly-terrain-water-flat@0": {
    "n": "r146",
+   "o": "r146",
+   "w": "r146",
    "z": "r146"
   },
   "mountain-a@0": {

@@ -1,23 +1,25 @@
 # Aansluitregels modulair terrein
 
-Afgeleid uit `data/combinatieoordelen_13.json`: 1685 oordelen over voegen in
-21 proefbouwsels met de modulair-terrein-kit, uitgesproken in de
-terreinbouwer. Elke voeg draagt ook mee wat `aansluitingen.mjs` erover mat;
-het oordeel gaat voor de meting. `tools/leid-aansluitregels-af.mjs` vat de
-oordelen samen per combinatie en schrijft
-`data/aansluitregels_modulair-terrein.json` — 82 zij-regels, 12
-stapelregels en 37 randregels, elk met steun, meting en de bouwsels waar ze
-vandaan komen. Dit document duidt ze.
+Afgeleid uit `data/combinatieoordelen_16.json`: 1957 oordelen over voegen
+in 23 proefbouwsels met de modulair-terrein-kit, uitgesproken in de
+terreinbouwer. Ronde zestien bevat ronde dertien volledig en ongewijzigd
+(geen enkel oordeel omgedraaid) plus 272 nieuwe voegen; de dertiende
+ronde staat als `data/combinatieoordelen_13.json` ernaast. Elke voeg
+draagt ook mee wat `aansluitingen.mjs` erover mat; het oordeel gaat voor
+de meting. `tools/leid-aansluitregels-af.mjs` vat de oordelen samen per
+combinatie en schrijft `data/aansluitregels_modulair-terrein.json` — 86
+zij-regels, 14 stapelregels en 39 randregels, elk met steun, meting en de
+bouwsels waar ze vandaan komen. Dit document duidt ze.
 
 ## Hoe de oordelen in elkaar zitten
 
 Drie soorten voegen:
 
-- **zij** (1416 oordelen) — twee stukken naast elkaar. De sleutel is het
+- **zij** (1660 oordelen) — twee stukken naast elkaar. De sleutel is het
   paar randprofielen (codes als `r131`) van de twee zijden die elkaar raken.
-- **stapel** (57) — het ene stuk boven op het andere. Hier zijn geen
+- **stapel** (67) — het ene stuk boven op het andere. Hier zijn geen
   randprofielen; de sleutel is het modelpaar onder>boven.
-- **rand** (212) — de open zijkant van een stapeling: sluiten de
+- **rand** (230) — de open zijkant van een stapeling: sluiten de
   zijprofielen van onderstuk en bovenstuk netjes op elkaar aan? Geordend
   paar onder>boven; hier valt niets te meten (`meting: null`).
 
@@ -31,24 +33,30 @@ bevat als naslag per model@slag de waargenomen code per zijde
 
 ### Stapelen: vertrouw de meting
 
-Bij alle 57 stapelvoegen valt het oordeel samen met de meting — goed én
+Bij alle 67 stapelvoegen valt het oordeel samen met de meting — goed én
 fout. Wat past: binnen een wandfamilie stapelt base → mid → top, ook met de
-hoekstukken ertussen, en steeds met dezelfde slag voor beide stukken. Wat
+hoekstukken ertussen (inclusief de 3x3-binnenhoek), en steeds met dezelfde
+slag voor beide stukken. Wat
 niet past: een vloertegel (gras, water) boven op een afstapstuk. Voor
 stapelen is geen regelbestand nodig naast `aansluitingen.mjs`.
 
 ### Naast elkaar (zij): meting alleen is niet genoeg
 
 Meting en oordeel lopen hier flink uiteen (goedgekeurd terwijl de meting
-"past niet" zei: 415 van de 1416; afgekeurd terwijl ze "past" zei: 26). De
+"past niet" zei: 505 van de 1660; afgekeurd terwijl ze "past" zei: 26). De
 patronen erachter:
 
 1. **Zelfde vloerprofiel tegen zichzelf past.** Gras↔gras (`r131|r131`):
-   723× goed. Zand↔zand (`r009|r009`): 13× goed.
-2. **…behalve water.** Water↔water (`r146|r146`) is 12× afgekeurd, ook al
-   past het volgens de meting — óók in de goedgekeurde herbouw van de beek.
-   De watertegel is kennelijk een op zichzelf staande bak, geen tegel om
-   uit te leggen tot een vlak.
+   781× goed. Zand↔zand (`r009|r009`): 13× goed. En sinds ronde zestien
+   ook water↔water: in de Poel in het gras 40× goed, en water↔gras
+   (`r131|r146`) daar 64× goed.
+2. **…behalve water in de verdiepte beeksleuf.** Dezelfde
+   water↔water-voeg is in beide beekbouwsels 12× afgekeurd, ook al past
+   hij volgens de meting. Met de poel ernaast is de regel dus niet "nooit
+   water naast water" — zoals dit document tot ronde zestien stelde —
+   maar: op vloerniveau, breed uitgelegd als poel, is water naast water
+   en naast gras gewoon goed; in de smalle sleuf een laag dieper werd
+   precies dezelfde voeg afgekeurd.
 3. **Wandstukken passen in serie.** Linker- en rechterprofiel van hetzelfde
    wandtype en dezelfde laag zijn complementair en steeds goed: klif
    base/mid/top (`r053|r054`, `r055|r056`, `r045|r046`), steilrand idem
@@ -93,10 +101,29 @@ patronen erachter:
    afgekeurd; onder de afstapflanken: 24× afgekeurd; onder de brugstukken:
    8× afgekeurd.
 
+## Ronde zestien: de poel en de 3x3-hoek
+
+De 272 nieuwe voegen komen uit twee bouwsels, en allebei verschuiven ze
+iets:
+
+- **Poel in het gras** (214 voegen, alles goed) — grasvloer, watertegels
+  en steile heuvelzijden op vloerniveau. Dit bouwsel keurt in één klap
+  goed wat de beekbouwsels leken te verbieden: water naast water (40×),
+  water naast gras (64×) en water tegen de heuvelzijden (16×). De
+  waterregel is daarmee herschreven (regel 1 en 2 hierboven): niet de
+  watertegel was het probleem, de smalle verdiepte sleuf was het.
+- **Steilrand binnenhoek 3x3** (58 voegen) — de drie lagen van de hoek
+  stapelen foutloos en vrijwel alle randen zijn goed, maar precies de
+  vier open randvoegen waar het grasplateau zonder wand eronder ophoudt
+  zijn afgekeurd. Dat bevestigt wat de goedgekeurde referenties al lieten
+  zien: een plateaurand hoort op wand te rusten. Het maakt ook
+  `r008>r131` omstreden — hetzelfde codepaar was in "Van steil naar
+  flauw" wél goed, met wand eronder.
+
 ## Tegenstrijdigheden: eerste en tweede poging
 
-17 van de 82 zij-regels zijn omstreden — dezelfde profielcombinatie goed-
-én afgekeurd. Op twee na volgen ze allemaal hetzelfde patroon: de
+18 van de 86 zij-regels zijn omstreden — dezelfde profielcombinatie goed-
+én afgekeurd. Op drie na volgen ze allemaal hetzelfde patroon: de
 afkeuringen komen uit een eerder bouwsel, de goedkeuringen uit een latere
 herbouw van hetzelfde idee. "Beek met een boomstam erover" tegenover
 "Beek, tweede poging"; "Bergrug van drie" tegenover "Twee bergen met gras
@@ -105,7 +132,7 @@ opstelling: het oordeel ging daar over de opstelling, niet over het paar.
 Wie de regels toepast kan de latere bouwsels als leidend nemen; het
 regelbestand laat beide contexten staan.
 
-De twee echte uitzonderingen:
+De drie echte uitzonderingen:
 
 - `r009|r131` — code `r009` zit op de zandvloer én op bergwanden. Zandvloer
   naast gras is afgekeurd (regel 5), berg naast gras goedgekeurd (regel 4).
@@ -113,6 +140,9 @@ De twee echte uitzonderingen:
   en moet je naar het stuk kijken.
 - `r118|r131` — staméinde naast gras, in de tweede poging juist afgekeurd.
   Onderdeel van de onopgeloste brug (regel 8).
+- `r146|r146` — water naast water: fout in de verdiepte beeksleuf, goed
+  in de poel op vloerniveau (regel 2). Ook hier beslist de omgeving, niet
+  het paar.
 
 ## Wat een codepaar niet vangt
 
@@ -125,16 +155,14 @@ een kleine restcategorie waar het model zelf de doorslag geeft.
 
 ## Volgende ronde
 
-`tools/terreinbouwer/bouwsels.json` bevat naast de eenentwintig bouwsels
-van de eerste dertien rondes negen nieuwe proefbouwsels die de open
-kwesties hierboven en de nooit beoordeelde stukfamilies (76 van de 116
-kitstukken) aan de beurt laten komen: een vijver die helemaal door
-falloffs wordt ingesloten, een beek met bocht (water-curve) en een met
-verval (water-slope), een derde brugpoging met de paal- en
-leuningstukken, het zandterras van de strandfamilie, de meercellige
-klif- en steilrandhoeken, het heuvelplateau met hoekstukken, en de
-waterval. Per bouwsel staat erbij welke vraag het oordeel moet
-beantwoorden.
+`tools/terreinbouwer/bouwsels.json` bevat naast de bouwsels van de eerste
+dertien rondes negen nieuw voorgestelde proefbouwsels. Die zijn door de
+beoordelaar grotendeels afgekeurd als opstelling: alleen Klifhoek 2x2
+stond goed, en Steilrand binnenhoek 3x3 is daarna tegen meting en
+referentie herbouwd en in ronde zestien beoordeeld. De overige zeven
+staan er nog zoals ze waren en zijn niet als voorbeeld te vertrouwen. De
+watervraag die drie ervan moesten beantwoorden is intussen ingehaald
+door "Poel in het gras" van de beoordelaar zelf.
 
 ## Reproduceren
 
@@ -142,6 +170,6 @@ beantwoorden.
 node tools/leid-aansluitregels-af.mjs
 ```
 
-Leest `data/combinatieoordelen_13.json`, schrijft
+Leest `data/combinatieoordelen_16.json`, schrijft
 `data/aansluitregels_modulair-terrein.json`. Een ander oordelenbestand kan
 als eerste argument mee.

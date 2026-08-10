@@ -4,7 +4,7 @@
  *
  *   node tools/leid-aansluitregels-af.mjs [pad-naar-oordelen.json]
  *
- * Zonder argument leest het data/combinatieoordelen_13.json en schrijft het
+ * Zonder argument leest het data/combinatieoordelen_16.json en schrijft het
  * data/aansluitregels_modulair-terrein.json. De oordelen zijn per voeg
  * uitgesproken; dit script vat ze samen tot regels per combinatie en spreekt
  * daar zelf géén oordeel over uit: een combinatie die zowel goed- als
@@ -32,7 +32,7 @@ import { join, dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const BRON = process.argv[2] ?? join(ROOT, 'data', 'combinatieoordelen_13.json');
+const BRON = process.argv[2] ?? join(ROOT, 'data', 'combinatieoordelen_16.json');
 const DOEL = join(ROOT, 'data', 'aansluitregels_modulair-terrein.json');
 
 let bron;
