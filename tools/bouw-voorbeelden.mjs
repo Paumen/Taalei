@@ -449,6 +449,45 @@ const BOUWSELS = [
       { naam: 'mountain-c', x: 3, z: 0, laag: 0 },
     ],
   },
+
+  /* ── vijfde lichting: water als deken, niet als vulling ──────────────────
+   *
+   * De tweede poging voor de beek ging van 126 afkeuringen naar 56, en wat er
+   * overbleef staat bijna helemaal op twee dingen: water tegen water (6 van de
+   * 6, ook in de eerste poging) en water tegen gras schuin erboven (14 van de
+   * 14). Terwijl water tégen het wandje er 14 van de 14 doorheen kwam.
+   *
+   * Dat is een aanwijzing en geen ruis. `hilly-terrain-water-slope` loopt van
+   * 0,35 naar 0,85; `hilly-terrain-hill-side-sharp` loopt van 0,1 naar 0,6.
+   * Overal precies 0,25 verschil. Water is in deze kit geen vulling die je in
+   * een gat giet maar een deken die je 0,25 boven het terrein van dezelfde laag
+   * legt. Mijn geul had helemaal geen bodem: het water hing in een sleuf.
+   *
+   * Deze poel heeft die bodem wel. Gras op laag −1 als bed, water op laag −1
+   * erboven — een kwart unit diep — en hellingen die van dat bed naar de
+   * vlakte op laag 0 klimmen. De hellingen zijn er ook om een tweede reden:
+   * grastegel tegen grastegel over een laagsprong heb je nu tien van de tien
+   * keer afgekeurd, dus tussen twee vlaktes van verschillende hoogte hoort iets
+   * dat het verschil overbrugt.
+   */
+  {
+    naam: 'Poel in het gras',
+    waarover: 'Een kom met water erin: gras op laag −1 als bodem, water er een '
+      + 'kwart unit boven, en hellingen die naar de vlakte klimmen. Water is in '
+      + 'deze kit overal 0,25 hoger dan het terrein van dezelfde laag — als deken '
+      + 'over de bodem klopt dat, als vulling in een sleuf niet.',
+    stukken: [
+      ...vlak('hilly-terrain-grass-floor', -1, 1, -2, 2, -1),
+      /* Het water loopt één vak de hellingen in. Zonder dat houdt het vlak
+       * midden in de lucht op en zie je zijn snijkant; nu duikt het onder de
+       * helling door en ontstaat er een waterlijn. */
+      ...vlak('hilly-terrain-water-flat', -2, 2, -2, 2, -1),
+      ...rijZ('hilly-terrain-hill-side-sharp', -2, -2, 2, -1, 3),
+      ...rijZ('hilly-terrain-hill-side-sharp', 2, -2, 2, -1, 1),
+      ...vlak('hilly-terrain-grass-floor', -5, -4, -2, 2, 0),
+      ...vlak('hilly-terrain-grass-floor', 4, 5, -2, 2, 0),
+    ],
+  },
 ];
 
 /* -- nakijken en wegschrijven ---------------------------------------------- */
