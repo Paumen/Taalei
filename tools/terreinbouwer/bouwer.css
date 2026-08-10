@@ -596,3 +596,67 @@ button {
   color: var(--grijs);
   font-size: 12px;
 }
+
+/* -- één voeg bekijken -----------------------------------------------------
+ * De balk die de gewone knoppenbalk vervangt zodra je een combinatie staat te
+ * bekijken. Twee rijen, want op 412 beeldpunten passen zes knoppen niet naast
+ * elkaar en alles moet raakbaar blijven.
+ */
+
+.voet-kijk {
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* `display: flex` op .voet wint van de standaardregel voor [hidden], dus
+ * verbergen moet hier met zoveel woorden — anders staan beide balken tegelijk
+ * in beeld. */
+.voet[hidden] { display: none; }
+
+.kijk-rij {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kijk-info {
+  overflow: hidden;
+  min-width: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.kijk-info span {
+  display: block;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kijk-info small {
+  display: block;
+  color: var(--grijs);
+  font-size: 11px;
+}
+
+.voet-kijk .doe { flex: 1; }
+
+.voet-kijk .doe[aria-pressed="true"] { box-shadow: inset 0 0 0 3px var(--inkt); }
+
+/* de hele kop van een combinatieblok is aantikbaar om hem te gaan bekijken */
+.combo-toon {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  text-align: left;
+  background: none;
+}
+
+.combo-toon::after {
+  content: " ›  bekijk";
+  color: var(--aandacht);
+  font-size: 11px;
+}

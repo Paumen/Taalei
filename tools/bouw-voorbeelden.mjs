@@ -2,6 +2,22 @@
  * Bouwt een handvol voorbeeldbouwsels en schrijft ze weg als
  * tools/terreinbouwer/bouwsels.json.
  *
+ * ── Getallen zijn niet genoeg ──────────────────────────────────────────────
+ *
+ * Een eerdere ronde ging hier de mist in. De bouwsels werden nagerekend — zoveel
+ * voegen, zoveel sluiten er — en op grond daarvan goed bevonden, zonder dat er
+ * ooit iemand naar gekeken had. Vijf van de zes waren onbruikbaar: hellingen die
+ * over elkaar heen vielen omdat een stuk van 1×4 vier keer achter elkaar was
+ * gezet in plaats van naast elkaar, water dat een kwart unit boven het gras
+ * zweefde, een waterval zonder water erin, en hoeken waarvan de draaistand was
+ * gekozen door een zoekfunctie die op het aantal sluitende voegen optimaliseert
+ * en niet op hoe het eruitziet.
+ *
+ * De les staat in tools/kijk-bouwsels.mjs: die zet elk bouwsel op een plaatje in
+ * docs/bouwsels/, en dat plaatje hoort bekeken te worden voordat er iets de deur
+ * uit gaat. Een hoog aantal sluitende voegen zegt dat de randen op elkaar
+ * passen. Het zegt niets over of het ergens op lijkt.
+ *
  * Draai vanuit de repo-root:
  *
  *     node tools/bouw-voorbeelden.mjs            # schrijf het bestand
@@ -138,21 +154,6 @@ const BOUWSELS = [
     ],
   },
   {
-    naam: 'Waterval',
-    waarover: 'De watervalstukken over drie lagen, met het water erin.',
-    stukken: [
-      { naam: 'cliff-terrain-waterfall-base-flat', x: 0, z: 0, laag: 0 },
-      { naam: 'cliff-terrain-waterfall-mid', x: 0, z: 0, laag: 1 },
-      { naam: 'cliff-terrain-waterfall-top', x: 0, z: 0, laag: 2 },
-      { naam: 'cliff-terrain-side-base', x: 0, z: -1, laag: 0 },
-      { naam: 'cliff-terrain-side-mid', x: 0, z: -1, laag: 1 },
-      { naam: 'cliff-terrain-side-top', x: 0, z: -1, laag: 2 },
-      { naam: 'cliff-terrain-side-base', x: 0, z: 1, laag: 0 },
-      { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 1 },
-      { naam: 'cliff-terrain-side-top', x: 0, z: 1, laag: 2 },
-    ],
-  },
-  {
     naam: 'Strand',
     waarover: 'Zand tegen zand, en zand tegen gras. Dat laatste scheelt een '
       + 'tiende unit in hoogte — zichtbaar of niet, dat is aan jou.',
@@ -162,99 +163,18 @@ const BOUWSELS = [
     ],
   },
   {
-    naam: 'Klifhoek naar binnen',
-    waarover: 'Een binnenbocht van drie lagen waar twee wanden samenkomen. De '
-      + 'draaistanden zijn opgezocht, niet gegokt.',
-    stukken: metBesteDraai(
-      [
-        ...rijZ('cliff-terrain-side-base', 0, 1, 2, 0),
-        ...rijZ('cliff-terrain-side-mid', 0, 1, 2, 1),
-        ...rijZ('cliff-terrain-side-top', 0, 1, 2, 2),
-      ],
-      [
-        [
-          { naam: 'cliff-terrain-corner-inner-1x1-base', x: 0, z: 0, laag: 0 },
-          { naam: 'cliff-terrain-corner-inner-1x1-mid', x: 0, z: 0, laag: 1 },
-          { naam: 'cliff-terrain-corner-inner-1x1-top', x: 0, z: 0, laag: 2 },
-        ],
-        [
-          { naam: 'cliff-terrain-side-base', x: -1, z: 0, laag: 0 },
-          { naam: 'cliff-terrain-side-mid', x: -1, z: 0, laag: 1 },
-          { naam: 'cliff-terrain-side-top', x: -1, z: 0, laag: 2 },
-          { naam: 'cliff-terrain-side-base', x: -2, z: 0, laag: 0 },
-          { naam: 'cliff-terrain-side-mid', x: -2, z: 0, laag: 1 },
-          { naam: 'cliff-terrain-side-top', x: -2, z: 0, laag: 2 },
-        ],
-      ],
-    ),
-  },
-  {
-    naam: 'Klifhoek naar buiten',
-    waarover: 'Een buitenbocht van 2×2 over drie lagen. Zijn -mid vult maar drie '
-      + 'van de vier vakken; het lege vak hoort erbij.',
-    stukken: metBesteDraai(
-      [
-        ...rijZ('cliff-terrain-side-base', 0, 2, 3, 0),
-        ...rijZ('cliff-terrain-side-mid', 0, 2, 3, 1),
-        ...rijZ('cliff-terrain-side-top', 0, 2, 3, 2),
-      ],
-      [
-        [
-          { naam: 'cliff-terrain-corner-outer-2x2-base', x: 0, z: 0, laag: 0 },
-          { naam: 'cliff-terrain-corner-outer-2x2-mid', x: 0, z: 0, laag: 1 },
-          { naam: 'cliff-terrain-corner-outer-2x2-top', x: 0, z: 0, laag: 2 },
-        ],
-        /* Een tweede arm, anders raakt de hoek maar aan één kant iets en valt
-         * er nauwelijks een voeg te beoordelen. */
-        [
-          { naam: 'cliff-terrain-side-base', x: 2, z: -1, laag: 0 },
-          { naam: 'cliff-terrain-side-mid', x: 2, z: -1, laag: 1 },
-          { naam: 'cliff-terrain-side-top', x: 2, z: -1, laag: 2 },
-          { naam: 'cliff-terrain-side-base', x: 3, z: -1, laag: 0 },
-          { naam: 'cliff-terrain-side-mid', x: 3, z: -1, laag: 1 },
-          { naam: 'cliff-terrain-side-top', x: 3, z: -1, laag: 2 },
-        ],
-      ],
-    ),
-  },
-  {
     naam: 'Heuvel in het gras',
-    waarover: 'Een glooiing van 0,1 naar 0,6 met de grasvlakte eronder en '
-      + 'erboven. Hellingen zijn de lastigste voegen van de kit.',
-    stukken: metBesteDraai(
-      [
-        ...vlak('hilly-terrain-grass-floor', -2, -1, -1, 2, 0),
-        ...vlak('hilly-terrain-grass-floor', 3, 4, -1, 2, 1),
-      ],
-      [[
-        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: -1, laag: 0 },
-        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 0, laag: 0 },
-        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 1, laag: 0 },
-        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 2, laag: 0 },
-      ]],
-    ),
-  },
-  {
-    naam: 'Beek',
-    waarover: 'Water tussen het gras. Het water ligt op 0,35 en het gras op 0,1 — '
-      + 'de vraag is of dat een oever is of een fout.',
+    waarover: 'Een glooiing van 0,1 naar 0,6, met gras op laag 0 ervoor en op '
+      + 'laag 1 erachter — precies de hoogtes waar de helling op uitkomt.',
     stukken: [
-      ...vlak('hilly-terrain-grass-floor', -2, -1, -2, 2, 0),
-      ...vlak('hilly-terrain-water-flat', 0, 0, -2, 2, 0),
-      ...vlak('hilly-terrain-grass-floor', 1, 2, -2, 2, 0),
+      /* hilly-terrain-hill-side-gentle is 1 vak breed en 4 diep (z 0…3) en
+       * loopt van y 0,1 naar 0,6. Vier stuks naast elkaar over x geven een
+       * helling van vier vakken breed. Ze achter elkaar over z zetten laat ze
+       * over elkaar heen vallen — dat was de fout van de vorige ronde. */
+      ...vlak('hilly-terrain-hill-side-gentle', 0, 3, 0, 0, 0),
+      ...vlak('hilly-terrain-grass-floor', 0, 3, -2, -1, 0),
+      ...vlak('hilly-terrain-grass-floor', 0, 3, 4, 5, 1),
     ],
-  },
-  {
-    naam: 'Strandhelling',
-    waarover: 'Van zand op 0 via de helling naar zand op 0,25. Zes vakken lang, '
-      + 'dus zes voegen in één stuk.',
-    stukken: metBesteDraai(
-      [
-        ...vlak('beach-terrain-sand-floor', -2, -1, 0, 5, 0),
-        ...vlak('beach-terrain-sand-floor-raised', 1, 2, 0, 5, 0),
-      ],
-      [[{ naam: 'beach-terrain-sand-side-gentle', x: 0, z: 0, laag: 0 }]],
-    ),
   },
   {
     naam: 'Berg op de vlakte',

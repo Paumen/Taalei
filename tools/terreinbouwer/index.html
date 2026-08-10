@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#e8e4da">
 <title>Terreinbouwer</title>
-<link rel="stylesheet" href="bouwer.css?v=7d0d8782fe">
+<link rel="stylesheet" href="bouwer.css?v=683993ef26">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧱</text></svg>">
 <!-- Relatieve paden, geen absolute: zo werkt de bouwer zowel op de lokale
      server als op de gepubliceerde site, die onder /Taalei/ staat. -->
@@ -66,6 +66,25 @@
   </button>
   <button type="button" class="doe doe-zet" id="zet" disabled>Zet neer</button>
   <button type="button" class="doe doe-weg" id="weg" disabled>Weg</button>
+</footer>
+
+<!-- De balk waarmee je één voeg staat te bekijken. Vervangt de gewone
+     knoppenbalk, want dan gaat het even nergens anders over: je kijkt naar één
+     aansluiting en zegt er iets van. -->
+<footer class="voet voet-kijk" id="voet-kijk" hidden>
+  <div class="kijk-rij">
+    <button type="button" class="knop" id="kijk-vorige" aria-label="Vorige voeg">‹</button>
+    <div class="kijk-info">
+      <span id="kijk-namen"></span>
+      <small id="kijk-bij"></small>
+    </div>
+    <button type="button" class="knop" id="kijk-volgende" aria-label="Volgende voeg">›</button>
+  </div>
+  <div class="kijk-rij">
+    <button type="button" class="doe doe-zet" id="kijk-goed">✓ goed</button>
+    <button type="button" class="doe doe-weg" id="kijk-niet">✗ niet</button>
+    <button type="button" class="knop" id="kijk-stop" aria-label="Klaar met kijken">✕</button>
+  </div>
 </footer>
 
 <!-- Eén blad dat van onderen opkomt, met wisselende inhoud. Op een telefoon is
@@ -150,6 +169,6 @@
 })();
 </script>
 
-<script src="bouwer.js?v=7d0d8782fe" type="module"></script>
+<script src="bouwer.js?v=683993ef26" type="module"></script>
 </body>
 </html>

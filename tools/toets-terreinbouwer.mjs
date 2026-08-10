@@ -632,11 +632,73 @@ for (const b of perBouwsel) {
   );
 }
 
+/* -- één voeg bekijken -----------------------------------------------------
+ * Een regel in de lijst staat voor een combinatie die tien keer in een bouwsel
+ * kan zitten. Met alleen twee stuknamen erbij is niet te zien wélke voeg je
+ * beoordeelt; bekijken moet de voeg zelf in beeld zetten.
+ */
+
 await blad.evaluate(async () => {
   const T = window.TERREINBOUWER;
   await T.openBouwsel(T.voorbeelden.find((v) => v.naam.startsWith('Klifwand')));
 });
+
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Combinaties' }).tap();
+const eersteCombo = blad.locator('.combo').first();
+const comboNaam = await eersteCombo.locator('.combo-namen').innerText();
+await eersteCombo.locator('.combo-toon').tap();
+
+toets('bekijken sluit het blad', await blad.locator('#blad').isHidden());
+toets('en toont de kijkbalk', await blad.locator('#voet-kijk').isVisible());
+toets('de gewone knoppenbalk gaat weg', await blad.locator('.voet:not(.voet-kijk)').isHidden());
+toets(
+  'de kijkbalk noemt dezelfde stukken',
+  (await blad.locator('#kijk-namen').innerText()).replace(/\s+/g, ' ')
+    === comboNaam.replace(/\s+/g, ' '),
+  `${await blad.locator('#kijk-namen').innerText()} vs ${comboNaam}`,
+);
+toets(
+  'en zegt de hoeveelste voeg het is',
+  /voeg \d+ van \d+/.test(await blad.locator('#kijk-bij').innerText()),
+  await blad.locator('#kijk-bij').innerText(),
+);
+
+/* De blauwe lijn moet er ook echt zijn — anders wijst de balk naar niets. */
+toets(
+  'er wordt een voeg aangewezen in beeld',
+  await blad.evaluate(() => {
+    const T = window.TERREINBOUWER;
+    const lijn = T.scene.children.find((k) => k.isLineSegments && k.renderOrder === 7);
+    return !!lijn && lijn.visible && lijn.geometry.getAttribute('position').count > 0;
+  }),
+);
+
+/* Volgende voeg: de wijzer moet meeverspringen, anders kijk je nog naar de
+ * vorige. */
+const voorVolgende = await wijzer(blad);
+await blad.locator('#kijk-volgende').tap();
+toets('volgende voeg verplaatst de wijzer', await wijzer(blad) !== voorVolgende,
+  `${voorVolgende} → ${await wijzer(blad)}`);
+
+await blad.locator('#kijk-goed').tap();
+toets(
+  'oordelen kan vanuit de kijkbalk',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) > 0,
+);
+toets('en de knop laat zien dat het vastligt',
+  await blad.locator('#kijk-goed').getAttribute('aria-pressed') === 'true');
+
 await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
+
+await blad.locator('#kijk-stop').tap();
+toets('klaar met kijken brengt de knoppenbalk terug',
+  await blad.locator('.voet:not(.voet-kijk)').isVisible());
+toets('en de aanwijzing verdwijnt', await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  const lijn = T.scene.children.find((k) => k.isLineSegments && k.renderOrder === 7);
+  return !lijn.visible;
+}));
 console.log('  schermafbeelding → docs/terreinbouwer.png');
 await blad.close();
 

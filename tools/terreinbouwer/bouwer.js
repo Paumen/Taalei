@@ -231,6 +231,17 @@ const naadFout = (() => {
   return lijn;
 })();
 
+/** De voeg die je op dit moment staat te bekijken, fel en bovenop alles. */
+const gemarkeerd = (() => {
+  const lijn = new THREE.LineSegments(
+    new THREE.BufferGeometry(),
+    new THREE.LineBasicMaterial({ color: 0x2b6cb0, depthTest: false, transparent: true }),
+  );
+  lijn.renderOrder = 7;
+  scene.add(lijn);
+  return lijn;
+})();
+
 function vulLijnen(lijn, punten) {
   lijn.geometry.dispose();
   const meetkunde = new THREE.BufferGeometry();
@@ -272,6 +283,9 @@ const stand = {
   slagen: 0,
   laag: 0,
   wijzer: [0, 0],
+  /* Welke combinatie je staat te bekijken, en de hoeveelste voeg ervan.
+   * `null` betekent gewoon bouwen. */
+  kijk: null,
 };
 
 /* -- geschiedenis ----------------------------------------------------------
@@ -452,12 +466,21 @@ function werkBijAlles() {
       punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
     }
   }
-  vulLijnen(naadFout, punten);
+  /* Tijdens het kijken staan de rode naden uit: anders is niet te zien welke
+   * lijn erbij hoort. */
+  vulLijnen(naadFout, stand.kijk ? [] : punten);
+  tekenGemarkeerd();
+  werkKijkBalkBij();
 
   werkWenkBij(bewoner);
 }
 
 function werkWenkBij(bewoner) {
+  if (stand.kijk) {
+    wenkBalk.hidden = false;
+    wenkBalk.textContent = 'De blauwe lijn is deze voeg.';
+    return;
+  }
   if (!stand.penseel) {
     wenkBalk.hidden = false;
     wenkBalk.textContent = 'Tik op "stuk" om er een te kiezen.';
@@ -474,6 +497,100 @@ function werkWenkBij(bewoner) {
     return;
   }
   wenkBalk.hidden = true;
+}
+
+/* -- één voeg bekijken -----------------------------------------------------
+ * Het antwoord op "ik zie niet welke voeg ik beoordeel". Een regel in de lijst
+ * staat voor een combinatie, en die kan tien keer in een bouwsel zitten; met
+ * alleen twee stuknamen erbij is niet te zien wélke.
+ *
+ * Bekijken zet daarom de voeg zelf in beeld: de doorsnede wordt fel getekend op
+ * de plek waar hij zit, de camera draait ernaartoe, en de knoppenbalk maakt
+ * plaats voor "vorige / volgende / goed / niet". Zo oordeel je over wat je ziet
+ * in plaats van over twee namen.
+ */
+
+const voetGewoon = document.querySelector('.voet:not(.voet-kijk)');
+const voetKijk = document.getElementById('voet-kijk');
+
+function beginKijken(sleutel) {
+  const lijst = naden(bouwsel).filter((n) => n.sleutel === sleutel);
+  if (lijst.length === 0) return;
+  stand.kijk = { sleutel, lijst, index: 0 };
+  sluitBlad();
+  kijkNaar(0);
+}
+
+function stopKijken() {
+  stand.kijk = null;
+  werkBijAlles();
+}
+
+/** Naar de zoveelste voeg van de bekeken combinatie kijken. */
+function kijkNaar(index) {
+  if (!stand.kijk) return;
+  const { lijst } = stand.kijk;
+  stand.kijk.index = ((index % lijst.length) + lijst.length) % lijst.length;
+  const naad = lijst[stand.kijk.index];
+
+  /* De wijzer op het vak van de voeg, de camera erheen. Van dichtbij, want een
+   * voeg is een halve unit breed en je moet er iets van kunnen zien. */
+  stand.wijzer = [naad.plek.x, naad.plek.z];
+  stand.laag = naad.plek.laag;
+  zetLaagUit();
+
+  const [dx, dz] = STAP[naad.plek.zijde];
+  const midX = (naad.plek.x + dx / 2) * VAK;
+  const midZ = (naad.plek.z + dz / 2) * VAK;
+  stuur.target.set(midX, naad.plek.laag * LAAG + 0.25, midZ);
+  camera.position.set(midX + 1.1, naad.plek.laag * LAAG + 1.0, midZ + 1.4);
+  stuur.update();
+
+  werkBijAlles();
+}
+
+/** De doorsnedes van de bekeken combinatie, alle plekken tegelijk. */
+function tekenGemarkeerd() {
+  if (!stand.kijk) {
+    vulLijnen(gemarkeerd, []);
+    return;
+  }
+  const punten = [];
+  for (const naad of stand.kijk.lijst) {
+    const { x, z, laag, zijde } = naad.plek;
+    for (const [i, rand] of naad.randen.entries()) {
+      if (!rand) continue;
+      const kant = i === 0 ? zijde : TEGENOVER[zijde];
+      const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
+      punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
+    }
+  }
+  vulLijnen(gemarkeerd, punten);
+}
+
+function werkKijkBalkBij() {
+  voetKijk.hidden = !stand.kijk;
+  voetGewoon.hidden = !!stand.kijk;
+  if (!stand.kijk) return;
+
+  const { lijst, index, sleutel } = stand.kijk;
+  const naad = lijst[index];
+  document.getElementById('kijk-namen').textContent = `${naad.namen[0]} ↔ ${naad.namen[1]}`;
+  document.getElementById('kijk-bij').textContent =
+    `voeg ${index + 1} van ${lijst.length} · meting: ${naad.sluit ? 'sluit aan' : 'stap of gat'}`;
+
+  const mijn = oordelen.get(sleutel)?.oordeel ?? null;
+  document.getElementById('kijk-goed').setAttribute('aria-pressed', String(mijn === 'goed'));
+  document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
+}
+
+document.getElementById('kijk-vorige').addEventListener('click', () => kijkNaar(stand.kijk.index - 1));
+document.getElementById('kijk-volgende').addEventListener('click', () => kijkNaar(stand.kijk.index + 1));
+document.getElementById('kijk-stop').addEventListener('click', stopKijken);
+for (const [id, keuze] of [['kijk-goed', 'goed'], ['kijk-niet', 'niet']]) {
+  document.getElementById(id).addEventListener('click', () => {
+    velOordeel(stand.kijk.sleutel, keuze, stand.kijk.lijst[stand.kijk.index]);
+  });
 }
 
 /* -- het blad -------------------------------------------------------------- */
@@ -738,6 +855,10 @@ function vulCombinaties() {
     rij.className = 'combo';
     rij.dataset.oordeel = mijn ?? 'geen';
 
+    const toon = document.createElement('button');
+    toon.type = 'button';
+    toon.className = 'combo-toon';
+
     const kop = document.createElement('div');
     kop.className = 'combo-namen';
     kop.textContent = `${naad.namen[0]}  ↔  ${naad.namen[1]}`;
@@ -747,6 +868,9 @@ function vulCombinaties() {
     meting.textContent = `${naad.randen[0]} / ${naad.randen[1]} — meting: `
       + `${naad.sluit ? 'sluit aan' : 'stap of gat'}`
       + (aantal > 1 ? ` · ${aantal}× in dit bouwsel` : '');
+
+    toon.append(kop, meting);
+    toon.addEventListener('click', () => beginKijken(sleutel));
 
     const knoppen = document.createElement('div');
     knoppen.className = 'combo-knoppen';
@@ -763,7 +887,7 @@ function vulCombinaties() {
       knoppen.append(knop);
     }
 
-    rij.append(kop, meting, knoppen);
+    rij.append(toon, knoppen);
 
     if (mijn && (mijn === 'goed') !== naad.sluit) {
       const afwijking = document.createElement('div');
@@ -1010,5 +1134,6 @@ window.TERREINBOUWER = {
   kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
   naden, oordelen, velOordeel, combinatieSleutel, voorbeelden, openBouwsel,
+  beginKijken, kijkNaar, stopKijken,
 };
 window.KLAAR = true;
