@@ -759,7 +759,120 @@ function vulBouwsels() {
     voet.append(herstel);
   }
 
+  const uit = document.createElement('button');
+  uit.type = 'button';
+  uit.className = 'blad-uit';
+  uit.textContent = 'Bouwsels opslaan als bestand';
+  uit.addEventListener('click', exporteerBouwsels);
+
+  const in_ = document.createElement('button');
+  in_.type = 'button';
+  in_.className = 'blad-uit';
+  in_.textContent = 'Bouwsels inlezen uit bestand';
+  in_.addEventListener('click', () => kiezer.click());
+
+  const kiezer = document.createElement('input');
+  kiezer.type = 'file';
+  kiezer.accept = 'application/json,.json';
+  kiezer.className = 'weg';
+  kiezer.addEventListener('change', () => {
+    const [bestand] = kiezer.files;
+    if (bestand) leesBouwsels(bestand);
+  });
+
+  voet.append(uit, in_, kiezer);
+
+  if (bouwselVerslag) {
+    const melding = document.createElement('p');
+    melding.className = bouwselVerslag.mis ? 'kwijt' : '';
+    melding.textContent = bouwselVerslag.tekst;
+    voet.append(melding);
+  }
+
   bladInhoud.append(voet);
+}
+
+let bouwselVerslag = null;
+
+function exporteerBouwsels() {
+  const inhoud = JSON.stringify({
+    kit: 'modulair-terrein',
+    gemaakt: 'tools/terrain-authoring-tool/',
+    toelichting: 'De bouwsels zoals ze er nu bij staan, met jouw veranderingen '
+      + 'erin. Dit bestand heeft dezelfde vorm als bouwsels.json en kan het '
+      + 'vervangen.',
+    bouwsels: voorbeelden.map((voorbeeld) => ({
+      naam: voorbeeld.naam,
+      waarover: voorbeeld.waarover,
+      stukken: eigen.get(voorbeeld.naam) ?? voorbeeld.stukken,
+    })),
+  }, null, 1);
+
+  const blob = new Blob([inhoud], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'bouwsels.json';
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+async function leesBouwsels(bestand) {
+  let binnen;
+  try {
+    binnen = JSON.parse(await bestand.text());
+  } catch (fout) {
+    bouwselVerslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
+    toonPalet('bouwsels');
+    return;
+  }
+
+  const rijen = Array.isArray(binnen?.bouwsels) ? binnen.bouwsels : [];
+  if (rijen.length === 0) {
+    bouwselVerslag = { mis: true, tekst: `In ${bestand.name} staat geen "bouwsels" met inhoud.` };
+    toonPalet('bouwsels');
+    return;
+  }
+
+  let bij = 0;
+  const onbekend = [];
+  const missteStukken = new Set();
+
+  for (const rij of rijen) {
+    const voorbeeld = voorbeelden.find((v) => v.naam === rij?.naam);
+    if (!voorbeeld || !Array.isArray(rij.stukken)) {
+      onbekend.push(rij?.naam ?? '(zonder naam)');
+      continue;
+    }
+
+    const stukken = [];
+    for (const stuk of rij.stukken) {
+      if (!kit.modellen.has(stuk?.naam)) { missteStukken.add(stuk?.naam ?? '?'); continue; }
+      stukken.push({
+        naam: stuk.naam,
+        x: Number(stuk.x) | 0,
+        z: Number(stuk.z) | 0,
+        laag: Number(stuk.laag) | 0,
+        slagen: Number(stuk.slagen) | 0,
+      });
+    }
+
+    eigen.set(rij.naam, stukken);
+    bij += 1;
+  }
+
+  localStorage.setItem(EIGENSLEUTEL, JSON.stringify(Object.fromEntries(eigen)));
+
+  const stukjes = [`${bij} bouwsels overgenomen`];
+  if (onbekend.length) stukjes.push(`${onbekend.length} met een onbekende naam overgeslagen`);
+  if (missteStukken.size) stukjes.push(`${missteStukken.size} stuknamen zitten niet in de kit`);
+  bouwselVerslag = {
+    mis: onbekend.length > 0 || missteStukken.size > 0,
+    tekst: `${bestand.name}: ${stukjes.join(', ')}.`,
+  };
+
+  const nu = voorbeelden.find((v) => v.naam === bouwsel.noemer);
+  if (nu) await openBouwsel(nu, { blijfOpen: true });
+  else toonPalet('bouwsels');
 }
 
 async function openBouwsel(voorbeeld, { blijfOpen = false } = {}) {
