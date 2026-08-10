@@ -1163,7 +1163,33 @@ function vulCombinaties() {
   uit.className = 'blad-uit';
   uit.textContent = 'Oordelen opslaan als bestand';
   uit.addEventListener('click', exporteerOordelen);
-  voet.append(uit);
+
+  const in_ = document.createElement('button');
+  in_.type = 'button';
+  in_.className = 'blad-uit';
+  in_.id = 'lees-oordelen';
+  in_.textContent = 'Oordelen inlezen uit bestand';
+  in_.addEventListener('click', () => kiezer.click());
+
+  /* De bestandskiezer zit in het blad en niet in index.html, want hij hoort bij
+   * deze knop en nergens anders. `hidden` zou hem op sommige telefoons
+   * onklikbaar maken, vandaar dat hij alleen uit beeld staat. */
+  const kiezer = document.createElement('input');
+  kiezer.type = 'file';
+  kiezer.accept = 'application/json,.json';
+  kiezer.className = 'weg';
+  kiezer.addEventListener('change', () => {
+    const [bestand] = kiezer.files;
+    if (bestand) leesOordelen(bestand);
+  });
+
+  voet.append(uit, in_, kiezer);
+  if (leesVerslag) {
+    const p = document.createElement('p');
+    p.className = leesVerslag.mis ? 'kwijt' : '';
+    p.textContent = leesVerslag.tekst;
+    voet.append(p);
+  }
   bladInhoud.append(voet);
 }
 
@@ -1172,8 +1198,10 @@ function exporteerOordelen() {
   const inhoud = JSON.stringify({
     kit: 'modulair-terrein',
     gemaakt: 'tools/terreinbouwer/',
-    toelichting: 'Per combinatie van twee randprofielen het oordeel van wie bouwt. '
-      + '`meting` is wat aansluitingen.mjs erover zegt; `oordeel` gaat voor.',
+    toelichting: 'Per voeg — één plek in één bouwsel, met erbij wat daar tegen '
+      + 'elkaar aan staat — het oordeel van wie bouwt. `meting` is wat '
+      + 'aansluitingen.mjs erover zegt en is `null` waar niets te meten viel; '
+      + '`oordeel` gaat voor.',
     oordelen: Object.fromEntries(oordelen),
   }, null, 1);
   const blob = new Blob([inhoud], { type: 'application/json' });
@@ -1182,6 +1210,79 @@ function exporteerOordelen() {
   link.download = 'combinatie-oordelen.json';
   link.click();
   URL.revokeObjectURL(link.href);
+}
+
+/**
+ * Wat er van het laatste inlezen te melden viel. Blijft staan tot het blad
+ * dichtgaat, want een regel die meteen weer weg is heeft niemand gezien.
+ */
+let leesVerslag = null;
+
+/**
+ * Oordelen uit een bestand erbij nemen.
+ *
+ * Waarom dit er is: zonder inlezen woont het werk in de localStorage van één
+ * browser op één telefoon. Cache wissen, een ander toestel, een privévenster —
+ * en vijfhonderd oordelen zijn weg. Er was al een knop om ze eruit te krijgen;
+ * dat is de helft van een deur.
+ *
+ * Samenvoegen en niet vervangen: wat in het bestand staat wint, wat er alleen
+ * hier staat blijft. Zo kun je op twee toestellen doorwerken en de twee
+ * bestanden over elkaar heen leggen.
+ *
+ * Alles wordt geteld en gemeld — bijgekomen, overschreven, gelijk, overgeslagen.
+ * Stil inlezen zou het ergste zijn wat hier kan gebeuren: je denkt dat je
+ * oordelen binnen zijn en je weet niet dat er de helft is afgevallen.
+ */
+async function leesOordelen(bestand) {
+  let binnen;
+  try {
+    binnen = JSON.parse(await bestand.text());
+  } catch (fout) {
+    leesVerslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
+    toonControleBlad('combos');
+    return;
+  }
+
+  const rijen = Object.entries(binnen?.oordelen ?? {});
+  if (rijen.length === 0) {
+    leesVerslag = { mis: true, tekst: `In ${bestand.name} staat geen "oordelen" met inhoud.` };
+    toonControleBlad('combos');
+    return;
+  }
+
+  let bij = 0;
+  let anders = 0;
+  let gelijk = 0;
+  const over = [];
+
+  for (const [sleutel, waarde] of rijen) {
+    /* Dezelfde eis als bij het laden uit localStorage: een sleutel van een
+     * oudere versie betekent iets anders dan wat hij nu zou betekenen. */
+    if (!SLEUTELVORM.test(sleutel) || (waarde?.oordeel !== 'goed' && waarde?.oordeel !== 'niet')) {
+      over.push(sleutel);
+      continue;
+    }
+    const had = oordelen.get(sleutel);
+    if (!had) bij += 1;
+    else if (had.oordeel !== waarde.oordeel) anders += 1;
+    else { gelijk += 1; continue; }
+    oordelen.set(sleutel, waarde);
+  }
+
+  bewaarOordelen();
+
+  const stukjes = [`${bij} erbij`];
+  if (anders) stukjes.push(`${anders} overschreven`);
+  if (gelijk) stukjes.push(`${gelijk} stond er al zo`);
+  if (over.length) stukjes.push(`${over.length} overgeslagen (sleutel van een oudere versie)`);
+  leesVerslag = {
+    mis: over.length > 0,
+    tekst: `${bestand.name}: ${rijen.length} oordelen gelezen — ${stukjes.join(', ')}.`,
+  };
+
+  werkBijAlles();
+  toonControleBlad('combos');
 }
 
 function vulMeldingen() {

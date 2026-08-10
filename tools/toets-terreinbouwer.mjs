@@ -1109,6 +1109,89 @@ await blad.evaluate(() => {
   window.TERREINBOUWER.oordelen.clear();
   localStorage.removeItem('terreinbouwer-oordelen');
 });
+/* -- oordelen inlezen ------------------------------------------------------
+ * Er was een knop om oordelen als bestand te bewaren en geen om ze terug te
+ * halen. Dat is de helft van een deur: het werk woonde in de localStorage van
+ * één browser, en cache wissen of een ander toestel maakte het weg.
+ */
+
+await blad.evaluate(() => {
+  window.TERREINBOUWER.oordelen.clear();
+  localStorage.removeItem('terreinbouwer-oordelen');
+});
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
+
+/* Het echte bestand, niet een verzinsel: 547 oordelen zoals ze uit de bouwer
+ * zijn gekomen. Een toets op nagemaakte gegevens toetst je eigen aannames. */
+const bestand = join(ROOT, 'kits/modulair-terrein/combinatie-oordelen.json');
+await blad.locator('.blad input[type=file], #blad input[type=file]').setInputFiles(bestand);
+await blad.waitForFunction(() => window.TERREINBOUWER.oordelen.size > 0, null, { timeout: 10000 })
+  .catch(() => {});
+
+const gelezen = JSON.parse(readFileSync(bestand, 'utf8')).oordelen;
+toets(
+  'een bestand met oordelen wordt ingelezen',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === Object.keys(gelezen).length,
+  `${await blad.evaluate(() => window.TERREINBOUWER.oordelen.size)} van ${Object.keys(gelezen).length}`,
+);
+toets(
+  'en het blad meldt wat erin ging',
+  (await blad.locator('#blad-inhoud').innerText()).includes('oordelen gelezen'),
+);
+toets(
+  'ze staan ook in localStorage, dus ze overleven herladen',
+  await blad.evaluate(() => Object.keys(
+    JSON.parse(localStorage.getItem('terreinbouwer-oordelen') ?? '{}'),
+  ).length) === Object.keys(gelezen).length,
+);
+
+/* Nog eens inlezen mag niets veranderen, en moet dat ook zeggen. */
+await blad.locator('.blad input[type=file], #blad input[type=file]').setInputFiles(bestand);
+await blad.waitForTimeout(400);
+toets(
+  'hetzelfde bestand nog eens inlezen verandert niets',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === Object.keys(gelezen).length,
+);
+toets(
+  'en zegt dat het er al zo stond',
+  (await blad.locator('#blad-inhoud').innerText()).includes('stond er al zo'),
+  await blad.locator('#blad-inhoud').innerText().then((t) => t.split('\n').find((r) => r.includes('gelezen'))),
+);
+
+/* Een sleutel van een oudere versie mag er niet stilletjes in glippen. */
+await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  T.oordelen.clear();
+  localStorage.removeItem('terreinbouwer-oordelen');
+});
+await blad.locator('.blad input[type=file], #blad input[type=file]').setInputFiles({
+  name: 'oud.json',
+  mimeType: 'application/json',
+  buffer: Buffer.from(JSON.stringify({
+    oordelen: {
+      'r055+r056': { oordeel: 'niet' },
+      '0,0,0,n': { oordeel: 'goed' },
+    },
+  })),
+});
+await blad.waitForTimeout(400);
+toets(
+  'oude sleutels worden niet ingelezen',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === 0,
+);
+toets(
+  'en het blad zegt hoeveel er zijn overgeslagen',
+  (await blad.locator('#blad-inhoud').innerText()).includes('2 overgeslagen'),
+);
+
+await blad.evaluate(() => {
+  window.TERREINBOUWER.oordelen.clear();
+  localStorage.removeItem('terreinbouwer-oordelen');
+});
+await blad.locator('#blad-sluit').tap().catch(() => {});
+await blad.evaluate(() => window.TERREINBOUWER.beginKijken(0));
+
 await blad.locator('#kijk-stop').tap();
 toets('klaar met kijken brengt de knoppenbalk terug',
   await blad.locator('.voet:not(.voet-kijk)').isVisible());

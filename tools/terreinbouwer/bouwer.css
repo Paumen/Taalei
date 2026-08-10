@@ -583,6 +583,17 @@ button {
   background: #fff;
 }
 
+/* Uit beeld maar niet uit de boom: een `hidden` of `display: none` invoerveld
+   laat zich op sommige telefoons niet meer openen vanaf een andere knop. */
+.weg {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* -- bouwsels -------------------------------------------------------------- */
 
 .bouwsel {
