@@ -136,7 +136,7 @@ const ZIJ_ASSEN = {
 };
 
 function naadPunten(randId, x, z, laag, zijde) {
-  const vorm = kit.randen[randId]?.vorm ?? [];
+  const vorm = kit.randen[randId] ?? [];
   const { normaal, langs } = ZIJ_ASSEN[zijde];
   const punten = [];
   for (const [a1, b1, a2, b2] of vorm) {
@@ -811,7 +811,7 @@ function vulCombinaties() {
     namen.textContent = `${naad.namen[0]}  ↔  ${naad.namen[1]}`;
 
     const waar = document.createElement('div');
-    waar.className = 'combo-meting';
+    waar.className = 'combo-plek';
     waar.textContent = `vak ${naad.plek.x},${naad.plek.z} · laag ${naad.plek.laag} · `
       + (zijNaam[naad.plek.zijde] ?? 'boven')
       + ` · ${SOORTNAAM[naad.soort]}`;
@@ -880,9 +880,8 @@ function exporteerOordelen() {
     kit: 'modulair-terrein',
     gemaakt: 'tools/terrain-authoring-tool/',
     toelichting: 'Per voeg — één plek in één bouwsel, met erbij wat daar tegen '
-      + 'elkaar aan staat — het oordeel van wie bouwt. `meting` is wat '
-      + 'aansluitingen.mjs erover zegt en is `null` waar niets te meten viel; '
-      + '`oordeel` gaat voor.',
+      + 'elkaar aan staat — het oordeel van wie bouwt. Dat oordeel is het '
+      + 'enige dat zegt of een voeg sluit; er wordt niets over gemeten.',
     oordelen: Object.fromEntries(oordelen),
   }, null, 1);
   const blob = new Blob([inhoud], { type: 'application/json' });

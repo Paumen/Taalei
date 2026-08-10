@@ -52,7 +52,7 @@ export class Kit {
   }
 
   isOpen(rand) {
-    return rand === null || (this.randen[rand]?.vorm ?? []).length === 0;
+    return rand === null || (this.randen[rand] ?? []).length === 0;
   }
 }
 

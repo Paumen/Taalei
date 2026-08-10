@@ -197,9 +197,6 @@ function catalogus(voorvoegsel) {
       opNummer.push({ id, vorm });
       return id;
     },
-    zoek(vorm) {
-      return opSleutel.get(JSON.stringify(vorm)) ?? null;
-    },
     alles: opNummer,
   };
 }
@@ -313,20 +310,13 @@ for (const bestand of bestanden) {
   });
 }
 
-for (const rand of randen.alles) {
-  rand.spiegel = randen.zoek(
-    schoon(rand.vorm.map(([a, b, c, d]) => [-a, b, -c, d]), -Infinity, Infinity, -Infinity, Infinity),
-  );
-}
-
 const naarUnits = (vorm) => vorm.map((s) => s.map((v) => Number((v * KWANT).toFixed(3))));
 
 const uit = {
   gegenereerd: 'node tools/aansluitingen.mjs',
   kit: 'modulair-terrein',
   raster: { vak: VAK, laag: LAAG },
-  meting: { kwant: KWANT, vlakTol: VLAK_TOL },
-  randen: Object.fromEntries(randen.alles.map((r) => [r.id, { spiegel: r.spiegel, vorm: naarUnits(r.vorm) }])),
+  randen: Object.fromEntries(randen.alles.map((r) => [r.id, naarUnits(r.vorm)])),
   vlakken: Object.fromEntries(vlakken.alles.map((v) => [v.id, naarUnits(v.vorm)])),
   modellen,
 };
@@ -344,11 +334,9 @@ for (const model of modellen) {
 }
 
 const leeg = randen.alles.filter((r) => r.vorm.length === 0).map((r) => r.id);
-const dood = randen.alles.filter((r) => !r.spiegel && perRand.has(r.id));
 
 console.log(`${modellen.length} modellen uit kits/modulair-terrein/`);
 console.log(`${randen.alles.length} verschillende zijprofielen, ${vlakken.alles.length} verschillende horizontale vlakken`);
-console.log(`${dood.length} zijprofielen hebben geen tegenhanger in de kit`);
 console.log(`→ ${UIT.replace(`${ROOT}/`, '')}`);
 
 if (!toon) process.exit(0);
@@ -357,12 +345,6 @@ console.log('\nzijprofielen, meest gebruikt eerst:');
 for (const rand of [...randen.alles].sort((a, b) => (perRand.get(b.id)?.size ?? 0) - (perRand.get(a.id)?.size ?? 0))) {
   const gebruikers = perRand.get(rand.id);
   if (!gebruikers) continue;
-  const past = rand.spiegel === rand.id ? 'op zichzelf' : rand.spiegel ? `op ${rand.spiegel}` : 'nergens op';
   const wat = leeg.includes(rand.id) ? 'open lucht' : `${rand.vorm.length} lijnstuk(ken)`;
-  console.log(`  ${rand.id}  ${String(gebruikers.size).padStart(3)} stukken  ${wat.padEnd(16)} past ${past}`);
-}
-
-console.log('\ndoodlopende zijden (geen enkel stuk past hiertegenaan):');
-for (const rand of dood) {
-  console.log(`  ${rand.id}  ${[...perRand.get(rand.id)].join(', ')}`);
+  console.log(`  ${rand.id}  ${String(gebruikers.size).padStart(3)} stukken  ${wat}`);
 }
