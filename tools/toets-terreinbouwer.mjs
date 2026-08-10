@@ -750,14 +750,24 @@ toets(
 );
 
 /* De blauwe lijn moet er ook echt zijn — anders wijst de balk naar niets. */
+/* De aanwijzing moet echte meetkunde zijn en geen lijn: een WebGL-lijn is één
+ * beeldpunt breed en op een telefoon dus nauwelijks te zien. */
+const markering = await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  const groep = T.scene.children.find((k) => k.isGroup && k.renderOrder === 7);
+  return {
+    er: !!groep,
+    zichtbaar: !!groep && groep.visible,
+    staafjes: groep ? groep.children.length : 0,
+    meshes: groep ? groep.children.every((k) => k.isMesh) : false,
+  };
+});
 toets(
   'er wordt een voeg aangewezen in beeld',
-  await blad.evaluate(() => {
-    const T = window.TERREINBOUWER;
-    const lijn = T.scene.children.find((k) => k.isLineSegments && k.renderOrder === 7);
-    return !!lijn && lijn.visible && lijn.geometry.getAttribute('position').count > 0;
-  }),
+  markering.er && markering.zichtbaar && markering.staafjes > 0,
+  JSON.stringify(markering),
 );
+toets('en wel met echte staafjes, niet met haarlijnen', markering.meshes);
 
 /* Volgende voeg: de wijzer moet meeverspringen, anders kijk je nog naar de
  * vorige. */
@@ -811,8 +821,8 @@ toets('klaar met kijken brengt de knoppenbalk terug',
   await blad.locator('.voet:not(.voet-kijk)').isVisible());
 toets('en de aanwijzing verdwijnt', await blad.evaluate(() => {
   const T = window.TERREINBOUWER;
-  const lijn = T.scene.children.find((k) => k.isLineSegments && k.renderOrder === 7);
-  return !lijn.visible;
+  const groep = T.scene.children.find((k) => k.isGroup && k.renderOrder === 7);
+  return !groep.visible;
 }));
 console.log('  schermafbeelding → docs/terreinbouwer.png');
 await blad.close();

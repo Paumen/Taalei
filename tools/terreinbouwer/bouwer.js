@@ -224,23 +224,60 @@ function naadPunten(randId, x, z, laag, zijde) {
 const naadFout = (() => {
   const lijn = new THREE.LineSegments(
     new THREE.BufferGeometry(),
-    new THREE.LineBasicMaterial({ color: 0xc0392b, depthTest: false, transparent: true }),
+    new THREE.LineBasicMaterial({ color: 0xc0392b, depthTest: false, transparent: true, opacity: 0.9 }),
   );
   lijn.renderOrder = 5;
   scene.add(lijn);
   return lijn;
 })();
 
-/** De voeg die je op dit moment staat te bekijken, fel en bovenop alles. */
-const gemarkeerd = (() => {
-  const lijn = new THREE.LineSegments(
-    new THREE.BufferGeometry(),
-    new THREE.LineBasicMaterial({ color: 0x2b6cb0, depthTest: false, transparent: true }),
-  );
-  lijn.renderOrder = 7;
-  scene.add(lijn);
-  return lijn;
-})();
+/**
+ * De voeg die je op dit moment staat te bekijken — als staafjes, niet als lijn.
+ *
+ * Een lijn in WebGL is één beeldpunt breed en `linewidth` doet vrijwel nergens
+ * iets; op een telefoon met een pixelverhouding van 2,6 is dat nog geen halve
+ * CSS-punt. Precies wat je moet zien is dan het minst zichtbare van het scherm.
+ *
+ * Vandaar echte meetkunde: elk lijnstuk van het randprofiel wordt een dun
+ * balkje. Dat is op elk apparaat even dik, vangt licht, en is met `depthTest`
+ * uit ook door het terrein heen te zien.
+ */
+const MARKEER_DIKTE = 0.016;
+
+const gemarkeerd = new THREE.Group();
+gemarkeerd.renderOrder = 7;
+scene.add(gemarkeerd);
+
+const markeerMateriaal = new THREE.MeshBasicMaterial({
+  color: 0x1d4ed8, depthTest: false, transparent: true, opacity: 0.95,
+});
+const markeerVorm = new THREE.CylinderGeometry(MARKEER_DIKTE, MARKEER_DIKTE, 1, 6);
+
+/** Zet de staafjes op de lijnstukken in `punten` (x,y,z per uiteinde). */
+function vulStaafjes(groep, punten) {
+  for (const kind of [...groep.children]) groep.remove(kind);
+
+  const van = new THREE.Vector3();
+  const tot = new THREE.Vector3();
+  for (let i = 0; i + 5 < punten.length; i += 6) {
+    van.set(punten[i], punten[i + 1], punten[i + 2]);
+    tot.set(punten[i + 3], punten[i + 4], punten[i + 5]);
+    const lengte = van.distanceTo(tot);
+    if (lengte < 1e-6) continue;
+
+    const staaf = new THREE.Mesh(markeerVorm, markeerMateriaal);
+    staaf.position.copy(van).add(tot).multiplyScalar(0.5);
+    staaf.scale.set(1, lengte, 1);
+    // de cilinder staat rechtop; hem op de richting van het lijnstuk zetten
+    staaf.quaternion.setFromUnitVectors(
+      new THREE.Vector3(0, 1, 0),
+      tot.clone().sub(van).normalize(),
+    );
+    staaf.renderOrder = 7;
+    groep.add(staaf);
+  }
+  groep.visible = groep.children.length > 0;
+}
 
 function vulLijnen(lijn, punten) {
   lijn.geometry.dispose();
@@ -601,7 +638,7 @@ function kijkNaar(index) {
 /** De doorsnede van de voeg die je nu bekijkt. Alleen die ene. */
 function tekenGemarkeerd() {
   if (!stand.kijk) {
-    vulLijnen(gemarkeerd, []);
+    vulStaafjes(gemarkeerd, []);
     return;
   }
   const naad = stand.kijk.lijst[stand.kijk.index];
@@ -613,7 +650,7 @@ function tekenGemarkeerd() {
     const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
     punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
   }
-  vulLijnen(gemarkeerd, punten);
+  vulStaafjes(gemarkeerd, punten);
 }
 
 function werkKijkBalkBij() {
