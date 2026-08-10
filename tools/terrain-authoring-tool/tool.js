@@ -1028,13 +1028,18 @@ function vulCombinaties() {
 
   const kop = document.createElement('div');
   kop.className = 'uitleg';
-  kop.innerHTML = `<p>${lijst.length} voegen, ${nogNiet} nog niet beoordeeld. `
+  const kopTekst = document.createElement('p');
+  kopTekst.textContent = `${lijst.length} voegen, ${nogNiet} nog niet beoordeeld. `
     + 'Elke voeg staat op zichzelf: twee keer dezelfde stukken op een andere '
-    + 'plek zijn twee oordelen.</p>'
-    + (vervallen
-      ? `<p class="kwijt">${vervallen} eerder bewaarde oordelen zijn vervallen: `
-        + 'die hingen aan iets anders dan een voeg en waren niet om te rekenen.</p>'
-      : '');
+    + 'plek zijn twee oordelen.';
+  kop.append(kopTekst);
+  if (vervallen) {
+    const kwijt = document.createElement('p');
+    kwijt.className = 'kwijt';
+    kwijt.textContent = `${vervallen} eerder bewaarde oordelen zijn vervallen: `
+      + 'die hingen aan iets anders dan een voeg en waren niet om te rekenen.';
+    kop.append(kwijt);
+  }
   bladInhoud.append(kop);
 
   const zijNaam = { n: 'noord', o: 'oost', z: 'zuid', w: 'west' };
@@ -1085,8 +1090,10 @@ function vulCombinaties() {
 
   const voet = document.createElement('div');
   voet.className = 'uitleg';
-  voet.innerHTML = `<p>${oordelen.size} voegen beoordeeld. Nog eens tikken op `
-    + 'dezelfde knop trekt het oordeel in.</p>';
+  const voetTekst = document.createElement('p');
+  voetTekst.textContent = `${oordelen.size} voegen beoordeeld. Nog eens tikken op `
+    + 'dezelfde knop trekt het oordeel in.';
+  voet.append(voetTekst);
   hangOpslagAan(voet);
   bladInhoud.append(voet);
 }
