@@ -40,6 +40,7 @@ const INHOUD = [
   join(HIER, 'bouwer.css'),
   join(HIER, 'bouwer.js'),
   join(HIER, 'aansluiting.js'),
+  join(HIER, 'bouwsels.json'),
   join(HIER, '..', '..', 'kits', 'modulair-terrein', 'aansluitingen.json'),
 ];
 

@@ -53,6 +53,7 @@ const {
 } = await import(vers('./aansluiting.js'));
 
 const kit = new Kit(await (await fetch(vers(`${KITMAP}aansluitingen.json`))).json());
+const voorbeelden = (await (await fetch(vers('./bouwsels.json'))).json()).bouwsels;
 const VAK = kit.vak;
 const LAAG = kit.laagHoogte;
 const bouwsel = new Bouwsel(kit);
@@ -485,15 +486,23 @@ const bladFilters = document.getElementById('blad-filters');
 const bladInhoud = document.getElementById('blad-inhoud');
 const zoekVeld = document.getElementById('zoek');
 
+const waas = document.getElementById('waas');
+
 function sluitBlad() {
   blad.hidden = true;
+  waas.hidden = true;
 }
 
 function openBlad(titel) {
   bladTitel.textContent = titel;
   blad.hidden = false;
+  waas.hidden = false;
   bladInhoud.scrollTop = 0;
 }
+
+/* Naast het blad tikken sluit het. Zonder dit is het kruisje de enige uitweg,
+ * en het blad dekt de knoppenbalk af — je zit er dan aan vast tot je hem vindt. */
+waas.addEventListener('click', sluitBlad);
 
 document.getElementById('blad-sluit').addEventListener('click', sluitBlad);
 
@@ -553,11 +562,23 @@ function vulPalet() {
   }
 }
 
-function toonPalet() {
-  openBlad('Kies een stuk');
-  bladZoek.hidden = false;
+function toonPalet(tab = 'stukken') {
+  openBlad(tab === 'stukken' ? 'Kies een stuk' : 'Open een bouwsel');
+  bladZoek.hidden = tab !== 'stukken';
   bladTabs.replaceChildren();
   bladFilters.replaceChildren();
+  bladInhoud.replaceChildren();
+
+  for (const [sleutel, label] of [['stukken', 'Stukken'], ['bouwsels', 'Bouwsels']]) {
+    const knop = document.createElement('button');
+    knop.type = 'button';
+    knop.textContent = label;
+    knop.setAttribute('aria-pressed', String(sleutel === tab));
+    knop.addEventListener('click', () => toonPalet(sleutel));
+    bladTabs.append(knop);
+  }
+
+  if (tab === 'bouwsels') return vulBouwsels();
 
   for (const familie of ['alles', ...families]) {
     const knop = document.createElement('button');
@@ -578,8 +599,85 @@ function toonPalet() {
   vulPalet();
 }
 
+/**
+ * De voorbeeldbouwsels, om iets te hébben om over te oordelen.
+ *
+ * Tegel voor tegel een klifwand neerzetten op een telefoon is werk; deze
+ * leveren in één tik een stuk terrein op met tien tot twintig voegen erin.
+ * Wat ze opleveren staat erbij, zodat je vooraf weet waar je naar gaat kijken.
+ */
+function vulBouwsels() {
+  for (const bouwsel of voorbeelden) {
+    const rij = document.createElement('button');
+    rij.type = 'button';
+    rij.className = 'bouwsel';
+
+    const naam = document.createElement('div');
+    naam.className = 'bouwsel-naam';
+    naam.textContent = bouwsel.naam;
+
+    const bij = document.createElement('div');
+    bij.className = 'bouwsel-bij';
+    bij.textContent = `${bouwsel.stukken.length} stukken — ${bouwsel.waarover}`;
+
+    rij.append(naam, bij);
+    rij.addEventListener('click', () => openBouwsel(bouwsel));
+    bladInhoud.append(rij);
+  }
+
+  const voet = document.createElement('div');
+  voet.className = 'uitleg';
+  voet.innerHTML = '<p>Een bouwsel openen vervangt wat er staat en wist de '
+    + 'stappen terug. Je oordelen blijven.</p>';
+  bladInhoud.append(voet);
+}
+
+/**
+ * Zet een bouwsel neer in plaats van wat er stond.
+ *
+ * De geschiedenis gaat leeg: stap voor stap terugdraaien naar een half
+ * openstaand bouwsel helpt niemand. De oordelen blijven staan — die horen bij
+ * de combinaties, niet bij wat er toevallig op het raster staat.
+ */
+async function openBouwsel(voorbeeld) {
+  for (const id of [...bouwsel.stukken.keys()]) verwijderStuk(id);
+  geschiedenis.length = 0;
+  teruggedraaid.length = 0;
+
+  for (const stuk of voorbeeld.stukken) await plaatsStuk(stuk);
+
+  /* De wijzer en de camera naar het bouwsel toe, en ver genoeg naar achteren om
+   * het hele ding te zien. Een vaste afstand werkt niet: een grasvlakte van
+   * twaalf tegels en een klifwand van drie lagen vragen een ander standpunt. */
+  const xen = voorbeeld.stukken.map((p) => p.x);
+  const zen = voorbeeld.stukken.map((p) => p.z);
+  const lagen = voorbeeld.stukken.map((p) => p.laag);
+  const middenX = Math.round((Math.min(...xen) + Math.max(...xen)) / 2);
+  const middenZ = Math.round((Math.min(...zen) + Math.max(...zen)) / 2);
+  const spanwijdte = Math.max(
+    (Math.max(...xen) - Math.min(...xen) + 1) * VAK,
+    (Math.max(...zen) - Math.min(...zen) + 1) * VAK,
+    (Math.max(...lagen) + 1) * LAAG,
+  );
+  const afstand = spanwijdte * 1.9 + 1.4;
+
+  stand.wijzer = [middenX, middenZ];
+  stand.laag = 0;
+  zetLaagUit();
+  stuur.target.set(middenX * VAK, Math.max(...lagen) * LAAG * 0.5, middenZ * VAK);
+  camera.position.set(
+    middenX * VAK + afstand * 0.62,
+    afstand * 0.58,
+    middenZ * VAK + afstand * 0.78,
+  );
+  stuur.update();
+
+  sluitBlad();
+  werkBijAlles();
+}
+
 zoekVeld.addEventListener('input', vulPalet);
-document.getElementById('stuk-knop').addEventListener('click', toonPalet);
+document.getElementById('stuk-knop').addEventListener('click', () => toonPalet('stukken'));
 
 /* -- controle en verkenner ------------------------------------------------- */
 
@@ -911,6 +1009,6 @@ renderer.setAnimationLoop(() => {
 window.TERREINBOUWER = {
   kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
-  naden, oordelen, velOordeel, combinatieSleutel,
+  naden, oordelen, velOordeel, combinatieSleutel, voorbeelden, openBouwsel,
 };
 window.KLAAR = true;

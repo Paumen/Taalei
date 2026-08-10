@@ -574,6 +574,68 @@ toets(
   await blad.locator('.combo').first().getAttribute('data-oordeel') === 'niet',
 );
 
+/* -- voorbeeldbouwsels -----------------------------------------------------
+ * Er moet iets staan om over te oordelen. Deze toets doet wat jij doet: blad
+ * open, bouwsel kiezen, en kijken of er daarna combinaties te beoordelen zijn.
+ */
+
+/* Naast het blad tikken sluit het — anders dekt het de knoppenbalk af en kom
+ * je er alleen via het kruisje uit. */
+toets('het blad staat nog open', await blad.locator('#blad').isVisible());
+await blad.locator('#waas').tap({ position: { x: 10, y: 10 } });
+toets('naast het blad tikken sluit het', await blad.locator('#blad').isHidden());
+
+await blad.locator('#stuk-knop').tap();
+await blad.getByRole('button', { name: 'Bouwsels' }).tap();
+const bouwselRijen = await blad.locator('.bouwsel').count();
+toets('er staan bouwsels klaar', bouwselRijen >= 5, `${bouwselRijen}`);
+
+await blad.locator('.bouwsel').filter({ hasText: 'Klifwand van drie lagen' }).tap();
+/* Openen is werk: elk model moet nog opgehaald worden. Wachten tot het er
+ * staat, niet meteen kijken. */
+await blad.waitForFunction(() => window.TERREINBOUWER.bouwsel.stukken.size === 15,
+  null, { timeout: 15000 }).catch(() => {});
+toets('een bouwsel openen zet stukken neer', await aantal(blad) === 15, `${await aantal(blad)}`);
+toets('en het blad sluit', await blad.locator('#blad').isHidden());
+toets(
+  'de stukken staan op eindige plekken',
+  await blad.evaluate(() => window.TERREINBOUWER.stukken.children
+    .every((k) => k.position.toArray().every(Number.isFinite))),
+);
+
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Combinaties' }).tap();
+const teBeoordelen = await blad.locator('.combo').count();
+toets('en er valt iets te beoordelen', teBeoordelen >= 3, `${teBeoordelen} combinaties`);
+await blad.locator('#blad-sluit').tap();
+
+/* Elk bouwsel moet openen en voegen opleveren — een bouwsel uit losse stukken
+ * geeft niemand iets te beoordelen. */
+const perBouwsel = await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  const uit = [];
+  for (const voorbeeld of T.voorbeelden) {
+    await T.openBouwsel(voorbeeld);
+    uit.push({
+      naam: voorbeeld.naam,
+      stukken: T.bouwsel.stukken.size,
+      voegen: T.naden(T.bouwsel).length,
+    });
+  }
+  return uit;
+});
+for (const b of perBouwsel) {
+  toets(
+    `bouwsel "${b.naam}" levert voegen op`,
+    b.stukken === undefined ? false : b.voegen > 0,
+    JSON.stringify(b),
+  );
+}
+
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  await T.openBouwsel(T.voorbeelden.find((v) => v.naam.startsWith('Klifwand')));
+});
 await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
 console.log('  schermafbeelding → docs/terreinbouwer.png');
 await blad.close();

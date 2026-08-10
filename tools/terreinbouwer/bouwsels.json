@@ -1,0 +1,639 @@
+{
+ "kit": "modulair-terrein",
+ "gemaakt": "node tools/bouw-voorbeelden.mjs",
+ "toelichting": "Voorbeeldbouwsels om in tools/terreinbouwer/ te openen en te beoordelen.",
+ "bouwsels": [
+  {
+   "naam": "Grasvlakte",
+   "waarover": "De eenvoudigste voeg die er is: gras tegen gras, twaalf keer.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klifwand van drie lagen",
+   "waarover": "Base, mid en top op elkaar, en de grasvlakte erachter een laag hoger. Hier zitten de stapelvoegen én de wandvoegen in.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Steilrand van drie lagen",
+   "waarover": "Hetzelfde als de klifwand, maar met escarpment. De stukken heten hetzelfde en hun voorkant is anders — de moeite van het vergelijken waard.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klif en steilrand naast elkaar",
+   "waarover": "Dezelfde wand, half klif en half steilrand. De voegen sluiten aan en het oppervlak golft ertussen: precies een geval waarin de meting je niets zegt en je oordeel alles.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Waterval",
+   "waarover": "De watervalstukken over drie lagen, met het water erin.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-waterfall-base-flat",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "cliff-terrain-waterfall-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1
+    },
+    {
+     "naam": "cliff-terrain-waterfall-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2
+    }
+   ]
+  },
+  {
+   "naam": "Strand",
+   "waarover": "Zand tegen zand, en zand tegen gras. Dat laatste scheelt een tiende unit in hoogte — zichtbaar of niet, dat is aan jou.",
+   "stukken": [
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Keien op gras",
+   "waarover": "Props in hetzelfde vak als de tegel eronder. Hun omtrek raakt de buurtegels wél, dus de meting ziet er voegen die niet sluiten — terwijl er niets mis is. Twaalf van de twintig sluiten; de rest is aan jou.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "shared-prop-boulder-a",
+     "x": -1,
+     "z": -1,
+     "laag": 0
+    },
+    {
+     "naam": "shared-prop-boulder-c",
+     "x": 0,
+     "z": 1,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-rock-b",
+     "x": 1,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  }
+ ]
+}

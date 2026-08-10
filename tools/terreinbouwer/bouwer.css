@@ -570,3 +570,29 @@ button {
   font: inherit;
   background: #fff;
 }
+
+/* -- bouwsels -------------------------------------------------------------- */
+
+.bouwsel {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-bottom: 1px solid var(--rand);
+  color: var(--inkt);
+  text-align: left;
+  background: none;
+}
+
+.bouwsel:active { background: #e6e1d5; }
+
+.bouwsel-naam {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bouwsel-bij {
+  margin-top: 2px;
+  color: var(--grijs);
+  font-size: 12px;
+}
