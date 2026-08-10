@@ -9,8 +9,7 @@ const VERSIE = new URL(import.meta.url).searchParams.get('v');
 const vers = (adres) => (VERSIE ? `${adres}?v=${VERSIE}` : adres);
 
 const {
-  Kit, Bouwsel, controleer, watPast, draaiVak, naden, naadSleutel, vormSleutel,
-  ZIJDEN, STAP, TEGENOVER,
+  Kit, Bouwsel, naden, naadSleutel, vormSleutel, STAP,
 } = await import(vers('./aansluiting.js'));
 
 const kit = new Kit(await (await fetch(vers(`${KITMAP}aansluitingen.json`))).json());
@@ -168,16 +167,6 @@ function vlakPunten(vlakId, x, z, grens, slagen) {
   return punten;
 }
 
-const naadFout = (() => {
-  const lijn = new THREE.LineSegments(
-    new THREE.BufferGeometry(),
-    new THREE.LineBasicMaterial({ color: 0xc0392b, depthTest: false, transparent: true, opacity: 0.9 }),
-  );
-  lijn.renderOrder = 5;
-  scene.add(lijn);
-  return lijn;
-})();
-
 const MARKEER_DIKTE = 0.016;
 
 const gemarkeerd = new THREE.Group();
@@ -213,19 +202,8 @@ function vulStaafjes(groep, punten) {
   groep.visible = groep.children.length > 0;
 }
 
-function vulLijnen(lijn, punten) {
-  lijn.geometry.dispose();
-  const meetkunde = new THREE.BufferGeometry();
-  meetkunde.setAttribute('position', new THREE.Float32BufferAttribute(punten, 3));
-  lijn.geometry = meetkunde;
-  lijn.visible = punten.length > 0;
-}
-
 const SCHADUW_GOED = new THREE.MeshLambertMaterial({
   color: 0x3d7a3d, transparent: true, opacity: 0.5, depthWrite: false,
-});
-const SCHADUW_FOUT = new THREE.MeshLambertMaterial({
-  color: 0xc0392b, transparent: true, opacity: 0.5, depthWrite: false,
 });
 
 let schaduw = null;
@@ -325,23 +303,10 @@ function velOordeel(sleutel, oordeel, naad) {
       randen: naad.randen,
       vorm: naad.vorm,
       plek: naad.plek,
-      meting: naad.sluit,
     });
   }
   bewaarOordelen();
   werkBijAlles();
-}
-
-function vormElders(naad, sleutel) {
-  const anders = [];
-  for (const [s, o] of oordelen) {
-    if (s === sleutel || o.vorm !== naad.vorm) continue;
-    anders.push(o.oordeel);
-  }
-  return {
-    goed: anders.filter((o) => o === 'goed').length,
-    niet: anders.filter((o) => o === 'niet').length,
-  };
 }
 
 const standKnop = document.getElementById('stand-knop');
@@ -353,25 +318,13 @@ const opnieuwKnop = document.getElementById('opnieuw');
 const penseelUit = document.getElementById('penseel');
 const wenkBalk = document.getElementById('wenk');
 
-let laatsteMeldingen = [];
-
 function opWijzer() {
   const bewoners = bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag);
   return bewoners.length ? bouwsel.stukken.get(bewoners[bewoners.length - 1].id) : null;
 }
 
 function werkBijAlles() {
-  const meldingen = controleer(bouwsel);
-  laatsteMeldingen = meldingen;
-  const fouten = meldingen.filter((m) => m.ernst === 'fout').length;
-  const waarschuwingen = meldingen.length - fouten;
-
-  standTekst.textContent = bouwsel.stukken.size === 0 ? 'leeg'
-    : fouten ? `${fouten} fout${fouten > 1 ? 'en' : ''}`
-      : waarschuwingen ? `${waarschuwingen} let op`
-        : `${bouwsel.stukken.size} ✓`;
-  standKnop.dataset.ernst = bouwsel.stukken.size === 0 ? 'leeg'
-    : fouten ? 'fout' : waarschuwingen ? 'waarschuwing' : 'goed';
+  standTekst.textContent = bouwsel.stukken.size === 0 ? 'leeg' : `${bouwsel.stukken.size} stukken`;
 
   wijzer.position.set(stand.wijzer[0] * VAK, stand.laag * LAAG + 0.004, stand.wijzer[1] * VAK);
   raster.position.y = stand.laag * LAAG;
@@ -384,12 +337,7 @@ function werkBijAlles() {
   if (schaduw && proef) {
     schaduw.visible = true;
     zetNeer(schaduw, proef);
-    const tijdelijk = bouwsel.zet(proef);
-    const raakt = controleer(bouwsel).filter((m) => m.stukken.includes(tijdelijk.id));
-    bouwsel.haalWeg(tijdelijk.id);
-    const materiaal = raakt.length ? SCHADUW_FOUT : SCHADUW_GOED;
-    schaduw.traverse((k) => { if (k.isMesh) k.material = materiaal; });
-    wijzer.material.color.setHex(raakt.length ? 0xc0392b : 0x3d7a3d);
+    wijzer.material.color.setHex(0x2b6cb0);
   } else {
     if (schaduw) schaduw.visible = false;
     wijzer.material.color.setHex(bewoner ? 0xc07a1e : 0x2b6cb0);
@@ -400,18 +348,6 @@ function werkBijAlles() {
   ongedaanKnop.disabled = geschiedenis.length === 0;
   opnieuwKnop.disabled = teruggedraaid.length === 0;
 
-  const punten = [];
-  for (const melding of meldingen) {
-    if (melding.soort !== 'naad') continue;
-    const { x, z, laag, zijde, randen } = melding.plek;
-    for (const [i, rand] of randen.entries()) {
-      if (!rand) continue;
-      const kant = i === 0 ? zijde : TEGENOVER[zijde];
-      const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
-      punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
-    }
-  }
-  vulLijnen(naadFout, stand.kijk ? [] : punten);
   tekenGemarkeerd();
   werkKijkBalkBij();
 
@@ -488,11 +424,6 @@ const SOORTNAAM = {
   stapel: 'op elkaar',
 };
 
-const metingTekst = (naad) => {
-  if (naad.sluit === null) return 'niet gemeten';
-  return naad.sluit ? 'sluit aan' : 'stap of gat';
-};
-
 function tekenGemarkeerd() {
   if (!stand.kijk) {
     vulStaafjes(gemarkeerd, []);
@@ -525,8 +456,7 @@ function werkKijkBalkBij() {
 
   document.getElementById('kijk-bij').textContent =
     `voeg ${index + 1} van ${lijst.length} · nog ${nogNiet} te gaan`
-    + ` · ${SOORTNAAM[naad.soort]}`
-    + (mijn ? ` · de meting zei: ${metingTekst(naad)}` : '');
+    + ` · ${SOORTNAAM[naad.soort]}`;
   document.getElementById('kijk-goed').setAttribute('aria-pressed', String(mijn === 'goed'));
   document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
 }
@@ -744,26 +674,13 @@ async function openBouwsel(voorbeeld) {
 zoekVeld.addEventListener('input', vulPalet);
 document.getElementById('stuk-knop').addEventListener('click', () => toonPalet('stukken'));
 
-function toonControleBlad(tab = 'meldingen') {
-  openBlad('Controle');
+function toonControleBlad() {
+  openBlad('Voegen');
   bladZoek.hidden = true;
   bladFilters.replaceChildren();
-  bladInhoud.replaceChildren();
-
-  const bewoner = opWijzer();
   bladTabs.replaceChildren();
-  for (const [sleutel, label] of [['combos', 'Voegen'], ['meldingen', 'Meldingen'], ['past', 'Past hier']]) {
-    const knop = document.createElement('button');
-    knop.type = 'button';
-    knop.textContent = label;
-    knop.setAttribute('aria-pressed', String(sleutel === tab));
-    knop.addEventListener('click', () => toonControleBlad(sleutel));
-    bladTabs.append(knop);
-  }
-
-  if (tab === 'combos') return vulCombinaties();
-  if (tab === 'meldingen') return vulMeldingen();
-  return vulVerkenner(bewoner);
+  bladInhoud.replaceChildren();
+  vulCombinaties();
 }
 
 function vulCombinaties() {
@@ -824,8 +741,7 @@ function vulCombinaties() {
     waar.className = 'combo-meting';
     waar.textContent = `vak ${naad.plek.x},${naad.plek.z} · laag ${naad.plek.laag} · `
       + (zijNaam[naad.plek.zijde] ?? 'boven')
-      + ` · ${SOORTNAAM[naad.soort]}`
-      + (mijn ? ` — de meting zei: ${metingTekst(naad)}` : '');
+      + ` · ${SOORTNAAM[naad.soort]}`;
 
     toon.append(namen, waar);
     toon.addEventListener('click', () => beginKijken(index));
@@ -840,30 +756,12 @@ function vulCombinaties() {
       knop.setAttribute('aria-pressed', String(mijn === waarde));
       knop.addEventListener('click', () => {
         velOordeel(naad.sleutel, waarde, naad);
-        toonControleBlad('combos');
+        toonControleBlad();
       });
       knoppen.append(knop);
     }
 
     rij.append(toon, knoppen);
-
-    if (mijn && naad.sluit !== null && (mijn === 'goed') !== naad.sluit) {
-      const afwijking = document.createElement('div');
-      afwijking.className = 'combo-afwijking';
-      afwijking.textContent = mijn === 'goed'
-        ? 'Jij keurt dit goed terwijl de randen niet samenvallen.'
-        : 'Jij keurt dit af terwijl de randen wél samenvallen.';
-      rij.append(afwijking);
-    }
-
-    const elders = vormElders(naad, naad.sleutel);
-    if (mijn && ((mijn === 'goed' && elders.niet) || (mijn === 'niet' && elders.goed))) {
-      const let_ = document.createElement('div');
-      let_.className = 'combo-afwijking';
-      let_.textContent = `Dezelfde twee stukken heb je elders ${elders.goed}× goed `
-        + `en ${elders.niet}× niet genoemd — het hangt dus van de plek af.`;
-      rij.append(let_);
-    }
 
     bladInhoud.append(rij);
   }
@@ -930,14 +828,14 @@ async function leesOordelen(bestand) {
     binnen = JSON.parse(await bestand.text());
   } catch (fout) {
     leesVerslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
-    toonControleBlad('combos');
+    toonControleBlad();
     return;
   }
 
   const rijen = Object.entries(binnen?.oordelen ?? {});
   if (rijen.length === 0) {
     leesVerslag = { mis: true, tekst: `In ${bestand.name} staat geen "oordelen" met inhoud.` };
-    toonControleBlad('combos');
+    toonControleBlad();
     return;
   }
 
@@ -970,101 +868,10 @@ async function leesOordelen(bestand) {
   };
 
   werkBijAlles();
-  toonControleBlad('combos');
+  toonControleBlad();
 }
 
-function vulMeldingen() {
-  if (laatsteMeldingen.length === 0) {
-    const p = document.createElement('p');
-    p.className = 'leeg';
-    p.textContent = bouwsel.stukken.size === 0
-      ? 'Nog niets geplaatst.'
-      : 'Alles sluit aan.';
-    bladInhoud.append(p);
-    return;
-  }
-
-  for (const melding of laatsteMeldingen) {
-    const knop = document.createElement('button');
-    knop.type = 'button';
-    knop.className = 'melding';
-    knop.dataset.ernst = melding.ernst;
-    const soort = document.createElement('small');
-    soort.textContent = melding.soort;
-    knop.append(soort, document.createTextNode(melding.tekst));
-    knop.addEventListener('click', () => {
-      stand.wijzer = [melding.plek.x, melding.plek.z];
-      stand.laag = melding.plek.laag;
-      zetLaagUit();
-      stuur.target.set(melding.plek.x * VAK, melding.plek.laag * LAAG + 0.25, melding.plek.z * VAK);
-      sluitBlad();
-      werkBijAlles();
-    });
-    bladInhoud.append(knop);
-  }
-}
-
-function vulVerkenner(bewoner) {
-  if (!bewoner) {
-    const p = document.createElement('p');
-    p.className = 'leeg';
-    p.textContent = 'Richt de wijzer eerst op een stuk dat er al staat.';
-    bladInhoud.append(p);
-    return;
-  }
-
-  const vakken = kit.vakkenVan(bewoner.naam, bewoner.x, bewoner.z, bewoner.slagen);
-  const hier = vakken.find((v) => v.wereld[0] === stand.wijzer[0] && v.wereld[1] === stand.wijzer[1]);
-
-  const uitleg = document.createElement('div');
-  uitleg.className = 'uitleg';
-  uitleg.innerHTML = `<p><b>${bewoner.naam}</b></p>`;
-  bladInhoud.append(uitleg);
-
-  let iets = false;
-  for (const zijde of ZIJDEN) {
-    const rand = kit.randVan(bewoner.naam, hier.lokaal, zijde, bewoner.slagen);
-    if (rand === null || kit.isOpen(rand)) continue;
-
-    const [dx, dz] = STAP[zijde];
-    const doel = [stand.wijzer[0] + dx, stand.wijzer[1] + dz];
-    if (bouwsel.op(doel[0], doel[1], bewoner.laag).length) continue;
-
-    const passend = watPast(kit, rand, TEGENOVER[zijde]);
-    if (passend.length === 0) continue;
-    iets = true;
-
-    const kop = document.createElement('div');
-    kop.className = 'uitleg';
-    kop.innerHTML = `<p>${{ n: 'noord', o: 'oost', z: 'zuid', w: 'west' }[zijde]}`
-      + ` — ${passend.length} stukken passen hier</p>`;
-    bladInhoud.append(kop);
-
-    for (const kandidaat of passend.slice(0, 25)) {
-      bladInhoud.append(maakRij(kandidaat.naam, `${kandidaat.slagen * 90}°`, async () => {
-        const [lu, lv] = kandidaat.lokaal.split(',').map(Number);
-        const [du, dv] = draaiVak([lu, lv], kandidaat.slagen);
-        await doeZet({
-          naam: kandidaat.naam,
-          x: doel[0] - du,
-          z: doel[1] - dv,
-          laag: bewoner.laag,
-          slagen: kandidaat.slagen,
-        });
-        sluitBlad();
-      }));
-    }
-  }
-
-  if (!iets) {
-    const p = document.createElement('p');
-    p.className = 'leeg';
-    p.textContent = 'Geen vrije zijde met een passend stuk.';
-    bladInhoud.append(p);
-  }
-}
-
-standKnop.addEventListener('click', () => toonControleBlad('meldingen'));
+standKnop.addEventListener('click', () => toonControleBlad());
 
 const straal = new THREE.Raycaster();
 const punt = new THREE.Vector2();
@@ -1150,7 +957,7 @@ renderer.setAnimationLoop(() => {
 });
 
 window.TERREINBOUWER = {
-  kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
+  kit, bouwsel, stand, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
   naden, oordelen, velOordeel, naadSleutel, vormSleutel, voorbeelden, openBouwsel,
   volgendBouwsel,

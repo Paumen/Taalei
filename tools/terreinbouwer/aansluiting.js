@@ -25,7 +25,6 @@ export class Kit {
     this.modellen = new Map(data.modellen.map((m) => [m.naam, m]));
     this.randen = data.randen;
     this.vlakken = data.vlakken;
-    this._gedraaid = new Map();
   }
 
   model(naam) {
@@ -52,36 +51,8 @@ export class Kit {
     return this.model(naam).zijden[ZIJDEN[index]][lokaal] ?? null;
   }
 
-  vlakSleutel(id, slagen) {
-    const r = ((slagen % 4) + 4) % 4;
-    const cache = `${id}@${r}`;
-    if (this._gedraaid.has(cache)) return this._gedraaid.get(cache);
-
-    const draai = ([a, b]) => {
-      let [p, q] = [a, b];
-      for (let i = 0; i < r; i++) [p, q] = [q, -p];
-      return [Number(p.toFixed(3)), Number(q.toFixed(3))];
-    };
-
-    const stukken = (this.vlakken[id] ?? []).map(([a1, b1, a2, b2]) => {
-      const p = draai([a1, b1]);
-      const q = draai([a2, b2]);
-      return (p[0] < q[0] || (p[0] === q[0] && p[1] <= q[1])) ? [...p, ...q] : [...q, ...p];
-    });
-    stukken.sort((p, q) => p[0] - q[0] || p[1] - q[1] || p[2] - q[2] || p[3] - q[3]);
-
-    const sleutel = JSON.stringify(stukken);
-    this._gedraaid.set(cache, sleutel);
-    return sleutel;
-  }
-
   isOpen(rand) {
     return rand === null || (this.randen[rand]?.vorm ?? []).length === 0;
-  }
-
-  sluitAan(rand, buurRand) {
-    if (rand === null || buurRand === null) return false;
-    return this.randen[rand]?.spiegel === buurRand;
   }
 }
 
@@ -141,138 +112,6 @@ export class Bouwsel {
   }
 }
 
-export const ERNST = { fout: 'fout', waarschuwing: 'waarschuwing' };
-
-export function controleer(bouwsel) {
-  const { kit } = bouwsel;
-  const meldingen = [];
-  const gezien = new Set();
-
-  const naamVan = (id) => bouwsel.stukken.get(id).naam;
-
-  for (const [sleutel, bewoners] of bouwsel.bezet) {
-    const [x, z, laag] = sleutel.split(',').map(Number);
-
-    for (const bewoner of bewoners) {
-      const stuk = bouwsel.stukken.get(bewoner.id);
-
-      for (const zijde of ZIJDEN) {
-        const [dx, dz] = STAP[zijde];
-        const buren = bouwsel.op(x + dx, z + dz, laag);
-        if (buren.length !== 1) continue;
-        const buur = buren[0];
-        if (buur.id === bewoner.id) continue;
-
-        const naadSleutel = [
-          `${x},${z},${laag},${zijde}`,
-          `${x + dx},${z + dz},${laag},${TEGENOVER[zijde]}`,
-        ].sort().join('|');
-        if (gezien.has(naadSleutel)) continue;
-        gezien.add(naadSleutel);
-
-        const hier = kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen);
-        const buurStuk = bouwsel.stukken.get(buur.id);
-        const daar = kit.randVan(buurStuk.naam, buur.lokaal, TEGENOVER[zijde], buurStuk.slagen);
-
-        if (kit.sluitAan(hier, daar)) continue;
-        if (kit.isOpen(hier) && kit.isOpen(daar)) continue;
-
-        meldingen.push({
-          soort: 'naad',
-          ernst: ERNST.waarschuwing,
-          tekst: kit.isOpen(hier) || kit.isOpen(daar)
-            ? `${naamVan(bewoner.id)} en ${naamVan(buur.id)}: de één heeft hier niets, de ander wel`
-            : `${naamVan(bewoner.id)} en ${naamVan(buur.id)}: randen ${hier} en ${daar} passen niet op elkaar`,
-          stukken: [bewoner.id, buur.id],
-          plek: { x, z, laag, zijde, randen: [hier, daar] },
-        });
-      }
-
-      const onderId = kit.model(stuk.naam).onder[bewoner.lokaal];
-      const heeftOnderkant = (kit.vlakken[onderId] ?? []).length > 0;
-      const onderSleutel = heeftOnderkant ? kit.vlakSleutel(onderId, stuk.slagen) : null;
-
-      if (laag > 0 && heeftOnderkant) {
-        const onder = bouwsel.op(x, z, laag - 1);
-        if (onder.length === 0) {
-          meldingen.push({
-            soort: 'zwevend',
-            ernst: ERNST.fout,
-            tekst: `${naamVan(bewoner.id)} zweeft: niets eronder op laag ${laag - 1}`,
-            stukken: [bewoner.id],
-            plek: { x, z, laag },
-          });
-        } else {
-          for (const drager of onder) {
-            const dragerStuk = bouwsel.stukken.get(drager.id);
-            const bovenId = kit.model(dragerStuk.naam).boven[drager.lokaal];
-            if (kit.vlakSleutel(bovenId, dragerStuk.slagen) === onderSleutel) continue;
-            meldingen.push({
-              soort: 'stapel',
-              ernst: ERNST.waarschuwing,
-              tekst: `${naamVan(bewoner.id)} staat niet vlak op ${naamVan(drager.id)}`,
-              stukken: [bewoner.id, drager.id],
-              plek: { x, z, laag },
-            });
-          }
-        }
-      }
-    }
-  }
-
-  const perPlek = new Map();
-  for (const stuk of bouwsel.stukken.values()) {
-    const sleutel = `${stuk.naam}@${stuk.x},${stuk.z},${stuk.laag},${stuk.slagen}`;
-    if (!perPlek.has(sleutel)) perPlek.set(sleutel, []);
-    perPlek.get(sleutel).push(stuk.id);
-  }
-  for (const ids of perPlek.values()) {
-    if (ids.length < 2) continue;
-    const stuk = bouwsel.stukken.get(ids[0]);
-    meldingen.push({
-      soort: 'dubbel',
-      ernst: ERNST.waarschuwing,
-      tekst: `${stuk.naam} staat hier ${ids.length}× bovenop zichzelf`,
-      stukken: ids,
-      plek: { x: stuk.x, z: stuk.z, laag: stuk.laag },
-    });
-  }
-
-  for (const stuk of bouwsel.stukken.values()) {
-    const model = kit.model(stuk.naam);
-    if (!model.trap) continue;
-    const vakken = kit.vakkenVan(stuk.naam, stuk.x, stuk.z, stuk.slagen);
-    const trapOnder = new Set();
-    const trapBoven = new Set();
-    for (const vak of vakken) {
-      for (const b of bouwsel.op(vak.wereld[0], vak.wereld[1], stuk.laag - 1)) {
-        trapOnder.add(kit.model(naamVan(b.id)).trap);
-      }
-      for (const b of bouwsel.op(vak.wereld[0], vak.wereld[1], stuk.laag + 1)) {
-        trapBoven.add(kit.model(naamVan(b.id)).trap);
-      }
-    }
-
-    const meld = (tekst) => meldingen.push({
-      soort: 'trap',
-      ernst: ERNST.waarschuwing,
-      tekst: `${stuk.naam}: ${tekst}`,
-      stukken: [stuk.id],
-      plek: { x: stuk.x, z: stuk.z, laag: stuk.laag },
-    });
-
-    if (model.trap === 'base' && trapOnder.size > 0) meld('een -base hoort onderop');
-    if (model.trap === 'mid' && stuk.laag > 0 && !trapOnder.has('base') && !trapOnder.has('mid')) {
-      meld('een -mid hoort op een -base of een -mid te staan');
-    }
-    if (model.trap === 'top' && trapBoven.size > 0) meld('een -top hoort bovenop');
-    if (model.trap === 'top' && trapOnder.size === 0 && stuk.laag > 0) {
-      meld('een -top zonder -base of -mid eronder');
-    }
-  }
-
-  return meldingen;
-}
 
 export function naden(bouwsel) {
   const { kit } = bouwsel;
@@ -324,7 +163,6 @@ export function naden(bouwsel) {
           voegToe({
             soort: 'zij',
             delen: [hier, daar],
-            sluit: kit.sluitAan(hier.rand, daar.rand),
             plek: { x, z, laag, zijde },
           });
         }
@@ -338,7 +176,6 @@ export function naden(bouwsel) {
           voegToe({
             soort: 'rand',
             delen: [hier, daar],
-            sluit: null,
             plek: { x, z, laag, zijde },
           });
         }
@@ -366,7 +203,6 @@ export function naden(bouwsel) {
               vlak: onderId,
             },
           ],
-          sluit: kit.vlakSleutel(bovenId, stuk.slagen) === kit.vlakSleutel(onderId, buurStuk.slagen),
           plek: { x, z, laag, zijde: 'b' },
         });
       }
@@ -398,19 +234,4 @@ export function vormSleutel(naad) {
     `${naad.namen[0]}@${naad.slagen[0] * 90}`,
     `${naad.namen[1]}@${naad.slagen[1] * 90}`,
   ].sort().join(' + ');
-}
-
-export function watPast(kit, rand, zijde) {
-  const uit = [];
-  if (rand === null) return uit;
-
-  for (const model of kit.modellen.values()) {
-    for (let slagen = 0; slagen < 4; slagen++) {
-      for (const lokaal of Object.keys(model.zijden[ZIJDEN[(ZIJDEN.indexOf(zijde) + slagen) % 4]])) {
-        const kandidaat = kit.randVan(model.naam, lokaal, zijde, slagen);
-        if (kit.sluitAan(rand, kandidaat)) uit.push({ naam: model.naam, slagen, lokaal });
-      }
-    }
-  }
-  return uit;
 }

@@ -6,7 +6,6 @@
   --inkt: #2b2721;
   --grijs: #6d675c;
   --fout: #c0392b;
-  --waarschuwing: #c07a1e;
   --goed: #3d7a3d;
   --aandacht: #2b6cb0;
 
@@ -112,19 +111,6 @@ button {
   white-space: nowrap;
   flex: 1;
 }
-
-.knop-stand[data-ernst="fout"] {
-  border-color: var(--fout);
-  color: var(--fout);
-  font-weight: 600;
-}
-
-.knop-stand[data-ernst="waarschuwing"] {
-  border-color: var(--waarschuwing);
-  color: var(--waarschuwing);
-}
-
-.knop-stand[data-ernst="goed"] { color: var(--goed); }
 
 .doek {
   position: relative;
@@ -401,30 +387,6 @@ button {
   flex: none;
 }
 
-.melding {
-  display: block;
-  width: 100%;
-  padding: 8px 10px;
-  border: 0;
-  border-left: 3px solid var(--grijs);
-  border-bottom: 1px solid var(--rand);
-  font: inherit;
-  font-size: 13px;
-  text-align: left;
-  background: none;
-}
-
-.melding[data-ernst="fout"] { border-left-color: var(--fout); }
-.melding[data-ernst="waarschuwing"] { border-left-color: var(--waarschuwing); }
-
-.melding small {
-  display: block;
-  color: var(--grijs);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 .leeg {
   padding: 16px 12px;
   color: var(--grijs);
@@ -481,12 +443,6 @@ button {
   color: var(--grijs);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-}
-
-.combo-afwijking {
-  margin-top: 4px;
-  color: var(--waarschuwing);
-  font-size: 11px;
 }
 
 .combo-knoppen {
