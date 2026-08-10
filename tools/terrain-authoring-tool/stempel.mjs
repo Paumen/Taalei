@@ -11,6 +11,7 @@ const INHOUD = [
   join(HIER, 'tool.js'),
   join(HIER, 'aansluiting.js'),
   join(HIER, 'bouwsels.json'),
+  join(HIER, 'oordelen.json'),
   join(HIER, '..', '..', 'kits', 'modulair-terrein', 'aansluitingen.json'),
 ];
 

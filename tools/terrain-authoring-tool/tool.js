@@ -307,7 +307,27 @@ const OORDEELSLEUTEL = 'terrain-authoring-tool-oordelen';
 
 const SLEUTELVORM = /^[^|]*\|(zij|rand|stapel)\|-?\d+,-?\d+,-?\d+,[nozwb] .+>.+$/;
 
-const bewaard = Object.entries(JSON.parse(localStorage.getItem(OORDEELSLEUTEL) ?? '{}'));
+// De eerste keer begin je met de oordelen die meegeleverd zijn. Daarna is wat
+// in deze browser staat de waarheid — ook als je er een intrekt, want anders
+// stond een ingetrokken oordeel er na het herladen zo weer.
+const opgeslagenOordelen = localStorage.getItem(OORDEELSLEUTEL);
+
+async function beginOordelen() {
+  if (opgeslagenOordelen !== null) {
+    try {
+      return JSON.parse(opgeslagenOordelen);
+    } catch {
+      return {};
+    }
+  }
+  try {
+    return (await (await fetch(vers('./oordelen.json'))).json()).oordelen ?? {};
+  } catch {
+    return {};
+  }
+}
+
+const bewaard = Object.entries(await beginOordelen());
 const oordelen = new Map(bewaard.filter(([s]) => SLEUTELVORM.test(s)));
 const vervallen = bewaard.length - oordelen.size;
 
@@ -315,7 +335,7 @@ function bewaarOordelen() {
   localStorage.setItem(OORDEELSLEUTEL, JSON.stringify(Object.fromEntries(oordelen)));
 }
 
-if (vervallen) bewaarOordelen();
+if (vervallen || opgeslagenOordelen === null) bewaarOordelen();
 
 function velOordeel(sleutel, oordeel, naad) {
   if (oordelen.get(sleutel)?.oordeel === oordeel) oordelen.delete(sleutel);
