@@ -375,6 +375,80 @@ const BOUWSELS = [
       { naam: 'mountain-d', x: 5, z: 0, laag: 0 },
     ],
   },
+
+  /* ── vierde lichting: wat de oordelen terugzeiden ────────────────────────
+   *
+   * Van de derde lichting zijn er 574 voegen beoordeeld en 181 afgekeurd —
+   * tegen negen afkeuringen in de 547 daarvoor. Dat is geen ruis, dat is een
+   * antwoord, en het staat allemaal op één ding:
+   *
+   * De falloff-stukken stonden verkeerd om. Het zijn geen wandjes tussen twee
+   * vakken maar de rok onder de rand van een grastegel: hun meetkunde zit in de
+   * westelijke sliver van hun eigen vak, van y 0 naar −0,5. Het vak waar zo'n
+   * stuk in staat hoort dus bij de hóge kant, en het lage terrein begint aan de
+   * andere kant van die sliver. Ik had het omgekeerd: het lage gras stond in
+   * hetzelfde vak als het wandje, en precies die voegen — wandje tegen het hoge
+   * gras ernaast, hoog gras tegen laag gras, en laag gras onder het wandje —
+   * zijn alle vijftien afgekeurd. De vier voegen van wandje tegen wandje en de
+   * dertien van wandje tegen het gras erachter zijn wél goedgekeurd.
+   *
+   * Bij de beek betekent hetzelfde iets ergers: ik zette de twee wandjes rug
+   * aan rug in het vak van het water, dus ze keken allebei naar buiten. Dat is
+   * geen geul maar een richel, en 126 van de 196 voegen gingen eruit. De
+   * wandjes horen in de grasvakken ernaast, met hun gezicht naar het water toe.
+   *
+   * En de bergrug: gras alleen als rand eromheen was zuinigheid die geld kost.
+   * Berg tegen gras is honderd keer goedgekeurd in 'Berg op de vlakte', waar
+   * het gras onder de berg door loopt; hier, met kale bergvoeten tegen een
+   * randje gras, ging 32 van de 40 eruit. Berg tegen berg ook: 6 van de 7.
+   *
+   * De oude drie blijven staan. Er hangen 574 oordelen aan, en die zijn van
+   * jou; een bouwsel aanpassen maakt ze dakloos. Dit zijn nieuwe bouwsels.
+   */
+  {
+    naam: 'Afstap van een halve laag, tweede poging',
+    waarover: 'Dezelfde afstap, maar nu staat het wandje in het vak van de hóge '
+      + 'kant, als rok onder de rand van de grastegel. Het lage gras begint aan '
+      + 'de andere kant. In de eerste poging keurde je precies de vijftien '
+      + 'voegen af die daarop neerkwamen.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-falloff-center', 0, -2, 1, 0),
+      { naam: 'escarpment-terrain-side-falloff-edge', x: 0, z: 2, laag: 0 },
+      ...vlak('hilly-terrain-grass-floor', 0, 3, -2, 2, 0),
+      ...vlak('hilly-terrain-grass-floor', -3, -1, -2, 2, -1),
+    ],
+  },
+  {
+    naam: 'Beek, tweede poging',
+    waarover: 'Dezelfde geul, maar de wandjes staan nu in de grasvakken ernaast '
+      + 'en kijken naar het water toe. In de eerste poging stonden ze rug aan rug '
+      + 'in het vak van het water zelf — dat is een richel en geen geul, en je '
+      + 'keurde er 126 van de 196 voegen af.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-falloff-center', -1, -3, 3, 0, 2),
+      ...rijZ('escarpment-terrain-side-falloff-center', 1, -3, 3, 0),
+      ...rijZ('hilly-terrain-water-flat', 0, -3, 3, -1),
+      ...vlak('hilly-terrain-grass-floor', -3, -1, -3, 3, 0),
+      ...vlak('hilly-terrain-grass-floor', 1, 3, -3, 3, 0),
+      { naam: 'hilly-prop-bridge-log-end', x: -1, z: 0, laag: 0 },
+      { naam: 'hilly-prop-bridge-log-middle', x: 0, z: 0, laag: 0 },
+      { naam: 'hilly-prop-bridge-log-end', x: 1, z: 0, laag: 0, slagen: 2 },
+    ],
+  },
+  {
+    naam: 'Twee bergen met gras eronder',
+    waarover: 'Twee bergen tegen elkaar, met het gras onder ze door in plaats '
+      + 'van als randje eromheen. Zo staat de berg in \u2018Berg op de vlakte\u2019 ook, '
+      + 'en daar keurde je alle honderd voegen van berg tegen gras goed.',
+    stukken: [
+      /* Precies de twee voetafdrukken breed, met een rand van één vak boven
+       * en onder. Een ruimere vlakte eromheen zou het bouwsel over de
+       * driehonderd voegen brengen, en dat is gras tegen gras dat je al kent. */
+      ...vlak('hilly-terrain-grass-floor', -4, 5, -3, 3, 0),
+      { naam: 'mountain-b', x: -2, z: 0, laag: 0 },
+      { naam: 'mountain-c', x: 3, z: 0, laag: 0 },
+    ],
+  },
 ];
 
 /* -- nakijken en wegschrijven ---------------------------------------------- */
