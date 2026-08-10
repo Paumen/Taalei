@@ -458,15 +458,66 @@ export function controleer(bouwsel) {
  */
 
 /**
- * Elke voeg tussen twee verschillende stukken, één keer per voeg.
+ * Elke plek waar twee verschillende stukken elkaar raken, één keer per plek.
  *
- * @returns {{stukken: string[], namen: string[], randen: string[],
- *            sleutel: string, sluit: boolean, plek: object}[]}
+ * Er zijn drie soorten, en dat is er twee meer dan er eerst waren:
+ *
+ *   `zij`     twee buren op dezelfde laag, rand tegen rand. De meting kan hier
+ *             zeggen of de profielen elkaars spiegelbeeld zijn.
+ *   `stapel`  hetzelfde vak, de ene laag hoger dan de andere: het bovenvlak van
+ *             de onderste tegen het ondervlak van de bovenste. Ook meetbaar —
+ *             het is dezelfde vergelijking die controleer() al maakt.
+ *   `rand`    schuin over de laaggrens: een wand op laag L en het dekvlak dat er
+ *             één vak naast en één laag hoger langs loopt. Hun profielen liggen
+ *             in hetzelfde verticale vlak, maar bóven elkaar in plaats van
+ *             tegenover elkaar. De spiegelproef zegt daar niets over, dus geeft
+ *             de meting hier niets — `sluit` is `null`, "niet gemeten".
+ *
+ * Alleen `zij` bestond, en dat maakte het gereedschap blind voor precies waar
+ * het om ging. "Klif en steilrand naast elkaar" is een wand met een grasrand
+ * over de bovenkant; de zes voegen die eruit kwamen waren drie keer wand tegen
+ * wand en drie keer gras tegen gras. Waar de wand het gras raakt — de reden dat
+ * dat bouwsel bestaat, en zichtbaar niet in orde — viel niets te kiezen. Een
+ * gereedschap dat je alleen laat oordelen over wat het kan meten, laat je
+ * oordelen over de verkeerde dingen.
+ *
+ * @returns {{stukken: string[], namen: string[], soort: string,
+ *            delen: object[], sleutel: string, sluit: boolean|null,
+ *            plek: object}[]}
  */
 export function naden(bouwsel) {
   const { kit } = bouwsel;
   const uit = [];
   const gezien = new Set();
+
+  /** Eén raakvlak vastleggen, als we het nog niet gehad hebben. */
+  const voegToe = (naad) => {
+    const merk = naad.delen
+      .map((d) => `${d.id}:${d.x},${d.z},${d.laag},${d.zijde ?? 'v'}`)
+      .sort().join('|');
+    if (gezien.has(merk)) return;
+    gezien.add(merk);
+    naad.noemer = bouwsel.noemer;
+    naad.randen = naad.delen.map((d) => d.rand ?? null);
+    naad.slagen = naad.delen.map((d) => d.slagen);
+    naad.namen = naad.delen.map((d) => d.naam);
+    naad.stukken = naad.delen.map((d) => d.id);
+    naad.sleutel = naadSleutel(naad);
+    naad.vorm = vormSleutel(naad);
+    uit.push(naad);
+  };
+
+  /** Wat er van een bewoner op een zijde te zien is. */
+  const kant = (bewoner, x, z, laag, zijde) => {
+    const stuk = bouwsel.stukken.get(bewoner.id);
+    return {
+      id: bewoner.id,
+      naam: stuk.naam,
+      slagen: stuk.slagen,
+      x, z, laag, zijde,
+      rand: kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen),
+    };
+  };
 
   for (const [sleutel, bewoners] of bouwsel.bezet) {
     const [x, z, laag] = sleutel.split(',').map(Number);
@@ -476,32 +527,67 @@ export function naden(bouwsel) {
 
       for (const zijde of ZIJDEN) {
         const [dx, dz] = STAP[zijde];
+
+        /* 1. dezelfde laag: rand tegen rand. */
         for (const buur of bouwsel.op(x + dx, z + dz, laag)) {
           if (buur.id === bewoner.id) continue; // eigen binnennaad
+          const hier = kant(bewoner, x, z, laag, zijde);
+          const daar = kant(buur, x + dx, z + dz, laag, TEGENOVER[zijde]);
+          if (kit.isOpen(hier.rand) && kit.isOpen(daar.rand)) continue; // twee keer lucht
 
-          const merk = [`${bewoner.id}:${x},${z},${zijde}`, `${buur.id}:${x + dx},${z + dz},${TEGENOVER[zijde]}`]
-            .sort().join('|');
-          if (gezien.has(merk)) continue;
-          gezien.add(merk);
-
-          const buurStuk = bouwsel.stukken.get(buur.id);
-          const hier = kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen);
-          const daar = kit.randVan(buurStuk.naam, buur.lokaal, TEGENOVER[zijde], buurStuk.slagen);
-          if (kit.isOpen(hier) && kit.isOpen(daar)) continue; // twee keer lucht
-
-          const naad = {
-            stukken: [bewoner.id, buur.id],
-            namen: [stuk.naam, buurStuk.naam],
-            slagen: [stuk.slagen, buurStuk.slagen],
-            randen: [hier, daar],
-            sluit: kit.sluitAan(hier, daar),
+          voegToe({
+            soort: 'zij',
+            delen: [hier, daar],
+            sluit: kit.sluitAan(hier.rand, daar.rand),
             plek: { x, z, laag, zijde },
-          };
-          naad.noemer = bouwsel.noemer;
-          naad.sleutel = naadSleutel(naad);
-          naad.vorm = vormSleutel(naad);
-          uit.push(naad);
+          });
         }
+
+        /* 2. schuin over de laaggrens: de wand hier, het dekvlak daar en hoger.
+         *
+         * Alleen omhoog kijken, anders komt elk paar twee keer langs — van
+         * onderaf gezien en van bovenaf. */
+        for (const buur of bouwsel.op(x + dx, z + dz, laag + 1)) {
+          if (buur.id === bewoner.id) continue;
+          const hier = kant(bewoner, x, z, laag, zijde);
+          const daar = kant(buur, x + dx, z + dz, laag + 1, TEGENOVER[zijde]);
+          if (kit.isOpen(hier.rand) && kit.isOpen(daar.rand)) continue;
+
+          voegToe({
+            soort: 'rand',
+            delen: [hier, daar],
+            sluit: null, // zie de kop: de spiegelproef zegt hier niets
+            plek: { x, z, laag, zijde },
+          });
+        }
+      }
+
+      /* 3. recht boven elkaar: bovenvlak tegen ondervlak. */
+      const bovenId = kit.model(stuk.naam).boven[bewoner.lokaal];
+      for (const buur of bouwsel.op(x, z, laag + 1)) {
+        if (buur.id === bewoner.id) continue;
+        const buurStuk = bouwsel.stukken.get(buur.id);
+        const onderId = kit.model(buurStuk.naam).onder[buur.lokaal];
+        const leeg = (id) => (kit.vlakken[id] ?? []).length === 0;
+        if (leeg(bovenId) && leeg(onderId)) continue; // twee keer niets
+
+        voegToe({
+          soort: 'stapel',
+          delen: [
+            { id: bewoner.id, naam: stuk.naam, slagen: stuk.slagen, x, z, laag, vlak: bovenId },
+            {
+              id: buur.id,
+              naam: buurStuk.naam,
+              slagen: buurStuk.slagen,
+              x,
+              z,
+              laag: laag + 1,
+              vlak: onderId,
+            },
+          ],
+          sluit: kit.vlakSleutel(bovenId, stuk.slagen) === kit.vlakSleutel(onderId, buurStuk.slagen),
+          plek: { x, z, laag, zijde: 'b' },
+        });
       }
     }
   }
@@ -557,7 +643,11 @@ export function naadSleutel(naad) {
   }
 
   const wie = (i) => `${naad.namen[i]}@${naad.slagen[i] * 90}`;
-  return `${naad.noemer ?? ''}|${x},${z},${laag},${zijde} ${wie(eerst)}>${wie(dan)}`;
+  /* De soort hoort erbij: een `zij` en een `rand` kunnen na het rechttrekken op
+   * dezelfde plek met dezelfde twee stukken uitkomen — een wand met gras ernaast
+   * op zijn eigen laag, en dezelfde wand met gras een laag hoger. Twee dingen om
+   * naar te kijken, dus twee oordelen. */
+  return `${naad.noemer ?? ''}|${naad.soort}|${x},${z},${laag},${zijde} ${wie(eerst)}>${wie(dan)}`;
 }
 
 /**

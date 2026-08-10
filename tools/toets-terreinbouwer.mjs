@@ -332,6 +332,60 @@ toets(
   wand[0]?.vorm,
 );
 
+/* -- raken over de laaggrens ----------------------------------------------
+ * Een wand op laag 0 met het dekvlak dat er één vak naast en één laag hoger
+ * langs loopt: dat is hoe elk plateau in deze kit in elkaar zit, en het was
+ * precies wat er niet te beoordelen viel. "Klif en steilrand naast elkaar" gaf
+ * zes voegen — drie keer wand tegen wand, drie keer gras tegen gras — en over
+ * de plek waar de wand het gras raakt kon je niets zeggen.
+ */
+const wandMetGras = naden(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'hilly-terrain-grass-floor', x: -1, z: 0, laag: 1 },
+]));
+toets(
+  'een wand en het gras dat er een laag hoger langs loopt geven een voeg',
+  wandMetGras.length === 1, `${wandMetGras.length}`,
+);
+toets(
+  'en die voeg heet een rand',
+  wandMetGras[0]?.soort === 'rand', wandMetGras[0]?.soort,
+);
+/* De meting mag hier niets zeggen. De twee profielen liggen in hetzelfde
+ * verticale vlak maar bóven elkaar, dus de spiegelproef is er geen vraag —
+ * en een gokje zou het oordeel voorzeggen. */
+toets(
+  'de meting spreekt zich er niet over uit',
+  wandMetGras[0]?.sluit === null, String(wandMetGras[0]?.sluit),
+);
+
+/* Recht boven elkaar is wél te meten: dat is dezelfde vergelijking die
+ * controleer() maakt voor het stapelen. */
+const opElkaar = naden(bouw([
+  { naam: 'cliff-terrain-side-base', x: 0, z: 0, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 1 },
+]));
+toets(
+  'twee stukken op elkaar geven een stapelvoeg',
+  opElkaar.length === 1 && opElkaar[0].soort === 'stapel',
+  opElkaar.map((n) => n.soort).join(','),
+);
+toets('en die is wél gemeten', typeof opElkaar[0]?.sluit === 'boolean');
+
+/* De drie soorten mogen elkaars oordeel niet overnemen: een wand met gras
+ * ernáást op zijn eigen laag en dezelfde wand met gras erbóven komen na het
+ * rechttrekken op dezelfde plek uit met dezelfde twee stuknamen. */
+const naastEnBoven = naden(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'hilly-terrain-grass-floor', x: -1, z: 0, laag: 0 },
+  { naam: 'hilly-terrain-grass-floor', x: -1, z: 0, laag: 1 },
+]));
+toets(
+  'naast elkaar en schuin erboven zijn twee losse oordelen',
+  new Set(naastEnBoven.map((n) => n.sleutel)).size === naastEnBoven.length,
+  naastEnBoven.map((n) => `${n.soort}:${n.sleutel}`).join(' / '),
+);
+
 /* Klif-mid en steilrand-mid delen hun randprofielen (r055/r056). Op profiel
  * bewaren gooide ze op één hoop; op vorm blijven het twee dingen. */
 const klifMid = naden(bouw([
@@ -808,12 +862,23 @@ toets(
 );
 toets('en wel met echte staafjes, niet met haarlijnen', markering.meshes);
 
-/* Volgende voeg: de wijzer moet meeverspringen, anders kijk je nog naar de
- * vorige. */
-const voorVolgende = await wijzer(blad);
+/* Volgende voeg: de aanwijzing moet meeverspringen, anders kijk je nog naar de
+ * vorige.
+ *
+ * Niet op de wijzer toetsen: twee voegen kunnen op hetzelfde vak liggen — een
+ * wand raakt zijn buurman én het gras dat er een laag hoger langs loopt. Dan
+ * blijft de wijzer terecht staan waar hij staat en is het de gemarkeerde voeg
+ * die verandert. */
+const merkVanVoeg = (b) => b.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  const naad = T.stand.kijk.lijst[T.stand.kijk.index];
+  const groep = T.scene.children.find((k) => k.isGroup && k.renderOrder === 7);
+  return `${naad.sleutel} @ ${groep.children.length}`;
+});
+const voorVolgende = await merkVanVoeg(blad);
 await blad.locator('#kijk-volgende').tap();
-toets('volgende voeg verplaatst de wijzer', await wijzer(blad) !== voorVolgende,
-  `${voorVolgende} → ${await wijzer(blad)}`);
+toets('volgende voeg verplaatst de aanwijzing', await merkVanVoeg(blad) !== voorVolgende,
+  `${voorVolgende} → ${await merkVanVoeg(blad)}`);
 
 const voorOordeel = await blad.evaluate(() => window.TERREINBOUWER.stand.kijk.index);
 await blad.locator('#kijk-goed').tap();
@@ -845,11 +910,25 @@ toets(
   JSON.stringify(standVoor) === JSON.stringify(standNa),
   `${JSON.stringify(standVoor)} → ${JSON.stringify(standNa)}`,
 );
+/* Terug naar de voeg die zojuist een oordeel kreeg: dáár hoort de meting nu
+ * wél te staan. Twee keer doorstappen heeft ons intussen bij onbeoordeelde
+ * voegen gebracht, en daar hoort ze juist te zwijgen. */
+await blad.evaluate((i) => window.TERREINBOUWER.kijkNaar(i), voorOordeel);
 toets(
   'de meting van de beoordeelde voeg is nu wél te zien',
+  (await blad.locator('#kijk-bij').innerText()).includes('de meting zei:'),
+  await blad.locator('#kijk-bij').innerText(),
+);
+/* En wat er bewaard wordt past bij de soort: een `rand` is niet gemeten, en
+ * `null` mag daar niet stiekem een `false` worden — "ik heb niets gemeten" en
+ * "ik heb gemeten en het klopte niet" zijn twee verschillende dingen. */
+toets(
+  'en wat bewaard wordt zegt niet meer dan er gemeten is',
   await blad.evaluate(() => {
     const T = window.TERREINBOUWER;
-    return [...T.oordelen.values()].every((o) => typeof o.meting === 'boolean');
+    return [...T.oordelen.values()].every((o) => (o.soort === 'rand'
+      ? o.meting === null
+      : typeof o.meting === 'boolean'));
   }),
 );
 

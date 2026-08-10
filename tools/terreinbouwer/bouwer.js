@@ -221,6 +221,30 @@ function naadPunten(randId, x, z, laag, zijde) {
   return punten;
 }
 
+/**
+ * De omtrek van een boven- of ondervlak, waar het gemeten is.
+ *
+ * Een vlak draagt geen hoogte, en dat hoeft ook niet: het is gesneden op de
+ * laaggrens zelf. Het bovenvlak van een stuk op laag L ligt dus op (L+1) · LAAG
+ * en het ondervlak van het stuk daarboven op precies dezelfde hoogte — wat de
+ * reden is dat ze te vergelijken zijn.
+ */
+function vlakPunten(vlakId, x, z, grens, slagen) {
+  const r = ((slagen % 4) + 4) % 4;
+  const draai = ([a, b]) => {
+    let [p, q] = [a, b];
+    for (let i = 0; i < r; i++) [p, q] = [q, -p];
+    return [p, q];
+  };
+  const punten = [];
+  for (const [a1, b1, a2, b2] of kit.vlakken[vlakId] ?? []) {
+    for (const [a, b] of [draai([a1, b1]), draai([a2, b2])]) {
+      punten.push(x * VAK + a, grens * LAAG, z * VAK + b);
+    }
+  }
+  return punten;
+}
+
 const naadFout = (() => {
   const lijn = new THREE.LineSegments(
     new THREE.BufferGeometry(),
@@ -412,7 +436,7 @@ const OORDEELSLEUTEL = 'terreinbouwer-oordelen';
  * erger dan ze weggooien, want dan telt de bouwer oordelen mee die nergens meer
  * bij horen en zet hij voegen op "al beoordeeld" die dat niet zijn.
  */
-const SLEUTELVORM = /^[^|]*\|-?\d+,-?\d+,-?\d+,[nozw] .+>.+$/;
+const SLEUTELVORM = /^[^|]*\|(zij|rand|stapel)\|-?\d+,-?\d+,-?\d+,[nozwb] .+>.+$/;
 
 const bewaard = Object.entries(JSON.parse(localStorage.getItem(OORDEELSLEUTEL) ?? '{}'));
 const oordelen = new Map(bewaard.filter(([s]) => SLEUTELVORM.test(s)));
@@ -429,11 +453,15 @@ function velOordeel(sleutel, oordeel, naad) {
   else {
     oordelen.set(sleutel, {
       oordeel,
+      soort: naad.soort,
       namen: naad.namen,
       slagen: naad.slagen,
       randen: naad.randen,
       vorm: naad.vorm,
       plek: naad.plek,
+      /* `null` bij een `rand`: daar is niets gemeten. Dat is iets anders dan
+       * "gemeten en het klopte niet", en in een bestand dat later gelezen wordt
+       * mag dat verschil niet wegvallen. */
       meting: naad.sluit,
     });
   }
@@ -636,10 +664,12 @@ function kijkNaar(index) {
    * kijkt er na de volgende voeg nog steeds zo op — en dat is nodig, want bij
    * veertig voegen achter elkaar is elke keer opnieuw richten het werk waar je
    * juist vanaf wilt. */
-  const [dx, dz] = STAP[naad.plek.zijde];
+  /* Midden tussen de twee delen: bij een `stapel` ligt dat recht boven het vak
+   * op de laaggrens, bij de andere soorten een half vak opzij. */
+  const [dx, dz] = STAP[naad.plek.zijde] ?? [0, 0];
   const mikpunt = new THREE.Vector3(
     (naad.plek.x + dx / 2) * VAK,
-    naad.plek.laag * LAAG + 0.25,
+    naad.plek.laag * LAAG + (naad.soort === 'zij' ? 0.25 : LAAG / 2),
     (naad.plek.z + dz / 2) * VAK,
   );
   const standpunt = camera.position.clone().sub(stuur.target);
@@ -650,7 +680,40 @@ function kijkNaar(index) {
   werkBijAlles();
 }
 
-/** De doorsnede van de voeg die je nu bekijkt. Alleen die ene. */
+/**
+ * Hoe twee stukken elkaar raken, in woorden.
+ *
+ * `rand` is de soort die er het langst niet was: een wand op de ene laag en het
+ * dekvlak dat er één vak naast en één laag hoger langs loopt. Precies waar je
+ * naar kijkt als je wilt weten of een wand netjes onder zijn gras uitkomt.
+ */
+const SOORTNAAM = {
+  zij: 'naast elkaar',
+  rand: 'schuin erboven',
+  stapel: 'op elkaar',
+};
+
+/**
+ * Wat de meting van een voeg zegt — en waar ze niets zegt, dat ook.
+ *
+ * Bij een `rand` liggen de twee profielen in hetzelfde verticale vlak maar
+ * bóven elkaar in plaats van tegenover elkaar. De spiegelproef die de andere
+ * soorten beantwoordt, is daar geen vraag die iets betekent. Dan is "niet
+ * gemeten" het enige eerlijke antwoord; een gokje zou hier het oordeel
+ * voorzeggen, en dat is het laatste wat dit gereedschap mag doen.
+ */
+const metingTekst = (naad) => {
+  if (naad.sluit === null) return 'niet gemeten';
+  return naad.sluit ? 'sluit aan' : 'stap of gat';
+};
+
+/**
+ * De doorsnede van de voeg die je nu bekijkt. Alleen die ene.
+ *
+ * Elk deel draagt zijn eigen vak en laag, want een voeg loopt niet altijd
+ * binnen één laag: bij een `rand` staat het ene stuk een laag hoger dan het
+ * andere, en dat is nu juist wat er te zien moet zijn.
+ */
 function tekenGemarkeerd() {
   if (!stand.kijk) {
     vulStaafjes(gemarkeerd, []);
@@ -658,12 +721,9 @@ function tekenGemarkeerd() {
   }
   const naad = stand.kijk.lijst[stand.kijk.index];
   const punten = [];
-  const { x, z, laag, zijde } = naad.plek;
-  for (const [i, rand] of naad.randen.entries()) {
-    if (!rand) continue;
-    const kant = i === 0 ? zijde : TEGENOVER[zijde];
-    const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
-    punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
+  for (const deel of naad.delen) {
+    if (deel.vlak) punten.push(...vlakPunten(deel.vlak, deel.x, deel.z, naad.plek.laag + 1, deel.slagen));
+    else if (deel.rand) punten.push(...naadPunten(deel.rand, deel.x, deel.z, deel.laag, deel.zijde));
   }
   vulStaafjes(gemarkeerd, punten);
 }
@@ -697,7 +757,8 @@ function werkKijkBalkBij() {
    * met de meting van mening verschilt. */
   document.getElementById('kijk-bij').textContent =
     `voeg ${index + 1} van ${lijst.length} · nog ${nogNiet} te gaan`
-    + (mijn ? ` · de meting zei: ${naad.sluit ? 'sluit aan' : 'stap of gat'}` : '');
+    + ` · ${SOORTNAAM[naad.soort]}`
+    + (mijn ? ` · de meting zei: ${metingTekst(naad)}` : '');
   document.getElementById('kijk-goed').setAttribute('aria-pressed', String(mijn === 'goed'));
   document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
 }
@@ -1042,8 +1103,9 @@ function vulCombinaties() {
     /* Alleen wáár de voeg zit. Wat de meting ervan vindt komt er pas bij nadat
      * jij iets gezegd hebt — zie werkKijkBalkBij(). */
     waar.textContent = `vak ${naad.plek.x},${naad.plek.z} · laag ${naad.plek.laag} · `
-      + zijNaam[naad.plek.zijde]
-      + (mijn ? ` — de meting zei: ${naad.sluit ? 'sluit aan' : 'stap of gat'}` : '');
+      + (zijNaam[naad.plek.zijde] ?? 'boven')
+      + ` · ${SOORTNAAM[naad.soort]}`
+      + (mijn ? ` — de meting zei: ${metingTekst(naad)}` : '');
 
     toon.append(namen, waar);
     toon.addEventListener('click', () => beginKijken(index));
@@ -1069,7 +1131,9 @@ function vulCombinaties() {
 
     rij.append(toon, knoppen);
 
-    if (mijn && (mijn === 'goed') !== naad.sluit) {
+    /* Geen tegenspraak zonder meting: bij een `rand` is er niets om van af te
+     * wijken, en "jij zegt X terwijl de meting Y zegt" zou daar verzonnen zijn. */
+    if (mijn && naad.sluit !== null && (mijn === 'goed') !== naad.sluit) {
       const afwijking = document.createElement('div');
       afwijking.className = 'combo-afwijking';
       afwijking.textContent = mijn === 'goed'
