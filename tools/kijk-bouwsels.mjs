@@ -54,7 +54,12 @@ pagina.on('pageerror', (fout) => console.log('  [paginafout]', fout.message));
 await pagina.goto(`http://127.0.0.1:${poort}/tools/terreinbouwer/`);
 await pagina.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
 
-const namen = await pagina.evaluate(() => window.TERREINBOUWER.voorbeelden.map((v) => v.naam));
+/* Zonder argumenten alles; met argumenten alleen de bouwsels waarvan de naam het
+ * argument bevat. Bij het bijbouwen scheelt dat wachten: je kijkt naar de vier
+ * nieuwe en niet naar de negentien die je al gezien hebt. */
+const zoek = process.argv.slice(2).map((s) => s.toLowerCase());
+const namen = (await pagina.evaluate(() => window.TERREINBOUWER.voorbeelden.map((v) => v.naam)))
+  .filter((n) => zoek.length === 0 || zoek.some((s) => n.toLowerCase().includes(s)));
 
 /**
  * De camera op het bouwsel richten.

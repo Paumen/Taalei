@@ -259,6 +259,122 @@ const BOUWSELS = [
       { naam: 'cliff-prop-rock-b', x: 1, z: 1, laag: 0 },
     ],
   },
+
+  /* ── derde lichting ──────────────────────────────────────────────────────
+   *
+   * 547 oordelen verder is de kit voor een kwart in gebruik: 24 van de 116
+   * modellen. Deze lichting gaat de kant op die nog helemaal leeg was — de
+   * overgang tussen twee hellinggraden, de afstap van een halve laag, water,
+   * bruggen, en de drie bergen die nog niet aan de beurt waren geweest.
+   *
+   * Acht bouwsels zijn geprobeerd, vijf staan hieronder. De drie die het niet
+   * haalden zeggen alle drie hetzelfde, en dat is de moeite van het opschrijven
+   * waard omdat het geen fout in de bouwsels was maar iets over de kit:
+   *
+   *   - de hoekstukken van 2×2 en groter (`hill-corner-outer-2x2`,
+   *     `cliff-terrain-corner-outer-2x2-*`) vullen hun eigen voetafdruk niet.
+   *     Hun rondingen liggen ingeschreven in het vierkant, en de hoeken die
+   *     overblijven zijn leeg. Vier van die hoekstukken tegen elkaar geven een
+   *     keurige ronde heuvel — maar zodra er vierkante grastegels tegenaan
+   *     liggen zit er een wit gat tussen de ronding en de tegel. De 1×1-hoeken
+   *     hebben dat niet, en die staan al in de tweede lichting;
+   *   - het zandstrand loopt over drie units 0,25 omhoog. Dat is te weinig om
+   *     te zien: het plaatje is een egale beige rechthoek met 46 voegen die
+   *     allemaal sluiten. Er valt niets te beoordelen aan wat je niet ziet.
+   *
+   * Wat wel meekomt is water, en dat vraagt om uitleg, want de vorige poging
+   * ging daar juist op stuk. `hilly-terrain-water-flat` ligt op y 0,35 en gras
+   * op 0,1 — water op dezelfde laag als het gras zweeft er dus een kwart unit
+   * boven. Een laag lager komt het op −0,15 uit, en dát is een kwart unit
+   * ónder het gras: een geul. De wanden van die geul zijn de falloff-stukken,
+   * die van 0 naar −0,5 lopen. Zo klopt het pas.
+   */
+  {
+    naam: 'Van steil naar flauw',
+    waarover: 'Een heuvelrand die halverwege van steil naar flauw gaat. Links '
+      + 'klimt hij in twee vakken, rechts in vier, en het overgangsstuk ertussen '
+      + 'is twee vakken breed. Zowel de steile als de flauwe kant sluit erop aan '
+      + '— of de knik in de rand te zien is, is een andere vraag.',
+    stukken: [
+      ...rijX('hilly-terrain-hill-side-sharp', 0, -4, -2, 0),
+      { naam: 'hilly-terrain-hill-transition-gentle-sharp-flush-base', x: 0, z: 0, laag: 0 },
+      ...rijX('hilly-terrain-hill-side-gentle', 0, 1, 3, 0),
+      ...vlak('hilly-terrain-grass-floor', -4, 3, -2, -1, 0),
+      ...vlak('hilly-terrain-grass-floor', -4, -2, 2, 3, 1),
+      /* Het overgangsstuk is vier vakken diep maar zijn steile helft maar twee.
+       * Vak (−1,3) hoort wel bij de voetafdruk en heeft geen meetkunde: zonder
+       * deze tegel zit daar een gat in de vlakte. */
+      { naam: 'hilly-terrain-grass-floor', x: -1, z: 3, laag: 1 },
+      ...vlak('hilly-terrain-grass-floor', -4, 3, 4, 5, 1),
+    ],
+  },
+  {
+    naam: 'Afstap van een halve laag',
+    waarover: 'Twee grasvlaktes met een halve laag hoogteverschil, met de '
+      + 'falloff-stukken als wandje ertussen. Dit is het enige stuk in de kit dat '
+      + 'ónder zijn eigen laag uitsteekt, en het enige hoogteverschil dat kleiner '
+      + 'is dan een hele laag.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-falloff-center', 0, -2, 1, 0),
+      { naam: 'escarpment-terrain-side-falloff-edge', x: 0, z: 2, laag: 0 },
+      ...vlak('hilly-terrain-grass-floor', -3, -1, -2, 2, 0),
+      ...vlak('hilly-terrain-grass-floor', 0, 3, -2, 2, -1),
+    ],
+  },
+  {
+    naam: 'Beek met een boomstam erover',
+    waarover: 'Een geul van één vak breed met water erin, en een boomstam als '
+      + 'brug. Het water ligt een laag lager dan het gras en komt daarmee een '
+      + 'kwart unit onder het maaiveld uit; de wanden zijn falloff-stukken, rug '
+      + 'aan rug in hetzelfde vak. De brugdelen zijn de eerste props die niet op '
+      + 'de grond staan.',
+    stukken: [
+      ...rijZ('escarpment-terrain-side-falloff-center', 0, -3, 3, 0),
+      ...rijZ('escarpment-terrain-side-falloff-center', 0, -3, 3, 0, 2),
+      ...rijZ('hilly-terrain-water-flat', 0, -3, 3, -1),
+      ...vlak('hilly-terrain-grass-floor', -3, -1, -3, 3, 0),
+      ...vlak('hilly-terrain-grass-floor', 1, 3, -3, 3, 0),
+      { naam: 'hilly-prop-bridge-log-end', x: -1, z: 0, laag: 0 },
+      { naam: 'hilly-prop-bridge-log-middle', x: 0, z: 0, laag: 0 },
+      { naam: 'hilly-prop-bridge-log-end', x: 1, z: 0, laag: 0, slagen: 2 },
+    ],
+  },
+  {
+    naam: 'Keienveld',
+    waarover: 'De zeven keien en rotsen die nog niet aan de beurt waren, op één '
+      + 'grasveld. Drie ervan beslaan meer dan één vak en twee steken onder hun '
+      + 'eigen laag uit — dat levert voegen op die de losse keien uit de eerste '
+      + 'lichting niet hadden.',
+    stukken: [
+      ...vlak('hilly-terrain-grass-floor', -2, 2, -2, 2, 0),
+      { naam: 'shared-prop-boulder-b', x: -2, z: -2, laag: 0 },
+      { naam: 'shared-prop-boulder-d', x: 2, z: -2, laag: 0 },
+      { naam: 'shared-prop-boulder-e', x: -2, z: 2, laag: 0 },
+      { naam: 'shared-prop-boulder-f', x: 0, z: -2, laag: 0 },
+      { naam: 'hilly-prop-rock-a', x: 2, z: 2, laag: 0 },
+      { naam: 'hilly-prop-rock-c', x: 0, z: 2, laag: 0 },
+      { naam: 'hilly-prop-rock-d', x: 0, z: 0, laag: 0 },
+    ],
+  },
+  {
+    naam: 'Bergrug van drie',
+    waarover: 'De drie overgebleven bergen naast elkaar, zo dicht op elkaar dat '
+      + 'ze randen delen. Van berg tegen gras heb je er honderd beoordeeld; berg '
+      + 'tegen berg is nieuw, en de bergen zijn de enige stukken van de kit die '
+      + 'geen enkel randprofiel met iets anders gemeen hebben.',
+    stukken: [
+      /* Gras alleen als rand eromheen. Een heel veld eronder zou het bouwsel op
+       * vierhonderd voegen brengen, en driekwart daarvan is gras tegen gras dat
+       * je al honderden keren hebt gezien. */
+      ...vlak('hilly-terrain-grass-floor', -7, 7, -3, -3, 0),
+      ...vlak('hilly-terrain-grass-floor', -7, 7, 3, 3, 0),
+      ...vlak('hilly-terrain-grass-floor', -8, -8, -3, 3, 0),
+      ...vlak('hilly-terrain-grass-floor', 8, 8, -3, 3, 0),
+      { naam: 'mountain-b', x: -5, z: 0, laag: 0 },
+      { naam: 'mountain-c', x: 0, z: 0, laag: 0 },
+      { naam: 'mountain-d', x: 5, z: 0, laag: 0 },
+    ],
+  },
 ];
 
 /* -- nakijken en wegschrijven ---------------------------------------------- */
