@@ -123,6 +123,18 @@ vorm, welk model hem ook draagt — maar bij `r009|r131` mengt het twee
 situaties met een tegengesteld oordeel. Regels op codeniveau hebben dus
 een kleine restcategorie waar het model zelf de doorslag geeft.
 
+## Volgende ronde
+
+`data/bouwsels_14.json` stelt negen nieuwe proefbouwsels voor die de open
+kwesties hierboven en de nooit beoordeelde stukfamilies (76 van de 116
+kitstukken) aan de beurt laten komen: een vijver die helemaal door
+falloffs wordt ingesloten, een beek met bocht (water-curve) en een met
+verval (water-slope), een derde brugpoging met de paal- en
+leuningstukken, het zandterras van de strandfamilie, de meercellige
+klif- en steilrandhoeken, het heuvelplateau met hoekstukken, en de
+waterval. Per bouwsel staat erbij welke vraag het oordeel moet
+beantwoorden.
+
 ## Reproduceren
 
 ```
