@@ -28,14 +28,24 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BRON = process.argv[2] ?? join(ROOT, 'data', 'combinatieoordelen_13.json');
 const DOEL = join(ROOT, 'data', 'aansluitregels_modulair-terrein.json');
 
-const bron = JSON.parse(readFileSync(BRON, 'utf8'));
+let bron;
+try {
+  bron = JSON.parse(readFileSync(BRON, 'utf8'));
+} catch (fout) {
+  console.error(`Kan ${BRON} niet lezen als JSON: ${fout.message}`);
+  process.exit(1);
+}
+if (bron === null || typeof bron.oordelen !== 'object' || bron.oordelen === null) {
+  console.error(`Geen \`oordelen\` in ${BRON} — is dit wel een combinatieoordelen-bestand?`);
+  process.exit(1);
+}
 const oordelen = Object.entries(bron.oordelen);
 
 // Leeg of null profiel betekent: deze zijde heeft geen gemeten randprofiel
@@ -116,7 +126,7 @@ const { regels, profielen } = verzamel();
 
 const uitvoer = {
   kit: bron.kit,
-  bron: 'data/combinatieoordelen_13.json',
+  bron: relative(ROOT, resolve(BRON)),
   gemaakt: 'tools/leid-aansluitregels-af.mjs',
   toelichting:
     'Per combinatie het samengevatte oordeel uit de combinatieoordelen. ' +
