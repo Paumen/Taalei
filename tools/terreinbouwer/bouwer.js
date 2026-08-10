@@ -48,7 +48,8 @@ const VERSIE = new URL(import.meta.url).searchParams.get('v');
 const vers = (adres) => (VERSIE ? `${adres}?v=${VERSIE}` : adres);
 
 const {
-  Kit, Bouwsel, controleer, watPast, draaiVak, ZIJDEN, STAP, TEGENOVER,
+  Kit, Bouwsel, controleer, watPast, draaiVak, naden, combinatieSleutel,
+  ZIJDEN, STAP, TEGENOVER,
 } = await import(vers('./aansluiting.js'));
 
 const kit = new Kit(await (await fetch(vers(`${KITMAP}aansluitingen.json`))).json());
@@ -331,6 +332,38 @@ async function verzet(vanaf, naar, heen) {
 const ongedaan = () => verzet(geschiedenis, teruggedraaid, false);
 const opnieuw = () => verzet(teruggedraaid, geschiedenis, true);
 
+/* -- oordelen --------------------------------------------------------------
+ * Waar het gereedschap voor bedoeld is: niet de meting bewaren maar wat jíj
+ * ervan vindt.
+ *
+ * De meting zegt of twee randen elkaars spiegelbeeld zijn, en dat is een feit
+ * over de vorm. Of een combinatie goed is, is dat niet: een trap in een
+ * rotswand kan precies de bedoeling zijn, en twee randen die tot op de
+ * honderdste samenvallen kunnen er lelijk uitzien. Alleen wie bouwt kan dat
+ * zeggen, dus bewaart dit bestand zijn oordeel en niet dat van de meting.
+ *
+ * Bewaard op het paar randprofielen: keur je die vorm goed, dan geldt dat voor
+ * elk stuk met die randen en in elke draaistand. Anders zou dezelfde vraag
+ * tientallen keren terugkomen.
+ */
+
+const OORDEELSLEUTEL = 'terreinbouwer-oordelen';
+
+const oordelen = new Map(Object.entries(
+  JSON.parse(localStorage.getItem(OORDEELSLEUTEL) ?? '{}'),
+));
+
+function bewaarOordelen() {
+  localStorage.setItem(OORDEELSLEUTEL, JSON.stringify(Object.fromEntries(oordelen)));
+}
+
+function velOordeel(sleutel, oordeel, naad) {
+  if (oordelen.get(sleutel)?.oordeel === oordeel) oordelen.delete(sleutel); // nog eens tikken = intrekken
+  else oordelen.set(sleutel, { oordeel, namen: naad.namen, randen: naad.randen, meting: naad.sluit });
+  bewaarOordelen();
+  werkBijAlles();
+}
+
 /* -- wat er op het scherm hoort te staan ----------------------------------- */
 
 const standKnop = document.getElementById('stand-knop');
@@ -558,7 +591,7 @@ function toonControleBlad(tab = 'meldingen') {
 
   const bewoner = opWijzer();
   bladTabs.replaceChildren();
-  for (const [sleutel, label] of [['meldingen', 'Meldingen'], ['past', 'Past hier']]) {
+  for (const [sleutel, label] of [['combos', 'Combinaties'], ['meldingen', 'Meldingen'], ['past', 'Past hier']]) {
     const knop = document.createElement('button');
     knop.type = 'button';
     knop.textContent = label;
@@ -567,8 +600,113 @@ function toonControleBlad(tab = 'meldingen') {
     bladTabs.append(knop);
   }
 
+  if (tab === 'combos') return vulCombinaties();
   if (tab === 'meldingen') return vulMeldingen();
   return vulVerkenner(bewoner);
+}
+
+/**
+ * Elke voeg in het bouwsel, met jouw oordeel erbij.
+ *
+ * Dit is waar het gereedschap voor is. De meting staat erbij als gegeven —
+ * "sluit aan" of "stap" — maar het oordeel is van jou, en dat is wat bewaard
+ * wordt. Waar de twee uiteenlopen staat het er met zoveel woorden bij; juist
+ * die gevallen zijn het interessantst.
+ */
+function vulCombinaties() {
+  const lijst = naden(bouwsel);
+
+  if (lijst.length === 0) {
+    const p = document.createElement('p');
+    p.className = 'leeg';
+    p.textContent = 'Nog geen twee stukken die elkaar raken. Zet er twee naast '
+      + 'elkaar; de voeg ertussen komt hier te staan.';
+    bladInhoud.append(p);
+    return;
+  }
+
+  /* Eén regel per combinatie, niet per voeg: dezelfde twee randen kunnen tien
+   * keer in een wand zitten en dat is één oordeel. */
+  const perSleutel = new Map();
+  for (const naad of lijst) {
+    if (!perSleutel.has(naad.sleutel)) perSleutel.set(naad.sleutel, { naad, aantal: 0 });
+    perSleutel.get(naad.sleutel).aantal += 1;
+  }
+
+  for (const [sleutel, { naad, aantal }] of perSleutel) {
+    const mijn = oordelen.get(sleutel)?.oordeel ?? null;
+
+    const rij = document.createElement('div');
+    rij.className = 'combo';
+    rij.dataset.oordeel = mijn ?? 'geen';
+
+    const kop = document.createElement('div');
+    kop.className = 'combo-namen';
+    kop.textContent = `${naad.namen[0]}  ↔  ${naad.namen[1]}`;
+
+    const meting = document.createElement('div');
+    meting.className = 'combo-meting';
+    meting.textContent = `${naad.randen[0]} / ${naad.randen[1]} — meting: `
+      + `${naad.sluit ? 'sluit aan' : 'stap of gat'}`
+      + (aantal > 1 ? ` · ${aantal}× in dit bouwsel` : '');
+
+    const knoppen = document.createElement('div');
+    knoppen.className = 'combo-knoppen';
+    for (const [waarde, label] of [['goed', '✓ goed'], ['niet', '✗ niet']]) {
+      const knop = document.createElement('button');
+      knop.type = 'button';
+      knop.textContent = label;
+      knop.dataset.keuze = waarde;
+      knop.setAttribute('aria-pressed', String(mijn === waarde));
+      knop.addEventListener('click', () => {
+        velOordeel(sleutel, waarde, naad);
+        toonControleBlad('combos');
+      });
+      knoppen.append(knop);
+    }
+
+    rij.append(kop, meting, knoppen);
+
+    if (mijn && (mijn === 'goed') !== naad.sluit) {
+      const afwijking = document.createElement('div');
+      afwijking.className = 'combo-afwijking';
+      afwijking.textContent = mijn === 'goed'
+        ? 'Jij keurt dit goed terwijl de randen niet samenvallen.'
+        : 'Jij keurt dit af terwijl de randen wél samenvallen.';
+      rij.append(afwijking);
+    }
+
+    bladInhoud.append(rij);
+  }
+
+  const voet = document.createElement('div');
+  voet.className = 'uitleg';
+  voet.innerHTML = `<p>${oordelen.size} combinaties beoordeeld. Nog eens tikken `
+    + 'op dezelfde knop trekt het oordeel in.</p>';
+  const uit = document.createElement('button');
+  uit.type = 'button';
+  uit.className = 'blad-uit';
+  uit.textContent = 'Oordelen opslaan als bestand';
+  uit.addEventListener('click', exporteerOordelen);
+  voet.append(uit);
+  bladInhoud.append(voet);
+}
+
+/** De oordelen als bestand, zodat ze de telefoon uit kunnen. */
+function exporteerOordelen() {
+  const inhoud = JSON.stringify({
+    kit: 'modulair-terrein',
+    gemaakt: 'tools/terreinbouwer/',
+    toelichting: 'Per combinatie van twee randprofielen het oordeel van wie bouwt. '
+      + '`meting` is wat aansluitingen.mjs erover zegt; `oordeel` gaat voor.',
+    oordelen: Object.fromEntries(oordelen),
+  }, null, 1);
+  const blob = new Blob([inhoud], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'combinatie-oordelen.json';
+  link.click();
+  URL.revokeObjectURL(link.href);
 }
 
 function vulMeldingen() {
@@ -773,5 +911,6 @@ renderer.setAnimationLoop(() => {
 window.TERREINBOUWER = {
   kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
+  naden, oordelen, velOordeel, combinatieSleutel,
 };
 window.KLAAR = true;

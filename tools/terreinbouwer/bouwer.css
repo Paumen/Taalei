@@ -500,3 +500,73 @@ button {
     transform: translateX(-50%);
   }
 }
+
+/* -- combinaties -----------------------------------------------------------
+ * Eén blok per combinatie: welke twee stukken, wat de meting zegt, en twee
+ * knoppen om er zelf iets van te vinden. Het oordeel is wat telt, dus dat
+ * kleurt het blok — niet de meting.
+ */
+
+.combo {
+  padding: 10px;
+  border-bottom: 1px solid var(--rand);
+  border-left: 3px solid transparent;
+}
+
+.combo[data-oordeel="goed"] { border-left-color: var(--goed); }
+.combo[data-oordeel="niet"] { border-left-color: var(--fout); }
+
+.combo-namen {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.combo-meting {
+  margin-top: 2px;
+  color: var(--grijs);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.combo-afwijking {
+  margin-top: 4px;
+  color: var(--waarschuwing);
+  font-size: 11px;
+}
+
+.combo-knoppen {
+  display: flex;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.combo-knoppen button {
+  height: var(--raakmaat);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  flex: 1;
+}
+
+.combo-knoppen button[data-keuze="goed"][aria-pressed="true"] {
+  border-color: var(--goed);
+  color: #fff;
+  background: var(--goed);
+}
+
+.combo-knoppen button[data-keuze="niet"][aria-pressed="true"] {
+  border-color: var(--fout);
+  color: #fff;
+  background: var(--fout);
+}
+
+.blad-uit {
+  width: 100%;
+  height: var(--raakmaat);
+  margin-top: 8px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}

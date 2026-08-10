@@ -20,7 +20,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  Kit, Bouwsel, controleer, watPast, draaiVak, ontdraaiVak,
+  Kit, Bouwsel, controleer, watPast, draaiVak, ontdraaiVak, naden, combinatieSleutel,
 } from './terreinbouwer/aansluiting.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -247,6 +247,49 @@ toets(
   watPast(kit, doodlopend[0], 'z').length === 0,
 );
 
+/* -- combinaties ------------------------------------------------------------
+ * naden() somt op wat er ís; controleer() meldt wat er mis is. Het gereedschap
+ * draait om het eerste: pas als je alle voegen op een rij ziet kun je er iets
+ * van vinden.
+ */
+
+console.log('\n— combinaties —');
+
+const tweeGras = bouw([
+  { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+  { naam: 'hilly-terrain-grass-floor', x: 1, z: 0, laag: 0 },
+]);
+const naadLijst = naden(tweeGras);
+toets('twee tegels naast elkaar geven één voeg', naadLijst.length === 1, `${naadLijst.length}`);
+toets('en die voeg sluit aan', naadLijst[0]?.sluit === true);
+
+/* Ook een voeg die níét sluit hoort in de lijst: je kunt alleen iets vinden van
+ * wat je te zien krijgt, en juist de stappen zijn het bekijken waard. */
+const grasZand = naden(bouw([
+  { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+  { naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0 },
+]));
+toets('een voeg die niet sluit staat er ook in', grasZand.length === 1 && grasZand[0].sluit === false);
+
+/* Een wand van drie geeft twee voegen, maar één combinatie: hetzelfde paar
+ * randen. Zo blijft het aantal oordelen te overzien. */
+const wand = naden(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 2, laag: 0 },
+]));
+toets('drie stukken in een wand geven twee voegen', wand.length === 2, `${wand.length}`);
+toets(
+  'maar één combinatie om over te oordelen',
+  new Set(wand.map((n) => n.sleutel)).size === 1,
+);
+
+/* De sleutel heeft geen kant: links-rechts omgedraaid is hetzelfde oordeel. */
+toets(
+  'de sleutel van een combinatie is kantloos',
+  combinatieSleutel('r045', 'r056') === combinatieSleutel('r056', 'r045'),
+);
+
 /* -- versiestempel --------------------------------------------------------- */
 
 console.log('\n— versiestempel —');
@@ -465,6 +508,71 @@ await blad.evaluate(() => {
   const T = window.TERREINBOUWER;
   while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
 });
+
+/* -- zelf oordelen ---------------------------------------------------------
+ * De opbrengst van het gereedschap: niet wat de meting vindt, maar wat jij
+ * ervan vindt — en dat het bewaard blijft.
+ */
+
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
+  localStorage.removeItem('terreinbouwer-oordelen');
+  T.oordelen.clear();
+  // gras naast zand: de meting zegt "stap", want 0,1 tegen 0
+  await T.doeZet({ naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0, slagen: 0 });
+  await T.doeZet({ naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0, slagen: 0 });
+});
+
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Combinaties' }).tap();
+toets('de voeg staat in de lijst met combinaties', await blad.locator('.combo').count() === 1);
+toets(
+  'met de meting erbij',
+  (await blad.locator('.combo-meting').innerText()).includes('stap of gat'),
+);
+
+await blad.locator('.combo-knoppen button[data-keuze="goed"]').tap();
+toets('"goed" wordt vastgelegd', await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === 1);
+toets(
+  'en het verschil met de meting staat erbij',
+  (await blad.locator('.combo-afwijking').innerText()).includes('niet samenvallen'),
+);
+toets(
+  'het oordeel gaat vóór de meting',
+  await blad.evaluate(() => [...window.TERREINBOUWER.oordelen.values()][0].oordeel === 'goed'),
+);
+
+/* Nog eens tikken trekt het in — anders zit je vast aan een misklik. */
+await blad.locator('.combo-knoppen button[data-keuze="goed"]').tap();
+toets('nog eens tikken trekt het oordeel in', await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === 0);
+
+await blad.locator('.combo-knoppen button[data-keuze="niet"]').tap();
+toets('en "niet" legt het andersom vast', await blad.evaluate(
+  () => [...window.TERREINBOUWER.oordelen.values()][0]?.oordeel === 'niet',
+));
+
+/* Het oordeel moet een herlaadbeurt overleven, anders is het geen opbrengst. */
+const bewaard = await blad.evaluate(() => localStorage.getItem('terreinbouwer-oordelen'));
+toets('het oordeel wordt bewaard', typeof bewaard === 'string' && bewaard.includes('niet'));
+await blad.reload();
+await blad.waitForFunction('window.KLAAR === true', null, { timeout: 30000 });
+toets(
+  'en staat er na herladen nog',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === 1,
+);
+
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  await T.doeZet({ naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0, slagen: 0 });
+  await T.doeZet({ naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0, slagen: 0 });
+});
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Combinaties' }).tap();
+toets(
+  'en kleurt de combinatie na herladen nog steeds',
+  await blad.locator('.combo').first().getAttribute('data-oordeel') === 'niet',
+);
 
 await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
 console.log('  schermafbeelding → docs/terreinbouwer.png');

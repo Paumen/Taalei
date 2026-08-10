@@ -427,6 +427,80 @@ export function controleer(bouwsel) {
   return meldingen;
 }
 
+/* -- naden opsommen --------------------------------------------------------
+ * controleer() meldt wat er mis is. Dit somt op wat er ís: elke voeg tussen
+ * twee stukken die het bouwsel bevat, of hij nu sluit of niet.
+ *
+ * Dat onderscheid is de kern van een gereedschap om mee te ontwerpen. De meting
+ * zegt of twee randen elkaars spiegelbeeld zijn — meer niet. Of een combinatie
+ * gòéd is, is een oordeel: een trap in een rotswand kan precies de bedoeling
+ * zijn, en twee randen die tot op de honderdste samenvallen kunnen er
+ * verkeerd uitzien. Dat oordeel hoort bij wie bouwt, en om het te kunnen vellen
+ * moet je de combinaties eerst op een rij zien.
+ */
+
+/**
+ * Elke voeg tussen twee verschillende stukken, één keer per voeg.
+ *
+ * @returns {{stukken: string[], namen: string[], randen: string[],
+ *            sleutel: string, sluit: boolean, plek: object}[]}
+ */
+export function naden(bouwsel) {
+  const { kit } = bouwsel;
+  const uit = [];
+  const gezien = new Set();
+
+  for (const [sleutel, bewoners] of bouwsel.bezet) {
+    const [x, z, laag] = sleutel.split(',').map(Number);
+
+    for (const bewoner of bewoners) {
+      const stuk = bouwsel.stukken.get(bewoner.id);
+
+      for (const zijde of ZIJDEN) {
+        const [dx, dz] = STAP[zijde];
+        for (const buur of bouwsel.op(x + dx, z + dz, laag)) {
+          if (buur.id === bewoner.id) continue; // eigen binnennaad
+
+          const merk = [`${bewoner.id}:${x},${z},${zijde}`, `${buur.id}:${x + dx},${z + dz},${TEGENOVER[zijde]}`]
+            .sort().join('|');
+          if (gezien.has(merk)) continue;
+          gezien.add(merk);
+
+          const buurStuk = bouwsel.stukken.get(buur.id);
+          const hier = kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen);
+          const daar = kit.randVan(buurStuk.naam, buur.lokaal, TEGENOVER[zijde], buurStuk.slagen);
+          if (kit.isOpen(hier) && kit.isOpen(daar)) continue; // twee keer lucht
+
+          uit.push({
+            stukken: [bewoner.id, buur.id],
+            namen: [stuk.naam, buurStuk.naam],
+            randen: [hier, daar],
+            sleutel: combinatieSleutel(hier, daar),
+            sluit: kit.sluitAan(hier, daar),
+            plek: { x, z, laag, zijde },
+          });
+        }
+      }
+    }
+  }
+
+  return uit;
+}
+
+/**
+ * De naam waaronder een oordeel over een combinatie wordt bewaard.
+ *
+ * Op het paar randprofielen, niet op het paar stuknamen. Een profiel is de
+ * vorm van de voeg, en die vorm is wat je beoordeelt: keur je r045 tegen r056
+ * goed, dan geldt dat voor elk stuk met die randen en in elke draaistand. Op
+ * naam bewaren zou hetzelfde oordeel tientallen keren opnieuw vragen.
+ *
+ * Gesorteerd, want een voeg heeft geen kant.
+ */
+export function combinatieSleutel(randA, randB) {
+  return [randA ?? '-', randB ?? '-'].sort().join('+');
+}
+
 /* -- verkenner -------------------------------------------------------------
  * De andere kant van dezelfde vraag. controleer() zegt of wat er staat klopt;
  * dit zegt wat er zou kunnen staan.
