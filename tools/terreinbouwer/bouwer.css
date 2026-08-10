@@ -491,6 +491,24 @@ button {
   white-space: nowrap;
 }
 
+.bouwsel-stapper {
+  display: flex;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--rand);
+  gap: 8px;
+  align-items: center;
+}
+
+.bouwsel-stapper-stand {
+  overflow: hidden;
+  flex: 1;
+  color: var(--grijs);
+  font-size: 12px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .bouwsel {
   display: block;
   width: 100%;
@@ -503,6 +521,11 @@ button {
 }
 
 .bouwsel:active { background: #e6e1d5; }
+
+.bouwsel[aria-pressed="true"] {
+  background: #dbe7f3;
+  box-shadow: inset 3px 0 0 var(--aandacht);
+}
 
 .bouwsel-naam {
   font-size: 14px;

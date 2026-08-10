@@ -466,6 +466,12 @@ function volgendVoorbeeld() {
   return voorbeelden[(nu + 1) % voorbeelden.length];
 }
 
+function vorigVoorbeeld() {
+  const nu = voorbeelden.findIndex((v) => v.naam === bouwsel.noemer);
+  const basis = nu === -1 ? 0 : nu;
+  return voorbeelden[(basis - 1 + voorbeelden.length) % voorbeelden.length];
+}
+
 async function volgendBouwsel() {
   await openBouwsel(volgendVoorbeeld());
   const lijst = naden(bouwsel);
@@ -611,21 +617,53 @@ function toonPalet(tab = 'stukken') {
 }
 
 function vulBouwsels() {
-  for (const bouwsel of voorbeelden) {
+  const huidigeNaam = bouwsel.noemer;
+  const index = voorbeelden.findIndex((v) => v.naam === huidigeNaam);
+
+  if (voorbeelden.length > 0) {
+    const stapper = document.createElement('div');
+    stapper.className = 'bouwsel-stapper';
+
+    const vorigeKnop = document.createElement('button');
+    vorigeKnop.type = 'button';
+    vorigeKnop.className = 'knop';
+    vorigeKnop.setAttribute('aria-label', 'Vorig bouwsel');
+    vorigeKnop.textContent = '‹';
+    vorigeKnop.addEventListener('click', () => openBouwsel(vorigVoorbeeld(), { blijfOpen: true }));
+
+    const stand_ = document.createElement('div');
+    stand_.className = 'bouwsel-stapper-stand';
+    stand_.textContent = index === -1
+      ? `${voorbeelden.length} bouwsels`
+      : `${index + 1} / ${voorbeelden.length} — ${huidigeNaam}`;
+
+    const volgendeKnop = document.createElement('button');
+    volgendeKnop.type = 'button';
+    volgendeKnop.className = 'knop';
+    volgendeKnop.setAttribute('aria-label', 'Volgend bouwsel');
+    volgendeKnop.textContent = '›';
+    volgendeKnop.addEventListener('click', () => openBouwsel(volgendVoorbeeld(), { blijfOpen: true }));
+
+    stapper.append(vorigeKnop, stand_, volgendeKnop);
+    bladInhoud.append(stapper);
+  }
+
+  for (const voorbeeld of voorbeelden) {
     const rij = document.createElement('button');
     rij.type = 'button';
     rij.className = 'bouwsel';
+    rij.setAttribute('aria-pressed', String(voorbeeld.naam === huidigeNaam));
 
     const naam = document.createElement('div');
     naam.className = 'bouwsel-naam';
-    naam.textContent = bouwsel.naam;
+    naam.textContent = voorbeeld.naam;
 
     const bij = document.createElement('div');
     bij.className = 'bouwsel-bij';
-    bij.textContent = `${bouwsel.stukken.length} stukken — ${bouwsel.waarover}`;
+    bij.textContent = `${voorbeeld.stukken.length} stukken — ${voorbeeld.waarover}`;
 
     rij.append(naam, bij);
-    rij.addEventListener('click', () => openBouwsel(bouwsel));
+    rij.addEventListener('click', () => openBouwsel(voorbeeld));
     bladInhoud.append(rij);
   }
 
@@ -636,7 +674,7 @@ function vulBouwsels() {
   bladInhoud.append(voet);
 }
 
-async function openBouwsel(voorbeeld) {
+async function openBouwsel(voorbeeld, { blijfOpen = false } = {}) {
   for (const id of [...bouwsel.stukken.keys()]) verwijderStuk(id);
   geschiedenis.length = 0;
   teruggedraaid.length = 0;
@@ -667,7 +705,12 @@ async function openBouwsel(voorbeeld) {
   );
   stuur.update();
 
-  sluitBlad();
+  if (blijfOpen) {
+    bladInhoud.replaceChildren();
+    vulBouwsels();
+  } else {
+    sluitBlad();
+  }
   werkBijAlles();
 }
 
