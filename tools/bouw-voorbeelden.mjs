@@ -50,6 +50,47 @@ const vlak = (naam, vanX, totX, vanZ, totZ, laag, slagen = 0) => {
 };
 
 /**
+ * Zoekt de draaistanden op in plaats van ze te gokken.
+ *
+ * Bij een hoek of een helling is niet uit het hoofd te zeggen welke kwartslag
+ * de goede is; dat hangt van de vorm af, en de vorm staat in de meting. Deze
+ * functie probeert alle standen voor elke groep en houdt de stand over waarbij
+ * de meeste voegen sluiten.
+ *
+ * Dat is met opzet de meting als hulpmiddel en niet als scheidsrechter: het
+ * levert een bouwsel op dat de kit gebruikt zoals hij in elkaar zit, zodat er
+ * iets zinnigs te beoordelen valt. Of het er goed uitziet blijft de vraag die
+ * de bouwer moet beantwoorden.
+ *
+ * @param {object[]} vast      stukken met een vaste stand
+ * @param {object[][]} groepen elke groep krijgt één gezamenlijke draaistand
+ */
+function metBesteDraai(vast, groepen) {
+  let beste = null;
+
+  const probeer = (standen) => {
+    const stukken = [
+      ...vast,
+      ...groepen.flatMap((groep, i) => groep.map((stuk) => ({ ...stuk, slagen: standen[i] }))),
+    ];
+    const model = new Bouwsel(kit);
+    for (const stuk of stukken) model.zet(stuk);
+    const voegen = naden(model);
+    const score = voegen.filter((n) => n.sluit).length - (voegen.length - voegen.filter((n) => n.sluit).length);
+    if (!beste || score > beste.score) beste = { score, stukken, voegen: voegen.length };
+  };
+
+  const loop = (i, standen) => {
+    if (i === groepen.length) return probeer(standen);
+    for (let s = 0; s < 4; s++) loop(i + 1, [...standen, s]);
+    return undefined;
+  };
+  loop(0, []);
+
+  return beste.stukken;
+}
+
+/**
  * De bouwsels.
  *
  * De hoogtes zijn geen gok. `cliff-terrain-side-top` op laag L eindigt op
@@ -118,6 +159,110 @@ const BOUWSELS = [
     stukken: [
       ...vlak('beach-terrain-sand-floor', -2, 0, -1, 1, 0),
       ...vlak('hilly-terrain-grass-floor', 1, 2, -1, 1, 0),
+    ],
+  },
+  {
+    naam: 'Klifhoek naar binnen',
+    waarover: 'Een binnenbocht van drie lagen waar twee wanden samenkomen. De '
+      + 'draaistanden zijn opgezocht, niet gegokt.',
+    stukken: metBesteDraai(
+      [
+        ...rijZ('cliff-terrain-side-base', 0, 1, 2, 0),
+        ...rijZ('cliff-terrain-side-mid', 0, 1, 2, 1),
+        ...rijZ('cliff-terrain-side-top', 0, 1, 2, 2),
+      ],
+      [
+        [
+          { naam: 'cliff-terrain-corner-inner-1x1-base', x: 0, z: 0, laag: 0 },
+          { naam: 'cliff-terrain-corner-inner-1x1-mid', x: 0, z: 0, laag: 1 },
+          { naam: 'cliff-terrain-corner-inner-1x1-top', x: 0, z: 0, laag: 2 },
+        ],
+        [
+          { naam: 'cliff-terrain-side-base', x: -1, z: 0, laag: 0 },
+          { naam: 'cliff-terrain-side-mid', x: -1, z: 0, laag: 1 },
+          { naam: 'cliff-terrain-side-top', x: -1, z: 0, laag: 2 },
+          { naam: 'cliff-terrain-side-base', x: -2, z: 0, laag: 0 },
+          { naam: 'cliff-terrain-side-mid', x: -2, z: 0, laag: 1 },
+          { naam: 'cliff-terrain-side-top', x: -2, z: 0, laag: 2 },
+        ],
+      ],
+    ),
+  },
+  {
+    naam: 'Klifhoek naar buiten',
+    waarover: 'Een buitenbocht van 2×2 over drie lagen. Zijn -mid vult maar drie '
+      + 'van de vier vakken; het lege vak hoort erbij.',
+    stukken: metBesteDraai(
+      [
+        ...rijZ('cliff-terrain-side-base', 0, 2, 3, 0),
+        ...rijZ('cliff-terrain-side-mid', 0, 2, 3, 1),
+        ...rijZ('cliff-terrain-side-top', 0, 2, 3, 2),
+      ],
+      [
+        [
+          { naam: 'cliff-terrain-corner-outer-2x2-base', x: 0, z: 0, laag: 0 },
+          { naam: 'cliff-terrain-corner-outer-2x2-mid', x: 0, z: 0, laag: 1 },
+          { naam: 'cliff-terrain-corner-outer-2x2-top', x: 0, z: 0, laag: 2 },
+        ],
+        /* Een tweede arm, anders raakt de hoek maar aan één kant iets en valt
+         * er nauwelijks een voeg te beoordelen. */
+        [
+          { naam: 'cliff-terrain-side-base', x: 2, z: -1, laag: 0 },
+          { naam: 'cliff-terrain-side-mid', x: 2, z: -1, laag: 1 },
+          { naam: 'cliff-terrain-side-top', x: 2, z: -1, laag: 2 },
+          { naam: 'cliff-terrain-side-base', x: 3, z: -1, laag: 0 },
+          { naam: 'cliff-terrain-side-mid', x: 3, z: -1, laag: 1 },
+          { naam: 'cliff-terrain-side-top', x: 3, z: -1, laag: 2 },
+        ],
+      ],
+    ),
+  },
+  {
+    naam: 'Heuvel in het gras',
+    waarover: 'Een glooiing van 0,1 naar 0,6 met de grasvlakte eronder en '
+      + 'erboven. Hellingen zijn de lastigste voegen van de kit.',
+    stukken: metBesteDraai(
+      [
+        ...vlak('hilly-terrain-grass-floor', -2, -1, -1, 2, 0),
+        ...vlak('hilly-terrain-grass-floor', 3, 4, -1, 2, 1),
+      ],
+      [[
+        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: -1, laag: 0 },
+        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 0, laag: 0 },
+        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 1, laag: 0 },
+        { naam: 'hilly-terrain-hill-side-gentle', x: 0, z: 2, laag: 0 },
+      ]],
+    ),
+  },
+  {
+    naam: 'Beek',
+    waarover: 'Water tussen het gras. Het water ligt op 0,35 en het gras op 0,1 — '
+      + 'de vraag is of dat een oever is of een fout.',
+    stukken: [
+      ...vlak('hilly-terrain-grass-floor', -2, -1, -2, 2, 0),
+      ...vlak('hilly-terrain-water-flat', 0, 0, -2, 2, 0),
+      ...vlak('hilly-terrain-grass-floor', 1, 2, -2, 2, 0),
+    ],
+  },
+  {
+    naam: 'Strandhelling',
+    waarover: 'Van zand op 0 via de helling naar zand op 0,25. Zes vakken lang, '
+      + 'dus zes voegen in één stuk.',
+    stukken: metBesteDraai(
+      [
+        ...vlak('beach-terrain-sand-floor', -2, -1, 0, 5, 0),
+        ...vlak('beach-terrain-sand-floor-raised', 1, 2, 0, 5, 0),
+      ],
+      [[{ naam: 'beach-terrain-sand-side-gentle', x: 0, z: 0, laag: 0 }]],
+    ),
+  },
+  {
+    naam: 'Berg op de vlakte',
+    waarover: 'Een berg van 5×5 vakken en 3,4 units hoog, in het gras gezet. De '
+      + 'enige stukken van de kit die geen enkele rand met iets anders delen.',
+    stukken: [
+      ...vlak('hilly-terrain-grass-floor', -3, 3, -3, 3, 0),
+      { naam: 'mountain-a', x: 0, z: 0, laag: 0 },
     ],
   },
   {
