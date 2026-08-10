@@ -154,6 +154,24 @@ export class Bouwsel {
     this.stukken = new Map();
     this.bezet = new Map(); // "x,z,laag" → [stukId, …]
     this._teller = 0;
+
+    /**
+     * Waar dit bouwsel bij hoort, en daarmee waar de oordelen bij horen. Leeg
+     * zolang je zelf aan het bouwen bent; de naam van het voorbeeld zodra er
+     * een voorbeeld staat.
+     *
+     * Dit hoort in de sleutel van een oordeel omdat de plek alleen niet zegt
+     * wat er te zien is. Elk voorbeeld staat op vak (0,0), en de meeste hebben
+     * daar gras liggen — dus grasvoeg tegen grasvoeg op (0,0) is in acht
+     * bouwsels acht keer dezelfde sleutel en één keer een oordeel. Het derde
+     * bouwsel kwam zo voor de helft al beoordeeld binnen.
+     *
+     * Dat is geen zuinigheid maar verlies: dezelfde twee stukken vallen in een
+     * strand anders uit dan in een klifwand, en dat is nu juist wat er te
+     * beoordelen valt. Wie vindt dat het één oordeel is, hoeft het maar twee
+     * keer hetzelfde te zeggen.
+     */
+    this.noemer = '';
   }
 
   static sleutel(x, z, laag) {
@@ -479,6 +497,7 @@ export function naden(bouwsel) {
             sluit: kit.sluitAan(hier, daar),
             plek: { x, z, laag, zijde },
           };
+          naad.noemer = bouwsel.noemer;
           naad.sleutel = naadSleutel(naad);
           naad.vorm = vormSleutel(naad);
           uit.push(naad);
@@ -503,10 +522,42 @@ export function naden(bouwsel) {
  * Nu staat elke voeg op zichzelf. Dat is meer regels om langs te lopen, maar
  * het is de enige manier waarop het oordeel van wie bouwt er ongeschonden in
  * past — en dat is waar dit gereedschap voor is.
+ *
+ * De plek alleen is daarvoor niet genoeg, en dat was de tweede fout. Twee
+ * bouwsels staan allebei op vak (0,0) — de plek zegt niets over wát daar ligt.
+ * Wie de klifwand had beoordeeld, kreeg de steilrand als "al beoordeeld"
+ * voorgeschoteld: dertien oordelen over stukken die er nooit aan te pas waren
+ * gekomen. Daarom staat er nu bij wat er op die plek tegen elkaar aan staat.
+ *
+ * En daar is het bouwsel voor nodig, want ook dát is niet genoeg: gras tegen
+ * gras op vak (0,0) is in acht bouwsels acht keer dezelfde vorm op dezelfde
+ * plek en toch acht keer iets anders om naar te kijken. Zie Bouwsel#noemer.
+ *
+ * Twee dingen worden onderweg rechtgetrokken, allebei omdat één voeg twee
+ * kanten heeft en het oordeel niet mag afhangen van welke kant toevallig het
+ * eerst langskwam:
+ *
+ *   - de plek wordt naar het vak met de kleinste (x,z) gebracht, dus zijde `n`
+ *     en `w` worden de `z` en `o` van de buurman;
+ *   - de twee stukken worden in díé volgorde genoteerd, eerst het stuk op dat
+ *     vak. Zo blijven een tegel-tegen-kei en een kei-tegen-tegel op hetzelfde
+ *     vak twee verschillende voegen, want dat zijn ze ook.
  */
 export function naadSleutel(naad) {
-  const { x, z, laag, zijde } = naad.plek;
-  return `${x},${z},${laag},${zijde}`;
+  let { x, z, zijde } = naad.plek;
+  const { laag } = naad.plek;
+  let [eerst, dan] = [0, 1];
+
+  if (zijde === 'n' || zijde === 'w') {
+    const [dx, dz] = STAP[zijde];
+    x += dx;
+    z += dz;
+    zijde = TEGENOVER[zijde];
+    [eerst, dan] = [1, 0];
+  }
+
+  const wie = (i) => `${naad.namen[i]}@${naad.slagen[i] * 90}`;
+  return `${naad.noemer ?? ''}|${x},${z},${laag},${zijde} ${wie(eerst)}>${wie(dan)}`;
 }
 
 /**

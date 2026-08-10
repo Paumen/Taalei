@@ -59,6 +59,11 @@ button {
 
 /* -- kop ------------------------------------------------------------------- */
 
+/* Zes knoppen naast elkaar passen niet op 320 px: laag −/+, draai, ↶, ↷ en de
+   standknop vragen samen al de hele breedte, en wat er dan overblijft ging naar
+   de standknop. Die werd achttien pixels breed — onleesbaar, niet te raken, en
+   uitgerekend de enige ingang naar de voegenlijst. Vandaar dat de rij mag
+   afbreken: liever een kop van twee regels dan een knop die er niet is. */
 .kop {
   display: flex;
   padding: 6px 8px;
@@ -68,6 +73,7 @@ button {
   gap: 6px;
   align-items: center;
   flex: none;
+  flex-wrap: wrap;
 }
 
 .kop-groep {
@@ -128,7 +134,7 @@ button {
 /* De enige die mag krimpen als het krap wordt — de rest moet raakbaar blijven. */
 .knop-stand {
   overflow: hidden;
-  min-width: 0;
+  min-width: 6em; /* nooit smaller dan een raakvlak; zie .kop */
   font-size: 12px;
   white-space: nowrap;
   flex: 1;
@@ -468,6 +474,12 @@ button {
   font-size: 13px;
 }
 
+/* Oordelen uit een oudere versie die niet mee konden. Geen foutmelding, wel
+   iets om te weten: er staat minder dan je dacht. */
+.kwijt {
+  color: var(--aandacht);
+}
+
 .uitleg {
   padding: 12px;
   color: var(--grijs);
@@ -659,4 +671,37 @@ button {
   content: " ›  bekijk";
   color: var(--aandacht);
   font-size: 11px;
+}
+
+/* Doorgaan naar het volgende bouwsel, zonder terug te hoeven naar de lijst.
+   Op één regel, want een naam als "Klif en steilrand naast elkaar" brak de knop
+   in tweeën en duwde de oordeelknoppen omhoog — precies de knoppen die op hun
+   plek moeten blijven staan als je er tientallen keren achter elkaar op tikt. */
+.doe-verder {
+  width: 100%;
+  background: var(--aandacht);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doe-verder[hidden] { display: none; }
+
+/* De knop die je meteen aan het beoordelen zet, boven de lijst met voegen. */
+.blad-beoordeel {
+  width: 100%;
+  height: 52px;
+  margin: 0 0 8px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--aandacht);
+}
+
+.blad-beoordeel:disabled {
+  color: #b6b0a4;
+  background: #efece4;
 }

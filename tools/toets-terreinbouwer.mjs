@@ -287,7 +287,41 @@ toets(
 );
 toets(
   'de sleutel zegt waar de voeg zit',
-  wand.every((n) => n.sleutel === `${n.plek.x},${n.plek.z},${n.plek.laag},${n.plek.zijde}`),
+  wand.every((n) => n.sleutel.includes(`${n.plek.x},`) && n.sleutel.includes(`,${n.plek.laag},`)),
+  wand.map((n) => n.sleutel).join(' / '),
+);
+toets(
+  'en erbij wat er op die plek tegen elkaar aan staat',
+  wand.every((n) => n.namen.every((naam) => n.sleutel.includes(naam))),
+  wand[0]?.sleutel,
+);
+
+/* De plek alleen was niet genoeg, en dat kostte een ronde: twee bouwsels staan
+ * allebei op vak (0,0). Wie de klifwand had beoordeeld kreeg de steilrand als
+ * "al beoordeeld" voorgeschoteld — dertien oordelen over stukken die er nooit
+ * aan te pas waren gekomen. */
+const zelfdePlek = naden(bouw([
+  { naam: 'escarpment-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'escarpment-terrain-side-mid', x: 0, z: 1, laag: 0 },
+  { naam: 'escarpment-terrain-side-mid', x: 0, z: 2, laag: 0 },
+]));
+toets(
+  'een ánder bouwsel op dezelfde vakken deelt geen enkel oordeel',
+  zelfdePlek.every((n) => !wand.some((w) => w.sleutel === n.sleutel)),
+  `${wand[0]?.sleutel} vs ${zelfdePlek[0]?.sleutel}`,
+);
+
+/* En de voeg zelf mag niet van twee kanten twee sleutels krijgen: wie de
+ * stukken in de omgekeerde volgorde neerzet, beoordeelt dezelfde voeg. */
+const andersom = naden(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 2, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+]));
+toets(
+  'in omgekeerde bouwvolgorde zijn het dezelfde voegen',
+  new Set([...wand, ...andersom].map((n) => n.sleutel)).size === 2,
+  [...new Set([...wand, ...andersom].map((n) => n.sleutel))].join(' / '),
 );
 
 /* De vorm is wél gedeeld — dat is hoe je achteraf ziet dat dezelfde twee
@@ -317,6 +351,11 @@ toets(
   'maar hun vorm verschilt, dus ze zijn apart te beoordelen',
   klifMid.vorm !== steilMid.vorm,
   `${klifMid.vorm} vs ${steilMid.vorm}`,
+);
+toets(
+  'en hun sleutel ook, al liggen ze op hetzelfde vak',
+  klifMid.sleutel !== steilMid.sleutel,
+  `${klifMid.sleutel} vs ${steilMid.sleutel}`,
 );
 
 /* -- versiestempel --------------------------------------------------------- */
@@ -816,6 +855,122 @@ toets(
 
 await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
 
+/* -- doorwerken ------------------------------------------------------------
+ * De lus waar het om gaat: oordelen, oordelen, volgend bouwsel, oordelen.
+ * Alles wat daartussen zat — bladen openen en sluiten, tabbladen kiezen — is
+ * werk dat niets oplevert, en dat was zes tikken tussen twee oordelen.
+ */
+
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  localStorage.removeItem('terreinbouwer-oordelen');
+  T.oordelen.clear();
+  await T.openBouwsel(T.voorbeelden[0]);          // Grasvlakte
+  T.beginKijken(0);
+});
+
+toets('de doorgaan-knop staat er nog niet', await blad.locator('#kijk-volgend-bouwsel').isHidden());
+
+/* Alles beoordelen met alleen de goed-knop: hij hoort telkens door te springen
+ * naar de eerstvolgende voeg zonder oordeel. */
+const teGaan = await blad.evaluate(() => window.TERREINBOUWER.stand.kijk.lijst.length);
+for (let i = 0; i < teGaan; i++) await blad.locator('#kijk-goed').tap();
+
+toets(
+  `alle ${teGaan} voegen beoordeeld met alleen de goed-knop`,
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) === teGaan,
+  `${await blad.evaluate(() => window.TERREINBOUWER.oordelen.size)} van ${teGaan}`,
+);
+toets('en dan verschijnt de doorgaan-knop', await blad.locator('#kijk-volgend-bouwsel').isVisible());
+toets(
+  'die het volgende bouwsel bij naam noemt',
+  (await blad.locator('#kijk-volgend-bouwsel').innerText()).includes(
+    await blad.evaluate(() => window.TERREINBOUWER.voorbeelden[1].naam),
+  ),
+  await blad.locator('#kijk-volgend-bouwsel').innerText(),
+);
+
+await blad.locator('#kijk-volgend-bouwsel').tap();
+await blad.waitForFunction(
+  (n) => window.TERREINBOUWER.bouwsel.noemer === n,
+  await blad.evaluate(() => window.TERREINBOUWER.voorbeelden[1].naam),
+  { timeout: 15000 },
+).catch(() => {});
+toets(
+  'doorgaan laadt het volgende bouwsel',
+  await blad.evaluate(() => window.TERREINBOUWER.bouwsel.noemer)
+    === await blad.evaluate(() => window.TERREINBOUWER.voorbeelden[1].naam),
+);
+toets('en zet je meteen weer aan het beoordelen', await blad.locator('#voet-kijk').isVisible());
+toets(
+  'bij een voeg die nog geen oordeel heeft',
+  await blad.evaluate(() => {
+    const T = window.TERREINBOUWER;
+    const naad = T.stand.kijk.lijst[T.stand.kijk.index];
+    return !T.oordelen.has(naad.sleutel);
+  }),
+);
+
+/* De hele ronde langs, want de fout die dit moet vangen liet zich pas bij het
+ * derde bouwsel zien: elk bouwsel staat op vak (0,0), dus met een sleutel die
+ * alleen de plek noemt kwam het volgende bouwsel al beoordeeld binnen. */
+const rondje = await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  localStorage.removeItem('terreinbouwer-oordelen');
+  T.oordelen.clear();
+  const uit = [];
+  for (const voorbeeld of T.voorbeelden) {
+    await T.openBouwsel(voorbeeld);
+    const lijst = T.naden(T.bouwsel);
+    uit.push({
+      naam: voorbeeld.naam,
+      voegen: lijst.length,
+      alGeoordeeld: lijst.filter((n) => T.oordelen.has(n.sleutel)).length,
+    });
+    for (const naad of lijst) T.velOordeel(naad.sleutel, 'goed', naad);
+  }
+  return uit;
+});
+toets(
+  'elk volgend bouwsel komt onbeoordeeld binnen',
+  rondje.every((b) => b.alGeoordeeld === 0),
+  rondje.filter((b) => b.alGeoordeeld).map((b) => `${b.naam}: ${b.alGeoordeeld}/${b.voegen}`).join(', '),
+);
+toets(
+  'en samen leveren ze net zoveel oordelen op als voegen',
+  await blad.evaluate(() => window.TERREINBOUWER.oordelen.size)
+    === rondje.reduce((som, b) => som + b.voegen, 0),
+  `${await blad.evaluate(() => window.TERREINBOUWER.oordelen.size)} van `
+    + `${rondje.reduce((som, b) => som + b.voegen, 0)}`,
+);
+
+/* De keerzijde van hetzelfde: het bouwsel opnieuw openen moet zijn eigen
+ * oordelen wél terugbrengen, anders is elke ronde weggegooid werk. */
+toets(
+  'een bouwsel opnieuw openen brengt zijn eigen oordelen terug',
+  await blad.evaluate(async () => {
+    const T = window.TERREINBOUWER;
+    await T.openBouwsel(T.voorbeelden[0]);
+    const lijst = T.naden(T.bouwsel);
+    return lijst.length > 0 && lijst.every((n) => T.oordelen.get(n.sleutel)?.oordeel === 'goed');
+  }),
+);
+toets(
+  'en zelf iets neerzetten maakt er weer onbeoordeelde voegen van',
+  await blad.evaluate(async () => {
+    const T = window.TERREINBOUWER;
+    T.kiesStuk('hilly-terrain-grass-floor');
+    await T.doeZet({ naam: 'hilly-terrain-grass-floor', x: 9, z: 9, laag: 0, slagen: 0 });
+    await T.doeZet({ naam: 'hilly-terrain-grass-floor', x: 10, z: 9, laag: 0, slagen: 0 });
+    return T.bouwsel.noemer === ''
+      && T.naden(T.bouwsel).every((n) => !T.oordelen.has(n.sleutel));
+  }),
+);
+
+await blad.evaluate(() => {
+  window.TERREINBOUWER.oordelen.clear();
+  localStorage.removeItem('terreinbouwer-oordelen');
+});
 await blad.locator('#kijk-stop').tap();
 toets('klaar met kijken brengt de knoppenbalk terug',
   await blad.locator('.voet:not(.voet-kijk)').isVisible());
@@ -835,6 +990,25 @@ await blad.close();
 
 for (const [breedte, hoogte] of [[320, 568], [360, 740], [412, 915], [768, 1024], [1280, 800]]) {
   const b = await telefoon(breedte, hoogte);
+
+  /* Elke knop in de kop moet te raken zijn, en op 320 px was dat er één niet:
+   * de standknop kreeg wat er overbleef en dat was achttien pixels. Juist die
+   * knop is de ingang naar de voegenlijst, dus wie hem niet kan raken kan niets
+   * beoordelen — op het kleinste scherm, waar niemand toevallig kijkt. */
+  const koppen = await b.evaluate(() => [...document.querySelectorAll('.kop .knop')].map((k) => {
+    const kader = k.getBoundingClientRect();
+    return {
+      id: k.id,
+      breed: Math.round(kader.width),
+      binnen: kader.left >= -0.5 && kader.right <= innerWidth + 0.5,
+    };
+  }));
+  toets(
+    `op ${breedte}×${hoogte} is elke knop in de kop te raken`,
+    koppen.every((k) => k.breed >= 44 && k.binnen),
+    JSON.stringify(koppen.filter((k) => k.breed < 44 || !k.binnen)),
+  );
+
   await b.locator('#stuk-knop').tap();
   const meting = await b.evaluate(() => {
     const inhoud = document.getElementById('blad-inhoud').getBoundingClientRect();

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#e8e4da">
 <title>Terreinbouwer</title>
-<link rel="stylesheet" href="bouwer.css?v=2fe339d7a0">
+<link rel="stylesheet" href="bouwer.css?v=e8ee62c5b3">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧱</text></svg>">
 <!-- Relatieve paden, geen absolute: zo werkt de bouwer zowel op de lokale
      server als op de gepubliceerde site, die onder /Taalei/ staat. -->
@@ -80,6 +80,11 @@
     </div>
     <button type="button" class="knop" id="kijk-volgende" aria-label="Volgende voeg">›</button>
   </div>
+  <!-- Verschijnt zodra elke voeg van dit bouwsel een oordeel heeft: dan hoef je
+       niet terug naar de lijst, het blad en het tabblad om verder te kunnen. -->
+  <button type="button" class="doe doe-verder" id="kijk-volgend-bouwsel" hidden>
+    Volgend bouwsel ›
+  </button>
   <div class="kijk-rij">
     <button type="button" class="doe doe-zet" id="kijk-goed">✓ goed</button>
     <button type="button" class="doe doe-weg" id="kijk-niet">✗ niet</button>
@@ -169,6 +174,6 @@
 })();
 </script>
 
-<script src="bouwer.js?v=2fe339d7a0" type="module"></script>
+<script src="bouwer.js?v=e8ee62c5b3" type="module"></script>
 </body>
 </html>

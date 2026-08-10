@@ -348,6 +348,9 @@ function verwijderStuk(id) {
 }
 
 async function doeZet(gegevens) {
+  /* Zodra je zelf iets neerzet is het geen voorbeeld meer, en horen de oordelen
+   * er ook niet meer bij: het staat er anders dan waar ze over gingen. */
+  bouwsel.noemer = '';
   const stuk = await plaatsStuk(gegevens);
   geschiedenis.push({ soort: 'zet', gegevens, id: stuk.id });
   teruggedraaid.length = 0; // een nieuwe stap maakt de tak vooruit ongeldig
@@ -394,20 +397,32 @@ const opnieuw = () => verzet(teruggedraaid, geschiedenis, true);
  * honderdste samenvallen kunnen er lelijk uitzien. Alleen wie bouwt kan dat
  * zeggen, dus bewaart dit bestand zijn oordeel en niet dat van de meting.
  *
- * Bewaard op het paar randprofielen: keur je die vorm goed, dan geldt dat voor
- * elk stuk met die randen en in elke draaistand. Anders zou dezelfde vraag
- * tientallen keren terugkomen.
+ * Bewaard per voeg: één plek, met erbij wat daar tegen elkaar aan staat. Zie
+ * naadSleutel() in aansluiting.js voor waarom het niet het paar randprofielen
+ * is en ook niet de plek alleen.
  */
 
 const OORDEELSLEUTEL = 'terreinbouwer-oordelen';
 
-const oordelen = new Map(Object.entries(
-  JSON.parse(localStorage.getItem(OORDEELSLEUTEL) ?? '{}'),
-));
+/**
+ * Hoe een sleutel er tegenwoordig uitziet. Er zijn er twee soorten aan
+ * voorafgegaan — `r055+r056` en `0,0,0,n` — en die betekenen allebei iets
+ * anders dan wat er nu staat. Ze omrekenen kan niet: de eerste soort weet niet
+ * op welke plek het ging, de tweede niet over welke stukken. Ze laten staan is
+ * erger dan ze weggooien, want dan telt de bouwer oordelen mee die nergens meer
+ * bij horen en zet hij voegen op "al beoordeeld" die dat niet zijn.
+ */
+const SLEUTELVORM = /^[^|]*\|-?\d+,-?\d+,-?\d+,[nozw] .+>.+$/;
+
+const bewaard = Object.entries(JSON.parse(localStorage.getItem(OORDEELSLEUTEL) ?? '{}'));
+const oordelen = new Map(bewaard.filter(([s]) => SLEUTELVORM.test(s)));
+const vervallen = bewaard.length - oordelen.size;
 
 function bewaarOordelen() {
   localStorage.setItem(OORDEELSLEUTEL, JSON.stringify(Object.fromEntries(oordelen)));
 }
+
+if (vervallen) bewaarOordelen(); // meteen opruimen, niet pas bij het volgende oordeel
 
 function velOordeel(sleutel, oordeel, naad) {
   if (oordelen.get(sleutel)?.oordeel === oordeel) oordelen.delete(sleutel); // nog eens tikken = intrekken
@@ -663,6 +678,14 @@ function werkKijkBalkBij() {
   const nogNiet = lijst.filter((n) => !oordelen.has(n.sleutel)).length;
   const mijn = oordelen.get(naad.sleutel)?.oordeel ?? null;
 
+  /* Alles beoordeeld? Dan is de weg vooruit belangrijker dan de pijltjes: zonder
+   * deze knop is het blad openen, tabblad kiezen, bouwsel zoeken, blad sluiten,
+   * controle openen, tabblad kiezen en een regel aantikken — zes tikken tussen
+   * twee oordelen. */
+  const doorKnop = document.getElementById('kijk-volgend-bouwsel');
+  doorKnop.hidden = nogNiet > 0 || voorbeelden.length === 0;
+  doorKnop.textContent = `Volgend: ${volgendVoorbeeld().naam} ›`;
+
   document.getElementById('kijk-namen').textContent = `${naad.namen[0]} ↔ ${naad.namen[1]}`;
 
   /* Wat de meting ervan vindt komt er pas bij nadat jij iets gezegd hebt.
@@ -679,6 +702,28 @@ function werkKijkBalkBij() {
   document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
 }
 
+/** Het bouwsel ná het bouwsel dat er staat; rondlopend. */
+function volgendVoorbeeld() {
+  const nu = voorbeelden.findIndex((v) => v.naam === bouwsel.noemer);
+  return voorbeelden[(nu + 1) % voorbeelden.length];
+}
+
+/**
+ * Door naar het volgende bouwsel en meteen weer aan het beoordelen.
+ *
+ * Dit is de hele lus waar het om gaat: oordelen, oordelen, oordelen, volgend
+ * bouwsel, oordelen. Alles wat daartussen zat — bladen openen en sluiten,
+ * tabbladen kiezen, regels aantikken — is werk dat niets oplevert.
+ */
+async function volgendBouwsel() {
+  await openBouwsel(volgendVoorbeeld());
+  const lijst = naden(bouwsel);
+  const eerste = lijst.findIndex((n) => !oordelen.has(n.sleutel));
+  if (lijst.length === 0) return; // niets te beoordelen; blijf staan waar je staat
+  beginKijken(eerste === -1 ? 0 : eerste);
+}
+
+document.getElementById('kijk-volgend-bouwsel').addEventListener('click', volgendBouwsel);
 document.getElementById('kijk-vorige').addEventListener('click', () => kijkNaar(stand.kijk.index - 1));
 document.getElementById('kijk-volgende').addEventListener('click', () => kijkNaar(stand.kijk.index + 1));
 document.getElementById('kijk-stop').addEventListener('click', stopKijken);
@@ -860,8 +905,8 @@ function vulBouwsels() {
  * Zet een bouwsel neer in plaats van wat er stond.
  *
  * De geschiedenis gaat leeg: stap voor stap terugdraaien naar een half
- * openstaand bouwsel helpt niemand. De oordelen blijven staan — die horen bij
- * de combinaties, niet bij wat er toevallig op het raster staat.
+ * openstaand bouwsel helpt niemand. De oordelen van dít bouwsel komen terug —
+ * ze hangen aan zijn naam, dus opnieuw openen betekent verdergaan waar je was.
  */
 async function openBouwsel(voorbeeld) {
   for (const id of [...bouwsel.stukken.keys()]) verwijderStuk(id);
@@ -869,6 +914,9 @@ async function openBouwsel(voorbeeld) {
   teruggedraaid.length = 0;
 
   for (const stuk of voorbeeld.stukken) await plaatsStuk(stuk);
+  /* Ná het plaatsen, want plaatsStuk gaat via doeZet noch iets anders wat de
+   * noemer wist — maar de volgorde vastleggen is goedkoper dan hem onthouden. */
+  bouwsel.noemer = voorbeeld.naam;
 
   /* De wijzer en de camera naar het bouwsel toe, en ver genoeg naar achteren om
    * het hele ding te zien. Een vaste afstand werkt niet: een grasvlakte van
@@ -948,11 +996,28 @@ function vulCombinaties() {
   }
 
   const nogNiet = lijst.filter((n) => !oordelen.has(n.sleutel)).length;
+
+  const beoordeel = document.createElement('button');
+  beoordeel.type = 'button';
+  beoordeel.className = 'blad-beoordeel';
+  beoordeel.textContent = nogNiet
+    ? `Beoordeel ze ${nogNiet === lijst.length ? 'allemaal' : `alle ${nogNiet}`} ›`
+    : 'Alles beoordeeld';
+  beoordeel.disabled = nogNiet === 0;
+  beoordeel.addEventListener('click', () => {
+    beginKijken(lijst.findIndex((n) => !oordelen.has(n.sleutel)));
+  });
+  bladInhoud.append(beoordeel);
+
   const kop = document.createElement('div');
   kop.className = 'uitleg';
   kop.innerHTML = `<p>${lijst.length} voegen, ${nogNiet} nog niet beoordeeld. `
     + 'Elke voeg staat op zichzelf: twee keer dezelfde stukken op een andere '
-    + 'plek zijn twee oordelen.</p>';
+    + 'plek zijn twee oordelen.</p>'
+    + (vervallen
+      ? `<p class="kwijt">${vervallen} eerder bewaarde oordelen zijn vervallen: `
+        + 'die hingen aan iets anders dan een voeg en waren niet om te rekenen.</p>'
+      : '');
   bladInhoud.append(kop);
 
   const zijNaam = { n: 'noord', o: 'oost', z: 'zuid', w: 'west' };
@@ -1258,6 +1323,7 @@ window.TERREINBOUWER = {
   kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
   naden, oordelen, velOordeel, naadSleutel, vormSleutel, voorbeelden, openBouwsel,
+  volgendBouwsel,
   beginKijken, kijkNaar, stopKijken,
 };
 window.KLAAR = true;
