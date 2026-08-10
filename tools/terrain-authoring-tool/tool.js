@@ -248,20 +248,26 @@ function verwijderStuk(id) {
 }
 
 async function doeZet(gegevens) {
-  bouwsel.noemer = '';
   const stuk = await plaatsStuk(gegevens);
-  geschiedenis.push({ soort: 'zet', gegevens, id: stuk.id });
+  geschiedenis.push({ soort: 'zet', delen: [{ gegevens, id: stuk.id }] });
   teruggedraaid.length = 0;
+  bewaarEigen();
   werkBijAlles();
 }
 
-function doeWeg(id) {
-  const stuk = bouwsel.stukken.get(id);
-  if (!stuk) return;
-  const gegevens = beschrijf(stuk);
-  verwijderStuk(id);
-  geschiedenis.push({ soort: 'weg', gegevens, id });
+function doeWeg(wat) {
+  const delen = [];
+  for (const id of new Set([].concat(wat))) {
+    const stuk = bouwsel.stukken.get(id);
+    if (!stuk) continue;
+    delen.push({ gegevens: beschrijf(stuk), id });
+    verwijderStuk(id);
+  }
+  if (delen.length === 0) return;
+
+  geschiedenis.push({ soort: 'weg', delen });
   teruggedraaid.length = 0;
+  bewaarEigen();
   werkBijAlles();
 }
 
@@ -269,14 +275,33 @@ async function verzet(vanaf, naar, heen) {
   const stap = vanaf.pop();
   if (!stap) return;
   const moetZetten = heen ? stap.soort === 'zet' : stap.soort === 'weg';
-  if (moetZetten) await plaatsStuk({ ...stap.gegevens, id: stap.id });
-  else verwijderStuk(stap.id);
+  for (const deel of stap.delen) {
+    if (moetZetten) await plaatsStuk({ ...deel.gegevens, id: deel.id });
+    else verwijderStuk(deel.id);
+  }
   naar.push(stap);
+  bewaarEigen();
   werkBijAlles();
 }
 
 const ongedaan = () => verzet(geschiedenis, teruggedraaid, false);
 const opnieuw = () => verzet(teruggedraaid, geschiedenis, true);
+
+const EIGENSLEUTEL = 'terrain-authoring-tool-eigen';
+const WAARSLEUTEL = 'terrain-authoring-tool-waar';
+
+const eigen = new Map(Object.entries(JSON.parse(localStorage.getItem(EIGENSLEUTEL) ?? '{}')));
+
+function bewaarEigen() {
+  eigen.set(bouwsel.noemer, bouwsel.naarJson().stukken);
+  localStorage.setItem(EIGENSLEUTEL, JSON.stringify(Object.fromEntries(eigen)));
+  localStorage.setItem(WAARSLEUTEL, bouwsel.noemer);
+}
+
+function vergeetEigen(naam) {
+  eigen.delete(naam);
+  localStorage.setItem(EIGENSLEUTEL, JSON.stringify(Object.fromEntries(eigen)));
+}
 
 const OORDEELSLEUTEL = 'terrain-authoring-tool-oordelen';
 
@@ -323,6 +348,10 @@ const bouwselStand = document.getElementById('bouwsel-stand');
 function opWijzer() {
   const bewoners = bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag);
   return bewoners.length ? bouwsel.stukken.get(bewoners[bewoners.length - 1].id) : null;
+}
+
+function alsOpWijzer() {
+  return [...new Set(bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag).map((b) => b.id))];
 }
 
 function werkBijAlles() {
@@ -690,7 +719,10 @@ function vulBouwsels() {
 
     const bij = document.createElement('div');
     bij.className = 'bouwsel-bij';
-    bij.textContent = `${voorbeeld.stukken.length} stukken — ${voorbeeld.waarover}`;
+    const mijn = eigen.get(voorbeeld.naam);
+    bij.textContent = mijn
+      ? `${mijn.length} stukken — door jou veranderd`
+      : `${voorbeeld.stukken.length} stukken — ${voorbeeld.waarover}`;
 
     rij.append(naam, bij);
     rij.addEventListener('click', () => openBouwsel(voorbeeld));
@@ -699,8 +731,25 @@ function vulBouwsels() {
 
   const voet = document.createElement('div');
   voet.className = 'uitleg';
-  voet.innerHTML = '<p>Een bouwsel openen vervangt wat er staat en wist de '
-    + 'stappen terug. Je oordelen blijven.</p>';
+  const p = document.createElement('p');
+  p.textContent = 'Wat je aan een bouwsel verandert blijft bewaard, ook als je '
+    + 'naar een ander gaat en weer terugkomt. Alleen de stappen terug wissen. '
+    + 'Je oordelen blijven.';
+  voet.append(p);
+
+  const nu = voorbeelden.find((v) => v.naam === bouwsel.noemer);
+  if (nu && eigen.has(nu.naam)) {
+    const herstel = document.createElement('button');
+    herstel.type = 'button';
+    herstel.className = 'blad-uit';
+    herstel.textContent = `Zet "${nu.naam}" terug zoals het was`;
+    herstel.addEventListener('click', () => {
+      vergeetEigen(nu.naam);
+      openBouwsel(nu, { blijfOpen: true });
+    });
+    voet.append(herstel);
+  }
+
   bladInhoud.append(voet);
 }
 
@@ -709,25 +758,29 @@ async function openBouwsel(voorbeeld, { blijfOpen = false } = {}) {
   geschiedenis.length = 0;
   teruggedraaid.length = 0;
 
-  for (const stuk of voorbeeld.stukken) await plaatsStuk(stuk);
+  const stukken = eigen.get(voorbeeld.naam) ?? voorbeeld.stukken;
+  for (const stuk of stukken) await plaatsStuk(stuk);
   bouwsel.noemer = voorbeeld.naam;
+  localStorage.setItem(WAARSLEUTEL, bouwsel.noemer);
 
-  const xen = voorbeeld.stukken.map((p) => p.x);
-  const zen = voorbeeld.stukken.map((p) => p.z);
-  const lagen = voorbeeld.stukken.map((p) => p.laag);
-  const middenX = Math.round((Math.min(...xen) + Math.max(...xen)) / 2);
-  const middenZ = Math.round((Math.min(...zen) + Math.max(...zen)) / 2);
-  const spanwijdte = Math.max(
+  const xen = stukken.map((p) => p.x);
+  const zen = stukken.map((p) => p.z);
+  const lagen = stukken.map((p) => p.laag);
+  const leeg = stukken.length === 0;
+  const middenX = leeg ? 0 : Math.round((Math.min(...xen) + Math.max(...xen)) / 2);
+  const middenZ = leeg ? 0 : Math.round((Math.min(...zen) + Math.max(...zen)) / 2);
+  const hoogste = leeg ? 0 : Math.max(...lagen);
+  const spanwijdte = leeg ? VAK * 4 : Math.max(
     (Math.max(...xen) - Math.min(...xen) + 1) * VAK,
     (Math.max(...zen) - Math.min(...zen) + 1) * VAK,
-    (Math.max(...lagen) + 1) * LAAG,
+    (hoogste + 1) * LAAG,
   );
   const afstand = spanwijdte * 1.9 + 1.4;
 
   stand.wijzer = [middenX, middenZ];
   stand.laag = 0;
   zetLaagUit();
-  stuur.target.set(middenX * VAK, Math.max(...lagen) * LAAG * 0.5, middenZ * VAK);
+  stuur.target.set(middenX * VAK, hoogste * LAAG * 0.5, middenZ * VAK);
   camera.position.set(
     middenX * VAK + afstand * 0.62,
     afstand * 0.58,
@@ -1013,8 +1066,7 @@ zetKnop.addEventListener('click', () => {
 });
 
 wegKnop.addEventListener('click', () => {
-  const bewoner = opWijzer();
-  if (bewoner) doeWeg(bewoner.id);
+  doeWeg(alsOpWijzer());
 });
 
 ongedaanKnop.addEventListener('click', ongedaan);
@@ -1034,5 +1086,17 @@ window.TERRAIN_AUTHORING_TOOL = {
   naden, oordelen, velOordeel, naadSleutel, vormSleutel, voorbeelden, openBouwsel,
   volgendBouwsel,
   beginKijken, kijkNaar, stopKijken,
+  eigen, vergeetEigen, alsOpWijzer, werkBijAlles,
 };
 window.KLAAR = true;
+
+// Pak op waar je gebleven was: het laatst geopende bouwsel, met jouw
+// veranderingen erin. Losse stukken zonder bouwsel staan onder ''.
+const waar = localStorage.getItem(WAARSLEUTEL);
+if (waar) {
+  const vorige = voorbeelden.find((v) => v.naam === waar);
+  if (vorige) await openBouwsel(vorige);
+} else if (eigen.get('')?.length) {
+  for (const stuk of eigen.get('')) await plaatsStuk(stuk);
+  werkBijAlles();
+}
