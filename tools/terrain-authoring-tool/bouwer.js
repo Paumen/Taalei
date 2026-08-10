@@ -278,7 +278,7 @@ async function verzet(vanaf, naar, heen) {
 const ongedaan = () => verzet(geschiedenis, teruggedraaid, false);
 const opnieuw = () => verzet(teruggedraaid, geschiedenis, true);
 
-const OORDEELSLEUTEL = 'terreinbouwer-oordelen';
+const OORDEELSLEUTEL = 'terrain-authoring-tool-oordelen';
 
 const SLEUTELVORM = /^[^|]*\|(zij|rand|stapel)\|-?\d+,-?\d+,-?\d+,[nozwb] .+>.+$/;
 
@@ -848,7 +848,7 @@ function vulCombinaties() {
 function exporteerOordelen() {
   const inhoud = JSON.stringify({
     kit: 'modulair-terrein',
-    gemaakt: 'tools/terreinbouwer/',
+    gemaakt: 'tools/terrain-authoring-tool/',
     toelichting: 'Per voeg — één plek in één bouwsel, met erbij wat daar tegen '
       + 'elkaar aan staat — het oordeel van wie bouwt. `meting` is wat '
       + 'aansluitingen.mjs erover zegt en is `null` waar niets te meten viel; '
@@ -999,7 +999,7 @@ renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
 });
 
-window.TERREINBOUWER = {
+window.TERRAIN_AUTHORING_TOOL = {
   kit, bouwsel, stand, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
   naden, oordelen, velOordeel, naadSleutel, vormSleutel, voorbeelden, openBouwsel,

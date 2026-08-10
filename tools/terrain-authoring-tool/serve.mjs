@@ -38,6 +38,6 @@ export function maakServer() {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   maakServer().listen(POORT, () => {
-    console.log(`terreinbouwer op http://127.0.0.1:${POORT}/tools/terreinbouwer/`);
+    console.log(`terrain authoring tool op http://127.0.0.1:${POORT}/tools/terrain-authoring-tool/`);
   });
 }
