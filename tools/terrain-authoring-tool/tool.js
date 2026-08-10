@@ -350,8 +350,17 @@ function opWijzer() {
   return bewoners.length ? bouwsel.stukken.get(bewoners[bewoners.length - 1].id) : null;
 }
 
+// Alles wat op dit vak staat, welke laag ook. bezet is per vak én laag
+// gesleuteld, dus op() alleen zou de lagen erboven en eronder laten staan.
 function alsOpWijzer() {
-  return [...new Set(bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag).map((b) => b.id))];
+  const [x, z] = stand.wijzer;
+  const ids = new Set();
+  for (const [sleutel, bewoners] of bouwsel.bezet) {
+    const [bx, bz] = sleutel.split(',').map(Number);
+    if (bx !== x || bz !== z) continue;
+    for (const bewoner of bewoners) ids.add(bewoner.id);
+  }
+  return [...ids];
 }
 
 function werkBijAlles() {
@@ -375,7 +384,7 @@ function werkBijAlles() {
   }
 
   zetKnop.disabled = !stand.penseel;
-  wegKnop.disabled = !bewoner;
+  wegKnop.disabled = alsOpWijzer().length === 0;
   ongedaanKnop.disabled = geschiedenis.length === 0;
   opnieuwKnop.disabled = teruggedraaid.length === 0;
 
