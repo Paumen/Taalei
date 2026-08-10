@@ -759,16 +759,23 @@ function vulBouwsels() {
     voet.append(herstel);
   }
 
+  hangOpslagAan(voet);
+  bladInhoud.append(voet);
+}
+
+// Eén paar knoppen voor alles wat van jou is — de bouwsels én de oordelen —
+// zodat je niet twee bestanden hoeft te bewaren om niets kwijt te raken.
+function hangOpslagAan(voet) {
   const uit = document.createElement('button');
   uit.type = 'button';
   uit.className = 'blad-uit';
-  uit.textContent = 'Bouwsels opslaan als bestand';
-  uit.addEventListener('click', exporteerBouwsels);
+  uit.textContent = 'Alles opslaan als bestand';
+  uit.addEventListener('click', exporteerAlles);
 
   const in_ = document.createElement('button');
   in_.type = 'button';
   in_.className = 'blad-uit';
-  in_.textContent = 'Bouwsels inlezen uit bestand';
+  in_.textContent = 'Alles inlezen uit bestand';
   in_.addEventListener('click', () => kiezer.click());
 
   const kiezer = document.createElement('input');
@@ -777,62 +784,46 @@ function vulBouwsels() {
   kiezer.className = 'weg';
   kiezer.addEventListener('change', () => {
     const [bestand] = kiezer.files;
-    if (bestand) leesBouwsels(bestand);
+    if (bestand) leesAlles(bestand);
   });
 
   voet.append(uit, in_, kiezer);
 
-  if (bouwselVerslag) {
+  if (verslag) {
     const melding = document.createElement('p');
-    melding.className = bouwselVerslag.mis ? 'kwijt' : '';
-    melding.textContent = bouwselVerslag.tekst;
+    melding.className = verslag.mis ? 'kwijt' : '';
+    melding.textContent = verslag.tekst;
     voet.append(melding);
   }
-
-  bladInhoud.append(voet);
 }
 
-let bouwselVerslag = null;
+let verslag = null;
 
-function exporteerBouwsels() {
+function exporteerAlles() {
   const inhoud = JSON.stringify({
     kit: 'modulair-terrein',
     gemaakt: 'tools/terrain-authoring-tool/',
-    toelichting: 'De bouwsels zoals ze er nu bij staan, met jouw veranderingen '
-      + 'erin. Dit bestand heeft dezelfde vorm als bouwsels.json en kan het '
-      + 'vervangen.',
+    toelichting: 'Alles wat van jou is: de bouwsels zoals ze er nu bij staan, '
+      + 'en per voeg het oordeel van wie bouwt. Dat oordeel is het enige dat '
+      + 'zegt of een voeg sluit; er wordt niets over gemeten. De bouwsels '
+      + 'hebben dezelfde vorm als bouwsels.json en kunnen het vervangen.',
     bouwsels: voorbeelden.map((voorbeeld) => ({
       naam: voorbeeld.naam,
       waarover: voorbeeld.waarover,
       stukken: eigen.get(voorbeeld.naam) ?? voorbeeld.stukken,
     })),
+    oordelen: Object.fromEntries(oordelen),
   }, null, 1);
 
   const blob = new Blob([inhoud], { type: 'application/json' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'bouwsels.json';
+  link.download = 'terrein-alles.json';
   link.click();
   URL.revokeObjectURL(link.href);
 }
 
-async function leesBouwsels(bestand) {
-  let binnen;
-  try {
-    binnen = JSON.parse(await bestand.text());
-  } catch (fout) {
-    bouwselVerslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
-    toonPalet('bouwsels');
-    return;
-  }
-
-  const rijen = Array.isArray(binnen?.bouwsels) ? binnen.bouwsels : [];
-  if (rijen.length === 0) {
-    bouwselVerslag = { mis: true, tekst: `In ${bestand.name} staat geen "bouwsels" met inhoud.` };
-    toonPalet('bouwsels');
-    return;
-  }
-
+function neemBouwselsOver(rijen) {
   let bij = 0;
   const onbekend = [];
   const missteStukken = new Set();
@@ -862,17 +853,75 @@ async function leesBouwsels(bestand) {
 
   localStorage.setItem(EIGENSLEUTEL, JSON.stringify(Object.fromEntries(eigen)));
 
-  const stukjes = [`${bij} bouwsels overgenomen`];
+  const stukjes = [`${bij} bouwsels`];
   if (onbekend.length) stukjes.push(`${onbekend.length} met een onbekende naam overgeslagen`);
-  if (missteStukken.size) stukjes.push(`${missteStukken.size} stuknamen zitten niet in de kit`);
-  bouwselVerslag = {
-    mis: onbekend.length > 0 || missteStukken.size > 0,
-    tekst: `${bestand.name}: ${stukjes.join(', ')}.`,
-  };
+  if (missteStukken.size) stukjes.push(`${missteStukken.size} stuknamen niet in de kit`);
+  return { mis: onbekend.length > 0 || missteStukken.size > 0, tekst: stukjes.join(', ') };
+}
+
+function neemOordelenOver(rijen) {
+  let bij = 0;
+  let anders = 0;
+  let gelijk = 0;
+  const over = [];
+
+  for (const [sleutel, waarde] of rijen) {
+    if (!SLEUTELVORM.test(sleutel) || (waarde?.oordeel !== 'goed' && waarde?.oordeel !== 'niet')) {
+      over.push(sleutel);
+      continue;
+    }
+    const had = oordelen.get(sleutel);
+    if (!had) bij += 1;
+    else if (had.oordeel !== waarde.oordeel) anders += 1;
+    else { gelijk += 1; continue; }
+    oordelen.set(sleutel, waarde);
+  }
+
+  bewaarOordelen();
+
+  const stukjes = [`${bij} oordelen erbij`];
+  if (anders) stukjes.push(`${anders} overschreven`);
+  if (gelijk) stukjes.push(`${gelijk} stond er al zo`);
+  if (over.length) stukjes.push(`${over.length} overgeslagen (sleutel van een oudere versie)`);
+  return { mis: over.length > 0, tekst: stukjes.join(', ') };
+}
+
+async function leesAlles(bestand) {
+  let binnen;
+  try {
+    binnen = JSON.parse(await bestand.text());
+  } catch (fout) {
+    verslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
+    toonPalet('bouwsels');
+    return;
+  }
+
+  const bouwselRijen = Array.isArray(binnen?.bouwsels) ? binnen.bouwsels : [];
+  const oordeelRijen = Object.entries(binnen?.oordelen ?? {});
+
+  if (bouwselRijen.length === 0 && oordeelRijen.length === 0) {
+    verslag = { mis: true, tekst: `In ${bestand.name} staat geen "bouwsels" of "oordelen" met inhoud.` };
+    toonPalet('bouwsels');
+    return;
+  }
+
+  const delen = [];
+  let mis = false;
+  if (bouwselRijen.length) {
+    const uit = neemBouwselsOver(bouwselRijen);
+    delen.push(uit.tekst);
+    mis = mis || uit.mis;
+  }
+  if (oordeelRijen.length) {
+    const uit = neemOordelenOver(oordeelRijen);
+    delen.push(uit.tekst);
+    mis = mis || uit.mis;
+  }
+  verslag = { mis, tekst: `${bestand.name}: ${delen.join(' · ')}.` };
 
   const nu = voorbeelden.find((v) => v.naam === bouwsel.noemer);
   if (nu) await openBouwsel(nu, { blijfOpen: true });
-  else toonPalet('bouwsels');
+  else { werkBijAlles(); toonPalet('bouwsels'); }
 }
 
 async function openBouwsel(voorbeeld, { blijfOpen = false } = {}) {
@@ -1018,105 +1067,10 @@ function vulCombinaties() {
   voet.className = 'uitleg';
   voet.innerHTML = `<p>${oordelen.size} voegen beoordeeld. Nog eens tikken op `
     + 'dezelfde knop trekt het oordeel in.</p>';
-  const uit = document.createElement('button');
-  uit.type = 'button';
-  uit.className = 'blad-uit';
-  uit.textContent = 'Oordelen opslaan als bestand';
-  uit.addEventListener('click', exporteerOordelen);
-
-  const in_ = document.createElement('button');
-  in_.type = 'button';
-  in_.className = 'blad-uit';
-  in_.id = 'lees-oordelen';
-  in_.textContent = 'Oordelen inlezen uit bestand';
-  in_.addEventListener('click', () => kiezer.click());
-
-  const kiezer = document.createElement('input');
-  kiezer.type = 'file';
-  kiezer.accept = 'application/json,.json';
-  kiezer.className = 'weg';
-  kiezer.addEventListener('change', () => {
-    const [bestand] = kiezer.files;
-    if (bestand) leesOordelen(bestand);
-  });
-
-  voet.append(uit, in_, kiezer);
-  if (leesVerslag) {
-    const p = document.createElement('p');
-    p.className = leesVerslag.mis ? 'kwijt' : '';
-    p.textContent = leesVerslag.tekst;
-    voet.append(p);
-  }
+  hangOpslagAan(voet);
   bladInhoud.append(voet);
 }
 
-function exporteerOordelen() {
-  const inhoud = JSON.stringify({
-    kit: 'modulair-terrein',
-    gemaakt: 'tools/terrain-authoring-tool/',
-    toelichting: 'Per voeg — één plek in één bouwsel, met erbij wat daar tegen '
-      + 'elkaar aan staat — het oordeel van wie bouwt. Dat oordeel is het '
-      + 'enige dat zegt of een voeg sluit; er wordt niets over gemeten.',
-    oordelen: Object.fromEntries(oordelen),
-  }, null, 1);
-  const blob = new Blob([inhoud], { type: 'application/json' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'combinatie-oordelen.json';
-  link.click();
-  URL.revokeObjectURL(link.href);
-}
-
-let leesVerslag = null;
-
-async function leesOordelen(bestand) {
-  let binnen;
-  try {
-    binnen = JSON.parse(await bestand.text());
-  } catch (fout) {
-    leesVerslag = { mis: true, tekst: `${bestand.name} is geen leesbare JSON: ${fout.message}` };
-    toonControleBlad();
-    return;
-  }
-
-  const rijen = Object.entries(binnen?.oordelen ?? {});
-  if (rijen.length === 0) {
-    leesVerslag = { mis: true, tekst: `In ${bestand.name} staat geen "oordelen" met inhoud.` };
-    toonControleBlad();
-    return;
-  }
-
-  let bij = 0;
-  let anders = 0;
-  let gelijk = 0;
-  const over = [];
-
-  for (const [sleutel, waarde] of rijen) {
-    if (!SLEUTELVORM.test(sleutel) || (waarde?.oordeel !== 'goed' && waarde?.oordeel !== 'niet')) {
-      over.push(sleutel);
-      continue;
-    }
-    const had = oordelen.get(sleutel);
-    if (!had) bij += 1;
-    else if (had.oordeel !== waarde.oordeel) anders += 1;
-    else { gelijk += 1; continue; }
-    oordelen.set(sleutel, waarde);
-  }
-
-  bewaarOordelen();
-
-  const stukjes = [`${bij} erbij`];
-  if (anders) stukjes.push(`${anders} overschreven`);
-  if (gelijk) stukjes.push(`${gelijk} stond er al zo`);
-  if (over.length) stukjes.push(`${over.length} overgeslagen (sleutel van een oudere versie)`);
-  leesVerslag = {
-    mis: over.length > 0,
-    tekst: `${bestand.name}: ${rijen.length} oordelen gelezen — ${stukjes.join(', ')}.`,
-  };
-
-  werkBijAlles();
-  toonControleBlad();
-}
 
 standKnop.addEventListener('click', () => toonControleBlad());
 
