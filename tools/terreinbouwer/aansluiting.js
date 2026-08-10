@@ -471,14 +471,17 @@ export function naden(bouwsel) {
           const daar = kit.randVan(buurStuk.naam, buur.lokaal, TEGENOVER[zijde], buurStuk.slagen);
           if (kit.isOpen(hier) && kit.isOpen(daar)) continue; // twee keer lucht
 
-          uit.push({
+          const naad = {
             stukken: [bewoner.id, buur.id],
             namen: [stuk.naam, buurStuk.naam],
+            slagen: [stuk.slagen, buurStuk.slagen],
             randen: [hier, daar],
-            sleutel: combinatieSleutel(hier, daar),
             sluit: kit.sluitAan(hier, daar),
             plek: { x, z, laag, zijde },
-          });
+          };
+          naad.sleutel = naadSleutel(naad);
+          naad.vorm = vormSleutel(naad);
+          uit.push(naad);
         }
       }
     }
@@ -488,17 +491,38 @@ export function naden(bouwsel) {
 }
 
 /**
- * De naam waaronder een oordeel over een combinatie wordt bewaard.
+ * De naam waaronder een oordeel wordt bewaard: één voeg, op één plek.
  *
- * Op het paar randprofielen, niet op het paar stuknamen. Een profiel is de
- * vorm van de voeg, en die vorm is wat je beoordeelt: keur je r045 tegen r056
- * goed, dan geldt dat voor elk stuk met die randen en in elke draaistand. Op
- * naam bewaren zou hetzelfde oordeel tientallen keren opnieuw vragen.
+ * Dit was eerst het paar randprofielen, en dat was fout. Eén zo'n paar wordt
+ * gedragen door dertien verschillende stukken — r055 tegen r056 zit in elke
+ * `-mid` van de kit, klif én steilrand — en komt in een bouwsel tien keer voor
+ * op tien verschillende plekken. Al die voegen kwamen op één regel terecht met
+ * één stel knoppen eronder. Wie de ene goed vond en de andere niet, kon dat
+ * niet zeggen: het oordeel gold meteen voor alles.
  *
- * Gesorteerd, want een voeg heeft geen kant.
+ * Nu staat elke voeg op zichzelf. Dat is meer regels om langs te lopen, maar
+ * het is de enige manier waarop het oordeel van wie bouwt er ongeschonden in
+ * past — en dat is waar dit gereedschap voor is.
  */
-export function combinatieSleutel(randA, randB) {
-  return [randA ?? '-', randB ?? '-'].sort().join('+');
+export function naadSleutel(naad) {
+  const { x, z, laag, zijde } = naad.plek;
+  return `${x},${z},${laag},${zijde}`;
+}
+
+/**
+ * De vórm van een voeg: welke twee stukken, in welke draaistand, met welke
+ * kanten naar elkaar toe.
+ *
+ * Hier wordt niets op bewaard — het oordeel hangt aan de plek. Dit dient om
+ * achteraf te kunnen zien of dezelfde vorm ergens anders anders beoordeeld is.
+ * Dat is geen tegenstrijdigheid om op te lossen maar een uitkomst om te melden:
+ * blijkbaar hangt het van de omgeving af.
+ */
+export function vormSleutel(naad) {
+  return [
+    `${naad.namen[0]}@${naad.slagen[0] * 90}`,
+    `${naad.namen[1]}@${naad.slagen[1] * 90}`,
+  ].sort().join(' + ');
 }
 
 /* -- verkenner -------------------------------------------------------------

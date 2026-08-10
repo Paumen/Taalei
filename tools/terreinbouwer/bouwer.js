@@ -48,7 +48,7 @@ const VERSIE = new URL(import.meta.url).searchParams.get('v');
 const vers = (adres) => (VERSIE ? `${adres}?v=${VERSIE}` : adres);
 
 const {
-  Kit, Bouwsel, controleer, watPast, draaiVak, naden, combinatieSleutel,
+  Kit, Bouwsel, controleer, watPast, draaiVak, naden, naadSleutel, vormSleutel,
   ZIJDEN, STAP, TEGENOVER,
 } = await import(vers('./aansluiting.js'));
 
@@ -374,9 +374,39 @@ function bewaarOordelen() {
 
 function velOordeel(sleutel, oordeel, naad) {
   if (oordelen.get(sleutel)?.oordeel === oordeel) oordelen.delete(sleutel); // nog eens tikken = intrekken
-  else oordelen.set(sleutel, { oordeel, namen: naad.namen, randen: naad.randen, meting: naad.sluit });
+  else {
+    oordelen.set(sleutel, {
+      oordeel,
+      namen: naad.namen,
+      slagen: naad.slagen,
+      randen: naad.randen,
+      vorm: naad.vorm,
+      plek: naad.plek,
+      meting: naad.sluit,
+    });
+  }
   bewaarOordelen();
   werkBijAlles();
+}
+
+/**
+ * Of dezelfde vórm elders anders beoordeeld is.
+ *
+ * Geen tegenstrijdigheid om op te lossen maar een uitkomst om te melden: twee
+ * keer dezelfde twee stukken tegen elkaar, één keer goed bevonden en één keer
+ * niet, betekent dat het van de omgeving afhangt. Dat is precies het soort ding
+ * dat je met een gereedschap als dit wilt vinden.
+ */
+function vormElders(naad, sleutel) {
+  const anders = [];
+  for (const [s, o] of oordelen) {
+    if (s === sleutel || o.vorm !== naad.vorm) continue;
+    anders.push(o.oordeel);
+  }
+  return {
+    goed: anders.filter((o) => o === 'goed').length,
+    niet: anders.filter((o) => o === 'niet').length,
+  };
 }
 
 /* -- wat er op het scherm hoort te staan ----------------------------------- */
@@ -513,12 +543,19 @@ function werkWenkBij(bewoner) {
 const voetGewoon = document.querySelector('.voet:not(.voet-kijk)');
 const voetKijk = document.getElementById('voet-kijk');
 
-function beginKijken(sleutel) {
-  const lijst = naden(bouwsel).filter((n) => n.sleutel === sleutel);
+/**
+ * Ga één voeg staan bekijken, en loop er met ‹ en › door alle andere heen.
+ *
+ * De lijst is álle voegen van het bouwsel, niet die van één soort. Dat is het
+ * hele punt van deze ronde: elke voeg is er één, en je moet ze stuk voor stuk
+ * langs kunnen lopen en er stuk voor stuk iets van kunnen vinden.
+ */
+function beginKijken(index) {
+  const lijst = naden(bouwsel);
   if (lijst.length === 0) return;
-  stand.kijk = { sleutel, lijst, index: 0 };
+  stand.kijk = { lijst, index: 0 };
   sluitBlad();
-  kijkNaar(0);
+  kijkNaar(index);
 }
 
 function stopKijken() {
@@ -526,7 +563,7 @@ function stopKijken() {
   werkBijAlles();
 }
 
-/** Naar de zoveelste voeg van de bekeken combinatie kijken. */
+/** Naar de zoveelste voeg kijken. */
 function kijkNaar(index) {
   if (!stand.kijk) return;
   const { lijst } = stand.kijk;
@@ -539,31 +576,42 @@ function kijkNaar(index) {
   stand.laag = naad.plek.laag;
   zetLaagUit();
 
+  /* De camera schuift mee, maar houdt de stand die jij hem gegeven hebt.
+   *
+   * Het standpunt wordt niet opnieuw bepaald: alleen het mikpunt verspringt naar
+   * de volgende voeg, en de camera houdt dezelfde afstand en hoek ten opzichte
+   * daarvan. Wie zich heeft ingedraaid om goed op een wand te kunnen kijken,
+   * kijkt er na de volgende voeg nog steeds zo op — en dat is nodig, want bij
+   * veertig voegen achter elkaar is elke keer opnieuw richten het werk waar je
+   * juist vanaf wilt. */
   const [dx, dz] = STAP[naad.plek.zijde];
-  const midX = (naad.plek.x + dx / 2) * VAK;
-  const midZ = (naad.plek.z + dz / 2) * VAK;
-  stuur.target.set(midX, naad.plek.laag * LAAG + 0.25, midZ);
-  camera.position.set(midX + 1.1, naad.plek.laag * LAAG + 1.0, midZ + 1.4);
+  const mikpunt = new THREE.Vector3(
+    (naad.plek.x + dx / 2) * VAK,
+    naad.plek.laag * LAAG + 0.25,
+    (naad.plek.z + dz / 2) * VAK,
+  );
+  const standpunt = camera.position.clone().sub(stuur.target);
+  stuur.target.copy(mikpunt);
+  camera.position.copy(mikpunt).add(standpunt);
   stuur.update();
 
   werkBijAlles();
 }
 
-/** De doorsnedes van de bekeken combinatie, alle plekken tegelijk. */
+/** De doorsnede van de voeg die je nu bekijkt. Alleen die ene. */
 function tekenGemarkeerd() {
   if (!stand.kijk) {
     vulLijnen(gemarkeerd, []);
     return;
   }
+  const naad = stand.kijk.lijst[stand.kijk.index];
   const punten = [];
-  for (const naad of stand.kijk.lijst) {
-    const { x, z, laag, zijde } = naad.plek;
-    for (const [i, rand] of naad.randen.entries()) {
-      if (!rand) continue;
-      const kant = i === 0 ? zijde : TEGENOVER[zijde];
-      const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
-      punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
-    }
+  const { x, z, laag, zijde } = naad.plek;
+  for (const [i, rand] of naad.randen.entries()) {
+    if (!rand) continue;
+    const kant = i === 0 ? zijde : TEGENOVER[zijde];
+    const [dx, dz] = i === 0 ? [0, 0] : STAP[zijde];
+    punten.push(...naadPunten(rand, x + dx, z + dz, laag, kant));
   }
   vulLijnen(gemarkeerd, punten);
 }
@@ -573,13 +621,23 @@ function werkKijkBalkBij() {
   voetGewoon.hidden = !!stand.kijk;
   if (!stand.kijk) return;
 
-  const { lijst, index, sleutel } = stand.kijk;
+  const { lijst, index } = stand.kijk;
   const naad = lijst[index];
-  document.getElementById('kijk-namen').textContent = `${naad.namen[0]} ↔ ${naad.namen[1]}`;
-  document.getElementById('kijk-bij').textContent =
-    `voeg ${index + 1} van ${lijst.length} · meting: ${naad.sluit ? 'sluit aan' : 'stap of gat'}`;
+  const nogNiet = lijst.filter((n) => !oordelen.has(n.sleutel)).length;
+  const mijn = oordelen.get(naad.sleutel)?.oordeel ?? null;
 
-  const mijn = oordelen.get(sleutel)?.oordeel ?? null;
+  document.getElementById('kijk-namen').textContent = `${naad.namen[0]} ↔ ${naad.namen[1]}`;
+
+  /* Wat de meting ervan vindt komt er pas bij nadat jij iets gezegd hebt.
+   *
+   * Anders staat het antwoord er al voordat je gekeken hebt, en dan beoordeel je
+   * niet de voeg maar de meting. Dat is geen kleinigheid: bij een gereedschap
+   * waarvan de hele opbrengst jouw oordeel is, is het voorzeggen van dat oordeel
+   * het ergste wat het kan doen. Achteraf is het wél nuttig — dan zie je waar je
+   * met de meting van mening verschilt. */
+  document.getElementById('kijk-bij').textContent =
+    `voeg ${index + 1} van ${lijst.length} · nog ${nogNiet} te gaan`
+    + (mijn ? ` · de meting zei: ${naad.sluit ? 'sluit aan' : 'stap of gat'}` : '');
   document.getElementById('kijk-goed').setAttribute('aria-pressed', String(mijn === 'goed'));
   document.getElementById('kijk-niet').setAttribute('aria-pressed', String(mijn === 'niet'));
 }
@@ -589,7 +647,19 @@ document.getElementById('kijk-volgende').addEventListener('click', () => kijkNaa
 document.getElementById('kijk-stop').addEventListener('click', stopKijken);
 for (const [id, keuze] of [['kijk-goed', 'goed'], ['kijk-niet', 'niet']]) {
   document.getElementById(id).addEventListener('click', () => {
-    velOordeel(stand.kijk.sleutel, keuze, stand.kijk.lijst[stand.kijk.index]);
+    const naad = stand.kijk.lijst[stand.kijk.index];
+    const was = oordelen.get(naad.sleutel)?.oordeel;
+    velOordeel(naad.sleutel, keuze, naad);
+    /* Doorlopen naar de volgende voeg die nog geen oordeel heeft: bij veertig
+     * voegen wil je niet na elke tik zelf de pijl zoeken. Bij intrekken blijf
+     * je staan, want dan was je juist niet klaar met deze. */
+    if (was === keuze) return;
+    const { lijst, index } = stand.kijk;
+    for (let i = 1; i <= lijst.length; i++) {
+      const kandidaat = (index + i) % lijst.length;
+      if (!oordelen.has(lijst[kandidaat].sleutel)) return kijkNaar(kandidaat);
+    }
+    return undefined;
   });
 }
 
@@ -806,7 +876,7 @@ function toonControleBlad(tab = 'meldingen') {
 
   const bewoner = opWijzer();
   bladTabs.replaceChildren();
-  for (const [sleutel, label] of [['combos', 'Combinaties'], ['meldingen', 'Meldingen'], ['past', 'Past hier']]) {
+  for (const [sleutel, label] of [['combos', 'Voegen'], ['meldingen', 'Meldingen'], ['past', 'Past hier']]) {
     const knop = document.createElement('button');
     knop.type = 'button';
     knop.textContent = label;
@@ -840,16 +910,18 @@ function vulCombinaties() {
     return;
   }
 
-  /* Eén regel per combinatie, niet per voeg: dezelfde twee randen kunnen tien
-   * keer in een wand zitten en dat is één oordeel. */
-  const perSleutel = new Map();
-  for (const naad of lijst) {
-    if (!perSleutel.has(naad.sleutel)) perSleutel.set(naad.sleutel, { naad, aantal: 0 });
-    perSleutel.get(naad.sleutel).aantal += 1;
-  }
+  const nogNiet = lijst.filter((n) => !oordelen.has(n.sleutel)).length;
+  const kop = document.createElement('div');
+  kop.className = 'uitleg';
+  kop.innerHTML = `<p>${lijst.length} voegen, ${nogNiet} nog niet beoordeeld. `
+    + 'Elke voeg staat op zichzelf: twee keer dezelfde stukken op een andere '
+    + 'plek zijn twee oordelen.</p>';
+  bladInhoud.append(kop);
 
-  for (const [sleutel, { naad, aantal }] of perSleutel) {
-    const mijn = oordelen.get(sleutel)?.oordeel ?? null;
+  const zijNaam = { n: 'noord', o: 'oost', z: 'zuid', w: 'west' };
+
+  for (const [index, naad] of lijst.entries()) {
+    const mijn = oordelen.get(naad.sleutel)?.oordeel ?? null;
 
     const rij = document.createElement('div');
     rij.className = 'combo';
@@ -859,18 +931,20 @@ function vulCombinaties() {
     toon.type = 'button';
     toon.className = 'combo-toon';
 
-    const kop = document.createElement('div');
-    kop.className = 'combo-namen';
-    kop.textContent = `${naad.namen[0]}  ↔  ${naad.namen[1]}`;
+    const namen = document.createElement('div');
+    namen.className = 'combo-namen';
+    namen.textContent = `${naad.namen[0]}  ↔  ${naad.namen[1]}`;
 
-    const meting = document.createElement('div');
-    meting.className = 'combo-meting';
-    meting.textContent = `${naad.randen[0]} / ${naad.randen[1]} — meting: `
-      + `${naad.sluit ? 'sluit aan' : 'stap of gat'}`
-      + (aantal > 1 ? ` · ${aantal}× in dit bouwsel` : '');
+    const waar = document.createElement('div');
+    waar.className = 'combo-meting';
+    /* Alleen wáár de voeg zit. Wat de meting ervan vindt komt er pas bij nadat
+     * jij iets gezegd hebt — zie werkKijkBalkBij(). */
+    waar.textContent = `vak ${naad.plek.x},${naad.plek.z} · laag ${naad.plek.laag} · `
+      + zijNaam[naad.plek.zijde]
+      + (mijn ? ` — de meting zei: ${naad.sluit ? 'sluit aan' : 'stap of gat'}` : '');
 
-    toon.append(kop, meting);
-    toon.addEventListener('click', () => beginKijken(sleutel));
+    toon.append(namen, waar);
+    toon.addEventListener('click', () => beginKijken(index));
 
     const knoppen = document.createElement('div');
     knoppen.className = 'combo-knoppen';
@@ -880,8 +954,12 @@ function vulCombinaties() {
       knop.textContent = label;
       knop.dataset.keuze = waarde;
       knop.setAttribute('aria-pressed', String(mijn === waarde));
+      /* Vanuit de lijst blijf je in de lijst: doorspringen naar de volgende
+       * voeg gebeurt in de kijkbalk, waar je er één tegelijk bekijkt. Wie in een
+       * lijst staat te werken wil niet dat het scherm onder hem vandaan
+       * verandert. */
       knop.addEventListener('click', () => {
-        velOordeel(sleutel, waarde, naad);
+        velOordeel(naad.sleutel, waarde, naad);
         toonControleBlad('combos');
       });
       knoppen.append(knop);
@@ -898,13 +976,22 @@ function vulCombinaties() {
       rij.append(afwijking);
     }
 
+    const elders = vormElders(naad, naad.sleutel);
+    if (mijn && ((mijn === 'goed' && elders.niet) || (mijn === 'niet' && elders.goed))) {
+      const let_ = document.createElement('div');
+      let_.className = 'combo-afwijking';
+      let_.textContent = `Dezelfde twee stukken heb je elders ${elders.goed}× goed `
+        + `en ${elders.niet}× niet genoemd — het hangt dus van de plek af.`;
+      rij.append(let_);
+    }
+
     bladInhoud.append(rij);
   }
 
   const voet = document.createElement('div');
   voet.className = 'uitleg';
-  voet.innerHTML = `<p>${oordelen.size} combinaties beoordeeld. Nog eens tikken `
-    + 'op dezelfde knop trekt het oordeel in.</p>';
+  voet.innerHTML = `<p>${oordelen.size} voegen beoordeeld. Nog eens tikken op `
+    + 'dezelfde knop trekt het oordeel in.</p>';
   const uit = document.createElement('button');
   uit.type = 'button';
   uit.className = 'blad-uit';
@@ -1133,7 +1220,7 @@ renderer.setAnimationLoop(() => {
 window.TERREINBOUWER = {
   kit, bouwsel, stand, controleer, camera, renderer, scene, stukken, stuur,
   doeZet, doeWeg, ongedaan, opnieuw, kiesStuk, versie: VERSIE,
-  naden, oordelen, velOordeel, combinatieSleutel, voorbeelden, openBouwsel,
+  naden, oordelen, velOordeel, naadSleutel, vormSleutel, voorbeelden, openBouwsel,
   beginKijken, kijkNaar, stopKijken,
 };
 window.KLAAR = true;

@@ -20,7 +20,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  Kit, Bouwsel, controleer, watPast, draaiVak, ontdraaiVak, naden, combinatieSleutel,
+  Kit, Bouwsel, controleer, watPast, draaiVak, ontdraaiVak, naden, naadSleutel, vormSleutel,
 } from './terreinbouwer/aansluiting.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -271,8 +271,9 @@ const grasZand = naden(bouw([
 ]));
 toets('een voeg die niet sluit staat er ook in', grasZand.length === 1 && grasZand[0].sluit === false);
 
-/* Een wand van drie geeft twee voegen, maar één combinatie: hetzelfde paar
- * randen. Zo blijft het aantal oordelen te overzien. */
+/* Een wand van drie geeft twee voegen, en dus twee oordelen. Eerder werden die
+ * op één regel gepropt omdat de randprofielen gelijk zijn; dan kun je de ene
+ * niet goed en de andere niet afkeuren, en juist dat moet kunnen. */
 const wand = naden(bouw([
   { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
   { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
@@ -280,14 +281,42 @@ const wand = naden(bouw([
 ]));
 toets('drie stukken in een wand geven twee voegen', wand.length === 2, `${wand.length}`);
 toets(
-  'maar één combinatie om over te oordelen',
-  new Set(wand.map((n) => n.sleutel)).size === 1,
+  'en twee losse oordelen, één per plek',
+  new Set(wand.map((n) => n.sleutel)).size === 2,
+  wand.map((n) => n.sleutel).join(' / '),
+);
+toets(
+  'de sleutel zegt waar de voeg zit',
+  wand.every((n) => n.sleutel === `${n.plek.x},${n.plek.z},${n.plek.laag},${n.plek.zijde}`),
 );
 
-/* De sleutel heeft geen kant: links-rechts omgedraaid is hetzelfde oordeel. */
+/* De vorm is wél gedeeld — dat is hoe je achteraf ziet dat dezelfde twee
+ * stukken op de ene plek goed vielen en op de andere niet. */
 toets(
-  'de sleutel van een combinatie is kantloos',
-  combinatieSleutel('r045', 'r056') === combinatieSleutel('r056', 'r045'),
+  'maar de vorm is bij beide dezelfde',
+  new Set(wand.map((n) => n.vorm)).size === 1,
+  wand[0]?.vorm,
+);
+
+/* Klif-mid en steilrand-mid delen hun randprofielen (r055/r056). Op profiel
+ * bewaren gooide ze op één hoop; op vorm blijven het twee dingen. */
+const klifMid = naden(bouw([
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'cliff-terrain-side-mid', x: 0, z: 1, laag: 0 },
+]))[0];
+const steilMid = naden(bouw([
+  { naam: 'escarpment-terrain-side-mid', x: 0, z: 0, laag: 0 },
+  { naam: 'escarpment-terrain-side-mid', x: 0, z: 1, laag: 0 },
+]))[0];
+toets(
+  'klif en steilrand delen hun randprofielen',
+  JSON.stringify(klifMid.randen) === JSON.stringify(steilMid.randen),
+  `${klifMid.randen} vs ${steilMid.randen}`,
+);
+toets(
+  'maar hun vorm verschilt, dus ze zijn apart te beoordelen',
+  klifMid.vorm !== steilMid.vorm,
+  `${klifMid.vorm} vs ${steilMid.vorm}`,
 );
 
 /* -- versiestempel --------------------------------------------------------- */
@@ -525,11 +554,18 @@ await blad.evaluate(async () => {
 });
 
 await blad.locator('#stand-knop').tap();
-await blad.getByRole('button', { name: 'Combinaties' }).tap();
-toets('de voeg staat in de lijst met combinaties', await blad.locator('.combo').count() === 1);
+await blad.getByRole('button', { name: 'Voegen' }).tap();
+toets('de voeg staat in de lijst', await blad.locator('.combo').count() === 1);
+/* De meting mag er niet staan zolang er nog geen oordeel is: het antwoord
+ * voorzeggen maakt van beoordelen napraten. */
 toets(
-  'met de meting erbij',
-  (await blad.locator('.combo-meting').innerText()).includes('stap of gat'),
+  'de meting staat er nog niet bij',
+  !(await blad.locator('.combo-meting').innerText()).includes('meting'),
+  await blad.locator('.combo-meting').innerText(),
+);
+toets(
+  'maar wel wáár de voeg zit',
+  /vak -?\d+,-?\d+ · laag \d+/.test(await blad.locator('.combo-meting').innerText()),
 );
 
 await blad.locator('.combo-knoppen button[data-keuze="goed"]').tap();
@@ -552,6 +588,50 @@ toets('en "niet" legt het andersom vast', await blad.evaluate(
   () => [...window.TERREINBOUWER.oordelen.values()][0]?.oordeel === 'niet',
 ));
 
+await blad.locator('#blad-sluit').tap();
+
+/* De kern van deze ronde: twee voegen met dezelfde stukken op een andere plek
+ * moeten los van elkaar te beoordelen zijn. Eerder deelden ze één regel en één
+ * stel knoppen, en dan kun je niet zeggen dat de ene goed valt en de andere
+ * niet. */
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
+  localStorage.removeItem('terreinbouwer-oordelen');
+  T.oordelen.clear();
+  for (let z = 0; z < 3; z++) {
+    await T.doeZet({ naam: 'cliff-terrain-side-mid', x: 0, z, laag: 0, slagen: 0 });
+  }
+});
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
+toets('een wand van drie geeft twee losse regels', await blad.locator('.combo').count() === 2);
+
+await blad.locator('.combo').nth(0).locator('button[data-keuze="goed"]').tap();
+await blad.locator('.combo').nth(1).locator('button[data-keuze="niet"]').tap();
+toets('de ene goed en de andere niet is mogelijk', await blad.evaluate(() => {
+  const o = [...window.TERREINBOUWER.oordelen.values()].map((x) => x.oordeel).sort();
+  return o.length === 2 && o[0] === 'goed' && o[1] === 'niet';
+}));
+toets(
+  'en de bouwer meldt dat dezelfde vorm elders anders viel',
+  (await blad.locator('#blad-inhoud').innerText()).includes('hangt dus van de plek af'),
+);
+
+await blad.locator('#blad-sluit').tap();
+await blad.evaluate(async () => {
+  const T = window.TERREINBOUWER;
+  while (T.bouwsel.stukken.size) T.doeWeg([...T.bouwsel.stukken.keys()][0]);
+  localStorage.removeItem('terreinbouwer-oordelen');
+  T.oordelen.clear();
+  await T.doeZet({ naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0, slagen: 0 });
+  await T.doeZet({ naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0, slagen: 0 });
+});
+await blad.locator('#stand-knop').tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
+await blad.locator('.combo-knoppen button[data-keuze="niet"]').first().tap();
+await blad.locator('#blad-sluit').tap();
+
 /* Het oordeel moet een herlaadbeurt overleven, anders is het geen opbrengst. */
 const bewaard = await blad.evaluate(() => localStorage.getItem('terreinbouwer-oordelen'));
 toets('het oordeel wordt bewaard', typeof bewaard === 'string' && bewaard.includes('niet'));
@@ -568,7 +648,7 @@ await blad.evaluate(async () => {
   await T.doeZet({ naam: 'beach-terrain-sand-floor', x: 1, z: 0, laag: 0, slagen: 0 });
 });
 await blad.locator('#stand-knop').tap();
-await blad.getByRole('button', { name: 'Combinaties' }).tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
 toets(
   'en kleurt de combinatie na herladen nog steeds',
   await blad.locator('.combo').first().getAttribute('data-oordeel') === 'niet',
@@ -604,7 +684,7 @@ toets(
 );
 
 await blad.locator('#stand-knop').tap();
-await blad.getByRole('button', { name: 'Combinaties' }).tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
 const teBeoordelen = await blad.locator('.combo').count();
 toets('en er valt iets te beoordelen', teBeoordelen >= 3, `${teBeoordelen} combinaties`);
 await blad.locator('#blad-sluit').tap();
@@ -644,7 +724,7 @@ await blad.evaluate(async () => {
 });
 
 await blad.locator('#stand-knop').tap();
-await blad.getByRole('button', { name: 'Combinaties' }).tap();
+await blad.getByRole('button', { name: 'Voegen' }).tap();
 const eersteCombo = blad.locator('.combo').first();
 const comboNaam = await eersteCombo.locator('.combo-namen').innerText();
 await eersteCombo.locator('.combo-toon').tap();
@@ -661,6 +741,11 @@ toets(
 toets(
   'en zegt de hoeveelste voeg het is',
   /voeg \d+ van \d+/.test(await blad.locator('#kijk-bij').innerText()),
+  await blad.locator('#kijk-bij').innerText(),
+);
+toets(
+  'zonder de meting voor te zeggen',
+  !(await blad.locator('#kijk-bij').innerText()).includes('meting'),
   await blad.locator('#kijk-bij').innerText(),
 );
 
@@ -681,13 +766,43 @@ await blad.locator('#kijk-volgende').tap();
 toets('volgende voeg verplaatst de wijzer', await wijzer(blad) !== voorVolgende,
   `${voorVolgende} → ${await wijzer(blad)}`);
 
+const voorOordeel = await blad.evaluate(() => window.TERREINBOUWER.stand.kijk.index);
 await blad.locator('#kijk-goed').tap();
 toets(
   'oordelen kan vanuit de kijkbalk',
   await blad.evaluate(() => window.TERREINBOUWER.oordelen.size) > 0,
 );
-toets('en de knop laat zien dat het vastligt',
-  await blad.locator('#kijk-goed').getAttribute('aria-pressed') === 'true');
+toets(
+  'en daarna sta je vanzelf bij de volgende voeg',
+  await blad.evaluate(() => window.TERREINBOUWER.stand.kijk.index) !== voorOordeel,
+);
+
+/* De camera moet de stand houden die jij hem gegeven hebt. Hier wordt hij met
+ * de hand ergens neergezet, en na een stap naar de volgende voeg moet de hoek
+ * en de afstand tot het mikpunt hetzelfde zijn — alleen het mikpunt verschuift. */
+const standVoor = await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  T.camera.position.set(T.stuur.target.x + 3, T.stuur.target.y + 2, T.stuur.target.z - 1);
+  T.stuur.update();
+  return T.camera.position.clone().sub(T.stuur.target).toArray().map((v) => +v.toFixed(3));
+});
+await blad.locator('#kijk-volgende').tap();
+const standNa = await blad.evaluate(() => {
+  const T = window.TERREINBOUWER;
+  return T.camera.position.clone().sub(T.stuur.target).toArray().map((v) => +v.toFixed(3));
+});
+toets(
+  'en de camera houdt de stand die je hem zelf gaf',
+  JSON.stringify(standVoor) === JSON.stringify(standNa),
+  `${JSON.stringify(standVoor)} → ${JSON.stringify(standNa)}`,
+);
+toets(
+  'de meting van de beoordeelde voeg is nu wél te zien',
+  await blad.evaluate(() => {
+    const T = window.TERREINBOUWER;
+    return [...T.oordelen.values()].every((o) => typeof o.meting === 'boolean');
+  }),
+);
 
 await blad.screenshot({ path: join(ROOT, 'docs/terreinbouwer.png') });
 
