@@ -125,7 +125,8 @@ een kleine restcategorie waar het model zelf de doorslag geeft.
 
 ## Volgende ronde
 
-`data/bouwsels_14.json` stelt negen nieuwe proefbouwsels voor die de open
+`tools/terreinbouwer/bouwsels.json` bevat naast de eenentwintig bouwsels
+van de eerste dertien rondes negen nieuwe proefbouwsels die de open
 kwesties hierboven en de nooit beoordeelde stukfamilies (76 van de 116
 kitstukken) aan de beurt laten komen: een vijver die helemaal door
 falloffs wordt ingesloten, een beek met bocht (water-curve) en een met

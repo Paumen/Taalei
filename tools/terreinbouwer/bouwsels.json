@@ -1,0 +1,7667 @@
+{
+ "kit": "modulair-terrein",
+ "gemaakt": "node tools/bouw-voorbeelden.mjs",
+ "toelichting": "Voorbeeldbouwsels om in tools/terreinbouwer/ te openen en te beoordelen.",
+ "bouwsels": [
+  {
+   "naam": "Grasvlakte",
+   "waarover": "De eenvoudigste voeg die er is: gras tegen gras, twaalf keer.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klifwand van drie lagen",
+   "waarover": "Base, mid en top op elkaar, en de grasvlakte erachter een laag hoger. Hier zitten de stapelvoegen én de wandvoegen in.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Steilrand van drie lagen",
+   "waarover": "Hetzelfde als de klifwand, maar met escarpment. De stukken heten hetzelfde en hun voorkant is anders — de moeite van het vergelijken waard.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klif en steilrand naast elkaar",
+   "waarover": "Dezelfde wand, half klif en half steilrand. De voegen sluiten aan en het oppervlak golft ertussen: precies een geval waarin de meting je niets zegt en je oordeel alles.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Strand",
+   "waarover": "Zand tegen zand, en zand tegen gras. Dat laatste scheelt een tiende unit in hoogte — zichtbaar of niet, dat is aan jou.",
+   "stukken": [
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Heuvel in het gras",
+   "waarover": "Een glooiing van 0,1 naar 0,6, met gras op laag 0 ervoor en op laag 1 erachter — precies de hoogtes waar de helling op uitkomt.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Berg op de vlakte",
+   "waarover": "Een berg van 5×5 vakken en 3,4 units hoog, in het gras gezet. De enige stukken van de kit die geen enkele rand met iets anders delen.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "mountain-a",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Keien op gras",
+   "waarover": "Props in hetzelfde vak als de tegel eronder. Hun omtrek raakt de buurtegels wél, dus de meting ziet er voegen die niet sluiten — terwijl er niets mis is. Twaalf van de twintig sluiten; de rest is aan jou.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "shared-prop-boulder-a",
+     "x": -1,
+     "z": -1,
+     "laag": 0
+    },
+    {
+     "naam": "shared-prop-boulder-c",
+     "x": 0,
+     "z": 1,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-rock-b",
+     "x": 1,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klifhoek naar buiten",
+   "waarover": "Een plateau met een punt: twee klifwanden die om een bolle hoek heen draaien. Het hoekstuk deelt zijn randprofielen met de rechte wand, dus alles sluit — de vraag is of de hoek zelf niet te scherp oogt.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-outer-1x1-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-corner-outer-1x1-top",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -2,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klifhoek naar binnen",
+   "waarover": "Dezelfde wand, maar de hoek gaat de andere kant op: een hap uit de rand van het plateau. Buiten- en binnenhoek gebruiken hetzelfde paar randprofielen en zien er totaal anders uit.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-inner-1x1-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-inner-1x1-top",
+     "x": 0,
+     "z": 0,
+     "laag": 1
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 2,
+     "z": 0,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 2,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Steilrandhoek naar buiten",
+   "waarover": "Dezelfde hoek in steilrand, en hier zegt de meting iets anders. De hoekstukken dragen r093/r094 en de rechte wand r083/r084: die passen niet op elkaar, dus vier voegen sluiten niet. Het ziet er wel rond en heel uit. Precies zo’n geval waarvoor jouw oordeel er is.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-outer-1x1-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-corner-outer-1x1-top",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": -2,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": -1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Steilrand met binnenhoek",
+   "waarover": "Drie lagen hoog met een binnenhoek erin: base, mid en top, ook in het hoekstuk. Hier zitten de stapelvoegen van een hoek in, en die zijn anders dan die van een rechte wand.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-1x1-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-1x1-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-1x1-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 2,
+     "z": 0,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Rotsen aan de voet van de wand",
+   "waarover": "Losse rotsen tegen de onderkant van een klifwand. Props hoefden tot nu toe alleen tegen gras te staan; hier raken ze een wand, en dat is een ander soort voeg.",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-prop-rock-a",
+     "x": 1,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "cliff-prop-rock-b",
+     "x": 1,
+     "z": 1,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Van steil naar flauw",
+   "waarover": "Een heuvelrand die halverwege van steil naar flauw gaat. Links klimt hij in twee vakken, rechts in vier, en het overgangsstuk ertussen is twee vakken breed. Zowel de steile als de flauwe kant sluit erop aan — of de knik in de rand te zien is, is een andere vraag.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": -4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-transition-gentle-sharp-flush-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-gentle",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 1
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 5,
+     "laag": 1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Afstap van een halve laag",
+   "waarover": "Twee grasvlaktes met een halve laag hoogteverschil, met de falloff-stukken als wandje ertussen. Dit is het enige stuk in de kit dat ónder zijn eigen laag uitsteekt, en het enige hoogteverschil dat kleiner is dan een hele laag.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": 0,
+     "z": 2,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Beek met een boomstam erover",
+   "waarover": "Een geul van één vak breed met water erin, en een boomstam als brug. Het water ligt een laag lager dan het gras en komt daarmee een kwart unit onder het maaiveld uit; de wanden zijn falloff-stukken, rug aan rug in hetzelfde vak. De brugdelen zijn de eerste props die niet op de grond staan.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": -1,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-middle",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    }
+   ]
+  },
+  {
+   "naam": "Keienveld",
+   "waarover": "De zeven keien en rotsen die nog niet aan de beurt waren, op één grasveld. Drie ervan beslaan meer dan één vak en twee steken onder hun eigen laag uit — dat levert voegen op die de losse keien uit de eerste lichting niet hadden.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "shared-prop-boulder-b",
+     "x": -2,
+     "z": -2,
+     "laag": 0
+    },
+    {
+     "naam": "shared-prop-boulder-d",
+     "x": 2,
+     "z": -2,
+     "laag": 0
+    },
+    {
+     "naam": "shared-prop-boulder-e",
+     "x": -2,
+     "z": 2,
+     "laag": 0
+    },
+    {
+     "naam": "shared-prop-boulder-f",
+     "x": 0,
+     "z": -2,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-rock-a",
+     "x": 2,
+     "z": 2,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-rock-c",
+     "x": 0,
+     "z": 2,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-rock-d",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Bergrug van drie",
+   "waarover": "De drie overgebleven bergen naast elkaar, zo dicht op elkaar dat ze randen delen. Van berg tegen gras heb je er honderd beoordeeld; berg tegen berg is nieuw, en de bergen zijn de enige stukken van de kit die geen enkel randprofiel met iets anders gemeen hebben.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -7,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -6,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -5,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -7,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -6,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -5,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -8,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 8,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "mountain-b",
+     "x": -5,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "mountain-c",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "mountain-d",
+     "x": 5,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Afstap van een halve laag, tweede poging",
+   "waarover": "Dezelfde afstap, maar nu staat het wandje in het vak van de hóge kant, als rok onder de rand van de grastegel. Het lage gras begint aan de andere kant. In de eerste poging keurde je precies de vijftien voegen af die daarop neerkwamen.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": 0,
+     "z": 2,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Beek, tweede poging",
+   "waarover": "Dezelfde geul, maar de wandjes staan nu in de grasvakken ernaast en kijken naar het water toe. In de eerste poging stonden ze rug aan rug in het vak van het water zelf — dat is een richel en geen geul, en je keurde er 126 van de 196 voegen af.",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": -1,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-middle",
+     "x": 0,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    }
+   ]
+  },
+  {
+   "naam": "Twee bergen met gras eronder",
+   "waarover": "Twee bergen tegen elkaar, met het gras onder ze door in plaats van als randje eromheen. Zo staat de berg in ‘Berg op de vlakte’ ook, en daar keurde je alle honderd voegen van berg tegen gras goed.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "mountain-b",
+     "x": -2,
+     "z": 0,
+     "laag": 0
+    },
+    {
+     "naam": "mountain-c",
+     "x": 3,
+     "z": 0,
+     "laag": 0
+    }
+   ]
+  },
+  {
+   "naam": "Vijver, dicht rondom",
+   "waarover": "Twee watertegels helemaal ingesloten door de falloff-familie: centers op de vier oevers met de verlaagde kant naar het water, edges als hoekkappen. Toetst of de familie een gesloten waterrand kan maken — de beek liet alleen twee rechte oevers zien. Te leren: Sluiten de flanken van haaks op elkaar staande centers in de hoeken op de edge-kappen aan? De edge kapt in Afstap alleen het zuideinde van een rij af — werkt hij gedraaid ook als noord-, oost- en westkap, of mist er een gespiegeld eindstuk?",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-edge",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Beekbocht",
+   "waarover": "Een beek op laag -1 die met een water-curve een kwartslag naar het oosten draait, met falloff-oevers eromheen. Water naast water was tot nu toe altijd fout (regel 2) — de curve is het eerste stuk dat kan laten zien hoe een beek wél verder mag lopen. Te leren: Sluit water-flat op water-curve aan, of geldt de water-naast-water-afkeuring ook hier? De curve dekt 2×2 cellen terwijl de beek 1 cel breed is — welke oever hoort er langs de buitenbocht en wat doet de open binnenbocht zonder falloff-hoekstuk?",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-curve",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 2,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 3,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 4,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 4,
+     "z": 1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Beekverval",
+   "waarover": "Een beek die met een water-slope een hele laag afdaalt waar het terrein via een rij steilrand-topstukken een laag omlaag stapt. Boven: gras op laag 1, water op laag 0; beneden: gras op laag 0, water op laag -1. Te leren: Verbindt de water-slope de twee waterhoogtes zoals de falloff dat voor gras doet? De slope dekt 2×2 cellen en is dus breder dan de beek — snijdt hij de stap-rij netjes of hoort de stap hier anders? Volstaat één laag steilrand-top als stap (vloer op top is randregel 2), of hoort hier base+top?",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -3,
+     "laag": 1,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -2,
+     "laag": 1,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -1,
+     "laag": 1,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-water-slope",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 3,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Brug op palen, derde poging",
+   "waarover": "De beek uit de tweede poging, nu met de vier nog niet beoordeelde brugstukken: de edge-varianten als leuning op de liggende delen en een paal met kop die het midden vanaf de beekbodem draagt. Staméinde-op-midden en midden-naast-gras waren steeds fout — misschien omdat het draagwerk ontbrak. Te leren: Maken post-support en post-top de afgekeurde midden-aansluitingen goed? Horen log-end-edge en log-middle-edge boven op de liggende delen (zelfde cel) of vervangen ze die?",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": -1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 1,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-middle",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end-edge",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-middle-edge",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-end-edge",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-prop-bridge-log-post-support",
+     "x": 0,
+     "z": 0,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-prop-bridge-log-post-top",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Zandterras",
+   "waarover": "De zandfamilie onder elkaar: een flauwe glooiing (zes cellen diep) van de vlakke zandvloer in het noorden omhoog naar de verhoogde zandvloer in het zuiden, en één graskolom er pal naast die de afgekeurde gras-zand-naad op beide hoogtes én tegen de glooiingszijkant herhaalt. Te leren: Terrast de zandfamilie zoals de heuvelfamilie: voet tegen sand-floor, kruin tegen sand-floor-raised? Is de verhoogde zandvloer (kwart laag) wél een nette buur voor gras, waar de vlakke zandvloer dat niet was? De sharp-, shift- en transition-stukken hellen over een andere diepte; die vragen een eigen bouwsel zodra deze basisglooiing staat.",
+   "stukken": [
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-side-gentle",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -3,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -3,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -2,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -2,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -1,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": -1,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 0,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 0,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 1,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 1,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 2,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "beach-terrain-sand-floor-raised",
+     "x": 2,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 6,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 7,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Klifhoek 2x2",
+   "waarover": "De meercellige buitenhoek van de klif, drie lagen gestapeld, in het patroon van Klifhoek naar buiten: een arm naar het noorden, de hoek, een arm naar het westen, en gras op het plateau erachter. Toetst of de stapel-, zij- en randregels ook voor de 2x2-hoekstukken gelden — tot nu toe is alleen 1x1 beoordeeld. Te leren: Stapelen base, mid en top van de 2x2-hoek even foutloos als de 1x1? Sluiten de 2x2-hoekprofielen op de gewone zijstukken aan zoals de 1x1-hoek deed (slag 3, net als daar, is de aanname)?",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-outer-2x2-base",
+     "x": -1,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-outer-2x2-mid",
+     "x": -1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": -3,
+     "z": 2,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": -2,
+     "z": 2,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "cliff-terrain-corner-outer-2x2-top",
+     "x": -1,
+     "z": 1,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -3,
+     "z": 2,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -2,
+     "z": 2,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Steilrand binnenhoek 3x3",
+   "waarover": "De 3x3-binnenhoek van de steilrand, drie lagen gestapeld, in het patroon van Steilrand met binnenhoek: arm uit het noorden, de hoek, arm naar het oosten, grasplateau ten westen en zuiden. Zelfde vraag als de klifhoek maar dan voor de grootste hoekmaat en naar binnen gevouwen. Te leren: Gelden stapel-, zij- en randregels ook op de 3x3-maat? De oost-arm ligt hier op de zuidrij van de hoek (z=2) — of hoort hij op de noordrij (z=0), zoals bij de 1x1 waar die twee samenvallen?",
+   "stukken": [
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 0,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-3x3-base",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-base",
+     "x": 4,
+     "z": 2,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -2,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 0,
+     "z": -1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-3x3-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 3,
+     "z": 2,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-mid",
+     "x": 4,
+     "z": 2,
+     "laag": 1,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -2,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 0,
+     "z": -1,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-corner-inner-3x3-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 3,
+     "z": 2,
+     "laag": 2,
+     "slagen": 1
+    },
+    {
+     "naam": "escarpment-terrain-side-top",
+     "x": 4,
+     "z": 2,
+     "laag": 2,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 0,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 3,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 4,
+     "laag": 3,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Heuvelplateau met hoeken",
+   "waarover": "Een verhoogd grasplateau met de vier nog niet beoordeelde 2x2-buitenhoeken van de heuvelfamilie op de hoekpunten en steile zijden (twee cellen diep, zoals de hoeken) ertussen. Te leren: Sluiten de heuvelhoeken op de steile zijden aan, en met welke slag per hoekpunt? Passen de hoeken ook op de flauwe zijden (vier cellen diep), of horen ze alleen bij steil? De binnenhoek en de overgangsstukken centered en flush-crest wachten op een volgend bouwsel met een L-vormig plateau.",
+   "stukken": [
+    {
+     "naam": "hilly-terrain-hill-corner-outer-2x2",
+     "x": -2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-corner-outer-2x2",
+     "x": 4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-hill-corner-outer-2x2",
+     "x": 4,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-hill-corner-outer-2x2",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 0,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 1,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 2,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 0,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": -2,
+     "z": 1,
+     "laag": 0,
+     "slagen": 1
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-hill-side-sharp",
+     "x": 4,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 0,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 1,
+     "laag": 1,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": -4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": -3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 3,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 4,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 5,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 4,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 5,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -4,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -3,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 6,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": -2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": -1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 0,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 1,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 7,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  },
+  {
+   "naam": "Waterval in de klifwand",
+   "waarover": "Een drielaagse klifwand, gezicht naar het zuiden, met in het midden de watervalkolom, de watervlakken ervoor, en aan de voet een bekken van één watertegel met falloff-oevers. Toetst de hele watervalfamilie en of de vallende sheet op het vlakke water landt. Te leren: Stapelen waterfall-base, -mid en -top zoals de gewone wandstukken, en sluiten ze zijwaarts op side-base/mid/top aan? Waar horen de water-sheets en hun edge-varianten precies: een eigen cel vóór de wand, of dezelfde cel als de wandstukken? Mag het bekken hier wél tegen de watervalvoet aan, of geldt de water-naast-water-afkeuring ook voor de sheet?",
+   "stukken": [
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": -1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 1,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-base",
+     "x": 2,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": -2,
+     "z": 0,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": -1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 1,
+     "z": 0,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-mid",
+     "x": 2,
+     "z": 0,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": -1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 1,
+     "z": 0,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-side-top",
+     "x": 2,
+     "z": 0,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-base-flat",
+     "x": 0,
+     "z": 0,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-mid",
+     "x": 0,
+     "z": 0,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-top",
+     "x": 0,
+     "z": 0,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-water-top",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-water-top-edge",
+     "x": 0,
+     "z": 1,
+     "laag": 2,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-water-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-water-mid-edge",
+     "x": 0,
+     "z": 1,
+     "laag": 1,
+     "slagen": 3
+    },
+    {
+     "naam": "cliff-terrain-waterfall-water-mid",
+     "x": 0,
+     "z": 1,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-water-flat",
+     "x": 0,
+     "z": 2,
+     "laag": -1,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": -1,
+     "z": 2,
+     "laag": 0,
+     "slagen": 2
+    },
+    {
+     "naam": "escarpment-terrain-side-falloff-center",
+     "x": 0,
+     "z": 3,
+     "laag": 0,
+     "slagen": 3
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 0,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -2,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": -1,
+     "laag": 3,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": -1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 1,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 2,
+     "laag": 0,
+     "slagen": 0
+    },
+    {
+     "naam": "hilly-terrain-grass-floor",
+     "x": 2,
+     "z": 3,
+     "laag": 0,
+     "slagen": 0
+    }
+   ]
+  }
+ ]
+}

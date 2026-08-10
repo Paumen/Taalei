@@ -1,0 +1,700 @@
+/**
+ * De regels van het bouwpakket: welk stuk past waar tegenaan, en wat is er mis
+ * met een bouwsel.
+ *
+ * Bewust zonder DOM en zonder three.js, zodat tools/toets-terreinbouwer.mjs
+ * dezelfde code in Node kan draaien als de bouwer in de browser. Alles wat
+ * hier gebeurt komt uit kits/modulair-terrein/aansluitingen.json; er staat geen
+ * enkele aanname over de vorm van een stuk in dit bestand.
+ */
+
+/** De vier windrichtingen, met de klok mee vanaf noord. */
+export const ZIJDEN = ['n', 'o', 'z', 'w'];
+
+/** Wat een zijde aan vakken opschuift: noord is -z, oost is +x. */
+export const STAP = { n: [0, -1], o: [1, 0], z: [0, 1], w: [-1, 0] };
+
+/** Welke zijde van de buurman naar deze zijde toe wijst. */
+export const TEGENOVER = { n: 'z', o: 'w', z: 'n', w: 'o' };
+
+/**
+ * Een kwartslag draaien, tegen de klok in gezien van boven — dezelfde draai die
+ * three.js maakt bij `rotation.y += Math.PI / 2`, want die stuurt (x,z) naar
+ * (z,-x).
+ *
+ * Draaien kost hier verder niets, en dat is geen toeval: aansluitingen.mjs
+ * schrijft elk zijprofiel op in het assenkruis van die zijde zelf (§ ZIJDEN
+ * daar). Draai je het stuk, dan draait dat assenkruis mee en blijft het profiel
+ * letterlijk hetzelfde — alleen het naambordje verspringt. Vandaar dat hier
+ * alleen vakken en labels verschuiven en nergens een profiel wordt herrekend.
+ */
+export function draaiVak([u, v], slagen) {
+  let [a, b] = [u, v];
+  for (let i = 0; i < ((slagen % 4) + 4) % 4; i++) [a, b] = [b, -a];
+  return [a, b];
+}
+
+/** De omgekeerde weg: van een gedraaid vak terug naar het vak in het model. */
+export function ontdraaiVak([u, v], slagen) {
+  let [a, b] = [u, v];
+  for (let i = 0; i < ((slagen % 4) + 4) % 4; i++) [a, b] = [-b, a];
+  return [a, b];
+}
+
+/**
+ * De kit, klaar voor gebruik.
+ *
+ * Neemt het ingelezen aansluitingen.json en hangt er de opzoektabellen aan die
+ * de bouwer nodig heeft.
+ */
+export class Kit {
+  constructor(data) {
+    this.data = data;
+    this.vak = data.raster.vak;
+    this.laagHoogte = data.raster.laag;
+    this.modellen = new Map(data.modellen.map((m) => [m.naam, m]));
+    this.randen = data.randen;
+    this.vlakken = data.vlakken;
+    this._gedraaid = new Map();
+  }
+
+  model(naam) {
+    const m = this.modellen.get(naam);
+    if (!m) throw new Error(`onbekend model: ${naam}`);
+    return m;
+  }
+
+  /**
+   * De vakken die een stuk beslaat, met daarbij het vak zoals het model het
+   * zelf noemt — dat laatste is nodig om het juiste profiel op te zoeken.
+   *
+   * @returns {{wereld: number[], lokaal: string}[]}
+   */
+  vakkenVan(naam, x, z, slagen) {
+    const m = this.model(naam);
+    const [u0, v0] = m.oorsprong;
+    const uit = [];
+    for (let u = u0; u < u0 + m.vakken[0]; u++) {
+      for (let v = v0; v < v0 + m.vakken[1]; v++) {
+        const [du, dv] = draaiVak([u, v], slagen);
+        uit.push({ wereld: [x + du, z + dv], lokaal: `${u},${v}` });
+      }
+    }
+    return uit;
+  }
+
+  /**
+   * Het zijprofiel dat een geplaatst stuk aan de wereldzijde `zijde` laat zien,
+   * of null wanneer dat vak daar niet aan de buitenkant van het stuk ligt.
+   */
+  randVan(naam, lokaal, zijde, slagen) {
+    const index = (ZIJDEN.indexOf(zijde) + ((slagen % 4) + 4) % 4) % 4;
+    return this.model(naam).zijden[ZIJDEN[index]][lokaal] ?? null;
+  }
+
+  /**
+   * De sleutel van een horizontaal vlak nadat het is meegedraaid.
+   *
+   * Een zijprofiel overleeft het draaien ongeschonden, een boven- of ondervlak
+   * niet: dat ligt in het x/z-vlak en draait dus echt mee. Daarom worden de
+   * lijnstukken hier omgerekend en opnieuw op een vaste volgorde gezet, zodat
+   * twee vlakken die na het draaien gelijk zijn ook dezelfde sleutel krijgen.
+   */
+  vlakSleutel(id, slagen) {
+    const r = ((slagen % 4) + 4) % 4;
+    const cache = `${id}@${r}`;
+    if (this._gedraaid.has(cache)) return this._gedraaid.get(cache);
+
+    const draai = ([a, b]) => {
+      let [p, q] = [a, b];
+      for (let i = 0; i < r; i++) [p, q] = [q, -p];
+      return [Number(p.toFixed(3)), Number(q.toFixed(3))];
+    };
+
+    const stukken = (this.vlakken[id] ?? []).map(([a1, b1, a2, b2]) => {
+      const p = draai([a1, b1]);
+      const q = draai([a2, b2]);
+      // Vaste kant eerst, anders zijn twee gelijke lijnstukken niet gelijk.
+      return (p[0] < q[0] || (p[0] === q[0] && p[1] <= q[1])) ? [...p, ...q] : [...q, ...p];
+    });
+    stukken.sort((p, q) => p[0] - q[0] || p[1] - q[1] || p[2] - q[2] || p[3] - q[3]);
+
+    const sleutel = JSON.stringify(stukken);
+    this._gedraaid.set(cache, sleutel);
+    return sleutel;
+  }
+
+  /** Of een zijprofiel niets bevat: open lucht. */
+  isOpen(rand) {
+    return rand === null || (this.randen[rand]?.vorm ?? []).length === 0;
+  }
+
+  /**
+   * Of twee zijprofielen op elkaar passen.
+   *
+   * De hele regel: het profiel van de buur is dit profiel achterstevoren. Welk
+   * profiel dat is heeft aansluitingen.mjs al uitgerekend en als `spiegel`
+   * opgeschreven, dus het is één vergelijking.
+   */
+  sluitAan(rand, buurRand) {
+    if (rand === null || buurRand === null) return false;
+    return this.randen[rand]?.spiegel === buurRand;
+  }
+}
+
+/* -- bouwsel ---------------------------------------------------------------
+ * De verzameling geplaatste stukken, met een index van bezette vakken erbij.
+ * Elke wijziging gaat via zet()/haalWeg() zodat de index nooit achterloopt —
+ * de controle leest hem bij elke toetsaanslag opnieuw uit.
+ */
+
+export class Bouwsel {
+  constructor(kit) {
+    this.kit = kit;
+    this.stukken = new Map();
+    this.bezet = new Map(); // "x,z,laag" → [stukId, …]
+    this._teller = 0;
+
+    /**
+     * Waar dit bouwsel bij hoort, en daarmee waar de oordelen bij horen. Leeg
+     * zolang je zelf aan het bouwen bent; de naam van het voorbeeld zodra er
+     * een voorbeeld staat.
+     *
+     * Dit hoort in de sleutel van een oordeel omdat de plek alleen niet zegt
+     * wat er te zien is. Elk voorbeeld staat op vak (0,0), en de meeste hebben
+     * daar gras liggen — dus grasvoeg tegen grasvoeg op (0,0) is in acht
+     * bouwsels acht keer dezelfde sleutel en één keer een oordeel. Het derde
+     * bouwsel kwam zo voor de helft al beoordeeld binnen.
+     *
+     * Dat is geen zuinigheid maar verlies: dezelfde twee stukken vallen in een
+     * strand anders uit dan in een klifwand, en dat is nu juist wat er te
+     * beoordelen valt. Wie vindt dat het één oordeel is, hoeft het maar twee
+     * keer hetzelfde te zeggen.
+     */
+    this.noemer = '';
+  }
+
+  static sleutel(x, z, laag) {
+    return `${x},${z},${laag}`;
+  }
+
+  /**
+   * Zet een stuk neer. Botsingen worden niet geweigerd maar gemeld: tijdens het
+   * bouwen wil je iets fout kunnen neerzetten en het daarna zien oplichten,
+   * niet tegengehouden worden door een dialoogvenster.
+   */
+  /**
+   * @param {object} gegevens  naam, x, z, laag, slagen — en eventueel een `id`.
+   *
+   * Dat laatste is er voor het terugdraaien. Wie een stuk weghaalt en het
+   * daarna terugzet, wil hetzelfde stuk terug en niet een nieuw exemplaar met
+   * een nieuw nummer: de geschiedenis verwijst naar nummers, en een stap die
+   * naar een verdwenen nummer wijst doet stilletjes niets. Precies dat ging er
+   * mis — twee keer ongedaan maken haalde het tweede stuk niet weg omdat het
+   * ondertussen een ander nummer had gekregen.
+   */
+  zet({ naam, x, z, laag, slagen = 0, id = null }) {
+    if (id === null) id = `s${++this._teller}`;
+    const stuk = { id, naam, x, z, laag, slagen: ((slagen % 4) + 4) % 4 };
+    this.stukken.set(id, stuk);
+    for (const vak of this.kit.vakkenVan(naam, x, z, stuk.slagen)) {
+      const sleutel = Bouwsel.sleutel(vak.wereld[0], vak.wereld[1], laag);
+      if (!this.bezet.has(sleutel)) this.bezet.set(sleutel, []);
+      this.bezet.get(sleutel).push({ id, lokaal: vak.lokaal });
+    }
+    return stuk;
+  }
+
+  haalWeg(id) {
+    const stuk = this.stukken.get(id);
+    if (!stuk) return false;
+    this.stukken.delete(id);
+    for (const [sleutel, lijst] of this.bezet) {
+      const over = lijst.filter((b) => b.id !== id);
+      if (over.length) this.bezet.set(sleutel, over);
+      else this.bezet.delete(sleutel);
+    }
+    return true;
+  }
+
+  op(x, z, laag) {
+    return this.bezet.get(Bouwsel.sleutel(x, z, laag)) ?? [];
+  }
+
+  naarJson() {
+    return {
+      kit: 'modulair-terrein',
+      stukken: [...this.stukken.values()].map(({ naam, x, z, laag, slagen }) => ({ naam, x, z, laag, slagen })),
+    };
+  }
+
+  static uitJson(kit, json) {
+    const bouwsel = new Bouwsel(kit);
+    for (const stuk of json.stukken ?? []) bouwsel.zet(stuk);
+    return bouwsel;
+  }
+}
+
+/* -- controle --------------------------------------------------------------
+ * Vijf dingen kunnen er mis zijn, en ze zijn niet even erg. Twee stukken die
+ * in hetzelfde vak staan is een fout: dat kan in het echt niet. Een naad die
+ * niet sluit is een waarschuwing, want een trap of een afgrond is soms precies
+ * de bedoeling — de bouwer moet hem laten zien, niet verbieden.
+ *
+ * ── Wat hier niet gecontroleerd wordt ──────────────────────────────────────
+ *
+ * Twee dingen, allebei bewust, allebei het weten waard voordat je op groen
+ * vertrouwt.
+ *
+ * Een naad wordt vergeleken tussen buren op dezélfde laag. Deze kit kent ook
+ * naden die een laag verspringen: `cliff-terrain-side-top` eindigt aan zijn
+ * achterkant op 0,6 en `hilly-terrain-grass-floor` ligt op 0,1, dus een kliftop
+ * op laag L sluit aan op een grasvlakte op laag L+1 — allebei op hoogte
+ * L · 0,5 + 0,6. Zet je het gras op de verkeerde laag naast de kliftop, dan
+ * meldt de controle dat (de randen liggen dan een halve unit uit elkaar). Zet
+ * je het góéd, dan grenzen de twee op geen enkele laag aan elkaar en zwijgt de
+ * controle. Groen betekent daar dus "niets tegengekomen", niet "nagerekend".
+ *
+ * En een naad is een vóég, geen oppervlak: twee stukken kunnen op de naad
+ * naadloos aansluiten en er tussenin heel verschillend uitzien. Zie de kop van
+ * tools/aansluitingen.mjs voor het geval dat dat aantoont.
+ */
+
+export const ERNST = { fout: 'fout', waarschuwing: 'waarschuwing' };
+
+/**
+ * Loopt het hele bouwsel na.
+ *
+ * Wordt bij elke wijziging opnieuw aangeroepen. Dat kan, want het werk is
+ * lineair in het aantal bezette vakken: per vak vier buren en één laag eronder,
+ * en elke vergelijking is het naast elkaar leggen van twee nummers.
+ *
+ * @returns {{soort: string, ernst: string, tekst: string, stukken: string[],
+ *            plek: object}[]}
+ */
+export function controleer(bouwsel) {
+  const { kit } = bouwsel;
+  const meldingen = [];
+  const gezien = new Set();
+
+  const naamVan = (id) => bouwsel.stukken.get(id).naam;
+
+  for (const [sleutel, bewoners] of bouwsel.bezet) {
+    const [x, z, laag] = sleutel.split(',').map(Number);
+
+    /* Twee stukken in hetzelfde vak is géén melding.
+     *
+     * Dat was het wel, en dat was fout. Een kei hoort op de tegel waar hij op
+     * ligt — eenentwintig stukken in deze kit zijn zulke props. En dertien
+     * stukken claimen meer vakken dan ze vullen: `cliff-terrain-corner-inner-
+     * 3x3-mid` claimt er negen en vult er vijf, dus de lege vakken binnen zo'n
+     * hoek horen juist door iets anders gevuld te worden. Wie dat een botsing
+     * noemt, verbiedt de helft van wat je met deze kit doet.
+     *
+     * Of twee stukken samen kunnen is een oordeel, en dat oordeel is niet aan
+     * de bouwer. Wat hier overblijft is meten en melden. */
+
+    for (const bewoner of bewoners) {
+      const stuk = bouwsel.stukken.get(bewoner.id);
+
+      /* 2. de vier naden op deze laag */
+      for (const zijde of ZIJDEN) {
+        const [dx, dz] = STAP[zijde];
+        const buren = bouwsel.op(x + dx, z + dz, laag);
+        if (buren.length !== 1) continue;
+        const buur = buren[0];
+        if (buur.id === bewoner.id) continue; // eigen binnennaad
+
+        // Elke naad hoort één keer gemeld te worden, niet vanaf beide kanten.
+        const naadSleutel = [
+          `${x},${z},${laag},${zijde}`,
+          `${x + dx},${z + dz},${laag},${TEGENOVER[zijde]}`,
+        ].sort().join('|');
+        if (gezien.has(naadSleutel)) continue;
+        gezien.add(naadSleutel);
+
+        const hier = kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen);
+        const buurStuk = bouwsel.stukken.get(buur.id);
+        const daar = kit.randVan(buurStuk.naam, buur.lokaal, TEGENOVER[zijde], buurStuk.slagen);
+
+        if (kit.sluitAan(hier, daar)) continue;
+        if (kit.isOpen(hier) && kit.isOpen(daar)) continue; // twee keer lucht
+
+        meldingen.push({
+          soort: 'naad',
+          ernst: ERNST.waarschuwing,
+          tekst: kit.isOpen(hier) || kit.isOpen(daar)
+            ? `${naamVan(bewoner.id)} en ${naamVan(buur.id)}: de één heeft hier niets, de ander wel`
+            : `${naamVan(bewoner.id)} en ${naamVan(buur.id)}: randen ${hier} en ${daar} passen niet op elkaar`,
+          stukken: [bewoner.id, buur.id],
+          plek: { x, z, laag, zijde, randen: [hier, daar] },
+        });
+      }
+
+      /* 3. en 4. de laag eronder: draagt hij, en sluit hij aan?
+       *
+       * Alleen voor stukken die in het vloervlak van hun laag zijn afgesneden —
+       * een wand, een blok, een rand. Die houden onderaan niet vanzelf op en
+       * moeten dus verder naar beneden.
+       *
+       * Een stuk zonder onderkant valt er buiten, en dat is geen mildheid maar
+       * hoe de kit werkt: `hilly-terrain-grass-floor` is één plat vlak op y =
+       * 0,1 en heeft niets in het vloervlak staan. Zo'n dekvlak hoort juist
+       * over onbebouwde vakken heen te liggen — de binnenkant van een plateau
+       * wordt in deze pack niet volgebouwd, want niemand kijkt eronder. Wie dat
+       * toch zou eisen, meldt elk plateau van dertig tegels dertig keer.
+       */
+      const onderId = kit.model(stuk.naam).onder[bewoner.lokaal];
+      const heeftOnderkant = (kit.vlakken[onderId] ?? []).length > 0;
+      const onderSleutel = heeftOnderkant ? kit.vlakSleutel(onderId, stuk.slagen) : null;
+
+      if (laag > 0 && heeftOnderkant) {
+        const onder = bouwsel.op(x, z, laag - 1);
+        if (onder.length === 0) {
+          meldingen.push({
+            soort: 'zwevend',
+            ernst: ERNST.fout,
+            tekst: `${naamVan(bewoner.id)} zweeft: niets eronder op laag ${laag - 1}`,
+            stukken: [bewoner.id],
+            plek: { x, z, laag },
+          });
+        } else {
+          for (const drager of onder) {
+            const dragerStuk = bouwsel.stukken.get(drager.id);
+            const bovenId = kit.model(dragerStuk.naam).boven[drager.lokaal];
+            if (kit.vlakSleutel(bovenId, dragerStuk.slagen) === onderSleutel) continue;
+            meldingen.push({
+              soort: 'stapel',
+              ernst: ERNST.waarschuwing,
+              tekst: `${naamVan(bewoner.id)} staat niet vlak op ${naamVan(drager.id)}`,
+              stukken: [bewoner.id, drager.id],
+              plek: { x, z, laag },
+            });
+          }
+        }
+      }
+    }
+  }
+
+  /* Twee keer exact hetzelfde stuk op exact dezelfde plek.
+   *
+   * Het enige geval waarin samenvallende stukken wél het melden waard zijn:
+   * identieke stukken dekken elkaar precies af, dus je ziet het niet en je
+   * merkt het pas als je er één weghaalt en er nog een blijkt te staan. Elke
+   * andere combinatie is een keuze van wie bouwt. */
+  const perPlek = new Map();
+  for (const stuk of bouwsel.stukken.values()) {
+    const sleutel = `${stuk.naam}@${stuk.x},${stuk.z},${stuk.laag},${stuk.slagen}`;
+    if (!perPlek.has(sleutel)) perPlek.set(sleutel, []);
+    perPlek.get(sleutel).push(stuk.id);
+  }
+  for (const ids of perPlek.values()) {
+    if (ids.length < 2) continue;
+    const stuk = bouwsel.stukken.get(ids[0]);
+    meldingen.push({
+      soort: 'dubbel',
+      ernst: ERNST.waarschuwing,
+      tekst: `${stuk.naam} staat hier ${ids.length}× bovenop zichzelf`,
+      stukken: ids,
+      plek: { x: stuk.x, z: stuk.z, laag: stuk.laag },
+    });
+  }
+
+  /* 5. de trap van een stapel: base onderop, top bovenop.
+   *
+   * Dit is de enige controle die op de naam afgaat in plaats van op de vorm, en
+   * dat is met opzet beperkt gehouden. Twee stukken kunnen vormvast op elkaar
+   * passen en toch verkeerd bedoeld zijn: een `-base` boven een `-mid` sluit
+   * naadloos aan, want beide interfaces zijn gelijk, maar levert een klif op
+   * met twee voeten en geen kop. Alleen de naam weet dat. */
+  for (const stuk of bouwsel.stukken.values()) {
+    const model = kit.model(stuk.naam);
+    if (!model.trap) continue;
+    const vakken = kit.vakkenVan(stuk.naam, stuk.x, stuk.z, stuk.slagen);
+    const trapOnder = new Set();
+    const trapBoven = new Set();
+    for (const vak of vakken) {
+      for (const b of bouwsel.op(vak.wereld[0], vak.wereld[1], stuk.laag - 1)) {
+        trapOnder.add(kit.model(naamVan(b.id)).trap);
+      }
+      for (const b of bouwsel.op(vak.wereld[0], vak.wereld[1], stuk.laag + 1)) {
+        trapBoven.add(kit.model(naamVan(b.id)).trap);
+      }
+    }
+
+    const meld = (tekst) => meldingen.push({
+      soort: 'trap',
+      ernst: ERNST.waarschuwing,
+      tekst: `${stuk.naam}: ${tekst}`,
+      stukken: [stuk.id],
+      plek: { x: stuk.x, z: stuk.z, laag: stuk.laag },
+    });
+
+    if (model.trap === 'base' && trapOnder.size > 0) meld('een -base hoort onderop');
+    /* Op laag 0 is de grond de voet; een -mid die daar ligt mist niets. Pas
+     * hogerop is "er hoort een -base of -mid onder" een echte eis. */
+    if (model.trap === 'mid' && stuk.laag > 0 && !trapOnder.has('base') && !trapOnder.has('mid')) {
+      meld('een -mid hoort op een -base of een -mid te staan');
+    }
+    if (model.trap === 'top' && trapBoven.size > 0) meld('een -top hoort bovenop');
+    if (model.trap === 'top' && trapOnder.size === 0 && stuk.laag > 0) {
+      meld('een -top zonder -base of -mid eronder');
+    }
+  }
+
+  return meldingen;
+}
+
+/* -- naden opsommen --------------------------------------------------------
+ * controleer() meldt wat er mis is. Dit somt op wat er ís: elke voeg tussen
+ * twee stukken die het bouwsel bevat, of hij nu sluit of niet.
+ *
+ * Dat onderscheid is de kern van een gereedschap om mee te ontwerpen. De meting
+ * zegt of twee randen elkaars spiegelbeeld zijn — meer niet. Of een combinatie
+ * gòéd is, is een oordeel: een trap in een rotswand kan precies de bedoeling
+ * zijn, en twee randen die tot op de honderdste samenvallen kunnen er
+ * verkeerd uitzien. Dat oordeel hoort bij wie bouwt, en om het te kunnen vellen
+ * moet je de combinaties eerst op een rij zien.
+ */
+
+/**
+ * Elke plek waar twee verschillende stukken elkaar raken, één keer per plek.
+ *
+ * Er zijn drie soorten, en dat is er twee meer dan er eerst waren:
+ *
+ *   `zij`     twee buren op dezelfde laag, rand tegen rand. De meting kan hier
+ *             zeggen of de profielen elkaars spiegelbeeld zijn.
+ *   `stapel`  hetzelfde vak, de ene laag hoger dan de andere: het bovenvlak van
+ *             de onderste tegen het ondervlak van de bovenste. Ook meetbaar —
+ *             het is dezelfde vergelijking die controleer() al maakt.
+ *   `rand`    schuin over de laaggrens: een wand op laag L en het dekvlak dat er
+ *             één vak naast en één laag hoger langs loopt. Hun profielen liggen
+ *             in hetzelfde verticale vlak, maar bóven elkaar in plaats van
+ *             tegenover elkaar. De spiegelproef zegt daar niets over, dus geeft
+ *             de meting hier niets — `sluit` is `null`, "niet gemeten".
+ *
+ * Alleen `zij` bestond, en dat maakte het gereedschap blind voor precies waar
+ * het om ging. "Klif en steilrand naast elkaar" is een wand met een grasrand
+ * over de bovenkant; de zes voegen die eruit kwamen waren drie keer wand tegen
+ * wand en drie keer gras tegen gras. Waar de wand het gras raakt — de reden dat
+ * dat bouwsel bestaat, en zichtbaar niet in orde — viel niets te kiezen. Een
+ * gereedschap dat je alleen laat oordelen over wat het kan meten, laat je
+ * oordelen over de verkeerde dingen.
+ *
+ * @returns {{stukken: string[], namen: string[], soort: string,
+ *            delen: object[], sleutel: string, sluit: boolean|null,
+ *            plek: object}[]}
+ */
+export function naden(bouwsel) {
+  const { kit } = bouwsel;
+  const uit = [];
+  const gezien = new Set();
+
+  /** Eén raakvlak vastleggen, als we het nog niet gehad hebben. */
+  const voegToe = (naad) => {
+    const merk = naad.delen
+      .map((d) => `${d.id}:${d.x},${d.z},${d.laag},${d.zijde ?? 'v'}`)
+      .sort().join('|');
+    if (gezien.has(merk)) return;
+    gezien.add(merk);
+    naad.noemer = bouwsel.noemer;
+    naad.randen = naad.delen.map((d) => d.rand ?? null);
+    naad.slagen = naad.delen.map((d) => d.slagen);
+    naad.namen = naad.delen.map((d) => d.naam);
+    naad.stukken = naad.delen.map((d) => d.id);
+    naad.sleutel = naadSleutel(naad);
+    naad.vorm = vormSleutel(naad);
+    uit.push(naad);
+  };
+
+  /** Wat er van een bewoner op een zijde te zien is. */
+  const kant = (bewoner, x, z, laag, zijde) => {
+    const stuk = bouwsel.stukken.get(bewoner.id);
+    return {
+      id: bewoner.id,
+      naam: stuk.naam,
+      slagen: stuk.slagen,
+      x, z, laag, zijde,
+      rand: kit.randVan(stuk.naam, bewoner.lokaal, zijde, stuk.slagen),
+    };
+  };
+
+  for (const [sleutel, bewoners] of bouwsel.bezet) {
+    const [x, z, laag] = sleutel.split(',').map(Number);
+
+    for (const bewoner of bewoners) {
+      const stuk = bouwsel.stukken.get(bewoner.id);
+
+      for (const zijde of ZIJDEN) {
+        const [dx, dz] = STAP[zijde];
+
+        /* 1. dezelfde laag: rand tegen rand. */
+        for (const buur of bouwsel.op(x + dx, z + dz, laag)) {
+          if (buur.id === bewoner.id) continue; // eigen binnennaad
+          const hier = kant(bewoner, x, z, laag, zijde);
+          const daar = kant(buur, x + dx, z + dz, laag, TEGENOVER[zijde]);
+          if (kit.isOpen(hier.rand) && kit.isOpen(daar.rand)) continue; // twee keer lucht
+
+          voegToe({
+            soort: 'zij',
+            delen: [hier, daar],
+            sluit: kit.sluitAan(hier.rand, daar.rand),
+            plek: { x, z, laag, zijde },
+          });
+        }
+
+        /* 2. schuin over de laaggrens: de wand hier, het dekvlak daar en hoger.
+         *
+         * Alleen omhoog kijken, anders komt elk paar twee keer langs — van
+         * onderaf gezien en van bovenaf. */
+        for (const buur of bouwsel.op(x + dx, z + dz, laag + 1)) {
+          if (buur.id === bewoner.id) continue;
+          const hier = kant(bewoner, x, z, laag, zijde);
+          const daar = kant(buur, x + dx, z + dz, laag + 1, TEGENOVER[zijde]);
+          if (kit.isOpen(hier.rand) && kit.isOpen(daar.rand)) continue;
+
+          voegToe({
+            soort: 'rand',
+            delen: [hier, daar],
+            sluit: null, // zie de kop: de spiegelproef zegt hier niets
+            plek: { x, z, laag, zijde },
+          });
+        }
+      }
+
+      /* 3. recht boven elkaar: bovenvlak tegen ondervlak. */
+      const bovenId = kit.model(stuk.naam).boven[bewoner.lokaal];
+      for (const buur of bouwsel.op(x, z, laag + 1)) {
+        if (buur.id === bewoner.id) continue;
+        const buurStuk = bouwsel.stukken.get(buur.id);
+        const onderId = kit.model(buurStuk.naam).onder[buur.lokaal];
+        const leeg = (id) => (kit.vlakken[id] ?? []).length === 0;
+        if (leeg(bovenId) && leeg(onderId)) continue; // twee keer niets
+
+        voegToe({
+          soort: 'stapel',
+          delen: [
+            { id: bewoner.id, naam: stuk.naam, slagen: stuk.slagen, x, z, laag, vlak: bovenId },
+            {
+              id: buur.id,
+              naam: buurStuk.naam,
+              slagen: buurStuk.slagen,
+              x,
+              z,
+              laag: laag + 1,
+              vlak: onderId,
+            },
+          ],
+          sluit: kit.vlakSleutel(bovenId, stuk.slagen) === kit.vlakSleutel(onderId, buurStuk.slagen),
+          plek: { x, z, laag, zijde: 'b' },
+        });
+      }
+    }
+  }
+
+  return uit;
+}
+
+/**
+ * De naam waaronder een oordeel wordt bewaard: één voeg, op één plek.
+ *
+ * Dit was eerst het paar randprofielen, en dat was fout. Eén zo'n paar wordt
+ * gedragen door dertien verschillende stukken — r055 tegen r056 zit in elke
+ * `-mid` van de kit, klif én steilrand — en komt in een bouwsel tien keer voor
+ * op tien verschillende plekken. Al die voegen kwamen op één regel terecht met
+ * één stel knoppen eronder. Wie de ene goed vond en de andere niet, kon dat
+ * niet zeggen: het oordeel gold meteen voor alles.
+ *
+ * Nu staat elke voeg op zichzelf. Dat is meer regels om langs te lopen, maar
+ * het is de enige manier waarop het oordeel van wie bouwt er ongeschonden in
+ * past — en dat is waar dit gereedschap voor is.
+ *
+ * De plek alleen is daarvoor niet genoeg, en dat was de tweede fout. Twee
+ * bouwsels staan allebei op vak (0,0) — de plek zegt niets over wát daar ligt.
+ * Wie de klifwand had beoordeeld, kreeg de steilrand als "al beoordeeld"
+ * voorgeschoteld: dertien oordelen over stukken die er nooit aan te pas waren
+ * gekomen. Daarom staat er nu bij wat er op die plek tegen elkaar aan staat.
+ *
+ * En daar is het bouwsel voor nodig, want ook dát is niet genoeg: gras tegen
+ * gras op vak (0,0) is in acht bouwsels acht keer dezelfde vorm op dezelfde
+ * plek en toch acht keer iets anders om naar te kijken. Zie Bouwsel#noemer.
+ *
+ * Twee dingen worden onderweg rechtgetrokken, allebei omdat één voeg twee
+ * kanten heeft en het oordeel niet mag afhangen van welke kant toevallig het
+ * eerst langskwam:
+ *
+ *   - de plek wordt naar het vak met de kleinste (x,z) gebracht, dus zijde `n`
+ *     en `w` worden de `z` en `o` van de buurman;
+ *   - de twee stukken worden in díé volgorde genoteerd, eerst het stuk op dat
+ *     vak. Zo blijven een tegel-tegen-kei en een kei-tegen-tegel op hetzelfde
+ *     vak twee verschillende voegen, want dat zijn ze ook.
+ */
+export function naadSleutel(naad) {
+  let { x, z, zijde } = naad.plek;
+  const { laag } = naad.plek;
+  let [eerst, dan] = [0, 1];
+
+  if (zijde === 'n' || zijde === 'w') {
+    const [dx, dz] = STAP[zijde];
+    x += dx;
+    z += dz;
+    zijde = TEGENOVER[zijde];
+    [eerst, dan] = [1, 0];
+  }
+
+  const wie = (i) => `${naad.namen[i]}@${naad.slagen[i] * 90}`;
+  /* De soort hoort erbij: een `zij` en een `rand` kunnen na het rechttrekken op
+   * dezelfde plek met dezelfde twee stukken uitkomen — een wand met gras ernaast
+   * op zijn eigen laag, en dezelfde wand met gras een laag hoger. Twee dingen om
+   * naar te kijken, dus twee oordelen. */
+  return `${naad.noemer ?? ''}|${naad.soort}|${x},${z},${laag},${zijde} ${wie(eerst)}>${wie(dan)}`;
+}
+
+/**
+ * De vórm van een voeg: welke twee stukken, in welke draaistand, met welke
+ * kanten naar elkaar toe.
+ *
+ * Hier wordt niets op bewaard — het oordeel hangt aan de plek. Dit dient om
+ * achteraf te kunnen zien of dezelfde vorm ergens anders anders beoordeeld is.
+ * Dat is geen tegenstrijdigheid om op te lossen maar een uitkomst om te melden:
+ * blijkbaar hangt het van de omgeving af.
+ */
+export function vormSleutel(naad) {
+  return [
+    `${naad.namen[0]}@${naad.slagen[0] * 90}`,
+    `${naad.namen[1]}@${naad.slagen[1] * 90}`,
+  ].sort().join(' + ');
+}
+
+/* -- verkenner -------------------------------------------------------------
+ * De andere kant van dezelfde vraag. controleer() zegt of wat er staat klopt;
+ * dit zegt wat er zou kunnen staan.
+ */
+
+/**
+ * Alle stukken die met een kwartslag tegen een gegeven zijde passen.
+ *
+ * Loopt de kit één keer af en vraagt per stuk per draaistand welk profiel er
+ * naar de naad toe wijst. Bij 116 stukken × 4 standen zijn dat 464
+ * vergelijkingen — snel genoeg om bij elke klik opnieuw te doen, dus er wordt
+ * niets bewaard wat kan verouderen.
+ *
+ * @param {Kit} kit
+ * @param {string} rand   het profiel waar tegenaan gepast moet worden
+ * @param {string} zijde  de zijde van de buur die naar die rand toe wijst
+ * @returns {{naam: string, slagen: number, lokaal: string}[]}
+ */
+export function watPast(kit, rand, zijde) {
+  const uit = [];
+  if (rand === null) return uit;
+
+  for (const model of kit.modellen.values()) {
+    for (let slagen = 0; slagen < 4; slagen++) {
+      for (const lokaal of Object.keys(model.zijden[ZIJDEN[(ZIJDEN.indexOf(zijde) + slagen) % 4]])) {
+        const kandidaat = kit.randVan(model.naam, lokaal, zijde, slagen);
+        if (kit.sluitAan(rand, kandidaat)) uit.push({ naam: model.naam, slagen, lokaal });
+      }
+    }
+  }
+  return uit;
+}
