@@ -5,29 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#e8e4da">
 <title>Terreinbouwer</title>
-<link rel="stylesheet" href="bouwer.css?v=0f289ce82f">
+<link rel="stylesheet" href="bouwer.css?v=902a2a628f">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧱</text></svg>">
-<!-- Relatieve paden, geen absolute: zo werkt de bouwer zowel op de lokale
-     server als op de gepubliceerde site, die onder /Taalei/ staat. -->
 <script type="importmap">
 {"imports":{"three":"../../vendor/three/three.module.min.js","three/addons/":"../../vendor/three/addons/"}}
 </script>
 </head>
 <body>
-
-<!--
-  Voor een telefoon gebouwd, en voor niets anders.
-
-  De eerste versie was een bureaubladscherm dat op een telefoon werd geperst:
-  drie kolommen, zweven met de muis, rechtermuisknop, shift. Daarvan is niets
-  over. Wat er nu staat gaat uit van één duim, één scherm en geen toetsenbord.
-
-  De kern is de wijzer. Tikken op het raster verplaatst hem en zet nooit iets
-  neer; neerzetten en weghalen gebeuren met een knop onderaan, waar de duim al
-  is. Daardoor kun je eerst rustig draaien en richten en pas dan beslissen. In
-  de vorige versie zette elke tik meteen een stuk neer, en wie de camera wilde
-  draaien liet een spoor van tegels achter.
--->
 
 <header class="kop">
   <div class="kop-groep">
@@ -68,9 +52,6 @@
   <button type="button" class="doe doe-weg" id="weg" disabled>Weg</button>
 </footer>
 
-<!-- De balk waarmee je één voeg staat te bekijken. Vervangt de gewone
-     knoppenbalk, want dan gaat het even nergens anders over: je kijkt naar één
-     aansluiting en zegt er iets van. -->
 <footer class="voet voet-kijk" id="voet-kijk" hidden>
   <div class="kijk-rij">
     <button type="button" class="knop" id="kijk-vorige" aria-label="Vorige voeg">‹</button>
@@ -80,8 +61,6 @@
     </div>
     <button type="button" class="knop" id="kijk-volgende" aria-label="Volgende voeg">›</button>
   </div>
-  <!-- Verschijnt zodra elke voeg van dit bouwsel een oordeel heeft: dan hoef je
-       niet terug naar de lijst, het blad en het tabblad om verder te kunnen. -->
   <button type="button" class="doe doe-verder" id="kijk-volgend-bouwsel" hidden>
     Volgend bouwsel ›
   </button>
@@ -92,9 +71,6 @@
   </div>
 </footer>
 
-<!-- Eén blad dat van onderen opkomt, met wisselende inhoud. Op een telefoon is
-     ruimte het schaarse goed: liever één ding tegelijk, groot genoeg om te
-     raken, dan alles tegelijk en niets te treffen. -->
 <div class="waas" id="waas" hidden></div>
 <div class="blad" id="blad" hidden>
   <div class="blad-kop">
@@ -109,16 +85,6 @@
   <div class="blad-inhoud" id="blad-inhoud"></div>
 </div>
 
-<!--
-  Vangnet. bouwer.js is een module met top-level await: struikelt hij, dan
-  gebeurt er niets en blijft de pagina leeg — geen foutmelding, geen aanwijzing.
-  De twee waarschijnlijke oorzaken zijn allebei onzichtbaar: een browser zonder
-  WebGL 2 (three.js kan dan niet tekenen) en een browser zonder import maps (dan
-  is `three` geen op te lossen adres).
-
-  Dit is met opzet een gewoon script en geen module: het moet blijven draaien
-  juist wanneer modules het laten afweten.
--->
 <script>
 (function () {
   function omgeving() {
@@ -142,7 +108,7 @@
   function toon(tekst) {
     if (window.KLAAR) return;
     var bak = document.getElementById('storing');
-    if (!bak || !bak.hidden) return; // de eerste fout is de nuttigste
+    if (!bak || !bak.hidden) return;
     bak.hidden = false;
     document.getElementById('storing-tekst').textContent = tekst;
     var lijst = document.getElementById('storing-lijst');
@@ -153,8 +119,6 @@
     });
   }
 
-  /* Met capture, want een script dat niet binnenkomt gooit zijn foutmelding op
-   * het element zelf en die borrelt niet omhoog naar window. */
   addEventListener('error', function (gebeurtenis) {
     var doel = gebeurtenis.target;
     if (doel && doel !== window && doel.src) {
@@ -174,6 +138,6 @@
 })();
 </script>
 
-<script src="bouwer.js?v=0f289ce82f" type="module"></script>
+<script src="bouwer.js?v=902a2a628f" type="module"></script>
 </body>
 </html>
