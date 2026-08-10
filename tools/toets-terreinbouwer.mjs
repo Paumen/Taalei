@@ -162,11 +162,45 @@ const omgekeerd = controleer(bouw([
 ]));
 toets('een -base boven een -mid geeft een trapmelding', omgekeerd.some((m) => m.soort === 'trap'));
 
-const overlap = controleer(bouw([
+/* Samenvallende stukken zijn geen melding. Een kei op een tegel, een klifhoek
+ * die zijn vak niet vult en een tegel in dat lege vak: dat is bouwen, geen
+ * botsing. De bouwer meet en meldt; wat samen kan is een oordeel van wie bouwt.
+ */
+for (const [wat, stukken] of [
+  ['twee terreintegels in één vak', [
+    { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+    { naam: 'beach-terrain-sand-floor', x: 0, z: 0, laag: 0 },
+  ]],
+  ['een kei op een grastegel', [
+    { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+    { naam: 'shared-prop-boulder-a', x: 0, z: 0, laag: 0 },
+  ]],
+  ['een tegel in het lege vak van een klifhoek', [
+    { naam: 'cliff-terrain-corner-inner-3x3-mid', x: 0, z: 0, laag: 0 },
+    { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+  ]],
+]) {
+  toets(
+    `${wat} levert geen botsingsmelding op`,
+    controleer(bouw(stukken)).every((m) => m.soort === 'naad' || m.soort === 'trap'
+      || m.soort === 'zwevend' || m.soort === 'stapel'),
+  );
+}
+
+/* Eén uitzondering: precies hetzelfde stuk twee keer op precies dezelfde plek.
+ * Dat dekt zichzelf af, dus je ziet het niet en je merkt het pas als je er één
+ * weghaalt en er nog een staat. */
+const dubbel = controleer(bouw([
   { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
-  { naam: 'beach-terrain-sand-floor', x: 0, z: 0, laag: 0 },
+  { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
 ]));
-toets('twee stukken in hetzelfde vak is een fout', overlap.some((m) => m.soort === 'overlap' && m.ernst === 'fout'));
+toets('hetzelfde stuk twee keer op dezelfde plek wordt wél gemeld',
+  dubbel.some((m) => m.soort === 'dubbel'));
+toets('en twee verschillende stukken op één plek niet',
+  !controleer(bouw([
+    { naam: 'hilly-terrain-grass-floor', x: 0, z: 0, laag: 0 },
+    { naam: 'beach-terrain-sand-floor', x: 0, z: 0, laag: 0 },
+  ])).some((m) => m.soort === 'dubbel'));
 
 /* -- verkenner ------------------------------------------------------------- */
 
@@ -330,32 +364,50 @@ toets('op het vak van de wijzer', await blad.evaluate(() => {
   const stuk = [...T.bouwsel.stukken.values()][0];
   return stuk.x === T.stand.wijzer[0] && stuk.z === T.stand.wijzer[1];
 }));
-toets('"Zet neer" kan niet twee keer op hetzelfde vak', await blad.locator('#zet').isDisabled());
+/* Neerzetten op een bezet vak wordt niet geweigerd: een kei hoort op een tegel,
+ * en of twee stukken samen kunnen is een oordeel van wie bouwt. De bouwer meldt
+ * wat hij meet en beslist niets. */
+toets('"Zet neer" blijft kunnen op een bezet vak', await blad.locator('#zet').isEnabled());
+await blad.evaluate(() => window.TERREINBOUWER.kiesStuk('shared-prop-boulder-a'));
+await blad.locator('#zet').tap();
+toets('een kei kan op de tegel die er al ligt', await aantal(blad) === 2);
+toets(
+  'en dat levert geen botsingsmelding op',
+  await blad.evaluate(() => window.TERREINBOUWER
+    .controleer(window.TERREINBOUWER.bouwsel)
+    .every((m) => m.soort !== 'overlap' && m.soort !== 'dubbel')),
+);
+await blad.locator('#weg').tap();
+toets('"Weg" haalt de kei weg en laat de tegel liggen', await aantal(blad) === 1);
 
 /* -- weghalen en terugdraaien ---------------------------------------------- */
 
 toets('"Weg" kan nu', await blad.locator('#weg').isEnabled());
+const voorWeg = await aantal(blad);
 await blad.locator('#weg').tap();
-toets('"Weg" haalt het weg', await aantal(blad) === 0);
+toets('"Weg" haalt het weg', await aantal(blad) === voorWeg - 1);
 
+/* De geschiedenis is hier: tegel neergezet, kei erop, kei weg, tegel weg. Elke
+ * stap terug draait er precies één om — ook de stap waarmee de kei verdween. */
 await blad.locator('#ongedaan').tap();
-toets('ongedaan maken zet het terug', await aantal(blad) === 1);
+toets('ongedaan zet de weggehaalde tegel terug', await aantal(blad) === voorWeg);
 await blad.locator('#ongedaan').tap();
-toets('nog een keer ongedaan haalt het weer weg', await aantal(blad) === 0);
+toets('nog een keer ongedaan draait ook de stap dáárvoor terug', await aantal(blad) === voorWeg + 1);
 await blad.locator('#opnieuw').tap();
-toets('opnieuw doen zet het er weer neer', await aantal(blad) === 1);
+toets('opnieuw doet die stap weer', await aantal(blad) === voorWeg);
 
 /* Tien stukken neerzetten en in tien tikken terugdraaien: dat is het geval
  * waar het om begonnen was — tientallen stukken en geen weg terug. */
+const voorTien = await aantal(blad);
 for (let i = 0; i < 10; i++) {
   await blad.evaluate((n) => {
     const T = window.TERREINBOUWER;
     return T.doeZet({ naam: 'hilly-terrain-grass-floor', x: n + 3, z: 0, laag: 0, slagen: 0 });
   }, i);
 }
-toets('tien stukken erbij', await aantal(blad) === 11);
+toets('tien stukken erbij', await aantal(blad) === voorTien + 10);
 for (let i = 0; i < 10; i++) await blad.locator('#ongedaan').tap();
-toets('en tien keer ongedaan haalt ze er allemaal af', await aantal(blad) === 1);
+toets('en tien keer ongedaan haalt ze er allemaal af', await aantal(blad) === voorTien);
 
 /* -- lagen ----------------------------------------------------------------- */
 

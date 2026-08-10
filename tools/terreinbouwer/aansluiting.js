@@ -264,16 +264,17 @@ export function controleer(bouwsel) {
   for (const [sleutel, bewoners] of bouwsel.bezet) {
     const [x, z, laag] = sleutel.split(',').map(Number);
 
-    /* 1. twee stukken in hetzelfde vak op dezelfde laag */
-    if (bewoners.length > 1) {
-      meldingen.push({
-        soort: 'overlap',
-        ernst: ERNST.fout,
-        tekst: `${bewoners.length} stukken in hetzelfde vak: ${bewoners.map((b) => naamVan(b.id)).join(', ')}`,
-        stukken: bewoners.map((b) => b.id),
-        plek: { x, z, laag },
-      });
-    }
+    /* Twee stukken in hetzelfde vak is géén melding.
+     *
+     * Dat was het wel, en dat was fout. Een kei hoort op de tegel waar hij op
+     * ligt — eenentwintig stukken in deze kit zijn zulke props. En dertien
+     * stukken claimen meer vakken dan ze vullen: `cliff-terrain-corner-inner-
+     * 3x3-mid` claimt er negen en vult er vijf, dus de lege vakken binnen zo'n
+     * hoek horen juist door iets anders gevuld te worden. Wie dat een botsing
+     * noemt, verbiedt de helft van wat je met deze kit doet.
+     *
+     * Of twee stukken samen kunnen is een oordeel, en dat oordeel is niet aan
+     * de bouwer. Wat hier overblijft is meten en melden. */
 
     for (const bewoner of bewoners) {
       const stuk = bouwsel.stukken.get(bewoner.id);
@@ -355,6 +356,30 @@ export function controleer(bouwsel) {
         }
       }
     }
+  }
+
+  /* Twee keer exact hetzelfde stuk op exact dezelfde plek.
+   *
+   * Het enige geval waarin samenvallende stukken wél het melden waard zijn:
+   * identieke stukken dekken elkaar precies af, dus je ziet het niet en je
+   * merkt het pas als je er één weghaalt en er nog een blijkt te staan. Elke
+   * andere combinatie is een keuze van wie bouwt. */
+  const perPlek = new Map();
+  for (const stuk of bouwsel.stukken.values()) {
+    const sleutel = `${stuk.naam}@${stuk.x},${stuk.z},${stuk.laag},${stuk.slagen}`;
+    if (!perPlek.has(sleutel)) perPlek.set(sleutel, []);
+    perPlek.get(sleutel).push(stuk.id);
+  }
+  for (const ids of perPlek.values()) {
+    if (ids.length < 2) continue;
+    const stuk = bouwsel.stukken.get(ids[0]);
+    meldingen.push({
+      soort: 'dubbel',
+      ernst: ERNST.waarschuwing,
+      tekst: `${stuk.naam} staat hier ${ids.length}× bovenop zichzelf`,
+      stukken: ids,
+      plek: { x: stuk.x, z: stuk.z, laag: stuk.laag },
+    });
   }
 
   /* 5. de trap van een stapel: base onderop, top bovenop.

@@ -347,7 +347,8 @@ let laatsteMeldingen = [];
 /** Het stuk dat op de wijzer staat, of null. */
 function opWijzer() {
   const bewoners = bouwsel.op(stand.wijzer[0], stand.wijzer[1], stand.laag);
-  return bewoners.length ? bouwsel.stukken.get(bewoners[0].id) : null;
+  // het laatst neergezette bovenop: dat is wat je ziet en dus wat "Weg" pakt
+  return bewoners.length ? bouwsel.stukken.get(bewoners[bewoners.length - 1].id) : null;
 }
 
 /**
@@ -379,7 +380,7 @@ function werkBijAlles() {
     naam: stand.penseel, x: stand.wijzer[0], z: stand.wijzer[1], laag: stand.laag, slagen: stand.slagen,
   };
 
-  if (schaduw && proef && !bewoner) {
+  if (schaduw && proef) {
     schaduw.visible = true;
     zetNeer(schaduw, proef);
     /* De controle wordt niet nagebootst maar echt gedraaid: het stuk gaat er
@@ -397,7 +398,10 @@ function werkBijAlles() {
     wijzer.material.color.setHex(bewoner ? 0xc07a1e : 0x2b6cb0);
   }
 
-  zetKnop.disabled = !stand.penseel || !!bewoner;
+  /* Neerzetten wordt niet geweigerd omdat er al iets staat. Een kei hoort op
+   * een tegel, en of twee stukken samen kunnen is een oordeel — de controle
+   * meldt wat ze meet, de bouwer beslist niets voor je. */
+  zetKnop.disabled = !stand.penseel;
   wegKnop.disabled = !bewoner;
   ongedaanKnop.disabled = geschiedenis.length === 0;
   opnieuwKnop.disabled = teruggedraaid.length === 0;
