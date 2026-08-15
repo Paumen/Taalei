@@ -307,9 +307,6 @@ const OORDEELSLEUTEL = 'terrain-authoring-tool-oordelen';
 
 const SLEUTELVORM = /^[^|]*\|(zij|rand|stapel)\|-?\d+,-?\d+,-?\d+,[nozwb] .+>.+$/;
 
-// De eerste keer begin je met de oordelen die meegeleverd zijn. Daarna is wat
-// in deze browser staat de waarheid — ook als je er een intrekt, want anders
-// stond een ingetrokken oordeel er na het herladen zo weer.
 const opgeslagenOordelen = localStorage.getItem(OORDEELSLEUTEL);
 
 async function beginOordelen() {
@@ -370,8 +367,6 @@ function opWijzer() {
   return bewoners.length ? bouwsel.stukken.get(bewoners[bewoners.length - 1].id) : null;
 }
 
-// Alles wat op dit vak staat, welke laag ook. bezet is per vak én laag
-// gesleuteld, dus op() alleen zou de lagen erboven en eronder laten staan.
 function alsOpWijzer() {
   const [x, z] = stand.wijzer;
   const ids = new Set();
@@ -783,8 +778,6 @@ function vulBouwsels() {
   bladInhoud.append(voet);
 }
 
-// Eén paar knoppen voor alles wat van jou is — de bouwsels én de oordelen —
-// zodat je niet twee bestanden hoeft te bewaren om niets kwijt te raken.
 function hangOpslagAan(voet) {
   const uit = document.createElement('button');
   uit.type = 'button';
@@ -1193,8 +1186,6 @@ window.TERRAIN_AUTHORING_TOOL = {
 };
 window.KLAAR = true;
 
-// Pak op waar je gebleven was: het laatst geopende bouwsel, met jouw
-// veranderingen erin. Losse stukken zonder bouwsel staan onder ''.
 const waar = localStorage.getItem(WAARSLEUTEL);
 if (waar) {
   const vorige = voorbeelden.find((v) => v.naam === waar);
