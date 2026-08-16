@@ -290,7 +290,12 @@ const opnieuw = () => verzet(teruggedraaid, geschiedenis, true);
 const EIGENSLEUTEL = 'terrain-authoring-tool-eigen';
 const WAARSLEUTEL = 'terrain-authoring-tool-waar';
 
-const eigen = new Map(Object.entries(JSON.parse(localStorage.getItem(EIGENSLEUTEL) ?? '{}')));
+const bewaardEigen = Object.entries(JSON.parse(localStorage.getItem(EIGENSLEUTEL) ?? '{}'));
+const eigen = new Map(bewaardEigen.filter(
+  ([, stukken]) => Array.isArray(stukken) && stukken.every((stuk) => kit.modellen.has(stuk?.naam)),
+));
+const verouderdEigen = bewaardEigen.length - eigen.size;
+if (verouderdEigen) localStorage.setItem(EIGENSLEUTEL, JSON.stringify(Object.fromEntries(eigen)));
 
 function bewaarEigen() {
   eigen.set(bouwsel.noemer, bouwsel.naarJson().stukken);
@@ -1031,6 +1036,13 @@ function vulCombinaties() {
     kwijt.className = 'kwijt';
     kwijt.textContent = `${vervallen} eerder bewaarde oordelen zijn vervallen: `
       + 'die hingen aan iets anders dan een voeg en waren niet om te rekenen.';
+    kop.append(kwijt);
+  }
+  if (verouderdEigen) {
+    const kwijt = document.createElement('p');
+    kwijt.className = 'kwijt';
+    kwijt.textContent = `${verouderdEigen} eerder bewaarde bouwsels zijn vervallen: `
+      + 'daar stonden stukken in die niet meer in de kit zitten.';
     kop.append(kwijt);
   }
   bladInhoud.append(kop);
