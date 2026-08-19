@@ -21,3 +21,5 @@ Binaries
 
 Conditional (only if claude CLI present)
 * registers claude-design MCP server (user scope, HTTP)
+
+abc
