@@ -13,7 +13,9 @@
  *
  * Stap 2 — dit script: oorsprong, namen en kleur.
  *
- * Van de 48 modellen in de pack zijn er 28 gekozen; de rest is niet ingeladen.
+ * Van de 48 modellen in de pack zijn er 27 gekozen; de rest is niet ingeladen.
+ * Plate_01 hoorde daar eerst bij en is na de maatreview weer uit de kit gehaald;
+ * hij staat daarom niet meer in NAMEN.
  * Anders dan de tropical-pack van dezelfde makers draagt deze pack één mesh per
  * bestand, zonder detailtrappen. Een deel heeft wel een tweede UV-set die
  * nergens naar verwijst; die gaat eruit.
@@ -24,7 +26,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer } from './glb.mjs';
 import { leesPng } from './png.mjs';
-import { doelPunten, hermapUv, toetsDriehoeken } from './kleurmap.mjs';
+import { doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOEL = join(ROOT, 'kits', 'props');
@@ -82,7 +84,6 @@ const NAMEN = {
   Jug_02: 'jug-b',
   Jug_03: 'jug-c',
   Jug_04: 'jug-d',
-  Plate_01: 'plate-a',
   Plate_02: 'plate-b',
   Plate_03: 'plate-c',
   Stairs_01: 'stairs-a',
@@ -110,13 +111,28 @@ const aanwezig = new Set(
 const ontbreekt = Object.keys(NAMEN).filter((n) => !aanwezig.has(n));
 if (ontbreekt.length) throw new Error(`niet gevonden in ${bronMap}: ${ontbreekt.join(', ')}`);
 
+/* Eerst de hele pack inlezen om te tellen welke tinten van welke baan hij
+ * gebruikt; daarmee kiest baanTabel() per bron-baan één cel. Die keuze moet
+ * voor de hele kit gelijk zijn, dus hij valt vóór het eerste model.
+ *
+ * Deze pack heeft de modellen harder nodig dan de KayKit-packs. Die tekenen
+ * hun schakering als verticaal verloop, en dan leest bronBanen zelf al uit de
+ * atlas welke tinten bij elkaar horen. Medieval Props zet de tinten van
+ * hetzelfde hout als losse vlakke velden naast elkaar; alleen de modellen
+ * verraden dan nog dat twee duigen van hetzelfde vat één oppervlak zijn. */
+const tabel = baanTabel(
+  bronAtlas,
+  punten,
+  Object.keys(NAMEN).map((bron) => leesGlb(join(bronMap, `${bron}.glb`))),
+);
+
 const perKleur = new Map();
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
   const ruw = leesGlb(join(bronMap, `${bron}.glb`));
   const meshIndexen = ruw.json.meshes.map((_, i) => i);
 
-  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen);
+  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen, tabel);
   const glb = compacteer(ruw, meshIndexen, ['POSITION', 'NORMAL', 'TEXCOORD_0']);
 
   glb.json.materials = [{
@@ -148,6 +164,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
 
   const voor = zetOpOorsprong(glb, naam, SCHAAL);
   const verdacht = toetsDriehoeken(glb, [0], doelAtlas);
+  const naden = toetsNaden(glb, [0], doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
   schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
@@ -166,6 +183,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   if (gesnapt > 0) console.log(`  ${gesnapt} hoekpunten teruggehaald naar de cel van hun driehoek`);
   if (verdacht > 0) {
     console.warn(`  ! ${naam}: ${verdacht} driehoeken lopen over meer dan één cel`);
+  }
+  if (naden > 0) {
+    console.warn(`  ! ${naam}: ${naden} kleurnaden tussen driehoeken in hetzelfde vlak`);
   }
 }
 

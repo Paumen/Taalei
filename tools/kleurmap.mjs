@@ -246,6 +246,109 @@ function baanBij(atlas, banen, u, v) {
 }
 
 /**
+ * Voegt banen samen die in de modellen op één vlak naast elkaar liggen.
+ *
+ * `bronBanen` leest de atlas, en dat werkt zolang een pack zijn schakering als
+ * verticaal verloop tekent. De Medieval Props-pack doet dat niet: die zet de
+ * tinten van hetzelfde hout als losse vlakke velden naast elkaar neer. Twee
+ * naburige duigen van hetzelfde vat komen dan in twee banen terecht en mogen
+ * naar twee verschillende cellen — precies de naad die we willen voorkomen.
+ *
+ * De modellen weten wel beter. Liggen twee driehoeken in hetzelfde vlak tegen
+ * elkaar aan en schelen hun kleuren minder dan `drempel`, dan las de bron ze
+ * aan elkaar als één oppervlak en horen ze bij elkaar. Schelen ze méér, dan is
+ * het een bedoelde kleurgrens — de blauwe rand van een kruik tegen het aardewerk
+ * — en blijven de banen uit elkaar.
+ *
+ * @returns {Map<number, number>} baan → nummer van de groep waar hij bij hoort
+ */
+export function koppelBanen(bronAtlas, banen, modellen, drempel = 60) {
+  const ouder = new Map();
+  const zoek = (a) => {
+    while (ouder.has(a) && ouder.get(a) !== a) a = ouder.get(a);
+    return a;
+  };
+  const bind = (a, b) => {
+    a = zoek(a);
+    b = zoek(b);
+    if (a === b) return;
+    const [laag, hoog] = a < b ? [a, b] : [b, a];
+    ouder.set(hoog, laag);
+    ouder.set(laag, laag);
+  };
+
+  for (const glb of modellen) {
+    for (const mesh of glb.json.meshes ?? []) {
+      for (const prim of mesh.primitives) {
+        if (prim.attributes.TEXCOORD_0 === undefined) continue;
+        const pos = leesAccessor(glb, prim.attributes.POSITION).data;
+        const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0).data;
+        const idx = prim.indices !== undefined ? leesAccessor(glb, prim.indices).data : null;
+        const aantal = idx ? idx.length : pos.length / 3;
+
+        const driehoeken = [];
+        for (let i = 0; i + 2 < aantal; i += 3) {
+          const hoek = [0, 1, 2].map((k) => (idx ? idx[i + k] : i + k));
+          const p = hoek.map((v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
+          const e1 = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
+          const e2 = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
+          const n = [
+            e1[1] * e2[2] - e1[2] * e2[1],
+            e1[2] * e2[0] - e1[0] * e2[2],
+            e1[0] * e2[1] - e1[1] * e2[0],
+          ];
+          const lengte = Math.hypot(...n);
+          if (!lengte) continue;
+
+          // De baan van de driehoek: die van de meerderheid van zijn hoeken.
+          const telling = new Map();
+          let kleur = [0, 0, 0];
+          for (const v of hoek) {
+            const bij = baanBij(bronAtlas, banen, uv[v * 2], uv[v * 2 + 1]);
+            telling.set(bij.baan, (telling.get(bij.baan) ?? 0) + 1);
+            kleur = kleur.map((c, k) => c + bij.kleur[k] / 3);
+          }
+          let baan = -1;
+          let meeste = 0;
+          for (const [b, n2] of telling) {
+            if (n2 > meeste) {
+              meeste = n2;
+              baan = b;
+            }
+          }
+          driehoeken.push({ p, normaal: n.map((v) => v / lengte), baan, kleur });
+        }
+
+        const ribben = new Map();
+        driehoeken.forEach((d, index) => {
+          for (let k = 0; k < 3; k++) {
+            const sleutel = [d.p[k], d.p[(k + 1) % 3]]
+              .map((q) => q.join(','))
+              .sort()
+              .join('|');
+            if (!ribben.has(sleutel)) ribben.set(sleutel, []);
+            ribben.get(sleutel).push(index);
+          }
+        });
+
+        for (const paar of ribben.values()) {
+          if (paar.length !== 2) continue;
+          const [a, b] = paar.map((i) => driehoeken[i]);
+          if (a.baan === b.baan) continue;
+          if (a.normaal.reduce((s, v, k) => s + v * b.normaal[k], 0) < 0.999) continue;
+          if (kleurAfstand(a.kleur, b.kleur) > drempel) continue;
+          bind(a.baan, b.baan);
+        }
+      }
+    }
+  }
+
+  const groep = new Map();
+  for (const baan of ouder.keys()) groep.set(baan, zoek(baan));
+  return groep;
+}
+
+/**
  * Kiest per bron-baan één cel in de doel-atlas.
  *
  * Een baan wordt vergeleken met elke gevulde cel: voor elke tint uit de baan de
@@ -265,6 +368,11 @@ function baanBij(atlas, banen, u, v) {
 export function baanTabel(bronAtlas, punten, modellen = []) {
   const banen = banenVan(bronAtlas);
 
+  // Banen die in de modellen op één vlak aan elkaar grenzen tellen als één;
+  // ze moeten immers samen in één cel landen. Zie koppelBanen.
+  const groep = koppelBanen(bronAtlas, banen, modellen);
+  const wortel = (baan) => groep.get(baan) ?? baan;
+
   const perCel = new Map();
   for (const punt of punten) {
     const sleutel = punt.cel.join(',');
@@ -283,8 +391,9 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
         const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
         for (let i = 0; i < uv.count; i++) {
           const { baan, kleur } = baanBij(bronAtlas, banen, uv.data[i * 2], uv.data[i * 2 + 1]);
-          if (!gebruik.has(baan)) gebruik.set(baan, new Map());
-          const tinten = gebruik.get(baan);
+          const sleutelBaan = wortel(baan);
+          if (!gebruik.has(sleutelBaan)) gebruik.set(sleutelBaan, new Map());
+          const tinten = gebruik.get(sleutelBaan);
           const sleutel = naarHex(...kleur);
           tinten.set(sleutel, (tinten.get(sleutel) ?? 0) + 1);
         }
@@ -300,7 +409,7 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
     if (!alleTinten) {
       alleTinten = new Map();
       for (let i = 0; i < banen.label.length; i++) {
-        const b = banen.label[i];
+        const b = wortel(banen.label[i]);
         if (!alleTinten.has(b)) alleTinten.set(b, new Map());
         alleTinten.get(b).set(
           naarHex(bronAtlas.pixels[i * 4], bronAtlas.pixels[i * 4 + 1], bronAtlas.pixels[i * 4 + 2]),
@@ -315,6 +424,8 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
   return {
     banen,
     cel(baan) {
+      // Eén keuze per groep: alle banen van hetzelfde oppervlak volgen elkaar.
+      baan = wortel(baan);
       if (gekozen.has(baan)) return gekozen.get(baan);
 
       const tinten = [...tintenVan(baan)];

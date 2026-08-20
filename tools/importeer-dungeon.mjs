@@ -3,9 +3,15 @@
  *
  * Draai vanuit de repo-root:  node tools/importeer-dungeon.mjs <map-met-gltf>
  *
- * De bronbestanden staan niet in de repo — alleen het resultaat. Net als
- * rpgtools, forest en resources levert deze pack al .gltf + .bin per model,
- * dus is er geen FBX2glTF-stap nodig.
+ * De bronbestanden staan niet in de repo — alleen het resultaat. De gratis
+ * pack 1.1 levert .fbx, dus gaat er net als bij props een omzetstap aan vooraf:
+ *
+ *     FBX2glTF -i <naam>.fbx -o <naam> -b --pbr-metallic-roughness
+ *
+ *   (FBX2glTF 0.9.7, npm-pakket `fbx2gltf`.)
+ *
+ * Een map met .gltf + .bin werkt ook; leesBron() pakt wat er ligt. De eerdere
+ * import kwam uit zo'n map.
  *
  * Namen zijn al gewone Engelse woorden met underscores (`barrel_large`),
  * 1-op-1 overgezet naar kebab-case. `barrier_colum_half` is een tikfout van
@@ -15,12 +21,12 @@
  * Eén schaalfactor voor de hele pack (stijlgids §4), zie SCHAAL hieronder.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
 import { leesPng } from './png.mjs';
-import { doelPunten, hermapUv, toetsDriehoeken, kopieerColormap } from './kleurmap.mjs';
+import { doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden, kopieerColormap } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS = join(ROOT, 'kits');
@@ -83,7 +89,21 @@ const BRONNEN = [
   'wall_open_scaffold', 'wall_pillar', 'wall_scaffold', 'wall_shelves', 'wall_sloped',
   'wall_window_closed', 'wall_window_closed_scaffold', 'wall_window_open', 'wall_window_open_scaffold',
 ];
-const NAMEN = Object.fromEntries(BRONNEN.map((b) => [b, b.toLowerCase().replace(/_/g, '-')]));
+/**
+ * Modellen die de pack wél levert maar die de kit niet voert. Ze staan hier in
+ * plaats van in BRONNEN, zodat het lijstje blijft laten zien wat er in de pack
+ * zit én een herimport ze niet elke keer terugzet.
+ *
+ * De drie dichte roostertegels zijn eruit gehaald na de maatreview: van elk
+ * rooster houdt de kit de open variant, die de dichte als vorm al bevat.
+ */
+const WEGGELATEN = new Set([
+  'floor_tile_big_grate', 'floor_tile_extralarge_grates', 'floor_tile_grate',
+]);
+
+const NAMEN = Object.fromEntries(
+  BRONNEN.filter((b) => !WEGGELATEN.has(b)).map((b) => [b, b.toLowerCase().replace(/_/g, '-')]),
+);
 
 /** De textuur die de pack meelevert; gaat niet mee de repo in. */
 const BRON_TEXTUUR = 'dungeon_texture.png';
@@ -94,7 +114,11 @@ if (!bronMap) {
   process.exit(1);
 }
 
-function leesGltf(naam) {
+/** Leest het bronmodel: .glb als het er ligt, anders .gltf naast zijn .bin. */
+function leesBron(naam) {
+  const glb = join(bronMap, `${naam}.glb`);
+  if (existsSync(glb)) return leesGlb(glb);
+
   const json = JSON.parse(readFileSync(join(bronMap, `${naam}.gltf`), 'utf8'));
   if (json.buffers.length !== 1) throw new Error(`${naam}: meer dan één buffer, niet ondersteund`);
   const bin = readFileSync(join(bronMap, json.buffers[0].uri));
@@ -108,15 +132,20 @@ const punten = doelPunten(doelAtlas);
 mkdirSync(join(DOEL, 'Textures'), { recursive: true });
 copyFileSync(COLORMAP, join(DOEL, 'Textures', 'colormap.png'));
 
+/* Eerst de hele pack inlezen om te tellen welke tinten van welke baan hij
+ * gebruikt; daarmee kiest baanTabel() per bron-baan één cel. Die keuze moet
+ * voor de hele kit gelijk zijn, dus hij valt vóór het eerste model. */
+const tabel = baanTabel(bronAtlas, punten, Object.keys(NAMEN).map(leesBron));
+
 const perKleur = new Map();
 const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
-  let ruw = leesGltf(bron);
+  let ruw = leesBron(bron);
   const meshIndexen = ruw.json.meshes.map((_, i) => i);
   ruw = ontvlecht(ruw, meshIndexen);
 
-  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen);
+  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen, tabel);
   const glb = compacteer(ruw, meshIndexen);
 
   glb.json.materials = [{
@@ -138,7 +167,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   };
 
   const voor = zetOpOorsprong(glb, naam, SCHAAL);
-  const verdacht = toetsDriehoeken(glb, glb.json.meshes.map((_, i) => i), doelAtlas);
+  const alleMeshes = glb.json.meshes.map((_, i) => i);
+  const verdacht = toetsDriehoeken(glb, alleMeshes, doelAtlas);
+  const naden = toetsNaden(glb, alleMeshes, doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
   schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
@@ -162,6 +193,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   if (verdacht > 0) {
     console.warn(`  ! ${naam}: ${verdacht} driehoeken lopen over meer dan één cel`);
   }
+  if (naden > 0) {
+    console.warn(`  ! ${naam}: ${naden} kleurnaden tussen driehoeken in hetzelfde vlak`);
+  }
 }
 
 console.log();
@@ -180,6 +214,15 @@ const paletJson = JSON.parse(readFileSync(paletPad, 'utf8'));
 const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
 if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
 
+/* Eerst deze kit overal weghalen. Bij een herimport kan een model in een andere
+ * cel terechtkomen dan de vorige keer, en build-catalog.mjs leest de kleur van
+ * een model hiervandaan — een vermelding die blijft staan geeft het model in de
+ * catalogus een kleur die het niet meer heeft. Zonder deze stap groeide de lijst
+ * alleen maar aan: ook modellen die de kit niet meer voert bleven vermeld. */
+for (const cel of gedeeld.cellen) {
+  cel.bronnen = cel.bronnen.filter((b) => b.kit !== 'dungeon');
+}
+
 for (const [celSleutel, modellenSet] of perCel) {
   const [kolom, rij] = celSleutel.split(',').map(Number);
   const cel = gedeeld.cellen.find((c) => c.cel[0] === kolom && c.cel[1] === rij);
@@ -190,6 +233,13 @@ for (const [celSleutel, modellenSet] of perCel) {
     cel.bronnen.push(bron);
   }
   bron.modellen = [...new Set([...bron.modellen, ...modellenSet])].sort();
+}
+
+/* Vaste volgorde op kitnaam. Deze kit is hierboven weggehaald en opnieuw
+ * achteraan gezet; zonder sorteren levert dezelfde import twee keer draaien
+ * een ander bestand op, en verdrinkt een echte wijziging in het diff. */
+for (const cel of gedeeld.cellen) {
+  cel.bronnen.sort((a, b) => (a.kit < b.kit ? -1 : a.kit > b.kit ? 1 : 0));
 }
 
 writeFileSync(paletPad, `${JSON.stringify(paletJson, null, 1)}\n`);
