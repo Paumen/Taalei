@@ -56,6 +56,11 @@ const SCHAAL = 0.6;
  * stuk vlees aan het bot en een paddenstoel. Die heten hier naar wat ze zijn:
  * anders staan er drie meubels in de catalogus die je alleen uit elkaar houdt
  * door ze te openen, en zijn er geen Nederlandse zoekwoorden voor te schrijven.
+ *
+ * `Bucket_01` en `Bucket_01_2` zijn geen twee emmers maar één: de kuip en het
+ * hengsel. Dit script laadt ze los in als `bucket-a` en `bucket-b`, omdat het
+ * per bronbestand werkt; tools/voeg-samen.mjs zet ze daarna in elkaar tot één
+ * `bucket-a`. Draai dat script dus na een herimport opnieuw.
  */
 const NAMEN = {
   Bag_01: 'bag-a',

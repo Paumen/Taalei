@@ -71,8 +71,12 @@ const OLIJFGROEN = { cel: [3, 1], boven: [141, 170, 73], onder: [78, 112, 30] };
 
 /**
  * Bronbestand → naam in de kit, kebab-case met letterachtervoegsels zoals de
- * rest van de repo. `Chest_01` en `Chest_01_2` zijn twee varianten van dezelfde
- * kist en worden `chest-a` en `chest-b`.
+ * rest van de repo.
+ *
+ * `Chest_01` en `Chest_01_2` zijn geen twee kisten maar één: de bak en het
+ * deksel. Dit script laadt ze los in als `chest-a` en `chest-b`, omdat het per
+ * bronbestand werkt; tools/voeg-samen.mjs zet ze daarna in elkaar tot één
+ * `chest-a`. Draai dat script dus na een herimport opnieuw.
  */
 const NAMEN = {
   Barrel_04: 'barrel-a',
