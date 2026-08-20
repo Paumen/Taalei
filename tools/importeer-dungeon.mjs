@@ -25,10 +25,9 @@ import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
-import { leesPng, schrijfPng } from './png.mjs';
+import { leesPng } from './png.mjs';
 import {
-  doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden, voegGradientCelToe,
-  gevuldeCellen, kopieerColormap, naarHex,
+  doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden, kopieerColormap, naarHex,
 } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,25 +48,6 @@ const COLORMAP = join(KITS, 'colormap.png');
  * en vloeren meten 1,4 × 1,4 en verkavelen op hun eigen 1,4-module — de
  * dungeon sluit niet meer 1-op-1 aan op wanden van andere kits.
  */
-/**
- * De ene kleur die niet uit kits/colormap.png te halen was.
- *
- * Het glas van de flessen, de kruiken en het gebraad delen in de bron één baan
- * die van fel oranje (#f17b36) naar donker kastanje (#7d2f22) loopt — het
- * koperbruin waar KayKit zijn aardewerk in zet. Het gedeelde palet had daar
- * niets voor: de dichtstbijzijnde cel is [7,0], een rode baan, en die won het
- * op elke maat die ik erop losliet (redmean, CIELab, gemiddelde uitkomst) van
- * het bruin in [12,0]. Rekenkundig klopt dat; op het scherm werd de bruine fles
- * knalrood. Niet de keuze was fout maar de voorraad — het palet had de kleur
- * simpelweg niet.
- *
- * Vandaar deze baan: dezelfde lichtheid als de bron, maar in bruin gehouden in
- * plaats van naar rood te lopen. Dat is een paletbesluit (PO), geen bugfix, en
- * het is additief: bestaande cellen blijven waar ze staan, dus geen enkele
- * andere kit verschiet ervan.
- */
-const KOPERBRUIN = { cel: [11, 0], boven: [200, 127, 69], onder: [78, 42, 28] };
-
 const SCHAAL = 0.35;
 
 /** Bronbestand (zonder .gltf) → naam in de kit: underscore → kebab-case. */
@@ -150,13 +130,6 @@ function leesBron(naam) {
 const bronAtlas = leesPng(join(bronMap, BRON_TEXTUUR));
 
 const doelAtlas = leesPng(COLORMAP);
-const stondAl = gevuldeCellen(doelAtlas).some(([k, r]) => k === KOPERBRUIN.cel[0] && r === KOPERBRUIN.cel[1]);
-voegGradientCelToe(doelAtlas, KOPERBRUIN.cel, KOPERBRUIN.boven, KOPERBRUIN.onder);
-schrijfPng(COLORMAP, doelAtlas);
-console.log(
-  `${stondAl ? 'bijgewerkt' : 'toegevoegd'}: cel [${KOPERBRUIN.cel}] ` +
-  `${naarHex(...KOPERBRUIN.boven)} → ${naarHex(...KOPERBRUIN.onder)} in kits/colormap.png`,
-);
 const punten = doelPunten(doelAtlas);
 
 mkdirSync(join(DOEL, 'Textures'), { recursive: true });
@@ -257,12 +230,18 @@ for (const [celSleutel, modellenSet] of perCel) {
   const [kolom, rij] = celSleutel.split(',').map(Number);
   let cel = gedeeld.cellen.find((c) => c.cel[0] === kolom && c.cel[1] === rij);
   if (!cel) {
-    if (kolom !== KOPERBRUIN.cel[0] || rij !== KOPERBRUIN.cel[1]) {
-      throw new Error(`cel [${kolom},${rij}] staat niet in kits/palet.json — nieuwe cel niet verwacht voor deze pack`);
-    }
-    // Precies de nieuwe KOPERBRUIN-cel: palet.json kende hem nog niet.
-    const midden = KOPERBRUIN.boven.map((v, i) => Math.round((v + KOPERBRUIN.onder[i]) / 2));
-    cel = { cel: [kolom, rij], kleur: naarHex(...midden), bronnen: [] };
+    /* Een cel die tools/verf.mjs erbij heeft geschilderd: palet.json kende hem
+     * nog niet. De kleur lezen we uit het midden van die cel in de colormap. */
+    const celBreed = doelAtlas.breedte / 16;
+    const celHoog = doelAtlas.hoogte / 4;
+    const x = Math.floor(kolom * celBreed + celBreed / 2);
+    const y = Math.floor(rij * celHoog + celHoog / 2);
+    const i = (y * doelAtlas.breedte + x) * 4;
+    cel = {
+      cel: [kolom, rij],
+      kleur: naarHex(doelAtlas.pixels[i], doelAtlas.pixels[i + 1], doelAtlas.pixels[i + 2]),
+      bronnen: [],
+    };
     gedeeld.cellen.push(cel);
   }
   let bron = cel.bronnen.find((b) => b.kit === 'dungeon');

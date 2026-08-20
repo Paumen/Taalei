@@ -1,0 +1,35 @@
+{
+ "toelichting": [
+  "Hier bepaal jij de kleur van je modellen. Niet de importeur, niet een formule.",
+  "",
+  "Draaien:  node tools/verf.mjs          (of --toon om eerst te kijken)",
+  "Daarna:   node tools/build-catalog.mjs",
+  "",
+  "Je hebt de bronpacks hier niet voor nodig. Een .glb wijst met zijn UV's een",
+  "cel van kits/colormap.png aan, en verticaal binnen die cel loopt de",
+  "schakering van licht naar donker. Omverven is die wijzer naar een andere",
+  "kolom verzetten; de hoogte blijft staan, dus de schakering ook.",
+  "",
+  "Velden per regel:",
+  "  wat    - 'kit' of 'kit/patroon', met * als jokerteken. Bijvoorbeeld",
+  "           'dungeon/bottle-*' of 'dungeon' voor de hele kit.",
+  "  van    - alleen hoekpunten die nu in deze cel zitten, [kolom, rij].",
+  "           Laat weg om alles van die modellen te verplaatsen.",
+  "  naar   - de cel die het moet worden, [kolom, rij].",
+  "  wordt  - optioneel: schilder die cel met deze baan, van 'boven' (licht)",
+  "           naar 'onder' (donker). Nodig als de cel nog leeg is, handig als",
+  "           je hem gewoon anders wilt.",
+  "  reden  - voor jezelf en voor wie dit na jou leest.",
+  "",
+  "Welke cel iets nu heeft zie je in kits/palet.json, of met --toon."
+ ],
+ "keuzes": [
+  {
+   "wat": "dungeon/bottle-*",
+   "van": [7, 0],
+   "naar": [11, 0],
+   "wordt": { "boven": "#c87f45", "onder": "#4e2a1c" },
+   "reden": "Het aardewerk van KayKit hoort bruin te zijn. Elke maat die je erop loslaat (redmean, CIELab, gemiddelde uitkomst) kiest de rode baan [7,0], en dan wordt een bruine fles knalrood. Dit is een besluit, geen berekening."
+  }
+ ]
+}
