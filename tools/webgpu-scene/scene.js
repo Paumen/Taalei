@@ -26,6 +26,11 @@ import { draaiY, eenheid, kijkNaar, maal, normaalMatrix, perspectief, uitTRS } f
 const KITS = '/kits/';
 const graden = (d) => (d * Math.PI) / 180;
 
+/* Welke atlas eroverheen gaat. Standaard die van de kits zelf; met ?atlas=<pad>
+ * is een kandidaat te bekijken zonder iets in kits/ aan te raken, bijvoorbeeld
+ * ?atlas=/tools/vergelijk-kleurmap/colormap-v2.png */
+const ATLAS = new URLSearchParams(location.search).get('atlas') ?? `${KITS}colormap.png`;
+
 /** sRGB-hex → lineair, met de gamma uit de opdracht (2.2, geen sRGB-knik). */
 const naarLineair = (hex) =>
   [1, 3, 5].map((i) => Math.pow(parseInt(hex.slice(i, i + 2), 16) / 255, 2.2));
@@ -130,7 +135,7 @@ const [licht, opstelling] = await Promise.all([
 /* De atlas als lineaire textuur: het decoderen doet de shader zelf, precies
  * zoals de opdracht het opschrijft. colorSpaceConversion 'none' houdt de bytes
  * heel op weg naar de GPU. */
-const beeld = await createImageBitmap(await (await fetch(`${KITS}colormap.png`)).blob(), {
+const beeld = await createImageBitmap(await (await fetch(ATLAS)).blob(), {
   colorSpaceConversion: 'none',
 });
 const textuur = apparaat.createTexture({

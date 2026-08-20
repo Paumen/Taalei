@@ -4,6 +4,11 @@
 de belichting in `tools/webgpu-scene/licht.json`. Open de pagina in een browser
 met WebGPU; slepen draait de camera, scrollen zoomt.
 
+Met `?atlas=<pad>` gaat er een andere colormap overheen zonder dat er iets in
+`kits/` verandert — bijvoorbeeld
+`index.html?atlas=/tools/vergelijk-kleurmap/colormap-v2.png` om de kandidaat in
+een hele scène te zien in plaats van per prop.
+
 Er zit geen bibliotheek onder: `glb.js` leest de .glb's, `wiskunde.js` doet de
 matrices, `scene.js` zet de pijplijn op en draagt de WGSL-shader.
 
