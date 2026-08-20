@@ -98,6 +98,22 @@ const waarnemer = new IntersectionObserver(
   { rootMargin: '800px 0px' },
 );
 
+/**
+ * Het licht van elke kaart. model-viewer haalt zijn licht uit een
+ * omgevingsplaat, en kits/omgeving.hdr is gebouwd uit dezelfde
+ * tools/webgpu-scene/licht.json als de WebGPU-scène: overal de omgevingskleur,
+ * plus een zonneschijf op de elevatie en azimut daaruit. Een model ziet er in de
+ * catalogus dus uit als in de scène. `exposure` komt uit hetzelfde bestand.
+ *
+ * De tonemapping blijft die van model-viewer zelf; uitzetten kan niet via een
+ * attribuut. De scène klemt alleen, dus heel lichte vlakken lopen daar iets
+ * eerder vast dan hier.
+ */
+function zetLicht(viewer) {
+  viewer.setAttribute('environment-image', 'kits/omgeving.hdr');
+  viewer.setAttribute('exposure', '1');
+}
+
 function koppelViewer(vak) {
   if (vak.querySelector('model-viewer')) return;
 
@@ -109,10 +125,9 @@ function koppelViewer(vak) {
   // een renderlus aan die niets te tekenen heeft.
   if (vak.dataset.animatie) viewer.setAttribute('autoplay', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('environment-image', 'neutral');
+  zetLicht(viewer);
   viewer.setAttribute('shadow-intensity', '0.6');
   viewer.setAttribute('shadow-softness', '0.9');
-  viewer.setAttribute('exposure', '1.05');
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('disable-zoom', '');
   viewer.setAttribute('loading', 'eager');
@@ -330,7 +345,7 @@ function toonDetail(model, kit, groep) {
   viewer.alt = `3D-model ${model.naam}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('environment-image', 'neutral');
+  zetLicht(viewer);
   viewer.setAttribute('shadow-intensity', '0.7');
   viewer.setAttribute('shadow-softness', '0.9');
 

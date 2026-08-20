@@ -68,3 +68,34 @@ Dat schrijft `docs/webgpu_scene/scene.png`. Het vraagt wel een omgeving waar
 WebGPU beschikbaar is: de Chromium die bij Playwright zit heeft in deze container
 geen `navigator.gpu`, ook niet met `--enable-unsafe-swiftshader`. Op een machine
 met een GPU — of in een browser die je zelf opent — werkt de pagina wel.
+
+## Hetzelfde licht in de catalogus
+
+De catalogus tekent met `<model-viewer>`, en die haalt zijn licht uit een
+omgevingsplaat — geen losse zon, geen losse omgevingskleur. `tools/bouw-omgeving.mjs`
+maakt daarom `kits/omgeving.hdr` uit dezelfde `licht.json`:
+
+```
+node tools/bouw-omgeving.mjs
+```
+
+- Overal de omgevingskleur. Een gelijkmatige omgeving met stralingsdichtheid `A`
+  geeft een lambert-oppervlak precies `albedo × A` terug, hetzelfde als de
+  omgevingsterm in de shader.
+- Plus een zonneschijf van 5° op de elevatie en azimut uit `licht.json`. Een
+  schijf met stralingsdichtheid `L` over ruimtehoek `Ω` geeft
+  `albedo × L × Ω × cos(θ) / π`; de shader doet `albedo × kleur × intensity ×
+  cos(θ)`. De schijf krijgt dus `L = π × kleur × intensity / Ω`.
+- Radiance RGBE, want een LDR-plaat kan de zon niet feller dan wit maken en dan
+  blijft er van het richtingslicht niets over.
+
+`kits/catalog.js` zet die plaat op elke viewer, met de `exposure` uit
+`licht.json`.
+
+Wat gemeten is: de verhouding tussen zon en omgeving komt in allebei op dezelfde
+waarde uit (0,86 op een ton uit de props-kit, gemeten als gemiddelde lineaire
+groenwaarde van de modelpixels met alleen de zon en met alleen de omgeving). Wat
+overblijft is de tonemapping van model-viewer: die drukt hoge waarden samen en
+ontkleurt ze, waardoor een zonzijde daar minder warm uitkomt dan in de scène, die
+alleen klemt. Uitzetten kan niet via een attribuut — `tone-mapping` kent alleen
+`aces`, `agx` en `neutral`, en dat laatste is al de vlakste.
