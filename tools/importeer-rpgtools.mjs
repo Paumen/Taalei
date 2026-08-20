@@ -288,6 +288,13 @@ for (const [celSleutel, modellenSet] of perCel) {
   bron.modellen = [...new Set([...bron.modellen, ...modellenSet])].sort();
 }
 
+/* Vaste volgorde op kitnaam. Deze kit is hierboven weggehaald en opnieuw
+ * achteraan gezet; zonder sorteren levert dezelfde import twee keer draaien
+ * een ander bestand op, en verdrinkt een echte wijziging in de verschuiving. */
+for (const cel of gedeeld.cellen) {
+  cel.bronnen.sort((a, b) => (a.kit < b.kit ? -1 : a.kit > b.kit ? 1 : 0));
+}
+
 writeFileSync(paletPad, `${JSON.stringify(paletJson, null, 1)}\n`);
 console.log('kits/palet.json bijgewerkt met rpgtools-bronnen');
 
