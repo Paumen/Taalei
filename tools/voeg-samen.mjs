@@ -98,7 +98,15 @@ const SAMEN = [
   },
 ];
 
-/** De attributen die deze kits dragen; andere zijn er niet en gaan niet mee. */
+/**
+ * De attributen die deze kits dragen — dezelfde drie die compacteer() en de
+ * importeurs schrijven; tangenten gaan er bij het inladen bewust uit (zie
+ * `tangenten: 'gestript'` in de extras).
+ *
+ * Een onderdeel dat er één mist of er één te veel heeft is een hard geval:
+ * stilzwijgend een COLOR_0 of TANGENT laten vallen zou een model opleveren dat
+ * er anders uitziet dan zijn onderdelen, zonder dat iets dat meldt.
+ */
 const ATTRIBUTEN = ['POSITION', 'NORMAL', 'TEXCOORD_0'];
 
 /* -- inlezen --------------------------------------------------------------
@@ -192,6 +200,8 @@ function voegSamen(kit, onderdelen) {
     for (const { prim, matrix } of leesOnderdelen(glb)) {
       const ontbreekt = ATTRIBUTEN.filter((a) => prim.attributes[a] === undefined);
       if (ontbreekt.length) throw new Error(`${kit}/${naam}: mist ${ontbreekt.join(', ')}`);
+      const teveel = Object.keys(prim.attributes).filter((a) => !ATTRIBUTEN.includes(a));
+      if (teveel.length) throw new Error(`${kit}/${naam}: onbekend attribuut ${teveel.join(', ')}`);
 
       const positie = leesAccessor(glb, prim.attributes.POSITION);
       const normaal = leesAccessor(glb, prim.attributes.NORMAL);
