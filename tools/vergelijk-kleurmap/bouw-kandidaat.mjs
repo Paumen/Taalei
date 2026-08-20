@@ -1,5 +1,6 @@
 /**
- * Bouwt colormap-v2.png uit colormap-v2-aangeleverd.png.
+ * Bouwt colormap-v2.png uit colormap-v2-aangeleverd.png — de atlas die nu in
+ * kits/ ligt.
  *
  * Draaien vanuit de repo-root:
  *   node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
@@ -12,14 +13,18 @@
  *      scheepsrompen rood werden. Hij krijgt een eigen houttoon.
  *
  *   2. De cellen 3,1 en 4,1 dragen de graspollen en blijven staan zoals ze in
- *      kits/colormap.png staan: allebei de baan van cel 3,1 daar.
+ *      colormap-v1.png stonden: allebei de baan van cel 3,1 daar.
  *
  *   3. Cellen met dezelfde kleur delen één baan, en die baan krijgt het verval
  *      in lichtheid dat diezelfde cellen nu hebben. De aangeleverde atlas gaf
- *      elke baan ongeveer hetzelfde verval — rond 19 in L* — ook waar de huidige
+ *      elke baan ongeveer hetzelfde verval — rond 19 in L* — ook waar de oude
  *      atlas vlak is of juist heel steil. Per familie wordt daarom het
- *      gemiddelde verval van de huidige cellen genomen, en dat verval krijgt
- *      elke cel van de familie: gelijke kleur, gelijke baan.
+ *      gemiddelde verval van die cellen in colormap-v1.png genomen, en dat
+ *      verval krijgt elke cel van de familie: gelijke kleur, gelijke baan.
+ *
+ * colormap-v1.png is de gedeelde atlas zoals hij was vóór deze wijziging. Het
+ * bouwen leest daaruit, niet uit kits/colormap.png, want daar ligt inmiddels het
+ * resultaat: anders zou dit script zijn eigen uitkomst als vertrekpunt nemen.
  */
 
 import { copyFileSync } from 'node:fs';
@@ -56,7 +61,7 @@ function opLichtheid(kleur, doelL) {
   return kleur.map((v) => naarSrgb(naarLin(v) * factor));
 }
 
-const huidig = leesPng(join(ROOT, 'kits', 'colormap.png'));
+const huidig = leesPng(join(HIER, 'colormap-v1.png'));
 const atlas = leesPng(join(HIER, 'colormap-v2-aangeleverd.png'));
 
 /* -- regel 1: de houtbaan --------------------------------------------------- */
@@ -68,7 +73,7 @@ for (const [kolom, rij] of GRASPOLLEN) {
   for (let i = 0; i < 128; i++) {
     const y = rij * 128 + i;
     for (let j = 0; j < 32; j++) {
-      const bron = (y * huidig.breedte + 3 * 32 + j) * 4;  // cel 3,1 van de huidige atlas
+      const bron = (y * huidig.breedte + 3 * 32 + j) * 4;  // cel 3,1 van de oude atlas
       const doel = (y * atlas.breedte + kolom * 32 + j) * 4;
       for (let k = 0; k < 4; k++) atlas.pixels[doel + k] = huidig.pixels[bron + k];
     }
@@ -121,11 +126,11 @@ for (const [sleutel, familie] of families) {
 
 schrijfPng(join(HIER, 'colormap-v2.png'), atlas);
 
-console.log('| familie | cellen | verval nu | doel | baan |');
+console.log('| familie | cellen | verval in v1 | doel | baan |');
 console.log('| --- | --- | --- | ---: | --- |');
 for (const r of regels) {
   const cellen = r.cellen.map((c) => c.join(',')).join(' · ');
   if (r.verval === null) { console.log(`| \`${r.sleutel}\` | ${cellen} | _cellen zijn nu leeg_ | — | onveranderd |`); continue; }
   console.log(`| \`${r.sleutel}\` | ${cellen} | ${r.vervallen.map((v) => v.toFixed(1)).join(', ')} | ${r.verval.toFixed(1)} | \`${r.baan}\` |`);
 }
-console.log(`\ncellen 3,1 en 4,1 dragen de baan van cel 3,1 uit kits/colormap.png`);
+console.log(`\ncellen 3,1 en 4,1 dragen de baan van cel 3,1 uit colormap-v1.png`);

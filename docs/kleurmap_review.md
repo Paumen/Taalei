@@ -1,15 +1,15 @@
-# Kleurmap-review: de huidige colormap naast de kandidaat
+# Kleurmap-review: de colormap voor en na de overname
 
-`kits/colormap.png` is ongewijzigd; de kandidaat staat als
-`tools/vergelijk-kleurmap/colormap-v2.png` naast de repo. Beide atlassen hebben
-hetzelfde raster van 16 × 4 cellen, dus de UV's van de modellen blijven waar ze
-staan en alleen de textuur wisselt.
+`kits/colormap.png` draagt sinds deze wijziging het nieuwe palet. De atlas van
+daarvóór staat als `tools/vergelijk-kleurmap/colormap-v1.png` in dezelfde map,
+en de atlas zoals hij binnenkwam als `colormap-v2-aangeleverd.png`. Alle drie
+hebben hetzelfde raster van 16 × 4 cellen, dus de UV's van de modellen zijn niet
+aangeraakt: alleen de textuur wisselt.
 
-## Hoe de kandidaat is opgebouwd
+## Hoe het nieuwe palet is opgebouwd
 
-De atlas zoals hij binnenkwam staat ongemoeid in `colormap-v2-aangeleverd.png`.
-`bouw-kandidaat.mjs` maakt daar `colormap-v2.png` van, zodat na te lopen is wat
-er is veranderd en waarom:
+`bouw-kandidaat.mjs` leidt het af uit de aangeleverde atlas, met `colormap-v1.png`
+als referentie voor hoe de banen liepen:
 
 ```
 node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
@@ -17,19 +17,36 @@ node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
 
 1. **Cel 5,0 is de houtbaan.** De aangeleverde atlas zette hem op dezelfde rode
    baan als het dak en het vuur, waardoor boomstammen, planken, trappen en
-   scheepsrompen rood werden. Hij krijgt een eigen houttoon, `#ca9260 → #8e5c34`.
+   scheepsrompen rood werden. Hij draagt nu een eigen houttoon, `#ca9260 → #8e5c34`.
 2. **De cellen 3,1 en 4,1 dragen de graspollen** en staan allebei op de baan die
-   cel 3,1 nu in `kits/colormap.png` heeft: `#8daa49 → #4e701e`.
+   cel 3,1 in `colormap-v1.png` had: `#8daa49 → #4e701e`.
 3. **Cellen met dezelfde kleur delen één baan**, en die baan krijgt het verval in
-   lichtheid dat diezelfde cellen nu hebben — het gemiddelde over de cellen van
-   die familie.
+   lichtheid dat diezelfde cellen in `colormap-v1.png` hadden — het gemiddelde
+   over de cellen van die familie.
 
-## Wat de bladen laten zien
+Het script schrijft `colormap-v2.png`; dat bestand en `kits/colormap.png` zijn
+byte voor byte gelijk.
 
-`tools/vergelijk-kleurmap/` zet props twee keer neer: één keer met de atlas die
-de kit zelf meedraagt en één keer met de kandidaat. Dat tweede gebeurt zonder
-iets in `kits/` aan te raken — de renderer serveert elk verzoek onder `/voorstel/`
-naar dezelfde bestanden, behalve `Textures/colormap.png`, waar de kandidaat
+## Wat de overname raakt
+
+- `kits/colormap.png` en de kopie in `Textures/` van elke kit die het gedeelde
+  palet gebruikt (17 kits, via `kopieerColormap` uit `tools/kleurmap.mjs`). De
+  grot en de onderwater-kit staan buiten dat palet en blijven ongemoeid.
+- `kits/palet.json`: elke cel houdt zijn plek op de baan en krijgt de kleur die
+  daar nu staat — 25 van de 26 cellen kregen een nieuwe hex.
+- `kits/catalog.json`, opnieuw gebouwd met `node tools/build-catalog.mjs`, zodat
+  het kleurfilter de nieuwe stalen laat zien. `index.html` kreeg daardoor een
+  nieuwe cache-hash.
+
+De kit-accentkleuren in `kits/catalog.js` (`KIT_KLEUREN`) zijn met de hand
+gekozen labels, geen stalen uit de atlas, en zijn niet meegewijzigd.
+
+## De bladen
+
+`tools/vergelijk-kleurmap/` zet props twee keer neer: één keer met de oude atlas
+en één keer met de atlas die de kit nu meedraagt. Dat eerste gebeurt zonder iets
+in `kits/` aan te raken — de renderer serveert elk verzoek onder `/voor/` naar
+dezelfde bestanden, behalve `Textures/colormap.png`, waar `colormap-v1.png`
 teruggaat.
 
 Elke tegel wordt geschoten met dezelfde `<model-viewer>` als `kits/catalog.js`
@@ -38,7 +55,7 @@ dezelfde `camera-orbit`. Dat is de hele bedoeling — een oordeel over een kleur
 moet gaan over de kleur zoals hij in de catalogus verschijnt. Een eigen scène met
 eigen belichting laat dezelfde atlas er heel anders uitzien.
 
-Er zijn twee bladen, elk met veertig props en zonder overlap:
+Twee bladen, elk met veertig props en zonder overlap:
 [props-vergelijking.png](kleurmap_review/props-vergelijking.png) en
 [props-vergelijking-b.png](kleurmap_review/props-vergelijking-b.png).
 
@@ -49,25 +66,21 @@ NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
 Zonder argument komen beide bladen langs; met een naam erachter alleen dat blad,
 bijvoorbeeld `... render.mjs props-vergelijking-b`.
 
-## Keuze van de props
-
-De lijsten staan in `tools/vergelijk-kleurmap/props.json` en `props-b.json`. Elk
-van de twee is zo gekozen dat de veertig samen elke cel raken die de kits met
-het gedeelde palet gebruiken — 23 van de 23 — en dat ze over de groepen van de
-catalogus verdeeld liggen: bouwwerken, schepen, opslag, huisraad, licht, eten,
-gereedschap, grondstoffen, bomen, planten, rotsen en verbindingen. Een
-kleurwissel landt zo altijd op iets herkenbaars. De twee lijsten delen geen
-enkel model, dus samen laten ze tachtig verschillende props zien.
+De lijsten staan in `props.json` en `props-b.json`. Elk van de twee is zo gekozen
+dat de veertig samen elke cel raken die de kits met het gedeelde palet gebruiken
+— 23 van de 23 — en dat ze over de groepen van de catalogus verdeeld liggen. De
+twee lijsten delen geen enkel model, dus samen laten ze tachtig verschillende
+props zien.
 
 ## De families en hun baan
 
-Vijftien banen over 28 gevulde cellen. Per familie het verval dat die cellen nu
-hebben, en het gemiddelde daarvan dat de hele familie krijgt.
+Vijftien banen over 28 gevulde cellen. Per familie het verval dat die cellen
+vóór de overname hadden, en het gemiddelde daarvan dat de hele familie kreeg.
 
-| familie | cellen | ΔL\* nu per cel | ΔL\* familie | baan |
+| familie | cellen | ΔL\* voor, per cel | ΔL\* familie | baan |
 | --- | --- | --- | ---: | --- |
 | grasgroen | 3,1 · 4,1 | 22,5 · 0,0 | 22,5 | `#8daa49 → #4e701e` |
-| hout (nieuw) | 5,0 | 21,2 | 21,2 | `#ca9260 → #8e5c34` |
+| hout | 5,0 | 21,2 | 21,2 | `#ca9260 → #8e5c34` |
 | amber | 2,0 · 6,0 | −1,9 · 16,0 | 8,0 | `#eec471 → #eba739` |
 | rood | 3,0 · 7,0 · 9,0 · 9,1 | 16,6 · 12,0 · 0,0 · 8,5 | 9,3 | `#cc614a → #b74233` |
 | licht hout | 4,0 · 13,0 | 0,0 · 20,5 | 10,2 | `#c29763 → #a87b47` |
@@ -80,48 +93,44 @@ hebben, en het gemiddelde daarvan dat de hele familie krijgt.
 | gebroken wit | 5,2 | 17,0 | 17,0 | `#fffff7 → #d7d0c0` |
 | zand | 5,3 | 6,3 | 6,3 | `#e6d9b6 → #dcc692` |
 | grijsbruin | 14,3 | 24,8 | 24,8 | `#aaa093 → #696157` |
-| lichtblauw (nieuw) | 6,2 · 7,2 | _cellen zijn nu leeg_ | — | `#bce4f2 → #7fbfda` |
+| lichtblauw (nieuw) | 6,2 · 7,2 | _waren leeg_ | — | `#bce4f2 → #7fbfda` |
 
-Cel 3,1 staat in de tabel bij zijn familie, maar houdt zijn eigen baan uit de
-huidige atlas — de graspollen blijven zoals ze zijn, ook cel 4,1 die daar nu een
-vlak `#228b22` heeft.
+Cel 4,1 was vlak `#228b22` en draagt nu de baan van 3,1; dat is de grasvloer en
+de graspol.
 
 Twee dingen om te weten bij die middeling:
 
-- Een cel die nu vlak is en in een familie zit met een steile cel, wordt niet
-  meer vlak. Dat geldt voor 2,0, 4,0, 9,0 en 2,2. Van die vier wijst alleen 4,0
-  naar modellen (vier stuks); de andere drie worden door geen enkel model
-  gebruikt.
+- Een cel die vlak was en in een familie zit met een steile cel, is niet meer
+  vlak. Dat geldt voor 2,0, 4,0, 9,0 en 2,2. Van die vier wijzen alleen vier
+  modellen naar 4,0; de andere drie worden door geen enkel model gebruikt.
 - De houtbaan van cel 5,0 staat op afstand 38 van de bruine familie (12,0 en
   14,0). Bij een ruime opvatting van "dezelfde kleur" zouden die samen één
-  familie zijn; ze staan hier los, want juist dat verschil houdt de treden en het
+  familie zijn; ze staan los, want juist dat verschil houdt de treden en het
   frame van de houten trap uit elkaar.
 
 ## Steilheid van de banen
 
 | ΔL\* over de baan | mediaan | gemiddeld | spreiding | laagste | hoogste | vlak (< 1) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| huidig | 15,0 | 14,6 | 10,5 | −1,9 | 38,5 | 4 van 26 |
-| kandidaat, zoals aangeleverd | 19,4 | 19,0 | 5,4 | 0,0 | 32,9 | 1 van 26 |
-| kandidaat, nu | 17,5 | 15,5 | 6,1 | 6,4 | 25,5 | 0 van 26 |
+| voor | 15,0 | 14,6 | 10,5 | −1,9 | 38,5 | 4 van 26 |
+| zoals aangeleverd | 19,4 | 19,0 | 5,4 | 0,0 | 32,9 | 1 van 26 |
+| nu | 17,5 | 15,5 | 6,1 | 6,4 | 25,5 | 0 van 26 |
 
 De aangeleverde atlas gaf elke baan ongeveer hetzelfde verval, rond 19 in L\*,
-ook waar de huidige atlas vlak is of juist heel steil. Het gemiddelde ligt nu
-dicht bij dat van de huidige atlas; de spreiding blijft kleiner, omdat een
-familie één baan deelt en de uitschieters binnen zo'n familie tegen elkaar
-wegvallen.
+ook waar de oude atlas vlak was of juist heel steil. Het gemiddelde ligt nu dicht
+bij dat van daarvoor; de spreiding blijft kleiner, omdat een familie één baan
+deelt en de uitschieters binnen zo'n familie tegen elkaar wegvallen. De banen
+lopen bovendien vrijwel recht in waargenomen lichtheid: de grootste afwijking van
+een rechte lijn in L\* is 0,4, tegen 4,4 daarvoor.
 
-De banen lopen bovendien vrijwel recht in waargenomen lichtheid: de grootste
-afwijking van een rechte lijn in L\* is 0,4, tegen 4,4 in de huidige atlas.
-
-## Wat de kandidaat kost
+## Wat het palet kost
 
 Het is geen kleurcorrectie maar een kleinere set: 23 kleurfamilies worden er 14
 (bij een drempel van 45 redmean op de middenkleur). Van de 1019 modellen met het
 gedeelde palet zijn er **156** waarin twee duidelijk verschillende kleuren
 (afstand > 60 volgens dezelfde redmean-formule die `tools/kleurmap.mjs` gebruikt)
-praktisch samenvallen (afstand < 12). Op de bladen is dat te zien bij de kist —
-de banden en het hout lopen in elkaar over — en bij de kratten en tonnen uit de
+nu praktisch samenvallen (afstand < 12). Op de bladen is dat te zien bij de kist
+— de banden en het hout lopen in elkaar over — en bij de kratten en tonnen uit de
 dungeon-kit.
 
 ## Cel voor cel
@@ -130,7 +139,7 @@ dungeon-kit.
 aanraken; `afstand` is de gemiddelde redmean-afstand tussen de boven- en
 onderkleur van beide banen.
 
-| cel | huidig (boven → onder) | kandidaat | modellen | afstand |
+| cel | voor (boven → onder) | nu | modellen | afstand |
 | --- | --- | --- | ---: | ---: |
 | 2,0 | #fde675 → #fbf02d | #eec471 → #eba739 | 4 | 111 |
 | 3,0 | #f39ac2 → #e05c7a | #cc614a → #b74233 | 0 | 177 |

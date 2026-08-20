@@ -31,19 +31,19 @@
 const b = window.BLAD;
 document.getElementById('blad').innerHTML = `
   <h1>${b.titel}</h1>
-  <p class="uitleg">${b.toelichting} Links de kleuren zoals ze nu in de repo staan, rechts dezelfde
-  modellen met de kandidaat-atlas als textuur. Model, camera, omgeving en belichting zijn gelijk aan
-  die van de catalogus; alleen de atlas verschilt.</p>
+  <p class="uitleg">${b.toelichting} Links de kleuren van vóór de overname, rechts dezelfde modellen
+  met de atlas die de kits nu dragen. Model, camera, omgeving en belichting zijn gelijk aan die van
+  de catalogus; alleen de atlas verschilt.</p>
   <div class="atlassen">
-    <figure><img src="/kits/colormap.png"><figcaption>huidig — kits/colormap.png</figcaption></figure>
-    <figure><img src="./colormap-v2.png"><figcaption>voorstel — colormap-v2.png</figcaption></figure>
+    <figure><img src="./colormap-v1.png"><figcaption>voor — colormap-v1.png</figcaption></figure>
+    <figure><img src="/kits/colormap.png"><figcaption>nu — kits/colormap.png</figcaption></figure>
   </div>
   <div class="raster">${b.kaarten.map((k) => `
     <div class="kaart">
       <h2>${k.label} <span class="id">${k.id}</span></h2>
       <div class="paar">
-        <figure><img src="${k.huidig}"><figcaption>huidig</figcaption></figure>
-        <figure><img src="${k.voorstel}"><figcaption>voorstel</figcaption></figure>
+        <figure><img src="${k.voor}"><figcaption>voor</figcaption></figure>
+        <figure><img src="${k.nu}"><figcaption>nu</figcaption></figure>
       </div>
     </div>`).join('')}</div>`;
 </script>

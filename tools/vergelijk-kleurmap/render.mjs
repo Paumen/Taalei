@@ -1,7 +1,7 @@
 /**
- * Zet de props uit props.json en props-b.json naast elkaar met de atlas die de
- * kits nu dragen en met de kandidaat colormap-v2.png, en schrijft de bladen weg
- * in docs/kleurmap_review/.
+ * Zet de props uit props.json en props-b.json naast elkaar met de atlas van vóór
+ * de overname (colormap-v1.png) en met de atlas die de kits nu dragen, en
+ * schrijft de bladen weg in docs/kleurmap_review/.
  *
  * Draaien vanuit de repo-root:
  *   NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
@@ -14,10 +14,10 @@
  * hele bedoeling: een oordeel over een kleur moet gaan over de kleur zoals hij
  * in de catalogus verschijnt, niet over de belichting van een eigen scène.
  *
- * De kandidaat komt in beeld zonder de kits aan te raken: elk verzoek onder
- * /voorstel/ wijst naar dezelfde bestanden, behalve Textures/colormap.png — daar
- * gaat colormap-v2.png terug. De .glb's wijzen met een relatief pad naar die
- * textuur, dus dan laadt hetzelfde model met de andere atlas.
+ * De oude atlas komt in beeld zonder de kits aan te raken: elk verzoek onder
+ * /voor/ wijst naar dezelfde bestanden, behalve Textures/colormap.png — daar gaat
+ * colormap-v1.png terug. De .glb's wijzen met een relatief pad naar die textuur,
+ * dus dan laadt hetzelfde model met de andere atlas.
  */
 import { chromium } from 'playwright';
 import { createReadStream, existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
@@ -28,16 +28,16 @@ import { fileURLToPath } from 'node:url';
 const HIER = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HIER, '..', '..');
 const UIT = path.join(ROOT, 'docs', 'kleurmap_review');
-const KANDIDAAT = path.join(HIER, 'colormap-v2.png');
+const OUDE_ATLAS = path.join(HIER, 'colormap-v1.png');
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
   '.png': 'image/png', '.glb': 'model/gltf-binary' };
 
 const server = http.createServer((req, res) => {
   const gevraagd = decodeURIComponent(req.url.split('?')[0]);
-  const voorstel = gevraagd.startsWith('/voorstel/');
-  const p = voorstel ? gevraagd.slice('/voorstel'.length) : gevraagd;
-  const fp = voorstel && p.endsWith('/Textures/colormap.png')
-    ? KANDIDAAT
+  const voor = gevraagd.startsWith('/voor/');
+  const p = voor ? gevraagd.slice('/voor'.length) : gevraagd;
+  const fp = voor && p.endsWith('/Textures/colormap.png')
+    ? OUDE_ATLAS
     : path.normalize(path.join(ROOT, p));
   /* alleen bestanden binnen de repo serveren */
   if (!fp.startsWith(ROOT + path.sep)) { res.writeHead(403); res.end(); return; }
@@ -80,8 +80,8 @@ for (const blad of bladen) {
     kaarten.push({
       label: prop.label,
       id: prop.id,
-      huidig: await schiet(url(`/kits/${prop.id}.glb`)),
-      voorstel: await schiet(url(`/voorstel/kits/${prop.id}.glb`)),
+      voor: await schiet(url(`/voor/kits/${prop.id}.glb`)),
+      nu: await schiet(url(`/kits/${prop.id}.glb`)),
     });
   }
   await tegel.close();
