@@ -21,7 +21,9 @@
 	pack zelf. De maker is niet bekend en er is dus ook niemand om te
 	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
 
-	Van de 48 modellen in de pack zijn er 28 ingeladen:
+	Van de 48 modellen in de pack zijn er 27 ingeladen; ze staan onder 26
+	namen in de kit, want `Bucket_01` en `Bucket_01_2` zijn samen één
+	emmer:
 
 	  Bag_01        → bag-a          Furniture_01  → table-a
 	  Barrel_01     → barrel-a       Furniture_02  → bench-a
@@ -30,7 +32,7 @@
 	  Bottle_03     → bottle-c       Jug_02        → jug-b
 	  Box_01        → box-a          Jug_03        → jug-c
 	  Bucket_01     → bucket-a       Jug_04        → jug-d
-	  Bucket_01_2   → bucket-b
+	  Bucket_01_2   → bucket-a
 	  Candle_02     → candle-a       Plate_02      → plate-b
 	  Candle_03     → candle-b       Plate_03      → plate-c
 	  Carpet_01     → carpet-a       Stairs_01     → stairs-a
@@ -49,6 +51,11 @@
 	tools/importeer-props.mjs: omgezet naar .glb en met de oorsprong op
 	y=0 en het grondvlak gecentreerd. Er is niet geschaald: deze pack staat
 	al op het raster van de repo.
+
+	`Bucket_01` is de kuip en `Bucket_01_2` het beugelhengsel dat erin
+	hangt — twee objecten in de pack, maar één emmer. Ze zijn na het
+	inladen door tools/voeg-samen.mjs tot één model `bucket-a` gemaakt,
+	met de onderdelen op de plek waar de pack ze zette.
 
 	De pack heeft een eigen texture-atlas van 1024 × 1024. Die is niet
 	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png,
