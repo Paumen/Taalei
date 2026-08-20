@@ -29,11 +29,12 @@
 <body>
 <div id="blad"></div>
 <script type="module">
-/* Rendert elke prop uit een lijst twee keer: één keer met de atlas die de kit
- * zelf meedraagt (kits/colormap.png) en één keer met colormap-v2.png ernaast.
- * Beide renders delen scène, licht en camera, zodat alleen de textuur verschilt.
- * Welke lijst het is bepaalt ?lijst=, standaard props.json. Wordt aangestuurd
- * door render.mjs, die het blad als PNG wegschrijft. */
+/* Rendert elke prop uit een lijst twee keer: één keer met de atlas van vóór de
+ * overname (colormap-v1.png) en één keer met de atlas die de kit nu zelf
+ * meedraagt (kits/colormap.png). Beide renders delen scène, licht en camera,
+ * zodat alleen de textuur verschilt. Welke lijst het is bepaalt ?lijst=,
+ * standaard props.json. Wordt aangestuurd door render.mjs, die het blad als PNG
+ * wegschrijft. */
 addEventListener('error', () => { window.FOUT = true; });
 addEventListener('unhandledrejection', () => { window.FOUT = true; });
 
@@ -59,17 +60,17 @@ scene.add(zon);
 const loader = new GLTFLoader();
 const laad = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
 
-/* De kandidaat-atlas als los beeld; per materiaal wordt straks een kopie van de
+/* De oude atlas als los beeld; per materiaal wordt straks een kopie van de
  * oorspronkelijke textuur gemaakt die naar dit beeld wijst, zodat filtering,
  * wrap-instellingen en kleurruimte precies gelijk blijven. */
-const v2Beeld = await new Promise((res, rej) => {
+const v1Beeld = await new Promise((res, rej) => {
   const img = new Image();
   img.onload = () => res(img);
   img.onerror = rej;
-  img.src = './colormap-v2.png';
+  img.src = './colormap-v1.png';
 });
 
-function zetV2Atlas(obj) {
+function zetOudeAtlas(obj) {
   const vertaald = new Map();
   obj.traverse((kind) => {
     if (!kind.isMesh) return;
@@ -79,7 +80,7 @@ function zetV2Atlas(obj) {
       if (!vertaald.has(mat)) {
         const kopie = mat.clone();
         const tex = mat.map.clone();
-        tex.source = new THREE.Source(v2Beeld);
+        tex.source = new THREE.Source(v1Beeld);
         tex.needsUpdate = true;
         kopie.map = tex;
         vertaald.set(mat, kopie);
@@ -117,28 +118,28 @@ const lijst = await (await fetch('./' + bestand)).json();
 const blad = document.getElementById('blad');
 blad.innerHTML = `
   <h1>${lijst.titel}</h1>
-  <p class="uitleg">${lijst.toelichting} Links de kleuren zoals ze nu in de repo staan, rechts
-  dezelfde modellen met <code>colormap-v2.png</code> als textuur. De modellen, het licht en de
-  camera zijn identiek; alleen de atlas verschilt.</p>
+  <p class="uitleg">${lijst.toelichting} Links de kleuren van vóór de overname, rechts dezelfde
+  modellen met de atlas die de kits nu meedragen. De modellen, het licht en de camera zijn
+  identiek; alleen de atlas verschilt.</p>
   <div class="atlassen">
-    <figure><img src="/kits/colormap.png"><figcaption>huidig — kits/colormap.png</figcaption></figure>
-    <figure><img src="./colormap-v2.png"><figcaption>voorstel — colormap-v2.png</figcaption></figure>
+    <figure><img src="./colormap-v1.png"><figcaption>voor — colormap-v1.png</figcaption></figure>
+    <figure><img src="/kits/colormap.png"><figcaption>nu — kits/colormap.png</figcaption></figure>
   </div>
   <div class="raster" id="raster"></div>`;
 const raster = document.getElementById('raster');
 
 for (const prop of lijst.props) {
   const gltf = await laad('/kits/' + prop.id + '.glb');
-  const huidig = gltf.scene;
-  const v2 = huidig.clone(true);
-  zetV2Atlas(v2);
+  const nu = gltf.scene;
+  const voor = nu.clone(true);
+  zetOudeAtlas(voor);
 
   const kaart = document.createElement('div');
   kaart.className = 'kaart';
   kaart.innerHTML = `<h2>${prop.label} <span class="id">${prop.id}</span></h2>
     <div class="paar">
-      <figure><img src="${schiet(huidig)}"><figcaption>huidig</figcaption></figure>
-      <figure><img src="${schiet(v2)}"><figcaption>atlas v2</figcaption></figure>
+      <figure><img src="${schiet(voor)}"><figcaption>voor</figcaption></figure>
+      <figure><img src="${schiet(nu)}"><figcaption>nu</figcaption></figure>
     </div>`;
   raster.appendChild(kaart);
 }

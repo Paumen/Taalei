@@ -1,6 +1,7 @@
 /**
- * Zet de props uit props.json en props-b.json naast elkaar met de huidige atlas
- * en met colormap-v2.png, en schrijft de bladen weg in docs/kleurmap_review/.
+ * Zet de props uit props.json en props-b.json naast elkaar met de atlas van vóór
+ * de overname (colormap-v1.png) en met de atlas die de kits nu meedragen, en
+ * schrijft de bladen weg in docs/kleurmap_review/.
  *
  * Draaien vanuit de repo-root:
  *   NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
