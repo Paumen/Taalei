@@ -6,8 +6,8 @@ met WebGPU; slepen draait de camera, scrollen zoomt.
 
 Met `?atlas=<pad>` gaat er een andere colormap overheen zonder dat er iets in
 `kits/` verandert — bijvoorbeeld
-`index.html?atlas=/tools/vergelijk-kleurmap/colormap-v1.png` om de scène met het
-palet van vóór de overname te zien.
+`index.html?atlas=/tools/vergelijk-kleurmap/colormap-v2.png` om de scène met het
+voorgestelde palet te zien.
 
 Er zit geen bibliotheek onder: `glb.js` leest de .glb's, `wiskunde.js` doet de
 matrices, `scene.js` zet de pijplijn op en draagt de WGSL-shader.

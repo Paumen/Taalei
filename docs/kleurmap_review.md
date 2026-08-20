@@ -1,15 +1,15 @@
-# Kleurmap-review: de colormap voor en na de overname
+# Kleurmap-review: de huidige colormap naast het voorstel
 
-`kits/colormap.png` draagt sinds deze wijziging het nieuwe palet. De atlas van
-daarvóór staat als `tools/vergelijk-kleurmap/colormap-v1.png` in dezelfde map,
-en de atlas zoals hij binnenkwam als `colormap-v2-aangeleverd.png`. Alle drie
-hebben hetzelfde raster van 16 × 4 cellen, dus de UV's van de modellen zijn niet
-aangeraakt: alleen de textuur wisselt.
+`kits/colormap.png` is ongewijzigd — het voorstel is **niet** toegepast. Het
+staat als `tools/vergelijk-kleurmap/colormap-v2.png` naast de repo, met de atlas
+zoals hij binnenkwam ernaast als `colormap-v2-aangeleverd.png`. Alle drie delen
+hetzelfde raster van 16 × 4 cellen, dus de UV's van de modellen blijven waar ze
+staan en alleen de textuur wisselt.
 
-## Hoe het nieuwe palet is opgebouwd
+## Hoe het voorstel is opgebouwd
 
-`bouw-kandidaat.mjs` leidt het af uit de aangeleverde atlas, met `colormap-v1.png`
-als referentie voor hoe de banen liepen:
+`bouw-kandidaat.mjs` leidt het af uit de aangeleverde atlas, met
+`kits/colormap.png` als ijkpunt voor hoe de banen lopen:
 
 ```
 node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
@@ -19,7 +19,7 @@ node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
    baan als het dak en het vuur, waardoor boomstammen, planken, trappen en
    scheepsrompen rood werden. Hij draagt nu een eigen houttoon.
 2. **De cellen 3,1 en 4,1 dragen de graspollen** en staan allebei op de baan die
-   cel 3,1 in `colormap-v1.png` had: `#8daa49 → #4e701e`.
+   cel 3,1 in `kits/colormap.png` heeft: `#8daa49 → #4e701e`.
 3. **Cellen met dezelfde kleur delen één baan**, en een paar families gaan samen:
    de twee donkerste banen (8,0 bij 10,0 en 6,1) en het gebroken wit met het zand
    (5,2 en 5,3). Bij zo'n samenvoeging wordt de kleurtoon het gewogen midden van
@@ -28,28 +28,25 @@ node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
    zowel het midden als het verval, gewogen naar hoeveel modellen een cel
    gebruiken. Zonder die correctie wordt het palet als geheel donkerder, en
    verkleurt een cel als 13,0 — die het kaarsvet en het tafelgoed licht houdt —
-   naar bruin. Dat was te zien als bruine wiggen op de kaarsen.
+   naar bruin.
 
 De baan zelf loopt door OKLab in plaats van rechttoe rechtaan door sRGB: de
 lichtheid loopt gelijkmatig en naar de schaduw toe wordt de kleur iets
 verzadigder, zoals verf zich gedraagt.
 
-Het script schrijft `colormap-v2.png`; dat bestand en `kits/colormap.png` zijn
-byte voor byte gelijk.
+## Wat er nog niet klopt
 
-## Wat de overname raakt
+Het samenvoegen van cel 8,0 met de donkere grijzen is te goedkoop beoordeeld.
+De maat was "hoeveel modellen dragen beide cellen" — 27 — maar die maat telt
+alleen wat een model *verliest*. Cel 8,0 is nu een donker roodbruin dat op een
+fles of een vuurkorf leest als schaduw van het bruin ernaast; in de donkere
+familie wordt het een grijsgroen, en dan leest hetzelfde vlak als een ander
+materiaal. Op `dungeon/bottle-c-brown` is dat goed te zien: goudkleurig lijf,
+grijsgroen vlak, rode wig ernaast.
 
-- `kits/colormap.png` en de kopie in `Textures/` van elke kit die het gedeelde
-  palet gebruikt (17 kits, via `kopieerColormap` uit `tools/kleurmap.mjs`). De
-  grot en de onderwater-kit staan buiten dat palet en blijven ongemoeid.
-- `kits/palet.json`: elke cel houdt zijn plek op de baan en krijgt de kleur die
-  daar nu staat — 25 van de 26 cellen kregen een nieuwe hex.
-- `kits/catalog.json`, opnieuw gebouwd met `node tools/build-catalog.mjs`, zodat
-  het kleurfilter de nieuwe stalen laat zien. `index.html` kreeg daardoor een
-  nieuwe cache-hash.
-
-De kit-accentkleuren in `kits/catalog.js` (`KIT_KLEUREN`) zijn met de hand
-gekozen labels, geen stalen uit de atlas, en zijn niet meegewijzigd.
+Een volgende poging moet families dus niet alleen op gedeelde modellen wegen
+maar ook op kleurtoon: een roodbruin hoort niet bij een grijs, hoe donker ze
+allebei ook zijn.
 
 ## De bladen
 

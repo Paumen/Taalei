@@ -1,13 +1,12 @@
 /**
- * Bouwt colormap-v2.png uit colormap-v2-aangeleverd.png — de atlas die nu in
- * kits/ ligt.
+ * Bouwt colormap-v2.png uit colormap-v2-aangeleverd.png: het voorstel voor een
+ * nieuw gedeeld palet, afgeleid van de atlas zoals hij binnenkwam.
  *
  * Draaien vanuit de repo-root:
  *   node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
  *
- * De aangeleverde atlas blijft ongemoeid bewaard en colormap-v1.png is de
- * gedeelde atlas van vóór deze wijziging. Het bouwen leest uit die twee, niet
- * uit kits/colormap.png, want daar ligt inmiddels het resultaat.
+ * De aangeleverde atlas blijft ongemoeid bewaard; kits/colormap.png is de atlas
+ * die de kits nu dragen en dient als ijkpunt voor hoe de banen lopen.
  *
  * Vier regels, in deze volgorde:
  *
@@ -16,7 +15,7 @@
  *      scheepsrompen rood werden.
  *
  *   2. De cellen 3,1 en 4,1 dragen de graspollen en blijven staan zoals ze in
- *      colormap-v1.png stonden: allebei de baan van cel 3,1 daar.
+ *      kits/colormap.png staan: allebei de baan van cel 3,1 daar.
  *
  *   3. Cellen met dezelfde kleur delen één baan, en een paar families gaan
  *      samen — zie SAMEN. Dat drukt het aantal kleuren verder omlaag; de keuze
@@ -117,7 +116,7 @@ function binnenBereik(L, C, h) {
 
 /* -- inlezen --------------------------------------------------------------- */
 
-const oud = leesPng(join(HIER, 'colormap-v1.png'));
+const oud = leesPng(join(ROOT, 'kits', 'colormap.png'));
 const atlas = leesPng(join(HIER, 'colormap-v2-aangeleverd.png'));
 
 /** Hoeveel modellen een cel gebruiken, volgens kits/palet.json. */
@@ -258,4 +257,4 @@ for (const r of regels) {
   console.log(`| \`${r.sleutel}\` | ${cellen} | ${r.gewicht} | ${r.midSter.toFixed(1)} | ${r.verval.toFixed(1)} | \`${r.baan}\` |`);
 }
 console.log('\nsamengevoegd:', samengevoegd.length ? '\n  ' + samengevoegd.join('\n  ') : 'niets');
-console.log(`banen: ${regels.length + 1} (de graspollen dragen de baan van cel 3,1 uit colormap-v1.png)`);
+console.log(`banen: ${regels.length + 1} (de graspollen dragen de baan van cel 3,1 uit kits/colormap.png)`);
