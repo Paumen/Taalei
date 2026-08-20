@@ -111,7 +111,7 @@ const waarnemer = new IntersectionObserver(
  */
 function zetLicht(viewer) {
   viewer.setAttribute('environment-image', 'kits/omgeving.hdr');
-  viewer.setAttribute('exposure', '1');
+  viewer.setAttribute('exposure', '1.25');
 }
 
 function koppelViewer(vak) {

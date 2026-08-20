@@ -17,12 +17,22 @@ node tools/vergelijk-kleurmap/bouw-kandidaat.mjs
 
 1. **Cel 5,0 is de houtbaan.** De aangeleverde atlas zette hem op dezelfde rode
    baan als het dak en het vuur, waardoor boomstammen, planken, trappen en
-   scheepsrompen rood werden. Hij draagt nu een eigen houttoon, `#ca9260 → #8e5c34`.
+   scheepsrompen rood werden. Hij draagt nu een eigen houttoon.
 2. **De cellen 3,1 en 4,1 dragen de graspollen** en staan allebei op de baan die
    cel 3,1 in `colormap-v1.png` had: `#8daa49 → #4e701e`.
-3. **Cellen met dezelfde kleur delen één baan**, en die baan krijgt het verval in
-   lichtheid dat diezelfde cellen in `colormap-v1.png` hadden — het gemiddelde
-   over de cellen van die familie.
+3. **Cellen met dezelfde kleur delen één baan**, en een paar families gaan samen:
+   de twee donkerste banen (8,0 bij 10,0 en 6,1) en het gebroken wit met het zand
+   (5,2 en 5,3). Bij zo'n samenvoeging wordt de kleurtoon het gewogen midden van
+   de twee, naar hoeveel modellen elke kant meebrengt.
+4. **Elke familie krijgt de lichtheid terug van de cellen die hij vervangt** —
+   zowel het midden als het verval, gewogen naar hoeveel modellen een cel
+   gebruiken. Zonder die correctie wordt het palet als geheel donkerder, en
+   verkleurt een cel als 13,0 — die het kaarsvet en het tafelgoed licht houdt —
+   naar bruin. Dat was te zien als bruine wiggen op de kaarsen.
+
+De baan zelf loopt door OKLab in plaats van rechttoe rechtaan door sRGB: de
+lichtheid loopt gelijkmatig en naar de schaduw toe wordt de kleur iets
+verzadigder, zoals verf zich gedraagt.
 
 Het script schrijft `colormap-v2.png`; dat bestand en `kits/colormap.png` zijn
 byte voor byte gelijk.
