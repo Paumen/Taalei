@@ -1,10 +1,17 @@
 /**
- * Zet veertig props uit props.json naast elkaar met de huidige atlas en met
- * colormap-v2.png, en schrijft het blad weg als
- * docs/kleurmap_review/props-vergelijking.png.
+ * Schiet de vergelijkingsbladen van deze map en zet ze in
+ * docs/kleurmap_review/.
+ *
+ *   props-vergelijking.png    veertig props uit props.json, huidige atlas naast
+ *                             colormap-v2.png
+ *   houtvarianten.png         de props uit houtvarianten.json met meerdere
+ *                             houttonen op cel 5,0 naast elkaar
  *
  * Draaien vanuit de repo-root:
  *   NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
+ *
+ * Zonder argument komen beide bladen langs; met een naam erachter alleen dat
+ * blad, bijvoorbeeld `... render.mjs houtvarianten`.
  *
  * Gebruikt de globale npm-installaties van three en playwright, net als
  * tools/vergelijk-groottes/render.mjs.
@@ -39,22 +46,34 @@ const server = http.createServer((req, res) => {
 await new Promise((r) => server.listen(8932, r));
 
 mkdirSync(UIT, { recursive: true });
+
+const BLADEN = [
+  { naam: 'props-vergelijking', pagina: 'index.html', breedte: 1880 },
+  { naam: 'houtvarianten', pagina: 'houtvarianten.html', breedte: 1960 },
+];
+const gevraagd = process.argv[2];
+const bladen = gevraagd ? BLADEN.filter((b) => b.naam === gevraagd) : BLADEN;
+if (bladen.length === 0) throw new Error(`onbekend blad: ${gevraagd}`);
+
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1880, height: 1200 } });
-page.on('pageerror', (err) => console.log('  [fout]', err.message));
 
-await page.goto('http://127.0.0.1:8932/tools/vergelijk-kleurmap/index.html');
-/* FOUT wordt gezet door index.html bij een scriptfout, zodat we niet op de
- * volle timeout hoeven te wachten */
-await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 180000 });
+for (const blad of bladen) {
+  const page = await browser.newPage({ viewport: { width: blad.breedte, height: 1200 } });
+  page.on('pageerror', (err) => console.log('  [fout]', err.message));
+  await page.goto(`http://127.0.0.1:8932/tools/vergelijk-kleurmap/${blad.pagina}`);
+  /* FOUT wordt gezet door de pagina bij een scriptfout, zodat we niet op de
+   * volle timeout hoeven te wachten */
+  await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 180000 });
 
-if (await page.evaluate('window.FOUT === true')) {
-  console.log('MISLUKT');
-  process.exitCode = 1;
-} else {
-  const doel = path.join(UIT, 'props-vergelijking.png');
-  await page.locator('#blad').screenshot({ path: doel });
-  console.log('ok', path.relative(ROOT, doel));
+  if (await page.evaluate('window.FOUT === true')) {
+    console.log('MISLUKT', blad.naam);
+    process.exitCode = 1;
+  } else {
+    const doel = path.join(UIT, `${blad.naam}.png`);
+    await page.locator('#blad').screenshot({ path: doel });
+    console.log('ok', path.relative(ROOT, doel));
+  }
+  await page.close();
 }
 
 await browser.close();

@@ -1,0 +1,127 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Houtvarianten van atlas v2</title>
+<style>
+  html, body { margin: 0; background: #f4f1ea; color: #2a2620;
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #blad { width: 1960px; padding: 28px 24px 32px; box-sizing: border-box; }
+  h1 { margin: 0 0 4px; font-size: 26px; }
+  p.uitleg { margin: 0 0 20px; max-width: 1100px; color: #57503f; }
+  .raster { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .kaart { background: #fffdf8; border: 1px solid #ddd5c3; border-radius: 8px;
+    padding: 10px 10px 8px; }
+  .kaart h2 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+  .kaart .id { font-weight: 400; color: #8a8271; font-size: 12px; }
+  .reeks { display: flex; gap: 7px; }
+  .reeks figure { margin: 0; flex: 1; }
+  .reeks img { width: 100%; display: block; border-radius: 4px; background: #efece5; }
+  .reeks figcaption { margin-top: 3px; font-size: 11px; letter-spacing: .03em;
+    text-transform: uppercase; color: #8a8271; text-align: center; }
+</style>
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+<body>
+<div id="blad"></div>
+<script type="module">
+/* Zelfde opzet als index.html, maar met meer dan één kandidaat-atlas naast
+ * elkaar: de houtbaan in cel 5,0 — de baan waar boomstammen, planken, trappen
+ * en scheepsrompen op staan — is in atlas v2 rood geworden, en dit blad zet de
+ * mogelijke houttonen ernaast. De lijst staat in houtvarianten.json. */
+addEventListener('error', () => { window.FOUT = true; });
+addEventListener('unhandledrejection', () => { window.FOUT = true; });
+
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const TEGEL = 178;
+const SCHAAL = 2;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(TEGEL * SCHAAL, TEGEL * SCHAAL);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xefece5);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.4));
+const zon = new THREE.DirectionalLight(0xffffff, 1.6);
+zon.position.set(3, 6, 5);
+scene.add(zon);
+
+const loader = new GLTFLoader();
+const laad = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
+const laadBeeld = (src) => new Promise((res, rej) => {
+  const img = new Image();
+  img.onload = () => res(img);
+  img.onerror = rej;
+  img.src = src;
+});
+
+function zetAtlas(obj, beeld) {
+  const vertaald = new Map();
+  obj.traverse((kind) => {
+    if (!kind.isMesh) return;
+    const materialen = Array.isArray(kind.material) ? kind.material : [kind.material];
+    const nieuw = materialen.map((mat) => {
+      if (!mat.map) return mat;
+      if (!vertaald.has(mat)) {
+        const kopie = mat.clone();
+        const tex = mat.map.clone();
+        tex.source = new THREE.Source(beeld);
+        tex.needsUpdate = true;
+        kopie.map = tex;
+        vertaald.set(mat, kopie);
+      }
+      return vertaald.get(mat);
+    });
+    kind.material = Array.isArray(kind.material) ? nieuw : nieuw[0];
+  });
+}
+
+function camera(obj) {
+  const box = new THREE.Box3().setFromObject(obj);
+  const midden = box.getCenter(new THREE.Vector3());
+  const straal = box.getSize(new THREE.Vector3()).length() / 2;
+  const h = straal * 1.12;
+  const cam = new THREE.OrthographicCamera(-h, h, h, -h, 0.01, straal * 40 + 100);
+  cam.position.copy(midden).addScaledVector(new THREE.Vector3(1, 0.72, 1.35).normalize(), straal * 8 + 5);
+  cam.lookAt(midden);
+  return cam;
+}
+
+function schiet(obj) {
+  scene.add(obj);
+  renderer.render(scene, camera(obj));
+  const data = renderer.domElement.toDataURL('image/png');
+  scene.remove(obj);
+  return data;
+}
+
+const lijst = await (await fetch('./houtvarianten.json')).json();
+const atlassen = [];
+for (const v of lijst.varianten) atlassen.push({ ...v, beeld: v.atlas ? await laadBeeld(v.atlas) : null });
+
+const blad = document.getElementById('blad');
+blad.innerHTML = `<h1>${lijst.titel}</h1><p class="uitleg">${lijst.uitleg}</p>
+  <div class="raster" id="raster"></div>`;
+const raster = document.getElementById('raster');
+
+for (const prop of lijst.props) {
+  const gltf = await laad('/kits/' + prop.id + '.glb');
+  const beelden = atlassen.map((v) => {
+    const obj = gltf.scene.clone(true);
+    if (v.beeld) zetAtlas(obj, v.beeld);
+    return `<figure><img src="${schiet(obj)}"><figcaption>${v.label}</figcaption></figure>`;
+  });
+  const kaart = document.createElement('div');
+  kaart.className = 'kaart';
+  kaart.innerHTML = `<h2>${prop.label} <span class="id">${prop.id}</span></h2>
+    <div class="reeks">${beelden.join('')}</div>`;
+  raster.appendChild(kaart);
+}
+
+await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+document.title = 'KLAAR:' + lijst.props.length;
+window.KLAAR = true;
+</script>

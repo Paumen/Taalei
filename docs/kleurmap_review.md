@@ -88,3 +88,27 @@ onderkleur van beide banen.
 | 5,3 | #f1d0b1 → #efba89 | #f3e6c1 → #ceba89 | 41 | 53 |
 | 14,3 | #a8978a → #685b51 | #a2998c → #70685d | 213 | 23 |
 | 15,3 | #858aa0 → #565c74 | #a5b3be → #6b7a87 | 228 | 91 |
+
+## Cel 5,0 — de houtbaan die rood werd
+
+Boomstammen, planken, trappen, scheepsrompen en tentstokken staan allemaal op
+cel 5,0. In de huidige atlas is dat een warme houtbaan (`#ef966b → #b16142`);
+atlas v2 zet die cel op dezelfde rode baan als het dak en het vuur. Om te kunnen
+kiezen staan in [kleurmap_review/houtvarianten.png](kleurmap_review/houtvarianten.png)
+zestien houtprops met drie houttonen op die cel naast de huidige atlas en v2:
+
+| variant | baan | afstand tot 12,0 en 14,0 | afstand tot 4,0 en 13,0 |
+| --- | --- | ---: | ---: |
+| a — blokhout | `#af895b → #7d5835` | 0 | 73 |
+| b — plankhout | `#cfa16a → #9a7141` | 73 | 0 |
+| c — eigen hout | `#dda06a → #7a4f2c` | 58 | 57 |
+
+Bij a en b valt cel 5,0 samen met een houtbaan die er al is; op het blad is dat
+te zien aan de houten trap, waar de treden en het frame in a in elkaar overlopen.
+Variant c houdt van beide banen genoeg afstand om het onderscheid te bewaren.
+
+Opnieuw maken:
+
+```
+NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs houtvarianten
+```
