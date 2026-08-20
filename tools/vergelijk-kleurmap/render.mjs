@@ -1,7 +1,7 @@
 /**
- * Zet de props uit props.json en props-b.json naast elkaar met de atlas van vóór
- * de overname (colormap-v1.png) en met de atlas die de kits nu meedragen, en
- * schrijft de bladen weg in docs/kleurmap_review/.
+ * Zet de props uit props.json en props-b.json naast elkaar met de atlas die de
+ * kits nu dragen en met de kandidaat colormap-v2.png, en schrijft de bladen weg
+ * in docs/kleurmap_review/.
  *
  * Draaien vanuit de repo-root:
  *   NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
@@ -9,30 +9,38 @@
  * Zonder argument komen beide bladen langs; met een naam erachter alleen dat
  * blad, bijvoorbeeld `... render.mjs props-vergelijking-b`.
  *
- * Gebruikt de globale npm-installaties van three en playwright, net als
- * tools/vergelijk-groottes/render.mjs.
+ * Elke tegel wordt geschoten met dezelfde <model-viewer> als kits/catalog.js
+ * gebruikt — zelfde omgeving, belichting, belichtingssterkte en blik. Dat is de
+ * hele bedoeling: een oordeel over een kleur moet gaan over de kleur zoals hij
+ * in de catalogus verschijnt, niet over de belichting van een eigen scène.
+ *
+ * De kandidaat komt in beeld zonder de kits aan te raken: elk verzoek onder
+ * /voorstel/ wijst naar dezelfde bestanden, behalve Textures/colormap.png — daar
+ * gaat colormap-v2.png terug. De .glb's wijzen met een relatief pad naar die
+ * textuur, dus dan laadt hetzelfde model met de andere atlas.
  */
 import { chromium } from 'playwright';
-import { execSync } from 'node:child_process';
-import { createReadStream, existsSync, mkdirSync, statSync } from 'node:fs';
+import { createReadStream, existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HIER = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HIER, '..', '..');
-const THREE = path.join(execSync('npm root -g').toString().trim(), 'three');
 const UIT = path.join(ROOT, 'docs', 'kleurmap_review');
+const KANDIDAAT = path.join(HIER, 'colormap-v2.png');
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
   '.png': 'image/png', '.glb': 'model/gltf-binary' };
 
 const server = http.createServer((req, res) => {
-  const p = decodeURIComponent(req.url.split('?')[0]);
-  const drie = p.startsWith('/three/');
-  const basis = drie ? THREE : ROOT;
-  const fp = path.normalize(path.join(basis, drie ? p.slice(7) : p));
-  /* alleen bestanden binnen de repo of het three-pakket serveren */
-  if (!fp.startsWith(basis + path.sep)) { res.writeHead(403); res.end(); return; }
+  const gevraagd = decodeURIComponent(req.url.split('?')[0]);
+  const voorstel = gevraagd.startsWith('/voorstel/');
+  const p = voorstel ? gevraagd.slice('/voorstel'.length) : gevraagd;
+  const fp = voorstel && p.endsWith('/Textures/colormap.png')
+    ? KANDIDAAT
+    : path.normalize(path.join(ROOT, p));
+  /* alleen bestanden binnen de repo serveren */
+  if (!fp.startsWith(ROOT + path.sep)) { res.writeHead(403); res.end(); return; }
   try {
     if (!existsSync(fp) || !statSync(fp).isFile()) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { 'content-type': MIME[path.extname(fp)] || 'application/octet-stream' });
@@ -40,8 +48,7 @@ const server = http.createServer((req, res) => {
   } catch { res.writeHead(500); res.end(); }
 });
 await new Promise((r) => server.listen(8932, r));
-
-mkdirSync(UIT, { recursive: true });
+const url = (p) => `http://127.0.0.1:8932${p}`;
 
 const BLADEN = [
   { naam: 'props-vergelijking', lijst: 'props.json' },
@@ -51,25 +58,47 @@ const gevraagd = process.argv[2];
 const bladen = gevraagd ? BLADEN.filter((b) => b.naam === gevraagd) : BLADEN;
 if (bladen.length === 0) throw new Error(`onbekend blad: ${gevraagd}`);
 
+mkdirSync(UIT, { recursive: true });
 const browser = await chromium.launch();
 
 for (const blad of bladen) {
-  const page = await browser.newPage({ viewport: { width: 1880, height: 1200 } });
-  page.on('pageerror', (err) => console.log('  [fout]', err.message));
-  await page.goto(`http://127.0.0.1:8932/tools/vergelijk-kleurmap/index.html?lijst=${blad.lijst}`);
-  /* FOUT wordt gezet door index.html bij een scriptfout, zodat we niet op de
-   * volle timeout hoeven te wachten */
-  await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 180000 });
+  const lijst = JSON.parse(readFileSync(path.join(HIER, blad.lijst), 'utf8'));
 
-  if (await page.evaluate('window.FOUT === true')) {
-    console.log('MISLUKT', blad.naam);
-    process.exitCode = 1;
-  } else {
-    const doel = path.join(UIT, `${blad.naam}.png`);
-    await page.locator('#blad').screenshot({ path: doel });
-    console.log('ok', path.relative(ROOT, doel));
+  /* -- tegels schieten ---------------------------------------------------- */
+  const tegel = await browser.newPage({ viewport: { width: 260, height: 260 } });
+  tegel.on('pageerror', (err) => console.log('  [fout]', err.message));
+  await tegel.goto(url('/tools/vergelijk-kleurmap/tegel.html'));
+  const viewer = tegel.locator('#viewer');
+
+  const schiet = async (src) => {
+    await tegel.evaluate((s) => window.laad(s), src);
+    return 'data:image/png;base64,' + (await viewer.screenshot()).toString('base64');
+  };
+
+  const kaarten = [];
+  for (const prop of lijst.props) {
+    kaarten.push({
+      label: prop.label,
+      id: prop.id,
+      huidig: await schiet(url(`/kits/${prop.id}.glb`)),
+      voorstel: await schiet(url(`/voorstel/kits/${prop.id}.glb`)),
+    });
   }
-  await page.close();
+  await tegel.close();
+
+  /* -- blad zetten en wegschrijven ---------------------------------------- */
+  const pagina = await browser.newPage({ viewport: { width: 1880, height: 1200 } });
+  pagina.on('pageerror', (err) => console.log('  [fout]', err.message));
+  await pagina.addInitScript(
+    (b) => { window.BLAD = b; },
+    { titel: lijst.titel, toelichting: lijst.toelichting, kaarten },
+  );
+  await pagina.goto(url('/tools/vergelijk-kleurmap/blad.html'));
+  await pagina.waitForFunction('document.querySelectorAll("#blad .kaart").length > 0');
+  const doel = path.join(UIT, `${blad.naam}.png`);
+  await pagina.locator('#blad').screenshot({ path: doel });
+  await pagina.close();
+  console.log('ok', path.relative(ROOT, doel));
 }
 
 await browser.close();

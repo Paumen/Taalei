@@ -1,13 +1,21 @@
-# Kleurmap-review: de colormap voor en na de overname
+# Kleurmap-review: de huidige colormap naast de kandidaat
 
-`kits/colormap.png` draagt sinds deze wijziging het nieuwe palet. De atlas van
-daarvóór staat bewaard als `tools/vergelijk-kleurmap/colormap-v1.png`, zodat het
-verschil te zien blijft.
+`kits/colormap.png` is ongewijzigd; de kandidaat staat als
+`tools/vergelijk-kleurmap/colormap-v2.png` naast de repo. Beide atlassen hebben
+hetzelfde raster van 16 × 4 cellen, dus de UV's van de modellen blijven waar ze
+staan en alleen de textuur wisselt.
 
-`tools/vergelijk-kleurmap/` zet props twee keer neer: één keer met die oude atlas
-en één keer met de atlas die de kits nu meedragen. Model, licht en camera zijn
-per paar identiek — alleen de textuur verschilt, want beide atlassen hebben
-hetzelfde raster van 16 × 4 cellen en de UV's blijven waar ze staan.
+`tools/vergelijk-kleurmap/` zet props twee keer neer: één keer met de atlas die
+de kit zelf meedraagt en één keer met de kandidaat. Dat tweede gebeurt zonder
+iets in `kits/` aan te raken — de renderer serveert elk verzoek onder `/voorstel/`
+naar dezelfde bestanden, behalve `Textures/colormap.png`, waar de kandidaat
+teruggaat.
+
+Elke tegel wordt geschoten met dezelfde `<model-viewer>` als `kits/catalog.js`
+gebruikt: `environment-image="neutral"`, `exposure="1.05"`, dezelfde schaduw en
+dezelfde `camera-orbit`. Dat is de hele bedoeling — een oordeel over een kleur
+moet gaan over de kleur zoals hij in de catalogus verschijnt. Een eigen scène met
+eigen belichting laat dezelfde atlas er heel anders uitzien.
 
 Er zijn twee bladen, elk met veertig props en zonder overlap:
 [props-vergelijking.png](kleurmap_review/props-vergelijking.png) en
@@ -22,20 +30,6 @@ NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
 Zonder argument komen beide bladen langs; met een naam erachter alleen dat blad,
 bijvoorbeeld `... render.mjs props-vergelijking-b`.
 
-## Wat de overname raakt
-
-- `kits/colormap.png` en de kopie in `Textures/` van elke kit die het gedeelde
-  palet gebruikt; de grot en de onderwater-kit staan daarbuiten en blijven
-  ongemoeid.
-- `kits/palet.json`: elke cel houdt zijn plek op de baan, maar krijgt de kleur
-  die daar nu staat. 24 van de 26 cellen kregen een nieuwe hex; de twee groene
-  cellen van de graspollen bleven staan.
-- `kits/catalog.json`, opnieuw gebouwd met `node tools/build-catalog.mjs`, zodat
-  het kleurfilter de nieuwe stalen laat zien.
-
-De kit-accentkleuren in `kits/catalog.js` (`KIT_KLEUREN`) zijn met de hand
-gekozen labels, geen stalen uit de atlas; die zijn niet meegewijzigd.
-
 ## Keuze van de props
 
 De lijsten staan in `tools/vergelijk-kleurmap/props.json` en `props-b.json`. Elk
@@ -46,37 +40,27 @@ gereedschap, grondstoffen, bomen, planten, rotsen en verbindingen. Een
 kleurwissel landt zo altijd op iets herkenbaars. De twee lijsten delen geen
 enkel model, dus samen laten ze tachtig verschillende props zien.
 
-## Cel 5,0 — de houtbaan
+## Twee aanpassingen aan de aangeleverde atlas
 
-Boomstammen, planken, trappen, scheepsrompen en tentstokken staan allemaal op
-cel 5,0. De atlas zoals hij binnenkwam zette die cel op dezelfde rode baan als
-het dak en het vuur, waardoor al dat hout rood werd. Die cel draagt nu een eigen
-houtbaan: `#dda06a → #7a4f2c`.
+- **Cel 5,0 — de houtbaan.** Boomstammen, planken, trappen, scheepsrompen en
+  tentstokken staan op die cel, en de aangeleverde atlas zette hem op dezelfde
+  rode baan als het dak en het vuur. De kandidaat draagt daar nu een eigen
+  houtbaan, `#dda06a → #7a4f2c`, op 55 afstand van beide bestaande houtbanen
+  (redmean, zoals in `tools/kleurmap.mjs`), zodat treden en frame van de houten
+  trap uit elkaar blijven.
+- **Cellen 3,1 en 4,1 — de graspollen.** Het lichte groen `#96c95a → #5e9130`
+  dekte beide cellen; ze staan in de kandidaat weer op het groen dat ze nu
+  hebben: 3,1 op `#8daa49 → #4e701e` met verloop, 4,1 vlak op `#228b22`. De
+  graspollen zien er dus uit als voorheen.
 
-Overwogen alternatieven waren de houtbanen die er al staan — `#b08a5c → #7c5734`
-van de blokken en kratten (12,0 en 14,0) en `#d0a26b → #997040` van de planken
-(4,0 en 13,0). Allebei laten ze cel 5,0 samenvallen met een baan die er al is;
-bij de eerste lopen de treden en het frame van de houten trap in elkaar over. De
-gekozen baan houdt van allebei afstand — 55 volgens de redmean-formule uit
-`tools/kleurmap.mjs` — en blijft in dezelfde houtfamilie.
+## Wat de kandidaat doet
 
-## Cellen 3,1 en 4,1 — de graspollen
-
-Het lichte groen van de binnengekomen atlas (`#96c95a → #5e9130`) dekte twee
-cellen die de graspollen dragen. Beide staan weer op het groen dat ze hadden:
-cel 3,1 op `#8daa49 → #4e701e` — de baan van de forest-grassen, verloop en al —
-en cel 4,1 op `#228b22`, vlak van boven tot onder, zoals hij was. De graspollen
-zien er dus uit als voorheen; op de bladen staan links en rechts van de graspol
-dezelfde kleur.
-
-## Wat er verandert
-
-Het nieuwe palet is geen kleurcorrectie maar een kleinere set. De oude atlas had
-26 gevulde cellen met 26 verschillende kleurbanen; de nieuwe heeft er 28 gevuld,
+Het is geen kleurcorrectie maar een kleinere set. De huidige atlas heeft 26
+gevulde cellen met 26 verschillende kleurbanen; de kandidaat heeft er 28 gevuld,
 maar daar staan nog maar **16 verschillende banen** in. Negen banen dekken
 meerdere cellen af:
 
-| baan | cellen die erop uitkomen |
+| baan in de kandidaat | cellen die erop uitkomen |
 | --- | --- |
 | `#e06b52 → #a33a2c` (rood) | 3,0 · 7,0 · 9,0 · 9,1 |
 | `#3e8748 → #1f4d2a` (donkergroen) | 1,1 · 2,1 · 5,1 |
@@ -88,15 +72,20 @@ meerdere cellen af:
 | `#a6b4bf → #6a7986` (blauwgrijs) | 3,2 · 15,3 |
 | `#bce4f2 → #7fbfda` (lichtblauw, nieuw) | 6,2 · 7,2 |
 
-De cellen 6,2 en 7,2 waren leeg; er staat nu een lichtblauwe baan waar nog geen
-enkel model naar wijst.
+De cellen 6,2 en 7,2 zijn nu leeg; de kandidaat zet daar een lichtblauwe baan
+neer waar nog geen enkel model naar wijst.
 
 Het samenvoegen kost onderscheid binnen een model. Van de 1019 modellen met het
 gedeelde palet zijn er **152** waarin twee duidelijk verschillende kleuren
 (afstand > 60 volgens dezelfde redmean-formule die `tools/kleurmap.mjs` gebruikt)
-nu praktisch samenvallen (afstand < 12). Op de bladen is dat te zien bij de
-kist — de banden en het hout lopen in elkaar over — en bij de kratten en tonnen
-uit de dungeon-kit.
+in de kandidaat praktisch samenvallen (afstand < 12). Op de bladen is dat te zien
+bij de kist — de banden en het hout lopen in elkaar over — en bij de kratten en
+tonnen uit de dungeon-kit.
+
+Wat de bladen daarnaast laten zien: de hele warme familie van de dungeon-kit —
+tonnen, kisten, flessen, bedden, stoelen — staat in de kandidaat op vrijwel
+dezelfde okertint. Waar nu terracotta naast blauwgrijs staat, staat er dan tan
+naast lichtblauw.
 
 ## Cel voor cel
 
@@ -104,7 +93,7 @@ uit de dungeon-kit.
 aanraken; `afstand` is de gemiddelde redmean-afstand tussen de boven- en
 onderkleur van beide banen.
 
-| cel | voor (boven → onder) | nu | modellen | afstand |
+| cel | huidig (boven → onder) | kandidaat | modellen | afstand |
 | --- | --- | --- | ---: | ---: |
 | 2,0 | #fde675 → #fbf02d | #ffd37a → #d99a34 | 4 | 110 |
 | 3,0 | #f39ac2 → #e05c7a | #e06b52 → #a33a2c | 0 | 179 |

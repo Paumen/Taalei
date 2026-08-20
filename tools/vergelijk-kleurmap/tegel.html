@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tegel</title>
+<style>
+  html, body { margin: 0; background: #efece5; }
+  model-viewer { width: 214px; height: 214px; background: #efece5; --poster-color: transparent; }
+  /* de laadbalk hoort niet op een tegel die stilstaand wordt geschoten */
+  model-viewer::part(default-progress-bar) { display: none; }
+</style>
+<body>
+<!-- Eén model-viewer die render.mjs steeds een ander model geeft. De instellingen
+     zijn dezelfde als in kits/catalog.js, want het gaat er juist om dat een tegel
+     er precies zo uitziet als een kaart in de catalogus: dezelfde omgeving,
+     dezelfde belichting, dezelfde blik. -->
+<model-viewer id="viewer"
+  camera-orbit="35deg 68deg auto"
+  environment-image="neutral"
+  shadow-intensity="0.6"
+  shadow-softness="0.9"
+  exposure="1.05"
+  interaction-prompt="none"
+  disable-zoom
+  loading="eager"></model-viewer>
+<script src="/vendor/model-viewer.min.js" type="module"></script>
+<script>
+  const viewer = document.getElementById('viewer');
+  /* Wacht tot het model geladen én getekend is; render.mjs schiet daarna de
+     tegel. `load` komt zodra de scène klaarstaat, de dubbele frame erna geeft
+     de renderlus de kans hem ook echt neer te zetten. */
+  window.laad = (src) => new Promise((klaar, mis) => {
+    viewer.addEventListener('load', () => {
+      requestAnimationFrame(() => requestAnimationFrame(klaar));
+    }, { once: true });
+    viewer.addEventListener('error', mis, { once: true });
+    viewer.src = src;
+  });
+</script>
