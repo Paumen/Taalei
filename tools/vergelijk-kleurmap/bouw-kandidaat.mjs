@@ -27,7 +27,7 @@
  * resultaat: anders zou dit script zijn eigen uitkomst als vertrekpunt nemen.
  */
 
-import { copyFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesPng, schrijfPng } from '../png.mjs';
@@ -62,6 +62,17 @@ function opLichtheid(kleur, doelL) {
 }
 
 const huidig = leesPng(join(HIER, 'colormap-v1.png'));
+
+/** Hoeveel modellen een cel gebruiken, volgens kits/palet.json. */
+const gewichten = new Map();
+{
+  const palet = JSON.parse(readFileSync(join(ROOT, 'kits', 'palet.json'), 'utf8'));
+  const gedeeld = palet.paletten.find((p) => p.id === 'gedeeld');
+  for (const cel of gedeeld?.cellen ?? []) {
+    const modellen = new Set((cel.bronnen ?? []).flatMap((b) => (b.modellen ?? []).map((m) => `${b.kit}/${m}`)));
+    gewichten.set(cel.cel.join(','), modellen.size);
+  }
+}
 const atlas = leesPng(join(HIER, 'colormap-v2-aangeleverd.png'));
 
 /* -- regel 1: de houtbaan --------------------------------------------------- */
@@ -98,22 +109,30 @@ for (let rij = 0; rij < 4; rij++) {
 
 const regels = [];
 for (const [sleutel, familie] of families) {
-  /* het verval dat deze cellen nu hebben; cellen die nu leeg zijn tellen niet mee */
+  /* het verval dat deze cellen in de oude atlas hebben; lege cellen tellen niet mee */
   const vervallen = familie.cellen
     .map(([kolom, rij]) => {
       const boven = px(huidig, midden(kolom), rij * 128);
       const onder = px(huidig, midden(kolom), rij * 128 + 127);
-      return leeg(boven) ? null : Math.max(0, ster(boven) - ster(onder));
+      if (leeg(boven)) return null;
+      return {
+        cel: `${kolom},${rij}`,
+        verval: Math.max(0, ster(boven) - ster(onder)),
+        gewicht: gewichten.get(`${kolom},${rij}`) ?? 0,
+      };
     })
     .filter((v) => v !== null);
 
   if (vervallen.length === 0) {
-    /* Geen van deze cellen bestaat nu: niets om naar terug te rekenen. */
+    /* Geen van deze cellen bestaat in de oude atlas: niets om naar terug te rekenen. */
     regels.push({ sleutel, cellen: familie.cellen, verval: null });
     continue;
   }
 
-  const doel = vervallen.reduce((a, b) => a + b, 0) / vervallen.length;
+  const totaalGewicht = vervallen.reduce((a, v) => a + v.gewicht, 0);
+  const doel = totaalGewicht > 0
+    ? vervallen.reduce((a, v) => a + v.verval * v.gewicht, 0) / totaalGewicht
+    : vervallen.reduce((a, v) => a + v.verval, 0) / vervallen.length;
   const mid = px(atlas, midden(familie.cellen[0][0]), familie.cellen[0][1] * 128 + 64);
   const Lmid = ster(mid);
   /* Een baan die vroeger vlak was, hoort vlak te blijven: twee kleurtonen op
@@ -126,11 +145,12 @@ for (const [sleutel, familie] of families) {
 
 schrijfPng(join(HIER, 'colormap-v2.png'), atlas);
 
-console.log('| familie | cellen | verval in v1 | doel | baan |');
+console.log('| familie | cellen | verval in v1 (modellen) | gewogen doel | baan |');
 console.log('| --- | --- | --- | ---: | --- |');
 for (const r of regels) {
   const cellen = r.cellen.map((c) => c.join(',')).join(' · ');
   if (r.verval === null) { console.log(`| \`${r.sleutel}\` | ${cellen} | _cellen zijn nu leeg_ | — | onveranderd |`); continue; }
-  console.log(`| \`${r.sleutel}\` | ${cellen} | ${r.vervallen.map((v) => v.toFixed(1)).join(', ')} | ${r.verval.toFixed(1)} | \`${r.baan}\` |`);
+  const per = r.vervallen.map((v) => `${v.verval.toFixed(1)} (${v.gewicht}×)`).join(', ');
+  console.log(`| \`${r.sleutel}\` | ${cellen} | ${per} | ${r.verval.toFixed(1)} | \`${r.baan}\` |`);
 }
 console.log(`\ncellen 3,1 en 4,1 dragen de baan van cel 3,1 uit colormap-v1.png`);

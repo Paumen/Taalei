@@ -1,0 +1,412 @@
+<title>Kleurregister</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+:root {
+  --grond: #eaeef0;
+  --kaart: #fbfcfd;
+  --kaart-op: #f1f5f6;
+  --inkt: #0f1618;
+  --inkt-zacht: #4d5f64;
+  --inkt-stil: #7b8c91;
+  --lijn: #d3dcdf;
+  --accent: #0d6470;
+  --accent-op: #e2eef0;
+  --heat: 13, 100, 112;
+  --heat-inkt: #f4fbfc;
+  --schaduw: 0 1px 2px rgba(15, 30, 34, .06), 0 8px 24px -18px rgba(15, 30, 34, .5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --grond: #0b1113;
+    --kaart: #141c1f;
+    --kaart-op: #1b2528;
+    --inkt: #e9eff1;
+    --inkt-zacht: #a7bac0;
+    --inkt-stil: #7d9198;
+    --lijn: #263438;
+    --accent: #58c6d6;
+    --accent-op: #16323a;
+    --heat: 88, 198, 214;
+    --heat-inkt: #04181c;
+    --schaduw: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 30px -20px rgba(0, 0, 0, .9);
+  }
+}
+:root[data-theme="dark"] {
+  --grond: #0b1113;
+  --kaart: #141c1f;
+  --kaart-op: #1b2528;
+  --inkt: #e9eff1;
+  --inkt-zacht: #a7bac0;
+  --inkt-stil: #7d9198;
+  --lijn: #263438;
+  --accent: #58c6d6;
+  --accent-op: #16323a;
+  --heat: 88, 198, 214;
+  --heat-inkt: #04181c;
+  --schaduw: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 30px -20px rgba(0, 0, 0, .9);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--grond);
+  color: var(--inkt);
+  font: 400 16px/1.5 "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+.wikkel { max-width: 1180px; margin: 0 auto; padding: 28px 16px 64px; }
+
+/* -- kop ---------------------------------------------------------------- */
+.kop { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+.pad {
+  font: 600 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--inkt-stil);
+}
+h1 {
+  margin: 0; font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 700; font-size: clamp(30px, 8vw, 46px); line-height: .98;
+  letter-spacing: -.02em; text-wrap: balance;
+}
+.intro { margin: 0; max-width: 62ch; color: var(--inkt-zacht); font-size: 15px; }
+
+.cijfers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.cijfer {
+  background: var(--kaart); border: 1px solid var(--lijn); border-radius: 10px;
+  padding: 8px 12px; display: flex; align-items: baseline; gap: 7px;
+}
+.cijfer b { font: 600 18px/1 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.cijfer span { font-size: 12px; color: var(--inkt-stil); }
+
+/* -- knoppenrijen ------------------------------------------------------- */
+.regelaars { display: flex; flex-direction: column; gap: 10px; margin: 22px 0 18px; }
+.rij { display: flex; gap: 6px; flex-wrap: wrap; }
+.rij > .etiket {
+  font: 600 11px/28px "IBM Plex Mono", monospace; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--inkt-stil); margin-right: 2px;
+}
+button.chip {
+  font: 400 14px/1 "IBM Plex Sans", sans-serif; color: var(--inkt-zacht);
+  background: var(--kaart); border: 1px solid var(--lijn); border-radius: 999px;
+  padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+}
+button.chip:hover { background: var(--kaart-op); color: var(--inkt); }
+button.chip[aria-pressed="true"] {
+  background: var(--accent); border-color: var(--accent); color: var(--kaart);
+  font-weight: 600;
+}
+:root[data-theme="dark"] button.chip[aria-pressed="true"],
+button.chip[aria-pressed="true"] { color: var(--heat-inkt); }
+button.chip b { font: 600 12px/1 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; opacity: .75; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+/* -- ledger ------------------------------------------------------------- */
+.ledger { display: flex; flex-direction: column; gap: 6px; }
+.regel {
+  background: var(--kaart); border: 1px solid var(--lijn); border-radius: 12px;
+  box-shadow: var(--schaduw); overflow: hidden;
+}
+.regel > summary {
+  list-style: none; cursor: pointer; padding: 12px 14px;
+  display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+}
+.regel > summary::-webkit-details-marker { display: none; }
+.regel > summary:hover { background: var(--kaart-op); }
+.staal {
+  width: 30px; height: 30px; border-radius: 8px;
+  border: 1px solid rgba(15, 30, 34, .18); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
+}
+.naam { min-width: 0; }
+.naam .hex {
+  font: 600 13px/1.2 "IBM Plex Mono", monospace; letter-spacing: -.01em; display: block;
+}
+.naam .om { font-size: 12px; color: var(--inkt-stil); }
+.telling { display: flex; align-items: center; gap: 10px; }
+.telling .n {
+  font: 600 16px/1 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; min-width: 3.2ch; text-align: right;
+}
+.balk { width: 92px; height: 8px; border-radius: 999px; background: var(--kaart-op); overflow: hidden; }
+.balk i { display: block; height: 100%; border-radius: 999px; }
+@media (min-width: 620px) { .balk { width: 200px; } }
+
+.uitklap { padding: 2px 14px 14px; display: flex; flex-direction: column; gap: 5px; border-top: 1px solid var(--lijn); }
+.uitklap .kopje {
+  font: 600 11px/1 "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--inkt-stil); padding: 12px 0 4px;
+}
+.deel { display: grid; grid-template-columns: minmax(0, 1fr) 3.4ch 5.4ch; gap: 10px; align-items: center; font-size: 14px; }
+.deel .g { color: var(--inkt-zacht); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.deel .spoor { grid-column: 1 / -1; height: 6px; border-radius: 999px; background: var(--kaart-op); overflow: hidden; margin: -3px 0 3px; }
+.deel .spoor i { display: block; height: 100%; background: rgba(var(--heat), .75); border-radius: 999px; }
+.deel .n, .deel .p { font: 400 13px/1 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; text-align: right; }
+.deel .p { color: var(--inkt-stil); }
+
+/* -- matrix ------------------------------------------------------------- */
+.matrixdoos { overflow-x: auto; border: 1px solid var(--lijn); border-radius: 12px; background: var(--kaart); box-shadow: var(--schaduw); }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { border-bottom: 1px solid var(--lijn); border-right: 1px solid var(--lijn); padding: 6px 8px; font-size: 13px; text-align: center; }
+tr:last-child th, tr:last-child td { border-bottom: 0; }
+th:last-child, td:last-child { border-right: 0; }
+thead th { position: sticky; top: 0; background: var(--kaart); font-weight: 600; font-size: 12px; z-index: 2; vertical-align: bottom; }
+thead th em { display: block; font-style: normal; font-weight: 400; color: var(--inkt-stil); font-size: 11px; }
+th.eerste {
+  position: sticky; left: 0; z-index: 3; background: var(--kaart); text-align: left; white-space: nowrap;
+  font: 600 12px/1.2 "IBM Plex Mono", monospace;
+}
+td.leeg { color: var(--inkt-stil); }
+td .cel { display: block; }
+
+.voet { margin-top: 26px; color: var(--inkt-stil); font-size: 13px; max-width: 62ch; }
+.voet code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+@media (prefers-reduced-motion: no-preference) {
+  .regel > summary, button.chip { transition: background-color .14s ease, color .14s ease; }
+}
+</style>
+
+<div class="wikkel">
+  <header class="kop">
+    <p class="pad" id="pad"></p>
+    <h1>Kleurregister</h1>
+    <p class="intro">Hoe vaak elke kleur van de gedeelde colormap wordt gedragen, en door welke groepen.
+      Een model telt één keer per kleur — de catalogus weet dát een kleur voorkomt, niet hoeveel vlak hij beslaat.</p>
+    <div class="cijfers" id="cijfers"></div>
+  </header>
+
+  <div class="regelaars">
+    <div class="rij" id="paletrij"><span class="etiket">Palet</span></div>
+    <div class="rij" id="weergaverij"><span class="etiket">Toon</span></div>
+  </div>
+
+  <main id="doek"></main>
+
+  <p class="voet">Gebouwd uit <code>kits/catalog.json</code> met <code>tools/kleur-per-groep.mjs</code>.
+    De stalen zijn de kleuren zoals ze in de atlas staan; de balken tellen modellen.</p>
+</div>
+
+<script>
+const GEGEVENS = {"totaal":1104,"paletten":[{"id":"gedeeld","naam":"Gedeelde kits","atlas":"kits/colormap.png","modellen":1019,"groepen":[{"id":"bouwpakket","kort":"Bouwpakket","naam":"Bouwpakket & molens","n":225},{"id":"terrein","kort":"Grond","naam":"Grond & terrein","n":138},{"id":"rotsen","kort":"Rotsen","naam":"Rotsen & stenen","n":115},{"id":"grotterrein","kort":"Grotterrein","naam":"Grotterrein & mijnwerk","n":80},{"id":"opslag","kort":"Kisten","naam":"Kisten & vaten","n":57},{"id":"grondstoffen","kort":"Grondstoffen","naam":"Grondstoffen & voorraad","n":57},{"id":"bouwwerken","kort":"Bouwwerken","naam":"Bouwwerken & platforms","n":50},{"id":"bomen","kort":"Bomen","naam":"Bomen & palmen","n":39},{"id":"gereedschap","kort":"Gereedschap","naam":"Gereedschap & wapens","n":39},{"id":"hek","kort":"Hekken","naam":"Hekken, palen & poorten","n":36},{"id":"verbinding","kort":"Trappen & bruggen","naam":"Trappen, bruggen & ladders","n":35},{"id":"planten","kort":"Planten","naam":"Planten, gras & bloemen","n":32},{"id":"eten","kort":"Eten","naam":"Eten & koken","n":22},{"id":"huisraad","kort":"Huisraad","naam":"Huisraad & meubels","n":19},{"id":"schepen","kort":"Schepen","naam":"Schepen & varen","n":19},{"id":"licht","kort":"Licht","naam":"Licht & lampen","n":18},{"id":"items","kort":"Items","naam":"Verzamelobjecten & mechaniek","n":15},{"id":"borden","kort":"Borden","naam":"Borden, vlaggen & doelen","n":11},{"id":"zeebodem","kort":"Zeebodem","naam":"Koraal, zeewier & schelpen","n":4},{"id":"kamp","kort":"Kamp","naam":"Kamp & tenten","n":4},{"id":"reisgerei","kort":"Reisgerei","naam":"Reisgerei & kaarten","n":4}],"kleuren":[{"hex":"#926d45","naam":"bruin","totaal":281,"per":{"opslag":9,"huisraad":4,"licht":14,"bouwpakket":96,"planten":1,"bouwwerken":8,"bomen":13,"grotterrein":32,"verbinding":10,"terrein":49,"eten":2,"kamp":1,"hek":15,"grondstoffen":2,"gereedschap":15,"reisgerei":4,"items":1,"schepen":4,"borden":1}},{"hex":"#9b673d","naam":"bruin","totaal":270,"per":{"opslag":37,"huisraad":11,"bouwpakket":48,"items":2,"eten":7,"verbinding":14,"bouwwerken":29,"borden":10,"hek":21,"bomen":23,"gereedschap":17,"terrein":4,"rotsen":4,"kamp":3,"planten":3,"schepen":13,"grondstoffen":24}},{"hex":"#a9b7c2","naam":"lichtgrijs","totaal":228,"per":{"opslag":19,"huisraad":2,"bouwpakket":47,"items":6,"verbinding":14,"eten":4,"licht":5,"rotsen":78,"bouwwerken":3,"borden":1,"terrein":1,"schepen":4,"grondstoffen":20,"gereedschap":22,"reisgerei":2}},{"hex":"#90877b","naam":"lichtgrijs","totaal":213,"per":{"huisraad":3,"opslag":5,"bouwpakket":51,"eten":8,"verbinding":2,"licht":6,"grotterrein":61,"rotsen":20,"terrein":41,"kamp":1,"bouwwerken":8,"grondstoffen":1,"gereedschap":4,"items":1,"borden":1}},{"hex":"#9f794e","naam":"oranje","totaal":199,"per":{"opslag":33,"huisraad":18,"bouwpakket":40,"items":1,"eten":10,"licht":5,"verbinding":6,"bouwwerken":20,"hek":11,"gereedschap":16,"bomen":9,"terrein":1,"schepen":9,"borden":3,"grondstoffen":11,"rotsen":4,"reisgerei":2}},{"hex":"#788693","naam":"lichtgrijs","totaal":190,"per":{"opslag":25,"huisraad":2,"bouwpakket":49,"items":4,"eten":7,"verbinding":8,"licht":4,"hek":2,"gereedschap":30,"rotsen":18,"terrein":2,"bouwwerken":4,"borden":2,"schepen":3,"grondstoffen":27,"reisgerei":3}},{"hex":"#2e2b25","naam":"donkergrijs","totaal":142,"per":{"huisraad":4,"opslag":15,"bouwpakket":45,"items":4,"verbinding":11,"rotsen":9,"terrein":2,"bouwwerken":4,"planten":2,"schepen":13,"licht":7,"eten":3,"grondstoffen":8,"gereedschap":13,"reisgerei":1,"bomen":1}},{"hex":"#997141","naam":"bruin","totaal":130,"per":{"opslag":24,"huisraad":3,"licht":9,"bouwpakket":11,"eten":7,"verbinding":4,"bouwwerken":5,"hek":2,"kamp":1,"zeebodem":3,"terrein":3,"schepen":4,"rotsen":13,"planten":1,"grondstoffen":25,"gereedschap":11,"reisgerei":2,"bomen":2}},{"hex":"#e5e0d3","naam":"lichtoranje","totaal":127,"per":{"opslag":5,"huisraad":4,"licht":9,"bouwpakket":45,"eten":8,"borden":5,"hek":1,"verbinding":4,"bouwwerken":2,"kamp":2,"zeebodem":1,"terrein":15,"planten":3,"schepen":8,"grondstoffen":9,"gereedschap":2,"reisgerei":4}},{"hex":"#68482e","naam":"donkerbruin","totaal":104,"per":{"opslag":17,"huisraad":14,"bouwpakket":35,"items":1,"eten":4,"licht":4,"verbinding":2,"bomen":6,"grondstoffen":15,"gereedschap":5,"bouwwerken":1}},{"hex":"#8daa49","naam":"groen","totaal":60,"per":{"verbinding":1,"terrein":55,"planten":4}},{"hex":"#1f4d2a","naam":"donkergroen","totaal":58,"per":{"opslag":7,"bouwpakket":16,"eten":5,"bomen":15,"terrein":5,"planten":6,"schepen":2,"grondstoffen":1,"rotsen":1}},{"hex":"#cb5e48","naam":"rood","totaal":44,"per":{"opslag":9,"huisraad":1,"licht":4,"items":4,"eten":3,"bouwpakket":1,"bomen":6,"borden":1,"planten":5,"grondstoffen":7,"gereedschap":1,"reisgerei":2}},{"hex":"#b64233","naam":"rood","totaal":41,"per":{"opslag":9,"huisraad":2,"licht":4,"items":5,"eten":3,"bouwpakket":1,"bomen":2,"planten":2,"grondstoffen":12,"gereedschap":1}},{"hex":"#eeba5c","naam":"oranje","totaal":40,"per":{"opslag":2,"licht":7,"items":9,"huisraad":1,"planten":2,"grondstoffen":12,"gereedschap":3,"eten":1,"verbinding":3}},{"hex":"#e4d5af","naam":"lichtoranje","totaal":39,"per":{"opslag":9,"huisraad":1,"licht":5,"eten":4,"bouwpakket":3,"grondstoffen":5,"gereedschap":7,"reisgerei":2,"rotsen":1,"verbinding":2}},{"hex":"#6d8d33","naam":"groen","totaal":21,"per":{"eten":4,"planten":11,"bomen":4,"opslag":1,"bouwwerken":1}},{"hex":"#3f8849","naam":"groen","totaal":11,"per":{"planten":6,"bomen":5}},{"hex":"#287088","naam":"turquoise","totaal":10,"per":{"terrein":7,"gereedschap":1,"reisgerei":2}},{"hex":"#d1a36c","naam":"oranje","totaal":4,"per":{"eten":2,"bouwwerken":2}},{"hex":"#ebb454","naam":"oranje","totaal":4,"per":{"planten":4}},{"hex":"#44a8c6","naam":"turquoise","totaal":1,"per":{"planten":1}}]},{"id":"grot","naam":"Grot","atlas":"kits/modular-cave-kit/Textures/colormap.png","modellen":40,"groepen":[{"id":"grot","kort":"Grot","naam":"Grot & gangen","n":40}],"kleuren":[{"hex":"#a16d58","naam":"oranje","totaal":36,"per":{"grot":36}},{"hex":"#8a5d4b","naam":"bruin","totaal":29,"per":{"grot":29}},{"hex":"#ba7554","naam":"oranje","totaal":25,"per":{"grot":25}},{"hex":"#9da4c4","naam":"blauw","totaal":1,"per":{"grot":1}}]},{"id":"onderwater","naam":"Onderwater","atlas":null,"modellen":45,"groepen":[{"id":"dieren","kort":"Dieren","naam":"Dieren","n":20},{"id":"zeebodem","kort":"Zeebodem","naam":"Koraal, zeewier & schelpen","n":14},{"id":"rotsen","kort":"Rotsen","naam":"Rotsen & stenen","n":11}],"kleuren":[{"hex":"#5a5c61","naam":"grijs","totaal":11,"per":{"rotsen":11}},{"hex":"#e7e7e7","naam":"wit","totaal":7,"per":{"zeebodem":7}},{"hex":"#1b5f1d","naam":"donkergroen","totaal":3,"per":{"zeebodem":3}},{"hex":"#272a2f","naam":"donkergrijs","totaal":2,"per":{"dieren":2}},{"hex":"#1d1c22","naam":"donkergrijs","totaal":1,"per":{"dieren":1}},{"hex":"#275f38","naam":"donkergroen","totaal":1,"per":{"dieren":1}},{"hex":"#2a2c51","naam":"donkerblauw","totaal":1,"per":{"dieren":1}},{"hex":"#2c50dd","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#323232","naam":"donkergrijs","totaal":1,"per":{"dieren":1}},{"hex":"#363636","naam":"donkergrijs","totaal":1,"per":{"dieren":1}},{"hex":"#38723d","naam":"groen","totaal":1,"per":{"dieren":1}},{"hex":"#49566b","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#4d4f5a","naam":"grijs","totaal":1,"per":{"dieren":1}},{"hex":"#4f5d7e","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#523525","naam":"donkerbruin","totaal":1,"per":{"dieren":1}},{"hex":"#586780","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#5e749c","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#6974a0","naam":"blauw","totaal":1,"per":{"zeebodem":1}},{"hex":"#6ba069","naam":"groen","totaal":1,"per":{"zeebodem":1}},{"hex":"#755439","naam":"bruin","totaal":1,"per":{"dieren":1}},{"hex":"#84888f","naam":"lichtgrijs","totaal":1,"per":{"dieren":1}},{"hex":"#88898e","naam":"lichtgrijs","totaal":1,"per":{"dieren":1}},{"hex":"#a0885f","naam":"oranje","totaal":1,"per":{"zeebodem":1}},{"hex":"#a38876","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#a96f72","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#a9b7cf","naam":"blauw","totaal":1,"per":{"dieren":1}},{"hex":"#afc2d0","naam":"lichtblauw","totaal":1,"per":{"dieren":1}},{"hex":"#b1b4d7","naam":"lichtblauw","totaal":1,"per":{"dieren":1}},{"hex":"#b5bee7","naam":"lichtblauw","totaal":1,"per":{"dieren":1}},{"hex":"#c24c32","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#d4392d","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#d65725","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#d78b5b","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#e0e0e0","naam":"wit","totaal":1,"per":{"dieren":1}},{"hex":"#e75178","naam":"roze","totaal":1,"per":{"zeebodem":1}},{"hex":"#e76f54","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#e79e26","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#e7c776","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#e7d636","naam":"geel","totaal":1,"per":{"dieren":1}},{"hex":"#ec320c","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#f08e7c","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#f1634b","naam":"rood","totaal":1,"per":{"dieren":1}},{"hex":"#f64e00","naam":"oranje","totaal":1,"per":{"dieren":1}},{"hex":"#f7f8f5","naam":"wit","totaal":1,"per":{"dieren":1}},{"hex":"#f9f7f2","naam":"lichtoranje","totaal":1,"per":{"dieren":1}},{"hex":"#ffffff","naam":"wit","totaal":1,"per":{"dieren":1}}]}]};
+
+const doek = document.getElementById('doek');
+const paletrij = document.getElementById('paletrij');
+const weergaverij = document.getElementById('weergaverij');
+const WEERGAVEN = [['kleuren', 'Per kleur'], ['groepen', 'Per groep'], ['matrix', 'Matrix']];
+
+let paletId = GEGEVENS.paletten[0].id;
+let weergave = 'kleuren';
+
+const palet = () => GEGEVENS.paletten.find((p) => p.id === paletId);
+const tekst = (el, t) => { el.textContent = t; return el; };
+const maak = (soort, klasse) => { const el = document.createElement(soort); if (klasse) el.className = klasse; return el; };
+
+/** Vulling van een matrixvakje: één tint, donkerder naarmate het aandeel groter is. */
+function hitte(deel) {
+  if (!deel) return { achtergrond: 'transparent', donker: false };
+  const t = Math.pow(deel, 0.55);
+  return { achtergrond: 'rgba(var(--heat), ' + (0.1 + t * 0.8).toFixed(3) + ')', donker: t > 0.6 };
+}
+
+function knoppen() {
+  for (const p of GEGEVENS.paletten) {
+    const b = maak('button', 'chip');
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(p.id === paletId));
+    b.append(document.createTextNode(p.naam), Object.assign(maak('b'), { textContent: p.modellen }));
+    b.addEventListener('click', () => { paletId = p.id; teken(); });
+    paletrij.append(b);
+  }
+  for (const [id, naam] of WEERGAVEN) {
+    const b = maak('button', 'chip');
+    b.type = 'button';
+    b.textContent = naam;
+    b.setAttribute('aria-pressed', String(id === weergave));
+    b.addEventListener('click', () => { weergave = id; teken(); });
+    weergaverij.append(b);
+  }
+}
+
+function kop() {
+  const p = palet();
+  document.getElementById('pad').textContent = p.atlas ?? 'eigen materiaalkleuren';
+  const cijfers = document.getElementById('cijfers');
+  cijfers.replaceChildren();
+  const gedragen = p.kleuren.reduce((a, k) => a + k.totaal, 0);
+  for (const [n, label] of [
+    [p.modellen, 'modellen'],
+    [p.kleuren.length, 'kleuren'],
+    [p.groepen.length, 'groepen'],
+    [(gedragen / p.modellen).toFixed(1), 'kleuren per model'],
+  ]) {
+    const d = maak('div', 'cijfer');
+    d.append(Object.assign(maak('b'), { textContent: n }), Object.assign(maak('span'), { textContent: label }));
+    cijfers.append(d);
+  }
+}
+
+function regelKleur(kleur, p, hoogste) {
+  const d = maak('details', 'regel');
+  const s = maak('summary');
+
+  const staal = maak('span', 'staal');
+  staal.style.background = kleur.hex;
+
+  const naam = maak('div', 'naam');
+  naam.append(
+    Object.assign(maak('span', 'hex'), { textContent: kleur.hex }),
+    Object.assign(maak('span', 'om'), { textContent: kleur.naam }),
+  );
+
+  const telling = maak('div', 'telling');
+  const balk = maak('span', 'balk');
+  const vulling = maak('i');
+  vulling.style.width = Math.max(3, (kleur.totaal / hoogste) * 100) + '%';
+  vulling.style.background = kleur.hex;
+  balk.append(vulling);
+  telling.append(Object.assign(maak('span', 'n'), { textContent: kleur.totaal }), balk);
+
+  s.append(staal, naam, telling);
+  d.append(s);
+
+  const uit = maak('div', 'uitklap');
+  uit.append(Object.assign(maak('p', 'kopje'), { textContent: 'aandeel per groep' }));
+  const delen = p.groepen
+    .map((g) => ({ g, n: kleur.per[g.id] ?? 0 }))
+    .filter((x) => x.n > 0)
+    .sort((a, b) => b.n / b.g.n - a.n / a.g.n);
+  for (const { g, n } of delen) {
+    const rij = maak('div', 'deel');
+    const spoor = maak('span', 'spoor');
+    const i = maak('i');
+    i.style.width = (n / g.n) * 100 + '%';
+    spoor.append(i);
+    rij.append(
+      Object.assign(maak('span', 'g'), { textContent: g.naam }),
+      Object.assign(maak('span', 'n'), { textContent: n }),
+      Object.assign(maak('span', 'p'), { textContent: Math.round((n / g.n) * 100) + '%' }),
+      spoor,
+    );
+    uit.append(rij);
+  }
+  d.append(uit);
+  return d;
+}
+
+function regelGroep(g, p) {
+  const d = maak('details', 'regel');
+  const s = maak('summary');
+
+  const kleuren = p.kleuren
+    .map((k) => ({ k, n: k.per[g.id] ?? 0 }))
+    .filter((x) => x.n > 0)
+    .sort((a, b) => b.n - a.n);
+
+  /* de stalen zelf zijn de samenvatting van een groep */
+  const stapel = maak('span', 'staal');
+  stapel.style.background = 'linear-gradient(135deg, ' +
+    kleuren.slice(0, 4).map((x, i, a) => x.k.hex + ' ' + (i / a.length * 100) + '% ' + ((i + 1) / a.length * 100) + '%').join(', ') + ')';
+
+  const naam = maak('div', 'naam');
+  naam.append(
+    Object.assign(maak('span', 'hex'), { textContent: g.naam }),
+    Object.assign(maak('span', 'om'), { textContent: kleuren.length + ' kleuren' }),
+  );
+
+  const telling = maak('div', 'telling');
+  const balk = maak('span', 'balk');
+  const vulling = maak('i');
+  vulling.style.width = Math.max(3, (g.n / p.groepen[0].n) * 100) + '%';
+  vulling.style.background = 'rgba(var(--heat), .8)';
+  balk.append(vulling);
+  telling.append(Object.assign(maak('span', 'n'), { textContent: g.n }), balk);
+
+  s.append(stapel, naam, telling);
+  d.append(s);
+
+  const uit = maak('div', 'uitklap');
+  uit.append(Object.assign(maak('p', 'kopje'), { textContent: 'kleuren in deze groep' }));
+  for (const { k, n } of kleuren) {
+    const rij = maak('div', 'deel');
+    const spoor = maak('span', 'spoor');
+    const i = maak('i');
+    i.style.width = (n / g.n) * 100 + '%';
+    i.style.background = k.hex;
+    spoor.append(i);
+    const label = maak('span', 'g');
+    const punt = maak('span', 'staal');
+    punt.style.cssText = 'width:12px;height:12px;border-radius:3px;display:inline-block;vertical-align:-1px;margin-right:7px;background:' + k.hex;
+    label.append(punt, document.createTextNode(k.hex + '  ' + k.naam));
+    rij.append(
+      label,
+      Object.assign(maak('span', 'n'), { textContent: n }),
+      Object.assign(maak('span', 'p'), { textContent: Math.round((n / g.n) * 100) + '%' }),
+      spoor,
+    );
+    uit.append(rij);
+  }
+  d.append(uit);
+  return d;
+}
+
+function matrix(p) {
+  const doos = maak('div', 'matrixdoos');
+  const tabel = maak('table');
+  const thead = maak('thead');
+  const kopRij = maak('tr');
+  kopRij.append(Object.assign(maak('th', 'eerste'), { textContent: 'kleur' }));
+  kopRij.append(Object.assign(maak('th'), { textContent: 'totaal' }));
+  for (const g of p.groepen) {
+    const th = maak('th');
+    th.append(document.createTextNode(g.kort), Object.assign(maak('em'), { textContent: g.n }));
+    kopRij.append(th);
+  }
+  thead.append(kopRij);
+
+  const tbody = maak('tbody');
+  for (const k of p.kleuren) {
+    const tr = maak('tr');
+    const eerste = maak('th', 'eerste');
+    const punt = maak('span');
+    punt.style.cssText = 'display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:8px;border:1px solid rgba(125,145,152,.5);background:' + k.hex;
+    eerste.append(punt, document.createTextNode(k.hex));
+    tr.append(eerste, Object.assign(maak('td'), { textContent: k.totaal }));
+    for (const g of p.groepen) {
+      const n = k.per[g.id] ?? 0;
+      const td = maak('td');
+      const { achtergrond, donker } = hitte(n / g.n);
+      td.style.background = achtergrond;
+      if (donker) td.style.color = 'var(--heat-inkt)';
+      if (!n) td.className = 'leeg';
+      td.textContent = n ? String(n) : '·';
+      td.title = k.hex + ' · ' + g.naam + ': ' + n + ' van ' + g.n + ' modellen';
+      tr.append(td);
+    }
+    tbody.append(tr);
+  }
+  tabel.append(thead, tbody);
+  doos.append(tabel);
+  return doos;
+}
+
+function teken() {
+  for (const b of paletrij.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.textContent.startsWith(palet().naam)));
+  for (const [i, b] of [...weergaverij.querySelectorAll('button')].entries()) b.setAttribute('aria-pressed', String(WEERGAVEN[i][0] === weergave));
+
+  kop();
+  const p = palet();
+  doek.replaceChildren();
+
+  if (weergave === 'matrix') { doek.append(matrix(p)); return; }
+
+  const ledger = maak('div', 'ledger');
+  if (weergave === 'kleuren') {
+    const hoogste = p.kleuren[0].totaal;
+    for (const k of p.kleuren) ledger.append(regelKleur(k, p, hoogste));
+  } else {
+    for (const g of p.groepen) ledger.append(regelGroep(g, p));
+  }
+  doek.append(ledger);
+}
+
+knoppen();
+teken();
+</script>
