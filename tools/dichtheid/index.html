@@ -1,0 +1,107 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#e8e4da}</style>
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+<body>
+<script type="module">
+/* Contactvel voor de dichtheidsranglijst: 25 modellen in een raster van 5×5,
+ * elk apart ingekaderd — niet op ware grootte, de maten staan in het label.
+ * De camera kijkt recht op het vel; de driekwartblik zit in de modellen zelf,
+ * zodat labels netjes onder hun eigen cel blijven. De selectie wordt door
+ * render.mjs als window.SELECTIE ingespoten. */
+addEventListener('error', () => { window.FOUT = true; });
+addEventListener('unhandledrejection', () => { window.FOUT = true; });
+
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const sel = window.SELECTIE;
+if (!sel || !sel.items.length) { document.title = 'GEEN SELECTIE'; throw new Error('selectie?'); }
+
+const W = 1700, H = 1500;
+const KOL = 5, CEL = 1.0, STAP_X = 1.2, STAP_Y = 1.34, PAS = 0.74;
+const DRAAI_Y = 0.62, KANTEL_X = -0.42;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xe8e4da);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.4));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(3, 6, 8);
+scene.add(sun);
+
+const loader = new GLTFLoader();
+const load = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
+
+/* label van drie regels, onder de cel */
+function label(regels, x, y) {
+  const c = document.createElement('canvas');
+  c.width = 1024; c.height = 200;
+  const ctx = c.getContext('2d');
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#222'; ctx.font = '600 54px sans-serif';
+  ctx.fillText(regels[0], 512, 56);
+  ctx.fillStyle = '#5a544a'; ctx.font = '44px sans-serif';
+  ctx.fillText(regels[1], 512, 116);
+  ctx.fillText(regels[2], 512, 176);
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
+  const breed = CEL * 1.18;
+  spr.scale.set(breed, breed * (200 / 1024), 1);
+  spr.center.set(0.5, 1);
+  spr.position.set(x, y, 2);
+  scene.add(spr);
+}
+
+const rijen = Math.ceil(sel.items.length / KOL);
+for (let i = 0; i < sel.items.length; i++) {
+  const item = sel.items[i];
+  const cx = (i % KOL) * STAP_X, cy = -Math.floor(i / KOL) * STAP_Y;
+
+  /* celvlak, zodat elk model een eigen kader houdt */
+  const pad = new THREE.Mesh(
+    new THREE.PlaneGeometry(CEL * 1.1, CEL * 0.94),
+    new THREE.MeshBasicMaterial({ color: 0xdfdbd0 }));
+  pad.position.set(cx, cy + CEL * 0.06, -1);
+  scene.add(pad);
+
+  const gltf = await load('/kits/' + item.pad);
+  /* driekwartblik in het model zelf: eerst draaien, dan kantelen */
+  const draai = new THREE.Group();
+  draai.add(gltf.scene);
+  draai.rotation.y = DRAAI_Y;
+  const pivot = new THREE.Group();
+  pivot.add(draai);
+  pivot.rotation.x = KANTEL_X;
+
+  let box = new THREE.Box3().setFromObject(pivot);
+  const size = box.getSize(new THREE.Vector3());
+  /* elk model apart ingekaderd: grootste zichtbare maat vult de cel */
+  pivot.scale.setScalar(PAS / Math.max(size.x, size.y));
+  box = new THREE.Box3().setFromObject(pivot);
+  const mid = box.getCenter(new THREE.Vector3());
+  pivot.position.set(cx - mid.x, cy + CEL * 0.08 - mid.y, -mid.z);
+  scene.add(pivot);
+
+  label(item.regels, cx, cy - CEL * 0.36);
+}
+
+const bx = (KOL - 1) * STAP_X, by = (rijen - 1) * STAP_Y;
+const mid = new THREE.Vector3(bx / 2, -by / 2 + 0.04, 0);
+const breedte = bx + CEL * 1.3, hoogte = by + CEL * 1.35;
+const aspect = W / H;
+const viewH = Math.max(hoogte, breedte / aspect) * 1.03;
+const cam = new THREE.OrthographicCamera(
+  -viewH * aspect / 2, viewH * aspect / 2, viewH / 2, -viewH / 2, 0.1, 400);
+cam.position.set(mid.x, mid.y, 100);
+cam.lookAt(mid);
+scene.add(cam);
+
+renderer.render(scene, cam);
+document.title = 'KLAAR:' + sel.items.length;
+window.KLAAR = true;
+</script>
