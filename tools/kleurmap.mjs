@@ -581,6 +581,9 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
   const gekozen = new Map();
   return {
     banen: segmenten,
+    // De ruwe banen: één baan is één materiaal in de bron-atlas. hermapUv
+    // gebruikt ze om te zien welke driehoeken bij hetzelfde oppervlak horen.
+    bronBanen: banen,
     cel(baan) {
       // Eén keuze per groep: alle banen van hetzelfde oppervlak volgen elkaar.
       baan = wortel(baan);
@@ -668,6 +671,22 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
     if (!perCel.has(sleutel)) perCel.set(sleutel, []);
     perCel.get(sleutel).push(punt);
   }
+  const alleCellen = [...perCel.keys()].sort();
+
+  /* Wat een tint in een cel kost, onthouden per tint. Een model telt duizenden
+   * hoekpunten maar hooguit een paar honderd kleuren, en ronde 2 weegt hele
+   * gebieden tegen álle cellen af. */
+  const kostenCache = new Map();
+  const kostenVan = (kleur) => {
+    const tint = naarHex(...kleur);
+    let rij = kostenCache.get(tint);
+    if (!rij) {
+      rij = new Map();
+      for (const sleutel of alleCellen) rij.set(sleutel, dichtstbij(kleur, perCel.get(sleutel)).afstand);
+      kostenCache.set(tint, rij);
+    }
+    return rij;
+  };
 
   for (const mi of meshIndexen) {
     for (const prim of json.meshes[mi].primitives) {
@@ -680,6 +699,7 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
       /* Ronde 1 — elke vertex naar de cel van zijn baan, en daarbinnen naar de
        * tint die het dichtst bij zijn eigen kleur ligt. */
       const bronKleuren = [];
+      const bronBaan = [];
       const keuze = [];
       for (let i = 0; i < uv.acc.count; i++) {
         const positie = uv.start + i * uv.stap;
@@ -687,6 +707,7 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         const v = bin.readFloatLE(positie + 4);
         const { baan, kleur } = baanBij(bronAtlas, banen, u, v);
         bronKleuren.push(kleur);
+        bronBaan.push(baanBij(bronAtlas, tabel.bronBanen, u, v).baan);
 
         const gekozen = dichtstbij(kleur, perCel.get(tabel.cel(baan)));
         keuze.push(gekozen.punt);
@@ -704,23 +725,25 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         omgezet.get(sleutel).aantal++;
       }
 
-      /* Ronde 2 — elk aaneengesloten plat oppervlak op één cel.
+      /* Ronde 2 — elk aaneengesloten stuk van hetzelfde materiaal op één cel.
        *
-       * Dit is de eis waar het echt om gaat, en hij is smaller dan "één cel per
-       * baan". Een wig ontstaat alleen waar twee driehoeken in hetzelfde vlak
-       * tegen elkaar aan liggen en in verschillende cellen landen: dán veegt de
-       * interpolatie dwars over de atlas. Facetten die een hoek met elkaar
-       * maken mogen gerust uiteenlopen — dat is gewoon schakering, en juist wat
-       * de kaars of de fles van licht naar donker laat lopen.
+       * Een gebied is een reeks driehoeken die aan elkaar vastzitten en in de
+       * bron uit dezelfde kleurbaan komen: de hele glazen buik van een fles, de
+       * duigen van een vat, het blad van een tafel. In de bron is dat één
+       * doorlopend verloop, en zo hoort het er ook uit te komen.
        *
-       * Dus: driehoeken die een ribbe delen en in hetzelfde vlak liggen vormen
-       * samen een oppervlak, en dat oppervlak krijgt in zijn geheel de cel van
-       * de meerderheid. Elk hoekpunt zoekt daarna binnen die cel de tint die
-       * het dichtst bij zijn eigen bronkleur ligt, zodat de schakering over het
-       * oppervlak blijft staan.
+       * Eerder keek deze ronde alleen naar driehoeken die in hetzelfde plátte
+       * vlak liggen. Dat is te weinig. Op een ronde fles maakt elk facet een
+       * hoek met zijn buurman, dus zag die regel er niets in — terwijl een facet
+       * dat in een andere cel landt daar wel degelijk als een donkere wig in
+       * staat. Het gaat niet om het vlak maar om het oppervlak.
        *
-       * Herhaald tot het stil ligt: bij een pack dat zijn hoekpunten deelt kan
-       * één hoekpunt aan twee oppervlakken vast zitten. */
+       * Het gebied krijgt de cel die het als geheel het minst kost, en elk
+       * hoekpunt zoekt daarbinnen zijn eigen tint op. De schakering loopt zo
+       * door over het hele oppervlak, samengedrukt tot wat één cel aankan.
+       * Twee gebieden uit dezelfde baan — de lichte fles hier, de donkere plank
+       * daar — mogen wél verschillende cellen pakken; dat is precies wat de
+       * kleur op zijn plek houdt. */
       if (prim.indices !== undefined && prim.attributes.POSITION !== undefined) {
         const idx = ligging(json, prim.indices, CT[json.accessors[prim.indices].componentType]);
         const maat = CT[idx.acc.componentType];
@@ -728,11 +751,24 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         const hoek = (t, k) => bin[lees](idx.start + (t + k) * idx.stap);
         const pos = leesAccessor(glb, prim.attributes.POSITION).data;
 
-        /* De driehoeken met hun vlak. */
         const driehoeken = [];
         for (let t = 0; t + 2 < idx.acc.count; t += 3) {
           const punten3 = [0, 1, 2].map((k) => hoek(t, k));
           const p = punten3.map((v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
+          // De baan van de driehoek: die van de meerderheid van zijn hoeken.
+          const telling = new Map();
+          for (const v of punten3) {
+            const b = bronBaan[v];
+            telling.set(b, (telling.get(b) ?? 0) + 1);
+          }
+          let baan = -1;
+          let meeste = 0;
+          for (const [b, n] of telling) {
+            if (n > meeste) {
+              meeste = n;
+              baan = b;
+            }
+          }
           const e1 = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
           const e2 = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
           const n = [
@@ -741,11 +777,19 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
             e1[0] * e2[1] - e1[1] * e2[0],
           ];
           const lengte = Math.hypot(...n);
-          driehoeken.push({ punten3, p, normaal: lengte ? n.map((v) => v / lengte) : null });
+          driehoeken.push({
+            punten3,
+            p,
+            baan,
+            opp: lengte / 2,
+            normaal: lengte ? n.map((v) => v / lengte) : null,
+            kleur: punten3
+              .map((v) => bronKleuren[v])
+              .reduce((som, c) => som.map((x, k) => x + c[k] / 3), [0, 0, 0]),
+          });
         }
 
-        /* Oppervlakken: driehoeken die een ribbe delen en in hetzelfde vlak
-         * liggen. Ribben op de punt af, zoals in toetsNaden. */
+        /* Gebieden: driehoeken die een ribbe delen én uit dezelfde baan komen. */
         const ouder = new Int32Array(driehoeken.length).map((_, i2) => i2);
         const zoek = (a) => {
           while (ouder[a] !== a) {
@@ -756,7 +800,6 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         };
         const ribben = new Map();
         driehoeken.forEach((d, index) => {
-          if (!d.normaal) return;
           for (let k = 0; k < 3; k++) {
             const sleutel = [d.p[k], d.p[(k + 1) % 3]]
               .map((q) => q.join(','))
@@ -769,42 +812,65 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         for (const paar of ribben.values()) {
           if (paar.length !== 2) continue;
           const [a, b] = paar.map((i2) => driehoeken[i2]);
-          if (!a.normaal || !b.normaal) continue;
-          if (a.normaal.reduce((som, v, k) => som + v * b.normaal[k], 0) < 0.999) continue;
+
+          /* Twee driehoeken horen bij hetzelfde gebied als ze uit dezelfde baan
+           * komen — dan zijn ze in de bron hetzelfde materiaal — óf als ze in
+           * hetzelfde platte vlak liggen en nauwelijks in kleur schelen. Dat
+           * tweede vangt de packs die hun schakering als losse vlakke velden
+           * tekenen: de duigen van het props-vat zitten in twee banen maar
+           * vormen één plat oppervlak, en een naad dwars over dat vlak is
+           * precies wat we niet willen. Schelen ze wél veel, dan is het een
+           * bedoelde kleurgrens en blijven het twee gebieden. */
+          const zelfdeBaan = a.baan === b.baan;
+          const vlakEnGelijk =
+            a.normaal && b.normaal &&
+            a.normaal.reduce((som, v, k) => som + v * b.normaal[k], 0) >= 0.999 &&
+            kleurAfstand(a.kleur, b.kleur) <= 60;
+          if (!zelfdeBaan && !vlakEnGelijk) continue;
+
           const wa = zoek(paar[0]);
           const wb = zoek(paar[1]);
           if (wa !== wb) ouder[Math.max(wa, wb)] = Math.min(wa, wb);
         }
 
-        const oppervlakken = new Map();
+        const gebieden = new Map();
         driehoeken.forEach((d, index) => {
-          if (!d.normaal) return;
-          const wortelIndex = zoek(index);
-          if (!oppervlakken.has(wortelIndex)) oppervlakken.set(wortelIndex, []);
-          oppervlakken.get(wortelIndex).push(index);
+          const w = zoek(index);
+          if (!gebieden.has(w)) gebieden.set(w, []);
+          gebieden.get(w).push(index);
         });
 
         for (let ronde = 0; ronde < 4; ronde++) {
           let veranderd = 0;
-          for (const leden of oppervlakken.values()) {
+          for (const leden of gebieden.values()) {
             const hoekpunten = [...new Set(leden.flatMap((i2) => driehoeken[i2].punten3))];
             const cellen = hoekpunten.map((i2) => keuze[i2].cel.join(','));
-            if (cellen.every((c) => c === cellen[0])) continue;
 
-            /* De cel die het oppervlak als geheel het minst kost, niet die van
-             * de meerderheid. Dat scheelt op een groot vlak waar de bron een
-             * verloop overheen schildert dat breder is dan één cel: bij een
-             * telling wint de donkere helft en wordt het halve muurvlak te
-             * donker, terwijl de cel die over de hele reeks het dichtst blijft
-             * de schakering netjes samendrukt. Alleen de cellen die de
-             * hoekpunten zelf al willen doen mee — dat zijn er een handvol. */
+            /* Elk hoekpunt weegt mee naar het oppervlak dat eraan hangt, niet
+             * als los punt. Dat is wat je ziet: een fles heeft één groot licht
+             * buikvlak met weinig hoekpunten en een kraag van kleine donkere
+             * facetjes met veel. Op stuks geteld wint dan het donker en kiest
+             * het gebied een donkerrode cel voor een koperen fles; op oppervlak
+             * gewogen wint het vlak dat de fles zijn kleur geeft. */
+            const gewicht = new Map();
+            for (const i2 of leden) {
+              const d = driehoeken[i2];
+              for (const v of d.punten3) gewicht.set(v, (gewicht.get(v) ?? 0) + d.opp / 3);
+            }
+
+            /* De cel die het gebied als geheel het minst kost — afgewogen tegen
+             * álle cellen, niet alleen tegen wat de hoekpunten toevallig al
+             * hadden. Dat verschil is groot: ronde 1 kiest per stuk van een
+             * baan, en voor een gebied dat over twee stukken loopt zit de beste
+             * cel voor het gehéél er dan niet bij. De koperen fles kwam zo op
+             * een rode cel uit terwijl er een cel bestaat die er ruim twee keer
+             * zo dicht bij ligt. */
+            const rijen = hoekpunten.map((i2) => [kostenVan(bronKleuren[i2]), gewicht.get(i2) ?? 0]);
             let doel = cellen[0];
             let besteKosten = Infinity;
-            for (const kandidaat of new Set(cellen)) {
+            for (const kandidaat of alleCellen) {
               let kosten = 0;
-              for (const i2 of hoekpunten) {
-                kosten += dichtstbij(bronKleuren[i2], perCel.get(kandidaat)).afstand;
-              }
+              for (const [rij, w] of rijen) kosten += rij.get(kandidaat) * w;
               if (kosten < besteKosten) {
                 besteKosten = kosten;
                 doel = kandidaat;
