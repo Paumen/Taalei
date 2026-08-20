@@ -593,11 +593,19 @@ export function toetsNaden(glb, meshIndexen, atlas) {
 
       // Ribben op hun twee eindpunten, zodat buren elkaar vinden. De modellen
       // zijn ontvlochten, dus buren delen geen hoekpunt maar wel een plaats.
+      //
+      // Die plaats vergelijken we op de punt af, niet met een marge. Buren zijn
+      // hier kopieën van hetzelfde bronhoekpunt en ondergaan daarna dezelfde
+      // bewerkingen, dus hun coördinaten zijn bit voor bit gelijk. Afronden
+      // vindt geen buur méér — het plakt juist hoekpunten aan elkaar die dicht
+      // bij elkaar liggen maar niet dezelfde zijn, en dan telt zo'n ribbe drie
+      // of vier driehoeken en valt hij uit de controle. Over vijf kits scheelt
+      // dat 192 buurparen op 272.884.
       const ribben = new Map();
       driehoeken.forEach((d, index) => {
         for (let k = 0; k < 3; k++) {
           const sleutel = [d.p[k], d.p[(k + 1) % 3]]
-            .map((q) => q.map((v) => v.toFixed(4)).join(','))
+            .map((q) => q.join(','))
             .sort()
             .join('|');
           if (!ribben.has(sleutel)) ribben.set(sleutel, []);
