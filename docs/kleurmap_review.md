@@ -6,7 +6,9 @@ die de kits nu meedragen (`kits/colormap.png`) en één keer met de kandidaat
 identiek — alleen de textuur verschilt, want beide atlassen hebben hetzelfde
 raster van 16 × 4 cellen en de UV's blijven waar ze staan.
 
-Het blad staat in [kleurmap_review/props-vergelijking.png](kleurmap_review/props-vergelijking.png).
+Er zijn twee bladen, elk met veertig props en zonder overlap:
+[props-vergelijking.png](kleurmap_review/props-vergelijking.png) en
+[props-vergelijking-b.png](kleurmap_review/props-vergelijking-b.png).
 
 Opnieuw maken vanuit de repo-root:
 
@@ -14,13 +16,18 @@ Opnieuw maken vanuit de repo-root:
 NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
 ```
 
-## Keuze van de veertig
+Zonder argument komen beide bladen langs; met een naam erachter alleen dat blad,
+bijvoorbeeld `... render.mjs props-vergelijking-b`.
 
-De props in `tools/vergelijk-kleurmap/props.json` zijn zo gekozen dat ze samen
-elke cel raken die de kits met het gedeelde palet gebruiken — 23 van de 23 — en
-dat ze over de groepen van de catalogus verdeeld liggen: bouwwerken, schepen,
-opslag, huisraad, licht, eten, gereedschap, grondstoffen, bomen, planten,
-rotsen en verbindingen. Een kleurwissel landt zo altijd op iets herkenbaars.
+## Keuze van de props
+
+De lijsten staan in `tools/vergelijk-kleurmap/props.json` en `props-b.json`. Elk
+van de twee is zo gekozen dat de veertig samen elke cel raken die de kits met
+het gedeelde palet gebruiken — 23 van de 23 — en dat ze over de groepen van de
+catalogus verdeeld liggen: bouwwerken, schepen, opslag, huisraad, licht, eten,
+gereedschap, grondstoffen, bomen, planten, rotsen en verbindingen. Een
+kleurwissel landt zo altijd op iets herkenbaars. De twee lijsten delen geen
+enkel model, dus samen laten ze tachtig verschillende props zien.
 
 ## Cel 5,0 — de houtbaan
 

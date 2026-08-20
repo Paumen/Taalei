@@ -29,10 +29,11 @@
 <body>
 <div id="blad"></div>
 <script type="module">
-/* Rendert elke prop uit props.json twee keer: één keer met de atlas die de kit
+/* Rendert elke prop uit een lijst twee keer: één keer met de atlas die de kit
  * zelf meedraagt (kits/colormap.png) en één keer met colormap-v2.png ernaast.
  * Beide renders delen scène, licht en camera, zodat alleen de textuur verschilt.
- * Wordt aangestuurd door render.mjs, die het blad als PNG wegschrijft. */
+ * Welke lijst het is bepaalt ?lijst=, standaard props.json. Wordt aangestuurd
+ * door render.mjs, die het blad als PNG wegschrijft. */
 addEventListener('error', () => { window.FOUT = true; });
 addEventListener('unhandledrejection', () => { window.FOUT = true; });
 
@@ -111,14 +112,14 @@ function schiet(obj) {
   return data;
 }
 
-const lijst = await (await fetch('./props.json')).json();
+const bestand = new URLSearchParams(location.search).get('lijst') ?? 'props.json';
+const lijst = await (await fetch('./' + bestand)).json();
 const blad = document.getElementById('blad');
 blad.innerHTML = `
-  <h1>Props op de huidige colormap en op atlas v2</h1>
-  <p class="uitleg">Veertig modellen uit de kits die het gedeelde palet gebruiken, samen goed voor
-  elke gevulde cel van de atlas. Links de kleuren zoals ze nu in de repo staan, rechts dezelfde
-  modellen met <code>colormap-v2.png</code> als textuur. De modellen, het licht en de camera zijn
-  identiek; alleen de atlas verschilt.</p>
+  <h1>${lijst.titel}</h1>
+  <p class="uitleg">${lijst.toelichting} Links de kleuren zoals ze nu in de repo staan, rechts
+  dezelfde modellen met <code>colormap-v2.png</code> als textuur. De modellen, het licht en de
+  camera zijn identiek; alleen de atlas verschilt.</p>
   <div class="atlassen">
     <figure><img src="/kits/colormap.png"><figcaption>huidig — kits/colormap.png</figcaption></figure>
     <figure><img src="./colormap-v2.png"><figcaption>voorstel — colormap-v2.png</figcaption></figure>
