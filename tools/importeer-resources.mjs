@@ -21,7 +21,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
 import { leesPng } from './png.mjs';
-import { doelPunten, hermapUv, toetsDriehoeken, kopieerColormap } from './kleurmap.mjs';
+import { doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden, kopieerColormap } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS = join(ROOT, 'kits');
@@ -82,6 +82,11 @@ const punten = doelPunten(doelAtlas);
 mkdirSync(join(DOEL, 'Textures'), { recursive: true });
 copyFileSync(COLORMAP, join(DOEL, 'Textures', 'colormap.png'));
 
+/* Eerst de hele pack inlezen om te tellen welke tinten van welke baan hij
+ * gebruikt; daarmee kiest baanTabel() per bron-baan één cel. Die keuze moet
+ * voor de hele kit gelijk zijn, dus hij valt vóór het eerste model. */
+const tabel = baanTabel(bronAtlas, punten, Object.keys(NAMEN).map(leesGltf));
+
 const perKleur = new Map();
 const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
@@ -90,7 +95,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   const meshIndexen = ruw.json.meshes.map((_, i) => i);
   ruw = ontvlecht(ruw, meshIndexen);
 
-  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen);
+  const { omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen, tabel);
   const glb = compacteer(ruw, meshIndexen);
 
   glb.json.materials = [{
@@ -112,7 +117,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   };
 
   const voor = zetOpOorsprong(glb, naam, SCHAAL);
-  const verdacht = toetsDriehoeken(glb, glb.json.meshes.map((_, i) => i), doelAtlas);
+  const alleMeshes = glb.json.meshes.map((_, i) => i);
+  const verdacht = toetsDriehoeken(glb, alleMeshes, doelAtlas);
+  const naden = toetsNaden(glb, alleMeshes, doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
   schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
@@ -136,6 +143,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   if (verdacht > 0) {
     console.warn(`  ! ${naam}: ${verdacht} driehoeken lopen over meer dan één cel`);
   }
+  if (naden > 0) {
+    console.warn(`  ! ${naam}: ${naden} kleurnaden tussen driehoeken in hetzelfde vlak`);
+  }
 }
 
 console.log();
@@ -153,6 +163,14 @@ const paletPad = join(KITS, 'palet.json');
 const paletJson = JSON.parse(readFileSync(paletPad, 'utf8'));
 const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
 if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
+
+/* Eerst deze kit overal weghalen. Bij een herimport kan een model in een andere
+ * cel terechtkomen dan de vorige keer, en build-catalog.mjs leest de kleur van
+ * een model hiervandaan — een vermelding die blijft staan geeft het model in de
+ * catalogus een kleur die het niet meer heeft. */
+for (const cel of gedeeld.cellen) {
+  cel.bronnen = cel.bronnen.filter((b) => b.kit !== 'resources');
+}
 
 for (const [celSleutel, modellenSet] of perCel) {
   const [kolom, rij] = celSleutel.split(',').map(Number);

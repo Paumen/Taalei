@@ -10,17 +10,30 @@
  * die konden niet worden omgezet — maar een pack met platte kleurvlakken kan
  * dat wél.
  *
- * Hoe: niet per model of per materiaal, maar per vertex. Van elke UV wordt de
- * kleur in de bron-atlas opgezocht; daarna krijgt die vertex de UV van de
- * dichtstbijzijnde kleur in kits/colormap.png. Platte vlakken komen zo allemaal
- * op hetzelfde punt uit, en een verloop — de palmbladeren lopen van licht naar
- * donker over een kleurbaan — landt vanzelf op de overeenkomstige plek in de
- * doelbaan. Er is dus geen aparte behandeling voor verlopen nodig.
+ * Hoe: baan voor baan, en binnen een baan per vertex. Een bron-atlas bestaat
+ * net als de gedeelde colormap uit kleurbanen: horizontaal één kleur, verticaal
+ * van licht naar donker. Elke baan van de bron krijgt eerst één cel in de
+ * doel-atlas toegewezen (`baanTabel`); daarna zoekt elke vertex binnen die ene
+ * cel het punt op dat het dichtst bij zijn eigen tint ligt. Een verloop — de
+ * palmbladeren lopen van licht naar donker over een baan — landt zo vanzelf op
+ * de overeenkomstige plek in de doelbaan, en twee vertices uit dezelfde baan
+ * kunnen niet meer in verschillende cellen belanden.
+ *
+ * Dat laatste is niet vanzelfsprekend. Een eerdere versie zocht per vertex de
+ * dichtstbijzijnde kleur in de hele doel-atlas. Bron-banen zijn langer dan de
+ * cellen hier — KayKit loopt van bijna wit tot bijna zwart — dus viel zo'n baan
+ * onderweg uiteen: van de zeventien banen die de resource-pack gebruikt kwamen
+ * er dertien in twee tot vijf verschillende cellen terecht. Op een plat vlak dat
+ * uit twee driehoeken bestaat, kon de ene driehoek dan in de ene cel landen en
+ * de andere in een cel aan de overkant van de sheet — de wig in een andere
+ * kleur die in de catalogus op kaarsen, flessen en staven te zien was. Zie
+ * `toetsNaden` voor de controle die daarop let.
  */
 
 import { copyFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { leesPng } from './png.mjs';
+import { leesAccessor } from './glb.mjs';
 
 /**
  * De gedeelde colormap is een raster van 16 × 4 cellen. Elke cel is een
@@ -150,6 +163,184 @@ export function kopieerColormap(kitsMap, overslaan = ['modular-cave-kit', 'onder
   return gekopieerd;
 }
 
+/* -- de banen van de bron-atlas ------------------------------------------- */
+
+/**
+ * Deelt een bron-atlas op in kleurbanen.
+ *
+ * Een baan is gebouwd zoals de packs hem tekenen: horizontaal precies één
+ * kleur, verticaal een verloop in stapjes van een paar eenheden. Twee pixels
+ * horen dus bij dezelfde baan als ze naast elkaar liggen én exact dezelfde
+ * kleur hebben, of als ze boven elkaar liggen én nauwelijks verschillen.
+ *
+ * Die twee regels apart houden is het hele punt. Alleen naar kleurafstand
+ * kijken plakt in de resource-atlas drie verschillende grijzen aan elkaar —
+ * zwart, donkergrijs en leigrijs staan naast elkaar en lopen in elkaar over —
+ * en dan zou al het metaal van de pack in één cel eindigen. Met de eis dat
+ * buren horizontaal exact gelijk zijn blijven die drie banen uit elkaar, en
+ * komt elke cel van de KayKit-sheet als één baan terug.
+ *
+ * @returns {{label: Int32Array, aantal: number}} per pixel het baannummer
+ */
+export function bronBanen(atlas, drempel = 6) {
+  const { breedte: W, hoogte: H, pixels } = atlas;
+
+  // Union-find: elke pixel begint als eigen baan, buren worden samengevoegd.
+  const ouder = new Int32Array(W * H);
+  for (let i = 0; i < W * H; i++) ouder[i] = i;
+  const zoek = (a) => {
+    while (ouder[a] !== a) {
+      ouder[a] = ouder[ouder[a]];
+      a = ouder[a];
+    }
+    return a;
+  };
+  const bind = (a, b) => {
+    a = zoek(a);
+    b = zoek(b);
+    if (a !== b) ouder[Math.max(a, b)] = Math.min(a, b);
+  };
+
+  const kleur = (i) => [pixels[i * 4], pixels[i * 4 + 1], pixels[i * 4 + 2]];
+  const gelijk = (a, b) =>
+    pixels[a * 4] === pixels[b * 4] &&
+    pixels[a * 4 + 1] === pixels[b * 4 + 1] &&
+    pixels[a * 4 + 2] === pixels[b * 4 + 2];
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const p = y * W + x;
+      if (x + 1 < W && gelijk(p, p + 1)) bind(p, p + 1);
+      if (y + 1 < H && kleurAfstand(kleur(p), kleur(p + W)) <= drempel) bind(p, p + W);
+    }
+  }
+
+  const label = new Int32Array(W * H);
+  const nummer = new Map();
+  for (let i = 0; i < W * H; i++) {
+    const wortel = zoek(i);
+    if (!nummer.has(wortel)) nummer.set(wortel, nummer.size);
+    label[i] = nummer.get(wortel);
+  }
+  return { label, aantal: nummer.size };
+}
+
+/** Eén keer per atlas opdelen; de importeurs roepen dit per model aan. */
+const banenCache = new WeakMap();
+function banenVan(atlas) {
+  if (!banenCache.has(atlas)) banenCache.set(atlas, bronBanen(atlas));
+  return banenCache.get(atlas);
+}
+
+/** De baan waarin een UV valt, met de kleur die daar staat. */
+function baanBij(atlas, banen, u, v) {
+  // De UV kan net buiten [0,1] vallen op de rand van een vlak; klemmen levert
+  // dezelfde kleur op als de sampler in de viewer laat zien.
+  const x = Math.min(atlas.breedte - 1, Math.max(0, Math.floor(u * atlas.breedte)));
+  const y = Math.min(atlas.hoogte - 1, Math.max(0, Math.floor(v * atlas.hoogte)));
+  const i = y * atlas.breedte + x;
+  return {
+    baan: banen.label[i],
+    kleur: [atlas.pixels[i * 4], atlas.pixels[i * 4 + 1], atlas.pixels[i * 4 + 2]],
+  };
+}
+
+/**
+ * Kiest per bron-baan één cel in de doel-atlas.
+ *
+ * Een baan wordt vergeleken met elke gevulde cel: voor elke tint uit de baan de
+ * afstand tot de dichtstbijzijnde kleur in die cel, gemiddeld over de tinten.
+ * De cel met het laagste gemiddelde wint.
+ *
+ * `modellen` is de hele pack — alle glb's die straks hermapt worden. Daarmee
+ * telt niet elke tint even zwaar, maar naar rato van hoe vaak de pack hem
+ * gebruikt. Dat scheelt waar de gedeelde colormap geen goede tegenhanger heeft:
+ * de goudbaan van de resource-pack loopt van lichtgeel tot bijna zwart, en
+ * ongewogen wint een oranje cel die vooral bij het donkere staartje past dat
+ * geen enkel model aanraakt. Zonder `modellen` telt elke tint even zwaar; dat
+ * blijft een geldige keuze, alleen een botsere.
+ *
+ * @returns {{cel: (baan: number) => string, banen: {label: Int32Array}}}
+ */
+export function baanTabel(bronAtlas, punten, modellen = []) {
+  const banen = banenVan(bronAtlas);
+
+  const perCel = new Map();
+  for (const punt of punten) {
+    const sleutel = punt.cel.join(',');
+    if (!perCel.has(sleutel)) perCel.set(sleutel, []);
+    perCel.get(sleutel).push(punt);
+  }
+  // Vaste volgorde, zodat een gelijkspel altijd dezelfde kant op valt.
+  const cellen = [...perCel.keys()].sort();
+
+  /* Hoe vaak de pack elke tint van elke baan gebruikt. */
+  const gebruik = new Map();
+  for (const glb of modellen) {
+    for (const mesh of glb.json.meshes ?? []) {
+      for (const prim of mesh.primitives) {
+        if (prim.attributes.TEXCOORD_0 === undefined) continue;
+        const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
+        for (let i = 0; i < uv.count; i++) {
+          const { baan, kleur } = baanBij(bronAtlas, banen, uv.data[i * 2], uv.data[i * 2 + 1]);
+          if (!gebruik.has(baan)) gebruik.set(baan, new Map());
+          const tinten = gebruik.get(baan);
+          const sleutel = naarHex(...kleur);
+          tinten.set(sleutel, (tinten.get(sleutel) ?? 0) + 1);
+        }
+      }
+    }
+  }
+
+  /* Alle tinten per baan, voor banen die geen model gebruikt. Pas opbouwen als
+   * zo'n baan zich aandient — meestal blijft het bij de banen hierboven. */
+  let alleTinten = null;
+  const tintenVan = (baan) => {
+    if (gebruik.has(baan)) return gebruik.get(baan);
+    if (!alleTinten) {
+      alleTinten = new Map();
+      for (let i = 0; i < banen.label.length; i++) {
+        const b = banen.label[i];
+        if (!alleTinten.has(b)) alleTinten.set(b, new Map());
+        alleTinten.get(b).set(
+          naarHex(bronAtlas.pixels[i * 4], bronAtlas.pixels[i * 4 + 1], bronAtlas.pixels[i * 4 + 2]),
+          1,
+        );
+      }
+    }
+    return alleTinten.get(baan) ?? new Map();
+  };
+
+  const gekozen = new Map();
+  return {
+    banen,
+    cel(baan) {
+      if (gekozen.has(baan)) return gekozen.get(baan);
+
+      const tinten = [...tintenVan(baan)];
+      let beste = cellen[0];
+      let besteScore = Infinity;
+      for (const sleutel of cellen) {
+        let som = 0;
+        let gewicht = 0;
+        for (const [hex, aantal] of tinten) {
+          const kleur = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+          som += dichtstbij(kleur, perCel.get(sleutel)).afstand * aantal;
+          gewicht += aantal;
+        }
+        const score = gewicht === 0 ? Infinity : som / gewicht;
+        if (score < besteScore) {
+          besteScore = score;
+          beste = sleutel;
+        }
+      }
+      gekozen.set(baan, beste);
+      return beste;
+    },
+    punten: (sleutel) => perCel.get(sleutel),
+  };
+}
+
 /* -- de omzetting zelf ---------------------------------------------------- */
 
 const CT = { 5126: 4, 5123: 2, 5125: 4, 5122: 2, 5121: 1 };
@@ -182,20 +373,24 @@ function dichtstbij(kleur, punten) {
 /**
  * Zet de UV's van een model over van de bron-atlas naar de doel-atlas.
  *
- * Per vertex wordt de bronkleur opgezocht en de dichtstbijzijnde kleur in de
- * doel-atlas teruggegeven. Daarna volgt nog een correctie: zie `snap` hieronder.
+ * Elke vertex gaat naar de cel die zijn bron-baan is toegewezen, en daarbinnen
+ * naar het punt dat het dichtst bij zijn eigen tint ligt. Daarna volgt nog een
+ * correctie: zie `snap` hieronder.
  *
  * @param {{json: object, bin: Buffer}} glb  wordt ter plekke aangepast
  * @param {object} bronAtlas   de atlas waar de pack zelf naar wijst
  * @param {Array} punten       uit doelPunten(doelAtlas)
  * @param {number[]} meshIndexen  welke meshes meedoen
+ * @param {object} [tabel]     uit baanTabel(); zonder de pack erbij als er geen
+ *                             wordt meegegeven
  * @returns {{omgezet: Map, ergsteAfstand: number, gesnapt: number}}
  */
-export function hermapUv(glb, bronAtlas, punten, meshIndexen) {
+export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(bronAtlas, punten)) {
   const { json, bin } = glb;
   const omgezet = new Map();
   let ergsteAfstand = 0;
   let gesnapt = 0;
+  const banen = tabel.banen;
 
   // Doelpunten per cel, om een vertex binnen één cel te kunnen verplaatsen.
   const perCel = new Map();
@@ -213,21 +408,18 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen) {
         throw new Error(`TEXCOORD_0 is geen float32 (componentType ${uv.acc.componentType})`);
       }
 
-      /* Ronde 1 — elke vertex naar zijn eigen dichtstbijzijnde kleur. */
+      /* Ronde 1 — elke vertex naar de cel van zijn baan, en daarbinnen naar de
+       * tint die het dichtst bij zijn eigen kleur ligt. */
       const bronKleuren = [];
       const keuze = [];
       for (let i = 0; i < uv.acc.count; i++) {
         const positie = uv.start + i * uv.stap;
         const u = bin.readFloatLE(positie);
         const v = bin.readFloatLE(positie + 4);
-        // De UV kan net buiten [0,1] vallen op de rand van een vlak; klemmen
-        // levert dezelfde kleur op als de sampler in de viewer laat zien.
-        const x = Math.min(bronAtlas.breedte - 1, Math.max(0, Math.floor(u * bronAtlas.breedte)));
-        const y = Math.min(bronAtlas.hoogte - 1, Math.max(0, Math.floor(v * bronAtlas.hoogte)));
-        const kleur = pixel(bronAtlas, x, y);
+        const { baan, kleur } = baanBij(bronAtlas, banen, u, v);
         bronKleuren.push(kleur);
 
-        const gekozen = dichtstbij(kleur, punten);
+        const gekozen = dichtstbij(kleur, perCel.get(tabel.cel(baan)));
         keuze.push(gekozen.punt);
 
         const sleutel = naarHex(...kleur);
@@ -353,6 +545,85 @@ export function toetsDriehoeken(glb, meshIndexen, atlas) {
     }
   }
   return verdacht;
+}
+
+/**
+ * Controle achteraf, de andere kant op: `toetsDriehoeken` kijkt binnen één
+ * driehoek, deze kijkt ertussen.
+ *
+ * Twee driehoeken die een ribbe delen en in hetzelfde vlak liggen, vormen samen
+ * één plat vlak. Landen ze in verschillende cellen, dan loopt er een harde
+ * kleurgrens dwars over dat vlak — de wig die deze module met `baanTabel` hoort
+ * te voorkomen. Een echte kleurgrens valt in deze packs altijd samen met een
+ * knik in de geometrie, dus vlakken die écht twee kleuren dragen tellen niet mee.
+ *
+ * @returns {number} het aantal naden tussen aangrenzende driehoeken in één vlak
+ */
+export function toetsNaden(glb, meshIndexen, atlas) {
+  const { json } = glb;
+  let naden = 0;
+
+  for (const mi of meshIndexen) {
+    for (const prim of json.meshes[mi].primitives) {
+      if (prim.attributes.TEXCOORD_0 === undefined || prim.indices === undefined) continue;
+      const pos = leesAccessor(glb, prim.attributes.POSITION).data;
+      const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0).data;
+      const idx = leesAccessor(glb, prim.indices).data;
+
+      const driehoeken = [];
+      for (let t = 0; t + 2 < idx.length; t += 3) {
+        const hoek = [0, 1, 2].map((k) => idx[t + k]);
+        const p = hoek.map((i) => [pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]);
+        const e1 = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
+        const e2 = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
+        const n = [
+          e1[1] * e2[2] - e1[2] * e2[1],
+          e1[2] * e2[0] - e1[0] * e2[2],
+          e1[0] * e2[1] - e1[1] * e2[0],
+        ];
+        const lengte = Math.hypot(...n);
+        if (lengte === 0) continue; // ontaarde driehoek, geen vlak
+        driehoeken.push({
+          p,
+          normaal: n.map((v) => v / lengte),
+          cellen: hoek.map((i) => `${Math.floor(uv[i * 2] * KOLOMMEN)},${Math.floor(uv[i * 2 + 1] * RIJEN)}`),
+          kleur: pixelBijUv(atlas, uv[hoek[0] * 2], uv[hoek[0] * 2 + 1]),
+        });
+      }
+
+      // Ribben op hun twee eindpunten, zodat buren elkaar vinden. De modellen
+      // zijn ontvlochten, dus buren delen geen hoekpunt maar wel een plaats.
+      const ribben = new Map();
+      driehoeken.forEach((d, index) => {
+        for (let k = 0; k < 3; k++) {
+          const sleutel = [d.p[k], d.p[(k + 1) % 3]]
+            .map((q) => q.map((v) => v.toFixed(4)).join(','))
+            .sort()
+            .join('|');
+          if (!ribben.has(sleutel)) ribben.set(sleutel, []);
+          ribben.get(sleutel).push(index);
+        }
+      });
+
+      for (const buren of ribben.values()) {
+        if (buren.length !== 2) continue;
+        const [a, b] = buren.map((i) => driehoeken[i]);
+        const vlak = a.normaal.reduce((som, v, k) => som + v * b.normaal[k], 0);
+        if (vlak < 0.999) continue; // een knik: hier mág een kleurgrens lopen
+        if (new Set(a.cellen).size !== 1 || new Set(b.cellen).size !== 1) continue;
+        if (a.cellen[0] === b.cellen[0]) continue;
+        if (kleurAfstand(a.kleur, b.kleur) > 60) naden++;
+      }
+    }
+  }
+  return naden;
+}
+
+/** De kleur die een UV in een atlas aanwijst. */
+function pixelBijUv(atlas, u, v) {
+  const x = Math.min(atlas.breedte - 1, Math.max(0, Math.floor(u * atlas.breedte)));
+  const y = Math.min(atlas.hoogte - 1, Math.max(0, Math.floor(v * atlas.hoogte)));
+  return pixel(atlas, x, y);
 }
 
 export { leesPng };

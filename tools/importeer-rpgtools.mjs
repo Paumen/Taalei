@@ -29,7 +29,8 @@ import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb, meetScene, zetOpOorsprong, compacteer, ontvlecht } from './glb.mjs';
 import { leesPng, schrijfPng } from './png.mjs';
 import {
-  doelPunten, hermapUv, toetsDriehoeken, voegGradientCelToe, gevuldeCellen, kopieerColormap, naarHex,
+  doelPunten, baanTabel, hermapUv, toetsDriehoeken, toetsNaden, voegGradientCelToe, gevuldeCellen,
+  kopieerColormap, naarHex,
 } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -140,6 +141,16 @@ const punten = doelPunten(doelAtlas);
 mkdirSync(join(DOEL, 'Textures'), { recursive: true });
 copyFileSync(COLORMAP, join(DOEL, 'Textures', 'colormap.png'));
 
+/* Eerst de hele pack inlezen om te tellen welke tinten van welke baan hij
+ * gebruikt; daarmee kiest baanTabel() per bron-baan één cel. Die keuze moet
+ * voor de hele kit gelijk zijn, dus hij valt vóór het eerste model. De modellen
+ * met een tweede atlas tellen niet mee: hun UV's horen bij die andere sheet en
+ * wijzen hier lukraak in de hoofdatlas. Voor die tweede atlas is er geen
+ * telling — één kaart is te weinig om iets te wegen, en baanTabel() valt dan
+ * terug op de banen zelf.  */
+const tabel = baanTabel(bronAtlas, punten,
+  Object.keys(NAMEN).filter((bron) => !MET_TWEEDE_ATLAS[bron]).map(leesGltf));
+
 const perKleur = new Map();
 const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
@@ -152,7 +163,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   let omgezet, ergsteAfstand, gesnapt;
 
   if (!tweedeAtlas) {
-    ({ omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen));
+    ({ omgezet, ergsteAfstand, gesnapt } = hermapUv(ruw, bronAtlas, punten, meshIndexen, tabel));
   } else {
     // Twee hermap-rondes op hetzelfde mesh: de primitives eerst opsplitsen
     // per atlas, apart hermappen, en de oorspronkelijke volgorde teruggeven —
@@ -165,7 +176,7 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
     const eersteP = alleP.filter((p) => p.material !== tweedeAtlas.materiaal);
 
     mesh.primitives = eersteP;
-    const eerste = hermapUv(ruw, bronAtlas, punten, [mi]);
+    const eerste = hermapUv(ruw, bronAtlas, punten, [mi], tabel);
 
     const tweedeAtlasPng = leesPng(join(bronMap, tweedeAtlas.bestand));
     mesh.primitives = tweedeP;
@@ -198,7 +209,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   };
 
   const voor = zetOpOorsprong(glb, naam, SCHAAL);
-  const verdacht = toetsDriehoeken(glb, glb.json.meshes.map((_, i) => i), doelAtlas);
+  const alleMeshes = glb.json.meshes.map((_, i) => i);
+  const verdacht = toetsDriehoeken(glb, alleMeshes, doelAtlas);
+  const naden = toetsNaden(glb, alleMeshes, doelAtlas);
 
   const pad = join(DOEL, `${naam}.glb`);
   schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
@@ -221,6 +234,9 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
   if (gesnapt > 0) console.log(`  ${gesnapt} hoekpunten teruggehaald naar de cel van hun driehoek`);
   if (verdacht > 0) {
     console.warn(`  ! ${naam}: ${verdacht} driehoeken lopen over meer dan één cel`);
+  }
+  if (naden > 0) {
+    console.warn(`  ! ${naam}: ${naden} kleurnaden tussen driehoeken in hetzelfde vlak`);
   }
 }
 
@@ -246,6 +262,14 @@ const paletPad = join(KITS, 'palet.json');
 const paletJson = JSON.parse(readFileSync(paletPad, 'utf8'));
 const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
 if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
+
+/* Eerst deze kit overal weghalen. Bij een herimport kan een model in een andere
+ * cel terechtkomen dan de vorige keer, en build-catalog.mjs leest de kleur van
+ * een model hiervandaan — een vermelding die blijft staan geeft het model in de
+ * catalogus een kleur die het niet meer heeft. */
+for (const cel of gedeeld.cellen) {
+  cel.bronnen = cel.bronnen.filter((b) => b.kit !== 'rpgtools');
+}
 
 for (const [celSleutel, modellenSet] of perCel) {
   const [kolom, rij] = celSleutel.split(',').map(Number);
