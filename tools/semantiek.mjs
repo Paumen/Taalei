@@ -170,7 +170,6 @@ const uitzonderingen = {
   'survival-kit/resource-stone': 'rotsen',
   'survival-kit/resource-stone-large': 'rotsen',
   'pirate-kit/hole': 'terrein',
-  'pirate-kit/grass-plant': 'planten',
   'mini-forest/target': 'borden',
   'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'terrein',
