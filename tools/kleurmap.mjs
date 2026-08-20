@@ -246,7 +246,81 @@ function baanBij(atlas, banen, u, v) {
 }
 
 /**
- * Voegt banen samen die in de modellen op één vlak naast elkaar liggen.
+ * Knipt elke baan in stukken die één doelcel nog kan weergeven.
+ *
+ * Een baan van KayKit is een compleet verloop: die van de dungeon lopen van
+ * bijna wit tot bijna zwart, de smalste spant nog 109 en de breedste 676. Geen
+ * enkele cel van de gedeelde colormap haalt dat — de breedste spant er ~180. De
+ * hele baan in één cel persen kost dus altijd kleur, en die kost valt scheef:
+ * de pack telt mee hoe vaak een tint gebruikt wordt, dus wint het zware deel
+ * van de baan en betaalt de rest. Baan 6 van de dungeon (van #f47d36 tot
+ * #7c2e22) werd zo een donkerrode cel, waarna de koperen fles knalrood was.
+ *
+ * Daarom niet de baan maar een stuk van de baan als eenheid, en geknipt op de
+ * plek die er toe doet: waar langs het verloop de dichtstbijzijnde cel wisselt.
+ * Binnen een stuk zijn alle tinten het eens over waar ze heen willen, dus kost
+ * dat stuk geen kleur die het niet hoeft te kosten — het komt uit op wat een
+ * zoektocht per vertex ook zou kiezen. De fles pakt zo het koperen stuk terwijl
+ * de donkere planken elders het donkere pakken.
+ *
+ * Wiggen komen hier niet van terug: `hermapUv` legt daarna elk aaneengesloten
+ * plat oppervlak op één cel vast, en dat is de eis waar het echt om gaat. Twee
+ * stukken van dezelfde baan mogen best in twee cellen landen zolang ze niet in
+ * hetzelfde vlak naast elkaar liggen.
+ */
+export function baanSegmenten(atlas, banen, besteCel) {
+  const kleurVan = (i) => [atlas.pixels[i * 4], atlas.pixels[i * 4 + 1], atlas.pixels[i * 4 + 2]];
+  // Langs het verloop lopen we van licht naar donker; gelijke tinten belanden
+  // zo naast elkaar en krijgen altijd hetzelfde stuk.
+  const helderheid = (c) => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+
+  const perBaan = new Map();
+  for (let i = 0; i < banen.label.length; i++) {
+    const baan = banen.label[i];
+    if (!perBaan.has(baan)) perBaan.set(baan, []);
+    perBaan.get(baan).push(i);
+  }
+
+  const label = new Int32Array(banen.label.length);
+  let volgend = 0;
+  for (const pixels of perBaan.values()) {
+    pixels.sort((a, b) => helderheid(kleurVan(b)) - helderheid(kleurVan(a)));
+    let id = volgend++;
+    let huidige = null;
+    for (const p of pixels) {
+      const cel = besteCel(kleurVan(p));
+      if (huidige === null) huidige = cel;
+      else if (cel !== huidige) {
+        id = volgend++;
+        huidige = cel;
+      }
+      label[p] = id;
+    }
+  }
+  return { label, aantal: volgend };
+}
+
+/** De kleurdoos van elke baan: de uitersten die erin voorkomen. */
+function baanDozen(bronAtlas, banen) {
+  const dozen = new Map();
+  for (let i = 0; i < banen.label.length; i++) {
+    const kleur = [bronAtlas.pixels[i * 4], bronAtlas.pixels[i * 4 + 1], bronAtlas.pixels[i * 4 + 2]];
+    const baan = banen.label[i];
+    const doos = dozen.get(baan);
+    if (!doos) {
+      dozen.set(baan, { min: [...kleur], max: [...kleur] });
+      continue;
+    }
+    for (let k = 0; k < 3; k++) {
+      if (kleur[k] < doos.min[k]) doos.min[k] = kleur[k];
+      if (kleur[k] > doos.max[k]) doos.max[k] = kleur[k];
+    }
+  }
+  return dozen;
+}
+
+/**
+ * Voegt vlakke banen samen die in de modellen op één vlak naast elkaar liggen.
  *
  * `bronBanen` leest de atlas, en dat werkt zolang een pack zijn schakering als
  * verticaal verloop tekent. De Medieval Props-pack doet dat niet: die zet de
@@ -260,9 +334,43 @@ function baanBij(atlas, banen, u, v) {
  * het een bedoelde kleurgrens — de blauwe rand van een kruik tegen het aardewerk
  * — en blijven de banen uit elkaar.
  *
+ * Alléén vlakke banen doen mee, en dat is het verschil tussen werken en kapot
+ * maken. Een verloopbaan ís al een compleet verloop: KayKit's steen loopt in één
+ * baan van lichtgrijs naar bijna zwart. Twee driehoeken die op de raaklijn van
+ * twee zulke banen liggen schelen weinig, en op die ene aanraking zou de hele
+ * lichtgrijze baan aan de hele donkere vast komen te zitten — waarna één cel
+ * beide moet dekken en de vloeren van de dungeon blauwgrijs werden. Een baan die
+ * niet meer spreiding heeft dan één verloopstapje is een los veld en mag mee;
+ * een baan die een heel verloop overspant staat al op zichzelf. In de dungeon-
+ * atlas haalt geen enkele baan die eis (de smalste spant 109), in die van props
+ * 208 van de 224.
+ *
+ * `maxSpreiding` houdt daarnaast een ketting kort: vlak veld A raakt B raakt C,
+ * en zonder grens groeit die rij door tot voorbij wat één cel kan weergeven.
+ *
  * @returns {Map<number, number>} baan → nummer van de groep waar hij bij hoort
  */
-export function koppelBanen(bronAtlas, banen, modellen, drempel = 60) {
+export function koppelBanen(
+  bronAtlas,
+  banen,
+  modellen,
+  { drempel = 60, vlakDrempel = 6, maxSpreiding = Infinity } = {},
+) {
+  const dozen = baanDozen(bronAtlas, banen);
+  const isVlak = (baan) => {
+    const doos = dozen.get(baan);
+    return doos ? kleurAfstand(doos.min, doos.max) <= vlakDrempel : false;
+  };
+  // De doos van een groep, zodat een ketting niet ongemerkt breed wordt.
+  const groepsDoos = new Map();
+  const doosVan = (wortel) => {
+    if (!groepsDoos.has(wortel)) {
+      const doos = dozen.get(wortel);
+      groepsDoos.set(wortel, { min: [...doos.min], max: [...doos.max] });
+    }
+    return groepsDoos.get(wortel);
+  };
+
   const ouder = new Map();
   const zoek = (a) => {
     while (ouder.has(a) && ouder.get(a) !== a) a = ouder.get(a);
@@ -272,9 +380,19 @@ export function koppelBanen(bronAtlas, banen, modellen, drempel = 60) {
     a = zoek(a);
     b = zoek(b);
     if (a === b) return;
+
+    // Zou de samengevoegde groep breder worden dan één cel aankan, dan niet.
+    const da = doosVan(a);
+    const db = doosVan(b);
+    const min = [0, 1, 2].map((k) => Math.min(da.min[k], db.min[k]));
+    const max = [0, 1, 2].map((k) => Math.max(da.max[k], db.max[k]));
+    if (kleurAfstand(min, max) > maxSpreiding) return;
+
     const [laag, hoog] = a < b ? [a, b] : [b, a];
     ouder.set(hoog, laag);
     ouder.set(laag, laag);
+    groepsDoos.set(laag, { min, max });
+    groepsDoos.delete(hoog);
   };
 
   for (const glb of modellen) {
@@ -335,6 +453,7 @@ export function koppelBanen(bronAtlas, banen, modellen, drempel = 60) {
           if (paar.length !== 2) continue;
           const [a, b] = paar.map((i) => driehoeken[i]);
           if (a.baan === b.baan) continue;
+          if (!isVlak(a.baan) || !isVlak(b.baan)) continue;
           if (a.normaal.reduce((s, v, k) => s + v * b.normaal[k], 0) < 0.999) continue;
           if (kleurAfstand(a.kleur, b.kleur) > drempel) continue;
           bind(a.baan, b.baan);
@@ -368,10 +487,23 @@ export function koppelBanen(bronAtlas, banen, modellen, drempel = 60) {
 export function baanTabel(bronAtlas, punten, modellen = []) {
   const banen = banenVan(bronAtlas);
 
-  // Banen die in de modellen op één vlak aan elkaar grenzen tellen als één;
-  // ze moeten immers samen in één cel landen. Zie koppelBanen.
-  const groep = koppelBanen(bronAtlas, banen, modellen);
-  const wortel = (baan) => groep.get(baan) ?? baan;
+  /* Banen die in de modellen op één vlak aan elkaar grenzen tellen als één; ze
+   * moeten immers samen in één cel landen. Zie koppelBanen. De breedste gevulde
+   * cel is de bovengrens: verder dan dat kan één cel een groep niet weergeven. */
+  const celDozen = new Map();
+  for (const punt of punten) {
+    const sleutel = punt.cel.join(',');
+    const doos = celDozen.get(sleutel);
+    if (!doos) {
+      celDozen.set(sleutel, { min: [...punt.kleur], max: [...punt.kleur] });
+      continue;
+    }
+    for (let k = 0; k < 3; k++) {
+      if (punt.kleur[k] < doos.min[k]) doos.min[k] = punt.kleur[k];
+      if (punt.kleur[k] > doos.max[k]) doos.max[k] = punt.kleur[k];
+    }
+  }
+  const maxSpreiding = Math.max(...[...celDozen.values()].map((d) => kleurAfstand(d.min, d.max)));
 
   const perCel = new Map();
   for (const punt of punten) {
@@ -382,6 +514,32 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
   // Vaste volgorde, zodat een gelijkspel altijd dezelfde kant op valt.
   const cellen = [...perCel.keys()].sort();
 
+  /* Niet de baan maar een stuk van de baan is de eenheid die een cel krijgt;
+   * zie baanSegmenten. Vanaf hier heet een stuk gewoon "baan". */
+  // Onthouden per tint: een atlas telt een miljoen pixels maar hooguit een paar
+  // honderd kleuren, en zonder dit kost het zoeken minuten in plaats van een
+  // fractie van een seconde.
+  const celPerTint = new Map();
+  const segmenten = baanSegmenten(bronAtlas, banen, (kleur) => {
+    const tint = naarHex(...kleur);
+    const onthouden = celPerTint.get(tint);
+    if (onthouden !== undefined) return onthouden;
+
+    let beste = cellen[0];
+    let besteAfstand = Infinity;
+    for (const sleutel of cellen) {
+      const afstand = dichtstbij(kleur, perCel.get(sleutel)).afstand;
+      if (afstand < besteAfstand) {
+        besteAfstand = afstand;
+        beste = sleutel;
+      }
+    }
+    celPerTint.set(tint, beste);
+    return beste;
+  });
+  const groep = koppelBanen(bronAtlas, segmenten, modellen, { maxSpreiding });
+  const wortel = (baan) => groep.get(baan) ?? baan;
+
   /* Hoe vaak de pack elke tint van elke baan gebruikt. */
   const gebruik = new Map();
   for (const glb of modellen) {
@@ -390,7 +548,7 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
         if (prim.attributes.TEXCOORD_0 === undefined) continue;
         const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
         for (let i = 0; i < uv.count; i++) {
-          const { baan, kleur } = baanBij(bronAtlas, banen, uv.data[i * 2], uv.data[i * 2 + 1]);
+          const { baan, kleur } = baanBij(bronAtlas, segmenten, uv.data[i * 2], uv.data[i * 2 + 1]);
           const sleutelBaan = wortel(baan);
           if (!gebruik.has(sleutelBaan)) gebruik.set(sleutelBaan, new Map());
           const tinten = gebruik.get(sleutelBaan);
@@ -408,8 +566,8 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
     if (gebruik.has(baan)) return gebruik.get(baan);
     if (!alleTinten) {
       alleTinten = new Map();
-      for (let i = 0; i < banen.label.length; i++) {
-        const b = wortel(banen.label[i]);
+      for (let i = 0; i < segmenten.label.length; i++) {
+        const b = wortel(segmenten.label[i]);
         if (!alleTinten.has(b)) alleTinten.set(b, new Map());
         alleTinten.get(b).set(
           naarHex(bronAtlas.pixels[i * 4], bronAtlas.pixels[i * 4 + 1], bronAtlas.pixels[i * 4 + 2]),
@@ -422,7 +580,7 @@ export function baanTabel(bronAtlas, punten, modellen = []) {
 
   const gekozen = new Map();
   return {
-    banen,
+    banen: segmenten,
     cel(baan) {
       // Eén keuze per groep: alle banen van hetzelfde oppervlak volgen elkaar.
       baan = wortel(baan);
@@ -546,56 +704,116 @@ export function hermapUv(glb, bronAtlas, punten, meshIndexen, tabel = baanTabel(
         omgezet.get(sleutel).aantal++;
       }
 
-      /* Ronde 2 — driehoeken die over meer dan één cel komen te liggen.
+      /* Ronde 2 — elk aaneengesloten plat oppervlak op één cel.
        *
-       * In de bron liggen twee kleuren van hetzelfde vlak vaak vlak naast
-       * elkaar; op de gedeelde colormap hoeven ze dat niet te doen. Een driehoek
-       * waarvan de hoekpunten dan in verschillende cellen landen, veegt bij het
-       * interpoleren dwars over de atlas en pikt onderweg lege cellen mee — bij
-       * de palm gebeurde dat op de stam, waar een paar donkere bruinen op het
-       * grijs uitkwamen en hun buren op het bruin.
+       * Dit is de eis waar het echt om gaat, en hij is smaller dan "één cel per
+       * baan". Een wig ontstaat alleen waar twee driehoeken in hetzelfde vlak
+       * tegen elkaar aan liggen en in verschillende cellen landen: dán veegt de
+       * interpolatie dwars over de atlas. Facetten die een hoek met elkaar
+       * maken mogen gerust uiteenlopen — dat is gewoon schakering, en juist wat
+       * de kaars of de fles van licht naar donker laat lopen.
        *
-       * De hoekpunten in de minderheid gaan daarom mee naar de cel van de
-       * meerderheid, op de plek in die baan die het dichtst bij hun eigen
-       * bronkleur ligt. De schakering blijft zo staan, maar de driehoek blijft
-       * binnen één kleurbaan. Herhaald tot het stil ligt, omdat hoekpunten
-       * tussen driehoeken gedeeld worden. */
-      if (prim.indices !== undefined) {
+       * Dus: driehoeken die een ribbe delen en in hetzelfde vlak liggen vormen
+       * samen een oppervlak, en dat oppervlak krijgt in zijn geheel de cel van
+       * de meerderheid. Elk hoekpunt zoekt daarna binnen die cel de tint die
+       * het dichtst bij zijn eigen bronkleur ligt, zodat de schakering over het
+       * oppervlak blijft staan.
+       *
+       * Herhaald tot het stil ligt: bij een pack dat zijn hoekpunten deelt kan
+       * één hoekpunt aan twee oppervlakken vast zitten. */
+      if (prim.indices !== undefined && prim.attributes.POSITION !== undefined) {
         const idx = ligging(json, prim.indices, CT[json.accessors[prim.indices].componentType]);
         const maat = CT[idx.acc.componentType];
         const lees = maat === 2 ? 'readUInt16LE' : maat === 4 ? 'readUInt32LE' : 'readUInt8';
         const hoek = (t, k) => bin[lees](idx.start + (t + k) * idx.stap);
+        const pos = leesAccessor(glb, prim.attributes.POSITION).data;
+
+        /* De driehoeken met hun vlak. */
+        const driehoeken = [];
+        for (let t = 0; t + 2 < idx.acc.count; t += 3) {
+          const punten3 = [0, 1, 2].map((k) => hoek(t, k));
+          const p = punten3.map((v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
+          const e1 = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
+          const e2 = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
+          const n = [
+            e1[1] * e2[2] - e1[2] * e2[1],
+            e1[2] * e2[0] - e1[0] * e2[2],
+            e1[0] * e2[1] - e1[1] * e2[0],
+          ];
+          const lengte = Math.hypot(...n);
+          driehoeken.push({ punten3, p, normaal: lengte ? n.map((v) => v / lengte) : null });
+        }
+
+        /* Oppervlakken: driehoeken die een ribbe delen en in hetzelfde vlak
+         * liggen. Ribben op de punt af, zoals in toetsNaden. */
+        const ouder = new Int32Array(driehoeken.length).map((_, i2) => i2);
+        const zoek = (a) => {
+          while (ouder[a] !== a) {
+            ouder[a] = ouder[ouder[a]];
+            a = ouder[a];
+          }
+          return a;
+        };
+        const ribben = new Map();
+        driehoeken.forEach((d, index) => {
+          if (!d.normaal) return;
+          for (let k = 0; k < 3; k++) {
+            const sleutel = [d.p[k], d.p[(k + 1) % 3]]
+              .map((q) => q.join(','))
+              .sort()
+              .join('|');
+            if (!ribben.has(sleutel)) ribben.set(sleutel, []);
+            ribben.get(sleutel).push(index);
+          }
+        });
+        for (const paar of ribben.values()) {
+          if (paar.length !== 2) continue;
+          const [a, b] = paar.map((i2) => driehoeken[i2]);
+          if (!a.normaal || !b.normaal) continue;
+          if (a.normaal.reduce((som, v, k) => som + v * b.normaal[k], 0) < 0.999) continue;
+          const wa = zoek(paar[0]);
+          const wb = zoek(paar[1]);
+          if (wa !== wb) ouder[Math.max(wa, wb)] = Math.min(wa, wb);
+        }
+
+        const oppervlakken = new Map();
+        driehoeken.forEach((d, index) => {
+          if (!d.normaal) return;
+          const wortelIndex = zoek(index);
+          if (!oppervlakken.has(wortelIndex)) oppervlakken.set(wortelIndex, []);
+          oppervlakken.get(wortelIndex).push(index);
+        });
 
         for (let ronde = 0; ronde < 4; ronde++) {
           let veranderd = 0;
-          for (let t = 0; t + 2 < idx.acc.count; t += 3) {
-            const punten3 = [0, 1, 2].map((k) => hoek(t, k));
-            const cellen = punten3.map((i) => keuze[i].cel.join(','));
-            if (cellen[0] === cellen[1] && cellen[1] === cellen[2]) continue;
+          for (const leden of oppervlakken.values()) {
+            const hoekpunten = [...new Set(leden.flatMap((i2) => driehoeken[i2].punten3))];
+            const cellen = hoekpunten.map((i2) => keuze[i2].cel.join(','));
+            if (cellen.every((c) => c === cellen[0])) continue;
 
-            // De cel van de meerderheid; bij drie verschillende cellen die van
-            // het hoekpunt dat het dichtst bij zijn eigen kleur zat.
-            const telling = new Map();
-            for (const cel of cellen) telling.set(cel, (telling.get(cel) ?? 0) + 1);
+            /* De cel die het oppervlak als geheel het minst kost, niet die van
+             * de meerderheid. Dat scheelt op een groot vlak waar de bron een
+             * verloop overheen schildert dat breder is dan één cel: bij een
+             * telling wint de donkere helft en wordt het halve muurvlak te
+             * donker, terwijl de cel die over de hele reeks het dichtst blijft
+             * de schakering netjes samendrukt. Alleen de cellen die de
+             * hoekpunten zelf al willen doen mee — dat zijn er een handvol. */
             let doel = cellen[0];
-            let meeste = 0;
-            for (const [cel, aantal] of telling) {
-              if (aantal > meeste) {
-                meeste = aantal;
-                doel = cel;
+            let besteKosten = Infinity;
+            for (const kandidaat of new Set(cellen)) {
+              let kosten = 0;
+              for (const i2 of hoekpunten) {
+                kosten += dichtstbij(bronKleuren[i2], perCel.get(kandidaat)).afstand;
+              }
+              if (kosten < besteKosten) {
+                besteKosten = kosten;
+                doel = kandidaat;
               }
             }
-            if (meeste === 1) {
-              doel = cellen[
-                punten3
-                  .map((i, k) => [kleurAfstand(bronKleuren[i], keuze[i].kleur), k])
-                  .sort((a, b) => a[0] - b[0])[0][1]
-              ];
-            }
 
-            punten3.forEach((i, k) => {
+            hoekpunten.forEach((i2, k) => {
               if (cellen[k] === doel) return;
-              keuze[i] = dichtstbij(bronKleuren[i], perCel.get(doel)).punt;
+              keuze[i2] = dichtstbij(bronKleuren[i2], perCel.get(doel)).punt;
               veranderd++;
               gesnapt++;
             });

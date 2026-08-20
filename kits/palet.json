@@ -42,14 +42,53 @@
         "barrel-large-decorated",
         "barrel-small",
         "barrel-small-stack",
+        "bed-decorated",
+        "bed-frame",
+        "bottle-a-brown",
+        "bottle-a-labeled-brown",
+        "bottle-b-brown",
+        "bottle-c-brown",
+        "box-large",
+        "box-small",
+        "box-small-decorated",
         "box-stacked",
         "ceiling-tile",
+        "chair",
+        "chest",
+        "chest-gold",
         "crates-stacked",
+        "floor-wood-large",
+        "floor-wood-small",
         "keg",
         "keg-decorated",
+        "keyring-hanging",
+        "plate-food-a",
+        "stairs-wood",
         "stairs-wood-decorated",
+        "stool",
+        "table-long",
+        "table-long-broken",
+        "table-long-decorated-a",
         "table-long-decorated-c",
-        "wall-shelves"
+        "table-medium",
+        "table-medium-broken",
+        "table-medium-decorated-a",
+        "table-small",
+        "table-small-decorated-a",
+        "table-small-decorated-b",
+        "trunk-large-c",
+        "trunk-small-c",
+        "wall-archedwindow-gated-scaffold",
+        "wall-corner-scaffold",
+        "wall-doorway",
+        "wall-doorway-scaffold",
+        "wall-open-scaffold",
+        "wall-scaffold",
+        "wall-shelves",
+        "wall-window-closed",
+        "wall-window-closed-scaffold",
+        "wall-window-open",
+        "wall-window-open-scaffold"
        ]
       },
       {
@@ -291,9 +330,17 @@
         "copper-nugget-medium",
         "copper-nugget-small",
         "copper-nuggets",
+        "gold-nugget-large",
+        "gold-nuggets",
         "pallet-wood",
         "silver-bars",
+        "stone-bricks-stack-large",
+        "stone-bricks-stack-medium",
+        "stone-bricks-stack-small",
         "textiles-stack-large",
+        "wood-log-a",
+        "wood-log-b",
+        "wood-log-stack",
         "wood-planks-stack-large",
         "wood-planks-stack-medium",
         "wood-planks-stack-small"
@@ -302,10 +349,13 @@
       {
        "kit": "rpgtools",
        "modellen": [
+        "axe",
         "compass-base",
-        "pencil-a-long",
-        "pencil-b-long",
-        "saw"
+        "grindstone",
+        "hammer",
+        "pickaxe",
+        "saw",
+        "shovel"
        ]
       },
       {
@@ -417,9 +467,29 @@
        ]
       },
       {
+       "kit": "resources",
+       "modellen": [
+        "gold-bar",
+        "gold-bars",
+        "gold-bars-stack-large",
+        "gold-bars-stack-medium",
+        "gold-bars-stack-small",
+        "gold-nugget-large",
+        "gold-nugget-medium",
+        "gold-nugget-small",
+        "gold-nuggets",
+        "stone-bricks-stack-large",
+        "stone-bricks-stack-medium",
+        "stone-bricks-stack-small"
+       ]
+      },
+      {
        "kit": "rpgtools",
        "modellen": [
-        "lantern"
+        "compass-base",
+        "lantern",
+        "pencil-a-long",
+        "pencil-b-long"
        ]
       },
       {
@@ -466,12 +536,26 @@
         "bottle-a-labeled-brown",
         "bottle-b-brown",
         "bottle-c-brown",
+        "candle-lit",
+        "candle-thin-lit",
         "crates-stacked",
         "keg-decorated",
         "keyring-hanging",
         "plate-food-a",
         "table-long-decorated-a",
+        "torch-lit",
         "wall-shelves"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "tree-bare-1-a",
+        "tree-bare-1-b",
+        "tree-bare-1-c",
+        "tree-bare-2-a",
+        "tree-bare-2-b",
+        "tree-bare-2-c"
        ]
       },
       {
@@ -515,8 +599,21 @@
        ]
       },
       {
+       "kit": "resources",
+       "modellen": [
+        "copper-bar",
+        "copper-bars",
+        "copper-bars-stack-large",
+        "copper-bars-stack-medium",
+        "copper-bars-stack-small",
+        "copper-nugget-large",
+        "copper-nuggets"
+       ]
+      },
+      {
        "kit": "rpgtools",
        "modellen": [
+        "compass-base",
         "journal-closed",
         "journal-open"
        ]
@@ -552,6 +649,107 @@
      ],
      "kleur": "#7f3927",
      "bronnen": [
+      {
+       "kit": "dungeon",
+       "modellen": [
+        "barrel-large",
+        "barrel-large-decorated",
+        "barrel-small",
+        "barrel-small-stack",
+        "bed-decorated",
+        "bed-frame",
+        "bottle-a-brown",
+        "bottle-a-labeled-brown",
+        "bottle-b-brown",
+        "bottle-c-brown",
+        "box-large",
+        "box-small",
+        "box-small-decorated",
+        "box-stacked",
+        "chair",
+        "chest",
+        "chest-gold",
+        "crates-stacked",
+        "floor-wood-large",
+        "floor-wood-small",
+        "keg",
+        "keg-decorated",
+        "keyring-hanging",
+        "plate-food-a",
+        "shelf-large",
+        "shelf-small",
+        "shelf-small-candles",
+        "shelves",
+        "stairs-wood",
+        "stairs-wood-decorated",
+        "stool",
+        "table-long",
+        "table-long-broken",
+        "table-long-decorated-a",
+        "table-long-decorated-c",
+        "table-medium",
+        "table-medium-broken",
+        "table-medium-decorated-a",
+        "table-small",
+        "table-small-decorated-a",
+        "table-small-decorated-b",
+        "torch-mounted",
+        "wall-archedwindow-gated-scaffold",
+        "wall-corner-scaffold",
+        "wall-doorway",
+        "wall-doorway-scaffold",
+        "wall-open-scaffold",
+        "wall-scaffold",
+        "wall-shelves",
+        "wall-window-closed",
+        "wall-window-closed-scaffold",
+        "wall-window-open",
+        "wall-window-open-scaffold"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "tree-bare-1-a",
+        "tree-bare-1-b",
+        "tree-bare-1-c",
+        "tree-bare-2-a",
+        "tree-bare-2-b",
+        "tree-bare-2-c"
+       ]
+      },
+      {
+       "kit": "resources",
+       "modellen": [
+        "copper-bar",
+        "copper-bars",
+        "copper-bars-stack-large",
+        "copper-bars-stack-medium",
+        "copper-bars-stack-small",
+        "copper-nugget-large",
+        "copper-nuggets",
+        "iron-bars",
+        "textiles-stack-large",
+        "wood-log-a",
+        "wood-log-b",
+        "wood-log-stack",
+        "wood-planks-stack-large",
+        "wood-planks-stack-medium",
+        "wood-planks-stack-small"
+       ]
+      },
+      {
+       "kit": "rpgtools",
+       "modellen": [
+        "axe",
+        "grindstone",
+        "hammer",
+        "pickaxe",
+        "shovel",
+        "torch",
+        "torch-burnt"
+       ]
+      },
       {
        "kit": "village-kit",
        "modellen": [
@@ -592,13 +790,51 @@
       {
        "kit": "dungeon",
        "modellen": [
+        "floor-foundation-allsides",
+        "floor-foundation-corner",
+        "floor-foundation-diagonal-corner",
+        "floor-foundation-front",
+        "floor-foundation-front-and-back",
+        "floor-foundation-front-and-sides",
         "floor-tile-big-grate-open",
         "floor-tile-extralarge-grates-open",
         "floor-tile-grate-open",
+        "pillar",
+        "stairs-wall-left",
+        "stairs-wall-right",
+        "stairs-walled",
+        "wall",
+        "wall-arched",
         "wall-archedwindow-gated",
         "wall-archedwindow-gated-scaffold",
+        "wall-archedwindow-open",
+        "wall-broken",
+        "wall-corner",
         "wall-corner-gated",
-        "wall-gated"
+        "wall-corner-scaffold",
+        "wall-corner-small",
+        "wall-cracked",
+        "wall-crossing",
+        "wall-doorway",
+        "wall-doorway-scaffold",
+        "wall-doorway-sides",
+        "wall-doorway-tsplit",
+        "wall-endcap",
+        "wall-gated",
+        "wall-half",
+        "wall-half-endcap",
+        "wall-half-endcap-sloped",
+        "wall-open-scaffold",
+        "wall-pillar",
+        "wall-scaffold",
+        "wall-shelves",
+        "wall-sloped",
+        "wall-tsplit",
+        "wall-tsplit-sloped",
+        "wall-window-closed",
+        "wall-window-closed-scaffold",
+        "wall-window-open",
+        "wall-window-open-scaffold"
        ]
       },
       {
@@ -673,9 +909,11 @@
       {
        "kit": "rpgtools",
        "modellen": [
+        "grindstone",
         "lantern",
         "pencil-a-long",
         "pencil-b-long",
+        "tongs",
         "torch-burnt"
        ]
       },
@@ -724,10 +962,15 @@
         "barrel-small-stack",
         "bed-decorated",
         "bed-frame",
+        "bottle-a-brown",
+        "bottle-a-labeled-brown",
+        "bottle-b-brown",
+        "bottle-c-brown",
         "box-large",
         "box-small",
         "box-small-decorated",
         "box-stacked",
+        "ceiling-tile",
         "chair",
         "chest",
         "chest-gold",
@@ -736,6 +979,8 @@
         "floor-wood-small",
         "keg",
         "keg-decorated",
+        "keyring-hanging",
+        "plate-food-a",
         "shelf-large",
         "shelf-small",
         "shelf-small-candles",
@@ -808,6 +1053,17 @@
         "watermill",
         "watermill-wide",
         "wheel"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "tree-bare-1-a",
+        "tree-bare-1-b",
+        "tree-bare-1-c",
+        "tree-bare-2-a",
+        "tree-bare-2-b",
+        "tree-bare-2-c"
        ]
       },
       {
@@ -924,11 +1180,25 @@
       {
        "kit": "resources",
        "modellen": [
+        "copper-bar",
+        "copper-bars",
+        "copper-bars-stack-large",
+        "copper-bars-stack-medium",
+        "copper-bars-stack-small",
+        "copper-nugget-large",
+        "copper-nugget-medium",
+        "copper-nugget-small",
+        "copper-nuggets",
         "iron-bars",
+        "pallet-wood",
+        "silver-bars",
         "textiles-stack-large",
         "wood-log-a",
         "wood-log-b",
-        "wood-log-stack"
+        "wood-log-stack",
+        "wood-planks-stack-large",
+        "wood-planks-stack-medium",
+        "wood-planks-stack-small"
        ]
       },
       {
@@ -944,12 +1214,24 @@
        "kit": "rpgtools",
        "modellen": [
         "axe",
+        "chisel",
+        "compass-base",
         "grindstone",
         "hammer",
+        "handdrill",
+        "handplane",
+        "journal-closed",
+        "journal-open",
+        "magnifying-glass",
         "pickaxe",
+        "saw",
+        "scissors",
+        "screwdriver-a-short",
+        "screwdriver-b-short",
         "shovel",
         "torch",
-        "torch-burnt"
+        "torch-burnt",
+        "trowel"
        ]
       },
       {
@@ -983,7 +1265,10 @@
       {
        "kit": "dungeon",
        "modellen": [
+        "barrel-large",
         "barrel-large-decorated",
+        "barrel-small",
+        "barrel-small-stack",
         "bed-decorated",
         "bed-floor",
         "bottle-a-brown",
@@ -991,13 +1276,24 @@
         "bottle-b-brown",
         "bottle-c-brown",
         "box-stacked",
+        "candle",
+        "candle-lit",
+        "candle-melted",
+        "candle-thin",
+        "candle-thin-lit",
+        "candle-triple",
         "crates-stacked",
+        "floor-tile-small-decorated",
+        "keg",
         "keg-decorated",
         "plate-food-a",
         "plate-food-b",
+        "shelf-small-candles",
+        "stairs-wood-decorated",
         "table-long-decorated-a",
         "table-long-decorated-c",
         "table-medium-decorated-a",
+        "table-small-decorated-a",
         "wall-shelves"
        ]
       },
@@ -1095,6 +1391,7 @@
         "gold-nugget-medium",
         "gold-nugget-small",
         "gold-nuggets",
+        "pallet-wood",
         "parts-pile-medium",
         "stone-bricks-stack-large",
         "stone-bricks-stack-medium",
@@ -1118,13 +1415,13 @@
         "compass-base",
         "grindstone",
         "hammer",
-        "lantern",
         "mallet",
         "map-empty",
         "map-rolled",
         "pencil-a-long",
         "pencil-b-long",
         "pickaxe",
+        "saw",
         "shovel"
        ]
       },
@@ -1192,6 +1489,8 @@
        "modellen": [
         "barrel-large-decorated",
         "bed-decorated",
+        "bed-floor",
+        "bed-frame",
         "box-stacked",
         "candle",
         "candle-lit",
@@ -1366,17 +1665,24 @@
        "kit": "rpgtools",
        "modellen": [
         "chisel",
+        "compass-base",
         "file",
+        "grindstone",
         "handdrill",
         "handplane",
         "journal-closed",
         "journal-open",
         "knife",
+        "lantern",
         "magnifying-glass",
         "map-empty",
+        "map-rolled",
+        "rope-bundle-a",
+        "rope-bundle-b",
         "scissors",
         "screwdriver-a-short",
         "screwdriver-b-short",
+        "torch",
         "trowel"
        ]
       },
@@ -1502,6 +1808,21 @@
      "kleur": "#6cb588",
      "bronnen": [
       {
+       "kit": "dungeon",
+       "modellen": [
+        "box-stacked",
+        "floor-dirt-small-weeds",
+        "floor-tile-small-weeds-a",
+        "floor-tile-small-weeds-b",
+        "keg-decorated",
+        "table-long-decorated-a",
+        "table-long-decorated-c",
+        "table-medium-decorated-a",
+        "wall-cracked",
+        "wall-shelves"
+       ]
+      },
+      {
        "kit": "props",
        "modellen": [
         "bottle-b",
@@ -1527,6 +1848,15 @@
      ],
      "kleur": "#6d8d33",
      "bronnen": [
+      {
+       "kit": "dungeon",
+       "modellen": [
+        "plate-food-a",
+        "plate-food-b",
+        "table-long-decorated-a",
+        "table-medium-decorated-a"
+       ]
+      },
       {
        "kit": "forest",
        "modellen": [
@@ -1708,6 +2038,83 @@
      "kleur": "#474a58",
      "bronnen": [
       {
+       "kit": "dungeon",
+       "modellen": [
+        "bed-decorated",
+        "box-large",
+        "box-small",
+        "box-small-decorated",
+        "box-stacked",
+        "chest",
+        "chest-gold",
+        "column",
+        "crates-stacked",
+        "floor-foundation-allsides",
+        "floor-foundation-corner",
+        "floor-foundation-diagonal-corner",
+        "floor-foundation-front",
+        "floor-foundation-front-and-back",
+        "floor-foundation-front-and-sides",
+        "key",
+        "keyring",
+        "keyring-hanging",
+        "pillar",
+        "stairs",
+        "stairs-long",
+        "stairs-narrow",
+        "stairs-wall-left",
+        "stairs-wall-right",
+        "stairs-walled",
+        "stairs-wide",
+        "stairs-wood-decorated",
+        "table-small-decorated-a",
+        "wall",
+        "wall-arched",
+        "wall-archedwindow-gated",
+        "wall-archedwindow-gated-scaffold",
+        "wall-archedwindow-open",
+        "wall-broken",
+        "wall-corner",
+        "wall-corner-gated",
+        "wall-corner-scaffold",
+        "wall-corner-small",
+        "wall-cracked",
+        "wall-crossing",
+        "wall-doorway",
+        "wall-doorway-scaffold",
+        "wall-doorway-sides",
+        "wall-doorway-tsplit",
+        "wall-endcap",
+        "wall-gated",
+        "wall-half",
+        "wall-half-endcap",
+        "wall-half-endcap-sloped",
+        "wall-open-scaffold",
+        "wall-pillar",
+        "wall-scaffold",
+        "wall-shelves",
+        "wall-sloped",
+        "wall-tsplit",
+        "wall-tsplit-sloped",
+        "wall-window-closed",
+        "wall-window-closed-scaffold",
+        "wall-window-open",
+        "wall-window-open-scaffold"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "rock-2-e",
+        "rock-2-f",
+        "rock-2-g",
+        "rock-2-h",
+        "rock-3-m",
+        "rock-3-p",
+        "rock-3-r"
+       ]
+      },
+      {
        "kit": "pirate-kit",
        "cel": [
         5,
@@ -1741,13 +2148,35 @@
        ]
       },
       {
+       "kit": "resources",
+       "modellen": [
+        "iron-nugget-large",
+        "iron-nuggets",
+        "parts-pile-large",
+        "parts-pile-medium",
+        "parts-pile-small",
+        "stone-bricks-stack-large",
+        "stone-bricks-stack-medium",
+        "stone-bricks-stack-small"
+       ]
+      },
+      {
        "kit": "rpgtools",
        "modellen": [
+        "anvil",
+        "drafting-compass",
         "grindstone",
+        "hammer",
         "handdrill",
+        "journal-open",
+        "knife",
         "lantern",
+        "pickaxe",
+        "saw",
+        "shovel",
         "tongs",
-        "torch-burnt"
+        "torch-burnt",
+        "wrench-b"
        ]
       },
       {
@@ -1768,6 +2197,63 @@
      "kleur": "#ff8744",
      "bronnen": [
       {
+       "kit": "dungeon",
+       "modellen": [
+        "barrel-large-decorated",
+        "bed-decorated",
+        "bottle-a-brown",
+        "bottle-a-labeled-brown",
+        "bottle-b-brown",
+        "bottle-c-brown",
+        "box-small-decorated",
+        "candle-lit",
+        "candle-thin-lit",
+        "chest-gold",
+        "coin",
+        "coin-stack-large",
+        "coin-stack-medium",
+        "coin-stack-small",
+        "crates-stacked",
+        "keg-decorated",
+        "keyring-hanging",
+        "plate-food-a",
+        "table-long-decorated-a",
+        "table-small-decorated-b",
+        "torch-lit",
+        "wall-shelves"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "tree-bare-1-c",
+        "tree-bare-2-c"
+       ]
+      },
+      {
+       "kit": "resources",
+       "modellen": [
+        "copper-bar",
+        "copper-bars",
+        "copper-bars-stack-large",
+        "copper-bars-stack-medium",
+        "copper-bars-stack-small",
+        "copper-nugget-large",
+        "copper-nugget-medium",
+        "copper-nugget-small",
+        "copper-nuggets",
+        "wood-planks-stack-large",
+        "wood-planks-stack-medium",
+        "wood-planks-stack-small"
+       ]
+      },
+      {
+       "kit": "rpgtools",
+       "modellen": [
+        "lantern"
+       ]
+      },
+      {
        "kit": "survival-kit",
        "cel": [
         5,
@@ -1787,6 +2273,80 @@
      "kleur": "#9da4c4",
      "bronnen": [
       {
+       "kit": "dungeon",
+       "modellen": [
+        "barrel-large",
+        "barrel-large-decorated",
+        "barrel-small",
+        "barrel-small-stack",
+        "bed-decorated",
+        "box-large",
+        "box-small",
+        "box-small-decorated",
+        "box-stacked",
+        "chest",
+        "chest-gold",
+        "column",
+        "crates-stacked",
+        "floor-tile-big-spikes",
+        "keg",
+        "keg-decorated",
+        "key",
+        "keyring",
+        "keyring-hanging",
+        "plate-food-a",
+        "plate-food-b",
+        "stairs",
+        "stairs-long",
+        "stairs-narrow",
+        "stairs-wall-left",
+        "stairs-wall-right",
+        "stairs-walled",
+        "stairs-wide",
+        "stairs-wood-decorated",
+        "table-long-decorated-a",
+        "table-long-decorated-c",
+        "table-medium-decorated-a",
+        "table-small-decorated-a",
+        "torch",
+        "torch-lit",
+        "torch-mounted",
+        "trunk-large-c",
+        "trunk-small-c",
+        "wall",
+        "wall-arched",
+        "wall-archedwindow-gated",
+        "wall-archedwindow-gated-scaffold",
+        "wall-archedwindow-open",
+        "wall-broken",
+        "wall-corner",
+        "wall-corner-gated",
+        "wall-corner-scaffold",
+        "wall-corner-small",
+        "wall-cracked",
+        "wall-crossing",
+        "wall-doorway",
+        "wall-doorway-scaffold",
+        "wall-doorway-sides",
+        "wall-doorway-tsplit",
+        "wall-endcap",
+        "wall-gated",
+        "wall-half",
+        "wall-half-endcap",
+        "wall-half-endcap-sloped",
+        "wall-pillar",
+        "wall-scaffold",
+        "wall-shelves",
+        "wall-sloped",
+        "wall-tsplit",
+        "wall-tsplit-sloped",
+        "wall-window-closed",
+        "wall-window-closed-scaffold",
+        "wall-window-open",
+        "wall-window-open-scaffold"
+       ]
+      },
+      {
        "kit": "fantasy-town-kit",
        "cel": [
         3,
@@ -1799,6 +2359,29 @@
         "watermill",
         "watermill-wide",
         "wheel"
+       ]
+      },
+      {
+       "kit": "forest",
+       "modellen": [
+        "rock-1-j",
+        "rock-1-k",
+        "rock-1-l",
+        "rock-1-m",
+        "rock-1-n",
+        "rock-1-o",
+        "rock-1-p",
+        "rock-1-q",
+        "rock-2-c",
+        "rock-2-d",
+        "rock-2-e",
+        "rock-2-f",
+        "rock-2-g",
+        "rock-2-h",
+        "rock-3-h",
+        "rock-3-l",
+        "rock-3-m",
+        "rock-3-r"
        ]
       },
       {
@@ -1880,6 +2463,18 @@
       {
        "kit": "resources",
        "modellen": [
+        "iron-bar",
+        "iron-bars",
+        "iron-bars-stack-large",
+        "iron-bars-stack-medium",
+        "iron-bars-stack-small",
+        "iron-nugget-large",
+        "iron-nugget-medium",
+        "iron-nugget-small",
+        "iron-nuggets",
+        "parts-pile-large",
+        "parts-pile-medium",
+        "parts-pile-small",
         "silver-bar",
         "silver-bars",
         "silver-bars-stack-large",
@@ -1900,10 +2495,31 @@
       {
        "kit": "rpgtools",
        "modellen": [
+        "axe",
+        "chisel",
+        "compass-base",
         "drafting-compass",
+        "file",
         "grindstone",
+        "hammer",
+        "handplane",
+        "journal-closed",
         "journal-open",
-        "pencil-b-long"
+        "knife",
+        "lantern",
+        "magnifying-glass",
+        "map-empty",
+        "nail",
+        "pencil-b-long",
+        "pickaxe",
+        "saw",
+        "scissors",
+        "screw-b",
+        "screwdriver-a-short",
+        "screwdriver-b-short",
+        "shovel",
+        "trowel",
+        "wrench-b"
        ]
       },
       {
@@ -2067,13 +2683,29 @@
        ]
       },
       {
+       "kit": "resources",
+       "modellen": [
+        "silver-bar",
+        "silver-bars",
+        "silver-bars-stack-large",
+        "silver-bars-stack-medium",
+        "silver-bars-stack-small",
+        "silver-nugget-large",
+        "silver-nugget-medium",
+        "silver-nugget-small",
+        "silver-nuggets"
+       ]
+      },
+      {
        "kit": "rpgtools",
        "modellen": [
         "compass-base",
         "journal-closed",
         "journal-open",
+        "lantern",
         "magnifying-glass",
-        "map-empty"
+        "map-empty",
+        "map-rolled"
        ]
       },
       {
@@ -2159,6 +2791,25 @@
      "kleur": "#f0c59d",
      "bronnen": [
       {
+       "kit": "dungeon",
+       "modellen": [
+        "barrel-large-decorated",
+        "bed-decorated",
+        "bottle-a-brown",
+        "bottle-a-labeled-brown",
+        "bottle-b-brown",
+        "bottle-c-brown",
+        "box-stacked",
+        "crates-stacked",
+        "keg-decorated",
+        "plate-food-b",
+        "table-long-decorated-a",
+        "table-long-decorated-c",
+        "table-medium-decorated-a",
+        "wall-shelves"
+       ]
+      },
+      {
        "kit": "fantasy-town-kit",
        "cel": [
         5,
@@ -2168,6 +2819,30 @@
         "blade",
         "cart-high",
         "windmill"
+       ]
+      },
+      {
+       "kit": "resources",
+       "modellen": [
+        "parts-pile-medium",
+        "wood-plank-c",
+        "wood-planks-stack-large",
+        "wood-planks-stack-medium",
+        "wood-planks-stack-small"
+       ]
+      },
+      {
+       "kit": "rpgtools",
+       "modellen": [
+        "compass-base",
+        "hammer",
+        "lantern",
+        "mallet",
+        "map-empty",
+        "map-rolled",
+        "pencil-a-long",
+        "pencil-b-long",
+        "pickaxe"
        ]
       },
       {
@@ -2203,6 +2878,53 @@
      ],
      "kleur": "#88796d",
      "bronnen": [
+      {
+       "kit": "dungeon",
+       "modellen": [
+        "bed-decorated",
+        "bed-floor",
+        "bed-frame",
+        "box-stacked",
+        "ceiling-tile",
+        "floor-dirt-large",
+        "floor-dirt-large-rocky",
+        "floor-dirt-small-a",
+        "floor-dirt-small-b",
+        "floor-dirt-small-c",
+        "floor-dirt-small-corner",
+        "floor-dirt-small-d",
+        "floor-dirt-small-weeds",
+        "floor-tile-big-grate-open",
+        "floor-tile-big-spikes",
+        "floor-tile-extralarge-grates-open",
+        "floor-tile-grate-open",
+        "floor-tile-large",
+        "floor-tile-large-rocks",
+        "floor-tile-small",
+        "floor-tile-small-broken-a",
+        "floor-tile-small-broken-b",
+        "floor-tile-small-corner",
+        "floor-tile-small-decorated",
+        "floor-tile-small-weeds-a",
+        "floor-tile-small-weeds-b",
+        "floor-wood-large-dark",
+        "floor-wood-small-dark",
+        "plate",
+        "plate-food-a",
+        "plate-food-b",
+        "plate-small",
+        "rubble-half",
+        "rubble-large",
+        "stairs-wood-decorated",
+        "table-long-decorated-a",
+        "table-long-decorated-c",
+        "table-medium-decorated-a",
+        "torch",
+        "torch-lit",
+        "torch-mounted",
+        "wall-shelves"
+       ]
+      },
       {
        "kit": "modulair-terrein",
        "materialen": [
@@ -2418,8 +3140,6 @@
         "barrel-small",
         "barrel-small-stack",
         "bed-decorated",
-        "bed-floor",
-        "bed-frame",
         "box-large",
         "box-small",
         "box-small-decorated",
@@ -2428,43 +3148,12 @@
         "chest-gold",
         "column",
         "crates-stacked",
-        "floor-dirt-large",
-        "floor-dirt-large-rocky",
-        "floor-dirt-small-a",
-        "floor-dirt-small-b",
-        "floor-dirt-small-c",
-        "floor-dirt-small-corner",
-        "floor-dirt-small-d",
-        "floor-dirt-small-weeds",
-        "floor-foundation-allsides",
-        "floor-foundation-corner",
-        "floor-foundation-diagonal-corner",
-        "floor-foundation-front",
-        "floor-foundation-front-and-back",
-        "floor-foundation-front-and-sides",
-        "floor-tile-big-grate-open",
-        "floor-tile-big-spikes",
-        "floor-tile-extralarge-grates-open",
-        "floor-tile-grate-open",
-        "floor-tile-large",
-        "floor-tile-large-rocks",
-        "floor-tile-small",
-        "floor-tile-small-broken-a",
-        "floor-tile-small-broken-b",
-        "floor-tile-small-corner",
-        "floor-tile-small-decorated",
-        "floor-tile-small-weeds-a",
-        "floor-tile-small-weeds-b",
         "keg",
         "keg-decorated",
         "key",
         "keyring",
         "keyring-hanging",
         "pillar",
-        "plate",
-        "plate-food-a",
-        "plate-food-b",
-        "plate-small",
         "stairs",
         "stairs-long",
         "stairs-narrow",
@@ -2473,9 +3162,7 @@
         "stairs-walled",
         "stairs-wide",
         "stairs-wood-decorated",
-        "table-long-decorated-a",
         "table-long-decorated-c",
-        "table-medium-decorated-a",
         "table-small-decorated-a",
         "torch",
         "torch-lit",
@@ -2503,7 +3190,6 @@
         "wall-half",
         "wall-half-endcap",
         "wall-half-endcap-sloped",
-        "wall-open-scaffold",
         "wall-pillar",
         "wall-scaffold",
         "wall-shelves",
@@ -2690,7 +3376,15 @@
         "iron-nuggets",
         "parts-pile-large",
         "parts-pile-medium",
-        "parts-pile-small"
+        "parts-pile-small",
+        "silver-nugget-large",
+        "silver-nuggets",
+        "stone-brick",
+        "stone-bricks-stack-large",
+        "stone-bricks-stack-medium",
+        "stone-bricks-stack-small",
+        "stone-chunks-large",
+        "stone-chunks-small"
        ]
       },
       {
@@ -2723,7 +3417,6 @@
         "anvil",
         "axe",
         "chisel",
-        "compass-base",
         "drafting-compass",
         "file",
         "grindstone",
@@ -2736,6 +3429,7 @@
         "lantern",
         "magnifying-glass",
         "nail",
+        "pencil-b-long",
         "pickaxe",
         "saw",
         "scissors",
@@ -2818,6 +3512,22 @@
      ],
      "kleur": "#fbf02d",
      "bronnen": [
+      {
+       "kit": "dungeon",
+       "modellen": [
+        "box-small-decorated",
+        "candle-lit",
+        "candle-thin-lit",
+        "chest-gold",
+        "coin",
+        "coin-stack-large",
+        "coin-stack-medium",
+        "coin-stack-small",
+        "keyring-hanging",
+        "table-small-decorated-b",
+        "torch-lit"
+       ]
+      },
       {
        "kit": "modulair-terrein",
        "materialen": [
@@ -2910,6 +3620,12 @@
         "hilly-prop-tree-pine-a",
         "hilly-prop-tree-pine-b",
         "hilly-prop-tree-pine-c"
+       ]
+      },
+      {
+       "kit": "resources",
+       "modellen": [
+        "wood-log-a"
        ]
       }
      ]
