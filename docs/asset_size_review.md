@@ -57,7 +57,7 @@ its class (23 classes), aggregated per kit (geometric mean):
 | modulair-terrein | 0.79 | 10 | cart 0.46, fence 0.55, cedar 0.67 (small side of the pack factor) |
 | props | 0.82 | 6 | bottles 0.44, campfire 0.54 (small side); barrel/table/stool on the plateau |
 | mini-dungeon | 0.87 | 3 | — |
-| tropical | 0.90 | 3 | chests 0.53 |
+| tropical | 0.90 | 3 | chests 0.53 — measured on the box alone, before the lid was merged back on (§4.2) |
 | modular-cave-kit | 0.91 | 2 | ladder 0.72 (tight rungs) |
 | mini-forest | 0.94 | 5 | — |
 | pirate-kit | 0.97 | 8 | crate 0.62, palisade 2.20 |
@@ -87,9 +87,9 @@ rooms, not bigger people.
   gone.
 - **Crates** (`crates.png`): 0.31–0.60 covers everything — pirate 0.31,
   props 0.44, platformer 0.50/0.60, village 0.50, dungeon 0.53.
-- **Chests** (`chests.png`): 0.37–0.51 across five kits — dungeon 0.46
-  and survival 0.46 now identical; trunks (0.17/0.35) read as luggage
-  below it.
+- **Chests** (`chests.png`): 0.37–0.51 across six kits — dungeon 0.46
+  and survival 0.46 now identical, tropical 0.38 at the small end since
+  its lid was put back on; trunks (0.17/0.35) read as luggage below it.
 - **Doorways** (`doors.png`): 0.81–1.10 continuum on the shared raster
   (village door 0.81, survival 0.93, others ≈1.0–1.1); beds (1.05 long)
   pass through them; dungeon's 1.40 and village's 1.20 tall openings
@@ -110,12 +110,16 @@ rooms, not bigger people.
 ## 4. Remaining per-asset outliers
 
 1. **The small sides of the pack factors** (accepted §4 trade-offs):
-   props tableware — bottles 0.13, plates 0.14, bucket 0.19 — against
+   props tableware — bottles 0.13, plates 0.14 — against
    clusters of 0.29–0.36; modulair-terrein fence boards 0.22 (cluster
    0.38–0.46), cedar 1.15, minecart 0.62. In mixed scenes, prefer other
    kits' versions.
-2. **tropical `chest-a`/`chest-b` — 0.21–0.25.** Still half the 0.37–0.51
-   cluster; reads as a jewelry box.
+2. ~~**tropical `chest-a`/`chest-b` — 0.21–0.25.**~~ Resolved, and not by
+   rescaling: the two were the box and the lid of one chest, imported as
+   separate models and each dropped to its own origin. Merged into one
+   `chest-a` (`tools/voeg-samen.mjs`) it stands 0.38 — inside the
+   cluster. The same held for props `bucket-a`/`bucket-b`, pail and
+   handle: 0.19 → 0.28 with the handle in place.
 3. **The off-raster enclaves** — not errors but standing constraints:
    dungeon architecture tiles a 1.4-module and the village building set a
    0.6-module; neither mates panel-for-panel with the 1.00 walls of
@@ -147,8 +151,10 @@ Working ratios: bottle : barrel : wall/doorway : tree ≈ 0.3 : 0.5 : 1 : 2.5.
 1. **Approve (or amend) the §5 reference set** and add it to the style
    guide as the scale companion to its §6 style-reference list. Until
    then, nothing is an approved reference.
-2. **Decide the last small-fry case**: tropical's chests — single assets,
-   fixable per-model or by preferring the cross-kit alternative.
+2. ~~**Decide the last small-fry case**: tropical's chests.~~ Done — they
+   were an assembly problem, not a scale problem (§4.2). Worth carrying
+   forward as a check: when a pack ships an object as two files, measure
+   the pair before deciding a factor.
 3. **Treat the enclaves as a rule**: dungeon (1.4-module) and the
    village building set (0.6-module) should not be mixed panel-for-panel
    with 1.0-raster walls.
