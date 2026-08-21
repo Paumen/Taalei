@@ -11,7 +11,9 @@
  *
  * Anders dan de andere packs komt deze als Wavefront OBJ binnen: 305 .obj's en
  * één gedeelde .mtl. Er is dus geen FBX2glTF-stap; tools/obj.mjs leest de
- * bestanden rechtstreeks en dit script schrijft er .glb van.
+ * bestanden rechtstreeks en dit script schrijft er .glb van. Van die 305
+ * komen alleen de props in de kit terecht; de terreintegels worden
+ * overgeslagen (zie `isTerrein`).
  *
  * Wat dit script doet:
  *   1. voegt zes kleuren toe aan de gedeelde kits/colormap.png (zie CELLEN);
@@ -425,8 +427,17 @@ const VERWIJDERD = new Set([
   'hilly-prop-tree-oak-a', 'hilly-prop-tree-oak-b', 'hilly-prop-tree-oak-c', 'hilly-prop-tree-oak-d',
 ]);
 
+/**
+ * De terreintegels zijn uit de kit gehaald (besluit PO): van deze pack blijven
+ * alleen de props over — alles met `-prop-` in de naam, plus de vier losse
+ * `mountain-*`. De tegels, hellingen, hoeken en randen (`-terrain-`) komen bij
+ * een her-import niet terug.
+ */
+const isTerrein = (naam) => naam.includes('-terrain-');
+
 for (const [naam, bron] of [...namen].sort()) {
   if (VERWIJDERD.has(naam)) { namen.delete(naam); console.log(`overgeslagen (verwijderd): ${naam} (${bron})`); }
+  else if (isTerrein(naam)) { namen.delete(naam); console.log(`overgeslagen (terrein): ${naam} (${bron})`); }
 }
 
 let driehoeken = 0;

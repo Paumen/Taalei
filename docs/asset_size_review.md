@@ -1,5 +1,11 @@
 # Asset size review
 
+> **Later change:** the modulair-terrein terrain tiles have since been removed
+> from the collection — only that kit's props (and the four `mountain-*`) are
+> left. The pack factor of ×0.5 and everything said below about its props still
+> holds; the statements about its terrain tiles (§0, §1) describe pieces that
+> are no longer there.
+
 Cross-kit review of asset dimensions: are kits over- or undersized relative to
 each other, and which pieces should serve as size references? Based on the
 bounding boxes in `kits/catalog.json` (`wdh`, all 1102 models) plus
