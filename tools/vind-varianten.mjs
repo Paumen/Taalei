@@ -78,7 +78,11 @@ const HANDMATIG = [
   /* Dezelfde hoek van hetzelfde dak: de ronde loopt met een boog in plaats van
    * een verstek, 44 tegen 36 driehoeken in dezelfde bounding box. */
   ['fantasy-town-kit/roof-corner', 'fantasy-town-kit/roof-corner-round'],
+  /* Strandspul van een paar centimeter: dezelfde schelp (42 driehoeken) en
+   * dezelfde zeester (28), telkens met `b` een vijfde groter. Op deze maat
+   * heeft het raster niets om op te vallen. */
   ['modulair-terrein/beach-prop-shell-a', 'modulair-terrein/beach-prop-shell-b'],
+  ['modulair-terrein/beach-prop-starfish-a', 'modulair-terrein/beach-prop-starfish-b'],
   /* Elkaars spiegelbeeld, 574 driehoeken elk in dezelfde bounding box. De
    * meting draait wel om de hoogte-as maar spiegelt niet, dus voor haar is de
    * ene trap de andere niet. */
