@@ -9,12 +9,12 @@
  * rendering-budgetten (zie brainstorm.md: cave-kit pas laden ná de ingang).
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROEPEN, bepaalGroep } from './semantiek.mjs';
+import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
 import { leesGlb, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -46,11 +46,50 @@ function leesKitMetadata() {
       url: kit.url,
       tabblad: kit.tabblad ?? null,
       toelichting: kit.toelichting ?? null,
+      // `true` = de hele kit doet niet mee; een lijst = deze modellen niet.
+      // De bestanden blijven in de repo, ze staan alleen niet in de catalogus.
+      buitenCatalogus: kit.buitenCatalogus === true,
+      buitenCatalogusModellen: new Set(
+        Array.isArray(kit.buitenCatalogus) ? kit.buitenCatalogus : [],
+      ),
+      eigenPalet: kit.eigenPalet === true,
       // Alle kits zijn CC0; alleen een kit met gemengde herkomst zegt het zelf.
       licentieLabel: kit.licentieLabel ?? 'CC0',
     });
   }
   return meta;
+}
+
+/* -- varianten ------------------------------------------------------------
+ * docs/asset_variants.json komt van tools/vind-varianten.mjs, dat op zijn beurt
+ * deze catalogus leest. Twee stappen dus, en de tweede mag achterlopen: een
+ * groep die naar een model verwijst dat er niet meer is wordt hier opgeschoond,
+ * en blijft er één lid over dan is het geen groep meer.
+ *
+ * Wat de catalogus in de browser ermee doet: van elke groep één kaart tonen met
+ * het aantal erbij, en de rest achter die kaart. Daarvoor is per model genoeg
+ * te weten in welke groep hij zit; de leden staan in `varianten`.
+ */
+function leesVarianten(idsInCatalogus) {
+  const bestand = join(ROOT, 'docs', 'asset_variants.json');
+  if (!existsSync(bestand)) return { groepen: [], perModel: new Map() };
+
+  const bron = JSON.parse(readFileSync(bestand, 'utf8'));
+  const groepen = [];
+  const perModel = new Map();
+
+  bron.clusters?.forEach((cluster, n) => {
+    const leden = cluster.leden.filter((id) => idsInCatalogus.has(id));
+    if (leden.length < 2) return;
+    const id = `v${String(n + 1).padStart(2, '0')}`;
+    // Het lid dat de groep op de kaart vertegenwoordigt. Staat dat model niet
+    // (meer) in de catalogus, dan neemt het eerste overgebleven lid het over.
+    const hoofd = leden.includes(cluster.hoofd) ? cluster.hoofd : leden[0];
+    groepen.push({ id, soort: cluster.soort, hoofd, leden });
+    for (const lid of leden) perModel.set(lid, id);
+  });
+
+  return { groepen, perModel };
 }
 
 /* -- kleuren --------------------------------------------------------------
@@ -239,8 +278,13 @@ function schrijfVersie() {
 
 const kitMeta = leesKitMetadata();
 const palet = leesPalet();
+/* "buitenCatalogus" in manifest.js houdt modellen uit de catalogus zonder ze
+ * weg te gooien: `true` voor een hele kit, of een lijst modelnamen voor een
+ * deel ervan. De bestanden blijven waar ze zijn — geen modellen, geen groepen,
+ * geen kleuren — en het weghalen van die regel zet ze weer terug. */
 const kitSlugs = readdirSync(KITS_DIR)
   .filter((naam) => statSync(join(KITS_DIR, naam)).isDirectory())
+  .filter((naam) => !kitMeta.get(naam)?.buitenCatalogus)
   .sort();
 
 const kits = [];
@@ -251,11 +295,14 @@ const zonderKleur = [];
 
 for (const slug of kitSlugs) {
   const dir = join(KITS_DIR, slug);
-  const bestanden = readdirSync(dir).filter((n) => n.endsWith('.glb')).sort();
-  if (bestanden.length === 0) continue;
-
   const meta = kitMeta.get(slug);
   if (!meta) zonderMetadata.push(slug);
+
+  const bestanden = readdirSync(dir)
+    .filter((n) => n.endsWith('.glb'))
+    .filter((n) => !meta?.buitenCatalogusModellen.has(n.replace(/\.glb$/, '')))
+    .sort();
+  if (bestanden.length === 0) continue;
 
   for (const bestand of bestanden) {
     const naam = bestand.replace(/\.glb$/, '');
@@ -311,6 +358,14 @@ for (const slug of kitSlugs) {
     // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;
     // zonder tabblad zou hij nergens meer te zien zijn.
     tabblad: meta?.tabblad ?? null,
+    eigenPalet: meta?.eigenPalet ?? false,
+    // De groep waar de kit als geheel in valt (KIT_GROEPEN in semantiek.mjs).
+    // De catalogus in de browser heeft hem nodig om te weten wélke modellen van
+    // een kit met een eigen tabblad daar thuishoren: die in deze groep. Een
+    // model dat bij uitzondering ergens anders is ingedeeld — de vloerlagen en
+    // de ladder van de grot staan bij de bouwwerken — hoort in die groep te
+    // staan, ook al heeft zijn kit een eigen tabblad.
+    kitGroep: KIT_GROEPEN[slug] ?? null,
     toelichting: meta?.toelichting ?? null,
     // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
     // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
@@ -318,6 +373,12 @@ for (const slug of kitSlugs) {
     // die het gedeelde palet gebruiken is dat een kopie van dezelfde sheet.
     palet: modellen.find((m) => m.kit === slug && m.palet)?.palet ?? null,
   });
+}
+
+const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
+for (const model of modellen) {
+  const groep = varianten.perModel.get(model.id);
+  if (groep) model.variant = groep;
 }
 
 /* -- zeldzame kleuren samenvoegen -----------------------------------------
@@ -372,21 +433,26 @@ const catalogus = {
   // Zodat de catalogus in de browser de grens niet nog eens hoeft te kennen.
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
+  varianten: varianten.groepen,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
   })),
   // Alleen cellen die daadwerkelijk aan een bestaand model hangen; op donkerste
-  // eerst, zodat de filterbalk een herkenbare volgorde houdt.
-  paletten: palet.paletten.map((p) => ({
-    id: p.id,
-    naam: p.naam,
-    atlas: p.atlas,
-    toelichting: p.toelichting,
-    kleuren: [...p.cellen.values()]
-      .filter((k) => k.aantal > 0)
-      .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
-  })),
+  // eerst, zodat de filterbalk een herkenbare volgorde houdt. Een palet
+  // waarvan geen enkel model meer in de catalogus staat — zoals dat van een
+  // kit met "buitenCatalogus" — valt in zijn geheel weg.
+  paletten: palet.paletten
+    .map((p) => ({
+      id: p.id,
+      naam: p.naam,
+      atlas: p.atlas,
+      toelichting: p.toelichting,
+      kleuren: [...p.cellen.values()]
+        .filter((k) => k.aantal > 0)
+        .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
+    }))
+    .filter((p) => p.kleuren.length > 0),
   modellen,
 };
 
@@ -427,7 +493,11 @@ for (const kit of kits) {
   if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
 }
 for (const kit of kits) {
-  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad) {
+  // "eigenPalet" in manifest.js zegt: we weten het, het is zo bedoeld. Zonder
+  // die bevestiging is een kit met een palet dat hij met niemand deelt en zonder
+  // eigen tabblad een ongeluk — zijn kleuren mengen niet met de kits waar hij
+  // tussen komt te staan.
+  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad && !kit.eigenPalet) {
     console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
   }
 }
