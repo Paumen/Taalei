@@ -1,46 +1,166 @@
 {
- "titel": "Veertig props op de huidige colormap en op het voorstel",
- "toelichting": "Veertig modellen die samen elke gevulde cel van kits/colormap.png aanraken, verdeeld over de groepen en kits van de catalogus. Gekozen op dekking (23 van de 23 cellen die de gedeelde kits gebruiken) en op herkenbaarheid, zodat een kleurwissel op iets zichtbaars landt.",
- "props": [
-  { "id": "village-kit/well-a", "label": "waterput" },
-  { "id": "fantasy-town-kit/windmill", "label": "windmolen" },
-  { "id": "taalei-kit/lighthouse", "label": "vuurtoren" },
-  { "id": "taalei-kit/balloon", "label": "luchtballon" },
-  { "id": "pirate-kit/ship-small", "label": "schip" },
-  { "id": "village-kit/boat-a", "label": "roeiboot" },
-  { "id": "village-kit/cart-a", "label": "kar" },
-  { "id": "survival-kit/tent", "label": "tent" },
-  { "id": "survival-kit/campfire-stand", "label": "kampvuur" },
-  { "id": "dungeon/chest-gold", "label": "schatkist" },
-  { "id": "props/barrel-a", "label": "ton" },
-  { "id": "village-kit/crate-a", "label": "krat" },
-  { "id": "dungeon/table-long-decorated-a", "label": "gedekte tafel" },
-  { "id": "props/bench-a", "label": "bank" },
-  { "id": "props/carpet-a", "label": "kleed" },
-  { "id": "dungeon/bed-decorated", "label": "bed" },
-  { "id": "rpgtools/lantern", "label": "lantaarn" },
-  { "id": "village-kit/lamp-street", "label": "straatlantaarn" },
-  { "id": "dungeon/torch-lit", "label": "fakkel" },
-  { "id": "props/candle-b", "label": "kaars" },
-  { "id": "props/roast-a", "label": "gebraad" },
-  { "id": "dungeon/plate-food-a", "label": "bord met eten" },
-  { "id": "props/jug-b", "label": "kruik" },
-  { "id": "props/mushroom-a", "label": "paddenstoel" },
-  { "id": "rpgtools/anvil", "label": "aambeeld" },
-  { "id": "rpgtools/axe", "label": "bijl" },
-  { "id": "rpgtools/map-rolled", "label": "opgerolde kaart" },
-  { "id": "rpgtools/journal-open", "label": "opengeslagen boek" },
-  { "id": "resources/gold-bars-stack-medium", "label": "staven goud" },
-  { "id": "resources/copper-nuggets", "label": "koperklompjes" },
-  { "id": "resources/wood-planks-stack-medium", "label": "stapel planken" },
-  { "id": "resources/stone-bricks-stack-medium", "label": "stapel bakstenen" },
-  { "id": "fantasy-town-kit/tree-high-round", "label": "loofboom" },
-  { "id": "pirate-kit/palm-bend", "label": "palm" },
-  { "id": "platformer-kit/tree-pine", "label": "den" },
-  { "id": "platformer-kit/flowers-tall", "label": "bloemen" },
-  { "id": "modulair-terrein/hilly-prop-flower-sunflower", "label": "zonnebloem" },
-  { "id": "modulair-terrein/hilly-prop-grass-clump-c", "label": "graspol" },
-  { "id": "rocks/rock-natural-c", "label": "rots" },
-  { "id": "dungeon/stairs-wood-decorated", "label": "houten trap" }
- ]
+  "titel": "Veertig props op de huidige colormap en op het voorstel",
+  "toelichting": "Veertig modellen, verdeeld over de groepen en kits van de catalogus en gekozen op herkenbaarheid, zodat een kleurwissel op iets zichtbaars landt. Ze raken 24 van de 26 cellen die de kits met het gedeelde palet gebruiken; de twee die ontbreken - 9,0 en 2,2 - hangen elk aan een enkele bloem, en die staat op het tweede blad.",
+  "props": [
+    {
+      "id": "village-kit/well-a",
+      "label": "waterput"
+    },
+    {
+      "id": "fantasy-town-kit/windmill",
+      "label": "windmolen"
+    },
+    {
+      "id": "taalei-kit/lighthouse",
+      "label": "vuurtoren"
+    },
+    {
+      "id": "taalei-kit/balloon",
+      "label": "luchtballon"
+    },
+    {
+      "id": "pirate-kit/ship-small",
+      "label": "schip"
+    },
+    {
+      "id": "village-kit/boat-a",
+      "label": "roeiboot"
+    },
+    {
+      "id": "village-kit/cart-a",
+      "label": "kar"
+    },
+    {
+      "id": "survival-kit/tent",
+      "label": "tent"
+    },
+    {
+      "id": "survival-kit/campfire-stand",
+      "label": "kampvuur"
+    },
+    {
+      "id": "dungeon/chest-gold",
+      "label": "schatkist"
+    },
+    {
+      "id": "props/barrel-a",
+      "label": "ton"
+    },
+    {
+      "id": "village-kit/crate-a",
+      "label": "krat"
+    },
+    {
+      "id": "dungeon/table-long-decorated-a",
+      "label": "gedekte tafel"
+    },
+    {
+      "id": "dungeon/bed-decorated",
+      "label": "bed"
+    },
+    {
+      "id": "rpgtools/lantern",
+      "label": "lantaarn"
+    },
+    {
+      "id": "village-kit/lamp-street",
+      "label": "straatlantaarn"
+    },
+    {
+      "id": "dungeon/torch-lit",
+      "label": "fakkel"
+    },
+    {
+      "id": "props/candle-b",
+      "label": "kaars"
+    },
+    {
+      "id": "props/roast-a",
+      "label": "gebraad"
+    },
+    {
+      "id": "dungeon/plate-food-a",
+      "label": "bord met eten"
+    },
+    {
+      "id": "props/jug-b",
+      "label": "kruik"
+    },
+    {
+      "id": "props/mushroom-a",
+      "label": "paddenstoel"
+    },
+    {
+      "id": "rpgtools/anvil",
+      "label": "aambeeld"
+    },
+    {
+      "id": "rpgtools/axe",
+      "label": "bijl"
+    },
+    {
+      "id": "rpgtools/map-rolled",
+      "label": "opgerolde kaart"
+    },
+    {
+      "id": "rpgtools/journal-open",
+      "label": "opengeslagen boek"
+    },
+    {
+      "id": "resources/gold-bars-stack-medium",
+      "label": "staven goud"
+    },
+    {
+      "id": "resources/copper-nuggets",
+      "label": "koperklompjes"
+    },
+    {
+      "id": "resources/wood-planks-stack-medium",
+      "label": "stapel planken"
+    },
+    {
+      "id": "resources/stone-bricks-stack-medium",
+      "label": "stapel bakstenen"
+    },
+    {
+      "id": "fantasy-town-kit/tree-high-round",
+      "label": "loofboom"
+    },
+    {
+      "id": "pirate-kit/palm-bend",
+      "label": "palm"
+    },
+    {
+      "id": "platformer-kit/flowers-tall",
+      "label": "bloemen"
+    },
+    {
+      "id": "modulair-terrein/hilly-prop-flower-sunflower",
+      "label": "zonnebloem"
+    },
+    {
+      "id": "modulair-terrein/hilly-prop-grass-clump-c",
+      "label": "graspol"
+    },
+    {
+      "id": "rocks/rock-natural-c",
+      "label": "rots"
+    },
+    {
+      "id": "dungeon/stairs-wood-decorated",
+      "label": "houten trap"
+    },
+    {
+      "id": "mini-dungeon/wood-structure",
+      "label": "houten stellage"
+    },
+    {
+      "id": "survival-kit/rock-flat-grass",
+      "label": "platte steen met gras"
+    },
+    {
+      "id": "modulair-terrein/hilly-prop-flower-tulip",
+      "label": "tulp"
+    }
+  ]
 }

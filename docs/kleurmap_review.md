@@ -79,10 +79,12 @@ NODE_PATH=$(npm root -g) node tools/vergelijk-kleurmap/render.mjs
 Zonder argument komen beide bladen langs; met een naam erachter alleen dat blad,
 bijvoorbeeld `... render.mjs props-vergelijking-b`.
 
-De lijsten staan in `props.json` en `props-b.json`. Elk van de twee is zo gekozen
-dat de veertig samen elke cel raken die de kits met het gedeelde palet gebruiken,
-en dat ze over de groepen van de catalogus verdeeld liggen. De twee lijsten delen
-geen enkel model, dus samen laten ze tachtig verschillende props zien.
+De lijsten staan in `props.json` en `props-b.json`. Ze delen geen enkel model, dus
+samen laten ze tachtig verschillende props zien, en samen raken ze alle 26 cellen
+die de kits met het gedeelde palet gebruiken. Los van elkaar komen ze net niet zo
+ver: het eerste blad dekt er 24 en het tweede 25. Drie cellen hangen namelijk elk
+aan één model — 9,0 aan de roos, 2,2 aan de blauwe lelie, 2,1 aan de platte steen
+met gras — en zo'n model kan maar op één van de twee bladen staan.
 
 ## De families en hun baan
 
