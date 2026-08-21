@@ -981,6 +981,8 @@ window.KENNEY_KITS = [
    "beach-prop-docks-straight-supports",
    "beach-prop-shell-a",
    "beach-prop-shell-b",
+   "beach-prop-starfish-a",
+   "beach-prop-starfish-b",
    "beach-prop-treasure-chest",
    "beach-prop-tree-palm-a",
    "beach-prop-tree-palm-b",
