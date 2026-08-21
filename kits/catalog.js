@@ -139,6 +139,38 @@ function demoClip(clips) {
   return clips.find((naam) => naam === 'open-close' || naam === 'toggle') ?? clips[0];
 }
 
+/**
+ * Twee manieren van kijken.
+ *
+ * Normaal staat het model in een studio: een omgevingsmap met licht en donker
+ * erin, plus een slagschaduw. Dat laat de vorm zien.
+ *
+ * "Vlak" ruilt die omgeving in voor één egale witte (kits/effen-omgeving.png)
+ * en zet de schaduw uit. Diffuus licht uit een gelijkmatige omgeving is overal
+ * even sterk, dus elk vlak toont precies zijn eigen kleur — het model is dan
+ * niet meer gemodelleerd door licht maar alleen door zijn textuur. Dat is wat
+ * je wilt zien als je een kleur beoordeelt of controleert hoe de schaduw in de
+ * atlas gebakken zit.
+ *
+ * De belichting van 1,3 is gemeten en niet gekozen: bij die waarde komt een
+ * vlak van #f0ece3 er als (242, 236, 228) uit, en #6d738a als (110, 116, 143).
+ * Wat je op het scherm ziet is dan de kleur die in kits/palet.json staat.
+ */
+const VLAK_OMGEVING = 'kits/effen-omgeving.png';
+const vlakkeModus = { aan: false };
+
+function zetBelichting(viewer, schaduw) {
+  if (vlakkeModus.aan) {
+    viewer.setAttribute('environment-image', VLAK_OMGEVING);
+    viewer.setAttribute('shadow-intensity', '0');
+    viewer.setAttribute('exposure', '1.3');
+  } else {
+    viewer.setAttribute('environment-image', 'neutral');
+    viewer.setAttribute('shadow-intensity', schaduw);
+    viewer.setAttribute('exposure', '1.05');
+  }
+}
+
 function koppelViewer(vak) {
   if (vak.querySelector('model-viewer')) return;
 
@@ -150,10 +182,8 @@ function koppelViewer(vak) {
   // van die modellen een renderlus aan. Dat een model clips heeft zegt het
   // glyfje op de kaart; afspelen doe je in het modelpaneel.
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('environment-image', 'neutral');
-  viewer.setAttribute('shadow-intensity', '0.6');
   viewer.setAttribute('shadow-softness', '0.9');
-  viewer.setAttribute('exposure', '1.05');
+  zetBelichting(viewer, '0.6');
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('disable-zoom', '');
   viewer.setAttribute('loading', 'eager');
@@ -398,9 +428,8 @@ function toonDetail(model) {
   viewer.alt = `3D-model ${model.naam}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('environment-image', 'neutral');
-  viewer.setAttribute('shadow-intensity', '0.7');
   viewer.setAttribute('shadow-softness', '0.9');
+  zetBelichting(viewer, '0.7');
 
   /**
    * Ook hier staat een gerigd model eerst stil, net als op de kaart: je opent
@@ -852,6 +881,25 @@ async function start() {
   }
 
   zoekveld.addEventListener('input', filter);
+
+  /* Omschakelen raakt alles wat al getekend is: de levende viewers krijgen de
+   * nieuwe belichting, en de opgeslagen momentopnamen van uitgescrolde kaarten
+   * gaan weg — die zijn in de oude belichting gemaakt. Een kaart die alleen nog
+   * zijn plaatje toont, tekent zichzelf opnieuw. */
+  const lichtKnop = document.querySelector('#licht');
+  lichtKnop.addEventListener('click', () => {
+    vlakkeModus.aan = !vlakkeModus.aan;
+    lichtKnop.setAttribute('aria-pressed', String(vlakkeModus.aan));
+
+    for (const vak of document.querySelectorAll('.kaart-viewer')) {
+      delete vak.dataset.momentopname;
+      const viewer = vak.querySelector('model-viewer');
+      if (viewer) zetBelichting(viewer, '0.6');
+      else if (vak.querySelector('img')) koppelViewer(vak);
+    }
+    const detailViewerEl = detailViewer.querySelector('model-viewer');
+    if (detailViewerEl) zetBelichting(detailViewerEl, '0.7');
+  });
 
   const aliassen = new Map(
     Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),

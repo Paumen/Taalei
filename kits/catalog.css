@@ -104,6 +104,29 @@ a { color: var(--accent); }
   font-weight: 600;
 }
 
+/* Naast het zoekveld, niet in de tabbladenrij: het is geen weergave maar een
+   schakelaar over álle weergaven heen. */
+.licht-knop {
+  padding: 7px 13px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: var(--inkt-zacht);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.licht-knop:hover { border-color: var(--accent); }
+.licht-knop:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.licht-knop[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--papier);
+  font-weight: 600;
+}
+
 .zoek { position: relative; display: flex; align-items: center; }
 
 .zoek input {
