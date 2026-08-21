@@ -69,11 +69,15 @@ export const GROEPEN = [
 ];
 
 /**
- * Kits die één ondeelbaar geheel zijn: elk model erin gaat naar dezelfde
- * groep, ongeacht wat de bestandsnaam zegt. De grot staat helemaal op zichzelf
- * — eigen texture-atlas, eigen kleuren — en `gate`, `ladder` en `stairs` uit
- * die kit zijn grotwerk, geen tuinhek of dorpstrap. Ze tussen de props van de
- * andere kits zetten suggereert een uitwisselbaarheid die er niet is.
+ * Kits die als geheel naar één groep gaan: elk model erin krijgt dezelfde
+ * groep, ongeacht wat de bestandsnaam zegt. De grot staat op zichzelf — eigen
+ * texture-atlas, eigen kleuren — en `gate` en `stairs` uit die kit zijn
+ * grotwerk, geen tuinhek of dorpstrap. Ze tussen de props van de andere kits
+ * zetten suggereert een uitwisselbaarheid die er niet is.
+ *
+ * Op de ladder en de drie vloerlagen na (besluit PO): die staan hieronder bij
+ * de uitzonderingen, en omdat uitzonderingen vóór deze regel gaan winnen ze
+ * ervan.
  *
  * `resources` is hier niet vanwege een eigen atlas — die deelt gewoon de
  * gedeelde colormap — maar omdat elk model een grondstof is (brokken erts,
@@ -84,7 +88,7 @@ export const GROEPEN = [
  * woorden van bouwpakketonderdelen in andere kits (village-kit/stone-wall-a,
  * mini-dungeon/wood-structure), en die horen niet ineens bij de grondstoffen.
  */
-const KIT_GROEPEN = {
+export const KIT_GROEPEN = {
   'modular-cave-kit': 'grot',
   resources: 'grondstoffen',
 };
@@ -209,6 +213,14 @@ const uitzonderingen = {
   'mini-forest/target': 'borden',
   'mini-dungeon/trap': 'items',
   'mini-dungeon/dirt': 'grond',
+  // Besluit PO: uit de grot naar de bouwwerken en de verbindingen, ondanks
+  // KIT_GROEPEN. De drie vloerlagen zijn vloeren waar je op bouwt, de ladder is
+  // een ladder. Het zijn de enige vier modellen die van die kit in de catalogus
+  // over zijn; de rest staat buiten de catalogus (kits/manifest.js).
+  'modular-cave-kit/template-floor-layer': 'bouwwerken',
+  'modular-cave-kit/template-floor-layer-hole': 'bouwwerken',
+  'modular-cave-kit/template-floor-layer-raised': 'bouwwerken',
+  'modular-cave-kit/ladder': 'verbinding',
 };
 
 /** [regex, groep] — eerste match wint. */
@@ -492,11 +504,12 @@ export function nederlandseTrefwoorden(model) {
  */
 export function bepaalGroep(kit, model) {
   const sleutel = `${kit}/${model}`;
-  // Vóór KIT_GROEPEN: de helft van de resources-kit is een stapel, en die
-  // hoort bij de assemblies en niet bij de losse grondstoffen.
+  // Allebei vóór KIT_GROEPEN, want allebei zijn ze bedoeld om die regel te
+  // doorbreken: de helft van de resources-kit is een stapel en hoort bij de
+  // assemblies, en een handvol modellen uit de grot staat bij de bouwwerken.
   if (ASSEMBLIES.has(sleutel)) return 'assemblies';
-  if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   if (uitzonderingen[sleutel]) return uitzonderingen[sleutel];
+  if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   for (const [pakketKit, patroon] of BOUWPAKKETTEN) {
     if (kit === pakketKit && patroon.test(model)) return 'bouwpakket';
   }

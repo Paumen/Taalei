@@ -116,6 +116,20 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/modular-cave-kit",
   /* Eigen tabblad: eigen texture-atlas, deelt geen kleur met de andere kits. */
   "tabblad": "grot",
+  /* Staan niet in de catalogus (besluit PO): de kamers, gangen, poorten,
+     trappen en wandsjablonen. De bestanden blijven in de repo. Wat overblijft
+     zijn de ladder en de drie vloerlagen, en die staan bij de bouwwerken en de
+     verbindingen — zie de uitzonderingen in tools/semantiek.mjs. */
+  "buitenCatalogus": [
+   "corridor", "corridor-corner", "corridor-end", "corridor-intersection", "corridor-junction",
+   "corridor-transition", "corridor-wide", "corridor-wide-corner", "corridor-wide-end",
+   "corridor-wide-intersection", "corridor-wide-junction", "gate", "gate-metal-bars",
+   "gate-overhang", "gate-rock", "room-corner", "room-large", "room-large-variation",
+   "room-small", "room-small-variation", "room-wide", "room-wide-variation", "stairs",
+   "stairs-wide", "template-corner", "template-detail", "template-floor", "template-floor-big",
+   "template-floor-detail", "template-floor-detail-a", "template-wall", "template-wall-corner",
+   "template-wall-detail-a", "template-wall-half", "template-wall-stairs", "template-wall-top"
+  ],
   "toelichting": "Staat op zichzelf: eigen texture-atlas en eigen kleuren, gedeeld met geen enkele andere kit. Daarom een eigen tabblad — deze modellen zijn niet uitwisselbaar met die van de andere kits.",
   "models": [
    "corridor",
@@ -959,6 +973,8 @@ window.KENNEY_KITS = [
   "slug": "modulair-terrein",
   "name": "Modulair Terrein",
   "url": null,
+  /* Staat niet in de catalogus (besluit PO); het bestand blijft in de repo. */
+  "buitenCatalogus": ["cave-prop-stalagmite-tiny"],
   "models": [
    "beach-prop-coconut",
    "beach-prop-docks-corner",

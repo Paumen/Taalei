@@ -651,6 +651,14 @@ async function start() {
   // immers in geen enkel ander tabblad.
   const opZichzelf = data.kits.filter((k) => k.tabblad);
   const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
+  // Welke groep een kit met een eigen tabblad als geheel vult (catalog.json →
+  // kitGroep). Alleen díé modellen laten we uit de groepsweergave weg; ze staan
+  // immers compleet in hun eigen tabblad. Een model dat bij uitzondering in een
+  // andere groep is gezet hoort daar wél te staan — anders zou het verhuizen
+  // neerkomen op verdwijnen.
+  const kitGroep = new Map(opZichzelf.map((k) => [k.slug, k.kitGroep]));
+  const inGroepsweergave = (model) =>
+    !eigenTabblad.has(model.kit) || model.groep !== kitGroep.get(model.kit);
 
   const bronVan = (url) =>
     url ? { href: url, tekst: `${new URL(url).host.replace(/^www\./, '')} ↗` } : null;
@@ -677,7 +685,7 @@ async function start() {
 
   for (const groep of data.groepen) {
     const modellen = data.modellen
-      .filter((m) => m.groep === groep.id && !eigenTabblad.has(m.kit))
+      .filter((m) => m.groep === groep.id && inGroepsweergave(m))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl') || a.kit.localeCompare(b.kit));
     if (modellen.length === 0) continue;
     registreer(
@@ -737,9 +745,7 @@ async function start() {
    * groep nergens anders voorkomt — een kit die een groep deelt met de andere
    * kits mag zo'n anker niet naar zich toe trekken.
    */
-  const groepenElders = new Set(
-    data.modellen.filter((m) => !eigenTabblad.has(m.kit)).map((m) => m.groep),
-  );
+  const groepenElders = new Set(data.modellen.filter(inGroepsweergave).map((m) => m.groep));
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {
       if (model.kit === kit.slug && !groepenElders.has(model.groep)) {

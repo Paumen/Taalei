@@ -14,7 +14,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROEPEN, bepaalGroep } from './semantiek.mjs';
+import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
 import { leesGlb, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -46,7 +46,12 @@ function leesKitMetadata() {
       url: kit.url,
       tabblad: kit.tabblad ?? null,
       toelichting: kit.toelichting ?? null,
+      // `true` = de hele kit doet niet mee; een lijst = deze modellen niet.
+      // De bestanden blijven in de repo, ze staan alleen niet in de catalogus.
       buitenCatalogus: kit.buitenCatalogus === true,
+      buitenCatalogusModellen: new Set(
+        Array.isArray(kit.buitenCatalogus) ? kit.buitenCatalogus : [],
+      ),
       // Alle kits zijn CC0; alleen een kit met gemengde herkomst zegt het zelf.
       licentieLabel: kit.licentieLabel ?? 'CC0',
     });
@@ -240,9 +245,10 @@ function schrijfVersie() {
 
 const kitMeta = leesKitMetadata();
 const palet = leesPalet();
-/* Een kit met "buitenCatalogus" in manifest.js staat wél in de repo maar doet
- * niet mee: geen modellen, geen groepen, geen kleuren. De bestanden blijven
- * waar ze zijn, en één regel in het manifest zet de kit weer terug. */
+/* "buitenCatalogus" in manifest.js houdt modellen uit de catalogus zonder ze
+ * weg te gooien: `true` voor een hele kit, of een lijst modelnamen voor een
+ * deel ervan. De bestanden blijven waar ze zijn — geen modellen, geen groepen,
+ * geen kleuren — en het weghalen van die regel zet ze weer terug. */
 const kitSlugs = readdirSync(KITS_DIR)
   .filter((naam) => statSync(join(KITS_DIR, naam)).isDirectory())
   .filter((naam) => !kitMeta.get(naam)?.buitenCatalogus)
@@ -256,11 +262,14 @@ const zonderKleur = [];
 
 for (const slug of kitSlugs) {
   const dir = join(KITS_DIR, slug);
-  const bestanden = readdirSync(dir).filter((n) => n.endsWith('.glb')).sort();
-  if (bestanden.length === 0) continue;
-
   const meta = kitMeta.get(slug);
   if (!meta) zonderMetadata.push(slug);
+
+  const bestanden = readdirSync(dir)
+    .filter((n) => n.endsWith('.glb'))
+    .filter((n) => !meta?.buitenCatalogusModellen.has(n.replace(/\.glb$/, '')))
+    .sort();
+  if (bestanden.length === 0) continue;
 
   for (const bestand of bestanden) {
     const naam = bestand.replace(/\.glb$/, '');
@@ -316,6 +325,13 @@ for (const slug of kitSlugs) {
     // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;
     // zonder tabblad zou hij nergens meer te zien zijn.
     tabblad: meta?.tabblad ?? null,
+    // De groep waar de kit als geheel in valt (KIT_GROEPEN in semantiek.mjs).
+    // De catalogus in de browser heeft hem nodig om te weten wélke modellen van
+    // een kit met een eigen tabblad daar thuishoren: die in deze groep. Een
+    // model dat bij uitzondering ergens anders is ingedeeld — de vloerlagen en
+    // de ladder van de grot staan bij de bouwwerken — hoort in die groep te
+    // staan, ook al heeft zijn kit een eigen tabblad.
+    kitGroep: KIT_GROEPEN[slug] ?? null,
     toelichting: meta?.toelichting ?? null,
     // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
     // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
