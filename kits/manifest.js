@@ -167,7 +167,6 @@ window.KENNEY_KITS = [
   "models": [
    "bridge",
    "building-platform",
-   "building-roof",
    "building-structure",
    "ladder",
    "patch-dirt",
@@ -177,7 +176,6 @@ window.KENNEY_KITS = [
    "rocks-ramp",
    "stones",
    "target",
-   "tent",
    "tree",
    "tree-high"
   ]
@@ -295,9 +293,7 @@ window.KENNEY_KITS = [
    "sign",
    "spring",
    "star",
-   "stones",
-   "tree-pine",
-   "tree-pine-small"
+   "stones"
   ]
  },
  {
@@ -416,8 +412,6 @@ window.KENNEY_KITS = [
    "barrel-a",
    "chest-a",
    "palm-a",
-   "pier-a",
-   "plank-a",
    "plant-a"
   ]
  },

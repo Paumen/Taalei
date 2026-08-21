@@ -42,7 +42,7 @@ export const GROEPEN = [
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
     beschrijving: 'Schepen, boten, masten, roeispanen en kanonnen voor de Zinnenzee.' },
   { id: 'kamp', naam: 'Kamp & tenten', kort: 'Kamp', kleur: '#e76047',
-    beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit en één uit mini-forest. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
+    beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
   { id: 'eten', naam: 'Eten & koken', kort: 'Eten', kleur: '#9c3f2e',
     beschrijving: 'Wat je klaarmaakt en waar je het op zet: de kampvuren en het brandhout, de twee vissen van de survival-kit, het braadstuk, de vleesbout en de paddenstoel, de drie gedekte tafels van de dungeon-kit, en het serviesgoed dat erop hoort — zeven borden en een beker. De kale en kapotte tafels staan bij het huisraad, de kannen en de zak bij de kisten.' },
   { id: 'opslag', naam: 'Kisten & vaten', kort: 'Kisten', kleur: '#dd9f79',
@@ -151,8 +151,7 @@ const MODULAIR_TERREIN = [
   [/-prop-camp-/, 'kamp'],
   [/-prop-bridge-/, 'verbinding'],
   // De steiger loopt het water in en houdt op, de ruïnepilaar staat ergens
-  // los: allebei bouwsel, geen verbinding. Zelfde afweging als bij `pier` in
-  // de algemene regels hieronder.
+  // los: allebei bouwsel, geen verbinding.
   [/-prop-(docks|ruins-pillar)/, 'bouwwerken'],
   [/-prop-(shell|starfish)/, 'zeebodem'],
   [/-prop-treasure-chest/, 'opslag'],
@@ -260,13 +259,12 @@ const regels = [
   [/^(floor|patch|dirt|hole|mountain|hills)\b/, 'terrein'],
   // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
   // uit de andere kits, en alles wat je eromheen bouwt.
-  // `pier` en `plank` staan hier en niet bij `verbinding`: een steiger loopt het
-  // water in en houdt op, hij verbindt geen twee oevers. De losse plank is er
-  // het bouwmateriaal van.
+  // `plank` staat hier en niet bij `verbinding`: een losse plank is
+  // bouwmateriaal, geen oeververbinding.
   // De put staat hier om dezelfde reden als de fontein: een bouwseltje dat je
   // ergens neerzet. `well-base-*` en `well-inside` zijn zijn onderdelen — de
   // drie grondvlakken eronder en de schacht erin — en blijven bij hem staan.
-  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks?|pier|wood|watermill|windmill|fountain|well)\b/, 'bouwwerken'],
+  [/^(wall|roof|building|structure|platform|pillar|column|balcony|overhang|planks?|wood|watermill|windmill|fountain|well)\b/, 'bouwwerken'],
 ];
 
 /**
@@ -372,7 +370,7 @@ const WOORDENBOEK = {
   path: ['pad', 'wandelpad'],
   pebbles: ['kiezels', 'keitjes', 'stenen'], penguin: ['pinguïn', 'pinguin'],
   pick: ['houweel', 'pikhouweel'],
-  pickaxe: ['houweel', 'pikhouweel'], pier: ['steiger', 'aanlegsteiger'],
+  pickaxe: ['houweel', 'pikhouweel'],
   pile: ['stapel', 'hoop'],
   pillar: ['pilaar', 'zuil'], pine: ['den', 'dennenboom', 'boom'], pink: ['roze'],
   pipe: ['pijp', 'buis'], plain: ['vlak', 'effen'],
