@@ -30,6 +30,8 @@ const GROEP_ALIASSEN = {
   bouw: 'bouwwerken',
   mechaniek: 'items',
   terrein: 'grond',
+  reisgerei: 'items',
+  kamp: 'huisraad',
 };
 
 const ZWAAR_VANAF = 5000;

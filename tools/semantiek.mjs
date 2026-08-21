@@ -44,11 +44,9 @@ export const GROEPEN = [
     tabblad: 'nature',
     beschrijving: 'Rotsblokken, keien, kiezels en losse stenen voor berg, grot en kust, plus de grote rotsformaties waarmee je een gebied afbakent. Staat met de bomen, planten, zeebodem en grond in het tabblad Nature — samen alles wat er zonder toedoen al staat. Een eigen tabblad hadden de rotsen sowieso nodig: de rocks-kit levert tien rotsen in twee tinten met kiezels en formaties erbij, en die verdringen in de objectweergave alles wat er los naast staat.' },
   { id: 'huisraad', naam: 'Huisraad & meubels', kort: 'Huisraad', kleur: '#c07c8a',
-    beschrijving: 'Het meubilair: tafel, bank, kruk en vloerkleed uit de props-kit, plus de bedden, stoelen en wandschappen van de dungeon-kit. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht, en het eten met de gedekte tafels bij eten & koken.' },
+    beschrijving: 'Het meubilair: tafel, bank, kruk en vloerkleed uit de props-kit, plus de bedden, stoelen en wandschappen van de dungeon-kit. Ook de twee tenten van het Startkamp staan hier — een tent is waar je in slaapt, net als een bed. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht, en het eten met de gedekte tafels bij eten & koken; de kampvuren horen daar ook bij, want daar wordt op gekookt.' },
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
     beschrijving: 'Schepen, boten, masten, roeispanen en kanonnen voor de Zinnenzee.' },
-  { id: 'kamp', naam: 'Kamp & tenten', kort: 'Kamp', kleur: '#e76047',
-    beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
   { id: 'eten', naam: 'Eten & koken', kort: 'Eten', kleur: '#9c3f2e',
     beschrijving: 'Wat je klaarmaakt en waar je het op zet: de kampvuren en het brandhout, de twee vissen van de survival-kit, het braadstuk, de vleesbout en de paddenstoel, de drie gedekte tafels van de dungeon-kit, en het serviesgoed dat erop hoort — zeven borden en een beker. De kale en kapotte tafels staan bij het huisraad, de kannen en de zak bij de kisten.' },
   { id: 'opslag', naam: 'Kisten & vaten', kort: 'Kisten', kleur: '#dd9f79',
@@ -60,12 +58,12 @@ export const GROEPEN = [
     beschrijving: 'De grondstoffen zelf, los van wat je ze in stopt: brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en onderdelen uit de resources-kit, plus de plankenstapel van de survival-kit. Bruikbaar als opbrengst, ruilmiddel of bouwvoorraad. De staven en de opgetaste stapels van diezelfde kit staan bij de assemblies.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
     beschrijving: 'Bijl, hamer en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
-  { id: 'reisgerei', naam: 'Reisgerei & kaarten', kort: 'Reisgerei', kleur: '#caa06a',
-    beschrijving: 'Wat een reiziger leest en beschrijft: twee kaarten (een lege en een opgerolde) en een dagboek, open en dicht. Zit helemaal in de rpgtools-kit.' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
   { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer en slot: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Voorzichtig inzetten, geen punten-economie.' },
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer en slot: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Ook het reisgerei van de rpgtools-kit staat hier: de twee kaarten en het dagboek, open en dicht. Voorzichtig inzetten, geen punten-economie.' },
+  { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
+    beschrijving: 'Levende have: het zeeleven uit de onderwater-kit, van clownvis tot walvis, alles gerigd en geanimeerd. Nu leeg — die kit staat buiten de catalogus (`buitenCatalogus` in kits/manifest.js) — maar de groep blijft staan, want de regels wijzen ernaar en zonder groep zouden die modellen bij terugkomst nergens te zien zijn. De twee vissen van de survival-kit staan bij eten & koken: die zijn als voedsel bedoeld.' },
   { id: 'licht', naam: 'Licht & lampen', kort: 'Licht', kleur: '#f2cb45',
     beschrijving: 'Alles wat licht geeft, uit vijf kits bij elkaar: de straatlantaarn en de wandlamp van village-kit, de kaarsen van props en dungeon (los, gesmolten, dun, drievoudig, brandend en gedoofd), het wandschap met kaarsen, de toortsen van dungeon en rpgtools, de lantaarn, en de vuurtoren van Taaleiland zelf. Handig als je een scène wilt uitlichten of een route in het donker wilt markeren.' },
 ];
@@ -154,9 +152,9 @@ const MODULAIR_TERREIN = [
   [/-prop-(boulder|rock|stepping-stones)/, 'rotsen'],
   [/-prop-fence-/, 'hek'],
   // Het vuur en het hout ernaast horen bij eten & koken, net als de kampvuren
-  // van de survival-kit; de afdak en de zitstam blijven kamp.
+  // van de survival-kit. Verder heeft de kit geen kampspullen meer: de zitstam
+  // is uit de kit verwijderd, dus deze twee zijn alles wat `camp` nog dekt.
   [/-prop-camp-(campfire|wood-pile)/, 'eten'],
-  [/-prop-camp-/, 'kamp'],
   [/-prop-bridge-/, 'verbinding'],
   // De steiger loopt het water in en houdt op, de ruïnepilaar staat ergens
   // los: allebei bouwsel, geen verbinding.
@@ -235,7 +233,7 @@ const regels = [
   //     bedoeld zijn. De vier soortvissen van de onderwater-kit (`fish-brown`,
   //     `-clown`, `-dory`, `-tuna`) blijven dieren.
   [/^(campfire|fire|firewood|plate|roast|meat|mushroom|cup)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'eten'],
-  [/^tent\b|^tent-/, 'kamp'],
+  [/^tent\b|^tent-/, 'huisraad'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
   [/^fish/, 'dieren'],
   [/^(tool|workbench)-|^workbench$|^broom$/, 'gereedschap'],
@@ -245,9 +243,9 @@ const regels = [
   // tekenpasser, de loep, de potloden en het touw staan hier ook: het zijn
   // instrumenten waarmee je iets doet, niet iets waar je op leest.
   [/^(anvil|axe|chisel|compass|drafting-compass|file|grindstone|hammer|handdrill|handplane|knife|magnifying-glass|mallet|nail|pencil|pickaxe|rope|saw|scissors|screw|screwdriver|shovel|tongs|trowel|wrench)\b/, 'gereedschap'],
-  // Wat overblijft aan reisgerei is wat je leest of beschrijft: de twee
-  // kaarten en het dagboek, open en dicht.
-  [/^(journal|map)\b/, 'reisgerei'],
+  // Wat je leest of beschrijft — de twee kaarten en het dagboek, open en dicht
+  // — staat bij de items: klein, los, en je pakt het op.
+  [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
   // Alles wat licht geeft, ongeacht waar het vandaan komt: de straatlantaarn en
   // wandlamp van village-kit, de kaarsen van props en dungeon, de toortsen en
