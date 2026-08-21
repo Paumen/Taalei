@@ -52,9 +52,9 @@ const SAMEN = [
 ];
 
 /* Niet samengevoegd, hoewel ze dicht bij elkaar liggen: het blauwgrijs van de
- * rotsen (3,2 en 15,3) en het grijsbruin van de grond (14,3). Ze delen maar
- * vijftien modellen, maar samen zouden ze de aarden vloeren blauw maken — het
- * grijsbruin hangt aan 216 modellen die er juist warm horen uit te zien. */
+ * rotsen (3,2 en 15,3) en het grijsbruin van de grond (14,3). Ze delen maar zes
+ * modellen, maar samen zouden ze de aarden vloeren blauw maken — het grijsbruin
+ * hangt aan 205 modellen die er juist warm horen uit te zien. */
 
 /** Hoeveel verzadigder de onderkant van een baan is dan de bovenkant. */
 const SCHADUWVERZADIGING = 0.22;
