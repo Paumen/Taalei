@@ -95,6 +95,27 @@ const HANDMATIG = [
    * ronde draagt een uitstekend kozijn en is daardoor 0,2 diep. */
   ['fantasy-town-kit/wall-wood-window-glass', 'fantasy-town-kit/wall-wood-window-round'],
   ['fantasy-town-kit/wall-wood-window-glass', 'fantasy-town-kit/wall-wood-window-shutters'],
+  /* Bomen: dezelfde boom met een andere kruin. Een spar is een stapel kegels,
+   * en een kegel meer of minder verzet genoeg volume om het raster kwijt te
+   * raken — terwijl je op de plaat driemaal dezelfde boom ziet. */
+  ['modulair-terrein/hilly-prop-tree-pine-a', 'modulair-terrein/hilly-prop-tree-pine-b'],
+  ['modulair-terrein/hilly-prop-tree-pine-a', 'modulair-terrein/hilly-prop-tree-pine-c'],
+  ['modulair-terrein/hilly-prop-tree-cedar-a', 'modulair-terrein/hilly-prop-tree-cedar-b'],
+  /* De rotspartijen van de pirate-kit, net als bij de forest-rotsen (§5.1):
+   * dezelfde brokken in een andere opstelling, en twee onregelmatige klompen
+   * overlappen elkaar nu eenmaal niet. De zandversie is dezelfde partij op een
+   * zandsokkel — die twee families blijven uit elkaar, want de sokkel is het
+   * hele verschil. */
+  ['pirate-kit/rocks-a', 'pirate-kit/rocks-b'],
+  ['pirate-kit/rocks-a', 'pirate-kit/rocks-c'],
+  ['pirate-kit/rocks-sand-a', 'pirate-kit/rocks-sand-b'],
+  ['pirate-kit/rocks-sand-a', 'pirate-kit/rocks-sand-c'],
+  /* Vier plukjes kiezels van ongeveer 1 × 0,9 × 0,1, elk in een andere
+   * opstelling. Plat en onregelmatig tegelijk: het gerekte raster ziet vier
+   * verschillende verdelingen en het vaste raster ziet vier keer niets. */
+  ['rocks/pebbles-dirt-a', 'rocks/pebbles-dirt-b'],
+  ['rocks/pebbles-dirt-a', 'rocks/pebbles-dirt-c'],
+  ['rocks/pebbles-dirt-a', 'rocks/pebbles-dirt-d'],
   /* De rotsen van de forest-kit komen in maatfamilies: binnen een familie is
    * het driehoekental gelijk, de bounding box vergelijkbaar en het silhouet
    * hetzelfde — het zijn strooirotsen, bedoeld om door elkaar te gebruiken.

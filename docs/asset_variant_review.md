@@ -2,7 +2,7 @@
 
 Welke modellen in de collectie zijn varianten van elkaar — hetzelfde model,
 met alleen een andere kleur, een andere maat, of een klein verschil in
-samenstelling of detail? Gemeten over alle 764 modellen uit
+samenstelling of detail? Gemeten over alle 762 modellen uit
 `kits/catalog.json` met `node tools/vind-varianten.mjs`. Wat buiten de catalogus
 staat doet niet mee: de onderwater-kit en het grotdeel van de collectie staan wel
 in de repo maar niet in `catalog.json`. De uitkomst staat in
@@ -49,23 +49,23 @@ komt uit die meting; §3 zegt welke groepen bij naslag geen echte variant zijn.
 
 ## 1. Wat er ligt
 
-**68 groepen, samen 198 modellen — 26% van de catalogus.** Twee groepen lopen
+**73 groepen, samen 213 modellen — 28% van de catalogus.** Twee groepen lopen
 over kitgrenzen heen, de rest zit binnen één kit.
 
 | soort | groepen | wat het betekent |
 |---|---|---|
 | kleurvariant | 14 | dezelfde mesh, alleen een ander palet |
 | maatvariant | 1 | dezelfde mesh, alleen een ander formaat |
-| detailvariant | 53 | zelfde silhouet, verschil in samenstelling of detail |
+| detailvariant | 58 | zelfde silhouet, verschil in samenstelling of detail |
 
 Per kit (een groep telt bij elke kit waar leden uit komen):
 dungeon 18, village-kit 14, resources 11, forest 10, fantasy-town-kit 6,
-pirate-kit 3, modulair-terrein 2, survival-kit 2, en één elk voor platformer-kit,
-props, rpgtools en taalei-kit.
+pirate-kit 5, modulair-terrein 4, survival-kit 2, en één elk voor platformer-kit,
+props, rocks, rpgtools en taalei-kit.
 
-Vierentwintig groepen staan er op gezag en niet op meting — de forest-rotsen, de
-vloertegels van de grot, de aan/uit-paren en nog wat losse (zie §5). Ze staan in
-`HANDMATIG` in het script.
+Negenentwintig groepen staan er op gezag en niet op meting — natuur (rotsen,
+kiezels, bomen), de vloertegels van de grot, de aan/uit-paren en nog wat losse
+(zie §5). Ze staan in `HANDMATIG` in het script.
 
 ## 2. De duidelijke gevallen
 
@@ -76,7 +76,7 @@ koper, goud, ijzer en zilver telkens exact dezelfde mesh delen (identiek
 driehoekental, identieke bounding box, identieke hoekpunten) en alleen in
 palet verschillen — `*-bar`, `*-bars`, `*-bars-stack-small/medium/large`,
 `*-nugget-small/medium/large` en `*-nuggets` — de platen `kleurvariant-resources-iron-*`.
-Dat is 36 van de 198 modellen in dit overzicht; in de catalogus staat het ijzer
+Dat is 36 van de 213 modellen in dit overzicht; in de catalogus staat het ijzer
 van elke groep op de kaart en de andere drie erachter. Ze zijn bedoeld als kleurenset en horen zo bij
 elkaar; wie er één gebruikt, weet dat de andere drie gratis meekomen.
 
@@ -130,6 +130,10 @@ van de groep, dus `detailvariant-pirate-kit-ship-ghost.png`):
 | dungeon `wall-archedwindow-open` ↔ `wall-broken` | 2 | hetzelfde muurpaneel, boogopening tegen bresgat; met de hand (§5) | `…-dungeon-wall-archedwindow-open` |
 | fantasy-town-kit `wall-wood-detail-*` | 3 | hetzelfde houten paneel, beschot als kruis, schuine balk of dwarsbalken; met de hand (§5) | `…-wall-wood-detail-cross` |
 | fantasy-town-kit `wall-wood-window-*` | 3 | hetzelfde paneel, raam met glas, rond of met luiken; met de hand (§5) | `…-wall-wood-window-glass` |
+| modulair-terrein `hilly-prop-tree-pine a–c` | 3 | dezelfde spar, een kegel meer of minder in de kruin; met de hand (§5.1) | `…-hilly-prop-tree-pine-a` |
+| modulair-terrein `hilly-prop-tree-cedar-a` ↔ `-b` | 2 | dezelfde ceder in dezelfde bounding box, ander kruinprofiel; met de hand (§5.1) | `…-hilly-prop-tree-cedar-a` |
+| pirate-kit `rocks a–c` en `rocks-sand a–c` | 2 × 3 | dezelfde brokken in een andere opstelling; de zandversie staat apart, want de zandsokkel is het hele verschil (§5.1) | `…-pirate-kit-rocks-a`, `…-rocks-sand-a` |
+| rocks `pebbles-dirt a–d` | 4 | plukjes kiezels van 1 × 0,9 × 0,1, elk anders verdeeld (§5.1) | `…-rocks-pebbles-dirt-a` |
 
 ### 2.4 Over kitgrenzen heen
 
@@ -189,7 +193,7 @@ lijst, weinig extra ruis. 0,90 is de voorzichtige keuze gebleven.
 
 ## 5. Met de hand erbij
 
-Vierentwintig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
+Negenentwintig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
 samengevoegd: een mens die zegt dat twee modellen dezelfde asset zijn wint van
 het raster. Ze tonen stuk voor stuk een grens van de meting.
 
@@ -241,9 +245,9 @@ het raster. Ze tonen stuk voor stuk een grens van de meting.
   driehoeken, `b` een derde groter en in een andere paletcel. Op deze maat
   (0,05 × 0,06 × 0,01) heeft het raster niets meer om op te vallen.
 
-### 5.1 De rotsen van de forest-kit
+### 5.1 Wat het raster bij natuur mist
 
-De 43 rotsen van de forest-kit staan in tien groepen, alle tien met de hand. De
+**De forest-kit.** De 43 rotsen staan in tien groepen, alle tien met de hand. De
 meting zag er één van (`rock-2-c` ↔ `-d`); de overige paren binnen een familie
 komen niet verder dan 0,40–0,54, ver onder de verwantdrempel. Dat is precies wat
 je bij deze vorm verwacht: een rots is een onregelmatige klomp, en twee klompen
@@ -272,6 +276,22 @@ net als stone-wall a–e.
 afgeknotte kegel op 0,11 tot 0,87 hoog. De groep blijft één geheel — het is één
 rots met een maatkeuze, zoals `box-large` ↔ `box-small` dat is.
 
+**Elders in de collectie, om dezelfde reden.** Hetzelfde patroon — een vorm die
+niets rechts of vlaks heeft om het raster mee te vullen — levert nog vier
+families op:
+
+- `pirate-kit/rocks a–c` en `rocks-sand a–c`, twee families van drie: dezelfde
+  brokken in een andere opstelling. Ze blijven uit elkaar; `rocks-sand` is
+  dezelfde partij op een zandsokkel, en die sokkel is het hele verschil. Alleen
+  `rocks-b` ↔ `rocks-sand-b` haalde 0,836, kruislings tussen de families door.
+- `rocks/pebbles-dirt a–d`, vier plukjes kiezels van ongeveer 1 × 0,9 × 0,1.
+  Plat en onregelmatig tegelijk: het gerekte raster ziet vier verschillende
+  verdelingen, het vaste raster ziet vier keer niets.
+- `modulair-terrein/hilly-prop-tree-pine a–c` en `hilly-prop-tree-cedar a/b` —
+  bomen. Een spar is een stapel kegels, en een kegel meer of minder verzet
+  genoeg volume om onder de drempel te komen, terwijl je op de plaat driemaal
+  dezelfde boom ziet.
+
 Wat hier bijkomt hoort ook echt bij elkaar; het omgekeerde — een gemeten groep
 met de hand uit elkaar halen — kan het script niet, en is tot nu toe niet nodig
 geweest. De valse positieven van §3 zijn er wel, maar die staan er bewust in:
@@ -283,8 +303,8 @@ ze laten zien waar de meting blind is.
   vormen met een paletkeuze. Wie de collectie inkort, kan daar snijden zonder
   vorm te verliezen. In de catalogus staat van elke groep het ijzer op de kaart.
 - **Detailvarianten zijn juist bedoeld om te herhalen.** stone-wall a–e,
-  cobblestone-transition a–d, wood-floor a–d, de grotvloertegels en de
-  forest-rotsen bestaan om afwisseling in een vlak te leggen; ze horen als set
-  gebruikt te worden, niet één uit vier.
+  cobblestone-transition a–d, wood-floor a–d, de grotvloertegels en alle
+  natuurgroepen van §5.1 bestaan om afwisseling in een vlak te leggen; ze horen
+  als set gebruikt te worden, niet één uit vier.
 - **Bij het toevoegen van een model** is `tools/vind-varianten.mjs` de check of
   het er al is: het draait in vijf seconden over de hele collectie.
