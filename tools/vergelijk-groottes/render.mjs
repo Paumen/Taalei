@@ -6,6 +6,10 @@
  * Draaien vanuit de repo-root:
  *   NODE_PATH=$(npm root -g) node tools/vergelijk-groottes/render.mjs
  *
+ * Met een eigen groepenbestand en uitvoermap (zo rendert het variantoverzicht):
+ *   node tools/vergelijk-groottes/render.mjs docs/asset_variants.groepen.json \
+ *        docs/asset_variant_review
+ *
  * Gebruikt de globale npm-installaties van three en playwright.
  */
 import { chromium } from 'playwright';
@@ -18,7 +22,9 @@ import { fileURLToPath } from 'node:url';
 const HIER = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HIER, '..', '..');
 const THREE = path.join(execSync('npm root -g').toString().trim(), 'three');
-const UIT = path.join(ROOT, 'docs', 'asset_size_review');
+const [bronArg, uitArg] = process.argv.slice(2);
+const BRON = bronArg ? path.resolve(ROOT, bronArg) : path.join(HIER, 'groups.json');
+const UIT = uitArg ? path.resolve(ROOT, uitArg) : path.join(ROOT, 'docs', 'asset_size_review');
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.glb': 'model/gltf-binary' };
 
 const server = http.createServer((req, res) => {
@@ -36,14 +42,15 @@ const server = http.createServer((req, res) => {
 });
 await new Promise((r) => server.listen(8931, r));
 
-const groups = JSON.parse(readFileSync(path.join(HIER, 'groups.json'), 'utf8'));
+const groups = JSON.parse(readFileSync(BRON, 'utf8'));
+const bronUrl = `/${path.relative(ROOT, BRON).split(path.sep).join('/')}`;
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1800, height: 760 } });
 page.on('pageerror', (err) => console.log('  [fout]', err.message));
 
 let mislukt = 0;
 for (const naam of Object.keys(groups)) {
-  await page.goto(`http://127.0.0.1:8931/tools/vergelijk-groottes/index.html?group=${naam}`);
+  await page.goto(`http://127.0.0.1:8931/tools/vergelijk-groottes/index.html?group=${naam}&bron=${encodeURIComponent(bronUrl)}`);
   /* FOUT wordt gezet door index.html bij een scriptfout, zodat we niet op de
    * volle timeout hoeven te wachten */
   await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 30000 });
