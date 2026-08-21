@@ -79,6 +79,22 @@ const HANDMATIG = [
    * een verstek, 44 tegen 36 driehoeken in dezelfde bounding box. */
   ['fantasy-town-kit/roof-corner', 'fantasy-town-kit/roof-corner-round'],
   ['modulair-terrein/beach-prop-shell-a', 'modulair-terrein/beach-prop-shell-b'],
+  /* Elkaars spiegelbeeld, 574 driehoeken elk in dezelfde bounding box. De
+   * meting draait wel om de hoogte-as maar spiegelt niet, dus voor haar is de
+   * ene trap de andere niet. */
+  ['dungeon/stairs-wall-left', 'dungeon/stairs-wall-right'],
+  /* Hetzelfde muurpaneel van 1,4 × 0,35 × 1,4: de een met een boogopening, de
+   * ander met een gat erin geslagen. Het verschil zit hem in wat er weg is, en
+   * dat is te veel gat voor het raster. */
+  ['dungeon/wall-archedwindow-open', 'dungeon/wall-broken'],
+  /* Hetzelfde houten paneel van 0,1 × 1 × 1, ander beschot: kruis, schuine
+   * balk of dwarsbalken (80, 56 en 46 driehoeken). */
+  ['fantasy-town-kit/wall-wood-detail-cross', 'fantasy-town-kit/wall-wood-detail-diagonal'],
+  ['fantasy-town-kit/wall-wood-detail-cross', 'fantasy-town-kit/wall-wood-detail-horizontal'],
+  /* Hetzelfde paneel van 1 × 1, ander raam erin: glas, rond of met luiken. De
+   * ronde draagt een uitstekend kozijn en is daardoor 0,2 diep. */
+  ['fantasy-town-kit/wall-wood-window-glass', 'fantasy-town-kit/wall-wood-window-round'],
+  ['fantasy-town-kit/wall-wood-window-glass', 'fantasy-town-kit/wall-wood-window-shutters'],
   /* De rotsen van de forest-kit komen in maatfamilies: binnen een familie is
    * het driehoekental gelijk, de bounding box vergelijkbaar en het silhouet
    * hetzelfde — het zijn strooirotsen, bedoeld om door elkaar te gebruiken.
