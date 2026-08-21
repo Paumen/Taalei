@@ -66,18 +66,85 @@ const HANDMATIG = [
   // geometrie om onder de drempel te zakken. Het is wel hetzelfde voorwerp.
   ['dungeon/torch', 'dungeon/torch-lit'],
   ['dungeon/candle', 'dungeon/candle-lit'],
+  ['dungeon/candle-thin', 'dungeon/candle-thin-lit'],
+  /* Vloertegels van 1 × 1: hetzelfde tegeltje, ander patroon erop. Het reliëf
+   * is kleiner dan een rastercel, dus de meting houdt ze op 0,80–0,88 — net
+   * onder de drempel, terwijl ze naast elkaar niet te onderscheiden zijn
+   * behalve in hun patroon. Precies waar de drempel te streng is. */
+  ['dungeon/floor-dirt-small-a', 'dungeon/floor-dirt-small-b'],
+  ['dungeon/floor-dirt-small-a', 'dungeon/floor-dirt-small-c'],
+  ['dungeon/floor-tile-small-broken-a', 'dungeon/floor-tile-small-broken-b'],
+  ['dungeon/floor-tile-small-weeds-a', 'dungeon/floor-tile-small-weeds-b'],
+  /* Dezelfde hoek van hetzelfde dak: de ronde loopt met een boog in plaats van
+   * een verstek, 44 tegen 36 driehoeken in dezelfde bounding box. */
+  ['fantasy-town-kit/roof-corner', 'fantasy-town-kit/roof-corner-round'],
+  ['modulair-terrein/beach-prop-shell-a', 'modulair-terrein/beach-prop-shell-b'],
+  /* De rotsen van de forest-kit komen in maatfamilies: binnen een familie is
+   * het driehoekental gelijk, de bounding box vergelijkbaar en het silhouet
+   * hetzelfde — het zijn strooirotsen, bedoeld om door elkaar te gebruiken.
+   * De meting ziet ze niet: een rots is een onregelmatige klomp, en twee
+   * klompen overlappen elkaar hooguit voor de helft (0,40–0,54). Juist bij
+   * deze vorm zegt het raster dus het minst. Ketting per familie; het script
+   * voegt ze samen tot één groep.
+   *
+   * rock-1 kegeltorentjes: klein / middel / groot / rotspartij / spits
+   * rock-2 afgeknotte kegel op vier formaten, en de rotspartijen
+   * rock-3 gladde keien: klein / middel / groot */
+  ['forest/rock-1-a', 'forest/rock-1-b'],
+  ['forest/rock-1-b', 'forest/rock-1-c'],
+  ['forest/rock-1-d', 'forest/rock-1-e'],
+  ['forest/rock-1-e', 'forest/rock-1-f'],
+  ['forest/rock-1-g', 'forest/rock-1-h'],
+  ['forest/rock-1-h', 'forest/rock-1-i'],
+  ['forest/rock-1-j', 'forest/rock-1-k'],
+  ['forest/rock-1-k', 'forest/rock-1-l'],
+  ['forest/rock-1-l', 'forest/rock-1-m'],
+  ['forest/rock-1-n', 'forest/rock-1-o'],
+  ['forest/rock-1-o', 'forest/rock-1-p'],
+  ['forest/rock-1-p', 'forest/rock-1-q'],
+  ['forest/rock-2-a', 'forest/rock-2-b'],
+  ['forest/rock-2-b', 'forest/rock-2-c'],
+  ['forest/rock-2-c', 'forest/rock-2-d'],
+  ['forest/rock-2-e', 'forest/rock-2-f'],
+  ['forest/rock-2-f', 'forest/rock-2-g'],
+  ['forest/rock-2-g', 'forest/rock-2-h'],
+  ['forest/rock-3-a', 'forest/rock-3-b'],
+  ['forest/rock-3-b', 'forest/rock-3-c'],
+  ['forest/rock-3-c', 'forest/rock-3-d'],
+  ['forest/rock-3-d', 'forest/rock-3-e'],
+  ['forest/rock-3-e', 'forest/rock-3-f'],
+  ['forest/rock-3-g', 'forest/rock-3-h'],
+  ['forest/rock-3-h', 'forest/rock-3-i'],
+  ['forest/rock-3-i', 'forest/rock-3-j'],
+  ['forest/rock-3-j', 'forest/rock-3-k'],
+  ['forest/rock-3-k', 'forest/rock-3-l'],
+  ['forest/rock-3-m', 'forest/rock-3-n'],
+  ['forest/rock-3-n', 'forest/rock-3-o'],
+  ['forest/rock-3-o', 'forest/rock-3-p'],
+  ['forest/rock-3-p', 'forest/rock-3-q'],
+  ['forest/rock-3-q', 'forest/rock-3-r'],
 ];
 
 /**
  * Welk lid een groep vertegenwoordigt: de catalogus toont van elke groep één
  * kaart, en dat hoort niet degene te zijn die toevallig vooraan in het alfabet
- * staat. Eerste rake regel wint; is er geen, dan het eerste lid.
+ * staat. Het eerste lid dat een van deze regels raakt wint; raakt er geen, dan
+ * het eerste lid.
  *
  * IJzer is de neutrale van de vier metalen (besluit PO) — koper, goud en zilver
  * lezen als "bijzonder", ijzer als "gewoon", en dat is wat je op de kaart wilt
  * zien staan.
+ *
+ * De twee regels daaronder wijzen één model aan met naam (besluit PO), omdat
+ * het alfabet daar de verkeerde kant op wijst: de fles met etiket is de
+ * bruikbaardere kaart dan de kale fles, en van de twee schelpen is `b` de
+ * gekozen standaard.
  */
-const VOORKEUR = [/(^|\/)iron-/];
+const VOORKEUR = [
+  /(^|\/)iron-/,
+  /^dungeon\/bottle-a-labeled-brown$/,
+  /^modulair-terrein\/beach-prop-shell-b$/,
+];
 
 const maalPunt = (m, x, y, z) => [
   m[0] * x + m[4] * y + m[8] * z + m[12],
