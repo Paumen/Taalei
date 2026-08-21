@@ -11,74 +11,83 @@
  */
 
 export const GROEPEN = [
-  { id: 'terrein', naam: 'Grond & terrein', kort: 'Grond', kleur: '#8a5d4b',
-    tabblad: 'terrain',
-    beschrijving: 'Vloeren, grondvlakken en ondergrond om een gebied op te bouwen, plus het landschap zelf: `nature/mountain-a` is met ruim 16 × 16 units geen prop maar een stuk terrein waar je de rest op zet. Eigen tabblad, want die twee schalen — een vloertegel van 1 × 1 en een berg van 16 × 16 — vragen ieder een andere blik dan de props ernaast.' },
+  { id: 'grond', naam: 'Grond & bodemvlakken', kort: 'Grond', kleur: '#8a5d4b',
+    tabblad: 'nature',
+    beschrijving: 'De bodem zelf: gras-, zand- en aardevlakken die je onder een scène legt, plus het landschap op grote schaal — `nature/mountain-a` is met ruim 16 × 16 units geen prop maar een stuk terrein waar je de rest op zet. Staat in het tabblad Nature bij de begroeiing en de rotsen die eruit opkomen. De vloeren waar je op bouwt staan bij de bouwwerken: die horen bij wat je zet, niet bij wat eronder ligt.' },
   { id: 'grot', naam: 'Grot & gangen', kort: 'Grot', kleur: '#5c4a52',
-    beschrijving: 'De hele modular-cave-kit: gangen, ruimtes, templates en wat erbij hoort. Eigen texture-atlas en eigen kleuren, los van de andere kits. Alleen renderen ná de ingang (hoge tri-count).' },
+    beschrijving: 'Leeg: van de modular-cave-kit staan alleen de ladder en de drie vloerlagen nog in de catalogus, en die zijn bij uitzondering bij de verbindingen en de bouwwerken gezet. De groep blijft staan omdat KIT_GROEPEN ernaar wijst — komen de gangen en ruimtes terug, dan hebben ze een plek.' },
   { id: 'grotterrein', naam: 'Grotterrein & mijnwerk', kort: 'Grotterrein', kleur: '#7a6154',
-    tabblad: 'grot',
-    beschrijving: 'De grotstukken van de modulair-terrein-kit: vloeren, hoeken, zijkanten en heuvels waarmee je een grot uitgraaft, plus wat er aan mijnwerk in staat — rails, wissels, een lorrie, houwelen, stutten tegen wand en plafond, stalagmieten, hangende kabels en een lamp. Ook de vier ingangen die de kit `Cave_Cliff` noemt: die zetten een grot in een kliffront. Staat in het tabblad Grot naast de modular-cave-kit, maar bewust als eigen groep: deze modellen delen wél de gedeelde colormap en zijn dus met de andere kits te mengen, en ze zijn modulair op het raster in plaats van hele kamers en gangen. Op elkaar passen de twee niet.' },
+    beschrijving: 'Leeg: het grotdeel van de modulair-terrein-kit staat buiten de catalogus (besluit PO, zie kits/manifest.js) en het tabblad Grot is opgeheven. De groep blijft staan omdat de regels ernaar wijzen; komen die modellen terug, dan hebben ze een plek. Wat erin zat: vloeren, hoeken, zijkanten en heuvels waarmee je een grot uitgraaft, plus wat er aan mijnwerk in staat — rails, wissels, een lorrie, houwelen, stutten tegen wand en plafond, stalagmieten, hangende kabels en een lamp. Ook de vier ingangen die de kit `Cave_Cliff` noemt: die zetten een grot in een kliffront. Staat in het tabblad Grot naast de modular-cave-kit, maar bewust als eigen groep: deze modellen delen wél de gedeelde colormap en zijn dus met de andere kits te mengen, en ze zijn modulair op het raster in plaats van hele kamers en gangen. Op elkaar passen de twee niet.' },
   { id: 'bouwpakket', naam: 'Bouwpakket & molens', kort: 'Bouwpakket', kleur: '#a8762a',
-    tabblad: 'bouwpakket',
+    tabblad: 'structures',
     beschrijving: 'Wanden, daken, pilaren en molens: delen die op één raster aan elkaar klikken en alleen op elkaar passen, plus de molens die uit datzelfde bouwwerk bestaan. Het zijn er drie naast elkaar — dat van fantasy-town, dat van de village-kit en dat van de dungeon-kit — en ze passen niet op elkaar; kijk dus ook naar de kit voordat je twee stukken combineert. Eigen tabblad, want honderden varianten van dezelfde muur en hetzelfde dak verdringen in de groepsweergave alles wat er los naast staat.' },
   { id: 'bouwwerken', naam: 'Bouwwerken & platforms', kort: 'Bouwwerken', kleur: '#877a63',
-    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten. Ook de waterput met zijn onderdelen: de drie grondvlakken die eronder gaan en de schacht die erin zit.' },
+    tabblad: 'structures',
+    beschrijving: 'Gebouwtjes, platforms, vlonders, planken, balkons en de losse muren en daken die niet in een bouwpakket zitten. Ook de waterput met zijn onderdelen: de drie grondvlakken die eronder gaan en de schacht die erin zit, en de losse vloeren waar je op bouwt — die van de survival-kit en de mini-dungeon, met het gat van de pirate-kit erbij.' },
   { id: 'verbinding', naam: 'Trappen, bruggen & ladders', kort: 'Trappen & bruggen', kleur: '#c98a5a',
+    tabblad: 'structures',
     beschrijving: 'Waarmee je een hoogte of afstand overbrugt zonder eroverheen te bouwen — bruikbaar voor "woordplakken".' },
   { id: 'hek', naam: 'Hekken, palen & poorten', kort: 'Hekken', kleur: '#b08968',
+    tabblad: 'structures',
     beschrijving: 'Afbakening van paden en gebieden, en doorgangen die open of dicht kunnen.' },
   { id: 'bomen', naam: 'Bomen & palmen', kort: 'Bomen', kleur: '#3da679',
+    tabblad: 'nature',
     beschrijving: 'Losse bomen en palmen voor bos, strand en dorp.' },
   { id: 'planten', naam: 'Planten, gras & bloemen', kort: 'Planten', kleur: '#6cb588',
+    tabblad: 'nature',
     beschrijving: 'Kleine begroeiing en decoratie op de grond.' },
   { id: 'zeebodem', naam: 'Koraal, zeewier & schelpen', kort: 'Zeebodem', kleur: '#2fa39b',
-    beschrijving: 'Begroeiing en vondsten van de zeebodem. Zit helemaal in de onderwater-kit en dus in het tabblad Zee; het koraal is ongekleurd wit, klaar om te tinten.' },
+    tabblad: 'nature',
+    beschrijving: 'Begroeiing en vondsten van de zeebodem: de schelpen en zeesterren die op het strand van de modulair-terrein-kit liggen.' },
   { id: 'rotsen', naam: 'Rotsen & stenen', kort: 'Rotsen', kleur: '#9da4c4',
-    tabblad: 'rotsen',
-    beschrijving: 'Rotsblokken, keien, kiezels en losse stenen voor berg, grot en kust, plus de grote rotsformaties waarmee je een gebied afbakent. Eigen tabblad om dezelfde reden als het bouwpakket: de rocks-kit levert tien rotsen in twee tinten met kiezels en formaties erbij, en die verdringen in de groepsweergave alles wat er los naast staat.' },
+    tabblad: 'nature',
+    beschrijving: 'Rotsblokken, keien, kiezels en losse stenen voor berg, grot en kust, plus de grote rotsformaties waarmee je een gebied afbakent. Staat met de bomen, planten, zeebodem en grond in het tabblad Nature — samen alles wat er zonder toedoen al staat. Een eigen tabblad hadden de rotsen sowieso nodig: de rocks-kit levert tien rotsen in twee tinten met kiezels en formaties erbij, en die verdringen in de objectweergave alles wat er los naast staat.' },
   { id: 'huisraad', naam: 'Huisraad & meubels', kort: 'Huisraad', kleur: '#c07c8a',
-    beschrijving: 'Het meubilair: tafel, bank, kruk en vloerkleed uit de props-kit, plus de bedden, stoelen en wandschappen van de dungeon-kit. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht, en het eten met de gedekte tafels bij eten & koken.' },
+    beschrijving: 'Het meubilair: tafel, bank, kruk en vloerkleed uit de props-kit, plus de bedden, stoelen en wandschappen van de dungeon-kit. Ook de twee tenten van het Startkamp staan hier — een tent is waar je in slaapt, net als een bed. Het serviesgoed staat bij de kisten en vaten, de kaarsen bij het licht, en het eten met de gedekte tafels bij eten & koken; de kampvuren horen daar ook bij, want daar wordt op gekookt.' },
   { id: 'schepen', naam: 'Schepen & varen', kort: 'Schepen', kleur: '#474a58',
     beschrijving: 'Schepen, boten, masten, roeispanen en kanonnen voor de Zinnenzee.' },
-  { id: 'kamp', naam: 'Kamp & tenten', kort: 'Kamp', kleur: '#e76047',
-    beschrijving: 'De tenten van het Startkamp: twee uit de survival-kit. De kampvuren staan bij eten & koken, want daar wordt op gekookt.' },
   { id: 'eten', naam: 'Eten & koken', kort: 'Eten', kleur: '#9c3f2e',
     beschrijving: 'Wat je klaarmaakt en waar je het op zet: de kampvuren en het brandhout, de twee vissen van de survival-kit, het braadstuk, de vleesbout en de paddenstoel, de drie gedekte tafels van de dungeon-kit, en het serviesgoed dat erop hoort — zeven borden en een beker. De kale en kapotte tafels staan bij het huisraad, de kannen en de zak bij de kisten.' },
   { id: 'opslag', naam: 'Kisten & vaten', kort: 'Kisten', kleur: '#dd9f79',
     beschrijving: 'Waar je iets in doet: kisten, vaten, kratten, dozen, flessen, emmers en potten uit tien kits, plus de vier kannen en de zak van de props-kit en de drie karren waarmee je het verplaatst. Goed inzetbaar als beloning of verzamelplek. Wat erin zit staat bij de grondstoffen; de bekers en borden staan bij eten & koken.' },
+  { id: 'assemblies', naam: 'Assemblies', kort: 'Assemblies', kleur: '#b5651d',
+    tabblad: 'assemblies',
+    beschrijving: 'Modellen die niet één ding zijn maar een tafereeltje: een gedekte tafel, een stapel kratten, een opgetast bed, een kist vol flessen, de staven en stapels van de resources-kit. Ze zijn af zoals ze staan — je zet ze neer in plaats van ze zelf uit losse delen op te bouwen — en ze zijn navenant zwaar: de meeste van de duurste modellen van de collectie staan hier. Eigen tabblad, want tussen de losse props geven ze een verkeerd beeld van wat een prop kost; de losse kist, tafel of staaf staat gewoon bij zijn eigen soort.' },
   { id: 'grondstoffen', naam: 'Grondstoffen & voorraad', kort: 'Grondstoffen', kleur: '#4f7d8c',
-    beschrijving: 'De grondstoffen zelf, los van wat je ze in stopt. De resources-kit zit er helemaal in: staven en brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en een stapel onderdelen, plus de plankenstapel van de survival-kit. Bruikbaar als opbrengst, ruilmiddel of bouwvoorraad.' },
+    beschrijving: 'De grondstoffen zelf, los van wat je ze in stopt: brokken erts (koper, goud, ijzer, zilver), stenen, hout, textiel, een pallet en onderdelen uit de resources-kit, plus de plankenstapel van de survival-kit. Bruikbaar als opbrengst, ruilmiddel of bouwvoorraad. De staven en de opgetaste stapels van diezelfde kit staan bij de assemblies.' },
   { id: 'gereedschap', naam: 'Gereedschap & wapens', kort: 'Gereedschap', kleur: '#6d738a',
     beschrijving: 'Bijl, hamer en bezem — koppelbaar aan mechanieken als "woordhakken". Zit voor achtentwintig stuks in de rpgtools-kit: aambeeld, vijl, slijpsteen, hamers, schroevendraaiers en meer smids- en timmermanswerk, plus het meet- en tekengerei van een ontdekker: kompas, tekenpasser, loep, potloden en touw.' },
-  { id: 'reisgerei', naam: 'Reisgerei & kaarten', kort: 'Reisgerei', kleur: '#caa06a',
-    beschrijving: 'Wat een reiziger leest en beschrijft: twee kaarten (een lege en een opgerolde) en een dagboek, open en dicht. Zit helemaal in de rpgtools-kit.' },
   { id: 'borden', naam: 'Borden, vlaggen & doelen', kort: 'Borden', kleur: '#ffb349',
     beschrijving: 'Wegwijzers, banners en doelen. Dragers voor tekst en instructie.' },
   { id: 'items', naam: 'Verzamelobjecten & mechaniek', kort: 'Items', kleur: '#f1976c',
-    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer en slot: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Voorzichtig inzetten, geen punten-economie.' },
+    beschrijving: 'Munt, sleutel, ster en hart naast hendel, veer en slot: kleine losse objecten die je oppakt of die op een actie reageren. Daar hoort de dorpsbel bij, en de munten, sleutels en sleutelbossen van de dungeon-kit — geen verzamelobjecten, maar wel klein, los en met een functie. Ook het reisgerei van de rpgtools-kit staat hier: de twee kaarten en het dagboek, open en dicht. Voorzichtig inzetten, geen punten-economie.' },
+  { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
+    beschrijving: 'Levende have: het zeeleven uit de onderwater-kit, van clownvis tot walvis, alles gerigd en geanimeerd. Nu leeg — die kit staat buiten de catalogus (`buitenCatalogus` in kits/manifest.js) — maar de groep blijft staan, want de regels wijzen ernaar en zonder groep zouden die modellen bij terugkomst nergens te zien zijn. De twee vissen van de survival-kit staan bij eten & koken: die zijn als voedsel bedoeld.' },
   { id: 'licht', naam: 'Licht & lampen', kort: 'Licht', kleur: '#f2cb45',
     beschrijving: 'Alles wat licht geeft, uit vijf kits bij elkaar: de straatlantaarn en de wandlamp van village-kit, de kaarsen van props en dungeon (los, gesmolten, dun, drievoudig, brandend en gedoofd), het wandschap met kaarsen, de toortsen van dungeon en rpgtools, de lantaarn, en de vuurtoren van Taaleiland zelf. Handig als je een scène wilt uitlichten of een route in het donker wilt markeren.' },
-  { id: 'dieren', naam: 'Dieren', kort: 'Dieren', kleur: '#3e8fd0',
-    beschrijving: 'Levende have: het zeeleven uit de onderwater-kit, van clownvis tot walvis, alles gerigd en geanimeerd. De twee vissen van de survival-kit staan bij eten & koken — die zijn als voedsel bedoeld.' },
 ];
 
 /**
- * Kits die één ondeelbaar geheel zijn: elk model erin gaat naar dezelfde
- * groep, ongeacht wat de bestandsnaam zegt. De grot staat helemaal op zichzelf
- * — eigen texture-atlas, eigen kleuren — en `gate`, `ladder` en `stairs` uit
- * die kit zijn grotwerk, geen tuinhek of dorpstrap. Ze tussen de props van de
- * andere kits zetten suggereert een uitwisselbaarheid die er niet is.
+ * Kits die als geheel naar één groep gaan: elk model erin krijgt dezelfde
+ * groep, ongeacht wat de bestandsnaam zegt. De grot staat op zichzelf — eigen
+ * texture-atlas, eigen kleuren — en `gate` en `stairs` uit die kit zijn
+ * grotwerk, geen tuinhek of dorpstrap. Ze tussen de props van de andere kits
+ * zetten suggereert een uitwisselbaarheid die er niet is.
+ *
+ * Op de ladder en de drie vloerlagen na (besluit PO): die staan hieronder bij
+ * de uitzonderingen, en omdat uitzonderingen vóór deze regel gaan winnen ze
+ * ervan.
  *
  * `resources` is hier niet vanwege een eigen atlas — die deelt gewoon de
- * gedeelde colormap — maar omdat elk van de 56 modellen een grondstof of
- * voorraadstapel is (staven en brokken erts, stenen, hout, textiel,
- * pallet, onderdelen): precies de groep "grondstoffen". Een woordregel zou
+ * gedeelde colormap — maar omdat elk model een grondstof is (brokken erts,
+ * stenen, hout, textiel, pallet, onderdelen): precies de groep
+ * "grondstoffen". De stapels en staven van diezelfde kit gaan er vóór langs,
+ * naar de assemblies (zie ASSEMBLIES). Een woordregel zou
  * hier meer kwaad doen dan goed: `stone-` en `wood-` zijn ook de eerste
  * woorden van bouwpakketonderdelen in andere kits (village-kit/stone-wall-a,
  * mini-dungeon/wood-structure), en die horen niet ineens bij de grondstoffen.
  */
-const KIT_GROEPEN = {
+export const KIT_GROEPEN = {
   'modular-cave-kit': 'grot',
   resources: 'grondstoffen',
 };
@@ -139,26 +148,57 @@ const MODULAIR_TERREIN = [
   // Dat is terrein én mijnwerk door elkaar, maar het hoort bij elkaar in het
   // tabblad Grot; zie de groepsbeschrijving.
   [/^cave-/, 'grotterrein'],
-  [/-prop-(tree|branch|stump|hollow-trunk)/, 'bomen'],
+  [/-prop-(tree|branch|stump)/, 'bomen'],
   // De kokosnoot ligt in het zand bij de palmen: decoratie op de grond, geen
   // eten. Er is niets om hem mee te bereiden en niemand die hem opeet.
   [/-prop-(cattail|coconut|flower|grass-clump|mushroom)/, 'planten'],
   [/-prop-(boulder|rock|stepping-stones)/, 'rotsen'],
   [/-prop-fence-/, 'hek'],
   // Het vuur en het hout ernaast horen bij eten & koken, net als de kampvuren
-  // van de survival-kit; de afdak en de zitstam blijven kamp.
+  // van de survival-kit. Verder heeft de kit geen kampspullen meer: de zitstam
+  // is uit de kit verwijderd, dus deze twee zijn alles wat `camp` nog dekt.
   [/-prop-camp-(campfire|wood-pile)/, 'eten'],
-  [/-prop-camp-/, 'kamp'],
   [/-prop-bridge-/, 'verbinding'],
   // De steiger loopt het water in en houdt op, de ruïnepilaar staat ergens
   // los: allebei bouwsel, geen verbinding.
   [/-prop-(docks|ruins-pillar)/, 'bouwwerken'],
   [/-prop-(shell|starfish)/, 'zeebodem'],
   [/-prop-treasure-chest/, 'opslag'],
-  // Wat overblijft is landschap: vloeren, hoeken, zijkanten, heuvels, paden,
-  // watervallen en de vier bergen.
-  [/-terrain-|^mountain-/, 'terrein'],
+  // Wat overblijft is landschap: de vier bergen. De terreintegels zelf zijn
+  // uit de kit verwijderd; de regel houdt `-terrain-` erin zodat een model dat
+  // ooit terugkomt niet stilletjes ergens anders belandt.
+  [/-terrain-|^mountain-/, 'grond'],
 ];
+
+/**
+ * Modellen die een tafereeltje zijn in plaats van één voorwerp: een gedekte
+ * tafel, een stapel kratten, een kist vol flessen, de staven en stapels van de
+ * resources-kit. De naam verraadt ze niet betrouwbaar — `chest-gold` is een
+ * kist vol munten, `chest-a` een lege kist, en allebei heten ze `chest` — dus
+ * staan ze hier met de hand.
+ *
+ * Ze gaan vóór de regels én vóór de bouwpakketten: `dungeon/wall-shelves`
+ * begint met `wall` en zou anders in het bouwpakket van de dungeon vallen,
+ * terwijl het een wandschap vol spullen is.
+ */
+const ASSEMBLIES = new Set([
+  'dungeon/barrel-large-decorated', 'dungeon/barrel-small-stack', 'dungeon/bed-decorated',
+  'dungeon/box-small-decorated', 'dungeon/box-stacked', 'dungeon/chest-gold',
+  'dungeon/crates-stacked', 'dungeon/keg-decorated', 'dungeon/table-long-decorated-a',
+  'dungeon/table-long-decorated-c', 'dungeon/table-medium-decorated-a',
+  'dungeon/table-small-decorated-a', 'dungeon/table-small-decorated-b', 'dungeon/wall-shelves',
+  'pirate-kit/crate-bottles',
+  'resources/copper-bars', 'resources/copper-bars-stack-large',
+  'resources/copper-bars-stack-medium', 'resources/copper-bars-stack-small',
+  'resources/gold-bars', 'resources/gold-bars-stack-large', 'resources/gold-bars-stack-medium',
+  'resources/gold-bars-stack-small', 'resources/iron-bars', 'resources/iron-bars-stack-large',
+  'resources/iron-bars-stack-medium', 'resources/iron-bars-stack-small', 'resources/silver-bars',
+  'resources/silver-bars-stack-large', 'resources/silver-bars-stack-medium',
+  'resources/silver-bars-stack-small', 'resources/stone-bricks-stack-large',
+  'resources/stone-bricks-stack-medium', 'resources/stone-bricks-stack-small',
+  'resources/wood-log-stack', 'resources/wood-planks-stack-large',
+  'resources/wood-planks-stack-medium', 'resources/wood-planks-stack-small',
+]);
 
 /** Naam (kit/model) → groep, voor modellen die de regels verkeerd zouden indelen. */
 const uitzonderingen = {
@@ -168,10 +208,18 @@ const uitzonderingen = {
   'fantasy-town-kit/wheel': 'gereedschap',  // waterrad, maar los inzetbaar als wiel
   'survival-kit/resource-stone': 'rotsen',
   'survival-kit/resource-stone-large': 'rotsen',
-  'pirate-kit/hole': 'terrein',
+  'pirate-kit/hole': 'bouwwerken',
   'mini-forest/target': 'borden',
   'mini-dungeon/trap': 'items',
-  'mini-dungeon/dirt': 'terrein',
+  'mini-dungeon/dirt': 'grond',
+  // Besluit PO: uit de grot naar de bouwwerken en de verbindingen, ondanks
+  // KIT_GROEPEN. De drie vloerlagen zijn vloeren waar je op bouwt, de ladder is
+  // een ladder. Het zijn de enige vier modellen die van die kit in de catalogus
+  // over zijn; de rest staat buiten de catalogus (kits/manifest.js).
+  'modular-cave-kit/template-floor-layer': 'bouwwerken',
+  'modular-cave-kit/template-floor-layer-hole': 'bouwwerken',
+  'modular-cave-kit/template-floor-layer-raised': 'bouwwerken',
+  'modular-cave-kit/ladder': 'verbinding',
 };
 
 /** [regex, groep] — eerste match wint. */
@@ -196,7 +244,7 @@ const regels = [
   //     bedoeld zijn. De vier soortvissen van de onderwater-kit (`fish-brown`,
   //     `-clown`, `-dory`, `-tuna`) blijven dieren.
   [/^(campfire|fire|firewood|plate|roast|meat|mushroom|cup)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'eten'],
-  [/^tent\b|^tent-/, 'kamp'],
+  [/^tent\b|^tent-/, 'huisraad'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'schepen'],
   [/^fish/, 'dieren'],
   [/^(tool|workbench)-|^workbench$|^broom$/, 'gereedschap'],
@@ -206,9 +254,9 @@ const regels = [
   // tekenpasser, de loep, de potloden en het touw staan hier ook: het zijn
   // instrumenten waarmee je iets doet, niet iets waar je op leest.
   [/^(anvil|axe|chisel|compass|drafting-compass|file|grindstone|hammer|handdrill|handplane|knife|magnifying-glass|mallet|nail|pencil|pickaxe|rope|saw|scissors|screw|screwdriver|shovel|tongs|trowel|wrench)\b/, 'gereedschap'],
-  // Wat overblijft aan reisgerei is wat je leest of beschrijft: de twee
-  // kaarten en het dagboek, open en dicht.
-  [/^(journal|map)\b/, 'reisgerei'],
+  // Wat je leest of beschrijft — de twee kaarten en het dagboek, open en dicht
+  // — staat bij de items: klein, los, en je pakt het op.
+  [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'borden'],
   // Alles wat licht geeft, ongeacht waar het vandaan komt: de straatlantaarn en
   // wandlamp van village-kit, de kaarsen van props en dungeon, de toortsen en
@@ -255,8 +303,12 @@ const regels = [
   [/^(plant|grass|flowers|mushrooms)\b/, 'planten'],
   [/^(rock|rocks|rockform|rockwall|stone|stones|pebbles|debris)\b/, 'rotsen'],
   // `mountain` en `hills` zijn landschap, geen rotsblok: ze zijn te groot om
-  // ergens neer te zetten, je bouwt eróp. Vandaar terrein en niet rotsen.
-  [/^(floor|patch|dirt|hole|mountain|hills)\b/, 'terrein'],
+  // ergens neer te zetten, je bouwt eróp. Vandaar grond en niet rotsen.
+  [/^(patch|dirt|mountain|hills)\b/, 'grond'],
+  // Een vloer is geen bodem maar een vlak waar je op bouwt, en het gat in de
+  // vloer hoort bij de vloer. Ze staan daarom bij de bouwwerken, in hetzelfde
+  // tabblad als de wanden en daken die erop komen.
+  [/^(floor|hole)\b/, 'bouwwerken'],
   // Wat hier nog langskomt zit niet in een bouwpakket: losse muren en daken
   // uit de andere kits, en alles wat je eromheen bouwt.
   // `plank` staat hier en niet bij `verbinding`: een losse plank is
@@ -450,9 +502,13 @@ export function nederlandseTrefwoorden(model) {
  * @returns {string} groep-id
  */
 export function bepaalGroep(kit, model) {
-  if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   const sleutel = `${kit}/${model}`;
+  // Allebei vóór KIT_GROEPEN, want allebei zijn ze bedoeld om die regel te
+  // doorbreken: de helft van de resources-kit is een stapel en hoort bij de
+  // assemblies, en een handvol modellen uit de grot staat bij de bouwwerken.
+  if (ASSEMBLIES.has(sleutel)) return 'assemblies';
   if (uitzonderingen[sleutel]) return uitzonderingen[sleutel];
+  if (KIT_GROEPEN[kit]) return KIT_GROEPEN[kit];
   for (const [pakketKit, patroon] of BOUWPAKKETTEN) {
     if (kit === pakketKit && patroon.test(model)) return 'bouwpakket';
   }

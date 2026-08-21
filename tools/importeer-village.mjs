@@ -182,7 +182,8 @@ const NAMEN = {
   Prop_Boat_2: 'boat-b',
   Prop_Boat_Oars_1: 'boat-oars-a',
   Prop_Boat_Oars_2: 'boat-oars-b',
-  Prop_Broom: 'broom',
+  // Prop_Broom is uit de kit verwijderd (besluit PO); niet meer inladen. Het
+  // script meldt hem daardoor onder "niet ingeladen".
   Prop_Cart_1: 'cart-a',
   Prop_Crate_1: 'crate-a',
   Prop_Crate_1_Open: 'crate-a-open',

@@ -8,7 +8,9 @@
 <script type="module">
 /* Zet vergelijkbare assets uit verschillende kits naast elkaar op een raster
  * van 1 unit, met een meetlat van 1 unit (blokjes van 0,25). Wordt
- * aangestuurd door render.mjs; de groepen staan in groups.json. */
+ * aangestuurd door render.mjs; de groepen staan in groups.json, of in het
+ * bestand dat de parameter `bron` aanwijst (zo rendert vind-varianten.mjs zijn
+ * variantgroepen door dezelfde harnas). */
 addEventListener('error', () => { window.FOUT = true; });
 addEventListener('unhandledrejection', () => { window.FOUT = true; });
 
@@ -16,7 +18,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const params = new URLSearchParams(location.search);
-const groupsData = await (await fetch('./groups.json')).json();
+const groupsData = await (await fetch(params.get('bron') ?? './groups.json')).json();
 const group = groupsData[params.get('group')];
 if (!group) { document.title = 'ONBEKENDE GROEP'; throw new Error('groep?'); }
 
