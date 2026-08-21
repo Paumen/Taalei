@@ -28,6 +28,29 @@
  * shapes visibly built from flat pieces"), dus `--glad` is de richting die je
  * per model verantwoordt, niet de richting die je over de hele repo loslaat.
  * `kits/rocks/` is het duidelijkste voorbeeld: daar ís het facet het model.
+ *
+ * -- elke richting raakt alleen zijn eigen helft --------------------------
+ *
+ * `--glad` laat een primitive die al gemiddelde normalen draagt met rust, en
+ * `--vlak` laat een primitive die al vlak is met rust. Dat is geen beleefdheid
+ * maar noodzaak: een pack dat zelf al gladgestreken heeft, deed dat ruimer dan
+ * 20°, en hier opnieuw uitrekenen levert mínder glad op dan er stond.
+ * `pirate-kit/bottle` zakt zo van 90% naar 42% en krijgt er dus facetten bij —
+ * precies het omgekeerde van wat `--glad` heet te doen.
+ *
+ * Daarmee is een kit-brede draai in beide richtingen veilig en idempotent: van
+ * de 1087 modellen zijn er 570 vlak en 517 glad, en elke vlag raakt alleen zijn
+ * eigen helft aan.
+ *
+ * Wat dit script zelf omzet krijgt een stempel: per primitive in
+ * `extras.taaleiland.schaduw`, en per bestand een samenvatting in
+ * `asset.extras.taaleiland.schaduw`, naast de `schaal` die tools/voeg-samen.mjs
+ * daar al leest. Die stempel scheidt "de pack leverde het al glad" van "wij
+ * hebben dat gedaan", zodat je op je eigen werk kunt terugkomen: een model dat
+ * hier op 20° is gladgestreken laat zich daarna nog op 30° overdoen, terwijl
+ * een model dat glad uit de pack kwam met rust blijft. Hij hangt aan de
+ * primitive omdat de zeef daar ook kijkt — een model met vier primitives kan
+ * er één vlakke tussen hebben staan.
  */
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
@@ -146,6 +169,17 @@ function gladheid(nor, idx, telling) {
  * elke verwijzing elders in het bestand blijft kloppen.
  */
 
+/**
+ * Tekent op de primitive aan dat dit script hem heeft omgezet. glTF staat
+ * `extras` op een primitive toe; de zeef in verwerk() leest hem terug.
+ */
+function stempel(prim, schaduw) {
+  prim.extras = {
+    ...prim.extras,
+    taaleiland: { ...prim.extras?.taaleiland, schaduw },
+  };
+}
+
 /** Schrijft VEC3-floats terug in de bestaande buffer, met respect voor byteStride. */
 function schrijfNormalenTerug(glb, accessorIndex, nor) {
   const acc = glb.json.accessors[accessorIndex];
@@ -242,7 +276,7 @@ function verwerk(pad, modus, drempel, droog) {
   }
 
   let voorSom = 0, naSom = 0, driehoeken = 0;
-  let raakt = false;
+  let raakt = false, overgeslagen = 0;
   const vervanging = new Map();
 
   for (const mesh of glb.json.meshes ?? []) {
@@ -257,6 +291,25 @@ function verwerk(pad, modus, drempel, droog) {
       voorSom += voor * tri;
 
       if (modus === 'glad') {
+        // Alleen vlakke primitives. Een primitive die al gemiddelde normalen
+        // draagt komt uit een pack dat zijn eigen, ruimere gladstrijking al
+        // heeft gedaan; die hier opnieuw op 20° uitrekenen levert mínder glad
+        // op dan er stond — pirate-kit/bottle zakt van 90% naar 42% en krijgt
+        // dus facetten erbij. Dat is de andere richting, en daar is --vlak voor.
+        // Onze eigen stempel uit een eerdere draai. Zonder die uitzondering zou
+        // --glad eenrichtingsverkeer zijn: wat wij gladstreken leest daarna als
+        // glad, en de zeef zou het bij een tweede drempel overslaan. De stempel
+        // hangt aan de primitive en niet aan het bestand, want de zeef kijkt
+        // ook per primitive: `rpgtools/compass-base` heeft er vier, waarvan er
+        // maar één vlak was, en een stempel op bestandsniveau zou de andere
+        // drie bij een tweede draai alsnog laten gladstrijken — precies wat de
+        // zeef moet voorkomen.
+        const eerderGlad = prim.extras?.taaleiland?.schaduw?.modus === 'glad';
+        if (voor > 0 && !eerderGlad) {
+          naSom += voor * tri;
+          overgeslagen++;
+          continue;
+        }
         const nieuw = gladdeNormalen(pos, idx, drempel);
         naSom += gladheid(nieuw, idx, idx.length) * tri;
         // Alleen aanraken als er echt iets verschuift: zo blijft een tweede
@@ -264,15 +317,20 @@ function verwerk(pad, modus, drempel, droog) {
         // ook werkelijk veranderd zijn.
         if (nieuw.some((v, k) => Math.abs(v - nor[k]) > 1e-4)) {
           raakt = true;
-          if (!droog) schrijfNormalenTerug(glb, prim.attributes.NORMAL, nieuw);
+          if (!droog) {
+            schrijfNormalenTerug(glb, prim.attributes.NORMAL, nieuw);
+            stempel(prim, { modus, drempel });
+          }
         }
         continue;
       }
 
-      // --vlak: al vlak is al klaar. Opnieuw ontvlechten zou alleen bytes
-      // kosten — de dolfijn groeit er 32 kB van zonder één pixel te verschuiven.
+      // Spiegelbeeld: --vlak laat staan wat al vlak is. Opnieuw ontvlechten zou
+      // alleen bytes kosten — de dolfijn groeit er 32 kB van zonder één pixel
+      // te verschuiven. Elke richting raakt dus alleen aan wat hij te doen heeft.
       if (voor === 0) {
         naSom += 0;
+        overgeslagen++;
         continue;
       }
       raakt = true;
@@ -318,6 +376,7 @@ function verwerk(pad, modus, drempel, droog) {
       vervanging.set(prim.indices, { data: nieuweIdx, count: n });
       glb.json.accessors[prim.indices].componentType = n > 65535 ? 5125 : 5123;
 
+      if (!droog) stempel(prim, { modus });
       naSom += gladheid(nieuweNor, nieuweIdx, n) * tri;
     }
   }
@@ -325,6 +384,16 @@ function verwerk(pad, modus, drempel, droog) {
   if (driehoeken === 0) return null;
 
   if (!droog && raakt) {
+    glb.json.asset = {
+      ...glb.json.asset,
+      extras: {
+        ...glb.json.asset?.extras,
+        taaleiland: {
+          ...glb.json.asset?.extras?.taaleiland,
+          schaduw: modus === 'glad' ? { modus, drempel } : { modus },
+        },
+      },
+    };
     if (modus === 'glad') {
       schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
     } else {
@@ -337,8 +406,10 @@ function verwerk(pad, modus, drempel, droog) {
     voor: voorSom / driehoeken,
     na: naSom / driehoeken,
     driehoeken,
+    overgeslagen,
+    geraakt: raakt,
     bytesVoor,
-    bytesNa: droog ? bytesVoor : statSync(pad).size,
+    bytesNa: droog || !raakt ? bytesVoor : statSync(pad).size,
   };
 }
 
@@ -401,13 +472,15 @@ console.log(
 );
 console.log('model'.padEnd(42), 'tri'.padStart(6), 'glad voor'.padStart(10), 'na'.padStart(6), 'bytes'.padStart(10));
 
-let veranderd = 0, bytesDelta = 0;
+let veranderd = 0, geschreven = 0, overgeslagen = 0, bytesDelta = 0;
 for (const pad of paden) {
   const uit = verwerk(pad, modus, drempel, droog);
   if (!uit) { console.log(`${pad.slice(KITS.length + 1).padEnd(42)}  — geen mesh met normalen`); continue; }
   const delta = uit.bytesNa - uit.bytesVoor;
   bytesDelta += delta;
   if (Math.abs(uit.na - uit.voor) > 0.005) veranderd++;
+  if (uit.geraakt) geschreven++;
+  if (uit.overgeslagen) overgeslagen++;
   console.log(
     pad.slice(KITS.length + 1).replace('.glb', '').padEnd(42),
     String(uit.driehoeken).padStart(6),
@@ -418,7 +491,10 @@ for (const pad of paden) {
 }
 
 console.log(
-  `\n${veranderd} van de ${paden.length} modellen veranderen van schaduw` +
+  `\n${geschreven} van de ${paden.length} modellen ${droog ? 'zouden worden herschreven' : 'herschreven'}` +
   `${droog ? '' : `, ${bytesDelta >= 0 ? '+' : ''}${bytesDelta} bytes`}.`,
 );
-if (!droog) console.log('draai nu `node tools/build-catalog.mjs` opnieuw.');
+// Niet hetzelfde getal: een normaal kan verschuiven zonder dat het aandeel
+// gladde driehoeken over de 5°-grens van gladheid() komt.
+console.log(`${veranderd} daarvan verandert meetbaar van schaduw; ${overgeslagen} model(len) vielen buiten deze richting.`);
+if (!droog && geschreven) console.log('draai nu `node tools/build-catalog.mjs` opnieuw.');
