@@ -135,7 +135,22 @@ export function kopieerColormap(kitsMap, overslaan = ['modular-cave-kit', 'onder
   const bron = join(kitsMap, 'colormap.png');
   const gekopieerd = [];
 
+  /* De grot houdt zijn eigen sheet — daar hangen de modellen aan die buiten de
+   * catalogus staan maar wel in de repo — maar de vier die op het gedeelde
+   * palet zijn gezet wijzen naar een kopie ernaast. Die moet met de bron mee
+   * blijven lopen, anders gaan ze na een nieuwe kleur in de atlas de verkeerde
+   * kant op wijzen. */
+  const NAAST = { 'modular-cave-kit': 'colormap-gedeeld.png' };
+
   for (const slug of readdirSync(kitsMap).sort()) {
+    if (NAAST[slug]) {
+      try {
+        copyFileSync(bron, join(kitsMap, slug, 'Textures', NAAST[slug]));
+        gekopieerd.push(`${slug} (${NAAST[slug]})`);
+      } catch (fout) {
+        if (fout.code !== 'ENOENT') throw fout;
+      }
+    }
     if (overslaan.includes(slug)) continue;
     if (!statSync(join(kitsMap, slug)).isDirectory()) continue;
     const doel = join(kitsMap, slug, 'Textures', 'colormap.png');

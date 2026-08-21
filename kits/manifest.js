@@ -111,13 +111,12 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
-  /* Geen eigen tabblad meer (besluit PO): het tabblad Grot is opgeheven en van
-     deze kit staan alleen de ladder en de drie vloerlagen nog in de catalogus,
-     bij de bouwwerken en de verbindingen. Dat die vier hun eigen texture-atlas
-     houden blijft waar: ze kleuren niet mee met de kits waar ze nu tussen
-     staan. Vandaar "eigenPalet": dat onderdrukt de waarschuwing van
-     build-catalog.mjs, die anders elke build meldt wat hier een besluit is. */
-  "eigenPalet": true,
+  /* Geen eigen tabblad en geen eigen palet meer (besluit PO): het tabblad Grot
+     is opgeheven en van deze kit staan alleen de ladder en de drie vloerlagen
+     nog in de catalogus, bij de bouwwerken en de verbindingen. Die vier zijn
+     op de gedeelde colormap gezet (Textures/colormap-gedeeld.png) zodat ze
+     kleuren met de kits waar ze nu tussen staan. De eigen sheet blijft staan
+     voor de modellen hieronder die buiten de catalogus vallen. */
   /* Staan niet in de catalogus (besluit PO): de kamers, gangen, poorten,
      trappen en wandsjablonen. De bestanden blijven in de repo. Wat overblijft
      zijn de ladder en de drie vloerlagen, en die staan bij de bouwwerken en de
