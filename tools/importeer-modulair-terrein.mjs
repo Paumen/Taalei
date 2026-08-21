@@ -425,6 +425,9 @@ const VERWIJDERD = new Set([
   'hilly-prop-bush-a', 'hilly-prop-bush-b', 'hilly-prop-bush-c', 'hilly-prop-bush-d',
   'hilly-prop-camp-sitting-log',
   'hilly-prop-hollow-trunk',
+  'cliff-prop-rock-a', 'cliff-prop-rock-b',
+  'hilly-prop-ruins-pillar-a', 'hilly-prop-ruins-pillar-b', 'hilly-prop-ruins-pillar-c',
+  'hilly-prop-ruins-pillar-d', 'hilly-prop-ruins-pillar-e',
   'hilly-prop-tree-oak-a', 'hilly-prop-tree-oak-b', 'hilly-prop-tree-oak-c', 'hilly-prop-tree-oak-d',
 ]);
 
