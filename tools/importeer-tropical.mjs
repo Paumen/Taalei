@@ -77,14 +77,16 @@ const OLIJFGROEN = { cel: [3, 1], boven: [141, 170, 73], onder: [78, 112, 30] };
  * deksel. Dit script laadt ze los in als `chest-a` en `chest-b`, omdat het per
  * bronbestand werkt; tools/voeg-samen.mjs zet ze daarna in elkaar tot één
  * `chest-a`. Draai dat script dus na een herimport opnieuw.
+ *
+ * Uit de kit verwijderd (besluit PO): `Pier_02` (`pier-a`) en `Plank_01`
+ * (`plank-a`). Ze staan hier niet meer in de lijst, zodat ze bij een
+ * her-import niet stilzwijgend terugkomen.
  */
 const NAMEN = {
   Barrel_04: 'barrel-a',
   Chest_01: 'chest-a',
   Chest_01_2: 'chest-b',
   PalmTree_05: 'palm-a',
-  Pier_02: 'pier-a',
-  Plank_01: 'plank-a',
   Plant_01: 'plant-a',
 };
 
