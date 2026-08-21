@@ -62,6 +62,10 @@ const DREMPEL_DRIEHOEKEN = 0.5;
 const HANDMATIG = [
   ['resources/wood-plank-a', 'resources/wood-plank-c'],
   ['resources/wood-log-a', 'resources/wood-log-b'],
+  // Aan en uit: de brandende versie draagt een vlam, en dat is genoeg extra
+  // geometrie om onder de drempel te zakken. Het is wel hetzelfde voorwerp.
+  ['dungeon/torch', 'dungeon/torch-lit'],
+  ['dungeon/candle', 'dungeon/candle-lit'],
 ];
 
 /**
@@ -348,8 +352,15 @@ paren.sort((x, y) => y.overlap - x.overlap);
  * eindigt de halve collectie in één groep.
  */
 
-const overlapVan = new Map(paren.map((p) => [`${p.a}|${p.b}`, p]));
-const paarVan = (a, b) => overlapVan.get(a < b ? `${a}|${b}` : `${b}|${a}`);
+/* Op naam gesorteerd, niet in de volgorde waarin het paar gevonden is: de
+ * meting loopt de catalogus af en die staat per kit gesorteerd, dus `p.a` is
+ * lang niet altijd de alfabetisch eerste. Een sleutel die dat verschil niet
+ * wegneemt laat paarVan() bij de helft van de paren misgrijpen, en dan valt de
+ * kliekcontrole hieronder om — dat kostte onder meer rpgtools/torch ↔
+ * torch-burnt, twee modellen met byte-gelijke geometrie. */
+const sleutelVan = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+const overlapVan = new Map(paren.map((p) => [sleutelVan(p.a, p.b), p]));
+const paarVan = (a, b) => overlapVan.get(sleutelVan(a, b));
 
 const groepVan = new Map();
 const groepen = [];
@@ -395,7 +406,7 @@ for (const [a, b] of HANDMATIG) {
   for (const id of samen) groepVan.set(id, samen);
 }
 
-const handmatigPaar = new Set(HANDMATIG.map(([a, b]) => (a < b ? `${a}|${b}` : `${b}|${a}`)));
+const handmatigPaar = new Set(HANDMATIG.map(([a, b]) => sleutelVan(a, b)));
 
 const bijId = new Map(modellen.map((m) => [m.id, m]));
 const clusters = groepen
@@ -406,7 +417,7 @@ const clusters = groepen
     const eigen = [];
     for (let i = 0; i < leden.length; i++) {
       for (let j = i + 1; j < leden.length; j++) {
-        const sleutel = leden[i] < leden[j] ? `${leden[i]}|${leden[j]}` : `${leden[j]}|${leden[i]}`;
+        const sleutel = sleutelVan(leden[i], leden[j]);
         const gemeten = paarVan(leden[i], leden[j]);
         if (gemeten && gemeten.soort !== 'verwant') eigen.push(gemeten);
         else if (handmatigPaar.has(sleutel)) eigen.push({ a: leden[i], b: leden[j], soort: 'handmatig', overlap: null });

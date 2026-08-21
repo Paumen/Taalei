@@ -245,15 +245,22 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   houder.className = 'kaart-houder';
   houder.append(kaart, kies);
 
+  /* De varianten achter deze kaart tellen mee in de filters. Een kaart die vier
+   * modellen vertegenwoordigt en alleen op zichzelf te vinden is, verstopt de
+   * andere drie: filteren op goud zou dan niets opleveren omdat het ijzer op de
+   * kaart staat, en zoeken op "silver-nugget" ook niet. Wie op zo'n kleur of
+   * naam filtert krijgt de kaart, en vindt de rest erachter in het modelpaneel. */
+  const familie = [model, ...varianten];
+
   const item = {
     element: houder,
     vinkje,
     pad: model.pad,
     weergave,
     palet: model.palet,
-    kleuren: model.kleuren.map((hex) => kleurSleutel(model.palet, hex)),
+    kleuren: [...new Set(familie.flatMap((m) => m.kleuren.map((hex) => kleurSleutel(m.palet, hex))))],
     zoektekst: [
-      model.naam,
+      ...familie.map((m) => m.naam),
       model.kit,
       kit?.naam ?? '',
       groep?.naam ?? '',

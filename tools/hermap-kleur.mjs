@@ -7,6 +7,10 @@
  *     node tools/hermap-kleur.mjs <van-hex> <naar-hex> <model.glb...>
  *     node tools/hermap-kleur.mjs '#228b22' '#6d8d33' kits/modulair-terrein/hilly-prop-grass-clump-a.glb
  *
+ * Beide kleuren moeten al in het palet van die kit staan. De meeste kits delen
+ * kits/colormap.png, de grot heeft een eigen sheet; welk palet geldt leidt het
+ * script af uit de kit van de opgegeven modellen.
+ *
  * De atlas verandert niet en de geometrie ook niet: alleen de TEXCOORD_0 van de
  * hoekpunten die de ene baan aanwezen gaat naar de andere. Elke baan is 32 × 128
  * pixels waarin de hoogte een gebakken schaduwverloop draagt.
@@ -32,7 +36,6 @@ import { leesGlb, schrijfGlb } from './glb.mjs';
 import { leesPng, KOLOMMEN, RIJEN, naarHex, kleurAfstand } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const COLORMAP = join(ROOT, 'kits', 'colormap.png');
 const PALET = join(ROOT, 'kits', 'palet.json');
 
 const [vanHex, naarHexArg, ...modellen] = process.argv.slice(2);
@@ -41,7 +44,27 @@ if (!vanHex || !naarHexArg || modellen.length === 0) {
   process.exit(1);
 }
 
-const atlas = leesPng(COLORMAP);
+const paletJson = JSON.parse(readFileSync(PALET, 'utf8'));
+
+/* Welk palet? Dat van de kit waar de modellen in zitten. De meeste kits delen
+ * kits/colormap.png, maar de grot heeft een eigen sheet met eigen cellen, en
+ * dan is "een andere bruin die er al is" een andere bruin dán. In één aanroep
+ * moeten alle modellen uit hetzelfde palet komen; anders zou dezelfde hex twee
+ * verschillende cellen kunnen aanwijzen. */
+const kitsInAanroep = [...new Set(modellen.map((m) => basename(dirname(resolve(ROOT, m)))))];
+const paletVanKit = (kit) =>
+  paletJson.paletten.find((p) => p.cellen.some((c) => c.bronnen.some((b) => b.kit === kit)));
+const paletten = [...new Set(kitsInAanroep.map((kit) => paletVanKit(kit)?.id))];
+if (paletten.length !== 1 || paletten[0] === undefined) {
+  throw new Error(
+    `de modellen horen bij ${paletten.length} paletten (${paletten.join(', ')}); ` +
+    'doe ze per palet in een eigen aanroep',
+  );
+}
+const gedeeld = paletJson.paletten.find((p) => p.id === paletten[0]);
+if (!gedeeld.atlas) throw new Error(`palet ${gedeeld.id} heeft geen atlas`);
+
+const atlas = leesPng(join(ROOT, gedeeld.atlas));
 const CEL_BREED = atlas.breedte / KOLOMMEN;
 const CEL_HOOG = atlas.hoogte / RIJEN;
 
@@ -62,14 +85,13 @@ function celKleuren([kolom, rij]) {
 }
 
 /** De cel die in kits/palet.json onder deze hex staat. */
-const paletJson = JSON.parse(readFileSync(PALET, 'utf8'));
-const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
-if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
-
 function zoekCel(hex) {
   const cel = gedeeld.cellen.find((c) => c.kleur.toLowerCase() === hex.toLowerCase());
   if (!cel) {
-    throw new Error(`${hex} staat niet in het gedeelde palet — kies een kleur die er al is`);
+    throw new Error(
+      `${hex} staat niet in palet "${gedeeld.id}" — kies een kleur die er al is ` +
+      `(${gedeeld.cellen.map((c) => c.kleur).join(', ')})`,
+    );
   }
   return cel;
 }
@@ -130,12 +152,13 @@ function plaats(u, v) {
 
 const geraakt = new Map(); // kit -> Set(modelnaam)
 let hoekpunten = 0;
+let verschoven = 0;
 
 for (const pad of modellen) {
   const volledig = resolve(ROOT, pad);
   const glb = leesGlb(volledig);
   const { json, bin } = glb;
-  let verzet = 0;
+  const teVerzetten = [];
 
   for (const mesh of json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
@@ -150,32 +173,53 @@ for (const pad of modellen) {
       const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
       const stap = view.byteStride ?? 8;
 
+      /* Eerst kijken welke rijen dit model raakt, dan pas schrijven: de
+       * verschuiving hieronder geldt voor het model als geheel. */
       for (let i = 0; i < accessor.count; i++) {
         const p = bin.byteOffset + start + i * stap;
-        const u = bin.buffer instanceof ArrayBuffer ? new Float32Array(bin.buffer, p, 2) : null;
-        if (!u) throw new Error(`${pad}: onverwachte buffer`);
+        const u = new Float32Array(bin.buffer, p, 2);
         const waar = plaats(u[0], u[1]);
         if (waar.kolom !== vanKolom || waar.rij !== vanRij) continue;
-        const inBaan = Math.min(CEL_HOOG - 1, Math.max(0, naarNaamRij + (waar.inBaan - vanNaamRij)));
-        u[0] = (naarX + 0.5) / atlas.breedte;
-        u[1] = (Math.floor(naarRij * CEL_HOOG) + inBaan + 0.5) / atlas.hoogte;
-        verzet++;
+        teVerzetten.push({ u, doel: naarNaamRij + (waar.inBaan - vanNaamRij) });
       }
     }
   }
 
-  if (verzet === 0) {
+  if (teVerzetten.length === 0) {
     console.log(`ongewijzigd: ${pad} (geen hoekpunt op ${vanCel.kleur})`);
     continue;
   }
 
+  /* Het hele model in één keer opschuiven tot het in de baan past. */
+  const laagste = Math.min(...teVerzetten.map((v) => v.doel));
+  const hoogste = Math.max(...teVerzetten.map((v) => v.doel));
+  let schuif = 0;
+  if (hoogste - laagste > CEL_HOOG - 1) {
+    console.warn(
+      `! ${pad}: het schaduwverloop van dit model (${hoogste - laagste + 1} rijen) past niet in ` +
+      'de doelbaan; de randen worden afgekapt',
+    );
+  } else if (laagste < 0) schuif = -laagste;
+  else if (hoogste > CEL_HOOG - 1) schuif = CEL_HOOG - 1 - hoogste;
+  if (schuif !== 0) verschoven++;
+
+  for (const { u, doel } of teVerzetten) {
+    const inBaan = Math.min(CEL_HOOG - 1, Math.max(0, doel + schuif));
+    u[0] = (naarX + 0.5) / atlas.breedte;
+    u[1] = (Math.floor(naarRij * CEL_HOOG) + inBaan + 0.5) / atlas.hoogte;
+  }
+
   schrijfGlb(volledig, json, bin, writeFileSync);
+  const verzet = teVerzetten.length;
   hoekpunten += verzet;
   const kit = basename(dirname(volledig));
   const naam = basename(volledig, '.glb');
   if (!geraakt.has(kit)) geraakt.set(kit, new Set());
   geraakt.get(kit).add(naam);
-  console.log(`${pad}: ${verzet} hoekpunten ${vanCel.kleur} → ${naarCel.kleur}`);
+  console.log(
+    `${pad}: ${verzet} hoekpunten ${vanCel.kleur} → ${naarCel.kleur}` +
+    (schuif ? ` (${schuif > 0 ? '+' : ''}${schuif} rijen opgeschoven om in de baan te passen)` : ''),
+  );
 }
 
 if (hoekpunten === 0) {
@@ -210,4 +254,8 @@ if (vanCel.bronnen.length === 0) {
 }
 
 writeFileSync(PALET, `${JSON.stringify(paletJson, null, 1)}\n`);
-console.log(`${hoekpunten} hoekpunten verzet; draai nu tools/build-catalog.mjs`);
+console.log(
+  `${hoekpunten} hoekpunten verzet` +
+  (verschoven ? `, ${verschoven} model(len) opgeschoven` : '') +
+  '; draai nu tools/build-catalog.mjs',
+);
