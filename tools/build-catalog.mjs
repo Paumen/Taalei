@@ -52,6 +52,7 @@ function leesKitMetadata() {
       buitenCatalogusModellen: new Set(
         Array.isArray(kit.buitenCatalogus) ? kit.buitenCatalogus : [],
       ),
+      eigenPalet: kit.eigenPalet === true,
       // Alle kits zijn CC0; alleen een kit met gemengde herkomst zegt het zelf.
       licentieLabel: kit.licentieLabel ?? 'CC0',
     });
@@ -357,6 +358,7 @@ for (const slug of kitSlugs) {
     // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;
     // zonder tabblad zou hij nergens meer te zien zijn.
     tabblad: meta?.tabblad ?? null,
+    eigenPalet: meta?.eigenPalet ?? false,
     // De groep waar de kit als geheel in valt (KIT_GROEPEN in semantiek.mjs).
     // De catalogus in de browser heeft hem nodig om te weten wélke modellen van
     // een kit met een eigen tabblad daar thuishoren: die in deze groep. Een
@@ -491,7 +493,11 @@ for (const kit of kits) {
   if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
 }
 for (const kit of kits) {
-  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad) {
+  // "eigenPalet" in manifest.js zegt: we weten het, het is zo bedoeld. Zonder
+  // die bevestiging is een kit met een palet dat hij met niemand deelt en zonder
+  // eigen tabblad een ongeluk — zijn kleuren mengen niet met de kits waar hij
+  // tussen komt te staan.
+  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad && !kit.eigenPalet) {
     console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
   }
 }

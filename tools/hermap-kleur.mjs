@@ -12,7 +12,8 @@
  * pixels waarin de hoogte een gebakken schaduwverloop draagt.
  *
  * Een hoekpunt houdt zijn plek in dat verloop, maar gemeten vanaf de rij die de
- * naam van de baan draagt — de hex waaronder de cel in kits/palet.json staat.
+ * naam van de baan draagt — de rij die het dichtst bij de hex ligt waaronder de
+ * cel in kits/palet.json staat.
  * Vraag je om #fbf02d → #ffb349, dan krijg je #ffb349 en niet de donkerste rij
  * van die baan, ook al stond #fbf02d toevallig onderaan de zijne. Wie schaduw
  * had houdt schaduw: een hoekpunt dat twintig rijen boven zijn naamkleur zat,
@@ -28,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb } from './glb.mjs';
-import { leesPng, KOLOMMEN, RIJEN, naarHex } from './kleurmap.mjs';
+import { leesPng, KOLOMMEN, RIJEN, naarHex, kleurAfstand } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
@@ -75,14 +76,36 @@ function zoekCel(hex) {
 
 const vanCel = zoekCel(vanHex);
 const naarCel = zoekCel(naarHexArg);
-for (const cel of [vanCel, naarCel]) {
-  const baan = celKleuren(cel.cel).map((h) => h.toLowerCase());
-  if (!baan.includes(cel.kleur.toLowerCase())) {
+const hexNaarRgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
+/**
+ * De rij binnen een baan die de naamkleur van die baan het dichtst benadert.
+ *
+ * Meestal staat die kleur er letterlijk in — dan is dit gewoon die rij. Maar
+ * niet altijd: de rode baan [7,0] heet #b2413a en loopt van #c94d33 naar
+ * #9b3440, waar #b2413a tussenin ligt zonder ooit precies bemonsterd te worden.
+ * Vandaar dichtstbij en niet gelijk, met een grens eromheen: ligt de naamkleur
+ * ver van élke rij, dan klopt het palet niet bij de atlas en is doorgaan
+ * gevaarlijker dan stoppen.
+ */
+const VER = 40;
+
+function naamRij(cel) {
+  const baan = celKleuren(cel.cel);
+  const doel = hexNaarRgb(cel.kleur);
+  let beste = 0;
+  let afstand = Infinity;
+  baan.forEach((hex, rij) => {
+    const d = kleurAfstand(hexNaarRgb(hex), doel);
+    if (d < afstand) { afstand = d; beste = rij; }
+  });
+  if (afstand > VER) {
     throw new Error(
-      `cel [${cel.cel}] heet ${cel.kleur} in het palet, maar die kleur staat niet in die baan ` +
-      `(${baan[0]} → ${baan.at(-1)})`,
+      `cel [${cel.cel}] heet ${cel.kleur} in het palet, maar die baan loopt van ` +
+      `${baan[0]} naar ${baan.at(-1)} — dat is te ver uit elkaar om te durven verzetten`,
     );
   }
+  return beste;
 }
 
 /* -- UV's verzetten -------------------------------------------------------- */
@@ -90,13 +113,6 @@ for (const cel of [vanCel, naarCel]) {
 const [vanKolom, vanRij] = vanCel.cel;
 const [naarKolom, naarRij] = naarCel.cel;
 const naarX = Math.floor(naarKolom * CEL_BREED + CEL_BREED / 2);
-
-/** De rij binnen een baan die de naamkleur van die baan draagt. */
-function naamRij(cel) {
-  const rij = celKleuren(cel.cel).findIndex((h) => h.toLowerCase() === cel.kleur.toLowerCase());
-  if (rij === -1) throw new Error(`${cel.kleur} staat niet in baan [${cel.cel}]`);
-  return rij;
-}
 
 const vanNaamRij = naamRij(vanCel);
 const naarNaamRij = naamRij(naarCel);

@@ -447,9 +447,11 @@ const uit = {
 writeFileSync(path.join(ROOT, 'docs', 'asset_variants.json'), `${JSON.stringify(uit, null, 1)}\n`);
 
 /* groepenbestand voor de renderharnas: één plaat per groep */
+/* Naam op inhoud en niet op volgnummer: een groep erbij of eraf zou anders elke
+ * plaat hernoemen en elke verwijzing in docs/asset_variant_review.md verzetten. */
 const groepenBestand = {};
-clusters.forEach((cluster, n) => {
-  const naam = `${String(n + 1).padStart(2, '0')}-${cluster.soort}-${cluster.leden[0].replace(/\//g, '-')}`;
+clusters.forEach((cluster) => {
+  const naam = `${cluster.soort}-${cluster.hoofd.replace(/\//g, '-')}`;
   groepenBestand[naam] = {
     items: [cluster.hoofd, ...cluster.leden.filter((id) => id !== cluster.hoofd)].map((id) => ({
       pad: bijId.get(id).pad.replace(/^kits\//, ''),

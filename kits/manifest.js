@@ -114,8 +114,13 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
-  /* Eigen tabblad: eigen texture-atlas, deelt geen kleur met de andere kits. */
-  "tabblad": "grot",
+  /* Geen eigen tabblad meer (besluit PO): het tabblad Grot is opgeheven en van
+     deze kit staan alleen de ladder en de drie vloerlagen nog in de catalogus,
+     bij de bouwwerken en de verbindingen. Dat die vier hun eigen texture-atlas
+     houden blijft waar: ze kleuren niet mee met de kits waar ze nu tussen
+     staan. Vandaar "eigenPalet": dat onderdrukt de waarschuwing van
+     build-catalog.mjs, die anders elke build meldt wat hier een besluit is. */
+  "eigenPalet": true,
   /* Staan niet in de catalogus (besluit PO): de kamers, gangen, poorten,
      trappen en wandsjablonen. De bestanden blijven in de repo. Wat overblijft
      zijn de ladder en de drie vloerlagen, en die staan bij de bouwwerken en de
@@ -973,8 +978,29 @@ window.KENNEY_KITS = [
   "slug": "modulair-terrein",
   "name": "Modulair Terrein",
   "url": null,
-  /* Staat niet in de catalogus (besluit PO); het bestand blijft in de repo. */
-  "buitenCatalogus": ["cave-prop-stalagmite-tiny"],
+  /* Staan niet in de catalogus (besluit PO): het hele grotdeel van deze kit —
+     de props, het mijnwerk en de vier ingangen die de pack Cave_Cliff noemt.
+     De bestanden blijven in de repo. */
+  "buitenCatalogus": [
+   "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
+   "cave-prop-railway-bumpstop", "cave-prop-railway-curve-large",
+   "cave-prop-railway-curve-small", "cave-prop-railway-hill-gentle",
+   "cave-prop-railway-hill-sharp", "cave-prop-railway-intersection",
+   "cave-prop-railway-straight-a", "cave-prop-railway-straight-b",
+   "cave-prop-railway-straight-c", "cave-prop-railway-straight-d", "cave-prop-railway-switch",
+   "cave-prop-stalagmite-connected-base", "cave-prop-stalagmite-connected-mid",
+   "cave-prop-stalagmite-connected-top", "cave-prop-stalagmite-normal",
+   "cave-prop-stalagmite-tiny", "cave-prop-support-ceiling-beam-a",
+   "cave-prop-support-ceiling-beam-b", "cave-prop-support-ceiling-beam-c",
+   "cave-prop-support-ceiling-beam-d", "cave-prop-support-ceiling-boards-a",
+   "cave-prop-support-ceiling-boards-b", "cave-prop-support-ceiling-boards-c",
+   "cave-prop-support-ceiling-boards-d", "cave-prop-support-corner-brace-a",
+   "cave-prop-support-corner-brace-b", "cave-prop-support-wall-boards-a",
+   "cave-prop-support-wall-boards-b", "cave-prop-support-wall-boards-c",
+   "cave-prop-support-wall-boards-d", "cave-prop-support-wall-pillar-a",
+   "cave-prop-support-wall-pillar-b", "cave-prop-support-wall-pillar-c",
+   "cave-prop-support-wall-pillar-d"
+  ],
   "models": [
    "beach-prop-coconut",
    "beach-prop-docks-corner",
