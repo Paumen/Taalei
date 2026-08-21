@@ -114,16 +114,33 @@ function zetLicht(viewer) {
   viewer.setAttribute('exposure', '1.25');
 }
 
+/**
+ * De clip die de catalogus toont als een model er meer dan één draagt.
+ *
+ * De kits leveren losse eenmalige clips ("open" van 0,3 s, "close") naast een
+ * heen-en-weer-clip ("open-close", "toggle"). In een lus is alleen die laatste
+ * om aan te zien: een eenmalige "open" springt aan het eind van elke lus hard
+ * terug naar dicht en staat te klapperen. Spellen spelen de losse clips één
+ * keer af; de catalogus toont de rondgang.
+ */
+function demoClip(clips) {
+  return clips.find((naam) => naam === 'open-close' || naam === 'toggle') ?? clips[0];
+}
+
 function koppelViewer(vak) {
   if (vak.querySelector('model-viewer')) return;
 
   const viewer = document.createElement('model-viewer');
   viewer.src = vak.dataset.src;
   viewer.alt = vak.dataset.alt;
-  // De onderwater-kit is gerigd: laat de vissen zwemmen zolang de kaart in
-  // beeld is. Zonder animatie staat `autoplay` er niet, want dan zet het alleen
-  // een renderlus aan die niets te tekenen heeft.
-  if (vak.dataset.animatie) viewer.setAttribute('autoplay', '');
+  // Een geanimeerd model speelt zolang de kaart in beeld is. Zonder animatie
+  // staat `autoplay` er niet, want dan zet het alleen een renderlus aan die
+  // niets te tekenen heeft. De clipnaam staat in het dataset-veld, zodat een
+  // model met losse eenmalige clips niet zijn eerste clip staat te klapperen.
+  if (vak.dataset.animatie) {
+    viewer.setAttribute('autoplay', '');
+    viewer.setAttribute('animation-name', vak.dataset.animatie);
+  }
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   zetLicht(viewer);
   viewer.setAttribute('shadow-intensity', '0.6');
@@ -176,7 +193,7 @@ function maakKaart(model, kits, groepen, weergave) {
   vak.className = 'kaart-viewer';
   vak.dataset.src = model.pad;
   vak.dataset.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
-  if (model.animaties?.length) vak.dataset.animatie = '1';
+  if (model.animaties?.length) vak.dataset.animatie = demoClip(model.animaties);
 
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
@@ -358,7 +375,7 @@ function toonDetail(model, kit, groep) {
   const clips = model.animaties ?? [];
   if (clips.length) {
     viewer.setAttribute('autoplay', '');
-    viewer.setAttribute('animation-name', clips[0]);
+    viewer.setAttribute('animation-name', demoClip(clips));
   } else {
     viewer.setAttribute('auto-rotate', '');
     viewer.setAttribute('rotation-per-second', '18deg');
@@ -373,6 +390,7 @@ function toonDetail(model, kit, groep) {
       return optie;
     }),
   );
+  if (clips.length) detailAnimatieKeuze.value = demoClip(clips);
 
   detailViewer.replaceChildren(viewer);
 
