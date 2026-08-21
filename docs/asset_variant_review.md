@@ -49,21 +49,21 @@ komt uit die meting; §3 zegt welke groepen bij naslag geen echte variant zijn.
 
 ## 1. Wat er ligt
 
-**64 groepen, samen 188 modellen — 25% van de catalogus.** Twee groepen lopen
+**68 groepen, samen 198 modellen — 26% van de catalogus.** Twee groepen lopen
 over kitgrenzen heen, de rest zit binnen één kit.
 
 | soort | groepen | wat het betekent |
 |---|---|---|
 | kleurvariant | 14 | dezelfde mesh, alleen een ander palet |
 | maatvariant | 1 | dezelfde mesh, alleen een ander formaat |
-| detailvariant | 49 | zelfde silhouet, verschil in samenstelling of detail |
+| detailvariant | 53 | zelfde silhouet, verschil in samenstelling of detail |
 
 Per kit (een groep telt bij elke kit waar leden uit komen):
-dungeon 16, village-kit 14, resources 11, forest 10, fantasy-town-kit 4,
+dungeon 18, village-kit 14, resources 11, forest 10, fantasy-town-kit 6,
 pirate-kit 3, modulair-terrein 2, survival-kit 2, en één elk voor platformer-kit,
 props, rpgtools en taalei-kit.
 
-Twintig groepen staan er op gezag en niet op meting — de forest-rotsen, de
+Vierentwintig groepen staan er op gezag en niet op meting — de forest-rotsen, de
 vloertegels van de grot, de aan/uit-paren en nog wat losse (zie §5). Ze staan in
 `HANDMATIG` in het script.
 
@@ -76,7 +76,7 @@ koper, goud, ijzer en zilver telkens exact dezelfde mesh delen (identiek
 driehoekental, identieke bounding box, identieke hoekpunten) en alleen in
 palet verschillen — `*-bar`, `*-bars`, `*-bars-stack-small/medium/large`,
 `*-nugget-small/medium/large` en `*-nuggets` — de platen `kleurvariant-resources-iron-*`.
-Dat is 36 van de 188 modellen in dit overzicht; in de catalogus staat het ijzer
+Dat is 36 van de 198 modellen in dit overzicht; in de catalogus staat het ijzer
 van elke groep op de kaart en de andere drie erachter. Ze zijn bedoeld als kleurenset en horen zo bij
 elkaar; wie er één gebruikt, weet dat de andere drie gratis meekomen.
 
@@ -126,6 +126,10 @@ van de groep, dus `detailvariant-pirate-kit-ship-ghost.png`):
 | dungeon aan/uit | 3 × 2 | `torch` ↔ `torch-lit` en `candle(-thin)` ↔ `-lit`: de vlam is de enige extra geometrie; met de hand | `…-dungeon-torch`, `…-dungeon-candle(-thin)` |
 | fantasy-town-kit `roof-corner` ↔ `-round` | 2 | dezelfde dakhoek in dezelfde bounding box, verstek tegen boog (36 tegen 44 driehoeken); met de hand | `…-fantasy-town-kit-roof-corner` |
 | modulair-terrein `beach-prop-shell-a` ↔ `-b` | 2 | dezelfde schelp van 42 driehoeken, `b` iets groter en anders gekleurd; `b` staat op de kaart | `…-beach-prop-shell-b` |
+| dungeon `stairs-wall-left` ↔ `-right` | 2 | elkaars spiegelbeeld, 574 driehoeken elk; met de hand (§5) | `…-dungeon-stairs-wall-left` |
+| dungeon `wall-archedwindow-open` ↔ `wall-broken` | 2 | hetzelfde muurpaneel, boogopening tegen bresgat; met de hand (§5) | `…-dungeon-wall-archedwindow-open` |
+| fantasy-town-kit `wall-wood-detail-*` | 3 | hetzelfde houten paneel, beschot als kruis, schuine balk of dwarsbalken; met de hand (§5) | `…-wall-wood-detail-cross` |
+| fantasy-town-kit `wall-wood-window-*` | 3 | hetzelfde paneel, raam met glas, rond of met luiken; met de hand (§5) | `…-wall-wood-window-glass` |
 
 ### 2.4 Over kitgrenzen heen
 
@@ -185,7 +189,7 @@ lijst, weinig extra ruis. 0,90 is de voorzichtige keuze gebleven.
 
 ## 5. Met de hand erbij
 
-Twintig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
+Vierentwintig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
 samengevoegd: een mens die zegt dat twee modellen dezelfde asset zijn wint van
 het raster. Ze tonen stuk voor stuk een grens van de meting.
 
@@ -199,6 +203,14 @@ het raster. Ze tonen stuk voor stuk een grens van de meting.
   draagt een vlam, en dat is genoeg extra geometrie om onder de drempel te
   zakken. Het is wel hetzelfde voorwerp.
 
+**Spiegelbeeld.**
+
+- `dungeon/stairs-wall-left` ↔ `stairs-wall-right` — 574 driehoeken elk in
+  dezelfde bounding box, de trap loopt de andere kant op. De meting draait wel
+  om de hoogte-as maar spiegelt niet, dus voor haar is de ene trap de andere
+  niet. Hetzelfde geldt voor `fantasy-town-kit/roof-left` ↔ `roof-right` (§4),
+  dat nog niet is samengevoegd.
+
 **Te weinig verschil voor het raster.**
 
 - `resources/wood-log-a` ↔ `-b` — hetzelfde blok hout, `b` dunner (0,275 tegen
@@ -210,6 +222,18 @@ het raster. Ze tonen stuk voor stuk een grens van de meting.
   reliëf op zo'n tegel is kleiner dan een rastercel, dus de meting houdt ze op
   0,80–0,88 — net onder de drempel, terwijl ze naast elkaar alleen in hun
   patroon verschillen.
+- `dungeon/wall-archedwindow-open` ↔ `wall-broken` — hetzelfde muurpaneel van
+  1,4 × 0,35 × 1,4: de een met een boogopening, de ander met een gat erin
+  geslagen. Het verschil zit in wat er wég is, en dat is te veel gat voor het
+  raster (635 tegen 784 driehoeken).
+- `fantasy-town-kit/wall-wood-detail-cross`, `-diagonal` en `-horizontal` —
+  hetzelfde paneel van 0,1 × 1 × 1 met ander beschot (80, 56 en 46 driehoeken).
+  Alleen cross ↔ diagonal haalde 0,849; het beschot is te dun om het raster te
+  vullen.
+- `fantasy-town-kit/wall-wood-window-glass`, `-round` en `-shutters` —
+  hetzelfde paneel van 1 × 1 met een ander raam erin. De ronde draagt een
+  uitstekend kozijn en is daardoor 0,2 diep tegen 0,1; voor het gelijkmatig
+  geschaalde raster is dat een ander paneel.
 - `fantasy-town-kit/roof-corner` ↔ `roof-corner-round` — dezelfde dakhoek in
   dezelfde bounding box van 1,067 × 1,067 × 0,648; de ronde loopt met een boog
   waar de andere een verstek heeft, 44 tegen 36 driehoeken.
