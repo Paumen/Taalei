@@ -424,6 +424,7 @@ const VERWIJDERD = new Set([
   'cave-prop-hanging-lamp',
   'hilly-prop-bush-a', 'hilly-prop-bush-b', 'hilly-prop-bush-c', 'hilly-prop-bush-d',
   'hilly-prop-camp-sitting-log',
+  'hilly-prop-hollow-trunk',
   'hilly-prop-tree-oak-a', 'hilly-prop-tree-oak-b', 'hilly-prop-tree-oak-c', 'hilly-prop-tree-oak-d',
 ]);
 

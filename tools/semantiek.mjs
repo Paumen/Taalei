@@ -148,7 +148,7 @@ const MODULAIR_TERREIN = [
   // Dat is terrein én mijnwerk door elkaar, maar het hoort bij elkaar in het
   // tabblad Grot; zie de groepsbeschrijving.
   [/^cave-/, 'grotterrein'],
-  [/-prop-(tree|branch|stump|hollow-trunk)/, 'bomen'],
+  [/-prop-(tree|branch|stump)/, 'bomen'],
   // De kokosnoot ligt in het zand bij de palmen: decoratie op de grond, geen
   // eten. Er is niets om hem mee te bereiden en niemand die hem opeet.
   [/-prop-(cattail|coconut|flower|grass-clump|mushroom)/, 'planten'],
