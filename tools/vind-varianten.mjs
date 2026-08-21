@@ -48,6 +48,33 @@ const DREMPEL_VERWANT = 0.78; // daaronder: hooguit familie
  * modellen die daarin een factor twee schelen zijn geen variant van elkaar. */
 const DREMPEL_DRIEHOEKEN = 0.5;
 
+/**
+ * Paren die de meting niet ziet maar die het wél zijn (besluit PO). Ze worden
+ * onvoorwaardelijk samengevoegd: een mens die zegt dat twee modellen dezelfde
+ * asset zijn wint van het raster.
+ *
+ * De twee die er nu staan tonen allebei een grens van de meting:
+ * `wood-plank-c` is dezelfde plank als `a` in dezelfde bounding box maar met
+ * bijna drie keer zoveel driehoeken, en valt dus op de driehoekendrempel af;
+ * `wood-log-b` is hetzelfde blok hout als `a` maar dunner, en dunner is voor
+ * het gelijkmatig geschaalde raster gewoon een andere vorm.
+ */
+const HANDMATIG = [
+  ['resources/wood-plank-a', 'resources/wood-plank-c'],
+  ['resources/wood-log-a', 'resources/wood-log-b'],
+];
+
+/**
+ * Welk lid een groep vertegenwoordigt: de catalogus toont van elke groep één
+ * kaart, en dat hoort niet degene te zijn die toevallig vooraan in het alfabet
+ * staat. Eerste rake regel wint; is er geen, dan het eerste lid.
+ *
+ * IJzer is de neutrale van de vier metalen (besluit PO) — koper, goud en zilver
+ * lezen als "bijzonder", ijzer als "gewoon", en dat is wat je op de kaart wilt
+ * zien staan.
+ */
+const VOORKEUR = [/(^|\/)iron-/];
+
 const maalPunt = (m, x, y, z) => [
   m[0] * x + m[4] * y + m[8] * z + m[12],
   m[1] * x + m[5] * y + m[9] * z + m[13],
@@ -347,27 +374,60 @@ for (const paar of paren) {
   for (const id of kandidaat) groepVan.set(id, kandidaat);
 }
 
+/* De handmatige paren erbij. Geen kliekcontrole: dit is een uitspraak, geen
+ * meting. Een paar dat een model noemt dat niet in de catalogus staat wordt
+ * overgeslagen — dan is het model verwijderd en de uitspraak achterhaald. */
+const bekend = new Set(modellen.map((m) => m.id));
+for (const [a, b] of HANDMATIG) {
+  if (!bekend.has(a) || !bekend.has(b)) {
+    console.log(`handmatig paar overgeslagen (niet in de catalogus): ${a} ↔ ${b}`);
+    continue;
+  }
+  const ga = groepVan.get(a);
+  const gb = groepVan.get(b);
+  if (ga && ga === gb) continue;
+
+  const samen = [...new Set([...(ga ?? [a]), ...(gb ?? [b])])];
+  for (const groep of [ga, gb]) {
+    if (groep) groepen.splice(groepen.indexOf(groep), 1);
+  }
+  groepen.push(samen);
+  for (const id of samen) groepVan.set(id, samen);
+}
+
+const handmatigPaar = new Set(HANDMATIG.map(([a, b]) => (a < b ? `${a}|${b}` : `${b}|${a}`)));
+
 const bijId = new Map(modellen.map((m) => [m.id, m]));
 const clusters = groepen
   .map((leden) => {
     leden.sort();
+    /* Alle paren binnen de groep. Een handmatig paar is niet gemeten, dus daar
+     * hoort geen overlap bij; het staat er met soort 'handmatig' in. */
     const eigen = [];
     for (let i = 0; i < leden.length; i++) {
-      for (let j = i + 1; j < leden.length; j++) eigen.push(paarVan(leden[i], leden[j]));
+      for (let j = i + 1; j < leden.length; j++) {
+        const sleutel = leden[i] < leden[j] ? `${leden[i]}|${leden[j]}` : `${leden[j]}|${leden[i]}`;
+        const gemeten = paarVan(leden[i], leden[j]);
+        if (gemeten && gemeten.soort !== 'verwant') eigen.push(gemeten);
+        else if (handmatigPaar.has(sleutel)) eigen.push({ a: leden[i], b: leden[j], soort: 'handmatig', overlap: null });
+      }
     }
     const soorten = new Set(eigen.map((p) => p.soort));
+    const gemeten = eigen.filter((p) => p.overlap !== null);
     /* verschilt de groep alleen in maat? dan is de vorm dezelfde en de
      * bounding boxen zijn niet gelijk */
     const maten = leden.map((id) => bijId.get(id).wdh.join('x'));
     return {
       leden,
+      /* De kaart die de catalogus van deze groep toont. */
+      hoofd: leden.find((id) => VOORKEUR.some((regel) => regel.test(id))) ?? leden[0],
       kits: [...new Set(leden.map((id) => id.split('/')[0]))].sort(),
-      soort: soorten.has('detailvariant') ? 'detailvariant'
+      soort: soorten.has('detailvariant') || soorten.has('handmatig') ? 'detailvariant'
         : soorten.has('kleurvariant') ? 'kleurvariant'
           : soorten.has('maatvariant') ? 'maatvariant' : 'duplicaat',
       soorten: [...soorten].sort(),
       zelfdeMaat: new Set(maten).size === 1,
-      minOverlap: Math.min(...eigen.map((p) => p.overlap)),
+      minOverlap: gemeten.length ? Math.min(...gemeten.map((p) => p.overlap)) : null,
       wdh: leden.map((id) => bijId.get(id).wdh),
       driehoeken: leden.map((id) => bijId.get(id).driehoeken),
       kleuren: leden.map((id) => bijId.get(id).kleuren),
@@ -391,7 +451,7 @@ const groepenBestand = {};
 clusters.forEach((cluster, n) => {
   const naam = `${String(n + 1).padStart(2, '0')}-${cluster.soort}-${cluster.leden[0].replace(/\//g, '-')}`;
   groepenBestand[naam] = {
-    items: cluster.leden.map((id) => ({
+    items: [cluster.hoofd, ...cluster.leden.filter((id) => id !== cluster.hoofd)].map((id) => ({
       pad: bijId.get(id).pad.replace(/^kits\//, ''),
       label: id,
     })),

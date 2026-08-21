@@ -707,15 +707,30 @@ async function start() {
    *
    * Het samenvouwen gebeurt per sectie en niet één keer voor de hele catalogus:
    * een variantgroep die over kits heen loopt hoort in de kitweergave nog steeds
-   * per kit één kaart te geven. Wie als eerste langskomt wordt de kaart, dus de
-   * sortering van de sectie bepaalt hem — niet een willekeurige keuze hier.
+   * per kit één kaart te geven.
+   *
+   * Welk lid de kaart wordt zegt de groep zelf (catalog.json → varianten.hoofd):
+   * bij de vier metalen is dat het ijzer en niet het koper dat toevallig vooraan
+   * in het alfabet staat. Zit dat hoofd niet in déze sectie, dan neemt het
+   * eerste lid dat er wél is het over. De plek in het rooster blijft die van het
+   * eerste lid, zodat een groep niet verspringt door wie hem vertegenwoordigt.
    */
+  const hoofdVan = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
+
   const vouwVarianten = (modellen) => {
     const perGroep = new Map();
     const uit = [];
     for (const model of modellen) {
       const bestaand = model.variant ? perGroep.get(model.variant) : null;
-      if (bestaand) { bestaand.varianten.push(model); continue; }
+      if (bestaand) {
+        if (model.id === hoofdVan.get(model.variant)) {
+          bestaand.varianten.push(bestaand.model);
+          bestaand.model = model;
+        } else {
+          bestaand.varianten.push(model);
+        }
+        continue;
+      }
       const item = { model, varianten: [] };
       if (model.variant) perGroep.set(model.variant, item);
       uit.push(item);

@@ -81,7 +81,10 @@ function leesVarianten(idsInCatalogus) {
     const leden = cluster.leden.filter((id) => idsInCatalogus.has(id));
     if (leden.length < 2) return;
     const id = `v${String(n + 1).padStart(2, '0')}`;
-    groepen.push({ id, soort: cluster.soort, leden });
+    // Het lid dat de groep op de kaart vertegenwoordigt. Staat dat model niet
+    // (meer) in de catalogus, dan neemt het eerste overgebleven lid het over.
+    const hoofd = leden.includes(cluster.hoofd) ? cluster.hoofd : leden[0];
+    groepen.push({ id, soort: cluster.soort, hoofd, leden });
     for (const lid of leden) perModel.set(lid, id);
   });
 
