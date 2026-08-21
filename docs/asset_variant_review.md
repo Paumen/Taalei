@@ -2,7 +2,7 @@
 
 Welke modellen in de collectie zijn varianten van elkaar — hetzelfde model,
 met alleen een andere kleur, een andere maat, of een klein verschil in
-samenstelling of detail? Gemeten over alle 762 modellen uit
+samenstelling of detail? Gemeten over alle 764 modellen uit
 `kits/catalog.json` met `node tools/vind-varianten.mjs`. Wat buiten de catalogus
 staat doet niet mee: de onderwater-kit en het grotdeel van de collectie staan wel
 in de repo maar niet in `catalog.json`. De uitkomst staat in
@@ -49,21 +49,21 @@ komt uit die meting; §3 zegt welke groepen bij naslag geen echte variant zijn.
 
 ## 1. Wat er ligt
 
-**73 groepen, samen 213 modellen — 28% van de catalogus.** Twee groepen lopen
+**74 groepen, samen 215 modellen — 28% van de catalogus.** Twee groepen lopen
 over kitgrenzen heen, de rest zit binnen één kit.
 
 | soort | groepen | wat het betekent |
 |---|---|---|
 | kleurvariant | 14 | dezelfde mesh, alleen een ander palet |
 | maatvariant | 1 | dezelfde mesh, alleen een ander formaat |
-| detailvariant | 58 | zelfde silhouet, verschil in samenstelling of detail |
+| detailvariant | 59 | zelfde silhouet, verschil in samenstelling of detail |
 
 Per kit (een groep telt bij elke kit waar leden uit komen):
 dungeon 18, village-kit 14, resources 11, forest 10, fantasy-town-kit 6,
-pirate-kit 5, modulair-terrein 4, survival-kit 2, en één elk voor platformer-kit,
+pirate-kit 5, modulair-terrein 5, survival-kit 2, en één elk voor platformer-kit,
 props, rocks, rpgtools en taalei-kit.
 
-Negenentwintig groepen staan er op gezag en niet op meting — natuur (rotsen,
+Dertig groepen staan er op gezag en niet op meting — natuur (rotsen,
 kiezels, bomen), de vloertegels van de grot, de aan/uit-paren en nog wat losse
 (zie §5). Ze staan in `HANDMATIG` in het script.
 
@@ -76,7 +76,7 @@ koper, goud, ijzer en zilver telkens exact dezelfde mesh delen (identiek
 driehoekental, identieke bounding box, identieke hoekpunten) en alleen in
 palet verschillen — `*-bar`, `*-bars`, `*-bars-stack-small/medium/large`,
 `*-nugget-small/medium/large` en `*-nuggets` — de platen `kleurvariant-resources-iron-*`.
-Dat is 36 van de 213 modellen in dit overzicht; in de catalogus staat het ijzer
+Dat is 36 van de 215 modellen in dit overzicht; in de catalogus staat het ijzer
 van elke groep op de kaart en de andere drie erachter. Ze zijn bedoeld als kleurenset en horen zo bij
 elkaar; wie er één gebruikt, weet dat de andere drie gratis meekomen.
 
@@ -126,6 +126,7 @@ van de groep, dus `detailvariant-pirate-kit-ship-ghost.png`):
 | dungeon aan/uit | 3 × 2 | `torch` ↔ `torch-lit` en `candle(-thin)` ↔ `-lit`: de vlam is de enige extra geometrie; met de hand | `…-dungeon-torch`, `…-dungeon-candle(-thin)` |
 | fantasy-town-kit `roof-corner` ↔ `-round` | 2 | dezelfde dakhoek in dezelfde bounding box, verstek tegen boog (36 tegen 44 driehoeken); met de hand | `…-fantasy-town-kit-roof-corner` |
 | modulair-terrein `beach-prop-shell-a` ↔ `-b` | 2 | dezelfde schelp van 42 driehoeken, `b` iets groter en anders gekleurd; `b` staat op de kaart | `…-beach-prop-shell-b` |
+| modulair-terrein `beach-prop-starfish-a` ↔ `-b` | 2 | dezelfde zeester van 28 driehoeken, `b` een vijfde groter | `…-beach-prop-starfish-a` |
 | dungeon `stairs-wall-left` ↔ `-right` | 2 | elkaars spiegelbeeld, 574 driehoeken elk; met de hand (§5) | `…-dungeon-stairs-wall-left` |
 | dungeon `wall-archedwindow-open` ↔ `wall-broken` | 2 | hetzelfde muurpaneel, boogopening tegen bresgat; met de hand (§5) | `…-dungeon-wall-archedwindow-open` |
 | fantasy-town-kit `wall-wood-detail-*` | 3 | hetzelfde houten paneel, beschot als kruis, schuine balk of dwarsbalken; met de hand (§5) | `…-wall-wood-detail-cross` |
@@ -193,7 +194,7 @@ lijst, weinig extra ruis. 0,90 is de voorzichtige keuze gebleven.
 
 ## 5. Met de hand erbij
 
-Negenentwintig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
+Dertig groepen komen uit `HANDMATIG` in het script en worden onvoorwaardelijk
 samengevoegd: een mens die zegt dat twee modellen dezelfde asset zijn wint van
 het raster. Ze tonen stuk voor stuk een grens van de meting.
 
@@ -241,9 +242,11 @@ het raster. Ze tonen stuk voor stuk een grens van de meting.
 - `fantasy-town-kit/roof-corner` ↔ `roof-corner-round` — dezelfde dakhoek in
   dezelfde bounding box van 1,067 × 1,067 × 0,648; de ronde loopt met een boog
   waar de andere een verstek heeft, 44 tegen 36 driehoeken.
-- `modulair-terrein/beach-prop-shell-a` ↔ `-b` — dezelfde schelp van 42
-  driehoeken, `b` een derde groter en in een andere paletcel. Op deze maat
-  (0,05 × 0,06 × 0,01) heeft het raster niets meer om op te vallen.
+- `modulair-terrein/beach-prop-shell-a` ↔ `-b` en `beach-prop-starfish-a` ↔
+  `-b` — strandspul van een paar centimeter: dezelfde schelp van 42 driehoeken
+  (`b` een derde groter en in een andere paletcel) en dezelfde zeester van 28
+  (`b` een vijfde groter). Op 0,05 × 0,06 × 0,01 en 0,09 × 0,10 × 0,01 heeft
+  het raster niets meer om op te vallen.
 
 ### 5.1 Wat het raster bij natuur mist
 
