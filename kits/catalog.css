@@ -374,6 +374,7 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 }
 
 .kaart {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--lijn);
@@ -392,6 +393,41 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 .kaart:hover { transform: translateY(-2px); border-color: var(--accent); }
 .kaart:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .kaart[hidden] { display: none; }
+
+/* De glyfen liggen over het viewervak; de kaart is hun anker. */
+.kaart-glyfen {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.glyf {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  justify-content: center;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--papier) 82%, transparent);
+  border: 1px solid var(--lijn);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--inkt-zacht);
+  /* De tooltip is de uitleg; die wil je kunnen opvragen. */
+  pointer-events: auto;
+}
+
+.glyf-maat { color: var(--inkt); }
+.glyf-animatie { color: var(--accent); }
+.glyf-variant { color: var(--merk-kleur, var(--inkt)); }
 
 .kaart-viewer {
   position: relative;
@@ -439,7 +475,6 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 }
 
 .kaart-meta .zwaar { color: var(--zwaar); font-weight: 600; }
-.kaart-tri { flex: none; }
 
 .kaart-merk {
   display: inline-flex;
@@ -551,8 +586,10 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
 .detail dt { color: var(--inkt-zacht); }
 .detail dd { margin: 0; overflow-wrap: anywhere; }
 
-/* Alleen zichtbaar bij een model met meer dan één clip; zie catalog.js. */
-.detail-animatie {
+/* Keuzelijsten in het modelpaneel: de varianten van dit model, en de clips die
+   het draagt. Allebei alleen zichtbaar als er iets te kiezen valt; zie
+   catalog.js. */
+.detail-keuze {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -561,7 +598,7 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   color: var(--inkt-zacht);
 }
 
-.detail-animatie select {
+.detail-keuze select {
   flex: 1;
   min-width: 0;
   padding: 6px 8px;
@@ -574,7 +611,9 @@ main { padding: 0 clamp(16px, 4vw, 40px) 60px; }
   cursor: pointer;
 }
 
-.detail-animatie select:hover { border-color: var(--accent); }
+.detail-keuze select:hover { border-color: var(--accent); }
+.detail-keuze[hidden] { display: none; }
+.detail-keuze + .detail-keuze { margin-top: -6px; }
 
 .detail-acties { display: flex; flex-wrap: wrap; gap: 8px; }
 

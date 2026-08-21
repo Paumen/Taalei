@@ -9,7 +9,7 @@
  * rendering-budgetten (zie brainstorm.md: cave-kit pas laden ná de ingang).
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
@@ -57,6 +57,35 @@ function leesKitMetadata() {
     });
   }
   return meta;
+}
+
+/* -- varianten ------------------------------------------------------------
+ * docs/asset_variants.json komt van tools/vind-varianten.mjs, dat op zijn beurt
+ * deze catalogus leest. Twee stappen dus, en de tweede mag achterlopen: een
+ * groep die naar een model verwijst dat er niet meer is wordt hier opgeschoond,
+ * en blijft er één lid over dan is het geen groep meer.
+ *
+ * Wat de catalogus in de browser ermee doet: van elke groep één kaart tonen met
+ * het aantal erbij, en de rest achter die kaart. Daarvoor is per model genoeg
+ * te weten in welke groep hij zit; de leden staan in `varianten`.
+ */
+function leesVarianten(idsInCatalogus) {
+  const bestand = join(ROOT, 'docs', 'asset_variants.json');
+  if (!existsSync(bestand)) return { groepen: [], perModel: new Map() };
+
+  const bron = JSON.parse(readFileSync(bestand, 'utf8'));
+  const groepen = [];
+  const perModel = new Map();
+
+  bron.clusters?.forEach((cluster, n) => {
+    const leden = cluster.leden.filter((id) => idsInCatalogus.has(id));
+    if (leden.length < 2) return;
+    const id = `v${String(n + 1).padStart(2, '0')}`;
+    groepen.push({ id, soort: cluster.soort, leden });
+    for (const lid of leden) perModel.set(lid, id);
+  });
+
+  return { groepen, perModel };
 }
 
 /* -- kleuren --------------------------------------------------------------
@@ -341,6 +370,12 @@ for (const slug of kitSlugs) {
   });
 }
 
+const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
+for (const model of modellen) {
+  const groep = varianten.perModel.get(model.id);
+  if (groep) model.variant = groep;
+}
+
 /* -- zeldzame kleuren samenvoegen -----------------------------------------
  * Per palet, want een kleur uit de gedeelde atlas en een kleur uit de
  * grot-atlas zijn losse stalen; die mogen nooit in elkaar opgaan.
@@ -393,6 +428,7 @@ const catalogus = {
   // Zodat de catalogus in de browser de grens niet nog eens hoeft te kennen.
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
+  varianten: varianten.groepen,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,

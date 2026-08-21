@@ -37,6 +37,26 @@ const GROEP_ALIASSEN = {
 const ZWAAR_VANAF = 5000;
 
 /**
+ * Maatklasse op de langste as, afgezet tegen het raster van 1 unit (= één
+ * wand- of vloersegment). De grenzen liggen op een halve en anderhalve unit:
+ * daaronder is het iets wat je oppakt of op tafel zet, daarboven iets waar je
+ * omheen of overheen loopt. Dat splitst de collectie in 190 / 529 / 126 —
+ * de middenmoot is het grootst, en dat klopt: de meeste modellen zijn op het
+ * raster ontworpen.
+ */
+const MAATKLASSEN = [
+  { id: 'klein', teken: 'S', grens: 0.5, uitleg: 'klein — kleiner dan een halve unit' },
+  { id: 'middel', teken: 'M', grens: 1.5, uitleg: 'middel — een halve tot anderhalve unit' },
+  { id: 'groot', teken: 'L', grens: Infinity, uitleg: 'groot — meer dan anderhalve unit' },
+];
+
+function maatKlasse(wdh) {
+  const langste = Math.max(...wdh);
+  const klasse = MAATKLASSEN.find((k) => langste < k.grens) ?? MAATKLASSEN.at(-1);
+  return { ...klasse, langste };
+}
+
+/**
  * Driehoeken per 1×1×1 unit waarboven een model uit de pas loopt met de
  * stijlgids (§4). Los van ZWAAR_VANAF, want dat is een absolute telling: een
  * schip van 5000 driehoeken is groot, een kruk van 1500 is te fijn gemodelleerd
@@ -125,14 +145,10 @@ function koppelViewer(vak) {
   const viewer = document.createElement('model-viewer');
   viewer.src = vak.dataset.src;
   viewer.alt = vak.dataset.alt;
-  // Een geanimeerd model speelt zolang de kaart in beeld is. Zonder animatie
-  // staat `autoplay` er niet, want dan zet het alleen een renderlus aan die
-  // niets te tekenen heeft. De clipnaam staat in het dataset-veld, zodat een
-  // model met losse eenmalige clips niet zijn eerste clip staat te klapperen.
-  if (vak.dataset.animatie) {
-    viewer.setAttribute('autoplay', '');
-    viewer.setAttribute('animation-name', vak.dataset.animatie);
-  }
+  // Kaarten staan stil. Een rooster vol lopende animaties trekt de aandacht
+  // naar wat toevallig beweegt in plaats van naar wat je zoekt, en zet voor elk
+  // van die modellen een renderlus aan. Dat een model clips heeft zegt het
+  // glyfje op de kaart; afspelen doe je in het modelpaneel.
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('environment-image', 'neutral');
   viewer.setAttribute('shadow-intensity', '0.6');
@@ -165,17 +181,16 @@ function ontkoppelViewer(vak) {
   }
 }
 
-function maakKaart(model, kits, groepen, weergave) {
+/** Eén glyfje op de thumbnail: kort teken, volledige uitleg in de tooltip. */
+function glyf(soort, teken, uitleg) {
+  const el = span(`glyf glyf-${soort}`, teken);
+  el.title = uitleg;
+  return el;
+}
+
+function maakKaart(model, kits, groepen, weergave, varianten = []) {
   const kit = kits.get(model.kit);
   const groep = groepen.get(model.groep);
-  // Een catalogus zonder dit veld is er niet meer, maar hij is er wel geweest;
-  // zonder getal blijft de kaart bij wat hij altijd toonde.
-  const dichtheid = Number.isFinite(model.driehoekenPerUnit) ? model.driehoekenPerUnit : null;
-  const bovenBudget = dichtheid !== null && dichtheid > budgetPerUnit;
-  // Eén rood label voor twee redenen: veel driehoeken, of veel driehoeken op
-  // weinig ruimte. Wat er precies aan de hand is, staat in de tooltip en in het
-  // detailpaneel; op de kaart is het genoeg dat het opvalt.
-  const zwaar = model.driehoeken >= ZWAAR_VANAF || bovenBudget;
 
   const kaart = document.createElement('button');
   kaart.type = 'button';
@@ -186,24 +201,35 @@ function maakKaart(model, kits, groepen, weergave) {
   vak.className = 'kaart-viewer';
   vak.dataset.src = model.pad;
   vak.dataset.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
-  if (model.animaties?.length) vak.dataset.animatie = demoClip(model.animaties);
+
+  /* Glyfen op de thumbnail: de maat altijd, de rest alleen als er iets te
+     melden valt. Ze staan op het plaatje en niet in de tekstregel, want ze
+     zeggen iets over het model zelf en moeten in één oogopslag te scannen
+     zijn over het hele rooster. */
+  const maat = maatKlasse(model.wdh);
+  const glyfen = span('kaart-glyfen');
+  glyfen.append(glyf('maat', maat.teken, `${maat.uitleg} (langste as ${maat.langste.toFixed(2)})`));
+  if (model.animaties?.length) {
+    glyfen.append(glyf('animatie', '▶', `${model.animaties.length} animatie${model.animaties.length > 1 ? 's' : ''} — af te spelen in het modelpaneel`));
+  }
+  if (varianten.length) {
+    glyfen.append(glyf('variant', `⧉ ${varianten.length + 1}`,
+      `${varianten.length + 1} varianten van hetzelfde model — te bekijken in het modelpaneel`));
+  }
 
   const tekst = document.createElement('div');
   tekst.className = 'kaart-tekst';
   const meta = span('kaart-meta');
-  const tri = span(`kaart-tri${zwaar ? ' zwaar' : ''}`, `${getal.format(model.driehoeken)} tri`);
-  if (dichtheid !== null) {
-    tri.title = `${getal.format(dichtheid)} driehoeken per unit${bovenBudget ? ` — boven het budget van ${getal.format(budgetPerUnit)}` : ''}`;
-  }
   meta.append(
     span('kaart-merk', kit?.naam ?? model.kit),
-    tri,
     span('kaart-grootte', bytesLeesbaar(model.bytes)),
   );
   tekst.append(span('kaart-naam', model.naam), meta);
 
-  kaart.append(vak, tekst);
-  kaart.addEventListener('click', () => toonDetail(model, kit, groep));
+  // De glyfen liggen óver het viewervak, niet erin: koppelViewer() vervangt de
+  // inhoud van dat vak zodra de kaart in beeld komt en zou ze anders opruimen.
+  kaart.append(vak, glyfen, tekst);
+  kaart.addEventListener('click', () => toonDetail(model));
 
   // Het vinkje is een broer van de kaart, geen kind: een knop in een knop mag
   // niet, en zo blijft de kaart zelf onveranderd klikbaar naar het detail.
@@ -306,9 +332,18 @@ const detailViewer = document.querySelector('#detail-viewer');
 const detailKopieer = document.querySelector('#detail-kopieer');
 const detailAnimatie = document.querySelector('#detail-animatie');
 const detailAnimatieKeuze = document.querySelector('#detail-animatie-keuze');
+const detailVariant = document.querySelector('#detail-variant');
+const detailVariantKeuze = document.querySelector('#detail-variant-keuze');
 let actiefPad = '';
 
-function toonDetail(model, kit, groep) {
+/* Wat het detailpaneel nodig heeft om een model op te zoeken dat niet is
+ * aangeklikt: de varianten van het getoonde model staan in een keuzelijst, en
+ * daar hoort de kit en de groep van dát model bij. start() vult dit. */
+const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map() };
+
+function toonDetail(model) {
+  const kit = register.kits.get(model.kit);
+  const groep = register.groepen.get(model.groep);
   actiefPad = model.pad;
   document.querySelector('#detail-naam').textContent = model.naam;
   document.querySelector('#detail-herkomst').textContent =
@@ -361,30 +396,32 @@ function toonDetail(model, kit, groep) {
   viewer.setAttribute('shadow-softness', '0.9');
 
   /**
-   * Een gerigd model speelt zijn eerste clip; bij meer clips kun je kiezen.
-   * De draaitafel gaat dan uit: een schildpad die zwemt én ronddraait laat
-   * geen van beide goed zien. Bij een stilstaand model is dat rondje juist de
-   * enige manier om de achterkant te zien zonder te slepen.
+   * Ook hier staat een gerigd model eerst stil, net als op de kaart: je opent
+   * een model om het te bekijken, niet om ernaar te kijken. De keuzelijst begint
+   * op "uit" en draait op de draaitafel; kies je een clip, dan gaat die
+   * draaitafel uit — een schildpad die zwemt én ronddraait laat geen van beide
+   * goed zien.
    */
   const clips = model.animaties ?? [];
-  if (clips.length) {
-    viewer.setAttribute('autoplay', '');
-    viewer.setAttribute('animation-name', demoClip(clips));
-  } else {
-    viewer.setAttribute('auto-rotate', '');
-    viewer.setAttribute('rotation-per-second', '18deg');
-  }
+  viewer.setAttribute('auto-rotate', '');
+  viewer.setAttribute('rotation-per-second', '18deg');
 
-  detailAnimatie.hidden = clips.length < 2;
+  detailAnimatie.hidden = clips.length === 0;
   detailAnimatieKeuze.replaceChildren(
-    ...clips.map((naam) => {
-      const optie = document.createElement('option');
-      optie.value = naam;
-      optie.textContent = naam;
-      return optie;
-    }),
+    optie(UIT, 'uit (draaitafel)'),
+    // De volgorde van de kit zelf; demoClip() zegt welke clip het beste rondloopt
+    // en staat daarom als suggestie erbij.
+    ...clips.map((naam) => optie(naam, naam === demoClip(clips) && clips.length > 1 ? `${naam} (rondloop)` : naam)),
   );
-  if (clips.length) detailAnimatieKeuze.value = demoClip(clips);
+  detailAnimatieKeuze.value = UIT;
+
+  /* De varianten van dit model, het model zelf voorop. */
+  const leden = (register.varianten.get(model.variant) ?? [])
+    .map((id) => register.modellen.get(id))
+    .filter(Boolean);
+  detailVariant.hidden = leden.length < 2;
+  detailVariantKeuze.replaceChildren(...leden.map((v) => optie(v.id, v.kit === model.kit ? v.naam : `${v.naam} (${v.kit})`)));
+  detailVariantKeuze.value = model.id;
 
   detailViewer.replaceChildren(viewer);
 
@@ -392,8 +429,34 @@ function toonDetail(model, kit, groep) {
   werkSelectieBij();
 }
 
+/** Waarde van de "geen animatie"-optie; geen clip heet zo. */
+const UIT = '';
+
+function optie(waarde, tekst) {
+  const el = document.createElement('option');
+  el.value = waarde;
+  el.textContent = tekst;
+  return el;
+}
+
 detailAnimatieKeuze.addEventListener('change', () => {
-  detailViewer.querySelector('model-viewer')?.setAttribute('animation-name', detailAnimatieKeuze.value);
+  const viewer = detailViewer.querySelector('model-viewer');
+  if (!viewer) return;
+  const clip = detailAnimatieKeuze.value;
+  if (clip === UIT) {
+    viewer.pause();
+    viewer.removeAttribute('animation-name');
+    viewer.setAttribute('auto-rotate', '');
+  } else {
+    viewer.removeAttribute('auto-rotate');
+    viewer.setAttribute('animation-name', clip);
+    viewer.play();
+  }
+});
+
+detailVariantKeuze.addEventListener('change', () => {
+  const gekozen = register.modellen.get(detailVariantKeuze.value);
+  if (gekozen) toonDetail(gekozen);
 });
 
 detail.addEventListener('close', () => detailViewer.replaceChildren());
@@ -623,16 +686,49 @@ async function start() {
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
   const groepen = new Map(data.groepen.map((g) => [g.id, g]));
 
+  /* Het detailpaneel zoekt hierin een model op dat niet is aangeklikt: kies je
+   * in dat paneel een andere variant, dan moet die met kit en groep en al te
+   * vinden zijn. */
+  register.kits = kits;
+  register.groepen = groepen;
+  register.modellen = new Map(data.modellen.map((m) => [m.id, m]));
+  register.varianten = new Map((data.varianten ?? []).map((v) => [v.id, v.leden]));
+
   samenvatting.textContent =
     `${data.totaal} modellen · ${data.kits.length} kits · ` +
     `${data.groepen.filter((g) => g.aantal > 0).length} groepen · ` +
     `${data.paletten.length} kleurpaletten`;
 
+  /**
+   * Varianten van hetzelfde model — dezelfde muur in vijf metselpatronen, dezelfde
+   * staaf in vier metalen — krijgen samen één kaart, met het aantal in een glyfje.
+   * Anders vult één familie een halve sectie met kaarten die je op de thumbnail
+   * niet uit elkaar houdt. De rest zit achter die kaart, in het modelpaneel.
+   *
+   * Het samenvouwen gebeurt per sectie en niet één keer voor de hele catalogus:
+   * een variantgroep die over kits heen loopt hoort in de kitweergave nog steeds
+   * per kit één kaart te geven. Wie als eerste langskomt wordt de kaart, dus de
+   * sortering van de sectie bepaalt hem — niet een willekeurige keuze hier.
+   */
+  const vouwVarianten = (modellen) => {
+    const perGroep = new Map();
+    const uit = [];
+    for (const model of modellen) {
+      const bestaand = model.variant ? perGroep.get(model.variant) : null;
+      if (bestaand) { bestaand.varianten.push(model); continue; }
+      const item = { model, varianten: [] };
+      if (model.variant) perGroep.set(model.variant, item);
+      uit.push(item);
+    }
+    return uit;
+  };
+
   const registreer = (sectieDelen, titel, kleur, modellen) => {
     const { sectie, rooster, aantalEl } = sectieDelen;
     const eigen = [];
-    for (const model of modellen) {
-      const item = maakKaart(model, kits, groepen, sectie.dataset.weergave);
+    const gevouwen = vouwVarianten(modellen);
+    for (const { model, varianten } of gevouwen) {
+      const item = maakKaart(model, kits, groepen, sectie.dataset.weergave, varianten);
       rooster.append(item.element);
       eigen.push(item);
     }
@@ -641,7 +737,7 @@ async function start() {
       element: sectie,
       kaarten: eigen,
       aantalEl,
-      springitem: maakSpringitem(sectie, titel, modellen.length, kleur),
+      springitem: maakSpringitem(sectie, titel, gevouwen.length, kleur),
     });
   };
 
