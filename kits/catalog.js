@@ -21,9 +21,15 @@ const KIT_KLEUREN = {
   rocks: '#8a91ae',
 };
 
+/**
+ * Oude ankers die in bestaande links kunnen staan, naar hun huidige groep.
+ * `terrein` is gesplitst: de vloeren gingen naar de bouwwerken, de bodem naar
+ * `grond` — die laatste is de grootste helft, dus daar wijst het anker heen.
+ */
 const GROEP_ALIASSEN = {
   bouw: 'bouwwerken',
   mechaniek: 'items',
+  terrein: 'grond',
 };
 
 const ZWAAR_VANAF = 5000;
@@ -321,7 +327,8 @@ function toonDetail(model, kit, groep) {
     ],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
-    // Alleen de onderwater-kit is gerigd; bij de rest heeft de rij niets te melden.
+    // Geanimeerde modellen zijn er nu niet meer in de catalogus; de rij blijft
+    // staan zodat een gerigde kit meteen goed getoond wordt.
     ...(model.animaties?.length
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
@@ -637,9 +644,9 @@ async function start() {
   };
 
   // Kits die niet met de andere kits te mengen zijn, staan in een eigen tabblad:
-  // de grot met zijn eigen atlas, de onderwater-kit met zijn eigen
-  // materiaalkleuren. Welke dat zijn zegt de kit zelf (manifest.js → catalog.json),
-  // niet een gok hier — hun modellen zitten immers in geen enkel ander tabblad.
+  // nu alleen de grot, met zijn eigen atlas. Welke dat zijn zegt de kit zelf
+  // (manifest.js → catalog.json), niet een gok hier — hun modellen zitten
+  // immers in geen enkel ander tabblad.
   const opZichzelf = data.kits.filter((k) => k.tabblad);
   const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
 
@@ -674,7 +681,7 @@ async function start() {
     registreer(
       maakSectie({
         id: `groep-${groep.id}`,
-        weergave: groep.tabblad ?? 'groepen',
+        weergave: groep.tabblad ?? 'objects',
         soort: 'groep',
         titel: groep.naam,
         aantal: modellen.length,
@@ -723,11 +730,10 @@ async function start() {
   );
 
   /**
-   * De grot heeft geen sectie in de groepsweergave, dus #groep-grot bestaat niet;
-   * die link hoort naar de kit zelf te wijzen. Dat mag alleen als de groep
-   * nergens anders voorkomt: de onderwater-kit vult ook `dieren` en `rotsen`, en
-   * daar wonen de vissen van de survival-kit en de keien van alle andere kits —
-   * #groep-dieren moet dus gewoon naar de groepsweergave blijven gaan.
+   * De grot heeft geen sectie in de objectweergave, dus #groep-grot bestaat
+   * niet; die link hoort naar de kit zelf te wijzen. Dat mag alleen als de
+   * groep nergens anders voorkomt — een kit die een groep deelt met de andere
+   * kits mag zo'n anker niet naar zich toe trekken.
    */
   const groepenElders = new Set(
     data.modellen.filter((m) => !eigenTabblad.has(m.kit)).map((m) => m.groep),

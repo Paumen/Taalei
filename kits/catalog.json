@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node tools/build-catalog.mjs",
- "totaal": 927,
+ "totaal": 882,
  "budgetPerUnit": 1000,
  "kits": [
   {
@@ -98,18 +98,6 @@
    "tabblad": null,
    "toelichting": null,
    "palet": "gedeeld"
-  },
-  {
-   "slug": "onderwater-kit",
-   "naam": "Onderwater",
-   "kort": "Onderwater",
-   "url": "https://quaternius.com/",
-   "licentie": "kits/onderwater-kit/LICENSE.txt",
-   "licentieLabel": "CC0",
-   "aantal": 45,
-   "tabblad": "zee",
-   "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
-   "palet": "onderwater"
   },
   {
    "slug": "pirate-kit",
@@ -234,12 +222,12 @@
  ],
  "groepen": [
   {
-   "id": "terrein",
-   "naam": "Grond & terrein",
+   "id": "grond",
+   "naam": "Grond & bodemvlakken",
    "kort": "Grond",
    "kleur": "#8a5d4b",
-   "tabblad": "terrain",
-   "aantal": 20
+   "tabblad": "nature",
+   "aantal": 14
   },
   {
    "id": "grot",
@@ -261,21 +249,23 @@
    "naam": "Bouwpakket & molens",
    "kort": "Bouwpakket",
    "kleur": "#a8762a",
-   "tabblad": "bouwpakket",
-   "aantal": 225
+   "tabblad": "structures",
+   "aantal": 224
   },
   {
    "id": "bouwwerken",
    "naam": "Bouwwerken & platforms",
    "kort": "Bouwwerken",
    "kleur": "#877a63",
-   "aantal": 47
+   "tabblad": "structures",
+   "aantal": 53
   },
   {
    "id": "verbinding",
    "naam": "Trappen, bruggen & ladders",
    "kort": "Trappen & bruggen",
    "kleur": "#c98a5a",
+   "tabblad": "structures",
    "aantal": 35
   },
   {
@@ -283,6 +273,7 @@
    "naam": "Hekken, palen & poorten",
    "kort": "Hekken",
    "kleur": "#b08968",
+   "tabblad": "structures",
    "aantal": 35
   },
   {
@@ -290,6 +281,7 @@
    "naam": "Bomen & palmen",
    "kort": "Bomen",
    "kleur": "#3da679",
+   "tabblad": "nature",
    "aantal": 37
   },
   {
@@ -297,6 +289,7 @@
    "naam": "Planten, gras & bloemen",
    "kort": "Planten",
    "kleur": "#6cb588",
+   "tabblad": "nature",
    "aantal": 27
   },
   {
@@ -304,22 +297,23 @@
    "naam": "Koraal, zeewier & schelpen",
    "kort": "Zeebodem",
    "kleur": "#2fa39b",
-   "aantal": 18
+   "tabblad": "nature",
+   "aantal": 4
   },
   {
    "id": "rotsen",
    "naam": "Rotsen & stenen",
    "kort": "Rotsen",
    "kleur": "#9da4c4",
-   "tabblad": "rotsen",
-   "aantal": 126
+   "tabblad": "nature",
+   "aantal": 115
   },
   {
    "id": "huisraad",
    "naam": "Huisraad & meubels",
    "kort": "Huisraad",
    "kleur": "#c07c8a",
-   "aantal": 19
+   "aantal": 16
   },
   {
    "id": "schepen",
@@ -340,21 +334,29 @@
    "naam": "Eten & koken",
    "kort": "Eten",
    "kleur": "#9c3f2e",
-   "aantal": 22
+   "aantal": 19
   },
   {
    "id": "opslag",
    "naam": "Kisten & vaten",
    "kort": "Kisten",
    "kleur": "#dd9f79",
-   "aantal": 54
+   "aantal": 46
+  },
+  {
+   "id": "assemblies",
+   "naam": "Assemblies",
+   "kort": "Assemblies",
+   "kleur": "#b5651d",
+   "tabblad": "assemblies",
+   "aantal": 38
   },
   {
    "id": "grondstoffen",
    "naam": "Grondstoffen & voorraad",
    "kort": "Grondstoffen",
    "kleur": "#4f7d8c",
-   "aantal": 57
+   "aantal": 34
   },
   {
    "id": "gereedschap",
@@ -390,13 +392,6 @@
    "kort": "Licht",
    "kleur": "#f2cb45",
    "aantal": 18
-  },
-  {
-   "id": "dieren",
-   "naam": "Dieren",
-   "kort": "Dieren",
-   "kleur": "#3e8fd0",
-   "aantal": 20
   }
  ],
  "paletten": [
@@ -590,336 +585,6 @@
      "aantal": 1
     }
    ]
-  },
-  {
-   "id": "onderwater",
-   "naam": "Onderwater",
-   "atlas": null,
-   "toelichting": "Geen colormap: elk materiaal van deze kit draagt zijn eigen basiskleur.",
-   "kleuren": [
-    {
-     "hex": "#5a5c61",
-     "naam": "grijs",
-     "textuur": null,
-     "materiaal": "Rock",
-     "aantal": 11
-    },
-    {
-     "hex": "#e7e7e7",
-     "naam": "wit",
-     "textuur": null,
-     "materiaal": "Coral",
-     "aantal": 7
-    },
-    {
-     "hex": "#1b5f1d",
-     "naam": "donkergroen",
-     "textuur": null,
-     "materiaal": "Seaweed",
-     "aantal": 3
-    },
-    {
-     "hex": "#272a2f",
-     "naam": "donkergrijs",
-     "textuur": null,
-     "materiaal": "Orca",
-     "aantal": 2
-    },
-    {
-     "hex": "#1d1c22",
-     "naam": "donkergrijs",
-     "textuur": null,
-     "materiaal": "DoryBlack",
-     "aantal": 1
-    },
-    {
-     "hex": "#275f38",
-     "naam": "donkergroen",
-     "textuur": null,
-     "materiaal": "Eel",
-     "aantal": 1
-    },
-    {
-     "hex": "#2a2c51",
-     "naam": "donkerblauw",
-     "textuur": null,
-     "materiaal": "SharkDark",
-     "aantal": 1
-    },
-    {
-     "hex": "#2c50dd",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "DoryBlue",
-     "aantal": 1
-    },
-    {
-     "hex": "#323232",
-     "naam": "donkergrijs",
-     "textuur": null,
-     "materiaal": "PenguinBlack",
-     "aantal": 1
-    },
-    {
-     "hex": "#363636",
-     "naam": "donkergrijs",
-     "textuur": null,
-     "materiaal": "ClownFishBlack",
-     "aantal": 1
-    },
-    {
-     "hex": "#38723d",
-     "naam": "groen",
-     "textuur": null,
-     "materiaal": "Turtle",
-     "aantal": 1
-    },
-    {
-     "hex": "#49566b",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "Whale",
-     "aantal": 1
-    },
-    {
-     "hex": "#4d4f5a",
-     "naam": "grijs",
-     "textuur": null,
-     "materiaal": "Material",
-     "aantal": 1
-    },
-    {
-     "hex": "#4f5d7e",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "Dolphin",
-     "aantal": 1
-    },
-    {
-     "hex": "#523525",
-     "naam": "donkerbruin",
-     "textuur": null,
-     "materiaal": "TurtleShell",
-     "aantal": 1
-    },
-    {
-     "hex": "#586780",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "Hammerhead",
-     "aantal": 1
-    },
-    {
-     "hex": "#5e749c",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "Fish",
-     "aantal": 1
-    },
-    {
-     "hex": "#6974a0",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "SandDollar.001",
-     "aantal": 1
-    },
-    {
-     "hex": "#6ba069",
-     "naam": "groen",
-     "textuur": null,
-     "materiaal": "SandDollar.002",
-     "aantal": 1
-    },
-    {
-     "hex": "#755439",
-     "naam": "bruin",
-     "textuur": null,
-     "materiaal": "Seal",
-     "aantal": 1
-    },
-    {
-     "hex": "#84888f",
-     "naam": "lichtgrijs",
-     "textuur": null,
-     "materiaal": "OrcaSaddle",
-     "aantal": 1
-    },
-    {
-     "hex": "#88898e",
-     "naam": "lichtgrijs",
-     "textuur": null,
-     "materiaal": "OrcaSaddle",
-     "aantal": 1
-    },
-    {
-     "hex": "#a0885f",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "SandDollar",
-     "aantal": 1
-    },
-    {
-     "hex": "#a38876",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "BrownFish",
-     "aantal": 1
-    },
-    {
-     "hex": "#a96f72",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "RedPart",
-     "aantal": 1
-    },
-    {
-     "hex": "#a9b7cf",
-     "naam": "blauw",
-     "textuur": null,
-     "materiaal": "SharkLight",
-     "aantal": 1
-    },
-    {
-     "hex": "#afc2d0",
-     "naam": "lichtblauw",
-     "textuur": null,
-     "materiaal": "FishUnderside",
-     "aantal": 1
-    },
-    {
-     "hex": "#b1b4d7",
-     "naam": "lichtblauw",
-     "textuur": null,
-     "materiaal": "Underside",
-     "aantal": 1
-    },
-    {
-     "hex": "#b5bee7",
-     "naam": "lichtblauw",
-     "textuur": null,
-     "materiaal": "DolphinBelly",
-     "aantal": 1
-    },
-    {
-     "hex": "#c24c32",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "Octopus",
-     "aantal": 1
-    },
-    {
-     "hex": "#d4392d",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "Starfish",
-     "aantal": 1
-    },
-    {
-     "hex": "#d65725",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "CrabRed",
-     "aantal": 1
-    },
-    {
-     "hex": "#d78b5b",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "CrabWhite",
-     "aantal": 1
-    },
-    {
-     "hex": "#e0e0e0",
-     "naam": "wit",
-     "textuur": null,
-     "materiaal": "PenguinWhite",
-     "aantal": 1
-    },
-    {
-     "hex": "#e75178",
-     "naam": "roze",
-     "textuur": null,
-     "materiaal": "Material",
-     "aantal": 1
-    },
-    {
-     "hex": "#e76f54",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "Squid",
-     "aantal": 1
-    },
-    {
-     "hex": "#e79e26",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "PenguinBeak",
-     "aantal": 1
-    },
-    {
-     "hex": "#e7c776",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "Claws",
-     "aantal": 1
-    },
-    {
-     "hex": "#e7d636",
-     "naam": "geel",
-     "textuur": null,
-     "materiaal": "DoryYellow",
-     "aantal": 1
-    },
-    {
-     "hex": "#ec320c",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "Lobster",
-     "aantal": 1
-    },
-    {
-     "hex": "#f08e7c",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "Underside",
-     "aantal": 1
-    },
-    {
-     "hex": "#f1634b",
-     "naam": "rood",
-     "textuur": null,
-     "materiaal": "OctopusSuckers",
-     "aantal": 1
-    },
-    {
-     "hex": "#f64e00",
-     "naam": "oranje",
-     "textuur": null,
-     "materiaal": "ClownFishOrange",
-     "aantal": 1
-    },
-    {
-     "hex": "#f7f8f5",
-     "naam": "wit",
-     "textuur": null,
-     "materiaal": "OrcaWhite",
-     "aantal": 1
-    },
-    {
-     "hex": "#f9f7f2",
-     "naam": "lichtoranje",
-     "textuur": null,
-     "materiaal": "OrcaWhite",
-     "aantal": 1
-    },
-    {
-     "hex": "#ffffff",
-     "naam": "wit",
-     "textuur": null,
-     "materiaal": "ClownFishWhite",
-     "aantal": 1
-    }
-   ]
   }
  ],
  "modellen": [
@@ -927,7 +592,7 @@
    "id": "dungeon/barrel-large-decorated",
    "naam": "barrel-large-decorated",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -978,7 +643,7 @@
    "id": "dungeon/barrel-small-stack",
    "naam": "barrel-small-stack",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -1026,7 +691,7 @@
    "id": "dungeon/bed-decorated",
    "naam": "bed-decorated",
    "kit": "dungeon",
-   "groep": "huisraad",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -1215,7 +880,7 @@
    "id": "dungeon/box-small-decorated",
    "naam": "box-small-decorated",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -1260,7 +925,7 @@
    "id": "dungeon/box-stacked",
    "naam": "box-stacked",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -1463,7 +1128,7 @@
    "id": "dungeon/chest-gold",
    "naam": "chest-gold",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -1619,7 +1284,7 @@
    "id": "dungeon/crates-stacked",
    "naam": "crates-stacked",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -2311,7 +1976,7 @@
    "id": "dungeon/keg-decorated",
    "naam": "keg-decorated",
    "kit": "dungeon",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -2911,7 +2576,7 @@
    "id": "dungeon/table-long-decorated-a",
    "naam": "table-long-decorated-a",
    "kit": "dungeon",
-   "groep": "eten",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -2939,7 +2604,7 @@
    "id": "dungeon/table-long-decorated-c",
    "naam": "table-long-decorated-c",
    "kit": "dungeon",
-   "groep": "eten",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -3008,7 +2673,7 @@
    "id": "dungeon/table-medium-decorated-a",
    "naam": "table-medium-decorated-a",
    "kit": "dungeon",
-   "groep": "eten",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -3057,7 +2722,7 @@
    "id": "dungeon/table-small-decorated-a",
    "naam": "table-small-decorated-a",
    "kit": "dungeon",
-   "groep": "huisraad",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -3081,7 +2746,7 @@
    "id": "dungeon/table-small-decorated-b",
    "naam": "table-small-decorated-b",
    "kit": "dungeon",
-   "groep": "huisraad",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
@@ -3759,7 +3424,7 @@
    "id": "dungeon/wall-shelves",
    "naam": "wall-shelves",
    "kit": "dungeon",
-   "groep": "bouwpakket",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -6821,7 +6486,7 @@
    "id": "mini-dungeon/dirt",
    "naam": "dirt",
    "kit": "mini-dungeon",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44"
@@ -6842,7 +6507,7 @@
    "id": "mini-dungeon/floor-detail",
    "naam": "floor-detail",
    "kit": "mini-dungeon",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4"
@@ -6863,7 +6528,7 @@
    "id": "mini-dungeon/floor",
    "naam": "floor",
    "kit": "mini-dungeon",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4"
@@ -7218,7 +6883,7 @@
    "id": "mini-forest/patch-dirt",
    "naam": "patch-dirt",
    "kit": "mini-forest",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
@@ -7239,7 +6904,7 @@
    "id": "mini-forest/patch-grass",
    "naam": "patch-grass",
    "kit": "mini-forest",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679"
@@ -9993,7 +9658,7 @@
    "id": "modulair-terrein/mountain-a",
    "naam": "mountain-a",
    "kit": "modulair-terrein",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#88796d"
@@ -10014,7 +9679,7 @@
    "id": "modulair-terrein/mountain-b",
    "naam": "mountain-b",
    "kit": "modulair-terrein",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#88796d"
@@ -10035,7 +9700,7 @@
    "id": "modulair-terrein/mountain-c",
    "naam": "mountain-c",
    "kit": "modulair-terrein",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#88796d"
@@ -10056,7 +9721,7 @@
    "id": "modulair-terrein/mountain-d",
    "naam": "mountain-d",
    "kit": "modulair-terrein",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#88796d"
@@ -11115,7 +10780,7 @@
    "id": "nature/mountain-a",
    "naam": "mountain-a",
    "kit": "nature",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -11154,1075 +10819,6 @@
     1.706
    ],
    "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-a",
-   "naam": "coral-a",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-a.glb",
-   "bytes": 25536,
-   "driehoeken": 274,
-   "driehoekenPerUnit": 274,
-   "materialen": 1,
-   "wdh": [
-    0.442,
-    0.291,
-    0.903
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-b",
-   "naam": "coral-b",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-b.glb",
-   "bytes": 105076,
-   "driehoeken": 1332,
-   "driehoekenPerUnit": 925,
-   "materialen": 1,
-   "wdh": [
-    0.964,
-    1.41,
-    1.059
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-c",
-   "naam": "coral-c",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-c.glb",
-   "bytes": 65756,
-   "driehoeken": 866,
-   "driehoekenPerUnit": 776,
-   "materialen": 1,
-   "wdh": [
-    0.723,
-    0.633,
-    1.116
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-d",
-   "naam": "coral-d",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-d.glb",
-   "bytes": 119972,
-   "driehoeken": 1590,
-   "driehoekenPerUnit": 1590,
-   "materialen": 1,
-   "wdh": [
-    0.672,
-    0.625,
-    0.748
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-e",
-   "naam": "coral-e",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-e.glb",
-   "bytes": 61716,
-   "driehoeken": 946,
-   "driehoekenPerUnit": 808,
-   "materialen": 1,
-   "wdh": [
-    0.985,
-    0.692,
-    1.171
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-f",
-   "naam": "coral-f",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-f.glb",
-   "bytes": 64572,
-   "driehoeken": 740,
-   "driehoekenPerUnit": 740,
-   "materialen": 1,
-   "wdh": [
-    0.314,
-    0.479,
-    0.997
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/coral-g",
-   "naam": "coral-g",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e7e7e7"
-   ],
-   "pad": "kits/onderwater-kit/coral-g.glb",
-   "bytes": 47496,
-   "driehoeken": 755,
-   "driehoekenPerUnit": 755,
-   "materialen": 1,
-   "wdh": [
-    1.053,
-    0.909,
-    0.995
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/crab",
-   "naam": "crab",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#d65725",
-    "#d78b5b"
-   ],
-   "pad": "kits/onderwater-kit/crab.glb",
-   "bytes": 426816,
-   "driehoeken": 471,
-   "driehoekenPerUnit": 471,
-   "materialen": 2,
-   "wdh": [
-    0.957,
-    0.854,
-    0.565
-   ],
-   "calls": 2,
-   "animaties": [
-    "Idle",
-    "Armature|ArmatureAction",
-    "Armature|Idle",
-    "Armature|Walk"
-   ]
-  },
-  {
-   "id": "onderwater-kit/dolphin",
-   "naam": "dolphin",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#4f5d7e",
-    "#b5bee7"
-   ],
-   "pad": "kits/onderwater-kit/dolphin.glb",
-   "bytes": 122164,
-   "driehoeken": 468,
-   "driehoekenPerUnit": 294,
-   "materialen": 2,
-   "wdh": [
-    1.871,
-    0.85,
-    0.689
-   ],
-   "calls": 2,
-   "animaties": [
-    "ArmatureAction.001",
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/eel",
-   "naam": "eel",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#275f38"
-   ],
-   "pad": "kits/onderwater-kit/eel.glb",
-   "bytes": 104516,
-   "driehoeken": 733,
-   "driehoekenPerUnit": 733,
-   "materialen": 1,
-   "wdh": [
-    0.161,
-    1.771,
-    0.186
-   ],
-   "calls": 1,
-   "animaties": [
-    "Armature|Idle",
-    "Armature|Swim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/fish-brown",
-   "naam": "fish-brown",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#a38876",
-    "#a96f72"
-   ],
-   "pad": "kits/onderwater-kit/fish-brown.glb",
-   "bytes": 182596,
-   "driehoeken": 812,
-   "driehoekenPerUnit": 812,
-   "materialen": 2,
-   "wdh": [
-    0.241,
-    0.903,
-    0.368
-   ],
-   "calls": 2,
-   "animaties": [
-    "BrownFishArmature|BrownFish",
-    "BrownFishArmature|BrownFishArmature.001|BrownFishArmature|BrownFish|BrownFishArma",
-    "BrownFishArmature|BrownFishArmature.001|BrownFishArmature|ClownFish|BrownFishArma",
-    "BrownFishArmature|BrownFishArmature.001|BrownFishArmature|DorySwim|BrownFishArmat",
-    "BrownFishArmature|BrownFishArmature.001|BrownFishArmature|TunaSwim|BrownFishArmat",
-    "BrownFishArmature|ClownFish",
-    "BrownFishArmature|DorySwim",
-    "BrownFishArmature|TunaSwim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/fish-clown",
-   "naam": "fish-clown",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#363636",
-    "#f64e00",
-    "#ffffff"
-   ],
-   "pad": "kits/onderwater-kit/fish-clown.glb",
-   "bytes": 117156,
-   "driehoeken": 890,
-   "driehoekenPerUnit": 890,
-   "materialen": 3,
-   "wdh": [
-    0.222,
-    0.827,
-    0.478
-   ],
-   "calls": 3,
-   "animaties": [
-    "ClownFishArmature|ClownFish"
-   ]
-  },
-  {
-   "id": "onderwater-kit/fish-dory",
-   "naam": "fish-dory",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#1d1c22",
-    "#2c50dd",
-    "#e7d636"
-   ],
-   "pad": "kits/onderwater-kit/fish-dory.glb",
-   "bytes": 173920,
-   "driehoeken": 702,
-   "driehoekenPerUnit": 702,
-   "materialen": 3,
-   "wdh": [
-    0.248,
-    1.029,
-    0.435
-   ],
-   "calls": 3,
-   "animaties": [
-    "DoryArmature|BrownFish",
-    "DoryArmature|BrownFishArmature.001|BrownFishArmature|BrownFish|BrownFishArma",
-    "DoryArmature|BrownFishArmature.001|BrownFishArmature|ClownFish|BrownFishArma",
-    "DoryArmature|BrownFishArmature.001|BrownFishArmature|DorySwim|BrownFishArmat",
-    "DoryArmature|BrownFishArmature.001|BrownFishArmature|TunaSwim|BrownFishArmat",
-    "DoryArmature|ClownFish",
-    "DoryArmature|DorySwim",
-    "DoryArmature|TunaSwim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/fish-tuna",
-   "naam": "fish-tuna",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5e749c",
-    "#afc2d0"
-   ],
-   "pad": "kits/onderwater-kit/fish-tuna.glb",
-   "bytes": 99432,
-   "driehoeken": 752,
-   "driehoekenPerUnit": 752,
-   "materialen": 2,
-   "wdh": [
-    0.306,
-    1.03,
-    0.494
-   ],
-   "calls": 2,
-   "animaties": [
-    "TunaArmature|TunaSwim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/lobster",
-   "naam": "lobster",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#ec320c"
-   ],
-   "pad": "kits/onderwater-kit/lobster.glb",
-   "bytes": 461748,
-   "driehoeken": 1955,
-   "driehoekenPerUnit": 1955,
-   "materialen": 1,
-   "wdh": [
-    0.622,
-    1.406,
-    0.469
-   ],
-   "calls": 1,
-   "animaties": [
-    "Walk",
-    "ArmatureAction",
-    "LobsterArmature|Idle",
-    "LobsterArmature|Walk"
-   ]
-  },
-  {
-   "id": "onderwater-kit/octopus",
-   "naam": "octopus",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#c24c32",
-    "#f1634b"
-   ],
-   "pad": "kits/onderwater-kit/octopus.glb",
-   "bytes": 178708,
-   "driehoeken": 874,
-   "driehoekenPerUnit": 874,
-   "materialen": 2,
-   "wdh": [
-    0.88,
-    1.06,
-    0.769
-   ],
-   "calls": 2,
-   "animaties": [
-    "Armature|Dart",
-    "Armature|Idle",
-    "Armature|Walk"
-   ]
-  },
-  {
-   "id": "onderwater-kit/orca-calf",
-   "naam": "orca-calf",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#272a2f",
-    "#88898e",
-    "#f9f7f2"
-   ],
-   "pad": "kits/onderwater-kit/orca-calf.glb",
-   "bytes": 131176,
-   "driehoeken": 2922,
-   "driehoekenPerUnit": 2922,
-   "materialen": 3,
-   "wdh": [
-    0.865,
-    0.402,
-    0.252
-   ],
-   "calls": 8,
-   "animaties": [
-    "Swim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/orca",
-   "naam": "orca",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#272a2f",
-    "#84888f",
-    "#f7f8f5"
-   ],
-   "pad": "kits/onderwater-kit/orca.glb",
-   "bytes": 131160,
-   "driehoeken": 2922,
-   "driehoekenPerUnit": 1133,
-   "materialen": 3,
-   "wdh": [
-    2.331,
-    1.106,
-    0.898
-   ],
-   "calls": 8,
-   "animaties": [
-    "Swim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/penguin",
-   "naam": "penguin",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#323232",
-    "#e0e0e0",
-    "#e79e26"
-   ],
-   "pad": "kits/onderwater-kit/penguin.glb",
-   "bytes": 81684,
-   "driehoeken": 548,
-   "driehoekenPerUnit": 127,
-   "materialen": 3,
-   "wdh": [
-    1.771,
-    2.432,
-    0.8
-   ],
-   "calls": 3,
-   "animaties": [
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/rock-a",
-   "naam": "rock-a",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-a.glb",
-   "bytes": 5384,
-   "driehoeken": 45,
-   "driehoekenPerUnit": 45,
-   "materialen": 1,
-   "wdh": [
-    0.551,
-    0.543,
-    0.502
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-b",
-   "naam": "rock-b",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-b.glb",
-   "bytes": 10648,
-   "driehoeken": 87,
-   "driehoekenPerUnit": 87,
-   "materialen": 1,
-   "wdh": [
-    0.743,
-    0.799,
-    0.734
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-c",
-   "naam": "rock-c",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-c.glb",
-   "bytes": 10788,
-   "driehoeken": 108,
-   "driehoekenPerUnit": 72,
-   "materialen": 1,
-   "wdh": [
-    0.626,
-    0.593,
-    1.494
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-d",
-   "naam": "rock-d",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-d.glb",
-   "bytes": 18452,
-   "driehoeken": 182,
-   "driehoekenPerUnit": 140,
-   "materialen": 1,
-   "wdh": [
-    0.806,
-    0.559,
-    1.302
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-e",
-   "naam": "rock-e",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-e.glb",
-   "bytes": 3896,
-   "driehoeken": 20,
-   "driehoekenPerUnit": 20,
-   "materialen": 1,
-   "wdh": [
-    0.309,
-    0.415,
-    0.191
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-f",
-   "naam": "rock-f",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-f.glb",
-   "bytes": 3904,
-   "driehoeken": 20,
-   "driehoekenPerUnit": 20,
-   "materialen": 1,
-   "wdh": [
-    0.436,
-    0.425,
-    0.275
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-g",
-   "naam": "rock-g",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-g.glb",
-   "bytes": 6244,
-   "driehoeken": 46,
-   "driehoekenPerUnit": 46,
-   "materialen": 1,
-   "wdh": [
-    0.551,
-    0.623,
-    0.358
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-h",
-   "naam": "rock-h",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-h.glb",
-   "bytes": 5324,
-   "driehoeken": 36,
-   "driehoekenPerUnit": 36,
-   "materialen": 1,
-   "wdh": [
-    0.492,
-    0.559,
-    0.289
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-i",
-   "naam": "rock-i",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-i.glb",
-   "bytes": 3936,
-   "driehoeken": 20,
-   "driehoekenPerUnit": 20,
-   "materialen": 1,
-   "wdh": [
-    0.448,
-    0.513,
-    0.246
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-j",
-   "naam": "rock-j",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-j.glb",
-   "bytes": 2712,
-   "driehoeken": 8,
-   "driehoekenPerUnit": 8,
-   "materialen": 1,
-   "wdh": [
-    0.159,
-    0.202,
-    0.074
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/rock-k",
-   "naam": "rock-k",
-   "kit": "onderwater-kit",
-   "groep": "rotsen",
-   "palet": "onderwater",
-   "kleuren": [
-    "#5a5c61"
-   ],
-   "pad": "kits/onderwater-kit/rock-k.glb",
-   "bytes": 3712,
-   "driehoeken": 19,
-   "driehoekenPerUnit": 19,
-   "materialen": 1,
-   "wdh": [
-    0.171,
-    0.207,
-    0.041
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/sand-dollar",
-   "naam": "sand-dollar",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#a0885f"
-   ],
-   "pad": "kits/onderwater-kit/sand-dollar.glb",
-   "bytes": 39696,
-   "driehoeken": 454,
-   "driehoekenPerUnit": 454,
-   "materialen": 1,
-   "wdh": [
-    0.516,
-    0.511,
-    0.059
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/seal",
-   "naam": "seal",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#755439"
-   ],
-   "pad": "kits/onderwater-kit/seal.glb",
-   "bytes": 106320,
-   "driehoeken": 610,
-   "driehoekenPerUnit": 151,
-   "materialen": 1,
-   "wdh": [
-    1.543,
-    2.624,
-    0.75
-   ],
-   "calls": 1,
-   "animaties": [
-    "SealArmature|Idle",
-    "SealArmature|Shuffle",
-    "SealArmature|Swim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/seaweed-a",
-   "naam": "seaweed-a",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#1b5f1d"
-   ],
-   "pad": "kits/onderwater-kit/seaweed-a.glb",
-   "bytes": 734796,
-   "driehoeken": 860,
-   "driehoekenPerUnit": 860,
-   "materialen": 1,
-   "wdh": [
-    0.475,
-    0.673,
-    0.692
-   ],
-   "calls": 3,
-   "animaties": [
-    "Seaweed.002|Armature.001Action",
-    "Seaweed.002|Armature.002Action",
-    "Seaweed.002|ArmatureAction",
-    "Seaweed|Armature.001Action",
-    "Seaweed|Armature.002Action",
-    "Seaweed.001|Armature.001Action"
-   ]
-  },
-  {
-   "id": "onderwater-kit/seaweed-b",
-   "naam": "seaweed-b",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#1b5f1d"
-   ],
-   "pad": "kits/onderwater-kit/seaweed-b.glb",
-   "bytes": 137116,
-   "driehoeken": 320,
-   "driehoekenPerUnit": 320,
-   "materialen": 1,
-   "wdh": [
-    0.475,
-    0.673,
-    0.692
-   ],
-   "calls": 1,
-   "animaties": [
-    "Seaweed.001|Armature.001Action"
-   ]
-  },
-  {
-   "id": "onderwater-kit/seaweed-c",
-   "naam": "seaweed-c",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#1b5f1d"
-   ],
-   "pad": "kits/onderwater-kit/seaweed-c.glb",
-   "bytes": 364768,
-   "driehoeken": 176,
-   "driehoekenPerUnit": 176,
-   "materialen": 1,
-   "wdh": [
-    0.345,
-    0.285,
-    0.46
-   ],
-   "calls": 1,
-   "animaties": [
-    "Seaweed.002|Armature.001Action",
-    "Seaweed.002|Armature.002Action",
-    "Seaweed.002|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/shark-hammerhead",
-   "naam": "shark-hammerhead",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#586780",
-    "#b1b4d7"
-   ],
-   "pad": "kits/onderwater-kit/shark-hammerhead.glb",
-   "bytes": 90908,
-   "driehoeken": 403,
-   "driehoekenPerUnit": 58,
-   "materialen": 2,
-   "wdh": [
-    1.861,
-    3.414,
-    1.092
-   ],
-   "calls": 2,
-   "animaties": [
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/shark",
-   "naam": "shark",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#2a2c51",
-    "#a9b7cf",
-    "#e7c776"
-   ],
-   "pad": "kits/onderwater-kit/shark.glb",
-   "bytes": 320836,
-   "driehoeken": 1854,
-   "driehoekenPerUnit": 1854,
-   "materialen": 3,
-   "wdh": [
-    0.514,
-    0.846,
-    0.318
-   ],
-   "calls": 3,
-   "animaties": [
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/shell-clam",
-   "naam": "shell-clam",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#6974a0"
-   ],
-   "pad": "kits/onderwater-kit/shell-clam.glb",
-   "bytes": 9940,
-   "driehoeken": 116,
-   "driehoekenPerUnit": 116,
-   "materialen": 1,
-   "wdh": [
-    0.498,
-    0.565,
-    0.078
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/shell-scallop",
-   "naam": "shell-scallop",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#6ba069"
-   ],
-   "pad": "kits/onderwater-kit/shell-scallop.glb",
-   "bytes": 9928,
-   "driehoeken": 116,
-   "driehoekenPerUnit": 116,
-   "materialen": 1,
-   "wdh": [
-    0.52,
-    0.546,
-    0.076
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/shell-spiral",
-   "naam": "shell-spiral",
-   "kit": "onderwater-kit",
-   "groep": "zeebodem",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e75178"
-   ],
-   "pad": "kits/onderwater-kit/shell-spiral.glb",
-   "bytes": 107488,
-   "driehoeken": 1332,
-   "driehoekenPerUnit": 1332,
-   "materialen": 1,
-   "wdh": [
-    0.861,
-    0.472,
-    0.439
-   ],
-   "calls": 1
-  },
-  {
-   "id": "onderwater-kit/squid",
-   "naam": "squid",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#e76f54"
-   ],
-   "pad": "kits/onderwater-kit/squid.glb",
-   "bytes": 163448,
-   "driehoeken": 695,
-   "driehoekenPerUnit": 695,
-   "materialen": 1,
-   "wdh": [
-    0.169,
-    0.736,
-    0.147
-   ],
-   "calls": 1,
-   "animaties": [
-    "SquidArmature|SquidIdle",
-    "SquidArmature|SquidPropulsion"
-   ]
-  },
-  {
-   "id": "onderwater-kit/starfish",
-   "naam": "starfish",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#d4392d",
-    "#f08e7c"
-   ],
-   "pad": "kits/onderwater-kit/starfish.glb",
-   "bytes": 62248,
-   "driehoeken": 360,
-   "driehoekenPerUnit": 360,
-   "materialen": 2,
-   "wdh": [
-    0.645,
-    0.625,
-    0.052
-   ],
-   "calls": 2,
-   "animaties": [
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/stingray",
-   "naam": "stingray",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#4d4f5a"
-   ],
-   "pad": "kits/onderwater-kit/stingray.glb",
-   "bytes": 52376,
-   "driehoeken": 312,
-   "driehoekenPerUnit": 312,
-   "materialen": 1,
-   "wdh": [
-    0.518,
-    0.969,
-    0.143
-   ],
-   "calls": 1,
-   "animaties": [
-    "Armature|ArmatureAction"
-   ]
-  },
-  {
-   "id": "onderwater-kit/turtle",
-   "naam": "turtle",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#38723d",
-    "#523525"
-   ],
-   "pad": "kits/onderwater-kit/turtle.glb",
-   "bytes": 109152,
-   "driehoeken": 737,
-   "driehoekenPerUnit": 737,
-   "materialen": 2,
-   "wdh": [
-    0.946,
-    0.992,
-    0.37
-   ],
-   "calls": 2,
-   "animaties": [
-    "TurtleArmature|Idle",
-    "TurtleArmature|Swim"
-   ]
-  },
-  {
-   "id": "onderwater-kit/whale",
-   "naam": "whale",
-   "kit": "onderwater-kit",
-   "groep": "dieren",
-   "palet": "onderwater",
-   "kleuren": [
-    "#49566b"
-   ],
-   "pad": "kits/onderwater-kit/whale.glb",
-   "bytes": 100524,
-   "driehoeken": 615,
-   "driehoekenPerUnit": 615,
-   "materialen": 1,
-   "wdh": [
-    0.367,
-    1.057,
-    0.329
-   ],
-   "calls": 1,
-   "animaties": [
-    "Armature|Swim"
-   ]
   },
   {
    "id": "pirate-kit/boat-row-large",
@@ -12411,7 +11007,7 @@
    "id": "pirate-kit/crate-bottles",
    "naam": "crate-bottles",
    "kit": "pirate-kit",
-   "groep": "opslag",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679",
@@ -12503,7 +11099,7 @@
    "id": "pirate-kit/hole",
    "naam": "hole",
    "kit": "pirate-kit",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
@@ -12660,7 +11256,7 @@
    "id": "pirate-kit/patch-grass-foliage",
    "naam": "patch-grass-foliage",
    "kit": "pirate-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679"
@@ -12681,7 +11277,7 @@
    "id": "pirate-kit/patch-grass",
    "naam": "patch-grass",
    "kit": "pirate-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679"
@@ -12702,7 +11298,7 @@
    "id": "pirate-kit/patch-sand-foliage",
    "naam": "patch-sand-foliage",
    "kit": "pirate-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
@@ -12723,7 +11319,7 @@
    "id": "pirate-kit/patch-sand",
    "naam": "patch-sand",
    "kit": "pirate-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79"
@@ -14622,7 +13218,7 @@
    "id": "resources/copper-bars-stack-large",
    "naam": "copper-bars-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -14646,7 +13242,7 @@
    "id": "resources/copper-bars-stack-medium",
    "naam": "copper-bars-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -14670,7 +13266,7 @@
    "id": "resources/copper-bars-stack-small",
    "naam": "copper-bars-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -14694,7 +13290,7 @@
    "id": "resources/copper-bars",
    "naam": "copper-bars",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -14837,7 +13433,7 @@
    "id": "resources/gold-bars-stack-large",
    "naam": "gold-bars-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
@@ -14859,7 +13455,7 @@
    "id": "resources/gold-bars-stack-medium",
    "naam": "gold-bars-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
@@ -14881,7 +13477,7 @@
    "id": "resources/gold-bars-stack-small",
    "naam": "gold-bars-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
@@ -14903,7 +13499,7 @@
    "id": "resources/gold-bars",
    "naam": "gold-bars",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
@@ -15037,7 +13633,7 @@
    "id": "resources/iron-bars-stack-large",
    "naam": "iron-bars-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -15059,7 +13655,7 @@
    "id": "resources/iron-bars-stack-medium",
    "naam": "iron-bars-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -15081,7 +13677,7 @@
    "id": "resources/iron-bars-stack-small",
    "naam": "iron-bars-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -15103,7 +13699,7 @@
    "id": "resources/iron-bars",
    "naam": "iron-bars",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
@@ -15334,7 +13930,7 @@
    "id": "resources/silver-bars-stack-large",
    "naam": "silver-bars-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
@@ -15356,7 +13952,7 @@
    "id": "resources/silver-bars-stack-medium",
    "naam": "silver-bars-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
@@ -15378,7 +13974,7 @@
    "id": "resources/silver-bars-stack-small",
    "naam": "silver-bars-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
@@ -15400,7 +13996,7 @@
    "id": "resources/silver-bars",
    "naam": "silver-bars",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
@@ -15536,7 +14132,7 @@
    "id": "resources/stone-bricks-stack-large",
    "naam": "stone-bricks-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
@@ -15562,7 +14158,7 @@
    "id": "resources/stone-bricks-stack-medium",
    "naam": "stone-bricks-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
@@ -15588,7 +14184,7 @@
    "id": "resources/stone-bricks-stack-small",
    "naam": "stone-bricks-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
@@ -15733,7 +14329,7 @@
    "id": "resources/wood-log-stack",
    "naam": "wood-log-stack",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -15821,7 +14417,7 @@
    "id": "resources/wood-planks-stack-large",
    "naam": "wood-planks-stack-large",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -15846,7 +14442,7 @@
    "id": "resources/wood-planks-stack-medium",
    "naam": "wood-planks-stack-medium",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -15871,7 +14467,7 @@
    "id": "resources/wood-planks-stack-small",
    "naam": "wood-planks-stack-small",
    "kit": "resources",
-   "groep": "grondstoffen",
+   "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
@@ -17559,7 +16155,7 @@
    "id": "survival-kit/floor-hole",
    "naam": "floor-hole",
    "kit": "survival-kit",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
@@ -17580,7 +16176,7 @@
    "id": "survival-kit/floor-old",
    "naam": "floor-old",
    "kit": "survival-kit",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
@@ -17601,7 +16197,7 @@
    "id": "survival-kit/floor",
    "naam": "floor",
    "kit": "survival-kit",
-   "groep": "terrein",
+   "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56"
@@ -17622,7 +16218,7 @@
    "id": "survival-kit/patch-grass-large",
    "naam": "patch-grass-large",
    "kit": "survival-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679"
@@ -17643,7 +16239,7 @@
    "id": "survival-kit/patch-grass",
    "naam": "patch-grass",
    "kit": "survival-kit",
-   "groep": "terrein",
+   "groep": "grond",
    "palet": "gedeeld",
    "kleuren": [
     "#3da679"

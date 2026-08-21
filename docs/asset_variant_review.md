@@ -2,8 +2,9 @@
 
 Welke modellen in de collectie zijn varianten van elkaar — hetzelfde model,
 met alleen een andere kleur, een andere maat, of een klein verschil in
-samenstelling of detail? Gemeten over alle 927 modellen uit
-`kits/catalog.json` met `node tools/vind-varianten.mjs`. De uitkomst staat in
+samenstelling of detail? Gemeten over alle 882 modellen uit
+`kits/catalog.json` (de onderwater-kit staat wel in de repo maar niet in de
+catalogus, en doet dus niet mee) met `node tools/vind-varianten.mjs`. De uitkomst staat in
 `docs/asset_variants.json`; per groep staat een plaat met de leden op ware
 grootte naast elkaar in `docs/asset_variant_review/`, te regenereren met
 
@@ -46,7 +47,7 @@ komt uit die meting; §3 zegt welke groepen bij naslag geen echte variant zijn.
 
 ## 1. Wat er ligt
 
-**40 groepen, samen 119 modellen — 13% van de collectie.** Vijf groepen lopen
+**40 groepen, samen 119 modellen — 13,5% van de catalogus.** Vijf groepen lopen
 over kitgrenzen heen, de rest zit binnen één kit.
 
 | soort | groepen | wat het betekent |

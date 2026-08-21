@@ -46,6 +46,7 @@ function leesKitMetadata() {
       url: kit.url,
       tabblad: kit.tabblad ?? null,
       toelichting: kit.toelichting ?? null,
+      buitenCatalogus: kit.buitenCatalogus === true,
       // Alle kits zijn CC0; alleen een kit met gemengde herkomst zegt het zelf.
       licentieLabel: kit.licentieLabel ?? 'CC0',
     });
@@ -239,8 +240,12 @@ function schrijfVersie() {
 
 const kitMeta = leesKitMetadata();
 const palet = leesPalet();
+/* Een kit met "buitenCatalogus" in manifest.js staat wél in de repo maar doet
+ * niet mee: geen modellen, geen groepen, geen kleuren. De bestanden blijven
+ * waar ze zijn, en één regel in het manifest zet de kit weer terug. */
 const kitSlugs = readdirSync(KITS_DIR)
   .filter((naam) => statSync(join(KITS_DIR, naam)).isDirectory())
+  .filter((naam) => !kitMeta.get(naam)?.buitenCatalogus)
   .sort();
 
 const kits = [];
@@ -377,16 +382,20 @@ const catalogus = {
     aantal: modellen.filter((m) => m.groep === g.id).length,
   })),
   // Alleen cellen die daadwerkelijk aan een bestaand model hangen; op donkerste
-  // eerst, zodat de filterbalk een herkenbare volgorde houdt.
-  paletten: palet.paletten.map((p) => ({
-    id: p.id,
-    naam: p.naam,
-    atlas: p.atlas,
-    toelichting: p.toelichting,
-    kleuren: [...p.cellen.values()]
-      .filter((k) => k.aantal > 0)
-      .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
-  })),
+  // eerst, zodat de filterbalk een herkenbare volgorde houdt. Een palet
+  // waarvan geen enkel model meer in de catalogus staat — zoals dat van een
+  // kit met "buitenCatalogus" — valt in zijn geheel weg.
+  paletten: palet.paletten
+    .map((p) => ({
+      id: p.id,
+      naam: p.naam,
+      atlas: p.atlas,
+      toelichting: p.toelichting,
+      kleuren: [...p.cellen.values()]
+        .filter((k) => k.aantal > 0)
+        .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
+    }))
+    .filter((p) => p.kleuren.length > 0),
   modellen,
 };
 

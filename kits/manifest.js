@@ -325,8 +325,12 @@ window.KENNEY_KITS = [
   "slug": "onderwater-kit",
   "name": "Onderwater",
   "url": "https://quaternius.com/",
-  /* Eigen tabblad: geen colormap maar eigen materiaalkleuren, en geanimeerd. */
-  "tabblad": "zee",
+  /* Staat niet in de catalogus (besluit PO): de bestanden blijven in de repo,
+     maar build-catalog.mjs slaat de kit over. De metadata blijft hier staan
+     zodat het weghalen van deze ene regel de kit terugzet. Het tabblad Zee dat
+     hier stond bestaat niet meer; een eigen tabblad zou hij weer nodig hebben,
+     want hij deelt de colormap niet. */
+  "buitenCatalogus": true,
   "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
   "models": [
    "coral-a",
