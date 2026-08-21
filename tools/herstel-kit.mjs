@@ -682,6 +682,51 @@ for (const model of modellen) {
 }
 console.log(`${modellen.length} modellen herschreven: ${herschreven} van ${totaal} UV's aangepast`);
 
+/* -- nabehandeling van modellen zonder bron ---------------------------------
+ * Een samengevoegd model (tools/voeg-samen.mjs) heeft geen byte-gelijke bron
+ * meer en kan niet langs de eilanden. Zijn kleuren kunnen wél per band mee
+ * verhuizen met de rest van de kit: dezelfde rij in een andere band. En zijn
+ * cellen moeten hoe dan ook in kits/palet.json blijven staan, anders slaat
+ * het kleurfilter hem over.
+ */
+const NABEHANDELING = {
+  'props/bucket-a': { '12,0': '14,0' }, // het hout van de emmer mee naar de houtband
+};
+for (const naam of zonderBron) {
+  const glb = leesGlb(join(KIT, `${naam}.glb`));
+  const bin = Buffer.from(glb.bin);
+  const verhuis = NABEHANDELING[`${kitNaam}/${naam}`] ?? {};
+  let verhuisd = 0;
+  for (const mesh of glb.json.meshes) {
+    for (const prim of mesh.primitives) {
+      if (prim.attributes.TEXCOORD_0 === undefined) continue;
+      const lig = ligging(glb, prim.attributes.TEXCOORD_0);
+      for (let j = 0; j < lig.count; j++) {
+        const positie = lig.start + j * lig.stap;
+        const u = bin.readFloatLE(positie);
+        const v = bin.readFloatLE(positie + 4);
+        let cel = `${Math.floor(Math.min(0.999, u) * KOLOMMEN)},${Math.floor(Math.min(0.999, v) * RIJEN)}`;
+        if (verhuis[cel]) {
+          const doel = verhuis[cel];
+          const [kolomBron, rijBron] = cel.split(',').map(Number);
+          const [kolomDoel, rijDoel] = doel.split(',').map(Number);
+          if (!banden.has(doel)) throw new Error(`nabehandeling ${naam}: band ${doel} bestaat niet`);
+          bin.writeFloatLE(banden.get(doel)[0].u, positie);
+          bin.writeFloatLE(Math.fround(v + (rijDoel - rijBron) / RIJEN), positie + 4);
+          verhuisd++;
+          cel = doel;
+        }
+        if (!perCel.has(cel)) perCel.set(cel, new Set());
+        perCel.get(cel).add(naam);
+      }
+    }
+  }
+  if (verhuisd) {
+    schrijfGlb(join(KIT, `${naam}.glb`), glb.json, bin);
+    console.log(`${naam}: ${verhuisd} UV's meeverhuisd naar de banden van de kit`);
+  }
+}
+
 /* Volledige eilandtabel voor wie een pin wil zetten: sleutel (dominante
  * kleur), gekozen band en omvang, grootste eerst. */
 writeFileSync(`herstel-${kitNaam}-eilanden.json`, `${JSON.stringify(
