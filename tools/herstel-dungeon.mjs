@@ -303,8 +303,16 @@ for (const bestand of readdirSync(KIT).filter((f) => f.endsWith('.glb')).sort())
   if (!bronNaam) throw new Error(`geen bronmodel voor ${naam}`);
   const bron = leesGltf(join(bronMap, `${bronNaam}.gltf`));
   const kitGlb = leesGlb(join(KIT, bestand));
+  if (bron.json.meshes.length !== kitGlb.json.meshes.length) {
+    throw new Error(`${naam}: ${kitGlb.json.meshes.length} meshes in de kit, `
+      + `${bron.json.meshes.length} in de bron — is de juiste pack-versie gebruikt?`);
+  }
   const primitives = [];
   for (let m = 0; m < kitGlb.json.meshes.length; m++) {
+    if (bron.json.meshes[m].primitives.length !== kitGlb.json.meshes[m].primitives.length) {
+      throw new Error(`${naam}: mesh ${m} heeft ${kitGlb.json.meshes[m].primitives.length} primitives `
+        + `in de kit en ${bron.json.meshes[m].primitives.length} in de bron`);
+    }
     for (let p = 0; p < kitGlb.json.meshes[m].primitives.length; p++) {
       const bronPrim = bron.json.meshes[m].primitives[p];
       const kitPrim = kitGlb.json.meshes[m].primitives[p];
