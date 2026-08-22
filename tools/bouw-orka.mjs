@@ -3,7 +3,7 @@
  * orca-calf.glb.
  *
  * Draai vanuit de repo-root:  node tools/bouw-orka.mjs
- * Controleer daarna met:      node tools/toets-orka.mjs
+ * Controleer daarna met:      node tools/build-catalog.mjs
  *
  * De twee zijn de enige modellen in deze kit die niet van Quaternius komen:
  * de pack heeft een walvis, een dolfijn en twee haaien, maar geen orka. Ze
@@ -49,9 +49,8 @@
  * Het kalf draagt dezelfde drie plekken in eigen kleuren: zijn wit is warmer
  * (#f9f7f2) en zijn zadel iets lichter (#88898e). Dat is geen slordigheid maar
  * het verschil dat je bij een pasgeboren orka ziet — die is roomkleurig tot
- * perzik waar een volwassen dier wit is. De hexen hierboven staan als cellen
- * in het `onderwater`-palet van kits/palet.json; ze komen daar uit dit script,
- * dat ze bij elke bouw afdrukt.
+ * perzik waar een volwassen dier wit is. De hexen hierboven zijn de
+ * materiaalkleuren van het model zelf; dit script drukt ze bij elke bouw af.
  *
  * PO-notities:
  *   - Geen transparantie, geen emissive, metallic 0, roughness 0,75 zoals de
@@ -660,13 +659,13 @@ function gewichten(x) {
 /* -- glTF ------------------------------------------------------------------ */
 
 const MATERIALEN = {
-  /* Lineaire basiskleuren; het script drukt ze als sRGB-hex af voor palet.json. */
+  /* Lineaire basiskleuren; het script drukt ze als sRGB-hex af. */
   orka: { naam: 'Orca', volwassen: [0.02, 0.023, 0.028], kalf: [0.02, 0.023, 0.028] },
   wit: { naam: 'OrcaWhite', volwassen: [0.93, 0.935, 0.915], kalf: [0.945, 0.928, 0.892] },
   zadel: { naam: 'OrcaSaddle', volwassen: [0.23, 0.245, 0.275], kalf: [0.245, 0.25, 0.272] },
 };
 
-/** Lineaire kleur → sRGB-hex, zoals de kleuren in palet.json staan. */
+/** Lineaire kleur → sRGB-hex, zoals de catalogus ze toont. */
 function hex(kleur) {
   return (
     '#' +

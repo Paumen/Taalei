@@ -8,15 +8,16 @@ For an LLM creating or adjusting assets.
 - Detail count stays low.
 
 ## 1. Color
-- Colors come from `palet.json`.
-- One shared colormap image: assets color themselves by pointing UVs at its cells.
+- Colors come from the shared colormap image (`kits/colormap.png`): assets color
+  themselves by pointing UVs at its bands. The model is the record — the catalog
+  reads the colors straight out of the `.glb`, so there is no list to keep in sync.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
 - Onderwater kit is exempt too: imported pack, no colormap at all. Each material carries
-  its own base colour, listed as the `onderwater` palette in `palet.json`. Do not remap it
-  to the shared colormap — that would recolour every species. New sea assets either join
-  that palette or use the shared colormap; say which.
+  its own base colour in its `baseColorFactor`. Do not remap it to the shared colormap —
+  that would recolour every species. New sea assets either carry their own material
+  colours or use the shared colormap; say which.
 - defaults:
 * alphaMode: "OPAQUE"
 * roughnessFactor: 1

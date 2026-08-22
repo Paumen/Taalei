@@ -10,12 +10,13 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
-import { leesGlb, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { leesPng, KOLOMMEN, RIJEN } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -93,113 +94,116 @@ function leesVarianten(idsInCatalogus) {
 }
 
 /* -- kleuren --------------------------------------------------------------
- * kits/palet.json beschrijft per palet, per cel van de bijbehorende colormap,
- * welke modellen die kleur gebruiken. We draaien dat om naar model → kleuren,
- * zodat je in de catalogus op kleur kunt filteren.
+ * Uit het model zelf, niet uit een lijst ernaast. Een model draagt zijn kleur
+ * op één van twee manieren, en allebei staan ze in de .glb:
  *
- * Er zijn twee paletten, want er zijn twee atlassen: de zes kits die de
- * gedeelde kits/colormap.png gebruiken, en de grot met zijn eigen sheet. Een
- * model hoort bij precies één palet; dezelfde hex in beide paletten is dus
- * niet dezelfde filterknop.
+ *   - met een colormap: het materiaal wijst naar Textures/colormap.png en de
+ *     UV's prikken een punt in die atlas. De kleur is de pixel waar ze landen.
+ *   - zonder: het materiaal draagt een baseColorFactor. Dat doet de
+ *     onderwater-kit, die uit een pack komt zonder atlas.
+ *
+ * Zo kan de kleurfilter niet uit de pas lopen met de modellen: er ís geen
+ * tweede administratie meer die bijgewerkt moet worden na een omkleuring.
+ *
+ * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN in kleurmap.mjs).
+ * Een baan is horizontaal één kleur en loopt verticaal van licht naar donker,
+ * want de schaduw zit in de textuur gebakken. Wélke banen een model gebruikt
+ * komt dus uit het model; wat een baan voor kleur ís, staat in de sheet. Het
+ * staal op de filterknop is de pixel halverwege de baan: de kleur waar een
+ * belicht vlak op uitkomt, en dezelfde die een mens eerder met de hand voor
+ * deze banen had gekozen.
+ *
+ * Niet de meest gebruikte pixel: in baan 5,0 ligt de donkerste rij (15,5% van
+ * het oppervlak) zo dicht bij een rij vlak onder de top (15,0%) dat één model
+ * erbij de hele balk van licht naar donker zou kantelen.
  */
-function leesPalet() {
-  const bestand = JSON.parse(readFileSync(join(KITS_DIR, 'palet.json'), 'utf8'));
-  const perModel = new Map(); // 'kit/model' → { palet, hexen: Set(hex) }
-  const paletten = [];
 
-  for (const palet of bestand.paletten ?? []) {
-    const cellen = new Map(); // hex → { hex, naam, textuur, aantal }
+const atlassen = new Map(); // pad → { pixels, breedte, hoogte, sleutel }
 
-    for (const cel of palet.cellen ?? []) {
-      const hex = String(cel.kleur).toLowerCase();
-      if (!cellen.has(hex)) {
-        // `textuur` bij een atlascel, `materiaal` bij een kit zonder atlas:
-        // allebei het antwoord op "waar komt deze kleur vandaan?".
-        cellen.set(hex, {
-          hex,
-          naam: kleurNaam(hex),
-          textuur: cel.textuur ?? null,
-          materiaal: cel.materiaal ?? null,
-          aantal: 0,
-        });
-      }
-      for (const bron of cel.bronnen ?? []) {
-        for (const model of bron.modellen ?? []) {
-          const sleutel = `${bron.kit}/${model}`;
-          const bestaand = perModel.get(sleutel);
-          if (!bestaand) {
-            perModel.set(sleutel, { palet: palet.id, hexen: new Set([hex]) });
-          } else if (bestaand.palet !== palet.id) {
-            // De scheiding is het hele punt: één model mag niet uit twee
-            // atlassen tegelijk komen, anders zegt het kleurfilter niets meer.
-            throw new Error(
-              `${sleutel} staat zowel in palet '${bestaand.palet}' als in '${palet.id}'`,
-            );
-          } else {
-            bestaand.hexen.add(hex);
-          }
-        }
-      }
-    }
-
-    paletten.push({
-      id: palet.id,
-      naam: palet.naam,
-      atlas: palet.atlas ?? null,
-      toelichting: palet.toelichting ?? null,
-      drempel: palet.drempel ?? bestand.drempel ?? SAMENVOEG_ONDER,
-      cellen,
-    });
+function leesAtlas(pad) {
+  if (!atlassen.has(pad)) {
+    const png = leesPng(pad);
+    // De sleutel is de inhoud, niet het pad: elke kit draagt zijn eigen kopie
+    // van kits/colormap.png omdat de .glb er met een relatief pad naar wijst.
+    // Byte voor byte dezelfde sheet is hetzelfde palet.
+    const sleutel = createHash('sha256').update(readFileSync(pad)).digest('hex').slice(0, 12);
+    atlassen.set(pad, { ...png, sleutel });
   }
-
-  return { perModel, paletten };
+  return atlassen.get(pad);
 }
 
+/** glTF bewaart baseColorFactor lineair; op het scherm staat sRGB. */
+function naarSrgb(lineair) {
+  const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
+  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
+}
+
+const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
+
 /**
- * Cellen die aan minder dan zoveel modellen hangen, gaan op in de
- * dichtstbijzijnde kleur die wél blijft. Een staal voor één model levert een
- * filterknop op die niets filtert; de kleuren liggen bovendien zo dicht bij
- * elkaar dat het onderscheid op het scherm toch niet te zien is.
+ * Wat een model aan kleur draagt: per primitive het materiaal opzoeken en
+ * ofwel de atlas uitlezen, ofwel de materiaalkleur overnemen.
  *
- * Dit is de standaard; palet.json mag hem overschrijven met `drempel`, en een
- * palet mag dat op zijn beurt weer per palet doen. Dat is nodig omdat de
- * aanname erachter — veel modellen per cel, cellen die op elkaar lijken —
- * alleen voor een colormap-atlas opgaat. De onderwater-kit heeft geen atlas
- * maar een eigen materiaalkleur per soort: daar hángt bijna elke kleur aan één
- * model, en juist díe kleur is waar je op zoekt. Met de standaarddrempel viel
- * het groen van de schildpad samen met het grijs van de rotsen (afstand 90) en
- * het bruin van de zeehond ook (78) — knoppen die dan iets anders filteren dan
- * ze laten zien.
+ * @returns {{atlas: string|null, banen: Map<string, Map<string, number>>, materialen: Map<string, string>}}
+ *   `banen` is 'kolom,rij' → hoe vaak welke pixel geraakt wordt; `materialen`
+ *   is hex → materiaalnaam.
  */
-const SAMENVOEG_ONDER = 4;
+function leesKleuren(glb, dir) {
+  const { json } = glb;
+  const banen = new Set();
+  const materialen = new Map();
+  let atlasPad = null;
 
-/**
- * ...maar alleen als de buur ook echt dichtbij ligt. In het gedeelde palet
- * gebeurt het samenvoegen over afstanden tot ~90; het grot-palet is zo klein
- * dat de dichtstbijzijnde buur van het staalblauw van `gate-metal-bars` een
- * bruine rotskleur is (afstand ~200). Zo'n staal samenvoegen liegt over wat
- * je ziet, dus die blijft staan.
- */
-const SAMENVOEG_AFSTAND = 120;
+  for (const mesh of json.meshes ?? []) {
+    for (const prim of mesh.primitives ?? []) {
+      const materiaal = json.materials?.[prim.material];
+      if (!materiaal) continue;
+      const texIndex = materiaal.pbrMetallicRoughness?.baseColorTexture?.index;
 
-const hexNaarRgb = (hex) =>
-  [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+      if (texIndex === undefined) {
+        const factor = materiaal.pbrMetallicRoughness?.baseColorFactor;
+        if (!factor) continue;
+        materialen.set(hex(...factor.slice(0, 3).map(naarSrgb)), materiaal.name ?? 'materiaal');
+        continue;
+      }
 
-/**
- * Afstand tussen twee kleuren volgens de "redmean"-benadering: goedkoper dan
- * een Lab-conversie en dicht genoeg bij wat het oog doet om de juiste buur te
- * kiezen.
- */
-function kleurAfstand(a, b) {
-  const [r1, g1, b1] = hexNaarRgb(a);
-  const [r2, g2, b2] = hexNaarRgb(b);
-  const rGemiddeld = (r1 + r2) / 2;
-  const dr = r1 - r2;
-  const dg = g1 - g2;
-  const db = b1 - b2;
-  return Math.sqrt(
-    (2 + rGemiddeld / 256) * dr * dr + 4 * dg * dg + (2 + (255 - rGemiddeld) / 256) * db * db,
-  );
+      const bron = json.images?.[json.textures?.[texIndex]?.source]?.uri;
+      if (!bron || prim.attributes?.TEXCOORD_0 === undefined) continue;
+      const pad = join(dir, decodeURIComponent(bron));
+      // Eén atlas per model; twee zou betekenen dat de helft van het model uit
+      // een andere sheet komt, en dan zegt "de kleur van dit model" niets meer.
+      if (atlasPad && atlasPad !== pad) throw new Error(`${dir}: meer dan één colormap in één model`);
+      atlasPad = pad;
+
+      const atlas = leesAtlas(pad);
+      const celBreed = atlas.breedte / KOLOMMEN;
+      const celHoog = atlas.hoogte / RIJEN;
+      const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
+
+      for (let i = 0; i < uv.count; i++) {
+        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.breedte), 0), atlas.breedte - 1);
+        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.hoogte), 0), atlas.hoogte - 1);
+        const i4 = (y * atlas.breedte + x) * 4;
+        // Zwart is in deze atlassen geen kleur maar lege ruimte. Een UV die
+        // daar landt kleurt niets zichtbaars en telt dus niet mee.
+        if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
+        banen.add(`${Math.floor(x / celBreed)},${Math.floor(y / celHoog)}`);
+      }
+    }
+  }
+
+  return { atlas: atlasPad, banen, materialen };
+}
+
+/** De kleur van een baan: de pixel halverwege, in het midden van de kolom. */
+function baanKleur(atlas, baan) {
+  const [kolom, rij] = baan.split(',').map(Number);
+  const celBreed = atlas.breedte / KOLOMMEN;
+  const celHoog = atlas.hoogte / RIJEN;
+  const x = Math.floor(kolom * celBreed + celBreed / 2);
+  const y = Math.floor(rij * celHoog + celHoog / 2);
+  const i4 = (y * atlas.breedte + x) * 4;
+  return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
 }
 
 /**
@@ -245,13 +249,6 @@ function kleurNaam(hex) {
   return basis;
 }
 
-/* -- .glb uitlezen --------------------------------------------------------
- * Container, afmetingen, driehoeken en tekenopdrachten komen uit tools/glb.mjs;
- * dat rekent ook de skinning mee, wat voor de geanimeerde onderwater-kit nodig
- * is. tools/importeer-onderwater.mjs gebruikt dezelfde module, zodat een model
- * op dezelfde manier wordt opgemeten als het wordt ingeladen.
- */
-
 /* -- versiestempel --------------------------------------------------------
  * GitHub Pages serveert met `cache-control: max-age=600`. Zonder versie in de
  * URL kijk je na een deploy dus tot tien minuten naar oude CSS of JS, of erger:
@@ -277,7 +274,6 @@ function schrijfVersie() {
 /* -- catalogus opbouwen --------------------------------------------------- */
 
 const kitMeta = leesKitMetadata();
-const palet = leesPalet();
 /* "buitenCatalogus" in manifest.js houdt modellen uit de catalogus zonder ze
  * weg te gooien: `true` voor een hele kit, of een lijst modelnamen voor een
  * deel ervan. De bestanden blijven waar ze zijn — geen modellen, geen groepen,
@@ -289,6 +285,7 @@ const kitSlugs = readdirSync(KITS_DIR)
 
 const kits = [];
 const modellen = [];
+const perModelKleur = new Map(); // 'kit/model' → { atlas, banen, materialen, paletSleutel }
 const zonderMetadata = [];
 const zonderGroep = [];
 const zonderKleur = [];
@@ -313,19 +310,24 @@ for (const slug of kitSlugs) {
     const groep = bepaalGroep(slug, naam);
     if (groep === 'overig') zonderGroep.push(`${slug}/${naam}`);
 
-    const uitPalet = palet.perModel.get(`${slug}/${naam}`);
-    const kleuren = [...(uitPalet?.hexen ?? [])].sort();
-    if (kleuren.length === 0) zonderKleur.push(`${slug}/${naam}`);
+    const gelezen = leesKleuren(glb, dir);
+    if (gelezen.banen.size === 0 && gelezen.materialen.size === 0) zonderKleur.push(`${slug}/${naam}`);
+    /* Welke atlas een model gebruikt bepaalt in welk palet het valt: dezelfde
+     * hex uit twee sheets is niet dezelfde kleur en dus niet dezelfde
+     * filterknop. Een model zonder atlas draagt materiaalkleuren, en die
+     * staan op zichzelf per kit. */
+    const paletSleutel = gelezen.atlas ? leesAtlas(gelezen.atlas).sleutel : `materiaal:${slug}`;
+    perModelKleur.set(`${slug}/${naam}`, { ...gelezen, paletSleutel });
 
     modellen.push({
       id: `${slug}/${naam}`,
       naam,
       kit: slug,
       groep,
-      // Het palet hoort bij de kleuren: dezelfde hex uit een ander palet is
-      // een andere atlas en dus een andere filterknop.
-      palet: uitPalet?.palet ?? null,
-      kleuren,
+      // Palet en kleuren worden hieronder ingevuld, zodra van alle modellen
+      // bekend is welke pixel per baan het vaakst geraakt wordt.
+      palet: null,
+      kleuren: [],
       pad,
       bytes: statSync(join(dir, bestand)).size,
       driehoeken: scene.driehoeken,
@@ -367,11 +369,8 @@ for (const slug of kitSlugs) {
     // staan, ook al heeft zijn kit een eigen tabblad.
     kitGroep: KIT_GROEPEN[slug] ?? null,
     toelichting: meta?.toelichting ?? null,
-    // Eén palet per kit; leesPalet() bewaakt dat een model er maar één heeft.
-    // Welke atlas daarbij hoort staat in het palet zelf, niet hier: elke kit
-    // heeft weliswaar een eigen Textures/colormap.png, maar bij de zes kits
-    // die het gedeelde palet gebruiken is dat een kopie van dezelfde sheet.
-    palet: modellen.find((m) => m.kit === slug && m.palet)?.palet ?? null,
+    // Wordt hieronder ingevuld, samen met de kleuren van de modellen.
+    palet: null,
   });
 }
 
@@ -381,51 +380,88 @@ for (const model of modellen) {
   if (groep) model.variant = groep;
 }
 
-/* -- zeldzame kleuren samenvoegen -----------------------------------------
- * Per palet, want een kleur uit de gedeelde atlas en een kleur uit de
- * grot-atlas zijn losse stalen; die mogen nooit in elkaar opgaan.
+/* -- kleuren samenvatten ---------------------------------------------------
+ * Per palet: welke banen van welke atlas de modellen gebruiken, en welke
+ * materiaalkleuren ze dragen. Eén knop per baan, met de kleur van die baan.
  */
 
-const tel = () => {
-  for (const p of palet.paletten) for (const cel of p.cellen.values()) cel.aantal = 0;
-  for (const model of modellen) {
-    if (model.kleuren.length === 0) continue;
-    const cellen = palet.paletten.find((p) => p.id === model.palet)?.cellen;
-    // Kleuren zonder palet kunnen niet bestaan — ze komen uit hetzelfde
-    // palet.json-record — maar als dat ooit scheefloopt is een duidelijke
-    // fout beter dan een TypeError diep in de telling.
-    if (!cellen) throw new Error(`${model.id} heeft kleuren maar geen bekend palet (${model.palet})`);
-    for (const hex of model.kleuren) cellen.get(hex).aantal++;
+const paletten = new Map(); // sleutel → palet in opbouw
+
+for (const model of modellen) {
+  const gelezen = perModelKleur.get(model.id);
+  if (!gelezen || (gelezen.banen.size === 0 && gelezen.materialen.size === 0)) continue;
+
+  if (!paletten.has(gelezen.paletSleutel)) {
+    paletten.set(gelezen.paletSleutel, {
+      atlas: gelezen.atlas,
+      kits: new Set(),
+      banen: new Set(), // 'kolom,rij'
+      materialen: new Map(), // hex → Set(materiaalnaam)
+    });
   }
-};
+  const palet = paletten.get(gelezen.paletSleutel);
+  palet.kits.add(model.kit);
 
-tel();
-
-const samenvoegingen = []; // [paletId, oude hex, nieuwe hex]
-
-for (const p of palet.paletten) {
-  const blijft = [...p.cellen.values()].filter((c) => c.aantal >= p.drempel);
-  const perPalet = new Map();
-
-  for (const cel of p.cellen.values()) {
-    if (cel.aantal === 0 || cel.aantal >= p.drempel || blijft.length === 0) continue;
-    const doel = blijft.reduce((beste, kandidaat) =>
-      kleurAfstand(cel.hex, kandidaat.hex) < kleurAfstand(cel.hex, beste.hex) ? kandidaat : beste,
-    );
-    if (kleurAfstand(cel.hex, doel.hex) > SAMENVOEG_AFSTAND) continue;
-    perPalet.set(cel.hex, doel.hex);
-    samenvoegingen.push([p.id, cel.hex, doel.hex]);
-  }
-
-  if (perPalet.size > 0) {
-    for (const model of modellen) {
-      if (model.palet !== p.id) continue;
-      model.kleuren = [...new Set(model.kleuren.map((hex) => perPalet.get(hex) ?? hex))].sort();
-    }
+  for (const baan of gelezen.banen) palet.banen.add(baan);
+  for (const [hex, naam] of gelezen.materialen) {
+    if (!palet.materialen.has(hex)) palet.materialen.set(hex, new Set());
+    palet.materialen.get(hex).add(naam);
   }
 }
 
-if (samenvoegingen.length > 0) tel();
+/* De canonieke gedeelde sheet: elke kit draagt er een kopie van, maar in de
+ * catalogus wijst het palet naar het origineel. */
+const GEDEELDE_ATLAS = join(KITS_DIR, 'colormap.png');
+const gedeeldeSleutel = existsSync(GEDEELDE_ATLAS) ? leesAtlas(GEDEELDE_ATLAS).sleutel : null;
+
+for (const [sleutel, palet] of paletten) {
+  palet.baanKleur = new Map();
+  if (palet.atlas) {
+    const atlas = leesAtlas(palet.atlas);
+    for (const baan of palet.banen) palet.baanKleur.set(baan, baanKleur(atlas, baan));
+  }
+
+  const kits = [...palet.kits].sort();
+  const gedeeld = kits.length > 1;
+  palet.id = gedeeld ? 'gedeeld' : kits[0];
+  palet.naam = gedeeld ? 'Gedeelde kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
+  palet.toelichting = palet.atlas
+    ? null
+    : 'Geen colormap: elk materiaal van deze kit draagt zijn eigen basiskleur.';
+  palet.atlasPad = !palet.atlas
+    ? null
+    : sleutel === gedeeldeSleutel
+      ? 'kits/colormap.png'
+      : palet.atlas.slice(ROOT.length + 1).split(sep).join('/');
+}
+
+/* Nu pas kunnen de modellen hun kleuren krijgen: een baan is één staal, en
+ * welke kleur dat staal heeft weet je pas als alle modellen geteld zijn. */
+for (const model of modellen) {
+  const gelezen = perModelKleur.get(model.id);
+  const palet = paletten.get(gelezen?.paletSleutel);
+  if (!palet) continue;
+  model.palet = palet.id;
+  model.kleuren = [
+    ...new Set([
+      ...[...gelezen.banen].map((baan) => palet.baanKleur.get(baan)),
+      ...gelezen.materialen.keys(),
+    ]),
+  ].sort();
+}
+
+for (const kit of kits) {
+  kit.palet = modellen.find((m) => m.kit === kit.slug && m.palet)?.palet ?? null;
+}
+
+/* Hoeveel modellen elk staal draagt — dat getal staat op de filterknop. */
+const kleurenPerPalet = new Map();
+for (const palet of paletten.values()) kleurenPerPalet.set(palet.id, new Map());
+for (const model of modellen) {
+  const kleuren = kleurenPerPalet.get(model.palet);
+  if (!kleuren) continue;
+  for (const hex of model.kleuren) kleuren.set(hex, (kleuren.get(hex) ?? 0) + 1);
+}
 
 const catalogus = {
   gegenereerd: 'node tools/build-catalog.mjs',
@@ -438,21 +474,31 @@ const catalogus = {
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
   })),
-  // Alleen cellen die daadwerkelijk aan een bestaand model hangen; op donkerste
-  // eerst, zodat de filterbalk een herkenbare volgorde houdt. Een palet
-  // waarvan geen enkel model meer in de catalogus staat — zoals dat van een
-  // kit met "buitenCatalogus" — valt in zijn geheel weg.
-  paletten: palet.paletten
+  // Meest gedragen kleur eerst, zodat de filterbalk een herkenbare volgorde
+  // houdt. Een palet komt hier alleen in voor zover modellen in de catalogus
+  // eruit putten: waar niets uit staat, staat ook geen knop.
+  paletten: [...paletten.values()]
     .map((p) => ({
       id: p.id,
       naam: p.naam,
-      atlas: p.atlas,
+      atlas: p.atlasPad,
       toelichting: p.toelichting,
-      kleuren: [...p.cellen.values()]
-        .filter((k) => k.aantal > 0)
+      kleuren: [...(kleurenPerPalet.get(p.id) ?? new Map())]
+        .map(([hex, aantal]) => ({
+          hex,
+          naam: kleurNaam(hex),
+          // Waar de kleur vandaan komt: de baan in de atlas, het materiaal dat
+          // hem draagt, of allebei — de glazen ruitjes van rpgtools zitten in
+          // een model dat verder uit de atlas kleurt. Staat in de tooltip van
+          // de filterknop, dus per kleur bepaald en niet per palet.
+          textuur: [...p.baanKleur].filter(([, k]) => k === hex).map(([baan]) => `baan ${baan}`).join(' / ') || null,
+          materiaal: [...(p.materialen.get(hex) ?? [])].sort().join(' / ') || null,
+          aantal,
+        }))
         .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
     }))
-    .filter((p) => p.kleuren.length > 0),
+    .filter((p) => p.kleuren.length > 0)
+    .sort((a, b) => b.kleuren.length - a.kleuren.length || a.id.localeCompare(b.id)),
   modellen,
 };
 
@@ -462,10 +508,6 @@ schrijfVersie();
 console.log(`${modellen.length} modellen in ${kits.length} kits → kits/catalog.json`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
-}
-for (const [paletId, oud, nieuw] of samenvoegingen) {
-  const doel = palet.paletten.find((p) => p.id === paletId).cellen.get(nieuw);
-  console.log(`samengevoegd in ${paletId}: ${oud} → ${nieuw} (${doel.naam})`);
 }
 for (const p of catalogus.paletten) {
   console.log(`palet ${p.id} — ${p.kleuren.length} kleuren uit ${p.atlas ?? 'eigen materialen'}:`);
@@ -526,5 +568,5 @@ if (plat.length) {
 if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonderMetadata.join(', ')}`);
 if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
 if (zonderKleur.length) {
-  console.warn(`! ${zonderKleur.length} modellen zonder kleur in palet.json (kleurfilter slaat ze over)`);
+  console.warn(`! ${zonderKleur.length} modellen zonder kleur in de .glb (kleurfilter slaat ze over)`);
 }

@@ -109,7 +109,6 @@ mkdirSync(join(DOEL, 'Textures'), { recursive: true });
 copyFileSync(COLORMAP, join(DOEL, 'Textures', 'colormap.png'));
 
 const perKleur = new Map();
-const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
   let ruw = leesGltf(bron);
@@ -151,9 +150,6 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
     if (!perKleur.has(van)) perKleur.set(van, { naar: k.naar, cel: k.cel, afstand: k.afstand, modellen: [] });
     perKleur.get(van).modellen.push(naam);
 
-    const celSleutel = k.cel.join(',');
-    if (!perCel.has(celSleutel)) perCel.set(celSleutel, new Set());
-    perCel.get(celSleutel).add(naam);
   }
   if (ergsteAfstand > 120) {
     console.warn(`  ! ${naam}: grootste kleurafstand ${ergsteAfstand.toFixed(0)}`);
@@ -173,26 +169,5 @@ for (const [van, k] of [...perKleur].sort((a, b) => b[1].afstand - a[1].afstand)
  * een eventuele nieuwe cel moet overal terechtkomen. */
 const bijgewerkt = kopieerColormap(KITS);
 console.log(`colormap gekopieerd naar: ${bijgewerkt.join(', ')}`);
-
-/* -- kits/palet.json bijwerken, net als tools/importeer-rpgtools.mjs -- */
-const paletPad = join(KITS, 'palet.json');
-const paletJson = JSON.parse(readFileSync(paletPad, 'utf8'));
-const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
-if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
-
-for (const [celSleutel, modellenSet] of perCel) {
-  const [kolom, rij] = celSleutel.split(',').map(Number);
-  const cel = gedeeld.cellen.find((c) => c.cel[0] === kolom && c.cel[1] === rij);
-  if (!cel) throw new Error(`cel [${kolom},${rij}] staat niet in kits/palet.json — nieuwe cel niet verwacht voor deze pack`);
-  let bron = cel.bronnen.find((b) => b.kit === 'dungeon');
-  if (!bron) {
-    bron = { kit: 'dungeon', modellen: [] };
-    cel.bronnen.push(bron);
-  }
-  bron.modellen = [...new Set([...bron.modellen, ...modellenSet])].sort();
-}
-
-writeFileSync(paletPad, `${JSON.stringify(paletJson, null, 1)}\n`);
-console.log('kits/palet.json bijgewerkt met dungeon-bronnen');
 
 console.log(`${Object.keys(NAMEN).length} modellen → kits/dungeon/`);

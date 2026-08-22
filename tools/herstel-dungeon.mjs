@@ -23,9 +23,8 @@
  *
  * Alleen de TEXCOORD_0-bytes van de .glb's veranderen; geometrie, normalen
  * en materialen blijven byte-voor-byte gelijk. Draait het script nogmaals,
- * dan komt er exact hetzelfde uit. kits/palet.json wordt bijgewerkt naar de
- * cellen die de modellen na het herstel echt gebruiken. Draai daarna
- * tools/build-catalog.mjs voor de kleurstalen in catalog.json.
+ * dan komt er exact hetzelfde uit. Draai daarna tools/build-catalog.mjs voor
+ * de kleurstalen in catalog.json: die leest ze uit de modellen zelf.
  *
  * Dit script staat bewust op zichzelf (eigen GLB-, glTF- en PNG-lezer) en
  * deelt geen code met de importeurs die de schade veroorzaakten.
@@ -39,7 +38,6 @@ import { inflateSync } from 'node:zlib';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KIT = join(ROOT, 'kits', 'dungeon');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
-const PALET = join(ROOT, 'kits', 'palet.json');
 const KOLOMMEN = 16;
 const RIJEN = 4;
 
@@ -464,7 +462,6 @@ for (let id = 0; id < aantalEilanden; id++) {
 
 /* -- UV's herschrijven ------------------------------------------------------ */
 
-const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 let herschreven = 0;
 let totaal = 0;
 for (const model of modellen) {
@@ -509,36 +506,10 @@ for (const model of modellen) {
       if (Math.abs(oudU - beste.u) > 1e-6 || Math.abs(oudV - beste.v) > 1e-6) herschreven++;
       bin.writeFloatLE(beste.u, positie);
       bin.writeFloatLE(beste.v, positie + 4);
-
-      const celSleutel = gekozen.band;
-      if (!perCel.has(celSleutel)) perCel.set(celSleutel, new Set());
-      perCel.get(celSleutel).add(model.naam);
     }
   }
   schrijfGlb(join(KIT, model.bestand), glb.json, bin);
 }
 console.log(`${modellen.length} modellen herschreven: ${herschreven} van ${totaal} UV's aangepast`);
 
-/* -- kits/palet.json bijwerken naar de cellen die nu echt in gebruik zijn -- */
-
-const paletJson = JSON.parse(readFileSync(PALET, 'utf8'));
-const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
-if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
-
-for (const cel of gedeeld.cellen) {
-  const sleutel = cel.cel.join(',');
-  const modellenInCel = perCel.get(sleutel);
-  const index = cel.bronnen.findIndex((b) => b.kit === 'dungeon');
-  if (!modellenInCel) {
-    if (index !== -1) cel.bronnen.splice(index, 1);
-    continue;
-  }
-  if (index === -1) cel.bronnen.push({ kit: 'dungeon', modellen: [...modellenInCel].sort() });
-  else cel.bronnen[index].modellen = [...modellenInCel].sort();
-  perCel.delete(sleutel);
-}
-if (perCel.size) {
-  throw new Error(`cellen niet in kits/palet.json: ${[...perCel.keys()].join(' ')}`);
-}
-writeFileSync(PALET, `${JSON.stringify(paletJson, null, 1)}\n`);
-console.log('kits/palet.json bijgewerkt; draai nu tools/build-catalog.mjs');
+console.log('klaar; draai nu tools/build-catalog.mjs');

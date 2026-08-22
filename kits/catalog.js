@@ -151,7 +151,7 @@ function demoClip(clips) {
  *
  * De belichting van 1,3 is gemeten en niet gekozen: bij die waarde komt een
  * vlak van #f0ece3 er als (242, 236, 228) uit, en #6d738a als (110, 116, 143).
- * Wat je op het scherm ziet is dan de kleur die in kits/palet.json staat.
+ * Wat je op het scherm ziet is dan de kleur zoals hij in de colormap staat.
  */
 const VLAK_OMGEVING = 'kits/effen-omgeving.png';
 const vlakkeModus = { aan: false };
