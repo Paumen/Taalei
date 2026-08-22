@@ -1,4 +1,3 @@
-/* generated from the downloaded Kenney kits — model lists per kit */
 window.KENNEY_KITS = [
  {
   "slug": "survival-kit",
@@ -109,16 +108,6 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
-  /* Geen eigen tabblad en geen eigen palet meer (besluit PO): het tabblad Grot
-     is opgeheven en van deze kit staan alleen de ladder en de drie vloerlagen
-     nog in de catalogus, bij de bouwwerken en de verbindingen. Die vier zijn
-     op de gedeelde colormap gezet (Textures/colormap-gedeeld.png) zodat ze
-     kleuren met de kits waar ze nu tussen staan. De eigen sheet blijft staan
-     voor de modellen hieronder die buiten de catalogus vallen. */
-  /* Staan niet in de catalogus (besluit PO): de kamers, gangen, poorten,
-     trappen en wandsjablonen. De bestanden blijven in de repo. Wat overblijft
-     zijn de ladder en de drie vloerlagen, en die staan bij de bouwwerken en de
-     verbindingen — zie de uitzonderingen in tools/semantiek.mjs. */
   "buitenCatalogus": [
    "corridor", "corridor-corner", "corridor-end", "corridor-intersection", "corridor-junction",
    "corridor-transition", "corridor-wide", "corridor-wide-corner", "corridor-wide-end",
@@ -312,15 +301,9 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Quaternius, zie kits/onderwater-kit/LICENSE.txt */
   "slug": "onderwater-kit",
   "name": "Onderwater",
   "url": "https://quaternius.com/",
-  /* Staat niet in de catalogus (besluit PO): de bestanden blijven in de repo,
-     maar build-catalog.mjs slaat de kit over. De metadata blijft hier staan
-     zodat het weghalen van deze ene regel de kit terugzet. Het tabblad Zee dat
-     hier stond bestaat niet meer; een eigen tabblad zou hij weer nodig hebben,
-     want hij deelt de colormap niet. */
   "buitenCatalogus": true,
   "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
   "models": [
@@ -372,7 +355,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: eigen assets, zie kits/taalei-kit/LICENSE.txt */
   "slug": "taalei-kit",
   "name": "Taalei Kit",
   "url": null,
@@ -382,10 +364,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Low Poly Nature Pack (Lite), zie kits/nature/LICENSE.txt.
-     De pack kwam zonder licentiebestand en zonder packpagina binnen; daarom
-     geen url. Geen eigen tabblad: de modellen zijn omgezet naar de gedeelde
-     colormap en horen dus gewoon tussen de andere kits. */
   "slug": "nature",
   "name": "Nature",
   "url": null,
@@ -396,10 +374,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Tropical Island Pack (Lite), zie kits/tropical/LICENSE.txt.
-     Ook deze pack kwam zonder licentiebestand en zonder packpagina binnen.
-     `chest-a` staat open en `chest-b` dicht; de pack noemt ze `Chest_01` en
-     `Chest_01_2` en zegt daar zelf niets over. */
   "slug": "tropical",
   "name": "Tropical",
   "url": null,
@@ -411,10 +385,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Medieval Props (Lite), zie kits/props/LICENSE.txt. Ook
-     deze pack kwam zonder licentiebestand en zonder packpagina binnen.
-     28 van de 48 modellen zijn ingeladen. Zes namen zeggen in de pack niet wat
-     het model is; die heten hier naar wat ze zijn — zie tools/importeer-props.mjs. */
   "slug": "props",
   "name": "Props",
   "url": null,
@@ -448,11 +418,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Rocks-pack, zie kits/rocks/LICENSE.txt. Kwam als één .fbx
-     met 117 meshes binnen, zonder licentiebestand en zonder packpagina.
-     Elk model bestaat in drie tinten; alleen `.medium` is ingeladen. De rotsen
-     en kiezels zitten er wél twee keer in — `natural`/`cave` en `dirt`/`cave`
-     zijn dezelfde vorm in een andere steensoort. */
   "slug": "rocks",
   "name": "Rocks",
   "url": null,
@@ -940,18 +905,9 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  /* geen Kenney-kit: Modular Terrain Collection, zie
-     kits/modulair-terrein/LICENSE.txt. De pack kwam zonder licentiebestand en
-     zonder packpagina binnen; daarom geen url. Geen eigen tabblad: de
-     materiaalkleuren zijn omgezet naar de gedeelde colormap, dus deze modellen
-     horen gewoon tussen de andere kits. De grotstukken hebben wel een eigen
-     groep in het tabblad Grot; zie tools/semantiek.mjs. */
   "slug": "modulair-terrein",
   "name": "Modulair Terrein",
   "url": null,
-  /* Staan niet in de catalogus (besluit PO): het hele grotdeel van deze kit —
-     de props, het mijnwerk en de vier ingangen die de pack Cave_Cliff noemt.
-     De bestanden blijven in de repo. */
   "buitenCatalogus": [
    "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
    "cave-prop-railway-bumpstop", "cave-prop-railway-curve-large",
