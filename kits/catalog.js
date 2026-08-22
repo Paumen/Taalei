@@ -3,7 +3,7 @@ const KIT_KLEUREN = {
   'pirate-kit': '#474a58',
   'modular-cave-kit': '#8a5d4b',
   'mini-forest': '#3da679',
-  'fantasy-town-kit': '#995a41',
+  'fantasy-town-kit': '#966543',
   'platformer-kit': '#ffb349',
   'mini-dungeon': '#6d738a',
   'onderwater-kit': '#2fa39b',

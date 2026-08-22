@@ -5,7 +5,7 @@
  * Draai vanuit de repo-root:
  *
  *     node tools/naar-gedeelde-atlas.mjs <van-hex> <naar-hex> <model.glb...>
- *     node tools/naar-gedeelde-atlas.mjs '#ba7554' '#8f785b' kits/modular-cave-kit/ladder.glb
+ *     node tools/naar-gedeelde-atlas.mjs '#ba7554' '#966543' kits/modular-cave-kit/ladder.glb
  *
  * `van-hex` is een baan uit het eigen palet van die kit, `naar-hex` een baan uit
  * het gedeelde palet. Beide atlassen hebben hetzelfde raster van 16 × 4 banen,
