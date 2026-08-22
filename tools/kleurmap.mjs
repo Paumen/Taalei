@@ -95,9 +95,8 @@ export function doelPunten(atlas) {
 
 /**
  * Waar een kleur in een atlas staat: de kolom en rij van de baan, en de
- * pixelrij binnen die baan. Gedeeld door tools/hermap-kleur.mjs en
- * tools/naar-gedeelde-atlas.mjs, die allebei een kleur als ankerpunt voor het
- * schaduwverloop gebruiken.
+ * pixelrij binnen die baan. tools/hermap-kleur.mjs gebruikt dat als ankerpunt
+ * voor het schaduwverloop.
  *
  * Een baan is verticaal een verloop, dus niet elke tint staat er letterlijk in.
  * Vandaar dichtstbij en niet gelijk, met een grens eromheen: ligt de kleur ver

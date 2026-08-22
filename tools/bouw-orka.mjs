@@ -3,7 +3,7 @@
  * orca-calf.glb.
  *
  * Draai vanuit de repo-root:  node tools/bouw-orka.mjs
- * Controleer daarna met:      node tools/toets-orka.mjs
+ * Controleer daarna met:      node tools/build-catalog.mjs
  *
  * De twee zijn de enige modellen in deze kit die niet van Quaternius komen:
  * de pack heeft een walvis, een dolfijn en twee haaien, maar geen orka. Ze

@@ -3,7 +3,7 @@
  * zonder mand) en drie mandvarianten daarop.
  *
  * Draai vanuit de repo-root:  node tools/bouw-luchtballon.mjs
- * Controleer daarna met:      node tools/toets-ballon.mjs
+ * Controleer daarna met:      node tools/build-catalog.mjs
  *
  * -- vorm ------------------------------------------------------------------
  * Peervormig: onder een kegel naar een smalle hals (0.60 breed tegenover 3.78
