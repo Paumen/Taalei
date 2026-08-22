@@ -1,11 +1,18 @@
 // Toetst de ballon-GLB's aan de mechanisch controleerbare regels uit
 // docs/asset_style_guide.md. Draaien vanuit de repo-root.
 import { readFileSync } from 'node:fs';
+import { leesPng } from './png.mjs';
 
-const PALET = JSON.parse(readFileSync('kits/palet.json', 'utf8'));
-const gedeeld = PALET.paletten.find((p) => p.id === 'gedeeld');
-const CELLEN = new Set(gedeeld.cellen.map((c) => `${c.cel[0]}/${c.cel[1]}`));
-const CEL_KLEUR = new Map(gedeeld.cellen.map((c) => [`${c.cel[0]}/${c.cel[1]}`, c.kleur]));
+/* De sheet zelf is de toets: een uv hoort op een gevulde pixel te landen.
+ * Zwart is in deze atlas geen kleur maar lege ruimte. */
+const ATLAS = leesPng('kits/colormap.png');
+const kleurBij = (u, v) => {
+  const x = Math.min(Math.max(Math.floor(u * ATLAS.breedte), 0), ATLAS.breedte - 1);
+  const y = Math.min(Math.max(Math.floor(v * ATLAS.hoogte), 0), ATLAS.hoogte - 1);
+  const p = (y * ATLAS.breedte + x) * 4;
+  const [r, g, b] = [ATLAS.pixels[p], ATLAS.pixels[p + 1], ATLAS.pixels[p + 2]];
+  return r === 0 && g === 0 && b === 0 ? null : '#' + [r, g, b].map((c) => c.toString(16).padStart(2, '0')).join('');
+};
 
 function leesGlb(pad) {
   const buf = readFileSync(pad);
@@ -50,18 +57,27 @@ for (const naam of ['balloon', 'balloon-basket-round', 'balloon-basket-square'])
   const { json, bin, bytes } = leesGlb(pad);
   console.log(`\n=== ${naam} (${(bytes / 1024).toFixed(1)} kB)`);
 
-  /* 1. Kleur — elke uv moet in een cel uit palet.json vallen */
-  const gebruikt = new Set();
-  let buitenPalet = 0;
+  /* 1. Kleur — elke uv moet op een gevulde pixel van de colormap landen */
+  const gebruikt = new Map(); // 'kolom/rij' → Set(hex)
+  let buitenAtlas = 0;
   for (const prim of json.meshes[0].primitives) {
     if (prim.attributes.TEXCOORD_0 === undefined) continue;
     for (const [u, v] of leesAccessor(json, bin, prim.attributes.TEXCOORD_0)) {
-      const cel = `${Math.floor(u * 16)}/${Math.floor(v * 4)}`;
-      if (CELLEN.has(cel)) gebruikt.add(cel); else buitenPalet++;
+      const kleur = kleurBij(u, v);
+      if (kleur) {
+        const baan = `${Math.floor(u * 16)}/${Math.floor(v * 4)}`;
+        if (!gebruikt.has(baan)) gebruikt.set(baan, new Set());
+        gebruikt.get(baan).add(kleur);
+      }
+      else buitenAtlas++;
     }
   }
-  if (buitenPalet === 0) ok(`alle uv's in paletcellen: ${[...gebruikt].map((c) => `${c} ${CEL_KLEUR.get(c)}`).join(', ')}`);
-  else fout(`${buitenPalet} uv's buiten een paletcel`);
+  if (buitenAtlas === 0) {
+    const banen = [...gebruikt].sort().map(([baan, tinten]) =>
+      `${baan} ${[...tinten].sort()[0]}${tinten.size > 1 ? ` (${tinten.size} tinten uit het verloop)` : ''}`);
+    ok(`alle uv's op een kleur: ${banen.join(', ')}`);
+  }
+  else fout(`${buitenAtlas} uv's op lege ruimte in de colormap`);
 
   /* 1b. Materiaaldefaults: metallic 0, geen transparantie, geen emissive */
   for (const mat of json.materials) {

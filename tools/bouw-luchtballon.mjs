@@ -40,7 +40,7 @@
  * De mand is ± 0.75 breed tegenover 3.78 voor de envelop (1 : 5). Dat is de
  * verhouding van een echte ballon; groter maken leest als een gondel.
  *
- * Kleuren komen uit kits/palet.json ("gedeeld").
+ * Kleuren komen uit de gedeelde colormap (kits/colormap.png).
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
  *   terracotta    #d07b56  cel 5/0   accentbanen, kruin
@@ -96,7 +96,7 @@ const RING_ZIJDEN = 8; // branderring en de keel van de brander
 
 /* -- paletcellen ----------------------------------------------------------
  * De gedeelde colormap is 512 × 512: 16 kolommen × 4 rijen, elke cel een
- * verticale verloopstrook van 32 × 128 texels. De kleur uit palet.json staat
+ * verticale verloopstrook van 32 × 128 texels. De genoemde kleur staat
  * op de middelste rij van de cel; daar wijzen de uv's naartoe. De sampler
  * staat op nearest, dus één uv-punt per vlak is precies één texel.
  */

@@ -40,9 +40,9 @@ export const naarHex = (r, g, b) =>
   '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
 /**
- * Afstand tussen twee kleuren volgens de "redmean"-benadering — dezelfde formule
- * als tools/build-catalog.mjs gebruikt om zeldzame stalen samen te voegen, zodat
- * "dicht bij elkaar" hier hetzelfde betekent als daar.
+ * Afstand tussen twee kleuren volgens de "redmean"-benadering: goedkoper dan
+ * een Lab-conversie en dicht genoeg bij wat het oog doet om de juiste baan te
+ * kiezen.
  */
 export function kleurAfstand(a, b) {
   const rGemiddeld = (a[0] + b[0]) / 2;
@@ -91,6 +91,45 @@ export function doelPunten(atlas) {
 
   if (punten.length === 0) throw new Error('de doel-atlas is leeg');
   return punten;
+}
+
+/**
+ * Waar een kleur in een atlas staat: de kolom en rij van de baan, en de
+ * pixelrij binnen die baan. Gedeeld door tools/hermap-kleur.mjs en
+ * tools/naar-gedeelde-atlas.mjs, die allebei een kleur als ankerpunt voor het
+ * schaduwverloop gebruiken.
+ *
+ * Een baan is verticaal een verloop, dus niet elke tint staat er letterlijk in.
+ * Vandaar dichtstbij en niet gelijk, met een grens eromheen: ligt de kleur ver
+ * van élke pixel, dan staat hij niet in deze sheet en is doorgaan gevaarlijker
+ * dan stoppen.
+ */
+const VER = 40;
+
+export function zoekBaan(atlas, hex, wat = 'de atlas') {
+  const celBreed = atlas.breedte / KOLOMMEN;
+  const celHoog = atlas.hoogte / RIJEN;
+  const doel = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  let beste = null;
+  let afstand = Infinity;
+
+  for (let kolom = 0; kolom < KOLOMMEN; kolom++) {
+    const x = Math.floor(kolom * celBreed + celBreed / 2);
+    for (let rij = 0; rij < RIJEN; rij++) {
+      for (let i = 0; i < celHoog; i++) {
+        const kleur = pixel(atlas, x, Math.floor(rij * celHoog) + i);
+        if (isLeeg(...kleur)) continue;
+        const d = kleurAfstand(kleur, doel);
+        if (d < afstand) {
+          afstand = d;
+          beste = { kolom, rij, inBaan: i, kleur: naarHex(...kleur) };
+        }
+      }
+    }
+  }
+
+  if (!beste || afstand > VER) throw new Error(`${hex} staat niet in ${wat}`);
+  return beste;
 }
 
 /** De cellen die daadwerkelijk kleur bevatten, als "kolom,rij"-sleutels. */

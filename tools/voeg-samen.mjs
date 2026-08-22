@@ -320,4 +320,4 @@ for (const { kit, onderdelen } of SAMEN) {
   );
 }
 
-if (gedaan > 0) console.log('\nvergeet kits/manifest.js, kits/palet.json en tools/build-catalog.mjs niet');
+if (gedaan > 0) console.log('\nvergeet kits/manifest.js en tools/build-catalog.mjs niet');

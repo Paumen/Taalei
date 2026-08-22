@@ -21,7 +21,7 @@
  * meerdere texturen kan ook: eilanden worden per textuur bijgehouden.
  *
  * Alleen de TEXCOORD_0-bytes veranderen; nogmaals draaien geeft byte-gelijke
- * uitvoer. kits/palet.json wordt bijgewerkt; draai daarna tools/build-catalog.mjs.
+ * uitvoer. Draai daarna tools/build-catalog.mjs.
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
@@ -32,7 +32,6 @@ import { createHash } from 'node:crypto';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
-const PALET = join(ROOT, 'kits', 'palet.json');
 const KOLOMMEN = 16;
 const RIJEN = 4;
 
@@ -600,7 +599,6 @@ for (let id = 0; id < eilandTotaal; id++) {
 
 /* -- UV's herschrijven ------------------------------------------------------ */
 
-const perCel = new Map();
 let herschreven = 0;
 let totaal = 0;
 for (const model of modellen) {
@@ -673,9 +671,6 @@ for (const model of modellen) {
       if (Math.abs(oudU - beste.u) > 1e-6 || Math.abs(oudV - beste.v) > 1e-6) herschreven++;
       bin.writeFloatLE(beste.u, positie);
       bin.writeFloatLE(beste.v, positie + 4);
-
-      if (!perCel.has(gekozen.band)) perCel.set(gekozen.band, new Set());
-      perCel.get(gekozen.band).add(model.naam);
     }
   }
   schrijfGlb(join(KIT, model.bestand), glb.json, bin);
@@ -686,8 +681,8 @@ console.log(`${modellen.length} modellen herschreven: ${herschreven} van ${totaa
  * Een samengevoegd model (tools/voeg-samen.mjs) heeft geen byte-gelijke bron
  * meer en kan niet langs de eilanden. Zijn kleuren kunnen wél per band mee
  * verhuizen met de rest van de kit: dezelfde rij in een andere band. En zijn
- * cellen moeten hoe dan ook in kits/palet.json blijven staan, anders slaat
- * het kleurfilter hem over.
+ * cellen moeten hoe dan ook kleur blijven dragen, anders valt hij uit het
+ * kleurfilter.
  */
 const NABEHANDELING = {
   'props/bucket-a': { '12,0': '14,0' }, // het hout van de emmer mee naar de houtband
@@ -716,8 +711,6 @@ for (const naam of zonderBron) {
           verhuisd++;
           cel = doel;
         }
-        if (!perCel.has(cel)) perCel.set(cel, new Set());
-        perCel.get(cel).add(naam);
       }
     }
   }
@@ -735,26 +728,4 @@ writeFileSync(`herstel-${kitNaam}-eilanden.json`, `${JSON.stringify(
     : null)).filter(Boolean).sort((a, b) => b.hoekpunten - a.hoekpunten),
   null, 1)}\n`);
 
-/* -- kits/palet.json bijwerken ---------------------------------------------- */
-
-const paletJson = JSON.parse(readFileSync(PALET, 'utf8'));
-const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
-if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
-
-for (const cel of gedeeld.cellen) {
-  const sleutel = cel.cel.join(',');
-  const modellenInCel = perCel.get(sleutel);
-  const index = cel.bronnen.findIndex((b) => b.kit === kitNaam);
-  if (!modellenInCel) {
-    if (index !== -1) cel.bronnen.splice(index, 1);
-    continue;
-  }
-  if (index === -1) cel.bronnen.push({ kit: kitNaam, modellen: [...modellenInCel].sort() });
-  else cel.bronnen[index].modellen = [...modellenInCel].sort();
-  perCel.delete(sleutel);
-}
-if (perCel.size) {
-  throw new Error(`cellen niet in kits/palet.json: ${[...perCel.keys()].join(' ')}`);
-}
-writeFileSync(PALET, `${JSON.stringify(paletJson, null, 1)}\n`);
-console.log('kits/palet.json bijgewerkt; draai nu tools/build-catalog.mjs');
+console.log('klaar; draai nu tools/build-catalog.mjs');

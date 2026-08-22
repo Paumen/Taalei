@@ -6,9 +6,8 @@
  *
  * Anders dan tools/toets-ballon.mjs kijkt dit script niet naar uv's: de
  * onderwater-kit heeft geen colormap maar eigen materiaalkleuren (§1). De
- * kleurtoets is hier dus dat elke basiskleur als cel in het `onderwater`-palet
- * van kits/palet.json staat, mét dit model erbij — anders zegt de filterknop
- * in de catalogus iets anders dan het model laat zien.
+ * kleurtoets is hier dus dat elk materiaal een eigen basiskleur draagt in
+ * plaats van de glTF-standaard — die kleur is wat de catalogus laat zien.
  *
  * Twee afwijkingen zijn bekend en bewust; het script meldt ze als
  * aandachtspunt, niet als fout, en noemt ze bij naam zodat ze niet stilletjes
@@ -24,8 +23,6 @@ import { fileURLToPath } from 'node:url';
 import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const PALET = JSON.parse(readFileSync(join(ROOT, 'kits', 'palet.json'), 'utf8'));
-const ONDERWATER = PALET.paletten.find((p) => p.id === 'onderwater');
 
 let fouten = 0;
 let waarschuwingen = 0;
@@ -39,7 +36,7 @@ const letOp = (t) => {
   console.log('  let op ' + t);
 };
 
-/** Lineaire basiskleur → sRGB-hex, zoals palet.json de kleuren noteert. */
+/** Lineaire basiskleur → sRGB-hex, zoals de catalogus de kleuren toont. */
 const hex = (kleur) =>
   '#' +
   kleur
@@ -59,18 +56,13 @@ for (const naam of ['orca', 'orca-calf']) {
   const bytes = readFileSync(pad).length;
   console.log(`\n=== ${naam} (${(bytes / 1024).toFixed(1)} kB)`);
 
-  /* 1. Kleur — elke basiskleur moet als cel in het onderwater-palet staan, met
-   *    dit model in zijn bronnenlijst. */
+  /* 1. Kleur — elk materiaal draagt zijn eigen basiskleur; de catalogus leest
+   *    die uit het model. Ontbreekt hij, dan valt het model terug op het wit
+   *    van glTF en heeft het in de kleurbalk niets te zoeken. */
   for (const mat of json.materials) {
-    const kleur = hex(mat.pbrMetallicRoughness?.baseColorFactor ?? [1, 1, 1, 1]);
-    const cel = ONDERWATER.cellen.find((c) => c.kleur === kleur);
-    if (!cel) {
-      fout(`${mat.name}: ${kleur} staat niet in het onderwater-palet`);
-      continue;
-    }
-    const genoemd = cel.bronnen.some((b) => b.kit === 'onderwater-kit' && b.modellen.includes(naam));
-    if (genoemd) ok(`${mat.name} ${kleur} staat in het palet, met ${naam} erbij`);
-    else fout(`${kleur} staat in het palet maar zonder ${naam} in de bronnen`);
+    const factor = mat.pbrMetallicRoughness?.baseColorFactor;
+    if (!factor) fout(`${mat.name}: geen baseColorFactor, dus geen eigen kleur`);
+    else ok(`${mat.name} kleurt ${hex(factor)}`);
   }
 
   /* 1b. Materiaaldefaults (§1). Roughness is hier geen 1 maar 0,75 — een
