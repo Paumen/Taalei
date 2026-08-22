@@ -28,6 +28,7 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGlb, schrijfGlb } from './glb.mjs';
@@ -42,25 +43,36 @@ if (!vanHex || !naarHexArg || modellen.length === 0) {
 }
 
 /* Welke atlas? Die waar het model zelf naar wijst. Alle opgegeven modellen
- * moeten dezelfde gebruiken, anders betekent dezelfde hex twee dingen. */
-const atlasPaden = new Set(
-  modellen.map((pad) => {
-    const volledig = resolve(ROOT, pad);
-    const { json } = leesGlb(volledig);
-    const uri = json.images?.[0]?.uri;
-    if (!uri) throw new Error(`${pad} heeft geen colormap; hier valt niets te hermappen`);
-    return join(dirname(volledig), uri);
-  }),
-);
-if (atlasPaden.size > 1) {
-  throw new Error(`de modellen wijzen naar ${atlasPaden.size} verschillende colormaps; doe ze per sheet in een eigen aanroep`);
+ * moeten dezelfde sheet gebruiken, anders betekent dezelfde hex twee dingen.
+ *
+ * Op inhoud vergelijken en niet op pad: elke kit draagt zijn eigen kopie van
+ * kits/colormap.png omdat de .glb er met een relatief pad naar wijst, dus drie
+ * modellen uit drie kits noemen drie bestanden en dezelfde sheet. */
+const atlasPaden = modellen.map((pad) => {
+  const volledig = resolve(ROOT, pad);
+  const { json } = leesGlb(volledig);
+  const uri = json.images?.[0]?.uri;
+  if (!uri) throw new Error(`${pad} heeft geen colormap; hier valt niets te hermappen`);
+  return join(dirname(volledig), uri);
+});
+const sheets = new Map(); // inhoud → eerste pad
+for (const pad of atlasPaden) {
+  const sleutel = createHash('sha256').update(readFileSync(pad)).digest('hex');
+  if (!sheets.has(sleutel)) sheets.set(sleutel, pad);
+}
+if (sheets.size > 1) {
+  throw new Error(
+    `de modellen wijzen naar ${sheets.size} verschillende colormaps ` +
+    `(${[...sheets.values()].map((p) => p.slice(ROOT.length + 1)).join(', ')}); ` +
+    'doe ze per sheet in een eigen aanroep',
+  );
 }
 
-const atlas = leesPng([...atlasPaden][0]);
+const atlas = leesPng([...sheets.values()][0]);
 const CEL_BREED = atlas.breedte / KOLOMMEN;
 const CEL_HOOG = atlas.hoogte / RIJEN;
 
-const waar = [...atlasPaden][0].slice(ROOT.length + 1);
+const waar = [...sheets.values()][0].slice(ROOT.length + 1);
 const van = zoekBaan(atlas, vanHex, waar);
 const naar = zoekBaan(atlas, naarHexArg, waar);
 
