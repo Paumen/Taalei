@@ -16,7 +16,14 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
 import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
-import { leesPng, KOLOMMEN, RIJEN } from './kleurmap.mjs';
+import { leesPng } from './png.mjs';
+
+/* Het raster van de gedeelde colormap: 16 banen breed, 4 rijen hoog. Stond in
+ * kleurmap.mjs, dat met de importeer-scripts is vervallen — die omkleuring is
+ * gedaan en zit in de .glb's gebakken. De catalogus leest de atlas alleen nog
+ * uit; verandert kits/colormap.png van raster, dan hier bijstellen. */
+const KOLOMMEN = 16;
+const RIJEN = 4;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -105,7 +112,7 @@ function leesVarianten(idsInCatalogus) {
  * Zo kan de kleurfilter niet uit de pas lopen met de modellen: er ís geen
  * tweede administratie meer die bijgewerkt moet worden na een omkleuring.
  *
- * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN in kleurmap.mjs).
+ * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN hierboven).
  * Een baan is horizontaal één kleur en loopt verticaal van licht naar donker,
  * want de schaduw zit in de textuur gebakken. Wélke banen een model gebruikt
  * komt dus uit het model; wat een baan voor kleur ís, staat in de sheet. Het

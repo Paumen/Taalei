@@ -1,9 +1,9 @@
 /**
  * PNG lezen en schrijven, zonder afhankelijkheden.
  *
- * Gedeeld door tools/kleurmap.mjs: om een model op de gedeelde colormap te
- * zetten moet je weten welke kleur een UV in de bron-atlas aanwijst, en welke
- * UV die kleur in kits/colormap.png teruggeeft. Daar is een decoder voor nodig.
+ * Gebruikt door tools/build-catalog.mjs: een model draagt geen kleur maar een
+ * verwijzing naar kits/colormap.png plus UV's. Om te weten wélke kleur dat is
+ * moet de atlas uitgelezen worden, en daar is een decoder voor nodig.
  *
  * Bewust smal gehouden: 8 bits per kanaal, niet-interlaced. Dat is wat de
  * atlassen in deze repo zijn (kits/colormap.png is RGBA, de nature-pack levert

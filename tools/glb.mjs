@@ -1,6 +1,5 @@
 /**
- * GLB lezen en opmeten. Gedeeld door tools/build-catalog.mjs en
- * tools/importeer-onderwater.mjs.
+ * GLB lezen en opmeten. Gebruikt door tools/build-catalog.mjs.
  *
  * De catalogus meet elk model op zoals het in de scène staat, want dat is wat
  * de speler ziet en wat tegen het raster van 1 unit aan moet passen. Voor de
