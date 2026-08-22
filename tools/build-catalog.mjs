@@ -532,12 +532,12 @@ const catalogus = {
         .map(([hex, aantal]) => ({
           hex,
           naam: kleurNaam(hex),
-          // Waar de kleur vandaan komt: de baan in de atlas, of het materiaal
-          // dat hem draagt. Staat in de tooltip van de filterknop.
-          textuur: p.atlas
-            ? 'baan ' + [...p.baanKleur].filter(([, k]) => k === hex).map(([baan]) => baan).join(' / ')
-            : null,
-          materiaal: p.atlas ? null : [...(p.materialen.get(hex) ?? [])].sort().join(' / ') || null,
+          // Waar de kleur vandaan komt: de baan in de atlas, het materiaal dat
+          // hem draagt, of allebei — de glazen ruitjes van rpgtools zitten in
+          // een model dat verder uit de atlas kleurt. Staat in de tooltip van
+          // de filterknop, dus per kleur bepaald en niet per palet.
+          textuur: [...p.baanKleur].filter(([, k]) => k === hex).map(([baan]) => `baan ${baan}`).join(' / ') || null,
+          materiaal: [...(p.materialen.get(hex) ?? [])].sort().join(' / ') || null,
           aantal,
         }))
         .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
