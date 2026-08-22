@@ -71,9 +71,6 @@ let budgetPerUnit = 1000;
 const getal = new Intl.NumberFormat('nl-NL');
 
 const paneel = document.querySelector('#paneel');
-const springlijst = document.querySelector('#springlijst');
-const zoekveld = document.querySelector('#zoek');
-const zoekTelling = document.querySelector('#zoek-telling');
 const leegmelding = document.querySelector('#leeg');
 const samenvatting = document.querySelector('#samenvatting');
 const detail = document.querySelector('#detail');
@@ -275,11 +272,11 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   houder.className = 'kaart-houder';
   houder.append(kaart, kies);
 
-  /* De varianten achter deze kaart tellen mee in de filters. Een kaart die vier
-   * modellen vertegenwoordigt en alleen op zichzelf te vinden is, verstopt de
-   * andere drie: filteren op goud zou dan niets opleveren omdat het ijzer op de
-   * kaart staat, en zoeken op "silver-nugget" ook niet. Wie op zo'n kleur of
-   * naam filtert krijgt de kaart, en vindt de rest erachter in het modelpaneel. */
+  /* De varianten achter deze kaart tellen mee in het kleurfilter. Een kaart die
+   * vier modellen vertegenwoordigt en alleen op zichzelf te vinden is, verstopt
+   * de andere drie: filteren op goud zou dan niets opleveren omdat het ijzer op
+   * de kaart staat. Wie op zo'n kleur filtert krijgt de kaart, en vindt de rest
+   * erachter in het modelpaneel. */
   const familie = [model, ...varianten];
 
   const item = {
@@ -289,12 +286,6 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
     weergave,
     palet: model.palet,
     kleuren: [...new Set(familie.flatMap((m) => m.kleuren.map((hex) => kleurSleutel(m.palet, hex))))],
-    zoektekst: [
-      ...familie.map((m) => m.naam),
-      model.kit,
-      kit?.naam ?? '',
-      groep?.naam ?? '',
-    ].join(' ').toLowerCase(),
   };
   kaarten.push(item);
 
@@ -352,17 +343,6 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
   rooster.className = 'rooster';
   sectie.append(kop, rooster);
   return { sectie, rooster, aantalEl };
-}
-
-function maakSpringitem(sectie, titel, aantal, kleur) {
-  const link = document.createElement('a');
-  link.href = `#${sectie.id}`;
-  link.dataset.weergave = sectie.dataset.weergave;
-  const stip = span('stip');
-  if (kleur) stip.style.background = kleur;
-  link.append(stip, document.createTextNode(`${titel} `), span('telling', String(aantal)));
-  springlijst.append(link);
-  return link;
 }
 
 const detailViewer = document.querySelector('#detail-viewer');
@@ -530,8 +510,9 @@ function zetSelectie(paden, aan) {
 
 /**
  * Shift-klik trekt de selectie door van de vorige klik tot deze, over de
- * kaarten die nú in beeld staan. Dus na filteren op "chest" pakt shift precies
- * de kisten, en niet alles wat er in de ongefilterde catalogus tussen zat.
+ * kaarten die nú in beeld staan. Dus na filteren op een kleur pakt shift
+ * precies die modellen, en niet alles wat er in de ongefilterde catalogus
+ * tussen zat.
  */
 function kiesBereik(tot, aan) {
   const lijst = zichtbareKaarten();
@@ -686,13 +667,11 @@ function pasWeergaveToe(weergave) {
 }
 
 function filter() {
-  const term = zoekveld.value.trim().toLowerCase();
   let zichtbaar = 0;
 
   for (const kaart of kaarten) {
     const treffer =
-      (!term || kaart.zoektekst.includes(term)) &&
-      (gekozenKleuren.size === 0 || kaart.kleuren.some((k) => gekozenKleuren.has(k)));
+      gekozenKleuren.size === 0 || kaart.kleuren.some((k) => gekozenKleuren.has(k));
     kaart.element.hidden = !treffer;
     if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
   }
@@ -702,12 +681,9 @@ function filter() {
     const aantal = sectie.kaarten.filter((k) => !k.element.hidden).length;
 
     sectie.element.hidden = !inWeergave || aantal === 0;
-    sectie.springitem.hidden = sectie.element.hidden;
     sectie.aantalEl.textContent = `${aantal} model${aantal === 1 ? '' : 'len'}`;
-    sectie.springitem.querySelector('.telling').textContent = aantal;
   }
 
-  zoekTelling.textContent = term ? `${zichtbaar}` : '';
   leegmelding.hidden = zichtbaar > 0;
 }
 
@@ -774,7 +750,7 @@ async function start() {
     return uit;
   };
 
-  const registreer = (sectieDelen, titel, kleur, modellen) => {
+  const registreer = (sectieDelen, modellen) => {
     const { sectie, rooster, aantalEl } = sectieDelen;
     const eigen = [];
     const gevouwen = vouwVarianten(modellen);
@@ -784,12 +760,7 @@ async function start() {
       eigen.push(item);
     }
     paneel.append(sectie);
-    secties.push({
-      element: sectie,
-      kaarten: eigen,
-      aantalEl,
-      springitem: maakSpringitem(sectie, titel, gevouwen.length, kleur),
-    });
+    secties.push({ element: sectie, kaarten: eigen, aantalEl });
   };
 
   // Kits die niet met de andere kits te mengen zijn, staan in een eigen tabblad:
@@ -824,8 +795,6 @@ async function start() {
         kleur,
         bron: bronVan(kit.url),
       }),
-      kit.kort ?? kit.naam,
-      kleur,
       modellen,
     );
   }
@@ -844,8 +813,6 @@ async function start() {
         aantal: modellen.length,
         kleur: groep.kleur,
       }),
-      groep.kort ?? groep.naam,
-      groep.kleur,
       modellen,
     );
   }
@@ -864,8 +831,6 @@ async function start() {
         uitleg: kit.toelichting,
         bron: bronVan(kit.url),
       }),
-      kit.kort ?? kit.naam,
-      kleur,
       modellen,
     );
   }
@@ -879,8 +844,6 @@ async function start() {
       window.scrollTo({ top: 0 });
     });
   }
-
-  zoekveld.addEventListener('input', filter);
 
   /* Omschakelen raakt alles wat al getekend is: de levende viewers krijgen de
    * nieuwe belichting, en de opgeslagen momentopnamen van uitgescrolde kaarten
