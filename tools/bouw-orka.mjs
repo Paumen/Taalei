@@ -2,7 +2,7 @@
 import { writeFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { schrijfGlb } from './glb.mjs';
+import { schrijfGlb } from '../catalog/tools/glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOEL = join(ROOT, 'kits', 'workfiles', 'onderwater-kit');

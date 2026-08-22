@@ -90,7 +90,7 @@ function demoClip(clips) {
   return clips.find((naam) => naam === 'open-close' || naam === 'toggle') ?? clips[0];
 }
 
-const VLAK_OMGEVING = 'kits/effen-omgeving.png';
+const VLAK_OMGEVING = 'catalog/effen-omgeving.png';
 const vlakkeModus = { aan: false };
 
 function zetBelichting(viewer, schaduw) {
@@ -574,8 +574,8 @@ function filter() {
 
 async function start() {
   const versie = document.querySelector('meta[name="catalogus-versie"]')?.content;
-  const respons = await fetch(versie ? `kits/catalog.json?v=${versie}` : 'kits/catalog.json');
-  if (!respons.ok) throw new Error(`kits/catalog.json niet gevonden (${respons.status})`);
+  const respons = await fetch(versie ? `catalog/catalog.json?v=${versie}` : 'catalog/catalog.json');
+  if (!respons.ok) throw new Error(`catalog/catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
 
   if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
