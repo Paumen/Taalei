@@ -1,7 +1,8 @@
 /**
  * Modellen uit een geïmporteerde pack op de gedeelde colormap zetten.
  *
- * Gedeeld door tools/importeer-nature.mjs en tools/importeer-tropical.mjs.
+ * Gedeeld door de importeerscripts die nog in de repo staan:
+ * tools/importeer-props.mjs, -rocks.mjs, -modulair-terrein.mjs en -village.mjs.
  *
  * Waarom dit nodig is: een pack komt met zijn eigen atlas. De stijlgids (§1)
  * wil dat kleuren uit kits/colormap.png komen, zodat een geïmporteerd model
