@@ -7,25 +7,13 @@ const KIT_KLEUREN = {
   'platformer-kit': '#ffb349',
   'mini-dungeon': '#6d738a',
   'onderwater-kit': '#2fa39b',
-  // Twee geïmporteerde packs: verweerd bruingrijs voor de tak, de dode boom en
-  // de berg, en het olijfgroen dat met de palm en de plant aan de gedeelde
-  // colormap is toegevoegd.
   nature: '#7f6a52',
   tropical: '#6d8d33',
-  // De derde geïmporteerde pack: het grasgroen dat ermee aan de gedeelde
-  // colormap is toegevoegd, iets gedempt zodat het niet met tropical's olijf
-  // en mini-forest's blauwgroen verwisseld wordt.
   'modulair-terrein': '#4f7a3a',
-  // De props-kit is hout, aardewerk en ijzer; de rocks-kit is steen.
   props: '#b7946e',
   rocks: '#8a91ae',
 };
 
-/**
- * Oude ankers die in bestaande links kunnen staan, naar hun huidige groep.
- * `terrein` is gesplitst: de vloeren gingen naar de bouwwerken, de bodem naar
- * `grond` — die laatste is de grootste helft, dus daar wijst het anker heen.
- */
 const GROEP_ALIASSEN = {
   bouw: 'bouwwerken',
   mechaniek: 'items',
@@ -36,14 +24,6 @@ const GROEP_ALIASSEN = {
 
 const ZWAAR_VANAF = 5000;
 
-/**
- * Maatklasse op de langste as, afgezet tegen het raster van 1 unit (= één
- * wand- of vloersegment). De grenzen liggen op een halve en anderhalve unit:
- * daaronder is het iets wat je oppakt of op tafel zet, daarboven iets waar je
- * omheen of overheen loopt. Dat splitst de collectie in 190 / 529 / 126 —
- * de middenmoot is het grootst, en dat klopt: de meeste modellen zijn op het
- * raster ontworpen.
- */
 const MAATKLASSEN = [
   { id: 'klein', teken: 'S', grens: 0.5, uitleg: 'klein — kleiner dan een halve unit' },
   { id: 'middel', teken: 'M', grens: 1.5, uitleg: 'middel — een halve tot anderhalve unit' },
@@ -56,16 +36,6 @@ function maatKlasse(wdh) {
   return { ...klasse, langste };
 }
 
-/**
- * Driehoeken per 1×1×1 unit waarboven een model uit de pas loopt met de
- * stijlgids (§4). Los van ZWAAR_VANAF, want dat is een absolute telling: een
- * schip van 5000 driehoeken is groot, een kruk van 1500 is te fijn gemodelleerd
- * — twee verschillende soorten zwaar, allebei het aankijken waard.
- *
- * De grens zelf staat in tools/glb.mjs en komt via catalog.json mee; start()
- * zet hem zodra de catalogus binnen is. Het getal hier is alleen het antwoord
- * op een catalogus van vóór dat veld.
- */
 let budgetPerUnit = 1000;
 
 const getal = new Intl.NumberFormat('nl-NL');
@@ -80,13 +50,6 @@ const secties = [];
 
 let huidigeWeergave = 'kits';
 
-/**
- * Selectie hangt aan het pad, niet aan de kaart. Eén model heeft namelijk
- * meerdere kaarten — hetzelfde vat staat zowel in de kitweergave als in zijn
- * semantische groep — en die moeten hetzelfde vinkje tonen. Meteen ook de
- * ontdubbeling: wie in beide tabbladen hetzelfde model aanvinkt, krijgt het
- * pad één keer op het klembord.
- */
 const gekozenPaden = new Set();
 const kaartenPerPad = new Map();
 
@@ -123,36 +86,10 @@ const waarnemer = new IntersectionObserver(
   { rootMargin: '800px 0px' },
 );
 
-/**
- * De clip die de catalogus toont als een model er meer dan één draagt.
- *
- * De kits leveren losse eenmalige clips ("open" van 0,3 s, "close") naast een
- * heen-en-weer-clip ("open-close", "toggle"). In een lus is alleen die laatste
- * om aan te zien: een eenmalige "open" springt aan het eind van elke lus hard
- * terug naar dicht en staat te klapperen. Spellen spelen de losse clips één
- * keer af; de catalogus toont de rondgang.
- */
 function demoClip(clips) {
   return clips.find((naam) => naam === 'open-close' || naam === 'toggle') ?? clips[0];
 }
 
-/**
- * Twee manieren van kijken.
- *
- * Normaal staat het model in een studio: een omgevingsmap met licht en donker
- * erin, plus een slagschaduw. Dat laat de vorm zien.
- *
- * "Vlak" ruilt die omgeving in voor één egale witte (kits/effen-omgeving.png)
- * en zet de schaduw uit. Diffuus licht uit een gelijkmatige omgeving is overal
- * even sterk, dus elk vlak toont precies zijn eigen kleur — het model is dan
- * niet meer gemodelleerd door licht maar alleen door zijn textuur. Dat is wat
- * je wilt zien als je een kleur beoordeelt of controleert hoe de schaduw in de
- * atlas gebakken zit.
- *
- * De belichting van 1,3 is gemeten en niet gekozen: bij die waarde komt een
- * vlak van #f0ece3 er als (242, 236, 228) uit, en #6d738a als (110, 116, 143).
- * Wat je op het scherm ziet is dan de kleur zoals hij in de colormap staat.
- */
 const VLAK_OMGEVING = 'kits/effen-omgeving.png';
 const vlakkeModus = { aan: false };
 
@@ -174,10 +111,6 @@ function koppelViewer(vak) {
   const viewer = document.createElement('model-viewer');
   viewer.src = vak.dataset.src;
   viewer.alt = vak.dataset.alt;
-  // Kaarten staan stil. Een rooster vol lopende animaties trekt de aandacht
-  // naar wat toevallig beweegt in plaats van naar wat je zoekt, en zet voor elk
-  // van die modellen een renderlus aan. Dat een model clips heeft zegt het
-  // glyfje op de kaart; afspelen doe je in het modelpaneel.
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
   zetBelichting(viewer, '0.6');
@@ -208,7 +141,6 @@ function ontkoppelViewer(vak) {
   }
 }
 
-/** Eén glyfje op de thumbnail: kort teken, volledige uitleg in de tooltip. */
 function glyf(soort, teken, uitleg) {
   const el = span(`glyf glyf-${soort}`, teken);
   el.title = uitleg;
@@ -229,10 +161,6 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   vak.dataset.src = model.pad;
   vak.dataset.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
 
-  /* Glyfen op de thumbnail: de maat altijd, de rest alleen als er iets te
-     melden valt. Ze staan op het plaatje en niet in de tekstregel, want ze
-     zeggen iets over het model zelf en moeten in één oogopslag te scannen
-     zijn over het hele rooster. */
   const maat = maatKlasse(model.wdh);
   const glyfen = span('kaart-glyfen');
   glyfen.append(glyf('maat', maat.teken, `${maat.uitleg} (langste as ${maat.langste.toFixed(2)})`));
@@ -253,13 +181,9 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   );
   tekst.append(span('kaart-naam', model.naam), meta);
 
-  // De glyfen liggen óver het viewervak, niet erin: koppelViewer() vervangt de
-  // inhoud van dat vak zodra de kaart in beeld komt en zou ze anders opruimen.
   kaart.append(vak, glyfen, tekst);
   kaart.addEventListener('click', () => toonDetail(model));
 
-  // Het vinkje is een broer van de kaart, geen kind: een knop in een knop mag
-  // niet, en zo blijft de kaart zelf onveranderd klikbaar naar het detail.
   const kies = document.createElement('label');
   kies.className = 'kaart-kies';
   const vinkje = document.createElement('input');
@@ -272,11 +196,6 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   houder.className = 'kaart-houder';
   houder.append(kaart, kies);
 
-  /* De varianten achter deze kaart tellen mee in het kleurfilter. Een kaart die
-   * vier modellen vertegenwoordigt en alleen op zichzelf te vinden is, verstopt
-   * de andere drie: filteren op goud zou dan niets opleveren omdat het ijzer op
-   * de kaart staat. Wie op zo'n kleur filtert krijgt de kaart, en vindt de rest
-   * erachter in het modelpaneel. */
   const familie = [model, ...varianten];
 
   const item = {
@@ -353,9 +272,6 @@ const detailVariant = document.querySelector('#detail-variant');
 const detailVariantKeuze = document.querySelector('#detail-variant-keuze');
 let actiefPad = '';
 
-/* Wat het detailpaneel nodig heeft om een model op te zoeken dat niet is
- * aangeklikt: de varianten van het getoonde model staan in een keuzelijst, en
- * daar hoort de kit en de groep van dát model bij. start() vult dit. */
 const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map() };
 
 function toonDetail(model) {
@@ -370,9 +286,6 @@ function toonDetail(model) {
     ['Bestand', model.pad],
     ['Afmetingen (b × d × h)', afmeting(model.wdh)],
     ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
-    // Het budget uit de stijlgids: elke as telt voor minstens één unit mee, dus
-    // een model dat binnen één rastercel blijft wordt niet afgerekend op hoe
-    // klein het is (tools/glb.mjs).
     [
       'Driehoeken per unit',
       !Number.isFinite(model.driehoekenPerUnit)
@@ -381,8 +294,6 @@ function toonDetail(model) {
     ],
     ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
     ['Materialen', getal.format(model.materialen)],
-    // Geanimeerde modellen zijn er nu niet meer in de catalogus; de rij blijft
-    // staan zodat een gerigde kit meteen goed getoond wordt.
     ...(model.animaties?.length
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
@@ -411,13 +322,6 @@ function toonDetail(model) {
   viewer.setAttribute('shadow-softness', '0.9');
   zetBelichting(viewer, '0.7');
 
-  /**
-   * Ook hier staat een gerigd model eerst stil, net als op de kaart: je opent
-   * een model om het te bekijken, niet om ernaar te kijken. De keuzelijst begint
-   * op "uit" en draait op de draaitafel; kies je een clip, dan gaat die
-   * draaitafel uit — een schildpad die zwemt én ronddraait laat geen van beide
-   * goed zien.
-   */
   const clips = model.animaties ?? [];
   viewer.setAttribute('auto-rotate', '');
   viewer.setAttribute('rotation-per-second', '18deg');
@@ -425,13 +329,10 @@ function toonDetail(model) {
   detailAnimatie.hidden = clips.length === 0;
   detailAnimatieKeuze.replaceChildren(
     optie(UIT, 'uit (draaitafel)'),
-    // De volgorde van de kit zelf; demoClip() zegt welke clip het beste rondloopt
-    // en staat daarom als suggestie erbij.
     ...clips.map((naam) => optie(naam, naam === demoClip(clips) && clips.length > 1 ? `${naam} (rondloop)` : naam)),
   );
   detailAnimatieKeuze.value = UIT;
 
-  /* De varianten van dit model, het model zelf voorop. */
   const leden = (register.varianten.get(model.variant) ?? [])
     .map((id) => register.modellen.get(id))
     .filter(Boolean);
@@ -445,7 +346,6 @@ function toonDetail(model) {
   werkSelectieBij();
 }
 
-/** Waarde van de "geen animatie"-optie; geen clip heet zo. */
 const UIT = '';
 
 function optie(waarde, tekst) {
@@ -489,8 +389,6 @@ detailKopieer.addEventListener('click', async () => {
   setTimeout(() => { detailKopieer.textContent = 'Kopieer pad'; }, 1600);
 });
 
-/* ---------- selectie ---------- */
-
 const selectiebalk = document.querySelector('#selectiebalk');
 const selectieTelling = document.querySelector('#selectiebalk-telling');
 const selectieKopieer = document.querySelector('#selectie-kopieer');
@@ -508,12 +406,6 @@ function zetSelectie(paden, aan) {
   werkSelectieBij();
 }
 
-/**
- * Shift-klik trekt de selectie door van de vorige klik tot deze, over de
- * kaarten die nú in beeld staan. Dus na filteren op een kleur pakt shift
- * precies die modellen, en niet alles wat er in de ongefilterde catalogus
- * tussen zat.
- */
 function kiesBereik(tot, aan) {
   const lijst = zichtbareKaarten();
   const van = lijst.indexOf(laatsteKeuze);
@@ -534,11 +426,6 @@ function werkSelectieBij() {
   }
 }
 
-/**
- * Zonder klembordrechten — een pagina die niet over https draait, bijvoorbeeld
- * vanaf het bestandssysteem — valt de browser terug op een veld dat je met
- * ctrl-C leegt. Bij één pad past dat nog in het knoplabel, bij zeventig niet.
- */
 async function naarKlembord(tekst) {
   try {
     await navigator.clipboard.writeText(tekst);
@@ -562,8 +449,6 @@ async function naarKlembord(tekst) {
 
 selectieKopieer.addEventListener('click', async () => {
   const aantal = gekozenPaden.size;
-  // Set houdt invoegvolgorde aan: de paden komen eruit in de volgorde waarin ze
-  // zijn aangevinkt, en bij "Alles in beeld" is dat de volgorde op het scherm.
   const gelukt = await naarKlembord([...gekozenPaden].join('\n'));
   selectieKopieer.textContent = gelukt
     ? `${aantal} pad${aantal === 1 ? '' : 'en'} gekopieerd`
@@ -698,9 +583,6 @@ async function start() {
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
   const groepen = new Map(data.groepen.map((g) => [g.id, g]));
 
-  /* Het detailpaneel zoekt hierin een model op dat niet is aangeklikt: kies je
-   * in dat paneel een andere variant, dan moet die met kit en groep en al te
-   * vinden zijn. */
   register.kits = kits;
   register.groepen = groepen;
   register.modellen = new Map(data.modellen.map((m) => [m.id, m]));
@@ -711,22 +593,6 @@ async function start() {
     `${data.groepen.filter((g) => g.aantal > 0).length} groepen · ` +
     `${data.paletten.length} kleurpaletten`;
 
-  /**
-   * Varianten van hetzelfde model — dezelfde muur in vijf metselpatronen, dezelfde
-   * staaf in vier metalen — krijgen samen één kaart, met het aantal in een glyfje.
-   * Anders vult één familie een halve sectie met kaarten die je op de thumbnail
-   * niet uit elkaar houdt. De rest zit achter die kaart, in het modelpaneel.
-   *
-   * Het samenvouwen gebeurt per sectie en niet één keer voor de hele catalogus:
-   * een variantgroep die over kits heen loopt hoort in de kitweergave nog steeds
-   * per kit één kaart te geven.
-   *
-   * Welk lid de kaart wordt zegt de groep zelf (catalog.json → varianten.hoofd):
-   * bij de vier metalen is dat het ijzer en niet het koper dat toevallig vooraan
-   * in het alfabet staat. Zit dat hoofd niet in déze sectie, dan neemt het
-   * eerste lid dat er wél is het over. De plek in het rooster blijft die van het
-   * eerste lid, zodat een groep niet verspringt door wie hem vertegenwoordigt.
-   */
   const hoofdVan = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
 
   const vouwVarianten = (modellen) => {
@@ -763,17 +629,8 @@ async function start() {
     secties.push({ element: sectie, kaarten: eigen, aantalEl });
   };
 
-  // Kits die niet met de andere kits te mengen zijn, staan in een eigen tabblad:
-  // nu alleen de grot, met zijn eigen atlas. Welke dat zijn zegt de kit zelf
-  // (manifest.js → catalog.json), niet een gok hier — hun modellen zitten
-  // immers in geen enkel ander tabblad.
   const opZichzelf = data.kits.filter((k) => k.tabblad);
   const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
-  // Welke groep een kit met een eigen tabblad als geheel vult (catalog.json →
-  // kitGroep). Alleen díé modellen laten we uit de groepsweergave weg; ze staan
-  // immers compleet in hun eigen tabblad. Een model dat bij uitzondering in een
-  // andere groep is gezet hoort daar wél te staan — anders zou het verhuizen
-  // neerkomen op verdwijnen.
   const kitGroep = new Map(opZichzelf.map((k) => [k.slug, k.kitGroep]));
   const inGroepsweergave = (model) =>
     !eigenTabblad.has(model.kit) || model.groep !== kitGroep.get(model.kit);
@@ -845,10 +702,6 @@ async function start() {
     });
   }
 
-  /* Omschakelen raakt alles wat al getekend is: de levende viewers krijgen de
-   * nieuwe belichting, en de opgeslagen momentopnamen van uitgescrolde kaarten
-   * gaan weg — die zijn in de oude belichting gemaakt. Een kaart die alleen nog
-   * zijn plaatje toont, tekent zichzelf opnieuw. */
   const lichtKnop = document.querySelector('#licht');
   lichtKnop.addEventListener('click', () => {
     vlakkeModus.aan = !vlakkeModus.aan;
@@ -868,12 +721,6 @@ async function start() {
     Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
   );
 
-  /**
-   * De grot heeft geen sectie in de objectweergave, dus #groep-grot bestaat
-   * niet; die link hoort naar de kit zelf te wijzen. Dat mag alleen als de
-   * groep nergens anders voorkomt — een kit die een groep deelt met de andere
-   * kits mag zo'n anker niet naar zich toe trekken.
-   */
   const groepenElders = new Set(data.modellen.filter(inGroepsweergave).map((m) => m.groep));
   for (const kit of opZichzelf) {
     for (const model of data.modellen) {

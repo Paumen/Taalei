@@ -1,17 +1,3 @@
-/**
- * Rendert per groep uit groups.json vergelijkbare assets uit verschillende
- * kits naast elkaar, op ware grootte tegen een raster van 1 unit. De
- * schermafbeeldingen komen in docs/asset_size_review/.
- *
- * Draaien vanuit de repo-root:
- *   NODE_PATH=$(npm root -g) node tools/vergelijk-groottes/render.mjs
- *
- * Met een eigen groepenbestand en uitvoermap (zo rendert het variantoverzicht):
- *   node tools/vergelijk-groottes/render.mjs docs/asset_variants.groepen.json \
- *        docs/asset_variant_review
- *
- * Gebruikt de globale npm-installaties van three en playwright.
- */
 import { chromium } from 'playwright';
 import { execSync } from 'node:child_process';
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
@@ -32,7 +18,6 @@ const server = http.createServer((req, res) => {
   const drie = p.startsWith('/three/');
   const basis = drie ? THREE : ROOT;
   const fp = path.normalize(path.join(basis, drie ? p.slice(7) : p));
-  /* alleen bestanden binnen de repo of het three-pakket serveren */
   if (!fp.startsWith(basis + path.sep)) { res.writeHead(403); res.end(); return; }
   try {
     if (!existsSync(fp) || !statSync(fp).isFile()) { res.writeHead(404); res.end(); return; }
@@ -51,8 +36,6 @@ page.on('pageerror', (err) => console.log('  [fout]', err.message));
 let mislukt = 0;
 for (const naam of Object.keys(groups)) {
   await page.goto(`http://127.0.0.1:8931/tools/vergelijk-groottes/index.html?group=${naam}&bron=${encodeURIComponent(bronUrl)}`);
-  /* FOUT wordt gezet door index.html bij een scriptfout, zodat we niet op de
-   * volle timeout hoeven te wachten */
   await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 30000 });
   if (await page.evaluate('window.FOUT === true')) {
     mislukt++;

@@ -1,29 +1,11 @@
-/**
- * PNG lezen, zonder afhankelijkheden.
- *
- * Gebruikt door tools/build-catalog.mjs: om te weten welke kleur een model
- * draagt, moet de bouwer de pixel opzoeken die een UV in kits/colormap.png
- * aanwijst. Daar is een decoder voor nodig.
- *
- * Bewust smal gehouden: 8 bits per kanaal, niet-interlaced. Dat is wat de
- * atlassen in deze repo zijn (kits/colormap.png is RGBA, de nature-pack levert
- * een indexed PNG) en meer heeft geen van de tools nodig. Alles daarbuiten
- * levert een duidelijke fout op in plaats van stilzwijgend verkeerde kleuren.
- */
 
 import { readFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 
 const HANDTEKENING = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
-/** Kanalen per kleurtype: 0=grijs, 2=rgb, 3=indexed, 4=grijs+alpha, 6=rgba. */
 const KANALEN = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 };
 
-/**
- * Draait de per-regel filters van de PNG-spec terug. Elke regel begint met een
- * filterbyte; de vier filters voorspellen een byte uit zijn linkerbuur (a), de
- * byte erboven (b) en die linksboven (c).
- */
 function ontfilter(ruw, breedte, hoogte, bpp) {
   const stap = breedte * bpp;
   const uit = Buffer.alloc(stap * hoogte);
@@ -46,7 +28,6 @@ function ontfilter(ruw, breedte, hoogte, bpp) {
         case 2: regel[x] = (regel[x] + b) & 255; break;
         case 3: regel[x] = (regel[x] + ((a + b) >> 1)) & 255; break;
         case 4: {
-          // Paeth: kies de buur die het dichtst bij de lineaire voorspelling ligt.
           const p = a + b - c;
           const pa = Math.abs(p - a);
           const pb = Math.abs(p - b);
@@ -61,11 +42,6 @@ function ontfilter(ruw, breedte, hoogte, bpp) {
   return uit;
 }
 
-/**
- * @param {string} pad
- * @returns {{breedte: number, hoogte: number, pixels: Buffer}} pixels is RGBA,
- *   vier bytes per pixel, ongeacht hoe het bestand was opgeslagen.
- */
 export function leesPng(pad) {
   const buf = readFileSync(pad);
   if (!buf.subarray(0, 8).equals(HANDTEKENING)) throw new Error(`geen PNG: ${pad}`);

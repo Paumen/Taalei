@@ -1,23 +1,6 @@
-/**
- * GLB lezen en opmeten. Gebruikt door tools/build-catalog.mjs, dat elk model
- * opmeet voor de catalogus, en door tools/bouw-orka.mjs, dat er alleen
- * schrijfGlb() uit haalt om zijn model weg te schrijven.
- *
- * De catalogus meet elk model op zoals het in de scène staat, want dat is wat
- * de speler ziet en wat tegen het raster van 1 unit aan moet passen. Voor de
- * losse props van Kenney kan dat uit de min/max van de POSITION-accessors,
- * maar de onderwater-kit is geskind: daar staan de vertices in bindpose-ruimte
- * en bepalen de gewrichten waar ze terechtkomen. Zonder de skinning mee te
- * rekenen zou de pinguïn 1,77 units breed heten terwijl hij 2,43 units lang is.
- * Daarom lezen we de vertexdata en rekenen we de skinning-matrices uit.
- */
 
 import { readFileSync } from 'node:fs';
 
-/* -- container ------------------------------------------------------------
- * GLB: 12-byte header, daarna chunks van [lengte, type, data]. De eerste chunk
- * is de glTF-JSON, de tweede (als hij er is) de binaire buffer.
- */
 export function leesGlb(pad) {
   const buf = readFileSync(pad);
   if (buf.length < 20 || buf.readUInt32LE(0) !== 0x46546c67) {
@@ -40,11 +23,9 @@ export function leesGlb(pad) {
   return { json, bin };
 }
 
-/** Schrijft json + bin terug als GLB. De binaire chunk gaat ongewijzigd mee. */
 export function schrijfGlb(pad, json, bin, schrijfBestand) {
   const vulling = (n) => (4 - (n % 4)) % 4;
   const jsonBuf = Buffer.from(JSON.stringify(json), 'utf8');
-  // Spaties na de JSON, nullen na de binaire data: zo schrijft de spec het voor.
   const jsonChunk = Buffer.concat([jsonBuf, Buffer.alloc(vulling(jsonBuf.length), 0x20)]);
   const binChunk = Buffer.concat([bin, Buffer.alloc(vulling(bin.length), 0)]);
 
@@ -64,9 +45,6 @@ export function schrijfGlb(pad, json, bin, schrijfBestand) {
   schrijfBestand(pad, Buffer.concat([kop, jsonKop, jsonChunk, binKop, binChunk]));
 }
 
-/* -- matrices -------------------------------------------------------------
- * Kolom-major, zoals glTF ze aanlevert.
- */
 const EENHEIDSMATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 function maalMatrix(a, b) {
@@ -81,7 +59,6 @@ function maalMatrix(a, b) {
   return r;
 }
 
-/** Node-transform als matrix; `matrix` wint van losse translation/rotation/scale. */
 function nodeMatrix(node) {
   if (node.matrix) return node.matrix;
 
@@ -101,14 +78,11 @@ function nodeMatrix(node) {
   ];
 }
 
-/** Punt door een kolom-major matrix. */
 const maalPunt = (m, x, y, z) => [
   m[0] * x + m[4] * y + m[8] * z + m[12],
   m[1] * x + m[5] * y + m[9] * z + m[13],
   m[2] * x + m[6] * y + m[10] * z + m[14],
 ];
-
-/* -- accessors ------------------------------------------------------------ */
 
 const COMPONENT = {
   5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
@@ -116,11 +90,6 @@ const COMPONENT = {
 };
 const ONDERDELEN = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
 
-/**
- * Leest een accessor uit als vlakke Float64Array. Sparse accessors komen in
- * deze kits niet voor; als er ooit een opduikt is een harde fout beter dan
- * stilletjes de verkeerde punten meten.
- */
 export function leesAccessor({ json, bin }, index) {
   const accessor = json.accessors[index];
   if (accessor.sparse) throw new Error('sparse accessor wordt niet ondersteund');
@@ -139,22 +108,6 @@ export function leesAccessor({ json, bin }, index) {
   return { data: uit, breedte, count: accessor.count };
 }
 
-/* -- opmeten -------------------------------------------------------------- */
-
-/**
- * Meet de scène in de rustpose op: afmetingen, hoekpunten, driehoeken en
- * tekenopdrachten.
- *
- * - `wdh`: breedte × diepte × hoogte (X × Z × Y) in rastereenheden.
- * - `min`/`max`: de bounding box zelf, nodig om een model op y=0 te zetten.
- * - `driehoeken`: zoals de scène ze tekent — een mesh die door drie nodes wordt
- *   hergebruikt telt drie keer, want dat is wat de GPU doet.
- * - `calls`: elke primitive is één tekenopdracht.
- *
- * Voor geskinde primitives wordt elk vertex door zijn skinning-matrices
- * gehaald (gewricht × inverse bindmatrix, gewogen); de transform van de
- * mesh-node zelf telt dan niet mee, precies zoals de glTF-spec voorschrijft.
- */
 export function meetScene(glb) {
   const { json } = glb;
   const nodes = json.nodes ?? [];
@@ -162,7 +115,7 @@ export function meetScene(glb) {
 
   const wereld = new Array(nodes.length).fill(null);
   const zetWereld = (index, ouder) => {
-    if (wereld[index]) return; // cyclus-beveiliging
+    if (wereld[index]) return;
     const node = nodes[index];
     if (!node) return;
     wereld[index] = maalMatrix(ouder, nodeMatrix(node));
@@ -225,14 +178,11 @@ export function meetScene(glb) {
           const p = maalPunt(m, x, y, z);
           for (let as = 0; as < 3; as++) uit[as] += gewicht * p[as];
         }
-        // Een vertex zonder gewicht hangt aan niets; die volgt de mesh-node.
         pak(som === 0 ? maalPunt(wereld[index], x, y, z) : uit.map((v) => v / som));
       }
     }
   });
 
-  // Op drie decimalen: de kits zijn op 0.01 units ontworpen, en zonder afronden
-  // zet de float-rekenarij hier 1.0000000298023224 in de catalogus.
   const rond = (v) => Math.round(v * 1000) / 1000;
   const meet = (as) => (min[as] === Infinity ? 0 : rond(max[as] - min[as]));
 
@@ -245,37 +195,10 @@ export function meetScene(glb) {
   };
 }
 
-/**
- * Het tekenbudget uit docs/asset_style_guide.md §4, in driehoeken per 1×1×1
- * unit. Hier en nergens anders: build-catalog.mjs schrijft hem mee in
- * catalog.json en de catalogus in de browser leest hem daaruit, zodat één
- * wijziging hier overal doorwerkt.
- */
 export const BUDGET_PER_UNIT = 1000;
 
-/**
- * Driehoeken per bezette rastercel — afgezet tegen BUDGET_PER_UNIT hierboven.
- *
- * De noemer is het aantal cellen dat het model bezet, met één cel als
- * ondergrens: max(1, b × d) × max(1, h), zoals importeer-village.mjs hem
- * altijd al rekende. Zonder die ondergrens groeit de dichtheid met 1/maat³
- * en kan geen enkel klein voorwerp ooit slagen — een schroef van
- * 0,06 × 0,06 × 0,12 zou op minder dan één driehoek moeten uitkomen. Een
- * vloertegel van 2 × 2 wordt nog steeds op vier cellen afgerekend en een
- * emmer kleiner dan één cel krijgt geen korting omdat hij klein is: zijn
- * budget is precies dat van één cel.
- *
- * Een vlak model blijft `null`: het heeft geen volume en de catalogus
- * rapporteert die modellen apart, met een handvol driehoeken staan ze toch
- * al buiten elke discussie over budget.
- *
- * @param {number} driehoeken  telling uit meetScene()
- * @param {number[]} wdh       breedte × diepte × hoogte in rastereenheden
- * @returns {number|null} driehoeken per bezette cel, afgerond; null bij een plat model
- */
 export function driehoekenPerUnit(driehoeken, wdh) {
   if (wdh.some((maat) => maat === 0)) return null;
   const cellen = Math.max(1, wdh[0] * wdh[1]) * Math.max(1, wdh[2]);
   return Math.round(driehoeken / cellen);
 }
-
