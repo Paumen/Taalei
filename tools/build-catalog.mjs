@@ -16,7 +16,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
 import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
-import { leesPng, KOLOMMEN, RIJEN } from './kleurmap.mjs';
+import { leesPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
@@ -26,6 +26,11 @@ const KITS_DIR = join(ROOT, 'kits');
  * kits/sources/<kit>/. */
 const MODEL_DIR = join(KITS_DIR, 'workfiles');
 const MODEL_PAD = 'kits/workfiles';
+
+/* De gedeelde colormap is een raster van 16 × 4 cellen; elke cel is een
+ * verticale kleurbaan die van licht (boven) naar donker (onder) loopt. */
+const KOLOMMEN = 16;
+const RIJEN = 4;
 
 /* -- kit-metadata ---------------------------------------------------------
  * kits/manifest.js is een browser-script (window.KENNEY_KITS = [...]).
@@ -111,7 +116,7 @@ function leesVarianten(idsInCatalogus) {
  * Zo kan de kleurfilter niet uit de pas lopen met de modellen: er ís geen
  * tweede administratie meer die bijgewerkt moet worden na een omkleuring.
  *
- * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN in kleurmap.mjs).
+ * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN hieronder).
  * Een baan is horizontaal één kleur en loopt verticaal van licht naar donker,
  * want de schaduw zit in de textuur gebakken. Wélke banen een model gebruikt
  * komt dus uit het model; wat een baan voor kleur ís, staat in de sheet. Het

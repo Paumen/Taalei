@@ -1,7 +1,7 @@
 /**
- * GLB lezen en opmeten. Gebruikt door tools/build-catalog.mjs; het
- * importeerscript van de onderwater-kit gebruikte het ook, maar dat staat niet
- * meer in de repo omdat de bronbestanden onder kits/sources/ bewaard zijn.
+ * GLB lezen en opmeten. Gebruikt door tools/build-catalog.mjs, dat elk model
+ * opmeet voor de catalogus, en door tools/bouw-orka.mjs, dat er alleen
+ * schrijfGlb() uit haalt om zijn model weg te schrijven.
  *
  * De catalogus meet elk model op zoals het in de scène staat, want dat is wat
  * de speler ziet en wat tegen het raster van 1 unit aan moet passen. Voor de
@@ -64,43 +64,12 @@ export function schrijfGlb(pad, json, bin, schrijfBestand) {
   schrijfBestand(pad, Buffer.concat([kop, jsonKop, jsonChunk, binKop, binChunk]));
 }
 
-/**
- * Zet een model op zijn plek met een extra wortel-node: geschaald, met de voet
- * op y=0 en het grondvlak gecentreerd op x/z (stijlgids §5).
- *
- * Waarom een node en niet de vertexdata: bij een geskind model liggen de
- * vertices in bindpose-ruimte en bepalen de gewrichten waar ze uitkomen. De
- * mesh verplaatsen zonder het skelet levert een model op dat bij het eerste
- * animatieframe terugspringt. Een node boven mesh én armature neemt beide mee.
- *
- * Past de scène ter plekke aan.
- */
-export function zetOpOorsprong(glb, naam, schaal = 1) {
-  const maat = meetScene(glb);
-  const scene = glb.json.scenes[glb.json.scene ?? 0];
-
-  const wortel = {
-    name: naam,
-    scale: [schaal, schaal, schaal],
-    translation: [
-      -schaal * (maat.min[0] + maat.max[0]) / 2,
-      -schaal * maat.min[1],
-      -schaal * (maat.min[2] + maat.max[2]) / 2,
-    ].map((v) => Math.round(v * 1e6) / 1e6),
-    children: [...scene.nodes],
-  };
-
-  glb.json.nodes.push(wortel);
-  scene.nodes = [glb.json.nodes.length - 1];
-  return maat;
-}
-
 /* -- matrices -------------------------------------------------------------
  * Kolom-major, zoals glTF ze aanlevert.
  */
-export const EENHEIDSMATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+const EENHEIDSMATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
-export function maalMatrix(a, b) {
+function maalMatrix(a, b) {
   const r = new Array(16).fill(0);
   for (let kolom = 0; kolom < 4; kolom++) {
     for (let rij = 0; rij < 4; rij++) {
@@ -113,7 +82,7 @@ export function maalMatrix(a, b) {
 }
 
 /** Node-transform als matrix; `matrix` wint van losse translation/rotation/scale. */
-export function nodeMatrix(node) {
+function nodeMatrix(node) {
   if (node.matrix) return node.matrix;
 
   const [tx, ty, tz] = node.translation ?? [0, 0, 0];
@@ -310,250 +279,3 @@ export function driehoekenPerUnit(driehoeken, wdh) {
   return Math.round(driehoeken / cellen);
 }
 
-/* -- opschonen ------------------------------------------------------------
- * Een geïmporteerde pack draagt meer mee dan de catalogus kan gebruiken: de
- * tropical-pack levert drie LOD-meshes in één bestand, allemaal in de scène en
- * dus allemaal over elkaar heen getekend, plus een tweede UV-set die nergens
- * naar verwijst. Deze repo kent geen LOD's — `calls` en `driehoeken` in de
- * catalogus zijn tekenbudget, geen bovengrens van een detailtrap — dus er blijft
- * één mesh over en de rest moet er niet alleen uit de scène, maar ook uit het
- * bestand: anders staan de bytes in catalog.json voor geometrie die niemand ziet.
- */
-
-/**
- * Bouwt een nieuw GLB met alleen de opgegeven meshes en attributen. Accessors,
- * bufferViews en de binaire buffer worden strak opnieuw opgebouwd, zodat er
- * niets ongebruikts achterblijft.
- *
- * De meshes komen als losse nodes in de scène te staan, in de volgorde waarin
- * ze zijn opgegeven. Materialen, texturen en images gaan ongewijzigd mee; de
- * importeurs zetten die daarna zelf goed.
- *
- * De plaatsing van een mesh blijft staan: de wereldmatrix van de node die hem
- * aanriep gaat mee als `matrix`. Dat is niet vanzelfsprekend maar wel nodig —
- * `mountain01` uit de nature-pack hangt aan een node met schaal 0,5, en zonder
- * die matrix komt de berg er twee keer zo groot uit als de pack hem bedoelde.
- *
- * @param {{json: object, bin: Buffer}} glb
- * @param {number[]} meshIndexen  welke meshes blijven
- * @param {string[]} attributen   welke vertex-attributen blijven
- * @returns {{json: object, bin: Buffer}} een nieuw GLB; `glb` blijft ongemoeid
- */
-export function compacteer(glb, meshIndexen, attributen = ['POSITION', 'NORMAL', 'TEXCOORD_0']) {
-  const bron = glb.json;
-
-  /* Wereldmatrix per node, langs dezelfde weg als meetScene() hem loopt. */
-  const wereld = new Array((bron.nodes ?? []).length).fill(null);
-  const zetWereld = (index, ouder) => {
-    if (wereld[index]) return;
-    const node = bron.nodes[index];
-    if (!node) return;
-    wereld[index] = maalMatrix(ouder, nodeMatrix(node));
-    for (const kind of node.children ?? []) zetWereld(kind, wereld[index]);
-  };
-  for (const index of bron.scenes?.[bron.scene ?? 0]?.nodes ?? []) zetWereld(index, EENHEIDSMATRIX);
-
-  // Mesh → de matrix waarmee de scène hem tekent. Wordt een mesh door meer dan
-  // één node gebruikt, dan telt de eerste; dat komt in deze packs niet voor.
-  const matrixVanMesh = new Map();
-  (bron.nodes ?? []).forEach((node, index) => {
-    if (node.mesh === undefined || !wereld[index]) return;
-    if (!matrixVanMesh.has(node.mesh)) matrixVanMesh.set(node.mesh, wereld[index]);
-  });
-  const stukken = [];
-  const bufferViews = [];
-  const accessors = [];
-  let lengte = 0;
-
-  /* Kopieert één accessor mee en geeft zijn nieuwe index terug. De brondata
-   * wordt daarbij ontvlochten: elke accessor krijgt zijn eigen bufferView zonder
-   * byteStride, wat de glTF-spec toestaat en het rekenwerk hier simpel houdt. */
-  const neem = (index) => {
-    const acc = bron.accessors[index];
-    if (acc.sparse) throw new Error('sparse accessor wordt niet ondersteund');
-
-    const Soort = COMPONENT[acc.componentType];
-    const breedte = ONDERDELEN[acc.type];
-    const eenheid = breedte * Soort.BYTES_PER_ELEMENT;
-    const bv = bron.bufferViews[acc.bufferView];
-    const start = (bv.byteOffset ?? 0) + (acc.byteOffset ?? 0);
-    const stap = bv.byteStride ?? eenheid;
-
-    // Op een veelvoud van vier beginnen: de spec eist dat een accessor uitkomt
-    // op een offset die deelbaar is door zijn componentgrootte.
-    while (lengte % 4 !== 0) {
-      stukken.push(Buffer.alloc(1));
-      lengte++;
-    }
-
-    const uit = Buffer.alloc(acc.count * eenheid);
-    for (let i = 0; i < acc.count; i++) {
-      glb.bin.copy(uit, i * eenheid, start + i * stap, start + i * stap + eenheid);
-    }
-
-    bufferViews.push({
-      buffer: 0,
-      byteOffset: lengte,
-      byteLength: uit.length,
-      ...(bv.target ? { target: bv.target } : {}),
-    });
-    stukken.push(uit);
-    lengte += uit.length;
-
-    accessors.push({
-      bufferView: bufferViews.length - 1,
-      componentType: acc.componentType,
-      count: acc.count,
-      type: acc.type,
-      // min/max is verplicht voor POSITION en verder nooit schadelijk.
-      ...(acc.min ? { min: acc.min } : {}),
-      ...(acc.max ? { max: acc.max } : {}),
-    });
-    return accessors.length - 1;
-  };
-
-  const meshes = meshIndexen.map((mi) => ({
-    name: bron.meshes[mi].name,
-    primitives: bron.meshes[mi].primitives.map((prim) => {
-      const attrs = {};
-      for (const naam of attributen) {
-        if (prim.attributes[naam] !== undefined) attrs[naam] = neem(prim.attributes[naam]);
-      }
-      return {
-        attributes: attrs,
-        ...(prim.indices !== undefined ? { indices: neem(prim.indices) } : {}),
-        ...(prim.material !== undefined ? { material: prim.material } : {}),
-        ...(prim.mode !== undefined ? { mode: prim.mode } : {}),
-      };
-    }),
-  }));
-
-  const json = {
-    asset: bron.asset,
-    scene: 0,
-    scenes: [{ nodes: meshes.map((_, i) => i) }],
-    nodes: meshes.map((mesh, i) => {
-      const matrix = matrixVanMesh.get(meshIndexen[i]) ?? EENHEIDSMATRIX;
-      const eenheid = matrix.every((v, k) => v === EENHEIDSMATRIX[k]);
-      return { mesh: i, name: mesh.name, ...(eenheid ? {} : { matrix }) };
-    }),
-    meshes,
-    accessors,
-    bufferViews,
-    buffers: [{ byteLength: lengte }],
-    ...(bron.materials ? { materials: bron.materials } : {}),
-    ...(bron.textures ? { textures: bron.textures } : {}),
-    ...(bron.images ? { images: bron.images } : {}),
-    ...(bron.samplers ? { samplers: bron.samplers } : {}),
-  };
-
-  return { json, bin: Buffer.concat(stukken) };
-}
-
-/* -- ontkoppelen ------------------------------------------------------------
- * tools/kleurmap.mjs wijst elke driehoek zijn eigen meerderheidskleur toe,
- * maar kan een hoekpunt dat door twee driehoeken met een verschillende
- * meerderheid wordt gedeeld niet allebei gelijk geven: welke kant hermapUv()
- * ook kiest, de andere driehoek blijft over twee cellen heen liggen. Bij een
- * bronmodel met gebakken belichting (rpgtools, forest, resources, dungeon)
- * ligt zo'n gedeeld hoekpunt vaak precies op de rand tussen een lichte en een
- * donkere kleur, en het slepen tussen twee ver uiteenliggende cellen van de
- * gedeelde colormap veegt dan zichtbaar over de kleuren die daartussen liggen
- * — een vlag van willekeurige strepen in plaats van een rand.
- *
- * De oplossing is elk hoekpunt te ontkoppelen: geen twee driehoeken delen nog
- * een hoekpunt, dus elke driehoek kan zijn eigen meerderheid onafhankelijk
- * kiezen. Dat kost geheugen (elke driehoek krijgt een eigen kopie van elk
- * attribuut in plaats van gedeelde hoekpunten), maar deze kits zijn klein
- * genoeg dat dat niets uitmaakt.
- *
- * Draai dit vóór hermapUv(), op de ruwe, ongewijzigde bronscène.
- */
-export function ontvlecht(glb, meshIndexen) {
-  const bron = glb.json;
-  const stukken = [];
-  const bufferViews = [];
-  const accessors = [];
-  let lengte = 0;
-
-  const zetVlak = (accessor, minmax) => {
-    while (lengte % 4 !== 0) {
-      stukken.push(Buffer.alloc(1));
-      lengte++;
-    }
-    const Soort = COMPONENT[accessor.componentType];
-    const eenheid = ONDERDELEN[accessor.type] * Soort.BYTES_PER_ELEMENT;
-    bufferViews.push({ buffer: 0, byteOffset: lengte, byteLength: accessor.data.length });
-    stukken.push(accessor.data);
-    lengte += accessor.data.length;
-    accessors.push({
-      bufferView: bufferViews.length - 1,
-      componentType: accessor.componentType,
-      count: accessor.data.length / eenheid,
-      type: accessor.type,
-      ...minmax,
-    });
-    return accessors.length - 1;
-  };
-
-  const meshes = bron.meshes.map((mesh, mi) => {
-    if (!meshIndexen.includes(mi)) return mesh;
-    return {
-      ...mesh,
-      primitives: mesh.primitives.map((prim) => {
-        if (prim.indices === undefined) return prim; // geen indices, niets te ontkoppelen
-
-        const idx = leesAccessor(glb, prim.indices);
-        const n = idx.count;
-        if (n > 65535) throw new Error('ontvlecht(): meer dan 65535 hoekpunten na ontkoppelen, Uint16 past niet meer');
-
-        const attributes = {};
-        for (const [naam, accIndex] of Object.entries(prim.attributes)) {
-          const bronAcc = bron.accessors[accIndex];
-          const gelezen = leesAccessor(glb, accIndex);
-          const breedte = gelezen.breedte;
-          const Soort = COMPONENT[bronAcc.componentType];
-          const data = new Soort(n * breedte);
-          const min = naam === 'POSITION' ? new Array(breedte).fill(Infinity) : null;
-          const max = naam === 'POSITION' ? new Array(breedte).fill(-Infinity) : null;
-          for (let i = 0; i < n; i++) {
-            const oud = idx.data[i];
-            for (let k = 0; k < breedte; k++) {
-              const v = gelezen.data[oud * breedte + k];
-              data[i * breedte + k] = v;
-              if (min) {
-                if (v < min[k]) min[k] = v;
-                if (v > max[k]) max[k] = v;
-              }
-            }
-          }
-          attributes[naam] = zetVlak({
-            componentType: bronAcc.componentType,
-            type: bronAcc.type,
-            data: Buffer.from(data.buffer, data.byteOffset, data.byteLength),
-          }, min ? { min, max } : {});
-        }
-
-        const nieuweIndices = new Uint16Array(n);
-        for (let i = 0; i < n; i++) nieuweIndices[i] = i;
-        const indices = zetVlak({
-          componentType: 5123,
-          type: 'SCALAR',
-          data: Buffer.from(nieuweIndices.buffer),
-        });
-
-        return {
-          attributes,
-          indices,
-          ...(prim.material !== undefined ? { material: prim.material } : {}),
-          ...(prim.mode !== undefined ? { mode: prim.mode } : {}),
-        };
-      }),
-    };
-  });
-
-  return {
-    json: { ...bron, meshes, accessors, bufferViews, buffers: [{ byteLength: lengte }] },
-    bin: Buffer.concat(stukken),
-  };
-}
