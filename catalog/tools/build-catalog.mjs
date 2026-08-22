@@ -8,7 +8,8 @@ import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
 import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { leesPng } from './png.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const CATALOG_DIR = join(ROOT, 'catalog');
 const KITS_DIR = join(ROOT, 'kits');
 const MODEL_DIR = join(KITS_DIR, 'workfiles');
 const MODEL_PAD = 'kits/workfiles';
@@ -17,13 +18,13 @@ const KOLOMMEN = 16;
 const RIJEN = 4;
 
 function leesKitMetadata() {
-  const bron = readFileSync(join(KITS_DIR, 'manifest.js'), 'utf8');
+  const bron = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
   const context = { window: {} };
-  runInNewContext(bron, context, { timeout: 5000, filename: 'kits/manifest.js' });
+  runInNewContext(bron, context, { timeout: 5000, filename: 'catalog/manifest.js' });
 
   const kits = context.window.KENNEY_KITS;
   if (!Array.isArray(kits)) {
-    throw new Error('kits/manifest.js zet geen window.KENNEY_KITS-array');
+    throw new Error('catalog/manifest.js zet geen window.KENNEY_KITS-array');
   }
 
   const meta = new Map();
@@ -45,7 +46,7 @@ function leesKitMetadata() {
 }
 
 function leesVarianten(idsInCatalogus) {
-  const bestand = join(ROOT, 'docs', 'asset_variants.json');
+  const bestand = join(CATALOG_DIR, 'asset_variants.json');
   if (!existsSync(bestand)) return { groepen: [], perModel: new Map() };
 
   const bron = JSON.parse(readFileSync(bestand, 'utf8'));
@@ -176,14 +177,14 @@ function kleurNaam(hex) {
 
 function schrijfVersie() {
   const inhoud = ['catalog.json', 'catalog.css', 'catalog.js']
-    .map((naam) => readFileSync(join(ROOT, 'kits', naam)))
+    .map((naam) => readFileSync(join(CATALOG_DIR, naam)))
     .join('');
   const versie = createHash('sha256').update(inhoud).digest('hex').slice(0, 10);
 
   const pad = join(ROOT, 'index.html');
   const html = readFileSync(pad, 'utf8')
-    .replace(/href="kits\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="kits/catalog.css?v=${versie}"`)
-    .replace(/src="kits\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="kits/catalog.js?v=${versie}"`)
+    .replace(/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${versie}"`)
+    .replace(/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${versie}"`)
     .replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${versie}">`);
 
   writeFileSync(pad, html);
@@ -344,7 +345,7 @@ for (const model of modellen) {
 }
 
 const catalogus = {
-  gegenereerd: 'node tools/build-catalog.mjs',
+  gegenereerd: 'node catalog/tools/build-catalog.mjs',
   totaal: modellen.length,
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
@@ -374,10 +375,10 @@ const catalogus = {
   modellen,
 };
 
-writeFileSync(join(ROOT, 'kits', 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
+writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
 schrijfVersie();
 
-console.log(`${modellen.length} modellen in ${kits.length} kits → kits/catalog.json`);
+console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }
