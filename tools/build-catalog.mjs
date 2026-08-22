@@ -105,15 +105,17 @@ function leesVarianten(idsInCatalogus) {
  * Zo kan de kleurfilter niet uit de pas lopen met de modellen: er ís geen
  * tweede administratie meer die bijgewerkt moet worden na een omkleuring.
  *
- * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN in kleurmap.mjs);
- * binnen een baan loopt de kleur van licht naar donker, want de schaduw zit in
- * de textuur gebakken. Elke gebruikte pixel apart tonen zou honderden stalen
- * geven die je op het scherm niet uit elkaar houdt, dus één staal per baan: de
- * pixel die in de hele catalogus het meeste oppervlak beslaat.
+ * De atlas is een raster van 16 × 4 banen (KOLOMMEN × RIJEN in kleurmap.mjs).
+ * Een baan is horizontaal één kleur en loopt verticaal van licht naar donker,
+ * want de schaduw zit in de textuur gebakken. Wélke banen een model gebruikt
+ * komt dus uit het model; wat een baan voor kleur ís, staat in de sheet. Het
+ * staal op de filterknop is de pixel halverwege de baan: de kleur waar een
+ * belicht vlak op uitkomt, en dezelfde die een mens eerder met de hand voor
+ * deze banen had gekozen.
  *
- * Oppervlak, niet hoekpunten: een fijn onderverdeeld hoekje zou anders zwaarder
- * wegen dan het grote vlak ernaast, en dan toont het staal een tint die je op
- * het model nauwelijks ziet.
+ * Niet de meest gebruikte pixel: in baan 5,0 ligt de donkerste rij (15,5% van
+ * het oppervlak) zo dicht bij een rij vlak onder de top (15,0%) dat één model
+ * erbij de hele balk van licht naar donker zou kantelen.
  */
 
 const atlassen = new Map(); // pad → { pixels, breedte, hoogte, sleutel }
@@ -148,7 +150,7 @@ const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '
  */
 function leesKleuren(glb, dir) {
   const { json } = glb;
-  const banen = new Map();
+  const banen = new Set();
   const materialen = new Map();
   let atlasPad = null;
 
@@ -177,59 +179,31 @@ function leesKleuren(glb, dir) {
       const celBreed = atlas.breedte / KOLOMMEN;
       const celHoog = atlas.hoogte / RIJEN;
       const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
-      const pos = prim.attributes.POSITION === undefined ? null : leesAccessor(glb, prim.attributes.POSITION);
-      const idx = prim.indices === undefined ? null : leesAccessor(glb, prim.indices);
 
-      /** De pixel waar hoekpunt `i` op landt, of null op lege atlasruimte. */
-      const pixelVan = (i) => {
+      for (let i = 0; i < uv.count; i++) {
         const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.breedte), 0), atlas.breedte - 1);
         const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.hoogte), 0), atlas.hoogte - 1);
         const i4 = (y * atlas.breedte + x) * 4;
         // Zwart is in deze atlassen geen kleur maar lege ruimte. Een UV die
-        // daar landt kleurt niets zichtbaars en levert dus geen staal op.
-        if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) return null;
-        return {
-          baan: `${Math.floor(x / celBreed)},${Math.floor(y / celHoog)}`,
-          kleur: hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]),
-        };
-      };
-
-      const tel = (i, gewicht) => {
-        const punt = pixelVan(i);
-        if (!punt) return;
-        if (!banen.has(punt.baan)) banen.set(punt.baan, new Map());
-        const pixels = banen.get(punt.baan);
-        pixels.set(punt.kleur, (pixels.get(punt.kleur) ?? 0) + gewicht);
-      };
-
-      // Zonder posities valt er geen oppervlak te meten; dan telt elk hoekpunt
-      // even zwaar. Dat komt in deze kits niet voor, maar een model zonder
-      // kleur is erger dan een model met een grover gewogen staal.
-      if (!pos) {
-        for (let i = 0; i < uv.count; i++) tel(i, 1);
-        continue;
-      }
-
-      const hoek = (n) => (idx ? idx.data[n] : n);
-      const punten = idx ? idx.count : uv.count;
-      for (let n = 0; n + 2 < punten; n += 3) {
-        const [a, b, c] = [hoek(n), hoek(n + 1), hoek(n + 2)];
-        // Halve lengte van het kruisproduct: de oppervlakte van de driehoek.
-        const u1 = [0, 1, 2].map((k) => pos.data[b * 3 + k] - pos.data[a * 3 + k]);
-        const u2 = [0, 1, 2].map((k) => pos.data[c * 3 + k] - pos.data[a * 3 + k]);
-        const kruis = [
-          u1[1] * u2[2] - u1[2] * u2[1],
-          u1[2] * u2[0] - u1[0] * u2[2],
-          u1[0] * u2[1] - u1[1] * u2[0],
-        ];
-        const oppervlak = Math.hypot(...kruis) / 2;
-        if (!(oppervlak > 0)) continue;
-        for (const punt of [a, b, c]) tel(punt, oppervlak / 3);
+        // daar landt kleurt niets zichtbaars en telt dus niet mee.
+        if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
+        banen.add(`${Math.floor(x / celBreed)},${Math.floor(y / celHoog)}`);
       }
     }
   }
 
   return { atlas: atlasPad, banen, materialen };
+}
+
+/** De kleur van een baan: de pixel halverwege, in het midden van de kolom. */
+function baanKleur(atlas, baan) {
+  const [kolom, rij] = baan.split(',').map(Number);
+  const celBreed = atlas.breedte / KOLOMMEN;
+  const celHoog = atlas.hoogte / RIJEN;
+  const x = Math.floor(kolom * celBreed + celBreed / 2);
+  const y = Math.floor(rij * celHoog + celHoog / 2);
+  const i4 = (y * atlas.breedte + x) * 4;
+  return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
 }
 
 /**
@@ -274,13 +248,6 @@ function kleurNaam(hex) {
   if (licht > 0.75) return `licht${basis}`;
   return basis;
 }
-
-/* -- .glb uitlezen --------------------------------------------------------
- * Container, afmetingen, driehoeken en tekenopdrachten komen uit tools/glb.mjs;
- * dat rekent ook de skinning mee, wat voor de geanimeerde onderwater-kit nodig
- * is. tools/importeer-onderwater.mjs gebruikt dezelfde module, zodat een model
- * op dezelfde manier wordt opgemeten als het wordt ingeladen.
- */
 
 /* -- versiestempel --------------------------------------------------------
  * GitHub Pages serveert met `cache-control: max-age=600`. Zonder versie in de
@@ -414,13 +381,8 @@ for (const model of modellen) {
 }
 
 /* -- kleuren samenvatten ---------------------------------------------------
- * Per palet: welke banen van welke atlas gebruikt worden, en welke pixel in
- * zo'n baan het vaakst geraakt wordt. Die pixel wordt het staal in de
- * filterbalk — één knop per baan, met de kleur die de modellen er echt uit
- * halen.
- *
- * Modellen zonder atlas dragen hun kleur per materiaal; daar is elke kleur al
- * één waarde en valt er niets samen te vatten.
+ * Per palet: welke banen van welke atlas de modellen gebruiken, en welke
+ * materiaalkleuren ze dragen. Eén knop per baan, met de kleur van die baan.
  */
 
 const paletten = new Map(); // sleutel → palet in opbouw
@@ -433,18 +395,14 @@ for (const model of modellen) {
     paletten.set(gelezen.paletSleutel, {
       atlas: gelezen.atlas,
       kits: new Set(),
-      banen: new Map(), // 'kolom,rij' → Map(hex → hoe vaak geraakt)
+      banen: new Set(), // 'kolom,rij'
       materialen: new Map(), // hex → Set(materiaalnaam)
     });
   }
   const palet = paletten.get(gelezen.paletSleutel);
   palet.kits.add(model.kit);
 
-  for (const [baan, pixels] of gelezen.banen) {
-    if (!palet.banen.has(baan)) palet.banen.set(baan, new Map());
-    const totaal = palet.banen.get(baan);
-    for (const [hex, aantal] of pixels) totaal.set(hex, (totaal.get(hex) ?? 0) + aantal);
-  }
+  for (const baan of gelezen.banen) palet.banen.add(baan);
   for (const [hex, naam] of gelezen.materialen) {
     if (!palet.materialen.has(hex)) palet.materialen.set(hex, new Set());
     palet.materialen.get(hex).add(naam);
@@ -457,13 +415,10 @@ const GEDEELDE_ATLAS = join(KITS_DIR, 'colormap.png');
 const gedeeldeSleutel = existsSync(GEDEELDE_ATLAS) ? leesAtlas(GEDEELDE_ATLAS).sleutel : null;
 
 for (const [sleutel, palet] of paletten) {
-  // Welke kleur een baan op de filterbalk krijgt: de pixel waar de meeste
-  // hoekpunten op landen. Bij gelijkspel de donkerste, zodat de keuze niet van
-  // de leesvolgorde afhangt.
   palet.baanKleur = new Map();
-  for (const [baan, pixels] of palet.banen) {
-    const [hex] = [...pixels].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
-    palet.baanKleur.set(baan, hex);
+  if (palet.atlas) {
+    const atlas = leesAtlas(palet.atlas);
+    for (const baan of palet.banen) palet.baanKleur.set(baan, baanKleur(atlas, baan));
   }
 
   const kits = [...palet.kits].sort();
@@ -489,7 +444,7 @@ for (const model of modellen) {
   model.palet = palet.id;
   model.kleuren = [
     ...new Set([
-      ...[...gelezen.banen.keys()].map((baan) => palet.baanKleur.get(baan)),
+      ...[...gelezen.banen].map((baan) => palet.baanKleur.get(baan)),
       ...gelezen.materialen.keys(),
     ]),
   ].sort();
