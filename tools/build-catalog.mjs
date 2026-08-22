@@ -20,6 +20,12 @@ import { leesPng, KOLOMMEN, RIJEN } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS_DIR = join(ROOT, 'kits');
+/* De modellen staan onder kits/workfiles/<kit>/: elke kit in de repo is bewerkt
+ * ten opzichte van de pack waar hij vandaan komt — de UV's zijn omgezet naar de
+ * gedeelde kits/colormap.png. Het onaangeraakte bronarchief staat onder
+ * kits/sources/<kit>/. */
+const MODEL_DIR = join(KITS_DIR, 'workfiles');
+const MODEL_PAD = 'kits/workfiles';
 
 /* -- kit-metadata ---------------------------------------------------------
  * kits/manifest.js is een browser-script (window.KENNEY_KITS = [...]).
@@ -278,8 +284,8 @@ const kitMeta = leesKitMetadata();
  * weg te gooien: `true` voor een hele kit, of een lijst modelnamen voor een
  * deel ervan. De bestanden blijven waar ze zijn — geen modellen, geen groepen,
  * geen kleuren — en het weghalen van die regel zet ze weer terug. */
-const kitSlugs = readdirSync(KITS_DIR)
-  .filter((naam) => statSync(join(KITS_DIR, naam)).isDirectory())
+const kitSlugs = readdirSync(MODEL_DIR)
+  .filter((naam) => statSync(join(MODEL_DIR, naam)).isDirectory())
   .filter((naam) => !kitMeta.get(naam)?.buitenCatalogus)
   .sort();
 
@@ -291,7 +297,7 @@ const zonderGroep = [];
 const zonderKleur = [];
 
 for (const slug of kitSlugs) {
-  const dir = join(KITS_DIR, slug);
+  const dir = join(MODEL_DIR, slug);
   const meta = kitMeta.get(slug);
   if (!meta) zonderMetadata.push(slug);
 
@@ -303,7 +309,7 @@ for (const slug of kitSlugs) {
 
   for (const bestand of bestanden) {
     const naam = bestand.replace(/\.glb$/, '');
-    const pad = `kits/${slug}/${bestand}`;
+    const pad = `${MODEL_PAD}/${slug}/${bestand}`;
     const glb = leesGlb(join(dir, bestand));
     const gltf = glb.json;
     const scene = meetScene(glb);
@@ -354,7 +360,7 @@ for (const slug of kitSlugs) {
     // "Fantasy Town Kit" → "Fantasy Town": in de filterbalk is dat achtervoegsel ruis.
     kort: (meta?.naam ?? slug).replace(/\s+Kit$/, ''),
     url: meta?.url ?? null,
-    licentie: `kits/${slug}/LICENSE.txt`,
+    licentie: `${MODEL_PAD}/${slug}/LICENSE.txt`,
     licentieLabel: meta?.licentieLabel ?? 'CC0',
     aantal: bestanden.length,
     // Een kit met een eigen tabblad staat buiten de kit- en groepsweergave;

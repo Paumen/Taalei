@@ -96,7 +96,7 @@ import { fileURLToPath } from 'node:url';
 import { schrijfGlb } from './glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const DOEL = join(ROOT, 'kits', 'onderwater-kit');
+const DOEL = join(ROOT, 'kits', 'workfiles', 'onderwater-kit');
 
 /* -- rekengereedschap ------------------------------------------------------ */
 
