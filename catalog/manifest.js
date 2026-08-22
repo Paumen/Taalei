@@ -397,8 +397,6 @@ window.KENNEY_KITS = [
    "bottle-c",
    "box-a",
    "bucket-a",
-   "candle-a",
-   "candle-b",
    "carpet-a",
    "cup-a",
    "fire-a",
