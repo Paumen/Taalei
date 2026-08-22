@@ -141,7 +141,6 @@ mkdirSync(join(DOEL, 'Textures'), { recursive: true });
 copyFileSync(COLORMAP, join(DOEL, 'Textures', 'colormap.png'));
 
 const perKleur = new Map();
-const perCel = new Map(); // 'kolom,rij' → Set(modelnaam), voor kits/palet.json
 
 for (const [bron, naam] of Object.entries(NAMEN)) {
   let ruw = leesGltf(bron);
@@ -211,9 +210,6 @@ for (const [bron, naam] of Object.entries(NAMEN)) {
     if (!perKleur.has(van)) perKleur.set(van, { naar: k.naar, cel: k.cel, afstand: k.afstand, modellen: [] });
     perKleur.get(van).modellen.push(naam);
 
-    const celSleutel = k.cel.join(',');
-    if (!perCel.has(celSleutel)) perCel.set(celSleutel, new Set());
-    perCel.get(celSleutel).add(naam);
   }
   if (ergsteAfstand > 120) {
     console.warn(`  ! ${naam}: grootste kleurafstand ${ergsteAfstand.toFixed(0)}`);
@@ -234,37 +230,5 @@ for (const [van, k] of [...perKleur].sort((a, b) => b[1].afstand - a[1].afstand)
  * kit anders uit. */
 const bijgewerkt = kopieerColormap(KITS);
 console.log(`colormap gekopieerd naar: ${bijgewerkt.join(', ')}`);
-
-/* -- kits/palet.json bijwerken ---------------------------------------------
- * build-catalog.mjs leest de kleuren van een model niet uit de .glb, maar uit
- * palet.json: per cel een lijst kits/modellen die daar vertices in hebben.
- * `perCel` is per model al de juiste eenheid — welke cellen zijn UV's
- * aanwijzen — dus die schrijven we hier terug, in plaats van dat met de hand
- * te doen zoals bij props en rocks.
- */
-const paletPad = join(KITS, 'palet.json');
-const paletJson = JSON.parse(readFileSync(paletPad, 'utf8'));
-const gedeeld = paletJson.paletten.find((p) => p.id === 'gedeeld');
-if (!gedeeld) throw new Error('kits/palet.json heeft geen palet "gedeeld"');
-
-for (const [celSleutel, modellenSet] of perCel) {
-  const [kolom, rij] = celSleutel.split(',').map(Number);
-  let cel = gedeeld.cellen.find((c) => c.cel[0] === kolom && c.cel[1] === rij);
-  if (!cel) {
-    // Precies de nieuwe STAALBLAUW-cel: palet.json kende hem nog niet.
-    const midden = STAALBLAUW.boven.map((v, i) => Math.round((v + STAALBLAUW.onder[i]) / 2));
-    cel = { cel: [kolom, rij], kleur: naarHex(...midden), bronnen: [] };
-    gedeeld.cellen.push(cel);
-  }
-  let bron = cel.bronnen.find((b) => b.kit === 'rpgtools');
-  if (!bron) {
-    bron = { kit: 'rpgtools', modellen: [] };
-    cel.bronnen.push(bron);
-  }
-  bron.modellen = [...new Set([...bron.modellen, ...modellenSet])].sort();
-}
-
-writeFileSync(paletPad, `${JSON.stringify(paletJson, null, 1)}\n`);
-console.log('kits/palet.json bijgewerkt met rpgtools-bronnen');
 
 console.log(`${Object.keys(NAMEN).length} modellen → kits/rpgtools/`);
