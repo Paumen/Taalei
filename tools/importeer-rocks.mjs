@@ -35,7 +35,7 @@ import { leesPng } from './png.mjs';
 import { doelPunten, hermapUv, toetsDriehoeken } from './kleurmap.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const DOEL = join(ROOT, 'kits', 'rocks');
+const DOEL = join(ROOT, 'kits', 'workfiles', 'rocks');
 const COLORMAP = join(ROOT, 'kits', 'colormap.png');
 
 /**
