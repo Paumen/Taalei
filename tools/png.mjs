@@ -1,9 +1,9 @@
 /**
- * PNG lezen en schrijven, zonder afhankelijkheden.
+ * PNG lezen, zonder afhankelijkheden.
  *
- * Gedeeld door tools/kleurmap.mjs: om een model op de gedeelde colormap te
- * zetten moet je weten welke kleur een UV in de bron-atlas aanwijst, en welke
- * UV die kleur in kits/colormap.png teruggeeft. Daar is een decoder voor nodig.
+ * Gebruikt door tools/build-catalog.mjs: om te weten welke kleur een model
+ * draagt, moet de bouwer de pixel opzoeken die een UV in kits/colormap.png
+ * aanwijst. Daar is een decoder voor nodig.
  *
  * Bewust smal gehouden: 8 bits per kanaal, niet-interlaced. Dat is wat de
  * atlassen in deze repo zijn (kits/colormap.png is RGBA, de nature-pack levert
@@ -11,8 +11,8 @@
  * levert een duidelijke fout op in plaats van stilzwijgend verkeerde kleuren.
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
-import { inflateSync, deflateSync } from 'node:zlib';
+import { readFileSync } from 'node:fs';
+import { inflateSync } from 'node:zlib';
 
 const HANDTEKENING = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
@@ -135,106 +135,4 @@ export function leesPng(pad) {
   }
 
   return { breedte, hoogte, pixels };
-}
-
-function brok(type, data) {
-  const kop = Buffer.alloc(8);
-  kop.writeUInt32BE(data.length, 0);
-  kop.write(type, 4, 'ascii');
-  const staart = Buffer.alloc(4);
-  staart.writeUInt32BE(crc32(Buffer.concat([kop.subarray(4), data])), 0);
-  return Buffer.concat([kop, data, staart]);
-}
-
-const CRC_TABEL = (() => {
-  const tabel = new Int32Array(256);
-  for (let n = 0; n < 256; n++) {
-    let c = n;
-    for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
-    tabel[n] = c;
-  }
-  return tabel;
-})();
-
-function crc32(buf) {
-  let c = -1;
-  for (const byte of buf) c = CRC_TABEL[(c ^ byte) & 255] ^ (c >>> 8);
-  return (c ^ -1) >>> 0;
-}
-
-/**
- * Past één van de vijf filters uit de PNG-spec toe op een regel.
- * `uit` krijgt het resultaat; `regel` en `vorige` blijven ongemoeid.
- */
-function filterRegel(soort, regel, vorige, bpp, uit) {
-  for (let x = 0; x < regel.length; x++) {
-    const a = x >= bpp ? regel[x - bpp] : 0;
-    const b = vorige ? vorige[x] : 0;
-    const c = vorige && x >= bpp ? vorige[x - bpp] : 0;
-    switch (soort) {
-      case 0: uit[x] = regel[x]; break;
-      case 1: uit[x] = (regel[x] - a) & 255; break;
-      case 2: uit[x] = (regel[x] - b) & 255; break;
-      case 3: uit[x] = (regel[x] - ((a + b) >> 1)) & 255; break;
-      case 4: {
-        const p = a + b - c;
-        const pa = Math.abs(p - a);
-        const pb = Math.abs(p - b);
-        const pc = Math.abs(p - c);
-        uit[x] = (regel[x] - (pa <= pb && pa <= pc ? a : pb <= pc ? b : c)) & 255;
-        break;
-      }
-    }
-  }
-}
-
-/**
- * Schrijft RGBA weg als niet-interlaced PNG.
- *
- * Per regel wordt het filter gekozen dat de kleinste som van absolute waarden
- * oplevert — de vuistregel uit de PNG-spec. Dat is de moeite waard omdat
- * kits/colormap.png voor het grootste deel uit vlakke banen bestaat: met filter
- * 0 op elke regel wordt het bestand ruim twee keer zo groot, en het staat in
- * elke kitmap opnieuw.
- */
-export function schrijfPng(pad, { breedte, hoogte, pixels }) {
-  const stap = breedte * 4;
-  const ruw = Buffer.alloc((stap + 1) * hoogte);
-  const kandidaat = Buffer.alloc(stap);
-  const beste = Buffer.alloc(stap);
-
-  for (let y = 0; y < hoogte; y++) {
-    const regel = pixels.subarray(y * stap, (y + 1) * stap);
-    const vorige = y > 0 ? pixels.subarray((y - 1) * stap, y * stap) : null;
-
-    let besteSoort = 0;
-    let besteScore = Infinity;
-    for (let soort = 0; soort < 5; soort++) {
-      filterRegel(soort, regel, vorige, 4, kandidaat);
-      let score = 0;
-      // Bytes als teken-met-teken lezen: 250 is een afwijking van 6, niet van 250.
-      for (let x = 0; x < stap; x++) score += kandidaat[x] < 128 ? kandidaat[x] : 256 - kandidaat[x];
-      if (score < besteScore) {
-        besteScore = score;
-        besteSoort = soort;
-        kandidaat.copy(beste);
-      }
-    }
-
-    ruw[y * (stap + 1)] = besteSoort;
-    beste.copy(ruw, y * (stap + 1) + 1);
-  }
-
-  const ihdr = Buffer.alloc(13);
-  ihdr.writeUInt32BE(breedte, 0);
-  ihdr.writeUInt32BE(hoogte, 4);
-  ihdr[8] = 8;
-  ihdr[9] = 6;
-
-  writeFileSync(pad, Buffer.concat([
-    HANDTEKENING,
-    brok('IHDR', ihdr),
-    brok('IDAT', deflateSync(ruw, { level: 9 })),
-    brok('IEND', Buffer.alloc(0)),
-  ]));
 }
