@@ -164,6 +164,43 @@ const HANDMATIG = [
   ['forest/rock-3-o', 'forest/rock-3-p'],
   ['forest/rock-3-p', 'forest/rock-3-q'],
   ['forest/rock-3-q', 'forest/rock-3-r'],
+  /* Hetzelfde voorwerp, met en zonder het doek of touwwerk eromheen: de mast
+   * met zijn want, de tent met haar zeil. Dat aangehangen vlak is precies het
+   * volume dat het raster van slag brengt, terwijl je op de kaart tweemaal
+   * dezelfde mast en dezelfde tent ziet staan. */
+  ['pirate-kit/mast', 'pirate-kit/mast-ropes'],
+  ['survival-kit/tent', 'survival-kit/tent-canvas'],
+  /* Dezelfde grote aardvloer, de een met stenen erop gestrooid. Het reliëf valt
+   * onder de rastercel, net als bij de kleine aardtegels hierboven. */
+  ['dungeon/floor-dirt-large', 'dungeon/floor-dirt-large-rocky'],
+  /* Hetzelfde dakvlak van de village-kit in zijn vier uitvoeringen: kaal, met
+   * een overstek, met een randafwerking, en met allebei. De toevoeging is
+   * telkens een lijst langs één zijde — te weinig volume om het raster te
+   * overtuigen, en op de kaart is het driemaal hetzelfde dak. Per kromming
+   * geketend: hol, bol en recht blijven wél uit elkaar. */
+  ['village-kit/roof-concave-side', 'village-kit/roof-concave-side-eave'],
+  ['village-kit/roof-concave-side-edge', 'village-kit/roof-concave-side-eave-edge'],
+  ['village-kit/roof-convex-side', 'village-kit/roof-convex-side-eave'],
+  ['village-kit/roof-convex-side-edge', 'village-kit/roof-convex-side-eave-edge'],
+  ['village-kit/roof-straight-side', 'village-kit/roof-straight-side-eave'],
+  ['village-kit/roof-straight-side-edge', 'village-kit/roof-straight-side-eave-edge'],
+  /* Hetzelfde muurpaneel van de dungeon-kit, de een met een boog erin — zoals
+   * `wall-archedwindow-open` en `wall-broken` hierboven is het verschil wat er
+   * uit het paneel weg is, en dat ziet het raster als een andere vorm. */
+  ['dungeon/wall', 'dungeon/wall-arched'],
+  /* Vier planken hekjes en vier hekpalen, elk in een andere stand en met een
+   * andere scheefte. Smal en onregelmatig: twee latten die een halve cel naast
+   * elkaar staan overlappen elkaar niet, terwijl het één hek is met vier
+   * standen. Hetzelfde geldt voor de vier stoepranden. */
+  ['modulair-terrein/hilly-prop-fence-boards-a', 'modulair-terrein/hilly-prop-fence-boards-b'],
+  ['modulair-terrein/hilly-prop-fence-boards-a', 'modulair-terrein/hilly-prop-fence-boards-c'],
+  ['modulair-terrein/hilly-prop-fence-boards-a', 'modulair-terrein/hilly-prop-fence-boards-d'],
+  ['modulair-terrein/hilly-prop-fence-post-a', 'modulair-terrein/hilly-prop-fence-post-b'],
+  ['modulair-terrein/hilly-prop-fence-post-a', 'modulair-terrein/hilly-prop-fence-post-c'],
+  ['modulair-terrein/hilly-prop-fence-post-a', 'modulair-terrein/hilly-prop-fence-post-d'],
+  ['village-kit/stone-curb-a', 'village-kit/stone-curb-b'],
+  ['village-kit/stone-curb-a', 'village-kit/stone-curb-c'],
+  ['village-kit/stone-curb-a', 'village-kit/stone-curb-d'],
 ];
 
 /**
@@ -183,6 +220,10 @@ const HANDMATIG = [
  */
 const VOORKEUR = [
   /(^|\/)iron-/,
+  /* Van de twee randdakvlakken is de kale rand de kaart en niet de rand mét
+   * overstek: het alfabet zet `-eave-edge` vooraan, maar het overstek is juist
+   * de toevoeging. */
+  /^village-kit\/roof-(?:concave|convex|straight)-side-edge$/,
   /^dungeon\/bottle-a-labeled-brown$/,
   /^modulair-terrein\/beach-prop-shell-b$/,
 ];
