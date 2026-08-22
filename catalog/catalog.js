@@ -484,9 +484,6 @@ function bouwKleurbalk(paletten) {
     const groep = document.createElement('div');
     groep.className = 'kleurgroep';
 
-    const label = span('kleurgroep-label', palet.naam);
-    label.title = palet.atlas ? `Kleuren uit ${palet.atlas}` : palet.toelichting ?? palet.naam;
-
     const stalen = document.createElement('div');
     stalen.className = 'kleurgroep-stalen';
     stalen.setAttribute('role', 'group');
@@ -517,7 +514,7 @@ function bouwKleurbalk(paletten) {
       stalen.append(knop);
     }
 
-    groep.append(label, stalen);
+    groep.append(stalen);
     houder.append(groep);
     kleurgroepen.push({ palet: palet.id, element: groep });
   }
@@ -590,8 +587,7 @@ async function start() {
 
   samenvatting.textContent =
     `${data.totaal} modellen · ${data.kits.length} kits · ` +
-    `${data.groepen.filter((g) => g.aantal > 0).length} groepen · ` +
-    `${data.paletten.length} kleurpaletten`;
+    `${data.groepen.filter((g) => g.aantal > 0).length} groepen`;
 
   const hoofdVan = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
 
