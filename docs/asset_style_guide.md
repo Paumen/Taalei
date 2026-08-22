@@ -43,8 +43,8 @@ For an LLM creating or adjusting assets.
   has no volume and therefore no density. `build-catalog.mjs` records it per model as
   `driehoekenPerUnit` (`null` when flat) and reports everything above the budget.
 - Imported packs get one scale factor for the whole pack, never one per model — that keeps
-  the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25
-  (`tools/importeer-onderwater.mjs`). Its internal proportions are the pack's, oddities
+  the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25.
+  Its internal proportions are the pack's, oddities
   included: the hammerhead is 3.4 units long and the whale only 1.1.
 
 ## 5. Origin and orientation

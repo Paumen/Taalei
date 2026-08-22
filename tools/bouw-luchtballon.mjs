@@ -88,7 +88,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const KIT = join(ROOT, 'kits', 'taalei-kit');
+const KIT = join(ROOT, 'kits', 'workfiles', 'taalei-kit');
 
 const BANEN = 16;      // banen van de envelop; het maximum uit de stijlgids
 const BANDEN = 12;     // hoogtebanden van de envelop
