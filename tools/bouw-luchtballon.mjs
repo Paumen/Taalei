@@ -43,12 +43,12 @@
  * Kleuren komen uit kits/palet.json ("gedeeld").
  *
  *   gebroken wit  #f0ece3  cel 5/2   banen van de envelop, touwen
- *   terracotta    #c8895d  cel 1/0   accentbanen, kruin
+ *   terracotta    #d07b56  cel 5/0   accentbanen, kruin
  *   staalblauw    #6d738a  cel 15/3  accentbanen, halsband, halsgat, brander
  *   inktzwart     #3e3e44  cel 10/0  branderring
  *   amber         #ffb349  cel 6/0   de keel en de mond van de brander
  *   zand          #f0c59d  cel 5/3   het vlechtwerk van de twee rieten manden
- *   tan           #dba37a  cel 0/0   het beslag van die twee: voetring, rand,
+ *   tan           #dd9f79  cel 13/0  het beslag van die twee: voetring, rand,
  *                                    hoekstukken, sloffen, stijlen
  *
  * PO-notities:
