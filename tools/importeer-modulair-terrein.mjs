@@ -39,7 +39,7 @@ import { leesObj, leesMtl } from './obj.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KITS = join(ROOT, 'kits');
-const DOEL = join(KITS, 'modulair-terrein');
+const DOEL = join(KITS, 'workfiles', 'modulair-terrein');
 const COLORMAP = join(KITS, 'colormap.png');
 
 /** De .mtl die naast de 305 .obj's in de pack zit. */

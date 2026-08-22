@@ -1,7 +1,8 @@
 /**
  * Modellen uit een geïmporteerde pack op de gedeelde colormap zetten.
  *
- * Gedeeld door tools/importeer-nature.mjs en tools/importeer-tropical.mjs.
+ * Gedeeld door de importeerscripts die nog in de repo staan:
+ * tools/importeer-props.mjs, -rocks.mjs, -modulair-terrein.mjs en -village.mjs.
  *
  * Waarom dit nodig is: een pack komt met zijn eigen atlas. De stijlgids (§1)
  * wil dat kleuren uit kits/colormap.png komen, zodat een geïmporteerd model
@@ -171,6 +172,10 @@ export function voegGradientCelToe(atlas, [kolom, rij], boven, onder) {
  */
 export function kopieerColormap(kitsMap, overslaan = ['modular-cave-kit', 'onderwater-kit']) {
   const bron = join(kitsMap, 'colormap.png');
+  /* De atlas zelf staat in kits/, de kits eronder in kits/workfiles/ — daar
+   * staat elk model dat bewerkt is ten opzichte van zijn bronarchief, en dat
+   * zijn ze allemaal. */
+  const modellen = join(kitsMap, 'workfiles');
   const gekopieerd = [];
 
   /* De grot houdt zijn eigen sheet — daar hangen de modellen aan die buiten de
@@ -180,18 +185,18 @@ export function kopieerColormap(kitsMap, overslaan = ['modular-cave-kit', 'onder
    * kant op wijzen. */
   const NAAST = { 'modular-cave-kit': 'colormap-gedeeld.png' };
 
-  for (const slug of readdirSync(kitsMap).sort()) {
+  for (const slug of readdirSync(modellen).sort()) {
     if (NAAST[slug]) {
       try {
-        copyFileSync(bron, join(kitsMap, slug, 'Textures', NAAST[slug]));
+        copyFileSync(bron, join(modellen, slug, 'Textures', NAAST[slug]));
         gekopieerd.push(`${slug} (${NAAST[slug]})`);
       } catch (fout) {
         if (fout.code !== 'ENOENT') throw fout;
       }
     }
     if (overslaan.includes(slug)) continue;
-    if (!statSync(join(kitsMap, slug)).isDirectory()) continue;
-    const doel = join(kitsMap, slug, 'Textures', 'colormap.png');
+    if (!statSync(join(modellen, slug)).isDirectory()) continue;
+    const doel = join(modellen, slug, 'Textures', 'colormap.png');
     try {
       copyFileSync(bron, doel);
       gekopieerd.push(slug);
