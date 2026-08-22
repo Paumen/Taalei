@@ -1,45 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Deployt bij elke commit, op elke branch.
-  #
-  # Werkt dit niet — de run faalt binnen enkele seconden, zonder runner en
-  # zonder logs — dan wordt de deployment door GitHub geweigerd vóórdat deze
-  # workflow iets doet. Twee instellingen bepalen dat:
-  #
-  #   1. Settings → Pages → Source. Staat die op "Deploy from a branch", dan
-  #      moet een deployment van díé branch komen. Zet hem op "GitHub Actions".
-  #   2. Settings → Environments → github-pages → Deployment branches. Is er
-  #      een regel die alleen de default branch toelaat, zet die dan op
-  #      "All branches".
-  #
-  # Pages heeft één live site, dus de laatst gepushte branch wint.
   push:
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
-    # Bewust geen `environment: github-pages`. Die koppeling laat GitHub de
-    # deployment toetsen aan de branch-regels van die omgeving, en dat weigerde
-    # elke run vanaf een andere branch dan main binnen twee seconden, zonder
-    # runner en zonder logs. Zonder de koppeling draait de job gewoon; de
-    # deployment zelf gaat via de Pages-API met de permissions hieronder.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,7 +25,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
