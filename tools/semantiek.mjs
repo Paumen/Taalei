@@ -120,8 +120,7 @@ const BOUWPAKKETTEN = [
   ['village-kit', /^(canopy|chimney|cobblestone|dirt|door|roof|stone|stucco|waterwheel|windmill|wood|window)\b/],
   // Het derde, eigen bouwraster naast dat van fantasy-town en village-kit: elke
   // wand van de dungeon-kit is 4 breed × 4 hoog, en vloertegels, barrières,
-  // pilaar, puin en zuil sluiten daar precies op aan (zie
-  // tools/importeer-dungeon.mjs). De trappen staan óók op dat raster maar
+  // pilaar, puin en zuil sluiten daar precies op aan. De trappen staan óók op dat raster maar
   // gaan niet mee — die horen bij "verbinding", net als fantasy-town's eigen
   // trappen, die ook buiten zijn bouwpakket vallen.
   ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column)\b/],
