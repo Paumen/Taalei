@@ -22,7 +22,7 @@ await importeerKit({
   slug: 'graveyard-kit',
   bron: 'Kenney Graveyard Kit',
   generator: 'tools/importeer-graveyard-kit.mjs',
-  schaal: 1,
+  schaal: 0.7,
   formaat: 'gltf',
   bestand: (naam) => `${naam}.glb`,
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),

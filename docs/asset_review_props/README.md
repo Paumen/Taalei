@@ -19,7 +19,7 @@ ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, d
 een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
 zijn hoogte op de onderste.
 
-## Dertien kits opnieuw geschaald
+## Veertien kits opnieuw geschaald
 
 | Kit | Factor | Wat het deed |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ zijn hoogte op de onderste.
 | quaternius-nature | ×0,5 | mediane hoogte 1,84; de log was 2,67 lang tegen 0,43–1,21 voor de natuur-logs. |
 | rpgtools | ×0,7 | mediane hoogte 0,33 → 0,23; het mes ging van 0,52 naar 0,36. |
 | survival-kit | ×0,7 | mediane hoogte 0,51 → 0,35. |
-| pirate-kit | ×0,8 | mediane hoogte 0,88 → 0,70; de grote schepen van 3,99 naar 3,19. |
+| pirate-kit | ×0,8 dan ×0,7 (0,56) | mediaan 0,88 → 0,49; de grote schepen van 3,99 naar 2,23. |
 | halloween | ×0,5547 | zo staan de vier kaarsen exact even hoog als die van dungeon. |
 | natuur | ×0,6 | mediaan 0,33 → 0,20; de bergen van 19,4 naar 11,6. |
 | fantasy-town-kit | ×0,7 | mediaan 1,00 → 0,70. |
@@ -36,7 +36,8 @@ zijn hoogte op de onderste.
 | mini-forest | ×0,8 | mediaan 0,58 → 0,46. |
 | castle-kit | ×0,8 | mediaan 0,87 → 0,69. |
 | quaternius-nature | ×0,8 (na de eerdere ×0,5) | mediaan 0,69 → 0,55. |
-| platformer-kit | ×0,8 | mediaan 0,42 → 0,33. |
+| platformer-kit | ×0,8 dan ×0,6 (0,48) | mediaan 0,42 → 0,20. |
+| graveyard-kit | ×0,7 | mediaan 0,60 → 0,42. |
 | forest | ×0,6 | mediaan 1,00 → 0,60; de dode bomen van 1,43–3,81 naar 0,86–2,28. |
 
 De schaal zit in `tools/herschaal-kit.mjs`; voor fantasy-props en quaternius-nature staat
