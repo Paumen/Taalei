@@ -1,8 +1,8 @@
 const RICHTINGEN = [
-  { id: 'links', teken: '←', naam: 'Links', standaard: 'Weg' },
-  { id: 'rechts', teken: '→', naam: 'Rechts', standaard: 'Houden' },
-  { id: 'omhoog', teken: '↑', naam: 'Omhoog', standaard: 'Tag' },
-  { id: 'omlaag', teken: '↓', naam: 'Omlaag', standaard: 'Later' },
+  { id: 'links', teken: '←', naam: 'Left', standaard: 'Discard' },
+  { id: 'rechts', teken: '→', naam: 'Right', standaard: 'Keep' },
+  { id: 'omhoog', teken: '↑', naam: 'Up', standaard: 'Tag' },
+  { id: 'omlaag', teken: '↓', naam: 'Down', standaard: 'Later' },
 ];
 
 const RICHTING_IDS = RICHTINGEN.map((r) => r.id);
@@ -10,8 +10,8 @@ const OPSLAGSLEUTEL = 'taaleiland-swipe-v1';
 const drempel = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const VLAK_OMGEVING = 'effen-omgeving.png';
 
-const getal = new Intl.NumberFormat('nl-NL');
-const eenheid = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 2 });
+const getal = new Intl.NumberFormat('en-GB');
+const eenheid = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
 
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
@@ -96,8 +96,6 @@ function schud(lijst) {
   return uit;
 }
 
-/* — schermen — */
-
 function toon(scherm) {
   document.body.dataset.scherm = scherm;
   opzet.hidden = scherm !== 'opzet';
@@ -111,7 +109,7 @@ function toon(scherm) {
 function werkSamenvattingBij() {
   const totaal = staat.volgorde.length;
   if (!totaal) {
-    samenvatting.textContent = 'Geen modellen in deze selectie — pas de instellingen aan.';
+    samenvatting.textContent = 'No models in this selection — adjust the settings.';
     return;
   }
   const gedaan = staat.keuzes.length;
@@ -119,10 +117,8 @@ function werkSamenvattingBij() {
     const aantal = staat.keuzes.filter((k) => k.richting === r.id).length;
     return `${r.teken} ${labelVan(r.id)} ${aantal}`;
   });
-  samenvatting.textContent = `${getal.format(gedaan)} van ${getal.format(totaal)} beoordeeld · ${delen.join(' · ')}`;
+  samenvatting.textContent = `${getal.format(gedaan)} of ${getal.format(totaal)} judged · ${delen.join(' · ')}`;
 }
-
-/* — opzet — */
 
 function vinklijst(houder, items, gekozen) {
   houder.replaceChildren();
@@ -161,7 +157,7 @@ function opzetTelling() {
   staat.filters = opzetFilters();
   const aantal = register.modellen.filter(past).length;
   staat.filters = eerder;
-  el('#opzet-telling').textContent = `${getal.format(aantal)} model${aantal === 1 ? '' : 'len'} in deze selectie`;
+  el('#opzet-telling').textContent = `${getal.format(aantal)} model${aantal === 1 ? '' : 's'} in this selection`;
   el('#opzet-start').disabled = aantal === 0;
 }
 
@@ -185,8 +181,6 @@ function vulOpzet() {
   for (const richting of RICHTINGEN) el(`#label-${richting.id}`).value = staat.labels[richting.id];
   opzetTelling();
 }
-
-/* — dek — */
 
 function zetBelichting(viewer) {
   if (vlakkeModus.aan) {
@@ -412,8 +406,6 @@ function draaiTerug(id) {
   werkSamenvattingBij();
 }
 
-/* — uitslag — */
-
 function regels() {
   return staat.keuzes.map(({ id, richting }) => {
     const model = register.perId.get(id);
@@ -570,8 +562,6 @@ function exporteerCsv() {
   bestand(`swipe-${stempelTijd()}.csv`, rijen.map((rij) => rij.map(cel).join(',')).join('\n') + '\n', 'text/csv');
 }
 
-/* — start — */
-
 async function start() {
   const respons = await fetch('catalog.json');
   if (!respons.ok) throw new Error(`catalog.json niet gevonden (${respons.status})`);
@@ -659,7 +649,7 @@ async function start() {
 start().catch((fout) => {
   melding.hidden = false;
   melding.className = 'leeg melding-fout';
-  melding.textContent = `Catalogus kon niet worden geladen: ${fout.message}`;
-  samenvatting.textContent = 'Catalogus kon niet worden geladen.';
+  melding.textContent = `Could not load the catalogue: ${fout.message}`;
+  samenvatting.textContent = 'Could not load the catalogue.';
   console.error(fout);
 });

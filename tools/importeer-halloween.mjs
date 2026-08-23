@@ -1,10 +1,3 @@
-// Laadt 28 modellen uit "KayKit Halloween Bits" in als kits/workfiles/halloween.
-//
-// Aanroepen met het pad naar de uitgepakte pack:
-//   node tools/importeer-halloween.mjs <pack>/Assets/gltf
-//
-// Wat er gebeurt en waarom staat in kits/workfiles/halloween/LICENSE.txt.
-
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
