@@ -7,6 +7,15 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
 const q=new URLSearchParams(location.search);
 const paden=JSON.parse(decodeURIComponent(q.get('m')));
+const namen=q.get('n')?JSON.parse(decodeURIComponent(q.get('n'))):null;
+function bijschrift(tekst,breedte){
+  const c=document.createElement('canvas');c.width=512;c.height=64;
+  const ctx=c.getContext('2d');ctx.fillStyle='#3a3630';ctx.font='600 34px sans-serif';
+  ctx.textAlign='center';ctx.fillText(tekst,256,44,500);
+  const spr=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false}));
+  spr.scale.set(breedte,breedte/8,1);
+  return spr;
+}
 const KOL=Number(q.get('kol')??6), CEL=Number(q.get('cel')??230);
 const rijen=Math.ceil(paden.length/KOL);
 const W=KOL*CEL, H=rijen*CEL;
@@ -34,7 +43,12 @@ for (let i=0;i<paden.length;i++){
   const mid=box.getCenter(new THREE.Vector3());const size=box.getSize(new THREE.Vector3());
   const r=Math.max(size.x,size.y,size.z)||1;
   const cam=new THREE.PerspectiveCamera(32,1,r*0.01,r*100);
-  cam.position.set(mid.x+r*1.5,mid.y+r*0.85,mid.z+r*1.9);cam.lookAt(mid);
+  cam.position.set(mid.x+r*1.5,mid.y+r*0.75,mid.z+r*1.9);cam.lookAt(new THREE.Vector3(mid.x,mid.y-r*0.12,mid.z));
+  if(namen&&namen[i]){
+    const et=bijschrift(namen[i],r*2.1);
+    et.position.set(mid.x,box.min.y-r*0.22,mid.z);
+    scene.add(et);
+  }
   const cx=(i%KOL)*CEL, cy=H-(Math.floor(i/KOL)+1)*CEL;
   renderer.setViewport(cx,cy,CEL,CEL);renderer.setScissor(cx,cy,CEL,CEL);
   renderer.render(scene,cam);

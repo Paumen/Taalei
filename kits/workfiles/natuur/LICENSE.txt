@@ -62,14 +62,26 @@
 	staat op de wortelnode, niet in de hoekpunten.
 
 	Deze pack heeft geen kleurenvel met banen maar een geschilderde
-	textuur. Daar valt geen baan over te nemen, dus daar geldt de
-	kleur zelf: per driehoek wordt het gemiddelde van zeven punten
+	textuur. Daar valt geen baan over te nemen, dus wordt er een
+	gekozen. Per driehoek wordt eerst het gemiddelde van zeven punten
 	binnen dat vlak genomen — in lineair licht, en geen van de zeven
 	ligt op een hoekpunt, want net naast het vlak ligt vaak een heel
-	andere kleur — en dat gemiddelde gaat naar de dichtstbijzijnde
-	kleur van de gedeelde sheet. Eén kleur per vlak dus, zoals de
-	stijlgids vraagt; per hoekpunt kiezen zou binnen één plankje drie
-	tinten uit de nerf pikken en ruis opleveren.
+	andere kleur. Eén kleur per vlak dus, zoals de stijlgids vraagt;
+	per hoekpunt kiezen zou binnen één plankje drie tinten uit de nerf
+	pikken en ruis opleveren.
+
+	Die kleuren worden dan per oppervlak gegroepeerd en pas daarna
+	krijgt elke groep één baan. Groeperen gebeurt op kleur alleen — de
+	afstand in het a/b-vlak van Oklab, waar toon en verzadiging in
+	zitten en lichtheid niet — en het kiezen van de baan ook. De
+	lichtheid van een driehoek bepaalt alleen nog waar hij in die baan
+	terechtkomt.
+
+	Dat lichtheid geen rol speelt bij het kiezen is de kern. Doet ze
+	dat wel, dan springt de lichte kant van een bast naar een lichte
+	baan en de donkere kant naar een donkere, en spat een glad vlak
+	uiteen in vlekken. Nu gaat de hele bast in één keer naar dezelfde
+	baan, met het verloop erin.
 
 	De pack heeft geen kleurenvel maar 54 losse texturen, één of
 	enkele per materiaal. Vier ervan staan in 4 bits per pixel
@@ -82,15 +94,14 @@
 	het gekleurde eilandje valt mengt dat zwart mee. Een witte
 	madelief werd daar grijs van.
 
-	De verste sprongen zijn de bloemen:
-
-	  #c14ccd → #848aa6  18,8  de drie viooltjes
-	  #e34d7a → #c4714f  11,8  de drie klokjesbloemen
-
-	Er staat geen violet of roze op de gedeelde sheet: de viooltjes
-	lezen blauwgrijs en de klokjes roodbruin. Besluit PO: geen kleur
-	aan de gedeelde sheet toevoegen. Buiten deze zes bloemen blijft de
-	hele kit onder 11.
+	De grootste afstanden staan bij de madeliefjes (30,4) en de
+	zonnebloemen (29,3), en dat is bijna helemaal lichtheid en niet
+	kleur: het donkere hart van zo'n bloem is donkerder dan de
+	lichtste baan van de sheet ergens komt, dus klemt het tegen het
+	uiteinde daarvan. De kleur zelf klopt. Waar de kleur wél mist zijn
+	de viooltjes en de klokjesbloemen: er staat geen violet of roze op
+	de gedeelde sheet, dus die lezen blauwgrijs en roodbruin. Besluit
+	PO: geen kleur aan de gedeelde sheet toevoegen.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee
