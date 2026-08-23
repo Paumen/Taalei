@@ -19,7 +19,7 @@ ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, d
 een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
 zijn hoogte op de onderste.
 
-## Elf kits opnieuw geschaald
+## Twaalf kits opnieuw geschaald
 
 | Kit | Factor | Wat het deed |
 | --- | --- | --- |
@@ -36,6 +36,7 @@ zijn hoogte op de onderste.
 | mini-forest | ×0,8 | mediaan 0,58 → 0,46. |
 | castle-kit | ×0,8 | mediaan 0,87 → 0,69. |
 | quaternius-nature | ×0,8 (na de eerdere ×0,5) | mediaan 0,69 → 0,55. |
+| platformer-kit | ×0,8 | mediaan 0,42 → 0,33. |
 
 De schaal zit in `tools/herschaal-kit.mjs`; voor fantasy-props en quaternius-nature staat
 hij ook in het importeer-script, zodat opnieuw importeren hetzelfde oplevert.
