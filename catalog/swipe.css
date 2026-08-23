@@ -10,7 +10,11 @@
 .swipe-body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.swipe-body[data-scherm="dek"] {
+  height: 100dvh;
   overflow: hidden;
   overscroll-behavior: none;
 }
@@ -40,7 +44,6 @@
 .opzet {
   flex: 1;
   padding: clamp(16px, 4vw, 40px);
-  overflow: auto;
 }
 
 .opzet form {
@@ -101,10 +104,8 @@
 
 .vinklijst {
   display: grid;
-  max-height: 190px;
   margin-top: 6px;
   padding: 8px 10px;
-  overflow: auto;
   gap: 4px;
   background: var(--papier);
   border: 1px solid var(--lijn);
@@ -391,7 +392,6 @@ kbd {
 .uitslag {
   flex: 1;
   padding: clamp(16px, 4vw, 40px);
-  overflow: auto;
 }
 
 .uitslag-kop {
@@ -453,10 +453,8 @@ kbd {
 }
 
 .bak-lijst {
-  max-height: 260px;
   margin: 0 0 10px;
   padding: 0;
-  overflow: auto;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
   list-style: none;
@@ -521,3 +519,5 @@ kbd {
   .swipe-tekst .pad { display: none; }
   .sneltoetsen { display: none; }
 }
+
+.swipe-body:not([data-scherm="dek"]) .kop { position: static; }

@@ -98,6 +98,7 @@ function schud(lijst) {
 /* — schermen — */
 
 function toon(scherm) {
+  document.body.dataset.scherm = scherm;
   opzet.hidden = scherm !== 'opzet';
   dek.hidden = scherm !== 'dek';
   uitslag.hidden = scherm !== 'uitslag';
@@ -109,7 +110,7 @@ function toon(scherm) {
 function werkSamenvattingBij() {
   const totaal = staat.volgorde.length;
   if (!totaal) {
-    samenvatting.textContent = `${getal.format(register.modellen.length)} modellen in de catalogus — kies hieronder wat je wilt beoordelen.`;
+    samenvatting.textContent = 'Geen modellen in deze selectie — pas de instellingen aan.';
     return;
   }
   const gedaan = staat.keuzes.length;
@@ -175,7 +176,6 @@ function vulOpzet() {
   el('#zoek').value = staat.filters.zoek;
   el('#schud').checked = staat.filters.schud;
   for (const richting of RICHTINGEN) el(`#label-${richting.id}`).value = staat.labels[richting.id];
-  el('#opzet-annuleer').hidden = !staat.begonnen;
   opzetTelling();
 }
 
@@ -592,7 +592,7 @@ async function start() {
   });
 
   el('#opzet-formulier').addEventListener('input', opzetTelling);
-  el('#opzet-annuleer').addEventListener('click', () => toon(staat.begonnen ? 'dek' : 'opzet'));
+  el('#opzet-annuleer').addEventListener('click', () => toon('dek'));
   el('#instellingen').addEventListener('click', () => { vulOpzet(); toon('opzet'); });
   el('#naar-uitslag').addEventListener('click', () => toon('uitslag'));
   el('#verder').addEventListener('click', () => toon('dek'));
@@ -634,14 +634,18 @@ async function start() {
       }
       if (e.key === 'z' || e.key === 'Z') return draaiTerug();
     }
-    if (e.key === 'Escape' && staat.begonnen && opzet.hidden) {
+    if (e.key === 'Escape' && opzet.hidden) {
       e.preventDefault();
       toon(uitslag.hidden ? 'uitslag' : 'dek');
     }
   });
 
-  if (staat.begonnen) toon('dek');
-  else { vulOpzet(); toon('opzet'); }
+  if (!staat.begonnen) {
+    staat.volgorde = register.modellen.map((m) => m.id);
+    staat.begonnen = true;
+    bewaar();
+  }
+  toon('dek');
 }
 
 start().catch((fout) => {
