@@ -271,6 +271,23 @@ let actiefPad = '';
 
 const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map(), tags: new Map() };
 
+const TAGSOORTEN = [
+  { soort: 'materiaal', kop: 'Materiaal' },
+  { soort: 'tag', kop: 'Tags' },
+];
+
+function tagRijen(model) {
+  if (!model.tags?.length) return [];
+  const namen = (soort) =>
+    model.tags
+      .filter((id) => (register.tags.get(id)?.soort ?? 'tag') === soort)
+      .map((id) => register.tags.get(id)?.naam ?? id);
+
+  return TAGSOORTEN.map(({ soort, kop }) => [kop, namen(soort).join(', ')]).filter(
+    ([, waarde]) => waarde,
+  );
+}
+
 function toonDetail(model) {
   const kit = register.kits.get(model.kit);
   const groep = register.groepen.get(model.groep);
@@ -295,9 +312,7 @@ function toonDetail(model) {
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
     ['Grootte', bytesLeesbaar(model.bytes)],
-    ...(model.tags?.length
-      ? [['Tags', model.tags.map((id) => register.tags.get(id)?.naam ?? id).join(', ')]]
-      : []),
+    ...tagRijen(model),
     ['Licentie', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');

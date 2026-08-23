@@ -278,6 +278,8 @@ for (const slug of kitSlugs) {
   });
 }
 
+const SOORTEN = ['materiaal', 'tag'];
+
 function leesTags(bekend) {
   const bestand = join(CATALOG_DIR, 'tags.json');
   if (!existsSync(bestand)) return { tags: [], perModel: new Map() };
@@ -299,6 +301,9 @@ function leesTags(bekend) {
   }
   if (onbekend.length) console.warn(`! tag verwijst naar onbekend model: ${onbekend.join(', ')}`);
 
+  const zonderSoort = tags.filter((t) => !SOORTEN.includes(t.soort)).map((t) => t.id);
+  if (zonderSoort.length) console.warn(`! tag zonder geldige soort: ${zonderSoort.join(', ')}`);
+
   return {
     tags: tags.map(({ modellen: leden = [], ...tag }) => ({
       ...tag,
@@ -315,6 +320,22 @@ for (const model of modellen) {
 }
 
 const tags = leesTags(new Set(modellen.map((m) => m.id)));
+
+const geanimeerd = modellen.filter((m) => m.animaties?.length);
+if (geanimeerd.length) {
+  for (const model of geanimeerd) {
+    tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), 'animation']);
+  }
+  tags.tags.push({
+    id: 'animation',
+    naam: 'Animation',
+    soort: 'tag',
+    beschrijving:
+      'Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent. Afgeleid uit de bestanden zelf, dus niet in catalog/tags.json bijgehouden.',
+    aantal: geanimeerd.length,
+  });
+}
+
 for (const model of modellen) {
   const eigen = tags.perModel.get(model.id);
   if (eigen) model.tags = [...eigen].sort();
@@ -435,7 +456,7 @@ console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → cat
 schrijfVersie();
 
 console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);
-for (const tag of tags.tags) console.log(`tag ${tag.id}: ${tag.aantal} modellen`);
+for (const tag of tags.tags) console.log(`${tag.soort} ${tag.id}: ${tag.aantal} modellen`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }
