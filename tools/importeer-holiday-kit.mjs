@@ -8,11 +8,7 @@
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
-  ['lantern-hanging', 'lantern-hanging'],
   ['lantern',         'lantern'],
-  ['rocks-large',     'rocks-large'],
-  ['rocks-medium',    'rocks-medium'],
-  ['rocks-small',     'rocks-small'],
   ['snow-bunker',     'snow-bunker'],
   ['snow-flat-large', 'snow-flat-large'],
   ['snow-flat',       'snow-flat'],

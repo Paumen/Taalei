@@ -13,6 +13,10 @@ De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat zakt mee m
 familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) — kijk dus welk getal erboven staat. Achter
 elk label staat de hoogte van het model.
 
+Zes kits zijn opnieuw geschaald; welke en waarom staat in
+`docs/asset_review_props/README.md`. Voor deze families raakt dat quaternius-nature
+(×0,5), survival-kit (×0,7) en pirate-kit (×0,8).
+
 ## De families
 
 | Render | Assets | Hoogte |
@@ -21,7 +25,7 @@ elk label staat de hoogte van het model.
 | `hout-timber.png` | 7 | 0,05 – 0,29 |
 | `hout-planken.png` | 11 | 0,06 – 0,61 |
 | `hout-stapel-pallet.png` | 4 | 0,10 – 0,24 |
-| `hout-kampvuur.png` | 6 | 0,09 – 0,51 |
+| `hout-kampvuur.png` | 6 | 0,09 – 0,41 |
 | `hout-takken.png` | 7 | 0,04 – 0,28 |
 | `hout-wortels.png` | 6 | 0,23 – 1,05 |
 
@@ -31,11 +35,11 @@ Dat zijn bouwstukken, geen losse houtprops.
 
 ## Wat de renders laten zien
 
-**Logs staan nu dichter bij elkaar.** quaternius-nature is gehalveerd (zie
-`docs/asset_review_props/README.md`), dus `q-nature/log` is nu 0,37 hoog en 1,34 lang
-in plaats van 0,75 en 2,67. Daarmee liggen de natuur-logs (0,25–0,35 hoog, 0,43–1,21
-lang) en de quaternius-logs in dezelfde orde van grootte. Wat overblijft is
-`survival/tree-log`: 0,50 hoog en 1,80 lang, nog altijd de langste losse log.
+**Logs liggen nu dicht bij elkaar.** Na het halveren van quaternius-nature is
+`q-nature/log` 0,37 hoog en 1,34 lang, tegen 0,25–0,35 hoog en 0,43–1,21 lang voor de
+natuur-logs. `survival/tree-log` ging van 0,50 naar 0,35 hoog en van 1,80 naar 1,26 lang
+en is daarmee ook binnen de band gekomen. Wat overblijft is `resources/wood-log-stack`
+met 0,75 — een stapel, dus terecht de hoogste.
 
 **Twee houtpaletten naast elkaar.** natuur, quaternius-nature en
 modulair-terrein/hilly gebruiken grijsbruin (`#8f785b`, `#88796d`);
@@ -55,8 +59,7 @@ laag (0,23 / 0,24). Alle zes hebben 80 driehoeken en dezelfde kleur (`#88796d`).
 hoog bij ~0,42 lang; ze lezen als latjes, niet als balken.
 
 **Twee assets met identieke geometrie.** survival `tree-log` en `tree-log-small`
-hebben allebei 88 driehoeken en dezelfde footprint (0,449 × 0,499); alleen de
-lengte verschilt (1,8 tegen 1,17).
+hebben allebei 88 driehoeken en dezelfde footprint; alleen de lengte verschilt.
 
 **Boven het driehoekenbudget** (1000 per unit, style guide §4):
 `resources/wood-log-stack` 3576, `natuur/timber-stack-2` 1460,

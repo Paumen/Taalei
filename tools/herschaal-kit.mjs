@@ -5,10 +5,12 @@
 //
 // De importeer-pijplijn bakt één schaal per pack in het model: de wortelnode krijgt
 // scale en translation, allebei recht evenredig met die schaal (zie importeer/bouw.mjs).
-// Opnieuw importeren kan alleen met de originele pack erbij, en die zit niet in de repo,
-// dus vermenigvuldigt dit script scale en translation van elke wortelnode met de factor.
-// Dat geeft hetzelfde resultaat als importeren op schaal × factor. De schaal in
-// asset.extras.taaleiland gaat mee, zodat het model blijft vertellen waar hij vandaan komt.
+// Dit script vermenigvuldigt die twee met een factor, plus de schaal in
+// asset.extras.taaleiland. Dat geeft hetzelfde resultaat als importeren op schaal × factor.
+//
+// Heeft de kit een importeer-script (tools/importeer-<kit>.mjs) en staat de pack in
+// kits/sources, pas dan liever daar `schaal` aan en importeer opnieuw — dan blijft de
+// pijplijn de bron van waarheid. Dit script is voor de kits zonder importeer-script.
 
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

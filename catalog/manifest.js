@@ -1082,10 +1082,6 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/holiday-kit",
   "models": [
    "lantern",
-   "lantern-hanging",
-   "rocks-large",
-   "rocks-medium",
-   "rocks-small",
    "snow-bunker",
    "snow-flat",
    "snow-flat-large",
@@ -1232,8 +1228,7 @@ window.KENNEY_KITS = [
    "table-plate",
    "torch-metal",
    "vase-2",
-   "vase-4",
-   "vase-rubble-medium"
+   "vase-4"
   ]
  },
  {
@@ -1276,11 +1271,6 @@ window.KENNEY_KITS = [
    "tree-birch-dead-3",
    "tree-birch-dead-4",
    "tree-birch-dead-5",
-   "tree-birch-dead-snow-1",
-   "tree-birch-dead-snow-2",
-   "tree-birch-dead-snow-3",
-   "tree-birch-dead-snow-4",
-   "tree-birch-dead-snow-5",
    "tree-common-dead-1",
    "tree-common-dead-2",
    "tree-common-dead-3",
