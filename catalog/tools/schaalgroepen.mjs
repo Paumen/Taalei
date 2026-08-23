@@ -87,7 +87,15 @@ export function bouwSchaalgroepen(modellen, kits = []) {
       if (!test(basis, m)) continue;
       gebruikt.add(m.id);
       // kit en model apart, zodat het label ze verschillend kan zetten
-      items.push({ kit: kortePerSlug.get(m.kit) ?? m.kit, model: basis, pad: m.pad, hoogte: m.wdh[2] });
+      // tags en kitslug mee, zodat de schaalpagina op dezelfde dingen kan uitlichten als de catalogus
+      items.push({
+        kit: kortePerSlug.get(m.kit) ?? m.kit,
+        slug: m.kit,
+        model: basis,
+        pad: m.pad,
+        hoogte: m.wdh[2],
+        tags: m.tags ?? [],
+      });
     }
     if (items.length) groepen.push({ slug, naam, bovenaanzicht: BOVENAANZICHT.has(slug), items });
   }

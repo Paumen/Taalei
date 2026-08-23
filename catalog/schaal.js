@@ -179,6 +179,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
       w: maat.x,
       h: maat.y,
       kit: item.kit,
+      tags: item.tags ?? [],
       label: { kit: item.kit, model: `${item.model}  ${groep.bovenaanzicht ? 'd' : 'h'}=${maat.y.toFixed(2).replace('.', ',')}` },
     });
   }
@@ -242,6 +243,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
       yMax = Math.max(yMax, y + p.h);
       vakken.push({
         kit: p.kit,
+        tags: p.tags ?? [],
         x0: Math.min(p.x - p.w / 2, p.x - p.labelBreed / 2),
         x1: Math.max(p.x + p.w / 2, p.x + p.labelBreed / 2),
         y0: ly - labelSchaal * 2,
@@ -285,14 +287,15 @@ export async function tekenFamilie(groep, canvas, breedte) {
   const inPixels = vakken.map((v) => {
     const [px0, py1] = naarPixel(v.x0, v.y0);
     const [px1, py0] = naarPixel(v.x1, v.y1);
-    return { kit: v.kit, x: px0, y: py0, w: px1 - px0, h: py1 - py0 };
+    return { kit: v.kit, tags: v.tags ?? [], x: px0, y: py0, w: px1 - px0, h: py1 - py0 };
   });
 
   ruimOp(scene);
   return { hoogte, breedte: doekB, aantal: stukken.length, vakken: inPixels };
 }
 
-const groepen = await (await fetch(`schaalgroepen.json?v=${document.querySelector('meta[name=catalogus-versie]')?.content ?? ''}`)).json();
+const versie = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
+const groepen = await (await fetch(`schaalgroepen.json?v=${versie}`)).json();
 const paneel = document.getElementById('families');
 const inhoud = document.getElementById('inhoud');
 
@@ -304,6 +307,13 @@ const BREEDTE = 1800;
 // Uitlichten: kies zoveel kits als je wilt, dan legt een sluier zich over al het andere heen.
 // De sluier is een tweede doek bovenop het render, dus omschakelen kost geen nieuw render.
 const uitgelicht = new Set();
+const uitgelichteTags = new Set();
+
+const isUitgelicht = (v) =>
+  (uitgelicht.size === 0 || uitgelicht.has(v.kit)) &&
+  (uitgelichteTags.size === 0 || v.tags.some((t) => uitgelichteTags.has(t)));
+
+const ietsGekozen = () => uitgelicht.size > 0 || uitgelichteTags.size > 0;
 
 function tekenSluier(sectie) {
   const laag = sectie.querySelector('canvas.sluier');
@@ -311,7 +321,7 @@ function tekenSluier(sectie) {
   if (!laag || !vakken) return;
   const ctx = laag.getContext('2d');
   ctx.clearRect(0, 0, laag.width, laag.height);
-  if (!uitgelicht.size) return;
+  if (!ietsGekozen()) return;
   const { papier } = kleuren();
   ctx.globalCompositeOperation = 'source-over';
   ctx.fillStyle = papier;
@@ -322,7 +332,7 @@ function tekenSluier(sectie) {
   ctx.globalCompositeOperation = 'destination-out';
   const marge = laag.width * 0.004;
   for (const v of vakken) {
-    if (!uitgelicht.has(v.kit)) continue;
+    if (!isUitgelicht(v)) continue;
     ctx.fillRect(v.x - marge, v.y - marge, v.w + marge * 2, v.h + marge * 2);
   }
   ctx.globalCompositeOperation = 'source-over';
@@ -335,13 +345,16 @@ function ververs() {
     knop.classList.toggle('aan', aan);
     knop.setAttribute('aria-pressed', String(aan));
   }
-  wisKnop.hidden = uitgelicht.size === 0;
-  const gekozen = [...uitgelicht];
+  for (const knop of tagBalk.querySelectorAll('button')) {
+    knop.setAttribute('aria-pressed', String(uitgelichteTags.has(knop.dataset.tag)));
+  }
+  wisKnop.hidden = !ietsGekozen();
+  const gekozen = [...uitgelicht, ...[...uitgelichteTags].map((t) => tagNamen.get(t) ?? t)];
   telling.textContent = gekozen.length === 0
-    ? 'Kies één of meer kits om ze eruit te lichten.'
+    ? 'Kies één of meer kits of tags om ze eruit te lichten.'
     : gekozen.length <= 3
       ? `${gekozen.slice(0, -1).join(', ')}${gekozen.length > 1 ? ' en ' : ''}${gekozen.at(-1)} uitgelicht`
-      : `${gekozen.length} kits uitgelicht`;
+      : `${gekozen.length} keuzes uitgelicht`;
 }
 
 const kitBalk = document.getElementById('kits');
@@ -362,7 +375,44 @@ for (const kit of alleKits) {
   });
   kitBalk.appendChild(knop);
 }
-wisKnop.addEventListener('click', () => { uitgelicht.clear(); ververs(); });
+const tagBalk = document.getElementById('tags');
+const tagNamen = new Map();
+const tagsInBeeld = new Map();
+for (const groep of groepen) {
+  for (const item of groep.items) {
+    for (const tag of item.tags ?? []) tagsInBeeld.set(tag, (tagsInBeeld.get(tag) ?? 0) + 1);
+  }
+}
+// Namen en volgorde uit de catalogus, zodat schaal en catalogus dezelfde etiketten tonen.
+const tagLijst = await (await fetch(`catalog.json?v=${versie}`))
+  .json()
+  .then((d) => d.tags ?? [])
+  .catch(() => []);
+for (const tag of tagLijst) {
+  if (!tagsInBeeld.has(tag.id)) continue;
+  tagNamen.set(tag.id, tag.naam);
+  const knop = document.createElement('button');
+  knop.type = 'button';
+  knop.dataset.tag = tag.id;
+  knop.title = tag.beschrijving ?? tag.naam;
+  knop.append(document.createTextNode(tag.naam), Object.assign(document.createElement('span'), {
+    className: 'kitbalk-aantal',
+    textContent: tagsInBeeld.get(tag.id),
+  }));
+  knop.setAttribute('aria-pressed', 'false');
+  knop.addEventListener('click', () => {
+    if (uitgelichteTags.has(tag.id)) uitgelichteTags.delete(tag.id);
+    else uitgelichteTags.add(tag.id);
+    ververs();
+  });
+  tagBalk.appendChild(knop);
+}
+
+wisKnop.addEventListener('click', () => {
+  uitgelicht.clear();
+  uitgelichteTags.clear();
+  ververs();
+});
 
 for (const groep of groepen) {
   const sectie = document.createElement('section');
