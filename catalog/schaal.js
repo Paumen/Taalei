@@ -19,6 +19,32 @@ const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelSchaal (twee r
 const FONT_KIT = '600 44px system-ui, sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt
 const FONT_MODEL = '600 44px system-ui, sans-serif';
 
+// Eén gedeelde WebGL-context voor alle families. Een eigen renderer per familie loopt op een
+// telefoon tegen de limiet aan (browsers staan er maar een stuk of acht toe) en dan tekent de
+// rest niet meer. We renderen dus in één doek en kopiëren het resultaat naar het doek van de
+// familie, dat gewoon 2D is.
+let deler = null;
+function gedeeldeRenderer(breedte, hoogte) {
+  if (!deler) {
+    deler = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    deler.setPixelRatio(1);
+  }
+  deler.setSize(breedte, hoogte, false);
+  return deler;
+}
+
+// Alles wat een familie op de GPU heeft staan weer vrijgeven; anders loopt het geheugen vol
+// als je door 39 families scrollt.
+function ruimOp(scene) {
+  scene.traverse((obj) => {
+    obj.geometry?.dispose();
+    for (const mat of [obj.material].flat().filter(Boolean)) {
+      mat.map?.dispose();
+      mat.dispose();
+    }
+  });
+}
+
 const loader = new GLTFLoader();
 const laad = (pad) => new Promise((res, rej) => loader.load(pad, res, undefined, rej));
 const meetCtx = document.createElement('canvas').getContext('2d');
@@ -103,6 +129,22 @@ function verdeel(stukken, labelSchaal, lat) {
   return rijen;
 }
 
+// Ruitjespapier achter de modellen: fijne lijnen om de 0,25 unit, zware om de hele unit.
+// De stap is overal dezelfde, dus je kunt in elke familie even goed een hoogte aflezen.
+function achtergrond(y, links, rechts, hoogte, fijn, zwaar) {
+  const g = new THREE.Group();
+  const top = Math.ceil(Math.max(hoogte, 1) * 4) / 4;
+  for (const [stap, kleur, dekking] of [[0.25, fijn, 0.55], [1, zwaar, 0.85]]) {
+    const punten = [];
+    for (let x = Math.ceil(links / stap) * stap; x <= rechts + 1e-6; x += stap) punten.push(x, y, -0.5, x, y + top, -0.5);
+    for (let h = 0; h <= top + 1e-6; h += stap) punten.push(links, y + h, -0.5, rechts, y + h, -0.5);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(punten, 3));
+    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: kleur, transparent: true, opacity: dekking })));
+  }
+  return g;
+}
+
 export async function tekenFamilie(groep, canvas, breedte) {
   const { papier, inkt, inktZacht, lijnFijn, lijnZwaar } = kleuren();
   const scene = new THREE.Scene();
@@ -117,7 +159,8 @@ export async function tekenFamilie(groep, canvas, breedte) {
     let gltf;
     try {
       gltf = await laad(`../${item.pad}`);
-    } catch {
+    } catch (fout) {
+      console.error('laden mislukt', item.pad, fout);
       continue;  // een model dat niet laadt mag de rest van de familie niet ophouden
     }
     const obj = gltf.scene;
@@ -206,9 +249,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   xMax = latRechts + rand;
   const hoogte = Math.round((breedte * viewH) / viewW);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-  renderer.setSize(breedte, hoogte, false);
+  const renderer = gedeeldeRenderer(breedte, hoogte);
 
   const aspect = breedte / hoogte;
   const midX = (xMin + xMax) / 2;
@@ -218,7 +259,10 @@ export async function tekenFamilie(groep, canvas, breedte) {
   cam.position.set(midX, midY + viewH * 0.1, 30);
   cam.lookAt(midX, midY, 0);
   renderer.render(scene, cam);
-  renderer.dispose();
+  canvas.width = breedte;
+  canvas.height = hoogte;
+  canvas.getContext('2d').drawImage(renderer.domElement, 0, 0);
+  ruimOp(scene);
   return { hoogte, aantal: stukken.length };
 }
 
@@ -261,7 +305,8 @@ const wachtrij = new IntersectionObserver((ingangen) => {
         sectie.classList.remove('bezig');
         if (!uit) sectie.classList.add('mislukt');
       })
-      .catch(() => {
+      .catch((fout) => {
+        console.error('familie mislukt', sectie.id, fout);
         sectie.classList.remove('bezig');
         sectie.classList.add('mislukt');
       });
