@@ -277,7 +277,7 @@ for (const slug of kitSlugs) {
   });
 }
 
-const SOORTEN = ['materiaal', 'tag', 'bron'];
+const SOORTEN = ['materiaal', 'tag'];
 
 const BRONNEN = [
   {
@@ -309,7 +309,6 @@ const AFGELEID = [
   ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
     id,
     naam,
-    soort: 'bron',
     beschrijving,
     hoort: (m) => kits.includes(m.kit),
   })),

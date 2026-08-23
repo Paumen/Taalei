@@ -407,9 +407,8 @@ function sectiesVan(modellen) {
     );
   }
 
-  if (soort === 'tag' || soort === 'bron') {
-    const hoort = (t) => (soort === 'bron' ? t.soort === 'bron' : t.soort !== 'bron');
-    const eigen = catalogus.tags.filter(hoort);
+  if (soort === 'tag') {
+    const eigen = catalogus.tags;
     const ids = new Set(eigen.map((t) => t.id));
     return perSleutel(
       (m) => {
@@ -418,7 +417,7 @@ function sectiesVan(modellen) {
       },
       [
         ...eigen.map((t) => ({ id: t.id, titel: t.naam, uitleg: t.beschrijving })),
-        { id: ZONDER, titel: soort === 'bron' ? 'No source' : 'No tag' },
+        { id: ZONDER, titel: 'No tag' },
       ],
     );
   }
@@ -499,7 +498,6 @@ const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), var
 const TAGSOORTEN = [
   { soort: 'materiaal', kop: 'Material' },
   { soort: 'tag', kop: 'Tags' },
-  { soort: 'bron', kop: 'Source' },
 ];
 
 function tagRijen(model) {
@@ -765,6 +763,15 @@ function bouwKleurbalk(paletten) {
   });
 }
 
+function herschik() {
+  for (const strip of new Set(chipknoppen.map((c) => c.strip))) {
+    const eigen = chipknoppen
+      .filter((c) => c.strip === strip)
+      .sort((a, b) => Number(b.staat.has(b.id)) - Number(a.staat.has(a.id)) || a.volgorde - b.volgorde);
+    for (const chip of eigen) strip.append(chip.element);
+  }
+}
+
 function bouwChiprij(houder, kop, items, staat, veld) {
   const rij = document.createElement('div');
   rij.className = 'kleurbalk tagrij';
@@ -793,11 +800,12 @@ function bouwChiprij(houder, kop, items, staat, veld) {
     knop.addEventListener('click', () => {
       draaiStaat(staat, item.id, knop);
       wisknop.hidden = !eigenIds.some((id) => staat.has(id));
+      herschik();
       filter();
     });
 
     strip.append(knop);
-    chipknoppen.push({ id: item.id, element: knop, aantalEl, rij, wisknop, eigenIds, staat, veld });
+    chipknoppen.push({ id: item.id, element: knop, aantalEl, rij, wisknop, eigenIds, staat, veld, strip, volgorde: chipknoppen.length });
   }
 
   wisknop.hidden = !eigenIds.some((id) => staat.has(id));
@@ -805,6 +813,7 @@ function bouwChiprij(houder, kop, items, staat, veld) {
     for (const id of eigenIds) staat.delete(id);
     for (const chip of chipknoppen.filter((c) => c.rij === rij)) toonStaat(chip.element, undefined);
     wisknop.hidden = true;
+    herschik();
     filter();
   });
 
@@ -874,6 +883,7 @@ function ververs() {
       toonStaat(element, undefined);
     }
   }
+  herschik();
   for (const { rij, wisknop, eigenIds, staat } of chipknoppen) {
     rij.hidden = !chipknoppen.some((c) => c.rij === rij && !c.element.hidden);
     wisknop.hidden = !eigenIds.some((id) => staat.has(id));
