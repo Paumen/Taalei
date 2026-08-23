@@ -46,6 +46,12 @@ For an LLM creating or adjusting assets.
   the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25.
   Its internal proportions are the pack's, oddities
   included: the hammerhead is 3.4 units long and the whale only 1.1.
+- Three packs were rescaled after the fact with `tools/herschaal-kit.mjs`, which multiplies
+  the baked pack scale in the built `.glb`: dungeon ×0.714 (it sat on its own 0.7/1.4 grid —
+  walls were 1.40 and floor tiles 0.70/1.40, now 1.00 and 0.50/1.00), fantasy-props ×0.5
+  (its barrel and crate were 0.90, three times a village-kit barrel), quaternius-nature ×0.5
+  (median height 1.84, its log 2.67 long against 0.43–1.21 for the natuur logs). Shrinking a
+  pack raises `driehoekenPerUnit`, so recheck the budget after a rescale.
 
 ## 5. Origin and orientation
 - Default on Y = 0; pivot at footprint centre in X/Z.

@@ -30,22 +30,31 @@ scene.add(sun);
 const loader = new GLTFLoader();
 const load = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
 
-// Meetlat in vier blokken rood/wit. Bij een groep kleine props zakt hij mee naar 0,5 / 0,25 / 0,1 / 0,05,
-// anders vult een lat van 1 unit het hele beeld en zijn de props zelf niet meer te zien.
+// Meetlat in vier blokken rood/wit, aan beide kanten van elke rij. Bij een groep kleine props
+// zakt hij mee naar 0,5 / 0,25 / 0,1 / 0,05, anders vult een lat van 1 unit het hele beeld
+// en zijn de props zelf niet meer te zien.
 const LATTEN = [0.05, 0.1, 0.25, 0.5, 1];
 function meetlat(maxH) {
-  const lat = LATTEN.find((l) => l >= maxH * 1.2) ?? LATTEN[LATTEN.length - 1];  // kleinste lat die er nog boven uitkomt
-  const deel = lat / 4;
-  const dik = Math.max(0.012, lat * 0.08);
-  const g = new THREE.Group();
-  for (let i = 0; i < 4; i++) {
-    const mesh = new THREE.Mesh(
-      new THREE.BoxGeometry(dik, deel, dik),
-      new THREE.MeshLambertMaterial({ color: i % 2 ? 0xcc3333 : 0xf0ece3 }));
-    mesh.position.set(0, deel / 2 + i * deel, 0);
-    g.add(mesh);
-  }
-  return { obj: g, w: dik, h: lat, label: (lat === 1 ? '1 unit' : String(lat).replace('.', ',') + ' unit') };
+  const hoog = LATTEN.find((l) => l >= maxH * 1.2) ?? LATTEN[LATTEN.length - 1];  // kleinste lat die er nog boven uitkomt
+  const deel = hoog / 4;
+  const dik = Math.max(0.012, hoog * 0.08);
+  const rood = new THREE.MeshLambertMaterial({ color: 0xcc3333 });
+  const wit = new THREE.MeshLambertMaterial({ color: 0xf0ece3 });
+  const blok = new THREE.BoxGeometry(dik, deel, dik);
+  return {
+    w: dik,
+    h: hoog,
+    label: hoog === 1 ? '1 unit' : String(hoog).replace('.', ',') + ' unit',
+    maak() {
+      const g = new THREE.Group();
+      for (let i = 0; i < 4; i++) {
+        const mesh = new THREE.Mesh(blok, i % 2 ? rood : wit);
+        mesh.position.set(0, deel / 2 + i * deel, 0);
+        g.add(mesh);
+      }
+      return g;
+    },
+  };
 }
 
 // Alles eerst laden: de rijindeling heeft alle breedtes nodig.
@@ -64,7 +73,7 @@ for (const item of group.items) {
   stukken.push({ obj: pivot, w: size.x, h: size.y, label: item.label + '  h=' + size.y.toFixed(2) });
 }
 
-stukken.unshift(meetlat(Math.max(...stukken.map((p) => p.h))));
+const lat = meetlat(Math.max(...stukken.map((p) => p.h)));
 // Tussenruimte schaalt mee met de familie: een groep schelpen heeft een andere maatstaf dan een groep bomen.
 const GAP = Math.max(0.02, 0.35 * stukken.reduce((s, p) => s + p.w, 0) / stukken.length);
 
@@ -106,7 +115,7 @@ function verdeel(r, labelScale, rek) {
   for (const x of rijen) {
     x.regels = labelRegels(x.rij, labelScale);
     x.labelBlok = labelScale * (0.7 + 1.15 * (x.regels - 1) + 1);
-    x.hoog = Math.max(...x.rij.map((p) => p.h)) + x.labelBlok;
+    x.hoog = Math.max(lat.h + labelScale * 1.4, ...x.rij.map((p) => p.h)) + x.labelBlok;
   }
   const contentW = Math.max(...rijen.map((x) => x.breed)) + GAP;
   const contentH = rijen.reduce((s, x) => s + x.hoog, 0);
@@ -153,12 +162,31 @@ function label(text, x, y, breed) {
   scene.add(spr);
 }
 
+const contentW = Math.max(...rijen.map((r) => r.breed));
+const latLinks = -GAP - lat.w / 2;
+const latRechts = contentW + GAP + lat.w / 2;
+
 let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
 rijen.forEach((r, i) => {
   const y = basis[i];
+  // Raster helemaal achter de modellen leggen, anders tekenen de lijnen dwars over de meetlatten heen.
   const grid = new THREE.GridHelper(80, 80, 0xaaa298, 0xc6bfb2);
-  grid.position.set(39, y, 0);
+  grid.position.set(39, y, -41);
   scene.add(grid);
+  // Elke rij krijgt links en rechts een meetlat, zodat je nergens ver hoeft te kijken
+  // om te zien hoe groot iets is. Ze staan op dezelfde x, dus ze lijnen ook verticaal uit.
+  for (const lx of [latLinks, latRechts]) {
+    const obj = lat.maak();
+    obj.position.set(lx, y, 0);
+    scene.add(obj);
+    // Label boven de lat: onder de rij staan de assetlabels, daar botst hij anders mee.
+    const breed = labelScale * (tekstBreedte(lat.label) / 96);
+    const ly = y + lat.h + labelScale * 1.25;
+    label(lat.label, lx, ly, breed);
+    xMin = Math.min(xMin, lx - breed / 2);
+    xMax = Math.max(xMax, lx + breed / 2);
+    yMax = Math.max(yMax, ly);
+  }
   for (const p of r.rij) {
     p.obj.position.set(p.x, y, 0);
     scene.add(p.obj);

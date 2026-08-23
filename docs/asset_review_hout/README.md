@@ -2,15 +2,16 @@
 
 Renders van alle losse houtassets in de kits: hout(stapel), brandhout, logs,
 kampvuur, timber, planken, pallet, timber stack, takken en wortels. Elke familie
-staat in één beeld; wat niet op één rij past loopt door op een volgende rij.
+staat in één beeld; wat niet op één rij past loopt door op een volgende rij, en elke
+rij heeft links én rechts een meetlat.
 
 ```
 node tools/vergelijk-groottes/render.mjs tools/vergelijk-groottes/hout.json docs/asset_review_hout
 ```
 
-De indeling staat in `tools/vergelijk-groottes/hout.json`. Links staat een meetlat die
-meezakt met de familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) — kijk dus welk getal eronder
-staat. Achter elk label staat de hoogte van het model.
+De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat zakt mee met de
+familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) — kijk dus welk getal erboven staat. Achter
+elk label staat de hoogte van het model.
 
 ## De families
 
@@ -26,20 +27,21 @@ staat. Achter elk label staat de hoogte van het model.
 
 Buiten scope gelaten: bouwkundig hout (houten muren, vloeren, trappen, balken,
 palen, relingen) uit fantasy-town-kit, village-kit, dungeon en mini-dungeon.
-Dat zijn bouwstukken, geen losse houtprops. Zeg het als die er ook bij moeten.
+Dat zijn bouwstukken, geen losse houtprops.
 
 ## Wat de renders laten zien
+
+**Logs staan nu dichter bij elkaar.** quaternius-nature is gehalveerd (zie
+`docs/asset_review_props/README.md`), dus `q-nature/log` is nu 0,37 hoog en 1,34 lang
+in plaats van 0,75 en 2,67. Daarmee liggen de natuur-logs (0,25–0,35 hoog, 0,43–1,21
+lang) en de quaternius-logs in dezelfde orde van grootte. Wat overblijft is
+`survival/tree-log`: 0,50 hoog en 1,80 lang, nog altijd de langste losse log.
 
 **Twee houtpaletten naast elkaar.** natuur, quaternius-nature en
 modulair-terrein/hilly gebruiken grijsbruin (`#8f785b`, `#88796d`);
 resources, survival-kit, fantasy-town-kit, castle-kit en pirate-kit gebruiken
 warm oranje (`#d07b56`, `#dd9f79`, `#995a41`). In `hout-logs.png` staan die twee
 families onder elkaar en ze lezen als twee verschillende soorten hout.
-
-**Schaal loopt ver uiteen bij logs.** natuur `log-1` t/m `log-5` zijn 0,25–0,35
-hoog; quaternius `log` en `log-moss` zijn 0,69–0,75 hoog en ruim 2,6 units lang;
-survival `tree-log` is 0,50 en 1,8 lang. Dat zijn drie verschillende maten voor
-hetzelfde begrip "log".
 
 **Shading.** De natuur-assets (logs, takken, wortels, stronken) renderen glad
 geshadeerd — ronde, zachte vormen zonder zichtbare facetten. De kit-assets
@@ -58,7 +60,8 @@ lengte verschilt (1,8 tegen 1,17).
 
 **Boven het driehoekenbudget** (1000 per unit, style guide §4):
 `resources/wood-log-stack` 3576, `natuur/timber-stack-2` 1460,
-`resources/wood-planks-stack-large` 1176.
+`resources/wood-planks-stack-large` 1176. Geen van de drie zit in een kit die
+opnieuw geschaald is, dus deze getallen zijn onveranderd.
 
 **Groepsindeling in de catalogus valt op:** kampvuren, `camp-wood-pile` en
 `firewood-a` zitten in groep `eten`; `graveyard/debris-wood` zit in `rotsen`.
