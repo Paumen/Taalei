@@ -1326,10 +1326,7 @@ window.KENNEY_KITS = [
    "tree-palm-6",
    "tree-pine-1",
    "tree-pine-2",
-   "tree-pine-3",
-   "tree-pine-4",
-   "tree-pine-5",
-   "tree-pine-6"
+   "tree-pine-3"
   ]
  }
 ];
