@@ -13,7 +13,7 @@ import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 // Elke familie krijgt precies even veel units in beeld, zodat een vat in elke familie even
 // groot op het scherm staat. Een rij is RIJBREEDTE units breed; wat er niet meer bij past gaat
 // naar de volgende rij. Alleen de hoogte van het beeld verschilt dus nog per familie.
-const RIJBREEDTE = 6;
+const RIJBREEDTE = 5;
 const GAP = 0.35;
 const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelSchaal (twee regels plus lucht)
 const FONT_KIT = '600 44px system-ui, sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt

@@ -19,7 +19,26 @@ ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, d
 een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
 zijn hoogte op de onderste.
 
-## Dertien kits opnieuw geschaald
+## Alle Kenney-kits op 0,65
+
+De zeven overgebleven Kenney-kits staan nu allemaal op **0,65 van Kenney's eigen
+standaardtegel van 1 unit**, gemeten tegen de bronbestanden in `kits/sources`:
+
+| Kit | Bron t.o.v. de standaardtegel | Factor op de bron |
+| --- | --- | --- |
+| prototype-kit | 1,00 | 0,650 |
+| mini-forest | 1,00 | 0,650 |
+| fantasy-town-kit | 1,00 | 0,650 |
+| platformer-kit | 1,00 | 0,650 |
+| survival-kit | 0,50 (halve tegels) | 1,300 |
+| pirate-kit | 2,56 | 0,254 |
+| modular-cave-kit | 4,00 (tegels van 4 × 4) | 0,162 |
+
+Kenney tekent zijn packs dus niet allemaal op dezelfde maat: survival komt binnen op
+halve tegels, pirate op ruim tweeënhalf keer en modular-cave op vier keer de standaard.
+Die verschillen zijn er nu uit.
+
+## Overige kits opnieuw geschaald
 
 | Kit | Factor | Wat het deed |
 | --- | --- | --- |

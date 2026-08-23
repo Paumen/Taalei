@@ -7,7 +7,7 @@
 const DOOD = /(^|-)(bare|dead)(-|$)/;
 
 // Platte dingen lees je van boven, niet van opzij.
-const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen']);
+const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen', 'planken-pallets']);
 
 // Klein en groot gereedschap is niet uit de naam af te leiden, dus staat het hier per stuk.
 // Wat in geen van beide lijsten staat, valt op maat: onder 0,2 klein, daarboven groot.
