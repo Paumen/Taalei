@@ -280,6 +280,31 @@ for (const slug of kitSlugs) {
 
 const SOORTEN = ['materiaal', 'tag'];
 
+// Deze drie volgen uit de modellen zelf en staan daarom niet in tags.json.
+const AFGELEID = [
+  {
+    id: 'animation',
+    naam: 'Animation',
+    beschrijving:
+      'Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent.',
+    hoort: (m) => Boolean(m.animaties?.length),
+  },
+  {
+    id: 'modular',
+    naam: 'Modular',
+    beschrijving:
+      'Klikt op het raster aan soortgenoten vast: de wanden, daken, pilaren en vloeren van de drie bouwpakketten. Je zet ze niet los neer maar bouwt er iets van, en ze passen alleen binnen hun eigen kit.',
+    hoort: (m) => m.groep === 'bouwpakket',
+  },
+  {
+    id: 'assembly',
+    naam: 'Assembly',
+    beschrijving:
+      'Niet één ding maar een tafereeltje dat af is zoals het staat: een gedekte tafel, een stapel kratten, een kist vol flessen, de staven en stapels van de resources-kit.',
+    hoort: (m) => m.groep === 'assemblies',
+  },
+];
+
 function leesTags(bekend) {
   const bestand = join(CATALOG_DIR, 'tags.json');
   if (!existsSync(bestand)) return { tags: [], perModel: new Map() };
@@ -304,6 +329,9 @@ function leesTags(bekend) {
   const zonderSoort = tags.filter((t) => !SOORTEN.includes(t.soort)).map((t) => t.id);
   if (zonderSoort.length) console.warn(`! tag zonder geldige soort: ${zonderSoort.join(', ')}`);
 
+  const botst = tags.filter((t) => AFGELEID.some((a) => a.id === t.id)).map((t) => t.id);
+  if (botst.length) console.warn(`! tag staat in tags.json maar wordt afgeleid: ${botst.join(', ')}`);
+
   return {
     tags: tags.map(({ modellen: leden = [], ...tag }) => ({
       ...tag,
@@ -321,18 +349,18 @@ for (const model of modellen) {
 
 const tags = leesTags(new Set(modellen.map((m) => m.id)));
 
-const geanimeerd = modellen.filter((m) => m.animaties?.length);
-if (geanimeerd.length) {
-  for (const model of geanimeerd) {
-    tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), 'animation']);
+for (const { id, naam, beschrijving, hoort } of AFGELEID) {
+  const leden = modellen.filter(hoort);
+  if (leden.length === 0) continue;
+  for (const model of leden) {
+    tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), id]);
   }
   tags.tags.push({
-    id: 'animation',
-    naam: 'Animation',
+    id,
+    naam,
     soort: 'tag',
-    beschrijving:
-      'Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent. Afgeleid uit de bestanden zelf, dus niet in catalog/tags.json bijgehouden.',
-    aantal: geanimeerd.length,
+    beschrijving: `${beschrijving} Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.`,
+    aantal: leden.length,
   });
 }
 

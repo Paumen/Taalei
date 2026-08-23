@@ -1150,8 +1150,8 @@
    "id": "metal",
    "naam": "Metal",
    "soort": "materiaal",
-   "beschrijving": "Modellen waar metaal het beeld bepaalt of het werkende deel is: gereedschap en wapens, aambeelden en slijpstenen, sloten, sleutels en hendels, tralies, roosters en beslag, lantaarns en toortsen, en het ijzer uit de resources-kit. Een vat of kist telt mee om zijn hoepels en beslag, en draagt daarmee zowel timber als metal.",
-   "aantal": 120
+   "beschrijving": "Modellen waar metaal het beeld bepaalt of het werkende deel is: gereedschap en wapens, aambeelden en slijpstenen, sloten, sleutels en hendels, tralies, roosters en beslag, lantaarns en toortsen, en het ijzer en koper uit de resources-kit. Goud en zilver staan apart onder precious-metal. Een vat of kist telt mee om zijn hoepels en beslag, en draagt daarmee zowel timber als metal.",
+   "aantal": 129
   },
   {
    "id": "paper",
@@ -1245,11 +1245,32 @@
    "aantal": 11
   },
   {
+   "id": "precious-metal",
+   "naam": "Edelmetaal",
+   "soort": "materiaal",
+   "beschrijving": "Goud en zilver: de staven, klompjes en stapels uit de resources-kit, de gouden sleutel en de met goud beslagen kist. Koper en ijzer staan onder metal.",
+   "aantal": 20
+  },
+  {
    "id": "animation",
    "naam": "Animation",
    "soort": "tag",
-   "beschrijving": "Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent. Afgeleid uit de bestanden zelf, dus niet in catalog/tags.json bijgehouden.",
+   "beschrijving": "Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
    "aantal": 8
+  },
+  {
+   "id": "modular",
+   "naam": "Modular",
+   "soort": "tag",
+   "beschrijving": "Klikt op het raster aan soortgenoten vast: de wanden, daken, pilaren en vloeren van de drie bouwpakketten. Je zet ze niet los neer maar bouwt er iets van, en ze passen alleen binnen hun eigen kit. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
+   "aantal": 223
+  },
+  {
+   "id": "assembly",
+   "naam": "Assembly",
+   "soort": "tag",
+   "beschrijving": "Niet één ding maar een tafereeltje dat af is zoals het staat: een gedekte tafel, een stapel kratten, een kist vol flessen, de staven en stapels van de resources-kit. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
+   "aantal": 52
   }
  ],
  "groepen": [
@@ -1568,6 +1589,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -1623,6 +1645,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -1682,6 +1705,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -1899,6 +1923,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -1955,6 +1980,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -2138,6 +2164,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -2192,6 +2219,8 @@
    ],
    "tags": [
     "animation",
+    "assembly",
+    "precious-metal",
     "timber"
    ]
   },
@@ -2330,6 +2359,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2358,6 +2388,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -2383,6 +2414,7 @@
    "calls": 1,
    "variant": "v44",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2408,6 +2440,7 @@
    "calls": 1,
    "variant": "v44",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2433,6 +2466,7 @@
    "calls": 1,
    "variant": "v28",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2458,6 +2492,7 @@
    "calls": 1,
    "variant": "v28",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2483,6 +2518,7 @@
    "calls": 1,
    "variant": "v28",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2507,6 +2543,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2531,6 +2568,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2557,6 +2595,7 @@
    "calls": 1,
    "tags": [
     "flora",
+    "modular",
     "stone"
    ]
   },
@@ -2583,6 +2622,7 @@
    "calls": 1,
    "variant": "v05",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2609,6 +2649,7 @@
    "calls": 1,
    "variant": "v05",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2634,6 +2675,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2660,6 +2702,7 @@
    "calls": 1,
    "variant": "v05",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2685,6 +2728,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2711,6 +2755,7 @@
    "calls": 1,
    "variant": "v45",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2737,6 +2782,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -2763,6 +2809,7 @@
    "calls": 2,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -2789,6 +2836,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -2815,6 +2863,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -2840,6 +2889,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2864,6 +2914,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2889,6 +2940,7 @@
    "calls": 1,
    "variant": "v46",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2914,6 +2966,7 @@
    "calls": 1,
    "variant": "v46",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2938,6 +2991,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -2965,6 +3019,7 @@
    "calls": 1,
    "tags": [
     "candle",
+    "modular",
     "stone"
    ]
   },
@@ -2992,6 +3047,7 @@
    "variant": "v47",
    "tags": [
     "flora",
+    "modular",
     "stone"
    ]
   },
@@ -3019,6 +3075,7 @@
    "variant": "v47",
    "tags": [
     "flora",
+    "modular",
     "stone"
    ]
   },
@@ -3043,6 +3100,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -3068,6 +3126,7 @@
    "calls": 1,
    "variant": "v48",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -3093,6 +3152,7 @@
    "calls": 1,
    "variant": "v48",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -3118,6 +3178,7 @@
    "calls": 1,
    "variant": "v49",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -3143,6 +3204,7 @@
    "calls": 1,
    "variant": "v49",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -3172,6 +3234,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -3299,6 +3362,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -3421,6 +3485,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "rock"
    ]
   },
@@ -3445,6 +3510,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "rock"
    ]
   },
@@ -3853,6 +3919,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -3882,6 +3949,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -3961,6 +4029,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -4013,6 +4082,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -4038,6 +4108,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -4223,6 +4294,7 @@
    "calls": 1,
    "variant": "v52",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4252,6 +4324,7 @@
    "variant": "v53",
    "tags": [
     "metal",
+    "modular",
     "stone",
     "timber"
    ]
@@ -4281,6 +4354,7 @@
    "variant": "v53",
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -4307,6 +4381,7 @@
    "calls": 1,
    "variant": "v54",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4333,6 +4408,7 @@
    "calls": 1,
    "variant": "v54",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4360,6 +4436,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -4386,6 +4463,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -4412,6 +4490,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4437,6 +4516,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4464,6 +4544,7 @@
    "calls": 1,
    "tags": [
     "flora",
+    "modular",
     "stone"
    ]
   },
@@ -4489,6 +4570,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4521,6 +4603,7 @@
    "tags": [
     "animation",
     "metal",
+    "modular",
     "stone",
     "timber"
    ]
@@ -4547,6 +4630,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4572,6 +4656,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4604,6 +4689,7 @@
    "tags": [
     "animation",
     "metal",
+    "modular",
     "stone",
     "timber"
    ]
@@ -4630,6 +4716,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4657,6 +4744,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "stone"
    ]
   },
@@ -4682,6 +4770,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4707,6 +4796,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4732,6 +4822,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4757,6 +4848,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -4784,6 +4876,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4810,6 +4903,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -4843,6 +4937,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -4868,6 +4963,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4894,6 +4990,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4919,6 +5016,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -4946,6 +5044,7 @@
    "calls": 1,
    "variant": "v57",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -4974,6 +5073,7 @@
    "calls": 1,
    "variant": "v56",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -5002,6 +5102,7 @@
    "calls": 1,
    "variant": "v57",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -5030,6 +5131,7 @@
    "calls": 1,
    "variant": "v56",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -5057,6 +5159,7 @@
    "calls": 1,
    "variant": "v52",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -5112,6 +5215,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -5269,6 +5373,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5295,6 +5400,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5323,6 +5429,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5350,6 +5457,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5376,6 +5484,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5403,6 +5512,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5453,6 +5563,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5481,6 +5592,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "paper"
    ]
   },
@@ -5688,7 +5800,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "precious-metal"
    ]
   },
   {
@@ -6114,6 +6227,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -6319,6 +6433,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -6536,7 +6651,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -6562,7 +6678,8 @@
    "calls": 1,
    "variant": "v58",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -6588,7 +6705,8 @@
    "calls": 1,
    "variant": "v58",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -6612,7 +6730,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -6639,6 +6758,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -6666,6 +6786,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -6693,6 +6814,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -6720,6 +6842,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -6744,7 +6867,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -6771,6 +6895,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -6799,6 +6924,7 @@
    "calls": 1,
    "tags": [
     "ceramic",
+    "modular",
     "timber"
    ]
   },
@@ -7111,6 +7237,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -7138,6 +7265,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -7163,6 +7291,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7189,6 +7318,7 @@
    "calls": 1,
    "variant": "v45",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7214,6 +7344,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7239,6 +7370,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7264,6 +7396,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7289,6 +7422,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7314,6 +7448,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7340,6 +7475,7 @@
    "calls": 1,
    "variant": "v29",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7366,6 +7502,7 @@
    "calls": 1,
    "variant": "v29",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7392,6 +7529,7 @@
    "calls": 1,
    "variant": "v29",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7417,6 +7555,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7442,6 +7581,7 @@
    ],
    "calls": 2,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7467,6 +7607,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7494,6 +7635,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -7519,6 +7661,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7544,6 +7687,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7569,6 +7713,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7595,6 +7740,7 @@
    "calls": 1,
    "variant": "v30",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7621,6 +7767,7 @@
    "calls": 1,
    "variant": "v30",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7647,6 +7794,7 @@
    "calls": 1,
    "variant": "v30",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7672,6 +7820,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -7699,6 +7848,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -7726,6 +7876,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -7778,6 +7929,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -13919,6 +14071,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -13943,6 +14096,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -14599,6 +14753,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -18227,7 +18382,10 @@
     0.125
    ],
    "calls": 1,
-   "variant": "v12"
+   "variant": "v12",
+   "tags": [
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-bars-stack-large",
@@ -18249,7 +18407,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v14"
+   "variant": "v14",
+   "tags": [
+    "assembly",
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-bars-stack-medium",
@@ -18271,7 +18433,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v15"
+   "variant": "v15",
+   "tags": [
+    "assembly",
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-bars-stack-small",
@@ -18293,7 +18459,11 @@
     0.375
    ],
    "calls": 1,
-   "variant": "v16"
+   "variant": "v16",
+   "tags": [
+    "assembly",
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-bars",
@@ -18316,7 +18486,11 @@
     0.395
    ],
    "calls": 1,
-   "variant": "v13"
+   "variant": "v13",
+   "tags": [
+    "assembly",
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-nugget-large",
@@ -18338,7 +18512,10 @@
     0.233
    ],
    "calls": 1,
-   "variant": "v17"
+   "variant": "v17",
+   "tags": [
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-nugget-medium",
@@ -18360,7 +18537,10 @@
     0.139
    ],
    "calls": 1,
-   "variant": "v18"
+   "variant": "v18",
+   "tags": [
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-nugget-small",
@@ -18382,7 +18562,10 @@
     0.06
    ],
    "calls": 1,
-   "variant": "v19"
+   "variant": "v19",
+   "tags": [
+    "metal"
+   ]
   },
   {
    "id": "resources/copper-nuggets",
@@ -18404,7 +18587,10 @@
     0.237
    ],
    "calls": 1,
-   "variant": "v20"
+   "variant": "v20",
+   "tags": [
+    "metal"
+   ]
   },
   {
    "id": "resources/gold-bar",
@@ -18426,7 +18612,10 @@
     0.125
    ],
    "calls": 1,
-   "variant": "v12"
+   "variant": "v12",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-bars-stack-large",
@@ -18448,7 +18637,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v14"
+   "variant": "v14",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-bars-stack-medium",
@@ -18470,7 +18663,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v15"
+   "variant": "v15",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-bars-stack-small",
@@ -18492,7 +18689,11 @@
     0.375
    ],
    "calls": 1,
-   "variant": "v16"
+   "variant": "v16",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-bars",
@@ -18515,7 +18716,11 @@
     0.395
    ],
    "calls": 1,
-   "variant": "v13"
+   "variant": "v13",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-nugget-large",
@@ -18537,7 +18742,10 @@
     0.233
    ],
    "calls": 1,
-   "variant": "v17"
+   "variant": "v17",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-nugget-medium",
@@ -18559,7 +18767,10 @@
     0.139
    ],
    "calls": 1,
-   "variant": "v18"
+   "variant": "v18",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-nugget-small",
@@ -18581,7 +18792,10 @@
     0.06
    ],
    "calls": 1,
-   "variant": "v19"
+   "variant": "v19",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/gold-nuggets",
@@ -18603,7 +18817,10 @@
     0.237
    ],
    "calls": 1,
-   "variant": "v20"
+   "variant": "v20",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/iron-bar",
@@ -18652,6 +18869,7 @@
    "calls": 1,
    "variant": "v14",
    "tags": [
+    "assembly",
     "metal"
    ]
   },
@@ -18677,6 +18895,7 @@
    "calls": 1,
    "variant": "v15",
    "tags": [
+    "assembly",
     "metal"
    ]
   },
@@ -18702,6 +18921,7 @@
    "calls": 1,
    "variant": "v16",
    "tags": [
+    "assembly",
     "metal"
    ]
   },
@@ -18728,6 +18948,7 @@
    "calls": 1,
    "variant": "v13",
    "tags": [
+    "assembly",
     "metal"
    ]
   },
@@ -18950,7 +19171,10 @@
     0.125
    ],
    "calls": 1,
-   "variant": "v12"
+   "variant": "v12",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-bars-stack-large",
@@ -18972,7 +19196,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v14"
+   "variant": "v14",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-bars-stack-medium",
@@ -18994,7 +19222,11 @@
     0.75
    ],
    "calls": 1,
-   "variant": "v15"
+   "variant": "v15",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-bars-stack-small",
@@ -19016,7 +19248,11 @@
     0.375
    ],
    "calls": 1,
-   "variant": "v16"
+   "variant": "v16",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-bars",
@@ -19039,7 +19275,11 @@
     0.395
    ],
    "calls": 1,
-   "variant": "v13"
+   "variant": "v13",
+   "tags": [
+    "assembly",
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-nugget-large",
@@ -19061,7 +19301,10 @@
     0.233
    ],
    "calls": 1,
-   "variant": "v17"
+   "variant": "v17",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-nugget-medium",
@@ -19083,7 +19326,10 @@
     0.139
    ],
    "calls": 1,
-   "variant": "v18"
+   "variant": "v18",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-nugget-small",
@@ -19105,7 +19351,10 @@
     0.06
    ],
    "calls": 1,
-   "variant": "v19"
+   "variant": "v19",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/silver-nuggets",
@@ -19127,7 +19376,10 @@
     0.237
    ],
    "calls": 1,
-   "variant": "v20"
+   "variant": "v20",
+   "tags": [
+    "precious-metal"
+   ]
   },
   {
    "id": "resources/stone-brick",
@@ -19175,6 +19427,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "stone"
    ]
   },
@@ -19200,6 +19453,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "stone"
    ]
   },
@@ -19225,6 +19479,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "stone"
    ]
   },
@@ -19381,6 +19636,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19481,6 +19737,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19506,6 +19763,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19531,6 +19789,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19629,6 +19888,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19679,6 +19939,7 @@
    ],
    "calls": 1,
    "tags": [
+    "assembly",
     "timber"
    ]
   },
@@ -19753,7 +20014,10 @@
     0.233,
     0.222
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "assembly"
+   ]
   },
   {
    "id": "restaurant/food-ingredient-cheese",
@@ -23150,6 +23414,7 @@
    "calls": 1,
    "variant": "v75",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23175,6 +23440,7 @@
    "calls": 1,
    "variant": "v75",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23200,6 +23466,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23226,6 +23493,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23252,6 +23520,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23278,6 +23547,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23304,6 +23574,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23330,6 +23601,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23356,6 +23628,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile",
     "timber"
    ]
@@ -23381,6 +23654,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "textile"
    ]
   },
@@ -23427,7 +23701,10 @@
     0.222,
     0.699
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/cobblestone-dirt-transition-a",
@@ -23452,6 +23729,7 @@
    "calls": 1,
    "variant": "v22",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -23478,6 +23756,7 @@
    "calls": 1,
    "variant": "v22",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -23504,6 +23783,7 @@
    "calls": 1,
    "variant": "v22",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -23530,6 +23810,7 @@
    "calls": 1,
    "variant": "v22",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -23555,6 +23836,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -23625,7 +23907,10 @@
     0.6,
     0.12
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/dirt-fading",
@@ -23646,7 +23931,10 @@
     0.6,
     0.12
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/dirt-gathered-corner",
@@ -23667,7 +23955,10 @@
     0.9,
     0.147
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/dirt-gathered-straight",
@@ -23688,7 +23979,10 @@
     0.6,
     0.147
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/door-ornate",
@@ -23714,6 +24008,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -23741,6 +24036,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "modular",
     "timber"
    ]
   },
@@ -23847,6 +24143,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23871,6 +24168,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23895,6 +24193,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23919,6 +24218,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23943,6 +24243,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23968,6 +24269,7 @@
    "calls": 1,
    "variant": "v23",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -23993,7 +24295,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24018,7 +24321,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24043,7 +24347,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24070,7 +24375,8 @@
    "calls": 1,
    "variant": "v77",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24096,7 +24402,8 @@
    "calls": 1,
    "variant": "v76",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24123,7 +24430,8 @@
    "calls": 1,
    "variant": "v77",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24149,7 +24457,8 @@
    "calls": 1,
    "variant": "v76",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24174,7 +24483,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24199,7 +24509,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24224,7 +24535,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24251,7 +24563,8 @@
    "calls": 1,
    "variant": "v79",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24277,7 +24590,8 @@
    "calls": 1,
    "variant": "v78",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24304,7 +24618,8 @@
    "calls": 1,
    "variant": "v79",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24330,7 +24645,8 @@
    "calls": 1,
    "variant": "v78",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24355,7 +24671,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24380,7 +24697,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24405,7 +24723,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24432,7 +24751,8 @@
    "calls": 1,
    "variant": "v81",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24458,7 +24778,8 @@
    "calls": 1,
    "variant": "v80",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24485,7 +24806,8 @@
    "calls": 1,
    "variant": "v81",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24511,7 +24833,8 @@
    "calls": 1,
    "variant": "v80",
    "tags": [
-    "ceramic"
+    "ceramic",
+    "modular"
    ]
   },
   {
@@ -24558,7 +24881,10 @@
     1.2,
     0.848
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/stone-curb-a",
@@ -24582,6 +24908,7 @@
    "calls": 1,
    "variant": "v24",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24607,6 +24934,7 @@
    "calls": 1,
    "variant": "v24",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24632,6 +24960,7 @@
    "calls": 1,
    "variant": "v24",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24657,6 +24986,7 @@
    "calls": 1,
    "variant": "v24",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24683,6 +25013,7 @@
    "calls": 1,
    "variant": "v82",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24710,6 +25041,7 @@
    "calls": 1,
    "variant": "v82",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24737,6 +25069,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24764,6 +25097,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24792,6 +25126,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24820,6 +25155,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "modular",
     "stone",
     "timber"
    ]
@@ -24846,6 +25182,7 @@
    "calls": 1,
    "variant": "v04",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24871,6 +25208,7 @@
    "calls": 1,
    "variant": "v04",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24896,6 +25234,7 @@
    "calls": 1,
    "variant": "v04",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24921,6 +25260,7 @@
    "calls": 1,
    "variant": "v04",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24946,6 +25286,7 @@
    "calls": 1,
    "variant": "v04",
    "tags": [
+    "modular",
     "stone"
    ]
   },
@@ -24971,6 +25312,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -24993,7 +25335,10 @@
     0.6,
     0.299
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/stucco-block",
@@ -25014,7 +25359,10 @@
     0.6,
     0.6
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "modular"
+   ]
   },
   {
    "id": "village-kit/stucco-doorway-narrow-tall",
@@ -25038,6 +25386,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25063,6 +25412,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25087,6 +25437,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25111,6 +25462,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25135,6 +25487,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25160,6 +25513,7 @@
    "calls": 1,
    "variant": "v23",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25185,6 +25539,7 @@
    "calls": 1,
    "variant": "v23",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25210,6 +25565,7 @@
    "calls": 1,
    "variant": "v23",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25235,6 +25591,7 @@
    "calls": 1,
    "variant": "v26",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25260,6 +25617,7 @@
    "calls": 1,
    "variant": "v26",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25285,6 +25643,7 @@
    "calls": 1,
    "variant": "v26",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25312,6 +25671,7 @@
    "calls": 1,
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25339,6 +25699,7 @@
    "calls": 1,
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25367,6 +25728,7 @@
    "variant": "v39",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25394,6 +25756,7 @@
    "calls": 1,
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25422,6 +25785,7 @@
    "variant": "v83",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25449,6 +25813,7 @@
    "calls": 1,
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25477,6 +25842,7 @@
    "variant": "v39",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25505,6 +25871,7 @@
    "variant": "v84",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25533,6 +25900,7 @@
    "variant": "v83",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25560,6 +25928,7 @@
    "calls": 1,
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25588,6 +25957,7 @@
    "variant": "v39",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25616,6 +25986,7 @@
    "variant": "v84",
    "tags": [
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -25640,6 +26011,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25664,6 +26036,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25688,6 +26061,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25713,6 +26087,7 @@
    "calls": 1,
    "variant": "v26",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25738,6 +26113,7 @@
    "calls": 1,
    "variant": "v85",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25763,6 +26139,7 @@
    "calls": 1,
    "variant": "v85",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25787,6 +26164,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25811,6 +26189,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25955,6 +26334,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -25984,6 +26364,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "modular",
     "timber"
    ]
   },
@@ -26008,6 +26389,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26032,6 +26414,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26057,6 +26440,7 @@
    "calls": 1,
    "variant": "v27",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26082,6 +26466,7 @@
    "calls": 1,
    "variant": "v27",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26107,6 +26492,7 @@
    "calls": 1,
    "variant": "v27",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26132,6 +26518,7 @@
    "calls": 1,
    "variant": "v27",
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26156,6 +26543,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26180,6 +26568,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26204,6 +26593,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26228,6 +26618,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26252,6 +26643,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26276,6 +26668,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "rope",
     "timber"
    ]
@@ -26301,6 +26694,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "rope",
     "timber"
    ]
@@ -26326,6 +26720,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "rope",
     "timber"
    ]
@@ -26352,6 +26747,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   },
@@ -26376,6 +26772,7 @@
    ],
    "calls": 1,
    "tags": [
+    "modular",
     "timber"
    ]
   }
