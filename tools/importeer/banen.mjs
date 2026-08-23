@@ -1,17 +1,3 @@
-// Vindt de banen van een kleursheet: de rechthoekige cellen waar zo'n vel uit
-// bestaat, elk met een eigen verloop van licht naar donker.
-//
-// De gedeelde kits/colormap.png is 16 × 4 van zulke banen, Kenney's nieuwere
-// colormaps ook, KayKit gebruikt 8 × 4, en de losse texturen van sommige packs
-// zijn er één. Dat wordt niet aangenomen maar gemeten: waar twee buurkolommen
-// (of -rijen) sterk van kleur verspringen ligt een grens, en tussen twee
-// grenzen ligt een baan.
-//
-// Waarom dit nodig is: een baan hoort in zijn geheel op één baan van de
-// gedeelde sheet te landen. Kies je per driehoek los de dichtstbijzijnde
-// kleur, dan kan de ene helft van een boom op de ene baan komen en de andere
-// helft op een andere, en valt een glad verloop uiteen in losse driehoeken.
-
 import { naarOklab, afstand } from './palet.mjs';
 
 const RAMP = 16;
@@ -27,8 +13,6 @@ function labVlak({ breedte, hoogte, pixels }) {
   return lab;
 }
 
-// Grenzen langs één as: posities waar de gemiddelde sprong tussen twee
-// opeenvolgende lijnen boven de drempel uitkomt.
 function grenzen(lab, breedte, hoogte, langsX) {
   const lengte = langsX ? breedte : hoogte;
   const dwars = langsX ? hoogte : breedte;
@@ -54,9 +38,6 @@ function grenzen(lab, breedte, hoogte, langsX) {
   return uit;
 }
 
-// Het verloop van een baan: RAMP monsters van boven naar beneden, elk het
-// gemiddelde over de breedte van de baan. Zo vergelijk je banen op hun hele
-// verloop en niet op één kleur eruit.
 function verloop(png, rect) {
   const { breedte, pixels } = png;
   const [x0, y0, x1, y1] = rect;
@@ -82,9 +63,6 @@ function verloop(png, rect) {
 
 const ggd = (a, b) => (b === 0 ? a : ggd(b, a % b));
 
-// Een sheet met banen staat op een regelmatig raster, maar niet elke grens is
-// zichtbaar: twee lege buurcellen lopen in elkaar over. De steek van het raster
-// volgt daarom uit de grootste gemene deler van de grenzen die er wél zijn.
 function steek(gevondenGrenzen, lengte) {
   const deler = gevondenGrenzen.reduce((d, g) => ggd(d, g), lengte);
   if (deler < 8 || lengte % deler !== 0 || lengte / deler > 64) return null;
@@ -101,9 +79,6 @@ function rasterGrenzen(lab, breedte, hoogte, langsX) {
 
 const gevonden = new Map();
 
-// Levert de banen van een raster-sheet, of null als het er geen is — dan is de
-// textuur geen kleurenvel maar een geschilderde textuur, en hoort hij via
-// kleurfamilies te gaan (zie familieBanen).
 export function vindBanen(png, sleutel) {
   if (gevonden.has(sleutel)) return gevonden.get(sleutel);
 
@@ -129,9 +104,6 @@ export function vindBanen(png, sleutel) {
   return uitkomst;
 }
 
-// Twee banen vergelijken over hun hele verloop, in beide richtingen: een
-// bronbaan die van licht naar donker loopt mag op een doelbaan landen die
-// andersom loopt, als dat beter past.
 export function vergelijkVerloop(bron, doel) {
   let recht = 0;
   let omgekeerd = 0;

@@ -1,4 +1,3 @@
-
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -148,10 +147,10 @@ function kleurNaam(hex) {
   const verzadiging = delta === 0 ? 0 : delta / (1 - Math.abs(2 * licht - 1));
 
   if (verzadiging < 0.18) {
-    if (licht > 0.8) return 'wit';
-    if (licht > 0.45) return 'lichtgrijs';
-    if (licht > 0.25) return 'grijs';
-    return 'donkergrijs';
+    if (licht > 0.8) return 'white';
+    if (licht > 0.45) return 'light grey';
+    if (licht > 0.25) return 'grey';
+    return 'dark grey';
   }
 
   let tint = 0;
@@ -161,23 +160,23 @@ function kleurNaam(hex) {
   tint = (tint * 60 + 360) % 360;
 
   const basis =
-    tint < 15 || tint >= 345 ? 'rood'
-    : tint < 40 ? (licht < 0.45 ? 'bruin' : 'oranje')
-    : tint < 50 ? (licht < 0.5 ? 'bruin' : 'oranje')
-    : tint < 70 ? 'geel'
-    : tint < 165 ? 'groen'
+    tint < 15 || tint >= 345 ? 'red'
+    : tint < 40 ? (licht < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (licht < 0.5 ? 'brown' : 'orange')
+    : tint < 70 ? 'yellow'
+    : tint < 165 ? 'green'
     : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blauw'
-    : tint < 300 ? 'paars'
-    : 'roze';
+    : tint < 260 ? 'blue'
+    : tint < 300 ? 'purple'
+    : 'pink';
 
-  if (licht < 0.3) return `donker${basis}`;
-  if (licht > 0.75) return `licht${basis}`;
+  if (licht < 0.3) return `dark ${basis}`;
+  if (licht > 0.75) return `light ${basis}`;
   return basis;
 }
 
 function schrijfVersie() {
-  const inhoud = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js']
+  const inhoud = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js', 'swipe.css', 'swipe.js']
     .map((naam) => readFileSync(join(CATALOG_DIR, naam)))
     .join('');
   const versie = createHash('sha256').update(inhoud).digest('hex').slice(0, 10);
@@ -196,7 +195,12 @@ function schrijfVersie() {
     [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
     [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${versie}"`],
   ]);
-  console.log(`versie ${versie} → index.html, catalog/schaal.html`);
+  stempel(join(CATALOG_DIR, 'swipe.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
+    [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${versie}"`],
+    [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${versie}"`],
+  ]);
+  console.log(`versie ${versie} → index.html, catalog/schaal.html, catalog/swipe.html`);
 }
 
 const kitMeta = leesKitMetadata();
@@ -273,10 +277,134 @@ for (const slug of kitSlugs) {
   });
 }
 
+const SOORTEN = ['materiaal', 'tag'];
+
+const BRONNEN = [
+  {
+    id: 'kenney',
+    naam: 'Kenney',
+    beschrijving:
+      'Kits van Kenney (kenney.nl). Eén hand, één maatvoering: alles komt van dezelfde tegel en de props passen onderling.',
+    kits: [
+      'fantasy-town-kit', 'mini-forest', 'modular-cave-kit', 'pirate-kit',
+      'platformer-kit', 'prototype-kit', 'survival-kit',
+    ],
+  },
+  {
+    id: 'kaykit',
+    naam: 'KayKit',
+    beschrijving:
+      'Kits van Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant en rpgtools. Onderling dezelfde stijl en hetzelfde detailniveau.',
+    kits: ['dungeon', 'forest', 'halloween', 'resources', 'restaurant', 'rpgtools'],
+  },
+  {
+    id: 'quaternius',
+    naam: 'Quaternius',
+    beschrijving: 'Kits van Quaternius (quaternius.com): fantasy-props en quaternius-nature.',
+    kits: ['fantasy-props', 'quaternius-nature'],
+  },
+];
+
+const AFGELEID = [
+  ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
+    id,
+    naam,
+    beschrijving,
+    hoort: (m) => kits.includes(m.kit),
+  })),
+  {
+    id: 'animation',
+    naam: 'Animation',
+    beschrijving:
+      'Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent.',
+    hoort: (m) => Boolean(m.animaties?.length),
+  },
+  {
+    id: 'modular',
+    naam: 'Modular',
+    beschrijving:
+      'Klikt op het raster aan soortgenoten vast: de wanden, daken, pilaren en vloeren van de drie bouwpakketten. Je zet ze niet los neer maar bouwt er iets van, en ze passen alleen binnen hun eigen kit.',
+    hoort: (m) => m.groep === 'bouwpakket',
+  },
+  {
+    id: 'assembly',
+    naam: 'Assembly',
+    beschrijving:
+      'Niet één ding maar een tafereeltje dat af is zoals het staat: een gedekte tafel, een stapel kratten, een kist vol flessen, de staven en stapels van de resources-kit.',
+    hoort: (m) => m.groep === 'assemblies',
+  },
+];
+
+function leesTags(bekend) {
+  const bestand = join(CATALOG_DIR, 'tags.json');
+  if (!existsSync(bestand)) return { tags: [], perModel: new Map() };
+
+  const { tags = [] } = JSON.parse(readFileSync(bestand, 'utf8'));
+  const perModel = new Map();
+  const onbekend = [];
+
+  for (const tag of tags) {
+    for (const id of tag.modellen ?? []) {
+      if (!bekend.has(id)) {
+        onbekend.push(`${tag.id}: ${id}`);
+        continue;
+      }
+      const eigen = perModel.get(id) ?? [];
+      eigen.push(tag.id);
+      perModel.set(id, eigen);
+    }
+  }
+  if (onbekend.length) console.warn(`! tag verwijst naar onbekend model: ${onbekend.join(', ')}`);
+
+  const zonderSoort = tags.filter((t) => !SOORTEN.includes(t.soort)).map((t) => t.id);
+  if (zonderSoort.length) console.warn(`! tag zonder geldige soort: ${zonderSoort.join(', ')}`);
+
+  const botst = tags.filter((t) => AFGELEID.some((a) => a.id === t.id)).map((t) => t.id);
+  if (botst.length) console.warn(`! tag staat in tags.json maar wordt afgeleid: ${botst.join(', ')}`);
+
+  return {
+    tags: tags.map(({ modellen: leden = [], ...tag }) => ({
+      ...tag,
+      aantal: leden.filter((id) => bekend.has(id)).length,
+    })),
+    perModel,
+  };
+}
+
+const bekendeSlugs = new Set(kits.map((k) => k.slug));
+const zonderBron = kits.filter((k) => !BRONNEN.some((b) => b.kits.includes(k.slug))).map((k) => k.slug);
+for (const bron of BRONNEN) {
+  const weg = bron.kits.filter((slug) => !bekendeSlugs.has(slug));
+  if (weg.length) console.warn(`! bron ${bron.id} noemt een kit die niet bestaat: ${weg.join(', ')}`);
+}
+if (zonderBron.length) console.warn(`! kit zonder bron in BRONNEN: ${zonderBron.join(', ')}`);
+
 const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
 for (const model of modellen) {
   const groep = varianten.perModel.get(model.id);
   if (groep) model.variant = groep;
+}
+
+const tags = leesTags(new Set(modellen.map((m) => m.id)));
+
+for (const { id, naam, soort = 'tag', beschrijving, hoort } of AFGELEID) {
+  const leden = modellen.filter(hoort);
+  if (leden.length === 0) continue;
+  for (const model of leden) {
+    tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), id]);
+  }
+  tags.tags.push({
+    id,
+    naam,
+    soort,
+    beschrijving: `${beschrijving} Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.`,
+    aantal: leden.length,
+  });
+}
+
+for (const model of modellen) {
+  const eigen = tags.perModel.get(model.id);
+  if (eigen) model.tags = [...eigen].sort();
 }
 
 const paletten = new Map();
@@ -316,10 +444,10 @@ for (const [sleutel, palet] of paletten) {
   const kits = [...palet.kits].sort();
   const gedeeld = kits.length > 1;
   palet.id = gedeeld ? 'gedeeld' : kits[0];
-  palet.naam = gedeeld ? 'Gedeelde kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
+  palet.naam = gedeeld ? 'Shared kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
   palet.toelichting = palet.atlas
     ? null
-    : 'Geen colormap: elk materiaal van deze kit draagt zijn eigen basiskleur.';
+    : 'No colormap: every material in this kit carries its own base colour.';
   palet.atlasPad = !palet.atlas
     ? null
     : sleutel === gedeeldeSleutel
@@ -358,6 +486,7 @@ const catalogus = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   varianten: varianten.groepen,
+  tags: tags.tags,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
@@ -393,6 +522,7 @@ console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → cat
 schrijfVersie();
 
 console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);
+for (const tag of tags.tags) console.log(`${tag.soort} ${tag.id}: ${tag.aantal} modellen`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }

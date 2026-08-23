@@ -3,49 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taaleiland — 3D-catalogus</title>
-<meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit en per groep: losse objecten, samengestelde taferelen, bouwwerken en bouwpakketten, natuur en de losstaande grot.">
-<meta name="catalogus-versie" content="7ae65f981c">
-<link rel="stylesheet" href="catalog/catalog.css?v=7ae65f981c">
+<title>Taaleiland — 3D catalogue</title>
+<meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by group: loose objects, assembled scenes, structures and building kits, nature and the cave.">
+<meta name="catalogus-versie" content="7ce437f9bd">
+<link rel="stylesheet" href="catalog/catalog.css?v=7ce437f9bd">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
 <header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <span aria-current="page">Catalogue</span>
+    <a href="catalog/schaal.html">Scale</a>
+    <a href="catalog/swipe.html">Swipe</a>
+  </nav>
+
   <div class="kop-titel">
-    <h1>Taaleiland — 3D-catalogus</h1>
-    <p class="kop-sub" id="samenvatting">Catalogus laden…</p>
+    <h1>Taaleiland — 3D catalogue</h1>
+    <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
   </div>
 
   <div class="kop-bediening">
-    <div class="schakelaar" role="tablist" aria-label="Weergave">
+    <div class="schakelaar" role="tablist" aria-label="View">
       <button role="tab" id="tab-kits" aria-controls="paneel" aria-selected="true" data-weergave="kits">Kits</button>
       <button role="tab" id="tab-objects" aria-controls="paneel" aria-selected="false" data-weergave="objects">Objects</button>
-      <button role="tab" id="tab-assemblies" aria-controls="paneel" aria-selected="false" data-weergave="assemblies">Assemblies</button>
       <button role="tab" id="tab-structures" aria-controls="paneel" aria-selected="false" data-weergave="structures">Structures</button>
       <button role="tab" id="tab-nature" aria-controls="paneel" aria-selected="false" data-weergave="nature">Nature</button>
     </div>
 
-    <button class="licht-knop" id="licht" type="button" aria-pressed="false"
-            title="Toont de modellen zonder belichting: alleen de kleuren uit de atlas, met de schaduw die erin gebakken zit">Vlak</button>
+    <div class="knopgroep">
+      <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
+              title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
 
-    <a class="licht-knop" href="catalog/schaal.html"
-       title="Alle assets per familie naast elkaar op één schaal, met meetlatten">Schaal</a>
+      <button class="licht-knop" id="licht" type="button" aria-pressed="false"
+              title="Shows the models unlit: only the atlas colours, with the shading baked into them">Flat</button>
+    </div>
+
   </div>
 </header>
 
+<div class="balken" id="balken">
 <div class="kleurbalk" id="kleurbalk">
-  <span class="kleurbalk-label">Kleur</span>
-  <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter op kleur"></div>
-  <button class="kleurbalk-wis" id="kleurbalk-wis" hidden>Wis kleuren</button>
+  <span class="kleurbalk-label">Colour</span>
+  <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter by colour"></div>
+  <button class="kleurbalk-wis" id="kleurbalk-wis" hidden>Reset</button>
+</div>
+
+<div id="tagbalk"></div>
+</div>
+
+<div class="ordebalk">
+  <select id="groepering" aria-label="Group by" title="Group by">
+    <option value="standaard">default</option>
+    <option value="kit">by kit</option>
+    <option value="groep">by group</option>
+    <option value="tag">by tag</option>
+    <option value="maat">by size</option>
+  </select>
+
+  <select id="sortering" aria-label="Sort by" title="Sort by">
+    <option value="naam">by name</option>
+    <option value="groot">largest first</option>
+    <option value="klein">smallest first</option>
+    <option value="zwaar">most triangles</option>
+    <option value="licht">fewest triangles</option>
+    <option value="bestand">largest file</option>
+    <option value="bestandKlein">smallest file</option>
+  </select>
 </div>
 
 <main id="paneel" role="tabpanel" aria-labelledby="tab-kits"></main>
 
-<p class="leeg" id="leeg" hidden>Geen modellen gevonden.</p>
+<p class="leeg" id="leeg" hidden>No models found.</p>
 
 <dialog class="detail" id="detail">
-  <button class="detail-sluit" id="detail-sluit" aria-label="Sluiten">&times;</button>
+  <button class="detail-sluit" id="detail-sluit" aria-label="Close">&times;</button>
   <div class="detail-viewer" id="detail-viewer"></div>
   <div class="detail-info">
     <h2 id="detail-naam"></h2>
@@ -56,12 +88,12 @@
       <select id="detail-variant-keuze"></select>
     </label>
     <label class="detail-keuze" id="detail-animatie" hidden>
-      Animatie
+      Animation
       <select id="detail-animatie-keuze"></select>
     </label>
     <div class="detail-acties">
-      <button id="detail-kopieer">Kopieer pad</button>
-      <button id="detail-selecteer" aria-pressed="false">Aan selectie toevoegen</button>
+      <button id="detail-kopieer">Copy path</button>
+      <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
       <a id="detail-download" download>Download .glb</a>
     </div>
   </div>
@@ -69,12 +101,12 @@
 
 <div class="selectiebalk" id="selectiebalk" hidden>
   <span class="selectiebalk-telling" id="selectiebalk-telling" aria-live="polite"></span>
-  <button type="button" id="selectie-alles">Alles in beeld</button>
-  <button type="button" id="selectie-kopieer" class="primair">Kopieer paden</button>
-  <button type="button" id="selectie-wis">Wis</button>
+  <button type="button" id="selectie-alles">All in view</button>
+  <button type="button" id="selectie-kopieer" class="primair">Copy paths</button>
+  <button type="button" id="selectie-wis">Clear</button>
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=7ae65f981c" type="module"></script>
+<script src="catalog/catalog.js?v=7ce437f9bd" type="module"></script>
 </body>
 </html>

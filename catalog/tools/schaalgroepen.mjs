@@ -1,16 +1,7 @@
-// Bouwt catalog/schaalgroepen.json: de families die de schaalpagina naast elkaar zet.
-//
-// De indeling zit hier als regels, niet als lijst modellen. Nieuwe assets vallen daardoor
-// vanzelf in de goede familie zodra build-catalog.mjs opnieuw draait — dat is precies wat
-// een pagina die "altijd" de maten laat zien nodig heeft.
-
 const DOOD = /(^|-)(bare|dead)(-|$)/;
 
-// Platte dingen lees je van boven, niet van opzij.
 const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen', 'planken-pallets']);
 
-// Klein en groot gereedschap is niet uit de naam af te leiden, dus staat het hier per stuk.
-// Wat in geen van beide lijsten staat, valt op maat: onder 0,2 klein, daarboven groot.
 const KLEIN_GEREEDSCHAP = new Set([
   'rpgtools/nail', 'rpgtools/screw-b', 'rpgtools/scissors', 'rpgtools/screwdriver-a-short',
   'rpgtools/file', 'rpgtools/drafting-compass', 'rpgtools/compass-base', 'rpgtools/pencil-a-long',
@@ -25,12 +16,10 @@ const GROOT_GEREEDSCHAP = new Set([
   'survival-kit/tool-axe', 'rpgtools/handdrill', 'rpgtools/pickaxe', 'fantasy-props/pickaxe-bronze',
   'rpgtools/grindstone', 'rpgtools/anvil',
 ]);
-// restaurant/knife staat in de catalogus onder 'eten', maar hoort in de lijst hierboven thuis.
+
 const isGereedschap = (b, m) => m.groep === 'gereedschap' || KLEIN_GEREEDSCHAP.has(m.id) || GROOT_GEREEDSCHAP.has(m.id);
 const isKlein = (m) => KLEIN_GEREEDSCHAP.has(m.id) || (!GROOT_GEREEDSCHAP.has(m.id) && m.wdh[2] < 0.2);
 
-// Elk model valt in de eerste familie die het aanneemt, dus de volgorde is betekenisvol:
-// 'palmen' staat vóór 'bomen', anders slokt 'bomen' de palmen op.
 export const FAMILIES = [
   ['borden-kommen', 'Borden en kommen', (b) => /^(plate|bowl|dish|cup|mug|tray)(-|$)/.test(b) || b === 'table-plate'],
   ['potten-pannen', 'Potten en pannen', (b) => /^(pot|pan|cauldron|kettle)(-|$)/.test(b)],
@@ -50,7 +39,7 @@ export const FAMILIES = [
   ['gereedschap-groot', 'Groot gereedschap', (b, m) => isGereedschap(b, m)],
   ['kaarsen', 'Kaarsen', (b) => b.startsWith('candle') || b.endsWith('-candles')],
   ['lantaarns-fakkels', 'Lantaarns en fakkels', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
-  // props/stairs-a is qua vorm een ladder, geen trap, dus hij staat bij de ladders.
+
   ['ladders', 'Ladders', (b, m) => b.startsWith('ladder') || m.id === 'props/stairs-a'],
   ['trappen', 'Trappen', (b) => b.startsWith('stairs') || b.includes('steps')],
   ['hekken', 'Hekken', (b) => b.includes('fence')],
@@ -66,7 +55,7 @@ export const FAMILIES = [
   ['bedden-banken', 'Bedden, banken, stoelen en krukken', (b) => /^(bed|bench|sofa|couch|stool|chair|seat)(-|$)/.test(b)],
   ['schappen-kasten', 'Schappen en kasten', (b) => /^(shelf|shelves|cabinet|cupboard|bookcase|dresser|wardrobe)(-|$)/.test(b)],
   ['deuren', 'Deuren', (b) => b.startsWith('door') || b.includes('-door') || b.includes('doorway')],
-  // Rotswanden zijn landschap, geen bouwstuk: die horen niet naast een muursegment van 1 unit.
+
   ['muren', 'Muren', (b) => (b.startsWith('wall') || b.includes('-wall')) && !b.startsWith('rock')],
   ['vloeren', 'Vloeren', (b) => /^(floor|ground|tile)(-|$)/.test(b) || b.includes('-floor')],
   ['platforms', 'Platforms', (b) => b.includes('platform')],
@@ -80,14 +69,20 @@ export function bouwSchaalgroepen(modellen, kits = []) {
     const items = [];
     for (const m of modellen) {
       if (gebruikt.has(m.id)) continue;
-      // Assemblies zijn samengestelde taferelen (een vat mét flessen erop, een gedekte tafel).
-      // Naast de losse stukken vertroebelen die de maatvergelijking, dus die blijven eruit.
+
       if (m.groep === 'assemblies') continue;
       const basis = m.id.slice(m.id.indexOf('/') + 1);
       if (!test(basis, m)) continue;
       gebruikt.add(m.id);
-      // kit en model apart, zodat het label ze verschillend kan zetten
-      items.push({ kit: kortePerSlug.get(m.kit) ?? m.kit, model: basis, pad: m.pad, hoogte: m.wdh[2] });
+
+      items.push({
+        kit: kortePerSlug.get(m.kit) ?? m.kit,
+        slug: m.kit,
+        model: basis,
+        pad: m.pad,
+        hoogte: m.wdh[2],
+        tags: m.tags ?? [],
+      });
     }
     if (items.length) groepen.push({ slug, naam, bovenaanzicht: BOVENAANZICHT.has(slug), items });
   }

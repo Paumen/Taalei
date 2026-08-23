@@ -1,9 +1,3 @@
-// De lopende band achter de importeer-scripts: pak per model het bronbestand,
-// zet het om, schrijf het weg en houd bij wat er onderweg gebeurde.
-//
-// Elk importeer-script beschrijft alleen wát er ingeladen wordt (welke modellen,
-// onder welke naam, op welke schaal, uit welke pack); de stappen zelf staan hier.
-
 import { existsSync, rmSync, readdirSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { leesGltf, leesObj } from './bron.mjs';
@@ -37,8 +31,6 @@ export async function importeerKit({
     return { bronNaam, naam, primitieven: formaat === 'obj' ? leesObj(pad) : leesGltf(pad) };
   });
 
-  // Eerste ronde over de hele kit: hoe licht staat deze pack ten opzichte van
-  // de gedeelde sheet? Dat levert één winst voor alle modellen samen.
   let som = 0;
   let aantal = 0;
   for (const { primitieven } of ingelezen) {

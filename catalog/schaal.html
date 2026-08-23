@@ -3,31 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taaleiland — schaalvergelijking</title>
-<meta name="description" content="Alle assets van Taaleiland per familie naast elkaar op één schaal, met een meetlat aan weerszijden van elke rij: borden, gereedschap, vaten, bomen, muren, vloeren en de rest.">
-<meta name="catalogus-versie" content="7ae65f981c">
-<link rel="stylesheet" href="catalog.css?v=7ae65f981c">
+<title>Taaleiland — scale comparison</title>
+<meta name="description" content="Every Taaleiland asset per family side by side at one scale, with a ruler on both sides of every row: plates, tools, barrels, trees, walls, floors and the rest.">
+<meta name="catalogus-versie" content="7ce437f9bd">
+<link rel="stylesheet" href="catalog.css?v=7ce437f9bd">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body class="schaalpagina">
 
 <header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../index.html">Catalogue</a>
+    <span aria-current="page">Scale</span>
+    <a href="swipe.html">Swipe</a>
+  </nav>
+
   <div class="kop-titel">
-    <h1>Schaalvergelijking</h1>
-    <p class="kop-sub" id="samenvatting">Families laden…</p>
-  </div>
-  <div class="kop-bediening">
-    <a class="licht-knop" href="../index.html">Terug naar de catalogus</a>
+    <h1>Scale comparison</h1>
+    <p class="kop-sub" id="samenvatting">Loading families…</p>
   </div>
 </header>
 
 <div class="kitbalk">
   <div class="kitbalk-kop">
-    <span class="kitbalk-titel">Kit uitlichten</span>
+    <span class="kitbalk-titel">Highlight</span>
     <span class="kitbalk-telling" id="kit-telling"></span>
-    <button type="button" class="kitbalk-wis" id="kit-wis" hidden>Wis</button>
+    <button type="button" class="kitbalk-wis" id="kit-wis" hidden>Reset</button>
   </div>
-  <div class="kitbalk-knoppen" id="kits" role="group" aria-label="Kits uitlichten"></div>
+  <div class="kitbalk-knoppen" id="kits" role="group" aria-label="Highlight kits"></div>
+  <div class="kitbalk-knoppen" id="tags" role="group" aria-label="Highlight tags"></div>
 </div>
 
 <nav class="familie-index" id="families" aria-label="Families"></nav>
@@ -37,6 +41,6 @@
 <script type="importmap">
 {"imports": {"three": "./vendor/three.module.min.js"}}
 </script>
-<script src="schaal.js?v=7ae65f981c" type="module"></script>
+<script src="schaal.js?v=7ce437f9bd" type="module"></script>
 </body>
 </html>

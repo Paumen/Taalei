@@ -1,4 +1,3 @@
-
 import { readFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 
@@ -91,8 +90,6 @@ export function leesPng(pad) {
     Math.max(1, bitsPerPixel >> 3),
   );
 
-  // Minder dan een byte per pixel: elke regel begint op een nieuwe byte, dus
-  // uitpakken gaat per regel en niet in één rechte lijn door de buffer heen.
   let vlak = gefilterd;
   if (bitdiepte < 8) {
     const schaal = kleurtype === 0 ? 255 / ((1 << bitdiepte) - 1) : 1;
