@@ -50,7 +50,8 @@ export const FAMILIES = [
   ['gereedschap-groot', 'Groot gereedschap', (b, m) => isGereedschap(b, m)],
   ['kaarsen', 'Kaarsen', (b) => b.startsWith('candle') || b.endsWith('-candles')],
   ['lantaarns-fakkels', 'Lantaarns en fakkels', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
-  ['ladders', 'Ladders', (b) => b.startsWith('ladder')],
+  // props/stairs-a is qua vorm een ladder, geen trap, dus hij staat bij de ladders.
+  ['ladders', 'Ladders', (b, m) => b.startsWith('ladder') || m.id === 'props/stairs-a'],
   ['trappen', 'Trappen', (b) => b.startsWith('stairs') || b.includes('steps')],
   ['hekken', 'Hekken', (b) => b.includes('fence')],
   ['palmen', 'Palmen', (b) => b.includes('palm')],
@@ -82,6 +83,9 @@ export function bouwSchaalgroepen(modellen, kits = []) {
     const items = [];
     for (const m of modellen) {
       if (gebruikt.has(m.id)) continue;
+      // Assemblies zijn samengestelde taferelen (een vat mét flessen erop, een gedekte tafel).
+      // Naast de losse stukken vertroebelen die de maatvergelijking, dus die blijven eruit.
+      if (m.groep === 'assemblies') continue;
       const basis = m.id.slice(m.id.indexOf('/') + 1);
       if (!test(basis, m)) continue;
       gebruikt.add(m.id);
