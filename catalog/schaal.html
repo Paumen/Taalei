@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — scale comparison</title>
 <meta name="description" content="Every Taaleiland asset per family side by side at one scale, with a ruler on both sides of every row: plates, tools, barrels, trees, walls, floors and the rest.">
-<meta name="catalogus-versie" content="7ce437f9bd">
-<link rel="stylesheet" href="catalog.css?v=7ce437f9bd">
+<meta name="catalogus-versie" content="5e1d908484">
+<link rel="stylesheet" href="catalog.css?v=5e1d908484">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body class="schaalpagina">
@@ -18,29 +18,24 @@
     <a href="swipe.html">Swipe</a>
   </nav>
 
-  <div class="kop-titel">
-    <h1>Scale comparison</h1>
-    <p class="kop-sub" id="samenvatting">Loading families…</p>
-  </div>
 </header>
 
-<div class="kitbalk">
-  <div class="kitbalk-kop">
-    <span class="kitbalk-titel">Highlight</span>
-    <span class="kitbalk-telling" id="kit-telling"></span>
-    <button type="button" class="kitbalk-wis" id="kit-wis" hidden>Reset</button>
-  </div>
-  <div class="kitbalk-knoppen" id="kits" role="group" aria-label="Highlight kits"></div>
-  <div class="kitbalk-knoppen" id="tags" role="group" aria-label="Highlight tags"></div>
+<div class="balken" id="balken">
+<div class="kleurbalk" id="kleurbalk">
+  <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter by colour"></div>
+</div>
+<div id="tagbalk"></div>
 </div>
 
-<nav class="familie-index" id="families" aria-label="Families"></nav>
+<div class="ordebalk">
+  <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+</div>
 
 <main id="inhoud"></main>
 
 <script type="importmap">
 {"imports": {"three": "./vendor/three.module.min.js"}}
 </script>
-<script src="schaal.js?v=7ce437f9bd" type="module"></script>
+<script src="schaal.js?v=5e1d908484" type="module"></script>
 </body>
 </html>

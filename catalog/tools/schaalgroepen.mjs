@@ -1,6 +1,6 @@
 const DOOD = /(^|-)(bare|dead)(-|$)/;
 
-const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen', 'planken-pallets']);
+const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen', 'planken-pallets', 'borden-kommen', 'vloeren']);
 
 const KLEIN_GEREEDSCHAP = new Set([
   'rpgtools/nail', 'rpgtools/screw-b', 'rpgtools/scissors', 'rpgtools/screwdriver-a-short',
@@ -21,43 +21,43 @@ const isGereedschap = (b, m) => m.groep === 'gereedschap' || KLEIN_GEREEDSCHAP.h
 const isKlein = (m) => KLEIN_GEREEDSCHAP.has(m.id) || (!GROOT_GEREEDSCHAP.has(m.id) && m.wdh[2] < 0.2);
 
 export const FAMILIES = [
-  ['borden-kommen', 'Borden en kommen', (b) => /^(plate|bowl|dish|cup|mug|tray)(-|$)/.test(b) || b === 'table-plate'],
-  ['potten-pannen', 'Potten en pannen', (b) => /^(pot|pan|cauldron|kettle)(-|$)/.test(b)],
-  ['paddenstoelen', 'Paddenstoelen', (b) => b.startsWith('mushroom') || b.includes('-mushroom-')],
-  ['hout', 'Hout, brandhout en timber', (b) => /(wood-pile|firewood|timber)/.test(b) || /(^|-)log(-|$)/.test(b)],
-  ['takken-wortels', 'Takken en wortels', (b) => /^(branch|root)(-|$)/.test(b) || b.includes('-branch-')],
-  ['kampvuur', 'Kampvuren', (b) => b.includes('campfire')],
-  ['planken-pallets', 'Planken en pallets', (b) => b.includes('plank') || b.includes('pallet')],
-  ['vaten-kegs', 'Vaten en kegs', (b) => /^(barrel|keg)(-|$)/.test(b)],
-  ['kisten', 'Kisten', (b) => b.startsWith('chest') || b.includes('treasure-chest')],
-  ['kratten-dozen', 'Kratten en dozen', (b) => /^(crate|box)(-|$)/.test(b)],
-  ['flessen-drankjes', 'Flessen en drankjes', (b) => /^(bottle|potion|flask)(-|$)/.test(b)],
-  ['kruiken-vazen-emmers', 'Kruiken, vazen en emmers', (b) => /^(jug|vase|bucket)(-|$)/.test(b)],
-  ['boeken-rollen-kaarten', 'Boeken, rollen en kaarten', (b) => /^(book|journal|scroll|map)(-|$)/.test(b)],
-  ['sleutels', 'Sleutels', (b) => /^key(ring)?(-|$)/.test(b)],
-  ['gereedschap-klein', 'Klein gereedschap', (b, m) => isGereedschap(b, m) && isKlein(m)],
-  ['gereedschap-groot', 'Groot gereedschap', (b, m) => isGereedschap(b, m)],
-  ['kaarsen', 'Kaarsen', (b) => b.startsWith('candle') || b.endsWith('-candles')],
-  ['lantaarns-fakkels', 'Lantaarns en fakkels', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
+  ['borden-kommen', 'Plates and bowls', (b) => /^(plate|bowl|dish|cup|mug|tray)(-|$)/.test(b) || b === 'table-plate'],
+  ['potten-pannen', 'Pots and pans', (b) => /^(pot|pan|cauldron|kettle)(-|$)/.test(b)],
+  ['paddenstoelen', 'Mushrooms', (b) => b.startsWith('mushroom') || b.includes('-mushroom-')],
+  ['hout', 'Wood, firewood and timber', (b) => /(wood-pile|firewood|timber)/.test(b) || /(^|-)log(-|$)/.test(b)],
+  ['takken-wortels', 'Branches and roots', (b) => /^(branch|root)(-|$)/.test(b) || b.includes('-branch-')],
+  ['kampvuur', 'Campfires', (b) => b.includes('campfire')],
+  ['planken-pallets', 'Planks and pallets', (b) => b.includes('plank') || b.includes('pallet')],
+  ['vaten-kegs', 'Barrels and kegs', (b) => /^(barrel|keg)(-|$)/.test(b)],
+  ['kisten', 'Chests', (b) => b.startsWith('chest') || b.includes('treasure-chest')],
+  ['kratten-dozen', 'Crates and boxes', (b) => /^(crate|box)(-|$)/.test(b)],
+  ['flessen-drankjes', 'Bottles and potions', (b) => /^(bottle|potion|flask)(-|$)/.test(b)],
+  ['kruiken-vazen-emmers', 'Jugs, vases and buckets', (b) => /^(jug|vase|bucket)(-|$)/.test(b)],
+  ['boeken-rollen-kaarten', 'Books, scrolls and maps', (b) => /^(book|journal|scroll|map)(-|$)/.test(b)],
+  ['sleutels', 'Keys', (b) => /^key(ring)?(-|$)/.test(b)],
+  ['gereedschap-klein', 'Small tools', (b, m) => isGereedschap(b, m) && isKlein(m)],
+  ['gereedschap-groot', 'Large tools', (b, m) => isGereedschap(b, m)],
+  ['kaarsen', 'Candles', (b) => b.startsWith('candle') || b.endsWith('-candles')],
+  ['lantaarns-fakkels', 'Lanterns and torches', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
 
   ['ladders', 'Ladders', (b, m) => b.startsWith('ladder') || m.id === 'props/stairs-a'],
-  ['trappen', 'Trappen', (b) => b.startsWith('stairs') || b.includes('steps')],
-  ['hekken', 'Hekken', (b) => b.includes('fence')],
-  ['palmen', 'Palmen', (b) => b.includes('palm')],
-  ['bomen', 'Bomen', (b) => /(^|-)tree(-|$)/.test(b) && !DOOD.test(b) && !b.includes('log') && !b.includes('stump')],
-  ['bomen-kaal-dood', 'Kale en dode bomen', (b) => b.startsWith('tree') && DOOD.test(b)],
-  ['boomstronken', 'Boomstronken', (b) => b.startsWith('stump') || b.includes('tree-stump') || b.endsWith('-stump')],
-  ['bloemen', 'Bloemen', (b) => b.includes('flower') && !b.includes('cactus')],
-  ['planten', 'Planten, mais, lisdodde en cactus', (b) => /^(plant|corn|wreath)(-|$)/.test(b) || b.includes('cattail') || b.includes('cactus')],
-  ['gras', 'Gras', (b) => b.includes('grass') && b !== 'rock-flat-grass' && b !== 'well-base-grass'],
-  ['zeesterren-schelpen', 'Zeesterren en schelpen', (b) => b.includes('starfish') || b.includes('shell')],
-  ['tafels', 'Tafels', (b) => b.startsWith('table') && b !== 'table-plate'],
-  ['bedden-banken', 'Bedden, banken, stoelen en krukken', (b) => /^(bed|bench|sofa|couch|stool|chair|seat)(-|$)/.test(b)],
-  ['schappen-kasten', 'Schappen en kasten', (b) => /^(shelf|shelves|cabinet|cupboard|bookcase|dresser|wardrobe)(-|$)/.test(b)],
-  ['deuren', 'Deuren', (b) => b.startsWith('door') || b.includes('-door') || b.includes('doorway')],
+  ['trappen', 'Stairs', (b) => b.startsWith('stairs') || b.includes('steps')],
+  ['hekken', 'Fences', (b) => b.includes('fence')],
+  ['palmen', 'Palms', (b) => b.includes('palm')],
+  ['bomen', 'Trees', (b) => /(^|-)tree(-|$)/.test(b) && !DOOD.test(b) && !b.includes('log') && !b.includes('stump')],
+  ['bomen-kaal-dood', 'Bare and dead trees', (b) => b.startsWith('tree') && DOOD.test(b)],
+  ['boomstronken', 'Tree stumps', (b) => b.startsWith('stump') || b.includes('tree-stump') || b.endsWith('-stump')],
+  ['bloemen', 'Flowers', (b) => b.includes('flower') && !b.includes('cactus')],
+  ['planten', 'Plants, corn, cattail and cactus', (b) => /^(plant|corn|wreath)(-|$)/.test(b) || b.includes('cattail') || b.includes('cactus')],
+  ['gras', 'Grass', (b) => b.includes('grass') && b !== 'rock-flat-grass' && b !== 'well-base-grass'],
+  ['zeesterren-schelpen', 'Starfish and shells', (b) => b.includes('starfish') || b.includes('shell')],
+  ['tafels', 'Tables', (b) => b.startsWith('table') && b !== 'table-plate'],
+  ['bedden-banken', 'Beds, benches, chairs and stools', (b) => /^(bed|bench|sofa|couch|stool|chair|seat)(-|$)/.test(b)],
+  ['schappen-kasten', 'Shelves and cabinets', (b) => /^(shelf|shelves|cabinet|cupboard|bookcase|dresser|wardrobe)(-|$)/.test(b)],
+  ['deuren', 'Doors', (b) => b.startsWith('door') || b.includes('-door') || b.includes('doorway')],
 
-  ['muren', 'Muren', (b) => (b.startsWith('wall') || b.includes('-wall')) && !b.startsWith('rock')],
-  ['vloeren', 'Vloeren', (b) => /^(floor|ground|tile)(-|$)/.test(b) || b.includes('-floor')],
+  ['muren', 'Walls', (b) => (b.startsWith('wall') || b.includes('-wall')) && !b.startsWith('rock')],
+  ['vloeren', 'Floors', (b) => /^(floor|ground|tile)(-|$)/.test(b) || b.includes('-floor')],
   ['platforms', 'Platforms', (b) => b.includes('platform')],
 ];
 
@@ -82,6 +82,9 @@ export function bouwSchaalgroepen(modellen, kits = []) {
         pad: m.pad,
         hoogte: m.wdh[2],
         tags: m.tags ?? [],
+        kleuren: m.kleuren ?? [],
+        palet: m.palet ?? null,
+        wdh: m.wdh,
       });
     }
     if (items.length) groepen.push({ slug, naam, bovenaanzicht: BOVENAANZICHT.has(slug), items });

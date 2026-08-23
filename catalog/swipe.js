@@ -226,8 +226,8 @@ function maakKaart(model, diepte) {
   meta.className = 'meta';
   meta.textContent = [
     afmeting(model.wdh),
-    `${getal.format(model.driehoeken)} driehoeken`,
-    `${getal.format(model.materialen)} materia${model.materialen === 1 ? 'al' : 'len'}`,
+    `${getal.format(model.driehoeken)} triangles`,
+    `${getal.format(model.materialen)} material${model.materialen === 1 ? '' : 's'}`,
     bytesLeesbaar(model.bytes),
   ].join(' · ');
   const pad = document.createElement('p');
@@ -238,7 +238,7 @@ function maakKaart(model, diepte) {
   const draai = document.createElement('button');
   draai.type = 'button';
   draai.className = 'knop draaiknop';
-  draai.textContent = '⟲ Draaien';
+  draai.textContent = '⟲ Rotate';
   draai.title = 'Zet slepen even uit zodat je het model kunt ronddraaien';
   draai.setAttribute('aria-pressed', 'false');
   draai.addEventListener('click', () => {
@@ -246,7 +246,7 @@ function maakKaart(model, diepte) {
     viewer.toggleAttribute('camera-controls', aan);
     kaart.toggleAttribute('data-draaien', aan);
     draai.setAttribute('aria-pressed', String(aan));
-    draai.textContent = aan ? '⟲ Draaien aan' : '⟲ Draaien';
+    draai.textContent = aan ? '⟲ Rotating' : '⟲ Rotate';
   });
 
   const stempel = document.createElement('span');
