@@ -291,16 +291,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "mini-dungeon",
-  "name": "Mini Dungeon",
-  "url": "https://kenney.nl/assets/mini-dungeon",
-  "models": [
-   "pot",
-   "wood-structure",
-   "wood-support"
-  ]
- },
- {
   "slug": "onderwater-kit",
   "name": "Onderwater",
   "url": "https://quaternius.com/",
@@ -361,27 +351,6 @@ window.KENNEY_KITS = [
   "models": [
    "balloon",
    "lighthouse"
-  ]
- },
- {
-  "slug": "nature",
-  "name": "Nature",
-  "url": null,
-  "models": [
-   "branch-a",
-   "mountain-a",
-   "tree-dead"
-  ]
- },
- {
-  "slug": "tropical",
-  "name": "Tropical",
-  "url": null,
-  "models": [
-   "barrel-a",
-   "chest-a",
-   "palm-a",
-   "plant-a"
   ]
  },
  {
@@ -937,7 +906,6 @@ window.KENNEY_KITS = [
    "beach-prop-shell-b",
    "beach-prop-starfish-a",
    "beach-prop-starfish-b",
-   "beach-prop-treasure-chest",
    "beach-prop-tree-palm-a",
    "beach-prop-tree-palm-b",
    "beach-prop-tree-palm-c",
@@ -979,7 +947,6 @@ window.KENNEY_KITS = [
    "cave-prop-support-wall-pillar-b",
    "cave-prop-support-wall-pillar-c",
    "cave-prop-support-wall-pillar-d",
-   "cliff-prop-bridge-rope-end",
    "hilly-prop-branch-a",
    "hilly-prop-branch-b",
    "hilly-prop-branch-c",
@@ -996,8 +963,6 @@ window.KENNEY_KITS = [
    "hilly-prop-fence-curve-3x3",
    "hilly-prop-fence-gate-a",
    "hilly-prop-fence-gate-b",
-   "hilly-prop-fence-hill-gentle",
-   "hilly-prop-fence-hill-sharp",
    "hilly-prop-fence-post-a",
    "hilly-prop-fence-post-b",
    "hilly-prop-fence-post-c",
@@ -1027,8 +992,6 @@ window.KENNEY_KITS = [
    "hilly-prop-stepping-stones-g",
    "hilly-prop-stepping-stones-h",
    "hilly-prop-stump",
-   "hilly-prop-tree-cedar-a",
-   "hilly-prop-tree-cedar-b",
    "hilly-prop-tree-pine-a",
    "hilly-prop-tree-pine-b",
    "hilly-prop-tree-pine-c",
@@ -1045,60 +1008,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "castle-kit",
-  "name": "Castle Kit",
-  "url": "https://kenney.nl/assets/castle-kit",
-  "models": [
-   "flag",
-   "flag-pennant",
-   "flag-wide",
-   "rocks-large",
-   "rocks-small",
-   "tower-square-mid-open",
-   "tower-square-mid-open-simple",
-   "tree-large",
-   "tree-log",
-   "tree-small"
-  ]
- },
- {
-  "slug": "graveyard-kit",
-  "name": "Graveyard Kit",
-  "url": "https://kenney.nl/assets/graveyard-kit",
-  "models": [
-   "debris",
-   "debris-wood",
-   "pine",
-   "pine-fall",
-   "rocks",
-   "rocks-tall",
-   "shovel",
-   "shovel-dirt"
-  ]
- },
- {
-  "slug": "holiday-kit",
-  "name": "Holiday Kit",
-  "url": "https://kenney.nl/assets/holiday-kit",
-  "models": [
-   "lantern",
-   "lantern-hanging",
-   "rocks-large",
-   "rocks-medium",
-   "rocks-small",
-   "snow-bunker",
-   "snow-flat",
-   "snow-flat-large",
-   "snow-pile",
-   "snowman",
-   "snowman-hat",
-   "tree",
-   "tree-snow-a",
-   "tree-snow-b",
-   "tree-snow-c"
-  ]
- },
- {
   "slug": "prototype-kit",
   "name": "Prototype Kit",
   "url": "https://kenney.nl/assets/prototype-kit",
@@ -1106,24 +1015,6 @@ window.KENNEY_KITS = [
    "coin",
    "lever-double",
    "lever-single"
-  ]
- },
- {
-  "slug": "furniture",
-  "name": "Furniture",
-  "url": "https://www.kaylousberg.com",
-  "models": [
-   "book-set",
-   "book-single",
-   "shelf-a-big",
-   "shelf-a-small",
-   "shelf-b-large",
-   "shelf-b-large-decorated",
-   "shelf-b-small",
-   "table-low",
-   "table-medium",
-   "table-medium-long",
-   "table-small"
   ]
  },
  {
@@ -1232,8 +1123,7 @@ window.KENNEY_KITS = [
    "table-plate",
    "torch-metal",
    "vase-2",
-   "vase-4",
-   "vase-rubble-medium"
+   "vase-4"
   ]
  },
  {
@@ -1276,21 +1166,11 @@ window.KENNEY_KITS = [
    "tree-birch-dead-3",
    "tree-birch-dead-4",
    "tree-birch-dead-5",
-   "tree-birch-dead-snow-1",
-   "tree-birch-dead-snow-2",
-   "tree-birch-dead-snow-3",
-   "tree-birch-dead-snow-4",
-   "tree-birch-dead-snow-5",
    "tree-common-dead-1",
    "tree-common-dead-2",
    "tree-common-dead-3",
    "tree-common-dead-4",
    "tree-common-dead-5",
-   "tree-common-dead-snow-1",
-   "tree-common-dead-snow-2",
-   "tree-common-dead-snow-3",
-   "tree-common-dead-snow-4",
-   "tree-common-dead-snow-5",
    "tree-pine-1",
    "tree-pine-3",
    "tree-stump",
@@ -1401,10 +1281,7 @@ window.KENNEY_KITS = [
    "tree-palm-6",
    "tree-pine-1",
    "tree-pine-2",
-   "tree-pine-3",
-   "tree-pine-4",
-   "tree-pine-5",
-   "tree-pine-6"
+   "tree-pine-3"
   ]
  }
 ];

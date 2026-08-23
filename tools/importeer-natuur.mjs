@@ -101,16 +101,13 @@ const MODELLEN = [
   ['Tree_Pine_1',          'tree-pine-1'],
   ['Tree_Pine_2',          'tree-pine-2'],
   ['Tree_Pine_3',          'tree-pine-3'],
-  ['Tree_Pine_4',          'tree-pine-4'],
-  ['Tree_Pine_5',          'tree-pine-5'],
-  ['Tree_Pine_6',          'tree-pine-6'],
 ];
 
 await importeerKit({
   slug: 'natuur',
   bron: 'Nature Kit',
   generator: 'tools/importeer-natuur.mjs',
-  schaal: 0.5,
+  schaal: 0.3,
   formaat: 'obj',
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
   modellen: MODELLEN,
