@@ -1,11 +1,12 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
-const RIJBREEDTE = 5;
+const RIJBREEDTE = innerWidth < 700 ? 3 : 5;
+const LABEL_PX = 20;
 const GAP = 0.35;
 const REGEL = 2.3;
 const FONT_KIT = '500 58px system-ui, sans-serif';
-const FONT_MODEL = '700 72px system-ui, sans-serif';
+const FONT_MODEL = '700 58px system-ui, sans-serif';
 
 let deler = null;
 function gedeeldeRenderer(breedte, hoogte) {
@@ -162,7 +163,8 @@ export async function tekenFamilie(groep, canvas, breedte) {
   if (!stukken.length) return null;
 
   const lat = meetlat();
-  const labelSchaal = RIJBREEDTE / 19;
+  const opScherm = canvas.getBoundingClientRect().width || breedte;
+  const labelSchaal = (LABEL_PX * RIJBREEDTE) / opScherm;
   const rijen = verdeel(stukken, labelSchaal, lat);
 
   const basis = [];
@@ -187,9 +189,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
     ctx.fillText(tekst.model, c.width / 2, tekst.kit ? 148 : 62);
     const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
     spr.scale.set(breed, labelSchaal * (c.height / 96), 1);
-    const halveBreedte = breed / 2;
-    const geklemd = Math.min(Math.max(x, latLinks + halveBreedte), latRechts - halveBreedte);
-    spr.position.set(geklemd, y, 1.2);
+    spr.position.set(x, y, 1.2);
     spr.center.set(0.5, 1);
     scene.add(spr);
   };
