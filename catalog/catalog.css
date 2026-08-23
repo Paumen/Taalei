@@ -699,3 +699,72 @@ body:has(.selectiebalk:not([hidden])) { padding-bottom: 56px; }
   color: var(--inkt-zacht);
   font-size: 14px;
 }
+
+/* Schaalpagina: kits uitlichten. */
+.kitbalk {
+  padding: 0 20px 12px;
+}
+
+.kitbalk-kop {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.kitbalk-titel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kitbalk-telling {
+  color: var(--inkt-zacht);
+  font-size: 13px;
+}
+
+.kitbalk-wis {
+  margin-left: auto;
+  padding: 3px 10px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: var(--inkt-zacht);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.kitbalk-knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kitbalk-knoppen button {
+  padding: 4px 10px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: var(--inkt-zacht);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.kitbalk-knoppen button:hover { color: var(--inkt); border-color: var(--accent); }
+
+.kitbalk-knoppen button.aan {
+  border-color: var(--accent);
+  background: var(--accent-zacht);
+  color: var(--inkt);
+  font-weight: 600;
+}
+
+/* De sluier ligt op het render; die vangt geen klikken. */
+.familie-doek { position: relative; }
+
+.familie-doek canvas.sluier {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

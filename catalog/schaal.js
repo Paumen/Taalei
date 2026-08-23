@@ -178,6 +178,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
       obj: spil,
       w: maat.x,
       h: maat.y,
+      kit: item.kit,
       label: { kit: item.kit, model: `${item.model}  ${groep.bovenaanzicht ? 'd' : 'h'}=${maat.y.toFixed(2).replace('.', ',')}` },
     });
   }
@@ -214,6 +215,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   const latLinks = -GAP - lat.w / 2;
   const latRechts = RIJBREEDTE + GAP + lat.w / 2;
   let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
+  const vakken = [];   // wereldvak per stuk, om er later een kit mee uit te lichten
 
   rijen.forEach((r, i) => {
     const y = basis[i];
@@ -238,6 +240,13 @@ export async function tekenFamilie(groep, canvas, breedte) {
       xMax = Math.max(xMax, p.x + p.w / 2, p.x + p.labelBreed / 2);
       yMin = Math.min(yMin, ly - labelSchaal * 2);
       yMax = Math.max(yMax, y + p.h);
+      vakken.push({
+        kit: p.kit,
+        x0: Math.min(p.x - p.w / 2, p.x - p.labelBreed / 2),
+        x1: Math.max(p.x + p.w / 2, p.x + p.labelBreed / 2),
+        y0: ly - labelSchaal * 2,
+        y1: y + p.h,
+      });
     }
   });
 
@@ -267,8 +276,20 @@ export async function tekenFamilie(groep, canvas, breedte) {
   canvas.width = doekB;
   canvas.height = hoogte;
   canvas.getContext('2d').drawImage(renderer.domElement, 0, 0);
+
+  // Wereldvakken omrekenen naar pixels, zodat het uitlichten later alleen nog 2D-werk is.
+  const naarPixel = (x, y) => {
+    const v = new THREE.Vector3(x, y, 0).project(cam);
+    return [((v.x + 1) / 2) * doekB, ((1 - v.y) / 2) * hoogte];
+  };
+  const inPixels = vakken.map((v) => {
+    const [px0, py1] = naarPixel(v.x0, v.y0);
+    const [px1, py0] = naarPixel(v.x1, v.y1);
+    return { kit: v.kit, x: px0, y: py0, w: px1 - px0, h: py1 - py0 };
+  });
+
   ruimOp(scene);
-  return { hoogte, aantal: stukken.length };
+  return { hoogte, breedte: doekB, aantal: stukken.length, vakken: inPixels };
 }
 
 const groepen = await (await fetch(`schaalgroepen.json?v=${document.querySelector('meta[name=catalogus-versie]')?.content ?? ''}`)).json();
@@ -279,6 +300,72 @@ document.getElementById('samenvatting').textContent =
   `${groepen.length} families, ${groepen.reduce((s, g) => s + g.items.length, 0)} modellen — allemaal op dezelfde schaal, met een meetlat aan weerszijden van elke rij.`;
 
 const BREEDTE = 1800;
+
+// Uitlichten: kies één of twee kits, dan legt een sluier zich over al het andere heen.
+// De sluier is een tweede doek bovenop het render, dus omschakelen kost geen nieuw render.
+const MAX_UITGELICHT = 2;
+const uitgelicht = new Set();
+
+function tekenSluier(sectie) {
+  const laag = sectie.querySelector('canvas.sluier');
+  const vakken = sectie.vakken;
+  if (!laag || !vakken) return;
+  const ctx = laag.getContext('2d');
+  ctx.clearRect(0, 0, laag.width, laag.height);
+  if (!uitgelicht.size) return;
+  const { papier } = kleuren();
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = papier;
+  ctx.globalAlpha = 0.78;
+  ctx.fillRect(0, 0, laag.width, laag.height);
+  // Gaten knippen waar de gekozen kits staan.
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'destination-out';
+  const marge = laag.width * 0.004;
+  for (const v of vakken) {
+    if (!uitgelicht.has(v.kit)) continue;
+    ctx.fillRect(v.x - marge, v.y - marge, v.w + marge * 2, v.h + marge * 2);
+  }
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+function ververs() {
+  for (const sectie of inhoud.querySelectorAll('.familie')) tekenSluier(sectie);
+  for (const knop of kitBalk.querySelectorAll('button')) {
+    const aan = uitgelicht.has(knop.dataset.kit);
+    knop.classList.toggle('aan', aan);
+    knop.setAttribute('aria-pressed', String(aan));
+  }
+  wisKnop.hidden = uitgelicht.size === 0;
+  telling.textContent = uitgelicht.size
+    ? `${[...uitgelicht].join(' en ')} uitgelicht`
+    : `Kies één of twee kits om ze eruit te lichten.`;
+}
+
+const kitBalk = document.getElementById('kits');
+const telling = document.getElementById('kit-telling');
+const wisKnop = document.getElementById('kit-wis');
+
+const alleKits = [...new Set(groepen.flatMap((g) => g.items.map((i) => i.kit)))].sort();
+for (const kit of alleKits) {
+  const knop = document.createElement('button');
+  knop.type = 'button';
+  knop.dataset.kit = kit;
+  knop.textContent = kit;
+  knop.setAttribute('aria-pressed', 'false');
+  knop.addEventListener('click', () => {
+    if (uitgelicht.has(kit)) uitgelicht.delete(kit);
+    else {
+      // Bij een derde keuze valt de oudste af, zodat er nooit meer dan twee staan.
+      if (uitgelicht.size >= MAX_UITGELICHT) uitgelicht.delete([...uitgelicht][0]);
+      uitgelicht.add(kit);
+    }
+    ververs();
+  });
+  kitBalk.appendChild(knop);
+}
+wisKnop.addEventListener('click', () => { uitgelicht.clear(); ververs(); });
+
 for (const groep of groepen) {
   const sectie = document.createElement('section');
   sectie.className = 'familie';
@@ -287,7 +374,7 @@ for (const groep of groepen) {
   sectie.innerHTML = `
     <h2>${groep.naam}</h2>
     <p class="familie-meta">${groep.items.length} modellen · ${Math.min(...hoogtes).toFixed(2).replace('.', ',')} – ${Math.max(...hoogtes).toFixed(2).replace('.', ',')} hoog</p>
-    <div class="familie-doek"><canvas width="${BREEDTE}" height="400"></canvas></div>`;
+    <div class="familie-doek"><canvas width="${BREEDTE}" height="400"></canvas><canvas class="sluier" width="${BREEDTE}" height="400"></canvas></div>`;
   inhoud.appendChild(sectie);
 
   const link = document.createElement('a');
@@ -296,19 +383,24 @@ for (const groep of groepen) {
   paneel.appendChild(link);
 }
 
-// Pas tekenen als een familie in beeld komt: 658 modellen tegelijk laden is zonde.
+// Pas tekenen als een familie in beeld komt: honderden modellen tegelijk laden is zonde.
 const wachtrij = new IntersectionObserver((ingangen) => {
   for (const ingang of ingangen) {
     if (!ingang.isIntersecting) continue;
     wachtrij.unobserve(ingang.target);
     const sectie = ingang.target;
     const groep = groepen.find((g) => g.slug === sectie.id);
-    const canvas = sectie.querySelector('canvas');
+    const canvas = sectie.querySelector('canvas:not(.sluier)');
     sectie.classList.add('bezig');
     tekenFamilie(groep, canvas, BREEDTE)
       .then((uit) => {
         sectie.classList.remove('bezig');
-        if (!uit) sectie.classList.add('mislukt');
+        if (!uit) { sectie.classList.add('mislukt'); return; }
+        sectie.vakken = uit.vakken;
+        const laag = sectie.querySelector('canvas.sluier');
+        laag.width = uit.breedte;
+        laag.height = uit.hoogte;
+        tekenSluier(sectie);
       })
       .catch((fout) => {
         console.error('familie mislukt', sectie.id, fout);
@@ -319,3 +411,4 @@ const wachtrij = new IntersectionObserver((ingangen) => {
 }, { rootMargin: '600px 0px' });
 
 for (const sectie of inhoud.querySelectorAll('.familie')) wachtrij.observe(sectie);
+ververs();
