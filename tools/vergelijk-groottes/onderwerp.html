@@ -1,0 +1,159 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#e8e4da}</style>
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+<body>
+<script type="module">
+// Toont hetzelfde onderwerp uit meerdere kits naast elkaar: per kit een blokje,
+// alles op ware schaal naast dezelfde meetlat van 1 unit.
+addEventListener('error', () => { window.FOUT = true; });
+addEventListener('unhandledrejection', () => { window.FOUT = true; });
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const params = new URLSearchParams(location.search);
+const groepen = await (await fetch(params.get('bron') ?? './onderwerpen.json')).json();
+const groep = groepen[params.get('group')];
+if (!groep) { document.title = 'ONBEKEND ONDERWERP'; throw new Error('groep?'); }
+
+const GAT_ITEM = 0.34;   // ruimte tussen modellen binnen een kit
+const GAT_KIT = 1.15;    // ruimte tussen kits
+const MIN_SLOT = 0.95;   // zo blijft het bijschrift leesbaar
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xe8e4da);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.4));
+const zon = new THREE.DirectionalLight(0xffffff, 1.6);
+zon.position.set(3, 6, 5);
+scene.add(zon);
+
+const loader = new GLTFLoader();
+const laad = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
+
+// Tekst met een vaste letterhoogte in wereld-units, zodat elk bijschrift in
+// elke render even groot oogt; te lange tekst wordt smaller geschaald.
+function tekst(inhoud, x, y, hoogte, opties = {}) {
+  const { kleur = '#3a3630', gewicht = 500, maxBreedte = Infinity, boven = false } = opties;
+  const c = document.createElement('canvas');
+  const meet = c.getContext('2d');
+  const px = 64;
+  meet.font = `${gewicht} ${px}px sans-serif`;
+  c.width = Math.max(8, Math.ceil(meet.measureText(inhoud).width) + 8);
+  c.height = Math.round(px * 1.5);
+  const ctx = c.getContext('2d');
+  ctx.font = `${gewicht} ${px}px sans-serif`;
+  ctx.fillStyle = kleur;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(inhoud, c.width / 2, c.height / 2);
+  let h = hoogte;
+  let b = h * (c.width / c.height);
+  if (b > maxBreedte) { h *= maxBreedte / b; b = maxBreedte; }
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
+  spr.scale.set(b, h, 1);
+  spr.center.set(0.5, boven ? 0 : 1);
+  spr.position.set(x, y, 1.5);
+  scene.add(spr);
+  return spr;
+}
+
+function meetlat(x) {
+  for (let i = 0; i < 4; i++) {
+    const blok = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, 0.25, 0.08),
+      new THREE.MeshLambertMaterial({ color: i % 2 ? 0xcc3333 : 0xf0ece3 }));
+    blok.position.set(x, 0.125 + i * 0.25, 0);
+    scene.add(blok);
+  }
+}
+
+meetlat(0);
+tekst('1 unit', 0, -0.08, 0.2);
+
+// Modellen per kit bij elkaar houden, in de volgorde van de bron.
+const perKit = [];
+for (const item of groep.items) {
+  const [kit, ...rest] = item.label.split('/');
+  const kort = rest.join('/') || item.label;
+  if (!perKit.length || perKit.at(-1).kit !== kit) perKit.push({ kit, items: [] });
+  perKit.at(-1).items.push({ ...item, kort });
+}
+
+let x = 0.75;
+let maxH = 1;
+for (const blok of perKit) {
+  blok.start = x;
+  for (const item of blok.items) {
+    const gltf = await laad('/kits/' + item.pad);
+    const obj = gltf.scene;
+    let doos = new THREE.Box3().setFromObject(obj);
+    let maat = doos.getSize(new THREE.Vector3());
+    if (maat.z > maat.x * 1.4) obj.rotation.y = Math.PI / 2;
+    const spil = new THREE.Group();
+    spil.add(obj);
+    doos = new THREE.Box3().setFromObject(spil);
+    maat = doos.getSize(new THREE.Vector3());
+    const slot = Math.max(maat.x, MIN_SLOT);
+    const mid = x + slot / 2;
+    spil.position.set(mid - (doos.min.x + doos.max.x) / 2, -doos.min.y, -(doos.min.z + doos.max.z) / 2);
+    scene.add(spil);
+    maxH = Math.max(maxH, maat.y);
+    item.mid = mid;
+    item.slot = slot;
+    item.hoogte = maat.y;
+    x = mid + slot / 2 + GAT_ITEM;
+  }
+  blok.eind = x - GAT_ITEM;
+  x = blok.eind + GAT_KIT;
+}
+// Randen van wat er echt in beeld staat, inclusief de streep onder de kitnaam.
+const links = -0.55;
+const rechts = perKit.at(-1).eind + GAT_KIT * 0.3;
+const totaleBreedte = rechts - links;
+
+// Bijschriften: modelnaam + hoogte onder het model, kitnaam boven het blok.
+for (const blok of perKit) {
+  for (const item of blok.items) {
+    tekst(item.kort, item.mid, -0.06, 0.19, { maxBreedte: item.slot * 1.15 });
+    tekst(`h=${item.hoogte.toFixed(2)}`, item.mid, -0.34, 0.16,
+      { maxBreedte: item.slot, kleur: '#8a8175' });
+  }
+  const breedte = blok.eind - blok.start;
+  const midden = (blok.start + blok.eind) / 2;
+  tekst(blok.kit, midden, maxH * 1.1, 0.28,
+    { maxBreedte: breedte + GAT_KIT * 0.4, gewicht: 700, kleur: '#4a443c', boven: true });
+  const band = new THREE.Mesh(
+    new THREE.PlaneGeometry(breedte + GAT_KIT * 0.45, 0.045),
+    new THREE.MeshBasicMaterial({ color: 0x9a9083 }));
+  band.position.set(midden, maxH * 1.07, 0);
+  scene.add(band);
+}
+
+const grid = new THREE.GridHelper(200, 200, 0xaaa298, 0xc6bfb2);
+grid.position.set(80, 0, 0);
+scene.add(grid);
+
+// Vaste schaal: elk onderwerp krijgt evenveel pixels per unit, tot een maximale breedte.
+const PIXELS_PER_UNIT = 190;
+const MAX_BREEDTE_PX = 6400;
+const zichtH = maxH * 1.15 + 1.15;
+const schaal = Math.min(PIXELS_PER_UNIT, MAX_BREEDTE_PX / totaleBreedte);
+const W = Math.round(totaleBreedte * schaal);
+const H = Math.round(zichtH * schaal);
+const aspect = W / H;
+const zicht = zichtH;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+document.body.appendChild(renderer.domElement);
+const midX = (links + rechts) / 2;
+const ONDER = -0.75;  // ruimte onder de grondlijn voor de bijschriften
+const cam = new THREE.OrthographicCamera(
+  -zicht * aspect / 2, zicht * aspect / 2, zicht + ONDER, ONDER, 0.1, 400);
+cam.position.set(midX, 0, 60);
+cam.lookAt(midX, 0, 0);
+renderer.render(scene, cam);
+document.title = 'KLAAR:' + groep.items.length;
+window.KLAAR = true;
+</script>
