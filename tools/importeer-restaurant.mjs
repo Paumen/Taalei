@@ -1,4 +1,4 @@
-// Laadt 26 modellen uit "KayKit Restaurant Bits" in als kits/workfiles/restaurant.
+// Laadt 24 modellen uit "KayKit Restaurant Bits" in als kits/workfiles/restaurant.
 //
 // Aanroepen met het pad naar de uitgepakte pack:
 //   node tools/importeer-restaurant.mjs <pack>/Assets/gltf
@@ -18,10 +18,8 @@ const MODELLEN = [
   ['cuttingboard',                   'cutting-board'],
   ['food_dinner',                    'food-dinner'],
   ['food_ingredient_cheese',         'food-ingredient-cheese'],
-  ['food_ingredient_cheese_chopped', 'food-ingredient-cheese-chopped'],
   ['food_ingredient_ham',            'food-ingredient-ham'],
   ['food_ingredient_ham_cooked',     'food-ingredient-ham-cooked'],
-  ['food_ingredient_ham_trash',      'food-ingredient-ham-trash'],
   ['food_ingredient_steak',          'food-ingredient-steak'],
   ['food_stew',                      'food-stew'],
   ['knife',                          'knife'],

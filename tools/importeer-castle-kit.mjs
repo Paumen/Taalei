@@ -1,4 +1,4 @@
-// Laadt 11 modellen uit "Kenney Castle Kit" in als kits/workfiles/castle-kit.
+// Laadt 10 modellen uit "Kenney Castle Kit" in als kits/workfiles/castle-kit.
 //
 // Aanroepen met het pad naar de uitgepakte pack:
 //   node tools/importeer-castle-kit.mjs <pack>/Models/GLB format
@@ -18,7 +18,6 @@ const MODELLEN = [
   ['tree-large',                   'tree-large'],
   ['tree-log',                     'tree-log'],
   ['tree-small',                   'tree-small'],
-  ['tree-trunk',                   'tree-trunk'],
 ];
 
 await importeerKit({

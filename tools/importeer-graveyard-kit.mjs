@@ -1,4 +1,4 @@
-// Laadt 11 modellen uit "Kenney Graveyard Kit" in als kits/workfiles/graveyard-kit.
+// Laadt 8 modellen uit "Kenney Graveyard Kit" in als kits/workfiles/graveyard-kit.
 //
 // Aanroepen met het pad naar de uitgepakte pack:
 //   node tools/importeer-graveyard-kit.mjs <pack>/Models/GLB format
@@ -10,9 +10,6 @@ import { importeerKit } from './importeer/kit.mjs';
 const MODELLEN = [
   ['debris-wood',    'debris-wood'],
   ['debris',         'debris'],
-  ['detail-bowl',    'detail-bowl'],
-  ['detail-chalice', 'detail-chalice'],
-  ['detail-plate',   'detail-plate'],
   ['pine-fall',      'pine-fall'],
   ['pine',           'pine'],
   ['rocks-tall',     'rocks-tall'],
