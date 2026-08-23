@@ -7,7 +7,7 @@ const RICHTINGEN = [
 
 const RICHTING_IDS = RICHTINGEN.map((r) => r.id);
 const OPSLAGSLEUTEL = 'taaleiland-swipe-v1';
-const DREMPEL = 90;
+const drempel = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const VLAK_OMGEVING = 'effen-omgeving.png';
 
 const getal = new Intl.NumberFormat('nl-NL');
@@ -308,7 +308,7 @@ function markeerRand(richting) {
 }
 
 function richtingVan(dx, dy) {
-  if (Math.max(Math.abs(dx), Math.abs(dy)) < DREMPEL) return null;
+  if (Math.max(Math.abs(dx), Math.abs(dy)) < drempel()) return null;
   if (Math.abs(dx) >= Math.abs(dy)) return dx < 0 ? 'links' : 'rechts';
   return dy < 0 ? 'omhoog' : 'omlaag';
 }
@@ -329,7 +329,7 @@ function maakSleepbaar(kaart) {
     if (richting) {
       stempel.dataset.richting = richting;
       stempel.textContent = labelVan(richting);
-      stempel.style.opacity = String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / (DREMPEL * 1.6)));
+      stempel.style.opacity = String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / (drempel() * 1.6)));
     } else {
       stempel.style.opacity = '0';
     }
