@@ -1,4 +1,4 @@
-// Laadt 76 modellen uit "Ultimate Nature Pack" in als kits/workfiles/quaternius-nature.
+// Laadt 60 modellen uit "Ultimate Nature Pack" in als kits/workfiles/quaternius-nature.
 //
 // Aanroepen met het pad naar de uitgepakte pack:
 //   node tools/importeer-quaternius-nature.mjs <pack>/OBJ
@@ -18,8 +18,6 @@ const MODELLEN = [
   ['BirchTree_Dead_Snow_3',  'tree-birch-dead-snow-3'],
   ['BirchTree_Dead_Snow_4',  'tree-birch-dead-snow-4'],
   ['BirchTree_Dead_Snow_5',  'tree-birch-dead-snow-5'],
-  ['BushBerries_1',          'bush-berries-1'],
-  ['BushBerries_2',          'bush-berries-2'],
   ['CactusFlower_1',         'cactus-flower-1'],
   ['CactusFlowers_2',        'cactus-flower-2'],
   ['CactusFlowers_3',        'cactus-flower-3'],
@@ -46,15 +44,8 @@ const MODELLEN = [
   ['Grass_2',                'grass-2'],
   ['Grass_Short',            'grass-short'],
   ['Lilypad',                'lilypad'],
-  ['PalmTree_1',             'tree-palm-1'],
-  ['PalmTree_2',             'tree-palm-2'],
-  ['PalmTree_3',             'tree-palm-3'],
-  ['PalmTree_4',             'tree-palm-4'],
   ['PineTree_1',             'tree-pine-1'],
-  ['PineTree_2',             'tree-pine-2'],
   ['PineTree_3',             'tree-pine-3'],
-  ['PineTree_4',             'tree-pine-4'],
-  ['PineTree_5',             'tree-pine-5'],
   ['Plant_1',                'plant-1'],
   ['Plant_2',                'plant-2'],
   ['Plant_3',                'plant-3'],
@@ -67,13 +58,6 @@ const MODELLEN = [
   ['Rock_5',                 'rock-5'],
   ['Rock_6',                 'rock-6'],
   ['Rock_7',                 'rock-7'],
-  ['Rock_Moss_1',            'rock-moss-1'],
-  ['Rock_Moss_2',            'rock-moss-2'],
-  ['Rock_Moss_3',            'rock-moss-3'],
-  ['Rock_Moss_4',            'rock-moss-4'],
-  ['Rock_Moss_5',            'rock-moss-5'],
-  ['Rock_Moss_6',            'rock-moss-6'],
-  ['Rock_Moss_7',            'rock-moss-7'],
   ['TreeStump',              'tree-stump'],
   ['TreeStump_Moss',         'tree-stump-moss'],
   ['Wheat',                  'wheat'],
