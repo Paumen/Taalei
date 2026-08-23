@@ -1,10 +1,3 @@
-// Laadt 96 modellen uit "Nature Kit" in als kits/workfiles/natuur.
-//
-// Aanroepen met het pad naar de uitgepakte pack:
-//   node tools/importeer-natuur.mjs <pack>/Nature Kit/models
-//
-// Wat er gebeurt en waarom staat in kits/workfiles/natuur/LICENSE.txt.
-
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [

@@ -1,9 +1,3 @@
-/*
- * Mobiel eerst: de basisregels beschrijven de telefoon, waar dit gereedschap
- * hoort — één duim, één kaart, de knoppen onderaan binnen bereik. Vanaf 700px
- * komt er ruimte bij voor de randlabels en de tweede kolom.
- */
-
 :root {
   --links: #b8563f;
   --rechts: #3f7f5c;
@@ -68,8 +62,6 @@
   background: var(--accent);
   border-color: var(--accent);
 }
-
-/* — opzet — */
 
 .opzet {
   flex: 1;
@@ -187,8 +179,6 @@
   color: var(--inkt-zacht);
   font-size: 13px;
 }
-
-/* — dek — */
 
 .dek {
   display: flex;
@@ -447,8 +437,6 @@ kbd {
   border-radius: 5px;
 }
 
-/* — uitslag — */
-
 .uitslag {
   flex: 1;
   padding: 14px;
@@ -557,8 +545,6 @@ kbd {
 .bak-leeg { color: var(--inkt-zacht); font-size: 13px; }
 
 .melding-fout { padding: 24px; text-align: center; }
-
-/* — vanaf de tablet is er ruimte voor randlabels en kolommen — */
 
 @media (width >= 700px) {
   .kop {
