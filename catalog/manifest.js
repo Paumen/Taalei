@@ -118,7 +118,6 @@ window.KENNEY_KITS = [
    "template-floor-detail", "template-floor-detail-a", "template-wall", "template-wall-corner",
    "template-wall-detail-a", "template-wall-half", "template-wall-stairs", "template-wall-top"
   ],
-  "toelichting": "Staat op zichzelf: eigen texture-atlas en eigen kleuren, gedeeld met geen enkele andere kit. Daarom een eigen tabblad — deze modellen zijn niet uitwisselbaar met die van de andere kits.",
   "models": [
    "corridor",
    "corridor-corner",
@@ -295,7 +294,6 @@ window.KENNEY_KITS = [
   "name": "Onderwater",
   "url": "https://quaternius.com/",
   "buitenCatalogus": true,
-  "toelichting": "Staat op zichzelf: eigen materiaalkleuren in plaats van de gedeelde colormap. De dieren zijn gerigd en dragen hun eigen animaties — de enige geanimeerde modellen in de catalogus. Het grootste deel is een pack van Quaternius, ingeladen op een kwart van de oorspronkelijke maat zodat het op hetzelfde raster past als de rest. De orka en het orkakalf komen daar niet vandaan: die zijn zelf gebouwd (tools/bouw-orka.mjs), omdat de pack wel een walvis en twee haaien heeft maar geen orka.",
   "models": [
    "coral-a",
    "coral-b",
@@ -1167,7 +1165,6 @@ window.KENNEY_KITS = [
   "slug": "natuur",
   "name": "Natuur",
   "url": null,
-  "toelichting": "De pack noemt zichzelf \"Nature Kit\" en levert geen licentiebestand en geen maker. Modelnamen, texturen en maatvoering komen overeen met de Modular Terrain Collection waar de kit Modulair Terrein uit komt; vermoedelijk dezelfde maker, zeker is dat niet. Heet hier Natuur om hem niet te verwarren met de kit Nature, die uit een andere pack komt.",
   "models": [
    "branch-1",
    "branch-2",

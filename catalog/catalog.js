@@ -22,9 +22,9 @@ const GROEP_ALIASSEN = {
 const ZWAAR_VANAF = 5000;
 
 const MAATKLASSEN = [
-  { id: 'klein', teken: 'S', grens: 0.5, uitleg: 'klein — kleiner dan een halve unit' },
-  { id: 'middel', teken: 'M', grens: 1.5, uitleg: 'middel — een halve tot anderhalve unit' },
-  { id: 'groot', teken: 'L', grens: Infinity, uitleg: 'groot — meer dan anderhalve unit' },
+  { id: 'klein', teken: 'S', kort: 'Small', grens: 0.5, uitleg: 'small — under half a unit' },
+  { id: 'middel', teken: 'M', kort: 'Medium', grens: 1.5, uitleg: 'medium — half to one and a half units' },
+  { id: 'groot', teken: 'L', kort: 'Large', grens: Infinity, uitleg: 'large — over one and a half units' },
 ];
 
 function maatKlasse(wdh) {
@@ -35,7 +35,7 @@ function maatKlasse(wdh) {
 
 let budgetPerUnit = 1000;
 
-const getal = new Intl.NumberFormat('nl-NL');
+const getal = new Intl.NumberFormat('en-GB');
 
 const paneel = document.querySelector('#paneel');
 const leegmelding = document.querySelector('#leeg');
@@ -54,11 +54,9 @@ const kaartenPerPad = new Map();
 
 let laatsteKeuze = null;
 
-// Per staal en per tag: 'alleen' (moet erbij) of 'niet' (moet eruit). Wat er niet in staat,
-// telt niet mee. Uitsluiten is even belangrijk als kiezen, dus het is dezelfde knop.
 const kleurStaat = new Map();
-// Assemblies hadden een eigen tabblad omdat ze tussen de losse props een verkeerd beeld
-// geven van wat een prop kost. Nu staan ze gewoon bij hun soort, maar standaard uitgefilterd.
+const maatStaat = new Map();
+
 const tagStaat = new Map([['assembly', 'niet']]);
 
 const VOLGENDE = { undefined: 'alleen', alleen: 'niet', niet: undefined };
@@ -80,7 +78,6 @@ function toonStaat(knop, staat) {
 const sleutelsMet = (kaartStaat, waarde) =>
   [...kaartStaat].filter(([, v]) => v === waarde).map(([k]) => k);
 
-// alleen: minstens één ervan. niet: geen enkele ervan.
 function past(eigen, kaartStaat) {
   const alleen = sleutelsMet(kaartStaat, 'alleen');
   if (alleen.length && !eigen.some((e) => alleen.includes(e))) return false;
@@ -91,14 +88,14 @@ function past(eigen, kaartStaat) {
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
 
 const kleurgroepen = [];
-const tagknoppen = [];
+const chipknoppen = [];
 
 let catalogus = null;
 
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
-const eenheid = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 2 });
+const eenheid = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
 
 const afmeting = (wdh) =>
   Array.isArray(wdh) ? `${wdh.map((v) => eenheid.format(v)).join(' × ')} units` : '—';
@@ -160,8 +157,6 @@ function ontkoppelViewer(vak) {
   const viewer = vak.querySelector('model-viewer');
   if (!viewer) return;
 
-  // toDataURL leest het doek terug en dat kost tijd; bij honderden kaarten tegelijk is dat
-  // precies de hik die je bij het filteren voelt. Het plaatje mag een tel later komen.
   if (viewer.loaded && !vak.dataset.momentopname) {
     straks(() => {
       if (vak.dataset.momentopname || !viewer.loaded) return;
@@ -202,17 +197,17 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   const vak = document.createElement('div');
   vak.className = 'kaart-viewer';
   vak.dataset.src = model.pad;
-  vak.dataset.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
+  vak.dataset.alt = `3D model ${model.naam} from ${kit?.naam ?? model.kit}`;
 
   const maat = maatKlasse(model.wdh);
   const glyfen = span('kaart-glyfen');
   glyfen.append(glyf('maat', maat.teken, `${maat.uitleg} (langste as ${maat.langste.toFixed(2)})`));
   if (model.animaties?.length) {
-    glyfen.append(glyf('animatie', '▶', `${model.animaties.length} animatie${model.animaties.length > 1 ? 's' : ''} — af te spelen in het modelpaneel`));
+    glyfen.append(glyf('animatie', '▶', `${model.animaties.length} animation${model.animaties.length > 1 ? 's' : ''} — playable in the model panel`));
   }
   if (varianten.length) {
     glyfen.append(glyf('variant', `⧉ ${varianten.length + 1}`,
-      `${varianten.length + 1} varianten van hetzelfde model — te bekijken in het modelpaneel`));
+      `${varianten.length + 1} variants of the same model — viewable in the model panel`));
   }
 
   const tekst = document.createElement('div');
@@ -232,7 +227,7 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   const vinkje = document.createElement('input');
   vinkje.type = 'checkbox';
   vinkje.checked = gekozenPaden.has(model.pad);
-  vinkje.setAttribute('aria-label', `${model.naam} selecteren`);
+  vinkje.setAttribute('aria-label', `Select ${model.naam}`);
   kies.append(vinkje);
 
   const houder = document.createElement('div');
@@ -249,6 +244,7 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
     palet: model.palet,
     kleuren: [...new Set(familie.flatMap((m) => m.kleuren.map((hex) => kleurSleutel(m.palet, hex))))],
     tags: [...new Set(familie.flatMap((m) => m.tags ?? []))],
+    maten: [...new Set(familie.map((m) => maatKlasse(m.wdh).id))],
   };
   kaarten.push(item);
 
@@ -282,7 +278,7 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
 
   const aantalEl = document.createElement('span');
   aantalEl.className = 'aantal';
-  aantalEl.textContent = `${aantal} modellen`;
+  aantalEl.textContent = getal.format(aantal);
 
   kop.append(titelEl, aantalEl);
 
@@ -311,7 +307,7 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
 const langste = (m) => Math.max(...m.wdh);
 
 const SORTERINGEN = {
-  naam: (a, b) => a.naam.localeCompare(b.naam, 'nl') || a.kit.localeCompare(b.kit),
+  naam: (a, b) => a.naam.localeCompare(b.naam, 'en') || a.kit.localeCompare(b.kit),
   groot: (a, b) => langste(b) - langste(a),
   klein: (a, b) => langste(a) - langste(b),
   zwaar: (a, b) => b.driehoeken - a.driehoeken,
@@ -322,13 +318,9 @@ const SORTERINGEN = {
 
 const ZONDER = '_zonder';
 
-// "standaard" houdt de indeling die de tabbladen altijd al hadden: op de Kits-tab per kit,
-// op de inhoudstabbladen per groep.
 const groeperingSoort = () =>
   groepering === 'standaard' ? (huidigeWeergave === 'kits' ? 'kit' : 'groep') : groepering;
 
-// Elke groepering levert secties op: een lijst {id, titel, kleur, uitleg, bron, modellen}.
-// Bij tag en bron kan een model in meer dan één sectie staan — het draagt er immers meer dan één.
 function sectiesVan(modellen) {
   const tabblad = (m) => register.groepen.get(m.groep)?.tabblad ?? 'objects';
   const inBeeld =
@@ -383,14 +375,14 @@ function sectiesVan(modellen) {
       },
       [
         ...eigen.map((t) => ({ id: t.id, titel: t.naam, uitleg: t.beschrijving })),
-        { id: ZONDER, titel: soort === 'bron' ? 'Zonder bron' : 'Zonder tag' },
+        { id: ZONDER, titel: soort === 'bron' ? 'No source' : 'No tag' },
       ],
     );
   }
 
   return perSleutel(
     (m) => [maatKlasse(m.wdh).id],
-    MAATKLASSEN.map((k) => ({ id: k.id, titel: k.uitleg })),
+    MAATKLASSEN.map((k) => ({ id: k.id, titel: k.kort, uitleg: k.uitleg })),
   );
 }
 
@@ -462,9 +454,9 @@ let actiefPad = '';
 const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map(), tags: new Map() };
 
 const TAGSOORTEN = [
-  { soort: 'materiaal', kop: 'Materiaal' },
+  { soort: 'materiaal', kop: 'Material' },
   { soort: 'tag', kop: 'Tags' },
-  { soort: 'bron', kop: 'Herkomst' },
+  { soort: 'bron', kop: 'Source' },
 ];
 
 function tagRijen(model) {
@@ -488,23 +480,23 @@ function toonDetail(model) {
     `${kit?.naam ?? model.kit} · ${groep?.naam ?? model.groep}`;
 
   const rijen = [
-    ['Bestand', model.pad],
-    ['Afmetingen (b × d × h)', afmeting(model.wdh)],
-    ['Driehoeken', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (zwaar)' : ''}`],
+    ['File', model.pad],
+    ['Size (w × d × h)', afmeting(model.wdh)],
+    ['Triangles', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (heavy)' : ''}`],
     [
-      'Driehoeken per unit',
+      'Triangles per unit',
       !Number.isFinite(model.driehoekenPerUnit)
         ? '—'
-        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > budgetPerUnit ? ` (boven budget van ${getal.format(budgetPerUnit)})` : ''}`,
+        : `${getal.format(model.driehoekenPerUnit)}${model.driehoekenPerUnit > budgetPerUnit ? ` (over budget of ${getal.format(budgetPerUnit)})` : ''}`,
     ],
-    ['Tekenopdrachten', model.calls === undefined ? '—' : getal.format(model.calls)],
-    ['Materialen', getal.format(model.materialen)],
+    ['Draw calls', model.calls === undefined ? '—' : getal.format(model.calls)],
+    ['Materials', getal.format(model.materialen)],
     ...(model.animaties?.length
-      ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
+      ? [[`Animations (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
-    ['Grootte', bytesLeesbaar(model.bytes)],
+    ['File size', bytesLeesbaar(model.bytes)],
     ...tagRijen(model),
-    ['Licentie', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'zie kitmap'}`],
+    ['Licence', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'see kit folder'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
   gegevens.replaceChildren();
@@ -522,7 +514,7 @@ function toonDetail(model) {
 
   const viewer = document.createElement('model-viewer');
   viewer.src = model.pad;
-  viewer.alt = `3D-model ${model.naam}`;
+  viewer.alt = `3D model ${model.naam}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
@@ -534,8 +526,8 @@ function toonDetail(model) {
 
   detailAnimatie.hidden = clips.length === 0;
   detailAnimatieKeuze.replaceChildren(
-    optie(UIT, 'uit (draaitafel)'),
-    ...clips.map((naam) => optie(naam, naam === demoClip(clips) && clips.length > 1 ? `${naam} (rondloop)` : naam)),
+    optie(UIT, 'off (turntable)'),
+    ...clips.map((naam) => optie(naam, naam === demoClip(clips) && clips.length > 1 ? `${naam} (loop)` : naam)),
   );
   detailAnimatieKeuze.value = UIT;
 
@@ -588,11 +580,11 @@ detail.addEventListener('click', (e) => { if (e.target === detail) detail.close(
 detailKopieer.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(actiefPad);
-    detailKopieer.textContent = 'Gekopieerd';
+    detailKopieer.textContent = 'Copied';
   } catch {
     detailKopieer.textContent = actiefPad;
   }
-  setTimeout(() => { detailKopieer.textContent = 'Kopieer pad'; }, 1600);
+  setTimeout(() => { detailKopieer.textContent = 'Copy path'; }, 1600);
 });
 
 const selectiebalk = document.querySelector('#selectiebalk');
@@ -624,10 +616,10 @@ function kiesBereik(tot, aan) {
 function werkSelectieBij() {
   const aantal = gekozenPaden.size;
   selectiebalk.hidden = aantal === 0;
-  selectieTelling.textContent = `${aantal} geselecteerd`;
+  selectieTelling.textContent = `${aantal} selected`;
   if (detail.open) {
     const aan = gekozenPaden.has(actiefPad);
-    detailSelecteer.textContent = aan ? 'Uit selectie halen' : 'Aan selectie toevoegen';
+    detailSelecteer.textContent = aan ? 'Remove from selection' : 'Add to selection';
     detailSelecteer.setAttribute('aria-pressed', String(aan));
   }
 }
@@ -657,9 +649,9 @@ selectieKopieer.addEventListener('click', async () => {
   const aantal = gekozenPaden.size;
   const gelukt = await naarKlembord([...gekozenPaden].join('\n'));
   selectieKopieer.textContent = gelukt
-    ? `${aantal} pad${aantal === 1 ? '' : 'en'} gekopieerd`
-    : 'Kopiëren mislukt';
-  setTimeout(() => { selectieKopieer.textContent = 'Kopieer paden'; }, 1600);
+    ? `${aantal} path${aantal === 1 ? '' : 's'} copied`
+    : 'Copy failed';
+  setTimeout(() => { selectieKopieer.textContent = 'Copy paths'; }, 1600);
 });
 
 document.querySelector('#selectie-alles').addEventListener('click', () => {
@@ -693,7 +685,7 @@ function bouwKleurbalk(paletten) {
     const stalen = document.createElement('div');
     stalen.className = 'kleurgroep-stalen';
     stalen.setAttribute('role', 'group');
-    stalen.setAttribute('aria-label', `Filter op kleur — ${palet.naam}`);
+    stalen.setAttribute('aria-label', `Filter by colour — ${palet.naam}`);
 
     for (const kleur of palet.kleuren) {
       const sleutel = kleurSleutel(palet.id, kleur.hex);
@@ -705,8 +697,8 @@ function bouwKleurbalk(paletten) {
       knop.style.setProperty('--vink', vinkKleur(kleur.hex));
       knop.setAttribute('aria-pressed', 'false');
       const herkomst = kleur.textuur ?? kleur.materiaal;
-      knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} modellen · ${palet.naam}${herkomst ? ` · ${herkomst}` : ''}`;
-      knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} modellen, ${palet.naam}`);
+      knop.title = `${kleur.naam} ${kleur.hex} — ${kleur.aantal} models · ${palet.naam}${herkomst ? ` · ${herkomst}` : ''}`;
+      knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} models, ${palet.naam}`);
 
       knop.addEventListener('click', () => {
         draaiStaat(kleurStaat, sleutel, knop);
@@ -730,48 +722,75 @@ function bouwKleurbalk(paletten) {
   });
 }
 
+function bouwChiprij(houder, kop, items, staat, veld) {
+  const rij = document.createElement('div');
+  rij.className = 'kleurbalk tagrij';
+  const strip = document.createElement('div');
+  strip.className = 'tagbalk-knoppen';
+  strip.setAttribute('role', 'group');
+  strip.setAttribute('aria-label', `Filter by ${kop.toLowerCase()}`);
+
+  const wisknop = document.createElement('button');
+  wisknop.className = 'kleurbalk-wis';
+  wisknop.type = 'button';
+  wisknop.textContent = 'Reset';
+
+  const eigenIds = items.map((i) => i.id);
+
+  for (const item of items) {
+    const knop = document.createElement('button');
+    knop.type = 'button';
+    knop.className = 'tagknop';
+    knop.dataset.tag = item.id;
+    knop.title = item.uitleg ?? item.naam;
+    toonStaat(knop, staat.get(item.id));
+    const aantalEl = span('tagknop-aantal');
+    knop.append(document.createTextNode(item.naam), aantalEl);
+
+    knop.addEventListener('click', () => {
+      draaiStaat(staat, item.id, knop);
+      wisknop.hidden = !eigenIds.some((id) => staat.has(id));
+      filter();
+    });
+
+    strip.append(knop);
+    chipknoppen.push({ id: item.id, element: knop, aantalEl, rij, wisknop, eigenIds, staat, veld });
+  }
+
+  wisknop.hidden = !eigenIds.some((id) => staat.has(id));
+  wisknop.addEventListener('click', () => {
+    for (const id of eigenIds) staat.delete(id);
+    for (const chip of chipknoppen.filter((c) => c.rij === rij)) toonStaat(chip.element, undefined);
+    wisknop.hidden = true;
+    filter();
+  });
+
+  rij.append(span('kleurbalk-label', kop), strip, wisknop);
+  houder.append(rij);
+}
+
 function bouwTagbalk(tags) {
-  const houder = document.querySelector('#tagbalk-knoppen');
-  const wisknop = document.querySelector('#tagbalk-wis');
+  const houder = document.querySelector('#tagbalk');
+
+  bouwChiprij(
+    houder,
+    'Size',
+    MAATKLASSEN.map((k) => ({ id: k.id, naam: k.kort, uitleg: k.uitleg })),
+    maatStaat,
+    'maten',
+  );
 
   for (const { soort, kop } of TAGSOORTEN) {
     const eigen = tags.filter((t) => (t.soort ?? 'tag') === soort);
     if (eigen.length === 0) continue;
-
-    const groep = document.createElement('div');
-    groep.className = 'taggroep';
-    groep.append(span('taggroep-kop', kop));
-
-    for (const tag of eigen) {
-      const knop = document.createElement('button');
-      knop.type = 'button';
-      knop.className = 'tagknop';
-      knop.dataset.tag = tag.id;
-      knop.title = tag.beschrijving ?? tag.naam;
-      toonStaat(knop, tagStaat.get(tag.id));
-      const aantalEl = span('tagknop-aantal');
-      knop.append(document.createTextNode(tag.naam), aantalEl);
-
-      knop.addEventListener('click', () => {
-        draaiStaat(tagStaat, tag.id, knop);
-        wisknop.hidden = tagStaat.size === 0;
-        filter();
-      });
-
-      groep.append(knop);
-      tagknoppen.push({ id: tag.id, element: knop, aantalEl });
-    }
-    houder.append(groep);
+    bouwChiprij(
+      houder,
+      kop,
+      eigen.map((t) => ({ id: t.id, naam: t.naam, uitleg: t.beschrijving })),
+      tagStaat,
+      'tags',
+    );
   }
-
-  wisknop.hidden = tagStaat.size === 0;
-
-  wisknop.addEventListener('click', () => {
-    tagStaat.clear();
-    for (const { element } of tagknoppen) toonStaat(element, undefined);
-    wisknop.hidden = true;
-    filter();
-  });
 }
 
 function pasWeergaveToe(weergave) {
@@ -783,7 +802,6 @@ function pasWeergaveToe(weergave) {
   ververs();
 }
 
-// Opnieuw indelen, en daarna alleen de stalen en tags aanbieden die in deze weergave iets doen.
 function ververs() {
   bouwPaneel();
 
@@ -798,41 +816,35 @@ function ververs() {
   }
   document.querySelector('#kleurbalk-wis').hidden = kleurStaat.size === 0;
 
-  const perTag = new Map();
+  const tellingen = new Map();
   for (const kaart of kaarten) {
-    for (const id of kaart.tags) perTag.set(id, (perTag.get(id) ?? 0) + 1);
+    for (const veld of ['tags', 'maten']) {
+      for (const id of kaart[veld]) tellingen.set(`${veld}|${id}`, (tellingen.get(`${veld}|${id}`) ?? 0) + 1);
+    }
   }
-  for (const { id, element, aantalEl } of tagknoppen) {
-    const aantal = perTag.get(id) ?? 0;
+  for (const { id, element, aantalEl, staat, veld } of chipknoppen) {
+    const aantal = tellingen.get(`${veld}|${id}`) ?? 0;
     element.hidden = aantal === 0;
     aantalEl.textContent = aantal;
-    // Een 'alleen' zonder kandidaten heeft geen zin, maar een uitsluiting laten we staan:
-    // stilletjes vervallen zou de uitgesloten modellen ongemerkt terugzetten.
-    if (aantal === 0 && tagStaat.get(id) === 'alleen') {
-      tagStaat.delete(id);
+    if (aantal === 0 && staat.get(id) === 'alleen') {
+      staat.delete(id);
       toonStaat(element, undefined);
     }
   }
-  document.querySelector('#tagbalk-wis').hidden = tagStaat.size === 0;
+  for (const { rij, wisknop, eigenIds, staat } of chipknoppen) {
+    rij.hidden = !chipknoppen.some((c) => c.rij === rij && !c.element.hidden);
+    wisknop.hidden = !eigenIds.some((id) => staat.has(id));
+  }
 
   filter();
 }
 
-const BALKEN_SLEUTEL = 'taaleiland-catalogus-balken';
-
-function werkFilterknopBij() {
-  const knop = document.querySelector('#filterknop');
-  const aantal = kleurStaat.size + tagStaat.size;
-  knop.textContent = aantal ? `Filter · ${aantal}` : 'Filter';
-  knop.setAttribute('aria-pressed', String(aantal > 0));
-}
-
 function filter() {
-  werkFilterknopBij();
   let zichtbaar = 0;
 
   for (const kaart of kaarten) {
-    const treffer = past(kaart.kleuren, kleurStaat) && past(kaart.tags, tagStaat);
+    const treffer =
+      past(kaart.kleuren, kleurStaat) && past(kaart.tags, tagStaat) && past(kaart.maten, maatStaat);
     kaart.element.hidden = !treffer;
     if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
   }
@@ -842,7 +854,7 @@ function filter() {
     const aantal = sectie.kaarten.filter((k) => !k.element.hidden).length;
 
     sectie.element.hidden = !inWeergave || aantal === 0;
-    sectie.aantalEl.textContent = `${aantal} model${aantal === 1 ? '' : 'len'}`;
+    sectie.aantalEl.textContent = getal.format(aantal);
   }
 
   leegmelding.hidden = zichtbaar > 0;
@@ -851,7 +863,7 @@ function filter() {
 async function start() {
   const versie = document.querySelector('meta[name="catalogus-versie"]')?.content;
   const respons = await fetch(versie ? `catalog/catalog.json?v=${versie}` : 'catalog/catalog.json');
-  if (!respons.ok) throw new Error(`catalog/catalog.json niet gevonden (${respons.status})`);
+  if (!respons.ok) throw new Error(`catalog/catalog.json not found (${respons.status})`);
   const data = await respons.json();
 
   if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
@@ -865,8 +877,8 @@ async function start() {
   register.varianten = new Map((data.varianten ?? []).map((v) => [v.id, v.leden]));
 
   samenvatting.textContent =
-    `${data.totaal} modellen · ${data.kits.length} kits · ` +
-    `${data.groepen.filter((g) => g.aantal > 0).length} groepen`;
+    `${data.totaal} models · ${data.kits.length} kits · ` +
+    `${data.groepen.filter((g) => g.aantal > 0).length} groups`;
 
   variantHoofd = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
   catalogus = data;
@@ -875,22 +887,6 @@ async function start() {
 
   bouwKleurbalk(data.paletten ?? []);
   bouwTagbalk(data.tags ?? []);
-
-  const balken = document.querySelector('#balken');
-  const filterknop = document.querySelector('#filterknop');
-  const zetBalken = (open) => {
-    balken.hidden = !open;
-    filterknop.setAttribute('aria-expanded', String(open));
-    try {
-      localStorage.setItem(BALKEN_SLEUTEL, open ? 'open' : 'dicht');
-    } catch {}
-  };
-  let open = false;
-  try {
-    open = localStorage.getItem(BALKEN_SLEUTEL) === 'open';
-  } catch {}
-  zetBalken(open);
-  filterknop.addEventListener('click', () => zetBalken(balken.hidden));
 
   for (const knop of document.querySelectorAll('.schakelaar button')) {
     knop.addEventListener('click', () => {
@@ -943,6 +939,6 @@ async function start() {
 }
 
 start().catch((fout) => {
-  samenvatting.textContent = `Catalogus kon niet worden geladen: ${fout.message}`;
+  samenvatting.textContent = `Could not load the catalogue: ${fout.message}`;
   console.error(fout);
 });

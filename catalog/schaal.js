@@ -1,28 +1,12 @@
-// Schaalpagina: per familie alle modellen naast elkaar op één schaal, met meetlatten.
-//
-// De pagina laadt de .glb's zelf, dus wat je ziet is altijd wat er in kits/workfiles staat —
-// ook meteen na een herschaling. Families komen uit schaalgroepen.json, dat build-catalog.mjs
-// uit de catalogus afleidt.
-//
-// De indeling is dezelfde als in tools/vergelijk-groottes: rijen vullen tot ze vol zijn,
-// labels wijken per regel uit tot ze niet botsen, en de meetlat zakt mee met de familie.
-
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
-// Elke familie krijgt precies even veel units in beeld, zodat een vat in elke familie even
-// groot op het scherm staat. Een rij is RIJBREEDTE units breed; wat er niet meer bij past gaat
-// naar de volgende rij. Alleen de hoogte van het beeld verschilt dus nog per familie.
 const RIJBREEDTE = 5;
 const GAP = 0.35;
-const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelSchaal (twee regels plus lucht)
-const FONT_KIT = '600 44px system-ui, sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt
+const REGEL = 2.3;
+const FONT_KIT = '600 44px system-ui, sans-serif';
 const FONT_MODEL = '600 44px system-ui, sans-serif';
 
-// Eén gedeelde WebGL-context voor alle families. Een eigen renderer per familie loopt op een
-// telefoon tegen de limiet aan (browsers staan er maar een stuk of acht toe) en dan tekent de
-// rest niet meer. We renderen dus in één doek en kopiëren het resultaat naar het doek van de
-// familie, dat gewoon 2D is.
 let deler = null;
 function gedeeldeRenderer(breedte, hoogte) {
   if (!deler) {
@@ -33,8 +17,6 @@ function gedeeldeRenderer(breedte, hoogte) {
   return deler;
 }
 
-// Alles wat een familie op de GPU heeft staan weer vrijgeven; anders loopt het geheugen vol
-// als je door 39 families scrollt.
 function ruimOp(scene) {
   scene.traverse((obj) => {
     obj.geometry?.dispose();
@@ -48,7 +30,7 @@ function ruimOp(scene) {
 const loader = new GLTFLoader();
 const laad = (pad) => new Promise((res, rej) => loader.load(pad, res, undefined, rej));
 const meetCtx = document.createElement('canvas').getContext('2d');
-// Een label heeft twee regels: de kitnaam zacht boven, de modelnaam met de maat eronder.
+
 const tekstBreedte = ({ kit, model }) => {
   meetCtx.font = FONT_KIT;
   const a = kit ? meetCtx.measureText(kit).width : 0;
@@ -69,8 +51,6 @@ const kleuren = () => {
   };
 };
 
-// Meetlat van 1 unit in vier blokken rood/wit, aan beide kanten van elke rij. Altijd 1 unit,
-// ook bij een familie van platte props: dan is het beeld laag, maar de maatstaf is overal dezelfde.
 function meetlat() {
   const hoog = 1;
   const deel = hoog / 4;
@@ -94,8 +74,6 @@ function meetlat() {
   };
 }
 
-// Labels van één rij over zo min mogelijk regels: elk label zakt een regel als het
-// tegen zijn linkerbuur aan loopt.
 function labelRegels(rij, labelSchaal) {
   const rechts = [];
   for (const p of rij) {
@@ -129,8 +107,6 @@ function verdeel(stukken, labelSchaal, lat) {
   return rijen;
 }
 
-// Ruitjespapier achter de modellen: fijne lijnen om de 0,25 unit, zware om de hele unit.
-// De stap is overal dezelfde, dus je kunt in elke familie even goed een hoogte aflezen.
 function achtergrond(y, links, rechts, hoogte, fijn, zwaar) {
   const g = new THREE.Group();
   const top = Math.ceil(Math.max(hoogte, 1) * 4) / 4;
@@ -160,15 +136,15 @@ export async function tekenFamilie(groep, canvas, breedte) {
     try {
       gltf = await laad(`../${item.pad}`);
     } catch (fout) {
-      console.error('laden mislukt', item.pad, fout);
-      continue;  // een model dat niet laadt mag de rest van de familie niet ophouden
+      console.error('load failed', item.pad, fout);
+      continue;
     }
     const obj = gltf.scene;
     let doos = new THREE.Box3().setFromObject(obj);
     let maat = doos.getSize(new THREE.Vector3());
     const spil = new THREE.Group();
     spil.add(obj);
-    // Platte dingen (schappen, zeesterren) lees je van boven, niet van opzij.
+
     if (groep.bovenaanzicht) obj.rotation.x = -Math.PI / 2;
     else if (maat.z > maat.x * 1.4) obj.rotation.y = Math.PI / 2;
     doos = new THREE.Box3().setFromObject(spil);
@@ -180,13 +156,13 @@ export async function tekenFamilie(groep, canvas, breedte) {
       h: maat.y,
       kit: item.kit,
       tags: item.tags ?? [],
-      label: { kit: item.kit, model: `${item.model}  ${groep.bovenaanzicht ? 'd' : 'h'}=${maat.y.toFixed(2).replace('.', ',')}` },
+      label: { kit: item.kit, model: `${item.model}  ${groep.bovenaanzicht ? 'd' : 'h'}=${maat.y.toFixed(2)}` },
     });
   }
   if (!stukken.length) return null;
 
   const lat = meetlat();
-  const labelSchaal = RIJBREEDTE / 38;   // groter dan de 52 waarmee we begonnen: dit leest een stuk prettiger
+  const labelSchaal = RIJBREEDTE / 38;
   const rijen = verdeel(stukken, labelSchaal, lat);
 
   const basis = [];
@@ -195,7 +171,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   const label = (tekst, x, y, breed) => {
     const c = document.createElement('canvas');
     c.width = tekstBreedte(tekst);
-    c.height = tekst.kit ? 192 : 96;   // zonder kitnaam (de meetlat) is één regel genoeg
+    c.height = tekst.kit ? 192 : 96;
     const ctx = c.getContext('2d');
     ctx.textAlign = 'center';
     if (tekst.kit) {
@@ -216,7 +192,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   const latLinks = -GAP - lat.w / 2;
   const latRechts = RIJBREEDTE + GAP + lat.w / 2;
   let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
-  const vakken = [];   // wereldvak per stuk, om er later een kit mee uit te lichten
+  const vakken = [];
 
   rijen.forEach((r, i) => {
     const y = basis[i];
@@ -252,14 +228,12 @@ export async function tekenFamilie(groep, canvas, breedte) {
     }
   });
 
-  // Breedte ligt vast (dus de schaal ook); alleen de hoogte volgt de inhoud.
   const rand = Math.max(GAP, labelSchaal);
   const viewW = latRechts - latLinks + rand * 2;
   const viewH = yMax - yMin + rand * 2;
   xMin = latLinks - rand;
   xMax = latRechts + rand;
-  // Nooit uitrekken: loopt het beeld tegen de maximale hoogte aan, dan gaat de breedte mee omlaag
-  // zodat de verhouding klopt. Een doek van meer dan ~8000 px hoog weigeren telefoons sowieso.
+
   const MAX_H = 8000;
   let doekB = breedte;
   let hoogte = Math.round((breedte * viewH) / viewW);
@@ -279,7 +253,6 @@ export async function tekenFamilie(groep, canvas, breedte) {
   canvas.height = hoogte;
   canvas.getContext('2d').drawImage(renderer.domElement, 0, 0);
 
-  // Wereldvakken omrekenen naar pixels, zodat het uitlichten later alleen nog 2D-werk is.
   const naarPixel = (x, y) => {
     const v = new THREE.Vector3(x, y, 0).project(cam);
     return [((v.x + 1) / 2) * doekB, ((1 - v.y) / 2) * hoogte];
@@ -300,12 +273,10 @@ const paneel = document.getElementById('families');
 const inhoud = document.getElementById('inhoud');
 
 document.getElementById('samenvatting').textContent =
-  `${groepen.length} families, ${groepen.reduce((s, g) => s + g.items.length, 0)} modellen — allemaal op dezelfde schaal, met een meetlat aan weerszijden van elke rij.`;
+  `${groepen.length} families, ${groepen.reduce((s, g) => s + g.items.length, 0)} models — all at the same scale, with a ruler on both sides of every row.`;
 
 const BREEDTE = 1800;
 
-// Uitlichten: kies zoveel kits als je wilt, dan legt een sluier zich over al het andere heen.
-// De sluier is een tweede doek bovenop het render, dus omschakelen kost geen nieuw render.
 const uitgelicht = new Set();
 const uitgelichteTags = new Set();
 
@@ -327,7 +298,7 @@ function tekenSluier(sectie) {
   ctx.fillStyle = papier;
   ctx.globalAlpha = 0.78;
   ctx.fillRect(0, 0, laag.width, laag.height);
-  // Gaten knippen waar de gekozen kits staan.
+
   ctx.globalAlpha = 1;
   ctx.globalCompositeOperation = 'destination-out';
   const marge = laag.width * 0.004;
@@ -351,10 +322,10 @@ function ververs() {
   wisKnop.hidden = !ietsGekozen();
   const gekozen = [...uitgelicht, ...[...uitgelichteTags].map((t) => tagNamen.get(t) ?? t)];
   telling.textContent = gekozen.length === 0
-    ? 'Kies één of meer kits of tags om ze eruit te lichten.'
+    ? 'Pick one or more kits or tags to highlight them.'
     : gekozen.length <= 3
       ? `${gekozen.slice(0, -1).join(', ')}${gekozen.length > 1 ? ' en ' : ''}${gekozen.at(-1)} uitgelicht`
-      : `${gekozen.length} keuzes uitgelicht`;
+      : `${gekozen.length} choices highlighted`;
 }
 
 const kitBalk = document.getElementById('kits');
@@ -383,7 +354,7 @@ for (const groep of groepen) {
     for (const tag of item.tags ?? []) tagsInBeeld.set(tag, (tagsInBeeld.get(tag) ?? 0) + 1);
   }
 }
-// Namen en volgorde uit de catalogus, zodat schaal en catalogus dezelfde etiketten tonen.
+
 const tagLijst = await (await fetch(`catalog.json?v=${versie}`))
   .json()
   .then((d) => d.tags ?? [])
@@ -421,7 +392,7 @@ for (const groep of groepen) {
   const hoogtes = groep.items.map((i) => i.hoogte);
   sectie.innerHTML = `
     <h2>${groep.naam}</h2>
-    <p class="familie-meta">${groep.items.length} modellen · ${Math.min(...hoogtes).toFixed(2).replace('.', ',')} – ${Math.max(...hoogtes).toFixed(2).replace('.', ',')} hoog</p>
+    <p class="familie-meta">${groep.items.length} models · ${Math.min(...hoogtes).toFixed(2)} – ${Math.max(...hoogtes).toFixed(2)} hoog</p>
     <div class="familie-doek"><canvas width="${BREEDTE}" height="400"></canvas><canvas class="sluier" width="${BREEDTE}" height="400"></canvas></div>`;
   inhoud.appendChild(sectie);
 
@@ -431,7 +402,6 @@ for (const groep of groepen) {
   paneel.appendChild(link);
 }
 
-// Pas tekenen als een familie in beeld komt: honderden modellen tegelijk laden is zonde.
 const wachtrij = new IntersectionObserver((ingangen) => {
   for (const ingang of ingangen) {
     if (!ingang.isIntersecting) continue;
@@ -451,7 +421,7 @@ const wachtrij = new IntersectionObserver((ingangen) => {
         tekenSluier(sectie);
       })
       .catch((fout) => {
-        console.error('familie mislukt', sectie.id, fout);
+        console.error('family failed', sectie.id, fout);
         sectie.classList.remove('bezig');
         sectie.classList.add('mislukt');
       });

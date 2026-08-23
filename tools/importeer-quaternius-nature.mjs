@@ -1,10 +1,3 @@
-// Laadt 60 modellen uit "Ultimate Nature Pack" in als kits/workfiles/quaternius-nature.
-//
-// Aanroepen met het pad naar de uitgepakte pack:
-//   node tools/importeer-quaternius-nature.mjs <pack>/OBJ
-//
-// Wat er gebeurt en waarom staat in kits/workfiles/quaternius-nature/LICENSE.txt.
-
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [

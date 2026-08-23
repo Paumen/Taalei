@@ -1,14 +1,3 @@
-// De gedeelde colormap als doel: zoekt bij een bronkleur de dichtstbijzijnde kleur
-// die al op kits/colormap.png staat, en geeft de UV van die pixel terug.
-//
-// Er wordt per pixel gezocht, niet per cel. De cellen van de sheet zijn zelf
-// verlopen (van donker naar licht), dus een bron met ingebakken schaduw landt
-// vanzelf op de donkere kant van dezelfde baan en houdt zijn schaduw. Zwarte
-// pixels zijn de lege cellen van de sheet en doen niet mee.
-//
-// Vergeleken wordt in Oklab: gelijke afstand daar betekent ongeveer gelijk
-// zichtbaar verschil, wat in rauwe RGB niet opgaat.
-
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesPng } from '../../catalog/tools/png.mjs';
@@ -37,7 +26,6 @@ export function naarOklab(r, g, b) {
 
 export const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
-// Afstand in Oklab, geschaald naar 0-100 zodat de getallen leesbaar blijven.
 export function afstand(a, b) {
   return Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) * 100;
 }
@@ -66,8 +54,6 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
   const kandidaten = [...perKleur.values()];
   if (kandidaten.length === 0) throw new Error(`${pad}: geen enkele kleur, alleen zwart`);
 
-  // Het gemiddelde niveau van de sheet, waar de belichting van een pack naartoe
-  // wordt gerekend (zie bouw.mjs).
   let somLicht = 0;
   let tellerLicht = 0;
   for (let y = 0; y < hoogte; y++) {
@@ -106,8 +92,6 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
 
 const texturen = new Map();
 
-// Eén texel uitlezen, zonder filteren: een atlas met kleurbanen mag je niet
-// interpoleren, dan meng je twee banen tot een kleur die er niet is.
 export function laadTextuur(pad, { vOmlaag = true } = {}) {
   if (!texturen.has(pad)) {
     const png = leesPng(pad);

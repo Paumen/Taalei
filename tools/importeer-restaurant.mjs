@@ -1,10 +1,3 @@
-// Laadt 24 modellen uit "KayKit Restaurant Bits" in als kits/workfiles/restaurant.
-//
-// Aanroepen met het pad naar de uitgepakte pack:
-//   node tools/importeer-restaurant.mjs <pack>/Assets/gltf
-//
-// Wat er gebeurt en waarom staat in kits/workfiles/restaurant/LICENSE.txt.
-
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [

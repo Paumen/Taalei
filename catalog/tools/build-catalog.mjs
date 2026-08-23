@@ -1,4 +1,3 @@
-
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -148,10 +147,10 @@ function kleurNaam(hex) {
   const verzadiging = delta === 0 ? 0 : delta / (1 - Math.abs(2 * licht - 1));
 
   if (verzadiging < 0.18) {
-    if (licht > 0.8) return 'wit';
-    if (licht > 0.45) return 'lichtgrijs';
-    if (licht > 0.25) return 'grijs';
-    return 'donkergrijs';
+    if (licht > 0.8) return 'white';
+    if (licht > 0.45) return 'light grey';
+    if (licht > 0.25) return 'grey';
+    return 'dark grey';
   }
 
   let tint = 0;
@@ -161,18 +160,18 @@ function kleurNaam(hex) {
   tint = (tint * 60 + 360) % 360;
 
   const basis =
-    tint < 15 || tint >= 345 ? 'rood'
-    : tint < 40 ? (licht < 0.45 ? 'bruin' : 'oranje')
-    : tint < 50 ? (licht < 0.5 ? 'bruin' : 'oranje')
-    : tint < 70 ? 'geel'
-    : tint < 165 ? 'groen'
+    tint < 15 || tint >= 345 ? 'red'
+    : tint < 40 ? (licht < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (licht < 0.5 ? 'brown' : 'orange')
+    : tint < 70 ? 'yellow'
+    : tint < 165 ? 'green'
     : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blauw'
-    : tint < 300 ? 'paars'
-    : 'roze';
+    : tint < 260 ? 'blue'
+    : tint < 300 ? 'purple'
+    : 'pink';
 
-  if (licht < 0.3) return `donker${basis}`;
-  if (licht > 0.75) return `licht${basis}`;
+  if (licht < 0.3) return `dark ${basis}`;
+  if (licht > 0.75) return `light ${basis}`;
   return basis;
 }
 
@@ -280,8 +279,6 @@ for (const slug of kitSlugs) {
 
 const SOORTEN = ['materiaal', 'tag', 'bron'];
 
-// Wie de kit gemaakt heeft. Staat in de LICENSE.txt van elke kitmap; hier als lijst,
-// zodat een nieuwe kit van dezelfde maker alleen op de goede regel hoeft.
 const BRONNEN = [
   {
     id: 'kenney',
@@ -308,7 +305,6 @@ const BRONNEN = [
   },
 ];
 
-// Deze volgen uit de modellen zelf en staan daarom niet in tags.json.
 const AFGELEID = [
   ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
     id,
@@ -449,10 +445,10 @@ for (const [sleutel, palet] of paletten) {
   const kits = [...palet.kits].sort();
   const gedeeld = kits.length > 1;
   palet.id = gedeeld ? 'gedeeld' : kits[0];
-  palet.naam = gedeeld ? 'Gedeelde kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
+  palet.naam = gedeeld ? 'Shared kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
   palet.toelichting = palet.atlas
     ? null
-    : 'Geen colormap: elk materiaal van deze kit draagt zijn eigen basiskleur.';
+    : 'No colormap: every material in this kit carries its own base colour.';
   palet.atlasPad = !palet.atlas
     ? null
     : sleutel === gedeeldeSleutel
