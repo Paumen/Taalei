@@ -12,9 +12,16 @@
 // eigen plek binnen die baan — een verloop over een vlak blijft dus een verloop.
 //
 // Levert een pack geen kleurenvel maar een geschilderde textuur (de trimsheets
-// van Fantasy Props, de losse materiaaltexturen van Natuur), dan valt er geen
-// baan over te nemen: er is er geen. Die gaan buiten dit bestand om op de
-// dichtstbijzijnde kleur van de sheet (zie bouw.mjs).
+// van Fantasy Props, de losse materiaaltexturen van Natuur) of alleen vlakke
+// materiaalkleuren (Quaternius), dan is er geen bronbaan om over te nemen. Daar
+// wordt de baan gekozen op kleurtoon en verzadiging alléén, en bepaalt de
+// lichtheid pas waar in die baan de kleur terechtkomt (zie kleurNaarBaan).
+//
+// Dat is nadrukkelijk iets anders dan de dichtstbijzijnde kleur zoeken. Een
+// paddenstoelhoed loopt van licht naar donker rood; zoek je per driehoek de
+// dichtstbijzijnde kleur, dan gaat de lichte kant naar een lichte baan en de
+// donkere kant naar een donkere, en spat het vlak uiteen in vlekken. Op toon
+// kiezen houdt de hele hoed op de rode baan, met het verloop erin.
 
 import { leesPng } from '../../catalog/tools/png.mjs';
 import { naarOklab, afstand, GEDEELDE_COLORMAP } from './palet.mjs';
@@ -50,6 +57,74 @@ function kiesDoel(ramp) {
     if (!beste || score < beste.score) beste = { baan, score, omgekeerd };
   }
   return beste;
+}
+
+// De kleur van een baan (het a/b-vlak van Oklab) en het bereik van zijn
+// verloop, uit het midden van dat verloop.
+function kenmerk(baan) {
+  if (!baan.kenmerk) {
+    const midden = baan.ramp.reduce(
+      (som, lab) => [som[0] + lab[0] / baan.ramp.length, som[1] + lab[1] / baan.ramp.length, som[2] + lab[2] / baan.ramp.length],
+      [0, 0, 0],
+    );
+    const lichtheden = baan.ramp.map((lab) => lab[0]);
+    baan.kenmerk = {
+      a: midden[1],
+      b: midden[2],
+      laag: Math.min(...lichtheden),
+      hoog: Math.max(...lichtheden),
+    };
+  }
+  return baan.kenmerk;
+}
+
+// De baan die qua kleur bij een losse kleur hoort, plus de plek in het verloop
+// die bij zijn lichtheid past. Lichtheid speelt met opzet geen rol bij het
+// kiezen van de baan: anders springt hetzelfde oppervlak van baan zodra het wat
+// donkerder wordt.
+export function kiesBaan(rgb, bereik = null) {
+  const lab = naarOklab(...rgb);
+
+  let beste = null;
+  for (const baan of doelBanen().banen) {
+    const k = kenmerk(baan);
+    // Gekozen wordt op kleur alléén: de afstand tussen de twee in het a/b-vlak
+    // van Oklab, waar toon en verzadiging samen in zitten en lichtheid niet.
+    // Dat laatste is de kern — een baan kiezen op lichtheid laat hetzelfde
+    // oppervlak van baan springen zodra het wat donkerder wordt, en dat zijn de
+    // vlekken. Toon en verzadiging tegen elkaar afwegen hoeft hier niet: in dit
+    // vlak is crème vanzelf ver van knalgeel en dicht bij gebroken wit.
+    const kleurAfstand = Math.hypot(lab[1] - k.a, lab[2] - k.b);
+
+    // Lichtheid telt licht mee, als het erop aankomt. Reikt het verloop van een
+    // baan niet tot wat dit oppervlak nodig heeft, dan klemt de kleur tegen het
+    // uiteinde van die baan; dat is jammer, maar een verkeerde kleur is erger.
+    // Het tekort geldt voor het hele oppervlak en niet voor één kleur: een baan
+    // die de lichte kant van een bast wel aankan maar de donkere niet, deugt
+    // niet voor die bast.
+    const laagste = bereik ? bereik[0] : lab[0];
+    const hoogste = bereik ? bereik[1] : lab[0];
+    const tekort = Math.max(0, k.laag - laagste, hoogste - k.hoog);
+    const kosten = kleurAfstand * 100 + tekort * 12;
+    if (!beste || kosten < beste.kosten) beste = { baan, kosten };
+  }
+  return beste.baan;
+}
+
+// De plek in een baan die bij een lichtheid past. Gezocht in plaats van
+// berekend: dan maakt het niet uit of de baan van licht naar donker loopt of
+// andersom.
+export function plaatsInBaan(baan, rgb) {
+  const lab = naarOklab(...rgb);
+  const { ramp } = baan;
+  let index = 0;
+  for (let i = 1; i < ramp.length; i++) {
+    if (Math.abs(ramp[i][0] - lab[0]) < Math.abs(ramp[index][0] - lab[0])) index = i;
+  }
+  return {
+    afstand: afstand(lab, ramp[index]),
+    uv: uvInBaan(baan, 0.5, (index + 0.5) / ramp.length, false),
+  };
 }
 
 function uvInBaan(baan, uDeel, vDeel, omgekeerd) {

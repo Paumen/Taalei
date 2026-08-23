@@ -12,7 +12,8 @@ import { writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { schrijfGlb } from '../../catalog/tools/glb.mjs';
 import { laadPalet, laadTextuur, GEDEELDE_COLORMAP, hex } from './palet.mjs';
-import { baanVanTextuur, rasterUvs } from './kleurkaart.mjs';
+import { baanVanTextuur, rasterUvs, kiesBaan, plaatsInBaan } from './kleurkaart.mjs';
+import { naarOklab } from './palet.mjs';
 
 const naarLineair = (kanaal) => {
   const v = kanaal / 255;
@@ -70,6 +71,88 @@ function gemiddeldeKleur(textuurBron, hoekUvs, hoekkleuren, winst = 1) {
   return som.map((waarde) => vanLineair((waarde / gewicht) * schaal));
 }
 
+// Welke banen een primitief gebruikt. Niet per driehoek beslist maar per
+// oppervlak: de gemiddelde kleuren van alle driehoeken worden eerst gegroepeerd
+// op kleurtoon en verzadiging, en pas per groep wordt één baan gekozen.
+//
+// Per driehoek beslissen gaat mis waar twee banen ongeveer even ver weg liggen —
+// bij bruin bark scheelt het weinig of je op de bruine of op de donkergrijze
+// baan uitkomt, en dan springt de ene driehoek naar de ene en zijn buurman naar
+// de andere. Dat zijn de vlekken. Op groepsniveau kan dat niet: de hele bast
+// hoort bij één groep en gaat dus in zijn geheel naar één baan, met het verloop
+// erin.
+const GROEPSTRAAL = 0.035;
+
+function groepeerOpKleur(kleuren) {
+  const groepen = [];
+
+  for (const rgb of kleuren) {
+    const lab = naarOklab(...rgb);
+    let thuis = null;
+    let dichtst = Infinity;
+    for (const groep of groepen) {
+      const d = Math.hypot(lab[1] - groep.a / groep.aantal, lab[2] - groep.b / groep.aantal);
+      if (d < dichtst) {
+        dichtst = d;
+        thuis = groep;
+      }
+    }
+    if (thuis && dichtst <= GROEPSTRAAL) {
+      thuis.a += lab[1];
+      thuis.b += lab[2];
+      thuis.laag = Math.min(thuis.laag, lab[0]);
+      thuis.hoog = Math.max(thuis.hoog, lab[0]);
+      thuis.aantal++;
+      thuis.leden.push(rgb);
+    } else {
+      groepen.push({ a: lab[1], b: lab[2], laag: lab[0], hoog: lab[0], aantal: 1, leden: [rgb] });
+    }
+  }
+
+  // Elke groep krijgt één baan, gekozen op de gemiddelde kleur van de groep.
+  const kaart = new Map();
+  for (const groep of groepen) {
+    const midden = groep.leden
+      .reduce((som, rgb) => [som[0] + rgb[0], som[1] + rgb[1], som[2] + rgb[2]], [0, 0, 0])
+      .map((waarde) => Math.round(waarde / groep.leden.length));
+    const baan = kiesBaan(midden, [groep.laag, groep.hoog]);
+    for (const rgb of groep.leden) kaart.set(rgb.join(','), baan);
+  }
+  return kaart;
+}
+
+// De gemiddelde kleur van elke driehoek van een primitief, in volgorde.
+function driehoekKleuren(primitief, vOmlaag, winst) {
+  const { textuur, kleur } = primitief.materiaal;
+  const uit = [];
+
+  if (!textuur || !primitief.uvs) {
+    const vast = (kleur ?? [255, 255, 255]).map(Math.round);
+    for (let d = 0; d + 2 < primitief.indices.length; d += 3) uit.push(vast);
+    return uit;
+  }
+
+  const bron = laadTextuur(textuur, { vOmlaag });
+  for (let d = 0; d + 2 < primitief.indices.length; d += 3) {
+    const hoek = [primitief.indices[d], primitief.indices[d + 1], primitief.indices[d + 2]];
+    uit.push(
+      gemiddeldeKleur(
+        bron,
+        hoek.map((i) => [primitief.uvs[i * 2], primitief.uvs[i * 2 + 1]]),
+        primitief.hoekkleuren
+          ? hoek.map((i) => [
+              primitief.hoekkleuren[i * 3],
+              primitief.hoekkleuren[i * 3 + 1],
+              primitief.hoekkleuren[i * 3 + 2],
+            ])
+          : null,
+        winst,
+      ),
+    );
+  }
+  return uit;
+}
+
 // Hoe licht een pack gemiddeld is. Een pack die zijn kleur uit hoekpuntkleuren
 // haalt en de textuur alleen als tekening gebruikt, staat vaak veel donkerder
 // dan de gedeelde sheet: die trimsheets zijn middengrijs geschilderd en worden
@@ -113,7 +196,7 @@ export function meetBelichting(primitieven, vOmlaag) {
 // De drie doel-UV's van één driehoek. Welke weg dat gaat, hangt af van wat de
 // pack levert: een kleurenvel met banen, een geschilderde textuur, of alleen
 // een vlakke materiaalkleur.
-function kleurVanDriehoek(primitief, hoek, vOmlaag, palet, winst, meld) {
+function kleurVanDriehoek(primitief, hoek, vOmlaag, winst, kleurVoorDriehoek, baanVoorDriehoek, meld) {
   const { textuur, kleur } = primitief.materiaal;
 
   if (textuur && primitief.uvs) {
@@ -140,22 +223,14 @@ function kleurVanDriehoek(primitief, hoek, vOmlaag, palet, winst, meld) {
       // om over te nemen; dan telt alleen zijn gemiddelde kleur.
     }
 
-    // Een geschilderde textuur heeft geen banen om over te nemen: daar telt de
-    // gemiddelde kleur van de driehoek en de kleur van de sheet die daar het
-    // dichtst bij ligt. Middelen is hier wél nodig — per hoekpunt kiezen pikt
-    // drie tinten uit de nerf van hetzelfde plankje en levert ruis op.
-    const gemiddeld = gemiddeldeKleur(laadTextuur(textuur, { vOmlaag }), hoekUvs, hoekkleuren, winst);
-    const gevonden = palet.zoek(...gemiddeld);
-    meld(gevonden.afstand, { bron: hex(...gemiddeld), doel: gevonden.hex });
-    return [[gevonden.u, gevonden.v], [gevonden.u, gevonden.v], [gevonden.u, gevonden.v]];
   }
 
-  // Een vlakke materiaalkleur is één kleur zonder verloop: er valt niets uit
-  // elkaar te trekken, dus de dichtstbijzijnde kleur van de sheet volstaat.
-  const vast = kleur ?? [255, 255, 255];
-  const gevonden = palet.zoek(...vast);
-  meld(gevonden.afstand, { bron: hex(...vast), doel: gevonden.hex });
-  return [[gevonden.u, gevonden.v], [gevonden.u, gevonden.v], [gevonden.u, gevonden.v]];
+  // Geen bronbaan om over te nemen: de baan is per oppervlak al gekozen
+  // (groepeerOpKleur), en de lichtheid van deze driehoek bepaalt waar hij daar
+  // in komt.
+  const gevonden = plaatsInBaan(baanVoorDriehoek, kleurVoorDriehoek);
+  meld(gevonden.afstand, { bron: hex(...kleurVoorDriehoek), doel: baanVoorDriehoek.id });
+  return [gevonden.uv, gevonden.uv, gevonden.uv];
 }
 
 export function bouwGlb({
@@ -180,7 +255,13 @@ export function bouwGlb({
   let ergsteKleur = null;
 
   for (const primitief of primitieven) {
+    // Eerst het hele primitief: welke kleur heeft elke driehoek, en welke baan
+    // hoort bij de groep waar die kleur in valt.
+    const kleuren = driehoekKleuren(primitief, vOmlaag, winst);
+    const banen = groepeerOpKleur(kleuren);
+
     for (let d = 0; d + 2 < primitief.indices.length; d += 3) {
+      const kleurVanDitVlak = kleuren[d / 3];
       const hoek = [primitief.indices[d], primitief.indices[d + 1], primitief.indices[d + 2]];
       const punten = hoek.map((i) => [
         primitief.posities[i * 3], primitief.posities[i * 3 + 1], primitief.posities[i * 3 + 2],
@@ -196,13 +277,21 @@ export function bouwGlb({
         vlak = n.map((k) => k / lengte);
       }
 
-      const doelUvs = kleurVanDriehoek(primitief, hoek, vOmlaag, palet, winst, (afstandVanBaan, beschrijving) => {
-        if (afstandVanBaan > ergsteAfstand) {
-          ergsteAfstand = afstandVanBaan;
-          ergsteKleur = beschrijving;
-        }
-        gebruikt.set(beschrijving.doel, (gebruikt.get(beschrijving.doel) ?? 0) + 1);
-      });
+      const doelUvs = kleurVanDriehoek(
+        primitief,
+        hoek,
+        vOmlaag,
+        winst,
+        kleurVanDitVlak,
+        banen.get(kleurVanDitVlak.join(',')),
+        (afstandVanBaan, beschrijving) => {
+          if (afstandVanBaan > ergsteAfstand) {
+            ergsteAfstand = afstandVanBaan;
+            ergsteKleur = beschrijving;
+          }
+          gebruikt.set(beschrijving.doel, (gebruikt.get(beschrijving.doel) ?? 0) + 1);
+        },
+      );
 
       hoek.forEach((i, k) => {
 
