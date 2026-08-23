@@ -3,7 +3,8 @@
 // Beide leveren dezelfde vorm op — een lijst primitieven met wereldcoördinaten in
 // de eenheden van de pack zelf, plus per primitief waar zijn kleur vandaan komt:
 //
-//   { naam, posities, normalen, uvs, indices, materiaal: { textuur, kleur } }
+//   { naam, posities, normalen, uvs, hoekkleuren, indices,
+//     materiaal: { textuur, kleur } }
 //
 // `textuur` is een absoluut pad naar een PNG (kleur komt uit de UV's), `kleur` is
 // een vaste [r, g, b] in sRGB 0-255 (kleur komt uit het materiaal zelf). Precies
@@ -144,6 +145,25 @@ export function leesGltf(pad) {
         uvs = leesAccessor(glb, prim.attributes.TEXCOORD_0).data;
       }
 
+      // Hoekpuntkleuren. Fantasy Props gebruikt ze: één grijze trimsheet met de
+      // tekening erin, en de kleur komt per hoekpunt uit COLOR_0 — vandaar
+      // materiaalnamen als MI_Trim_Props_Vertex. Lees je ze niet, dan wordt elk
+      // boek, elke vaas en elk drankje grijs. Ze staan in lineair licht en
+      // worden met de textuur vermenigvuldigd, zoals glTF voorschrijft.
+      let hoekkleuren = null;
+      if (prim.attributes.COLOR_0 !== undefined) {
+        const accessor = json.accessors[prim.attributes.COLOR_0];
+        const bron = leesAccessor(glb, prim.attributes.COLOR_0);
+        const deler =
+          accessor.componentType === 5121 ? 255
+          : accessor.componentType === 5123 ? 65535
+          : 1;
+        hoekkleuren = new Float64Array(bron.count * 3);
+        for (let i = 0; i < bron.count; i++) {
+          for (let k = 0; k < 3; k++) hoekkleuren[i * 3 + k] = bron.data[i * bron.breedte + k] / deler;
+        }
+      }
+
       let indices;
       if (prim.indices !== undefined) {
         const bron = leesAccessor(glb, prim.indices);
@@ -157,6 +177,7 @@ export function leesGltf(pad) {
         posities,
         normalen,
         uvs,
+        hoekkleuren,
         indices,
         materiaal: materiaalUitGltf(json, prim.material, dir),
       });
@@ -253,6 +274,7 @@ export function leesObj(pad) {
       posities,
       normalen: heeftNormalen ? normalen : null,
       uvs: heeftUvs ? uvs : null,
+      hoekkleuren: null,
       indices: Uint32Array.from({ length: aantal }, (_, i) => i),
       materiaal: materialen.get(naam) ?? { textuur: null, kleur: [255, 255, 255] },
     });

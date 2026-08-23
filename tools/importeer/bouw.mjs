@@ -12,6 +12,7 @@ import { writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { schrijfGlb } from '../../catalog/tools/glb.mjs';
 import { laadPalet, laadTextuur, GEDEELDE_COLORMAP, hex } from './palet.mjs';
+import { baanVanTextuur, rasterUvs } from './kleurkaart.mjs';
 
 const naarLineair = (kanaal) => {
   const v = kanaal / 255;
@@ -25,42 +26,136 @@ const vanLineair = (lineair) => {
 
 const afronden = (waarde, decimalen = 4) => Number(waarde.toFixed(decimalen));
 
-// Zeven punten binnen de driehoek, in barycentrische coördinaten: de drie
-// hoeken tellen half mee, het midden en de drie zwaartepunten vol.
+// Zeven punten binnen de driehoek, in barycentrische coördinaten. Geen van de
+// zeven ligt op een hoekpunt: ze zijn allemaal een stukje naar het midden
+// getrokken. Precies op de hoek bemonsteren gaat mis bij een textuur waar maar
+// een klein eilandje van in gebruik is — de bloemen van Natuur staan op een vel
+// dat verder zwart is, en een monster dat net naast het eilandje valt mengt dat
+// zwart mee. Dan wordt een witte madelief grijs.
+const RAND = 0.08;
 const MONSTERS = [
-  [1, 0, 0, 0.5], [0, 1, 0, 0.5], [0, 0, 1, 0.5],
+  [1 - 2 * RAND, RAND, RAND, 0.5],
+  [RAND, 1 - 2 * RAND, RAND, 0.5],
+  [RAND, RAND, 1 - 2 * RAND, 0.5],
   [2 / 3, 1 / 6, 1 / 6, 1], [1 / 6, 2 / 3, 1 / 6, 1], [1 / 6, 1 / 6, 2 / 3, 1],
   [1 / 3, 1 / 3, 1 / 3, 1],
 ];
 
-// Eén kleur per driehoek, gemiddeld over zijn stukje textuur — niet één kleur
-// per hoekpunt. Een pack met echte materiaaltekening (nerf in het hout, roest
-// op het metaal) heeft binnen één vlak tientallen tinten; per hoekpunt kiezen
-// pikt daar drie willekeurige uit en levert ruis op. Het gemiddelde houdt wat
-// er wél overdraagbaar is: het verschil in licht en donker tussen de vlakken
-// onderling, en dus de ingebakken schaduw. Vlak voor vlak één kleur is
-// bovendien wat de stijlgids vraagt.
-function kleurVanDriehoek(primitief, hoek, vOmlaag) {
-  const { textuur, kleur } = primitief.materiaal;
-  if (!textuur || !primitief.uvs) return kleur ?? [255, 255, 255];
-
-  const textuurBron = laadTextuur(textuur, { vOmlaag });
+// Voor een geschilderde textuur: één gemiddelde kleur per driehoek. Per
+// hoekpunt kiezen zou binnen één plankje drie tinten uit de nerf pikken en dus
+// ruis opleveren; het gemiddelde houdt het verschil tussen de vlakken.
+function gemiddeldeKleur(textuurBron, hoekUvs, hoekkleuren, winst = 1) {
   const som = [0, 0, 0];
   let gewicht = 0;
-
   for (const [a, b, c, weeg] of MONSTERS) {
-    const u = a * primitief.uvs[hoek[0] * 2] + b * primitief.uvs[hoek[1] * 2] + c * primitief.uvs[hoek[2] * 2];
-    const v =
-      a * primitief.uvs[hoek[0] * 2 + 1] +
-      b * primitief.uvs[hoek[1] * 2 + 1] +
-      c * primitief.uvs[hoek[2] * 2 + 1];
+    const u = a * hoekUvs[0][0] + b * hoekUvs[1][0] + c * hoekUvs[2][0];
+    const v = a * hoekUvs[0][1] + b * hoekUvs[1][1] + c * hoekUvs[2][1];
     const monster = textuurBron.monster(u, v);
-    // Middelen gebeurt in lineair licht; in sRGB middelen maakt het te donker.
-    for (let k = 0; k < 3; k++) som[k] += weeg * naarLineair(monster[k]);
+    for (let k = 0; k < 3; k++) {
+      if (!hoekkleuren) {
+        som[k] += weeg * naarLineair(monster[k]);
+        continue;
+      }
+      // De hoekpuntkleur staat al in lineair licht en vermenigvuldigt de
+      // textuur, zoals glTF voorschrijft.
+      const tint = a * hoekkleuren[0][k] + b * hoekkleuren[1][k] + c * hoekkleuren[2][k];
+      som[k] += weeg * tint * naarLineair(monster[k]);
+    }
     gewicht += weeg;
   }
+  // De winst geldt alleen waar de kleur uit hoekpuntkleuren komt: daar is het
+  // niveau van de textuur willekeurig. Een textuur die de kleur zelf draagt
+  // staat al goed en wordt niet aangeraakt.
+  const schaal = hoekkleuren ? winst : 1;
+  return som.map((waarde) => vanLineair((waarde / gewicht) * schaal));
+}
 
-  return som.map((waarde) => vanLineair(waarde / gewicht));
+// Hoe licht een pack gemiddeld is. Een pack die zijn kleur uit hoekpuntkleuren
+// haalt en de textuur alleen als tekening gebruikt, staat vaak veel donkerder
+// dan de gedeelde sheet: die trimsheets zijn middengrijs geschilderd en worden
+// pas onder de belichting van de maker het bedoelde hout. Wordt dat niet
+// rechtgetrokken, dan landt een eiken vat op de donkerste baan die er is en
+// blijft er van het verschil tussen de vaten niets over.
+//
+// Eén winst voor de hele pack, net zoals er één schaal voor de hele pack is:
+// de onderlinge verhoudingen van de pack blijven, alleen het niveau schuift.
+export function meetBelichting(primitieven, vOmlaag) {
+  let som = 0;
+  let aantal = 0;
+
+  for (const primitief of primitieven) {
+    const { textuur } = primitief.materiaal;
+    if (!textuur || !primitief.uvs || !primitief.hoekkleuren) continue;
+    const bron = laadTextuur(textuur, { vOmlaag });
+    const hoekkleuren = primitief.hoekkleuren;
+
+    for (let d = 0; d + 2 < primitief.indices.length; d += 3) {
+      const hoek = [primitief.indices[d], primitief.indices[d + 1], primitief.indices[d + 2]];
+      const rgb = gemiddeldeKleur(
+        bron,
+        hoek.map((i) => [primitief.uvs[i * 2], primitief.uvs[i * 2 + 1]]),
+        hoekkleuren
+          ? hoek.map((i) => [
+              primitief.hoekkleuren[i * 3],
+              primitief.hoekkleuren[i * 3 + 1],
+              primitief.hoekkleuren[i * 3 + 2],
+            ])
+          : null,
+      );
+      som += (naarLineair(rgb[0]) + naarLineair(rgb[1]) + naarLineair(rgb[2])) / 3;
+      aantal++;
+    }
+  }
+
+  return { som, aantal };
+}
+
+// De drie doel-UV's van één driehoek. Welke weg dat gaat, hangt af van wat de
+// pack levert: een kleurenvel met banen, een geschilderde textuur, of alleen
+// een vlakke materiaalkleur.
+function kleurVanDriehoek(primitief, hoek, vOmlaag, palet, winst, meld) {
+  const { textuur, kleur } = primitief.materiaal;
+
+  if (textuur && primitief.uvs) {
+    const hoekUvs = hoek.map((i) => [primitief.uvs[i * 2], primitief.uvs[i * 2 + 1]]);
+    const hoekkleuren = primitief.hoekkleuren
+      ? hoek.map((i) => [
+          primitief.hoekkleuren[i * 3],
+          primitief.hoekkleuren[i * 3 + 1],
+          primitief.hoekkleuren[i * 3 + 2],
+        ])
+      : null;
+    const bron = baanVanTextuur(textuur);
+
+    // Een baan overnemen kan alleen als de textuur de kleur bepaalt. Kleurt de
+    // pack per hoekpunt bij, dan zegt de plek in de bronbaan niets meer over de
+    // kleur die er uitkomt, en telt alleen het resultaat.
+    if (bron.soort === 'raster' && !hoekkleuren) {
+      const uitkomst = rasterUvs(bron, hoekUvs);
+      if (uitkomst) {
+        meld(uitkomst.keuze.score, { bron: uitkomst.baan.id, doel: uitkomst.keuze.baan.id });
+        return uitkomst.uvs;
+      }
+      // Valt de driehoek op een lege cel van het bronvel, dan is er geen baan
+      // om over te nemen; dan telt alleen zijn gemiddelde kleur.
+    }
+
+    // Een geschilderde textuur heeft geen banen om over te nemen: daar telt de
+    // gemiddelde kleur van de driehoek en de kleur van de sheet die daar het
+    // dichtst bij ligt. Middelen is hier wél nodig — per hoekpunt kiezen pikt
+    // drie tinten uit de nerf van hetzelfde plankje en levert ruis op.
+    const gemiddeld = gemiddeldeKleur(laadTextuur(textuur, { vOmlaag }), hoekUvs, hoekkleuren, winst);
+    const gevonden = palet.zoek(...gemiddeld);
+    meld(gevonden.afstand, { bron: hex(...gemiddeld), doel: gevonden.hex });
+    return [[gevonden.u, gevonden.v], [gevonden.u, gevonden.v], [gevonden.u, gevonden.v]];
+  }
+
+  // Een vlakke materiaalkleur is één kleur zonder verloop: er valt niets uit
+  // elkaar te trekken, dus de dichtstbijzijnde kleur van de sheet volstaat.
+  const vast = kleur ?? [255, 255, 255];
+  const gevonden = palet.zoek(...vast);
+  meld(gevonden.afstand, { bron: hex(...vast), doel: gevonden.hex });
+  return [[gevonden.u, gevonden.v], [gevonden.u, gevonden.v], [gevonden.u, gevonden.v]];
 }
 
 export function bouwGlb({
@@ -72,6 +167,7 @@ export function bouwGlb({
   schaal = 1,
   oorsprong = 'gecentreerd',
   vOmlaag = true,
+  winst = 1,
   palet = laadPalet(),
 }) {
   const posities = [];
@@ -100,13 +196,13 @@ export function bouwGlb({
         vlak = n.map((k) => k / lengte);
       }
 
-      const [r, g, b] = kleurVanDriehoek(primitief, hoek, vOmlaag);
-      const gevonden = palet.zoek(r, g, b);
-      if (gevonden.afstand > ergsteAfstand) {
-        ergsteAfstand = gevonden.afstand;
-        ergsteKleur = { bron: hex(r, g, b), doel: gevonden.hex };
-      }
-      gebruikt.set(gevonden.hex, (gebruikt.get(gevonden.hex) ?? 0) + 1);
+      const doelUvs = kleurVanDriehoek(primitief, hoek, vOmlaag, palet, winst, (afstandVanBaan, beschrijving) => {
+        if (afstandVanBaan > ergsteAfstand) {
+          ergsteAfstand = afstandVanBaan;
+          ergsteKleur = beschrijving;
+        }
+        gebruikt.set(beschrijving.doel, (gebruikt.get(beschrijving.doel) ?? 0) + 1);
+      });
 
       hoek.forEach((i, k) => {
 
@@ -116,7 +212,7 @@ export function bouwGlb({
         const hoekpunt = [
           ...punten[k].map((waarde) => afronden(waarde, 5)),
           ...normaal.map((waarde) => afronden(waarde, 4)),
-          afronden(gevonden.u, 6), afronden(gevonden.v, 6),
+          afronden(doelUvs[k][0], 6), afronden(doelUvs[k][1], 6),
         ];
 
         const sleutel = hoekpunt.join(',');

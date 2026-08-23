@@ -16,7 +16,7 @@ import { leesPng } from '../../catalog/tools/png.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const GEDEELDE_COLORMAP = resolve(ROOT, 'kits', 'colormap.png');
 
-const naarLineair = (kanaal) => {
+export const naarLineair = (kanaal) => {
   const v = kanaal / 255;
   return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
 };
@@ -65,6 +65,20 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
 
   const kandidaten = [...perKleur.values()];
   if (kandidaten.length === 0) throw new Error(`${pad}: geen enkele kleur, alleen zwart`);
+
+  // Het gemiddelde niveau van de sheet, waar de belichting van een pack naartoe
+  // wordt gerekend (zie bouw.mjs).
+  let somLicht = 0;
+  let tellerLicht = 0;
+  for (let y = 0; y < hoogte; y++) {
+    for (let x = 0; x < breedte; x++) {
+      const i = (y * breedte + x) * 4;
+      if (!pixels[i] && !pixels[i + 1] && !pixels[i + 2]) continue;
+      somLicht += (naarLineair(pixels[i]) + naarLineair(pixels[i + 1]) + naarLineair(pixels[i + 2])) / 3;
+      tellerLicht++;
+    }
+  }
+  const niveau = somLicht / tellerLicht;
   const onthouden = new Map();
 
   function zoek(r, g, b) {
@@ -87,7 +101,7 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
     return uitkomst;
   }
 
-  return { breedte, hoogte, kandidaten, zoek };
+  return { breedte, hoogte, kandidaten, niveau, zoek };
 }
 
 const texturen = new Map();

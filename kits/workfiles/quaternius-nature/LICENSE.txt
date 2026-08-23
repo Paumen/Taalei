@@ -54,22 +54,27 @@
 
 	De modellen dragen geen textuur maar vlakke materiaalkleuren, die
 	Blender in lineaire ruimte wegschrijft; die zijn eerst naar sRGB
-	gezet en daarna op de gedeelde kits/colormap.png gelegd, zodat
-	deze modellen dezelfde kleuren delen met de andere kits en in
-	hetzelfde kleurfilter meedoen. Er is dus per model maar een
-	handvol kleuren, en er is geen ingebakken schaduw om te bewaren.
+	gezet en daarna op de gedeelde sheet gelegd. Er is dus per model
+	maar een handvol kleuren, en er is geen ingebakken schaduw om te
+	bewaren.
 
-	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
-	die cellen zijn zelf verlopen van donker naar licht. Vergeleken is
-	in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar verschil
-	betekent; de afstanden hieronder staan in die maat, op een schaal
-	waar 100 het hele bereik is.
+	De modellen dragen geen textuur maar vlakke materiaalkleuren, die
+	Blender in lineaire ruimte wegschrijft; die zijn eerst naar sRGB
+	gezet en daarna op de dichtstbijzijnde kleur van de gedeelde
+	kits/colormap.png gelegd, zodat deze modellen dezelfde kleuren
+	delen met de andere kits en in hetzelfde kleurfilter meedoen. Er
+	is per model maar een handvol kleuren, geen verloop dat uiteen kan
+	vallen en geen ingebakken schaduw om te bewaren.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
 
 	De verste sprong is het magenta van de cactusbloemen: #a55582 werd
 	#9f5b41 (10,2). Dat raakt zes modellen — cactus-flower-1 t/m 5 en
-	lilypad — en 7830 hoekpunten: de bloemen lezen bruin in plaats van
-	roze. Er staat geen magenta op de gedeelde sheet. Besluit PO: geen
-	kleur toevoegen. De rest van de pack blijft onder 5.
+	lilypad: de bloemen lezen bruin in plaats van roze. Er staat geen
+	magenta op de gedeelde sheet. Besluit PO: geen kleur toevoegen. De
+	rest van de pack blijft onder 5.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee

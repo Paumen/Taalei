@@ -61,37 +61,36 @@
 	y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,5)
 	staat op de wortelnode, niet in de hoekpunten.
 
-	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
-	binnen de driehoek bemonsterd en die worden in lineair licht
-	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
-	vraagt, en blijft het verschil in licht en donker tussen de
-	vlakken onderling staan — de ingebakken schaduw van de pack dus.
-	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
-	die cellen zijn zelf verlopen van donker naar licht, dus een
-	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
-	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
-	zichtbaar verschil betekent; de afstanden hieronder staan in die
-	maat, op een schaal waar 100 het hele bereik is.
+	Deze pack heeft geen kleurenvel met banen maar een geschilderde
+	textuur. Daar valt geen baan over te nemen, dus daar geldt de
+	kleur zelf: per driehoek wordt het gemiddelde van zeven punten
+	binnen dat vlak genomen — in lineair licht, en geen van de zeven
+	ligt op een hoekpunt, want net naast het vlak ligt vaak een heel
+	andere kleur — en dat gemiddelde gaat naar de dichtstbijzijnde
+	kleur van de gedeelde sheet. Eén kleur per vlak dus, zoals de
+	stijlgids vraagt; per hoekpunt kiezen zou binnen één plankje drie
+	tinten uit de nerf pikken en ruis opleveren.
 
-	De pack heeft geen atlas maar 54 losse texturen, één of enkele per
-	materiaal. Vier ervan staan in 4 bits per pixel weggeschreven;
-	catalog/tools/png.mjs kon alleen 8 bits lezen en is daarvoor
-	uitgebreid.
+	De pack heeft geen kleurenvel maar 54 losse texturen, één of
+	enkele per materiaal. Vier ervan staan in 4 bits per pixel
+	weggeschreven; catalog/tools/ png.mjs kon alleen 8 bits lezen en
+	is daarvoor uitgebreid.
 
-	Dit is de kit met de meeste kleur die niet op de gedeelde sheet
-	past, en het zijn allemaal bloemen en paddenstoelen:
+	Dat de zeven monsters per driehoek niet op de hoekpunten liggen
+	maar een stukje naar binnen, is voor déze pack bedacht: de bloemen
+	staan op een vel dat verder zwart is, en een monster dat net naast
+	het gekleurde eilandje valt mengt dat zwart mee. Een witte
+	madelief werd daar grijs van.
 
-	  #de8cea → #a7aed1  12,6  de drie viooltjes
-	  #d02a35 → #b06041  10,0  de hoed van mushroom-red-spotted
-	  #e5276d → #b96848   9,3  de drie klokjesbloemen
+	De verste sprongen zijn de bloemen:
 
-	Er staat geen violet, roze of zuiver rood op de gedeelde sheet: de
-	viooltjes lezen blauwgrijs, de klokjes en de paddenstoelhoed
-	roodbruin. Het zwarte hart van de madeliefjes en het felle geel
-	van de zonnebloemen vallen mee doordat ze per driehoek met hun
-	buurkleur gemiddeld worden. Besluit PO: geen kleur aan de gedeelde
-	sheet toevoegen. Buiten deze zeven bloemen en de paddenstoel
-	blijft de hele kit onder 9.
+	  #c14ccd → #848aa6  18,8  de drie viooltjes
+	  #e34d7a → #c4714f  11,8  de drie klokjesbloemen
+
+	Er staat geen violet of roze op de gedeelde sheet: de viooltjes
+	lezen blauwgrijs en de klokjes roodbruin. Besluit PO: geen kleur
+	aan de gedeelde sheet toevoegen. Buiten deze zes bloemen blijft de
+	hele kit onder 11.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee

@@ -31,26 +31,37 @@
 	tools/importeer-graveyard-kit.mjs: omgezet naar .glb, met de
 	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
 
-	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
-	driehoek is de kleur uit die atlas gehaald en op de
-	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
-	zodat deze modellen dezelfde kleuren delen met de andere kits en
-	in hetzelfde kleurfilter meedoen.
+	De pack heeft een eigen kleurenvel: een rooster van banen, elk één
+	kleur met zijn eigen verloop van licht naar donker. Dat vel is
+	niet meegekomen — de modellen zijn op de gedeelde
+	kits/colormap.png gezet, die net zo is opgebouwd, zodat ze
+	dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
 
-	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
-	binnen de driehoek bemonsterd en die worden in lineair licht
-	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
-	vraagt, en blijft het verschil in licht en donker tussen de
-	vlakken onderling staan — de ingebakken schaduw van de pack dus.
-	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
-	die cellen zijn zelf verlopen van donker naar licht, dus een
-	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van
+	de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan
+	álle driehoeken van die bronbaan naar die ene doelbaan, en houdt
+	elk hoekpunt zijn eigen plek in het verloop.
+
+	Dat laatste is niet vrijblijvend. Zoek je per driehoek los de
+	dichtstbijzijnde kleur, dan kan de ene helft van een boom op de
+	ene baan komen en de andere helft op een andere, en valt een glad
+	vlak uiteen in losse driehoeken met elk een eigen tintje. Baan
+	voor baan kan dat niet gebeuren, en omdat elk hoekpunt zijn plek
+	houdt blijft een verloop over een vlak ook echt een verloop — de
+	ingebakken schaduw van de pack dus.
+
 	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
 	zichtbaar verschil betekent; de afstanden hieronder staan in die
-	maat, op een schaal waar 100 het hele bereik is.
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor
+	een hele baan en niet voor één kleur.
 
-	De grootste sprong is het loofgroen van de dennen: #5ac487 werd
-	#8daa49 (8,6). Het serviesgoed en het puin blijven onder 2,5.
+	De grootste sprong is de blauwgroene baan van de dennen: die gaat
+	naar het olijfgroen van de gedeelde sheet (12,9) — er staat geen
+	blauwgroen op. De dennen lezen daardoor grasgroener dan in de
+	pack. Het serviesgoed en het puin blijven onder 5,1.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee
