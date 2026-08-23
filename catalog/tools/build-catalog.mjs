@@ -278,10 +278,46 @@ for (const slug of kitSlugs) {
   });
 }
 
+function leesTags(bekend) {
+  const bestand = join(CATALOG_DIR, 'tags.json');
+  if (!existsSync(bestand)) return { tags: [], perModel: new Map() };
+
+  const { tags = [] } = JSON.parse(readFileSync(bestand, 'utf8'));
+  const perModel = new Map();
+  const onbekend = [];
+
+  for (const tag of tags) {
+    for (const id of tag.modellen ?? []) {
+      if (!bekend.has(id)) {
+        onbekend.push(`${tag.id}: ${id}`);
+        continue;
+      }
+      const eigen = perModel.get(id) ?? [];
+      eigen.push(tag.id);
+      perModel.set(id, eigen);
+    }
+  }
+  if (onbekend.length) console.warn(`! tag verwijst naar onbekend model: ${onbekend.join(', ')}`);
+
+  return {
+    tags: tags.map(({ modellen: leden = [], ...tag }) => ({
+      ...tag,
+      aantal: leden.filter((id) => bekend.has(id)).length,
+    })),
+    perModel,
+  };
+}
+
 const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
 for (const model of modellen) {
   const groep = varianten.perModel.get(model.id);
   if (groep) model.variant = groep;
+}
+
+const tags = leesTags(new Set(modellen.map((m) => m.id)));
+for (const model of modellen) {
+  const eigen = tags.perModel.get(model.id);
+  if (eigen) model.tags = [...eigen].sort();
 }
 
 const paletten = new Map();
@@ -363,6 +399,7 @@ const catalogus = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   varianten: varianten.groepen,
+  tags: tags.tags,
   groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
     ...g,
     aantal: modellen.filter((m) => m.groep === g.id).length,
@@ -398,6 +435,7 @@ console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → cat
 schrijfVersie();
 
 console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);
+for (const tag of tags.tags) console.log(`tag ${tag.id}: ${tag.aantal} modellen`);
 for (const g of catalogus.groepen) {
   console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
 }

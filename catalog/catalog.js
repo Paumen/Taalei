@@ -269,7 +269,7 @@ const detailVariant = document.querySelector('#detail-variant');
 const detailVariantKeuze = document.querySelector('#detail-variant-keuze');
 let actiefPad = '';
 
-const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map() };
+const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map(), tags: new Map() };
 
 function toonDetail(model) {
   const kit = register.kits.get(model.kit);
@@ -295,6 +295,9 @@ function toonDetail(model) {
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
     ['Grootte', bytesLeesbaar(model.bytes)],
+    ...(model.tags?.length
+      ? [['Tags', model.tags.map((id) => register.tags.get(id)?.naam ?? id).join(', ')]]
+      : []),
     ['Licentie', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
@@ -684,6 +687,8 @@ async function start() {
       modellen,
     );
   }
+
+  register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
   bouwKleurbalk(data.paletten ?? []);
 
