@@ -1,0 +1,78 @@
+	Fantasy Props
+
+			------------------------------
+
+	Fantasy Props MegaKit (gratis versie)
+	Gemaakt door Quaternius — https://quaternius.com/
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert .gltf + .bin. CamelCase en onderstrepingen zijn
+	koppeltekens geworden en alles is klein gezet: BookGroup_Medium_1
+	wordt book-group-medium-1.
+
+	Van de 94 modellen zijn er 37 gekozen: vaten, kratten, kisten en
+	een kooi, elf boeken en boekenstapels, twee sleutels, twee
+	drankjes, twee rollen perkament, kaarsen en een toorts, twee
+	vazen, een kruik, een emmer, een zak, een mok, een bord, een
+	bankje, een wandschap en een houweel. De wapens, de meubels op
+	maat en de bouwdelen zijn niet ingeladen.
+
+	Geen schaling. Deze pack staat in meters en deze collectie ook:
+	het bord meet 0,33 (dungeon/plate meet 0,34) en het vat 0,70 ×
+	0,90 (dungeon/barrel-large meet 0,63 × 0,70).
+
+	Dit is met 30.149 driehoeken de zwaarste van de tien nieuwe kits.
+	Vijf modellen komen boven het budget van 1000 driehoeken per unit
+	uit — cage-small (4588), crate-metal (2738), barrel-apples (2480),
+	barrel-holder (2114) en crate-wooden (1576) — en
+	vase-rubble-medium en key-gold zitten er net boven. Dat zit in de
+	pack zelf: het is een PBR-pack die zijn detail in de geometrie
+	legt in plaats van in de textuur.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-fantasy-props.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	Deze pack heeft geen kleurenatlas maar vier PBR-trimsheets van
+	1024 × 1024 met echte materiaaltekening erin: hout met nerf,
+	metaal met slijtage. Die tekening gaat verloren — er is per
+	driehoek één kleur uit de basiskleurtextuur gemiddeld en die is op
+	de gedeelde sheet gelegd. Wat blijft, is de licht-donkerverdeling
+	over de vlakken, en die zit in een trimsheet nu juist op
+	vlakniveau.
+
+	Middelen is hier geen detail maar de kern van de omzetting: één
+	kleur per hoekpunt kiezen leverde op de vaten en kratten zichtbare
+	ruis op, omdat drie hoekpunten van hetzelfde plankje drie
+	verschillende tinten uit de nerf pakten.
+
+	De verste sprong is 5,3 (#a97530 → #b86847, het koper van de zak);
+	alles blijft onder 6.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

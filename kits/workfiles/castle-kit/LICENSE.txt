@@ -1,0 +1,64 @@
+	Castle Kit
+
+			------------------------------
+
+	Kenney : Castle Kit (2.0)
+	Gemaakt en verspreid door Kenney — https://kenney.nl/assets/castle-kit
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert .glb (naast .fbx en .obj) met de modelnamen al in
+	de vorm die deze repo aanhoudt — klein en met koppeltekens — dus
+	die zijn overgenomen zoals ze zijn. Van de 76 modellen zijn er elf
+	gekozen: de drie vlaggen, twee rotsgroepen, twee open
+	torenverdiepingen en vier bomen (groot, klein, een stam en een
+	boomstronk). Het bouwpakket zelf — muren, poorten, trappen, daken
+	— is niet ingeladen.
+
+	Geen schaling. De kit staat al op één unit per wand- of
+	vloersegment (tower-square-mid-open meet 0,93 × 1,01 × 0,93), net
+	als de andere Kenney-kits in deze collectie.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-castle-kit.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
+
+	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
+	driehoek is de kleur uit die atlas gehaald en op de
+	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en
+	in hetzelfde kleurfilter meedoen.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	Kenney's nieuwere kits hebben een andere indeling van de colormap
+	dan de gedeelde sheet van deze repo: de banen staan op andere
+	plekken en de kleuren zijn niet dezelfde. De grootste sprong is
+	het loofgroen van de bomen, #5ac488 werd #8daa49 (8,7), gevolgd
+	door het blauwpaars van de vlaggen, #585abf werd #2364a7 (7,3). De
+	rest blijft daar ruim onder.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

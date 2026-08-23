@@ -1,0 +1,101 @@
+	Natuur
+
+			------------------------------
+
+	Nature Kit
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden. De CC0-vermelding hierboven is vastgesteld
+	door de eigenaar van dit project bij het inladen; ze komt niet uit
+	de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn aangeleverd in een zip met de naam
+	`nature_kit`: 115 modellen als .obj + .mtl (en dezelfde als .fbx),
+	met 54 losse texturen, zonder licentiebestand en zonder verwijzing
+	naar een maker of een packpagina. De pack noemt zichzelf "Nature
+	Kit". Modelnamen, texturen en maatvoering komen overeen met de
+	Modular Terrain Collection waar de kit Modulair Terrein uit komt —
+	dezelfde Grass_Clump, Stepping_Stone, Cattail, Coconut en Timber —
+	dus vermoedelijk is het dezelfde maker; zeker is dat niet, en er
+	is dus ook niemand om te crediteren. Wie de herkomst alsnog
+	achterhaalt, vult hem hier aan.
+
+	Heet in deze catalogus Natuur en niet Nature Kit, omdat er al een
+	kit Nature in staat die uit een andere pack komt (Low Poly Nature
+	Pack Lite). Twee kits die allebei "Nature" heten zijn in de
+	kitkiezer niet uit elkaar te houden.
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: Flower_Sunflower_1 wordt flower-sunflower-1,
+	Mushroom_Dark_Red wordt mushroom-dark-red.
+
+	Van de 115 modellen zijn er 96 gekozen: 35 bomen (kaal, palm en
+	den, plus takken, wortels, stronken en stammen), 26 planten (vijf
+	soorten bloemen in drie maten, lisdodde, grasplukken, kokosnoot),
+	dertien rotsen en stapstenen, vier paddenstoelen, twee kampvuren,
+	gezaagd hout, drie schelpen en twee zeesterren, een lantaarnpaal
+	en drie bergen. De negentien die niet zijn ingeladen zijn tenten,
+	hekken, struiken en de eik.
+
+	Op 0,5 gezet, dezelfde factor als Modulair Terrein. Op die factor
+	vallen de props die in beide packs zitten samen: grass-clump-1
+	meet hier 0,21 × 0,18 × 0,14 en
+	modulair-terrein/hilly-prop-grass-clump-a 0,24 × 0,19 × 0,15.
+
+	Let op de drie bergen. mountain-2 t/m mountain-4 zijn 29 tot 38
+	units breed en 15 tot 19 hoog: dat zijn geen props maar
+	achtergrondlandschap, zoals nature/mountain-a (16,7 units). Ze
+	staan daarom bij grond & bodemvlakken. Dat ze zo groot zijn is de
+	maat van de pack zelf — schalen gebeurt per pack en niet per
+	model, anders gaan de onderlinge verhoudingen van de pack eraan.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-natuur.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,5)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	De pack heeft geen atlas maar 54 losse texturen, één of enkele per
+	materiaal. Vier ervan staan in 4 bits per pixel weggeschreven;
+	catalog/tools/png.mjs kon alleen 8 bits lezen en is daarvoor
+	uitgebreid.
+
+	Dit is de kit met de meeste kleur die niet op de gedeelde sheet
+	past, en het zijn allemaal bloemen en paddenstoelen:
+
+	  #de8cea → #a7aed1  12,6  de drie viooltjes
+	  #d02a35 → #b06041  10,0  de hoed van mushroom-red-spotted
+	  #e5276d → #b96848   9,3  de drie klokjesbloemen
+
+	Er staat geen violet, roze of zuiver rood op de gedeelde sheet: de
+	viooltjes lezen blauwgrijs, de klokjes en de paddenstoelhoed
+	roodbruin. Het zwarte hart van de madeliefjes en het felle geel
+	van de zonnebloemen vallen mee doordat ze per driehoek met hun
+	buurkleur gemiddeld worden. Besluit PO: geen kleur aan de gedeelde
+	sheet toevoegen. Buiten deze zeven bloemen en de paddenstoel
+	blijft de hele kit onder 9.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

@@ -1,0 +1,68 @@
+	Halloween
+
+			------------------------------
+
+	KayKit : Halloween Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: tree_pine_orange_large wordt tree-pine-orange-large.
+
+	Van de 63 modellen zijn er 28 gekozen — het herfstdeel, zonder
+	pompoenen, grafstenen en spinnenwebben: negen bomen (drie dode,
+	drie oranje dennen, drie gele dennen), vier kaarsen, drie
+	lantaarns en een paal met lantaarn, vier paden en een aarden
+	vloertje, drie botten met een ribbenkast en een schedel, een bank
+	en een losse paal.
+
+	Op 0,5 gezet, dezelfde factor als de KayKit-forestkit. Dat is
+	bewust een andere factor dan de 0,35 van de dungeon-, furniture-
+	en restaurantkit: dit is buitendecor, en op 0,5 vallen de
+	padtegels op het raster van één unit waar de stijlgids om vraagt
+	(path-a meet 0,95 × 0,94) en staan de dode bomen met 1,3 tot 2,5
+	units hoog naast de kale bomen van de forest-kit in plaats van
+	eronder.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-halloween.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,5)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
+	driehoek is de kleur uit die atlas gehaald en op de
+	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en
+	in hetzelfde kleurfilter meedoen.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	De verste sprong is het geel van de gele dennen: #deaa50 werd
+	#ffa73f (5,2). Daarna de vlam van de lantaarns (#f48138 → #e48c63,
+	4,4). Het oranje van de oranje dennen valt binnen 3.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

@@ -6,8 +6,7 @@ const HANDTEKENING = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a
 
 const KANALEN = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 };
 
-function ontfilter(ruw, breedte, hoogte, bpp) {
-  const stap = breedte * bpp;
+function ontfilter(ruw, stap, hoogte, bpp) {
   const uit = Buffer.alloc(stap * hoogte);
   let bron = 0;
 
@@ -74,11 +73,41 @@ export function leesPng(pad) {
     offset += 12 + lengte;
   }
 
-  if (bitdiepte !== 8) throw new Error(`alleen 8 bits per kanaal: ${pad} heeft ${bitdiepte}`);
   const kanalen = KANALEN[kleurtype];
   if (!kanalen) throw new Error(`onbekend PNG-kleurtype ${kleurtype}: ${pad}`);
+  if (![1, 2, 4, 8].includes(bitdiepte)) {
+    throw new Error(`hoogstens 8 bits per kanaal: ${pad} heeft ${bitdiepte}`);
+  }
+  if (bitdiepte < 8 && kanalen !== 1) {
+    throw new Error(`${pad}: ${bitdiepte} bits kan alleen bij grijs of palet`);
+  }
 
-  const vlak = ontfilter(inflateSync(Buffer.concat(brokken)), breedte, hoogte, kanalen);
+  const bitsPerPixel = kanalen * bitdiepte;
+  const stap = Math.ceil((breedte * bitsPerPixel) / 8);
+  const gefilterd = ontfilter(
+    inflateSync(Buffer.concat(brokken)),
+    stap,
+    hoogte,
+    Math.max(1, bitsPerPixel >> 3),
+  );
+
+  // Minder dan een byte per pixel: elke regel begint op een nieuwe byte, dus
+  // uitpakken gaat per regel en niet in één rechte lijn door de buffer heen.
+  let vlak = gefilterd;
+  if (bitdiepte < 8) {
+    const schaal = kleurtype === 0 ? 255 / ((1 << bitdiepte) - 1) : 1;
+    vlak = Buffer.alloc(breedte * hoogte);
+    for (let y = 0; y < hoogte; y++) {
+      for (let x = 0; x < breedte; x++) {
+        const bit = x * bitdiepte;
+        const byte = gefilterd[y * stap + (bit >> 3)];
+        const verschuiving = 8 - bitdiepte - (bit & 7);
+        const waarde = (byte >> verschuiving) & ((1 << bitdiepte) - 1);
+        vlak[y * breedte + x] = Math.round(waarde * schaal);
+      }
+    }
+  }
+
   const pixels = Buffer.alloc(breedte * hoogte * 4);
 
   for (let i = 0; i < breedte * hoogte; i++) {
