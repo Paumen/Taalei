@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D-catalogus</title>
 <meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit en per groep: losse objecten, samengestelde taferelen, bouwwerken en bouwpakketten, natuur en de losstaande grot.">
-<meta name="catalogus-versie" content="7a2bf2e13a">
-<link rel="stylesheet" href="catalog/catalog.css?v=7a2bf2e13a">
+<meta name="catalogus-versie" content="6ca9ba45fa">
+<link rel="stylesheet" href="catalog/catalog.css?v=6ca9ba45fa">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
@@ -26,6 +26,27 @@
       <button role="tab" id="tab-nature" aria-controls="paneel" aria-selected="false" data-weergave="nature">Nature</button>
     </div>
 
+    <label class="orde">Groepeer
+      <select id="groepering">
+        <option value="standaard">standaard</option>
+        <option value="kit">kit</option>
+        <option value="groep">groep</option>
+        <option value="tag">tag</option>
+        <option value="bron">herkomst</option>
+        <option value="maat">maat</option>
+      </select>
+    </label>
+
+    <label class="orde">Sorteer
+      <select id="sortering">
+        <option value="naam">naam</option>
+        <option value="groot">grootste eerst</option>
+        <option value="klein">kleinste eerst</option>
+        <option value="zwaar">meeste driehoeken</option>
+        <option value="bestand">grootste bestand</option>
+      </select>
+    </label>
+
     <button class="licht-knop" id="licht" type="button" aria-pressed="false"
             title="Toont de modellen zonder belichting: alleen de kleuren uit de atlas, met de schaduw die erin gebakken zit">Vlak</button>
 
@@ -41,6 +62,12 @@
   <span class="kleurbalk-label">Kleur</span>
   <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter op kleur"></div>
   <button class="kleurbalk-wis" id="kleurbalk-wis" hidden>Wis kleuren</button>
+</div>
+
+<div class="kleurbalk tagbalk" id="tagbalk">
+  <span class="kleurbalk-label">Tag</span>
+  <div class="tagbalk-knoppen" id="tagbalk-knoppen" role="group" aria-label="Filter op tag"></div>
+  <button class="kleurbalk-wis" id="tagbalk-wis" hidden>Wis tags</button>
 </div>
 
 <main id="paneel" role="tabpanel" aria-labelledby="tab-kits"></main>
@@ -78,6 +105,6 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=7a2bf2e13a" type="module"></script>
+<script src="catalog/catalog.js?v=6ca9ba45fa" type="module"></script>
 </body>
 </html>

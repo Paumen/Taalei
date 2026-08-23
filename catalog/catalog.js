@@ -46,6 +46,8 @@ const kaarten = [];
 const secties = [];
 
 let huidigeWeergave = 'kits';
+let groepering = 'standaard';
+let sortering = 'naam';
 
 const gekozenPaden = new Set();
 const kaartenPerPad = new Map();
@@ -53,10 +55,14 @@ const kaartenPerPad = new Map();
 let laatsteKeuze = null;
 
 const gekozenKleuren = new Set();
+const gekozenTags = new Set();
 
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
 
 const kleurgroepen = [];
+const tagknoppen = [];
+
+let catalogus = null;
 
 const bytesLeesbaar = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
@@ -202,6 +208,7 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
     weergave,
     palet: model.palet,
     kleuren: [...new Set(familie.flatMap((m) => m.kleuren.map((hex) => kleurSleutel(m.palet, hex))))],
+    tags: [...new Set(familie.flatMap((m) => m.tags ?? []))],
   };
   kaarten.push(item);
 
@@ -261,6 +268,147 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
   return { sectie, rooster, aantalEl };
 }
 
+const langste = (m) => Math.max(...m.wdh);
+
+const SORTERINGEN = {
+  naam: (a, b) => a.naam.localeCompare(b.naam, 'nl') || a.kit.localeCompare(b.kit),
+  groot: (a, b) => langste(b) - langste(a),
+  klein: (a, b) => langste(a) - langste(b),
+  zwaar: (a, b) => b.driehoeken - a.driehoeken,
+  bestand: (a, b) => b.bytes - a.bytes,
+};
+
+const ZONDER = '_zonder';
+
+// "standaard" houdt de indeling die de tabbladen altijd al hadden: op de Kits-tab per kit,
+// op de inhoudstabbladen per groep.
+const groeperingSoort = () =>
+  groepering === 'standaard' ? (huidigeWeergave === 'kits' ? 'kit' : 'groep') : groepering;
+
+// Elke groepering levert secties op: een lijst {id, titel, kleur, uitleg, bron, modellen}.
+// Bij tag en bron kan een model in meer dan één sectie staan — het draagt er immers meer dan één.
+function sectiesVan(modellen) {
+  const tabblad = (m) => register.groepen.get(m.groep)?.tabblad ?? 'objects';
+  const inBeeld =
+    huidigeWeergave === 'kits' ? modellen : modellen.filter((m) => tabblad(m) === huidigeWeergave);
+
+  const bronVan = (url) =>
+    url ? { href: url, tekst: `${new URL(url).host.replace(/^www\./, '')} ↗` } : null;
+
+  const perSleutel = (sleutels, volgorde) => {
+    const bak = new Map(volgorde.map((v) => [v.id, []]));
+    for (const model of inBeeld) {
+      for (const sleutel of sleutels(model)) {
+        if (!bak.has(sleutel)) bak.set(sleutel, []);
+        bak.get(sleutel).push(model);
+      }
+    }
+    return volgorde
+      .map((v) => ({ ...v, modellen: bak.get(v.id) ?? [] }))
+      .filter((v) => v.modellen.length);
+  };
+
+  const soort = groeperingSoort();
+
+  if (soort === 'kit') {
+    return perSleutel(
+      (m) => [m.kit],
+      catalogus.kits.map((k) => ({
+        id: k.slug,
+        titel: k.naam,
+        kleur: KIT_KLEUREN[k.slug],
+        uitleg: k.toelichting,
+        bron: bronVan(k.url),
+      })),
+    );
+  }
+
+  if (soort === 'groep') {
+    return perSleutel(
+      (m) => [m.groep],
+      catalogus.groepen.map((g) => ({ id: g.id, titel: g.naam, kleur: g.kleur })),
+    );
+  }
+
+  if (soort === 'tag' || soort === 'bron') {
+    const hoort = (t) => (soort === 'bron' ? t.soort === 'bron' : t.soort !== 'bron');
+    const eigen = catalogus.tags.filter(hoort);
+    const ids = new Set(eigen.map((t) => t.id));
+    return perSleutel(
+      (m) => {
+        const raak = (m.tags ?? []).filter((id) => ids.has(id));
+        return raak.length ? raak : [ZONDER];
+      },
+      [
+        ...eigen.map((t) => ({ id: t.id, titel: t.naam, uitleg: t.beschrijving })),
+        { id: ZONDER, titel: soort === 'bron' ? 'Zonder bron' : 'Zonder tag' },
+      ],
+    );
+  }
+
+  return perSleutel(
+    (m) => [maatKlasse(m.wdh).id],
+    MAATKLASSEN.map((k) => ({ id: k.id, titel: k.uitleg })),
+  );
+}
+
+let variantHoofd = new Map();
+
+function vouwVarianten(modellen) {
+  const perGroep = new Map();
+  const uit = [];
+  for (const model of modellen) {
+    const bestaand = model.variant ? perGroep.get(model.variant) : null;
+    if (bestaand) {
+      if (model.id === variantHoofd.get(model.variant)) {
+        bestaand.varianten.push(bestaand.model);
+        bestaand.model = model;
+      } else {
+        bestaand.varianten.push(model);
+      }
+      continue;
+    }
+    const item = { model, varianten: [] };
+    if (model.variant) perGroep.set(model.variant, item);
+    uit.push(item);
+  }
+  return uit;
+}
+
+function bouwPaneel() {
+  waarnemer.disconnect();
+  kaarten.length = 0;
+  secties.length = 0;
+  kaartenPerPad.clear();
+  laatsteKeuze = null;
+  paneel.replaceChildren();
+
+  const orde = SORTERINGEN[sortering] ?? SORTERINGEN.naam;
+
+  for (const deel of sectiesVan(catalogus.modellen)) {
+    const gesorteerd = [...deel.modellen].sort(orde);
+    const { sectie, rooster, aantalEl } = maakSectie({
+      id: `${groeperingSoort()}-${deel.id}`,
+      weergave: huidigeWeergave,
+      soort: groeperingSoort(),
+      titel: deel.titel,
+      aantal: gesorteerd.length,
+      kleur: deel.kleur,
+      uitleg: deel.uitleg,
+      bron: deel.bron,
+    });
+
+    const eigen = [];
+    for (const { model, varianten } of vouwVarianten(gesorteerd)) {
+      const item = maakKaart(model, register.kits, register.groepen, huidigeWeergave, varianten);
+      rooster.append(item.element);
+      eigen.push(item);
+    }
+    paneel.append(sectie);
+    secties.push({ element: sectie, kaarten: eigen, aantalEl });
+  }
+}
+
 const detailViewer = document.querySelector('#detail-viewer');
 const detailKopieer = document.querySelector('#detail-kopieer');
 const detailAnimatie = document.querySelector('#detail-animatie');
@@ -274,6 +422,7 @@ const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), var
 const TAGSOORTEN = [
   { soort: 'materiaal', kop: 'Materiaal' },
   { soort: 'tag', kop: 'Tags' },
+  { soort: 'bron', kop: 'Herkomst' },
 ];
 
 function tagRijen(model) {
@@ -542,16 +691,67 @@ function bouwKleurbalk(paletten) {
   });
 }
 
+function bouwTagbalk(tags) {
+  const houder = document.querySelector('#tagbalk-knoppen');
+  const wisknop = document.querySelector('#tagbalk-wis');
+
+  for (const { soort, kop } of TAGSOORTEN) {
+    const eigen = tags.filter((t) => (t.soort ?? 'tag') === soort);
+    if (eigen.length === 0) continue;
+
+    const groep = document.createElement('div');
+    groep.className = 'taggroep';
+    groep.append(span('taggroep-kop', kop));
+
+    for (const tag of eigen) {
+      const knop = document.createElement('button');
+      knop.type = 'button';
+      knop.className = 'tagknop';
+      knop.dataset.tag = tag.id;
+      knop.setAttribute('aria-pressed', 'false');
+      knop.title = tag.beschrijving ?? tag.naam;
+      const aantalEl = span('tagknop-aantal');
+      knop.append(document.createTextNode(tag.naam), aantalEl);
+
+      knop.addEventListener('click', () => {
+        const aan = !gekozenTags.has(tag.id);
+        if (aan) gekozenTags.add(tag.id);
+        else gekozenTags.delete(tag.id);
+        knop.setAttribute('aria-pressed', String(aan));
+        wisknop.hidden = gekozenTags.size === 0;
+        filter();
+      });
+
+      groep.append(knop);
+      tagknoppen.push({ id: tag.id, element: knop, aantalEl });
+    }
+    houder.append(groep);
+  }
+
+  wisknop.addEventListener('click', () => {
+    gekozenTags.clear();
+    for (const { element } of tagknoppen) element.setAttribute('aria-pressed', 'false');
+    wisknop.hidden = true;
+    filter();
+  });
+}
+
 function pasWeergaveToe(weergave) {
   huidigeWeergave = weergave;
   for (const knop of document.querySelectorAll('.schakelaar button')) {
     knop.setAttribute('aria-selected', String(knop.dataset.weergave === weergave));
   }
   paneel.setAttribute('aria-labelledby', `tab-${weergave}`);
+  ververs();
+}
 
-  const aanwezig = new Set(kaarten.filter((k) => k.weergave === weergave).map((k) => k.palet));
+// Opnieuw indelen, en daarna alleen de stalen en tags aanbieden die in deze weergave iets doen.
+function ververs() {
+  bouwPaneel();
+
+  const paletten = new Set(kaarten.map((k) => k.palet));
   for (const groep of kleurgroepen) {
-    groep.element.hidden = !aanwezig.has(groep.palet);
+    groep.element.hidden = !paletten.has(groep.palet);
     if (!groep.element.hidden) continue;
     for (const knop of groep.element.querySelectorAll('.staal')) {
       gekozenKleuren.delete(knop.dataset.sleutel);
@@ -559,6 +759,18 @@ function pasWeergaveToe(weergave) {
     }
   }
   document.querySelector('#kleurbalk-wis').hidden = gekozenKleuren.size === 0;
+
+  const perTag = new Map();
+  for (const kaart of kaarten) {
+    for (const id of kaart.tags) perTag.set(id, (perTag.get(id) ?? 0) + 1);
+  }
+  for (const { id, element, aantalEl } of tagknoppen) {
+    const aantal = perTag.get(id) ?? 0;
+    element.hidden = aantal === 0;
+    aantalEl.textContent = aantal;
+    if (aantal === 0 && gekozenTags.delete(id)) element.setAttribute('aria-pressed', 'false');
+  }
+  document.querySelector('#tagbalk-wis').hidden = gekozenTags.size === 0;
 
   filter();
 }
@@ -568,7 +780,8 @@ function filter() {
 
   for (const kaart of kaarten) {
     const treffer =
-      gekozenKleuren.size === 0 || kaart.kleuren.some((k) => gekozenKleuren.has(k));
+      (gekozenKleuren.size === 0 || kaart.kleuren.some((k) => gekozenKleuren.has(k))) &&
+      (gekozenTags.size === 0 || kaart.tags.some((t) => gekozenTags.has(t)));
     kaart.element.hidden = !treffer;
     if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
   }
@@ -604,108 +817,13 @@ async function start() {
     `${data.totaal} modellen · ${data.kits.length} kits · ` +
     `${data.groepen.filter((g) => g.aantal > 0).length} groepen`;
 
-  const hoofdVan = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
-
-  const vouwVarianten = (modellen) => {
-    const perGroep = new Map();
-    const uit = [];
-    for (const model of modellen) {
-      const bestaand = model.variant ? perGroep.get(model.variant) : null;
-      if (bestaand) {
-        if (model.id === hoofdVan.get(model.variant)) {
-          bestaand.varianten.push(bestaand.model);
-          bestaand.model = model;
-        } else {
-          bestaand.varianten.push(model);
-        }
-        continue;
-      }
-      const item = { model, varianten: [] };
-      if (model.variant) perGroep.set(model.variant, item);
-      uit.push(item);
-    }
-    return uit;
-  };
-
-  const registreer = (sectieDelen, modellen) => {
-    const { sectie, rooster, aantalEl } = sectieDelen;
-    const eigen = [];
-    const gevouwen = vouwVarianten(modellen);
-    for (const { model, varianten } of gevouwen) {
-      const item = maakKaart(model, kits, groepen, sectie.dataset.weergave, varianten);
-      rooster.append(item.element);
-      eigen.push(item);
-    }
-    paneel.append(sectie);
-    secties.push({ element: sectie, kaarten: eigen, aantalEl });
-  };
-
-  const opZichzelf = data.kits.filter((k) => k.tabblad);
-  const eigenTabblad = new Set(opZichzelf.map((k) => k.slug));
-  const kitGroep = new Map(opZichzelf.map((k) => [k.slug, k.kitGroep]));
-  const inGroepsweergave = (model) =>
-    !eigenTabblad.has(model.kit) || model.groep !== kitGroep.get(model.kit);
-
-  const bronVan = (url) =>
-    url ? { href: url, tekst: `${new URL(url).host.replace(/^www\./, '')} ↗` } : null;
-
-  for (const kit of data.kits) {
-    if (eigenTabblad.has(kit.slug)) continue;
-    const modellen = data.modellen.filter((m) => m.kit === kit.slug);
-    const kleur = KIT_KLEUREN[kit.slug];
-    registreer(
-      maakSectie({
-        id: `kit-${kit.slug}`,
-        weergave: 'kits',
-        soort: 'kit',
-        titel: kit.naam,
-        aantal: modellen.length,
-        kleur,
-        bron: bronVan(kit.url),
-      }),
-      modellen,
-    );
-  }
-
-  for (const groep of data.groepen) {
-    const modellen = data.modellen
-      .filter((m) => m.groep === groep.id && inGroepsweergave(m))
-      .sort((a, b) => a.naam.localeCompare(b.naam, 'nl') || a.kit.localeCompare(b.kit));
-    if (modellen.length === 0) continue;
-    registreer(
-      maakSectie({
-        id: `groep-${groep.id}`,
-        weergave: groep.tabblad ?? 'objects',
-        soort: 'groep',
-        titel: groep.naam,
-        aantal: modellen.length,
-        kleur: groep.kleur,
-      }),
-      modellen,
-    );
-  }
-
-  for (const kit of opZichzelf) {
-    const modellen = data.modellen.filter((m) => m.kit === kit.slug);
-    const kleur = KIT_KLEUREN[kit.slug];
-    registreer(
-      maakSectie({
-        id: `kit-${kit.slug}`,
-        weergave: kit.tabblad,
-        soort: 'kit',
-        titel: kit.naam,
-        aantal: modellen.length,
-        kleur,
-        uitleg: kit.toelichting,
-        bron: bronVan(kit.url),
-      }),
-      modellen,
-    );
-  }
+  variantHoofd = new Map((data.varianten ?? []).map((v) => [v.id, v.hoofd]));
+  catalogus = data;
 
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
   bouwKleurbalk(data.paletten ?? []);
+  bouwTagbalk(data.tags ?? []);
 
   for (const knop of document.querySelectorAll('.schakelaar button')) {
     knop.addEventListener('click', () => {
@@ -734,22 +852,27 @@ async function start() {
     Object.entries(GROEP_ALIASSEN).map(([oud, nieuw]) => [`groep-${oud}`, `groep-${nieuw}`]),
   );
 
-  const groepenElders = new Set(data.modellen.filter(inGroepsweergave).map((m) => m.groep));
-  for (const kit of opZichzelf) {
-    for (const model of data.modellen) {
-      if (model.kit === kit.slug && !groepenElders.has(model.groep)) {
-        aliassen.set(`groep-${model.groep}`, `kit-${kit.slug}`);
-      }
-    }
-  }
+  const keuzeGroepering = document.querySelector('#groepering');
+  const keuzeSortering = document.querySelector('#sortering');
+  keuzeGroepering.value = groepering;
+  keuzeSortering.value = sortering;
+  keuzeGroepering.addEventListener('change', () => {
+    groepering = keuzeGroepering.value;
+    ververs();
+  });
+  keuzeSortering.addEventListener('change', () => {
+    sortering = keuzeSortering.value;
+    ververs();
+  });
 
-  const anker = location.hash.slice(1);
-  const doelSectie = anker
-    ? document.getElementById(anker) ?? document.getElementById(aliassen.get(anker) ?? '')
-    : null;
+  const ruw = location.hash.slice(1);
+  const anker = aliassen.get(ruw) ?? ruw;
   const weergaven = new Set([...document.querySelectorAll('.schakelaar button')].map((k) => k.dataset.weergave));
-  pasWeergaveToe(doelSectie?.dataset.weergave ?? (weergaven.has(anker) ? anker : 'kits'));
-  doelSectie?.scrollIntoView();
+  const groepVanAnker = data.groepen.find((g) => `groep-${g.id}` === anker);
+  pasWeergaveToe(
+    weergaven.has(anker) ? anker : groepVanAnker ? groepVanAnker.tabblad ?? 'objects' : 'kits',
+  );
+  document.getElementById(anker)?.scrollIntoView();
 }
 
 start().catch((fout) => {
