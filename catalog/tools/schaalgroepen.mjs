@@ -65,9 +65,7 @@ export const FAMILIES = [
   ['tafels', 'Tafels', (b) => b.startsWith('table') && b !== 'table-plate'],
   ['bedden-banken', 'Bedden, banken, stoelen en krukken', (b) => /^(bed|bench|sofa|couch|stool|chair|seat)(-|$)/.test(b)],
   ['schappen-kasten', 'Schappen en kasten', (b) => /^(shelf|shelves|cabinet|cupboard|bookcase|dresser|wardrobe)(-|$)/.test(b)],
-  ['boten-peddels', 'Boten en peddels', (b) => /^(boat|ship|canoe|raft)(-|$)/.test(b) || b.includes('paddle') || b.includes('oar-')],
   ['deuren', 'Deuren', (b) => b.startsWith('door') || b.includes('-door') || b.includes('doorway')],
-  ['ramen', 'Ramen', (b) => b.startsWith('window') || b.includes('-window')],
   // Rotswanden zijn landschap, geen bouwstuk: die horen niet naast een muursegment van 1 unit.
   ['muren', 'Muren', (b) => (b.startsWith('wall') || b.includes('-wall')) && !b.startsWith('rock')],
   ['vloeren', 'Vloeren', (b) => /^(floor|ground|tile)(-|$)/.test(b) || b.includes('-floor')],

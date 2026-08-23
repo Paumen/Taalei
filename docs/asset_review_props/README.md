@@ -19,7 +19,7 @@ ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, d
 een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
 zijn hoogte op de onderste.
 
-## Veertien kits opnieuw geschaald
+## Dertien kits opnieuw geschaald
 
 | Kit | Factor | Wat het deed |
 | --- | --- | --- |
@@ -34,7 +34,6 @@ zijn hoogte op de onderste.
 | fantasy-town-kit | ×0,7 | mediaan 1,00 → 0,70. |
 | modulair-terrein | ×0,7 | mediaan 0,33 → 0,23. |
 | mini-forest | ×0,8 | mediaan 0,58 → 0,46. |
-| castle-kit | ×0,8 | mediaan 0,87 → 0,69. |
 | quaternius-nature | ×0,8 (na de eerdere ×0,5) | mediaan 0,69 → 0,55. |
 | platformer-kit | ×0,8 dan ×0,6 (0,48) | mediaan 0,42 → 0,20. |
 | forest | ×0,6 | mediaan 1,00 → 0,60; de dode bomen van 1,43–3,81 naar 0,86–2,28. |
@@ -61,7 +60,8 @@ budget (was 51 vóór alle schaalcorrecties).
 ## Vier kits en tien assets verwijderd
 
 Weg als hele kit: **furniture** (11), **holiday-kit** (11), **nature** (3),
-**mini-dungeon** (3), **graveyard-kit** (8) en **tropical** (4) — 40 modellen. Niet alleen `kits/workfiles/`, maar ook hun blok in
+**mini-dungeon** (3), **graveyard-kit** (8), **tropical** (4) en **castle-kit** (10) —
+50 modellen. Niet alleen `kits/workfiles/`, maar ook hun blok in
 `catalog/manifest.js`, hun importeer-scripts, hun kitkleur in `catalog.js` en hun
 uitzonderingen in `catalog/tools/semantiek.mjs`. De catalogus telt nu **1016 modellen in
 24 kits**.

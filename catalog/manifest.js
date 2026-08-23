@@ -1008,23 +1008,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "castle-kit",
-  "name": "Castle Kit",
-  "url": "https://kenney.nl/assets/castle-kit",
-  "models": [
-   "flag",
-   "flag-pennant",
-   "flag-wide",
-   "rocks-large",
-   "rocks-small",
-   "tower-square-mid-open",
-   "tower-square-mid-open-simple",
-   "tree-large",
-   "tree-log",
-   "tree-small"
-  ]
- },
- {
   "slug": "prototype-kit",
   "name": "Prototype Kit",
   "url": "https://kenney.nl/assets/prototype-kit",

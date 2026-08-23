@@ -301,9 +301,8 @@ document.getElementById('samenvatting').textContent =
 
 const BREEDTE = 1800;
 
-// Uitlichten: kies één of twee kits, dan legt een sluier zich over al het andere heen.
+// Uitlichten: kies zoveel kits als je wilt, dan legt een sluier zich over al het andere heen.
 // De sluier is een tweede doek bovenop het render, dus omschakelen kost geen nieuw render.
-const MAX_UITGELICHT = 2;
 const uitgelicht = new Set();
 
 function tekenSluier(sectie) {
@@ -337,9 +336,12 @@ function ververs() {
     knop.setAttribute('aria-pressed', String(aan));
   }
   wisKnop.hidden = uitgelicht.size === 0;
-  telling.textContent = uitgelicht.size
-    ? `${[...uitgelicht].join(' en ')} uitgelicht`
-    : `Kies één of twee kits om ze eruit te lichten.`;
+  const gekozen = [...uitgelicht];
+  telling.textContent = gekozen.length === 0
+    ? 'Kies één of meer kits om ze eruit te lichten.'
+    : gekozen.length <= 3
+      ? `${gekozen.slice(0, -1).join(', ')}${gekozen.length > 1 ? ' en ' : ''}${gekozen.at(-1)} uitgelicht`
+      : `${gekozen.length} kits uitgelicht`;
 }
 
 const kitBalk = document.getElementById('kits');
@@ -355,11 +357,7 @@ for (const kit of alleKits) {
   knop.setAttribute('aria-pressed', 'false');
   knop.addEventListener('click', () => {
     if (uitgelicht.has(kit)) uitgelicht.delete(kit);
-    else {
-      // Bij een derde keuze valt de oudste af, zodat er nooit meer dan twee staan.
-      if (uitgelicht.size >= MAX_UITGELICHT) uitgelicht.delete([...uitgelicht][0]);
-      uitgelicht.add(kit);
-    }
+    else uitgelicht.add(kit);
     ververs();
   });
   kitBalk.appendChild(knop);

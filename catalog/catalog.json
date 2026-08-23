@@ -1,22 +1,8 @@
 {
  "gegenereerd": "node catalog/tools/build-catalog.mjs",
- "totaal": 990,
+ "totaal": 980,
  "budgetPerUnit": 1000,
  "kits": [
-  {
-   "slug": "castle-kit",
-   "naam": "Castle Kit",
-   "kort": "Castle",
-   "url": "https://kenney.nl/assets/castle-kit",
-   "licentie": "kits/workfiles/castle-kit/LICENSE.txt",
-   "licentieLabel": "CC0",
-   "aantal": 10,
-   "tabblad": null,
-   "eigenPalet": false,
-   "kitGroep": null,
-   "toelichting": null,
-   "palet": "gedeeld"
-  },
   {
    "slug": "dungeon",
    "naam": "Dungeon",
@@ -1189,7 +1175,7 @@
    "kort": "Bouwwerken",
    "kleur": "#877a63",
    "tabblad": "structures",
-   "aantal": 45
+   "aantal": 43
   },
   {
    "id": "verbinding",
@@ -1213,7 +1199,7 @@
    "kort": "Bomen",
    "kleur": "#3da679",
    "tabblad": "nature",
-   "aantal": 94
+   "aantal": 91
   },
   {
    "id": "planten",
@@ -1237,7 +1223,7 @@
    "kort": "Rotsen",
    "kleur": "#9da4c4",
    "tabblad": "nature",
-   "aantal": 130
+   "aantal": 128
   },
   {
    "id": "huisraad",
@@ -1294,7 +1280,7 @@
    "naam": "Borden, vlaggen & doelen",
    "kort": "Borden",
    "kleur": "#ffb349",
-   "aantal": 14
+   "aantal": 11
   },
   {
    "id": "items",
@@ -1337,14 +1323,14 @@
      "naam": "oranje",
      "textuur": "baan 5,0",
      "materiaal": null,
-     "aantal": 244
+     "aantal": 236
     },
     {
      "hex": "#6d738a",
      "naam": "lichtgrijs",
      "textuur": "baan 15,3",
      "materiaal": null,
-     "aantal": 212
+     "aantal": 210
     },
     {
      "hex": "#995a41",
@@ -1365,14 +1351,14 @@
      "naam": "lichtoranje",
      "textuur": "baan 5,2",
      "materiaal": null,
-     "aantal": 157
+     "aantal": 154
     },
     {
      "hex": "#dd9f79",
      "naam": "oranje",
      "textuur": "baan 13,0",
      "materiaal": null,
-     "aantal": 134
+     "aantal": 132
     },
     {
      "hex": "#23562c",
@@ -1396,18 +1382,18 @@
      "aantal": 73
     },
     {
-     "hex": "#6d8d33",
-     "naam": "groen",
-     "textuur": "baan 3,1",
-     "materiaal": null,
-     "aantal": 68
-    },
-    {
      "hex": "#7f3927",
      "naam": "rood",
      "textuur": "baan 8,0",
      "materiaal": null,
      "aantal": 68
+    },
+    {
+     "hex": "#6d8d33",
+     "naam": "groen",
+     "textuur": "baan 3,1",
+     "materiaal": null,
+     "aantal": 66
     },
     {
      "hex": "#3e3e44",
@@ -1428,7 +1414,7 @@
      "naam": "blauw",
      "textuur": "baan 4,2",
      "materiaal": null,
-     "aantal": 11
+     "aantal": 8
     },
     {
      "hex": "#ffffff",
@@ -1441,226 +1427,6 @@
   }
  ],
  "modellen": [
-  {
-   "id": "castle-kit/flag-pennant",
-   "naam": "flag-pennant",
-   "kit": "castle-kit",
-   "groep": "borden",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#2473b3",
-    "#d07b56"
-   ],
-   "pad": "kits/workfiles/castle-kit/flag-pennant.glb",
-   "bytes": 6932,
-   "driehoeken": 118,
-   "driehoekenPerUnit": 118,
-   "materialen": 1,
-   "wdh": [
-    0.085,
-    0.459,
-    0.692
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/flag-wide",
-   "naam": "flag-wide",
-   "kit": "castle-kit",
-   "groep": "borden",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#2473b3",
-    "#d07b56"
-   ],
-   "pad": "kits/workfiles/castle-kit/flag-wide.glb",
-   "bytes": 13296,
-   "driehoeken": 256,
-   "driehoekenPerUnit": 256,
-   "materialen": 1,
-   "wdh": [
-    0.085,
-    0.438,
-    0.692
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/flag",
-   "naam": "flag",
-   "kit": "castle-kit",
-   "groep": "borden",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#2473b3",
-    "#d07b56"
-   ],
-   "pad": "kits/workfiles/castle-kit/flag.glb",
-   "bytes": 8024,
-   "driehoeken": 144,
-   "driehoekenPerUnit": 144,
-   "materialen": 1,
-   "wdh": [
-    0.085,
-    0.346,
-    0.692
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/rocks-large",
-   "naam": "rocks-large",
-   "kit": "castle-kit",
-   "groep": "rotsen",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#6d738a",
-    "#f4efe3"
-   ],
-   "pad": "kits/workfiles/castle-kit/rocks-large.glb",
-   "bytes": 8048,
-   "driehoeken": 150,
-   "driehoekenPerUnit": 145,
-   "materialen": 1,
-   "wdh": [
-    0.961,
-    1.079,
-    0.4
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/rocks-small",
-   "naam": "rocks-small",
-   "kit": "castle-kit",
-   "groep": "rotsen",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#6d738a",
-    "#f4efe3"
-   ],
-   "pad": "kits/workfiles/castle-kit/rocks-small.glb",
-   "bytes": 7604,
-   "driehoeken": 140,
-   "driehoekenPerUnit": 140,
-   "materialen": 1,
-   "wdh": [
-    0.824,
-    0.884,
-    0.4
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/tower-square-mid-open-simple",
-   "naam": "tower-square-mid-open-simple",
-   "kit": "castle-kit",
-   "groep": "bouwwerken",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#d07b56",
-    "#dd9f79"
-   ],
-   "pad": "kits/workfiles/castle-kit/tower-square-mid-open-simple.glb",
-   "bytes": 13760,
-   "driehoeken": 176,
-   "driehoekenPerUnit": 176,
-   "materialen": 1,
-   "wdh": [
-    0.744,
-    0.744,
-    0.703
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/tower-square-mid-open",
-   "naam": "tower-square-mid-open",
-   "kit": "castle-kit",
-   "groep": "bouwwerken",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#d07b56",
-    "#dd9f79"
-   ],
-   "pad": "kits/workfiles/castle-kit/tower-square-mid-open.glb",
-   "bytes": 16424,
-   "driehoeken": 240,
-   "driehoekenPerUnit": 240,
-   "materialen": 1,
-   "wdh": [
-    0.744,
-    0.744,
-    0.808
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/tree-large",
-   "naam": "tree-large",
-   "kit": "castle-kit",
-   "groep": "bomen",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#6d8d33",
-    "#d07b56"
-   ],
-   "pad": "kits/workfiles/castle-kit/tree-large.glb",
-   "bytes": 10992,
-   "driehoeken": 229,
-   "driehoekenPerUnit": 155,
-   "materialen": 1,
-   "wdh": [
-    0.711,
-    0.712,
-    1.479
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/tree-log",
-   "naam": "tree-log",
-   "kit": "castle-kit",
-   "groep": "bomen",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#d07b56",
-    "#f4efe3"
-   ],
-   "pad": "kits/workfiles/castle-kit/tree-log.glb",
-   "bytes": 3716,
-   "driehoeken": 64,
-   "driehoekenPerUnit": 64,
-   "materialen": 1,
-   "wdh": [
-    0.2,
-    0.8,
-    0.222
-   ],
-   "calls": 1
-  },
-  {
-   "id": "castle-kit/tree-small",
-   "naam": "tree-small",
-   "kit": "castle-kit",
-   "groep": "bomen",
-   "palet": "gedeeld",
-   "kleuren": [
-    "#6d8d33",
-    "#d07b56"
-   ],
-   "pad": "kits/workfiles/castle-kit/tree-small.glb",
-   "bytes": 8256,
-   "driehoeken": 164,
-   "driehoekenPerUnit": 152,
-   "materialen": 1,
-   "wdh": [
-    0.59,
-    0.576,
-    1.079
-   ],
-   "calls": 1
-  },
   {
    "id": "dungeon/barrel-large-decorated",
    "naam": "barrel-large-decorated",
