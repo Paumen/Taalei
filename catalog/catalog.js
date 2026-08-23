@@ -54,8 +54,39 @@ const kaartenPerPad = new Map();
 
 let laatsteKeuze = null;
 
-const gekozenKleuren = new Set();
-const gekozenTags = new Set();
+// Per staal en per tag: 'alleen' (moet erbij) of 'niet' (moet eruit). Wat er niet in staat,
+// telt niet mee. Uitsluiten is even belangrijk als kiezen, dus het is dezelfde knop.
+const kleurStaat = new Map();
+// Assemblies hadden een eigen tabblad omdat ze tussen de losse props een verkeerd beeld
+// geven van wat een prop kost. Nu staan ze gewoon bij hun soort, maar standaard uitgefilterd.
+const tagStaat = new Map([['assembly', 'niet']]);
+
+const VOLGENDE = { undefined: 'alleen', alleen: 'niet', niet: undefined };
+
+function draaiStaat(kaartStaat, sleutel, knop) {
+  const nieuw = VOLGENDE[kaartStaat.get(sleutel)];
+  if (nieuw) kaartStaat.set(sleutel, nieuw);
+  else kaartStaat.delete(sleutel);
+  toonStaat(knop, nieuw);
+  return nieuw;
+}
+
+function toonStaat(knop, staat) {
+  knop.setAttribute('aria-pressed', String(staat === 'alleen'));
+  if (staat === 'niet') knop.dataset.uit = '';
+  else delete knop.dataset.uit;
+}
+
+const sleutelsMet = (kaartStaat, waarde) =>
+  [...kaartStaat].filter(([, v]) => v === waarde).map(([k]) => k);
+
+// alleen: minstens één ervan. niet: geen enkele ervan.
+function past(eigen, kaartStaat) {
+  const alleen = sleutelsMet(kaartStaat, 'alleen');
+  if (alleen.length && !eigen.some((e) => alleen.includes(e))) return false;
+  const niet = sleutelsMet(kaartStaat, 'niet');
+  return !eigen.some((e) => niet.includes(e));
+}
 
 const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
 
@@ -123,25 +154,34 @@ function koppelViewer(vak) {
   vak.replaceChildren(viewer);
 }
 
+const straks = globalThis.requestIdleCallback ?? ((f) => setTimeout(f, 1));
+
 function ontkoppelViewer(vak) {
   const viewer = vak.querySelector('model-viewer');
   if (!viewer) return;
 
+  // toDataURL leest het doek terug en dat kost tijd; bij honderden kaarten tegelijk is dat
+  // precies de hik die je bij het filteren voelt. Het plaatje mag een tel later komen.
   if (viewer.loaded && !vak.dataset.momentopname) {
-    try {
-      vak.dataset.momentopname = viewer.toDataURL('image/webp', 0.72);
-    } catch {}
+    straks(() => {
+      if (vak.dataset.momentopname || !viewer.loaded) return;
+      try {
+        vak.dataset.momentopname = viewer.toDataURL('image/webp', 0.72);
+        if (!vak.contains(viewer)) toonMomentopname(vak);
+      } catch {}
+    });
   }
 
-  if (vak.dataset.momentopname) {
-    const plaatje = document.createElement('img');
-    plaatje.src = vak.dataset.momentopname;
-    plaatje.alt = vak.dataset.alt;
-    plaatje.loading = 'lazy';
-    vak.replaceChildren(plaatje);
-  } else {
-    vak.replaceChildren();
-  }
+  if (vak.dataset.momentopname) toonMomentopname(vak);
+  else vak.replaceChildren();
+}
+
+function toonMomentopname(vak) {
+  const plaatje = document.createElement('img');
+  plaatje.src = vak.dataset.momentopname;
+  plaatje.alt = vak.dataset.alt;
+  plaatje.loading = 'lazy';
+  vak.replaceChildren(plaatje);
 }
 
 function glyf(soort, teken, uitleg) {
@@ -275,7 +315,9 @@ const SORTERINGEN = {
   groot: (a, b) => langste(b) - langste(a),
   klein: (a, b) => langste(a) - langste(b),
   zwaar: (a, b) => b.driehoeken - a.driehoeken,
+  licht: (a, b) => a.driehoeken - b.driehoeken,
   bestand: (a, b) => b.bytes - a.bytes,
+  bestandKlein: (a, b) => a.bytes - b.bytes,
 };
 
 const ZONDER = '_zonder';
@@ -667,11 +709,8 @@ function bouwKleurbalk(paletten) {
       knop.setAttribute('aria-label', `${kleur.naam} ${kleur.hex}, ${kleur.aantal} modellen, ${palet.naam}`);
 
       knop.addEventListener('click', () => {
-        const aan = !gekozenKleuren.has(sleutel);
-        if (aan) gekozenKleuren.add(sleutel);
-        else gekozenKleuren.delete(sleutel);
-        knop.setAttribute('aria-pressed', String(aan));
-        wisknop.hidden = gekozenKleuren.size === 0;
+        draaiStaat(kleurStaat, sleutel, knop);
+        wisknop.hidden = kleurStaat.size === 0;
         filter();
       });
 
@@ -684,8 +723,8 @@ function bouwKleurbalk(paletten) {
   }
 
   wisknop.addEventListener('click', () => {
-    gekozenKleuren.clear();
-    for (const knop of houder.querySelectorAll('.staal')) knop.setAttribute('aria-pressed', 'false');
+    kleurStaat.clear();
+    for (const knop of houder.querySelectorAll('.staal')) toonStaat(knop, undefined);
     wisknop.hidden = true;
     filter();
   });
@@ -708,17 +747,14 @@ function bouwTagbalk(tags) {
       knop.type = 'button';
       knop.className = 'tagknop';
       knop.dataset.tag = tag.id;
-      knop.setAttribute('aria-pressed', 'false');
       knop.title = tag.beschrijving ?? tag.naam;
+      toonStaat(knop, tagStaat.get(tag.id));
       const aantalEl = span('tagknop-aantal');
       knop.append(document.createTextNode(tag.naam), aantalEl);
 
       knop.addEventListener('click', () => {
-        const aan = !gekozenTags.has(tag.id);
-        if (aan) gekozenTags.add(tag.id);
-        else gekozenTags.delete(tag.id);
-        knop.setAttribute('aria-pressed', String(aan));
-        wisknop.hidden = gekozenTags.size === 0;
+        draaiStaat(tagStaat, tag.id, knop);
+        wisknop.hidden = tagStaat.size === 0;
         filter();
       });
 
@@ -728,9 +764,11 @@ function bouwTagbalk(tags) {
     houder.append(groep);
   }
 
+  wisknop.hidden = tagStaat.size === 0;
+
   wisknop.addEventListener('click', () => {
-    gekozenTags.clear();
-    for (const { element } of tagknoppen) element.setAttribute('aria-pressed', 'false');
+    tagStaat.clear();
+    for (const { element } of tagknoppen) toonStaat(element, undefined);
     wisknop.hidden = true;
     filter();
   });
@@ -754,11 +792,11 @@ function ververs() {
     groep.element.hidden = !paletten.has(groep.palet);
     if (!groep.element.hidden) continue;
     for (const knop of groep.element.querySelectorAll('.staal')) {
-      gekozenKleuren.delete(knop.dataset.sleutel);
-      knop.setAttribute('aria-pressed', 'false');
+      kleurStaat.delete(knop.dataset.sleutel);
+      toonStaat(knop, undefined);
     }
   }
-  document.querySelector('#kleurbalk-wis').hidden = gekozenKleuren.size === 0;
+  document.querySelector('#kleurbalk-wis').hidden = kleurStaat.size === 0;
 
   const perTag = new Map();
   for (const kaart of kaarten) {
@@ -768,20 +806,33 @@ function ververs() {
     const aantal = perTag.get(id) ?? 0;
     element.hidden = aantal === 0;
     aantalEl.textContent = aantal;
-    if (aantal === 0 && gekozenTags.delete(id)) element.setAttribute('aria-pressed', 'false');
+    // Een 'alleen' zonder kandidaten heeft geen zin, maar een uitsluiting laten we staan:
+    // stilletjes vervallen zou de uitgesloten modellen ongemerkt terugzetten.
+    if (aantal === 0 && tagStaat.get(id) === 'alleen') {
+      tagStaat.delete(id);
+      toonStaat(element, undefined);
+    }
   }
-  document.querySelector('#tagbalk-wis').hidden = gekozenTags.size === 0;
+  document.querySelector('#tagbalk-wis').hidden = tagStaat.size === 0;
 
   filter();
 }
 
+const BALKEN_SLEUTEL = 'taaleiland-catalogus-balken';
+
+function werkFilterknopBij() {
+  const knop = document.querySelector('#filterknop');
+  const aantal = kleurStaat.size + tagStaat.size;
+  knop.textContent = aantal ? `Filter · ${aantal}` : 'Filter';
+  knop.setAttribute('aria-pressed', String(aantal > 0));
+}
+
 function filter() {
+  werkFilterknopBij();
   let zichtbaar = 0;
 
   for (const kaart of kaarten) {
-    const treffer =
-      (gekozenKleuren.size === 0 || kaart.kleuren.some((k) => gekozenKleuren.has(k))) &&
-      (gekozenTags.size === 0 || kaart.tags.some((t) => gekozenTags.has(t)));
+    const treffer = past(kaart.kleuren, kleurStaat) && past(kaart.tags, tagStaat);
     kaart.element.hidden = !treffer;
     if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
   }
@@ -824,6 +875,22 @@ async function start() {
 
   bouwKleurbalk(data.paletten ?? []);
   bouwTagbalk(data.tags ?? []);
+
+  const balken = document.querySelector('#balken');
+  const filterknop = document.querySelector('#filterknop');
+  const zetBalken = (open) => {
+    balken.hidden = !open;
+    filterknop.setAttribute('aria-expanded', String(open));
+    try {
+      localStorage.setItem(BALKEN_SLEUTEL, open ? 'open' : 'dicht');
+    } catch {}
+  };
+  let open = false;
+  try {
+    open = localStorage.getItem(BALKEN_SLEUTEL) === 'open';
+  } catch {}
+  zetBalken(open);
+  filterknop.addEventListener('click', () => zetBalken(balken.hidden));
 
   for (const knop of document.querySelectorAll('.schakelaar button')) {
     knop.addEventListener('click', () => {

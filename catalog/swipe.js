@@ -30,10 +30,10 @@ const samenvatting = el('#samenvatting');
 
 const vlakkeModus = { aan: false };
 
-const register = { modellen: [], perId: new Map(), kits: new Map(), groepen: new Map() };
+const register = { modellen: [], perId: new Map(), kits: new Map(), groepen: new Map(), tags: new Map() };
 
 const staat = {
-  filters: { zoek: '', kits: [], groepen: [], schud: false },
+  filters: { zoek: '', kits: [], groepen: [], tags: [], schud: false },
   labels: Object.fromEntries(RICHTINGEN.map((r) => [r.id, r.standaard])),
   volgorde: [],
   keuzes: [],
@@ -76,9 +76,10 @@ function resterend() {
 }
 
 function past(model) {
-  const { zoek, kits, groepen } = staat.filters;
+  const { zoek, kits, groepen, tags = [] } = staat.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
   if (groepen.length && !groepen.includes(model.groep)) return false;
+  if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
   if (zoek) {
     const naald = zoek.toLowerCase();
     if (!`${model.naam} ${model.kit} ${model.groep}`.toLowerCase().includes(naald)) return false;
@@ -150,6 +151,7 @@ function opzetFilters() {
     zoek: el('#zoek').value.trim(),
     kits: gekozenWaarden(el('#kitlijst')),
     groepen: gekozenWaarden(el('#groeplijst')),
+    tags: gekozenWaarden(el('#taglijst')),
     schud: el('#schud').checked,
   };
 }
@@ -171,8 +173,13 @@ function vulOpzet() {
     .map((g) => ({ id: g.id, naam: g.naam, aantal: register.modellen.filter((m) => m.groep === g.id).length }))
     .filter((g) => g.aantal > 0);
 
+  const tags = [...register.tags.values()]
+    .map((t) => ({ id: t.id, naam: t.naam, aantal: register.modellen.filter((m) => (m.tags ?? []).includes(t.id)).length }))
+    .filter((t) => t.aantal > 0);
+
   vinklijst(el('#kitlijst'), kits, staat.filters.kits);
   vinklijst(el('#groeplijst'), groepen, staat.filters.groepen);
+  vinklijst(el('#taglijst'), tags, staat.filters.tags ?? []);
   el('#zoek').value = staat.filters.zoek;
   el('#schud').checked = staat.filters.schud;
   for (const richting of RICHTINGEN) el(`#label-${richting.id}`).value = staat.labels[richting.id];
@@ -574,6 +581,7 @@ async function start() {
   register.perId = new Map(data.modellen.map((m) => [m.id, m]));
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
   register.groepen = new Map(data.groepen.map((g) => [g.id, g]));
+  register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
   laad();
 

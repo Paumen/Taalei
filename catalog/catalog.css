@@ -190,6 +190,33 @@ a { color: var(--accent); }
   transform: translateY(-1px) rotate(45deg);
 }
 
+.kitbalk-aantal {
+  margin-left: 5px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  opacity: .7;
+}
+
+.balken {
+  max-height: 40vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.balken[hidden] { display: none; }
+
+@media (max-width: 700px) {
+  /* De tabstrip duwde de hele pagina zijwaarts; nu schuift hij in zichzelf. */
+  .kop-bediening { min-width: 0; max-width: 100%; }
+  .schakelaar { min-width: 0; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .schakelaar::-webkit-scrollbar { display: none; }
+  .schakelaar button { flex: none; }
+  .tagknop { padding: 3px 8px; font-size: 11px; }
+  .taggroep + .taggroep { padding-left: 10px; }
+  .tagbalk-knoppen { gap: 4px 10px; }
+  .staal { width: 22px; height: 22px; }
+}
+
 .orde {
   display: flex;
   align-items: center;
@@ -262,6 +289,29 @@ a { color: var(--accent); }
   border-color: var(--accent);
   color: var(--papier);
   font-weight: 600;
+}
+
+.tagknop[data-uit] {
+  border-color: var(--zwaar);
+  color: var(--zwaar);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.staal[data-uit] {
+  box-shadow: 0 0 0 2px var(--papier), 0 0 0 4px var(--zwaar);
+}
+
+.staal[data-uit]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 2px;
+  height: 130%;
+  background: var(--zwaar);
+  box-shadow: 0 0 0 1px var(--papier);
+  transform: rotate(45deg);
 }
 
 .tagknop-aantal {
