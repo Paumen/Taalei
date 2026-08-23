@@ -105,7 +105,7 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## candle
 
-8 modellen uit 3 kits: dungeon, fantasy-props, halloween. Hoogtespreiding 2.27×.
+6 modellen uit 2 kits: dungeon, halloween. Hoogtespreiding 1.00×.
 
 ![candle](candle.png)
 
@@ -159,7 +159,7 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## crate
 
-7 modellen uit 5 kits: fantasy-props, pirate-kit, platformer-kit, restaurant, village-kit. Hoogtespreiding 3.06×.
+5 modellen uit 4 kits: pirate-kit, platformer-kit, restaurant, village-kit. Hoogtespreiding 3.06×.
 
 ![crate](crate.png)
 
@@ -231,7 +231,7 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## grass
 
-10 modellen uit 6 kits: forest, mini-forest, pirate-kit, quaternius-nature, survival-kit, village-kit. Hoogtespreiding 6.43×.
+7 modellen uit 5 kits: forest, mini-forest, pirate-kit, survival-kit, village-kit. Hoogtespreiding 4.67×.
 
 ![grass](grass.png)
 
@@ -441,7 +441,7 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## stump
 
-5 modellen uit 3 kits: modulair-terrein, natuur, quaternius-nature. Hoogtespreiding 2.06×.
+4 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.73×.
 
 ![stump](stump.png)
 

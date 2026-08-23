@@ -9,7 +9,7 @@ node tools/vergelijk-groottes/afwijkingen.mjs
 ```
 
 Onderwerpen met meer dan één kit: 77. Daarvan met een spreiding van
-1.8× of meer tussen grootste en kleinste kit: 44.
+1.8× of meer tussen grootste en kleinste kit: 42.
 
 ## Kits die er structureel uit springen
 
@@ -17,27 +17,27 @@ Onderwerpen met meer dan één kit: 77. Daarvan met een spreiding van
 
 | kit | factor | te groot bij | te klein bij | veel dichter mesh bij |
 | --- | ---: | --- | --- | --- |
-| pirate-kit | 1.21 | fence, rock, rope | grass | fence, roof |
+| pirate-kit | 1.25 | fence, rock, rope | grass | fence, roof |
 | dungeon | 0.84 | key | coin, column, dirt | chest, doorway, pillar, rock, wall, window |
-| natuur | 0.77 | – | balloon, log, mushroom, star | post |
+| natuur | 0.78 | – | balloon, log, mushroom, star | post |
 | rocks | 3.99 | arch, column, wall | – | dirt |
-| survival-kit | 1.18 | fence, grass, rock | – | – |
-| platformer-kit | 0.92 | mushroom | flower, rope | – |
+| survival-kit | 1.19 | fence, grass, rock | – | – |
+| platformer-kit | 0.93 | mushroom | flower, rope | – |
 | fantasy-town-kit | 0.88 | rock | blade, plank | stair |
-| fantasy-props | 0.69 | – | candle, key, plate | candle, crate |
 | props | 1.19 | plate, table | – | – |
-| village-kit | 1.09 | crate, ladder | – | crate |
-| modulair-terrein | 0.90 | – | mountain, post | – |
+| village-kit | 1.11 | crate, ladder | – | crate |
+| modulair-terrein | 0.91 | – | mountain, post | – |
+| fantasy-props | 0.67 | – | key, plate | – |
 | modular-cave-kit | 2.01 | hole | – | – |
 | taalei-kit | 1.92 | balloon | – | – |
 | resources | 1.51 | stack | – | stack |
-| quaternius-nature | 1.24 | grass | – | pine |
 | halloween | 1.07 | – | bench | – |
-| restaurant | 0.74 | – | board | – |
+| restaurant | 0.77 | – | board | – |
 | prototype-kit | 1.16 | – | – | – |
+| quaternius-nature | 1.02 | – | – | pine |
 | rpgtools | 0.89 | – | – | – |
-| mini-forest | 0.81 | – | – | – |
-| forest | 0.78 | – | – | – |
+| mini-forest | 0.84 | – | – | – |
+| forest | 0.83 | – | – | – |
 
 ## Per onderwerp
 
@@ -110,19 +110,6 @@ Mediaan over de kits: 0.17 unit hoog. ![stack](stack.png)
 | dungeon | 0.16 | 0.96 | 0.26 | 968 | #ffb349 | coin-stack-large, coin-stack-small, coin-stack-medium |
 | fantasy-props | 0.10 | 0.62 | 0.14 | 327 | #23562c #8f785b #474a58 | book-stack-1, book-stack-2 |
 
-### grass — spreiding 6.43×
-
-Mediaan over de kits: 0.14 unit hoog. ![grass](grass.png)
-
-| kit | hoogte | factor | grondvlak | driehoeken/unit | kleuren | modellen |
-| --- | ---: | ---: | ---: | ---: | --- | --- |
-| quaternius-nature | 0.41 | 2.81 ⬆ | 0.18 | 192 | #23562c | grass, grass-2, grass-short |
-| survival-kit | 0.29 | 2.04 ⬆ | 2.32 | 173 | #6d8d33 #dd9f79 | rock-flat-grass |
-| forest | 0.17 | 1.17 | 0.17 | 132 | #6d8d33 | grass-1-a, grass-1-b, grass-1-c |
-| village-kit | 0.12 | 0.83 | 0.60 | 64 | #6d8d33 | well-base-grass |
-| mini-forest | 0.11 | 0.77 | 0.65 | 295 | #6d8d33 | patch-grass |
-| pirate-kit | 0.06 | 0.44 ⬇ | 1.34 | 60 | #6d8d33 | patch-grass |
-
 ### coin — spreiding 5.81×
 
 Mediaan over de kits: 0.11 unit hoog. ![coin](coin.png)
@@ -172,6 +159,18 @@ Mediaan over de kits: 6.97 unit hoog. ![mountain](mountain.png)
 | --- | ---: | ---: | ---: | ---: | --- | --- |
 | natuur | 11.54 | 1.66 | 21.05 | 0 | #88796d | mountain-2, mountain-3, mountain-4 |
 | modulair-terrein | 2.39 | 0.34 ⬇ | 1.75 | 6 | #88796d | mountain-a, mountain-b, mountain-c |
+
+### grass — spreiding 4.67×
+
+Mediaan over de kits: 0.12 unit hoog. ![grass](grass.png)
+
+| kit | hoogte | factor | grondvlak | driehoeken/unit | kleuren | modellen |
+| --- | ---: | ---: | ---: | ---: | --- | --- |
+| survival-kit | 0.29 | 2.45 ⬆ | 2.32 | 173 | #6d8d33 #dd9f79 | rock-flat-grass |
+| forest | 0.17 | 1.40 | 0.17 | 132 | #6d8d33 | grass-1-a, grass-1-b, grass-1-c |
+| village-kit | 0.12 | 1.00 | 0.60 | 64 | #6d8d33 | well-base-grass |
+| mini-forest | 0.11 | 0.93 | 0.65 | 295 | #6d8d33 | patch-grass |
+| pirate-kit | 0.06 | 0.53 ⬇ | 1.34 | 60 | #6d8d33 | patch-grass |
 
 ### rock — spreiding 4.63×
 
@@ -272,15 +271,14 @@ Mediaan over de kits: 0.11 unit hoog. ![dirt](dirt.png)
 
 ### crate — spreiding 3.06×
 
-Mediaan over de kits: 0.33 unit hoog. ![crate](crate.png)
+Mediaan over de kits: 0.26 unit hoog. ![crate](crate.png)
 
 | kit | hoogte | factor | grondvlak | driehoeken/unit | kleuren | modellen |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| village-kit | 0.60 | 1.85 ⬆ | 0.60 | 460 | #8f785b | crate-a, crate-a-open |
-| fantasy-props | 0.45 | 1.38 | 0.44 | 2157 | #995a41 #8f785b #9da4c4 | crate-metal, crate-wooden |
-| platformer-kit | 0.33 | 1.00 | 0.33 | 156 | #995a41 #d07b56 | crate |
-| pirate-kit | 0.20 | 0.60 | 0.33 | 76 | #995a41 #d07b56 | crate |
-| restaurant | 0.20 | 0.60 | 0.49 | 132 | #995a41 | crate |
+| village-kit | 0.60 | 2.30 ⬆ | 0.60 | 460 | #8f785b | crate-a, crate-a-open |
+| platformer-kit | 0.33 | 1.25 | 0.33 | 156 | #995a41 #d07b56 | crate |
+| pirate-kit | 0.20 | 0.75 | 0.33 | 76 | #995a41 #d07b56 | crate |
+| restaurant | 0.20 | 0.75 | 0.49 | 132 | #995a41 | crate |
 
 ### fence — spreiding 2.72×
 
@@ -302,16 +300,6 @@ Mediaan over de kits: 0.46 unit hoog. ![glass](glass.png)
 | --- | ---: | ---: | ---: | ---: | --- | --- |
 | fantasy-town-kit | 0.65 | 1.42 | 0.65 | 122 | #995a41 #d07b56 | wall-wood-window-glass |
 | rpgtools | 0.27 | 0.58 | 0.13 | 570 | #6d738a #8f785b #ffffff | magnifying-glass |
-
-### candle — spreiding 2.27×
-
-Mediaan over de kits: 0.22 unit hoog. ![candle](candle.png)
-
-| kit | hoogte | factor | grondvlak | driehoeken/unit | kleuren | modellen |
-| --- | ---: | ---: | ---: | ---: | --- | --- |
-| dungeon | 0.22 | 1.00 | 0.08 | 66 | #8f785b #f4efe3 | candle, candle-thin, candle-melted |
-| halloween | 0.22 | 1.00 | 0.08 | 66 | #995a41 #f4efe3 | candle, candle-thin, candle-melted |
-| fantasy-props | 0.10 | 0.44 ⬇ | 0.05 | 211 | #6d738a #dd9f79 #ffb349 | candle-1, candle-2 |
 
 ### log — spreiding 2.24×
 
@@ -363,16 +351,6 @@ Mediaan over de kits: 0.19 unit hoog. ![stool](stool.png)
 | --- | ---: | ---: | ---: | ---: | --- | --- |
 | props | 0.26 | 1.35 | 0.31 | 268 | #3e3e44 #8f785b | stool-a |
 | dungeon | 0.13 | 0.65 | 0.19 | 172 | #995a41 | stool |
-
-### stump — spreiding 2.06×
-
-Mediaan over de kits: 0.21 unit hoog. ![stump](stump.png)
-
-| kit | hoogte | factor | grondvlak | driehoeken/unit | kleuren | modellen |
-| --- | ---: | ---: | ---: | ---: | --- | --- |
-| quaternius-nature | 0.25 | 1.19 | 0.54 | 232 | #23562c #88796d | tree-stump |
-| modulair-terrein | 0.21 | 1.00 | 0.17 | 100 | #8f785b | hilly-prop-stump |
-| natuur | 0.12 | 0.58 | 0.14 | 220 | #8f785b #dd9f79 | stump-1, stump-2, stump-3 |
 
 ### barrel — spreiding 1.99×
 

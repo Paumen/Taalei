@@ -5,8 +5,9 @@ Handgeschreven notities bij de stroken in deze map en de cijfers in
 units, driehoeken per unit); de oordelen komen van het bekijken van de renders.
 Dit bestand wordt niet gegenereerd — vul het aan als je iets anders ziet.
 
-Bijgewerkt nadat de kits op maat zijn gezet: de meeste kits zijn kleiner geworden,
-waardoor de verhoudingen hieronder anders liggen dan in de eerste ronde.
+Bijgewerkt nadat de kits op maat zijn gezet en er assets zijn opgeruimd: de meeste
+kits zijn kleiner geworden en een aantal modellen is verdwenen, waardoor de
+verhoudingen hieronder anders liggen dan in de eerste ronde.
 
 ## Twee schalen door elkaar
 
@@ -21,12 +22,14 @@ Dat is geen fout in die kits — het zijn decorstukken voor de achtergrond — m
 horen niet in dezelfde strook als een huismuur. Bij plaatsing apart houden, of één
 schaalfactor voor de hele kit afspreken.
 
-## Gras blijft de grootste stijlbreuk in de natuurkits
+## Gras: de uitschieter is weg, de rest ligt nog uiteen
 
-In [grass.png](grass.png) staat `quaternius-nature` met pollen van 0.41–0.48 units
-naast `forest` (0.16–0.17), `mini-forest` (0.11) en `pirate-kit` (0.06): drie tot
-acht keer zo hoog. Bij Quaternius reikt het gras tot je knie, bij de andere kits
-ligt het als een matje op de grond. Naast elkaar in één scène valt dat direct op.
+De hoge Quaternius-pollen zijn met het opruimen van assets verdwenen. Wat overblijft
+in [grass.png](grass.png) ligt dichter bij elkaar maar nog niet gelijk: `survival-kit`
+0.29 (en dan als graslaag op een platte rots, geen pol), `forest` 0.16–0.17,
+`village-kit` 0.12, `mini-forest` 0.11 en `pirate-kit` 0.06 — spreiding 4.67×.
+`quaternius-nature` staat over alle onderwerpen nu op factor 1.02, precies de
+mediaan; die kit valt dus niet meer uit de toon.
 
 ## Hekken vallen in twee groepen
 
@@ -39,9 +42,8 @@ stuk van het andere.
 ## Kisten en kratten hebben geen huismaat
 
 [crate.png](crate.png) loopt van 0.20 (`pirate-kit`, `restaurant`) via 0.33
-(`platformer-kit`) en 0.43–0.47 (`fantasy-props`) naar 0.60 (`village-kit`):
-spreiding 3.06×. Vaten idem, 0.30 (`village-kit`) tot 0.60 (`props`), met binnen
-`dungeon` zelf al 0.25–0.64.
+(`platformer-kit`) naar 0.60 (`village-kit`): spreiding 3.00×. Vaten idem, 0.30
+(`village-kit`) tot 0.60 (`props`), met binnen `dungeon` zelf al 0.25–0.64.
 
 Opvallende tegenhanger: schatkisten zitten wél dicht bij elkaar, 0.29–0.33 over drie
 kits. Voor kratten en vaten valt dus een huismaat te kiezen; 0.45 ligt in het midden
@@ -60,8 +62,9 @@ goedkoopste correctie in deze lijst.
 ## Detail per unit verschilt sterker dan de vorm
 
 Bij hetzelfde onderwerp zit de meshdichtheid ver uit elkaar: vaten lopen van 428
-driehoeken per unit (`props`) via 480 (`village-kit`) en 561 (`dungeon`) naar 824
-(`fantasy-props`), terwijl de rotskits op 1–2 zitten. Sterkste geval is *key*:
+driehoeken per unit (`props`) via 452 (`village-kit`) en 561 (`dungeon`) naar 824
+(`fantasy-props`), terwijl de rotskits op 1–2 zitten (die modellen zijn dan ook
+metersgroot). Sterkste geval is *key*:
 `fantasy-props` gebruikt 956 driehoeken per unit voor een sleutel van 0.01 hoog,
 `dungeon` 160 voor een van 0.10. Alles blijft binnen het budget van 1000 per unit,
 maar een `fantasy-props`-model naast een `props`-model oogt gladder.
