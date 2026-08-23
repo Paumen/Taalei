@@ -44,14 +44,13 @@ const MODELLEN = [
   ['Torch_Metal',            'torch-metal'],
   ['Vase_2',                 'vase-2'],
   ['Vase_4',                 'vase-4'],
-  ['Vase_Rubble_Medium',     'vase-rubble-medium'],
 ];
 
 await importeerKit({
   slug: 'fantasy-props',
   bron: 'Fantasy Props MegaKit',
   generator: 'tools/importeer-fantasy-props.mjs',
-  schaal: 1,
+  schaal: 0.5,
   formaat: 'gltf',
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
   modellen: MODELLEN,

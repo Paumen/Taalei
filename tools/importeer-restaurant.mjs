@@ -38,7 +38,7 @@ await importeerKit({
   slug: 'restaurant',
   bron: 'KayKit Restaurant Bits',
   generator: 'tools/importeer-restaurant.mjs',
-  schaal: 0.35,
+  schaal: 0.245,
   formaat: 'gltf',
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
   modellen: MODELLEN,

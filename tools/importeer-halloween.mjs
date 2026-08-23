@@ -42,7 +42,7 @@ await importeerKit({
   slug: 'halloween',
   bron: 'KayKit Halloween Bits',
   generator: 'tools/importeer-halloween.mjs',
-  schaal: 0.5,
+  schaal: 0.277354,
   formaat: 'gltf',
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
   modellen: MODELLEN,

@@ -17,7 +17,7 @@ await importeerKit({
   slug: 'prototype-kit',
   bron: 'Kenney Prototype Kit',
   generator: 'tools/importeer-prototype-kit.mjs',
-  schaal: 1,
+  schaal: 0.65,
   formaat: 'gltf',
   bestand: (naam) => `${naam}.glb`,
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),

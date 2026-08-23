@@ -42,6 +42,8 @@ for (const naam of Object.keys(groups)) {
     console.log('MISLUKT', naam);
     continue;
   }
+  const hoogte = await page.evaluate('window.HOOGTE');
+  await page.setViewportSize({ width: 1800, height: hoogte });
   await page.screenshot({ path: path.join(UIT, `${naam}.png`) });
   console.log('ok', naam);
 }

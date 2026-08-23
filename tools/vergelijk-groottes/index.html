@@ -14,46 +14,52 @@ const params = new URLSearchParams(location.search);
 const groupsData = await (await fetch(params.get('bron') ?? './groups.json')).json();
 const group = groupsData[params.get('group')];
 if (!group) { document.title = 'ONBEKENDE GROEP'; throw new Error('groep?'); }
-const W = 1800, H = 760;
-const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
-renderer.setSize(W, H);
-document.body.appendChild(renderer.domElement);
+
+const W = 1800;
+// Elke familie krijgt precies even veel units in beeld, zodat een vat in elk blad even groot
+// op het scherm staat. Een rij is RIJBREEDTE units breed; wat er niet meer bij past, gaat naar
+// de volgende rij. Alleen de hoogte van het beeld verschilt dus nog per familie.
+const RIJBREEDTE = 5;
+const GAP = 0.35;
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xe8e4da);
 scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.4));
 const sun = new THREE.DirectionalLight(0xffffff, 1.6);
 sun.position.set(3, 6, 5);
 scene.add(sun);
+
 const loader = new GLTFLoader();
 const load = (p) => new Promise((res, rej) => loader.load(p, res, undefined, rej));
-function label(text, x, scale) {
-  const c = document.createElement('canvas');
-  c.width = 1024; c.height = 96;
-  const ctx = c.getContext('2d');
-  ctx.fillStyle = '#222'; ctx.font = '600 44px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText(text, 512, 62);
-  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
-  spr.scale.set(scale * 10.6, scale, 1);
-  spr.position.set(x, -scale * 0.7, 1.2);
-  spr.center.set(0.5, 1);
-  scene.add(spr);
+
+// Meetlat van 1 unit in vier blokken rood/wit, aan beide kanten van elke rij. Altijd 1 unit,
+// ook bij een familie van platte props: dan is het beeld laag, maar de maatstaf blijft dezelfde
+// als op elk ander blad.
+function meetlat() {
+  const hoog = 1;
+  const deel = hoog / 4;
+  const dik = 0.08;
+  const rood = new THREE.MeshLambertMaterial({ color: 0xcc3333 });
+  const wit = new THREE.MeshLambertMaterial({ color: 0xf0ece3 });
+  const blok = new THREE.BoxGeometry(dik, deel, dik);
+  return {
+    w: dik,
+    h: hoog,
+    label: '1 unit',
+    maak() {
+      const g = new THREE.Group();
+      for (let i = 0; i < 4; i++) {
+        const mesh = new THREE.Mesh(blok, i % 2 ? rood : wit);
+        mesh.position.set(0, deel / 2 + i * deel, 0);
+        g.add(mesh);
+      }
+      return g;
+    },
+  };
 }
-function meetlat(x) {
-  for (let i = 0; i < 4; i++) {
-    const mesh = new THREE.Mesh(
-      new THREE.BoxGeometry(0.08, 0.25, 0.08),
-      new THREE.MeshLambertMaterial({ color: i % 2 ? 0xcc3333 : 0xf0ece3 }));
-    mesh.position.set(x, 0.125 + i * 0.25, 0);
-    scene.add(mesh);
-  }
-}
-let x = 0;
-const GAP = 0.55;
-meetlat(0);
-const placed = [{ x: 0, label: '1 unit', rij: 0 }];
-x += 0.3;
-let even = true;
+
+// Alles eerst laden: de rijindeling heeft alle breedtes nodig.
+const stukken = [];
 for (const item of group.items) {
   const gltf = await load('/kits/' + item.pad);
   const obj = gltf.scene;
@@ -61,41 +67,174 @@ for (const item of group.items) {
   let size = box.getSize(new THREE.Vector3());
   const pivot = new THREE.Group();
   pivot.add(obj);
-  if (size.z > size.x * 1.4) obj.rotation.y = Math.PI / 2;
+  // Platte dingen (schappen, zeesterren) lees je van boven, niet van opzij.
+  if (group.bovenaanzicht) obj.rotation.x = -Math.PI / 2;
+  else if (size.z > size.x * 1.4) obj.rotation.y = Math.PI / 2;
   box = new THREE.Box3().setFromObject(pivot);
   size = box.getSize(new THREE.Vector3());
-  x += GAP + size.x / 2;
-  pivot.position.set(x - (box.min.x + box.max.x) / 2, -box.min.y, -(box.min.z + box.max.z) / 2);
-  scene.add(pivot);
-  placed.push({ x, label: item.label + '  h=' + size.y.toFixed(2), rij: even ? 0 : 1 });
-  even = !even;
-  x += size.x / 2;
+  obj.position.set(-(box.min.x + box.max.x) / 2, -box.min.y, -(box.min.z + box.max.z) / 2);
+  const maatletter = group.bovenaanzicht ? 'd=' : 'h=';
+  stukken.push({ obj: pivot, w: size.x, h: size.y, label: item.label + '  ' + maatletter + size.y.toFixed(2) });
 }
-const totalW = x + 0.3;
-const maxH = new THREE.Box3().setFromObject(scene).max.y;
-const grid = new THREE.GridHelper(80, 80, 0xaaa298, 0xc6bfb2);
-grid.position.set(39, 0, 0);
-scene.add(grid);
-const labelScale = Math.max(0.12, totalW / 46);
-for (const p of placed) label(p.label, p.x, labelScale);
+
+const lat = meetlat();
+
+const FONT_KIT = '600 44px sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt
+const FONT_MODEL = '600 44px sans-serif';
+const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelScale (twee regels plus lucht)
+const meetCtx = document.createElement('canvas').getContext('2d');
+// Een label is "Kit  model": de kit komt op de eerste regel, het model op de tweede.
+function splits(text) {
+  const knip = text.indexOf('  ');
+  return knip === -1 ? ['', text] : [text.slice(0, knip), text.slice(knip + 2)];
+}
+function tekstBreedte(text) {
+  const [kit, model] = splits(text);
+  meetCtx.font = FONT_KIT;
+  const a = meetCtx.measureText(kit).width;
+  meetCtx.font = FONT_MODEL;
+  const b = meetCtx.measureText(model).width;
+  return Math.ceil(Math.max(a, b)) + 16;
+}
+
+// Labels van een rij verdelen over zo min mogelijk regels: elk label zakt een regel als het
+// tegen zijn linkerbuur aan loopt. Geeft het aantal gebruikte regels terug.
+function labelRegels(rij, labelScale) {
+  const rechts = [];
+  for (const p of rij) {
+    const breed = labelScale * (tekstBreedte(p.label) / 96);
+    const links = p.x - breed / 2;
+    let r = rechts.findIndex((v) => links > v + labelScale * 0.2);
+    if (r === -1) { r = rechts.length; rechts.push(0); }
+    rechts[r] = p.x + breed / 2;
+    p.regel = r;
+    p.labelBreed = breed;
+  }
+  return rechts.length;
+}
+
+// Vullen tot de rij vol is; de rijbreedte ligt vast, dus de schaal ook.
+const labelScale = RIJBREEDTE / 38;   // groter dan de 52 waarmee we begonnen: dit leest een stuk prettiger
+const rijen = [];
 {
-  let i = 0;
-  for (const kind of scene.children) {
-    if (kind.isSprite && placed[i]) {
-      if (placed[i].rij === 1) kind.position.y -= labelScale * 1.15;
-      i++;
-    }
+  let rij = [];
+  let breed = 0;
+  for (const p of stukken) {
+    if (rij.length && breed + GAP + p.w > RIJBREEDTE) { rijen.push({ rij, breed }); rij = []; breed = 0; }
+    breed += GAP + p.w / 2;
+    p.x = breed;
+    breed += p.w / 2;
+    rij.push(p);
+  }
+  if (rij.length) rijen.push({ rij, breed });
+  for (const x of rijen) {
+    x.regels = labelRegels(x.rij, labelScale);
+    x.labelBlok = labelScale * (0.7 + REGEL * (x.regels - 1) + REGEL);
+    x.hoog = Math.max(lat.h + labelScale * 1.4, ...x.rij.map((p) => p.h)) + x.labelBlok;
   }
 }
-const aspect = W / H;
-const midX = totalW / 2 - 0.5;
-const viewH = Math.max(maxH * 1.25 + labelScale * 2.4, (totalW + 1) / aspect * 1.02);
+
+// Rijen stapelen van onder naar boven, zodat rij 0 bovenaan komt.
+const basis = [];
+for (let i = rijen.length - 1, y = 0; i >= 0; i--) { basis[i] = y + rijen[i].labelBlok; y += rijen[i].hoog; }
+
+// Ruitjespapier achter de modellen: fijne lijnen om de 0,25 unit, zware om de hele unit.
+// De stap is overal dezelfde, dus je kunt in elk blad even goed een hoogte aflezen.
+function achtergrond(y, links, rechts, hoogte) {
+  const g = new THREE.Group();
+  const top = Math.ceil(Math.max(hoogte, 1) * 4) / 4;
+  for (const [stap, kleur, dekking] of [[0.25, 0xc6bfb2, 0.55], [1, 0x9c9285, 0.85]]) {
+    const punten = [];
+    for (let x = Math.ceil(links / stap) * stap; x <= rechts + 1e-6; x += stap) punten.push(x, y, -0.5, x, y + top, -0.5);
+    for (let h = 0; h <= top + 1e-6; h += stap) punten.push(links, y + h, -0.5, rechts, y + h, -0.5);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(punten, 3));
+    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: kleur, transparent: true, opacity: dekking })));
+  }
+  return g;
+}
+
+function label(text, x, y, breed) {
+  const [kit, model] = splits(text);
+  const c = document.createElement('canvas');
+  c.width = tekstBreedte(text);
+  c.height = kit ? 192 : 96;   // zonder kitnaam (de meetlat) is één regel genoeg
+  const ctx = c.getContext('2d');
+  ctx.textAlign = 'center';
+  if (kit) {
+    ctx.font = FONT_KIT;
+    ctx.fillStyle = '#5a5249';
+    ctx.fillText(kit, c.width / 2, 60);
+  }
+  ctx.font = FONT_MODEL;
+  ctx.fillStyle = '#222';
+  ctx.fillText(model, c.width / 2, kit ? 148 : 62);
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
+  spr.scale.set(breed, labelScale * (c.height / 96), 1);
+  spr.position.set(x, y, 1.2);
+  spr.center.set(0.5, 1);
+  scene.add(spr);
+}
+
+const latLinks = -GAP - lat.w / 2;
+const latRechts = RIJBREEDTE + GAP + lat.w / 2;
+
+let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
+rijen.forEach((r, i) => {
+  const y = basis[i];
+  scene.add(achtergrond(y, latLinks, latRechts, Math.max(lat.h, ...r.rij.map((p) => p.h))));
+  // Elke rij krijgt links en rechts een meetlat, zodat je nergens ver hoeft te kijken
+  // om te zien hoe groot iets is. Ze staan op dezelfde x, dus ze lijnen ook verticaal uit.
+  for (const lx of [latLinks, latRechts]) {
+    const obj = lat.maak();
+    obj.position.set(lx, y, 0);
+    scene.add(obj);
+    // Label boven de lat: onder de rij staan de assetlabels, daar botst hij anders mee.
+    const breed = labelScale * (tekstBreedte(lat.label) / 96);
+    const ly = y + lat.h + labelScale * 1.25;
+    label(lat.label, lx, ly, breed);
+    xMin = Math.min(xMin, lx - breed / 2);
+    xMax = Math.max(xMax, lx + breed / 2);
+    yMax = Math.max(yMax, ly);
+  }
+  for (const p of r.rij) {
+    p.obj.position.set(p.x, y, 0);
+    scene.add(p.obj);
+    const ly = y - labelScale * 0.7 - p.regel * labelScale * REGEL;
+    label(p.label, p.x, ly, p.labelBreed);
+    xMin = Math.min(xMin, p.x - p.w / 2, p.x - p.labelBreed / 2);
+    xMax = Math.max(xMax, p.x + p.w / 2, p.x + p.labelBreed / 2);
+    yMin = Math.min(yMin, ly - labelScale * 2);
+    yMax = Math.max(yMax, y + p.h);
+  }
+});
+
+// Breedte ligt vast (dus de schaal ook); alleen de hoogte volgt de inhoud.
+const rand = Math.max(GAP, labelScale);
+const viewW = latRechts - latLinks + rand * 2;
+const viewH = yMax - yMin + rand * 2;
+xMin = latLinks - rand;
+xMax = latRechts + rand;
+// Nooit uitrekken: loopt het beeld tegen de maximale hoogte aan, dan gaat de breedte mee omlaag
+// zodat de verhouding klopt. Alleen die ene familie staat dan wat kleiner in beeld.
+const MAX_H = 12000;
+let doekB = W;
+let H = Math.max(420, Math.round((W * viewH) / viewW));
+if (H > MAX_H) { H = MAX_H; doekB = Math.round((MAX_H * viewW) / viewH); }
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(doekB, H);
+document.body.appendChild(renderer.domElement);
+
+const aspect = doekB / H;
+const midX = (xMin + xMax) / 2;
+const midY = (yMin + yMax) / 2;
 const cam = new THREE.OrthographicCamera(
-  -viewH * aspect / 2, viewH * aspect / 2, viewH * 0.62, -viewH * 0.38, 0.1, 200);
-cam.position.set(midX + viewH * 0.12, maxH * 0.45 + viewH * 0.18, 30);
-cam.lookAt(midX + viewH * 0.12, maxH * 0.45 - viewH * 0.05, 0);
+  -viewH * aspect / 2, viewH * aspect / 2, viewH / 2, -viewH / 2, 0.1, 200);
+cam.position.set(midX, midY + viewH * 0.10, 30);
+cam.lookAt(midX, midY, 0);
 scene.add(cam);
 renderer.render(scene, cam);
 document.title = 'KLAAR:' + group.items.length;
+window.HOOGTE = H;
 window.KLAAR = true;
 </script>
