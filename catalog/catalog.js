@@ -269,7 +269,24 @@ const detailVariant = document.querySelector('#detail-variant');
 const detailVariantKeuze = document.querySelector('#detail-variant-keuze');
 let actiefPad = '';
 
-const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map() };
+const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map(), tags: new Map() };
+
+const TAGSOORTEN = [
+  { soort: 'materiaal', kop: 'Materiaal' },
+  { soort: 'tag', kop: 'Tags' },
+];
+
+function tagRijen(model) {
+  if (!model.tags?.length) return [];
+  const namen = (soort) =>
+    model.tags
+      .filter((id) => (register.tags.get(id)?.soort ?? 'tag') === soort)
+      .map((id) => register.tags.get(id)?.naam ?? id);
+
+  return TAGSOORTEN.map(({ soort, kop }) => [kop, namen(soort).join(', ')]).filter(
+    ([, waarde]) => waarde,
+  );
+}
 
 function toonDetail(model) {
   const kit = register.kits.get(model.kit);
@@ -295,6 +312,7 @@ function toonDetail(model) {
       ? [[`Animaties (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
     ['Grootte', bytesLeesbaar(model.bytes)],
+    ...tagRijen(model),
     ['Licentie', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'zie kitmap'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
@@ -684,6 +702,8 @@ async function start() {
       modellen,
     );
   }
+
+  register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
   bouwKleurbalk(data.paletten ?? []);
 
