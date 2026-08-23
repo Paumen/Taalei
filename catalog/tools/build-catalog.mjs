@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
+import { bouwSchaalgroepen } from './schaalgroepen.mjs';
 import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { leesPng } from './png.mjs';
 
@@ -176,19 +177,31 @@ function kleurNaam(hex) {
 }
 
 function schrijfVersie() {
-  const inhoud = ['catalog.json', 'catalog.css', 'catalog.js']
+  const inhoud = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js', 'swipe.css', 'swipe.js']
     .map((naam) => readFileSync(join(CATALOG_DIR, naam)))
     .join('');
   const versie = createHash('sha256').update(inhoud).digest('hex').slice(0, 10);
 
-  const pad = join(ROOT, 'index.html');
-  const html = readFileSync(pad, 'utf8')
-    .replace(/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${versie}"`)
-    .replace(/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${versie}"`)
-    .replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${versie}">`);
+  const stempel = (pad, vervangingen) => {
+    let html = readFileSync(pad, 'utf8');
+    for (const [zoek, verv] of vervangingen) html = html.replace(zoek, verv);
+    writeFileSync(pad, html.replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${versie}">`));
+  };
 
-  writeFileSync(pad, html);
-  console.log(`versie ${versie} → index.html`);
+  stempel(join(ROOT, 'index.html'), [
+    [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${versie}"`],
+    [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${versie}"`],
+  ]);
+  stempel(join(CATALOG_DIR, 'schaal.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
+    [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${versie}"`],
+  ]);
+  stempel(join(CATALOG_DIR, 'swipe.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
+    [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${versie}"`],
+    [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${versie}"`],
+  ]);
+  console.log(`versie ${versie} → index.html, catalog/schaal.html, catalog/swipe.html`);
 }
 
 const kitMeta = leesKitMetadata();
@@ -376,6 +389,12 @@ const catalogus = {
 };
 
 writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
+
+const schaalgroepen = bouwSchaalgroepen(modellen, catalogus.kits);
+writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(schaalgroepen, null, 1) + '\n');
+const inSchaalgroep = schaalgroepen.reduce((som, g) => som + g.items.length, 0);
+console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → catalog/schaalgroepen.json`);
+
 schrijfVersie();
 
 console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);

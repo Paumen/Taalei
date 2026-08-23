@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — Modellen swipen</title>
+<meta name="catalogus-versie" content="5ae0ec99e0">
+<meta name="description" content="Gereedschap om modellen uit de catalogus één voor één te beoordelen: veeg naar links, rechts, boven of onder en exporteer per richting een lijst met paden — voor selecties, tags, groepen of aanpassingen.">
+<link rel="stylesheet" href="catalog.css?v=5ae0ec99e0">
+<link rel="stylesheet" href="swipe.css?v=5ae0ec99e0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+</head>
+<body class="swipe-body">
+
+<header class="kop">
+  <div class="kop-titel">
+    <h1>Modellen swipen</h1>
+    <p class="kop-sub" id="samenvatting">Catalogus laden…</p>
+  </div>
+
+  <div class="kop-bediening">
+    <a class="knop" href="../index.html">← Catalogus</a>
+    <button class="knop" type="button" id="instellingen">Instellingen</button>
+    <button class="knop" type="button" id="licht" aria-pressed="false"
+            title="Toont de modellen zonder belichting: alleen de kleuren uit de atlas, met de schaduw die erin gebakken zit">Vlak</button>
+    <button class="knop primair" type="button" id="naar-uitslag">Uitslag</button>
+  </div>
+</header>
+
+<section class="opzet" id="opzet" hidden>
+  <form id="opzet-formulier">
+    <div class="opzet-blok">
+      <h2>Welke modellen</h2>
+      <label class="veld">
+        Zoek op naam
+        <input type="search" id="zoek" placeholder="bijvoorbeeld rock" autocomplete="off">
+      </label>
+      <div class="veld">
+        Kits <span class="veld-hint">niets aangevinkt = alle kits</span>
+        <div class="vinklijst" id="kitlijst"></div>
+      </div>
+      <div class="veld">
+        Groepen <span class="veld-hint">niets aangevinkt = alle groepen</span>
+        <div class="vinklijst" id="groeplijst"></div>
+      </div>
+      <label class="veld veld-rij">
+        <input type="checkbox" id="schud">
+        Willekeurige volgorde
+      </label>
+    </div>
+
+    <div class="opzet-blok">
+      <h2>Wat betekent elke richting</h2>
+      <p class="veld-hint">Geef de vier richtingen een naam — een tag, een groep, een besluit.</p>
+      <label class="veld">← Links<input type="text" id="label-links" maxlength="40"></label>
+      <label class="veld">→ Rechts<input type="text" id="label-rechts" maxlength="40"></label>
+      <label class="veld">↑ Omhoog<input type="text" id="label-omhoog" maxlength="40"></label>
+      <label class="veld">↓ Omlaag<input type="text" id="label-omlaag" maxlength="40"></label>
+    </div>
+
+    <div class="opzet-acties">
+      <p class="opzet-telling" id="opzet-telling"></p>
+      <button type="button" class="knop" id="opzet-annuleer">Annuleren</button>
+      <button type="submit" class="knop primair" id="opzet-start">Beginnen</button>
+    </div>
+  </form>
+</section>
+
+<main class="dek" id="dek" hidden>
+  <div class="dek-rand dek-rand-omhoog" data-richting="omhoog"><span></span></div>
+  <div class="dek-midden">
+    <div class="dek-rand dek-rand-links" data-richting="links"><span></span></div>
+    <div class="stapel" id="stapel" aria-live="polite"></div>
+    <div class="dek-rand dek-rand-rechts" data-richting="rechts"><span></span></div>
+  </div>
+  <div class="dek-rand dek-rand-omlaag" data-richting="omlaag"><span></span></div>
+
+  <div class="voortgang">
+    <div class="voortgang-balk"><i id="voortgang-vulling"></i></div>
+    <span class="voortgang-tekst" id="voortgang-tekst"></span>
+  </div>
+
+  <div class="bediening">
+    <button class="knop richtingknop" type="button" data-richting="links"><b>←</b><span></span></button>
+    <button class="knop richtingknop" type="button" data-richting="omlaag"><b>↓</b><span></span></button>
+    <button class="knop richtingknop" type="button" data-richting="omhoog"><b>↑</b><span></span></button>
+    <button class="knop richtingknop" type="button" data-richting="rechts"><b>→</b><span></span></button>
+    <button class="knop" type="button" id="terug" title="Laatste keuze terugdraaien (Z)">↺ Terug</button>
+  </div>
+  <p class="sneltoetsen">Sleep de kaart, gebruik de pijltjestoetsen of de knoppen. <kbd>Z</kbd> draait terug, <kbd>Esc</kbd> opent de uitslag.</p>
+</main>
+
+<section class="uitslag" id="uitslag" hidden>
+  <div class="uitslag-kop">
+    <h2>Uitslag</h2>
+    <div class="uitslag-acties">
+      <button class="knop" type="button" id="verder">Verder swipen</button>
+      <button class="knop" type="button" id="download-json">Download JSON</button>
+      <button class="knop" type="button" id="download-csv">Download CSV</button>
+      <button class="knop" type="button" id="wis-alles">Alles wissen</button>
+    </div>
+  </div>
+  <div class="uitslag-bakken" id="uitslag-bakken"></div>
+</section>
+
+<p class="leeg" id="melding" hidden></p>
+
+<script src="vendor/model-viewer.min.js" type="module"></script>
+<script src="swipe.js?v=5ae0ec99e0" type="module"></script>
+</body>
+</html>

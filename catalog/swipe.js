@@ -8,7 +8,7 @@ const RICHTINGEN = [
 const RICHTING_IDS = RICHTINGEN.map((r) => r.id);
 const OPSLAGSLEUTEL = 'taaleiland-swipe-v1';
 const DREMPEL = 90;
-const VLAK_OMGEVING = 'catalog/effen-omgeving.png';
+const VLAK_OMGEVING = 'effen-omgeving.png';
 
 const getal = new Intl.NumberFormat('nl-NL');
 const eenheid = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 2 });
@@ -205,7 +205,7 @@ function maakKaart(model, diepte) {
   const vak = document.createElement('div');
   vak.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
-  viewer.src = model.pad;
+  viewer.src = `../${model.pad}`;
   viewer.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
@@ -539,7 +539,7 @@ const stempelTijd = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g,
 function exporteerJson() {
   const alle = regels();
   const inhoud = {
-    gereedschap: 'swipe.html',
+    gereedschap: 'catalog/swipe.html',
     gemaakt: new Date().toISOString(),
     filters: staat.filters,
     richtingen: Object.fromEntries(
@@ -566,8 +566,8 @@ function exporteerCsv() {
 /* — start — */
 
 async function start() {
-  const respons = await fetch('catalog/catalog.json');
-  if (!respons.ok) throw new Error(`catalog/catalog.json niet gevonden (${respons.status})`);
+  const respons = await fetch('catalog.json');
+  if (!respons.ok) throw new Error(`catalog.json niet gevonden (${respons.status})`);
   const data = await respons.json();
 
   register.modellen = data.modellen;
