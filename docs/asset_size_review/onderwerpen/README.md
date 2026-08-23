@@ -17,11 +17,11 @@ node tools/vergelijk-groottes/render.mjs \
 node tools/vergelijk-groottes/rapport.mjs
 ```
 
-83 onderwerpen, elk met hoogstens drie voorbeelden per kit.
+77 onderwerpen, elk met hoogstens drie voorbeelden per kit.
 
 ## anvil
 
-2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.89×.
+2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.95×.
 
 ![anvil](anvil.png)
 
@@ -33,157 +33,145 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## axe
 
-2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.09×.
+2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.13×.
 
 ![axe](axe.png)
 
 ## bag
 
-2 modellen uit 2 kits: fantasy-props, props. Hoogtespreiding 2.01×.
+2 modellen uit 2 kits: fantasy-props, props. Hoogtespreiding 1.01×.
 
 ![bag](bag.png)
 
 ## balloon
 
-4 modellen uit 2 kits: natuur, taalei-kit. Hoogtespreiding 13.53×.
+4 modellen uit 2 kits: natuur, taalei-kit. Hoogtespreiding 22.53×.
 
 ![balloon](balloon.png)
 
 ## barrel
 
-9 modellen uit 5 kits: dungeon, fantasy-props, props, tropical, village-kit. Hoogtespreiding 2.99×.
+8 modellen uit 4 kits: dungeon, fantasy-props, props, village-kit. Hoogtespreiding 1.99×.
 
 ![barrel](barrel.png)
 
 ## bench
 
-3 modellen uit 3 kits: fantasy-props, halloween, props. Hoogtespreiding 2.13×.
+3 modellen uit 3 kits: fantasy-props, halloween, props. Hoogtespreiding 1.92×.
 
 ![bench](bench.png)
 
 ## blade
 
-2 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 2.10×.
+2 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 3.23×.
 
 ![blade](blade.png)
 
 ## block
 
-3 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.25×.
+3 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.23×.
 
 ![block](block.png)
 
 ## board
 
-4 modellen uit 2 kits: modulair-terrein, restaurant. Hoogtespreiding 4.23×.
+4 modellen uit 2 kits: modulair-terrein, restaurant. Hoogtespreiding 4.24×.
 
 ![board](board.png)
 
-## book
-
-5 modellen uit 2 kits: fantasy-props, furniture. Hoogtespreiding 2.57×.
-
-![book](book.png)
-
 ## bottle
 
-12 modellen uit 5 kits: dungeon, fantasy-props, pirate-kit, props, survival-kit. Hoogtespreiding 2.92×.
+12 modellen uit 5 kits: dungeon, fantasy-props, pirate-kit, props, survival-kit. Hoogtespreiding 1.81×.
 
 ![bottle](bottle.png)
 
 ## box
 
-4 modellen uit 2 kits: dungeon, props. Hoogtespreiding 1.17×.
+4 modellen uit 2 kits: dungeon, props. Hoogtespreiding 1.20×.
 
 ![box](box.png)
 
 ## branch
 
-7 modellen uit 3 kits: modulair-terrein, nature, natuur. Hoogtespreiding 1.68×.
+6 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.44×.
 
 ![branch](branch.png)
 
 ## bucket
 
-2 modellen uit 2 kits: fantasy-props, props. Hoogtespreiding 1.04×.
+2 modellen uit 2 kits: fantasy-props, props. Hoogtespreiding 1.92×.
 
 ![bucket](bucket.png)
 
 ## candle
 
-8 modellen uit 3 kits: dungeon, fantasy-props, halloween. Hoogtespreiding 2.05×.
+8 modellen uit 3 kits: dungeon, fantasy-props, halloween. Hoogtespreiding 2.27×.
 
 ![candle](candle.png)
 
 ## cart
 
-3 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.12×.
+3 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.72×.
 
 ![cart](cart.png)
 
 ## cattail
 
-5 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.20×.
+5 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.40×.
 
 ![cattail](cattail.png)
 
 ## chair
 
-2 modellen uit 2 kits: dungeon, restaurant. Hoogtespreiding 1.01×.
+2 modellen uit 2 kits: dungeon, restaurant. Hoogtespreiding 1.04×.
 
 ![chair](chair.png)
 
 ## chest
 
-6 modellen uit 5 kits: dungeon, modulair-terrein, pirate-kit, survival-kit, tropical. Hoogtespreiding 1.26×.
+4 modellen uit 3 kits: dungeon, pirate-kit, survival-kit. Hoogtespreiding 1.15×.
 
 ![chest](chest.png)
 
 ## clump
 
-6 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.06×.
+6 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.23×.
 
 ![clump](clump.png)
 
 ## coconut
 
-2 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.36×.
+2 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.56×.
 
 ![coconut](coconut.png)
 
 ## coin
 
-2 modellen uit 2 kits: dungeon, prototype-kit. Hoogtespreiding 6.30×.
+2 modellen uit 2 kits: dungeon, prototype-kit. Hoogtespreiding 5.81×.
 
 ![coin](coin.png)
 
 ## column
 
-2 modellen uit 2 kits: dungeon, rocks. Hoogtespreiding 15.17×.
+2 modellen uit 2 kits: dungeon, rocks. Hoogtespreiding 21.24×.
 
 ![column](column.png)
 
 ## crate
 
-7 modellen uit 5 kits: fantasy-props, pirate-kit, platformer-kit, restaurant, village-kit. Hoogtespreiding 3.21×.
+7 modellen uit 5 kits: fantasy-props, pirate-kit, platformer-kit, restaurant, village-kit. Hoogtespreiding 3.06×.
 
 ![crate](crate.png)
 
 ## daisy
 
-4 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.25×.
+4 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.45×.
 
 ![daisy](daisy.png)
 
-## debris
-
-4 modellen uit 2 kits: graveyard-kit, rocks. Hoogtespreiding 4.53×.
-
-![debris](debris.png)
-
 ## dirt
 
-10 modellen uit 6 kits: dungeon, graveyard-kit, halloween, mini-forest, rocks, village-kit. Hoogtespreiding 10.02×.
+9 modellen uit 5 kits: dungeon, halloween, mini-forest, rocks, village-kit. Hoogtespreiding 3.13×.
 
 ![dirt](dirt.png)
 
@@ -195,97 +183,91 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## door
 
-2 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.23×.
+2 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.25×.
 
 ![door](door.png)
 
 ## doorway
 
-9 modellen uit 4 kits: dungeon, fantasy-town-kit, survival-kit, village-kit. Hoogtespreiding 1.50×.
+9 modellen uit 4 kits: dungeon, fantasy-town-kit, survival-kit, village-kit. Hoogtespreiding 1.85×.
 
 ![doorway](doorway.png)
 
 ## edge
 
-4 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.75×.
+4 modellen uit 2 kits: fantasy-town-kit, village-kit. Hoogtespreiding 1.14×.
 
 ![edge](edge.png)
 
 ## fence
 
-13 modellen uit 5 kits: fantasy-town-kit, modulair-terrein, pirate-kit, platformer-kit, survival-kit. Hoogtespreiding 2.48×.
+13 modellen uit 5 kits: fantasy-town-kit, modulair-terrein, pirate-kit, platformer-kit, survival-kit. Hoogtespreiding 2.72×.
 
 ![fence](fence.png)
 
-## flag
-
-4 modellen uit 2 kits: castle-kit, pirate-kit. Hoogtespreiding 1.32×.
-
-![flag](flag.png)
-
 ## floor
 
-9 modellen uit 3 kits: dungeon, survival-kit, village-kit. Hoogtespreiding 1.77×.
+9 modellen uit 3 kits: dungeon, survival-kit, village-kit. Hoogtespreiding 1.81×.
 
 ![floor](floor.png)
 
 ## flower
 
-5 modellen uit 2 kits: platformer-kit, quaternius-nature. Hoogtespreiding 5.57×.
+5 modellen uit 2 kits: platformer-kit, quaternius-nature. Hoogtespreiding 3.43×.
 
 ![flower](flower.png)
 
 ## gate
 
-3 modellen uit 2 kits: fantasy-town-kit, modulair-terrein. Hoogtespreiding 1.18×.
+3 modellen uit 2 kits: fantasy-town-kit, modulair-terrein. Hoogtespreiding 1.28×.
 
 ![gate](gate.png)
 
 ## glass
 
-2 modellen uit 2 kits: fantasy-town-kit, rpgtools. Hoogtespreiding 2.63×.
+2 modellen uit 2 kits: fantasy-town-kit, rpgtools. Hoogtespreiding 2.44×.
 
 ![glass](glass.png)
 
 ## grass
 
-10 modellen uit 6 kits: forest, mini-forest, pirate-kit, quaternius-nature, survival-kit, village-kit. Hoogtespreiding 10.13×.
+10 modellen uit 6 kits: forest, mini-forest, pirate-kit, quaternius-nature, survival-kit, village-kit. Hoogtespreiding 6.43×.
 
 ![grass](grass.png)
 
 ## hammer
 
-2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.19×.
+2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.15×.
 
 ![hammer](hammer.png)
 
 ## hole
 
-3 modellen uit 3 kits: modular-cave-kit, pirate-kit, survival-kit. Hoogtespreiding 6.43×.
+3 modellen uit 3 kits: modular-cave-kit, pirate-kit, survival-kit. Hoogtespreiding 5.77×.
 
 ![hole](hole.png)
 
 ## key
 
-3 modellen uit 2 kits: dungeon, fantasy-props. Hoogtespreiding 11.75×.
+3 modellen uit 2 kits: dungeon, fantasy-props. Hoogtespreiding 16.83×.
 
 ![key](key.png)
 
 ## knife
 
-2 modellen uit 2 kits: restaurant, rpgtools. Hoogtespreiding 1.29×.
+2 modellen uit 2 kits: restaurant, rpgtools. Hoogtespreiding 1.28×.
 
 ![knife](knife.png)
 
 ## ladder
 
-6 modellen uit 4 kits: mini-forest, modular-cave-kit, platformer-kit, village-kit. Hoogtespreiding 3.25×.
+6 modellen uit 4 kits: mini-forest, modular-cave-kit, platformer-kit, village-kit. Hoogtespreiding 5.00×.
 
 ![ladder](ladder.png)
 
 ## lantern
 
-5 modellen uit 3 kits: halloween, holiday-kit, rpgtools. Hoogtespreiding 2.71×.
+3 modellen uit 2 kits: halloween, rpgtools. Hoogtespreiding 2.11×.
 
 ![lantern](lantern.png)
 
@@ -297,19 +279,19 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## log
 
-9 modellen uit 5 kits: castle-kit, natuur, quaternius-nature, resources, survival-kit. Hoogtespreiding 2.79×.
+8 modellen uit 4 kits: natuur, quaternius-nature, resources, survival-kit. Hoogtespreiding 2.24×.
 
 ![log](log.png)
 
 ## mountain
 
-7 modellen uit 3 kits: modulair-terrein, nature, natuur. Hoogtespreiding 5.63×.
+6 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 4.83×.
 
 ![mountain](mountain.png)
 
 ## mushroom
 
-7 modellen uit 4 kits: modulair-terrein, natuur, platformer-kit, props. Hoogtespreiding 3.57×.
+7 modellen uit 4 kits: modulair-terrein, natuur, platformer-kit, props. Hoogtespreiding 3.84×.
 
 ![mushroom](mushroom.png)
 
@@ -321,55 +303,49 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## palm
 
-7 modellen uit 3 kits: modulair-terrein, natuur, tropical. Hoogtespreiding 1.82×.
+6 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.43×.
 
 ![palm](palm.png)
 
 ## pickaxe
 
-2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.28×.
+2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.24×.
 
 ![pickaxe](pickaxe.png)
 
 ## pile
 
-5 modellen uit 3 kits: holiday-kit, modulair-terrein, resources. Hoogtespreiding 1.81×.
+4 modellen uit 2 kits: modulair-terrein, resources. Hoogtespreiding 2.18×.
 
 ![pile](pile.png)
 
 ## pillar
 
-6 modellen uit 3 kits: dungeon, fantasy-town-kit, village-kit. Hoogtespreiding 2.33×.
+6 modellen uit 3 kits: dungeon, fantasy-town-kit, village-kit. Hoogtespreiding 1.67×.
 
 ![pillar](pillar.png)
 
 ## pine
 
-13 modellen uit 5 kits: graveyard-kit, halloween, modulair-terrein, natuur, quaternius-nature. Hoogtespreiding 2.09×.
+11 modellen uit 4 kits: halloween, modulair-terrein, natuur, quaternius-nature. Hoogtespreiding 1.73×.
 
 ![pine](pine.png)
 
 ## plank
 
-7 modellen uit 4 kits: fantasy-town-kit, pirate-kit, resources, survival-kit. Hoogtespreiding 2.85×.
+7 modellen uit 4 kits: fantasy-town-kit, pirate-kit, resources, survival-kit. Hoogtespreiding 3.13×.
 
 ![plank](plank.png)
 
-## plant
-
-4 modellen uit 2 kits: quaternius-nature, tropical. Hoogtespreiding 3.84×.
-
-![plant](plant.png)
-
 ## plate
 
-7 modellen uit 4 kits: dungeon, fantasy-props, props, restaurant. Hoogtespreiding 2.87×.
+7 modellen uit 4 kits: dungeon, fantasy-props, props, restaurant. Hoogtespreiding 5.75×.
 
 ![plate](plate.png)
 
 ## platform
 
-5 modellen uit 2 kits: pirate-kit, platformer-kit. Hoogtespreiding 1.80×.
+5 modellen uit 2 kits: pirate-kit, platformer-kit. Hoogtespreiding 1.76×.
 
 ![platform](platform.png)
 
@@ -381,127 +357,115 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## post
 
-7 modellen uit 4 kits: halloween, modulair-terrein, natuur, village-kit. Hoogtespreiding 4.37×.
+7 modellen uit 4 kits: halloween, modulair-terrein, natuur, village-kit. Hoogtespreiding 3.45×.
 
 ![post](post.png)
 
-## pot
-
-4 modellen uit 2 kits: mini-dungeon, restaurant. Hoogtespreiding 2.46×.
-
-![pot](pot.png)
-
 ## ramp
 
-4 modellen uit 2 kits: platformer-kit, village-kit. Hoogtespreiding 1.28×.
+4 modellen uit 2 kits: platformer-kit, village-kit. Hoogtespreiding 1.96×.
 
 ![ramp](ramp.png)
 
 ## rock
 
-30 modellen uit 12 kits: castle-kit, dungeon, fantasy-town-kit, forest, graveyard-kit, holiday-kit, modulair-terrein, natuur, pirate-kit, platformer-kit, quaternius-nature, survival-kit. Hoogtespreiding 5.20×.
+23 modellen uit 9 kits: dungeon, fantasy-town-kit, forest, modulair-terrein, natuur, pirate-kit, platformer-kit, quaternius-nature, survival-kit. Hoogtespreiding 4.63×.
 
 ![rock](rock.png)
 
 ## roof
 
-8 modellen uit 4 kits: fantasy-town-kit, pirate-kit, survival-kit, village-kit. Hoogtespreiding 1.89×.
+8 modellen uit 4 kits: fantasy-town-kit, pirate-kit, survival-kit, village-kit. Hoogtespreiding 1.84×.
 
 ![roof](roof.png)
 
 ## rope
 
-5 modellen uit 4 kits: modulair-terrein, pirate-kit, platformer-kit, village-kit. Hoogtespreiding 10.52×.
+4 modellen uit 3 kits: pirate-kit, platformer-kit, village-kit. Hoogtespreiding 10.27×.
 
 ![rope](rope.png)
 
-## rubble
-
-3 modellen uit 2 kits: dungeon, fantasy-props. Hoogtespreiding 7.00×.
-
-![rubble](rubble.png)
-
 ## sand
 
-6 modellen uit 2 kits: pirate-kit, survival-kit. Hoogtespreiding 1.59×.
+6 modellen uit 2 kits: pirate-kit, survival-kit. Hoogtespreiding 1.40×.
 
 ![sand](sand.png)
 
 ## shelf
 
-6 modellen uit 3 kits: dungeon, fantasy-props, furniture. Hoogtespreiding 2.21×.
+3 modellen uit 2 kits: dungeon, fantasy-props. Hoogtespreiding 1.45×.
 
 ![shelf](shelf.png)
 
 ## shovel
 
-3 modellen uit 3 kits: graveyard-kit, rpgtools, survival-kit. Hoogtespreiding 1.21×.
+2 modellen uit 2 kits: rpgtools, survival-kit. Hoogtespreiding 1.17×.
 
 ![shovel](shovel.png)
 
 ## sign
 
-2 modellen uit 2 kits: platformer-kit, village-kit. Hoogtespreiding 1.04×.
+2 modellen uit 2 kits: platformer-kit, village-kit. Hoogtespreiding 1.47×.
 
 ![sign](sign.png)
 
 ## stack
 
-10 modellen uit 4 kits: dungeon, fantasy-props, natuur, resources. Hoogtespreiding 3.64×.
+10 modellen uit 4 kits: dungeon, fantasy-props, natuur, resources. Hoogtespreiding 7.27×.
 
 ![stack](stack.png)
 
 ## stair
 
-9 modellen uit 4 kits: dungeon, fantasy-town-kit, props, village-kit. Hoogtespreiding 1.79×.
+9 modellen uit 4 kits: dungeon, fantasy-town-kit, props, village-kit. Hoogtespreiding 1.96×.
 
 ![stair](stair.png)
 
 ## star
 
-2 modellen uit 2 kits: natuur, platformer-kit. Hoogtespreiding 3.70×.
+2 modellen uit 2 kits: natuur, platformer-kit. Hoogtespreiding 4.00×.
 
 ![star](star.png)
 
 ## step
 
-2 modellen uit 2 kits: modulair-terrein, village-kit. Hoogtespreiding 1.25×.
+2 modellen uit 2 kits: modulair-terrein, village-kit. Hoogtespreiding 1.79×.
 
 ![step](step.png)
 
 ## stool
 
-2 modellen uit 2 kits: dungeon, props. Hoogtespreiding 1.48×.
+2 modellen uit 2 kits: dungeon, props. Hoogtespreiding 2.07×.
 
 ![stool](stool.png)
 
 ## stump
 
-5 modellen uit 3 kits: modulair-terrein, natuur, quaternius-nature. Hoogtespreiding 3.09×.
+5 modellen uit 3 kits: modulair-terrein, natuur, quaternius-nature. Hoogtespreiding 2.06×.
 
 ![stump](stump.png)
 
 ## sunflower
 
-4 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.19×.
+4 modellen uit 2 kits: modulair-terrein, natuur. Hoogtespreiding 1.02×.
 
 ![sunflower](sunflower.png)
 
 ## table
 
-8 modellen uit 4 kits: dungeon, furniture, props, restaurant. Hoogtespreiding 1.37×.
+5 modellen uit 3 kits: dungeon, props, restaurant. Hoogtespreiding 1.96×.
 
 ![table](table.png)
 
 ## torch
 
-3 modellen uit 3 kits: dungeon, fantasy-props, rpgtools. Hoogtespreiding 1.78×.
+3 modellen uit 3 kits: dungeon, fantasy-props, rpgtools. Hoogtespreiding 1.26×.
 
 ![torch](torch.png)
 
 ## tree
 
-22 modellen uit 9 kits: castle-kit, fantasy-town-kit, forest, halloween, holiday-kit, mini-forest, nature, natuur, survival-kit. Hoogtespreiding 1.76×.
+16 modellen uit 6 kits: fantasy-town-kit, forest, halloween, mini-forest, natuur, survival-kit. Hoogtespreiding 2.08×.
 
 ![tree](tree.png)
 
@@ -513,7 +477,7 @@ node tools/vergelijk-groottes/rapport.mjs
 
 ## window
 
-7 modellen uit 3 kits: dungeon, fantasy-town-kit, village-kit. Hoogtespreiding 2.33×.
+7 modellen uit 3 kits: dungeon, fantasy-town-kit, village-kit. Hoogtespreiding 1.87×.
 
 ![window](window.png)
 

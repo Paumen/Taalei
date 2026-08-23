@@ -44,8 +44,15 @@ for (const naam of Object.keys(groups)) {
     console.log('MISLUKT', naam);
     continue;
   }
-  // Het canvas bepaalt zelf zijn breedte, dus knippen we precies dat element uit.
-  await page.locator('canvas').screenshot({ path: path.join(UIT, `${naam}.png`) });
+  // index.html kiest zelf zijn hoogte; onderwerp.html ook zijn breedte, dus daar
+  // knippen we precies het canvas uit.
+  const hoogte = await page.evaluate('window.HOOGTE ?? null');
+  if (hoogte) {
+    await page.setViewportSize({ width: 1800, height: hoogte });
+    await page.screenshot({ path: path.join(UIT, `${naam}.png`) });
+  } else {
+    await page.locator('canvas').screenshot({ path: path.join(UIT, `${naam}.png`) });
+  }
   console.log('ok', naam);
 }
 if (mislukt) process.exitCode = 1;
