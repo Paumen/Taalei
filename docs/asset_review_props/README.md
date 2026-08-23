@@ -14,10 +14,10 @@ live: **`catalog/schaal.html`** (knop *Schaal* in de kop van de catalogus) laadt
 of een verwijderde asset. De families daar komen uit `catalog/schaalgroepen.json`, dat
 `build-catalog.mjs` afleidt uit de regels in `catalog/tools/schaalgroepen.mjs`.
 
-De indeling staat in `tools/vergelijk-groottes/groepen-props.json`. De meetlat zakt mee
-met de familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) zodat kleine props niet wegvallen naast
-een lat van een hele unit — kijk dus altijd even welk getal erboven staat. Achter elk
-label staat de hoogte van het model.
+De indeling staat in `tools/vergelijk-groottes/groepen-props.json`. De meetlat is overal **1 unit**, zodat elk blad dezelfde maatstaf heeft. Daarachter ligt
+ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, dus je kunt
+een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
+zijn hoogte op de onderste.
 
 ## Zes kits opnieuw geschaald
 
@@ -161,8 +161,8 @@ zijn warm oranje. Naast elkaar lezen ze niet als één keuken.
 zijn bijna-zwarte kleur buiten het serviespalet.
 
 **Zeesterren en schelpen zijn vlak.** Alle negen zijn 0,01–0,02 hoog: op de grond
-gedrukte schijfjes. Ze staan hier tegen een meetlat van 0,05 unit, anders zijn ze
-niet te zien.
+gedrukte schijfjes. Daarom staat die familie **van boven** in beeld — van opzij zie je
+niets. Het getal achter het label is daar dan ook de diepte (`d=`), niet de hoogte.
 
 **Bomen: de spreiding zit bij natuur.** `natuur/tree-pine-6` is 7,85 hoog,
 `tree-pine-5` 6,65 en `tree-pine-4` 5,21, terwijl alle andere kits tussen 1,15 en 3,74

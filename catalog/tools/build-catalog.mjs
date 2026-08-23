@@ -385,7 +385,7 @@ const catalogus = {
 
 writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
 
-const schaalgroepen = bouwSchaalgroepen(modellen);
+const schaalgroepen = bouwSchaalgroepen(modellen, catalogus.kits);
 writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(schaalgroepen, null, 1) + '\n');
 const inSchaalgroep = schaalgroepen.reduce((som, g) => som + g.items.length, 0);
 console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → catalog/schaalgroepen.json`);

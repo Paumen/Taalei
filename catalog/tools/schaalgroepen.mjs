@@ -6,6 +6,9 @@
 
 const DOOD = /(^|-)(bare|dead)(-|$)/;
 
+// Platte dingen lees je van boven, niet van opzij.
+const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen']);
+
 // Elk model valt in de eerste familie die het aanneemt, dus de volgorde is betekenisvol:
 // 'palmen' staat vóór 'bomen', anders slokt 'bomen' de palmen op.
 export const FAMILIES = [
@@ -50,7 +53,8 @@ export const FAMILIES = [
   ['paden-plekken', 'Paden en plekken', (b) => /^(patch|path|road|cobblestone|dirt)(-|$)/.test(b)],
 ];
 
-export function bouwSchaalgroepen(modellen) {
+export function bouwSchaalgroepen(modellen, kits = []) {
+  const kortePerSlug = new Map(kits.map((k) => [k.slug, k.kort ?? k.naam ?? k.slug]));
   const gebruikt = new Set();
   const groepen = [];
   for (const [slug, naam, test] of FAMILIES) {
@@ -60,9 +64,10 @@ export function bouwSchaalgroepen(modellen) {
       const basis = m.id.slice(m.id.indexOf('/') + 1);
       if (!test(basis, m)) continue;
       gebruikt.add(m.id);
-      items.push({ id: m.id, pad: m.pad, hoogte: m.wdh[2] });
+      // kit en model apart, zodat het label ze verschillend kan zetten
+      items.push({ kit: kortePerSlug.get(m.kit) ?? m.kit, model: basis, pad: m.pad, hoogte: m.wdh[2] });
     }
-    if (items.length) groepen.push({ slug, naam, items });
+    if (items.length) groepen.push({ slug, naam, bovenaanzicht: BOVENAANZICHT.has(slug), items });
   }
   return groepen;
 }

@@ -9,9 +9,9 @@ rij heeft links én rechts een meetlat.
 node tools/vergelijk-groottes/render.mjs tools/vergelijk-groottes/hout.json docs/asset_review_hout
 ```
 
-De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat zakt mee met de
-familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) — kijk dus welk getal erboven staat. Achter
-elk label staat de hoogte van het model.
+De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat is overal **1 unit**, met daarachter ruitjespapier: een fijne lijn om de
+0,25 unit, een zware om de hele unit. Elk label heeft de kit op de bovenste regel en het
+model met zijn hoogte op de onderste.
 
 In de catalogus staat dezelfde vergelijking live: `catalog/schaal.html` (knop *Schaal*)
 laadt de `.glb`'s in de browser, dus die klopt ook meteen na een herschaling.
