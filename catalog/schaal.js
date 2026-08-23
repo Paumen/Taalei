@@ -13,7 +13,7 @@ import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 // Elke familie krijgt precies even veel units in beeld, zodat een vat in elke familie even
 // groot op het scherm staat. Een rij is RIJBREEDTE units breed; wat er niet meer bij past gaat
 // naar de volgende rij. Alleen de hoogte van het beeld verschilt dus nog per familie.
-const RIJBREEDTE = 9;
+const RIJBREEDTE = 6;
 const GAP = 0.35;
 const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelSchaal (twee regels plus lucht)
 const FONT_KIT = '600 44px system-ui, sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt
@@ -184,7 +184,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   if (!stukken.length) return null;
 
   const lat = meetlat();
-  const labelSchaal = RIJBREEDTE / 52;
+  const labelSchaal = RIJBREEDTE / 38;   // groter dan de 52 waarmee we begonnen: dit leest een stuk prettiger
   const rijen = verdeel(stukken, labelSchaal, lat);
 
   const basis = [];
@@ -247,11 +247,16 @@ export async function tekenFamilie(groep, canvas, breedte) {
   const viewH = yMax - yMin + rand * 2;
   xMin = latLinks - rand;
   xMax = latRechts + rand;
-  const hoogte = Math.round((breedte * viewH) / viewW);
+  // Nooit uitrekken: loopt het beeld tegen de maximale hoogte aan, dan gaat de breedte mee omlaag
+  // zodat de verhouding klopt. Een doek van meer dan ~8000 px hoog weigeren telefoons sowieso.
+  const MAX_H = 8000;
+  let doekB = breedte;
+  let hoogte = Math.round((breedte * viewH) / viewW);
+  if (hoogte > MAX_H) { hoogte = MAX_H; doekB = Math.round((MAX_H * viewW) / viewH); }
 
-  const renderer = gedeeldeRenderer(breedte, hoogte);
+  const renderer = gedeeldeRenderer(doekB, hoogte);
 
-  const aspect = breedte / hoogte;
+  const aspect = doekB / hoogte;
   const midX = (xMin + xMax) / 2;
   const midY = (yMin + yMax) / 2;
   const cam = new THREE.OrthographicCamera(
@@ -259,7 +264,7 @@ export async function tekenFamilie(groep, canvas, breedte) {
   cam.position.set(midX, midY + viewH * 0.1, 30);
   cam.lookAt(midX, midY, 0);
   renderer.render(scene, cam);
-  canvas.width = breedte;
+  canvas.width = doekB;
   canvas.height = hoogte;
   canvas.getContext('2d').drawImage(renderer.domElement, 0, 0);
   ruimOp(scene);
