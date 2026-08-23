@@ -1,0 +1,49 @@
+// Laadt 28 modellen uit "KayKit Halloween Bits" in als kits/workfiles/halloween.
+//
+// Aanroepen met het pad naar de uitgepakte pack:
+//   node tools/importeer-halloween.mjs <pack>/Assets/gltf
+//
+// Wat er gebeurt en waarom staat in kits/workfiles/halloween/LICENSE.txt.
+
+import { importeerKit } from './importeer/kit.mjs';
+
+const MODELLEN = [
+  ['bench',                   'bench'],
+  ['bone_A',                  'bone-a'],
+  ['bone_B',                  'bone-b'],
+  ['bone_C',                  'bone-c'],
+  ['candle',                  'candle'],
+  ['candle_melted',           'candle-melted'],
+  ['candle_thin',             'candle-thin'],
+  ['candle_triple',           'candle-triple'],
+  ['floor_dirt_small',        'floor-dirt-small'],
+  ['lantern_hanging',         'lantern-hanging'],
+  ['lantern_standing',        'lantern-standing'],
+  ['path_A',                  'path-a'],
+  ['path_B',                  'path-b'],
+  ['path_C',                  'path-c'],
+  ['path_D',                  'path-d'],
+  ['post',                    'post'],
+  ['post_lantern',            'post-lantern'],
+  ['ribcage',                 'ribcage'],
+  ['skull',                   'skull'],
+  ['tree_dead_large',         'tree-dead-large'],
+  ['tree_dead_medium',        'tree-dead-medium'],
+  ['tree_dead_small',         'tree-dead-small'],
+  ['tree_pine_orange_large',  'tree-pine-orange-large'],
+  ['tree_pine_orange_medium', 'tree-pine-orange-medium'],
+  ['tree_pine_orange_small',  'tree-pine-orange-small'],
+  ['tree_pine_yellow_large',  'tree-pine-yellow-large'],
+  ['tree_pine_yellow_medium', 'tree-pine-yellow-medium'],
+  ['tree_pine_yellow_small',  'tree-pine-yellow-small'],
+];
+
+await importeerKit({
+  slug: 'halloween',
+  bron: 'KayKit Halloween Bits',
+  generator: 'tools/importeer-halloween.mjs',
+  schaal: 0.5,
+  formaat: 'gltf',
+  bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
+  modellen: MODELLEN,
+});

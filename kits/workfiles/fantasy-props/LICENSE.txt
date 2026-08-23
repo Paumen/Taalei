@@ -1,0 +1,98 @@
+	Fantasy Props
+
+			------------------------------
+
+	Fantasy Props MegaKit (gratis versie)
+	Gemaakt door Quaternius — https://quaternius.com/
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert .gltf + .bin. CamelCase en onderstrepingen zijn
+	koppeltekens geworden en alles is klein gezet: BookGroup_Medium_1
+	wordt book-group-medium-1.
+
+	Van de 94 modellen zijn er 37 gekozen: vaten, kratten, kisten en
+	een kooi, elf boeken en boekenstapels, twee sleutels, twee
+	drankjes, twee rollen perkament, kaarsen en een toorts, twee
+	vazen, een kruik, een emmer, een zak, een mok, een bord, een
+	bankje, een wandschap en een houweel. De wapens, de meubels op
+	maat en de bouwdelen zijn niet ingeladen.
+
+	Geen schaling. Deze pack staat in meters en deze collectie ook:
+	het bord meet 0,33 (dungeon/plate meet 0,34) en het vat 0,70 ×
+	0,90 (dungeon/barrel-large meet 0,63 × 0,70).
+
+	Dit is met 30.149 driehoeken de zwaarste van de tien nieuwe kits.
+	Vijf modellen komen boven het budget van 1000 driehoeken per unit
+	uit — cage-small (4588), crate-metal (2738), barrel-apples (2480),
+	barrel-holder (2114) en crate-wooden (1576) — en
+	vase-rubble-medium en key-gold zitten er net boven. Dat zit in de
+	pack zelf: het is een PBR-pack die zijn detail in de geometrie
+	legt in plaats van in de textuur.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-fantasy-props.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
+
+	Deze pack heeft geen kleurenvel met banen maar een geschilderde
+	textuur. Daar valt geen baan over te nemen, dus wordt er een
+	gekozen. Per driehoek wordt eerst het gemiddelde van zeven punten
+	binnen dat vlak genomen — in lineair licht, en geen van de zeven
+	ligt op een hoekpunt, want net naast het vlak ligt vaak een heel
+	andere kleur. Eén kleur per vlak dus, zoals de stijlgids vraagt;
+	per hoekpunt kiezen zou binnen één plankje drie tinten uit de nerf
+	pikken en ruis opleveren.
+
+	Die kleuren worden dan per oppervlak gegroepeerd en pas daarna
+	krijgt elke groep één baan. Groeperen gebeurt op kleur alleen — de
+	afstand in het a/b-vlak van Oklab, waar toon en verzadiging in
+	zitten en lichtheid niet — en het kiezen van de baan ook. De
+	lichtheid van een driehoek bepaalt alleen nog waar hij in die baan
+	terechtkomt.
+
+	Dat lichtheid geen rol speelt bij het kiezen is de kern. Doet ze
+	dat wel, dan springt de lichte kant van een bast naar een lichte
+	baan en de donkere kant naar een donkere, en spat een glad vlak
+	uiteen in vlekken. Nu gaat de hele bast in één keer naar dezelfde
+	baan, met het verloop erin.
+
+	Deze pack heeft geen kleurenvel maar vier PBR-trimsheets van 1024
+	× 1024 met echte materiaaltekening erin: hout met nerf, metaal met
+	slijtage. Die tekening gaat verloren; wat blijft is de
+	licht-donkerverdeling over de vlakken, en die zit in een trimsheet
+	nu juist op vlakniveau.
+
+	Let op waar de kleur vandaan komt. De trimsheets zijn grijs
+	geschilderd en de kleur staat per hoekpunt in COLOR_0 — vandaar
+	materiaalnamen als MI_Trim_Props_Vertex. Die hoekpuntkleuren
+	vermenigvuldigen de textuur, zoals glTF voorschrijft. Wie ze
+	overslaat krijgt 94 grijze modellen: elk boek, elke vaas en elk
+	drankje verliest zijn kleur.
+
+	Omdat die trimsheets grijs zijn en pas onder de belichting van de
+	maker het bedoelde hout worden, staat de pack als geheel donkerder
+	dan deze collectie. Het niveau is daarom in één keer voor de hele
+	pack rechtgetrokken (×2,14), net zoals er één schaal voor de hele
+	pack is: de onderlinge verhoudingen blijven, alleen het niveau
+	schuift. Zonder die correctie landen alle vaten en boeken op de
+	donkerste baan die er is en blijft er van het verschil ertussen
+	niets over.
+
+	De verste sprongen zijn de bijna zwarte boekbanden en het
+	donkerrode drankje (13,4): daarvoor heeft de gedeelde sheet alleen
+	donkergrijs. De rest blijft onder 11.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

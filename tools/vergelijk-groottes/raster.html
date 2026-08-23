@@ -1,0 +1,57 @@
+<!doctype html><meta charset=utf-8><style>html,body{margin:0;background:#e8e4da}</style>
+<script type="importmap">{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+const q=new URLSearchParams(location.search);
+const paden=JSON.parse(decodeURIComponent(q.get('m')));
+const namen=q.get('n')?JSON.parse(decodeURIComponent(q.get('n'))):null;
+function bijschrift(tekst,breedte){
+  const c=document.createElement('canvas');c.width=512;c.height=64;
+  const ctx=c.getContext('2d');ctx.fillStyle='#3a3630';ctx.font='600 34px sans-serif';
+  ctx.textAlign='center';ctx.fillText(tekst,256,44,500);
+  const spr=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false}));
+  spr.scale.set(breedte,breedte/8,1);
+  return spr;
+}
+const KOL=Number(q.get('kol')??6), CEL=Number(q.get('cel')??230);
+const rijen=Math.ceil(paden.length/KOL);
+const W=KOL*CEL, H=rijen*CEL;
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H);renderer.setScissorTest(true);renderer.autoClear=false;document.body.appendChild(renderer.domElement);
+const loader=new GLTFLoader();
+const laad=async p=>{
+  if(!p.endsWith('.obj')) return new Promise((res,rej)=>loader.load(p,res,undefined,rej));
+  const map=p.slice(0,p.lastIndexOf('/')+1);
+  const mtl=await new Promise((res,rej)=>new MTLLoader().setPath(map).load(p.slice(map.length).replace('.obj','.mtl'),res,undefined,rej));
+  mtl.preload();
+  const obj=await new Promise((res,rej)=>new OBJLoader().setMaterials(mtl).setPath(map).load(p.slice(map.length),res,undefined,rej));
+  return {scene:obj};
+};
+renderer.setClearColor(0xe8e4da);
+renderer.setViewport(0,0,W,H);renderer.setScissor(0,0,W,H);renderer.clear();
+for (let i=0;i<paden.length;i++){
+  const scene=new THREE.Scene();scene.background=new THREE.Color(0xe8e4da);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x887766,1.5));
+  const sun=new THREE.DirectionalLight(0xffffff,1.5);sun.position.set(3,6,5);scene.add(sun);
+  let obj;
+  try { obj=(await laad(paden[i])).scene; } catch(e){ continue; }
+  scene.add(obj);
+  const box=new THREE.Box3().setFromObject(obj);
+  const mid=box.getCenter(new THREE.Vector3());const size=box.getSize(new THREE.Vector3());
+  const r=Math.max(size.x,size.y,size.z)||1;
+  const cam=new THREE.PerspectiveCamera(32,1,r*0.01,r*100);
+  cam.position.set(mid.x+r*1.5,mid.y+r*0.75,mid.z+r*1.9);cam.lookAt(new THREE.Vector3(mid.x,mid.y-r*0.12,mid.z));
+  if(namen&&namen[i]){
+    const et=bijschrift(namen[i],r*2.1);
+    et.position.set(mid.x,box.min.y-r*0.22,mid.z);
+    scene.add(et);
+  }
+  const cx=(i%KOL)*CEL, cy=H-(Math.floor(i/KOL)+1)*CEL;
+  renderer.setViewport(cx,cy,CEL,CEL);renderer.setScissor(cx,cy,CEL,CEL);
+  renderer.render(scene,cam);
+}
+window.KLAAR=true;
+</script>

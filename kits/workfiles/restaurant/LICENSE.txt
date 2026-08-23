@@ -1,0 +1,83 @@
+	Restaurant
+
+			------------------------------
+
+	KayKit : Restaurant Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: food_ingredient_cheese_chopped wordt
+	food-ingredient-cheese-chopped. Eén naam is aangepast:
+	cuttingboard is cutting-board geworden, zodat hij leest als de
+	rest. Eén naam is met opzet níet aangepast: de pack heeft pan_A,
+	pan_B en pan_006, en die laatste is pan-006 gebleven — dat is de
+	naam die de pack eraan geeft, en er is geen manier om te weten
+	welke letter bedoeld was.
+
+	Van de 144 modellen zijn er 24 gekozen: het keukengerei (twee
+	potten, een grote pot, drie pannen, een mes, een snijplank, twee
+	borden, twee kommen), het eten (kaas, ham rauw en gaar, biefstuk,
+	een stoofpot en een gedekt bord), de kratten, en een stoel met een
+	ronde tafel. De rest van de pack is voor een groot deel dezelfde
+	meubels in andere kleuren.
+
+	Op 0,35 gezet, om dezelfde reden als de furniture-kit: op die
+	factor valt deze pack precies samen met de dungeonkit.
+	restaurant/plate meet 0,33 en dungeon/plate 0,34 — het bord van de
+	ene kit past op de tafel van de andere.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-restaurant.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z. De
+	schaal (0,35) staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen kleurenvel: een rooster van banen, elk één
+	kleur met zijn eigen verloop van licht naar donker. Dat vel is
+	niet meegekomen — de modellen zijn op de gedeelde
+	kits/colormap.png gezet, die net zo is opgebouwd, zodat ze
+	dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
+
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van
+	de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan
+	álle driehoeken van die bronbaan naar die ene doelbaan, en houdt
+	elk hoekpunt zijn eigen plek in het verloop.
+
+	Dat laatste is niet vrijblijvend. Zoek je per driehoek los de
+	dichtstbijzijnde kleur, dan kan de ene helft van een boom op de
+	ene baan komen en de andere helft op een andere, en valt een glad
+	vlak uiteen in losse driehoeken met elk een eigen tintje. Baan
+	voor baan kan dat niet gebeuren, en omdat elk hoekpunt zijn plek
+	houdt blijft een verloop over een vlak ook echt een verloop — de
+	ingebakken schaduw van de pack dus.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor
+	een hele baan en niet voor één kleur.
+
+	De verste sprongen zijn de groene baan van de garnering (9,7) en
+	de rode baan van het rauwe vlees (8,9). Er staat geen fel rood op
+	de gedeelde sheet, dus rauwe ham en biefstuk lezen hier bruiner
+	dan in de pack; dat raakt crate-ham, crate-steak, food-dinner,
+	food-ingredient-ham en food-ingredient-steak. Besluit PO: geen
+	kleur aan de gedeelde sheet toevoegen.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.
