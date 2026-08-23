@@ -64,7 +64,7 @@ await importeerKit({
   slug: 'quaternius-nature',
   bron: 'Ultimate Nature Pack',
   generator: 'tools/importeer-quaternius-nature.mjs',
-  schaal: 0.5,
+  schaal: 0.4,
   formaat: 'obj',
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
   modellen: MODELLEN,

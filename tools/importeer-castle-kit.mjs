@@ -24,7 +24,7 @@ await importeerKit({
   slug: 'castle-kit',
   bron: 'Kenney Castle Kit',
   generator: 'tools/importeer-castle-kit.mjs',
-  schaal: 1,
+  schaal: 0.8,
   formaat: 'gltf',
   bestand: (naam) => `${naam}.glb`,
   bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),

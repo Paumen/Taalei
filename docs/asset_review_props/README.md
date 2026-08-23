@@ -19,7 +19,7 @@ ruitjespapier met een fijne lijn om de 0,25 unit en een zware om de hele unit, d
 een hoogte direct aflezen. Elk label heeft de kit op de bovenste regel en het model met
 zijn hoogte op de onderste.
 
-## Zes kits opnieuw geschaald
+## Elf kits opnieuw geschaald
 
 | Kit | Factor | Wat het deed |
 | --- | --- | --- |
@@ -29,11 +29,23 @@ zijn hoogte op de onderste.
 | rpgtools | ×0,7 | mediane hoogte 0,33 → 0,23; het mes ging van 0,52 naar 0,36. |
 | survival-kit | ×0,7 | mediane hoogte 0,51 → 0,35. |
 | pirate-kit | ×0,8 | mediane hoogte 0,88 → 0,70; de grote schepen van 3,99 naar 3,19. |
+| halloween | ×0,5547 | zo staan de vier kaarsen exact even hoog als die van dungeon. |
+| natuur | ×0,6 | mediaan 0,33 → 0,20; de bergen van 19,4 naar 11,6. |
+| fantasy-town-kit | ×0,7 | mediaan 1,00 → 0,70. |
+| modulair-terrein | ×0,7 | mediaan 0,33 → 0,23. |
+| mini-forest | ×0,8 | mediaan 0,58 → 0,46. |
+| castle-kit | ×0,8 | mediaan 0,87 → 0,69. |
+| quaternius-nature | ×0,8 (na de eerdere ×0,5) | mediaan 0,69 → 0,55. |
 
 De schaal zit in `tools/herschaal-kit.mjs`; voor fantasy-props en quaternius-nature staat
 hij ook in het importeer-script, zodat opnieuw importeren hetzelfde oplevert.
 
-**Let op — survival-kit is hiermee verder van het raster af komen te liggen.** Zijn
+**Let op — het 1-unit-raster geldt niet meer.** dungeon staat na zijn correctie op een
+wandhoogte van 1,00, maar fantasy-town-kit — waar dat raster op geijkt was — staat na ×0,7
+op 0,70. Die twee tegelen dus niet meer met elkaar, en ook niet met modular-cave-kit (1,00).
+Terugdraaien kan met `node tools/herschaal-kit.mjs fantasy-town-kit 1.4286`.
+
+**Ook survival-kit ligt verder van het raster af.** Zijn
 vloertegels en hekken waren 0,90 × 0,90 (10% onder het 1-unit-raster) en zijn nu
 0,63 × 0,63. De losse props en het gereedschap uit die kit staan er beter voor, de
 bouwstukken slechter. Terugdraaien kan met `node tools/herschaal-kit.mjs survival-kit 1.4286`.
