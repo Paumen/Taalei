@@ -45,7 +45,6 @@ const detail = document.querySelector('#detail');
 const kaarten = [];
 const secties = [];
 
-let huidigeWeergave = 'kits';
 let groepering = 'standaard';
 let sortering = 'naam';
 
@@ -187,7 +186,7 @@ function glyf(soort, teken, uitleg) {
   return el;
 }
 
-function maakKaart(model, kits, groepen, weergave, varianten = []) {
+function maakKaart(model, kits, groepen, varianten = []) {
   const kit = kits.get(model.kit);
   const groep = groepen.get(model.groep);
 
@@ -245,7 +244,6 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
     element: houder,
     vinkje,
     pad: model.pad,
-    weergave,
     palet: model.palet,
     kleuren: [...new Set(familie.flatMap((m) => m.kleuren.map((hex) => kleurSleutel(m.palet, hex))))],
     tags: [...new Set(familie.flatMap((m) => m.tags ?? []))],
@@ -292,11 +290,10 @@ for (const naam of ['pointerup', 'pointercancel']) {
   paneel.addEventListener(naam, () => { veeg = null; });
 }
 
-function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron }) {
+function maakSectie({ id, soort, titel, aantal, kleur, uitleg, bron }) {
   const sectie = document.createElement('section');
   sectie.className = 'sectie';
   sectie.id = id;
-  sectie.dataset.weergave = weergave;
   sectie.dataset.soort = soort;
   if (kleur) sectie.style.setProperty('--sectie-kleur', kleur);
 
@@ -361,13 +358,10 @@ const SORTERINGEN = {
 
 const ZONDER = '_zonder';
 
-const groeperingSoort = () =>
-  groepering === 'standaard' ? (huidigeWeergave === 'kits' ? 'kit' : 'groep') : groepering;
+const groeperingSoort = () => (groepering === 'standaard' ? 'kit' : groepering);
 
 function sectiesVan(modellen) {
-  const tabblad = (m) => register.groepen.get(m.groep)?.tabblad ?? 'objects';
-  const inBeeld =
-    huidigeWeergave === 'kits' ? modellen : modellen.filter((m) => tabblad(m) === huidigeWeergave);
+  const inBeeld = modellen;
 
   const bronVan = (url) =>
     url ? { href: url, tekst: `${new URL(url).host.replace(/^www\./, '')} ↗` } : null;
@@ -465,7 +459,6 @@ function bouwPaneel() {
     const gesorteerd = [...deel.modellen].sort(orde);
     const { sectie, rooster, aantalEl } = maakSectie({
       id: `${groeperingSoort()}-${deel.id}`,
-      weergave: huidigeWeergave,
       soort: groeperingSoort(),
       titel: deel.titel,
       aantal: gesorteerd.length,
@@ -476,7 +469,7 @@ function bouwPaneel() {
 
     const eigen = [];
     for (const { model, varianten } of vouwVarianten(gesorteerd)) {
-      const item = maakKaart(model, register.kits, register.groepen, huidigeWeergave, varianten);
+      const item = maakKaart(model, register.kits, register.groepen, varianten);
       rooster.append(item.element);
       eigen.push(item);
     }
@@ -494,6 +487,21 @@ const detailVariantKeuze = document.querySelector('#detail-variant-keuze');
 let actiefPad = '';
 
 const register = { modellen: new Map(), kits: new Map(), groepen: new Map(), varianten: new Map(), tags: new Map() };
+
+const TYPETAGS = ['object', 'structure', 'nature'];
+
+const KORTE_NAAM = {
+  'precious-metal': 'Precious',
+  animation: 'Anim',
+  structure: 'Struct',
+  quaternius: 'Quat',
+  assembly: 'Asmbly',
+  ceramic: 'Cerm',
+  textile: 'Textil',
+  foliage: 'Foliag',
+};
+
+const chipNaam = (tag) => KORTE_NAAM[tag.id] ?? tag.naam;
 
 const TAGSOORTEN = [
   { soort: 'materiaal', kop: 'Material' },
@@ -521,7 +529,6 @@ function toonDetail(model) {
     `${kit?.naam ?? model.kit} · ${groep?.naam ?? model.groep}`;
 
   const rijen = [
-    ['File', model.pad],
     ['Size (w × d × h)', afmeting(model.wdh)],
     ['Triangles', `${getal.format(model.driehoeken)}${model.driehoeken >= ZWAAR_VANAF ? ' (heavy)' : ''}`],
     [
@@ -535,9 +542,7 @@ function toonDetail(model) {
     ...(model.animaties?.length
       ? [[`Animations (${model.animaties.length})`, model.animaties.join(', ')]]
       : []),
-    ['File size', bytesLeesbaar(model.bytes)],
     ...tagRijen(model),
-    ['Licence', `${kit?.licentieLabel ?? 'CC0'} — ${kit?.licentie ?? 'see kit folder'}`],
   ];
   const gegevens = document.querySelector('#detail-gegevens');
   gegevens.replaceChildren();
@@ -567,17 +572,26 @@ function toonDetail(model) {
 
   detailAnimatie.hidden = clips.length === 0;
   detailAnimatieKeuze.replaceChildren(
-    optie(UIT, 'off (turntable)'),
-    ...clips.map((naam) => optie(naam, naam === demoClip(clips) && clips.length > 1 ? `${naam} (loop)` : naam)),
+    ...[[UIT, 'off'], ...clips.map((naam) => [naam, naam])].map(([waarde, tekst]) =>
+      keuzeChip(tekst, waarde === UIT, () => zetAnimatie(waarde), detailAnimatieKeuze),
+    ),
   );
-  detailAnimatieKeuze.value = UIT;
 
   const leden = (register.varianten.get(model.variant) ?? [])
     .map((id) => register.modellen.get(id))
     .filter(Boolean);
   detailVariant.hidden = leden.length < 2;
-  detailVariantKeuze.replaceChildren(...leden.map((v) => optie(v.id, v.kit === model.kit ? v.naam : `${v.naam} (${v.kit})`)));
-  detailVariantKeuze.value = model.id;
+  detailVariantKeuze.replaceChildren(
+    ...leden.map((v) =>
+      keuzeChip(
+        v.kit === model.kit ? v.naam : `${v.naam} (${v.kit})`,
+        v.id === model.id,
+        () => toonDetail(v),
+        detailVariantKeuze,
+        v.pad,
+      ),
+    ),
+  );
 
   detailViewer.replaceChildren(viewer);
 
@@ -587,17 +601,35 @@ function toonDetail(model) {
 
 const UIT = '';
 
-function optie(waarde, tekst) {
-  const el = document.createElement('option');
-  el.value = waarde;
-  el.textContent = tekst;
-  return el;
+function keuzeChip(tekst, actief, doe, houder, pad) {
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.className = 'keuzechip';
+  chip.textContent = tekst;
+  chip.setAttribute('aria-pressed', String(actief));
+  chip.addEventListener('click', () => {
+    for (const zusje of houder.querySelectorAll('.keuzechip')) zusje.setAttribute('aria-pressed', 'false');
+    chip.setAttribute('aria-pressed', 'true');
+    doe();
+  });
+  if (pad) {
+    const kies = document.createElement('input');
+    kies.type = 'checkbox';
+    kies.className = 'keuzechip-kies';
+    kies.checked = gekozenPaden.has(pad);
+    kies.setAttribute('aria-label', `Select ${tekst}`);
+    kies.addEventListener('click', (e) => {
+      e.stopPropagation();
+      zetSelectie([pad], kies.checked);
+    });
+    chip.prepend(kies);
+  }
+  return chip;
 }
 
-detailAnimatieKeuze.addEventListener('change', () => {
+function zetAnimatie(clip) {
   const viewer = detailViewer.querySelector('model-viewer');
   if (!viewer) return;
-  const clip = detailAnimatieKeuze.value;
   if (clip === UIT) {
     viewer.pause();
     viewer.removeAttribute('animation-name');
@@ -607,12 +639,7 @@ detailAnimatieKeuze.addEventListener('change', () => {
     viewer.setAttribute('animation-name', clip);
     viewer.play();
   }
-});
-
-detailVariantKeuze.addEventListener('change', () => {
-  const gekozen = register.modellen.get(detailVariantKeuze.value);
-  if (gekozen) toonDetail(gekozen);
-});
+}
 
 detail.addEventListener('close', () => detailViewer.replaceChildren());
 document.querySelector('#detail-sluit').addEventListener('click', () => detail.close());
@@ -633,8 +660,7 @@ const selectieTelling = document.querySelector('#selectiebalk-telling');
 const selectieKopieer = document.querySelector('#selectie-kopieer');
 const detailSelecteer = document.querySelector('#detail-selecteer');
 
-const zichtbareKaarten = () =>
-  kaarten.filter((k) => k.weergave === huidigeWeergave && !k.element.hidden);
+const zichtbareKaarten = () => kaarten.filter((k) => !k.element.hidden);
 
 function zetSelectie(paden, aan) {
   for (const pad of paden) {
@@ -715,7 +741,6 @@ function vinkKleur(hex) {
 
 function bouwKleurbalk(paletten) {
   const houder = document.querySelector('#kleurbalk-stalen');
-  const wisknop = document.querySelector('#kleurbalk-wis');
 
   for (const palet of paletten) {
     if (palet.kleuren.length === 0) continue;
@@ -743,7 +768,6 @@ function bouwKleurbalk(paletten) {
 
       knop.addEventListener('click', () => {
         draaiStaat(kleurStaat, sleutel, knop);
-        wisknop.hidden = kleurStaat.size === 0;
         filter();
       });
 
@@ -754,13 +778,6 @@ function bouwKleurbalk(paletten) {
     houder.append(groep);
     kleurgroepen.push({ palet: palet.id, element: groep });
   }
-
-  wisknop.addEventListener('click', () => {
-    kleurStaat.clear();
-    for (const knop of houder.querySelectorAll('.staal')) toonStaat(knop, undefined);
-    wisknop.hidden = true;
-    filter();
-  });
 }
 
 function herschik() {
@@ -780,11 +797,6 @@ function bouwChiprij(houder, kop, items, staat, veld) {
   strip.setAttribute('role', 'group');
   strip.setAttribute('aria-label', `Filter by ${kop.toLowerCase()}`);
 
-  const wisknop = document.createElement('button');
-  wisknop.className = 'kleurbalk-wis';
-  wisknop.type = 'button';
-  wisknop.textContent = 'Reset';
-
   const eigenIds = items.map((i) => i.id);
 
   for (const item of items) {
@@ -799,25 +811,15 @@ function bouwChiprij(houder, kop, items, staat, veld) {
 
     knop.addEventListener('click', () => {
       draaiStaat(staat, item.id, knop);
-      wisknop.hidden = !eigenIds.some((id) => staat.has(id));
       herschik();
       filter();
     });
 
     strip.append(knop);
-    chipknoppen.push({ id: item.id, element: knop, aantalEl, rij, wisknop, eigenIds, staat, veld, strip, volgorde: chipknoppen.length });
+    chipknoppen.push({ id: item.id, element: knop, aantalEl, rij, eigenIds, staat, veld, strip, volgorde: chipknoppen.length });
   }
 
-  wisknop.hidden = !eigenIds.some((id) => staat.has(id));
-  wisknop.addEventListener('click', () => {
-    for (const id of eigenIds) staat.delete(id);
-    for (const chip of chipknoppen.filter((c) => c.rij === rij)) toonStaat(chip.element, undefined);
-    wisknop.hidden = true;
-    herschik();
-    filter();
-  });
-
-  rij.append(span('kleurbalk-label', kop), strip, wisknop);
+  rij.append(strip);
   houder.append(rij);
 }
 
@@ -832,26 +834,22 @@ function bouwTagbalk(tags) {
     'maten',
   );
 
+  const typen = TYPETAGS.map((id) => tags.find((t) => t.id === id)).filter(Boolean);
+  if (typen.length) {
+    bouwChiprij(houder, 'Type', typen.map((t) => ({ id: t.id, naam: chipNaam(t), uitleg: t.beschrijving })), tagStaat, 'tags');
+  }
+
   for (const { soort, kop } of TAGSOORTEN) {
-    const eigen = tags.filter((t) => (t.soort ?? 'tag') === soort);
+    const eigen = tags.filter((t) => (t.soort ?? 'tag') === soort && !TYPETAGS.includes(t.id));
     if (eigen.length === 0) continue;
     bouwChiprij(
       houder,
       kop,
-      eigen.map((t) => ({ id: t.id, naam: t.naam, uitleg: t.beschrijving })),
+      eigen.map((t) => ({ id: t.id, naam: chipNaam(t), uitleg: t.beschrijving })),
       tagStaat,
       'tags',
     );
   }
-}
-
-function pasWeergaveToe(weergave) {
-  huidigeWeergave = weergave;
-  for (const knop of document.querySelectorAll('.schakelaar button')) {
-    knop.setAttribute('aria-selected', String(knop.dataset.weergave === weergave));
-  }
-  paneel.setAttribute('aria-labelledby', `tab-${weergave}`);
-  ververs();
 }
 
 function ververs() {
@@ -866,8 +864,6 @@ function ververs() {
       toonStaat(knop, undefined);
     }
   }
-  document.querySelector('#kleurbalk-wis').hidden = kleurStaat.size === 0;
-
   const tellingen = new Map();
   for (const kaart of kaarten) {
     for (const veld of ['tags', 'maten']) {
@@ -884,29 +880,40 @@ function ververs() {
     }
   }
   herschik();
-  for (const { rij, wisknop, eigenIds, staat } of chipknoppen) {
+  for (const { rij } of chipknoppen) {
     rij.hidden = !chipknoppen.some((c) => c.rij === rij && !c.element.hidden);
-    wisknop.hidden = !eigenIds.some((id) => staat.has(id));
   }
+  document.querySelector('#alles-wis').hidden = kleurStaat.size + tagStaat.size + maatStaat.size === 0;
 
   filter();
 }
 
+function alsGewist() {
+  kleurStaat.clear();
+  tagStaat.clear();
+  maatStaat.clear();
+  for (const knop of document.querySelectorAll('.staal')) toonStaat(knop, undefined);
+  for (const { element } of chipknoppen) toonStaat(element, undefined);
+  herschik();
+  filter();
+}
+
 function filter() {
+  document.querySelector('#alles-wis').hidden =
+    kleurStaat.size + tagStaat.size + maatStaat.size === 0;
   let zichtbaar = 0;
 
   for (const kaart of kaarten) {
     const treffer =
       past(kaart.kleuren, kleurStaat) && past(kaart.tags, tagStaat) && past(kaart.maten, maatStaat);
     kaart.element.hidden = !treffer;
-    if (treffer && kaart.weergave === huidigeWeergave) zichtbaar++;
+    if (treffer) zichtbaar++;
   }
 
   for (const sectie of secties) {
-    const inWeergave = sectie.element.dataset.weergave === huidigeWeergave;
     const aantal = sectie.kaarten.filter((k) => !k.element.hidden).length;
 
-    sectie.element.hidden = !inWeergave || aantal === 0;
+    sectie.element.hidden = aantal === 0;
     sectie.aantalEl.textContent = getal.format(aantal);
   }
 
@@ -941,13 +948,7 @@ async function start() {
   bouwKleurbalk(data.paletten ?? []);
   bouwTagbalk(data.tags ?? []);
 
-  for (const knop of document.querySelectorAll('.schakelaar button')) {
-    knop.addEventListener('click', () => {
-      pasWeergaveToe(knop.dataset.weergave);
-      history.replaceState(null, '', `#${knop.dataset.weergave}`);
-      window.scrollTo({ top: 0 });
-    });
-  }
+  document.querySelector('#alles-wis').addEventListener('click', alsGewist);
 
   const kiesKnop = document.querySelector('#kiesmodus');
   kiesKnop.addEventListener('click', () => {
@@ -990,11 +991,7 @@ async function start() {
 
   const ruw = location.hash.slice(1);
   const anker = aliassen.get(ruw) ?? ruw;
-  const weergaven = new Set([...document.querySelectorAll('.schakelaar button')].map((k) => k.dataset.weergave));
-  const groepVanAnker = data.groepen.find((g) => `groep-${g.id}` === anker);
-  pasWeergaveToe(
-    weergaven.has(anker) ? anker : groepVanAnker ? groepVanAnker.tabblad ?? 'objects' : 'kits',
-  );
+  ververs();
   document.getElementById(anker)?.scrollIntoView();
 }
 

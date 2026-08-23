@@ -23,15 +23,18 @@
 .swipe-body:not([data-scherm="dek"]) .kop { position: static; }
 
 .kop {
-  flex-wrap: nowrap;
-  padding: 7px 10px calc(7px + env(safe-area-inset-top));
-  gap: 6px;
+  flex-wrap: wrap;
+  padding: 6px 10px calc(6px + env(safe-area-inset-top));
+  gap: 5px;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .kop h1 { font-size: 16px; }
 .kop-sub { display: none; }
-.kop-bediening { flex-wrap: nowrap; gap: 5px; }
+.kop-titel { flex: 0 1 auto; min-width: 0; }
+.kop-bediening { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; gap: 5px; min-width: 0; }
+.kop-bediening .knop { flex: 0 0 auto; }
 .kop-bediening .knop { min-height: 34px; padding: 6px 10px; }
 
 .knop {
