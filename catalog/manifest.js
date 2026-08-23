@@ -1003,8 +1003,6 @@ window.KENNEY_KITS = [
    "hilly-prop-stepping-stones-g",
    "hilly-prop-stepping-stones-h",
    "hilly-prop-stump",
-   "hilly-prop-tree-cedar-a",
-   "hilly-prop-tree-cedar-b",
    "hilly-prop-tree-pine-a",
    "hilly-prop-tree-pine-b",
    "hilly-prop-tree-pine-c",
