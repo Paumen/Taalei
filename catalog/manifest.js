@@ -354,17 +354,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "tropical",
-  "name": "Tropical",
-  "url": null,
-  "models": [
-   "barrel-a",
-   "chest-a",
-   "palm-a",
-   "plant-a"
-  ]
- },
- {
   "slug": "props",
   "name": "Props",
   "url": null,
@@ -1033,21 +1022,6 @@ window.KENNEY_KITS = [
    "tree-large",
    "tree-log",
    "tree-small"
-  ]
- },
- {
-  "slug": "graveyard-kit",
-  "name": "Graveyard Kit",
-  "url": "https://kenney.nl/assets/graveyard-kit",
-  "models": [
-   "debris",
-   "debris-wood",
-   "pine",
-   "pine-fall",
-   "rocks",
-   "rocks-tall",
-   "shovel",
-   "shovel-dirt"
   ]
  },
  {

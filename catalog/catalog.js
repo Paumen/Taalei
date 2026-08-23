@@ -6,7 +6,6 @@ const KIT_KLEUREN = {
   'fantasy-town-kit': '#995a41',
   'platformer-kit': '#ffb349',
   'onderwater-kit': '#2fa39b',
-  tropical: '#6d8d33',
   'modulair-terrein': '#4f7a3a',
   props: '#b7946e',
   rocks: '#8a91ae',
