@@ -1,10 +1,3 @@
-// Laadt 37 modellen uit "Fantasy Props MegaKit" in als kits/workfiles/fantasy-props.
-//
-// Aanroepen met het pad naar de uitgepakte pack:
-//   node tools/importeer-fantasy-props.mjs <pack>/FantasyProps_glTF_1k
-//
-// Wat er gebeurt en waarom staat in kits/workfiles/fantasy-props/LICENSE.txt.
-
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
@@ -27,10 +20,6 @@ const MODELLEN = [
   ['Bottle_1',               'bottle-1'],
   ['Bucket_Wooden_1',        'bucket-wooden-1'],
   ['Cage_Small',             'cage-small'],
-  ['Candle_1',               'candle-1'],
-  ['Candle_2',               'candle-2'],
-  ['Crate_Metal',            'crate-metal'],
-  ['Crate_Wooden',           'crate-wooden'],
   ['Key_Gold',               'key-gold'],
   ['Key_Metal',              'key-metal'],
   ['Mug',                    'mug'],

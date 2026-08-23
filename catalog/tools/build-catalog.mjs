@@ -1,4 +1,3 @@
-
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -148,10 +147,10 @@ function kleurNaam(hex) {
   const verzadiging = delta === 0 ? 0 : delta / (1 - Math.abs(2 * licht - 1));
 
   if (verzadiging < 0.18) {
-    if (licht > 0.8) return 'wit';
-    if (licht > 0.45) return 'lichtgrijs';
-    if (licht > 0.25) return 'grijs';
-    return 'donkergrijs';
+    if (licht > 0.8) return 'white';
+    if (licht > 0.45) return 'light grey';
+    if (licht > 0.25) return 'grey';
+    return 'dark grey';
   }
 
   let tint = 0;
@@ -161,18 +160,18 @@ function kleurNaam(hex) {
   tint = (tint * 60 + 360) % 360;
 
   const basis =
-    tint < 15 || tint >= 345 ? 'rood'
-    : tint < 40 ? (licht < 0.45 ? 'bruin' : 'oranje')
-    : tint < 50 ? (licht < 0.5 ? 'bruin' : 'oranje')
-    : tint < 70 ? 'geel'
-    : tint < 165 ? 'groen'
+    tint < 15 || tint >= 345 ? 'red'
+    : tint < 40 ? (licht < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (licht < 0.5 ? 'brown' : 'orange')
+    : tint < 70 ? 'yellow'
+    : tint < 165 ? 'green'
     : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blauw'
-    : tint < 300 ? 'paars'
-    : 'roze';
+    : tint < 260 ? 'blue'
+    : tint < 300 ? 'purple'
+    : 'pink';
 
-  if (licht < 0.3) return `donker${basis}`;
-  if (licht > 0.75) return `licht${basis}`;
+  if (licht < 0.3) return `dark ${basis}`;
+  if (licht > 0.75) return `light ${basis}`;
   return basis;
 }
 
@@ -280,8 +279,39 @@ for (const slug of kitSlugs) {
 
 const SOORTEN = ['materiaal', 'tag'];
 
-// Deze drie volgen uit de modellen zelf en staan daarom niet in tags.json.
+const BRONNEN = [
+  {
+    id: 'kenney',
+    naam: 'Kenney',
+    beschrijving:
+      'Kits van Kenney (kenney.nl). Eén hand, één maatvoering: alles komt van dezelfde tegel en de props passen onderling.',
+    kits: [
+      'fantasy-town-kit', 'mini-forest', 'modular-cave-kit', 'pirate-kit',
+      'platformer-kit', 'prototype-kit', 'survival-kit',
+    ],
+  },
+  {
+    id: 'kaykit',
+    naam: 'KayKit',
+    beschrijving:
+      'Kits van Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant en rpgtools. Onderling dezelfde stijl en hetzelfde detailniveau.',
+    kits: ['dungeon', 'forest', 'halloween', 'resources', 'restaurant', 'rpgtools'],
+  },
+  {
+    id: 'quaternius',
+    naam: 'Quaternius',
+    beschrijving: 'Kits van Quaternius (quaternius.com): fantasy-props en quaternius-nature.',
+    kits: ['fantasy-props', 'quaternius-nature'],
+  },
+];
+
 const AFGELEID = [
+  ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
+    id,
+    naam,
+    beschrijving,
+    hoort: (m) => kits.includes(m.kit),
+  })),
   {
     id: 'animation',
     naam: 'Animation',
@@ -341,6 +371,14 @@ function leesTags(bekend) {
   };
 }
 
+const bekendeSlugs = new Set(kits.map((k) => k.slug));
+const zonderBron = kits.filter((k) => !BRONNEN.some((b) => b.kits.includes(k.slug))).map((k) => k.slug);
+for (const bron of BRONNEN) {
+  const weg = bron.kits.filter((slug) => !bekendeSlugs.has(slug));
+  if (weg.length) console.warn(`! bron ${bron.id} noemt een kit die niet bestaat: ${weg.join(', ')}`);
+}
+if (zonderBron.length) console.warn(`! kit zonder bron in BRONNEN: ${zonderBron.join(', ')}`);
+
 const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
 for (const model of modellen) {
   const groep = varianten.perModel.get(model.id);
@@ -349,7 +387,7 @@ for (const model of modellen) {
 
 const tags = leesTags(new Set(modellen.map((m) => m.id)));
 
-for (const { id, naam, beschrijving, hoort } of AFGELEID) {
+for (const { id, naam, soort = 'tag', beschrijving, hoort } of AFGELEID) {
   const leden = modellen.filter(hoort);
   if (leden.length === 0) continue;
   for (const model of leden) {
@@ -358,7 +396,7 @@ for (const { id, naam, beschrijving, hoort } of AFGELEID) {
   tags.tags.push({
     id,
     naam,
-    soort: 'tag',
+    soort,
     beschrijving: `${beschrijving} Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.`,
     aantal: leden.length,
   });
@@ -406,10 +444,10 @@ for (const [sleutel, palet] of paletten) {
   const kits = [...palet.kits].sort();
   const gedeeld = kits.length > 1;
   palet.id = gedeeld ? 'gedeeld' : kits[0];
-  palet.naam = gedeeld ? 'Gedeelde kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
+  palet.naam = gedeeld ? 'Shared kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
   palet.toelichting = palet.atlas
     ? null
-    : 'Geen colormap: elk materiaal van deze kit draagt zijn eigen basiskleur.';
+    : 'No colormap: every material in this kit carries its own base colour.';
   palet.atlasPad = !palet.atlas
     ? null
     : sleutel === gedeeldeSleutel

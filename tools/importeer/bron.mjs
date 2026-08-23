@@ -1,15 +1,3 @@
-// Bronlezers voor de importeurs: glTF (.glb en .gltf + .bin) en Wavefront OBJ.
-//
-// Beide leveren dezelfde vorm op — een lijst primitieven met wereldcoördinaten in
-// de eenheden van de pack zelf, plus per primitief waar zijn kleur vandaan komt:
-//
-//   { naam, posities, normalen, uvs, hoekkleuren, indices,
-//     materiaal: { textuur, kleur } }
-//
-// `textuur` is een absoluut pad naar een PNG (kleur komt uit de UV's), `kleur` is
-// een vaste [r, g, b] in sRGB 0-255 (kleur komt uit het materiaal zelf). Precies
-// één van de twee is gevuld.
-
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { leesGlb, leesAccessor } from '../../catalog/tools/glb.mjs';
@@ -93,7 +81,6 @@ function materiaalUitGltf(json, index, dir) {
   return { textuur: null, kleur: factor.slice(0, 3).map(naarSrgb) };
 }
 
-// Leest één glTF-bestand uit tot primitieven in wereldcoördinaten.
 export function leesGltf(pad) {
   const glb = leesGltfBestand(pad);
   const { json } = glb;
@@ -145,11 +132,6 @@ export function leesGltf(pad) {
         uvs = leesAccessor(glb, prim.attributes.TEXCOORD_0).data;
       }
 
-      // Hoekpuntkleuren. Fantasy Props gebruikt ze: één grijze trimsheet met de
-      // tekening erin, en de kleur komt per hoekpunt uit COLOR_0 — vandaar
-      // materiaalnamen als MI_Trim_Props_Vertex. Lees je ze niet, dan wordt elk
-      // boek, elke vaas en elk drankje grijs. Ze staan in lineair licht en
-      // worden met de textuur vermenigvuldigd, zoals glTF voorschrijft.
       let hoekkleuren = null;
       if (prim.attributes.COLOR_0 !== undefined) {
         const accessor = json.accessors[prim.attributes.COLOR_0];
@@ -207,7 +189,6 @@ function leesMtl(pad) {
   return materialen;
 }
 
-// Leest een Wavefront OBJ uit tot primitieven — één per materiaal.
 export function leesObj(pad) {
   const regels = readFileSync(pad, 'utf8').split(/\r?\n/);
   const v = [];

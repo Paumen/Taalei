@@ -1,17 +1,3 @@
-// Zet een hele kit op een andere schaal.
-//
-//   node tools/herschaal-kit.mjs <kit> <factor>
-//   node tools/herschaal-kit.mjs dungeon 0.7142857
-//
-// De importeer-pijplijn bakt één schaal per pack in het model: de wortelnode krijgt
-// scale en translation, allebei recht evenredig met die schaal (zie importeer/bouw.mjs).
-// Dit script vermenigvuldigt die twee met een factor, plus de schaal in
-// asset.extras.taaleiland. Dat geeft hetzelfde resultaat als importeren op schaal × factor.
-//
-// Heeft de kit een importeer-script (tools/importeer-<kit>.mjs) en staat de pack in
-// kits/sources, pas dan liever daar `schaal` aan en importeer opnieuw — dan blijft de
-// pijplijn de bron van waarheid. Dit script is voor de kits zonder importeer-script.
-
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -41,7 +27,7 @@ function schrijfGlb(pad, json, chunks) {
     const kop = Buffer.alloc(8);
     kop.writeUInt32LE(data.length + vul, 0);
     kop.writeUInt32LE(type, 4);
-    // JSON vult met spaties, BIN met nullen — zo schrijft de glTF-spec het voor.
+
     return Buffer.concat([kop, data, Buffer.alloc(vul, type === JSON_CHUNK ? 0x20 : 0)]);
   });
   const kop = Buffer.alloc(12);
