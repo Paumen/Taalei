@@ -11,6 +11,7 @@ For an LLM creating or adjusting assets.
 - Colors come from the shared colormap image (`kits/colormap.png`): assets color
   themselves by pointing UVs at its bands. The model is the record — the catalog
   reads the colors straight out of the `.glb`, so there is no list to keep in sync.
+- Which band a given material gets is fixed by `docs/color_conventions.md`.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
