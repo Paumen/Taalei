@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D catalogue</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by group: loose objects, assembled scenes, structures and building kits, nature and the cave.">
-<meta name="catalogus-versie" content="7ce437f9bd">
-<link rel="stylesheet" href="catalog/catalog.css?v=7ce437f9bd">
+<meta name="catalogus-versie" content="5e1d908484">
+<link rel="stylesheet" href="catalog/catalog.css?v=5e1d908484">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
@@ -18,19 +18,9 @@
     <a href="catalog/swipe.html">Swipe</a>
   </nav>
 
-  <div class="kop-titel">
-    <h1>Taaleiland — 3D catalogue</h1>
-    <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
-  </div>
+  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
 
   <div class="kop-bediening">
-    <div class="schakelaar" role="tablist" aria-label="View">
-      <button role="tab" id="tab-kits" aria-controls="paneel" aria-selected="true" data-weergave="kits">Kits</button>
-      <button role="tab" id="tab-objects" aria-controls="paneel" aria-selected="false" data-weergave="objects">Objects</button>
-      <button role="tab" id="tab-structures" aria-controls="paneel" aria-selected="false" data-weergave="structures">Structures</button>
-      <button role="tab" id="tab-nature" aria-controls="paneel" aria-selected="false" data-weergave="nature">Nature</button>
-    </div>
-
     <div class="knopgroep">
       <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
               title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
@@ -44,9 +34,7 @@
 
 <div class="balken" id="balken">
 <div class="kleurbalk" id="kleurbalk">
-  <span class="kleurbalk-label">Colour</span>
   <div class="kleurbalk-stalen" id="kleurbalk-stalen" role="group" aria-label="Filter by colour"></div>
-  <button class="kleurbalk-wis" id="kleurbalk-wis" hidden>Reset</button>
 </div>
 
 <div id="tagbalk"></div>
@@ -61,6 +49,8 @@
     <option value="maat">by size</option>
   </select>
 
+  <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+
   <select id="sortering" aria-label="Sort by" title="Sort by">
     <option value="naam">by name</option>
     <option value="groot">largest first</option>
@@ -72,7 +62,7 @@
   </select>
 </div>
 
-<main id="paneel" role="tabpanel" aria-labelledby="tab-kits"></main>
+<main id="paneel"></main>
 
 <p class="leeg" id="leeg" hidden>No models found.</p>
 
@@ -83,14 +73,14 @@
     <h2 id="detail-naam"></h2>
     <p class="detail-herkomst" id="detail-herkomst"></p>
     <dl id="detail-gegevens"></dl>
-    <label class="detail-keuze" id="detail-variant" hidden>
-      Variant
-      <select id="detail-variant-keuze"></select>
-    </label>
-    <label class="detail-keuze" id="detail-animatie" hidden>
-      Animation
-      <select id="detail-animatie-keuze"></select>
-    </label>
+    <div class="detail-keuze" id="detail-variant" hidden>
+      <span class="detail-keuze-kop">Variants</span>
+      <div class="detail-chips" id="detail-variant-keuze" role="group" aria-label="Variants"></div>
+    </div>
+    <div class="detail-keuze" id="detail-animatie" hidden>
+      <span class="detail-keuze-kop">Animation</span>
+      <div class="detail-chips" id="detail-animatie-keuze" role="group" aria-label="Animation"></div>
+    </div>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
       <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
@@ -107,6 +97,6 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=7ce437f9bd" type="module"></script>
+<script src="catalog/catalog.js?v=5e1d908484" type="module"></script>
 </body>
 </html>
