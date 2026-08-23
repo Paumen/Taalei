@@ -4,8 +4,8 @@ import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 const RIJBREEDTE = 5;
 const GAP = 0.35;
 const REGEL = 2.3;
-const FONT_KIT = '600 44px system-ui, sans-serif';
-const FONT_MODEL = '600 44px system-ui, sans-serif';
+const FONT_KIT = '500 58px system-ui, sans-serif';
+const FONT_MODEL = '700 72px system-ui, sans-serif';
 
 let deler = null;
 function gedeeldeRenderer(breedte, hoogte) {
@@ -46,8 +46,8 @@ const kleuren = () => {
     papier: lees('--papier-diep', '#f2e9dd'),
     inkt: lees('--inkt', '#2f2a26'),
     inktZacht: lees('--inkt-zacht', '#7d7166'),
-    lijnFijn: lees('--lijn', '#e3d7c7'),
-    lijnZwaar: lees('--inkt-zacht', '#9c9285'),
+    lijnFijn: lees('--raster-fijn', '#cdbfad'),
+    lijnZwaar: lees('--raster-zwaar', '#8d8072'),
   };
 };
 
@@ -61,7 +61,7 @@ function meetlat() {
   return {
     w: dik,
     h: hoog,
-    label: { kit: '', model: '1 unit' },
+    label: { kit: '', model: '' },
     maak() {
       const g = new THREE.Group();
       for (let i = 0; i < 4; i++) {
@@ -110,13 +110,13 @@ function verdeel(stukken, labelSchaal, lat) {
 function achtergrond(y, links, rechts, hoogte, fijn, zwaar) {
   const g = new THREE.Group();
   const top = Math.ceil(Math.max(hoogte, 1) * 4) / 4;
-  for (const [stap, kleur, dekking] of [[0.25, fijn, 0.55], [1, zwaar, 0.85]]) {
+  for (const [stap, kleur, dekking, dikte] of [[0.25, fijn, 1, 1], [1, zwaar, 1, 2]]) {
     const punten = [];
     for (let x = Math.ceil(links / stap) * stap; x <= rechts + 1e-6; x += stap) punten.push(x, y, -0.5, x, y + top, -0.5);
     for (let h = 0; h <= top + 1e-6; h += stap) punten.push(links, y + h, -0.5, rechts, y + h, -0.5);
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(punten, 3));
-    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: kleur, transparent: true, opacity: dekking })));
+    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: kleur, transparent: true, opacity: dekking, linewidth: dikte })));
   }
   return g;
 }
@@ -162,11 +162,14 @@ export async function tekenFamilie(groep, canvas, breedte) {
   if (!stukken.length) return null;
 
   const lat = meetlat();
-  const labelSchaal = RIJBREEDTE / 38;
+  const labelSchaal = RIJBREEDTE / 19;
   const rijen = verdeel(stukken, labelSchaal, lat);
 
   const basis = [];
   for (let i = rijen.length - 1, y = 0; i >= 0; i--) { basis[i] = y + rijen[i].labelBlok; y += rijen[i].hoog; }
+
+  const latLinks = -GAP - lat.w / 2;
+  const latRechts = RIJBREEDTE + GAP + lat.w / 2;
 
   const label = (tekst, x, y, breed) => {
     const c = document.createElement('canvas');
@@ -184,13 +187,13 @@ export async function tekenFamilie(groep, canvas, breedte) {
     ctx.fillText(tekst.model, c.width / 2, tekst.kit ? 148 : 62);
     const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
     spr.scale.set(breed, labelSchaal * (c.height / 96), 1);
-    spr.position.set(x, y, 1.2);
+    const halveBreedte = breed / 2;
+    const geklemd = Math.min(Math.max(x, latLinks + halveBreedte), latRechts - halveBreedte);
+    spr.position.set(geklemd, y, 1.2);
     spr.center.set(0.5, 1);
     scene.add(spr);
   };
 
-  const latLinks = -GAP - lat.w / 2;
-  const latRechts = RIJBREEDTE + GAP + lat.w / 2;
   let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
   const vakken = [];
 
@@ -269,164 +272,179 @@ export async function tekenFamilie(groep, canvas, breedte) {
 
 const versie = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
 const groepen = await (await fetch(`schaalgroepen.json?v=${versie}`)).json();
-const paneel = document.getElementById('families');
 const inhoud = document.getElementById('inhoud');
 
-document.getElementById('samenvatting').textContent =
-  `${groepen.length} families, ${groepen.reduce((s, g) => s + g.items.length, 0)} models — all at the same scale, with a ruler on both sides of every row.`;
+const MAATKLASSEN = [
+  { id: 'klein', naam: 'Small', grens: 0.5 },
+  { id: 'middel', naam: 'Medium', grens: 1.5 },
+  { id: 'groot', naam: 'Large', grens: Infinity },
+];
+const maatVan = (item) => {
+  const langste = Math.max(...(item.wdh ?? [item.hoogte]));
+  return (MAATKLASSEN.find((k) => langste < k.grens) ?? MAATKLASSEN.at(-1)).id;
+};
+
+const kleurSleutel = (palet, hex) => `${palet}|${hex}`;
+const kleurStaat = new Map();
+const tagStaat = new Map();
+const maatStaat = new Map();
+const chipknoppen = [];
+const VOLGENDE = { undefined: 'alleen', alleen: 'niet', niet: undefined };
+
+function toonStaat(knop, staat) {
+  knop.setAttribute('aria-pressed', String(staat === 'alleen'));
+  if (staat === 'niet') knop.dataset.uit = '';
+  else delete knop.dataset.uit;
+}
+
+const sleutelsMet = (staat, waarde) => [...staat].filter(([, v]) => v === waarde).map(([k]) => k);
+
+function past(eigen, staat) {
+  const alleen = sleutelsMet(staat, 'alleen');
+  if (alleen.length && !eigen.some((e) => alleen.includes(e))) return false;
+  return !eigen.some((e) => sleutelsMet(staat, 'niet').includes(e));
+}
+
+const komtDoor = (item) =>
+  past((item.kleuren ?? []).map((hex) => kleurSleutel(item.palet, hex)), kleurStaat) &&
+  past(item.tags ?? [], tagStaat) &&
+  past([maatVan(item)], maatStaat);
+
+const gefilterd = () =>
+  groepen.map((g) => ({ ...g, items: g.items.filter(komtDoor) })).filter((g) => g.items.length);
+
+function herschik() {
+  for (const strip of new Set(chipknoppen.map((c) => c.strip))) {
+    for (const chip of chipknoppen
+      .filter((c) => c.strip === strip)
+      .sort((a, b) => Number(b.staat.has(b.id)) - Number(a.staat.has(a.id)) || a.volgorde - b.volgorde)) {
+      strip.append(chip.element);
+    }
+  }
+}
+
+function draai(staat, id, knop) {
+  const nieuw = VOLGENDE[staat.get(id)];
+  if (nieuw) staat.set(id, nieuw);
+  else staat.delete(id);
+  toonStaat(knop, nieuw);
+  herschik();
+  document.querySelector('#alles-wis').hidden =
+    kleurStaat.size + tagStaat.size + maatStaat.size === 0;
+  bouwSecties();
+}
+
+function chiprij(houder, items, staat) {
+  const rij = document.createElement('div');
+  rij.className = 'kleurbalk tagrij';
+  const strip = document.createElement('div');
+  strip.className = 'tagbalk-knoppen';
+  strip.setAttribute('role', 'group');
+  for (const item of items) {
+    const knop = document.createElement('button');
+    knop.type = 'button';
+    knop.className = 'tagknop';
+    knop.dataset.tag = item.id;
+    const aantal = document.createElement('span');
+    aantal.className = 'tagknop-aantal';
+    aantal.textContent = item.aantal;
+    knop.append(document.createTextNode(item.naam), aantal);
+    toonStaat(knop, staat.get(item.id));
+    knop.addEventListener('click', () => draai(staat, item.id, knop));
+    strip.append(knop);
+    chipknoppen.push({ id: item.id, element: knop, staat, strip, volgorde: chipknoppen.length });
+  }
+  rij.append(strip);
+  houder.append(rij);
+}
 
 const BREEDTE = 1800;
 
-const uitgelicht = new Set();
-const uitgelichteTags = new Set();
+let wachtrij = null;
+let rij = Promise.resolve();
 
-const isUitgelicht = (v) =>
-  (uitgelicht.size === 0 || uitgelicht.has(v.kit)) &&
-  (uitgelichteTags.size === 0 || v.tags.some((t) => uitgelichteTags.has(t)));
+function bouwSecties() {
+  wachtrij?.disconnect();
+  inhoud.replaceChildren();
+  const zichtbaar = gefilterd();
 
-const ietsGekozen = () => uitgelicht.size > 0 || uitgelichteTags.size > 0;
-
-function tekenSluier(sectie) {
-  const laag = sectie.querySelector('canvas.sluier');
-  const vakken = sectie.vakken;
-  if (!laag || !vakken) return;
-  const ctx = laag.getContext('2d');
-  ctx.clearRect(0, 0, laag.width, laag.height);
-  if (!ietsGekozen()) return;
-  const { papier } = kleuren();
-  ctx.globalCompositeOperation = 'source-over';
-  ctx.fillStyle = papier;
-  ctx.globalAlpha = 0.78;
-  ctx.fillRect(0, 0, laag.width, laag.height);
-
-  ctx.globalAlpha = 1;
-  ctx.globalCompositeOperation = 'destination-out';
-  const marge = laag.width * 0.004;
-  for (const v of vakken) {
-    if (!isUitgelicht(v)) continue;
-    ctx.fillRect(v.x - marge, v.y - marge, v.w + marge * 2, v.h + marge * 2);
+  for (const groep of zichtbaar) {
+    const sectie = document.createElement('section');
+    sectie.className = 'familie';
+    sectie.id = groep.slug;
+    sectie.innerHTML = `<h2>${groep.naam}</h2><div class="familie-doek"><canvas width="${BREEDTE}" height="400"></canvas></div>`;
+    inhoud.appendChild(sectie);
   }
-  ctx.globalCompositeOperation = 'source-over';
-}
 
-function ververs() {
-  for (const sectie of inhoud.querySelectorAll('.familie')) tekenSluier(sectie);
-  for (const knop of kitBalk.querySelectorAll('button')) {
-    const aan = uitgelicht.has(knop.dataset.kit);
-    knop.classList.toggle('aan', aan);
-    knop.setAttribute('aria-pressed', String(aan));
-  }
-  for (const knop of tagBalk.querySelectorAll('button')) {
-    knop.setAttribute('aria-pressed', String(uitgelichteTags.has(knop.dataset.tag)));
-  }
-  wisKnop.hidden = !ietsGekozen();
-  const gekozen = [...uitgelicht, ...[...uitgelichteTags].map((t) => tagNamen.get(t) ?? t)];
-  telling.textContent = gekozen.length === 0
-    ? 'Pick one or more kits or tags to highlight them.'
-    : gekozen.length <= 3
-      ? `${gekozen.slice(0, -1).join(', ')}${gekozen.length > 1 ? ' en ' : ''}${gekozen.at(-1)} uitgelicht`
-      : `${gekozen.length} choices highlighted`;
-}
-
-const kitBalk = document.getElementById('kits');
-const telling = document.getElementById('kit-telling');
-const wisKnop = document.getElementById('kit-wis');
-
-const alleKits = [...new Set(groepen.flatMap((g) => g.items.map((i) => i.kit)))].sort();
-for (const kit of alleKits) {
-  const knop = document.createElement('button');
-  knop.type = 'button';
-  knop.dataset.kit = kit;
-  knop.textContent = kit;
-  knop.setAttribute('aria-pressed', 'false');
-  knop.addEventListener('click', () => {
-    if (uitgelicht.has(kit)) uitgelicht.delete(kit);
-    else uitgelicht.add(kit);
-    ververs();
-  });
-  kitBalk.appendChild(knop);
-}
-const tagBalk = document.getElementById('tags');
-const tagNamen = new Map();
-const tagsInBeeld = new Map();
-for (const groep of groepen) {
-  for (const item of groep.items) {
-    for (const tag of item.tags ?? []) tagsInBeeld.set(tag, (tagsInBeeld.get(tag) ?? 0) + 1);
-  }
-}
-
-const tagLijst = await (await fetch(`catalog.json?v=${versie}`))
-  .json()
-  .then((d) => d.tags ?? [])
-  .catch(() => []);
-for (const tag of tagLijst) {
-  if (!tagsInBeeld.has(tag.id)) continue;
-  tagNamen.set(tag.id, tag.naam);
-  const knop = document.createElement('button');
-  knop.type = 'button';
-  knop.dataset.tag = tag.id;
-  knop.title = tag.beschrijving ?? tag.naam;
-  knop.append(document.createTextNode(tag.naam), Object.assign(document.createElement('span'), {
-    className: 'kitbalk-aantal',
-    textContent: tagsInBeeld.get(tag.id),
-  }));
-  knop.setAttribute('aria-pressed', 'false');
-  knop.addEventListener('click', () => {
-    if (uitgelichteTags.has(tag.id)) uitgelichteTags.delete(tag.id);
-    else uitgelichteTags.add(tag.id);
-    ververs();
-  });
-  tagBalk.appendChild(knop);
-}
-
-wisKnop.addEventListener('click', () => {
-  uitgelicht.clear();
-  uitgelichteTags.clear();
-  ververs();
-});
-
-for (const groep of groepen) {
-  const sectie = document.createElement('section');
-  sectie.className = 'familie';
-  sectie.id = groep.slug;
-  const hoogtes = groep.items.map((i) => i.hoogte);
-  sectie.innerHTML = `
-    <h2>${groep.naam}</h2>
-    <p class="familie-meta">${groep.items.length} models · ${Math.min(...hoogtes).toFixed(2)} – ${Math.max(...hoogtes).toFixed(2)} hoog</p>
-    <div class="familie-doek"><canvas width="${BREEDTE}" height="400"></canvas><canvas class="sluier" width="${BREEDTE}" height="400"></canvas></div>`;
-  inhoud.appendChild(sectie);
-
-  const link = document.createElement('a');
-  link.href = `#${groep.slug}`;
-  link.textContent = groep.naam;
-  paneel.appendChild(link);
-}
-
-const wachtrij = new IntersectionObserver((ingangen) => {
-  for (const ingang of ingangen) {
-    if (!ingang.isIntersecting) continue;
-    wachtrij.unobserve(ingang.target);
-    const sectie = ingang.target;
-    const groep = groepen.find((g) => g.slug === sectie.id);
-    const canvas = sectie.querySelector('canvas:not(.sluier)');
-    sectie.classList.add('bezig');
-    tekenFamilie(groep, canvas, BREEDTE)
-      .then((uit) => {
-        sectie.classList.remove('bezig');
-        if (!uit) { sectie.classList.add('mislukt'); return; }
-        sectie.vakken = uit.vakken;
-        const laag = sectie.querySelector('canvas.sluier');
-        laag.width = uit.breedte;
-        laag.height = uit.hoogte;
-        tekenSluier(sectie);
-      })
-      .catch((fout) => {
-        console.error('family failed', sectie.id, fout);
-        sectie.classList.remove('bezig');
-        sectie.classList.add('mislukt');
+  wachtrij = new IntersectionObserver((ingangen) => {
+    for (const ingang of ingangen) {
+      if (!ingang.isIntersecting) continue;
+      wachtrij.unobserve(ingang.target);
+      const sectie = ingang.target;
+      const groep = zichtbaar.find((g) => g.slug === sectie.id);
+      const canvas = sectie.querySelector('canvas');
+      sectie.classList.add('bezig');
+      rij = rij.then(async () => {
+        try {
+          const uit = await tekenFamilie(groep, canvas, BREEDTE);
+          if (!uit) sectie.classList.add('mislukt');
+        } catch (fout) {
+          console.error('family failed', sectie.id, fout);
+          sectie.classList.add('mislukt');
+        } finally {
+          sectie.classList.remove('bezig');
+        }
       });
-  }
-}, { rootMargin: '600px 0px' });
+    }
+  }, { rootMargin: '600px 0px' });
 
-for (const sectie of inhoud.querySelectorAll('.familie')) wachtrij.observe(sectie);
-ververs();
+  for (const sectie of inhoud.querySelectorAll('.familie')) wachtrij.observe(sectie);
+}
+
+async function bouwFilters() {
+  const data = await (await fetch(`catalog.json?v=${versie}`)).json().catch(() => ({}));
+  const alle = groepen.flatMap((g) => g.items);
+  const tel = (f) => alle.filter(f).length;
+
+  const kleurRij = document.querySelector('#kleurbalk-stalen');
+  const gebruikt = new Set(alle.flatMap((i) => (i.kleuren ?? []).map((hex) => kleurSleutel(i.palet, hex))));
+  for (const palet of data.paletten ?? []) {
+    for (const kleur of palet.kleuren) {
+      const sleutel = kleurSleutel(palet.id, kleur.hex);
+      if (!gebruikt.has(sleutel)) continue;
+      const knop = document.createElement('button');
+      knop.type = 'button';
+      knop.className = 'staal';
+      knop.style.setProperty('--staal-kleur', kleur.hex);
+      knop.title = `${kleur.naam} ${kleur.hex}`;
+      knop.setAttribute('aria-label', knop.title);
+      toonStaat(knop, kleurStaat.get(sleutel));
+      knop.addEventListener('click', () => draai(kleurStaat, sleutel, knop));
+      kleurRij.append(knop);
+      chipknoppen.push({ id: sleutel, element: knop, staat: kleurStaat, strip: kleurRij, volgorde: chipknoppen.length });
+    }
+  }
+
+  const tagbalk = document.querySelector('#tagbalk');
+  chiprij(tagbalk, MAATKLASSEN
+    .map((k) => ({ id: k.id, naam: k.naam, aantal: tel((i) => maatVan(i) === k.id) }))
+    .filter((k) => k.aantal), maatStaat);
+
+  const tags = (data.tags ?? [])
+    .map((t) => ({ id: t.id, naam: t.naam, aantal: tel((i) => (i.tags ?? []).includes(t.id)) }))
+    .filter((t) => t.aantal);
+  if (tags.length) chiprij(tagbalk, tags, tagStaat);
+
+  document.querySelector('#alles-wis').addEventListener('click', () => {
+    kleurStaat.clear();
+    tagStaat.clear();
+    maatStaat.clear();
+    for (const { element } of chipknoppen) toonStaat(element, undefined);
+    herschik();
+    document.querySelector('#alles-wis').hidden = true;
+    bouwSecties();
+  });
+}
+
+await bouwFilters();
+bouwSecties();

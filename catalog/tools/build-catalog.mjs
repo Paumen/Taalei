@@ -305,7 +305,24 @@ const BRONNEN = [
   },
 ];
 
+const TYPEN = [
+  { id: 'nature', naam: 'Nature', tabblad: 'nature',
+    beschrijving: 'Wat er zonder toedoen al staat: grond, bomen, planten, zeebodem en rotsen.' },
+  { id: 'structure', naam: 'Structure', tabblad: 'structures',
+    beschrijving: 'Wat gebouwd is: bouwpakketten, bouwwerken, trappen en bruggen, hekken.' },
+  { id: 'object', naam: 'Object', tabblad: null,
+    beschrijving: 'Losse dingen die je neerzet of oppakt: huisraad, schepen, eten, kisten, grondstoffen, gereedschap, borden, items en licht.' },
+];
+
+const TABBLAD_PER_GROEP = new Map(GROEPEN.map((g) => [g.id, g.tabblad ?? null]));
+
 const AFGELEID = [
+  ...TYPEN.map(({ id, naam, beschrijving, tabblad }) => ({
+    id,
+    naam,
+    beschrijving,
+    hoort: (m) => m.groep !== 'assemblies' && TABBLAD_PER_GROEP.get(m.groep) === tabblad,
+  })),
   ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
     id,
     naam,
