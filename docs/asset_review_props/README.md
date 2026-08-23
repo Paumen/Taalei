@@ -8,6 +8,12 @@ heeft links én rechts een meetlat.
 node tools/vergelijk-groottes/render.mjs tools/vergelijk-groottes/groepen-props.json docs/asset_review_props
 ```
 
+Deze beelden zijn een momentopname. In de catalogus zelf staat dezelfde vergelijking
+live: **`catalog/schaal.html`** (knop *Schaal* in de kop van de catalogus) laadt de
+`.glb`'s in de browser en toont 38 families, dus die klopt ook meteen na een herschaling
+of een verwijderde asset. De families daar komen uit `catalog/schaalgroepen.json`, dat
+`build-catalog.mjs` afleidt uit de regels in `catalog/tools/schaalgroepen.mjs`.
+
 De indeling staat in `tools/vergelijk-groottes/groepen-props.json`. De meetlat zakt mee
 met de familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) zodat kleine props niet wegvallen naast
 een lat van een hele unit — kijk dus altijd even welk getal erboven staat. Achter elk
@@ -34,10 +40,18 @@ bouwstukken slechter. Terugdraaien kan met `node tools/herschaal-kit.mjs surviva
 
 **Kleiner maken verhoogt de driehoekendichtheid.** Het budget is 1000 driehoeken per
 unit, gemeten over het aantal bezette cellen, dus hetzelfde model in een kleinere
-bounding box telt zwaarder. Over de hele catalogus staan nu 66 van de 1044 assets boven
+bounding box telt zwaarder. Over de hele catalogus staan nu 66 van de 1016 assets boven
 budget (was 51 vóór alle schaalcorrecties).
 
-## Tien assets verwijderd
+## Vier kits en tien assets verwijderd
+
+Weg als hele kit: **furniture** (11), **holiday-kit** (11), **nature** (3) en
+**mini-dungeon** (3) — 28 modellen. Niet alleen `kits/workfiles/`, maar ook hun blok in
+`catalog/manifest.js`, hun importeer-scripts, hun kitkleur in `catalog.js` en hun
+uitzonderingen in `catalog/tools/semantiek.mjs`. De catalogus telt nu **1016 modellen in
+24 kits**.
+
+Daarvoor waren dit al tien losse assets:
 
 | Asset | |
 | --- | --- |
@@ -48,13 +62,14 @@ budget (was 51 vóór alle schaalcorrecties).
 
 Weg uit `kits/workfiles/`, uit `catalog/manifest.js`, uit de importeer-scripts (anders
 komen ze bij een volgende import terug) en uit de groepsbestanden van de vergelijk-viewer.
-De catalogus telt nu 1044 modellen in plaats van 1054.
+Ook uit `catalog/manifest.js`, uit de importeer-scripts en uit de groepsbestanden van
+de vergelijk-viewer — anders komen ze bij een volgende import terug.
 
 ## De families
 
 | Render | Assets | Hoogte | Kits |
 | --- | ---: | --- | ---: |
-| `servies-kookgerei.png` | 22 | 0,01 – 0,43 | 6 |
+| `servies-kookgerei.png` | 21 | 0,01 – 0,40 | 5 |
 | `gereedschap.png` | 41 | 0,07 – 0,75 | 6 |
 | `paddenstoelen.png` | 8 | 0,07 – 0,29 | 4 |
 | `vaten-kegs.png` | 14 | 0,25 – 0,64 | 5 |
@@ -62,15 +77,15 @@ De catalogus telt nu 1044 modellen in plaats van 1054.
 | `kratten-dozen.png` | 18 | 0,07 – 0,83 | 7 |
 | `flessen-drankjes.png` | 14 | 0,10 – 0,28 | 5 |
 | `kruiken-vazen-emmers.png` | 8 | 0,13 – 0,28 | 2 |
-| `boeken-rollen.png` | 17 | 0,03 – 0,22 | 3 |
+| `boeken-rollen.png` | 15 | 0,03 – 0,22 | 2 |
 | `kaarten-sleutels.png` | 7 | 0,01 – 0,30 | 3 |
 | `kaarsen.png` | 13 | 0,07 – 0,39 | 3 |
-| `lantaarns-fakkels.png` | 14 | 0,26 – 1,74 | 7 |
+| `lantaarns-fakkels.png` | 13 | 0,26 – 1,65 | 6 |
 | `ladders.png` | 6 | 0,72 – 2,36 | 4 |
 | `trappen.png` | 16 | 1,00 – 1,45 | 3 |
 | `hekken.png` | 30 | 0,22 – 1,00 | 5 |
-| `bomen.png` | 46 | 1,15 – 7,85 | 11 |
-| `bomen-kaal-dood.png` | 36 | 0,95 – 3,81 | 5 |
+| `bomen.png` | 42 | 1,15 – 7,85 | 10 |
+| `bomen-kaal-dood.png` | 35 | 0,95 – 3,81 | 4 |
 | `boomstronken.png` | 6 | 0,10 – 0,48 | 3 |
 | `bloemen.png` | 23 | 0,14 – 0,53 | 3 |
 | `planten-mais-lisdodde-cactus.png` | 25 | 0,18 – 0,99 | 4 |

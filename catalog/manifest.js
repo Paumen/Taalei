@@ -291,16 +291,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "mini-dungeon",
-  "name": "Mini Dungeon",
-  "url": "https://kenney.nl/assets/mini-dungeon",
-  "models": [
-   "pot",
-   "wood-structure",
-   "wood-support"
-  ]
- },
- {
   "slug": "onderwater-kit",
   "name": "Onderwater",
   "url": "https://quaternius.com/",
@@ -361,16 +351,6 @@ window.KENNEY_KITS = [
   "models": [
    "balloon",
    "lighthouse"
-  ]
- },
- {
-  "slug": "nature",
-  "name": "Nature",
-  "url": null,
-  "models": [
-   "branch-a",
-   "mountain-a",
-   "tree-dead"
   ]
  },
  {
@@ -1077,24 +1057,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "holiday-kit",
-  "name": "Holiday Kit",
-  "url": "https://kenney.nl/assets/holiday-kit",
-  "models": [
-   "lantern",
-   "snow-bunker",
-   "snow-flat",
-   "snow-flat-large",
-   "snow-pile",
-   "snowman",
-   "snowman-hat",
-   "tree",
-   "tree-snow-a",
-   "tree-snow-b",
-   "tree-snow-c"
-  ]
- },
- {
   "slug": "prototype-kit",
   "name": "Prototype Kit",
   "url": "https://kenney.nl/assets/prototype-kit",
@@ -1102,24 +1064,6 @@ window.KENNEY_KITS = [
    "coin",
    "lever-double",
    "lever-single"
-  ]
- },
- {
-  "slug": "furniture",
-  "name": "Furniture",
-  "url": "https://www.kaylousberg.com",
-  "models": [
-   "book-set",
-   "book-single",
-   "shelf-a-big",
-   "shelf-a-small",
-   "shelf-b-large",
-   "shelf-b-large-decorated",
-   "shelf-b-small",
-   "table-low",
-   "table-medium",
-   "table-medium-long",
-   "table-small"
   ]
  },
  {

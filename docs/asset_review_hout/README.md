@@ -13,6 +13,9 @@ De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat zakt mee m
 familie (1 / 0,5 / 0,25 / 0,1 / 0,05 unit) — kijk dus welk getal erboven staat. Achter
 elk label staat de hoogte van het model.
 
+In de catalogus staat dezelfde vergelijking live: `catalog/schaal.html` (knop *Schaal*)
+laadt de `.glb`'s in de browser, dus die klopt ook meteen na een herschaling.
+
 Zes kits zijn opnieuw geschaald; welke en waarom staat in
 `docs/asset_review_props/README.md`. Voor deze families raakt dat quaternius-nature
 (×0,5), survival-kit (×0,7) en pirate-kit (×0,8).
@@ -26,7 +29,7 @@ Zes kits zijn opnieuw geschaald; welke en waarom staat in
 | `hout-planken.png` | 11 | 0,06 – 0,61 |
 | `hout-stapel-pallet.png` | 4 | 0,10 – 0,24 |
 | `hout-kampvuur.png` | 6 | 0,09 – 0,41 |
-| `hout-takken.png` | 7 | 0,04 – 0,28 |
+| `hout-takken.png` | 6 | 0,04 – 0,28 |
 | `hout-wortels.png` | 6 | 0,23 – 1,05 |
 
 Buiten scope gelaten: bouwkundig hout (houten muren, vloeren, trappen, balken,
