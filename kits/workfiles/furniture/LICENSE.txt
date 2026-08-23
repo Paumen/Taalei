@@ -1,0 +1,65 @@
+	Furniture
+
+			------------------------------
+
+	KayKit : Furniture Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert .gltf + .bin (naast .fbx en .obj). Onderstrepingen
+	in de modelnamen zijn koppeltekens geworden en alles is klein
+	gezet: shelf_B_large_decorated wordt shelf-b-large-decorated.
+
+	Van de 53 modellen zijn er elf gekozen: vier tafels, vijf
+	wandschappen en twee boeken. De rest van de pack is grotendeels
+	dezelfde meubels in andere houtsoorten.
+
+	Op 0,35 gezet, dezelfde factor als de KayKit-dungeonkit die al in
+	de collectie staat. Beide packs staan op hetzelfde raster van twee
+	units per tegel, en op deze factor vallen ze exact samen:
+	table_medium meet hier 0,70 × 0,70, precies zo groot als
+	dungeon/table-medium. Dat is ook de reden om niet 0,5 te nemen
+	zoals bij de forest-kit — dan zouden dezelfde meubels in twee
+	maten naast elkaar staan.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-furniture.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,35)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
+	driehoek is de kleur uit die atlas gehaald en op de
+	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en
+	in hetzelfde kleurfilter meedoen.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	De verste sprong is het lichtblauw van een boekband: #75b9dd werd
+	#a5add0 (5,9). Al het hout blijft onder 2,5.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

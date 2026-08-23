@@ -1,0 +1,76 @@
+	Restaurant
+
+			------------------------------
+
+	KayKit : Restaurant Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: food_ingredient_cheese_chopped wordt
+	food-ingredient-cheese-chopped. Eén naam is aangepast:
+	cuttingboard is cutting-board geworden, zodat hij leest als de
+	rest. Eén naam is met opzet níet aangepast: de pack heeft pan_A,
+	pan_B en pan_006, en die laatste is pan-006 gebleven — dat is de
+	naam die de pack eraan geeft, en er is geen manier om te weten
+	welke letter bedoeld was.
+
+	Van de 144 modellen zijn er 26 gekozen: het keukengerei (twee
+	potten, een grote pot, drie pannen, een mes, een snijplank, twee
+	borden, twee kommen), het eten (kaas, ham, biefstuk, gaar en rauw,
+	een stoofpot en een gedekt bord), de kratten, en een stoel met een
+	ronde tafel. De rest van de pack is voor een groot deel dezelfde
+	meubels in andere kleuren.
+
+	Op 0,35 gezet, om dezelfde reden als de furniture-kit: op die
+	factor valt deze pack precies samen met de dungeonkit.
+	restaurant/plate meet 0,33 en dungeon/plate 0,34 — het bord van de
+	ene kit past op de tafel van de andere.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-restaurant.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z. De
+	schaal (0,35) staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
+	driehoek is de kleur uit die atlas gehaald en op de
+	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en
+	in hetzelfde kleurfilter meedoen.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	Dit is de kit met de verste sprong van de tien: rauw vlees. Het
+	rood van de ham (#f03f4a) en van de biefstuk (#f24d56) werden
+	#c87451 en #ce7955 — 11,1 en 10,1. Er staat geen rood op de
+	gedeelde sheet dat in de buurt komt, dus rauw vlees leest hier
+	bruiner dan in de pack. Dat raakt vijf modellen: crate-ham,
+	crate-steak, food-dinner, food-ingredient-ham en
+	food-ingredient-steak. Besluit PO: geen kleur aan de gedeelde
+	sheet toevoegen. Al het andere blijft onder 6.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

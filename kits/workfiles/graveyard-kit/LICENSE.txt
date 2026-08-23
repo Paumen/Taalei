@@ -1,0 +1,60 @@
+	Graveyard Kit
+
+			------------------------------
+
+	Kenney : Graveyard Kit (5.0)
+	Gemaakt en verspreid door Kenney — https://kenney.nl/assets/graveyard-kit
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Van de 91 modellen zijn er elf gekozen, allemaal zonder grafsteen
+	of spookthema: twee soorten puin, drie stuks serviesgoed (kom,
+	kelk, bord), twee dennen, twee rotsgroepen en de schop met en
+	zonder aarde erop. De namen komen ongewijzigd uit de pack.
+
+	Het serviesgoed heet in de pack detail-bowl, detail-chalice en
+	detail-plate. Die namen zijn zo gelaten — het is de naam die de
+	pack eraan geeft — maar ze staan wel bij eten & koken, net als het
+	andere serviesgoed in de catalogus.
+
+	Geen schaling; de kit staat al op één unit per segment.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-graveyard-kit.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
+
+	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
+	driehoek is de kleur uit die atlas gehaald en op de
+	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en
+	in hetzelfde kleurfilter meedoen.
+
+	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
+	binnen de driehoek bemonsterd en die worden in lineair licht
+	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
+	vraagt, en blijft het verschil in licht en donker tussen de
+	vlakken onderling staan — de ingebakken schaduw van de pack dus.
+	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
+	die cellen zijn zelf verlopen van donker naar licht, dus een
+	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	De grootste sprong is het loofgroen van de dennen: #5ac487 werd
+	#8daa49 (8,6). Het serviesgoed en het puin blijven onder 2,5.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.
