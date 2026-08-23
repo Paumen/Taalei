@@ -41,32 +41,39 @@
 	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z. De
 	schaal (0,35) staat op de wortelnode, niet in de hoekpunten.
 
-	De pack heeft een eigen texture-atlas. Die is niet meegekomen: per
-	driehoek is de kleur uit die atlas gehaald en op de
-	dichtstbijzijnde kleur van de gedeelde kits/colormap.png gelegd,
-	zodat deze modellen dezelfde kleuren delen met de andere kits en
-	in hetzelfde kleurfilter meedoen.
+	De pack heeft een eigen kleurenvel: een rooster van banen, elk één
+	kleur met zijn eigen verloop van licht naar donker. Dat vel is
+	niet meegekomen — de modellen zijn op de gedeelde
+	kits/colormap.png gezet, die net zo is opgebouwd, zodat ze
+	dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
 
-	Het gaat per driehoek en niet per hoekpunt: er worden zeven punten
-	binnen de driehoek bemonsterd en die worden in lineair licht
-	gemiddeld. Zo krijgt elk vlak één kleur, zoals de stijlgids
-	vraagt, en blijft het verschil in licht en donker tussen de
-	vlakken onderling staan — de ingebakken schaduw van de pack dus.
-	Opzoeken gebeurt per pixel van de gedeelde sheet en niet per cel:
-	die cellen zijn zelf verlopen van donker naar licht, dus een
-	donker vlak landt vanzelf op de donkere kant van dezelfde baan.
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van
+	de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan
+	álle driehoeken van die bronbaan naar die ene doelbaan, en houdt
+	elk hoekpunt zijn eigen plek in het verloop.
+
+	Dat laatste is niet vrijblijvend. Zoek je per driehoek los de
+	dichtstbijzijnde kleur, dan kan de ene helft van een boom op de
+	ene baan komen en de andere helft op een andere, en valt een glad
+	vlak uiteen in losse driehoeken met elk een eigen tintje. Baan
+	voor baan kan dat niet gebeuren, en omdat elk hoekpunt zijn plek
+	houdt blijft een verloop over een vlak ook echt een verloop — de
+	ingebakken schaduw van de pack dus.
+
 	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
 	zichtbaar verschil betekent; de afstanden hieronder staan in die
-	maat, op een schaal waar 100 het hele bereik is.
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor
+	een hele baan en niet voor één kleur.
 
-	Dit is de kit met de verste sprong van de tien: rauw vlees. Het
-	rood van de ham (#f03f4a) en van de biefstuk (#f24d56) werden
-	#c87451 en #ce7955 — 11,1 en 10,1. Er staat geen rood op de
-	gedeelde sheet dat in de buurt komt, dus rauw vlees leest hier
-	bruiner dan in de pack. Dat raakt vijf modellen: crate-ham,
-	crate-steak, food-dinner, food-ingredient-ham en
-	food-ingredient-steak. Besluit PO: geen kleur aan de gedeelde
-	sheet toevoegen. Al het andere blijft onder 6.
+	De verste sprongen zijn de groene baan van de garnering (9,7) en
+	de rode baan van het rauwe vlees (8,9). Er staat geen fel rood op
+	de gedeelde sheet, dus rauwe ham en biefstuk lezen hier bruiner
+	dan in de pack; dat raakt crate-ham, crate-steak, food-dinner,
+	food-ingredient-ham en food-ingredient-steak. Besluit PO: geen
+	kleur aan de gedeelde sheet toevoegen.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee
