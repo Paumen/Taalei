@@ -53,6 +53,8 @@ const gekozenPaden = new Set();
 const kaartenPerPad = new Map();
 
 let laatsteKeuze = null;
+let kiesModus = false;
+let veeg = null;
 
 const kleurStaat = new Map();
 const maatStaat = new Map();
@@ -220,7 +222,10 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
   tekst.append(span('kaart-naam', model.naam), meta);
 
   kaart.append(vak, glyfen, tekst);
-  kaart.addEventListener('click', () => toonDetail(model));
+  kaart.addEventListener('click', () => {
+    if (kiesModus) zetSelectie([model.pad], !gekozenPaden.has(model.pad));
+    else toonDetail(model);
+  });
 
   const kies = document.createElement('label');
   kies.className = 'kaart-kies';
@@ -258,8 +263,33 @@ function maakKaart(model, kits, groepen, weergave, varianten = []) {
     laatsteKeuze = item;
   });
 
+  houder.dataset.pad = model.pad;
   waarnemer.observe(vak);
   return item;
+}
+
+function kaartOnder(x, y) {
+  return document.elementFromPoint(x, y)?.closest('.kaart-houder[data-pad]');
+}
+
+paneel.addEventListener('pointerdown', (e) => {
+  if (!kiesModus || e.button !== 0) return;
+  const houder = e.target.closest('.kaart-houder[data-pad]');
+  if (!houder) return;
+  veeg = { aan: !gekozenPaden.has(houder.dataset.pad), gedaan: new Set() };
+  paneel.setPointerCapture(e.pointerId);
+});
+
+paneel.addEventListener('pointermove', (e) => {
+  if (!veeg) return;
+  const houder = kaartOnder(e.clientX, e.clientY);
+  if (!houder || veeg.gedaan.has(houder.dataset.pad)) return;
+  veeg.gedaan.add(houder.dataset.pad);
+  zetSelectie([houder.dataset.pad], veeg.aan);
+});
+
+for (const naam of ['pointerup', 'pointercancel']) {
+  paneel.addEventListener(naam, () => { veeg = null; });
 }
 
 function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron }) {
@@ -297,6 +327,19 @@ function maakSectie({ id, weergave, soort, titel, aantal, kleur, uitleg, bron })
     link.rel = 'noopener';
     kop.append(link);
   }
+
+  const alles = document.createElement('button');
+  alles.type = 'button';
+  alles.className = 'sectie-alles';
+  alles.textContent = 'Select all';
+  alles.addEventListener('click', () => {
+    const eigen = secties.find((s) => s.element === sectie);
+    if (!eigen) return;
+    const zichtbaar = eigen.kaarten.filter((k) => !k.element.hidden);
+    const aan = !zichtbaar.every((k) => gekozenPaden.has(k.pad));
+    zetSelectie(zichtbaar.map((k) => k.pad), aan);
+  });
+  kop.append(alles);
 
   const rooster = document.createElement('div');
   rooster.className = 'rooster';
@@ -895,6 +938,13 @@ async function start() {
       window.scrollTo({ top: 0 });
     });
   }
+
+  const kiesKnop = document.querySelector('#kiesmodus');
+  kiesKnop.addEventListener('click', () => {
+    kiesModus = !kiesModus;
+    kiesKnop.setAttribute('aria-pressed', String(kiesModus));
+    document.body.classList.toggle('kiesmodus', kiesModus);
+  });
 
   const lichtKnop = document.querySelector('#licht');
   lichtKnop.addEventListener('click', () => {
