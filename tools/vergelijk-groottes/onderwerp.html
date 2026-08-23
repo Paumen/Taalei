@@ -138,8 +138,9 @@ scene.add(grid);
 // Vaste schaal: elk onderwerp krijgt evenveel pixels per unit, tot een maximale breedte.
 const PIXELS_PER_UNIT = 190;
 const MAX_BREEDTE_PX = 6400;
+const MAX_HOOGTE_PX = 1500;
 const zichtH = maxH * 1.15 + 1.15;
-const schaal = Math.min(PIXELS_PER_UNIT, MAX_BREEDTE_PX / totaleBreedte);
+const schaal = Math.min(PIXELS_PER_UNIT, MAX_BREEDTE_PX / totaleBreedte, MAX_HOOGTE_PX / zichtH);
 const W = Math.round(totaleBreedte * schaal);
 const H = Math.round(zichtH * schaal);
 const aspect = W / H;
