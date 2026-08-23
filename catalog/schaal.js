@@ -10,11 +10,13 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
-const GAP_FACTOR = 0.35;
-const MAX_ASPECT = 2.4;
-const MAX_RIJEN = 12;
+// Elke familie krijgt precies even veel units in beeld, zodat een vat in elke familie even
+// groot op het scherm staat. Een rij is RIJBREEDTE units breed; wat er niet meer bij past gaat
+// naar de volgende rij. Alleen de hoogte van het beeld verschilt dus nog per familie.
+const RIJBREEDTE = 9;
+const GAP = 0.35;
 const REGEL = 2.3;   // hoogte van een labelblok in eenheden labelSchaal (twee regels plus lucht)
-const FONT_KIT = '500 38px system-ui, sans-serif';
+const FONT_KIT = '600 44px system-ui, sans-serif';    // even groot en zwaar als de modelnaam; alleen de kleur verschilt
 const FONT_MODEL = '600 44px system-ui, sans-serif';
 
 const loader = new GLTFLoader();
@@ -81,46 +83,24 @@ function labelRegels(rij, labelSchaal) {
   return rechts.length;
 }
 
-function verdeel(stukken, gap, r, labelSchaal, rek) {
-  const loop = stukken.reduce((s, p) => s + gap + p.w, 0);
-  const limiet = Math.max((loop / r) * rek, Math.max(...stukken.map((p) => p.w)) + gap);
+function verdeel(stukken, labelSchaal, lat) {
   const rijen = [];
   let rij = [];
   let breed = 0;
   for (const p of stukken) {
-    if (rij.length && breed + gap + p.w > limiet) { rijen.push({ rij, breed }); rij = []; breed = 0; }
-    breed += gap + p.w / 2;
+    if (rij.length && breed + GAP + p.w > RIJBREEDTE) { rijen.push({ rij, breed }); rij = []; breed = 0; }
+    breed += GAP + p.w / 2;
     p.x = breed;
     breed += p.w / 2;
     rij.push(p);
   }
   if (rij.length) rijen.push({ rij, breed });
-  return { rijen, contentW: Math.max(...rijen.map((x) => x.breed)) + gap };
-}
-
-function meetRijen(rijen, lat, labelSchaal) {
   for (const x of rijen) {
     x.regels = labelRegels(x.rij, labelSchaal);
     x.labelBlok = labelSchaal * (0.7 + REGEL * (x.regels - 1) + REGEL);
     x.hoog = Math.max(lat.h + labelSchaal * 1.4, ...x.rij.map((p) => p.h)) + x.labelBlok;
   }
-  return rijen.reduce((s, x) => s + x.hoog, 0);
-}
-
-// Ruitjespapier achter de modellen: fijne lijnen om de 0,25 unit, zware om de hele unit.
-// De stap is overal dezelfde, dus je kunt in elke familie even goed een hoogte aflezen.
-function achtergrond(y, links, rechts, hoogte, fijn, zwaar) {
-  const g = new THREE.Group();
-  const top = Math.ceil(Math.max(hoogte, 1) * 4) / 4;
-  for (const [stap, kleur, dekking] of [[0.25, fijn, 0.55], [1, zwaar, 0.85]]) {
-    const punten = [];
-    for (let x = Math.ceil(links / stap) * stap; x <= rechts + 1e-6; x += stap) punten.push(x, y, -0.5, x, y + top, -0.5);
-    for (let h = 0; h <= top + 1e-6; h += stap) punten.push(links, y + h, -0.5, rechts, y + h, -0.5);
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(punten, 3));
-    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: kleur, transparent: true, opacity: dekking })));
-  }
-  return g;
+  return rijen;
 }
 
 export async function tekenFamilie(groep, canvas, breedte) {
@@ -161,29 +141,8 @@ export async function tekenFamilie(groep, canvas, breedte) {
   if (!stukken.length) return null;
 
   const lat = meetlat();
-  const gap = Math.max(0.02, (GAP_FACTOR * stukken.reduce((s, p) => s + p.w, 0)) / stukken.length);
-
-  let keuze = { r: 1, rek: 1 };
-  let labelSchaal = 0.1;
-  let indeling = null;
-  for (let r = 1; r <= MAX_RIJEN; r++) {
-    indeling = verdeel(stukken, gap, r, labelSchaal, 1);
-    labelSchaal = indeling.contentW / 62;
-    let contentH = meetRijen(verdeel(stukken, gap, r, labelSchaal, 1).rijen, lat, labelSchaal);
-    keuze = { r, rek: 1 };
-    for (let rek = 1.0; rek <= 1.6; rek += 0.03) {
-      const beter = verdeel(stukken, gap, r, labelSchaal, rek);
-      if (beter.rijen.length > r) continue;
-      indeling = beter;
-      contentH = meetRijen(beter.rijen, lat, labelSchaal);
-      keuze = { r, rek };
-      if (beter.rijen[beter.rijen.length - 1].breed >= beter.contentW * 0.5) break;
-    }
-    if (indeling.contentW / contentH <= MAX_ASPECT || r === MAX_RIJEN) break;
-  }
-  // verdeel() zet x, regel en labelBreed op de stukken zelf: de winnende indeling moet de laatste zijn.
-  const { rijen } = verdeel(stukken, gap, keuze.r, labelSchaal, keuze.rek);
-  meetRijen(rijen, lat, labelSchaal);
+  const labelSchaal = RIJBREEDTE / 52;
+  const rijen = verdeel(stukken, labelSchaal, lat);
 
   const basis = [];
   for (let i = rijen.length - 1, y = 0; i >= 0; i--) { basis[i] = y + rijen[i].labelBlok; y += rijen[i].hoog; }
@@ -197,11 +156,11 @@ export async function tekenFamilie(groep, canvas, breedte) {
     if (tekst.kit) {
       ctx.font = FONT_KIT;
       ctx.fillStyle = inktZacht;
-      ctx.fillText(tekst.kit, c.width / 2, 52);
+      ctx.fillText(tekst.kit, c.width / 2, 60);
     }
     ctx.font = FONT_MODEL;
     ctx.fillStyle = inkt;
-    ctx.fillText(tekst.model, c.width / 2, tekst.kit ? 140 : 62);
+    ctx.fillText(tekst.model, c.width / 2, tekst.kit ? 148 : 62);
     const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
     spr.scale.set(breed, labelSchaal * (c.height / 96), 1);
     spr.position.set(x, y, 1.2);
@@ -209,9 +168,8 @@ export async function tekenFamilie(groep, canvas, breedte) {
     scene.add(spr);
   };
 
-  const contentW = Math.max(...rijen.map((r) => r.breed));
-  const latLinks = -gap - lat.w / 2;
-  const latRechts = contentW + gap + lat.w / 2;
+  const latLinks = -GAP - lat.w / 2;
+  const latRechts = RIJBREEDTE + GAP + lat.w / 2;
   let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
 
   rijen.forEach((r, i) => {
@@ -240,9 +198,12 @@ export async function tekenFamilie(groep, canvas, breedte) {
     }
   });
 
-  const rand = Math.max(gap, labelSchaal);
-  const viewW = xMax - xMin + rand * 2;
+  // Breedte ligt vast (dus de schaal ook); alleen de hoogte volgt de inhoud.
+  const rand = Math.max(GAP, labelSchaal);
+  const viewW = latRechts - latLinks + rand * 2;
   const viewH = yMax - yMin + rand * 2;
+  xMin = latLinks - rand;
+  xMax = latRechts + rand;
   const hoogte = Math.round((breedte * viewH) / viewW);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });

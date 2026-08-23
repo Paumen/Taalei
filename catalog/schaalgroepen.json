@@ -631,12 +631,6 @@
     "hoogte": 0.325
    },
    {
-    "kit": "Modulair Terrein",
-    "model": "beach-prop-treasure-chest",
-    "pad": "kits/workfiles/modulair-terrein/beach-prop-treasure-chest.glb",
-    "hoogte": 0.367
-   },
-   {
     "kit": "Pirate",
     "model": "chest",
     "pad": "kits/workfiles/pirate-kit/chest.glb",
@@ -1021,8 +1015,8 @@
   ]
  },
  {
-  "slug": "sleutels-gereedschap",
-  "naam": "Sleutels en gereedschap",
+  "slug": "sleutels",
+  "naam": "Sleutels",
   "bovenaanzicht": false,
   "items": [
    {
@@ -1054,42 +1048,19 @@
     "model": "key-metal",
     "pad": "kits/workfiles/fantasy-props/key-metal.glb",
     "hoogte": 0.006
-   },
+   }
+  ]
+ },
+ {
+  "slug": "gereedschap-klein",
+  "naam": "Klein gereedschap",
+  "bovenaanzicht": false,
+  "items": [
    {
-    "kit": "Fantasy Props",
-    "model": "pickaxe-bronze",
-    "pad": "kits/workfiles/fantasy-props/pickaxe-bronze.glb",
-    "hoogte": 0.599
-   },
-   {
-    "kit": "Fantasy Town",
-    "model": "wheel",
-    "pad": "kits/workfiles/fantasy-town-kit/wheel.glb",
-    "hoogte": 0.483
-   },
-   {
-    "kit": "Graveyard",
-    "model": "shovel-dirt",
-    "pad": "kits/workfiles/graveyard-kit/shovel-dirt.glb",
-    "hoogte": 0.661
-   },
-   {
-    "kit": "Graveyard",
-    "model": "shovel",
-    "pad": "kits/workfiles/graveyard-kit/shovel.glb",
-    "hoogte": 0.612
-   },
-   {
-    "kit": "Pirate",
-    "model": "tool-paddle",
-    "pad": "kits/workfiles/pirate-kit/tool-paddle.glb",
-    "hoogte": 0.752
-   },
-   {
-    "kit": "RPG Tools",
-    "model": "anvil",
-    "pad": "kits/workfiles/rpgtools/anvil.glb",
-    "hoogte": 0.224
+    "kit": "Restaurant",
+    "model": "knife",
+    "pad": "kits/workfiles/restaurant/knife.glb",
+    "hoogte": 0.403
    },
    {
     "kit": "RPG Tools",
@@ -1123,21 +1094,9 @@
    },
    {
     "kit": "RPG Tools",
-    "model": "grindstone",
-    "pad": "kits/workfiles/rpgtools/grindstone.glb",
-    "hoogte": 0.434
-   },
-   {
-    "kit": "RPG Tools",
     "model": "hammer",
     "pad": "kits/workfiles/rpgtools/hammer.glb",
     "hoogte": 0.231
-   },
-   {
-    "kit": "RPG Tools",
-    "model": "handdrill",
-    "pad": "kits/workfiles/rpgtools/handdrill.glb",
-    "hoogte": 0.351
    },
    {
     "kit": "RPG Tools",
@@ -1183,12 +1142,6 @@
    },
    {
     "kit": "RPG Tools",
-    "model": "pickaxe",
-    "pad": "kits/workfiles/rpgtools/pickaxe.glb",
-    "hoogte": 0.388
-   },
-   {
-    "kit": "RPG Tools",
     "model": "rope-bundle-a",
     "pad": "kits/workfiles/rpgtools/rope-bundle-a.glb",
     "hoogte": 0.071
@@ -1198,12 +1151,6 @@
     "model": "rope-bundle-b",
     "pad": "kits/workfiles/rpgtools/rope-bundle-b.glb",
     "hoogte": 0.065
-   },
-   {
-    "kit": "RPG Tools",
-    "model": "saw",
-    "pad": "kits/workfiles/rpgtools/saw.glb",
-    "hoogte": 0.16
    },
    {
     "kit": "RPG Tools",
@@ -1231,12 +1178,6 @@
    },
    {
     "kit": "RPG Tools",
-    "model": "shovel",
-    "pad": "kits/workfiles/rpgtools/shovel.glb",
-    "hoogte": 0.442
-   },
-   {
-    "kit": "RPG Tools",
     "model": "tongs",
     "pad": "kits/workfiles/rpgtools/tongs.glb",
     "hoogte": 0.36
@@ -1255,15 +1196,88 @@
    },
    {
     "kit": "Survival",
-    "model": "tool-axe",
-    "pad": "kits/workfiles/survival-kit/tool-axe.glb",
-    "hoogte": 0.323
-   },
-   {
-    "kit": "Survival",
     "model": "tool-hammer",
     "pad": "kits/workfiles/survival-kit/tool-hammer.glb",
     "hoogte": 0.193
+   }
+  ]
+ },
+ {
+  "slug": "gereedschap-groot",
+  "naam": "Groot gereedschap",
+  "bovenaanzicht": false,
+  "items": [
+   {
+    "kit": "Fantasy Props",
+    "model": "pickaxe-bronze",
+    "pad": "kits/workfiles/fantasy-props/pickaxe-bronze.glb",
+    "hoogte": 0.599
+   },
+   {
+    "kit": "Fantasy Town",
+    "model": "wheel",
+    "pad": "kits/workfiles/fantasy-town-kit/wheel.glb",
+    "hoogte": 0.483
+   },
+   {
+    "kit": "Graveyard",
+    "model": "shovel-dirt",
+    "pad": "kits/workfiles/graveyard-kit/shovel-dirt.glb",
+    "hoogte": 0.661
+   },
+   {
+    "kit": "Graveyard",
+    "model": "shovel",
+    "pad": "kits/workfiles/graveyard-kit/shovel.glb",
+    "hoogte": 0.612
+   },
+   {
+    "kit": "Pirate",
+    "model": "tool-paddle",
+    "pad": "kits/workfiles/pirate-kit/tool-paddle.glb",
+    "hoogte": 0.752
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "anvil",
+    "pad": "kits/workfiles/rpgtools/anvil.glb",
+    "hoogte": 0.224
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "grindstone",
+    "pad": "kits/workfiles/rpgtools/grindstone.glb",
+    "hoogte": 0.434
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "handdrill",
+    "pad": "kits/workfiles/rpgtools/handdrill.glb",
+    "hoogte": 0.351
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "pickaxe",
+    "pad": "kits/workfiles/rpgtools/pickaxe.glb",
+    "hoogte": 0.388
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "saw",
+    "pad": "kits/workfiles/rpgtools/saw.glb",
+    "hoogte": 0.16
+   },
+   {
+    "kit": "RPG Tools",
+    "model": "shovel",
+    "pad": "kits/workfiles/rpgtools/shovel.glb",
+    "hoogte": 0.442
+   },
+   {
+    "kit": "Survival",
+    "model": "tool-axe",
+    "pad": "kits/workfiles/survival-kit/tool-axe.glb",
+    "hoogte": 0.323
    },
    {
     "kit": "Survival",
@@ -1366,25 +1380,25 @@
     "kit": "Halloween",
     "model": "candle-melted",
     "pad": "kits/workfiles/halloween/candle-melted.glb",
-    "hoogte": 0.316
+    "hoogte": 0.175
    },
    {
     "kit": "Halloween",
     "model": "candle-thin",
     "pad": "kits/workfiles/halloween/candle-thin.glb",
-    "hoogte": 0.393
+    "hoogte": 0.218
    },
    {
     "kit": "Halloween",
     "model": "candle-triple",
     "pad": "kits/workfiles/halloween/candle-triple.glb",
-    "hoogte": 0.393
+    "hoogte": 0.218
    },
    {
     "kit": "Halloween",
     "model": "candle",
     "pad": "kits/workfiles/halloween/candle.glb",
-    "hoogte": 0.393
+    "hoogte": 0.218
    }
   ]
  },
@@ -1421,19 +1435,19 @@
     "kit": "Halloween",
     "model": "lantern-hanging",
     "pad": "kits/workfiles/halloween/lantern-hanging.glb",
-    "hoogte": 0.704
+    "hoogte": 0.391
    },
    {
     "kit": "Halloween",
     "model": "lantern-standing",
     "pad": "kits/workfiles/halloween/lantern-standing.glb",
-    "hoogte": 0.463
+    "hoogte": 0.257
    },
    {
     "kit": "Halloween",
     "model": "post-lantern",
     "pad": "kits/workfiles/halloween/post-lantern.glb",
-    "hoogte": 1.65
+    "hoogte": 0.915
    },
    {
     "kit": "Natuur",
@@ -1728,18 +1742,6 @@
    },
    {
     "kit": "Modulair Terrein",
-    "model": "hilly-prop-fence-hill-gentle",
-    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-hill-gentle.glb",
-    "hoogte": 0.8
-   },
-   {
-    "kit": "Modulair Terrein",
-    "model": "hilly-prop-fence-hill-sharp",
-    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-hill-sharp.glb",
-    "hoogte": 0.875
-   },
-   {
-    "kit": "Modulair Terrein",
     "model": "hilly-prop-fence-post-a",
     "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-post-a.glb",
     "hoogte": 0.379
@@ -1954,37 +1956,37 @@
     "kit": "Halloween",
     "model": "tree-pine-orange-large",
     "pad": "kits/workfiles/halloween/tree-pine-orange-large.glb",
-    "hoogte": 3.738
+    "hoogte": 2.073
    },
    {
     "kit": "Halloween",
     "model": "tree-pine-orange-medium",
     "pad": "kits/workfiles/halloween/tree-pine-orange-medium.glb",
-    "hoogte": 2.936
+    "hoogte": 1.629
    },
    {
     "kit": "Halloween",
     "model": "tree-pine-orange-small",
     "pad": "kits/workfiles/halloween/tree-pine-orange-small.glb",
-    "hoogte": 2.021
+    "hoogte": 1.121
    },
    {
     "kit": "Halloween",
     "model": "tree-pine-yellow-large",
     "pad": "kits/workfiles/halloween/tree-pine-yellow-large.glb",
-    "hoogte": 3.738
+    "hoogte": 2.073
    },
    {
     "kit": "Halloween",
     "model": "tree-pine-yellow-medium",
     "pad": "kits/workfiles/halloween/tree-pine-yellow-medium.glb",
-    "hoogte": 2.936
+    "hoogte": 1.629
    },
    {
     "kit": "Halloween",
     "model": "tree-pine-yellow-small",
     "pad": "kits/workfiles/halloween/tree-pine-yellow-small.glb",
-    "hoogte": 2.021
+    "hoogte": 1.121
    },
    {
     "kit": "Mini Forest",
@@ -2135,19 +2137,19 @@
     "kit": "Halloween",
     "model": "tree-dead-large",
     "pad": "kits/workfiles/halloween/tree-dead-large.glb",
-    "hoogte": 2.533
+    "hoogte": 1.405
    },
    {
     "kit": "Halloween",
     "model": "tree-dead-medium",
     "pad": "kits/workfiles/halloween/tree-dead-medium.glb",
-    "hoogte": 2.094
+    "hoogte": 1.162
    },
    {
     "kit": "Halloween",
     "model": "tree-dead-small",
     "pad": "kits/workfiles/halloween/tree-dead-small.glb",
-    "hoogte": 1.493
+    "hoogte": 0.828
    },
    {
     "kit": "Natuur",
@@ -2243,36 +2245,6 @@
     "kit": "Quaternius Nature",
     "model": "tree-common-dead-5",
     "pad": "kits/workfiles/quaternius-nature/tree-common-dead-5.glb",
-    "hoogte": 1.148
-   },
-   {
-    "kit": "Quaternius Nature",
-    "model": "tree-common-dead-snow-1",
-    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-snow-1.glb",
-    "hoogte": 1.11
-   },
-   {
-    "kit": "Quaternius Nature",
-    "model": "tree-common-dead-snow-2",
-    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-snow-2.glb",
-    "hoogte": 1.48
-   },
-   {
-    "kit": "Quaternius Nature",
-    "model": "tree-common-dead-snow-3",
-    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-snow-3.glb",
-    "hoogte": 1.501
-   },
-   {
-    "kit": "Quaternius Nature",
-    "model": "tree-common-dead-snow-4",
-    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-snow-4.glb",
-    "hoogte": 1.185
-   },
-   {
-    "kit": "Quaternius Nature",
-    "model": "tree-common-dead-snow-5",
-    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-snow-5.glb",
     "hoogte": 1.148
    },
    {
@@ -2939,7 +2911,7 @@
  },
  {
   "slug": "bedden-banken",
-  "naam": "Bedden en banken",
+  "naam": "Bedden, banken, stoelen en krukken",
   "bovenaanzicht": false,
   "items": [
    {
@@ -2961,31 +2933,6 @@
     "hoogte": 0.266
    },
    {
-    "kit": "Fantasy Props",
-    "model": "bench",
-    "pad": "kits/workfiles/fantasy-props/bench.glb",
-    "hoogte": 0.267
-   },
-   {
-    "kit": "Halloween",
-    "model": "bench",
-    "pad": "kits/workfiles/halloween/bench.glb",
-    "hoogte": 0.25
-   },
-   {
-    "kit": "Props",
-    "model": "bench-a",
-    "pad": "kits/workfiles/props/bench-a.glb",
-    "hoogte": 0.259
-   }
-  ]
- },
- {
-  "slug": "krukken-stoelen",
-  "naam": "Krukken en stoelen",
-  "bovenaanzicht": false,
-  "items": [
-   {
     "kit": "Dungeon",
     "model": "chair",
     "pad": "kits/workfiles/dungeon/chair.glb",
@@ -2996,6 +2943,24 @@
     "model": "stool",
     "pad": "kits/workfiles/dungeon/stool.glb",
     "hoogte": 0.125
+   },
+   {
+    "kit": "Fantasy Props",
+    "model": "bench",
+    "pad": "kits/workfiles/fantasy-props/bench.glb",
+    "hoogte": 0.267
+   },
+   {
+    "kit": "Halloween",
+    "model": "bench",
+    "pad": "kits/workfiles/halloween/bench.glb",
+    "hoogte": 0.139
+   },
+   {
+    "kit": "Props",
+    "model": "bench-a",
+    "pad": "kits/workfiles/props/bench-a.glb",
+    "hoogte": 0.259
    },
    {
     "kit": "Props",
@@ -3859,7 +3824,7 @@
     "kit": "Halloween",
     "model": "floor-dirt-small",
     "pad": "kits/workfiles/halloween/floor-dirt-small.glb",
-    "hoogte": 0.265
+    "hoogte": 0.147
    },
    {
     "kit": "Modular Cave",
@@ -4011,25 +3976,25 @@
     "kit": "Halloween",
     "model": "path-a",
     "pad": "kits/workfiles/halloween/path-a.glb",
-    "hoogte": 0.05
+    "hoogte": 0.028
    },
    {
     "kit": "Halloween",
     "model": "path-b",
     "pad": "kits/workfiles/halloween/path-b.glb",
-    "hoogte": 0.05
+    "hoogte": 0.028
    },
    {
     "kit": "Halloween",
     "model": "path-c",
     "pad": "kits/workfiles/halloween/path-c.glb",
-    "hoogte": 0.05
+    "hoogte": 0.028
    },
    {
     "kit": "Halloween",
     "model": "path-d",
     "pad": "kits/workfiles/halloween/path-d.glb",
-    "hoogte": 0.05
+    "hoogte": 0.028
    },
    {
     "kit": "Mini Forest",

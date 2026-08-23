@@ -9,6 +9,26 @@ const DOOD = /(^|-)(bare|dead)(-|$)/;
 // Platte dingen lees je van boven, niet van opzij.
 const BOVENAANZICHT = new Set(['schappen-kasten', 'zeesterren-schelpen']);
 
+// Klein en groot gereedschap is niet uit de naam af te leiden, dus staat het hier per stuk.
+// Wat in geen van beide lijsten staat, valt op maat: onder 0,2 klein, daarboven groot.
+const KLEIN_GEREEDSCHAP = new Set([
+  'rpgtools/nail', 'rpgtools/screw-b', 'rpgtools/scissors', 'rpgtools/screwdriver-a-short',
+  'rpgtools/file', 'rpgtools/drafting-compass', 'rpgtools/compass-base', 'rpgtools/pencil-a-long',
+  'rpgtools/pencil-b-long', 'rpgtools/screwdriver-b-short', 'survival-kit/tool-hammer',
+  'rpgtools/wrench-b', 'rpgtools/magnifying-glass', 'rpgtools/knife', 'restaurant/knife',
+  'rpgtools/chisel', 'rpgtools/hammer', 'rpgtools/mallet', 'rpgtools/axe', 'rpgtools/tongs',
+  'rpgtools/trowel',
+]);
+const GROOT_GEREEDSCHAP = new Set([
+  'rpgtools/saw', 'graveyard-kit/shovel', 'rpgtools/shovel', 'survival-kit/tool-hoe',
+  'pirate-kit/tool-paddle', 'survival-kit/tool-pickaxe', 'survival-kit/tool-shovel',
+  'survival-kit/tool-axe', 'rpgtools/handdrill', 'rpgtools/pickaxe', 'fantasy-props/pickaxe-bronze',
+  'rpgtools/grindstone', 'rpgtools/anvil',
+]);
+// restaurant/knife staat in de catalogus onder 'eten', maar hoort in de lijst hierboven thuis.
+const isGereedschap = (b, m) => m.groep === 'gereedschap' || KLEIN_GEREEDSCHAP.has(m.id) || GROOT_GEREEDSCHAP.has(m.id);
+const isKlein = (m) => KLEIN_GEREEDSCHAP.has(m.id) || (!GROOT_GEREEDSCHAP.has(m.id) && m.wdh[2] < 0.2);
+
 // Elk model valt in de eerste familie die het aanneemt, dus de volgorde is betekenisvol:
 // 'palmen' staat vóór 'bomen', anders slokt 'bomen' de palmen op.
 export const FAMILIES = [
@@ -25,7 +45,9 @@ export const FAMILIES = [
   ['flessen-drankjes', 'Flessen en drankjes', (b) => /^(bottle|potion|flask)(-|$)/.test(b)],
   ['kruiken-vazen-emmers', 'Kruiken, vazen en emmers', (b) => /^(jug|vase|bucket)(-|$)/.test(b)],
   ['boeken-rollen-kaarten', 'Boeken, rollen en kaarten', (b) => /^(book|journal|scroll|map)(-|$)/.test(b)],
-  ['sleutels-gereedschap', 'Sleutels en gereedschap', (b, m) => b.startsWith('key') || m.groep === 'gereedschap'],
+  ['sleutels', 'Sleutels', (b) => /^key(ring)?(-|$)/.test(b)],
+  ['gereedschap-klein', 'Klein gereedschap', (b, m) => isGereedschap(b, m) && isKlein(m)],
+  ['gereedschap-groot', 'Groot gereedschap', (b, m) => isGereedschap(b, m)],
   ['kaarsen', 'Kaarsen', (b) => b.startsWith('candle') || b.endsWith('-candles')],
   ['lantaarns-fakkels', 'Lantaarns en fakkels', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
   ['ladders', 'Ladders', (b) => b.startsWith('ladder')],
@@ -40,8 +62,7 @@ export const FAMILIES = [
   ['gras', 'Gras', (b) => b.includes('grass') && b !== 'rock-flat-grass' && b !== 'well-base-grass'],
   ['zeesterren-schelpen', 'Zeesterren en schelpen', (b) => b.includes('starfish') || b.includes('shell')],
   ['tafels', 'Tafels', (b) => b.startsWith('table') && b !== 'table-plate'],
-  ['bedden-banken', 'Bedden en banken', (b) => /^(bed|bench|sofa|couch)(-|$)/.test(b)],
-  ['krukken-stoelen', 'Krukken en stoelen', (b) => /^(stool|chair|seat)(-|$)/.test(b)],
+  ['bedden-banken', 'Bedden, banken, stoelen en krukken', (b) => /^(bed|bench|sofa|couch|stool|chair|seat)(-|$)/.test(b)],
   ['schappen-kasten', 'Schappen en kasten', (b) => /^(shelf|shelves|cabinet|cupboard|bookcase|dresser|wardrobe)(-|$)/.test(b)],
   ['boten-peddels', 'Boten en peddels', (b) => /^(boat|ship|canoe|raft)(-|$)/.test(b) || b.includes('paddle') || b.includes('oar-')],
   ['deuren', 'Deuren', (b) => b.startsWith('door') || b.includes('-door') || b.includes('doorway')],
