@@ -72,7 +72,6 @@ export const FAMILIES = [
   ['muren', 'Muren', (b) => (b.startsWith('wall') || b.includes('-wall')) && !b.startsWith('rock')],
   ['vloeren', 'Vloeren', (b) => /^(floor|ground|tile)(-|$)/.test(b) || b.includes('-floor')],
   ['platforms', 'Platforms', (b) => b.includes('platform')],
-  ['paden-plekken', 'Paden en plekken', (b) => /^(patch|path|road|cobblestone|dirt)(-|$)/.test(b)],
 ];
 
 export function bouwSchaalgroepen(modellen, kits = []) {
