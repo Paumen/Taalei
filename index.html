@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D-catalogus</title>
 <meta name="description" content="Overzicht van alle 3D-modellen en assets van Taaleiland, per kit en per groep: losse objecten, samengestelde taferelen, bouwwerken en bouwpakketten, natuur en de losstaande grot.">
-<meta name="catalogus-versie" content="6d13d56c66">
-<link rel="stylesheet" href="catalog/catalog.css?v=6d13d56c66">
+<meta name="catalogus-versie" content="f5d011cc80">
+<link rel="stylesheet" href="catalog/catalog.css?v=f5d011cc80">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
@@ -14,7 +14,15 @@
 <header class="kop">
   <div class="kop-titel">
     <h1>Taaleiland — 3D-catalogus</h1>
+    <div class="kop-regel">
     <p class="kop-sub" id="samenvatting">Catalogus laden…</p>
+    <nav class="kop-paginas" aria-label="Andere pagina's">
+      <a href="catalog/schaal.html"
+         title="Alle assets per familie naast elkaar op één schaal, met meetlatten">Schaal</a>
+      <a href="catalog/swipe.html"
+         title="Beoordeel modellen één voor één door ze naar links, rechts, boven of onder te vegen en exporteer per richting een lijst">Swipen</a>
+    </nav>
+    </div>
   </div>
 
   <div class="kop-bediening">
@@ -25,40 +33,38 @@
       <button role="tab" id="tab-nature" aria-controls="paneel" aria-selected="false" data-weergave="nature">Nature</button>
     </div>
 
-    <label class="orde">Groepeer
-      <select id="groepering">
-        <option value="standaard">standaard</option>
-        <option value="kit">kit</option>
-        <option value="groep">groep</option>
-        <option value="tag">tag</option>
-        <option value="bron">herkomst</option>
-        <option value="maat">maat</option>
-      </select>
-    </label>
+    <div class="ordegroep">
+      <label class="orde">Groepeer
+        <select id="groepering">
+          <option value="standaard">standaard</option>
+          <option value="kit">kit</option>
+          <option value="groep">groep</option>
+          <option value="tag">tag</option>
+          <option value="bron">herkomst</option>
+          <option value="maat">maat</option>
+        </select>
+      </label>
 
-    <label class="orde">Sorteer
-      <select id="sortering">
-        <option value="naam">naam</option>
-        <option value="groot">grootste eerst</option>
-        <option value="klein">kleinste eerst</option>
-        <option value="zwaar">meeste driehoeken</option>
-        <option value="licht">minste driehoeken</option>
-        <option value="bestand">grootste bestand</option>
-        <option value="bestandKlein">kleinste bestand</option>
-      </select>
-    </label>
+      <label class="orde">Sorteer
+        <select id="sortering">
+          <option value="naam">naam</option>
+          <option value="groot">grootste eerst</option>
+          <option value="klein">kleinste eerst</option>
+          <option value="zwaar">meeste driehoeken</option>
+          <option value="licht">minste driehoeken</option>
+          <option value="bestand">grootste bestand</option>
+          <option value="bestandKlein">kleinste bestand</option>
+        </select>
+      </label>
+    </div>
 
-    <button class="licht-knop" id="filterknop" type="button" aria-expanded="false" aria-controls="balken"
-            title="Kleur- en tagfilters tonen of verbergen">Filter</button>
+    <div class="knopgroep">
+      <button class="licht-knop" id="filterknop" type="button" aria-expanded="false" aria-controls="balken"
+              title="Kleur- en tagfilters tonen of verbergen">Filter</button>
 
-    <button class="licht-knop" id="licht" type="button" aria-pressed="false"
-            title="Toont de modellen zonder belichting: alleen de kleuren uit de atlas, met de schaduw die erin gebakken zit">Vlak</button>
-
-    <a class="licht-knop" href="catalog/schaal.html"
-       title="Alle assets per familie naast elkaar op één schaal, met meetlatten">Schaal</a>
-
-    <a class="licht-knop" href="catalog/swipe.html"
-       title="Beoordeel modellen één voor één door ze naar links, rechts, boven of onder te vegen en exporteer per richting een lijst">Swipen</a>
+      <button class="licht-knop" id="licht" type="button" aria-pressed="false"
+              title="Toont de modellen zonder belichting: alleen de kleuren uit de atlas, met de schaduw die erin gebakken zit">Vlak</button>
+    </div>
   </div>
 </header>
 
@@ -111,6 +117,6 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=6d13d56c66" type="module"></script>
+<script src="catalog/catalog.js?v=f5d011cc80" type="module"></script>
 </body>
 </html>

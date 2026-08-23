@@ -66,6 +66,27 @@ a { color: var(--accent); }
   color: var(--inkt-zacht);
 }
 
+.kop-regel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+}
+
+.kop-paginas {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+}
+
+.kop-paginas a {
+  color: var(--inkt-zacht);
+  text-decoration-color: var(--lijn);
+  text-underline-offset: 3px;
+}
+
+.kop-paginas a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
 .kop-bediening {
   display: flex;
   flex-wrap: wrap;
@@ -217,26 +238,41 @@ a { color: var(--accent); }
   .staal { width: 22px; height: 22px; }
 }
 
+/* Bij elkaar houden wat bij elkaar hoort: de twee ordeningskeuzes vormen één blok, de
+   twee schakelaars een tweede. Zo breekt de regel tussen de blokken en niet erdoorheen. */
+.ordegroep,
+.knopgroep {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
 .orde {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
+  gap: 5px;
+  font-size: 11px;
+  letter-spacing: .02em;
   color: var(--inkt-zacht);
+  text-transform: uppercase;
 }
 
 .orde select {
-  padding: 6px 9px;
-  border: 1px solid var(--lijn);
-  border-radius: 999px;
-  background: var(--kaart);
+  padding: 4px 6px 4px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--lijn);
+  border-radius: 0;
+  background: transparent;
   color: var(--inkt);
   font: inherit;
   font-size: 13px;
+  text-transform: none;
+  letter-spacing: normal;
   cursor: pointer;
 }
 
-.orde select:hover { border-color: var(--accent); }
+.orde select:hover { border-bottom-color: var(--accent); }
 .orde select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .tagbalk-knoppen {
