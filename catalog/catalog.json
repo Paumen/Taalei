@@ -1156,6 +1156,24 @@
    "naam": "Paper",
    "beschrijving": "Papier en perkament: boeken, rollen, kaarten en het dagboek, open en dicht.",
    "aantal": 10
+  },
+  {
+   "id": "stone",
+   "naam": "Stone",
+   "beschrijving": "Bewerkte steen: muren, vloeren, tegels, zuilen, trappen, kademuren, straatwerk en stapstenen — steen die iemand heeft gelegd of gehouwen. De ruwe rotsen en keien staan onder rock.",
+   "aantal": 117
+  },
+  {
+   "id": "rock",
+   "naam": "Rock",
+   "beschrijving": "Ruwe steen zoals hij in het landschap ligt: rotsblokken, keien, kiezels, puin, rotsformaties en de bergen. Gehouwen en gelegde steen staat onder stone.",
+   "aantal": 120
+  },
+  {
+   "id": "textile",
+   "naam": "Textile",
+   "beschrijving": "Doek, leer en touwwerk: tentzeil en luifels, beddengoed, zakken, de textielstapel uit de resources-kit, de ballon met zijn manden, en het omwikkelde heft van gereedschap en toortsen.",
+   "aantal": 24
   }
  ],
  "groepen": [
@@ -1612,7 +1630,10 @@
     0.75,
     0.141
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "textile"
+   ]
   },
   {
    "id": "dungeon/bed-frame",
@@ -1637,6 +1658,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -2204,7 +2226,10 @@
     0.175,
     0.35
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/crates-stacked",
@@ -2254,7 +2279,10 @@
     0.098
    ],
    "calls": 1,
-   "variant": "v44"
+   "variant": "v44",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-large",
@@ -2276,7 +2304,10 @@
     0.052
    ],
    "calls": 1,
-   "variant": "v44"
+   "variant": "v44",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-a",
@@ -2298,7 +2329,10 @@
     0.047
    ],
    "calls": 1,
-   "variant": "v28"
+   "variant": "v28",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-b",
@@ -2320,7 +2354,10 @@
     0.047
    ],
    "calls": 1,
-   "variant": "v28"
+   "variant": "v28",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-c",
@@ -2342,7 +2379,10 @@
     0.052
    ],
    "calls": 1,
-   "variant": "v28"
+   "variant": "v28",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-corner",
@@ -2363,7 +2403,10 @@
     0.5,
     0.038
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-d",
@@ -2384,7 +2427,10 @@
     0.5,
     0.035
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-dirt-small-weeds",
@@ -2406,7 +2452,10 @@
     0.5,
     0.074
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-allsides",
@@ -2429,7 +2478,10 @@
     0.5
    ],
    "calls": 1,
-   "variant": "v05"
+   "variant": "v05",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-corner",
@@ -2452,7 +2504,10 @@
     0.5
    ],
    "calls": 1,
-   "variant": "v05"
+   "variant": "v05",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-diagonal-corner",
@@ -2474,7 +2529,10 @@
     0.525,
     0.5
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-front-and-back",
@@ -2497,7 +2555,10 @@
     0.5
    ],
    "calls": 1,
-   "variant": "v05"
+   "variant": "v05",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-front-and-sides",
@@ -2519,7 +2580,10 @@
     0.525,
     0.5
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-foundation-front",
@@ -2542,7 +2606,10 @@
     0.5
    ],
    "calls": 1,
-   "variant": "v45"
+   "variant": "v45",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-big-grate-open",
@@ -2566,7 +2633,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -2591,7 +2659,8 @@
    ],
    "calls": 2,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -2616,7 +2685,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -2641,7 +2711,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -2664,7 +2735,10 @@
     1,
     0.159
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-large",
@@ -2685,7 +2759,10 @@
     1,
     0.038
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-broken-a",
@@ -2707,7 +2784,10 @@
     0.038
    ],
    "calls": 1,
-   "variant": "v46"
+   "variant": "v46",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-broken-b",
@@ -2729,7 +2809,10 @@
     0.038
    ],
    "calls": 1,
-   "variant": "v46"
+   "variant": "v46",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-corner",
@@ -2750,7 +2833,10 @@
     0.5,
     0.038
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-decorated",
@@ -2773,7 +2859,10 @@
     0.5,
     0.193
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-weeds-a",
@@ -2796,7 +2885,10 @@
     0.074
    ],
    "calls": 1,
-   "variant": "v47"
+   "variant": "v47",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small-weeds-b",
@@ -2819,7 +2911,10 @@
     0.074
    ],
    "calls": 1,
-   "variant": "v47"
+   "variant": "v47",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-tile-small",
@@ -2840,7 +2935,10 @@
     0.5,
     0.038
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/floor-wood-large-dark",
@@ -3093,7 +3191,10 @@
     0.375,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/plate-food-a",
@@ -3206,7 +3307,10 @@
     0.75,
     0.875
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "dungeon/rubble-large",
@@ -3227,7 +3331,10 @@
     0.796,
     0.874
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "dungeon/shelf-large",
@@ -3347,7 +3454,10 @@
     2,
     1.275
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-narrow",
@@ -3369,7 +3479,10 @@
     1,
     1.275
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-wall-left",
@@ -3392,7 +3505,10 @@
     1.275
    ],
    "calls": 1,
-   "variant": "v50"
+   "variant": "v50",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-wall-right",
@@ -3415,7 +3531,10 @@
     1.275
    ],
    "calls": 1,
-   "variant": "v50"
+   "variant": "v50",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-walled",
@@ -3437,7 +3556,10 @@
     1,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-wide",
@@ -3459,7 +3581,10 @@
     1,
     1.275
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stairs-wood-decorated",
@@ -3534,7 +3659,10 @@
     1,
     1.275
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/stool",
@@ -3979,7 +4107,10 @@
     1
    ],
    "calls": 1,
-   "variant": "v52"
+   "variant": "v52",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-archedwindow-gated-scaffold",
@@ -4007,6 +4138,7 @@
    "variant": "v53",
    "tags": [
     "metal",
+    "stone",
     "timber"
    ]
   },
@@ -4034,7 +4166,8 @@
    "calls": 1,
    "variant": "v53",
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -4058,7 +4191,10 @@
     1
    ],
    "calls": 1,
-   "variant": "v54"
+   "variant": "v54",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-broken",
@@ -4081,7 +4217,10 @@
     1
    ],
    "calls": 1,
-   "variant": "v54"
+   "variant": "v54",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-corner-gated",
@@ -4106,7 +4245,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -4132,6 +4272,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4155,7 +4296,10 @@
     0.375,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-corner",
@@ -4177,7 +4321,10 @@
     0.625,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-cracked",
@@ -4200,7 +4347,10 @@
     0.315,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-crossing",
@@ -4222,7 +4372,10 @@
     1,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-doorway-scaffold",
@@ -4252,6 +4405,7 @@
    "variant": "v55",
    "tags": [
     "metal",
+    "stone",
     "timber"
    ]
   },
@@ -4275,7 +4429,10 @@
     1,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-doorway-tsplit",
@@ -4297,7 +4454,10 @@
     0.625,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-doorway",
@@ -4327,6 +4487,7 @@
    "variant": "v55",
    "tags": [
     "metal",
+    "stone",
     "timber"
    ]
   },
@@ -4350,7 +4511,10 @@
     0.25,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-gated",
@@ -4375,7 +4539,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "stone"
    ]
   },
   {
@@ -4398,7 +4563,10 @@
     0.25,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-half-endcap",
@@ -4420,7 +4588,10 @@
     0.25,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-half",
@@ -4442,7 +4613,10 @@
     0.25,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-open-scaffold",
@@ -4466,6 +4640,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4490,7 +4665,10 @@
     0.375,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-scaffold",
@@ -4515,6 +4693,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4570,7 +4749,10 @@
     0.25,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-tsplit-sloped",
@@ -4593,7 +4775,10 @@
     0.625,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-tsplit",
@@ -4615,7 +4800,10 @@
     0.625,
     1
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "dungeon/wall-window-closed-scaffold",
@@ -4641,6 +4829,7 @@
    "calls": 1,
    "variant": "v57",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4668,6 +4857,7 @@
    "calls": 1,
    "variant": "v56",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4695,6 +4885,7 @@
    "calls": 1,
    "variant": "v57",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4722,6 +4913,7 @@
    "calls": 1,
    "variant": "v56",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -4746,7 +4938,10 @@
     1
    ],
    "calls": 1,
-   "variant": "v52"
+   "variant": "v52",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "fantasy-props/bag",
@@ -4768,7 +4963,10 @@
     0.272,
     0.4
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "textile"
+   ]
   },
   {
    "id": "fantasy-props/barrel-apples",
@@ -6094,7 +6292,10 @@
     1.007,
     0.756
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "fantasy-town-kit/rock-small",
@@ -6115,7 +6316,10 @@
     0.862,
     0.663
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "fantasy-town-kit/rock-wide",
@@ -6136,7 +6340,10 @@
     1.019,
     0.663
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "fantasy-town-kit/roof-corner-inner",
@@ -6425,7 +6632,10 @@
     0.65,
     0.65
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "fantasy-town-kit/stairs-stone-round",
@@ -6446,7 +6656,10 @@
     0.322,
     0.65
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "fantasy-town-kit/stairs-wide-wood-handrail",
@@ -7555,7 +7768,10 @@
     0.162
    ],
    "calls": 1,
-   "variant": "v31"
+   "variant": "v31",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-b",
@@ -7577,7 +7793,10 @@
     0.162
    ],
    "calls": 1,
-   "variant": "v31"
+   "variant": "v31",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-c",
@@ -7599,7 +7818,10 @@
     0.162
    ],
    "calls": 1,
-   "variant": "v31"
+   "variant": "v31",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-d",
@@ -7621,7 +7843,10 @@
     0.339
    ],
    "calls": 1,
-   "variant": "v32"
+   "variant": "v32",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-e",
@@ -7643,7 +7868,10 @@
     0.339
    ],
    "calls": 1,
-   "variant": "v32"
+   "variant": "v32",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-f",
@@ -7665,7 +7893,10 @@
     0.339
    ],
    "calls": 1,
-   "variant": "v32"
+   "variant": "v32",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-g",
@@ -7687,7 +7918,10 @@
     0.56
    ],
    "calls": 1,
-   "variant": "v33"
+   "variant": "v33",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-h",
@@ -7709,7 +7943,10 @@
     0.56
    ],
    "calls": 1,
-   "variant": "v33"
+   "variant": "v33",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-i",
@@ -7731,7 +7968,10 @@
     0.56
    ],
    "calls": 1,
-   "variant": "v33"
+   "variant": "v33",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-j",
@@ -7753,7 +7993,10 @@
     1.007
    ],
    "calls": 1,
-   "variant": "v06"
+   "variant": "v06",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-k",
@@ -7775,7 +8018,10 @@
     1.094
    ],
    "calls": 1,
-   "variant": "v06"
+   "variant": "v06",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-l",
@@ -7797,7 +8043,10 @@
     1.02
    ],
    "calls": 1,
-   "variant": "v06"
+   "variant": "v06",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-m",
@@ -7819,7 +8068,10 @@
     1.055
    ],
    "calls": 1,
-   "variant": "v06"
+   "variant": "v06",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-n",
@@ -7842,7 +8094,10 @@
     1.349
    ],
    "calls": 1,
-   "variant": "v07"
+   "variant": "v07",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-o",
@@ -7865,7 +8120,10 @@
     1.373
    ],
    "calls": 1,
-   "variant": "v07"
+   "variant": "v07",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-p",
@@ -7888,7 +8146,10 @@
     1.202
    ],
    "calls": 1,
-   "variant": "v07"
+   "variant": "v07",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-1-q",
@@ -7911,7 +8172,10 @@
     1.283
    ],
    "calls": 1,
-   "variant": "v07"
+   "variant": "v07",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-a",
@@ -7933,7 +8197,10 @@
     0.065
    ],
    "calls": 1,
-   "variant": "v08"
+   "variant": "v08",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-b",
@@ -7955,7 +8222,10 @@
     0.194
    ],
    "calls": 1,
-   "variant": "v08"
+   "variant": "v08",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-c",
@@ -7977,7 +8247,10 @@
     0.398
    ],
    "calls": 1,
-   "variant": "v08"
+   "variant": "v08",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-d",
@@ -7999,7 +8272,10 @@
     0.522
    ],
    "calls": 1,
-   "variant": "v08"
+   "variant": "v08",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-e",
@@ -8021,7 +8297,10 @@
     0.859
    ],
    "calls": 1,
-   "variant": "v09"
+   "variant": "v09",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-f",
@@ -8043,7 +8322,10 @@
     0.859
    ],
    "calls": 1,
-   "variant": "v09"
+   "variant": "v09",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-g",
@@ -8066,7 +8348,10 @@
     0.959
    ],
    "calls": 1,
-   "variant": "v09"
+   "variant": "v09",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-2-h",
@@ -8088,7 +8373,10 @@
     0.827
    ],
    "calls": 1,
-   "variant": "v09"
+   "variant": "v09",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-a",
@@ -8110,7 +8398,10 @@
     0.258
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-b",
@@ -8132,7 +8423,10 @@
     0.308
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-c",
@@ -8154,7 +8448,10 @@
     0.29
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-d",
@@ -8176,7 +8473,10 @@
     0.291
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-e",
@@ -8198,7 +8498,10 @@
     0.386
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-f",
@@ -8220,7 +8523,10 @@
     0.353
    ],
    "calls": 1,
-   "variant": "v01"
+   "variant": "v01",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-g",
@@ -8242,7 +8548,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-h",
@@ -8264,7 +8573,10 @@
     0.618
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-i",
@@ -8286,7 +8598,10 @@
     0.633
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-j",
@@ -8308,7 +8623,10 @@
     0.569
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-k",
@@ -8330,7 +8648,10 @@
     0.667
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-l",
@@ -8352,7 +8673,10 @@
     0.68
    ],
    "calls": 1,
-   "variant": "v02"
+   "variant": "v02",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-m",
@@ -8374,7 +8698,10 @@
     1.08
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-n",
@@ -8396,7 +8723,10 @@
     1.058
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-o",
@@ -8418,7 +8748,10 @@
     1.042
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-p",
@@ -8440,7 +8773,10 @@
     1.105
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-q",
@@ -8462,7 +8798,10 @@
     1.115
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/rock-3-r",
@@ -8484,7 +8823,10 @@
     1.154
    ],
    "calls": 1,
-   "variant": "v03"
+   "variant": "v03",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "forest/tree-bare-1-a",
@@ -8826,7 +9168,10 @@
     0.555,
     0.147
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "halloween/lantern-hanging",
@@ -8899,7 +9244,10 @@
     0.522,
     0.028
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "halloween/path-b",
@@ -8920,7 +9268,10 @@
     0.515,
     0.028
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "halloween/path-c",
@@ -8941,7 +9292,10 @@
     0.515,
     0.028
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "halloween/path-d",
@@ -8962,7 +9316,10 @@
     0.473,
     0.028
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "halloween/post-lantern",
@@ -9415,7 +9772,10 @@
     0.554,
     0.295
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "mini-forest/target",
@@ -10569,7 +10929,10 @@
     0.28,
     0.105
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-rock-b",
@@ -10590,7 +10953,10 @@
     0.35,
     0.193
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-rock-c",
@@ -10611,7 +10977,10 @@
     0.35,
     0.262
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-rock-d",
@@ -10632,7 +11001,10 @@
     0.525,
     0.42
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-a",
@@ -10653,7 +11025,10 @@
     0.131,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-b",
@@ -10674,7 +11049,10 @@
     0.149,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-c",
@@ -10695,7 +11073,10 @@
     0.14,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-d",
@@ -10716,7 +11097,10 @@
     0.149,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-e",
@@ -10739,6 +11123,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -10761,7 +11146,10 @@
     0.126,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-g",
@@ -10782,7 +11170,10 @@
     0.147,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stepping-stones-h",
@@ -10803,7 +11194,10 @@
     0.118,
     0.083
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "modulair-terrein/hilly-prop-stump",
@@ -10926,7 +11320,10 @@
     1.75,
     2.396
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/mountain-b",
@@ -10947,7 +11344,10 @@
     1.75,
     2.391
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/mountain-c",
@@ -10968,7 +11368,10 @@
     1.75,
     2.17
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/mountain-d",
@@ -10989,7 +11392,10 @@
     1.75,
     2.053
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-a",
@@ -11010,7 +11416,10 @@
     0.307,
     0.262
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-b",
@@ -11031,7 +11440,10 @@
     0.337,
     0.35
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-c",
@@ -11052,7 +11464,10 @@
     0.342,
     0.622
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-d",
@@ -11073,7 +11488,10 @@
     0.334,
     0.336
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-e",
@@ -11094,7 +11512,10 @@
     0.35,
     1.145
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modulair-terrein/shared-prop-boulder-f",
@@ -11115,7 +11536,10 @@
     0.352,
     0.284
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "modular-cave-kit/ladder",
@@ -12103,7 +12527,10 @@
     15.3,
     8.778
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/mountain-3",
@@ -12124,7 +12551,10 @@
     22.149,
     11.62
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/mountain-4",
@@ -12145,7 +12575,10 @@
     21.048,
     11.543
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/mushroom-brown",
@@ -12257,7 +12690,10 @@
     0.389,
     0.325
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-2",
@@ -12278,7 +12714,10 @@
     0.366,
     0.295
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-3",
@@ -12299,7 +12738,10 @@
     0.395,
     0.405
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-4",
@@ -12320,7 +12762,10 @@
     0.477,
     0.396
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-5",
@@ -12341,7 +12786,10 @@
     0.36,
     0.527
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-6",
@@ -12362,7 +12810,10 @@
     0.467,
     0.355
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-7",
@@ -12383,7 +12834,10 @@
     0.491,
     0.497
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-8",
@@ -12404,7 +12858,10 @@
     0.516,
     0.472
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/rock-9",
@@ -12425,7 +12882,10 @@
     0.507,
     0.49
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "natuur/root-1",
@@ -12698,7 +13158,10 @@
     0.178,
     0.043
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "natuur/stepping-stone-2",
@@ -12719,7 +13182,10 @@
     0.208,
     0.04
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "natuur/stepping-stone-3",
@@ -12740,7 +13206,10 @@
     0.188,
     0.042
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "natuur/stepping-stone-4",
@@ -12761,7 +13230,10 @@
     0.196,
     0.053
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "natuur/stump-1",
@@ -13705,7 +14177,10 @@
     0.687,
     0.09
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/mast-ropes",
@@ -13966,7 +14441,10 @@
     0.736
    ],
    "calls": 1,
-   "variant": "v35"
+   "variant": "v35",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/rocks-b",
@@ -13988,7 +14466,10 @@
     0.928
    ],
    "calls": 1,
-   "variant": "v35"
+   "variant": "v35",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/rocks-c",
@@ -14010,7 +14491,10 @@
     0.584
    ],
    "calls": 1,
-   "variant": "v35"
+   "variant": "v35",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/rocks-sand-a",
@@ -14033,7 +14517,10 @@
     0.816
    ],
    "calls": 1,
-   "variant": "v36"
+   "variant": "v36",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/rocks-sand-b",
@@ -14056,7 +14543,10 @@
     0.943
    ],
    "calls": 1,
-   "variant": "v36"
+   "variant": "v36",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/rocks-sand-c",
@@ -14079,7 +14569,10 @@
     0.664
    ],
    "calls": 1,
-   "variant": "v36"
+   "variant": "v36",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "pirate-kit/ship-ghost",
@@ -15133,7 +15626,10 @@
     0.43,
     0.26
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "platformer-kit/sign",
@@ -15226,7 +15722,10 @@
     0.513,
     0.033
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "props/bag-a",
@@ -15488,6 +15987,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -16374,7 +16874,10 @@
     0.187,
     0.351
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-2",
@@ -16395,7 +16898,10 @@
     0.226,
     0.258
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-3",
@@ -16416,7 +16922,10 @@
     0.321,
     0.27
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-4",
@@ -16437,7 +16946,10 @@
     0.5,
     0.313
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-5",
@@ -16458,7 +16970,10 @@
     0.366,
     0.261
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-6",
@@ -16479,7 +16994,10 @@
     0.457,
     0.283
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/rock-7",
@@ -16500,7 +17018,10 @@
     0.439,
     0.34
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "quaternius-nature/tree-birch-dead-1",
@@ -17917,7 +18438,10 @@
     0.375,
     0.15
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "resources/stone-bricks-stack-large",
@@ -18004,7 +18528,10 @@
     0.673,
     0.539
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "resources/stone-chunks-small",
@@ -18025,7 +18552,10 @@
     0.393,
     0.29
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "resources/textiles-stack-large",
@@ -18050,7 +18580,10 @@
     0.832,
     0.478
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "textile"
+   ]
   },
   {
    "id": "resources/wood-log-a",
@@ -18864,7 +19397,10 @@
     2.619,
     0.543
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/pebbles-dirt-a",
@@ -18886,7 +19422,10 @@
     0.12
    ],
    "calls": 1,
-   "variant": "v21"
+   "variant": "v21",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/pebbles-dirt-b",
@@ -18908,7 +19447,10 @@
     0.098
    ],
    "calls": 1,
-   "variant": "v21"
+   "variant": "v21",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/pebbles-dirt-c",
@@ -18930,7 +19472,10 @@
     0.108
    ],
    "calls": 1,
-   "variant": "v21"
+   "variant": "v21",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/pebbles-dirt-d",
@@ -18952,7 +19497,10 @@
     0.099
    ],
    "calls": 1,
-   "variant": "v21"
+   "variant": "v21",
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-a",
@@ -18973,7 +19521,10 @@
     1.468,
     0.642
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-b",
@@ -18994,7 +19545,10 @@
     1.467,
     1.295
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-c",
@@ -19015,7 +19569,10 @@
     1.876,
     2.971
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-d",
@@ -19036,7 +19593,10 @@
     1.37,
     2.125
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-e",
@@ -19057,7 +19617,10 @@
     1.834,
     0.871
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-f",
@@ -19078,7 +19641,10 @@
     1.57,
     0.672
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-g",
@@ -19099,7 +19665,10 @@
     1.731,
     0.528
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-h",
@@ -19120,7 +19689,10 @@
     1.355,
     0.794
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-i",
@@ -19141,7 +19713,10 @@
     1.365,
     0.878
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rock-natural-j",
@@ -19162,7 +19737,10 @@
     1.151,
     0.625
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-arch",
@@ -19183,7 +19761,10 @@
     5.838,
     9.28
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-column",
@@ -19204,7 +19785,10 @@
     5.616,
     7.435
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-corner-hard",
@@ -19225,7 +19809,10 @@
     15.652,
     7.697
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-corner-soft",
@@ -19246,7 +19833,10 @@
     15.693,
     7.685
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-wall-long",
@@ -19267,7 +19857,10 @@
     5.901,
     7.676
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-wall-short-a",
@@ -19288,7 +19881,10 @@
     5.875,
     7.558
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockform-wall-short-b",
@@ -19309,7 +19905,10 @@
     5.78,
     7.673
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockwall-corner",
@@ -19330,7 +19929,10 @@
     2.626,
     0.75
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rocks/rockwall-straight",
@@ -19351,7 +19953,10 @@
     0.941,
     0.75
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "rpgtools/anvil",
@@ -19402,6 +20007,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -19541,6 +20147,7 @@
    "calls": 2,
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -19569,6 +20176,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -19940,6 +20548,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -20140,6 +20749,7 @@
    "calls": 1,
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -20191,6 +20801,7 @@
    "calls": 1,
    "variant": "v70",
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -20218,6 +20829,7 @@
    "calls": 1,
    "variant": "v70",
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -20656,7 +21268,10 @@
     0.438,
     0.208
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/resource-stone",
@@ -20677,7 +21292,10 @@
     0.185,
     0.139
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-a",
@@ -20699,7 +21317,10 @@
     0.808,
     0.511
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-b",
@@ -20721,7 +21342,10 @@
     0.942,
     0.544
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-c",
@@ -20743,7 +21367,10 @@
     0.736,
     0.663
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-flat-grass",
@@ -20765,7 +21392,10 @@
     1.882,
     0.294
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-flat",
@@ -20786,7 +21416,10 @@
     1.882,
     0.253
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-sand-a",
@@ -20807,7 +21440,10 @@
     0.63,
     0.511
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-sand-b",
@@ -20828,7 +21464,10 @@
     1.026,
     0.583
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/rock-sand-c",
@@ -20849,7 +21488,10 @@
     0.74,
     0.663
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "rock"
+   ]
   },
   {
    "id": "survival-kit/signpost-single",
@@ -20921,6 +21563,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21019,6 +21662,7 @@
    "calls": 1,
    "variant": "v73",
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21385,6 +22029,7 @@
    "variant": "v74",
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -21417,6 +22062,7 @@
    "variant": "v74",
    "tags": [
     "metal",
+    "textile",
     "timber"
    ]
   },
@@ -21445,7 +22091,8 @@
    ],
    "calls": 1,
    "tags": [
-    "metal"
+    "metal",
+    "textile"
    ]
   },
   {
@@ -21752,6 +22399,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21777,6 +22425,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21802,6 +22451,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21827,6 +22477,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21852,6 +22503,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21877,6 +22529,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21902,6 +22555,7 @@
    ],
    "calls": 1,
    "tags": [
+    "textile",
     "timber"
    ]
   },
@@ -21924,7 +22578,10 @@
     0.6,
     0.067
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "textile"
+   ]
   },
   {
    "id": "village-kit/cart-a",
@@ -21992,7 +22649,10 @@
     0.137
    ],
    "calls": 1,
-   "variant": "v22"
+   "variant": "v22",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/cobblestone-dirt-transition-b",
@@ -22015,7 +22675,10 @@
     0.137
    ],
    "calls": 1,
-   "variant": "v22"
+   "variant": "v22",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/cobblestone-dirt-transition-c",
@@ -22038,7 +22701,10 @@
     0.137
    ],
    "calls": 1,
-   "variant": "v22"
+   "variant": "v22",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/cobblestone-dirt-transition-d",
@@ -22061,7 +22727,10 @@
     0.137
    ],
    "calls": 1,
-   "variant": "v22"
+   "variant": "v22",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/cobblestone-floor-a",
@@ -22083,7 +22752,10 @@
     1.2,
     0.137
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/crate-a-open",
@@ -23042,7 +23714,10 @@
     0.18
    ],
    "calls": 1,
-   "variant": "v24"
+   "variant": "v24",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-curb-b",
@@ -23064,7 +23739,10 @@
     0.18
    ],
    "calls": 1,
-   "variant": "v24"
+   "variant": "v24",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-curb-c",
@@ -23086,7 +23764,10 @@
     0.18
    ],
    "calls": 1,
-   "variant": "v24"
+   "variant": "v24",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-curb-d",
@@ -23108,7 +23789,10 @@
     0.18
    ],
    "calls": 1,
-   "variant": "v24"
+   "variant": "v24",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-doorway-narrow-tall-a",
@@ -23133,6 +23817,7 @@
    "calls": 1,
    "variant": "v82",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23159,6 +23844,7 @@
    "calls": 1,
    "variant": "v82",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23185,6 +23871,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23211,6 +23898,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23238,6 +23926,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23265,6 +23954,7 @@
    "calls": 1,
    "variant": "v25",
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -23288,7 +23978,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v04"
+   "variant": "v04",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-wall-b",
@@ -23310,7 +24003,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v04"
+   "variant": "v04",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-wall-c",
@@ -23332,7 +24028,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v04"
+   "variant": "v04",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-wall-d",
@@ -23354,7 +24053,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v04"
+   "variant": "v04",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stone-wall-e",
@@ -23376,7 +24078,10 @@
     0.6
    ],
    "calls": 1,
-   "variant": "v04"
+   "variant": "v04",
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/stucco-arch-half-outer",
@@ -24254,6 +24959,7 @@
    ],
    "calls": 1,
    "tags": [
+    "stone",
     "timber"
    ]
   },
@@ -24277,7 +24983,10 @@
     0.6,
     0.128
    ],
-   "calls": 1
+   "calls": 1,
+   "tags": [
+    "stone"
+   ]
   },
   {
    "id": "village-kit/well-base-dirt",
