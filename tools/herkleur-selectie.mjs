@@ -57,11 +57,16 @@ for (const mesh of json.meshes ?? []) {
     const posAcc = prim.attributes.POSITION !== undefined && box
       ? leesAccessor(glb, prim.attributes.POSITION) : null;
 
-    for (let i = 0; i < accessor.count; i++) {
+    const uvVan = (i) => {
       const uv = new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
       const x = Math.min(Math.max(uv[0] * W, 0), W - 1e-6);
       const y = Math.min(Math.max(uv[1] * H, 0), H - 1e-6);
-      if (Math.floor(x / CB) !== vanK || Math.floor(y / CH) !== vanR) continue;
+      return { uv, x, y, inBaan: Math.floor(x / CB) === vanK && Math.floor(y / CH) === vanR };
+    };
+
+    const gekozen = new Set();
+    for (let i = 0; i < accessor.count; i++) {
+      if (!uvVan(i).inBaan) continue;
       if (posAcc) {
         let binnen = true;
         for (let as = 0; as < 3; as++) {
@@ -71,6 +76,29 @@ for (const mesh of json.meshes ?? []) {
         }
         if (!binnen) continue;
       }
+      gekozen.add(i);
+    }
+
+    // Groei de selectie tot hele driehoeken: een half meegenomen vlak zou zijn
+    // uv's over twee verre cellen (en het zwart ertussen) uitsmeren.
+    if (prim.indices !== undefined && gekozen.size) {
+      const idx = leesAccessor(glb, prim.indices);
+      let gegroeid = true;
+      while (gegroeid) {
+        gegroeid = false;
+        for (let t = 0; t < idx.count; t += 3) {
+          const hoeken = [idx.data[t], idx.data[t + 1], idx.data[t + 2]];
+          const mee = hoeken.filter((i) => gekozen.has(i)).length;
+          if (mee === 0 || mee === 3) continue;
+          for (const i of hoeken) {
+            if (!gekozen.has(i) && uvVan(i).inBaan) { gekozen.add(i); gegroeid = true; }
+          }
+        }
+      }
+    }
+
+    for (const i of gekozen) {
+      const { uv, x, y } = uvVan(i);
       const uDeel = x / CB - vanK;
       const vDeel = y / CH - vanR;
       uv[0] = ((naarK + uDeel) * CB) / W;
