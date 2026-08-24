@@ -56,7 +56,8 @@ for (const pad of process.argv.slice(2)) {
       const ext = g.max.map((v,i)=>v-g.min[i]);
       let kies=false, reden='';
       if (!stack) {
-        if (ext[1] < 0.05 && g.max[1] > 0.2 && g.opp > 0.006) { kies=true; reden='dichte top'; }
+        const vul = g.opp / Math.max(ext[0]*ext[2], 1e-9);
+        if (ext[1] < 0.05 && g.max[1] > 0.2 && g.opp > 0.003 && vul > 0.6) { kies=true; reden=`dichte top (vul ${vul.toFixed(2)})`; }
       } else {
         if (baan === '14,0' && ext[1] > 0.02 && (g.min[2]+g.max[2])/2 < 0.08) { kies=true; reden='dichte zijde'; }
       }
