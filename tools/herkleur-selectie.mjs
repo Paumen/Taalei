@@ -5,6 +5,10 @@
 //   node tools/herkleur-selectie.mjs model.glb --van 14,0 --naar 5,2 --bereik 0.65:0.95
 //   node tools/herkleur-selectie.mjs model.glb --van 14,0 --naar 6,0 --bereik 0:0.2 --uit /tmp/debug.glb
 //
+// --vbron lo:hi beperkt de selectie tot uv's die in de bronbaan op die
+// verlooppositie staan — handig als kaft en pagina's dezelfde baan delen maar
+// op verschillende hoogtes in het verloop geschilderd zijn.
+//
 // Selectie kan verder worden beperkt met --box xmin:xmax,ymin:ymax,zmin:zmax
 // (wereldloze meshcoördinaten, "-" = geen grens), zodat pagina's en kaften die
 // dezelfde baan delen uit elkaar te houden zijn.
@@ -17,12 +21,13 @@ const W = 512, H = 512;
 const CB = W / KOLOMMEN, CH = H / RIJEN;
 
 const argumenten = process.argv.slice(2);
-let van = null, naar = null, bereik = [0, 1], uit = null, box = null, pad = null;
+let van = null, naar = null, bereik = [0, 1], uit = null, box = null, pad = null, vbron = null;
 for (let i = 0; i < argumenten.length; i++) {
   const a = argumenten[i];
   if (a === '--van') van = argumenten[++i];
   else if (a === '--naar') naar = argumenten[++i];
   else if (a === '--bereik') bereik = argumenten[++i].split(':').map(Number);
+  else if (a === '--vbron') vbron = argumenten[++i].split(':').map(Number);
   else if (a === '--uit') uit = argumenten[++i];
   else if (a === '--box') {
     box = argumenten[++i].split(',').map((as) =>
@@ -66,7 +71,12 @@ for (const mesh of json.meshes ?? []) {
 
     const gekozen = new Set();
     for (let i = 0; i < accessor.count; i++) {
-      if (!uvVan(i).inBaan) continue;
+      const hier = uvVan(i);
+      if (!hier.inBaan) continue;
+      if (vbron) {
+        const vDeel = hier.y / CH - vanR;
+        if (vDeel < vbron[0] || vDeel > vbron[1]) continue;
+      }
       if (posAcc) {
         let binnen = true;
         for (let as = 0; as < 3; as++) {
