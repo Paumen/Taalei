@@ -5,18 +5,25 @@
 // blijven dus staan.
 //
 //   node tools/kopvlak-uiteinden.mjs <glb> --van 2,0 --naar 0,0 [--minhoogte 0.75] [--rand 0.05] [--hoek 35] [--proef]
+//
+// Bij grillige stammen ligt het kopvlak niet strak op de buitenmaat; gebruik
+// dan --as x --vanaf 0.30: alle driehoeken die langs die as kijken en verder
+// dan die afstand van het midden liggen.
 import { writeFileSync } from 'node:fs';
 import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
 let van = null, naar = null, minhoogte = -Infinity, rand = 0.05, hoek = 35, pad = null, proef = false;
+let as = null, vanaf = null;
 for (let i = 0; i < arg.length; i++) {
   if (arg[i] === '--van') van = arg[++i].split(',').map(Number);
   else if (arg[i] === '--naar') naar = arg[++i].split(',').map(Number);
   else if (arg[i] === '--minhoogte') minhoogte = Number(arg[++i]);
   else if (arg[i] === '--rand') rand = Number(arg[++i]);
   else if (arg[i] === '--hoek') hoek = Number(arg[++i]);
+  else if (arg[i] === '--as') as = { x: 0, y: 1, z: 2 }[arg[++i]];
+  else if (arg[i] === '--vanaf') vanaf = Number(arg[++i]);
   else if (arg[i] === '--proef') proef = true;
   else pad = arg[i];
 }
@@ -67,10 +74,14 @@ for (const mesh of glb.json.meshes ?? []) {
       if (hoogte < minhoogte) continue;
 
       let raak = false;
-      for (const as of [0, 2]) {
-        if (Math.abs(n[as] / lengte) < drempel) continue;
-        const mid = d.reduce((s, i) => s + P(i, as), 0) / 3;
-        if (mid <= min[as] + rand || mid >= max[as] - rand) { raak = true; break; }
+      for (const a of as !== null ? [as] : [0, 2]) {
+        if (Math.abs(n[a] / lengte) < drempel) continue;
+        const mid = d.reduce((s, i) => s + P(i, a), 0) / 3;
+        if (vanaf !== null) {
+          // afstand tot het midden van het model langs deze as
+          const midden = (min[a] + max[a]) / 2;
+          if (Math.abs(mid - midden) >= vanaf) { raak = true; break; }
+        } else if (mid <= min[a] + rand || mid >= max[a] - rand) { raak = true; break; }
       }
       if (!raak) continue;
 
