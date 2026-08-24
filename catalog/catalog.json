@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node catalog/tools/build-catalog.mjs",
- "totaal": 960,
+ "totaal": 964,
  "budgetPerUnit": 1000,
  "kits": [
   {
@@ -10,7 +10,7 @@
    "url": "https://www.kaylousberg.com",
    "licentie": "kits/workfiles/dungeon/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 135,
+   "aantal": 139,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -1221,7 +1221,7 @@
    "naam": "Glass",
    "soort": "materiaal",
    "beschrijving": "Glas: flessen en drankjes, de ruiten van de village-kit en de zeilschepen met hun ramen, en het glas in lantaarns, straatlampen, kompas en loep.",
-   "aantal": 32
+   "aantal": 36
   },
   {
    "id": "light",
@@ -1270,7 +1270,7 @@
    "naam": "Object",
    "soort": "tag",
    "beschrijving": "Losse dingen die je neerzet of oppakt: huisraad, schepen, eten, kisten, grondstoffen, gereedschap, borden, items en licht. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 283
+   "aantal": 287
   },
   {
    "id": "kenney",
@@ -1284,7 +1284,7 @@
    "naam": "KayKit",
    "soort": "tag",
    "beschrijving": "Kits van Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant en rpgtools. Onderling dezelfde stijl en hetzelfde detailniveau. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 335
+   "aantal": 339
   },
   {
    "id": "quaternius",
@@ -1428,7 +1428,7 @@
    "naam": "Chests & barrels",
    "kort": "Chests",
    "kleur": "#dd9f79",
-   "aantal": 50
+   "aantal": 54
   },
   {
    "id": "assemblies",
@@ -1520,7 +1520,7 @@
      "naam": "light orange",
      "textuur": "baan 5,2",
      "materiaal": null,
-     "aantal": 165
+     "aantal": 167
     },
     {
      "hex": "#88796d",
@@ -1534,7 +1534,14 @@
      "naam": "orange",
      "textuur": "baan 13,0",
      "materiaal": null,
-     "aantal": 130
+     "aantal": 133
+    },
+    {
+     "hex": "#23562c",
+     "naam": "dark green",
+     "textuur": "baan 1,1",
+     "materiaal": null,
+     "aantal": 77
     },
     {
      "hex": "#474a58",
@@ -1544,9 +1551,9 @@
      "aantal": 74
     },
     {
-     "hex": "#23562c",
-     "naam": "dark green",
-     "textuur": "baan 1,1",
+     "hex": "#7f3927",
+     "naam": "red",
+     "textuur": "baan 8,0",
      "materiaal": null,
      "aantal": 73
     },
@@ -1556,13 +1563,6 @@
      "textuur": "baan 3,2",
      "materiaal": null,
      "aantal": 72
-    },
-    {
-     "hex": "#7f3927",
-     "naam": "red",
-     "textuur": "baan 8,0",
-     "materiaal": null,
-     "aantal": 69
     },
     {
      "hex": "#6d8d33",
@@ -1860,6 +1860,34 @@
    ]
   },
   {
+   "id": "dungeon/bottle-a-green",
+   "naam": "bottle-a-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-a-green.glb",
+   "bytes": 16136,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.092,
+    0.092,
+    0.221
+   ],
+   "calls": 1,
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
+   ]
+  },
+  {
    "id": "dungeon/bottle-a-labeled-brown",
    "naam": "bottle-a-labeled-brown",
    "kit": "dungeon",
@@ -1888,6 +1916,35 @@
     "kaykit",
     "object",
     "timber"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-a-labeled-green",
+   "naam": "bottle-a-labeled-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79",
+    "#f5f2e7"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-a-labeled-green.glb",
+   "bytes": 16160,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.092,
+    0.092,
+    0.221
+   ],
+   "calls": 1,
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -1920,6 +1977,34 @@
    ]
   },
   {
+   "id": "dungeon/bottle-b-green",
+   "naam": "bottle-b-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-b-green.glb",
+   "bytes": 16136,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.138,
+    0.138,
+    0.221
+   ],
+   "calls": 1,
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
+   ]
+  },
+  {
    "id": "dungeon/bottle-c-brown",
    "naam": "bottle-c-brown",
    "kit": "dungeon",
@@ -1946,6 +2031,34 @@
     "kaykit",
     "object",
     "timber"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-c-green",
+   "naam": "bottle-c-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-c-green.glb",
+   "bytes": 16140,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.184,
+    0.184,
+    0.227
+   ],
+   "calls": 1,
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -15388,7 +15501,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#dd9f79"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/bottle.glb",
    "bytes": 9796,
