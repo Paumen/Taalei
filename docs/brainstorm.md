@@ -1,60 +1,60 @@
 # draft concept
 
-## Doelgroep
-Basisschoolkinderen groep 5–6 met moeite met Nederlandse taal, zoals spelling en lezen.
+## Target audience
+Primary-school children in years 5–6 (Dutch groep 5–6) who struggle with the Dutch language, such as spelling and reading.
 
-## Doel
-Oefenen met taal op een onderbouwde en leuke manier.
+## Goal
+Practising language in a well-founded and fun way.
 
 ## Invariants
-- 100% AVG/privacy-compliant. Didactiek naar software vertalen zónder de valkuilen die software juist introduceert.
-- Vraag nooit naam, leeftijd, foto of iets identificeerbaars van het kind.
-- Geen tracking, analytics of advertentie-SDK's — dat is waar edu-apps meestal de fout in gaan.
+- 100% GDPR/privacy-compliant. Translate the pedagogy into software without the pitfalls software usually introduces.
+- Never ask for the child's name, age, photo, or anything identifiable.
+- No tracking, analytics or advertising SDKs — that's where edu-apps usually go wrong.
 
 ## Views
-1. Eiland — 3D
+1. Island — 3D
 2. Zone — 3D
-3. Oefening — 2D
+3. Exercise — 2D
 
 ## Narrative
-- Aankomst op een nieuw eiland, dingen progressief ontdekken. (Kind heeft waarschijnlijk weinig plezier in gewone taaltaken en huiswerk; dit is een frisse start en niet "more of the same". Herkent het kind iets → mooi, snel door. Zo niet → geen probleem, (her)ontdekken.)
-- Eilandkaart met gebieden als modules/levels; later een 2e/3e eiland.
-- In oefeningen hakken, plakken, timmeren, als grondstof hout, planken, erts, om verder te komen/kunnen bruggen, ladders, boten bouwen,
+- Arrival on a new island, discovering things progressively. (The child probably has little enjoyment of ordinary language tasks and homework; this is a fresh start, not "more of the same". If the child recognises something → great, move on quickly. If not → no problem, (re)discover.)
+- Island map with areas as modules/levels; later a 2nd/3rd island.
+- In exercises: chopping, gluing, building — using resources like wood, planks, ore, to progress/build bridges, ladders, boats.
 
-## Gebieden / Modules / Zones
-Startkamp, strand, bos, berg, grot, vulkaan, zee, underwater, lake, river, waterfalls, bloementuin, vuurtoren, dock/harbor, schip, luchtballon, bridges jungle.
+## Areas / Modules / Zones
+Start camp, beach, forest, mountain, cave, volcano, sea, underwater, lake, river, waterfalls, flower garden, lighthouse, dock/harbor, ship, hot air balloon, bridges jungle.
 
-## Objecten / Props (ideas)
-Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon, wood saw, wood axe, haamer and nails, iron ore, trees, bridges, ladders, chests, tonnes, crates, fences, boats, shipwreck field, a ruined district, a market quarter, a storm belt, Shipwreck shallows, Sea caves, beached whale skeleton, wind/watermill, Collosal statue, Sea arch you can sail through, Blowhole that erupts on a timer. 
+## Objects / Props (ideas)
+Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, waterfall, hot air balloon, wood saw, wood axe, hammer and nails, iron ore, trees, bridges, ladders, chests, barrels, crates, fences, boats, shipwreck field, a ruined district, a market quarter, a storm belt, shipwreck shallows, sea caves, beached whale skeleton, wind/watermill, colossal statue, sea arch you can sail through, blowhole that erupts on a timer.
 
-## Wel doen
-- Niveau doelgroep
-- Uitdagen doelgroep
-- Interesses doelgroep
-- Leuk houden via humor / grapjes
-- Positieve feedback
-- Bewezen wetenschappelijke methode voor taalverwerving
+## Do
+- Match the target audience's level
+- Challenge the target audience
+- Match the target audience's interests
+- Keep it fun through humour / jokes
+- Positive feedback
+- A proven scientific method for language acquisition
 - Not too childish themed
-- Mechanismes die aansluiten bij het thema, bijv.:
-  - Woordplakken → planken maken voor een brug
-  - Woordhakken → door het bos heen hakken
-- **Automatiseren mag wél met tempo en drill-mechanieken.** Spellingcategorieën (au/ou, ei/ij, open/gesloten lettergreep) en woordherkenning zijn automatiseringstaken — daar werken korte snelle rondes, "beat je eigen tijd" en herhaling met spaced repetition uitstekend. 
-- **Alleen tegen jezelf.** "Gisteren 12 goed, vandaag 14" is de enige gezonde competitievorm op deze leeftijd, en werkt sterk voor deze groep.
-- **Verhaal als drager.** Groep 4–6 is de piek van narratieve motivatie: een doorlopend verhaal waarin je verder komt door taalopdrachten (brief ontcijferen, toverspreuk correct spellen) verslaat elk puntensysteem. De taal moet de sleutel zijn, niet de tolheffing.
-- **Productie belonen, niet alleen herkenning.** Zelf een zin of mini-verhaaltje maken met doelwoorden beklijft veel beter dan multiple choice. Ook al is het lastiger na te kijken — een "publiceer je verhaal"-moment (voor ouders/klas) is een krachtige beloning zonder punten.
-- *Hakken en plakken*: "raam" → /r/ /aa/ /m/ (hakken), en andersom klanken aanbieden die het kind samenvoegt tot een woord (plakken). Eerst mondeling, dan met letters.
-- *Wisselrijtjes*: rijtjes woorden die maar één letter verschillen (kip–kap–kop) op tempo lezen.
-- **Maak de game-mechaniek het leren zelf.** Beste voorbeelden (DragonBox, Duolingo's betere delen): de puzzel *is* de wiskunde. Slechtste: quiz beantwoorden → muntje → poppetje aankleden. Dat heet "chocolate-covered broccoli."
-- **Directe, informatieve feedback.** Niet alleen goed/fout, maar *waarom* — en meteen opnieuw mogen proberen zonder straf.
-- **Autonomie geven.** Keuze in volgorde, tempo, avatar, route. Zelfs kleine keuzes verhogen intrinsieke motivatie sterk.
-- **Falen goedkoop maken.** Retry zonder verlies, fouten framen als informatie. Kinderen die bang zijn voor een fout antwoord stoppen met exploreren.
-- **Korte lussen.** Doel → actie → feedback binnen seconden tot minuten, passend bij de aandachtsspanne.
-### Niet doen
-- **Streaks en verliesangst-mechanieken.** Werkt bij volwassenen al dubieus; bij kinderen creëer je stress en verplichtingsgevoel zonder leerwinst.
+- Mechanics that tie into the theme, e.g.:
+  - Word-gluing → making planks for a bridge
+  - Word-chopping → chopping through the forest
+- **Drilling for automaticity is fine, with pace and drill mechanics.** Spelling categories (au/ou, ei/ij, open/closed syllable) and word recognition are automaticity tasks — short fast rounds, "beat your own time" and spaced repetition work excellently there.
+- **Only compete against yourself.** "Yesterday 12 correct, today 14" is the only healthy form of competition at this age, and it works strongly for this group.
+- **Story as the carrier.** Ages 4–6 (Dutch groep) are the peak of narrative motivation: an ongoing story where you progress through language tasks (decoding a letter, correctly spelling a magic spell) beats any points system. The language has to be the key, not the toll.
+- **Reward production, not just recognition.** Making your own sentence or mini-story with target words sticks far better than multiple choice. Even though it's harder to check — a "publish your story" moment (for parents/class) is a powerful reward without points.
+- *Chopping and gluing*: "raam" (window) → /r/ /aa/ /m/ (chopping), and the reverse — offering sounds that the child combines into a word (gluing). First orally, then with letters.
+- *Swap rows*: rows of words that differ by only one letter (kip–kap–kop) read at pace.
+- **Make the game mechanic the learning itself.** Best examples (DragonBox, the better parts of Duolingo): the puzzle *is* the maths. Worst: answer a quiz → coin → dress up a little character. That's called "chocolate-covered broccoli."
+- **Direct, informative feedback.** Not just right/wrong, but *why* — and immediately allowed to try again without penalty.
+- **Give autonomy.** Choice in order, pace, avatar, route. Even small choices strongly boost intrinsic motivation.
+- **Make failure cheap.** Retry without loss, frame mistakes as information. Children afraid of a wrong answer stop exploring.
+- **Short loops.** Goal → action → feedback within seconds to minutes, matching the attention span.
+### Don't
+- **Streaks and loss-aversion mechanics.** Already dubious with adults; with children you create stress and a sense of obligation without any learning gain.
 
-## Visueel, audio, animatie
+## Visual, audio, animation
 
-**3D-kits**
+**3D kits**
 - https://kenney.nl/assets/survival-kit
 - https://kenney.nl/assets/pirate-kit
 - https://kenney.nl/assets/modular-cave-kit
@@ -70,16 +70,16 @@ Lighthouse, flowerbed, wood plank broken in 3 pieces, different sea shells, wate
 - https://kenney.nl/assets/impact-sounds
 - https://kenney.nl/assets/ui-audio
 
-- Grot en cave kit alleen renderen zodra je door de ingang gaat — zo blijft dat het enige dat rendert, ook al heeft de kit een hoge tri-count.
+- Only render the cave and cave kit once you go through the entrance — that way it stays the only thing rendering, even though the kit has a high tri-count.
 
-## Mechanisms 
+## Mechanisms
 - Web Speech API
 - Variable/color fonts
-- Font styling zoals bold, kleur, letterspatiëring
-- Interactieve elementen / begeleiding
-- Gamification / spaarelementen / visualisatie
-- mk, km, mkm, mmk, kmk, mkkm, kkkm, mmmm, kkkk, kmkm, mkmk, etc — woorden
-- Thema's
-- Herhaling en progressie zichtbaar
-- Losse woorden en korte zinnen 
+- Font styling such as bold, colour, letter spacing
+- Interactive elements / guidance
+- Gamification / collectible elements / visualisation
+- mk, km, mkm, mmk, kmk, mkkm, kkkm, mmmm, kkkk, kmkm, mkmk, etc — words
+- Themes
+- Repetition and progress made visible
+- Loose words and short sentences
 - webapp / browser
