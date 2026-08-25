@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { schrijfGlb } from '../catalog/tools/glb.mjs';
+import { writeGlb } from '../catalog/tools/glb.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOEL = join(ROOT, 'kits', 'workfiles', 'onderwater-kit');
@@ -620,7 +620,7 @@ for (const [bestand, kalf, schaal] of [
   }
 
   const glb = bouwGltf(onderdelen, kalf, schaal, { min: laag, max: hoog });
-  schrijfGlb(join(DOEL, `${bestand}.glb`), glb.json, glb.bin, writeFileSync);
+  writeGlb(join(DOEL, `${bestand}.glb`), glb.json, glb.bin, writeFileSync);
 
   const driehoeken = onderdelen.reduce((s, o) => s + o.maas.F.length, 0);
   const maat = [0, 2, 1].map((as) => ((hoog[as] - laag[as]) * schaal).toFixed(3));

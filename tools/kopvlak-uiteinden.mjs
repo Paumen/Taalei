@@ -10,7 +10,7 @@
 // dan --as x --vanaf 0.30: alle driehoeken die langs die as kijken en verder
 // dan die afstand van het midden liggen.
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
@@ -32,15 +32,15 @@ if (!pad || !van || !naar) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const drempel = Math.cos((hoek * Math.PI) / 180);
 let geraakt = 0;
 
 for (const mesh of glb.json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.indices === undefined || prim.attributes?.TEXCOORD_0 === undefined) continue;
-    const pos = leesAccessor(glb, prim.attributes.POSITION);
-    const idx = leesAccessor(glb, prim.indices);
+    const pos = readAccessor(glb, prim.attributes.POSITION);
+    const idx = readAccessor(glb, prim.indices);
     const accessor = glb.json.accessors[prim.attributes.TEXCOORD_0];
     const bv = glb.json.bufferViews[accessor.bufferView];
     const start = (bv.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
@@ -96,5 +96,5 @@ for (const mesh of glb.json.meshes ?? []) {
     }
   }
 }
-if (!proef) schrijfGlb(pad, glb.json, glb.bin, writeFileSync);
+if (!proef) writeGlb(pad, glb.json, glb.bin, writeFileSync);
 console.log(`${pad}: ${geraakt} uv's ${van.join(',')} -> ${naar.join(',')}${proef ? ' (proef)' : ''}`);

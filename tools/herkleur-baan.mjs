@@ -5,7 +5,7 @@
 //
 // Meerdere --van mogen naar dezelfde --naar. Het bestand wordt in place herschreven.
 import { readFileSync, writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
 import { leesPng } from '../catalog/tools/png.mjs';
 
 const KOLOMMEN = 16;
@@ -27,14 +27,14 @@ if (van.length === 0 || !naar || bestanden.length === 0) {
 }
 
 const atlas = leesPng(COLORMAP);
-const celBreed = atlas.breedte / KOLOMMEN;
-const celHoog = atlas.hoogte / RIJEN;
+const celBreed = atlas.width / KOLOMMEN;
+const celHoog = atlas.height / RIJEN;
 
 // Lichtheid boven- en onderin een cel, om te zien of het verloop andersom loopt.
 function lichtheid(kolom, rij, vDeel) {
   const x = Math.floor((kolom + 0.5) * celBreed);
   const y = Math.floor((rij + vDeel) * celHoog);
-  const i4 = (Math.min(y, atlas.hoogte - 1) * atlas.breedte + x) * 4;
+  const i4 = (Math.min(y, atlas.height - 1) * atlas.width + x) * 4;
   return atlas.pixels[i4] + atlas.pixels[i4 + 1] + atlas.pixels[i4 + 2];
 }
 
@@ -52,7 +52,7 @@ const vanCellen = new Map(
 );
 
 for (const pad of bestanden) {
-  const glb = leesGlb(pad);
+  const glb = readGlb(pad);
   const { json, bin } = glb;
   let geraakt = 0;
 
@@ -71,8 +71,8 @@ for (const pad of bestanden) {
 
       for (let i = 0; i < accessor.count; i++) {
         const uv = new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
-        const x = Math.min(Math.max(uv[0] * atlas.breedte, 0), atlas.breedte - 1e-6);
-        const y = Math.min(Math.max(uv[1] * atlas.hoogte, 0), atlas.hoogte - 1e-6);
+        const x = Math.min(Math.max(uv[0] * atlas.width, 0), atlas.width - 1e-6);
+        const y = Math.min(Math.max(uv[1] * atlas.height, 0), atlas.height - 1e-6);
         const cel = `${Math.floor(x / celBreed)},${Math.floor(y / celHoog)}`;
         const bron = vanCellen.get(cel);
         if (!bron) continue;
@@ -80,13 +80,13 @@ for (const pad of bestanden) {
         const uDeel = x / celBreed - Math.floor(x / celBreed);
         const vRuw = y / celHoog - Math.floor(y / celHoog);
         const vDeel = bron.omgekeerd ? 1 - vRuw : vRuw;
-        uv[0] = ((naarK + uDeel) * celBreed) / atlas.breedte;
-        uv[1] = ((naarR + vDeel) * celHoog) / atlas.hoogte;
+        uv[0] = ((naarK + uDeel) * celBreed) / atlas.width;
+        uv[1] = ((naarR + vDeel) * celHoog) / atlas.height;
         geraakt++;
       }
     }
   }
 
-  schrijfGlb(pad, json, bin, writeFileSync);
+  writeGlb(pad, json, bin, writeFileSync);
   console.log(`${pad}: ${geraakt} uv's van ${van.join('+')} naar ${naar}`);
 }
