@@ -32,14 +32,14 @@ function readKitMetadata() {
     meta.set(kit.slug, {
       name: kit.name,
       url: kit.url,
-      tab: kit.tabblad ?? null,
-      note: kit.toelichting ?? null,
-      outsideCatalog: kit.buitenCatalogus === true,
+      tab: kit.tab ?? null,
+      note: kit.note ?? null,
+      outsideCatalog: kit.outsideCatalog === true,
       outsideCatalogModels: new Set(
-        Array.isArray(kit.buitenCatalogus) ? kit.buitenCatalogus : [],
+        Array.isArray(kit.outsideCatalog) ? kit.outsideCatalog : [],
       ),
-      ownPalette: kit.eigenPalet === true,
-      licenseLabel: kit.licentieLabel ?? 'CC0',
+      ownPalette: kit.ownPalette === true,
+      licenseLabel: kit.licenseLabel ?? 'CC0',
     });
   }
   return meta;
@@ -109,14 +109,14 @@ function readColors(glb, dir) {
       atlasPath = path;
 
       const atlas = readAtlas(path);
-      const cellWidth = atlas.breedte / COLUMNS;
-      const cellHeight = atlas.hoogte / ROWS;
+      const cellWidth = atlas.width / COLUMNS;
+      const cellHeight = atlas.height / ROWS;
       const uv = readAccessor(glb, prim.attributes.TEXCOORD_0);
 
       for (let i = 0; i < uv.count; i++) {
-        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.breedte), 0), atlas.breedte - 1);
-        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.hoogte), 0), atlas.hoogte - 1);
-        const i4 = (y * atlas.breedte + x) * 4;
+        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.width), 0), atlas.width - 1);
+        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
+        const i4 = (y * atlas.width + x) * 4;
         if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
         lanes.add(`${Math.floor(x / cellWidth)},${Math.floor(y / cellHeight)}`);
       }
@@ -128,11 +128,11 @@ function readColors(glb, dir) {
 
 function laneColor(atlas, lane) {
   const [column, row] = lane.split(',').map(Number);
-  const cellWidth = atlas.breedte / COLUMNS;
-  const cellHeight = atlas.hoogte / ROWS;
+  const cellWidth = atlas.width / COLUMNS;
+  const cellHeight = atlas.height / ROWS;
   const x = Math.floor(column * cellWidth + cellWidth / 2);
   const y = Math.floor(row * cellHeight + cellHeight / 2);
-  const i4 = (y * atlas.breedte + x) * 4;
+  const i4 = (y * atlas.width + x) * 4;
   return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
 }
 
@@ -250,8 +250,8 @@ for (const slug of kitSlugs) {
       colors: [],
       path,
       bytes: statSync(join(dir, file)).size,
-      triangles: scene.driehoeken,
-      trianglesPerUnit: trianglesPerUnit(scene.driehoeken, scene.wdh),
+      triangles: scene.triangles,
+      trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
       materials: (gltf.materials ?? []).length,
       wdh: scene.wdh,
       calls: scene.calls,
@@ -361,7 +361,7 @@ function readTags(known) {
   const unknown = [];
 
   for (const tag of tags) {
-    for (const id of tag.modellen ?? []) {
+    for (const id of tag.models ?? []) {
       if (!known.has(id)) {
         unknown.push(`${tag.id}: ${id}`);
         continue;
@@ -373,14 +373,14 @@ function readTags(known) {
   }
   if (unknown.length) console.warn(`! tag references an unknown model: ${unknown.join(', ')}`);
 
-  const noType = tags.filter((t) => !TYPES.includes(t.soort)).map((t) => t.id);
+  const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
   if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
 
   return {
-    tags: tags.map(({ modellen: members = [], ...tag }) => ({
+    tags: tags.map(({ models: members = [], ...tag }) => ({
       ...tag,
       count: members.filter((id) => known.has(id)).length,
     })),
@@ -404,7 +404,7 @@ for (const model of models) {
 
 const tags = readTags(new Set(models.map((m) => m.id)));
 
-for (const { id, name, soort: type = 'tag', beschrijving: description, belongs } of DERIVED.map((d) => ({ ...d, beschrijving: d.description }))) {
+for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
   if (members.length === 0) continue;
   for (const model of members) {
@@ -412,9 +412,9 @@ for (const { id, name, soort: type = 'tag', beschrijving: description, belongs }
   }
   tags.tags.push({
     id,
-    naam: name,
-    soort: type,
-    beschrijving: `${description} Derived from the models themselves, so not tracked in catalog/tags.json.`,
+    name,
+    type,
+    description: `${description} Derived from the models themselves, so not tracked in catalog/tags.json.`,
     count: members.length,
   });
 }
@@ -539,7 +539,7 @@ console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/
 writeVersion();
 
 console.log(`${models.length} models in ${kits.length} kits → catalog/catalog.json`);
-for (const tag of tags.tags) console.log(`${tag.soort} ${tag.id}: ${tag.count} models`);
+for (const tag of tags.tags) console.log(`${tag.type} ${tag.id}: ${tag.count} models`);
 for (const g of catalog.groups) {
   console.log(`  ${String(g.count).padStart(3)}  ${g.name}`);
 }

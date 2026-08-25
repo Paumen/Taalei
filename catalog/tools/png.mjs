@@ -1,140 +1,140 @@
 import { readFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 
-const HANDTEKENING = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+const SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
-const KANALEN = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 };
+const CHANNELS = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 };
 
-function ontfilter(ruw, stap, hoogte, bpp) {
-  const uit = Buffer.alloc(stap * hoogte);
-  let bron = 0;
+function unfilter(raw, stride, height, bpp) {
+  const out = Buffer.alloc(stride * height);
+  let source = 0;
 
-  for (let y = 0; y < hoogte; y++) {
-    const filter = ruw[bron++];
-    const regel = uit.subarray(y * stap, (y + 1) * stap);
-    ruw.copy(regel, 0, bron, bron + stap);
-    bron += stap;
-    const vorige = y > 0 ? uit.subarray((y - 1) * stap, y * stap) : null;
+  for (let y = 0; y < height; y++) {
+    const filter = raw[source++];
+    const line = out.subarray(y * stride, (y + 1) * stride);
+    raw.copy(line, 0, source, source + stride);
+    source += stride;
+    const previous = y > 0 ? out.subarray((y - 1) * stride, y * stride) : null;
 
-    for (let x = 0; x < stap; x++) {
-      const a = x >= bpp ? regel[x - bpp] : 0;
-      const b = vorige ? vorige[x] : 0;
-      const c = vorige && x >= bpp ? vorige[x - bpp] : 0;
+    for (let x = 0; x < stride; x++) {
+      const a = x >= bpp ? line[x - bpp] : 0;
+      const b = previous ? previous[x] : 0;
+      const c = previous && x >= bpp ? previous[x - bpp] : 0;
       switch (filter) {
         case 0: break;
-        case 1: regel[x] = (regel[x] + a) & 255; break;
-        case 2: regel[x] = (regel[x] + b) & 255; break;
-        case 3: regel[x] = (regel[x] + ((a + b) >> 1)) & 255; break;
+        case 1: line[x] = (line[x] + a) & 255; break;
+        case 2: line[x] = (line[x] + b) & 255; break;
+        case 3: line[x] = (line[x] + ((a + b) >> 1)) & 255; break;
         case 4: {
           const p = a + b - c;
           const pa = Math.abs(p - a);
           const pb = Math.abs(p - b);
           const pc = Math.abs(p - c);
-          regel[x] = (regel[x] + (pa <= pb && pa <= pc ? a : pb <= pc ? b : c)) & 255;
+          line[x] = (line[x] + (pa <= pb && pa <= pc ? a : pb <= pc ? b : c)) & 255;
           break;
         }
-        default: throw new Error(`onbekend PNG-filter ${filter} op regel ${y}`);
+        default: throw new Error(`unknown PNG filter ${filter} on line ${y}`);
       }
     }
   }
-  return uit;
+  return out;
 }
 
-export function leesPng(pad) {
-  const buf = readFileSync(pad);
-  if (!buf.subarray(0, 8).equals(HANDTEKENING)) throw new Error(`geen PNG: ${pad}`);
+export function readPng(path) {
+  const buf = readFileSync(path);
+  if (!buf.subarray(0, 8).equals(SIGNATURE)) throw new Error(`not a PNG: ${path}`);
 
-  let breedte = 0;
-  let hoogte = 0;
-  let bitdiepte = 0;
-  let kleurtype = 0;
-  let palet = null;
-  let paletAlpha = null;
-  const brokken = [];
+  let width = 0;
+  let height = 0;
+  let bitDepth = 0;
+  let colorType = 0;
+  let palette = null;
+  let paletteAlpha = null;
+  const chunks = [];
 
   let offset = 8;
   while (offset + 8 <= buf.length) {
-    const lengte = buf.readUInt32BE(offset);
+    const length = buf.readUInt32BE(offset);
     const type = buf.toString('ascii', offset + 4, offset + 8);
-    const data = buf.subarray(offset + 8, offset + 8 + lengte);
+    const data = buf.subarray(offset + 8, offset + 8 + length);
 
     if (type === 'IHDR') {
-      breedte = data.readUInt32BE(0);
-      hoogte = data.readUInt32BE(4);
-      bitdiepte = data[8];
-      kleurtype = data[9];
-      if (data[12] !== 0) throw new Error(`interlaced PNG wordt niet ondersteund: ${pad}`);
-    } else if (type === 'PLTE') palet = data;
-    else if (type === 'tRNS') paletAlpha = data;
-    else if (type === 'IDAT') brokken.push(data);
+      width = data.readUInt32BE(0);
+      height = data.readUInt32BE(4);
+      bitDepth = data[8];
+      colorType = data[9];
+      if (data[12] !== 0) throw new Error(`interlaced PNG is not supported: ${path}`);
+    } else if (type === 'PLTE') palette = data;
+    else if (type === 'tRNS') paletteAlpha = data;
+    else if (type === 'IDAT') chunks.push(data);
     else if (type === 'IEND') break;
 
-    offset += 12 + lengte;
+    offset += 12 + length;
   }
 
-  const kanalen = KANALEN[kleurtype];
-  if (!kanalen) throw new Error(`onbekend PNG-kleurtype ${kleurtype}: ${pad}`);
-  if (![1, 2, 4, 8].includes(bitdiepte)) {
-    throw new Error(`hoogstens 8 bits per kanaal: ${pad} heeft ${bitdiepte}`);
+  const channels = CHANNELS[colorType];
+  if (!channels) throw new Error(`unknown PNG colour type ${colorType}: ${path}`);
+  if (![1, 2, 4, 8].includes(bitDepth)) {
+    throw new Error(`at most 8 bits per channel: ${path} has ${bitDepth}`);
   }
-  if (bitdiepte < 8 && kanalen !== 1) {
-    throw new Error(`${pad}: ${bitdiepte} bits kan alleen bij grijs of palet`);
+  if (bitDepth < 8 && channels !== 1) {
+    throw new Error(`${path}: ${bitDepth} bits only works for grey or palette`);
   }
 
-  const bitsPerPixel = kanalen * bitdiepte;
-  const stap = Math.ceil((breedte * bitsPerPixel) / 8);
-  const gefilterd = ontfilter(
-    inflateSync(Buffer.concat(brokken)),
-    stap,
-    hoogte,
+  const bitsPerPixel = channels * bitDepth;
+  const stride = Math.ceil((width * bitsPerPixel) / 8);
+  const unfiltered = unfilter(
+    inflateSync(Buffer.concat(chunks)),
+    stride,
+    height,
     Math.max(1, bitsPerPixel >> 3),
   );
 
-  let vlak = gefilterd;
-  if (bitdiepte < 8) {
-    const schaal = kleurtype === 0 ? 255 / ((1 << bitdiepte) - 1) : 1;
-    vlak = Buffer.alloc(breedte * hoogte);
-    for (let y = 0; y < hoogte; y++) {
-      for (let x = 0; x < breedte; x++) {
-        const bit = x * bitdiepte;
-        const byte = gefilterd[y * stap + (bit >> 3)];
-        const verschuiving = 8 - bitdiepte - (bit & 7);
-        const waarde = (byte >> verschuiving) & ((1 << bitdiepte) - 1);
-        vlak[y * breedte + x] = Math.round(waarde * schaal);
+  let plane = unfiltered;
+  if (bitDepth < 8) {
+    const scale = colorType === 0 ? 255 / ((1 << bitDepth) - 1) : 1;
+    plane = Buffer.alloc(width * height);
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        const bit = x * bitDepth;
+        const byte = unfiltered[y * stride + (bit >> 3)];
+        const shift = 8 - bitDepth - (bit & 7);
+        const value = (byte >> shift) & ((1 << bitDepth) - 1);
+        plane[y * width + x] = Math.round(value * scale);
       }
     }
   }
 
-  const pixels = Buffer.alloc(breedte * hoogte * 4);
+  const pixels = Buffer.alloc(width * height * 4);
 
-  for (let i = 0; i < breedte * hoogte; i++) {
-    const bron = i * kanalen;
-    const doel = i * 4;
-    switch (kleurtype) {
+  for (let i = 0; i < width * height; i++) {
+    const source = i * channels;
+    const dest = i * 4;
+    switch (colorType) {
       case 0:
-        pixels.fill(vlak[bron], doel, doel + 3);
-        pixels[doel + 3] = 255;
+        pixels.fill(plane[source], dest, dest + 3);
+        pixels[dest + 3] = 255;
         break;
       case 2:
-        vlak.copy(pixels, doel, bron, bron + 3);
-        pixels[doel + 3] = 255;
+        plane.copy(pixels, dest, source, source + 3);
+        pixels[dest + 3] = 255;
         break;
       case 3: {
-        const index = vlak[bron];
-        if (!palet) throw new Error(`indexed PNG zonder PLTE: ${pad}`);
-        palet.copy(pixels, doel, index * 3, index * 3 + 3);
-        pixels[doel + 3] = paletAlpha?.[index] ?? 255;
+        const index = plane[source];
+        if (!palette) throw new Error(`indexed PNG without PLTE: ${path}`);
+        palette.copy(pixels, dest, index * 3, index * 3 + 3);
+        pixels[dest + 3] = paletteAlpha?.[index] ?? 255;
         break;
       }
       case 4:
-        pixels.fill(vlak[bron], doel, doel + 3);
-        pixels[doel + 3] = vlak[bron + 1];
+        pixels.fill(plane[source], dest, dest + 3);
+        pixels[dest + 3] = plane[source + 1];
         break;
       case 6:
-        vlak.copy(pixels, doel, bron, bron + 4);
+        plane.copy(pixels, dest, source, source + 4);
         break;
     }
   }
 
-  return { breedte, hoogte, pixels };
+  return { width, height, pixels };
 }
