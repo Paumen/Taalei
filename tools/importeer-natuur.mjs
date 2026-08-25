@@ -102,6 +102,6 @@ await importeerKit({
   generator: 'tools/importeer-natuur.mjs',
   schaal: 0.3,
   formaat: 'obj',
-  bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
+  bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
   modellen: MODELLEN,
 });
