@@ -2,10 +2,7 @@ import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
   ['Bag',                    'bag'],
-  ['Barrel',                 'barrel'],
   ['Barrel_Apples',          'barrel-apples'],
-  ['Barrel_Holder',          'barrel-holder'],
-  ['Bench',                  'bench'],
   ['BookGroup_Medium_1',     'book-group-medium-1'],
   ['BookGroup_Medium_2',     'book-group-medium-2'],
   ['BookGroup_Medium_3',     'book-group-medium-3'],
@@ -23,12 +20,10 @@ const MODELLEN = [
   ['Key_Gold',               'key-gold'],
   ['Key_Metal',              'key-metal'],
   ['Mug',                    'mug'],
-  ['Pickaxe_Bronze',         'pickaxe-bronze'],
   ['Potion_2',               'potion-2'],
   ['Potion_4',               'potion-4'],
   ['Scroll_1',               'scroll-1'],
   ['Scroll_2',               'scroll-2'],
-  ['Shelf_Simple',           'shelf-simple'],
   ['Table_Plate',            'table-plate'],
   ['Torch_Metal',            'torch-metal'],
   ['Vase_2',                 'vase-2'],
