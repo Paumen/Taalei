@@ -45,7 +45,7 @@ const detail = document.querySelector('#detail');
 const cards = [];
 const sections = [];
 
-let grouping = 'standaard';
+let grouping = 'groep';
 let sorting = 'naam';
 
 const chosenPaths = new Set();
@@ -358,7 +358,7 @@ const SORTINGS = {
 
 const WITHOUT = '_zonder';
 
-const groupingType = () => (grouping === 'standaard' ? 'kit' : grouping);
+const groupingType = () => grouping;
 
 function sectionsFor(models) {
   const inView = models;
