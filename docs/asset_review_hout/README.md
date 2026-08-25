@@ -1,73 +1,73 @@
-# Houtassets — renderoverzicht
+# Wood assets — render overview
 
-Renders van alle losse houtassets in de kits: hout(stapel), brandhout, logs,
-kampvuur, timber, planken, pallet, timber stack, takken en wortels. Elke familie
-staat in één beeld; wat niet op één rij past loopt door op een volgende rij, en elke
-rij heeft links én rechts een meetlat.
+Renders of every loose wood asset in the kits: wood (stack), firewood, logs,
+campfire, timber, planks, pallet, timber stack, branches and roots. Each family
+sits in one image; whatever doesn't fit on one row continues on the next, and every
+row has a ruler on both the left and the right.
 
 ```
 node tools/vergelijk-groottes/render.mjs tools/vergelijk-groottes/hout.json docs/asset_review_hout
 ```
 
-De indeling staat in `tools/vergelijk-groottes/hout.json`. De meetlat is overal **1 unit**, met daarachter ruitjespapier: een fijne lijn om de
-0,25 unit, een zware om de hele unit. Elk label heeft de kit op de bovenste regel en het
-model met zijn hoogte op de onderste.
+The layout lives in `tools/vergelijk-groottes/hout.json`. The ruler is **1 unit** everywhere, with graph paper behind it: a fine line every
+0.25 unit, a heavy one every whole unit. Every label carries the kit on the top line and the
+model with its height on the bottom.
 
-In de catalogus staat dezelfde vergelijking live: `catalog/schaal.html` (knop *Schaal*)
-laadt de `.glb`'s in de browser, dus die klopt ook meteen na een herschaling.
+The catalogue shows the same comparison live: `catalog/schaal.html` (the *Scale*
+button) loads the `.glb` files in the browser, so it's also correct right after a rescale.
 
-Zes kits zijn opnieuw geschaald; welke en waarom staat in
-`docs/asset_review_props/README.md`. Voor deze families raakt dat quaternius-nature
-(×0,5), survival-kit (×0,7) en pirate-kit (×0,8).
+Six kits have been rescaled; which ones and why is documented in
+`docs/asset_review_props/README.md`. For these families that affects quaternius-nature
+(×0.5), survival-kit (×0.7) and pirate-kit (×0.8).
 
-## De families
+## The families
 
-| Render | Assets | Hoogte |
+| Render | Assets | Height |
 | --- | ---: | --- |
-| `hout-logs.png` | 13 | 0,25 – 0,75 |
-| `hout-timber.png` | 7 | 0,05 – 0,29 |
-| `hout-planken.png` | 11 | 0,06 – 0,61 |
-| `hout-stapel-pallet.png` | 4 | 0,10 – 0,24 |
-| `hout-kampvuur.png` | 6 | 0,09 – 0,41 |
-| `hout-takken.png` | 6 | 0,04 – 0,28 |
-| `hout-wortels.png` | 6 | 0,23 – 1,05 |
+| `hout-logs.png` | 13 | 0.25 – 0.75 |
+| `hout-timber.png` | 7 | 0.05 – 0.29 |
+| `hout-planken.png` | 11 | 0.06 – 0.61 |
+| `hout-stapel-pallet.png` | 4 | 0.10 – 0.24 |
+| `hout-kampvuur.png` | 6 | 0.09 – 0.41 |
+| `hout-takken.png` | 6 | 0.04 – 0.28 |
+| `hout-wortels.png` | 6 | 0.23 – 1.05 |
 
-Buiten scope gelaten: bouwkundig hout (houten muren, vloeren, trappen, balken,
-palen, relingen) uit fantasy-town-kit, village-kit, dungeon en mini-dungeon.
-Dat zijn bouwstukken, geen losse houtprops.
+Left out of scope: structural wood (wooden walls, floors, stairs, beams,
+posts, railings) from fantasy-town-kit, village-kit, dungeon and mini-dungeon.
+Those are building pieces, not loose wood props.
 
-## Wat de renders laten zien
+## What the renders show
 
-**Logs liggen nu dicht bij elkaar.** Na het halveren van quaternius-nature is
-`q-nature/log` 0,37 hoog en 1,34 lang, tegen 0,25–0,35 hoog en 0,43–1,21 lang voor de
-natuur-logs. `survival/tree-log` ging van 0,50 naar 0,35 hoog en van 1,80 naar 1,26 lang
-en is daarmee ook binnen de band gekomen. Wat overblijft is `resources/wood-log-stack`
-met 0,75 — een stapel, dus terecht de hoogste.
+**Logs now sit close together.** After halving quaternius-nature,
+`q-nature/log` is 0.37 high and 1.34 long, against 0.25–0.35 high and 0.43–1.21 long for the
+natuur logs. `survival/tree-log` went from 0.50 to 0.35 high and from 1.80 to 1.26 long
+and has landed within the band as a result. What's left is `resources/wood-log-stack`
+at 0.75 — a stack, so rightly the tallest.
 
-**Twee houtpaletten naast elkaar.** natuur, quaternius-nature en
-modulair-terrein/hilly gebruiken grijsbruin (`#8f785b`, `#88796d`);
-resources, survival-kit, fantasy-town-kit, castle-kit en pirate-kit gebruiken
-warm oranje (`#d07b56`, `#dd9f79`, `#995a41`). In `hout-logs.png` staan die twee
-families onder elkaar en ze lezen als twee verschillende soorten hout.
+**Two wood palettes side by side.** natuur, quaternius-nature and
+modulair-terrein/hilly use grey-brown (`#8f785b`, `#88796d`);
+resources, survival-kit, fantasy-town-kit, castle-kit and pirate-kit use
+warm orange (`#d07b56`, `#dd9f79`, `#995a41`). In `hout-logs.png` those two
+families sit one above the other and read as two different kinds of wood.
 
-**Shading.** De natuur-assets (logs, takken, wortels, stronken) renderen glad
-geshadeerd — ronde, zachte vormen zonder zichtbare facetten. De kit-assets
-(resources, survival, town) zijn wel duidelijk facetted.
+**Shading.** The natuur assets (logs, branches, roots, stumps) render smooth
+shaded — round, soft shapes with no visible facets. The kit assets
+(resources, survival, town) are clearly faceted.
 
-**Wortels staan rechtop.** `root-3` t/m `root-6` zijn 0,63 / 0,69 / 0,81 / 1,05
-hoog: staande punten, geen liggende wortels. Alleen `root-1` en `root-2` liggen
-laag (0,23 / 0,24). Alle zes hebben 80 driehoeken en dezelfde kleur (`#88796d`).
+**Roots stand upright.** `root-3` through `root-6` are 0.63 / 0.69 / 0.81 / 1.05
+high: standing points, not lying roots. Only `root-1` and `root-2` lie
+low (0.23 / 0.24). All six have 80 triangles and the same colour (`#88796d`).
 
-**Timber is erg plat.** `timber-whole-1` en `timber-cut-1` t/m `-4` zijn 0,05–0,09
-hoog bij ~0,42 lang; ze lezen als latjes, niet als balken.
+**Timber is very flat.** `timber-whole-1` and `timber-cut-1` through `-4` are 0.05–0.09
+high at ~0.42 long; they read as slats, not beams.
 
-**Twee assets met identieke geometrie.** survival `tree-log` en `tree-log-small`
-hebben allebei 88 driehoeken en dezelfde footprint; alleen de lengte verschilt.
+**Two assets with identical geometry.** survival's `tree-log` and `tree-log-small`
+both have 88 triangles and the same footprint; only the length differs.
 
-**Boven het driehoekenbudget** (1000 per unit, style guide §4):
+**Above the triangle budget** (1000 per unit, style guide §4):
 `resources/wood-log-stack` 3576, `natuur/timber-stack-2` 1460,
-`resources/wood-planks-stack-large` 1176. Geen van de drie zit in een kit die
-opnieuw geschaald is, dus deze getallen zijn onveranderd.
+`resources/wood-planks-stack-large` 1176. None of the three is in a kit that
+was rescaled, so these numbers are unchanged.
 
-**Groepsindeling in de catalogus valt op:** kampvuren, `camp-wood-pile` en
-`firewood-a` zitten in groep `eten`; `graveyard/debris-wood` zit in `rotsen`.
+**A group split in the catalogue stands out:** campfires, `camp-wood-pile` and
+`firewood-a` sit in the `food` group; `graveyard/debris-wood` sits in `rocks`.
