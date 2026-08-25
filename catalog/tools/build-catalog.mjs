@@ -3,153 +3,153 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROEPEN, KIT_GROEPEN, bepaalGroep } from './semantiek.mjs';
-import { bouwSchaalgroepen } from './schaalgroepen.mjs';
-import { leesGlb, leesAccessor, meetScene, driehoekenPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
-import { leesPng } from './png.mjs';
+import { GROUPS, KIT_GROUPS, determineGroup } from './semantiek.mjs';
+import { buildScaleGroups } from './schaalgroepen.mjs';
+import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
 const KITS_DIR = join(ROOT, 'kits');
 const MODEL_DIR = join(KITS_DIR, 'workfiles');
-const MODEL_PAD = 'kits/workfiles';
+const MODEL_PATH = 'kits/workfiles';
 
-const KOLOMMEN = 16;
-const RIJEN = 4;
+const COLUMNS = 16;
+const ROWS = 4;
 
-function leesKitMetadata() {
-  const bron = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
+function readKitMetadata() {
+  const source = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
   const context = { window: {} };
-  runInNewContext(bron, context, { timeout: 5000, filename: 'catalog/manifest.js' });
+  runInNewContext(source, context, { timeout: 5000, filename: 'catalog/manifest.js' });
 
   const kits = context.window.KENNEY_KITS;
   if (!Array.isArray(kits)) {
-    throw new Error('catalog/manifest.js zet geen window.KENNEY_KITS-array');
+    throw new Error('catalog/manifest.js does not set a window.KENNEY_KITS array');
   }
 
   const meta = new Map();
   for (const kit of kits) {
     meta.set(kit.slug, {
-      naam: kit.name,
+      name: kit.name,
       url: kit.url,
-      tabblad: kit.tabblad ?? null,
-      toelichting: kit.toelichting ?? null,
-      buitenCatalogus: kit.buitenCatalogus === true,
-      buitenCatalogusModellen: new Set(
-        Array.isArray(kit.buitenCatalogus) ? kit.buitenCatalogus : [],
+      tab: kit.tab ?? null,
+      note: kit.note ?? null,
+      outsideCatalog: kit.outsideCatalog === true,
+      outsideCatalogModels: new Set(
+        Array.isArray(kit.outsideCatalog) ? kit.outsideCatalog : [],
       ),
-      eigenPalet: kit.eigenPalet === true,
-      licentieLabel: kit.licentieLabel ?? 'CC0',
+      ownPalette: kit.ownPalette === true,
+      licenseLabel: kit.licenseLabel ?? 'CC0',
     });
   }
   return meta;
 }
 
-function leesVarianten(idsInCatalogus) {
-  const bestand = join(CATALOG_DIR, 'asset_variants.json');
-  if (!existsSync(bestand)) return { groepen: [], perModel: new Map() };
+function readVariants(idsInCatalog) {
+  const file = join(CATALOG_DIR, 'asset_variants.json');
+  if (!existsSync(file)) return { groups: [], perModel: new Map() };
 
-  const bron = JSON.parse(readFileSync(bestand, 'utf8'));
-  const groepen = [];
+  const source = JSON.parse(readFileSync(file, 'utf8'));
+  const groups = [];
   const perModel = new Map();
 
-  bron.clusters?.forEach((cluster, n) => {
-    const leden = cluster.leden.filter((id) => idsInCatalogus.has(id));
-    if (leden.length < 2) return;
+  source.clusters?.forEach((cluster, n) => {
+    const members = cluster.members.filter((id) => idsInCatalog.has(id));
+    if (members.length < 2) return;
     const id = `v${String(n + 1).padStart(2, '0')}`;
-    const hoofd = leden.includes(cluster.hoofd) ? cluster.hoofd : leden[0];
-    groepen.push({ id, soort: cluster.soort, hoofd, leden });
-    for (const lid of leden) perModel.set(lid, id);
+    const main = members.includes(cluster.main) ? cluster.main : members[0];
+    groups.push({ id, type: cluster.type, main, members });
+    for (const member of members) perModel.set(member, id);
   });
 
-  return { groepen, perModel };
+  return { groups, perModel };
 }
 
-const atlassen = new Map();
+const atlases = new Map();
 
-function leesAtlas(pad) {
-  if (!atlassen.has(pad)) {
-    const png = leesPng(pad);
-    const sleutel = createHash('sha256').update(readFileSync(pad)).digest('hex').slice(0, 12);
-    atlassen.set(pad, { ...png, sleutel });
+function readAtlas(path) {
+  if (!atlases.has(path)) {
+    const png = readPng(path);
+    const key = createHash('sha256').update(readFileSync(path)).digest('hex').slice(0, 12);
+    atlases.set(path, { ...png, key });
   }
-  return atlassen.get(pad);
+  return atlases.get(path);
 }
 
-function naarSrgb(lineair) {
-  const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
+function toSrgb(linear) {
+  const v = linear <= 0.0031308 ? linear * 12.92 : 1.055 * linear ** (1 / 2.4) - 0.055;
   return Math.round(Math.min(Math.max(v, 0), 1) * 255);
 }
 
 const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
-function leesKleuren(glb, dir) {
+function readColors(glb, dir) {
   const { json } = glb;
-  const banen = new Set();
-  const materialen = new Map();
-  let atlasPad = null;
+  const lanes = new Set();
+  const materials = new Map();
+  let atlasPath = null;
 
   for (const mesh of json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
-      const materiaal = json.materials?.[prim.material];
-      if (!materiaal) continue;
-      const texIndex = materiaal.pbrMetallicRoughness?.baseColorTexture?.index;
+      const material = json.materials?.[prim.material];
+      if (!material) continue;
+      const texIndex = material.pbrMetallicRoughness?.baseColorTexture?.index;
 
       if (texIndex === undefined) {
-        const factor = materiaal.pbrMetallicRoughness?.baseColorFactor;
+        const factor = material.pbrMetallicRoughness?.baseColorFactor;
         if (!factor) continue;
-        materialen.set(hex(...factor.slice(0, 3).map(naarSrgb)), materiaal.name ?? 'materiaal');
+        materials.set(hex(...factor.slice(0, 3).map(toSrgb)), material.name ?? 'material');
         continue;
       }
 
-      const bron = json.images?.[json.textures?.[texIndex]?.source]?.uri;
-      if (!bron || prim.attributes?.TEXCOORD_0 === undefined) continue;
-      const pad = join(dir, decodeURIComponent(bron));
-      if (atlasPad && atlasPad !== pad) throw new Error(`${dir}: meer dan één colormap in één model`);
-      atlasPad = pad;
+      const source = json.images?.[json.textures?.[texIndex]?.source]?.uri;
+      if (!source || prim.attributes?.TEXCOORD_0 === undefined) continue;
+      const path = join(dir, decodeURIComponent(source));
+      if (atlasPath && atlasPath !== path) throw new Error(`${dir}: more than one colormap in a single model`);
+      atlasPath = path;
 
-      const atlas = leesAtlas(pad);
-      const celBreed = atlas.breedte / KOLOMMEN;
-      const celHoog = atlas.hoogte / RIJEN;
-      const uv = leesAccessor(glb, prim.attributes.TEXCOORD_0);
+      const atlas = readAtlas(path);
+      const cellWidth = atlas.width / COLUMNS;
+      const cellHeight = atlas.height / ROWS;
+      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0);
 
       for (let i = 0; i < uv.count; i++) {
-        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.breedte), 0), atlas.breedte - 1);
-        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.hoogte), 0), atlas.hoogte - 1);
-        const i4 = (y * atlas.breedte + x) * 4;
+        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.width), 0), atlas.width - 1);
+        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
+        const i4 = (y * atlas.width + x) * 4;
         if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
-        banen.add(`${Math.floor(x / celBreed)},${Math.floor(y / celHoog)}`);
+        lanes.add(`${Math.floor(x / cellWidth)},${Math.floor(y / cellHeight)}`);
       }
     }
   }
 
-  return { atlas: atlasPad, banen, materialen };
+  return { atlas: atlasPath, lanes, materials };
 }
 
-function baanKleur(atlas, baan) {
-  const [kolom, rij] = baan.split(',').map(Number);
-  const celBreed = atlas.breedte / KOLOMMEN;
-  const celHoog = atlas.hoogte / RIJEN;
-  const x = Math.floor(kolom * celBreed + celBreed / 2);
-  const y = Math.floor(rij * celHoog + celHoog / 2);
-  const i4 = (y * atlas.breedte + x) * 4;
+function laneColor(atlas, lane) {
+  const [column, row] = lane.split(',').map(Number);
+  const cellWidth = atlas.width / COLUMNS;
+  const cellHeight = atlas.height / ROWS;
+  const x = Math.floor(column * cellWidth + cellWidth / 2);
+  const y = Math.floor(row * cellHeight + cellHeight / 2);
+  const i4 = (y * atlas.width + x) * 4;
   return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
 }
 
-function kleurNaam(hex) {
+function colorName(hex) {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
   const g = parseInt(hex.slice(3, 5), 16) / 255;
   const b = parseInt(hex.slice(5, 7), 16) / 255;
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
-  const licht = (max + min) / 2;
+  const lightness = (max + min) / 2;
   const delta = max - min;
-  const verzadiging = delta === 0 ? 0 : delta / (1 - Math.abs(2 * licht - 1));
+  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
 
-  if (verzadiging < 0.18) {
-    if (licht > 0.8) return 'white';
-    if (licht > 0.45) return 'light grey';
-    if (licht > 0.25) return 'grey';
+  if (saturation < 0.18) {
+    if (lightness > 0.8) return 'white';
+    if (lightness > 0.45) return 'light grey';
+    if (lightness > 0.25) return 'grey';
     return 'dark grey';
   }
 
@@ -159,10 +159,10 @@ function kleurNaam(hex) {
   else tint = (r - g) / delta + 4;
   tint = (tint * 60 + 360) % 360;
 
-  const basis =
+  const base =
     tint < 15 || tint >= 345 ? 'red'
-    : tint < 40 ? (licht < 0.45 ? 'brown' : 'orange')
-    : tint < 50 ? (licht < 0.5 ? 'brown' : 'orange')
+    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
     : tint < 70 ? 'yellow'
     : tint < 165 ? 'green'
     : tint < 200 ? 'turquoise'
@@ -170,121 +170,121 @@ function kleurNaam(hex) {
     : tint < 300 ? 'purple'
     : 'pink';
 
-  if (licht < 0.3) return `dark ${basis}`;
-  if (licht > 0.75) return `light ${basis}`;
-  return basis;
+  if (lightness < 0.3) return `dark ${base}`;
+  if (lightness > 0.75) return `light ${base}`;
+  return base;
 }
 
-function schrijfVersie() {
-  const inhoud = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js', 'swipe.css', 'swipe.js']
-    .map((naam) => readFileSync(join(CATALOG_DIR, naam)))
+function writeVersion() {
+  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js', 'swipe.css', 'swipe.js']
+    .map((name) => readFileSync(join(CATALOG_DIR, name)))
     .join('');
-  const versie = createHash('sha256').update(inhoud).digest('hex').slice(0, 10);
+  const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
 
-  const stempel = (pad, vervangingen) => {
-    let html = readFileSync(pad, 'utf8');
-    for (const [zoek, verv] of vervangingen) html = html.replace(zoek, verv);
-    writeFileSync(pad, html.replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${versie}">`));
+  const stamp = (path, replacements) => {
+    let html = readFileSync(path, 'utf8');
+    for (const [search, replacement] of replacements) html = html.replace(search, replacement);
+    writeFileSync(path, html.replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${version}">`));
   };
 
-  stempel(join(ROOT, 'index.html'), [
-    [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${versie}"`],
-    [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${versie}"`],
+  stamp(join(ROOT, 'index.html'), [
+    [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${version}"`],
+    [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${version}"`],
   ]);
-  stempel(join(CATALOG_DIR, 'schaal.html'), [
-    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
-    [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${versie}"`],
+  stamp(join(CATALOG_DIR, 'schaal.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+    [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${version}"`],
   ]);
-  stempel(join(CATALOG_DIR, 'swipe.html'), [
-    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${versie}"`],
-    [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${versie}"`],
-    [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${versie}"`],
+  stamp(join(CATALOG_DIR, 'swipe.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+    [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
+    [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
   ]);
-  console.log(`versie ${versie} → index.html, catalog/schaal.html, catalog/swipe.html`);
+  console.log(`version ${version} → index.html, catalog/schaal.html, catalog/swipe.html`);
 }
 
-const kitMeta = leesKitMetadata();
+const kitMeta = readKitMetadata();
 const kitSlugs = readdirSync(MODEL_DIR)
-  .filter((naam) => statSync(join(MODEL_DIR, naam)).isDirectory())
-  .filter((naam) => !kitMeta.get(naam)?.buitenCatalogus)
+  .filter((name) => statSync(join(MODEL_DIR, name)).isDirectory())
+  .filter((name) => !kitMeta.get(name)?.outsideCatalog)
   .sort();
 
 const kits = [];
-const modellen = [];
-const perModelKleur = new Map();
-const zonderMetadata = [];
-const zonderGroep = [];
-const zonderKleur = [];
+const models = [];
+const colorPerModel = new Map();
+const noMetadata = [];
+const noGroup = [];
+const noColor = [];
 
 for (const slug of kitSlugs) {
   const dir = join(MODEL_DIR, slug);
   const meta = kitMeta.get(slug);
-  if (!meta) zonderMetadata.push(slug);
+  if (!meta) noMetadata.push(slug);
 
-  const bestanden = readdirSync(dir)
+  const files = readdirSync(dir)
     .filter((n) => n.endsWith('.glb'))
-    .filter((n) => !meta?.buitenCatalogusModellen.has(n.replace(/\.glb$/, '')))
+    .filter((n) => !meta?.outsideCatalogModels.has(n.replace(/\.glb$/, '')))
     .sort();
-  if (bestanden.length === 0) continue;
+  if (files.length === 0) continue;
 
-  for (const bestand of bestanden) {
-    const naam = bestand.replace(/\.glb$/, '');
-    const pad = `${MODEL_PAD}/${slug}/${bestand}`;
-    const glb = leesGlb(join(dir, bestand));
+  for (const file of files) {
+    const name = file.replace(/\.glb$/, '');
+    const path = `${MODEL_PATH}/${slug}/${file}`;
+    const glb = readGlb(join(dir, file));
     const gltf = glb.json;
-    const scene = meetScene(glb);
-    const groep = bepaalGroep(slug, naam);
-    if (groep === 'overig') zonderGroep.push(`${slug}/${naam}`);
+    const scene = measureScene(glb);
+    const group = determineGroup(slug, name);
+    if (group === 'other') noGroup.push(`${slug}/${name}`);
 
-    const gelezen = leesKleuren(glb, dir);
-    if (gelezen.banen.size === 0 && gelezen.materialen.size === 0) zonderKleur.push(`${slug}/${naam}`);
-    const paletSleutel = gelezen.atlas ? leesAtlas(gelezen.atlas).sleutel : `materiaal:${slug}`;
-    perModelKleur.set(`${slug}/${naam}`, { ...gelezen, paletSleutel });
+    const read = readColors(glb, dir);
+    if (read.lanes.size === 0 && read.materials.size === 0) noColor.push(`${slug}/${name}`);
+    const paletteKey = read.atlas ? readAtlas(read.atlas).key : `material:${slug}`;
+    colorPerModel.set(`${slug}/${name}`, { ...read, paletteKey });
 
-    modellen.push({
-      id: `${slug}/${naam}`,
-      naam,
+    models.push({
+      id: `${slug}/${name}`,
+      name,
       kit: slug,
-      groep,
-      palet: null,
-      kleuren: [],
-      pad,
-      bytes: statSync(join(dir, bestand)).size,
-      driehoeken: scene.driehoeken,
-      driehoekenPerUnit: driehoekenPerUnit(scene.driehoeken, scene.wdh),
-      materialen: (gltf.materials ?? []).length,
+      group,
+      palette: null,
+      colors: [],
+      path,
+      bytes: statSync(join(dir, file)).size,
+      triangles: scene.triangles,
+      trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
+      materials: (gltf.materials ?? []).length,
       wdh: scene.wdh,
       calls: scene.calls,
       ...((gltf.animations ?? []).length
-        ? { animaties: gltf.animations.map((a, i) => a.name ?? `animatie ${i}`) }
+        ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
     });
   }
 
   kits.push({
     slug,
-    naam: meta?.naam ?? slug,
-    kort: (meta?.naam ?? slug).replace(/\s+Kit$/, ''),
+    name: meta?.name ?? slug,
+    short: (meta?.name ?? slug).replace(/\s+Kit$/, ''),
     url: meta?.url ?? null,
-    licentie: `${MODEL_PAD}/${slug}/LICENSE.txt`,
-    licentieLabel: meta?.licentieLabel ?? 'CC0',
-    aantal: bestanden.length,
-    tabblad: meta?.tabblad ?? null,
-    eigenPalet: meta?.eigenPalet ?? false,
-    kitGroep: KIT_GROEPEN[slug] ?? null,
-    toelichting: meta?.toelichting ?? null,
-    palet: null,
+    license: `${MODEL_PATH}/${slug}/LICENSE.txt`,
+    licenseLabel: meta?.licenseLabel ?? 'CC0',
+    count: files.length,
+    tab: meta?.tab ?? null,
+    ownPalette: meta?.ownPalette ?? false,
+    kitGroup: KIT_GROUPS[slug] ?? null,
+    note: meta?.note ?? null,
+    palette: null,
   });
 }
 
-const SOORTEN = ['materiaal', 'tag'];
+const TYPES = ['material', 'tag'];
 
-const BRONNEN = [
+const SOURCES = [
   {
     id: 'kenney',
-    naam: 'Kenney',
-    beschrijving:
-      'Kits van Kenney (kenney.nl). Eén hand, één maatvoering: alles komt van dezelfde tegel en de props passen onderling.',
+    name: 'Kenney',
+    description:
+      'Kits from Kenney (kenney.nl). One hand, one scale: everything comes from the same tile and the props fit together.',
     kits: [
       'fantasy-town-kit', 'mini-forest', 'modular-cave-kit', 'pirate-kit',
       'platformer-kit', 'prototype-kit', 'survival-kit',
@@ -292,302 +292,302 @@ const BRONNEN = [
   },
   {
     id: 'kaykit',
-    naam: 'KayKit',
-    beschrijving:
-      'Kits van Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant en rpgtools. Onderling dezelfde stijl en hetzelfde detailniveau.',
+    name: 'KayKit',
+    description:
+      'Kits from Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant and rpgtools. Consistent style and level of detail across the set.',
     kits: ['dungeon', 'forest', 'halloween', 'resources', 'restaurant', 'rpgtools'],
   },
   {
     id: 'quaternius',
-    naam: 'Quaternius',
-    beschrijving: 'Kits van Quaternius (quaternius.com): fantasy-props en quaternius-nature.',
+    name: 'Quaternius',
+    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature.',
     kits: ['fantasy-props', 'quaternius-nature'],
   },
 ];
 
-const TYPEN = [
-  { id: 'nature', naam: 'Nature', tabblad: 'nature',
-    beschrijving: 'Wat er zonder toedoen al staat: grond, bomen, planten, zeebodem en rotsen.' },
-  { id: 'structure', naam: 'Structure', tabblad: 'structures',
-    beschrijving: 'Wat gebouwd is: bouwpakketten, bouwwerken, trappen en bruggen, hekken.' },
-  { id: 'object', naam: 'Object', tabblad: null,
-    beschrijving: 'Losse dingen die je neerzet of oppakt: huisraad, schepen, eten, kisten, grondstoffen, gereedschap, borden, items en licht.' },
+const CATEGORIES = [
+  { id: 'nature', name: 'Nature', tab: 'nature',
+    description: 'What is already there without anyone doing anything: ground, trees, plants, seabed and rocks.' },
+  { id: 'structure', name: 'Structure', tab: 'structures',
+    description: 'What has been built: building kits, structures, stairs and bridges, fences.' },
+  { id: 'object', name: 'Object', tab: null,
+    description: 'Loose things you place or pick up: furniture, ships, food, chests, resources, tools, signs, items and lights.' },
 ];
 
-const TABBLAD_PER_GROEP = new Map(GROEPEN.map((g) => [g.id, g.tabblad ?? null]));
+const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
 
-const AFGELEID = [
-  ...TYPEN.map(({ id, naam, beschrijving, tabblad }) => ({
+const DERIVED = [
+  ...CATEGORIES.map(({ id, name, description, tab }) => ({
     id,
-    naam,
-    beschrijving,
-    hoort: (m) => m.groep !== 'assemblies' && TABBLAD_PER_GROEP.get(m.groep) === tabblad,
+    name,
+    description,
+    belongs: (m) => m.group !== 'assemblies' && TAB_PER_GROUP.get(m.group) === tab,
   })),
-  ...BRONNEN.map(({ id, naam, beschrijving, kits }) => ({
+  ...SOURCES.map(({ id, name, description, kits }) => ({
     id,
-    naam,
-    beschrijving,
-    hoort: (m) => kits.includes(m.kit),
+    name,
+    description,
+    belongs: (m) => kits.includes(m.kit),
   })),
   {
     id: 'animation',
-    naam: 'Animation',
-    beschrijving:
-      'Draagt eigen animaties in de .glb — kisten en deuren die open- en dichtgaan, een hendel die omslaat, een kompas dat opent.',
-    hoort: (m) => Boolean(m.animaties?.length),
+    name: 'Animation',
+    description:
+      'Carries its own animations in the .glb — chests and doors that open and close, a lever that flips, a compass that opens.',
+    belongs: (m) => Boolean(m.animations?.length),
   },
   {
     id: 'modular',
-    naam: 'Modular',
-    beschrijving:
-      'Klikt op het raster aan soortgenoten vast: de wanden, daken, pilaren en vloeren van de drie bouwpakketten. Je zet ze niet los neer maar bouwt er iets van, en ze passen alleen binnen hun eigen kit.',
-    hoort: (m) => m.groep === 'bouwpakket',
+    name: 'Modular',
+    description:
+      'Clicks onto the grid with matching pieces: the walls, roofs, pillars and floors of the three building kits. You don\'t place them loose but build something out of them, and they only fit within their own kit.',
+    belongs: (m) => m.group === 'building-kit',
   },
   {
     id: 'assembly',
-    naam: 'Assembly',
-    beschrijving:
-      'Niet één ding maar een tafereeltje dat af is zoals het staat: een gedekte tafel, een stapel kratten, een kist vol flessen, de staven en stapels van de resources-kit.',
-    hoort: (m) => m.groep === 'assemblies',
+    name: 'Assembly',
+    description:
+      'Not one thing but a little scene that\'s finished as it stands: a set table, a stack of crates, a chest full of bottles, the bars and stacks from the resources kit.',
+    belongs: (m) => m.group === 'assemblies',
   },
 ];
 
-function leesTags(bekend) {
-  const bestand = join(CATALOG_DIR, 'tags.json');
-  if (!existsSync(bestand)) return { tags: [], perModel: new Map() };
+function readTags(known) {
+  const file = join(CATALOG_DIR, 'tags.json');
+  if (!existsSync(file)) return { tags: [], perModel: new Map() };
 
-  const { tags = [] } = JSON.parse(readFileSync(bestand, 'utf8'));
+  const { tags = [] } = JSON.parse(readFileSync(file, 'utf8'));
   const perModel = new Map();
-  const onbekend = [];
+  const unknown = [];
 
   for (const tag of tags) {
-    for (const id of tag.modellen ?? []) {
-      if (!bekend.has(id)) {
-        onbekend.push(`${tag.id}: ${id}`);
+    for (const id of tag.models ?? []) {
+      if (!known.has(id)) {
+        unknown.push(`${tag.id}: ${id}`);
         continue;
       }
-      const eigen = perModel.get(id) ?? [];
-      eigen.push(tag.id);
-      perModel.set(id, eigen);
+      const own = perModel.get(id) ?? [];
+      own.push(tag.id);
+      perModel.set(id, own);
     }
   }
-  if (onbekend.length) console.warn(`! tag verwijst naar onbekend model: ${onbekend.join(', ')}`);
+  if (unknown.length) console.warn(`! tag references an unknown model: ${unknown.join(', ')}`);
 
-  const zonderSoort = tags.filter((t) => !SOORTEN.includes(t.soort)).map((t) => t.id);
-  if (zonderSoort.length) console.warn(`! tag zonder geldige soort: ${zonderSoort.join(', ')}`);
+  const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
+  if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
-  const botst = tags.filter((t) => AFGELEID.some((a) => a.id === t.id)).map((t) => t.id);
-  if (botst.length) console.warn(`! tag staat in tags.json maar wordt afgeleid: ${botst.join(', ')}`);
+  const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
+  if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
 
   return {
-    tags: tags.map(({ modellen: leden = [], ...tag }) => ({
+    tags: tags.map(({ models: members = [], ...tag }) => ({
       ...tag,
-      aantal: leden.filter((id) => bekend.has(id)).length,
+      count: members.filter((id) => known.has(id)).length,
     })),
     perModel,
   };
 }
 
-const bekendeSlugs = new Set(kits.map((k) => k.slug));
-const zonderBron = kits.filter((k) => !BRONNEN.some((b) => b.kits.includes(k.slug))).map((k) => k.slug);
-for (const bron of BRONNEN) {
-  const weg = bron.kits.filter((slug) => !bekendeSlugs.has(slug));
-  if (weg.length) console.warn(`! bron ${bron.id} noemt een kit die niet bestaat: ${weg.join(', ')}`);
+const knownSlugs = new Set(kits.map((k) => k.slug));
+const noSource = kits.filter((k) => !SOURCES.some((s) => s.kits.includes(k.slug))).map((k) => k.slug);
+for (const source of SOURCES) {
+  const missing = source.kits.filter((slug) => !knownSlugs.has(slug));
+  if (missing.length) console.warn(`! source ${source.id} names a kit that doesn't exist: ${missing.join(', ')}`);
 }
-if (zonderBron.length) console.warn(`! kit zonder bron in BRONNEN: ${zonderBron.join(', ')}`);
+if (noSource.length) console.warn(`! kit without a source in SOURCES: ${noSource.join(', ')}`);
 
-const varianten = leesVarianten(new Set(modellen.map((m) => m.id)));
-for (const model of modellen) {
-  const groep = varianten.perModel.get(model.id);
-  if (groep) model.variant = groep;
+const variants = readVariants(new Set(models.map((m) => m.id)));
+for (const model of models) {
+  const group = variants.perModel.get(model.id);
+  if (group) model.variant = group;
 }
 
-const tags = leesTags(new Set(modellen.map((m) => m.id)));
+const tags = readTags(new Set(models.map((m) => m.id)));
 
-for (const { id, naam, soort = 'tag', beschrijving, hoort } of AFGELEID) {
-  const leden = modellen.filter(hoort);
-  if (leden.length === 0) continue;
-  for (const model of leden) {
+for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
+  const members = models.filter(belongs);
+  if (members.length === 0) continue;
+  for (const model of members) {
     tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), id]);
   }
   tags.tags.push({
     id,
-    naam,
-    soort,
-    beschrijving: `${beschrijving} Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.`,
-    aantal: leden.length,
+    name,
+    type,
+    description: `${description} Derived from the models themselves, so not tracked in catalog/tags.json.`,
+    count: members.length,
   });
 }
 
-for (const model of modellen) {
-  const eigen = tags.perModel.get(model.id);
-  if (eigen) model.tags = [...eigen].sort();
+for (const model of models) {
+  const own = tags.perModel.get(model.id);
+  if (own) model.tags = [...own].sort();
 }
 
-const paletten = new Map();
+const palettes = new Map();
 
-for (const model of modellen) {
-  const gelezen = perModelKleur.get(model.id);
-  if (!gelezen || (gelezen.banen.size === 0 && gelezen.materialen.size === 0)) continue;
+for (const model of models) {
+  const read = colorPerModel.get(model.id);
+  if (!read || (read.lanes.size === 0 && read.materials.size === 0)) continue;
 
-  if (!paletten.has(gelezen.paletSleutel)) {
-    paletten.set(gelezen.paletSleutel, {
-      atlas: gelezen.atlas,
+  if (!palettes.has(read.paletteKey)) {
+    palettes.set(read.paletteKey, {
+      atlas: read.atlas,
       kits: new Set(),
-      banen: new Set(),
-      materialen: new Map(),
+      lanes: new Set(),
+      materials: new Map(),
     });
   }
-  const palet = paletten.get(gelezen.paletSleutel);
-  palet.kits.add(model.kit);
+  const palette = palettes.get(read.paletteKey);
+  palette.kits.add(model.kit);
 
-  for (const baan of gelezen.banen) palet.banen.add(baan);
-  for (const [hex, naam] of gelezen.materialen) {
-    if (!palet.materialen.has(hex)) palet.materialen.set(hex, new Set());
-    palet.materialen.get(hex).add(naam);
+  for (const lane of read.lanes) palette.lanes.add(lane);
+  for (const [hex, name] of read.materials) {
+    if (!palette.materials.has(hex)) palette.materials.set(hex, new Set());
+    palette.materials.get(hex).add(name);
   }
 }
 
-const GEDEELDE_ATLAS = join(KITS_DIR, 'colormap.png');
-const gedeeldeSleutel = existsSync(GEDEELDE_ATLAS) ? leesAtlas(GEDEELDE_ATLAS).sleutel : null;
+const SHARED_ATLAS = join(KITS_DIR, 'colormap.png');
+const sharedKey = existsSync(SHARED_ATLAS) ? readAtlas(SHARED_ATLAS).key : null;
 
-for (const [sleutel, palet] of paletten) {
-  palet.baanKleur = new Map();
-  if (palet.atlas) {
-    const atlas = leesAtlas(palet.atlas);
-    for (const baan of palet.banen) palet.baanKleur.set(baan, baanKleur(atlas, baan));
+for (const [key, palette] of palettes) {
+  palette.laneColor = new Map();
+  if (palette.atlas) {
+    const atlas = readAtlas(palette.atlas);
+    for (const lane of palette.lanes) palette.laneColor.set(lane, laneColor(atlas, lane));
   }
 
-  const kits = [...palet.kits].sort();
-  const gedeeld = kits.length > 1;
-  palet.id = gedeeld ? 'gedeeld' : kits[0];
-  palet.naam = gedeeld ? 'Shared kits' : kitMeta.get(kits[0])?.naam ?? kits[0];
-  palet.toelichting = palet.atlas
+  const kits = [...palette.kits].sort();
+  const shared = kits.length > 1;
+  palette.id = shared ? 'shared' : kits[0];
+  palette.name = shared ? 'Shared kits' : kitMeta.get(kits[0])?.name ?? kits[0];
+  palette.note = palette.atlas
     ? null
     : 'No colormap: every material in this kit carries its own base colour.';
-  palet.atlasPad = !palet.atlas
+  palette.atlasPath = !palette.atlas
     ? null
-    : sleutel === gedeeldeSleutel
+    : key === sharedKey
       ? 'kits/colormap.png'
-      : palet.atlas.slice(ROOT.length + 1).split(sep).join('/');
+      : palette.atlas.slice(ROOT.length + 1).split(sep).join('/');
 }
 
-for (const model of modellen) {
-  const gelezen = perModelKleur.get(model.id);
-  const palet = paletten.get(gelezen?.paletSleutel);
-  if (!palet) continue;
-  model.palet = palet.id;
-  model.kleuren = [
+for (const model of models) {
+  const read = colorPerModel.get(model.id);
+  const palette = palettes.get(read?.paletteKey);
+  if (!palette) continue;
+  model.palette = palette.id;
+  model.colors = [
     ...new Set([
-      ...[...gelezen.banen].map((baan) => palet.baanKleur.get(baan)),
-      ...gelezen.materialen.keys(),
+      ...[...read.lanes].map((lane) => palette.laneColor.get(lane)),
+      ...read.materials.keys(),
     ]),
   ].sort();
 }
 
 for (const kit of kits) {
-  kit.palet = modellen.find((m) => m.kit === kit.slug && m.palet)?.palet ?? null;
+  kit.palette = models.find((m) => m.kit === kit.slug && m.palette)?.palette ?? null;
 }
 
-const kleurenPerPalet = new Map();
-for (const palet of paletten.values()) kleurenPerPalet.set(palet.id, new Map());
-for (const model of modellen) {
-  const kleuren = kleurenPerPalet.get(model.palet);
-  if (!kleuren) continue;
-  for (const hex of model.kleuren) kleuren.set(hex, (kleuren.get(hex) ?? 0) + 1);
+const colorsPerPalette = new Map();
+for (const palette of palettes.values()) colorsPerPalette.set(palette.id, new Map());
+for (const model of models) {
+  const colors = colorsPerPalette.get(model.palette);
+  if (!colors) continue;
+  for (const hex of model.colors) colors.set(hex, (colors.get(hex) ?? 0) + 1);
 }
 
-const catalogus = {
-  gegenereerd: 'node catalog/tools/build-catalog.mjs',
-  totaal: modellen.length,
+const catalog = {
+  generated: 'node catalog/tools/build-catalog.mjs',
+  total: models.length,
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
-  varianten: varianten.groepen,
+  variants: variants.groups,
   tags: tags.tags,
-  groepen: GROEPEN.map(({ beschrijving, ...g }) => ({
+  groups: GROUPS.map(({ description, ...g }) => ({
     ...g,
-    aantal: modellen.filter((m) => m.groep === g.id).length,
+    count: models.filter((m) => m.group === g.id).length,
   })),
-  paletten: [...paletten.values()]
+  palettes: [...palettes.values()]
     .map((p) => ({
       id: p.id,
-      naam: p.naam,
-      atlas: p.atlasPad,
-      toelichting: p.toelichting,
-      kleuren: [...(kleurenPerPalet.get(p.id) ?? new Map())]
-        .map(([hex, aantal]) => ({
+      name: p.name,
+      atlas: p.atlasPath,
+      note: p.note,
+      colors: [...(colorsPerPalette.get(p.id) ?? new Map())]
+        .map(([hex, count]) => ({
           hex,
-          naam: kleurNaam(hex),
-          textuur: [...p.baanKleur].filter(([, k]) => k === hex).map(([baan]) => `baan ${baan}`).join(' / ') || null,
-          materiaal: [...(p.materialen.get(hex) ?? [])].sort().join(' / ') || null,
-          aantal,
+          name: colorName(hex),
+          texture: [...p.laneColor].filter(([, k]) => k === hex).map(([lane]) => `lane ${lane}`).join(' / ') || null,
+          material: [...(p.materials.get(hex) ?? [])].sort().join(' / ') || null,
+          count,
         }))
-        .sort((a, b) => b.aantal - a.aantal || a.hex.localeCompare(b.hex)),
+        .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex)),
     }))
-    .filter((p) => p.kleuren.length > 0)
-    .sort((a, b) => b.kleuren.length - a.kleuren.length || a.id.localeCompare(b.id)),
-  modellen,
+    .filter((p) => p.colors.length > 0)
+    .sort((a, b) => b.colors.length - a.colors.length || a.id.localeCompare(b.id)),
+  models,
 };
 
-writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalogus, null, 1) + '\n');
+writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalog, null, 1) + '\n');
 
-const schaalgroepen = bouwSchaalgroepen(modellen, catalogus.kits);
-writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(schaalgroepen, null, 1) + '\n');
-const inSchaalgroep = schaalgroepen.reduce((som, g) => som + g.items.length, 0);
-console.log(`${schaalgroepen.length} families, ${inSchaalgroep} modellen → catalog/schaalgroepen.json`);
+const scaleGroups = buildScaleGroups(models, catalog.kits);
+writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, null, 1) + '\n');
+const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
+console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/schaalgroepen.json`);
 
-schrijfVersie();
+writeVersion();
 
-console.log(`${modellen.length} modellen in ${kits.length} kits → catalog/catalog.json`);
-for (const tag of tags.tags) console.log(`${tag.soort} ${tag.id}: ${tag.aantal} modellen`);
-for (const g of catalogus.groepen) {
-  console.log(`  ${String(g.aantal).padStart(3)}  ${g.naam}`);
+console.log(`${models.length} models in ${kits.length} kits → catalog/catalog.json`);
+for (const tag of tags.tags) console.log(`${tag.type} ${tag.id}: ${tag.count} models`);
+for (const g of catalog.groups) {
+  console.log(`  ${String(g.count).padStart(3)}  ${g.name}`);
 }
-for (const p of catalogus.paletten) {
-  console.log(`palet ${p.id} — ${p.kleuren.length} kleuren uit ${p.atlas ?? 'eigen materialen'}:`);
-  for (const k of p.kleuren) {
-    console.log(`  ${String(k.aantal).padStart(3)}  ${k.hex}  ${k.naam}`);
+for (const p of catalog.palettes) {
+  console.log(`palette ${p.id} — ${p.colors.length} colours from ${p.atlas ?? 'own materials'}:`);
+  for (const k of p.colors) {
+    console.log(`  ${String(k.count).padStart(3)}  ${k.hex}  ${k.name}`);
   }
 }
 
-const paletPerKit = new Map();
-for (const model of modellen) {
-  if (!paletPerKit.has(model.kit)) paletPerKit.set(model.kit, new Set());
-  if (model.palet) paletPerKit.get(model.kit).add(model.palet);
+const palettePerKit = new Map();
+for (const model of models) {
+  if (!palettePerKit.has(model.kit)) palettePerKit.set(model.kit, new Set());
+  if (model.palette) palettePerKit.get(model.kit).add(model.palette);
 }
-for (const [kit, gebruikt] of paletPerKit) {
-  if (gebruikt.size > 1) console.warn(`! ${kit} put uit meer dan één palet: ${[...gebruikt].join(', ')}`);
+for (const [kit, used] of palettePerKit) {
+  if (used.size > 1) console.warn(`! ${kit} draws from more than one palette: ${[...used].join(', ')}`);
 }
-const kitsPerPalet = new Map();
+const kitsPerPalette = new Map();
 for (const kit of kits) {
-  if (kit.palet) kitsPerPalet.set(kit.palet, (kitsPerPalet.get(kit.palet) ?? 0) + 1);
+  if (kit.palette) kitsPerPalette.set(kit.palette, (kitsPerPalette.get(kit.palette) ?? 0) + 1);
 }
 for (const kit of kits) {
-  if (kit.palet && kitsPerPalet.get(kit.palet) === 1 && !kit.tabblad && !kit.eigenPalet) {
-    console.warn(`! ${kit.slug} heeft een eigen palet maar geen "tabblad" in manifest.js`);
+  if (kit.palette && kitsPerPalette.get(kit.palette) === 1 && !kit.tab && !kit.ownPalette) {
+    console.warn(`! ${kit.slug} has its own palette but no "tabblad" in manifest.js`);
   }
 }
 
-const bovenBudget = modellen
-  .filter((m) => m.driehoekenPerUnit !== null && m.driehoekenPerUnit > BUDGET_PER_UNIT)
-  .sort((a, b) => b.driehoekenPerUnit - a.driehoekenPerUnit);
-const ERGSTE = 25;
-if (bovenBudget.length) {
-  console.warn(`! ${bovenBudget.length} modellen boven ${BUDGET_PER_UNIT} driehoeken per unit, de ergste ${Math.min(ERGSTE, bovenBudget.length)}:`);
-  for (const m of bovenBudget.slice(0, ERGSTE)) {
-    console.warn(`  ${String(m.driehoekenPerUnit).padStart(6)}  ${m.id}  (${m.driehoeken} tri, ${m.wdh.join(' × ')})`);
+const overBudget = models
+  .filter((m) => m.trianglesPerUnit !== null && m.trianglesPerUnit > BUDGET_PER_UNIT)
+  .sort((a, b) => b.trianglesPerUnit - a.trianglesPerUnit);
+const WORST = 25;
+if (overBudget.length) {
+  console.warn(`! ${overBudget.length} models over ${BUDGET_PER_UNIT} triangles per unit, the worst ${Math.min(WORST, overBudget.length)}:`);
+  for (const m of overBudget.slice(0, WORST)) {
+    console.warn(`  ${String(m.trianglesPerUnit).padStart(6)}  ${m.id}  (${m.triangles} tri, ${m.wdh.join(' × ')})`);
   }
-  if (bovenBudget.length > ERGSTE) {
-    console.warn(`  … en nog ${bovenBudget.length - ERGSTE}; de hele lijst staat in catalog.json`);
+  if (overBudget.length > WORST) {
+    console.warn(`  … and ${overBudget.length - WORST} more; the full list is in catalog.json`);
   }
 }
-const plat = modellen.filter((m) => m.driehoekenPerUnit === null);
-if (plat.length) {
-  console.warn(`! ${plat.length} platte modellen zonder volume, dus zonder dichtheid: ${plat.map((m) => m.id).join(', ')}`);
+const flat = models.filter((m) => m.trianglesPerUnit === null);
+if (flat.length) {
+  console.warn(`! ${flat.length} flat models without volume, so without density: ${flat.map((m) => m.id).join(', ')}`);
 }
 
-if (zonderMetadata.length) console.warn(`! geen metadata in manifest.js: ${zonderMetadata.join(', ')}`);
-if (zonderGroep.length) console.warn(`! geen semantische groep: ${zonderGroep.join(', ')}`);
-if (zonderKleur.length) {
-  console.warn(`! ${zonderKleur.length} modellen zonder kleur in de .glb (kleurfilter slaat ze over)`);
+if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
+if (noGroup.length) console.warn(`! no semantic group: ${noGroup.join(', ')}`);
+if (noColor.length) {
+  console.warn(`! ${noColor.length} models without colour in the .glb (colour filter skips them)`);
 }

@@ -1,190 +1,190 @@
-const RICHTINGEN = [
-  { id: 'links', teken: '←', naam: 'Left', standaard: 'Discard' },
-  { id: 'rechts', teken: '→', naam: 'Right', standaard: 'Keep' },
-  { id: 'omhoog', teken: '↑', naam: 'Up', standaard: 'Tag' },
-  { id: 'omlaag', teken: '↓', naam: 'Down', standaard: 'Later' },
+const DIRECTIONS = [
+  { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
+  { id: 'rechts', sign: '→', name: 'Right', default: 'Keep' },
+  { id: 'omhoog', sign: '↑', name: 'Up', default: 'Tag' },
+  { id: 'omlaag', sign: '↓', name: 'Down', default: 'Later' },
 ];
 
-const RICHTING_IDS = RICHTINGEN.map((r) => r.id);
-const OPSLAGSLEUTEL = 'taaleiland-swipe-v1';
-const drempel = () => Math.max(48, Math.min(96, innerWidth * 0.2));
-const VLAK_OMGEVING = 'effen-omgeving.png';
+const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
+const STORAGE_KEY = 'taaleiland-swipe-v1';
+const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
+const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 
-const getal = new Intl.NumberFormat('en-GB');
-const eenheid = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
+const number = new Intl.NumberFormat('en-GB');
+const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
 
-const bytesLeesbaar = (bytes) =>
+const readableBytes = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
-const afmeting = (wdh) =>
-  Array.isArray(wdh) ? `${wdh.map((v) => eenheid.format(v)).join(' × ')} units` : '—';
+const dimensions = (wdh) =>
+  Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
 
 const el = (sel) => document.querySelector(sel);
 
-const opzet = el('#opzet');
-const dek = el('#dek');
-const uitslag = el('#uitslag');
-const stapel = el('#stapel');
-const melding = el('#melding');
-const samenvatting = el('#samenvatting');
+const setup = el('#opzet');
+const deck = el('#dek');
+const results = el('#uitslag');
+const stack = el('#stapel');
+const notice = el('#melding');
+const summary = el('#samenvatting');
 
-const vlakkeModus = { aan: false };
+const flatMode = { on: false };
 
-const register = { modellen: [], perId: new Map(), kits: new Map(), groepen: new Map(), tags: new Map() };
+const register = { models: [], perId: new Map(), kits: new Map(), groups: new Map(), tags: new Map() };
 
-const staat = {
-  filters: { zoek: '', kits: [], groepen: [], tags: [], schud: false },
-  labels: Object.fromEntries(RICHTINGEN.map((r) => [r.id, r.standaard])),
-  volgorde: [],
-  keuzes: [],
-  begonnen: false,
+const state = {
+  filters: { search: '', kits: [], groups: [], tags: [], shuffle: false },
+  labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, r.default])),
+  order: [],
+  choices: [],
+  started: false,
 };
 
-function bewaar() {
+function save() {
   try {
-    localStorage.setItem(OPSLAGSLEUTEL, JSON.stringify(staat));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {}
 }
 
-function laad() {
-  let opgeslagen;
+function load() {
+  let stored;
   try {
-    opgeslagen = JSON.parse(localStorage.getItem(OPSLAGSLEUTEL) ?? 'null');
+    stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
   } catch {
     return;
   }
-  if (!opgeslagen || typeof opgeslagen !== 'object') return;
+  if (!stored || typeof stored !== 'object') return;
 
-  Object.assign(staat.filters, opgeslagen.filters ?? {});
-  for (const richting of RICHTING_IDS) {
-    if (typeof opgeslagen.labels?.[richting] === 'string') staat.labels[richting] = opgeslagen.labels[richting];
+  Object.assign(state.filters, stored.filters ?? {});
+  for (const direction of DIRECTION_IDS) {
+    if (typeof stored.labels?.[direction] === 'string') state.labels[direction] = stored.labels[direction];
   }
-  staat.volgorde = (opgeslagen.volgorde ?? []).filter((id) => register.perId.has(id));
-  staat.keuzes = (opgeslagen.keuzes ?? []).filter(
-    (k) => register.perId.has(k?.id) && RICHTING_IDS.includes(k?.richting),
+  state.order = (stored.order ?? []).filter((id) => register.perId.has(id));
+  state.choices = (stored.choices ?? []).filter(
+    (k) => register.perId.has(k?.id) && DIRECTION_IDS.includes(k?.direction),
   );
-  staat.begonnen = Boolean(opgeslagen.begonnen) && staat.volgorde.length > 0;
+  state.started = Boolean(stored.started) && state.order.length > 0;
 }
 
-const labelVan = (richting) => staat.labels[richting]?.trim() || RICHTINGEN.find((r) => r.id === richting).standaard;
+const labelFor = (direction) => state.labels[direction]?.trim() || DIRECTIONS.find((r) => r.id === direction).default;
 
-const keuzePerId = () => new Map(staat.keuzes.map((k) => [k.id, k.richting]));
+const choicePerId = () => new Map(state.choices.map((k) => [k.id, k.direction]));
 
-function resterend() {
-  const beslist = keuzePerId();
-  return staat.volgorde.filter((id) => !beslist.has(id));
+function remaining() {
+  const decided = choicePerId();
+  return state.order.filter((id) => !decided.has(id));
 }
 
-function past(model) {
-  const { zoek, kits, groepen, tags = [] } = staat.filters;
+function matches(model) {
+  const { search, kits, groups, tags = [] } = state.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
-  if (groepen.length && !groepen.includes(model.groep)) return false;
+  if (groups.length && !groups.includes(model.group)) return false;
   if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
-  if (zoek) {
-    const naald = zoek.toLowerCase();
-    if (!`${model.naam} ${model.kit} ${model.groep}`.toLowerCase().includes(naald)) return false;
+  if (search) {
+    const needle = search.toLowerCase();
+    if (!`${model.name} ${model.kit} ${model.group}`.toLowerCase().includes(needle)) return false;
   }
   return true;
 }
 
-function schud(lijst) {
-  const uit = [...lijst];
-  for (let i = uit.length - 1; i > 0; i--) {
+function shuffle(list) {
+  const out = [...list];
+  for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [uit[i], uit[j]] = [uit[j], uit[i]];
+    [out[i], out[j]] = [out[j], out[i]];
   }
-  return uit;
+  return out;
 }
 
-function toon(scherm) {
-  document.body.dataset.scherm = scherm;
-  opzet.hidden = scherm !== 'opzet';
-  dek.hidden = scherm !== 'dek';
-  uitslag.hidden = scherm !== 'uitslag';
-  if (scherm === 'dek') tekenDek();
-  if (scherm === 'uitslag') tekenUitslag();
-  werkSamenvattingBij();
+function show(screen) {
+  document.body.dataset.scherm = screen;
+  setup.hidden = screen !== 'opzet';
+  deck.hidden = screen !== 'dek';
+  results.hidden = screen !== 'uitslag';
+  if (screen === 'dek') drawDeck();
+  if (screen === 'uitslag') drawResults();
+  updateSummary();
 }
 
-function werkSamenvattingBij() {
-  const totaal = staat.volgorde.length;
-  if (!totaal) {
-    samenvatting.textContent = 'No models in this selection — adjust the settings.';
+function updateSummary() {
+  const total = state.order.length;
+  if (!total) {
+    summary.textContent = 'No models in this selection — adjust the settings.';
     return;
   }
-  const gedaan = staat.keuzes.length;
-  const delen = RICHTINGEN.map((r) => {
-    const aantal = staat.keuzes.filter((k) => k.richting === r.id).length;
-    return `${r.teken} ${labelVan(r.id)} ${aantal}`;
+  const done = state.choices.length;
+  const parts = DIRECTIONS.map((r) => {
+    const count = state.choices.filter((k) => k.direction === r.id).length;
+    return `${r.sign} ${labelFor(r.id)} ${count}`;
   });
-  samenvatting.textContent = `${getal.format(gedaan)} of ${getal.format(totaal)} judged · ${delen.join(' · ')}`;
+  summary.textContent = `${number.format(done)} of ${number.format(total)} judged · ${parts.join(' · ')}`;
 }
 
-function vinklijst(houder, items, gekozen) {
-  houder.replaceChildren();
+function checklist(container, items, chosen) {
+  container.replaceChildren();
   for (const item of items) {
     const label = document.createElement('label');
-    const vinkje = document.createElement('input');
-    vinkje.type = 'checkbox';
-    vinkje.value = item.id;
-    vinkje.checked = gekozen.includes(item.id);
-    const naam = document.createElement('span');
-    naam.textContent = item.naam;
-    const aantal = document.createElement('span');
-    aantal.className = 'aantal-mee';
-    aantal.textContent = getal.format(item.aantal);
-    label.append(vinkje, naam, aantal);
-    houder.append(label);
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = item.id;
+    checkbox.checked = chosen.includes(item.id);
+    const name = document.createElement('span');
+    name.textContent = item.name;
+    const count = document.createElement('span');
+    count.className = 'aantal-mee';
+    count.textContent = number.format(item.count);
+    label.append(checkbox, name, count);
+    container.append(label);
   }
 }
 
-function gekozenWaarden(houder) {
-  return [...houder.querySelectorAll('input:checked')].map((v) => v.value);
+function chosenValues(container) {
+  return [...container.querySelectorAll('input:checked')].map((v) => v.value);
 }
 
-function opzetFilters() {
+function setupFilters() {
   return {
-    zoek: el('#zoek').value.trim(),
-    kits: gekozenWaarden(el('#kitlijst')),
-    groepen: gekozenWaarden(el('#groeplijst')),
-    tags: gekozenWaarden(el('#taglijst')),
-    schud: el('#schud').checked,
+    search: el('#zoek').value.trim(),
+    kits: chosenValues(el('#kitlijst')),
+    groups: chosenValues(el('#groeplijst')),
+    tags: chosenValues(el('#taglijst')),
+    shuffle: el('#schud').checked,
   };
 }
 
-function opzetTelling() {
-  const eerder = staat.filters;
-  staat.filters = opzetFilters();
-  const aantal = register.modellen.filter(past).length;
-  staat.filters = eerder;
-  el('#opzet-telling').textContent = `${getal.format(aantal)} model${aantal === 1 ? '' : 's'} in this selection`;
-  el('#opzet-start').disabled = aantal === 0;
+function setupCount() {
+  const previous = state.filters;
+  state.filters = setupFilters();
+  const count = register.models.filter(matches).length;
+  state.filters = previous;
+  el('#opzet-telling').textContent = `${number.format(count)} model${count === 1 ? '' : 's'} in this selection`;
+  el('#opzet-start').disabled = count === 0;
 }
 
-function vulOpzet() {
+function fillSetup() {
   const kits = [...register.kits.values()]
-    .map((k) => ({ id: k.slug, naam: k.naam, aantal: register.modellen.filter((m) => m.kit === k.slug).length }))
-    .filter((k) => k.aantal > 0);
-  const groepen = [...register.groepen.values()]
-    .map((g) => ({ id: g.id, naam: g.naam, aantal: register.modellen.filter((m) => m.groep === g.id).length }))
-    .filter((g) => g.aantal > 0);
+    .map((k) => ({ id: k.slug, name: k.name, count: register.models.filter((m) => m.kit === k.slug).length }))
+    .filter((k) => k.count > 0);
+  const groups = [...register.groups.values()]
+    .map((g) => ({ id: g.id, name: g.name, count: register.models.filter((m) => m.group === g.id).length }))
+    .filter((g) => g.count > 0);
 
   const tags = [...register.tags.values()]
-    .map((t) => ({ id: t.id, naam: t.naam, aantal: register.modellen.filter((m) => (m.tags ?? []).includes(t.id)).length }))
-    .filter((t) => t.aantal > 0);
+    .map((t) => ({ id: t.id, name: t.name, count: register.models.filter((m) => (m.tags ?? []).includes(t.id)).length }))
+    .filter((t) => t.count > 0);
 
-  vinklijst(el('#kitlijst'), kits, staat.filters.kits);
-  vinklijst(el('#groeplijst'), groepen, staat.filters.groepen);
-  vinklijst(el('#taglijst'), tags, staat.filters.tags ?? []);
-  el('#zoek').value = staat.filters.zoek;
-  el('#schud').checked = staat.filters.schud;
-  for (const richting of RICHTINGEN) el(`#label-${richting.id}`).value = staat.labels[richting.id];
-  opzetTelling();
+  checklist(el('#kitlijst'), kits, state.filters.kits);
+  checklist(el('#groeplijst'), groups, state.filters.groups);
+  checklist(el('#taglijst'), tags, state.filters.tags ?? []);
+  el('#zoek').value = state.filters.search;
+  el('#schud').checked = state.filters.shuffle;
+  for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
+  setupCount();
 }
 
-function zetBelichting(viewer) {
-  if (vlakkeModus.aan) {
-    viewer.setAttribute('environment-image', VLAK_OMGEVING);
+function setLighting(viewer) {
+  if (flatMode.on) {
+    viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0');
     viewer.setAttribute('exposure', '1.3');
   } else {
@@ -194,145 +194,145 @@ function zetBelichting(viewer) {
   }
 }
 
-function maakKaart(model, diepte) {
+function makeCard(model, depth) {
   const kit = register.kits.get(model.kit);
-  const groep = register.groepen.get(model.groep);
+  const group = register.groups.get(model.group);
 
-  const kaart = document.createElement('article');
-  kaart.className = 'swipe-kaart';
-  kaart.dataset.diepte = String(diepte);
-  kaart.dataset.id = model.id;
+  const card = document.createElement('article');
+  card.className = 'swipe-kaart';
+  card.dataset.diepte = String(depth);
+  card.dataset.id = model.id;
 
-  const vak = document.createElement('div');
-  vak.className = 'swipe-viewer';
+  const box = document.createElement('div');
+  box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
-  viewer.src = `../${model.pad}`;
-  viewer.alt = `3D-model ${model.naam} uit ${kit?.naam ?? model.kit}`;
+  viewer.src = `../${model.path}`;
+  viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('loading', 'eager');
-  zetBelichting(viewer);
-  vak.append(viewer);
+  setLighting(viewer);
+  box.append(viewer);
 
-  const tekst = document.createElement('div');
-  tekst.className = 'swipe-tekst';
-  const naam = document.createElement('h2');
-  naam.textContent = model.naam;
-  const herkomst = document.createElement('p');
-  herkomst.className = 'herkomst';
-  herkomst.textContent = `${kit?.naam ?? model.kit} · ${groep?.naam ?? model.groep}`;
+  const text = document.createElement('div');
+  text.className = 'swipe-tekst';
+  const name = document.createElement('h2');
+  name.textContent = model.name;
+  const origin = document.createElement('p');
+  origin.className = 'herkomst';
+  origin.textContent = `${kit?.name ?? model.kit} · ${group?.name ?? model.group}`;
   const meta = document.createElement('p');
   meta.className = 'meta';
   meta.textContent = [
-    afmeting(model.wdh),
-    `${getal.format(model.driehoeken)} triangles`,
-    `${getal.format(model.materialen)} material${model.materialen === 1 ? '' : 's'}`,
-    bytesLeesbaar(model.bytes),
+    dimensions(model.wdh),
+    `${number.format(model.triangles)} triangles`,
+    `${number.format(model.materials)} material${model.materials === 1 ? '' : 's'}`,
+    readableBytes(model.bytes),
   ].join(' · ');
-  const pad = document.createElement('p');
-  pad.className = 'pad';
-  pad.textContent = model.pad;
-  tekst.append(naam, herkomst, meta, pad);
+  const path = document.createElement('p');
+  path.className = 'pad';
+  path.textContent = model.path;
+  text.append(name, origin, meta, path);
 
-  const draai = document.createElement('button');
-  draai.type = 'button';
-  draai.className = 'knop draaiknop';
-  draai.textContent = '⟲ Rotate';
-  draai.title = 'Zet slepen even uit zodat je het model kunt ronddraaien';
-  draai.setAttribute('aria-pressed', 'false');
-  draai.addEventListener('click', () => {
-    const aan = !viewer.hasAttribute('camera-controls');
-    viewer.toggleAttribute('camera-controls', aan);
-    kaart.toggleAttribute('data-draaien', aan);
-    draai.setAttribute('aria-pressed', String(aan));
-    draai.textContent = aan ? '⟲ Rotating' : '⟲ Rotate';
+  const rotate = document.createElement('button');
+  rotate.type = 'button';
+  rotate.className = 'knop draaiknop';
+  rotate.textContent = '⟲ Rotate';
+  rotate.title = 'Temporarily disable dragging so you can spin the model';
+  rotate.setAttribute('aria-pressed', 'false');
+  rotate.addEventListener('click', () => {
+    const on = !viewer.hasAttribute('camera-controls');
+    viewer.toggleAttribute('camera-controls', on);
+    card.toggleAttribute('data-draaien', on);
+    rotate.setAttribute('aria-pressed', String(on));
+    rotate.textContent = on ? '⟲ Rotating' : '⟲ Rotate';
   });
 
-  const stempel = document.createElement('span');
-  stempel.className = 'stempel';
+  const stamp = document.createElement('span');
+  stamp.className = 'stempel';
 
-  kaart.append(vak, tekst, draai, stempel);
-  if (diepte === 0) maakSleepbaar(kaart);
-  return kaart;
+  card.append(box, text, rotate, stamp);
+  if (depth === 0) makeDraggable(card);
+  return card;
 }
 
-function tekenDek() {
-  const wachtrij = resterend();
+function drawDeck() {
+  const queue = remaining();
   el('#voortgang-vulling').style.width =
-    staat.volgorde.length ? `${(staat.keuzes.length / staat.volgorde.length) * 100}%` : '0';
-  el('#voortgang-tekst').textContent = `${getal.format(staat.keuzes.length)} / ${getal.format(staat.volgorde.length)}`;
-  el('#terug').disabled = staat.keuzes.length === 0;
+    state.order.length ? `${(state.choices.length / state.order.length) * 100}%` : '0';
+  el('#voortgang-tekst').textContent = `${number.format(state.choices.length)} / ${number.format(state.order.length)}`;
+  el('#terug').disabled = state.choices.length === 0;
 
-  for (const richting of RICHTINGEN) {
-    const label = labelVan(richting.id);
-    el(`.dek-rand-${richting.id} span`).textContent = label;
-    el(`.richtingknop[data-richting="${richting.id}"] span`).textContent = label;
+  for (const direction of DIRECTIONS) {
+    const label = labelFor(direction.id);
+    el(`.dek-rand-${direction.id} span`).textContent = label;
+    el(`.richtingknop[data-richting="${direction.id}"] span`).textContent = label;
   }
 
-  if (wachtrij.length === 0) {
-    stapel.replaceChildren();
-    const klaar = document.createElement('p');
-    klaar.className = 'bak-leeg';
-    klaar.textContent = 'Alles beoordeeld — bekijk de uitslag.';
-    stapel.append(klaar);
-    if (staat.volgorde.length) toon('uitslag');
+  if (queue.length === 0) {
+    stack.replaceChildren();
+    const done = document.createElement('p');
+    done.className = 'bak-leeg';
+    done.textContent = 'All judged — check out the results.';
+    stack.append(done);
+    if (state.order.length) show('uitslag');
     return;
   }
 
-  const gewenst = wachtrij.slice(0, 2);
-  const levend = [...stapel.querySelectorAll('.swipe-kaart:not(.weg)')];
-  const huidig = levend.map((k) => k.dataset.id).reverse();
+  const wanted = queue.slice(0, 2);
+  const alive = [...stack.querySelectorAll('.swipe-kaart:not(.weg)')];
+  const current = alive.map((k) => k.dataset.id).reverse();
 
-  if (huidig.join() !== gewenst.join()) {
-    const hergebruik = new Map(levend.map((k) => [k.dataset.id, k]));
-    const kaarten = gewenst.map((id, i) => {
-      const kaart = hergebruik.get(id) ?? maakKaart(register.perId.get(id), i);
-      kaart.dataset.diepte = String(i);
+  if (current.join() !== wanted.join()) {
+    const reuse = new Map(alive.map((k) => [k.dataset.id, k]));
+    const cards = wanted.map((id, i) => {
+      const card = reuse.get(id) ?? makeCard(register.perId.get(id), i);
+      card.dataset.diepte = String(i);
       if (i === 0) {
-        kaart.classList.remove('veert');
-        kaart.style.transform = '';
-        maakSleepbaar(kaart);
+        card.classList.remove('veert');
+        card.style.transform = '';
+        makeDraggable(card);
       }
-      return kaart;
+      return card;
     });
-    stapel.replaceChildren(...kaarten.reverse());
+    stack.replaceChildren(...cards.reverse());
   }
-  werkSamenvattingBij();
+  updateSummary();
 }
 
-function markeerRand(richting) {
-  for (const rand of document.querySelectorAll('.dek-rand')) {
-    if (rand.dataset.richting === richting) rand.dataset.actief = '';
-    else delete rand.dataset.actief;
+function markEdge(direction) {
+  for (const edge of document.querySelectorAll('.dek-rand')) {
+    if (edge.dataset.richting === direction) edge.dataset.actief = '';
+    else delete edge.dataset.actief;
   }
 }
 
-function richtingVan(dx, dy) {
-  if (Math.max(Math.abs(dx), Math.abs(dy)) < drempel()) return null;
+function directionFrom(dx, dy) {
+  if (Math.max(Math.abs(dx), Math.abs(dy)) < threshold()) return null;
   if (Math.abs(dx) >= Math.abs(dy)) return dx < 0 ? 'links' : 'rechts';
   return dy < 0 ? 'omhoog' : 'omlaag';
 }
 
-function maakSleepbaar(kaart) {
-  if (kaart.dataset.sleep) return;
-  kaart.dataset.sleep = 'ja';
-  const stempel = kaart.querySelector('.stempel');
+function makeDraggable(card) {
+  if (card.dataset.sleep) return;
+  card.dataset.sleep = 'ja';
+  const stamp = card.querySelector('.stempel');
   let start = null;
 
-  const beweeg = (e) => {
+  const move = (e) => {
     if (!start) return;
     const dx = e.clientX - start.x;
     const dy = e.clientY - start.y;
-    kaart.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx / 28}deg)`;
-    const richting = richtingVan(dx, dy);
-    markeerRand(richting);
-    if (richting) {
-      stempel.dataset.richting = richting;
-      stempel.textContent = labelVan(richting);
-      stempel.style.opacity = String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / (drempel() * 1.6)));
+    card.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx / 28}deg)`;
+    const direction = directionFrom(dx, dy);
+    markEdge(direction);
+    if (direction) {
+      stamp.dataset.richting = direction;
+      stamp.textContent = labelFor(direction);
+      stamp.style.opacity = String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / (threshold() * 1.6)));
     } else {
-      stempel.style.opacity = '0';
+      stamp.style.opacity = '0';
     }
   };
 
@@ -340,316 +340,316 @@ function maakSleepbaar(kaart) {
     if (!start) return;
     const dx = e.clientX - start.x;
     const dy = e.clientY - start.y;
-    kaart.releasePointerCapture?.(start.id);
+    card.releasePointerCapture?.(start.id);
     start = null;
-    kaart.removeEventListener('pointermove', beweeg);
-    markeerRand(null);
-    const richting = richtingVan(dx, dy);
-    if (richting) {
-      kies(richting);
+    card.removeEventListener('pointermove', move);
+    markEdge(null);
+    const direction = directionFrom(dx, dy);
+    if (direction) {
+      choose(direction);
     } else {
-      stempel.style.opacity = '0';
-      kaart.classList.add('veert');
-      kaart.style.transform = '';
-      setTimeout(() => kaart.classList.remove('veert'), 220);
+      stamp.style.opacity = '0';
+      card.classList.add('veert');
+      card.style.transform = '';
+      setTimeout(() => card.classList.remove('veert'), 220);
     }
   };
 
-  kaart.addEventListener('pointerdown', (e) => {
+  card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
     if (e.target.closest('button')) return;
-    if (kaart.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
+    if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
-    kaart.setPointerCapture(e.pointerId);
-    kaart.addEventListener('pointermove', beweeg);
+    card.setPointerCapture(e.pointerId);
+    card.addEventListener('pointermove', move);
   });
-  kaart.addEventListener('pointerup', stop);
-  kaart.addEventListener('pointercancel', stop);
+  card.addEventListener('pointerup', stop);
+  card.addEventListener('pointercancel', stop);
 }
 
-const VERPLAATSING = {
+const OFFSCREEN = {
   links: 'translate(-120vw, 0) rotate(-18deg)',
   rechts: 'translate(120vw, 0) rotate(18deg)',
   omhoog: 'translate(0, -120vh)',
   omlaag: 'translate(0, 120vh)',
 };
 
-function kies(richting) {
-  const wachtrij = resterend();
-  const id = wachtrij[0];
+function choose(direction) {
+  const queue = remaining();
+  const id = queue[0];
   if (!id) return;
 
-  const kaart = stapel.querySelector('.swipe-kaart[data-diepte="0"]:not(.weg)');
-  staat.keuzes.push({ id, richting });
-  bewaar();
+  const card = stack.querySelector('.swipe-kaart[data-diepte="0"]:not(.weg)');
+  state.choices.push({ id, direction });
+  save();
 
-  if (kaart) {
-    kaart.classList.add('weg');
-    kaart.style.transform = VERPLAATSING[richting];
-    kaart.addEventListener('transitionend', () => kaart.remove(), { once: true });
-    setTimeout(() => kaart.remove(), 400);
-    setTimeout(tekenDek, 180);
+  if (card) {
+    card.classList.add('weg');
+    card.style.transform = OFFSCREEN[direction];
+    card.addEventListener('transitionend', () => card.remove(), { once: true });
+    setTimeout(() => card.remove(), 400);
+    setTimeout(drawDeck, 180);
   } else {
-    tekenDek();
+    drawDeck();
   }
-  werkSamenvattingBij();
+  updateSummary();
 }
 
-function draaiTerug(id) {
-  const index = id ? staat.keuzes.findLastIndex((k) => k.id === id) : staat.keuzes.length - 1;
+function undo(id) {
+  const index = id ? state.choices.findLastIndex((k) => k.id === id) : state.choices.length - 1;
   if (index === -1) return;
-  staat.keuzes.splice(index, 1);
-  bewaar();
-  stapel.replaceChildren();
-  if (uitslag.hidden) tekenDek();
-  else tekenUitslag();
-  werkSamenvattingBij();
+  state.choices.splice(index, 1);
+  save();
+  stack.replaceChildren();
+  if (results.hidden) drawDeck();
+  else drawResults();
+  updateSummary();
 }
 
-function regels() {
-  return staat.keuzes.map(({ id, richting }) => {
+function rows() {
+  return state.choices.map(({ id, direction }) => {
     const model = register.perId.get(id);
     return {
       id,
-      naam: model.naam,
+      name: model.name,
       kit: model.kit,
-      groep: model.groep,
-      pad: model.pad,
-      richting,
-      label: labelVan(richting),
+      group: model.group,
+      path: model.path,
+      direction,
+      label: labelFor(direction),
     };
   });
 }
 
-async function kopieer(tekst, knop) {
-  const oud = knop.textContent;
+async function copy(text, button) {
+  const old = button.textContent;
   try {
-    await navigator.clipboard.writeText(tekst);
-    knop.textContent = 'Gekopieerd';
+    await navigator.clipboard.writeText(text);
+    button.textContent = 'Copied';
   } catch {
-    knop.textContent = 'Kopiëren mislukt';
+    button.textContent = 'Copy failed';
   }
-  setTimeout(() => { knop.textContent = oud; }, 1400);
+  setTimeout(() => { button.textContent = old; }, 1400);
 }
 
-function kopieerknop(tekst, label, lijst) {
-  const knop = document.createElement('button');
-  knop.type = 'button';
-  knop.className = 'knop';
-  knop.textContent = label;
-  knop.disabled = lijst.length === 0;
-  knop.addEventListener('click', () => kopieer(tekst, knop));
-  return knop;
+function copyButton(text, label, list) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'knop';
+  button.textContent = label;
+  button.disabled = list.length === 0;
+  button.addEventListener('click', () => copy(text, button));
+  return button;
 }
 
-function tekenUitslag() {
-  const bakken = el('#uitslag-bakken');
-  bakken.replaceChildren();
-  const alle = regels();
+function drawResults() {
+  const bins = el('#uitslag-bakken');
+  bins.replaceChildren();
+  const all = rows();
 
-  for (const richting of RICHTINGEN) {
-    const lijst = alle.filter((r) => r.richting === richting.id);
-    const bak = document.createElement('section');
-    bak.className = 'bak';
-    bak.dataset.richting = richting.id;
+  for (const direction of DIRECTIONS) {
+    const list = all.filter((r) => r.direction === direction.id);
+    const bin = document.createElement('section');
+    bin.className = 'bak';
+    bin.dataset.richting = direction.id;
 
-    const kop = document.createElement('div');
-    kop.className = 'bak-kop';
-    const titel = document.createElement('h3');
-    titel.textContent = `${richting.teken} ${labelVan(richting.id)}`;
-    const aantal = document.createElement('span');
-    aantal.className = 'aantal';
-    aantal.textContent = `${getal.format(lijst.length)}`;
-    kop.append(titel, aantal);
-    bak.append(kop);
+    const head = document.createElement('div');
+    head.className = 'bak-kop';
+    const title = document.createElement('h3');
+    title.textContent = `${direction.sign} ${labelFor(direction.id)}`;
+    const count = document.createElement('span');
+    count.className = 'aantal';
+    count.textContent = `${number.format(list.length)}`;
+    head.append(title, count);
+    bin.append(head);
 
-    if (lijst.length === 0) {
-      const leeg = document.createElement('p');
-      leeg.className = 'bak-leeg';
-      leeg.textContent = 'Nog niets in deze richting.';
-      bak.append(leeg);
+    if (list.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'bak-leeg';
+      empty.textContent = 'Nothing in this direction yet.';
+      bin.append(empty);
     } else {
       const ul = document.createElement('ul');
       ul.className = 'bak-lijst';
-      for (const regel of lijst) {
+      for (const row of list) {
         const li = document.createElement('li');
-        const naam = document.createElement('span');
-        naam.className = 'naam';
-        naam.textContent = regel.naam;
-        naam.title = regel.pad;
+        const name = document.createElement('span');
+        name.className = 'naam';
+        name.textContent = row.name;
+        name.title = row.path;
         const kit = document.createElement('span');
         kit.className = 'kit';
-        kit.textContent = regel.kit;
-        const terug = document.createElement('button');
-        terug.type = 'button';
-        terug.textContent = '↺';
-        terug.title = 'Terug in de stapel';
-        terug.addEventListener('click', () => draaiTerug(regel.id));
-        li.append(naam, kit, terug);
+        kit.textContent = row.kit;
+        const back = document.createElement('button');
+        back.type = 'button';
+        back.textContent = '↺';
+        back.title = 'Put back in the stack';
+        back.addEventListener('click', () => undo(row.id));
+        li.append(name, kit, back);
         ul.append(li);
       }
-      bak.append(ul);
+      bin.append(ul);
     }
 
-    const acties = document.createElement('div');
-    acties.className = 'bak-acties';
-    acties.append(
-      kopieerknop(lijst.map((r) => r.pad).join('\n'), 'Kopieer paden', lijst),
-      kopieerknop(lijst.map((r) => r.id).join('\n'), "Kopieer id's", lijst),
+    const actions = document.createElement('div');
+    actions.className = 'bak-acties';
+    actions.append(
+      copyButton(list.map((r) => r.path).join('\n'), 'Copy paths', list),
+      copyButton(list.map((r) => r.id).join('\n'), 'Copy ids', list),
     );
-    bak.append(acties);
-    bakken.append(bak);
+    bin.append(actions);
+    bins.append(bin);
   }
 
-  const open = resterend().length;
+  const open = remaining().length;
   const rest = document.createElement('section');
   rest.className = 'bak';
-  const restKop = document.createElement('div');
-  restKop.className = 'bak-kop';
-  const restTitel = document.createElement('h3');
-  restTitel.textContent = 'Nog te doen';
-  const restAantal = document.createElement('span');
-  restAantal.className = 'aantal';
-  restAantal.textContent = getal.format(open);
-  restKop.append(restTitel, restAantal);
-  const restTekst = document.createElement('p');
-  restTekst.className = 'bak-leeg';
-  restTekst.textContent = open
-    ? 'Ga verder met swipen om deze modellen te beoordelen.'
-    : 'Alle modellen in deze selectie zijn beoordeeld.';
-  rest.append(restKop, restTekst);
-  bakken.append(rest);
+  const restHead = document.createElement('div');
+  restHead.className = 'bak-kop';
+  const restTitle = document.createElement('h3');
+  restTitle.textContent = 'Still to do';
+  const restCount = document.createElement('span');
+  restCount.className = 'aantal';
+  restCount.textContent = number.format(open);
+  restHead.append(restTitle, restCount);
+  const restText = document.createElement('p');
+  restText.className = 'bak-leeg';
+  restText.textContent = open
+    ? 'Keep swiping to judge these models.'
+    : 'All models in this selection have been judged.';
+  rest.append(restHead, restText);
+  bins.append(rest);
 
   el('#verder').disabled = open === 0;
 }
 
-function bestand(naam, inhoud, type) {
-  const blob = new Blob([inhoud], { type });
+function file(name, content, type) {
+  const blob = new Blob([content], { type });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = naam;
+  link.download = name;
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-const stempelTijd = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+const timeStamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
 
-function exporteerJson() {
-  const alle = regels();
-  const inhoud = {
-    gereedschap: 'catalog/swipe.html',
-    gemaakt: new Date().toISOString(),
-    filters: staat.filters,
-    richtingen: Object.fromEntries(
-      RICHTINGEN.map((r) => [
+function exportJson() {
+  const all = rows();
+  const content = {
+    tool: 'catalog/swipe.html',
+    created: new Date().toISOString(),
+    filters: state.filters,
+    directions: Object.fromEntries(
+      DIRECTIONS.map((r) => [
         r.id,
-        { label: labelVan(r.id), paden: alle.filter((x) => x.richting === r.id).map((x) => x.pad) },
+        { label: labelFor(r.id), paths: all.filter((x) => x.direction === r.id).map((x) => x.path) },
       ]),
     ),
-    keuzes: alle,
-    nogTeDoen: resterend().map((id) => register.perId.get(id).pad),
+    choices: all,
+    stillToDo: remaining().map((id) => register.perId.get(id).path),
   };
-  bestand(`swipe-${stempelTijd()}.json`, JSON.stringify(inhoud, null, 1) + '\n', 'application/json');
+  file(`swipe-${timeStamp()}.json`, JSON.stringify(content, null, 1) + '\n', 'application/json');
 }
 
-function exporteerCsv() {
-  const cel = (waarde) => `"${String(waarde).replaceAll('"', '""')}"`;
-  const rijen = [
-    ['richting', 'label', 'id', 'naam', 'kit', 'groep', 'pad'],
-    ...regels().map((r) => [r.richting, r.label, r.id, r.naam, r.kit, r.groep, r.pad]),
+function exportCsv() {
+  const cell = (value) => `"${String(value).replaceAll('"', '""')}"`;
+  const rowsOut = [
+    ['direction', 'label', 'id', 'name', 'kit', 'group', 'path'],
+    ...rows().map((r) => [r.direction, r.label, r.id, r.name, r.kit, r.group, r.path]),
   ];
-  bestand(`swipe-${stempelTijd()}.csv`, rijen.map((rij) => rij.map(cel).join(',')).join('\n') + '\n', 'text/csv');
+  file(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
 }
 
 async function start() {
-  const respons = await fetch('catalog.json');
-  if (!respons.ok) throw new Error(`catalog.json niet gevonden (${respons.status})`);
-  const data = await respons.json();
+  const response = await fetch('catalog.json');
+  if (!response.ok) throw new Error(`catalog.json not found (${response.status})`);
+  const data = await response.json();
 
-  register.modellen = data.modellen;
-  register.perId = new Map(data.modellen.map((m) => [m.id, m]));
+  register.models = data.models;
+  register.perId = new Map(data.models.map((m) => [m.id, m]));
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
-  register.groepen = new Map(data.groepen.map((g) => [g.id, g]));
+  register.groups = new Map(data.groups.map((g) => [g.id, g]));
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
-  laad();
+  load();
 
   el('#opzet-formulier').addEventListener('submit', (e) => {
     e.preventDefault();
-    staat.filters = opzetFilters();
-    for (const richting of RICHTINGEN) staat.labels[richting.id] = el(`#label-${richting.id}`).value.trim() || richting.standaard;
-    const selectie = register.modellen.filter(past).map((m) => m.id);
-    staat.volgorde = staat.filters.schud ? schud(selectie) : selectie;
-    const inSelectie = new Set(staat.volgorde);
-    staat.keuzes = staat.keuzes.filter((k) => inSelectie.has(k.id));
-    staat.begonnen = true;
-    bewaar();
-    stapel.replaceChildren();
-    toon('dek');
+    state.filters = setupFilters();
+    for (const direction of DIRECTIONS) state.labels[direction.id] = el(`#label-${direction.id}`).value.trim() || direction.default;
+    const selection = register.models.filter(matches).map((m) => m.id);
+    state.order = state.filters.shuffle ? shuffle(selection) : selection;
+    const inSelection = new Set(state.order);
+    state.choices = state.choices.filter((k) => inSelection.has(k.id));
+    state.started = true;
+    save();
+    stack.replaceChildren();
+    show('dek');
   });
 
-  el('#opzet-formulier').addEventListener('input', opzetTelling);
-  el('#opzet-annuleer').addEventListener('click', () => toon('dek'));
-  el('#instellingen').addEventListener('click', () => { vulOpzet(); toon('opzet'); });
-  el('#naar-uitslag').addEventListener('click', () => toon('uitslag'));
-  el('#verder').addEventListener('click', () => toon('dek'));
-  el('#terug').addEventListener('click', () => draaiTerug());
-  el('#download-json').addEventListener('click', exporteerJson);
-  el('#download-csv').addEventListener('click', exporteerCsv);
+  el('#opzet-formulier').addEventListener('input', setupCount);
+  el('#opzet-annuleer').addEventListener('click', () => show('dek'));
+  el('#instellingen').addEventListener('click', () => { fillSetup(); show('opzet'); });
+  el('#naar-uitslag').addEventListener('click', () => show('uitslag'));
+  el('#verder').addEventListener('click', () => show('dek'));
+  el('#terug').addEventListener('click', () => undo());
+  el('#download-json').addEventListener('click', exportJson);
+  el('#download-csv').addEventListener('click', exportCsv);
   el('#wis-alles').addEventListener('click', () => {
-    if (!confirm('Alle keuzes wissen?')) return;
-    staat.keuzes = [];
-    bewaar();
-    tekenUitslag();
-    werkSamenvattingBij();
+    if (!confirm('Clear all choices?')) return;
+    state.choices = [];
+    save();
+    drawResults();
+    updateSummary();
   });
 
-  for (const knop of document.querySelectorAll('.richtingknop')) {
-    knop.addEventListener('click', () => kies(knop.dataset.richting));
+  for (const button of document.querySelectorAll('.richtingknop')) {
+    button.addEventListener('click', () => choose(button.dataset.richting));
   }
 
-  const lichtKnop = el('#licht');
-  lichtKnop.addEventListener('click', () => {
-    vlakkeModus.aan = !vlakkeModus.aan;
-    lichtKnop.setAttribute('aria-pressed', String(vlakkeModus.aan));
-    for (const viewer of document.querySelectorAll('model-viewer')) zetBelichting(viewer);
+  const lightButton = el('#licht');
+  lightButton.addEventListener('click', () => {
+    flatMode.on = !flatMode.on;
+    lightButton.setAttribute('aria-pressed', String(flatMode.on));
+    for (const viewer of document.querySelectorAll('model-viewer')) setLighting(viewer);
   });
 
   addEventListener('keydown', (e) => {
     if (e.target.matches('input, textarea, select')) return;
-    if (!dek.hidden) {
-      const perToets = {
+    if (!deck.hidden) {
+      const perKey = {
         ArrowLeft: 'links',
         ArrowRight: 'rechts',
         ArrowUp: 'omhoog',
         ArrowDown: 'omlaag',
       };
-      if (perToets[e.key]) {
+      if (perKey[e.key]) {
         e.preventDefault();
-        kies(perToets[e.key]);
+        choose(perKey[e.key]);
         return;
       }
-      if (e.key === 'z' || e.key === 'Z') return draaiTerug();
+      if (e.key === 'z' || e.key === 'Z') return undo();
     }
-    if (e.key === 'Escape' && opzet.hidden) {
+    if (e.key === 'Escape' && setup.hidden) {
       e.preventDefault();
-      toon(uitslag.hidden ? 'uitslag' : 'dek');
+      show(results.hidden ? 'uitslag' : 'dek');
     }
   });
 
-  if (!staat.begonnen) {
-    staat.volgorde = register.modellen.map((m) => m.id);
-    staat.begonnen = true;
-    bewaar();
+  if (!state.started) {
+    state.order = register.models.map((m) => m.id);
+    state.started = true;
+    save();
   }
-  toon('dek');
+  show('dek');
 }
 
-start().catch((fout) => {
-  melding.hidden = false;
-  melding.className = 'leeg melding-fout';
-  melding.textContent = `Could not load the catalogue: ${fout.message}`;
-  samenvatting.textContent = 'Could not load the catalogue.';
-  console.error(fout);
+start().catch((error) => {
+  notice.hidden = false;
+  notice.className = 'leeg melding-fout';
+  notice.textContent = `Could not load the catalogue: ${error.message}`;
+  summary.textContent = 'Could not load the catalogue.';
+  console.error(error);
 });

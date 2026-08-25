@@ -33,6 +33,6 @@ await importeerKit({
   generator: 'tools/importeer-restaurant.mjs',
   schaal: 0.245,
   formaat: 'gltf',
-  bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
+  bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
   modellen: MODELLEN,
 });

@@ -1,7 +1,7 @@
 // Verplaatst driehoeken naar een baan. Selectie: --bereik a-b (driehoekindex)
 // of --asvlak z,+,1.0 (normaal langs as, teken, centroid voorbij afstand).
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 const W=512,H=512,CB=32,CH=128;
 const arg=process.argv.slice(2);
 let pad=null,naar=null,bereik=null,asvlak=null,hoek=40,van=null;
@@ -13,15 +13,15 @@ for(let i=0;i<arg.length;i++){
   else if(arg[i]==='--van') van=arg[++i].split(',').map(Number);
   else pad=arg[i];
 }
-const glb=leesGlb(pad);
+const glb=readGlb(pad);
 const stukken=[glb.bin]; let lengte=glb.bin.length;
 const nieuweView=(buf,doel)=>{const vul=(4-(lengte%4))%4; if(vul){stukken.push(Buffer.alloc(vul,0));lengte+=vul;}
   const v=glb.json.bufferViews.push({buffer:0,byteOffset:lengte,byteLength:buf.length,...(doel?{target:doel}:{})})-1;
   stukken.push(buf); lengte+=buf.length; return v;};
 let verhuisd=0,gesplitst=0;
 for(const mesh of glb.json.meshes ?? []) for(const prim of mesh.primitives ?? []){
-  const attrs={}; for(const [n,i] of Object.entries(prim.attributes)) attrs[n]=leesAccessor(glb,i);
-  const idx=leesAccessor(glb,prim.indices), pos=attrs.POSITION, uv=attrs.TEXCOORD_0;
+  const attrs={}; for(const [n,i] of Object.entries(prim.attributes)) attrs[n]=readAccessor(glb,i);
+  const idx=readAccessor(glb,prim.indices), pos=attrs.POSITION, uv=attrs.TEXCOORD_0;
   const inVan=(t)=>!van||[idx.data[t],idx.data[t+1],idx.data[t+2]].every(i=>{const x=Math.min(Math.max(uv.data[i*2]*W,0),W-1e-6),y=Math.min(Math.max(uv.data[i*2+1]*H,0),H-1e-6);return Math.floor(x/CB)===van[0]&&Math.floor(y/CH)===van[1];});
   const kies=new Set();
   for(let t=0;t<idx.count;t+=3){
@@ -60,5 +60,5 @@ for(const mesh of glb.json.meshes ?? []) for(const prim of mesh.primitives ?? []
   prim.indices=glb.json.accessors.push({bufferView:iv,componentType:groot?5125:5123,count:nidx.length,type:'SCALAR'})-1;
 }
 glb.json.buffers[0].byteLength=lengte;
-schrijfGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
+writeGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
 console.log(`${pad}: ${verhuisd} driehoeken naar ${naar.join(',')}, ${gesplitst} vertices bijgemaakt`);

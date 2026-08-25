@@ -4,7 +4,7 @@
 //
 //   node tools/verplaats-cel.mjs model.glb --van 5,0 --van 14,0 --naar 0,0
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
 
 const KOLOMMEN = 16, RIJEN = 4, W = 512, H = 512;
 const CB = W / KOLOMMEN, CH = H / RIJEN;
@@ -21,7 +21,7 @@ if (!pad || van.length === 0 || !naar) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json, bin } = glb;
 const gedaan = new Set();
 let geraakt = 0;
@@ -46,5 +46,5 @@ for (const mesh of json.meshes ?? []) {
     }
   }
 }
-schrijfGlb(pad, json, bin, writeFileSync);
+writeGlb(pad, json, bin, writeFileSync);
 console.log(`${pad}: ${geraakt} uv's ${van.join('+')} -> ${naar.join(',')}`);

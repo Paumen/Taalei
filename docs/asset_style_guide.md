@@ -14,7 +14,7 @@ For an LLM creating or adjusting assets.
 - A new color can be added if none of existing comes close, it fits within the existing colors, and always added to the shared colormap.
 - Avoid transparency and emmisive, unless it's cor part of the pieces appearance. Add note to PO when you used it.
 - Cave kit is exempt from above rules.
-- Onderwater kit is exempt too: imported pack, no colormap at all. Each material carries
+- Underwater kit is exempt too: imported pack, no colormap at all. Each material carries
   its own base colour in its `baseColorFactor`. Do not remap it to the shared colormap —
   that would recolour every species. New sea assets either carry their own material
   colours or use the shared colormap; say which.
@@ -41,9 +41,9 @@ For an LLM creating or adjusting assets.
   than one cell gets exactly one cell's budget — no discount for being small, but no
   1/size³ blow-up either (without the floor, no small prop could ever pass). A flat asset
   has no volume and therefore no density. `build-catalog.mjs` records it per model as
-  `driehoekenPerUnit` (`null` when flat) and reports everything above the budget.
+  `trianglesPerUnit` (`null` when flat) and reports everything above the budget.
 - Imported packs get one scale factor for the whole pack, never one per model — that keeps
-  the pack's own proportions. The onderwater kit came in at 4× and is loaded at 0.25.
+  the pack's own proportions. The underwater kit came in at 4× and is loaded at 0.25.
   Its internal proportions are the pack's, oddities
   included: the hammerhead is 3.4 units long and the whale only 1.1.
 - Six packs were rescaled after import: dungeon ×0.714 (it sat on its own 0.7/1.4 grid —

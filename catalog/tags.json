@@ -1,12 +1,12 @@
 {
- "toelichting": "Handmatig gezette tags per model, los van de semantische groep: een model hoort bij \u00e9\u00e9n groep maar kan meerdere tags dragen. Elke tag heeft een soort \u2014 'materiaal' voor waar het ding van gemaakt is, 'tag' voor al het andere dat je van een model wilt kunnen vinden. Bepaald met catalog/swipe.html en hier vastgelegd; build-catalog.mjs hangt ze aan de modellen in catalog.json.",
+ "note": "Manually set tags per model, apart from the semantic group: a model belongs to one group but can carry several tags. Each tag has a type — 'material' for what the thing is made of, 'tag' for everything else you want to be able to find about a model. Determined with catalog/swipe.html and recorded here; build-catalog.mjs attaches them to the models in catalog.json.",
  "tags": [
   {
    "id": "timber",
-   "naam": "Timber",
-   "soort": "materiaal",
-   "beschrijving": "Modellen waarvan gezaagd of bewerkt hout het beeld bepaalt \u2014 de binnenkant van het hout: planken, balken, vaten, kratten, meubels, stellages en de bouwdelen van hout. De buitenkant van stam of tak valt onder bark; modellen met zaagvlak \u00e9n schors dragen beide tags.",
-   "modellen": [
+   "name": "Timber",
+   "type": "material",
+   "description": "Models where sawn or worked wood dominates the look — the inside of the wood: planks, beams, barrels, crates, furniture, scaffolding and the wooden parts of buildings. The outside of a trunk or branch falls under bark; models with both a cut face and bark carry both tags.",
+   "models": [
     "dungeon/barrel-large",
     "dungeon/barrel-large-decorated",
     "dungeon/barrel-small",
@@ -393,10 +393,10 @@
   },
   {
    "id": "bark",
-   "naam": "Bark",
-   "soort": "materiaal",
-   "beschrijving": "Modellen waar de buitenkant van stam of tak het beeld bepaalt \u2014 schors: bomen, takken, wortels, stronken en ruwe stammen. Gezaagd of bewerkt hout valt onder timber; stammen en stronken met zaagvlak dragen beide tags.",
-   "modellen": [
+   "name": "Bark",
+   "type": "material",
+   "description": "Models where the outside of a trunk or branch dominates the look — bark: trees, branches, roots, stumps and rough trunks. Sawn or worked wood falls under timber; trunks and stumps with a cut face carry both tags.",
+   "models": [
     "fantasy-town-kit/tree",
     "fantasy-town-kit/tree-crooked",
     "fantasy-town-kit/tree-high",
@@ -411,12 +411,8 @@
     "halloween/tree-dead-large",
     "halloween/tree-dead-medium",
     "halloween/tree-dead-small",
-    "halloween/tree-pine-orange-large",
     "halloween/tree-pine-orange-medium",
     "halloween/tree-pine-orange-small",
-    "halloween/tree-pine-yellow-large",
-    "halloween/tree-pine-yellow-medium",
-    "halloween/tree-pine-yellow-small",
     "mini-forest/tree",
     "mini-forest/tree-high",
     "modulair-terrein/beach-prop-docks-corner",
@@ -475,7 +471,6 @@
     "natuur/tree-bare-6",
     "natuur/tree-pine-1",
     "natuur/tree-pine-2",
-    "natuur/tree-pine-3",
     "props/firewood-a",
     "quaternius-nature/log",
     "quaternius-nature/tree-birch-dead-1",
@@ -506,10 +501,10 @@
   },
   {
    "id": "metal",
-   "naam": "Metal",
-   "soort": "materiaal",
-   "beschrijving": "Modellen waar metaal het beeld bepaalt of het werkende deel is: gereedschap en wapens, aambeelden en slijpstenen, sloten, sleutels en hendels, tralies, roosters en beslag, lantaarns en toortsen, en het ijzer en koper uit de resources-kit. Goud en zilver staan apart onder precious-metal. Een vat of kist telt mee om zijn hoepels en beslag, en draagt daarmee zowel timber als metal.",
-   "modellen": [
+   "name": "Metal",
+   "type": "material",
+   "description": "Models where metal dominates the look or is the working part: tools and weapons, anvils and grindstones, locks, keys and levers, bars, grates and fittings, lanterns and torches, and the iron and copper from the resources kit. Gold and silver are listed separately under precious-metal. A barrel or chest counts for its hoops and fittings, and so carries both timber and metal.",
+   "models": [
     "dungeon/barrel-large",
     "dungeon/barrel-small",
     "dungeon/box-large",
@@ -643,10 +638,10 @@
   },
   {
    "id": "paper",
-   "naam": "Paper",
-   "soort": "materiaal",
-   "beschrijving": "Papier en perkament: boeken, rollen, kaarten en het dagboek, open en dicht.",
-   "modellen": [
+   "name": "Paper",
+   "type": "material",
+   "description": "Paper and parchment: books, scrolls, maps and the journal, open and closed.",
+   "models": [
     "fantasy-props/book-5",
     "fantasy-props/book-7",
     "fantasy-props/book-group-medium-1",
@@ -668,10 +663,10 @@
   },
   {
    "id": "stone",
-   "naam": "Stone",
-   "soort": "materiaal",
-   "beschrijving": "Bewerkte steen: muren, vloeren, tegels, zuilen, trappen, kademuren, straatwerk en stapstenen \u2014 steen die iemand heeft gelegd of gehouwen. De ruwe rotsen en keien staan onder rock.",
-   "modellen": [
+   "name": "Stone",
+   "type": "material",
+   "description": "Worked stone: walls, floors, tiles, columns, stairs, quay walls, paving and stepping stones — stone that someone has laid or hewn. The raw rocks and boulders are under rock.",
+   "models": [
     "dungeon/column",
     "dungeon/floor-dirt-large-rocky",
     "dungeon/floor-dirt-large",
@@ -796,10 +791,10 @@
   },
   {
    "id": "rock",
-   "naam": "Rock",
-   "soort": "materiaal",
-   "beschrijving": "Ruwe steen zoals hij in het landschap ligt: rotsblokken, keien, kiezels, puin, rotsformaties en de bergen. Gehouwen en gelegde steen staat onder stone.",
-   "modellen": [
+   "name": "Rock",
+   "type": "material",
+   "description": "Raw stone as it lies in the landscape: boulders, pebbles, gravel, rubble, rock formations and the mountains. Hewn and laid stone is under stone.",
+   "models": [
     "dungeon/rubble-half",
     "dungeon/rubble-large",
     "fantasy-town-kit/rock-large",
@@ -925,10 +920,10 @@
   },
   {
    "id": "textile",
-   "naam": "Textile",
-   "soort": "materiaal",
-   "beschrijving": "Doek, leer en touwwerk: tentzeil en luifels, beddengoed, zakken, de textielstapel uit de resources-kit, de ballon met zijn manden, en het omwikkelde heft van gereedschap en toortsen.",
-   "modellen": [
+   "name": "Textile",
+   "type": "material",
+   "description": "Cloth, leather and rope work: tent canvas and canopies, bedding, sacks, the textile stack from the resources kit, the balloon with its baskets, and the wrapped handles of tools and torches.",
+   "models": [
     "dungeon/bed-floor",
     "dungeon/bed-frame",
     "fantasy-props/bag",
@@ -972,10 +967,10 @@
   },
   {
    "id": "flora",
-   "naam": "Flora",
-   "soort": "tag",
-   "beschrijving": "Wat groeit of gegroeid heeft: bomen, stronken, takken, wortels en boomstammen, bloemen, gras, lisdodde, paddenstoelen, cactussen, graan en het onkruid dat door vloeren en muren komt. Het levende, bebladerde deel draagt daarnaast foliage.",
-   "modellen": [
+   "name": "Flora",
+   "type": "tag",
+   "description": "What grows or has grown: trees, stumps, branches, roots and tree trunks, flowers, grass, cattail, mushrooms, cacti, grain and the weeds coming through floors and walls. The living, leafy part additionally carries foliage.",
+   "models": [
     "dungeon/floor-dirt-small-weeds",
     "dungeon/floor-tile-small-weeds-a",
     "dungeon/floor-tile-small-weeds-b",
@@ -1002,12 +997,8 @@
     "halloween/tree-dead-large",
     "halloween/tree-dead-medium",
     "halloween/tree-dead-small",
-    "halloween/tree-pine-orange-large",
     "halloween/tree-pine-orange-medium",
     "halloween/tree-pine-orange-small",
-    "halloween/tree-pine-yellow-large",
-    "halloween/tree-pine-yellow-medium",
-    "halloween/tree-pine-yellow-small",
     "mini-forest/patch-grass",
     "mini-forest/tree-high",
     "mini-forest/tree",
@@ -1095,15 +1086,12 @@
     "natuur/tree-palm-6",
     "natuur/tree-pine-1",
     "natuur/tree-pine-2",
-    "natuur/tree-pine-3",
     "pirate-kit/palm-detailed-bend",
     "pirate-kit/palm-detailed-straight",
     "pirate-kit/patch-grass-foliage",
     "pirate-kit/patch-grass",
     "pirate-kit/patch-sand-foliage",
     "pirate-kit/ship-wreck",
-    "platformer-kit/flowers-tall",
-    "platformer-kit/flowers",
     "platformer-kit/mushrooms",
     "props/mushroom-a",
     "quaternius-nature/cactus-2",
@@ -1145,10 +1133,10 @@
   },
   {
    "id": "foliage",
-   "naam": "Foliage",
-   "soort": "tag",
-   "beschrijving": "Het groen zelf: bomen in blad, naaldbomen, palmen, graspollen en grasvlakken, planten, lelieblad en graan. Kale takken, stronken, stammen en dode bomen dragen alleen flora.",
-   "modellen": [
+   "name": "Foliage",
+   "type": "tag",
+   "description": "The greenery itself: leafy trees, conifers, palms, grass clumps and grass patches, plants, lily pads and grain. Bare branches, stumps, trunks and dead trees carry only flora.",
+   "models": [
     "fantasy-town-kit/tree-crooked",
     "fantasy-town-kit/tree-high-crooked",
     "fantasy-town-kit/tree-high-round",
@@ -1162,12 +1150,8 @@
     "forest/grass-2-b",
     "forest/grass-2-c",
     "forest/grass-2-d",
-    "halloween/tree-pine-orange-large",
     "halloween/tree-pine-orange-medium",
     "halloween/tree-pine-orange-small",
-    "halloween/tree-pine-yellow-large",
-    "halloween/tree-pine-yellow-medium",
-    "halloween/tree-pine-yellow-small",
     "mini-forest/patch-grass",
     "mini-forest/tree-high",
     "mini-forest/tree",
@@ -1194,7 +1178,6 @@
     "natuur/tree-palm-6",
     "natuur/tree-pine-1",
     "natuur/tree-pine-2",
-    "natuur/tree-pine-3",
     "pirate-kit/palm-detailed-bend",
     "pirate-kit/palm-detailed-straight",
     "pirate-kit/patch-grass-foliage",
@@ -1211,10 +1194,10 @@
   },
   {
    "id": "ceramic",
-   "naam": "Ceramic",
-   "soort": "materiaal",
-   "beschrijving": "Aardewerk en gebakken klei: kannen, kruiken, vazen, borden, kommen, potten en flessen, en de dakpannen van de fantasy-town- en village-kit.",
-   "modellen": [
+   "name": "Ceramic",
+   "type": "material",
+   "description": "Pottery and fired clay: jugs, pitchers, vases, plates, bowls, pots and bottles, and the roof tiles of the fantasy-town and village kits.",
+   "models": [
     "dungeon/bottle-a-brown",
     "dungeon/bottle-a-labeled-brown",
     "dungeon/bottle-b-brown",
@@ -1273,10 +1256,10 @@
   },
   {
    "id": "bone",
-   "naam": "Bone",
-   "soort": "materiaal",
-   "beschrijving": "Bot: de losse botten, ribbenkast en schedel van de halloween-kit, en het bot in het vlees \u2014 de hammen van de restaurant-kit en de gedekte borden van de dungeon-kit.",
-   "modellen": [
+   "name": "Bone",
+   "type": "material",
+   "description": "Bone: the loose bones, ribcage and skull of the halloween kit, and the bone in the meat — the hams of the restaurant kit and the set plates of the dungeon kit.",
+   "models": [
     "dungeon/plate-food-a",
     "dungeon/plate-food-b",
     "halloween/bone-a",
@@ -1290,10 +1273,10 @@
   },
   {
    "id": "candle",
-   "naam": "Candle",
-   "soort": "materiaal",
-   "beschrijving": "Kaarsvet: de kaarsen van dungeon, props en halloween \u2014 los, dun, gesmolten, drievoudig, brandend en gedoofd \u2014 plus het wandschap met kaarsen en de versierde vloertegel waar er een op staat.",
-   "modellen": [
+   "name": "Candle",
+   "type": "material",
+   "description": "Candle wax: the candles from dungeon, props and halloween — loose, thin, melted, triple, lit and snuffed — plus the wall shelf with candles and the decorated floor tile one stands on.",
+   "models": [
     "dungeon/candle-lit",
     "dungeon/candle-melted",
     "dungeon/candle-thin-lit",
@@ -1310,10 +1293,10 @@
   },
   {
    "id": "glass",
-   "naam": "Glass",
-   "soort": "materiaal",
-   "beschrijving": "Glas: flessen en drankjes, de ruiten van de village-kit en de zeilschepen met hun ramen, en het glas in lantaarns, straatlampen, kompas en loep.",
-   "modellen": [
+   "name": "Glass",
+   "type": "material",
+   "description": "Glass: bottles and potions, the windows of the village kit and the sailing ships with their windows, and the glass in lanterns, street lamps, compass and magnifying glass.",
+   "models": [
     "dungeon/bottle-a-green",
     "dungeon/bottle-a-labeled-green",
     "dungeon/bottle-b-green",
@@ -1360,10 +1343,10 @@
   },
   {
    "id": "light",
-   "naam": "Light",
-   "soort": "tag",
-   "beschrijving": "Brandt en geeft licht: de aangestoken kaarsen en toorts van de dungeon-kit, de lantaarns van halloween en de vuurtoren van Taaleiland. Gedoofde kaarsen, lampen en toortsen dragen hem niet.",
-   "modellen": [
+   "name": "Light",
+   "type": "tag",
+   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween and Taaleiland's lighthouse. Snuffed candles, lamps and torches don't carry it.",
+   "models": [
     "dungeon/candle-lit",
     "dungeon/candle-thin-lit",
     "dungeon/torch-lit",
@@ -1375,10 +1358,10 @@
   },
   {
    "id": "rope",
-   "naam": "Rope",
-   "soort": "materiaal",
-   "beschrijving": "Touw en koord: de touwbundels van de rpgtools-kit, het touwwerk in masten, touwhekken en de touwleuningen van de village-kit, de put en de klokketrek, de hengsels van zak en emmer, de omwikkelde toortsheften en de lijnen van de luchtballon.",
-   "modellen": [
+   "name": "Rope",
+   "type": "material",
+   "description": "Rope and cord: the rope bundles from the rpgtools kit, the rigging in masts, rope fences and the rope railings of the village kit, the well and the bell pull, the handles of sack and bucket, the wrapped torch handles and the balloon's lines.",
+   "models": [
     "fantasy-props/bag",
     "fantasy-props/bucket-wooden-1",
     "pirate-kit/mast-ropes",
@@ -1399,10 +1382,10 @@
   },
   {
    "id": "fauna",
-   "naam": "Fauna",
-   "soort": "tag",
-   "beschrijving": "Dierlijk, buiten het bot om: de schelpen en zeesterren van het strand en de twee vissen van de survival-kit.",
-   "modellen": [
+   "name": "Fauna",
+   "type": "tag",
+   "description": "Animal, apart from bone: the shells and starfish from the beach and the two fish from the survival kit.",
+   "models": [
     "modulair-terrein/beach-prop-shell-a",
     "modulair-terrein/beach-prop-shell-b",
     "modulair-terrein/beach-prop-starfish-a",
@@ -1418,10 +1401,10 @@
   },
   {
    "id": "precious-metal",
-   "naam": "Precious Metal",
-   "soort": "materiaal",
-   "beschrijving": "Goud en zilver: de staven, klompjes en stapels uit de resources-kit, de munten van dungeon en prototype-kit, de gouden sleutel en de met goud beslagen kist. Koper en ijzer staan onder metal.",
-   "modellen": [
+   "name": "Precious Metal",
+   "type": "material",
+   "description": "Gold and silver: the bars, nuggets and stacks from the resources kit, the coins from the dungeon and prototype kits, the gold key and the gold-trimmed chest. Copper and iron are under metal.",
+   "models": [
     "dungeon/chest-gold",
     "dungeon/coin-stack-large",
     "dungeon/coin-stack-medium",

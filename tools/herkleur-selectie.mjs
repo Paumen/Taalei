@@ -13,7 +13,7 @@
 // (wereldloze meshcoördinaten, "-" = geen grens), zodat pagina's en kaften die
 // dezelfde baan delen uit elkaar te houden zijn.
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const KOLOMMEN = 16;
 const RIJEN = 4;
@@ -42,7 +42,7 @@ if (!pad || !van || !naar) {
 const [vanK, vanR] = van.split(',').map(Number);
 const [naarK, naarR] = naar.split(',').map(Number);
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json, bin } = glb;
 let geraakt = 0;
 
@@ -60,7 +60,7 @@ for (const mesh of json.meshes ?? []) {
     const stap = bufferView.byteStride ?? 8;
 
     const posAcc = prim.attributes.POSITION !== undefined && box
-      ? leesAccessor(glb, prim.attributes.POSITION) : null;
+      ? readAccessor(glb, prim.attributes.POSITION) : null;
 
     const uvVan = (i) => {
       const uv = new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
@@ -92,7 +92,7 @@ for (const mesh of json.meshes ?? []) {
     // Groei de selectie tot hele driehoeken: een half meegenomen vlak zou zijn
     // uv's over twee verre cellen (en het zwart ertussen) uitsmeren.
     if (prim.indices !== undefined && gekozen.size) {
-      const idx = leesAccessor(glb, prim.indices);
+      const idx = readAccessor(glb, prim.indices);
       let gegroeid = true;
       while (gegroeid) {
         gegroeid = false;
@@ -118,5 +118,5 @@ for (const mesh of json.meshes ?? []) {
   }
 }
 
-schrijfGlb(uit ?? pad, json, bin, writeFileSync);
+writeGlb(uit ?? pad, json, bin, writeFileSync);
 console.log(`${uit ?? pad}: ${geraakt} uv's ${van} → ${naar} [${bereik.join(':')}]${box ? ' (met box)' : ''}`);

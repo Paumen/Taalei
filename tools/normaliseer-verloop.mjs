@@ -5,7 +5,7 @@
 //
 //   node tools/normaliseer-verloop.mjs model.glb --baan 0,0 --baan 1,0 --baan 2,0
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
 
 const KOLOMMEN = 16, RIJEN = 4, W = 512, H = 512;
 const CB = W / KOLOMMEN, CH = H / RIJEN;
@@ -22,7 +22,7 @@ if (!pad || banen.length === 0) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json, bin } = glb;
 for (const [bk, br] of banen) {
   const uvs = [];
@@ -57,4 +57,4 @@ for (const [bk, br] of banen) {
   }
   console.log(`${pad}: baan ${bk},${br} venster [${lo.toFixed(2)},${hi.toFixed(2)}] -> centrum ${doelCentrum}`);
 }
-schrijfGlb(pad, json, bin, writeFileSync);
+writeGlb(pad, json, bin, writeFileSync);

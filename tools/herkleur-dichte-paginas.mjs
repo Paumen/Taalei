@@ -1,13 +1,13 @@
 // Zoekt per boekmodel eilanden die als "dichte" paginatop of -zijde gelden en
 // (met APPLY=1) herkleurt ze naar gebroken wit 5,2.
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '/home/user/Taalei/catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '/home/user/Taalei/catalog/tools/glb.mjs';
 const W=512,H=512,CB=32,CH=128;
 const APPLY = process.env.APPLY === '1';
 const NAAR_K=5, NAAR_R=2, NAAR_V=0.68;
 
 for (const pad of process.argv.slice(2)) {
-  const glb = leesGlb(pad);
+  const glb = readGlb(pad);
   const { json, bin } = glb;
   const stack = pad.includes('book-stack-1');
   console.log('==', pad.split('/').pop(), stack ? '(stapel: zijkanten)' : '(rechtop: tops)');
@@ -17,8 +17,8 @@ for (const pad of process.argv.slice(2)) {
     const bufferView = json.bufferViews[accessor.bufferView];
     const start = (bufferView.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
     const stap = bufferView.byteStride ?? 8;
-    const pos = leesAccessor(glb, prim.attributes.POSITION);
-    const idx = leesAccessor(glb, prim.indices);
+    const pos = readAccessor(glb, prim.attributes.POSITION);
+    const idx = readAccessor(glb, prim.indices);
     const rauw = (i) => new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
 
     const ouder = Array.from({length: pos.count}, (_, i) => i);
@@ -79,6 +79,6 @@ for (const pad of process.argv.slice(2)) {
         geraakt++;
       }
     }
-    if (APPLY && geraakt) { schrijfGlb(pad, json, bin, writeFileSync); console.log(`  → ${geraakt} uv's herkleurd`); }
+    if (APPLY && geraakt) { writeGlb(pad, json, bin, writeFileSync); console.log(`  → ${geraakt} uv's herkleurd`); }
   }
 }

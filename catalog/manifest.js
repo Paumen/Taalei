@@ -108,8 +108,8 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
-  "eigenPalet": true,
-  "buitenCatalogus": [
+  "ownPalette": true,
+  "outsideCatalog": [
    "corridor", "corridor-corner", "corridor-end", "corridor-intersection", "corridor-junction",
    "corridor-transition", "corridor-wide", "corridor-wide-corner", "corridor-wide-end",
    "corridor-wide-intersection", "corridor-wide-junction", "gate", "gate-metal-bars",
@@ -292,9 +292,9 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "onderwater-kit",
-  "name": "Onderwater",
+  "name": "Underwater",
   "url": "https://quaternius.com/",
-  "buitenCatalogus": true,
+  "outsideCatalog": true,
   "models": [
    "coral-a",
    "coral-b",
@@ -871,9 +871,9 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "modulair-terrein",
-  "name": "Modulair Terrein",
+  "name": "Modular Terrain",
   "url": null,
-  "buitenCatalogus": [
+  "outsideCatalog": [
    "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
    "cave-prop-railway-bumpstop", "cave-prop-railway-curve-large",
    "cave-prop-railway-curve-small", "cave-prop-railway-hill-gentle",
@@ -1159,7 +1159,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "natuur",
-  "name": "Natuur",
+  "name": "Nature",
   "url": null,
   "models": [
    "branch-1",

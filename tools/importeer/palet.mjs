@@ -31,12 +31,12 @@ export function afstand(a, b) {
 }
 
 export function laadPalet(pad = GEDEELDE_COLORMAP) {
-  const { breedte, hoogte, pixels } = leesPng(pad);
+  const { width, height, pixels } = leesPng(pad);
   const perKleur = new Map();
 
-  for (let y = 0; y < hoogte; y++) {
-    for (let x = 0; x < breedte; x++) {
-      const i = (y * breedte + x) * 4;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
       const [r, g, b] = [pixels[i], pixels[i + 1], pixels[i + 2]];
       if (r === 0 && g === 0 && b === 0) continue;
       const sleutel = (r << 16) | (g << 8) | b;
@@ -44,8 +44,8 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
       perKleur.set(sleutel, {
         r, g, b,
         hex: hex(r, g, b),
-        u: (x + 0.5) / breedte,
-        v: (y + 0.5) / hoogte,
+        u: (x + 0.5) / width,
+        v: (y + 0.5) / height,
         lab: naarOklab(r, g, b),
       });
     }
@@ -56,9 +56,9 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
 
   let somLicht = 0;
   let tellerLicht = 0;
-  for (let y = 0; y < hoogte; y++) {
-    for (let x = 0; x < breedte; x++) {
-      const i = (y * breedte + x) * 4;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
       if (!pixels[i] && !pixels[i + 1] && !pixels[i + 2]) continue;
       somLicht += (naarLineair(pixels[i]) + naarLineair(pixels[i + 1]) + naarLineair(pixels[i + 2])) / 3;
       tellerLicht++;
@@ -87,7 +87,7 @@ export function laadPalet(pad = GEDEELDE_COLORMAP) {
     return uitkomst;
   }
 
-  return { breedte, hoogte, kandidaten, niveau, zoek };
+  return { width, height, kandidaten, niveau, zoek };
 }
 
 const texturen = new Map();
@@ -100,9 +100,9 @@ export function laadTextuur(pad, { vOmlaag = true } = {}) {
       monster(u, vIn) {
         const v = vOmlaag ? vIn : 1 - vIn;
         const wikkel = (t) => t - Math.floor(t);
-        const x = Math.min(Math.floor(wikkel(u) * png.breedte), png.breedte - 1);
-        const y = Math.min(Math.floor(wikkel(v) * png.hoogte), png.hoogte - 1);
-        const i = (y * png.breedte + x) * 4;
+        const x = Math.min(Math.floor(wikkel(u) * png.width), png.width - 1);
+        const y = Math.min(Math.floor(wikkel(v) * png.height), png.height - 1);
+        const i = (y * png.width + x) * 4;
         return [png.pixels[i], png.pixels[i + 1], png.pixels[i + 2], png.pixels[i + 3]];
       },
     });

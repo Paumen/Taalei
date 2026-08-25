@@ -4,7 +4,7 @@
 //
 //   node tools/binnenwand.mjs <glb> --van 2,0 --naar 0,0 [--minhoogte 0.55] [--drempel 0.3] [--proef]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 const W=512,H=512,CB=32,CH=128;
 const a=process.argv.slice(2);
 let van=null,naar=null,minhoogte=-Infinity,drempel=0.3,pad=null,proef=false;
@@ -16,7 +16,7 @@ for(let i=0;i<a.length;i++){
   else if(a[i]==='--proef') proef=true;
   else pad=a[i];
 }
-const glb=leesGlb(pad);
+const glb=readGlb(pad);
 const stukken=[glb.bin]; let lengte=glb.bin.length;
 const nieuweView=(buf,doel)=>{const vul=(4-(lengte%4))%4; if(vul){stukken.push(Buffer.alloc(vul,0));lengte+=vul;}
   const v=glb.json.bufferViews.push({buffer:0,byteOffset:lengte,byteLength:buf.length,...(doel?{target:doel}:{})})-1;
@@ -24,8 +24,8 @@ const nieuweView=(buf,doel)=>{const vul=(4-(lengte%4))%4; if(vul){stukken.push(B
 let verhuisd=0, gesplitst=0;
 for (const mesh of glb.json.meshes ?? []) for (const prim of mesh.primitives ?? []){
   if(prim.indices===undefined||prim.attributes?.TEXCOORD_0===undefined) continue;
-  const attrs={}; for(const [k,i] of Object.entries(prim.attributes)) attrs[k]=leesAccessor(glb,i);
-  const idx=leesAccessor(glb,prim.indices);
+  const attrs={}; for(const [k,i] of Object.entries(prim.attributes)) attrs[k]=readAccessor(glb,i);
+  const idx=readAccessor(glb,prim.indices);
   const pos=attrs.POSITION, uv=attrs.TEXCOORD_0;
   const P=(i,k)=>pos.data[i*3+k];
   const mn=[1e9,1e9,1e9],mx=[-1e9,-1e9,-1e9];
@@ -78,5 +78,5 @@ for (const mesh of glb.json.meshes ?? []) for (const prim of mesh.primitives ?? 
   prim.indices=glb.json.accessors.push({bufferView:iv,componentType:groot?5125:5123,count:nieuw.length,type:'SCALAR'})-1;
 }
 glb.json.buffers[0].byteLength=lengte;
-if(!proef) schrijfGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
+if(!proef) writeGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
 console.log(`${pad}: ${verhuisd} driehoeken, ${gesplitst} vertices bijgemaakt${proef?' (proef)':''}`);

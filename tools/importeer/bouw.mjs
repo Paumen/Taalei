@@ -1,6 +1,6 @@
 import { writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { schrijfGlb } from '../../catalog/tools/glb.mjs';
+import { writeGlb } from '../../catalog/tools/glb.mjs';
 import { laadPalet, laadTextuur, GEDEELDE_COLORMAP, hex } from './palet.mjs';
 import { baanVanTextuur, rasterUvs, kiesBaan, plaatsInBaan } from './kleurkaart.mjs';
 import { naarOklab } from './palet.mjs';
@@ -371,7 +371,7 @@ export function bouwGlb({
 
 export function schrijfModel(pad, { json, bin }) {
   mkdirSync(dirname(pad), { recursive: true });
-  schrijfGlb(pad, json, bin, writeFileSync);
+  writeGlb(pad, json, bin, writeFileSync);
 }
 
 export function zetColormapKlaar(kitDir) {
