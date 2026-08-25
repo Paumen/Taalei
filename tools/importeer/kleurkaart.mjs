@@ -84,7 +84,7 @@ function uvInBaan(baan, uDeel, vDeel, omgekeerd) {
   const u = uDeel * (x1 - x0 - 2 * RAND) + x0 + RAND;
   const vRuw = omgekeerd ? 1 - vDeel : vDeel;
   const v = vRuw * (y1 - y0 - 2 * RAND) + y0 + RAND;
-  return [u / png.breedte, v / png.hoogte];
+  return [u / png.width, v / png.height];
 }
 
 const klem = (waarde) => Math.min(Math.max(waarde, 0), 1);
@@ -119,8 +119,8 @@ export function baanVanTextuur(pad) {
 export function baanBijUv(textuur, u, v) {
   const { png, kolommen, rijen } = textuur;
   const wikkel = (t) => t - Math.floor(t);
-  const x = Math.min(wikkel(u) * png.breedte, png.breedte - 1e-6);
-  const y = Math.min(wikkel(v) * png.hoogte, png.hoogte - 1e-6);
+  const x = Math.min(wikkel(u) * png.width, png.width - 1e-6);
+  const y = Math.min(wikkel(v) * png.height, png.height - 1e-6);
 
   const zoek = (grenzen, waarde) => {
     let i = 0;

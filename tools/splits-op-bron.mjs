@@ -5,7 +5,7 @@
 //
 //   node splits-op-bron.mjs <werk.glb> --bron <bron.glb> --broncel 11,3 --naar 1,0 [--proef]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
@@ -19,10 +19,10 @@ for (let i = 0; i < arg.length; i++) {
 }
 if (!pad || !bronPad || !broncel || !naar) { console.error('zie kop'); process.exit(1); }
 
-const bron = leesGlb(bronPad);
+const bron = readGlb(bronPad);
 const bronPrims = [];
 for (const mesh of bron.json.meshes ?? []) for (const p of mesh.primitives ?? []) {
-  const uv = leesAccessor(bron, p.attributes.TEXCOORD_0), idx = leesAccessor(bron, p.indices);
+  const uv = readAccessor(bron, p.attributes.TEXCOORD_0), idx = readAccessor(bron, p.indices);
   const lijst = [];
   for (let t = 0; t < idx.count; t += 3) {
     const d = [idx.data[t], idx.data[t+1], idx.data[t+2]];
@@ -33,7 +33,7 @@ for (const mesh of bron.json.meshes ?? []) for (const p of mesh.primitives ?? []
   bronPrims.push(lijst);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const stukken = [glb.bin];
 let lengte = glb.bin.length;
 const nieuweView = (buf, doel) => {
@@ -49,8 +49,8 @@ for (const mesh of glb.json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.indices === undefined || prim.attributes?.TEXCOORD_0 === undefined) continue;
     const attrs = {};
-    for (const [naam, i] of Object.entries(prim.attributes)) attrs[naam] = leesAccessor(glb, i);
-    const idx = leesAccessor(glb, prim.indices);
+    for (const [naam, i] of Object.entries(prim.attributes)) attrs[naam] = readAccessor(glb, i);
+    const idx = readAccessor(glb, prim.indices);
     const bl = bronPrims[pi++];
     if (!bl || bl.length !== idx.count / 3) { console.error(`primitive ${pi-1}: bron heeft ${bl?.length} driehoeken, werk ${idx.count/3}`); process.exit(1); }
     const kies = new Set();
@@ -99,5 +99,5 @@ for (const mesh of glb.json.meshes ?? []) {
   }
 }
 glb.json.buffers[0].byteLength = lengte;
-if (!proef) schrijfGlb(pad, glb.json, Buffer.concat(stukken), writeFileSync);
+if (!proef) writeGlb(pad, glb.json, Buffer.concat(stukken), writeFileSync);
 console.log(`${pad}: ${verhuisd} driehoeken naar ${naar.join(',')}, ${gesplitst} vertices bijgemaakt${proef ? ' (proef)' : ''}`);

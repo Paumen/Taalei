@@ -11,7 +11,7 @@
 //
 //   node tools/zaagvlak-plat.mjs <glb> --van 2,0 --naar 0,0 --as x [--vanaf 0.28] [--marge 0.02] [--proef]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
@@ -30,7 +30,7 @@ if (!pad || !van || !naar || as === null) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const stukken = [glb.bin];
 let lengte = glb.bin.length;
 const nieuweView = (buf, doel) => {
@@ -46,8 +46,8 @@ for (const mesh of glb.json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.indices === undefined || prim.attributes?.TEXCOORD_0 === undefined) continue;
     const attrs = {};
-    for (const [naam, i] of Object.entries(prim.attributes)) attrs[naam] = leesAccessor(glb, i);
-    const idx = leesAccessor(glb, prim.indices);
+    for (const [naam, i] of Object.entries(prim.attributes)) attrs[naam] = readAccessor(glb, i);
+    const idx = readAccessor(glb, prim.indices);
     const pos = attrs.POSITION, uv = attrs.TEXCOORD_0;
     const P = (i, k) => pos.data[i * 3 + k];
     const inBron = (i) => {
@@ -132,5 +132,5 @@ for (const mesh of glb.json.meshes ?? []) {
   }
 }
 glb.json.buffers[0].byteLength = lengte;
-if (!proef) schrijfGlb(pad, glb.json, Buffer.concat(stukken), writeFileSync);
+if (!proef) writeGlb(pad, glb.json, Buffer.concat(stukken), writeFileSync);
 console.log(`${pad}: ${verhuisd} driehoeken, ${gesplitst} vertices bijgemaakt${proef ? ' (proef)' : ''}`);
