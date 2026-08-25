@@ -13,7 +13,7 @@ const KLEIN_GEREEDSCHAP = new Set([
 const GROOT_GEREEDSCHAP = new Set([
   'rpgtools/saw', 'graveyard-kit/shovel', 'rpgtools/shovel', 'survival-kit/tool-hoe',
   'pirate-kit/tool-paddle', 'survival-kit/tool-pickaxe', 'survival-kit/tool-shovel',
-  'survival-kit/tool-axe', 'rpgtools/handdrill', 'rpgtools/pickaxe', 'fantasy-props/pickaxe-bronze',
+  'survival-kit/tool-axe', 'rpgtools/handdrill', 'rpgtools/pickaxe',
   'rpgtools/grindstone', 'rpgtools/anvil',
 ]);
 
