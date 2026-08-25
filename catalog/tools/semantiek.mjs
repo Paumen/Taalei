@@ -189,7 +189,6 @@ const exceptions = {
   'natuur/flower-bellflower-2': 'flowers',
   'natuur/flower-bellflower-1': 'flowers',
   'natuur/flower-sunflower-1': 'flowers',
-  'platformer-kit/flowers': 'flowers',
   'modulair-terrein/hilly-prop-flower-lily-blue': 'flowers',
   'modulair-terrein/hilly-prop-flower-lily-pink': 'flowers',
   'modulair-terrein/hilly-prop-flower-rose': 'flowers',
