@@ -486,13 +486,11 @@
    "members": [
     "dungeon/floor-foundation-allsides",
     "dungeon/floor-foundation-corner",
-    "dungeon/floor-foundation-front-and-back",
-    "props/box-a"
+    "dungeon/floor-foundation-front-and-back"
    ],
    "main": "dungeon/floor-foundation-allsides",
    "kits": [
-    "dungeon",
-    "props"
+    "dungeon"
    ],
    "type": "detail-variant",
    "types": [
@@ -515,18 +513,12 @@
      0.7,
      0.77,
      0.7
-    ],
-    [
-     0.446,
-     0.446,
-     0.444
     ]
    ],
    "driehoeken": [
     360,
     202,
-    202,
-    334
+    202
    ],
    "kleuren": [
     [
@@ -540,9 +532,6 @@
     [
      "#3e3e44",
      "#474a58"
-    ],
-    [
-     "#8f785b"
     ]
    ],
    "paren": [
@@ -559,26 +548,8 @@
      "overlap": 1
     },
     {
-     "a": "dungeon/floor-foundation-allsides",
-     "b": "props/box-a",
-     "soort": "detailvariant",
-     "overlap": 1
-    },
-    {
      "a": "dungeon/floor-foundation-corner",
      "b": "dungeon/floor-foundation-front-and-back",
-     "soort": "detailvariant",
-     "overlap": 1
-    },
-    {
-     "a": "dungeon/floor-foundation-corner",
-     "b": "props/box-a",
-     "soort": "detailvariant",
-     "overlap": 1
-    },
-    {
-     "a": "dungeon/floor-foundation-front-and-back",
-     "b": "props/box-a",
      "soort": "detailvariant",
      "overlap": 1
     }
@@ -3808,57 +3779,6 @@
   },
   {
    "members": [
-    "dungeon/floor-foundation-front",
-    "fantasy-town-kit/wall-wood-block"
-   ],
-   "main": "dungeon/floor-foundation-front",
-   "kits": [
-    "dungeon",
-    "fantasy-town-kit"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "detail-variant"
-   ],
-   "sameSize": false,
-   "minOverlap": 1,
-   "wdh": [
-    [
-     0.7,
-     0.735,
-     0.7
-    ],
-    [
-     1,
-     1,
-     1
-    ]
-   ],
-   "driehoeken": [
-    123,
-    76
-   ],
-   "kleuren": [
-    [
-     "#3e3e44",
-     "#474a58"
-    ],
-    [
-     "#995a41",
-     "#d07b56"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "dungeon/floor-foundation-front",
-     "b": "fantasy-town-kit/wall-wood-block",
-     "soort": "detailvariant",
-     "overlap": 1
-    }
-   ]
-  },
-  {
-   "members": [
     "dungeon/floor-tile-small-broken-a",
     "dungeon/floor-tile-small-broken-b"
    ],
@@ -6824,57 +6744,6 @@
   },
   {
    "members": [
-    "fantasy-props/vase-2",
-    "fantasy-props/vase-4"
-   ],
-   "main": "fantasy-props/vase-2",
-   "kits": [
-    "fantasy-props"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.347,
-     0.347,
-     0.258
-    ],
-    [
-     0.18,
-     0.18,
-     0.243
-    ]
-   ],
-   "driehoeken": [
-    598,
-    598
-   ],
-   "kleuren": [
-    [
-     "#7f3927",
-     "#d07b56",
-     "#dd9f79"
-    ],
-    [
-     "#d07b56",
-     "#dd9f79"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "fantasy-props/vase-2",
-     "b": "fantasy-props/vase-4",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
     "forest/tree-bare-2-a",
     "forest/tree-bare-2-b",
     "forest/tree-bare-2-c"
@@ -7341,56 +7210,6 @@
     {
      "a": "modulair-terrein/hilly-prop-grass-clump-c",
      "b": "modulair-terrein/hilly-prop-grass-clump-d",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "modulair-terrein/hilly-prop-mushroom-a",
-    "modulair-terrein/hilly-prop-mushroom-b"
-   ],
-   "main": "modulair-terrein/hilly-prop-mushroom-a",
-   "kits": [
-    "modulair-terrein"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.07,
-     0.061,
-     0.077
-    ],
-    [
-     0.14,
-     0.121,
-     0.075
-    ]
-   ],
-   "driehoeken": [
-    48,
-    48
-   ],
-   "kleuren": [
-    [
-     "#7f3927",
-     "#f5f2e7"
-    ],
-    [
-     "#d07b56",
-     "#f5f2e7"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "modulair-terrein/hilly-prop-mushroom-a",
-     "b": "modulair-terrein/hilly-prop-mushroom-b",
      "soort": "naming",
      "overlap": null
     }
@@ -8197,102 +8016,6 @@
     {
      "a": "natuur/flower-violet-2",
      "b": "natuur/flower-violet-3",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "natuur/grass-clump-1",
-    "natuur/grass-clump-2",
-    "natuur/grass-clump-3",
-    "natuur/grass-clump-4",
-    "natuur/grass-clump-5"
-   ],
-   "main": "natuur/grass-clump-1",
-   "kits": [
-    "natuur"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.129,
-     0.085,
-     0.106
-    ],
-    [
-     0.137,
-     0.12,
-     0.13
-    ],
-    [
-     0.166,
-     0.145,
-     0.154
-    ],
-    [
-     0.117,
-     0.124,
-     0.195
-    ],
-    [
-     0.152,
-     0.156,
-     0.199
-    ]
-   ],
-   "driehoeken": [
-    20,
-    30,
-    40,
-    50,
-    60
-   ],
-   "kleuren": [
-    [
-     "#6d8d33"
-    ],
-    [
-     "#6d8d33"
-    ],
-    [
-     "#6d8d33"
-    ],
-    [
-     "#6d8d33"
-    ],
-    [
-     "#6d8d33"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "natuur/grass-clump-1",
-     "b": "natuur/grass-clump-2",
-     "soort": "naming",
-     "overlap": null
-    },
-    {
-     "a": "natuur/grass-clump-2",
-     "b": "natuur/grass-clump-3",
-     "soort": "naming",
-     "overlap": null
-    },
-    {
-     "a": "natuur/grass-clump-3",
-     "b": "natuur/grass-clump-4",
-     "soort": "naming",
-     "overlap": null
-    },
-    {
-     "a": "natuur/grass-clump-4",
-     "b": "natuur/grass-clump-5",
      "soort": "naming",
      "overlap": null
     }
@@ -9116,90 +8839,6 @@
     {
      "a": "natuur/tree-pine-1",
      "b": "natuur/tree-pine-2",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "props/jug-a",
-    "props/jug-b",
-    "props/jug-c",
-    "props/jug-d"
-   ],
-   "main": "props/jug-a",
-   "kits": [
-    "props"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.196,
-     0.196,
-     0.244
-    ],
-    [
-     0.177,
-     0.177,
-     0.238
-    ],
-    [
-     0.188,
-     0.192,
-     0.13
-    ],
-    [
-     0.19,
-     0.177,
-     0.131
-    ]
-   ],
-   "driehoeken": [
-    236,
-    236,
-    180,
-    204
-   ],
-   "kleuren": [
-    [
-     "#7f3927",
-     "#8f785b"
-    ],
-    [
-     "#6d738a",
-     "#8f785b"
-    ],
-    [
-     "#7f3927",
-     "#8f785b"
-    ],
-    [
-     "#6d738a",
-     "#8f785b"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "props/jug-a",
-     "b": "props/jug-b",
-     "soort": "naming",
-     "overlap": null
-    },
-    {
-     "a": "props/jug-b",
-     "b": "props/jug-c",
-     "soort": "naming",
-     "overlap": null
-    },
-    {
-     "a": "props/jug-c",
-     "b": "props/jug-d",
      "soort": "naming",
      "overlap": null
     }
@@ -10375,105 +10014,6 @@
   },
   {
    "members": [
-    "quaternius-nature/cactus-flower-1",
-    "quaternius-nature/cactus-flower-2"
-   ],
-   "main": "quaternius-nature/cactus-flower-1",
-   "kits": [
-    "quaternius-nature"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.353,
-     0.347,
-     0.145
-    ],
-    [
-     0.306,
-     0.513,
-     0.776
-    ]
-   ],
-   "driehoeken": [
-    2112,
-    1488
-   ],
-   "kleuren": [
-    [
-     "#23562c"
-    ],
-    [
-     "#23562c",
-     "#d07b56"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "quaternius-nature/cactus-flower-1",
-     "b": "quaternius-nature/cactus-flower-2",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "quaternius-nature/cactus-flower-3",
-    "quaternius-nature/cactus-flower-4"
-   ],
-   "main": "quaternius-nature/cactus-flower-3",
-   "kits": [
-    "quaternius-nature"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "naming"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.191,
-     0.447,
-     0.668
-    ],
-    [
-     0.044,
-     0.389,
-     0.554
-    ]
-   ],
-   "driehoeken": [
-    1184,
-    1632
-   ],
-   "kleuren": [
-    [
-     "#23562c",
-     "#d07b56"
-    ],
-    [
-     "#23562c",
-     "#d07b56"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "quaternius-nature/cactus-flower-3",
-     "b": "quaternius-nature/cactus-flower-4",
-     "soort": "naming",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
     "forest/tree-bare-1-a",
     "forest/tree-bare-1-b"
    ],
@@ -10916,6 +10456,1270 @@
      "a": "rocks/rock-natural-i",
      "b": "rocks/rock-natural-j",
      "soort": "naming",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/patch-grass",
+    "pirate-kit/patch-grass-foliage"
+   ],
+   "main": "pirate-kit/patch-grass-foliage",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     1.339,
+     1.044,
+     0.063
+    ],
+    [
+     1.339,
+     1.044,
+     0.143
+    ]
+   ],
+   "driehoeken": [
+    84,
+    300
+   ],
+   "kleuren": [
+    [
+     "#6d8d33"
+    ],
+    [
+     "#6d8d33"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/patch-grass",
+     "b": "pirate-kit/patch-grass-foliage",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/wall-corner",
+    "dungeon/wall-corner-gated",
+    "dungeon/wall-corner-scaffold"
+   ],
+   "main": "dungeon/wall-corner-gated",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.438,
+     0.438,
+     0.7
+    ],
+    [
+     0.438,
+     0.438,
+     0.7
+    ],
+    [
+     0.438,
+     0.438,
+     0.7
+    ]
+   ],
+   "driehoeken": [
+    443,
+    557,
+    515
+   ],
+   "kleuren": [
+    [
+     "#474a58",
+     "#6d738a"
+    ],
+    [
+     "#3e3e44",
+     "#474a58",
+     "#6d738a"
+    ],
+    [
+     "#474a58",
+     "#6d738a",
+     "#9a6b4e"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/wall-corner",
+     "b": "dungeon/wall-corner-gated",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "dungeon/wall-corner-gated",
+     "b": "dungeon/wall-corner-scaffold",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/watermill",
+    "fantasy-town-kit/watermill-wide"
+   ],
+   "main": "fantasy-town-kit/watermill-wide",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.553,
+     1.169,
+     1.169
+    ],
+    [
+     0.682,
+     1.169,
+     1.169
+    ]
+   ],
+   "driehoeken": [
+    600,
+    600
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#9da4c4",
+     "#cb9d78"
+    ],
+    [
+     "#9a6b4e",
+     "#9da4c4",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/watermill",
+     "b": "fantasy-town-kit/watermill-wide",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "village-kit/wood-steps-stucco",
+    "village-kit/wood-steps"
+   ],
+   "main": "village-kit/wood-steps",
+   "kits": [
+    "village-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.96,
+     0.48,
+     0.48
+    ],
+    [
+     0.96,
+     0.48,
+     0.549
+    ]
+   ],
+   "driehoeken": [
+    144,
+    148
+   ],
+   "kleuren": [
+    [
+     "#cb9d78",
+     "#f5f2e7"
+    ],
+    [
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "village-kit/wood-steps-stucco",
+     "b": "village-kit/wood-steps",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/balcony-wall-fence",
+    "fantasy-town-kit/balcony-wall"
+   ],
+   "main": "fantasy-town-kit/balcony-wall",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.065,
+     0.65,
+     0.65
+    ],
+    [
+     0.065,
+     0.65,
+     0.65
+    ]
+   ],
+   "driehoeken": [
+    102,
+    64
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ],
+    [
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/balcony-wall-fence",
+     "b": "fantasy-town-kit/balcony-wall",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "platformer-kit/platform-fortified",
+    "platformer-kit/platform"
+   ],
+   "main": "platformer-kit/platform",
+   "kits": [
+    "platformer-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.65,
+     0.65,
+     0.133
+    ],
+    [
+     0.65,
+     0.65,
+     0.127
+    ]
+   ],
+   "driehoeken": [
+    108,
+    84
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ],
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "platformer-kit/platform-fortified",
+     "b": "platformer-kit/platform",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "survival-kit/structure",
+    "survival-kit/structure-canvas"
+   ],
+   "main": "survival-kit/structure-canvas",
+   "kits": [
+    "survival-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.52,
+     0.52,
+     0.52
+    ],
+    [
+     0.52,
+     0.52,
+     0.52
+    ]
+   ],
+   "driehoeken": [
+    80,
+    96
+   ],
+   "kleuren": [
+    [
+     "#cb9d78"
+    ],
+    [
+     "#cb9d78",
+     "#f5f2e7"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "survival-kit/structure",
+     "b": "survival-kit/structure-canvas",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/structure-fence",
+    "pirate-kit/structure-fence-sides"
+   ],
+   "main": "pirate-kit/structure-fence-sides",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.635,
+     0.635,
+     0.559
+    ],
+    [
+     0.635,
+     0.635,
+     0.559
+    ]
+   ],
+   "driehoeken": [
+    356,
+    436
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ],
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/structure-fence",
+     "b": "pirate-kit/structure-fence-sides",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/structure-platform",
+    "pirate-kit/structure-platform-dock"
+   ],
+   "main": "pirate-kit/structure-platform-dock",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.635,
+     0.638,
+     0.236
+    ],
+    [
+     0.635,
+     0.638,
+     0.333
+    ]
+   ],
+   "driehoeken": [
+    220,
+    324
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ],
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/structure-platform",
+     "b": "pirate-kit/structure-platform-dock",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/structure-platform-dock-small",
+    "pirate-kit/structure-platform-small"
+   ],
+   "main": "pirate-kit/structure-platform-small",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.482,
+     0.638,
+     0.333
+    ],
+    [
+     0.482,
+     0.638,
+     0.229
+    ]
+   ],
+   "driehoeken": [
+    312,
+    208
+   ],
+   "kleuren": [
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ],
+    [
+     "#9a6b4e",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/structure-platform-dock-small",
+     "b": "pirate-kit/structure-platform-small",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/stairs-long",
+    "dungeon/stairs"
+   ],
+   "main": "dungeon/stairs",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.875,
+     1.4,
+     0.892
+    ],
+    [
+     0.875,
+     0.7,
+     0.892
+    ]
+   ],
+   "driehoeken": [
+    442,
+    358
+   ],
+   "kleuren": [
+    [
+     "#474a58",
+     "#6d738a"
+    ],
+    [
+     "#474a58",
+     "#6d738a"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/stairs-long",
+     "b": "dungeon/stairs",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/stairs-stone-corner",
+    "fantasy-town-kit/stairs-stone-round"
+   ],
+   "main": "fantasy-town-kit/stairs-stone-round",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.663,
+     0.65,
+     0.65
+    ],
+    [
+     0.56,
+     0.322,
+     0.65
+    ]
+   ],
+   "driehoeken": [
+    144,
+    154
+   ],
+   "kleuren": [
+    [
+     "#6d738a",
+     "#f5f2e7"
+    ],
+    [
+     "#6d738a"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/stairs-stone-corner",
+     "b": "fantasy-town-kit/stairs-stone-round",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/stairs-wide-wood-handrail",
+    "fantasy-town-kit/stairs-wide-wood"
+   ],
+   "main": "fantasy-town-kit/stairs-wide-wood",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.663,
+     0.65,
+     0.939
+    ],
+    [
+     0.663,
+     0.65,
+     0.65
+    ]
+   ],
+   "driehoeken": [
+    560,
+    424
+   ],
+   "kleuren": [
+    [
+     "#cb9d78"
+    ],
+    [
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/stairs-wide-wood-handrail",
+     "b": "fantasy-town-kit/stairs-wide-wood",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/stairs-wood",
+    "fantasy-town-kit/stairs-wood-handrail"
+   ],
+   "main": "fantasy-town-kit/stairs-wood-handrail",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.663,
+     0.325,
+     0.65
+    ],
+    [
+     0.663,
+     0.325,
+     0.939
+    ]
+   ],
+   "driehoeken": [
+    432,
+    568
+   ],
+   "kleuren": [
+    [
+     "#cb9d78"
+    ],
+    [
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/stairs-wood",
+     "b": "fantasy-town-kit/stairs-wood-handrail",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/palm-detailed-straight",
+    "pirate-kit/palm-detailed-bend"
+   ],
+   "main": "pirate-kit/palm-detailed-bend",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.817,
+     0.817,
+     1.07
+    ],
+    [
+     0.731,
+     0.817,
+     1.079
+    ]
+   ],
+   "driehoeken": [
+    482,
+    482
+   ],
+   "kleuren": [
+    [
+     "#6d8d33",
+     "#cb9d78"
+    ],
+    [
+     "#6d8d33",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/palm-detailed-straight",
+     "b": "pirate-kit/palm-detailed-bend",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "halloween/tree-dead-large",
+    "halloween/tree-dead-medium",
+    "halloween/tree-dead-small"
+   ],
+   "main": "halloween/tree-dead-medium",
+   "kits": [
+    "halloween"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.638,
+     0.382,
+     1.405
+    ],
+    [
+     0.502,
+     0.129,
+     1.162
+    ],
+    [
+     0.391,
+     0.282,
+     0.828
+    ]
+   ],
+   "driehoeken": [
+    256,
+    216,
+    184
+   ],
+   "kleuren": [
+    [
+     "#714c39"
+    ],
+    [
+     "#714c39"
+    ],
+    [
+     "#714c39"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "halloween/tree-dead-large",
+     "b": "halloween/tree-dead-medium",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "halloween/tree-dead-medium",
+     "b": "halloween/tree-dead-small",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "natuur/starfish-salmon",
+    "natuur/starfish-bleached"
+   ],
+   "main": "natuur/starfish-bleached",
+   "kits": [
+    "natuur"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.095,
+     0.1,
+     0.01
+    ],
+    [
+     0.061,
+     0.062,
+     0.008
+    ]
+   ],
+   "driehoeken": [
+    100,
+    100
+   ],
+   "kleuren": [
+    [
+     "#d07b56"
+    ],
+    [
+     "#88796d"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "natuur/starfish-salmon",
+     "b": "natuur/starfish-bleached",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "natuur/shell-slate",
+    "natuur/shell-salmon",
+    "natuur/shell-layered"
+   ],
+   "main": "natuur/shell-salmon",
+   "kits": [
+    "natuur"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.032,
+     0.026,
+     0.006
+    ],
+    [
+     0.052,
+     0.048,
+     0.009
+    ],
+    [
+     0.041,
+     0.038,
+     0.01
+    ]
+   ],
+   "driehoeken": [
+    72,
+    72,
+    72
+   ],
+   "kleuren": [
+    [
+     "#9da4c4",
+     "#f5f2e7"
+    ],
+    [
+     "#dd9f79",
+     "#f5f2e7"
+    ],
+    [
+     "#8f785b",
+     "#f5f2e7"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "natuur/shell-slate",
+     "b": "natuur/shell-salmon",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "natuur/shell-salmon",
+     "b": "natuur/shell-layered",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "modulair-terrein/hilly-prop-rock-b",
+    "modulair-terrein/hilly-prop-rock-a",
+    "modulair-terrein/hilly-prop-rock-c",
+    "modulair-terrein/hilly-prop-rock-d"
+   ],
+   "main": "modulair-terrein/hilly-prop-rock-a",
+   "kits": [
+    "modulair-terrein"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.28,
+     0.28,
+     0.154
+    ],
+    [
+     0.21,
+     0.224,
+     0.084
+    ],
+    [
+     0.56,
+     0.28,
+     0.21
+    ],
+    [
+     0.42,
+     0.42,
+     0.336
+    ]
+   ],
+   "driehoeken": [
+    61,
+    61,
+    79,
+    75
+   ],
+   "kleuren": [
+    [
+     "#88796d"
+    ],
+    [
+     "#88796d"
+    ],
+    [
+     "#88796d"
+    ],
+    [
+     "#88796d"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "modulair-terrein/hilly-prop-rock-b",
+     "b": "modulair-terrein/hilly-prop-rock-a",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "modulair-terrein/hilly-prop-rock-a",
+     "b": "modulair-terrein/hilly-prop-rock-c",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "modulair-terrein/hilly-prop-rock-c",
+     "b": "modulair-terrein/hilly-prop-rock-d",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "rocks/rockform-corner-hard",
+    "rocks/rockform-corner-soft"
+   ],
+   "main": "rocks/rockform-corner-soft",
+   "kits": [
+    "rocks"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     15.17,
+     15.652,
+     7.697
+    ],
+    [
+     15.182,
+     15.693,
+     7.685
+    ]
+   ],
+   "driehoeken": [
+    1725,
+    1725
+   ],
+   "kleuren": [
+    [
+     "#6d738a"
+    ],
+    [
+     "#6d738a"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "rocks/rockform-corner-hard",
+     "b": "rocks/rockform-corner-soft",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "village-kit/crate-a-open",
+    "village-kit/crate-a"
+   ],
+   "main": "village-kit/crate-a",
+   "kits": [
+    "village-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.48,
+     0.48,
+     0.48
+    ],
+    [
+     0.48,
+     0.48,
+     0.48
+    ]
+   ],
+   "driehoeken": [
+    508,
+    412
+   ],
+   "kleuren": [
+    [
+     "#cb9d78"
+    ],
+    [
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "village-kit/crate-a-open",
+     "b": "village-kit/crate-a",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "survival-kit/tree-log",
+    "survival-kit/tree-log-small"
+   ],
+   "main": "survival-kit/tree-log-small",
+   "kits": [
+    "survival-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.259,
+     1.04,
+     0.288
+    ],
+    [
+     0.259,
+     0.676,
+     0.288
+    ]
+   ],
+   "driehoeken": [
+    88,
+    88
+   ],
+   "kleuren": [
+    [
+     "#714c39",
+     "#cb9d78"
+    ],
+    [
+     "#714c39",
+     "#cb9d78"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "survival-kit/tree-log",
+     "b": "survival-kit/tree-log-small",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/banner-red",
+    "fantasy-town-kit/banner-green"
+   ],
+   "main": "fantasy-town-kit/banner-green",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.033,
+     0.325,
+     0.546
+    ],
+    [
+     0.033,
+     0.325,
+     0.546
+    ]
+   ],
+   "driehoeken": [
+    98,
+    102
+   ],
+   "kleuren": [
+    [
+     "#cb9d78",
+     "#f5f2e7"
+    ],
+    [
+     "#cb9d78",
+     "#f5f2e7"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/banner-red",
+     "b": "fantasy-town-kit/banner-green",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-props/key-gold",
+    "fantasy-props/key-metal"
+   ],
+   "main": "fantasy-props/key-metal",
+   "kits": [
+    "fantasy-props"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.029,
+     0.061,
+     0.006
+    ],
+    [
+     0.024,
+     0.056,
+     0.006
+    ]
+   ],
+   "driehoeken": [
+    1366,
+    546
+   ],
+   "kleuren": [
+    [
+     "#ffb349"
+    ],
+    [
+     "#88796d"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-props/key-gold",
+     "b": "fantasy-props/key-metal",
+     "soort": "handmatig",
      "overlap": null
     }
    ]
