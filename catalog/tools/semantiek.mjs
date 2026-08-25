@@ -147,6 +147,9 @@ const uitzonderingen = {
   'platformer-kit/stones': 'grondstoffen',
   'fantasy-props/potion-4': 'opslag',
   'fantasy-props/potion-2': 'opslag',
+  'natuur/mushroom-dark-red': 'planten',
+  'natuur/mushroom-brown': 'planten',
+  'props/mushroom-a': 'planten',
 };
 
 const regels = [
