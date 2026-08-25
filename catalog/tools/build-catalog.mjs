@@ -54,11 +54,11 @@ function readVariants(idsInCatalog) {
   const perModel = new Map();
 
   source.clusters?.forEach((cluster, n) => {
-    const members = cluster.leden.filter((id) => idsInCatalog.has(id));
+    const members = cluster.members.filter((id) => idsInCatalog.has(id));
     if (members.length < 2) return;
     const id = `v${String(n + 1).padStart(2, '0')}`;
-    const main = members.includes(cluster.hoofd) ? cluster.hoofd : members[0];
-    groups.push({ id, type: cluster.soort, main, members });
+    const main = members.includes(cluster.main) ? cluster.main : members[0];
+    groups.push({ id, type: cluster.type, main, members });
     for (const member of members) perModel.set(member, id);
   });
 
