@@ -285,6 +285,7 @@ const exceptions = {
   'pirate-kit/ship-medium': 'transport',
   'pirate-kit/ship-pirate-large': 'transport',
   'pirate-kit/ship-small': 'transport',
+  'pirate-kit/ship-pirate-medium': 'transport',
   'dungeon/bottle-a-brown': 'bottles-jugs',
   'dungeon/bottle-a-green': 'bottles-jugs',
   'dungeon/bottle-a-labeled-brown': 'bottles-jugs',
