@@ -285,6 +285,10 @@ const exceptions = {
   'taalei-kit/balloon-basket-round': 'transport',
   'taalei-kit/balloon-basket-square': 'transport',
   'taalei-kit/balloon': 'transport',
+  'pirate-kit/mast-ropes': 'transport',
+  'pirate-kit/ship-medium': 'transport',
+  'pirate-kit/ship-pirate-large': 'transport',
+  'pirate-kit/ship-small': 'transport',
 };
 
 const rules = [
