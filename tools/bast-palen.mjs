@@ -4,7 +4,7 @@
 //
 //   node tools/bast-palen.mjs hek.glb --naar 2,0 [--minhoogte 0.55]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const KOLOMMEN = 16, RIJEN = 4, W = 512, H = 512;
 const CB = W / KOLOMMEN, CH = H / RIJEN;
@@ -21,14 +21,14 @@ if (!pad || !naar) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json, bin } = glb;
 let geraakt = 0;
 for (const mesh of json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.indices === undefined) continue;
-    const pos = leesAccessor(glb, prim.attributes.POSITION);
-    const idx = leesAccessor(glb, prim.indices);
+    const pos = readAccessor(glb, prim.attributes.POSITION);
+    const idx = readAccessor(glb, prim.indices);
     const accessor = json.accessors[prim.attributes.TEXCOORD_0];
     const bufferView = json.bufferViews[accessor.bufferView];
     const start = (bufferView.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
@@ -64,5 +64,5 @@ for (const mesh of json.meshes ?? []) {
     }
   }
 }
-schrijfGlb(pad, json, bin, writeFileSync);
+writeGlb(pad, json, bin, writeFileSync);
 console.log(`${pad}: ${geraakt} paal-uv's -> ${naar.join(',')}`);

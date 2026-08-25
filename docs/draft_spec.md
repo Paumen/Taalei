@@ -1,268 +1,267 @@
-# Taaleiland — productspecificatie
+# Taaleiland — product specification
 
-## 1. Wat het is
+## 1. What it is
 
-Een eiland dat een kind opbouwt door Nederlandse taal te oefenen. Korte sessies, een paar keer per week, enkele maanden lang.
+An island that a child builds by practising the Dutch language. Short sessions, a few times a week, for several months.
 
-## 2. Het probleem
+## 2. The problem
 
-Herhaling is niet het probleem. Kinderen doen uit zichzelf duizenden uren hetzelfde: erts hakken in Minecraft, hetzelfde rondje lopen. Dat werkt omdat het iets oplevert dat ze wilden hebben, en omdat er altijd iets is dat ze nog niet gezien hebben. Huiswerk herhaalt net zo goed, maar levert niets op dat het kind zelf wilde. Voor een kind dat taal al moeilijk vindt, zit daar de weerstand.
+Repetition is not the problem. Children spontaneously spend thousands of hours doing the same thing: mining ore in Minecraft, walking the same loop. That works because it produces something they wanted, and because there's always something they haven't seen yet. Homework repeats just as much, but produces nothing the child itself wanted. For a child who already finds language hard, that's where the resistance sits.
 
-De meeste digitale programma's lossen dat niet op: oefeningen in bulk, een werkboekje op een scherm. Deze module draait het om. De herhaling blijft, maar levert grondstoffen op waarmee het kind een eiland bouwt, en achter elke doorgang ligt iets nieuws.
+Most digital programs don't solve that: exercises in bulk, a workbook on a screen. This module flips it around. The repetition stays, but it produces resources the child uses to build an island, and behind every passage lies something new.
 
-## 3. Voor wie
+## 3. Who it's for
 
-**Het kind — eindgebruiker.** Groep 5–6, moeite met lezen en spellen, in de eerste plaats kinderen in een dyslexietraject. Het kind gebruikt de module zelf, alleen, in korte sessies. Het kiest niet, koopt niet en beheert niets.
+**The child — end user.** Ages 8–10 (Dutch groep 5–6), difficulty with reading and spelling, primarily children on a dyslexia treatment track. The child uses the module alone, in short sessions. It doesn't choose, doesn't buy and manages nothing.
 
-De verschillen binnen deze groep zijn groter dan in het gewone onderwijs: kinderen beginnen op verschillende momenten en niveaus, dus past één vaste inhoud niemand goed. Een volwassene zet vooraf het niveau; daarbinnen beweegt de module mee met wat het kind laat zien. Wie iets duidelijk beheerst, is eerder klaar — die krijgt niet méér werk op een hoger niveau.
+The differences within this group are larger than in regular education: children start at different times and levels, so no single fixed content fits everyone well. An adult sets the level beforehand; within that, the module moves with what the child shows. Whoever clearly masters something finishes sooner — they don't get more work at a higher level.
 
-**De organisatie — afnemer.** Kleine behandelorganisaties met een sterke eigen aanpak, maar zonder geld om software te laten bouwen. Wat de grote partijen landelijk uitrollen is zelden beter; het is alleen betaalbaar voor wie het kan betalen. De organisatie geeft de module gratis mee aan haar patiënten. De behandelaar zet het niveau en kan onderweg iets vrijgeven. Verder niets.
+**The organisation — customer.** Small treatment organisations with a strong approach of their own, but without the budget to have software built. What the big players roll out nationally is rarely better; it's just affordable for whoever can afford it. The organisation hands the module to its patients for free. The practitioner sets the level and can unlock things along the way. Nothing more.
 
-**De ouder — beheerder en publiek.** Houdt het account en beheert een paar instellingen: lettergrootte, voorleessnelheid (in overleg met de behandelaar), optionele uiterlijke lagen. De ouder voert ook een deel van de behandeling uit: zit vaak een stuk van de sessie mee en doet het huiswerk thuis.
+**The parent — administrator and audience.** Holds the account and manages a few settings: font size, read-aloud speed (in consultation with the practitioner), optional cosmetic layers. The parent also carries out part of the treatment: often sits in on part of the session and does the homework at home.
 
-Daarnaast is de ouder publiek. Het kind laat zien wat het gebouwd heeft. Dat is de enige sociale laag en vraagt geen enkele functie — alleen een eiland dat de moeite waard is om naar te kijken.
+The parent is also an audience. The child shows what it has built. That's the only social layer, and it requires no feature at all — just an island worth looking at.
 
-## 4. Hoe het bij het kind komt
+## 4. How it reaches the child
 
-**Eiland 1, via de organisatie.** De behandelaar geeft de module mee tijdens het traject. Altijd gratis voor het gezin. De ouder maakt het account aan (rolverdeling: §3).
+**Island 1, via the organisation.** The practitioner hands out the module during the treatment track. Always free for the family. The parent creates the account (role division: §3).
 
-Eiland 1 moet op zichzelf afgerond aanvoelen. Een kind dat nooit aan eiland 2 toekomt, mag niet het gevoel hebben halverwege te zijn blijven steken.
+Island 1 must feel complete on its own. A child who never gets to island 2 must not feel like it got stuck halfway.
 
-**Eiland 1, buiten de organisatie.** Voorlopig niet beschikbaar. Later eventueel wel, als betaalde variant en mogelijk in aangepaste vorm.
+**Island 1, outside the organisation.** Not available for now. Possibly later, as a paid variant and possibly in adapted form.
 
-**Eiland 2, via de ouder.** Te koop na afloop van het traject, als de ouder duidelijk baat heeft gezien bij het eerste. Geen behandelaar, geen koppeling met de behandeling — alleen dezelfde didactische uitgangspunten. De ouder zet zelf het niveau. De prijs ligt onder die van één particuliere behandelsessie.
+**Island 2, via the parent.** For sale after the treatment track ends, once the parent has clearly seen benefit from the first one. No practitioner, no link to the treatment — only the same didactic principles. The parent sets the level themselves. The price sits below that of a single private treatment session.
 
-## 5. Ritme en omvang
+## 5. Rhythm and scope
 
-Hoe vaak en hoe lang blijkt pas als kinderen het gebruiken: 1×15 minuten, 2×5 minuten per dag, of één keer per week een half uur. We rekenen met ongeveer een half uur inhoud per week, hoe dat ook verdeeld wordt.
+How often and how long only becomes clear once children actually use it: 1×15 minutes, 2×5 minutes a day, or once a week for half an hour. We plan for roughly half an hour of content per week, however it's divided.
 
-Binnen een zitting hoort afwisseling: niet een kwartier hetzelfde, maar hakken, dan plakken, dan het voorgelezen woord aanwijzen — dezelfde regel en dezelfde woorden, van verschillende kanten.
+Within a session there should be variety: not the same thing for fifteen minutes straight, but chopping, then gluing, then pointing at the word read aloud — the same rule and the same words, from different angles.
 
-De eerste versie mikt op ongeveer drie maanden inhoud, met ruimte naar twee of vier. Voor de allereerste test mag dat minder zijn, zolang het een eerlijke dwarsdoorsnede is van wat een kind over die maanden tegenkomt. Het zijn richtpunten, geen eisen: de opzet moet ze kunnen verzetten zonder dat er iets omvalt.
+The first version aims for roughly three months of content, with room to move to two or four. For the very first test that may be less, as long as it's a fair cross-section of what a child encounters over those months. These are guideposts, not requirements: the setup must be able to shift them without anything collapsing.
 
-## 6. Rekbaarheid en samenhang
+## 6. Flexibility and coherence
 
-Twee eisen die tegen elkaar in werken. Samenhang: taak, mechanisme, beloning en plek moeten in elkaar grijpen — een kind van acht tot tien volgt verhalen, checkt oorzaak en gevolg, en heeft meteen door of een beloning er los op geplakt zit. Rekbaarheid: we weten nog niet wat werkt, dus alles moet later te verzetten zijn.
+Two requirements that pull against each other. Coherence: task, mechanic, reward and place must interlock — a child aged eight to ten follows stories, checks cause and effect, and immediately notices if a reward is just bolted on. Flexibility: we don't yet know what works, so everything must be adjustable later.
 
-Er zijn knoppen om aan te draaien. Draai je aan één, dan gaat **meestal** het één omhoog en het ander omlaag — hoeveel, hangt af van hoe de andere staan. Dat blijkt gaandeweg.
+There are dials to turn. Turn one, and **usually** one thing goes up and another goes down — by how much depends on where the others sit. That becomes clear along the way.
 
-- **Hoe vast een taakvorm aan de wereld zit.** Overal inzetbaar tegenover alleen waar hij thematisch past, en of hij daar betekenis draagt: hakken is klanken scheiden én hout doorhakken; het voorgelezen woord aanwijzen heeft geen tegenhanger. Hoe sterker de betekenis, hoe minder vrij de plaatsing: hakken kan alleen waar bomen staan, en niet elke zone verdraagt bomen.
-- **Hoe strak grondstoffen vastzitten.** Aan één taakvorm (hout alleen uit hakken) tegenover meerdere vormen; en of de materiaalvolgorde eenrichtingsverkeer is of dat materialen terug mogen komen.
-- **Hoe eigen een zone is, en wat dat kost.** Eigen taken en props tegenover veel delen met andere zones. Dezelfde knop bepaalt de prijs van elke wijziging: een zone als regel in een lijst en een taak als vorm plus woordenset houdt wijzigen goedkoop; meer maatwerk per zone geeft meer eigenheid, maar maakt elke wijziging duurder.
-- **Aantal zones tegenover lengte per zone.** En hoe makkelijk er later een zone bij kan: dat vraagt ruimte tussen de zones, zodat de rest niet opschuift.
-- **Hoe los regels en woorden van het thema staan.**
-- **Hoe hindernissen en bouwsels aan elkaar vastzitten.** Een brug over een kloof, een ladder tegen een wand: hoe strakker die band, hoe minder vrij je bent in wat je waar laat bouwen. En hoe snel ze oplopen — greppel, ravijn, kloof: hoe steiler die lijn, hoe meer het terrein moet meegroeien.
-- **Losse plekken ernaast.** Ondergronds, onder water, een eilandje: ruimte om toe te voegen tegenover afstand tot de hoofdlijn.
+- **How tightly a task form is tied to the world.** Usable everywhere versus only where it fits thematically, and whether it carries meaning there: chopping is both separating sounds and chopping wood; pointing at the word read aloud has no counterpart. The stronger the meaning, the less free the placement: chopping can only happen where there are trees, and not every zone tolerates trees.
+- **How tightly resources are bound.** To one task form (wood only from chopping) versus several forms; and whether the material sequence is one-way traffic or materials can come back.
+- **How distinct a zone is, and what that costs.** Own tasks and props versus sharing a lot with other zones. The same dial sets the price of every change: a zone as a row in a list and a task as a form plus a word set keeps changes cheap; more bespoke work per zone gives more distinctiveness but makes every change more expensive.
+- **Number of zones versus length per zone.** And how easily a zone can be added later: that needs room between zones so the rest doesn't have to shift.
+- **How loosely rules and words sit relative to the theme.**
+- **How tightly obstacles and structures are tied together.** A bridge over a gap, a ladder against a wall: the tighter that bond, the less free you are in what gets built where. And how quickly they escalate — ditch, ravine, gorge: the steeper that curve, the more the terrain has to grow along with it.
+- **Loose spots on the side.** Underground, underwater, a small island: room to add things versus distance from the main line.
 
-De toets bij elke stand: zou een kind van negen kunnen uitleggen waarom dit hier gebeurt?
+The test at every setting: could a nine-year-old explain why this happens here?
 
-## 7. Wat het nooit doet
+## 7. What it never does
 
-**Niet vooruitlopen.** Een regel die het kind nog niet is tegengekomen — bij de behandelaar of op school — komt hier niet aan bod. Zo kan de module de behandeling nooit tegenspreken.
+**Never gets ahead.** A rule the child hasn't encountered yet — with the practitioner or at school — doesn't appear here. That way the module can never contradict the treatment.
 
-**Niet afrekenen.** Geen streaks en of iets verliezen als je fout maakt.
+**Never punishes.** No streaks, and nothing is lost for making a mistake.
 
-**Niets persoonlijk over het kind vastleggen.** Geen naam, leeftijd, foto of stemopname. Geen tracking of analytics: alles wat de module bijhoudt blijft op het toestel. Het enige dat het toestel verlaat is de voortgang onder het ouderaccount — niets naar derden, niets voor productverbetering. Geen advertenties.
+**Records nothing personal about the child.** No name, age, photo or voice recording. No tracking or analytics: everything the module tracks stays on the device. The only thing that leaves the device is progress under the parent account — nothing to third parties, nothing for product improvement. No advertising.
 
-**Het huiswerk niet vervangen.** Wat offline gebeurt blijft de kern. De module staat daar los van, met overlappende inhoud.
+**Never replaces the homework.** What happens offline stays the core. The module is separate from that, with overlapping content.
 
-## 8. Waarom dit project
+## 8. Why this project
 
-Het gaat niet om omzet, maar om de vraag of we iets kunnen maken dat kinderen echt graag gebruiken om iets moeilijks vaker te oefenen.
+It's not about revenue, but about whether we can build something children genuinely enjoy using to practise something difficult more often.
 
-- Dyslexie-oefening leuker maken en makkelijker vol te houden.
-- Kleine lokale organisaties helpen die goede, persoonlijke behandeling bieden maar geen budget hebben voor eigen software.
-- Ervaring opdoen met webapps en LLM's, en iets bouwen dat echt gebruikt wordt.
-- Een tegenhanger maken van digitale "innovatie" die bij nader inzien een digitaal werkboekje is.
+- Make dyslexia practice more enjoyable and easier to sustain.
+- Help small local organisations that offer good, personal treatment but have no budget for their own software.
+- Gain experience with webapps and LLMs, and build something that's actually used.
+- Create a counterpart to digital "innovation" that turns out, on closer inspection, to be a digital workbook.
 
-Daarom kan eiland 1 grotendeels gratis. Werkt het concept, dan ontstaat er ruimte voor eiland 2, uitbreiding van eiland 1, organisatiespecifieke modules, of verkoop aan andere kleine organisaties tegen een redelijk bedrag. Succes betekent hier niet groei, maar genoeg om te blijven bestaan en door te ontwikkelen.
+That's why island 1 can largely be free. If the concept works, there's room for island 2, an expansion of island 1, organisation-specific modules, or selling to other small organisations for a reasonable amount. Success here doesn't mean growth, but enough to keep existing and keep developing.
 
 ---
 
 # Taaleiland — game design document
 
-## 1. Overzicht
+## 1. Overview
 
-**Genre.** Bouw- en ontdekspel met oefenen als motor. Geen quiz met een spel eromheen.
+**Genre.** Building and discovery game with practice as the engine. Not a quiz with a game wrapped around it.
 
-**Platform.** Webapp in de browser, telefoon en tablet. Geen installatie, geen appwinkel.
+**Platform.** Web app in the browser, phone and tablet. No install, no app store.
 
-**Doelgroep.** Kinderen groep 5–6 met lees- en spellingproblemen, meestal in behandeling. Zie productspecificatie §3.
+**Target audience.** Children aged 8–10 (Dutch groep 5–6) with reading and spelling difficulties, usually in treatment. See product specification §3.
 
-**Kernconcept.** Een kind bouwt een eiland op. Oefenen levert grondstoffen; grondstoffen bouwen wat nodig is om een hindernis te passeren; daarachter ligt een zone die het kind nog niet gezien heeft.
+**Core concept.** A child builds up an island. Practice yields resources; resources build what's needed to get past an obstacle; behind it lies a zone the child hasn't seen yet.
 
-**Ontwerppijlers**
-- De oefening maakt deel uit van de logica in het spel.
-- Zonder tekst te lezen weet je waar je bent en wat er nu moet
-- Alleen spelen is genoeg; laten zien is een bonus
-- Niet te kinderachtig
+**Design pillars**
+- The exercise is part of the game's logic.
+- Without reading text, you know where you are and what's needed now
+- Playing alone is enough; showing it off is a bonus
+- Not too childish
 
-**Weergaven** (uit brainstorm.md)
+**Views** (from brainstorm.md)
 
-1. Eilanden — 2D, kaart
-2. Eiland — 3D, overzicht
-2. Zone — 3D, lager en dichterbij
-3. Oefening — 2D
+1. Islands — 2D, map
+2. Island — 3D, overview
+2. Zone — 3D, lower and closer
+3. Exercise — 2D
 
-## 2. Kernspel
+## 2. Core gameplay
 
-**Hoofdlus**
+**Main loop**
 
-> oefenen → grondstof → bouwen → hindernis vrij → volgende zone ontdekken
+> practise → resource → build → obstacle cleared → discover next zone
 
-**Doelen van de speler.** Kort: de oefening afmaken en de grondstof pakken. Middellang: genoeg materiaal voor wat er gebouwd moet worden. Lang: zien wat er achter de volgende hindernis ligt.
+**Player goals.** Short: finish the exercise and grab the resource. Medium: enough material for what needs building. Long: see what lies behind the next obstacle.
 
-**Acties.** Oefenen (2D), bouwen, het eiland bekijken, een zone binnengaan, verzamelen. Geen lopen of besturen: het kind stuurt geen personage door de wereld.
+**Actions.** Practise (2D), build, view the island, enter a zone, collect. No walking or steering: the child doesn't move a character through the world.
 
-**Win/verlies.** Er is geen hard afstraffen; het eiland raakt af.
+**Win/lose.** There's no hard punishment; the island gets completed.
 
-**Feedback** (uit brainstorm.md). Niet alleen goed/fout maar ook waarom, en meteen opnieuw mogen zonder straf. Korte lussen: doel → actie → terugkoppeling binnen seconden.
+**Feedback** (from brainstorm.md). Not just right/wrong but also why, and immediately allowed to try again without penalty. Short loops: goal → action → feedback within seconds.
 
-## 3. Voortgang
+## 3. Progression
 
-**Twee klokken die niet aan elkaar vastzitten.**
+**Two clocks that aren't tied together.**
 
-- *Snel* — de zitting. Begint, geeft herhaling, eindigt met iets dat er eerst niet was. Elke keer af, ook als het kind daarna drie weken wegblijft.
-- *Langzaam* — het eiland dat over maanden volloopt. Doorgangen zijn mijlpalen, geen poortjes waar naartoe gewerkt wordt.
+- *Fast* — the session. Starts, delivers repetition, ends with something that wasn't there before. Complete every time, even if the child then stays away for three weeks.
+- *Slow* — the island that fills up over months. Passages are milestones, not gates being worked toward.
 
-Koppel ze niet één-op-één: het tempo verschilt te sterk per kind.
+Don't link them one-to-one: the pace differs too much per child.
 
-**Zones en doorgangen.** Een zone toont voortgang doorlopend. Een doorgang wordt vrijgemaakt om verder te kunnen. Volgorde grotendeels lineair, met kleine keuzes.
+**Zones and passages.** A zone shows progress continuously. A passage is cleared to move on. Order is mostly linear, with small choices.
 
-*Spanning, nog niet opgelost:* brainstorm.md noemt autonomie — keuze in volgorde, tempo, route — als sterke motivator, terwijl de doorgangen een vaste volgorde afdwingen. Waar de keuze dan wel zit, is open.
+*Tension, not yet resolved:* brainstorm.md names autonomy — choice in order, pace, route — as a strong motivator, while the passages force a fixed order. Where the choice actually sits is still open.
 
-**Zichtbaarheid.** Het hele eiland is vanaf het begin te zien. Geen mist, geen sloten. Wat nog niet gedaan is, is vager; wat gedaan is, is scherp. Aan het eind is alles scherp. *Open: waar "vaag" precies uit bestaat — minder props, vlakkere kleur, zachtere vormen.*
+**Visibility.** The whole island is visible from the start. No fog, no locks. What hasn't been done yet is hazier; what's done is sharp. At the end everything is sharp. *Open: what exactly "hazy" consists of — fewer props, flatter colour, softer shapes.*
 
-**Materiaalvolgorde.** Hout, dan steen, dan erts. Eenrichtingsverkeer: terug naar hout na steen voelt als een stap terug, ook bij moeilijkere woorden. Dit bindt de zonevolgorde. (Knop: productspecificatie §6.)
+**Material sequence.** Wood, then stone, then ore. One-way traffic: going back to wood after stone feels like a step backward, even with harder words. This ties the zone sequence together. (Dial: product specification §6.)
 
-**Hindernissen, oplopend in omvang.** Greppel → ravijn → kloof. Vormen uit brainstorm.md.
+**Obstacles, increasing in scale.** Ditch → ravine → gorge. Forms from brainstorm.md.
 
 > [!TIP]
-Mogelijke voorbeelden:
-| # | Hindernis | Landvorm die hem echt maakt |
+Possible examples:
+| # | Obstacle | Landform that really makes it |
 |---|---|---|
-| — | brug | ravijn of rivier |
-| — | ladder | klifrand, hoogteverschil |
-| — | vlot | ondiep water |
-| — | bootje | open water |
-| — | hangbrug | brede overspanning |
-| — | luchtballon | onbereikbaar plateau |
-| — | landdier | begroeiing of terrein dat je niet te voet neemt |
-| — | vliegdier | brugophangen |
-| — | waterdier | onderwaterzone |
+| — | bridge | ravine or river |
+| — | ladder | cliff edge, height difference |
+| — | raft | shallow water |
+| — | small boat | open water |
+| — | suspension bridge | wide span |
+| — | hot air balloon | unreachable plateau |
+| — | land animal | vegetation or terrain you don't cross on foot |
+| — | flying animal | bridge suspension |
+| — | water animal | underwater zone |
 
-## 4. Moeilijkheid
+## 4. Difficulty
 
-**3–4 brede niveaus.** Zelfde eiland, zelfde zones, zelfde taken voor iedereen. Alleen de woorden verschillen. Eén eiland te bouwen, geen vertakking, en geen kind kan zien dat het op een makkelijkere stand staat.
+**3–4 broad levels.** Same island, same zones, same tasks for everyone. Only the words differ. One island to build, no branching, and no child can tell it's on an easier setting.
 
-**Instellen.** Wie het niveau zet en wanneer: productspecificatie §3–4. De module verandert het niet zelf.
+**Setting it.** Who sets the level and when: product specification §3–4. The module doesn't change it itself.
 
-**Meebewegen binnen een oefening.** Bij duidelijke beheersing stopt de oefening eerder.
+**Adapting within an exercise.** With clear mastery, the exercise stops sooner.
 
-**Vrijgave.** De behandelaar kan iets overslaan of als afgedaan markeren.
+**Unlocking.** The practitioner can skip something or mark it as done.
 
-## 5. Economie
+## 5. Economy
 
-- *Bouwmateriaal* — komt uit de taken van een zone.
+- *Building material* — comes from a zone's tasks.
 
-**Inspanning, niet correctheid.** Een oefening afmaken levert de grondstof op. Fouten kosten niets.
+**Effort, not correctness.** Finishing an exercise yields the resource. Mistakes cost nothing.
 
-**Kosten.** Een doorgang kost meerdere grondstoffen, dus meerdere zittingen.
-*Open: exacte aantallen — die volgen uit hoeveel zittingen een zone waard is.*
+**Costs.** A passage costs several resources, so several sessions.
+*Open: exact amounts — those follow from how many sessions a zone is worth.*
 
-## 6. Oefenvormen
+## 6. Exercise forms
 
-**Principe.** Een vorm keert terug in meerdere zones met andere woorden, andere regels, andere aankleding en andere spelbetekenis. Nieuwe vormen komen er later bij. Een vorm die betekenis draagt in de wereld is sterker dan een die dat niet doet.
+**Principle.** A form returns across several zones with different words, different rules, different dressing and different in-game meaning. New forms are added later. A form that carries meaning in the world is stronger than one that doesn't.
 
 > [!TIP]
-**mogelijke voorbeelden uit brainstorm.md**
-| Vorm | Taalkundig | In de wereld |
+**Possible examples from brainstorm.md**
+| Form | Linguistic | In the world |
 |---|---|---|
-| Hakken | woord in klanken splitsen (raam → /r/ /aa/ /m/) | hout doorhakken |
-| Plakken | klanken samenvoegen tot een woord | planken timmeren |
-| Wisselrijtjes | rijtjes met één letter verschil op tempo lezen (kip–kap–kop) | *open* |
-| Voorgelezen woord aanwijzen | luisteren en herkennen | *geen natuurlijke tegenhanger* |
-| Zelf een zin of verhaaltje maken | productie in plaats van herkenning | *open* |
+| Chopping | splitting a word into sounds (raam → /r/ /aa/ /m/) | chopping wood |
+| Gluing | combining sounds into a word | building planks |
+| Swap rows | rows differing by one letter, read at pace (kip–kap–kop) | *open* |
+| Point at the word read aloud | listening and recognising | *no natural counterpart* |
+| Make your own sentence or story | production instead of recognition | *open* |
 
 > [!TIP]
-**Spellingcategorieën.** au/ou, ei/ij, andere weetwoorden, open en gesloten lettergreep, woordherkenning. 
-woordflitsen
-vul in: ij of ei, au of ou, v f, s z, ch cht, c s k, th of t, x y q, ch als SJ, b als p, g of ch, g als zj, tie als tsie, etc
-sterke werkwoorden
-ij/ei-woorden die beide bestaan: leiden – lijden.
+**Spelling categories.** au/ou, ei/ij, other spelling-rule words, open and closed syllables, word recognition.
+word flashes
+fill in: ij or ei, au or ou, v f, s z, ch cht, c s k, th or t, x y q, ch as SJ, b as p, g or ch, g as zj, tie as tsie, etc
+strong verbs
+ij/ei words that both exist: leiden – lijden ("to lead" – "to suffer").
 
-**Automatiseren mag met tempo en drill.** Korte snelle rondes, "beat je eigen tijd" tegen jezelf, herhaling met spaced repetition.
+**Drilling for automaticity is fine, with pace and drill.** Short fast rounds, "beat your own time" against yourself, repetition with spaced repetition.
 
-Leeg: welke vorm in welke zone, hoeveel vormen per zone, hoeveel items per ronde.
+Open: which form in which zone, how many forms per zone, how many items per round.
 
-## 7. Wereld en inhoud
+## 7. World and content
 
-**Kandidaat-zones** (brainstorm.md): startkamp, strand, bos, berg, grot, vulkaan, zee, onderwater, meer, rivier, waterval, bloementuin, vuurtoren, haven, schip, luchtballon, jungle.
+**Candidate zones** (brainstorm.md): start camp, beach, forest, mountain, cave, volcano, sea, underwater, lake, river, waterfall, flower garden, lighthouse, harbour, ship, hot air balloon, jungle.
 
-Niet alles is een zone. Een zone is van ver herkenbaar, vult een ingezoomde weergave, heeft een natuurlijke rand voor een hindernis, en voelt niet als een plek waar je al was. Waterval, bloementuin en scheepswrak zijn eerder onderdelen; vuurtoren is een landmark.
+Not everything is a zone. A zone is recognisable from a distance, fills a zoomed-in view, has a natural edge for an obstacle, and doesn't feel like a place you've already been. Waterfall, flower garden and shipwreck are more like elements; lighthouse is a landmark.
 
-Leeg: welke zones, hoeveel, in welke volgorde, en welke hindernis waar.
+Open: which zones, how many, in which order, and which obstacle goes where.
 
 > [!TIP]
-**Props** (brainstorm.md): vuurtoren, planken, schelpen, waterval, luchtballon, zaag, bijl, hamer en spijkers, erts, bomen, bruggen, ladders, kisten, tonnen, kratten, hekken, boten, scheepswrakveld, ruïnewijk, marktwijk, stormgordel, zeegrotten, walvisskelet, molen, kolossaal standbeeld, zeeboog, blaasgat dat op tijd uitbarst.
+**Props** (brainstorm.md): lighthouse, planks, shells, waterfall, hot air balloon, saw, axe, hammer and nails, ore, trees, bridges, ladders, chests, barrels, crates, fences, boats, shipwreck field, ruined district, market quarter, storm belt, sea caves, whale skeleton, windmill, colossal statue, sea arch, blowhole that erupts on a timer.
 
-**Verzamelen.** Pets. Grondstoffen.
+**Collecting.** Pets. Resources.
 
-## 8. Verhaal
+## 8. Story
 
-Aankomst op een nieuw eiland, dingen stap voor stap ontdekken. Bewust een frisse start, niet nog meer van hetzelfde: herkent het kind iets, dan snel door; zo niet, dan geen probleem.
+Arrival on a new island, discovering things step by step. Deliberately a fresh start, not more of the same: if the child recognises something, move on quickly; if not, no problem.
 
-Brainstorm.md noemt narratieve motivatie als het sterkste middel op deze leeftijd — sterker dan elk puntensysteem — en stelt dat de taal de sleutel moet zijn, niet de tol die je betaalt. Humor hoort erbij.
+Brainstorm.md names narrative motivation as the strongest tool at this age — stronger than any points system — and states that the language must be the key, not the toll you pay. Humour belongs here too.
 
-Leeg: of er een doorlopend verhaal is, wie er verder op het eiland is, waarom het kind daar is, en wat het einde is.
+Open: whether there's an ongoing story, who else is on the island, why the child is there, and what the ending is.
 
 ## 9. UX
 
-**Eilandweergave.** Het hele eiland in beeld, lage hoek. Voortgang zichtbaar in wat gebouwd is en wat scherp is.
+**Island view.** The whole island in view, low angle. Progress visible in what's built and what's sharp.
 
-**Zoneweergave.** Tik op een zone: de camera zakt en gaat dichterbij.
+**Zone view.** Tap a zone: the camera descends and moves closer.
 
-**Bij elke start.** In één blik zichtbaar waar het kind is en wat er nu moet — zonder lezen.
+**At every start.** Visible at a glance where the child is and what's needed now — without reading.
 
-**Voorlezen.** Web Speech API. Snelheid instelbaar door de ouder, in overleg met de behandelaar. Woorden, geen klanken. 
+**Read-aloud.** Web Speech API. Speed adjustable by the parent, in consultation with the practitioner. Words, not sounds.
 
-**Typografie als hulpmiddel** (brainstorm.md): variabele en kleurenfonts, vet, kleur, letterspatiëring om structuur in woorden te tonen.
+**Typography as a tool** (brainstorm.md): variable and colour fonts, bold, colour, letter spacing to show structure within words.
 
-**Toegankelijkheid.** Lettergrootte instelbaar. Geen tijdsdruk waar die niet bedoeld is.
+**Accessibility.** Font size adjustable. No time pressure where it isn't intended.
 
-Bij een fout krijgt kind direct herkansing. Eventueel met uitlegof vertraging element om doorklikken te voorkomen.
+On a mistake the child gets an immediate second try. Possibly with an explanation or a delay element to prevent click-through.
 
-Alles touch first.
+Everything touch first.
 
-## 10. Beeld
+## 10. Visuals
 
-**Stijl.** Low-poly, gefacetteerd, vlak geschaduwd.
+**Style.** Low-poly, faceted, flat shaded.
 
-**Camera.** Lage hoek, draaien en zoomen. Zakt bij binnengaan van een zone.
+**Camera.** Low angle, orbit and zoom. Descends when entering a zone.
 
-**Uiterlijke lagen.** Reskins zoals de piratenlaag moeten mogelijk blijven: props verwisselbaar, niet vastgebakken.
+**Cosmetic layers.** Reskins such as the pirate layer must remain possible: props swappable, not baked in.
 
-Leeg: animatie, effecten, hoeveel per zone eigen is.
+Open: animation, effects, how much per zone is unique.
 
-## 11. Geluid
+## 11. Sound
 
-Terugkoppeling bij hakken, plakken, bouwen.
+Feedback on chopping, gluing, building.
 
-Leeg: muziek, omgevingsgeluid.
+Open: music, ambient sound.
 
-## 12. Techniek
+## 12. Technology
 
-**Opzet.** Webapp. 
+**Setup.** Web app.
 
-**Prestatiedoel.** Telefoon, 60 fps. 
+**Performance target.** Phone, 60 fps.
 
-**Opslag.** Zie productspecificatie §7.
+**Storage.** See product specification §7.
 
-**Grot apart renderen** (brainstorm.md): de cave-kit pas laden bij binnengaan, zodat een hoge tri-count niet meetelt in de eilandweergave.
+**Render the cave separately** (brainstorm.md): only load the cave kit on entering, so a high tri-count doesn't count toward the island view.
 
-## 13. Productie
+## 13. Production
 
-**MVP.** Ongeveer drie maanden inhoud, of minder mits een eerlijke dwarsdoorsnede: meerdere zones, meerdere oefenvormen, hergebruik van een vorm, meerdere woordniveaus, grondstoffen, bouwen, een doorgang, zichtbare voortgang, iets te ontdekken.
+**MVP.** Roughly three months of content, or less provided it's a fair cross-section: multiple zones, multiple exercise forms, reuse of a form, multiple word levels, resources, building, a passage, visible progress, something to discover.
 
 ---
-

@@ -5,7 +5,7 @@
 //
 //   node tools/splits-op-obj.mjs <werk.glb> --obj <bron.obj> --materiaal Wood_Light --naar 0,0
 import { readFileSync, writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 const W=512,H=512,CB=32,CH=128;
 const arg=process.argv.slice(2);
 let pad=null,naar=null,objPad=null,materiaal=null;
@@ -33,15 +33,15 @@ const bronMat=new Map();
     }
   }
 }
-const glb=leesGlb(pad);
+const glb=readGlb(pad);
 const stukken=[glb.bin]; let lengte=glb.bin.length;
 const nieuweView=(buf,doel)=>{const vul=(4-(lengte%4))%4; if(vul){stukken.push(Buffer.alloc(vul,0));lengte+=vul;}
   const v=glb.json.bufferViews.push({buffer:0,byteOffset:lengte,byteLength:buf.length,...(doel?{target:doel}:{})})-1;
   stukken.push(buf); lengte+=buf.length; return v;};
 let verhuisd=0,gesplitst=0,ongekoppeld=0;
 for(const mesh of glb.json.meshes ?? []) for(const prim of mesh.primitives ?? []){
-  const attrs={}; for(const [n,i] of Object.entries(prim.attributes)) attrs[n]=leesAccessor(glb,i);
-  const idx=leesAccessor(glb,prim.indices), pos=attrs.POSITION;
+  const attrs={}; for(const [n,i] of Object.entries(prim.attributes)) attrs[n]=readAccessor(glb,i);
+  const idx=readAccessor(glb,prim.indices), pos=attrs.POSITION;
   const kies=new Set();
   for(let t=0;t<idx.count;t+=3){
     const d=[idx.data[t],idx.data[t+1],idx.data[t+2]];
@@ -74,6 +74,6 @@ for(const mesh of glb.json.meshes ?? []) for(const prim of mesh.primitives ?? []
   prim.indices=glb.json.accessors.push({bufferView:iv,componentType:groot?5125:5123,count:nidx.length,type:'SCALAR'})-1;
 }
 glb.json.buffers[0].byteLength=lengte;
-schrijfGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
+writeGlb(pad,glb.json,Buffer.concat(stukken),writeFileSync);
 if(ongekoppeld) console.error(`LET OP: ${ongekoppeld} driehoeken niet in de bron teruggevonden`);
 console.log(`${pad}: ${verhuisd} driehoeken naar ${naar.join(',')}, ${gesplitst} vertices bijgemaakt`);

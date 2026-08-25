@@ -2,9 +2,9 @@ import { naarOklab, afstand } from './palet.mjs';
 
 const RAMP = 16;
 
-function labVlak({ breedte, hoogte, pixels }) {
-  const lab = new Float64Array(breedte * hoogte * 3);
-  for (let i = 0; i < breedte * hoogte; i++) {
+function labVlak({ width, height, pixels }) {
+  const lab = new Float64Array(width * height * 3);
+  for (let i = 0; i < width * height; i++) {
     const [l, a, b] = naarOklab(pixels[i * 4], pixels[i * 4 + 1], pixels[i * 4 + 2]);
     lab[i * 3] = l;
     lab[i * 3 + 1] = a;
@@ -13,16 +13,16 @@ function labVlak({ breedte, hoogte, pixels }) {
   return lab;
 }
 
-function grenzen(lab, breedte, hoogte, langsX) {
-  const lengte = langsX ? breedte : hoogte;
-  const dwars = langsX ? hoogte : breedte;
+function grenzen(lab, width, height, langsX) {
+  const lengte = langsX ? width : height;
+  const dwars = langsX ? height : width;
   const sprong = new Float64Array(Math.max(lengte - 1, 0));
 
   for (let i = 0; i + 1 < lengte; i++) {
     let som = 0;
     for (let k = 0; k < dwars; k++) {
-      const a = langsX ? (k * breedte + i) * 3 : (i * breedte + k) * 3;
-      const b = langsX ? (k * breedte + i + 1) * 3 : ((i + 1) * breedte + k) * 3;
+      const a = langsX ? (k * width + i) * 3 : (i * width + k) * 3;
+      const b = langsX ? (k * width + i + 1) * 3 : ((i + 1) * width + k) * 3;
       som += afstand([lab[a], lab[a + 1], lab[a + 2]], [lab[b], lab[b + 1], lab[b + 2]]);
     }
     sprong[i] = som / dwars;
@@ -39,7 +39,7 @@ function grenzen(lab, breedte, hoogte, langsX) {
 }
 
 function verloop(png, rect) {
-  const { breedte, pixels } = png;
+  const { width, pixels } = png;
   const [x0, y0, x1, y1] = rect;
   const ramp = [];
   let zwart = true;
@@ -48,7 +48,7 @@ function verloop(png, rect) {
     const y = Math.min(y0 + Math.floor(((n + 0.5) / RAMP) * (y1 - y0)), y1 - 1);
     let r = 0, g = 0, b = 0;
     for (let x = x0; x < x1; x++) {
-      const i = (y * breedte + x) * 4;
+      const i = (y * width + x) * 4;
       r += pixels[i];
       g += pixels[i + 1];
       b += pixels[i + 2];
@@ -69,9 +69,9 @@ function steek(gevondenGrenzen, lengte) {
   return deler;
 }
 
-function rasterGrenzen(lab, breedte, hoogte, langsX) {
-  const lengte = langsX ? breedte : hoogte;
-  const ruw = grenzen(lab, breedte, hoogte, langsX);
+function rasterGrenzen(lab, width, height, langsX) {
+  const lengte = langsX ? width : height;
+  const ruw = grenzen(lab, width, height, langsX);
   const stap = steek(ruw.slice(1, -1), lengte);
   if (!stap) return null;
   return Array.from({ length: lengte / stap + 1 }, (_, i) => i * stap);
@@ -83,8 +83,8 @@ export function vindBanen(png, sleutel) {
   if (gevonden.has(sleutel)) return gevonden.get(sleutel);
 
   const lab = labVlak(png);
-  const kolommen = rasterGrenzen(lab, png.breedte, png.hoogte, true);
-  const rijen = rasterGrenzen(lab, png.breedte, png.hoogte, false);
+  const kolommen = rasterGrenzen(lab, png.width, png.height, true);
+  const rijen = rasterGrenzen(lab, png.width, png.height, false);
   if (!kolommen || !rijen || (kolommen.length - 1) * (rijen.length - 1) < 2) {
     gevonden.set(sleutel, null);
     return null;

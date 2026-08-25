@@ -5,7 +5,7 @@
 //
 //   node tools/zaagvlak-normaal.mjs stam.glb --van 2,0 --naar 0,0 [--as x|y|z] [--hoek 35]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
@@ -23,7 +23,7 @@ if (!pad || !van || !naar) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json, bin } = glb;
 const drempel = Math.cos((hoek * Math.PI) / 180);
 let geraakt = 0;
@@ -31,8 +31,8 @@ let geraakt = 0;
 for (const mesh of json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.attributes?.TEXCOORD_0 === undefined || prim.indices === undefined) continue;
-    const pos = leesAccessor(glb, prim.attributes.POSITION);
-    const idx = leesAccessor(glb, prim.indices);
+    const pos = readAccessor(glb, prim.attributes.POSITION);
+    const idx = readAccessor(glb, prim.indices);
 
     let richting = as;
     if (richting === null) {
@@ -82,5 +82,5 @@ for (const mesh of json.meshes ?? []) {
     }
   }
 }
-if (!proef) schrijfGlb(pad, json, bin, writeFileSync);
+if (!proef) writeGlb(pad, json, bin, writeFileSync);
 console.log(`${pad}: ${geraakt} zaagvlak-uv's ${van.join(',')} -> ${naar.join(',')}${proef ? ' (proef)' : ''}`);

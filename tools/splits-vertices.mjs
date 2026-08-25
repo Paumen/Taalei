@@ -13,7 +13,7 @@
 //
 //   node tools/splits-vertices.mjs <glb> --van 2,0 --naar 0,0 --as x --vanaf 0.30 [--hoek 35] [--proef]
 import { writeFileSync } from 'node:fs';
-import { leesGlb, schrijfGlb, leesAccessor } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const W = 512, H = 512, CB = 32, CH = 128;
 const arg = process.argv.slice(2);
@@ -32,7 +32,7 @@ if (!pad || !van || !naar || as === null || vanaf === null) {
   process.exit(1);
 }
 
-const glb = leesGlb(pad);
+const glb = readGlb(pad);
 const { json } = glb;
 const drempel = Math.cos((hoek * Math.PI) / 180);
 const stukken = [glb.bin];
@@ -51,8 +51,8 @@ for (const mesh of json.meshes ?? []) {
   for (const prim of mesh.primitives ?? []) {
     if (prim.indices === undefined || prim.attributes?.TEXCOORD_0 === undefined) continue;
     const attrs = {};
-    for (const [naam, idx] of Object.entries(prim.attributes)) attrs[naam] = leesAccessor(glb, idx);
-    const idx = leesAccessor(glb, prim.indices);
+    for (const [naam, idx] of Object.entries(prim.attributes)) attrs[naam] = readAccessor(glb, idx);
+    const idx = readAccessor(glb, prim.indices);
     const pos = attrs.POSITION, uv = attrs.TEXCOORD_0;
 
     const cel = (i) => {
@@ -135,5 +135,5 @@ for (const mesh of json.meshes ?? []) {
 }
 
 json.buffers[0].byteLength = lengte;
-if (!proef) schrijfGlb(pad, json, Buffer.concat(stukken), writeFileSync);
+if (!proef) writeGlb(pad, json, Buffer.concat(stukken), writeFileSync);
 console.log(`${pad}: ${verhuisd} driehoeken verhuisd, ${gesplitst} vertices bijgemaakt${proef ? ' (proef)' : ''}`);

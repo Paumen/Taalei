@@ -1,6 +1,6 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { leesGlb, leesAccessor } from '../../catalog/tools/glb.mjs';
+import { readGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 
 const EENHEID = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
@@ -51,7 +51,7 @@ const naarSrgb = (lineair) => {
 };
 
 function leesGltfBestand(pad) {
-  if (pad.endsWith('.glb')) return leesGlb(pad);
+  if (pad.endsWith('.glb')) return readGlb(pad);
 
   const json = JSON.parse(readFileSync(pad, 'utf8'));
   const buffers = (json.buffers ?? []).map((buffer) => {
@@ -105,7 +105,7 @@ export function leesGltf(pad) {
     for (const prim of json.meshes[node.mesh].primitives ?? []) {
       if (prim.mode !== undefined && prim.mode !== 4) continue;
 
-      const pos = leesAccessor(glb, prim.attributes.POSITION);
+      const pos = readAccessor(glb, prim.attributes.POSITION);
       const posities = new Float64Array(pos.count * 3);
       for (let i = 0; i < pos.count; i++) {
         const [x, y, z] = punt(m, pos.data[i * 3], pos.data[i * 3 + 1], pos.data[i * 3 + 2]);
@@ -116,7 +116,7 @@ export function leesGltf(pad) {
 
       let normalen = null;
       if (prim.attributes.NORMAL !== undefined) {
-        const bron = leesAccessor(glb, prim.attributes.NORMAL);
+        const bron = readAccessor(glb, prim.attributes.NORMAL);
         normalen = new Float64Array(bron.count * 3);
         for (let i = 0; i < bron.count; i++) {
           const [x, y, z] = richting(m, bron.data[i * 3], bron.data[i * 3 + 1], bron.data[i * 3 + 2]);
@@ -129,13 +129,13 @@ export function leesGltf(pad) {
 
       let uvs = null;
       if (prim.attributes.TEXCOORD_0 !== undefined) {
-        uvs = leesAccessor(glb, prim.attributes.TEXCOORD_0).data;
+        uvs = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
       }
 
       let hoekkleuren = null;
       if (prim.attributes.COLOR_0 !== undefined) {
         const accessor = json.accessors[prim.attributes.COLOR_0];
-        const bron = leesAccessor(glb, prim.attributes.COLOR_0);
+        const bron = readAccessor(glb, prim.attributes.COLOR_0);
         const deler =
           accessor.componentType === 5121 ? 255
           : accessor.componentType === 5123 ? 65535
@@ -148,7 +148,7 @@ export function leesGltf(pad) {
 
       let indices;
       if (prim.indices !== undefined) {
-        const bron = leesAccessor(glb, prim.indices);
+        const bron = readAccessor(glb, prim.indices);
         indices = Uint32Array.from(bron.data);
       } else {
         indices = Uint32Array.from({ length: pos.count }, (_, i) => i);

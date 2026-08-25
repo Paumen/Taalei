@@ -37,6 +37,6 @@ await importeerKit({
   generator: 'tools/importeer-halloween.mjs',
   schaal: 0.277354,
   formaat: 'gltf',
-  bronDir: process.argv[2] ?? (() => { throw new Error('geef het pad naar de uitgepakte pack'); })(),
+  bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
   modellen: MODELLEN,
 });
