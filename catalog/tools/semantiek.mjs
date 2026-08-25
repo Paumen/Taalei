@@ -200,6 +200,7 @@ const exceptions = {
   'modulair-terrein/hilly-prop-flower-rose': 'flowers',
   'modulair-terrein/hilly-prop-flower-sunflower': 'flowers',
   'modulair-terrein/hilly-prop-flower-tulip': 'flowers',
+  'modulair-terrein/hilly-prop-flower-daisy': 'flowers',
   'forest/grass-1-a': 'grass',
   'forest/grass-1-b': 'grass',
   'forest/grass-1-c': 'grass',
