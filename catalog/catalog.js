@@ -381,6 +381,10 @@ function sectionsFor(models) {
 
   const type = groupingType();
 
+  if (type === 'geen') {
+    return inView.length ? [{ id: 'alles', title: 'All models', models: inView }] : [];
+  }
+
   if (type === 'kit') {
     return perKey(
       (m) => [m.kit],
