@@ -283,6 +283,7 @@ const exceptions = {
   'pirate-kit/ship-pirate-small': 'transport',
   'pirate-kit/ship-wreck': 'transport',
   'taalei-kit/balloon-basket-round': 'transport',
+  'taalei-kit/balloon-basket-square': 'transport',
   'taalei-kit/balloon': 'transport',
 };
 
