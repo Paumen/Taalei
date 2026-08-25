@@ -103,12 +103,6 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
-  'resources/copper-bars', 'resources/copper-bars-stack-large',
-  'resources/copper-bars-stack-medium', 'resources/copper-bars-stack-small',
-  'resources/gold-bars', 'resources/gold-bars-stack-large', 'resources/gold-bars-stack-medium',
-  'resources/gold-bars-stack-small', 'resources/silver-bars',
-  'resources/silver-bars-stack-large', 'resources/silver-bars-stack-medium',
-  'resources/silver-bars-stack-small',
 ]);
 
 const exceptions = {
@@ -319,6 +313,18 @@ const exceptions = {
   'props/jug-d': 'bottles-jugs',
   'fantasy-props/vase-2': 'bottles-jugs',
   'fantasy-props/vase-4': 'bottles-jugs',
+  'resources/copper-bars': 'resources',
+  'resources/copper-bars-stack-large': 'resources',
+  'resources/copper-bars-stack-medium': 'resources',
+  'resources/copper-bars-stack-small': 'resources',
+  'resources/gold-bars': 'resources',
+  'resources/gold-bars-stack-large': 'resources',
+  'resources/gold-bars-stack-medium': 'resources',
+  'resources/gold-bars-stack-small': 'resources',
+  'resources/silver-bars': 'resources',
+  'resources/silver-bars-stack-large': 'resources',
+  'resources/silver-bars-stack-medium': 'resources',
+  'resources/silver-bars-stack-small': 'resources',
 };
 
 const rules = [
