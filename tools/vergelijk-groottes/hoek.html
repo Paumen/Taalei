@@ -1,0 +1,23 @@
+<!doctype html><meta charset=utf-8><style>html,body{margin:0;background:#e8e4da}</style>
+<script type="importmap">{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const q=new URLSearchParams(location.search);
+const W=760,H=760;
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(W,H);document.body.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0xe8e4da);
+scene.add(new THREE.HemisphereLight(0xffffff,0x887766,1.5));
+const sun=new THREE.DirectionalLight(0xffffff,1.5);sun.position.set(3,6,5);scene.add(sun);
+const g=await new Promise((res,rej)=>new GLTFLoader().load(q.get('m'),res,undefined,rej));
+const obj=g.scene;scene.add(obj);
+const box=new THREE.Box3().setFromObject(obj);const size=box.getSize(new THREE.Vector3());const mid=box.getCenter(new THREE.Vector3());
+const r=Math.max(size.x,size.y,size.z);
+const az=Number(q.get('az')??45)*Math.PI/180;      // horizontale hoek
+const el=Number(q.get('el')??25)*Math.PI/180;      // hoogte
+const afstand=r*Number(q.get('zoom')??2.2);
+const cam=new THREE.PerspectiveCamera(35,1,0.01,1000);
+cam.position.set(mid.x+afstand*Math.cos(el)*Math.sin(az), mid.y+afstand*Math.sin(el), mid.z+afstand*Math.cos(el)*Math.cos(az));
+cam.lookAt(mid);
+renderer.render(scene,cam);window.KLAAR=true;
+</script>

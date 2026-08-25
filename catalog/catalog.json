@@ -1,6 +1,6 @@
 {
  "gegenereerd": "node catalog/tools/build-catalog.mjs",
- "totaal": 960,
+ "totaal": 970,
  "budgetPerUnit": 1000,
  "kits": [
   {
@@ -10,7 +10,7 @@
    "url": "https://www.kaylousberg.com",
    "licentie": "kits/workfiles/dungeon/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 135,
+   "aantal": 139,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -24,7 +24,7 @@
    "url": "https://quaternius.com/",
    "licentie": "kits/workfiles/fantasy-props/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 32,
+   "aantal": 33,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -110,10 +110,10 @@
    "licentieLabel": "CC0",
    "aantal": 4,
    "tabblad": null,
-   "eigenPalet": false,
+   "eigenPalet": true,
    "kitGroep": "grot",
    "toelichting": null,
-   "palet": "gedeeld"
+   "palet": "modular-cave-kit"
   },
   {
    "slug": "natuur",
@@ -136,7 +136,7 @@
    "url": "https://kenney.nl/assets/pirate-kit",
    "licentie": "kits/workfiles/pirate-kit/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 46,
+   "aantal": 47,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -164,7 +164,7 @@
    "url": null,
    "licentie": "kits/workfiles/props/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 23,
+   "aantal": 26,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -262,7 +262,7 @@
    "url": "https://kenney.nl/assets/survival-kit",
    "licentie": "kits/workfiles/survival-kit/LICENSE.txt",
    "licentieLabel": "CC0",
-   "aantal": 45,
+   "aantal": 46,
    "tabblad": null,
    "eigenPalet": false,
    "kitGroep": null,
@@ -729,7 +729,9 @@
    "hoofd": "dungeon/bottle-a-labeled-brown",
    "leden": [
     "dungeon/bottle-a-brown",
-    "dungeon/bottle-a-labeled-brown"
+    "dungeon/bottle-a-labeled-brown",
+    "dungeon/bottle-a-green",
+    "dungeon/bottle-a-labeled-green"
    ]
   },
   {
@@ -1136,6 +1138,78 @@
     "village-kit/well-base-dirt",
     "village-kit/well-base-grass"
    ]
+  },
+  {
+   "id": "v87",
+   "soort": "kleurvariant",
+   "hoofd": "dungeon/bottle-b-brown",
+   "leden": [
+    "dungeon/bottle-b-brown",
+    "dungeon/bottle-b-green"
+   ]
+  },
+  {
+   "id": "v88",
+   "soort": "kleurvariant",
+   "hoofd": "dungeon/bottle-c-brown",
+   "leden": [
+    "dungeon/bottle-c-brown",
+    "dungeon/bottle-c-green"
+   ]
+  },
+  {
+   "id": "v89",
+   "soort": "kleurvariant",
+   "hoofd": "props/bottle-a",
+   "leden": [
+    "props/bottle-a",
+    "props/bottle-a-green"
+   ]
+  },
+  {
+   "id": "v90",
+   "soort": "kleurvariant",
+   "hoofd": "props/bottle-b",
+   "leden": [
+    "props/bottle-b",
+    "props/bottle-b-red"
+   ]
+  },
+  {
+   "id": "v91",
+   "soort": "kleurvariant",
+   "hoofd": "props/bottle-c",
+   "leden": [
+    "props/bottle-c",
+    "props/bottle-c-red"
+   ]
+  },
+  {
+   "id": "v92",
+   "soort": "kleurvariant",
+   "hoofd": "fantasy-props/bottle-1",
+   "leden": [
+    "fantasy-props/bottle-1",
+    "fantasy-props/bottle-1-green"
+   ]
+  },
+  {
+   "id": "v93",
+   "soort": "kleurvariant",
+   "hoofd": "pirate-kit/bottle",
+   "leden": [
+    "pirate-kit/bottle",
+    "pirate-kit/bottle-red"
+   ]
+  },
+  {
+   "id": "v94",
+   "soort": "kleurvariant",
+   "hoofd": "survival-kit/bottle",
+   "leden": [
+    "survival-kit/bottle",
+    "survival-kit/bottle-red"
+   ]
   }
  ],
  "tags": [
@@ -1143,15 +1217,22 @@
    "id": "timber",
    "naam": "Timber",
    "soort": "materiaal",
-   "beschrijving": "Modellen waarvan het hout het beeld bepaalt: planken, balken, vaten, kratten, meubels, stellages en de bouwdelen van hout. Bepaald door de rest weg te swipen — steen, aarde, gras, metaal, eten en losse natuur dragen de tag niet.",
-   "aantal": 464
+   "beschrijving": "Modellen waarvan gezaagd of bewerkt hout het beeld bepaalt — de binnenkant van het hout: planken, balken, vaten, kratten, meubels, stellages en de bouwdelen van hout. De buitenkant van stam of tak valt onder bark; modellen met zaagvlak én schors dragen beide tags.",
+   "aantal": 387
+  },
+  {
+   "id": "bark",
+   "naam": "Bark",
+   "soort": "materiaal",
+   "beschrijving": "Modellen waar de buitenkant van stam of tak het beeld bepaalt — schors: bomen, takken, wortels, stronken en ruwe stammen. Gezaagd of bewerkt hout valt onder timber; stammen en stronken met zaagvlak dragen beide tags.",
+   "aantal": 105
   },
   {
    "id": "metal",
    "naam": "Metal",
    "soort": "materiaal",
    "beschrijving": "Modellen waar metaal het beeld bepaalt of het werkende deel is: gereedschap en wapens, aambeelden en slijpstenen, sloten, sleutels en hendels, tralies, roosters en beslag, lantaarns en toortsen, en het ijzer en koper uit de resources-kit. Goud en zilver staan apart onder precious-metal. Een vat of kist telt mee om zijn hoepels en beslag, en draagt daarmee zowel timber als metal.",
-   "aantal": 127
+   "aantal": 132
   },
   {
    "id": "paper",
@@ -1179,7 +1260,7 @@
    "naam": "Textile",
    "soort": "materiaal",
    "beschrijving": "Doek, leer en touwwerk: tentzeil en luifels, beddengoed, zakken, de textielstapel uit de resources-kit, de ballon met zijn manden, en het omwikkelde heft van gereedschap en toortsen.",
-   "aantal": 31
+   "aantal": 39
   },
   {
    "id": "flora",
@@ -1200,7 +1281,7 @@
    "naam": "Ceramic",
    "soort": "materiaal",
    "beschrijving": "Aardewerk en gebakken klei: kannen, kruiken, vazen, borden, kommen, potten en flessen, en de dakpannen van de fantasy-town- en village-kit.",
-   "aantal": 59
+   "aantal": 54
   },
   {
    "id": "bone",
@@ -1221,7 +1302,7 @@
    "naam": "Glass",
    "soort": "materiaal",
    "beschrijving": "Glas: flessen en drankjes, de ruiten van de village-kit en de zeilschepen met hun ramen, en het glas in lantaarns, straatlampen, kompas en loep.",
-   "aantal": 32
+   "aantal": 42
   },
   {
    "id": "light",
@@ -1270,28 +1351,28 @@
    "naam": "Object",
    "soort": "tag",
    "beschrijving": "Losse dingen die je neerzet of oppakt: huisraad, schepen, eten, kisten, grondstoffen, gereedschap, borden, items en licht. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 283
+   "aantal": 293
   },
   {
    "id": "kenney",
    "naam": "Kenney",
    "soort": "tag",
    "beschrijving": "Kits van Kenney (kenney.nl). Eén hand, één maatvoering: alles komt van dezelfde tegel en de props passen onderling. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 205
+   "aantal": 207
   },
   {
    "id": "kaykit",
    "naam": "KayKit",
    "soort": "tag",
    "beschrijving": "Kits van Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant en rpgtools. Onderling dezelfde stijl en hetzelfde detailniveau. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 335
+   "aantal": 339
   },
   {
    "id": "quaternius",
    "naam": "Quaternius",
    "soort": "tag",
    "beschrijving": "Kits van Quaternius (quaternius.com): fantasy-props en quaternius-nature. Afgeleid uit de modellen zelf, dus niet in catalog/tags.json bijgehouden.",
-   "aantal": 67
+   "aantal": 68
   },
   {
    "id": "animation",
@@ -1428,7 +1509,7 @@
    "naam": "Chests & barrels",
    "kort": "Chests",
    "kleur": "#dd9f79",
-   "aantal": 50
+   "aantal": 60
   },
   {
    "id": "assemblies",
@@ -1488,60 +1569,81 @@
    "toelichting": null,
    "kleuren": [
     {
-     "hex": "#8f785b",
+     "hex": "#cb9d78",
      "naam": "orange",
-     "textuur": "baan 14,0",
+     "textuur": "baan 0,0",
      "materiaal": null,
-     "aantal": 259
-    },
-    {
-     "hex": "#d07b56",
-     "naam": "orange",
-     "textuur": "baan 5,0",
-     "materiaal": null,
-     "aantal": 235
+     "aantal": 327
     },
     {
      "hex": "#6d738a",
      "naam": "light grey",
      "textuur": "baan 15,3",
      "materiaal": null,
-     "aantal": 208
+     "aantal": 207
     },
     {
-     "hex": "#995a41",
-     "naam": "brown",
-     "textuur": "baan 12,0",
+     "hex": "#f5f2e7",
+     "naam": "light orange",
+     "textuur": "baan 5,2",
      "materiaal": null,
-     "aantal": 177
+     "aantal": 171
+    },
+    {
+     "hex": "#9a6b4e",
+     "naam": "orange",
+     "textuur": "baan 1,0",
+     "materiaal": null,
+     "aantal": 138
     },
     {
      "hex": "#88796d",
      "naam": "light grey",
      "textuur": "baan 14,3",
      "materiaal": null,
-     "aantal": 164
+     "aantal": 122
     },
     {
-     "hex": "#f4efe3",
-     "naam": "light orange",
-     "textuur": "baan 5,2",
+     "hex": "#714c39",
+     "naam": "brown",
+     "textuur": "baan 2,0",
      "materiaal": null,
-     "aantal": 152
+     "aantal": 100
     },
     {
      "hex": "#dd9f79",
      "naam": "orange",
      "textuur": "baan 13,0",
      "materiaal": null,
-     "aantal": 130
+     "aantal": 92
+    },
+    {
+     "hex": "#23562c",
+     "naam": "dark green",
+     "textuur": "baan 1,1",
+     "materiaal": null,
+     "aantal": 79
+    },
+    {
+     "hex": "#7f3927",
+     "naam": "red",
+     "textuur": "baan 8,0",
+     "materiaal": null,
+     "aantal": 76
     },
     {
      "hex": "#474a58",
      "naam": "grey",
      "textuur": "baan 6,1",
      "materiaal": null,
-     "aantal": 77
+     "aantal": 74
+    },
+    {
+     "hex": "#8f785b",
+     "naam": "orange",
+     "textuur": "baan 14,0",
+     "materiaal": null,
+     "aantal": 72
     },
     {
      "hex": "#9da4c4",
@@ -1551,46 +1653,46 @@
      "aantal": 72
     },
     {
-     "hex": "#7f3927",
-     "naam": "red",
-     "textuur": "baan 8,0",
-     "materiaal": null,
-     "aantal": 68
-    },
-    {
-     "hex": "#23562c",
-     "naam": "dark green",
-     "textuur": "baan 1,1",
-     "materiaal": null,
-     "aantal": 66
-    },
-    {
      "hex": "#6d8d33",
      "naam": "green",
      "textuur": "baan 3,1",
      "materiaal": null,
-     "aantal": 66
+     "aantal": 65
     },
     {
      "hex": "#3e3e44",
      "naam": "grey",
      "textuur": "baan 10,0",
      "materiaal": null,
-     "aantal": 59
+     "aantal": 61
     },
     {
      "hex": "#ffb349",
      "naam": "orange",
      "textuur": "baan 6,0",
      "materiaal": null,
-     "aantal": 56
+     "aantal": 55
+    },
+    {
+     "hex": "#d07b56",
+     "naam": "orange",
+     "textuur": "baan 5,0",
+     "materiaal": null,
+     "aantal": 54
+    },
+    {
+     "hex": "#995a41",
+     "naam": "brown",
+     "textuur": "baan 12,0",
+     "materiaal": null,
+     "aantal": 35
     },
     {
      "hex": "#2473b3",
      "naam": "blue",
      "textuur": "baan 4,2",
      "materiaal": null,
-     "aantal": 8
+     "aantal": 7
     },
     {
      "hex": "#ffffff",
@@ -1598,6 +1700,21 @@
      "textuur": null,
      "materiaal": "glas",
      "aantal": 3
+    }
+   ]
+  },
+  {
+   "id": "modular-cave-kit",
+   "naam": "Modular Cave Kit",
+   "atlas": "kits/workfiles/modular-cave-kit/Textures/colormap-gedeeld.png",
+   "toelichting": null,
+   "kleuren": [
+    {
+     "hex": "#cb9d78",
+     "naam": "orange",
+     "textuur": "baan 0,0",
+     "materiaal": null,
+     "aantal": 4
     }
    ]
   }
@@ -1616,7 +1733,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/barrel-large-decorated.glb",
    "bytes": 108292,
@@ -1643,9 +1760,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/barrel-large.glb",
    "bytes": 58668,
@@ -1673,9 +1789,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/barrel-small-stack.glb",
    "bytes": 118652,
@@ -1702,9 +1817,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/barrel-small.glb",
    "bytes": 22556,
@@ -1738,7 +1852,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/bed-decorated.glb",
    "bytes": 145236,
@@ -1766,7 +1880,7 @@
    "kleuren": [
     "#88796d",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/bed-floor.glb",
    "bytes": 25016,
@@ -1792,9 +1906,9 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#995a41",
-    "#f4efe3"
+    "#9a6b4e",
+    "#dd9f79",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/bed-frame.glb",
    "bytes": 32384,
@@ -1840,8 +1954,36 @@
    "tags": [
     "ceramic",
     "kaykit",
-    "object",
-    "timber"
+    "object"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-a-green",
+   "naam": "bottle-a-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-a-green.glb",
+   "bytes": 16136,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.092,
+    0.092,
+    0.221
+   ],
+   "calls": 1,
+   "variant": "v40",
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -1854,7 +1996,7 @@
     "#7f3927",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/bottle-a-labeled-brown.glb",
    "bytes": 16160,
@@ -1871,8 +2013,37 @@
    "tags": [
     "ceramic",
     "kaykit",
-    "object",
-    "timber"
+    "object"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-a-labeled-green",
+   "naam": "bottle-a-labeled-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79",
+    "#f5f2e7"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-a-labeled-green.glb",
+   "bytes": 16160,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.092,
+    0.092,
+    0.221
+   ],
+   "calls": 1,
+   "variant": "v40",
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -1897,11 +2068,40 @@
     0.221
    ],
    "calls": 1,
+   "variant": "v87",
    "tags": [
     "ceramic",
     "kaykit",
-    "object",
-    "timber"
+    "object"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-b-green",
+   "naam": "bottle-b-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-b-green.glb",
+   "bytes": 16136,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.138,
+    0.138,
+    0.221
+   ],
+   "calls": 1,
+   "variant": "v87",
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -1926,11 +2126,40 @@
     0.227
    ],
    "calls": 1,
+   "variant": "v88",
    "tags": [
     "ceramic",
     "kaykit",
-    "object",
-    "timber"
+    "object"
+   ]
+  },
+  {
+   "id": "dungeon/bottle-c-green",
+   "naam": "bottle-c-green",
+   "kit": "dungeon",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/dungeon/bottle-c-green.glb",
+   "bytes": 16140,
+   "driehoeken": 144,
+   "driehoekenPerUnit": 144,
+   "materialen": 1,
+   "wdh": [
+    0.184,
+    0.184,
+    0.227
+   ],
+   "calls": 1,
+   "variant": "v88",
+   "tags": [
+    "glass",
+    "kaykit",
+    "object"
    ]
   },
   {
@@ -1941,7 +2170,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/box-large.glb",
    "bytes": 20576,
@@ -1998,7 +2227,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/box-small.glb",
    "bytes": 20532,
@@ -2028,10 +2257,8 @@
    "kleuren": [
     "#23562c",
     "#6d738a",
-    "#8f785b",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/box-stacked.glb",
    "bytes": 223108,
@@ -2058,7 +2285,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/dungeon/candle-lit.glb",
@@ -2088,7 +2315,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/candle-melted.glb",
    "bytes": 8160,
@@ -2115,7 +2342,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/dungeon/candle-thin-lit.glb",
@@ -2145,7 +2372,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/candle-thin.glb",
    "bytes": 8156,
@@ -2173,7 +2400,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/candle-triple.glb",
    "bytes": 21636,
@@ -2200,7 +2427,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/candle.glb",
    "bytes": 8140,
@@ -2227,8 +2454,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/ceiling-tile.glb",
    "bytes": 7492,
@@ -2255,7 +2481,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/chair.glb",
    "bytes": 31420,
@@ -2315,7 +2541,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/chest.glb",
    "bytes": 76968,
@@ -2479,9 +2705,8 @@
    "kleuren": [
     "#6d738a",
     "#7f3927",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/crates-stacked.glb",
    "bytes": 137236,
@@ -2932,7 +3157,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/floor-tile-big-spikes.glb",
    "bytes": 67288,
@@ -3158,7 +3383,7 @@
    "kleuren": [
     "#88796d",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/floor-tile-small-decorated.glb",
    "bytes": 41204,
@@ -3273,7 +3498,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/floor-wood-large-dark.glb",
    "bytes": 29252,
@@ -3301,7 +3526,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/floor-wood-large.glb",
    "bytes": 29240,
@@ -3329,7 +3554,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/floor-wood-small-dark.glb",
    "bytes": 9356,
@@ -3357,7 +3582,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/floor-wood-small.glb",
    "bytes": 9340,
@@ -3390,7 +3615,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/keg-decorated.glb",
    "bytes": 211380,
@@ -3417,9 +3642,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/keg.glb",
    "bytes": 83740,
@@ -3559,7 +3783,7 @@
     "#88796d",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/plate-food-a.glb",
    "bytes": 57260,
@@ -3588,7 +3812,7 @@
     "#6d8d33",
     "#88796d",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/plate-food-b.glb",
    "bytes": 32664,
@@ -3718,7 +3942,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/shelf-large.glb",
    "bytes": 9128,
@@ -3744,9 +3968,9 @@
    "groep": "licht",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#995a41",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/shelf-small-candles.glb",
    "bytes": 25008,
@@ -3773,7 +3997,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/shelf-small.glb",
    "bytes": 7536,
@@ -3799,7 +4023,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/shelves.glb",
    "bytes": 16860,
@@ -3990,8 +4214,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#88796d",
-    "#995a41",
+    "#9a6b4e",
+    "#cb9d78",
     "#d07b56",
     "#dd9f79"
    ],
@@ -4020,7 +4244,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/stairs-wood.glb",
    "bytes": 31600,
@@ -4073,7 +4297,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/stool.glb",
    "bytes": 18956,
@@ -4099,7 +4323,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/table-long-broken.glb",
    "bytes": 57556,
@@ -4132,7 +4356,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/table-long-decorated-a.glb",
    "bytes": 201496,
@@ -4189,8 +4413,8 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/table-long.glb",
    "bytes": 29944,
@@ -4216,7 +4440,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/table-medium-broken.glb",
    "bytes": 26680,
@@ -4248,7 +4472,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/table-medium-decorated-a.glb",
    "bytes": 122424,
@@ -4274,8 +4498,8 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/table-medium.glb",
    "bytes": 27500,
@@ -4304,7 +4528,7 @@
     "#6d738a",
     "#8f785b",
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/table-small-decorated-a.glb",
    "bytes": 102048,
@@ -4357,7 +4581,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/table-small.glb",
    "bytes": 20992,
@@ -4384,7 +4608,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b",
+    "#cb9d78",
     "#ffb349"
    ],
    "pad": "kits/workfiles/dungeon/torch-lit.glb",
@@ -4414,8 +4638,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b",
-    "#995a41"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/torch-mounted.glb",
    "bytes": 29812,
@@ -4443,7 +4667,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/dungeon/torch.glb",
    "bytes": 23456,
@@ -4472,7 +4696,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/trunk-large-c.glb",
    "bytes": 22252,
@@ -4500,7 +4724,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/trunk-small-c.glb",
    "bytes": 22252,
@@ -4559,7 +4783,7 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-archedwindow-gated-scaffold.glb",
    "bytes": 70184,
@@ -4710,7 +4934,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-corner-scaffold.glb",
    "bytes": 53944,
@@ -4854,7 +5078,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-doorway-scaffold.glb",
    "bytes": 119996,
@@ -4946,7 +5170,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-doorway.glb",
    "bytes": 111588,
@@ -5123,7 +5347,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-open-scaffold.glb",
    "bytes": 21380,
@@ -5182,7 +5406,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-scaffold.glb",
    "bytes": 60948,
@@ -5218,7 +5442,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/dungeon/wall-shelves.glb",
    "bytes": 162736,
@@ -5331,7 +5555,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-window-closed-scaffold.glb",
    "bytes": 76496,
@@ -5362,7 +5586,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-window-closed.glb",
    "bytes": 69124,
@@ -5393,7 +5617,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-window-open-scaffold.glb",
    "bytes": 70368,
@@ -5424,7 +5648,7 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/dungeon/wall-window-open.glb",
    "bytes": 62996,
@@ -5483,7 +5707,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#d07b56"
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/bag.glb",
    "bytes": 55220,
@@ -5541,9 +5765,9 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/barrel-holder.glb",
    "bytes": 185040,
@@ -5571,7 +5795,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-props/barrel.glb",
    "bytes": 65096,
@@ -5598,8 +5822,8 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/bench.glb",
    "bytes": 21580,
@@ -5626,7 +5850,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
-    "#ffb349"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-5.glb",
    "bytes": 5968,
@@ -5652,9 +5876,9 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#23562c",
     "#7f3927",
-    "#9da4c4"
+    "#9da4c4",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-7.glb",
    "bytes": 48020,
@@ -5684,7 +5908,7 @@
     "#3e3e44",
     "#474a58",
     "#7f3927",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-medium-1.glb",
    "bytes": 24608,
@@ -5712,7 +5936,8 @@
    "kleuren": [
     "#23562c",
     "#474a58",
-    "#8f785b"
+    "#8f785b",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-medium-2.glb",
    "bytes": 26676,
@@ -5741,8 +5966,8 @@
     "#23562c",
     "#3e3e44",
     "#474a58",
-    "#8f785b",
-    "#995a41"
+    "#995a41",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-medium-3.glb",
    "bytes": 26392,
@@ -5771,7 +5996,7 @@
     "#23562c",
     "#474a58",
     "#7f3927",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-small-1.glb",
    "bytes": 7468,
@@ -5799,7 +6024,8 @@
    "kleuren": [
     "#474a58",
     "#8f785b",
-    "#995a41"
+    "#995a41",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-small-2.glb",
    "bytes": 6732,
@@ -5828,7 +6054,7 @@
     "#23562c",
     "#474a58",
     "#7f3927",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-group-small-3.glb",
    "bytes": 7688,
@@ -5855,7 +6081,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-simplified-single.glb",
    "bytes": 5344,
@@ -5882,7 +6108,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#8f785b"
+    "#8f785b",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-stack-1.glb",
    "bytes": 13356,
@@ -5910,9 +6137,8 @@
    "kleuren": [
     "#23562c",
     "#474a58",
-    "#8f785b",
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/book-stack-2.glb",
    "bytes": 28000,
@@ -5932,6 +6158,34 @@
    ]
   },
   {
+   "id": "fantasy-props/bottle-1-green",
+   "naam": "bottle-1-green",
+   "kit": "fantasy-props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/fantasy-props/bottle-1-green.glb",
+   "bytes": 11656,
+   "driehoeken": 312,
+   "driehoekenPerUnit": 312,
+   "materialen": 1,
+   "wdh": [
+    0.056,
+    0.056,
+    0.182
+   ],
+   "calls": 1,
+   "variant": "v92",
+   "tags": [
+    "glass",
+    "object",
+    "quaternius"
+   ]
+  },
+  {
    "id": "fantasy-props/bottle-1",
    "naam": "bottle-1",
    "kit": "fantasy-props",
@@ -5939,7 +6193,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#8f785b"
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/bottle-1.glb",
    "bytes": 11656,
@@ -5952,6 +6206,7 @@
     0.182
    ],
    "calls": 1,
+   "variant": "v92",
    "tags": [
     "glass",
     "object",
@@ -5966,8 +6221,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b",
-    "#995a41"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-props/bucket-wooden-1.glb",
    "bytes": 57152,
@@ -6075,7 +6330,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/fantasy-props/mug.glb",
    "bytes": 22972,
@@ -6102,7 +6357,7 @@
    "groep": "gereedschap",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#ffb349"
    ],
    "pad": "kits/workfiles/fantasy-props/pickaxe-bronze.glb",
@@ -6131,7 +6386,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#8f785b"
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/potion-2.glb",
    "bytes": 15524,
@@ -6157,8 +6412,8 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#474a58",
-    "#8f785b"
+    "#7f3927",
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/potion-4.glb",
    "bytes": 17444,
@@ -6185,7 +6440,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/scroll-1.glb",
    "bytes": 19424,
@@ -6213,7 +6468,7 @@
    "kleuren": [
     "#7f3927",
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-props/scroll-2.glb",
    "bytes": 30436,
@@ -6239,7 +6494,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/fantasy-props/shelf-simple.glb",
    "bytes": 36948,
@@ -6265,7 +6520,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#6d738a"
+    "#88796d"
    ],
    "pad": "kits/workfiles/fantasy-props/table-plate.glb",
    "bytes": 10728,
@@ -6317,9 +6572,9 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b",
-    "#995a41"
+    "#995a41",
+    "#d07b56",
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/vase-2.glb",
    "bytes": 19220,
@@ -6345,8 +6600,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b"
+    "#d07b56",
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/fantasy-props/vase-4.glb",
    "bytes": 15924,
@@ -6372,8 +6627,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/balcony-wall-fence.glb",
    "bytes": 8044,
@@ -6399,7 +6654,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/balcony-wall.glb",
    "bytes": 5476,
@@ -6425,8 +6680,8 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/banner-green.glb",
    "bytes": 7364,
@@ -6453,8 +6708,8 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/banner-red.glb",
    "bytes": 7216,
@@ -6481,8 +6736,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/blade.glb",
    "bytes": 13360,
@@ -6509,10 +6764,9 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/cart-high.glb",
    "bytes": 61884,
@@ -6539,9 +6793,9 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/cart.glb",
    "bytes": 37396,
@@ -6568,8 +6822,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/fence-broken.glb",
    "bytes": 8684,
@@ -6595,7 +6849,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/fence-curved.glb",
    "bytes": 18020,
@@ -6621,9 +6875,9 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/fence-gate.glb",
    "bytes": 32536,
@@ -6649,7 +6903,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/fence.glb",
    "bytes": 5664,
@@ -6675,8 +6929,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/overhang.glb",
    "bytes": 5744,
@@ -6703,7 +6957,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/pillar-wood.glb",
    "bytes": 4072,
@@ -6731,7 +6985,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/planks-half.glb",
    "bytes": 7336,
@@ -6757,7 +7011,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/planks-opening.glb",
    "bytes": 11668,
@@ -6783,7 +7037,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/planks.glb",
    "bytes": 7992,
@@ -6809,7 +7063,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/poles-horizontal.glb",
    "bytes": 4260,
@@ -6835,7 +7089,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/poles.glb",
    "bytes": 3292,
@@ -6940,7 +7194,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-corner-inner.glb",
    "bytes": 3480,
@@ -6968,7 +7222,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-corner-round.glb",
    "bytes": 4404,
@@ -6997,7 +7251,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-corner.glb",
    "bytes": 3852,
@@ -7053,8 +7307,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-gable-detail.glb",
    "bytes": 8644,
@@ -7083,8 +7337,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-gable-end.glb",
    "bytes": 4696,
@@ -7113,8 +7367,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-gable-top.glb",
    "bytes": 4912,
@@ -7143,8 +7397,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-left.glb",
    "bytes": 9168,
@@ -7200,8 +7454,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-right.glb",
    "bytes": 9232,
@@ -7230,9 +7484,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#995a41",
-    "#d07b56",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/roof-window.glb",
    "bytes": 11164,
@@ -7261,7 +7515,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/stairs-stone-corner.glb",
    "bytes": 9132,
@@ -7313,7 +7567,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/stairs-wide-wood-handrail.glb",
    "bytes": 30872,
@@ -7339,7 +7593,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/stairs-wide-wood.glb",
    "bytes": 23356,
@@ -7365,7 +7619,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/stairs-wood-handrail.glb",
    "bytes": 31100,
@@ -7391,7 +7645,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/stairs-wood.glb",
    "bytes": 23584,
@@ -7418,7 +7672,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/tree-crooked.glb",
    "bytes": 13696,
@@ -7433,11 +7687,11 @@
    "calls": 1,
    "variant": "v59",
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -7448,7 +7702,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/tree-high-crooked.glb",
    "bytes": 15416,
@@ -7463,11 +7717,11 @@
    "calls": 1,
    "variant": "v60",
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -7478,7 +7732,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/tree-high-round.glb",
    "bytes": 9408,
@@ -7492,11 +7746,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -7507,7 +7761,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/tree-high.glb",
    "bytes": 14692,
@@ -7522,11 +7776,11 @@
    "calls": 1,
    "variant": "v60",
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -7537,7 +7791,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/tree.glb",
    "bytes": 12952,
@@ -7552,11 +7806,11 @@
    "calls": 1,
    "variant": "v59",
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -7567,8 +7821,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-arch-top.glb",
    "bytes": 9220,
@@ -7597,8 +7851,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-arch.glb",
    "bytes": 3748,
@@ -7626,8 +7880,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-block-half.glb",
    "bytes": 6272,
@@ -7654,8 +7908,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-block.glb",
    "bytes": 6232,
@@ -7683,8 +7937,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-broken.glb",
    "bytes": 11708,
@@ -7711,8 +7965,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-corner-diagonal-half.glb",
    "bytes": 3728,
@@ -7739,8 +7993,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-corner-diagonal.glb",
    "bytes": 4556,
@@ -7767,8 +8021,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-corner-edge.glb",
    "bytes": 4132,
@@ -7795,8 +8049,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-corner.glb",
    "bytes": 5056,
@@ -7823,8 +8077,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-detail-cross.glb",
    "bytes": 6324,
@@ -7852,8 +8106,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-detail-diagonal.glb",
    "bytes": 5108,
@@ -7881,8 +8135,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-detail-horizontal.glb",
    "bytes": 4700,
@@ -7910,8 +8164,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-diagonal.glb",
    "bytes": 3992,
@@ -7938,8 +8192,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-door.glb",
    "bytes": 21900,
@@ -7966,8 +8220,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-doorway-base.glb",
    "bytes": 5912,
@@ -7995,8 +8249,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-doorway-square-wide-curved.glb",
    "bytes": 10208,
@@ -8024,8 +8278,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-doorway-square.glb",
    "bytes": 6340,
@@ -8052,8 +8306,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-half.glb",
    "bytes": 3716,
@@ -8080,8 +8334,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-side.glb",
    "bytes": 3084,
@@ -8108,8 +8362,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-window-glass.glb",
    "bytes": 8052,
@@ -8137,8 +8391,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-window-round.glb",
    "bytes": 16828,
@@ -8166,8 +8420,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood-window-shutters.glb",
    "bytes": 7784,
@@ -8195,8 +8449,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wall-wood.glb",
    "bytes": 3700,
@@ -8223,9 +8477,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/watermill-wide.glb",
    "bytes": 37596,
@@ -8253,9 +8507,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/watermill.glb",
    "bytes": 37580,
@@ -8283,9 +8537,9 @@
    "groep": "gereedschap",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/wheel.glb",
    "bytes": 12332,
@@ -8312,8 +8566,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/fantasy-town-kit/windmill.glb",
    "bytes": 49380,
@@ -8330,6 +8584,7 @@
     "kenney",
     "modular",
     "structure",
+    "textile",
     "timber"
    ]
   },
@@ -9722,7 +9977,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/forest/tree-bare-1-a.glb",
    "bytes": 34520,
@@ -9736,10 +9991,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9749,7 +10004,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/forest/tree-bare-1-b.glb",
    "bytes": 35336,
@@ -9763,10 +10018,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9776,8 +10031,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#7f3927",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/forest/tree-bare-1-c.glb",
    "bytes": 96948,
@@ -9791,10 +10045,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9804,7 +10058,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/forest/tree-bare-2-a.glb",
    "bytes": 42684,
@@ -9818,10 +10072,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9831,7 +10085,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/forest/tree-bare-2-b.glb",
    "bytes": 47172,
@@ -9845,10 +10099,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9858,7 +10112,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
+    "#714c39",
     "#ffb349"
    ],
    "pad": "kits/workfiles/forest/tree-bare-2-c.glb",
@@ -9873,10 +10127,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -9886,7 +10140,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/halloween/bench.glb",
    "bytes": 12280,
@@ -9912,7 +10166,7 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/bone-a.glb",
    "bytes": 8808,
@@ -9938,7 +10192,7 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/bone-b.glb",
    "bytes": 7504,
@@ -9964,7 +10218,7 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/bone-c.glb",
    "bytes": 8808,
@@ -9991,7 +10245,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/candle-melted.glb",
    "bytes": 4756,
@@ -10018,7 +10272,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/candle-thin.glb",
    "bytes": 4748,
@@ -10045,7 +10299,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/candle-triple.glb",
    "bytes": 11384,
@@ -10072,7 +10326,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/candle.glb",
    "bytes": 4736,
@@ -10287,8 +10541,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
-    "#88796d",
-    "#995a41",
+    "#9a6b4e",
     "#ffb349"
    ],
    "pad": "kits/workfiles/halloween/post-lantern.glb",
@@ -10317,7 +10570,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/halloween/post.glb",
    "bytes": 7536,
@@ -10343,7 +10596,7 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/ribcage.glb",
    "bytes": 53732,
@@ -10369,7 +10622,7 @@
    "groep": "items",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/halloween/skull.glb",
    "bytes": 14004,
@@ -10395,7 +10648,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-dead-large.glb",
    "bytes": 8680,
@@ -10409,10 +10662,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10422,7 +10675,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-dead-medium.glb",
    "bytes": 7060,
@@ -10436,10 +10689,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10449,7 +10702,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-dead-small.glb",
    "bytes": 6548,
@@ -10463,10 +10716,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10476,8 +10729,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-orange-large.glb",
    "bytes": 18996,
@@ -10491,11 +10744,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10505,8 +10758,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-orange-medium.glb",
    "bytes": 18872,
@@ -10520,11 +10773,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10534,8 +10787,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-orange-small.glb",
    "bytes": 15384,
@@ -10549,11 +10802,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10563,8 +10816,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#dd9f79"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-yellow-large.glb",
    "bytes": 18996,
@@ -10578,11 +10831,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10592,8 +10845,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#dd9f79"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-yellow-medium.glb",
    "bytes": 18872,
@@ -10607,11 +10860,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10621,8 +10874,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#dd9f79"
+    "#23562c",
+    "#714c39"
    ],
    "pad": "kits/workfiles/halloween/tree-pine-yellow-small.glb",
    "bytes": 15384,
@@ -10636,11 +10889,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kaykit",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10650,8 +10903,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/mini-forest/bridge.glb",
    "bytes": 22872,
@@ -10677,8 +10929,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/mini-forest/building-structure.glb",
    "bytes": 11660,
@@ -10704,7 +10956,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/mini-forest/ladder.glb",
    "bytes": 15736,
@@ -10810,8 +11062,8 @@
    "kleuren": [
     "#6d738a",
     "#7f3927",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/mini-forest/target.glb",
    "bytes": 12644,
@@ -10838,7 +11090,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/mini-forest/tree-high.glb",
    "bytes": 21796,
@@ -10852,11 +11104,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10867,7 +11119,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/mini-forest/tree.glb",
    "bytes": 16496,
@@ -10881,11 +11133,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -10919,7 +11171,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-docks-corner-supports.glb",
    "bytes": 4776,
@@ -10933,8 +11185,8 @@
    ],
    "calls": 1,
    "tags": [
-    "structure",
-    "timber"
+    "bark",
+    "structure"
    ]
   },
   {
@@ -10944,7 +11196,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-docks-corner.glb",
    "bytes": 18168,
@@ -10958,6 +11211,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -10969,7 +11223,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-docks-steps.glb",
    "bytes": 6724,
@@ -10994,7 +11248,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-docks-straight-supports.glb",
    "bytes": 5404,
@@ -11008,6 +11263,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11019,7 +11275,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-docks-straight.glb",
    "bytes": 10352,
@@ -11033,6 +11290,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11044,7 +11302,7 @@
    "groep": "zeebodem",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-shell-a.glb",
    "bytes": 4508,
@@ -11149,7 +11407,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-tree-palm-a.glb",
    "bytes": 56240,
@@ -11177,7 +11436,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-tree-palm-b.glb",
    "bytes": 63384,
@@ -11205,7 +11465,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/beach-prop-tree-palm-c.glb",
    "bytes": 60088,
@@ -11232,7 +11493,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-branch-a.glb",
    "bytes": 7476,
@@ -11246,9 +11507,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -11258,7 +11519,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-branch-b.glb",
    "bytes": 6516,
@@ -11272,9 +11533,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -11284,7 +11545,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-branch-c.glb",
    "bytes": 6500,
@@ -11298,9 +11559,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -11310,8 +11571,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-camp-campfire.glb",
    "bytes": 24576,
@@ -11325,8 +11585,8 @@
    ],
    "calls": 1,
    "tags": [
-    "object",
-    "timber"
+    "bark",
+    "object"
    ]
   },
   {
@@ -11336,7 +11596,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-camp-wood-pile.glb",
    "bytes": 22000,
@@ -11350,8 +11610,8 @@
    ],
    "calls": 1,
    "tags": [
-    "object",
-    "timber"
+    "bark",
+    "object"
    ]
   },
   {
@@ -11413,7 +11673,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-boards-a.glb",
    "bytes": 4572,
@@ -11439,7 +11699,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-boards-b.glb",
    "bytes": 4576,
@@ -11465,7 +11725,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-boards-c.glb",
    "bytes": 4580,
@@ -11491,7 +11751,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-boards-d.glb",
    "bytes": 4580,
@@ -11517,7 +11777,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-curve-1x1.glb",
    "bytes": 5736,
@@ -11531,6 +11792,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11542,7 +11804,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-curve-2x2.glb",
    "bytes": 7556,
@@ -11556,6 +11819,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11567,7 +11831,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-curve-3x3.glb",
    "bytes": 11196,
@@ -11581,6 +11846,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11592,7 +11858,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-gate-a.glb",
    "bytes": 11808,
@@ -11607,6 +11874,7 @@
    "calls": 1,
    "variant": "v63",
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11618,7 +11886,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-gate-b.glb",
    "bytes": 11808,
@@ -11633,6 +11902,7 @@
    "calls": 1,
    "variant": "v63",
    "tags": [
+    "bark",
     "structure",
     "timber"
    ]
@@ -11644,7 +11914,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-post-a.glb",
    "bytes": 2316,
@@ -11659,8 +11929,8 @@
    "calls": 1,
    "variant": "v11",
    "tags": [
-    "structure",
-    "timber"
+    "bark",
+    "structure"
    ]
   },
   {
@@ -11670,7 +11940,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-post-b.glb",
    "bytes": 2532,
@@ -11685,8 +11955,8 @@
    "calls": 1,
    "variant": "v11",
    "tags": [
-    "structure",
-    "timber"
+    "bark",
+    "structure"
    ]
   },
   {
@@ -11696,7 +11966,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-post-c.glb",
    "bytes": 2748,
@@ -11711,8 +11981,8 @@
    "calls": 1,
    "variant": "v11",
    "tags": [
-    "structure",
-    "timber"
+    "bark",
+    "structure"
    ]
   },
   {
@@ -11722,7 +11992,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-fence-post-d.glb",
    "bytes": 2780,
@@ -11737,8 +12007,8 @@
    "calls": 1,
    "variant": "v11",
    "tags": [
-    "structure",
-    "timber"
+    "bark",
+    "structure"
    ]
   },
   {
@@ -11749,7 +12019,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-flower-daisy.glb",
@@ -12014,7 +12284,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-mushroom-a.glb",
    "bytes": 4900,
@@ -12040,7 +12310,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-mushroom-b.glb",
    "bytes": 4888,
@@ -12365,7 +12635,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-stump.glb",
    "bytes": 7232,
@@ -12379,6 +12650,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -12392,7 +12664,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-tree-pine-a.glb",
    "bytes": 5884,
@@ -12407,10 +12679,10 @@
    "calls": 1,
    "variant": "v34",
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12421,7 +12693,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-tree-pine-b.glb",
    "bytes": 6052,
@@ -12436,10 +12708,10 @@
    "calls": 1,
    "variant": "v34",
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12450,7 +12722,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/modulair-terrein/hilly-prop-tree-pine-c.glb",
    "bytes": 5180,
@@ -12465,10 +12737,10 @@
    "calls": 1,
    "variant": "v34",
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12726,9 +12998,9 @@
    "naam": "ladder",
    "kit": "modular-cave-kit",
    "groep": "verbinding",
-   "palet": "gedeeld",
+   "palet": "modular-cave-kit",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modular-cave-kit/ladder.glb",
    "bytes": 12352,
@@ -12752,9 +13024,9 @@
    "naam": "template-floor-layer-hole",
    "kit": "modular-cave-kit",
    "groep": "bouwwerken",
-   "palet": "gedeeld",
+   "palet": "modular-cave-kit",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modular-cave-kit/template-floor-layer-hole.glb",
    "bytes": 28640,
@@ -12778,9 +13050,9 @@
    "naam": "template-floor-layer-raised",
    "kit": "modular-cave-kit",
    "groep": "bouwwerken",
-   "palet": "gedeeld",
+   "palet": "modular-cave-kit",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modular-cave-kit/template-floor-layer-raised.glb",
    "bytes": 23588,
@@ -12804,9 +13076,9 @@
    "naam": "template-floor-layer",
    "kit": "modular-cave-kit",
    "groep": "bouwwerken",
-   "palet": "gedeeld",
+   "palet": "modular-cave-kit",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/modular-cave-kit/template-floor-layer.glb",
    "bytes": 13488,
@@ -12832,7 +13104,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/branch-1.glb",
    "bytes": 7128,
@@ -12846,9 +13118,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12858,7 +13130,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/branch-2.glb",
    "bytes": 10564,
@@ -12872,9 +13144,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12884,7 +13156,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/branch-3.glb",
    "bytes": 10980,
@@ -12898,9 +13170,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -12910,8 +13182,8 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/campfire-star.glb",
    "bytes": 28856,
@@ -12925,6 +13197,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -12936,8 +13209,8 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/campfire-teepee.glb",
    "bytes": 19016,
@@ -12951,6 +13224,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -13202,7 +13476,7 @@
     "#6d8d33",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/flower-bellflower-1.glb",
    "bytes": 7444,
@@ -13231,7 +13505,7 @@
     "#6d8d33",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/flower-bellflower-2.glb",
    "bytes": 7444,
@@ -13260,7 +13534,7 @@
     "#6d8d33",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/flower-bellflower-3.glb",
    "bytes": 7456,
@@ -13288,7 +13562,7 @@
     "#23562c",
     "#6d8d33",
     "#dd9f79",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/natuur/flower-daisy-1.glb",
@@ -13317,7 +13591,7 @@
     "#23562c",
     "#6d8d33",
     "#dd9f79",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/natuur/flower-daisy-2.glb",
@@ -13346,7 +13620,7 @@
     "#23562c",
     "#6d8d33",
     "#dd9f79",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/natuur/flower-daisy-3.glb",
@@ -13698,10 +13972,11 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/log-1.glb",
-   "bytes": 15504,
+   "bytes": 30248,
    "driehoeken": 380,
    "driehoekenPerUnit": 380,
    "materialen": 1,
@@ -13712,6 +13987,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -13724,10 +14000,11 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/log-2.glb",
-   "bytes": 17044,
+   "bytes": 50188,
    "driehoeken": 402,
    "driehoekenPerUnit": 402,
    "materialen": 1,
@@ -13738,6 +14015,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -13750,8 +14028,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/log-3.glb",
    "bytes": 15852,
@@ -13765,6 +14043,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -13777,8 +14056,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/log-4.glb",
    "bytes": 16152,
@@ -13792,6 +14071,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -13804,10 +14084,11 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/log-5.glb",
-   "bytes": 18704,
+   "bytes": 36644,
    "driehoeken": 449,
    "driehoekenPerUnit": 449,
    "materialen": 1,
@@ -13818,6 +14099,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -13907,7 +14189,7 @@
    "kleuren": [
     "#8f785b",
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/mushroom-brown.glb",
    "bytes": 12388,
@@ -13934,7 +14216,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/mushroom-dark-red.glb",
    "bytes": 13020,
@@ -13960,7 +14242,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/mushroom-grey.glb",
    "bytes": 10032,
@@ -13987,7 +14269,7 @@
    "kleuren": [
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/mushroom-red-spotted.glb",
    "bytes": 11428,
@@ -14237,7 +14519,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-1.glb",
    "bytes": 3232,
@@ -14251,9 +14533,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14263,7 +14545,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-2.glb",
    "bytes": 3232,
@@ -14277,9 +14559,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14289,7 +14571,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-3.glb",
    "bytes": 3232,
@@ -14303,9 +14585,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14315,7 +14597,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-4.glb",
    "bytes": 3232,
@@ -14329,9 +14611,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14341,7 +14623,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-5.glb",
    "bytes": 3232,
@@ -14355,9 +14637,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14367,7 +14649,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/root-6.glb",
    "bytes": 3232,
@@ -14381,9 +14663,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14394,7 +14676,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/shell-layered.glb",
    "bytes": 4960,
@@ -14420,7 +14702,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/shell-salmon.glb",
    "bytes": 5632,
@@ -14446,7 +14728,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/natuur/shell-slate.glb",
    "bytes": 5340,
@@ -14621,10 +14903,11 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/stump-1.glb",
-   "bytes": 7780,
+   "bytes": 14812,
    "driehoeken": 220,
    "driehoekenPerUnit": 220,
    "materialen": 1,
@@ -14635,6 +14918,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -14647,8 +14931,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/stump-2.glb",
    "bytes": 9080,
@@ -14662,6 +14946,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -14674,11 +14959,11 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/stump-3.glb",
-   "bytes": 15672,
+   "bytes": 61628,
    "driehoeken": 572,
    "driehoekenPerUnit": 572,
    "materialen": 1,
@@ -14689,6 +14974,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
     "timber"
@@ -14701,8 +14987,8 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/timber-cut-1.glb",
    "bytes": 3288,
@@ -14716,6 +15002,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -14727,11 +15014,11 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/timber-cut-2.glb",
-   "bytes": 3264,
+   "bytes": 5752,
    "driehoeken": 40,
    "driehoekenPerUnit": 40,
    "materialen": 1,
@@ -14742,6 +15029,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -14753,8 +15041,8 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/timber-cut-3.glb",
    "bytes": 4028,
@@ -14768,6 +15056,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -14779,8 +15068,8 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/timber-cut-4.glb",
    "bytes": 3792,
@@ -14794,6 +15083,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -14805,7 +15095,7 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/timber-stack-1.glb",
    "bytes": 32060,
@@ -14820,6 +15110,7 @@
    "calls": 1,
    "tags": [
     "assembly",
+    "bark",
     "timber"
    ]
   },
@@ -14830,7 +15121,7 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/timber-stack-2.glb",
    "bytes": 50784,
@@ -14845,6 +15136,7 @@
    "calls": 1,
    "tags": [
     "assembly",
+    "bark",
     "timber"
    ]
   },
@@ -14855,8 +15147,8 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/timber-whole-1.glb",
    "bytes": 5244,
@@ -14870,6 +15162,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -14881,7 +15174,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-1.glb",
    "bytes": 3144,
@@ -14895,9 +15188,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14907,7 +15200,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-2.glb",
    "bytes": 3852,
@@ -14921,9 +15214,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14933,7 +15226,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-3.glb",
    "bytes": 4848,
@@ -14947,9 +15240,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14959,7 +15252,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-4.glb",
    "bytes": 4600,
@@ -14973,9 +15266,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -14985,7 +15278,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-5.glb",
    "bytes": 6056,
@@ -14999,9 +15292,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -15011,7 +15304,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-bare-6.glb",
    "bytes": 9680,
@@ -15025,9 +15318,9 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -15038,7 +15331,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-1.glb",
    "bytes": 48032,
@@ -15066,7 +15360,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-2.glb",
    "bytes": 89932,
@@ -15094,7 +15389,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-3.glb",
    "bytes": 49680,
@@ -15122,7 +15418,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-4.glb",
    "bytes": 53008,
@@ -15150,7 +15447,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-5.glb",
    "bytes": 46480,
@@ -15178,7 +15476,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#8f785b"
+    "#8f785b",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/natuur/tree-palm-6.glb",
    "bytes": 54496,
@@ -15206,7 +15505,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-pine-1.glb",
    "bytes": 3896,
@@ -15220,10 +15519,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -15234,7 +15533,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-pine-2.glb",
    "bytes": 3992,
@@ -15248,10 +15547,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -15262,7 +15561,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/natuur/tree-pine-3.glb",
    "bytes": 4416,
@@ -15276,10 +15575,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -15289,8 +15588,8 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/boat-row-large.glb",
    "bytes": 11544,
@@ -15316,7 +15615,7 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/boat-row-small.glb",
    "bytes": 12604,
@@ -15343,7 +15642,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#dd9f79"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/bottle-large.glb",
    "bytes": 8740,
@@ -15363,6 +15662,34 @@
    ]
   },
   {
+   "id": "pirate-kit/bottle-red",
+   "naam": "bottle-red",
+   "kit": "pirate-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#f5f2e7"
+   ],
+   "pad": "kits/workfiles/pirate-kit/bottle-red.glb",
+   "bytes": 9796,
+   "driehoeken": 124,
+   "driehoekenPerUnit": 124,
+   "materialen": 1,
+   "wdh": [
+    0.093,
+    0.093,
+    0.226
+   ],
+   "calls": 1,
+   "variant": "v93",
+   "tags": [
+    "glass",
+    "kenney",
+    "object"
+   ]
+  },
+  {
    "id": "pirate-kit/bottle",
    "naam": "bottle",
    "kit": "pirate-kit",
@@ -15370,7 +15697,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#dd9f79"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/bottle.glb",
    "bytes": 9796,
@@ -15383,6 +15710,7 @@
     0.226
    ],
    "calls": 1,
+   "variant": "v93",
    "tags": [
     "glass",
     "kenney",
@@ -15425,7 +15753,7 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/cannon-mobile.glb",
    "bytes": 31064,
@@ -15454,7 +15782,7 @@
    "kleuren": [
     "#3e3e44",
     "#474a58",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/cannon.glb",
    "bytes": 17380,
@@ -15483,7 +15811,7 @@
    "kleuren": [
     "#3e3e44",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/chest.glb",
    "bytes": 18984,
@@ -15517,9 +15845,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/crate-bottles.glb",
    "bytes": 40688,
@@ -15545,8 +15873,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/crate.glb",
    "bytes": 6728,
@@ -15573,8 +15901,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/flag-high.glb",
    "bytes": 10936,
@@ -15603,8 +15931,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/flag.glb",
    "bytes": 10920,
@@ -15660,9 +15988,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/mast-ropes.glb",
    "bytes": 25360,
@@ -15691,8 +16018,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#474a58",
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/mast.glb",
    "bytes": 21724,
@@ -15720,7 +16047,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/palm-detailed-bend.glb",
    "bytes": 36128,
@@ -15749,7 +16076,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/palm-detailed-straight.glb",
    "bytes": 36072,
@@ -15883,8 +16210,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/platform-planks.glb",
    "bytes": 4892,
@@ -15910,8 +16237,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/platform.glb",
    "bytes": 5648,
@@ -16130,10 +16457,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-large.glb",
    "bytes": 108440,
@@ -16151,6 +16477,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16162,10 +16489,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-medium.glb",
    "bytes": 100964,
@@ -16183,6 +16509,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16196,10 +16523,10 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-pirate-large.glb",
    "bytes": 123232,
@@ -16217,6 +16544,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16230,10 +16558,10 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-pirate-medium.glb",
    "bytes": 115772,
@@ -16251,6 +16579,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16264,10 +16593,10 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-pirate-small.glb",
    "bytes": 91460,
@@ -16285,6 +16614,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16296,10 +16626,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-small.glb",
    "bytes": 81092,
@@ -16317,6 +16646,7 @@
     "glass",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16329,9 +16659,9 @@
    "kleuren": [
     "#3e3e44",
     "#6d8d33",
-    "#995a41",
-    "#d07b56",
-    "#f4efe3"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/pirate-kit/ship-wreck.glb",
    "bytes": 156260,
@@ -16349,6 +16679,7 @@
     "foliage",
     "kenney",
     "object",
+    "textile",
     "timber"
    ]
   },
@@ -16359,9 +16690,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-fence-sides.glb",
    "bytes": 31084,
@@ -16387,9 +16717,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-fence.glb",
    "bytes": 24992,
@@ -16415,8 +16744,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-platform-dock-small.glb",
    "bytes": 22524,
@@ -16442,8 +16771,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-platform-dock.glb",
    "bytes": 23316,
@@ -16469,8 +16798,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-platform-small.glb",
    "bytes": 16252,
@@ -16496,8 +16825,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-platform.glb",
    "bytes": 17044,
@@ -16523,8 +16852,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure-roof.glb",
    "bytes": 24140,
@@ -16550,9 +16878,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/structure.glb",
    "bytes": 19664,
@@ -16578,7 +16905,7 @@
    "groep": "gereedschap",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/pirate-kit/tool-paddle.glb",
    "bytes": 5132,
@@ -16604,8 +16931,8 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/arrow.glb",
    "bytes": 5584,
@@ -16631,8 +16958,8 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/arrows.glb",
    "bytes": 7168,
@@ -16658,9 +16985,9 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/crate-strong.glb",
    "bytes": 29240,
@@ -16687,8 +17014,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/crate.glb",
    "bytes": 10128,
@@ -16714,8 +17041,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/fence-broken.glb",
    "bytes": 15244,
@@ -16741,8 +17068,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/fence-corner-curved.glb",
    "bytes": 11060,
@@ -16768,8 +17095,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/fence-corner.glb",
    "bytes": 7284,
@@ -16795,9 +17122,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/fence-rope.glb",
    "bytes": 13216,
@@ -16824,8 +17150,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/fence-straight.glb",
    "bytes": 4844,
@@ -16931,8 +17257,8 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/ladder-broken.glb",
    "bytes": 7784,
@@ -16959,8 +17285,8 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/ladder-long.glb",
    "bytes": 7508,
@@ -16986,8 +17312,8 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/ladder.glb",
    "bytes": 5348,
@@ -17103,8 +17429,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/platform-fortified.glb",
    "bytes": 8832,
@@ -17130,8 +17456,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/platform-overhang.glb",
    "bytes": 6180,
@@ -17157,8 +17483,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/platform-ramp.glb",
    "bytes": 7284,
@@ -17184,8 +17510,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/platform.glb",
    "bytes": 7196,
@@ -17211,8 +17537,8 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/poles.glb",
    "bytes": 17124,
@@ -17264,8 +17590,8 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#d07b56"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/platformer-kit/sign.glb",
    "bytes": 6452,
@@ -17397,7 +17723,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/barrel-a.glb",
    "bytes": 30376,
@@ -17424,7 +17750,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/bench-a.glb",
    "bytes": 15772,
@@ -17443,6 +17769,33 @@
    ]
   },
   {
+   "id": "props/bottle-a-green",
+   "naam": "bottle-a-green",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#23562c",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/props/bottle-a-green.glb",
+   "bytes": 13996,
+   "driehoeken": 190,
+   "driehoekenPerUnit": 190,
+   "materialen": 1,
+   "wdh": [
+    0.076,
+    0.076,
+    0.128
+   ],
+   "calls": 1,
+   "variant": "v89",
+   "tags": [
+    "glass",
+    "object"
+   ]
+  },
+  {
    "id": "props/bottle-a",
    "naam": "bottle-a",
    "kit": "props",
@@ -17450,7 +17803,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#8f785b"
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/props/bottle-a.glb",
    "bytes": 13996,
@@ -17463,6 +17816,34 @@
     0.128
    ],
    "calls": 1,
+   "variant": "v89",
+   "tags": [
+    "glass",
+    "object"
+   ]
+  },
+  {
+   "id": "props/bottle-b-red",
+   "naam": "bottle-b-red",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/props/bottle-b-red.glb",
+   "bytes": 12352,
+   "driehoeken": 172,
+   "driehoekenPerUnit": 172,
+   "materialen": 1,
+   "wdh": [
+    0.062,
+    0.062,
+    0.125
+   ],
+   "calls": 1,
+   "variant": "v90",
    "tags": [
     "glass",
     "object"
@@ -17475,8 +17856,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#6d8d33",
-    "#8f785b"
+    "#23562c",
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/props/bottle-b.glb",
    "bytes": 12352,
@@ -17489,6 +17870,34 @@
     0.125
    ],
    "calls": 1,
+   "variant": "v90",
+   "tags": [
+    "glass",
+    "object"
+   ]
+  },
+  {
+   "id": "props/bottle-c-red",
+   "naam": "bottle-c-red",
+   "kit": "props",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#dd9f79"
+   ],
+   "pad": "kits/workfiles/props/bottle-c-red.glb",
+   "bytes": 13476,
+   "driehoeken": 188,
+   "driehoekenPerUnit": 188,
+   "materialen": 1,
+   "wdh": [
+    0.051,
+    0.051,
+    0.123
+   ],
+   "calls": 1,
+   "variant": "v91",
    "tags": [
     "glass",
     "object"
@@ -17501,8 +17910,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#2473b3",
-    "#8f785b"
+    "#23562c",
+    "#dd9f79"
    ],
    "pad": "kits/workfiles/props/bottle-c.glb",
    "bytes": 13476,
@@ -17515,6 +17924,7 @@
     0.123
    ],
    "calls": 1,
+   "variant": "v91",
    "tags": [
     "glass",
     "object"
@@ -17527,7 +17937,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/box-a.glb",
    "bytes": 22868,
@@ -17555,7 +17965,7 @@
    "kleuren": [
     "#3e3e44",
     "#474a58",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/bucket-a.glb",
    "bytes": 59792,
@@ -17607,7 +18017,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/cup-a.glb",
    "bytes": 55088,
@@ -17634,7 +18044,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/fire-a.glb",
    "bytes": 25352,
@@ -17660,7 +18070,8 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/firewood-a.glb",
    "bytes": 27384,
@@ -17674,6 +18085,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "object",
     "timber"
    ]
@@ -17866,7 +18278,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/props/roast-a.glb",
    "bytes": 37112,
@@ -17890,7 +18302,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/stairs-a.glb",
    "bytes": 8600,
@@ -17916,7 +18328,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/stool-a.glb",
    "bytes": 18956,
@@ -17941,7 +18353,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/props/table-a.glb",
    "bytes": 10716,
@@ -18259,7 +18671,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/log.glb",
    "bytes": 34556,
@@ -18273,10 +18685,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18496,7 +18908,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-birch-dead-1.glb",
    "bytes": 59424,
@@ -18510,10 +18922,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18524,7 +18936,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-birch-dead-2.glb",
    "bytes": 94404,
@@ -18538,10 +18950,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18552,7 +18964,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-birch-dead-3.glb",
    "bytes": 97296,
@@ -18566,10 +18978,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18580,7 +18992,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-birch-dead-4.glb",
    "bytes": 112436,
@@ -18594,10 +19006,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18608,7 +19020,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-birch-dead-5.glb",
    "bytes": 89260,
@@ -18622,10 +19034,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18635,7 +19047,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-1.glb",
    "bytes": 166684,
@@ -18649,10 +19061,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18662,7 +19074,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-2.glb",
    "bytes": 166688,
@@ -18676,10 +19088,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18689,7 +19101,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-3.glb",
    "bytes": 67560,
@@ -18703,10 +19115,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18716,7 +19128,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-4.glb",
    "bytes": 72040,
@@ -18730,10 +19142,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18743,7 +19155,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-common-dead-5.glb",
    "bytes": 101164,
@@ -18757,10 +19169,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18771,7 +19183,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-pine-1.glb",
    "bytes": 134520,
@@ -18785,11 +19197,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18800,7 +19212,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-pine-3.glb",
    "bytes": 168588,
@@ -18814,11 +19226,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18828,7 +19240,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-willow-dead-1.glb",
    "bytes": 81240,
@@ -18842,10 +19254,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18855,7 +19267,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-willow-dead-2.glb",
    "bytes": 131680,
@@ -18869,10 +19281,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18882,7 +19294,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-willow-dead-3.glb",
    "bytes": 29468,
@@ -18896,10 +19308,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18909,7 +19321,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-willow-dead-4.glb",
    "bytes": 56356,
@@ -18923,10 +19335,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -18936,7 +19348,7 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#714c39"
    ],
    "pad": "kits/workfiles/quaternius-nature/tree-willow-dead-5.glb",
    "bytes": 36196,
@@ -18950,10 +19362,10 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "nature",
-    "quaternius",
-    "timber"
+    "quaternius"
    ]
   },
   {
@@ -19721,7 +20133,7 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/pallet-wood.glb",
    "bytes": 21016,
@@ -20231,11 +20643,10 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
     "#8f785b",
     "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#dd9f79",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/resources/textiles-stack-large.glb",
    "bytes": 172440,
@@ -20262,8 +20673,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d8d33",
-    "#995a41",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-log-a.glb",
    "bytes": 78560,
@@ -20278,6 +20689,7 @@
    "calls": 1,
    "variant": "v69",
    "tags": [
+    "bark",
     "flora",
     "kaykit",
     "object",
@@ -20291,8 +20703,8 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-log-b.glb",
    "bytes": 60596,
@@ -20307,6 +20719,7 @@
    "calls": 1,
    "variant": "v69",
    "tags": [
+    "bark",
     "flora",
     "kaykit",
     "object",
@@ -20320,8 +20733,8 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-log-stack.glb",
    "bytes": 366224,
@@ -20336,6 +20749,7 @@
    "calls": 1,
    "tags": [
     "assembly",
+    "bark",
     "kaykit",
     "timber"
    ]
@@ -20347,7 +20761,7 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-plank-a.glb",
    "bytes": 4236,
@@ -20374,7 +20788,7 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-plank-b.glb",
    "bytes": 6688,
@@ -20401,7 +20815,7 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-plank-c.glb",
    "bytes": 9136,
@@ -20428,8 +20842,7 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-planks-stack-large.glb",
    "bytes": 121440,
@@ -20455,8 +20868,7 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-planks-stack-medium.glb",
    "bytes": 73296,
@@ -20482,8 +20894,7 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/resources/wood-planks-stack-small.glb",
    "bytes": 26768,
@@ -20509,7 +20920,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/bowl-small.glb",
    "bytes": 10160,
@@ -20535,7 +20946,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/bowl.glb",
    "bytes": 9632,
@@ -20561,7 +20972,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/restaurant/chair-b.glb",
    "bytes": 18304,
@@ -20587,9 +20998,9 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/crate-ham.glb",
    "bytes": 27516,
@@ -20615,7 +21026,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/restaurant/crate-lid.glb",
    "bytes": 13880,
@@ -20641,9 +21052,9 @@
    "groep": "assemblies",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41",
+    "#9a6b4e",
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/crate-steak.glb",
    "bytes": 50444,
@@ -20669,7 +21080,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/restaurant/crate.glb",
    "bytes": 10088,
@@ -20695,7 +21106,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/restaurant/cutting-board.glb",
    "bytes": 3600,
@@ -20725,7 +21136,7 @@
     "#995a41",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/food-dinner.glb",
    "bytes": 46184,
@@ -20776,7 +21187,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#995a41",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/food-ingredient-ham-cooked.glb",
    "bytes": 10172,
@@ -20803,7 +21214,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/food-ingredient-ham.glb",
    "bytes": 10152,
@@ -20830,7 +21241,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/food-ingredient-steak.glb",
    "bytes": 14928,
@@ -20858,7 +21269,7 @@
     "#6d8d33",
     "#d07b56",
     "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/food-stew.glb",
    "bytes": 24340,
@@ -20911,7 +21322,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#6d738a"
    ],
    "pad": "kits/workfiles/restaurant/pan-006.glb",
    "bytes": 12296,
@@ -20925,8 +21336,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic",
     "kaykit",
+    "metal",
     "object"
    ]
   },
@@ -20937,7 +21348,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#6d738a"
    ],
    "pad": "kits/workfiles/restaurant/pan-a.glb",
    "bytes": 12508,
@@ -20951,8 +21362,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic",
     "kaykit",
+    "metal",
     "object"
    ]
   },
@@ -20963,7 +21374,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#474a58"
+    "#3e3e44"
    ],
    "pad": "kits/workfiles/restaurant/pan-b.glb",
    "bytes": 12508,
@@ -20977,8 +21388,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic",
     "kaykit",
+    "metal",
     "object"
    ]
   },
@@ -20989,7 +21400,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/plate-small.glb",
    "bytes": 6016,
@@ -21015,7 +21426,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/restaurant/plate.glb",
    "bytes": 7520,
@@ -21041,7 +21452,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d"
+    "#6d738a"
    ],
    "pad": "kits/workfiles/restaurant/pot-a.glb",
    "bytes": 14388,
@@ -21055,8 +21466,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic",
     "kaykit",
+    "metal",
     "object"
    ]
   },
@@ -21067,7 +21478,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#474a58"
+    "#3e3e44"
    ],
    "pad": "kits/workfiles/restaurant/pot-b.glb",
    "bytes": 14388,
@@ -21081,8 +21492,8 @@
    ],
    "calls": 1,
    "tags": [
-    "ceramic",
     "kaykit",
+    "metal",
     "object"
    ]
   },
@@ -21119,7 +21530,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/restaurant/table-round-b.glb",
    "bytes": 14392,
@@ -21801,9 +22212,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/axe.glb",
    "bytes": 53248,
@@ -21832,7 +22242,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/chisel.glb",
    "bytes": 23256,
@@ -21923,7 +22333,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/file.glb",
    "bytes": 29164,
@@ -21953,11 +22363,9 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#8f785b",
-    "#995a41",
+    "#9a6b4e",
     "#9da4c4",
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/grindstone.glb",
    "bytes": 115844,
@@ -21986,9 +22394,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/hammer.glb",
    "bytes": 41824,
@@ -22018,8 +22425,8 @@
    "kleuren": [
     "#474a58",
     "#6d738a",
-    "#88796d",
-    "#8f785b"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/handdrill.glb",
    "bytes": 93044,
@@ -22047,8 +22454,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#88796d",
-    "#8f785b"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/handplane.glb",
    "bytes": 67744,
@@ -22078,7 +22485,7 @@
     "#6d738a",
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/rpgtools/journal-closed.glb",
    "bytes": 68480,
@@ -22108,7 +22515,7 @@
     "#7f3927",
     "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/rpgtools/journal-open.glb",
    "bytes": 56440,
@@ -22135,7 +22542,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/knife.glb",
    "bytes": 24684,
@@ -22165,7 +22572,7 @@
     "#3e3e44",
     "#474a58",
     "#6d738a",
-    "#f4efe3",
+    "#f5f2e7",
     "#ffffff"
    ],
    "pad": "kits/workfiles/rpgtools/lantern.glb",
@@ -22194,7 +22601,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b",
+    "#cb9d78",
     "#ffffff"
    ],
    "pad": "kits/workfiles/rpgtools/magnifying-glass.glb",
@@ -22223,7 +22630,7 @@
    "groep": "gereedschap",
    "palet": "gedeeld",
    "kleuren": [
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/mallet.glb",
    "bytes": 49576,
@@ -22250,8 +22657,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#2473b3",
-    "#dd9f79",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/rpgtools/map-empty.glb",
    "bytes": 62912,
@@ -22278,7 +22684,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#2473b3",
-    "#dd9f79"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/rpgtools/map-rolled.glb",
    "bytes": 36952,
@@ -22331,7 +22737,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#dd9f79",
+    "#cb9d78",
     "#ffb349"
    ],
    "pad": "kits/workfiles/rpgtools/pencil-a-long.glb",
@@ -22388,9 +22794,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/pickaxe.glb",
    "bytes": 53252,
@@ -22473,7 +22878,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/saw.glb",
    "bytes": 53660,
@@ -22501,7 +22906,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/scissors.glb",
    "bytes": 81892,
@@ -22555,7 +22960,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/screwdriver-a-short.glb",
    "bytes": 20848,
@@ -22583,7 +22988,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/screwdriver-b-short.glb",
    "bytes": 23500,
@@ -22611,9 +23016,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#995a41",
-    "#d07b56",
-    "#dd9f79"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/shovel.glb",
    "bytes": 84060,
@@ -22669,7 +23073,7 @@
    "kleuren": [
     "#3e3e44",
     "#474a58",
-    "#995a41"
+    "#9a6b4e"
    ],
    "pad": "kits/workfiles/rpgtools/torch-burnt.glb",
    "bytes": 49812,
@@ -22698,9 +23102,9 @@
    "groep": "licht",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b",
-    "#995a41"
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/rpgtools/torch.glb",
    "bytes": 49792,
@@ -22730,7 +23134,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#6d738a",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/rpgtools/trowel.glb",
    "bytes": 26112,
@@ -22784,7 +23188,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#d07b56",
-    "#f4efe3"
+    "#dd9f79",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/survival-kit/bottle-large.glb",
    "bytes": 7532,
@@ -22804,6 +23209,35 @@
    ]
   },
   {
+   "id": "survival-kit/bottle-red",
+   "naam": "bottle-red",
+   "kit": "survival-kit",
+   "groep": "opslag",
+   "palet": "gedeeld",
+   "kleuren": [
+    "#7f3927",
+    "#dd9f79",
+    "#f5f2e7"
+   ],
+   "pad": "kits/workfiles/survival-kit/bottle-red.glb",
+   "bytes": 7512,
+   "driehoeken": 96,
+   "driehoekenPerUnit": 96,
+   "materialen": 1,
+   "wdh": [
+    0.068,
+    0.079,
+    0.2
+   ],
+   "calls": 1,
+   "variant": "v94",
+   "tags": [
+    "glass",
+    "kenney",
+    "object"
+   ]
+  },
+  {
    "id": "survival-kit/bottle",
    "naam": "bottle",
    "kit": "survival-kit",
@@ -22811,8 +23245,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56",
-    "#f4efe3"
+    "#dd9f79",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/survival-kit/bottle.glb",
    "bytes": 7512,
@@ -22825,6 +23259,7 @@
     0.2
    ],
    "calls": 1,
+   "variant": "v94",
    "tags": [
     "glass",
     "kenney",
@@ -22838,7 +23273,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/campfire-fishing-stand.glb",
    "bytes": 7396,
@@ -22864,8 +23299,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/campfire-pit.glb",
    "bytes": 18876,
@@ -22891,7 +23325,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/campfire-stand.glb",
    "bytes": 6096,
@@ -22918,7 +23352,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/chest.glb",
    "bytes": 25840,
@@ -22951,7 +23385,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/fence-doorway.glb",
    "bytes": 9812,
@@ -22977,7 +23411,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/fence-fortified.glb",
    "bytes": 9644,
@@ -23003,7 +23437,7 @@
    "groep": "hek",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/fence.glb",
    "bytes": 4784,
@@ -23031,7 +23465,7 @@
    "kleuren": [
     "#6d738a",
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/survival-kit/fish-large.glb",
    "bytes": 22104,
@@ -23058,7 +23492,7 @@
    "groep": "eten",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/survival-kit/fish.glb",
@@ -23086,7 +23520,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/floor-hole.glb",
    "bytes": 11712,
@@ -23112,7 +23546,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/floor-old.glb",
    "bytes": 7256,
@@ -23139,7 +23573,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/floor.glb",
    "bytes": 7244,
@@ -23166,7 +23600,7 @@
    "groep": "grondstoffen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/resource-planks.glb",
    "bytes": 6472,
@@ -23458,7 +23892,7 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/signpost-single.glb",
    "bytes": 3484,
@@ -23484,7 +23918,7 @@
    "groep": "borden",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/signpost.glb",
    "bytes": 4476,
@@ -23510,8 +23944,8 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/survival-kit/structure-canvas.glb",
    "bytes": 8068,
@@ -23538,7 +23972,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/structure-floor.glb",
    "bytes": 13628,
@@ -23564,7 +23998,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/structure-roof.glb",
    "bytes": 15316,
@@ -23590,7 +24024,7 @@
    "groep": "bouwwerken",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/structure.glb",
    "bytes": 6976,
@@ -23616,8 +24050,8 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/survival-kit/tent-canvas.glb",
    "bytes": 12012,
@@ -23645,7 +24079,7 @@
    "groep": "huisraad",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tent.glb",
    "bytes": 10044,
@@ -23662,7 +24096,6 @@
    "tags": [
     "kenney",
     "object",
-    "textile",
     "timber"
    ]
   },
@@ -23674,7 +24107,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tool-axe.glb",
    "bytes": 6296,
@@ -23702,7 +24135,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tool-hammer.glb",
    "bytes": 4880,
@@ -23730,7 +24163,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tool-hoe.glb",
    "bytes": 4936,
@@ -23758,7 +24191,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tool-pickaxe.glb",
    "bytes": 5960,
@@ -23786,7 +24219,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tool-shovel.glb",
    "bytes": 8344,
@@ -23813,8 +24246,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tree-log-small.glb",
    "bytes": 6712,
@@ -23828,6 +24261,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kenney",
     "nature",
@@ -23841,8 +24275,8 @@
    "groep": "bomen",
    "palet": "gedeeld",
    "kleuren": [
-    "#d07b56",
-    "#dd9f79"
+    "#714c39",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/tree-log.glb",
    "bytes": 6676,
@@ -23856,6 +24290,7 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "kenney",
     "nature",
@@ -23870,7 +24305,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/survival-kit/tree-tall.glb",
    "bytes": 17428,
@@ -23884,11 +24319,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -23899,7 +24334,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#23562c",
-    "#d07b56"
+    "#714c39"
    ],
    "pad": "kits/workfiles/survival-kit/tree.glb",
    "bytes": 15708,
@@ -23913,11 +24348,11 @@
    ],
    "calls": 1,
    "tags": [
+    "bark",
     "flora",
     "foliage",
     "kenney",
-    "nature",
-    "timber"
+    "nature"
    ]
   },
   {
@@ -23928,7 +24363,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/workbench-anvil.glb",
    "bytes": 21224,
@@ -23956,7 +24391,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/workbench-grind.glb",
    "bytes": 17460,
@@ -23984,8 +24419,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#9da4c4",
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/survival-kit/workbench.glb",
    "bytes": 18636,
@@ -24013,11 +24447,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#6d738a",
-    "#8f785b",
-    "#d07b56",
-    "#dd9f79",
-    "#f4efe3",
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/taalei-kit/balloon-basket-round.glb",
@@ -24048,11 +24480,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#6d738a",
-    "#8f785b",
-    "#d07b56",
-    "#dd9f79",
-    "#f4efe3",
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/taalei-kit/balloon-basket-square.glb",
@@ -24083,9 +24513,10 @@
    "palet": "gedeeld",
    "kleuren": [
     "#3e3e44",
-    "#6d738a",
-    "#d07b56",
-    "#f4efe3",
+    "#8f785b",
+    "#995a41",
+    "#dd9f79",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/taalei-kit/balloon.glb",
@@ -24117,13 +24548,13 @@
     "#474a58",
     "#6d738a",
     "#7f3927",
-    "#995a41",
-    "#dd9f79",
-    "#f4efe3",
+    "#9a6b4e",
+    "#cb9d78",
+    "#f5f2e7",
     "#ffb349"
    ],
    "pad": "kits/workfiles/taalei-kit/lighthouse.glb",
-   "bytes": 65852,
+   "bytes": 65848,
    "driehoeken": 970,
    "driehoekenPerUnit": 58,
    "materialen": 1,
@@ -24147,8 +24578,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/barrel-a-open.glb",
    "bytes": 36100,
@@ -24174,8 +24605,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/barrel-a.glb",
    "bytes": 25308,
@@ -24201,8 +24632,8 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#88796d",
-    "#8f785b"
+    "#9a6b4e",
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/barrel-b.glb",
    "bytes": 27812,
@@ -24229,7 +24660,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/bell-a.glb",
    "bytes": 27764,
@@ -24256,7 +24687,7 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/boat-a.glb",
    "bytes": 13096,
@@ -24281,7 +24712,7 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/boat-b.glb",
    "bytes": 13840,
@@ -24306,7 +24737,7 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/boat-oars-a.glb",
    "bytes": 9508,
@@ -24331,7 +24762,7 @@
    "groep": "schepen",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/boat-oars-b.glb",
    "bytes": 9508,
@@ -24356,7 +24787,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/canopy-beam-short.glb",
    "bytes": 2212,
@@ -24383,7 +24814,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/canopy-beam.glb",
    "bytes": 2192,
@@ -24410,7 +24841,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-corner.glb",
@@ -24438,7 +24869,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-full.glb",
@@ -24466,7 +24897,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-ramp-corner.glb",
@@ -24494,7 +24925,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-ramp-full.glb",
@@ -24522,7 +24953,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-ramp-mid.glb",
@@ -24550,7 +24981,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-side.glb",
@@ -24578,7 +25009,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
+    "#cb9d78",
     "#dd9f79"
    ],
    "pad": "kits/workfiles/village-kit/canopy-sides-opposite.glb",
@@ -24632,7 +25063,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/cart-a.glb",
    "bytes": 64248,
@@ -24821,7 +25252,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/crate-a-open.glb",
    "bytes": 26688,
@@ -24846,7 +25277,7 @@
    "groep": "opslag",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/crate-a.glb",
    "bytes": 24412,
@@ -24973,7 +25404,7 @@
    "kleuren": [
     "#3e3e44",
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/door-ornate.glb",
    "bytes": 26288,
@@ -25002,7 +25433,7 @@
    "kleuren": [
     "#3e3e44",
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/door-simple.glb",
    "bytes": 16296,
@@ -25029,7 +25460,7 @@
    "groep": "verbinding",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/ladder-a.glb",
    "bytes": 19540,
@@ -25056,7 +25487,7 @@
    "kleuren": [
     "#3e3e44",
     "#88796d",
-    "#8f785b",
+    "#cb9d78",
     "#ffb349"
    ],
    "pad": "kits/workfiles/village-kit/lamp-street.glb",
@@ -25086,7 +25517,7 @@
    "kleuren": [
     "#3e3e44",
     "#88796d",
-    "#8f785b",
+    "#cb9d78",
     "#ffb349"
    ],
    "pad": "kits/workfiles/village-kit/lamp-wall.glb",
@@ -25114,7 +25545,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-rake-concave.glb",
    "bytes": 3636,
@@ -25140,7 +25571,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-rake-convex.glb",
    "bytes": 3636,
@@ -25166,7 +25597,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-rake-eave.glb",
    "bytes": 2236,
@@ -25192,7 +25623,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-rake-straight.glb",
    "bytes": 2232,
@@ -25218,7 +25649,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-ridge-end.glb",
    "bytes": 2928,
@@ -25244,7 +25675,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/roof-accent-ridge.glb",
    "bytes": 2208,
@@ -25272,7 +25703,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-corner-inner.glb",
    "bytes": 8232,
@@ -25299,7 +25730,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-corner-outer-eave.glb",
    "bytes": 11244,
@@ -25326,7 +25757,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-corner-outer.glb",
    "bytes": 7656,
@@ -25354,7 +25785,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-side-eave-edge.glb",
    "bytes": 12968,
@@ -25382,7 +25813,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-side-eave.glb",
    "bytes": 9308,
@@ -25411,7 +25842,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-side-edge.glb",
    "bytes": 11040,
@@ -25439,7 +25870,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-concave-side.glb",
    "bytes": 7356,
@@ -25467,7 +25898,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-corner-inner.glb",
    "bytes": 8152,
@@ -25494,7 +25925,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-corner-outer-eave.glb",
    "bytes": 10828,
@@ -25521,7 +25952,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-corner-outer.glb",
    "bytes": 7284,
@@ -25549,7 +25980,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-side-eave-edge.glb",
    "bytes": 12956,
@@ -25577,7 +26008,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-side-eave.glb",
    "bytes": 9296,
@@ -25606,7 +26037,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-side-edge.glb",
    "bytes": 11032,
@@ -25634,7 +26065,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-convex-side.glb",
    "bytes": 7352,
@@ -25662,7 +26093,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-corner-inner.glb",
    "bytes": 8236,
@@ -25689,7 +26120,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-corner-outer-eave.glb",
    "bytes": 10596,
@@ -25716,7 +26147,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-corner-outer.glb",
    "bytes": 6992,
@@ -25744,7 +26175,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-side-eave-edge.glb",
    "bytes": 11368,
@@ -25772,7 +26203,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-side-eave.glb",
    "bytes": 9304,
@@ -25801,7 +26232,7 @@
    "kleuren": [
     "#7f3927",
     "#8f785b",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-side-edge.glb",
    "bytes": 9540,
@@ -25829,7 +26260,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/roof-straight-side.glb",
    "bytes": 7360,
@@ -25857,7 +26288,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/sign-a.glb",
    "bytes": 41100,
@@ -26016,7 +26447,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stone-doorway-narrow-tall-a.glb",
    "bytes": 7804,
@@ -26045,7 +26476,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stone-doorway-narrow-tall-b.glb",
    "bytes": 9456,
@@ -26074,7 +26505,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stone-doorway-wide-tall-a.glb",
    "bytes": 55604,
@@ -26103,7 +26534,7 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stone-doorway-wide-tall-b.glb",
    "bytes": 57480,
@@ -26132,8 +26563,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stone-stucco-doorway-wide-tall-a.glb",
    "bytes": 45968,
@@ -26162,8 +26593,8 @@
    "palet": "gedeeld",
    "kleuren": [
     "#88796d",
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stone-stucco-doorway-wide-tall-b.glb",
    "bytes": 48320,
@@ -26326,8 +26757,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-arch-half-outer.glb",
    "bytes": 4908,
@@ -26353,7 +26784,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-arch-half.glb",
    "bytes": 2536,
@@ -26378,7 +26809,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#f4efe3"
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-block.glb",
    "bytes": 2192,
@@ -26403,8 +26834,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-doorway-narrow-tall.glb",
    "bytes": 4900,
@@ -26430,8 +26861,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-doorway-wide-tall.glb",
    "bytes": 5760,
@@ -26457,7 +26888,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-angled-large.glb",
    "bytes": 2580,
@@ -26483,7 +26914,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-angled-low.glb",
    "bytes": 2252,
@@ -26509,7 +26940,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-angled-small.glb",
    "bytes": 2256,
@@ -26535,7 +26966,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-beam-a.glb",
    "bytes": 2224,
@@ -26562,7 +26993,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-beam-b.glb",
    "bytes": 2660,
@@ -26589,7 +27020,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-beam-c.glb",
    "bytes": 2660,
@@ -26616,7 +27047,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-pillar-a.glb",
    "bytes": 2224,
@@ -26643,7 +27074,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-pillar-b.glb",
    "bytes": 2660,
@@ -26670,7 +27101,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/stucco-support-pillar-c.glb",
    "bytes": 2660,
@@ -26697,9 +27128,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-double-narrow-tall.glb",
    "bytes": 13092,
@@ -26726,9 +27157,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-double-narrow.glb",
    "bytes": 13080,
@@ -26755,9 +27186,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-double-wide-tall.glb",
    "bytes": 13388,
@@ -26785,9 +27216,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-double-wide.glb",
    "bytes": 13376,
@@ -26814,9 +27245,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-rounded-narrow-tall.glb",
    "bytes": 11576,
@@ -26844,9 +27275,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-rounded-narrow.glb",
    "bytes": 11560,
@@ -26873,9 +27304,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-rounded-wide-tall.glb",
    "bytes": 11644,
@@ -26903,9 +27334,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-rounded-wide.glb",
    "bytes": 11632,
@@ -26933,9 +27364,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-single-narrow-tall.glb",
    "bytes": 9544,
@@ -26963,9 +27394,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-single-narrow.glb",
    "bytes": 9528,
@@ -26992,9 +27423,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-single-wide-tall.glb",
    "bytes": 9540,
@@ -27022,9 +27453,9 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/stucco-window-single-wide.glb",
    "bytes": 9524,
@@ -27052,7 +27483,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-brace-double.glb",
    "bytes": 3084,
@@ -27078,7 +27509,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-brace.glb",
    "bytes": 2216,
@@ -27104,7 +27535,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-end.glb",
    "bytes": 4516,
@@ -27130,7 +27561,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-pillar.glb",
    "bytes": 2224,
@@ -27157,7 +27588,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-ramp-supported.glb",
    "bytes": 4812,
@@ -27184,7 +27615,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-ramp.glb",
    "bytes": 3940,
@@ -27211,7 +27642,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel-flume-straight.glb",
    "bytes": 3952,
@@ -27237,7 +27668,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/waterwheel.glb",
    "bytes": 86868,
@@ -27265,7 +27696,7 @@
    "kleuren": [
     "#7f3927",
     "#88796d",
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/well-a.glb",
    "bytes": 82916,
@@ -27393,8 +27824,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/windmill-blades.glb",
    "bytes": 45472,
@@ -27410,6 +27841,7 @@
    "tags": [
     "modular",
     "structure",
+    "textile",
     "timber"
    ]
   },
@@ -27421,9 +27853,9 @@
    "palet": "gedeeld",
    "kleuren": [
     "#7f3927",
-    "#8f785b",
     "#9da4c4",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/window-upper-straight.glb",
    "bytes": 30292,
@@ -27451,7 +27883,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-baseboard.glb",
    "bytes": 2204,
@@ -27477,7 +27909,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-floor-corner.glb",
    "bytes": 8264,
@@ -27503,7 +27935,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-floor-straight-a.glb",
    "bytes": 6788,
@@ -27530,7 +27962,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-floor-straight-b.glb",
    "bytes": 7500,
@@ -27557,7 +27989,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-floor-straight-c.glb",
    "bytes": 6788,
@@ -27584,7 +28016,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-floor-straight-d.glb",
    "bytes": 7500,
@@ -27611,7 +28043,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-post-large.glb",
    "bytes": 3356,
@@ -27637,7 +28069,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-post-small.glb",
    "bytes": 2792,
@@ -27663,7 +28095,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-railing-corner.glb",
    "bytes": 11380,
@@ -27689,7 +28121,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-railing-stairs.glb",
    "bytes": 10232,
@@ -27715,7 +28147,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-railing-straight.glb",
    "bytes": 6880,
@@ -27741,7 +28173,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-rope-corner.glb",
    "bytes": 13036,
@@ -27768,7 +28200,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-rope-stairs.glb",
    "bytes": 11764,
@@ -27795,7 +28227,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-rope-straight.glb",
    "bytes": 6568,
@@ -27822,8 +28254,8 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b",
-    "#f4efe3"
+    "#cb9d78",
+    "#f5f2e7"
    ],
    "pad": "kits/workfiles/village-kit/wood-steps-stucco.glb",
    "bytes": 9352,
@@ -27849,7 +28281,7 @@
    "groep": "bouwpakket",
    "palet": "gedeeld",
    "kleuren": [
-    "#8f785b"
+    "#cb9d78"
    ],
    "pad": "kits/workfiles/village-kit/wood-steps.glb",
    "bytes": 9660,
