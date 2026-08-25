@@ -108,6 +108,7 @@ window.KENNEY_KITS = [
   "slug": "modular-cave-kit",
   "name": "Modular Cave Kit",
   "url": "https://kenney.nl/assets/modular-cave-kit",
+  "eigenPalet": true,
   "buitenCatalogus": [
    "corridor", "corridor-corner", "corridor-end", "corridor-intersection", "corridor-junction",
    "corridor-transition", "corridor-wide", "corridor-wide-corner", "corridor-wide-end",
