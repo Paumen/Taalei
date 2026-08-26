@@ -399,6 +399,9 @@ function makeSection({ id, type, title, count, color, hint, source }) {
 
 const longest = (m) => Math.max(...m.wdh);
 
+const num = (v) => v ?? 0;
+const bool = (v) => (v ? 1 : 0);
+
 const SORTINGS = {
   naam: (a, b) => a.name.localeCompare(b.name, 'en') || a.kit.localeCompare(b.kit),
   groot: (a, b) => longest(b) - longest(a),
@@ -407,6 +410,19 @@ const SORTINGS = {
   licht: (a, b) => a.tris - b.tris,
   bestand: (a, b) => b.bytes - a.bytes,
   bestandKlein: (a, b) => a.bytes - b.bytes,
+  meesteVtx: (a, b) => b.vtx - a.vtx,
+  minsteVtx: (a, b) => a.vtx - b.vtx,
+  grofsteFacet: (a, b) => num(b.avgTri) - num(a.avgTri),
+  fijnsteFacet: (a, b) => num(a.avgTri) - num(b.avgTri),
+  dichtste: (a, b) => num(b.dens) - num(a.dens),
+  ijlste: (a, b) => num(a.dens) - num(b.dens),
+  kleinsteRand: (a, b) => num(a.minEdge) - num(b.minEdge),
+  grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
+  meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
+  minstOpRaster: (a, b) => num(a.anglePct) - num(b.anglePct),
+  nietRasterEerst: (a, b) => bool(a.gridMod) - bool(b.gridMod),
+  nietGeaardEerst: (a, b) => bool(a.grounded) - bool(b.grounded),
+  nietGecentreerdEerst: (a, b) => bool(a.centered) - bool(b.centered),
 };
 
 const WITHOUT = '_zonder';
@@ -596,6 +612,12 @@ function showDetail(model) {
     ],
     ['Draw calls', model.calls === undefined ? '—' : number.format(model.calls)],
     ['Materials', number.format(model.mat)],
+    ['Vertices', number.format(model.vtx)],
+    ['Min edge', `${(model.minEdge * 100).toFixed(1)} cm`],
+    ['Average facet', `${(model.avgTri * 10000).toFixed(1)} cm²`],
+    ['Density', number.format(model.dens)],
+    ['On-angle facets', `${model.anglePct}%`],
+    ['Grid / grounded / centered', [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / ')],
     ...(model.anim?.length
       ? [[`Animations (${model.anim.length})`, model.anim.join(', ')]]
       : []),
