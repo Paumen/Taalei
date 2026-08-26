@@ -132,16 +132,15 @@ and they sit together with the keys in one image.
 
 ## Tools
 
-41 assets, 0.07 – 0.75 high, from six kits but with rpgtools as the main supplier
-(28 pieces), topped up by survival-kit (8), graveyard-kit (2) and one each from
+36 assets, 0.07 – 0.75 high, from six kits but with rpgtools as the main supplier
+(28 pieces), topped up by survival-kit (3), graveyard-kit (2) and one each from
 fantasy-props, fantasy-town-kit and pirate-kit.
 
-**Four tool types exist more than once.** A shovel appears four times
-(`graveyard-kit/shovel` 0.61, `shovel-dirt` 0.66, `rpgtools/shovel` 0.44,
-`survival-kit/tool-shovel` 0.37), a pickaxe three times (`fantasy-props/pickaxe-bronze`
-0.60, `rpgtools/pickaxe` 0.39, `survival-kit/tool-pickaxe` 0.30), and axe and hammer
-both twice. The triangle counts differ sharply between them: `rpgtools/shovel` has
-810 triangles, `survival-kit/tool-shovel` 124 for the same gesture.
+**Two tool types still exist more than once.** A shovel appears three times
+(`graveyard-kit/shovel` 0.61, `shovel-dirt` 0.66, `rpgtools/shovel` 0.44), a pickaxe
+twice (`fantasy-props/pickaxe-bronze` 0.60, `rpgtools/pickaxe` 0.39). Survival-kit's
+own `tool-axe`, `tool-hammer`, `tool-hoe`, `tool-pickaxe` and `tool-shovel` were
+later removed, so its remaining three tools are the workbench and its two variants.
 
 **`fantasy-props/pickaxe-bronze` stands out.** Bright orange (`#ffb349`) against
 the blue-grey steel (`#6d738a`, `#9da4c4`) of all the other tools, and at 0.60 the
