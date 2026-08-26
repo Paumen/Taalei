@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D catalogue</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by group: loose objects, assembled scenes, structures and building kits, nature and the cave.">
-<meta name="catalogus-versie" content="32e82531fd">
-<link rel="stylesheet" href="catalog/catalog.css?v=32e82531fd">
+<meta name="catalogus-versie" content="ca14e6ad75">
+<link rel="stylesheet" href="catalog/catalog.css?v=ca14e6ad75">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
@@ -59,6 +59,21 @@
     <option value="licht">fewest triangles</option>
     <option value="bestand">largest file</option>
     <option value="bestandKlein">smallest file</option>
+    <optgroup label="style measurements">
+      <option value="meesteVtx">most vertices</option>
+      <option value="minsteVtx">fewest vertices</option>
+      <option value="grofsteFacet">biggest facets</option>
+      <option value="fijnsteFacet">finest facets</option>
+      <option value="dichtste">densest</option>
+      <option value="ijlste">sparsest</option>
+      <option value="kleinsteRand">smallest min edge</option>
+      <option value="grootsteRand">largest min edge</option>
+      <option value="meestOpRaster">most on-angle</option>
+      <option value="minstOpRaster">least on-angle</option>
+      <option value="nietRasterEerst">off-grid first</option>
+      <option value="nietGeaardEerst">not grounded first</option>
+      <option value="nietGecentreerdEerst">off-center first</option>
+    </optgroup>
   </select>
 </div>
 
@@ -97,6 +112,6 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=32e82531fd" type="module"></script>
+<script src="catalog/catalog.js?v=ca14e6ad75" type="module"></script>
 </body>
 </html>

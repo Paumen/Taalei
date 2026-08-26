@@ -271,7 +271,62 @@ export async function drawFamily(group, canvas, width) {
 }
 
 const version = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
-const groups = await (await fetch(`schaalgroepen.json?v=${version}`)).json();
+const MODEL_PATH = 'kits/workfiles';
+
+function colorName(hex) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const lightness = (max + min) / 2;
+  const delta = max - min;
+  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
+
+  if (saturation < 0.18) {
+    if (lightness > 0.8) return 'white';
+    if (lightness > 0.45) return 'light grey';
+    if (lightness > 0.25) return 'grey';
+    return 'dark grey';
+  }
+
+  let tint = 0;
+  if (max === r) tint = ((g - b) / delta) % 6;
+  else if (max === g) tint = (b - r) / delta + 2;
+  else tint = (r - g) / delta + 4;
+  tint = (tint * 60 + 360) % 360;
+
+  const base =
+    tint < 15 || tint >= 345 ? 'red'
+    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
+    : tint < 70 ? 'yellow'
+    : tint < 165 ? 'green'
+    : tint < 200 ? 'turquoise'
+    : tint < 260 ? 'blue'
+    : tint < 300 ? 'purple'
+    : 'pink';
+
+  if (lightness < 0.3) return `dark ${base}`;
+  if (lightness > 0.75) return `light ${base}`;
+  return base;
+}
+
+const [groups, catalogData] = await Promise.all([
+  fetch(`schaalgroepen.json?v=${version}`).then((r) => r.json()),
+  fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
+]);
+
+const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
+const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');
+
+for (const group of groups) {
+  for (const item of group.items) {
+    item.path = `${MODEL_PATH}/${item.slug}/${item.model}.glb`;
+    item.kit = shortKit(item.slug);
+  }
+}
+
 const content = document.getElementById('inhoud');
 
 const SIZE_CLASSES = [
@@ -280,11 +335,10 @@ const SIZE_CLASSES = [
   { id: 'large', name: 'Large', limit: Infinity },
 ];
 const sizeOf = (item) => {
-  const longest = Math.max(...(item.wdh ?? [item.height]));
+  const longest = Math.max(...item.wdh);
   return (SIZE_CLASSES.find((k) => longest < k.limit) ?? SIZE_CLASSES.at(-1)).id;
 };
 
-const colorKey = (palette, hex) => `${palette}|${hex}`;
 const colorState = new Map();
 const tagState = new Map();
 const sizeState = new Map();
@@ -306,7 +360,7 @@ function matches(own, state) {
 }
 
 const passesFilter = (item) =>
-  matches((item.colors ?? []).map((hex) => colorKey(item.palette, hex)), colorState) &&
+  matches(item.colors ?? [], colorState) &&
   matches(item.tags ?? [], tagState) &&
   matches([sizeOf(item)], sizeState);
 
@@ -401,28 +455,30 @@ function buildSections() {
   for (const section of content.querySelectorAll('.familie')) watcher.observe(section);
 }
 
-async function buildFilters() {
-  const data = await (await fetch(`catalog.json?v=${version}`)).json().catch(() => ({}));
+function buildFilters() {
   const all = groups.flatMap((g) => g.items);
   const count = (f) => all.filter(f).length;
 
   const colorRow = document.querySelector('#kleurbalk-stalen');
-  const used = new Set(all.flatMap((i) => (i.colors ?? []).map((hex) => colorKey(i.palette, hex))));
-  for (const palette of data.palettes ?? []) {
-    for (const color of palette.colors) {
-      const key = colorKey(palette.id, color.hex);
-      if (!used.has(key)) continue;
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'staal';
-      button.style.setProperty('--staal-kleur', color.hex);
-      button.title = `${color.name} ${color.hex}`;
-      button.setAttribute('aria-label', button.title);
-      showState(button, colorState.get(key));
-      button.addEventListener('click', () => rotate(colorState, key, button));
-      colorRow.append(button);
-      chipButtons.push({ id: key, element: button, state: colorState, strip: colorRow, order: chipButtons.length });
-    }
+  const colorCounts = new Map();
+  for (const item of all) {
+    for (const hex of item.colors ?? []) colorCounts.set(hex, (colorCounts.get(hex) ?? 0) + 1);
+  }
+  const colorList = [...colorCounts]
+    .map(([hex, c]) => ({ hex, count: c, name: colorName(hex) }))
+    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
+
+  for (const color of colorList) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'staal';
+    button.style.setProperty('--staal-kleur', color.hex);
+    button.title = `${color.name} ${color.hex}`;
+    button.setAttribute('aria-label', button.title);
+    showState(button, colorState.get(color.hex));
+    button.addEventListener('click', () => rotate(colorState, color.hex, button));
+    colorRow.append(button);
+    chipButtons.push({ id: color.hex, element: button, state: colorState, strip: colorRow, order: chipButtons.length });
   }
 
   const tagbar = document.querySelector('#tagbalk');
@@ -430,7 +486,7 @@ async function buildFilters() {
     .map((k) => ({ id: k.id, name: k.name, count: count((i) => sizeOf(i) === k.id) }))
     .filter((k) => k.count), sizeState);
 
-  const tags = (data.tags ?? [])
+  const tags = (catalogData.tags ?? [])
     .map((t) => ({ id: t.id, name: t.name, count: count((i) => (i.tags ?? []).includes(t.id)) }))
     .filter((t) => t.count);
   if (tags.length) chipRow(tagbar, tags, tagState);
@@ -446,5 +502,5 @@ async function buildFilters() {
   });
 }
 
-await buildFilters();
+buildFilters();
 buildSections();
