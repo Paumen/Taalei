@@ -6,17 +6,25 @@
 // komen twee hulpknopen tussen (heen naar het draaipunt, terug naar de oorsprong),
 // zodat de knoop zelf op zijn plek blijft staan.
 //
-//   node tools/draai-animatie.mjs <glb> --knoop <naam> --as y [--om x,y,z] [--duur 2] [--naam spin] [--proef]
+// Met --stappen n draait het niet vloeiend maar in n gelijke sprongen, met STEP
+// als interpolatie. Dat is er voor een vorm die na elke sprong precies op
+// zichzelf terugvalt — een regelmatige veelhoek met een geschilderde streep.
+// Tussenstanden zouden die vorm scheef zetten en dan ziet het oog draaiing; door
+// alleen de trefstanden te tonen verandert er niets aan vorm of belichting en
+// blijft de streep het enige dat beweegt.
+//
+//   node tools/draai-animatie.mjs <glb> --knoop <naam> --as y [--om x,y,z] [--duur 2] [--stappen n] [--naam spin] [--proef]
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
 
 const a = process.argv.slice(2);
-let pad = null, knoopnaam = null, as = null, om = null, duur = 2, naam = 'spin', proef = false;
+let pad = null, knoopnaam = null, as = null, om = null, duur = 2, naam = 'spin', stappen = 0, proef = false;
 for (let i = 0; i < a.length; i++) {
   if (a[i] === '--knoop') knoopnaam = a[++i];
   else if (a[i] === '--as') as = a[++i];
   else if (a[i] === '--om') om = a[++i].split(',').map(Number);
   else if (a[i] === '--duur') duur = Number(a[++i]);
+  else if (a[i] === '--stappen') stappen = Number(a[++i]);
   else if (a[i] === '--naam') naam = a[++i];
   else if (a[i] === '--proef') proef = true;
   else pad = a[i];
@@ -35,9 +43,11 @@ if (doel < 0) throw new Error(`geen knoop ${knoopnaam} in ${pad}`);
 
 // Sleutels: vijf standen van 0 tot 360 graden. w loopt 1 → 0 → -1, dus elk
 // opeenvolgend paar heeft een positief inproduct en draait dezelfde kant op.
-const tijden = [0, 1, 2, 3, 4].map((k) => (k * duur) / 4);
-const draaiingen = [0, 1, 2, 3, 4].map((k) => {
-  const halve = (k * Math.PI) / 4;
+const sleutels = stappen > 0 ? stappen : 4;
+const interpolatie = stappen > 0 ? 'STEP' : 'LINEAR';
+const tijden = Array.from({ length: sleutels + 1 }, (_, k) => (k * duur) / sleutels);
+const draaiingen = Array.from({ length: sleutels + 1 }, (_, k) => {
+  const halve = (k * Math.PI) / sleutels;
   const q = [0, 0, 0, Math.cos(halve)];
   q[asindex] = teken * Math.sin(halve);
   return q;
@@ -112,41 +122,48 @@ if (bestaand && eigenKanaal) {
   const overschrijf = (accessorIndex, getallen, breedte) => {
     const acc = glb.json.accessors[accessorIndex];
     if (acc.componentType !== 5126) throw new Error(`${naam}: bestaande sleutels zijn geen float`);
-    if (acc.count * breedte !== getallen.length) {
-      throw new Error(`${naam}: bestaande clip heeft ${acc.count} sleutels, nieuwe ${getallen.length / breedte}`);
-    }
+    if (acc.count * breedte !== getallen.length) return false;
     const view = glb.json.bufferViews[acc.bufferView];
     const start = (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
     for (let i = 0; i < getallen.length; i++) glb.bin.writeFloatLE(getallen[i], start + i * 4);
     const kolom = (k) => getallen.filter((_, i) => i % breedte === k);
     acc.min = Array.from({ length: breedte }, (_, k) => Math.min(...kolom(k)));
     acc.max = Array.from({ length: breedte }, (_, k) => Math.max(...kolom(k)));
+    return true;
   };
   const sampler = bestaand.samplers[eigenKanaal.sampler];
-  overschrijf(sampler.input, tijden, 1);
-  overschrijf(sampler.output, draaiingen.flat(), 4);
-  writeGlb(pad, glb.json, glb.bin, writeFileSync);
-  console.log(`${pad}: ${naam} bijgesteld — knoop ${knoopnaam}, as ${as}, ${duur}s`);
-  process.exit(0);
+  // past het aantal sleutels, dan schrijven we ze op hun plek; anders verderop nieuwe
+  if (overschrijf(sampler.input, tijden, 1) && overschrijf(sampler.output, draaiingen.flat(), 4)) {
+    sampler.interpolation = interpolatie;
+    writeGlb(pad, glb.json, glb.bin, writeFileSync);
+    console.log(`${pad}: ${naam} bijgesteld — knoop ${knoopnaam}, as ${as}, ${duur}s, ${interpolatie}`);
+    process.exit(0);
+  }
 }
 
 const iTijd = nieuweAccessor(tijden, 'SCALAR', 1);
 const iDraai = nieuweAccessor(draaiingen.flat(), 'VEC4', 4);
 
 if (bestaand) {
-  const sampler = bestaand.samplers.push({ input: iTijd, output: iDraai, interpolation: 'LINEAR' }) - 1;
-  bestaand.channels.push({ sampler, target: { node: draaier, path: 'rotation' } });
+  if (eigenKanaal) {
+    // zelfde knoop, ander aantal sleutels: sampler naar de nieuwe gegevens wijzen
+    const oud = bestaand.samplers[eigenKanaal.sampler];
+    oud.input = iTijd; oud.output = iDraai; oud.interpolation = interpolatie;
+  } else {
+    const sampler = bestaand.samplers.push({ input: iTijd, output: iDraai, interpolation: interpolatie }) - 1;
+    bestaand.channels.push({ sampler, target: { node: draaier, path: 'rotation' } });
+  }
   const bin2 = Buffer.concat(stukken);
   glb.json.buffers[0].byteLength = bin2.length;
   writeGlb(pad, glb.json, bin2, writeFileSync);
-  console.log(`${pad}: ${naam} — kanaal erbij voor knoop ${knoopnaam}, as ${as}, ${duur}s`);
+  console.log(`${pad}: ${naam} — knoop ${knoopnaam}, as ${as}, ${duur}s, ${interpolatie}`);
   process.exit(0);
 }
 
 glb.json.animations ??= [];
 glb.json.animations.push({
   name: naam,
-  samplers: [{ input: iTijd, output: iDraai, interpolation: 'LINEAR' }],
+  samplers: [{ input: iTijd, output: iDraai, interpolation: interpolatie }],
   channels: [{ sampler: 0, target: { node: draaier, path: 'rotation' } }],
 });
 
