@@ -608,35 +608,51 @@ function showDetail(model) {
   document.querySelector('#detail-herkomst').textContent =
     `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
 
+  // De meetwaarden staan twee naast elkaar; wat een lange waarde of een opsomming
+  // draagt loopt over de volle breedte. Waar de kop is ingekort staat de hele
+  // naam in `vol`, en die komt als title op de dt te staan.
+  // De animaties staan hier niet bij: de knoppen onder de weergave zeggen het al.
   const rows = [
-    ['Size (w × d × h)', dimensions(model.wdh)],
-    ['Triangles', `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`],
-    [
-      'Triangles per unit',
-      !Number.isFinite(model.tpu)
+    { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh), breed: true },
+    // draagt de waarde een waarschuwing, dan krijgt die rij de volle breedte:
+    // in een halve kolom zou '(heavy)' of '(> 1.000)' op een tweede regel vallen
+    {
+      kop: 'Tris',
+      vol: 'Triangles',
+      waarde: `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`,
+      breed: model.tris >= HEAVY_FROM,
+    },
+    {
+      kop: 'Tris / unit',
+      vol: 'Triangles per unit',
+      waarde: !Number.isFinite(model.tpu)
         ? '—'
-        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (over budget of ${number.format(budgetPerUnit)})` : ''}`,
-    ],
-    ['Draw calls', model.calls === undefined ? '—' : number.format(model.calls)],
-    ['Materials', number.format(model.mat)],
-    ['Vertices', number.format(model.vtx)],
-    ['Min edge', `${(model.minEdge * 100).toFixed(1)} cm`],
-    ['Average facet', `${(model.avgTri * 10000).toFixed(1)} cm²`],
-    ['Density', number.format(model.dens)],
-    ['On-angle facets', `${model.anglePct}%`],
-    ['Grid / grounded / centered', [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / ')],
-    ...(model.anim?.length
-      ? [[`Animations (${model.anim.length})`, model.anim.join(', ')]]
-      : []),
-    ...tagRows(model),
+        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
+      breed: Number.isFinite(model.tpu) && model.tpu > budgetPerUnit,
+    },
+    { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
+    { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
+    { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
+    { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
+    { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
+    { kop: 'Density', waarde: number.format(model.dens) },
+    { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
+    {
+      kop: 'Grid/gnd/ctr',
+      vol: 'Grid-modular / grounded / centered',
+      waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
+    },
+    ...tagRows(model).map(([kop, waarde]) => ({ kop, waarde, breed: true })),
   ];
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
-  for (const [key, value] of rows) {
+  for (const { kop, vol, waarde, breed } of rows) {
     const name = document.createElement('dt');
-    name.textContent = key;
+    name.textContent = kop;
+    if (vol) name.title = vol;
     const valueEl = document.createElement('dd');
-    valueEl.textContent = value;
+    valueEl.textContent = waarde;
+    if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
     data.append(name, valueEl);
   }
 
