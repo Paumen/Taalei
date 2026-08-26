@@ -98,6 +98,34 @@ const nieuweAccessor = (getallen, type, breedte) => {
   }) - 1;
 };
 
+// Draagt het model die clip al, dan schrijven we de sleutels over de bestaande
+// accessors heen in plaats van er een tweede clip naast te zetten. Het aantal
+// sleutels ligt vast op vijf, dus de plek in de buffer blijft even groot en er
+// blijven geen losse accessors of bufferViews achter.
+const bestaand = (glb.json.animations ?? []).find((a) => a.name === naam);
+if (bestaand) {
+  const overschrijf = (accessorIndex, getallen, breedte) => {
+    const acc = glb.json.accessors[accessorIndex];
+    if (acc.componentType !== 5126) throw new Error(`${naam}: bestaande sleutels zijn geen float`);
+    if (acc.count * breedte !== getallen.length) {
+      throw new Error(`${naam}: bestaande clip heeft ${acc.count} sleutels, nieuwe ${getallen.length / breedte}`);
+    }
+    const view = glb.json.bufferViews[acc.bufferView];
+    const start = (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
+    for (let i = 0; i < getallen.length; i++) glb.bin.writeFloatLE(getallen[i], start + i * 4);
+    const kolom = (k) => getallen.filter((_, i) => i % breedte === k);
+    acc.min = Array.from({ length: breedte }, (_, k) => Math.min(...kolom(k)));
+    acc.max = Array.from({ length: breedte }, (_, k) => Math.max(...kolom(k)));
+  };
+  const sampler = bestaand.samplers[bestaand.channels[0].sampler];
+  overschrijf(sampler.input, tijden, 1);
+  overschrijf(sampler.output, draaiingen.flat(), 4);
+  bestaand.channels[0].target.node = draaier;
+  writeGlb(pad, glb.json, glb.bin, writeFileSync);
+  console.log(`${pad}: ${naam} bijgesteld — knoop ${knoopnaam}, as ${as}, ${duur}s`);
+  process.exit(0);
+}
+
 const iTijd = nieuweAccessor(tijden, 'SCALAR', 1);
 const iDraai = nieuweAccessor(draaiingen.flat(), 'VEC4', 4);
 
