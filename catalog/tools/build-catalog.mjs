@@ -577,10 +577,10 @@ const output = {
   })),
 };
 
-writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull) + '\n');
+writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
 
 const scaleGroups = buildScaleGroups(models);
-writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, stripNull) + '\n');
+writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
 console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/schaalgroepen.json`);
 
