@@ -19,6 +19,63 @@ const GROUP_ALIASES = {
   kamp: 'furniture',
 };
 
+const MODEL_PATH = 'kits/workfiles';
+
+function hydrate(m) {
+  m.id = `${m.kit}/${m.name}`;
+  m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
+  return m;
+}
+
+function colorName(hex) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const lightness = (max + min) / 2;
+  const delta = max - min;
+  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
+
+  if (saturation < 0.18) {
+    if (lightness > 0.8) return 'white';
+    if (lightness > 0.45) return 'light grey';
+    if (lightness > 0.25) return 'grey';
+    return 'dark grey';
+  }
+
+  let tint = 0;
+  if (max === r) tint = ((g - b) / delta) % 6;
+  else if (max === g) tint = (b - r) / delta + 2;
+  else tint = (r - g) / delta + 4;
+  tint = (tint * 60 + 360) % 360;
+
+  const base =
+    tint < 15 || tint >= 345 ? 'red'
+    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
+    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
+    : tint < 70 ? 'yellow'
+    : tint < 165 ? 'green'
+    : tint < 200 ? 'turquoise'
+    : tint < 260 ? 'blue'
+    : tint < 300 ? 'purple'
+    : 'pink';
+
+  if (lightness < 0.3) return `dark ${base}`;
+  if (lightness > 0.75) return `light ${base}`;
+  return base;
+}
+
+function collectColors(models) {
+  const counts = new Map();
+  for (const model of models) {
+    for (const hex of model.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
+  }
+  return [...counts]
+    .map(([hex, count]) => ({ hex, count, name: colorName(hex) }))
+    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
+}
+
 const HEAVY_FROM = 5000;
 
 const SIZE_CLASSES = [
@@ -86,9 +143,6 @@ function matches(own, cardState) {
   return !own.some((e) => not.includes(e));
 }
 
-const colorKey = (palette, hex) => `${palette}|${hex}`;
-
-const colorGroups = [];
 const chipButtons = [];
 
 let catalog = null;
@@ -188,7 +242,7 @@ function glyph(kind, sign, hint) {
 
 function makeCard(model, kits, groups, variants = []) {
   const kit = kits.get(model.kit);
-  const group = groups.get(model.group);
+  const group = groups.get(model.gr);
 
   const card = document.createElement('button');
   card.type = 'button';
@@ -203,8 +257,8 @@ function makeCard(model, kits, groups, variants = []) {
   const size = sizeClass(model.wdh);
   const glyphs = span('kaart-glyfen');
   glyphs.append(glyph('maat', size.sign, `${size.hint} (longest axis ${size.longest.toFixed(2)})`));
-  if (model.animations?.length) {
-    glyphs.append(glyph('animatie', '▶', `${model.animations.length} animation${model.animations.length > 1 ? 's' : ''} — playable in the model panel`));
+  if (model.anim?.length) {
+    glyphs.append(glyph('animatie', '▶', `${model.anim.length} animation${model.anim.length > 1 ? 's' : ''} — playable in the model panel`));
   }
   if (variants.length) {
     glyphs.append(glyph('variant', `⧉ ${variants.length + 1}`,
@@ -244,8 +298,7 @@ function makeCard(model, kits, groups, variants = []) {
     element: holder,
     checkbox,
     path: model.path,
-    palette: model.palette,
-    colors: [...new Set(family.flatMap((m) => m.colors.map((hex) => colorKey(m.palette, hex))))],
+    colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
     tags: [...new Set(family.flatMap((m) => m.tags ?? []))],
     sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
   };
@@ -346,14 +399,30 @@ function makeSection({ id, type, title, count, color, hint, source }) {
 
 const longest = (m) => Math.max(...m.wdh);
 
+const num = (v) => v ?? 0;
+const bool = (v) => (v ? 1 : 0);
+
 const SORTINGS = {
   naam: (a, b) => a.name.localeCompare(b.name, 'en') || a.kit.localeCompare(b.kit),
   groot: (a, b) => longest(b) - longest(a),
   klein: (a, b) => longest(a) - longest(b),
-  zwaar: (a, b) => b.triangles - a.triangles,
-  licht: (a, b) => a.triangles - b.triangles,
+  zwaar: (a, b) => b.tris - a.tris,
+  licht: (a, b) => a.tris - b.tris,
   bestand: (a, b) => b.bytes - a.bytes,
   bestandKlein: (a, b) => a.bytes - b.bytes,
+  meesteVtx: (a, b) => b.vtx - a.vtx,
+  minsteVtx: (a, b) => a.vtx - b.vtx,
+  grofsteFacet: (a, b) => num(b.avgTri) - num(a.avgTri),
+  fijnsteFacet: (a, b) => num(a.avgTri) - num(b.avgTri),
+  dichtste: (a, b) => num(b.dens) - num(a.dens),
+  ijlste: (a, b) => num(a.dens) - num(b.dens),
+  kleinsteRand: (a, b) => num(a.minEdge) - num(b.minEdge),
+  grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
+  meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
+  minstOpRaster: (a, b) => num(a.anglePct) - num(b.anglePct),
+  nietRasterEerst: (a, b) => bool(a.gridMod) - bool(b.gridMod),
+  nietGeaardEerst: (a, b) => bool(a.grounded) - bool(b.grounded),
+  nietGecentreerdEerst: (a, b) => bool(a.centered) - bool(b.centered),
 };
 
 const WITHOUT = '_zonder';
@@ -400,7 +469,7 @@ function sectionsFor(models) {
 
   if (type === 'groep') {
     return perKey(
-      (m) => [m.group],
+      (m) => [m.gr],
       catalog.groups.map((g) => ({ id: g.id, title: g.name, color: g.color })),
     );
   }
@@ -498,7 +567,7 @@ const SHORT_NAME = {
   'precious-metal': 'Precious',
   animation: 'Anim',
   structure: 'Struct',
-  quaternius: 'Quat',
+  qua: 'Quat',
   assembly: 'Asmbly',
   ceramic: 'Cerm',
   textile: 'Textil',
@@ -526,25 +595,31 @@ function tagRows(model) {
 
 function showDetail(model) {
   const kit = register.kits.get(model.kit);
-  const group = register.groups.get(model.group);
+  const group = register.groups.get(model.gr);
   activePath = model.path;
   document.querySelector('#detail-naam').textContent = model.name;
   document.querySelector('#detail-herkomst').textContent =
-    `${kit?.name ?? model.kit} · ${group?.name ?? model.group}`;
+    `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
 
   const rows = [
     ['Size (w × d × h)', dimensions(model.wdh)],
-    ['Triangles', `${number.format(model.triangles)}${model.triangles >= HEAVY_FROM ? ' (heavy)' : ''}`],
+    ['Triangles', `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`],
     [
       'Triangles per unit',
-      !Number.isFinite(model.trianglesPerUnit)
+      !Number.isFinite(model.tpu)
         ? '—'
-        : `${number.format(model.trianglesPerUnit)}${model.trianglesPerUnit > budgetPerUnit ? ` (over budget of ${number.format(budgetPerUnit)})` : ''}`,
+        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (over budget of ${number.format(budgetPerUnit)})` : ''}`,
     ],
     ['Draw calls', model.calls === undefined ? '—' : number.format(model.calls)],
-    ['Materials', number.format(model.materials)],
-    ...(model.animations?.length
-      ? [[`Animations (${model.animations.length})`, model.animations.join(', ')]]
+    ['Materials', number.format(model.mat)],
+    ['Vertices', number.format(model.vtx)],
+    ['Min edge', `${(model.minEdge * 100).toFixed(1)} cm`],
+    ['Average facet', `${(model.avgTri * 10000).toFixed(1)} cm²`],
+    ['Density', number.format(model.dens)],
+    ['On-angle facets', `${model.anglePct}%`],
+    ['Grid / grounded / centered', [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / ')],
+    ...(model.anim?.length
+      ? [[`Animations (${model.anim.length})`, model.anim.join(', ')]]
       : []),
     ...tagRows(model),
   ];
@@ -570,7 +645,7 @@ function showDetail(model) {
   viewer.setAttribute('shadow-softness', '0.9');
   setLighting(viewer, '0.7');
 
-  const clips = model.animations ?? [];
+  const clips = model.anim ?? [];
   viewer.setAttribute('auto-rotate', '');
   viewer.setAttribute('rotation-per-second', '18deg');
 
@@ -743,45 +818,36 @@ function checkColor(hex) {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
 }
 
-function buildColorBar(palettes) {
+function buildColorBar(colors) {
   const container = document.querySelector('#kleurbalk-stalen');
+  const swatches = document.createElement('div');
+  swatches.className = 'kleurgroep-stalen';
+  swatches.setAttribute('role', 'group');
+  swatches.setAttribute('aria-label', 'Filter by colour');
 
-  for (const palette of palettes) {
-    if (palette.colors.length === 0) continue;
+  for (const color of colors) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'staal';
+    button.dataset.sleutel = color.hex;
+    button.style.setProperty('--staal-kleur', color.hex);
+    button.style.setProperty('--vink', checkColor(color.hex));
+    button.setAttribute('aria-pressed', 'false');
+    button.title = `${color.name} ${color.hex} — ${color.count} models`;
+    button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models`);
 
-    const group = document.createElement('div');
-    group.className = 'kleurgroep';
+    button.addEventListener('click', () => {
+      rotateState(colorState, color.hex, button);
+      filter();
+    });
 
-    const swatches = document.createElement('div');
-    swatches.className = 'kleurgroep-stalen';
-    swatches.setAttribute('role', 'group');
-    swatches.setAttribute('aria-label', `Filter by colour — ${palette.name}`);
-
-    for (const color of palette.colors) {
-      const key = colorKey(palette.id, color.hex);
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'staal';
-      button.dataset.sleutel = key;
-      button.style.setProperty('--staal-kleur', color.hex);
-      button.style.setProperty('--vink', checkColor(color.hex));
-      button.setAttribute('aria-pressed', 'false');
-      const origin = color.texture ?? color.material;
-      button.title = `${color.name} ${color.hex} — ${color.count} models · ${palette.name}${origin ? ` · ${origin}` : ''}`;
-      button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models, ${palette.name}`);
-
-      button.addEventListener('click', () => {
-        rotateState(colorState, key, button);
-        filter();
-      });
-
-      swatches.append(button);
-    }
-
-    group.append(swatches);
-    container.append(group);
-    colorGroups.push({ palette: palette.id, element: group });
+    swatches.append(button);
   }
+
+  const group = document.createElement('div');
+  group.className = 'kleurgroep';
+  group.append(swatches);
+  container.append(group);
 }
 
 function reorder() {
@@ -859,15 +925,6 @@ function buildTagBar(tags) {
 function refresh() {
   buildPanel();
 
-  const palettes = new Set(cards.map((k) => k.palette));
-  for (const group of colorGroups) {
-    group.element.hidden = !palettes.has(group.palette);
-    if (!group.element.hidden) continue;
-    for (const button of group.element.querySelectorAll('.staal')) {
-      colorState.delete(button.dataset.sleutel);
-      showState(button, undefined);
-    }
-  }
   const counts = new Map();
   for (const card of cards) {
     for (const field of ['tags', 'sizes']) {
@@ -929,6 +986,7 @@ async function start() {
   const response = await fetch(version ? `catalog/catalog.json?v=${version}` : 'catalog/catalog.json');
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
+  data.models.forEach(hydrate);
 
   if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
@@ -940,16 +998,17 @@ async function start() {
   register.models = new Map(data.models.map((m) => [m.id, m]));
   register.variants = new Map((data.variants ?? []).map((v) => [v.id, v.members]));
 
+  const groupsInUse = new Set(data.models.map((m) => m.gr));
   summary.textContent =
-    `${data.total} models · ${data.kits.length} kits · ` +
-    `${data.groups.filter((g) => g.count > 0).length} groups`;
+    `${data.models.length} models · ${data.kits.length} kits · ` +
+    `${data.groups.filter((g) => groupsInUse.has(g.id)).length} groups`;
 
   variantMain = new Map((data.variants ?? []).map((v) => [v.id, v.main]));
   catalog = data;
 
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
-  buildColorBar(data.palettes ?? []);
+  buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);

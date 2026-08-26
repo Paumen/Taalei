@@ -17,6 +17,10 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
+const round1 = (v) => Math.round(v * 10) / 10;
+const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
+const stripNull = (key, value) => (value === null ? undefined : value);
+
 function readKitMetadata() {
   const source = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
   const context = { window: {} };
@@ -255,6 +259,14 @@ for (const slug of kitSlugs) {
       materials: (gltf.materials ?? []).length,
       wdh: scene.wdh,
       calls: scene.calls,
+      vertices: scene.vertices,
+      isGridModular: scene.isGridModular,
+      isGrounded: scene.isGrounded,
+      pivotIsCenter: scene.pivotIsCenter,
+      minEdgeLength: scene.minEdgeLength,
+      averageTriangleArea: scene.averageTriangleArea,
+      density: scene.density,
+      strictAnglePercent: scene.strictAnglePercent,
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
@@ -281,7 +293,7 @@ const TYPES = ['material', 'tag'];
 
 const SOURCES = [
   {
-    id: 'kenney',
+    id: 'ken',
     name: 'Kenney',
     description:
       'Kits from Kenney (kenney.nl). One hand, one scale: everything comes from the same tile and the props fit together.',
@@ -291,14 +303,14 @@ const SOURCES = [
     ],
   },
   {
-    id: 'kaykit',
+    id: 'kay',
     name: 'KayKit',
     description:
       'Kits from Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant and rpgtools. Consistent style and level of detail across the set.',
     kits: ['dungeon', 'forest', 'halloween', 'resources', 'restaurant', 'rpgtools'],
   },
   {
-    id: 'quaternius',
+    id: 'qua',
     name: 'Quaternius',
     description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature.',
     kits: ['fantasy-props', 'quaternius-nature'],
@@ -498,8 +510,6 @@ for (const model of models) {
 }
 
 const catalog = {
-  generated: 'node catalog/tools/build-catalog.mjs',
-  total: models.length,
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   variants: variants.groups,
@@ -508,6 +518,8 @@ const catalog = {
     ...g,
     count: models.filter((m) => m.group === g.id).length,
   })),
+  // kept internally for the console summary below; not part of the shipped JSON (frontends
+  // derive colour swatches + counts from models[].colors themselves — see catalog.js)
   palettes: [...palettes.values()]
     .map((p) => ({
       id: p.id,
@@ -529,10 +541,46 @@ const catalog = {
   models,
 };
 
-writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(catalog, null, 1) + '\n');
+// id ("kit/name") and path are reconstructed by the frontend from kit + name;
+// license/licenseLabel/ownPalette/kitGroup/tab/short/count/palette are build-time-only
+// (used above for warnings, or reconstructible client-side) and never shipped.
+const output = {
+  budgetPerUnit: BUDGET_PER_UNIT,
+  kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
+  variants: variants.groups,
+  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description })),
+  groups: catalog.groups.map((g) => ({ id: g.id, name: g.name, color: g.color })),
+  models: models.map((m) => ({
+    kit: m.kit,
+    name: m.name,
+    gr: m.group,
+    wdh: m.wdh.map(round1),
+    tris: m.triangles,
+    tpu: m.trianglesPerUnit,
+    mat: m.materials,
+    calls: m.calls,
+    bytes: m.bytes,
+    vtx: m.vertices,
+    // style-consistency measurements (ported from github.com/Paumen/3d-measurements);
+    // booleans are omitted when false, so a missing key reads as "not met"
+    gridMod: m.isGridModular || undefined,
+    grounded: m.isGrounded || undefined,
+    centered: m.pivotIsCenter || undefined,
+    minEdge: round(m.minEdgeLength, 4),
+    avgTri: round(m.averageTriangleArea, 5),
+    dens: Math.round(m.density),
+    anglePct: Math.round(m.strictAnglePercent),
+    colors: m.colors.length ? m.colors : undefined,
+    tags: m.tags,
+    anim: m.animations,
+    variant: m.variant,
+  })),
+};
 
-const scaleGroups = buildScaleGroups(models, catalog.kits);
-writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, null, 1) + '\n');
+writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
+
+const scaleGroups = buildScaleGroups(models);
+writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
 console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/schaalgroepen.json`);
 
