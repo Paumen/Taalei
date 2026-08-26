@@ -21,6 +21,13 @@ const GROUP_ALIASES = {
 
 const MODEL_PATH = 'kits/workfiles';
 
+// De catalogusversie hangt ook aan de .glb's. Zonder die stempel houdt een
+// bezoeker het model dat hij ooit ophaalde: catalog.json ververst wel (die
+// draagt de stempel al), dus dan meldt de kaart een animatie of een kleur die
+// het gecachte bestand niet heeft.
+const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
+const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
   m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
@@ -251,7 +258,7 @@ function makeCard(model, kits, groups, variants = []) {
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
-  box.dataset.src = model.path;
+  box.dataset.src = modelUrl(model.path);
   box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
 
   const size = sizeClass(model.wdh);
@@ -634,11 +641,11 @@ function showDetail(model) {
   }
 
   const download = document.querySelector('#detail-download');
-  download.href = model.path;
+  download.href = modelUrl(model.path);
   download.setAttribute('download', `${model.name}.glb`);
 
   const viewer = document.createElement('model-viewer');
-  viewer.src = model.path;
+  viewer.src = modelUrl(model.path);
   viewer.alt = `3D model ${model.name}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
@@ -982,8 +989,7 @@ function filter() {
 }
 
 async function start() {
-  const version = document.querySelector('meta[name="catalogus-versie"]')?.content;
-  const response = await fetch(version ? `catalog/catalog.json?v=${version}` : 'catalog/catalog.json');
+  const response = await fetch(modelUrl('catalog/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);
