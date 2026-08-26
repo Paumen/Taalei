@@ -671,6 +671,10 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   padding: 22px 22px 24px;
   border-left: 1px solid var(--lijn);
   overflow-y: auto;
+  /* de gegevenslijst kijkt naar de breedte van dit paneel, niet naar die van het
+     venster: op een telefoon is het paneel juist breder dan de zijkolom op een
+     groot scherm, dus een vensterbreedte zegt er niets over */
+  container-type: inline-size;
 }
 
 .detail-info h2 {
@@ -687,8 +691,8 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 .detail dl {
   display: grid;
-  /* twee paren naast elkaar: kop, waarde, kop, waarde */
-  grid-template-columns: auto 1fr auto 1fr;
+  /* smal paneel: één paar per regel */
+  grid-template-columns: auto 1fr;
   gap: 7px 14px;
   margin: 0 0 20px;
   font-size: 13px;
@@ -696,7 +700,13 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 /* een lange waarde of een opsomming loopt over de volle breedte */
 .detail dl dt.breed { grid-column: 1; }
-.detail dl dd.breed { grid-column: 2 / -1; }
+.detail dl dd.breed { grid-column: 2; }
+
+/* past er een tweede paar naast, dan twee paren per regel */
+@container (min-width: 300px) {
+  .detail dl { grid-template-columns: auto 1fr auto 1fr; }
+  .detail dl dd.breed { grid-column: 2 / -1; }
+}
 
 .detail dt { color: var(--inkt-zacht); }
 .detail dd { margin: 0; overflow-wrap: anywhere; }
@@ -811,12 +821,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
-}
-
-@media (max-width: 900px) {
-  /* smal paneel: terug naar één paar per regel */
-  .detail dl { grid-template-columns: auto 1fr; }
-  .detail dl dd.breed { grid-column: 2; }
 }
 
 @media (max-width: 720px) {
