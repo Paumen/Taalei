@@ -135,7 +135,7 @@ export async function drawFamily(group, canvas, width) {
   for (const item of group.items) {
     let gltf;
     try {
-      gltf = await load(`../${item.path}`);
+      gltf = await load(modelUrl(`../${item.path}`));
     } catch (error) {
       console.error('load failed', item.path, error);
       continue;
@@ -271,6 +271,8 @@ export async function drawFamily(group, canvas, width) {
 }
 
 const version = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
+// Zelfde stempel als op catalog.json, anders blijft een gecachte .glb hangen.
+const modelUrl = (path) => (version ? `${path}?v=${version}` : path);
 const MODEL_PATH = 'kits/workfiles';
 
 function colorName(hex) {

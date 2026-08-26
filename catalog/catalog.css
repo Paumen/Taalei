@@ -687,14 +687,21 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 .detail dl {
   display: grid;
-  grid-template-columns: auto 1fr;
+  /* twee paren naast elkaar: kop, waarde, kop, waarde */
+  grid-template-columns: auto 1fr auto 1fr;
   gap: 7px 14px;
   margin: 0 0 20px;
   font-size: 13px;
 }
 
+/* een lange waarde of een opsomming loopt over de volle breedte */
+.detail dl dt.breed { grid-column: 1; }
+.detail dl dd.breed { grid-column: 2 / -1; }
+
 .detail dt { color: var(--inkt-zacht); }
 .detail dd { margin: 0; overflow-wrap: anywhere; }
+/* getallen niet middenin afbreken: die kolommen breken hooguit op een spatie */
+.detail dl dd:not(.breed) { overflow-wrap: normal; }
 .detail-keuze {
   display: flex;
   align-items: center;
@@ -804,6 +811,12 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  /* smal paneel: terug naar één paar per regel */
+  .detail dl { grid-template-columns: auto 1fr; }
+  .detail dl dd.breed { grid-column: 2; }
 }
 
 @media (max-width: 720px) {

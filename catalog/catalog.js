@@ -21,6 +21,13 @@ const GROUP_ALIASES = {
 
 const MODEL_PATH = 'kits/workfiles';
 
+// De catalogusversie hangt ook aan de .glb's. Zonder die stempel houdt een
+// bezoeker het model dat hij ooit ophaalde: catalog.json ververst wel (die
+// draagt de stempel al), dus dan meldt de kaart een animatie of een kleur die
+// het gecachte bestand niet heeft.
+const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
+const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
   m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
@@ -251,7 +258,7 @@ function makeCard(model, kits, groups, variants = []) {
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
-  box.dataset.src = model.path;
+  box.dataset.src = modelUrl(model.path);
   box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
 
   const size = sizeClass(model.wdh);
@@ -601,44 +608,60 @@ function showDetail(model) {
   document.querySelector('#detail-herkomst').textContent =
     `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
 
+  // De meetwaarden staan twee naast elkaar; wat een lange waarde of een opsomming
+  // draagt loopt over de volle breedte. Waar de kop is ingekort staat de hele
+  // naam in `vol`, en die komt als title op de dt te staan.
+  // De animaties staan hier niet bij: de knoppen onder de weergave zeggen het al.
   const rows = [
-    ['Size (w × d × h)', dimensions(model.wdh)],
-    ['Triangles', `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`],
-    [
-      'Triangles per unit',
-      !Number.isFinite(model.tpu)
+    { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh), breed: true },
+    // draagt de waarde een waarschuwing, dan krijgt die rij de volle breedte:
+    // in een halve kolom zou '(heavy)' of '(> 1.000)' op een tweede regel vallen
+    {
+      kop: 'Tris',
+      vol: 'Triangles',
+      waarde: `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`,
+      breed: model.tris >= HEAVY_FROM,
+    },
+    {
+      kop: 'Tris / unit',
+      vol: 'Triangles per unit',
+      waarde: !Number.isFinite(model.tpu)
         ? '—'
-        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (over budget of ${number.format(budgetPerUnit)})` : ''}`,
-    ],
-    ['Draw calls', model.calls === undefined ? '—' : number.format(model.calls)],
-    ['Materials', number.format(model.mat)],
-    ['Vertices', number.format(model.vtx)],
-    ['Min edge', `${(model.minEdge * 100).toFixed(1)} cm`],
-    ['Average facet', `${(model.avgTri * 10000).toFixed(1)} cm²`],
-    ['Density', number.format(model.dens)],
-    ['On-angle facets', `${model.anglePct}%`],
-    ['Grid / grounded / centered', [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / ')],
-    ...(model.anim?.length
-      ? [[`Animations (${model.anim.length})`, model.anim.join(', ')]]
-      : []),
-    ...tagRows(model),
+        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
+      breed: Number.isFinite(model.tpu) && model.tpu > budgetPerUnit,
+    },
+    { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
+    { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
+    { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
+    { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
+    { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
+    { kop: 'Density', waarde: number.format(model.dens) },
+    { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
+    {
+      kop: 'Grid/gnd/ctr',
+      vol: 'Grid-modular / grounded / centered',
+      waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
+    },
+    ...tagRows(model).map(([kop, waarde]) => ({ kop, waarde, breed: true })),
   ];
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
-  for (const [key, value] of rows) {
+  for (const { kop, vol, waarde, breed } of rows) {
     const name = document.createElement('dt');
-    name.textContent = key;
+    name.textContent = kop;
+    if (vol) name.title = vol;
     const valueEl = document.createElement('dd');
-    valueEl.textContent = value;
+    valueEl.textContent = waarde;
+    if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
     data.append(name, valueEl);
   }
 
   const download = document.querySelector('#detail-download');
-  download.href = model.path;
+  download.href = modelUrl(model.path);
   download.setAttribute('download', `${model.name}.glb`);
 
   const viewer = document.createElement('model-viewer');
-  viewer.src = model.path;
+  viewer.src = modelUrl(model.path);
   viewer.alt = `3D model ${model.name}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
@@ -982,8 +1005,7 @@ function filter() {
 }
 
 async function start() {
-  const version = document.querySelector('meta[name="catalogus-versie"]')?.content;
-  const response = await fetch(version ? `catalog/catalog.json?v=${version}` : 'catalog/catalog.json');
+  const response = await fetch(modelUrl('catalog/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);

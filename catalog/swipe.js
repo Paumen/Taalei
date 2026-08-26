@@ -21,6 +21,10 @@ const dimensions = (wdh) =>
 
 const MODEL_PATH = 'kits/workfiles';
 
+// Zelfde stempel als op catalog.json, anders blijft een gecachte .glb hangen.
+const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
+const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
   m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
@@ -214,7 +218,7 @@ function makeCard(model, depth) {
   const box = document.createElement('div');
   box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
-  viewer.src = `../${model.path}`;
+  viewer.src = modelUrl(`../${model.path}`);
   viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
