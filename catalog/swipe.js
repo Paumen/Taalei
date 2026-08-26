@@ -19,6 +19,14 @@ const readableBytes = (bytes) =>
 const dimensions = (wdh) =>
   Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
 
+const MODEL_PATH = 'kits/workfiles';
+
+function hydrate(m) {
+  m.id = `${m.kit}/${m.name}`;
+  m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
+  return m;
+}
+
 const el = (sel) => document.querySelector(sel);
 
 const setup = el('#opzet');
@@ -78,11 +86,11 @@ function remaining() {
 function matches(model) {
   const { search, kits, groups, tags = [] } = state.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
-  if (groups.length && !groups.includes(model.group)) return false;
+  if (groups.length && !groups.includes(model.gr)) return false;
   if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
   if (search) {
     const needle = search.toLowerCase();
-    if (!`${model.name} ${model.kit} ${model.group}`.toLowerCase().includes(needle)) return false;
+    if (!`${model.name} ${model.kit} ${model.gr}`.toLowerCase().includes(needle)) return false;
   }
   return true;
 }
@@ -166,7 +174,7 @@ function fillSetup() {
     .map((k) => ({ id: k.slug, name: k.name, count: register.models.filter((m) => m.kit === k.slug).length }))
     .filter((k) => k.count > 0);
   const groups = [...register.groups.values()]
-    .map((g) => ({ id: g.id, name: g.name, count: register.models.filter((m) => m.group === g.id).length }))
+    .map((g) => ({ id: g.id, name: g.name, count: register.models.filter((m) => m.gr === g.id).length }))
     .filter((g) => g.count > 0);
 
   const tags = [...register.tags.values()]
@@ -196,7 +204,7 @@ function setLighting(viewer) {
 
 function makeCard(model, depth) {
   const kit = register.kits.get(model.kit);
-  const group = register.groups.get(model.group);
+  const group = register.groups.get(model.gr);
 
   const card = document.createElement('article');
   card.className = 'swipe-kaart';
@@ -221,13 +229,13 @@ function makeCard(model, depth) {
   name.textContent = model.name;
   const origin = document.createElement('p');
   origin.className = 'herkomst';
-  origin.textContent = `${kit?.name ?? model.kit} · ${group?.name ?? model.group}`;
+  origin.textContent = `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
   const meta = document.createElement('p');
   meta.className = 'meta';
   meta.textContent = [
     dimensions(model.wdh),
-    `${number.format(model.triangles)} triangles`,
-    `${number.format(model.materials)} material${model.materials === 1 ? '' : 's'}`,
+    `${number.format(model.tris)} triangles`,
+    `${number.format(model.mat)} material${model.mat === 1 ? '' : 's'}`,
     readableBytes(model.bytes),
   ].join(' · ');
   const path = document.createElement('p');
@@ -413,7 +421,7 @@ function rows() {
       id,
       name: model.name,
       kit: model.kit,
-      group: model.group,
+      group: model.gr,
       path: model.path,
       direction,
       label: labelFor(direction),
@@ -566,6 +574,7 @@ async function start() {
   const response = await fetch('catalog.json');
   if (!response.ok) throw new Error(`catalog.json not found (${response.status})`);
   const data = await response.json();
+  data.models.forEach(hydrate);
 
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
