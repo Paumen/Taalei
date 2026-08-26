@@ -102,8 +102,13 @@ const nieuweAccessor = (getallen, type, breedte) => {
 // accessors heen in plaats van er een tweede clip naast te zetten. Het aantal
 // sleutels ligt vast op vijf, dus de plek in de buffer blijft even groot en er
 // blijven geen losse accessors of bufferViews achter.
+// Draait er in die clip al iets ánders mee — de slinger van een put naast het
+// touw — dan komt er een kanaal bij in plaats van dat het bestaande wordt
+// overschreven. Eén clip met meerdere kanalen, zodat de knop in de catalogus
+// alles tegelijk aandrijft en de delen in de pas blijven.
 const bestaand = (glb.json.animations ?? []).find((a) => a.name === naam);
-if (bestaand) {
+const eigenKanaal = bestaand?.channels.find((c) => c.target.node === draaier && c.target.path === 'rotation');
+if (bestaand && eigenKanaal) {
   const overschrijf = (accessorIndex, getallen, breedte) => {
     const acc = glb.json.accessors[accessorIndex];
     if (acc.componentType !== 5126) throw new Error(`${naam}: bestaande sleutels zijn geen float`);
@@ -117,10 +122,9 @@ if (bestaand) {
     acc.min = Array.from({ length: breedte }, (_, k) => Math.min(...kolom(k)));
     acc.max = Array.from({ length: breedte }, (_, k) => Math.max(...kolom(k)));
   };
-  const sampler = bestaand.samplers[bestaand.channels[0].sampler];
+  const sampler = bestaand.samplers[eigenKanaal.sampler];
   overschrijf(sampler.input, tijden, 1);
   overschrijf(sampler.output, draaiingen.flat(), 4);
-  bestaand.channels[0].target.node = draaier;
   writeGlb(pad, glb.json, glb.bin, writeFileSync);
   console.log(`${pad}: ${naam} bijgesteld — knoop ${knoopnaam}, as ${as}, ${duur}s`);
   process.exit(0);
@@ -128,6 +132,16 @@ if (bestaand) {
 
 const iTijd = nieuweAccessor(tijden, 'SCALAR', 1);
 const iDraai = nieuweAccessor(draaiingen.flat(), 'VEC4', 4);
+
+if (bestaand) {
+  const sampler = bestaand.samplers.push({ input: iTijd, output: iDraai, interpolation: 'LINEAR' }) - 1;
+  bestaand.channels.push({ sampler, target: { node: draaier, path: 'rotation' } });
+  const bin2 = Buffer.concat(stukken);
+  glb.json.buffers[0].byteLength = bin2.length;
+  writeGlb(pad, glb.json, bin2, writeFileSync);
+  console.log(`${pad}: ${naam} — kanaal erbij voor knoop ${knoopnaam}, as ${as}, ${duur}s`);
+  process.exit(0);
+}
 
 glb.json.animations ??= [];
 glb.json.animations.push({
