@@ -18,6 +18,7 @@ const COLUMNS = 16;
 const ROWS = 4;
 
 const round1 = (v) => Math.round(v * 10) / 10;
+const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
 function readKitMetadata() {
@@ -258,6 +259,14 @@ for (const slug of kitSlugs) {
       materials: (gltf.materials ?? []).length,
       wdh: scene.wdh,
       calls: scene.calls,
+      vertices: scene.vertices,
+      isGridModular: scene.isGridModular,
+      isGrounded: scene.isGrounded,
+      pivotIsCenter: scene.pivotIsCenter,
+      minEdgeLength: scene.minEdgeLength,
+      averageTriangleArea: scene.averageTriangleArea,
+      density: scene.density,
+      strictAnglePercent: scene.strictAnglePercent,
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
@@ -551,6 +560,16 @@ const output = {
     mat: m.materials,
     calls: m.calls,
     bytes: m.bytes,
+    vtx: m.vertices,
+    // style-consistency measurements (ported from github.com/Paumen/3d-measurements);
+    // booleans are omitted when false, so a missing key reads as "not met"
+    gridMod: m.isGridModular || undefined,
+    grounded: m.isGrounded || undefined,
+    centered: m.pivotIsCenter || undefined,
+    minEdge: round(m.minEdgeLength, 4),
+    avgTri: round(m.averageTriangleArea, 5),
+    dens: Math.round(m.density),
+    anglePct: Math.round(m.strictAnglePercent),
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
