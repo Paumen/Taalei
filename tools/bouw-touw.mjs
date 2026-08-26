@@ -7,19 +7,28 @@
 // gedraaid koord dat ronddraait leest als touw dat omhoog loopt, en na een hele
 // slag staat de meetkunde weer precies zoals ze stond.
 //
-// Het touw is gevlochten uit losse strengen, niet één gedraaide staaf. Dat is
-// nodig, niet alleen mooier: een gedraaide vierkante staaf heeft op elke hoogte
-// dezelfde vierkantssymmetrie, dus een kwartslag legt hem exact op zichzelf terug
-// en je ziet niets bewegen. Drie strengen breken die symmetrie — pas na een derde
-// slag valt de vorm weer samen, en daartussen leest de draaiing als opschuiven.
+// Het touw is een rechte staaf met een geschilderde streep die als schroeflijn
+// omhoog loopt — een barberpaal, geen gevlochten koord.
+//
+// Waarom zo: een barberpaal leest als opschuiven omdat zijn omtrek niet
+// verandert. Er is dan niets aan te zien dát hij draait, dus houdt het oog de
+// enige beweging die er te zien is: de streep die klimt. Zodra de vorm zelf
+// dikker en dunner wordt — zoals bij een gevlochten koord dat inknijpt — ziet
+// het oog draaiing, en die lezing wint het van het opschuiven. Vandaar een
+// gladde staaf met constante straal: een regelmatige veelhoek valt na één
+// zijde-stap precies op zichzelf terug, met dezelfde normalen en dus dezelfde
+// belichting, zodat alleen de streep beweegt.
 //
 // Het oude touw wordt herkend als samenhangend onderdeel binnen --doos, met de
 // hoekpunten eerst gelast op positie: de grens loopt dus nooit dwars door een
 // driehoek. Het nieuwe koord neemt de plek, de dikte en de baan van het oude over.
 //
+// --dikte rekent vanaf de dikte die er nu staat, dus een tweede pas met dezelfde
+// factor maakt hem opnieuw dikker; geef bij herbouwen de totale factor mee.
+//
 //   node tools/bouw-touw.mjs <glb> --knoop well-a --naam well-a_touw \
-//     --doos 0.03:0.09,-0.01:0.95,-0.07:-0.02 --strengen 3 --segmenten 14 \
-//     --slagen 3 --schaduw 0.34 [--proef]
+//     --doos 0.03:0.09,-0.01:0.95,-0.07:-0.02 --zijden 6 --segmenten 18 \
+//     --streep 3 --schaduw 0.14,0.52 [--proef]
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
@@ -27,14 +36,15 @@ const RIJEN = 4, KOLOMMEN = 16;
 
 const a = process.argv.slice(2);
 let pad = null, knoopnaam = null, naam = null, doos = null;
-let segmenten = 14, slagen = 3, strengen = 3, schaduw = [0.34], proef = false;
+let segmenten = 18, zijden = 6, streep = 3, dikte = 1, schaduw = [0.14, 0.52], proef = false;
 for (let i = 0; i < a.length; i++) {
   if (a[i] === '--knoop') knoopnaam = a[++i];
   else if (a[i] === '--naam') naam = a[++i];
   else if (a[i] === '--doos') doos = a[++i].split(',').map((s) => s.split(':').map(Number));
   else if (a[i] === '--segmenten') segmenten = Number(a[++i]);
-  else if (a[i] === '--strengen') strengen = Number(a[++i]);
-  else if (a[i] === '--slagen') slagen = Number(a[++i]);
+  else if (a[i] === '--zijden') zijden = Number(a[++i]);
+  else if (a[i] === '--streep') streep = Number(a[++i]);
+  else if (a[i] === '--dikte') dikte = Number(a[++i]);
   else if (a[i] === '--schaduw') schaduw = a[++i].split(',').map(Number);
   else if (a[i] === '--proef') proef = true;
   else pad = a[i];
@@ -79,17 +89,36 @@ for (let t = 0; t + 2 < idx.count; t += 3) {
   }
   grens.set(g, e);
 }
-const mee = [...grens].filter(([, e]) => e.lo.every((l, c) => l >= doos[c][0] && e.hi[c] <= doos[c][1]));
-if (mee.length !== 1) throw new Error(`${mee.length} onderdelen binnen de doos; verwacht er precies één`);
-const [groep, touw] = mee[0];
+// Staat het koord er al, dan bouwen we dát opnieuw op en laten we de knoop en
+// zijn animatiekanaal staan. Maat en baan komen dan uit het koord zelf, zodat
+// een tweede pas met andere instellingen op dezelfde plek en dikte uitkomt.
+const bestaandeKnoop = knopen.findIndex((k) => k.name === naam && k.mesh !== undefined);
+let groep = null, midX, midZ, half, onder, boven, uMidden, rij;
 
-// Maat en baan van het oude touw overnemen.
-const midX = (touw.lo[0] + touw.hi[0]) / 2, midZ = (touw.lo[2] + touw.hi[2]) / 2;
-const half = Math.max(touw.hi[0] - touw.lo[0], touw.hi[2] - touw.lo[2]) / 2;
-const onder = touw.lo[1], boven = touw.hi[1];
-const eersteVtx = [...touw.vtx][0];
-const uMidden = uv.data[eersteVtx * 2];
-const rij = Math.min(Math.floor(uv.data[eersteVtx * 2 + 1] * RIJEN), RIJEN - 1);
+if (bestaandeKnoop >= 0) {
+  const oud = glb.json.meshes[knopen[bestaandeKnoop].mesh].primitives[0];
+  const oudPos = readAccessor(glb, oud.attributes.POSITION);
+  const oudUv = readAccessor(glb, oud.attributes.TEXCOORD_0);
+  [midX, onder, midZ] = knopen[bestaandeKnoop].translation ?? [0, 0, 0];
+  half = 0; boven = onder;
+  for (let i = 0; i < oudPos.count; i++) {
+    half = Math.max(half, Math.hypot(oudPos.data[i * 3], oudPos.data[i * 3 + 2]));
+    boven = Math.max(boven, onder + oudPos.data[i * 3 + 1]);
+  }
+  uMidden = oudUv.data[0];
+  rij = Math.min(Math.floor(oudUv.data[1] * RIJEN), RIJEN - 1);
+} else {
+  const mee = [...grens].filter(([, e]) => e.lo.every((l, c) => l >= doos[c][0] && e.hi[c] <= doos[c][1]));
+  if (mee.length !== 1) throw new Error(`${mee.length} onderdelen binnen de doos; verwacht er precies één`);
+  const touw = mee[0][1];
+  groep = mee[0][0];
+  midX = (touw.lo[0] + touw.hi[0]) / 2; midZ = (touw.lo[2] + touw.hi[2]) / 2;
+  half = Math.max(touw.hi[0] - touw.lo[0], touw.hi[2] - touw.lo[2]) / 2;
+  onder = touw.lo[1]; boven = touw.hi[1];
+  const eersteVtx = [...touw.vtx][0];
+  uMidden = uv.data[eersteVtx * 2];
+  rij = Math.min(Math.floor(uv.data[eersteVtx * 2 + 1] * RIJEN), RIJEN - 1);
+}
 
 if (proef) {
   console.log(`${pad}: touw op (${midX.toFixed(4)}, ${midZ.toFixed(4)}), dikte ${(half * 2).toFixed(4)}, ` +
@@ -97,57 +126,54 @@ if (proef) {
   process.exit(0);
 }
 
-// Het gevlochten koord: elke streng loopt als schroeflijn om de as.
+// De staaf: een regelmatige veelhoek, constante straal, geen draaiing in de vorm.
+// De streep zit alleen in de kleur: vlak (z, r) pakt zijn verlooppositie uit
+// (z + r) % streep, dus schuift het patroon per segment één zijde op en loopt het
+// als schroeflijn omhoog. Eén zijde-stap draaien verschuift dat patroon precies
+// één segment — dát is de beweging die je ziet.
 const P = [], N = [], T = [], I = [];
-const straal = half * 0.55;          // hart van een streng
-const dik = half * 0.45;             // halve dikte van een streng; samen weer de oude dikte
 const voegToe = (p, n, v) => {
   const k = P.length / 3;
   P.push(...p); N.push(...n); T.push(uMidden, (rij + v) / RIJEN);
   return k;
 };
-// Vier hoekpunten rond het hart van streng k op hoogte y.
-const ring = (k, y) => {
-  const hoek = (k * 2 * Math.PI) / strengen + ((y - onder) / (boven - onder)) * slagen * 2 * Math.PI;
-  const cx = straal * Math.cos(hoek), cz = straal * Math.sin(hoek);
-  // de streng ligt plat tegen de as aan: eigen assen radiaal en tangentiaal
-  const rx = Math.cos(hoek), rz = Math.sin(hoek);
-  const tx = -Math.sin(hoek), tz = Math.cos(hoek);
-  return [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([u, w]) => [
-    cx + dik * (u * rx + w * tx), y - onder, cz + dik * (u * rz + w * tz),
-  ]);
+const straal = half * dikte;
+const hoekpunt = (z, y) => {
+  const h = (z * 2 * Math.PI) / zijden;
+  return [straal * Math.cos(h), y - onder, straal * Math.sin(h)];
 };
 const stap = (boven - onder) / segmenten;
-const v = schaduw[0];
-for (let k = 0; k < strengen; k++) {
-  for (let s2 = 0; s2 < segmenten; s2++) {
-    const onderRing = ring(k, onder + s2 * stap);
-    const bovenRing = ring(k, onder + (s2 + 1) * stap);
-    for (let z = 0; z < 4; z++) {
-      const a0 = onderRing[z], b0 = onderRing[(z + 1) % 4];
-      const a1 = bovenRing[z], b1 = bovenRing[(z + 1) % 4];
-      const u1 = [b0[0] - a0[0], b0[1] - a0[1], b0[2] - a0[2]];
-      const u2 = [a1[0] - a0[0], a1[1] - a0[1], a1[2] - a0[2]];
-      const n = [u1[1] * u2[2] - u1[2] * u2[1], u1[2] * u2[0] - u1[0] * u2[2], u1[0] * u2[1] - u1[1] * u2[0]];
-      const len = Math.hypot(...n) || 1;
-      const nn = n.map((w) => w / len);
-      const iA0 = voegToe(a0, nn, v), iB0 = voegToe(b0, nn, v);
-      const iA1 = voegToe(a1, nn, v), iB1 = voegToe(b1, nn, v);
-      I.push(iA0, iB0, iB1, iA0, iB1, iA1);
-    }
+for (let r2 = 0; r2 < segmenten; r2++) {
+  const y0 = onder + r2 * stap, y1 = onder + (r2 + 1) * stap;
+  for (let z = 0; z < zijden; z++) {
+    const a0 = hoekpunt(z, y0), b0 = hoekpunt(z + 1, y0);
+    const a1 = hoekpunt(z, y1), b1 = hoekpunt(z + 1, y1);
+    const h = ((z + r2) % zijden + zijden) % zijden;
+    const v = schaduw[((h % streep) * schaduw.length / streep) | 0] ?? schaduw[0];
+    const nx = Math.cos(((z + 0.5) * 2 * Math.PI) / zijden);
+    const nz = Math.sin(((z + 0.5) * 2 * Math.PI) / zijden);
+    const nn = [nx, 0, nz];
+    const iA0 = voegToe(a0, nn, v), iB0 = voegToe(b0, nn, v);
+    const iA1 = voegToe(a1, nn, v), iB1 = voegToe(b1, nn, v);
+    I.push(iA0, iB0, iB1, iA0, iB1, iA1);
   }
-  // deksels op beide uiteinden van de streng
-  for (const [y, omhoog] of [[onder, false], [boven, true]]) {
-    const n = [0, omhoog ? 1 : -1, 0];
-    const h = ring(k, y).map((p) => voegToe(p, n, v));
-    if (omhoog) I.push(h[0], h[1], h[2], h[0], h[2], h[3]);
-    else I.push(h[0], h[2], h[1], h[0], h[3], h[2]);
+}
+// deksels; de onderste is in de put toch niet te zien, de bovenste zit tegen de trommel
+for (const [y, omhoog] of [[onder, false], [boven, true]]) {
+  const n = [0, omhoog ? 1 : -1, 0];
+  const ring = [];
+  for (let z = 0; z < zijden; z++) ring.push(voegToe(hoekpunt(z, y), n, schaduw.at(-1)));
+  for (let z = 1; z + 1 < zijden; z++) {
+    if (omhoog) I.push(ring[0], ring[z], ring[z + 1]);
+    else I.push(ring[0], ring[z + 1], ring[z]);
   }
 }
 
-// Het oude touw uit de mesh halen, de rest opnieuw opbouwen.
+// Alleen bij een eerste pas moet het rechte touw nog uit de mesh gehaald worden.
 const rest = [];
-for (let t = 0; t + 2 < idx.count; t += 3) if (vind(idx.data[t]) !== groep) rest.push(t);
+if (groep !== null) {
+  for (let t = 0; t + 2 < idx.count; t += 3) if (vind(idx.data[t]) !== groep) rest.push(t);
+}
 
 const stukken = [glb.bin];
 let lengte = glb.bin.length;
@@ -193,16 +219,20 @@ function herbouw(driehoeken) {
   return { attributes: attributen, indices: indexAccessor(nieuw), material: prim.material };
 }
 
-mesh.primitives = [herbouw(rest)];
+if (groep !== null) mesh.primitives = [herbouw(rest)];
 const koordPrim = {
   attributes: { POSITION: accessorVan(P, 3, 'VEC3'), NORMAL: accessorVan(N, 3, 'VEC3'), TEXCOORD_0: accessorVan(T, 2, 'VEC2') },
   indices: indexAccessor(I), material: prim.material,
 };
-const koordMesh = glb.json.meshes.push({ name: naam, primitives: [koordPrim] }) - 1;
-const koordKnoop = knopen.push({ name: naam, mesh: koordMesh, translation: [midX, onder, midZ] }) - 1;
-knopen[doel].children = [...(knopen[doel].children ?? []), koordKnoop];
+if (bestaandeKnoop >= 0) {
+  glb.json.meshes[knopen[bestaandeKnoop].mesh].primitives = [koordPrim];
+} else {
+  const koordMesh = glb.json.meshes.push({ name: naam, primitives: [koordPrim] }) - 1;
+  const koordKnoop = knopen.push({ name: naam, mesh: koordMesh, translation: [midX, onder, midZ] }) - 1;
+  knopen[doel].children = [...(knopen[doel].children ?? []), koordKnoop];
+}
 
 const bin = Buffer.concat(stukken);
 glb.json.buffers[0].byteLength = bin.length;
 writeGlb(pad, glb.json, bin, writeFileSync);
-console.log(`${pad}: touw vervangen door ${naam} — ${strengen} strengen, ${segmenten} segmenten, ${slagen} slagen, ${I.length / 3} driehoeken`);
+console.log(`${pad}: touw vervangen door ${naam} — ${zijden} zijden, ${segmenten} segmenten, streep ${streep}, dikte ×${dikte}, ${I.length / 3} driehoeken`);
