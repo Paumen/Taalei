@@ -1,5 +1,7 @@
 const DEAD = /(^|-)(bare|dead)(-|$)/;
 
+const round1 = (v) => Math.round(v * 10) / 10;
+
 const TOP_VIEW = new Set(['shelves-cabinets', 'starfish-shells', 'planks-pallets', 'plates-bowls', 'floors']);
 
 const SMALL_TOOLS = new Set([
@@ -61,8 +63,7 @@ export const FAMILIES = [
   ['platforms', 'Platforms', (b) => b.includes('platform')],
 ];
 
-export function buildScaleGroups(models, kits = []) {
-  const shortPerSlug = new Map(kits.map((k) => [k.slug, k.short ?? k.name ?? k.slug]));
+export function buildScaleGroups(models) {
   const used = new Set();
   const groups = [];
   for (const [slug, name, test] of FAMILIES) {
@@ -75,19 +76,17 @@ export function buildScaleGroups(models, kits = []) {
       if (!test(base, m)) continue;
       used.add(m.id);
 
+      const tags = m.tags ?? [];
+      const colors = m.colors ?? [];
       items.push({
-        kit: shortPerSlug.get(m.kit) ?? m.kit,
         slug: m.kit,
         model: base,
-        path: m.path,
-        height: m.wdh[2],
-        tags: m.tags ?? [],
-        colors: m.colors ?? [],
-        palette: m.palette ?? null,
-        wdh: m.wdh,
+        wdh: m.wdh.map(round1),
+        tags: tags.length ? tags : undefined,
+        colors: colors.length ? colors : undefined,
       });
     }
-    if (items.length) groups.push({ slug, name, topView: TOP_VIEW.has(slug), items });
+    if (items.length) groups.push({ slug, name, topView: TOP_VIEW.has(slug) || undefined, items });
   }
   return groups;
 }
