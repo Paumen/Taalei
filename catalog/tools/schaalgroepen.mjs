@@ -7,15 +7,14 @@ const TOP_VIEW = new Set(['shelves-cabinets', 'starfish-shells', 'planks-pallets
 const SMALL_TOOLS = new Set([
   'rpgtools/nail', 'rpgtools/screw-b', 'rpgtools/scissors', 'rpgtools/screwdriver-a-short',
   'rpgtools/file', 'rpgtools/drafting-compass', 'rpgtools/compass-base', 'rpgtools/pencil-a-long',
-  'rpgtools/pencil-b-long', 'rpgtools/screwdriver-b-short', 'survival-kit/tool-hammer',
+  'rpgtools/pencil-b-long', 'rpgtools/screwdriver-b-short',
   'rpgtools/wrench-b', 'rpgtools/magnifying-glass', 'rpgtools/knife', 'restaurant/knife',
   'rpgtools/chisel', 'rpgtools/hammer', 'rpgtools/mallet', 'rpgtools/axe', 'rpgtools/tongs',
   'rpgtools/trowel',
 ]);
 const LARGE_TOOLS = new Set([
-  'rpgtools/saw', 'graveyard-kit/shovel', 'rpgtools/shovel', 'survival-kit/tool-hoe',
-  'pirate-kit/tool-paddle', 'survival-kit/tool-pickaxe', 'survival-kit/tool-shovel',
-  'survival-kit/tool-axe', 'rpgtools/handdrill', 'rpgtools/pickaxe',
+  'rpgtools/saw', 'graveyard-kit/shovel', 'rpgtools/shovel',
+  'pirate-kit/tool-paddle', 'rpgtools/handdrill', 'rpgtools/pickaxe',
   'rpgtools/grindstone', 'rpgtools/anvil',
 ]);
 

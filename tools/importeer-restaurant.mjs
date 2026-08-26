@@ -8,7 +8,6 @@ const MODELLEN = [
   ['crate_ham',                      'crate-ham'],
   ['crate_lid',                      'crate-lid'],
   ['crate_steak',                    'crate-steak'],
-  ['cuttingboard',                   'cutting-board'],
   ['food_dinner',                    'food-dinner'],
   ['food_ingredient_cheese',         'food-ingredient-cheese'],
   ['food_ingredient_ham',            'food-ingredient-ham'],
