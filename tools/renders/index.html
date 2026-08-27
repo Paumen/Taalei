@@ -1,0 +1,81 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#fff}</style>
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+<body>
+<canvas id="sheet" width="896" height="448"></canvas>
+<script type="module">
+addEventListener('error', (e) => { window.FOUTMSG = String(e.message); window.FOUT = true; });
+addEventListener('unhandledrejection', (e) => { window.FOUTMSG = String(e.reason); window.FOUT = true; });
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+
+// Eén asset, acht vaste camerastandpunten, als tegels van 224px op één blad.
+// Neutraal grijs, flat shading, orthografisch en genormaliseerd op de omsluitende
+// bol: alleen vorm, silhouet en facettering blijven over — kleur en absolute
+// maat zijn buiten beeld, precies zoals de audit ze buiten beschouwing laat.
+const params = new URLSearchParams(location.search);
+const file = params.get('file');
+const ext = file.split('.').pop().toLowerCase();
+
+const TEGEL = 224;
+const VIEWS = [
+  { az: 30, el: 30 }, { az: 120, el: 30 }, { az: 210, el: 30 }, { az: 300, el: 30 },
+  { az: 75, el: 5 }, { az: 255, el: 5 }, { az: 165, el: 55 }, { az: 0, el: 89 },
+];
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xffffff);
+scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+const sun = new THREE.DirectionalLight(0xffffff, 1.7);
+sun.position.set(3, 6, 5);
+scene.add(sun);
+const sun2 = new THREE.DirectionalLight(0xffffff, 0.5);
+sun2.position.set(-4, 2, -3);
+scene.add(sun2);
+
+const grijs = new THREE.MeshLambertMaterial({ color: 0xb0b0b0, flatShading: true, side: THREE.DoubleSide });
+
+async function laad() {
+  if (ext === 'glb' || ext === 'gltf') return (await new GLTFLoader().loadAsync(file)).scene;
+  if (ext === 'obj') return await new OBJLoader().loadAsync(file);
+  if (ext === 'fbx') return await new FBXLoader().loadAsync(file);
+  throw new Error('onbekend formaat ' + ext);
+}
+
+const obj = await laad();
+obj.traverse((n) => {
+  if (n.isMesh) {
+    n.material = grijs;
+    if (n.isSkinnedMesh) n.skeleton?.pose?.();
+  }
+});
+
+const box = new THREE.Box3().setFromObject(obj);
+const centrum = box.getCenter(new THREE.Vector3());
+obj.position.sub(centrum);
+const straal = Math.max(box.getSize(new THREE.Vector3()).length() / 2, 1e-6);
+scene.add(obj);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(TEGEL, TEGEL);
+const cam = new THREE.OrthographicCamera(-straal, straal, straal, -straal, 0.01, straal * 10);
+const ctx = document.getElementById('sheet').getContext('2d');
+VIEWS.forEach((v, i) => {
+  const az = (v.az * Math.PI) / 180;
+  const el = (v.el * Math.PI) / 180;
+  cam.position.set(
+    straal * 3 * Math.cos(el) * Math.sin(az),
+    straal * 3 * Math.sin(el),
+    straal * 3 * Math.cos(el) * Math.cos(az),
+  );
+  cam.lookAt(0, 0, 0);
+  renderer.render(scene, cam);
+  ctx.drawImage(renderer.domElement, (i % 4) * TEGEL, Math.floor(i / 4) * TEGEL);
+});
+window.KLAAR = true;
+</script>
