@@ -3,7 +3,8 @@
 Gebruik: python3 tools/style-audit/stijltoets.py <typeparendir> <rendersdir> <uitdir> [n_ref] [n_toets]
 
 Referentie: per paar één blad met beide uitvoeringen, waarbij erbij staat welke
-de goede stijl is. Zonder kit- of assetnaam: 'kenney' staat altijd aan de
+de goede stijl is. Met --toets-in-referentie komen de toetsparen er ook in; de
+toets meet dan geen generalisatie meer maar of je het antwoord terugvindt. Zonder kit- of assetnaam: 'kenney' staat altijd aan de
 afgekeurde kant, dus met namen erbij leer je de bron herkennen in plaats van de
 stijl. De goede kant staat per paar geloot boven of onder, zodat de positie ook
 geen aanwijzing is.
@@ -19,6 +20,10 @@ from PIL import Image, ImageDraw
 parendir, renders, uitdir = sys.argv[1:4]
 N_REF = int(sys.argv[4]) if len(sys.argv) > 4 else 16
 N_TOETS = int(sys.argv[5]) if len(sys.argv) > 5 else 8
+# De toetsparen ook in de referentie zetten. Dan staat het antwoord van elk
+# toetspaar in de referentie en meet de toets herkennen in plaats van
+# generaliseren; alleen zinvol als je de referentie als volledig overzicht wilt.
+TOETS_IN_REF = "--toets-in-referentie" in sys.argv
 SEED = 20260828
 
 tabel = {}
@@ -34,8 +39,10 @@ rng = random.Random(SEED)
 door = paren[:]
 rng.shuffle(door)
 ref, toets = door[:N_REF], door[N_REF:N_REF + N_TOETS]
-ref.sort(key=lambda p: p["nummer"])
 toets.sort(key=lambda p: p["nummer"])
+if TOETS_IN_REF:
+    ref = ref + toets
+ref.sort(key=lambda p: p["nummer"])
 
 def blad(setnaam, verwijzing):
     kit, naam = verwijzing.split("/", 1)
@@ -90,7 +97,7 @@ for i, (p, cat_eerst) in enumerate(zip(toets, volgorde), 1):
         regel[letter] = {"herkomst": herkomst, "asset": verwijzing}
     sleutel.append(regel)
 
-json.dump({"seed": SEED,
+json.dump({"seed": SEED, "toets_in_referentie": TOETS_IN_REF,
            "referentie": [{"nr": i, "type": p["type"], "catalogus": p["catalogus"],
                            "afgekeurd": p["afgekeurd"]} for i, p in enumerate(ref, 1)],
            "toets": sleutel},
