@@ -31,9 +31,9 @@ Scope: items in catalog.
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
 - No solid pieces thinner than 0.015 units.
-- Max 1000 tris per occupied grid cell. Measured as tris ÷ (max(1, w × d) × max(1, h))
+- Max 2000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
   over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
-  than 0.5 cell gets exactly half cell's budget.
+  than 0.7 × 0.7 × 0.7 is judged as if it were that size.
 - Imported packs get one scale factor for the whole pack.
 
 ## 5. Origin and orientation
