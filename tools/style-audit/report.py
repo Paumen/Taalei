@@ -9,6 +9,9 @@ from PIL import Image, ImageDraw
 
 scores, renders, uitdir = sys.argv[1], sys.argv[2], sys.argv[3]
 N = int(sys.argv[4]) if len(sys.argv) > 4 else 30
+# optioneel vijfde argument: scores.json van een andere backbone, puur om
+# naast de gekozen run te zetten in de validatietabel.
+vergelijk = json.load(open(sys.argv[5]))["stats"] if len(sys.argv) > 5 else None
 d = json.load(open(scores))
 os.makedirs(os.path.join(uitdir, "sheets"), exist_ok=True)
 
@@ -37,13 +40,28 @@ md = [
     f"K={s['K']} dichtstbijzijnde geaccepteerde assets). Rangschikking volgens "
     f"**{s['gekozen']}** (beste AUC op de eigen keurgeschiedenis).\n",
     "## Validatie (AUC stijl-afgekeurd set2 vs geaccepteerd set1; set3 = thema-controle)\n",
-    "| vingerafdruk/buurregel | AUC set2 | AUC set3 | gem. set1 | gem. set2 | gem. set3 |",
-    "|------------------------|---------:|---------:|----------:|----------:|----------:|",
+    "AUC 0.5 = ruis, 1.0 = perfecte scheiding. De thema-controle (set3) hoort "
+    "laag te blijven: stijgt hij mee, dan meet de variant vreemdheid in plaats van stijl.\n",
 ]
-for cel in ("cls/zonder-kit", "cls/met-kit", "patch/zonder-kit", "patch/met-kit"):
-    c = s[cel]
-    md.append(f"| {cel} | {c['auc_set2_vs_set1']:.3f} | {c['auc_set3_vs_set1']:.3f} | "
-              f"{c['mean']['set1']:.4f} | {c['mean']['set2']:.4f} | {c['mean']['set3']:.4f} |")
+if vergelijk:
+    md += [
+        f"| vingerafdruk/buurregel | AUC set2 ({s['backbone'].split('/')[-1]}) | AUC set3 | "
+        f"AUC set2 ({vergelijk['backbone'].split('/')[-1]}) | AUC set3 |",
+        "|------------------------|---------:|---------:|---------:|---------:|",
+    ]
+    for cel in ("cls/zonder-kit", "cls/met-kit", "patch/zonder-kit", "patch/met-kit"):
+        a, b = s[cel], vergelijk[cel]
+        md.append(f"| {cel} | {a['auc_set2_vs_set1']:.3f} | {a['auc_set3_vs_set1']:.3f} | "
+                  f"{b['auc_set2_vs_set1']:.3f} | {b['auc_set3_vs_set1']:.3f} |")
+else:
+    md += [
+        "| vingerafdruk/buurregel | AUC set2 | AUC set3 | gem. set1 | gem. set2 | gem. set3 |",
+        "|------------------------|---------:|---------:|----------:|----------:|----------:|",
+    ]
+    for cel in ("cls/zonder-kit", "cls/met-kit", "patch/zonder-kit", "patch/met-kit"):
+        c = s[cel]
+        md.append(f"| {cel} | {c['auc_set2_vs_set1']:.3f} | {c['auc_set3_vs_set1']:.3f} | "
+                  f"{c['mean']['set1']:.4f} | {c['mean']['set2']:.4f} | {c['mean']['set3']:.4f} |")
 g = s[s["gekozen"]]
 md += [
     "",
