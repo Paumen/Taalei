@@ -17,22 +17,41 @@ N = int(sys.argv[4]) if len(sys.argv) > 4 else 20
 sets = json.load(open(setsjson))
 os.makedirs(uitdir, exist_ok=True)
 
-MODIFIERS = ["-large", "-small", "-medium", "-open", "-closed", "-detailed", "-simple",
-             "-broken", "-half", "-narrow", "-tall", "-low", "-high", "-wide",
-             "-upgraded", "-decorated", "-empty", "-full", "-new", "-old",
-             "-a", "-b", "-c", "-d", "-e"]
+# Alleen maat- en variantaanduidingen. Woorden die het object zelf veranderen
+# (broken, open, dead, bend, half) blijven staan: een hele ladder naast een
+# kapotte ladder is geen stijlvergelijking.
+MODIFIERS = ["large", "small", "medium", "detailed", "simple", "narrow", "tall",
+             "low", "high", "wide", "upgraded", "decorated", "empty", "full",
+             "new", "old", "a", "b", "c", "d", "e"]
 
 def kern(naam):
     n = re.sub(r"[_\s]+", "-", naam.lower())
-    for m in MODIFIERS:
-        n = n.replace(m, "")
-    return re.sub(r"\d+", "", n).strip("-")
+    n = re.sub(r"\d+", "", n)
+    # alleen aan het eind afknippen, en herhaald: 'barrel-large-a' -> 'barrel'.
+    # Midden in de naam knippen maakte van 'fence-corner' ooit 'fenceorner'.
+    while True:
+        delen = n.strip("-").split("-")
+        if len(delen) > 1 and delen[-1] in MODIFIERS:
+            n = "-".join(delen[:-1])
+        else:
+            return n.strip("-")
 
 acc, rej = collections.defaultdict(list), collections.defaultdict(list)
 for it in sets["set1"]:
     acc[kern(it["name"])].append(it)
 for it in sets["set2"]:
     rej[kern(it["name"])].append(it)
+
+def blad(setnaam, it):
+    p = os.path.join(renders, setnaam,
+                     f"{it['kit'].replace('/', '_')}__{it['name'].replace('/', '_')}.png")
+    return Image.open(p)
+
+def vormverschil(a, r):
+    import numpy as np
+    ga = np.asarray(blad("set1", a).convert("L"), np.float32)
+    gr = np.asarray(blad("set2", r).convert("L"), np.float32)
+    return float(np.abs(ga - gr).mean())
 
 def zelfde_lijn(a, r):
     # 'survival-kit' geaccepteerd tegenover 'kenney_survival-kit' afgekeurd:
@@ -46,14 +65,18 @@ for k in sorted(set(acc) & set(rej)):
         for kr in rej[k]:
             if zelfde_lijn(kandidaat, kr):
                 a, r = kandidaat, kr
-    paren.append({"type": k, "geaccepteerd": a, "afgekeurd": r, "zelfde_lijn": zelfde_lijn(a, r)})
-paren.sort(key=lambda p: (not p["zelfde_lijn"], p["type"]))
+    # Identieke vorm betekent dat de afkeuring in kleur, UV of materiaal zat,
+    # en die gooien de neutraalgrijze renders juist weg: zo'n blad toont niets.
+    try:
+        verschil = vormverschil(a, r)
+    except (FileNotFoundError, OSError):
+        continue
+    if verschil < 1.0:
+        continue
+    paren.append({"type": k, "geaccepteerd": a, "afgekeurd": r,
+                  "zelfde_lijn": zelfde_lijn(a, r), "vormverschil": round(verschil, 2)})
+paren.sort(key=lambda p: (not p["zelfde_lijn"], -p["vormverschil"]))
 paren = paren[:N]
-
-def blad(setnaam, it):
-    p = os.path.join(renders, setnaam,
-                     f"{it['kit'].replace('/', '_')}__{it['name'].replace('/', '_')}.png")
-    return Image.open(p)
 
 KOP = 30
 for i, p in enumerate(paren, 1):
@@ -74,10 +97,13 @@ md = ["# Typeparen: afgekeurd naast catalogus\n",
       "Zelfde objecttype boven elkaar, acht views elk. Bovenste rij is de "
       "catalogus, onderste is stijl-afgekeurd. Alleen zo is het verschil dat "
       "je ziet ook echt stijl en niet objecttype.\n",
-      "| # | type | catalogus | afgekeurd | zelfde object |",
-      "|--:|------|-----------|-----------|---------------|"]
+      "Paren waarvan de vorm identiek is vallen af: daar zat de afkeuring in "
+      "kleur, UV of materiaal, en dat laten deze renders met opzet niet zien.\n",
+      "| # | type | catalogus | afgekeurd | zelfde object | vormverschil |",
+      "|--:|------|-----------|-----------|---------------|-------------:|"]
 for i, p in enumerate(paren, 1):
     md.append(f"| {i} | {p['type']} | {p['geaccepteerd']['kit']}/{p['geaccepteerd']['name']} | "
-              f"{p['afgekeurd']['kit']}/{p['afgekeurd']['name']} | {'ja' if p['zelfde_lijn'] else ''} |")
+              f"{p['afgekeurd']['kit']}/{p['afgekeurd']['name']} | {'ja' if p['zelfde_lijn'] else ''} | "
+              f"{p['vormverschil']} |")
 open(os.path.join(uitdir, "README.md"), "w").write("\n".join(md) + "\n")
 print(f"{len(paren)} paren geschreven naar {uitdir}")
