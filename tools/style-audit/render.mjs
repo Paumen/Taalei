@@ -33,9 +33,15 @@ const server = http.createServer((req, res) => {
 await new Promise((r) => server.listen(8932, r));
 
 const werk = [];
+const gezien = new Set();
 for (const [set, items] of Object.entries(SETS)) {
   mkdirSync(path.join(UIT, set), { recursive: true });
-  for (const it of items) werk.push({ set, ...it });
+  for (const it of items) {
+    const id = `${set}/${it.kit.replaceAll('/', '_')}__${it.name.replaceAll('/', '_')}`;
+    if (gezien.has(id)) throw new Error(`dubbel asset-id ${id}: hernoem een van beide in sets.json`);
+    gezien.add(id);
+    werk.push({ set, ...it });
+  }
 }
 
 const browser = await chromium.launch({ args: ['--use-gl=angle'] });

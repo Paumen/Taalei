@@ -40,7 +40,10 @@ def kanoniek(kit):
 meta = {}
 for setnaam, items in sets.items():
     for it in items:
-        meta[f"{setnaam}/{it['kit'].replace('/', '_')}__{it['name'].replace('/', '_')}"] = (setnaam, kanoniek(it["kit"]), it["kit"], it["name"])
+        sleutel = f"{setnaam}/{it['kit'].replace('/', '_')}__{it['name'].replace('/', '_')}"
+        if sleutel in meta:
+            sys.exit(f"dubbel asset-id {sleutel}: hernoem een van beide in sets.json")
+        meta[sleutel] = (setnaam, kanoniek(it["kit"]), it["kit"], it["name"])
 rows = [meta[i] for i in ids]
 
 # per view normaliseren, aaneenschakelen
@@ -54,7 +57,7 @@ idx1 = np.where(is1)[0]
 
 def knn_score(i, ref_mask):
     s = sim[i, ref_mask]
-    top = np.sort(s)[-K:]
+    top = np.sort(s)[-min(K, len(s)):]
     return float(1 - top.mean()), s
 
 scores, buren, viewdev = [], [], []
@@ -62,8 +65,8 @@ for i in range(len(ids)):
     ref = is1.copy()
     ref[i] = False
     ref &= kits != kits[i]
-    if ref.sum() < K:
-        ref = is1.copy(); ref[i] = False
+    if ref.sum() == 0:
+        sys.exit(f"geen geaccepteerde buren buiten de eigen bronkit voor {ids[i]}")
     sc, s = knn_score(i, ref)
     refidx = np.where(ref)[0]
     orde = refidx[np.argsort(sim[i, refidx])[::-1][:3]]
