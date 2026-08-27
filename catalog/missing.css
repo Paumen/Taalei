@@ -1,0 +1,52 @@
+/* Extras for missing.html on top of catalog.css: a note above the list, and the search
+   box the catalogue itself doesn't have in its order bar. */
+
+.uitleg-blok {
+  margin: 0;
+  padding: 10px clamp(10px, 3vw, 24px) 0;
+  max-width: 78ch;
+  color: var(--inkt-zacht);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.uitleg-blok code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--papier-diep);
+  font-size: 12px;
+}
+
+.ordebalk input[type="search"] {
+  flex: 1 1 12ch;
+  min-width: 12ch;
+  max-width: 28ch;
+  margin-right: auto;
+  padding: 3px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--lijn);
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+}
+
+.ordebalk input[type="search"]:hover { border-bottom-color: var(--accent); }
+.ordebalk input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* The order bar carries a search box and three selects here, so it needs the room. */
+.ordebalk { justify-content: flex-start; }
+
+/* Nothing in this catalogue belongs to a kit with its own colour, so the dot in front of
+   the pack name would be the same grey on every card. */
+.kaart-merk::before { display: none; }
+
+a.licht-knop { text-decoration: none; }
+
+/* Source names run long ("Beach_Terrain_Sand_Corner_Inner_4x4") and a whole row of them
+   only differs in the last word, so a card shows the name in full — smaller, over as many
+   lines as it takes, broken at the underscores (missing.js puts the break points in). */
+.kaart-naam {
+  font-size: 12px;
+  line-height: 1.3;
+}
