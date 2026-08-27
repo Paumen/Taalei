@@ -5,8 +5,8 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Rendert elk asset uit sets.json als blad van acht tegels (tools/style-audit/index.html).
-// Gebruik: node tools/style-audit/render.mjs <sets.json> <uitdir>
+// Rendert elk asset uit sets.json als blad van acht tegels (tools/renders/index.html).
+// Gebruik: node tools/renders/render.mjs <sets.json> <uitdir>
 // sets.json: { set1: [{kit,name,path}], set2: [...], set3: [...] } met absolute paden.
 const HIER = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HIER, '..', '..');
@@ -54,7 +54,7 @@ async function worker() {
     const uit = path.join(UIT, t.set, `${t.kit.replaceAll('/', '_')}__${t.name.replaceAll('/', '_')}.png`);
     if (existsSync(uit)) continue;
     try {
-      await page.goto(`http://127.0.0.1:8932/tools/style-audit/index.html?file=${encodeURIComponent('/fs' + t.path)}`);
+      await page.goto(`http://127.0.0.1:8932/tools/renders/index.html?file=${encodeURIComponent('/fs' + t.path)}`);
       await page.waitForFunction('window.KLAAR === true || window.FOUT === true', null, { timeout: 45000 });
       if (await page.evaluate('window.FOUT === true')) throw new Error(await page.evaluate('window.FOUTMSG'));
       await page.locator('#sheet').screenshot({ path: uit });
