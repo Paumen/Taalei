@@ -26,3 +26,13 @@ Alleen paren met een vormverschil tussen 1.0 en 20.0. Daaronder is de vorm ident
 | 18 | tree-log | survival-kit/tree-log-small | kenney_castlekit/tree-log |  | 12.12 |
 | 19 | patch-grass | mini-forest/patch-grass | kenney_survival-kit/patch-grass-large |  | 12.35 |
 | 20 | door | village-kit/door-simple | kenney_castlekit/door |  | 12.83 |
+| 21 | lantern-hanging | halloween/lantern-hanging | kenney_holidaykit/lantern-hanging |  | 13.79 |
+| 22 | crate | restaurant/crate | kenney_pirate-kit/crate |  | 14.32 |
+| 23 | axe | rpgtools/axe | PropsLite_FBX/Axe_01 |  | 14.36 |
+| 24 | pot | restaurant/pot-a | kenney_mini-dungeon/pot |  | 14.83 |
+| 25 | platform | platformer-kit/platform | kenney_mini-forest_1.0/platform |  | 16.07 |
+| 26 | saw | rpgtools/saw | kenney_platformer-kit/saw |  | 16.39 |
+| 27 | rock | fantasy-town-kit/rock-large | ocean/Rock8 |  | 17.33 |
+| 28 | candle | dungeon/candle | FantasyProps_glTF_1k/Candle_1 |  | 17.59 |
+| 29 | shelf | dungeon/shelf-large | KayKit_Furniture_Bits_1.0_FREE/shelf_A_small |  | 18.11 |
+| 30 | tree | fantasy-town-kit/tree-high | kenney_platformer-kit/tree |  | 19.89 |
