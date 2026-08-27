@@ -70,6 +70,7 @@ def auc(pos, neg):
 def scoor(X, zonder_kit):
     sim = X @ X.T
     sc = np.zeros(len(ids))
+    d1 = np.zeros(len(ids))
     buren = [None] * len(ids)
     for i in range(len(ids)):
         ref = is1.copy(); ref[i] = False
@@ -81,28 +82,29 @@ def scoor(X, zonder_kit):
         s = sim[i, refidx]
         orde = np.argsort(s)[::-1]
         sc[i] = 1 - s[orde[:min(K, len(s))]].mean()
-        buren[i] = [ids[refidx[j]] for j in orde[:3]]
-    return sc, buren
+        d1[i] = 1 - s[orde[0]]
+        buren[i] = [ids[refidx[j]] for j in orde[:K]]
+    return sc, d1, buren
 
 resultaat, stats = {}, {"backbone": str(d["backbone"]), "K": K,
                         "n": dict(collections.Counter(r[0] for r in rows))}
 for rep, X in REPS.items():
     for beleid in ("zonder-kit", "met-kit"):
-        sc, buren = scoor(X, beleid == "zonder-kit")
+        sc, d1, buren = scoor(X, beleid == "zonder-kit")
         s1, s2, s3 = (sc[[r[0] == s for r in rows]] for s in ("set1", "set2", "set3"))
         stats[f"{rep}/{beleid}"] = {
             "auc_set2_vs_set1": auc(s2, s1), "auc_set3_vs_set1": auc(s3, s1),
             "mean": {"set1": float(s1.mean()), "set2": float(s2.mean()), "set3": float(s3.mean())},
             "set3_percentielen_in_set1": {p: float((s1 < np.percentile(s3, p)).mean()) for p in (25, 50, 75)},
         }
-        resultaat[(rep, beleid)] = (sc, buren)
+        resultaat[(rep, beleid)] = (sc, d1, buren)
 
 beste = max(REPS, key=lambda r: stats[f"{r}/zonder-kit"]["auc_set2_vs_set1"])
 stats["gekozen"] = f"{beste}/zonder-kit"
 print(json.dumps(stats, indent=1))
 
-sc, buren = resultaat[(beste, "zonder-kit")]
-sc_met, _ = resultaat[(beste, "met-kit")]
+sc, d1, buren = resultaat[(beste, "zonder-kit")]
+sc_met = resultaat[(beste, "met-kit")][0]
 
 # per-view afwijking t.o.v. beste buur, voor het "waarom"
 VIEWNAAM = ["az30-el30", "az120-el30", "az210-el30", "az300-el30", "az75-el5", "az255-el5", "az165-el55", "boven"]
@@ -115,6 +117,11 @@ for i in np.argsort(sc)[::-1]:
     per_view = 1 - (En[i] * En[j]).sum(axis=1)
     ranking.append({"set": setnaam, "kit": kit, "name": naam,
                     "score": round(float(sc[i]), 4), "score_met_kit": round(float(sc_met[i]), 4),
+                    # afstand tot alleen de beste buur. Grote kloof met score =
+                    # één echte broer, de rest ruis (het asset is beoordeelbaar);
+                    # kleine kloof = niets lijkt erop, op geen enkele rang.
+                    "d1_beste_buur": round(float(d1[i]), 4),
+                    "kloof": round(float(sc[i] - d1[i]), 4),
                     "afwijkendste_view": VIEWNAAM[int(per_view.argmax())],
                     "dichtstbijzijnde_geaccepteerd": buren[i]})
 

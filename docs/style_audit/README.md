@@ -47,35 +47,37 @@ Groot verschil = de kit is zijn eigen dichtstbijzijnde stijl: kit-vingerafdruk, 
 
 Contactbladen in `sheets/`: eigen views boven, dichtstbijzijnde geaccepteerde buur eronder.
 
-| # | kit | asset | score | score met eigen kit | afwijkendste view | dichtstbijzijnde buren |
-|--:|-----|-------|------:|--------------------:|-------------------|------------------------|
-| 1 | quaternius-nature | cactus-flower-4 | 0.2491 | 0.1138 | az255-el5 | forest__tree-bare-2-b, forest__tree-bare-2-c, halloween__tree-dead-large |
-| 2 | quaternius-nature | cactus-4 | 0.2447 | 0.1121 | az255-el5 | forest__tree-bare-2-b, forest__tree-bare-2-c, halloween__tree-dead-large |
-| 3 | quaternius-nature | cactus-5 | 0.2437 | 0.1234 | boven | halloween__tree-dead-large, forest__tree-bare-2-b, forest__grass-1-d |
-| 4 | rpgtools | scissors | 0.2348 | 0.2157 | az165-el55 | restaurant__knife, fantasy-props__key-metal, fantasy-props__key-gold |
-| 5 | survival-kit | fish-large | 0.2267 | 0.1787 | boven | natuur__log-3, natuur__log-4, props__roast-a |
-| 6 | survival-kit | fish | 0.2267 | 0.1787 | boven | natuur__log-3, natuur__log-4, props__roast-a |
-| 7 | village-kit | windmill-blades | 0.2085 | 0.2076 | boven | fantasy-town-kit__windmill, pirate-kit__mast-ropes, survival-kit__campfire-fishing-stand |
-| 8 | rpgtools | saw | 0.2081 | 0.2073 | az30-el30 | dungeon__key, modulair-terrein__hilly-prop-fence-boards-a, village-kit__sign-a |
-| 9 | natuur | stump-3 | 0.2069 | 0.1731 | az75-el5 | modulair-terrein__beach-prop-starfish-a, modulair-terrein__hilly-prop-camp-campfire, modulair-terrein__beach-prop-starfish-b |
-| 10 | quaternius-nature | cactus-flower-3 | 0.2057 | 0.1129 | boven | natuur__tree-palm-5, halloween__tree-dead-large, natuur__tree-palm-4 |
-| 11 | quaternius-nature | cactus-3 | 0.2047 | 0.1151 | az165-el55 | forest__tree-bare-2-b, halloween__tree-dead-large, dungeon__torch-lit |
-| 12 | pirate-kit | ship-large | 0.2041 | 0.0353 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__wall-shelves |
-| 13 | quaternius-nature | cactus-2 | 0.2027 | 0.1145 | boven | forest__tree-bare-2-b, forest__tree-bare-2-c, forest__tree-bare-2-a |
-| 14 | rpgtools | trowel | 0.2013 | 0.1694 | az210-el30 | platformer-kit__arrow, dungeon__candle-thin-lit, fantasy-props__torch-metal |
-| 15 | quaternius-nature | cactus-flower-2 | 0.2005 | 0.1029 | boven | forest__tree-bare-2-b, halloween__tree-dead-large, forest__tree-bare-2-a |
-| 16 | rpgtools | rope-bundle-b | 0.2004 | 0.1845 | az75-el5 | halloween__ribcage, restaurant__food-ingredient-steak, dungeon__keyring |
-| 17 | quaternius-nature | wheat | 0.1986 | 0.1986 | boven | rpgtools__torch, rpgtools__torch-burnt, pirate-kit__mast-ropes |
-| 18 | taalei-kit | balloon-basket-square | 0.1977 | 0.1252 | az255-el5 | natuur__coconut, natuur__mushroom-red-spotted, props__barrel-a |
-| 19 | taalei-kit | balloon-basket-round | 0.1952 | 0.1225 | az255-el5 | natuur__mushroom-red-spotted, natuur__coconut, props__barrel-a |
-| 20 | fantasy-town-kit | windmill | 0.1943 | 0.192 | boven | village-kit__windmill-blades, village-kit__waterwheel-flume-brace-double, platformer-kit__sign |
-| 21 | rpgtools | rope-bundle-a | 0.1943 | 0.1801 | boven | dungeon__keyring, fantasy-props__key-gold, halloween__ribcage |
-| 22 | quaternius-nature | cactus-flower-1 | 0.1938 | 0.1938 | boven | forest__grass-1-c, forest__grass-1-b, forest__grass-1-d |
-| 23 | pirate-kit | ship-medium | 0.1932 | 0.0268 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__wall-shelves |
-| 24 | pirate-kit | ship-pirate-large | 0.1929 | 0.0339 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__crates-stacked |
-| 25 | rpgtools | magnifying-glass | 0.1927 | 0.181 | az210-el30 | survival-kit__signpost-single, survival-kit__signpost, pirate-kit__flag |
-| 26 | dungeon | floor-tile-big-spikes | 0.1896 | 0.1784 | az255-el5 | village-kit__cobblestone-dirt-transition-c, village-kit__cobblestone-dirt-transition-b, village-kit__cobblestone-dirt-transition-a |
-| 27 | taalei-kit | balloon | 0.1895 | 0.1234 | az30-el30 | modulair-terrein__hilly-prop-rock-d, forest__rock-3-d, natuur__mushroom-red-spotted |
-| 28 | rpgtools | handplane | 0.189 | 0.189 | az75-el5 | prototype-kit__lever-double, platformer-kit__lever, dungeon__bed-floor |
-| 29 | rpgtools | torch | 0.1888 | 0.138 | az255-el5 | natuur__cattail-1, natuur__cattail-3, natuur__lamp-post |
-| 30 | rpgtools | torch-burnt | 0.1888 | 0.138 | az255-el5 | natuur__cattail-1, natuur__cattail-3, natuur__lamp-post |
+`score` = gemiddelde over de K buren. `beste buur` = afstand tot alleen buur 1. Een grote `kloof` betekent: er is één echte broer en de rest is ruis — het asset is dus wél beoordeelbaar, kijk naar buur 1. Een kleine kloof betekent dat niets erop lijkt, op geen enkele rang: isolatie, geen stijloordeel.
+
+| # | kit | asset | score | beste buur | kloof | afwijkendste view | dichtstbijzijnde buren |
+|--:|-----|-------|------:|-----------:|------:|-------------------|------------------------|
+| 1 | quaternius-nature | cactus-flower-4 | 0.2491 | 0.2409 | 0.0082 | az255-el5 | forest__tree-bare-2-b, forest__tree-bare-2-c, halloween__tree-dead-large |
+| 2 | quaternius-nature | cactus-4 | 0.2447 | 0.2342 | 0.0105 | az255-el5 | forest__tree-bare-2-b, forest__tree-bare-2-c, halloween__tree-dead-large |
+| 3 | quaternius-nature | cactus-5 | 0.2437 | 0.2362 | 0.0075 | boven | halloween__tree-dead-large, forest__tree-bare-2-b, forest__grass-1-d |
+| 4 | rpgtools | scissors | 0.2348 | 0.2038 | 0.0311 | az165-el55 | restaurant__knife, fantasy-props__key-metal, fantasy-props__key-gold |
+| 5 | survival-kit | fish-large | 0.2267 | 0.2114 | 0.0153 | boven | natuur__log-3, natuur__log-4, props__roast-a |
+| 6 | survival-kit | fish | 0.2267 | 0.2114 | 0.0153 | boven | natuur__log-3, natuur__log-4, props__roast-a |
+| 7 | village-kit | windmill-blades | 0.2085 | 0.126 | 0.0826 | boven | fantasy-town-kit__windmill, pirate-kit__mast-ropes, survival-kit__campfire-fishing-stand |
+| 8 | rpgtools | saw | 0.2081 | 0.1926 | 0.0155 | az30-el30 | dungeon__key, modulair-terrein__hilly-prop-fence-boards-a, village-kit__sign-a |
+| 9 | natuur | stump-3 | 0.2069 | 0.1893 | 0.0176 | az75-el5 | modulair-terrein__beach-prop-starfish-a, modulair-terrein__hilly-prop-camp-campfire, modulair-terrein__beach-prop-starfish-b |
+| 10 | quaternius-nature | cactus-flower-3 | 0.2057 | 0.201 | 0.0047 | boven | natuur__tree-palm-5, halloween__tree-dead-large, natuur__tree-palm-4 |
+| 11 | quaternius-nature | cactus-3 | 0.2047 | 0.2002 | 0.0045 | az165-el55 | forest__tree-bare-2-b, halloween__tree-dead-large, dungeon__torch-lit |
+| 12 | pirate-kit | ship-large | 0.2041 | 0.1879 | 0.0162 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__wall-shelves |
+| 13 | quaternius-nature | cactus-2 | 0.2027 | 0.1914 | 0.0114 | boven | forest__tree-bare-2-b, forest__tree-bare-2-c, forest__tree-bare-2-a |
+| 14 | rpgtools | trowel | 0.2013 | 0.1964 | 0.0049 | az210-el30 | platformer-kit__arrow, dungeon__candle-thin-lit, fantasy-props__torch-metal |
+| 15 | quaternius-nature | cactus-flower-2 | 0.2005 | 0.1893 | 0.0112 | boven | forest__tree-bare-2-b, halloween__tree-dead-large, forest__tree-bare-2-a |
+| 16 | rpgtools | rope-bundle-b | 0.2004 | 0.1734 | 0.0271 | az75-el5 | halloween__ribcage, restaurant__food-ingredient-steak, dungeon__keyring |
+| 17 | quaternius-nature | wheat | 0.1986 | 0.1937 | 0.0049 | boven | rpgtools__torch, rpgtools__torch-burnt, pirate-kit__mast-ropes |
+| 18 | taalei-kit | balloon-basket-square | 0.1977 | 0.1964 | 0.0013 | az255-el5 | natuur__coconut, natuur__mushroom-red-spotted, props__barrel-a |
+| 19 | taalei-kit | balloon-basket-round | 0.1952 | 0.192 | 0.0032 | az255-el5 | natuur__mushroom-red-spotted, natuur__coconut, props__barrel-a |
+| 20 | fantasy-town-kit | windmill | 0.1943 | 0.126 | 0.0684 | boven | village-kit__windmill-blades, village-kit__waterwheel-flume-brace-double, platformer-kit__sign |
+| 21 | rpgtools | rope-bundle-a | 0.1943 | 0.1713 | 0.023 | boven | dungeon__keyring, fantasy-props__key-gold, halloween__ribcage |
+| 22 | quaternius-nature | cactus-flower-1 | 0.1938 | 0.1686 | 0.0251 | boven | forest__grass-1-c, forest__grass-1-b, forest__grass-1-d |
+| 23 | pirate-kit | ship-medium | 0.1932 | 0.1793 | 0.0138 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__wall-shelves |
+| 24 | pirate-kit | ship-pirate-large | 0.1929 | 0.1752 | 0.0177 | boven | resources__parts-pile-medium, dungeon__wall-tsplit-sloped, dungeon__crates-stacked |
+| 25 | rpgtools | magnifying-glass | 0.1927 | 0.184 | 0.0087 | az210-el30 | survival-kit__signpost-single, survival-kit__signpost, pirate-kit__flag |
+| 26 | dungeon | floor-tile-big-spikes | 0.1896 | 0.1842 | 0.0054 | az255-el5 | village-kit__cobblestone-dirt-transition-c, village-kit__cobblestone-dirt-transition-b, village-kit__cobblestone-dirt-transition-a |
+| 27 | taalei-kit | balloon | 0.1895 | 0.188 | 0.0015 | az30-el30 | modulair-terrein__hilly-prop-rock-d, forest__rock-3-d, natuur__mushroom-red-spotted |
+| 28 | rpgtools | handplane | 0.189 | 0.1827 | 0.0062 | az75-el5 | prototype-kit__lever-double, platformer-kit__lever, dungeon__bed-floor |
+| 29 | rpgtools | torch | 0.1888 | 0.1871 | 0.0017 | az255-el5 | natuur__cattail-1, natuur__cattail-3, natuur__lamp-post |
+| 30 | rpgtools | torch-burnt | 0.1888 | 0.1871 | 0.0017 | az255-el5 | natuur__cattail-1, natuur__cattail-3, natuur__lamp-post |
