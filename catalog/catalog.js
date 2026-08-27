@@ -97,7 +97,7 @@ function sizeClass(wdh) {
   return { ...cls, longest };
 }
 
-let budgetPerUnit = 1000;
+let budgetPerUnit = 2000;
 
 const number = new Intl.NumberFormat('en-GB');
 
