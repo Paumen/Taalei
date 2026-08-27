@@ -259,8 +259,8 @@ export const BUDGET_PER_UNIT = 2000;
 
 export function trianglesPerUnit(triangles, wdh) {
   if (wdh.some((size) => size === 0)) return null;
-  // Below half a cell per axis a model is judged as if it filled 0.5 × 0.5 × 0.5,
+  // Below 0.7 per axis a model is judged as if it filled 0.7 × 0.7 × 0.7,
   // so a tiny prop doesn't get a whole cell's budget to itself.
-  const cells = Math.max(0.25, wdh[0] * wdh[1]) * Math.max(0.5, wdh[2]);
+  const cells = Math.max(0.49, wdh[0] * wdh[1]) * Math.max(0.7, wdh[2]);
   return Math.round(triangles / cells);
 }
