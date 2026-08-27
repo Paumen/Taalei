@@ -6,15 +6,12 @@ Zelfde objecttype boven elkaar, acht views elk. Bovenste rij is de catalogus, on
 |--:|------|-----------|-----------|---------------|
 | 1 | barrel | props/barrel-a | FantasyProps_glTF_1k/Barrel | ja |
 | 2 | bench | props/bench-a | FantasyProps_glTF_1k/Bench | ja |
-| 3 | campfire-fishing-stand | survival-kit/campfire-fishing-stand | kenney_survival-kit/campfire-fishing-stand | ja |
 | 4 | chair | dungeon/chair | kenney_mini-dungeon/chair | ja |
 | 5 | chest | dungeon/chest | kenney_mini-dungeon/chest | ja |
 | 6 | coin | dungeon/coin | kenney_mini-dungeon/coin | ja |
 | 7 | fence-straight | platformer-kit/fence-straight | kenney_platformer-kit/fence-low-straight | ja |
-| 8 | fenceorner | platformer-kit/fence-corner | kenney_platformer-kit/fence-low-corner | ja |
 | 9 | fenceornerurved | platformer-kit/fence-corner-curved | kenney_platformer-kit/fence-low-corner-curved | ja |
 | 10 | key | dungeon/key | kenney_mini-dungeon/key | ja |
-| 11 | ladder | platformer-kit/ladder | kenney_platformer-kit/ladder-broken | ja |
 | 12 | palm-straight | pirate-kit/palm-detailed-straight | kenney_pirate-kit/palm-straight | ja |
 | 13 | palmend | pirate-kit/palm-detailed-bend | kenney_pirate-kit/palm-bend | ja |
 | 14 | pillar | dungeon/pillar | KayKit_Dungeon_Pack_1.1_FREE/pillar_decorated | ja |
@@ -22,5 +19,4 @@ Zelfde objecttype boven elkaar, acht views elk. Bovenste rij is de catalogus, on
 | 16 | stool | props/stool-a | FantasyProps_glTF_1k/Stool | ja |
 | 17 | table | props/table-a | FantasyProps_glTF_1k/Table_Large | ja |
 | 18 | tool-paddle | pirate-kit/tool-paddle | kenney_pirate-kit/tool-paddle | ja |
-| 19 | wall | dungeon/wall | kenney_mini-dungeon/wall | ja |
 | 20 | anvil | rpgtools/anvil | FantasyProps_glTF_1k/Anvil |  |
