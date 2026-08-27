@@ -96,17 +96,26 @@ json.dump({"seed": SEED,
            "toets": sleutel},
           open(os.path.join(uitdir, "stijltoets_sleutel.json"), "w"), indent=1)
 
-open(os.path.join(refdir, "README.md"), "w").write(
-    f"# Referentie: {N_REF} paren met het antwoord erbij\n\n"
-    "Per blad twee uitvoeringen van hetzelfde objecttype, met erbij welke de "
-    "goede stijl is. Geen kit- of assetnamen: de afgekeurde kant komt vrijwel "
-    "altijd uit een bronkit, dus met namen erbij leer je de herkomst herkennen "
-    "in plaats van de stijl. De goede kant staat per blad geloot boven of onder.\n")
-open(os.path.join(toetsdir, "README.md"), "w").write(
-    f"# Toets: {N_TOETS} paren zonder antwoord\n\n"
-    "Elk paar staat als `NNa.png` en `NNb.png`, geen tekst, kant geloot. "
-    "Deze paren zitten niet in de referentie.\n\n"
-    "De sleutel staat een map hoger in `stijltoets_sleutel.json`.\n")
+# Geen README in referentie/ of toets/: die mappen geef je aan de beoordelaar,
+# en de uitleg verklapte de opzet — onder meer dat de catalogus vier van de acht
+# keer op a staat, wat je met gokken al kunt uitbuiten. De uitleg gaat daarom
+# naar de map erboven, naast de sleutel.
+open(os.path.join(uitdir, "OPZET.md"), "w").write(
+    "# Stijltoets\n\n"
+    f"`referentie/` — {N_REF} paren met het antwoord erbij: twee uitvoeringen van "
+    "hetzelfde objecttype, met erbij welke de goede stijl is.\n\n"
+    f"`toets/` — {N_TOETS} paren zonder antwoord, `NNa.png` en `NNb.png`, "
+    "disjunct van de referentie.\n\n"
+    "Opdracht: kies per toetspaar welke van a en b bij de stijl van de "
+    "referentie past.\n\n"
+    "Geen kit- of assetnamen op de bladen: de afgekeurde kant komt vrijwel altijd "
+    "uit een bronkit, dus met namen erbij leer je de herkomst herkennen in plaats "
+    "van de stijl. De catalogus staat de helft van de keren op a, en niet om en "
+    "om, dus een vast antwoord levert de helft op.\n\n"
+    f"Bij {N_TOETS} paren is de helft goed precies wat gokken oplevert; pas ver "
+    "daarboven ligt het buiten toeval.\n\n"
+    "Sleutel: `stijltoets_sleutel.json`.\n")
+
 print(f"referentie: {len(ref)} paren -> {refdir}")
 print(f"toets: {len(toets)} paren -> {toetsdir}")
 print("ongebruikt:", [p["type"] for p in paren if p not in ref and p not in toets])
