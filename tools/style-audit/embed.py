@@ -14,13 +14,12 @@ gemiddelde cosinus over gelijke standpunten.
 import os, sys, glob
 import numpy as np
 import torch
+import torch.nn.functional as F
 from PIL import Image
 from transformers import AutoImageProcessor, AutoModel
 
 renders, uit = sys.argv[1], sys.argv[2]
 TEGEL, VIEWS = 224, 8
-PATCH = 14          # ViT-*/14: 16x16 patchraster op 224px
-RASTER = TEGEL // PATCH
 ACHTERGROND = 245   # min. luminantie waaronder een patch voorgrond bevat
 
 kandidaten = ["facebook/dinov3-vitb16-pretrain-lvd1689m", "facebook/dinov2-base"]
@@ -37,7 +36,15 @@ if model is None:
     sys.exit("geen backbone beschikbaar")
 model.eval()
 torch.set_num_threads(os.cpu_count() or 4)
-print("backbone:", naam, flush=True)
+
+# Patchraster uit het model halen, niet aannemen: DINOv2-base is /14 zonder
+# registertokens, DINOv3-vitb16 is /16 met er vier. Een vast raster zou op de
+# ander stilzwijgend onzin-patchkenmerken opleveren.
+proefpixels = proc(images=[Image.new("RGB", (TEGEL, TEGEL), "white")], return_tensors="pt")["pixel_values"]
+RASTER = proefpixels.shape[-1] // model.config.patch_size
+N_EXTRA = 1 + getattr(model.config, "num_register_tokens", 0)
+print(f"backbone: {naam} (patch {model.config.patch_size}, raster {RASTER}x{RASTER}, "
+      f"{N_EXTRA} niet-patch tokens)", flush=True)
 
 paden = sorted(glob.glob(os.path.join(renders, "*", "*.png")))
 N = len(paden)
@@ -51,10 +58,13 @@ BATCH = 16
 tegels, maskers, herkomst = [], [], []
 
 def voorgrond_masker(tile):
-    # per patch: bevat hij iets donkerder dan de witte achtergrond?
-    g = np.asarray(tile.convert("L"))
-    blokken = g.reshape(RASTER, PATCH, RASTER, PATCH).min(axis=(1, 3))
-    return (blokken < ACHTERGROND).reshape(-1)
+    # per patch: bevat hij iets donkerder dan de witte achtergrond? Min-pool,
+    # geen gemiddelde: een dunne steel (cactus, sleutel) moet een patch al
+    # voorgrond maken. adaptive pooling verdraagt een raster dat niet
+    # precies op de tegelmaat deelt.
+    g = torch.from_numpy(np.asarray(tile.convert("L"), np.float32))[None, None]
+    donkerste = -F.adaptive_max_pool2d(-g, (RASTER, RASTER))
+    return (donkerste.flatten().numpy() < ACHTERGROND)
 
 def spoel():
     global tegels, maskers, herkomst
@@ -63,10 +73,11 @@ def spoel():
     with torch.no_grad():
         inp = proc(images=tegels, return_tensors="pt")
         hidden = model(**inp).last_hidden_state.numpy()
-    n_extra = hidden.shape[1] - RASTER * RASTER  # CLS + evt. registertokens
+    if hidden.shape[1] != N_EXTRA + RASTER * RASTER:
+        sys.exit(f"tokenaantal {hidden.shape[1]} past niet bij raster {RASTER} + {N_EXTRA}")
     for (a, v), h, m in zip(herkomst, hidden, maskers):
         cls[a, v] = h[0]
-        patches = h[n_extra:]
+        patches = h[N_EXTRA:]
         fg = patches[m] if m.any() else patches
         pmean[a, v] = fg.mean(axis=0)
         pstd[a, v] = fg.std(axis=0)
