@@ -255,7 +255,7 @@ export function measureScene(glb) {
   };
 }
 
-export const BUDGET_PER_UNIT = 1000;
+export const BUDGET_PER_UNIT = 2000;
 
 export function trianglesPerUnit(triangles, wdh) {
   if (wdh.some((size) => size === 0)) return null;
