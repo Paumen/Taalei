@@ -633,10 +633,17 @@ function showDetail(model) {
     { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
     { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
     { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
+    // 3 is fully split (every facet its own vertices, flat shading), around 0.5 is fully
+    // shared — a smooth-shaded model
+    { kop: 'Verts / tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
     { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
     { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
     { kop: 'Density', waarde: number.format(model.dens) },
     { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
+    // hoeveel van de gradient in de kleurband het model gebruikt: 0 is alles op één lijn,
+    // dus zonder ingebakken schaduw
+    { kop: 'Gradient', vol: 'Gradient spread within the colour band', waarde: model.grad === undefined ? '—' : unit.format(model.grad) },
+    { kop: 'Hues', vol: 'Hue families in the colours', waarde: model.hues === undefined ? '—' : number.format(model.hues) },
     {
       kop: 'Grid/gnd/ctr',
       vol: 'Grid-modular / grounded / centered',

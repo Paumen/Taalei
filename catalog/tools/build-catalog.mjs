@@ -91,6 +91,9 @@ const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '
 function readColors(glb, dir) {
   const { json } = glb;
   const lanes = new Set();
+  // per lane the lowest and highest position within the band, and how many vertices
+  // sit in it — the raw material for the gradient spread below
+  const gradient = new Map();
   const materials = new Map();
   let atlasPath = null;
 
@@ -123,12 +126,39 @@ function readColors(glb, dir) {
         const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
         const i4 = (y * atlas.width + x) * 4;
         if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
-        lanes.add(`${Math.floor(x / cellWidth)},${Math.floor(y / cellHeight)}`);
+        const row = Math.floor(y / cellHeight);
+        const lane = `${Math.floor(x / cellWidth)},${row}`;
+        lanes.add(lane);
+
+        // a band runs light to dark from top to bottom, so the position within the cell
+        // is what the baked shading is made of
+        const position = (y - row * cellHeight) / cellHeight;
+        const seen = gradient.get(lane);
+        if (!seen) gradient.set(lane, { min: position, max: position, count: 1 });
+        else {
+          if (position < seen.min) seen.min = position;
+          if (position > seen.max) seen.max = position;
+          seen.count++;
+        }
       }
     }
   }
 
-  return { atlas: atlasPath, lanes, materials };
+  return { atlas: atlasPath, lanes, gradient, materials };
+}
+
+// Baked shading lives in the spread over the gradient inside a band: same band, other
+// position. Per band the distance between the highest and lowest sample, averaged over
+// the bands by the number of vertices in each. 0 means every vertex sits on one line of
+// the gradient — a recolour that flattened the shading, not a model that carries it.
+function gradientSpread(gradient) {
+  let spread = 0;
+  let total = 0;
+  for (const { min, max, count } of gradient.values()) {
+    spread += (max - min) * count;
+    total += count;
+  }
+  return total === 0 ? null : spread / total;
 }
 
 function laneColor(atlas, lane) {
@@ -141,7 +171,7 @@ function laneColor(atlas, lane) {
   return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
 }
 
-function colorName(hex) {
+function hsl(hex) {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
   const g = parseInt(hex.slice(3, 5), 16) / 255;
   const b = parseInt(hex.slice(5, 7), 16) / 255;
@@ -151,20 +181,23 @@ function colorName(hex) {
   const delta = max - min;
   const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
 
-  if (saturation < 0.18) {
-    if (lightness > 0.8) return 'white';
-    if (lightness > 0.45) return 'light grey';
-    if (lightness > 0.25) return 'grey';
-    return 'dark grey';
-  }
-
   let tint = 0;
-  if (max === r) tint = ((g - b) / delta) % 6;
+  if (delta === 0) tint = 0;
+  else if (max === r) tint = ((g - b) / delta) % 6;
   else if (max === g) tint = (b - r) / delta + 2;
   else tint = (r - g) / delta + 4;
-  tint = (tint * 60 + 360) % 360;
 
-  const base =
+  return { tint: (tint * 60 + 360) % 360, saturation, lightness };
+}
+
+// The hue behind a colour, without light or dark: 'dark brown' and 'light brown' are one
+// family, and everything without saturation lands in 'neutral' together. Counting the
+// families per model says how many different hues it mixes.
+function colorFamily(hex) {
+  const { tint, saturation, lightness } = hsl(hex);
+  if (saturation < 0.18) return 'neutral';
+
+  return (
     tint < 15 || tint >= 345 ? 'red'
     : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
     : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
@@ -173,8 +206,21 @@ function colorName(hex) {
     : tint < 200 ? 'turquoise'
     : tint < 260 ? 'blue'
     : tint < 300 ? 'purple'
-    : 'pink';
+    : 'pink'
+  );
+}
 
+function colorName(hex) {
+  const { saturation, lightness } = hsl(hex);
+
+  if (saturation < 0.18) {
+    if (lightness > 0.8) return 'white';
+    if (lightness > 0.45) return 'light grey';
+    if (lightness > 0.25) return 'grey';
+    return 'dark grey';
+  }
+
+  const base = colorFamily(hex);
   if (lightness < 0.3) return `dark ${base}`;
   if (lightness > 0.75) return `light ${base}`;
   return base;
@@ -268,6 +314,7 @@ for (const slug of kitSlugs) {
       averageTriangleArea: scene.averageTriangleArea,
       density: scene.density,
       strictAnglePercent: scene.strictAnglePercent,
+      gradientSpread: gradientSpread(read.gradient),
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
@@ -496,6 +543,7 @@ for (const model of models) {
       ...read.materials.keys(),
     ]),
   ].sort();
+  model.hues = new Set(model.colors.map(colorFamily)).size;
 }
 
 for (const kit of kits) {
@@ -571,6 +619,9 @@ const output = {
     avgTri: round(m.averageTriangleArea, 5),
     dens: Math.round(m.density),
     anglePct: Math.round(m.strictAnglePercent),
+    vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
+    grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
+    hues: m.hues || null,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
