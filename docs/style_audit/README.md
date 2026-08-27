@@ -15,6 +15,32 @@ AUC 0.5 = ruis, 1.0 = perfecte scheiding. De thema-controle (set3) hoort laag te
 
 set3 hoort als verdeling tussen set1 en set2 te liggen: de mediaan van set3 ligt op het 56e percentiel van set1 (patch/zonder-kit).
 
+## Wat deze score wél en niet meet
+
+**De rangschikking meet grotendeels of een objecttype al in de catalogus zit,
+niet of iets qua stijl past.** De score is de afstand tot de dichtstbijzijnde
+geaccepteerde assets, dus een asset zonder soortgenoten scoort hoog ongeacht
+zijn stijl. `tools/style-audit/typecontrole.py` houdt het objecttype constant
+en meet opnieuw:
+
+| | AUC |
+|---|---:|
+| globaal, zonder type-controle | 0.633 |
+| **binnen hetzelfde objecttype** | **0.580** |
+| toeval | 0.500 |
+
+Ruwweg veertig procent van het schijnbare stijlsignaal is dus
+type-beschikbaarheid. Wat overblijft is zwak en bovendien onbetrouwbaar per
+categorie: zes van de twintig objecttypes staan omgekeerd, waaronder juist de
+types met genoeg geaccepteerde voorbeelden om mee te vergelijken —
+`pot` 0.000, `wall` 0.132, `chest` 0.167, `crate` 0.222, `barrel` 0.267,
+`floor` 0.438. Daar scoren de assets die je hebt afgekeurd beter dan de assets
+die je hebt gehouden.
+
+Gebruik de rangschikking dus als "wat heeft geen familie in de catalogus",
+niet als stijloordeel. Voor barrels, crates, chests en potten is de score als
+stijlmaat aantoonbaar misleidend.
+
 ## Kit-diagnose (set1, zonder-kit minus met-kit)
 
 Groot verschil = de kit is zijn eigen dichtstbijzijnde stijl: kit-vingerafdruk, of een eigen-maar-geaccepteerd stijl-eiland. Klein verschil = het asset heeft ook buiten de eigen kit dichte buren.
