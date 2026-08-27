@@ -14,6 +14,7 @@ from PIL import Image, ImageDraw
 
 setsjson, renders, uitdir = sys.argv[1], sys.argv[2], sys.argv[3]
 N = int(sys.argv[4]) if len(sys.argv) > 4 else 20
+ONDER, BOVEN = 1.0, 20.0
 sets = json.load(open(setsjson))
 os.makedirs(uitdir, exist_ok=True)
 
@@ -71,11 +72,17 @@ for k in sorted(set(acc) & set(rej)):
         verschil = vormverschil(a, r)
     except (FileNotFoundError, OSError):
         continue
-    if verschil < 1.0:
+    # Onder de ondergrens is de vorm identiek en zat de afkeuring in kleur, UV
+    # of materiaal, wat deze renders met opzet niet tonen. Boven de bovengrens
+    # is het niet meer hetzelfde object: 'grass' is in de ene kit één spriet en
+    # in de andere een pol, 'wall-half' is halfhoog tegenover halflang. Daar
+    # valt geen stijl te vergelijken, alleen een naam die toevallig gelijk is.
+    if not ONDER <= verschil <= BOVEN:
         continue
     paren.append({"type": k, "geaccepteerd": a, "afgekeurd": r,
                   "zelfde_lijn": zelfde_lijn(a, r), "vormverschil": round(verschil, 2)})
-paren.sort(key=lambda p: (not p["zelfde_lijn"], -p["vormverschil"]))
+# Oplopend: het kleinste zichtbare verschil is de scherpste stijlvraag.
+paren.sort(key=lambda p: (not p["zelfde_lijn"], p["vormverschil"]))
 paren = paren[:N]
 
 KOP = 30
@@ -97,8 +104,10 @@ md = ["# Typeparen: afgekeurd naast catalogus\n",
       "Zelfde objecttype boven elkaar, acht views elk. Bovenste rij is de "
       "catalogus, onderste is stijl-afgekeurd. Alleen zo is het verschil dat "
       "je ziet ook echt stijl en niet objecttype.\n",
-      "Paren waarvan de vorm identiek is vallen af: daar zat de afkeuring in "
-      "kleur, UV of materiaal, en dat laten deze renders met opzet niet zien.\n",
+      f"Alleen paren met een vormverschil tussen {ONDER} en {BOVEN}. Daaronder is "
+      "de vorm identiek en zat de afkeuring in kleur, UV of materiaal, wat deze "
+      "renders niet tonen. Daarboven is het niet meer hetzelfde object en valt er "
+      "dus geen stijl te vergelijken. Oplopend gesorteerd: bovenaan de scherpste vraag.\n",
       "| # | type | catalogus | afgekeurd | zelfde object | vormverschil |",
       "|--:|------|-----------|-----------|---------------|-------------:|"]
 for i, p in enumerate(paren, 1):
