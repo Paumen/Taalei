@@ -1,6 +1,7 @@
 const DEAD = /(^|-)(bare|dead)(-|$)/;
 
-const round1 = (v) => Math.round(v * 10) / 10;
+// A dimension never reads as 0: a flat plank or a thin coin is still 0.1 units thick.
+const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 
 const TOP_VIEW = new Set(['shelves-cabinets', 'starfish-shells', 'planks-pallets', 'plates-bowls', 'floors']);
 

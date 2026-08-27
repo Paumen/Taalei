@@ -17,7 +17,8 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
-const round1 = (v) => Math.round(v * 10) / 10;
+// A dimension never reads as 0: a flat plank or a thin coin is still 0.1 units thick.
+const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
