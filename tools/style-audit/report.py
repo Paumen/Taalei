@@ -33,19 +33,39 @@ s = d["stats"]
 md = [
     "# Stijl-audit: uitschieters in de catalogus\n",
     f"Backbone: `{s['backbone']}` — pipeline: `tools/style-audit/` "
-    "(acht neutrale views per asset, per-view DINO-embeddings, afstand tot de "
-    "K=5 dichtstbijzijnde geaccepteerde assets buiten de eigen bronkit).\n",
-    "## Validatie\n",
-    f"- AUC stijl-afgekeurd (set2) vs geaccepteerd (set1): **{s['auc_set2_vs_set1']:.3f}**",
-    f"- AUC thema-afgekeurd (set3, stijl niet beoordeeld) vs set1: {s['auc_set3_vs_set1']:.3f} (controle)",
-    f"- Gemiddelde score: set1 {s['mean']['set1']:.4f} · set2 {s['mean']['set2']:.4f} · set3 {s['mean']['set3']:.4f}\n",
+    "(acht neutrale views per asset, per-view DINO-vingerafdrukken, afstand tot de "
+    f"K={s['K']} dichtstbijzijnde geaccepteerde assets). Rangschikking volgens "
+    f"**{s['gekozen']}** (beste AUC op de eigen keurgeschiedenis).\n",
+    "## Validatie (AUC stijl-afgekeurd set2 vs geaccepteerd set1; set3 = thema-controle)\n",
+    "| vingerafdruk/buurregel | AUC set2 | AUC set3 | gem. set1 | gem. set2 | gem. set3 |",
+    "|------------------------|---------:|---------:|----------:|----------:|----------:|",
+]
+for cel in ("cls/zonder-kit", "cls/met-kit", "patch/zonder-kit", "patch/met-kit"):
+    c = s[cel]
+    md.append(f"| {cel} | {c['auc_set2_vs_set1']:.3f} | {c['auc_set3_vs_set1']:.3f} | "
+              f"{c['mean']['set1']:.4f} | {c['mean']['set2']:.4f} | {c['mean']['set3']:.4f} |")
+g = s[s["gekozen"]]
+md += [
+    "",
+    "set3 hoort als verdeling tussen set1 en set2 te liggen: de mediaan van set3 ligt op het "
+    f"{100 * g['set3_percentielen_in_set1']['50']:.0f}e percentiel van set1 ({s['gekozen']}).\n",
+    "## Kit-diagnose (set1, zonder-kit minus met-kit)\n",
+    "Groot verschil = de kit is zijn eigen dichtstbijzijnde stijl: kit-vingerafdruk, "
+    "of een eigen-maar-geaccepteerd stijl-eiland. Klein verschil = het asset heeft ook "
+    "buiten de eigen kit dichte buren.\n",
+    "| kit | n | gem. delta |",
+    "|-----|--:|-----------:|",
+]
+for r in d["kit_diagnose"]:
+    md.append(f"| {r['kit']} | {r['n']} | {r['gem_delta']} |")
+md += ["",
     f"## Top {N} minst passende catalogus-assets\n",
     "Contactbladen in `sheets/`: eigen views boven, dichtstbijzijnde geaccepteerde buur eronder.\n",
-    "| # | kit | asset | score | afwijkendste view | dichtstbijzijnde buren |",
-    "|--:|-----|-------|------:|-------------------|------------------------|",
+    "| # | kit | asset | score | score met eigen kit | afwijkendste view | dichtstbijzijnde buren |",
+    "|--:|-----|-------|------:|--------------------:|-------------------|------------------------|",
 ]
 for rk, r in enumerate(rows, 1):
     buren = ", ".join(b.split("/", 1)[1] for b in r["dichtstbijzijnde_geaccepteerd"])
-    md.append(f"| {rk} | {r['kit']} | {r['name']} | {r['score']} | {r['afwijkendste_view']} | {buren} |")
+    md.append(f"| {rk} | {r['kit']} | {r['name']} | {r['score']} | {r['score_met_kit']} | {r['afwijkendste_view']} | {buren} |")
 open(os.path.join(uitdir, "README.md"), "w").write("\n".join(md) + "\n")
 print("rapport geschreven:", uitdir)
