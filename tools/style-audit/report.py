@@ -21,15 +21,23 @@ def blad(assetid):
 rows = [r for r in d["ranking"] if r["set"] == "set1"][:N]
 for rk, r in enumerate(rows, 1):
     eigen = f"set1/{r['kit'].replace('/', '_')}__{r['name'].replace('/', '_')}"
-    buur = r["dichtstbijzijnde_geaccepteerd"][0]
-    a, b = blad(eigen), blad(buur)
-    W, H, KOP = a.width, a.height, 28
-    img = Image.new("RGB", (W, 2 * (H + KOP)), "white")
+    # Alle buren tonen die in de score meetellen, niet alleen de beste: bij
+    # windmill-blades is buur 1 een prima broer en zijn 2-5 ruis, en juist dat
+    # verschil maakt de score. Eén buur laten zien suggereert een stijloordeel
+    # waar het om isolatie gaat.
+    buren = r["dichtstbijzijnde_geaccepteerd"]
+    bladen = [blad(eigen)] + [blad(b) for b in buren]
+    W, H, KOP = bladen[0].width, bladen[0].height, 28
+    img = Image.new("RGB", (W, len(bladen) * (H + KOP)), "white")
     dr = ImageDraw.Draw(img)
-    dr.text((8, 6), f"#{rk}  {r['kit']}/{r['name']}  score={r['score']}  afwijkendste view: {r['afwijkendste_view']}", fill="black")
-    img.paste(a, (0, KOP))
-    dr.text((8, H + KOP + 6), f"dichtstbijzijnde geaccepteerd: {buur.split('/', 1)[1]}", fill="black")
-    img.paste(b, (0, H + 2 * KOP))
+    dr.text((8, 6), f"#{rk}  {r['kit']}/{r['name']}  score={r['score']} "
+                    f"(beste buur alleen: {r['d1_beste_buur']}, kloof {r['kloof']})  "
+                    f"afwijkendste view: {r['afwijkendste_view']}", fill="black")
+    img.paste(bladen[0], (0, KOP))
+    for n, (b, naam) in enumerate(zip(bladen[1:], buren), 1):
+        y = n * (H + KOP)
+        dr.text((8, y + 6), f"buur {n}: {naam.split('/', 1)[1]}", fill="black")
+        img.paste(b, (0, y + KOP))
     img.save(os.path.join(uitdir, "sheets", f"{rk:02d}_{r['kit'].replace('/', '_')}__{r['name'].replace('/', '_')}.png"))
 
 s = d["stats"]
@@ -79,11 +87,16 @@ for r in d["kit_diagnose"]:
 md += ["",
     f"## Top {N} minst passende catalogus-assets\n",
     "Contactbladen in `sheets/`: eigen views boven, dichtstbijzijnde geaccepteerde buur eronder.\n",
-    "| # | kit | asset | score | score met eigen kit | afwijkendste view | dichtstbijzijnde buren |",
-    "|--:|-----|-------|------:|--------------------:|-------------------|------------------------|",
+    "`score` = gemiddelde over de K buren. `beste buur` = afstand tot alleen buur 1. "
+    "Een grote `kloof` betekent: er is één echte broer en de rest is ruis — het asset "
+    "is dus wél beoordeelbaar, kijk naar buur 1. Een kleine kloof betekent dat niets "
+    "erop lijkt, op geen enkele rang: isolatie, geen stijloordeel.\n",
+    "| # | kit | asset | score | beste buur | kloof | afwijkendste view | dichtstbijzijnde buren |",
+    "|--:|-----|-------|------:|-----------:|------:|-------------------|------------------------|",
 ]
 for rk, r in enumerate(rows, 1):
-    buren = ", ".join(b.split("/", 1)[1] for b in r["dichtstbijzijnde_geaccepteerd"])
-    md.append(f"| {rk} | {r['kit']} | {r['name']} | {r['score']} | {r['score_met_kit']} | {r['afwijkendste_view']} | {buren} |")
+    buren = ", ".join(b.split("/", 1)[1] for b in r["dichtstbijzijnde_geaccepteerd"][:3])
+    md.append(f"| {rk} | {r['kit']} | {r['name']} | {r['score']} | {r['d1_beste_buur']} | "
+              f"{r['kloof']} | {r['afwijkendste_view']} | {buren} |")
 open(os.path.join(uitdir, "README.md"), "w").write("\n".join(md) + "\n")
 print("rapport geschreven:", uitdir)
