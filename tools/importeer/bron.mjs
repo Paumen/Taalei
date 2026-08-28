@@ -1,4 +1,6 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { readGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 
@@ -65,16 +67,36 @@ function leesGltfBestand(pad) {
   return { json, bin: buffers[0] };
 }
 
-function materiaalUitGltf(json, index, dir) {
+// Een ingebedde textuur staat als bytes in de buffer, niet als bestand naast de
+// glTF. laadTextuur() leest van een pad en cachet daarop, dus pakken we die bytes
+// eenmalig uit naar een pad dat van de inhoud is afgeleid: dezelfde atlas in
+// zeventig modellen wordt zo één keer geschreven en één keer gelezen.
+function tekenTextuurUit(bin, bufferView, json) {
+  const view = json.bufferViews?.[bufferView];
+  if (!view) throw new Error('image met een bufferView die niet bestaat');
+  const start = view.byteOffset ?? 0;
+  const bytes = bin.subarray(start, start + view.byteLength);
+  const map = join(tmpdir(), 'taalei-texturen');
+  mkdirSync(map, { recursive: true });
+  const pad = join(map, `${createHash('sha256').update(bytes).digest('hex').slice(0, 16)}.png`);
+  if (!existsSync(pad)) writeFileSync(pad, bytes);
+  return pad;
+}
+
+function materiaalUitGltf(json, index, dir, bin) {
   const materiaal = json.materials?.[index];
   if (!materiaal) return { textuur: null, kleur: [255, 255, 255] };
 
   const pbr = materiaal.pbrMetallicRoughness ?? {};
   const texIndex = pbr.baseColorTexture?.index;
   if (texIndex !== undefined) {
-    const uri = json.images?.[json.textures?.[texIndex]?.source]?.uri;
-    if (!uri) throw new Error('baseColorTexture zonder image-uri (ingebedde textuur)');
-    return { textuur: resolve(dir, decodeURIComponent(uri)), kleur: null };
+    const image = json.images?.[json.textures?.[texIndex]?.source];
+    if (!image) throw new Error('baseColorTexture zonder image');
+    if (image.uri) return { textuur: resolve(dir, decodeURIComponent(image.uri)), kleur: null };
+    if (image.bufferView !== undefined) {
+      return { textuur: tekenTextuurUit(bin, image.bufferView, json), kleur: null };
+    }
+    throw new Error('baseColorTexture zonder image-uri of bufferView');
   }
 
   const factor = pbr.baseColorFactor ?? [1, 1, 1, 1];
@@ -161,7 +183,7 @@ export function leesGltf(pad) {
         uvs,
         hoekkleuren,
         indices,
-        materiaal: materiaalUitGltf(json, prim.material, dir),
+        materiaal: materiaalUitGltf(json, prim.material, dir, glb.bin),
       });
     }
   });

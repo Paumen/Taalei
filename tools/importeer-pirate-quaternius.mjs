@@ -52,7 +52,7 @@ await importeerKit({
   bron: 'Pirate Kit',
   generator: 'tools/importeer-pirate-quaternius.mjs',
   schaal: 0.26,
-  formaat: 'obj',
+  formaat: 'gltf',
   bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
   modellen: MODELLEN,
 });
