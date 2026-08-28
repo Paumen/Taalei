@@ -6,7 +6,22 @@ const DIRECTIONS = [
 ];
 
 const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
-const STORAGE_KEY = 'taaleiland-swipe-v1';
+
+// ?source=missing swipes the second catalogue: everything a source pack holds that the
+// catalogue doesn't. There the question isn't which models to keep but why each one was
+// left out, so the directions start out named after reasons — all four are editable
+// under Settings either way. The two decks keep their own choices.
+const SOURCES = {
+  catalogus: { file: 'catalog.json', title: 'Swipe models', labels: null },
+  missing: {
+    file: 'missing.json',
+    title: 'Swipe what is missing',
+    labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
+  },
+};
+
+const SOURCE = SOURCES[new URLSearchParams(location.search).get('source')] ?? SOURCES.catalogus;
+const STORAGE_KEY = `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 
@@ -19,7 +34,8 @@ const readableBytes = (bytes) =>
 const dimensions = (wdh) =>
   Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
 
-const MODEL_PATH = 'kits/workfiles';
+// waar de .glb's van de gekozen catalogus staan; missing.json zegt het zelf
+let modelPath = 'kits/workfiles';
 
 // Zelfde stempel als op catalog.json, anders blijft een gecachte .glb hangen.
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
@@ -27,7 +43,7 @@ const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : p
 
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
-  m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
+  m.path = `${modelPath}/${m.kit}/${m.name}.glb`;
   return m;
 }
 
@@ -44,9 +60,11 @@ const flatMode = { on: false };
 
 const register = { models: [], perId: new Map(), kits: new Map(), groups: new Map(), tags: new Map() };
 
+const labelDefault = (direction) => SOURCE.labels?.[direction.id] ?? direction.default;
+
 const state = {
   filters: { search: '', kits: [], groups: [], tags: [], shuffle: false },
-  labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, r.default])),
+  labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, labelDefault(r)])),
   order: [],
   choices: [],
   started: false,
@@ -78,7 +96,8 @@ function load() {
   state.started = Boolean(stored.started) && state.order.length > 0;
 }
 
-const labelFor = (direction) => state.labels[direction]?.trim() || DIRECTIONS.find((r) => r.id === direction).default;
+const labelFor = (direction) =>
+  state.labels[direction]?.trim() || labelDefault(DIRECTIONS.find((r) => r.id === direction));
 
 const choicePerId = () => new Map(state.choices.map((k) => [k.id, k.direction]));
 
@@ -551,6 +570,7 @@ function exportJson() {
   const all = rows();
   const content = {
     tool: 'catalog/swipe.html',
+    source: SOURCE.file,
     created: new Date().toISOString(),
     filters: state.filters,
     directions: Object.fromEntries(
@@ -575,10 +595,15 @@ function exportCsv() {
 }
 
 async function start() {
-  const response = await fetch('catalog.json');
-  if (!response.ok) throw new Error(`catalog.json not found (${response.status})`);
+  const response = await fetch(SOURCE.file);
+  if (!response.ok) throw new Error(`${SOURCE.file} not found (${response.status})`);
   const data = await response.json();
+  modelPath = data.modelPath ?? modelPath;
   data.models.forEach(hydrate);
+
+  document.title = `Taaleiland — ${SOURCE.title}`;
+  const kop = el('.kop-titel h1 .breed');
+  if (kop) kop.textContent = SOURCE.title;
 
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
@@ -591,7 +616,7 @@ async function start() {
   el('#opzet-formulier').addEventListener('submit', (e) => {
     e.preventDefault();
     state.filters = setupFilters();
-    for (const direction of DIRECTIONS) state.labels[direction.id] = el(`#label-${direction.id}`).value.trim() || direction.default;
+    for (const direction of DIRECTIONS) state.labels[direction.id] = el(`#label-${direction.id}`).value.trim() || labelDefault(direction);
     const selection = register.models.filter(matches).map((m) => m.id);
     state.order = state.filters.shuffle ? shuffle(selection) : selection;
     const inSelection = new Set(state.order);
