@@ -16,7 +16,8 @@
 #
 # De afwijkende stijl staat overal bovenaan en de goede stijl overal onderaan,
 # zodat je bij het doorbladeren niet steeds hoeft te zoeken welke helft welke
-# is. Bladen in refdir die andersom staan draait het script om.
+# is. Elk blad in refdir krijgt zijn labels opnieuw, in die volgorde; bladen die
+# andersom stonden draait het script om.
 #
 # Wat is omgezet komt in <refdir>/index.md te staan. Bronnen die daar al in
 # staan slaat het script over, zodat opnieuw draaien niets verdubbelt.
@@ -29,10 +30,9 @@ BLAD_H = 452                # hoogte van een blad van acht views
 TEKST_Y = (9, 491)          # bovenkant van de kapitaalhoogte van beide labels
 WIS = ((0, 22), (478, 504))  # labelstroken; de rest van die banden is toch wit
 LINKS = 8
-FONT = ImageFont.truetype('/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', 10)
+FONT = ImageFont.truetype('/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', 18)
 INKT = (3, 3, 3)
 AFWIJKEND, GOED = 'AFWIJKENDE STIJL', 'GOEDE STIJL'
-GRENS = 85                  # 'AFWIJKENDE STIJL' loopt door tot x=100, 'GOEDE STIJL' tot x=69
 
 # Van deze modellen staat al een blad in de stijlreferentie; nog een keer
 # toevoegen levert twee bladen van hetzelfde model op.
@@ -100,26 +100,33 @@ def bladen(vel):
     return [vel.crop((0, y, BREED, y + BLAD_H)) for y in BLAD_Y]
 
 
-def afwijkend_boven(vel):
-    # Het bovenste label herkennen aan zijn breedte: 'AFWIJKENDE STIJL' is een
-    # stuk langer dan 'GOEDE STIJL', en verder staat er niets in die strook.
-    strook = vel.convert('L').crop((0, WIS[0][0], BREED, WIS[0][1]))
+def breedte(vel, i):
+    # Hoe ver het label in strook i doorloopt; verder staat er niets in die band.
+    strook = vel.convert('L').crop((0, WIS[i][0], BREED, WIS[i][1]))
     doos = strook.point(lambda p: 255 if p < 250 else 0).getbbox()
-    return doos is not None and doos[2] > GRENS
+    return doos[2] if doos else 0
+
+
+def afwijkend_boven(vel):
+    # 'AFWIJKENDE STIJL' is altijd langer dan 'GOEDE STIJL'. De twee labels met
+    # elkaar vergelijken werkt bij elke tekengrootte; een vaste grens niet.
+    return breedte(vel, 0) > breedte(vel, 1)
 
 
 # --- bestaande bladen gelijkzetten -------------------------------------------
+# Elk blad krijgt zijn labels opnieuw, zodat een gewijzigde tekengrootte overal
+# doorwerkt; de bladen zelf gaan onveranderd mee.
 gedraaid = []
 for naam in sorted(os.listdir(refdir)):
     if not REF.fullmatch(naam):
         continue
     pad = os.path.join(refdir, naam)
     vel = Image.open(pad).convert('RGB')
-    if afwijkend_boven(vel):
-        continue
-    onder, boven = bladen(vel)               # stond andersom
+    boven, onder = bladen(vel)
+    if not afwijkend_boven(vel):
+        boven, onder = onder, boven          # stond andersom
+        gedraaid.append(naam[:-4])
     zet(boven, onder).save(pad)
-    gedraaid.append(naam[:-4])
 
 # --- nieuwe bronnen omzetten -------------------------------------------------
 eerder = RIJ.findall(open(index).read()) if os.path.exists(index) else []
