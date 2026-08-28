@@ -21,6 +21,13 @@
 #
 # Wat is omgezet komt in <refdir>/index.md te staan. Bronnen die daar al in
 # staan slaat het script over, zodat opnieuw draaien niets verdubbelt.
+#
+# Een referentie die na het nakijken is weggehaald hoort niet terug te komen bij
+# de volgende run. Alleen het weggehaalde bestand zegt dat niet: het script ziet
+# een bron zonder referentie en zet hem gewoon opnieuw om. Daarom staat onder
+# 'Rejected' in index.md welke bronnen zijn afgewezen; die slaat het script over
+# zolang die regel blijft staan. Een bron alsnog toelaten is dus zijn regel daar
+# weghalen.
 import sys, os, re
 from PIL import Image, ImageDraw, ImageFont
 
@@ -47,6 +54,7 @@ AL_AANWEZIG = {
 
 REF = re.compile(r'ref(\d+)\.png')
 RIJ = re.compile(r'^\| `(ref\d+)\.png` \| `(.+?)\.png` \|$', re.M)
+AFGEWEZEN_RIJ = re.compile(r'^\| `(.+?)\.png` \|$', re.M)
 
 KOP = """# Converted sheets
 
@@ -60,6 +68,16 @@ style the bottom half, so the two never have to be told apart by reading.
 
 | ref | source sheet |
 |-----|--------------|
+"""
+
+AFGEWEZEN_KOP = """
+## Rejected
+
+Converted once and taken out again after review. The script leaves these alone;
+drop a row to let its sheet be converted again.
+
+| source sheet |
+|--------------|
 """
 
 STAART = """
@@ -129,8 +147,10 @@ for naam in sorted(os.listdir(refdir)):
     zet(boven, onder).save(pad)
 
 # --- nieuwe bronnen omzetten -------------------------------------------------
-eerder = RIJ.findall(open(index).read()) if os.path.exists(index) else []
-gedaan = {naam for _, naam in eerder}
+tekst = open(index).read() if os.path.exists(index) else ''
+eerder = RIJ.findall(tekst)
+afgewezen = AFGEWEZEN_RIJ.findall(tekst.partition(AFGEWEZEN_KOP)[2].partition('\n##')[0])
+gedaan = {naam for _, naam in eerder} | set(afgewezen)
 nummer = max((int(REF.fullmatch(f)[1]) for f in os.listdir(refdir)
               if REF.fullmatch(f)), default=0)
 
@@ -148,6 +168,10 @@ with open(index, 'w') as f:
     f.write(KOP % mdir)
     for ref, naam in eerder + nieuw:
         f.write('| `%s.png` | `%s.png` |\n' % (ref, naam))
+    if afgewezen:
+        f.write(AFGEWEZEN_KOP)
+        for naam in sorted(afgewezen):
+            f.write('| `%s.png` |\n' % naam)
     f.write(STAART)
     for naam, ref in sorted(AL_AANWEZIG.items()):
         f.write('| `%s.png` | `%s.png` |\n' % (naam, ref))
