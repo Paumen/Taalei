@@ -29,6 +29,39 @@ ones about three.
 Which models are compared is `tools/vind-match/modellen.txt` — one path per line,
 relative to the repository root.
 
+## Picking sheets out
+
+`overzicht/` holds the same 70 sheets as contact sheets, sixteen to a page,
+scaled down with a number above each one: `blad_01.png` … `blad_05.png`. The
+number is the position in the alphabetical listing of `*.png`, and
+`overzicht/index.md` maps every number back to its file name and page. Both are
+made by
+
+```
+bash tools/vind-match/overzicht.sh
+```
+
+which reads the sheets already in this directory — no renders, no embeddings —
+and rewrites `overzicht/` from scratch. Removing a sheet renumbers the ones
+after it, so re-run it after any removal.
+
+A selection can be looked over before anything goes. A second argument is a list
+of numbers, and those tiles get a red frame, a red number and a `REMOVE` band,
+with a `×` against them in `index.md`:
+
+```
+bash tools/vind-match/overzicht.sh docs/missing_matches 15,25,26,34
+```
+
+Every tile keeps the same geometry either way, so marking shifts nothing in the
+grid — the same numbers stay in the same places. Marking deletes nothing by
+itself; the removal is a separate step afterwards.
+
+`verwijderd/` is that record for the last removal done: the pages as they stood
+before it, with the sheets that went framed red, and an `index.md` putting a `×`
+against them. It holds one removal at a time — it is rewritten by the next one,
+and earlier ones are in the git history. `overzicht/` is the live set.
+
 ## Method
 
 The missing models are rendered with the same eight cameras as the catalogue
