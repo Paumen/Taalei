@@ -47,24 +47,25 @@ every catalogue model, how thin is its thinnest solid part?
 | 7 | `natuur/flower-daisy-3` | **3.3** | 35 × 95 × 9 | 24 | 6 |
 | 8 | `natuur/flower-bellflower-1` | **3.4** | 6 × 13 × 14 | 5 | 7 |
 | 9 | `natuur/flower-bellflower-3` | **3.4** | 13 × 6 × 14 | 5 | 8 |
-| 10 | `modulair-terrein/hilly-prop-cattail-a` | **3.6** | 18 × 197 × 17 | 25 | 2 |
-| 11 | `modulair-terrein/hilly-prop-cattail-b` | **3.6** | 5 × 268 × 6 | 20 | 2 |
-| 12 | `natuur/cattail-3` | **3.6** | 4 × 211 × 11 | 20 | 2 |
-| 13 | `natuur/cattail-4` | **3.6** | 35 × 236 × 5 | 20 | 2 |
-| 14 | `natuur/cattail-2` | **3.8** | 8 × 208 × 5 | 20 | 2 |
-| 15 | `natuur/cattail-5` | **3.9** | 18 × 277 × 26 | 20 | 2 |
-| 16 | `natuur/cattail-1` | **4.1** | 7 × 169 × 5 | 20 | 2 |
-| 17 | `natuur/flower-bellflower-2` | **4.2** | 15 × 9 × 17 | 5 | 8 |
-| 18 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
-| 19 | `village-kit/bell-a` | **4.2** | 4 × 252 × 4 | 12 | 6 |
-| 20 | `modulair-terrein/hilly-prop-flower-rose` | **4.3** | 24 × 7 × 11 | 20 | 5 |
+| 10 | `natuur/flower-bellflower-2` | **4.2** | 15 × 9 × 17 | 5 | 8 |
+| 11 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
+| 12 | `village-kit/bell-a` | **4.2** | 4 × 252 × 4 | 12 | 6 |
+| 13 | `modulair-terrein/hilly-prop-flower-rose` | **4.3** | 24 × 7 × 11 | 20 | 5 |
+| 14 | `natuur/flower-daisy-2` | **4.4** | 30 × 108 × 10 | 24 | 6 |
+| 15 | `village-kit/windmill-blades` | **4.6** | 53 × 1484 × 1484 | 12 | 47 |
+| 16 | `fantasy-props/cage-small` | **4.8** | 5 × 30 × 147 | 94 | 210 |
+| 17 | `natuur/flower-daisy-1` | **5.0** | 8 × 98 × 7 | 24 | 7 |
+| 18 | `natuur/flower-sunflower-2` | **5.0** | 94 × 53 × 106 | 72 | 5 |
+| 19 | `rpgtools/scissors` | **5.0** | 59 × 239 × 5 | 78 | 5 |
+| 20 | `natuur/flower-violet-1` | **5.2** | 16 × 15 × 21 | 5 | 8 |
 
 ## Reading it
 
-- Three families fill the list: **small handled props** (both keys, both
-  compasses, the book stack, the bell), **reeds** (all five cattails and the
-  two terrain props that reuse them), and **flower heads** (three bellflowers,
-  a daisy, a rose).
+- Two families fill most of the list: **small handled props** (both keys, both
+  compasses, the book stack, the bell, the scissors) and **flower parts**
+  (bellflowers, daisies, a rose, a violet, a sunflower) — heads and stems both.
+- The seven cattails used to sit in this list at 3.6–4.1 mm and are gone from
+  it: their stems were widened to 6.0 mm with `tools/verdik-steel.mjs`.
 - `rpgtools/journal-open` is thinnest of all at 1.1 mm, and the render shows
   what those parts are: the text on the two open pages is modelled as relief.
   Five short strokes of 23 × 7 × 9 mm sit at 1.1 mm and twelve full-width lines
@@ -74,5 +75,5 @@ every catalogue model, how thin is its thinnest solid part?
 - `village-kit/door-simple` carries a 12-triangle plate of 2.4 × 72 × 36 mm.
   Its thin direction is exactly the world x-axis, so it is an axis-aligned
   panel rather than a bevel or a chamfer running out to an edge.
-- For scale: the median model's thinnest part is 40 mm; 23 models have a part
+- For scale: the median model's thinnest part is 40 mm; 16 models have a part
   under 5 mm, 85 under 10 mm.
