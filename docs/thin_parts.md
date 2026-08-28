@@ -38,47 +38,53 @@ every catalogue model, how thin is its thinnest solid part?
 
 | # | model | thinnest part (mm) | that part, axis-aligned (mm) | tris | solid parts |
 |--:|---|--:|---|--:|--:|
-| 1 | `rpgtools/journal-open` | **1.1** | 23 × 7 × 9 | 6 | 20 |
-| 2 | `fantasy-props/key-gold` | **1.6** | 5 × 2 × 3 | 18 | 14 |
-| 3 | `fantasy-props/key-metal` | **1.7** | 5 × 2 × 4 | 18 | 7 |
-| 4 | `village-kit/door-simple` | **2.4** | 2 × 72 × 36 | 12 | 6 |
-| 5 | `fantasy-props/book-stack-2` | **2.7** | 23 × 32 × 6 | 116 | 7 |
-| 6 | `rpgtools/compass-base` | **2.9** | 99 × 3 × 99 | 22 | 10 |
-| 7 | `natuur/flower-bellflower-1` | **3.4** | 6 × 13 × 14 | 5 | 7 |
-| 8 | `natuur/flower-bellflower-3` | **3.4** | 13 × 6 × 14 | 5 | 8 |
-| 9 | `natuur/flower-bellflower-2` | **4.2** | 15 × 9 × 17 | 5 | 8 |
-| 10 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
-| 11 | `village-kit/bell-a` | **4.2** | 4 × 252 × 4 | 12 | 6 |
-| 12 | `modulair-terrein/hilly-prop-flower-rose` | **4.3** | 24 × 7 × 11 | 20 | 5 |
-| 13 | `village-kit/windmill-blades` | **4.6** | 53 × 1484 × 1484 | 12 | 47 |
-| 14 | `natuur/flower-daisy-3` | **4.7** | 15 × 14 × 19 | 8 | 6 |
-| 15 | `fantasy-props/cage-small` | **4.8** | 5 × 30 × 147 | 94 | 210 |
-| 16 | `natuur/flower-sunflower-2` | **5.0** | 94 × 53 × 106 | 72 | 5 |
-| 17 | `rpgtools/scissors` | **5.0** | 59 × 239 × 5 | 78 | 5 |
-| 18 | `natuur/flower-daisy-1` | **5.1** | 20 × 8 × 21 | 8 | 7 |
-| 19 | `natuur/flower-violet-1` | **5.2** | 16 × 15 × 21 | 5 | 8 |
-| 20 | `natuur/flower-daisy-2` | **5.2** | 15 × 17 × 21 | 8 | 6 |
+| 1 | `fantasy-props/key-gold` | **1.6** | 5 × 2 × 3 | 18 | 14 |
+| 2 | `fantasy-props/key-metal` | **1.7** | 5 × 2 × 4 | 18 | 7 |
+| 3 | `fantasy-props/book-stack-2` | **3.8** | 5 × 24 × 11 | 28 | 7 |
+| 4 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
+| 5 | `modulair-terrein/hilly-prop-flower-rose` | **6.0** | 24 × 19 × 17 | 20 | 5 |
+| 6 | `fantasy-props/book-7` | **6.0** | 44 × 6 × 44 | 157 | 5 |
+| 7 | `fantasy-props/cage-small` | **6.0** | 17 × 6 × 18 | 22 | 210 |
+| 8 | `modulair-terrein/hilly-prop-cattail-a` | **6.0** | 20 × 198 × 19 | 25 | 2 |
+| 9 | `modulair-terrein/hilly-prop-cattail-b` | **6.0** | 9 × 268 × 9 | 24 | 2 |
+| 10 | `modulair-terrein/hilly-prop-flower-tulip` | **6.0** | 9 × 95 × 7 | 14 | 8 |
+| 11 | `natuur/cattail-1` | **6.0** | 8 × 169 × 6 | 20 | 2 |
+| 12 | `natuur/cattail-2` | **6.0** | 11 × 208 × 8 | 20 | 2 |
+| 13 | `natuur/cattail-3` | **6.0** | 7 × 211 × 13 | 20 | 2 |
+| 14 | `natuur/cattail-4` | **6.0** | 36 × 236 × 6 | 20 | 2 |
+| 15 | `natuur/cattail-5` | **6.0** | 20 × 277 × 28 | 20 | 2 |
+| 16 | `natuur/flower-balloon-1` | **6.0** | 10 × 20 × 21 | 5 | 7 |
+| 17 | `natuur/flower-balloon-2` | **6.0** | 22 × 10 × 22 | 5 | 6 |
+| 18 | `natuur/flower-balloon-3` | **6.0** | 60 × 162 × 9 | 24 | 7 |
+| 19 | `natuur/flower-bellflower-1` | **6.0** | 40 × 138 × 8 | 32 | 7 |
+| 20 | `natuur/flower-bellflower-2` | **6.0** | 15 × 9 × 17 | 5 | 8 |
 
 ## Reading it
 
-- Two families fill most of the list: **small handled props** (both keys, both
-  compasses, the book stack, the bell, the scissors) and **flower parts**
-  (bellflowers, daisies, a rose, a violet, a sunflower).
-- Stems are no longer among them. The seven cattails sat here at 3.6–4.1 mm and
-  nine flower stems between 3.3 and 6.0 mm; all of them were widened to 6.0 mm
-  with `tools/verdik-steel.mjs`. What keeps the flowers on the list now is
-  their other parts: the cap in the middle of a bellflower head, the button at
-  the centre of a daisy, the petals of the rose, the sunflower's whole disc.
-  Those are not rods, and widening them the same way would make them broader as
-  well as thicker, so they were left alone.
-- `rpgtools/journal-open` is thinnest of all at 1.1 mm, and the render shows
-  what those parts are: the text on the two open pages is modelled as relief.
-  Five short strokes of 23 × 7 × 9 mm sit at 1.1 mm and twelve full-width lines
-  at 3.7 mm, on a book body that is 97 mm thick. `journal-closed`, the same
-  journal shut, holds six parts and nothing under 7.2 mm — the whole difference
-  between the two is that raised lettering.
-- `village-kit/door-simple` carries a 12-triangle plate of 2.4 × 72 × 36 mm.
-  Its thin direction is exactly the world x-axis, so it is an axis-aligned
-  panel rather than a bevel or a chamfer running out to an edge.
-- For scale: the median model's thinnest part is 40 mm; 15 models have a part
-  under 5 mm, 85 under 10 mm.
+- **The catalogue now has a floor of 6 mm, with four exceptions.** Every part
+  that could be brought up to it has been, with `tools/verdik-delen.mjs`: rods
+  widened around their own centre-line, plates and relief stretched along their
+  thinnest axis only. The four that remain are not thin so much as *small* —
+  their second dimension is under 6 mm as well, so thickening alone cannot fix
+  them without redrawing their outline:
+
+  | model | thinnest part | why it stays |
+  |---|--:|---|
+  | `fantasy-props/key-gold` | 1.6 mm | 12 parts (the wards, the bow) are 1.6–5.4 mm thick and only 3.1–5.8 mm wide |
+  | `fantasy-props/key-metal` | 1.7 mm | same shape, 6 such parts |
+  | `fantasy-props/book-stack-2` | 3.8 mm | one 28-triangle bookmark, 3.8 mm thick and 5.2 mm wide |
+  | `rpgtools/drafting-compass` | 4.2 mm | both leg tips, 4.2 mm in two directions at once |
+
+- Everything else in the list below sits exactly at the 6.0 mm floor, so the
+  ranking past rank four is only an artefact of rounding.
+
+- `rpgtools/journal-open` used to be thinnest of all at 1.1 mm: the text on its
+  two open pages is modelled as relief, five short strokes at 1.1 mm and twelve
+  full-width lines at 3.7 mm on a book body 97 mm thick. All nineteen are now at
+  6 mm, which reads as bolder lettering standing prouder of the page.
+- `village-kit/door-simple` carried a 12-triangle plate of 2.4 × 72 × 36 mm,
+  its thin direction exactly along the world x-axis — an axis-aligned panel
+  rather than a bevel running out to an edge. That one and the door's second
+  thin part are now 6 mm.
+- For scale: the median model's thinnest part is 40 mm; 4 models
+  have a part under 6 mm, 85 under 10 mm.
