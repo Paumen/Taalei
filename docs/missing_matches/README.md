@@ -31,8 +31,8 @@ relative to the repository root.
 
 ## Picking sheets out
 
-`overzicht/` holds the same 77 sheets as contact sheets, sixteen to a page,
-scaled down with a number above each one: `blad_01.png` … `blad_05.png`. The
+`overzicht/` holds the same 126 sheets as contact sheets, sixteen to a page,
+scaled down with a number above each one: `blad_01.png` … `blad_08.png`. The
 number is the position in the alphabetical listing of `*.png`, and
 `overzicht/index.md` maps every number back to its file name and page. Both are
 made by

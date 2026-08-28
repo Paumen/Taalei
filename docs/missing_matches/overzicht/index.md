@@ -1,81 +1,132 @@
 # Numbering
 
-| # | sheet | page |
-|--:|-------|-----:|
-| 1 | `FantasyProps_glTF_1k__Anvil.png` | 01 |
-| 2 | `FantasyProps_glTF_1k__Banner_1.png` | 01 |
-| 3 | `FantasyProps_glTF_1k__Barrel.png` | 01 |
-| 4 | `FantasyProps_glTF_1k__Bench.png` | 01 |
-| 5 | `FantasyProps_glTF_1k__Candle_1.png` | 01 |
-| 6 | `FantasyProps_glTF_1k__Chest_Wood.png` | 01 |
-| 7 | `FantasyProps_glTF_1k__Crate_Metal.png` | 01 |
-| 8 | `FantasyProps_glTF_1k__FarmCrate_Empty.png` | 01 |
-| 9 | `FantasyProps_glTF_1k__Pickaxe_Bronze.png` | 01 |
-| 10 | `FantasyProps_glTF_1k__Shelf_Simple.png` | 01 |
-| 11 | `FantasyProps_glTF_1k__Stall_Cart_Empty.png` | 01 |
-| 12 | `FantasyProps_glTF_1k__Stool.png` | 01 |
-| 13 | `FantasyProps_glTF_1k__Whetstone.png` | 01 |
-| 14 | `KayKit_Forest_Nature_Pack_1.0_FREE__Bush_2_E_Color1.png` | 01 |
-| 15 | `KayKit_Forest_Nature_Pack_1.0_FREE__Tree_4_B_Color1.png` | 01 |
-| 16 | `KayKit_Furniture_Bits_1.0_FREE__book_set.png` | 01 |
-| 17 | `KayKit_Furniture_Bits_1.0_FREE__book_single.png` | 02 |
-| 18 | `KayKit_Furniture_Bits_1.0_FREE__chair_A_wood.png` | 02 |
-| 19 | `KayKit_Furniture_Bits_1.0_FREE__chair_B_wood.png` | 02 |
-| 20 | `KayKit_Furniture_Bits_1.0_FREE__chair_stool_wood.png` | 02 |
-| 21 | `KayKit_Furniture_Bits_1.0_FREE__shelf_A_big.png` | 02 |
-| 22 | `KayKit_Furniture_Bits_1.0_FREE__shelf_B_large.png` | 02 |
-| 23 | `KayKit_Furniture_Bits_1.0_FREE__table_medium.png` | 02 |
-| 24 | `LowPolyNaturePackLite__fence.png` | 02 |
-| 25 | `LowPolyNaturePackLite__flower02_orange.png` | 02 |
-| 26 | `LowPolyNaturePackLite__grass03.png` | 02 |
-| 27 | `LowPolyNaturePackLite__hat_mushroom_brown.png` | 02 |
-| 28 | `LowPolyNaturePackLite__mushrooom01_red.png` | 02 |
-| 29 | `LowPolyNaturePackLite__pine01.png` | 02 |
-| 30 | `LowPolyNaturePackLite__plant02.png` | 02 |
-| 31 | `LowPolyNaturePackLite__tree_dead01.png` | 02 |
-| 32 | `PropsLite_FBX__Candle_02.png` | 02 |
-| 33 | `PropsLite_FBX__Fence_01.png` | 03 |
-| 34 | `PropsLite_FBX__Food_04.png` | 03 |
-| 35 | `PropsLite_FBX__Pointer_03.png` | 03 |
-| 36 | `TropicalIslandLite_FBX__Chest_01.png` | 03 |
-| 37 | `TropicalIslandLite_FBX__PalmTree_05.png` | 03 |
-| 38 | `TropicalIslandLite_FBX__Pier_02.png` | 03 |
-| 39 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__BirchTree_1.png` | 03 |
-| 40 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Bush_1.png` | 03 |
-| 41 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Cactus_1.png` | 03 |
-| 42 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Grass_2.png` | 03 |
-| 43 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__PalmTree_2.png` | 03 |
-| 44 | `kenney_castlekit__tree-large.png` | 03 |
-| 45 | `kenney_castlekit__tree-small.png` | 03 |
-| 46 | `kenney_fantasy-town-kit_2.0__stall-stool.png` | 03 |
-| 47 | `kenney_fantasy-town-kit_2.0__stall.png` | 03 |
-| 48 | `kenney_graveyardkit_5.0__debris-wood.png` | 03 |
-| 49 | `kenney_graveyardkit_5.0__detail-bowl.png` | 04 |
-| 50 | `kenney_graveyardkit_5.0__fence-damaged.png` | 04 |
-| 51 | `kenney_graveyardkit_5.0__hay-bale-bundled.png` | 04 |
-| 52 | `kenney_graveyardkit_5.0__shovel.png` | 04 |
-| 53 | `kenney_holidaykit__cabin-fence.png` | 04 |
-| 54 | `kenney_holidaykit__lantern-hanging.png` | 04 |
-| 55 | `kenney_mini-dungeon__chair.png` | 04 |
-| 56 | `kenney_mini-dungeon__key.png` | 04 |
-| 57 | `kenney_mini-dungeon__potion.png` | 04 |
-| 58 | `kenney_mini-forest_1.0__building-platform.png` | 04 |
-| 59 | `kenney_mini-forest_1.0__fence.png` | 04 |
-| 60 | `kenney_mini-forest_1.0__rocks-high.png` | 04 |
-| 61 | `kenney_mini-forest_1.0__tent.png` | 04 |
-| 62 | `kenney_pirate-kit__crate.png` | 04 |
-| 63 | `kenney_platformer-kit__crate-strong.png` | 04 |
-| 64 | `kenney_platformer-kit__crate.png` | 04 |
-| 65 | `kenney_platformer-kit__door-rotate.png` | 05 |
-| 66 | `kenney_platformer-kit__fence-low-corner-curved.png` | 05 |
-| 67 | `kenney_platformer-kit__key.png` | 05 |
-| 68 | `kenney_platformer-kit__trap-spikes-large.png` | 05 |
-| 69 | `kenney_platformer-kit__tree-pine-small.png` | 05 |
-| 70 | `kenney_platformer-kit__tree.png` | 05 |
-| 71 | `kenney_survival-kit__grass-large.png` | 05 |
-| 72 | `kenney_survival-kit__grass.png` | 05 |
-| 73 | `kenney_survival-kit__tree-autumn-trunk.png` | 05 |
-| 74 | `kenney_survival-kit__tree-trunk.png` | 05 |
-| 75 | `modular_terrain_collection__Beach_Prop_Treasure_Chest.png` | 05 |
-| 76 | `modular_terrain_collection__Hilly_Prop_Tree_Cedar_1.png` | 05 |
-| 77 | `nature_kit__Tree_Cedar_1.png` | 05 |
+49 of 126 sheets are marked for removal.
+
+| # | sheet | page | marked |
+|--:|-------|-----:|:------:|
+| 1 | `FantasyProps_glTF_1k__Anvil.png` | 01 |  |
+| 2 | `FantasyProps_glTF_1k__Banner_1.png` | 01 |  |
+| 3 | `FantasyProps_glTF_1k__Barrel.png` | 01 |  |
+| 4 | `FantasyProps_glTF_1k__Bench.png` | 01 |  |
+| 5 | `FantasyProps_glTF_1k__Candle_1.png` | 01 |  |
+| 6 | `FantasyProps_glTF_1k__Chest_Wood.png` | 01 |  |
+| 7 | `FantasyProps_glTF_1k__Crate_Metal.png` | 01 |  |
+| 8 | `FantasyProps_glTF_1k__FarmCrate_Empty.png` | 01 |  |
+| 9 | `FantasyProps_glTF_1k__Pickaxe_Bronze.png` | 01 |  |
+| 10 | `FantasyProps_glTF_1k__Shelf_Simple.png` | 01 |  |
+| 11 | `FantasyProps_glTF_1k__Stall_Cart_Empty.png` | 01 |  |
+| 12 | `FantasyProps_glTF_1k__Stool.png` | 01 |  |
+| 13 | `FantasyProps_glTF_1k__Whetstone.png` | 01 |  |
+| 14 | `KayKit_Forest_Nature_Pack_1.0_FREE__Bush_2_E_Color1.png` | 01 |  |
+| 15 | `KayKit_Forest_Nature_Pack_1.0_FREE__Tree_3_C_Color1.png` | 01 | × |
+| 16 | `KayKit_Forest_Nature_Pack_1.0_FREE__Tree_4_B_Color1.png` | 01 |  |
+| 17 | `KayKit_Furniture_Bits_1.0_FREE__book_set.png` | 02 |  |
+| 18 | `KayKit_Furniture_Bits_1.0_FREE__book_single.png` | 02 |  |
+| 19 | `KayKit_Furniture_Bits_1.0_FREE__chair_A_wood.png` | 02 |  |
+| 20 | `KayKit_Furniture_Bits_1.0_FREE__chair_B_wood.png` | 02 |  |
+| 21 | `KayKit_Furniture_Bits_1.0_FREE__chair_stool_wood.png` | 02 |  |
+| 22 | `KayKit_Furniture_Bits_1.0_FREE__shelf_A_big.png` | 02 |  |
+| 23 | `KayKit_Furniture_Bits_1.0_FREE__shelf_B_large.png` | 02 |  |
+| 24 | `KayKit_Furniture_Bits_1.0_FREE__table_medium.png` | 02 |  |
+| 25 | `LowPolyNaturePackLite__bush_berries_red.png` | 02 | × |
+| 26 | `LowPolyNaturePackLite__dead_tree.png` | 02 | × |
+| 27 | `LowPolyNaturePackLite__fence.png` | 02 |  |
+| 28 | `LowPolyNaturePackLite__flower02_orange.png` | 02 |  |
+| 29 | `LowPolyNaturePackLite__grass03.png` | 02 |  |
+| 30 | `LowPolyNaturePackLite__hat_mushroom_brown.png` | 02 |  |
+| 31 | `LowPolyNaturePackLite__mushrooom01_red.png` | 02 |  |
+| 32 | `LowPolyNaturePackLite__pine01.png` | 02 |  |
+| 33 | `LowPolyNaturePackLite__plant02.png` | 03 |  |
+| 34 | `LowPolyNaturePackLite__rock.png` | 03 | × |
+| 35 | `LowPolyNaturePackLite__simple_bush.png` | 03 | × |
+| 36 | `LowPolyNaturePackLite__tree01.png` | 03 | × |
+| 37 | `LowPolyNaturePackLite__tree_dead01.png` | 03 |  |
+| 38 | `Modular Village__Prop_Hay_1.png` | 03 | × |
+| 39 | `PropsLite_FBX__Candle_01.png` | 03 | × |
+| 40 | `PropsLite_FBX__Candle_02.png` | 03 |  |
+| 41 | `PropsLite_FBX__Fence_01.png` | 03 |  |
+| 42 | `PropsLite_FBX__Food_04.png` | 03 |  |
+| 43 | `PropsLite_FBX__Pointer_03.png` | 03 |  |
+| 44 | `TropicalIslandLite_FBX__Chest_01.png` | 03 |  |
+| 45 | `TropicalIslandLite_FBX__PalmTree_05.png` | 03 |  |
+| 46 | `TropicalIslandLite_FBX__Pier_02.png` | 03 |  |
+| 47 | `TropicalIslandLite_FBX__Rock_01.png` | 03 | × |
+| 48 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__BirchTree_1.png` | 03 |  |
+| 49 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__BirchTree_Snow_4.png` | 04 | × |
+| 50 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Bush_1.png` | 04 |  |
+| 51 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Cactus_1.png` | 04 |  |
+| 52 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__CommonTree_2.png` | 04 | × |
+| 53 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Corn_1.png` | 04 | × |
+| 54 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Grass_2.png` | 04 |  |
+| 55 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__PalmTree_2.png` | 04 |  |
+| 56 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Plant_2.png` | 04 | × |
+| 57 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Plant_3.png` | 04 | × |
+| 58 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Wheat.png` | 04 | × |
+| 59 | `Ultimate_Nature_Pack_by_Quaternius_OBJ__Willow_1.png` | 04 | × |
+| 60 | `kenney_castlekit__door.png` | 04 | × |
+| 61 | `kenney_castlekit__tree-large.png` | 04 |  |
+| 62 | `kenney_castlekit__tree-log.png` | 04 | × |
+| 63 | `kenney_castlekit__tree-small.png` | 04 |  |
+| 64 | `kenney_castlekit__tree-trunk.png` | 04 | × |
+| 65 | `kenney_fantasy-town-kit_2.0__stall-bench.png` | 05 | × |
+| 66 | `kenney_fantasy-town-kit_2.0__stall-stool.png` | 05 |  |
+| 67 | `kenney_fantasy-town-kit_2.0__stall.png` | 05 |  |
+| 68 | `kenney_graveyardkit_5.0__debris-wood.png` | 05 |  |
+| 69 | `kenney_graveyardkit_5.0__detail-bowl.png` | 05 |  |
+| 70 | `kenney_graveyardkit_5.0__detail-chalice.png` | 05 | × |
+| 71 | `kenney_graveyardkit_5.0__detail-plate.png` | 05 | × |
+| 72 | `kenney_graveyardkit_5.0__fence-damaged.png` | 05 |  |
+| 73 | `kenney_graveyardkit_5.0__fence.png` | 05 | × |
+| 74 | `kenney_graveyardkit_5.0__hay-bale-bundled.png` | 05 |  |
+| 75 | `kenney_graveyardkit_5.0__hay-bale.png` | 05 | × |
+| 76 | `kenney_graveyardkit_5.0__lantern-glass.png` | 05 | × |
+| 77 | `kenney_graveyardkit_5.0__shovel.png` | 05 |  |
+| 78 | `kenney_graveyardkit_5.0__trunk-long.png` | 05 | × |
+| 79 | `kenney_holidaykit__cabin-fence.png` | 05 |  |
+| 80 | `kenney_holidaykit__hanukkah-menorah-candles.png` | 05 | × |
+| 81 | `kenney_holidaykit__lantern-hanging.png` | 06 |  |
+| 82 | `kenney_holidaykit__lantern.png` | 06 | × |
+| 83 | `kenney_mini-dungeon__barrel.png` | 06 | × |
+| 84 | `kenney_mini-dungeon__chair.png` | 06 |  |
+| 85 | `kenney_mini-dungeon__chest.png` | 06 | × |
+| 86 | `kenney_mini-dungeon__key.png` | 06 |  |
+| 87 | `kenney_mini-dungeon__potion.png` | 06 |  |
+| 88 | `kenney_mini-dungeon__trap.png` | 06 | × |
+| 89 | `kenney_mini-dungeon__wood-structure.png` | 06 | × |
+| 90 | `kenney_mini-forest_1.0__building-platform.png` | 06 |  |
+| 91 | `kenney_mini-forest_1.0__building-roof.png` | 06 | × |
+| 92 | `kenney_mini-forest_1.0__fence.png` | 06 |  |
+| 93 | `kenney_mini-forest_1.0__flag.png` | 06 | × |
+| 94 | `kenney_mini-forest_1.0__rocks-high.png` | 06 |  |
+| 95 | `kenney_mini-forest_1.0__tent.png` | 06 |  |
+| 96 | `kenney_mini-forest_1.0__weapon-arrow.png` | 06 | × |
+| 97 | `kenney_pirate-kit__barrel.png` | 07 | × |
+| 98 | `kenney_pirate-kit__crate.png` | 07 |  |
+| 99 | `kenney_pirate-kit__palm-bend.png` | 07 | × |
+| 100 | `kenney_pirate-kit__tool-paddle.png` | 07 | × |
+| 101 | `kenney_pirate-kit__tool-shovel.png` | 07 | × |
+| 102 | `kenney_platformer-kit__chest.png` | 07 | × |
+| 103 | `kenney_platformer-kit__crate-item.png` | 07 | × |
+| 104 | `kenney_platformer-kit__crate-strong.png` | 07 |  |
+| 105 | `kenney_platformer-kit__crate.png` | 07 |  |
+| 106 | `kenney_platformer-kit__door-rotate.png` | 07 |  |
+| 107 | `kenney_platformer-kit__fence-low-corner-curved.png` | 07 |  |
+| 108 | `kenney_platformer-kit__flowers-tall.png` | 07 | × |
+| 109 | `kenney_platformer-kit__key.png` | 07 |  |
+| 110 | `kenney_platformer-kit__saw.png` | 07 | × |
+| 111 | `kenney_platformer-kit__trap-spikes-large.png` | 07 |  |
+| 112 | `kenney_platformer-kit__tree-pine-small.png` | 07 |  |
+| 113 | `kenney_platformer-kit__tree.png` | 08 |  |
+| 114 | `kenney_survival-kit__bucket.png` | 08 | × |
+| 115 | `kenney_survival-kit__chest.png` | 08 | × |
+| 116 | `kenney_survival-kit__grass-large.png` | 08 |  |
+| 117 | `kenney_survival-kit__grass.png` | 08 |  |
+| 118 | `kenney_survival-kit__tool-axe.png` | 08 | × |
+| 119 | `kenney_survival-kit__tool-hammer.png` | 08 | × |
+| 120 | `kenney_survival-kit__tree-autumn-trunk.png` | 08 |  |
+| 121 | `kenney_survival-kit__tree-trunk.png` | 08 |  |
+| 122 | `modular_terrain_collection__Beach_Prop_Treasure_Chest.png` | 08 |  |
+| 123 | `modular_terrain_collection__Hilly_Prop_Bush_2.png` | 08 | × |
+| 124 | `modular_terrain_collection__Hilly_Prop_Hollow_Trunk.png` | 08 | × |
+| 125 | `modular_terrain_collection__Hilly_Prop_Tree_Cedar_1.png` | 08 |  |
+| 126 | `nature_kit__Tree_Cedar_1.png` | 08 |  |
