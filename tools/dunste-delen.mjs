@@ -2,15 +2,18 @@
 //
 // Een onderdeel is een samenhangend stuk mesh — hoekpunten eerst gelast op
 // wereldpositie, dan driehoek voor driehoek verenigd, net als in afsplitsen.mjs.
-// De dikte van zo'n onderdeel is de kleinste maat van de strakst passende doos:
-// voor elke richting de afstand tussen de twee steunvlakken, en daarvan de
-// kleinste. De richtingen komen uit het onderdeel zelf — de normalen van zijn
-// eigen driehoeken, plus de drie wereldassen. Bij een plank of een blad ligt de
-// dunne richting altijd loodrecht op een van zijn eigen vlakken, dus die zit er
-// gegarandeerd bij; een asgerichte doos zou een schuine plank veel te dik meten.
+// De dikte van zo'n onderdeel is de kleinste breedte van de strakst passende
+// doos: voor een richting de afstand tussen de twee steunvlakken, en daarvan de
+// kleinste over alle richtingen. Die kleinste breedte valt altijd óf loodrecht
+// op een vlak van de omhullende, óf loodrecht op twee van zijn ribben tegelijk,
+// dus verder hoeft de meting niet te kijken. Een asgerichte doos zou een schuin
+// onderdeel veel te dik meten, en alleen de eigen vlaknormalen zouden een
+// gebogen onderdeel overschatten — daar ligt de dunne richting juist tussen de
+// vlakken in. Onderdelen met een te fijne omhullende vallen terug op een
+// benadering; die staat verderop beschreven.
 //
 // Vlakke onderdelen (een enkel vlak: bladkaartjes, vlaggen, kleden) hebben geen
-// dikte en tellen niet mee — alles onder --ondergrens valt af.
+// dikte; zij en alles onder --ondergrens vallen af.
 //
 //   node tools/dunste-delen.mjs [--aantal 20] [--ondergrens 0.001] \
 //     [--kit dungeon] [--json pad.json]
@@ -362,7 +365,7 @@ const catalogus = JSON.parse(readFileSync(join(WORTEL, 'catalog/catalog.json'), 
 const modellen = catalogus.models.filter((m) => !kitfilter || m.kit === kitfilter);
 
 const rijen = [];
-let vlakkeDelen = 0, gemetenDelen = 0, zonderDikOnderdeel = 0, benaderdeDelen = 0;
+let vlakkeDelen = 0, dunneDelen = 0, gemetenDelen = 0, zonderDikOnderdeel = 0, benaderdeDelen = 0;
 for (const model of modellen) {
   const glb = readGlb(join(MODELMAP, model.kit, `${model.name}.glb`));
   const mesh = wereldMesh(glb);
@@ -371,7 +374,8 @@ for (const model of modellen) {
   benaderdeDelen += delen.filter((d) => d.benaderd).length;
 
   const dik = delen.filter((d) => d.dikte >= ondergrens);
-  vlakkeDelen += delen.length - dik.length;
+  vlakkeDelen += delen.filter((d) => d.dikte === 0).length;
+  dunneDelen += delen.filter((d) => d.dikte > 0 && d.dikte < ondergrens).length;
   if (dik.length === 0) { zonderDikOnderdeel++; continue; }
 
   const dunste = dik.reduce((a, b) => (b.dikte < a.dikte ? b : a));
@@ -392,9 +396,10 @@ for (const model of modellen) {
 rijen.sort((a, b) => a.dikte - b.dikte);
 
 const mm = (v) => `${(v * 1000).toFixed(1)} mm`;
-console.log(`${modellen.length} modellen, ${gemetenDelen} onderdelen — ${vlakkeDelen} vlak (< ${mm(ondergrens)}) en niet meegeteld`);
+console.log(`${modellen.length} modellen, ${gemetenDelen} onderdelen — ${vlakkeDelen} vlak en niet meegeteld`);
+if (dunneDelen) console.log(`${dunneDelen} onderdelen zijn wel massief maar dunner dan ${mm(ondergrens)} en tellen ook niet mee`);
 if (benaderdeDelen) console.log(`${benaderdeDelen} onderdelen hebben een te fijne omhullende voor de exacte meting en zijn benaderd`);
-if (zonderDikOnderdeel) console.log(`${zonderDikOnderdeel} modellen bestaan alléén uit vlakke onderdelen en staan niet in de lijst`);
+if (zonderDikOnderdeel) console.log(`${zonderDikOnderdeel} modellen houden geen enkel onderdeel over en staan niet in de lijst`);
 console.log('');
 console.log('  #     dikte  model                                       dunste deel (mm)   drieh.   delen');
 rijen.slice(0, aantal).forEach((r, i) => {

@@ -22,10 +22,11 @@ every catalogue model, how thin is its thinnest solid part?
   the clearest case — the part sits in a 53 × 1484 × 1484 mm axis-aligned box and
   is 4.6 mm thick.
 - **Flat parts have no thickness and are left out.** Leaf cards, banners and the
-  like measure zero; 29 of the 5911 parts are flat, and the thickest of them
-  (in `pirate-kit/structure-roof`) still comes to 7 × 10⁻⁹ m. The cut-off is
-  1 mm and nothing real sits near it — the thinnest solid part in the catalogue
-  is 1.1 mm — so the cut-off falls in a gap six orders of magnitude wide.
+  like measure zero: 21 of the 5911 parts are exactly coplanar, and 8 more (all
+  quads in `pirate-kit/structure-roof` whose corners miss coplanarity by a hair)
+  come out between 10⁻⁸ and 7 × 10⁻⁸ m. The cut-off is 1 mm and nothing real
+  sits near it — the thinnest solid part in the catalogue is 1.1 mm — so it
+  falls in a gap four orders of magnitude wide.
 - A model is ranked by its **thinnest** part, so a single wafer in an otherwise
   chunky model is enough to put it on this list.
 - 87 parts (1.5%) have a hull too fine for the exact search and fall back to a
