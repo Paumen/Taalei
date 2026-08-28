@@ -5,9 +5,9 @@ Scope: items in catalog.
 
 ## 0. Look
 
-- Toy-like, chunky-ish, objects slightly caricatured,
-- Slightly faceted, iconic, story book. 
-- Detail count stays low.
+Toy-like and iconic: chunky, slightly caricatured — not thin or spindly, except for building panels (will get the look once assembled), also not overshot into too primitively.
+Clean deliberate facets, chamfered edges — rounded-soft, not noisy.
+Few details,, except for organic objects.
 
 ## 1. Color
 - Colors come from the shared colormap image (`kits/colormap.png`): assets color
