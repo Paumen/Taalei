@@ -6,7 +6,7 @@
 // Meerdere --van mogen naar dezelfde --naar. Het bestand wordt in place herschreven.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
-import { leesPng } from '../catalog/tools/png.mjs';
+import { readPng } from '../catalog/tools/png.mjs';
 
 const KOLOMMEN = 16;
 const RIJEN = 4;
@@ -26,7 +26,7 @@ if (van.length === 0 || !naar || bestanden.length === 0) {
   process.exit(1);
 }
 
-const atlas = leesPng(COLORMAP);
+const atlas = readPng(COLORMAP);
 const celBreed = atlas.width / KOLOMMEN;
 const celHoog = atlas.height / RIJEN;
 

@@ -2,9 +2,19 @@
  "budgetPerUnit": 2000,
  "kits": [
   {
+   "slug": "castle-kit",
+   "name": "Kenney Castle Kit",
+   "url": "https://kenney.nl/assets/castle-kit"
+  },
+  {
    "slug": "dungeon",
    "name": "Dungeon",
    "url": "https://www.kaylousberg.com"
+  },
+  {
+   "slug": "dungeon-quaternius",
+   "name": "Quaternius Modular Dungeons",
+   "url": "https://quaternius.com/packs/modulardungeon.html"
   },
   {
    "slug": "fantasy-props",
@@ -17,9 +27,24 @@
    "url": "https://kenney.nl/assets/fantasy-town-kit"
   },
   {
+   "slug": "fish-quaternius",
+   "name": "Quaternius Animated Fish",
+   "url": "https://quaternius.com/packs/animatedfish.html"
+  },
+  {
+   "slug": "food-quaternius",
+   "name": "Quaternius Ultimate Food",
+   "url": "https://quaternius.com/packs/ultimatefood.html"
+  },
+  {
    "slug": "forest",
    "name": "Forest",
    "url": "https://www.kaylousberg.com"
+  },
+  {
+   "slug": "graveyard-kit",
+   "name": "Kenney Graveyard Kit",
+   "url": "https://kenney.nl/assets/graveyard-kit"
   },
   {
    "slug": "halloween",
@@ -48,6 +73,11 @@
    "slug": "pirate-kit",
    "name": "Pirate Kit",
    "url": "https://kenney.nl/assets/pirate-kit"
+  },
+  {
+   "slug": "pirate-quaternius",
+   "name": "Quaternius Pirate Kit",
+   "url": "https://quaternius.com/packs/piratekit.html"
   },
   {
    "slug": "platformer-kit",
@@ -83,9 +113,19 @@
    "name": "Rocks"
   },
   {
+   "slug": "rpg-quaternius",
+   "name": "Quaternius Ultimate RPG",
+   "url": "https://quaternius.com/packs/ultimaterpg.html"
+  },
+  {
    "slug": "rpgtools",
    "name": "RPG Tools",
    "url": "https://www.kaylousberg.com"
+  },
+  {
+   "slug": "ships-quaternius",
+   "name": "Quaternius Ships",
+   "url": "https://quaternius.com/packs/ships.html"
   },
   {
    "slug": "survival-kit",
@@ -1921,7 +1961,7 @@
    "id": "fauna",
    "name": "Fauna",
    "type": "tag",
-   "description": "Animal, apart from bone: the shells and starfish from the beach and the two fish from the survival kit."
+   "description": "Animal, apart from bone: the shells and starfish from the beach, the two fish from the survival kit, and the sea life from Quaternius — dolphin, whale, shark, manta ray and the loose fish."
   },
   {
    "id": "precious-metal",
@@ -1963,7 +2003,7 @@
    "id": "qua",
    "name": "Quaternius",
    "type": "tag",
-   "description": "Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature, plus the six packs that came later — pirate, dungeon, RPG, food, fish and ships. Derived from the models themselves, so not tracked in catalog/tags.json."
   },
   {
    "id": "animation",
@@ -1996,13 +2036,8 @@
    "color": "#7a6154"
   },
   {
-   "id": "ships",
-   "name": "Ships & sailing",
-   "color": "#474a58"
-  },
-  {
-   "id": "animals",
-   "name": "Animals",
+   "id": "ocean",
+   "name": "Ocean",
    "color": "#3e8fd0"
   },
   {
@@ -2121,12 +2156,83 @@
    "color": "#877a63"
   },
   {
+   "id": "characters",
+   "name": "Characters",
+   "color": "#8a6fb0"
+  },
+  {
    "id": "building-kit",
    "name": "Building kit & mills",
    "color": "#a8762a"
   }
  ],
  "models": [
+  {
+   "kit": "castle-kit",
+   "name": "tower-square-mid-open-simple",
+   "gr": "structures",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 176,
+   "tpu": 513,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 13756,
+   "vtx": 352,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.0101,
+   "dens": 842,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.79,
+   "hues": 1,
+   "colors": [
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "tags": [
+    "ken",
+    "structure"
+   ]
+  },
+  {
+   "kit": "castle-kit",
+   "name": "tower-square-mid-open",
+   "gr": "structures",
+   "wdh": [
+    0.6,
+    0.6,
+    0.7
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16420,
+   "vtx": 424,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00965,
+   "dens": 1000,
+   "anglePct": 100,
+   "vpt": 1.77,
+   "grad": 0.79,
+   "hues": 1,
+   "colors": [
+    "#d07b56",
+    "#dd9f79"
+   ],
+   "tags": [
+    "ken",
+    "structure"
+   ]
+  },
   {
    "kit": "dungeon",
    "name": "barrel-large-decorated",
@@ -4794,6 +4900,38 @@
   },
   {
    "kit": "dungeon",
+   "name": "plate-stack",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16488,
+   "vtx": 403,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00048,
+   "dens": 119421,
+   "anglePct": 10,
+   "vpt": 1.12,
+   "grad": 0.73,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "kay",
+    "object"
+   ]
+  },
+  {
+   "kit": "dungeon",
    "name": "plate",
    "gr": "food",
    "wdh": [
@@ -7092,6 +7230,474 @@
     "structure"
    ],
    "variant": "v51"
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "arch-door",
+   "gr": "structures",
+   "wdh": [
+    0.8,
+    0.1,
+    1.1
+   ],
+   "tris": 1220,
+   "tpu": 2229,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 71304,
+   "vtx": 1954,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00496,
+   "dens": 11213,
+   "anglePct": 89,
+   "vpt": 1.6,
+   "grad": 0.06,
+   "hues": 2,
+   "colors": [
+    "#474a58",
+    "#714c39",
+    "#88796d"
+   ],
+   "tags": [
+    "metal",
+    "qua",
+    "structure",
+    "timber"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "arch",
+   "gr": "structures",
+   "wdh": [
+    1.4,
+    0.3,
+    1.4
+   ],
+   "tris": 4484,
+   "tpu": 6405,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 303580,
+   "vtx": 8601,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00209,
+   "dens": 6405,
+   "anglePct": 77,
+   "vpt": 1.92,
+   "grad": 0.38,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "bucket",
+   "gr": "storage",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 26248,
+   "vtx": 708,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00027,
+   "dens": 104553,
+   "anglePct": 10,
+   "vpt": 1.97,
+   "grad": 0.14,
+   "hues": 2,
+   "colors": [
+    "#474a58",
+    "#cb9d78"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "cobweb-2",
+   "gr": "items",
+   "wdh": [
+    0.5,
+    0.4,
+    0.3
+   ],
+   "tris": 868,
+   "tpu": 2531,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 62216,
+   "vtx": 1736,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 17320,
+   "anglePct": 2,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "textile"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "cobweb",
+   "gr": "items",
+   "wdh": [
+    0.4,
+    0.3,
+    0.3
+   ],
+   "tris": 1108,
+   "tpu": 3230,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 79012,
+   "vtx": 2216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
+   "dens": 31177,
+   "anglePct": 3,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "textile"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "column",
+   "gr": "structures",
+   "wdh": [
+    0.5,
+    0.5,
+    1.4
+   ],
+   "tris": 440,
+   "tpu": 631,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 28520,
+   "vtx": 764,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00619,
+   "dens": 1487,
+   "anglePct": 86,
+   "vpt": 1.74,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44",
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "floor-bricks-separate",
+   "gr": "structures",
+   "wdh": [
+    0.3,
+    0.4,
+    0.1
+   ],
+   "tris": 236,
+   "tpu": 688,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16340,
+   "vtx": 420,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00114,
+   "dens": 18749,
+   "anglePct": 72,
+   "vpt": 1.78,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "floor-modular",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.7,
+    0.1
+   ],
+   "tris": 1176,
+   "tpu": 3419,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 78160,
+   "vtx": 2176,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00141,
+   "dens": 27195,
+   "anglePct": 94,
+   "vpt": 1.85,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "skull",
+   "gr": "items",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1392,
+   "tpu": 4058,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 98884,
+   "vtx": 2784,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00008,
+   "dens": 269093,
+   "anglePct": 2,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "stairs-modular",
+   "gr": "connections",
+   "wdh": [
+    0.7,
+    0.7,
+    0.7
+   ],
+   "tris": 1420,
+   "tpu": 3968,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 93516,
+   "vtx": 2610,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00191,
+   "dens": 3968,
+   "anglePct": 89,
+   "vpt": 1.84,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "stairs-side-cover-wall",
+   "gr": "connections",
+   "wdh": [
+    0.2,
+    0.7,
+    0.7
+   ],
+   "tris": 1252,
+   "tpu": 3594,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 82800,
+   "vtx": 2306,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00191,
+   "dens": 16001,
+   "anglePct": 86,
+   "vpt": 1.84,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "stairs-side-cover",
+   "gr": "connections",
+   "wdh": [
+    0.2,
+    0.7,
+    0.7
+   ],
+   "tris": 892,
+   "tpu": 2560,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 59060,
+   "vtx": 1632,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00194,
+   "dens": 11226,
+   "anglePct": 87,
+   "vpt": 1.83,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "wall-cover-modular",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.2,
+    0.2
+   ],
+   "tris": 280,
+   "tpu": 816,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 19028,
+   "vtx": 496,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00216,
+   "dens": 14798,
+   "anglePct": 95,
+   "vpt": 1.77,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#474a58"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
+  },
+  {
+   "kit": "dungeon-quaternius",
+   "name": "wall-modular",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 1672,
+   "tpu": 4861,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 113196,
+   "vtx": 3178,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00132,
+   "dens": 22239,
+   "anglePct": 92,
+   "vpt": 1.9,
+   "grad": 0.38,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "qua",
+    "stone",
+    "structure"
+   ]
   },
   {
    "kit": "fantasy-props",
@@ -10389,6 +10995,885 @@
    ]
   },
   {
+   "kit": "fish-quaternius",
+   "name": "dolphin",
+   "gr": "ocean",
+   "wdh": [
+    0.3,
+    1,
+    0.3
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 139712,
+   "vtx": 1320,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00109,
+   "dens": 3789,
+   "anglePct": 3,
+   "vpt": 3,
+   "grad": 0.31,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "fish-1",
+   "gr": "ocean",
+   "wdh": [
+    0.1,
+    0.9,
+    0.3
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "calls": 3,
+   "bytes": 169076,
+   "vtx": 1632,
+   "minEdge": 0.001,
+   "avgTri": 0.00064,
+   "dens": 16689,
+   "anglePct": 9,
+   "vpt": 3,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#8f785b",
+    "#dd9f79",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "fish-2",
+   "gr": "ocean",
+   "wdh": [
+    0.2,
+    1.1,
+    0.7
+   ],
+   "tris": 502,
+   "tpu": 1464,
+   "mat": 1,
+   "calls": 3,
+   "bytes": 154880,
+   "vtx": 1506,
+   "minEdge": 0.001,
+   "avgTri": 0.00235,
+   "dens": 3234,
+   "anglePct": 1,
+   "vpt": 3,
+   "grad": 0.28,
+   "hues": 2,
+   "colors": [
+    "#2473b3",
+    "#8f785b"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim.001"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "fish-3",
+   "gr": "ocean",
+   "wdh": [
+    0.2,
+    0.8,
+    0.5
+   ],
+   "tris": 686,
+   "tpu": 2000,
+   "mat": 1,
+   "calls": 3,
+   "bytes": 206080,
+   "vtx": 2058,
+   "minEdge": 0.004,
+   "avgTri": 0.00077,
+   "dens": 9486,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#3e3e44",
+    "#d07b56",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "manta-ray",
+   "gr": "ocean",
+   "wdh": [
+    0.8,
+    1.3,
+    0.2
+   ],
+   "tris": 696,
+   "tpu": 955,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 227224,
+   "vtx": 2088,
+   "minEdge": 0.005,
+   "avgTri": 0.00094,
+   "dens": 2787,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d738a",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "shark",
+   "gr": "ocean",
+   "wdh": [
+    0.6,
+    1.7,
+    0.6
+   ],
+   "tris": 644,
+   "tpu": 820,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 193992,
+   "vtx": 1932,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00217,
+   "dens": 1005,
+   "anglePct": 5,
+   "vpt": 3,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d738a",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "fish-quaternius",
+   "name": "whale",
+   "gr": "ocean",
+   "wdh": [
+    0.4,
+    1.1,
+    0.4
+   ],
+   "tris": 447,
+   "tpu": 1303,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 149376,
+   "vtx": 1341,
+   "minEdge": 0.005,
+   "avgTri": 0.00147,
+   "dens": 2575,
+   "anglePct": 0,
+   "vpt": 3,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#9da4c4",
+    "#cb9d78"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Armature|Swim"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "bottle-1",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16064,
+   "vtx": 416,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
+   "dens": 511628,
+   "anglePct": 7,
+   "vpt": 1.89,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#88796d",
+    "#8f785b"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "bottle-2",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 15804,
+   "vtx": 408,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
+   "dens": 491620,
+   "anglePct": 6,
+   "vpt": 1.85,
+   "grad": 0,
+   "hues": 4,
+   "colors": [
+    "#23562c",
+    "#7f3927",
+    "#88796d",
+    "#8f785b"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "bread-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 368,
+   "tpu": 1073,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 15940,
+   "vtx": 384,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 4338804,
+   "anglePct": 81,
+   "vpt": 1.04,
+   "grad": 0.55,
+   "hues": 1,
+   "colors": [
+    "#8f785b"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "bread",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 412,
+   "tpu": 1201,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 19000,
+   "vtx": 472,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 441598,
+   "anglePct": 61,
+   "vpt": 1.15,
+   "grad": 0.55,
+   "hues": 1,
+   "colors": [
+    "#8f785b"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "chicken-leg",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 21348,
+   "vtx": 568,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00009,
+   "dens": 436131,
+   "anglePct": 0,
+   "vpt": 1.97,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#88796d"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "coconut-half",
+   "gr": "plants",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 132,
+   "tpu": 385,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 13376,
+   "vtx": 348,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00016,
+   "dens": 401277,
+   "anglePct": 2,
+   "vpt": 2.64,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "coconut",
+   "gr": "plants",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 82,
+   "tpu": 239,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 9724,
+   "vtx": 244,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00027,
+   "dens": 130436,
+   "anglePct": 3,
+   "vpt": 2.98,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#714c39"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "cooking-pot-2",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 18108,
+   "vtx": 472,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00048,
+   "dens": 69282,
+   "anglePct": 33,
+   "vpt": 1.82,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "cooking-pot",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 18108,
+   "vtx": 472,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00083,
+   "dens": 37824,
+   "anglePct": 39,
+   "vpt": 1.82,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "fish-bone",
+   "gr": "ocean",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 588,
+   "tpu": 1714,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 40756,
+   "vtx": 1118,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
+   "dens": 812261,
+   "anglePct": 1,
+   "vpt": 1.9,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "fish",
+   "gr": "food",
+   "wdh": [
+    0.4,
+    0.1,
+    0.1
+   ],
+   "tris": 438,
+   "tpu": 1277,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 32476,
+   "vtx": 888,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00012,
+   "dens": 325057,
+   "anglePct": 39,
+   "vpt": 2.03,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#8f785b",
+    "#dd9f79",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "fork",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 12472,
+   "vtx": 310,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
+   "dens": 7363886,
+   "anglePct": 84,
+   "vpt": 1.65,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "frying-pan",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 214,
+   "tpu": 624,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16104,
+   "vtx": 418,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00036,
+   "dens": 130342,
+   "anglePct": 12,
+   "vpt": 1.95,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#3e3e44",
+    "#714c39"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "knife",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 112,
+   "tpu": 327,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 6968,
+   "vtx": 152,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00005,
+   "dens": 7038713,
+   "anglePct": 95,
+   "vpt": 1.36,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "lettuce-whole",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 592,
+   "tpu": 1726,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 42128,
+   "vtx": 1160,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00049,
+   "dens": 117069,
+   "anglePct": 6,
+   "vpt": 1.96,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#23562c"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "plate-2",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 196,
+   "tpu": 571,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 14764,
+   "vtx": 380,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00043,
+   "dens": 165063,
+   "anglePct": 55,
+   "vpt": 1.94,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "plate",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 156,
+   "tpu": 455,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 11956,
+   "vtx": 300,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00043,
+   "dens": 145123,
+   "anglePct": 24,
+   "vpt": 1.92,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "spoon",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 128,
+   "tpu": 373,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 12696,
+   "vtx": 328,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00007,
+   "dens": 1597823,
+   "anglePct": 38,
+   "vpt": 2.56,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "steak",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 412,
+   "tpu": 1201,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 29568,
+   "vtx": 802,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00023,
+   "dens": 365686,
+   "anglePct": 49,
+   "vpt": 1.95,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#7f3927",
+    "#88796d"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
    "kit": "forest",
    "name": "grass-1-a",
    "gr": "grass",
@@ -12341,6 +13826,73 @@
    "variant": "v102"
   },
   {
+   "kit": "graveyard-kit",
+   "name": "crypt-large-roof",
+   "gr": "structures",
+   "wdh": [
+    1.3,
+    1.6,
+    0.5
+   ],
+   "tris": 406,
+   "tpu": 285,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 18952,
+   "vtx": 472,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.02764,
+   "dens": 404,
+   "anglePct": 59,
+   "vpt": 1.16,
+   "grad": 0.4,
+   "hues": 2,
+   "colors": [
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "tags": [
+    "ken",
+    "structure"
+   ]
+  },
+  {
+   "kit": "graveyard-kit",
+   "name": "crypt-large",
+   "gr": "structures",
+   "wdh": [
+    1.2,
+    1.6,
+    0.7
+   ],
+   "tris": 626,
+   "tpu": 477,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 29080,
+   "vtx": 748,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.024,
+   "avgTri": 0.01382,
+   "dens": 513,
+   "anglePct": 82,
+   "vpt": 1.19,
+   "grad": 0.74,
+   "hues": 2,
+   "colors": [
+    "#3e3e44",
+    "#6d738a",
+    "#9da4c4"
+   ],
+   "tags": [
+    "ken",
+    "structure"
+   ]
+  },
+  {
    "kit": "halloween",
    "name": "bench",
    "gr": "furniture",
@@ -13603,7 +15155,7 @@
   {
    "kit": "modulair-terrein",
    "name": "beach-prop-shell-b",
-   "gr": "seabed",
+   "gr": "ocean",
    "wdh": [
     0.1,
     0.1,
@@ -13636,7 +15188,7 @@
   {
    "kit": "modulair-terrein",
    "name": "beach-prop-starfish-a",
-   "gr": "seabed",
+   "gr": "ocean",
    "wdh": [
     0.1,
     0.1,
@@ -17498,7 +19050,7 @@
   {
    "kit": "natuur",
    "name": "shell-salmon",
-   "gr": "seabed",
+   "gr": "ocean",
    "wdh": [
     0.1,
     0.1,
@@ -17566,7 +19118,7 @@
   {
    "kit": "natuur",
    "name": "starfish-bleached",
-   "gr": "seabed",
+   "gr": "ocean",
    "wdh": [
     0.1,
     0.1,
@@ -20136,6 +21688,1545 @@
     "ken",
     "object",
     "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "anchor",
+   "gr": "transport",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 23068,
+   "vtx": 574,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.0001,
+   "dens": 452059,
+   "anglePct": 44,
+   "vpt": 1.06,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#6d738a"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "barrel",
+   "gr": "storage",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 640,
+   "tpu": 1866,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 29844,
+   "vtx": 768,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00043,
+   "dens": 107554,
+   "anglePct": 14,
+   "vpt": 1.2,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "bones-large",
+   "gr": "items",
+   "wdh": [
+    1.7,
+    1.7,
+    0.9
+   ],
+   "tris": 1680,
+   "tpu": 647,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 71704,
+   "vtx": 1880,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00228,
+   "dens": 647,
+   "anglePct": 1,
+   "vpt": 1.12,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "bottle-1",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 204,
+   "tpu": 595,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 15456,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00018,
+   "dens": 244750,
+   "anglePct": 13,
+   "vpt": 1.96,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#23562c",
+    "#9a6b4e"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "bottle-2",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 204,
+   "tpu": 595,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 15456,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00014,
+   "dens": 263430,
+   "anglePct": 23,
+   "vpt": 1.96,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#23562c",
+    "#9a6b4e"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cannon",
+   "gr": "transport",
+   "wdh": [
+    0.4,
+    0.3,
+    0.3
+   ],
+   "tris": 2362,
+   "tpu": 6886,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 88476,
+   "vtx": 2277,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00023,
+   "dens": 77287,
+   "anglePct": 45,
+   "vpt": 0.96,
+   "grad": 0.49,
+   "hues": 2,
+   "colors": [
+    "#3e3e44",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cannonball",
+   "gr": "transport",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 716,
+   "tpu": 2087,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 17448,
+   "vtx": 366,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00005,
+   "dens": 636937,
+   "anglePct": 3,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "chest-gold",
+   "gr": "storage",
+   "wdh": [
+    0.5,
+    0.4,
+    0.3
+   ],
+   "tris": 7368,
+   "tpu": 21481,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 297572,
+   "vtx": 7872,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00018,
+   "dens": 113165,
+   "anglePct": 43,
+   "vpt": 1.07,
+   "grad": 0.32,
+   "hues": 2,
+   "colors": [
+    "#6d738a",
+    "#cb9d78",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "chest",
+   "gr": "storage",
+   "wdh": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "tris": 1636,
+   "tpu": 4770,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 93556,
+   "vtx": 2572,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00063,
+   "dens": 85198,
+   "anglePct": 46,
+   "vpt": 1.57,
+   "grad": 0.49,
+   "hues": 2,
+   "colors": [
+    "#6d738a",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cliff-1",
+   "gr": "rocks",
+   "wdh": [
+    1.5,
+    1.4,
+    0.8
+   ],
+   "tris": 8596,
+   "tpu": 5420,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 199176,
+   "vtx": 4567,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00056,
+   "dens": 5420,
+   "anglePct": 3,
+   "vpt": 0.53,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cliff-2",
+   "gr": "rocks",
+   "wdh": [
+    2.1,
+    1.8,
+    1.8
+   ],
+   "tris": 19144,
+   "tpu": 2769,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 448680,
+   "vtx": 10386,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00055,
+   "dens": 2769,
+   "anglePct": 3,
+   "vpt": 0.54,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cliff-3",
+   "gr": "rocks",
+   "wdh": [
+    1.8,
+    1.5,
+    1.6
+   ],
+   "tris": 19962,
+   "tpu": 4512,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 464500,
+   "vtx": 10727,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00038,
+   "dens": 4512,
+   "anglePct": 4,
+   "vpt": 0.54,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "cliff-4",
+   "gr": "rocks",
+   "wdh": [
+    1.9,
+    1.9,
+    1.4
+   ],
+   "tris": 23714,
+   "tpu": 4651,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 553380,
+   "vtx": 12801,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00035,
+   "dens": 4651,
+   "anglePct": 3,
+   "vpt": 0.54,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#3e3e44"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "coins",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 2024,
+   "tpu": 5901,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 81164,
+   "vtx": 2112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00004,
+   "dens": 1158216,
+   "anglePct": 48,
+   "vpt": 1.04,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "fish-mackerel",
+   "gr": "ocean",
+   "wdh": [
+    0.4,
+    0.1,
+    0.2
+   ],
+   "tris": 888,
+   "tpu": 2589,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 22492,
+   "vtx": 491,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 204673,
+   "anglePct": 18,
+   "vpt": 0.55,
+   "grad": 0.18,
+   "hues": 1,
+   "colors": [
+    "#2473b3",
+    "#9da4c4"
+   ],
+   "tags": [
+    "fauna",
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "fish-tuna",
+   "gr": "ocean",
+   "wdh": [
+    0.6,
+    0.1,
+    0.3
+   ],
+   "tris": 1040,
+   "tpu": 3032,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 26944,
+   "vtx": 602,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00018,
+   "dens": 119206,
+   "anglePct": 11,
+   "vpt": 0.58,
+   "grad": 0.16,
+   "hues": 2,
+   "colors": [
+    "#2473b3",
+    "#9da4c4",
+    "#ffb349"
+   ],
+   "tags": [
+    "fauna",
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "gold-bag",
+   "gr": "storage",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 3954,
+   "tpu": 11528,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 155544,
+   "vtx": 4074,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
+   "dens": 1058125,
+   "anglePct": 19,
+   "vpt": 1.03,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#8f785b",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "house-1",
+   "gr": "structures",
+   "wdh": [
+    3.5,
+    1.2,
+    1.8
+   ],
+   "tris": 11878,
+   "tpu": 1603,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 555928,
+   "vtx": 15100,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00235,
+   "dens": 1603,
+   "anglePct": 46,
+   "vpt": 1.27,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "qua",
+    "structure"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "house-2",
+   "gr": "structures",
+   "wdh": [
+    1,
+    1,
+    2.4
+   ],
+   "tris": 4958,
+   "tpu": 2131,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 216832,
+   "vtx": 5801,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00198,
+   "dens": 2131,
+   "anglePct": 54,
+   "vpt": 1.17,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "qua",
+    "structure"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "house-3",
+   "gr": "structures",
+   "wdh": [
+    2.2,
+    1,
+    2.8
+   ],
+   "tris": 9172,
+   "tpu": 1535,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 470892,
+   "vtx": 12951,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00244,
+   "dens": 1535,
+   "anglePct": 56,
+   "vpt": 1.41,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "qua",
+    "structure"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "pirate-anne",
+   "gr": "characters",
+   "wdh": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "tris": 12368,
+   "tpu": 36058,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 2858572,
+   "vtx": 37104,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00004,
+   "dens": 266474,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0.89,
+   "hues": 2,
+   "colors": [
+    "#3e3e44",
+    "#8f785b",
+    "#ffb349"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "pirate-captain",
+   "gr": "characters",
+   "wdh": [
+    0.4,
+    0.4,
+    0.4
+   ],
+   "tris": 10576,
+   "tpu": 30834,
+   "mat": 1,
+   "calls": 3,
+   "bytes": 2517564,
+   "vtx": 31728,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "dens": 173857,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0.63,
+   "hues": 5,
+   "colors": [
+    "#2473b3",
+    "#3e3e44",
+    "#6d8d33",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#9a6b4e",
+    "#d07b56",
+    "#ffb349"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "pirate-henry",
+   "gr": "characters",
+   "wdh": [
+    0.3,
+    0.4,
+    0.4
+   ],
+   "tris": 11062,
+   "tpu": 32251,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 2636972,
+   "vtx": 33186,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00003,
+   "dens": 236088,
+   "anglePct": 10,
+   "vpt": 3,
+   "grad": 0.42,
+   "hues": 4,
+   "colors": [
+    "#3e3e44",
+    "#474a58",
+    "#714c39",
+    "#7f3927",
+    "#88796d",
+    "#9a6b4e",
+    "#ffb349"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "pirate-mako",
+   "gr": "characters",
+   "wdh": [
+    0.4,
+    0.4,
+    0.4
+   ],
+   "tris": 13172,
+   "tpu": 38402,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 3231568,
+   "vtx": 39516,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00002,
+   "dens": 223857,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0.89,
+   "hues": 3,
+   "colors": [
+    "#3e3e44",
+    "#474a58",
+    "#7f3927",
+    "#88796d",
+    "#8f785b"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "pirate-sharky",
+   "gr": "characters",
+   "wdh": [
+    0.3,
+    0.4,
+    0.4
+   ],
+   "tris": 14594,
+   "tpu": 42548,
+   "mat": 1,
+   "calls": 3,
+   "bytes": 3348428,
+   "vtx": 43782,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00002,
+   "dens": 283640,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0.66,
+   "hues": 4,
+   "colors": [
+    "#3e3e44",
+    "#7f3927",
+    "#88796d",
+    "#8f785b",
+    "#9da4c4",
+    "#ffb349"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "rock-1",
+   "gr": "rocks",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 766,
+   "tpu": 2233,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 18356,
+   "vtx": 385,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00013,
+   "dens": 163564,
+   "anglePct": 7,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "rock-2",
+   "gr": "rocks",
+   "wdh": [
+    0.2,
+    0.2,
+    0.3
+   ],
+   "tris": 3072,
+   "tpu": 8956,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 69100,
+   "vtx": 1538,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 280003,
+   "anglePct": 1,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "rock-3",
+   "gr": "rocks",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 712,
+   "tpu": 2076,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 17648,
+   "vtx": 373,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00014,
+   "dens": 147302,
+   "anglePct": 4,
+   "vpt": 0.52,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "rock-4",
+   "gr": "rocks",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 712,
+   "tpu": 2076,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 17648,
+   "vtx": 373,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00016,
+   "dens": 100194,
+   "anglePct": 5,
+   "vpt": 0.52,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "rock-5",
+   "gr": "rocks",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 716,
+   "tpu": 2087,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 18220,
+   "vtx": 390,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.0001,
+   "dens": 191104,
+   "anglePct": 2,
+   "vpt": 0.54,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "sawmill",
+   "gr": "structures",
+   "wdh": [
+    0.5,
+    0.5,
+    0.2
+   ],
+   "tris": 830,
+   "tpu": 2420,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 31804,
+   "vtx": 793,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00075,
+   "dens": 18655,
+   "anglePct": 23,
+   "vpt": 0.96,
+   "grad": 0.08,
+   "hues": 3,
+   "colors": [
+    "#6d738a",
+    "#714c39",
+    "#cb9d78"
+   ],
+   "tags": [
+    "qua",
+    "structure"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "shark",
+   "gr": "ocean",
+   "wdh": [
+    0.6,
+    1.4,
+    0.5
+   ],
+   "tris": 6604,
+   "tpu": 11040,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 1613004,
+   "vtx": 19812,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00018,
+   "dens": 14776,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0.72,
+   "hues": 3,
+   "colors": [
+    "#7f3927",
+    "#88796d",
+    "#9da4c4"
+   ],
+   "tags": [
+    "animation",
+    "fauna",
+    "nature",
+    "qua"
+   ],
+   "anim": [
+    "Swim",
+    "Swim_Bite",
+    "Swim_Fast"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "ship-large",
+   "gr": "transport",
+   "wdh": [
+    4,
+    1.4,
+    3
+   ],
+   "tris": 20636,
+   "tpu": 1250,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 910520,
+   "vtx": 24539,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00134,
+   "dens": 1250,
+   "anglePct": 38,
+   "vpt": 1.19,
+   "grad": 0.92,
+   "hues": 3,
+   "colors": [
+    "#7f3927",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "ship-small",
+   "gr": "transport",
+   "wdh": [
+    1.3,
+    0.9,
+    0.5
+   ],
+   "tris": 5578,
+   "tpu": 6358,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 233348,
+   "vtx": 6201,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00076,
+   "dens": 8592,
+   "anglePct": 27,
+   "vpt": 1.11,
+   "grad": 0.51,
+   "hues": 2,
+   "colors": [
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "skeleton-headless",
+   "gr": "characters",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 11668,
+   "tpu": 34017,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 2750400,
+   "vtx": 35004,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00002,
+   "dens": 534975,
+   "anglePct": 3,
+   "vpt": 3,
+   "grad": 0.84,
+   "hues": 3,
+   "colors": [
+    "#3e3e44",
+    "#714c39",
+    "#8f785b"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Idlea",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "skeleton",
+   "gr": "characters",
+   "wdh": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "tris": 14260,
+   "tpu": 41574,
+   "mat": 1,
+   "calls": 2,
+   "bytes": 3346752,
+   "vtx": 42780,
+   "grounded": true,
+   "minEdge": 0,
+   "avgTri": 0.00002,
+   "dens": 388822,
+   "anglePct": 3,
+   "vpt": 3,
+   "grad": 0.85,
+   "hues": 3,
+   "colors": [
+    "#3e3e44",
+    "#714c39",
+    "#88796d",
+    "#8f785b"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Death",
+    "Duck",
+    "HitReact",
+    "Idle",
+    "Jump",
+    "Jump_Idle",
+    "Jump_Idlea",
+    "Jump_Land",
+    "No",
+    "Punch",
+    "Run",
+    "Sword",
+    "Walk",
+    "Wave",
+    "Yes"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "skull",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 734,
+   "tpu": 2140,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 27012,
+   "vtx": 662,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00008,
+   "dens": 372849,
+   "anglePct": 7,
+   "vpt": 0.9,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "skulls",
+   "gr": "items",
+   "wdh": [
+    1.1,
+    1.2,
+    1
+   ],
+   "tris": 3132,
+   "tpu": 2548,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 83696,
+   "vtx": 1983,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00168,
+   "dens": 2548,
+   "anglePct": 2,
+   "vpt": 0.63,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "tentacle",
+   "gr": "characters",
+   "wdh": [
+    1,
+    1.4,
+    4.1
+   ],
+   "tris": 3874,
+   "tpu": 696,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 958032,
+   "vtx": 11622,
+   "grounded": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00184,
+   "dens": 696,
+   "anglePct": 8,
+   "vpt": 3,
+   "grad": 0.87,
+   "hues": 1,
+   "colors": [
+    "#d07b56",
+    "#ffb349"
+   ],
+   "tags": [
+    "animation",
+    "object",
+    "qua"
+   ],
+   "anim": [
+    "Tentacle_Attack",
+    "Tentacle_Attack2",
+    "Tentacle_Idle",
+    "Tentacle_Poke"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "tree-palm-1",
+   "gr": "trees",
+   "wdh": [
+    0.7,
+    0.7,
+    0.9
+   ],
+   "tris": 3208,
+   "tpu": 7017,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 106316,
+   "vtx": 2675,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00031,
+   "dens": 7731,
+   "anglePct": 2,
+   "vpt": 0.83,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d8d33",
+    "#9a6b4e"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "tree-palm-2",
+   "gr": "trees",
+   "wdh": [
+    0.7,
+    0.7,
+    0.7
+   ],
+   "tris": 2924,
+   "tpu": 8525,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 102212,
+   "vtx": 2600,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00031,
+   "dens": 9128,
+   "anglePct": 3,
+   "vpt": 0.89,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d8d33",
+    "#9a6b4e"
+   ],
+   "tags": [
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "pirate-quaternius",
+   "name": "tree-palm-3",
+   "gr": "trees",
+   "wdh": [
+    0.7,
+    0.7,
+    0.7
+   ],
+   "tris": 3134,
+   "tpu": 8405,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 108368,
+   "vtx": 2753,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00036,
+   "dens": 8417,
+   "anglePct": 3,
+   "vpt": 0.88,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d8d33",
+    "#9a6b4e"
+   ],
+   "tags": [
+    "nature",
+    "qua"
    ]
   },
   {
@@ -23934,6 +27025,38 @@
   },
   {
    "kit": "resources",
+   "name": "parts-cog",
+   "gr": "resources",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 10244,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00012,
+   "dens": 581878,
+   "anglePct": 63,
+   "vpt": 1.25,
+   "grad": 0.68,
+   "hues": 1,
+   "colors": [
+    "#6d738a"
+   ],
+   "tags": [
+    "kay",
+    "object"
+   ]
+  },
+  {
+   "kit": "resources",
    "name": "parts-pile-large",
    "gr": "resources",
    "wdh": [
@@ -24544,6 +27667,71 @@
   },
   {
    "kit": "resources",
+   "name": "textiles-a",
+   "gr": "resources",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 424,
+   "tpu": 1236,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16864,
+   "vtx": 404,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.0004,
+   "dens": 91573,
+   "anglePct": 24,
+   "vpt": 0.95,
+   "grad": 0.77,
+   "hues": 1,
+   "colors": [
+    "#9a6b4e"
+   ],
+   "tags": [
+    "kay",
+    "object"
+   ]
+  },
+  {
+   "kit": "resources",
+   "name": "textiles-b",
+   "gr": "resources",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 828,
+   "tpu": 2414,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 35068,
+   "vtx": 896,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00042,
+   "dens": 92181,
+   "anglePct": 27,
+   "vpt": 1.08,
+   "grad": 0.55,
+   "hues": 2,
+   "colors": [
+    "#88796d",
+    "#dd9f79"
+   ],
+   "tags": [
+    "kay",
+    "object"
+   ]
+  },
+  {
+   "kit": "resources",
    "name": "textiles-stack-large",
    "gr": "resources",
    "wdh": [
@@ -24576,6 +27764,40 @@
     "kay",
     "object",
     "textile"
+   ]
+  },
+  {
+   "kit": "resources",
+   "name": "textiles-stack-small",
+   "gr": "resources",
+   "wdh": [
+    0.4,
+    0.4,
+    0.2
+   ],
+   "tris": 1668,
+   "tpu": 4863,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 66880,
+   "vtx": 1731,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00036,
+   "dens": 46441,
+   "anglePct": 21,
+   "vpt": 1.04,
+   "grad": 0.55,
+   "hues": 2,
+   "colors": [
+    "#88796d",
+    "#9a6b4e",
+    "#dd9f79"
+   ],
+   "tags": [
+    "kay",
+    "object"
    ]
   },
   {
@@ -26424,6 +29646,1917 @@
    ]
   },
   {
+   "kit": "rpg-quaternius",
+   "name": "backpack",
+   "gr": "items",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 3960,
+   "tpu": 11545,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 276432,
+   "vtx": 7851,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00004,
+   "dens": 1181043,
+   "anglePct": 13,
+   "vpt": 1.98,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#714c39",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "bag",
+   "gr": "storage",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1232,
+   "tpu": 3592,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 87408,
+   "vtx": 2456,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 1233974,
+   "anglePct": 10,
+   "vpt": 1.99,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#714c39",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "bone",
+   "gr": "items",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 304,
+   "tpu": 886,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 21484,
+   "vtx": 570,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00005,
+   "dens": 1211059,
+   "anglePct": 8,
+   "vpt": 1.88,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-1-closed",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 284,
+   "tpu": 828,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 17232,
+   "vtx": 440,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00029,
+   "dens": 796965,
+   "anglePct": 92,
+   "vpt": 1.55,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-1-open",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 464,
+   "tpu": 1353,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 25276,
+   "vtx": 658,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00022,
+   "dens": 1404358,
+   "anglePct": 40,
+   "vpt": 1.42,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-2-closed",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 332,
+   "tpu": 968,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 20592,
+   "vtx": 536,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00026,
+   "dens": 900608,
+   "anglePct": 92,
+   "vpt": 1.61,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-2-open",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 592,
+   "tpu": 1726,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 33988,
+   "vtx": 906,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0002,
+   "dens": 1290823,
+   "anglePct": 42,
+   "vpt": 1.53,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-3-closed",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1060,
+   "tpu": 3090,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 71820,
+   "vtx": 2000,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00009,
+   "dens": 1535898,
+   "anglePct": 83,
+   "vpt": 1.89,
+   "grad": 0.14,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-3-open",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 520,
+   "tpu": 1516,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 29456,
+   "vtx": 778,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00023,
+   "dens": 998464,
+   "anglePct": 42,
+   "vpt": 1.5,
+   "grad": 0.56,
+   "hues": 1,
+   "colors": [
+    "#cb9d78",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-4-closed",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 668,
+   "tpu": 1948,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 43740,
+   "vtx": 1196,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00014,
+   "dens": 1634563,
+   "anglePct": 87,
+   "vpt": 1.79,
+   "grad": 0.14,
+   "hues": 3,
+   "colors": [
+    "#474a58",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "book-4-open",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 472,
+   "tpu": 1376,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 26220,
+   "vtx": 686,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00022,
+   "dens": 955620,
+   "anglePct": 45,
+   "vpt": 1.45,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#474a58",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "chicken-leg",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 21348,
+   "vtx": 568,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.0001,
+   "dens": 351339,
+   "anglePct": 0,
+   "vpt": 1.97,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#88796d"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "coin-skull",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 568,
+   "tpu": 1656,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 36852,
+   "vtx": 1000,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00008,
+   "dens": 1406651,
+   "anglePct": 42,
+   "vpt": 1.76,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "coin-star",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 452,
+   "tpu": 1318,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 31988,
+   "vtx": 870,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0001,
+   "dens": 1014436,
+   "anglePct": 33,
+   "vpt": 1.92,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "coin",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 396,
+   "tpu": 1155,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 28116,
+   "vtx": 760,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00008,
+   "dens": 980693,
+   "anglePct": 35,
+   "vpt": 1.92,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "fish-bone",
+   "gr": "ocean",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 588,
+   "tpu": 1714,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 40752,
+   "vtx": 1118,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "dens": 2522523,
+   "anglePct": 1,
+   "vpt": 1.9,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "nature",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "gold-ingots",
+   "gr": "resources",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 648,
+   "tpu": 1889,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 46816,
+   "vtx": 1296,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00011,
+   "dens": 806813,
+   "anglePct": 46,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "key-1",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 284,
+   "tpu": 828,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 19008,
+   "vtx": 496,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 2898107,
+   "anglePct": 7,
+   "vpt": 1.75,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#714c39"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "key-2",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 512,
+   "tpu": 1493,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 34968,
+   "vtx": 952,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "dens": 3593890,
+   "anglePct": 64,
+   "vpt": 1.86,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#714c39"
+   ],
+   "tags": [
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "key-3",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 744,
+   "tpu": 2169,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 47376,
+   "vtx": 1296,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "dens": 4183818,
+   "anglePct": 62,
+   "vpt": 1.74,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#88796d"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "key-4",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 688,
+   "tpu": 2006,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 45372,
+   "vtx": 1244,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "dens": 4103298,
+   "anglePct": 7,
+   "vpt": 1.81,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "necklace-1",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 792,
+   "tpu": 2309,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 56444,
+   "vtx": 1570,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00001,
+   "dens": 262391,
+   "anglePct": 11,
+   "vpt": 1.98,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#2473b3",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "necklace-2",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 834,
+   "tpu": 2431,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 57240,
+   "vtx": 1587,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00001,
+   "dens": 221752,
+   "anglePct": 21,
+   "vpt": 1.9,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#88796d",
+    "#cb9d78",
+    "#d07b56"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "necklace-3",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 824,
+   "tpu": 2402,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 59008,
+   "vtx": 1644,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00001,
+   "dens": 232045,
+   "anglePct": 10,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "padlock",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 584,
+   "tpu": 1703,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 41232,
+   "vtx": 1134,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "dens": 768927,
+   "anglePct": 75,
+   "vpt": 1.94,
+   "grad": 0.62,
+   "hues": 1,
+   "colors": [
+    "#6d738a"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "parchment",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 592,
+   "tpu": 1726,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 41420,
+   "vtx": 1138,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00019,
+   "dens": 455373,
+   "anglePct": 12,
+   "vpt": 1.92,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-1-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1328,
+   "tpu": 3872,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 30792,
+   "vtx": 668,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 753199,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-1-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1470,
+   "tpu": 4286,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 34496,
+   "vtx": 757,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "dens": 833737,
+   "anglePct": 8,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-10-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 372,
+   "tpu": 1085,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 17064,
+   "vtx": 418,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00008,
+   "dens": 702576,
+   "anglePct": 5,
+   "vpt": 1.12,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-10-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 404,
+   "tpu": 1178,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 19180,
+   "vtx": 478,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00009,
+   "dens": 763013,
+   "anglePct": 9,
+   "vpt": 1.18,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-11-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 420,
+   "tpu": 1224,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 20420,
+   "vtx": 514,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00017,
+   "dens": 180134,
+   "anglePct": 1,
+   "vpt": 1.22,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-11-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 452,
+   "tpu": 1318,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 22536,
+   "vtx": 574,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00018,
+   "dens": 193858,
+   "anglePct": 6,
+   "vpt": 1.27,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-2-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1584,
+   "tpu": 4618,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 36424,
+   "vtx": 796,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00009,
+   "dens": 412328,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-2-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1822,
+   "tpu": 5312,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 42244,
+   "vtx": 933,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
+   "dens": 474282,
+   "anglePct": 7,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-3-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1584,
+   "tpu": 4618,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 36424,
+   "vtx": 796,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 611088,
+   "anglePct": 1,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-3-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1982,
+   "tpu": 5778,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 45764,
+   "vtx": 1013,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "dens": 764631,
+   "anglePct": 4,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-4-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1584,
+   "tpu": 4618,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 36424,
+   "vtx": 796,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 604915,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-4-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1854,
+   "tpu": 5405,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 42944,
+   "vtx": 949,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 708025,
+   "anglePct": 6,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-5-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1840,
+   "tpu": 5364,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 42060,
+   "vtx": 924,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 731467,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-5-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 2142,
+   "tpu": 6245,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 48776,
+   "vtx": 1077,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 851523,
+   "anglePct": 1,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-6-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 2352,
+   "tpu": 6857,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 53328,
+   "vtx": 1180,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 764299,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-6-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 2878,
+   "tpu": 8391,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 65480,
+   "vtx": 1461,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 935227,
+   "anglePct": 1,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-7-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1328,
+   "tpu": 3872,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 30792,
+   "vtx": 668,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 429760,
+   "anglePct": 2,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-7-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1662,
+   "tpu": 4845,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 38720,
+   "vtx": 853,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "dens": 537847,
+   "anglePct": 2,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-8-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1328,
+   "tpu": 3872,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 30792,
+   "vtx": 668,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
+   "dens": 954146,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-8-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1662,
+   "tpu": 4845,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 38724,
+   "vtx": 853,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
+   "dens": 1194119,
+   "anglePct": 1,
+   "vpt": 0.51,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-9-empty",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1472,
+   "tpu": 4292,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 33960,
+   "vtx": 740,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00015,
+   "dens": 176013,
+   "anglePct": 5,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "potion-9-filled",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1678,
+   "tpu": 4892,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 38564,
+   "vtx": 845,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00017,
+   "dens": 200646,
+   "anglePct": 13,
+   "vpt": 0.5,
+   "grad": 0,
+   "hues": 3,
+   "colors": [
+    "#23562c",
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "glass",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "ring-3",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 286,
+   "tpu": 834,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16968,
+   "vtx": 432,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00012,
+   "dens": 720069,
+   "anglePct": 38,
+   "vpt": 1.51,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#d07b56",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "ring-4",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 28688,
+   "vtx": 780,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 1460743,
+   "anglePct": 10,
+   "vpt": 2.03,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#23562c",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "ring-5",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 386,
+   "tpu": 1125,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 28252,
+   "vtx": 766,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00007,
+   "dens": 611813,
+   "anglePct": 20,
+   "vpt": 1.98,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#2473b3",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "ring-6",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 325,
+   "tpu": 948,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 22988,
+   "vtx": 613,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "dens": 496332,
+   "anglePct": 15,
+   "vpt": 1.89,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#6d8d33",
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "scroll",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 67296,
+   "vtx": 1879,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "dens": 2665031,
+   "anglePct": 10,
+   "vpt": 1.97,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#f5f2e7"
+   ],
+   "tags": [
+    "object",
+    "paper",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "skull-2",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1664,
+   "tpu": 4851,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 117924,
+   "vtx": 3328,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "dens": 1094233,
+   "anglePct": 2,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "skull",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 336,
+   "tpu": 980,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 25708,
+   "vtx": 696,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00012,
+   "dens": 318430,
+   "anglePct": 1,
+   "vpt": 2.07,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#f5f2e7"
+   ],
+   "tags": [
+    "bone",
+    "object",
+    "qua"
+   ]
+  },
+  {
+   "kit": "rpg-quaternius",
+   "name": "star",
+   "gr": "items",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 16820,
+   "vtx": 440,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00014,
+   "dens": 176237,
+   "anglePct": 0,
+   "vpt": 2,
+   "grad": 0,
+   "hues": 1,
+   "colors": [
+    "#ffb349"
+   ],
+   "tags": [
+    "object",
+    "precious-metal",
+    "qua"
+   ]
+  },
+  {
    "kit": "rpgtools",
    "name": "anvil",
    "gr": "tools",
@@ -27683,6 +32816,113 @@
     "kay",
     "metal",
     "object"
+   ]
+  },
+  {
+   "kit": "ships-quaternius",
+   "name": "boat-sail",
+   "gr": "transport",
+   "wdh": [
+    0.2,
+    0.5,
+    0.4
+   ],
+   "tris": 1020,
+   "tpu": 2974,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 65808,
+   "vtx": 1820,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00044,
+   "dens": 21283,
+   "anglePct": 63,
+   "vpt": 1.78,
+   "grad": 0.44,
+   "hues": 3,
+   "colors": [
+    "#714c39",
+    "#88796d",
+    "#cb9d78"
+   ],
+   "tags": [
+    "metal",
+    "object",
+    "qua",
+    "textile",
+    "timber"
+   ]
+  },
+  {
+   "kit": "ships-quaternius",
+   "name": "boat",
+   "gr": "transport",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 172,
+   "tpu": 501,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 12688,
+   "vtx": 320,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00103,
+   "dens": 31724,
+   "anglePct": 50,
+   "vpt": 1.86,
+   "grad": 0,
+   "hues": 2,
+   "colors": [
+    "#714c39",
+    "#cb9d78"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "timber"
+   ]
+  },
+  {
+   "kit": "ships-quaternius",
+   "name": "ship-sail",
+   "gr": "transport",
+   "wdh": [
+    0.9,
+    3.3,
+    2
+   ],
+   "tris": 3938,
+   "tpu": 674,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 225524,
+   "vtx": 6264,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0027,
+   "dens": 674,
+   "anglePct": 29,
+   "vpt": 1.59,
+   "grad": 0.89,
+   "hues": 2,
+   "colors": [
+    "#7f3927",
+    "#cb9d78",
+    "#dd9f79"
+   ],
+   "tags": [
+    "object",
+    "qua",
+    "textile",
+    "timber"
    ]
   },
   {

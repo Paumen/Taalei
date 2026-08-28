@@ -1,6 +1,6 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { leesPng } from '../../catalog/tools/png.mjs';
+import { readPng } from '../../catalog/tools/png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const GEDEELDE_COLORMAP = resolve(ROOT, 'kits', 'colormap.png');
@@ -31,7 +31,7 @@ export function afstand(a, b) {
 }
 
 export function laadPalet(pad = GEDEELDE_COLORMAP) {
-  const { width, height, pixels } = leesPng(pad);
+  const { width, height, pixels } = readPng(pad);
   const perKleur = new Map();
 
   for (let y = 0; y < height; y++) {
@@ -94,7 +94,7 @@ const texturen = new Map();
 
 export function laadTextuur(pad, { vOmlaag = true } = {}) {
   if (!texturen.has(pad)) {
-    const png = leesPng(pad);
+    const png = readPng(pad);
     texturen.set(pad, {
       ...png,
       monster(u, vIn) {
