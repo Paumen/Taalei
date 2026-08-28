@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — Missing from the catalogue</title>
+<meta name="description" content="Everything the source packs under kits/sources hold that the catalogue doesn't: models never imported, and models that were taken out again. Shown straight from the source, to judge one by one.">
+<meta name="catalogus-versie" content="a1604f1cf8">
+<link rel="stylesheet" href="catalog.css?v=a1604f1cf8">
+<link rel="stylesheet" href="missing.css?v=a1604f1cf8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+</head>
+<body>
+
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../index.html">Catalogue</a>
+    <a href="schaal.html">Scale</a>
+    <a href="swipe.html">Swipe</a>
+    <span aria-current="page">Missing</span>
+  </nav>
+
+  <p class="kop-sub" id="samenvatting">Loading…</p>
+
+  <div class="kop-bediening">
+    <div class="knopgroep">
+      <a class="licht-knop" id="naar-swipe" href="swipe.html?source=missing"
+         title="Judge these models one at a time and note per direction why each was left out">Swipe these</a>
+
+      <button class="licht-knop" id="licht" type="button" aria-pressed="false"
+              title="Shows the models unlit: only the source colours, with the shading baked into them">Flat</button>
+    </div>
+  </div>
+</header>
+
+<p class="uitleg-blok">
+  These models sit in a source pack under <code>kits/sources</code> but not in the catalogue —
+  either the pack was never imported, or the model was taken out again. They're shown exactly as
+  the source has them: own colours, own scale, no palette. Sizes are in island units wherever the
+  kit's import scale is known.
+</p>
+
+<div class="ordebalk">
+  <input type="search" id="zoek" placeholder="Search by name" autocomplete="off" aria-label="Search by name">
+
+  <select id="groepering" aria-label="Group by" title="Group by">
+    <option value="bron" selected>by source pack</option>
+    <option value="groep">by group</option>
+    <option value="geen">no grouping</option>
+  </select>
+
+  <select id="filter-bron" aria-label="Source pack" title="Source pack">
+    <option value="">all packs</option>
+  </select>
+
+  <select id="filter-staat" aria-label="Why it is missing" title="Why it is missing">
+    <option value="">imported and never imported packs</option>
+    <option value="uit">taken out of an imported pack</option>
+    <option value="nooit">from a pack that was never imported</option>
+  </select>
+
+  <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+
+  <select id="sortering" aria-label="Sort by" title="Sort by">
+    <option value="naam">by name</option>
+    <option value="groot">largest first</option>
+    <option value="klein">smallest first</option>
+    <option value="zwaar">most triangles</option>
+    <option value="licht">fewest triangles</option>
+  </select>
+</div>
+
+<main id="paneel"></main>
+
+<p class="leeg" id="leeg" hidden>No models found.</p>
+
+<dialog class="detail" id="detail">
+  <button class="detail-sluit" id="detail-sluit" aria-label="Close">&times;</button>
+  <div class="detail-viewer" id="detail-viewer"></div>
+  <div class="detail-info">
+    <h2 id="detail-naam"></h2>
+    <p class="detail-herkomst" id="detail-herkomst"></p>
+    <dl id="detail-gegevens"></dl>
+    <div class="detail-acties">
+      <button id="detail-kopieer">Copy path</button>
+      <a id="detail-download" download>Download .glb</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="vendor/model-viewer.min.js" type="module"></script>
+<script src="missing.js?v=a1604f1cf8" type="module"></script>
+</body>
+</html>

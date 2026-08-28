@@ -227,7 +227,12 @@ function colorName(hex) {
 }
 
 function writeVersion() {
-  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js', 'swipe.css', 'swipe.js']
+  // missing.json and its previews come from catalog/tools/build-missing.mjs, so run that
+  // one first when the second catalogue changed — the stamp is what makes a browser
+  // fetch a rebuilt .glb instead of the one it already has.
+  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js',
+    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js']
+    .filter((name) => existsSync(join(CATALOG_DIR, name)))
     .map((name) => readFileSync(join(CATALOG_DIR, name)))
     .join('');
   const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
@@ -251,7 +256,12 @@ function writeVersion() {
     [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
     [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
   ]);
-  console.log(`version ${version} → index.html, catalog/schaal.html, catalog/swipe.html`);
+  stamp(join(CATALOG_DIR, 'missing.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+    [/href="missing\.css(?:\?v=[a-f0-9]+)?"/, `href="missing.css?v=${version}"`],
+    [/src="missing\.js(?:\?v=[a-f0-9]+)?"/, `src="missing.js?v=${version}"`],
+  ]);
+  console.log(`version ${version} → index.html, catalog/schaal.html, catalog/swipe.html, catalog/missing.html`);
 }
 
 const kitMeta = readKitMetadata();
