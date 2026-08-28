@@ -189,7 +189,7 @@ colour on the same stem (rule 1).
 | `tools/splits-vertices.mjs` | Duplicates shared vertices so no triangle spans two cells. |
 | `tools/normaliseer-verloop.mjs` | Anchors a lane's used window on the lane midpoint, keeping the model's shadow span. Rule 13 is the warning: this discards what the maker set. |
 | `tools/herkleur-quaternius.mjs` | Replays the manual colour choices for the Quaternius kits — a re-import rebuilds the `.glb`s and throws them away. |
-| `tools/herkleur-dichte-paginas.mjs` | Book-specific: finds solid page tops/sides and moves them to off-white 5,2. |
+| `tools/herkleur-dichte-paginas.mjs` | Book-specific: finds solid page tops/sides and moves them to off-white 5,2. Reports only; `APPLY=1 node tools/herkleur-dichte-paginas.mjs <glb...>` writes. |
 | `tools/zaagvlak-normaal.mjs`, `-plat.mjs`, `-groei.mjs`, `tools/kopvlak-uiteinden.mjs` | Geometric approximations — only for crisply modelled cut faces, never for irregular trunks (rule 14). |
 | `tools/vergelijk-groottes/hoek.html`, `plat.html` | Render from a free azimuth/height/zoom, and render unlit so lane and shading do not blur together. |
 
