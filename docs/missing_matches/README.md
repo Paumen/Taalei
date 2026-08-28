@@ -45,6 +45,19 @@ which reads the sheets already in this directory — no renders, no embeddings �
 and rewrites `overzicht/` from scratch. Removing a sheet renumbers the ones
 after it, so re-run it after any removal.
 
+A selection can be looked over before anything goes. A second argument is a list
+of numbers, and those tiles get a red frame, a red number and a `REMOVE` band,
+with a `×` against them in `index.md`:
+
+```
+bash tools/vind-match/overzicht.sh docs/missing_matches 15,25,26,34
+```
+
+Every tile keeps the same geometry either way, so marking shifts nothing in the
+grid — the same numbers stay in the same places. Nothing is deleted by this; the
+marked pages are there to be checked against the renders the numbers were picked
+from, and the removal is a separate step afterwards.
+
 ## Method
 
 The missing models are rendered with the same eight cameras as the catalogue
