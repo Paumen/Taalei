@@ -356,8 +356,9 @@ const SOURCES = [
     description:
       'Kits from Kenney (kenney.nl). One hand, one scale: everything comes from the same tile and the props fit together.',
     kits: [
-      'fantasy-town-kit', 'mini-forest', 'modular-cave-kit', 'pirate-kit',
-      'platformer-kit', 'prototype-kit', 'survival-kit',
+      'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'mini-forest',
+      'modular-cave-kit', 'pirate-kit', 'platformer-kit', 'prototype-kit',
+      'survival-kit',
     ],
   },
   {
