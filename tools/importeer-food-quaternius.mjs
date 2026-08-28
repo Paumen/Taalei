@@ -15,7 +15,6 @@ const MODELLEN = [
   ['Fork',             'fork'],
   ['FryingPan',        'frying-pan'],
   ['Knife',            'knife'],
-  ['Lettuce_Whole',    'lettuce-whole'],
   ['Plate',            'plate'],
   ['Plate2',           'plate-2'],
   ['Spoon',            'spoon'],
