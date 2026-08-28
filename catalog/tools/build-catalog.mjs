@@ -356,8 +356,9 @@ const SOURCES = [
     description:
       'Kits from Kenney (kenney.nl). One hand, one scale: everything comes from the same tile and the props fit together.',
     kits: [
-      'fantasy-town-kit', 'mini-forest', 'modular-cave-kit', 'pirate-kit',
-      'platformer-kit', 'prototype-kit', 'survival-kit',
+      'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'mini-forest',
+      'modular-cave-kit', 'pirate-kit', 'platformer-kit', 'prototype-kit',
+      'survival-kit',
     ],
   },
   {
@@ -370,8 +371,11 @@ const SOURCES = [
   {
     id: 'qua',
     name: 'Quaternius',
-    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature.',
-    kits: ['fantasy-props', 'quaternius-nature'],
+    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature, plus the six packs that came later — pirate, dungeon, RPG, food, fish and ships.',
+    kits: [
+      'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'dungeon-quaternius',
+      'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
+    ],
   },
 ];
 

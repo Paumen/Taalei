@@ -1,0 +1,57 @@
+// De negen modellen met een skelet staan hier niet bij: die hebben animaties en
+// gaan door tools/importeer-geanimeerd.mjs. importeerKit wist eerst elke .glb in de
+// kitmap, dus draai dit script eerst en dat daarna:
+//
+//   node tools/importeer-pirate-quaternius.mjs <glTF-map>
+//   node tools/importeer-geanimeerd.mjs <glTF-map> kits/workfiles/pirate-quaternius 0.26 \
+//     Characters_Anne pirate-anne Characters_Captain_Barbarossa pirate-captain \
+//     Characters_Henry pirate-henry Characters_Mako pirate-mako Characters_Shark shark \
+//     Characters_Sharky pirate-sharky Characters_Skeleton skeleton \
+//     Characters_Skeleton_Headless skeleton-headless Characters_Tentacle tentacle
+import { importeerKit } from './importeer/kit.mjs';
+
+const MODELLEN = [
+  ['Environment_Cliff1',            'cliff-1'],
+  ['Environment_Cliff2',            'cliff-2'],
+  ['Environment_Cliff3',            'cliff-3'],
+  ['Environment_Cliff4',            'cliff-4'],
+  ['Environment_House1',            'house-1'],
+  ['Environment_House2',            'house-2'],
+  ['Environment_House3',            'house-3'],
+  ['Environment_LargeBones',        'bones-large'],
+  ['Environment_PalmTree_1',        'tree-palm-1'],
+  ['Environment_PalmTree_2',        'tree-palm-2'],
+  ['Environment_PalmTree_3',        'tree-palm-3'],
+  ['Environment_Rock_1',            'rock-1'],
+  ['Environment_Rock_2',            'rock-2'],
+  ['Environment_Rock_3',            'rock-3'],
+  ['Environment_Rock_4',            'rock-4'],
+  ['Environment_Rock_5',            'rock-5'],
+  ['Environment_Sawmill',           'sawmill'],
+  ['Environment_Skulls',            'skulls'],
+  ['Prop_Anchor',                   'anchor'],
+  ['Prop_Barrel',                   'barrel'],
+  ['Prop_Bottle_1',                 'bottle-1'],
+  ['Prop_Bottle_2',                 'bottle-2'],
+  ['Prop_Cannon',                   'cannon'],
+  ['Prop_CannonBall',               'cannonball'],
+  ['Prop_Chest_Closed',             'chest'],
+  ['Prop_Chest_Gold',               'chest-gold'],
+  ['Prop_Coins',                    'coins'],
+  ['Prop_Fish_Mackerel',            'fish-mackerel'],
+  ['Prop_Fish_Tuna',                'fish-tuna'],
+  ['Prop_GoldBag',                  'gold-bag'],
+  ['Prop_Skull',                    'skull'],
+  ['Ship_Large',                    'ship-large'],
+  ['Ship_Small',                    'ship-small'],
+];
+
+await importeerKit({
+  slug: 'pirate-quaternius',
+  bron: 'Pirate Kit',
+  generator: 'tools/importeer-pirate-quaternius.mjs',
+  schaal: 0.26,
+  formaat: 'gltf',
+  bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
+  modellen: MODELLEN,
+});
