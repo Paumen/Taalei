@@ -14,6 +14,8 @@ Few details,, except for organic objects.
   themselves by pointing UVs at its bands. The model is the record — the catalog
   reads the colors straight out of the `.glb`, so there is no list to keep in sync. For recoloring to shared map, baked shading via uv spread on gradient band must be maintained.
 - A new color addotion can only be added if none of existing comes close and has more use cases on existing catalog than just the item added. if approved, its added to the shared colormap.
+- The lanes, what each is conventionally used for, and the recolouring rules are
+  written out in `docs/color_conventions.md`.
 - defaults:
 * alphaMode: "OPAQUE", except for one clear glass color.
 * roughnessFactor: 1
