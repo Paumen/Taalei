@@ -1,4 +1,4 @@
-import { leesPng } from '../../catalog/tools/png.mjs';
+import { readPng } from '../../catalog/tools/png.mjs';
 import { naarOklab, afstand, GEDEELDE_COLORMAP } from './palet.mjs';
 import { vindBanen, vergelijkVerloop } from './banen.mjs';
 
@@ -10,7 +10,7 @@ let doel = null;
 
 function doelBanen() {
   if (doel) return doel;
-  const png = leesPng(GEDEELDE_COLORMAP);
+  const png = readPng(GEDEELDE_COLORMAP);
   const raster = vindBanen(png, GEDEELDE_COLORMAP);
   if (!raster) throw new Error('kits/colormap.png is geen sheet met banen');
   doel = {
@@ -93,7 +93,7 @@ const perTextuur = new Map();
 
 function textuurBanen(pad) {
   if (!perTextuur.has(pad)) {
-    const png = leesPng(pad);
+    const png = readPng(pad);
     const raster = vindBanen(png, pad);
     perTextuur.set(pad, {
       png,
