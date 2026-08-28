@@ -1,6 +1,10 @@
 # Zet per ontbrekend model een vergelijkingsblad in de opmaak van
 # docs/stijlreferentie: label, blad van acht views, label, blad van acht views.
 # Gebruik: python3 blad.py <matches.json> <views-missing-dir> <views-catalogus-dir> <uitdir>
+#
+# Achter de catalogustreffer komt te staan waar die vandaan komt: 'DINOV3 0.812'
+# bij een treffer van match.py, en anders het veld 'methode' — bij een met het
+# oog gekozen treffer staat er dus 'HANDMATIG' en geen score die er niet is.
 import sys, os, json
 from PIL import Image, ImageDraw, ImageFont
 
@@ -23,7 +27,9 @@ for m in json.load(open(matches)):
     vel = Image.new('RGB', (BREED, HOOG), 'white')
     d = ImageDraw.Draw(vel)
     label(d, TEKST_Y[0], f"MISSING — {m['missing'].replace('__', ' / ')}".upper())
-    label(d, TEKST_Y[1], f"CLOSEST CATALOG MATCH — {m['match'].replace('__', ' / ')} — DINOV3 {m['score']:.3f}".upper())
+    bron = f"DINOV3 {m['score']:.3f}" if 'score' in m else m.get('methode', '')
+    onder = f"CLOSEST CATALOG MATCH — {m['match'].replace('__', ' / ')}" + (f" — {bron}" if bron else '')
+    label(d, TEKST_Y[1], onder.upper())
     vel.paste(Image.open(os.path.join(mdir, m['missing'] + '.png')).convert('RGB'), (0, BLAD_Y[0]))
     vel.paste(Image.open(os.path.join(cdir, m['match'] + '.png')).convert('RGB'), (0, BLAD_Y[1]))
     vel.save(os.path.join(uitdir, m['missing'] + '.png'))
