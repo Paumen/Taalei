@@ -14,13 +14,13 @@
 # De naam van het model en de DINOv3-score verdwijnen: een stijlreferentie laat
 # zien wat goed en fout is, niet welk model het is.
 #
-# In de bestaande referenties staat de goede stijl niet altijd onderaan — anders
-# verraadt de plaats het antwoord. Nieuwe bladen wisselen daarom ook, met een
-# vaste seed zodat dezelfde invoer altijd dezelfde uitvoer geeft.
+# De afwijkende stijl staat overal bovenaan en de goede stijl overal onderaan,
+# zodat je bij het doorbladeren niet steeds hoeft te zoeken welke helft welke
+# is. Bladen in refdir die andersom staan draait het script om.
 #
 # Wat is omgezet komt in <refdir>/index.md te staan. Bronnen die daar al in
 # staan slaat het script over, zodat opnieuw draaien niets verdubbelt.
-import sys, os, re, random
+import sys, os, re
 from PIL import Image, ImageDraw, ImageFont
 
 BREED, HOOG = 896, 956
@@ -32,7 +32,7 @@ LINKS = 8
 FONT = ImageFont.truetype('/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', 10)
 INKT = (3, 3, 3)
 AFWIJKEND, GOED = 'AFWIJKENDE STIJL', 'GOEDE STIJL'
-SEED = 19                   # het aantal referenties waar deze omzetting op volgt
+GRENS = 85                  # 'AFWIJKENDE STIJL' loopt door tot x=100, 'GOEDE STIJL' tot x=69
 
 # Van deze modellen staat al een blad in de stijlreferentie; nog een keer
 # toevoegen levert twee bladen van hetzelfde model op.
@@ -45,18 +45,21 @@ AL_AANWEZIG = {
     'kenney_platformer-kit__tree': 'ref19',
 }
 
-RIJ = re.compile(r'^\| `(ref\d+)\.png` \| `(.+?)\.png` \| (\w+) \|$', re.M)
+REF = re.compile(r'ref(\d+)\.png')
+RIJ = re.compile(r'^\| `(ref\d+)\.png` \| `(.+?)\.png` \|$', re.M)
 
 KOP = """# Converted sheets
 
 These references were converted from the comparison sheets in `%s` by
 `tools/vind-match/naar-stijlreferentie.py`. The missing model — from an outside
 kit — is the deviant style; its closest catalog match is the good style. Only
-the two labels change; which half is on top varies, so the position does not
-give the answer away.
+the two labels change.
 
-| ref | source sheet | top half |
-|-----|--------------|----------|
+Throughout the reference set the deviant style is the top half and the good
+style the bottom half, so the two never have to be told apart by reading.
+
+| ref | source sheet |
+|-----|--------------|
 """
 
 STAART = """
@@ -70,6 +73,7 @@ Left out, because the same model already has a sheet in the reference set:
 
 mdir = sys.argv[1] if len(sys.argv) > 1 else 'docs/missing_matches'
 refdir = sys.argv[2] if len(sys.argv) > 2 else 'docs/stijlreferentie'
+os.makedirs(refdir, exist_ok=True)
 index = os.path.join(refdir, 'index.md')
 
 
@@ -79,49 +83,69 @@ def label(d, y, tekst):
     d.text((LINKS, y - FONT.getbbox(tekst)[1]), tekst, font=FONT, fill=INKT)
 
 
-def blad(vel, i):
-    return vel.crop((0, BLAD_Y[i], BREED, BLAD_Y[i] + BLAD_H))
-
-
-eerder = RIJ.findall(open(index).read()) if os.path.exists(index) else []
-gedaan = {naam for _, naam, _ in eerder}
-nummer = max((int(f[3:-4]) for f in os.listdir(refdir)
-              if re.fullmatch(r'ref\d+\.png', f)), default=0)
-
-rng = random.Random(SEED)
-nieuw = []
-
-for naam in sorted(f[:-4] for f in os.listdir(mdir) if f.endswith('.png')):
-    if naam in AL_AANWEZIG or naam in gedaan:
-        continue
-    bron = Image.open(os.path.join(mdir, naam + '.png')).convert('RGB')
-    boven, onder = blad(bron, 0), blad(bron, 1)   # missing, catalogustreffer
-    om = rng.random() < 0.5                       # goede stijl bovenaan?
-    if om:
-        boven, onder = onder, boven
-
+def zet(boven, onder):
+    # Twee bladen van acht views onder elkaar, met de vaste labels erboven.
     vel = Image.new('RGB', (BREED, HOOG), 'white')
     vel.paste(boven, (0, BLAD_Y[0]))
     vel.paste(onder, (0, BLAD_Y[1]))
     for y0, y1 in WIS:
-        vel.paste('white', (0, y0, BREED, y1))    # labels van het bronblad weg
+        vel.paste('white', (0, y0, BREED, y1))   # oude labels weg
     d = ImageDraw.Draw(vel)
-    label(d, TEKST_Y[0], GOED if om else AFWIJKEND)
-    label(d, TEKST_Y[1], AFWIJKEND if om else GOED)
+    label(d, TEKST_Y[0], AFWIJKEND)
+    label(d, TEKST_Y[1], GOED)
+    return vel
 
-    nummer += 1
+
+def bladen(vel):
+    return [vel.crop((0, y, BREED, y + BLAD_H)) for y in BLAD_Y]
+
+
+def afwijkend_boven(vel):
+    # Het bovenste label herkennen aan zijn breedte: 'AFWIJKENDE STIJL' is een
+    # stuk langer dan 'GOEDE STIJL', en verder staat er niets in die strook.
+    strook = vel.convert('L').crop((0, WIS[0][0], BREED, WIS[0][1]))
+    doos = strook.point(lambda p: 255 if p < 250 else 0).getbbox()
+    return doos is not None and doos[2] > GRENS
+
+
+# --- bestaande bladen gelijkzetten -------------------------------------------
+gedraaid = []
+for naam in sorted(os.listdir(refdir)):
+    if not REF.fullmatch(naam):
+        continue
+    pad = os.path.join(refdir, naam)
+    vel = Image.open(pad).convert('RGB')
+    if afwijkend_boven(vel):
+        continue
+    onder, boven = bladen(vel)               # stond andersom
+    zet(boven, onder).save(pad)
+    gedraaid.append(naam[:-4])
+
+# --- nieuwe bronnen omzetten -------------------------------------------------
+eerder = RIJ.findall(open(index).read()) if os.path.exists(index) else []
+gedaan = {naam for _, naam in eerder}
+nummer = max((int(REF.fullmatch(f)[1]) for f in os.listdir(refdir)
+              if REF.fullmatch(f)), default=0)
+
+nieuw = []
+for naam in sorted(f[:-4] for f in os.listdir(mdir) if f.endswith('.png')):
+    if naam in AL_AANWEZIG or naam in gedaan:
+        continue
+    boven, onder = bladen(Image.open(os.path.join(mdir, naam + '.png')).convert('RGB'))
+    nummer += 1                              # missing boven, catalogustreffer onder
     ref = 'ref%02d' % nummer
-    vel.save(os.path.join(refdir, ref + '.png'))
-    nieuw.append((ref, naam, 'good' if om else 'deviant'))
+    zet(boven, onder).save(os.path.join(refdir, ref + '.png'))
+    nieuw.append((ref, naam))
 
 with open(index, 'w') as f:
     f.write(KOP % mdir)
-    for ref, naam, boven in eerder + nieuw:
-        f.write('| `%s.png` | `%s.png` | %s |\n' % (ref, naam, boven))
+    for ref, naam in eerder + nieuw:
+        f.write('| `%s.png` | `%s.png` |\n' % (ref, naam))
     f.write(STAART)
     for naam, ref in sorted(AL_AANWEZIG.items()):
         f.write('| `%s.png` | `%s.png` |\n' % (naam, ref))
 
-for rij in nieuw:
-    print(*rij, sep='\t')
+print('omgedraaid:', ' '.join(gedraaid) or '-')
+for ref, naam in nieuw:
+    print(ref, naam, sep='\t')
 print('klaar:', len(nieuw), 'referenties')
