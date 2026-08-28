@@ -1,5 +1,11 @@
 # Catalog review against Appendix A (material and color rules)
 
+> Rule letters in this document refer to the appendix **as it stood when the
+> review ran**. The defects under "Defects in Appendix A itself" have since
+> been fixed in `docs/asset_style_guide.md` (relettered A–AQ, band ids named,
+> placeholder rules Z–AD filled, fauna/copper rules added); the catalog
+> findings are unchanged.
+
 Review of `catalog/catalog.json` (1063 models) against the rules in
 `docs/asset_style_guide.md`, Appendix A. Every model's `colors` list was mapped
 back to a band in `kits/colormap.png`; 17 of the 18 distinct catalog colors are

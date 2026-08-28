@@ -60,46 +60,53 @@ structure-fence-sides
 lighthouse
 
 Appendix A: Material and color rules
-a. Flowers may be any colour
-b. stems and leaves follow foliage green.
-c. Bones and skulls are off-white.
-d. Paper is off-white
-e. Ceramic is offwhite, Teracotta, taupe.
-f. metal is usually light grey.
-g. steel/cast iron can be dark grey.
-h. Textile: off-white, salmon 13,0, khaki 14,0 or brown 12,0.
-i. Bottles are glass or ceramic 
-J. glass is special own material transparant, or dark green or dark red.
-K. Ceramics are usually Teracotta, offwhite, taupe, or dark red.
-L. Roofs are usually dark red.
-L. Usual Colour variants: glass bottle shape exists in red and green.
-N. Wood is one ladder in three lanes — light 0,0 surfaces/planks/cut faces, middle 1,0 frames, bark 2,0 bark only; no bark lane without a bark tag; bark with a cut face shows two tones.
-M. The ladder is one continuous track: #e6bc94 → #b07f5c → #845740 → #5e4232, each lane running anchor to anchor so they join seamlessly.
-O. The gradient position inside a lane comes from the original: 465 checked, 419 restored.
+
+Band ids are column,row in `kits/colormap.png`. Where a colour name below has
+an id, it is: light grey 15,3 · dark grey 10,0 · blue-grey 6,1 · light
+blue-grey 3,2 · blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 ·
+khaki 14,0 · terracotta 5,0 · yellow/gold 6,0 · dark red 8,0 · dark green 1,1 ·
+light green 3,1 · wood light 0,0 · wood middle 1,0 · bark 2,0.
+
+A. Flowers may be any colour.
+B. Stems and leaves follow foliage green.
+C. Bones and skulls are off-white.
+D. Paper is off-white.
+E. Ceramics are usually terracotta, off-white, taupe, or dark red.
+F. Metal is usually light grey 15,3.
+G. Steel/cast iron can be dark grey 10,0.
+H. Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.
+I. Bottles are glass or ceramic.
+J. Glass is a special own material: transparent, or dark green or dark red.
+K. Roofs are usually dark red.
+L. Usual colour variants: glass bottle shape exists in red and green.
+M. Wood is one ladder in three lanes — light 0,0 surfaces/planks/cut faces, middle 1,0 frames, bark 2,0 bark only; no bark lane without a bark tag; bark with a cut face shows two tones. Leather is the one exception: leather-look surfaces (book covers, bags, straps) may use the bark lane without a bark tag.
+N. The ladder is one continuous track: #e6bc94 → #b07f5c → #845740 → #5e4232, each lane running anchor to anchor so they join seamlessly.
+O. The gradient position inside a lane comes from the original model.
 P. Which triangles are light or dark is stated in the source model — the rule that's also in CLAUDE.md.
-Q. Wicks are dark grey.
-R. Coins and metal in jewelery usually are gold, alternatively silver.
-S. Keys can be any metal or edelmetaal color.
+Q. Wicks are dark grey 10,0.
+R. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.
+S. Keys can be any metal or precious-metal colour.
 T. Bands on barrels, buckets, and chests are usually light grey (metal).
-U. All chests, barrels, kegs, buckets, boxes, crates, are mainly timber. Regularly with metal accents.
-V. All kurk is usually same light salmon brown.
+U. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regularly with metal accents.
+V. All cork is usually the same light salmon brown.
 W. Grass is light green.
 X. Trees are usually dark green.
-Y. If model had different timber hues or Lightness in source material, it will use different bands on our shared palettame too.
-Z. Stones is xxx
-AA. Rocks are xxx
-AB. Sand and dirt are.xxx
-AC. Light uses xxx
-AD. Rope is xxx
-AE. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks), metals are used sparingly.
-AF. Objects with brown colors and timber, usually show visibly planks / trunks. And don't have a too smoothen ed or polished look.
-AG. Blue is used sparingly, and only for minnor details or accents.
-AH. Light Green is only used for fauna, and very minnor details or accents.
-AI. Terracotta is not use for timber.
-AJ. Yellow is usually only used for coins, jemelery light, or fire.
-AK. Dark grey is only used for cast iron and stone. 
-Al. Dark red is only used for ceramics, glass,, and very minnor details or accents.
-AN. Dark green is only used for foiliage, glass, and very minnor details or accents.
-AM. Darkest brown is only used for bark. and leather.
-AO. Lighter browns is only used for timber.
-AP. Light grey is only used for metal, stone, and rock.
+Y. If a model had different timber hues or lightness in the source material, it uses different bands on our shared palette too.
+Z. Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.
+AA. Rocks are light grey 15,3, secondarily taupe 14,3.
+AB. Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.
+AC. Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.
+AD. Rope is wood light 0,0 or khaki 14,0.
+AE. Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish may also be blue 4,2 or light blue-grey 3,2.
+AF. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
+AG. Objects with brown colours and timber usually show visible planks/trunks, and don't have a too smoothed or polished look.
+AH. Blue 4,2 is used sparingly: fish (rule AE) and otherwise only minor details or accents.
+AI. Light green is only used for flora, and very minor details or accents.
+AJ. Terracotta is not used for timber (copper, rule R, is the exception outside ceramics).
+AK. Yellow is usually only used for coins, jewellery, light, or fire.
+AL. Dark grey 10,0 is only used for cast iron, stone, and wicks.
+AM. Dark red is only used for ceramics, glass, roofs, and very minor details or accents.
+AN. Dark green is only used for foliage, glass, and very minor details or accents.
+AO. Darkest brown is only used for bark and leather.
+AP. Lighter browns are only used for timber.
+AQ. Light grey 15,3 is only used for metal, stone, and rock.
