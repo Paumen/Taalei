@@ -44,28 +44,33 @@ every catalogue model, how thin is its thinnest solid part?
 | 4 | `village-kit/door-simple` | **2.4** | 2 × 72 × 36 | 12 | 6 |
 | 5 | `fantasy-props/book-stack-2` | **2.7** | 23 × 32 × 6 | 116 | 7 |
 | 6 | `rpgtools/compass-base` | **2.9** | 99 × 3 × 99 | 22 | 10 |
-| 7 | `natuur/flower-daisy-3` | **3.3** | 35 × 95 × 9 | 24 | 6 |
-| 8 | `natuur/flower-bellflower-1` | **3.4** | 6 × 13 × 14 | 5 | 7 |
-| 9 | `natuur/flower-bellflower-3` | **3.4** | 13 × 6 × 14 | 5 | 8 |
-| 10 | `natuur/flower-bellflower-2` | **4.2** | 15 × 9 × 17 | 5 | 8 |
-| 11 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
-| 12 | `village-kit/bell-a` | **4.2** | 4 × 252 × 4 | 12 | 6 |
-| 13 | `modulair-terrein/hilly-prop-flower-rose` | **4.3** | 24 × 7 × 11 | 20 | 5 |
-| 14 | `natuur/flower-daisy-2` | **4.4** | 30 × 108 × 10 | 24 | 6 |
-| 15 | `village-kit/windmill-blades` | **4.6** | 53 × 1484 × 1484 | 12 | 47 |
-| 16 | `fantasy-props/cage-small` | **4.8** | 5 × 30 × 147 | 94 | 210 |
-| 17 | `natuur/flower-daisy-1` | **5.0** | 8 × 98 × 7 | 24 | 7 |
-| 18 | `natuur/flower-sunflower-2` | **5.0** | 94 × 53 × 106 | 72 | 5 |
-| 19 | `rpgtools/scissors` | **5.0** | 59 × 239 × 5 | 78 | 5 |
-| 20 | `natuur/flower-violet-1` | **5.2** | 16 × 15 × 21 | 5 | 8 |
+| 7 | `natuur/flower-bellflower-1` | **3.4** | 6 × 13 × 14 | 5 | 7 |
+| 8 | `natuur/flower-bellflower-3` | **3.4** | 13 × 6 × 14 | 5 | 8 |
+| 9 | `natuur/flower-bellflower-2` | **4.2** | 15 × 9 × 17 | 5 | 8 |
+| 10 | `rpgtools/drafting-compass` | **4.2** | 9 × 26 × 8 | 24 | 11 |
+| 11 | `village-kit/bell-a` | **4.2** | 4 × 252 × 4 | 12 | 6 |
+| 12 | `modulair-terrein/hilly-prop-flower-rose` | **4.3** | 24 × 7 × 11 | 20 | 5 |
+| 13 | `village-kit/windmill-blades` | **4.6** | 53 × 1484 × 1484 | 12 | 47 |
+| 14 | `natuur/flower-daisy-3` | **4.7** | 15 × 14 × 19 | 8 | 6 |
+| 15 | `fantasy-props/cage-small` | **4.8** | 5 × 30 × 147 | 94 | 210 |
+| 16 | `natuur/flower-sunflower-2` | **5.0** | 94 × 53 × 106 | 72 | 5 |
+| 17 | `rpgtools/scissors` | **5.0** | 59 × 239 × 5 | 78 | 5 |
+| 18 | `natuur/flower-daisy-1` | **5.1** | 20 × 8 × 21 | 8 | 7 |
+| 19 | `natuur/flower-violet-1` | **5.2** | 16 × 15 × 21 | 5 | 8 |
+| 20 | `natuur/flower-daisy-2` | **5.2** | 15 × 17 × 21 | 8 | 6 |
 
 ## Reading it
 
 - Two families fill most of the list: **small handled props** (both keys, both
   compasses, the book stack, the bell, the scissors) and **flower parts**
-  (bellflowers, daisies, a rose, a violet, a sunflower) — heads and stems both.
-- The seven cattails used to sit in this list at 3.6–4.1 mm and are gone from
-  it: their stems were widened to 6.0 mm with `tools/verdik-steel.mjs`.
+  (bellflowers, daisies, a rose, a violet, a sunflower).
+- Stems are no longer among them. The seven cattails sat here at 3.6–4.1 mm and
+  nine flower stems between 3.3 and 6.0 mm; all of them were widened to 6.0 mm
+  with `tools/verdik-steel.mjs`. What keeps the flowers on the list now is
+  their other parts: the cap in the middle of a bellflower head, the button at
+  the centre of a daisy, the petals of the rose, the sunflower's whole disc.
+  Those are not rods, and widening them the same way would make them broader as
+  well as thicker, so they were left alone.
 - `rpgtools/journal-open` is thinnest of all at 1.1 mm, and the render shows
   what those parts are: the text on the two open pages is modelled as relief.
   Five short strokes of 23 × 7 × 9 mm sit at 1.1 mm and twelve full-width lines
@@ -75,5 +80,5 @@ every catalogue model, how thin is its thinnest solid part?
 - `village-kit/door-simple` carries a 12-triangle plate of 2.4 × 72 × 36 mm.
   Its thin direction is exactly the world x-axis, so it is an axis-aligned
   panel rather than a bevel or a chamfer running out to an edge.
-- For scale: the median model's thinnest part is 40 mm; 16 models have a part
+- For scale: the median model's thinnest part is 40 mm; 15 models have a part
   under 5 mm, 85 under 10 mm.
