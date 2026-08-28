@@ -1267,8 +1267,6 @@ window.KENNEY_KITS = [
    "bones-large",
    "bottle-1",
    "bottle-2",
-   "bucket",
-   "bucket-fish",
    "cannon",
    "cannonball",
    "chest",
@@ -1397,8 +1395,6 @@ window.KENNEY_KITS = [
   "name": "Quaternius Ultimate Food",
   "url": "https://quaternius.com/packs/ultimatefood.html",
   "models": [
-   "apple",
-   "banana",
    "bottle-1",
    "bottle-2",
    "bread",
@@ -1408,8 +1404,6 @@ window.KENNEY_KITS = [
    "coconut-half",
    "cooking-pot",
    "cooking-pot-2",
-   "cooking-pot-soup",
-   "cooking-pot-soup-2",
    "fish",
    "fish-bone",
    "fork",
@@ -1443,7 +1437,6 @@ window.KENNEY_KITS = [
   "models": [
    "boat",
    "boat-sail",
-   "boat-viking",
    "ship-sail"
   ]
  }
