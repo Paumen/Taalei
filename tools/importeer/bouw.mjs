@@ -51,7 +51,7 @@ function gemiddeldeKleur(textuurBron, hoekUvs, hoekkleuren, winst = 1) {
 
 const GROEPSTRAAL = 0.035;
 
-function groepeerOpKleur(kleuren) {
+export function groepeerOpKleur(kleuren) {
   const groepen = [];
 
   for (const rgb of kleuren) {

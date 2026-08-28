@@ -1,15 +1,16 @@
+// De negen modellen met een skelet staan hier niet bij: die hebben animaties en
+// gaan door tools/importeer-geanimeerd.mjs. importeerKit wist eerst elke .glb in de
+// kitmap, dus draai dit script eerst en dat daarna:
+//
+//   node tools/importeer-pirate-quaternius.mjs <glTF-map>
+//   node tools/importeer-geanimeerd.mjs <glTF-map> kits/workfiles/pirate-quaternius 0.26 \
+//     Characters_Anne pirate-anne Characters_Captain_Barbarossa pirate-captain \
+//     Characters_Henry pirate-henry Characters_Mako pirate-mako Characters_Shark shark \
+//     Characters_Sharky pirate-sharky Characters_Skeleton skeleton \
+//     Characters_Skeleton_Headless skeleton-headless Characters_Tentacle tentacle
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
-  ['Characters_Anne',               'pirate-anne'],
-  ['Characters_Captain_Barbarossa', 'pirate-captain'],
-  ['Characters_Henry',              'pirate-henry'],
-  ['Characters_Mako',               'pirate-mako'],
-  ['Characters_Shark',              'shark'],
-  ['Characters_Sharky',             'pirate-sharky'],
-  ['Characters_Skeleton',           'skeleton'],
-  ['Characters_Skeleton_Headless',  'skeleton-headless'],
-  ['Characters_Tentacle',           'tentacle'],
   ['Environment_Cliff1',            'cliff-1'],
   ['Environment_Cliff2',            'cliff-2'],
   ['Environment_Cliff3',            'cliff-3'],
