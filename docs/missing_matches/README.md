@@ -31,7 +31,7 @@ relative to the repository root.
 
 ## Picking sheets out
 
-`overzicht/` holds the same 77 sheets as contact sheets, sixteen to a page,
+`overzicht/` holds the same 70 sheets as contact sheets, sixteen to a page,
 scaled down with a number above each one: `blad_01.png` … `blad_05.png`. The
 number is the position in the alphabetical listing of `*.png`, and
 `overzicht/index.md` maps every number back to its file name and page. Both are
@@ -57,10 +57,10 @@ Every tile keeps the same geometry either way, so marking shifts nothing in the
 grid — the same numbers stay in the same places. Marking deletes nothing by
 itself; the removal is a separate step afterwards.
 
-`verwijderd/` is that record for the removal that has been done: the pages as
-they stood at 126 sheets, with the 49 that went framed red, and an `index.md`
-putting a `×` against them. It is a snapshot, not something the script keeps up
-to date — `overzicht/` is the live set.
+`verwijderd/` is that record for the last removal done: the pages as they stood
+before it, with the sheets that went framed red, and an `index.md` putting a `×`
+against them. It holds one removal at a time — it is rewritten by the next one,
+and earlier ones are in the git history. `overzicht/` is the live set.
 
 ## Method
 
