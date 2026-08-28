@@ -29,6 +29,22 @@ ones about three.
 Which models are compared is `tools/vind-match/modellen.txt` — one path per line,
 relative to the repository root.
 
+## Picking sheets out
+
+`overzicht/` holds the same 126 sheets as contact sheets, sixteen to a page,
+scaled down with a number above each one: `blad_01.png` … `blad_08.png`. The
+number is the position in the alphabetical listing of `*.png`, and
+`overzicht/index.md` maps every number back to its file name and page. Both are
+made by
+
+```
+tools/vind-match/overzicht.sh
+```
+
+which reads the sheets already in this directory — no renders, no embeddings —
+and rewrites `overzicht/` from scratch. Removing a sheet renumbers the ones
+after it, so re-run it after any removal.
+
 ## Method
 
 The missing models are rendered with the same eight cameras as the catalogue
