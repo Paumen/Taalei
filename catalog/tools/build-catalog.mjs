@@ -370,8 +370,11 @@ const SOURCES = [
   {
     id: 'qua',
     name: 'Quaternius',
-    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature.',
-    kits: ['fantasy-props', 'quaternius-nature'],
+    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature, plus the six packs that came later — pirate, dungeon, RPG, food, fish and ships.',
+    kits: [
+      'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'dungeon-quaternius',
+      'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
+    ],
   },
 ];
 
