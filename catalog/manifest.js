@@ -1444,5 +1444,23 @@ window.KENNEY_KITS = [
    "boat-sail",
    "ship-sail"
   ]
+ },
+ {
+  "slug": "castle-kit",
+  "name": "Kenney Castle Kit",
+  "url": "https://kenney.nl/assets/castle-kit",
+  "models": [
+   "tower-square-mid-open",
+   "tower-square-mid-open-simple"
+  ]
+ },
+ {
+  "slug": "graveyard-kit",
+  "name": "Kenney Graveyard Kit",
+  "url": "https://kenney.nl/assets/graveyard-kit",
+  "models": [
+   "crypt-large",
+   "crypt-large-roof"
+  ]
  }
 ]

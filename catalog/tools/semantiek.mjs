@@ -332,7 +332,7 @@ const rules = [
   // hyphen boundary the generic patterns use, and would otherwise fall to 'other'.
   [/^(pirate-|skeleton|tentacle)/, 'characters'],
   [/^cliff\b/, 'rocks'],
-  [/^(house|sawmill|arch)\b/, 'structures'],
+  [/^(house|sawmill|arch|crypt)\b/, 'structures'],
   [/^(anchor|cannonball)\b/, 'transport'],
   [/^(book|scroll|parchment)\b/, 'books-scrolls'],
   [/^(potion|bottle)\b/, 'bottles-jugs'],
