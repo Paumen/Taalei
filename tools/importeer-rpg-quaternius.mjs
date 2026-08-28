@@ -12,7 +12,6 @@ const MODELLEN = [
   ['Book3_Open',       'book-3-open'],
   ['Book4_Closed',     'book-4-closed'],
   ['Book4_Open',       'book-4-open'],
-  ['ChickenLeg',       'chicken-leg'],
   ['Coin',             'coin'],
   ['Coin_Skull',       'coin-skull'],
   ['Coin_Star',        'coin-star'],
