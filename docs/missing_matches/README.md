@@ -31,8 +31,8 @@ relative to the repository root.
 
 ## Picking sheets out
 
-`overzicht/` holds the same 126 sheets as contact sheets, sixteen to a page,
-scaled down with a number above each one: `blad_01.png` … `blad_08.png`. The
+`overzicht/` holds the same 77 sheets as contact sheets, sixteen to a page,
+scaled down with a number above each one: `blad_01.png` … `blad_05.png`. The
 number is the position in the alphabetical listing of `*.png`, and
 `overzicht/index.md` maps every number back to its file name and page. Both are
 made by
@@ -54,9 +54,13 @@ bash tools/vind-match/overzicht.sh docs/missing_matches 15,25,26,34
 ```
 
 Every tile keeps the same geometry either way, so marking shifts nothing in the
-grid — the same numbers stay in the same places. Nothing is deleted by this; the
-marked pages are there to be checked against the renders the numbers were picked
-from, and the removal is a separate step afterwards.
+grid — the same numbers stay in the same places. Marking deletes nothing by
+itself; the removal is a separate step afterwards.
+
+`verwijderd/` is that record for the removal that has been done: the pages as
+they stood at 126 sheets, with the 49 that went framed red, and an `index.md`
+putting a `×` against them. It is a snapshot, not something the script keeps up
+to date — `overzicht/` is the live set.
 
 ## Method
 
