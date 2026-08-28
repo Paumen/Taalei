@@ -63,6 +63,8 @@ export const GROUPS = [
   { id: 'structures', name: 'Structures & platforms', short: 'Structures', color: '#877a63',
     tab: 'structures',
     description: 'Small buildings, platforms, decks, planks, balconies and the loose walls and roofs that aren\'t part of a building kit. Also the well with its parts: the three ground pieces that go underneath and the shaft inside it, and the loose floors you build on — the survival kit\'s, with the pirate kit\'s hole included.' },
+  { id: 'characters', name: 'Characters', short: 'Characters', color: '#8a6fb0',
+    description: 'The only figures in the collection: the pirate crew from the Quaternius Pirate Kit, its two skeletons and its tentacle. Everything else in the catalogue is something you place or something that is already there, so these sit apart — they are the one group with a face. They are also the heaviest models per unit anywhere in the collection: smooth-shaded organic meshes, well over the triangle budget, so place a few and not a crowd.' },
   { id: 'building-kit', name: 'Building kit & mills', short: 'Building kit', color: '#a8762a',
     tab: 'structures',
     description: 'Walls, roofs, pillars and mills: pieces that click together on one grid and only fit each other, plus the mills that belong to that same building set. There are three side by side — fantasy-town\'s, the village kit\'s and the dungeon kit\'s — and they don\'t fit each other; check the kit before combining two pieces. Its own tab, because hundreds of variants of the same wall and the same roof would crowd out anything sitting loose next to them in the group view.' },
@@ -327,6 +329,18 @@ const exceptions = {
 };
 
 const rules = [
+  // The six Quaternius packs. Kept together and ahead of the generic rules: several
+  // of these names (coins, gold-bag, chicken-leg) sit just outside the plural or
+  // hyphen boundary the generic patterns use, and would otherwise fall to 'other'.
+  [/^(pirate-|skeleton|tentacle)/, 'characters'],
+  [/^(cliff|boulder)\b/, 'rocks'],
+  [/^(dock|house|sawmill|arch|brick|decorative-wall|pedestal|trapdoor|spikes|statue)\b/, 'structures'],
+  [/^(anchor|bomb|cannonball|coins|skulls|bones-large|crown|necklace|ring|padlock|parchment|snowflake|heart|backpack|pouch|trap)\b/, 'items'],
+  [/^(gold-bag|jar)\b/, 'storage'],
+  [/^(crystal|mineral|gold-ingots)\b/, 'resources'],
+  [/^(apple|avocado|bacon|banana|bread|broccoli|carrot|cheese|chicken-leg|chopsticks|cooking-pot|egg|eggplant|fork|frying-pan|lettuce|orange|pepper|pumpkin|sausage|spoon|steak|tomato|turnip|sushi|sashimi)\b/, 'food'],
+  [/^(manta-ray|whale|dolphin)\b/, 'animals'],
+  [/^(cobweb|sword-wall-mount|woodfire)\b/, 'items'],
   [/^(corridor|room|template)\b/, 'cave'],
   [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'animals'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'seabed'],
