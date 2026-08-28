@@ -44,12 +44,12 @@ AFWIJKEND, GOED = 'AFWIJKENDE STIJL', 'GOEDE STIJL'
 # Van deze modellen staat al een blad in de stijlreferentie; nog een keer
 # toevoegen levert twee bladen van hetzelfde model op.
 AL_AANWEZIG = {
-    'FantasyProps_glTF_1k__Anvil': 'ref11',
+    'FantasyProps_glTF_1k__Anvil': 'ref10',
     'KayKit_Furniture_Bits_1.0_FREE__shelf_A_big': 'ref18',
-    'Ultimate_Nature_Pack_by_Quaternius_OBJ__Cactus_1': 'ref10',
-    'kenney_graveyardkit_5.0__shovel': 'ref07',
-    'kenney_mini-dungeon__key': 'ref03',
-    'kenney_platformer-kit__tree': 'ref19',
+    'Ultimate_Nature_Pack_by_Quaternius_OBJ__Cactus_1': 'ref09',
+    'kenney_graveyardkit_5.0__shovel': 'ref06',
+    'kenney_mini-dungeon__key': 'ref02',
+    'kenney_platformer-kit__tree': 'ref16',
 }
 
 REF = re.compile(r'ref(\d+)\.png')
