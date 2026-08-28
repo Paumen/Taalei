@@ -3,8 +3,6 @@ import { importeerKit } from './importeer/kit.mjs';
 const MODELLEN = [
   ['Boat',        'boat'],
   ['BoatWSail',   'boat-sail'],
-  ['CruiseShip',  'ship-cruise'],
-  ['Lifeboat',    'boat-life'],
   ['Sail ship',   'ship-sail'],
   ['Viking boat', 'boat-viking'],
 ];
