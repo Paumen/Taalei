@@ -19,6 +19,12 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 
+// Een materiaal zonder textuur draagt zijn kleur als factor; die staat lineair.
+const vanLineair = (l) => {
+  const v = l <= 0.0031308 ? l * 12.92 : 1.055 * l ** (1 / 2.4) - 0.055;
+  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
+};
+
 const RAND = 0.08;
 const MONSTERS = [
   [1 - 2 * RAND, RAND, RAND, 0.5], [RAND, 1 - 2 * RAND, RAND, 0.5], [RAND, RAND, 1 - 2 * RAND, 0.5],
@@ -72,30 +78,36 @@ for (let p = 0; p < paren.length; p += 2) {
   let driehoeken = 0;
   for (const mesh of json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
-      if (prim.indices === undefined || prim.attributes.TEXCOORD_0 === undefined) continue;
+      if (prim.indices === undefined) continue;
       const pad = atlasPad(glb, prim.material);
-      if (!pad) continue;
-      const bron = laadTextuur(pad, { vOmlaag: true });
-
+      const uv = prim.attributes.TEXCOORD_0 !== undefined
+        ? readAccessor(glb, prim.attributes.TEXCOORD_0).data : null;
       const idx = readAccessor(glb, prim.indices).data;
-      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
       const attrs = Object.fromEntries(Object.entries(prim.attributes)
         .map(([k, i]) => [k, readAccessor(glb, i)]));
 
-      // kleur per driehoek uit de atlas
+      // Kleur per driehoek. Met een atlas komt die uit de textuur, anders is het de
+      // vlakke kleur van het materiaal — dan heeft elk vlak van de primitief dezelfde.
       const kleuren = [];
-      for (let d = 0; d + 2 < idx.length; d += 3) {
-        const hoek = [idx[d], idx[d + 1], idx[d + 2]];
-        const som = [0, 0, 0]; let gewicht = 0;
-        for (const [a, b, c, weeg] of MONSTERS) {
-          const u = a * uv[hoek[0] * 2] + b * uv[hoek[1] * 2] + c * uv[hoek[2] * 2];
-          const v = a * uv[hoek[0] * 2 + 1] + b * uv[hoek[1] * 2 + 1] + c * uv[hoek[2] * 2 + 1];
-          const s = bron.monster(u, v);
-          if (s[3] < 128) continue;
-          for (let k = 0; k < 3; k++) som[k] += s[k] * weeg;
-          gewicht += weeg;
+      if (pad && uv) {
+        const bron = laadTextuur(pad, { vOmlaag: true });
+        for (let d = 0; d + 2 < idx.length; d += 3) {
+          const hoek = [idx[d], idx[d + 1], idx[d + 2]];
+          const som = [0, 0, 0]; let gewicht = 0;
+          for (const [a, b, c, weeg] of MONSTERS) {
+            const u = a * uv[hoek[0] * 2] + b * uv[hoek[1] * 2] + c * uv[hoek[2] * 2];
+            const v = a * uv[hoek[0] * 2 + 1] + b * uv[hoek[1] * 2 + 1] + c * uv[hoek[2] * 2 + 1];
+            const s = bron.monster(u, v);
+            if (s[3] < 128) continue;
+            for (let k = 0; k < 3; k++) som[k] += s[k] * weeg;
+            gewicht += weeg;
+          }
+          kleuren.push(gewicht ? som.map((w) => Math.round(w / gewicht)) : [255, 255, 255]);
         }
-        kleuren.push(gewicht ? som.map((w) => Math.round(w / gewicht)) : [255, 255, 255]);
+      } else {
+        const factor = json.materials?.[prim.material]?.pbrMetallicRoughness?.baseColorFactor ?? [1, 1, 1, 1];
+        const vast = factor.slice(0, 3).map(vanLineair);
+        for (let d = 0; d + 2 < idx.length; d += 3) kleuren.push(vast);
       }
 
       const banen = groepeerOpKleur(kleuren);
@@ -105,11 +117,13 @@ for (let p = 0; p < paren.length; p += 2) {
       const n = (idx.length / 3 | 0) * 3;
       const uit = {};
       for (const naamAttr of Object.keys(attrs)) uit[naamAttr] = [];
+      delete uit.TEXCOORD_0;
       const nieuweUv = [];
       for (let d = 0; d + 2 < idx.length; d += 3) {
         for (let h = 0; h < 3; h++) {
           const v = idx[d + h];
           for (const [naamAttr, acc] of Object.entries(attrs)) {
+            if (naamAttr === 'TEXCOORD_0') continue;
             for (let k = 0; k < acc.width; k++) uit[naamAttr].push(acc.data[v * acc.width + k]);
           }
           nieuweUv.push(doelUv[d / 3][0], doelUv[d / 3][1]);
