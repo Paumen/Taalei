@@ -4,7 +4,6 @@ const MODELLEN = [
   ['Boat',        'boat'],
   ['BoatWSail',   'boat-sail'],
   ['Sail ship',   'ship-sail'],
-  ['Viking boat', 'boat-viking'],
 ];
 
 await importeerKit({

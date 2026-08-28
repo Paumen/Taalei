@@ -1,8 +1,6 @@
 import { importeerKit } from './importeer/kit.mjs';
 
 const MODELLEN = [
-  ['Apple',            'apple'],
-  ['Banana',           'banana'],
   ['Bottle1',          'bottle-1'],
   ['Bottle2',          'bottle-2'],
   ['Bread',            'bread'],
@@ -12,8 +10,6 @@ const MODELLEN = [
   ['Coconut_Half',     'coconut-half'],
   ['CookingPot',       'cooking-pot'],
   ['CookingPot2',      'cooking-pot-2'],
-  ['CookingPot2_Soup', 'cooking-pot-soup-2'],
-  ['CookingPot_Soup',  'cooking-pot-soup'],
   ['Fish',             'fish'],
   ['FishBone',         'fish-bone'],
   ['Fork',             'fork'],

@@ -32,8 +32,6 @@ const MODELLEN = [
   ['Prop_Barrel',                   'barrel'],
   ['Prop_Bottle_1',                 'bottle-1'],
   ['Prop_Bottle_2',                 'bottle-2'],
-  ['Prop_Bucket',                   'bucket'],
-  ['Prop_Bucket_Fishes',            'bucket-fish'],
   ['Prop_Cannon',                   'cannon'],
   ['Prop_CannonBall',               'cannonball'],
   ['Prop_Chest_Closed',             'chest'],
