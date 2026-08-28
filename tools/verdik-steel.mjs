@@ -11,6 +11,12 @@
 // de punt bovenaan blijft een punt. Een vaste dikte over de hele lengte zou
 // van een steel een staaf met een afgeknotte top maken.
 //
+// Alleen staafvormige onderdelen komen in aanmerking: lang ten opzichte van
+// hun dikte, en niet breed uitgelopen. Een blad of een schijf is óók dun, maar
+// dwars opblazen maakt zo'n onderdeel net zo veel breder als dikker, en dat is
+// een andere ingreep dan het verdikken van een steel. Wat afvalt komt in de
+// uitvoer te staan.
+//
 // De hoogte van een hoekpunt langs de as verandert niet, alleen zijn afstand
 // tot de hartlijn. De UV's blijven onaangeroerd, dus de kleuren uit de gedeelde
 // kleurkaart blijven staan. De normalen blijven ook staan: die van het model
@@ -36,6 +42,30 @@ for (let i = 0; i < a.length; i++) {
 if (!paden.length || !doel) throw new Error('gebruik: <glb...> --doel 0.006 [--proef]');
 
 const punt = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+
+// Staaf: minstens tien keer zo lang als dik, en niet breder dan een derde van
+// zijn lengte. Een steel haalt dat ruim (een lisdoddesteel is zestig keer zo
+// lang als dik); een blad is maar drie tot acht keer zo lang als dik, en een
+// bloemschijf is even breed als lang.
+const LENGTE_PER_DIKTE = 10;
+const BREEDTE_PER_LENGTE = 1 / 3;
+
+function vorm(punten, dun, as) {
+  const recht = as.map((x, i) => x - punt(as, dun) * dun[i]);
+  const len = Math.hypot(...recht);
+  const lang = len > 0 ? recht.map((x) => x / len) : as;
+  const derde = [
+    dun[1] * lang[2] - dun[2] * lang[1],
+    dun[2] * lang[0] - dun[0] * lang[2],
+    dun[0] * lang[1] - dun[1] * lang[0],
+  ];
+  const breedte = (richting) => {
+    let laag = Infinity, hoog = -Infinity;
+    for (const p of punten) { const v = punt(p, richting); if (v < laag) laag = v; if (v > hoog) hoog = v; }
+    return hoog - laag;
+  };
+  return { lengte: breedte(lang), breed: breedte(derde) };
+}
 
 // Lengteas van een onderdeel: de richting waarin het het meest uitgestrekt is,
 // gevonden door de spreidingsmatrix een paar keer op zichzelf toe te passen.
@@ -91,9 +121,20 @@ for (const pad of paden) {
 
   const delen = onderdelen(mesh);
   const gemeten = delen.map((g) => ({ groep: g, ...dikte(g, mesh.punten) }));
-  const teDun = gemeten.filter((d) => d.dikte > 0 && d.dikte < doel);
+  const dun = gemeten.filter((d) => d.dikte > 0 && d.dikte < doel);
+  const teDun = [];
+  const geenStaaf = [];
+  for (const deel of dun) {
+    const punten = [...deel.groep.punten].map((v) => mesh.punten[v]);
+    const maat = vorm(punten, deel.as, lengteAs(punten));
+    const staaf = maat.lengte >= deel.dikte * LENGTE_PER_DIKTE && maat.breed <= maat.lengte * BREEDTE_PER_LENGTE;
+    (staaf ? teDun : geenStaaf).push({ ...deel, maat });
+  }
+  if (geenStaaf.length) {
+    console.log(`${pad}: ${geenStaaf.length === 1 ? 'één dun onderdeel' : `${geenStaaf.length} dunne onderdelen`} overgeslagen, geen staaf — ${geenStaaf.map((d) => `${(d.dikte * 1000).toFixed(2)} mm, ${(d.maat.lengte * 1000).toFixed(0)} lang × ${(d.maat.breed * 1000).toFixed(0)} breed`).join('; ')}`);
+  }
   if (teDun.length === 0) {
-    console.log(`${pad}: niets dunner dan ${(doel * 1000).toFixed(1)} mm`);
+    console.log(`${pad}: geen staafvormig onderdeel dunner dan ${(doel * 1000).toFixed(1)} mm`);
     continue;
   }
 
