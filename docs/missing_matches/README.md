@@ -38,7 +38,7 @@ number is the position in the alphabetical listing of `*.png`, and
 made by
 
 ```
-tools/vind-match/overzicht.sh
+bash tools/vind-match/overzicht.sh
 ```
 
 which reads the sheets already in this directory — no renders, no embeddings —
