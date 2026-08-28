@@ -65,8 +65,12 @@ every catalogue model, how thin is its thinnest solid part?
   compasses, the book stack, the lamp post), **reeds** (all five cattails and
   the two terrain props that reuse them), and **flower heads** (three
   bellflowers, a daisy).
-- `rpgtools/journal-open` is thinnest of all at 1.1 mm — a six-triangle sliver
-  of 23 × 7 × 9 mm, thin enough to disappear edge-on.
+- `rpgtools/journal-open` is thinnest of all at 1.1 mm, and the render shows
+  what those parts are: the text on the two open pages is modelled as relief.
+  Five short strokes of 23 × 7 × 9 mm sit at 1.1 mm and twelve full-width lines
+  at 3.7 mm, on a book body that is 97 mm thick. `journal-closed`, the same
+  journal shut, holds six parts and nothing under 7.2 mm — the whole difference
+  between the two is that raised lettering.
 - Both `village-kit` doors carry the same 12-triangle plate of 2.4 × 72 × 36 mm.
   Its thin direction is exactly the world x-axis, so it is an axis-aligned
   panel rather than a bevel or a chamfer running out to an edge.
