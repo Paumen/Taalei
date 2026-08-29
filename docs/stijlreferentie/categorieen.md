@@ -103,8 +103,8 @@ Total: 80 sheets.
 | `s7.png` | bench | `ref41.png` |
 | `s8.png` | A-frame sign | `ref43.png` |
 | `s9.png` | curved fence | `ref45.png` |
-| `s10.png` | roof slope | `ref57.png` |
-| `s11.png` | roof cap | `ref58.png` |
+| `s10.png` | roof cap | `ref57.png` |
+| `s11.png` | roof slope | `ref58.png` |
 | `s12.png` | roof slope | `ref61.png` |
 | `s13.png` | roof | `ref62.png` |
 | `s14.png` | wall with window | `ref63.png` |
