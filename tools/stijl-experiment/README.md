@@ -228,6 +228,23 @@ mixed items, all cached, $0.52):
 - s5 and s33 are wrong in all four cells; o16 in three - the stable hard
   core of this 12-item set.
 
+The same 2x2 rerun on the **objects-only default** (now the working
+default: test items and refs both category o - `phase4-effort-obj.json`,
+same 12 object items as obj_8a8r, $0.52):
+
+| | 8 refs | 16 refs |
+|---|---|---|
+| effort medium | 9/12 | 9/12 |
+| effort high | 9/12 | 9/12 |
+
+- **Effort is completely inert here**: at 8 refs, high effort gave
+  answers *identical per item* to medium (b=0 c=0); at 16 refs the two
+  effort levels also miss the exact same items.
+- **16 refs is neutral** (swaps o12 for o32, one item each way).
+- o24 and o27 are wrong in all four cells - the hard core of the object
+  set. With category-matched refs the format is remarkably stable at
+  9/12 across all four cells, vs 6-8/12 for the mixed-ref 2x2 above.
+
 ## Running
 
 ```bash
