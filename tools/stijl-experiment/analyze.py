@@ -86,6 +86,8 @@ def main():
         recs = [r for r in by_cond[cid].values() if "correct" in r]
         errs = [r for r in by_cond[cid].values() if "error" in r]
         n = len(recs)
+        if n == 0:  # only errors/primes recorded (e.g. an aborted condition)
+            continue
         k = sum(r["correct"] for r in recs)
         lo, hi = wilson_ci(k, n)
         # paired McNemar on items present in both this condition and another
@@ -127,7 +129,8 @@ def main():
         lines.append(row)
     lines.append("")
 
-    all_items = sorted({i for c in by_cond.values() for i in c})
+    all_items = sorted({i for c in by_cond.values() for i in c
+                        if i != "__prime__"})
     lines += ["## Per-item matrix (x = wrong, . = right, ! = error)", "",
               "| item | " + " | ".join(conds) + " |",
               "|" + "---|" * (len(conds) + 1)]
@@ -140,6 +143,8 @@ def main():
                 cells.append(" ")
             elif "error" in r:
                 cells.append("!")
+            elif "correct" not in r:
+                cells.append(" ")
             elif r["correct"]:
                 cells.append(".")
             else:

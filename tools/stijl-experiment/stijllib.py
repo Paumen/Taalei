@@ -251,10 +251,19 @@ whether a model matches the catalog's target style. Answer strictly in the \
 requested JSON format, nothing else."""
 
 
+def _ordered_refs(refs, cfg):
+    """Injection order of the reference sheets (set membership unchanged)."""
+    return list(reversed(refs)) if cfg.get("reverse_refs") else refs
+
+
 def _intro_blocks(refs, cfg):
-    intro = ["Task: two 3D models of the same kind of object follow below. "
-             "One matches our catalog's target style, the other deviates from it. "
-             "Decide which one matches."]
+    refs = _ordered_refs(refs, cfg)
+    intro = ["Task: two low poly 3D models of the same kind of object follow "
+             "below. One matches our catalog's target style, the other deviates "
+             "from it. Decide which one matches. Since all models are low poly, "
+             "focus on the nuances the target style has within the spectrum, "
+             "not on which model has the most classic or typical low poly "
+             "characteristics."]
     if cfg.get("style_guide"):
         intro.append(STYLE_GUIDE_TEXT)
     if refs:
@@ -297,7 +306,7 @@ def _case_blocks(item, cfg, good_is_a):
 def _meta(refs, cfg):
     return {"angles": cfg.get("angles", [0, 2, 4, 6]),
             "scale": cfg.get("scale", 1.0), "n_refs": len(refs),
-            "ref_ids": [r["id"] for r in refs]}
+            "ref_ids": [r["id"] for r in _ordered_refs(refs, cfg)]}
 
 
 def build_trial_message(item, refs, cfg, good_is_a):
@@ -350,7 +359,9 @@ def parse_answer(text):
 # Bumped when the trial prompt wording changes, so results produced under
 # different prompts never silently mix under one condition fingerprint.
 # v2: dropped the confidence field from the answer format.
-PROMPT_VERSION = 2
+# v3: opening names the models as low poly and tells the model to judge
+#     within-spectrum nuances, not generic low-poly typicality.
+PROMPT_VERSION = 3
 
 
 def condition_key(cfg):

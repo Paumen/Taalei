@@ -38,7 +38,9 @@ three-quarter, 7 top-down.
   matching the API's per-image cost). This differs from agent workflows,
   where references are read via tools and skipping is possible. Answer format is strict JSON:
   {"choice": "A" or "B"}. (Phases 1-2 also asked for a confidence number;
-  it turned out barely calibrated and was dropped - prompt v2.)
+  it turned out barely calibrated and was dropped - prompt v2. Prompt v3,
+  phase 5, names the models as low poly and directs judgement at
+  within-spectrum nuances instead of generic low-poly typicality.)
 
 ## Factors
 
@@ -244,6 +246,47 @@ same 12 object items as obj_8a8r, $0.52):
 - o24 and o27 are wrong in all four cells - the hard core of the object
   set. With category-matched refs the format is remarkably stable at
   9/12 across all four cells, vs 6-8/12 for the mixed-ref 2x2 above.
+
+## Phase 5: prompt v3 + reference order (2026-08-29, cached mode, $0.30)
+
+Motivated by the rationale run: the model's misses all over-applied a
+"chunky and smooth beats thin and detailed" heuristic - i.e. it judged
+generic low-poly typicality instead of this catalog's spot on the spectrum.
+Prompt v3 targets that directly. The intro now opens:
+
+> Task: two low poly 3D models of the same kind of object follow below. One
+> matches our catalog's target style, the other deviates from it. Decide
+> which one matches. Since all models are low poly, focus on the nuances the
+> target style has within the spectrum, not on which model has the most
+> classic or typical low poly characteristics.
+
+Run on the objects-only default at 8 and 16 refs (paired against the
+v2-prompt cells with the same refs), plus one cell with the same 8 refs
+injected in reverse order (`reverse_refs`, paired against forward order).
+
+| condition | prompt | refs | order | acc | misses |
+|---|---|---|---|---|---|
+| obj_8a8r (control) | v2 | 8 | fwd | 9/12 | o12 o24 o27 |
+| obj_nuance | v3 | 8 | fwd | 9/12 | o24 o27 o32 |
+| obj_16r (control) | v2 | 16 | fwd | 9/12 | o24 o27 o32 |
+| obj_nuance16 | v3 | 16 | fwd | 9/12 | o23 o27 o32 |
+| obj_nuance_rev | v3 | 8 | **rev** | **10/12** | o27 o32 |
+
+- **The wording change nets zero at both ref counts** (b=1 c=1 in both
+  paired comparisons). At 8 refs it reproduces exactly the trade that
+  doubling the references had produced under v2: o12 fixed, o32 broken.
+- **v3 + 16 refs got o24 right for the first time in any condition** - but
+  broke o23, which had never been missed anywhere before.
+- **Reversing the injection order of the same 8 sheets** gave the best
+  object cell so far, 10/12: o24 correct again, nothing newly broken
+  (b=0 c=1 vs forward order - not significant, n=12).
+- Reading across phase 4+5: o27 and o32-adjacent items are traded around by
+  every lever (more refs, wording, order) while total accuracy sits fixed at
+  9-10/12. The boundary items are decided by presentation-order-level noise,
+  not by any factor tested; o27 is missed in every cell except the
+  rationale run, and o24/o32/o12/o23 swap in and out. For this item set,
+  75-83% is sonnet's stable operating point with matched references, and
+  single-cell differences of one item should not be read as effects.
 
 ## Running
 
