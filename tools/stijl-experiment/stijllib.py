@@ -275,15 +275,22 @@ def _case_blocks(item, cfg, good_is_a):
     scale = cfg.get("scale", 1.0)
     angles = cfg.get("angles", [0, 2, 4, 6])
     a_kind, b_kind = ("g", "b") if good_is_a else ("b", "g")
+    if cfg.get("ask_reason"):
+        answer_spec = ('Which model matches the target style? Reply with '
+                       'exactly one JSON object and nothing else: '
+                       '{"choice": "A" or "B", "reason": "your rationale, '
+                       'a few words up to one short sentence"}')
+    else:
+        answer_spec = ('Which model matches the target style? Reply with '
+                       'exactly one JSON object and nothing else: '
+                       '{"choice": "A" or "B"}')
     return [
         {"type": "text", "text":
          f"Now the test case. Model A, shown from {len(angles)} angle(s):"},
         image_block(compose_panel(item["id"], a_kind, angles, scale)),
         {"type": "text", "text": f"Model B, shown from {len(angles)} angle(s):"},
         image_block(compose_panel(item["id"], b_kind, angles, scale)),
-        {"type": "text", "text":
-         'Which model matches the target style? Reply with exactly one '
-         'JSON object and nothing else: {"choice": "A" or "B"}'},
+        {"type": "text", "text": answer_spec},
     ]
 
 
@@ -331,7 +338,9 @@ def parse_answer(text):
                 conf = float(conf)
             except (TypeError, ValueError):
                 conf = None
-            return {"choice": ch, "confidence": conf}
+            reason = d.get("reason")
+            return {"choice": ch, "confidence": conf,
+                    "reason": str(reason) if reason is not None else None}
     m = re.search(r"\b([AB])\b", text.strip().upper())
     if m:
         return {"choice": m.group(1), "confidence": None}

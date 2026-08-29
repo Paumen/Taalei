@@ -166,6 +166,8 @@ def run_trial(cfg, item, refs, good_is_a, workdir, sid=None, retries=2):
             if ans:
                 record["choice"] = ans["choice"]
                 record["confidence"] = ans["confidence"]
+                if ans.get("reason") is not None:
+                    record["reason"] = ans["reason"]
                 record["correct"] = (ans["choice"] == "A") == good_is_a
                 return record
             last_err = f"unparseable answer: {text[:200]}"
