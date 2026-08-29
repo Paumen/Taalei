@@ -506,6 +506,37 @@ o20, all from set B) have not yet been shown to opus - running opus on set
 B is the cheapest way to learn whether they are shared blind spots or
 sonnet-only ones.
 
+### The seven pairs answered right less than half the time
+
+o2 (key) 0%, o3 (chest) 0%, o20 (candle) 0%, o32 (banner) 8%, o27 (key)
+19%, o1 (bottle) 33%, o42 (banner) 46%. The first three and o1 are set B
+items with only six runs each, all sonnet - **opus has never seen them**.
+
+**All seven share one signature: the GOEDE STIJL model is the slimmer,
+sharper or more segmented of the pair, and the deviant is the fuller,
+smoother or rounder one.** A thin skeleton key against a chunky faceted
+one; a slender-necked bottle against a bulbous flask; a narrow tapered
+candle against a plain fat cylinder; an angular planked chest against a
+smooth rounded one; two thin flat banners against a beaded rail and a
+solid slab; an elongated key against a stubby one. One failure mode,
+seven times: the model reaches for the chunkier, smoother member as the
+"properly low-poly" one, and this catalog repeatedly goes the other way.
+
+The two key pairs show it sharply. o2's *deviant* and o27's *good* sit
+much closer to each other on the bulk axis than either sits to o2's good:
+a mid-weight faceted key is the right answer in o27 and the wrong answer
+in o2. Anything applying one fixed idea of how chunky a key should be must
+fail at least one of them, and in practice both fail, because it lands on
+the chunky side each time.
+
+This is the first time the failures reduce to a single statable rule,
+which makes it directly testable: add "when two models differ mainly in
+bulk and smoothness, the catalog's style is the slimmer, sharper, more
+segmented one" to the prompt and rerun a replicated arm. Note the rule is
+not universal in the catalog - o12's good is the *chunkier* axe - so a
+prompt stating it flatly may trade one failure mode for another. That is
+exactly what a replicated arm would measure.
+
 The instructive pair is **o32 and o42: both are banners, and their GOEDE
 STIJL panels are nearly the same asset** - a thin flat sheet with a plain
 top bar carrying two rectangular slots, differing only in the bottom cut
