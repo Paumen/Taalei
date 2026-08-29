@@ -15,7 +15,7 @@ export const GROUPS = [
   { id: 'furniture', name: 'Furniture & household', short: 'Furniture', color: '#c07c8a',
     description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with the set tables under food & cooking; the campfires belong there too, since that\'s what you cook on.' },
   { id: 'items', name: 'Collectibles & mechanics', short: 'Items', color: '#f1976c',
-    description: 'Star and heart alongside lever, spring and cobweb: small loose objects you pick up or that react to an action. The village bell belongs here too, and so do the journals and maps, the backpack and the bag, and halloween\'s bone-b and bone-c. The coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the skulls and the rest of the bones to bones. Use sparingly, not a points economy.' },
+    description: 'Star and heart alongside lever, spring and cobweb: small loose objects you pick up or that react to an action. The village bell belongs here too, and so do the journals and maps, the backpack and the bag. The coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the bones and skulls to bones. Use sparingly, not a points economy.' },
   { id: 'transport', name: 'Transport', short: 'Transport', color: '#5a7a9c',
     description: 'Ways to move things and people: the carts from fantasy-town-kit and village-kit, the rowing boats from village-kit and pirate-kit, the cannons and mast from pirate-kit, and the ships and wreck from pirate-kit.' },
   { id: 'lights', name: 'Lights & lamps', short: 'Lights', color: '#f2cb45',
@@ -69,7 +69,7 @@ export const GROUPS = [
   { id: 'keys-locks', name: 'Keys & locks', short: 'Keys', color: '#5f8f8a',
     description: 'What opens and what closes: the key, the keyring and the hanging keyring from the dungeon kit, the four keys from rpg-quaternius, the gold and plain metal keys from fantasy-props, the rpg-quaternius padlock and the platformer kit\'s lock. Small, loose and with a function, like the collectibles they come from, but they answer to each other rather than to a points economy — a key belongs to a lock. The chests and doors they open live with the chests and barrels and with the structures.' },
   { id: 'bones', name: 'Bones & skulls', short: 'Bones', color: '#cfc6ad',
-    description: 'What is left over: the loose bone from rpg-quaternius and halloween\'s bone-a, the large bone pile from the pirate kit, the ribcage, the five loose skulls from four kits with the pirate kit\'s pile of them, and the two fish bones. Off-white throughout, per appendix A. The two walking skeletons live with the characters — they have a face, these do not; halloween\'s bone-b and bone-c stay with the collectibles by PO decision.' },
+    description: 'What is left over: the loose bone from rpg-quaternius and the three from halloween, the large bone pile from the pirate kit, the ribcage, the five loose skulls from four kits with the pirate kit\'s pile of them, and the two fish bones. Off-white throughout, per appendix A. The two walking skeletons live with the characters — they have a face, these do not.' },
 
 ];
 
@@ -335,9 +335,6 @@ const exceptions = {
   // Caught fish, not prepared food: they belong with what swims.
   'survival-kit/fish': 'ocean',
   'survival-kit/fish-large': 'ocean',
-  // PO decision: only bone-a moves to the bones group, its two siblings stay put.
-  'halloween/bone-b': 'items',
-  'halloween/bone-c': 'items',
 };
 
 const rules = [
