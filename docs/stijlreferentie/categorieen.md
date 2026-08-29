@@ -10,14 +10,14 @@ numbering runs alongside the `refNN` numbering rather than across it.
 
 | prefix | category | what belongs to it | sheets |
 |--------|----------|--------------------|--------|
-| `o` | Object | Props, tools, furniture, containers, lighting and everything else you set down. | 48 |
-| `n` | Nature | What grows: trees, plants, mushrooms, and the rock that lies in the landscape. | 21 |
-| `s` | Structure | Building pieces that click together: walls, roofs, floors, doors, fences. | 11 |
+| `o` | Object | Props, tools, containers, lighting — what you carry, set down or pick up again. | 44 |
+| `n` | Nature | What grows, and what still lies where it grew. | 21 |
+| `s` | Structure | Sawn wood put together: walls, roofs, floors, doors, fences, benches, boards. | 15 |
 
 Total: 80 sheets.
 
 
-## Object (`o`) — 48
+## Object (`o`) — 44
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -44,31 +44,27 @@ Total: 80 sheets.
 | `o21.png` | meat leg | `ref31.png` |
 | `o22.png` | signpost | `ref32.png` |
 | `o23.png` | open crate | `ref33.png` |
-| `o24.png` | slatted table | `ref34.png` |
-| `o25.png` | table | `ref37.png` |
-| `o26.png` | loose planks | `ref38.png` |
-| `o27.png` | hanging lantern | `ref40.png` |
-| `o28.png` | bench | `ref41.png` |
-| `o29.png` | A-frame sign | `ref43.png` |
-| `o30.png` | closed crate | `ref44.png` |
-| `o31.png` | key | `ref46.png` |
-| `o32.png` | chest | `ref50.png` |
-| `o33.png` | flat rock | `ref53.png` |
-| `o34.png` | coin stacks | `ref54.png` |
-| `o35.png` | standing lantern | `ref59.png` |
-| `o36.png` | banner | `ref65.png` |
-| `o37.png` | flag on post | `ref66.png` |
-| `o38.png` | barrel | `ref67.png` |
-| `o39.png` | axe | `ref68.png` |
-| `o40.png` | hammer | `ref69.png` |
-| `o41.png` | A-frame sign | `ref70.png` |
-| `o42.png` | rope coil | `ref72.png` |
-| `o43.png` | lamp post | `ref73.png` |
-| `o44.png` | rope coil | `ref74.png` |
-| `o45.png` | rope loop | `ref75.png` |
-| `o46.png` | knife | `ref76.png` |
-| `o47.png` | loose boards | `ref77.png` |
-| `o48.png` | pennant | `ref78.png` |
+| `o24.png` | table | `ref37.png` |
+| `o25.png` | hanging lantern | `ref40.png` |
+| `o26.png` | closed crate | `ref44.png` |
+| `o27.png` | key | `ref46.png` |
+| `o28.png` | chest | `ref50.png` |
+| `o29.png` | flat rock | `ref53.png` |
+| `o30.png` | coin stacks | `ref54.png` |
+| `o31.png` | standing lantern | `ref59.png` |
+| `o32.png` | banner | `ref65.png` |
+| `o33.png` | flag on post | `ref66.png` |
+| `o34.png` | barrel | `ref67.png` |
+| `o35.png` | axe | `ref68.png` |
+| `o36.png` | hammer | `ref69.png` |
+| `o37.png` | A-frame sign | `ref70.png` |
+| `o38.png` | rope coil | `ref72.png` |
+| `o39.png` | lamp post | `ref73.png` |
+| `o40.png` | rope coil | `ref74.png` |
+| `o41.png` | rope loop | `ref75.png` |
+| `o42.png` | knife | `ref76.png` |
+| `o43.png` | loose boards | `ref77.png` |
+| `o44.png` | pennant | `ref78.png` |
 
 ## Nature (`n`) — 21
 
@@ -96,34 +92,45 @@ Total: 80 sheets.
 | `n20.png` | pine tree | `ref79.png` |
 | `n21.png` | fallen log | `ref80.png` |
 
-## Structure (`s`) — 11
+## Structure (`s`) — 15
 
 | sheet | subject | was |
 |-------|---------|-----|
 | `s1.png` | door | `ref11.png` |
 | `s2.png` | fence | `ref23.png` |
 | `s3.png` | rail fence | `ref30.png` |
-| `s4.png` | fence | `ref39.png` |
-| `s5.png` | curved fence | `ref45.png` |
-| `s6.png` | roof slope | `ref57.png` |
-| `s7.png` | roof cap | `ref58.png` |
-| `s8.png` | roof slope | `ref61.png` |
-| `s9.png` | roof | `ref62.png` |
-| `s10.png` | wall with window | `ref63.png` |
-| `s11.png` | floor tile | `ref64.png` |
+| `s4.png` | slatted table | `ref34.png` |
+| `s5.png` | loose planks | `ref38.png` |
+| `s6.png` | fence | `ref39.png` |
+| `s7.png` | bench | `ref41.png` |
+| `s8.png` | A-frame sign | `ref43.png` |
+| `s9.png` | curved fence | `ref45.png` |
+| `s10.png` | roof slope | `ref57.png` |
+| `s11.png` | roof cap | `ref58.png` |
+| `s12.png` | roof slope | `ref61.png` |
+| `s13.png` | roof | `ref62.png` |
+| `s14.png` | wall with window | `ref63.png` |
+| `s15.png` | floor tile | `ref64.png` |
 
-## Where the line runs
+## Where the lines run
 
-Nature is what grows and what still lies where it grew. Everything a person
-made, carried, felled or picked up is an object, however organic it looks: the
-skull `o8`, the two cut logs `o14` and `o20`, the loose flat rock `o33`, and the
-sawn planks and boards `o26` and `o47`. What is still in the ground stays with
-nature — the stumps `n13` and `n18`, the fallen log `n21`, the rock formation
-`n10` and the rock cluster `n12`.
+Nature is what grows and what still lies where it grew: the trees, the plants,
+the mushrooms, the stumps `n13` and `n18`, the fallen log `n21`, the rock
+formation `n10` and the rock cluster `n12`.
 
-Structure is only what clicks together into a building or a boundary. A
-signpost, an A-frame board or a lamp post is something you set down, so those
-are objects: `o22`, `o29`, `o41`, `o43`.
+Everything a person felled or picked up crosses over. The skull `o8`, the two
+cut logs `o14` and `o20` and the loose flat rock `o29` are objects, not nature.
+
+Structure is sawn wood put together, and it does not stop at the building: next
+to the walls, roofs, floors, doors and fences it holds the slatted table `s4`,
+the loose planks `s5`, the bench `s7` and the A-frame board `s8` — flat boards
+on a frame, the same joinery.
+
+Those four were placed by hand, and the sheets they leave behind are the ones to
+look at when the next is placed: the tables `o4` and `o24`, the stool `o19` and
+the second sheet of loose boards `o43` are still objects, and they are near
+enough to `s4`, `s5` and `s7` that they would move together the day the line is
+drawn round furniture as a whole.
 
 Sheets keep their category name once given. A new sheet arrives as `refNN` from
 `tools/vind-match/naar-stijlreferentie.py`, which cannot know a category; giving
