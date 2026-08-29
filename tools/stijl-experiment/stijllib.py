@@ -160,7 +160,8 @@ def stratified_pick(items, count, seed):
 
 
 def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
-                            ref_category=None, exclude_items=None):
+                            ref_category=None, exclude_items=None,
+                            test_items=None, ref_items=None):
     """Fixed, disjoint test set and reference set.
 
     The test set is identical across conditions (paired design); the reference
@@ -178,8 +179,29 @@ def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
     set only - used for replication runs on a fresh, non-overlapping item
     draw. Excluded items may still serve as references (they are valid
     labelled sheets).
+
+    `test_items` / `ref_items` (lists of item ids) override the seeded
+    derivation entirely with explicit sets - used to cross item sets and
+    reference sets from different draws. They must be disjoint: a labelled
+    reference sheet of an item that is also the unlabelled test pair would
+    give the answer away.
     """
     all_items = list_items()
+    if test_items or ref_items:
+        by_id = {it["id"]: it for it in all_items}
+        unknown = [i for i in (test_items or []) + (ref_items or [])
+                   if i not in by_id]
+        if unknown:
+            raise ValueError(f"unknown item ids: {unknown}")
+        leak = set(test_items or []) & set(ref_items or [])
+        if leak:
+            raise ValueError(f"items in both test and refs: {sorted(leak)}")
+        if not test_items:
+            raise ValueError("ref_items requires explicit test_items")
+        test = sorted((by_id[i] for i in test_items), key=lambda it: it["id"])
+        refs = sorted((by_id[i] for i in ref_items or []),
+                      key=lambda it: it["id"])
+        return test, refs
     excluded = set(exclude_items or [])
     items = [it for it in all_items if it["id"] not in excluded]
     if test_category:

@@ -1,0 +1,33 @@
+{
+  "comment": "Cross-test: set B test items judged with set A's exact reference sets (the seed-5 ladder), at counts 4/8/12/20/28. Separates 'set B's items are harder' from 'set B's reference draw was less useful': same items, same counts, only the reference sheets change. The 6 set-B items that appear in set A's refs28 (n8, o11, o20, o22, o29, s23) are dropped - a labelled reference of the test item would leak the answer - leaving a shared 14-item test set identical across all five conditions. Each condition's control is the same-count set-B ladder condition, paired on these items.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "angles": [0, 2, 4, 6],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 14,
+    "seed": 7,
+    "test_items": ["n16", "n2", "n27", "n28", "n4",
+                   "o28", "o36", "o5", "o9",
+                   "s1", "s12", "s17", "s22", "s3"]
+  },
+  "conditions": [
+    { "id": "xrefs4",  "n_refs": 4,  "control": "refs4_b",
+      "ref_items": ["n8", "o18", "o20", "s28"] },
+    { "id": "xrefs8",  "n_refs": 8,  "control": "refs8_b",
+      "ref_items": ["n8", "n9", "o18", "o20", "o3", "s10", "s20", "s28"] },
+    { "id": "xrefs12", "n_refs": 12, "control": "refs12_b",
+      "ref_items": ["n17", "n8", "n9", "o11", "o18", "o20", "o22", "o3",
+                    "s10", "s14", "s20", "s28"] },
+    { "id": "xrefs20", "n_refs": 20, "control": "refs20_b",
+      "ref_items": ["n17", "n22", "n23", "n5", "n8", "n9", "o11", "o14",
+                    "o18", "o20", "o22", "o3", "o31", "o6", "s10", "s14",
+                    "s16", "s18", "s20", "s28"] },
+    { "id": "xrefs28", "n_refs": 28, "control": "refs28_b",
+      "ref_items": ["n14", "n17", "n22", "n23", "n26", "n5", "n8", "n9",
+                    "o1", "o11", "o14", "o18", "o20", "o22", "o29", "o3",
+                    "o31", "o6", "o7", "s10", "s14", "s16", "s18", "s20",
+                    "s21", "s23", "s28", "s4"] }
+  ]
+}
