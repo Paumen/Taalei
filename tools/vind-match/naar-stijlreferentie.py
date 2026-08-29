@@ -50,9 +50,42 @@ AL_AANWEZIG = {
     'kenney_graveyardkit_5.0__shovel': 'ref07',
     'kenney_mini-dungeon__key': 'ref03',
     'kenney_platformer-kit__tree': 'ref19',
+    # Met de hand gekozen en toegevoegd, zie docs/stijlreferentie/categorieen.md.
+    'KayKit_Restaurant_Bits_1.0_FREE__kitchencounter_straight_A_backsplash': 's21',
+    'KayKit_Restaurant_Bits_1.0_FREE__wall_orderwindow': 's18',
+    'LowPolyNaturePackLite__fence': 's31',
+    'PropsLite_FBX__Fence_01': 's32',
+    'TropicalIslandLite_FBX__Rock_01': 'n22',
+    'Ultimate_Nature_Pack_by_Quaternius_OBJ__PalmTree_4': 'n25',
+    'Ultimate_Nature_Pack_by_Quaternius_OBJ__PineTree_4': 'n24',
+    'kenney_castlekit__tree-log': 'n27',
+    'kenney_fantasy-town-kit_2.0__pillar-stone': 's22',
+    'kenney_graveyardkit_5.0__brick-wall': 's25',
+    'kenney_graveyardkit_5.0__crypt-large-door': 's26',
+    'kenney_graveyardkit_5.0__detail-plate': 'o43',
+    'kenney_graveyardkit_5.0__trunk': 'n26',
+    'kenney_holidaykit__cabin-window-a': 's23',
+    'kenney_holidaykit__cabin-window-large': 's24',
+    'kenney_mini-forest_1.0__building-platform': 's33',
+    'kenney_pirate-kit__palm-bend': 'n29',
+    'kenney_platformer-kit__flowers-tall': 'n23',
+    'kenney_prototypekit__door-rotate': 's19',
+    'kenney_prototypekit__ladder': 's20',
+    'kenney_survival-kit__metal-panel-screws-half': 's27',
+    'kenney_survival-kit__patch-grass': 'n28',
+    'kenney_survival-kit__structure-metal-floor': 's28',
+    'kenney_survival-kit__structure-metal-roof': 's29',
+    'kenney_survival-kit__structure-metal-wall': 's30',
 }
 
+# Een omgezet blad heet refNN tot iemand het indeelt; daarna draagt het zijn
+# categorie in de naam: o<n> object, n<n> natuur, s<n> structuur. Zie
+# docs/stijlreferentie/categorieen.md. Nieuwe bladen krijgen weer een
+# ref-nummer: welke categorie erbij hoort weet dit script niet, dat is een
+# leesbeslissing. Beide namen tellen mee bij het opnieuw labelen hieronder;
+# alleen het nummeren van nieuwe bladen gaat op ref-namen.
 REF = re.compile(r'ref(\d+)\.png')
+BLADNAAM = re.compile(r'(?:ref\d+|[ons]\d+)\.png')
 RIJ = re.compile(r'^\| `(ref\d+)\.png` \| `(.+?)\.png` \|$', re.M)
 AFGEWEZEN_RIJ = re.compile(r'^\| `(.+?)\.png` \|$', re.M)
 
@@ -136,7 +169,7 @@ def afwijkend_boven(vel):
 # doorwerkt; de bladen zelf gaan onveranderd mee.
 gedraaid = []
 for naam in sorted(os.listdir(refdir)):
-    if not REF.fullmatch(naam):
+    if not BLADNAAM.fullmatch(naam):
         continue
     pad = os.path.join(refdir, naam)
     vel = Image.open(pad).convert('RGB')
