@@ -288,6 +288,79 @@ injected in reverse order (`reverse_refs`, paired against forward order).
   75-83% is sonnet's stable operating point with matched references, and
   single-cell differences of one item should not be read as effects.
 
+## Phase 6: system prompt, reference packing - and the noise floor (2026-08-29, $1.05)
+
+Two more manipulations on the objects-only default, then the check that
+reinterprets them. Prompt v4 drops "low-poly" from the system prompt's
+catalog description (the intro still names the models as low poly);
+`refs_per_image` packs the 8 reference sheets into 2 composite images
+(2x2 grids, black gutters, scaled to the API's 1568px cap, ~6.2k vs ~9.1k
+image tokens).
+
+| condition | change | acc | misses |
+|---|---|---|---|
+| obj_nuance | v3 system prompt (control) | 9/12 | o24 o27 o32 |
+| obj_nolp | v4: no "low-poly" in system prompt | 7/12 | o12 o24 o27 o32 o37 |
+| obj_nolp_2img | v4 + 8 sheets in 2 images | 10/12 | o24 o32 |
+| obj_nolp_2img_r2 | same, rerun | 10/12 | o23 o24 |
+
+Read alone, that says the system prompt cost 2 items and packing won 3 back.
+It says nothing of the kind. **`obj_nolp` was rerun five more times with a
+byte-identical prompt** (`obj_nolp_r2..r6`, same stimulus, same system
+prompt, same refs, same order):
+
+| run | r1 | r2 | r3 | r4 | r5 | r6 |
+|---|---|---|---|---|---|---|
+| score | 7/12 | 10/12 | 8/12 | 10/12 | 9/12 | 8/12 |
+
+**Spread 7-10/12 on one unchanged condition; mean 8.7, sd 1.21 items.**
+Per item over those six runs: **7 always right, 1 always wrong (o32),
+4 coin-flips** (o24 1/6, o12 2/6, o27 3/6, o37 4/6). A single 12-item run
+is therefore `7 + Binomial(4, ~0.4)` - it measures the sampling of four
+unstable items, and nothing else.
+
+Consequences, and they are retroactive:
+
+- **Every single-run cell in phases 4-6 lands inside 7-10/12.** Effort,
+  16 refs, rationale, prompt v3 wording, reference order, the system-prompt
+  change, and 2-image packing are all indistinguishable from rerunning the
+  same condition twice. None of them is evidence of an effect.
+- The phase-4 "high effort reproduces medium answer-for-answer (b=0 c=0)"
+  was luck, not determinism: identical reruns differ on 2-4 items.
+- The one result that clears the band remains the category effect
+  (72% vs 50%, ~50 trials per arm, paired, replicated on two disjoint item
+  sets, p=0.0005) - it is 4x the noise sd and was never a single-cell call.
+- Detecting a true 1-item effect at this sd needs roughly a dozen runs per
+  arm. Cheaper: **enlarge the test set instead of replicating**. 7 of 12
+  items are decided identically every time and carry no information; a
+  40-60 item set puts more discriminating items in play per dollar.
+- o32 is the only object item missed in all six runs (o24 in 5 of 6) - the
+  genuinely hard core, and the only sensible target for a style-rule fix.
+
+Practical note for future phases: **do not read a single 12-item cell.**
+Either replicate it or compare only differences of 4+ items.
+
+## Rendering the sheets (resolution ceiling)
+
+The sheets are not photographs but three.js renders of real geometry
+(`tools/renders/index.html`: orthographic camera, flat shading, 8 fixed
+viewpoints, `TEGEL = 224` px per view, drawn 4x2 into an 896x448 canvas;
+`tools/vind-match/bladen.py` stacks two of those into the 896x956 sheet).
+The tile size is 224 because that is DINOv3's native input size for the
+matching pipeline (`inbedden.py`) - it was never chosen for visual review.
+
+So higher-resolution stimuli need no better source images, just a
+re-render with a larger `TEGEL`; upscaling the existing PNGs would add
+interpolation, not detail. Ceiling: the API downsamples anything past
+1568px on the long edge, which allows ~1.6x for a full reference sheet
+(224 -> ~367 px/view) and ~1.7x for a 4-per-row candidate panel, or ~3.4x
+if a panel carries 2 views per row. Re-rendering *these* sheets also needs
+the sheet -> source-model mapping, which is not in the working tree
+(`docs/missing_matches` and its matches.json are gone); without it a
+re-render produces a new item set, not a higher-resolution version of this
+one. Prior expectation is low anyway: phase 1 found half resolution free
+and quarter harmful, so 1.0x already sits on the flat part of the curve.
+
 ## Running
 
 ```bash

@@ -115,6 +115,40 @@ def sheet_png(item, scale):
     return buf.getvalue()
 
 
+# The API downsizes any image whose long edge exceeds this, so composites are
+# built to land exactly on the cap: as much sheet detail as can survive.
+MAX_IMAGE_EDGE = 1568
+GUTTER = 8
+
+
+def grid_shape(n):
+    """Sheet grid used inside one composite image: 2 columns once n > 2."""
+    cols = 1 if n == 1 else 2
+    return cols, (n + cols - 1) // cols
+
+
+def sheets_png(refs, scale):
+    """Several labelled sheets composited into one image, laid out in a grid
+    and separated by black gutters so the sheet boundaries are unambiguous.
+    Scaled down as needed to fit the API's image cap. Returns PNG bytes."""
+    if len(refs) == 1:
+        return sheet_png(refs[0], scale)
+    cols, rows = grid_shape(len(refs))
+    fit = min((MAX_IMAGE_EDGE - GUTTER * (cols + 1)) / (cols * SHEET_W),
+              (MAX_IMAGE_EDGE - GUTTER * (rows + 1)) / (rows * SHEET_H))
+    s = scale * min(1.0, fit)
+    w, h = round(SHEET_W * s), round(SHEET_H * s)
+    canvas = Image.new("RGB", (cols * w + GUTTER * (cols + 1),
+                               rows * h + GUTTER * (rows + 1)), "black")
+    for i, ref in enumerate(refs):
+        im = Image.open(ref["sheet"]).convert("RGB").resize((w, h), Image.LANCZOS)
+        col, row = i % cols, i // cols
+        canvas.paste(im, (GUTTER + col * (w + GUTTER), GUTTER + row * (h + GUTTER)))
+    buf = io.BytesIO()
+    canvas.save(buf, format="PNG")
+    return buf.getvalue()
+
+
 def image_block(png_bytes):
     return {"type": "image",
             "source": {"type": "base64", "media_type": "image/png",
@@ -246,7 +280,7 @@ Target style, in words (colours are out of scope here; renders are greyscale):
   don't look too smoothed or polished."""
 
 SYSTEM_PROMPT = """\
-You are a 3D art style reviewer for a low-poly game asset catalog. You judge \
+You are a 3D art style reviewer for a game asset catalog. You judge \
 whether a model matches the catalog's target style. Answer strictly in the \
 requested JSON format, nothing else."""
 
@@ -266,17 +300,27 @@ def _intro_blocks(refs, cfg):
              "characteristics."]
     if cfg.get("style_guide"):
         intro.append(STYLE_GUIDE_TEXT)
+    per_image = cfg.get("refs_per_image", 1)
+    groups = [refs[i:i + per_image] for i in range(0, len(refs), per_image)]
     if refs:
+        how = "labelled reference sheets"
+        if per_image > 1:
+            cols, rows = grid_shape(len(groups[0]))
+            how += (f", combined into {len(groups)} images of up to {per_image} "
+                    f"sheets each (a {cols}x{rows} grid, sheets separated by "
+                    "black lines)")
         intro.append(
-            f"First, {len(refs)} labelled reference sheets. On each sheet the top "
+            f"First, {len(refs)} {how}. On each sheet the top "
             "block (AFWIJKENDE STIJL) shows a model that deviates from the target "
             "style and the bottom block (GOEDE STIJL) shows a model in the target "
             "style, each from several angles.")
     scale = cfg.get("scale", 1.0)
     content = [{"type": "text", "text": "\n\n".join(intro)}]
-    for i, ref in enumerate(refs, 1):
-        content.append({"type": "text", "text": f"Reference sheet {i}:"})
-        content.append(image_block(sheet_png(ref, scale)))
+    for i, group in enumerate(groups, 1):
+        label = (f"Reference sheet {i}:" if per_image == 1 else
+                 f"Reference image {i} of {len(groups)}, {len(group)} sheets:")
+        content.append({"type": "text", "text": label})
+        content.append(image_block(sheets_png(group, scale)))
     return content
 
 
@@ -361,7 +405,8 @@ def parse_answer(text):
 # v2: dropped the confidence field from the answer format.
 # v3: opening names the models as low poly and tells the model to judge
 #     within-spectrum nuances, not generic low-poly typicality.
-PROMPT_VERSION = 3
+# v4: "low-poly" dropped from the system prompt's catalog description.
+PROMPT_VERSION = 4
 
 
 def condition_key(cfg):
