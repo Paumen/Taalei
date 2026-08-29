@@ -340,6 +340,60 @@ Consequences, and they are retroactive:
 Practical note for future phases: **do not read a single 12-item cell.**
 Either replicate it or compare only differences of 4+ items.
 
+## Phase 7: Opus 5 at high effort, replicated (2026-08-29, $3.13)
+
+The first phase designed against the phase-6 noise floor: every arm is six
+runs of the same condition, compared run-level rather than cell-to-cell.
+Objects-only default (prompt v4, 8 angles, 12 object items), Opus 5 at
+effort high, at 8 and at 16 references, against the six sonnet-medium
+replicates as baseline.
+
+| arm | run scores | pooled | mean | sd |
+|---|---|---|---|---|
+| sonnet medium, 8 refs | 7 10 8 10 9 8 | 52/72 (72%) | 8.67 | 1.21 |
+| opus high, 8 refs | 8 7 7 9 7 8 | 46/72 (64%) | 7.67 | 0.82 |
+| opus high, 16 refs | 9 9 9 10 9 8 | 54/72 (75%) | 9.00 | 0.63 |
+
+- **Reference count matters for Opus - the first non-null on count in the
+  whole program.** 8 -> 16 references moves it from 7.67 to 9.00 mean
+  (run-level exact Mann-Whitney **p=0.035**). This qualifies the phase-2
+  conclusion, which was measured on sonnet only: "more references do
+  nothing" is a sonnet result, not a general one.
+  Caveat: the arms were extended from three to six runs after the first
+  three looked clean, so the p-value is optimistic. The item-level
+  mechanism is the stronger evidence - see below.
+- **The gain is one item flipping deterministically.** o16 goes 2/6 at 8
+  refs to 6/6 at 16 refs, o24 4/6 to 6/6. Not an aggregate drift: specific
+  pairs that Opus gets wrong with 8 references and right with 16.
+- **Opus 16 refs is not better than sonnet 8 refs** (75% vs 72%, p=0.77)
+  at 5.5x the price per trial ($0.022 vs $0.004). Opus at 8 refs is if
+  anything worse (p=0.19).
+- **Opus is markedly more consistent** (sd 0.63-0.82 vs sonnet's 1.21;
+  three of the 16-ref runs were answer-for-answer identical). Same mean
+  accuracy, far more repeatable - which matters if the judgement feeds an
+  automated gate rather than a human review.
+- **The two models fail on different items, and near-complementarily.**
+  Per-item hit rate out of six runs each:
+
+  | item | sonnet 8r | opus 8r | opus 16r |
+  |---|---|---|---|
+  | o12 | 2/6 | 6/6 | 6/6 |
+  | o16 | 6/6 | 2/6 | 6/6 |
+  | o24 | 1/6 | 4/6 | 6/6 |
+  | o37 | 4/6 | 6/6 | 6/6 |
+  | o42 | 6/6 | 0/6 | 1/6 |
+  | o27 | 3/6 | 0/6 | 0/6 |
+  | o32 | 0/6 | 0/6 | 0/6 |
+
+  o42 is an Opus blind spot (0/6, 1/6) that sonnet never misses; o12 and
+  o24 are sonnet coin-flips that Opus with 16 refs gets right every time.
+  The equal pooled accuracy hides two different reviewers. Disagreement
+  between them is therefore informative, and flagging it for human review
+  is a better use of Opus here than swapping sonnet out for it.
+- **o32 is missed in all 18 runs across both models**, o27 in all 12 Opus
+  runs. That is the genuinely hard core, and no presentation factor tested
+  in phases 1-7 touches it.
+
 ## Rendering the sheets (resolution ceiling)
 
 The sheets are not photographs but three.js renders of real geometry
