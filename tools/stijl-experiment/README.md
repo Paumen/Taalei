@@ -31,9 +31,9 @@ three-quarter, 7 top-down.
   itself measured (accuracy split by good=A vs good=B in the report).
 - Each trial is a fresh `claude -p` call with images injected as base64
   blocks (stream-json), no tools, replaced system prompt - the model sees
-  exactly the stimulus, nothing else. Answer format is strict JSON with a
-  confidence number (free calibration signal: is the model less confident
-  when it is wrong?).
+  exactly the stimulus, nothing else. Answer format is strict JSON:
+  {"choice": "A" or "B"}. (Phases 1-2 also asked for a confidence number;
+  it turned out barely calibrated and was dropped - prompt v2.)
 
 ## Factors
 

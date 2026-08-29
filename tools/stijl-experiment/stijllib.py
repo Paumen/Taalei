@@ -280,8 +280,7 @@ def build_trial_message(item, refs, cfg, good_is_a):
     content.append(image_block(compose_panel(item["id"], b_kind, angles, scale)))
     content.append({"type": "text", "text":
                     'Which model matches the target style? Reply with exactly one '
-                    'JSON object and nothing else: {"choice": "A" or "B", '
-                    '"confidence": number between 0.5 and 1.0}'})
+                    'JSON object and nothing else: {"choice": "A" or "B"}'})
     meta = {"angles": angles, "scale": scale, "n_refs": len(refs),
             "ref_ids": [r["id"] for r in refs]}
     return content, meta
@@ -310,7 +309,14 @@ def parse_answer(text):
     return None
 
 
+# Bumped when the trial prompt wording changes, so results produced under
+# different prompts never silently mix under one condition fingerprint.
+# v2: dropped the confidence field from the answer format.
+PROMPT_VERSION = 2
+
+
 def condition_key(cfg):
     """Stable short fingerprint of everything that defines a condition."""
     keys = {k: cfg[k] for k in sorted(cfg) if k != "id"}
+    keys["_prompt_version"] = PROMPT_VERSION
     return hashlib.sha1(json.dumps(keys, sort_keys=True).encode()).hexdigest()[:10]
