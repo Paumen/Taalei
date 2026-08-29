@@ -63,6 +63,35 @@ conditions - make the task harder first (fewer angles / smaller scale across
 the board, or a harder test set from the per-item matrix) before drawing
 conclusions.
 
+## Phase 1 findings (2026-08-29, sonnet-5 medium, 20 items, $5.33)
+
+Full numbers in `results/report.md`. None of the individual contrasts reach
+p<0.05 at n=20 (expected); the trends below are consistent and interpretable.
+
+- **Angles are the strongest factor.** 1 angle = 50% (coin flip!), 2 = 70%,
+  4 = 75%, 8 = 75%. A single view is worthless; 4 views saturate.
+- **Visual references beat text, and 6 is enough.** Style-guide text only
+  (0 refs) = 55%; 2 refs = 60%; 6 refs = 75%; 12 refs = 70% (no gain, 2x
+  cost). Guide text *on top of* 6 refs = 80%, the best cell.
+- **Half resolution is free.** scale 0.5 = 75% at ~1/3 the cost of full
+  res; scale 0.25 = 60% (too far).
+- **Two test items are bad items, not model failures.** s5 (plank piles:
+  the "wrong" pile is chunky and toy-like, i.e. what the guide's words ask
+  for) and s13 (not a like-for-like pair: complete house vs roof segment)
+  are wrong in nearly every condition. Excluding them, the best cell is
+  16/18 (89%). Review those sheets before phase 2.
+- Confidence is barely calibrated (0.72 when right vs 0.69 when wrong) -
+  don't use it as a filter signal.
+- Mild B-position bias (accuracy good=B > good=A in most conditions);
+  balanced design cancels it in comparisons, but worth remembering for
+  production prompts: don't always put the candidate last.
+
+**Recommended phase 2:** fix/replace s5+s13 (and audit n19, o12, n21);
+re-screen the angle factor with power on a bigger item set (1 vs 4 angles,
+~40 items, scale 0.5); test *which* angles at count 2-4 (e.g. tilted [6]
+vs rotations); then the model x effort grid on the winning format
+(6 refs + guide, 4 angles, scale 0.5).
+
 ## Running
 
 ```bash
