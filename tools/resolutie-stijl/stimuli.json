@@ -1,0 +1,133 @@
+{
+  "note": "Handmatige grondwaarheid. Geschreven op basis van de 2576px renders, vóór elke modelaanroep. Labels komen uit de zesdelige lijst in prompt.txt; drie categorieën (toon-cel, hard-surface realistic, organic sculpt) komen niet voor in de kits en dienen als afleiders.",
+  "labels": [
+    "low-poly flat-shaded",
+    "stylised PBR",
+    "toon-cel",
+    "painterly-texture",
+    "hard-surface realistic",
+    "organic sculpt"
+  ],
+  "stimuli": [
+    {
+      "id": "A1_chest",
+      "model": "kits/missing/kenney_survival-kit/chest.glb",
+      "kit": "kenney_survival-kit",
+      "style": "low-poly flat-shaded",
+      "alt_style": null,
+      "attributes": ["flat colour fills", "visible facets", "no surface texture", "hard normals", "low triangle count"]
+    },
+    {
+      "id": "A2_snowman",
+      "model": "kits/missing/kenney_holidaykit/snowman.glb",
+      "kit": "kenney_holidaykit",
+      "style": "low-poly flat-shaded",
+      "alt_style": null,
+      "attributes": ["flat colour fills", "visible facets", "no surface texture", "chunky primitives", "limited palette"]
+    },
+    {
+      "id": "A3_birch",
+      "model": "kits/missing/Ultimate_Nature_Pack_by_Quaternius_OBJ/BirchTree_1.glb",
+      "kit": "Ultimate_Nature_Pack_by_Quaternius",
+      "style": "low-poly flat-shaded",
+      "alt_style": null,
+      "attributes": ["faceted foliage mass", "flat colour fills", "no surface texture", "hard normals", "silhouette-driven"]
+    },
+    {
+      "id": "A4_hammerhead",
+      "model": "kits/missing/ocean/Hammerhead.glb",
+      "kit": "ocean",
+      "style": "low-poly flat-shaded",
+      "alt_style": null,
+      "attributes": ["flat colour fills", "visible facets", "no surface texture", "single material", "low triangle count"]
+    },
+    {
+      "id": "A5_cart",
+      "model": "kits/missing/Modular Village/Prop_Cart_1_Barrels.glb",
+      "kit": "Modular Village",
+      "style": "low-poly flat-shaded",
+      "alt_style": null,
+      "attributes": ["flat colour fills", "visible facets", "no surface texture", "muted palette", "hard normals"]
+    },
+    {
+      "id": "B1_table",
+      "model": "kits/missing/KayKit_Dungeon_Pack_1.1_FREE/table_long_tablecloth_decorated_A.glb",
+      "kit": "KayKit_Dungeon_Pack",
+      "style": "stylised PBR",
+      "alt_style": "toon-cel",
+      "attributes": ["smooth shading", "saturated blocked colour", "soft gradients", "material contrast between parts", "clean edges without grain"]
+    },
+    {
+      "id": "B2_armchair",
+      "model": "kits/missing/KayKit_Furniture_Bits_1.0_FREE/armchair_pillows.glb",
+      "kit": "KayKit_Furniture_Bits",
+      "style": "stylised PBR",
+      "alt_style": "toon-cel",
+      "attributes": ["smooth shading", "rounded bevelled forms", "saturated blocked colour", "soft gradients", "no surface grain"]
+    },
+    {
+      "id": "B3_cabinet",
+      "model": "kits/missing/KayKit_Furniture_Bits_1.0_FREE/cabinet_medium_decorated.glb",
+      "kit": "KayKit_Furniture_Bits",
+      "style": "stylised PBR",
+      "alt_style": "toon-cel",
+      "attributes": ["smooth shading", "material contrast between parts", "saturated blocked colour", "clean edges without grain", "prop-scale detail"]
+    },
+    {
+      "id": "B4_crate",
+      "model": "kits/missing/KayKit_Restaurant_Bits_1.0_FREE/crate_tomatoes.glb",
+      "kit": "KayKit_Restaurant_Bits",
+      "style": "stylised PBR",
+      "alt_style": "toon-cel",
+      "attributes": ["smooth shading", "saturated blocked colour", "soft gradients", "rounded bevelled forms", "no surface grain"]
+    },
+    {
+      "id": "B5_dishrack",
+      "model": "kits/missing/KayKit_Restaurant_Bits_1.0_FREE/dishrack_plates.glb",
+      "kit": "KayKit_Restaurant_Bits",
+      "style": "stylised PBR",
+      "alt_style": "toon-cel",
+      "attributes": ["smooth shading", "material contrast between parts", "clean edges without grain", "saturated blocked colour", "prop-scale detail"]
+    },
+    {
+      "id": "C1_bookcase",
+      "model": "kits/missing/FantasyProps_glTF_1k/Bookcase_2.glb",
+      "kit": "FantasyProps_glTF_1k",
+      "style": "painterly-texture",
+      "alt_style": null,
+      "attributes": ["painted wood grain", "brushed texture detail", "baked shading in texture", "desaturated earthy palette", "trim-sheet texel detail"]
+    },
+    {
+      "id": "C2_cauldron",
+      "model": "kits/missing/FantasyProps_glTF_1k/Cauldron.glb",
+      "kit": "FantasyProps_glTF_1k",
+      "style": "painterly-texture",
+      "alt_style": null,
+      "attributes": ["painted metal scuffs", "brushed texture detail", "baked shading in texture", "desaturated earthy palette", "smooth silhouette"]
+    },
+    {
+      "id": "C3_chest",
+      "model": "kits/missing/FantasyProps_glTF_1k/Chest_Wood.glb",
+      "kit": "FantasyProps_glTF_1k",
+      "style": "painterly-texture",
+      "alt_style": null,
+      "attributes": ["painted wood grain", "painted metal banding", "brushed texture detail", "baked shading in texture", "desaturated earthy palette"]
+    },
+    {
+      "id": "C4_stall",
+      "model": "kits/missing/FantasyProps_glTF_1k/Stall_Cart_Empty.glb",
+      "kit": "FantasyProps_glTF_1k",
+      "style": "painterly-texture",
+      "alt_style": null,
+      "attributes": ["painted wood grain", "painted cloth folds", "brushed texture detail", "desaturated earthy palette", "thin structural members"]
+    },
+    {
+      "id": "C5_tent",
+      "model": "kits/missing/nature_kit/Tent_Leanto_1.glb",
+      "kit": "nature_kit",
+      "style": "painterly-texture",
+      "alt_style": null,
+      "attributes": ["woven fabric texture", "brushed texture detail", "desaturated earthy palette", "baked shading in texture", "simple silhouette"]
+    }
+  ]
+}

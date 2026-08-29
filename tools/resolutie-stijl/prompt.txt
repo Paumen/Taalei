@@ -1,0 +1,10 @@
+Classify the visual style of the rendered 3D asset in the image.
+
+Answer with JSON only, no prose, no code fence:
+{
+  "style_label": one of "low-poly flat-shaded", "stylised PBR", "toon-cel", "painterly-texture", "hard-surface realistic", "organic sculpt",
+  "confidence": number between 0 and 1,
+  "attributes": [5 short tags describing the look],
+  "polycount_impression": "low" or "medium" or "high",
+  "surface_finish": free text, max 8 words
+}

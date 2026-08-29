@@ -1,0 +1,74 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#dedede}canvas{display:block}</style>
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}
+</script>
+<body>
+<script type="module">
+addEventListener('error', (e) => { window.FOUTMSG = String(e.message); window.FOUT = true; });
+addEventListener('unhandledrejection', (e) => { window.FOUTMSG = String(e.reason); window.FOUT = true; });
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// Eén asset, één vast camerastandpunt, vaste belichting, neutrale achtergrond.
+// Anders dan tools/renders/index.html blijven de eigen materialen en texturen
+// staan: in dit experiment is de stijl juist wat gemeten wordt.
+const params = new URLSearchParams(location.search);
+const file = params.get('file');
+const MAAT = Number(params.get('maat') || 2576);
+
+const canvas = document.createElement('canvas');
+canvas.id = 'blad';
+canvas.width = MAAT;
+canvas.height = MAAT;
+document.body.appendChild(canvas);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xdedede);
+scene.add(new THREE.AmbientLight(0xffffff, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 2.0);
+key.position.set(4, 6, 5);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xffffff, 0.6);
+fill.position.set(-5, 2, -4);
+scene.add(fill);
+const rim = new THREE.DirectionalLight(0xffffff, 0.4);
+rim.position.set(0, -3, -6);
+scene.add(rim);
+
+const obj = (await new GLTFLoader().loadAsync(file)).scene;
+obj.traverse((n) => {
+  if (n.isMesh && n.isSkinnedMesh) n.skeleton?.pose?.();
+  if (n.isMesh && n.material) {
+    for (const m of [].concat(n.material)) {
+      if (m.map) m.map.anisotropy = 8;
+      m.side = THREE.DoubleSide;
+    }
+  }
+});
+
+const box = new THREE.Box3().setFromObject(obj);
+obj.position.sub(box.getCenter(new THREE.Vector3()));
+const straal = Math.max(box.getSize(new THREE.Vector3()).length() / 2, 1e-6);
+scene.add(obj);
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(MAAT, MAAT, false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+// Driekwartsaanzicht, orthografisch, gevuld op de omsluitende bol: elk asset
+// beslaat evenveel beeld, ongeacht zijn werkelijke maat.
+const az = (35 * Math.PI) / 180;
+const el = (25 * Math.PI) / 180;
+const kader = straal * 1.05;
+const cam = new THREE.OrthographicCamera(-kader, kader, kader, -kader, 0.01, straal * 20);
+cam.position.set(
+  straal * 6 * Math.cos(el) * Math.sin(az),
+  straal * 6 * Math.sin(el),
+  straal * 6 * Math.cos(el) * Math.cos(az),
+);
+cam.lookAt(0, 0, 0);
+renderer.render(scene, cam);
+window.KLAAR = true;
+</script>
