@@ -461,6 +461,42 @@ by identifying *which* pairs fail, not by comparing aggregate percentages.
 An arm's score is mostly a report on how many always-wrong items its draw
 happened to contain.
 
+## Phase 10: Fable 5 at effort low, 16 references, both draws (2026-08-29, $3.19)
+
+Three runs per draw. Set A uses the standard nested 16-reference set; set
+B's 16-reference set extends its 8-reference set with the three remaining
+unused object sheets plus five set A items, staying disjoint from set B's
+test items.
+
+| arm | run scores | pooled | mean | sd |
+|---|---|---|---|---|
+| **A, fable low 16r** | 10 10 10 | 30/36 (83%) | **10.00** | **0.00** |
+| A, opus high 16r | 9 9 9 10 9 8 | 54/72 (75%) | 9.00 | 0.63 |
+| A, sonnet med 8r | 7 10 8 10 9 8 | 52/72 (72%) | 8.67 | 1.21 |
+| B, fable low 16r | 8 8 7 | 23/36 (64%) | 7.67 | 0.58 |
+| B, sonnet med 8r | 8 9 8 | 25/36 (69%) | 8.33 | 0.58 |
+
+- **Best set A arm on record, and perfectly deterministic**: 10/12 three
+  times over, beating opus-high at the same reference count (p=0.048).
+  Effort being null, that reads as a model difference. Not distinguishable
+  from sonnet-medium (p=0.17) only because sonnet's variance is so wide.
+- **Fable is at the ceiling on set A.** Its only misses are o27 and o32 -
+  the two pairs nothing has ever got right. Everything else, including
+  o42, o24, o12 and o16 (each a blind spot for one of the other two
+  models), it gets in every run.
+- **On set B it is not better** (7.67 vs sonnet's 8.33, p=0.60), and that
+  comparison is confounded anyway: it differs in model, effort *and*
+  reference count, since set B has no sonnet 16-reference arm.
+- **It has its own blind spots.** On set B it misses o13 and o14 in every
+  run, which sonnet never misses; and it solves o20, which sonnet misses
+  in every run. Third model, third error profile - the complementarity
+  holds rather than collapsing into a ranking.
+- Cost $0.044/trial including primes: ~2x opus-high, ~8x sonnet-medium.
+
+**This settles two of the three set B mysteries.** o20 is a **sonnet-only**
+blind spot, not a shared one (fable 3/3). o3 is not universal either
+(fable 1/3). o2 stays 0 for 9 runs across two models.
+
 ## Blind spots: which pairs each model fails, and why it matters
 
 Pooled over the six-run arms (hit rate out of 6; opus-low adds 3 more runs
@@ -478,27 +514,29 @@ that agree with the pattern):
 | o26 | - | 6/6 | 4/6 | 5/6 | opus wobble |
 | o10 o23 o30 o31 | - | 6/6 | 6/6 | 6/6 | clean for both |
 
-Consolidated ranking over **all 32 runs made under the current prompt**
-(v4; 384 trials, 30% missed overall). Set A items have 26 runs each
-(11 sonnet, 15 opus); set B items have 6, all sonnet - opus has not yet
-seen set B, so its column is empty there, not zero.
+Consolidated ranking over **all 38 runs made under the current prompt**
+(v4; 456 trials, 30% missed overall). Set A items have 29 runs each
+(11 sonnet, 15 opus, 3 fable); set B items have 9 (6 sonnet, 3 fable).
+A dash means that model has not been run on that draw, not a zero.
 
-| item | missed | rate | sonnet | opus |
-|---|---|---|---|---|
-| o2 | 6/6 | 100% | 6/6 | - |
-| o3 | 6/6 | 100% | 6/6 | - |
-| o20 | 6/6 | 100% | 6/6 | - |
-| o32 | 24/26 | 92% | 9/11 | 15/15 |
-| o27 | 21/26 | 81% | 6/11 | 15/15 |
-| o1 | 4/6 | 67% | 4/6 | - |
-| o42 | 14/26 | 54% | 0/11 | 14/15 |
-| o24 | 10/26 | 38% | 8/11 | 2/15 |
-| o5 | 2/6 | 33% | 2/6 | - |
-| o12 | 8/26 | 31% | 6/11 | 2/15 |
-| o26 | 6/26 | 23% | 0/11 | 6/15 |
-| o16 | 5/26 | 19% | 1/11 | 4/15 |
-| o23, o37 | 2/26 | 8% | 2/11 | 0/15 |
-| o6 o10 o13 o14 o22 o30 o31 o38 o39 o41 | 0 | 0% | - | - |
+| item | missed | rate | sonnet | opus | fable | verdict |
+|---|---|---|---|---|---|---|
+| o2 | 9/9 | 100% | 6/6 | - | 3/3 | universal |
+| o32 | 27/29 | 93% | 9/11 | 15/15 | 3/3 | universal in practice |
+| o3 | 8/9 | 89% | 6/6 | - | 2/3 | near-universal |
+| o27 | 24/29 | 83% | 6/11 | 15/15 | 3/3 | universal in practice |
+| o1 | 6/9 | 67% | 4/6 | - | 2/3 | near-universal |
+| o20 | 6/9 | 67% | 6/6 | - | 0/3 | **sonnet-only** |
+| o42 | 14/29 | 48% | 0/11 | 14/15 | 0/3 | **opus-only** |
+| o24 | 10/29 | 34% | 8/11 | 2/15 | 0/3 | **sonnet-only** |
+| o13 | 3/9 | 33% | 0/6 | - | 3/3 | **fable-only** |
+| o14 | 3/9 | 33% | 0/6 | - | 3/3 | **fable-only** |
+| o12 | 8/29 | 28% | 6/11 | 2/15 | 0/3 | **sonnet-only** |
+| o5 | 2/9 | 22% | 2/6 | - | 0/3 | sonnet wobble |
+| o26 | 6/29 | 21% | 0/11 | 6/15 | 0/3 | opus wobble |
+| o16 | 5/29 | 17% | 1/11 | 4/15 | 0/3 | opus at 8 refs |
+| o23, o37 | 2/29 | 7% | 2/11 | 0/15 | 0/3 | sonnet wobble |
+| o6 o10 o22 o30 o31 o38 o39 o41 | 0 | 0% | - | - | - | clean everywhere |
 
 Ten of the 24 object pairs tested are never missed by anything. The misses
 concentrate hard: six items carry most of them, and the top three (o2, o3,
