@@ -1,0 +1,19 @@
+{
+  "comment": "Objects-only default with a rationale in the answer: the model replies {choice, reason} where reason is a few words up to one short sentence. Same 12 object items as obj_8a8r (the control), so it also measures whether asking for a reason shifts accuracy.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    { "id": "obj_reason", "ask_reason": true, "control": "obj_8a8r" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "comment": "Sonnet 5 on set B's refs ladder at counts 4/8/12/20/28 with all 8 angles per candidate (vs 4 in the refs*_b twins). Tests whether extra views help on the hard item set, where phase 1's 4-vs-8 tie (on easy set A) may have been ceiling-masked. Same seed/exclusions as phase2b-refs, so items and reference sets are identical to the sonnet refs*_b cells; each condition's control is its 4-angle twin. Runs under prompt v2 (twins used v1 - minor confound, as with the opus cells).",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 6,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 20,
+    "seed": 7,
+    "exclude_items": ["n11", "n13", "n18", "n19", "n21", "n6",
+                      "o12", "o16", "o23", "o24", "o26", "o30", "o37", "o42",
+                      "s13", "s15", "s27", "s33", "s5", "s8"]
+  },
+  "conditions": [
+    { "id": "a8refs4",  "n_refs": 4,  "control": "refs4_b" },
+    { "id": "a8refs8",  "n_refs": 8,  "control": "refs8_b" },
+    { "id": "a8refs12", "n_refs": 12, "control": "refs12_b" },
+    { "id": "a8refs20", "n_refs": 20, "control": "refs20_b" },
+    { "id": "a8refs28", "n_refs": 28, "control": "refs28_b" }
+  ]
+}

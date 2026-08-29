@@ -1,0 +1,212 @@
+{
+  "comment": "Sonnet 5 at effort LOW, three runs on the standard objects-only set (set A: same stimulus as the six obj_nolp medium replicates, so effort is the only difference), and three runs on a fully disjoint objects-only draw (set B: 12 test items and 8 references drawn from the 23 object sheets that set A never used). Set B also gets three medium runs, because absolute accuracy is not comparable across item draws - without its own baseline the set B low arm would float free.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "n_refs": 8,
+    "angles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    {
+      "id": "obj_son_l_r1",
+      "effort": "low",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_son_l_r2",
+      "effort": "low",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_son_l_r3",
+      "effort": "low",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "objB_son_l_r1",
+      "effort": "low",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ],
+      "control": "objB_son_m_r1"
+    },
+    {
+      "id": "objB_son_l_r2",
+      "effort": "low",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ],
+      "control": "objB_son_m_r2"
+    },
+    {
+      "id": "objB_son_l_r3",
+      "effort": "low",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ],
+      "control": "objB_son_m_r3"
+    },
+    {
+      "id": "objB_son_m_r1",
+      "effort": "medium",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ]
+    },
+    {
+      "id": "objB_son_m_r2",
+      "effort": "medium",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ]
+    },
+    {
+      "id": "objB_son_m_r3",
+      "effort": "medium",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o8",
+        "o11",
+        "o18",
+        "o19",
+        "o21",
+        "o29",
+        "o35",
+        "o40"
+      ]
+    }
+  ]
+}
