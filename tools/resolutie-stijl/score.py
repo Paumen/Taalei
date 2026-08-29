@@ -13,6 +13,7 @@ from itertools import combinations, product
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import NullLocator
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HIER))
@@ -114,6 +115,12 @@ def stabiliteit(asset, sport):
     return eens, gem(paren), (statistics.pstdev(conf) if len(conf) > 1 else 0.0)
 
 
+def modaal(asset, veld):
+    """Het antwoord dat dit asset op de topsport het vaakst kreeg."""
+    waarden = [r[veld] for r in per_cel[(asset, TOP)]]
+    return statistics.mode(waarden) if waarden else None
+
+
 def blok(rows, sport, stijl=None):
     sel = [r for r in rows if r["sport"] == sport and (stijl is None or r["waar_label"] == stijl)]
     if not sel:
@@ -128,6 +135,9 @@ def blok(rows, sport, stijl=None):
         "accuratesse": gem(juist), "accuratesse_soepel": gem(soepel),
         "drift_vs_2576": gem([drift(a, sport) for a in assets]),
         "label_eensgezind": gem(eens),
+        "label_vs_2576": gem([1.0 if r["label"] == modaal(r["asset"], "label") else 0.0 for r in sel]),
+        "polycount_vs_2576": gem([1.0 if r["polycount_impression"] == modaal(r["asset"], "polycount_impression")
+                                  else 0.0 for r in sel]),
         "herhaal_overlap": gem(overlap),
         "confidence": gem(conf),
         "confidence_spreiding": gem(spreiding),
@@ -160,6 +170,7 @@ ax[1].plot([b["sport"] for b in alle], [b["drift_vs_2576"] for b in alle], "k--"
 for a, titel, ylab in ((ax[0], "Labelaccuratesse", "aandeel juist"),
                        (ax[1], "Attribuutdrift t.o.v. 2576 px", "Jaccard-overlap")):
     a.set_xscale("log"); a.set_xticks(SPORTEN); a.set_xticklabels(SPORTEN, rotation=45)
+    a.xaxis.set_minor_locator(NullLocator())
     a.set_xlabel("lange zijde (px)"); a.set_ylabel(ylab); a.set_title(titel)
     a.set_ylim(0, 1.05); a.grid(alpha=0.3); a.invert_xaxis()
 ax[0].legend(fontsize=8)
@@ -177,6 +188,7 @@ fig2, ax2 = plt.subplots(1, 2, figsize=(11, 4.5))
 x = [b["sport"] for b in alle]
 ax2[0].plot(x, [b["label_eensgezind"] for b in alle], "o-", label="alle 3 herhalingen zelfde label")
 ax2[0].plot(x, [b["herhaal_overlap"] for b in alle], "s-", label="attribuutoverlap tussen herhalingen")
+ax2[0].plot(x, [b["label_vs_2576"] for b in alle], "^-", label="zelfde label als op 2576 px")
 ax2[0].set_title("Stabiliteit binnen een sport")
 ax2[1].plot(x, [b["confidence"] for b in alle], "o-", label="gemiddelde confidence")
 ax2[1].plot(x, [b["accuratesse"] for b in alle], "s-", label="accuratesse")
@@ -184,6 +196,7 @@ ax2[1].plot(x, [b["kalibratiekloof"] for b in alle], "^--", label="kloof (confid
 ax2[1].set_title("Kalibratie")
 for a in ax2:
     a.set_xscale("log"); a.set_xticks(SPORTEN); a.set_xticklabels(SPORTEN, rotation=45)
+    a.xaxis.set_minor_locator(NullLocator())
     a.set_xlabel("lange zijde (px)"); a.grid(alpha=0.3); a.legend(fontsize=8); a.invert_xaxis()
 fig2.tight_layout()
 fig2.savefig(os.path.join(UIT, "stabiliteit-kalibratie.png"), dpi=140)
@@ -192,4 +205,5 @@ print(f"aanroepen: {len(rijen)} ({len(goed)} bruikbaar), ijkoverhead {basis:.0f}
 for b in alle:
     print(f"{b['sport']:>5} px  acc {b['accuratesse']:.2f}  soepel {b['accuratesse_soepel']:.2f}  "
           f"drift {b['drift_vs_2576']:.2f}  eens {b['label_eensgezind']:.2f}  "
-          f"conf {b['confidence']:.2f}  kloof {b['kalibratiekloof']:+.2f}  beeldtokens {b['beeld_tokens']:.0f}")
+          f"conf {b['confidence']:.2f}  kloof {b['kalibratiekloof']:+.2f}  "
+          f"labelvast {b['label_vs_2576']:.2f}  beeldtokens {b['beeld_tokens']:.0f}")
