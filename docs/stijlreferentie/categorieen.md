@@ -6,18 +6,21 @@ the sheets stay anonymous on purpose, a reference shows what is right and wrong,
 not which model it is.
 
 Within a category the sheets keep the order they were converted in, so the
-numbering runs alongside the `refNN` numbering rather than across it.
+numbering runs alongside the `refNN` numbering rather than across it. Sheets
+without a `refNN` name are the ones added since; which model each of them holds
+is recorded in `AL_AANWEZIG` in `tools/vind-match/naar-stijlreferentie.py`, so a
+source is not converted twice.
 
 | prefix | category | what belongs to it | sheets |
 |--------|----------|--------------------|--------|
-| `o` | Object | Props, tools, lighting, chests and crates — what you carry, set down or pick up again. | 42 |
-| `n` | Nature | What grows, and what still lies where it grew. | 21 |
-| `s` | Structure | Sawn wood put together: walls, roofs, floors, doors, fences, benches, boards, staves. | 17 |
+| `o` | Object | Props, tools, lighting, chests and crates — what you carry, set down or pick up again. | 43 |
+| `n` | Nature | What grows, and what still lies where it grew. | 33 |
+| `s` | Structure | Joined wood and stone put together: walls, roofs, floors, doors, fences, benches, boards, staves. | 34 |
 
-Total: 80 sheets.
+Total: 110 sheets.
 
 
-## Object (`o`) — 42
+## Object (`o`) — 43
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -63,8 +66,9 @@ Total: 80 sheets.
 | `o40.png` | knife | `ref76.png` |
 | `o41.png` | loose boards | `ref77.png` |
 | `o42.png` | pennant | `ref78.png` |
+| `o43.png` | shallow dish | — |
 
-## Nature (`n`) — 21
+## Nature (`n`) — 33
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -89,8 +93,20 @@ Total: 80 sheets.
 | `n19.png` | tree | `ref71.png` |
 | `n20.png` | pine tree | `ref79.png` |
 | `n21.png` | fallen log | `ref80.png` |
+| `n22.png` | boulder | — |
+| `n23.png` | grass block | — |
+| `n24.png` | flower clump | — |
+| `n25.png` | pine tree | — |
+| `n26.png` | bent palm | — |
+| `n27.png` | palm tree | — |
+| `n28.png` | tree stump | — |
+| `n29.png` | fallen log | — |
+| `n30.png` | bush | — |
+| `n31.png` | bush | — |
+| `n32.png` | grass patch | — |
+| `n33.png` | bent palm | — |
 
-## Structure (`s`) — 17
+## Structure (`s`) — 34
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -111,20 +127,38 @@ Total: 80 sheets.
 | `s15.png` | floor tile | `ref64.png` |
 | `s16.png` | barrel | `ref67.png` |
 | `s17.png` | A-frame sign | `ref70.png` |
+| `s18.png` | wall with serving hatch | — |
+| `s19.png` | door leaf | — |
+| `s20.png` | ladder | — |
+| `s21.png` | terrain block | — |
+| `s22.png` | kitchen counter | — |
+| `s23.png` | stone pillar | — |
+| `s24.png` | wall with window | — |
+| `s25.png` | wall with wide window | — |
+| `s26.png` | brick wall | — |
+| `s27.png` | barred stone door | — |
+| `s28.png` | corrugated panel | — |
+| `s29.png` | raised floor | — |
+| `s30.png` | roof on posts | — |
+| `s31.png` | wall frame | — |
+| `s32.png` | fence | — |
+| `s33.png` | fence | — |
+| `s34.png` | building platform | — |
 
 ## Where the lines run
 
 Nature is what grows and what still lies where it grew: the trees, the plants,
-the mushrooms, the stumps `n13` and `n18`, the fallen log `n21`, the rock
-formation `n10` and the rock cluster `n12`.
+the mushrooms, the stumps `n13`, `n18` and `n28`, the logs `n21` and `n29`, the
+rock formation `n10`, the rock cluster `n12` and the boulder `n22`.
 
 Everything a person felled or picked up crosses over. The skull `o8`, the two
 cut logs `o14` and `o20` and the loose flat rock `o29` are objects, not nature.
 
-Structure is joined wood, and it does not stop at the building. Next to the
-walls, roofs, floors, doors and fences it holds the slatted table `s4`, the
-loose planks `s5`, the bench `s7`, the two A-frame boards `s8` and `s17`, and
-the barrel `s16` — staves hooped together are joinery like any other.
+Structure is what is joined together, and it does not stop at the building.
+Next to the walls, roofs, floors, doors and fences it holds the slatted table
+`s4`, the loose planks `s5`, the bench `s7`, the two A-frame boards `s8` and
+`s17`, the barrel `s16`, the ladder `s20`, the terrain block `s21` and the
+kitchen counter `s22`.
 
 The sheets nearest that line are still objects, and they are the ones to weigh
 when the next one is placed: the chests `o3`, `o15` and `o28`, the crates
@@ -134,3 +168,13 @@ when the next one is placed: the chests `o3`, `o15` and `o28`, the crates
 Sheets keep their category name once given. A new sheet arrives as `refNN` from
 `tools/vind-match/naar-stijlreferentie.py`, which cannot know a category; giving
 it one is a reading decision and a rename.
+
+## Loose pairings
+
+On most sheets the good half is the same kind of thing as the deviant half. On
+six it is not, because the catalogue holds nothing of that kind: the bushes
+`n30` and `n31` (a round tree crown is the only rounded foliage there is), the
+grass block `n23` and the flower clump `n24`, the corrugated panel `s28`, the
+kitchen counter `s22` and the terrain block `s21`. They still show how our own
+facets, boards and volumes are cut, but they do not show that model in our
+style, because that model has no counterpart yet.
