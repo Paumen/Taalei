@@ -142,15 +142,78 @@ Mostly `nature` (90) and `flora`/`foliage`, where the tag vocabulary has no
 material for leaves or grass, plus 21 `fauna`. Not a colour problem, but it
 means the comparison cannot say anything about a seventh of the catalog.
 
-## Summary
+## What was checked on the models
 
-The two groups worth acting on first, because the model and the tag disagree in
-a way a viewer would notice:
+Every flagged model was rendered from three viewpoints — front three-quarter,
+the opposite three-quarter, and straight down the axis — before any call was
+made; the sheets are in `docs/asset_review_banden/`. The renders settled several
+groups the colour data alone could not:
 
-1. `rpg-quaternius` precious-metal — gold ingots and three necklaces on the
-   wood lane, no gold band anywhere.
-2. Metal on stone bands — cutlery, cage, cannonball, tongs and the three
-   `halloween` lanterns.
+- `gold-ingots` really is a stack of wood-coloured ingots, and the necklaces are
+  a cord with a gem and no metal at all — but `backpack`, `bag` and `book-2/-3`
+  are plain leather and paper with no clasp, so there the tag was the error.
+- The cutlery reads brown, but the lanterns, cannonball and tongs read correctly
+  as dark iron: their band was one step off the cast-iron band, not off by a
+  material. `cage-small` reads as a wooden cage.
+- Silver 3,2 reads distinctly lilac against the warm wood — the anvil especially.
+- The rock family on salmon and terracotta is a coherent sandstone reading; only
+  the dirt clods on the timber lane stood out.
+- Both skeletons use the bark lane only for boots and straps, which rule M already
+  allows as leather. `chicken-leg` is roast meat.
+- Birch really is white-barked, copper really is terracotta, and the `#ffffff` is
+  the compass glass, the lantern panes and the magnifier lens.
 
-Then the systematic one-band shifts: the six `resources/stone-*` on the silver
-band, and the nine metal models on silver that should be light grey.
+## Changes made
+
+All recolours move UVs from one colormap band to another with
+`tools/herkleur-baan.mjs`, which keeps each triangle's position in the gradient —
+the light/dark split recorded in the model itself is preserved exactly. The
+Quaternius ones are recorded in `tools/herkleur-quaternius.mjs` so a re-import
+cannot silently drop them.
+
+| Models | Change |
+| --- | --- |
+| `rpg-quaternius/gold-ingots`, `necklace-1/-2/-3` | wood light 0,0 → gold 6,0 (whole model for the ingots, the pendant mount for the necklaces) |
+| `rpg-quaternius/backpack`, `bag`, `book-2-closed/-open`, `book-3-closed/-open` | precious-metal tag dropped |
+| `food-quaternius/fork`, `knife`, `spoon` | taupe 14,3 → light grey 15,3 |
+| `halloween/lantern-hanging`, `lantern-standing`, `post-lantern`, `pirate-kit/cannon-ball`, `rpgtools/tongs` | blue-grey-dark 6,1 → dark grey 10,0 (rule G, cast iron) |
+| `fantasy-props/cage-small` | metal tag → timber |
+| `fantasy-town-kit/cart`, `cart-high`, `watermill`, `watermill-wide`, `survival-kit/workbench-anvil`, `pirate-kit/flag`, `flag-high` | silver 3,2 → light grey 15,3; `key-metal` and `key-3` keep silver under rule S |
+| `rocks/pebbles-dirt-a…d` | wood middle 1,0 → khaki 14,0 (rule AB, dirt) |
+| `food-quaternius/chicken-leg` | bark 2,0 → dark red 8,0 |
+| `pirate-quaternius/bottle-1`, `bottle-2` | cork off wood middle 1,0 → salmon 13,0 (rule V) |
+| `quaternius-nature/tree-birch-dead-1…5` | dark markings dark grey 10,0 → bark 2,0, so the bark tag has its lane; the white trunk stays off-white 5,2 |
+| `pirate-quaternius/house-1/-2/-3`, `sawmill`, `tree-palm-1/-2/-3`, `food-quaternius/frying-pan` | timber tag added |
+| `resources/textiles-a`, `textiles-stack-small`, `iron-bars` | textile tag added |
+
+`catalog/catalog.json` and `catalog/schaalgroepen.json` were rebuilt from the
+models afterwards.
+
+## Deliberately left alone
+
+- **The six `resources/stone-*` models** stay on silver 3,2: they read as
+  blue-grey stone. The gold 6,0 straps around the three brick stacks stay too,
+  though rule AK reserves yellow for coins, jewellery, light and fire.
+- **The rock family** — `survival-kit/rock-*`, `pirate-kit/rocks-sand-a…c`,
+  `mini-forest/stones`, `rocks/debris-a/-b`, `dungeon/rubble-*` — reads as
+  sandstone and dark rock and was left as it is.
+- **`pirate-henry`** keeps the bark lane on skin, and both skeletons keep it on
+  their leather.
+- **The exceptions** (birch aside) are recorded here only: the transparent glass
+  behind `#ffffff`, and copper on terracotta under rule R. Neither is written
+  into `docs/asset_style_guide.md`.
+- **The 144 models with no material tag** (mostly nature, flora and fauna) still
+  have none; the tag vocabulary has no material for leaves or grass.
+
+## Still open after the changes
+
+- `fantasy-props/cage-small` now carries the timber tag but sits entirely on
+  taupe 14,3, so tag and band still disagree; moving it to wood middle 1,0 would
+  settle it.
+- `food-quaternius/chicken-leg`'s bone is taupe 14,3 where rule C asks for
+  off-white.
+- `rpg-quaternius/key-4` keeps a precious-metal tag on light grey 15,3.
+- `natuur/timber-stack-1/-2` (bark only, no cut face), `rpgtools/pencil-b-long`
+  (timber tag, no wood band), `props/jug-b`/`jug-d` (ceramic on grey and khaki)
+  and `rpgtools/torch-burnt` (rope tag, no rope band) were outside the groups
+  that were acted on.

@@ -37,6 +37,18 @@ const STAPPEN = [
   // een kist is hout met stalen banden, als dungeon/chest
   ['0,0', ['10,0'], [`${W}/pirate-quaternius/chest.glb`, `${W}/pirate-quaternius/chest-gold.glb`]],
   ['15,3', ['14,0'], [`${W}/pirate-quaternius/chest.glb`, `${W}/pirate-quaternius/chest-gold.glb`]],
+  // sieraden zijn goud, als de munten hierboven: staven massief, kettingen alleen de vatting
+  ['6,0', ['0,0'], [`${W}/rpg-quaternius/gold-ingots.glb`, `${W}/rpg-quaternius/necklace-1.glb`,
+    `${W}/rpg-quaternius/necklace-2.glb`, `${W}/rpg-quaternius/necklace-3.glb`]],
+  // bestek is staal, als dungeon/knife
+  ['15,3', ['14,3'], [`${W}/food-quaternius/fork.glb`, `${W}/food-quaternius/knife.glb`,
+    `${W}/food-quaternius/spoon.glb`]],
+  // gebraden vlees is donkerrood; de donkerste bruine baan is voor bast en leer
+  ['8,0', ['2,0'], [`${W}/food-quaternius/chicken-leg.glb`]],
+  // kurk is lichtbruin, als props/bottle-cork
+  ['13,0', ['1,0'], [`${W}/pirate-quaternius/bottle-1.glb`, `${W}/pirate-quaternius/bottle-2.glb`]],
+  // berkenbast: de witte stam blijft 5,2, de donkere strepen horen op de bastbaan
+  ['2,0', ['10,0'], [1, 2, 3, 4, 5].map((n) => `${W}/quaternius-nature/tree-birch-dead-${n}.glb`)],
   // flessen zijn groen glas, als dungeon/bottle-a-green
   ['1,1', ['10,0'], [`${W}/pirate-quaternius/bottle-1.glb`, `${W}/pirate-quaternius/bottle-2.glb`,
     `${W}/food-quaternius/bottle-2.glb`]],
