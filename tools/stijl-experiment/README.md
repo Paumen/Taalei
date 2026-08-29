@@ -394,6 +394,75 @@ replicates as baseline.
   runs. That is the genuinely hard core, and no presentation factor tested
   in phases 1-7 touches it.
 
+## Phase 8: Opus at effort low (2026-08-29, $0.46)
+
+Three runs, same stimulus as the opus-high arm at 8 references.
+
+| arm | run scores | pooled | mean | sd | $/trial |
+|---|---|---|---|---|---|
+| opus low, 8 refs | 8 7 7 | 22/36 (61%) | 7.33 | 0.58 | 0.0129 |
+| opus high, 8 refs | 8 7 7 9 7 8 | 46/72 (64%) | 7.67 | 0.82 | 0.0213 |
+
+**Effort is inert on Opus too** (p=0.88) - the same null already seen for
+sonnet, now on a model whose reasoning budget actually changes. Low effort
+costs 40% less for the same accuracy and the same low variance. What
+effort does change is *which* items are right: o12 goes 1/3 low vs 6/6
+high, o26 0/3 vs 4/6, while o16 (3/3 vs 2/6) and o24 (3/3 vs 4/6) go the
+other way. The trades cancel.
+
+Given phases 4, 7 and 8 together: effort has never moved the total for
+either model. Spend the budget on reference selection instead.
+
+## Blind spots: which pairs each model fails, and why it matters
+
+Pooled over the six-run arms (hit rate out of 6; opus-low adds 3 more runs
+that agree with the pattern):
+
+| item | what it is | sonnet 8r | opus 8r | opus 16r | class |
+|---|---|---|---|---|---|
+| o32 | banner | 0/6 | 0/6 | 0/6 | **shared** - missed in all 21 runs ever recorded |
+| o27 | key | 3/6 | 0/6 | 0/6 | shared, asymmetric (opus never gets it) |
+| o42 | banner | 6/6 | 0/6 | 1/6 | **opus-only** |
+| o16 | pickaxe | 6/6 | 2/6 | 6/6 | opus-only at 8 refs, fixed by 16 |
+| o24 | plank stool | 1/6 | 4/6 | 6/6 | **sonnet-only** |
+| o12 | axe | 2/6 | 6/6 | 6/6 | **sonnet-only** |
+| o37 | - | 4/6 | 6/6 | 6/6 | sonnet wobble |
+| o26 | - | 6/6 | 4/6 | 5/6 | opus wobble |
+| o10 o23 o30 o31 | - | 6/6 | 6/6 | 6/6 | clean for both |
+
+The instructive pair is **o32 and o42: both are banners, and their GOEDE
+STIJL panels are nearly the same asset** - a thin flat sheet with a plain
+top bar carrying two rectangular slots, differing only in the bottom cut
+(pointed vs swallowtail). Yet sonnet gets o42 right every single run and
+o32 wrong every single run. The good model is not what separates them -
+**the distractor is**. In o42 the deviant is a plain notched slab with no
+top bar and no slots, so the catalog's signature detailing appears on one
+side only. In o32 the deviant *also* has a top rail, a chunkier beaded
+one, and both models prefer it.
+
+That reframes what these trials measure. The model is not scoring "does
+this match the target style" in isolation; it is answering "which of these
+two is more X", and the answer depends on what it is being compared
+against. A good model that wins against a plain distractor can lose
+against a more decorated one. Every blind spot here fits that: the good
+model is the slimmer or plainer of the two (o32 thin banner, o27 slender
+key, o24 planked-and-gapped stool, o12 riveted axe with a jagged edge),
+and the deviant is the more substantial or more regular one.
+
+Practical consequences:
+
+- **Pairwise accuracy overstates single-model review.** A catalog gate
+  that asks "is this model in style?" without a distractor is a different
+  task than the one measured here, and probably a harder one.
+- **The two models are near-complementary**, so their disagreement is a
+  usable signal: o42 and o16 are opus blind spots sonnet never misses;
+  o12 and o24 are sonnet blind spots opus (with 16 refs) never misses.
+  Route disagreements to a human rather than picking a single model.
+- **o32 is the one true hard case** - wrong in every run of every arm,
+  21 for 21. If any style rule is worth stating explicitly in the prompt,
+  it is the one that decides o32: a plain flat banner with a simple slotted
+  top bar beats a chunkier beaded one.
+
 ## Rendering the sheets (resolution ceiling)
 
 The sheets are not photographs but three.js renders of real geometry
