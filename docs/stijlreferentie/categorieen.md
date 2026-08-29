@@ -13,11 +13,11 @@ source is not converted twice.
 
 | prefix | category | what belongs to it | sheets |
 |--------|----------|--------------------|--------|
-| `o` | Object | Props, tools, lighting, chests and crates — what you carry, set down or pick up again. | 43 |
-| `n` | Nature | What grows, and what still lies where it grew. | 33 |
-| `s` | Structure | Joined wood and stone put together: walls, roofs, floors, doors, fences, benches, boards, staves. | 34 |
+| `o` | Object | Props, tools, lighting, chests, crates and casks — what you carry, set down or pick up again. | 43 |
+| `n` | Nature | What grows, and what still lies where it grew. | 29 |
+| `s` | Structure | Joined wood and stone: walls, roofs, floors, doors, fences, benches, boards. | 33 |
 
-Total: 110 sheets.
+Total: 105 sheets.
 
 
 ## Object (`o`) — 43
@@ -57,18 +57,18 @@ Total: 110 sheets.
 | `o31.png` | standing lantern | `ref59.png` |
 | `o32.png` | banner | `ref65.png` |
 | `o33.png` | flag on post | `ref66.png` |
-| `o34.png` | axe | `ref68.png` |
-| `o35.png` | hammer | `ref69.png` |
-| `o36.png` | rope coil | `ref72.png` |
-| `o37.png` | lamp post | `ref73.png` |
-| `o38.png` | rope coil | `ref74.png` |
-| `o39.png` | rope loop | `ref75.png` |
-| `o40.png` | knife | `ref76.png` |
-| `o41.png` | loose boards | `ref77.png` |
+| `o34.png` | barrel | `ref67.png` |
+| `o35.png` | axe | `ref68.png` |
+| `o36.png` | hammer | `ref69.png` |
+| `o37.png` | rope coil | `ref72.png` |
+| `o38.png` | lamp post | `ref73.png` |
+| `o39.png` | rope coil | `ref74.png` |
+| `o40.png` | rope loop | `ref75.png` |
+| `o41.png` | knife | `ref76.png` |
 | `o42.png` | pennant | `ref78.png` |
 | `o43.png` | shallow dish | — |
 
-## Nature (`n`) — 33
+## Nature (`n`) — 29
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -94,19 +94,15 @@ Total: 110 sheets.
 | `n20.png` | pine tree | `ref79.png` |
 | `n21.png` | fallen log | `ref80.png` |
 | `n22.png` | boulder | — |
-| `n23.png` | grass block | — |
-| `n24.png` | flower clump | — |
-| `n25.png` | pine tree | — |
-| `n26.png` | bent palm | — |
-| `n27.png` | palm tree | — |
-| `n28.png` | tree stump | — |
-| `n29.png` | fallen log | — |
-| `n30.png` | bush | — |
-| `n31.png` | bush | — |
-| `n32.png` | grass patch | — |
-| `n33.png` | bent palm | — |
+| `n23.png` | flower clump | — |
+| `n24.png` | pine tree | — |
+| `n25.png` | palm tree | — |
+| `n26.png` | tree stump | — |
+| `n27.png` | fallen log | — |
+| `n28.png` | grass patch | — |
+| `n29.png` | bent palm | — |
 
-## Structure (`s`) — 34
+## Structure (`s`) — 33
 
 | sheet | subject | was |
 |-------|---------|-----|
@@ -125,45 +121,46 @@ Total: 110 sheets.
 | `s13.png` | roof | `ref62.png` |
 | `s14.png` | wall with window | `ref63.png` |
 | `s15.png` | floor tile | `ref64.png` |
-| `s16.png` | barrel | `ref67.png` |
-| `s17.png` | A-frame sign | `ref70.png` |
+| `s16.png` | A-frame sign | `ref70.png` |
+| `s17.png` | loose boards | `ref77.png` |
 | `s18.png` | wall with serving hatch | — |
 | `s19.png` | door leaf | — |
 | `s20.png` | ladder | — |
-| `s21.png` | terrain block | — |
-| `s22.png` | kitchen counter | — |
-| `s23.png` | stone pillar | — |
-| `s24.png` | wall with window | — |
-| `s25.png` | wall with wide window | — |
-| `s26.png` | brick wall | — |
-| `s27.png` | barred stone door | — |
-| `s28.png` | corrugated panel | — |
-| `s29.png` | raised floor | — |
-| `s30.png` | roof on posts | — |
-| `s31.png` | wall frame | — |
+| `s21.png` | kitchen counter | — |
+| `s22.png` | stone pillar | — |
+| `s23.png` | wall with window | — |
+| `s24.png` | wall with wide window | — |
+| `s25.png` | brick wall | — |
+| `s26.png` | barred stone door | — |
+| `s27.png` | corrugated panel | — |
+| `s28.png` | raised floor | — |
+| `s29.png` | roof on posts | — |
+| `s30.png` | wall frame | — |
+| `s31.png` | fence | — |
 | `s32.png` | fence | — |
-| `s33.png` | fence | — |
-| `s34.png` | building platform | — |
+| `s33.png` | building platform | — |
 
 ## Where the lines run
 
 Nature is what grows and what still lies where it grew: the trees, the plants,
-the mushrooms, the stumps `n13`, `n18` and `n28`, the logs `n21` and `n29`, the
-rock formation `n10`, the rock cluster `n12` and the boulder `n22`.
+the mushrooms, the stumps `n13`, `n18` and `n26`, the logs `n21`
+and `n27`, the rock formation `n10`, the rock cluster `n12` and the
+boulder `n22`.
 
-Everything a person felled or picked up crosses over. The skull `o8`, the two
-cut logs `o14` and `o20` and the loose flat rock `o29` are objects, not nature.
+Everything a person felled or picked up crosses over. The skull `o8`, the
+two cut logs `o14` and `o20`, the loose flat rock `o29` and the
+barrel `o34` are objects — a cask is carried, not built into anything.
 
 Structure is what is joined together, and it does not stop at the building.
 Next to the walls, roofs, floors, doors and fences it holds the slatted table
-`s4`, the loose planks `s5`, the bench `s7`, the two A-frame boards `s8` and
-`s17`, the barrel `s16`, the ladder `s20`, the terrain block `s21` and the
-kitchen counter `s22`.
+`s4`, the loose planks `s5`, the bench `s7`, the two A-frame boards
+`s8` and `s16`, the second sheet of loose boards `s17`, the
+ladder `s20` and the kitchen counter `s21`.
 
 The sheets nearest that line are still objects, and they are the ones to weigh
-when the next one is placed: the chests `o3`, `o15` and `o28`, the crates
-`o11`, `o23` and `o26`, the bucket `o7`, the tables `o4` and `o24`, the stool
-`o19` and the second sheet of loose boards `o41`.
+when the next one is placed: the chests `o3`, `o15` and `o28`, the
+crates `o11`, `o23` and `o26`, the bucket `o7`, the tables
+`o4` and `o24` and the stool `o19`.
 
 Sheets keep their category name once given. A new sheet arrives as `refNN` from
 `tools/vind-match/naar-stijlreferentie.py`, which cannot know a category; giving
@@ -172,9 +169,11 @@ it one is a reading decision and a rename.
 ## Loose pairings
 
 On most sheets the good half is the same kind of thing as the deviant half. On
-six it is not, because the catalogue holds nothing of that kind: the bushes
-`n30` and `n31` (a round tree crown is the only rounded foliage there is), the
-grass block `n23` and the flower clump `n24`, the corrugated panel `s28`, the
-kitchen counter `s22` and the terrain block `s21`. They still show how our own
-facets, boards and volumes are cut, but they do not show that model in our
-style, because that model has no counterpart yet.
+three it is not, because the catalogue holds nothing of that kind: the flower
+clump `n23`, the kitchen counter `s21` and the corrugated panel
+`s27`. They still show how our own facets, boards and volumes are cut, but
+they do not show that model in our style, because that model has no counterpart
+yet. Five more went that way and were taken out again after review: two bushes,
+a grass block, a terrain block, and a second bent palm that repeated a pairing
+already in the set. Their sources are listed as rejected in `index.md`, so the
+converter leaves them alone.
