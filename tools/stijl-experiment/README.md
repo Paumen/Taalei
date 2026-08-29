@@ -111,11 +111,32 @@ vs rotations); then the model x effort grid on the winning format
   noise. Notably n21, wrong in ~12 mixed conditions, is right with
   nature-only refs.
 
-**Recommended phase 3:** replicate the winner: same-category (or
-nearest-kind) reference selection x guide text, on a bigger item set;
-only then model x effort. For production prompts the actionable rule is
-already clear: pick references of the same kind as the candidate rather
-than adding more of them.
+## Set B replication (2026-08-29, fresh 20-item test set, seed 7, $14.67)
+
+Same conditions re-run on a second test set sharing no item with the
+first (`phase2b-*.json`, `*_b` conditions).
+
+- **The flat reference-count curve replicates; the 28-refs spike does
+  not.** Set B ladder: 4 refs 55%, 6 40%, 8 65%, 12 50%, 16 50%, 20 60%,
+  24 55%, 28 55%. No trend with count in either set; set A's refs28=85%
+  was noise, as suspected.
+- **The same-category-references effect replicates.** Set B: natuur 14/15
+  vs 11/15, object 8/15 vs 4/15, structuur 11/15 vs 7/15 - again all
+  three in the same direction; pooled McNemar p=0.019. Combined over both
+  sets: same-cat 65/90 (72%) vs mixed 45/90 (50%), b=6 c=26,
+  **p=0.0005**. This is now a solid effect, not a one-off.
+- **Item difficulty varies hugely between draws.** Set B is much harder
+  than set A (ladder means ~54% vs ~70%) - with mixed refs the hard set
+  sits barely above chance, while same-category refs lift it to 72%.
+  This validates the paired design and warns against comparing absolute
+  accuracies across different item sets.
+- Structuur recovers with matched refs: 11/15 on set B with s5/s13
+  serving as (correctly labelled) reference sheets.
+
+**Recommended phase 3:** the presentation question is settled enough -
+category-matched (or nearest-kind) reference selection is the lever;
+count, beyond ~4-6, and extra resolution are not. Next: same-cat refs x
+guide text, then the model x effort grid on that format.
 
 ## Running
 
