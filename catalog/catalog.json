@@ -2036,9 +2036,9 @@
    "color": "#7a6154"
   },
   {
-   "id": "ocean",
-   "name": "Ocean",
-   "color": "#3e8fd0"
+   "id": "characters",
+   "name": "Characters",
+   "color": "#8a6fb0"
   },
   {
    "id": "signs",
@@ -2046,9 +2046,24 @@
    "color": "#ffb349"
   },
   {
-   "id": "books-scrolls",
-   "name": "Books & scrolls",
-   "color": "#a9825c"
+   "id": "items",
+   "name": "Collectibles & mechanics",
+   "color": "#f1976c"
+  },
+  {
+   "id": "keys-locks",
+   "name": "Keys & locks",
+   "color": "#5f8f8a"
+  },
+  {
+   "id": "bones",
+   "name": "Bones & skulls",
+   "color": "#cfc6ad"
+  },
+  {
+   "id": "coins-jewelry",
+   "name": "Coins & jewellery",
+   "color": "#c9a227"
   },
   {
    "id": "assemblies",
@@ -2061,19 +2076,14 @@
    "color": "#c07c8a"
   },
   {
-   "id": "items",
-   "name": "Collectibles & mechanics",
-   "color": "#f1976c"
-  },
-  {
-   "id": "transport",
-   "name": "Transport",
-   "color": "#5a7a9c"
-  },
-  {
    "id": "lights",
    "name": "Lights & lamps",
    "color": "#f2cb45"
+  },
+  {
+   "id": "books-scrolls",
+   "name": "Books & scrolls",
+   "color": "#a9825c"
   },
   {
    "id": "storage",
@@ -2081,9 +2091,14 @@
    "color": "#dd9f79"
   },
   {
-   "id": "bottles-jugs",
-   "name": "Bottles & jugs",
-   "color": "#7d9c6f"
+   "id": "tools",
+   "name": "Tools & weapons",
+   "color": "#6d738a"
+  },
+  {
+   "id": "transport",
+   "name": "Transport",
+   "color": "#5a7a9c"
   },
   {
    "id": "food",
@@ -2091,9 +2106,9 @@
    "color": "#9c3f2e"
   },
   {
-   "id": "tools",
-   "name": "Tools & weapons",
-   "color": "#6d738a"
+   "id": "bottles-jugs",
+   "name": "Bottles & jugs",
+   "color": "#7d9c6f"
   },
   {
    "id": "resources",
@@ -2101,19 +2116,24 @@
    "color": "#4f7d8c"
   },
   {
-   "id": "ground",
-   "name": "Ground & terrain",
-   "color": "#8a5d4b"
-  },
-  {
    "id": "grass",
    "name": "Grass",
    "color": "#8fbf5c"
   },
   {
+   "id": "ground",
+   "name": "Ground & terrain",
+   "color": "#8a5d4b"
+  },
+  {
    "id": "flowers",
    "name": "Flowers",
    "color": "#e08fb0"
+  },
+  {
+   "id": "ocean",
+   "name": "Ocean",
+   "color": "#3e8fd0"
   },
   {
    "id": "plants",
@@ -2149,11 +2169,6 @@
    "id": "structures",
    "name": "Structures & platforms",
    "color": "#877a63"
-  },
-  {
-   "id": "characters",
-   "name": "Characters",
-   "color": "#8a6fb0"
   },
   {
    "id": "building-kit",
@@ -3281,7 +3296,7 @@
   {
    "kit": "dungeon",
    "name": "coin-stack-large",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.3,
     0.3,
@@ -3314,7 +3329,7 @@
   {
    "kit": "dungeon",
    "name": "coin-stack-medium",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.2,
     0.2,
@@ -3347,7 +3362,7 @@
   {
    "kit": "dungeon",
    "name": "coin-stack-small",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.2,
     0.2,
@@ -3380,7 +3395,7 @@
   {
    "kit": "dungeon",
    "name": "coin",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -4651,7 +4666,7 @@
   {
    "kit": "dungeon",
    "name": "key",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.2,
     0.1,
@@ -4684,7 +4699,7 @@
   {
    "kit": "dungeon",
    "name": "keyring-hanging",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.1,
@@ -4719,7 +4734,7 @@
   {
    "kit": "dungeon",
    "name": "keyring",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.2,
     0.2,
@@ -7252,8 +7267,8 @@
    "hues": 2,
    "colors": [
     "#474a58",
-    "#714c39",
-    "#88796d"
+    "#88796d",
+    "#9a6b4e"
    ],
    "tags": [
     "metal",
@@ -7499,7 +7514,7 @@
   {
    "kit": "dungeon-quaternius",
    "name": "skull",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.2,
@@ -7751,15 +7766,14 @@
    "dens": 45348,
    "anglePct": 9,
    "vpt": 1.7,
-   "grad": 0.25,
+   "grad": 0.28,
    "hues": 4,
    "colors": [
+    "#6d738a",
     "#6d8d33",
     "#7f3927",
     "#8f785b",
-    "#9da4c4",
-    "#d07b56",
-    "#dd9f79"
+    "#cb9d78"
    ],
    "tags": [
     "assembly",
@@ -8311,7 +8325,7 @@
   {
    "kit": "fantasy-props",
    "name": "key-gold",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.1,
@@ -8346,7 +8360,7 @@
   {
    "kit": "fantasy-props",
    "name": "key-metal",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.1,
@@ -8368,7 +8382,7 @@
    "grad": 0.8,
    "hues": 1,
    "colors": [
-    "#88796d"
+    "#9da4c4"
    ],
    "tags": [
     "metal",
@@ -11440,6 +11454,7 @@
     "#88796d"
    ],
    "tags": [
+    "bark",
     "nature",
     "qua"
    ]
@@ -11472,6 +11487,7 @@
     "#714c39"
    ],
    "tags": [
+    "bark",
     "nature",
     "qua"
    ]
@@ -11543,7 +11559,7 @@
   {
    "kit": "food-quaternius",
    "name": "fish-bone",
-   "gr": "ocean",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.1,
@@ -11569,7 +11585,7 @@
    ],
    "tags": [
     "bone",
-    "nature",
+    "object",
     "qua"
    ]
   },
@@ -11666,7 +11682,7 @@
    "hues": 2,
    "colors": [
     "#3e3e44",
-    "#714c39"
+    "#9a6b4e"
    ],
    "tags": [
     "object",
@@ -13891,7 +13907,7 @@
   {
    "kit": "halloween",
    "name": "bone-a",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.1,
@@ -13925,7 +13941,7 @@
   {
    "kit": "halloween",
    "name": "bone-b",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.1,
@@ -13959,7 +13975,7 @@
   {
    "kit": "halloween",
    "name": "bone-c",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.3,
     0.1,
@@ -14015,7 +14031,7 @@
    "grad": 0.67,
    "hues": 2,
    "colors": [
-    "#714c39",
+    "#3e3e44",
     "#f5f2e7"
    ],
    "tags": [
@@ -14342,7 +14358,7 @@
   {
    "kit": "halloween",
    "name": "ribcage",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.2,
@@ -14375,7 +14391,7 @@
   {
    "kit": "halloween",
    "name": "skull",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.3,
     0.3,
@@ -21723,7 +21739,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "bones-large",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     1.7,
     1.7,
@@ -21890,7 +21906,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "chest-gold",
-   "gr": "storage",
+   "gr": "coins-jewelry",
    "wdh": [
     0.5,
     0.4,
@@ -22087,7 +22103,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "coins",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.2,
@@ -22188,7 +22204,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "gold-bag",
-   "gr": "storage",
+   "gr": "coins-jewelry",
    "wdh": [
     0.2,
     0.1,
@@ -22765,10 +22781,10 @@
    "anglePct": 23,
    "vpt": 0.96,
    "grad": 0.08,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#6d738a",
-    "#714c39",
+    "#9a6b4e",
     "#cb9d78"
    ],
    "tags": [
@@ -22911,10 +22927,11 @@
    "colors": [
     "#3e3e44",
     "#714c39",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "tags": [
     "animation",
+    "bone",
     "object",
     "qua"
    ],
@@ -22963,10 +22980,11 @@
     "#3e3e44",
     "#714c39",
     "#88796d",
-    "#8f785b"
+    "#f5f2e7"
    ],
    "tags": [
     "animation",
+    "bone",
     "object",
     "qua"
    ],
@@ -22991,7 +23009,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "skull",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.1,
     0.1,
@@ -23024,7 +23042,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "skulls",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     1.1,
     1.2,
@@ -23541,7 +23559,7 @@
   {
    "kit": "platformer-kit",
    "name": "lock",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.2,
     0.1,
@@ -24747,7 +24765,7 @@
   {
    "kit": "prototype-kit",
    "name": "coin",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.2,
@@ -29681,7 +29699,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "bone",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.1,
@@ -29995,7 +30013,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "coin-skull",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -30028,7 +30046,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "coin-star",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -30061,7 +30079,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "coin",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -30094,7 +30112,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "fish-bone",
-   "gr": "ocean",
+   "gr": "bones",
    "wdh": [
     0.1,
     0.1,
@@ -30120,7 +30138,7 @@
    ],
    "tags": [
     "bone",
-    "nature",
+    "object",
     "qua"
    ]
   },
@@ -30160,7 +30178,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "key-1",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.1,
@@ -30182,9 +30200,10 @@
    "grad": 0,
    "hues": 1,
    "colors": [
-    "#714c39"
+    "#6d738a"
    ],
    "tags": [
+    "metal",
     "object",
     "qua"
    ]
@@ -30192,7 +30211,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "key-2",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.2,
@@ -30214,17 +30233,19 @@
    "grad": 0,
    "hues": 1,
    "colors": [
-    "#714c39"
+    "#ffb349"
    ],
    "tags": [
+    "metal",
     "object",
+    "precious-metal",
     "qua"
    ]
   },
   {
    "kit": "rpg-quaternius",
    "name": "key-3",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.2,
@@ -30246,7 +30267,7 @@
    "grad": 0,
    "hues": 1,
    "colors": [
-    "#88796d"
+    "#9da4c4"
    ],
    "tags": [
     "metal",
@@ -30257,7 +30278,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "key-4",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.2,
@@ -30279,9 +30300,10 @@
    "grad": 0,
    "hues": 1,
    "colors": [
-    "#cb9d78"
+    "#6d738a"
    ],
    "tags": [
+    "metal",
     "object",
     "precious-metal",
     "qua"
@@ -30290,7 +30312,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "necklace-1",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.2,
@@ -30325,7 +30347,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "necklace-2",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.2,
@@ -30360,7 +30382,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "necklace-3",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.2,
@@ -30395,7 +30417,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "padlock",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.1,
     0.1,
@@ -30481,9 +30503,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30515,10 +30537,10 @@
    "anglePct": 8,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30550,9 +30572,9 @@
    "anglePct": 5,
    "vpt": 1.12,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30584,10 +30606,10 @@
    "anglePct": 9,
    "vpt": 1.18,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30619,9 +30641,9 @@
    "anglePct": 1,
    "vpt": 1.22,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30653,10 +30675,10 @@
    "anglePct": 6,
    "vpt": 1.27,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30688,9 +30710,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30722,10 +30744,10 @@
    "anglePct": 7,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30757,9 +30779,9 @@
    "anglePct": 1,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30791,10 +30813,10 @@
    "anglePct": 4,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30826,9 +30848,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30860,10 +30882,10 @@
    "anglePct": 6,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30895,9 +30917,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30929,10 +30951,10 @@
    "anglePct": 1,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30964,9 +30986,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -30998,10 +31020,10 @@
    "anglePct": 1,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31033,9 +31055,9 @@
    "anglePct": 2,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31067,10 +31089,10 @@
    "anglePct": 2,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31102,9 +31124,9 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31136,10 +31158,10 @@
    "anglePct": 1,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31171,9 +31193,9 @@
    "anglePct": 5,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31205,10 +31227,10 @@
    "anglePct": 13,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#714c39",
+    "#dd9f79",
     "#f5f2e7"
    ],
    "tags": [
@@ -31220,7 +31242,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "ring-3",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -31254,7 +31276,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "ring-4",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -31288,7 +31310,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "ring-5",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -31322,7 +31344,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "ring-6",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -31390,7 +31412,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "skull-2",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.1,
     0.1,
@@ -31423,7 +31445,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "skull",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.1,
     0.1,
@@ -32771,10 +32793,10 @@
    "anglePct": 63,
    "vpt": 1.78,
    "grad": 0.44,
-   "hues": 3,
+   "hues": 2,
    "colors": [
-    "#714c39",
     "#88796d",
+    "#9a6b4e",
     "#cb9d78"
    ],
    "tags": [
@@ -32808,9 +32830,9 @@
    "anglePct": 50,
    "vpt": 1.86,
    "grad": 0,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#714c39",
+    "#9a6b4e",
     "#cb9d78"
    ],
    "tags": [
@@ -33160,7 +33182,7 @@
   {
    "kit": "survival-kit",
    "name": "fish-large",
-   "gr": "food",
+   "gr": "ocean",
    "wdh": [
     0.3,
     0.1,
@@ -33189,14 +33211,14 @@
    "tags": [
     "fauna",
     "ken",
-    "object"
+    "nature"
    ],
    "variant": "v70"
   },
   {
    "kit": "survival-kit",
    "name": "fish",
-   "gr": "food",
+   "gr": "ocean",
    "wdh": [
     0.2,
     0.1,
@@ -33224,7 +33246,7 @@
    "tags": [
     "fauna",
     "ken",
-    "object"
+    "nature"
    ],
    "variant": "v70"
   },

@@ -5,7 +5,7 @@ export const GROUPS = [
     description: 'Empty: the cave part of the modular-terrain kit sits outside the catalogue (PO decision, see catalog/manifest.js) and the Cave tab has been removed. The group stays because the rules point to it; if those models return, they will have a place. What it held: floors, corners, sides and hills you dig a cave out of, plus the mining gear that goes with it — rails, switches, a minecart, pickaxes, wall and ceiling supports, stalagmites, hanging cables and a lamp. Also the four entrances the kit calls `Cave_Cliff`: those set a cave into a cliff face. Lives in the Cave tab next to the modular-cave-kit, but deliberately as its own group: these models do share the common colormap and so can be mixed with the other kits, and they are modular on the grid rather than whole rooms and corridors. The two don\'t fit together.' },
   { id: 'ocean', name: 'Ocean', short: 'Ocean', color: '#3e8fd0',
     tab: 'nature',
-    description: 'What lives in the sea and what washes up from it: the dolphin, whale, shark, manta ray and the three fish from Quaternius, the mackerel and tuna from the pirate kit, the two fish bones, and every shell and starfish from the beach. Lives in the Nature tab with the rocks and the trees — a fish is there without anyone having put it there. This is where the seabed group ended up: it held nothing but shells and starfish, and they are all here now.' },
+    description: 'What lives in the sea and what washes up from it: the dolphin, whale, shark, manta ray and the three fish from Quaternius, the mackerel and tuna from the pirate kit, the two fish from the survival kit, and every shell and starfish from the beach. The two fish bones moved to the bones group. Lives in the Nature tab with the rocks and the trees — a fish is there without anyone having put it there. This is where the seabed group ended up: it held nothing but shells and starfish, and they are all here now.' },
   { id: 'signs', name: 'Signs, flags & targets', short: 'Signs', color: '#ffb349',
     description: 'Signposts, banners and targets. Carriers for text and instruction.' },
   { id: 'books-scrolls', name: 'Books & scrolls', short: 'Books', color: '#a9825c',
@@ -15,7 +15,7 @@ export const GROUPS = [
   { id: 'furniture', name: 'Furniture & household', short: 'Furniture', color: '#c07c8a',
     description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with the set tables under food & cooking; the campfires belong there too, since that\'s what you cook on.' },
   { id: 'items', name: 'Collectibles & mechanics', short: 'Items', color: '#f1976c',
-    description: 'Coin, key, star and heart alongside lever, spring and lock: small loose objects you pick up or that react to an action. The village bell belongs here too, along with the coins, keys and keyrings from the dungeon kit — not collectibles, but small, loose and with a function. Use sparingly, not a points economy.' },
+    description: 'Star and heart alongside lever, spring and cobweb: small loose objects you pick up or that react to an action. The village bell belongs here too, and so do the journals and maps, the backpack and the bag. The coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the bones and skulls to bones. Use sparingly, not a points economy.' },
   { id: 'transport', name: 'Transport', short: 'Transport', color: '#5a7a9c',
     description: 'Ways to move things and people: the carts from fantasy-town-kit and village-kit, the rowing boats from village-kit and pirate-kit, the cannons and mast from pirate-kit, and the ships and wreck from pirate-kit.' },
   { id: 'lights', name: 'Lights & lamps', short: 'Lights', color: '#f2cb45',
@@ -64,6 +64,12 @@ export const GROUPS = [
   { id: 'building-kit', name: 'Building kit & mills', short: 'Building kit', color: '#a8762a',
     tab: 'structures',
     description: 'Walls, roofs, pillars and mills: pieces that click together on one grid and only fit each other, plus the mills that belong to that same building set. There are three side by side — fantasy-town\'s, the village kit\'s and the dungeon kit\'s — and they don\'t fit each other; check the kit before combining two pieces. Its own tab, because hundreds of variants of the same wall and the same roof would crowd out anything sitting loose next to them in the group view.' },
+  { id: 'coins-jewelry', name: 'Coins & jewellery', short: 'Coins', color: '#c9a227',
+    description: 'Money and what you wear it as: the loose coin and the three coin stacks from the dungeon kit, the coin, skull coin and star coin from rpg-quaternius, the prototype kit\'s coin, the pirate kit\'s heap of coins, the four rings and three pendant necklaces from rpg-quaternius, and the gold bag and gold chest the pirates keep it in. Gold first and silver as the alternative, per appendix A. Split off from the collectibles because it had grown into a group of its own: the bars and nuggets you smelt it from live with the resources, and the keys and locks now have their own group next to this one.' },
+  { id: 'keys-locks', name: 'Keys & locks', short: 'Keys', color: '#5f8f8a',
+    description: 'What opens and what closes: the key, the keyring and the hanging keyring from the dungeon kit, the four keys from rpg-quaternius, the gold and plain metal keys from fantasy-props, the rpg-quaternius padlock and the platformer kit\'s lock. Small, loose and with a function, like the collectibles they come from, but they answer to each other rather than to a points economy — a key belongs to a lock. The chests and doors they open live with the chests and barrels and with the structures.' },
+  { id: 'bones', name: 'Bones & skulls', short: 'Bones', color: '#cfc6ad',
+    description: 'What is left over: the loose bone from rpg-quaternius and the three from halloween, the large bone pile from the pirate kit, the ribcage, the five loose skulls from four kits with the pirate kit\'s pile of them, and the two fish bones. Off-white throughout, per appendix A. The two walking skeletons live with the characters — they have a face, these do not.' },
 
 ];
 
@@ -106,7 +112,7 @@ const ASSEMBLIES = new Set([
 const exceptions = {
   'platformer-kit/arrow': 'signs',
   'platformer-kit/arrows': 'signs',
-  'platformer-kit/lock': 'items',
+  'platformer-kit/lock': 'keys-locks',
   'fantasy-town-kit/wheel': 'tools',
   'survival-kit/resource-stone': 'rocks',
   'survival-kit/resource-stone-large': 'rocks',
@@ -320,6 +326,15 @@ const exceptions = {
   'resources/silver-bars-stack-large': 'resources',
   'resources/silver-bars-stack-medium': 'resources',
   'resources/silver-bars-stack-small': 'resources',
+  // The pirates' gold chest is a heap of coins in a box: it goes with the money,
+  // not with the chests. The dungeon kit's chest-gold is an assembly and stays one.
+  'pirate-quaternius/chest-gold': 'coins-jewelry',
+  // Fish bones are bones first; the fish themselves stay in the ocean.
+  'rpg-quaternius/fish-bone': 'bones',
+  'food-quaternius/fish-bone': 'bones',
+  // Caught fish, not prepared food: they belong with what swims.
+  'survival-kit/fish': 'ocean',
+  'survival-kit/fish-large': 'ocean',
 };
 
 const rules = [
@@ -332,8 +347,11 @@ const rules = [
   [/^(anchor|cannonball)\b/, 'transport'],
   [/^(book|scroll|parchment)\b/, 'books-scrolls'],
   [/^(potion|bottle)\b/, 'bottles-jugs'],
-  [/^(coins|skulls|bones-large|necklace|ring|padlock|backpack)\b/, 'items'],
-  [/^gold-bag\b/, 'storage'],
+  [/^(coins|necklace|ring)\b/, 'coins-jewelry'],
+  [/^(skulls|bones-large)\b/, 'bones'],
+  [/^padlock\b/, 'keys-locks'],
+  [/^backpack\b/, 'items'],
+  [/^gold-bag\b/, 'coins-jewelry'],
   [/^gold-ingots\b/, 'resources'],
   [/^(apple|banana|bread|chicken-leg|cooking-pot|fork|frying-pan|lettuce|spoon|steak)\b/, 'food'],
   [/^(manta-ray|whale|dolphin)\b/, 'ocean'],
@@ -350,7 +368,10 @@ const rules = [
   [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'signs'],
   [/^(lamp|lantern|torch|candle|lighthouse)\b|^shelf-small-candles$/, 'lights'],
-  [/^(star|heart|spring|lock)$|^(bell|coin|keyring|key|lever|book|scroll|potion|bone|ribcage|skull)\b/, 'items'],
+  [/^(star|heart|spring)$|^(bell|lever|book|scroll|potion)\b/, 'items'],
+  [/^lock$|^(keyring|key)\b/, 'keys-locks'],
+  [/^coin\b/, 'coins-jewelry'],
+  [/^(bone|ribcage|skull)\b/, 'bones'],
   [/^(table|bench|stool|carpet|bed|chair|shelf|shelves)\b/, 'furniture'],
   [/^(resource|timber)\b/, 'resources'],
   [/^(chest|barrel|box|crate|crates|pot|bucket|bottle|jug|bag|cart|keg|trunk|cage|vase)\b|-bottles$/, 'storage'],
