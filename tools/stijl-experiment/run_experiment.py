@@ -64,16 +64,23 @@ def load_done(out_path):
     return done
 
 
-def call_claude(content, cfg, workdir, timeout=600):
+# The remote harness pins child sessions to the parent's session id, which
+# would make every --resume append to one shared transcript; strip the pins
+# so each call gets its own session (required for cached-mode forking).
+CHILD_ENV = {k: v for k, v in os.environ.items()
+             if k not in ("CLAUDE_CODE_SESSION_ID", "CLAUDE_CODE_REMOTE_SESSION_ID")}
+
+
+def call_claude(content, cfg, workdir, extra_args=(), timeout=600):
     msg = json.dumps({"type": "user",
                       "message": {"role": "user", "content": content}})
     cmd = ["claude", "-p", "--verbose",
            "--input-format", "stream-json", "--output-format", "stream-json",
            "--model", cfg["model"], "--effort", cfg["effort"],
            "--max-turns", "1", "--tools", "",
-           "--system-prompt", lib.SYSTEM_PROMPT]
+           "--system-prompt", lib.SYSTEM_PROMPT, *extra_args]
     proc = subprocess.run(cmd, input=msg, capture_output=True, text=True,
-                          timeout=timeout, cwd=workdir)
+                          timeout=timeout, cwd=workdir, env=CHILD_ENV)
     result = None
     for line in proc.stdout.splitlines():
         try:
@@ -88,21 +95,58 @@ def call_claude(content, cfg, workdir, timeout=600):
     return result
 
 
-def run_trial(cfg, item, refs, good_is_a, workdir, retries=2):
-    content, meta = lib.build_trial_message(item, refs, cfg, good_is_a)
+def prime_condition(cfg, refs, workdir, retries=2):
+    """Cached mode: send the references once, return (session_id, record)."""
+    content = lib.build_prime_message(refs, cfg)
+    record = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+              "condition": cfg["id"], "condition_key": lib.condition_key(cfg),
+              "model": cfg["model"], "effort": cfg["effort"],
+              "item": "__prime__", "ref_ids": [r["id"] for r in refs]}
+    last_err = None
+    for attempt in range(retries + 1):
+        try:
+            res = call_claude(content, cfg, workdir)
+            usage = res.get("usage", {})
+            record.update({
+                "cost_usd": res.get("total_cost_usd"),
+                "cache_write": usage.get("cache_creation_input_tokens"),
+                "cache_read": usage.get("cache_read_input_tokens"),
+                "session_id": res.get("session_id"),
+            })
+            if res.get("session_id") and not res.get("is_error"):
+                return res["session_id"], record
+            last_err = f"prime failed: {str(res.get('result'))[:200]}"
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            last_err = str(e)
+        time.sleep(2 * (attempt + 1))
+    record["error"] = last_err
+    return None, record
+
+
+def run_trial(cfg, item, refs, good_is_a, workdir, sid=None, retries=2):
+    if sid:
+        content, _ = lib.build_case_message(item, cfg, good_is_a)
+        extra = ("--resume", sid, "--fork-session")
+    else:
+        content, _ = lib.build_trial_message(item, refs, cfg, good_is_a)
+        extra = ()
+    meta = lib._meta(refs, cfg)
     record = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
               "condition": cfg["id"], "condition_key": lib.condition_key(cfg),
               "model": cfg["model"], "effort": cfg["effort"],
               "item": item["id"], "category": item["category"],
               "good_is_a": good_is_a, **meta,
               "style_guide": bool(cfg.get("style_guide"))}
-    for extra in ("test_category", "ref_category", "control"):
-        if cfg.get(extra):
-            record[extra] = cfg[extra]
+    if sid:
+        record["cached"] = True
+        record["prime_session"] = sid
+    for key in ("test_category", "ref_category", "control"):
+        if cfg.get(key):
+            record[key] = cfg[key]
     last_err = None
     for attempt in range(retries + 1):
         try:
-            res = call_claude(content, cfg, workdir)
+            res = call_claude(content, cfg, workdir, extra)
             text = res.get("result") or ""
             ans = lib.parse_answer(text)
             usage = res.get("usage", {})
@@ -114,6 +158,8 @@ def run_trial(cfg, item, refs, good_is_a, workdir, retries=2):
                 "input_tokens": (usage.get("input_tokens", 0)
                                  + usage.get("cache_creation_input_tokens", 0)
                                  + usage.get("cache_read_input_tokens", 0)),
+                "cache_write": usage.get("cache_creation_input_tokens"),
+                "cache_read": usage.get("cache_read_input_tokens"),
                 "output_tokens": usage.get("output_tokens"),
                 "is_error": res.get("is_error", False),
             })
@@ -164,7 +210,8 @@ def main():
     done = load_done(args.out)
     workdir = tempfile.mkdtemp(prefix="stijl-exp-")  # neutral cwd: no repo CLAUDE.md
 
-    tasks = []
+    cond_tasks = []
+    n_total = 0
     for cfg in conds:
         test, refs = lib.build_test_and_ref_sets(
             cfg["n_test"], cfg["n_refs"], cfg["seed"],
@@ -173,46 +220,61 @@ def main():
             cfg.get("test_items"), cfg.get("ref_items"))
         gmap = lib.good_is_a_map(test)
         items = test[:args.limit] if args.limit else test
-        for item in items:
-            key = (cfg["id"], lib.condition_key(cfg), item["id"])
-            if key in done:
-                continue
-            tasks.append((cfg, item, refs, gmap[item["id"]]))
+        pending = [(item, gmap[item["id"]]) for item in items
+                   if (cfg["id"], lib.condition_key(cfg), item["id"]) not in done]
+        if pending:
+            cond_tasks.append((cfg, refs, pending))
+            n_total += len(pending)
 
     if args.dry_run:
-        by_cond = {}
-        for cfg, item, refs, gia in tasks:
-            content, _ = lib.build_trial_message(item, refs, cfg, gia)
-            by_cond.setdefault(cfg["id"], []).append(estimate_tokens(content))
         total_usd = 0.0
-        for cid, toks in by_cond.items():
+        for cfg, refs, pending in cond_tasks:
+            toks = [estimate_tokens(lib.build_trial_message(item, refs, cfg, gia)[0])
+                    for item, gia in pending]
             usd = sum(toks) / 1e6 * 2.0 + len(toks) * 1500 / 1e6 * 10.0
             total_usd += usd
-            print(f"{cid:16s} {len(toks):3d} trials  ~{sum(toks)//len(toks):6d} "
-                  f"input tok/trial  est ${usd:.2f}")
-        print(f"{'TOTAL':16s} {sum(len(t) for t in by_cond.values()):3d} trials"
-              f"  est ${total_usd:.2f} (input at sonnet rates + ~1.5k output/trial)")
+            note = " (cached mode: actual cost far lower)" if cfg.get("cached") else ""
+            print(f"{cfg['id']:16s} {len(toks):3d} trials  ~{sum(toks)//len(toks):6d} "
+                  f"input tok/trial  est ${usd:.2f}{note}")
+        print(f"{'TOTAL':16s} {n_total:3d} trials  est ${total_usd:.2f} "
+              f"(input at sonnet rates + ~1.5k output/trial)")
         return
 
-    print(f"{len(tasks)} trials to run ({len(done)} already done) -> {args.out}")
+    print(f"{n_total} trials to run ({len(done)} already done) -> {args.out}")
     t0 = time.time()
     n_done = 0
 
-    def worker(task):
-        return run_trial(*task, workdir=workdir)
+    def write(record):
+        with write_lock:
+            with open(args.out, "a") as f:
+                f.write(json.dumps(record) + "\n")
 
     with concurrent.futures.ThreadPoolExecutor(args.concurrency) as ex:
-        for record in ex.map(worker, tasks):
-            with write_lock:
-                with open(args.out, "a") as f:
-                    f.write(json.dumps(record) + "\n")
-            n_done += 1
-            mark = ("OK " if record.get("correct") else "err" if "error" in record
-                    else "WRONG")
-            print(f"[{n_done}/{len(tasks)}] {record['condition']:16s} "
-                  f"{record['item']:4s} {mark}  "
-                  f"${record.get('cost_usd') or 0:.3f}  "
-                  f"{(time.time() - t0):.0f}s", flush=True)
+        for cfg, refs, pending in cond_tasks:
+            sid = None
+            if cfg.get("cached"):
+                sid, prec = prime_condition(cfg, refs, workdir)
+                write(prec)
+                print(f"[prime]   {cfg['id']:16s} "
+                      f"{'session ' + sid[:8] if sid else 'FAILED'}  "
+                      f"${prec.get('cost_usd') or 0:.3f}  "
+                      f"cache_write={prec.get('cache_write')}", flush=True)
+                if sid is None:
+                    continue
+
+            def worker(task, cfg=cfg, refs=refs, sid=sid):
+                return run_trial(cfg, task[0], refs, task[1], workdir, sid)
+
+            for record in ex.map(worker, pending):
+                write(record)
+                n_done += 1
+                mark = ("OK " if record.get("correct") else
+                        "err" if "error" in record else "WRONG")
+                print(f"[{n_done}/{n_total}] {record['condition']:16s} "
+                      f"{record['item']:4s} {mark}  "
+                      f"${record.get('cost_usd') or 0:.3f}  "
+                      f"cr={record.get('cache_read') or 0}  "
+                      f"{(time.time() - t0):.0f}s", flush=True)
     print("done")
 
 

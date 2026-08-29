@@ -177,6 +177,40 @@ category-matched (or nearest-kind) reference selection is the lever;
 count, beyond ~4-6, and extra resolution are not. Next: same-cat refs x
 guide text, then the model x effort grid on that format.
 
+## Cached mode (primed sessions)
+
+Conditions with `"cached": true` send the references once per condition
+(a prime turn the model answers "OK"), then every trial forks that session
+(`--resume --fork-session`) with only the test case. The conversation
+prefix (system + references turn) is byte-identical across trials, so the
+CLI's automatic prompt caching serves it at the 90% cache-read discount.
+Verified on the first cached runs: prime writes 9.5k tokens once, every
+trial reads exactly those tokens back (`cache_read` is logged per trial),
+$0.007/trial vs ~$0.045 uncached at the same size. Forking is isolation:
+each trial's transcript is the prime plus its own question only. The
+remote harness pins child sessions to the parent's session id via
+CLAUDE_CODE_SESSION_ID / CLAUDE_CODE_REMOTE_SESSION_ID; the runner strips
+both so priming and forking work.
+
+Caveat: cached mode is a slightly different stimulus (references arrive in
+a prior turn with an "OK" between) - don't compare cached and single-
+message conditions as if identical; `cached` is part of the condition
+fingerprint.
+
+## Phase 4 (2026-08-29, cached mode, new default config, $0.25)
+
+New default for this phase onward: sonnet medium, **8 angles, 8 refs,
+12 test items**, full res, seed 5 (`phase4-cached.json`).
+
+- mix_8a8r (items + refs across all categories): **8/12 (67%)** -
+  wrong: n6, o16, s33, s5.
+- obj_8a8r (items + refs objects-only): **9/12 (75%)** - wrong: o12,
+  o24, o27.
+- Direction matches the category-match effect again, but these two runs
+  use different test sets (only 5 shared object items), so this is not a
+  paired comparison - treat as a calibration of the new format, not a
+  new measurement of the effect.
+
 ## Running
 
 ```bash

@@ -251,11 +251,7 @@ whether a model matches the catalog's target style. Answer strictly in the \
 requested JSON format, nothing else."""
 
 
-def build_trial_message(item, refs, cfg, good_is_a):
-    """Assemble the content blocks for one trial. Returns (content, meta)."""
-    scale = cfg.get("scale", 1.0)
-    angles = cfg.get("angles", [0, 2, 4, 6])
-    content = []
+def _intro_blocks(refs, cfg):
     intro = ["Task: two 3D models of the same kind of object follow below. "
              "One matches our catalog's target style, the other deviates from it. "
              "Decide which one matches."]
@@ -267,23 +263,56 @@ def build_trial_message(item, refs, cfg, good_is_a):
             "block (AFWIJKENDE STIJL) shows a model that deviates from the target "
             "style and the bottom block (GOEDE STIJL) shows a model in the target "
             "style, each from several angles.")
-    content.append({"type": "text", "text": "\n\n".join(intro)})
+    scale = cfg.get("scale", 1.0)
+    content = [{"type": "text", "text": "\n\n".join(intro)}]
     for i, ref in enumerate(refs, 1):
         content.append({"type": "text", "text": f"Reference sheet {i}:"})
         content.append(image_block(sheet_png(ref, scale)))
+    return content
+
+
+def _case_blocks(item, cfg, good_is_a):
+    scale = cfg.get("scale", 1.0)
+    angles = cfg.get("angles", [0, 2, 4, 6])
     a_kind, b_kind = ("g", "b") if good_is_a else ("b", "g")
-    content.append({"type": "text", "text":
-                    "Now the test case. Model A, shown from "
-                    f"{len(angles)} angle(s):"})
-    content.append(image_block(compose_panel(item["id"], a_kind, angles, scale)))
-    content.append({"type": "text", "text": f"Model B, shown from {len(angles)} angle(s):"})
-    content.append(image_block(compose_panel(item["id"], b_kind, angles, scale)))
-    content.append({"type": "text", "text":
-                    'Which model matches the target style? Reply with exactly one '
-                    'JSON object and nothing else: {"choice": "A" or "B"}'})
-    meta = {"angles": angles, "scale": scale, "n_refs": len(refs),
+    return [
+        {"type": "text", "text":
+         f"Now the test case. Model A, shown from {len(angles)} angle(s):"},
+        image_block(compose_panel(item["id"], a_kind, angles, scale)),
+        {"type": "text", "text": f"Model B, shown from {len(angles)} angle(s):"},
+        image_block(compose_panel(item["id"], b_kind, angles, scale)),
+        {"type": "text", "text":
+         'Which model matches the target style? Reply with exactly one '
+         'JSON object and nothing else: {"choice": "A" or "B"}'},
+    ]
+
+
+def _meta(refs, cfg):
+    return {"angles": cfg.get("angles", [0, 2, 4, 6]),
+            "scale": cfg.get("scale", 1.0), "n_refs": len(refs),
             "ref_ids": [r["id"] for r in refs]}
-    return content, meta
+
+
+def build_trial_message(item, refs, cfg, good_is_a):
+    """Single-message mode: intro + refs + test case in one user message."""
+    content = _intro_blocks(refs, cfg) + _case_blocks(item, cfg, good_is_a)
+    return content, _meta(refs, cfg)
+
+
+def build_prime_message(refs, cfg):
+    """Cached mode, turn 1 (once per condition): intro + refs, model replies
+    OK. Every trial then forks this session, so the whole turn is served
+    from prompt cache."""
+    content = _intro_blocks(refs, cfg)
+    content.append({"type": "text", "text":
+                    "The test case follows in the next message. "
+                    "Reply with exactly: OK"})
+    return content
+
+
+def build_case_message(item, cfg, good_is_a):
+    """Cached mode, turn 2 (per trial, on a fork of the primed session)."""
+    return _case_blocks(item, cfg, good_is_a), _meta([], cfg)
 
 
 def parse_answer(text):
