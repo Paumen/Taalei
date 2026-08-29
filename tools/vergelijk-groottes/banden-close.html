@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8" /><style>
+  html,
+  body {
+    margin: 0;
+    background: #e8e4da;
+    display: flex;
+  }
+  canvas {
+    display: block;
+  }
+</style>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/three/build/three.module.js",
+      "three/addons/": "/three/examples/jsm/"
+    }
+  }
+</script>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  const q = new URLSearchParams(location.search);
+  const S = 420;
+  const g = await new Promise((res, rej) =>
+    new GLTFLoader().load(q.get("m"), res, undefined, rej),
+  );
+  const views = [
+    [1.4, 0.8, 1.8],
+    [-1.6, 0.7, -1.5],
+    [0.05, 2.6, 0.05],
+  ];
+  for (const v of views) {
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(S, S);
+    document.body.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xe8e4da);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x887766, 1.5));
+    const sun = new THREE.DirectionalLight(0xffffff, 1.5);
+    sun.position.set(3, 6, 5);
+    scene.add(sun);
+    const obj = g.scene.clone(true);
+    scene.add(obj);
+    const box = new THREE.Box3().setFromObject(obj);
+    const size = box.getSize(new THREE.Vector3());
+    const mid = box.getCenter(new THREE.Vector3());
+    const r = Math.max(size.x, size.y, size.z) || 1;
+    const cam = new THREE.PerspectiveCamera(35, 1, 0.001, 1000);
+    cam.position.set(mid.x + r * v[0], mid.y + r * v[1], mid.z + r * v[2]);
+    cam.up.set(0, 1, 0);
+    cam.lookAt(mid);
+    renderer.render(scene, cam);
+  }
+  window.KLAAR = true;
+</script>

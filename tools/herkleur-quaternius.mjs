@@ -37,9 +37,40 @@ const STAPPEN = [
   // een kist is hout met stalen banden, als dungeon/chest
   ['0,0', ['10,0'], [`${W}/pirate-quaternius/chest.glb`, `${W}/pirate-quaternius/chest-gold.glb`]],
   ['15,3', ['14,0'], [`${W}/pirate-quaternius/chest.glb`, `${W}/pirate-quaternius/chest-gold.glb`]],
+  // sieraden zijn goud, als de munten hierboven: staven massief, kettingen alleen de vatting
+  ['6,0', ['0,0'], [`${W}/rpg-quaternius/gold-ingots.glb`, `${W}/rpg-quaternius/necklace-1.glb`,
+    `${W}/rpg-quaternius/necklace-2.glb`, `${W}/rpg-quaternius/necklace-3.glb`]],
+  // bestek is staal, als dungeon/knife
+  ['15,3', ['14,3'], [`${W}/food-quaternius/fork.glb`, `${W}/food-quaternius/knife.glb`,
+    `${W}/food-quaternius/spoon.glb`]],
+  // gebraden vlees is donkerrood; de donkerste bruine baan is voor bast en leer
+  ['8,0', ['2,0'], [`${W}/food-quaternius/chicken-leg.glb`]],
+  // kurk is lichtbruin, als props/bottle-cork
+  ['13,0', ['1,0'], [`${W}/pirate-quaternius/bottle-1.glb`, `${W}/pirate-quaternius/bottle-2.glb`]],
+  // berkenbast: de witte stam blijft 5,2, de donkere strepen horen op de bastbaan
+  ['2,0', ['10,0'], [1, 2, 3, 4, 5].map((n) => `${W}/quaternius-nature/tree-birch-dead-${n}.glb`)],
   // flessen zijn groen glas, als dungeon/bottle-a-green
   ['1,1', ['10,0'], [`${W}/pirate-quaternius/bottle-1.glb`, `${W}/pirate-quaternius/bottle-2.glb`,
     `${W}/food-quaternius/bottle-2.glb`]],
+];
+
+// Fijnere stappen: hier gaat niet een hele baan mee, maar één uv-groep binnen een
+// baan — herkenbaar aan zijn plek in het verloop. Ze draaien ná STAPPEN, want ze
+// gaan uit van de baan waar die stappen het model op gezet hebben.
+const FIJNE_STAPPEN = [
+  // de kist had hout en metaal omgedraaid — de banden hout, de panelen metaal — en
+  // stond bovendien op het donkere uiteinde van beide banen. Wissel de twee om en
+  // zet ze op de kleur die de rest van de catalogus voor die baan laat zien. De
+  // twee vensters overlappen niet, dus de tweede regel pakt het oude metaal.
+  [`${W}/pirate-quaternius/chest.glb`, '0,0', '15,3', '0.7:0.9', '0.5:0.5'],
+  [`${W}/pirate-quaternius/chest.glb`, '15,3', '0,0', '0.9:1', '0.5:0.5'],
+  [`${W}/pirate-quaternius/chest-gold.glb`, '0,0', '15,3', '0.7:0.9', '0.5:0.5'],
+  [`${W}/pirate-quaternius/chest-gold.glb`, '15,3', '0,0', '0.9:1', '0.5:0.5'],
+  // het zeil is doek, geen hout: gebroken wit, als pirate-kit/flag
+  [`${W}/ships-quaternius/boat-sail.glb`, '0,0', '5,2', '0:0.1', '0.5:0.5'],
+  // de kaft deelde de papierbaan met zijn eigen bladzijden; donkere kaftbaan, als
+  // fantasy-props/book-5
+  [`${W}/rpg-quaternius/book-3-closed.glb`, '5,2', '6,1', '0.9:1', '0.97:0.97'],
 ];
 
 for (const [naar, van, bestanden] of STAPPEN) {
@@ -48,4 +79,11 @@ for (const [naar, van, bestanden] of STAPPEN) {
   const args = ['tools/herkleur-baan.mjs', ...van.flatMap((v) => ['--van', v]), '--naar', naar, ...bestaat];
   const uit = execFileSync('node', args, { encoding: 'utf8' });
   process.stdout.write(uit);
+}
+
+for (const [bestand, van, naar, vbron, bereik] of FIJNE_STAPPEN) {
+  if (!existsSync(bestand)) continue;
+  const args = ['tools/herkleur-selectie.mjs', bestand, '--van', van, '--naar', naar,
+    '--vbron', vbron, '--bereik', bereik];
+  process.stdout.write(execFileSync('node', args, { encoding: 'utf8' }));
 }

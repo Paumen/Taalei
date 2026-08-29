@@ -24,7 +24,6 @@ const MODELLEN = [
   ['pot_A',                          'pot-a'],
   ['pot_B',                          'pot-b'],
   ['pot_large',                      'pot-large'],
-  ['table_round_B',                  'table-round-b'],
 ];
 
 await importeerKit({
