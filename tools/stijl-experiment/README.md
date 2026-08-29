@@ -155,6 +155,23 @@ paired against the same-count set-B condition on the same items.
   flat and category-match being the one reference property that does
   matter.
 
+## Phase 3: Opus 5 on the set-B ladder (2026-08-29, $17.62)
+
+`phase3-opus.json`: Opus 5 medium on set B at counts 4/8/12/20/28,
+stimuli identical to the sonnet `refs*_b` cells (note: prompt v2 vs the
+sonnet cells' v1 - minor confound).
+
+- **Opus is ahead but not decisively: 66/100 vs 57/100 pooled** on
+  identical trials (b=15 c=24, p=0.20). It leads at 4 of 5 counts, ties
+  at 8 refs. The count curve stays flat for Opus too (60-70%).
+- **Different error profile, not a strict upgrade.** Opus solves o36
+  (5/5, sonnet's stubborn miss) but goes 0/5 on n16, n27 and s17 where
+  sonnet was sometimes right. s12 resists both models (1/10 combined).
+- Cost ~2.7x sonnet ($0.176 vs ~$0.065/trial), similar latency. For
+  comparison: category-matched references bought +22pp for free;
+  switching to Opus buys ~+9pp at 2.7x cost. Reference relevance remains
+  the better lever.
+
 **Recommended phase 3:** the presentation question is settled enough -
 category-matched (or nearest-kind) reference selection is the lever;
 count, beyond ~4-6, and extra resolution are not. Next: same-cat refs x
