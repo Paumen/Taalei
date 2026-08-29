@@ -211,6 +211,23 @@ New default for this phase onward: sonnet medium, **8 angles, 8 refs,
   paired comparison - treat as a calibration of the new format, not a
   new measurement of the effect.
 
+Effort x refs 2x2 around the default (`phase4-effort.json`, same 12
+mixed items, all cached, $0.52):
+
+| | 8 refs | 16 refs |
+|---|---|---|
+| effort medium | 8/12 | 6/12 |
+| effort high | 8/12 | 6/12 |
+
+- **High effort buys nothing here** (8/12 vs 8/12, p=1.0 - it fixes n6
+  and breaks s27), and barely costs more: thinking output on this visual
+  task stays tiny at both levels.
+- **16 refs trends worse than 8 at both effort levels** (b=2 c=0 and
+  b=3 c=1 vs baseline) - consistent with the count finding, here even
+  mildly negative.
+- s5 and s33 are wrong in all four cells; o16 in three - the stable hard
+  core of this 12-item set.
+
 ## Running
 
 ```bash
