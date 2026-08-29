@@ -150,8 +150,8 @@ def main():
             hard.append(item)
     lines.append("")
     if hard:
-        lines += [f"Items wrong in (almost) every condition - check whether the "
-                  f"sheet itself is ambiguous or mislabelled: **{', '.join(hard)}**", ""]
+        lines += [f"Items wrong in (almost) every condition they appear in - "
+                  f"consistently hard pairs: **{', '.join(hard)}**", ""]
 
     total_cost = sum(r.get("cost_usd") or 0 for r in records)
     lines += [f"Total recorded spend: ${total_cost:.2f} over {len(records)} trials.", ""]

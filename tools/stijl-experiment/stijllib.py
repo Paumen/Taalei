@@ -160,7 +160,7 @@ def stratified_pick(items, count, seed):
 
 
 def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
-                            ref_category=None):
+                            ref_category=None, exclude_items=None):
     """Fixed, disjoint test set and reference set.
 
     The test set is identical across conditions (paired design); the reference
@@ -173,8 +173,15 @@ def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
     comparisons against mixed-set conditions stay possible. With
     `ref_category`, references come only from that category (always
     excluding the test set).
+
+    `exclude_items` (a list of item ids) keeps those items out of the TEST
+    set only - used for replication runs on a fresh, non-overlapping item
+    draw. Excluded items may still serve as references (they are valid
+    labelled sheets).
     """
-    items = list_items()
+    all_items = list_items()
+    excluded = set(exclude_items or [])
+    items = [it for it in all_items if it["id"] not in excluded]
     if test_category:
         order = shuffled_orders(items, seed)[test_category]
         if n_test > len(order):
@@ -184,7 +191,7 @@ def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
     else:
         test = stratified_pick(items, n_test, seed)
     test_ids = {it["id"] for it in test}
-    pool = [it for it in items if it["id"] not in test_ids]
+    pool = [it for it in all_items if it["id"] not in test_ids]
     if not n_refs:
         return test, []
     if ref_category:

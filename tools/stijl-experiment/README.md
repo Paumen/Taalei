@@ -75,19 +75,17 @@ p<0.05 at n=20 (expected); the trends below are consistent and interpretable.
   cost). Guide text *on top of* 6 refs = 80%, the best cell.
 - **Half resolution is free.** scale 0.5 = 75% at ~1/3 the cost of full
   res; scale 0.25 = 60% (too far).
-- **Two test items are bad items, not model failures.** s5 (plank piles:
-  the "wrong" pile is chunky and toy-like, i.e. what the guide's words ask
-  for) and s13 (not a like-for-like pair: complete house vs roof segment)
-  are wrong in nearly every condition. Excluding them, the best cell is
-  16/18 (89%). Review those sheets before phase 2.
+- **s5 and s13 are consistently missed.** Initially flagged here as
+  suspect sheets, but their labels are confirmed correct - so these are
+  genuine model failures on hard pairs (s5 plank piles, s13 house vs roof
+  segment), both in the structuur category.
 - Confidence is barely calibrated (0.72 when right vs 0.69 when wrong) -
   don't use it as a filter signal.
 - Mild B-position bias (accuracy good=B > good=A in most conditions);
   balanced design cancels it in comparisons, but worth remembering for
   production prompts: don't always put the candidate last.
 
-**Recommended phase 2:** fix/replace s5+s13 (and audit n19, o12, n21);
-re-screen the angle factor with power on a bigger item set (1 vs 4 angles,
+**Recommended phase 2:** re-screen the angle factor with power on a bigger item set (1 vs 4 angles,
 ~40 items, scale 0.5); test *which* angles at count 2-4 (e.g. tilted [6]
 vs rotations); then the model x effort grid on the winning format
 (6 refs + guide, 4 angles, scale 0.5).
@@ -108,17 +106,16 @@ vs rotations); then the model x effort grid on the winning format
   significant effect in the whole experiment. Six well-chosen sheets beat
   28 generic ones (and cost 5x less).
 - **Category difficulty differs a lot.** With mixed refs: natuur 67%,
-  object 47%, structuur 40% (structuur includes the two flagged bad items
-  s5/s13). Notably n21, wrong in ~12 mixed conditions, is right with
+  object 47%, structuur 40%. The consistently-missed s5/s13 (labels
+  confirmed correct) sit in structuur - a genuine weak spot, not label
+  noise. Notably n21, wrong in ~12 mixed conditions, is right with
   nature-only refs.
-- Caveat: catmix_n drew the flagged s5 sheet as one of its references,
-  which may slightly depress that control.
 
 **Recommended phase 3:** replicate the winner: same-category (or
-nearest-kind) reference selection x guide text, on a bigger item set with
-s5/s13 fixed; only then model x effort. For production prompts the
-actionable rule is already clear: pick references of the same kind as the
-candidate rather than adding more of them.
+nearest-kind) reference selection x guide text, on a bigger item set;
+only then model x effort. For production prompts the actionable rule is
+already clear: pick references of the same kind as the candidate rather
+than adding more of them.
 
 ## Running
 

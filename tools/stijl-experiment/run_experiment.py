@@ -168,7 +168,8 @@ def main():
     for cfg in conds:
         test, refs = lib.build_test_and_ref_sets(
             cfg["n_test"], cfg["n_refs"], cfg["seed"],
-            cfg.get("test_category"), cfg.get("ref_category"))
+            cfg.get("test_category"), cfg.get("ref_category"),
+            cfg.get("exclude_items"))
         gmap = lib.good_is_a_map(test)
         items = test[:args.limit] if args.limit else test
         for item in items:
