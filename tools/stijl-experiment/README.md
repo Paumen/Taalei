@@ -413,6 +413,54 @@ other way. The trades cancel.
 Given phases 4, 7 and 8 together: effort has never moved the total for
 either model. Spend the budget on reference selection instead.
 
+## Phase 9: sonnet at effort low, on two disjoint object draws (2026-08-29, $0.55)
+
+Three low-effort runs on the standard object set (set A, same stimulus as
+the six medium replicates), and three on a **fully disjoint object draw**
+(set B: 12 test items and 8 references taken from the 23 object sheets set
+A never touched). Set B gets its own three medium runs, since absolute
+accuracy is not comparable across draws.
+
+| arm | run scores | pooled | mean | sd |
+|---|---|---|---|---|
+| A, medium (6 runs) | 7 10 8 10 9 8 | 52/72 (72%) | 8.67 | 1.21 |
+| A, low (3 runs) | 9 6 11 | 26/36 (72%) | 8.67 | 2.52 |
+| B, medium (3 runs) | 8 9 8 | 25/36 (69%) | 8.33 | 0.58 |
+| B, low (3 runs) | 9 7 7 | 23/36 (64%) | 7.67 | 1.15 |
+
+- **Effort is null again, on both draws** (A: p=0.95, and the means are
+  identical to two decimals; B: p=0.60). With phases 4, 7 and 8 that is
+  five independent nulls across two models and three effort levels.
+  For sonnet, low is barely cheaper ($0.0052 vs $0.0059 per trial), unlike
+  opus where low saved 40%.
+- **Low effort looks noisier in both draws** - sd 2.52 vs 1.21 on A, 1.15
+  vs 0.58 on B, roughly double each time. Treat as suggestive only: an sd
+  from three runs is very loosely determined, and opus went the other way
+  (low 0.58, high 0.82). If it holds, it is a reason to prefer medium at
+  equal price rather than a reason to expect better answers.
+- The low-effort set A arm produced **both extremes ever recorded on this
+  item set, 11/12 and 6/12, from an identical prompt** - a five-item range
+  within one arm. Anyone reading a single cell would have called that a
+  large effect in either direction.
+- **The two draws are comparably hard** (A medium 8.67 vs B medium 8.33,
+  p=0.80), which is unusual - across earlier set A / set B splits item
+  difficulty differed sharply. It means these two object draws can be
+  pooled more safely than the earlier ones.
+
+**Set B replicates the structure, not the item list.** Over its six runs
+(medium + low), 8 items are right every single time, **3 are wrong every
+single time (o2, o3, o20)**, and o1 is a coin-flip (o5 is stable at medium,
+unstable at low). Set A had the same shape with a different balance: 7
+always right, 1 always wrong (o32), 4 coin-flips. So the ceiling is not a
+percentage that generalises - it is a per-item partition into a large
+deterministic core, a small always-wrong core, and a handful of unstable
+pairs. Two independent draws, same structure.
+
+That is the strongest argument yet for the phase-6 recommendation: measure
+by identifying *which* pairs fail, not by comparing aggregate percentages.
+An arm's score is mostly a report on how many always-wrong items its draw
+happened to contain.
+
 ## Blind spots: which pairs each model fails, and why it matters
 
 Pooled over the six-run arms (hit rate out of 6; opus-low adds 3 more runs
