@@ -478,6 +478,34 @@ that agree with the pattern):
 | o26 | - | 6/6 | 4/6 | 5/6 | opus wobble |
 | o10 o23 o30 o31 | - | 6/6 | 6/6 | 6/6 | clean for both |
 
+Consolidated ranking over **all 32 runs made under the current prompt**
+(v4; 384 trials, 30% missed overall). Set A items have 26 runs each
+(11 sonnet, 15 opus); set B items have 6, all sonnet - opus has not yet
+seen set B, so its column is empty there, not zero.
+
+| item | missed | rate | sonnet | opus |
+|---|---|---|---|---|
+| o2 | 6/6 | 100% | 6/6 | - |
+| o3 | 6/6 | 100% | 6/6 | - |
+| o20 | 6/6 | 100% | 6/6 | - |
+| o32 | 24/26 | 92% | 9/11 | 15/15 |
+| o27 | 21/26 | 81% | 6/11 | 15/15 |
+| o1 | 4/6 | 67% | 4/6 | - |
+| o42 | 14/26 | 54% | 0/11 | 14/15 |
+| o24 | 10/26 | 38% | 8/11 | 2/15 |
+| o5 | 2/6 | 33% | 2/6 | - |
+| o12 | 8/26 | 31% | 6/11 | 2/15 |
+| o26 | 6/26 | 23% | 0/11 | 6/15 |
+| o16 | 5/26 | 19% | 1/11 | 4/15 |
+| o23, o37 | 2/26 | 8% | 2/11 | 0/15 |
+| o6 o10 o13 o14 o22 o30 o31 o38 o39 o41 | 0 | 0% | - | - |
+
+Ten of the 24 object pairs tested are never missed by anything. The misses
+concentrate hard: six items carry most of them, and the top three (o2, o3,
+o20, all from set B) have not yet been shown to opus - running opus on set
+B is the cheapest way to learn whether they are shared blind spots or
+sonnet-only ones.
+
 The instructive pair is **o32 and o42: both are banners, and their GOEDE
 STIJL panels are nearly the same asset** - a thin flat sheet with a plain
 top bar carrying two rectangular slots, differing only in the bottom cut
