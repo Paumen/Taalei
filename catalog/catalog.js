@@ -114,6 +114,9 @@ let sorting = 'naam';
 
 const chosenPaths = new Set();
 const cardsPerPath = new Map();
+// A card stands for a whole folded family, so selecting one selects every variant
+// under it. Keyed by the main model's path, which is what the swipe handler carries.
+const familyPerPath = new Map();
 
 let lastChoice = null;
 let selectMode = false;
@@ -282,8 +285,15 @@ function makeCard(model, kits, groups, variants = []) {
   text.append(span('kaart-naam', model.name), meta);
 
   card.append(box, glyphs, text);
+
+  // The variants folded into this card come along with it: the card promises
+  // "⧉ n variants", so a tick on it means all n, not just the one on the front.
+  const family = [model, ...variants];
+  const familyPaths = family.map((m) => m.path);
+  familyPerPath.set(model.path, familyPaths);
+
   card.addEventListener('click', () => {
-    if (selectMode) setSelection([model.path], !chosenPaths.has(model.path));
+    if (selectMode) setSelection(familyPaths, !chosenPaths.has(model.path));
     else showDetail(model);
   });
 
@@ -299,12 +309,11 @@ function makeCard(model, kits, groups, variants = []) {
   holder.className = 'kaart-houder';
   holder.append(card, pick);
 
-  const family = [model, ...variants];
-
   const item = {
     element: holder,
     checkbox,
     path: model.path,
+    paths: familyPaths,
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
     tags: [...new Set(family.flatMap((m) => m.tags ?? []))],
     sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
@@ -317,7 +326,7 @@ function makeCard(model, kits, groups, variants = []) {
 
   checkbox.addEventListener('click', (e) => {
     if (e.shiftKey && lastChoice && lastChoice !== item) pickRange(item, checkbox.checked);
-    else setSelection([model.path], checkbox.checked);
+    else setSelection(familyPaths, checkbox.checked);
     lastChoice = item;
   });
 
@@ -343,7 +352,7 @@ panel.addEventListener('pointermove', (e) => {
   const holder = cardUnder(e.clientX, e.clientY);
   if (!holder || swipe.done.has(holder.dataset.pad)) return;
   swipe.done.add(holder.dataset.pad);
-  setSelection([holder.dataset.pad], swipe.on);
+  setSelection(familyPerPath.get(holder.dataset.pad) ?? [holder.dataset.pad], swipe.on);
 });
 
 for (const name of ['pointerup', 'pointercancel']) {
@@ -784,9 +793,9 @@ function pickRange(to, on) {
   const list = visibleCards();
   const from = list.indexOf(lastChoice);
   const target = list.indexOf(to);
-  if (from === -1 || target === -1) return setSelection([to.path], on);
+  if (from === -1 || target === -1) return setSelection(to.paths, on);
   const range = list.slice(Math.min(from, target), Math.max(from, target) + 1);
-  setSelection(range.map((k) => k.path), on);
+  setSelection(range.flatMap((k) => k.paths), on);
 }
 
 function updateSelection() {
@@ -831,7 +840,7 @@ selectionCopy.addEventListener('click', async () => {
 });
 
 document.querySelector('#selectie-alles').addEventListener('click', () => {
-  setSelection(visibleCards().map((k) => k.path), true);
+  setSelection(visibleCards().flatMap((k) => k.paths), true);
 });
 
 document.querySelector('#selectie-wis').addEventListener('click', () => {

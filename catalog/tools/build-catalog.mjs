@@ -572,6 +572,15 @@ for (const model of models) {
   for (const hex of model.colors) colors.set(hex, (colors.get(hex) ?? 0) + 1);
 }
 
+// The group order is derived rather than hand-maintained, so a new group lands in
+// the right place by itself: the object groups first, then nature, then structures
+// — the same three the Nature/Structure/Object filters use, read off each group's
+// `tab` — and inside each block the smallest group first, so the long lists sink to
+// the bottom. Equal counts fall back to the name, which keeps the order stable
+// between builds instead of following however GROUPS happens to be written.
+const CATEGORY_ORDER = ['object', 'nature', 'structures'];
+const categoryRank = (group) => CATEGORY_ORDER.indexOf(group.tab ?? 'object');
+
 const catalog = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
@@ -580,7 +589,8 @@ const catalog = {
   groups: GROUPS.map(({ description, ...g }) => ({
     ...g,
     count: models.filter((m) => m.group === g.id).length,
-  })),
+  })).sort((a, b) =>
+    categoryRank(a) - categoryRank(b) || a.count - b.count || a.name.localeCompare(b.name)),
   // kept internally for the console summary below; not part of the shipped JSON (frontends
   // derive colour swatches + counts from models[].colors themselves — see catalog.js)
   palettes: [...palettes.values()]
