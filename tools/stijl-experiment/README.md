@@ -92,6 +92,34 @@ re-screen the angle factor with power on a bigger item set (1 vs 4 angles,
 vs rotations); then the model x effort grid on the winning format
 (6 refs + guide, 4 angles, scale 0.5).
 
+## Phase 2 findings (2026-08-29, refs ladder + category runs, $12.79)
+
+- **Reference count is flat.** On the same 20 items the ladder reads
+  2 refs 60%, 4 70%, 6 75%, 8 70%, 12 70%, 16 60%, 20 70%, 24 75%,
+  28 85%. Everything from 4 to 24 bounces inside single-cell noise
+  (each cell moves +-2-3 items), while cost grows linearly
+  ($0.02 -> $0.13/trial). The 28-refs spike (17/20, p=0.625 vs base) is
+  one unreplicated cell - do not buy 28 refs on this evidence.
+- **Reference *relevance* is the real lever.** Single-category runs, each
+  paired with a control on identical items but mixed refs: same-category
+  references win in all three categories - natuur 15/15 vs 10/15,
+  object 9/15 vs 7/15, structuur 8/15 vs 6/15. Pooled over the 45 paired
+  items: 71% vs 51%, McNemar b=2 c=11, **p=0.022** - the first
+  significant effect in the whole experiment. Six well-chosen sheets beat
+  28 generic ones (and cost 5x less).
+- **Category difficulty differs a lot.** With mixed refs: natuur 67%,
+  object 47%, structuur 40% (structuur includes the two flagged bad items
+  s5/s13). Notably n21, wrong in ~12 mixed conditions, is right with
+  nature-only refs.
+- Caveat: catmix_n drew the flagged s5 sheet as one of its references,
+  which may slightly depress that control.
+
+**Recommended phase 3:** replicate the winner: same-category (or
+nearest-kind) reference selection x guide text, on a bigger item set with
+s5/s13 fixed; only then model x effort. For production prompts the
+actionable rule is already clear: pick references of the same kind as the
+candidate rather than adding more of them.
+
 ## Running
 
 ```bash
