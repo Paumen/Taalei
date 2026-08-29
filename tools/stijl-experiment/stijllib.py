@@ -125,40 +125,76 @@ def image_block(png_bytes):
 # Trial construction
 # ---------------------------------------------------------------------------
 
-def stratified_pick(items, count, seed):
-    """Pick `count` items spread proportionally over the n/o/s categories,
-    deterministically for a given seed."""
+def shuffled_orders(items, seed):
+    """Per-category shuffled orders. One rng shuffles the sorted category
+    pools in sorted-category sequence - byte-identical to what
+    stratified_pick has always done, so existing picks are unchanged."""
     rng = random.Random(seed)
     by_cat = {}
     for it in items:
         by_cat.setdefault(it["category"], []).append(it)
-    cats = sorted(by_cat)
+    orders = {}
+    for c in sorted(by_cat):
+        pool = sorted(by_cat[c], key=lambda it: it["id"])
+        rng.shuffle(pool)
+        orders[c] = pool
+    return orders
+
+
+def stratified_pick(items, count, seed):
+    """Pick `count` items spread proportionally over the n/o/s categories,
+    deterministically for a given seed. Quotas grow monotonically with
+    `count`, so picks for a smaller count nest inside those for a larger."""
+    orders = shuffled_orders(items, seed)
+    cats = sorted(orders)
     total = len(items)
-    quota = {c: round(count * len(by_cat[c]) / total) for c in cats}
+    quota = {c: round(count * len(orders[c]) / total) for c in cats}
     while sum(quota.values()) > count:
         quota[max(cats, key=lambda c: quota[c])] -= 1
     while sum(quota.values()) < count:
         quota[min(cats, key=lambda c: quota[c])] += 1
     picked = []
     for c in cats:
-        pool = sorted(by_cat[c], key=lambda it: it["id"])
-        rng.shuffle(pool)
-        picked.extend(pool[:quota[c]])
+        picked.extend(orders[c][:quota[c]])
     return sorted(picked, key=lambda it: it["id"])
 
 
-def build_test_and_ref_sets(n_test, n_refs, seed):
+def build_test_and_ref_sets(n_test, n_refs, seed, test_category=None,
+                            ref_category=None):
     """Fixed, disjoint test set and reference set.
 
     The test set is identical across conditions (paired design); the reference
     set is drawn from the remaining items so a test item never appears as a
     reference, and is fixed for every trial within a condition.
+
+    With `test_category`, the test set is the first `n_test` of that
+    category's shuffled order over the full item list - a superset of the
+    mixed test set's items of that category (same seed), so paired
+    comparisons against mixed-set conditions stay possible. With
+    `ref_category`, references come only from that category (always
+    excluding the test set).
     """
     items = list_items()
-    test = stratified_pick(items, n_test, seed)
+    if test_category:
+        order = shuffled_orders(items, seed)[test_category]
+        if n_test > len(order):
+            raise ValueError(f"n_test={n_test} > {len(order)} items in "
+                             f"category {test_category}")
+        test = sorted(order[:n_test], key=lambda it: it["id"])
+    else:
+        test = stratified_pick(items, n_test, seed)
     test_ids = {it["id"] for it in test}
     pool = [it for it in items if it["id"] not in test_ids]
-    refs = stratified_pick(pool, n_refs, seed + 1) if n_refs else []
+    if not n_refs:
+        return test, []
+    if ref_category:
+        ref_order = shuffled_orders(pool, seed + 1)[ref_category]
+        if n_refs > len(ref_order):
+            raise ValueError(f"n_refs={n_refs} > {len(ref_order)} remaining "
+                             f"items in category {ref_category}")
+        refs = sorted(ref_order[:n_refs], key=lambda it: it["id"])
+    else:
+        refs = stratified_pick(pool, n_refs, seed + 1)
     return test, refs
 
 

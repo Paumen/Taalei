@@ -96,6 +96,9 @@ def run_trial(cfg, item, refs, good_is_a, workdir, retries=2):
               "item": item["id"], "category": item["category"],
               "good_is_a": good_is_a, **meta,
               "style_guide": bool(cfg.get("style_guide"))}
+    for extra in ("test_category", "ref_category", "control"):
+        if cfg.get(extra):
+            record[extra] = cfg[extra]
     last_err = None
     for attempt in range(retries + 1):
         try:
@@ -163,8 +166,9 @@ def main():
 
     tasks = []
     for cfg in conds:
-        test, refs = lib.build_test_and_ref_sets(cfg["n_test"], cfg["n_refs"],
-                                                 cfg["seed"])
+        test, refs = lib.build_test_and_ref_sets(
+            cfg["n_test"], cfg["n_refs"], cfg["seed"],
+            cfg.get("test_category"), cfg.get("ref_category"))
         gmap = lib.good_is_a_map(test)
         items = test[:args.limit] if args.limit else test
         for item in items:

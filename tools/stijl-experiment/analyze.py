@@ -9,6 +9,7 @@ import argparse
 import json
 import math
 import os
+import re
 import sys
 from collections import defaultdict
 
@@ -61,31 +62,52 @@ def main():
     for r in records:
         by_cond[r["condition"]][r["item"]] = r
 
-    conds = sorted(by_cond, key=lambda c: (c != args.baseline, c))
+    def natkey(s):
+        return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", s)]
+
+    conds = sorted(by_cond, key=lambda c: (c != args.baseline, natkey(c)))
     base = by_cond.get(args.baseline, {})
+    # a condition may name another condition as its `control`: paired
+    # comparison against it is reported alongside the baseline one
+    controls = {}
+    for cid in conds:
+        for r in by_cond[cid].values():
+            if r.get("control"):
+                controls[cid] = r["control"]
+                break
     lines = ["# Style-pick experiment - results", ""]
 
     lines += ["## Accuracy per condition", "",
               "| condition | n | acc | 95% CI | McNemar p vs base | "
-              "acc good=A | acc good=B | conf right | conf wrong | $/trial |",
-              "|---|---|---|---|---|---|---|---|---|---|"]
+              "vs control | acc good=A | acc good=B | conf right | "
+              "conf wrong | $/trial |",
+              "|---|---|---|---|---|---|---|---|---|---|---|"]
     for cid in conds:
         recs = [r for r in by_cond[cid].values() if "correct" in r]
         errs = [r for r in by_cond[cid].values() if "error" in r]
         n = len(recs)
         k = sum(r["correct"] for r in recs)
         lo, hi = wilson_ci(k, n)
-        # paired McNemar on items present in both this condition and baseline
-        b = c = 0
-        for item, r in by_cond[cid].items():
-            rb = base.get(item)
-            if not rb or "correct" not in r or "correct" not in rb:
-                continue
-            if rb["correct"] and not r["correct"]:
-                b += 1
-            elif not rb["correct"] and r["correct"]:
-                c += 1
+        # paired McNemar on items present in both this condition and another
+        def discordants(other):
+            b = c = 0
+            for item, r in by_cond[cid].items():
+                ro = other.get(item)
+                if not ro or "correct" not in r or "correct" not in ro:
+                    continue
+                if ro["correct"] and not r["correct"]:
+                    b += 1
+                elif not ro["correct"] and r["correct"]:
+                    c += 1
+            return b, c
+
+        b, c = discordants(base)
         p = mcnemar_exact(b, c) if cid != args.baseline and base else None
+        ctrl_cell = "-"
+        if cid in controls and controls[cid] in by_cond:
+            cb, cc = discordants(by_cond[controls[cid]])
+            ctrl_cell = (f"{controls[cid]}: p={mcnemar_exact(cb, cc):.3f} "
+                         f"(b={cb},c={cc})")
         pos = {True: [0, 0], False: [0, 0]}
         for r in recs:
             pos[r["good_is_a"]][0] += r["correct"]
@@ -99,6 +121,7 @@ def main():
         row = (f"| {cid} | {n}{'+' + str(len(errs)) + 'err' if errs else ''} "
                f"| **{k}/{n}** ({k/n:.0%}) | {lo:.0%}-{hi:.0%} "
                f"| {'-' if p is None else f'{p:.3f} (b={b},c={c})'} "
+               f"| {ctrl_cell} "
                f"| {pa} | {pb} | {fmt(conf_r)} | {fmt(conf_w)} "
                f"| {fmt(cost).replace('-', '-') if cost else '-'} |")
         lines.append(row)
