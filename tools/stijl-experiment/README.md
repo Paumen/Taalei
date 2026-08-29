@@ -133,6 +133,23 @@ first (`phase2b-*.json`, `*_b` conditions).
 - Structuur recovers with matched refs: 11/15 on set B with s5/s13
   serving as (correctly labelled) reference sheets.
 
+## Cross-refs check (2026-08-29, set B items x set A references, $5.00)
+
+`phase2c-xrefs.json`: the 14 set-B items not present in set A's refs28,
+judged with set A's exact reference sets at counts 4/8/12/20/28, each
+paired against the same-count set-B condition on the same items.
+
+- **Set A's references are not better.** Pooled: set A refs 39/70 (56%)
+  vs set B refs 45/70 (64%), b=14 c=8, p=0.29 - no significant
+  difference, direction slightly favouring set B's own draw. Per-count
+  cells bounce both ways (setA-refs wins at 20, loses at 8), i.e. the
+  usual single-cell noise.
+- Conclusion: set A's higher phase-2 scores came from its easier test
+  items, not from a luckier reference draw. Which *generic mixed*
+  reference sheets you use barely matters - consistent with count being
+  flat and category-match being the one reference property that does
+  matter.
+
 **Recommended phase 3:** the presentation question is settled enough -
 category-matched (or nearest-kind) reference selection is the lever;
 count, beyond ~4-6, and extra resolution are not. Next: same-cat refs x
