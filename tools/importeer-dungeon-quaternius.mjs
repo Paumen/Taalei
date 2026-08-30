@@ -21,7 +21,7 @@ await importeerKit({
   slug: 'dungeon-quaternius',
   bron: 'Modular Dungeons Pack',
   generator: 'tools/importeer-dungeon-quaternius.mjs',
-  schaal: 0.35,
+  schaal: 0.21,
   formaat: 'obj',
   bronDir: process.argv[2] ?? (() => { throw new Error('provide the path to the unpacked pack'); })(),
   modellen: MODELLEN,
