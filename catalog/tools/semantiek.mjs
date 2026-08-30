@@ -13,18 +13,20 @@ export const GROUPS = [
   { id: 'assemblies', name: 'Assemblies', short: 'Assemblies', color: '#b5651d',
     description: 'Models that aren\'t one thing but a little scene: a set table, a stack of crates, a piled-up bed, a chest full of bottles, the bars and stacks from the resources kit. They\'re finished as they stand — you place them rather than build them yourself from loose pieces — and they\'re correspondingly heavy: most of the most expensive models in the collection live here. Among the loose props they give a false picture of what a prop costs, so they\'re filtered out by default — the `assembly` tag is set to exclude on open. The loose chest, table or bar lives with its own kind as normal.' },
   { id: 'furniture', name: 'Furniture & household', short: 'Furniture', color: '#c07c8a',
-    description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with the set tables under food & cooking; the campfires belong there too, since that\'s what you cook on.' },
+    description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with its own group and the set tables under cooking & tableware; the campfires belong there too, since that\'s what you cook on.' },
   { id: 'items', name: 'Collectibles & mechanics', short: 'Items', color: '#f1976c',
     description: 'Star and heart alongside lever, spring and cobweb: small loose objects you pick up or that react to an action. The village bell belongs here too, and so do the journals and maps, the backpack and the bag. The coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the bones and skulls to bones. Use sparingly, not a points economy.' },
   { id: 'transport', name: 'Transport', short: 'Transport', color: '#5a7a9c',
     description: 'Ways to move things and people: the carts from fantasy-town-kit and village-kit, the rowing boats from village-kit and pirate-kit, the cannons and mast from pirate-kit, and the ships and wreck from pirate-kit.' },
   { id: 'lights', name: 'Lights & lamps', short: 'Lights', color: '#f2cb45',
     description: 'Everything that gives light, from five kits together: the street lamp and the wall lamp from the village kit, the candles from props and dungeon (loose, melted, thin, triple, lit and snuffed), the wall shelf with candles, the torches from dungeon and rpgtools, the lantern, and Taaleiland\'s own lighthouse. Handy for lighting a scene or marking a route in the dark.' },  { id: 'storage', name: 'Chests & barrels', short: 'Chests', color: '#dd9f79',
-    description: 'Something to put things in: chests, barrels, crates, boxes, buckets and pots from ten kits, plus the sack from the props kit and the three carts you move it all with. Good as a reward or a gathering point. What\'s inside lives with the resources; the mugs and plates live with food & cooking; the bottles and jugs live with bottles & jugs.' },
+    description: 'Something to put things in: chests, barrels, crates, boxes, buckets and pots from ten kits, plus the sack from the props kit and the three carts you move it all with. Good as a reward or a gathering point. What\'s inside lives with the resources; the mugs and plates live with cooking & tableware; the bottles and jugs live with bottles & jugs.' },
   { id: 'bottles-jugs', name: 'Bottles & jugs', short: 'Bottles', color: '#7d9c6f',
     description: 'Bottles, jugs, potions and vases: the bottle and bottle-large models and their colour variants from pirate-kit, survival-kit, fantasy-props, props and dungeon, the two potions from fantasy-props, the four jugs from props, and the two vases from fantasy-props.' },
-  { id: 'food', name: 'Food & cooking', short: 'Food', color: '#9c3f2e',
-    description: 'What you prepare and what you put it on: the campfires and the firewood, the two fish from the survival kit, the roast, the leg of meat and the mushroom, the three set tables from the dungeon kit, and the tableware that goes with them — seven plates and a mug. The bare and broken tables live with the furniture, the jugs and the sack with the chests and barrels.' },
+  { id: 'food', name: 'Food', short: 'Food', color: '#c25b4e',
+    description: 'What you eat: the bread and the slice cut off it, the chicken leg, the steak and the ham, cheese and steak ingredients from the restaurant kit, the fish from the food kit, the stew, the roast from the props kit, and the two full plates from the dungeon kit. Split off from what used to be food & cooking: the pans, pots, plates, mugs, cutlery and campfires you prepare and serve it with are next door under cooking & tableware. The fish that still swim live in the ocean, the mushrooms with the plants.' },
+  { id: 'cooking', name: 'Cooking & tableware', short: 'Cooking', color: '#9c3f2e',
+    description: 'What you cook with and eat off, apart from the food itself: the campfires from four kits, the cooking pots, pans and frying pans, the plates, bowls, cups and mugs, and the fork, knife and spoon. The food that goes on them has its own group next to this one; the bare and broken tables live with the furniture, the jugs and the sack with the chests and barrels.' },
   { id: 'tools', name: 'Tools & weapons', short: 'Tools', color: '#6d738a',
     description: 'Axe, hammer and broom — pairable with mechanics like "word chopping". Twenty-eight strong in the rpgtools kit: anvil, file, grindstone, hammers, screwdrivers and more blacksmith and carpentry gear, plus an explorer\'s measuring and drawing kit: compass, drafting compass, magnifying glass, pencils and rope.' },
   { id: 'resources', name: 'Resources & supplies', short: 'Resources', color: '#4f7d8c',
@@ -90,7 +92,7 @@ const MODULAR_TERRAIN = [
   [/-prop-(cattail|coconut|flower|grass-clump|mushroom)/, 'plants'],
   [/-prop-(boulder|rock|stepping-stones)/, 'rocks'],
   [/-prop-fence-/, 'fences'],
-  [/-prop-camp-(campfire|wood-pile)/, 'food'],
+  [/-prop-camp-(campfire|wood-pile)/, 'cooking'],
   [/-prop-bridge-/, 'connections'],
   [/-prop-(docks|ruins-pillar)/, 'structures'],
   [/-prop-(shell|starfish)/, 'ocean'],
@@ -109,6 +111,16 @@ const ASSEMBLIES = new Set([
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
 ]);
 
+// What you eat, as opposed to what you cook and serve it with. Checked ahead of the
+// rules below, which would otherwise hand a plate of food to the tableware on the
+// strength of the word "plate".
+const FOOD = [
+  /^(bread|chicken-leg|roast|steak)\b/,
+  /^food-(ingredient|stew)\b/,
+  /^plate-food\b/,
+  /^fish$/,
+];
+
 const exceptions = {
   'platformer-kit/arrow': 'signs',
   'platformer-kit/arrows': 'signs',
@@ -123,10 +135,10 @@ const exceptions = {
   'modular-cave-kit/template-floor-layer-raised': 'structures',
   'modular-cave-kit/ladder': 'connections',
   'halloween/post-lantern': 'lights',
-  'fantasy-props/table-plate': 'food',
-  'restaurant/pot-a': 'food',
-  'restaurant/pot-b': 'food',
-  'restaurant/pot-large': 'food',
+  'fantasy-props/table-plate': 'cooking',
+  'restaurant/pot-a': 'cooking',
+  'restaurant/pot-b': 'cooking',
+  'restaurant/pot-large': 'cooking',
   'restaurant/knife': 'tools',
   'survival-kit/tree-log': 'resources',
   'survival-kit/tree-log-small': 'resources',
@@ -247,7 +259,6 @@ const exceptions = {
   'natuur/stump-1': 'bare-trees',
   'natuur/stump-2': 'bare-trees',
   'natuur/stump-3': 'bare-trees',
-  'modulair-terrein/hilly-prop-stump': 'bare-trees',
   'quaternius-nature/log': 'bare-trees',
   'natuur/branch-1': 'bare-trees',
   'natuur/branch-2': 'bare-trees',
@@ -330,7 +341,6 @@ const exceptions = {
   // not with the chests. The dungeon kit's chest-gold is an assembly and stays one.
   'pirate-quaternius/chest-gold': 'coins-jewelry',
   // Fish bones are bones first; the fish themselves stay in the ocean.
-  'rpg-quaternius/fish-bone': 'bones',
   'food-quaternius/fish-bone': 'bones',
   // Caught fish, not prepared food: they belong with what swims.
   'survival-kit/fish': 'ocean',
@@ -353,13 +363,13 @@ const rules = [
   [/^backpack\b/, 'items'],
   [/^gold-bag\b/, 'coins-jewelry'],
   [/^gold-ingots\b/, 'resources'],
-  [/^(apple|banana|bread|chicken-leg|cooking-pot|fork|frying-pan|lettuce|spoon|steak)\b/, 'food'],
+  [/^(apple|banana|bread|chicken-leg|cooking-pot|fork|frying-pan|lettuce|spoon|steak)\b/, 'cooking'],
   [/^(manta-ray|whale|dolphin)\b/, 'ocean'],
   [/^cobweb\b/, 'items'],
   [/^(corridor|room|template)\b/, 'cave'],
   [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'ocean'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'ocean'],
-  [/^(campfire|fire|firewood|plate|roast|meat|mushroom|cup|bowl|chalice|food|pan|mug|cutting-board)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'food'],
+  [/^(campfire|fire|firewood|plate|roast|meat|mushroom|cup|bowl|chalice|food|pan|mug|cutting-board)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'cooking'],
   [/^tent\b|^tent-/, 'furniture'],
   [/^(ship|boat|mast|cannon)\b|^ship-|^boat-|^mast-|^cannon-/, 'transport'],
   [/^fish/, 'ocean'],
@@ -397,6 +407,9 @@ export function determineGroup(kit, model) {
     for (const [pattern, group] of MODULAR_TERRAIN) {
       if (pattern.test(model)) return group;
     }
+  }
+  for (const pattern of FOOD) {
+    if (pattern.test(model)) return 'food';
   }
   for (const [pattern, group] of rules) {
     if (pattern.test(model)) return group;

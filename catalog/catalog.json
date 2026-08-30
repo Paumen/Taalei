@@ -1772,7 +1772,7 @@
    ]
   },
   {
-   "id": "v169",
+   "id": "v168",
    "type": "detail-variant",
    "main": "halloween/tree-dead-medium",
    "members": [
@@ -1782,7 +1782,7 @@
    ]
   },
   {
-   "id": "v170",
+   "id": "v169",
    "type": "detail-variant",
    "main": "natuur/starfish-bleached",
    "members": [
@@ -1791,7 +1791,7 @@
    ]
   },
   {
-   "id": "v171",
+   "id": "v170",
    "type": "detail-variant",
    "main": "natuur/shell-salmon",
    "members": [
@@ -1801,7 +1801,7 @@
    ]
   },
   {
-   "id": "v172",
+   "id": "v171",
    "type": "detail-variant",
    "main": "modulair-terrein/hilly-prop-rock-a",
    "members": [
@@ -1812,7 +1812,7 @@
    ]
   },
   {
-   "id": "v173",
+   "id": "v172",
    "type": "detail-variant",
    "main": "rocks/rockform-corner-soft",
    "members": [
@@ -1821,7 +1821,7 @@
    ]
   },
   {
-   "id": "v174",
+   "id": "v173",
    "type": "detail-variant",
    "main": "village-kit/crate-a",
    "members": [
@@ -1830,7 +1830,7 @@
    ]
   },
   {
-   "id": "v175",
+   "id": "v174",
    "type": "detail-variant",
    "main": "survival-kit/tree-log-small",
    "members": [
@@ -1839,7 +1839,7 @@
    ]
   },
   {
-   "id": "v176",
+   "id": "v175",
    "type": "detail-variant",
    "main": "fantasy-town-kit/banner-green",
    "members": [
@@ -1848,7 +1848,7 @@
    ]
   },
   {
-   "id": "v177",
+   "id": "v176",
    "type": "detail-variant",
    "main": "fantasy-props/key-metal",
    "members": [
@@ -1857,12 +1857,50 @@
    ]
   },
   {
-   "id": "v178",
+   "id": "v177",
    "type": "detail-variant",
    "main": "quaternius-nature/cactus-flower-2",
    "members": [
     "quaternius-nature/cactus-flower-2",
     "quaternius-nature/cactus-flower-3"
+   ]
+  },
+  {
+   "id": "v178",
+   "type": "detail-variant",
+   "main": "pirate-quaternius/skeleton",
+   "members": [
+    "pirate-quaternius/skeleton",
+    "pirate-quaternius/skeleton-headless"
+   ]
+  },
+  {
+   "id": "v179",
+   "type": "detail-variant",
+   "main": "dungeon-quaternius/cobweb",
+   "members": [
+    "dungeon-quaternius/cobweb",
+    "dungeon-quaternius/cobweb-2"
+   ]
+  },
+  {
+   "id": "v180",
+   "type": "detail-variant",
+   "main": "rpg-quaternius/coin",
+   "members": [
+    "rpg-quaternius/coin",
+    "rpg-quaternius/coin-skull",
+    "rpg-quaternius/coin-star"
+   ]
+  },
+  {
+   "id": "v181",
+   "type": "detail-variant",
+   "main": "rpg-quaternius/necklace-1",
+   "members": [
+    "rpg-quaternius/necklace-1",
+    "rpg-quaternius/necklace-2",
+    "rpg-quaternius/necklace-3"
    ]
   }
  ],
@@ -2041,19 +2079,24 @@
    "color": "#8a6fb0"
   },
   {
-   "id": "signs",
-   "name": "Signs, flags & targets",
-   "color": "#ffb349"
-  },
-  {
    "id": "items",
    "name": "Collectibles & mechanics",
    "color": "#f1976c"
   },
   {
+   "id": "signs",
+   "name": "Signs, flags & targets",
+   "color": "#ffb349"
+  },
+  {
    "id": "keys-locks",
    "name": "Keys & locks",
    "color": "#5f8f8a"
+  },
+  {
+   "id": "food",
+   "name": "Food",
+   "color": "#c25b4e"
   },
   {
    "id": "bones",
@@ -2091,6 +2134,11 @@
    "color": "#dd9f79"
   },
   {
+   "id": "cooking",
+   "name": "Cooking & tableware",
+   "color": "#9c3f2e"
+  },
+  {
    "id": "tools",
    "name": "Tools & weapons",
    "color": "#6d738a"
@@ -2099,11 +2147,6 @@
    "id": "transport",
    "name": "Transport",
    "color": "#5a7a9c"
-  },
-  {
-   "id": "food",
-   "name": "Food & cooking",
-   "color": "#9c3f2e"
   },
   {
    "id": "bottles-jugs",
@@ -4879,7 +4922,7 @@
   {
    "kit": "dungeon",
    "name": "plate-small",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.1,
@@ -4911,7 +4954,7 @@
   {
    "kit": "dungeon",
    "name": "plate-stack",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -4943,7 +4986,7 @@
   {
    "kit": "dungeon",
    "name": "plate",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -7376,7 +7419,8 @@
     "object",
     "qua",
     "textile"
-   ]
+   ],
+   "variant": "v179"
   },
   {
    "kit": "dungeon-quaternius",
@@ -7409,7 +7453,8 @@
     "object",
     "qua",
     "textile"
-   ]
+   ],
+   "variant": "v179"
   },
   {
    "kit": "dungeon-quaternius",
@@ -8355,7 +8400,7 @@
     "precious-metal",
     "qua"
    ],
-   "variant": "v177"
+   "variant": "v176"
   },
   {
    "kit": "fantasy-props",
@@ -8389,12 +8434,12 @@
     "object",
     "qua"
    ],
-   "variant": "v177"
+   "variant": "v176"
   },
   {
    "kit": "fantasy-props",
    "name": "mug",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.1,
@@ -8570,7 +8615,7 @@
   {
    "kit": "fantasy-props",
    "name": "table-plate",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -8768,7 +8813,7 @@
     "textile",
     "timber"
    ],
-   "variant": "v176"
+   "variant": "v175"
   },
   {
    "kit": "fantasy-town-kit",
@@ -8802,7 +8847,7 @@
     "textile",
     "timber"
    ],
-   "variant": "v176"
+   "variant": "v175"
   },
   {
    "kit": "fantasy-town-kit",
@@ -11495,7 +11540,7 @@
   {
    "kit": "food-quaternius",
    "name": "cooking-pot-2",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.2,
@@ -11527,7 +11572,7 @@
   {
    "kit": "food-quaternius",
    "name": "cooking-pot",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.2,
@@ -11626,7 +11671,7 @@
   {
    "kit": "food-quaternius",
    "name": "fork",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.2,
@@ -11659,7 +11704,7 @@
   {
    "kit": "food-quaternius",
    "name": "frying-pan",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.3,
@@ -11726,7 +11771,7 @@
   {
    "kit": "food-quaternius",
    "name": "plate-2",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -11758,7 +11803,7 @@
   {
    "kit": "food-quaternius",
    "name": "plate",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -11790,7 +11835,7 @@
   {
    "kit": "food-quaternius",
    "name": "spoon",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.2,
@@ -14009,40 +14054,6 @@
   },
   {
    "kit": "halloween",
-   "name": "candle",
-   "gr": "lights",
-   "wdh": [
-    0.1,
-    0.1,
-    0.2
-   ],
-   "tris": 66,
-   "tpu": 192,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 4736,
-   "vtx": 91,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00093,
-   "dens": 44483,
-   "anglePct": 35,
-   "vpt": 1.38,
-   "grad": 0.67,
-   "hues": 2,
-   "colors": [
-    "#3e3e44",
-    "#f5f2e7"
-   ],
-   "tags": [
-    "candle",
-    "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "halloween",
    "name": "floor-dirt-small",
    "gr": "structures",
    "wdh": [
@@ -14456,7 +14467,7 @@
     "kay",
     "nature"
    ],
-   "variant": "v169"
+   "variant": "v168"
   },
   {
    "kit": "halloween",
@@ -14491,7 +14502,7 @@
     "kay",
     "nature"
    ],
-   "variant": "v169"
+   "variant": "v168"
   },
   {
    "kit": "halloween",
@@ -14526,7 +14537,7 @@
     "kay",
     "nature"
    ],
-   "variant": "v169"
+   "variant": "v168"
   },
   {
    "kit": "halloween",
@@ -15441,7 +15452,7 @@
   {
    "kit": "modulair-terrein",
    "name": "hilly-prop-camp-campfire",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.4,
     0.4,
@@ -16226,7 +16237,7 @@
     "nature",
     "stone"
    ],
-   "variant": "v172"
+   "variant": "v171"
   },
   {
    "kit": "modulair-terrein",
@@ -16259,7 +16270,7 @@
     "nature",
     "stone"
    ],
-   "variant": "v172"
+   "variant": "v171"
   },
   {
    "kit": "modulair-terrein",
@@ -16291,7 +16302,7 @@
     "nature",
     "stone"
    ],
-   "variant": "v172"
+   "variant": "v171"
   },
   {
    "kit": "modulair-terrein",
@@ -16323,7 +16334,7 @@
     "nature",
     "stone"
    ],
-   "variant": "v172"
+   "variant": "v171"
   },
   {
    "kit": "modulair-terrein",
@@ -16588,41 +16599,6 @@
     "stone"
    ],
    "variant": "v109"
-  },
-  {
-   "kit": "modulair-terrein",
-   "name": "hilly-prop-stump",
-   "gr": "bare-trees",
-   "wdh": [
-    0.1,
-    0.1,
-    0.2
-   ],
-   "tris": 100,
-   "tpu": 292,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 7232,
-   "vtx": 164,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00076,
-   "dens": 35348,
-   "anglePct": 15,
-   "vpt": 1.64,
-   "grad": 0.63,
-   "hues": 2,
-   "colors": [
-    "#714c39",
-    "#cb9d78"
-   ],
-   "tags": [
-    "bark",
-    "flora",
-    "nature",
-    "timber"
-   ]
   },
   {
    "kit": "modulair-terrein",
@@ -17263,7 +17239,7 @@
   {
    "kit": "natuur",
    "name": "campfire-star",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.5,
     0.4,
@@ -17297,7 +17273,7 @@
   {
    "kit": "natuur",
    "name": "campfire-teepee",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.3,
@@ -19025,7 +19001,7 @@
     "fauna",
     "nature"
    ],
-   "variant": "v171"
+   "variant": "v170"
   },
   {
    "kit": "natuur",
@@ -19059,7 +19035,7 @@
     "fauna",
     "nature"
    ],
-   "variant": "v171"
+   "variant": "v170"
   },
   {
    "kit": "natuur",
@@ -19093,7 +19069,7 @@
     "fauna",
     "nature"
    ],
-   "variant": "v171"
+   "variant": "v170"
   },
   {
    "kit": "natuur",
@@ -19126,7 +19102,7 @@
     "fauna",
     "nature"
    ],
-   "variant": "v170"
+   "variant": "v169"
   },
   {
    "kit": "natuur",
@@ -19159,7 +19135,7 @@
     "fauna",
     "nature"
    ],
-   "variant": "v170"
+   "variant": "v169"
   },
   {
    "kit": "natuur",
@@ -20637,42 +20613,6 @@
     "timber"
    ],
    "variant": "v64"
-  },
-  {
-   "kit": "pirate-kit",
-   "name": "palm-detailed-straight",
-   "gr": "trees",
-   "wdh": [
-    0.8,
-    0.8,
-    1.1
-   ],
-   "tris": 482,
-   "tpu": 675,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 36072,
-   "vtx": 984,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.00417,
-   "dens": 675,
-   "anglePct": 33,
-   "vpt": 2.04,
-   "grad": 0.68,
-   "hues": 2,
-   "colors": [
-    "#6d8d33",
-    "#cb9d78"
-   ],
-   "tags": [
-    "flora",
-    "foliage",
-    "ken",
-    "nature",
-    "timber"
-   ]
   },
   {
    "kit": "pirate-kit",
@@ -22250,18 +22190,20 @@
    "tpu": 1603,
    "mat": 1,
    "calls": 1,
-   "bytes": 555928,
-   "vtx": 15100,
+   "bytes": 557976,
+   "vtx": 15164,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00235,
    "dens": 1603,
    "anglePct": 46,
-   "vpt": 1.27,
-   "grad": 0,
-   "hues": 1,
+   "vpt": 1.28,
+   "grad": 0.8,
+   "hues": 2,
    "colors": [
+    "#88796d",
+    "#9a6b4e",
     "#cb9d78",
     "#f5f2e7"
    ],
@@ -22284,18 +22226,20 @@
    "tpu": 2131,
    "mat": 1,
    "calls": 1,
-   "bytes": 216832,
-   "vtx": 5801,
+   "bytes": 217728,
+   "vtx": 5829,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00198,
    "dens": 2131,
    "anglePct": 54,
-   "vpt": 1.17,
-   "grad": 0,
-   "hues": 1,
+   "vpt": 1.18,
+   "grad": 0.5,
+   "hues": 2,
    "colors": [
+    "#88796d",
+    "#9a6b4e",
     "#cb9d78",
     "#f5f2e7"
    ],
@@ -22318,18 +22262,21 @@
    "tpu": 1535,
    "mat": 1,
    "calls": 1,
-   "bytes": 470892,
-   "vtx": 12951,
+   "bytes": 476972,
+   "vtx": 13141,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00244,
    "dens": 1535,
    "anglePct": 56,
-   "vpt": 1.41,
-   "grad": 0,
-   "hues": 1,
+   "vpt": 1.43,
+   "grad": 0.74,
+   "hues": 3,
    "colors": [
+    "#7f3927",
+    "#88796d",
+    "#9a6b4e",
     "#cb9d78",
     "#f5f2e7"
    ],
@@ -22475,111 +22422,6 @@
     "#7f3927",
     "#88796d",
     "#9a6b4e",
-    "#ffb349"
-   ],
-   "tags": [
-    "animation",
-    "object",
-    "qua"
-   ],
-   "anim": [
-    "Death",
-    "Duck",
-    "HitReact",
-    "Idle",
-    "Jump",
-    "Jump_Idle",
-    "Jump_Land",
-    "No",
-    "Punch",
-    "Run",
-    "Sword",
-    "Walk",
-    "Wave",
-    "Yes"
-   ]
-  },
-  {
-   "kit": "pirate-quaternius",
-   "name": "pirate-mako",
-   "gr": "characters",
-   "wdh": [
-    0.4,
-    0.4,
-    0.4
-   ],
-   "tris": 13172,
-   "tpu": 38402,
-   "mat": 1,
-   "calls": 2,
-   "bytes": 3231568,
-   "vtx": 39516,
-   "grounded": true,
-   "minEdge": 0,
-   "avgTri": 0.00002,
-   "dens": 223857,
-   "anglePct": 2,
-   "vpt": 3,
-   "grad": 0.89,
-   "hues": 3,
-   "colors": [
-    "#3e3e44",
-    "#474a58",
-    "#7f3927",
-    "#88796d",
-    "#8f785b"
-   ],
-   "tags": [
-    "animation",
-    "object",
-    "qua"
-   ],
-   "anim": [
-    "Death",
-    "Duck",
-    "HitReact",
-    "Idle",
-    "Jump",
-    "Jump_Idle",
-    "Jump_Land",
-    "No",
-    "Punch",
-    "Run",
-    "Sword",
-    "Walk",
-    "Wave",
-    "Yes"
-   ]
-  },
-  {
-   "kit": "pirate-quaternius",
-   "name": "pirate-sharky",
-   "gr": "characters",
-   "wdh": [
-    0.3,
-    0.4,
-    0.4
-   ],
-   "tris": 14594,
-   "tpu": 42548,
-   "mat": 1,
-   "calls": 3,
-   "bytes": 3348428,
-   "vtx": 43782,
-   "grounded": true,
-   "minEdge": 0,
-   "avgTri": 0.00002,
-   "dens": 283640,
-   "anglePct": 2,
-   "vpt": 3,
-   "grad": 0.66,
-   "hues": 4,
-   "colors": [
-    "#3e3e44",
-    "#7f3927",
-    "#88796d",
-    "#8f785b",
-    "#9da4c4",
     "#ffb349"
    ],
    "tags": [
@@ -22958,7 +22800,8 @@
     "Walk",
     "Wave",
     "Yes"
-   ]
+   ],
+   "variant": "v178"
   },
   {
    "kit": "pirate-quaternius",
@@ -23011,7 +22854,8 @@
     "Walk",
     "Wave",
     "Yes"
-   ]
+   ],
+   "variant": "v178"
   },
   {
    "kit": "pirate-quaternius",
@@ -24346,7 +24190,7 @@
   {
    "kit": "props",
    "name": "cup-a",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.1,
@@ -24380,7 +24224,7 @@
   {
    "kit": "props",
    "name": "fire-a",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.3,
@@ -24580,7 +24424,7 @@
   {
    "kit": "props",
    "name": "plate-b",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.1,
@@ -24613,7 +24457,7 @@
   {
    "kit": "props",
    "name": "plate-c",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -24803,76 +24647,6 @@
     "ken",
     "object",
     "precious-metal"
-   ]
-  },
-  {
-   "kit": "prototype-kit",
-   "name": "lever-double",
-   "gr": "items",
-   "wdh": [
-    0.3,
-    0.3,
-    0.2
-   ],
-   "tris": 98,
-   "tpu": 286,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 5948,
-   "vtx": 124,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00444,
-   "dens": 3803,
-   "anglePct": 100,
-   "vpt": 1.27,
-   "grad": 0.79,
-   "hues": 3,
-   "colors": [
-    "#6d738a",
-    "#9da4c4",
-    "#d07b56"
-   ],
-   "tags": [
-    "ken",
-    "metal",
-    "object"
-   ]
-  },
-  {
-   "kit": "prototype-kit",
-   "name": "lever-single",
-   "gr": "items",
-   "wdh": [
-    0.3,
-    0.2,
-    0.3
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 5072,
-   "vtx": 100,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00322,
-   "dens": 4323,
-   "anglePct": 95,
-   "vpt": 1.25,
-   "grad": 0.59,
-   "hues": 3,
-   "colors": [
-    "#6d738a",
-    "#9da4c4",
-    "#d07b56"
-   ],
-   "tags": [
-    "ken",
-    "metal",
-    "object"
    ]
   },
   {
@@ -25077,7 +24851,7 @@
     "nature",
     "qua"
    ],
-   "variant": "v178"
+   "variant": "v177"
   },
   {
    "kit": "quaternius-nature",
@@ -25112,7 +24886,7 @@
     "nature",
     "qua"
    ],
-   "variant": "v178"
+   "variant": "v177"
   },
   {
    "kit": "quaternius-nature",
@@ -28108,7 +27882,7 @@
   {
    "kit": "restaurant",
    "name": "bowl-small",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -28141,7 +27915,7 @@
   {
    "kit": "restaurant",
    "name": "bowl",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -28521,7 +28295,7 @@
   {
    "kit": "restaurant",
    "name": "pan-006",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.3,
@@ -28554,7 +28328,7 @@
   {
    "kit": "restaurant",
    "name": "pan-a",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.4,
@@ -28588,7 +28362,7 @@
   {
    "kit": "restaurant",
    "name": "pan-b",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.4,
@@ -28622,7 +28396,7 @@
   {
    "kit": "restaurant",
    "name": "plate-small",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -28655,7 +28429,7 @@
   {
    "kit": "restaurant",
    "name": "plate",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -28689,7 +28463,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.2,
@@ -28723,7 +28497,7 @@
   {
    "kit": "restaurant",
    "name": "pot-b",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.2,
@@ -28757,7 +28531,7 @@
   {
    "kit": "restaurant",
    "name": "pot-large",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.5,
     0.3,
@@ -29408,7 +29182,7 @@
     "nature",
     "rock"
    ],
-   "variant": "v173"
+   "variant": "v172"
   },
   {
    "kit": "rocks",
@@ -29441,7 +29215,7 @@
     "nature",
     "rock"
    ],
-   "variant": "v173"
+   "variant": "v172"
   },
   {
    "kit": "rocks",
@@ -30015,7 +29789,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
+   ],
+   "variant": "v180"
   },
   {
    "kit": "rpg-quaternius",
@@ -30048,7 +29823,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
+   ],
+   "variant": "v180"
   },
   {
    "kit": "rpg-quaternius",
@@ -30081,40 +29857,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
-  },
-  {
-   "kit": "rpg-quaternius",
-   "name": "fish-bone",
-   "gr": "bones",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
    ],
-   "tris": 588,
-   "tpu": 1714,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 40752,
-   "vtx": 1118,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00002,
-   "dens": 2522523,
-   "anglePct": 1,
-   "vpt": 1.9,
-   "grad": 0,
-   "hues": 1,
-   "colors": [
-    "#f5f2e7"
-   ],
-   "tags": [
-    "bone",
-    "object",
-    "qua"
-   ]
+   "variant": "v180"
   },
   {
    "kit": "rpg-quaternius",
@@ -30316,7 +30060,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
+   ],
+   "variant": "v181"
   },
   {
    "kit": "rpg-quaternius",
@@ -30351,7 +30096,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
+   ],
+   "variant": "v181"
   },
   {
    "kit": "rpg-quaternius",
@@ -30386,7 +30132,8 @@
     "object",
     "precious-metal",
     "qua"
-   ]
+   ],
+   "variant": "v181"
   },
   {
    "kit": "rpg-quaternius",
@@ -30465,9 +30212,9 @@
    ],
    "tris": 1328,
    "tpu": 3872,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 30792,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 31636,
    "vtx": 668,
    "grounded": true,
    "centered": true,
@@ -30477,10 +30224,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30499,9 +30246,9 @@
    ],
    "tris": 1470,
    "tpu": 4286,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 34496,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 35348,
    "vtx": 757,
    "grounded": true,
    "centered": true,
@@ -30511,11 +30258,11 @@
    "anglePct": 8,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30534,9 +30281,9 @@
    ],
    "tris": 372,
    "tpu": 1085,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 17064,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 17912,
    "vtx": 418,
    "grounded": true,
    "centered": true,
@@ -30546,10 +30293,10 @@
    "anglePct": 5,
    "vpt": 1.12,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30568,9 +30315,9 @@
    ],
    "tris": 404,
    "tpu": 1178,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 19180,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 20028,
    "vtx": 478,
    "grounded": true,
    "centered": true,
@@ -30580,11 +30327,11 @@
    "anglePct": 9,
    "vpt": 1.18,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
-    "#23562c",
+    "#2473b3",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30603,9 +30350,9 @@
    ],
    "tris": 420,
    "tpu": 1224,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 20420,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 21268,
    "vtx": 514,
    "grounded": true,
    "centered": true,
@@ -30615,10 +30362,10 @@
    "anglePct": 1,
    "vpt": 1.22,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30637,9 +30384,9 @@
    ],
    "tris": 452,
    "tpu": 1318,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 22536,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 23388,
    "vtx": 574,
    "grounded": true,
    "centered": true,
@@ -30649,11 +30396,11 @@
    "anglePct": 6,
    "vpt": 1.27,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
-    "#23562c",
+    "#2473b3",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30672,9 +30419,9 @@
    ],
    "tris": 1584,
    "tpu": 4618,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 36424,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 37268,
    "vtx": 796,
    "grounded": true,
    "centered": true,
@@ -30684,10 +30431,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30706,9 +30453,9 @@
    ],
    "tris": 1822,
    "tpu": 5312,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 42244,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 43088,
    "vtx": 933,
    "grounded": true,
    "centered": true,
@@ -30720,9 +30467,9 @@
    "grad": 0,
    "hues": 2,
    "colors": [
-    "#23562c",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffb349",
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30741,9 +30488,9 @@
    ],
    "tris": 1584,
    "tpu": 4618,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 36424,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 37256,
    "vtx": 796,
    "grounded": true,
    "centered": true,
@@ -30753,10 +30500,10 @@
    "anglePct": 1,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30775,9 +30522,9 @@
    ],
    "tris": 1982,
    "tpu": 5778,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 45764,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 46608,
    "vtx": 1013,
    "grounded": true,
    "centered": true,
@@ -30787,11 +30534,11 @@
    "anglePct": 4,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
     "#23562c",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30810,9 +30557,9 @@
    ],
    "tris": 1584,
    "tpu": 4618,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 36424,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 37256,
    "vtx": 796,
    "grounded": true,
    "centered": true,
@@ -30822,10 +30569,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30844,9 +30591,9 @@
    ],
    "tris": 1854,
    "tpu": 5405,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 42944,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 43792,
    "vtx": 949,
    "grounded": true,
    "centered": true,
@@ -30858,9 +30605,9 @@
    "grad": 0,
    "hues": 2,
    "colors": [
-    "#23562c",
+    "#d07b56",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30879,9 +30626,9 @@
    ],
    "tris": 1840,
    "tpu": 5364,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 42060,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 42900,
    "vtx": 924,
    "grounded": true,
    "centered": true,
@@ -30891,10 +30638,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30913,9 +30660,9 @@
    ],
    "tris": 2142,
    "tpu": 6245,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 48776,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 49616,
    "vtx": 1077,
    "grounded": true,
    "centered": true,
@@ -30925,11 +30672,11 @@
    "anglePct": 1,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
-    "#23562c",
+    "#2473b3",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30948,9 +30695,9 @@
    ],
    "tris": 2352,
    "tpu": 6857,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 53328,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 54164,
    "vtx": 1180,
    "grounded": true,
    "centered": true,
@@ -30960,10 +30707,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -30982,9 +30729,9 @@
    ],
    "tris": 2878,
    "tpu": 8391,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 65480,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 66328,
    "vtx": 1461,
    "grounded": true,
    "centered": true,
@@ -30994,11 +30741,11 @@
    "anglePct": 1,
    "vpt": 0.51,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31017,9 +30764,9 @@
    ],
    "tris": 1328,
    "tpu": 3872,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 30792,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 31632,
    "vtx": 668,
    "grounded": true,
    "centered": true,
@@ -31029,10 +30776,10 @@
    "anglePct": 2,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31051,9 +30798,9 @@
    ],
    "tris": 1662,
    "tpu": 4845,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 38720,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 39572,
    "vtx": 853,
    "grounded": true,
    "centered": true,
@@ -31065,9 +30812,9 @@
    "grad": 0,
    "hues": 2,
    "colors": [
-    "#23562c",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffb349",
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31086,9 +30833,9 @@
    ],
    "tris": 1328,
    "tpu": 3872,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 30792,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 31636,
    "vtx": 668,
    "grounded": true,
    "centered": true,
@@ -31098,10 +30845,10 @@
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31120,9 +30867,9 @@
    ],
    "tris": 1662,
    "tpu": 4845,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 38724,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 39572,
    "vtx": 853,
    "grounded": true,
    "centered": true,
@@ -31134,9 +30881,9 @@
    "grad": 0,
    "hues": 2,
    "colors": [
-    "#23562c",
+    "#d07b56",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31155,9 +30902,9 @@
    ],
    "tris": 1472,
    "tpu": 4292,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 33960,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 34808,
    "vtx": 740,
    "grounded": true,
    "centered": true,
@@ -31167,10 +30914,10 @@
    "anglePct": 5,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -31189,9 +30936,9 @@
    ],
    "tris": 1678,
    "tpu": 4892,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 38564,
+   "mat": 2,
+   "calls": 2,
+   "bytes": 39404,
    "vtx": 845,
    "grounded": true,
    "centered": true,
@@ -31201,11 +30948,11 @@
    "anglePct": 13,
    "vpt": 0.5,
    "grad": 0,
-   "hues": 2,
+   "hues": 3,
    "colors": [
     "#23562c",
     "#dd9f79",
-    "#f5f2e7"
+    "#ffffff"
    ],
    "tags": [
     "glass",
@@ -32962,7 +32709,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-fishing-stand",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.4,
     0.3,
@@ -32995,7 +32742,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-pit",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.3,
@@ -33028,7 +32775,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-stand",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.4,
     0.1,
@@ -34003,7 +33750,7 @@
     "object",
     "timber"
    ],
-   "variant": "v175"
+   "variant": "v174"
   },
   {
    "kit": "survival-kit",
@@ -34039,7 +33786,7 @@
     "object",
     "timber"
    ],
-   "variant": "v175"
+   "variant": "v174"
   },
   {
    "kit": "survival-kit",
@@ -35172,7 +34919,7 @@
     "object",
     "timber"
    ],
-   "variant": "v174"
+   "variant": "v173"
   },
   {
    "kit": "village-kit",
@@ -35205,7 +34952,7 @@
     "object",
     "timber"
    ],
-   "variant": "v174"
+   "variant": "v173"
   },
   {
    "kit": "village-kit",
