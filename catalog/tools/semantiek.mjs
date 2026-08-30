@@ -11,7 +11,7 @@ export const GROUPS = [
   { id: 'books-scrolls', name: 'Books & scrolls', short: 'Books', color: '#a9825c',
     description: 'Reading and writing gear: loose books and book stacks/groups from fantasy-props, the rpgtools kit\'s journal (open and closed) and its rolled and empty maps, and the two scrolls from fantasy-props.' },
   { id: 'assemblies', name: 'Assemblies', short: 'Assemblies', color: '#b5651d',
-    description: 'Models that aren\'t one thing but a little scene: a set table, a stack of crates, a piled-up bed, a chest full of bottles, the bars and stacks from the resources kit. They\'re finished as they stand — you place them rather than build them yourself from loose pieces — and they\'re correspondingly heavy: most of the most expensive models in the collection live here. Among the loose props they give a false picture of what a prop costs, so they\'re filtered out by default — the `assembly` tag is set to exclude on open. The loose chest, table or bar lives with its own kind as normal.' },
+    description: 'Models that aren\'t one thing but a little scene: a set table, a stack of crates, a piled-up bed, a chest full of bottles, the bars and stacks from the resources kit, the village well on its cobbled square. They\'re finished as they stand — you place them rather than build them yourself from loose pieces — and they\'re correspondingly heavy: most of the most expensive models in the collection live here. Among the loose props they give a false picture of what a prop costs, so they\'re filtered out by default — the `assembly` tag is set to exclude on open. The loose chest, table or bar lives with its own kind as normal.' },
   { id: 'furniture', name: 'Furniture & household', short: 'Furniture', color: '#c07c8a',
     description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with its own group and the set tables under cooking & tableware; the campfires belong there too, since that\'s what you cook on.' },
   { id: 'items', name: 'Collectibles & mechanics', short: 'Items', color: '#f1976c',
@@ -111,6 +111,9 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
+  // Niet uit een bronkit maar zelf gezet, uit losse delen van de village-kit:
+  // tools/bouw-waterputplein.mjs.
+  'village-kit/well-plaza',
 ]);
 
 // What you eat, as opposed to what you cook and serve it with. Checked ahead of the
