@@ -42,6 +42,9 @@ export const FAMILIES = [
   ['large-tools', 'Large tools', (b, m) => isTool(b, m)],
   ['candles', 'Candles', (b) => b.startsWith('candle') || b.endsWith('-candles')],
   ['lanterns-torches', 'Lanterns and torches', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
+  // Roeibootjes en driemasters in één familie: juist dat verschil van een factor twintig
+  // wil je op de schaalpagina naast elkaar zien.
+  ['boats-ships', 'Boats and ships', (b) => /^(boat|ship)(-|$)/.test(b)],
 
   ['ladders', 'Ladders', (b, m) => b.startsWith('ladder') || m.id === 'props/stairs-a'],
   ['stairs', 'Stairs', (b) => b.startsWith('stairs') || b.includes('steps')],
