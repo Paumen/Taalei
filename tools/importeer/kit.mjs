@@ -6,6 +6,20 @@ import { laadPalet } from './palet.mjs';
 
 const MODEL_DIR = new URL('../../kits/workfiles/', import.meta.url).pathname;
 
+// --alleen naam[,naam] rebuilds just those models and leaves the rest of the kit
+// alone. Without it an import is the whole kit: every .glb in the folder goes first,
+// so a kit that also holds models from another import script (the animated Quaternius
+// characters, say) must be rebuilt one model at a time or it loses them. The lighting
+// gain is still measured over the whole model list, so a partial rebuild lands on the
+// same bands a full one would.
+function alleenUitArgv() {
+  const n = process.argv.indexOf('--alleen');
+  if (n === -1) return null;
+  const waarde = process.argv[n + 1];
+  if (!waarde) throw new Error('--alleen expects a comma-separated list of model names');
+  return new Set(waarde.split(',').map((naam) => naam.trim()).filter(Boolean));
+}
+
 export async function importeerKit({
   slug,
   bron,
@@ -19,9 +33,15 @@ export async function importeerKit({
 }) {
   const kitDir = join(MODEL_DIR, slug);
   const palet = laadPalet();
+  const alleen = alleenUitArgv();
 
-  for (const bestandsnaam of existsSync(kitDir) ? readdirSync(kitDir) : []) {
-    if (bestandsnaam.endsWith('.glb')) unlinkSync(join(kitDir, bestandsnaam));
+  if (alleen) {
+    const onbekend = [...alleen].filter((naam) => !modellen.some(([, n]) => n === naam));
+    if (onbekend.length) throw new Error(`${slug}: --alleen names a model the kit doesn't have — ${onbekend.join(', ')}`);
+  } else {
+    for (const bestandsnaam of existsSync(kitDir) ? readdirSync(kitDir) : []) {
+      if (bestandsnaam.endsWith('.glb')) unlinkSync(join(kitDir, bestandsnaam));
+    }
   }
   zetColormapKlaar(kitDir);
 
@@ -42,6 +62,7 @@ export async function importeerKit({
 
   const verslagen = [];
   for (const { bronNaam, naam, primitieven } of ingelezen) {
+    if (alleen && !alleen.has(naam)) continue;
     const model = bouwGlb({
       primitieven,
       naam,
