@@ -5,6 +5,18 @@ const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 
 const TOP_VIEW = new Set(['shelves-cabinets', 'starfish-shells', 'planks-pallets', 'plates-bowls', 'floors']);
 
+// Families waarvan de grootste modellen bijna een hele rij vullen: met de gewone
+// rijbreedte staat er één schip per rij en wordt het blad meters lang.
+const WIDE_ROW = new Set(['boats-ships']);
+
+// Van de pirate-kit is elk schip er in drie maten, en elke maat in meer uitvoeringen:
+// piraat, spook, wrak. Voor een maatvergelijking zegt één uitvoering per maat genoeg;
+// de rest is dezelfde romp in een ander jasje.
+const SHIP_SKINS = new Set([
+  'pirate-kit/ship-pirate-small', 'pirate-kit/ship-pirate-medium', 'pirate-kit/ship-pirate-large',
+  'pirate-kit/ship-ghost', 'pirate-kit/ship-wreck',
+]);
+
 const SMALL_TOOLS = new Set([
   'rpgtools/nail', 'rpgtools/screw-b', 'rpgtools/scissors', 'rpgtools/screwdriver-a-short',
   'rpgtools/file', 'rpgtools/drafting-compass', 'rpgtools/compass-base', 'rpgtools/pencil-a-long',
@@ -42,6 +54,9 @@ export const FAMILIES = [
   ['large-tools', 'Large tools', (b, m) => isTool(b, m)],
   ['candles', 'Candles', (b) => b.startsWith('candle') || b.endsWith('-candles')],
   ['lanterns-torches', 'Lanterns and torches', (b) => /^(torch|lamp)(-|$)/.test(b) || b.includes('lantern')],
+  // Roeibootjes en driemasters in één familie: juist dat verschil van een factor twintig
+  // wil je op de schaalpagina naast elkaar zien.
+  ['boats-ships', 'Boats and ships', (b, m) => /^(boat|ship)(-|$)/.test(b) && !SHIP_SKINS.has(m.id)],
 
   ['ladders', 'Ladders', (b, m) => b.startsWith('ladder') || m.id === 'props/stairs-a'],
   ['stairs', 'Stairs', (b) => b.startsWith('stairs') || b.includes('steps')],
@@ -87,7 +102,15 @@ export function buildScaleGroups(models) {
         colors: colors.length ? colors : undefined,
       });
     }
-    if (items.length) groups.push({ slug, name, topView: TOP_VIEW.has(slug) || undefined, items });
+    if (items.length) {
+      groups.push({
+        slug,
+        name,
+        topView: TOP_VIEW.has(slug) || undefined,
+        wideRow: WIDE_ROW.has(slug) || undefined,
+        items,
+      });
+    }
   }
   return groups;
 }

@@ -1,7 +1,14 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
-const ROW_WIDTH = innerWidth < 700 ? 3 : 5;
+// Elke familie krijgt even veel units in beeld, zodat een vat in elk blad even groot
+// staat. Ook op een smal scherm: een eigen rijbreedte per schermmaat zou de bladen
+// onderling onvergelijkbaar maken, en dat is precies waar deze pagina voor is.
+const ROW_WIDTH = 5;
+// Families waarvan de grootste modellen bijna een hele rij vullen, krijgen een dubbel
+// zo breed raster: anders staat er één schip per rij en wordt het blad meters lang.
+// Ze staan daardoor half zo groot in beeld als de rest — vandaar niet standaard.
+const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
 const GAP = 0.35;
 const LINE = 2.3;
@@ -88,12 +95,12 @@ function labelLines(row, labelScale) {
   return right.length;
 }
 
-function layOut(pieces, labelScale, rulerObj) {
+function layOut(pieces, labelScale, rulerObj, rowWidth) {
   const rows = [];
   let row = [];
   let width = 0;
   for (const p of pieces) {
-    if (row.length && width + GAP + p.w > ROW_WIDTH) { rows.push({ row, width }); row = []; width = 0; }
+    if (row.length && width + GAP + p.w > rowWidth) { rows.push({ row, width }); row = []; width = 0; }
     width += GAP + p.w / 2;
     p.x = width;
     width += p.w / 2;
@@ -163,15 +170,16 @@ export async function drawFamily(group, canvas, width) {
   if (!pieces.length) return null;
 
   const rulerObj = ruler();
+  const rowWidth = group.wideRow ? ROW_WIDTH * WIDE_FACTOR : ROW_WIDTH;
   const onScreen = canvas.getBoundingClientRect().width || width;
-  const labelScale = (LABEL_PX * ROW_WIDTH) / onScreen;
-  const rows = layOut(pieces, labelScale, rulerObj);
+  const labelScale = (LABEL_PX * rowWidth) / onScreen;
+  const rows = layOut(pieces, labelScale, rulerObj, rowWidth);
 
   const base = [];
   for (let i = rows.length - 1, y = 0; i >= 0; i--) { base[i] = y + rows[i].labelBlock; y += rows[i].height; }
 
   const rulerLeft = -GAP - rulerObj.w / 2;
-  const rulerRight = ROW_WIDTH + GAP + rulerObj.w / 2;
+  const rulerRight = rowWidth + GAP + rulerObj.w / 2;
 
   const label = (text, x, y, width) => {
     const c = document.createElement('canvas');
@@ -442,7 +450,9 @@ function buildSections() {
       section.classList.add('bezig');
       queue = queue.then(async () => {
         try {
-          const out = await drawFamily(group, canvas, WIDTH);
+          // Een dubbelbrede rij krijgt ook een dubbel zo breed doek, anders halveert
+          // het aantal pixels per unit en wordt juist die familie het onscherpst.
+          const out = await drawFamily(group, canvas, group.wideRow ? WIDTH * 2 : WIDTH);
           if (!out) section.classList.add('mislukt');
         } catch (error) {
           console.error('family failed', section.id, error);
