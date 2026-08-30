@@ -141,8 +141,8 @@
    "kit": "pirate-kit",
    "format": "glb",
    "inSource": 72,
-   "inCatalog": 43,
-   "missing": 30,
+   "inCatalog": 42,
+   "missing": 31,
    "unmatched": 1,
    "scale": 0.253906,
    "folder": "Models/GLB format"
@@ -201,8 +201,8 @@
    "kit": "prototype-kit",
    "format": "glb",
    "inSource": 145,
-   "inCatalog": 3,
-   "missing": 142,
+   "inCatalog": 1,
+   "missing": 144,
    "unmatched": 0,
    "scale": 0.65,
    "folder": "Models/GLB format"
@@ -253,8 +253,8 @@
    "kit": "dungeon",
    "format": "gltf",
    "inSource": 211,
-   "inCatalog": 139,
-   "missing": 72,
+   "inCatalog": 140,
+   "missing": 71,
    "unmatched": 0,
    "scale": 0.175,
    "folder": "kk dungeon/KayKit_Dungeon_Pack_1.1_FREE/KayKit_Dungeon_Pack_1.1_FREE/Assets/gltf"
@@ -277,8 +277,8 @@
    "kit": "resources",
    "format": "gltf",
    "inSource": 76,
-   "inCatalog": 56,
-   "missing": 20,
+   "inCatalog": 60,
+   "missing": 16,
    "unmatched": 0,
    "scale": 0.245,
    "folder": "kk resources/KayKit_ResourceBits_1.0_FREE/KayKit_ResourceBits_1.0_FREE/Assets/gltf"
@@ -301,8 +301,8 @@
    "kit": "halloween",
    "format": "obj",
    "inSource": 70,
-   "inCatalog": 21,
-   "missing": 50,
+   "inCatalog": 20,
+   "missing": 51,
    "unmatched": 1,
    "scale": 0.277353,
    "folder": "KayKit_HalloweenBits_1.0_FREE/Assets/obj"
@@ -313,9 +313,9 @@
    "kit": "restaurant",
    "format": "obj",
    "inSource": 150,
-   "inCatalog": 21,
-   "missing": 129,
-   "unmatched": 0,
+   "inCatalog": 20,
+   "missing": 131,
+   "unmatched": 1,
    "scale": 0.245,
    "folder": "KayKit_Restaurant_Bits_1.0_FREE/Assets/obj"
   },
@@ -383,8 +383,8 @@
    "kit": "modulair-terrein",
    "format": "obj",
    "inSource": 305,
-   "inCatalog": 102,
-   "missing": 203,
+   "inCatalog": 101,
+   "missing": 204,
    "unmatched": 0,
    "scale": 0.28,
    "folder": "modular_terrain_collection"
@@ -457,13 +457,8 @@
    "color": "#7a6154"
   },
   {
-   "id": "ships",
-   "name": "Ships & sailing",
-   "color": "#474a58"
-  },
-  {
-   "id": "animals",
-   "name": "Animals",
+   "id": "ocean",
+   "name": "Ocean",
    "color": "#3e8fd0"
   },
   {
@@ -513,8 +508,18 @@
   },
   {
    "id": "food",
-   "name": "Food & cooking",
+   "name": "Food",
+   "color": "#c25b4e"
+  },
+  {
+   "id": "cooking",
+   "name": "Cooking & tableware",
    "color": "#9c3f2e"
+  },
+  {
+   "id": "plates-bowls",
+   "name": "Plates & bowls",
+   "color": "#e8dcc0"
   },
   {
    "id": "tools",
@@ -525,11 +530,6 @@
    "id": "resources",
    "name": "Resources & supplies",
    "color": "#4f7d8c"
-  },
-  {
-   "id": "seabed",
-   "name": "Coral, seaweed & shells",
-   "color": "#2fa39b"
   },
   {
    "id": "ground",
@@ -582,9 +582,29 @@
    "color": "#877a63"
   },
   {
+   "id": "characters",
+   "name": "Characters",
+   "color": "#8a6fb0"
+  },
+  {
    "id": "building-kit",
    "name": "Building kit & mills",
    "color": "#a8762a"
+  },
+  {
+   "id": "coins-jewelry",
+   "name": "Coins & jewellery",
+   "color": "#c9a227"
+  },
+  {
+   "id": "keys-locks",
+   "name": "Keys & locks",
+   "color": "#5f8f8a"
+  },
+  {
+   "id": "bones",
+   "name": "Bones & skulls",
+   "color": "#cfc6ad"
   },
   {
    "id": "other",
@@ -691,7 +711,7 @@
   {
    "kit": "kenney_survival-kit",
    "name": "campfire-fishing-stand",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.4,
     0.3,
@@ -1549,6 +1569,22 @@
    "bytes": 14168,
    "scaled": true,
    "file": "palm-bend.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "palm-detailed-bend",
+   "gr": "trees",
+   "wdh": [
+    0.7,
+    1.1,
+    0.8
+   ],
+   "tris": 482,
+   "tpu": 748,
+   "mat": 1,
+   "bytes": 21196,
+   "scaled": true,
+   "file": "palm-detailed-bend.glb"
   },
   {
    "kit": "kenney_pirate-kit",
@@ -4961,7 +4997,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "coin-bronze",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.3,
     0.3,
@@ -4977,7 +5013,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "coin-gold",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.3,
     0.3,
@@ -4993,7 +5029,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "coin-silver",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.3,
     0.3,
@@ -5329,7 +5365,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "key",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.2,
     0.1,
@@ -6560,6 +6596,38 @@
    "bytes": 10884,
    "scaled": true,
    "file": "ladder.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "lever-double",
+   "gr": "items",
+   "wdh": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "tris": 98,
+   "tpu": 286,
+   "mat": 2,
+   "bytes": 6708,
+   "scaled": true,
+   "file": "lever-double.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "lever-single",
+   "gr": "items",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 2,
+   "bytes": 5904,
+   "scaled": true,
+   "file": "lever-single.glb"
   },
   {
    "kit": "kenney_prototypekit",
@@ -9409,7 +9477,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-a",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.6,
     0.5,
@@ -9424,7 +9492,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-b",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.6,
     0.5,
@@ -9439,7 +9507,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-door",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.3,
     0.7,
@@ -9454,7 +9522,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-large-door",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.6,
     0.7,
@@ -9469,7 +9537,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-large-roof",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     2,
     0.8,
@@ -9484,7 +9552,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-large",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.9,
     1,
@@ -9499,7 +9567,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-small-roof",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.5,
     0.7,
@@ -9514,7 +9582,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt-small",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.4,
     1,
@@ -9529,7 +9597,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "crypt",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.7,
     0.7,
@@ -9664,7 +9732,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "fire-basket",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.4,
     0.2,
@@ -12019,7 +12087,7 @@
   {
    "kit": "kenney_mini-dungeon",
    "name": "coin",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.4,
     0.4,
@@ -12108,7 +12176,7 @@
   {
    "kit": "kenney_mini-dungeon",
    "name": "key",
-   "gr": "items",
+   "gr": "keys-locks",
    "wdh": [
     0.6,
     0.4,
@@ -12138,7 +12206,7 @@
   {
    "kit": "kenney_mini-dungeon",
    "name": "potion",
-   "gr": "items",
+   "gr": "bottles-jugs",
    "wdh": [
     0.3,
     0.4,
@@ -13190,22 +13258,6 @@
    "bytes": 45348,
    "scaled": true,
    "file": "pillar_decorated.gltf"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "plate_stack",
-   "gr": "food",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 360,
-   "tpu": 1050,
-   "mat": 1,
-   "bytes": 17212,
-   "scaled": true,
-   "file": "plate_stack.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -14521,54 +14573,6 @@
   },
   {
    "kit": "KayKit_ResourceBits_1.0_FREE",
-   "name": "Parts_Cog",
-   "gr": "resources",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 192,
-   "tpu": 560,
-   "mat": 1,
-   "bytes": 10224,
-   "scaled": true,
-   "file": "Parts_Cog.gltf"
-  },
-  {
-   "kit": "KayKit_ResourceBits_1.0_FREE",
-   "name": "Textiles_A",
-   "gr": "resources",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 424,
-   "tpu": 1236,
-   "mat": 1,
-   "bytes": 16872,
-   "scaled": true,
-   "file": "Textiles_A.gltf"
-  },
-  {
-   "kit": "KayKit_ResourceBits_1.0_FREE",
-   "name": "Textiles_B",
-   "gr": "resources",
-   "wdh": [
-    0.2,
-    0.2,
-    0.2
-   ],
-   "tris": 828,
-   "tpu": 2414,
-   "mat": 1,
-   "bytes": 35036,
-   "scaled": true,
-   "file": "Textiles_B.gltf"
-  },
-  {
-   "kit": "KayKit_ResourceBits_1.0_FREE",
    "name": "Textiles_C",
    "gr": "resources",
    "wdh": [
@@ -14598,22 +14602,6 @@
    "bytes": 83012,
    "scaled": true,
    "file": "Textiles_Stack_Large_Colored.gltf"
-  },
-  {
-   "kit": "KayKit_ResourceBits_1.0_FREE",
-   "name": "Textiles_Stack_Small",
-   "gr": "resources",
-   "wdh": [
-    0.4,
-    0.2,
-    0.4
-   ],
-   "tris": 1668,
-   "tpu": 4863,
-   "mat": 1,
-   "bytes": 66820,
-   "scaled": true,
-   "file": "Textiles_Stack_Small.gltf"
   },
   {
    "kit": "KayKit_RPGToolsBits_1.0_FREE",
@@ -14842,7 +14830,7 @@
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "arch",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.2,
     1.2,
@@ -14858,7 +14846,7 @@
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "arch_gate",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.2,
     1.2,
@@ -14874,7 +14862,7 @@
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "arch_gate_right",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     0.4,
     0.8,
@@ -14902,6 +14890,22 @@
    "bytes": 48760,
    "scaled": true,
    "file": "bench_decorated.obj"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "candle",
+   "gr": "lights",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 66,
+   "tpu": 192,
+   "mat": 1,
+   "bytes": 4704,
+   "scaled": true,
+   "file": "candle.obj"
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
@@ -14986,7 +14990,7 @@
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "crypt",
-   "gr": "other",
+   "gr": "structures",
    "wdh": [
     1.7,
     2.2,
@@ -15514,7 +15518,7 @@
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "skull_candle",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.3,
     0.3,
@@ -15642,7 +15646,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "bowl_dirty",
-   "gr": "food",
+   "gr": "plates-bowls",
    "wdh": [
     0.2,
     0.1,
@@ -15750,6 +15754,22 @@
    "bytes": 70532,
    "scaled": true,
    "file": "crate_lettuce.obj"
+  },
+  {
+   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
+   "name": "crate_lid",
+   "gr": "storage",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 164,
+   "tpu": 478,
+   "mat": 1,
+   "bytes": 13828,
+   "scaled": true,
+   "file": "crate_lid.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -15930,7 +15950,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_burger",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -16378,7 +16398,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_vegetableburger",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.2,
     0.2,
@@ -17274,7 +17294,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "plate_dirty",
-   "gr": "food",
+   "gr": "plates-bowls",
    "wdh": [
     0.2,
     0.1,
@@ -17306,7 +17326,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "pot_B",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.3,
     0.1,
@@ -17338,7 +17358,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "pot_large",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.5,
     0.2,
@@ -17558,6 +17578,22 @@
    "bytes": 32100,
    "scaled": true,
    "file": "table_round_A_small_decorated.obj"
+  },
+  {
+   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
+   "name": "table_round_B",
+   "gr": "furniture",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 300,
+   "tpu": 833,
+   "mat": 1,
+   "bytes": 14336,
+   "scaled": true,
+   "file": "table_round_B.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -17796,7 +17832,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "book_set",
-   "gr": "items",
+   "gr": "books-scrolls",
    "wdh": [
     0.8,
     0.5,
@@ -17811,7 +17847,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "book_single",
-   "gr": "items",
+   "gr": "books-scrolls",
    "wdh": [
     0.3,
     0.5,
@@ -18693,7 +18729,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "BookStand",
-   "gr": "items",
+   "gr": "books-scrolls",
    "wdh": [
     0.3,
     0.7,
@@ -18901,7 +18937,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Chalice",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     0.1,
     0.1,
@@ -18949,7 +18985,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Coin",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -18965,7 +19001,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Coin_Pile",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -18981,7 +19017,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Coin_Pile_2",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     0.1,
     0.1,
@@ -19189,7 +19225,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Potion_1",
-   "gr": "items",
+   "gr": "bottles-jugs",
    "wdh": [
     0.1,
     0.1,
@@ -24493,6 +24529,22 @@
   },
   {
    "kit": "modular_terrain_collection",
+   "name": "Hilly_Prop_Grass_Clump_3",
+   "gr": "plants",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 100,
+   "tpu": 292,
+   "mat": 1,
+   "bytes": 8940,
+   "scaled": true,
+   "file": "Hilly_Prop_Grass_Clump_3.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Grass_Clump_4",
    "gr": "plants",
    "wdh": [
@@ -24654,7 +24706,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Stump",
-   "gr": "bare-trees",
+   "gr": "trees",
    "wdh": [
     0.1,
     0.2,
@@ -25562,7 +25614,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Coin_01",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     3.1,
     0.8,
@@ -25578,7 +25630,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Coin_02",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     8.5,
     1.9,
@@ -25594,7 +25646,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Coin_03",
-   "gr": "items",
+   "gr": "coins-jewelry",
    "wdh": [
     15.8,
     6.2,
@@ -25610,7 +25662,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Cup_02",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     12.2,
     11.8,
@@ -25658,7 +25710,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Food_01",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     6.8,
     7.1,
@@ -25674,7 +25726,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Food_02",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     2.3,
     16.7,
@@ -25690,7 +25742,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Food_04",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     10.2,
     4,
@@ -25706,7 +25758,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Food_05",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     4.8,
     11.2,
@@ -25722,7 +25774,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Food_06",
-   "gr": "food",
+   "gr": "cooking",
    "wdh": [
     7.3,
     9.2,
@@ -25738,7 +25790,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Plate_01",
-   "gr": "food",
+   "gr": "plates-bowls",
    "wdh": [
     16.5,
     1.4,
@@ -25754,7 +25806,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "Plate_04",
-   "gr": "food",
+   "gr": "plates-bowls",
    "wdh": [
     14.3,
     5.6,
@@ -27415,7 +27467,7 @@
   {
    "kit": "ocean",
    "name": "Eel",
-   "gr": "animals",
+   "gr": "ocean",
    "wdh": [
     64.2,
     80.5,
@@ -27520,7 +27572,7 @@
   {
    "kit": "ocean",
    "name": "Whale",
-   "gr": "animals",
+   "gr": "ocean",
    "wdh": [
     169.4,
     82.1,
@@ -28044,7 +28096,7 @@
   {
    "kit": "TropicalIslandLite_FBX",
    "name": "CoralReef_01",
-   "gr": "seabed",
+   "gr": "ocean",
    "wdh": [
     0.3,
     0.1,
@@ -28089,7 +28141,7 @@
   {
    "kit": "TropicalIslandLite_FBX",
    "name": "PirateSword_01",
-   "gr": "other",
+   "gr": "characters",
    "wdh": [
     0.2,
     0.9,
@@ -28149,7 +28201,7 @@
   {
    "kit": "TropicalIslandLite_FBX",
    "name": "Skull_01",
-   "gr": "items",
+   "gr": "bones",
    "wdh": [
     0.2,
     0.2,
