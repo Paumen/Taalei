@@ -3,7 +3,7 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROUPS, KIT_GROUPS, determineGroup } from './semantiek.mjs';
+import { GROUPS, CATEGORIES, KIT_GROUPS, determineGroup } from './semantiek.mjs';
 import { buildScaleGroups } from './schaalgroepen.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
@@ -226,6 +226,8 @@ function colorName(hex) {
   return base;
 }
 
+const SCALE_PAGES = ['schaal.html', 'schaal-natuur.html', 'schaal-structuur.html'];
+
 function writeVersion() {
   // missing.json and its previews come from catalog/tools/build-missing.mjs, so run that
   // one first when the second catalogue changed — the stamp is what makes a browser
@@ -247,10 +249,14 @@ function writeVersion() {
     [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${version}"`],
     [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${version}"`],
   ]);
-  stamp(join(CATALOG_DIR, 'schaal.html'), [
-    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-    [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${version}"`],
-  ]);
+  // De drie schaalpagina's delen schaal.js; ze verschillen alleen in de categorie
+  // die ze tonen, dus ze krijgen ook alle drie hetzelfde stempel.
+  for (const page of SCALE_PAGES) {
+    stamp(join(CATALOG_DIR, page), [
+      [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+      [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${version}"`],
+    ]);
+  }
   stamp(join(CATALOG_DIR, 'swipe.html'), [
     [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
     [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
@@ -261,7 +267,10 @@ function writeVersion() {
     [/href="missing\.css(?:\?v=[a-f0-9]+)?"/, `href="missing.css?v=${version}"`],
     [/src="missing\.js(?:\?v=[a-f0-9]+)?"/, `src="missing.js?v=${version}"`],
   ]);
-  console.log(`version ${version} → index.html, catalog/schaal.html, catalog/swipe.html, catalog/missing.html`);
+  console.log(
+    `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/${p}`).join(', ')},` +
+      ' catalog/swipe.html, catalog/missing.html',
+  );
 }
 
 const kitMeta = readKitMetadata();
@@ -377,15 +386,6 @@ const SOURCES = [
       'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
     ],
   },
-];
-
-const CATEGORIES = [
-  { id: 'nature', name: 'Nature', tab: 'nature',
-    description: 'What is already there without anyone doing anything: ground, trees, plants, seabed and rocks.' },
-  { id: 'structure', name: 'Structure', tab: 'structures',
-    description: 'What has been built: building kits, structures, stairs and bridges, fences.' },
-  { id: 'object', name: 'Object', tab: null,
-    description: 'Loose things you place or pick up: furniture, ships, food, chests, resources, tools, signs, items and lights.' },
 ];
 
 const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
