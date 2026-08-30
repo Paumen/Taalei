@@ -2037,6 +2037,24 @@
     "rpg-quaternius/book-4-closed",
     "rpg-quaternius/book-4-open"
    ]
+  },
+  {
+   "id": "v197",
+   "type": "detail-variant",
+   "main": "restaurant/crate",
+   "members": [
+    "restaurant/crate",
+    "restaurant/crate-closed"
+   ]
+  },
+  {
+   "id": "v198",
+   "type": "detail-variant",
+   "main": "dungeon-quaternius/arch-door",
+   "members": [
+    "dungeon-quaternius/arch-door",
+    "dungeon-quaternius/arch"
+   ]
   }
  ],
  "tags": [
@@ -7429,24 +7447,24 @@
    "name": "arch-door",
    "gr": "structures",
    "wdh": [
-    0.8,
-    0.1,
-    1.1
+    1.4,
+    0.3,
+    1.4
    ],
-   "tris": 1220,
-   "tpu": 2229,
+   "tris": 5704,
+   "tpu": 8148,
    "mat": 1,
    "calls": 1,
-   "bytes": 71304,
-   "vtx": 1954,
+   "bytes": 373436,
+   "vtx": 10555,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00496,
-   "dens": 11213,
-   "anglePct": 89,
-   "vpt": 1.6,
-   "grad": 0.06,
+   "avgTri": 0.00271,
+   "dens": 8148,
+   "anglePct": 82,
+   "vpt": 1.85,
+   "grad": 0.33,
    "hues": 2,
    "colors": [
     "#474a58",
@@ -7456,9 +7474,11 @@
    "tags": [
     "metal",
     "qua",
+    "stone",
     "structure",
     "timber"
-   ]
+   ],
+   "variant": "v198"
   },
   {
    "kit": "dungeon-quaternius",
@@ -7491,7 +7511,8 @@
     "qua",
     "stone",
     "structure"
-   ]
+   ],
+   "variant": "v198"
   },
   {
    "kit": "dungeon-quaternius",
@@ -13992,60 +14013,27 @@
   },
   {
    "kit": "graveyard-kit",
-   "name": "crypt-large-roof",
+   "name": "crypt-large",
    "gr": "structures",
    "wdh": [
     1.3,
     1.6,
-    0.5
+    1.1
    ],
-   "tris": 406,
-   "tpu": 285,
+   "tris": 1032,
+   "tpu": 443,
    "mat": 1,
    "calls": 1,
-   "bytes": 18952,
-   "vtx": 472,
+   "bytes": 46652,
+   "vtx": 1220,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
-   "avgTri": 0.02764,
-   "dens": 404,
-   "anglePct": 59,
-   "vpt": 1.16,
-   "grad": 0.4,
-   "hues": 2,
-   "colors": [
-    "#6d738a",
-    "#9da4c4"
-   ],
-   "tags": [
-    "ken",
-    "structure"
-   ]
-  },
-  {
-   "kit": "graveyard-kit",
-   "name": "crypt-large",
-   "gr": "structures",
-   "wdh": [
-    1.2,
-    1.6,
-    0.7
-   ],
-   "tris": 626,
-   "tpu": 477,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 29080,
-   "vtx": 748,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.01382,
-   "dens": 513,
-   "anglePct": 82,
-   "vpt": 1.19,
-   "grad": 0.74,
+   "avgTri": 0.01925,
+   "dens": 443,
+   "anglePct": 69,
+   "vpt": 1.18,
+   "grad": 0.73,
    "hues": 2,
    "colors": [
     "#3e3e44",
@@ -28088,6 +28076,41 @@
   },
   {
    "kit": "restaurant",
+   "name": "crate-closed",
+   "gr": "storage",
+   "wdh": [
+    0.5,
+    0.5,
+    0.2
+   ],
+   "tris": 296,
+   "tpu": 863,
+   "mat": 1,
+   "calls": 1,
+   "bytes": 22612,
+   "vtx": 608,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00603,
+   "dens": 5032,
+   "anglePct": 97,
+   "vpt": 2.05,
+   "grad": 0.89,
+   "hues": 1,
+   "colors": [
+    "#9a6b4e"
+   ],
+   "tags": [
+    "kay",
+    "object",
+    "timber"
+   ],
+   "variant": "v197"
+  },
+  {
+   "kit": "restaurant",
    "name": "crate-ham",
    "gr": "assemblies",
    "wdh": [
@@ -28119,40 +28142,6 @@
    "tags": [
     "assembly",
     "kay",
-    "timber"
-   ]
-  },
-  {
-   "kit": "restaurant",
-   "name": "crate-lid",
-   "gr": "storage",
-   "wdh": [
-    0.5,
-    0.5,
-    0.1
-   ],
-   "tris": 164,
-   "tpu": 478,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 13880,
-   "vtx": 360,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00352,
-   "dens": 13940,
-   "anglePct": 100,
-   "vpt": 2.2,
-   "grad": 0.4,
-   "hues": 1,
-   "colors": [
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "object",
     "timber"
    ]
   },
@@ -28224,7 +28213,8 @@
     "kay",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v197"
   },
   {
    "kit": "restaurant",
