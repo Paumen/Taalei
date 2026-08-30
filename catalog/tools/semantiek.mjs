@@ -1,3 +1,15 @@
+// De drie categorieen waarin de catalogus de groepen verdeelt, elk met de `tab`
+// waarop hun groepen staan. Ook de schaalpagina's zijn hierlangs gesplitst, zodat
+// een familie daar in dezelfde categorie valt als haar modellen in de catalogus.
+export const CATEGORIES = [
+  { id: 'nature', name: 'Nature', tab: 'nature',
+    description: 'What is already there without anyone doing anything: ground, trees, plants, seabed and rocks.' },
+  { id: 'structure', name: 'Structure', tab: 'structures',
+    description: 'What has been built: building kits, structures, stairs and bridges, fences.' },
+  { id: 'object', name: 'Object', tab: null,
+    description: 'Loose things you place or pick up: furniture, ships, food, chests, resources, tools, signs, items and lights.' },
+];
+
 export const GROUPS = [
   { id: 'cave', name: 'Cave & corridors', short: 'Cave', color: '#5c4a52',
     description: 'Empty: of the modular-cave-kit only the ladder and the three floor layers still appear in the catalogue, and those are placed with the connections and the structures as an exception. The group stays because KIT_GROUPS points to it — if the corridors and rooms return, they will have a place.' },
@@ -425,3 +437,11 @@ export function determineGroup(kit, model) {
   }
   return 'other';
 }
+
+const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
+const CATEGORY_PER_TAB = new Map(CATEGORIES.map((c) => [c.tab, c.id]));
+
+// De categorie van een groep: 'nature', 'structure' of 'object'. Een onbekende groep
+// telt als object, net als in de catalogus zelf.
+export const categoryOfGroup = (group) =>
+  CATEGORY_PER_TAB.get(TAB_PER_GROUP.get(group) ?? null) ?? 'object';
