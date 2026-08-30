@@ -11,10 +11,16 @@ import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 
 const W = 'kits/workfiles';
+
+// De elf drankjes uit de RPG-kit, leeg of gevuld, op nummer.
+const drankjes = (eind, ...nummers) =>
+  nummers.map((n) => `${W}/rpg-quaternius/potion-${n}-${eind}.glb`);
+const ALLE_DRANKJES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const HUIZEN = [1, 2, 3].map((n) => `${W}/pirate-quaternius/house-${n}.glb`);
 const STAPPEN = [
   // bot en schedels, zoals halloween/skull
-  ['5,2', ['14,3'], [`${W}/rpg-quaternius/fish-bone.glb`, `${W}/food-quaternius/fish-bone.glb`,
-    `${W}/rpg-quaternius/bone.glb`, `${W}/rpg-quaternius/skull.glb`, `${W}/rpg-quaternius/skull-2.glb`]],
+  ['5,2', ['14,3'], [`${W}/food-quaternius/fish-bone.glb`, `${W}/rpg-quaternius/bone.glb`,
+    `${W}/rpg-quaternius/skull.glb`, `${W}/rpg-quaternius/skull-2.glb`]],
   ['5,2', ['0,0'], [`${W}/pirate-quaternius/skull.glb`, `${W}/pirate-quaternius/bones-large.glb`,
     `${W}/pirate-quaternius/skulls.glb`]],
   ['5,2', ['14,0'], [`${W}/dungeon-quaternius/skull.glb`]],
@@ -52,6 +58,29 @@ const STAPPEN = [
   // flessen zijn groen glas, als dungeon/bottle-a-green
   ['1,1', ['10,0'], [`${W}/pirate-quaternius/bottle-1.glb`, `${W}/pirate-quaternius/bottle-2.glb`,
     `${W}/food-quaternius/bottle-2.glb`]],
+
+  // De elf drankjes. De bron geeft elk flesje dezelfde groene Kd mee — alleen de naam
+  // van het materiaal (Liquid_Red, _Yellow, _Green, _Magenta, _Cyan) legt vast welke
+  // kleur de maker bedoelde, dus daar komt de indeling hieronder vandaan. Magenta en
+  // cyaan staan niet in het palet; terracotta en blauw liggen er het dichtst bij.
+  // De drank gaat eerst, want die zit nu op de baan waar het glas naartoe moet.
+  ['8,0', ['1,1'], drankjes('filled', 1, 6)],
+  ['6,0', ['1,1'], drankjes('filled', 2, 7)],
+  ['5,0', ['1,1'], drankjes('filled', 4, 8)],
+  ['4,2', ['1,1'], drankjes('filled', 5, 10, 11)],
+  // De fles zelf blijft op 5,2 en wordt onderaan dit script doorzichtig glas: de
+  // drank zit binnenin, dus door een dichte fles zie je er niets van (regel J).
+
+  // De drie huizen: de enige modellen in de verzameling met COLOR_0 in de bron. Die
+  // kwam als NaN binnen, waardoor alle driehoeken in één kleurgroep vielen en het
+  // hele huis op de lichte houtbaan belandde; zie tools/importeer/bron.mjs. Nu de
+  // groepen er weer zijn liggen de wanden op zalm 13,0 — die baan is voor kurk en
+  // doek, niet voor hout — en het donkere hout per huis op een andere baan. Wanden
+  // mee met het timmerhout, donker hout naar de middelste houtbaan zoals sawmill,
+  // en het steen van huis 3 naar dezelfde taupe als huis 1 en 2.
+  ['0,0', ['13,0'], HUIZEN],
+  ['1,0', ['2,0', '14,0'], HUIZEN],
+  ['14,3', ['3,2'], [`${W}/pirate-quaternius/house-3.glb`]],
 ];
 
 // Fijnere stappen: hier gaat niet een hele baan mee, maar één uv-groep binnen een
@@ -85,5 +114,16 @@ for (const [bestand, van, naar, vbron, bereik] of FIJNE_STAPPEN) {
   if (!existsSync(bestand)) continue;
   const args = ['tools/herkleur-selectie.mjs', bestand, '--van', van, '--naar', naar,
     '--vbron', vbron, '--bereik', bereik];
+  process.stdout.write(execFileSync('node', args, { encoding: 'utf8' }));
+}
+
+// De flessen van de drankjes worden doorzichtig glas, zodat de drank erin te zien is.
+// Dit gaat ná STAPPEN: die verplaatst uv's binnen één primitief, en hierna zijn het
+// er twee. Het script slaat een model over dat het glasmateriaal al heeft, dus dit
+// mag ook een tweede keer draaien.
+const GLAS = [...drankjes('empty', ...ALLE_DRANKJES), ...drankjes('filled', ...ALLE_DRANKJES)]
+  .filter((bestand) => existsSync(bestand));
+if (GLAS.length) {
+  const args = ['tools/glasmateriaal.mjs', '--cel', '5,2', ...GLAS];
   process.stdout.write(execFileSync('node', args, { encoding: 'utf8' }));
 }

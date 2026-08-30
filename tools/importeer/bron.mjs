@@ -164,7 +164,7 @@ export function leesGltf(pad) {
           : 1;
         hoekkleuren = new Float64Array(bron.count * 3);
         for (let i = 0; i < bron.count; i++) {
-          for (let k = 0; k < 3; k++) hoekkleuren[i * 3 + k] = bron.data[i * bron.breedte + k] / deler;
+          for (let k = 0; k < 3; k++) hoekkleuren[i * 3 + k] = bron.data[i * bron.width + k] / deler;
         }
       }
 
