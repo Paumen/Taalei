@@ -1,3 +1,5 @@
+import { categoryOfGroup } from './semantiek.mjs';
+
 const DEAD = /(^|-)(bare|dead)(-|$)/;
 
 // A dimension never reads as 0: a flat plank or a thin coin is still 0.1 units thick.
@@ -79,11 +81,25 @@ export const FAMILIES = [
   ['platforms', 'Platforms', (b) => b.includes('platform')],
 ];
 
+// Een familie hoort bij de categorie waar de meeste van haar modellen in vallen.
+// Bijna elke familie is unaniem; alleen bij een enkele gemengde familie (een houten
+// plank is een object, een houtstapel in het bos natuur) geeft de meerderheid de
+// doorslag, en bij gelijkspel de volgorde nature < object < structure.
+function categoryOfFamily(items) {
+  const tally = new Map();
+  for (const m of items) {
+    const c = categoryOfGroup(m.group);
+    tally.set(c, (tally.get(c) ?? 0) + 1);
+  }
+  return [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+}
+
 export function buildScaleGroups(models) {
   const used = new Set();
   const groups = [];
   for (const [slug, name, test] of FAMILIES) {
     const items = [];
+    const gekozen = [];
     for (const m of models) {
       if (used.has(m.id)) continue;
 
@@ -91,6 +107,7 @@ export function buildScaleGroups(models) {
       const base = m.id.slice(m.id.indexOf('/') + 1);
       if (!test(base, m)) continue;
       used.add(m.id);
+      gekozen.push(m);
 
       const tags = m.tags ?? [];
       const colors = m.colors ?? [];
@@ -106,6 +123,7 @@ export function buildScaleGroups(models) {
       groups.push({
         slug,
         name,
+        category: categoryOfFamily(gekozen),
         topView: TOP_VIEW.has(slug) || undefined,
         wideRow: WIDE_ROW.has(slug) || undefined,
         items,

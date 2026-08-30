@@ -322,10 +322,16 @@ function colorName(hex) {
   return base;
 }
 
-const [groups, catalogData] = await Promise.all([
+// Elke schaalpagina toont een van de drie categorieen; welke, staat in de pagina zelf.
+// Zonder die meta staat alles op een hoop, zoals voor de splitsing.
+const CATEGORY = document.querySelector('meta[name=schaal-categorie]')?.content || null;
+
+const [alleGroups, catalogData] = await Promise.all([
   fetch(`schaalgroepen.json?v=${version}`).then((r) => r.json()),
   fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
+
+const groups = CATEGORY ? alleGroups.filter((g) => g.category === CATEGORY) : alleGroups;
 
 const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
 const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');

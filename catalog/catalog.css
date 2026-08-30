@@ -127,6 +127,21 @@ a { color: var(--accent); }
   font-weight: 600;
 }
 
+/* Tweede balk op de schaalpagina's: dezelfde pil, maar lichter, zodat je ziet dat hij
+   onder "Scale" hangt en niet naast de vier hoofdpagina's staat. */
+.schaalbalk {
+  margin-top: 6px;
+  background: none;
+  border-color: transparent;
+}
+
+.schaalbalk-kop {
+  color: var(--inkt-zacht);
+  font-size: 13px;
+  opacity: .7;
+  padding-right: 4px;
+}
+
 .kop-bediening {
   display: flex;
   flex-wrap: wrap;
