@@ -5,20 +5,17 @@
 //
 //   node tools/bouw-waterputplein.mjs [--uit kits/workfiles/village-kit/well-plaza.glb]
 //
-// Waarom een kruis en geen vierkant van negen tegels: de kit heeft vier
-// overgangstegels (a t/m d) en die doven alle vier in dezelfde richting uit —
-// langs één rand, niet om een hoek. Vier randen, vier tegels, elk precies één
-// keer gebruikt. Wat overblijft zijn de vier hoeken van het vierkant, en die
-// horen ook leeg: daar ligt de grond zelf al.
-//
-// De hoektegels uit tools/bouw-hoekovergang.mjs doven wél in twee richtingen
-// tegelijk uit en zouden die vier hoeken kunnen vullen. Dit plein laat ze weg:
-// het is een samenstelling die je in zijn geheel neerzet, en als kruis dooft ze
-// uit naar alle kanten zonder dat er een vierkante rand omheen komt te staan.
+// Drie bij drie tegels om de put heen. De vier rechte overgangstegels van de
+// kit (a t/m d) doven alle vier in dezelfde richting uit — langs één rand, niet
+// om een hoek — dus die liggen aan de vier zijden, elk precies één keer, met de
+// zandrand naar buiten. De vier hoeken krijgen de hoektegels uit
+// tools/bouw-hoekovergang.mjs, die in twee richtingen tegelijk uitdoven; hun
+// dichte hoek wijst naar de put. Zo dooft de bestrating rondom uit en houdt het
+// plein geen vierkante kasseirand over.
 //
 // De put houdt zijn eigen animatie, dus die kan niet meegesmolten worden zoals
 // tools/samenvoegen.mjs doet — slinger en touw draaien om hun eigen knoop. De
-// put blijft daarom staan zoals hij is en de zes vlakke delen komen er als één
+// put blijft daarom staan zoals hij is en de tien vlakke delen komen er als één
 // mesh bij: één materiaal, één tekenopdracht extra bovenop de drie die de put
 // zelf al had.
 //
@@ -43,16 +40,21 @@ const KIT = join(ROOT, 'kits', 'workfiles', 'village-kit');
 const TEGEL = 2;
 const DIKTE = 0.2;
 
-// De put staat in het midden op (0,0); de vloertegel eronder ook, en de vier
-// overgangen liggen er een tegel vandaan. Draai is in graden om de y-as, om het
-// eigen midden van de tegel. Een overgangstegel dooft van huis uit uit naar +x,
-// dus de draai zegt welke kant de zandrand op wijst.
+// De put staat in het midden op (0,0); de vloertegel eronder ook, en de acht
+// andere tegels liggen er een tegel vandaan. Draai is in graden om de y-as, om
+// het eigen midden van de tegel. Een rechte overgangstegel dooft van huis uit
+// uit naar +x en een hoektegel naar +x en +z tegelijk, dus de draai zegt welke
+// kant het zand op ligt.
 const PLEIN = [
   { model: 'cobblestone-floor-a', op: [0, 0], draai: 0 },
   { model: 'cobblestone-dirt-transition-a', op: [TEGEL, 0], draai: 0 },
   { model: 'cobblestone-dirt-transition-b', op: [0, TEGEL], draai: 270 },
   { model: 'cobblestone-dirt-transition-c', op: [-TEGEL, 0], draai: 180 },
   { model: 'cobblestone-dirt-transition-d', op: [0, -TEGEL], draai: 90 },
+  { model: 'cobblestone-dirt-transition-corner-a', op: [TEGEL, TEGEL], draai: 0 },
+  { model: 'cobblestone-dirt-transition-corner-b', op: [TEGEL, -TEGEL], draai: 90 },
+  { model: 'cobblestone-dirt-transition-corner-c', op: [-TEGEL, -TEGEL], draai: 180 },
+  { model: 'cobblestone-dirt-transition-corner-d', op: [-TEGEL, TEGEL], draai: 270 },
 ];
 
 // De stoep rond de put, en de put zelf, gaan één slabdikte omhoog: ze staan op
