@@ -8,9 +8,13 @@
 // Waarom een kruis en geen vierkant van negen tegels: de kit heeft vier
 // overgangstegels (a t/m d) en die doven alle vier in dezelfde richting uit —
 // langs één rand, niet om een hoek. Vier randen, vier tegels, elk precies één
-// keer gebruikt; een hoektegel zou in twee richtingen tegelijk moeten uitdoven
-// en die bestaat niet. Wat overblijft zijn de vier hoeken van het vierkant, en
-// die horen ook leeg: daar ligt de grond zelf al.
+// keer gebruikt. Wat overblijft zijn de vier hoeken van het vierkant, en die
+// horen ook leeg: daar ligt de grond zelf al.
+//
+// De hoektegels uit tools/bouw-hoekovergang.mjs doven wél in twee richtingen
+// tegelijk uit en zouden die vier hoeken kunnen vullen. Dit plein laat ze weg:
+// het is een samenstelling die je in zijn geheel neerzet, en als kruis dooft ze
+// uit naar alle kanten zonder dat er een vierkante rand omheen komt te staan.
 //
 // De put houdt zijn eigen animatie, dus die kan niet meegesmolten worden zoals
 // tools/samenvoegen.mjs doet — slinger en touw draaien om hun eigen knoop. De
