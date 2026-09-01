@@ -34,6 +34,8 @@ export const BRONKITS = [
   { map: 'Modular Village', naam: 'Modular Village', kit: 'village-kit', formaat: 'obj' },
   { map: 'modular_terrain_collection', naam: 'Modular Terrain Collection', kit: 'modulair-terrein', formaat: 'obj' },
 
+  { map: 'modular_terrain_2.0', naam: 'Modular Terrain 2.0', kit: null, formaat: 'fbx' },
+
   { map: 'PropsLite_FBX', naam: 'Medieval Props Lite', kit: 'props', formaat: 'fbx' },
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
   { map: 'ocean', naam: 'Ocean', kit: 'onderwater-kit', formaat: 'fbx' },
