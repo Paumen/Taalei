@@ -5,6 +5,10 @@
 // format to read and the folder is looked up by finding the one that holds the most
 // files of that format (see vindModelmap). Packs without a `kit` were downloaded but
 // never imported — everything in them counts as missing.
+//
+// `kleurruimte: 'srgb'` says an .fbx pack writes its material colours in display space
+// rather than in linear light; see naarKanalen in fbx.mjs for how a pack is asked which
+// it does.
 
 export const BRONKITS = [
   { map: 'kenney_survival-kit', naam: 'Kenney Survival Kit', kit: 'survival-kit', formaat: 'glb' },
@@ -34,7 +38,7 @@ export const BRONKITS = [
   { map: 'Modular Village', naam: 'Modular Village', kit: 'village-kit', formaat: 'obj' },
   { map: 'modular_terrain_collection', naam: 'Modular Terrain Collection', kit: 'modulair-terrein', formaat: 'obj' },
 
-  { map: 'modular_terrain_2.0', naam: 'Modular Terrain 2.0', kit: null, formaat: 'fbx' },
+  { map: 'modular_terrain_2.0', naam: 'Modular Terrain 2.0', kit: null, formaat: 'fbx', kleurruimte: 'srgb' },
 
   { map: 'PropsLite_FBX', naam: 'Medieval Props Lite', kit: 'props', formaat: 'fbx' },
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
