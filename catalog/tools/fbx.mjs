@@ -180,17 +180,29 @@ function layerLookup(layer, valuesName, indexName, width) {
   };
 }
 
-const naarSrgb = (lineair) => {
-  const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
-  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
-};
+const kanaal = (waarde) => Math.round(Math.min(Math.max(waarde, 0), 1) * 255);
+
+// A DiffuseColor is not written in the same space by every pack, and nothing in the file
+// says which: all of them are Blender exports. Where a material carries both a colour and
+// a texture the two depict the same surface, so the pack itself can be asked — in Modular
+// Terrain 2.0, 144 of 147 such pairs sit closer to their texture read straight than
+// converted from linear (its "Wood Light" is 0.855, 0.627, 0.322 against a texture
+// averaging 0.783, 0.611, 0.415), and converting brightens its cliffs to near-white and
+// its grass to pastel. A pack that ships no textures can't be asked, so 'lineair' stays
+// the default and BRONKITS names the exception.
+const naarKanalen = (kleur, kleurruimte) =>
+  kleurruimte === 'srgb'
+    ? kleur.map(kanaal)
+    : kleur.map((lineair) =>
+        kanaal(lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055),
+      );
 
 /**
  * Reads a binary .fbx and returns one entry per mesh, in the same shape as leesGltf and
  * leesObj in tools/importeer/bron.mjs: triangulated, with world positions, and with a
  * name taken from the Model the geometry hangs under.
  */
-export function leesFbx(pad) {
+export function leesFbx(pad, { kleurruimte = 'lineair' } = {}) {
   const { roots } = readTree(pad);
   const objects = roots.find((r) => r.name === 'Objects');
   if (!objects) return [];
@@ -223,20 +235,24 @@ export function leesFbx(pad) {
   const hangtOnder = (id, soort) =>
     (kinderen.get(id) ?? []).map((k) => perId.get(k)).filter((r) => r?.name === soort);
 
-  // A material hangs under the model and a texture under the material, so the file this
-  // mesh is painted with sits two steps below the model — not below the geometry.
-  const textuurVan = (modelId) => {
-    for (const materiaal of hangtOnder(modelId, 'Material')) {
+  // A material hangs under the model and a texture under the material, so what this mesh
+  // is painted with sits two steps below the model — not below the geometry. A mesh
+  // usually carries more than one material: a terrain tile has its grass, its cliff face
+  // and its hidden underside as separate materials on one geometry. LayerElementMaterial
+  // says which polygon gets which, by position in this list, so the order matters.
+  const materialenVan = (modelId) =>
+    hangtOnder(modelId, 'Material').map((materiaal) => {
+      const naam = naamVan(materiaal);
       for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
         const bestand = child(textuur, 'RelativeFilename')?.props[0]
           ?? child(textuur, 'FileName')?.props[0];
-        if (bestand) return String(bestand).replace(/\\+/g, '/').split('/').pop();
+        if (bestand) {
+          return { naam, textuur: String(bestand).replace(/\\+/g, '/').split('/').pop(), kleur: null };
+        }
       }
       const kleur = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
-      if (kleur) return { kleur: kleur.slice(0, 3).map(naarSrgb) };
-    }
-    return null;
-  };
+      return { naam, textuur: null, kleur: kleur ? naarKanalen(kleur.slice(0, 3), kleurruimte) : [255, 255, 255] };
+    });
 
   const naarYOp = upAxisMatrix(roots);
   const primitieven = [];
@@ -276,12 +292,19 @@ export function leesFbx(pad) {
 
     const normaalLaag = layerLookup(child(geometry, 'LayerElementNormal'), 'Normals', 'NormalsIndex', 3);
     const uvLaag = layerLookup(child(geometry, 'LayerElementUV'), 'UV', 'UVIndex', 2);
+    const materiaalLaag = layerLookup(child(geometry, 'LayerElementMaterial'), 'Materials', 'MaterialsIndex', 1);
+    const materialen = materialenVan(model?.props[0]);
+
+    // One bucket per material the polygons point at, so a mesh painted with several comes
+    // out as several primitives instead of all of it wearing the first material.
+    const delen = new Map();
+    const deel = (n) => {
+      if (!delen.has(n)) delen.set(n, { posities: [], normalen: [], uvs: [] });
+      return delen.get(n);
+    };
 
     // Polygons are stored flat: a negative index closes the polygon (xor -1 undoes it),
     // and everything with more than three corners is fanned out into triangles.
-    const posities = [];
-    const normalen = [];
-    const uvs = [];
     let hoeken = [];
     let heeftNormalen = Boolean(normaalLaag);
     let heeftUvs = Boolean(uvLaag);
@@ -299,6 +322,8 @@ export function leesFbx(pad) {
       hoeken.push(zetHoek(i));
       if (polygons[i] >= 0) continue;
 
+      const nummer = materiaalLaag ? materiaalLaag(i, 0, polygoon)[0] ?? 0 : 0;
+      const { posities, normalen, uvs } = deel(nummer);
       for (let k = 1; k + 1 < hoeken.length; k++) {
         for (const hoek of [hoeken[0], hoeken[k], hoeken[k + 1]]) {
           posities.push(...hoek.p);
@@ -313,21 +338,20 @@ export function leesFbx(pad) {
       polygoon++;
     }
 
-    if (posities.length === 0) continue;
-
-    const gevonden = textuurVan(model?.props[0]);
-    primitieven.push({
-      naam: naamVan(model ?? geometry),
-      posities: Float64Array.from(posities),
-      normalen: heeftNormalen ? Float64Array.from(normalen) : null,
-      uvs: heeftUvs ? Float64Array.from(uvs) : null,
-      hoekkleuren: null,
-      indices: Uint32Array.from({ length: posities.length / 3 }, (_, i) => i),
-      materiaal:
-        typeof gevonden === 'string' ? { textuur: gevonden, kleur: null }
-        : gevonden ? { textuur: null, kleur: gevonden.kleur }
-        : { textuur: null, kleur: [255, 255, 255] },
-    });
+    const naam = naamVan(model ?? geometry);
+    for (const nummer of [...delen.keys()].sort((a, b) => a - b)) {
+      const { posities, normalen, uvs } = delen.get(nummer);
+      if (posities.length === 0) continue;
+      primitieven.push({
+        naam,
+        posities: Float64Array.from(posities),
+        normalen: heeftNormalen ? Float64Array.from(normalen) : null,
+        uvs: heeftUvs ? Float64Array.from(uvs) : null,
+        hoekkleuren: null,
+        indices: Uint32Array.from({ length: posities.length / 3 }, (_, i) => i),
+        materiaal: materialen[nummer] ?? { naam: 'material', textuur: null, kleur: [255, 255, 255] },
+      });
+    }
   }
 
   return primitieven;

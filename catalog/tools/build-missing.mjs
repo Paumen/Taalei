@@ -106,9 +106,9 @@ const grofsteWeg = (naam) => {
   return Number(match[1]) === 0 ? naam.replace(LOD, '') : null;
 };
 
-function leesBron(pad, formaat) {
-  if (formaat === 'obj') return leesObj(pad);
-  if (formaat === 'fbx') return leesFbx(pad);
+function leesBron(pad, bronkit) {
+  if (bronkit.formaat === 'obj') return leesObj(pad);
+  if (bronkit.formaat === 'fbx') return leesFbx(pad, { kleurruimte: bronkit.kleurruimte });
   return leesGltf(pad);
 }
 
@@ -123,7 +123,7 @@ function bronModellen(bronkit) {
 
   const modellen = [];
   for (const bestand of bestanden) {
-    const primitieven = leesBron(join(map, bestand), bronkit.formaat);
+    const primitieven = leesBron(join(map, bestand), bronkit);
     if (primitieven.length === 0) continue;
 
     if (bronkit.splitsPerMesh) {
