@@ -667,6 +667,12 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .detail[open] {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(260px, 1fr);
+  /* De rij mag niet met de zijkolom meegroeien. Een model met 132 animaties zet daar
+     132 chips neer; zonder deze regel wordt de rij zo hoog als die lijst, rekt de
+     weergave mee tot ver buiten het venster en valt het model onder de rand van het
+     paneel. Met een begrensde rij scrollt de zijkolom (overflow-y staat er al op) en
+     houdt de weergave de hoogte van het paneel. */
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .detail-viewer {
@@ -839,7 +845,8 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 }
 
 @media (max-width: 720px) {
-  .detail[open] { grid-template-columns: 1fr; }
+  /* Onder elkaar: de weergave krijgt haar eigen hoogte, de gegevens de rest. */
+  .detail[open] { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
   .detail-viewer { min-height: 46vh; }
   .detail-info { border-left: 0; border-top: 1px solid var(--lijn); }
 }
