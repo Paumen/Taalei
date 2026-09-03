@@ -2,7 +2,7 @@
 // docs/asset_style_guide.md: does every model take the colour bands its materials
 // are allowed, and does every band it uses belong to a material it carries.
 //
-//   node tools/color-lint.mjs [--kit dungeon] [--rule AH] [--severity error]
+//   node tools/color-lint.mjs [--kit dungeon] [--rule C10] [--severity error]
 //                             [--limit 8] [--rules] [--json path.json]
 //
 // Reads catalog/catalog.json — `colors` there is already resolved from the UVs
@@ -12,14 +12,14 @@
 // and not a gap in the tagging.
 //
 // Two things Appendix A states that this tool cannot see. The lane and gradient
-// rules (M, N, O, P, Y) live in the UVs of the individual triangles and in the
+// rules (the G block) live in the UVs of the individual triangles and in the
 // source model, not in the catalogue — they need their own tool. And the rules
-// that ask what an object looks like (A, I, L, S, U, AF, AG, AR) are a judgement,
-// not a measurement.
+// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and G6) are
+// a judgement, not a measurement.
 //
 // SEVERITY is the table below and nothing else: `error` fails the run, `warn`
-// only prints. Appendix A says "only" for AH-AQ and "usually" for most of the
-// rest, so the wording is written out per rule — flipping one is a single word.
+// only prints. Appendix A says "only" through the C block and "usually" for much
+// of the M block, so the wording is written out per rule — flipping one is a word.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng } from '../catalog/tools/png.mjs';
@@ -50,7 +50,7 @@ const BANDS = {
   bark: '2,0',
 };
 
-// Rule J: the one transparent glass colour is a material of its own, not a band.
+// Rule M17: the one transparent glass colour is a material of its own, not a band.
 const CLEAR = '#ffffff';
 
 function readBands() {
@@ -75,7 +75,7 @@ bandName[CLEAR] = 'clear glass';
 const band = (name) => HEX[name];
 const bands = (...names) => names.map(band);
 
-// The accent approximation. Rules AH, AI, AM and AN allow a band as a very minor
+// The accent approximation. Rules C10, C9, C7 and C8 allow a band as a very minor
 // detail; the catalogue records that a band is used, not how much of the model it
 // covers. Stand-in: small models that mix at least two bands, and busy models of
 // any size. Both are shapes where one band is unlikely to be a whole surface.
@@ -121,103 +121,103 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null }) => ({
 });
 
 const RULES = [
-  // Material -> colour. Appendix A says "are" for C, D and Q and "usually" for the
-  // rest of this block; the severity column is where that distinction lands.
-  materialTakes({ id: 'C', text: 'Bones and skulls are off-white.', severity: 'warn',
+  // Material -> colour, the M block. Appendix A says "are" for M6, M7 and M23 and
+  // "usually" for most of the rest; the severity column is where that lands.
+  materialTakes({ id: 'M6', text: 'Bones and skulls are off-white.', severity: 'warn',
     tag: 'bone', colors: ['off-white'] }),
-  materialTakes({ id: 'D', text: 'Paper is off-white.', severity: 'warn',
+  materialTakes({ id: 'M7', text: 'Paper is off-white.', severity: 'warn',
     tag: 'paper', colors: ['off-white'] }),
-  materialTakes({ id: 'E', text: 'Ceramics are usually terracotta, off-white, taupe, or dark red.',
+  materialTakes({ id: 'M8', text: 'Ceramics are usually terracotta, off-white, taupe, or dark red.',
     severity: 'warn', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
-  materialTakes({ id: 'FG', text: 'Metal is usually light grey 15,3. Steel/cast iron can be dark grey 10,0.',
+  materialTakes({ id: 'M9-M10', text: 'Metal is usually light grey 15,3. Steel/cast iron can be dark grey 10,0.',
     severity: 'warn', tag: 'metal', colors: ['light grey', 'dark grey'] }),
-  materialTakes({ id: 'H', text: 'Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.',
+  materialTakes({ id: 'M13', text: 'Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.',
     severity: 'warn', tag: 'textile', colors: ['off-white', 'salmon', 'khaki', 'wood middle'] }),
-  materialTakes({ id: 'J', text: 'Glass is a special own material: transparent, or dark green or dark red.',
+  materialTakes({ id: 'M17', text: 'Glass is a special own material: transparent, or dark green or dark red.',
     severity: 'warn', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
-  materialTakes({ id: 'K', text: 'Roofs are usually dark red.', severity: 'warn',
+  materialTakes({ id: 'M19', text: 'Roofs are usually dark red.', severity: 'warn',
     tag: 'roof', colors: ['dark red'], when: isRoof }),
-  materialTakes({ id: 'R', text: 'Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.',
+  materialTakes({ id: 'M11', text: 'Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.',
     severity: 'warn', tag: 'precious-metal', colors: ['yellow', 'light blue-grey', 'terracotta'] }),
-  materialTakes({ id: 'W', text: 'Grass is light green.', severity: 'warn',
+  materialTakes({ id: 'M4', text: 'Grass is light green.', severity: 'warn',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
-  materialTakes({ id: 'X', text: 'Trees are usually dark green.', severity: 'warn',
+  materialTakes({ id: 'M5', text: 'Trees are usually dark green.', severity: 'warn',
     tag: 'tree', colors: ['dark green'], when: (m) => m.gr === 'trees' }),
-  materialTakes({ id: 'Z', text: 'Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.',
+  materialTakes({ id: 'M20', text: 'Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.',
     severity: 'warn', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
-  materialTakes({ id: 'AA', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
+  materialTakes({ id: 'M21', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
     severity: 'warn', tag: 'rock', colors: ['light grey', 'taupe'] }),
-  materialTakes({ id: 'AB', text: 'Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.',
+  materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.',
     severity: 'warn', tag: 'ground', colors: ['taupe', 'khaki', 'salmon'],
     when: (m) => m.gr === 'ground' && !has(m, 'stone', 'rock') }),
-  materialTakes({ id: 'AC', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
+  materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'candle') }),
-  materialTakes({ id: 'AD', text: 'Rope is wood light 0,0 or khaki 14,0.', severity: 'warn',
+  materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or khaki 14,0.', severity: 'warn',
     tag: 'rope', colors: ['wood light', 'khaki'] }),
-  materialTakes({ id: 'AE', text: 'Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish may also be blue 4,2 or light blue-grey 3,2.',
+  materialTakes({ id: 'M26', text: 'Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish may also be blue 4,2 or light blue-grey 3,2.',
     severity: 'warn', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'khaki', 'blue', 'light blue-grey'],
     when: (m) => has(m, 'fauna') }),
 
-  // Colour -> material. Appendix A says "only" throughout this block.
-  bandOnlyFor({ id: 'AH', text: 'Blue 4,2 is used sparingly: fish (rule AE) and otherwise only minor details or accents.',
+  // Colour -> material, the C block. Appendix A says "only" throughout it.
+  bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26) and otherwise only minor details or accents.',
     severity: 'warn', color: 'blue', tags: ['fauna'], accent: true }),
-  bandOnlyFor({ id: 'AI', text: 'Light green is only used for flora, and very minor details or accents.',
+  bandOnlyFor({ id: 'C9', text: 'Light green is only used for flora, and very minor details or accents.',
     severity: 'warn', color: 'light green', tags: ['flora', 'foliage'], accent: true }),
   // Read literally: the rule forbids terracotta on timber, and names copper (R) and
   // ceramics as what may carry it. It says nothing about other materials.
-  bandOnlyFor({ id: 'AJ', text: 'Terracotta is not used for timber (copper, rule R, is the exception outside ceramics).',
+  bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
     severity: 'warn', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
     unless: (m) => !has(m, 'timber', 'bark') }),
-  bandOnlyFor({ id: 'AK', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
+  bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
     severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'] }),
-  bandOnlyFor({ id: 'AL', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
+  bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
     severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
-  bandOnlyFor({ id: 'AM', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
+  bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
     severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass'], accent: true, unless: isRoof }),
-  bandOnlyFor({ id: 'AN', text: 'Dark green is only used for foliage, glass, and very minor details or accents.',
+  bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, and very minor details or accents.',
     severity: 'warn', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
-  bandOnlyFor({ id: 'AO', text: 'Darkest brown is only used for bark and leather.',
+  bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
     severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
-  // "Lighter browns" is the light and middle lane of rule M; rule AD puts rope on
+  // "Lighter browns" is the light and middle lane of rule G1; rule M14 puts rope on
   // the light lane too, so rope is not a violation here.
-  bandOnlyFor({ id: 'AP-light', text: 'Lighter browns are only used for timber.',
+  bandOnlyFor({ id: 'C1-light', text: 'Lighter browns are only used for timber.',
     severity: 'warn', color: 'wood light', tags: ['timber', 'rope'] }),
-  bandOnlyFor({ id: 'AP-middle', text: 'Lighter browns are only used for timber.',
+  bandOnlyFor({ id: 'C1-middle', text: 'Lighter browns are only used for timber.',
     severity: 'warn', color: 'wood middle', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'AQ', text: 'Light grey 15,3 is only used for metal, stone, and rock.',
+  bandOnlyFor({ id: 'C4', text: 'Light grey 15,3 is only used for metal, stone, and rock.',
     severity: 'warn', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
 
-  // Counting. `mat` in catalog.json is the glTF material count and is 1 for all but
+  // Counting, the N block. `mat` in catalog.json is the glTF material count and is 1 for all but
   // 25 models, so "materials" here is the material tags — the thing the model is
   // made of, which is what Appendix A is talking about.
-  // AS. What stands in for a material depends on the group. Flowers, grass and
+  // N1. What stands in for a material depends on the group. Flowers, grass and
   // plants are carried by the flora tag and ocean by fauna — those groups have no
   // material of their own in tags.json and Appendix A gives them none, so the tag
   // is what there is to check. Everywhere else it has to be a material.
-  { id: 'AS', text: 'A model usually has at least one material.', severity: 'warn',
+  { id: 'N1', text: 'A model usually has at least one material.', severity: 'warn',
     check: (m) => {
       const stand_in = STANDS_IN_FOR_MATERIAL[m.gr];
       if (stand_in) return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
       return materials(m).length === 0 ? `has no material tag (group ${m.gr})` : null;
     } },
-  { id: 'AT', text: 'A model usually uses equal or more color bands than materials.', severity: 'warn',
+  { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'warn',
     check: (m) => {
       const n = materials(m).length;
       if (!n || m.colors.length >= n) return null;
       return `${m.colors.length} band(s) for ${n} materials (${materials(m).join(', ')})`;
     } },
-  { id: 'AU', text: 'A model usually does not use more than twice as many color bands than materials.',
+  { id: 'N3', text: 'A model usually does not use more than twice as many color bands than materials.',
     severity: 'warn',
     check: (m) => {
       const n = materials(m).length;
       if (!n || m.colors.length <= 2 * n) return null;
       return `${m.colors.length} bands for ${n} material(s) (${materials(m).join(', ')})`;
     } },
-  // AV. Dark green is the tree band; the small flora takes light green. No accent
+  // M3. Dark green is the tree band; the small flora takes light green. No accent
   // escape here — the rule is about which green these groups are drawn in, and the
   // stems and leaves it covers are not a minor detail.
-  { id: 'AV', text: 'Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.',
+  { id: 'M3', text: 'Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.',
     severity: 'warn',
     check: (m) => {
       if (!['flowers', 'grass', 'plants'].includes(m.gr)) return null;
@@ -225,6 +225,18 @@ const RULES = [
       return `group ${m.gr} uses dark green 1,1`;
     } },
 ];
+
+// Report in the order of the guide: the M block, then C, then N, each by number.
+const BLOCK_ORDER = ['M', 'C', 'N'];
+const rank = (id) => {
+  const [, block, number, rest] = id.match(/^([A-Z])(\d+)(.*)$/);
+  return [BLOCK_ORDER.indexOf(block), Number(number), rest];
+};
+RULES.sort((a, b) => {
+  const [ba, na, ra] = rank(a.id);
+  const [bb, nb, rb] = rank(b.id);
+  return ba - bb || na - nb || ra.localeCompare(rb);
+});
 
 const args = process.argv.slice(2);
 let kitFilter = null, ruleFilter = null, severityFilter = null, jsonPath = null;
@@ -245,8 +257,15 @@ if (listRules) {
 }
 
 const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog/catalog.json'), 'utf8'));
+// Assemblies are scenes built from other catalogued models — a decorated barrel is
+// the barrel plus what stands on it. Their colours are the sum of their parts and
+// every part is linted on its own, so linting the assembly again only reports the
+// same colour twice, against a material list that is the union of everything in it.
+const SKIP_GROUPS = ['assemblies'];
+
 const models = catalog.models
   .filter((m) => m.colors?.length)
+  .filter((m) => !SKIP_GROUPS.includes(m.gr))
   .filter((m) => !kitFilter || m.kit === kitFilter);
 
 const unknown = new Set();
