@@ -24,7 +24,7 @@ Conditional (only if claude CLI present)
 
 
 Asset and material rules live in docs/asset_style_guide.md — the look, the
-colormap bands, geometry, scale, and the lettered rules of Appendix A (which
+colormap bands, geometry, scale, and the numbered rules of Appendix A (which
 colour a material takes, what counts as leather, timber or bark). Read it
 before creating, recolouring or tagging an asset, and add new rules there.
 
