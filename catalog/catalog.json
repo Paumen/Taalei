@@ -586,15 +586,6 @@
    ]
   },
   {
-   "id": "v41",
-   "type": "maatvariant",
-   "main": "dungeon/box-large",
-   "members": [
-    "dungeon/box-large",
-    "dungeon/box-small"
-   ]
-  },
-  {
    "id": "v42",
    "type": "detail-variant",
    "main": "dungeon/candle",
@@ -2108,7 +2099,13 @@
    "id": "textile",
    "name": "Textile",
    "type": "material",
-   "description": "Cloth, leather and rope work: tent canvas and canopies, bedding, sacks, the textile stack from the resources kit, the balloon with its baskets, and the wrapped handles of tools and torches."
+   "description": "Cloth and rope work: tent canvas and canopies, sails and banners, bedding, cloth sacks, the textile stack from the resources kit, the balloon with its baskets, and the wrapped handles of tools and torches. Hide — belts, straps, boots, bags and book covers — is under leather."
+  },
+  {
+   "id": "leather",
+   "name": "Leather",
+   "type": "material",
+   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, and book covers. A figure in leather carries this tag next to the textile of their cloth."
   },
   {
    "id": "flora",
@@ -2272,14 +2269,14 @@
    "color": "#8a6fb0"
   },
   {
-   "id": "coins-jewelry",
-   "name": "Coins & jewellery",
-   "color": "#c9a227"
-  },
-  {
    "id": "furniture",
    "name": "Furniture & household",
    "color": "#c07c8a"
+  },
+  {
+   "id": "coins-jewelry",
+   "name": "Coins & jewellery",
+   "color": "#c9a227"
   },
   {
    "id": "lights",
@@ -2419,7 +2416,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -2453,7 +2453,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -2487,7 +2489,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -2521,7 +2526,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -2555,7 +2562,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -2590,7 +2600,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -2630,7 +2643,9 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -2798,7 +2813,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "object",
+    "rope",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -2831,7 +2849,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -2865,7 +2885,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "rope",
+    "timber"
    ]
   },
   {
@@ -2899,7 +2922,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "rope",
+    "timber"
    ]
   },
   {
@@ -2932,7 +2958,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -2970,7 +2998,10 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -3143,7 +3174,10 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -3315,40 +3349,6 @@
   },
   {
    "kit": "adventurers",
-   "name": "mug-full",
-   "gr": "cooking",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 426,
-   "tpu": 1242,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 17212,
-   "vtx": 413,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00007,
-   "dens": 691523,
-   "anglePct": 9,
-   "vpt": 0.97,
-   "grad": 0.62,
-   "hues": 2,
-   "colors": [
-    "#88796d",
-    "#9a6b4e",
-    "#f5f2e7"
-   ],
-   "tags": [
-    "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
    "name": "quiver",
    "gr": "tools",
    "wdh": [
@@ -3377,7 +3377,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "object",
+    "timber"
    ]
   },
   {
@@ -3418,7 +3420,10 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -3594,7 +3599,10 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -3770,7 +3778,10 @@
    "tags": [
     "animation",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -3909,41 +3920,6 @@
   },
   {
    "kit": "adventurers",
-   "name": "shield-badge-colored",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 262,
-   "tpu": 764,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 11968,
-   "vtx": 279,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00023,
-   "dens": 221034,
-   "anglePct": 8,
-   "vpt": 1.06,
-   "grad": 0.65,
-   "hues": 3,
-   "colors": [
-    "#714c39",
-    "#88796d",
-    "#9a6b4e",
-    "#f5f2e7"
-   ],
-   "tags": [
-    "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
    "name": "shield-badge",
    "gr": "tools",
    "wdh": [
@@ -3973,42 +3949,9 @@
    ],
    "tags": [
     "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
-   "name": "shield-round-barbarian",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 284,
-   "tpu": 828,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 13232,
-   "vtx": 314,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00017,
-   "dens": 206466,
-   "anglePct": 6,
-   "vpt": 1.11,
-   "grad": 0.81,
-   "hues": 3,
-   "colors": [
-    "#6d738a",
-    "#714c39",
-    "#88796d",
-    "#f5f2e7"
-   ],
-   "tags": [
-    "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4043,7 +3986,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4077,41 +4022,9 @@
    ],
    "tags": [
     "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
-   "name": "shield-spikes-colored",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 420,
-   "tpu": 1224,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 22844,
-   "vtx": 589,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00017,
-   "dens": 164804,
-   "anglePct": 13,
-   "vpt": 1.4,
-   "grad": 0.66,
-   "hues": 3,
-   "colors": [
-    "#714c39",
-    "#88796d",
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4145,41 +4058,9 @@
    ],
    "tags": [
     "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
-   "name": "shield-square-colored",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 262,
-   "tpu": 764,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 12196,
-   "vtx": 286,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00029,
-   "dens": 153588,
-   "anglePct": 10,
-   "vpt": 1.09,
-   "grad": 0.76,
-   "hues": 3,
-   "colors": [
-    "#714c39",
-    "#88796d",
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4213,40 +4094,9 @@
    ],
    "tags": [
     "kay",
-    "object"
-   ]
-  },
-  {
-   "kit": "adventurers",
-   "name": "smokebomb",
-   "gr": "tools",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 310,
-   "tpu": 904,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 12572,
-   "vtx": 290,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00005,
-   "dens": 976956,
-   "anglePct": 2,
-   "vpt": 0.94,
-   "grad": 0.84,
-   "hues": 2,
-   "colors": [
-    "#714c39",
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4281,7 +4131,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "paper"
    ]
   },
   {
@@ -4316,7 +4169,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "paper"
    ]
   },
   {
@@ -4351,7 +4207,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -4384,7 +4243,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4418,7 +4279,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "precious-metal",
+    "timber"
    ]
   },
   {
@@ -4451,7 +4315,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -4484,7 +4350,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -5104,43 +4972,6 @@
   },
   {
    "kit": "dungeon",
-   "name": "box-large",
-   "gr": "storage",
-   "wdh": [
-    0.3,
-    0.3,
-    0.3
-   ],
-   "tris": 188,
-   "tpu": 548,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 20580,
-   "vtx": 564,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00265,
-   "dens": 10374,
-   "anglePct": 72,
-   "vpt": 3,
-   "grad": 0.94,
-   "hues": 2,
-   "colors": [
-    "#6d738a",
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "metal",
-    "object",
-    "timber"
-   ],
-   "variant": "v41"
-  },
-  {
-   "kit": "dungeon",
    "name": "box-small-decorated",
    "gr": "assemblies",
    "wdh": [
@@ -5174,42 +5005,6 @@
     "kay",
     "timber"
    ]
-  },
-  {
-   "kit": "dungeon",
-   "name": "box-small",
-   "gr": "storage",
-   "wdh": [
-    0.2,
-    0.2,
-    0.2
-   ],
-   "tris": 188,
-   "tpu": 548,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 20536,
-   "vtx": 564,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00118,
-   "dens": 35079,
-   "anglePct": 72,
-   "vpt": 3,
-   "grad": 0.94,
-   "hues": 2,
-   "colors": [
-    "#6d738a",
-    "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "metal",
-    "object",
-    "timber"
-   ],
-   "variant": "v41"
   },
   {
    "kit": "dungeon",
@@ -16153,6 +15948,7 @@
    ],
    "tags": [
     "ken",
+    "stone",
     "structure"
    ]
   },
@@ -24046,6 +23842,7 @@
     "#cb9d78"
    ],
    "tags": [
+    "metal",
     "object",
     "qua",
     "timber"
@@ -24079,6 +23876,7 @@
     "#3e3e44"
    ],
    "tags": [
+    "metal",
     "object",
     "qua"
    ]
@@ -24447,6 +24245,8 @@
     "#f5f2e7"
    ],
    "tags": [
+    "glass",
+    "metal",
     "qua",
     "structure",
     "timber"
@@ -24483,6 +24283,8 @@
     "#f5f2e7"
    ],
    "tags": [
+    "glass",
+    "metal",
     "qua",
     "structure",
     "timber"
@@ -24520,8 +24322,11 @@
     "#f5f2e7"
    ],
    "tags": [
+    "glass",
+    "metal",
     "qua",
     "structure",
+    "textile",
     "timber"
    ]
   },
@@ -24555,8 +24360,12 @@
    ],
    "tags": [
     "animation",
+    "leather",
+    "metal",
     "object",
-    "qua"
+    "qua",
+    "textile",
+    "timber"
    ],
    "anim": [
     "Death",
@@ -24611,8 +24420,11 @@
    ],
    "tags": [
     "animation",
+    "leather",
+    "metal",
     "object",
-    "qua"
+    "qua",
+    "textile"
    ],
    "anim": [
     "Death",
@@ -24665,8 +24477,12 @@
    ],
    "tags": [
     "animation",
+    "leather",
+    "metal",
     "object",
-    "qua"
+    "qua",
+    "textile",
+    "timber"
    ],
    "anim": [
     "Death",
@@ -24950,8 +24766,11 @@
     "#cb9d78"
    ],
    "tags": [
+    "metal",
     "object",
     "qua",
+    "rope",
+    "textile",
     "timber"
    ]
   },
@@ -24984,6 +24803,7 @@
     "#cb9d78"
    ],
    "tags": [
+    "metal",
     "object",
     "qua",
     "timber"
@@ -25020,6 +24840,8 @@
    "tags": [
     "animation",
     "bone",
+    "leather",
+    "metal",
     "object",
     "qua"
    ],
@@ -25074,6 +24896,8 @@
    "tags": [
     "animation",
     "bone",
+    "leather",
+    "metal",
     "object",
     "qua"
    ],
@@ -25191,6 +25015,7 @@
    ],
    "tags": [
     "animation",
+    "fauna",
     "object",
     "qua"
    ],
@@ -25230,9 +25055,11 @@
     "#9a6b4e"
    ],
    "tags": [
+    "bark",
+    "flora",
+    "foliage",
     "nature",
-    "qua",
-    "timber"
+    "qua"
    ]
   },
   {
@@ -25264,9 +25091,11 @@
     "#9a6b4e"
    ],
    "tags": [
+    "bark",
+    "flora",
+    "foliage",
     "nature",
-    "qua",
-    "timber"
+    "qua"
    ]
   },
   {
@@ -25298,9 +25127,11 @@
     "#9a6b4e"
    ],
    "tags": [
+    "bark",
+    "flora",
+    "foliage",
     "nature",
-    "qua",
-    "timber"
+    "qua"
    ]
   },
   {
@@ -26093,38 +25924,6 @@
   },
   {
    "kit": "props",
-   "name": "bench-a",
-   "gr": "furniture",
-   "wdh": [
-    0.9,
-    0.2,
-    0.3
-   ],
-   "tris": 204,
-   "tpu": 595,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 15772,
-   "vtx": 408,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00572,
-   "dens": 3567,
-   "anglePct": 100,
-   "vpt": 2,
-   "grad": 0.2,
-   "hues": 1,
-   "colors": [
-    "#cb9d78"
-   ],
-   "tags": [
-    "object",
-    "timber"
-   ]
-  },
-  {
-   "kit": "props",
    "name": "bottle-a-green",
    "gr": "bottles-jugs",
    "wdh": [
@@ -26788,70 +26587,6 @@
    ],
    "tags": [
     "structure",
-    "timber"
-   ]
-  },
-  {
-   "kit": "props",
-   "name": "stool-a",
-   "gr": "furniture",
-   "wdh": [
-    0.3,
-    0.2,
-    0.3
-   ],
-   "tris": 268,
-   "tpu": 781,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 18956,
-   "vtx": 496,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00266,
-   "dens": 13859,
-   "anglePct": 99,
-   "vpt": 1.85,
-   "grad": 0.2,
-   "hues": 1,
-   "colors": [
-    "#cb9d78"
-   ],
-   "tags": [
-    "object",
-    "timber"
-   ]
-  },
-  {
-   "kit": "props",
-   "name": "table-a",
-   "gr": "furniture",
-   "wdh": [
-    1.1,
-    0.5,
-    0.5
-   ],
-   "tris": 132,
-   "tpu": 366,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 10716,
-   "vtx": 264,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01454,
-   "dens": 535,
-   "anglePct": 99,
-   "vpt": 2,
-   "grad": 0.2,
-   "hues": 1,
-   "colors": [
-    "#cb9d78"
-   ],
-   "tags": [
-    "object",
     "timber"
    ]
   },
@@ -28853,9 +28588,9 @@
    ],
    "tags": [
     "kay",
+    "leather",
     "metal",
-    "object",
-    "textile"
+    "object"
    ],
    "variant": "v13"
   },
@@ -31650,6 +31385,8 @@
     "#cb9d78"
    ],
    "tags": [
+    "leather",
+    "metal",
     "object",
     "qua"
    ]
@@ -31684,6 +31421,8 @@
     "#cb9d78"
    ],
    "tags": [
+    "leather",
+    "metal",
     "object",
     "qua"
    ]
@@ -33468,39 +33207,6 @@
    ]
   },
   {
-   "kit": "rpg-quaternius",
-   "name": "star",
-   "gr": "items",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 220,
-   "tpu": 641,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 16820,
-   "vtx": 440,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00014,
-   "dens": 176237,
-   "anglePct": 0,
-   "vpt": 2,
-   "grad": 0,
-   "hues": 1,
-   "colors": [
-    "#ffb349"
-   ],
-   "tags": [
-    "object",
-    "precious-metal",
-    "qua"
-   ]
-  },
-  {
    "kit": "rpgtools",
    "name": "anvil",
    "gr": "tools",
@@ -34900,7 +34606,8 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "object",
+    "timber"
    ]
   },
   {
@@ -34934,7 +34641,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -34967,7 +34676,8 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "object",
+    "timber"
    ]
   },
   {
@@ -35001,7 +34711,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35035,7 +34747,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35069,6 +34784,8 @@
    ],
    "tags": [
     "kay",
+    "leather",
+    "metal",
     "object"
    ]
   },
@@ -35103,7 +34820,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "rope",
+    "timber"
    ]
   },
   {
@@ -35138,7 +34858,10 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35171,8 +34894,11 @@
     "#9a6b4e"
    ],
    "tags": [
+    "bone",
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35205,7 +34931,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35238,7 +34966,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35272,7 +35002,9 @@
    ],
    "tags": [
     "kay",
-    "object"
+    "metal",
+    "object",
+    "timber"
    ]
   },
   {
@@ -35311,8 +35043,11 @@
    ],
    "tags": [
     "animation",
+    "bone",
     "kay",
-    "object"
+    "leather",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -35483,8 +35218,12 @@
    ],
    "tags": [
     "animation",
+    "bone",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -35655,8 +35394,12 @@
    ],
    "tags": [
     "animation",
+    "bone",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -35827,8 +35570,12 @@
    ],
    "tags": [
     "animation",
+    "bone",
     "kay",
-    "object"
+    "leather",
+    "metal",
+    "object",
+    "textile"
    ],
    "anim": [
     "Melee_1H_Attack_Chop",
@@ -35996,8 +35743,11 @@
     "#dd9f79"
    ],
    "tags": [
+    "bone",
     "kay",
-    "object"
+    "object",
+    "textile",
+    "timber"
    ]
   },
   {
@@ -36129,39 +35879,6 @@
    "dens": 3231,
    "anglePct": 100,
    "vpt": 1.68,
-   "grad": 0.8,
-   "hues": 1,
-   "colors": [
-    "#cb9d78"
-   ],
-   "tags": [
-    "ken",
-    "object",
-    "timber"
-   ]
-  },
-  {
-   "kit": "survival-kit",
-   "name": "campfire-pit",
-   "gr": "cooking",
-   "wdh": [
-    0.3,
-    0.3,
-    0.1
-   ],
-   "tris": 305,
-   "tpu": 889,
-   "mat": 1,
-   "calls": 2,
-   "bytes": 18876,
-   "vtx": 455,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00072,
-   "dens": 33355,
-   "anglePct": 33,
-   "vpt": 1.49,
    "grad": 0.8,
    "hues": 1,
    "colors": [

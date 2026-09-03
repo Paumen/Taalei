@@ -587,6 +587,7 @@ const SHORT_NAME = {
   assembly: 'Asmbly',
   ceramic: 'Cerm',
   textile: 'Textil',
+  leather: 'Leathr',
   foliage: 'Foliag',
 };
 
