@@ -110,3 +110,4 @@ AN. Dark green is only used for foliage, glass, and very minor details or accent
 AO. Darkest brown is only used for bark and leather.
 AP. Lighter browns are only used for timber.
 AQ. Light grey 15,3 is only used for metal, stone, and rock.
+AR. Belts and shoes are usually leather.
