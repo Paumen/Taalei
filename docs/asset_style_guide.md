@@ -114,3 +114,4 @@ AR. Belts and shoes are usually leather.
 AS. A model usually has at least one material.
 AT. A model usually uses equal or more color bands than materials.
 AU. A model usually does not use more than twice as many color bands than maerials.
+AV. Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.

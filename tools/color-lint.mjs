@@ -84,6 +84,8 @@ const BUSY = 4;
 const looksLikeAccent = (m) =>
   (Math.max(...m.wdh) <= MAX_ACCENT_SIZE && m.colors.length >= 2) || m.colors.length >= BUSY;
 
+const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ocean: 'fauna' };
+
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'textile',
   'leather', 'ceramic', 'bone', 'candle', 'glass', 'rope', 'precious-metal'];
 
@@ -189,8 +191,16 @@ const RULES = [
   // Counting. `mat` in catalog.json is the glTF material count and is 1 for all but
   // 25 models, so "materials" here is the material tags — the thing the model is
   // made of, which is what Appendix A is talking about.
+  // AS. What stands in for a material depends on the group. Flowers, grass and
+  // plants are carried by the flora tag and ocean by fauna — those groups have no
+  // material of their own in tags.json and Appendix A gives them none, so the tag
+  // is what there is to check. Everywhere else it has to be a material.
   { id: 'AS', text: 'A model usually has at least one material.', severity: 'warn',
-    check: (m) => (materials(m).length === 0 ? `has no material tag (group ${m.gr})` : null) },
+    check: (m) => {
+      const stand_in = STANDS_IN_FOR_MATERIAL[m.gr];
+      if (stand_in) return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
+      return materials(m).length === 0 ? `has no material tag (group ${m.gr})` : null;
+    } },
   { id: 'AT', text: 'A model usually uses equal or more color bands than materials.', severity: 'warn',
     check: (m) => {
       const n = materials(m).length;
@@ -203,6 +213,16 @@ const RULES = [
       const n = materials(m).length;
       if (!n || m.colors.length <= 2 * n) return null;
       return `${m.colors.length} bands for ${n} material(s) (${materials(m).join(', ')})`;
+    } },
+  // AV. Dark green is the tree band; the small flora takes light green. No accent
+  // escape here — the rule is about which green these groups are drawn in, and the
+  // stems and leaves it covers are not a minor detail.
+  { id: 'AV', text: 'Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.',
+    severity: 'warn',
+    check: (m) => {
+      if (!['flowers', 'grass', 'plants'].includes(m.gr)) return null;
+      if (!uses(m, band('dark green'))) return null;
+      return `group ${m.gr} uses dark green 1,1`;
     } },
 ];
 
