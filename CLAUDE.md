@@ -23,6 +23,11 @@ Conditional (only if claude CLI present)
 * registers claude-design MCP server (user scope, HTTP)
 
 
+Asset and material rules live in docs/asset_style_guide.md — the look, the
+colormap bands, geometry, scale, and the lettered rules of Appendix A (which
+colour a material takes, what counts as leather, timber or bark). Read it
+before creating, recolouring or tagging an asset, and add new rules there.
+
 Recolouring a model: read the original's own colour groups first.
 A model's UVs already record which triangles the maker meant to be light and
 which dark: same band, different position in the gradient. List those groups
