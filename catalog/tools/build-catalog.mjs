@@ -374,8 +374,11 @@ const SOURCES = [
     id: 'kay',
     name: 'KayKit',
     description:
-      'Kits from Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant and rpgtools. Consistent style and level of detail across the set.',
-    kits: ['dungeon', 'forest', 'halloween', 'resources', 'restaurant', 'rpgtools'],
+      'Kits from Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant and rpgtools, plus the two character packs — adventurers and skeletons — with the weapons and shields they carry. Consistent style and level of detail across the set.',
+    kits: [
+      'adventurers', 'dungeon', 'forest', 'halloween', 'resources', 'restaurant',
+      'rpgtools', 'skeletons',
+    ],
   },
   {
     id: 'qua',

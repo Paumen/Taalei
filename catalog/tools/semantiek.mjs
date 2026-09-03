@@ -42,7 +42,7 @@ export const GROUPS = [
   { id: 'plates-bowls', name: 'Plates & bowls', short: 'Plates', color: '#e8dcc0',
     description: 'What you eat off: the plate, the small plate and the plate stack from the dungeon kit, the plate and small plate and the two bowls from the restaurant kit, the two plates from props and the two from food-quaternius, and the plate that comes with the fantasy-props table. Split off from cooking & tableware, which keeps the campfires, the pans and pots, the cups and mugs and the cutlery. The dungeon kit\'s two full plates are what you eat rather than what you eat off, so they stay with the food.' },
   { id: 'tools', name: 'Tools & weapons', short: 'Tools', color: '#6d738a',
-    description: 'Axe, hammer and broom — pairable with mechanics like "word chopping". Twenty-eight strong in the rpgtools kit: anvil, file, grindstone, hammers, screwdrivers and more blacksmith and carpentry gear, plus an explorer\'s measuring and drawing kit: compass, drafting compass, magnifying glass, pencils and rope.' },
+    description: 'Axe, hammer and broom — pairable with mechanics like "word chopping". Twenty-eight strong in the rpgtools kit: anvil, file, grindstone, hammers, screwdrivers and more blacksmith and carpentry gear, plus an explorer\'s measuring and drawing kit: compass, drafting compass, magnifying glass, pencils and rope. The weapons half of the group\'s name was empty until the two KayKit character packs arrived: swords, axes, daggers, bows and crossbows with their arrows and quivers, staffs, a wand, a smoke bomb and eleven shields, sized for the figures that carry them.' },
   { id: 'resources', name: 'Resources & supplies', short: 'Resources', color: '#4f7d8c',
     description: 'The resources themselves, apart from what you put them in: chunks of ore (copper, gold, iron, silver), stones, wood, textiles, a pallet and parts from the resources kit, plus the plank stack from the survival kit. Usable as loot, currency or building stock. The bars and the piled-up stacks from that same kit live with the assemblies.' },
   { id: 'ground', name: 'Ground & terrain', short: 'Ground', color: '#8a5d4b',
@@ -76,7 +76,7 @@ export const GROUPS = [
     tab: 'structures',
     description: 'Small buildings, platforms, decks, planks, balconies and the loose walls and roofs that aren\'t part of a building kit. Also the well with its parts: the three ground pieces that go underneath and the shaft inside it, and the loose floors you build on — the survival kit\'s, with the pirate kit\'s hole included.' },
   { id: 'characters', name: 'Characters', short: 'Characters', color: '#8a6fb0',
-    description: 'The only figures in the collection: the pirate crew from the Quaternius Pirate Kit, its two skeletons and its tentacle. Everything else in the catalogue is something you place or something that is already there, so these sit apart — they are the one group with a face. They are also the heaviest models per unit anywhere in the collection: smooth-shaded organic meshes, well over the triangle budget, so place a few and not a crowd.' },
+    description: 'The figures: the pirate crew from the Quaternius Pirate Kit with its two skeletons and its tentacle, the six adventurers from KayKit (barbarian, knight, mage, ranger and the rogue hooded and bare-headed), and KayKit\'s four skeletons (mage, minion, rogue, warrior). Everything else in the catalogue is something you place or something that is already there, so these sit apart — they are the one group with a face. They are also the heaviest models per unit anywhere in the collection: smooth-shaded organic meshes, well over the triangle budget, so place a few and not a crowd. The ten KayKit figures are heavy in a second way as well: each carries the whole KayKit animation library, 132 clips, and that is megabytes per model rather than kilobytes. Their weapons and shields are not here but with the tools; the two packs stand on the same skeleton of 23 bones, so any clip fits any of the ten.' },
   { id: 'building-kit', name: 'Building kit & mills', short: 'Building kit', color: '#a8762a',
     tab: 'structures',
     description: 'Walls, roofs, pillars and mills: pieces that click together on one grid and only fit each other, plus the mills that belong to that same building set. There are three side by side — fantasy-town\'s, the village kit\'s and the dungeon kit\'s — and they don\'t fit each other; check the kit before combining two pieces. Its own tab, because hundreds of variants of the same wall and the same roof would crowd out anything sitting loose next to them in the group view.' },
@@ -370,6 +370,11 @@ const rules = [
   // of these names (coins, gold-bag, chicken-leg) sit just outside the plural or
   // hyphen boundary the generic patterns use, and would otherwise fall to 'other'.
   [/^(pirate-|skeleton|tentacle)/, 'characters'],
+  // The two KayKit character packs. Their figures are named after what they are —
+  // barbarian, knight, mage — with nothing in the name to tell them from a prop, so
+  // they are listed rather than matched on a pattern. The skeletons need no listing:
+  // every one of them starts with 'skeleton' and the rule above already has them.
+  [/^(barbarian|knight|mage|ranger|rogue)\b/, 'characters'],
   [/^cliff\b/, 'rocks'],
   [/^(house|sawmill|arch|crypt)\b/, 'structures'],
   [/^(anchor|cannonball)\b/, 'transport'],
@@ -396,6 +401,16 @@ const rules = [
   [/^fish/, 'ocean'],
   [/^(tool|workbench)-|^workbench$|^broom$/, 'tools'],
   [/^(anvil|axe|chisel|compass|drafting-compass|file|grindstone|hammer|handdrill|handplane|knife|magnifying-glass|mallet|nail|pencil|pickaxe|rope|saw|scissors|screw|screwdriver|shovel|tongs|trowel|wrench)\b/, 'tools'],
+  // The weapons and shields the two character packs carry. They sit in tools &
+  // weapons with the axes and hammers — that group is named for both halves, and
+  // until these packs arrived only the tools half was filled. The fantasy-town
+  // windmill blade and the platformer kit's arrow keep their own places: both are
+  // settled by the building-kit and exception checks, which run ahead of these
+  // rules.
+  [/^(arrow|blade|bow|crossbow|dagger|quiver|shield|smokebomb|staff|sword|wand)\b/, 'tools'],
+  // A spellbook is a book: it belongs with the books and scrolls, and the generic
+  // book rule below only catches a name that starts with the word.
+  [/^spellbook\b/, 'books-scrolls'],
   [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'signs'],
   [/^(lamp|lantern|torch|candle|lighthouse)\b|^shelf-small-candles$/, 'lights'],
