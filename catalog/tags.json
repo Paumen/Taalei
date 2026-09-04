@@ -1166,7 +1166,7 @@
    "id": "leather",
    "name": "Leather",
    "type": "material",
-   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, and book covers. A figure in leather carries this tag next to the textile of their cloth.",
+   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, book covers, and the straps holding a stack of bricks together. A figure in leather carries this tag next to the textile of their cloth.",
    "models": [
     "adventurers/arrow-bow-bundle",
     "adventurers/arrow-crossbow-bundle",
@@ -1185,6 +1185,9 @@
     "pirate-quaternius/skeleton",
     "pirate-quaternius/skeleton-headless",
     "resources/iron-bars",
+    "resources/stone-bricks-stack-large",
+    "resources/stone-bricks-stack-medium",
+    "resources/stone-bricks-stack-small",
     "rpg-quaternius/backpack",
     "rpg-quaternius/bag",
     "rpg-quaternius/book-1-closed",
@@ -1663,10 +1666,29 @@
    ]
   },
   {
+   "id": "liquid",
+   "name": "Liquid",
+   "type": "material",
+   "description": "What a vessel holds rather than what it is made of: the potion in a filled flask. Rule M31 lets it take any band — the colour is the liquid's own and says what it is — while the flask around it follows its glass or ceramic and its stopper the cork.",
+   "models": [
+    "rpg-quaternius/potion-1-filled",
+    "rpg-quaternius/potion-10-filled",
+    "rpg-quaternius/potion-11-filled",
+    "rpg-quaternius/potion-2-filled",
+    "rpg-quaternius/potion-3-filled",
+    "rpg-quaternius/potion-4-filled",
+    "rpg-quaternius/potion-5-filled",
+    "rpg-quaternius/potion-6-filled",
+    "rpg-quaternius/potion-7-filled",
+    "rpg-quaternius/potion-8-filled",
+    "rpg-quaternius/potion-9-filled"
+   ]
+  },
+  {
    "id": "light",
    "name": "Light",
    "type": "tag",
-   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween and Taaleiland's lighthouse. Snuffed candles, lamps and torches don't carry it.",
+   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween, Taaleiland's lighthouse and the burner flame under the hot-air balloons. Snuffed candles, lamps and torches don't carry it.",
    "models": [
     "dungeon/candle-lit",
     "dungeon/candle-thin-lit",
@@ -1674,6 +1696,9 @@
     "halloween/lantern-hanging",
     "halloween/lantern-standing",
     "halloween/post-lantern",
+    "taalei-kit/balloon",
+    "taalei-kit/balloon-basket-round",
+    "taalei-kit/balloon-basket-square",
     "taalei-kit/lighthouse"
    ]
   },
