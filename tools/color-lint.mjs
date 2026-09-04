@@ -103,6 +103,15 @@ const isRoof = (m) =>
 // under plants with the cactus they sit on — so the name counts as well.
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
 
+// Ocean fauna are not linted at all (PO decision). They carry no material — `fauna`
+// is not a material tag and Appendix A gives the group none — so the C block reads
+// every band on a fish as a band whose material is missing, and M26 cannot stand in
+// for it: it passes on `uses(...allowed)`, which asks for at least one fauna colour
+// and not that every band is one. Rather than a half-guard, they are out.
+// The fauna tag is the condition, not the group alone — an anchor or a net filed
+// under ocean is an object and stays in, N1 included.
+const isOceanFauna = (m) => m.gr === 'ocean' && (m.tags?.includes('fauna') ?? false);
+
 // Two metals Appendix A gives their own rule, so rule M9-M10 does not reach them.
 // Both are read off the name: copper and the keys carry the plain `metal` tag, and
 // nothing in the catalogue records that a bar is copper or a shape is a key.
@@ -304,6 +313,7 @@ const models = catalog.models
   .filter((m) => !SKIP_GROUPS.includes(m.gr))
   // Rule S1: a model the PO has approved as an exception is not linted at all.
   .filter((m) => !m.tags?.includes('special'))
+  .filter((m) => !isOceanFauna(m))
   .filter((m) => !kitFilter || m.kit === kitFilter);
 
 const unknown = new Set();
