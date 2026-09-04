@@ -86,8 +86,14 @@ const looksLikeAccent = (m) =>
 
 const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ground: 'flora', ocean: 'fauna' };
 
+// Every tag of type `material` in tags.json. `foliage` is one of them: the greenery
+// itself is a material the way timber is, and the green it takes is a band of its own
+// — a palm counts its trunk and its fronds, not one lane against three bands.
+// `flora` is not: it covers the bare trunks and stumps too, which have no colour of
+// their own, so counting it would read a single-band grass patch as short a band.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
-  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'cork', 'precious-metal'];
+  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'cork', 'precious-metal',
+  'foliage'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
