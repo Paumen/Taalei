@@ -366,6 +366,12 @@
     "village-kit/roof-accent-rake-straight",
     "village-kit/roof-accent-ridge",
     "village-kit/roof-accent-ridge-end",
+    "village-kit/roof-concave-side-eave-edge",
+    "village-kit/roof-concave-side-edge",
+    "village-kit/roof-convex-side-eave-edge",
+    "village-kit/roof-convex-side-edge",
+    "village-kit/roof-straight-side-eave-edge",
+    "village-kit/roof-straight-side-edge",
     "village-kit/sign-a",
     "village-kit/stone-doorway-narrow-tall-a",
     "village-kit/stone-doorway-narrow-tall-b",
@@ -1160,7 +1166,7 @@
    "id": "leather",
    "name": "Leather",
    "type": "material",
-   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, and book covers. A figure in leather carries this tag next to the textile of their cloth.",
+   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, book covers, and the straps holding a stack of bricks together. A figure in leather carries this tag next to the textile of their cloth.",
    "models": [
     "adventurers/arrow-bow-bundle",
     "adventurers/arrow-crossbow-bundle",
@@ -1179,6 +1185,9 @@
     "pirate-quaternius/skeleton",
     "pirate-quaternius/skeleton-headless",
     "resources/iron-bars",
+    "resources/stone-bricks-stack-large",
+    "resources/stone-bricks-stack-medium",
+    "resources/stone-bricks-stack-small",
     "rpg-quaternius/backpack",
     "rpg-quaternius/bag",
     "rpg-quaternius/book-1-closed",
@@ -1372,7 +1381,7 @@
   {
    "id": "foliage",
    "name": "Foliage",
-   "type": "tag",
+   "type": "material",
    "description": "The greenery itself: leafy trees, conifers, palms, grass clumps and grass patches, plants, lily pads and grain. Bare branches, stumps, trunks and dead trees carry only flora.",
    "models": [
     "fantasy-town-kit/tree-crooked",
@@ -1657,10 +1666,29 @@
    ]
   },
   {
+   "id": "liquid",
+   "name": "Liquid",
+   "type": "material",
+   "description": "What a vessel holds rather than what it is made of: the potion in a filled flask. Rule M31 lets it take any band — the colour is the liquid's own and says what it is — while the flask around it follows its glass or ceramic and its stopper the cork.",
+   "models": [
+    "rpg-quaternius/potion-1-filled",
+    "rpg-quaternius/potion-10-filled",
+    "rpg-quaternius/potion-11-filled",
+    "rpg-quaternius/potion-2-filled",
+    "rpg-quaternius/potion-3-filled",
+    "rpg-quaternius/potion-4-filled",
+    "rpg-quaternius/potion-5-filled",
+    "rpg-quaternius/potion-6-filled",
+    "rpg-quaternius/potion-7-filled",
+    "rpg-quaternius/potion-8-filled",
+    "rpg-quaternius/potion-9-filled"
+   ]
+  },
+  {
    "id": "light",
    "name": "Light",
    "type": "tag",
-   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween and Taaleiland's lighthouse. Snuffed candles, lamps and torches don't carry it.",
+   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween, Taaleiland's lighthouse and the burner flame under the hot-air balloons. Snuffed candles, lamps and torches don't carry it.",
    "models": [
     "dungeon/candle-lit",
     "dungeon/candle-thin-lit",
@@ -1668,6 +1696,9 @@
     "halloween/lantern-hanging",
     "halloween/lantern-standing",
     "halloween/post-lantern",
+    "taalei-kit/balloon",
+    "taalei-kit/balloon-basket-round",
+    "taalei-kit/balloon-basket-square",
     "taalei-kit/lighthouse"
    ]
   },
@@ -1699,6 +1730,36 @@
     "village-kit/wood-rope-corner",
     "village-kit/wood-rope-stairs",
     "village-kit/wood-rope-straight"
+   ]
+  },
+  {
+   "id": "cork",
+   "name": "Cork",
+   "type": "material",
+   "description": "The stopper in a bottle or potion flask, and anything else cut from cork bark. Rule M25 gives it one colour: the light salmon brown 13,0, the same on every model. The bottle or flask it sits in follows its own material, glass or ceramic.",
+   "models": [
+    "dungeon/bottle-a-brown",
+    "dungeon/bottle-a-green",
+    "dungeon/bottle-a-labeled-brown",
+    "dungeon/bottle-a-labeled-green",
+    "dungeon/bottle-b-brown",
+    "dungeon/bottle-b-green",
+    "dungeon/bottle-c-brown",
+    "dungeon/bottle-c-green",
+    "rpg-quaternius/potion-1-filled",
+    "rpg-quaternius/potion-10-filled",
+    "rpg-quaternius/potion-11-filled",
+    "rpg-quaternius/potion-2-filled",
+    "rpg-quaternius/potion-3-filled",
+    "rpg-quaternius/potion-4-filled",
+    "rpg-quaternius/potion-5-filled",
+    "rpg-quaternius/potion-6-filled",
+    "rpg-quaternius/potion-7-filled",
+    "rpg-quaternius/potion-8-filled",
+    "rpg-quaternius/potion-9-filled",
+    "survival-kit/bottle",
+    "survival-kit/bottle-large",
+    "survival-kit/bottle-red"
    ]
   },
   {
@@ -1735,7 +1796,7 @@
    "id": "precious-metal",
    "name": "Precious Metal",
    "type": "material",
-   "description": "Gold and silver: the bars, nuggets and stacks from the resources kit, the coins from the dungeon and prototype kits, the gold key and the gold-trimmed chest. Copper and iron are under metal.",
+   "description": "Gold and silver: the bars, nuggets and stacks from the resources kit, the coins from the dungeon and prototype kits, the gold key and the gold-trimmed chests, and the gold fittings on a keyring, a lock and a compass. Copper and iron are under metal.",
    "models": [
     "adventurers/sword-two-handed-colored",
     "dungeon/chest-gold",
@@ -1743,9 +1804,12 @@
     "dungeon/coin-stack-large",
     "dungeon/coin-stack-medium",
     "dungeon/coin-stack-small",
+    "dungeon/keyring-hanging",
     "fantasy-props/key-gold",
+    "pirate-quaternius/chest-gold",
     "pirate-quaternius/coins",
     "pirate-quaternius/gold-bag",
+    "platformer-kit/lock",
     "prototype-kit/coin",
     "resources/gold-bar",
     "resources/gold-bars",
@@ -1776,7 +1840,8 @@
     "rpg-quaternius/ring-3",
     "rpg-quaternius/ring-4",
     "rpg-quaternius/ring-5",
-    "rpg-quaternius/ring-6"
+    "rpg-quaternius/ring-6",
+    "rpgtools/compass-base"
    ]
   },
   {

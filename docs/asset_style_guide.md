@@ -106,6 +106,7 @@ M27. Bands on barrels, buckets, and chests are usually light grey (metal).
 M28. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regularly with metal accents.
 M29. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
 M30. Food is naturalistic — off-white 5,2, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
+M31. A liquid takes its own colour: the potion in a filled flask may use any band, because the colour is what says which potion it is. Like the flowers of rule M1 this is a rule of its own, so the colour-to-material rules below do not reach the liquid. The flask around it follows rule M16 and its stopper rule M25.
 
 C. Colour to material — what a band may be used on.
 

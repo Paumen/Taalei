@@ -2167,7 +2167,7 @@
    "id": "leather",
    "name": "Leather",
    "type": "material",
-   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, and book covers. A figure in leather carries this tag next to the textile of their cloth."
+   "description": "Tanned hide: belts, straps, boots and shoes, bracers and jerkins, quivers, satchels and backpacks, book covers, and the straps holding a stack of bricks together. A figure in leather carries this tag next to the textile of their cloth."
   },
   {
    "id": "flora",
@@ -2178,7 +2178,7 @@
   {
    "id": "foliage",
    "name": "Foliage",
-   "type": "tag",
+   "type": "material",
    "description": "The greenery itself: leafy trees, conifers, palms, grass clumps and grass patches, plants, lily pads and grain. Bare branches, stumps, trunks and dead trees carry only flora."
   },
   {
@@ -2212,16 +2212,28 @@
    "description": "Glass: bottles and potions, the windows of the village kit and the sailing ships with their windows, and the glass in lanterns, street lamps, compass and magnifying glass."
   },
   {
+   "id": "liquid",
+   "name": "Liquid",
+   "type": "material",
+   "description": "What a vessel holds rather than what it is made of: the potion in a filled flask. Rule M31 lets it take any band — the colour is the liquid's own and says what it is — while the flask around it follows its glass or ceramic and its stopper the cork."
+  },
+  {
    "id": "light",
    "name": "Light",
    "type": "tag",
-   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween and Taaleiland's lighthouse. Snuffed candles, lamps and torches don't carry it."
+   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween, Taaleiland's lighthouse and the burner flame under the hot-air balloons. Snuffed candles, lamps and torches don't carry it."
   },
   {
    "id": "rope",
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: the rope bundles from the rpgtools kit, the rigging in masts, rope fences and the rope railings of the village kit, the well and the bell pull, the handles of sack and bucket, the wrapped torch handles and the balloon's lines."
+  },
+  {
+   "id": "cork",
+   "name": "Cork",
+   "type": "material",
+   "description": "The stopper in a bottle or potion flask, and anything else cut from cork bark. Rule M25 gives it one colour: the light salmon brown 13,0, the same on every model. The bottle or flask it sits in follows its own material, glass or ceramic."
   },
   {
    "id": "fauna",
@@ -2233,7 +2245,7 @@
    "id": "precious-metal",
    "name": "Precious Metal",
    "type": "material",
-   "description": "Gold and silver: the bars, nuggets and stacks from the resources kit, the coins from the dungeon and prototype kits, the gold key and the gold-trimmed chest. Copper and iron are under metal."
+   "description": "Gold and silver: the bars, nuggets and stacks from the resources kit, the coins from the dungeon and prototype kits, the gold key and the gold-trimmed chests, and the gold fittings on a keyring, a lock and a compass. Copper and iron are under metal."
   },
   {
    "id": "special",
@@ -2358,14 +2370,14 @@
    "color": "#f2cb45"
   },
   {
-   "id": "assemblies",
-   "name": "Assemblies",
-   "color": "#b5651d"
-  },
-  {
    "id": "cooking",
    "name": "Cooking & tableware",
    "color": "#9c3f2e"
+  },
+  {
+   "id": "books-scrolls",
+   "name": "Books & scrolls",
+   "color": "#a9825c"
   },
   {
    "id": "storage",
@@ -2373,9 +2385,9 @@
    "color": "#dd9f79"
   },
   {
-   "id": "books-scrolls",
-   "name": "Books & scrolls",
-   "color": "#a9825c"
+   "id": "assemblies",
+   "name": "Assemblies",
+   "color": "#b5651d"
   },
   {
    "id": "transport",
@@ -4205,11 +4217,11 @@
    "anglePct": 73,
    "vpt": 1.37,
    "grad": 0.63,
-   "hues": 3,
+   "hues": 4,
    "colors": [
+    "#714c39",
     "#7a767c",
     "#7f3927",
-    "#9a6b4e",
     "#ebe4d0"
    ],
    "tags": [
@@ -4243,11 +4255,11 @@
    "anglePct": 24,
    "vpt": 1.43,
    "grad": 0.63,
-   "hues": 3,
+   "hues": 4,
    "colors": [
+    "#714c39",
     "#7a767c",
     "#7f3927",
-    "#9a6b4e",
     "#ebe4d0"
    ],
    "tags": [
@@ -4791,6 +4803,7 @@
    ],
    "tags": [
     "ceramic",
+    "cork",
     "kay",
     "object"
    ],
@@ -4826,6 +4839,7 @@
     "#dd9f79"
    ],
    "tags": [
+    "cork",
     "glass",
     "kay",
     "object"
@@ -4864,6 +4878,7 @@
    ],
    "tags": [
     "ceramic",
+    "cork",
     "kay",
     "object"
    ],
@@ -4900,6 +4915,7 @@
     "#ebe4d0"
    ],
    "tags": [
+    "cork",
     "glass",
     "kay",
     "object"
@@ -4937,6 +4953,7 @@
    ],
    "tags": [
     "ceramic",
+    "cork",
     "kay",
     "object"
    ],
@@ -4972,6 +4989,7 @@
     "#dd9f79"
    ],
    "tags": [
+    "cork",
     "glass",
     "kay",
     "object"
@@ -5009,6 +5027,7 @@
    ],
    "tags": [
     "ceramic",
+    "cork",
     "kay",
     "object"
    ],
@@ -5044,6 +5063,7 @@
     "#dd9f79"
    ],
    "tags": [
+    "cork",
     "glass",
     "kay",
     "object"
@@ -6915,7 +6935,8 @@
    "tags": [
     "kay",
     "metal",
-    "object"
+    "object",
+    "precious-metal"
    ]
   },
   {
@@ -10052,7 +10073,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-medium-1",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.5,
     0.1,
@@ -10081,7 +10102,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10090,7 +10111,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-medium-2",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.6,
     0.1,
@@ -10118,7 +10139,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10127,7 +10148,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-medium-3",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.5,
     0.1,
@@ -10156,7 +10177,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10165,7 +10186,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-small-1",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.1,
     0.1,
@@ -10193,7 +10214,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10202,7 +10223,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-small-2",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.1,
     0.1,
@@ -10230,7 +10251,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10239,7 +10260,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-group-small-3",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.1,
     0.1,
@@ -10267,7 +10288,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10310,7 +10331,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-stack-1",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.1,
     0.1,
@@ -10337,7 +10358,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -10346,7 +10367,7 @@
   {
    "kit": "fantasy-props",
    "name": "book-stack-2",
-   "gr": "books-scrolls",
+   "gr": "assemblies",
    "wdh": [
     0.1,
     0.1,
@@ -10374,7 +10395,7 @@
     "#ebe4d0"
    ],
    "tags": [
-    "object",
+    "assembly",
     "paper",
     "qua"
    ],
@@ -16003,11 +16024,10 @@
    "dens": 1773,
    "anglePct": 48,
    "vpt": 3,
-   "grad": 0.56,
-   "hues": 2,
+   "grad": 0.59,
+   "hues": 1,
    "colors": [
-    "#714c39",
-    "#ffb349"
+    "#714c39"
    ],
    "tags": [
     "bark",
@@ -22837,8 +22857,9 @@
    "anglePct": 84,
    "vpt": 1.88,
    "grad": 0.4,
-   "hues": 1,
+   "hues": 2,
    "colors": [
+    "#6d8d33",
     "#dd9f79"
    ],
    "tags": [
@@ -23254,7 +23275,6 @@
    "colors": [
     "#3e3e44",
     "#474a58",
-    "#7a767c",
     "#9a6b4e",
     "#9da4c4",
     "#cb9d78",
@@ -23296,7 +23316,6 @@
    "colors": [
     "#3e3e44",
     "#474a58",
-    "#7a767c",
     "#9a6b4e",
     "#9da4c4",
     "#cb9d78",
@@ -23337,7 +23356,6 @@
    "colors": [
     "#3e3e44",
     "#474a58",
-    "#7a767c",
     "#9a6b4e",
     "#9da4c4",
     "#cb9d78",
@@ -24009,6 +24027,7 @@
    "tags": [
     "metal",
     "object",
+    "precious-metal",
     "qua",
     "timber"
    ]
@@ -25630,7 +25649,8 @@
    "tags": [
     "ken",
     "metal",
-    "object"
+    "object",
+    "precious-metal"
    ]
   },
   {
@@ -26500,9 +26520,9 @@
    "anglePct": 7,
    "vpt": 1.97,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
-    "#7a767c",
+    "#23562c",
     "#88796d"
    ],
    "tags": [
@@ -26566,9 +26586,9 @@
    "anglePct": 1,
    "vpt": 2.21,
    "grad": 0,
-   "hues": 1,
+   "hues": 2,
    "colors": [
-    "#7a767c",
+    "#23562c",
     "#88796d"
    ],
    "tags": [
@@ -28703,8 +28723,8 @@
    "grad": 0.71,
    "hues": 2,
    "colors": [
-    "#7a767c",
-    "#9a6b4e"
+    "#714c39",
+    "#7a767c"
    ],
    "tags": [
     "kay",
@@ -29383,11 +29403,12 @@
    "grad": 0.62,
    "hues": 2,
    "colors": [
-    "#7a767c",
-    "#ffb349"
+    "#714c39",
+    "#7a767c"
    ],
    "tags": [
     "kay",
+    "leather",
     "object",
     "stone"
    ]
@@ -29417,11 +29438,12 @@
    "grad": 0.63,
    "hues": 2,
    "colors": [
-    "#7a767c",
-    "#ffb349"
+    "#714c39",
+    "#7a767c"
    ],
    "tags": [
     "kay",
+    "leather",
     "object",
     "stone"
    ]
@@ -29451,11 +29473,12 @@
    "grad": 0.64,
    "hues": 2,
    "colors": [
-    "#7a767c",
-    "#ffb349"
+    "#714c39",
+    "#7a767c"
    ],
    "tags": [
     "kay",
+    "leather",
     "object",
     "stone"
    ]
@@ -31505,12 +31528,11 @@
    "dens": 1181043,
    "anglePct": 13,
    "vpt": 1.98,
-   "grad": 0,
-   "hues": 3,
+   "grad": 0.46,
+   "hues": 2,
    "colors": [
     "#714c39",
-    "#7a767c",
-    "#cb9d78"
+    "#7a767c"
    ],
    "tags": [
     "leather",
@@ -31541,12 +31563,11 @@
    "dens": 1233974,
    "anglePct": 10,
    "vpt": 1.99,
-   "grad": 0,
-   "hues": 3,
+   "grad": 0.49,
+   "hues": 2,
    "colors": [
     "#714c39",
-    "#7a767c",
-    "#cb9d78"
+    "#7a767c"
    ],
    "tags": [
     "leather",
@@ -31682,11 +31703,10 @@
    "dens": 900608,
    "anglePct": 92,
    "vpt": 1.61,
-   "grad": 0,
+   "grad": 0.54,
    "hues": 2,
    "colors": [
     "#714c39",
-    "#cb9d78",
     "#ebe4d0"
    ],
    "tags": [
@@ -31719,11 +31739,10 @@
    "dens": 1290823,
    "anglePct": 42,
    "vpt": 1.53,
-   "grad": 0,
+   "grad": 0.44,
    "hues": 2,
    "colors": [
     "#714c39",
-    "#cb9d78",
     "#ebe4d0"
    ],
    "tags": [
@@ -32389,7 +32408,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32460,7 +32481,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32531,7 +32554,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32602,7 +32627,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32673,7 +32700,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32744,7 +32773,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32815,7 +32846,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32886,7 +32919,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -32957,7 +32992,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -33028,7 +33065,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -33099,7 +33138,9 @@
     "#ffffff"
    ],
    "tags": [
+    "cork",
     "glass",
+    "liquid",
     "object",
     "qua"
    ],
@@ -33485,7 +33526,8 @@
     "glass",
     "kay",
     "metal",
-    "object"
+    "object",
+    "precious-metal"
    ],
    "anim": [
     "open"
@@ -34631,7 +34673,7 @@
    "grad": 0,
    "hues": 2,
    "colors": [
-    "#88796d",
+    "#7a767c",
     "#9a6b4e",
     "#cb9d78",
     "#ebe4d0"
@@ -34917,12 +34959,11 @@
    "dens": 447250,
    "anglePct": 40,
    "vpt": 1.18,
-   "grad": 0.63,
-   "hues": 3,
+   "grad": 0.76,
+   "hues": 2,
    "colors": [
     "#714c39",
-    "#7a767c",
-    "#9a6b4e"
+    "#7a767c"
    ],
    "tags": [
     "kay",
@@ -35917,6 +35958,7 @@
    ],
    "tags": [
     "ceramic",
+    "cork",
     "ken",
     "object"
    ]
@@ -35951,6 +35993,7 @@
     "#ebe4d0"
    ],
    "tags": [
+    "cork",
     "glass",
     "ken",
     "object"
@@ -35987,6 +36030,7 @@
     "#ebe4d0"
    ],
    "tags": [
+    "cork",
     "glass",
     "ken",
     "object"
@@ -37184,6 +37228,7 @@
     "#ffb349"
    ],
    "tags": [
+    "light",
     "metal",
     "object",
     "rope",
@@ -37225,6 +37270,7 @@
     "#ffb349"
    ],
    "tags": [
+    "light",
     "metal",
     "object",
     "rope",
@@ -37267,6 +37313,7 @@
     "#ffb349"
    ],
    "tags": [
+    "light",
     "metal",
     "object",
     "rope",
@@ -38921,7 +38968,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v76"
   },
@@ -38988,7 +39036,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v76"
   },
@@ -39158,7 +39207,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v78"
   },
@@ -39225,7 +39275,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v78"
   },
@@ -39395,7 +39446,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v80"
   },
@@ -39462,7 +39514,8 @@
    "tags": [
     "ceramic",
     "modular",
-    "structure"
+    "structure",
+    "timber"
    ],
    "variant": "v80"
   },
