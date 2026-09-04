@@ -19,7 +19,7 @@ export const GROUPS = [
     tab: 'nature',
     description: 'What lives in the sea and what washes up from it: the dolphin, whale, shark, manta ray and the three fish from Quaternius, the mackerel and tuna from the pirate kit, the two fish from the survival kit, and every shell and starfish from the beach. The two fish bones moved to the bones group. Lives in the Nature tab with the rocks and the trees — a fish is there without anyone having put it there. This is where the seabed group ended up: it held nothing but shells and starfish, and they are all here now.' },
   { id: 'signs', name: 'Signs, flags & targets', short: 'Signs', color: '#ffb349',
-    description: 'Signposts, banners and targets. Carriers for text and instruction.' },
+    description: 'Signposts, banners and targets, plus the village bell. Carriers for text and instruction.' },
   { id: 'books-scrolls', name: 'Books & scrolls', short: 'Books', color: '#a9825c',
     description: 'Reading and writing gear: the loose books from fantasy-props, the rpgtools kit\'s journal (open and closed) and its rolled and empty maps, and the two scrolls from fantasy-props. The book stacks and groups are several books at once and live with the assemblies.' },
   { id: 'assemblies', name: 'Assemblies', short: 'Assemblies', color: '#b5651d',
@@ -27,7 +27,7 @@ export const GROUPS = [
   { id: 'furniture', name: 'Furniture & household', short: 'Furniture', color: '#c07c8a',
     description: 'The furniture: table, bench, stool and rug from the props kit, plus the beds, chairs and wall shelves from the dungeon kit. Also the two tents from the Start Camp live here — a tent is what you sleep in, same as a bed. The tableware lives with the chests and barrels, the candles with the lights, and the food with its own group and the set tables under cooking & tableware; the campfires belong there too, since that\'s what you cook on.' },
   { id: 'items', name: 'Collectibles & mechanics', short: 'Items', color: '#f1976c',
-    description: 'Star and heart alongside lever and spring: small loose objects you pick up or that react to an action. The two cobwebs moved to the plants. The village bell belongs here too, and so do the journals and maps. The backpack and the bags went to chests and barrels, the coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the bones and skulls to bones. Use sparingly, not a points economy.' },
+    description: 'Star and heart alongside lever and spring: small loose objects you pick up or that react to an action. The two cobwebs moved to the plants. The village bell moved to the signs — it calls the village together rather than being picked up — and the journals and maps belong here. The backpack and the bags went to chests and barrels, the coins, rings and necklaces moved to coins & jewellery, the keys, keyrings and locks to keys & locks, and the bones and skulls to bones. Use sparingly, not a points economy.' },
   { id: 'transport', name: 'Transport', short: 'Transport', color: '#5a7a9c',
     description: 'Ways to move things and people: the carts from fantasy-town-kit and village-kit, the rowing boats from village-kit and pirate-kit, the cannons and mast from pirate-kit, and the ships and wreck from pirate-kit.' },
   { id: 'lights', name: 'Lights & lamps', short: 'Lights', color: '#f2cb45',
@@ -147,6 +147,9 @@ const exceptions = {
   'survival-kit/resource-stone-large': 'rocks',
   'pirate-kit/hole': 'structures',
   'mini-forest/target': 'signs',
+  // A bell rung over the village is an instruction to everyone in earshot, the same
+  // job the signposts and banners do — it carries a message rather than being picked up.
+  'village-kit/bell-a': 'signs',
   'modular-cave-kit/template-floor-layer': 'structures',
   'modular-cave-kit/template-floor-layer-hole': 'structures',
   'modular-cave-kit/template-floor-layer-raised': 'structures',

@@ -107,6 +107,7 @@ M28. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regula
 M29. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
 M30. Food is naturalistic — off-white 5,2, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
 M31. A liquid takes its own colour: the potion in a filled flask may use any band, because the colour is what says which potion it is. Like the flowers of rule M1 this is a rule of its own, so the colour-to-material rules below do not reach the liquid. The flask around it follows rule M16 and its stopper rule M25.
+M32. Meat is one colour across the whole collection: terracotta 5,0 in the dark half of its gradient, 0.55-1.00, the same way rule M13 holds the wrapped grips to one colour. That covers the joint, the drumstick, the steak, the roast bird and the chunks in a stew alike; a cut or inner face stays the darker end of that same range rather than taking a band of its own. The bone follows rule M6 and the fat rim the off-white beside it, the plate or bowl follows its own material, and the broth or sauce it sits in is a liquid under rule M31 — in the stew it stays the light half of 5,0, so the chunks still read against it.
 
 C. Colour to material — what a band may be used on.
 
