@@ -87,7 +87,7 @@ const looksLikeAccent = (m) =>
 const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ground: 'flora', ocean: 'fauna' };
 
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
-  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'precious-metal'];
+  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'cork', 'precious-metal'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
