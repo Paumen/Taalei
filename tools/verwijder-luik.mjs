@@ -17,6 +17,7 @@
 //     --vak -0.30,0.64,-1.105,0.30,0.92,-0.505 --mesh 0
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
+import { herbouwGlb } from './glb-herbouw.mjs';
 
 const EPS = 1e-5;
 const arg = process.argv.slice(2);
@@ -121,11 +122,11 @@ for (const d of houd) for (const v of d) {
   nieuweIdx.push(n);
 }
 
-const nieuweData = new Map([
-  [prim.attributes.POSITION, [nieuwePos, 3, Float32Array]],
-  [prim.attributes.NORMAL, [nieuweNor, 3, Float32Array]],
-  [prim.attributes.TEXCOORD_0, [nieuweUv, 2, Float32Array]],
-  [prim.indices, [nieuweIdx, 1, Uint16Array]],
+const vervangen = new Map([
+  [prim.attributes.POSITION, { waarden: nieuwePos, breedte: 3, Type: Float32Array }],
+  [prim.attributes.NORMAL, { waarden: nieuweNor, breedte: 3, Type: Float32Array }],
+  [prim.attributes.TEXCOORD_0, { waarden: nieuweUv, breedte: 2, Type: Float32Array }],
+  [prim.indices, { waarden: nieuweIdx, breedte: 1, Type: Uint16Array }],
 ]);
 
 // Wat in het luik stond staat straks onder een dicht dek: onzichtbaar, maar het telt
@@ -175,78 +176,7 @@ if (luikNode >= 0) for (const c of glb.json.nodes[luikNode].children ?? []) {
   doorloop(c, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 }
 
-// Knooppunten, meshes, accessors en bufferViews opnieuw nummeren; wat na het weghalen
-// nergens meer aan hangt valt weg.
-const nodeNr = new Map();
-glb.json.nodes.forEach((_, i) => { if (!wegNodes.has(i)) nodeNr.set(i, nodeNr.size); });
-const nieuweNodes = [];
-for (const [oud] of nodeNr) {
-  const node = { ...glb.json.nodes[oud] };
-  const kinderen = (node.children ?? []).filter((c) => nodeNr.has(c)).map((c) => nodeNr.get(c));
-  if (kinderen.length) node.children = kinderen; else delete node.children;
-  nieuweNodes.push(node);
-}
-glb.json.nodes = nieuweNodes;
-for (const scene of glb.json.scenes) scene.nodes = scene.nodes.filter((n) => nodeNr.has(n)).map((n) => nodeNr.get(n));
-
-const meshNr = new Map();
-for (const node of glb.json.nodes) if (node.mesh !== undefined && !meshNr.has(node.mesh)) meshNr.set(node.mesh, 0);
-const meshOrde = [...meshNr.keys()].sort((a, b) => a - b);
-meshOrde.forEach((oud, nieuw) => meshNr.set(oud, nieuw));
-glb.json.meshes = meshOrde.map((oud) => glb.json.meshes[oud]);
-for (const node of glb.json.nodes) if (node.mesh !== undefined) node.mesh = meshNr.get(node.mesh);
-
-const accessorOrde = [];
-for (const mesh of glb.json.meshes) for (const p of mesh.primitives) {
-  for (const a of Object.values(p.attributes)) accessorOrde.push(a);
-  if (p.indices !== undefined) accessorOrde.push(p.indices);
-}
-const accessorNr = new Map(accessorOrde.map((oud, nieuw) => [oud, nieuw]));
-if (accessorNr.size !== accessorOrde.length) { console.error('gedeelde accessor; niet ondersteund'); process.exit(1); }
-
-// Elke accessor heeft hier zijn eigen bufferView, dus views en bin kunnen in dezelfde
-// volgorde opnieuw worden opgebouwd.
-const gedeeld = new Set();
-for (const a of glb.json.accessors) {
-  if (gedeeld.has(a.bufferView)) { console.error('gedeelde bufferView; niet ondersteund'); process.exit(1); }
-  gedeeld.add(a.bufferView);
-}
-const stukken = [];
-const nieuweViews = [], nieuweAccessors = [];
-let lengte = 0;
-for (const oud of accessorOrde) {
-  const accessor = { ...glb.json.accessors[oud] };
-  const view = glb.json.bufferViews[accessor.bufferView];
-  const eigen = nieuweData.get(oud);
-  const data = eigen
-    ? Buffer.from(new eigen[2](eigen[0]).buffer)
-    : glb.bin.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength);
-  const vul = (4 - (lengte % 4)) % 4;
-  if (vul) { stukken.push(Buffer.alloc(vul, 0)); lengte += vul; }
-  nieuweViews.push({ ...view, byteOffset: lengte, byteLength: data.length });
-  stukken.push(Buffer.from(data));
-  lengte += data.length;
-  accessor.bufferView = nieuweViews.length - 1;
-  if (eigen) {
-    const [bron, breedte] = eigen;
-    accessor.count = bron.length / breedte;
-    if (accessor.min) {
-      const kolom = (j) => bron.filter((_, i) => i % breedte === j);
-      accessor.min = Array.from({ length: breedte }, (_, j) => Math.min(...kolom(j)));
-      accessor.max = Array.from({ length: breedte }, (_, j) => Math.max(...kolom(j)));
-    }
-  }
-  nieuweAccessors.push(accessor);
-}
-glb.json.accessors = nieuweAccessors;
-glb.json.bufferViews = nieuweViews;
-for (const mesh of glb.json.meshes) for (const p of mesh.primitives) {
-  for (const naam of Object.keys(p.attributes)) p.attributes[naam] = accessorNr.get(p.attributes[naam]);
-  if (p.indices !== undefined) p.indices = accessorNr.get(p.indices);
-}
-
-const bin = Buffer.concat(stukken);
-glb.json.buffers[0].byteLength = bin.length;
+const bin = herbouwGlb(glb, { vervangen, wegNodes });
 writeGlb(pad, glb.json, bin, writeFileSync);
 const erbij = wegNodes.size ? `, ${wegNodes.size} knooppunt(en) uit het luik weg` : '';
 console.log(`${weg} driehoeken weg, gat van ${contour.length} hoekpunten gedicht met ${contour.length - 2} driehoeken${erbij}`);
