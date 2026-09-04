@@ -98,6 +98,11 @@ const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
 const isRoof = (m) =>
   (m.name.startsWith('roof') || m.name.includes('-roof')) && has(m, 'ceramic');
 
+// Rule M1 stands on its own: a flower may be any colour, so no rule in the C block
+// reaches one. The flowers group is not the whole set — the cactus flowers are filed
+// under plants with the cactus they sit on — so the name counts as well.
+const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
+
 // A band is only used for the materials listed. Fires when the model uses the band
 // and carries none of them. `accent` exempts the models the approximation above
 // reads as a detail; `unless` is an extra escape a rule spells out itself.
@@ -105,6 +110,7 @@ const bandOnlyFor = ({ id, text, severity, color, tags, accent = false, unless =
   id, text, severity,
   check: (m) => {
     if (!uses(m, band(color))) return null;
+    if (isFlower(m)) return null;
     if (has(m, ...tags)) return null;
     if (unless?.(m)) return null;
     if (accent && looksLikeAccent(m)) return null;
@@ -176,11 +182,8 @@ const RULES = [
   bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
     severity: 'warn', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
     unless: (m) => !has(m, 'timber', 'bark') }),
-  // Rule M1 stands on its own: a flower may be any colour, so the C block does not
-  // reach the flowers group.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
-    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'],
-    unless: (m) => m.gr === 'flowers' }),
+    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'] }),
   bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
     severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',

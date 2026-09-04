@@ -57,7 +57,7 @@ for(const mesh of glb.json.meshes ?? []) for(const prim of mesh.primitives ?? []
       let n=kaart.get(s); if(n===undefined){n=herk.length;kaart.set(s,n);herk.push(i);mee.push(gaat);} nidx.push(n);}}
   gesplitst+=herk.length-new Set(herk).size;
   for(const [naam,a] of Object.entries(attrs)){
-    const b=a.breedte, uit=new Float32Array(herk.length*b);
+    const b=a.width, uit=new Float32Array(herk.length*b);
     for(let n=0;n<herk.length;n++) for(let k=0;k<b;k++) uit[n*b+k]=a.data[herk[n]*b+k];
     if(naam==='TEXCOORD_0') for(let n=0;n<herk.length;n++){ if(!mee[n]) continue;
       const x=Math.min(Math.max(uit[n*2]*W,0),W-1e-6), y=Math.min(Math.max(uit[n*2+1]*H,0),H-1e-6);
