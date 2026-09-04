@@ -120,14 +120,17 @@ const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
 const isKey = (m) => /(^|-)key/.test(m.name);
 
 // A band is only used for the materials listed. Fires when the model uses the band
-// and carries none of them. `accent` exempts the models the approximation above
-// reads as a detail; `unless` is an extra escape a rule spells out itself.
-const bandOnlyFor = ({ id, text, severity, color, tags, accent = false, unless = null }) => ({
+// and carries none of them. `groups` names semantic groups the band is equally for,
+// where what a model is says more than what it is made of; `accent` exempts the
+// models the approximation above reads as a detail; `unless` is an extra escape a
+// rule spells out itself.
+const bandOnlyFor = ({ id, text, severity, color, tags, groups = [], accent = false, unless = null }) => ({
   id, text, severity,
   check: (m) => {
     if (!uses(m, band(color))) return null;
     if (isFlower(m)) return null;
     if (has(m, ...tags)) return null;
+    if (groups.includes(m.gr)) return null;
     if (unless?.(m)) return null;
     if (accent && looksLikeAccent(m)) return null;
     return `uses ${color} ${BANDS[color]} but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}`;
@@ -209,9 +212,12 @@ const RULES = [
     severity: 'warn', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
     unless: (m) => !has(m, 'timber', 'bark') }),
   // M30 names cheese as the one yellow food, and the cheese wedge is the only model
-  // the food tag brings in here.
+  // the food tag brings in here. The coins-jewelry and lights groups carry the other
+  // half of the rule's own wording: a gold-trimmed chest and a street lamp are the
+  // thing the band is for, whatever material tag they happen to hold.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
     severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'],
+    groups: ['coins-jewelry', 'lights'],
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
     severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
