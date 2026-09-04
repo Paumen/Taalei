@@ -92,7 +92,11 @@ const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'tex
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
 const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
-const isRoof = (m) => m.name.startsWith('roof') || m.name.includes('-roof');
+// A roof in the sense of rule M19 is a tiled roof, and those carry the ceramic tag.
+// The name alone is not enough: the ridge and rake trim and the thatched
+// structure-roof are timber pieces that happen to have "roof" in the name.
+const isRoof = (m) =>
+  (m.name.startsWith('roof') || m.name.includes('-roof')) && has(m, 'ceramic');
 
 // A band is only used for the materials listed. Fires when the model uses the band
 // and carries none of them. `accent` exempts the models the approximation above
@@ -148,9 +152,11 @@ const RULES = [
     severity: 'warn', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M21', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
     severity: 'warn', tag: 'rock', colors: ['light grey', 'taupe'] }),
+  // Sand and dirt, not everything on the ground: a grass patch is flora sitting on
+  // it, and stone and rock have their own rules.
   materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.',
     severity: 'warn', tag: 'ground', colors: ['taupe', 'khaki', 'salmon'],
-    when: (m) => m.gr === 'ground' && !has(m, 'stone', 'rock') }),
+    when: (m) => m.gr === 'ground' && !has(m, 'stone', 'rock', 'flora', 'foliage') }),
   materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'candle') }),
