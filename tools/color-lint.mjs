@@ -103,6 +103,13 @@ const isRoof = (m) =>
 // under plants with the cactus they sit on — so the name counts as well.
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
 
+// Ocean fauna carry no material: `fauna` is not a material tag and Appendix A gives
+// the group none, so the C block reads every band on a fish as a band whose material
+// is missing. Rule M26 is what says which colours these models may take; the C block
+// does not reach them. The fauna tag is the condition, not the group alone — an
+// anchor or a net filed under ocean is an object and stays in.
+const isOceanFauna = (m) => m.gr === 'ocean' && has(m, 'fauna');
+
 // Two metals Appendix A gives their own rule, so rule M9-M10 does not reach them.
 // Both are read off the name: copper and the keys carry the plain `metal` tag, and
 // nothing in the catalogue records that a bar is copper or a shape is a key.
@@ -118,6 +125,7 @@ const bandOnlyFor = ({ id, text, severity, color, tags, accent = false, unless =
   check: (m) => {
     if (!uses(m, band(color))) return null;
     if (isFlower(m)) return null;
+    if (isOceanFauna(m)) return null;
     if (has(m, ...tags)) return null;
     if (unless?.(m)) return null;
     if (accent && looksLikeAccent(m)) return null;
