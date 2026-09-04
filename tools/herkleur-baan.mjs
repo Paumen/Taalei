@@ -9,6 +9,12 @@
 // samenstelling waarin één baan meerdere voorwerpen draagt (een riem en een laag
 // stof allebei op 13,0). --lijst drukt die delen af met hun banen. Zie
 // tools/stukken.mjs; herkleur-baandeel.mjs gebruikt dezelfde aanwijzers.
+//
+// --mesh <patroon> beperkt het tot meshes waarvan de naam matcht. De figuren uit
+// de KayKit-packs bestaan uit benoemde lichaamsdelen (Skeleton_Warrior_Body,
+// _Cloak, _Helmet), en daar draagt één baan vaak twee dingen die in verschillende
+// meshes zitten: de riem zit in _Body en de cape in _Cloak, allebei op 8,0.
+// --stuk werkt daar niet, want die figuren hebben meer dan één primitive.
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
 import { enigePrimitive, lijstRegels, verdeelInStukken } from './stukken.mjs';
@@ -21,6 +27,7 @@ const COLORMAP = new URL('../kits/colormap.png', import.meta.url).pathname;
 const argumenten = process.argv.slice(2);
 const van = [];
 const stukken = [];
+const meshPatronen = [];
 let naar = null;
 let lijst = false;
 const bestanden = [];
@@ -28,11 +35,12 @@ for (let i = 0; i < argumenten.length; i++) {
   if (argumenten[i] === '--van') van.push(argumenten[++i]);
   else if (argumenten[i] === '--naar') naar = argumenten[++i];
   else if (argumenten[i] === '--stuk') stukken.push(argumenten[++i]);
+  else if (argumenten[i] === '--mesh') meshPatronen.push(argumenten[++i]);
   else if (argumenten[i] === '--lijst') lijst = true;
   else bestanden.push(argumenten[i]);
 }
 if (bestanden.length === 0 || (!lijst && (van.length === 0 || !naar))) {
-  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] <glb...>');
+  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] [--mesh naam] <glb...>');
   console.error('         node tools/herkleur-baan.mjs --lijst <glb...>');
   process.exit(1);
 }
@@ -86,8 +94,13 @@ for (const pad of bestanden) {
   const gevraagd = new Set(stukken);
   const gezien = new Set();
 
+  const meshFilter = meshPatronen.length ? new RegExp(meshPatronen.join('|')) : null;
+  let meshGezien = 0;
+
   const gedaan = new Set();
   for (const mesh of json.meshes ?? []) {
+    if (meshFilter && !meshFilter.test(mesh.name ?? '')) continue;
+    meshGezien++;
     for (const prim of mesh.primitives ?? []) {
       const index = prim.attributes?.TEXCOORD_0;
       if (index === undefined || gedaan.has(index)) continue;
@@ -125,8 +138,12 @@ for (const pad of bestanden) {
 
   const kwijt = [...gevraagd].filter((s) => !gezien.has(s));
   if (kwijt.length) throw new Error(`${pad}: geen stuk op ${kwijt.join(' / ')} — draai --lijst voor de sleutels`);
+  if (meshFilter && meshGezien === 0) throw new Error(`${pad}: geen mesh met een naam op ${meshPatronen.join('|')}`);
 
   writeGlb(pad, json, bin, writeFileSync);
-  const waar = stukken.length ? ` in ${stukken.length} stuk(ken)` : '';
-  console.log(`${pad}: ${geraakt} uv's van ${van.join('+')} naar ${naar}${waar}`);
+  const waar = [
+    stukken.length ? `in ${stukken.length} stuk(ken)` : '',
+    meshFilter ? `in ${meshGezien} mesh(es)` : '',
+  ].filter(Boolean).join(' ');
+  console.log(`${pad}: ${geraakt} uv's van ${van.join('+')} naar ${naar}${waar ? ' ' + waar : ''}`);
 }
