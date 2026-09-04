@@ -10,6 +10,11 @@
 // stof allebei op 13,0). --lijst drukt die delen af met hun banen. Zie
 // tools/stukken.mjs; herkleur-baandeel.mjs gebruikt dezelfde aanwijzers.
 //
+// --vanbereik a-b beperkt het tot UV's die in de bronbaan op een verloopstand
+// tussen a en b staan. Een gesp en de riem eronder liggen soms in dezelfde baan
+// maar op een eigen stand — bij skeleton-minion staat de gesp op 0.03-0.66 en de
+// broek op 0.97 — en dan is de stand de enige scheiding die het model zelf geeft.
+//
 // --mesh <patroon> beperkt het tot meshes waarvan de naam matcht. De figuren uit
 // de KayKit-packs bestaan uit benoemde lichaamsdelen (Skeleton_Warrior_Body,
 // _Cloak, _Helmet), en daar draagt één baan vaak twee dingen die in verschillende
@@ -28,6 +33,7 @@ const argumenten = process.argv.slice(2);
 const van = [];
 const stukken = [];
 const meshPatronen = [];
+let vanBereik = null;
 let naar = null;
 let lijst = false;
 const bestanden = [];
@@ -36,11 +42,12 @@ for (let i = 0; i < argumenten.length; i++) {
   else if (argumenten[i] === '--naar') naar = argumenten[++i];
   else if (argumenten[i] === '--stuk') stukken.push(argumenten[++i]);
   else if (argumenten[i] === '--mesh') meshPatronen.push(argumenten[++i]);
+  else if (argumenten[i] === '--vanbereik') vanBereik = argumenten[++i];
   else if (argumenten[i] === '--lijst') lijst = true;
   else bestanden.push(argumenten[i]);
 }
 if (bestanden.length === 0 || (!lijst && (van.length === 0 || !naar))) {
-  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] [--mesh naam] <glb...>');
+  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] [--mesh naam] [--vanbereik a-b] <glb...>');
   console.error('         node tools/herkleur-baan.mjs --lijst <glb...>');
   process.exit(1);
 }
@@ -59,6 +66,11 @@ function lichtheid(kolom, rij, vDeel) {
 
 function richting(kolom, rij) {
   return Math.sign(lichtheid(kolom, rij, 0.9) - lichtheid(kolom, rij, 0.1));
+}
+
+const [bereikLaag, bereikHoog] = vanBereik ? vanBereik.split('-').map(Number) : [0, 1];
+if (vanBereik && !(bereikLaag >= 0 && bereikHoog <= 1 && bereikLaag < bereikHoog)) {
+  throw new Error(`--vanbereik ${vanBereik} valt buiten 0-1 of loopt achteruit`);
 }
 
 const [naarK, naarR] = lijst ? [] : naar.split(',').map(Number);
@@ -82,12 +94,22 @@ for (const pad of bestanden) {
   const { json, bin } = glb;
   let geraakt = 0;
 
+  // --stuk splitst de mesh die na --mesh overblijft, zodat een figuur met meer
+  // meshes toch op losse delen aan te wijzen is: eerst --mesh, dan --stuk.
+  const voorStukken = meshPatronen.length
+    ? { meshes: (json.meshes ?? []).filter((m) => new RegExp(meshPatronen.join('|')).test(m.name ?? '')) }
+    : json;
+
   let stukInfo = null;
-  if (lijst || stukken.length > 0) stukInfo = verdeelInStukken(glb, enigePrimitive(json, pad));
+  let stukPrim = null;
+  if (lijst || stukken.length > 0) {
+    stukPrim = enigePrimitive(voorStukken, pad);
+    stukInfo = verdeelInStukken(glb, stukPrim);
+  }
 
   if (lijst) {
     console.log(`== ${pad}: ${stukInfo.doos.size} stukken`);
-    for (const regel of lijstRegels(glb, stukInfo, baanVan)) console.log(regel);
+    for (const regel of lijstRegels(glb, stukInfo, baanVan, stukPrim)) console.log(regel);
     continue;
   }
 
@@ -128,6 +150,7 @@ for (const pad of bestanden) {
 
         const uDeel = x / celBreed - Math.floor(x / celBreed);
         const vRuw = y / celHoog - Math.floor(y / celHoog);
+        if (vRuw < bereikLaag || vRuw > bereikHoog) continue;
         const vDeel = bron.omgekeerd ? 1 - vRuw : vRuw;
         uv[0] = ((naarK + uDeel) * celBreed) / atlas.width;
         uv[1] = ((naarR + vDeel) * celHoog) / atlas.height;
@@ -144,6 +167,7 @@ for (const pad of bestanden) {
   const waar = [
     stukken.length ? `in ${stukken.length} stuk(ken)` : '',
     meshFilter ? `in ${meshGezien} mesh(es)` : '',
+    vanBereik ? `stand ${vanBereik}` : '',
   ].filter(Boolean).join(' ');
   console.log(`${pad}: ${geraakt} uv's van ${van.join('+')} naar ${naar}${waar ? ' ' + waar : ''}`);
 }
