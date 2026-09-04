@@ -80,9 +80,10 @@ export function enigePrimitive(json, pad) {
   return prims[0];
 }
 
-// De regels van --lijst: elk stuk met zijn sleutel, grootte en banen.
-export function lijstRegels(glb, stukInfo, baanVan) {
-  const prim = glb.json.meshes[0].primitives[0];
+// De regels van --lijst: elk stuk met zijn sleutel, grootte en banen. `prim` moet
+// dezelfde primitive zijn als die aan verdeelInStukken is gegeven — met --mesh is
+// dat niet de eerste mesh van het bestand.
+export function lijstRegels(glb, stukInfo, baanVan, prim) {
   const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
   const banenPer = new Map();
   for (let v = 0; v < uv.length / 2; v++) {

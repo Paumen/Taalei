@@ -85,13 +85,15 @@ for (const pad of bestanden) {
   // --stuk en --lijst gaan uit van één mesh met één primitive; dat is wat de
   // samenstellingen in deze kits zijn. Losse modellen hebben ze niet nodig.
   let stukInfo = null;
+  let stukPrim = null;
   if (lijst || stukken.length > 0) {
-    stukInfo = verdeelInStukken(glb, enigePrimitive(json, pad));
+    stukPrim = enigePrimitive(json, pad);
+    stukInfo = verdeelInStukken(glb, stukPrim);
   }
 
   if (lijst) {
     console.log(`== ${pad}: ${stukInfo.doos.size} stukken`);
-    for (const regel of lijstRegels(glb, stukInfo, baanVan)) console.log(regel);
+    for (const regel of lijstRegels(glb, stukInfo, baanVan, stukPrim)) console.log(regel);
     continue;
   }
 
