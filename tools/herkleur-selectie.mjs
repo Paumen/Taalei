@@ -12,6 +12,14 @@
 // Selectie kan verder worden beperkt met --box xmin:xmax,ymin:ymax,zmin:zmax
 // (wereldloze meshcoördinaten, "-" = geen grens), zodat pagina's en kaften die
 // dezelfde baan delen uit elkaar te houden zijn.
+//
+// --heel maakt van --box de regel van afsplitsen.mjs: eerst hoekpunten lassen op
+// positie, dan hele samenhangende onderdelen kiezen, en een onderdeel gaat alleen
+// mee als het hélemaal in de doos valt. Nodig zodra onderdelen die dezelfde baan
+// én dezelfde verlooppositie delen elkaar op elke as overlappen — de loop van een
+// kanon en zijn wielen, beslag en tapbussen. Een doos die alleen de kleine delen
+// omsluit, kiest die dan compleet en laat de loop staan; zonder --heel zou de
+// grens dwars door de loop lopen.
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
@@ -21,7 +29,7 @@ const W = 512, H = 512;
 const CB = W / KOLOMMEN, CH = H / RIJEN;
 
 const argumenten = process.argv.slice(2);
-let van = null, naar = null, bereik = [0, 1], uit = null, box = null, pad = null, vbron = null;
+let van = null, naar = null, bereik = [0, 1], uit = null, box = null, pad = null, vbron = null, heel = false;
 for (let i = 0; i < argumenten.length; i++) {
   const a = argumenten[i];
   if (a === '--van') van = argumenten[++i];
@@ -29,13 +37,18 @@ for (let i = 0; i < argumenten.length; i++) {
   else if (a === '--bereik') bereik = argumenten[++i].split(':').map(Number);
   else if (a === '--vbron') vbron = argumenten[++i].split(':').map(Number);
   else if (a === '--uit') uit = argumenten[++i];
+  else if (a === '--heel') heel = true;
   else if (a === '--box') {
     box = argumenten[++i].split(',').map((as) =>
       as.split(':').map((v) => (v === '-' ? null : Number(v))));
   } else pad = a;
 }
 if (!pad || !van || !naar) {
-  console.error('gebruik: node tools/herkleur-selectie.mjs <glb> --van k,r --naar k,r [--bereik lo:hi] [--box x:x,y:y,z:z] [--uit kopie.glb]');
+  console.error('gebruik: node tools/herkleur-selectie.mjs <glb> --van k,r --naar k,r [--bereik lo:hi] [--box x:x,y:y,z:z] [--heel] [--uit kopie.glb]');
+  process.exit(1);
+}
+if (heel && !box) {
+  console.error('--heel werkt op de doos: geef ook --box');
   process.exit(1);
 }
 
@@ -62,6 +75,48 @@ for (const mesh of json.meshes ?? []) {
     const posAcc = prim.attributes.POSITION !== undefined && box
       ? readAccessor(glb, prim.attributes.POSITION) : null;
 
+    // --heel: dezelfde regel als afsplitsen.mjs. Las de hoekpunten op positie,
+    // verenig ze per driehoek tot samenhangende onderdelen, en hou alleen de
+    // onderdelen over die met al hun hoekpunten in de doos liggen.
+    let deelVan = null, deelBinnen = null;
+    if (heel && posAcc && prim.indices !== undefined) {
+      const idx = readAccessor(glb, prim.indices);
+      const ouder = new Int32Array(posAcc.count);
+      for (let i = 0; i < posAcc.count; i++) ouder[i] = i;
+      const vind = (x) => { while (ouder[x] !== x) { ouder[x] = ouder[ouder[x]]; x = ouder[x]; } return x; };
+      const unie = (x, y) => { x = vind(x); y = vind(y); if (x !== y) ouder[y] = x; };
+      const sleutel = new Map();
+      for (let i = 0; i < posAcc.count; i++) {
+        const k = [0, 1, 2].map((c) => posAcc.data[i * 3 + c].toFixed(4)).join(',');
+        if (sleutel.has(k)) unie(sleutel.get(k), i); else sleutel.set(k, i);
+      }
+      for (let t = 0; t + 2 < idx.count; t += 3) {
+        unie(idx.data[t], idx.data[t + 1]);
+        unie(idx.data[t + 1], idx.data[t + 2]);
+      }
+      const grens = new Map();
+      for (let i = 0; i < posAcc.count; i++) {
+        const g = vind(i);
+        let e = grens.get(g);
+        if (!e) { e = { lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity] }; grens.set(g, e); }
+        for (let c = 0; c < 3; c++) {
+          const w = posAcc.data[i * 3 + c];
+          if (w < e.lo[c]) e.lo[c] = w;
+          if (w > e.hi[c]) e.hi[c] = w;
+        }
+      }
+      deelBinnen = new Set();
+      for (const [g, e] of grens) {
+        let binnen = true;
+        for (let c = 0; c < 3; c++) {
+          if (box[c][0] !== null && e.lo[c] < box[c][0]) binnen = false;
+          if (box[c][1] !== null && e.hi[c] > box[c][1]) binnen = false;
+        }
+        if (binnen) deelBinnen.add(g);
+      }
+      deelVan = vind;
+    }
+
     const uvVan = (i) => {
       const uv = new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
       const x = Math.min(Math.max(uv[0] * W, 0), W - 1e-6);
@@ -77,7 +132,9 @@ for (const mesh of json.meshes ?? []) {
         const vDeel = hier.y / CH - vanR;
         if (vDeel < vbron[0] || vDeel > vbron[1]) continue;
       }
-      if (posAcc) {
+      if (deelBinnen) {
+        if (!deelBinnen.has(deelVan(i))) continue;
+      } else if (posAcc) {
         let binnen = true;
         for (let as = 0; as < 3; as++) {
           const v = posAcc.data[i * 3 + as];
@@ -119,4 +176,4 @@ for (const mesh of json.meshes ?? []) {
 }
 
 writeGlb(uit ?? pad, json, bin, writeFileSync);
-console.log(`${uit ?? pad}: ${geraakt} uv's ${van} → ${naar} [${bereik.join(':')}]${box ? ' (met box)' : ''}`);
+console.log(`${uit ?? pad}: ${geraakt} uv's ${van} → ${naar} [${bereik.join(':')}]${box ? (heel ? ' (hele onderdelen in doos)' : ' (met box)') : ''}`);
