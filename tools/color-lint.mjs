@@ -93,7 +93,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 // their own, so counting it would read a single-band grass patch as short a band.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'cork', 'precious-metal',
-  'foliage'];
+  'foliage', 'liquid'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -208,10 +208,13 @@ const RULES = [
     when: (m) => has(m, 'fauna') }),
 
   // Colour -> material, the C block. Appendix A says "only" throughout it.
+  // Rule M31: the liquid in a flask takes its own colour, so `liquid` stands beside the
+  // materials in every band a potion can be. The flask and its stopper are not exempt —
+  // they carry glass and cork, and those rules still have to answer for their own bands.
   bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26) and otherwise only minor details or accents.',
-    severity: 'warn', color: 'blue', tags: ['fauna'], accent: true }),
+    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid'], accent: true }),
   bandOnlyFor({ id: 'C9', text: 'Light green is only used for flora, and very minor details or accents.',
-    severity: 'error', color: 'light green', tags: ['flora', 'foliage'], accent: true }),
+    severity: 'error', color: 'light green', tags: ['flora', 'foliage', 'liquid'], accent: true }),
   // Read literally: the rule forbids terracotta on timber, and names copper (R) and
   // ceramics as what may carry it. It says nothing about other materials.
   bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
@@ -222,15 +225,15 @@ const RULES = [
   // half of the rule's own wording: a gold-trimmed chest and a street lamp are the
   // thing the band is for, whatever material tag they happen to hold.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
-    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'],
+    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle', 'liquid'],
     groups: ['coins-jewelry', 'lights'],
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
     severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
-    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass'], accent: true, unless: isRoof }),
+    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid'], accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, and very minor details or accents.',
-    severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
+    severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid'], accent: true }),
   bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
     severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
   // "Lighter browns" is the light and middle lane of rule G1; rule M14 puts rope on
