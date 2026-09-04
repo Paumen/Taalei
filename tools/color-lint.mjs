@@ -103,6 +103,13 @@ const isRoof = (m) =>
 // under plants with the cactus they sit on — so the name counts as well.
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
 
+// Two metals Appendix A gives their own rule, so rule M9-M10 does not reach them.
+// Both are read off the name: copper and the keys carry the plain `metal` tag, and
+// nothing in the catalogue records that a bar is copper or a shape is a key.
+// `keyring` is in: a ring of keys is keys.
+const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
+const isKey = (m) => /(^|-)key/.test(m.name);
+
 // A band is only used for the materials listed. Fires when the model uses the band
 // and carries none of them. `accent` exempts the models the approximation above
 // reads as a detail; `unless` is an extra escape a rule spells out itself.
@@ -120,10 +127,11 @@ const bandOnlyFor = ({ id, text, severity, color, tags, accent = false, unless =
 
 // A material takes one of these bands. Fires when the model carries the material
 // and uses none of them — the model has to get that material's colour somewhere.
-const materialTakes = ({ id, text, severity, tag, colors, when = null }) => ({
+const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = null }) => ({
   id, text, severity,
   check: (m) => {
     if (when ? !when(m) : !has(m, tag)) return null;
+    if (unless?.(m)) return null;
     const allowed = colors.map((c) => (c === 'clear glass' ? CLEAR : band(c)));
     if (uses(m, ...allowed)) return null;
     return `is ${tag ?? id} but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — none of ${colors.join(', ')}`;
@@ -139,8 +147,14 @@ const RULES = [
     tag: 'paper', colors: ['off-white'] }),
   materialTakes({ id: 'M8', text: 'Ceramics are usually terracotta, off-white, taupe, or dark red.',
     severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
+  // Copper (rule M11) and keys (rule M12) are metal too, but Appendix A gives each
+  // its own colours; they are checked by those rules below instead.
   materialTakes({ id: 'M9-M10', text: 'Metal is usually light grey 15,3. Steel/cast iron can be dark grey 10,0.',
-    severity: 'warn', tag: 'metal', colors: ['light grey', 'dark grey'] }),
+    severity: 'warn', tag: 'metal', colors: ['light grey', 'dark grey'],
+    unless: (m) => isCopper(m) || isKey(m) }),
+  materialTakes({ id: 'M12', text: 'Keys can be any metal or precious-metal colour.', severity: 'warn',
+    tag: 'key', colors: ['light grey', 'dark grey', 'yellow', 'light blue-grey', 'terracotta'],
+    when: isKey }),
   materialTakes({ id: 'M13', text: 'Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.',
     severity: 'error', tag: 'textile', colors: ['off-white', 'salmon', 'khaki', 'wood middle'] }),
   materialTakes({ id: 'M17', text: 'Glass is a special own material: transparent, or dark green or dark red.',
@@ -148,7 +162,8 @@ const RULES = [
   materialTakes({ id: 'M19', text: 'Roofs are usually dark red.', severity: 'warn',
     tag: 'roof', colors: ['dark red'], when: isRoof }),
   materialTakes({ id: 'M11', text: 'Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.',
-    severity: 'error', tag: 'precious-metal', colors: ['yellow', 'light blue-grey', 'terracotta'] }),
+    severity: 'error', tag: 'precious-metal', colors: ['yellow', 'light blue-grey', 'terracotta'],
+    when: (m) => has(m, 'precious-metal') || isCopper(m) }),
   materialTakes({ id: 'M4', text: 'Grass is light green.', severity: 'warn',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
   materialTakes({ id: 'M5', text: 'Trees are usually dark green. Palms are the exception: their fronds are light green.',
