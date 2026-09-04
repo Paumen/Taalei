@@ -25,7 +25,8 @@
 // Een stuk is een echt losstaand deel van de mesh, geen drempel op afstand of
 // normaal: welke driehoek licht of donker is blijft uit de banen komen.
 import { writeFileSync } from 'node:fs';
-import { readGlb, readAccessor, writeGlb } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
+import { enigePrimitive, lijstRegels, verdeelInStukken } from './stukken.mjs';
 import { readPng } from '../catalog/tools/png.mjs';
 
 const KOLOMMEN = 16;
@@ -77,62 +78,6 @@ const baanVan = (uv) => {
   return { cel: `${kolom},${rij}`, uDeel: x / celBreed - kolom, licht: lichtheid(kolom, rij, y / celHoog - rij) };
 };
 
-const rond = (v) => (Math.abs(v) < 0.005 ? '0.00' : v.toFixed(2));
-const stukSleutel = (min, max) => min.map((v, i) => rond((v + max[i]) / 2)).join(',');
-
-// Samenhangende delen: vertices gelast op hun positie, zodat een mesh die per
-// vlak eigen vertices heeft toch als één stuk telt.
-function verdeelInStukken(glb, prim) {
-  const pos = readAccessor(glb, prim.attributes.POSITION).data;
-  const idx = readAccessor(glb, prim.indices).data;
-  const aantal = pos.length / 3;
-
-  const zelfde = new Map();
-  const las = new Int32Array(aantal);
-  for (let i = 0; i < aantal; i++) {
-    const sleutel = `${Math.round(pos[i * 3] * 1e5)},${Math.round(pos[i * 3 + 1] * 1e5)},${Math.round(pos[i * 3 + 2] * 1e5)}`;
-    if (!zelfde.has(sleutel)) zelfde.set(sleutel, i);
-    las[i] = zelfde.get(sleutel);
-  }
-
-  const ouder = new Int32Array(aantal);
-  for (let i = 0; i < aantal; i++) ouder[i] = i;
-  const wortel = (x) => {
-    while (ouder[x] !== x) x = ouder[x] = ouder[ouder[x]];
-    return x;
-  };
-  const verbind = (a, b) => {
-    const wa = wortel(a);
-    const wb = wortel(b);
-    if (wa !== wb) ouder[wb] = wa;
-  };
-  for (let t = 0; t < idx.length; t += 3) {
-    verbind(las[idx[t]], las[idx[t + 1]]);
-    verbind(las[idx[t]], las[idx[t + 2]]);
-  }
-
-  // Doos per stuk, en per vertex het stuk waar hij in zit.
-  const doos = new Map();
-  const vanVertex = new Int32Array(aantal).fill(-1);
-  for (let t = 0; t < idx.length; t += 3) {
-    const stuk = wortel(las[idx[t]]);
-    let d = doos.get(stuk);
-    if (!d) doos.set(stuk, (d = { tris: 0, min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] }));
-    d.tris++;
-    for (const v of [idx[t], idx[t + 1], idx[t + 2]]) {
-      vanVertex[v] = stuk;
-      for (let a = 0; a < 3; a++) {
-        d.min[a] = Math.min(d.min[a], pos[v * 3 + a]);
-        d.max[a] = Math.max(d.max[a], pos[v * 3 + a]);
-      }
-    }
-  }
-
-  const sleutelVan = new Map();
-  for (const [stuk, d] of doos) sleutelVan.set(stuk, stukSleutel(d.min, d.max));
-  return { vanVertex, sleutelVan, doos };
-}
-
 for (const pad of bestanden) {
   const glb = readGlb(pad);
   const { json, bin } = glb;
@@ -141,28 +86,12 @@ for (const pad of bestanden) {
   // samenstellingen in deze kits zijn. Losse modellen hebben ze niet nodig.
   let stukInfo = null;
   if (lijst || stukken.length > 0) {
-    const prims = (json.meshes ?? []).flatMap((m) => m.primitives ?? []);
-    if (prims.length !== 1) throw new Error(`${pad}: --stuk/--lijst verwacht één primitive, niet ${prims.length}`);
-    stukInfo = verdeelInStukken(glb, prims[0]);
+    stukInfo = verdeelInStukken(glb, enigePrimitive(json, pad));
   }
 
   if (lijst) {
     console.log(`== ${pad}: ${stukInfo.doos.size} stukken`);
-    const uv = readAccessor(glb, json.meshes[0].primitives[0].attributes.TEXCOORD_0).data;
-    const banenPer = new Map();
-    for (let v = 0; v < uv.length / 2; v++) {
-      const stuk = stukInfo.vanVertex[v];
-      if (stuk < 0) continue;
-      const per = banenPer.get(stuk) ?? new Map();
-      const { cel } = baanVan(uv.subarray(v * 2, v * 2 + 2));
-      per.set(cel, (per.get(cel) ?? 0) + 1);
-      banenPer.set(stuk, per);
-    }
-    for (const [stuk, d] of [...stukInfo.doos].sort((a, b) => b[1].tris - a[1].tris)) {
-      const maat = d.max.map((v, i) => (v - d.min[i]).toFixed(2)).join('×');
-      const banen = [...(banenPer.get(stuk) ?? [])].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}×${n}`).join(' ');
-      console.log(`   --stuk ${stukInfo.sleutelVan.get(stuk).padEnd(18)} ${String(d.tris).padStart(5)} tri  ${maat}  ${banen}`);
-    }
+    for (const regel of lijstRegels(glb, stukInfo, baanVan)) console.log(regel);
     continue;
   }
 
