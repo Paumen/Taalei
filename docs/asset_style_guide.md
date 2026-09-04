@@ -86,9 +86,9 @@ M7. Paper is off-white.
 M8. Ceramics are usually terracotta, off-white, taupe, or dark red.
 M9. Metal is usually light grey 15,3.
 M10. Steel/cast iron can be dark grey 10,0.
-M11. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.
+M11. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0. Sword and dagger grips are precious metal too: silver 3,2, so the grip reads apart from the light grey blade.
 M12. Keys can be any metal or precious-metal colour.
-M13. Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.
+M13. Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0. The wrapped grips and bindings on tools and weapons are one colour across the whole collection: khaki 14,0 in the light half of its gradient, 0.02-0.40. The wooden peg on a tool head and the bar of a T-handle are timber and stay in their wood lane.
 M14. Rope is wood light 0,0 or khaki 14,0.
 M15. Belts and shoes are usually leather.
 M16. Bottles are glass or ceramic.
