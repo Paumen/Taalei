@@ -69,7 +69,7 @@ const STAPPEN = [
   ['5,0', ['1,1'], drankjes('filled', 4, 8)],
   ['4,2', ['1,1'], drankjes('filled', 5, 10, 11)],
   // De fles zelf blijft op 5,2 en wordt onderaan dit script doorzichtig glas: de
-  // drank zit binnenin, dus door een dichte fles zie je er niets van (regel J).
+  // drank zit binnenin, dus door een dichte fles zie je er niets van (regel M17).
 
   // De drie huizen: de enige modellen in de verzameling met COLOR_0 in de bron. Die
   // kwam als NaN binnen, waardoor alle driehoeken in één kleurgroep vielen en het
