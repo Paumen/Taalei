@@ -76,7 +76,7 @@ reason for.
 
 M. Material to colour — what a thing is made of, and the colour that takes.
 
-M1. Flowers may be any colour — this is a rule of its own, not an exception, so the colour-to-material rules below do not apply to the flowers group.
+M1. Flowers may be any colour — this is a rule of its own, not an exception, so the colour-to-material rules below do not apply to a flower. Not every flower sits in the flowers group: the cactus flowers are filed under plants with the cactus they grow on, and the rule reaches them too.
 M2. Stems and leaves follow foliage green.
 M3. Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.
 M4. Grass is light green.
