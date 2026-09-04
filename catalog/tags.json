@@ -727,6 +727,7 @@
     "village-kit/barrel-a-open",
     "village-kit/barrel-b",
     "village-kit/bell-a",
+    "village-kit/chimney-pipe",
     "village-kit/door-ornate",
     "village-kit/door-simple",
     "village-kit/lamp-street",
@@ -893,6 +894,7 @@
     "village-kit/cobblestone-dirt-transition-corner-c",
     "village-kit/cobblestone-dirt-transition-corner-d",
     "village-kit/cobblestone-floor-a",
+    "village-kit/stone-arch",
     "village-kit/stone-curb-a",
     "village-kit/stone-curb-b",
     "village-kit/stone-curb-c",
@@ -909,6 +911,7 @@
     "village-kit/stone-wall-d",
     "village-kit/stone-wall-e",
     "village-kit/well-a",
+    "village-kit/well-inside",
     "village-kit/well-plaza",
     "village-kit/well-base-cobblestone",
     "graveyard-kit/crypt-large"
@@ -998,6 +1001,10 @@
     "pirate-kit/rocks-sand-a",
     "pirate-kit/rocks-sand-b",
     "pirate-kit/rocks-sand-c",
+    "pirate-quaternius/cliff-1",
+    "pirate-quaternius/cliff-2",
+    "pirate-quaternius/cliff-3",
+    "pirate-quaternius/cliff-4",
     "pirate-quaternius/rock-1",
     "pirate-quaternius/rock-2",
     "pirate-quaternius/rock-3",
@@ -1046,6 +1053,22 @@
     "survival-kit/rock-sand-a",
     "survival-kit/rock-sand-b",
     "survival-kit/rock-sand-c"
+   ]
+  },
+  {
+   "id": "soil",
+   "name": "Soil",
+   "type": "material",
+   "description": "Loose ground: sand and dirt — the sand and dirt patches of the mini-forest and pirate kits, and the dirt tiles and well base of the village kit. Laid paving and hewn stone are under stone, loose boulders, gravel and rubble under rock. A grass patch is flora sitting on the ground, not soil.",
+   "models": [
+    "mini-forest/patch-dirt",
+    "pirate-kit/patch-sand",
+    "pirate-kit/patch-sand-foliage",
+    "village-kit/dirt-fading",
+    "village-kit/dirt-fading-gathered",
+    "village-kit/dirt-gathered-corner",
+    "village-kit/dirt-gathered-straight",
+    "village-kit/well-base-dirt"
    ]
   },
   {
@@ -1182,6 +1205,8 @@
     "fantasy-town-kit/tree-high",
     "fantasy-town-kit/tree-high-crooked",
     "fantasy-town-kit/tree-high-round",
+    "food-quaternius/coconut",
+    "food-quaternius/coconut-half",
     "forest/grass-1-a",
     "forest/grass-1-b",
     "forest/grass-1-c",
@@ -1204,6 +1229,7 @@
     "mini-forest/patch-grass",
     "mini-forest/tree",
     "mini-forest/tree-high",
+    "modulair-terrein/beach-prop-coconut",
     "modulair-terrein/beach-prop-tree-palm-a",
     "modulair-terrein/beach-prop-tree-palm-b",
     "modulair-terrein/beach-prop-tree-palm-c",
@@ -1235,6 +1261,7 @@
     "natuur/cattail-3",
     "natuur/cattail-4",
     "natuur/cattail-5",
+    "natuur/coconut",
     "natuur/flower-balloon-1",
     "natuur/flower-balloon-2",
     "natuur/flower-balloon-3",
@@ -1434,6 +1461,7 @@
     "props/plate-c",
     "restaurant/bowl",
     "restaurant/bowl-small",
+    "restaurant/food-stew",
     "restaurant/plate",
     "restaurant/plate-small",
     "restaurant/pot-large",
@@ -1473,7 +1501,9 @@
     "dungeon-quaternius/skull",
     "dungeon/plate-food-a",
     "dungeon/plate-food-b",
+    "food-quaternius/chicken-leg",
     "food-quaternius/fish-bone",
+    "food-quaternius/steak",
     "halloween/bone-a",
     "halloween/bone-b",
     "halloween/bone-c",
@@ -1484,7 +1514,9 @@
     "pirate-quaternius/skeleton-headless",
     "pirate-quaternius/skull",
     "pirate-quaternius/skulls",
+    "props/roast-a",
     "restaurant/food-ingredient-ham",
+    "restaurant/food-ingredient-steak",
     "rpg-quaternius/bone",
     "rpg-quaternius/skull",
     "rpg-quaternius/skull-2",
@@ -1494,6 +1526,26 @@
     "skeletons/skeleton-rogue",
     "skeletons/skeleton-warrior",
     "skeletons/staff"
+   ]
+  },
+  {
+   "id": "food",
+   "name": "Food",
+   "type": "material",
+   "description": "Edible matter: bread, cheese, fish and meat, the roast and the stew, and the set plates of the dungeon kit. The bone in the meat carries bone alongside it, and the plate or bowl it is served on carries its own material.",
+   "models": [
+    "dungeon/plate-food-a",
+    "dungeon/plate-food-b",
+    "food-quaternius/bread",
+    "food-quaternius/bread-slice",
+    "food-quaternius/chicken-leg",
+    "food-quaternius/fish",
+    "food-quaternius/steak",
+    "props/roast-a",
+    "restaurant/food-ingredient-cheese",
+    "restaurant/food-ingredient-ham",
+    "restaurant/food-ingredient-steak",
+    "restaurant/food-stew"
    ]
   },
   {
@@ -1723,7 +1775,7 @@
    "id": "special",
    "name": "Special",
    "type": "tag",
-   "description": "A deliberate exception the PO has approved: the colour and material rules of appendix A do not apply to it. Only the PO assigns this tag — it is not a way to silence a finding you would rather not fix, and every model carrying it should be one you can name the reason for. The whole characters group carries it: the humanoids wear skin tones, dyed cloth and heraldic colours that the prop rules of appendix A do not describe, and the tentacle is grouped with them.",
+   "description": "A deliberate exception the PO has approved: the colour and material rules of appendix A do not apply to it. Only the PO assigns this tag — it is not a way to silence a finding you would rather not fix, and every model carrying it should be one you can name the reason for. The whole characters group carries it: the humanoids wear skin tones, dyed cloth and heraldic colours that the prop rules of appendix A do not describe, and the tentacle is grouped with them. The stucco block and half-arch of the village kit carry it for their render, which appendix A gives no material and no band. The heart and star of the platformer kit carry it because they are game pickups: signs, not objects made of anything.",
    "models": [
     "adventurers/barbarian",
     "adventurers/knight",
@@ -1738,11 +1790,15 @@
     "pirate-quaternius/skeleton",
     "pirate-quaternius/skeleton-headless",
     "pirate-quaternius/tentacle",
+    "platformer-kit/heart",
+    "platformer-kit/star",
     "rpgtools/torch-burnt",
     "skeletons/skeleton-mage",
     "skeletons/skeleton-minion",
     "skeletons/skeleton-rogue",
-    "skeletons/skeleton-warrior"
+    "skeletons/skeleton-warrior",
+    "village-kit/stucco-arch-half",
+    "village-kit/stucco-block"
    ]
   }
  ]
