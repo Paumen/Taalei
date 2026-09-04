@@ -12,8 +12,21 @@
 //
 // De schaal is lichtheid uit de colormap zelf, niet de v-positie: banen lopen
 // niet allemaal dezelfde kant op, en lichtheid is wat je ziet.
+//
+// In een samenstelling zit alles in één mesh en deelt een baan meerdere
+// voorwerpen: in table-long-decorated-a ligt op 13,0 zowel het lapje vlees als
+// de kurk van de fles. --stuk beperkt het werk dan tot losse samenhangende
+// delen, aangewezen op het midden van hun omhullende doos:
+//
+//   node tools/herkleur-baandeel.mjs --lijst kits/workfiles/dungeon/table-long-decorated-a.glb
+//   node tools/herkleur-baandeel.mjs --van 13,0 --naar 5,0 --deel 0.55-1.0 \
+//     --stuk 0.54,1.12,-1.23 --stuk 0.44,1.10,1.07 <glb>
+//
+// Een stuk is een echt losstaand deel van de mesh, geen drempel op afstand of
+// normaal: welke driehoek licht of donker is blijft uit de banen komen.
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
+import { enigePrimitive, lijstRegels, verdeelInStukken } from './stukken.mjs';
 import { readPng } from '../catalog/tools/png.mjs';
 
 const KOLOMMEN = 16;
@@ -22,22 +35,27 @@ const COLORMAP = new URL('../kits/colormap.png', import.meta.url).pathname;
 
 const argumenten = process.argv.slice(2);
 const van = [];
+const stukken = [];
 let naar = null;
 let deel = '0-1';
+let lijst = false;
 const bestanden = [];
 for (let i = 0; i < argumenten.length; i++) {
   if (argumenten[i] === '--van') van.push(argumenten[++i]);
   else if (argumenten[i] === '--naar') naar = argumenten[++i];
   else if (argumenten[i] === '--deel') deel = argumenten[++i];
+  else if (argumenten[i] === '--stuk') stukken.push(argumenten[++i]);
+  else if (argumenten[i] === '--lijst') lijst = true;
   else bestanden.push(argumenten[i]);
 }
-if (van.length === 0 || !naar || bestanden.length === 0) {
-  console.error('gebruik: node tools/herkleur-baandeel.mjs --van k,r [--van k,r] --naar k,r [--deel 0.55-1.0] <glb...>');
+if (bestanden.length === 0 || (!lijst && (van.length === 0 || !naar))) {
+  console.error('gebruik: node tools/herkleur-baandeel.mjs --van k,r [--van k,r] --naar k,r [--deel 0.55-1.0] [--stuk x,y,z] <glb...>');
+  console.error('         node tools/herkleur-baandeel.mjs --lijst <glb...>');
   process.exit(1);
 }
 
 const [boven, onder] = deel.split('-').map(Number);
-if (!(boven >= 0 && onder <= 1 && boven < onder)) {
+if (!lijst && !(boven >= 0 && onder <= 1 && boven < onder)) {
   throw new Error(`--deel ${deel} valt buiten 0-1 of loopt achteruit`);
 }
 
@@ -52,12 +70,37 @@ function lichtheid(kolom, rij, vDeel) {
   return 0.2126 * atlas.pixels[i4] + 0.7152 * atlas.pixels[i4 + 1] + 0.0722 * atlas.pixels[i4 + 2];
 }
 
-const [naarK, naarR] = naar.split(',').map(Number);
-const vanCellen = new Set(van);
+const baanVan = (uv) => {
+  const x = Math.min(Math.max(uv[0] * atlas.width, 0), atlas.width - 1e-6);
+  const y = Math.min(Math.max(uv[1] * atlas.height, 0), atlas.height - 1e-6);
+  const kolom = Math.floor(x / celBreed);
+  const rij = Math.floor(y / celHoog);
+  return { cel: `${kolom},${rij}`, uDeel: x / celBreed - kolom, licht: lichtheid(kolom, rij, y / celHoog - rij) };
+};
 
 for (const pad of bestanden) {
   const glb = readGlb(pad);
   const { json, bin } = glb;
+
+  // --stuk en --lijst gaan uit van één mesh met één primitive; dat is wat de
+  // samenstellingen in deze kits zijn. Losse modellen hebben ze niet nodig.
+  let stukInfo = null;
+  let stukPrim = null;
+  if (lijst || stukken.length > 0) {
+    stukPrim = enigePrimitive(json, pad);
+    stukInfo = verdeelInStukken(glb, stukPrim);
+  }
+
+  if (lijst) {
+    console.log(`== ${pad}: ${stukInfo.doos.size} stukken`);
+    for (const regel of lijstRegels(glb, stukInfo, baanVan, stukPrim)) console.log(regel);
+    continue;
+  }
+
+  const gevraagd = new Set(stukken);
+  const gezien = new Set();
+  const vanCellen = new Set(van);
+  const [naarK, naarR] = naar.split(',').map(Number);
 
   const geraakt = [];
   const gedaan = new Set();
@@ -74,16 +117,22 @@ for (const pad of bestanden) {
       const stap = bufferView.byteStride ?? 8;
 
       for (let i = 0; i < accessor.count; i++) {
+        if (stukInfo) {
+          const stuk = stukInfo.vanVertex[i];
+          const sleutel = stuk < 0 ? null : stukInfo.sleutelVan.get(stuk);
+          if (!sleutel || !gevraagd.has(sleutel)) continue;
+          gezien.add(sleutel);
+        }
         const uv = new Float32Array(bin.buffer, bin.byteOffset + start + i * stap, 2);
-        const x = Math.min(Math.max(uv[0] * atlas.width, 0), atlas.width - 1e-6);
-        const y = Math.min(Math.max(uv[1] * atlas.height, 0), atlas.height - 1e-6);
-        const kolom = Math.floor(x / celBreed);
-        const rij = Math.floor(y / celHoog);
-        if (!vanCellen.has(`${kolom},${rij}`)) continue;
-        geraakt.push({ uv, uDeel: x / celBreed - kolom, licht: lichtheid(kolom, rij, y / celHoog - rij) });
+        const { cel, uDeel, licht } = baanVan(uv);
+        if (!vanCellen.has(cel)) continue;
+        geraakt.push({ uv, uDeel, licht });
       }
     }
   }
+
+  const kwijt = [...gevraagd].filter((s) => !gezien.has(s));
+  if (kwijt.length) throw new Error(`${pad}: geen stuk op ${kwijt.join(' / ')} — draai --lijst voor de sleutels`);
 
   if (geraakt.length === 0) {
     console.log(`${pad}: geen uv's in ${van.join('+')}`);
@@ -105,5 +154,6 @@ for (const pad of bestanden) {
   }
 
   writeGlb(pad, json, bin, writeFileSync);
-  console.log(`${pad}: ${geraakt.length} uv's van ${van.join('+')} naar ${naar} deel ${deel}`);
+  const waar = stukken.length ? ` in ${stukken.length} stuk(ken)` : '';
+  console.log(`${pad}: ${geraakt.length} uv's van ${van.join('+')} naar ${naar} deel ${deel}${waar}`);
 }
