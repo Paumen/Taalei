@@ -97,7 +97,7 @@ M18. Usual colour variants: glass bottle shape exists in red and green.
 M19. Roofs are usually dark red.
 M20. Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.
 M21. Rocks are light grey 15,3, secondarily taupe 14,3.
-M22. Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.
+M22. Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0. They are the `soil` material: laid paving and hewn stone are stone, loose boulders, gravel and rubble are rock, and a grass patch is flora sitting on the ground rather than soil of its own.
 M23. Wicks are dark grey 10,0.
 M24. Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.
 M25. All cork is usually the same light salmon brown.
@@ -105,6 +105,7 @@ M26. Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish ma
 M27. Bands on barrels, buckets, and chests are usually light grey (metal).
 M28. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regularly with metal accents.
 M29. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
+M30. Food is naturalistic — off-white 5,2, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
 
 C. Colour to material — what a band may be used on.
 
@@ -113,7 +114,7 @@ C2. Darkest brown is only used for bark and leather.
 C3. Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).
 C4. Light grey 15,3 is only used for metal, stone, and rock.
 C5. Dark grey 10,0 is only used for cast iron, stone, and wicks.
-C6. Yellow is usually only used for coins, jewellery, light, or fire.
+C6. Yellow is usually only used for coins, jewellery, light, or fire — and for cheese, the one yellow food of rule M30.
 C7. Dark red is only used for ceramics, glass, roofs, and very minor details or accents.
 C8. Dark green is only used for foliage, glass, and very minor details or accents.
 C9. Light green is only used for flora, and very minor details or accents.
