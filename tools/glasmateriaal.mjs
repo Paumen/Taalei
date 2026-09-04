@@ -5,7 +5,7 @@
 //
 // Het glas is hetzelfde materiaal als rpgtools/lantern en rpgtools/magnifying-glass
 // gebruiken — wit met alpha 0.2, BLEND — de ene doorzichtige glaskleur die de
-// stijlgids toestaat (bijlage A, regel J). Het model wordt ter plekke herschreven en
+// stijlgids toestaat (bijlage A, regel M17). Het model wordt ter plekke herschreven en
 // krijgt een tweede primitief met eigen accessors, net als die twee.
 //
 // Draaien op een model dat het glasmateriaal al heeft doet niets: de cel zit dan in
