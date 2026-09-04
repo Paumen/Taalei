@@ -103,7 +103,7 @@ for (const mesh of json.meshes ?? []) {
 
     // attributen opnieuw opbouwen
     for (const [naam, a] of Object.entries(attrs)) {
-      const b = a.breedte;
+      const b = a.width;
       const uit = new Float32Array(bron.length * b);
       for (let n = 0; n < bron.length; n++)
         for (let k = 0; k < b; k++) uit[n * b + k] = a.data[bron[n] * b + k];

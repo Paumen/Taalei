@@ -55,7 +55,7 @@ for (const mesh of glb.json.meshes ?? []) for (const prim of mesh.primitives ?? 
       nieuw.push(n2);}}
   gesplitst+=bron.length-new Set(bron).size;
   for(const [k,acc] of Object.entries(attrs)){
-    const b=acc.breedte; const uit=new Float32Array(bron.length*b);
+    const b=acc.width; const uit=new Float32Array(bron.length*b);
     for(let n2=0;n2<bron.length;n2++) for(let j=0;j<b;j++) uit[n2*b+j]=acc.data[bron[n2]*b+j];
     if(k==='TEXCOORD_0') for(let n2=0;n2<bron.length;n2++){ if(!mee[n2])continue;
       const x=Math.min(Math.max(uit[n2*2]*W,0),W-1e-6), y=Math.min(Math.max(uit[n2*2+1]*H,0),H-1e-6);
