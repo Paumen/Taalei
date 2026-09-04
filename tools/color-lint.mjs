@@ -84,10 +84,10 @@ const BUSY = 4;
 const looksLikeAccent = (m) =>
   (Math.max(...m.wdh) <= MAX_ACCENT_SIZE && m.colors.length >= 2) || m.colors.length >= BUSY;
 
-const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ocean: 'fauna' };
+const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ground: 'flora', ocean: 'fauna' };
 
-const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'textile',
-  'leather', 'ceramic', 'bone', 'candle', 'glass', 'rope', 'precious-metal'];
+const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
+  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'precious-metal'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -158,11 +158,13 @@ const RULES = [
     severity: 'warn', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M21', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
     severity: 'warn', tag: 'rock', colors: ['light grey', 'taupe'] }),
-  // Sand and dirt, not everything on the ground: a grass patch is flora sitting on
-  // it, and stone and rock have their own rules.
+  // Sand and dirt, not everything on the ground: the soil tag carries the rule, so a
+  // grass patch (flora on the ground) and the laid and raw stone stay out of it.
   materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.',
-    severity: 'warn', tag: 'ground', colors: ['taupe', 'khaki', 'salmon'],
-    when: (m) => m.gr === 'ground' && !has(m, 'stone', 'rock', 'flora', 'foliage') }),
+    severity: 'warn', tag: 'soil', colors: ['taupe', 'khaki', 'salmon'] }),
+  materialTakes({ id: 'M30', text: 'Food is naturalistic — off-white, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0.',
+    severity: 'warn', tag: 'food',
+    colors: ['off-white', 'khaki', 'salmon', 'terracotta', 'dark red', 'taupe', 'yellow'] }),
   materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'candle') }),
@@ -182,8 +184,11 @@ const RULES = [
   bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
     severity: 'warn', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
     unless: (m) => !has(m, 'timber', 'bark') }),
+  // M30 names cheese as the one yellow food, and the cheese wedge is the only model
+  // the food tag brings in here.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
-    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'] }),
+    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle'],
+    unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
     severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
@@ -208,11 +213,14 @@ const RULES = [
   // plants are carried by the flora tag and ocean by fauna — those groups have no
   // material of their own in tags.json and Appendix A gives them none, so the tag
   // is what there is to check. Everywhere else it has to be a material.
+  // The stand-in is a fallback, not a replacement: the ground group holds the grass
+  // patches beside the mountains, paths and sand, which carry rock, stone and soil.
   { id: 'N1', text: 'A model usually has at least one material.', severity: 'warn',
     check: (m) => {
+      if (materials(m).length) return null;
       const stand_in = STANDS_IN_FOR_MATERIAL[m.gr];
-      if (stand_in) return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
-      return materials(m).length === 0 ? `has no material tag (group ${m.gr})` : null;
+      if (!stand_in) return `has no material tag (group ${m.gr})`;
+      return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
   { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'error',
     check: (m) => {

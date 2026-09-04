@@ -2096,6 +2096,12 @@
    "description": "Raw stone as it lies in the landscape: boulders, pebbles, gravel, rubble, rock formations and the mountains. Hewn and laid stone is under stone."
   },
   {
+   "id": "soil",
+   "name": "Soil",
+   "type": "material",
+   "description": "Loose ground: sand and dirt — the sand and dirt patches of the mini-forest and pirate kits, and the dirt tiles and well base of the village kit. Laid paving and hewn stone are under stone, loose boulders, gravel and rubble under rock. A grass patch is flora sitting on the ground, not soil."
+  },
+  {
    "id": "textile",
    "name": "Textile",
    "type": "material",
@@ -2130,6 +2136,12 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone: the loose bones, ribcage and skull of the halloween kit, and the bone in the meat — the hams of the restaurant kit and the set plates of the dungeon kit."
+  },
+  {
+   "id": "food",
+   "name": "Food",
+   "type": "material",
+   "description": "Edible matter: bread, cheese, fish and meat, the roast and the stew, and the set plates of the dungeon kit. The bone in the meat carries bone alongside it, and the plate or bowl it is served on carries its own material."
   },
   {
    "id": "candle",
@@ -2171,7 +2183,7 @@
    "id": "special",
    "name": "Special",
    "type": "tag",
-   "description": "A deliberate exception the PO has approved: the colour and material rules of appendix A do not apply to it. Only the PO assigns this tag — it is not a way to silence a finding you would rather not fix, and every model carrying it should be one you can name the reason for. The whole characters group carries it: the humanoids wear skin tones, dyed cloth and heraldic colours that the prop rules of appendix A do not describe, and the tentacle is grouped with them."
+   "description": "A deliberate exception the PO has approved: the colour and material rules of appendix A do not apply to it. Only the PO assigns this tag — it is not a way to silence a finding you would rather not fix, and every model carrying it should be one you can name the reason for. The whole characters group carries it: the humanoids wear skin tones, dyed cloth and heraldic colours that the prop rules of appendix A do not describe, and the tentacle is grouped with them. The stucco block and half-arch of the village kit carry it for their render, which appendix A gives no material and no band. The heart and star of the platformer kit carry it because they are game pickups: signs, not objects made of anything."
   },
   {
    "id": "nature",
@@ -6950,6 +6962,7 @@
    ],
    "tags": [
     "bone",
+    "food",
     "kay",
     "object"
    ],
@@ -6987,6 +7000,7 @@
    ],
    "tags": [
     "bone",
+    "food",
     "kay",
     "object"
    ],
@@ -13480,6 +13494,7 @@
     "#8f785b"
    ],
    "tags": [
+    "food",
     "object",
     "qua"
    ]
@@ -13512,6 +13527,7 @@
     "#8f785b"
    ],
    "tags": [
+    "food",
     "object",
     "qua"
    ]
@@ -13542,9 +13558,11 @@
    "hues": 2,
    "colors": [
     "#7f3927",
-    "#88796d"
+    "#ebe4d0"
    ],
    "tags": [
+    "bone",
+    "food",
     "object",
     "qua"
    ]
@@ -13579,6 +13597,7 @@
    ],
    "tags": [
     "bark",
+    "flora",
     "nature",
     "qua"
    ]
@@ -13612,6 +13631,7 @@
    ],
    "tags": [
     "bark",
+    "flora",
     "nature",
     "qua"
    ]
@@ -13745,6 +13765,7 @@
     "#ebe4d0"
    ],
    "tags": [
+    "food",
     "object",
     "qua"
    ]
@@ -13974,9 +13995,11 @@
    "hues": 2,
    "colors": [
     "#7f3927",
-    "#88796d"
+    "#ebe4d0"
    ],
    "tags": [
+    "bone",
+    "food",
     "object",
     "qua"
    ]
@@ -16793,7 +16816,8 @@
    ],
    "tags": [
     "ken",
-    "nature"
+    "nature",
+    "soil"
    ]
   },
   {
@@ -16998,6 +17022,7 @@
     "#8f785b"
    ],
    "tags": [
+    "flora",
     "nature"
    ]
   },
@@ -19553,6 +19578,7 @@
     "#8f785b"
    ],
    "tags": [
+    "flora",
     "nature"
    ]
   },
@@ -22755,7 +22781,8 @@
     "flora",
     "foliage",
     "ken",
-    "nature"
+    "nature",
+    "soil"
    ]
   },
   {
@@ -22787,7 +22814,8 @@
    ],
    "tags": [
     "ken",
-    "nature"
+    "nature",
+    "soil"
    ]
   },
   {
@@ -23987,7 +24015,8 @@
    ],
    "tags": [
     "nature",
-    "qua"
+    "qua",
+    "rock"
    ]
   },
   {
@@ -24019,7 +24048,8 @@
    ],
    "tags": [
     "nature",
-    "qua"
+    "qua",
+    "rock"
    ]
   },
   {
@@ -24051,7 +24081,8 @@
    ],
    "tags": [
     "nature",
-    "qua"
+    "qua",
+    "rock"
    ]
   },
   {
@@ -24083,7 +24114,8 @@
    ],
    "tags": [
     "nature",
-    "qua"
+    "qua",
+    "rock"
    ]
   },
   {
@@ -25353,7 +25385,8 @@
    ],
    "tags": [
     "ken",
-    "object"
+    "object",
+    "special"
    ]
   },
   {
@@ -25839,7 +25872,8 @@
    ],
    "tags": [
     "ken",
-    "object"
+    "object",
+    "special"
    ]
   },
   {
@@ -26576,6 +26610,8 @@
     "#ebe4d0"
    ],
    "tags": [
+    "bone",
+    "food",
     "object"
    ]
   },
@@ -30149,6 +30185,7 @@
     "#ffb349"
    ],
    "tags": [
+    "food",
     "kay",
     "object"
    ]
@@ -30183,6 +30220,7 @@
    ],
    "tags": [
     "bone",
+    "food",
     "kay",
     "object"
    ]
@@ -30216,6 +30254,8 @@
     "#ebe4d0"
    ],
    "tags": [
+    "bone",
+    "food",
     "kay",
     "object"
    ]
@@ -30252,6 +30292,8 @@
     "#ebe4d0"
    ],
    "tags": [
+    "ceramic",
+    "food",
     "kay",
     "object"
    ]
@@ -37862,6 +37904,7 @@
     "#88796d"
    ],
    "tags": [
+    "metal",
     "modular",
     "structure"
    ]
@@ -38251,6 +38294,7 @@
    ],
    "tags": [
     "modular",
+    "soil",
     "structure"
    ]
   },
@@ -38281,6 +38325,7 @@
    ],
    "tags": [
     "modular",
+    "soil",
     "structure"
    ]
   },
@@ -38311,6 +38356,7 @@
    ],
    "tags": [
     "modular",
+    "soil",
     "structure"
    ]
   },
@@ -38341,6 +38387,7 @@
    ],
    "tags": [
     "modular",
+    "soil",
     "structure"
    ]
   },
@@ -39439,6 +39486,7 @@
    ],
    "tags": [
     "modular",
+    "stone",
     "structure"
    ]
   },
@@ -40011,6 +40059,7 @@
    ],
    "tags": [
     "modular",
+    "special",
     "structure"
    ]
   },
@@ -40043,6 +40092,7 @@
    ],
    "tags": [
     "modular",
+    "special",
     "structure"
    ]
   },
@@ -41193,6 +41243,7 @@
     "#8f785b"
    ],
    "tags": [
+    "soil",
     "structure"
    ],
    "variant": "v85"
@@ -41258,6 +41309,7 @@
     "#88796d"
    ],
    "tags": [
+    "stone",
     "structure"
    ]
   },
