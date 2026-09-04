@@ -2056,6 +2056,62 @@
     "dungeon-quaternius/arch-door",
     "dungeon-quaternius/arch"
    ]
+  },
+  {
+   "id": "v199",
+   "type": "detail-variant",
+   "main": "skeletons/arrow",
+   "members": [
+    "skeletons/arrow",
+    "skeletons/arrow-broken",
+    "skeletons/arrow-broken-half",
+    "skeletons/arrow-half"
+   ]
+  },
+  {
+   "id": "v200",
+   "type": "detail-variant",
+   "main": "adventurers/bow",
+   "members": [
+    "adventurers/bow",
+    "adventurers/bow-strung"
+   ]
+  },
+  {
+   "id": "v201",
+   "type": "color-variant",
+   "main": "adventurers/arrow-bow-bundle",
+   "members": [
+    "adventurers/arrow-bow-bundle",
+    "adventurers/arrow-crossbow-bundle"
+   ]
+  },
+  {
+   "id": "v202",
+   "type": "color-variant",
+   "main": "adventurers/arrow-bow",
+   "members": [
+    "adventurers/arrow-bow",
+    "adventurers/arrow-crossbow"
+   ]
+  },
+  {
+   "id": "v203",
+   "type": "detail-variant",
+   "main": "adventurers/quiver",
+   "members": [
+    "adventurers/quiver",
+    "skeletons/quiver"
+   ]
+  },
+  {
+   "id": "v204",
+   "type": "detail-variant",
+   "main": "survival-kit/rock-flat",
+   "members": [
+    "survival-kit/rock-flat",
+    "survival-kit/rock-flat-grass"
+   ]
   }
  ],
  "tags": [
@@ -2438,7 +2494,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v201"
   },
   {
    "kit": "adventurers",
@@ -2474,7 +2531,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v202"
   },
   {
    "kit": "adventurers",
@@ -2511,7 +2569,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v201"
   },
   {
    "kit": "adventurers",
@@ -2547,7 +2606,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v202"
   },
   {
    "kit": "adventurers",
@@ -2835,7 +2895,8 @@
     "rope",
     "textile",
     "timber"
-   ]
+   ],
+   "variant": "v200"
   },
   {
    "kit": "adventurers",
@@ -2870,7 +2931,8 @@
     "object",
     "textile",
     "timber"
-   ]
+   ],
+   "variant": "v200"
   },
   {
    "kit": "adventurers",
@@ -3402,7 +3464,8 @@
     "leather",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v203"
   },
   {
    "kit": "adventurers",
@@ -4256,16 +4319,15 @@
    "anglePct": 10,
    "vpt": 1.16,
    "grad": 0.78,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#7a767c",
-    "#9a6b4e"
+    "#3e3e44",
+    "#7a767c"
    ],
    "tags": [
     "kay",
     "metal",
-    "object",
-    "timber"
+    "object"
    ]
   },
   {
@@ -4293,16 +4355,15 @@
    "grad": 0.7,
    "hues": 2,
    "colors": [
+    "#3e3e44",
     "#7a767c",
-    "#9a6b4e",
     "#ffb349"
    ],
    "tags": [
     "kay",
     "metal",
     "object",
-    "precious-metal",
-    "timber"
+    "precious-metal"
    ]
   },
   {
@@ -4328,16 +4389,15 @@
    "anglePct": 6,
    "vpt": 1.3,
    "grad": 0.91,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#7a767c",
-    "#9a6b4e"
+    "#3e3e44",
+    "#7a767c"
    ],
    "tags": [
     "kay",
     "metal",
-    "object",
-    "timber"
+    "object"
    ]
   },
   {
@@ -4363,10 +4423,10 @@
    "anglePct": 2,
    "vpt": 1.05,
    "grad": 0.65,
-   "hues": 2,
+   "hues": 1,
    "colors": [
-    "#7a767c",
-    "#9a6b4e"
+    "#9a6b4e",
+    "#ebe4d0"
    ],
    "tags": [
     "kay",
@@ -8043,6 +8103,7 @@
    "tags": [
     "kay",
     "light",
+    "metal",
     "object",
     "timber"
    ],
@@ -13831,6 +13892,7 @@
     "#9a6b4e"
    ],
    "tags": [
+    "metal",
     "object",
     "qua",
     "timber"
@@ -16917,6 +16979,7 @@
    ],
    "tags": [
     "ken",
+    "metal",
     "object",
     "timber"
    ]
@@ -17557,7 +17620,8 @@
    ],
    "tags": [
     "bark",
-    "object"
+    "object",
+    "timber"
    ]
   },
   {
@@ -17589,7 +17653,8 @@
    ],
    "tags": [
     "bark",
-    "object"
+    "object",
+    "timber"
    ]
   },
   {
@@ -23869,6 +23934,7 @@
    "hues": 2,
    "colors": [
     "#3e3e44",
+    "#7a767c",
     "#cb9d78"
    ],
    "tags": [
@@ -24736,6 +24802,7 @@
     "#cb9d78"
    ],
    "tags": [
+    "metal",
     "qua",
     "structure",
     "timber"
@@ -24803,10 +24870,11 @@
    "dens": 1250,
    "anglePct": 38,
    "vpt": 1.19,
-   "grad": 0.76,
+   "grad": 0.72,
    "hues": 3,
    "colors": [
     "#3e3e44",
+    "#7a767c",
     "#7f3927",
     "#cb9d78",
     "#ebe4d0"
@@ -26337,8 +26405,8 @@
     "#cb9d78"
    ],
    "tags": [
+    "metal",
     "object",
-    "stone",
     "timber"
    ]
   },
@@ -26981,7 +27049,8 @@
     "bark",
     "flora",
     "nature",
-    "qua"
+    "qua",
+    "timber"
    ]
   },
   {
@@ -31417,7 +31486,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "backpack",
-   "gr": "items",
+   "gr": "storage",
    "wdh": [
     0.2,
     0.1,
@@ -31692,11 +31761,12 @@
    "colors": [
     "#474a58",
     "#714c39",
-    "#cb9d78",
+    "#7a767c",
     "#ebe4d0"
    ],
    "tags": [
     "leather",
+    "metal",
     "object",
     "paper",
     "qua"
@@ -31726,12 +31796,13 @@
    "anglePct": 42,
    "vpt": 1.5,
    "grad": 0.56,
-   "hues": 1,
+   "hues": 2,
    "colors": [
-    "#cb9d78",
+    "#7a767c",
     "#ebe4d0"
    ],
    "tags": [
+    "metal",
     "object",
     "paper",
     "qua"
@@ -33413,6 +33484,7 @@
     "animation",
     "glass",
     "kay",
+    "metal",
     "object"
    ],
    "anim": [
@@ -34674,7 +34746,8 @@
     "kay",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v199"
   },
   {
    "kit": "skeletons",
@@ -34710,7 +34783,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v199"
   },
   {
    "kit": "skeletons",
@@ -34744,7 +34818,8 @@
     "kay",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v199"
   },
   {
    "kit": "skeletons",
@@ -34780,7 +34855,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v199"
   },
   {
    "kit": "skeletons",
@@ -34926,7 +35002,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v203"
   },
   {
    "kit": "skeletons",
@@ -36486,7 +36563,8 @@
     "ken",
     "nature",
     "rock"
-   ]
+   ],
+   "variant": "v204"
   },
   {
    "kit": "survival-kit",
@@ -36519,7 +36597,8 @@
     "ken",
     "nature",
     "rock"
-   ]
+   ],
+   "variant": "v204"
   },
   {
    "kit": "survival-kit",
