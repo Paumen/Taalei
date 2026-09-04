@@ -71,7 +71,7 @@ for (const mesh of glb.json.meshes ?? []) {
     }
     gesplitst += herkomst.length - new Set(herkomst).size;
     for (const [naam, a] of Object.entries(attrs)) {
-      const b = a.breedte;
+      const b = a.width;
       const uit = new Float32Array(herkomst.length * b);
       for (let n = 0; n < herkomst.length; n++) for (let k = 0; k < b; k++) uit[n*b+k] = a.data[herkomst[n]*b+k];
       if (naam === 'TEXCOORD_0') {
