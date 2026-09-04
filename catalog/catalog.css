@@ -733,6 +733,21 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .detail dd { margin: 0; overflow-wrap: anywhere; }
 /* getallen niet middenin afbreken: die kolommen breken hooguit op een spatie */
 .detail dl dd:not(.breed) { overflow-wrap: normal; }
+
+.detail-stalen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.detail-staal {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgb(0 0 0 / 18%);
+  border-radius: 6px;
+  background: var(--staal-kleur);
+}
+
 .detail-keuze {
   display: flex;
   align-items: center;
