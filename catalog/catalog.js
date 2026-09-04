@@ -610,6 +610,23 @@ function tagRows(model) {
   );
 }
 
+// De kleuren van het model als staaltjes, in de volgorde die catalog.json aanhoudt.
+// Zonder naam: de kleurbalk bovenaan benoemt ze al, en hier telt de kleur zelf.
+function colorSwatches(colors) {
+  if (!colors?.length) return null;
+  const strip = document.createElement('div');
+  strip.className = 'detail-stalen';
+  for (const hex of colors) {
+    const dot = document.createElement('span');
+    dot.className = 'detail-staal';
+    dot.style.setProperty('--staal-kleur', hex);
+    // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
+    dot.title = hex;
+    strip.append(dot);
+  }
+  return strip;
+}
+
 function showDetail(model) {
   const kit = register.kits.get(model.kit);
   const group = register.groups.get(model.gr);
@@ -655,6 +672,13 @@ function showDetail(model) {
     { kop: 'Gradient', vol: 'Gradient spread within the colour band', waarde: model.grad === undefined ? '—' : unit.format(model.grad) },
     { kop: 'Hues', vol: 'Hue families in the colours', waarde: model.hues === undefined ? '—' : number.format(model.hues) },
     {
+      kop: 'Colours',
+      vol: 'Colour bands the model uses',
+      waarde: '—',
+      element: colorSwatches(model.colors),
+      breed: true,
+    },
+    {
       kop: 'Grid/gnd/ctr',
       vol: 'Grid-modular / grounded / centered',
       waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
@@ -663,12 +687,13 @@ function showDetail(model) {
   ];
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
-  for (const { kop, vol, waarde, breed } of rows) {
+  for (const { kop, vol, waarde, breed, element } of rows) {
     const name = document.createElement('dt');
     name.textContent = kop;
     if (vol) name.title = vol;
     const valueEl = document.createElement('dd');
-    valueEl.textContent = waarde;
+    if (element) valueEl.append(element);
+    else valueEl.textContent = waarde;
     if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
     data.append(name, valueEl);
   }
