@@ -67,13 +67,20 @@ blue-grey 3,2 · blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 ·
 khaki 14,0 · terracotta 5,0 · yellow/gold 6,0 · dark red 8,0 · dark green 1,1 ·
 light green 3,1 · wood light 0,0 · wood middle 1,0 · bark 2,0.
 
+S. Special — the one way out of every rule below.
+
+S1. A model tagged `special` is a deliberate exception and none of the rules below
+apply to it. Only the PO assigns the tag; it is not a way to silence a finding you
+would rather not fix, and every model carrying it should be one you can name the
+reason for.
+
 M. Material to colour — what a thing is made of, and the colour that takes.
 
-M1. Flowers may be any colour.
+M1. Flowers may be any colour — this is a rule of its own, not an exception, so the colour-to-material rules below do not apply to the flowers group.
 M2. Stems and leaves follow foliage green.
 M3. Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.
 M4. Grass is light green.
-M5. Trees are usually dark green.
+M5. Trees are usually dark green. Palms are the exception: their fronds are light green.
 M6. Bones and skulls are off-white.
 M7. Paper is off-white.
 M8. Ceramics are usually terracotta, off-white, taupe, or dark red.
