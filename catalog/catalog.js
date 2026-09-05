@@ -677,7 +677,15 @@ function showDetail(model) {
     // hoeveel van de gradient in de kleurband het model gebruikt: 0 is alles op één lijn,
     // dus zonder ingebakken schaduw
     { kop: 'Gradient', vol: 'Gradient spread within the colour band', waarde: model.grad === undefined ? '—' : unit.format(model.grad) },
-    { kop: 'Hues', vol: 'Hue families in the colours', waarde: model.hues === undefined ? '—' : number.format(model.hues) },
+    // De doorzichtige glaskleur is een materiaal en geen baan (regel M24), dus die telt
+    // hier niet mee — net zomin als bij het plafond van N4.
+    {
+      kop: 'Bands',
+      vol: 'Colour bands the model uses — the clear glass is a material, not a band',
+      waarde: model.colors === undefined
+        ? '—'
+        : number.format(model.colors.filter((hex) => hex !== '#ffffff').length),
+    },
     {
       kop: 'Colours',
       vol: 'Colour bands the model uses',
