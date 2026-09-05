@@ -99,9 +99,12 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 // — a palm counts its trunk and its fronds, not one lane against three bands.
 // `flora` is not: it covers the bare trunks and stumps too, which have no colour of
 // their own, so counting it would read a single-band grass patch as short a band.
+// `light` is one too, for the same reason: rule M24 gives the flame and the glow a
+// colour of their own, so a lit candle counts its flame beside its wax rather than
+// spending a second band on one material.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'gemstone', 'foliage', 'liquid'];
+  'gemstone', 'foliage', 'liquid', 'light'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
