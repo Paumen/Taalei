@@ -211,8 +211,8 @@ const RULES = [
   materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candle wax and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'wax') }),
-  materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or taupe 14,3.', severity: 'error',
-    tag: 'rope', colors: ['wood light', 'taupe'] }),
+  materialTakes({ id: 'M14', text: 'Rope is taupe 14,3.', severity: 'error',
+    tag: 'rope', colors: ['taupe'] }),
   // Rule M35 is the colour half of rule G1's leather exception: leather takes the bark
   // lane, with or without a bark tag, which is why the tag is not an escape here.
   materialTakes({ id: 'M35', text: 'Leather is bark 2,0.', severity: 'error',
@@ -278,10 +278,11 @@ const RULES = [
     accent: true, unless: isBook }),
   bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
     severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
-  // "Lighter browns" is the light and middle lane of rule G1; rule M14 puts rope on
-  // the light lane too, so rope is not a violation here.
+  // "Lighter browns" is the light and middle lane of rule G1. Rope used to be excused
+  // here — rule M14 put it on the light lane too — but M14 now sends rope to taupe,
+  // so timber is the only material left that reaches this band.
   bandOnlyFor({ id: 'C1-light', text: 'Lighter browns are only used for timber.',
-    severity: 'warn', color: 'wood light', tags: ['timber', 'rope'] }),
+    severity: 'warn', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C1-middle', text: 'Lighter browns are only used for timber.',
     severity: 'warn', color: 'wood middle', tags: ['timber', 'textile'] }),
   bandOnlyFor({ id: 'C4', text: 'Light grey 15,3 is only used for metal, stone, and rock.',

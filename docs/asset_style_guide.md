@@ -92,7 +92,7 @@ M10. Steel/cast iron can be blue-grey 6,1.
 M11. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0. Sword and dagger grips are precious metal too: silver 3,2, so the grip reads apart from the light grey blade.
 M12. Keys can be any metal or precious-metal colour.
 M13. Textile: off-white, salmon 13,0, taupe 14,3 or brown 1,0. The wrapped grips and bindings on tools and weapons are one colour across the whole collection: taupe 14,3 in the light half of its gradient, 0.02-0.40. The wooden peg on a tool head and the bar of a T-handle are timber and stay in their wood lane.
-M14. Rope is wood light 0,0 or taupe 14,3.
+M14. Rope is taupe 14,3. Not the light wood lane: rope is not timber, and against the planking it lashes it has to read as its own material. Where a model carries rope on a taupe it already holds for stone or textile, rule N2's merge applies and no extra band appears.
 M15. Belts, shoes and straps are leather. A strap is leather wherever it turns up: the belt itself, the fixtures holding a book shut, the bands round a stack of bricks or a bundle of resources. Rule M35 gives leather its colour.
 M16. Bottles are glass or ceramic.
 M17. Glass is a special own material: transparent, or dark green or dark red.
