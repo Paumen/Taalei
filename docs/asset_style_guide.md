@@ -165,6 +165,7 @@ In the order of the band list above.
 - **N1.** A model has at least one material.
 - **N2.** A model uses at least as many bands as it has materials.
 - **N3.** A model uses at most twice as many bands as materials.
-- **N4.** Ceiling: **7 bands for a character, 5 for anything else.**
+- **N4.** Ceiling: **7 bands for a human character, 5 for anything else.** A
+  skeleton is not a human character: it is made of bone and takes the 5.
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own.

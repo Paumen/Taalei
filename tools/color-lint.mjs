@@ -133,6 +133,9 @@ const isOceanFauna = (m) => m.gr === 'ocean' && (m.tags?.includes('fauna') ?? fa
 // Both are read off the name: copper and the keys carry the plain `metal` tag, and
 // nothing in the catalogue records that a bar is copper or a shape is a key.
 // `keyring` is in: a ring of keys is keys.
+// Rule N4's higher ceiling is for the human characters. A skeleton is filed with
+// them but is made of bone, so it takes the 5 like everything else.
+const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
 const isKey = (m) => /(^|-)key/.test(m.name);
 
@@ -180,8 +183,14 @@ const RULES = [
   materialTakes({ id: 'M1', text: 'Trees are dark green.', severity: 'error',
     tag: 'tree', colors: ['dark green'],
     when: (m) => m.gr === 'trees' && !m.name.includes('palm') }),
+  materialTakes({ id: 'M2', text: 'Palm fronds are light green.', severity: 'error',
+    tag: 'palms', colors: ['light green'] }),
   materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
+  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0 or wood middle 1,0.', severity: 'error',
+    tag: 'timber', colors: ['wood light', 'wood middle'] }),
+  materialTakes({ id: 'M7', text: 'Bark is bark 2,0.', severity: 'error',
+    tag: 'bark', colors: ['bark'] }),
   materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
     severity: 'error', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M9', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
@@ -228,10 +237,19 @@ const RULES = [
   // liquid colours, and the C block names no other material on them.
   materialTakes({ id: 'M28', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
+  // Rule M26 is about the material and not the band: a bottle has to be made of one
+  // of the two. The name is the condition — nothing in the catalogue says "bottle".
+  { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
+    check: (m) => (/(^|-)bottle/.test(m.name) && !has(m, 'glass', 'ceramic'))
+      ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
   materialTakes({ id: 'M29', text: 'Bones and skulls are off-white.', severity: 'error',
     tag: 'bone', colors: ['off-white'] }),
   materialTakes({ id: 'M30', text: 'Paper is off-white.', severity: 'error',
     tag: 'paper', colors: ['off-white'] }),
+  // Rule M31's gradient half — the dark 0.55-1.00 of the lane — is in the UVs and not
+  // in the catalogue; that the meat is on terracotta at all is checkable.
+  materialTakes({ id: 'M31', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.', severity: 'error',
+    tag: 'meat', colors: ['terracotta'] }),
   materialTakes({ id: 'M32', text: 'Fauna are naturalistic: off-white, salmon, taupe. Fish may also be blue 4,2 or light blue-grey 3,2.',
     severity: 'error', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
     when: (m) => has(m, 'fauna') }),
@@ -241,16 +259,21 @@ const RULES = [
   // Rule M37: the cover bands. A book has to hold at least one of them; which triangles
   // are the cover and which the pages is not in the catalogue. Scrolls and maps are
   // paper all through and carry no cover, so the name is the condition and not the group.
+  materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
+    severity: 'error', tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
   materialTakes({ id: 'M37', text: 'Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
     severity: 'error', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
     when: isBook }),
   materialTakes({ id: 'M38', text: 'Roofs are ceramic, dark red.', severity: 'error',
     tag: 'roof', colors: ['dark red'], when: isRoof }),
 
-  // Colour -> material, the C block, in the order of the band list. C2 (blue-grey)
-  // and C3 (light blue-grey) have never been checked here and still are not.
+  // Colour -> material, the C block, in the order of the band list.
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
     severity: 'error', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
+  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37).',
+    severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'], unless: isBook }),
+  bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
+    severity: 'error', color: 'light blue-grey', tags: ['precious-metal'] }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
   bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, light and fire.',
@@ -277,6 +300,9 @@ const RULES = [
     severity: 'error', color: 'wood middle', tags: ['timber', 'textile'] }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark and leather only.',
     severity: 'error', color: 'bark', tags: ['bark', 'leather'] }),
+  // Rule C11. The transparent colour is not a band, so bandOnlyFor cannot carry it.
+  { id: 'C11', text: 'Clear glass: glass only.', severity: 'error',
+    check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
   // Counting, the N block. `mat` in catalog.json is the glTF material count and is 1 for all but
   // 25 models, so "materials" here is the material tags — the thing the model is
@@ -308,11 +334,11 @@ const RULES = [
   // N4. The ceiling, counted in bands and not in entries of `colors`: rule M24 makes
   // the clear glass a material of its own rather than a band, so a model does not
   // spend part of its ceiling on having windows.
-  { id: 'N4', text: 'Ceiling: 7 bands for a character, 5 for anything else.',
+  { id: 'N4', text: 'Ceiling: 7 bands for a human character, 5 for anything else.',
     severity: 'error', noJoker: true,
     check: (m) => {
       const bands = m.colors.filter((hex) => hex !== CLEAR).length;
-      const ceiling = m.gr === 'characters' ? 7 : 5;
+      const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 7 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
     } },
