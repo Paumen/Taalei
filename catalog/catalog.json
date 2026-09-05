@@ -2065,7 +2065,9 @@
     "skeletons/arrow",
     "skeletons/arrow-broken",
     "skeletons/arrow-broken-half",
-    "skeletons/arrow-half"
+    "skeletons/arrow-half",
+    "adventurers/arrow-bow",
+    "adventurers/arrow-crossbow"
    ]
   },
   {
@@ -2088,15 +2090,6 @@
   },
   {
    "id": "v202",
-   "type": "color-variant",
-   "main": "adventurers/arrow-bow",
-   "members": [
-    "adventurers/arrow-bow",
-    "adventurers/arrow-crossbow"
-   ]
-  },
-  {
-   "id": "v203",
    "type": "detail-variant",
    "main": "adventurers/quiver",
    "members": [
@@ -2105,12 +2098,21 @@
    ]
   },
   {
-   "id": "v204",
+   "id": "v203",
    "type": "detail-variant",
    "main": "survival-kit/rock-flat",
    "members": [
     "survival-kit/rock-flat",
     "survival-kit/rock-flat-grass"
+   ]
+  },
+  {
+   "id": "v204",
+   "type": "detail-variant",
+   "main": "rpgtools/pencil-a-long",
+   "members": [
+    "rpgtools/pencil-a-long",
+    "rpgtools/pencil-b-long"
    ]
   }
  ],
@@ -2390,9 +2392,19 @@
    "color": "#b5651d"
   },
   {
+   "id": "timber",
+   "name": "Timber resources",
+   "color": "#714c39"
+  },
+  {
    "id": "transport",
    "name": "Transport",
    "color": "#5a7a9c"
+  },
+  {
+   "id": "resources",
+   "name": "Resources & supplies",
+   "color": "#4f7d8c"
   },
   {
    "id": "bottles-jugs",
@@ -2403,11 +2415,6 @@
    "id": "tools",
    "name": "Tools & weapons",
    "color": "#6d738a"
-  },
-  {
-   "id": "resources",
-   "name": "Resources & supplies",
-   "color": "#4f7d8c"
   },
   {
    "id": "grass",
@@ -2544,7 +2551,7 @@
     "object",
     "timber"
    ],
-   "variant": "v202"
+   "variant": "v199"
   },
   {
    "kit": "adventurers",
@@ -2619,7 +2626,7 @@
     "object",
     "timber"
    ],
-   "variant": "v202"
+   "variant": "v199"
   },
   {
    "kit": "adventurers",
@@ -3477,7 +3484,7 @@
     "object",
     "timber"
    ],
-   "variant": "v203"
+   "variant": "v202"
   },
   {
    "kit": "adventurers",
@@ -4040,42 +4047,6 @@
    "colors": [
     "#7a767c",
     "#9a6b4e"
-   ],
-   "tags": [
-    "kay",
-    "metal",
-    "object",
-    "timber"
-   ]
-  },
-  {
-   "kit": "adventurers",
-   "name": "shield-round-colored",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 284,
-   "tpu": 828,
-   "mat": 1,
-   "calls": 1,
-   "bytes": 13224,
-   "vtx": 314,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00017,
-   "dens": 206466,
-   "anglePct": 6,
-   "vpt": 1.11,
-   "grad": 0.86,
-   "hues": 2,
-   "colors": [
-    "#7a767c",
-    "#9a6b4e",
-    "#ebe4d0"
    ],
    "tags": [
     "kay",
@@ -13496,11 +13467,11 @@
    "anglePct": 7,
    "vpt": 1.89,
    "grad": 0,
-   "hues": 3,
+   "hues": 2,
    "colors": [
     "#23562c",
-    "#88796d",
-    "#8f785b"
+    "#8f785b",
+    "#ebe4d0"
    ],
    "tags": [
     "glass",
@@ -13531,12 +13502,12 @@
    "anglePct": 6,
    "vpt": 1.85,
    "grad": 0,
-   "hues": 4,
+   "hues": 3,
    "colors": [
     "#23562c",
     "#7f3927",
-    "#88796d",
-    "#8f785b"
+    "#8f785b",
+    "#ebe4d0"
    ],
    "tags": [
     "glass",
@@ -17638,7 +17609,7 @@
   {
    "kit": "modulair-terrein",
    "name": "hilly-prop-camp-wood-pile",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.2,
@@ -20194,7 +20165,7 @@
   {
    "kit": "natuur",
    "name": "log-1",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -20230,7 +20201,7 @@
   {
    "kit": "natuur",
    "name": "log-2",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.2,
@@ -20266,7 +20237,7 @@
   {
    "kit": "natuur",
    "name": "log-3",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.2,
@@ -20302,7 +20273,7 @@
   {
    "kit": "natuur",
    "name": "log-4",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.5,
     0.2,
@@ -20338,7 +20309,7 @@
   {
    "kit": "natuur",
    "name": "log-5",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.7,
     0.2,
@@ -21518,7 +21489,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-1",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -21553,7 +21524,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-2",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -21588,7 +21559,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-3",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.2,
     0.1,
@@ -21623,7 +21594,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-4",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -21658,7 +21629,7 @@
   {
    "kit": "natuur",
    "name": "timber-stack-1",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.3,
@@ -21693,7 +21664,7 @@
   {
    "kit": "natuur",
    "name": "timber-stack-2",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.3,
@@ -21728,7 +21699,7 @@
   {
    "kit": "natuur",
    "name": "timber-whole-1",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -22897,7 +22868,7 @@
   {
    "kit": "pirate-kit",
    "name": "platform-planks",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.5,
     0.7,
@@ -23936,10 +23907,10 @@
    "dens": 77287,
    "anglePct": 45,
    "vpt": 0.96,
-   "grad": 0.49,
+   "grad": 0.42,
    "hues": 2,
    "colors": [
-    "#3e3e44",
+    "#474a58",
     "#7a767c",
     "#cb9d78"
    ],
@@ -23975,7 +23946,7 @@
    "grad": 0,
    "hues": 1,
    "colors": [
-    "#3e3e44"
+    "#474a58"
    ],
    "tags": [
     "metal",
@@ -26422,7 +26393,7 @@
   {
    "kit": "props",
    "name": "firewood-a",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.2,
     0.2,
@@ -28864,7 +28835,7 @@
   {
    "kit": "resources",
    "name": "pallet-wood",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.4,
@@ -29686,7 +29657,7 @@
   {
    "kit": "resources",
    "name": "wood-log-a",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.2,
     0.3,
@@ -29724,7 +29695,7 @@
   {
    "kit": "resources",
    "name": "wood-log-b",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.1,
     0.3,
@@ -29761,7 +29732,7 @@
   {
    "kit": "resources",
    "name": "wood-log-stack",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.4,
@@ -29796,7 +29767,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-a",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.1,
     0.4,
@@ -29830,7 +29801,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-b",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.1,
     0.4,
@@ -29864,7 +29835,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-c",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.1,
     0.4,
@@ -29898,7 +29869,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-large",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.4,
@@ -29931,7 +29902,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-medium",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.4,
@@ -29964,7 +29935,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-small",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.2,
     0.4,
@@ -34113,7 +34084,8 @@
     "kay",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v204"
   },
   {
    "kit": "rpgtools",
@@ -34150,7 +34122,8 @@
     "metal",
     "object",
     "timber"
-   ]
+   ],
+   "variant": "v204"
   },
   {
    "kit": "rpgtools",
@@ -35047,7 +35020,7 @@
     "object",
     "timber"
    ],
-   "variant": "v203"
+   "variant": "v202"
   },
   {
    "kit": "skeletons",
@@ -36379,7 +36352,7 @@
   {
    "kit": "survival-kit",
    "name": "resource-planks",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.4,
     0.7,
@@ -36613,7 +36586,7 @@
     "nature",
     "rock"
    ],
-   "variant": "v204"
+   "variant": "v203"
   },
   {
    "kit": "survival-kit",
@@ -36647,7 +36620,7 @@
     "nature",
     "rock"
    ],
-   "variant": "v204"
+   "variant": "v203"
   },
   {
    "kit": "survival-kit",
@@ -37023,7 +36996,7 @@
   {
    "kit": "survival-kit",
    "name": "tree-log-small",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.7,
@@ -37060,7 +37033,7 @@
   {
    "kit": "survival-kit",
    "name": "tree-log",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     1,

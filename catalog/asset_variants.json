@@ -12247,45 +12247,60 @@
     "skeletons/arrow",
     "skeletons/arrow-broken",
     "skeletons/arrow-broken-half",
-    "skeletons/arrow-half"
+    "skeletons/arrow-half",
+    "adventurers/arrow-bow",
+    "adventurers/arrow-crossbow"
    ],
    "main": "skeletons/arrow",
    "kits": [
+    "adventurers",
     "skeletons"
    ],
    "type": "detail-variant",
    "types": [
     "manual"
    ],
-   "sameSize": true,
+   "sameSize": false,
    "minOverlap": null,
    "wdh": [
     [
-     0.1,
-     0.1,
-     0.1
+     0.021,
+     0.018,
+     0.131
     ],
     [
-     0.1,
-     0.1,
-     0.1
+     0.056,
+     0.021,
+     0.12
     ],
     [
-     0.1,
-     0.1,
-     0.1
+     0.053,
+     0.021,
+     0.102
     ],
     [
-     0.1,
-     0.1,
-     0.1
+     0.021,
+     0.018,
+     0.064
+    ],
+    [
+     0.029,
+     0.221,
+     0.025
+    ],
+    [
+     0.021,
+     0.131,
+     0.018
     ]
    ],
    "driehoeken": [
     52,
     72,
     54,
-    40
+    40,
+    52,
+    52
    ],
    "kleuren": [
     [
@@ -12305,6 +12320,16 @@
     [
      "#7f3927",
      "#9a6b4e"
+    ],
+    [
+     "#2473b3",
+     "#7a767c",
+     "#9a6b4e"
+    ],
+    [
+     "#6d8d33",
+     "#7a767c",
+     "#9a6b4e"
     ]
    ],
    "paren": [
@@ -12323,6 +12348,18 @@
     {
      "a": "skeletons/arrow-broken-half",
      "b": "skeletons/arrow-half",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "skeletons/arrow-half",
+     "b": "adventurers/arrow-bow",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "adventurers/arrow-bow",
+     "b": "adventurers/arrow-crossbow",
      "soort": "handmatig",
      "overlap": null
     }
@@ -12433,58 +12470,6 @@
   },
   {
    "members": [
-    "adventurers/arrow-bow",
-    "adventurers/arrow-crossbow"
-   ],
-   "main": "adventurers/arrow-bow",
-   "kits": [
-    "adventurers"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.1,
-     0.2,
-     0.1
-    ],
-    [
-     0.1,
-     0.1,
-     0.1
-    ]
-   ],
-   "driehoeken": [
-    52,
-    52
-   ],
-   "kleuren": [
-    [
-     "#2473b3",
-     "#7a767c",
-     "#9a6b4e"
-    ],
-    [
-     "#6d8d33",
-     "#7a767c",
-     "#9a6b4e"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "adventurers/arrow-bow",
-     "b": "adventurers/arrow-crossbow",
-     "soort": "handmatig",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
     "adventurers/quiver",
     "skeletons/quiver"
    ],
@@ -12580,6 +12565,59 @@
     {
      "a": "survival-kit/rock-flat",
      "b": "survival-kit/rock-flat-grass",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "rpgtools/pencil-a-long",
+    "rpgtools/pencil-b-long"
+   ],
+   "main": "rpgtools/pencil-a-long",
+   "kits": [
+    "rpgtools"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.024,
+     0.028,
+     0.177
+    ],
+    [
+     0.032,
+     0.032,
+     0.182
+    ]
+   ],
+   "driehoeken": [
+    48,
+    268
+   ],
+   "kleuren": [
+    [
+     "#3e3e44",
+     "#cb9d78",
+     "#ffb349"
+    ],
+    [
+     "#3e3e44",
+     "#7a767c",
+     "#dd9f79",
+     "#ffb349"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "rpgtools/pencil-a-long",
+     "b": "rpgtools/pencil-b-long",
      "soort": "handmatig",
      "overlap": null
     }

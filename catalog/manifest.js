@@ -1465,6 +1465,9 @@ window.KENNEY_KITS = [
   "slug": "adventurers",
   "name": "Adventurers",
   "url": "https://www.kaylousberg.com",
+  "outsideCatalog": [
+   "shield-round-colored"
+  ],
   "models": [
    "arrow-bow",
    "arrow-bow-bundle",
