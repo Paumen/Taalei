@@ -15,7 +15,11 @@
 // rules (the G block) live in the UVs of the individual triangles and in the
 // source model, not in the catalogue — they need their own tool. And the rules
 // that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and G6) are
-// a judgement, not a measurement.
+// a judgement, not a measurement. Rules M34 and M37 and the first half of M27 name
+// a part of a model — a buckle, a book cover, the band round a barrel — and the
+// catalogue records a model's bands, not which triangle carries which; what is
+// checkable of them is checked (a container's metal has to be light grey, a book has
+// to hold one of the cover bands), the rest is a judgement too.
 //
 // SEVERITY is the table below and nothing else: `error` fails the run, `warn`
 // only prints. Appendix A says "only" through the C block and "usually" for much
@@ -123,6 +127,14 @@ const isOceanFauna = (m) => m.gr === 'ocean' && (m.tags?.includes('fauna') ?? fa
 const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
 const isKey = (m) => /(^|-)key/.test(m.name);
 
+// Rule M27's containers and rule M37's books, both read off the name: nothing in the
+// catalogue records that a model is a barrel or that it has a cover. `book` catches the
+// spellbook and the journal; a scroll, a map and loose parchment have no cover and stay
+// out, and so does the shelf of books, which is furniture.
+const isContainer = (m) =>
+  /(^|-)(barrel|chest|bucket|trunk|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
+const isBook = (m) => /(^|-)(book|spellbook|journal)(-|$)/.test(m.name) && has(m, 'paper');
+
 // A band is only used for the materials listed. Fires when the model uses the band
 // and carries none of them. `groups` names semantic groups the band is equally for,
 // where what a model is says more than what it is made of; `accent` exempts the
@@ -201,6 +213,28 @@ const RULES = [
     when: (m) => has(m, 'light', 'candle') }),
   materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or taupe 14,3.', severity: 'error',
     tag: 'rope', colors: ['wood light', 'taupe'] }),
+  // Rule M35 is the colour half of rule G1's leather exception: leather takes the bark
+  // lane, with or without a bark tag, which is why the tag is not an escape here.
+  materialTakes({ id: 'M35', text: 'Leather is bark 2,0.', severity: 'error',
+    tag: 'leather', colors: ['bark'] }),
+  materialTakes({ id: 'M25', text: 'All cork is taupe 14,3.', severity: 'error',
+    tag: 'cork', colors: ['taupe'] }),
+  // Rule M31 no longer lets a potion take any band it likes: the three below are the
+  // liquid colours, and the C block names the liquid on each of them.
+  materialTakes({ id: 'M31', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
+    severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
+  // Rule M27, the half that is a measurement: a container carrying metal has to take
+  // light grey for it. That the bands are metal at all — and not timber or taupe — is
+  // about a part of the model the catalogue cannot see.
+  materialTakes({ id: 'M27', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, and that metal is light grey 15,3.',
+    severity: 'warn', tag: 'metal', colors: ['light grey'],
+    when: (m) => isContainer(m) && has(m, 'metal') }),
+  // Rule M37: the cover bands. A book has to hold at least one of them; which triangles
+  // are the cover and which the pages is not in the catalogue. Scrolls and maps are
+  // paper all through and carry no cover, so the name is the condition and not the group.
+  materialTakes({ id: 'M37', text: 'Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
+    severity: 'warn', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
+    when: isBook }),
   materialTakes({ id: 'M26', text: 'Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.',
     severity: 'warn', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
     when: (m) => has(m, 'fauna') }),
@@ -209,10 +243,17 @@ const RULES = [
   // Rule M31: the liquid in a flask takes its own colour, so `liquid` stands beside the
   // materials in every band a potion can be. The flask and its stopper are not exempt —
   // they carry glass and cork, and those rules still have to answer for their own bands.
-  bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26) and otherwise only minor details or accents.',
-    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid'], accent: true }),
-  bandOnlyFor({ id: 'C9', text: 'Light green is only used for flora, and very minor details or accents.',
-    severity: 'error', color: 'light green', tags: ['flora', 'foliage', 'liquid'], accent: true }),
+  // Rule M36's gemstones are the coins-jewelry group: the stone set in a ring or a
+  // necklace is not a material of its own in tags.json, and the group is what says a
+  // model has one. The band it may be — dark red, dark green, blue — is named on each.
+  bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26), liquids (M31), gemstones (M36), and otherwise only minor details or accents.',
+    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid'], groups: ['coins-jewelry'], accent: true }),
+  // Rule C9 has no accent escape: light green is nature and nothing else. Grass and weeds
+  // growing on an object or a structure are in — they carry the flora tag, which is the
+  // whole of what the band is for — and a green that grows nothing is a finding whatever
+  // its size. Liquid is not on this band either, since rule M31 no longer reaches it.
+  bandOnlyFor({ id: 'C9', text: 'Light green is only used for nature: flora and foliage, including grass and weed accents on objects and structures.',
+    severity: 'error', color: 'light green', tags: ['flora', 'foliage'] }),
   // Read literally: the rule forbids terracotta on timber, and names copper (R) and
   // ceramics as what may carry it. It says nothing about other materials.
   bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
@@ -228,10 +269,12 @@ const RULES = [
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   // Rule C5 retired with the dark grey band it named: cast iron and wicks moved onto
   // blue-grey (rules M10 and M23), and blue-grey has never carried an "only" clause.
-  bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
-    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid'], accent: true, unless: isRoof }),
-  bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, and very minor details or accents.',
-    severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid'], accent: true }),
+  bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
+    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid'],
+    groups: ['coins-jewelry'], accent: true, unless: (m) => isRoof(m) || isBook(m) }),
+  bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
+    severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid'],
+    groups: ['coins-jewelry'], accent: true, unless: isBook }),
   bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
     severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
   // "Lighter browns" is the light and middle lane of rule G1; rule M14 puts rope on

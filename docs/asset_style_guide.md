@@ -90,7 +90,7 @@ M11. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2
 M12. Keys can be any metal or precious-metal colour.
 M13. Textile: off-white, salmon 13,0, taupe 14,3 or brown 1,0. The wrapped grips and bindings on tools and weapons are one colour across the whole collection: taupe 14,3 in the light half of its gradient, 0.02-0.40. The wooden peg on a tool head and the bar of a T-handle are timber and stay in their wood lane.
 M14. Rope is wood light 0,0 or taupe 14,3.
-M15. Belts and shoes are usually leather.
+M15. Belts, shoes and straps are leather. A strap is leather wherever it turns up: the belt itself, the fixtures holding a book shut, the bands round a stack of bricks or a bundle of resources. Rule M35 gives leather its colour.
 M16. Bottles are glass or ceramic.
 M17. Glass is a special own material: transparent, or dark green or dark red.
 M18. Usual colour variants: glass bottle shape exists in red and green.
@@ -100,15 +100,19 @@ M21. Rocks are light grey 15,3, secondarily taupe 14,3.
 M22. Sand and dirt are taupe 14,3 or salmon 13,0. They are the `soil` material: laid paving and hewn stone are stone, loose boulders, gravel and rubble are rock, and a grass patch is flora sitting on the ground rather than soil of its own.
 M23. Wicks are blue-grey 6,1.
 M24. Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.
-M25. All cork is usually the same light salmon brown.
+M25. All cork is taupe 14,3 — one colour across the whole collection, stoppers and everything else cut from cork bark.
 M26. Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.
-M27. Bands on barrels, buckets, and chests are usually light grey (metal).
+M27. The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, and that metal is light grey 15,3 — not the blue-grey of rule M10 and not a brown of its own. A band is metal whatever the model it sits on is made of.
 M28. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regularly with metal accents.
 M29. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
 M30. Food is naturalistic — off-white 5,2, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
-M31. A liquid takes its own colour: the potion in a filled flask may use any band, because the colour is what says which potion it is. Like the flowers of rule M1 this is a rule of its own, so the colour-to-material rules below do not reach the liquid. The flask around it follows rule M16 and its stopper rule M25.
+M31. A liquid takes its own colour, and it is dark red 8,0, dark green 1,1 or blue 4,2: the colour of the potion in a filled flask is what says which potion it is, but it is one of those three and not any band it likes. Like the flowers of rule M1 this is a rule of its own, so the colour-to-material rules below do not reach the liquid — within those three bands. The flask around it follows rule M16 and its stopper rule M25.
 M32. Meat is one colour across the whole collection: terracotta 5,0 in the dark half of its gradient, 0.55-1.00, the same way rule M13 holds the wrapped grips to one colour. That covers the joint, the drumstick, the ham, the steak and the roast bird; a cut or inner face stays the darker end of that same range rather than taking a band of its own. The bone follows rule M6, the fat rim the off-white beside it, and the plate or bowl its own material.
 M33. What sits next to the meat on the plate is not meat, and rule M32 does not reach it: the mash on plate-food-a, plate-food-b and food-dinner, the carrots and potatoes in food-stew and on the dinner plate, the peas. Read it from the source model before recolouring — on our palette a mash mound and a slab of meat can both land on salmon 13,0, but the pack they came from gives them different colours and says which is which. food-stew and plate-food-b hold no meat at all, only vegetables and a bone.
+M34. Buckles are metal: light grey 15,3. That covers the buckle on a belt, on a strap and on a bag, whatever the strap it closes is made of.
+M35. Leather is bark 2,0 — the darkest brown lane of rule G1. That is why G1 lets a leather-look surface take the bark lane without carrying a bark tag: belts, straps, boots, bracers, quivers, satchels and book covers are all one brown.
+M36. Gemstones are dark red 8,0, dark green 1,1 or blue 4,2 — the stone set in a ring, a necklace, an amulet or a hilt. The metal around it follows rule M11.
+M37. Book covers are bark 2,0 (the leather of rule M35), dark red 8,0, dark green 1,1 or blue-grey 6,1. The pages follow rule M7 and the clasps and corners rule M9.
 
 C. Colour to material — what a band may be used on.
 
@@ -117,10 +121,10 @@ C2. Darkest brown is only used for bark and leather.
 C3. Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).
 C4. Light grey 15,3 is only used for metal, stone, and rock.
 C6. Yellow is usually only used for coins, jewellery, light, or fire — and for cheese, the one yellow food of rule M30.
-C7. Dark red is only used for ceramics, glass, roofs, and very minor details or accents.
-C8. Dark green is only used for foliage, glass, and very minor details or accents.
-C9. Light green is only used for flora, and very minor details or accents.
-C10. Blue 4,2 is used sparingly: fish (rule M26) and otherwise only minor details or accents.
+C7. Dark red is only used for ceramics, glass, roofs, liquids (rule M31), gemstones (rule M36), book covers (rule M37), and very minor details or accents.
+C8. Dark green is only used for foliage, glass, liquids (rule M31), gemstones (rule M36), book covers (rule M37), and very minor details or accents.
+C9. Light green is only used for nature: flora and foliage, including the grass and weed accents growing on objects and structures. It is not a general-purpose accent band — a green fletching or a green stripe on an object that grows nothing is a finding, not an accent.
+C10. Blue 4,2 is used sparingly: fish (rule M26), liquids (rule M31), gemstones (rule M36), and otherwise only minor details or accents.
 
 N. Counting — bands against materials.
 
