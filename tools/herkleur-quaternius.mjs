@@ -69,7 +69,7 @@ const STAPPEN = [
   ['5,0', ['1,1'], drankjes('filled', 4, 8)],
   ['4,2', ['1,1'], drankjes('filled', 5, 10, 11)],
   // De fles zelf blijft op 5,2 en wordt onderaan dit script doorzichtig glas: de
-  // drank zit binnenin, dus door een dichte fles zie je er niets van (regel M17).
+  // drank zit binnenin, dus door een dichte fles zie je er niets van (regel M24).
 
   // De drie huizen: de enige modellen in de verzameling met COLOR_0 in de bron. Die
   // kwam als NaN binnen, waardoor alle driehoeken in één kleurgroep vielen en het
@@ -100,7 +100,7 @@ const FIJNE_STAPPEN = [
   // de kaft deelde de papierbaan met zijn eigen bladzijden; donkere kaftbaan, als
   // fantasy-props/book-5
   [`${W}/rpg-quaternius/book-3-closed.glb`, '5,2', '6,1', '0.9:1', '0.97:0.97'],
-  // touw naar taupe (regel M14). In alle drie de modellen ligt het touw op de lichte
+  // touw naar taupe (regel M22). In alle drie de modellen ligt het touw op de lichte
   // houtbaan, maar op een eigen stand in het verloop — 0.16 op de schepen, 0.22 bij
   // het huis — en die stand is precies de kleurgroep die de maker in de atlas heeft
   // staan (#a89a6a en #a79163). 0.45 op taupe is waar rpgtools/rope-bundle ligt.

@@ -13,6 +13,14 @@
 // (wereldloze meshcoördinaten, "-" = geen grens), zodat pagina's en kaften die
 // dezelfde baan delen uit elkaar te houden zijn.
 //
+// --normaal x,y,z kiest alleen hoekpunten waarvan de normaal die kant op wijst, met
+// --tolerantie als drempel op het inwendig product (standaard 0.99). Nodig zodra twee
+// onderdelen dezelfde baan, dezelfde verlooppositie én dezelfde doos delen en alleen
+// hun richting ze scheidt: op de dakranden van village-kit liggen de achterwand en de
+// windveer allebei op x = -0.5, maar de achterwand is één vlak dat recht naar achteren
+// kijkt. Dat is geen benadering zoals een hoekdrempel op een onregelmatige vorm — het
+// vlak staat haaks op de as — dus gebruik het alleen waar dat opgaat.
+//
 // --heel maakt van --box de regel van afsplitsen.mjs: eerst hoekpunten lassen op
 // positie, dan hele samenhangende onderdelen kiezen, en een onderdeel gaat alleen
 // mee als het hélemaal in de doos valt. Nodig zodra onderdelen die dezelfde baan
@@ -30,6 +38,7 @@ const CB = W / KOLOMMEN, CH = H / RIJEN;
 
 const argumenten = process.argv.slice(2);
 let van = null, naar = null, bereik = [0, 1], uit = null, box = null, pad = null, vbron = null, heel = false;
+let normaal = null, tolerantie = 0.99;
 for (let i = 0; i < argumenten.length; i++) {
   const a = argumenten[i];
   if (a === '--van') van = argumenten[++i];
@@ -38,13 +47,15 @@ for (let i = 0; i < argumenten.length; i++) {
   else if (a === '--vbron') vbron = argumenten[++i].split(':').map(Number);
   else if (a === '--uit') uit = argumenten[++i];
   else if (a === '--heel') heel = true;
+  else if (a === '--normaal') normaal = argumenten[++i].split(',').map(Number);
+  else if (a === '--tolerantie') tolerantie = Number(argumenten[++i]);
   else if (a === '--box') {
     box = argumenten[++i].split(',').map((as) =>
       as.split(':').map((v) => (v === '-' ? null : Number(v))));
   } else pad = a;
 }
 if (!pad || !van || !naar) {
-  console.error('gebruik: node tools/herkleur-selectie.mjs <glb> --van k,r --naar k,r [--bereik lo:hi] [--box x:x,y:y,z:z] [--heel] [--uit kopie.glb]');
+  console.error('gebruik: node tools/herkleur-selectie.mjs <glb> --van k,r --naar k,r [--bereik lo:hi] [--box x:x,y:y,z:z] [--heel] [--normaal x,y,z] [--uit kopie.glb]');
   process.exit(1);
 }
 if (heel && !box) {
@@ -74,6 +85,9 @@ for (const mesh of json.meshes ?? []) {
 
     const posAcc = prim.attributes.POSITION !== undefined && box
       ? readAccessor(glb, prim.attributes.POSITION) : null;
+    const normAcc = prim.attributes.NORMAL !== undefined && normaal
+      ? readAccessor(glb, prim.attributes.NORMAL) : null;
+    if (normaal && !normAcc) throw new Error(`${pad}: --normaal maar de mesh heeft geen NORMAL`);
 
     // --heel: dezelfde regel als afsplitsen.mjs. Las de hoekpunten op positie,
     // verenig ze per driehoek tot samenhangende onderdelen, en hou alleen de
@@ -131,6 +145,12 @@ for (const mesh of json.meshes ?? []) {
       if (vbron) {
         const vDeel = hier.y / CH - vanR;
         if (vDeel < vbron[0] || vDeel > vbron[1]) continue;
+      }
+      if (normAcc) {
+        const dot = normaal[0] * normAcc.data[i * 3]
+          + normaal[1] * normAcc.data[i * 3 + 1]
+          + normaal[2] * normAcc.data[i * 3 + 2];
+        if (dot < tolerantie) continue;
       }
       if (deelBinnen) {
         if (!deelBinnen.has(deelVan(i))) continue;
