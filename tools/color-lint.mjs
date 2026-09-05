@@ -274,6 +274,19 @@ const RULES = [
       if (!n || m.colors.length <= 2 * n) return null;
       return `${m.colors.length} bands for ${n} material(s) (${materials(m).join(', ')})`;
     } },
+  // N4. The ceiling of rule N4, counted in bands and not in entries of `colors`:
+  // rule M17 makes the clear glass a material of its own rather than a band, so a
+  // model does not spend part of its ceiling on having windows. N5 says how a model
+  // over the ceiling is brought under, which is a method and not a measurement.
+  { id: 'N4', text: 'A model uses at most eight colour bands in the characters group, six elsewhere.',
+    severity: 'warn', alsoSpecial: true,
+    check: (m) => {
+      const bands = m.colors.filter((hex) => hex !== CLEAR).length;
+      const ceiling = m.gr === 'characters' ? 8 : 6;
+      if (bands <= ceiling) return null;
+      return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
+    } },
+
   // M3. Dark green is the tree band; the small flora takes light green. No accent
   // escape here — the rule is about which green these groups are drawn in, and the
   // stems and leaves it covers are not a minor detail.
@@ -323,13 +336,22 @@ const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog/catalog.json'), 'utf
 // same colour twice, against a material list that is the union of everything in it.
 const SKIP_GROUPS = ['assemblies'];
 
-const models = catalog.models
+const inCatalog = catalog.models
   .filter((m) => m.colors?.length)
   .filter((m) => !SKIP_GROUPS.includes(m.gr))
+  .filter((m) => !kitFilter || m.kit === kitFilter);
+
+const models = inCatalog
   // Rule S1: a model the PO has approved as an exception is not linted at all.
   .filter((m) => !m.tags?.includes('special'))
-  .filter((m) => !isOceanFauna(m))
-  .filter((m) => !kitFilter || m.kit === kitFilter);
+  .filter((m) => !isOceanFauna(m));
+
+// Rule N4 is the one rule of the appendix that `special` does not switch off, and
+// it says why: special excuses a model from being told which colour a material
+// takes, not from being told how many it may spend. Ocean fauna are out of the C
+// and M blocks for want of a material, which is no reason to let them off a count.
+// A rule opts in with `alsoSpecial`; everything else keeps the narrower list.
+const modelsWithSpecial = inCatalog;
 
 const unknown = new Set();
 for (const m of models) for (const hex of m.colors) if (!bandName[hex]) unknown.add(hex);
@@ -338,7 +360,7 @@ const findings = [];
 for (const rule of RULES) {
   if (ruleFilter && rule.id !== ruleFilter) continue;
   if (severityFilter && rule.severity !== severityFilter) continue;
-  for (const m of models) {
+  for (const m of rule.alsoSpecial ? modelsWithSpecial : models) {
     const detail = rule.check(m);
     if (detail) findings.push({ rule: rule.id, severity: rule.severity, model: `${m.kit}/${m.name}`, detail });
   }
