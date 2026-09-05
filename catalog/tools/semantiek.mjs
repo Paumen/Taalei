@@ -126,6 +126,9 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
+  // Vier bundels stof naast en op elkaar, elk met een eigen band: een stapeltje en
+  // geen los ding. De andere resources-stapels blijven bewust bij resources staan.
+  'resources/textiles-stack-large',
   // Niet uit een bronkit maar zelf gezet, uit losse delen van de village-kit:
   // tools/bouw-waterputplein.mjs.
   'village-kit/well-plaza',

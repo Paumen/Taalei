@@ -102,7 +102,7 @@ M20. Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, o
 M21. Rocks are light grey 15,3, secondarily taupe 14,3.
 M22. Sand and dirt are taupe 14,3 or salmon 13,0. They are the `soil` material: laid paving and hewn stone are stone, loose boulders, gravel and rubble are rock, and a grass patch is flora sitting on the ground rather than soil of its own.
 M23. Wicks are blue-grey 6,1.
-M24. Light: flames and glow are yellow 6,0; candle wax and lampshades are off-white 5,2.
+M24. Light: flames and glow are yellow 6,0; candle wax and lampshades are off-white 5,2. The flame is a material of its own and carries the `light` tag, the way rule M17 makes the clear glass one: it has its own colour, so the N block counts it beside the wax rather than reading a lit candle as one material spending a second band.
 M25. All cork is taupe 14,3 — one colour across the whole collection, stoppers and everything else cut from cork bark.
 M26. Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.
 M27. The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, and that metal is light grey 15,3 — not the blue-grey of rule M10 and not a brown of its own. A band is metal whatever the model it sits on is made of.
