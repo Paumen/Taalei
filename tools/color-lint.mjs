@@ -27,7 +27,7 @@
 // That is a stricter reading than Appendix A's own wording — the appendix says "only"
 // through the C block but "usually" for much of the M block, and a rule that says
 // "usually" and fails the run is the tool holding a line the prose leaves open. The
-// three that still print are the N block's counts: N1, N2 and N3 have findings, and
+// one that still prints is the last of the N block's counts: N3 has findings, and
 // dropping a rule back to `warn` because a new model trips it is the one move this
 // ratchet forbids — the model is what has to change.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -303,17 +303,18 @@ const RULES = [
   // is what there is to check. Everywhere else it has to be a material.
   // The stand-in is a fallback, not a replacement: the ground group holds the grass
   // patches beside the mountains, paths and sand, which carry rock, stone and soil.
-  { id: 'N1', text: 'A model usually has at least one material.', severity: 'warn',
+  { id: 'N1', text: 'A model usually has at least one material.', severity: 'error',
     check: (m) => {
       if (materials(m).length) return null;
       const stand_in = STANDS_IN_FOR_MATERIAL[m.gr];
       if (!stand_in) return `has no material tag (group ${m.gr})`;
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
-  // "usually": a retired band puts its material on a band the model already carries, so
-  // fewer bands than materials is a legitimate outcome of a merge — it prints, it does
-  // not fail the run.
-  { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'warn',
+  // Appendix A leaves the merge open: a retired band puts its material on a band the
+  // model already carries, and fewer bands than materials is then a legitimate outcome.
+  // No model is under the line any more, so the ratchet holds it — a merge that would
+  // drop one below it needs the appendix changed first.
+  { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'error',
     check: (m) => {
       const n = materials(m).length;
       if (!n || m.colors.length >= n) return null;
