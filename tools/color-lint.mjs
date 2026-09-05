@@ -94,7 +94,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 // `flora` is not: it covers the bare trunks and stumps too, which have no colour of
 // their own, so counting it would read a single-band grass patch as short a band.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
-  'leather', 'ceramic', 'bone', 'food', 'candle', 'glass', 'rope', 'cork', 'precious-metal',
+  'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
   'foliage', 'liquid'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
@@ -208,9 +208,9 @@ const RULES = [
   materialTakes({ id: 'M30', text: 'Food is naturalistic — off-white, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0.',
     severity: 'warn', tag: 'food',
     colors: ['off-white', 'salmon', 'terracotta', 'dark red', 'taupe', 'yellow'] }),
-  materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
+  materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candle wax and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
-    when: (m) => has(m, 'light', 'candle') }),
+    when: (m) => has(m, 'light', 'wax') }),
   materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or taupe 14,3.', severity: 'error',
     tag: 'rope', colors: ['wood light', 'taupe'] }),
   // Rule M35 is the colour half of rule G1's leather exception: leather takes the bark
@@ -264,7 +264,7 @@ const RULES = [
   // half of the rule's own wording: a gold-trimmed chest and a street lamp are the
   // thing the band is for, whatever material tag they happen to hold.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
-    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle', 'liquid'],
+    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'wax', 'liquid'],
     groups: ['coins-jewelry', 'lights'],
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   // Rule C5 retired with the dark grey band it named: cast iron and wicks moved onto

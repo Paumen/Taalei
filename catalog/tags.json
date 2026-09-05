@@ -1576,10 +1576,10 @@
    ]
   },
   {
-   "id": "candle",
-   "name": "Candle",
+   "id": "wax",
+   "name": "Wax",
    "type": "material",
-   "description": "Candle wax: the candles from dungeon, props and halloween — loose, thin, melted, triple, lit and snuffed — plus the wall shelf with candles and the decorated floor tile one stands on.",
+   "description": "Candle wax: the candles from dungeon, props and halloween — loose, thin, melted, triple, lit and snuffed — plus the wall shelf with candles and the decorated floor tile one stands on. Named for the material rather than the object, the way timber and cork are: the candle as a thing carries the fire tag.",
    "models": [
     "dungeon/candle-lit",
     "dungeon/candle-melted",
@@ -1723,7 +1723,9 @@
     "fantasy-props/bucket-wooden-1",
     "mini-forest/bridge",
     "pirate-kit/mast-ropes",
+    "pirate-quaternius/house-3",
     "pirate-quaternius/ship-large",
+    "pirate-quaternius/ship-small",
     "platformer-kit/fence-rope",
     "rpgtools/rope-bundle-a",
     "rpgtools/rope-bundle-b",
@@ -2477,6 +2479,166 @@
     "village-kit/roof-straight-side-edge",
     "village-kit/well-a",
     "village-kit/window-upper-straight"
+   ]
+  },
+  {
+   "id": "barrel",
+   "name": "Barrel",
+   "type": "tag",
+   "description": "Staved and hooped: the barrels from the pirate kit, props, the village kit and the dungeon kit, the village kit's open one and its second shape, and the dungeon kit's keg. Narrower than the container tag, which also covers the crates, boxes, bags and bottles.",
+   "models": [
+    "dungeon/barrel-large",
+    "dungeon/barrel-small",
+    "dungeon/keg",
+    "pirate-quaternius/barrel",
+    "props/barrel-a",
+    "village-kit/barrel-a",
+    "village-kit/barrel-a-open",
+    "village-kit/barrel-b"
+   ]
+  },
+  {
+   "id": "bag",
+   "name": "Bag",
+   "type": "tag",
+   "description": "What you carry over a shoulder: the bags from rpg-quaternius and fantasy-props, the backpack, and the pirates' gold bag. Cloth and leather rather than staves or boards.",
+   "models": [
+    "fantasy-props/bag",
+    "pirate-quaternius/gold-bag",
+    "rpg-quaternius/backpack",
+    "rpg-quaternius/bag"
+   ]
+  },
+  {
+   "id": "chest",
+   "name": "Chest",
+   "type": "tag",
+   "description": "The lidded chests: the ones from the Quaternius pirate kit, the Kenney pirate kit and the dungeon kit, and the pirates' gold chest. Three of the four open and close on their own animation.",
+   "models": [
+    "dungeon/chest",
+    "pirate-kit/chest",
+    "pirate-quaternius/chest",
+    "pirate-quaternius/chest-gold"
+   ]
+  },
+  {
+   "id": "seating",
+   "name": "Seating",
+   "type": "tag",
+   "description": "What you sit on: the halloween bench, and the chair and the stool from the dungeon kit.",
+   "models": [
+    "dungeon/chair",
+    "dungeon/stool",
+    "halloween/bench"
+   ]
+  },
+  {
+   "id": "tables",
+   "name": "Tables",
+   "type": "tag",
+   "description": "What you put things on: the small, medium and long tables from the dungeon kit, with the broken medium and long ones beside them. What goes on top of them carries the tableware tag.",
+   "models": [
+    "dungeon/table-long",
+    "dungeon/table-long-broken",
+    "dungeon/table-medium",
+    "dungeon/table-medium-broken",
+    "dungeon/table-small"
+   ]
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "type": "tag",
+   "description": "Light in a housing, made to stay where it's put: the street lamp and the wall lamp from the village kit, the rpgtools lantern, the hanging, standing and post lanterns from halloween, and Taaleiland's lighthouse. The open flames beside them carry the fire tag.",
+   "models": [
+    "halloween/lantern-hanging",
+    "halloween/lantern-standing",
+    "halloween/post-lantern",
+    "rpgtools/lantern",
+    "taalei-kit/lighthouse",
+    "village-kit/lamp-street",
+    "village-kit/lamp-wall"
+   ]
+  },
+  {
+   "id": "fire",
+   "name": "Fire",
+   "type": "tag",
+   "description": "An open flame or what carries one: the candles from the dungeon kit lit and unlit, thin, melted and triple, the wall shelf with candles on it, the torches from the dungeon kit and rpgtools burnt, lit and mounted, the campfires from natuur, the survival kit and the modular-terrain kit, the loose fire from props, and the lighthouse, whose light is a fire. The lamps that hold their flame in a housing carry the lamp tag as well.",
+   "models": [
+    "dungeon/candle",
+    "dungeon/candle-lit",
+    "dungeon/candle-melted",
+    "dungeon/candle-thin",
+    "dungeon/candle-thin-lit",
+    "dungeon/candle-triple",
+    "dungeon/shelf-small-candles",
+    "dungeon/torch",
+    "dungeon/torch-lit",
+    "dungeon/torch-mounted",
+    "modulair-terrein/hilly-prop-camp-campfire",
+    "natuur/campfire-star",
+    "natuur/campfire-teepee",
+    "props/fire-a",
+    "rpgtools/torch",
+    "rpgtools/torch-burnt",
+    "survival-kit/campfire-fishing-stand",
+    "survival-kit/campfire-stand",
+    "taalei-kit/lighthouse"
+   ]
+  },
+  {
+   "id": "pans",
+   "name": "Pans",
+   "type": "tag",
+   "description": "What you cook in, over the fire rather than on the table: the cooking pots and the frying pan from the food kit, and the three pots and three pans from the restaurant kit. The plates, bowls and cutlery you then eat from carry the tableware tag.",
+   "models": [
+    "food-quaternius/cooking-pot",
+    "food-quaternius/cooking-pot-2",
+    "food-quaternius/frying-pan",
+    "restaurant/pan-006",
+    "restaurant/pan-a",
+    "restaurant/pan-b",
+    "restaurant/pot-a",
+    "restaurant/pot-b",
+    "restaurant/pot-large"
+   ]
+  },
+  {
+   "id": "boats",
+   "name": "Boats",
+   "type": "tag",
+   "description": "Small craft, rowed or single-sailed: the rowing boats from the pirate kit, the four village-kit boats with and without oars, the boat and the sailing boat from ships-quaternius, the small Quaternius pirate ship, and the paddle you move them with.",
+   "models": [
+    "pirate-kit/boat-row-large",
+    "pirate-kit/boat-row-small",
+    "pirate-kit/tool-paddle",
+    "pirate-quaternius/ship-small",
+    "ships-quaternius/boat",
+    "ships-quaternius/boat-sail",
+    "village-kit/boat-a",
+    "village-kit/boat-b",
+    "village-kit/boat-oars-a",
+    "village-kit/boat-oars-b"
+   ]
+  },
+  {
+   "id": "ships",
+   "name": "Ships",
+   "type": "tag",
+   "description": "The big hulls: the plain, pirate and ghost ships from the Kenney pirate kit in every size with the wreck, the large Quaternius pirate ship, the ships-quaternius sailing ship, and the anchor that belongs with them.",
+   "models": [
+    "pirate-kit/ship-ghost",
+    "pirate-kit/ship-large",
+    "pirate-kit/ship-medium",
+    "pirate-kit/ship-pirate-large",
+    "pirate-kit/ship-pirate-medium",
+    "pirate-kit/ship-pirate-small",
+    "pirate-kit/ship-small",
+    "pirate-kit/ship-wreck",
+    "pirate-quaternius/anchor",
+    "pirate-quaternius/ship-large",
+    "ships-quaternius/ship-sail"
    ]
   }
  ]
