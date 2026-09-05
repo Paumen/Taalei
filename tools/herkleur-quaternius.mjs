@@ -100,6 +100,17 @@ const FIJNE_STAPPEN = [
   // de kaft deelde de papierbaan met zijn eigen bladzijden; donkere kaftbaan, als
   // fantasy-props/book-5
   [`${W}/rpg-quaternius/book-3-closed.glb`, '5,2', '6,1', '0.9:1', '0.97:0.97'],
+  // touw naar taupe (regel M14). In alle drie de modellen ligt het touw op de lichte
+  // houtbaan, maar op een eigen stand in het verloop — 0.16 op de schepen, 0.22 bij
+  // het huis — en die stand is precies de kleurgroep die de maker in de atlas heeft
+  // staan (#a89a6a en #a79163). 0.45 op taupe is waar rpgtools/rope-bundle ligt.
+  [`${W}/pirate-quaternius/ship-small.glb`, '0,0', '14,3', '0.1:0.2', '0.45:0.45'],
+  [`${W}/pirate-quaternius/ship-large.glb`, '0,0', '14,3', '0.1:0.2', '0.45:0.45'],
+  [`${W}/pirate-quaternius/house-3.glb`, '0,0', '14,3', '0.2:0.25', '0.45:0.45'],
+  // en de kaft van het open boek, dat dezelfde bron en dezelfde stand heeft: de plank
+  // onder het blok bladzijden. De maker zet die als eigen materiaal (DarkBrown) in de
+  // .obj; in het werkbestand is de stand 0.97 wat daarvan over is.
+  [`${W}/rpg-quaternius/book-3-open.glb`, '5,2', '6,1', '0.9:1', '0.97:0.97'],
 ];
 
 for (const [naar, van, bestanden] of STAPPEN) {
