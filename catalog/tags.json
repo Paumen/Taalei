@@ -1693,7 +1693,7 @@
    "id": "liquid",
    "name": "Liquid",
    "type": "material",
-   "description": "What a vessel holds rather than what it is made of: the potion in a filled flask. Rule M31 lets it take any band — the colour is the liquid's own and says what it is — while the flask around it follows its glass or ceramic and its stopper the cork.",
+   "description": "What a vessel holds rather than what it is made of: the potion in a filled flask. Rule M28 gives it three — dark red 8,0, dark green 1,1 or blue 4,2 — and which one says what it is; while the flask around it follows its glass or ceramic and its stopper the cork.",
    "models": [
     "rpg-quaternius/potion-1-filled",
     "rpg-quaternius/potion-10-filled",
@@ -1712,7 +1712,7 @@
    "id": "light",
    "name": "Light",
    "type": "material",
-   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween, Taaleiland's lighthouse and the burner flame under the hot-air balloons. Snuffed candles, lamps and torches don't carry it. A material rather than a plain tag: rule M24 gives the flame and the glow their own colour the way rule M17 does for glass, so a lit candle counts its flame beside its wax.",
+   "description": "Burns and gives light: the lit candles and torch of the dungeon kit, the lanterns of halloween, Taaleiland's lighthouse and the burner flame under the hot-air balloons. Snuffed candles, lamps and torches don't carry it. A material rather than a plain tag: rule M33 gives the flame and the glow their own colour the way rule M24 does for glass, so a lit candle counts its flame beside its wax.",
    "models": [
     "dungeon/candle-lit",
     "dungeon/candle-thin-lit",
@@ -1763,7 +1763,7 @@
    "id": "cork",
    "name": "Cork",
    "type": "material",
-   "description": "The stopper in a bottle or potion flask, and anything else cut from cork bark. Rule M25 gives it one colour: taupe 14,3, the same on every model. The bottle or flask it sits in follows its own material, glass or ceramic.",
+   "description": "The stopper in a bottle or potion flask, and anything else cut from cork bark. Rule M23 gives it one colour: taupe 14,3, the same on every model. The bottle or flask it sits in follows its own material, glass or ceramic.",
    "models": [
     "dungeon/bottle-a-brown",
     "dungeon/bottle-a-green",
@@ -1901,7 +1901,7 @@
    "id": "gemstone",
    "name": "Gemstone",
    "type": "material",
-   "description": "The stone set in a ring, a necklace, an amulet or a hilt. Rule M36 gives it three colours — dark red 8,0, dark green 1,1 or blue 4,2 — and rule M41 asks for this tag, so that a dark red or blue band on a piece of jewellery has a material answering for it instead of passing as an accent. The metal around the stone is precious metal, rule M11, and the cord a pendant hangs from is rope.",
+   "description": "The stone set in a ring, a necklace, an amulet or a hilt. Rule M36 gives it three colours — dark red 8,0, dark green 1,1 or blue 4,2 — and this tag is what makes a dark red or blue band on a piece of jewellery a material answering for itself instead of passing as an accent. The metal around the stone is precious metal, rule M13, and the cord a pendant hangs from is rope.",
    "models": [
     "rpg-quaternius/necklace-1",
     "rpg-quaternius/necklace-2",
@@ -1915,8 +1915,8 @@
   {
    "id": "special",
    "name": "Special",
-   "type": "tag",
-   "description": "A deliberate exception the PO has approved: the colour and material rules of appendix A do not apply to it. Only the PO assigns this tag — it is not a way to silence a finding you would rather not fix, and every model carrying it should be one you can name the reason for. The whole characters group carries it: the humanoids wear skin tones, dyed cloth and heraldic colours that the prop rules of appendix A do not describe, and the tentacle is grouped with them. The stucco block and half-arch of the village kit carry it for their render, which appendix A gives no material and no band. The heart and star of the platformer kit carry it because they are game pickups: signs, not objects made of anything. The two long pencils of the rpgtools kit carry it for their yellow barrel: a pencil is yellow by the convention of the thing itself, which is none of the coins, jewellery, light or fire that rule C6 keeps that band for.",
+   "type": "material",
+   "description": "A joker the PO has approved: it exempts one band on the model from one rule of appendix A, and one only. The two long pencils of the rpgtools kit carry it for their yellow barrel — a pencil is yellow by the convention of the thing itself, which is none of the precious metal, light or fire that rule C5 keeps that band for. The human characters carry it for the skin tone the prop rules give no material for, and the tentacle is grouped with them; the skeletons do not — bone is a material with a rule of its own. The stucco block and half-arch of the village kit carry it for their render, which appendix A gives no material and no band. The heart and star of the platformer kit carry it because they are game pickups: signs, not objects made of anything. The joker is spent once: a second band with no material behind it is a finding, it does not lift the N4 ceiling, and every other band on the model still answers to the M and C blocks. Only the PO assigns it, and a model carrying it records which band it covers and why.",
    "models": [
     "adventurers/barbarian",
     "adventurers/knight",
@@ -1928,18 +1928,12 @@
     "pirate-quaternius/pirate-anne",
     "pirate-quaternius/pirate-captain",
     "pirate-quaternius/pirate-henry",
-    "pirate-quaternius/skeleton",
-    "pirate-quaternius/skeleton-headless",
     "pirate-quaternius/tentacle",
     "platformer-kit/heart",
     "platformer-kit/star",
     "rpgtools/pencil-a-long",
     "rpgtools/pencil-b-long",
     "rpgtools/torch-burnt",
-    "skeletons/skeleton-mage",
-    "skeletons/skeleton-minion",
-    "skeletons/skeleton-rogue",
-    "skeletons/skeleton-warrior",
     "village-kit/stucco-arch-half",
     "village-kit/stucco-block"
    ]

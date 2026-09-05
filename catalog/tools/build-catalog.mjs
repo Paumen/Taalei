@@ -191,8 +191,8 @@ function hsl(hex) {
 }
 
 // The hue behind a colour, without light or dark: 'dark brown' and 'light brown' are one
-// family, and everything without saturation lands in 'neutral' together. Counting the
-// families per model says how many different hues it mixes.
+// family, and everything without saturation lands in 'neutral' together. colorName uses
+// it to name a band.
 function colorFamily(hex) {
   const { tint, saturation, lightness } = hsl(hex);
   if (saturation < 0.18) return 'neutral';
@@ -560,7 +560,6 @@ for (const model of models) {
       ...read.materials.keys(),
     ]),
   ].sort();
-  model.hues = new Set(model.colors.map(colorFamily)).size;
 }
 
 for (const kit of kits) {
@@ -648,7 +647,6 @@ const output = {
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
-    hues: m.hues || null,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
