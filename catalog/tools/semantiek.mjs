@@ -119,7 +119,8 @@ const MODULAR_TERRAIN = [
 const ASSEMBLIES = new Set([
   'dungeon/barrel-large-decorated', 'dungeon/barrel-small-stack', 'dungeon/bed-decorated',
   'dungeon/box-small-decorated', 'dungeon/box-stacked', 'dungeon/chest-gold',
-  'dungeon/crates-stacked', 'dungeon/keg-decorated', 'dungeon/table-long-decorated-a',
+  'dungeon/crates-stacked', 'dungeon/keg-decorated', 'dungeon/shelf-small-candles',
+  'dungeon/stairs-wood-decorated', 'dungeon/table-long-decorated-a',
   'dungeon/table-long-decorated-c', 'dungeon/table-medium-decorated-a',
   'dungeon/table-small-decorated-a', 'dungeon/table-small-decorated-b', 'dungeon/wall-shelves',
   'fantasy-props/barrel-apples',
