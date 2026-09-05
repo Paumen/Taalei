@@ -185,7 +185,6 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
   on the taupe it already uses for stone.
 - **N3.** A model usually uses at most twice as many bands as materials.
 - **N4.** Ceiling: **8 bands for a character, 6 for anything else.**
-  - Clear glass is a material, not a band (M17), so windows cost nothing here.
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own; the assembly is not counted again.
   - The ceiling limits how many bands, never which. A model sitting at its
