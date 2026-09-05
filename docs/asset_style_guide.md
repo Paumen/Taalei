@@ -117,6 +117,8 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
   grass patch is flora sitting on the ground.
 - **M23.** Wicks are blue-grey 6,1.
 - **M24.** Flames and glow are yellow 6,0; candle wax and lampshades off-white 5,2.
+  The flame is a material of its own, tagged `light`; the N block counts it beside
+  the wax.
 - **M25.** All cork is taupe 14,3.
 - **M26.** Fauna are naturalistic: off-white, salmon, taupe. Fish may also be
   blue 4,2 or light blue-grey 3,2.
