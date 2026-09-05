@@ -146,12 +146,16 @@ function showState(button, state) {
 const keysWith = (cardState, value) =>
   [...cardState].filter(([, v]) => v === value).map(([k]) => k);
 
-// `every` is the colour bar: picking two colours asks for models carrying both, not
-// either. The chip rows stay on `some` — a model is one material, so an AND across
-// two of them would only ever empty the page.
-function matches(own, cardState, all = false) {
+// Picking more than one asks for models carrying all of them: two colours means both
+// bands, timber and metal means both materials. `any` is for the rows where a model
+// can only ever be one of the options — its size, and object/structure/nature — where
+// an AND would empty the page instead of narrowing it.
+function matches(own, cardState, { any = [] } = {}) {
   const only = keysWith(cardState, 'only');
-  if (only.length && !(all ? only.every((e) => own.includes(e)) : own.some((e) => only.includes(e)))) return false;
+  const either = only.filter((e) => any.includes(e));
+  const all = only.filter((e) => !any.includes(e));
+  if (either.length && !own.some((e) => either.includes(e))) return false;
+  if (!all.every((e) => own.includes(e))) return false;
   const not = keysWith(cardState, 'not');
   return !own.some((e) => not.includes(e));
 }
@@ -1045,7 +1049,9 @@ function filter() {
 
   for (const card of cards) {
     const hit =
-      matches(card.colors, colorState, true) && matches(card.tags, tagState) && matches(card.sizes, sizeState);
+      matches(card.colors, colorState) &&
+      matches(card.tags, tagState, { any: TYPE_TAGS }) &&
+      matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) });
     card.element.hidden = !hit;
     if (hit) visible++;
   }
