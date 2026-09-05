@@ -146,9 +146,12 @@ function showState(button, state) {
 const keysWith = (cardState, value) =>
   [...cardState].filter(([, v]) => v === value).map(([k]) => k);
 
-function matches(own, cardState) {
+// `every` is the colour bar: picking two colours asks for models carrying both, not
+// either. The chip rows stay on `some` — a model is one material, so an AND across
+// two of them would only ever empty the page.
+function matches(own, cardState, all = false) {
   const only = keysWith(cardState, 'only');
-  if (only.length && !own.some((e) => only.includes(e))) return false;
+  if (only.length && !(all ? only.every((e) => own.includes(e)) : own.some((e) => only.includes(e)))) return false;
   const not = keysWith(cardState, 'not');
   return !own.some((e) => not.includes(e));
 }
@@ -919,14 +922,19 @@ function reorder() {
   for (const strip of new Set(chipButtons.map((c) => c.strip))) {
     const own = chipButtons
       .filter((c) => c.strip === strip)
-      .sort((a, b) => Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order);
+      // The material and tag rows are ordered by how many models carry the tag, and
+      // stay that way whether or not a chip is picked. Size and type keep their own
+      // order, where small-to-large and the three types say more than the counts.
+      .sort((a, b) => (a.byCount
+        ? b.count - a.count || a.order - b.order
+        : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
     for (const chip of own) strip.append(chip.element);
   }
 }
 
-function buildChipRow(container, head, items, state, field) {
-  const row = document.createElement('div');
-  row.className = 'kleurbalk tagrij';
+function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false } = {}) {
+  const row = shareRow ?? document.createElement('div');
+  if (!shareRow) row.className = 'kleurbalk tagrij';
   const strip = document.createElement('div');
   strip.className = 'tagbalk-knoppen';
   strip.setAttribute('role', 'group');
@@ -951,17 +959,20 @@ function buildChipRow(container, head, items, state, field) {
     });
 
     strip.append(button);
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, order: chipButtons.length });
+    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length });
   }
 
   row.append(strip);
-  container.append(row);
+  if (!shareRow) container.append(row);
+  return row;
 }
 
 function buildTagBar(tags) {
   const container = document.querySelector('#tagbalk');
 
-  buildChipRow(
+  // Size and type share one row: both ask what kind of thing a model is, and the two
+  // together are shorter than either row is wide.
+  const shape = buildChipRow(
     container,
     'Size',
     SIZE_CLASSES.map((k) => ({ id: k.id, name: k.short, hint: k.hint })),
@@ -971,7 +982,7 @@ function buildTagBar(tags) {
 
   const types = TYPE_TAGS.map((id) => tags.find((t) => t.id === id)).filter(Boolean);
   if (types.length) {
-    buildChipRow(container, 'Type', types.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })), tagState, 'tags');
+    buildChipRow(container, 'Type', types.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })), tagState, 'tags', { shareRow: shape });
   }
 
   for (const { type, head } of TAG_TYPES) {
@@ -983,6 +994,7 @@ function buildTagBar(tags) {
       own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })),
       tagState,
       'tags',
+      { byCount: true },
     );
   }
 }
@@ -996,8 +1008,10 @@ function refresh() {
       for (const id of card[field]) counts.set(`${field}|${id}`, (counts.get(`${field}|${id}`) ?? 0) + 1);
     }
   }
-  for (const { id, element, countEl, state, field } of chipButtons) {
+  for (const chip of chipButtons) {
+    const { id, element, countEl, state, field } = chip;
     const count = counts.get(`${field}|${id}`) ?? 0;
+    chip.count = count;
     element.hidden = count === 0;
     countEl.textContent = count;
     if (count === 0 && state.get(id) === 'only') {
@@ -1031,7 +1045,7 @@ function filter() {
 
   for (const card of cards) {
     const hit =
-      matches(card.colors, colorState) && matches(card.tags, tagState) && matches(card.sizes, sizeState);
+      matches(card.colors, colorState, true) && matches(card.tags, tagState) && matches(card.sizes, sizeState);
     card.element.hidden = !hit;
     if (hit) visible++;
   }
