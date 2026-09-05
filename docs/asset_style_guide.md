@@ -62,10 +62,10 @@ lighthouse
 Appendix A: Material and color rules
 
 Band ids are column,row in `kits/colormap.png`. Where a colour name below has
-an id, it is: light grey 15,3 · dark grey 10,0 · blue-grey 6,1 · light
-blue-grey 3,2 · blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 ·
-khaki 14,0 · terracotta 5,0 · yellow/gold 6,0 · dark red 8,0 · dark green 1,1 ·
-light green 3,1 · wood light 0,0 · wood middle 1,0 · bark 2,0.
+an id, it is: light grey 15,3 · blue-grey 6,1 · light blue-grey 3,2 ·
+blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 · terracotta 5,0 ·
+yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
+wood light 0,0 · wood middle 1,0 · bark 2,0.
 
 S. Special — the one way out of every rule below.
 
@@ -85,11 +85,11 @@ M6. Bones and skulls are off-white.
 M7. Paper is off-white.
 M8. Ceramics are usually terracotta, off-white, taupe, or dark red.
 M9. Metal is usually light grey 15,3.
-M10. Steel/cast iron can be dark grey 10,0.
+M10. Steel/cast iron can be blue-grey 6,1.
 M11. Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0. Sword and dagger grips are precious metal too: silver 3,2, so the grip reads apart from the light grey blade.
 M12. Keys can be any metal or precious-metal colour.
-M13. Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0. The wrapped grips and bindings on tools and weapons are one colour across the whole collection: khaki 14,0 in the light half of its gradient, 0.02-0.40. The wooden peg on a tool head and the bar of a T-handle are timber and stay in their wood lane.
-M14. Rope is wood light 0,0 or khaki 14,0.
+M13. Textile: off-white, salmon 13,0, taupe 14,3 or brown 1,0. The wrapped grips and bindings on tools and weapons are one colour across the whole collection: taupe 14,3 in the light half of its gradient, 0.02-0.40. The wooden peg on a tool head and the bar of a T-handle are timber and stay in their wood lane.
+M14. Rope is wood light 0,0 or taupe 14,3.
 M15. Belts and shoes are usually leather.
 M16. Bottles are glass or ceramic.
 M17. Glass is a special own material: transparent, or dark green or dark red.
@@ -97,15 +97,15 @@ M18. Usual colour variants: glass bottle shape exists in red and green.
 M19. Roofs are usually dark red.
 M20. Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.
 M21. Rocks are light grey 15,3, secondarily taupe 14,3.
-M22. Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0. They are the `soil` material: laid paving and hewn stone are stone, loose boulders, gravel and rubble are rock, and a grass patch is flora sitting on the ground rather than soil of its own.
-M23. Wicks are dark grey 10,0.
+M22. Sand and dirt are taupe 14,3 or salmon 13,0. They are the `soil` material: laid paving and hewn stone are stone, loose boulders, gravel and rubble are rock, and a grass patch is flora sitting on the ground rather than soil of its own.
+M23. Wicks are blue-grey 6,1.
 M24. Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.
 M25. All cork is usually the same light salmon brown.
-M26. Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish may also be blue 4,2 or light blue-grey 3,2.
+M26. Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.
 M27. Bands on barrels, buckets, and chests are usually light grey (metal).
 M28. All chests, barrels, kegs, buckets, boxes, crates are mainly timber, regularly with metal accents.
 M29. Structures and furniture are usually (predominantly) made of timber, and secondly stone (bigger type, not modern bricks); metals are used sparingly.
-M30. Food is naturalistic — off-white 5,2, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
+M30. Food is naturalistic — off-white 5,2, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0. The bone in the meat follows rule M6 and the plate or bowl it is served on follows its own material.
 M31. A liquid takes its own colour: the potion in a filled flask may use any band, because the colour is what says which potion it is. Like the flowers of rule M1 this is a rule of its own, so the colour-to-material rules below do not reach the liquid. The flask around it follows rule M16 and its stopper rule M25.
 M32. Meat is one colour across the whole collection: terracotta 5,0 in the dark half of its gradient, 0.55-1.00, the same way rule M13 holds the wrapped grips to one colour. That covers the joint, the drumstick, the ham, the steak and the roast bird; a cut or inner face stays the darker end of that same range rather than taking a band of its own. The bone follows rule M6, the fat rim the off-white beside it, and the plate or bowl its own material.
 M33. What sits next to the meat on the plate is not meat, and rule M32 does not reach it: the mash on plate-food-a, plate-food-b and food-dinner, the carrots and potatoes in food-stew and on the dinner plate, the peas. Read it from the source model before recolouring — on our palette a mash mound and a slab of meat can both land on salmon 13,0, but the pack they came from gives them different colours and says which is which. food-stew and plate-food-b hold no meat at all, only vegetables and a bone.
@@ -116,7 +116,6 @@ C1. Lighter browns are only used for timber.
 C2. Darkest brown is only used for bark and leather.
 C3. Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).
 C4. Light grey 15,3 is only used for metal, stone, and rock.
-C5. Dark grey 10,0 is only used for cast iron, stone, and wicks.
 C6. Yellow is usually only used for coins, jewellery, light, or fire — and for cheese, the one yellow food of rule M30.
 C7. Dark red is only used for ceramics, glass, roofs, and very minor details or accents.
 C8. Dark green is only used for foliage, glass, and very minor details or accents.
@@ -126,7 +125,7 @@ C10. Blue 4,2 is used sparingly: fish (rule M26) and otherwise only minor detail
 N. Counting — bands against materials.
 
 N1. A model usually has at least one material.
-N2. A model usually uses equal or more color bands than materials.
+N2. A model usually uses equal or more color bands than materials. Retiring a band is the exception: where the material it carried lands on a band the model already holds, the model shows fewer bands than materials and that is the merge working, not a fault — village-kit/well-a carries its rope on the stone's taupe this way.
 N3. A model usually does not use more than twice as many color bands than materials.
 N4. A model uses at most eight colour bands if it is in the characters group, and at most six otherwise. The count is in bands: rule M17 makes the clear glass a material of its own rather than a band, so a model does not spend part of its ceiling on having windows. The ceiling is on a model, and an assembly is not one — it is a scene built from catalogued models whose colours are the sum of parts that each answer to the ceiling on their own, so N4 no more counts it a second time than the C and M blocks do. This is a ceiling on the count alone — it says nothing about which bands a model may take, so a model sitting at its ceiling still answers to the C and M blocks in full. It is also the one rule of this appendix that the `special` tag does not switch off: `special` excuses a model from being told which colour a material takes, not from being told how many it may spend.
 N5. Where a model came in over its N4 ceiling, it is brought under by merging bands, never by repainting: two bands that carry the same material or the same garment become one. The band with the most triangles is the one that survives, and the triangles moving onto it keep their position in the gradient, so the baked shading of rule G3 comes through the merge intact. Merging away a two-tone the model is recognised by — the hood of rogue-hooded, the gold on a hilt beside its blade — costs more than it saves; take the merge the eye does not catch.
