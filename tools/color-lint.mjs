@@ -95,7 +95,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 // their own, so counting it would read a single-band grass patch as short a band.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'foliage', 'liquid'];
+  'gemstone', 'foliage', 'liquid'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -243,11 +243,12 @@ const RULES = [
   // Rule M31: the liquid in a flask takes its own colour, so `liquid` stands beside the
   // materials in every band a potion can be. The flask and its stopper are not exempt —
   // they carry glass and cork, and those rules still have to answer for their own bands.
-  // Rule M36's gemstones are the coins-jewelry group: the stone set in a ring or a
-  // necklace is not a material of its own in tags.json, and the group is what says a
-  // model has one. The band it may be — dark red, dark green, blue — is named on each.
+  // Rule M36's gemstones carry the `gemstone` material tag rule M41 asks for, so the
+  // stone set in a ring or a necklace says so itself. The tag and not the coins-jewelry
+  // group is the condition: the group excused a plain gold ring as readily as a real
+  // stone. The band it may be — dark red, dark green, blue — is named on each.
   bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26), liquids (M31), gemstones (M36), and otherwise only minor details or accents.',
-    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid'], groups: ['coins-jewelry'], accent: true }),
+    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid', 'gemstone'], accent: true }),
   // Rule C9 has no accent escape: light green is nature and nothing else. Grass and weeds
   // growing on an object or a structure are in — they carry the flora tag, which is the
   // whole of what the band is for — and a green that grows nothing is a finding whatever
@@ -270,11 +271,11 @@ const RULES = [
   // Rule C5 retired with the dark grey band it named: cast iron and wicks moved onto
   // blue-grey (rules M10 and M23), and blue-grey has never carried an "only" clause.
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
-    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid'],
-    groups: ['coins-jewelry'], accent: true, unless: (m) => isRoof(m) || isBook(m) }),
+    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid', 'gemstone'],
+    accent: true, unless: (m) => isRoof(m) || isBook(m) }),
   bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
-    severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid'],
-    groups: ['coins-jewelry'], accent: true, unless: isBook }),
+    severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid', 'gemstone'],
+    accent: true, unless: isBook }),
   bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
     severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
   // "Lighter browns" is the light and middle lane of rule G1; rule M14 puts rope on
