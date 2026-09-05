@@ -32,14 +32,12 @@ const ROOT = new URL('..', import.meta.url).pathname;
 // from the image at startup, so a change to the colormap moves the rules with it.
 const BANDS = {
   'light grey': '15,3',
-  'dark grey': '10,0',
   'blue-grey': '6,1',
   'light blue-grey': '3,2',
   blue: '4,2',
   'off-white': '5,2',
   taupe: '14,3',
   salmon: '13,0',
-  khaki: '14,0',
   terracotta: '5,0',
   yellow: '6,0',
   'dark red': '8,0',
@@ -167,14 +165,14 @@ const RULES = [
     severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
   // Copper (rule M11) and keys (rule M12) are metal too, but Appendix A gives each
   // its own colours; they are checked by those rules below instead.
-  materialTakes({ id: 'M9-M10', text: 'Metal is usually light grey 15,3. Steel/cast iron can be dark grey 10,0.',
-    severity: 'warn', tag: 'metal', colors: ['light grey', 'dark grey'],
+  materialTakes({ id: 'M9-M10', text: 'Metal is usually light grey 15,3. Steel/cast iron can be blue-grey 6,1.',
+    severity: 'warn', tag: 'metal', colors: ['light grey', 'blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
   materialTakes({ id: 'M12', text: 'Keys can be any metal or precious-metal colour.', severity: 'warn',
-    tag: 'key', colors: ['light grey', 'dark grey', 'yellow', 'light blue-grey', 'terracotta'],
+    tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
-  materialTakes({ id: 'M13', text: 'Textile: off-white, salmon 13,0, khaki 14,0 or brown 1,0.',
-    severity: 'error', tag: 'textile', colors: ['off-white', 'salmon', 'khaki', 'wood middle'] }),
+  materialTakes({ id: 'M13', text: 'Textile: off-white, salmon 13,0, taupe 14,3 or brown 1,0.',
+    severity: 'error', tag: 'textile', colors: ['off-white', 'salmon', 'taupe', 'wood middle'] }),
   materialTakes({ id: 'M17', text: 'Glass is a special own material: transparent, or dark green or dark red.',
     severity: 'warn', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
   materialTakes({ id: 'M19', text: 'Roofs are usually dark red.', severity: 'warn',
@@ -193,18 +191,18 @@ const RULES = [
     severity: 'warn', tag: 'rock', colors: ['light grey', 'taupe'] }),
   // Sand and dirt, not everything on the ground: the soil tag carries the rule, so a
   // grass patch (flora on the ground) and the laid and raw stone stay out of it.
-  materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3, khaki 14,0, or salmon 13,0.',
-    severity: 'warn', tag: 'soil', colors: ['taupe', 'khaki', 'salmon'] }),
-  materialTakes({ id: 'M30', text: 'Food is naturalistic — off-white, khaki 14,0, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0.',
+  materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3 or salmon 13,0.',
+    severity: 'warn', tag: 'soil', colors: ['taupe', 'salmon'] }),
+  materialTakes({ id: 'M30', text: 'Food is naturalistic — off-white, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0.',
     severity: 'warn', tag: 'food',
-    colors: ['off-white', 'khaki', 'salmon', 'terracotta', 'dark red', 'taupe', 'yellow'] }),
+    colors: ['off-white', 'salmon', 'terracotta', 'dark red', 'taupe', 'yellow'] }),
   materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candles and lampshades are off-white 5,2.',
     severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'candle') }),
-  materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or khaki 14,0.', severity: 'error',
-    tag: 'rope', colors: ['wood light', 'khaki'] }),
-  materialTakes({ id: 'M26', text: 'Fauna use naturalistic colours — off-white, salmon, taupe, khaki; fish may also be blue 4,2 or light blue-grey 3,2.',
-    severity: 'warn', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'khaki', 'blue', 'light blue-grey'],
+  materialTakes({ id: 'M14', text: 'Rope is wood light 0,0 or taupe 14,3.', severity: 'error',
+    tag: 'rope', colors: ['wood light', 'taupe'] }),
+  materialTakes({ id: 'M26', text: 'Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.',
+    severity: 'warn', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
     when: (m) => has(m, 'fauna') }),
 
   // Colour -> material, the C block. Appendix A says "only" throughout it.
@@ -228,8 +226,8 @@ const RULES = [
     severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'candle', 'liquid'],
     groups: ['coins-jewelry', 'lights'],
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
-  bandOnlyFor({ id: 'C5', text: 'Dark grey 10,0 is only used for cast iron, stone, and wicks.',
-    severity: 'warn', color: 'dark grey', tags: ['metal', 'stone', 'candle'] }),
+  // Rule C5 retired with the dark grey band it named: cast iron and wicks moved onto
+  // blue-grey (rules M10 and M23), and blue-grey has never carried an "only" clause.
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, and very minor details or accents.',
     severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid'], accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, and very minor details or accents.',
@@ -261,7 +259,10 @@ const RULES = [
       if (!stand_in) return `has no material tag (group ${m.gr})`;
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
-  { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'error',
+  // "usually": a retired band puts its material on a band the model already carries, so
+  // fewer bands than materials is a legitimate outcome of a merge — it prints, it does
+  // not fail the run.
+  { id: 'N2', text: 'A model usually uses equal or more color bands than materials.', severity: 'warn',
     check: (m) => {
       const n = materials(m).length;
       if (!n || m.colors.length >= n) return null;
