@@ -6,7 +6,7 @@
 //   node tools/glasruit.mjs --cel 6,0 --marge 0.01 --staand village-kit/lamp-street.glb
 //
 // Waarvoor: een lantaarn heeft hier vaak wel een geel lichtlichaam binnenin, maar geen
-// glas — de zijkanten van het huis staan open. Regel M17 van bijlage A vraagt om glas
+// glas — de zijkanten van het huis staan open. Regel M24 van bijlage A vraagt om glas
 // dat doorzichtig is; een ruit vóór het licht geeft dat zonder de gloed weg te nemen.
 // Wie het gele licht zelf doorzichtig zou maken, haalt de lamp uit de lamp.
 //

@@ -78,90 +78,93 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
 
 ### S. Special — the one way out of every rule below
 
-- **S1.** A model tagged `special` is a deliberate exception, and no rule below
-  applies to it — except the N4 ceiling. Only the PO assigns the tag.
-- **S2.** A `special` records its reason next to the tag. A `special` without a
-  stated reason is a finding on the tag.
+- **S1.** `special` is a material tag and a joker: it exempts **one** band on the
+  model from **one** rule. `rpgtools/pencil-a-long` is yellow because a pencil is
+  yellow, and no material it carries justifies that band — the joker covers it.
+- **S2.** The joker is spent once. A second band with no material behind it is a
+  finding, whatever the first one was.
+- **S3.** It does not lift the N4 ceiling, and it does not excuse the rest of the
+  model: every other band still answers to the M and C blocks.
+- **S4.** Only the PO assigns the tag, and a `special` records next to it which
+  band it covers and why. A `special` without a stated reason is a finding on the tag.
 
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
-- **M1.** Flowers may be any colour. Cactus flowers count too.
-- **M2.** Stems and leaves are light green green.
-- **M4.** Grass is light green.
-- **M5.** Trees are dark green.
-- m58 Palms fronds are light green.
-- **M6.** Bones and skulls are off-white.
-- **M7.** Paper is off-white.
-- **M8.** Ceramics are terracotta, off-white, taupe or dark red.
-- **M9.** Metal is light grey 15,3.
-- **M10.** Steel and cast iron may be blue-grey 6,1.
-- **M11.** Precious metal are gold 6,0 or silver 3,2.
-- m57 Copper is
-  terracotta 5,0.
-   
-- **M12.** Keys take any metal or precious-metal colour.
-- **M13.** Textile is off-white, taupe 14,3 or brown 1,0, darkgreen, darkred.
-- m56 Wrapped grips
-  and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.
-- **M14.** Rope is taupe 14,3, never the light wood lane.
-- **M15.** Belts, shoes and straps are leather.
-- **M16.** Bottles are glass or ceramic.
-- **M17.** Glass is its own material: transparent, dark green or dark red.
-- **M18.** The glass bottles exists in red and green.
-- **M19.** Roofs are ceremic dark red.
-- **M20.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
+Grouped: flora, wood, stone, metal, textile and leather, glass and ceramics,
+organic, light, gems and books, built things.
+
+- **M1.** Trees are dark green.
+- **M2.** Palm fronds are light green.
+- **M3.** Grass is light green.
+- **M4.** Stems and leaves are light green.
+- **M5.** Flowers may be any colour. Cactus flowers count too.
+- **M6.** Timber is wood light 0,0 or wood middle 1,0.
+- **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
+  both lanes.
+- **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
   light grey 15,3. **to be reduced to 2**
-- **M21.** Rocks are light grey 15,3, secondarily taupe 14,3.
-- **M22.** Sand and dirt are taupe 14,3.
-- **M23.** Wicks are blue-grey 6,1.
-- **M24.** Flames and glow are yellow 6,0;
-- m55 candle wax and lampshades off-white 5,2.
-  
-- **M25.** All cork is taupe 14,3.
-- **M26.** Fauna are naturalistic: off-white, salmon, taupe. Fish may also be
+- **M9.** Rocks are light grey 15,3, secondarily taupe 14,3.
+- **M10.** Sand and dirt are taupe 14,3.
+- **M11.** Metal is light grey 15,3.
+- **M12.** Steel and cast iron may be blue-grey 6,1.
+- **M13.** Precious metal is gold 6,0 or silver 3,2.
+- **M14.** Copper is terracotta 5,0.
+- **M15.** Keys take any metal or precious-metal colour.
+- **M16.** Buckles are metal, light grey 15,3.
+- **M17.** The bands on barrels, chests, buckets, trunks, kegs, crates and boxes
+  are metal, light grey 15,3.
+- **M18.** Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or
+  dark red 8,0.
+- **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
+  light half 0.02-0.40.
+- **M20.** Leather is bark 2,0.
+- **M21.** Belts, shoes and straps are leather.
+- **M22.** Rope is taupe 14,3, never the light wood lane.
+- **M23.** All cork is taupe 14,3.
+- **M24.** Glass is its own material: transparent, dark green or dark red.
+- **M25.** Ceramics are terracotta, off-white, taupe or dark red.
+- **M26.** Bottles are glass or ceramic.
+- **M27.** The glass bottle exists in red and green.
+- **M28.** A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
+- **M29.** Bones and skulls are off-white.
+- **M30.** Paper is off-white.
+- **M31.** Meat is terracotta 5,0, dark half 0.55-1.00.
+- **M32.** Fauna are naturalistic: off-white, salmon, taupe. Fish may also be
   blue 4,2 or light blue-grey 3,2.
-- **M27.** The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are
-  metal, light grey 15,3.
-- **M28.** Chests, barrels, kegs, buckets, boxes and crates are mainly timber, often
-  with metal accents.
-- **M29.** Structures and furniture are mostly timber, then stone (the bigger sort,
-  not modern brick). Metal sparingly.
-
-- **M31.** A liquid is dark red 8,0, dark green 1,1 or blue 4,2. 
-- **M32.** Meat is terracotta 5,0, dark half 0.55-1.00.
-
-- **M34.** Buckles are metal, light grey 15,3.
-- **M35.** Leather is bark 2,0.
-- **M36.** Gemstones are dark red 8,0, dark green 1,1 or blue 4,2
-- **M37.** Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.
-  Pages follow M7, clasps and corners M9.
-- **M38.** Timber is wood light 0,0 or wood middle 1,0.
-- **M39.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
-  both lanes (G1).
+- **M33.** Flames and glow are yellow 6,0.
+- **M34.** Candle wax and lampshades are off-white 5,2.
+- **M35.** Wicks are blue-grey 6,1.
+- **M36.** Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
+- **M37.** Book covers are bark 2,0, dark red 8,0, dark green 1,1 or
+  blue-grey 6,1. Pages follow M30, clasps and corners M11.
+- **M38.** Roofs are ceramic, dark red.
+- **M39.** Chests, barrels, kegs, buckets, boxes and crates are mainly timber,
+  often with metal accents.
+- **M40.** Structures and furniture are mostly timber, then stone (the bigger
+  sort, not modern brick). Metal sparingly.
 
 ### C. Colour to material — what a band may be used on
 
-- **C1.** Lighter browns: timber only.
-- **C2.** Darkest brown: bark and leather only.
-- **C4.** Light grey 15,3: metal, stone and rock only. **to be reduced to 2**
-- **C6.** Precious metal, light and fire.
-- **C7.** Dark red: ceramics, glass, roofs, minor accents.
-- **C8.** Dark green: foliage, glass,
-- , and minor accents.
-- **C9.** Light green: nature only — flora, including grass and weed
-  accents growing on objects and structures. 
-- **C10.** Blue 4,2, sparingly
-  minor accents only.
-- **C11.** Light blue-grey 3,2: silver (M11).
-- **C12.** Blue-grey 6,1: steel and cast iron (M10), worked stone (M20), wicks (M23),
-  book covers (M37).
-- **C13.** Clear glass: glass only.
+In the order of the band list above.
+
+- **C1.** Light grey 15,3: metal, stone and rock only. **to be reduced to 2**
+- **C2.** Blue-grey 6,1: steel and cast iron (M12), worked stone (M8),
+  wicks (M35), book covers (M37).
+- **C3.** Light blue-grey 3,2: silver (M13).
+- **C4.** Blue 4,2: sparingly, minor accents only.
+- **C5.** Yellow: precious metal, light and fire.
+- **C6.** Dark red: ceramics, glass, roofs, minor accents.
+- **C7.** Dark green: foliage, glass, and minor accents.
+- **C8.** Light green: nature only — flora, including grass and weed accents
+  growing on objects and structures.
+- **C9.** Lighter browns: timber only.
+- **C10.** Darkest brown: bark and leather only.
+- **C11.** Clear glass: glass only.
 
 ### N. Counting — bands against materials
 - **N1.** A model has at least one material.
-- **N2.** A model uses at least as many bands as it has materials. 
+- **N2.** A model uses at least as many bands as it has materials.
 - **N3.** A model uses at most twice as many bands as materials.
 - **N4.** Ceiling: **7 bands for a character, 5 for anything else.**
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own.
-
