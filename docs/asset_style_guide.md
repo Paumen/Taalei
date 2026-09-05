@@ -74,6 +74,9 @@ apply to it. Only the PO assigns the tag; it is not a way to silence a finding y
 would rather not fix, and every model carrying it should be one you can name the
 reason for.
 
+S2. A `special` model records the reason it is one, next to the tag. A `special`
+without a stated reason is a finding on the tag, not a pass for the model.
+
 M. Material to colour — what a thing is made of, and the colour that takes.
 
 M1. Flowers may be any colour — this is a rule of its own, not an exception, so the colour-to-material rules below do not apply to a flower. Not every flower sits in the flowers group: the cactus flowers are filed under plants with the cactus they grow on, and the rule reaches them too.
@@ -113,6 +116,10 @@ M34. Buckles are metal: light grey 15,3. That covers the buckle on a belt, on a 
 M35. Leather is bark 2,0 — the darkest brown lane of rule G1. That is why G1 lets a leather-look surface take the bark lane without carrying a bark tag: belts, straps, boots, bracers, quivers, satchels and book covers are all one brown.
 M36. Gemstones are dark red 8,0, dark green 1,1 or blue 4,2 — the stone set in a ring, a necklace, an amulet or a hilt. The metal around it follows rule M11.
 M37. Book covers are bark 2,0 (the leather of rule M35), dark red 8,0, dark green 1,1 or blue-grey 6,1. The pages follow rule M7 and the clasps and corners rule M9.
+M38. Timber is wood light 0,0 or wood middle 1,0. Which of the two a given surface takes is rule G1; a model carrying timber shows at least one of them.
+M39. Bark is bark 2,0. A trunk with a cut face carries timber too and shows both lanes (rule G1), but bark itself is never anything other than the darkest lane.
+M40. Foliage is dark green 1,1 or light green 3,1 — trees and their foliage take the dark green of rule M5, the small flora the light green of rules M3 and M4.
+M41. A gemstone carries the `gemstone` material tag. Rule M36 gives it its colour; without the tag that rule can only excuse a band and never require one, and dark red, dark green and blue fall back to excusing every model in the coins-jewelry group — a plain gold ring as readily as a real stone.
 
 C. Colour to material — what a band may be used on.
 
@@ -120,11 +127,17 @@ C1. Lighter browns are only used for timber.
 C2. Darkest brown is only used for bark and leather.
 C3. Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).
 C4. Light grey 15,3 is only used for metal, stone, and rock.
+C5. (Retired with the dark grey band it named. Cast iron moved onto blue-grey in rule M10 and wicks in rule M23. The number is not reused.)
 C6. Yellow is usually only used for coins, jewellery, light, or fire — and for cheese, the one yellow food of rule M30.
 C7. Dark red is only used for ceramics, glass, roofs, liquids (rule M31), gemstones (rule M36), book covers (rule M37), and very minor details or accents.
 C8. Dark green is only used for foliage, glass, liquids (rule M31), gemstones (rule M36), book covers (rule M37), and very minor details or accents.
 C9. Light green is only used for nature: flora and foliage, including the grass and weed accents growing on objects and structures. It is not a general-purpose accent band — a green fletching or a green stripe on an object that grows nothing is a finding, not an accent.
 C10. Blue 4,2 is used sparingly: fish (rule M26), liquids (rule M31), gemstones (rule M36), and otherwise only minor details or accents.
+C11. Light blue-grey 3,2 is only used for silver (rule M11) and for fish (rule M26).
+C12. Blue-grey 6,1 is only used for steel and cast iron (rule M10), worked stone (rule M20), wicks (rule M23) and book covers (rule M37).
+C13. The clear glass colour is only used for glass. Rule M17 makes it a material of its own; nothing that is not glass is transparent.
+C14. Salmon 13,0 is only used for sand and dirt (rule M22), textile (rule M13), food (rule M30) and fauna (rule M26).
+C15. Off-white 5,2 and taupe 14,3 carry no "only" clause: they are the two general-purpose bands, and the materials that may take them are named in the M block instead. An off-white or taupe surface is judged by its material's own rule, not by this block. The omission is deliberate — taupe alone is reached by sixteen of the nineteen materials, so an "only" clause on it would say nothing.
 
 N. Counting — bands against materials.
 
@@ -133,6 +146,7 @@ N2. A model usually uses equal or more color bands than materials. Retiring a ba
 N3. A model usually does not use more than twice as many color bands than materials.
 N4. A model uses at most eight colour bands if it is in the characters group, and at most six otherwise. The count is in bands: rule M17 makes the clear glass a material of its own rather than a band, so a model does not spend part of its ceiling on having windows. The ceiling is on a model, and an assembly is not one — it is a scene built from catalogued models whose colours are the sum of parts that each answer to the ceiling on their own, so N4 no more counts it a second time than the C and M blocks do. This is a ceiling on the count alone — it says nothing about which bands a model may take, so a model sitting at its ceiling still answers to the C and M blocks in full. It is also the one rule of this appendix that the `special` tag does not switch off: `special` excuses a model from being told which colour a material takes, not from being told how many it may spend.
 N5. Where a model came in over its N4 ceiling, it is brought under by merging bands, never by repainting: two bands that carry the same material or the same garment become one. The band with the most triangles is the one that survives, and the triangles moving onto it keep their position in the gradient, so the baked shading of rule G3 comes through the merge intact. Merging away a two-tone the model is recognised by — the hood of rogue-hooded, the gold on a hilt beside its blade — costs more than it saves; take the merge the eye does not catch.
+N6. Every model named in `catalog/tags.json` exists in the catalogue. A tag entry pointing at a model that has been renamed or removed is not harmless: the model it was meant for loses that tag silently, and an untagged model is one every M and C rule above passes over without a word.
 
 G. Gradient, lanes and look — where the tones come from, and how the result should read.
 
