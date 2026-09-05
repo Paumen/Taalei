@@ -22,8 +22,14 @@
 // to hold one of the cover bands), the rest is a judgement too.
 //
 // SEVERITY is the table below and nothing else: `error` fails the run, `warn`
-// only prints. Appendix A says "only" through the C block and "usually" for much
-// of the M block, so the wording is written out per rule — flipping one is a word.
+// only prints. It is now a ratchet: a rule with nothing left to report is an error,
+// so the catalogue cannot drift back across a line it has already been brought over.
+// That is a stricter reading than Appendix A's own wording — the appendix says "only"
+// through the C block but "usually" for much of the M block, and a rule that says
+// "usually" and fails the run is the tool holding a line the prose leaves open. The
+// three that still print are the N block's counts: N1, N2 and N3 have findings, and
+// dropping a rule back to `warn` because a new model trips it is the one move this
+// ratchet forbids — the model is what has to change.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng } from '../catalog/tools/png.mjs';
@@ -171,45 +177,45 @@ const RULES = [
   // "usually" for most of the rest; the severity column is where that lands.
   materialTakes({ id: 'M6', text: 'Bones and skulls are off-white.', severity: 'error',
     tag: 'bone', colors: ['off-white'] }),
-  materialTakes({ id: 'M7', text: 'Paper is off-white.', severity: 'warn',
+  materialTakes({ id: 'M7', text: 'Paper is off-white.', severity: 'error',
     tag: 'paper', colors: ['off-white'] }),
   materialTakes({ id: 'M8', text: 'Ceramics are usually terracotta, off-white, taupe, or dark red.',
     severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
   // Copper (rule M11) and keys (rule M12) are metal too, but Appendix A gives each
   // its own colours; they are checked by those rules below instead.
   materialTakes({ id: 'M9-M10', text: 'Metal is usually light grey 15,3. Steel/cast iron can be blue-grey 6,1.',
-    severity: 'warn', tag: 'metal', colors: ['light grey', 'blue-grey'],
+    severity: 'error', tag: 'metal', colors: ['light grey', 'blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
-  materialTakes({ id: 'M12', text: 'Keys can be any metal or precious-metal colour.', severity: 'warn',
+  materialTakes({ id: 'M12', text: 'Keys can be any metal or precious-metal colour.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
   materialTakes({ id: 'M13', text: 'Textile: off-white, salmon 13,0, taupe 14,3 or brown 1,0.',
     severity: 'error', tag: 'textile', colors: ['off-white', 'salmon', 'taupe', 'wood middle'] }),
   materialTakes({ id: 'M17', text: 'Glass is a special own material: transparent, or dark green or dark red.',
-    severity: 'warn', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
-  materialTakes({ id: 'M19', text: 'Roofs are usually dark red.', severity: 'warn',
+    severity: 'error', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
+  materialTakes({ id: 'M19', text: 'Roofs are usually dark red.', severity: 'error',
     tag: 'roof', colors: ['dark red'], when: isRoof }),
   materialTakes({ id: 'M11', text: 'Coins and metal in jewellery are usually gold 6,0, alternatively silver 3,2. Copper is terracotta 5,0.',
     severity: 'error', tag: 'precious-metal', colors: ['yellow', 'light blue-grey', 'terracotta'],
     when: (m) => has(m, 'precious-metal') || isCopper(m) }),
-  materialTakes({ id: 'M4', text: 'Grass is light green.', severity: 'warn',
+  materialTakes({ id: 'M4', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
   materialTakes({ id: 'M5', text: 'Trees are usually dark green. Palms are the exception: their fronds are light green.',
-    severity: 'warn', tag: 'tree', colors: ['dark green'],
+    severity: 'error', tag: 'tree', colors: ['dark green'],
     when: (m) => m.gr === 'trees' && !m.name.includes('palm') }),
   materialTakes({ id: 'M20', text: 'Stone (worked stone: walls, bricks, floors) is taupe 14,3, blue-grey 6,1, or light grey 15,3.',
-    severity: 'warn', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
+    severity: 'error', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M21', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
-    severity: 'warn', tag: 'rock', colors: ['light grey', 'taupe'] }),
+    severity: 'error', tag: 'rock', colors: ['light grey', 'taupe'] }),
   // Sand and dirt, not everything on the ground: the soil tag carries the rule, so a
   // grass patch (flora on the ground) and the laid and raw stone stay out of it.
   materialTakes({ id: 'M22', text: 'Sand and dirt are taupe 14,3 or salmon 13,0.',
-    severity: 'warn', tag: 'soil', colors: ['taupe', 'salmon'] }),
+    severity: 'error', tag: 'soil', colors: ['taupe', 'salmon'] }),
   materialTakes({ id: 'M30', text: 'Food is naturalistic — off-white, salmon 13,0, terracotta 5,0, dark red 8,0 or taupe 14,3; cheese is the one yellow 6,0.',
-    severity: 'warn', tag: 'food',
+    severity: 'error', tag: 'food',
     colors: ['off-white', 'salmon', 'terracotta', 'dark red', 'taupe', 'yellow'] }),
   materialTakes({ id: 'M24', text: 'Light: flames and glow are yellow 6,0; candle wax and lampshades are off-white 5,2.',
-    severity: 'warn', tag: 'light', colors: ['yellow', 'off-white'],
+    severity: 'error', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'wax') }),
   materialTakes({ id: 'M14', text: 'Rope is taupe 14,3.', severity: 'error',
     tag: 'rope', colors: ['taupe'] }),
@@ -227,16 +233,16 @@ const RULES = [
   // light grey for it. That the bands are metal at all — and not timber or taupe — is
   // about a part of the model the catalogue cannot see.
   materialTakes({ id: 'M27', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, and that metal is light grey 15,3.',
-    severity: 'warn', tag: 'metal', colors: ['light grey'],
+    severity: 'error', tag: 'metal', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal') }),
   // Rule M37: the cover bands. A book has to hold at least one of them; which triangles
   // are the cover and which the pages is not in the catalogue. Scrolls and maps are
   // paper all through and carry no cover, so the name is the condition and not the group.
   materialTakes({ id: 'M37', text: 'Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
-    severity: 'warn', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
+    severity: 'error', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
     when: isBook }),
   materialTakes({ id: 'M26', text: 'Fauna use naturalistic colours — off-white, salmon, taupe; fish may also be blue 4,2 or light blue-grey 3,2.',
-    severity: 'warn', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
+    severity: 'error', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
     when: (m) => has(m, 'fauna') }),
 
   // Colour -> material, the C block. Appendix A says "only" throughout it.
@@ -248,7 +254,7 @@ const RULES = [
   // group is the condition: the group excused a plain gold ring as readily as a real
   // stone. The band it may be — dark red, dark green, blue — is named on each.
   bandOnlyFor({ id: 'C10', text: 'Blue 4,2 is used sparingly: fish (rule M26), liquids (M31), gemstones (M36), and otherwise only minor details or accents.',
-    severity: 'warn', color: 'blue', tags: ['fauna', 'liquid', 'gemstone'], accent: true }),
+    severity: 'error', color: 'blue', tags: ['fauna', 'liquid', 'gemstone'], accent: true }),
   // Rule C9 has no accent escape: light green is nature and nothing else. Grass and weeds
   // growing on an object or a structure are in — they carry the flora tag, which is the
   // whole of what the band is for — and a green that grows nothing is a finding whatever
@@ -258,35 +264,35 @@ const RULES = [
   // Read literally: the rule forbids terracotta on timber, and names copper (R) and
   // ceramics as what may carry it. It says nothing about other materials.
   bandOnlyFor({ id: 'C3', text: 'Terracotta is not used for timber (copper, rule M11, is the exception outside ceramics).',
-    severity: 'warn', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
+    severity: 'error', color: 'terracotta', tags: ['ceramic', 'metal', 'precious-metal'],
     unless: (m) => !has(m, 'timber', 'bark') }),
   // M30 names cheese as the one yellow food, and the cheese wedge is the only model
   // the food tag brings in here. The coins-jewelry and lights groups carry the other
   // half of the rule's own wording: a gold-trimmed chest and a street lamp are the
   // thing the band is for, whatever material tag they happen to hold.
   bandOnlyFor({ id: 'C6', text: 'Yellow is usually only used for coins, jewellery, light, or fire.',
-    severity: 'warn', color: 'yellow', tags: ['precious-metal', 'light', 'wax', 'liquid'],
+    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'wax', 'liquid'],
     groups: ['coins-jewelry', 'lights'],
     unless: (m) => has(m, 'food') && m.name.includes('cheese') }),
   // Rule C5 retired with the dark grey band it named: cast iron and wicks moved onto
   // blue-grey (rules M10 and M23), and blue-grey has never carried an "only" clause.
   bandOnlyFor({ id: 'C7', text: 'Dark red is only used for ceramics, glass, roofs, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
-    severity: 'warn', color: 'dark red', tags: ['ceramic', 'glass', 'liquid', 'gemstone'],
+    severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'liquid', 'gemstone'],
     accent: true, unless: (m) => isRoof(m) || isBook(m) }),
   bandOnlyFor({ id: 'C8', text: 'Dark green is only used for foliage, glass, liquids (M31), gemstones (M36), book covers (M37), and very minor details or accents.',
     severity: 'error', color: 'dark green', tags: ['foliage', 'glass', 'liquid', 'gemstone'],
     accent: true, unless: isBook }),
   bandOnlyFor({ id: 'C2', text: 'Darkest brown is only used for bark and leather.',
-    severity: 'warn', color: 'bark', tags: ['bark', 'leather'] }),
+    severity: 'error', color: 'bark', tags: ['bark', 'leather'] }),
   // "Lighter browns" is the light and middle lane of rule G1. Rope used to be excused
   // here — rule M14 put it on the light lane too — but M14 now sends rope to taupe,
   // so timber is the only material left that reaches this band.
   bandOnlyFor({ id: 'C1-light', text: 'Lighter browns are only used for timber.',
-    severity: 'warn', color: 'wood light', tags: ['timber'] }),
+    severity: 'error', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C1-middle', text: 'Lighter browns are only used for timber.',
-    severity: 'warn', color: 'wood middle', tags: ['timber', 'textile'] }),
+    severity: 'error', color: 'wood middle', tags: ['timber', 'textile'] }),
   bandOnlyFor({ id: 'C4', text: 'Light grey 15,3 is only used for metal, stone, and rock.',
-    severity: 'warn', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
+    severity: 'error', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
 
   // Counting, the N block. `mat` in catalog.json is the glTF material count and is 1 for all but
   // 25 models, so "materials" here is the material tags — the thing the model is
@@ -325,7 +331,7 @@ const RULES = [
   // model does not spend part of its ceiling on having windows. N5 says how a model
   // over the ceiling is brought under, which is a method and not a measurement.
   { id: 'N4', text: 'A model uses at most eight colour bands in the characters group, six elsewhere.',
-    severity: 'warn', alsoSpecial: true,
+    severity: 'error', alsoSpecial: true,
     check: (m) => {
       const bands = m.colors.filter((hex) => hex !== CLEAR).length;
       const ceiling = m.gr === 'characters' ? 8 : 6;
@@ -337,7 +343,7 @@ const RULES = [
   // escape here — the rule is about which green these groups are drawn in, and the
   // stems and leaves it covers are not a minor detail.
   { id: 'M3', text: 'Flowers, grass and plants do not use dark green: that band is for trees and foliage, their green is light green.',
-    severity: 'warn',
+    severity: 'error',
     check: (m) => {
       if (!['flowers', 'grass', 'plants'].includes(m.gr)) return null;
       if (!uses(m, band('dark green'))) return null;
