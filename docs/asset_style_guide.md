@@ -128,6 +128,8 @@ N. Counting — bands against materials.
 N1. A model usually has at least one material.
 N2. A model usually uses equal or more color bands than materials.
 N3. A model usually does not use more than twice as many color bands than materials.
+N4. A model uses at most eight colour bands if it is in the characters group, and at most six otherwise. This is a ceiling on the count alone — it says nothing about which bands a model may take, so a model sitting at its ceiling still answers to the C and M blocks in full. It is also the one rule of this appendix that the `special` tag does not switch off: `special` excuses a model from being told which colour a material takes, not from being told how many it may spend.
+N5. Where a model came in over its N4 ceiling, it is brought under by merging bands, never by repainting: two bands that carry the same material or the same garment become one. The band with the most triangles is the one that survives, and the triangles moving onto it keep their position in the gradient, so the baked shading of rule G3 comes through the merge intact. Merging away a two-tone the model is recognised by — the hood of rogue-hooded, the gold on a hilt beside its blade — costs more than it saves; take the merge the eye does not catch.
 
 G. Gradient, lanes and look — where the tones come from, and how the result should read.
 
