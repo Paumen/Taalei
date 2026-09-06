@@ -41,6 +41,7 @@ const van = [];
 let naar = null;
 let venster = null;
 let maxSpan = null;
+let minSpan = null;
 let lijst = false;
 const bestanden = [];
 for (let i = 0; i < argumenten.length; i++) {
@@ -49,11 +50,12 @@ for (let i = 0; i < argumenten.length; i++) {
   else if (a === '--naar') naar = argumenten[++i];
   else if (a === '--venster') venster = argumenten[++i];
   else if (a === '--maxspan') maxSpan = Number(argumenten[++i]);
+  else if (a === '--minspan') minSpan = Number(argumenten[++i]);
   else if (a === '--lijst') lijst = true;
   else bestanden.push(a);
 }
 if (bestanden.length === 0 || !naar || !venster) {
-  console.error('gebruik: node tools/anker-verloop.mjs [--van k,r ...] --naar k,r --venster L-L [--maxspan deel] [--lijst] <glb...>');
+  console.error('gebruik: node tools/anker-verloop.mjs [--van k,r ...] --naar k,r --venster L-L [--minspan L] [--maxspan L] [--lijst] <glb...>');
   process.exit(1);
 }
 if (van.length === 0) van.push(naar);
@@ -230,25 +232,33 @@ for (const pad of bestanden) {
   const laagste = Math.min(...raak.map((r) => r.L));
   const hoogste = Math.max(...raak.map((r) => r.L));
 
-  // krimpen om binnen de baan te blijven, per kant zo weinig als het kan, en om onder
-  // --maxspan te blijven: een verloop dat meer dan dat deel van zijn baan beslaat leest
-  // niet meer als schaduw op één voorwerp maar als twee kleuren hout. Gemeten over de
-  // hoekpunten, niet over het zwaartepunt van de driehoek: de uv's lopen over een vlak
-  // door, dus de hoekpunten zijn de kleuren die echt te zien zijn.
+  // --minspan en --maxspan staan in OKLab-lichtheid, net als de G-regels, en niet in een
+  // deel van de baan: het gaat om hoeveel verschil er te zien is, en dat is lichtheid.
+  // Een verloop dat te vlak is wordt opengetrokken, een dat te ver reikt teruggebracht —
+  // dat laatste leest niet meer als schaduw op één voorwerp maar als twee kleuren hout.
+  // Beide om het zwaartepunt heen, dus de kleur die je van het voorwerp afleest blijft.
+  //
+  // Gemeten over de hoekpunten, niet over het zwaartepunt van de driehoek: de uv's lopen
+  // over een vlak door, dus de hoekpunten zijn de kleuren die echt te zien zijn.
   const ruimteLicht = Math.max(doelLicht, doelDonker) - doel;
   const ruimteDonker = doel - Math.min(doelLicht, doelDonker);
   const naarBoven = hoogste - zwaartepunt;
   const naarBeneden = zwaartepunt - laagste;
   const eigenSpan = hoogste - laagste;
   const baanBreed = Math.abs(doelLicht - doelDonker);
+  // een vlakke baan blijft buiten schot: nul maal wat dan ook is nul, en er een verloop
+  // bij verzinnen is geen schalen maar tekenen
+  const openTrekken = minSpan !== null && eigenSpan > 0 ? Math.max(1, minSpan / eigenSpan) : 1;
   const schaal = Math.min(
-    1,
-    naarBoven > 0 ? ruimteLicht / naarBoven : 1,
-    naarBeneden > 0 ? ruimteDonker / naarBeneden : 1,
-    maxSpan !== null && eigenSpan > 0 ? (maxSpan * baanBreed) / eigenSpan : 1,
+    openTrekken,
+    naarBoven > 0 ? ruimteLicht / naarBoven : Infinity,
+    naarBeneden > 0 ? ruimteDonker / naarBeneden : Infinity,
+    maxSpan !== null && eigenSpan > 0 ? maxSpan / eigenSpan : Infinity,
   );
 
-  const verslag = `${pad}: ${van.join('+')} -> ${naar}, zwaartepunt L ${zwaartepunt.toFixed(3)} -> ${doel.toFixed(3)}, span ${(eigenSpan / baanBreed * 100).toFixed(0)}% van de baan${schaal < 1 ? ` -> ${(eigenSpan * schaal / baanBreed * 100).toFixed(0)}%` : ' ongewijzigd'}`;
+  const nieuweSpan = eigenSpan * schaal;
+  const beweegt = Math.abs(schaal - 1) > 1e-6;
+  const verslag = `${pad}: ${van.join('+')} -> ${naar}, zwaartepunt L ${zwaartepunt.toFixed(3)} -> ${doel.toFixed(3)}, span L ${eigenSpan.toFixed(3)}${beweegt ? ` -> ${nieuweSpan.toFixed(3)}` : ' ongewijzigd'} (baan ${baanBreed.toFixed(3)})`;
   if (lijst) { console.log(verslag); continue; }
 
   for (const r of raak) {
