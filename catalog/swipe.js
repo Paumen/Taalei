@@ -7,10 +7,6 @@ const DIRECTIONS = [
 
 const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
 
-// ?source=missing swipes the second catalogue: everything a source pack holds that the
-// catalogue doesn't. There the question isn't which models to keep but why each one was
-// left out, so the directions start out named after reasons — all four are editable
-// under Settings either way. The two decks keep their own choices.
 const SOURCES = {
   catalogus: { file: 'catalog.json', title: 'Swipe models', labels: null },
   missing: {
@@ -34,10 +30,8 @@ const readableBytes = (bytes) =>
 const dimensions = (wdh) =>
   Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
 
-// waar de .glb's van de gekozen catalogus staan; missing.json zegt het zelf
 let modelPath = 'kits/workfiles';
 
-// Zelfde stempel als op catalog.json, anders blijft een gecachte .glb hangen.
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
 

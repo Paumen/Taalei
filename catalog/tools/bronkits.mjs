@@ -1,11 +1,3 @@
-// Which source pack a kit was imported from, and where the models sit inside it.
-//
-// The pack itself is the .zip under kits/sources/<map>/; a pack ships the same models
-// in several formats and often nested a couple of folders deep, so `format` picks the
-// format to read and the folder is looked up by finding the one that holds the most
-// files of that format (see vindModelmap). Packs without a `kit` were downloaded but
-// never imported — everything in them counts as missing.
-
 export const BRONKITS = [
   { map: 'kenney_survival-kit', naam: 'Kenney Survival Kit', kit: 'survival-kit', formaat: 'glb' },
   { map: 'kenney_pirate-kit', naam: 'Kenney Pirate Kit', kit: 'pirate-kit', formaat: 'glb' },
@@ -23,19 +15,11 @@ export const BRONKITS = [
   { map: 'KayKit_Forest_Nature_Pack_1.0_FREE', naam: 'KayKit Forest Nature Pack', kit: 'forest', formaat: 'gltf' },
   { map: 'KayKit_ResourceBits_1.0_FREE', naam: 'KayKit Resource Bits', kit: 'resources', formaat: 'gltf' },
   { map: 'KayKit_RPGToolsBits_1.0_FREE', naam: 'KayKit RPG Tools Bits', kit: 'rpgtools', formaat: 'gltf' },
-  // halloween and restaurant ship a few models as .obj that the gltf folder doesn't carry
   { map: 'KayKit_HalloweenBits_1.0_FREE', naam: 'KayKit Halloween Bits', kit: 'halloween', formaat: 'obj' },
   { map: 'KayKit_Restaurant_Bits_1.0_FREE', naam: 'KayKit Restaurant Bits', kit: 'restaurant', formaat: 'obj' },
   { map: 'KayKit_Furniture_Bits_1.0_FREE', naam: 'KayKit Furniture Bits', kit: null, formaat: 'gltf' },
-  // The two character packs carry their figures as .glb next to the .gltf gear; the
-  // format below picks the gear folder, which is what the missing list is about — a
-  // figure is either imported or it isn't, and all ten are.
   { map: 'KayKit_Adventurers_2.0_FREE', naam: 'KayKit Adventurers', kit: 'adventurers', formaat: 'gltf' },
   { map: 'KayKit_Skeletons_1.1_FREE', naam: 'KayKit Skeletons', kit: 'skeletons', formaat: 'gltf' },
-  // KayKit_Character_Animations_1.1 sits under kits/sources as well but deliberately
-  // not in this list: it holds no models, only the 132 clips the ten figures above
-  // carry, and a pack listed here without a kit counts as entirely missing — a row of
-  // rig previews in the missing catalogue that nobody is meant to import.
 
   { map: 'FantasyProps_glTF_1k', naam: 'Fantasy Props MegaKit', kit: 'fantasy-props', formaat: 'gltf' },
   { map: 'Ultimate_Nature_Pack_by_Quaternius_OBJ', naam: 'Ultimate Nature Pack', kit: 'quaternius-nature', formaat: 'obj' },

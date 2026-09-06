@@ -1,15 +1,3 @@
-// A reader for binary FBX, enough to get geometry and one material out of it.
-//
-// Five source packs ship nothing but .fbx (Medieval Props Lite, Rocks, Ocean, Low Poly
-// Nature Pack Lite, Tropical Island Lite), so without this they'd have no preview and
-// no triangle count to compare against the catalogue.
-//
-// Binary FBX is a tree of records: a header per record with the offset just past it,
-// then properties, then child records, closed off by an all-zero record. Numeric arrays
-// carry their own zlib encoding. Everything the file is about sits under Objects:
-// Geometry (vertices and polygons), Model (placement), Material and Texture; Connections
-// says which belongs to which.
-
 import { readFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 
@@ -114,7 +102,6 @@ function readTree(path) {
 const child = (record, name) => record?.children.find((c) => c.name === name);
 const childrenNamed = (record, name) => record?.children.filter((c) => c.name === name) ?? [];
 
-// Properties70 holds the animatable properties: P, name, type, type, flag, then values.
 function property70(record, name) {
   for (const p of childrenNamed(child(record, 'Properties70'), 'P')) {
     if (p.props[0] === name) return p.props.slice(4);
@@ -127,7 +114,6 @@ const RAD = Math.PI / 180;
 function eulerMatrix([rx, ry, rz]) {
   const [cx, cy, cz] = [rx, ry, rz].map((v) => Math.cos(v * RAD));
   const [sx, sy, sz] = [rx, ry, rz].map((v) => Math.sin(v * RAD));
-  // FBX default rotation order is XYZ, applied as R = Rz · Ry · Rx
   return [
     cy * cz, cy * sz, -sy,
     sx * sy * cz - cx * sz, sx * sy * sz + cx * cz, sx * cy,
@@ -141,8 +127,6 @@ const applyMatrix = (m, x, y, z) => [
   m[2] * x + m[5] * y + m[8] * z,
 ];
 
-// An FBX says which way is up in GlobalSettings. Everything downstream here is glTF, so
-// a Z-up file has to be turned a quarter over the X axis; a Y-up file passes through.
 function upAxisMatrix(roots) {
   const settings = child(roots.find((r) => r.name === 'GlobalSettings'), 'Properties70')
     ? roots.find((r) => r.name === 'GlobalSettings')
@@ -156,9 +140,6 @@ function upAxisMatrix(roots) {
     : [1, 0, 0, 0, 0, -1, 0, 1, 0];
 }
 
-// A layer element is either one value per polygon vertex, per vertex, or per polygon,
-// and either straight or through an index table. This resolves all of that to "give me
-// the value for polygon vertex i".
 function layerLookup(layer, valuesName, indexName, width) {
   if (!layer) return null;
   const values = child(layer, valuesName)?.props[0];
@@ -198,9 +179,6 @@ export function leesFbx(pad) {
   const perId = new Map();
   for (const record of objects.children) perId.set(record.props[0], record);
 
-  // Connections are "child belongs to parent"; both directions are handy below. A
-  // texture is bound to a material through an OP connection (it names the material
-  // property it feeds), everything else through a plain OO.
   const parents = new Map();
   for (const c of childrenNamed(roots.find((r) => r.name === 'Connections'), 'C')) {
     if (c.props[0] !== 'OO' && c.props[0] !== 'OP') continue;
@@ -223,8 +201,6 @@ export function leesFbx(pad) {
   const hangtOnder = (id, soort) =>
     (kinderen.get(id) ?? []).map((k) => perId.get(k)).filter((r) => r?.name === soort);
 
-  // A material hangs under the model and a texture under the material, so the file this
-  // mesh is painted with sits two steps below the model — not below the geometry.
   const textuurVan = (modelId) => {
     for (const materiaal of hangtOnder(modelId, 'Material')) {
       for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
@@ -277,8 +253,6 @@ export function leesFbx(pad) {
     const normaalLaag = layerLookup(child(geometry, 'LayerElementNormal'), 'Normals', 'NormalsIndex', 3);
     const uvLaag = layerLookup(child(geometry, 'LayerElementUV'), 'UV', 'UVIndex', 2);
 
-    // Polygons are stored flat: a negative index closes the polygon (xor -1 undoes it),
-    // and everything with more than three corners is fanned out into triangles.
     const posities = [];
     const normalen = [];
     const uvs = [];
@@ -304,7 +278,6 @@ export function leesFbx(pad) {
           posities.push(...hoek.p);
           if (hoek.n) normalen.push(...hoek.n);
           else heeftNormalen = false;
-          // FBX puts the UV origin at the bottom left, glTF at the top left
           if (hoek.t) uvs.push(hoek.t[0], 1 - hoek.t[1]);
           else heeftUvs = false;
         }

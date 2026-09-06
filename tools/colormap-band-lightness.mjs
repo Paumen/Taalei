@@ -1,23 +1,3 @@
-// Moves one band of kits/colormap.png to a given OKLab lightness range, keeping the shape
-// of its gradient: hue and chroma stay exactly what they were at that position in the band.
-//
-//   node tools/colormap-band-lightness.mjs --band 6,1 --top 0.40 --bottom 0.28
-//                                          [--atlas <png>] [--out kits/colormap-band.png] [--in-place]
-//
-// colormap-respace.mjs does this for the three wood cells at once, because they are one
-// ramp and only mean something together. Every other band stands alone: it has a light end
-// and a dark end and nothing on either side of it, so re-spacing one is just picking the
-// two ends. That is what this does.
-//
-// --top is the light end (the top row of the cell) and --bottom the dark end. Lightness runs
-// linearly between them; every row keeps the a and b it already had, so the band renders the
-// same hue at the same position and only its lightness moves. Chroma is kept in absolute
-// OKLab terms, which is what "the same colour, lighter or darker" means here.
-//
-// This changes what a UV position means: a model keeps its position and gets a different
-// colour. Rebuild catalog.json afterwards, and copy the atlas out to the kits that carry a
-// byte-for-byte copy of it under Textures/ — models resolve the texture next to themselves,
-// not from kits/.
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readPng, writePng } from '../catalog/tools/png.mjs';
@@ -84,8 +64,6 @@ const x1 = Math.round((column + 1) * cellWidth);
 const y0 = Math.round(row * cellHeight);
 const rows = Math.round(cellHeight);
 
-// The band as it stands, read down the middle of the cell: the last column of a cell can
-// carry a lighter edge pixel that no model reads.
 const centre = Math.floor(column * cellWidth + cellWidth / 2);
 const before = [];
 for (let y = 0; y < rows; y++) {

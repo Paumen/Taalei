@@ -157,8 +157,6 @@ function chunk(type, data) {
   return Buffer.concat([head, data, tail]);
 }
 
-// Writes what readPng returns: 8-bit RGBA, one filter-0 byte per scanline. The colormap is
-// a few hundred flat bands, so deflate carries it without a filter worth choosing.
 export function writePng(path, { width, height, pixels }) {
   const stride = width * 4;
   const raw = Buffer.alloc((stride + 1) * height);
