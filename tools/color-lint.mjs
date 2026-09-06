@@ -109,6 +109,13 @@ const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soi
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
 const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
+// What the N block counts a band against. `special` is a material tag so that rule
+// N1 is satisfied by it alone — the heart and star of the platformer kit are signs
+// and made of nothing else — but it is a joker and not a substance, so rule M gives
+// it no colour and it can never take a band. Counting it made every `special` model
+// owe one band more than it is made of: the cheese, one band of yellow for one
+// material, read as short a band for a joker that has no colour to spend.
+const counting = (m) => materials(m).filter((t) => t !== 'special');
 // A roof in the sense of rule M19 is a tiled roof, and those carry the ceramic tag.
 // The name alone is not enough: the ridge and rake trim and the thatched
 // structure-roof are timber pieces that happen to have "roof" in the name.
@@ -331,16 +338,16 @@ const RULES = [
     } },
   { id: 'N2', text: 'A model uses at least as many bands as it has materials.', severity: 'error',
     check: (m) => {
-      const n = materials(m).length;
+      const n = counting(m).length;
       if (!n || m.colors.length >= n) return null;
-      return `${m.colors.length} band(s) for ${n} materials (${materials(m).join(', ')})`;
+      return `${m.colors.length} band(s) for ${n} materials (${counting(m).join(', ')})`;
     } },
   { id: 'N3', text: 'A model uses at most twice as many bands as materials.',
     severity: 'warn',
     check: (m) => {
-      const n = materials(m).length;
+      const n = counting(m).length;
       if (!n || m.colors.length <= 2 * n) return null;
-      return `${m.colors.length} bands for ${n} material(s) (${materials(m).join(', ')})`;
+      return `${m.colors.length} bands for ${n} material(s) (${counting(m).join(', ')})`;
     } },
   // N4. The ceiling, counted in bands and not in entries of `colors`: rule M24 makes
   // the clear glass a material of its own rather than a band, so a model does not
