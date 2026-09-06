@@ -2,8 +2,8 @@
 // not which band a model takes — that is color-lint.mjs — but where inside the band it
 // sits, and whether it spreads over enough of the gradient to carry baked shading.
 //
-//   node tools/gradient-lint.mjs [--kit dungeon] [--rule G2] [--limit 8]
-//                                [--rules] [--strict] [--json path.json]
+//   node tools/gradient-lint.mjs [--kit dungeon] [--group storage] [--rule G2]
+//                                [--limit 8] [--rules] [--strict] [--json path.json]
 //
 // color-lint.mjs says in its own header that the lane and gradient rules "live in the
 // UVs of the individual triangles and in the source model, not in the catalogue — they
@@ -60,12 +60,13 @@ const RULES = {
 };
 
 function parseArgs(argv) {
-  const o = { kit: null, rule: null, limit: 6, rules: false, strict: false, json: null };
+  const o = { kit: null, group: null, rule: null, limit: 6, rules: false, strict: false, json: null };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--rules') o.rules = true;
     else if (a === '--strict') o.strict = true;
     else if (a === '--kit') o.kit = argv[++i];
+    else if (a === '--group') o.group = argv[++i];
     else if (a === '--rule') o.rule = argv[++i].toUpperCase();
     else if (a === '--limit') o.limit = Number(argv[++i]);
     else if (a === '--json') o.json = argv[++i];
@@ -239,6 +240,7 @@ const counted = { models: 0, bands: 0, skipped: 0 };
 
 for (const model of catalog.models) {
   if (options.kit && model.kit !== options.kit) continue;
+  if (options.group && model.gr !== options.group) continue;
   const dir = join(ROOT, 'kits/workfiles', model.kit);
   const path = join(dir, `${model.name}.glb`);
   if (!existsSync(path)) { counted.skipped++; continue; }
