@@ -1,14 +1,23 @@
 // Re-spaces the three wood bands of kits/colormap.png so each spans the same amount of
 // OKLab lightness, per the note in section 1 of docs/asset_style_guide.md.
 //
-//   node tools/colormap-respace.mjs [--step 0.12] [--anchor 0.406]
-//                                   [--out kits/colormap-respaced.png] [--in-place]
+//   node tools/colormap-respace.mjs [--step 0.12] [--gap 0.048] [--anchor 0.36]
+//                                   [--atlas <png>] [--out kits/colormap-respaced.png] [--in-place]
 //
-// The three bands are one ramp cut in three, and they were cut unevenly: 0,0 spans 0.186
-// of L, 1,0 spans 0.137 and 2,0 only 0.094. So timber has twice the shading range bark
-// has, for no reason anyone chose, and the palest end of 0,0 is lighter than any wood in
-// the catalogue wants to be. Equal steps give every material the same budget and take the
-// palest lines off the top; anchored at the dark end, the darkest brown does not move.
+// --atlas re-spaces another atlas instead of kits/colormap.png. A kit with a palette of
+// its own carries a copy: modular-cave-kit's models read Textures/colormap-gedeeld.png,
+// whose wood bands are byte for byte the shared ones, so it has to move with them or its
+// timber lands on a colour the shared map no longer holds.
+//
+// The three bands were one ramp cut in three, and cut unevenly: 0,0 spanned 0.186 of L,
+// 1,0 spanned 0.137 and 2,0 only 0.094, so timber had twice the shading range bark had for
+// no reason anyone chose. Equal steps give every material the same budget.
+//
+// --gap is the point of the exercise. Cut as one ramp, 0,0 ended on the exact pixel 1,0
+// began on: two models could lint as different bands and render the identical colour, and
+// that is how a barrel came to be one colour in the village and another in the dungeon
+// without anyone choosing it. A gap between the bands makes the band a model is on
+// something you can see, not only something the catalogue records.
 //
 // The hue and chroma of each new line are read off the original ramp at the lightness the
 // line lands on, so this only re-spaces the ramp — it does not repaint it. Only the three
@@ -27,12 +36,14 @@ const COLUMNS = 16;
 const ROWS = 4;
 const WOOD_CELLS = 3;
 
-const options = { step: 0.12, anchor: 0.406, out: 'kits/colormap-respaced.png', inPlace: false };
+const options = { step: 0.12, gap: 0.048, anchor: 0.36, atlas: 'kits/colormap.png', out: 'kits/colormap-respaced.png', inPlace: false };
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (a === '--step') options.step = Number(argv[++i]);
+  else if (a === '--gap') options.gap = Number(argv[++i]);
   else if (a === '--anchor') options.anchor = Number(argv[++i]);
+  else if (a === '--atlas') options.atlas = argv[++i];
   else if (a === '--out') options.out = argv[++i];
   else if (a === '--in-place') options.inPlace = true;
   else { console.error(`unknown flag: ${a}`); process.exit(2); }
@@ -67,7 +78,7 @@ function toRgb(L, a, b) {
   ];
 }
 
-const source = join(ROOT, 'kits/colormap.png');
+const source = resolve(ROOT, options.atlas);
 const atlas = readPng(source);
 const cellWidth = atlas.width / COLUMNS;
 const cellHeight = atlas.height / ROWS;
@@ -92,11 +103,11 @@ function chromaAt(L) {
 }
 
 const pixels = Buffer.from(atlas.pixels);
-const top = options.anchor + options.step * WOOD_CELLS;
-console.log(`wood ramp L ${top.toFixed(3)} -> ${options.anchor.toFixed(3)}, ${options.step} per band`);
+const top = options.anchor + options.step * WOOD_CELLS + options.gap * (WOOD_CELLS - 1);
+console.log(`wood ramp L ${top.toFixed(3)} -> ${options.anchor.toFixed(3)}, band ${options.step}, gap ${options.gap} (${(options.gap / options.step).toFixed(2)} of a band)`);
 
 for (let cell = 0; cell < WOOD_CELLS; cell++) {
-  const high = top - options.step * cell;
+  const high = top - (options.step + options.gap) * cell;
   const low = high - options.step;
   const rows = Math.round(cellHeight);
   const ends = [];
@@ -114,6 +125,7 @@ for (let cell = 0; cell < WOOD_CELLS; cell++) {
     }
   }
   console.log(`  band ${cell},0  L ${high.toFixed(3)} -> ${low.toFixed(3)}   ${ends[0]} -> ${ends[1]}`);
+  if (cell < WOOD_CELLS - 1) console.log(`  gap        L ${low.toFixed(3)} -> ${(low - options.gap).toFixed(3)}   no band renders these`);
 }
 
 const out = options.inPlace ? source : resolve(ROOT, options.out);
