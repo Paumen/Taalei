@@ -1,7 +1,7 @@
 // Re-spaces the three wood bands of kits/colormap.png so each spans the same amount of
 // OKLab lightness, per the note in section 1 of docs/asset_style_guide.md.
 //
-//   node tools/colormap-respace.mjs [--step 0.12] [--gap 0.048] [--anchor 0.36]
+//   node tools/colormap-respace.mjs [--step 0.12] [--gap 0.04] [--anchor 0.36]
 //                                   [--atlas <png>] [--out kits/colormap-respaced.png] [--in-place]
 //
 // --atlas re-spaces another atlas instead of kits/colormap.png. A kit with a palette of
@@ -36,7 +36,7 @@ const COLUMNS = 16;
 const ROWS = 4;
 const WOOD_CELLS = 3;
 
-const options = { step: 0.12, gap: 0.048, anchor: 0.36, atlas: 'kits/colormap.png', out: 'kits/colormap-respaced.png', inPlace: false };
+const options = { step: 0.12, gap: 0.04, anchor: 0.36, atlas: 'kits/colormap.png', out: 'kits/colormap-respaced.png', inPlace: false };
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
