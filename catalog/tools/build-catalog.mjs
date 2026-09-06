@@ -17,7 +17,6 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
-// A dimension never reads as 0: a flat plank or a thin coin is still 0.1 units thick.
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
@@ -91,8 +90,6 @@ const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '
 function readColors(glb, dir) {
   const { json } = glb;
   const lanes = new Set();
-  // per lane the lowest and highest position within the band, and how many vertices
-  // sit in it — the raw material for the gradient spread below
   const gradient = new Map();
   const materials = new Map();
   let atlasPath = null;
@@ -130,8 +127,6 @@ function readColors(glb, dir) {
         const lane = `${Math.floor(x / cellWidth)},${row}`;
         lanes.add(lane);
 
-        // a band runs light to dark from top to bottom, so the position within the cell
-        // is what the baked shading is made of
         const position = (y - row * cellHeight) / cellHeight;
         const seen = gradient.get(lane);
         if (!seen) gradient.set(lane, { min: position, max: position, count: 1 });
@@ -147,10 +142,6 @@ function readColors(glb, dir) {
   return { atlas: atlasPath, lanes, gradient, materials };
 }
 
-// Baked shading lives in the spread over the gradient inside a band: same band, other
-// position. Per band the distance between the highest and lowest sample, averaged over
-// the bands by the number of vertices in each. 0 means every vertex sits on one line of
-// the gradient — a recolour that flattened the shading, not a model that carries it.
 function gradientSpread(gradient) {
   let spread = 0;
   let total = 0;
@@ -190,9 +181,6 @@ function hsl(hex) {
   return { tint: (tint * 60 + 360) % 360, saturation, lightness };
 }
 
-// The hue behind a colour, without light or dark: 'dark brown' and 'light brown' are one
-// family, and everything without saturation lands in 'neutral' together. colorName uses
-// it to name a band.
 function colorFamily(hex) {
   const { tint, saturation, lightness } = hsl(hex);
   if (saturation < 0.18) return 'neutral';
@@ -229,9 +217,6 @@ function colorName(hex) {
 const SCALE_PAGES = ['schaal.html', 'schaal-natuur.html', 'schaal-structuur.html'];
 
 function writeVersion() {
-  // missing.json and its previews come from catalog/tools/build-missing.mjs, so run that
-  // one first when the second catalogue changed — the stamp is what makes a browser
-  // fetch a rebuilt .glb instead of the one it already has.
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js',
     'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js']
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
@@ -249,8 +234,6 @@ function writeVersion() {
     [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${version}"`],
     [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${version}"`],
   ]);
-  // De drie schaalpagina's delen schaal.js; ze verschillen alleen in de categorie
-  // die ze tonen, dus ze krijgen ook alle drie hetzelfde stempel.
   for (const page of SCALE_PAGES) {
     stamp(join(CATALOG_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
@@ -574,12 +557,6 @@ for (const model of models) {
   for (const hex of model.colors) colors.set(hex, (colors.get(hex) ?? 0) + 1);
 }
 
-// The group order is derived rather than hand-maintained, so a new group lands in
-// the right place by itself: the object groups first, then nature, then structures
-// — the same three the Nature/Structure/Object filters use, read off each group's
-// `tab` — and inside each block the smallest group first, so the long lists sink to
-// the bottom. Equal counts fall back to the name, which keeps the order stable
-// between builds instead of following however GROUPS happens to be written.
 const CATEGORY_ORDER = ['object', 'nature', 'structures'];
 const categoryRank = (group) => CATEGORY_ORDER.indexOf(group.tab ?? 'object');
 
@@ -593,8 +570,6 @@ const catalog = {
     count: models.filter((m) => m.group === g.id).length,
   })).sort((a, b) =>
     categoryRank(a) - categoryRank(b) || a.count - b.count || a.name.localeCompare(b.name)),
-  // kept internally for the console summary below; not part of the shipped JSON (frontends
-  // derive colour swatches + counts from models[].colors themselves — see catalog.js)
   palettes: [...palettes.values()]
     .map((p) => ({
       id: p.id,
@@ -616,9 +591,6 @@ const catalog = {
   models,
 };
 
-// id ("kit/name") and path are reconstructed by the frontend from kit + name;
-// license/licenseLabel/ownPalette/kitGroup/tab/short/count/palette are build-time-only
-// (used above for warnings, or reconstructible client-side) and never shipped.
 const output = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
@@ -636,8 +608,6 @@ const output = {
     calls: m.calls,
     bytes: m.bytes,
     vtx: m.vertices,
-    // style-consistency measurements (ported from github.com/Paumen/3d-measurements);
-    // booleans are omitted when false, so a missing key reads as "not met"
     gridMod: m.isGridModular || undefined,
     grounded: m.isGrounded || undefined,
     centered: m.pivotIsCenter || undefined,
