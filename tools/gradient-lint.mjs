@@ -54,8 +54,8 @@ const EDGE = 0.001;
 const RULES = {
   G2: { severity: 'warn', window: [0.66, 0.73], text: 'milled timber (wood light 0,0) sits at mean L 0.66-0.73' },
   G3: { severity: 'warn', window: [0.54, 0.62], text: 'structural timber (wood middle 1,0) sits at mean L 0.54-0.62' },
-  G4: { severity: 'warn', window: [0.406, 0.44], text: 'bark sits at mean L 0.406-0.44' },
-  G5: { severity: 'warn', window: [0.45, 0.50], text: 'leather sits at mean L 0.45-0.50' },
+  G4: { severity: 'warn', window: [0.406, 0.425], text: 'bark sits at mean L 0.406-0.425' },
+  G5: { severity: 'warn', window: [0.425, 0.46], text: 'leather sits at mean L 0.425-0.46' },
   G6: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
 };
 

@@ -208,10 +208,13 @@ does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header
   and another colour in the next.
 - **G2.** Milled timber sits at mean L 0.66–0.73.
 - **G3.** Structural timber sits at mean L 0.54–0.62.
-- **G4.** Bark sits at mean L 0.406–0.44, the dark end of its band.
-- **G5.** Leather sits at mean L 0.45–0.50, the light end of the same band. Bark and
-  leather share band 2,0 and are told apart by where in it they sit — no model carries
-  both materials, so the split is exact and not a convention to be blurred.
+- **G4.** Bark sits at mean L 0.406–0.425, the dark end of its band.
+- **G5.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
+  2,0 and are told apart by where in it they sit — no model carries both materials, so
+  the split is exact and not a convention to be blurred. The two windows meet rather
+  than leaving a gap: the catalogue puts bark at L 0.415 and leather at 0.441 by habit,
+  0.026 apart, and windows further apart than that would move leather off a tone that
+  reads right today.
 - **G6.** Every band a model uses spreads over at least 0.03 L. A band flat on one line
   of the gradient is a recolour that lost the baked shading section 1 asks to keep, not a
   deliberate flat colour. A band carried by fewer than 8 triangles is a chamfer or a cap
