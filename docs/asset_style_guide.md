@@ -88,6 +88,15 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
   counts leave it out: the joker has no colour of its own, so it is not a
   material a model owes a band for. The cheese is one band of yellow for one
   material, not one short of two.
+- **S5.** N3 leaves the band the joker paid for out of the count as well — the
+  same thing S3 says, seen from the colour side. A band no material owes is not
+  one the ceiling charges against, and charging it made every joker a finding:
+  `rpgtools/pencil-a-long` is one band of yellow because a pencil is yellow, not
+  one band over its timber. N2 keeps that band, because there the joker's colour
+  is the one the material is wearing: take the cheese's yellow away and it reads
+  as short a band, which S3 says it is not. Which band the joker paid for is the
+  band named by the first rule it is spent on; a joker spent on an M rule names
+  none, since an M finding is a material without its band and not the reverse.
 - **S4.** Only the PO assigns the tag, and a `special` records next to it which
   band it covers and why. A `special` without a stated reason is a finding on the tag.
 
@@ -173,3 +182,16 @@ In the order of the band list above.
   skeleton is not a human character: it is made of bone and takes the 5.
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own.
+
+### X. Accepted findings — models the lint reports and the PO has left standing
+
+- **X1.** `rpgtools/torch-burnt` — C2 and N2. It is `rpgtools/torch` with the
+  cloth head and the rope rings burnt: 384 triangles that split 264 cloth / 120
+  rope, exactly the off-white and taupe groups of the unburnt torch, all of them
+  collapsed onto blue-grey 6,1. Blue-grey is the black this palette has and char
+  is black, so the model reads right; C2 does not list char among what the band
+  is for, and N2 counts two bands against timber, textile and rope. Appendix A
+  has no colour for charred material, and the two ways out — a rule for char, or
+  a recolour back into taupe that leaves the burnt torch looking like the plain
+  one — are both open. Until one is picked the lint fails on this model, and that
+  is the intended state, not a gap to be closed by loosening C2 or N2.

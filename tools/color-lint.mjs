@@ -30,6 +30,11 @@
 // one that still prints is the last of the N block's counts: N3 has findings, and
 // dropping a rule back to `warn` because a new model trips it is the one move this
 // ratchet forbids — the model is what has to change.
+//
+// The run therefore fails today, on `rpgtools/torch-burnt` alone: its char sits on a
+// band C2 does not give it and leaves N2 a band short. That is an accepted finding —
+// appendix X1 says what it is and why it stands — and not a licence to soften either
+// rule; the model is what has to change, once the PO says how.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng } from '../catalog/tools/png.mjs';
@@ -170,7 +175,7 @@ const isRigged = (m) => /(^|-)(mast|ship|sail)(s|-|$)/.test(m.name) && has(m, 't
 // models the approximation above reads as a detail; `unless` is an extra escape a
 // rule spells out itself.
 const bandOnlyFor = ({ id, text, severity, color, tags, groups = [], accent = false, unless = null }) => ({
-  id, text, severity,
+  id, text, severity, band: band(color),
   check: (m) => {
     if (!uses(m, band(color))) return null;
     if (isFlower(m)) return null;
@@ -194,6 +199,10 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = 
     return `is ${tag ?? id} but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — none of ${colors.join(', ')}`;
   },
 });
+
+// Rules S1-S3: which band the joker paid for, per model. Filled in below, once the
+// rules are in the appendix's own order — see the pre-pass there.
+const jokerBand = new Map();
 
 const RULES = [
   // Material -> colour, the M block, in the order of the appendix.
@@ -342,12 +351,20 @@ const RULES = [
       if (!n || m.colors.length >= n) return null;
       return `${m.colors.length} band(s) for ${n} materials (${counting(m).join(', ')})`;
     } },
+  // The joker's band is left out of this count. Rule S3 keeps `special` off the
+  // material side because the joker is not a substance a model owes a band for; the
+  // band it pays for is the same thing seen from the other side, and charging the
+  // ceiling for it made every joker a finding — the pencil is one band of yellow
+  // because a pencil is yellow, not one band over its timber. Rule N2 keeps it: the
+  // cheese's yellow is still the band its food needs, so taking it away there would
+  // read the cheese as short a band, which rule S3 says it is not.
   { id: 'N3', text: 'A model uses at most twice as many bands as materials.',
     severity: 'warn',
     check: (m) => {
       const n = counting(m).length;
-      if (!n || m.colors.length <= 2 * n) return null;
-      return `${m.colors.length} bands for ${n} material(s) (${counting(m).join(', ')})`;
+      const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
+      if (!n || used <= 2 * n) return null;
+      return `${used} bands for ${n} material(s) (${counting(m).join(', ')})`;
     } },
   // N4. The ceiling, counted in bands and not in entries of `colors`: rule M24 makes
   // the clear glass a material of its own rather than a band, so a model does not
@@ -415,6 +432,22 @@ const counted = inCatalog;
 
 const unknown = new Set();
 for (const m of models) for (const hex of m.colors) if (!bandName[hex]) unknown.add(hex);
+
+// Which band the joker covers. Rule order is the appendix's own and the M and C blocks
+// both run before the N block, so the first M or C finding a `special` model raises is
+// the one the joker is spent on below; where that rule is a C-block rule it names a
+// band, and rule N3 above leaves that band out. A joker spent on an M rule names none —
+// an M finding is a material without its band, not a band without its material — and a
+// model that raises nothing before the N block has not spent its joker at all.
+for (const m of counted) {
+  if (!m.tags?.includes('special')) continue;
+  for (const rule of RULES) {
+    if (rule.id.startsWith('N')) break;
+    if (!rule.check(m)) continue;
+    if (rule.band) jokerBand.set(m, rule.band);
+    break;
+  }
+}
 
 let findings = [];
 for (const rule of RULES) {
