@@ -116,7 +116,7 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
 Grouped: flora, wood, stone, metal, textile and leather, glass and ceramics,
-organic, light, gems and books, built things.
+organic, light, gems and books, built things, plastic.
 
 - **M1.** Trees are dark green.
 - **M2.** Palm fronds are light green.
@@ -168,6 +168,10 @@ organic, light, gems and books, built things.
   often with metal accents.
 - **M40.** Structures and furniture are mostly timber, then stone (the bigger
   sort, not modern brick). Metal sparingly.
+- **M41.** Plastic is dark red 8,0 or yellow/gold 6,0. It shares both bands
+  with other materials — C5 and C6 name it alongside them — and only claims
+  the specific triangle groups baked to those bands, not a whole model just
+  because another part of it is metal or timber.
 
 ### C. Colour to material — what a band may be used on
 
@@ -178,8 +182,8 @@ In the order of the band list above.
   wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
-- **C5.** Yellow: precious metal, light and fire.
-- **C6.** Dark red: ceramics, glass, roofs, minor accents.
+- **C5.** Yellow: precious metal, light, fire and plastic (M41).
+- **C6.** Dark red: ceramics, glass, roofs, plastic (M41), minor accents.
 - **C7.** Dark green: foliage, glass, and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
