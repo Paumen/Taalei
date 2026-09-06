@@ -1,11 +1,3 @@
-// De kern van de geanimeerde import: een model met een skelet houdt alles wat de
-// maker erin zette — nodes, skin, inverse bind matrices, samplers, animaties — en
-// alleen de driehoekskleuren gaan naar een plek op de gedeelde colormap.
-//
-// bouwGlb plet een model tot één statische primitief. Voor een model met een skelet
-// kan dat niet, dus gebeurt het hier andersom: de oude buffer blijft heel en de
-// nieuwe attributen komen erachteraan, zodat de accessors van de animatie nog naar
-// dezelfde bytes wijzen.
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -15,7 +7,6 @@ import { groepeerOpKleur } from './bouw.mjs';
 import { laadTextuur } from './palet.mjs';
 import { plaatsInBaan } from './kleurkaart.mjs';
 
-// Een materiaal zonder textuur draagt zijn kleur als factor; die staat lineair.
 const vanLineair = (l) => {
   const v = l <= 0.0031308 ? l * 12.92 : 1.055 * l ** (1 / 2.4) - 0.055;
   return Math.round(Math.min(Math.max(v, 0), 1) * 255);
@@ -27,7 +18,6 @@ const MONSTERS = [
   [2 / 3, 1 / 6, 1 / 6, 1], [1 / 6, 2 / 3, 1 / 6, 1], [1 / 6, 1 / 6, 2 / 3, 1], [1 / 3, 1 / 3, 1 / 3, 1],
 ];
 
-// Leest .glb net zo goed als .gltf met een losse .bin ernaast.
 export function leesBron(pad) {
   if (pad.endsWith('.glb')) return { ...readGlb(pad), basisDir: dirname(pad) };
   const json = JSON.parse(readFileSync(pad, 'utf8'));
@@ -38,7 +28,6 @@ export function leesBron(pad) {
   return { json, bin, basisDir: dirname(pad) };
 }
 
-// De atlas zit als bufferView in het bestand; laadTextuur leest van een pad.
 function atlasPad(glb, materiaalIndex, basisDir) {
   const pbr = glb.json.materials?.[materiaalIndex]?.pbrMetallicRoughness ?? {};
   const bron = glb.json.images?.[glb.json.textures?.[pbr.baseColorTexture?.index]?.source];
@@ -71,10 +60,6 @@ function achteraan(json, stukken) {
   return { nieuweView, nieuweAccessor, lengte: () => lengte };
 }
 
-// De KayKit-personages komen zonder animatie: die staan in losse rig-bestanden die
-// hetzelfde skelet aansturen. Een clip verhuist op naam van de node, niet op index —
-// alleen zo landt hij op het bot dat de maker bedoelde. Kanalen die een node noemen
-// die dit model niet heeft (de mannequin-meshes van de rig) vallen weg.
 export function voegAnimatiesToe(doel, bronnen, { overslaan = [] } = {}) {
   const perNaam = new Map(doel.json.nodes.map((node, i) => [node.name, i]));
   const negeer = new Set(overslaan);
@@ -83,10 +68,6 @@ export function voegAnimatiesToe(doel, bronnen, { overslaan = [] } = {}) {
   const { nieuweAccessor } = achteraan(doel.json, stukken);
   const namen = new Set(doel.json.animations.map((a) => a.name));
 
-  // Elk kanaal van een clip draagt zijn eigen sampler, en die samplers noemen
-  // allemaal dezelfde tijdstippen: 65 botten × dezelfde reeks. Eén accessor per
-  // inhoud dus — dat scheelt bij 132 clips duizenden accessors en bufferViews, en
-  // die staan in de JSON en tellen dubbel zo zwaar als de bytes zelf.
   const gedeeld = new Map();
   const eenmalig = (buf, componentType, type, count, extra = {}) => {
     const sleutel = `${type}:${createHash('sha256').update(buf).digest('hex')}`;
@@ -143,8 +124,6 @@ export function voegAnimatiesToe(doel, bronnen, { overslaan = [] } = {}) {
   return { ...doel, bin };
 }
 
-// Zet de driehoekskleuren van een geanimeerd model op de gedeelde colormap. Het
-// model zelf — skin, skelet, animaties — blijft staan zoals het was.
 export function herkleurGeanimeerd(glb, { naam, schaal, bron, bronNaam, generator, basisDir }) {
   const { json } = glb;
   const stukken = [glb.bin];
@@ -161,8 +140,6 @@ export function herkleurGeanimeerd(glb, { naam, schaal, bron, bronNaam, generato
       const attrs = Object.fromEntries(Object.entries(prim.attributes)
         .map(([k, i]) => [k, readAccessor(glb, i)]));
 
-      // Kleur per driehoek. Met een atlas komt die uit de textuur, anders is het de
-      // vlakke kleur van het materiaal — dan heeft elk vlak van de primitief dezelfde.
       const kleuren = [];
       if (pad && uv) {
         const bronTextuur = laadTextuur(pad, { vOmlaag: true });
@@ -188,7 +165,6 @@ export function herkleurGeanimeerd(glb, { naam, schaal, bron, bronNaam, generato
       const banen = groepeerOpKleur(kleuren);
       const doelUv = kleuren.map((rgb) => plaatsInBaan(banen.get(rgb.join(',')), rgb).uv);
 
-      // elke driehoek krijgt eigen hoekpunten, zodat de uv per vlak kan verschillen
       const n = (idx.length / 3 | 0) * 3;
       const uit = {};
       for (const naamAttr of Object.keys(attrs)) uit[naamAttr] = [];
@@ -229,13 +205,11 @@ export function herkleurGeanimeerd(glb, { naam, schaal, bron, bronNaam, generato
     }
   }
 
-  // één materiaal, de gedeelde colormap
   json.materials = [{ pbrMetallicRoughness: { baseColorTexture: { index: 0 }, metallicFactor: 0, roughnessFactor: 1 }, doubleSided: true, alphaMode: 'OPAQUE', name: 'colormap' }];
   json.textures = [{ sampler: 0, source: 0, name: 'colormap' }];
   json.samplers = [{ minFilter: 9987 }];
   json.images = [{ uri: 'Textures/colormap.png', name: 'colormap' }];
 
-  // schaal op een nieuwe wortel: bij een skin telt de node van de mesh zelf niet mee
   const scene = json.scenes[json.scene ?? 0];
   const wortel = json.nodes.push({ name: naam, children: [...scene.nodes], scale: [schaal, schaal, schaal] }) - 1;
   scene.nodes = [wortel];

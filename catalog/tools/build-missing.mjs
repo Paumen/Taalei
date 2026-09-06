@@ -1,25 +1,3 @@
-// Builds the second catalogue: what the source packs under kits/sources contain but the
-// catalogue doesn't (or no longer does).
-//
-// Names are no help here — every kit was renamed on import, and the mapping tables only
-// survive for a handful of them. Geometry is. An import scales and recolours a model but
-// leaves its triangles alone, so the triangle count identifies a model within its pack
-// almost uniquely, and where two models happen to share a count they simply cancel each
-// other out: what we want is the difference between two sets, not which one maps to which.
-// So per kit this takes the multiset of triangle counts in kits/workfiles, subtracts it
-// from the multiset in the source pack, and what's left over is missing.
-//
-// Two things make that read pessimistically rather than optimistically, which is the safe
-// direction for a review tool — it can show something that is in the catalogue after all,
-// but it won't hide something that isn't:
-//   - a workfile edited after import no longer matches its source, so its source model
-//     shows up as missing. The report prints how many workfiles went unmatched per kit.
-//   - a pack that was never imported at all has no kit, so all of it is missing.
-//
-// Every missing model is written out as a preview .glb under kits/missing/, straight from
-// the source: its own geometry, its own colours, no palette and no clean-up. That's the
-// point — you're looking at what was left behind, not at what it would become.
-//
 //   node catalog/tools/build-missing.mjs
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
@@ -42,9 +20,6 @@ const DOEL_PAD = 'kits/missing';
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
-// The semantic rules in semantiek.mjs read catalogue names — lower case, words joined by
-// hyphens. A source name is CamelCase or under_scores, so without this almost everything
-// would land in "other".
 const kebab = (naam) =>
   naam
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
@@ -65,9 +40,6 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-// A pack ships the same models in several formats, sometimes a couple of folders deep and
-// sometimes twice over (two zips of the same download). The folder holding the most files
-// of the wanted format is the one meant to be read; the shallowest wins a tie.
 function vindModelmap(dir, formaat) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
@@ -87,7 +59,6 @@ function pakBronUit(bronkit) {
   const zips = readdirSync(map).filter((n) => n.toLowerCase().endsWith('.zip')).sort();
   if (zips.length === 0) throw new Error(`${bronkit.map}: no .zip in kits/sources`);
 
-  // .klaar marks a finished unpack; without it a half-written cache would be reused
   const stempel = join(doel, '.klaar');
   if (!existsSync(stempel)) {
     rmSync(doel, { recursive: true, force: true });
@@ -99,7 +70,6 @@ function pakBronUit(bronkit) {
 
 const LOD = /_LOD(\d+)$/i;
 
-// Only the finest level of detail is of interest; the coarser ones are the same model.
 const grofsteWeg = (naam) => {
   const match = naam.match(LOD);
   if (!match) return naam;
@@ -127,7 +97,6 @@ function bronModellen(bronkit) {
     if (primitieven.length === 0) continue;
 
     if (bronkit.splitsPerMesh) {
-      // one file holding the whole pack: every mesh in it is a model of its own
       for (const primitief of primitieven) {
         const naam = grofsteWeg(primitief.naam);
         if (naam) modellen.push({ naam, bestand, primitieven: [primitief] });
@@ -141,7 +110,6 @@ function bronModellen(bronkit) {
     modellen.push({ naam, bestand, primitieven: fijnste.length ? fijnste : primitieven });
   }
 
-  // a pack with duplicate names across folders would collide in the output directory
   const gezien = new Map();
   for (const model of modellen) {
     const n = (gezien.get(model.naam) ?? 0) + 1;
@@ -171,8 +139,6 @@ const meet = (primitieven) => {
 
 // ─── the catalogue side ──────────────────────────────────────────────────────────────
 
-// The scale an import applied is written into the workfile itself, so preview models can
-// be put in island units too and their sizes compared with the catalogue's.
 function kitGegevens(slug) {
   const dir = join(WERK_DIR, slug);
   if (!existsSync(dir)) return { driehoeken: [], schaal: null, aantal: 0 };
@@ -195,14 +161,9 @@ function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   const gezocht = basename(gevraagd).toLowerCase();
   const raak = afbeeldingen.find((p) => basename(p).toLowerCase() === gezocht);
   if (raak) return raak;
-  // a pack that carries exactly one atlas means it, whatever the file was called when
-  // the model was exported
   return afbeeldingen.length === 1 ? afbeeldingen[0] : null;
 }
 
-// An .obj or .fbx repeats every corner of every triangle, so a preview written straight
-// out carries three vertices per triangle. Welding corners that agree on position, normal
-// and uv roughly halves the file, and glTF only needs 16-bit indices below 65536 vertices.
 function las(primitief, midden, metUvs) {
   const bron = primitief.posities;
   const aantal = bron.length / 3;
@@ -263,12 +224,10 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen) {
     return accessors.length - 1;
   };
 
-  // centred on the ground, like the catalogue models, so the viewer frames it the same way
   const midden = [(laag[0] + hoog[0]) / 2, laag[1], (laag[2] + hoog[2]) / 2];
 
   const materialen = [];
   const meshPrimitieven = [];
-  // a model may draw from more than one atlas — the images are numbered in first-use order
   const beeldIndex = new Map();
   for (const naam of texturen) {
     if (naam && !beeldIndex.has(naam)) beeldIndex.set(naam, beeldIndex.size);
@@ -329,8 +288,6 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen) {
     materials: materialen,
     ...(beeldIndex.size
       ? {
-          // glTF wants a uri, not a bare filename — a texture called "Bark Oak.png" has
-          // to carry its space encoded
           images: [...beeldIndex.keys()].map((naam) => ({ uri: encodeURIComponent(naam) })),
           samplers: [{ magFilter: 9728, minFilter: 9987, wrapS: 33071, wrapT: 33071 }],
           textures: [...beeldIndex.keys()].map((_, i) => ({ sampler: 0, source: i })),
@@ -358,8 +315,6 @@ for (const bronkit of BRONKITS) {
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
   const kit = bronkit.kit ? kitGegevens(bronkit.kit) : { driehoeken: [], schaal: null, aantal: 0 };
 
-  // the multiset subtraction: every workfile cancels one source model with the same
-  // triangle count, whichever one that is
   const teGaan = new Map();
   for (const driehoeken of kit.driehoeken) teGaan.set(driehoeken, (teGaan.get(driehoeken) ?? 0) + 1);
 
@@ -382,8 +337,6 @@ for (const bronkit of BRONKITS) {
 
   const uitvoerMap = join(DOEL_DIR, bronkit.map);
   const schaal = kit.schaal ?? 1;
-  // every texture the previews of this pack need, copied in once and shared between them;
-  // two different files with the same basename would collide, so the second gets a number
   const gekopieerd = new Map();
   const gebruikteNamen = new Set();
 
@@ -451,8 +404,6 @@ const uitvoer = {
   modelPath: DOEL_PAD,
   kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
   sources: bronnen,
-  // "other" is what determineGroup falls back to and semantiek.mjs has no entry for it —
-  // in the catalogue that's a handful of models, here it's a few hundred, so it needs a name
   groups: [
     ...GROUPS.map((g) => ({ id: g.id, name: g.name, color: g.color })),
     { id: 'other', name: 'Other' },

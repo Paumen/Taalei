@@ -1,6 +1,3 @@
-// De drie categorieen waarin de catalogus de groepen verdeelt, elk met de `tab`
-// waarop hun groepen staan. Ook de schaalpagina's zijn hierlangs gesplitst, zodat
-// een familie daar in dezelfde categorie valt als haar modellen in de catalogus.
 export const CATEGORIES = [
   { id: 'nature', name: 'Nature', tab: 'nature',
     description: 'What is already there without anyone doing anything: ground, trees, plants, seabed and rocks.' },
@@ -126,16 +123,10 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
-  // Vier bundels stof naast en op elkaar, elk met een eigen band: een stapeltje en
-  // geen los ding. De andere resources-stapels blijven bewust bij resources staan.
   'resources/textiles-stack-large',
-  // Niet uit een bronkit maar zelf gezet, uit losse delen van de village-kit.
   'village-kit/well-plaza',
 ]);
 
-// What you eat, as opposed to what you cook and serve it with. Checked ahead of the
-// rules below, which would otherwise hand a plate of food to the plates & bowls on
-// the strength of the word "plate".
 const FOOD = [
   /^(bread|chicken-leg|roast|steak)\b/,
   /^food-(ingredient|stew)\b/,
@@ -152,23 +143,17 @@ const exceptions = {
   'survival-kit/resource-stone-large': 'rocks',
   'pirate-kit/hole': 'structures',
   'mini-forest/target': 'signs',
-  // A bell rung over the village is an instruction to everyone in earshot, the same
-  // job the signposts and banners do — it carries a message rather than being picked up.
   'village-kit/bell-a': 'signs',
   'modular-cave-kit/template-floor-layer': 'structures',
   'modular-cave-kit/template-floor-layer-hole': 'structures',
   'modular-cave-kit/template-floor-layer-raised': 'structures',
   'modular-cave-kit/ladder': 'connections',
   'halloween/post-lantern': 'lights',
-  // Not a table but the plate laid on it: it belongs with the other plates.
   'fantasy-props/table-plate': 'plates-bowls',
   'restaurant/pot-a': 'cooking',
   'restaurant/pot-b': 'cooking',
   'restaurant/pot-large': 'cooking',
   'restaurant/knife': 'tools',
-  // Everything made of wood, from the round log to the sawn plank. The resources kit
-  // is mapped to 'resources' as a whole by KIT_GROUPS, and these exceptions run ahead
-  // of it, so its wooden half is listed here model by model.
   'survival-kit/tree-log': 'timber',
   'survival-kit/tree-log-small': 'timber',
   'survival-kit/resource-planks': 'timber',
@@ -383,25 +368,14 @@ const exceptions = {
   'resources/silver-bars-stack-large': 'resources',
   'resources/silver-bars-stack-medium': 'resources',
   'resources/silver-bars-stack-small': 'resources',
-  // The pirates' gold chest is a heap of coins in a box: it goes with the money,
-  // not with the chests. The dungeon kit's chest-gold is an assembly and stays one.
   'pirate-quaternius/chest-gold': 'coins-jewelry',
-  // Fish bones are bones first; the fish themselves stay in the ocean.
   'food-quaternius/fish-bone': 'bones',
-  // Caught fish, not prepared food: they belong with what swims.
   'survival-kit/fish': 'ocean',
   'survival-kit/fish-large': 'ocean',
 };
 
 const rules = [
-  // The six Quaternius packs. Kept together and ahead of the generic rules: several
-  // of these names (coins, gold-bag, chicken-leg) sit just outside the plural or
-  // hyphen boundary the generic patterns use, and would otherwise fall to 'other'.
   [/^(pirate-|skeleton|tentacle)/, 'characters'],
-  // The two KayKit character packs. Their figures are named after what they are —
-  // barbarian, knight, mage — with nothing in the name to tell them from a prop, so
-  // they are listed rather than matched on a pattern. The skeletons need no listing:
-  // every one of them starts with 'skeleton' and the rule above already has them.
   [/^(barbarian|knight|mage|ranger|rogue)\b/, 'characters'],
   [/^cliff\b/, 'rocks'],
   [/^(house|sawmill|arch|crypt)\b/, 'structures'],
@@ -419,8 +393,6 @@ const rules = [
   [/^(corridor|room|template)\b/, 'cave'],
   [/^(crab|dolphin|eel|lobster|octopus|orca|penguin|seal|shark|squid|starfish|stingray|turtle|whale)\b/, 'ocean'],
   [/^(coral|seaweed|shell|sand-dollar)\b/, 'ocean'],
-  // Split off from the tableware rule below and therefore checked before it. The
-  // plates of food are already gone: FOOD runs ahead of every rule here.
   [/^(plate|bowl)\b/, 'plates-bowls'],
   [/^(campfire|fire|firewood|roast|meat|mushroom|cup|chalice|food|pan|mug|cutting-board)\b|^(fish|fish-large|table-long-decorated-a|table-long-decorated-c|table-medium-decorated-a)$/, 'cooking'],
   [/^tent\b|^tent-/, 'furniture'],
@@ -428,15 +400,7 @@ const rules = [
   [/^fish/, 'ocean'],
   [/^(tool|workbench)-|^workbench$|^broom$/, 'tools'],
   [/^(anvil|axe|chisel|compass|drafting-compass|file|grindstone|hammer|handdrill|handplane|knife|magnifying-glass|mallet|nail|pencil|pickaxe|rope|saw|scissors|screw|screwdriver|shovel|tongs|trowel|wrench)\b/, 'tools'],
-  // The weapons and shields the two character packs carry. They sit in tools &
-  // weapons with the axes and hammers — that group is named for both halves, and
-  // until these packs arrived only the tools half was filled. The fantasy-town
-  // windmill blade and the platformer kit's arrow keep their own places: both are
-  // settled by the building-kit and exception checks, which run ahead of these
-  // rules.
   [/^(arrow|blade|bow|crossbow|dagger|quiver|shield|smokebomb|staff|sword|wand)\b/, 'tools'],
-  // A spellbook is a book: it belongs with the books and scrolls, and the generic
-  // book rule below only catches a name that starts with the word.
   [/^spellbook\b/, 'books-scrolls'],
   [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'signs'],
@@ -483,7 +447,5 @@ export function determineGroup(kit, model) {
 const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
 const CATEGORY_PER_TAB = new Map(CATEGORIES.map((c) => [c.tab, c.id]));
 
-// De categorie van een groep: 'nature', 'structure' of 'object'. Een onbekende groep
-// telt als object, net als in de catalogus zelf.
 export const categoryOfGroup = (group) =>
   CATEGORY_PER_TAB.get(TAB_PER_GROUP.get(group) ?? null) ?? 'object';

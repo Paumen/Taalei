@@ -1,31 +1,3 @@
-// Checks the catalogue against the G block of Appendix A in docs/asset_style_guide.md:
-// not which band a model takes — that is color-lint.mjs — but where inside the band it
-// sits, and whether it spreads over enough of the gradient to carry baked shading.
-//
-//   node tools/gradient-lint.mjs [--kit dungeon] [--group storage] [--rule G2]
-//                                [--limit 8] [--rules] [--strict] [--json path.json]
-//
-// color-lint.mjs says in its own header that the lane and gradient rules "live in the
-// UVs of the individual triangles and in the source model, not in the catalogue — they
-// need their own tool". This is that tool. It cannot read catalog.json for the answer:
-// `colors` there records that a band is used, not where in it, so every .glb is opened
-// and every triangle resolved against kits/colormap.png.
-//
-// Measured per triangle, weighted by world surface area, because the question the rules
-// ask is how much of the object reads as that tone — not how many vertices carry it.
-//
-// The three wood cells are one continuous ramp. 0,0 ends on the exact colour 1,0 begins
-// on, and 1,0 on the colour 2,0 begins on, so a position is only meaningful together with
-// its cell. Positions below are per cell, 0 at the light edge and 1 at the dark edge; the
-// OKLab lightness each one lands on is printed beside it, since that is what the rules are
-// really about and it survives a change to the colormap.
-//
-// SEVERITY: every G rule is `warn` today and the run exits 0. That is deliberate and not
-// the ratchet color-lint.mjs describes — the block is new, the catalogue predates it, and
-// a rule that fails the build on its first day would only be switched off. Pass --strict
-// to fail on findings, and move a rule to `error` in RULES below once it has been brought
-// to zero. Going the other way, from `error` back to `warn`, is the one move forbidden:
-// the model is what has to change.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -36,21 +8,13 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLUMNS = 16;
 const ROWS = 4;
 
-// column,row in kits/colormap.png. Appendix A names these three wood light, wood middle
-// and bark; they are consecutive thirds of one ramp, light to dark.
 const WOOD = { '0,0': 'wood light', '1,0': 'wood middle', '2,0': 'bark' };
 const CELL = { '0,0': 0, '1,0': 1, '2,0': 2 };
 
-// A band carried by a handful of triangles is a chamfer or a cap, not a surface, and the
-// spread rule has nothing to measure on it.
 const SPREAD_MIN_TRIANGLES = 8;
 
-// Tolerance on a window edge, about one line of a 128-pixel band.
 const EDGE = 0.001;
 
-// The windows of the G block, in OKLab lightness. G1 — which band a surface takes, milled
-// against structural — asks what the object looks like and is a judgement, not a
-// measurement; it is not checked here, the same way color-lint.mjs leaves M1 and M18 alone.
 const RULES = {
   G2: { severity: 'warn', window: [0.66, 0.73], text: 'milled timber (wood light 0,0) sits at mean L 0.66-0.73' },
   G3: { severity: 'warn', window: [0.57, 0.63], text: 'structural timber (wood middle 1,0) sits at mean L 0.57-0.63' },
@@ -77,9 +41,6 @@ function parseArgs(argv) {
 
 const toLinear = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
 
-// OKLab lightness. The rules are stated in it because it is the only number here that
-// keeps its meaning when kits/colormap.png changes: a position is relative to a cell,
-// L is the tone the eye actually gets.
 function lightness(r, g, b) {
   const [lr, lg, lb] = [toLinear(r), toLinear(g), toLinear(b)];
   const l = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
@@ -131,8 +92,6 @@ function readAtlas(path) {
   return atlases.get(path);
 }
 
-// Per wood cell: the area-weighted mean position, the lightest and darkest position
-// touched, the area, and how many triangles carry it.
 function readBands(path, dir) {
   const glb = readGlb(path);
   const { json } = glb;
@@ -179,8 +138,6 @@ function readBands(path, dir) {
         totalArea += area;
         if (!atlas) continue;
 
-        // the triangle's own colour is the one at its centroid, not at its corners: the
-        // corners of a facet sit at different places in the gradient by design
         let u = 0;
         let v = 0;
         for (const k of [i, i + 1, i + 2]) {
@@ -269,8 +226,6 @@ for (const model of catalog.models) {
     const L = laneLightness(band.atlas, lane, band.mean);
     const spreadL = Math.abs(laneLightness(band.atlas, lane, band.min) - laneLightness(band.atlas, lane, band.max));
 
-    // Which window a band answers to follows from the band it is on and, for band 2,0,
-    // from the material tag: bark and leather share it and split by where they sit.
     let rule = null;
     if (cell === 0) rule = 'G2';
     else if (cell === 1) rule = 'G3';
@@ -279,8 +234,6 @@ for (const model of catalog.models) {
 
     if (rule) {
       const [low, high] = RULES[rule].window;
-      // a band landing exactly on a window edge is inside it: the edges are the rule,
-      // and a model should not be a finding because of the last digit of a texel
       if (L < low - EDGE || L > high + EDGE) {
         const side = L > high ? 'too light' : 'too dark';
         report(rule, band, lane, `mean L ${L.toFixed(3)} outside ${low}-${high} — ${side}`);

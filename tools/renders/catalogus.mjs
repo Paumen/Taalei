@@ -18,8 +18,6 @@ const lijst = catalogus.models.map((m) => ({
   path: path.join(ROOT, 'kits', 'workfiles', m.kit, `${m.name}.glb`),
 }));
 
-// render.mjs leest een sets.json en schrijft per set een submap; één set
-// 'catalogus' geeft dus alles onder <uitdir>/catalogus.
 const werkmap = mkdtempSync(path.join(tmpdir(), 'catalogus-views-'));
 const setsPad = path.join(werkmap, 'sets.json');
 writeFileSync(setsPad, JSON.stringify({ catalogus: lijst }));

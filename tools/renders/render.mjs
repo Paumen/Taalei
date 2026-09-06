@@ -16,8 +16,6 @@ const SETS = JSON.parse(readFileSync(path.resolve(setsArg), 'utf8'));
 const UIT = path.resolve(uitArg);
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.glb': 'model/gltf-binary', '.gltf': 'model/gltf+json', '.bin': 'application/octet-stream', '.png': 'image/png', '.jpg': 'image/jpeg' };
 
-// Assets staan deels buiten de repo (uitgepakte bronkits); serveer daarom op
-// absolute paden onder /fs/, en three onder /three/.
 const server = http.createServer((req, res) => {
   const p = decodeURIComponent(req.url.split('?')[0]);
   let fp;

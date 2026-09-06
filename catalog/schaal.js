@@ -1,13 +1,7 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
-// Elke familie krijgt even veel units in beeld, zodat een vat in elk blad even groot
-// staat. Ook op een smal scherm: een eigen rijbreedte per schermmaat zou de bladen
-// onderling onvergelijkbaar maken, en dat is precies waar deze pagina voor is.
 const ROW_WIDTH = 5;
-// Families waarvan de grootste modellen bijna een hele rij vullen, krijgen een dubbel
-// zo breed raster: anders staat er één schip per rij en wordt het blad meters lang.
-// Ze staan daardoor half zo groot in beeld als de rest — vandaar niet standaard.
 const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
 const GAP = 0.35;
@@ -279,7 +273,6 @@ export async function drawFamily(group, canvas, width) {
 }
 
 const version = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
-// Zelfde stempel als op catalog.json, anders blijft een gecachte .glb hangen.
 const modelUrl = (path) => (version ? `${path}?v=${version}` : path);
 const MODEL_PATH = 'kits/workfiles';
 
@@ -322,8 +315,6 @@ function colorName(hex) {
   return base;
 }
 
-// Elke schaalpagina toont een van de drie categorieen; welke, staat in de pagina zelf.
-// Zonder die meta staat alles op een hoop, zoals voor de splitsing.
 const CATEGORY = document.querySelector('meta[name=schaal-categorie]')?.content || null;
 
 const [alleGroups, catalogData] = await Promise.all([
