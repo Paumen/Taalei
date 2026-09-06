@@ -20,6 +20,10 @@ Scope: items in catalog.
   only means something together with its band, and the seams between them are invisible
   — a model can read as the same timber as its neighbour while linting as another band.
   Each band spans 0.12 in OKLab lightness, the ramp running L 0.766 down to 0.406.
+- Blue-grey 6,1 spans that same 0.12, L 0.400 down to 0.280: the black of this palette
+  gets the shading range a wood band has. `tools/colormap-band-lightness.mjs` moves a
+  single band to a lightness range, keeping the hue and chroma it carries at each
+  position; `tools/colormap-respace.mjs` is the one for the three wood bands together.
 - When recolouring onto the shared map, keep the baked shading: the UV spread across
   the gradient band must be maintained.
 - A new colour is only added when no existing band comes close, and when it earns
