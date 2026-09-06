@@ -207,7 +207,7 @@ does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header
   source pack happened to use is not a reason: it is why a barrel is one colour in one kit
   and another colour in the next.
 - **G2.** Milled timber sits at mean L 0.66–0.73.
-- **G3.** Structural timber sits at mean L 0.54–0.62.
+- **G3.** Structural timber sits at mean L 0.57–0.63.
 - **G4.** Bark sits at mean L 0.406–0.425, the dark end of its band.
 - **G5.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
   2,0 and are told apart by where in it they sit — no model carries both materials, so
@@ -220,8 +220,16 @@ does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header
   all take wood middle 1,0 and all sit on the same mean, whether the maker built them
   from staves or from nailed boards. A crate standing next to a barrel has to read as
   the same timber; which of the two the surface looks like is not a difference anyone
-  places them for.
-- **G7.** Every band a model uses spreads over at least 0.03 L. A band flat on one line
+  places them for. A light trim of a few per cent — the lid boards on the dungeon
+  barrels — may stay on wood light 0,0: band 1,0 is only 0.137 L wide, and folding a
+  highlight that far above the mean into it costs the other ninety-nine per cent most
+  of its shading.
+- **G7.** Every band a model uses spreads over at least 0.03 L, and that spread is the
+  model's own: moving a band changes where its mean sits, never how much contrast it
+  carries. Scaling a model's shading to the width of a window opens up a subtle
+  gradient and flattens a strong one — both are the maker's baked shading thrown away.
+  Shrink only where the model would otherwise fall outside the band it is on, per side
+  and no further than that side needs. A band flat on one line
   of the gradient is a recolour that lost the baked shading section 1 asks to keep, not a
   deliberate flat colour. A band carried by fewer than 8 triangles is a chamfer or a cap
   and is not measured. Where a model carried its own light and dark groups on two
