@@ -15,6 +15,11 @@ Scope: items in catalog.
 - Colours come from the shared colormap image (`kits/colormap.png`): assets colour
   themselves by pointing UVs at its bands. The model is the record — the catalog
   reads the colours straight out of the `.glb`, so there is no list to keep in sync.
+- The three wood bands are not three colours but one ramp cut in three: `0,0` ends on
+  the exact pixel `1,0` begins on, and `1,0` on the pixel `2,0` begins on. A position
+  only means something together with its band, and the seams between them are invisible
+  — a model can read as the same timber as its neighbour while linting as another band.
+  Each band spans 0.12 in OKLab lightness, the ramp running L 0.766 down to 0.406.
 - When recolouring onto the shared map, keep the baked shading: the UV spread across
   the gradient band must be maintained.
 - A new colour is only added when no existing band comes close, and when it earns
@@ -110,7 +115,7 @@ organic, light, gems and books, built things.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is wood light 0,0 or wood middle 1,0.
+- **M6.** Timber is wood light 0,0 or wood middle 1,0. G1 says which.
 - **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
   both lanes.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
@@ -182,6 +187,35 @@ In the order of the band list above.
   skeleton is not a human character: it is made of bone and takes the 5.
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own.
+
+### G. Gradient — where inside a band a material sits
+
+The M and C blocks say which band a material takes. They leave open where in it the
+material sits, and that is most of what the eye reads: the bands are wide, and two models
+on the same band can be a third of the whole wood ramp apart. Positions below are per
+band, 0 at the light edge and 1 at the dark edge, but the rules are stated in OKLab
+lightness — L survives a change to `kits/colormap.png`, a position does not.
+
+The measurement is area-weighted over the triangles: what these rules ask is how much of
+the object reads as that tone, not how many vertices carry it. `tools/gradient-lint.mjs`
+does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header.
+
+- **G1.** Timber takes wood light 0,0 when the surface is milled — planks, boards,
+  panels, doors, decking, floors, furniture tops, signs. It takes wood middle 1,0 when
+  the surface is structural or rough-hewn — beams, posts, frames, poles, shafts, handles,
+  hulls, staves. A model that carries both surfaces shows both bands. Which band the
+  source pack happened to use is not a reason: it is why a barrel is one colour in one kit
+  and another colour in the next.
+- **G2.** Milled timber sits at mean L 0.66–0.73.
+- **G3.** Structural timber sits at mean L 0.54–0.62.
+- **G4.** Bark sits at mean L 0.406–0.44, the dark end of its band.
+- **G5.** Leather sits at mean L 0.45–0.50, the light end of the same band. Bark and
+  leather share band 2,0 and are told apart by where in it they sit — no model carries
+  both materials, so the split is exact and not a convention to be blurred.
+- **G6.** Every band a model uses spreads over at least 0.03 L. A band flat on one line
+  of the gradient is a recolour that lost the baked shading section 1 asks to keep, not a
+  deliberate flat colour. A band carried by fewer than 8 triangles is a chamfer or a cap
+  and is not measured.
 
 ### X. Accepted findings — models the lint reports and the PO has left standing
 
