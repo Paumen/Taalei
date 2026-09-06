@@ -334,11 +334,11 @@ const RULES = [
   // N4. The ceiling, counted in bands and not in entries of `colors`: rule M24 makes
   // the clear glass a material of its own rather than a band, so a model does not
   // spend part of its ceiling on having windows.
-  { id: 'N4', text: 'Ceiling: 7 bands for a human character, 5 for anything else.',
+  { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else.',
     severity: 'error', noJoker: true,
     check: (m) => {
       const bands = m.colors.filter((hex) => hex !== CLEAR).length;
-      const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 7 : 5;
+      const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
     } },
