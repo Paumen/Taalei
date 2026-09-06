@@ -109,14 +109,13 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 // spending a second band on one material.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'gemstone', 'foliage', 'liquid', 'light', 'special'];
+  'gemstone', 'foliage', 'liquid', 'light', 'special', 'plastic'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
 const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
 // What the N block counts a band against. `special` is a material tag so that rule
-// N1 is satisfied by it alone — the heart and star of the platformer kit are signs
-// and made of nothing else — but it is a joker and not a substance, so rule M gives
+// N1 is satisfied by it alone, but it is a joker and not a substance, so rule M gives
 // it no colour and it can never take a band. Counting it made every `special` model
 // owe one band more than it is made of: the cheese, one band of yellow for one
 // material, read as short a band for a joker that has no colour to spend.
@@ -292,6 +291,8 @@ const RULES = [
     when: isBook }),
   materialTakes({ id: 'M38', text: 'Roofs are ceramic, dark red.', severity: 'error',
     tag: 'roof', colors: ['dark red'], when: isRoof }),
+  materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
+    tag: 'plastic', colors: ['dark red', 'yellow'] }),
 
   // Colour -> material, the C block, in the order of the band list.
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
@@ -303,11 +304,11 @@ const RULES = [
     severity: 'error', color: 'light blue-grey', tags: ['precious-metal'] }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
-  bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, light and fire.',
-    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'wax'],
+  bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, light, fire and plastic (M41).',
+    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'wax', 'plastic'],
     groups: ['coins-jewelry', 'lights'] }),
-  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, minor accents.',
-    severity: 'error', color: 'dark red', tags: ['ceramic', 'glass'],
+  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), minor accents.',
+    severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'plastic'],
     accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, and minor accents.',
     severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
