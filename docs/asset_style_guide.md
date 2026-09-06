@@ -114,7 +114,8 @@ organic, light, gems and books, built things.
 - **M17.** The bands on barrels, chests, buckets, trunks, kegs, crates and boxes
   are metal, light grey 15,3.
 - **M18.** Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or
-  dark red 8,0.
+  dark red 8,0. The flags and sails of a rigged ship may also be blue-grey
+  6,1 — the black of this palette, and the colour a pirate rig flies.
 - **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
 - **M20.** Leather is bark 2,0.
@@ -149,7 +150,7 @@ In the order of the band list above.
 
 - **C1.** Light grey 15,3: metal, stone and rock only. **to be reduced to 2**
 - **C2.** Blue-grey 6,1: steel and cast iron (M12), worked stone (M8),
-  wicks (M35), book covers (M37).
+  wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
 - **C5.** Yellow: precious metal, light and fire.

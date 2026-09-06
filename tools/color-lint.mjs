@@ -147,6 +147,16 @@ const isContainer = (m) =>
   /(^|-)(barrel|chest|bucket|trunk|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
 const isBook = (m) => /(^|-)(book|spellbook|journal)(-|$)/.test(m.name) && has(m, 'paper');
 
+// Rule M18's pirate rig: a flag or a sail may fly the blue-grey, which is the
+// black this palette has. The catalogue records which bands a model uses and not
+// which triangle carries which, so the escape lets the whole model off C2 — on the
+// five that use the band today every blue-grey triangle really is a flag or a sail,
+// the bow jib inside the hull mesh of the pirate ships included, so here it is exact
+// and not the approximation rules M17 and M37 have to make do with. Read off the
+// name and the textile tag: nothing in the catalogue says "flag", and a rig with no
+// cloth on it is a bare mast that has nothing to excuse.
+const isRigged = (m) => /(^|-)(mast|ship|sail)(s|-|$)/.test(m.name) && has(m, 'textile');
+
 // A band is only used for the materials listed. Fires when the model uses the band
 // and carries none of them. `groups` names semantic groups the band is equally for,
 // where what a model is says more than what it is made of; `accent` exempts the
@@ -270,8 +280,9 @@ const RULES = [
   // Colour -> material, the C block, in the order of the band list.
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
     severity: 'error', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
-  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37).',
-    severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'], unless: isBook }),
+  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
+    severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'],
+    unless: (m) => isBook(m) || isRigged(m) }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
     severity: 'error', color: 'light blue-grey', tags: ['precious-metal'] }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
