@@ -19,7 +19,15 @@ Scope: items in catalog.
   the exact pixel `1,0` begins on, and `1,0` on the pixel `2,0` begins on. A position
   only means something together with its band, and the seams between them are invisible
   — a model can read as the same timber as its neighbour while linting as another band.
-  Each band spans 0.12 in OKLab lightness, the ramp running L 0.766 down to 0.406.
+  Each band spans 0.12 in OKLab lightness with a 0.04 gap to the next, the ramp
+  running L 0.799 down to 0.360: `0,0` 0.799-0.680, `1,0` 0.640-0.521, `2,0` 0.480-0.360.
+- The other bands are spanned deliberately too, in the same units. Blue 4,2 and light
+  blue-grey 3,2 span 0.24; taupe 14,3 and light grey 15,3 0.20; light green 3,1 0.16;
+  yellow/gold 6,0, dark red 8,0, dark green 1,1 and blue-grey 6,1 0.12; off-white 5,2
+  0.08. A band's ends are in the image, not in this list — read them off the map.
+- `tools/colormap-band-lightness.mjs` moves a single band to a lightness range, keeping
+  the hue and chroma it carries at each position; `tools/colormap-respace.mjs` is the
+  one for the three wood bands together, which move as one ramp.
 - When recolouring onto the shared map, keep the baked shading: the UV spread across
   the gradient band must be maintained.
 - A new colour is only added when no existing band comes close, and when it earns
