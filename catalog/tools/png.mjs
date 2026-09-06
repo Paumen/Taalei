@@ -1,5 +1,5 @@
-import { readFileSync } from 'node:fs';
-import { inflateSync } from 'node:zlib';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { inflateSync, deflateSync } from 'node:zlib';
 
 const SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
@@ -137,4 +137,47 @@ export function readPng(path) {
   }
 
   return { width, height, pixels };
+}
+
+function crc32(buf) {
+  let c = ~0;
+  for (let i = 0; i < buf.length; i++) {
+    c ^= buf[i];
+    for (let k = 0; k < 8; k++) c = (c >>> 1) ^ (0xedb88320 & -(c & 1));
+  }
+  return ~c >>> 0;
+}
+
+function chunk(type, data) {
+  const head = Buffer.alloc(8);
+  head.writeUInt32BE(data.length, 0);
+  head.write(type, 4, 'ascii');
+  const tail = Buffer.alloc(4);
+  tail.writeUInt32BE(crc32(Buffer.concat([head.subarray(4), data])), 0);
+  return Buffer.concat([head, data, tail]);
+}
+
+// Writes what readPng returns: 8-bit RGBA, one filter-0 byte per scanline. The colormap is
+// a few hundred flat bands, so deflate carries it without a filter worth choosing.
+export function writePng(path, { width, height, pixels }) {
+  const stride = width * 4;
+  const raw = Buffer.alloc((stride + 1) * height);
+  for (let y = 0; y < height; y++) {
+    raw[y * (stride + 1)] = 0;
+    Buffer.from(pixels.buffer ?? pixels, pixels.byteOffset ?? 0, stride * height)
+      .copy(raw, y * (stride + 1) + 1, y * stride, (y + 1) * stride);
+  }
+
+  const header = Buffer.alloc(13);
+  header.writeUInt32BE(width, 0);
+  header.writeUInt32BE(height, 4);
+  header[8] = 8;
+  header[9] = 6;
+
+  writeFileSync(path, Buffer.concat([
+    SIGNATURE,
+    chunk('IHDR', header),
+    chunk('IDAT', deflateSync(raw, { level: 9 })),
+    chunk('IEND', Buffer.alloc(0)),
+  ]));
 }
