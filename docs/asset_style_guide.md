@@ -84,7 +84,10 @@ wood light 0,0 · wood middle 1,0 · bark 2,0.
 - **S2.** The joker is spent once. A second band with no material behind it is a
   finding, whatever the first one was.
 - **S3.** It does not lift the N4 ceiling, and it does not excuse the rest of the
-  model: every other band still answers to the M and C blocks.
+  model: every other band still answers to the M and C blocks. The N2 and N3
+  counts leave it out: the joker has no colour of its own, so it is not a
+  material a model owes a band for. The cheese is one band of yellow for one
+  material, not one short of two.
 - **S4.** Only the PO assigns the tag, and a `special` records next to it which
   band it covers and why. A `special` without a stated reason is a finding on the tag.
 
