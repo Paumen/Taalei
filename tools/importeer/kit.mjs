@@ -6,12 +6,6 @@ import { laadPalet } from './palet.mjs';
 
 const MODEL_DIR = new URL('../../kits/workfiles/', import.meta.url).pathname;
 
-// --alleen naam[,naam] rebuilds just those models and leaves the rest of the kit
-// alone. Without it an import is the whole kit: every .glb in the folder goes first,
-// so a kit that also holds models from another import script (the animated Quaternius
-// characters, say) must be rebuilt one model at a time or it loses them. The lighting
-// gain is still measured over the whole model list, so a partial rebuild lands on the
-// same bands a full one would.
 function alleenUitArgv() {
   const n = process.argv.indexOf('--alleen');
   if (n === -1) return null;

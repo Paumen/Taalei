@@ -67,10 +67,6 @@ function leesGltfBestand(pad) {
   return { json, bin: buffers[0] };
 }
 
-// Een ingebedde textuur staat als bytes in de buffer, niet als bestand naast de
-// glTF. laadTextuur() leest van een pad en cachet daarop, dus pakken we die bytes
-// eenmalig uit naar een pad dat van de inhoud is afgeleid: dezelfde atlas in
-// zeventig modellen wordt zo één keer geschreven en één keer gelezen.
 function tekenTextuurUit(bin, bufferView, json) {
   const view = json.bufferViews?.[bufferView];
   if (!view) throw new Error('image met een bufferView die niet bestaat');

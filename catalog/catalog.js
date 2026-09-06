@@ -21,10 +21,6 @@ const GROUP_ALIASES = {
 
 const MODEL_PATH = 'kits/workfiles';
 
-// De catalogusversie hangt ook aan de .glb's. Zonder die stempel houdt een
-// bezoeker het model dat hij ooit ophaalde: catalog.json ververst wel (die
-// draagt de stempel al), dus dan meldt de kaart een animatie of een kleur die
-// het gecachte bestand niet heeft.
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
 
@@ -114,8 +110,6 @@ let sorting = 'naam';
 
 const chosenPaths = new Set();
 const cardsPerPath = new Map();
-// A card stands for a whole folded family, so selecting one selects every variant
-// under it. Keyed by the main model's path, which is what the swipe handler carries.
 const familyPerPath = new Map();
 
 let lastChoice = null;
@@ -146,10 +140,6 @@ function showState(button, state) {
 const keysWith = (cardState, value) =>
   [...cardState].filter(([, v]) => v === value).map(([k]) => k);
 
-// Picking more than one asks for models carrying all of them: two colours means both
-// bands, timber and metal means both materials. `any` is for the rows where a model
-// can only ever be one of the options — its size, and object/structure/nature — where
-// an AND would empty the page instead of narrowing it.
 function matches(own, cardState, { any = [] } = {}) {
   const only = keysWith(cardState, 'only');
   const either = only.filter((e) => any.includes(e));
@@ -617,8 +607,6 @@ function tagRows(model) {
   );
 }
 
-// De kleuren van het model als staaltjes, in de volgorde die catalog.json aanhoudt.
-// Zonder naam: de kleurbalk bovenaan benoemt ze al, en hier telt de kleur zelf.
 function colorSwatches(colors) {
   if (!colors?.length) return null;
   const strip = document.createElement('div');
@@ -642,14 +630,8 @@ function showDetail(model) {
   document.querySelector('#detail-herkomst').textContent =
     `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
 
-  // De meetwaarden staan twee naast elkaar; wat een lange waarde of een opsomming
-  // draagt loopt over de volle breedte. Waar de kop is ingekort staat de hele
-  // naam in `vol`, en die komt als title op de dt te staan.
-  // De animaties staan hier niet bij: de knoppen onder de weergave zeggen het al.
   const rows = [
     { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh), breed: true },
-    // draagt de waarde een waarschuwing, dan krijgt die rij de volle breedte:
-    // in een halve kolom zou '(heavy)' of '(> 1.000)' op een tweede regel vallen
     {
       kop: 'Tris',
       vol: 'Triangles',
@@ -667,18 +649,12 @@ function showDetail(model) {
     { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
     { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
     { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
-    // 3 is fully split (every facet its own vertices, flat shading), around 0.5 is fully
-    // shared — a smooth-shaded model
     { kop: 'Verts / tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
     { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
     { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
     { kop: 'Density', waarde: number.format(model.dens) },
     { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
-    // hoeveel van de gradient in de kleurband het model gebruikt: 0 is alles op één lijn,
-    // dus zonder ingebakken schaduw
     { kop: 'Gradient', vol: 'Gradient spread within the colour band', waarde: model.grad === undefined ? '—' : unit.format(model.grad) },
-    // De doorzichtige glaskleur is een materiaal en geen baan (regel M24), dus die telt
-    // hier niet mee — net zomin als bij het plafond van N4.
     {
       kop: 'Bands',
       vol: 'Colour bands the model uses — the clear glass is a material, not a band',
@@ -934,9 +910,6 @@ function reorder() {
   for (const strip of new Set(chipButtons.map((c) => c.strip))) {
     const own = chipButtons
       .filter((c) => c.strip === strip)
-      // The material and tag rows are ordered by how many models carry the tag, and
-      // stay that way whether or not a chip is picked. Size and type keep their own
-      // order, where small-to-large and the three types say more than the counts.
       .sort((a, b) => (a.byCount
         ? b.count - a.count || a.order - b.order
         : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));

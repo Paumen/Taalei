@@ -14,10 +14,6 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-// Eén asset, acht vaste camerastandpunten, als tegels van 224px op één blad.
-// Neutraal grijs, flat shading, orthografisch en genormaliseerd op de omsluitende
-// bol: alleen vorm, silhouet en facettering blijven over — kleur en absolute
-// maat zijn buiten beeld, precies zoals de audit ze buiten beschouwing laat.
 const params = new URLSearchParams(location.search);
 const file = params.get('file');
 const ext = file.split('.').pop().toLowerCase();

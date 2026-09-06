@@ -1,10 +1,3 @@
-// The second catalogue: what the source packs hold and the catalogue doesn't.
-//
-// Leans on catalog.css for its looks, but keeps its own, much smaller frontend — these
-// models have no palette, no tags, no variants and no scale families, so nearly all of
-// catalog.js would sit idle here. What it does have that the catalogue doesn't: which
-// pack a model came from, and whether it was taken out or never imported at all.
-
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
 
@@ -130,8 +123,6 @@ const observer = new IntersectionObserver(
 
 const dialog = el('#detail');
 
-// The detail grid puts two pairs on a row where there's room; a long value gets the
-// class catalog.css hands the full width to, same as the catalogue's own panel.
 function fact(list, name, value, wide) {
   if (value === undefined || value === null) return;
   const dt = document.createElement('dt');
@@ -214,8 +205,6 @@ function makeCard(model) {
     span('kaart-merk', pack?.short ?? model.kit),
     span('kaart-grootte', `${number.format(model.tris)} tri`),
   );
-  // Source names are long and joined by underscores; a zero-width space after each one
-  // lets the card break there instead of mid-word. The name itself doesn't change.
   const name = span('kaart-naam', model.name.replace(/_/g, '_\u200b'));
   name.title = model.name;
   text.append(name, meta);

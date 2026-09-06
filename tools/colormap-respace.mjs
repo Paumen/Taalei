@@ -1,31 +1,3 @@
-// Re-spaces the three wood bands of kits/colormap.png so each spans the same amount of
-// OKLab lightness, per the note in section 1 of docs/asset_style_guide.md.
-//
-//   node tools/colormap-respace.mjs [--step 0.12] [--gap 0.04] [--anchor 0.36]
-//                                   [--atlas <png>] [--out kits/colormap-respaced.png] [--in-place]
-//
-// --atlas re-spaces another atlas instead of kits/colormap.png. A kit with a palette of
-// its own carries a copy: modular-cave-kit's models read Textures/colormap-gedeeld.png,
-// whose wood bands are byte for byte the shared ones, so it has to move with them or its
-// timber lands on a colour the shared map no longer holds.
-//
-// The three bands were one ramp cut in three, and cut unevenly: 0,0 spanned 0.186 of L,
-// 1,0 spanned 0.137 and 2,0 only 0.094, so timber had twice the shading range bark had for
-// no reason anyone chose. Equal steps give every material the same budget.
-//
-// --gap is the point of the exercise. Cut as one ramp, 0,0 ended on the exact pixel 1,0
-// began on: two models could lint as different bands and render the identical colour, and
-// that is how a barrel came to be one colour in the village and another in the dungeon
-// without anyone choosing it. A gap between the bands makes the band a model is on
-// something you can see, not only something the catalogue records.
-//
-// The hue and chroma of each new line are read off the original ramp at the lightness the
-// line lands on, so this only re-spaces the ramp — it does not repaint it. Only the three
-// wood cells are touched; every other band comes through byte for byte.
-//
-// This changes what a UV position means: a model keeps its position and gets a different
-// colour. Run it before moving models onto their G-block windows, not after, or every
-// model is placed twice.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -83,7 +55,6 @@ const atlas = readPng(source);
 const cellWidth = atlas.width / COLUMNS;
 const cellHeight = atlas.height / ROWS;
 
-// the original ramp, read down the middle of the three wood cells in turn
 const ramp = [];
 for (let cell = 0; cell < WOOD_CELLS; cell++) {
   const x = Math.floor(cell * cellWidth + cellWidth / 2);
@@ -93,7 +64,6 @@ for (let cell = 0; cell < WOOD_CELLS; cell++) {
   }
 }
 
-// the hue and chroma the original ramp carries at a given lightness
 function chromaAt(L) {
   let best = ramp[0];
   for (const lab of ramp) {
@@ -116,7 +86,6 @@ for (let cell = 0; cell < WOOD_CELLS; cell++) {
     const [a, b] = chromaAt(L);
     const [r, g, bl] = toRgb(L, a, b);
     if (y === 0 || y === rows - 1) ends.push(`${r},${g},${bl}`);
-    // the three wood bands are columns 0, 1 and 2 of row 0 — all of them on the top row
     for (let x = Math.round(cell * cellWidth); x < Math.round((cell + 1) * cellWidth); x++) {
       const i4 = (y * atlas.width + x) * 4;
       pixels[i4] = r;

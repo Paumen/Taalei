@@ -1,14 +1,5 @@
 #!/usr/bin/env node
 // render-cli.mjs — headless GLB renderer (Playwright + three.js).
-//
-// Anders dan render.mjs ernaast, dat een sets.json leest en per set een blad van
-// acht tegels schrijft, neemt dit gereedschap losse .glb-bestanden of een map en
-// laat het per model de views, modes en de bladindeling op de opdrachtregel zetten.
-//
-// three komt uit de globale npm-installatie als die er is en anders van unpkg; in
-// een omgeving zonder net naar unpkg is de lokale kopie de enige die laadt. Let op
-// dat een .glb zijn textuur relatief oplost (Textures/colormap.png naast het
-// model): kopieer een model nooit zonder die map mee, anders rendert het ongekleurd.
 
 import { chromium } from 'playwright';
 import { execSync } from 'node:child_process';
@@ -92,11 +83,9 @@ const ALL_TONES = ['agx','aces','neutral','linear','none'];
 const ALL_ENVS  = ['neutral','studio','none'];
 
 const modes = opts.modes === 'all' ? ALL_MODES : opts.modes.split(',').map(s=>s.trim()).filter(Boolean);
-if (opts.compare) opts.views = 'front';  // a row read against a ruler only works square-on
+if (opts.compare) opts.views = 'front';
 const viewNames = opts.views.split(',').map(s=>s.trim()).filter(Boolean);
 
-// Fail on a typo before launching a browser: an unknown mode used to throw a raw
-// page stack, an unknown view silently rendered iso under the wrong filename.
 const bad = (label, got, allowed) => {
   const miss = got.filter(v => !allowed.includes(v));
   if (miss.length) die('unknown ' + label + ': ' + miss.join(', ') + '\n  allowed: ' + allowed.join(', '));
@@ -123,7 +112,6 @@ async function collect(inputs) {
   }
   return out;
 }
-// Kit name lives in the glTF asset extras; several exporters write it there.
 async function kitName(file) {
   try {
     const fd = await fs.open(file);
@@ -143,8 +131,6 @@ async function kitName(file) {
 const models = await collect(opts.inputs);
 if (!models.length) { console.error('no .glb/.gltf inputs'); process.exit(1); }
 
-// Each file is served under its own /asset/<id>/ prefix so relative URIs inside a
-// .glb or .gltf (external textures, .bin buffers) resolve against that file's folder.
 const served = new Map(); let idc = 0;
 const serve = (abs) => {
   const id = 'f' + idc++;
@@ -237,10 +223,6 @@ function matcapTexture() {
 const CHECKER = checkerTexture(), MATCAP = matcapTexture();
 const RULER_UNIT = 1, RULER_MINOR = 0.25;
 
-// Bounded rectangle of rules in the XY plane — the backdrop a front orthographic
-// view reads height against. GridHelper can't do this: it's XZ and unbounded.
-// One-unit staff, banded every minor step. Red bands read as a scale marker
-// rather than as part of the model.
 function rulerStaff(major, minor) {
   const g = new THREE.Group();
   const w = major * 0.035, bands = Math.round(major / minor) * 2, bh = major / bands;
@@ -321,8 +303,6 @@ DEPTH_MAT.onBeforeCompile = (sh) => {
     'vec3( 1.0 - clamp( ( vLinZ - uNear ) / max( uFar - uNear, 1e-6 ), 0.0, 1.0 ) )');
 };
 
-// Box3.setFromObject ignores skinning, so a rigged mesh frames off its bind pose.
-// Walk actual deformed vertices instead; falls back to the cheap path for static meshes.
 const MAX_CLOUD = 200000;
 function posedBounds(obj, keepCloud) {
   obj.updateMatrixWorld(true);
@@ -389,9 +369,6 @@ window.API = {
     return this.stats();
   },
 
-  // --compare: all models in one scene, standing on a shared baseline in input
-  // order, packed into equal-width rows. Equal width means one camera serves every
-  // row, so scale is comparable down the page as well as across it.
   async loadMany(urls, meta, cfg) {
     root.clear(); helpers.clear(); S.missing = [];
     const items = [];
@@ -471,7 +448,6 @@ window.API = {
     };
   },
 
-  // hard cap: --isolate on a many-part model would otherwise fire off hundreds of renders
   meshNames() {
     const out = [];
     S.model.traverse(o => { if (o.isMesh && out.length < 32) out.push(o.name || ('mesh_' + out.length)); });
@@ -490,8 +466,6 @@ window.API = {
       else if (mode === 'depth') m = DEPTH_MAT;
       else if (mode === 'uv') m = new THREE.MeshBasicMaterial({ map: CHECKER });
       else if (mode === 'matcap') m = new THREE.MeshMatcapMaterial({ matcap: MATCAP });
-      // normal blending + no depth write: overlapping shells accumulate, so thickness
-      // reads as density on a light background (additive only works on a dark one)
       else if (mode === 'xray') m = new THREE.MeshBasicMaterial({ color: 0x1f6feb, transparent: true, opacity: 0.14, depthWrite: false, side: THREE.DoubleSide });
       o.material = Array.isArray(orig) ? orig.map(() => m) : m;
     });
@@ -567,13 +541,9 @@ window.API = {
     if (right.lengthSq() < 1e-6) right.set(1,0,0);
     const vup = new THREE.Vector3().crossVectors(dir, right).normalize();
 
-    // Project the 8 bbox corners onto the camera basis so framing is view-dependent
-    // (a sphere fit wastes half the frame on anything that isn't roughly cubic).
     const tv = Math.tan((cfg.fov*Math.PI/180)/2), th = tv * aspect;
     let maxX = 0, maxY = 0, maxD = 0, minD = 0, dist = 0, offX = 0, offY = 0;
 
-    // The ruler stands outside the model, so framing computed from model vertices
-    // alone always crops it. Fold its corners into the point set being framed.
     let cloud = S.cloud;
     if (cloud && cfg.ruler && !cfg.compare) {
       const off = S.radius + RULER_UNIT * 0.12, hw = RULER_UNIT * 0.0175;
@@ -616,8 +586,6 @@ window.API = {
 
     let cam;
     if (cfg.compare) {
-      // Fixed orthographic box: identical for every row, and linear, so label
-      // positions can be derived from world x without projecting.
       const hw = S.rowW / 2, hh = hw / aspect;
       cam = new THREE.OrthographicCamera(-hw, hw, hh, -hh, 0.001, S.rowW * 20);
       cam.position.set(0, S.rowH / 2, S.rowW * 5);
@@ -641,7 +609,6 @@ window.API = {
       cam = new THREE.OrthographicCamera(-h*aspect, h*aspect, h, -h, 0.001, dist + r * 4);
     } else {
       dist *= cfg.fit;
-      // depth mode needs the near/far planes hugging the model or everything clamps to black
       const pad = cfg.mode === 'depth' ? r * 1.02 : r * 2;
       cam = new THREE.PerspectiveCamera(cfg.fov, aspect, Math.max(dist - pad, r*0.005), dist + pad);
     }
@@ -674,8 +641,6 @@ window.API = {
     return src.toDataURL('image/png').split(',')[1];
   },
 
-  // Stack the row strips and caption each model beneath its own position. Labels
-  // step through three heights so neighbours never collide.
   async compareSheet(rowsMeta, cfg) {
     const tw = cfg.width, th = cfg.height, pad = 26;
     const line = Math.max(13, Math.round(tw / 78)), lead = Math.round(line * 1.5);
