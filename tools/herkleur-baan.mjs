@@ -15,6 +15,12 @@
 // maar op een eigen stand — bij skeleton-minion staat de gesp op 0.03-0.66 en de
 // broek op 0.97 — en dan is de stand de enige scheiding die het model zelf geeft.
 //
+// --naarbereik a-b legt het resultaat in een deel van de doelbaan neer: de stand
+// 0-1 wordt gelijkmatig naar a-b geschaald, zodat de gebakken schaduw zijn
+// onderlinge spreiding houdt. Eén baan draagt zo twee dingen die uit elkaar
+// moeten blijven — vlees staat op de donkere helft van terracotta (regel M31,
+// 0.55-1.00), fauna op de lichte helft (0.00-0.45).
+//
 // --mesh <patroon> beperkt het tot meshes waarvan de naam matcht. De figuren uit
 // de KayKit-packs bestaan uit benoemde lichaamsdelen (Skeleton_Warrior_Body,
 // _Cloak, _Helmet), en daar draagt één baan vaak twee dingen die in verschillende
@@ -34,6 +40,7 @@ const van = [];
 const stukken = [];
 const meshPatronen = [];
 let vanBereik = null;
+let naarBereik = null;
 let naar = null;
 let lijst = false;
 const bestanden = [];
@@ -43,11 +50,12 @@ for (let i = 0; i < argumenten.length; i++) {
   else if (argumenten[i] === '--stuk') stukken.push(argumenten[++i]);
   else if (argumenten[i] === '--mesh') meshPatronen.push(argumenten[++i]);
   else if (argumenten[i] === '--vanbereik') vanBereik = argumenten[++i];
+  else if (argumenten[i] === '--naarbereik') naarBereik = argumenten[++i];
   else if (argumenten[i] === '--lijst') lijst = true;
   else bestanden.push(argumenten[i]);
 }
 if (bestanden.length === 0 || (!lijst && (van.length === 0 || !naar))) {
-  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] [--mesh naam] [--vanbereik a-b] <glb...>');
+  console.error('gebruik: node tools/herkleur-baan.mjs --van k,r [--van k,r] --naar k,r [--stuk x,y,z] [--mesh naam] [--vanbereik a-b] [--naarbereik a-b] <glb...>');
   console.error('         node tools/herkleur-baan.mjs --lijst <glb...>');
   process.exit(1);
 }
@@ -71,6 +79,11 @@ function richting(kolom, rij) {
 const [bereikLaag, bereikHoog] = vanBereik ? vanBereik.split('-').map(Number) : [0, 1];
 if (vanBereik && !(bereikLaag >= 0 && bereikHoog <= 1 && bereikLaag < bereikHoog)) {
   throw new Error(`--vanbereik ${vanBereik} valt buiten 0-1 of loopt achteruit`);
+}
+
+const [doelLaag, doelHoog] = naarBereik ? naarBereik.split('-').map(Number) : [0, 1];
+if (naarBereik && !(doelLaag >= 0 && doelHoog <= 1 && doelLaag < doelHoog)) {
+  throw new Error(`--naarbereik ${naarBereik} valt buiten 0-1 of loopt achteruit`);
 }
 
 const [naarK, naarR] = lijst ? [] : naar.split(',').map(Number);
@@ -151,7 +164,8 @@ for (const pad of bestanden) {
         const uDeel = x / celBreed - Math.floor(x / celBreed);
         const vRuw = y / celHoog - Math.floor(y / celHoog);
         if (vRuw < bereikLaag || vRuw > bereikHoog) continue;
-        const vDeel = bron.omgekeerd ? 1 - vRuw : vRuw;
+        const gedraaid = bron.omgekeerd ? 1 - vRuw : vRuw;
+        const vDeel = doelLaag + gedraaid * (doelHoog - doelLaag);
         uv[0] = ((naarK + uDeel) * celBreed) / atlas.width;
         uv[1] = ((naarR + vDeel) * celHoog) / atlas.height;
         geraakt++;
@@ -168,6 +182,7 @@ for (const pad of bestanden) {
     stukken.length ? `in ${stukken.length} stuk(ken)` : '',
     meshFilter ? `in ${meshGezien} mesh(es)` : '',
     vanBereik ? `stand ${vanBereik}` : '',
+    naarBereik ? `naar stand ${naarBereik}` : '',
   ].filter(Boolean).join(' ');
   console.log(`${pad}: ${geraakt} uv's van ${van.join('+')} naar ${naar}${waar ? ' ' + waar : ''}`);
 }
