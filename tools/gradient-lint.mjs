@@ -56,7 +56,7 @@ const RULES = {
   G3: { severity: 'warn', window: [0.54, 0.62], text: 'structural timber (wood middle 1,0) sits at mean L 0.54-0.62' },
   G4: { severity: 'warn', window: [0.406, 0.425], text: 'bark sits at mean L 0.406-0.425' },
   G5: { severity: 'warn', window: [0.425, 0.46], text: 'leather sits at mean L 0.425-0.46' },
-  G6: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
+  G7: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
 };
 
 function parseArgs(argv) {
@@ -286,8 +286,8 @@ for (const model of catalog.models) {
         report(rule, band, lane, `mean L ${L.toFixed(3)} outside ${low}-${high} — ${side}`);
       }
     }
-    if (band.triangles >= SPREAD_MIN_TRIANGLES && spreadL < RULES.G6.spread) {
-      report('G6', band, lane, `spread ${spreadL.toFixed(3)} L over ${band.triangles} triangles — no baked shading`);
+    if (band.triangles >= SPREAD_MIN_TRIANGLES && spreadL < RULES.G7.spread) {
+      report('G7', band, lane, `spread ${spreadL.toFixed(3)} L over ${band.triangles} triangles — no baked shading`);
     }
   }
 }

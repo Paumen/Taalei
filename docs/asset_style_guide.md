@@ -215,10 +215,18 @@ does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header
   than leaving a gap: the catalogue puts bark at L 0.415 and leather at 0.441 by habit,
   0.026 apart, and windows further apart than that would move leather off a tone that
   reads right today.
-- **G6.** Every band a model uses spreads over at least 0.03 L. A band flat on one line
+- **G6.** A container is one family, and G1 does not divide it. Chests, crates,
+  trunks, boxes, barrels, buckets and kegs — the list M39 already treats as one thing —
+  all take wood middle 1,0 and all sit on the same mean, whether the maker built them
+  from staves or from nailed boards. A crate standing next to a barrel has to read as
+  the same timber; which of the two the surface looks like is not a difference anyone
+  places them for.
+- **G7.** Every band a model uses spreads over at least 0.03 L. A band flat on one line
   of the gradient is a recolour that lost the baked shading section 1 asks to keep, not a
   deliberate flat colour. A band carried by fewer than 8 triangles is a chamfer or a cap
-  and is not measured.
+  and is not measured. Where a model carried its own light and dark groups on two
+  different bands, they belong on one band on a single scale — the lighter group stays
+  the lighter one inside it. That is what the gradient inside a band is for.
 
 ### X. Accepted findings — models the lint reports and the PO has left standing
 
