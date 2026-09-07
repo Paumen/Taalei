@@ -24,14 +24,14 @@
 // to hold one of the cover bands), the rest is a judgement too.
 //
 // SEVERITY is the table below and nothing else: `error` fails the run, `warn`
-// only prints. It is now a ratchet: a rule with nothing left to report is an error,
-// so the catalogue cannot drift back across a line it has already been brought over.
-// That is a stricter reading than Appendix A's own wording — the appendix says "only"
-// through the C block but "usually" for much of the M block, and a rule that says
-// "usually" and fails the run is the tool holding a line the prose leaves open. The
-// one that still prints is the last of the N block's counts: N3 has findings, and
-// dropping a rule back to `warn` because a new model trips it is the one move this
-// ratchet forbids — the model is what has to change.
+// only prints. It is a ratchet, and every rule is now on the error side of it, so the
+// catalogue cannot drift back across a line it has already been brought over. That is a
+// stricter reading than Appendix A's own wording — the appendix says "only" through the
+// C block but "usually" for much of the M block, and a rule that says "usually" and
+// fails the run is the tool holding a line the prose leaves open. N3 was the last that
+// only printed, and it is an error now with its three findings still open rather than
+// once they are cleared: dropping a rule back to `warn` because a model trips it is the
+// one move this ratchet forbids — the model is what has to change.
 //
 // The run therefore fails today, on `rpgtools/torch-burnt` alone: its char sits on a
 // band C2 does not give it and leaves N2 a band short. That is an accepted finding —
@@ -385,7 +385,7 @@ const RULES = [
   // cheese's yellow is still the band its food needs, so taking it away there would
   // read the cheese as short a band, which rule S3 says it is not.
   { id: 'N3', text: 'A model uses at most twice as many bands as materials.',
-    severity: 'warn',
+    severity: 'error',
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
