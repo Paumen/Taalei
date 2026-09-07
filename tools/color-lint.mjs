@@ -12,8 +12,10 @@
 // and not a gap in the tagging.
 //
 // Two things Appendix A states that this tool cannot see. The lane and gradient
-// rules (the G block) live in the UVs of the individual triangles and in the
-// source model, not in the catalogue — they need their own tool. And the rules
+// rules (the W block) live in the UVs of the individual triangles and in the
+// source model, not in the catalogue, and no tool measures them. The one part of
+// them that is a catalogue fact, W1's tag-to-band mapping, is rule M42 and is
+// checked here. And the rules
 // that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and W1) are
 // a judgement, not a measurement. Rules M34 and M37 and the first half of M27 name
 // a part of a model — a buckle, a book cover, the band round a barrel — and the
@@ -294,6 +296,17 @@ const RULES = [
     tag: 'roof', colors: ['dark red'], when: isRoof }),
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
+  // Rule M42, the tag half of W1: a band tag names the band, and a timber model carrying
+  // the tag has to use it. One check per tag, so a plank deck on beams that only uses
+  // wood light is a finding on its beam and not on its count. Timber is the condition
+  // as W1 has it: the ghost ship is tagged beam for its shape and is made of nothing,
+  // and its joker is spent on C7, not here. Logs and bark are W1's and not checked.
+  materialTakes({ id: 'M42-planks', text: 'Planks are wood light 0,0.', severity: 'error',
+    tag: 'planks', colors: ['wood light'], when: (m) => has(m, 'planks') && has(m, 'timber') }),
+  materialTakes({ id: 'M42-worked-planks', text: 'Worked planks are wood middle 1,0.', severity: 'error',
+    tag: 'worked-planks', colors: ['wood middle'], when: (m) => has(m, 'worked-planks') && has(m, 'timber') }),
+  materialTakes({ id: 'M42-beam', text: 'Beams are wood dark 2,0.', severity: 'error',
+    tag: 'beam', colors: ['wood dark'], when: (m) => has(m, 'beam') && has(m, 'timber') }),
 
   // Colour -> material, the C block, in the order of the band list.
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
