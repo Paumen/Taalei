@@ -42,7 +42,7 @@ render.mjs <file.glb|dir> [...] [flags]
   --out <dir>  --modes <pbr,albedo,clay,claywire,wireframe,normal,faceorient,
                         silhouette,depth,uv,matcap,xray|all>
   --views <front,back,left,right,top,bottom,iso,iso-back,hero | az/el[o|p], e.g. 35/20, 0/0o>
-                     (--ladder also uses auto-sil / auto-vert: direction from the bbox)
+                     (--ladder also uses auto-sil: direction from the bbox)
   --ladder <1..8>   nested default view set; implies --annotate --lock-scale --sheet
   --annotate         burn caption + axis gizmo into every tile
   --lock-scale       one camera distance from the bounding sphere for all views (comparable scale)
@@ -136,11 +136,10 @@ const bandSuffix = opts.band ? '_band' + opts.band.replace(',', '-') : '';
 const ALL_MODES = ['pbr','albedo','clay','claywire','wireframe','normal','faceorient','silhouette','depth','uv','matcap','xray'];
 const ALL_VIEWS = ['front','back','left','right','top','bottom','iso','iso-back','hero'];
 
-// Strictly nested view budget. Tier N is tier N-1 plus the next tile(s).
-// v8: back PBR moved above the horizon (215/-30 was underlit mud), normals from
-// below promoted to tile 4 (best defect signal per pixel: inverted winding, edge
-// splits), top clay+wire added (catches coplanar/inverted shingle faces), side
-// silhouette and the third low corner dropped.
+// Strictly nested view budget. Tier N is tier N-1 plus the next tile(s), ordered by
+// defect signal per pixel: back PBR stays above the horizon (below it is underlit
+// mud), normals from below catch inverted winding and edge splits, and the top
+// clay+wire catches the coplanar or inverted faces nothing else shows.
 const LADDER = [
   { mode:'pbr',        view:'35/25',    grid:true  },   // A: what it is, colour bands
   { mode:'claywire',   view:'215/-30'              },   // B: back + underside + topology
@@ -152,33 +151,21 @@ const LADDER = [
   { mode:'silhouette', view:'auto-sil'             },   // C: proportion, symmetry, gaps
 ];
 // Sheet geometry per tier: [cols, cell px]. Cells are multiples of 28 and every
-// sheet stays under 1568 px on the long edge and 1.15 MP, so nothing is downscaled.
-// Two tiers used to break that: tier 5 was [3,504] (1512x1008 = 1.52 MP, a copy of
-// tier 3's cell) and tier 1 was 1092 square (1.19 MP). Both were resized down.
-// Cell size differs per tier, so the same tile from --ladder 4 and --ladder 8 is
-// framed identically but rendered at a different resolution -- not byte-identical.
-// Two ladder tiles pick their direction from the bounding box instead of a fixed
-// angle, because a fixed one wastes a tile on outlier shapes: a front silhouette of
-// a flat key is an edge-on lozenge, a top view of a chair is a back-panel slab.
-//   auto-sil  looks down the SHORTEST axis -> largest projected outline.
-// auto-vert is kept for callers that want it, but the ladder uses a fixed top tile:
-// the wireframe top view catches coplanar and inverted faces that the silhouette
-// cannot show, even when auto-sil also looks down.
+// sheet must stay under 1568 px on the long edge and 1.15 MP, or it is downscaled on
+// the way in. Cell size differs per tier, so the same tile from --ladder 4 and
+// --ladder 8 is framed identically but rendered at a different resolution.
+// auto-sil picks its direction from the bounding box instead of a fixed angle,
+// because a fixed one wastes a tile on outlier shapes: a front silhouette of a flat
+// key is an edge-on lozenge. It looks down the SHORTEST axis -> largest outline.
 // Every candidate is measured during the scale lock, so tiles stay comparable
 // between models even when different models resolve to different directions.
 const AUTO = {
-  'auto-sil':  ['0/0o', '90/0o', '0/89.9o'],
-  'auto-vert': ['0/89.9o', '0/-89.9o'],
+  'auto-sil': ['0/0o', '90/0o', '0/89.9o'],
 };
-function resolveAuto(token, size) {
+function resolveAuto(size) {
   const [x, y, z] = size;
-  if (token === 'auto-sil') {
-    const min = Math.min(x, y, z);
-    if (y === min) return '0/89.9o';        // flat: read it from above
-    return x < z ? '90/0o' : '0/0o';         // thinnest horizontal axis; ties go to the front
-  }
-  const silVertical = resolveAuto('auto-sil', size) === '0/89.9o';
-  return (silVertical || y >= Math.max(x, z)) ? '0/-89.9o' : '0/89.9o';
+  if (y === Math.min(x, y, z)) return '0/89.9o';   // flat: read it from above
+  return x < z ? '90/0o' : '0/0o';                 // thinnest horizontal axis; ties to the front
 }
 
 const LADDER_SHEET = { 1:[1,1064], 2:[2,756], 3:[3,504], 4:[2,532], 5:[3,420], 6:[3,420], 7:[4,364], 8:[4,364] };
@@ -223,10 +210,8 @@ if (opts.ladder) {
   if (untouched('sheetLabels')) opts.sheetLabels = false;   // captions already live in the pixels
   if (untouched('ss')) opts.ss = 2;                 // wireframe/silhouette edges are the point here
   opts.sheetPad = 0;
-  // v6 advertised --lock-scale in the help and had a ladder-specific branch in the
-  // lock measurement, but never set the flag, so it was dead code and every tile
-  // fitted itself. The underside and footprint tiles zoomed to fill and became
-  // unreadable next to the others.
+  // lock-scale is not optional here: without it the underside and footprint tiles
+  // zoom to fill and stop being comparable with the rest of the ladder.
   opts.annotate = true; opts.sheet = true; opts.lockScale = true;
   opts.modes = [...new Set(ladderJobs.map(j => j.mode))].join(',');
   const expand = (v) => AUTO[v] || [v];
@@ -517,43 +502,42 @@ WORLD_NORMAL_MAT.onBeforeCompile = (sh) => {
     .replace(B, 'if( !gl_FrontFacing ) gl_FragColor = vec4( 1.0, 0.0, 1.0, 1.0 );\n\t' + B);
 };
 
+// Every override below runs after the stock shader has produced its colour, so the
+// hook is always the same line. MAGENTA_BACKFACE is the shared flag: an inverted
+// face or a hole reads as a colour that cannot occur in the material itself.
+const afterDithering = (code) => (sh) => {
+  sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
+    '#include <dithering_fragment>\n' + code);
+};
+const MAGENTA_BACKFACE = 'if(!gl_FrontFacing) gl_FragColor = vec4(1.0,0.0,1.0,1.0);';
+
 // Front blue / back red. The single fastest way to spot inverted winding, and
 // unlike the normals pass it carries no other information to misread.
 const FACE_ORIENT_MAT = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide });
-FACE_ORIENT_MAT.onBeforeCompile = (sh) => {
-  sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
-    '#include <dithering_fragment>\n gl_FragColor = gl_FrontFacing'
-    + ' ? vec4(0.16,0.42,0.86,1.0) : vec4(0.86,0.20,0.16,1.0);');
-};
+FACE_ORIENT_MAT.onBeforeCompile = afterDithering(
+  'gl_FragColor = gl_FrontFacing ? vec4(0.16,0.42,0.86,1.0) : vec4(0.86,0.20,0.16,1.0);');
 
 // Every mode material below is mesh-independent, so one instance serves the whole
-// run. v6 allocated a fresh material per mesh per mode per tile and never freed any
-// of them, which is what made long batches die on the software renderer.
+// run. One per mesh per mode per tile is what makes a long batch die on the
+// software renderer.
 const CLAY_BASE = { color: 0xd9d4cc, roughness: 0.6, metalness: 0, side: THREE.DoubleSide };
-// backfaces flat magenta: inverted winding and holes read as a flag, not a shade
-// The authored materials get the same magenta backface flag as clay. Note what that
-// does and does not buy: the flag only fires on faces the material actually draws, so
-// it catches defects on double-sided materials (capes, foliage) and nothing at all on
-// a single-sided one, where an inverted face is culled and you see a plausible-looking
-// interior instead. faceorient is the pass that always answers this question; clay
-// forces DoubleSide and answers it too. Patched once per material and recompiled;
-// the front-facing result is untouched.
+// The authored materials get the same magenta backface flag, but the flag only fires
+// on faces the material actually draws: it catches defects on double-sided materials
+// (capes, foliage) and nothing at all on a single-sided one, where an inverted face is
+// culled and you see a plausible-looking interior instead. faceorient always answers
+// this question; clay forces DoubleSide and answers it too. Patched once per material
+// and recompiled; the front-facing result is untouched.
+const clayBackfaceFlag = afterDithering(MAGENTA_BACKFACE);
 const flaggedMats = new WeakSet();
 function flagBackfaces(mat) {
   for (const m of (Array.isArray(mat) ? mat : [mat])) {
     if (!m || flaggedMats.has(m)) continue;
     flaggedMats.add(m);
     const prev = m.onBeforeCompile;
-    m.onBeforeCompile = (sh, r) => {
-      if (prev) prev(sh, r);
-      sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
-        '#include <dithering_fragment>\n if(!gl_FrontFacing) gl_FragColor = vec4(1.0,0.0,1.0,1.0);');
-    };
+    m.onBeforeCompile = (sh, r) => { if (prev) prev(sh, r); clayBackfaceFlag(sh); };
     m.needsUpdate = true;
   }
 }
-const clayBackfaceFlag = (sh) => { sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
-  '#include <dithering_fragment>\n if(!gl_FrontFacing) gl_FragColor = vec4(1.0,0.0,1.0,1.0);'); };
 const CLAY_MAT = new THREE.MeshStandardMaterial(CLAY_BASE);
 CLAY_MAT.onBeforeCompile = clayBackfaceFlag;
 // polygon offset keeps the wire overlay from z-fighting the surface it sits on
@@ -568,11 +552,9 @@ const UV_MAT = new THREE.MeshBasicMaterial({ map: CHECKER });
 // flat colour, which reads as a valid unwrapped surface. Hazard stripes instead, so
 // "not unwrapped" is never mistaken for "unwrapped fine".
 const NO_UV_MAT = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide });
-NO_UV_MAT.onBeforeCompile = (sh) => {
-  sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
-    '#include <dithering_fragment>\n float st = fract( ( gl_FragCoord.x + gl_FragCoord.y ) / 24.0 );'
-    + '\n gl_FragColor = vec4( st < 0.5 ? vec3(0.98,0.85,0.10) : vec3(0.10,0.10,0.10), 1.0 );');
-};
+NO_UV_MAT.onBeforeCompile = afterDithering(
+  'float st = fract( ( gl_FragCoord.x + gl_FragCoord.y ) / 24.0 );'
+  + '\n gl_FragColor = vec4( st < 0.5 ? vec3(0.98,0.85,0.10) : vec3(0.10,0.10,0.10), 1.0 );');
 const MATCAP_MAT = new THREE.MeshMatcapMaterial({ matcap: MATCAP });
 // normal blending + no depth write: overlapping shells accumulate, so thickness
 // reads as density on a light background (additive only works on a dark one)
@@ -582,8 +564,8 @@ const XRAY_MAT = new THREE.MeshBasicMaterial({ color: 0x1f6feb, transparent: tru
 const SHARED = new Set([CHECKER, MATCAP, WORLD_NORMAL_MAT, FACE_ORIENT_MAT, CLAY_MAT,
   CLAYWIRE_MAT, WIRE_MAT, WIRE_LINE_MAT, SIL_MAT, UV_MAT, NO_UV_MAT, MATCAP_MAT, XRAY_MAT]);
 
-// Detaching an object from the scene graph does not free its GPU memory. Every
-// load/clear cycle in v6 leaked geometries, textures and one environment map.
+// Detaching an object from the scene graph does not free its GPU memory: without
+// this, every load/clear cycle leaks geometries, textures and an environment map.
 function disposeMaterial(mat) {
   for (const m of (Array.isArray(mat) ? mat : [mat])) {
     if (!m || SHARED.has(m)) continue;
@@ -615,16 +597,15 @@ function purge(group) {
 const RULER_UNIT = 1, RULER_MINOR = 0.25;
 
 // Modes whose pixels are data, not a picture. A tone curve or an sRGB transfer
-// applied to these silently corrupts the value being read: v6 ran the world-space
-// normal encoding through AgX unless --ladder happened to set --tone none.
+// applied to these silently corrupts the value being read.
 const RAW_MODES = new Set(['normal', 'depth']);              // no tone curve, linear out
 const UNTONED_MODES = new Set(['uv', 'silhouette', 'faceorient', 'wireframe', 'albedo', 'matcap']);
 // Grid, ruler, axes and bbox live outside the model, so applyMode never reaches
-// them: v6 drew a full-colour grid across a greyscale depth pass.
+// them -- without this a full-colour grid lands across a greyscale depth pass.
 const NO_HELPER_MODES = new Set(['normal', 'depth', 'silhouette', 'faceorient']);
 // One predicate for "this tile draws no helpers", used by both setHelpers and the
-// framing pass. With the test in setHelpers only, a --ruler run reserved frame for a
-// staff these modes never drew and pushed the model small and off-centre.
+// framing pass: with the test in setHelpers only, a --ruler run reserves frame for a
+// staff these modes never draw and pushes the model small and off-centre.
 // cfg.mode is undefined during the scale lock, which is right: the lock has to cover
 // the worst case across every mode in the run.
 const helpersHidden = (cfg) => NO_HELPER_MODES.has(cfg.mode) && !(cfg.compare && cfg.mode === 'silhouette');
@@ -743,9 +724,8 @@ function posedBounds(obj, keepCloud) {
     cloud: keepCloud ? new Float32Array(pts) : null };
 }
 
-// v6 built a fresh room environment and PMREM target on every load and never
-// released the previous one — one leaked cubemap per model. It is identical every
-// time, so build it once.
+// The room environment is identical for every model, and a fresh PMREM target per
+// load leaks a cubemap each time, so build it once.
 let ROOM_ENV = null;
 function roomEnv() {
   if (!ROOM_ENV) {
@@ -759,7 +739,7 @@ function setEnv(cfg) {
   scene.environment = (cfg.env === 'neutral' || cfg.env === 'studio') ? roomEnv() : null;
   const old = scene.children.filter(o => o.isLight);
   old.forEach(o => { scene.remove(o); if (o.dispose) o.dispose(); });
-  // 'direct' is v6's 'none': lights but no reflections. 'none' now means nothing at all.
+  // 'direct' is lights but no reflections; 'none' is nothing at all.
   if (cfg.env === 'studio' || cfg.env === 'direct') {
     const key = new THREE.DirectionalLight(0xffffff, cfg.env === 'direct' ? 3 : 1.6);
     key.position.set(3,5,4);
@@ -777,8 +757,8 @@ window.API = {
     obj.traverse(o => { if (o.isMesh) o.userData.orig = o.material; });
     root.add(obj); S.model = obj;
 
-    // v6 walked every vertex twice: once for the centre, once again for the cloud.
-    // Recentring is a rigid translation, so the second walk is just a subtraction.
+    // Recentring is a rigid translation, so the cloud is corrected by subtraction
+    // rather than by a second walk over every vertex.
     const posed = posedBounds(obj, true);
     const raw = posed.box;
     S.cloud = posed.cloud;
@@ -889,9 +869,7 @@ window.API = {
   deepStats() {
     const g = { boundaryEdges: 0, nonManifoldEdges: 0, degenerateTris: 0, looseVerts: 0,
       flippedTris: 0, signedVolume: 0, triAreaMin: Infinity, triAreaMax: 0, edgeMin: Infinity, edgeMax: 0 };
-    const uv = { present: 0, absent: 0, min: [1e9, 1e9], max: [-1e9, -1e9], outside01: 0, points: new Set(),
-      islands: 0, texelArea: 0 };
-    const perMesh = [];
+    const uv = { present: 0, absent: 0, min: [1e9, 1e9], max: [-1e9, -1e9], outside01: 0, points: new Set() };
     const v = new THREE.Vector3(), a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
     const ab = new THREE.Vector3(), ac = new THREE.Vector3(), n = new THREE.Vector3();
 
@@ -906,7 +884,7 @@ window.API = {
       const gi = (k) => idx ? idx[k] : k;
       const edges = new Map();
       const used = new Set();
-      let mTris = 0, mVol = 0, mDegen = 0;
+      let mVol = 0, mDegen = 0;
       for (let k = 0; k < count; k += 3) {
         const i0 = gi(k), i1 = gi(k+1), i2 = gi(k+2);
         used.add(i0); used.add(i1); used.add(i2);
@@ -939,7 +917,6 @@ window.API = {
           const key = p < q ? p + '_' + q : q + '_' + p;
           edges.set(key, (edges.get(key) || 0) + 1);
         });
-        mTris++;
       }
       for (const cnt of edges.values()) { if (cnt === 1) g.boundaryEdges++; else if (cnt > 2) g.nonManifoldEdges++; }
       g.degenerateTris += mDegen; g.signedVolume += mVol; g.looseVerts += pos.count - used.size;
@@ -955,9 +932,6 @@ window.API = {
           uv.points.add(Math.round(u * 4096) + ':' + Math.round(w * 4096));
         }
       }
-      perMesh.push({ name: o.name || '(unnamed)', triangles: mTris,
-        vertices: pos.count, hasUV: !!uvA, degenerate: mDegen,
-        material: Array.isArray(o.material) ? o.material.map(m => m && m.name) : (o.material && o.material.name) });
     });
 
     const fin = (x) => Number.isFinite(x) ? +x.toFixed(6) : null;
@@ -1058,7 +1032,7 @@ window.API = {
     const colors = [...hits.entries()]
       .sort((x, y) => y[1] - x[1])
       .map(([hex, area]) => ({ hex, areaShare: +(area / total).toFixed(4), oklch: srgbToOklch(hex) }));
-    return { source: tex.image.src ? 'baseColorTexture' : 'baseColorTexture',
+    return { source: 'baseColorTexture',
       atlas: [cv.width, cv.height], distinctColors: colors.length, colors: colors.slice(0, 24) };
   },
 
@@ -1067,7 +1041,6 @@ window.API = {
   // because the same part is re-measured for every tile of a multi-view run.
   // --lock-scale still wins, so pass it when parts must stay size-comparable.
   partState(i) {
-    if (!S.parts) S.parts = new Map();
     if (S.parts.has(i)) return S.parts.get(i);
     let idx = 0, target = null;
     S.model.traverse(o => { if (o.isMesh) { if (idx === i) target = o; idx++; } });
@@ -1096,8 +1069,8 @@ window.API = {
   // A bounding-sphere fit would also be consistent but throws away most of the
   // frame on anything that isn't roughly cubic.
   // The ruler stands outside the model, so a point set built from model vertices
-  // alone always crops it. v6 folded its corners in inside render() but not inside
-  // measure(), so --lock-scale --ruler measured without the staff and drew with it.
+  // alone always crops it. Both render() and measure() fold its corners in here:
+  // measuring without the staff and drawing with it crops every --ruler tile.
   cloudWithRuler(cfg, right, dir) {
     const cloud = S.cloud;
     if (!cloud || !cfg.ruler || cfg.compare || helpersHidden(cfg)) return cloud;
@@ -1112,14 +1085,20 @@ window.API = {
     return merged;
   },
 
-  measure(cfg) {
-    const aspect = cfg.width / cfg.height;
+  // az/el -> camera basis. The framing pass and the render must agree exactly, or a
+  // locked scale is measured along one axis and drawn along another.
+  viewBasis(cfg) {
     const p = (cfg.az === undefined || cfg.az === null) ? (PRESETS[cfg.preset] || PRESETS.iso) : [cfg.az, cfg.el];
     const az = p[0]*Math.PI/180, el = p[1]*Math.PI/180;
     const dir = new THREE.Vector3(Math.cos(el)*Math.sin(az), Math.sin(el), Math.cos(el)*Math.cos(az));
     const right = new THREE.Vector3().crossVectors(new THREE.Vector3(0,1,0), dir).normalize();
     if (right.lengthSq() < 1e-6) right.set(1,0,0);
-    const vup = new THREE.Vector3().crossVectors(dir, right).normalize();
+    return { dir, right, vup: new THREE.Vector3().crossVectors(dir, right).normalize() };
+  },
+
+  measure(cfg) {
+    const aspect = cfg.width / cfg.height;
+    const { dir, right, vup } = this.viewBasis(cfg);
     const tv = Math.tan((cfg.fov*Math.PI/180)/2), th = tv*aspect;
     const cloud = this.cloudWithRuler(cfg, right, dir);
     if (!cloud) return { dist: S.radius/tv, half: S.radius };
@@ -1182,8 +1161,8 @@ window.API = {
     });
   },
 
-  setHelpers(cfg, dir, aspect) {
-    purge(helpers);   // v6 detached these every frame without freeing them
+  setHelpers(cfg, dir) {
+    purge(helpers);   // detaching without freeing leaks one set per frame
     // A lit, coloured grid drawn across a depth ramp or a normal encoding is not a
     // backdrop, it is wrong data. Compare mode keeps its ruler under silhouette,
     // because reading heights off the staff is the entire point of that layout.
@@ -1258,16 +1237,9 @@ window.API = {
     }
     else S.model.traverse(o => { if (o.isMesh) o.visible = true; });
 
-    const p = (cfg.az === undefined || cfg.az === null) ? (PRESETS[cfg.preset] || PRESETS.iso) : [cfg.az, cfg.el];
-    const az = p[0] * Math.PI/180, el = p[1] * Math.PI/180;
     const useOrtho = (cfg.viewOrtho === true || cfg.viewOrtho === false) ? cfg.viewOrtho : cfg.ortho;
-
     const aspect = W/H, r = S.radius;
-    const dir = new THREE.Vector3(Math.cos(el)*Math.sin(az), Math.sin(el), Math.cos(el)*Math.cos(az));
-    const up = new THREE.Vector3(0,1,0);
-    const right = new THREE.Vector3().crossVectors(up, dir).normalize();
-    if (right.lengthSq() < 1e-6) right.set(1,0,0);
-    const vup = new THREE.Vector3().crossVectors(dir, right).normalize();
+    const { dir, right, vup } = this.viewBasis(cfg);
 
     // Project the 8 bbox corners onto the camera basis so framing is view-dependent
     // (a sphere fit wastes half the frame on anything that isn't roughly cubic).
@@ -1320,7 +1292,7 @@ window.API = {
       cam.lookAt(0, S.rowH / 2, 0);
       cam.updateProjectionMatrix();
       this.applyMode(cfg.mode);
-      this.setHelpers(cfg, new THREE.Vector3(0,0,1), aspect);
+      this.setHelpers(cfg, new THREE.Vector3(0,0,1));
       renderer.render(scene, cam);
       const c2 = document.createElement('canvas');
       c2.width = cfg.width; c2.height = cfg.height;
@@ -1329,7 +1301,7 @@ window.API = {
       return c2.toDataURL('image/png').split(',')[1];
     }
     this.applyMode(cfg.mode);
-    this.setHelpers(cfg, dir, aspect);
+    this.setHelpers(cfg, dir);
     const target = S.center.clone().addScaledVector(right, offX).addScaledVector(vup, offY);
     if (useOrtho) {
       const h = Math.max(maxY, maxX / aspect) * cfg.fit;
@@ -1572,7 +1544,7 @@ const write = async (file, b64) => {
 // One sheet for the whole run once several models are named: the point of a contact
 // sheet is the comparison between them, and a sheet per model is not one. The ladder
 // and --isolate are per-model layouts by construction, so they keep their own sheets.
-const runSheet = opts.sheet && !opts.sheetEach && !ladderJobs && !opts.isolate && models.length > 1;
+const runSheet = opts.sheet && !opts.compare && !opts.sheetEach && !ladderJobs && !opts.isolate && models.length > 1;
 
 let failures = 0, warnings = 0;
 
@@ -1610,8 +1582,8 @@ if (opts.compare) {
   console.log(warnings ? 'done with ' + warnings + ' warning(s)' : 'done');
 }
 
-// v6 called process.exit() here, which can drop buffered output when stdout is a
-// pipe. Skipping the loop instead lets the process end on its own.
+// No process.exit() here: it drops buffered output when stdout is a pipe. Skipping
+// the loop instead lets the process end on its own.
 if (runSheet) await page.evaluate(() => window.API.clearTiles());
 
 for (let i = 0; !opts.compare && i < models.length; i++) {
@@ -1668,7 +1640,7 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
       names.forEach((mn, idx) => jobs.push({ mode: modes[0], view: views[0], isolateIndex: idx, label: mn.slice(0,22) }));
     } else if (ladderJobs) {
       ladderJobs.forEach((lj, idx) => {
-        const view = viewByKey.get(AUTO[lj.view] ? resolveAuto(lj.view, stats.boundsSize) : lj.view);
+        const view = viewByKey.get(AUTO[lj.view] ? resolveAuto(stats.boundsSize) : lj.view);
         const tier = String(idx + 1).padStart(2, '0');
         jobs.push({ mode: lj.mode, view, isolateIndex: -1,
           grid: opts.given.has('grid') ? opts.grid : !!lj.grid,
