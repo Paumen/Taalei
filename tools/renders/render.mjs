@@ -22,6 +22,7 @@ const DEFAULTS = {
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
   sheet: false, sheetCols: 0, sheetTile: 512, sheetLabels: true, sheetOnly: false,
+  sheetEach: false, band: '',
   stats: false, timeout: 120000, verbose: false, three: '',
   ladder: 0, annotate: false, lockScale: false, sheetPad: -1,
   ss: 1,
@@ -55,7 +56,14 @@ render.mjs <file.glb|dir> [...] [flags]
   --isolate          one tile per mesh (max 32), each fitted to its own bounds;
                      add --lock-scale to keep the parts size-comparable instead
   --sheet [--sheet-cols n] [--sheet-tile px] [--no-sheet-labels] [--sheet-only]
-                     --sheet-only implies --sheet
+                     --sheet-only implies --sheet. Several models in one run share
+                     one sheet, labelled per model; --sheet-each writes the old one
+                     per model instead. --ladder and --isolate always sheet per model.
+  --band <col,row>   keep one cell of the colormap and flatten every other filled
+                     cell to grey, so only the triangles carrying that band stay
+                     coloured. Cells are the 16x4 grid of kits/colormap.png, so
+                     --band 2,0 is bark. Reads the base-colour texture the model
+                     already carries; the atlas on disk is not touched.
   --stats            <name>.stats.json next to the tiles: counts, bounds, mesh
                      integrity, UV layout and the palette the model actually uses
   --three <dir|url>  where the page gets three.js: a package directory or a base
@@ -114,6 +122,16 @@ const opts = parseArgs(process.argv.slice(2));
 if (!opts.inputs.length) { console.log(HELP); process.exit(1); }
 // --sheet-only alone used to render everything, write nothing and exit 0.
 if (opts.sheetOnly) opts.sheet = true;
+
+// The colormap grid of kits/colormap.png, which is what --band addresses.
+const BAND_COLUMNS = 16, BAND_ROWS = 4;
+if (opts.band) {
+  const m = opts.band.match(/^(\d+),(\d+)$/);
+  if (!m) die('--band needs col,row (e.g. 2,0), got: ' + opts.band);
+  if (+m[1] >= BAND_COLUMNS || +m[2] >= BAND_ROWS)
+    die('--band is outside the ' + BAND_COLUMNS + 'x' + BAND_ROWS + ' grid: ' + opts.band);
+}
+const bandSuffix = opts.band ? '_band' + opts.band.replace(',', '-') : '';
 
 const ALL_MODES = ['pbr','albedo','clay','claywire','wireframe','normal','faceorient','silhouette','depth','uv','matcap','xray'];
 const ALL_VIEWS = ['front','back','left','right','top','bottom','iso','iso-back','hero'];
@@ -1433,6 +1451,48 @@ window.API = {
     return c.toDataURL('image/png').split(',')[1];
   },
 
+  // --band: keep one cell of the colormap and flatten every other filled cell to a
+  // flat grey. Lighting still gives the greyed parts their form, so what is left
+  // coloured is exactly the geometry carrying that band -- which mesh names cannot
+  // answer on a model merged into one primitive.
+  bandOnly(lane, columns, rows) {
+    const [tc, tr] = lane.split(',').map(Number);
+    const seen = new Set();
+    let filtered = 0;
+    S.model.traverse(o => {
+      if (!o.isMesh) return;
+      for (const mat of (Array.isArray(o.material) ? o.material : [o.material])) {
+        const tex = mat && mat.map;
+        if (!tex || !tex.image || seen.has(tex.uuid)) continue;
+        seen.add(tex.uuid);
+        const img = tex.image;
+        const cv = document.createElement('canvas');
+        cv.width = img.width; cv.height = img.height;
+        const ctx = cv.getContext('2d', { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0);
+        let d;
+        try { d = ctx.getImageData(0, 0, cv.width, cv.height); } catch (e) { continue; }
+        const cw = cv.width / columns, ch = cv.height / rows, px = d.data;
+        for (let y = 0; y < cv.height; y++) {
+          const row = Math.floor(y / ch);
+          for (let x = 0; x < cv.width; x++) {
+            if (row === tr && Math.floor(x / cw) === tc) continue;
+            const i = (y * cv.width + x) * 4;
+            // an unused cell is black in the atlas and stays black: greying it would
+            // paint the gaps between bands the same as the bands themselves
+            if (px[i] === 0 && px[i+1] === 0 && px[i+2] === 0) continue;
+            px[i] = px[i+1] = px[i+2] = 205;
+          }
+        }
+        ctx.putImageData(d, 0, 0);
+        tex.image = cv;
+        tex.needsUpdate = true;
+        filtered++;
+      }
+    });
+    return filtered;
+  },
+
   clearTiles() { S.tiles.forEach(t => t.bmp.close && t.bmp.close()); S.tiles = []; },
 
   // Batches on the software renderer die from accumulated GPU objects rather than
@@ -1509,6 +1569,11 @@ const write = async (file, b64) => {
   console.log('  ->', path.relative(process.cwd(), file));
 };
 
+// One sheet for the whole run once several models are named: the point of a contact
+// sheet is the comparison between them, and a sheet per model is not one. The ladder
+// and --isolate are per-model layouts by construction, so they keep their own sheets.
+const runSheet = opts.sheet && !opts.sheetEach && !ladderJobs && !opts.isolate && models.length > 1;
+
 let failures = 0, warnings = 0;
 
 if (opts.compare) {
@@ -1521,6 +1586,7 @@ if (opts.compare) {
     for (const u of layout.missingResources)
       console.warn('! missing resource: ' + decodeURIComponent(u.replace(/^\/asset\/f\d+\//, '')) + '  (renders untextured)');
   }
+  if (opts.band) await page.evaluate(([b, c, r]) => window.API.bandOnly(b, c, r), [opts.band, BAND_COLUMNS, BAND_ROWS]);
   console.log('compare: ' + models.length + ' models, ' + layout.rows.length + ' row(s), '
     + layout.rowW.toFixed(2) + ' m wide');
   cfgBase.rowW = layout.rowW;
@@ -1537,7 +1603,7 @@ if (opts.compare) {
     }
     const b64 = await page.evaluate(([r, cfg]) => window.API.compareSheet(r, cfg),
       [layout.rows, { ...cfgBase, height: rowH }]);
-    await write(path.join(opts.out, 'compare_' + mode + '.png'), b64);
+    await write(path.join(opts.out, 'compare_' + mode + bandSuffix + '.png'), b64);
   }
   if (opts.stats) await fs.writeFile(path.join(opts.out, 'compare.stats.json'), JSON.stringify(layout, null, 2));
   await browser.close(); server.close();
@@ -1546,6 +1612,8 @@ if (opts.compare) {
 
 // v6 called process.exit() here, which can drop buffered output when stdout is a
 // pipe. Skipping the loop instead lets the process end on its own.
+if (runSheet) await page.evaluate(() => window.API.clearTiles());
+
 for (let i = 0; !opts.compare && i < models.length; i++) {
   const file = models[i];
   const name = outNames[i];
@@ -1577,7 +1645,14 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
         + ' mesh(es) have no UVs (drawn as yellow hazard stripes)');
     }
 
-    await page.evaluate(() => window.API.clearTiles());
+    if (opts.band) {
+      const filtered = await page.evaluate(([b, c, r]) => window.API.bandOnly(b, c, r), [opts.band, BAND_COLUMNS, BAND_ROWS]);
+      if (!filtered) {
+        warnings++;
+        console.warn('  ! --band: no base-colour texture on this model, nothing filtered');
+      }
+    }
+    if (!runSheet) await page.evaluate(() => window.API.clearTiles());
 
     const jobs = [];
     if (opts.isolate) {
@@ -1609,6 +1684,8 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
           caption: MODE_LABEL[mode] + ' · ' + view.label });
     }
 
+    if (runSheet) for (const j of jobs) j.label = name + ' ' + j.label;
+
     // Matching ortho half-height to tan(fov/2)*dist puts an orthographic tile at the
     // same apparent size as a perspective one, so the two projections stay comparable.
     // In ladder mode the lock is measured over all eight views, not just the ones being
@@ -1639,16 +1716,21 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
         const fn = j.file ? j.file
           : j.isolateIndex >= 0
             ? 'iso_' + String(j.isolateIndex).padStart(3,'0') + '_' + j.label.replace(/[^\w.-]/g,'_')
-            : j.mode + '_' + j.view.name;
+            : j.mode + '_' + j.view.name + bandSuffix;
         await write(path.join(dir, fn + '.png'), b64);
       }
     }
 
-    if (opts.sheet) {
+    if (opts.sheet && !runSheet) {
       const b64 = await page.evaluate(c => window.API.sheet(c), cfgBase);
-      if (b64) await write(path.join(opts.out, name + '_sheet.png'), b64);
+      if (b64) await write(path.join(opts.out, name + bandSuffix + '_sheet.png'), b64);
     }
   } catch (e) { failures++; console.error('  x failed:', e.message); }
+}
+
+if (runSheet) {
+  const b64 = await page.evaluate(c => window.API.sheet(c), cfgBase);
+  if (b64) await write(path.join(opts.out, 'sheet' + bandSuffix + '.png'), b64);
 }
 
 if (!opts.compare) {
