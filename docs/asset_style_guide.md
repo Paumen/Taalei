@@ -258,9 +258,9 @@ Positions are per band, 0 at the light edge and 1 at the dark edge, but the rule
 stated in OKLab lightness — L survives a change to `kits/colormap.png`, a position does
 not. The measurement is area-weighted over the triangles: what these rules ask is how
 much of the object reads as that tone, not how many vertices carry it.
-`tools/gradient-lint.mjs` does the measuring; `tools/color-lint.mjs` cannot, and says so
-in its own header. The tag half of W1 — that a `planks`, `worked-planks` or `beam` model
-uses its band at all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
+No tool measures these; `tools/color-lint.mjs` cannot, and says so in its own header.
+The tag half of W1 — that a `planks`, `worked-planks` or `beam` model uses its band at
+all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
 
 ### X. Accepted findings — models the lint reports and the PO has left standing
 
