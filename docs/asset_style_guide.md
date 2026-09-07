@@ -13,31 +13,9 @@ Scope: items in catalog.
 
 ## 1. Colour
 - Colours come from the shared colormap image (`kits/colormap.png`): assets colour
-  themselves by pointing UVs at its bands. The model is the record — the catalog
-  reads the colours straight out of the `.glb`, so there is no list to keep in sync.
-- The four wood bands are not four colours but one ramp cut in four, each cell ending
-  where the next begins. A position only means something together with its band, and the
-  seams between them are invisible — a model can read as the same timber as its
-  neighbour while linting as another band. Each band spans 0.10 in OKLab lightness with
-  a 0.013 gap to the next, the ramp running L 0.799 down to 0.360: `0,0` 0.799-0.699,
-  `1,0` 0.686-0.586, `2,0` 0.573-0.473, `3,0` 0.460-0.360. The ramp is cut by what the
-  wood has been made into, lightest to darkest: sawn planks and the end grain of a cut
-  log, then planks worked into a thing — chests, barrels, crates, buckets, fences —
-  then beams and structure, then the bark of a log or trunk.
-  `tools/colormap-respace.mjs --cells 4` lays the ramp out; the kits each carry a copy
-  of the map, so `tools/colormap-propagate.mjs` must follow it or nothing changes.
-- The other bands are spanned deliberately too, in the same units. Blue 4,2 and light
-  blue-grey 3,2 span 0.24; taupe 14,3 and light grey 15,3 0.20; light green 3,1 0.16;
-  yellow/gold 6,0, dark red 8,0, dark green 1,1 and blue-grey 6,1 0.12; off-white 5,2
-  0.08. A band's ends are in the image, not in this list — read them off the map.
-- `tools/colormap-band-lightness.mjs` moves a single band to a lightness range, keeping
-  the hue and chroma it carries at each position; `tools/colormap-respace.mjs` is the
-  one for the three wood bands together, which move as one ramp.
+  themselves by pointing UVs at its bands.
 - When recolouring onto the shared map, keep the baked shading: the UV spread across
   the gradient band must be maintained.
-- A new colour is only added when no existing band comes close, and when it earns
-  more than the one item asking for it — it must have other uses in the catalogue.
-  Once approved, it goes into the shared colormap.
 - Defaults:
   - `alphaMode`: `OPAQUE`, except for the one clear glass colour.
   - `roughnessFactor`: 1
@@ -57,34 +35,20 @@ Scope: items in catalog.
 - One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - Assets may stretch multiple units.
 - No solid pieces thinner than 0.015 units.
-- Max 2000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
+- Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
   over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
-  than 0.7 × 0.7 × 0.7 is judged as if it were that size.
-- Imported packs get one scale factor for the whole pack.
+  than 0.5 × 0.5 × 0.5 is judged as if it were that size.
+- Imported packs get one scale factor for the whole pack for now.
 
 ## 5. Origin and orientation
 - Default on Y = 0; pivot at footprint centre in X/Z.
 - Deviate deliberately, for a functional reason.
 - Split nodes put their origin at the joint.
-- Objects with distinctive moving features draw in two or more calls — windmill blades, ship sails, a chest cap.
+- Objects with distinctive moving features draw in two or more calls — windmill blades, ship sails, a chest cap. All others in one.
 
 ## 6. Reference Assets
 - Render and look at the reference assets before creating a new asset — reading them is not enough.
-- When validating, render at least two reference assets beside the new one at the same scale.
-
-The references:
-- `palm-detailed-bend`
-- `ship-large`
-- `boat-row-small`
-- `cannon-mobile`
-- `tent-canvas`
-- `crate-bottles`
-- `template-floor-layer-hole`
-- `windmill` (blades only)
-- `watermill` (wheel only)
-- `mast-ropes`
-- `structure-fence-sides`
-- `lighthouse`
+- When validating, render at least two reference assets from same group beside the new one at the same scale.
 
 ## Appendix A: Material and colour rules
 
@@ -262,22 +226,3 @@ No tool measures these; `tools/color-lint.mjs` cannot, and says so in its own he
 The tag half of W1 — that a `planks`, `worked-planks` or `beam` model uses its band at
 all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
 
-### X. Accepted findings — models the lint reports and the PO has left standing
-
-- **X1.** `rpgtools/torch-burnt` — C2 and N2. It is `rpgtools/torch` with the
-  cloth head and the rope rings burnt: 384 triangles that split 264 cloth / 120
-  rope, exactly the off-white and taupe groups of the unburnt torch, all of them
-  collapsed onto blue-grey 6,1. Blue-grey is the black this palette has and char
-  is black, so the model reads right; C2 does not list char among what the band
-  is for, and N2 counts two bands against timber, textile and rope. Appendix A
-  has no colour for charred material, and the two ways out — a rule for char, or
-  a recolour back into taupe that leaves the burnt torch looking like the plain
-  one — are both open. Until one is picked the lint fails on this model, and that
-  is the intended state, not a gap to be closed by loosening C2 or N2.
-- **X2.** `pirate-quaternius/ship-large` — N4. Six bands against a ceiling of five:
-  blue-grey, light grey, dark red and taupe for its iron, steel, flags and rope, and
-  two wood bands. The PO chose to keep the maker's split of the timber: the masts,
-  spars, bowsprit and railings (with the keel the source banded together with them)
-  on wood dark, the deck and hull planking on wood light, rather than collapse both
-  onto one band to fit the ceiling. The lint fails on this model until one of the
-  other four bands is folded away, and that is the intended state.
