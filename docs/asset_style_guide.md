@@ -61,26 +61,15 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 ### S. Special — the one way out of every rule below
 
 - **S1.** `special` is a material tag and a joker: it exempts **one** band on the
-  model from **one** rule. `rpgtools/pencil-a-long` is yellow because a pencil is
-  yellow, and no material it carries justifies that band — the joker covers it.
+  model from **one** rule.
 - **S2.** The joker is spent once. A second band with no material behind it is a
   finding, whatever the first one was.
-- **S3.** It does not lift the N4 ceiling, and it does not excuse the rest of the
-  model: every other band still answers to the M and C blocks. The N2 and N3
-  counts leave it out: the joker has no colour of its own, so it is not a
-  material a model owes a band for. The cheese is one band of yellow for one
-  material, not one short of two.
-- **S5.** N3 leaves the band the joker paid for out of the count as well — the
-  same thing S3 says, seen from the colour side. A band no material owes is not
-  one the ceiling charges against, and charging it made every joker a finding:
-  `rpgtools/pencil-a-long` is one band of yellow because a pencil is yellow, not
-  one band over its timber. N2 keeps that band, because there the joker's colour
-  is the one the material is wearing: take the cheese's yellow away and it reads
-  as short a band, which S3 says it is not. Which band the joker paid for is the
-  band named by the first rule it is spent on; a joker spent on an M rule names
-  none, since an M finding is a material without its band and not the reverse.
-- **S4.** Only the PO assigns the tag, and a `special` records next to it which
-  band it covers and why. A `special` without a stated reason is a finding on the tag.
+- **S3.** It does not lift the N4 ceiling, and every other band still answers to
+  the M and C blocks. N2 and N3 do not count the joker as a material.
+- **S5.** N3 leaves the joker's band out of its count; N2 keeps it. That band is
+  named by the first rule the joker is spent on; an M rule names none.
+- **S4.** Only the PO assigns the tag. A `special` records which band it covers
+  and why; one without a stated reason is a finding on the tag.
 
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
@@ -92,10 +81,8 @@ organic, light, gems and books, built things, plastic.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is any of the four wood bands: wood light 0,0, wood middle 1,0, wood dark
-  2,0 or bark 3,0. W1 says which. A log or a trunk is timber on the bark band as much as a
-  plank is timber on wood light — the band says what the wood was made into, not whether
-  it is wood.
+- **M6.** Timber is any of the four wood bands: wood light 0,0, wood middle 1,0,
+  wood dark 2,0 or bark 3,0. W1 says which.
 - **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
   both lanes.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
@@ -110,9 +97,8 @@ organic, light, gems and books, built things, plastic.
 - **M16.** Buckles are metal, light grey 15,3.
 - **M17.** The bands on barrels, chests, buckets, trunks, kegs, crates and boxes
   are metal, light grey 15,3.
-- **M18.** Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or
-  dark red 8,0. The flags and sails of a rigged ship may also be blue-grey
-  6,1 — the black of this palette, and the colour a pirate rig flies.
+- **M18.** Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or dark
+  red 8,0. The flags and sails of a rigged ship may also be blue-grey 6,1.
 - **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
 - **M20.** Leather is bark 2,0.
@@ -140,16 +126,10 @@ organic, light, gems and books, built things, plastic.
   often with metal accents.
 - **M40.** Structures and furniture are mostly timber, then stone (the bigger
   sort, not modern brick). Metal sparingly.
-- **M41.** Plastic is dark red 8,0 or yellow/gold 6,0. It shares both bands
-  with other materials — C5 and C6 name it alongside them — and only claims
-  the specific triangle groups baked to those bands, not a whole model just
-  because another part of it is metal or timber.
-- **M42.** The band tags take their band, and a timber model carrying the tag must use it:
-  `planks` wood light 0,0, `worked-planks` wood middle 1,0, `beam` wood dark 2,0. W1
-  says the same from the wood side; this is the half `tools/color-lint.mjs` can check
-  from the catalogue, one band per tag, so a plank deck on beams that uses wood light
-  alone is a finding on its beam and not on its count. `logs` and `bark` are W1's and
-  not checked here.
+- **M41.** Plastic is dark red 8,0 or yellow/gold 6,0. It shares both bands with
+  other materials and claims only the triangle groups baked to those bands.
+- **M42.** Band tags take their band: `planks` wood light 0,0, `worked-planks`
+  wood middle 1,0, `beam` wood dark 2,0. `logs` and `bark` are W1's.
 
 ### C. Colour to material — what a band may be used on
 
@@ -166,22 +146,17 @@ In the order of the band list above.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
 - **C9.** Lighter browns: timber only.
-- **C10.** Darkest brown: bark, leather and the timber of a log or trunk. M6 puts timber
-  on this band when W1 sends it there; what the band still excludes is every material that
-  is not one of those three.
+- **C10.** Darkest brown: bark, leather and the timber of a log or trunk (M6,
+  W1). No other material takes this band.
 - **C11.** Clear glass: glass only.
 
 ### N. Counting — bands against materials
 - **N1.** A model has at least one material.
-- **N2.** A model uses at least as many bands as it has materials, and timber counts for
-  its band tags rather than once. W1 gives timber a band per band tag, so a plank deck on
-  beams owes two bands, not one: counting timber once let a model collapse both onto a
-  single band and still pass. Timber with no band tag counts once.
+- **N2.** A model uses at least as many bands as it has materials. Timber counts
+  once per band tag; timber with no band tag counts once.
 - **N3.** A model uses at most twice as many bands as materials.
 - **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
-  skeleton is not a human character: it is made of bone and takes the 5.
-  - An assembly is not a model. It is a scene built from catalogued models, and
-    each part answers to the ceiling on its own.
+  skeleton takes the 5. An assembly is not a model; each part answers on its own.
 
 ### W. Wood — which band a timber model takes, and where inside it
 
@@ -194,29 +169,18 @@ The wood ramp is cut in four by what the wood has been made into. Lightest to da
 - `2,0` **wood dark** — beams and structure.
 - `3,0` **bark** — logs and trunks.
 
-- **W1.** The tag names the band. A model tagged `planks` takes wood light, `worked-planks`
-  wood middle, `beam` wood dark, `logs` or `bark` bark. A model carrying several of those
-  tags takes several bands, one per tag — a fence of boards on posts is `worked-planks`
-  and `beam`, so it is wood middle and wood dark, never one of them. A timber model with
-  no band tag has no band this rule can give it: tag it first.
-- **W2.** Where a model takes several bands, its own gradient says which surface goes to
-  which: the lighter end of the gradient takes the lighter band, in order, down to the
-  darker. What the source pack banded the surface as is not a reason.
+- **W1.** The tag names the band, one band per tag: `planks` wood light,
+  `worked-planks` wood middle, `beam` wood dark, `logs` or `bark` bark.
+- **W2.** Where a model takes several bands, its own gradient says which surface
+  goes to which: lighter end to lighter band, in order, down to the darker.
 - **W3.** Planks and end grain sit at mean L 0.71–0.78.
-- **W4.** Worked planks sit at mean L 0.61–0.67. Worked planks are not too light: a crate
-  must not read as the plank stock it was built from, nor as the beam it stands on.
+- **W4.** Worked planks sit at mean L 0.61–0.67.
 - **W5.** Beams and structure sit at mean L 0.49–0.55.
 - **W6.** Bark sits at mean L 0.406–0.425, the dark end of its band.
-- **W7.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
-  3,0 and are told apart by where in it they sit — no model carries both materials, so
-  the split is exact and not a convention to be blurred.
-- **W8.** Every band a model uses spreads over at least 0.03 L, and that spread is the
-  model's own: moving a band changes where its mean sits, never how much contrast it
-  carries. Shrink only where the model would otherwise fall outside the band it is on,
-  per side and no further than that side needs. A band flat on one line of the gradient
-  is a recolour that lost the baked shading section 1 asks to keep, not a deliberate flat
-  colour. A band carried by fewer than 8 triangles is a chamfer or a cap and is not
-  measured.
+- **W7.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather
+  share band 3,0 and are told apart by where in it they sit.
+- **W8.** Every band spreads over at least 0.03 L, shrunk only where the model
+  would fall outside its band. Fewer than 8 triangles is not measured.
 
 Positions are per band, 0 at the light edge and 1 at the dark edge, but the rules are
 stated in OKLab lightness — L survives a change to `kits/colormap.png`, a position does
