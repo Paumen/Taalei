@@ -73,18 +73,13 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
-Grouped: flora, wood, stone, metal, textile and leather, glass and ceramics,
-organic, light, gems and books, built things, plastic.
-
 - **M1.** Trees are dark green.
 - **M2.** Palm fronds are light green.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is any of the four wood bands: wood light 0,0, wood middle 1,0,
-  wood dark 2,0 or bark 3,0. W1 says which.
-- **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
-  both lanes.
+- **M6.** Timber is any of the wood bands, not bark. 
+- **M7.** A trunk with a cut face carries timber and bark.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
   light grey 15,3. **to be reduced to 2**
 - **M9.** Rocks are light grey 15,3, secondarily taupe 14,3.
@@ -95,45 +90,42 @@ organic, light, gems and books, built things, plastic.
 - **M14.** Copper is terracotta 5,0.
 - **M15.** Keys take any metal or precious-metal colour.
 - **M16.** Buckles are metal, light grey 15,3.
-- **M17.** The bands on barrels, chests, buckets, trunks, kegs, crates and boxes
+- **M17.** The bands on container group: barrels, chests, buckets, kegs, crates and boxes
   are metal, light grey 15,3.
 - **M18.** Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or dark
-  red 8,0. The flags and sails of a rigged ship may also be blue-grey 6,1.
+  red 8,0.
+- 18b The flags and sails of a rigged ship may also be blue-grey 6,1.
 - **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
-- **M20.** Leather is bark 2,0.
+- **M20.** Leather is bark.
 - **M21.** Belts, shoes and straps are leather.
-- **M22.** Rope is taupe 14,3, never the light wood lane.
+- **M22.** Rope is taupe 14,3.
 - **M23.** All cork is taupe 14,3.
-- **M24.** Glass is its own material: transparent, dark green or dark red.
+- **M24.** Glass is transparent, dark green or dark red.
 - **M25.** Ceramics are terracotta, off-white, taupe or dark red.
 - **M26.** Bottles are glass or ceramic.
-- **M27.** The glass bottle exists in red and green.
+- **M27.** The glass bottles exists in red and green.
 - **M28.** A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
 - **M29.** Bones and skulls are off-white.
 - **M30.** Paper is off-white.
 - **M31.** Meat is terracotta 5,0, dark half 0.55-1.00.
-- **M32.** Fauna are naturalistic: off-white, salmon, taupe. Fish may also be
-  blue 4,2 or light blue-grey 3,2.
+- **M32.** Fauna may be any colors. 
 - **M33.** Flames and glow are yellow 6,0.
-- **M34.** Candle wax and lampshades are off-white 5,2.
+- **M34.** Candle wax are off-white 5,2.
 - **M35.** Wicks are blue-grey 6,1.
 - **M36.** Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
-- **M37.** Book covers are bark 2,0, dark red 8,0, dark green 1,1 or
-  blue-grey 6,1. Pages follow M30, clasps and corners M11.
+- **M37.** Book covers are bark, dark red 8,0, dark green 1,1 or
+  blue-grey 6,1. 
 - **M38.** Roofs are ceramic, dark red.
 - **M39.** Chests, barrels, kegs, buckets, boxes and crates are mainly timber,
   often with metal accents.
 - **M40.** Structures and furniture are mostly timber, then stone (the bigger
   sort, not modern brick). Metal sparingly.
-- **M41.** Plastic is dark red 8,0 or yellow/gold 6,0. It shares both bands with
-  other materials and claims only the triangle groups baked to those bands.
+- **M41.** Plastic is dark red 8,0 or yellow/gold 6,0.
 - **M42.** Band tags take their band: `planks` wood light 0,0, `worked-planks`
   wood middle 1,0, `beam` wood dark 2,0. `logs` and `bark` are W1's.
 
-### C. Colour to material — what a band may be used on
-
-In the order of the band list above.
+### C. Colour to material
 
 - **C1.** Light grey 15,3: metal, stone and rock only. **to be reduced to 2**
 - **C2.** Blue-grey 6,1: steel and cast iron (M12), worked stone (M8),
@@ -146,9 +138,8 @@ In the order of the band list above.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
 - **C9.** Lighter browns: timber only.
-- **C10.** Darkest brown: bark, leather and the timber of a log or trunk (M6,
-  W1). No other material takes this band.
-- **C11.** Clear glass: glass only.
+- **C10.** Darkest brown: bark, leather and a log or trunk.
+- **C11.** Tranaparant: glass only.
 
 ### N. Counting — bands against materials
 - **N1.** A model has at least one material.
@@ -158,35 +149,6 @@ In the order of the band list above.
 - **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
   skeleton takes the 5. An assembly is not a model; each part answers on its own.
 
-### W. Wood — which band a timber model takes, and where inside it
+### W. 
 
-The wood ramp is cut in four by what the wood has been made into. Lightest to darkest:
-
-- `0,0` **wood light** — planks, and the end grain where a log, trunk or branch is cut
-  through.
-- `1,0` **wood middle** — planks worked into a thing: chests, barrels, crates, buckets,
-  fences.
-- `2,0` **wood dark** — beams and structure.
-- `3,0` **bark** — logs and trunks.
-
-- **W1.** The tag names the band, one band per tag: `planks` wood light,
-  `worked-planks` wood middle, `beam` wood dark, `logs` or `bark` bark.
-- **W2.** Where a model takes several bands, its own gradient says which surface
-  goes to which: lighter end to lighter band, in order, down to the darker.
-- **W3.** Planks and end grain sit at mean L 0.71–0.78.
-- **W4.** Worked planks sit at mean L 0.61–0.67.
-- **W5.** Beams and structure sit at mean L 0.49–0.55.
-- **W6.** Bark sits at mean L 0.406–0.425, the dark end of its band.
-- **W7.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather
-  share band 3,0 and are told apart by where in it they sit.
-- **W8.** Every band spreads over at least 0.03 L, shrunk only where the model
-  would fall outside its band. Fewer than 8 triangles is not measured.
-
-Positions are per band, 0 at the light edge and 1 at the dark edge, but the rules are
-stated in OKLab lightness — L survives a change to `kits/colormap.png`, a position does
-not. The measurement is area-weighted over the triangles: what these rules ask is how
-much of the object reads as that tone, not how many vertices carry it.
-No tool measures these; `tools/color-lint.mjs` cannot, and says so in its own header.
-The tag half of W1 — that a `planks`, `worked-planks` or `beam` model uses its band at
-all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
-
+- **W1.** Every wood gradient band spreads over at least 0.03 L.
