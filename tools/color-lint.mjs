@@ -213,8 +213,8 @@ const RULES = [
     tag: 'palms', colors: ['light green'] }),
   materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
-  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0.', severity: 'error',
-    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark'] }),
+  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0, wood middle 1,0, wood dark 2,0 or bark 3,0.', severity: 'error',
+    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark', 'bark'] }),
   materialTakes({ id: 'M7', text: 'Bark is bark 2,0.', severity: 'error',
     tag: 'bark', colors: ['bark'] }),
   materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
@@ -329,8 +329,8 @@ const RULES = [
     severity: 'error', color: 'wood middle', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only.',
     severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark and leather only.',
-    severity: 'error', color: 'bark', tags: ['bark', 'leather'] }),
+  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and the timber of a log or trunk.',
+    severity: 'error', color: 'bark', tags: ['bark', 'leather', 'timber'] }),
   // Rule C11. The transparent colour is not a band, so bandOnlyFor cannot carry it.
   { id: 'C11', text: 'Clear glass: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
@@ -349,11 +349,20 @@ const RULES = [
       if (!stand_in) return `has no material tag (group ${m.gr})`;
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
-  { id: 'N2', text: 'A model uses at least as many bands as it has materials.', severity: 'error',
+  // Timber is the one material that is not one band: W1 gives it a band per band tag, so
+  // a plank deck on beams owes two. Counting it once let a model collapse both onto one
+  // and still pass. It counts for its band tags instead -- one if it carries none.
+  { id: 'N2', text: 'A model uses at least as many bands as it has materials, and timber counts for its band tags.', severity: 'error',
     check: (m) => {
-      const n = counting(m).length;
-      if (!n || m.colors.length >= n) return null;
-      return `${m.colors.length} band(s) for ${n} materials (${counting(m).join(', ')})`;
+      const mats = counting(m);
+      if (!mats.length) return null;
+      const bandTags = ['planks', 'worked-planks', 'beam', 'logs'].filter((t) => has(m, t));
+      const owed = mats.includes('timber') ? mats.length - 1 + Math.max(1, bandTags.length) : mats.length;
+      if (m.colors.length >= owed) return null;
+      const why = mats.includes('timber') && bandTags.length > 1
+        ? `${mats.join(', ')} with timber on ${bandTags.join('+')}`
+        : mats.join(', ');
+      return `${m.colors.length} band(s) for ${owed} (${why})`;
     } },
   // The joker's band is left out of this count. Rule S3 keeps `special` off the
   // material side because the joker is not a substance a model owes a band for; the

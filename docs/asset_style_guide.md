@@ -128,7 +128,10 @@ organic, light, gems and books, built things, plastic.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0. W1 says which.
+- **M6.** Timber is any of the four wood bands: wood light 0,0, wood middle 1,0, wood dark
+  2,0 or bark 3,0. W1 says which. A log or a trunk is timber on the bark band as much as a
+  plank is timber on wood light — the band says what the wood was made into, not whether
+  it is wood.
 - **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
   both lanes.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
@@ -193,12 +196,17 @@ In the order of the band list above.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
 - **C9.** Lighter browns: timber only.
-- **C10.** Darkest brown: bark and leather only.
+- **C10.** Darkest brown: bark, leather and the timber of a log or trunk. M6 puts timber
+  on this band when W1 sends it there; what the band still excludes is every material that
+  is not one of those three.
 - **C11.** Clear glass: glass only.
 
 ### N. Counting — bands against materials
 - **N1.** A model has at least one material.
-- **N2.** A model uses at least as many bands as it has materials.
+- **N2.** A model uses at least as many bands as it has materials, and timber counts for
+  its band tags rather than once. W1 gives timber a band per band tag, so a plank deck on
+  beams owes two bands, not one: counting timber once let a model collapse both onto a
+  single band and still pass. Timber with no band tag counts once.
 - **N3.** A model uses at most twice as many bands as materials.
 - **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
   skeleton is not a human character: it is made of bone and takes the 5.
