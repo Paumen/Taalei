@@ -15,12 +15,17 @@ Scope: items in catalog.
 - Colours come from the shared colormap image (`kits/colormap.png`): assets colour
   themselves by pointing UVs at its bands. The model is the record — the catalog
   reads the colours straight out of the `.glb`, so there is no list to keep in sync.
-- The three wood bands are not three colours but one ramp cut in three: `0,0` ends on
-  the exact pixel `1,0` begins on, and `1,0` on the pixel `2,0` begins on. A position
-  only means something together with its band, and the seams between them are invisible
-  — a model can read as the same timber as its neighbour while linting as another band.
-  Each band spans 0.12 in OKLab lightness with a 0.04 gap to the next, the ramp
-  running L 0.799 down to 0.360: `0,0` 0.799-0.680, `1,0` 0.640-0.521, `2,0` 0.480-0.360.
+- The four wood bands are not four colours but one ramp cut in four, each cell ending
+  where the next begins. A position only means something together with its band, and the
+  seams between them are invisible — a model can read as the same timber as its
+  neighbour while linting as another band. Each band spans 0.10 in OKLab lightness with
+  a 0.013 gap to the next, the ramp running L 0.799 down to 0.360: `0,0` 0.799-0.699,
+  `1,0` 0.686-0.586, `2,0` 0.573-0.473, `3,0` 0.460-0.360. The ramp is cut by what the
+  wood has been made into, lightest to darkest: sawn planks and the end grain of a cut
+  log, then planks worked into a thing — chests, barrels, crates, buckets, fences —
+  then beams and structure, then the bark of a log or trunk.
+  `tools/colormap-respace.mjs --cells 4` lays the ramp out; the kits each carry a copy
+  of the map, so `tools/colormap-propagate.mjs` must follow it or nothing changes.
 - The other bands are spanned deliberately too, in the same units. Blue 4,2 and light
   blue-grey 3,2 span 0.24; taupe 14,3 and light grey 15,3 0.20; light green 3,1 0.16;
   yellow/gold 6,0, dark red 8,0, dark green 1,1 and blue-grey 6,1 0.12; off-white 5,2
@@ -87,7 +92,7 @@ Band ids are column,row in `kits/colormap.png`. Where a colour name below has
 an id, it is: light grey 15,3 · blue-grey 6,1 · light blue-grey 3,2 ·
 blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 · terracotta 5,0 ·
 yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
-wood light 0,0 · wood middle 1,0 · bark 2,0.
+wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 
 ### S. Special — the one way out of every rule below
 
@@ -123,7 +128,7 @@ organic, light, gems and books, built things, plastic.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is wood light 0,0 or wood middle 1,0. G1 says which.
+- **M6.** Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0. G1 says which.
 - **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
   both lanes.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
@@ -212,17 +217,24 @@ The measurement is area-weighted over the triangles: what these rules ask is how
 the object reads as that tone, not how many vertices carry it. `tools/gradient-lint.mjs`
 does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header.
 
-- **G1.** Timber takes wood light 0,0 when the surface is milled — planks, boards,
-  panels, doors, decking, floors, furniture tops, signs. It takes wood middle 1,0 when
-  the surface is structural or rough-hewn — beams, posts, frames, poles, shafts, handles,
-  hulls, staves. A model that carries both surfaces shows both bands. Which band the
-  source pack happened to use is not a reason: it is why a barrel is one colour in one kit
-  and another colour in the next.
-- **G2.** Milled timber sits at mean L 0.66–0.73.
-- **G3.** Structural timber sits at mean L 0.57–0.63.
+- **G1.** Timber takes its band from what the wood has been made into, not from how the
+  surface was cut. Wood light 0,0 is sawn stock and the cut face: planks, boards, panels,
+  decking, floors, furniture tops, signs, and the end grain where a log, trunk or branch
+  has been cut through. Wood middle 1,0 is planks worked into a thing — the container
+  family of G6, and fences and gates. Wood dark 2,0 is what holds a thing up: beams,
+  posts, frames, poles, shafts, handles, hulls, staves. Bark 3,0 is the round outside of
+  a log or trunk. A model that carries several of these shows several bands: a cut log is
+  bark on its round and wood light on its end, a fence is wood middle on its boards and
+  wood dark on its posts. Which band the source pack happened to use is not a reason: it
+  is why a barrel is one colour in one kit and another colour in the next.
+- **G2.** Planks and end grain sit at mean L 0.71–0.78.
+- **G8.** Worked planks sit at mean L 0.61–0.67. The band exists so a crate does not read
+  as the beam it stands on: before the ramp was cut in four the two shared one band, and
+  the container family was pinned to it by G6 alone.
+- **G3.** Beams and structure sit at mean L 0.49–0.55.
 - **G4.** Bark sits at mean L 0.406–0.425, the dark end of its band.
 - **G5.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
-  2,0 and are told apart by where in it they sit — no model carries both materials, so
+  3,0 and are told apart by where in it they sit — no model carries both materials, so
   the split is exact and not a convention to be blurred. The two windows meet rather
   than leaving a gap: the catalogue puts bark at L 0.415 and leather at 0.441 by habit,
   0.026 apart, and windows further apart than that would move leather off a tone that
@@ -233,7 +245,7 @@ does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header
   from staves or from nailed boards. A crate standing next to a barrel has to read as
   the same timber; which of the two the surface looks like is not a difference anyone
   places them for. A light trim of a few per cent — the lid boards on the dungeon
-  barrels — may stay on wood light 0,0: band 1,0 is only 0.137 L wide, and folding a
+  barrels — may stay on wood light 0,0: band 1,0 is only 0.10 L wide, and folding a
   highlight that far above the mean into it costs the other ninety-nine per cent most
   of its shading.
 - **G7.** Every band a model uses spreads over at least 0.03 L, and that spread is the
