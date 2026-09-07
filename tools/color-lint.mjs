@@ -60,7 +60,8 @@ const BANDS = {
   'light green': '3,1',
   'wood light': '0,0',
   'wood middle': '1,0',
-  bark: '2,0',
+  'wood dark': '2,0',
+  bark: '3,0',
 };
 
 // Rule M17: the one transparent glass colour is a material of its own, not a band.
@@ -212,8 +213,8 @@ const RULES = [
     tag: 'palms', colors: ['light green'] }),
   materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
-  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0 or wood middle 1,0.', severity: 'error',
-    tag: 'timber', colors: ['wood light', 'wood middle'] }),
+  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0.', severity: 'error',
+    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark'] }),
   materialTakes({ id: 'M7', text: 'Bark is bark 2,0.', severity: 'error',
     tag: 'bark', colors: ['bark'] }),
   materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
@@ -243,9 +244,9 @@ const RULES = [
   materialTakes({ id: 'M17', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or dark red 8,0.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0.',
     severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'wood middle', 'dark green', 'dark red'] }),
+    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'] }),
   // Rule M20 is the colour half of the leather exception: leather takes the bark
   // lane, with or without a bark tag, which is why the tag is not an escape here.
   materialTakes({ id: 'M20', text: 'Leather is bark 2,0.', severity: 'error',
@@ -321,11 +322,13 @@ const RULES = [
   // "Lighter browns" is the light and middle lane of the wood ladder. Rope used to be
   // excused here — it sat on the light lane too — but rule M22 now sends rope to taupe,
   // so timber is the only material left that reaches this band. Textile reaches the
-  // middle lane by rule M18's brown.
+  // dark lane by rule M18's brown.
   bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: timber only.',
     severity: 'error', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: timber only.',
-    severity: 'error', color: 'wood middle', tags: ['timber', 'textile'] }),
+    severity: 'error', color: 'wood middle', tags: ['timber'] }),
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only.',
+    severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark and leather only.',
     severity: 'error', color: 'bark', tags: ['bark', 'leather'] }),
   // Rule C11. The transparent colour is not a band, so bandOnlyFor cannot carry it.

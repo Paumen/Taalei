@@ -8,16 +8,17 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLUMNS = 16;
 const ROWS = 4;
 
-const WOOD = { '0,0': 'wood light', '1,0': 'wood middle', '2,0': 'bark' };
-const CELL = { '0,0': 0, '1,0': 1, '2,0': 2 };
+const WOOD = { '0,0': 'wood light', '1,0': 'wood middle', '2,0': 'wood dark', '3,0': 'bark' };
+const CELL = { '0,0': 0, '1,0': 1, '2,0': 2, '3,0': 3 };
 
 const SPREAD_MIN_TRIANGLES = 8;
 
 const EDGE = 0.001;
 
 const RULES = {
-  G2: { severity: 'warn', window: [0.66, 0.73], text: 'milled timber (wood light 0,0) sits at mean L 0.66-0.73' },
-  G3: { severity: 'warn', window: [0.57, 0.63], text: 'structural timber (wood middle 1,0) sits at mean L 0.57-0.63' },
+  G2: { severity: 'warn', window: [0.71, 0.78], text: 'planks and end grain (wood light 0,0) sit at mean L 0.71-0.78' },
+  G8: { severity: 'warn', window: [0.61, 0.67], text: 'worked planks (wood middle 1,0) sit at mean L 0.61-0.67' },
+  G3: { severity: 'warn', window: [0.49, 0.55], text: 'beams and structure (wood dark 2,0) sit at mean L 0.49-0.55' },
   G4: { severity: 'warn', window: [0.406, 0.425], text: 'bark sits at mean L 0.406-0.425' },
   G5: { severity: 'warn', window: [0.425, 0.46], text: 'leather sits at mean L 0.425-0.46' },
   G7: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
@@ -228,7 +229,8 @@ for (const model of catalog.models) {
 
     let rule = null;
     if (cell === 0) rule = 'G2';
-    else if (cell === 1) rule = 'G3';
+    else if (cell === 1) rule = 'G8';
+    else if (cell === 2) rule = 'G3';
     else if (tags.includes('bark')) rule = 'G4';
     else if (tags.includes('leather')) rule = 'G5';
 
