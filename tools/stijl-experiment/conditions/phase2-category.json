@@ -1,0 +1,22 @@
+{
+  "comment": "Single-category runs: test items AND references from one category (cat_*), each with a control on the IDENTICAL test items but mixed-category references (catmix_*), so the cat-vs-catmix pairing isolates the reference-relevance effect from category difficulty. Test sets are that category's shuffled order over the full item list, so they contain the mixed test set's items of that category as a subset.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 6,
+    "angles": [0, 2, 4, 6],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 15,
+    "seed": 5
+  },
+  "conditions": [
+    { "id": "cat_n", "test_category": "n", "ref_category": "n", "control": "catmix_n" },
+    { "id": "cat_o", "test_category": "o", "ref_category": "o", "control": "catmix_o" },
+    { "id": "cat_s", "test_category": "s", "ref_category": "s", "control": "catmix_s" },
+
+    { "id": "catmix_n", "test_category": "n" },
+    { "id": "catmix_o", "test_category": "o" },
+    { "id": "catmix_s", "test_category": "s" }
+  ]
+}

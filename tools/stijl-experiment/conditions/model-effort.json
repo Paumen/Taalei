@@ -1,0 +1,18 @@
+{
+  "comment": "Phase 3 template: model x effort grid. Before running, set the presentation keys (n_refs/angles/scale/style_guide) in defaults to the best format found in phases 1-2.",
+  "defaults": {
+    "n_refs": 6,
+    "angles": [0, 2, 4, 6],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 20,
+    "seed": 5
+  },
+  "conditions": [
+    { "id": "sonnet5_low",    "model": "claude-sonnet-5", "effort": "low" },
+    { "id": "sonnet5_medium", "model": "claude-sonnet-5", "effort": "medium" },
+    { "id": "sonnet5_high",   "model": "claude-sonnet-5", "effort": "high" },
+    { "id": "haiku45_medium", "model": "claude-haiku-4-5", "effort": "medium" },
+    { "id": "opus5_medium",   "model": "claude-opus-5",   "effort": "medium" }
+  ]
+}

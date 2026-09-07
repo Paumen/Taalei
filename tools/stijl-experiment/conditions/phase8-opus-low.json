@@ -1,0 +1,39 @@
+{
+  "comment": "Opus 5 at effort LOW on the objects-only default (prompt v4, 8 references), three runs, to sit against the six opus-high replicates (obj_opus_h_r1..r6) and the six sonnet-medium ones. Same stimulus throughout, so the arms differ only in effort.",
+  "defaults": {
+    "model": "claude-opus-5",
+    "effort": "low",
+    "n_refs": 8,
+    "angles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    {
+      "id": "obj_opus_l_r1",
+      "control": "obj_opus_h_r1"
+    },
+    {
+      "id": "obj_opus_l_r2",
+      "control": "obj_opus_h_r2"
+    },
+    {
+      "id": "obj_opus_l_r3",
+      "control": "obj_opus_h_r3"
+    }
+  ]
+}

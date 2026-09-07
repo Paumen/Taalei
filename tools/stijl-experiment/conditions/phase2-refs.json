@@ -1,0 +1,22 @@
+{
+  "comment": "Reference-count ladder. Together with phase 1's guide_only (0), refs2, base (6) and refs12 this gives the curve 0,2,4,6,8,12,16,20,24,28. Ref sets nest: every smaller set is a subset of every larger one, so the factor is purely 'more sheets'. refs12 is identical to phase 1's and its trials are reused, not re-run.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 6,
+    "angles": [0, 2, 4, 6],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 20,
+    "seed": 5
+  },
+  "conditions": [
+    { "id": "refs4",  "n_refs": 4 },
+    { "id": "refs8",  "n_refs": 8 },
+    { "id": "refs12", "n_refs": 12 },
+    { "id": "refs16", "n_refs": 16 },
+    { "id": "refs20", "n_refs": 20 },
+    { "id": "refs24", "n_refs": 24 },
+    { "id": "refs28", "n_refs": 28 }
+  ]
+}

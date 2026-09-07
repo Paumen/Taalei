@@ -1,0 +1,67 @@
+{
+  "comment": "Prompt v4: 'low-poly' removed from the system prompt's catalog description (the intro still names the models as low poly). obj_nolp is the objects-only default under v4, paired against the v3 cell obj_nuance, so the comparison isolates the system-prompt wording. obj_nolp_2img additionally packs the same 8 reference sheets into 2 composite images (2x2 grids, black gutters) instead of 8 separate images; it pairs against obj_nolp. Note the composite is capped at the API's 1568px long edge, so its sheets are rendered at ~0.81 scale (~6.2k vs ~9.1k image tokens) - a resolution difference rides along with the packing change.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    {
+      "id": "obj_nolp",
+      "control": "obj_nuance"
+    },
+    {
+      "id": "obj_nolp_2img",
+      "refs_per_image": 4,
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_nolp_r2",
+      "replicate_of": "obj_nolp",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_nolp_2img_r2",
+      "refs_per_image": 4,
+      "replicate_of": "obj_nolp_2img",
+      "control": "obj_nolp_2img"
+    },
+    {
+      "id": "obj_nolp_r3",
+      "replicate_of": "obj_nolp",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_nolp_r4",
+      "replicate_of": "obj_nolp",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_nolp_r5",
+      "replicate_of": "obj_nolp",
+      "control": "obj_nolp"
+    },
+    {
+      "id": "obj_nolp_r6",
+      "replicate_of": "obj_nolp",
+      "control": "obj_nolp"
+    }
+  ]
+}
