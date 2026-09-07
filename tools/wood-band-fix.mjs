@@ -5,11 +5,22 @@
 //   one band wanted   -> the whole gradient goes into it, centred, spacing kept
 //   as many as it has  -> its groups map in order, lightest to lightest; v is untouched
 //   any other count    -> reported, never guessed at
+//
+// --only takes a list of kit/name ids, or @path to read them one per line, and limits
+// the run to those. Without it every catalogued model with a wood tag is considered,
+// including ones color-lint does not flag: a model already carrying the band its tag
+// names passes M42 while a second wood band sits beside it, and moving that one is a
+// change to how the model looks rather than a fix. Naming the models keeps the two apart.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 const SIZE = 512, CELL_W = 32, CELL_H = 128;
 const WANT = { planks: 0, 'worked-planks': 1, beam: 2, logs: 3, bark: 3 };
 const dry = process.argv.includes('--dry');
+const onlyArg = process.argv[process.argv.indexOf('--only') + 1];
+const only = process.argv.includes('--only')
+  ? new Set((onlyArg.startsWith('@') ? readFileSync(onlyArg.slice(1), 'utf8').split('\n') : onlyArg.split(','))
+      .map((s) => s.trim()).filter(Boolean))
+  : null;
 const catalog = JSON.parse(readFileSync('catalog/catalog.json', 'utf8'));
 
 const readGlb = (p) => { const b = readFileSync(p); const cs = []; let o = 12;
@@ -24,7 +35,9 @@ const writeGlb = (p, cs) => { const parts = [];
   writeFileSync(p, Buffer.concat([h, body])); };
 
 let moved = 0, already = 0; const ambiguous = [];
+let skipped = 0;
 for (const model of catalog.models) {
+  if (only && !only.has(`${model.kit}/${model.name}`)) { skipped++; continue; }
   const want = [...new Set((model.tags ?? []).map((t) => WANT[t]).filter((c) => c !== undefined))].sort();
   if (!want.length) continue;
   const path = join('kits/workfiles', model.kit, `${model.name}.glb`);
@@ -85,5 +98,9 @@ for (const model of catalog.models) {
   if (!dry) { jc.data = Buffer.from(JSON.stringify(json), 'utf8'); writeGlb(path, cs); }
   moved++;
 }
-console.log(`${dry ? '[dry] ' : ''}${already} already right, ${moved} recoloured, ${ambiguous.length} ambiguous`);
+console.log(`${dry ? '[dry] ' : ''}${already} already right, ${moved} recoloured, ${ambiguous.length} ambiguous${only ? `, ${skipped} outside --only` : ''}`);
+if (only) {
+  const seen = new Set(catalog.models.map((m) => `${m.kit}/${m.name}`));
+  for (const id of only) if (!seen.has(id)) console.log('  ? ' + id + '  not in the catalogue');
+}
 for (const a of ambiguous) console.log('  ? ' + a);
