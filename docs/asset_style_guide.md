@@ -180,6 +180,12 @@ organic, light, gems and books, built things, plastic.
   with other materials — C5 and C6 name it alongside them — and only claims
   the specific triangle groups baked to those bands, not a whole model just
   because another part of it is metal or timber.
+- **M42.** The band tags take their band, and a timber model carrying the tag must use it:
+  `planks` wood light 0,0, `worked-planks` wood middle 1,0, `beam` wood dark 2,0. W1
+  says the same from the wood side; this is the half `tools/color-lint.mjs` can check
+  from the catalogue, one band per tag, so a plank deck on beams that uses wood light
+  alone is a finding on its beam and not on its count. `logs` and `bark` are W1's and
+  not checked here.
 
 ### C. Colour to material — what a band may be used on
 
@@ -253,7 +259,8 @@ stated in OKLab lightness — L survives a change to `kits/colormap.png`, a posi
 not. The measurement is area-weighted over the triangles: what these rules ask is how
 much of the object reads as that tone, not how many vertices carry it.
 `tools/gradient-lint.mjs` does the measuring; `tools/color-lint.mjs` cannot, and says so
-in its own header.
+in its own header. The tag half of W1 — that a `planks`, `worked-planks` or `beam` model
+uses its band at all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
 
 ### X. Accepted findings — models the lint reports and the PO has left standing
 
