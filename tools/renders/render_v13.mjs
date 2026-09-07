@@ -6,7 +6,12 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import fss from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
+// Only the pin for the CDN fallback. By default the page is served three.js from
+// whatever copy is installed on this machine (see resolveThree), which needs no
+// network and keeps a run reproducible against a known library.
 const THREE_VERSION = '0.169.0';
 
 const DEFAULTS = {
@@ -17,7 +22,7 @@ const DEFAULTS = {
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
   sheet: false, sheetCols: 0, sheetTile: 512, sheetLabels: true, sheetOnly: false,
-  stats: false, timeout: 120000, verbose: false,
+  stats: false, timeout: 120000, verbose: false, three: '',
   ladder: 0, annotate: false, lockScale: false, sheetPad: -1,
   ss: 1,
 };
@@ -53,6 +58,11 @@ render.mjs <file.glb|dir> [...] [flags]
                      --sheet-only implies --sheet
   --stats            <name>.stats.json next to the tiles: counts, bounds, mesh
                      integrity, UV layout and the palette the model actually uses
+  --three <dir|url>  where the page gets three.js: a package directory or a base
+                     URL. Default: the installed three (vendor/three next to this
+                     script, then node_modules, then NODE_PATH), else the CDN.
+                     The library version changes lit output, so it is reported on
+                     every run and recorded in --stats.
   --timeout <ms> --verbose
 
 Unknown flags, modes, views, tones and envs are rejected before launch.
@@ -288,6 +298,36 @@ async function kitName(file) {
   return String(raw).replace(/^KayKit\s+/i, '').replace(/\s+(Bits|Pack|Asset Pack|MegaKit)$/i, '');
 }
 
+// The page loads three.js at run time. Serving it from the local install keeps the
+// render offline -- a browser that cannot reach the CDN used to hang until --timeout
+// -- and pins the run to one known library. Lit modes are not version-neutral: the
+// same model through 0.169.0 and 0.185.1 differs by up to 37/255 on the PBR pass, so
+// the version in use is reported rather than assumed.
+function resolveThree() {
+  const spec = opts.three.trim();
+  if (/^https?:\/\//i.test(spec)) return { base: spec.replace(/\/+$/, ''), source: 'url', version: '' };
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const cands = [];
+  if (spec) cands.push(path.resolve(spec));
+  else {
+    cands.push(path.join(here, 'vendor', 'three'));
+    // three's package.json is not exported, so resolve the entry point and walk up
+    try { cands.push(path.resolve(path.dirname(createRequire(import.meta.url).resolve('three')), '..')); } catch {}
+    for (const root of (process.env.NODE_PATH || '').split(path.delimiter).filter(Boolean))
+      cands.push(path.join(root, 'three'));
+  }
+  for (const dir of cands) {
+    if (!fss.existsSync(path.join(dir, 'build', 'three.module.js'))) continue;
+    if (!fss.existsSync(path.join(dir, 'examples', 'jsm', 'loaders', 'GLTFLoader.js'))) continue;
+    let version = '';
+    try { version = JSON.parse(fss.readFileSync(path.join(dir, 'package.json'), 'utf8')).version || ''; } catch {}
+    return { dir, source: 'local', version };
+  }
+  if (spec) die('--three: no three.js package (build/three.module.js + examples/jsm) at ' + spec);
+  return { base: 'https://unpkg.com/three@' + THREE_VERSION, source: 'cdn', version: THREE_VERSION };
+}
+const THREE_SRC = resolveThree();
+
 const models = await collect(opts.inputs);
 if (!models.length) { console.error('no .glb/.gltf inputs'); process.exit(1); }
 
@@ -319,13 +359,26 @@ const serve = (abs) => {
 };
 const modelUrls = models.map(serve);
 
-const MIME = { '.glb':'model/gltf-binary','.gltf':'model/gltf+json','.bin':'application/octet-stream','.png':'image/png','.jpg':'image/jpeg','.ktx2':'image/ktx2' };
+const MIME = { '.glb':'model/gltf-binary','.gltf':'model/gltf+json','.bin':'application/octet-stream',
+  '.png':'image/png','.jpg':'image/jpeg','.ktx2':'image/ktx2',
+  // a module script served as octet-stream is refused outright, and streaming
+  // instantiation of the draco decoder needs the wasm type
+  '.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.wasm':'application/wasm' };
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://x');
   if (url.pathname === '/' || url.pathname === '/index.html') {
     res.writeHead(200, { 'content-type':'text/html' });
     return res.end(pageHTML());
+  }
+  const t = THREE_SRC.dir && url.pathname.match(/^\/three\/(.+)$/);
+  if (t) {
+    const abs = path.resolve(THREE_SRC.dir, decodeURIComponent(t[1]));
+    if (abs.startsWith(THREE_SRC.dir + path.sep) && fss.existsSync(abs) && fss.statSync(abs).isFile()) {
+      res.writeHead(200, { 'content-type': MIME[path.extname(abs).toLowerCase()] || 'application/octet-stream', 'access-control-allow-origin':'*' });
+      return res.end(await fs.readFile(abs));
+    }
+    res.writeHead(404); return res.end();
   }
   const m = url.pathname.match(/^\/asset\/(f\d+)\/(.+)$/);
   if (m && served.has(m[1])) {
@@ -343,7 +396,7 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 const ORIGIN = 'http://127.0.0.1:' + server.address().port;
 
 function pageHTML() {
-  const cdn = 'https://unpkg.com/three@' + THREE_VERSION;
+  const cdn = THREE_SRC.dir ? ORIGIN + '/three' : THREE_SRC.base;
   return '<!doctype html><html><head><meta charset="utf-8">'
     + '<style>html,body{margin:0;background:#000}canvas{display:block}</style>'
     + '<script type="importmap">{"imports":{"three":"' + cdn + '/build/three.module.js","three/addons/":"' + cdn + '/examples/jsm/"}}</' + 'script>'
@@ -370,7 +423,8 @@ const pmrem = new THREE.PMREMGenerator(renderer);
 
 const manager = new THREE.LoadingManager();
 manager.onError = (url) => { S.missing.push(url.replace(location.origin, '')); };
-const dracoL = new DRACOLoader().setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
+// same source as the library itself: a CDN-free run must not fall back to gstatic
+const dracoL = new DRACOLoader().setDecoderPath(THREE_CDN + '/examples/jsm/libs/draco/');
 const ktx2L = new KTX2Loader().setTranscoderPath(THREE_CDN + '/examples/jsm/libs/basis/').detectSupport(renderer);
 const loader = new GLTFLoader(manager).setDRACOLoader(dracoL).setKTX2Loader(ktx2L).setMeshoptDecoder(MeshoptDecoder);
 
@@ -426,13 +480,22 @@ const CHECKER = checkerTexture(), MATCAP = matcapTexture();
 // so inverted or missing winding reads as a flag rather than a plausible shade.
 const WORLD_NORMAL_MAT = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
 WORLD_NORMAL_MAT.onBeforeCompile = (sh) => {
-  const A = 'packNormalToRGB( normal )', B = '#ifdef OPAQUE';
-  if (!sh.fragmentShader.includes(A) || !sh.fragmentShader.includes(B)) {
+  // Three rewrote this line between 0.169 and 0.185: the packNormalToRGB call was
+  // inlined AND #include <packing> was dropped from this shader, so the function is
+  // no longer declared here. Each form therefore needs its own replacement -- calling
+  // packNormalToRGB on 0.185 links nothing and the pass renders an empty frame.
+  const FORMS = [
+    ['packNormalToRGB( normal )', 'packNormalToRGB( normalize( normal * mat3( viewMatrix ) ) )'],
+    ['normalize( normal ) * 0.5 + 0.5', 'normalize( normal * mat3( viewMatrix ) ) * 0.5 + 0.5'],
+  ];
+  const form = FORMS.find(([a]) => sh.fragmentShader.includes(a));
+  const B = '#ifdef OPAQUE';
+  if (!form || !sh.fragmentShader.includes(B)) {
     console.warn('normal mode: shader patch did not apply, output is view-space');
     return;
   }
   sh.fragmentShader = sh.fragmentShader
-    .replace(A, 'packNormalToRGB( normalize( normal * mat3( viewMatrix ) ) )')
+    .replace(form[0], form[1])
     .replace(B, 'if( !gl_FrontFacing ) gl_FragColor = vec4( 1.0, 0.0, 1.0, 1.0 );\n\t' + B);
 };
 
@@ -1378,8 +1441,13 @@ const browser = await chromium.launch({
 const page = await browser.newPage({ viewport: { width: 400, height: 400 } });
 if (opts.verbose) page.on('console', m => console.log('  [page]', m.text()));
 page.on('pageerror', e => console.error('  [page error]', e.message));
-// three.js is fetched from the CDN at run time, so an unreachable or slow host used
-// to surface as a bare TimeoutError stack from inside Playwright. Say what failed.
+const THREE_DESC = 'three '
+  + (THREE_SRC.version ? THREE_SRC.version + ' ' : '')
+  + 'from ' + (THREE_SRC.dir || THREE_SRC.base);
+console.log(THREE_DESC);
+
+// The page loads three.js itself, so an unreachable or slow source used to surface as
+// a bare TimeoutError stack from inside Playwright. Say what failed.
 try {
   await page.goto(ORIGIN + '/index.html', { waitUntil: 'load', timeout: opts.timeout });
   await page.waitForFunction('window.__ready === true', null, { timeout: opts.timeout });
@@ -1387,8 +1455,11 @@ try {
   await browser.close().catch(() => {});
   server.close();
   console.error('error: the render page never became ready (' + e.message.split('\n')[0] + ')');
-  console.error('  three.js ' + THREE_VERSION + ' is loaded from unpkg.com by the page itself.');
-  console.error('  Check that the browser can reach it, or raise --timeout if it is just slow.');
+  console.error('  the page loads ' + THREE_DESC);
+  if (THREE_SRC.source !== 'local')
+    console.error('  that is a network fetch by the browser; point --three at a local three package to avoid it.');
+  else
+    console.error('  check that directory holds a complete three package, or raise --timeout.');
   process.exit(3);
 }
 
@@ -1458,7 +1529,9 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
       await fs.mkdir(dir, { recursive: true });
       const deep = await page.evaluate(() => window.API.deepStats());
       await fs.writeFile(path.join(dir, name + '.stats.json'),
-        JSON.stringify({ file, model: name, ...stats, ...deep }, null, 2));
+        JSON.stringify({ file, model: name,
+          three: { version: THREE_SRC.version || null, source: THREE_SRC.source },
+          ...stats, ...deep }, null, 2));
     }
     if (stats.missingResources.length) {
       warnings++;
