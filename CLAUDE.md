@@ -28,3 +28,10 @@ colormap bands, geometry, scale, and the numbered rules of Appendix A (which
 colour a material takes, what counts as leather, timber or bark). Read it
 before creating, recolouring or tagging an asset.
 
+Colour lint: `node tools/color-lint.mjs` checks catalog/catalog.json against the
+Appendix A rules and exits non-zero on any error-severity finding. Run it after
+recolouring or retagging an asset. Flags: `--kit`, `--rule`, `--severity`,
+`--limit`, `--rules` (list the rules), `--json path.json` (all findings, for
+grouping the report by catalogue group or by kit — the console report is per
+rule only).
+
