@@ -8,19 +8,21 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLUMNS = 16;
 const ROWS = 4;
 
-const WOOD = { '0,0': 'wood light', '1,0': 'wood middle', '2,0': 'bark' };
-const CELL = { '0,0': 0, '1,0': 1, '2,0': 2 };
+const WOOD = { '0,0': 'wood light', '1,0': 'wood middle', '2,0': 'wood dark', '3,0': 'bark' };
+const CELL = { '0,0': 0, '1,0': 1, '2,0': 2, '3,0': 3 };
 
 const SPREAD_MIN_TRIANGLES = 8;
 
 const EDGE = 0.001;
 
 const RULES = {
-  G2: { severity: 'warn', window: [0.66, 0.73], text: 'milled timber (wood light 0,0) sits at mean L 0.66-0.73' },
-  G3: { severity: 'warn', window: [0.57, 0.63], text: 'structural timber (wood middle 1,0) sits at mean L 0.57-0.63' },
-  G4: { severity: 'warn', window: [0.406, 0.425], text: 'bark sits at mean L 0.406-0.425' },
-  G5: { severity: 'warn', window: [0.425, 0.46], text: 'leather sits at mean L 0.425-0.46' },
-  G7: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
+  W1: { severity: 'error', text: 'the tag names the band: planks->0,0, worked-planks->1,0, beam->2,0, logs/bark->3,0' },
+  W3: { severity: 'warn', window: [0.71, 0.78], text: 'planks and end grain (wood light 0,0) sit at mean L 0.71-0.78' },
+  W4: { severity: 'warn', window: [0.61, 0.67], text: 'worked planks (wood middle 1,0) sit at mean L 0.61-0.67' },
+  W5: { severity: 'warn', window: [0.49, 0.55], text: 'beams and structure (wood dark 2,0) sit at mean L 0.49-0.55' },
+  W6: { severity: 'warn', window: [0.406, 0.425], text: 'bark sits at mean L 0.406-0.425' },
+  W7: { severity: 'warn', window: [0.425, 0.46], text: 'leather sits at mean L 0.425-0.46' },
+  W8: { severity: 'warn', spread: 0.03, text: 'every wood band spreads over at least 0.03 L' },
 };
 
 function parseArgs(argv) {
@@ -220,6 +222,26 @@ for (const model of catalog.models) {
     });
   };
 
+  // W1: the set of wood bands a model uses must be the set its tags name
+  const WANT = { planks: '0,0', 'worked-planks': '1,0', beam: '2,0', logs: '3,0', bark: '3,0' };
+  const want = new Set(tags.map((t) => WANT[t]).filter(Boolean));
+  const have = new Set([...bands.keys()].filter((l) => l in WOOD));
+  if (have.size) {
+    const missing = [...want].filter((l) => !have.has(l));
+    const extra = [...have].filter((l) => !want.has(l));
+    if (!want.size) {
+      findings.push({ rule: 'W1', model: id, lane: [...have].join('+'), band: 'untagged',
+        detail: `uses ${[...have].map((l) => WOOD[l]).join(', ')} but carries no band tag`,
+        mean: 0, spread: 0, lightness: 0, share: 0 });
+    } else if (missing.length || extra.length) {
+      const say = [];
+      if (extra.length) say.push(`on ${extra.map((l) => WOOD[l]).join(', ')} with no tag for it`);
+      if (missing.length) say.push(`tagged for ${missing.map((l) => WOOD[l]).join(', ')} but not on it`);
+      findings.push({ rule: 'W1', model: id, lane: [...have].join('+'), band: tags.filter((t) => t in WANT).join('+') || '-',
+        detail: say.join('; '), mean: 0, spread: 0, lightness: 0, share: 0 });
+    }
+  }
+
   for (const [lane, band] of bands) {
     counted.bands++;
     const cell = CELL[lane];
@@ -227,10 +249,11 @@ for (const model of catalog.models) {
     const spreadL = Math.abs(laneLightness(band.atlas, lane, band.min) - laneLightness(band.atlas, lane, band.max));
 
     let rule = null;
-    if (cell === 0) rule = 'G2';
-    else if (cell === 1) rule = 'G3';
-    else if (tags.includes('bark')) rule = 'G4';
-    else if (tags.includes('leather')) rule = 'G5';
+    if (cell === 0) rule = 'W3';
+    else if (cell === 1) rule = 'W4';
+    else if (cell === 2) rule = 'W5';
+    else if (tags.includes('bark')) rule = 'W6';
+    else if (tags.includes('leather')) rule = 'W7';
 
     if (rule) {
       const [low, high] = RULES[rule].window;
@@ -239,8 +262,8 @@ for (const model of catalog.models) {
         report(rule, band, lane, `mean L ${L.toFixed(3)} outside ${low}-${high} — ${side}`);
       }
     }
-    if (band.triangles >= SPREAD_MIN_TRIANGLES && spreadL < RULES.G7.spread) {
-      report('G7', band, lane, `spread ${spreadL.toFixed(3)} L over ${band.triangles} triangles — no baked shading`);
+    if (band.triangles >= SPREAD_MIN_TRIANGLES && spreadL < RULES.W8.spread) {
+      report('W8', band, lane, `spread ${spreadL.toFixed(3)} L over ${band.triangles} triangles — no baked shading`);
     }
   }
 }

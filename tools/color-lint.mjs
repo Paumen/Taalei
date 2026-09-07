@@ -14,7 +14,7 @@
 // Two things Appendix A states that this tool cannot see. The lane and gradient
 // rules (the G block) live in the UVs of the individual triangles and in the
 // source model, not in the catalogue — they need their own tool. And the rules
-// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and G6) are
+// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and W1) are
 // a judgement, not a measurement. Rules M34 and M37 and the first half of M27 name
 // a part of a model — a buckle, a book cover, the band round a barrel — and the
 // catalogue records a model's bands, not which triangle carries which; what is
@@ -60,7 +60,8 @@ const BANDS = {
   'light green': '3,1',
   'wood light': '0,0',
   'wood middle': '1,0',
-  bark: '2,0',
+  'wood dark': '2,0',
+  bark: '3,0',
 };
 
 // Rule M17: the one transparent glass colour is a material of its own, not a band.
@@ -212,8 +213,8 @@ const RULES = [
     tag: 'palms', colors: ['light green'] }),
   materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
-  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0 or wood middle 1,0.', severity: 'error',
-    tag: 'timber', colors: ['wood light', 'wood middle'] }),
+  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0, wood middle 1,0, wood dark 2,0 or bark 3,0.', severity: 'error',
+    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark', 'bark'] }),
   materialTakes({ id: 'M7', text: 'Bark is bark 2,0.', severity: 'error',
     tag: 'bark', colors: ['bark'] }),
   materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
@@ -243,9 +244,9 @@ const RULES = [
   materialTakes({ id: 'M17', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 1,0, dark green 1,1 or dark red 8,0.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0.',
     severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'wood middle', 'dark green', 'dark red'] }),
+    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'] }),
   // Rule M20 is the colour half of the leather exception: leather takes the bark
   // lane, with or without a bark tag, which is why the tag is not an escape here.
   materialTakes({ id: 'M20', text: 'Leather is bark 2,0.', severity: 'error',
@@ -321,13 +322,15 @@ const RULES = [
   // "Lighter browns" is the light and middle lane of the wood ladder. Rope used to be
   // excused here — it sat on the light lane too — but rule M22 now sends rope to taupe,
   // so timber is the only material left that reaches this band. Textile reaches the
-  // middle lane by rule M18's brown.
+  // dark lane by rule M18's brown.
   bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: timber only.',
     severity: 'error', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: timber only.',
-    severity: 'error', color: 'wood middle', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark and leather only.',
-    severity: 'error', color: 'bark', tags: ['bark', 'leather'] }),
+    severity: 'error', color: 'wood middle', tags: ['timber'] }),
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only.',
+    severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
+  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and the timber of a log or trunk.',
+    severity: 'error', color: 'bark', tags: ['bark', 'leather', 'timber'] }),
   // Rule C11. The transparent colour is not a band, so bandOnlyFor cannot carry it.
   { id: 'C11', text: 'Clear glass: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
@@ -346,11 +349,20 @@ const RULES = [
       if (!stand_in) return `has no material tag (group ${m.gr})`;
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
-  { id: 'N2', text: 'A model uses at least as many bands as it has materials.', severity: 'error',
+  // Timber is the one material that is not one band: W1 gives it a band per band tag, so
+  // a plank deck on beams owes two. Counting it once let a model collapse both onto one
+  // and still pass. It counts for its band tags instead -- one if it carries none.
+  { id: 'N2', text: 'A model uses at least as many bands as it has materials, and timber counts for its band tags.', severity: 'error',
     check: (m) => {
-      const n = counting(m).length;
-      if (!n || m.colors.length >= n) return null;
-      return `${m.colors.length} band(s) for ${n} materials (${counting(m).join(', ')})`;
+      const mats = counting(m);
+      if (!mats.length) return null;
+      const bandTags = ['planks', 'worked-planks', 'beam', 'logs'].filter((t) => has(m, t));
+      const owed = mats.includes('timber') ? mats.length - 1 + Math.max(1, bandTags.length) : mats.length;
+      if (m.colors.length >= owed) return null;
+      const why = mats.includes('timber') && bandTags.length > 1
+        ? `${mats.join(', ')} with timber on ${bandTags.join('+')}`
+        : mats.join(', ');
+      return `${m.colors.length} band(s) for ${owed} (${why})`;
     } },
   // The joker's band is left out of this count. Rule S3 keeps `special` off the
   // material side because the joker is not a substance a model owes a band for; the

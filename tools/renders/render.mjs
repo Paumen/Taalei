@@ -17,7 +17,7 @@ const THREE_VERSION = '0.169.0';
 const DEFAULTS = {
   out: './renders', modes: 'pbr', views: 'iso',
   width: 1024, height: 1024,
-  bg: '#f2f2f0', env: 'neutral', exposure: 1, tone: 'agx',
+  bg: '#f2f2f0', env: 'neutral', exposure: 1, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
@@ -50,7 +50,9 @@ render.mjs <file.glb|dir> [...] [flags]
                      (smooths edges, but also thins 1px wires -- see --modes wireframe)
   --bg <css|transparent> --exposure <n>
   --env <neutral|studio|direct|none>   none = no lights and no environment at all
-  --tone <agx|aces|neutral|linear|none>  --fov <deg> --fit <n> --ortho
+  --tone <neutral|agx|aces|linear|none>  --fov <deg> --fit <n> --ortho
+                     (default neutral: AgX desaturates the colormap bands by about a
+                      quarter, which reads as washed-out timber)
   --compare          all models side by side in one scene, front-on, with grid + ruler
   --grid --axes --bbox --ruler
   --isolate          one tile per mesh (max 32), each fitted to its own bounds;
@@ -1240,9 +1242,9 @@ window.API = {
     const raw = RAW_MODES.has(cfg.mode), untoned = raw || UNTONED_MODES.has(cfg.mode);
     renderer.toneMapping = untoned ? THREE.NoToneMapping
       // ?? not ||: THREE.NoToneMapping is 0, so || swallowed it and --tone none
-      // silently rendered AgX -- including for --ladder, which sets tone 'none' on
-      // purpose to keep the authored colormap bands unbent.
-      : ({ agx: THREE.AgXToneMapping, aces: THREE.ACESFilmicToneMapping, neutral: THREE.NeutralToneMapping, linear: THREE.LinearToneMapping, none: THREE.NoToneMapping })[cfg.tone] ?? THREE.AgXToneMapping;
+      // silently rendered the default curve -- including for --ladder, which sets
+      // tone 'none' on purpose to keep the authored colormap bands unbent.
+      : ({ agx: THREE.AgXToneMapping, aces: THREE.ACESFilmicToneMapping, neutral: THREE.NeutralToneMapping, linear: THREE.LinearToneMapping, none: THREE.NoToneMapping })[cfg.tone] ?? THREE.NeutralToneMapping;
     renderer.toneMappingExposure = untoned ? 1 : cfg.exposure;
     renderer.outputColorSpace = raw ? THREE.LinearSRGBColorSpace : THREE.SRGBColorSpace;
     const bg = cfg.mode === 'depth' ? '#000000' : cfg.mode === 'silhouette' ? '#ffffff' : cfg.bg;
