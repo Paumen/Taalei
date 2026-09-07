@@ -13,7 +13,7 @@
 //
 // Two things Appendix A states that this tool cannot see. The lane and gradient
 // rules (the W block) live in the UVs of the individual triangles and in the
-// source model, not in the catalogue — they need their own tool. The one part of
+// source model, not in the catalogue, and no tool measures them. The one part of
 // them that is a catalogue fact, W1's tag-to-band mapping, is rule M42 and is
 // checked here. And the rules
 // that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and W1) are
