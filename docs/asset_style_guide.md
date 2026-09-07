@@ -128,7 +128,7 @@ organic, light, gems and books, built things, plastic.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0. G1 says which.
+- **M6.** Timber is wood light 0,0, wood middle 1,0 or wood dark 2,0. W1 says which.
 - **M7.** Bark is bark 2,0. A trunk with a cut face carries timber too and shows
   both lanes.
 - **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
@@ -205,60 +205,47 @@ In the order of the band list above.
   - An assembly is not a model. It is a scene built from catalogued models, and
     each part answers to the ceiling on its own.
 
-### G. Gradient — where inside a band a material sits
+### W. Wood — which band a timber model takes, and where inside it
 
-The M and C blocks say which band a material takes. They leave open where in it the
-material sits, and that is most of what the eye reads: the bands are wide, and two models
-on the same band can be a third of the whole wood ramp apart. Positions below are per
-band, 0 at the light edge and 1 at the dark edge, but the rules are stated in OKLab
-lightness — L survives a change to `kits/colormap.png`, a position does not.
+The wood ramp is cut in four by what the wood has been made into. Lightest to darkest:
 
-The measurement is area-weighted over the triangles: what these rules ask is how much of
-the object reads as that tone, not how many vertices carry it. `tools/gradient-lint.mjs`
-does the measuring; `tools/color-lint.mjs` cannot, and says so in its own header.
+- `0,0` **wood light** — planks, and the end grain where a log, trunk or branch is cut
+  through.
+- `1,0` **wood middle** — planks worked into a thing: chests, barrels, crates, buckets,
+  fences.
+- `2,0` **wood dark** — beams and structure.
+- `3,0` **bark** — logs and trunks.
 
-- **G1.** Timber takes its band from what the wood has been made into, not from how the
-  surface was cut. Wood light 0,0 is sawn stock and the cut face: planks, boards, panels,
-  decking, floors, furniture tops, signs, and the end grain where a log, trunk or branch
-  has been cut through. Wood middle 1,0 is planks worked into a thing — the container
-  family of G6, and fences and gates. Wood dark 2,0 is what holds a thing up: beams,
-  posts, frames, poles, shafts, handles, hulls, staves. Bark 3,0 is the round outside of
-  a log or trunk. A model that carries several of these shows several bands: a cut log is
-  bark on its round and wood light on its end, a fence is wood middle on its boards and
-  wood dark on its posts. Which band the source pack happened to use is not a reason: it
-  is why a barrel is one colour in one kit and another colour in the next.
-- **G2.** Planks and end grain sit at mean L 0.71–0.78.
-- **G8.** Worked planks sit at mean L 0.61–0.67. The band exists so a crate does not read
-  as the beam it stands on: before the ramp was cut in four the two shared one band, and
-  the container family was pinned to it by G6 alone.
-- **G3.** Beams and structure sit at mean L 0.49–0.55.
-- **G4.** Bark sits at mean L 0.406–0.425, the dark end of its band.
-- **G5.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
+- **W1.** The tag names the band. A model tagged `planks` takes wood light, `worked-planks`
+  wood middle, `beam` wood dark, `logs` or `bark` bark. A model carrying several of those
+  tags takes several bands, one per tag — a fence of boards on posts is `worked-planks`
+  and `beam`, so it is wood middle and wood dark, never one of them. A timber model with
+  no band tag has no band this rule can give it: tag it first.
+- **W2.** Where a model takes several bands, its own gradient says which surface goes to
+  which: the lighter end of the gradient takes the lighter band, in order, down to the
+  darker. What the source pack banded the surface as is not a reason.
+- **W3.** Planks and end grain sit at mean L 0.71–0.78.
+- **W4.** Worked planks sit at mean L 0.61–0.67. Worked planks are not too light: a crate
+  must not read as the plank stock it was built from, nor as the beam it stands on.
+- **W5.** Beams and structure sit at mean L 0.49–0.55.
+- **W6.** Bark sits at mean L 0.406–0.425, the dark end of its band.
+- **W7.** Leather sits at mean L 0.425–0.46, just above it. Bark and leather share band
   3,0 and are told apart by where in it they sit — no model carries both materials, so
-  the split is exact and not a convention to be blurred. The two windows meet rather
-  than leaving a gap: the catalogue puts bark at L 0.415 and leather at 0.441 by habit,
-  0.026 apart, and windows further apart than that would move leather off a tone that
-  reads right today.
-- **G6.** A container is one family, and G1 does not divide it. Chests, crates,
-  trunks, boxes, barrels, buckets and kegs — the list M39 already treats as one thing —
-  all take wood middle 1,0 and all sit on the same mean, whether the maker built them
-  from staves or from nailed boards. A crate standing next to a barrel has to read as
-  the same timber; which of the two the surface looks like is not a difference anyone
-  places them for. A light trim of a few per cent — the lid boards on the dungeon
-  barrels — may stay on wood light 0,0: band 1,0 is only 0.10 L wide, and folding a
-  highlight that far above the mean into it costs the other ninety-nine per cent most
-  of its shading.
-- **G7.** Every band a model uses spreads over at least 0.03 L, and that spread is the
+  the split is exact and not a convention to be blurred.
+- **W8.** Every band a model uses spreads over at least 0.03 L, and that spread is the
   model's own: moving a band changes where its mean sits, never how much contrast it
-  carries. Scaling a model's shading to the width of a window opens up a subtle
-  gradient and flattens a strong one — both are the maker's baked shading thrown away.
-  Shrink only where the model would otherwise fall outside the band it is on, per side
-  and no further than that side needs. A band flat on one line
-  of the gradient is a recolour that lost the baked shading section 1 asks to keep, not a
-  deliberate flat colour. A band carried by fewer than 8 triangles is a chamfer or a cap
-  and is not measured. Where a model carried its own light and dark groups on two
-  different bands, they belong on one band on a single scale — the lighter group stays
-  the lighter one inside it. That is what the gradient inside a band is for.
+  carries. Shrink only where the model would otherwise fall outside the band it is on,
+  per side and no further than that side needs. A band flat on one line of the gradient
+  is a recolour that lost the baked shading section 1 asks to keep, not a deliberate flat
+  colour. A band carried by fewer than 8 triangles is a chamfer or a cap and is not
+  measured.
+
+Positions are per band, 0 at the light edge and 1 at the dark edge, but the rules are
+stated in OKLab lightness — L survives a change to `kits/colormap.png`, a position does
+not. The measurement is area-weighted over the triangles: what these rules ask is how
+much of the object reads as that tone, not how many vertices carry it.
+`tools/gradient-lint.mjs` does the measuring; `tools/color-lint.mjs` cannot, and says so
+in its own header.
 
 ### X. Accepted findings — models the lint reports and the PO has left standing
 

@@ -14,7 +14,7 @@
 // Two things Appendix A states that this tool cannot see. The lane and gradient
 // rules (the G block) live in the UVs of the individual triangles and in the
 // source model, not in the catalogue — they need their own tool. And the rules
-// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and G6) are
+// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and W1) are
 // a judgement, not a measurement. Rules M34 and M37 and the first half of M27 name
 // a part of a model — a buckle, a book cover, the band round a barrel — and the
 // catalogue records a model's bands, not which triangle carries which; what is
