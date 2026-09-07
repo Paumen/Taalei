@@ -6,13 +6,13 @@ import { readPng, writePng } from '../catalog/tools/png.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLUMNS = 16;
 const ROWS = 4;
-const WOOD_CELLS = 3;
 
-const options = { step: 0.12, gap: 0.04, anchor: 0.36, atlas: 'kits/colormap.png', out: 'kits/colormap-respaced.png', inPlace: false };
+const options = { cells: 4, step: 0.1, gap: 0.013, anchor: 0.36, atlas: 'kits/colormap.png', out: 'kits/colormap-respaced.png', inPlace: false };
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
-  if (a === '--step') options.step = Number(argv[++i]);
+  if (a === '--cells') options.cells = Number(argv[++i]);
+  else if (a === '--step') options.step = Number(argv[++i]);
   else if (a === '--gap') options.gap = Number(argv[++i]);
   else if (a === '--anchor') options.anchor = Number(argv[++i]);
   else if (a === '--atlas') options.atlas = argv[++i];
@@ -56,10 +56,12 @@ const cellWidth = atlas.width / COLUMNS;
 const cellHeight = atlas.height / ROWS;
 
 const ramp = [];
-for (let cell = 0; cell < WOOD_CELLS; cell++) {
+for (let cell = 0; cell < options.cells; cell++) {
   const x = Math.floor(cell * cellWidth + cellWidth / 2);
   for (let y = 0; y < cellHeight; y++) {
     const i4 = (y * atlas.width + x) * 4;
+    // an unfilled cell is black; it carries no hue to sample and must not enter the ramp
+    if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
     ramp.push(toOklab(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]));
   }
 }
@@ -73,10 +75,10 @@ function chromaAt(L) {
 }
 
 const pixels = Buffer.from(atlas.pixels);
-const top = options.anchor + options.step * WOOD_CELLS + options.gap * (WOOD_CELLS - 1);
+const top = options.anchor + options.step * options.cells + options.gap * (options.cells - 1);
 console.log(`wood ramp L ${top.toFixed(3)} -> ${options.anchor.toFixed(3)}, band ${options.step}, gap ${options.gap} (${(options.gap / options.step).toFixed(2)} of a band)`);
 
-for (let cell = 0; cell < WOOD_CELLS; cell++) {
+for (let cell = 0; cell < options.cells; cell++) {
   const high = top - (options.step + options.gap) * cell;
   const low = high - options.step;
   const rows = Math.round(cellHeight);
@@ -94,7 +96,7 @@ for (let cell = 0; cell < WOOD_CELLS; cell++) {
     }
   }
   console.log(`  band ${cell},0  L ${high.toFixed(3)} -> ${low.toFixed(3)}   ${ends[0]} -> ${ends[1]}`);
-  if (cell < WOOD_CELLS - 1) console.log(`  gap        L ${low.toFixed(3)} -> ${(low - options.gap).toFixed(3)}   no band renders these`);
+  if (cell < options.cells - 1) console.log(`  gap        L ${low.toFixed(3)} -> ${(low - options.gap).toFixed(3)}   no band renders these`);
 }
 
 const out = options.inPlace ? source : resolve(ROOT, options.out);
