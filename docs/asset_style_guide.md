@@ -274,3 +274,10 @@ all — is a catalogue fact, and M42 has `tools/color-lint.mjs` check it.
   a recolour back into taupe that leaves the burnt torch looking like the plain
   one — are both open. Until one is picked the lint fails on this model, and that
   is the intended state, not a gap to be closed by loosening C2 or N2.
+- **X2.** `pirate-quaternius/ship-large` — N4. Six bands against a ceiling of five:
+  blue-grey, light grey, dark red and taupe for its iron, steel, flags and rope, and
+  two wood bands. The PO chose to keep the maker's split of the timber: the masts,
+  spars, bowsprit and railings (with the keel the source banded together with them)
+  on wood dark, the deck and hull planking on wood light, rather than collapse both
+  onto one band to fit the ceiling. The lint fails on this model until one of the
+  other four bands is folded away, and that is the intended state.
