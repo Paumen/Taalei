@@ -27,6 +27,7 @@ Asset and material rules live in docs/asset_style_guide.md — the look, the
 colormap bands, geometry, scale, and the numbered rules of Appendix A (which
 colour a material takes, what counts as leather, timber or bark). Read it
 before creating, recolouring or tagging an asset.
+Never create or adjust rules without show exact words to PO for approval. A rule in appendix A must be below 140 chars. Style guide is autoritive.
 
 Colour lint: `node tools/color-lint.mjs` checks catalog/catalog.json against the
 Appendix A rules and exits non-zero on any error-severity finding. Run it after
