@@ -775,8 +775,11 @@ window.API = {
 
     const gap = RULER_UNIT * 0.18;
     const total = items.reduce((a, it) => a + it.w + gap, 0) - gap;
-    const rowH = RULER_UNIT;
-    const nRows = Math.max(1, Math.ceil(total / (rowH * 7)));
+    // The frame is exactly rowH tall, so it has to clear the tallest model or the
+    // row silently crops it. The ruler staff stays RULER_UNIT high either way, so
+    // the scale reference does not move; only the headroom above it grows.
+    const rowH = Math.max(RULER_UNIT, Math.max(...items.map(it => it.h)) * 1.06);
+    const nRows = Math.max(1, Math.ceil(total / (RULER_UNIT * 7)));
     const rowW = Math.max(total / nRows, RULER_UNIT) + RULER_UNIT * 1.1;  // margin for both staffs
 
     S.rows = []; let row = [], x = 0;
