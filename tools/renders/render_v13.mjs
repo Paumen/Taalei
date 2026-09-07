@@ -632,27 +632,52 @@ function rulerStaff(major, minor) {
 
 function wallGrid(w, h, minor, major) {
   const g = new THREE.Group();
-  // WebGL ignores LineBasicMaterial.linewidth entirely; v6 passed a width that never
-  // did anything, and there is no replacement: every line is one device pixel. Raising
-  // --ss therefore makes lines thinner and fainter relative to the tile, not heavier --
-  // it buys smoother silhouettes at the cost of wire contrast.
-  const mk = (pts, colour, opacity) => {
-    const geo = new THREE.BufferGeometry().setFromPoints(pts);
-    const m = new THREE.LineBasicMaterial({ color: colour, transparent: true, opacity: opacity });
-    return new THREE.LineSegments(geo, m);
+  // WebGL ignores LineBasicMaterial.linewidth entirely, so a LineSegments grid is
+  // always one device pixel: it thins out as --ss or --width goes up, exactly when
+  // the tile has room for a heavier rule. These lines are quads instead, sized in
+  // world units taken from the frame width, so a line keeps the same share of the
+  // image whatever the row holds.
+  const V = THREE.Vector3;
+  const W_MINOR = w * 0.0007, W_MAJOR = w * 0.0015, W_EDGE = w * 0.002;
+
+  // One triangle soup per weight: a grid is three draw calls, not one per rule.
+  const mk = (segs, width, colour, opacity, z) => {
+    const pos = [];
+    const half = width / 2;
+    for (const [a, b] of segs) {
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const len = Math.hypot(dx, dy) || 1;
+      const nx = -dy / len * half, ny = dx / len * half;   // normal in the wall plane
+      const p1 = [a.x + nx, a.y + ny, z], p2 = [b.x + nx, b.y + ny, z];
+      const p3 = [b.x - nx, b.y - ny, z], p4 = [a.x - nx, a.y - ny, z];
+      pos.push(...p1, ...p2, ...p3, ...p1, ...p3, ...p4);
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    const m = new THREE.MeshBasicMaterial({ color: colour, transparent: true,
+      opacity: opacity, side: THREE.DoubleSide, depthWrite: false });
+    return new THREE.Mesh(geo, m);
   };
-  const minorPts = [], majorPts = [], V = THREE.Vector3;
+
+  const minorSegs = [], majorSegs = [];
+  // Ends are extended by half a line width so crossings square off instead of
+  // leaving a notch at every intersection.
+  const e = W_EDGE;
   for (let x = 0; x <= w + 1e-6; x += minor) {
     const near = Math.abs(x / major - Math.round(x / major)) < 1e-6;
-    (near ? majorPts : minorPts).push(new V(x, 0, 0), new V(x, h, 0));
+    (near ? majorSegs : minorSegs).push([new V(x, -e, 0), new V(x, h + e, 0)]);
   }
   for (let y = 0; y <= h + 1e-6; y += minor) {
     const near = Math.abs(y / major - Math.round(y / major)) < 1e-6;
-    (near ? majorPts : minorPts).push(new V(0, y, 0), new V(w, y, 0));
+    (near ? majorSegs : minorSegs).push([new V(-e, y, 0), new V(w + e, y, 0)]);
   }
-  g.add(mk(minorPts, 0x9a9a94, 0.5), mk(majorPts, 0x55534e, 0.9));
-  const b = [new V(0,0,0), new V(w,0,0), new V(w,0,0), new V(w,h,0), new V(w,h,0), new V(0,h,0), new V(0,h,0), new V(0,0,0)];
-  g.add(mk(b, 0x3c3c3c, 1));
+  // Stacked front to back by weight, so a major rule covers the minor it crosses
+  // rather than blending with it.
+  g.add(mk(minorSegs, W_MINOR, 0x9a9a94, 0.5, 0));
+  g.add(mk(majorSegs, W_MAJOR, 0x55534e, 0.9, 0.001));
+  const b = [[new V(0,0,0), new V(w,0,0)], [new V(w,0,0), new V(w,h,0)],
+             [new V(w,h,0), new V(0,h,0)], [new V(0,h,0), new V(0,0,0)]];
+  g.add(mk(b, W_EDGE, 0x3c3c3c, 1, 0.002));
   g.position.x = -w / 2;
   return g;
 }
