@@ -355,8 +355,7 @@ const SOURCES = [
   {
     id: 'ken',
     name: 'Kenney',
-    description:
-      'Kits from Kenney (kenney.nl). One hand, one scale: everything comes from the same tile and the props fit together.',
+    description: 'Kits from Kenney (kenney.nl).',
     kits: [
       'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'mini-forest',
       'modular-cave-kit', 'pirate-kit', 'platformer-kit', 'prototype-kit',
@@ -366,8 +365,7 @@ const SOURCES = [
   {
     id: 'kay',
     name: 'KayKit',
-    description:
-      'Kits from Kay Lousberg (kaylousberg.com): dungeon, forest, halloween, resources, restaurant and rpgtools, plus the two character packs — adventurers and skeletons — with the weapons and shields they carry. Consistent style and level of detail across the set.',
+    description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
       'adventurers', 'dungeon', 'forest', 'halloween', 'resources', 'restaurant',
       'rpgtools', 'skeletons',
@@ -376,11 +374,17 @@ const SOURCES = [
   {
     id: 'qua',
     name: 'Quaternius',
-    description: 'Kits from Quaternius (quaternius.com): fantasy-props and quaternius-nature, plus the six packs that came later — pirate, dungeon, RPG, food, fish and ships.',
+    description: 'Kits from Quaternius (quaternius.com).',
     kits: [
       'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'dungeon-quaternius',
       'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
     ],
+  },
+  {
+    id: 'own',
+    name: 'Taalei',
+    description: 'Kits made or assembled for Taalei itself, on the shared colormap.',
+    kits: ['village-kit', 'natuur', 'modulair-terrein', 'rocks', 'props', 'taalei-kit'],
   },
 ];
 
@@ -403,21 +407,20 @@ const DERIVED = [
     id: 'animation',
     name: 'Animation',
     description:
-      'Carries its own animations in the .glb — chests and doors that open and close, a lever that flips, a compass that opens.',
+      'Carries its own animations in the .glb: things that open, flip or turn.',
     belongs: (m) => Boolean(m.animations?.length),
   },
   {
     id: 'modular',
     name: 'Modular',
-    description:
-      'Clicks onto the grid with matching pieces: the walls, roofs, pillars and floors of the three building kits. You don\'t place them loose but build something out of them, and they only fit within their own kit.',
+    description: 'Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit.',
     belongs: (m) => m.group === 'building-kit',
   },
   {
     id: 'assembly',
     name: 'Assembly',
     description:
-      'Not one thing but a little scene that\'s finished as it stands: a set table, a stack of crates, a chest full of bottles, the bars and stacks from the resources kit.',
+      'Not one thing but a little scene finished as it stands: a set table, a stacked crate, a chest full of bottles.',
     belongs: (m) => m.group === 'assemblies',
   },
 ];
@@ -605,7 +608,7 @@ const output = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
-  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description })),
+  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description, ...(t.po ? { po: true } : {}) })),
   groups: catalog.groups.map((g) => ({ id: g.id, name: g.name, color: g.color })),
   models: models.map((m) => ({
     kit: m.kit,
