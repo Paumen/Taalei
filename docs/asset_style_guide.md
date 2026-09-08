@@ -125,6 +125,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M42.** Band tags take their band: `planks` wood light 0,0, `worked-planks`
   wood middle 1,0, `beam` wood dark 2,0. `logs` and `bark` are W1's.
 - **M43.** Skin is salmon 13,0, taupe 14,3 or bark 3,0.
+- **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
 
 ### C. Colour to material
 
