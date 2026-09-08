@@ -135,6 +135,8 @@ function lightnessAt(lane, position) {
 }
 const WOOD_LANES = ['wood light', 'wood middle', 'wood dark', 'bark'].map((n) => BANDS[n]);
 const MIN_WOOD_SPREAD_L = 0.03;
+// W2 counts in UV position down the cell, the unit `spread` is stored in, not in L.
+const MAX_SPREAD = 0.9;
 
 const LANE_NAME = Object.fromEntries(Object.entries(BANDS).map(([name, lane]) => [lane, name]));
 const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
@@ -349,6 +351,16 @@ const RULES = [
         if (spread < MIN_WOOD_SPREAD_L) thin.push(`${LANE_NAME[lane]} ${lane} ${spread.toFixed(3)} L`);
       }
       return thin.length ? thin.join(', ') : null;
+    } },
+
+  { id: 'W2', text: 'No band spreads over more than 0.90 of its cell, light end to dark end.', severity: 'warning', noJoker: true,
+    check: (m) => {
+      if (!m.spread) return null;
+      const wide = [];
+      for (const [lane, [lo, hi]] of Object.entries(m.spread)) {
+        if (hi - lo > MAX_SPREAD) wide.push(`${LANE_NAME[lane] ?? 'band'} ${lane} ${(hi - lo).toFixed(3)}`);
+      }
+      return wide.length ? wide.join(', ') : null;
     } },
 ];
 
