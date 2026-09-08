@@ -153,6 +153,13 @@ const halfOf = ({ id, text, severity, lane, low, high, when }) => ({
 
 const RULES = [
 
+  { id: 'G1', text: 'A model draws in one call; only moving features (animation tag) or glass earn more (guide §5).',
+    severity: 'warning', noJoker: true,
+    check: (m) => {
+      if (!(m.calls > 1) || has(m, 'animation', 'glass')) return null;
+      return `${m.calls} draw calls with no animation or glass tag`;
+    } },
+
   { id: 'S4', text: 'A special records which band it covers and why; one without a stated reason is a finding on the tag.',
     severity: 'error', noJoker: true,
     check: (m) => {
@@ -345,7 +352,7 @@ const RULES = [
     } },
 ];
 
-const BLOCK_ORDER = ['S', 'M', 'C', 'N', 'W'];
+const BLOCK_ORDER = ['G', 'S', 'M', 'C', 'N', 'W'];
 const rank = (id) => {
   const [, block, number, rest] = id.match(/^([A-Z])(\d+)(.*)$/);
   return [BLOCK_ORDER.indexOf(block), Number(number), rest];
