@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { GROUPS, CATEGORIES, KIT_GROUPS, determineGroup } from './semantiek.mjs';
 import { buildScaleGroups } from './schaalgroepen.mjs';
-import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, trianglesPerUnit, visibleLaneCentres, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -150,6 +150,16 @@ function gradientSpread(gradient) {
     total += count;
   }
   return total === 0 ? null : spread / total;
+}
+
+const WOOD_LANES = ['0,0', '1,0', '2,0', '3,0'];
+
+// Per wood lane: where the faces a viewer sees sit down the band (guide W3), same unit as `laneSpread`.
+function visibleCentre(glb, dir) {
+  const centres = visibleLaneCentres(glb, dir, (path) => (existsSync(path) ? readAtlas(path) : null));
+  const wood = WOOD_LANES.filter((lane) => centres.has(lane));
+  if (!wood.length) return null;
+  return Object.fromEntries(wood.map((lane) => [lane, round(centres.get(lane), 2)]));
 }
 
 // Per lane: the UV range a model covers down the band, 0 = light top, 1 = dark bottom.
@@ -327,6 +337,7 @@ for (const slug of kitSlugs) {
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
       laneSpread: laneSpread(read.gradient),
+      visibleCentre: visibleCentre(glb, dir),
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
@@ -629,6 +640,7 @@ const output = {
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
     spread: m.laneSpread ?? undefined,
+    vis: m.visibleCentre ?? undefined,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,

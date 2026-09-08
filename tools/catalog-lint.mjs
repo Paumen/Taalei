@@ -137,6 +137,8 @@ const WOOD_LANES = ['wood light', 'wood middle', 'wood dark', 'bark'].map((n) =>
 const MIN_WOOD_SPREAD_L = 0.03;
 // W2 counts in UV position down the cell, the unit `spread` is stored in, not in L.
 const MAX_SPREAD = 0.9;
+// W3 reads `vis`, the visible-area-weighted centre per wood band, in the same UV unit.
+const VISIBLE_CENTRE = [0.4, 0.6];
 
 const LANE_NAME = Object.fromEntries(Object.entries(BANDS).map(([name, lane]) => [lane, name]));
 const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
@@ -361,6 +363,20 @@ const RULES = [
         if (hi - lo > MAX_SPREAD) wide.push(`${LANE_NAME[lane] ?? 'band'} ${lane} ${(hi - lo).toFixed(3)}`);
       }
       return wide.length ? wide.join(', ') : null;
+    } },
+
+  { id: 'W3', text: 'The visible-area-weighted centre of each wood band on a model sits between 0.40 and 0.60.',
+    severity: 'warning', noJoker: true,
+    check: (m) => {
+      if (!m.vis) return null;
+      const [low, high] = VISIBLE_CENTRE;
+      const off = [];
+      for (const lane of WOOD_LANES) {
+        const centre = m.vis[lane];
+        if (centre === undefined || (centre >= low - POSITION_STEP && centre <= high + POSITION_STEP)) continue;
+        off.push(`${LANE_NAME[lane]} ${lane} centre ${centre.toFixed(2)}`);
+      }
+      return off.length ? off.join(', ') : null;
     } },
 ];
 

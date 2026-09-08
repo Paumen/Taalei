@@ -115,6 +115,93 @@ function isStrictAngle(component) {
   return STRICT_ANGLES.some((a) => Math.abs(degrees - a) < STRICT_TOLERANCE);
 }
 
+// World matrix per node, from the scene roots. Nodes outside the scene stay null.
+export function worldMatrices(json) {
+  const nodes = json.nodes ?? [];
+  const scene = json.scenes?.[json.scene ?? 0];
+  const world = new Array(nodes.length).fill(null);
+  const setWorld = (index, parent) => {
+    if (world[index]) return;
+    const node = nodes[index];
+    if (!node) return;
+    world[index] = multiplyMatrix(parent, nodeMatrix(node));
+    for (const child of node.children ?? []) setWorld(child, world[index]);
+  };
+  for (const index of scene?.nodes ?? []) setWorld(index, IDENTITY_MATRIX);
+  return world;
+}
+
+// The catalogue's reference camera: the iso view of tools/renders/render.mjs (az 35, el 25).
+const VIEW = (() => {
+  const az = (35 * Math.PI) / 180;
+  const el = (25 * Math.PI) / 180;
+  return [Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)];
+})();
+
+// Per colormap cell (`column,row`), where the faces a viewer sees sit down the cell:
+// the mean UV position (0 = light top, 1 = dark bottom) of every triangle, weighted by
+// its area times its exposure to VIEW. A face turned away from the camera weighs
+// nothing, so the underside of a table does not count. The triangle's cell is read
+// at its UV centroid. Skins are measured in the rest pose. `atlasFor(path)` returns
+// the decoded texture, or null to skip that primitive.
+export function visibleLaneCentres(glb, dir, atlasFor, columns = 16, rows = 4) {
+  const { json } = glb;
+  const world = worldMatrices(json);
+  const sums = new Map();
+  (json.nodes ?? []).forEach((node, index) => {
+    if (node.mesh === undefined || !world[index]) return;
+    for (const prim of json.meshes[node.mesh].primitives ?? []) {
+      if ((prim.mode ?? 4) !== 4 || prim.attributes?.TEXCOORD_0 === undefined) continue;
+      const material = json.materials?.[prim.material];
+      const texIndex = material?.pbrMetallicRoughness?.baseColorTexture?.index;
+      if (texIndex === undefined) continue;
+      const source = json.images?.[json.textures?.[texIndex]?.source]?.uri;
+      if (!source) continue;
+      const atlas = atlasFor(`${dir}/${decodeURIComponent(source)}`);
+      if (!atlas) continue;
+      const cellWidth = atlas.width / columns;
+      const cellHeight = atlas.height / rows;
+
+      const position = readAccessor(glb, prim.attributes.POSITION);
+      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0);
+      const indices = prim.indices !== undefined ? readAccessor(glb, prim.indices) : null;
+      const count = indices ? indices.count : position.count;
+      const at = (i) => (indices ? indices.data[i] : i);
+      const point = (v) => multiplyPoint(world[index], position.data[v * 3], position.data[v * 3 + 1], position.data[v * 3 + 2]);
+
+      for (let i = 0; i + 2 < count; i += 3) {
+        const [va, vb, vc] = [at(i), at(i + 1), at(i + 2)];
+        const [a, b, c] = [point(va), point(vb), point(vc)];
+        const e1 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+        const e2 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+        const nx = e1[1] * e2[2] - e1[2] * e2[1];
+        const ny = e1[2] * e2[0] - e1[0] * e2[2];
+        const nz = e1[0] * e2[1] - e1[1] * e2[0];
+        const len = Math.sqrt(nx * nx + ny * ny + nz * nz);
+        if (!len) continue;
+        let facing = (nx * VIEW[0] + ny * VIEW[1] + nz * VIEW[2]) / len;
+        if (material.doubleSided) facing = Math.abs(facing);
+        const weight = Math.max(0, facing) * (len / 2);
+        if (!weight) continue;
+
+        const cu = (uv.data[va * 2] + uv.data[vb * 2] + uv.data[vc * 2]) / 3;
+        const cv = (uv.data[va * 2 + 1] + uv.data[vb * 2 + 1] + uv.data[vc * 2 + 1]) / 3;
+        const x = Math.min(Math.max(Math.floor(cu * atlas.width), 0), atlas.width - 1);
+        const y = Math.min(Math.max(Math.floor(cv * atlas.height), 0), atlas.height - 1);
+        const i4 = (y * atlas.width + x) * 4;
+        if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
+        const row = Math.floor(y / cellHeight);
+        const lane = `${Math.floor(x / cellWidth)},${row}`;
+        const sum = sums.get(lane) ?? { weight: 0, moment: 0 };
+        sum.weight += weight;
+        sum.moment += weight * ((y - row * cellHeight) / cellHeight);
+        sums.set(lane, sum);
+      }
+    }
+  });
+  return new Map([...sums].map(([lane, { weight, moment }]) => [lane, moment / weight]));
+}
+
 export function measureScene(glb) {
   const { json } = glb;
   const nodes = json.nodes ?? [];
