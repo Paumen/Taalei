@@ -79,7 +79,7 @@ const anyColour = (m) => isFlower(m) || isFauna(m);
 
 const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => has(m, 'copper');
-const isKey = (m) => /(^|-)key/.test(m.name);
+const isKey = (m) => has(m, 'key');
 
 const isContainer = (m) =>
   /(^|-)(barrel|chest|bucket|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
