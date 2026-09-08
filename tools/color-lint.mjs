@@ -29,8 +29,10 @@ const BANDS = {
 
 const CLEAR = '#ffffff';
 
+const ATLAS = readPng(join(ROOT, 'kits/colormap.png'));
+
 function readBands() {
-  const atlas = readPng(join(ROOT, 'kits/colormap.png'));
+  const atlas = ATLAS;
   const cellWidth = atlas.width / COLUMNS;
   const cellHeight = atlas.height / ROWS;
   const hexes = {};
@@ -69,18 +71,20 @@ const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
 const counting = (m) => materials(m).filter((t) => t !== 'special');
 
 const isRoof = (m) =>
-  (m.name.startsWith('roof') || m.name.includes('-roof')) && has(m, 'ceramic');
+  has(m, 'roofs') || ((m.name.startsWith('roof') || m.name.includes('-roof')) && has(m, 'ceramic'));
 
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
-
-const isOceanFauna = (m) => m.gr === 'ocean' && (m.tags?.includes('fauna') ?? false);
+const isFauna = (m) => has(m, 'fauna');
+const anyColour = (m) => isFlower(m) || isFauna(m);
 
 const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
 const isKey = (m) => /(^|-)key/.test(m.name);
 
 const isContainer = (m) =>
-  /(^|-)(barrel|chest|bucket|trunk|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
+  /(^|-)(barrel|chest|bucket|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
+const isLog = (m) => has(m, 'logs') || /(^|-)(log|trunk|stump)(s|-|$)/.test(m.name);
+const isBottle = (m) => /(^|-)bottle/.test(m.name);
 const isBook = (m) => /(^|-)(book|spellbook|journal)(-|$)/.test(m.name) && has(m, 'paper');
 
 const isRigged = (m) => /(^|-)(mast|ship|sail)(s|-|$)/.test(m.name) && has(m, 'textile');
@@ -89,7 +93,7 @@ const bandOnlyFor = ({ id, text, severity, color, tags, groups = [], accent = fa
   id, text, severity, band: band(color),
   check: (m) => {
     if (!uses(m, band(color))) return null;
-    if (isFlower(m)) return null;
+    if (anyColour(m)) return null;
     if (has(m, ...tags)) return null;
     if (groups.includes(m.gr)) return null;
     if (unless?.(m)) return null;
@@ -111,24 +115,68 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = 
 
 const jokerBand = new Map();
 
+const TAGS = JSON.parse(readFileSync(join(ROOT, 'catalog/tags.json'), 'utf8')).tags;
+const SPECIAL_REASONS = TAGS.find((t) => t.id === 'special')?.reasons ?? {};
+
+// OKLab lightness of the colormap down one lane: position 0 = light top, 1 = dark bottom.
+const toLinear = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
+function lightnessAt(lane, position) {
+  const [column, row] = lane.split(',').map(Number);
+  const cellWidth = ATLAS.width / COLUMNS;
+  const cellHeight = ATLAS.height / ROWS;
+  const x = Math.floor(column * cellWidth + cellWidth / 2);
+  const y = Math.min(Math.floor((row + position) * cellHeight), ATLAS.height - 1);
+  const i4 = (y * ATLAS.width + x) * 4;
+  const [r, g, b] = [ATLAS.pixels[i4], ATLAS.pixels[i4 + 1], ATLAS.pixels[i4 + 2]].map(toLinear);
+  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+  const q = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+  return 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * q;
+}
+const WOOD_LANES = ['wood light', 'wood middle', 'wood dark', 'bark'].map((n) => BANDS[n]);
+const MIN_WOOD_SPREAD_L = 0.03;
+
+const LANE_NAME = Object.fromEntries(Object.entries(BANDS).map(([name, lane]) => [lane, name]));
+const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
+
+const halfOf = ({ id, text, severity, lane, low, high, when }) => ({
+  id, text, severity,
+  check: (m) => {
+    if (!when(m)) return null;
+    const range = m.spread?.[BANDS[lane]];
+    if (!range) return null;
+    const [min, max] = range;
+    if (min >= low - POSITION_STEP && max <= high + POSITION_STEP) return null;
+    return `${lane} ${BANDS[lane]} spans ${min.toFixed(2)}-${max.toFixed(2)}, outside ${low.toFixed(2)}-${high.toFixed(2)}`;
+  },
+});
+
 const RULES = [
+
+  { id: 'S4', text: 'A special records which band it covers and why; one without a stated reason is a finding on the tag.',
+    severity: 'error', noJoker: true,
+    check: (m) => {
+      if (!has(m, 'special')) return null;
+      const reason = SPECIAL_REASONS[`${m.kit}/${m.name}`];
+      return reason?.trim() ? null : 'carries special but catalog/tags.json records no band and reason for it';
+    } },
 
   materialTakes({ id: 'M1', text: 'Trees are dark green.', severity: 'error',
     tag: 'tree', colors: ['dark green'],
-    when: (m) => m.gr === 'trees' && !m.name.includes('palm') }),
+    when: (m) => m.gr === 'trees' && !has(m, 'palms') }),
   materialTakes({ id: 'M2', text: 'Palm fronds are light green.', severity: 'error',
     tag: 'palms', colors: ['light green'] }),
   materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
     tag: 'grass', colors: ['light green'], when: (m) => m.gr === 'grass' }),
-  materialTakes({ id: 'M6', text: 'Timber is wood light 0,0, wood middle 1,0, wood dark 2,0 or bark 3,0.', severity: 'error',
-    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark', 'bark'] }),
-  materialTakes({ id: 'M7', text: 'Bark is bark 2,0.', severity: 'error',
-    tag: 'bark', colors: ['bark'] }),
+  materialTakes({ id: 'M4', text: 'Stems and leaves are light green.', severity: 'error',
+    tag: 'foliage', colors: ['light green'],
+    when: (m) => has(m, 'foliage') && m.gr !== 'trees' && m.gr !== 'grass' }),
+  materialTakes({ id: 'M6', text: 'Timber is any of the wood bands, not bark.', severity: 'error',
+    tag: 'timber', colors: ['wood light', 'wood middle', 'wood dark'] }),
   materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
     severity: 'error', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M9', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
     severity: 'error', tag: 'rock', colors: ['light grey', 'taupe'] }),
-
   materialTakes({ id: 'M10', text: 'Sand and dirt are taupe 14,3.', severity: 'error',
     tag: 'soil', colors: ['taupe'] }),
 
@@ -137,86 +185,96 @@ const RULES = [
     unless: (m) => isCopper(m) || isKey(m) }),
   materialTakes({ id: 'M13', text: 'Precious metal is gold 6,0 or silver 3,2.', severity: 'error',
     tag: 'precious-metal', colors: ['yellow', 'light blue-grey'],
-    unless: isCopper }),
+    unless: (m) => isCopper(m) || isKey(m) }),
   materialTakes({ id: 'M14', text: 'Copper is terracotta 5,0.', severity: 'error',
     tag: 'metal', colors: ['terracotta'], when: isCopper }),
   materialTakes({ id: 'M15', text: 'Keys take any metal or precious-metal colour.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
-
-  materialTakes({ id: 'M17', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, light grey 15,3.',
+  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
     severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'] }),
+    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'],
+    unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
 
-  materialTakes({ id: 'M20', text: 'Leather is bark 2,0.', severity: 'error',
+  halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
+    severity: 'warning', lane: 'taupe', low: 0.02, high: 0.40,
+    when: (m) => m.gr === 'tools' && has(m, 'textile') && uses(m, band('taupe')) }),
+  materialTakes({ id: 'M20', text: 'Leather is bark.', severity: 'error',
     tag: 'leather', colors: ['bark'] }),
-  materialTakes({ id: 'M22', text: 'Rope is taupe 14,3, never the light wood lane.', severity: 'error',
+  materialTakes({ id: 'M22', text: 'Rope is taupe 14,3.', severity: 'error',
     tag: 'rope', colors: ['taupe'] }),
   materialTakes({ id: 'M23', text: 'All cork is taupe 14,3.', severity: 'error',
     tag: 'cork', colors: ['taupe'] }),
-  materialTakes({ id: 'M24', text: 'Glass is its own material: transparent, dark green or dark red.',
+  materialTakes({ id: 'M24', text: 'Glass is transparent, dark green or dark red.',
     severity: 'error', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
   materialTakes({ id: 'M25', text: 'Ceramics are terracotta, off-white, taupe or dark red.',
     severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
-
+  { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
+    check: (m) => (isBottle(m) && !has(m, 'glass', 'ceramic'))
+      ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
+  materialTakes({ id: 'M27', text: 'The glass bottles exists in red and green.', severity: 'error',
+    tag: 'glass', colors: ['dark red', 'dark green'], when: (m) => isBottle(m) && has(m, 'glass') }),
   materialTakes({ id: 'M28', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
-
-  { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
-    check: (m) => (/(^|-)bottle/.test(m.name) && !has(m, 'glass', 'ceramic'))
-      ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
   materialTakes({ id: 'M29', text: 'Bones and skulls are off-white.', severity: 'error',
-    tag: 'bone', colors: ['off-white'] }),
+    tag: 'bone', colors: ['off-white'], when: (m) => has(m, 'bone', 'skull') }),
   materialTakes({ id: 'M30', text: 'Paper is off-white.', severity: 'error',
     tag: 'paper', colors: ['off-white'] }),
-
   materialTakes({ id: 'M31', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.', severity: 'error',
     tag: 'meat', colors: ['terracotta'] }),
-  materialTakes({ id: 'M32', text: 'Fauna are naturalistic: off-white, salmon, taupe. Fish may also be blue 4,2 or light blue-grey 3,2.',
-    severity: 'error', tag: 'fauna', colors: ['off-white', 'salmon', 'taupe', 'blue', 'light blue-grey'],
-    when: (m) => has(m, 'fauna') }),
-  materialTakes({ id: 'M33-M34', text: 'Flames and glow are yellow 6,0. Candle wax and lampshades are off-white 5,2.',
-    severity: 'error', tag: 'light', colors: ['yellow', 'off-white'],
-    when: (m) => has(m, 'light', 'wax') }),
-
+  halfOf({ id: 'M31-half', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.',
+    severity: 'warning', lane: 'terracotta', low: 0.55, high: 1.00,
+    when: (m) => has(m, 'meat') && uses(m, band('terracotta')) }),
+  materialTakes({ id: 'M33', text: 'Flames and glow are yellow 6,0.', severity: 'error',
+    tag: 'light', colors: ['yellow'] }),
+  materialTakes({ id: 'M34', text: 'Candle wax are off-white 5,2.', severity: 'error',
+    tag: 'wax', colors: ['off-white'] }),
   materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
-  materialTakes({ id: 'M37', text: 'Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
+  materialTakes({ id: 'M37', text: 'Book covers are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
     severity: 'error', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
     when: isBook }),
-  materialTakes({ id: 'M38', text: 'Roofs are ceramic, dark red.', severity: 'error',
-    tag: 'roof', colors: ['dark red'], when: isRoof }),
+  { id: 'M38', text: 'Roofs are ceramic, dark red.', severity: 'error',
+    check: (m) => {
+      if (!isRoof(m)) return null;
+      if (!has(m, 'ceramic')) return `is a roof but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}`;
+      if (!uses(m, band('dark red'))) return `is a roof but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — no dark red`;
+      return null;
+    } },
+  { id: 'M39', text: 'Chests, barrels, kegs, buckets, boxes and crates are mainly timber, often with metal accents.',
+    severity: 'error',
+    check: (m) => (isContainer(m) && !has(m, 'timber'))
+      ? `is a container but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
 
-  materialTakes({ id: 'M42-planks', text: 'Planks are wood light 0,0.', severity: 'error',
-    tag: 'planks', colors: ['wood light'], when: (m) => has(m, 'planks') && has(m, 'timber') }),
-  materialTakes({ id: 'M42-worked-planks', text: 'Worked planks are wood middle 1,0.', severity: 'error',
-    tag: 'worked-planks', colors: ['wood middle'], when: (m) => has(m, 'worked-planks') && has(m, 'timber') }),
-  materialTakes({ id: 'M42-beam', text: 'Beams are wood dark 2,0.', severity: 'error',
-    tag: 'beam', colors: ['wood dark'], when: (m) => has(m, 'beam') && has(m, 'timber') }),
+  materialTakes({ id: 'M42-planks', text: 'Band tags take their band: planks wood light 0,0.', severity: 'error',
+    tag: 'planks', when: (m) => has(m, 'planks') && has(m, 'timber'), colors: ['wood light'] }),
+  materialTakes({ id: 'M42-worked-planks', text: 'Band tags take their band: worked-planks wood middle 1,0.', severity: 'error',
+    tag: 'worked-planks', when: (m) => has(m, 'worked-planks') && has(m, 'timber'), colors: ['wood middle'] }),
+  materialTakes({ id: 'M42-beam', text: 'Band tags take their band: beam wood dark 2,0.', severity: 'error',
+    tag: 'beam', when: (m) => has(m, 'beam') && has(m, 'timber'), colors: ['wood dark'] }),
 
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
-    severity: 'error', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
+    severity: 'error', color: 'light grey', tags: ['metal', 'stone', 'rock'], unless: isKey }),
   bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
     severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'],
     unless: (m) => isBook(m) || isRigged(m) }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
-    severity: 'error', color: 'light blue-grey', tags: ['precious-metal'] }),
+    severity: 'error', color: 'light blue-grey', tags: ['precious-metal'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
   bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, light, fire and plastic (M41).',
-    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'wax', 'plastic'],
-    groups: ['coins-jewelry', 'lights'] }),
+    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'fire', 'plastic'],
+    groups: ['coins-jewelry', 'lights'], unless: isKey }),
   bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), minor accents.',
     severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'plastic'],
     accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, and minor accents.',
     severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
-
   bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, including grass and weed accents growing on objects and structures.',
     severity: 'error', color: 'light green', tags: ['flora'] }),
 
@@ -224,15 +282,15 @@ const RULES = [
     severity: 'error', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: timber only.',
     severity: 'error', color: 'wood middle', tags: ['timber'] }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only.',
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only (textile may take brown 2,0 per M18).',
     severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and the timber of a log or trunk.',
-    severity: 'error', color: 'bark', tags: ['bark', 'leather', 'timber'] }),
+  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and a log or trunk.',
+    severity: 'error', color: 'bark', tags: ['bark', 'leather'], unless: (m) => has(m, 'timber') && isLog(m) }),
 
-  { id: 'C11', text: 'Clear glass: glass only.', severity: 'error',
+  { id: 'C11', text: 'Transparent: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
-  { id: 'N1', text: 'A model has at least one material.', severity: 'error',
+  { id: 'N1', text: 'A model has at least one material.', severity: 'error', noJoker: true,
     check: (m) => {
       if (materials(m).length) return null;
       const stand_in = STANDS_IN_FOR_MATERIAL[m.gr];
@@ -240,7 +298,8 @@ const RULES = [
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
 
-  { id: 'N2', text: 'A model uses at least as many bands as it has materials, and timber counts for its band tags.', severity: 'error',
+  { id: 'N2', text: 'A model uses at least as many bands as it has materials. Timber counts once per band tag; timber with no band tag counts once.',
+    severity: 'error', noJoker: true,
     check: (m) => {
       const mats = counting(m);
       if (!mats.length) return null;
@@ -254,7 +313,7 @@ const RULES = [
     } },
 
   { id: 'N3', text: 'A model uses at most twice as many bands as materials; food and fauna may use three times.',
-    severity: 'error',
+    severity: 'error', noJoker: true,
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
@@ -263,17 +322,30 @@ const RULES = [
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
 
-  { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else.',
+  { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else. A skeleton takes the 5.',
     severity: 'error', noJoker: true,
     check: (m) => {
-      const bands = m.colors.filter((hex) => hex !== CLEAR).length;
+      const bands = m.colors.length;
       const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
     } },
+
+  { id: 'W1', text: 'Every wood gradient band spreads over at least 0.03 L.', severity: 'warning', noJoker: true,
+    check: (m) => {
+      if (!m.spread) return null;
+      const thin = [];
+      for (const lane of WOOD_LANES) {
+        const range = m.spread[lane];
+        if (!range) continue;
+        const spread = lightnessAt(lane, range[0]) - lightnessAt(lane, range[1]);
+        if (spread < MIN_WOOD_SPREAD_L) thin.push(`${LANE_NAME[lane]} ${lane} ${spread.toFixed(3)} L`);
+      }
+      return thin.length ? thin.join(', ') : null;
+    } },
 ];
 
-const BLOCK_ORDER = ['M', 'C', 'N'];
+const BLOCK_ORDER = ['S', 'M', 'C', 'N', 'W'];
 const rank = (id) => {
   const [, block, number, rest] = id.match(/^([A-Z])(\d+)(.*)$/);
   return [BLOCK_ORDER.indexOf(block), Number(number), rest];
@@ -311,17 +383,15 @@ const inCatalog = catalog.models
   .filter((m) => !SKIP_GROUPS.includes(m.gr))
   .filter((m) => !kitFilter || m.kit === kitFilter);
 
-const models = inCatalog.filter((m) => !isOceanFauna(m));
-
-const counted = inCatalog;
+const models = inCatalog;
 
 const unknown = new Set();
 for (const m of models) for (const hex of m.colors) if (!bandName[hex]) unknown.add(hex);
 
-for (const m of counted) {
+for (const m of models) {
   if (!m.tags?.includes('special')) continue;
   for (const rule of RULES) {
-    if (rule.id.startsWith('N')) break;
+    if (rule.noJoker) continue;
     if (!rule.check(m)) continue;
     if (rule.band) jokerBand.set(m, rule.band);
     break;
@@ -332,7 +402,7 @@ let findings = [];
 for (const rule of RULES) {
   if (ruleFilter && rule.id !== ruleFilter) continue;
   if (severityFilter && rule.severity !== severityFilter) continue;
-  for (const m of rule.noJoker ? counted : models) {
+  for (const m of models) {
     const detail = rule.check(m);
     if (detail) findings.push({ rule: rule.id, severity: rule.severity, model: `${m.kit}/${m.name}`, detail, joker: !rule.noJoker && (m.tags?.includes('special') ?? false) });
   }

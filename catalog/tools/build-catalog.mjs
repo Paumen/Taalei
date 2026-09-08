@@ -152,6 +152,12 @@ function gradientSpread(gradient) {
   return total === 0 ? null : spread / total;
 }
 
+// Per lane: the UV range a model covers down the band, 0 = light top, 1 = dark bottom.
+function laneSpread(gradient) {
+  if (gradient.size === 0) return null;
+  return Object.fromEntries([...gradient].map(([lane, { min, max }]) => [lane, [round(min, 3), round(max, 3)]]));
+}
+
 function laneColor(atlas, lane) {
   const [column, row] = lane.split(',').map(Number);
   const cellWidth = atlas.width / COLUMNS;
@@ -317,6 +323,7 @@ for (const slug of kitSlugs) {
       density: scene.density,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
+      laneSpread: laneSpread(read.gradient),
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),
@@ -617,6 +624,7 @@ const output = {
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
+    spread: m.laneSpread ?? undefined,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
