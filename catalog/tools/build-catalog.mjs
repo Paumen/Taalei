@@ -312,6 +312,9 @@ for (const slug of kitSlugs) {
       triangles: scene.triangles,
       trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
       materials: (gltf.materials ?? []).length,
+      // Bands, not colours: an untextured material such as the clear glass adds a
+      // colour to `colors` without being a band of its own.
+      bands: read.lanes.size,
       wdh: scene.wdh,
       calls: scene.calls,
       vertices: scene.vertices,
@@ -612,6 +615,7 @@ const output = {
     tris: m.triangles,
     tpu: m.trianglesPerUnit,
     mat: m.materials,
+    bands: m.bands,
     calls: m.calls,
     bytes: m.bytes,
     vtx: m.vertices,
