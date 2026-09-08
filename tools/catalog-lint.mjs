@@ -262,6 +262,9 @@ const RULES = [
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
 
+  materialTakes({ id: 'M43', text: 'Skin is salmon 13,0, taupe 14,3 or bark 3,0.', severity: 'error',
+    tag: 'skin', colors: ['salmon', 'taupe', 'bark'] }),
+
   materialTakes({ id: 'M42-planks', text: 'Band tags take their band: planks wood light 0,0.', severity: 'error',
     tag: 'planks', when: (m) => has(m, 'planks') && has(m, 'timber'), colors: ['wood light'] }),
   materialTakes({ id: 'M42-worked-planks', text: 'Band tags take their band: worked-planks wood middle 1,0.', severity: 'error',
@@ -295,8 +298,8 @@ const RULES = [
     severity: 'error', color: 'wood middle', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only (textile may take brown 2,0 per M18).',
     severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and a log or trunk.',
-    severity: 'error', color: 'bark', tags: ['bark', 'leather'], unless: (m) => has(m, 'timber') && isLog(m) }),
+  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather, skin, and a log or trunk.',
+    severity: 'error', color: 'bark', tags: ['bark', 'leather', 'skin'], unless: (m) => has(m, 'timber') && isLog(m) }),
 
   { id: 'C11', text: 'Transparent: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
