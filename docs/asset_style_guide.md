@@ -152,3 +152,4 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 ### W. 
 
 - **W1.** Every wood gradient band spreads over at least 0.03 L.
+- **W2.** No band spreads over more than 0.90 of its cell, light end to dark end.
