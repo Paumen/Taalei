@@ -62,7 +62,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'gemstone', 'foliage', 'liquid', 'light', 'special', 'plastic'];
+  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -238,7 +238,7 @@ const RULES = [
     severity: 'warning', lane: 'terracotta', low: 0.55, high: 1.00,
     when: (m) => has(m, 'meat') && uses(m, band('terracotta')) }),
   materialTakes({ id: 'M33', text: 'Flames and glow are yellow 6,0.', severity: 'error',
-    tag: 'light', colors: ['yellow'] }),
+    tag: 'emissive', colors: ['yellow'] }),
   materialTakes({ id: 'M34', text: 'Candle wax are off-white 5,2.', severity: 'error',
     tag: 'wax', colors: ['off-white'] }),
   materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
@@ -276,8 +276,8 @@ const RULES = [
     severity: 'error', color: 'light blue-grey', tags: ['precious-metal'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
-  bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, light, fire and plastic (M41).',
-    severity: 'error', color: 'yellow', tags: ['precious-metal', 'light', 'fire', 'plastic'],
+  bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, emissive, fire and plastic (M41).',
+    severity: 'error', color: 'yellow', tags: ['precious-metal', 'emissive', 'fire', 'plastic'],
     groups: ['coins-jewelry', 'lights'], unless: isKey }),
   bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), minor accents.',
     severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'plastic'],
