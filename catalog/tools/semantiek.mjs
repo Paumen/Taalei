@@ -122,6 +122,7 @@ const ASSEMBLIES = new Set([
   'dungeon/table-small-decorated-a', 'dungeon/table-small-decorated-b', 'dungeon/wall-shelves',
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
+  'pirate-quaternius/chest-gold',
   'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
   'resources/textiles-stack-large',
   'village-kit/well-plaza',
