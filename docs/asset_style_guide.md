@@ -64,8 +64,8 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
   model from **one** rule.
 - **S2.** The joker is spent once. A second band with no material behind it is a
   finding, whatever the first one was.
-- **S3.** It does not lift the N4 ceiling, and every other band still answers to
-  the M and C blocks. N2 and N3 do not count the joker as a material.
+- **S3.** Spent on N4 it lifts the ceiling by one; every other band still answers
+  to M and C. N2 and N3 do not count the joker as a material.
 - **S5.** N3 leaves the joker's band out of its count; N2 keeps it. That band is
   named by the first rule the joker is spent on; an M rule names none.
 - **S4.** Only the PO assigns the tag. A `special` records which band it covers
