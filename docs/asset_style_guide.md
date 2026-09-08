@@ -44,7 +44,7 @@ Scope: items in catalog.
 - Default on Y = 0; pivot at footprint centre in X/Z.
 - Deviate deliberately, for a functional reason.
 - Split nodes put their origin at the joint.
-- Objects with distinctive moving features draw in two or more calls — windmill blades, ship sails, a chest cap. All others in one.
+- Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
 
 ## 6. Reference Assets
 - Render and look at the reference assets before creating a new asset — reading them is not enough.
