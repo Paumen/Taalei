@@ -62,7 +62,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic'];
+  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic', 'copper', 'silver', 'vegetation', 'skin'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -78,7 +78,7 @@ const isFauna = (m) => has(m, 'fauna');
 const anyColour = (m) => isFlower(m) || isFauna(m);
 
 const isSkeleton = (m) => /skeleton/.test(m.name);
-const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
+const isCopper = (m) => has(m, 'copper');
 const isKey = (m) => /(^|-)key/.test(m.name);
 
 const isContainer = (m) =>
@@ -195,8 +195,10 @@ const RULES = [
   materialTakes({ id: 'M13', text: 'Precious metal is gold 6,0 or silver 3,2.', severity: 'error',
     tag: 'precious-metal', colors: ['yellow', 'light blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
+  materialTakes({ id: 'M13-silver', text: 'Precious metal is gold 6,0 or silver 3,2.', severity: 'error',
+    tag: 'silver', colors: ['light blue-grey'], unless: isKey }),
   materialTakes({ id: 'M14', text: 'Copper is terracotta 5,0.', severity: 'error',
-    tag: 'metal', colors: ['terracotta'], when: isCopper }),
+    tag: 'copper', colors: ['terracotta'] }),
   materialTakes({ id: 'M15', text: 'Keys take any metal or precious-metal colour.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
@@ -273,7 +275,7 @@ const RULES = [
     severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'],
     unless: (m) => isBook(m) || isRigged(m) }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
-    severity: 'error', color: 'light blue-grey', tags: ['precious-metal'], unless: isKey }),
+    severity: 'error', color: 'light blue-grey', tags: ['silver'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
   bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, emissive, fire and plastic (M41).',
