@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — Missing from the catalogue</title>
 <meta name="description" content="Everything the source packs under kits/sources hold that the catalogue doesn't: models never imported, and models that were taken out again. Shown straight from the source, to judge one by one.">
-<meta name="catalogus-versie" content="c6f5d466da">
-<link rel="stylesheet" href="catalog.css?v=c6f5d466da">
-<link rel="stylesheet" href="missing.css?v=c6f5d466da">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-versie" content="3fdf151512">
+<link rel="stylesheet" href="catalog.css?v=3fdf151512">
+<link rel="stylesheet" href="missing.css?v=3fdf151512"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
@@ -26,6 +25,9 @@
     <div class="knopgroep">
       <a class="licht-knop" id="naar-swipe" href="swipe.html?source=missing"
          title="Judge these models one at a time and note per direction why each was left out">Swipe these</a>
+
+      <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
+              title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
 
       <button class="licht-knop" id="licht" type="button" aria-pressed="false"
               title="Shows the models unlit: only the source colours, with the shading baked into them">Flat</button>
@@ -83,12 +85,19 @@
     <dl id="detail-gegevens"></dl>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
+      <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
       <a id="detail-download" download>Download .glb</a>
     </div>
   </div>
 </dialog>
 
+<div class="selectiebalk" id="selectiebalk" hidden>
+  <span class="selectiebalk-telling" id="selectiebalk-telling" aria-live="polite"></span>
+  <button type="button" id="selectie-alles">All in view</button>
+  <button type="button" id="selectie-kopieer" class="primair">Copy paths</button>
+  <button type="button" id="selectie-wis">Clear</button>
+</div>
+
 <script src="vendor/model-viewer.min.js" type="module"></script>
-<script src="missing.js?v=c6f5d466da" type="module"></script>
-</body>
+<script src="missing.js?v=3fdf151512" type="module"></script></body>
 </html>
