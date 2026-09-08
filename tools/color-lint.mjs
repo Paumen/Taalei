@@ -323,7 +323,7 @@ const RULES = [
     } },
 
   { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else. A skeleton takes the 5.',
-    severity: 'error', noJoker: true,
+    severity: 'error',
     check: (m) => {
       const bands = m.colors.length;
       const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 6 : 5;
