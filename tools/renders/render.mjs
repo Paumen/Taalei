@@ -731,10 +731,11 @@ function posedBounds(obj, keepCloud) {
   const box = new THREE.Box3(), v = new THREE.Vector3();
   const pts = [];
   let total = 0, any = false;
-  obj.traverse(o => { if (o.isMesh && o.visible) total += o.geometry.attributes.position.count; });
+  const shown = o => o.isMesh && o.visible && o.layers.isEnabled(0);
+  obj.traverse(o => { if (shown(o)) total += o.geometry.attributes.position.count; });
   const stride = Math.max(1, Math.ceil(total / MAX_CLOUD));
   obj.traverse(o => {
-    if (!o.isMesh || !o.visible) return;
+    if (!shown(o)) return;
     any = true;
     const pos = o.geometry.attributes.position, n = pos.count;
     for (let i = 0; i < n; i++) {
@@ -1253,14 +1254,15 @@ window.API = {
 
     let savedFrame = null;
     if (cfg.isolateIndex >= 0) {
-      let i = 0; S.model.traverse(o => { if (o.isMesh) { o.visible = (i === cfg.isolateIndex); i++; } });
+      // Layers, not visible: an invisible parent hides its subtree, and Kenney parts sit under a mesh node.
+      let i = 0; S.model.traverse(o => { if (o.isMesh) { o.layers.set(i === cfg.isolateIndex ? 0 : 1); i++; } });
       const ps = this.partState(cfg.isolateIndex);
       if (ps) {
         savedFrame = { box: S.box, center: S.center, radius: S.radius, cloud: S.cloud };
         S.box = ps.box; S.center = ps.center; S.radius = ps.radius; S.cloud = ps.cloud;
       }
     }
-    else S.model.traverse(o => { if (o.isMesh) o.visible = true; });
+    else S.model.traverse(o => { if (o.isMesh) o.layers.set(0); });
 
     const useOrtho = (cfg.viewOrtho === true || cfg.viewOrtho === false) ? cfg.viewOrtho : cfg.ortho;
     const aspect = W/H, r = S.radius;
