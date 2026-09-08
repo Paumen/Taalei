@@ -2132,7 +2132,7 @@
    "id": "bark",
    "name": "Bark",
    "type": "material",
-   "description": "Models where the outside of a trunk or branch dominates the look — bark: trees, branches, roots, stumps and rough trunks. Sawn or worked wood falls under timber; trunks and stumps with a cut face carry both tags. The pirate-quaternius sawmill carries it for the pole on its sawhorse: bark on the round shaft, the two cut-face tips left on wood light per M7. The stacked pile of loose logs beside it stayed timber — only the pole being sawn was recoloured."
+   "description": "Models where the outside of a trunk or branch dominates the look — bark: trees, branches, roots, stumps and rough trunks. Sawn or worked wood falls under timber; trunks and stumps with a cut face carry both tags. The pirate-quaternius sawmill carries it for every round shaft it holds — the pole on its sawhorse, the five logs stacked beside it and the two loose ones — with each cut face left on wood light per M7. The platformer kit's rope fence carries it the same way: bark on the two round posts, wood light on their cut tops."
   },
   {
    "id": "metal",
@@ -21459,7 +21459,7 @@
    "tpu": 222,
    "mat": 1,
    "calls": 1,
-   "bytes": 6756,
+   "bytes": 6904,
    "vtx": 152,
    "centered": true,
    "minEdge": 0.014,
@@ -21469,11 +21469,11 @@
    "vpt": 2,
    "grad": 0.65,
    "spread": {
-    "2,0": [
+    "0,0": [
      0.148,
      0.844
     ],
-    "0,0": [
+    "2,0": [
      0.25,
      0.742
     ]
@@ -30108,24 +30108,24 @@
    "tpu": 21481,
    "mat": 1,
    "calls": 1,
-   "bytes": 536592,
-   "vtx": 15339,
+   "bytes": 537772,
+   "vtx": 15371,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00041,
    "dens": 33510,
    "anglePct": 43,
-   "vpt": 2.08,
-   "grad": 0.72,
+   "vpt": 2.09,
+   "grad": 0.65,
    "spread": {
-    "0,0": [
-     0.031,
-     0.961
-    ],
     "15,3": [
      0.148,
      0.844
+    ],
+    "0,0": [
+     0.031,
+     0.5
     ],
     "6,0": [
      0.148,
@@ -30134,10 +30134,20 @@
     "5,2": [
      0.148,
      0.844
+    ],
+    "1,1": [
+     0.961,
+     0.961
+    ],
+    "14,3": [
+     0.961,
+     0.961
     ]
    },
    "colors": [
+    "#23562c",
     "#79757b",
+    "#8b7561",
     "#d0a37d",
     "#ebe4d0",
     "#ffb54b"
@@ -30147,6 +30157,8 @@
     "chest",
     "coins",
     "container",
+    "cork",
+    "glass",
     "gold",
     "metal",
     "object",
@@ -31161,8 +31173,8 @@
    "tpu": 1827,
    "mat": 1,
    "calls": 1,
-   "bytes": 44680,
-   "vtx": 1193,
+   "bytes": 44996,
+   "vtx": 1198,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -31170,15 +31182,15 @@
    "dens": 5538,
    "anglePct": 23,
    "vpt": 1.44,
-   "grad": 0.53,
+   "grad": 0.56,
    "spread": {
-    "0,0": [
-     0.25,
-     0.742
-    ],
     "2,0": [
      0.25,
      0.742
+    ],
+    "0,0": [
+     0.32,
+     0.672
     ],
     "3,0": [
      0.156,
@@ -31810,7 +31822,7 @@
    "tpu": 630,
    "mat": 1,
    "calls": 1,
-   "bytes": 15244,
+   "bytes": 15420,
    "vtx": 384,
    "grounded": true,
    "minEdge": 0.023,
@@ -31820,11 +31832,11 @@
    "vpt": 1.78,
    "grad": 0.45,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.094,
      0.898
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
@@ -31855,7 +31867,7 @@
    "tpu": 466,
    "mat": 1,
    "calls": 1,
-   "bytes": 11060,
+   "bytes": 11236,
    "vtx": 264,
    "grounded": true,
    "centered": true,
@@ -31866,11 +31878,11 @@
    "vpt": 1.65,
    "grad": 0.47,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.094,
      0.898
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
@@ -31901,7 +31913,7 @@
    "tpu": 268,
    "mat": 1,
    "calls": 1,
-   "bytes": 7284,
+   "bytes": 7460,
    "vtx": 168,
    "grounded": true,
    "centered": true,
@@ -31912,11 +31924,11 @@
    "vpt": 1.83,
    "grad": 0.57,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.094,
      0.898
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
@@ -31958,7 +31970,11 @@
    "vpt": 1.82,
    "grad": 0.79,
    "spread": {
-    "2,0": [
+    "0,0": [
+     0.094,
+     0.898
+    ],
+    "3,0": [
      0.094,
      0.898
     ],
@@ -31968,10 +31984,12 @@
     ]
    },
    "colors": [
-    "#8b5d44",
-    "#8b7561"
+    "#5f4333",
+    "#8b7561",
+    "#d0a37d"
    ],
    "tags": [
+    "bark",
     "fences",
     "ken",
     "logs",
@@ -31993,7 +32011,7 @@
    "tpu": 140,
    "mat": 1,
    "calls": 1,
-   "bytes": 4844,
+   "bytes": 5020,
    "vtx": 96,
    "grounded": true,
    "minEdge": 0.026,
@@ -32003,11 +32021,11 @@
    "vpt": 2,
    "grad": 0.6,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.094,
      0.898
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
