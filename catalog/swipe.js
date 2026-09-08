@@ -252,7 +252,7 @@ function makeCard(model, depth) {
   meta.textContent = [
     dimensions(model.wdh),
     `${number.format(model.tris)} triangles`,
-    `${number.format(model.mat)} material${model.mat === 1 ? '' : 's'}`,
+    `${number.format(model.mat)} glTF material${model.mat === 1 ? '' : 's'}`,
     readableBytes(model.bytes),
   ].join(' · ');
   const path = document.createElement('p');

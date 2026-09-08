@@ -62,7 +62,7 @@ const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flor
 
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
-  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic'];
+  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic', 'copper', 'silver', 'vegetation', 'skin'];
 
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
@@ -78,7 +78,7 @@ const isFauna = (m) => has(m, 'fauna');
 const anyColour = (m) => isFlower(m) || isFauna(m);
 
 const isSkeleton = (m) => /skeleton/.test(m.name);
-const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
+const isCopper = (m) => has(m, 'copper');
 const isKey = (m) => /(^|-)key/.test(m.name);
 
 const isContainer = (m) =>
@@ -195,8 +195,10 @@ const RULES = [
   materialTakes({ id: 'M13', text: 'Precious metal is gold 6,0 or silver 3,2.', severity: 'error',
     tag: 'precious-metal', colors: ['yellow', 'light blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
+  materialTakes({ id: 'M13-silver', text: 'Precious metal is gold 6,0 or silver 3,2.', severity: 'error',
+    tag: 'silver', colors: ['light blue-grey'], unless: isKey }),
   materialTakes({ id: 'M14', text: 'Copper is terracotta 5,0.', severity: 'error',
-    tag: 'metal', colors: ['terracotta'], when: isCopper }),
+    tag: 'copper', colors: ['terracotta'] }),
   materialTakes({ id: 'M15', text: 'Keys take any metal or precious-metal colour.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
@@ -260,6 +262,12 @@ const RULES = [
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
 
+  materialTakes({ id: 'M43', text: 'Skin is salmon 13,0, taupe 14,3 or bark 3,0.', severity: 'error',
+    tag: 'skin', colors: ['salmon', 'taupe', 'bark'] }),
+
+  materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.', severity: 'error',
+    tag: 'vegetation', colors: ['taupe', 'off-white', 'terracotta', 'dark red', 'salmon', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
+
   materialTakes({ id: 'M42-planks', text: 'Band tags take their band: planks wood light 0,0.', severity: 'error',
     tag: 'planks', when: (m) => has(m, 'planks') && has(m, 'timber'), colors: ['wood light'] }),
   materialTakes({ id: 'M42-worked-planks', text: 'Band tags take their band: worked-planks wood middle 1,0.', severity: 'error',
@@ -273,7 +281,7 @@ const RULES = [
     severity: 'error', color: 'blue-grey', tags: ['metal', 'stone', 'wax'],
     unless: (m) => isBook(m) || isRigged(m) }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
-    severity: 'error', color: 'light blue-grey', tags: ['precious-metal'], unless: isKey }),
+    severity: 'error', color: 'light blue-grey', tags: ['silver'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
   bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, emissive, fire and plastic (M41).',
@@ -293,8 +301,8 @@ const RULES = [
     severity: 'error', color: 'wood middle', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: timber only (textile may take brown 2,0 per M18).',
     severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and a log or trunk.',
-    severity: 'error', color: 'bark', tags: ['bark', 'leather'], unless: (m) => has(m, 'timber') && isLog(m) }),
+  bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather, skin, and a log or trunk.',
+    severity: 'error', color: 'bark', tags: ['bark', 'leather', 'skin'], unless: (m) => has(m, 'timber') && isLog(m) }),
 
   { id: 'C11', text: 'Transparent: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
@@ -321,12 +329,12 @@ const RULES = [
       return `${m.colors.length} band(s) for ${owed} (${why})`;
     } },
 
-  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food and fauna may use three times.',
+  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.',
     severity: 'error', noJoker: true,
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
-      const per = has(m, 'food', 'fauna') ? 3 : 2;
+      const per = has(m, 'food', 'fauna', 'vegetation') ? 3 : 2;
       if (!n || used <= per * n) return null;
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
