@@ -433,6 +433,12 @@ const SORTINGS = {
   grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
   meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
   minstOpRaster: (a, b) => num(a.anglePct) - num(b.anglePct),
+  breedsteVerloop: (a, b) => num(b.grad) - num(a.grad),
+  smalsteVerloop: (a, b) => num(a.grad) - num(b.grad),
+  meesteBanden: (a, b) => num(b.bands) - num(a.bands),
+  minsteBanden: (a, b) => num(a.bands) - num(b.bands),
+  meesteMats: (a, b) => num(b.mat) - num(a.mat),
+  minsteMats: (a, b) => num(a.mat) - num(b.mat),
   nietRasterEerst: (a, b) => bool(a.gridMod) - bool(b.gridMod),
   nietGeaardEerst: (a, b) => bool(a.grounded) - bool(b.grounded),
   nietGecentreerdEerst: (a, b) => bool(a.centered) - bool(b.centered),
@@ -658,9 +664,7 @@ function showDetail(model) {
     {
       kop: 'Bands',
       vol: 'Colour bands the model uses — the clear glass is a material, not a band',
-      waarde: model.colors === undefined
-        ? '—'
-        : number.format(model.colors.filter((hex) => hex !== '#ffffff').length),
+      waarde: model.bands === undefined ? '—' : number.format(model.bands),
     },
     {
       kop: 'Colours',
