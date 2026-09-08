@@ -608,7 +608,7 @@ const output = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
-  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description })),
+  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description, ...(t.po ? { po: true } : {}) })),
   groups: catalog.groups.map((g) => ({ id: g.id, name: g.name, color: g.color })),
   models: models.map((m) => ({
     kit: m.kit,

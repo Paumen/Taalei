@@ -146,7 +146,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **N1.** A model has at least one material.
 - **N2.** A model uses at least as many bands as it has materials. Timber counts
   once per band tag; timber with no band tag counts once.
-- **N3.** A model uses at most twice as many bands as materials; food and fauna may use three times.
+- **N3.** A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.
 - **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
   skeleton takes the 5. An assembly is not a model; each part answers on its own.
 

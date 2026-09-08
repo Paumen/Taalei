@@ -326,12 +326,12 @@ const RULES = [
       return `${m.colors.length} band(s) for ${owed} (${why})`;
     } },
 
-  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food and fauna may use three times.',
+  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.',
     severity: 'error', noJoker: true,
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
-      const per = has(m, 'food', 'fauna') ? 3 : 2;
+      const per = has(m, 'food', 'fauna', 'vegetation') ? 3 : 2;
       if (!n || used <= per * n) return null;
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
