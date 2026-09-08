@@ -137,8 +137,8 @@
    "kit": "survival-kit",
    "format": "glb",
    "inSource": 80,
-   "inCatalog": 38,
-   "missing": 43,
+   "inCatalog": 37,
+   "missing": 44,
    "unmatched": 1,
    "scale": 1.04,
    "folder": "Models/GLB format"
@@ -150,8 +150,8 @@
    "format": "glb",
    "inSource": 72,
    "inCatalog": 42,
-   "missing": 31,
-   "unmatched": 1,
+   "missing": 38,
+   "unmatched": 8,
    "scale": 0.253906,
    "folder": "Models/GLB format"
   },
@@ -261,8 +261,8 @@
    "kit": "dungeon",
    "format": "gltf",
    "inSource": 211,
-   "inCatalog": 140,
-   "missing": 71,
+   "inCatalog": 138,
+   "missing": 73,
    "unmatched": 0,
    "scale": 0.175,
    "folder": "kk dungeon/KayKit_Dungeon_Pack_1.1_FREE/KayKit_Dungeon_Pack_1.1_FREE/Assets/gltf"
@@ -310,8 +310,8 @@
    "format": "obj",
    "inSource": 70,
    "inCatalog": 20,
-   "missing": 51,
-   "unmatched": 1,
+   "missing": 53,
+   "unmatched": 3,
    "scale": 0.277353,
    "folder": "KayKit_HalloweenBits_1.0_FREE/Assets/obj"
   },
@@ -343,10 +343,10 @@
    "kit": "adventurers",
    "format": "gltf",
    "inSource": 31,
-   "inCatalog": 37,
-   "missing": 0,
+   "inCatalog": 31,
+   "missing": 6,
    "unmatched": 6,
-   "scale": 0.175,
+   "scale": 0.2625,
    "folder": "KayKit_Adventurers_2.0_FREE/Assets/gltf"
   },
   {
@@ -358,7 +358,7 @@
    "inCatalog": 17,
    "missing": 0,
    "unmatched": 4,
-   "scale": 0.175,
+   "scale": 0.2625,
    "folder": "KayKit_Skeletons_1.1_FREE/assets/gltf"
   },
   {
@@ -379,9 +379,9 @@
    "kit": "quaternius-nature",
    "format": "obj",
    "inSource": 150,
-   "inCatalog": 34,
+   "inCatalog": 39,
    "missing": 116,
-   "unmatched": 0,
+   "unmatched": 5,
    "scale": 0.4,
    "folder": ""
   },
@@ -404,8 +404,8 @@
    "format": "obj",
    "inSource": 155,
    "inCatalog": 141,
-   "missing": 19,
-   "unmatched": 5,
+   "missing": 21,
+   "unmatched": 7,
    "scale": 0.48,
    "folder": "Modular Village"
   },
@@ -427,8 +427,8 @@
    "kit": "props",
    "format": "fbx",
    "inSource": 48,
-   "inCatalog": 25,
-   "missing": 27,
+   "inCatalog": 22,
+   "missing": 30,
    "unmatched": 4,
    "scale": 0.6,
    "folder": "propslite/PropsLite_FBX"
@@ -562,6 +562,11 @@
    "id": "resources",
    "name": "Resources & supplies",
    "color": "#4f7d8c"
+  },
+  {
+   "id": "timber",
+   "name": "Timber resources",
+   "color": "#714c39"
   },
   {
    "id": "ground",
@@ -755,6 +760,22 @@
    "bytes": 6864,
    "scaled": true,
    "file": "campfire-fishing-stand.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
+   "name": "campfire-pit",
+   "gr": "cooking",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 305,
+   "tpu": 889,
+   "mat": 2,
+   "bytes": 18656,
+   "scaled": true,
+   "file": "campfire-pit.glb"
   },
   {
    "kit": "kenney_survival-kit",
@@ -1649,6 +1670,118 @@
    "bytes": 14176,
    "scaled": true,
    "file": "palm-straight.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-ghost",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    2.7
+   ],
+   "tris": 1703,
+   "tpu": 205,
+   "mat": 6,
+   "bytes": 82020,
+   "scaled": true,
+   "file": "ship-ghost.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-large",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    3.3
+   ],
+   "tris": 1849,
+   "tpu": 180,
+   "mat": 6,
+   "bytes": 90232,
+   "scaled": true,
+   "file": "ship-large.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-medium",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    2.7
+   ],
+   "tris": 1723,
+   "tpu": 208,
+   "mat": 6,
+   "bytes": 83396,
+   "scaled": true,
+   "file": "ship-medium.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-pirate-large",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    3.3
+   ],
+   "tris": 1938,
+   "tpu": 189,
+   "mat": 6,
+   "bytes": 94072,
+   "scaled": true,
+   "file": "ship-pirate-large.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-pirate-small",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    2.2
+   ],
+   "tris": 1461,
+   "tpu": 212,
+   "mat": 4,
+   "bytes": 70332,
+   "scaled": true,
+   "file": "ship-pirate-small.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-small",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    2.2
+   ],
+   "tris": 1370,
+   "tpu": 199,
+   "mat": 4,
+   "bytes": 66608,
+   "scaled": true,
+   "file": "ship-small.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "ship-wreck",
+   "gr": "transport",
+   "wdh": [
+    1.2,
+    2.5,
+    2.7
+   ],
+   "tris": 2282,
+   "tpu": 275,
+   "mat": 16,
+   "bytes": 116976,
+   "scaled": true,
+   "file": "ship-wreck.glb"
   },
   {
    "kit": "kenney_pirate-kit",
@@ -13229,6 +13362,22 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "box_small",
+   "gr": "storage",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bytes": 12676,
+   "scaled": true,
+   "file": "box_small.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
    "name": "floor_tile_big_grate",
    "gr": "building-kit",
    "wdh": [
@@ -13274,6 +13423,22 @@
    "bytes": 11012,
    "scaled": true,
    "file": "floor_tile_grate.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "floor_tile_large",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.1,
+    0.7
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bytes": 11256,
+   "scaled": true,
+   "file": "floor_tile_large.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -15306,6 +15471,38 @@
    "bytes": 13720,
    "scaled": true,
    "file": "gravestone.obj"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "lantern_hanging",
+   "gr": "lights",
+   "wdh": [
+    0.2,
+    0.4,
+    0.2
+   ],
+   "tris": 472,
+   "tpu": 1376,
+   "mat": 1,
+   "bytes": 20884,
+   "scaled": true,
+   "file": "lantern_hanging.obj"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "lantern_standing",
+   "gr": "lights",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 264,
+   "tpu": 770,
+   "mat": 1,
+   "bytes": 13812,
+   "scaled": true,
+   "file": "lantern_standing.obj"
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
@@ -18567,6 +18764,102 @@
    "file": "table_small.gltf"
   },
   {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "mug_full",
+   "gr": "cooking",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 426,
+   "tpu": 1242,
+   "mat": 1,
+   "bytes": 17164,
+   "scaled": true,
+   "file": "mug_full.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "shield_round_color",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 284,
+   "tpu": 828,
+   "mat": 1,
+   "bytes": 13156,
+   "scaled": true,
+   "file": "shield_round_color.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "shield_spikes_color",
+   "gr": "tools",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 420,
+   "tpu": 1224,
+   "mat": 1,
+   "bytes": 22872,
+   "scaled": true,
+   "file": "shield_spikes_color.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "shield_square",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 262,
+   "tpu": 764,
+   "mat": 1,
+   "bytes": 12120,
+   "scaled": true,
+   "file": "shield_square.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "shield_square_color",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 262,
+   "tpu": 764,
+   "mat": 1,
+   "bytes": 12132,
+   "scaled": true,
+   "file": "shield_square_color.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "smokebomb",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 310,
+   "tpu": 904,
+   "mat": 1,
+   "bytes": 12844,
+   "scaled": true,
+   "file": "smokebomb.gltf"
+  },
+  {
    "kit": "FantasyProps_glTF_1k",
    "name": "Anvil",
    "gr": "tools",
@@ -21721,7 +22014,7 @@
   {
    "kit": "nature_kit",
    "name": "Timber_Cut_2",
-   "gr": "resources",
+   "gr": "timber",
    "wdh": [
     0.3,
     0.1,
@@ -22056,6 +22349,22 @@
   },
   {
    "kit": "Modular Village",
+   "name": "Prop_Lamp_Street",
+   "gr": "other",
+   "wdh": [
+    0.5,
+    0.6,
+    0.1
+   ],
+   "tris": 462,
+   "tpu": 1347,
+   "mat": 5,
+   "bytes": 24572,
+   "scaled": true,
+   "file": "Prop_Lamp_Street.obj"
+  },
+  {
+   "kit": "Modular Village",
    "name": "Prop_Well_1",
    "gr": "other",
    "wdh": [
@@ -22261,6 +22570,22 @@
    "bytes": 22112,
    "scaled": true,
    "file": "Wall_Prop_Door_Ornate.obj"
+  },
+  {
+   "kit": "Modular Village",
+   "name": "Wall_Prop_Lamp",
+   "gr": "structures",
+   "wdh": [
+    0.4,
+    0.3,
+    0.1
+   ],
+   "tris": 438,
+   "tpu": 1277,
+   "mat": 5,
+   "bytes": 23256,
+   "scaled": true,
+   "file": "Wall_Prop_Lamp.obj"
   },
   {
    "kit": "Modular Village",
@@ -25802,6 +26127,54 @@
    "bytes": 8512,
    "scaled": true,
    "file": "Food_06.fbx"
+  },
+  {
+   "kit": "PropsLite_FBX",
+   "name": "Furniture_01",
+   "gr": "other",
+   "wdh": [
+    110,
+    47.9,
+    46.8
+   ],
+   "tris": 132,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 10592,
+   "scaled": true,
+   "file": "Furniture_01.fbx"
+  },
+  {
+   "kit": "PropsLite_FBX",
+   "name": "Furniture_03",
+   "gr": "other",
+   "wdh": [
+    30.6,
+    25.9,
+    24.4
+   ],
+   "tris": 268,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 18868,
+   "scaled": true,
+   "file": "Furniture_03.fbx"
+  },
+  {
+   "kit": "PropsLite_FBX",
+   "name": "Jug_04",
+   "gr": "storage",
+   "wdh": [
+    19,
+    13.1,
+    17.7
+   ],
+   "tris": 204,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 17036,
+   "scaled": true,
+   "file": "Jug_04.fbx"
   },
   {
    "kit": "PropsLite_FBX",
