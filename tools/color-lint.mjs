@@ -1,42 +1,5 @@
-// Checks the catalogue against the material and colour rules of Appendix A in
-// docs/asset_style_guide.md: does every model take the colour bands its materials
-// are allowed, and does every band it uses belong to a material it carries.
-//
-//   node tools/color-lint.mjs [--kit dungeon] [--rule C10] [--severity error]
-//                             [--limit 8] [--rules] [--json path.json]
-//
-// Reads catalog/catalog.json — `colors` there is already resolved from the UVs
-// against kits/colormap.png by build-catalog.mjs, and `tags` are the manually set
-// material tags from catalog/tags.json. Those tags are exhaustive: every material
-// present in a model carries its tag, so a band without its material is a finding
-// and not a gap in the tagging.
-//
-// Two things Appendix A states that this tool cannot see. The lane and gradient
-// rules (the W block) live in the UVs of the individual triangles and in the
-// source model, not in the catalogue, and no tool measures them. The one part of
-// them that is a catalogue fact, W1's tag-to-band mapping, is rule M42 and is
-// checked here. And the rules
-// that ask what an object looks like (M1, M12, M15, M16, M18, M28, M29 and W1) are
-// a judgement, not a measurement. Rules M34 and M37 and the first half of M27 name
-// a part of a model — a buckle, a book cover, the band round a barrel — and the
-// catalogue records a model's bands, not which triangle carries which; what is
-// checkable of them is checked (a container's metal has to be light grey, a book has
-// to hold one of the cover bands), the rest is a judgement too.
-//
-// SEVERITY is the table below and nothing else: `error` fails the run, `warn`
-// only prints. It is a ratchet, and every rule is now on the error side of it, so the
-// catalogue cannot drift back across a line it has already been brought over. That is a
-// stricter reading than Appendix A's own wording — the appendix says "only" through the
-// C block but "usually" for much of the M block, and a rule that says "usually" and
-// fails the run is the tool holding a line the prose leaves open. N3 was the last that
-// only printed, and it is an error now with its three findings still open rather than
-// once they are cleared: dropping a rule back to `warn` because a model trips it is the
-// one move this ratchet forbids — the model is what has to change.
-//
-// The run therefore fails today, on `rpgtools/torch-burnt` alone: its char sits on a
-// band C2 does not give it and leaves N2 a band short. That is an accepted finding —
-// appendix X1 says what it is and why it stands — and not a licence to soften either
-// rule; the model is what has to change, once the PO says how.
+
+
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng } from '../catalog/tools/png.mjs';
@@ -45,8 +8,6 @@ const COLUMNS = 16;
 const ROWS = 4;
 const ROOT = new URL('..', import.meta.url).pathname;
 
-// The band ids of Appendix A, column,row in kits/colormap.png. The hexes are read
-// from the image at startup, so a change to the colormap moves the rules with it.
 const BANDS = {
   'light grey': '15,3',
   'blue-grey': '6,1',
@@ -66,7 +27,6 @@ const BANDS = {
   bark: '3,0',
 };
 
-// Rule M17: the one transparent glass colour is a material of its own, not a band.
 const CLEAR = '#ffffff';
 
 function readBands() {
@@ -91,10 +51,6 @@ bandName[CLEAR] = 'clear glass';
 const band = (name) => HEX[name];
 const bands = (...names) => names.map(band);
 
-// The accent approximation. Rules C10, C9, C7 and C8 allow a band as a very minor
-// detail; the catalogue records that a band is used, not how much of the model it
-// covers. Stand-in: small models that mix at least two bands, and busy models of
-// any size. Both are shapes where one band is unlikely to be a whole surface.
 const MAX_ACCENT_SIZE = 0.5;
 const BUSY = 4;
 const looksLikeAccent = (m) =>
@@ -102,14 +58,6 @@ const looksLikeAccent = (m) =>
 
 const STANDS_IN_FOR_MATERIAL = { flowers: 'flora', grass: 'flora', plants: 'flora', ground: 'flora', ocean: 'fauna' };
 
-// Every tag of type `material` in tags.json. `foliage` is one of them: the greenery
-// itself is a material the way timber is, and the green it takes is a band of its own
-// — a palm counts its trunk and its fronds, not one lane against three bands.
-// `flora` is not: it covers the bare trunks and stumps too, which have no colour of
-// their own, so counting it would read a single-band grass patch as short a band.
-// `light` is one too, for the same reason: rule M24 gives the flame and the glow a
-// colour of their own, so a lit candle counts its flame beside its wax rather than
-// spending a second band on one material.
 const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soil', 'textile',
   'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork', 'precious-metal',
   'gemstone', 'foliage', 'liquid', 'light', 'special', 'plastic'];
@@ -117,65 +65,26 @@ const MATERIAL_TAGS = ['timber', 'bark', 'metal', 'paper', 'stone', 'rock', 'soi
 const has = (m, ...tags) => tags.some((t) => m.tags?.includes(t));
 const uses = (m, ...hexes) => hexes.some((h) => m.colors?.includes(h));
 const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
-// What the N block counts a band against. `special` is a material tag so that rule
-// N1 is satisfied by it alone, but it is a joker and not a substance, so rule M gives
-// it no colour and it can never take a band. Counting it made every `special` model
-// owe one band more than it is made of: the cheese, one band of yellow for one
-// material, read as short a band for a joker that has no colour to spend.
+
 const counting = (m) => materials(m).filter((t) => t !== 'special');
-// A roof in the sense of rule M19 is a tiled roof, and those carry the ceramic tag.
-// The name alone is not enough: the ridge and rake trim and the thatched
-// structure-roof are timber pieces that happen to have "roof" in the name.
+
 const isRoof = (m) =>
   (m.name.startsWith('roof') || m.name.includes('-roof')) && has(m, 'ceramic');
 
-// Rule M1 stands on its own: a flower may be any colour, so no rule in the C block
-// reaches one. The flowers group is not the whole set — the cactus flowers are filed
-// under plants with the cactus they sit on — so the name counts as well.
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
 
-// Ocean fauna are not linted at all (PO decision). They carry no material — `fauna`
-// is not a material tag and Appendix A gives the group none — so the C block reads
-// every band on a fish as a band whose material is missing, and M26 cannot stand in
-// for it: it passes on `uses(...allowed)`, which asks for at least one fauna colour
-// and not that every band is one. Rather than a half-guard, they are out.
-// The fauna tag is the condition, not the group alone — an anchor or a net filed
-// under ocean is an object and stays in, N1 included.
 const isOceanFauna = (m) => m.gr === 'ocean' && (m.tags?.includes('fauna') ?? false);
 
-// Two metals Appendix A gives their own rule, so rule M9-M10 does not reach them.
-// Both are read off the name: copper and the keys carry the plain `metal` tag, and
-// nothing in the catalogue records that a bar is copper or a shape is a key.
-// `keyring` is in: a ring of keys is keys.
-// Rule N4's higher ceiling is for the human characters. A skeleton is filed with
-// them but is made of bone, so it takes the 5 like everything else.
 const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => /(^|-)copper(-|$)/.test(m.name);
 const isKey = (m) => /(^|-)key/.test(m.name);
 
-// Rule M27's containers and rule M37's books, both read off the name: nothing in the
-// catalogue records that a model is a barrel or that it has a cover. `book` catches the
-// spellbook and the journal; a scroll, a map and loose parchment have no cover and stay
-// out, and so does the shelf of books, which is furniture.
 const isContainer = (m) =>
   /(^|-)(barrel|chest|bucket|trunk|keg|crate|box|boxes|crates)(s|-|$)/.test(m.name);
 const isBook = (m) => /(^|-)(book|spellbook|journal)(-|$)/.test(m.name) && has(m, 'paper');
 
-// Rule M18's pirate rig: a flag or a sail may fly the blue-grey, which is the
-// black this palette has. The catalogue records which bands a model uses and not
-// which triangle carries which, so the escape lets the whole model off C2 — on the
-// five that use the band today every blue-grey triangle really is a flag or a sail,
-// the bow jib inside the hull mesh of the pirate ships included, so here it is exact
-// and not the approximation rules M17 and M37 have to make do with. Read off the
-// name and the textile tag: nothing in the catalogue says "flag", and a rig with no
-// cloth on it is a bare mast that has nothing to excuse.
 const isRigged = (m) => /(^|-)(mast|ship|sail)(s|-|$)/.test(m.name) && has(m, 'textile');
 
-// A band is only used for the materials listed. Fires when the model uses the band
-// and carries none of them. `groups` names semantic groups the band is equally for,
-// where what a model is says more than what it is made of; `accent` exempts the
-// models the approximation above reads as a detail; `unless` is an extra escape a
-// rule spells out itself.
 const bandOnlyFor = ({ id, text, severity, color, tags, groups = [], accent = false, unless = null }) => ({
   id, text, severity, band: band(color),
   check: (m) => {
@@ -189,8 +98,6 @@ const bandOnlyFor = ({ id, text, severity, color, tags, groups = [], accent = fa
   },
 });
 
-// A material takes one of these bands. Fires when the model carries the material
-// and uses none of them — the model has to get that material's colour somewhere.
 const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = null }) => ({
   id, text, severity,
   check: (m) => {
@@ -202,12 +109,10 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = 
   },
 });
 
-// Rules S1-S3: which band the joker paid for, per model. Filled in below, once the
-// rules are in the appendix's own order — see the pre-pass there.
 const jokerBand = new Map();
 
 const RULES = [
-  // Material -> colour, the M block, in the order of the appendix.
+
   materialTakes({ id: 'M1', text: 'Trees are dark green.', severity: 'error',
     tag: 'tree', colors: ['dark green'],
     when: (m) => m.gr === 'trees' && !m.name.includes('palm') }),
@@ -223,12 +128,10 @@ const RULES = [
     severity: 'error', tag: 'stone', colors: ['taupe', 'blue-grey', 'light grey'] }),
   materialTakes({ id: 'M9', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
     severity: 'error', tag: 'rock', colors: ['light grey', 'taupe'] }),
-  // Sand and dirt, not everything on the ground: the soil tag carries the rule, so a
-  // grass patch (flora on the ground) and the laid and raw stone stay out of it.
+
   materialTakes({ id: 'M10', text: 'Sand and dirt are taupe 14,3.', severity: 'error',
     tag: 'soil', colors: ['taupe'] }),
-  // Copper (rule M14) and keys (rule M15) are metal too, but the appendix gives each
-  // its own colours; they are checked by those rules below instead.
+
   materialTakes({ id: 'M11-M12', text: 'Metal is light grey 15,3. Steel and cast iron may be blue-grey 6,1.',
     severity: 'error', tag: 'metal', colors: ['light grey', 'blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
@@ -240,17 +143,14 @@ const RULES = [
   materialTakes({ id: 'M15', text: 'Keys take any metal or precious-metal colour.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
-  // Rule M17, the half that is a measurement: a container carrying metal has to take
-  // light grey for it. That the bands are metal at all — and not timber or taupe — is
-  // about a part of the model the catalogue cannot see.
+
   materialTakes({ id: 'M17', text: 'The bands on barrels, chests, buckets, trunks, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal') }),
   materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0.',
     severity: 'error', tag: 'textile',
     colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'] }),
-  // Rule M20 is the colour half of the leather exception: leather takes the bark
-  // lane, with or without a bark tag, which is why the tag is not an escape here.
+
   materialTakes({ id: 'M20', text: 'Leather is bark 2,0.', severity: 'error',
     tag: 'leather', colors: ['bark'] }),
   materialTakes({ id: 'M22', text: 'Rope is taupe 14,3, never the light wood lane.', severity: 'error',
@@ -261,12 +161,10 @@ const RULES = [
     severity: 'error', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
   materialTakes({ id: 'M25', text: 'Ceramics are terracotta, off-white, taupe or dark red.',
     severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
-  // Rule M28 does not let a potion take any band it likes: the three below are the
-  // liquid colours, and the C block names no other material on them.
+
   materialTakes({ id: 'M28', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
-  // Rule M26 is about the material and not the band: a bottle has to be made of one
-  // of the two. The name is the condition — nothing in the catalogue says "bottle".
+
   { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
     check: (m) => (/(^|-)bottle/.test(m.name) && !has(m, 'glass', 'ceramic'))
       ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
@@ -274,8 +172,7 @@ const RULES = [
     tag: 'bone', colors: ['off-white'] }),
   materialTakes({ id: 'M30', text: 'Paper is off-white.', severity: 'error',
     tag: 'paper', colors: ['off-white'] }),
-  // Rule M31's gradient half — the dark 0.55-1.00 of the lane — is in the UVs and not
-  // in the catalogue; that the meat is on terracotta at all is checkable.
+
   materialTakes({ id: 'M31', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.', severity: 'error',
     tag: 'meat', colors: ['terracotta'] }),
   materialTakes({ id: 'M32', text: 'Fauna are naturalistic: off-white, salmon, taupe. Fish may also be blue 4,2 or light blue-grey 3,2.',
@@ -284,9 +181,7 @@ const RULES = [
   materialTakes({ id: 'M33-M34', text: 'Flames and glow are yellow 6,0. Candle wax and lampshades are off-white 5,2.',
     severity: 'error', tag: 'light', colors: ['yellow', 'off-white'],
     when: (m) => has(m, 'light', 'wax') }),
-  // Rule M37: the cover bands. A book has to hold at least one of them; which triangles
-  // are the cover and which the pages is not in the catalogue. Scrolls and maps are
-  // paper all through and carry no cover, so the name is the condition and not the group.
+
   materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
   materialTakes({ id: 'M37', text: 'Book covers are bark 2,0, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
@@ -296,11 +191,7 @@ const RULES = [
     tag: 'roof', colors: ['dark red'], when: isRoof }),
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
-  // Rule M42, the tag half of W1: a band tag names the band, and a timber model carrying
-  // the tag has to use it. One check per tag, so a plank deck on beams that only uses
-  // wood light is a finding on its beam and not on its count. Timber is the condition
-  // as W1 has it: the ghost ship is tagged beam for its shape and is made of nothing,
-  // and its joker is spent on C7, not here. Logs and bark are W1's and not checked.
+
   materialTakes({ id: 'M42-planks', text: 'Planks are wood light 0,0.', severity: 'error',
     tag: 'planks', colors: ['wood light'], when: (m) => has(m, 'planks') && has(m, 'timber') }),
   materialTakes({ id: 'M42-worked-planks', text: 'Worked planks are wood middle 1,0.', severity: 'error',
@@ -308,7 +199,6 @@ const RULES = [
   materialTakes({ id: 'M42-beam', text: 'Beams are wood dark 2,0.', severity: 'error',
     tag: 'beam', colors: ['wood dark'], when: (m) => has(m, 'beam') && has(m, 'timber') }),
 
-  // Colour -> material, the C block, in the order of the band list.
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
     severity: 'error', color: 'light grey', tags: ['metal', 'precious-metal', 'stone', 'rock'] }),
   bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
@@ -326,16 +216,10 @@ const RULES = [
     accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, and minor accents.',
     severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
-  // Rule C8 has no accent escape: light green is nature and nothing else. Grass and
-  // weeds growing on an object or a structure are in — they carry the flora tag, which
-  // is the whole of what the band is for — and a green that grows nothing is a finding
-  // whatever its size.
+
   bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, including grass and weed accents growing on objects and structures.',
     severity: 'error', color: 'light green', tags: ['flora'] }),
-  // "Lighter browns" is the light and middle lane of the wood ladder. Rope used to be
-  // excused here — it sat on the light lane too — but rule M22 now sends rope to taupe,
-  // so timber is the only material left that reaches this band. Textile reaches the
-  // dark lane by rule M18's brown.
+
   bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: timber only.',
     severity: 'error', color: 'wood light', tags: ['timber'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: timber only.',
@@ -344,17 +228,10 @@ const RULES = [
     severity: 'error', color: 'wood dark', tags: ['timber', 'textile'] }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: bark, leather and the timber of a log or trunk.',
     severity: 'error', color: 'bark', tags: ['bark', 'leather', 'timber'] }),
-  // Rule C11. The transparent colour is not a band, so bandOnlyFor cannot carry it.
+
   { id: 'C11', text: 'Clear glass: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
-  // Counting, the N block. `mat` in catalog.json is the glTF material count and is 1 for all but
-  // 25 models, so "materials" here is the material tags — the thing the model is
-  // made of, which is what the appendix is talking about.
-  // N1. What stands in for a material depends on the group. Flowers, grass and
-  // plants are carried by the flora tag and ocean by fauna — those groups have no
-  // material of their own in tags.json and the appendix gives them none, so the tag
-  // is what there is to check. Everywhere else it has to be a material.
   { id: 'N1', text: 'A model has at least one material.', severity: 'error',
     check: (m) => {
       if (materials(m).length) return null;
@@ -362,9 +239,7 @@ const RULES = [
       if (!stand_in) return `has no material tag (group ${m.gr})`;
       return has(m, stand_in) ? null : `group ${m.gr} but no ${stand_in} tag`;
     } },
-  // Timber is the one material that is not one band: W1 gives it a band per band tag, so
-  // a plank deck on beams owes two. Counting it once let a model collapse both onto one
-  // and still pass. It counts for its band tags instead -- one if it carries none.
+
   { id: 'N2', text: 'A model uses at least as many bands as it has materials, and timber counts for its band tags.', severity: 'error',
     check: (m) => {
       const mats = counting(m);
@@ -377,24 +252,17 @@ const RULES = [
         : mats.join(', ');
       return `${m.colors.length} band(s) for ${owed} (${why})`;
     } },
-  // The joker's band is left out of this count. Rule S3 keeps `special` off the
-  // material side because the joker is not a substance a model owes a band for; the
-  // band it pays for is the same thing seen from the other side, and charging the
-  // ceiling for it made every joker a finding — the pencil is one band of yellow
-  // because a pencil is yellow, not one band over its timber. Rule N2 keeps it: the
-  // cheese's yellow is still the band its food needs, so taking it away there would
-  // read the cheese as short a band, which rule S3 says it is not.
-  { id: 'N3', text: 'A model uses at most twice as many bands as materials.',
+
+  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food and fauna may use three times.',
     severity: 'error',
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
-      if (!n || used <= 2 * n) return null;
-      return `${used} bands for ${n} material(s) (${counting(m).join(', ')})`;
+      const per = has(m, 'food', 'fauna') ? 3 : 2;
+      if (!n || used <= per * n) return null;
+      return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
-  // N4. The ceiling, counted in bands and not in entries of `colors`: rule M24 makes
-  // the clear glass a material of its own rather than a band, so a model does not
-  // spend part of its ceiling on having windows.
+
   { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else.',
     severity: 'error', noJoker: true,
     check: (m) => {
@@ -405,7 +273,6 @@ const RULES = [
     } },
 ];
 
-// Report in the order of the guide: the M block, then C, then N, each by number.
 const BLOCK_ORDER = ['M', 'C', 'N'];
 const rank = (id) => {
   const [, block, number, rest] = id.match(/^([A-Z])(\d+)(.*)$/);
@@ -436,10 +303,7 @@ if (listRules) {
 }
 
 const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog/catalog.json'), 'utf8'));
-// Assemblies are scenes built from other catalogued models — a decorated barrel is
-// the barrel plus what stands on it. Their colours are the sum of their parts and
-// every part is linted on its own, so linting the assembly again only reports the
-// same colour twice, against a material list that is the union of everything in it.
+
 const SKIP_GROUPS = ['assemblies'];
 
 const inCatalog = catalog.models
@@ -447,24 +311,13 @@ const inCatalog = catalog.models
   .filter((m) => !SKIP_GROUPS.includes(m.gr))
   .filter((m) => !kitFilter || m.kit === kitFilter);
 
-// Rule S1: `special` is a joker, not a blanket exemption, so a model carrying it is
-// linted like any other and one finding is forgiven afterwards.
 const models = inCatalog.filter((m) => !isOceanFauna(m));
 
-// Ocean fauna are out of the C and M blocks for want of a material, which is no
-// reason to let them off a count. A rule opts in with `noJoker`; rule N4 is the one
-// that does, since S3 says the joker does not lift the ceiling.
 const counted = inCatalog;
 
 const unknown = new Set();
 for (const m of models) for (const hex of m.colors) if (!bandName[hex]) unknown.add(hex);
 
-// Which band the joker covers. Rule order is the appendix's own and the M and C blocks
-// both run before the N block, so the first M or C finding a `special` model raises is
-// the one the joker is spent on below; where that rule is a C-block rule it names a
-// band, and rule N3 above leaves that band out. A joker spent on an M rule names none —
-// an M finding is a material without its band, not a band without its material — and a
-// model that raises nothing before the N block has not spent its joker at all.
 for (const m of counted) {
   if (!m.tags?.includes('special')) continue;
   for (const rule of RULES) {
@@ -485,9 +338,6 @@ for (const rule of RULES) {
   }
 }
 
-// Rules S1 and S2: the joker covers one band under one rule and is then spent. The
-// first finding a `special` model raises is the one it pays for — rule order is the
-// appendix's own — and everything after it stands.
 const jokerSpent = new Set();
 findings = findings.filter((f) => {
   if (!f.joker) return true;
