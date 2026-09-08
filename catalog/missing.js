@@ -24,6 +24,12 @@ let sections = [];
 
 const state = { search: '', pack: '', state: '', grouping: 'bron', sorting: 'naam' };
 
+const chosenPaths = new Set();
+const cardsPerPath = new Map();
+let lastChoice = null;
+let selectMode = false;
+let swipe = null;
+
 const nooitIngevoerd = (model) => !register.packs.get(model.kit)?.kit;
 
 function matches(model) {
@@ -122,6 +128,8 @@ const observer = new IntersectionObserver(
 // ─── detail ──────────────────────────────────────────────────────────────────────────
 
 const dialog = el('#detail');
+const detailSelect = el('#detail-selecteer');
+let activePath = null;
 
 function fact(list, name, value, wide) {
   if (value === undefined || value === null) return;
@@ -135,6 +143,7 @@ function fact(list, name, value, wide) {
 
 function showDetail(model) {
   const pack = register.packs.get(model.kit);
+  activePath = model.path;
   el('#detail-naam').textContent = model.name;
   el('#detail-herkomst').textContent = nooitIngevoerd(model)
     ? `${pack?.name ?? model.kit} — this pack was never imported`
@@ -178,11 +187,92 @@ function showDetail(model) {
     setTimeout(() => { button.textContent = old; }, 1400);
   };
 
+  updateSelection();
   dialog.showModal();
 }
 
-dialog.addEventListener('close', () => el('#detail-viewer').replaceChildren());
+dialog.addEventListener('close', () => {
+  el('#detail-viewer').replaceChildren();
+  activePath = null;
+});
 el('#detail-sluit').addEventListener('click', () => dialog.close());
+
+detailSelect.addEventListener('click', () => {
+  if (activePath) setSelection([activePath], !chosenPaths.has(activePath));
+});
+
+// ─── selection ───────────────────────────────────────────────────────────────────────
+
+const selectionBar = el('#selectiebalk');
+const selectionCount = el('#selectiebalk-telling');
+const selectionCopy = el('#selectie-kopieer');
+
+function setSelection(paths, on) {
+  for (const path of paths) {
+    if (on) chosenPaths.add(path);
+    else chosenPaths.delete(path);
+    for (const sibling of cardsPerPath.get(path) ?? []) sibling.checkbox.checked = on;
+  }
+  updateSelection();
+}
+
+function pickRange(to, on) {
+  const from = cards.indexOf(lastChoice);
+  const target = cards.indexOf(to);
+  if (from === -1 || target === -1) return setSelection(to.paths, on);
+  const range = cards.slice(Math.min(from, target), Math.max(from, target) + 1);
+  setSelection(range.flatMap((k) => k.paths), on);
+}
+
+function updateSelection() {
+  const count = chosenPaths.size;
+  selectionBar.hidden = count === 0;
+  selectionCount.textContent = `${count} selected`;
+  if (dialog.open) {
+    const on = chosenPaths.has(activePath);
+    detailSelect.textContent = on ? 'Remove from selection' : 'Add to selection';
+    detailSelect.setAttribute('aria-pressed', String(on));
+  }
+}
+
+async function toClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {}
+
+  const field = document.createElement('textarea');
+  field.value = text;
+  field.setAttribute('readonly', '');
+  field.style.cssText = 'position:fixed;top:0;left:-9999px';
+  document.body.append(field);
+  field.select();
+  try {
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    field.remove();
+  }
+}
+
+selectionCopy.addEventListener('click', async () => {
+  const count = chosenPaths.size;
+  const ok = await toClipboard([...chosenPaths].join('\n'));
+  selectionCopy.textContent = ok
+    ? `${count} path${count === 1 ? '' : 's'} copied`
+    : 'Copy failed';
+  setTimeout(() => { selectionCopy.textContent = 'Copy paths'; }, 1600);
+});
+
+el('#selectie-alles').addEventListener('click', () => {
+  setSelection(cards.flatMap((k) => k.paths), true);
+});
+
+el('#selectie-wis').addEventListener('click', () => {
+  setSelection([...chosenPaths], false);
+  lastChoice = null;
+});
 
 // ─── drawing ─────────────────────────────────────────────────────────────────────────
 
@@ -210,11 +300,38 @@ function makeCard(model) {
   text.append(name, meta);
 
   card.append(box, text);
-  card.addEventListener('click', () => showDetail(model));
+  card.addEventListener('click', () => {
+    if (selectMode) setSelection([model.path], !chosenPaths.has(model.path));
+    else showDetail(model);
+  });
+
+  const pick = document.createElement('label');
+  pick.className = 'kaart-kies';
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.checked = chosenPaths.has(model.path);
+  checkbox.setAttribute('aria-label', `Select ${model.name}`);
+  pick.append(checkbox);
+
+  const holder = document.createElement('div');
+  holder.className = 'kaart-houder';
+  holder.dataset.pad = model.path;
+  holder.append(card, pick);
 
   observer.observe(box);
-  const item = { element: card, model, box };
+  const item = { element: holder, checkbox, path: model.path, paths: [model.path], model, box };
   cards.push(item);
+
+  const siblings = cardsPerPath.get(model.path);
+  if (siblings) siblings.push(item);
+  else cardsPerPath.set(model.path, [item]);
+
+  checkbox.addEventListener('click', (e) => {
+    if (e.shiftKey && lastChoice && lastChoice !== item) pickRange(item, checkbox.checked);
+    else setSelection([model.path], checkbox.checked);
+    lastChoice = item;
+  });
+
   return item;
 }
 
@@ -235,6 +352,18 @@ function makeSection({ title, hint, count }) {
     p.textContent = hint;
     head.append(p);
   }
+
+  const all = document.createElement('button');
+  all.type = 'button';
+  all.className = 'sectie-alles';
+  all.textContent = 'Select all';
+  all.addEventListener('click', () => {
+    const own = sections.find((s) => s.element === section);
+    if (!own) return;
+    const on = !own.cards.every((k) => chosenPaths.has(k.path));
+    setSelection(own.cards.flatMap((k) => k.paths), on);
+  });
+  head.append(all);
 
   const grid = document.createElement('div');
   grid.className = 'rooster';
@@ -279,6 +408,8 @@ function draw() {
   observer.disconnect();
   cards.length = 0;
   sections = [];
+  cardsPerPath.clear();
+  lastChoice = null;
 
   const gekozen = register.models.filter(matches).sort(SORTINGS[state.sorting]);
   panel.replaceChildren();
@@ -286,9 +417,14 @@ function draw() {
   for (const group of groupsFor(gekozen)) {
     if (group.models.length === 0) continue;
     const { section, grid } = makeSection({ title: group.title, hint: group.hint, count: group.models.length });
-    for (const model of group.models) grid.append(makeCard(model).element);
+    const own = [];
+    for (const model of group.models) {
+      const item = makeCard(model);
+      grid.append(item.element);
+      own.push(item);
+    }
     panel.append(section);
-    sections.push(section);
+    sections.push({ element: section, cards: own });
   }
 
   el('#leeg').hidden = gekozen.length > 0;
@@ -340,6 +476,36 @@ async function start() {
     el('#filter-staat').value = '';
     draw();
   });
+
+  const selectButton = el('#kiesmodus');
+  selectButton.addEventListener('click', () => {
+    selectMode = !selectMode;
+    selectButton.setAttribute('aria-pressed', String(selectMode));
+    document.body.classList.toggle('kiesmodus', selectMode);
+  });
+
+  const panel = el('#paneel');
+  const cardUnder = (x, y) => document.elementFromPoint(x, y)?.closest('.kaart-houder[data-pad]');
+
+  panel.addEventListener('pointerdown', (e) => {
+    if (!selectMode || e.button !== 0) return;
+    const holder = e.target.closest('.kaart-houder[data-pad]');
+    if (!holder) return;
+    swipe = { on: !chosenPaths.has(holder.dataset.pad), done: new Set() };
+    panel.setPointerCapture(e.pointerId);
+  });
+
+  panel.addEventListener('pointermove', (e) => {
+    if (!swipe) return;
+    const holder = cardUnder(e.clientX, e.clientY);
+    if (!holder || swipe.done.has(holder.dataset.pad)) return;
+    swipe.done.add(holder.dataset.pad);
+    setSelection([holder.dataset.pad], swipe.on);
+  });
+
+  for (const name of ['pointerup', 'pointercancel']) {
+    panel.addEventListener(name, () => { swipe = null; });
+  }
 
   const lightButton = el('#licht');
   lightButton.addEventListener('click', () => {
