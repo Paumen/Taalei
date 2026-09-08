@@ -265,6 +265,9 @@ const RULES = [
   materialTakes({ id: 'M43', text: 'Skin is salmon 13,0, taupe 14,3 or bark 3,0.', severity: 'error',
     tag: 'skin', colors: ['salmon', 'taupe', 'bark'] }),
 
+  materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.', severity: 'error',
+    tag: 'vegetation', colors: ['taupe', 'off-white', 'terracotta', 'dark red', 'salmon', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
+
   materialTakes({ id: 'M42-planks', text: 'Band tags take their band: planks wood light 0,0.', severity: 'error',
     tag: 'planks', when: (m) => has(m, 'planks') && has(m, 'timber'), colors: ['wood light'] }),
   materialTakes({ id: 'M42-worked-planks', text: 'Band tags take their band: worked-planks wood middle 1,0.', severity: 'error',
