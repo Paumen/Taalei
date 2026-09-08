@@ -132,7 +132,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
   wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
-- **C5.** Yellow: precious metal, light, fire and plastic (M41).
+- **C5.** Yellow: precious metal, emissive, fire and plastic (M41).
 - **C6.** Dark red: ceramics, glass, roofs, plastic (M41), minor accents.
 - **C7.** Dark green: foliage, glass, and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents

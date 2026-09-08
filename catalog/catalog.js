@@ -311,6 +311,7 @@ function makeCard(model, kits, groups, variants = []) {
     checkbox,
     path: model.path,
     paths: familyPaths,
+    family,
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
     tags: [...new Set(family.flatMap((m) => m.tags ?? []))],
     sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
@@ -991,10 +992,14 @@ function buildTagBar(tags) {
 function refresh() {
   buildPanel();
 
+  // Counted per model, variants included, not per card — a card folds a whole family of
+  // variants into one tile, but the chip count promises how many models actually match.
   const counts = new Map();
+  const bump = (key) => counts.set(key, (counts.get(key) ?? 0) + 1);
   for (const card of cards) {
-    for (const field of ['tags', 'sizes']) {
-      for (const id of card[field]) counts.set(`${field}|${id}`, (counts.get(`${field}|${id}`) ?? 0) + 1);
+    for (const model of card.family) {
+      bump(`sizes|${sizeClass(model.wdh).id}`);
+      for (const id of model.tags ?? []) bump(`tags|${id}`);
     }
   }
   for (const chip of chipButtons) {
