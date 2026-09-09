@@ -6,8 +6,8 @@ export const BRONKITS = [
   { map: 'kenney_fantasy-town-kit_2.0', naam: 'Kenney Fantasy Town Kit', kit: 'fantasy-town-kit', formaat: 'glb' },
   { map: 'kenney_platformer-kit', naam: 'Kenney Platformer Kit', kit: 'platformer-kit', formaat: 'glb' },
   { map: 'kenney_prototypekit', naam: 'Kenney Prototype Kit', kit: 'prototype-kit', formaat: 'glb' },
-  { map: 'kenney_castlekit', naam: 'Kenney Castle Kit', kit: null, formaat: 'glb' },
-  { map: 'kenney_graveyardkit_5.0', naam: 'Kenney Graveyard Kit', kit: null, formaat: 'glb' },
+  { map: 'kenney_castlekit', naam: 'Kenney Castle Kit', kit: 'castle-kit', formaat: 'glb' },
+  { map: 'kenney_graveyardkit_5.0', naam: 'Kenney Graveyard Kit', kit: 'graveyard-kit', formaat: 'glb' },
   { map: 'kenney_holidaykit', naam: 'Kenney Holiday Kit', kit: null, formaat: 'glb' },
   { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: null, formaat: 'glb' },
 
