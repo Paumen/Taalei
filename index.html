@@ -102,6 +102,10 @@
       <span class="detail-keuze-kop">Animation</span>
       <div class="detail-chips" id="detail-animatie-keuze" role="group" aria-label="Animation"></div>
     </div>
+    <div class="detail-keuze detail-keuze-verticaal">
+      <span class="detail-keuze-kop">Tags</span>
+      <div id="detail-tags"></div>
+    </div>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
       <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
@@ -115,6 +119,12 @@
   <button type="button" id="selectie-alles">All in view</button>
   <button type="button" id="selectie-kopieer" class="primair">Copy paths</button>
   <button type="button" id="selectie-wis">Clear</button>
+</div>
+
+<div class="tagedit-balk" id="tagedit-balk" hidden>
+  <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
+  <button type="button" id="tagedit-balk-download">Download tag edits</button>
+  <button type="button" id="tagedit-balk-wis">Clear</button>
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
