@@ -384,7 +384,7 @@ const SOURCES = [
     id: 'own',
     name: 'Taalei',
     description: 'Kits made or assembled for Taalei itself, on the shared colormap.',
-    kits: ['village-kit', 'natuur', 'modulair-terrein', 'rocks', 'props', 'taalei-kit'],
+    kits: ['village-kit', 'natuur', 'modulair-terrein', 'rocks', 'props', 'small-props', 'taalei-kit'],
   },
 ];
 

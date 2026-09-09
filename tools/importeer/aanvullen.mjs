@@ -5,12 +5,16 @@
 // The lighting gain is measured over the whole source pack, so a model added later
 // lands on the same colormap bands as one imported with the pack.
 //
-//   node tools/importeer/aanvullen.mjs <source pack> <source name>=<model name> ...
+//   node tools/importeer/aanvullen.mjs <source pack> [--schaal n] <source name>=<model name> ...
+//
+// --schaal is only for a kit that is still empty: an existing kit reads its scale
+// and origin back from the models already in it.
 
 import { existsSync, readdirSync, statSync, writeFileSync, rmSync, mkdirSync } from 'node:fs';
 import { join, dirname, extname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesGltf, leesObj } from './bron.mjs';
+import { leesFbx } from '../../catalog/tools/fbx.mjs';
 import { bouwGlb, schrijfModel, zetColormapKlaar, meetBelichting } from './bouw.mjs';
 import { laadPalet } from './palet.mjs';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
@@ -63,10 +67,15 @@ function pakBronUit(map) {
 }
 
 // The kit's own import settings, read back from a model that is already in it.
-function kitInstellingen(slug) {
+function kitInstellingen(slug, gevraagdeSchaal) {
   const dir = join(WERK_DIR, slug);
   const bestanden = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith('.glb')) : [];
-  if (bestanden.length === 0) throw new Error(`${slug}: kit is leeg, geen instellingen af te lezen`);
+  if (bestanden.length === 0) {
+    if (gevraagdeSchaal === null) {
+      throw new Error(`${slug}: kit is leeg, geef --schaal voor de eerste import`);
+    }
+    return { schaal: gevraagdeSchaal, oorsprong: 'gecentreerd' };
+  }
   const perSchaal = new Map();
   const perOorsprong = new Map();
   for (const bestand of bestanden) {
@@ -79,7 +88,34 @@ function kitInstellingen(slug) {
   return { schaal: meeste(perSchaal), oorsprong: meeste(perOorsprong) };
 }
 
-const [mapNaam, ...paren] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+const schaalVlag = argv.indexOf('--schaal');
+let gevraagdeSchaal = null;
+if (schaalVlag !== -1) {
+  gevraagdeSchaal = Number(argv[schaalVlag + 1]);
+  if (!(gevraagdeSchaal > 0)) throw new Error('--schaal verwacht een getal groter dan 0');
+  argv.splice(schaalVlag, 2);
+}
+
+// An fbx names its texture without a path ("City Atlas Map.png" for a file called
+// "Atlas Map.png"), so resolve it against the images in the unpacked pack the way
+// build-missing.mjs does: by name, and otherwise the pack's only image.
+const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
+
+function koppelTexturen(primitieven, uitgepakt) {
+  const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
+  for (const primitief of primitieven) {
+    const gevraagd = primitief.materiaal.textuur;
+    if (!gevraagd || existsSync(gevraagd)) continue;
+    const gezocht = basename(gevraagd).toLowerCase();
+    primitief.materiaal.textuur =
+      afbeeldingen.find((p) => basename(p).toLowerCase() === gezocht) ??
+      (afbeeldingen.length === 1 ? afbeeldingen[0] : null);
+  }
+  return primitieven;
+}
+
+const [mapNaam, ...paren] = argv;
 if (!mapNaam || paren.length === 0) {
   console.error('gebruik: aanvullen.mjs <source pack> <source name>=<model name> ...');
   process.exit(2);
@@ -92,7 +128,10 @@ if (!slug) throw new Error(`${mapNaam}: geen kit om in te vullen`);
 
 const uitgepakt = pakBronUit(mapNaam);
 const modelmap = vindModelmap(uitgepakt, bronkit.formaat);
-const lees = (pad) => (bronkit.formaat === 'obj' ? leesObj(pad) : leesGltf(pad));
+const leesRuw = (pad) =>
+  bronkit.formaat === 'obj' ? leesObj(pad) : bronkit.formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
+const lees = (pad) => koppelTexturen(leesRuw(pad), uitgepakt);
+// fbx.mjs already flips v on read, so only obj still carries v from the bottom up.
 const vOmlaag = bronkit.formaat !== 'obj';
 
 const gevraagd = paren.map((paar) => {
@@ -115,7 +154,7 @@ for (const bestand of readdirSync(modelmap).sort()) {
 }
 const winst = aantal ? palet.niveau / (som / aantal) : 1;
 
-const { schaal, oorsprong } = kitInstellingen(slug);
+const { schaal, oorsprong } = kitInstellingen(slug, gevraagdeSchaal);
 const kitDir = join(WERK_DIR, slug);
 zetColormapKlaar(kitDir);
 
