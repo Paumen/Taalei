@@ -1164,11 +1164,8 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 }
 
 .tagedit-lijst {
-  position: absolute;
-  z-index: 5;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
+  position: fixed;
+  z-index: 40;
   max-height: 200px;
   padding: 4px;
   overflow-y: auto;
