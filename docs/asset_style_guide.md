@@ -126,6 +126,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
   `wood-beam` 2,0. `wood-log` and `wood-bark` are W1's.
 - **M43.** Skin is wood light 0,0, taupe 14,3 or bark 3,0.
 - **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
+- **M45.** Food may be any colour, like fauna. What it is made of decides nothing about its band.
 
 ### C. Colour to material
 
@@ -147,9 +148,9 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **N1.** A model has at least one material.
 - **N2.** A model uses at least as many bands as it has materials. Every material
   tag counts, subtypes included.
-- **N3.** A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.
-- **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
-  skeleton takes the 5. An assembly is not a model; each part answers on its own.
+- **N3.** A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.
+- **N4.** Ceiling: **6 bands for a human character or a decorated food, 5 for
+  anything else.** A skeleton takes the 5. An assembly is not a model; each part answers on its own.
 
 ### W. 
 

@@ -134,6 +134,7 @@ const ASSEMBLIES = new Set([
 
 const FOOD = [
   /^(bread|chicken-leg|roast|steak)\b/,
+  /^(baguette|cake|cinnamon-roll|cookie|croissant|cupcake|donut|muffin|pie|waffle)\b/,
   /^food-(ingredient|stew)\b/,
   /^plate-food\b/,
   /^fish$/,
@@ -420,6 +421,13 @@ const exceptions = {
   'halloween/post-skull-skull': 'bones',
   'halloween/skull-candle': 'lights',
   'quaternius-nature/log-moss': 'bare-trees',
+  'clay-items/platter': 'plates-bowls',
+  'clay-items/crockpot': 'cooking',
+  'clay-items/crockpot-lid': 'cooking',
+  'clay-items/rice-pot': 'cooking',
+  'clay-items/jug': 'bottles-jugs',
+  'clay-items/wide-vase': 'bottles-jugs',
+  'clay-items/planter': 'furniture',
 };
 
 const rules = [
@@ -449,7 +457,7 @@ const rules = [
   [/^fish/, 'ocean'],
   [/^(tool|workbench)-|^workbench$|^broom$/, 'tools'],
   [/^(anvil|axe|chisel|compass|drafting-compass|file|grindstone|hammer|handdrill|handplane|knife|magnifying-glass|mallet|nail|pencil|pickaxe|rope|saw|scissors|screw|screwdriver|shovel|tongs|trowel|wrench)\b/, 'tools'],
-  [/^(arrow|blade|bow|crossbow|dagger|quiver|shield|smokebomb|staff|sword|wand)\b/, 'tools'],
+  [/^(arrow|blade|bow|crossbow|dagger|fistweapon|halberd|quiver|shield|smokebomb|spear|staff|sword|wand)\b/, 'tools'],
   [/^spellbook\b/, 'books-scrolls'],
   [/^(journal|map)\b/, 'items'],
   [/^(sign|signpost|banner|flag)\b|^sign-|^signpost-|^banner-|^flag-/, 'signs'],
