@@ -101,112 +101,46 @@ export function exportEdits() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-// Renders the effective tags of one model as removable chips, plus a search box to add
-// any tag from the catalogue that isn't on the model yet. Rebuilds itself on every change.
+// Renders every tag in the catalogue as a toggle: pressed means the model carries it.
+// Grouped materials first, then the rest, in a scrolling panel. Rebuilds on every change.
 export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
   container.replaceChildren();
   const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
+  const on = new Set(effectiveTags(model));
 
-  const chips = document.createElement('div');
-  chips.className = 'tagedit-chips';
-  const current = effectiveTags(model);
-  for (const id of current) {
-    const tag = tagsById.get(id);
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'keuzechip tagedit-chip';
-    chip.textContent = `${tag?.name ?? id} ×`;
-    chip.title = tag?.description ? `${tag.description} — click to remove` : 'Click to remove this tag';
-    chip.addEventListener('click', () => {
-      toggleTag(model, id);
-      redraw();
-      onEdit?.();
-    });
-    chips.append(chip);
-  }
-  if (current.length === 0) {
-    const empty = document.createElement('span');
-    empty.className = 'tagedit-leeg';
-    empty.textContent = 'No tags yet.';
-    chips.append(empty);
-  }
-  container.append(chips);
+  const panel = document.createElement('div');
+  panel.className = 'tagedit-toggles';
 
-  const picker = document.createElement('div');
-  picker.className = 'tagedit-picker';
-  const input = document.createElement('input');
-  input.type = 'search';
-  input.className = 'tagedit-zoek';
-  input.placeholder = '+ add a tag…';
+  const groups = [['material', 'Materials'], ['tag', 'Tags']];
+  for (const [type, heading] of groups) {
+    const tags = [...tagsById.values()].filter((t) => (t.type ?? 'tag') === type);
+    if (tags.length === 0) continue;
 
-  const currentSet = new Set(current);
-  function renderList() {
-    const q = input.value.trim().toLowerCase();
-    const options = [...tagsById.values()]
-      .filter((t) => !currentSet.has(t.id))
-      .filter((t) => !q || t.name.toLowerCase().includes(q) || t.id.includes(q))
-      .slice(0, 40);
-    openSharedList(input, options, (t) => {
-      toggleTag(model, t.id);
-      redraw();
-      onEdit?.();
-    });
+    const label = document.createElement('p');
+    label.className = 'tagedit-groep';
+    label.textContent = heading;
+    panel.append(label);
+
+    const row = document.createElement('div');
+    row.className = 'tagedit-chips';
+    for (const tag of tags) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'keuzechip';
+      chip.textContent = tag.name ?? tag.id;
+      chip.setAttribute('aria-pressed', String(on.has(tag.id)));
+      if (tag.description) chip.title = tag.description;
+      chip.addEventListener('click', () => {
+        toggleTag(model, tag.id);
+        redraw();
+        onEdit?.();
+      });
+      row.append(chip);
+    }
+    panel.append(row);
   }
 
-  input.addEventListener('input', renderList);
-  input.addEventListener('focus', renderList);
-  input.addEventListener('blur', hideSharedList);
-
-  picker.append(input);
-  container.append(picker);
-}
-
-// One dropdown, shared by every tag editor on the page, reparented on each open to
-// wherever the active input actually lives. Keeping a single instance — instead of one
-// per card, nested under it — means it is never clipped by an ancestor's `overflow:
-// hidden` or trapped by an ancestor's `transform` (which would otherwise make that
-// ancestor the containing block for a `position: fixed` descendant): both the swipe card
-// itself and its scaled-down preview card behind it rely on exactly that combination.
-// Inside an open <dialog> (catalog.html's detail view) it has to stay a descendant of
-// that dialog instead of moving to <body>: an open dialog paints in the browser's own
-// "top layer", above all regular content regardless of z-index, so a body-level sibling
-// of it would end up hidden behind the dialog rather than floating above it.
-let sharedList = null;
-
-function getSharedList(host) {
-  if (!sharedList) {
-    sharedList = document.createElement('div');
-    sharedList.className = 'tagedit-lijst';
-    sharedList.hidden = true;
-  }
-  if (sharedList.parentElement !== host) host.append(sharedList);
-  return sharedList;
-}
-
-function openSharedList(input, options, onPick) {
-  const host = input.closest('dialog[open]') ?? document.body;
-  const list = getSharedList(host);
-  list.replaceChildren();
-  for (const t of options) {
-    const opt = document.createElement('button');
-    opt.type = 'button';
-    opt.className = 'tagedit-optie';
-    opt.textContent = t.name;
-    if (t.description) opt.title = t.description;
-    opt.addEventListener('mousedown', (e) => e.preventDefault());
-    opt.addEventListener('click', () => onPick(t));
-    list.append(opt);
-  }
-  list.hidden = options.length === 0;
-  if (list.hidden) return;
-  const rect = input.getBoundingClientRect();
-  list.style.left = `${rect.left}px`;
-  list.style.top = `${rect.bottom + 4}px`;
-  list.style.width = `${rect.width}px`;
-}
-
-function hideSharedList() {
-  if (sharedList) sharedList.hidden = true;
+  container.append(panel);
 }
 
 // Wires up the small floating bar (count · Download JSON · Clear) shared by catalog.html
