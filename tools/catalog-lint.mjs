@@ -15,7 +15,6 @@ const BANDS = {
   blue: '4,2',
   'off-white': '5,2',
   taupe: '14,3',
-  salmon: '13,0',
   terracotta: '5,0',
   yellow: '6,0',
   'dark red': '8,0',
@@ -277,11 +276,11 @@ const RULES = [
   materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
     tag: 'plastic', colors: ['dark red', 'yellow'] }),
 
-  materialTakes({ id: 'M43', text: 'Skin is salmon 13,0, taupe 14,3 or bark 3,0.', severity: 'error',
-    tag: 'skin', colors: ['salmon', 'taupe', 'bark'] }),
+  materialTakes({ id: 'M43', text: 'Skin is wood light 0,0, taupe 14,3 or bark 3,0.', severity: 'error',
+    tag: 'skin', colors: ['wood light', 'taupe', 'bark'] }),
 
   materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.', severity: 'error',
-    tag: 'vegetation', colors: ['taupe', 'off-white', 'terracotta', 'dark red', 'salmon', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
+    tag: 'vegetation', colors: ['taupe', 'off-white', 'terracotta', 'dark red', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
 
   materialTakes({ id: 'M42-planks', text: 'Wood subtypes take their band: wood-planks 0,0.', severity: 'error',
     tag: 'wood-planks', colors: ['wood light'] }),
@@ -311,8 +310,8 @@ const RULES = [
   bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, including grass and weed accents growing on objects and structures.',
     severity: 'error', color: 'light green', tags: ['flora'] }),
 
-  bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: wood only.',
-    severity: 'error', color: 'wood light', tags: WOOD_TAGS }),
+  bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: wood only; skin may take wood light 0,0 (M43).',
+    severity: 'error', color: 'wood light', tags: [...WOOD_TAGS, 'skin'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: wood only.',
     severity: 'error', color: 'wood middle', tags: WOOD_TAGS }),
   bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only (textile may take brown 2,0 per M18).',
