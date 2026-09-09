@@ -258,6 +258,8 @@ const exceptions = {
   'fantasy-props/book-group-small-2': 'assemblies',
   'fantasy-props/book-group-small-1': 'assemblies',
   'fantasy-props/book-group-medium-3': 'assemblies',
+  'dungeon/floor-tile-small-decorated': 'assemblies',
+  'dungeon/shelves': 'assemblies',
   'fantasy-props/book-5': 'books-scrolls',
   'fantasy-props/book-7': 'books-scrolls',
   'fantasy-props/book-simplified-single': 'books-scrolls',
