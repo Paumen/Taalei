@@ -54,7 +54,7 @@ Scope: items in catalog.
 
 Band ids are column,row in `kits/colormap.png`. Where a colour name below has
 an id, it is: light grey 15,3 · blue-grey 6,1 · light blue-grey 3,2 ·
-blue 4,2 · off-white 5,2 · taupe 14,3 · salmon 13,0 · terracotta 5,0 ·
+blue 4,2 · off-white 5,2 · taupe 14,3 · terracotta 5,0 ·
 yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
 wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 
@@ -124,7 +124,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M41.** Plastic is dark red 8,0 or yellow/gold 6,0.
 - **M42.** Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
   `wood-beam` 2,0. `wood-log` and `wood-bark` are W1's.
-- **M43.** Skin is salmon 13,0, taupe 14,3 or bark 3,0.
+- **M43.** Skin is wood light 0,0, taupe 14,3 or bark 3,0.
 - **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
 
 ### C. Colour to material
@@ -139,7 +139,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **C7.** Dark green: foliage, glass, and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
-- **C9.** Lighter browns: wood only.
+- **C9.** Lighter browns: wood only; skin may take wood light 0,0 (M43).
 - **C10.** Darkest brown: wood-bark, leather, skin, and a log or trunk.
 - **C11.** Tranaparant: glass only.
 
