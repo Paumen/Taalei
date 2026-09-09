@@ -45,8 +45,7 @@
   },
   {
    "slug": "kenney_mini-dungeon",
-   "name": "Kenney Mini Dungeon",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "Kenney Mini Dungeon"
   },
   {
    "slug": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -123,8 +122,7 @@
   },
   {
    "slug": "TropicalIslandLite_FBX",
-   "name": "Tropical Island Lite",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "Tropical Island Lite"
   },
   {
    "slug": "KayKit_Dungeon_Pack_1.0",
@@ -161,8 +159,7 @@
   },
   {
    "slug": "Windmill",
-   "name": "Windmill",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "Windmill"
   }
  ],
  "sources": [
@@ -184,9 +181,9 @@
    "kit": "pirate-kit",
    "format": "glb",
    "inSource": 72,
-   "inCatalog": 46,
-   "missing": 34,
-   "unmatched": 8,
+   "inCatalog": 48,
+   "missing": 25,
+   "unmatched": 1,
    "scale": 0.253906,
    "folder": "Models/GLB format"
   },
@@ -269,8 +266,8 @@
    "format": "glb",
    "inSource": 91,
    "inCatalog": 35,
-   "missing": 57,
-   "unmatched": 1,
+   "missing": 56,
+   "unmatched": 0,
    "scale": 0.65,
    "folder": "Models/GLB format"
   },
@@ -287,11 +284,13 @@
   {
    "slug": "kenney_mini-dungeon",
    "name": "Kenney Mini Dungeon",
+   "kit": "mini-dungeon",
    "format": "glb",
    "inSource": 30,
-   "inCatalog": 0,
-   "missing": 30,
+   "inCatalog": 4,
+   "missing": 26,
    "unmatched": 0,
+   "scale": 1,
    "folder": "Models/GLB format"
   },
   {
@@ -336,8 +335,8 @@
    "kit": "rpgtools",
    "format": "gltf",
    "inSource": 49,
-   "inCatalog": 41,
-   "missing": 8,
+   "inCatalog": 44,
+   "missing": 3,
    "unmatched": 0,
    "scale": 0.28,
    "folder": "kk tools/KayKit_RPGToolsBits_1.0_FREE/KayKit_RPGToolsBits_1.0_FREE/Assets/gltf"
@@ -349,8 +348,8 @@
    "format": "obj",
    "inSource": 70,
    "inCatalog": 51,
-   "missing": 22,
-   "unmatched": 3,
+   "missing": 19,
+   "unmatched": 0,
    "scale": 0.277353,
    "folder": "KayKit_HalloweenBits_1.0_FREE/Assets/obj"
   },
@@ -493,8 +492,8 @@
    "format": "fbx",
    "inSource": 41,
    "inCatalog": 45,
-   "missing": 11,
-   "unmatched": 15,
+   "missing": 9,
+   "unmatched": 13,
    "folder": "ocean/FolderToUpload/FolderToUpload/fbx"
   },
   {
@@ -510,11 +509,13 @@
   {
    "slug": "TropicalIslandLite_FBX",
    "name": "Tropical Island Lite",
+   "kit": "tropical-island",
    "format": "fbx",
    "inSource": 12,
-   "inCatalog": 0,
-   "missing": 12,
+   "inCatalog": 2,
+   "missing": 10,
    "unmatched": 0,
+   "scale": 0.6,
    "folder": "tropical/TropicalIslandLite_FBX"
   },
   {
@@ -524,8 +525,8 @@
    "format": "glb",
    "inSource": 185,
    "inCatalog": 249,
-   "missing": 53,
-   "unmatched": 117,
+   "missing": 50,
+   "unmatched": 114,
    "scale": 0.175,
    "folder": "KayKit Dungeon Pack 1.0 (1)/Models/gltf"
   },
@@ -594,8 +595,8 @@
    "format": "obj",
    "inSource": 48,
    "inCatalog": 24,
-   "missing": 25,
-   "unmatched": 1,
+   "missing": 24,
+   "unmatched": 0,
    "scale": 0.21,
    "folder": ".Updated Modular Dungeon - May 2019/OBJ"
   },
@@ -614,11 +615,13 @@
   {
    "slug": "Windmill",
    "name": "Windmill",
+   "kit": "windmill",
    "format": "fbx",
    "inSource": 2,
-   "inCatalog": 0,
-   "missing": 2,
+   "inCatalog": 1,
+   "missing": 1,
    "unmatched": 0,
+   "scale": 0.01,
    "folder": "Windmill/FBX"
   }
  ],
@@ -828,6 +831,70 @@
   },
   {
    "kit": "kenney_survival-kit",
+   "name": "bedroll-frame",
+   "gr": "other",
+   "wdh": [
+    0.3,
+    0.2,
+    0.6
+   ],
+   "tris": 100,
+   "tpu": 292,
+   "mat": 1,
+   "bytes": 7360,
+   "scaled": true,
+   "file": "bedroll-frame.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
+   "name": "bedroll-packed",
+   "gr": "other",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 124,
+   "tpu": 362,
+   "mat": 1,
+   "bytes": 6228,
+   "scaled": true,
+   "file": "bedroll-packed.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
+   "name": "bedroll",
+   "gr": "other",
+   "wdh": [
+    0.3,
+    0.1,
+    0.6
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 2,
+   "bytes": 8356,
+   "scaled": true,
+   "file": "bedroll.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
+   "name": "box-large-open",
+   "gr": "storage",
+   "wdh": [
+    0.3,
+    0.3,
+    0.5
+   ],
+   "tris": 156,
+   "tpu": 455,
+   "mat": 1,
+   "bytes": 8660,
+   "scaled": true,
+   "file": "box-large-open.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
    "name": "bucket",
    "gr": "storage",
    "wdh": [
@@ -841,22 +908,6 @@
    "bytes": 4200,
    "scaled": true,
    "file": "bucket.glb"
-  },
-  {
-   "kit": "kenney_survival-kit",
-   "name": "campfire-fishing-stand",
-   "gr": "cooking",
-   "wdh": [
-    0.4,
-    0.3,
-    0.3
-   ],
-   "tris": 100,
-   "tpu": 292,
-   "mat": 1,
-   "bytes": 6864,
-   "scaled": true,
-   "file": "campfire-fishing-stand.glb"
   },
   {
    "kit": "kenney_survival-kit",
@@ -924,6 +975,22 @@
   },
   {
    "kit": "kenney_survival-kit",
+   "name": "metal-panel-screws-half",
+   "gr": "other",
+   "wdh": [
+    0.5,
+    0.3,
+    0.1
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "bytes": 14520,
+   "scaled": true,
+   "file": "metal-panel-screws-half.glb"
+  },
+  {
+   "kit": "kenney_survival-kit",
    "name": "metal-panel-screws-narrow",
    "gr": "other",
    "wdh": [
@@ -937,22 +1004,6 @@
    "bytes": 9660,
    "scaled": true,
    "file": "metal-panel-screws-narrow.glb"
-  },
-  {
-   "kit": "kenney_survival-kit",
-   "name": "metal-panel-screws",
-   "gr": "structures",
-   "wdh": [
-    0.5,
-    0.5,
-    0.1
-   ],
-   "tris": 320,
-   "tpu": 933,
-   "mat": 1,
-   "bytes": 14508,
-   "scaled": true,
-   "file": "metal-panel-screws.glb"
   },
   {
    "kit": "kenney_survival-kit",
@@ -999,54 +1050,6 @@
    "bytes": 4516,
    "scaled": true,
    "file": "resource-wood.glb"
-  },
-  {
-   "kit": "kenney_survival-kit",
-   "name": "rock-b",
-   "gr": "rocks",
-   "wdh": [
-    0.9,
-    0.4,
-    0.8
-   ],
-   "tris": 156,
-   "tpu": 422,
-   "mat": 1,
-   "bytes": 10496,
-   "scaled": true,
-   "file": "rock-b.glb"
-  },
-  {
-   "kit": "kenney_survival-kit",
-   "name": "rock-sand-c",
-   "gr": "rocks",
-   "wdh": [
-    0.8,
-    0.5,
-    0.6
-   ],
-   "tris": 144,
-   "tpu": 420,
-   "mat": 1,
-   "bytes": 10108,
-   "scaled": true,
-   "file": "rock-sand-c.glb"
-  },
-  {
-   "kit": "kenney_survival-kit",
-   "name": "tent",
-   "gr": "furniture",
-   "wdh": [
-    0.6,
-    0.5,
-    0.6
-   ],
-   "tris": 124,
-   "tpu": 362,
-   "mat": 1,
-   "bytes": 9020,
-   "scaled": true,
-   "file": "tent.glb"
   },
   {
    "kit": "kenney_survival-kit",
@@ -1306,22 +1309,6 @@
   },
   {
    "kit": "kenney_pirate-kit",
-   "name": "barrel",
-   "gr": "storage",
-   "wdh": [
-    0.3,
-    0.3,
-    0.3
-   ],
-   "tris": 148,
-   "tpu": 431,
-   "mat": 1,
-   "bytes": 7644,
-   "scaled": true,
-   "file": "barrel.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
    "name": "castle-door",
    "gr": "other",
    "wdh": [
@@ -1386,22 +1373,6 @@
   },
   {
    "kit": "kenney_pirate-kit",
-   "name": "crate",
-   "gr": "storage",
-   "wdh": [
-    0.3,
-    0.2,
-    0.3
-   ],
-   "tris": 76,
-   "tpu": 222,
-   "mat": 1,
-   "bytes": 6696,
-   "scaled": true,
-   "file": "crate.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
    "name": "flag-pirate-high-pennant",
    "gr": "signs",
    "wdh": [
@@ -1415,6 +1386,22 @@
    "bytes": 6920,
    "scaled": true,
    "file": "flag-pirate-high-pennant.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "flag-pirate-high",
+   "gr": "signs",
+   "wdh": [
+    0.3,
+    0.9,
+    0.1
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 1,
+   "bytes": 8024,
+   "scaled": true,
+   "file": "flag-pirate-high.glb"
   },
   {
    "kit": "kenney_pirate-kit",
@@ -1447,22 +1434,6 @@
    "bytes": 8012,
    "scaled": true,
    "file": "flag-pirate.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "flag",
-   "gr": "signs",
-   "wdh": [
-    0.3,
-    0.5,
-    0.1
-   ],
-   "tris": 144,
-   "tpu": 420,
-   "mat": 1,
-   "bytes": 8000,
-   "scaled": true,
-   "file": "flag.glb"
   },
   {
    "kit": "kenney_pirate-kit",
@@ -1530,163 +1501,51 @@
   },
   {
    "kit": "kenney_pirate-kit",
-   "name": "palm-detailed-straight",
+   "name": "palm-bend",
    "gr": "trees",
    "wdh": [
-    0.8,
+    0.7,
+    1.1,
+    0.8
+   ],
+   "tris": 338,
+   "tpu": 524,
+   "mat": 1,
+   "bytes": 14168,
+   "scaled": true,
+   "file": "palm-bend.glb"
+  },
+  {
+   "kit": "kenney_pirate-kit",
+   "name": "palm-detailed-bend",
+   "gr": "trees",
+   "wdh": [
+    0.7,
     1.1,
     0.8
    ],
    "tris": 482,
-   "tpu": 676,
+   "tpu": 748,
    "mat": 1,
-   "bytes": 21200,
+   "bytes": 21196,
    "scaled": true,
-   "file": "palm-detailed-straight.glb"
+   "file": "palm-detailed-bend.glb"
   },
   {
    "kit": "kenney_pirate-kit",
-   "name": "palm-straight",
-   "gr": "trees",
+   "name": "platform",
+   "gr": "structures",
    "wdh": [
     0.6,
-    1.1,
+    0.1,
     0.6
-   ],
-   "tris": 338,
-   "tpu": 714,
-   "mat": 1,
-   "bytes": 14176,
-   "scaled": true,
-   "file": "palm-straight.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-ghost",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    2.7
-   ],
-   "tris": 1703,
-   "tpu": 205,
-   "mat": 6,
-   "bytes": 82020,
-   "scaled": true,
-   "file": "ship-ghost.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-large",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    3.3
-   ],
-   "tris": 1849,
-   "tpu": 180,
-   "mat": 6,
-   "bytes": 90232,
-   "scaled": true,
-   "file": "ship-large.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-medium",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    2.7
-   ],
-   "tris": 1723,
-   "tpu": 208,
-   "mat": 6,
-   "bytes": 83396,
-   "scaled": true,
-   "file": "ship-medium.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-pirate-large",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    3.3
-   ],
-   "tris": 1938,
-   "tpu": 189,
-   "mat": 6,
-   "bytes": 94072,
-   "scaled": true,
-   "file": "ship-pirate-large.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-pirate-small",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    2.2
-   ],
-   "tris": 1461,
-   "tpu": 212,
-   "mat": 4,
-   "bytes": 70332,
-   "scaled": true,
-   "file": "ship-pirate-small.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-small",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    2.2
-   ],
-   "tris": 1370,
-   "tpu": 199,
-   "mat": 4,
-   "bytes": 66608,
-   "scaled": true,
-   "file": "ship-small.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "ship-wreck",
-   "gr": "transport",
-   "wdh": [
-    1.2,
-    2.5,
-    2.7
-   ],
-   "tris": 2282,
-   "tpu": 275,
-   "mat": 16,
-   "bytes": 116976,
-   "scaled": true,
-   "file": "ship-wreck.glb"
-  },
-  {
-   "kit": "kenney_pirate-kit",
-   "name": "tool-paddle",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.6,
-    0.1
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 1,
-   "bytes": 3920,
+   "bytes": 5556,
    "scaled": true,
-   "file": "tool-paddle.glb"
+   "file": "platform.glb"
   },
   {
    "kit": "kenney_pirate-kit",
@@ -2090,6 +1949,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "chimney",
+   "gr": "other",
+   "wdh": [
+    0.1,
+    0.7,
+    0.2
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bytes": 3200,
+   "scaled": true,
+   "file": "chimney.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "fountain-center",
    "gr": "structures",
    "wdh": [
@@ -2103,6 +1978,38 @@
    "bytes": 2228,
    "scaled": true,
    "file": "fountain-center.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "fountain-corner-inner-square",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 46,
+   "tpu": 134,
+   "mat": 2,
+   "bytes": 4468,
+   "scaled": true,
+   "file": "fountain-corner-inner-square.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "fountain-corner-inner",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 146,
+   "tpu": 426,
+   "mat": 2,
+   "bytes": 7332,
+   "scaled": true,
+   "file": "fountain-corner-inner.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2138,6 +2045,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "fountain-edge",
+   "gr": "structures",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 2,
+   "bytes": 4068,
+   "scaled": true,
+   "file": "fountain-edge.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "fountain-square-detail",
    "gr": "structures",
    "wdh": [
@@ -2154,6 +2077,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "fountain-square",
+   "gr": "structures",
+   "wdh": [
+    1.3,
+    0.3,
+    1.3
+   ],
+   "tris": 270,
+   "tpu": 424,
+   "mat": 2,
+   "bytes": 14512,
+   "scaled": true,
+   "file": "fountain-square.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "hedge-curved",
    "gr": "other",
    "wdh": [
@@ -2167,6 +2106,22 @@
    "bytes": 10600,
    "scaled": true,
    "file": "hedge-curved.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "hedge-gate",
+   "gr": "other",
+   "wdh": [
+    0.2,
+    0.2,
+    0.7
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bytes": 5084,
+   "scaled": true,
+   "file": "hedge-gate.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2266,6 +2221,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "poles-horizontal",
+   "gr": "fences",
+   "wdh": [
+    0.1,
+    0.7,
+    0.7
+   ],
+   "tris": 40,
+   "tpu": 117,
+   "mat": 1,
+   "bytes": 3876,
+   "scaled": true,
+   "file": "poles-horizontal.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "poles",
    "gr": "fences",
    "wdh": [
@@ -2362,6 +2333,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-edge-slope",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.2,
+    0.7
+   ],
+   "tris": 38,
+   "tpu": 111,
+   "mat": 1,
+   "bytes": 3448,
+   "scaled": true,
+   "file": "road-edge-slope.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "road-edge",
    "gr": "other",
    "wdh": [
@@ -2410,22 +2397,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "roof-corner",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.4,
-    0.7
-   ],
-   "tris": 36,
-   "tpu": 105,
-   "mat": 1,
-   "bytes": 3568,
-   "scaled": true,
-   "file": "roof-corner.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "roof-gable",
    "gr": "building-kit",
    "wdh": [
@@ -2439,6 +2410,22 @@
    "bytes": 5576,
    "scaled": true,
    "file": "roof-gable.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "roof-high-corner-round",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.8,
+    0.7
+   ],
+   "tris": 48,
+   "tpu": 129,
+   "mat": 1,
+   "bytes": 3852,
+   "scaled": true,
+   "file": "roof-high-corner-round.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2506,6 +2493,38 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "roof-high-gable-end",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.8,
+    0.7
+   ],
+   "tris": 52,
+   "tpu": 129,
+   "mat": 1,
+   "bytes": 4576,
+   "scaled": true,
+   "file": "roof-high-gable-end.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "roof-high-gable-top",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.4,
+    0.7
+   ],
+   "tris": 56,
+   "tpu": 163,
+   "mat": 1,
+   "bytes": 4668,
+   "scaled": true,
+   "file": "roof-high-gable-top.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "roof-high-gable",
    "gr": "building-kit",
    "wdh": [
@@ -2522,51 +2541,67 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "roof-left",
+   "name": "roof-high-left",
    "gr": "building-kit",
    "wdh": [
     0.7,
-    0.5,
+    0.8,
     0.7
    ],
    "tris": 84,
-   "tpu": 245,
+   "tpu": 197,
    "mat": 1,
-   "bytes": 5972,
+   "bytes": 5980,
    "scaled": true,
-   "file": "roof-left.glb"
+   "file": "roof-high-left.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "roof-point",
+   "name": "roof-high-point",
    "gr": "building-kit",
    "wdh": [
     0.7,
-    0.3,
+    0.7,
     0.7
    ],
    "tris": 44,
    "tpu": 126,
    "mat": 1,
-   "bytes": 3144,
+   "bytes": 3152,
    "scaled": true,
-   "file": "roof-point.glb"
+   "file": "roof-high-point.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "roof-right",
+   "name": "roof-high-right",
    "gr": "building-kit",
    "wdh": [
     0.7,
-    0.5,
+    0.8,
     0.7
    ],
    "tris": 84,
-   "tpu": 245,
+   "tpu": 197,
    "mat": 1,
-   "bytes": 6004,
+   "bytes": 5984,
    "scaled": true,
-   "file": "roof-right.glb"
+   "file": "roof-high-right.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "roof-high",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.8,
+    0.7
+   ],
+   "tris": 64,
+   "tpu": 172,
+   "mat": 1,
+   "bytes": 4856,
+   "scaled": true,
+   "file": "roof-high.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2714,22 +2749,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "stall-red",
-   "gr": "structures",
-   "wdh": [
-    0.7,
-    0.8,
-    0.7
-   ],
-   "tris": 270,
-   "tpu": 738,
-   "mat": 1,
-   "bytes": 15412,
-   "scaled": true,
-   "file": "stall-red.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-arch-top-detail",
    "gr": "building-kit",
    "wdh": [
@@ -2762,6 +2781,38 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-arch",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.2
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bytes": 3592,
+   "scaled": true,
+   "file": "wall-arch.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-block-half",
+   "gr": "building-kit",
+   "wdh": [
+    0.7,
+    0.3,
+    0.7
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bytes": 6116,
+   "scaled": true,
+   "file": "wall-block-half.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-block",
    "gr": "building-kit",
    "wdh": [
@@ -2778,6 +2829,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-broken",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.7
+   ],
+   "tris": 166,
+   "tpu": 484,
+   "mat": 1,
+   "bytes": 11796,
+   "scaled": true,
+   "file": "wall-broken.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-corner-detail",
    "gr": "building-kit",
    "wdh": [
@@ -2791,6 +2858,22 @@
    "bytes": 9152,
    "scaled": true,
    "file": "wall-corner-detail.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-corner-diagonal-half",
+   "gr": "building-kit",
+   "wdh": [
+    0.4,
+    0.7,
+    0.6
+   ],
+   "tris": 34,
+   "tpu": 99,
+   "mat": 1,
+   "bytes": 3568,
+   "scaled": true,
+   "file": "wall-corner-diagonal-half.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2858,6 +2941,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-detail-cross",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.7
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 6176,
+   "scaled": true,
+   "file": "wall-detail-cross.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-detail-diagonal",
    "gr": "building-kit",
    "wdh": [
@@ -2906,6 +3005,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-door",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.7
+   ],
+   "tris": 376,
+   "tpu": 1096,
+   "mat": 2,
+   "bytes": 18476,
+   "scaled": true,
+   "file": "wall-door.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-doorway-base",
    "gr": "building-kit",
    "wdh": [
@@ -2935,6 +3050,22 @@
    "bytes": 8776,
    "scaled": true,
    "file": "wall-doorway-round.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-doorway-square-wide-curved",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.7
+   ],
+   "tris": 166,
+   "tpu": 484,
+   "mat": 1,
+   "bytes": 8768,
+   "scaled": true,
+   "file": "wall-doorway-square-wide-curved.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -2970,6 +3101,22 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-half",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.3,
+    0.7
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bytes": 3560,
+   "scaled": true,
+   "file": "wall-half.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-rounded",
    "gr": "building-kit",
    "wdh": [
@@ -2983,6 +3130,22 @@
    "bytes": 7492,
    "scaled": true,
    "file": "wall-rounded.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "wall-side",
+   "gr": "building-kit",
+   "wdh": [
+    0.1,
+    0.7,
+    0.2
+   ],
+   "tris": 22,
+   "tpu": 64,
+   "mat": 1,
+   "bytes": 2888,
+   "scaled": true,
+   "file": "wall-side.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -3098,150 +3261,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-arch-top",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 146,
-   "tpu": 426,
-   "mat": 1,
-   "bytes": 7980,
-   "scaled": true,
-   "file": "wall-wood-arch-top.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-arch",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.2
-   ],
-   "tris": 32,
-   "tpu": 93,
-   "mat": 1,
-   "bytes": 3600,
-   "scaled": true,
-   "file": "wall-wood-arch.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-block-half",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.3,
-    0.7
-   ],
-   "tris": 76,
-   "tpu": 222,
-   "mat": 1,
-   "bytes": 6124,
-   "scaled": true,
-   "file": "wall-wood-block-half.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-block",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.7
-   ],
-   "tris": 76,
-   "tpu": 222,
-   "mat": 1,
-   "bytes": 6112,
-   "scaled": true,
-   "file": "wall-wood-block.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-broken",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 166,
-   "tpu": 484,
-   "mat": 1,
-   "bytes": 11424,
-   "scaled": true,
-   "file": "wall-wood-broken.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-corner-diagonal-half",
-   "gr": "building-kit",
-   "wdh": [
-    0.4,
-    0.7,
-    0.6
-   ],
-   "tris": 34,
-   "tpu": 99,
-   "mat": 1,
-   "bytes": 3576,
-   "scaled": true,
-   "file": "wall-wood-corner-diagonal-half.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-corner-diagonal",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.7
-   ],
-   "tris": 48,
-   "tpu": 140,
-   "mat": 1,
-   "bytes": 4424,
-   "scaled": true,
-   "file": "wall-wood-corner-diagonal.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-corner-edge",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.7
-   ],
-   "tris": 40,
-   "tpu": 117,
-   "mat": 1,
-   "bytes": 3980,
-   "scaled": true,
-   "file": "wall-wood-corner-edge.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-corner",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.7
-   ],
-   "tris": 52,
-   "tpu": 152,
-   "mat": 1,
-   "bytes": 4944,
-   "scaled": true,
-   "file": "wall-wood-corner.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-wood-curved",
    "gr": "building-kit",
    "wdh": [
@@ -3255,102 +3274,6 @@
    "bytes": 6892,
    "scaled": true,
    "file": "wall-wood-curved.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-detail-cross",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 6184,
-   "scaled": true,
-   "file": "wall-wood-detail-cross.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-detail-diagonal",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 56,
-   "tpu": 163,
-   "mat": 1,
-   "bytes": 4892,
-   "scaled": true,
-   "file": "wall-wood-detail-diagonal.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-detail-horizontal",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 46,
-   "tpu": 134,
-   "mat": 1,
-   "bytes": 4580,
-   "scaled": true,
-   "file": "wall-wood-detail-horizontal.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-diagonal",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.7
-   ],
-   "tris": 38,
-   "tpu": 111,
-   "mat": 1,
-   "bytes": 3836,
-   "scaled": true,
-   "file": "wall-wood-diagonal.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-door",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 376,
-   "tpu": 1096,
-   "mat": 2,
-   "bytes": 18228,
-   "scaled": true,
-   "file": "wall-wood-door.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-doorway-base",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 64,
-   "tpu": 187,
-   "mat": 1,
-   "bytes": 5832,
-   "scaled": true,
-   "file": "wall-wood-doorway-base.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -3370,22 +3293,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-doorway-square-wide-curved",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 166,
-   "tpu": 484,
-   "mat": 1,
-   "bytes": 8776,
-   "scaled": true,
-   "file": "wall-wood-doorway-square-wide-curved.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-wood-doorway-square-wide",
    "gr": "building-kit",
    "wdh": [
@@ -3402,22 +3309,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-half",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.3,
-    0.7
-   ],
-   "tris": 32,
-   "tpu": 93,
-   "mat": 1,
-   "bytes": 3572,
-   "scaled": true,
-   "file": "wall-wood-half.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall-wood-rounded",
    "gr": "building-kit",
    "wdh": [
@@ -3431,22 +3322,6 @@
    "bytes": 7500,
    "scaled": true,
    "file": "wall-wood-rounded.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood-side",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.2
-   ],
-   "tris": 22,
-   "tpu": 64,
-   "mat": 1,
-   "bytes": 2900,
-   "scaled": true,
-   "file": "wall-wood-side.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -3498,22 +3373,6 @@
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
-   "name": "wall-wood",
-   "gr": "building-kit",
-   "wdh": [
-    0.1,
-    0.7,
-    0.7
-   ],
-   "tris": 32,
-   "tpu": 93,
-   "mat": 1,
-   "bytes": 3560,
-   "scaled": true,
-   "file": "wall-wood.glb"
-  },
-  {
-   "kit": "kenney_fantasy-town-kit_2.0",
    "name": "wall",
    "gr": "building-kit",
    "wdh": [
@@ -3543,6 +3402,38 @@
    "bytes": 9432,
    "scaled": true,
    "file": "wheel.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "arrows",
+   "gr": "signs",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 88,
+   "tpu": 257,
+   "mat": 1,
+   "bytes": 6248,
+   "scaled": true,
+   "file": "arrows.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "block-grass-corner-low",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.3,
+    0.7
+   ],
+   "tris": 84,
+   "tpu": 245,
+   "mat": 1,
+   "bytes": 4368,
+   "scaled": true,
+   "file": "block-grass-corner-low.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -3578,6 +3469,22 @@
   },
   {
    "kit": "kenney_platformer-kit",
+   "name": "block-grass-corner",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.7,
+    0.7
+   ],
+   "tris": 84,
+   "tpu": 245,
+   "mat": 1,
+   "bytes": 4360,
+   "scaled": true,
+   "file": "block-grass-corner.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
    "name": "block-grass-curve-half",
    "gr": "other",
    "wdh": [
@@ -3610,6 +3517,22 @@
   },
   {
    "kit": "kenney_platformer-kit",
+   "name": "block-grass-curve",
+   "gr": "other",
+   "wdh": [
+    1.3,
+    0.7,
+    0.7
+   ],
+   "tris": 204,
+   "tpu": 345,
+   "mat": 1,
+   "bytes": 8864,
+   "scaled": true,
+   "file": "block-grass-curve.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
    "name": "block-grass-edge",
    "gr": "other",
    "wdh": [
@@ -3623,6 +3546,22 @@
    "bytes": 5172,
    "scaled": true,
    "file": "block-grass-edge.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "block-grass-hexagon",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.7,
+    0.8
+   ],
+   "tris": 44,
+   "tpu": 109,
+   "mat": 1,
+   "bytes": 3356,
+   "scaled": true,
+   "file": "block-grass-hexagon.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -3687,6 +3626,38 @@
    "bytes": 5076,
    "scaled": true,
    "file": "block-grass-large-slope.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "block-grass-large-tall",
+   "gr": "other",
+   "wdh": [
+    1.4,
+    1.3,
+    1.4
+   ],
+   "tris": 92,
+   "tpu": 39,
+   "mat": 1,
+   "bytes": 4616,
+   "scaled": true,
+   "file": "block-grass-large-tall.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "block-grass-large",
+   "gr": "other",
+   "wdh": [
+    1.4,
+    0.7,
+    1.4
+   ],
+   "tris": 92,
+   "tpu": 77,
+   "mat": 1,
+   "bytes": 4604,
+   "scaled": true,
+   "file": "block-grass-large.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -3799,6 +3770,22 @@
    "bytes": 4612,
    "scaled": true,
    "file": "block-grass-narrow.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
+   "name": "block-grass-overhang-corner",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.7,
+    0.7
+   ],
+   "tris": 120,
+   "tpu": 348,
+   "mat": 1,
+   "bytes": 6204,
+   "scaled": true,
+   "file": "block-grass-overhang-corner.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -5034,6 +5021,22 @@
   },
   {
    "kit": "kenney_platformer-kit",
+   "name": "door-open",
+   "gr": "other",
+   "wdh": [
+    0.4,
+    0.7,
+    0.1
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bytes": 4316,
+   "scaled": true,
+   "file": "door-open.glb"
+  },
+  {
+   "kit": "kenney_platformer-kit",
    "name": "door-rotate-large",
    "gr": "other",
    "wdh": [
@@ -5066,19 +5069,19 @@
   },
   {
    "kit": "kenney_platformer-kit",
-   "name": "fence-corner",
+   "name": "fence-low-broken",
    "gr": "fences",
    "wdh": [
-    0.6,
-    0.3,
-    0.6
+    0.7,
+    0.2,
+    0.1
    ],
-   "tris": 92,
-   "tpu": 268,
+   "tris": 100,
+   "tpu": 292,
    "mat": 1,
-   "bytes": 6920,
+   "bytes": 5540,
    "scaled": true,
-   "file": "fence-corner.glb"
+   "file": "fence-low-broken.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -5194,22 +5197,6 @@
   },
   {
    "kit": "kenney_platformer-kit",
-   "name": "heart",
-   "gr": "items",
-   "wdh": [
-    0.3,
-    0.2,
-    0.1
-   ],
-   "tris": 44,
-   "tpu": 128,
-   "mat": 1,
-   "bytes": 2644,
-   "scaled": true,
-   "file": "heart.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
    "name": "hedge-corner",
    "gr": "other",
    "wdh": [
@@ -5274,38 +5261,6 @@
   },
   {
    "kit": "kenney_platformer-kit",
-   "name": "ladder-broken",
-   "gr": "connections",
-   "wdh": [
-    0.3,
-    0.7,
-    0.1
-   ],
-   "tris": 92,
-   "tpu": 268,
-   "mat": 1,
-   "bytes": 6880,
-   "scaled": true,
-   "file": "ladder-broken.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "ladder-long",
-   "gr": "connections",
-   "wdh": [
-    0.3,
-    1.3,
-    0.1
-   ],
-   "tris": 88,
-   "tpu": 257,
-   "mat": 1,
-   "bytes": 6468,
-   "scaled": true,
-   "file": "ladder-long.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
    "name": "mushrooms",
    "gr": "plants",
    "wdh": [
@@ -5338,83 +5293,19 @@
   },
   {
    "kit": "kenney_platformer-kit",
-   "name": "platform-fortified",
-   "gr": "structures",
+   "name": "plant",
+   "gr": "plants",
    "wdh": [
-    0.7,
+    0.3,
     0.1,
-    0.7
+    0.3
    ],
    "tris": 108,
    "tpu": 315,
    "mat": 1,
-   "bytes": 8888,
+   "bytes": 6624,
    "scaled": true,
-   "file": "platform-fortified.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "platform-overhang",
-   "gr": "structures",
-   "wdh": [
-    0.7,
-    0.3,
-    0.3
-   ],
-   "tris": 68,
-   "tpu": 198,
-   "mat": 1,
-   "bytes": 6116,
-   "scaled": true,
-   "file": "platform-overhang.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "platform-ramp",
-   "gr": "structures",
-   "wdh": [
-    0.7,
-    0.4,
-    0.7
-   ],
-   "tris": 84,
-   "tpu": 245,
-   "mat": 1,
-   "bytes": 7256,
-   "scaled": true,
-   "file": "platform-ramp.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "platform",
-   "gr": "structures",
-   "wdh": [
-    0.7,
-    0.1,
-    0.7
-   ],
-   "tris": 84,
-   "tpu": 245,
-   "mat": 1,
-   "bytes": 7188,
-   "scaled": true,
-   "file": "platform.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "rocks",
-   "gr": "rocks",
-   "wdh": [
-    0.4,
-    0.3,
-    0.4
-   ],
-   "tris": 100,
-   "tpu": 292,
-   "mat": 1,
-   "bytes": 6952,
-   "scaled": true,
-   "file": "rocks.glb"
+   "file": "plant.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -5463,22 +5354,6 @@
    "bytes": 7448,
    "scaled": true,
    "file": "spike-block.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "stones",
-   "gr": "resources",
-   "wdh": [
-    0.5,
-    0.1,
-    0.5
-   ],
-   "tris": 120,
-   "tpu": 350,
-   "mat": 1,
-   "bytes": 7204,
-   "scaled": true,
-   "file": "stones.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -5559,22 +5434,6 @@
    "bytes": 7788,
    "scaled": true,
    "file": "tree-pine-snow.glb"
-  },
-  {
-   "kit": "kenney_platformer-kit",
-   "name": "tree-pine",
-   "gr": "trees",
-   "wdh": [
-    0.6,
-    1.3,
-    0.6
-   ],
-   "tris": 204,
-   "tpu": 364,
-   "mat": 1,
-   "bytes": 7780,
-   "scaled": true,
-   "file": "tree-pine.glb"
   },
   {
    "kit": "kenney_platformer-kit",
@@ -9068,6 +8927,22 @@
   },
   {
    "kit": "kenney_graveyardkit_5.0",
+   "name": "bench-damaged",
+   "gr": "furniture",
+   "wdh": [
+    0.6,
+    0.3,
+    0.3
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bytes": 15240,
+   "scaled": true,
+   "file": "bench-damaged.glb"
+  },
+  {
+   "kit": "kenney_graveyardkit_5.0",
    "name": "bench",
    "gr": "furniture",
    "wdh": [
@@ -9116,6 +8991,22 @@
   },
   {
    "kit": "kenney_graveyardkit_5.0",
+   "name": "brick-wall-curve",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.5,
+    0.7
+   ],
+   "tris": 348,
+   "tpu": 1015,
+   "mat": 1,
+   "bytes": 14904,
+   "scaled": true,
+   "file": "brick-wall-curve.glb"
+  },
+  {
+   "kit": "kenney_graveyardkit_5.0",
    "name": "brick-wall-end",
    "gr": "other",
    "wdh": [
@@ -9129,6 +9020,22 @@
    "bytes": 17332,
    "scaled": true,
    "file": "brick-wall-end.glb"
+  },
+  {
+   "kit": "kenney_graveyardkit_5.0",
+   "name": "brick-wall",
+   "gr": "other",
+   "wdh": [
+    0.7,
+    0.5,
+    0.2
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "bytes": 11456,
+   "scaled": true,
+   "file": "brick-wall.glb"
   },
   {
    "kit": "kenney_graveyardkit_5.0",
@@ -9292,38 +9199,6 @@
   },
   {
    "kit": "kenney_graveyardkit_5.0",
-   "name": "crypt-large",
-   "gr": "structures",
-   "wdh": [
-    1.2,
-    0.7,
-    1.6
-   ],
-   "tris": 626,
-   "tpu": 513,
-   "mat": 1,
-   "bytes": 29052,
-   "scaled": true,
-   "file": "crypt-large.glb"
-  },
-  {
-   "kit": "kenney_graveyardkit_5.0",
-   "name": "debris",
-   "gr": "rocks",
-   "wdh": [
-    0.3,
-    0.1,
-    0.4
-   ],
-   "tris": 240,
-   "tpu": 700,
-   "mat": 1,
-   "bytes": 17396,
-   "scaled": true,
-   "file": "debris.glb"
-  },
-  {
-   "kit": "kenney_graveyardkit_5.0",
    "name": "detail-bowl",
    "gr": "other",
    "wdh": [
@@ -9417,22 +9292,6 @@
    "bytes": 10000,
    "scaled": true,
    "file": "grave.glb"
-  },
-  {
-   "kit": "kenney_graveyardkit_5.0",
-   "name": "gravestone-cross-large",
-   "gr": "structures",
-   "wdh": [
-    0.3,
-    0.6,
-    0.2
-   ],
-   "tris": 192,
-   "tpu": 560,
-   "mat": 1,
-   "bytes": 9464,
-   "scaled": true,
-   "file": "gravestone-cross-large.glb"
   },
   {
    "kit": "kenney_graveyardkit_5.0",
@@ -9753,22 +9612,6 @@
    "bytes": 10892,
    "scaled": true,
    "file": "pumpkin-tall.glb"
-  },
-  {
-   "kit": "kenney_graveyardkit_5.0",
-   "name": "pumpkin",
-   "gr": "plants",
-   "wdh": [
-    0.2,
-    0.2,
-    0.2
-   ],
-   "tris": 348,
-   "tpu": 1015,
-   "mat": 1,
-   "bytes": 10884,
-   "scaled": true,
-   "file": "pumpkin.glb"
   },
   {
    "kit": "kenney_graveyardkit_5.0",
@@ -11433,51 +11276,6 @@
   },
   {
    "kit": "kenney_mini-dungeon",
-   "name": "banner",
-   "gr": "signs",
-   "wdh": [
-    0.6,
-    0.6,
-    0.1
-   ],
-   "tris": 200,
-   "tpu": 583,
-   "mat": 1,
-   "bytes": 11116,
-   "file": "banner.glb"
-  },
-  {
-   "kit": "kenney_mini-dungeon",
-   "name": "barrel",
-   "gr": "storage",
-   "wdh": [
-    0.5,
-    0.5,
-    0.5
-   ],
-   "tris": 148,
-   "tpu": 431,
-   "mat": 1,
-   "bytes": 7860,
-   "file": "barrel.glb"
-  },
-  {
-   "kit": "kenney_mini-dungeon",
-   "name": "chair",
-   "gr": "furniture",
-   "wdh": [
-    0.3,
-    0.5,
-    0.4
-   ],
-   "tris": 208,
-   "tpu": 606,
-   "mat": 1,
-   "bytes": 11800,
-   "file": "chair.glb"
-  },
-  {
-   "kit": "kenney_mini-dungeon",
    "name": "character-human",
    "gr": "other",
    "wdh": [
@@ -11489,6 +11287,7 @@
    "tpu": 1127,
    "mat": 2,
    "bytes": 25612,
+   "scaled": true,
    "file": "character-human.glb"
   },
   {
@@ -11504,6 +11303,7 @@
    "tpu": 877,
    "mat": 2,
    "bytes": 21824,
+   "scaled": true,
    "file": "character-orc.glb"
   },
   {
@@ -11519,6 +11319,7 @@
    "tpu": 840,
    "mat": 2,
    "bytes": 16388,
+   "scaled": true,
    "file": "chest.glb"
   },
   {
@@ -11534,6 +11335,7 @@
    "tpu": 735,
    "mat": 1,
    "bytes": 11296,
+   "scaled": true,
    "file": "coin.glb"
   },
   {
@@ -11549,6 +11351,7 @@
    "tpu": 270,
    "mat": 1,
    "bytes": 5028,
+   "scaled": true,
    "file": "column.glb"
   },
   {
@@ -11564,6 +11367,7 @@
    "tpu": 13,
    "mat": 1,
    "bytes": 2100,
+   "scaled": true,
    "file": "dirt.glb"
   },
   {
@@ -11579,6 +11383,7 @@
    "tpu": 208,
    "mat": 1,
    "bytes": 4584,
+   "scaled": true,
    "file": "floor-detail.glb"
   },
   {
@@ -11593,6 +11398,7 @@
    "tris": 2,
    "mat": 1,
    "bytes": 1376,
+   "scaled": true,
    "file": "floor.glb"
   },
   {
@@ -11608,6 +11414,7 @@
    "tpu": 181,
    "mat": 1,
    "bytes": 5744,
+   "scaled": true,
    "file": "gate.glb"
   },
   {
@@ -11623,6 +11430,7 @@
    "tpu": 513,
    "mat": 1,
    "bytes": 7640,
+   "scaled": true,
    "file": "key.glb"
   },
   {
@@ -11638,6 +11446,7 @@
    "tpu": 828,
    "mat": 1,
    "bytes": 10208,
+   "scaled": true,
    "file": "pot.glb"
   },
   {
@@ -11653,6 +11462,7 @@
    "tpu": 350,
    "mat": 1,
    "bytes": 5388,
+   "scaled": true,
    "file": "potion.glb"
   },
   {
@@ -11668,6 +11478,7 @@
    "tpu": 380,
    "mat": 1,
    "bytes": 9824,
+   "scaled": true,
    "file": "rocks.glb"
   },
   {
@@ -11683,6 +11494,7 @@
    "tpu": 391,
    "mat": 1,
    "bytes": 7028,
+   "scaled": true,
    "file": "shield-rectangle.glb"
   },
   {
@@ -11698,6 +11510,7 @@
    "tpu": 466,
    "mat": 1,
    "bytes": 6920,
+   "scaled": true,
    "file": "shield-round.glb"
   },
   {
@@ -11713,6 +11526,7 @@
    "tpu": 138,
    "mat": 1,
    "bytes": 7204,
+   "scaled": true,
    "file": "stairs.glb"
   },
   {
@@ -11728,22 +11542,8 @@
    "tpu": 629,
    "mat": 1,
    "bytes": 11980,
+   "scaled": true,
    "file": "stones.glb"
-  },
-  {
-   "kit": "kenney_mini-dungeon",
-   "name": "table",
-   "gr": "furniture",
-   "wdh": [
-    0.9,
-    0.3,
-    0.6
-   ],
-   "tris": 150,
-   "tpu": 437,
-   "mat": 1,
-   "bytes": 9252,
-   "file": "table.glb"
   },
   {
    "kit": "kenney_mini-dungeon",
@@ -11758,6 +11558,7 @@
    "tpu": 1054,
    "mat": 2,
    "bytes": 14904,
+   "scaled": true,
    "file": "trap.glb"
   },
   {
@@ -11773,6 +11574,7 @@
    "tpu": 150,
    "mat": 1,
    "bytes": 8436,
+   "scaled": true,
    "file": "wall-half.glb"
   },
   {
@@ -11788,6 +11590,7 @@
    "tpu": 234,
    "mat": 1,
    "bytes": 12852,
+   "scaled": true,
    "file": "wall-narrow.glb"
   },
   {
@@ -11803,6 +11606,7 @@
    "tpu": 190,
    "mat": 1,
    "bytes": 10564,
+   "scaled": true,
    "file": "wall-opening.glb"
   },
   {
@@ -11818,6 +11622,7 @@
    "tpu": 169,
    "mat": 1,
    "bytes": 11604,
+   "scaled": true,
    "file": "wall.glb"
   },
   {
@@ -11833,6 +11638,7 @@
    "tpu": 169,
    "mat": 1,
    "bytes": 4316,
+   "scaled": true,
    "file": "weapon-spear.glb"
   },
   {
@@ -11848,6 +11654,7 @@
    "tpu": 233,
    "mat": 1,
    "bytes": 4836,
+   "scaled": true,
    "file": "weapon-sword.glb"
   },
   {
@@ -11863,6 +11670,7 @@
    "tpu": 216,
    "mat": 1,
    "bytes": 16184,
+   "scaled": true,
    "file": "wood-structure.glb"
   },
   {
@@ -11878,6 +11686,7 @@
    "tpu": 137,
    "mat": 1,
    "bytes": 7076,
+   "scaled": true,
    "file": "wood-support.glb"
   },
   {
@@ -12634,6 +12443,22 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "box_large",
+   "gr": "storage",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bytes": 12708,
+   "scaled": true,
+   "file": "box_large.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
    "name": "box_small",
    "gr": "storage",
    "wdh": [
@@ -12695,22 +12520,6 @@
    "bytes": 11012,
    "scaled": true,
    "file": "floor_tile_grate.gltf"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "floor_tile_large",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.1,
-    0.7
-   ],
-   "tris": 188,
-   "tpu": 548,
-   "mat": 1,
-   "bytes": 11256,
-   "scaled": true,
-   "file": "floor_tile_large.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -12858,6 +12667,22 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "table_medium_tablecloth",
+   "gr": "furniture",
+   "wdh": [
+    0.4,
+    0.2,
+    0.4
+   ],
+   "tris": 270,
+   "tpu": 787,
+   "mat": 1,
+   "bytes": 18452,
+   "scaled": true,
+   "file": "table_medium_tablecloth.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
    "name": "table_medium_tablecloth_decorated_B",
    "gr": "furniture",
    "wdh": [
@@ -12874,23 +12699,7 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "torch_lit",
-   "gr": "lights",
-   "wdh": [
-    0.1,
-    0.2,
-    0.1
-   ],
-   "tris": 270,
-   "tpu": 787,
-   "mat": 1,
-   "bytes": 13148,
-   "scaled": true,
-   "file": "torch_lit.gltf"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "trunk_large_C",
+   "name": "trunk_large_A",
    "gr": "storage",
    "wdh": [
     0.3,
@@ -12902,7 +12711,39 @@
    "mat": 1,
    "bytes": 14044,
    "scaled": true,
-   "file": "trunk_large_C.gltf"
+   "file": "trunk_large_A.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "trunk_large_B",
+   "gr": "storage",
+   "wdh": [
+    0.3,
+    0.2,
+    0.2
+   ],
+   "tris": 204,
+   "tpu": 595,
+   "mat": 1,
+   "bytes": 14044,
+   "scaled": true,
+   "file": "trunk_large_B.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "trunk_medium_A",
+   "gr": "storage",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 1,
+   "bytes": 10408,
+   "scaled": true,
+   "file": "trunk_medium_A.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -12919,22 +12760,6 @@
    "bytes": 10408,
    "scaled": true,
    "file": "trunk_medium_B.gltf"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "trunk_medium_C",
-   "gr": "storage",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 148,
-   "tpu": 431,
-   "mat": 1,
-   "bytes": 10408,
-   "scaled": true,
-   "file": "trunk_medium_C.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -12967,22 +12792,6 @@
    "bytes": 14076,
    "scaled": true,
    "file": "trunk_small_B.gltf"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
-   "name": "trunk_small_C",
-   "gr": "storage",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 204,
-   "tpu": 595,
-   "mat": 1,
-   "bytes": 14076,
-   "scaled": true,
-   "file": "trunk_small_C.gltf"
   },
   {
    "kit": "KayKit_Forest_Nature_Pack_1.0_FREE",
@@ -13194,6 +13003,22 @@
   },
   {
    "kit": "KayKit_Forest_Nature_Pack_1.0_FREE",
+   "name": "Grass_1_SingleSided_Mesh",
+   "gr": "plants",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 14,
+   "tpu": 41,
+   "mat": 1,
+   "bytes": 1612,
+   "scaled": true,
+   "file": "Grass_1_SingleSided_Mesh.gltf"
+  },
+  {
+   "kit": "KayKit_Forest_Nature_Pack_1.0_FREE",
    "name": "Grass_2_A_Color1",
    "gr": "plants",
    "wdh": [
@@ -13207,22 +13032,6 @@
    "bytes": 3436,
    "scaled": true,
    "file": "Grass_2_A_Color1.gltf"
-  },
-  {
-   "kit": "KayKit_Forest_Nature_Pack_1.0_FREE",
-   "name": "Grass_2_A_Singlesided_Color1",
-   "gr": "plants",
-   "wdh": [
-    0.1,
-    0.3,
-    0.1
-   ],
-   "tris": 14,
-   "tpu": 41,
-   "mat": 1,
-   "bytes": 2060,
-   "scaled": true,
-   "file": "Grass_2_A_Singlesided_Color1.gltf"
   },
   {
    "kit": "KayKit_Forest_Nature_Pack_1.0_FREE",
@@ -13786,56 +13595,8 @@
   },
   {
    "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "blueprint",
-   "gr": "other",
-   "wdh": [
-    0.4,
-    0.1,
-    0.4
-   ],
-   "tris": 128,
-   "tpu": 373,
-   "mat": 2,
-   "bytes": 10220,
-   "scaled": true,
-   "file": "blueprint.gltf"
-  },
-  {
-   "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "blueprint_stacked",
-   "gr": "other",
-   "wdh": [
-    0.6,
-    0.1,
-    0.5
-   ],
-   "tris": 384,
-   "tpu": 1120,
-   "mat": 2,
-   "bytes": 28244,
-   "scaled": true,
-   "file": "blueprint_stacked.gltf"
-  },
-  {
-   "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "bucket_metal",
-   "gr": "storage",
-   "wdh": [
-    0.3,
-    0.3,
-    0.2
-   ],
-   "tris": 466,
-   "tpu": 1359,
-   "mat": 2,
-   "bytes": 20956,
-   "scaled": true,
-   "file": "bucket_metal.gltf"
-  },
-  {
-   "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "map_empty",
-   "gr": "books-scrolls",
+   "name": "map",
+   "gr": "items",
    "wdh": [
     0.5,
     0.1,
@@ -13844,25 +13605,9 @@
    "tris": 596,
    "tpu": 1738,
    "mat": 2,
-   "bytes": 24912,
+   "bytes": 24888,
    "scaled": true,
-   "file": "map_empty.gltf"
-  },
-  {
-   "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "screwdriver_A_short",
-   "gr": "tools",
-   "wdh": [
-    0.1,
-    0.2,
-    0.1
-   ],
-   "tris": 190,
-   "tpu": 554,
-   "mat": 1,
-   "bytes": 10736,
-   "scaled": true,
-   "file": "screwdriver_A_short.gltf"
+   "file": "map.gltf"
   },
   {
    "kit": "KayKit_RPGToolsBits_1.0_FREE",
@@ -13882,22 +13627,6 @@
   },
   {
    "kit": "KayKit_RPGToolsBits_1.0_FREE",
-   "name": "screwdriver_B_short",
-   "gr": "tools",
-   "wdh": [
-    0.1,
-    0.2,
-    0.1
-   ],
-   "tris": 216,
-   "tpu": 630,
-   "mat": 1,
-   "bytes": 11788,
-   "scaled": true,
-   "file": "screwdriver_B_short.gltf"
-  },
-  {
-   "kit": "KayKit_RPGToolsBits_1.0_FREE",
    "name": "screwdriver_B_short_color",
    "gr": "tools",
    "wdh": [
@@ -13911,6 +13640,22 @@
    "bytes": 11800,
    "scaled": true,
    "file": "screwdriver_B_short_color.gltf"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "arch_gate_left",
+   "gr": "structures",
+   "wdh": [
+    0.4,
+    0.8,
+    0.1
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bytes": 16100,
+   "scaled": true,
+   "file": "arch_gate_left.obj"
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
@@ -13978,6 +13723,38 @@
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "coffin",
+   "gr": "storage",
+   "wdh": [
+    0.6,
+    0.2,
+    0.8
+   ],
+   "tris": 56,
+   "tpu": 137,
+   "mat": 1,
+   "bytes": 4276,
+   "scaled": true,
+   "file": "coffin.obj"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
+   "name": "coffin_lid",
+   "gr": "storage",
+   "wdh": [
+    0.6,
+    0.2,
+    0.8
+   ],
+   "tris": 260,
+   "tpu": 638,
+   "mat": 1,
+   "bytes": 16212,
+   "scaled": true,
+   "file": "coffin_lid.obj"
+  },
+  {
+   "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "floor_dirt",
    "gr": "structures",
    "wdh": [
@@ -14010,22 +13787,6 @@
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "gravemarker_A",
-   "gr": "structures",
-   "wdh": [
-    0.2,
-    0.3,
-    0.1
-   ],
-   "tris": 56,
-   "tpu": 163,
-   "mat": 1,
-   "bytes": 5360,
-   "scaled": true,
-   "file": "gravemarker_A.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
    "name": "gravemarker_B",
    "gr": "structures",
    "wdh": [
@@ -14039,54 +13800,6 @@
    "bytes": 11988,
    "scaled": true,
    "file": "gravemarker_B.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "lantern_standing",
-   "gr": "lights",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 264,
-   "tpu": 770,
-   "mat": 1,
-   "bytes": 13812,
-   "scaled": true,
-   "file": "lantern_standing.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "post_lantern",
-   "gr": "lights",
-   "wdh": [
-    0.1,
-    0.9,
-    0.4
-   ],
-   "tris": 96,
-   "tpu": 280,
-   "mat": 1,
-   "bytes": 7488,
-   "scaled": true,
-   "file": "post_lantern.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "post_lantern_lantern",
-   "gr": "lights",
-   "wdh": [
-    0.2,
-    0.4,
-    0.2
-   ],
-   "tris": 472,
-   "tpu": 1376,
-   "mat": 1,
-   "bytes": 20892,
-   "scaled": true,
-   "file": "post_lantern_lantern.obj"
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
@@ -14170,51 +13883,19 @@
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "tree_dead_medium",
-   "gr": "bare-trees",
-   "wdh": [
-    0.5,
-    1.2,
-    0.1
-   ],
-   "tris": 216,
-   "tpu": 529,
-   "mat": 1,
-   "bytes": 6964,
-   "scaled": true,
-   "file": "tree_dead_medium.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "tree_pine_orange_medium",
+   "name": "tree_pine_orange_large",
    "gr": "trees",
    "wdh": [
-    0.9,
-    1.6,
-    0.9
+    1.3,
+    2.1,
+    1.2
    ],
    "tris": 318,
-   "tpu": 244,
+   "tpu": 101,
    "mat": 1,
-   "bytes": 18780,
+   "bytes": 18912,
    "scaled": true,
-   "file": "tree_pine_orange_medium.obj"
-  },
-  {
-   "kit": "KayKit_HalloweenBits_1.0_FREE",
-   "name": "tree_pine_orange_small",
-   "gr": "trees",
-   "wdh": [
-    0.7,
-    1.1,
-    0.6
-   ],
-   "tris": 260,
-   "tpu": 497,
-   "mat": 1,
-   "bytes": 15296,
-   "scaled": true,
-   "file": "tree_pine_orange_small.obj"
+   "file": "tree_pine_orange_large.obj"
   },
   {
    "kit": "KayKit_HalloweenBits_1.0_FREE",
@@ -14282,7 +13963,7 @@
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
-   "name": "chair_B",
+   "name": "chair_A",
    "gr": "furniture",
    "wdh": [
     0.2,
@@ -14294,7 +13975,23 @@
    "mat": 1,
    "bytes": 18040,
    "scaled": true,
-   "file": "chair_B.obj"
+   "file": "chair_A.obj"
+  },
+  {
+   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
+   "name": "chair_stool",
+   "gr": "furniture",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 272,
+   "tpu": 793,
+   "mat": 1,
+   "bytes": 11340,
+   "scaled": true,
+   "file": "chair_stool.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -14570,6 +14267,22 @@
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
+   "name": "food_ingredient_carrot",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 324,
+   "tpu": 945,
+   "mat": 1,
+   "bytes": 11476,
+   "scaled": true,
+   "file": "food_ingredient_carrot.obj"
+  },
+  {
+   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_ingredient_carrot_chopped",
    "gr": "food",
    "wdh": [
@@ -14631,22 +14344,6 @@
    "bytes": 3420,
    "scaled": true,
    "file": "food_ingredient_cheese_slice.obj"
-  },
-  {
-   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
-   "name": "food_ingredient_ham",
-   "gr": "food",
-   "wdh": [
-    0.3,
-    0.2,
-    0.2
-   ],
-   "tris": 272,
-   "tpu": 793,
-   "mat": 1,
-   "bytes": 10072,
-   "scaled": true,
-   "file": "food_ingredient_ham.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -14839,6 +14536,22 @@
    "bytes": 10676,
    "scaled": true,
    "file": "food_ingredient_steak_pieces.obj"
+  },
+  {
+   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
+   "name": "food_ingredient_tomato",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 388,
+   "tpu": 1131,
+   "mat": 1,
+   "bytes": 14656,
+   "scaled": true,
+   "file": "food_ingredient_tomato.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -15642,19 +15355,19 @@
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
-   "name": "lid_large",
+   "name": "lid_B",
    "gr": "cooking",
    "wdh": [
-    0.4,
+    0.2,
     0.1,
-    0.3
+    0.2
    ],
    "tris": 200,
    "tpu": 583,
    "mat": 1,
-   "bytes": 8420,
+   "bytes": 8512,
    "scaled": true,
-   "file": "lid_large.obj"
+   "file": "lid_B.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -15786,22 +15499,6 @@
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
-   "name": "pot_B",
-   "gr": "cooking",
-   "wdh": [
-    0.3,
-    0.1,
-    0.2
-   ],
-   "tris": 324,
-   "tpu": 945,
-   "mat": 1,
-   "bytes": 14356,
-   "scaled": true,
-   "file": "pot_B.obj"
-  },
-  {
-   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "pot_B_stew",
    "gr": "storage",
    "wdh": [
@@ -15815,22 +15512,6 @@
    "bytes": 28428,
    "scaled": true,
    "file": "pot_B_stew.obj"
-  },
-  {
-   "kit": "KayKit_Restaurant_Bits_1.0_FREE",
-   "name": "pot_large",
-   "gr": "cooking",
-   "wdh": [
-    0.5,
-    0.2,
-    0.3
-   ],
-   "tris": 388,
-   "tpu": 1131,
-   "mat": 1,
-   "bytes": 17304,
-   "scaled": true,
-   "file": "pot_large.obj"
   },
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
@@ -16250,6 +15931,22 @@
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
+   "name": "book_single",
+   "gr": "books-scrolls",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bytes": 5376,
+   "scaled": true,
+   "file": "book_single.gltf"
+  },
+  {
+   "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "cabinet_medium_decorated",
    "gr": "other",
    "wdh": [
@@ -16346,7 +16043,7 @@
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
-   "name": "chair_A_wood",
+   "name": "chair_A",
    "gr": "furniture",
    "wdh": [
     0.2,
@@ -16356,13 +16053,13 @@
    "tris": 308,
    "tpu": 898,
    "mat": 1,
-   "bytes": 17868,
+   "bytes": 17856,
    "scaled": true,
-   "file": "chair_A_wood.gltf"
+   "file": "chair_A.gltf"
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
-   "name": "chair_B_wood",
+   "name": "chair_B",
    "gr": "furniture",
    "wdh": [
     0.2,
@@ -16372,9 +16069,9 @@
    "tris": 384,
    "tpu": 1120,
    "mat": 1,
-   "bytes": 19604,
+   "bytes": 19592,
    "scaled": true,
-   "file": "chair_B_wood.gltf"
+   "file": "chair_B.gltf"
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
@@ -16394,7 +16091,7 @@
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
-   "name": "chair_stool_wood",
+   "name": "chair_stool",
    "gr": "furniture",
    "wdh": [
     0.2,
@@ -16404,9 +16101,9 @@
    "tris": 216,
    "tpu": 630,
    "mat": 1,
-   "bytes": 12160,
+   "bytes": 12148,
    "scaled": true,
-   "file": "chair_stool_wood.gltf"
+   "file": "chair_stool.gltf"
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
@@ -16666,22 +16363,6 @@
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
-   "name": "rug_rectangle_stripes_A",
-   "gr": "furniture",
-   "wdh": [
-    0.9,
-    0.1,
-    0.6
-   ],
-   "tris": 68,
-   "tpu": 198,
-   "mat": 1,
-   "bytes": 4048,
-   "scaled": true,
-   "file": "rug_rectangle_stripes_A.gltf"
-  },
-  {
-   "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "rug_rectangle_stripes_B",
    "gr": "other",
    "wdh": [
@@ -16695,6 +16376,22 @@
    "bytes": 4048,
    "scaled": true,
    "file": "rug_rectangle_stripes_B.gltf"
+  },
+  {
+   "kit": "KayKit_Furniture_Bits_1.0_FREE",
+   "name": "shelf_A_small",
+   "gr": "furniture",
+   "wdh": [
+    0.3,
+    0.1,
+    0.2
+   ],
+   "tris": 212,
+   "tpu": 618,
+   "mat": 1,
+   "bytes": 11464,
+   "scaled": true,
+   "file": "shelf_A_small.gltf"
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
@@ -16730,22 +16427,6 @@
   },
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
-   "name": "shelf_B_small",
-   "gr": "furniture",
-   "wdh": [
-    0.3,
-    0.1,
-    0.2
-   ],
-   "tris": 212,
-   "tpu": 618,
-   "mat": 1,
-   "bytes": 11492,
-   "scaled": true,
-   "file": "shelf_B_small.gltf"
-  },
-  {
-   "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "shelf_B_small_decorated",
    "gr": "furniture",
    "wdh": [
@@ -16778,7 +16459,23 @@
   },
   {
    "kit": "KayKit_Adventurers_2.0_FREE",
-   "name": "shield_round_color",
+   "name": "shield_badge_color",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 262,
+   "tpu": 764,
+   "mat": 1,
+   "bytes": 11904,
+   "scaled": true,
+   "file": "shield_badge_color.gltf"
+  },
+  {
+   "kit": "KayKit_Adventurers_2.0_FREE",
+   "name": "shield_round_barbarian",
    "gr": "tools",
    "wdh": [
     0.2,
@@ -16788,9 +16485,9 @@
    "tris": 284,
    "tpu": 828,
    "mat": 1,
-   "bytes": 13156,
+   "bytes": 13168,
    "scaled": true,
-   "file": "shield_round_color.gltf"
+   "file": "shield_round_barbarian.gltf"
   },
   {
    "kit": "KayKit_Adventurers_2.0_FREE",
@@ -16807,22 +16504,6 @@
    "bytes": 22872,
    "scaled": true,
    "file": "shield_spikes_color.gltf"
-  },
-  {
-   "kit": "KayKit_Adventurers_2.0_FREE",
-   "name": "shield_square",
-   "gr": "tools",
-   "wdh": [
-    0.2,
-    0.3,
-    0.1
-   ],
-   "tris": 262,
-   "tpu": 764,
-   "mat": 1,
-   "bytes": 12120,
-   "scaled": true,
-   "file": "shield_square.gltf"
   },
   {
    "kit": "KayKit_Adventurers_2.0_FREE",
@@ -18650,6 +18331,22 @@
   },
   {
    "kit": "Ultimate_Nature_Pack_by_Quaternius_OBJ",
+   "name": "Flowers",
+   "gr": "plants",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 408,
+   "tpu": 1190,
+   "mat": 3,
+   "bytes": 25480,
+   "scaled": true,
+   "file": "Flowers.obj"
+  },
+  {
+   "kit": "Ultimate_Nature_Pack_by_Quaternius_OBJ",
    "name": "Grass",
    "gr": "plants",
    "wdh": [
@@ -19338,22 +19035,6 @@
   },
   {
    "kit": "Ultimate_Nature_Pack_by_Quaternius_OBJ",
-   "name": "Wheat",
-   "gr": "plants",
-   "wdh": [
-    0.1,
-    0.4,
-    0.1
-   ],
-   "tris": 408,
-   "tpu": 1190,
-   "mat": 1,
-   "bytes": 22292,
-   "scaled": true,
-   "file": "Wheat.obj"
-  },
-  {
-   "kit": "Ultimate_Nature_Pack_by_Quaternius_OBJ",
    "name": "Willow_1",
    "gr": "trees",
    "wdh": [
@@ -19690,6 +19371,86 @@
   },
   {
    "kit": "nature_kit",
+   "name": "Bush_1",
+   "gr": "plants",
+   "wdh": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3860,
+   "scaled": true,
+   "file": "Bush_1.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_2",
+   "gr": "plants",
+   "wdh": [
+    0.4,
+    0.3,
+    0.4
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "file": "Bush_2.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_3",
+   "gr": "plants",
+   "wdh": [
+    0.4,
+    0.3,
+    0.4
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "file": "Bush_3.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_4",
+   "gr": "plants",
+   "wdh": [
+    0.4,
+    0.3,
+    0.4
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3860,
+   "scaled": true,
+   "file": "Bush_4.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_5",
+   "gr": "plants",
+   "wdh": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3860,
+   "scaled": true,
+   "file": "Bush_5.obj"
+  },
+  {
+   "kit": "nature_kit",
    "name": "Grass_Clump_1",
    "gr": "grass",
    "wdh": [
@@ -19703,6 +19464,22 @@
    "bytes": 2048,
    "scaled": true,
    "file": "Grass_Clump_1.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Grass_Clump_3",
+   "gr": "grass",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 40,
+   "tpu": 117,
+   "mat": 1,
+   "bytes": 2748,
+   "scaled": true,
+   "file": "Grass_Clump_3.obj"
   },
   {
    "kit": "nature_kit",
@@ -19738,86 +19515,6 @@
   },
   {
    "kit": "nature_kit",
-   "name": "Root_2",
-   "gr": "bare-trees",
-   "wdh": [
-    0.4,
-    0.1,
-    0.1
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 3788,
-   "scaled": true,
-   "file": "Root_2.obj"
-  },
-  {
-   "kit": "nature_kit",
-   "name": "Root_3",
-   "gr": "bare-trees",
-   "wdh": [
-    0.4,
-    0.4,
-    0.2
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 3792,
-   "scaled": true,
-   "file": "Root_3.obj"
-  },
-  {
-   "kit": "nature_kit",
-   "name": "Root_4",
-   "gr": "bare-trees",
-   "wdh": [
-    0.4,
-    0.4,
-    0.1
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 3792,
-   "scaled": true,
-   "file": "Root_4.obj"
-  },
-  {
-   "kit": "nature_kit",
-   "name": "Root_5",
-   "gr": "bare-trees",
-   "wdh": [
-    0.4,
-    0.5,
-    0.1
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 3792,
-   "scaled": true,
-   "file": "Root_5.obj"
-  },
-  {
-   "kit": "nature_kit",
-   "name": "Root_6",
-   "gr": "bare-trees",
-   "wdh": [
-    0.3,
-    0.6,
-    0.1
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 3796,
-   "scaled": true,
-   "file": "Root_6.obj"
-  },
-  {
-   "kit": "nature_kit",
    "name": "Tent_Leanto_1",
    "gr": "furniture",
    "wdh": [
@@ -19847,22 +19544,6 @@
    "bytes": 65660,
    "scaled": true,
    "file": "Tent_Leanto_2.obj"
-  },
-  {
-   "kit": "nature_kit",
-   "name": "Timber_Cut_2",
-   "gr": "timber",
-   "wdh": [
-    0.3,
-    0.1,
-    0.1
-   ],
-   "tris": 40,
-   "tpu": 117,
-   "mat": 3,
-   "bytes": 4864,
-   "scaled": true,
-   "file": "Timber_Cut_2.obj"
   },
   {
    "kit": "nature_kit",
@@ -20202,19 +19883,19 @@
   },
   {
    "kit": "Modular Village",
-   "name": "Roof_Straight_Side_Eave",
+   "name": "Roof_Prop_Chimney_Stone",
    "gr": "building-kit",
    "wdh": [
-    0.6,
-    0.6,
-    0.5
+    0.2,
+    0.8,
+    0.2
    ],
    "tris": 120,
    "tpu": 350,
-   "mat": 3,
-   "bytes": 8696,
+   "mat": 2,
+   "bytes": 6404,
    "scaled": true,
-   "file": "Roof_Straight_Side_Eave.obj"
+   "file": "Roof_Prop_Chimney_Stone.obj"
   },
   {
    "kit": "Modular Village",
@@ -20616,6 +20297,22 @@
   },
   {
    "kit": "modular_terrain_collection",
+   "name": "Cave_Cliff_Terrain_Entrance_Round_Top",
+   "gr": "cave-terrain",
+   "wdh": [
+    0.4,
+    0.6,
+    0.3
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bytes": 4076,
+   "scaled": true,
+   "file": "Cave_Cliff_Terrain_Entrance_Round_Top.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
    "name": "Cave_Cliff_Terrain_Entrance_Round_Top_Center",
    "gr": "cave-terrain",
    "wdh": [
@@ -20757,6 +20454,38 @@
    "bytes": 1916,
    "scaled": true,
    "file": "Cave_Terrain_Corner_Inner_2x2_Mid.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
+   "name": "Cave_Terrain_Corner_Inner_2x2_Top",
+   "gr": "cave-terrain",
+   "wdh": [
+    0.6,
+    0.3,
+    0.6
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 5044,
+   "scaled": true,
+   "file": "Cave_Terrain_Corner_Inner_2x2_Top.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
+   "name": "Cave_Terrain_Corner_Inner_3x3_Base",
+   "gr": "cave-terrain",
+   "wdh": [
+    0.8,
+    0.3,
+    0.8
+   ],
+   "tris": 120,
+   "tpu": 292,
+   "mat": 1,
+   "bytes": 7020,
+   "scaled": true,
+   "file": "Cave_Terrain_Corner_Inner_3x3_Base.obj"
   },
   {
    "kit": "modular_terrain_collection",
@@ -21381,6 +21110,22 @@
   },
   {
    "kit": "modular_terrain_collection",
+   "name": "Cliff_Terrain_Corner_Inner_3x3_Base",
+   "gr": "ground",
+   "wdh": [
+    0.8,
+    0.3,
+    0.8
+   ],
+   "tris": 48,
+   "tpu": 117,
+   "mat": 1,
+   "bytes": 3660,
+   "scaled": true,
+   "file": "Cliff_Terrain_Corner_Inner_3x3_Base.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
    "name": "Cliff_Terrain_Corner_Inner_3x3_Mid",
    "gr": "ground",
    "wdh": [
@@ -21554,6 +21299,22 @@
    "bytes": 4964,
    "scaled": true,
    "file": "Cliff_Terrain_Hill_Base_Top_Joined_Sharp.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
+   "name": "Cliff_Terrain_Hill_Gentle_Base",
+   "gr": "ground",
+   "wdh": [
+    0.2,
+    0.6,
+    1.1
+   ],
+   "tris": 48,
+   "tpu": 87,
+   "mat": 1,
+   "bytes": 3656,
+   "scaled": true,
+   "file": "Cliff_Terrain_Hill_Gentle_Base.obj"
   },
   {
    "kit": "modular_terrain_collection",
@@ -21778,6 +21539,22 @@
    "bytes": 1508,
    "scaled": true,
    "file": "Cliff_Terrain_Waterfall_Mid.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
+   "name": "Cliff_Terrain_Waterfall_Top",
+   "gr": "ground",
+   "wdh": [
+    0.4,
+    0.6,
+    0.6
+   ],
+   "tris": 62,
+   "tpu": 181,
+   "mat": 2,
+   "bytes": 5188,
+   "scaled": true,
+   "file": "Cliff_Terrain_Waterfall_Top.obj"
   },
   {
    "kit": "modular_terrain_collection",
@@ -22275,6 +22052,22 @@
   },
   {
    "kit": "modular_terrain_collection",
+   "name": "Hilly_Prop_Bridge_Log_End_Edge",
+   "gr": "connections",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 140,
+   "tpu": 408,
+   "mat": 2,
+   "bytes": 9176,
+   "scaled": true,
+   "file": "Hilly_Prop_Bridge_Log_End_Edge.obj"
+  },
+  {
+   "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Bridge_Log_Middle",
    "gr": "connections",
    "wdh": [
@@ -22483,38 +22276,6 @@
   },
   {
    "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Fence_Curve_1x1",
-   "gr": "fences",
-   "wdh": [
-    0.3,
-    0.2,
-    0.3
-   ],
-   "tris": 62,
-   "tpu": 181,
-   "mat": 2,
-   "bytes": 5264,
-   "scaled": true,
-   "file": "Hilly_Prop_Fence_Curve_1x1.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Fence_Curve_3x3",
-   "gr": "fences",
-   "wdh": [
-    0.9,
-    0.2,
-    0.9
-   ],
-   "tris": 140,
-   "tpu": 324,
-   "mat": 2,
-   "bytes": 9484,
-   "scaled": true,
-   "file": "Hilly_Prop_Fence_Curve_3x3.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Fence_Hill_Sharp",
    "gr": "fences",
    "wdh": [
@@ -22563,54 +22324,6 @@
   },
   {
    "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Grass_Clump_1",
-   "gr": "plants",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 60,
-   "tpu": 175,
-   "mat": 1,
-   "bytes": 5820,
-   "scaled": true,
-   "file": "Hilly_Prop_Grass_Clump_1.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Grass_Clump_2",
-   "gr": "plants",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bytes": 7372,
-   "scaled": true,
-   "file": "Hilly_Prop_Grass_Clump_2.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Grass_Clump_4",
-   "gr": "plants",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 120,
-   "tpu": 350,
-   "mat": 1,
-   "bytes": 10496,
-   "scaled": true,
-   "file": "Hilly_Prop_Grass_Clump_4.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Hollow_Trunk",
    "gr": "other",
    "wdh": [
@@ -22624,38 +22337,6 @@
    "bytes": 10128,
    "scaled": true,
    "file": "Hilly_Prop_Hollow_Trunk.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Mushroom_1",
-   "gr": "plants",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 48,
-   "tpu": 140,
-   "mat": 2,
-   "bytes": 4524,
-   "scaled": true,
-   "file": "Hilly_Prop_Mushroom_1.obj"
-  },
-  {
-   "kit": "modular_terrain_collection",
-   "name": "Hilly_Prop_Mushroom_2",
-   "gr": "plants",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 48,
-   "tpu": 140,
-   "mat": 2,
-   "bytes": 4516,
-   "scaled": true,
-   "file": "Hilly_Prop_Mushroom_2.obj"
   },
   {
    "kit": "modular_terrain_collection",
@@ -25468,21 +25149,6 @@
   },
   {
    "kit": "ocean",
-   "name": "Eel",
-   "gr": "ocean",
-   "wdh": [
-    64.2,
-    80.5,
-    699.7
-   ],
-   "tris": 734,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 39676,
-   "file": "Eel.fbx"
-  },
-  {
-   "kit": "ocean",
    "name": "Hammerhead",
    "gr": "other",
    "wdh": [
@@ -25570,21 +25236,6 @@
    "mat": 1,
    "bytes": 39940,
    "file": "TunaFish.fbx"
-  },
-  {
-   "kit": "ocean",
-   "name": "Whale",
-   "gr": "ocean",
-   "wdh": [
-    169.4,
-    82.1,
-    449.5
-   ],
-   "tris": 617,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 32524,
-   "file": "Whale.fbx"
   },
   {
    "kit": "LowPolyNaturePackLite",
@@ -26052,32 +25703,18 @@
   },
   {
    "kit": "TropicalIslandLite_FBX",
-   "name": "Barrel_04",
-   "gr": "storage",
-   "wdh": [
-    0.8,
-    0.9,
-    0.8
-   ],
-   "tris": 704,
-   "tpu": 1250,
-   "mat": 1,
-   "bytes": 35076,
-   "file": "Barrel_04.fbx"
-  },
-  {
-   "kit": "TropicalIslandLite_FBX",
    "name": "Chest_01",
    "gr": "storage",
    "wdh": [
-    96.7,
-    40.2,
-    54.8
+    58,
+    24.1,
+    32.9
    ],
    "tris": 878,
    "tpu": 0,
    "mat": 1,
-   "bytes": 53628,
+   "bytes": 53652,
+   "scaled": true,
    "file": "Chest_01.fbx"
   },
   {
@@ -26085,14 +25722,15 @@
    "name": "Chest_01_2",
    "gr": "storage",
    "wdh": [
-    80.6,
-    34.2,
-    55.1
+    48.4,
+    20.5,
+    33.1
    ],
    "tris": 628,
    "tpu": 0,
    "mat": 1,
-   "bytes": 36604,
+   "bytes": 36628,
+   "scaled": true,
    "file": "Chest_01_2.fbx"
   },
   {
@@ -26100,14 +25738,15 @@
    "name": "CoralReef_01",
    "gr": "ocean",
    "wdh": [
-    0.3,
+    0.2,
     0.1,
-    0.3
+    0.2
    ],
    "tris": 352,
    "tpu": 1026,
    "mat": 1,
-   "bytes": 20396,
+   "bytes": 20420,
+   "scaled": true,
    "file": "CoralReef_01.fbx"
   },
   {
@@ -26115,14 +25754,15 @@
    "name": "PalmTree_05",
    "gr": "trees",
    "wdh": [
-    2.4,
-    4.1,
-    2.5
+    1.4,
+    2.5,
+    1.5
    ],
    "tris": 2180,
-   "tpu": 88,
+   "tpu": 409,
    "mat": 1,
-   "bytes": 105924,
+   "bytes": 105948,
+   "scaled": true,
    "file": "PalmTree_05.fbx"
   },
   {
@@ -26130,44 +25770,31 @@
    "name": "Pier_02",
    "gr": "other",
    "wdh": [
-    1.9,
-    2.5,
-    2.9
+    1.1,
+    1.5,
+    1.8
    ],
    "tris": 612,
-   "tpu": 44,
+   "tpu": 203,
    "mat": 1,
-   "bytes": 38140,
+   "bytes": 38164,
+   "scaled": true,
    "file": "Pier_02.fbx"
-  },
-  {
-   "kit": "TropicalIslandLite_FBX",
-   "name": "PirateSword_01",
-   "gr": "characters",
-   "wdh": [
-    0.2,
-    0.9,
-    0.1
-   ],
-   "tris": 400,
-   "tpu": 1166,
-   "mat": 1,
-   "bytes": 23120,
-   "file": "PirateSword_01.fbx"
   },
   {
    "kit": "TropicalIslandLite_FBX",
    "name": "Plank_01",
    "gr": "structures",
    "wdh": [
-    1.8,
+    1.1,
     0.1,
-    0.2
+    0.1
    ],
    "tris": 36,
    "tpu": 105,
    "mat": 1,
-   "bytes": 3504,
+   "bytes": 3528,
+   "scaled": true,
    "file": "Plank_01.fbx"
   },
   {
@@ -26175,14 +25802,15 @@
    "name": "Plant_01",
    "gr": "plants",
    "wdh": [
-    1.4,
-    0.4,
-    1.6
+    0.9,
+    0.2,
+    1
    ],
    "tris": 1456,
-   "tpu": 1512,
+   "tpu": 3017,
    "mat": 1,
-   "bytes": 67016,
+   "bytes": 67040,
+   "scaled": true,
    "file": "Plant_01.fbx"
   },
   {
@@ -26190,14 +25818,15 @@
    "name": "Rock_01",
    "gr": "rocks",
    "wdh": [
-    1,
-    1,
-    0.9
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 60,
-   "tpu": 70,
+   "tpu": 175,
    "mat": 1,
-   "bytes": 4800,
+   "bytes": 4824,
+   "scaled": true,
    "file": "Rock_01.fbx"
   },
   {
@@ -26205,14 +25834,15 @@
    "name": "Skull_01",
    "gr": "bones",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 266,
    "tpu": 776,
    "mat": 1,
-   "bytes": 10908,
+   "bytes": 10932,
+   "scaled": true,
    "file": "Skull_01.fbx"
   },
   {
@@ -26220,14 +25850,15 @@
    "name": "Tent_01",
    "gr": "furniture",
    "wdh": [
-    262,
-    310.1,
-    245.1
+    157.2,
+    186.1,
+    147.1
    ],
    "tris": 692,
    "tpu": 0,
    "mat": 1,
-   "bytes": 28372,
+   "bytes": 28396,
+   "scaled": true,
    "file": "Tent_01.fbx"
   },
   {
@@ -26277,6 +25908,22 @@
    "bytes": 38152,
    "scaled": true,
    "file": "bookcaseWideFilled_broken.gltf.glb"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.0",
+   "name": "bookcase_broken",
+   "gr": "furniture",
+   "wdh": [
+    0.2,
+    0.4,
+    0.1
+   ],
+   "tris": 784,
+   "tpu": 2286,
+   "mat": 1,
+   "bytes": 15832,
+   "scaled": true,
+   "file": "bookcase_broken.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
@@ -26440,19 +26087,19 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "pillar",
+   "name": "floorDecoration_woodLeft",
    "gr": "building-kit",
    "wdh": [
     0.3,
-    0.7,
-    0.3
+    0.1,
+    0.4
    ],
-   "tris": 3052,
-   "tpu": 8898,
-   "mat": 2,
-   "bytes": 81628,
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 5136,
    "scaled": true,
-   "file": "pillar.gltf.glb"
+   "file": "floorDecoration_woodLeft.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
@@ -26472,35 +26119,35 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "stairs",
-   "gr": "connections",
+   "name": "scaffold_small_high_long",
+   "gr": "building-kit",
    "wdh": [
-    0.5,
-    0.8,
-    1
+    0.7,
+    0.7,
+    0.4
    ],
-   "tris": 704,
-   "tpu": 1368,
+   "tris": 192,
+   "tpu": 546,
    "mat": 1,
-   "bytes": 35512,
+   "bytes": 11496,
    "scaled": true,
-   "file": "stairs.gltf.glb"
+   "file": "scaffold_small_high_long.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "stairs_wide",
-   "gr": "connections",
+   "name": "scaffold_small_low_cornerRight",
+   "gr": "building-kit",
    "wdh": [
-    0.8,
-    0.8,
-    1
+    0.4,
+    0.2,
+    0.4
    ],
-   "tris": 1092,
-   "tpu": 1571,
+   "tris": 120,
+   "tpu": 350,
    "mat": 1,
-   "bytes": 53476,
+   "bytes": 7344,
    "scaled": true,
-   "file": "stairs_wide.gltf.glb"
+   "file": "scaffold_small_low_cornerRight.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
@@ -26664,22 +26311,6 @@
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "torch",
-   "gr": "lights",
-   "wdh": [
-    0.1,
-    0.2,
-    0.1
-   ],
-   "tris": 434,
-   "tpu": 1265,
-   "mat": 3,
-   "bytes": 15840,
-   "scaled": true,
-   "file": "torch.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "trapdoor",
    "gr": "other",
    "wdh": [
@@ -26693,38 +26324,6 @@
    "bytes": 34572,
    "scaled": true,
    "file": "trapdoor.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "wall",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.3
-   ],
-   "tris": 5760,
-   "tpu": 16793,
-   "mat": 2,
-   "bytes": 143428,
-   "scaled": true,
-   "file": "wall.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "wallCorner",
-   "gr": "building-kit",
-   "wdh": [
-    0.5,
-    0.7,
-    0.5
-   ],
-   "tris": 6072,
-   "tpu": 17703,
-   "mat": 2,
-   "bytes": 149240,
-   "scaled": true,
-   "file": "wallCorner.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
@@ -26933,22 +26532,6 @@
    "bytes": 188360,
    "scaled": true,
    "file": "wallSplit.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Dungeon_Pack_1.0",
-   "name": "wall_broken",
-   "gr": "building-kit",
-   "wdh": [
-    0.7,
-    0.7,
-    0.3
-   ],
-   "tris": 3736,
-   "tpu": 10892,
-   "mat": 2,
-   "bytes": 101304,
-   "scaled": true,
-   "file": "wall_broken.gltf.glb"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
@@ -28983,22 +28566,6 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
-   "name": "Arch_Door",
-   "gr": "structures",
-   "wdh": [
-    0.5,
-    0.7,
-    0.1
-   ],
-   "tris": 1220,
-   "tpu": 3557,
-   "mat": 4,
-   "bytes": 57736,
-   "scaled": true,
-   "file": "Arch_Door.obj"
-  },
-  {
-   "kit": "Updated_Modular_Dungeon_2019",
    "name": "Arch_Door_bottompivot",
    "gr": "structures",
    "wdh": [
@@ -29028,6 +28595,38 @@
    "bytes": 63436,
    "scaled": true,
    "file": "Arch_bars.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Banner",
+   "gr": "signs",
+   "wdh": [
+    0.5,
+    0.8,
+    0.1
+   ],
+   "tris": 564,
+   "tpu": 1644,
+   "mat": 4,
+   "bytes": 30552,
+   "scaled": true,
+   "file": "Banner.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Banner_wall",
+   "gr": "signs",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 3,
+   "bytes": 23252,
+   "scaled": true,
+   "file": "Banner_wall.obj"
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
@@ -29108,22 +28707,6 @@
    "bytes": 141420,
    "scaled": true,
    "file": "Coin_Pile.obj"
-  },
-  {
-   "kit": "Updated_Modular_Dungeon_2019",
-   "name": "Column",
-   "gr": "structures",
-   "wdh": [
-    0.3,
-    0.9,
-    0.3
-   ],
-   "tris": 440,
-   "tpu": 1283,
-   "mat": 2,
-   "bytes": 22900,
-   "scaled": true,
-   "file": "Column.obj"
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
@@ -29239,6 +28822,22 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Spikes",
+   "gr": "other",
+   "wdh": [
+    0.4,
+    0.2,
+    0.4
+   ],
+   "tris": 504,
+   "tpu": 1469,
+   "mat": 1,
+   "bytes": 31808,
+   "scaled": true,
+   "file": "Spikes.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
    "name": "Table_Big",
    "gr": "furniture",
    "wdh": [
@@ -29319,38 +28918,6 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
-   "name": "Trapdoor",
-   "gr": "structures",
-   "wdh": [
-    0.4,
-    0.1,
-    0.4
-   ],
-   "tris": 504,
-   "tpu": 1469,
-   "mat": 4,
-   "bytes": 30532,
-   "scaled": true,
-   "file": "Trapdoor.obj"
-  },
-  {
-   "kit": "Updated_Modular_Dungeon_2019",
-   "name": "Trapdoor_open",
-   "gr": "structures",
-   "wdh": [
-    0.4,
-    0.1,
-    0.6
-   ],
-   "tris": 564,
-   "tpu": 1644,
-   "mat": 4,
-   "bytes": 33012,
-   "scaled": true,
-   "file": "Trapdoor_open.obj"
-  },
-  {
-   "kit": "Updated_Modular_Dungeon_2019",
    "name": "Vase",
    "gr": "storage",
    "wdh": [
@@ -29383,6 +28950,22 @@
   },
   {
    "kit": "Small_Props_Pack_1",
+   "name": "Bag_1_A",
+   "gr": "storage",
+   "wdh": [
+    0.4,
+    0.4,
+    0.4
+   ],
+   "tris": 196,
+   "tpu": 571,
+   "mat": 1,
+   "bytes": 9968,
+   "scaled": true,
+   "file": "Bag_1_A.fbx"
+  },
+  {
+   "kit": "Small_Props_Pack_1",
    "name": "Bag_1_B",
    "gr": "storage",
    "wdh": [
@@ -29396,22 +28979,6 @@
    "bytes": 9968,
    "scaled": true,
    "file": "Bag_1_B.fbx"
-  },
-  {
-   "kit": "Small_Props_Pack_1",
-   "name": "Bag_1_C",
-   "gr": "storage",
-   "wdh": [
-    0.4,
-    0.4,
-    0.4
-   ],
-   "tris": 196,
-   "tpu": 571,
-   "mat": 1,
-   "bytes": 9968,
-   "scaled": true,
-   "file": "Bag_1_C.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -29447,6 +29014,22 @@
   },
   {
    "kit": "Small_Props_Pack_1",
+   "name": "Bag_2_A",
+   "gr": "storage",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bytes": 9060,
+   "scaled": true,
+   "file": "Bag_2_A.fbx"
+  },
+  {
+   "kit": "Small_Props_Pack_1",
    "name": "Bag_2_B",
    "gr": "storage",
    "wdh": [
@@ -29460,22 +29043,6 @@
    "bytes": 9060,
    "scaled": true,
    "file": "Bag_2_B.fbx"
-  },
-  {
-   "kit": "Small_Props_Pack_1",
-   "name": "Bag_2_C",
-   "gr": "storage",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 188,
-   "tpu": 548,
-   "mat": 1,
-   "bytes": 9060,
-   "scaled": true,
-   "file": "Bag_2_C.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -29511,6 +29078,22 @@
   },
   {
    "kit": "Small_Props_Pack_1",
+   "name": "Bag_3_A",
+   "gr": "storage",
+   "wdh": [
+    0.3,
+    0.4,
+    0.3
+   ],
+   "tris": 166,
+   "tpu": 484,
+   "mat": 1,
+   "bytes": 8348,
+   "scaled": true,
+   "file": "Bag_3_A.fbx"
+  },
+  {
+   "kit": "Small_Props_Pack_1",
    "name": "Bag_3_B",
    "gr": "storage",
    "wdh": [
@@ -29524,22 +29107,6 @@
    "bytes": 8348,
    "scaled": true,
    "file": "Bag_3_B.fbx"
-  },
-  {
-   "kit": "Small_Props_Pack_1",
-   "name": "Bag_3_C",
-   "gr": "storage",
-   "wdh": [
-    0.3,
-    0.4,
-    0.3
-   ],
-   "tris": 166,
-   "tpu": 484,
-   "mat": 1,
-   "bytes": 8348,
-   "scaled": true,
-   "file": "Bag_3_C.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -30087,7 +29654,7 @@
   },
   {
    "kit": "Small_Props_Pack_1",
-   "name": "Ivory_B",
+   "name": "Ivory_A",
    "gr": "other",
    "wdh": [
     0.4,
@@ -30099,7 +29666,7 @@
    "mat": 1,
    "bytes": 16300,
    "scaled": true,
-   "file": "Ivory_B.fbx"
+   "file": "Ivory_A.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -30151,6 +29718,22 @@
   },
   {
    "kit": "Small_Props_Pack_1",
+   "name": "Manequin_1_A",
+   "gr": "other",
+   "wdh": [
+    0.2,
+    0.9,
+    0.7
+   ],
+   "tris": 1484,
+   "tpu": 4086,
+   "mat": 1,
+   "bytes": 68760,
+   "scaled": true,
+   "file": "Manequin_1_A.fbx"
+  },
+  {
+   "kit": "Small_Props_Pack_1",
    "name": "Manequin_1_A_001",
    "gr": "other",
    "wdh": [
@@ -30164,22 +29747,6 @@
    "bytes": 68576,
    "scaled": true,
    "file": "Manequin_1_A_001.fbx"
-  },
-  {
-   "kit": "Small_Props_Pack_1",
-   "name": "Manequin_1_A_002",
-   "gr": "other",
-   "wdh": [
-    0.2,
-    0.9,
-    0.7
-   ],
-   "tris": 1484,
-   "tpu": 4086,
-   "mat": 1,
-   "bytes": 68768,
-   "scaled": true,
-   "file": "Manequin_1_A_002.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -30215,6 +29782,22 @@
   },
   {
    "kit": "Small_Props_Pack_1",
+   "name": "Manequin_2_A",
+   "gr": "other",
+   "wdh": [
+    0.2,
+    0.9,
+    0.7
+   ],
+   "tris": 1912,
+   "tpu": 5324,
+   "mat": 1,
+   "bytes": 89024,
+   "scaled": true,
+   "file": "Manequin_2_A.fbx"
+  },
+  {
+   "kit": "Small_Props_Pack_1",
    "name": "Manequin_2_A_001",
    "gr": "other",
    "wdh": [
@@ -30228,22 +29811,6 @@
    "bytes": 89000,
    "scaled": true,
    "file": "Manequin_2_A_001.fbx"
-  },
-  {
-   "kit": "Small_Props_Pack_1",
-   "name": "Manequin_2_A_002",
-   "gr": "other",
-   "wdh": [
-    0.2,
-    0.9,
-    0.7
-   ],
-   "tris": 1912,
-   "tpu": 5324,
-   "mat": 1,
-   "bytes": 89032,
-   "scaled": true,
-   "file": "Manequin_2_A_002.fbx"
   },
   {
    "kit": "Small_Props_Pack_1",
@@ -30775,32 +30342,18 @@
   },
   {
    "kit": "Windmill",
-   "name": "Windmill",
-   "gr": "structures",
-   "wdh": [
-    348.7,
-    540,
-    248.5
-   ],
-   "tris": 10429,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 730012,
-   "file": "Windmill.fbx"
-  },
-  {
-   "kit": "Windmill",
    "name": "Plane.005",
    "gr": "other",
    "wdh": [
-    3617.5,
-    1465,
-    3617.5
+    36.2,
+    14.7,
+    36.2
    ],
    "tris": 82,
    "tpu": 0,
    "mat": 1,
-   "bytes": 3804,
+   "bytes": 3832,
+   "scaled": true,
    "file": "Windmill.fbx"
   }
  ]

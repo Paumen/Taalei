@@ -9,7 +9,7 @@ export const BRONKITS = [
   { map: 'kenney_castlekit', naam: 'Kenney Castle Kit', kit: 'castle-kit', formaat: 'glb' },
   { map: 'kenney_graveyardkit_5.0', naam: 'Kenney Graveyard Kit', kit: 'graveyard-kit', formaat: 'glb' },
   { map: 'kenney_holidaykit', naam: 'Kenney Holiday Kit', kit: null, formaat: 'glb' },
-  { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: null, formaat: 'glb' },
+  { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: 'mini-dungeon', formaat: 'glb' },
 
   { map: 'KayKit_Dungeon_Pack_1.1_FREE', naam: 'KayKit Dungeon Asset Pack', kit: 'dungeon', formaat: 'gltf' },
   { map: 'KayKit_Forest_Nature_Pack_1.0_FREE', naam: 'KayKit Forest Nature Pack', kit: 'forest', formaat: 'gltf' },
@@ -31,7 +31,7 @@ export const BRONKITS = [
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
   { map: 'ocean', naam: 'Ocean', kit: 'onderwater-kit', formaat: 'fbx' },
   { map: 'LowPolyNaturePackLite', naam: 'Low Poly Nature Pack Lite', kit: null, formaat: 'fbx' },
-  { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: null, formaat: 'fbx' },
+  { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'dungeon', formaat: 'glb' },
   { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'skeletons', formaat: 'glb' },
@@ -41,5 +41,5 @@ export const BRONKITS = [
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-items', formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'dungeon-quaternius', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
-  { map: 'Windmill', naam: 'Windmill', kit: null, formaat: 'fbx', splitsPerMesh: true },
+  { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
 ];

@@ -141,16 +141,21 @@ const meet = (primitieven) => {
 
 function kitGegevens(slug) {
   const dir = join(WERK_DIR, slug);
-  if (!existsSync(dir)) return { driehoeken: [], schaal: null, aantal: 0 };
+  if (!existsSync(dir)) return { modellen: [], schaal: null, aantal: 0 };
 
-  const driehoeken = [];
+  const modellen = [];
   let schaal = null;
   for (const bestand of readdirSync(dir).filter((n) => n.endsWith('.glb'))) {
     const glb = readGlb(join(dir, bestand));
-    driehoeken.push(measureScene(glb).triangles);
-    schaal ??= glb.json.asset?.extras?.taaleiland?.schaal ?? null;
+    const extras = glb.json.asset?.extras?.taaleiland ?? {};
+    modellen.push({
+      naam: basename(bestand, '.glb'),
+      bronmodel: extras.bronmodel ?? null,
+      driehoeken: measureScene(glb).triangles,
+    });
+    schaal ??= extras.schaal ?? null;
   }
-  return { driehoeken, schaal, aantal: driehoeken.length };
+  return { modellen, schaal, aantal: modellen.length };
 }
 
 // ─── writing a preview ───────────────────────────────────────────────────────────────
@@ -313,14 +318,36 @@ const waarschuwingen = [];
 for (const bronkit of BRONKITS) {
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
-  const kit = bronkit.kit ? kitGegevens(bronkit.kit) : { driehoeken: [], schaal: null, aantal: 0 };
-
-  const teGaan = new Map();
-  for (const driehoeken of kit.driehoeken) teGaan.set(driehoeken, (teGaan.get(driehoeken) ?? 0) + 1);
+  const kit = bronkit.kit
+    ? kitGegevens(bronkit.kit)
+    : { modellen: [], schaal: null, aantal: 0 };
 
   const gemeten = bron.map((model) => ({ ...model, ...meet(model.primitieven) }));
-  const ontbreekt = [];
+
+  // Name first: an importer records the source name it built a workfile from, and where
+  // it did not, the workfile still carries that name kebab-cased. Either way a model
+  // that names a workfile is imported however far its triangle count has moved since.
+  // Only what is left over falls back to the count, which cannot tell a model from its
+  // equally heavy neighbour.
+  const opBron = new Map(kit.modellen.filter((m) => m.bronmodel).map((m) => [m.bronmodel, m.naam]));
+  const opNaamKit = new Set(kit.modellen.map((m) => m.naam));
+
+  const geraakt = new Set();
+  const rest = [];
   for (const model of gemeten) {
+    const naam = opBron.get(model.naam) ?? (opNaamKit.has(kebab(model.naam)) ? kebab(model.naam) : null);
+    if (naam !== null) geraakt.add(naam);
+    else rest.push(model);
+  }
+
+  const teGaan = new Map();
+  for (const { naam, driehoeken } of kit.modellen) {
+    if (geraakt.has(naam)) continue;
+    teGaan.set(driehoeken, (teGaan.get(driehoeken) ?? 0) + 1);
+  }
+
+  const ontbreekt = [];
+  for (const model of rest) {
     const open = teGaan.get(model.driehoeken) ?? 0;
     if (open > 0) teGaan.set(model.driehoeken, open - 1);
     else ontbreekt.push(model);
@@ -329,9 +356,9 @@ for (const bronkit of BRONKITS) {
   const onherkend = [...teGaan.values()].reduce((som, n) => som + n, 0);
   if (onherkend) {
     waarschuwingen.push(
-      `${bronkit.kit}: ${onherkend} of ${kit.aantal} workfiles have no model with the same ` +
-        `triangle count in ${bronkit.naam} — edited after import, so that many source models ` +
-        'are listed as missing while they may not be',
+      `${bronkit.kit}: ${onherkend} of ${kit.aantal} workfiles match no model in ` +
+        `${bronkit.naam} by name or by triangle count — renamed and edited after import, so ` +
+        'that many source models are listed as missing while they may not be',
     );
   }
 
