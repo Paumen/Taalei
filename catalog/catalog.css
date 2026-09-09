@@ -420,8 +420,13 @@ a { color: var(--accent); }
   transform: rotate(45deg);
 }
 
-/* a one-letter label needs the dot to keep the count from reading as part of it */
-.tagknop-punt .tagknop-aantal::before { content: "· "; }
+/* A one-letter label needs the dot to keep the count from reading as part of it. The
+   flex gap already spaces both sides, so the dot itself carries no space of its own. */
+.tagknop-punt { gap: 4px; }
+.tagknop-punt .tagknop-aantal::before {
+  margin-right: 4px;
+  content: "·";
+}
 
 .tagknop-aantal {
   font-size: 11px;
