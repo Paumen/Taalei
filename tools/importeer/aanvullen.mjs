@@ -134,9 +134,38 @@ const lees = (pad) => koppelTexturen(leesRuw(pad), uitgepakt);
 // fbx.mjs already flips v on read, so only obj still carries v from the bottom up.
 const vOmlaag = bronkit.formaat !== 'obj';
 
+// A splitsPerMesh pack keeps several models in one file, so there the source name is
+// a mesh rather than a file — the same split build-missing.mjs makes.
+const LOD = /_LOD(\d+)$/i;
+const grofsteWeg = (naam) => {
+  const match = naam.match(LOD);
+  if (!match) return naam;
+  return Number(match[1]) === 0 ? naam.replace(LOD, '') : null;
+};
+
+function meshIndex() {
+  const index = new Map();
+  for (const bestand of readdirSync(modelmap).sort()) {
+    if (extname(bestand).toLowerCase() !== `.${bronkit.formaat}`) continue;
+    const pad = join(modelmap, bestand);
+    for (const primitief of lees(pad)) {
+      const naam = grofsteWeg(primitief.naam);
+      if (naam && !index.has(naam)) index.set(naam, { pad, primitieven: [primitief] });
+    }
+  }
+  return index;
+}
+
+const meshen = bronkit.splitsPerMesh ? meshIndex() : null;
+
 const gevraagd = paren.map((paar) => {
   const [bronNaam, naam] = paar.split('=');
   if (!bronNaam || !naam) throw new Error(`${paar}: verwacht <source name>=<model name>`);
+  if (meshen) {
+    const treffer = meshen.get(bronNaam);
+    if (!treffer) throw new Error(`${bronNaam}: geen mesh met die naam in ${modelmap}`);
+    return { bronNaam, naam, pad: treffer.pad, primitieven: treffer.primitieven };
+  }
   const pad = join(modelmap, `${bronNaam}.${bronkit.formaat}`);
   if (!existsSync(pad)) throw new Error(`${bronNaam}: niet in ${modelmap}`);
   return { bronNaam, naam, pad };
@@ -158,9 +187,9 @@ const { schaal, oorsprong } = kitInstellingen(slug, gevraagdeSchaal);
 const kitDir = join(WERK_DIR, slug);
 zetColormapKlaar(kitDir);
 
-for (const { bronNaam, naam, pad } of gevraagd) {
+for (const { bronNaam, naam, pad, primitieven } of gevraagd) {
   const model = bouwGlb({
-    primitieven: lees(pad),
+    primitieven: primitieven ?? lees(pad),
     naam,
     bronNaam,
     bron: bronkit.naam,
