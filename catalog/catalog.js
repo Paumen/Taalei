@@ -623,24 +623,33 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// Materials read as their family: a model carries wood-beam, not wood, so the panel says
-// "Wood · Beam" and folds several subtypes of one family into a single entry.
-function materialNames(ids) {
-  const out = [];
+// A model carries the subtype it is, so the panel gives each family its own line: the
+// parent, then the subtypes under it. One comma-joined list would read as four materials
+// where there are two.
+function materialElement(ids) {
+  const families = [];
   const perFamily = new Map();
   for (const id of ids) {
     const tag = register.tags.get(id);
     const name = tag?.name ?? id;
     const parent = tag?.parent;
-    if (!parent) { out.push({ key: id, text: name }); continue; }
+    if (!parent) { families.push({ head: name, subtypes: [] }); continue; }
     const own = perFamily.get(parent);
     if (own) { own.subtypes.push(name); continue; }
-    const entry = { key: parent, subtypes: [name] };
+    const entry = { head: register.tags.get(parent)?.name ?? parent, subtypes: [name] };
     perFamily.set(parent, entry);
-    out.push(entry);
+    families.push(entry);
   }
-  return out.map((e) =>
-    e.text ?? `${register.tags.get(e.key)?.name ?? e.key} · ${e.subtypes.join(', ')}`);
+
+  const list = document.createElement('div');
+  list.className = 'detail-materialen';
+  for (const { head, subtypes } of families) {
+    const line = span('detail-materiaal');
+    line.append(span('detail-materiaal-ouder', head));
+    if (subtypes.length) line.append(span('detail-materiaal-kind', subtypes.join(', ')));
+    list.append(line);
+  }
+  return list;
 }
 
 function tagRows(model) {
@@ -648,10 +657,15 @@ function tagRows(model) {
   const own = (type) =>
     model.tags.filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
 
-  return TAG_TYPES.map(({ type, head }) => [
-    head,
-    (type === 'material' ? materialNames(own(type)) : own(type).map((id) => register.tags.get(id)?.name ?? id)).join(', '),
-  ]).filter(([, value]) => value);
+  const rows = [];
+  for (const { type, head } of TAG_TYPES) {
+    const ids = own(type);
+    if (!ids.length) continue;
+    rows.push(type === 'material'
+      ? { kop: head, element: materialElement(ids) }
+      : { kop: head, waarde: ids.map((id) => register.tags.get(id)?.name ?? id).join(', ') });
+  }
+  return rows;
 }
 
 function colorSwatches(colors) {
@@ -719,7 +733,7 @@ function showDetail(model) {
       vol: 'Grid-modular / grounded / centered',
       waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
     },
-    ...tagRows(model).map(([kop, waarde]) => ({ kop, waarde, breed: true })),
+    ...tagRows(model).map((row) => ({ ...row, breed: true })),
   ];
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
