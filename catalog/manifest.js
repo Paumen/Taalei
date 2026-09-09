@@ -1531,5 +1531,40 @@ window.KENNEY_KITS = [
    "skeleton-warrior",
    "staff"
   ]
+ },
+ {
+  "slug": "small-props",
+  "name": "Small Props Pack",
+  "url": null,
+  "models": [
+   "anvil-b",
+   "bag-1-c",
+   "bag-2-c",
+   "bag-3-c",
+   "basin-a",
+   "boat-frame-a",
+   "broom-a",
+   "bucket-1-a",
+   "cart-1-a",
+   "cut-wood-1-a",
+   "dried-fish-1-a",
+   "fireplace-1-1-a",
+   "fishing-rod-a",
+   "fishing-rod-b",
+   "fishing-rod-c",
+   "hammer-1-a",
+   "laundry-a",
+   "mannequin-1-a",
+   "mannequin-2-a",
+   "nail-a",
+   "pitchfork-a",
+   "practice-target-1-a",
+   "practice-target-2-a",
+   "skin-hang-a",
+   "stool-a",
+   "trough-1-a",
+   "trough-3-a",
+   "wheel-a"
+  ]
  }
 ]

@@ -40,6 +40,6 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: null, formaat: 'gltf' },
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: null, formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: null, formaat: 'obj' },
-  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: null, formaat: 'fbx' },
+  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: null, formaat: 'fbx', splitsPerMesh: true },
 ];

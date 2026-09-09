@@ -96,7 +96,7 @@ export const KIT_GROUPS = {
 const BUILDING_KITS = [
   ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
   ['village-kit', /^(canopy|chimney|cobblestone|dirt|door|roof|stone|stucco|waterwheel|windmill|wood|window)\b/],
-  ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column)\b/],
+  ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column|scaffold|door|bricks?)\b/],
 ];
 
 const MODULAR_TERRAIN = [
@@ -123,7 +123,11 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'pirate-quaternius/chest-gold',
-  'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
+  'dungeon/bookcase-filled', 'dungeon/bookcase-wide-filled', 'dungeon/pots',
+  'small-props/laundry-a',
+  'restaurant/crate-buns', 'restaurant/crate-carrots', 'restaurant/crate-cheese',
+  'restaurant/crate-ham', 'restaurant/crate-lettuce', 'restaurant/crate-onions',
+  'restaurant/crate-steak', 'restaurant/crate-tomatoes', 'restaurant/food-dinner',
   'resources/textiles-stack-large',
   'village-kit/well-plaza',
 ]);
@@ -136,6 +140,30 @@ const FOOD = [
 ];
 
 const exceptions = {
+  'dungeon/artifact': 'items',
+  'small-props/basin-a': 'storage',
+  'small-props/broom-a': 'tools',
+  'small-props/cart-1-a': 'transport',
+  'small-props/cut-wood-1-a': 'timber',
+  'small-props/dried-fish-1-a': 'food',
+  'small-props/fireplace-1-1-a': 'lights',
+  'small-props/fishing-rod-a': 'tools',
+  'small-props/fishing-rod-b': 'tools',
+  'small-props/fishing-rod-c': 'tools',
+  'small-props/mannequin-1-a': 'signs',
+  'small-props/mannequin-2-a': 'signs',
+  'small-props/pitchfork-a': 'tools',
+  'small-props/practice-target-1-a': 'signs',
+  'small-props/practice-target-2-a': 'signs',
+  'small-props/skin-hang-a': 'structures',
+  'small-props/trough-1-a': 'storage',
+  'small-props/trough-3-a': 'storage',
+  'small-props/wheel-a': 'transport',
+  'dungeon/loot-sack-a': 'storage',
+  'dungeon/loot-sack-b': 'storage',
+  'dungeon/scaffold-stairs': 'connections',
+  'dungeon/spell-book': 'books-scrolls',
+  'dungeon/weapon-rack': 'furniture',
   'platformer-kit/arrow': 'signs',
   'platformer-kit/arrows': 'signs',
   'platformer-kit/lock': 'keys-locks',
@@ -400,6 +428,7 @@ const rules = [
   [/^cliff\b/, 'rocks'],
   [/^(house|sawmill|arch|crypt)\b/, 'structures'],
   [/^(anchor|cannonball)\b/, 'transport'],
+  [/^bookcase\b/, 'furniture'],
   [/^(book|scroll|parchment)\b/, 'books-scrolls'],
   [/^(potion|bottle)\b/, 'bottles-jugs'],
   [/^(coins|necklace|ring)\b/, 'coins-jewelry'],
