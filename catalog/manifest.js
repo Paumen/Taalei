@@ -56,6 +56,7 @@ window.KENNEY_KITS = [
   "name": "Pirate Kit",
   "url": "https://kenney.nl/assets/pirate-kit",
   "models": [
+   "barrel",
    "boat-row-large",
    "boat-row-small",
    "bottle",
@@ -565,6 +566,9 @@ window.KENNEY_KITS = [
   "models": [
    "anvil",
    "axe",
+   "blueprint",
+   "blueprint-stacked",
+   "bucket-metal",
    "chisel",
    "compass-base",
    "drafting-compass",
@@ -1683,6 +1687,32 @@ window.KENNEY_KITS = [
    "table-medium",
    "table-medium-long",
    "table-small"
+  ]
+ },
+ {
+  "slug": "mini-dungeon",
+  "name": "Mini Dungeon",
+  "url": "https://kenney.nl/assets/mini-dungeon",
+  "models": [
+   "banner",
+   "barrel",
+   "chair",
+   "table"
+  ]
+ },
+ {
+  "slug": "tropical-island",
+  "name": "Tropical Island Lite",
+  "models": [
+   "barrel",
+   "sword-pirate"
+  ]
+ },
+ {
+  "slug": "windmill",
+  "name": "Windmill",
+  "models": [
+   "windmill"
   ]
  }
 ]

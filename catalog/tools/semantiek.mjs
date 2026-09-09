@@ -265,6 +265,8 @@ const exceptions = {
   'rpgtools/journal-open': 'books-scrolls',
   'rpgtools/map-rolled': 'books-scrolls',
   'rpgtools/map-empty': 'books-scrolls',
+  'rpgtools/blueprint': 'books-scrolls',
+  'rpgtools/blueprint-stacked': 'books-scrolls',
   'fantasy-props/scroll-2': 'books-scrolls',
   'fantasy-props/scroll-1': 'books-scrolls',
   'natuur/flower-balloon-1': 'flowers',

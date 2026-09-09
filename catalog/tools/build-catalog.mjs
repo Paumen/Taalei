@@ -358,8 +358,8 @@ const SOURCES = [
     description: 'Kits from Kenney (kenney.nl).',
     kits: [
       'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'mini-forest',
-      'modular-cave-kit', 'pirate-kit', 'platformer-kit', 'prototype-kit',
-      'survival-kit',
+      'mini-dungeon', 'modular-cave-kit', 'pirate-kit', 'platformer-kit',
+      'prototype-kit', 'survival-kit',
     ],
   },
   {
