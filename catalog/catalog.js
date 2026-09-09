@@ -942,9 +942,13 @@ function reorder() {
         : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
     for (const chip of own) {
       strip.append(chip.element);
-      for (const child of all.filter((c) => c.parent === chip.id).sort((a, b) => a.order - b.order)) {
-        strip.append(child.element);
-      }
+      const kids = all.filter((c) => c.parent === chip.id).sort((a, b) => a.order - b.order);
+      if (!kids.length) continue;
+      const tray = kids[0].tray;
+      for (const child of kids) tray.append(child.element);
+      tray.hidden = kids.every((c) => c.element.hidden);
+      chip.element.classList.toggle('tagknop-ouder', !tray.hidden);
+      strip.append(tray);
     }
   }
 }
@@ -976,6 +980,16 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 
   const ownIds = items.map((i) => i.id);
 
+  // A subtype sits in a tray hung off its parent chip: the tray keeps the family together
+  // when the row wraps, which adjacency alone does not.
+  const trays = new Map();
+  for (const parent of new Set(items.map((i) => i.parent).filter(Boolean))) {
+    const tray = document.createElement('span');
+    tray.className = 'tagbak';
+    tray.dataset.parent = parent;
+    trays.set(parent, tray);
+  }
+
   for (const item of items) {
     const button = document.createElement('button');
     button.type = 'button';
@@ -993,10 +1007,10 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
       filter();
     });
 
-    if (item.parent) button.classList.add('tagknop-subtype');
+    const tray = item.parent ? trays.get(item.parent) : null;
+    if (tray) { button.classList.add('tagknop-subtype'); tray.append(button); } else { strip.append(button); }
 
-    strip.append(button);
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null });
+    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null, tray });
   }
 
   row.append(strip);

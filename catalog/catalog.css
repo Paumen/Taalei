@@ -358,10 +358,33 @@ a { color: var(--accent); }
 
 .tagknop[hidden] { display: none; }
 
-/* a subtype only shows while its parent is picked, so it reads as belonging to it */
+/* Subtypes hang in a tray off their parent chip: the tray's tint and the notch that
+   tucks under the chip are what say "these belong to Wood" when the row wraps. */
+.tagbak {
+  display: inline-flex;
+  flex: none;
+  gap: 4px;
+  align-items: center;
+  margin-left: -12px;
+  padding: 3px 5px 3px 15px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--kaart));
+}
+
+.tagbak[hidden] { display: none; }
+
+/* the parent keeps its right edge open so the tray reads as hanging off it */
+.tagknop-ouder {
+  z-index: 1;
+  border-right-color: transparent;
+}
+
 .tagknop-subtype {
-  border-style: dashed;
-  margin-left: -3px;
+  padding: 2px 8px;
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--lijn));
+  background: var(--papier);
+  font-size: 11px;
 }
 
 .tagknop:hover { border-color: var(--accent); color: var(--inkt); }
