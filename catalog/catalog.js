@@ -623,35 +623,8 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// A model carries the subtype it is, so the panel gives each family its own line: the
-// parent, then the subtypes under it. One comma-joined list would read as four materials
-// where there are two.
-function materialElement(ids) {
-  const families = [];
-  const perFamily = new Map();
-  for (const id of ids) {
-    const tag = register.tags.get(id);
-    const name = tag?.name ?? id;
-    const parent = tag?.parent;
-    if (!parent) { families.push({ head: name, subtypes: [] }); continue; }
-    const own = perFamily.get(parent);
-    if (own) { own.subtypes.push(name); continue; }
-    const entry = { head: register.tags.get(parent)?.name ?? parent, subtypes: [name] };
-    perFamily.set(parent, entry);
-    families.push(entry);
-  }
-
-  const list = document.createElement('div');
-  list.className = 'detail-materialen';
-  for (const { head, subtypes } of families) {
-    const line = span('detail-materiaal');
-    line.append(span('detail-materiaal-ouder', head));
-    if (subtypes.length) line.append(span('detail-materiaal-kind', subtypes.join(', ')));
-    list.append(line);
-  }
-  return list;
-}
-
+// The material ids carry the family themselves — metal-iron, wood-planks — so the panel
+// prints them as they stand rather than staging a parent and a child in two columns.
 function tagRows(model) {
   if (!model.tags?.length) return [];
   const own = (type) =>
@@ -661,9 +634,10 @@ function tagRows(model) {
   for (const { type, head } of TAG_TYPES) {
     const ids = own(type);
     if (!ids.length) continue;
-    rows.push(type === 'material'
-      ? { kop: head, element: materialElement(ids) }
-      : { kop: head, waarde: ids.map((id) => register.tags.get(id)?.name ?? id).join(', ') });
+    rows.push({
+      kop: head,
+      waarde: (type === 'material' ? ids : ids.map((id) => register.tags.get(id)?.name ?? id)).join(', '),
+    });
   }
   return rows;
 }
