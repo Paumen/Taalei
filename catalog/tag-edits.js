@@ -165,7 +165,19 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
       list.append(opt);
     }
     list.hidden = options.length === 0;
+    if (!list.hidden) positionList();
   }
+
+  // The list is fixed-positioned so it isn't clipped by an ancestor with `overflow:
+  // hidden` — the swipe card in particular relies on that clip for its rounded corners
+  // and drag transform, and would otherwise chop the dropdown off almost entirely.
+  function positionList() {
+    const rect = input.getBoundingClientRect();
+    list.style.left = `${rect.left}px`;
+    list.style.top = `${rect.bottom + 4}px`;
+    list.style.width = `${rect.width}px`;
+  }
+
   input.addEventListener('input', renderList);
   input.addEventListener('focus', renderList);
   input.addEventListener('blur', () => { list.hidden = true; });
