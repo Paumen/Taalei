@@ -442,6 +442,7 @@ const exceptions = {
   'survival-kit/fish': 'ocean',
   'survival-kit/fish-large': 'ocean',
   'restaurant/pot-a-stew': 'cooking',
+  'restaurant/pot-b-stew': 'cooking',
   'fantasy-props/table-fork': 'cooking',
   'fantasy-props/table-knife': 'cooking',
   'fantasy-props/table-spoon': 'cooking',
