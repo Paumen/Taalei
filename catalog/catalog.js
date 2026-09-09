@@ -1,3 +1,5 @@
+import { renderTagEditor, mountEditBar } from './tag-edits.js';
+
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
   'pirate-kit': '#474a58',
@@ -785,6 +787,8 @@ function showDetail(model) {
 
   detailViewer.replaceChildren(viewer);
 
+  renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
+
   detail.showModal();
   updateSelection();
 }
@@ -1186,6 +1190,7 @@ async function start() {
 
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
+  mountEditBar();
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);
 

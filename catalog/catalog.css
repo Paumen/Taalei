@@ -812,6 +812,9 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .detail-keuze[hidden] { display: none; }
 .detail-keuze + .detail-keuze { margin-top: -6px; }
 
+.detail-keuze-verticaal { flex-direction: column; align-items: stretch; }
+.detail-keuze-verticaal .detail-keuze-kop { margin-bottom: 6px; }
+
 .detail-acties { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .detail-keuze-kop {
@@ -952,6 +955,7 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   color: var(--papier);
 }
 body:has(.selectiebalk:not([hidden])) { padding-bottom: 56px; }
+body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 @media (max-width: 560px) {
   .rooster {
     grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
@@ -1126,4 +1130,126 @@ body:has(.selectiebalk:not([hidden])) { padding-bottom: 56px; }
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+/* Manual tag editing, shared by the detail dialog (catalog.html) and the swipe cards
+   (swipe.html) — see catalog/tag-edits.js. */
+.tagedit-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.tagedit-chip { padding: 4px 10px 4px 12px; }
+
+.tagedit-leeg {
+  color: var(--inkt-zacht);
+  font-size: 12px;
+}
+
+.tagedit-picker { position: relative; }
+
+.tagedit-zoek {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 10px;
+  color: var(--inkt);
+  font: inherit;
+  font-size: 12px;
+  background: var(--papier-diep);
+  border: 1px solid var(--lijn);
+  border-radius: 8px;
+}
+
+.tagedit-lijst {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  padding: 4px;
+  overflow-y: auto;
+  background: var(--kaart);
+  border: 1px solid var(--lijn);
+  border-radius: 8px;
+  box-shadow: var(--schaduw);
+}
+
+.tagedit-lijst[hidden] { display: none; }
+
+.tagedit-optie {
+  display: block;
+  width: 100%;
+  padding: 6px 8px;
+  text-align: left;
+  color: var(--inkt);
+  font: inherit;
+  font-size: 12px;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tagedit-optie:hover { background: var(--papier-diep); }
+
+.tagedit-balk {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100vw - 24px);
+  padding: 8px 10px 8px 16px;
+  background: color-mix(in srgb, var(--kaart) 92%, transparent);
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  box-shadow: var(--schaduw), 0 8px 28px rgba(47, 42, 38, .16);
+  backdrop-filter: blur(10px);
+}
+
+.tagedit-balk[hidden] { display: none; }
+
+.tagedit-balk-telling {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tagedit-balk button {
+  flex: none;
+  padding: 5px 12px;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  background: var(--papier);
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tagedit-balk button:hover { border-color: var(--accent); }
+.tagedit-balk button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 560px) {
+  .tagedit-balk {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 18px;
+  }
+
+  .tagedit-balk-telling { font-size: 12px; }
+  .tagedit-balk button { padding: 5px 10px; font-size: 11.5px; }
 }
