@@ -154,7 +154,9 @@ function kleurVanDriehoek(primitief, hoek, vOmlaag, winst, kleurVoorDriehoek, ba
   const { textuur, kleur } = primitief.materiaal;
 
   if (textuur && primitief.uvs) {
-    const hoekUvs = hoek.map((i) => [primitief.uvs[i * 2], primitief.uvs[i * 2 + 1]]);
+    // The band lookup samples the source atlas, so it needs the same v as laadTextuur:
+    // an obj carries v from the bottom up and would otherwise read the mirrored row.
+    const hoekUvs = hoek.map((i) => [primitief.uvs[i * 2], vOmlaag ? primitief.uvs[i * 2 + 1] : 1 - primitief.uvs[i * 2 + 1]]);
     const hoekkleuren = primitief.hoekkleuren
       ? hoek.map((i) => [
           primitief.hoekkleuren[i * 3],
