@@ -128,11 +128,21 @@ if (!slug) throw new Error(`${mapNaam}: geen kit om in te vullen`);
 
 const uitgepakt = pakBronUit(mapNaam);
 const modelmap = vindModelmap(uitgepakt, bronkit.formaat);
-const leesRuw = (pad) =>
-  bronkit.formaat === 'obj' ? leesObj(pad) : bronkit.formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
-const lees = (pad) => koppelTexturen(leesRuw(pad), uitgepakt);
+const leesRuw = (pad, formaat) =>
+  formaat === 'obj' ? leesObj(pad) : formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
+const lees = (pad, formaat = bronkit.formaat) => koppelTexturen(leesRuw(pad, formaat), uitgepakt);
 // fbx.mjs already flips v on read, so only obj still carries v from the bottom up.
-const vOmlaag = bronkit.formaat !== 'obj';
+const vOmlaagVoor = (formaat) => formaat !== 'obj';
+const vOmlaag = vOmlaagVoor(bronkit.formaat);
+
+// A pack may ship a second format holding parts the primary format keeps inside a parent
+// file — KayKit's obj export writes one file per node. The primary format is asked first,
+// so a name both formats have is the assembled model, not the part that borrows its name.
+const modelmappen = [[bronkit.formaat, modelmap]];
+for (const formaat of bronkit.extraFormaten ?? []) {
+  const map = vindModelmap(uitgepakt, formaat);
+  if (map) modelmappen.push([formaat, map]);
+}
 
 // A splitsPerMesh pack keeps several models in one file, so there the source name is
 // a mesh rather than a file — the same split build-missing.mjs makes.
@@ -166,9 +176,11 @@ const gevraagd = paren.map((paar) => {
     if (!treffer) throw new Error(`${bronNaam}: geen mesh met die naam in ${modelmap}`);
     return { bronNaam, naam, pad: treffer.pad, primitieven: treffer.primitieven };
   }
-  const pad = join(modelmap, `${bronNaam}.${bronkit.formaat}`);
-  if (!existsSync(pad)) throw new Error(`${bronNaam}: niet in ${modelmap}`);
-  return { bronNaam, naam, pad };
+  for (const [formaat, map] of modelmappen) {
+    const pad = join(map, `${bronNaam}.${formaat}`);
+    if (existsSync(pad)) return { bronNaam, naam, pad, formaat };
+  }
+  throw new Error(`${bronNaam}: niet in ${modelmappen.map(([, map]) => map).join(', ')}`);
 });
 
 // Gain over the whole pack, the way kit.mjs measures it over a full import.
@@ -187,16 +199,16 @@ const { schaal, oorsprong } = kitInstellingen(slug, gevraagdeSchaal);
 const kitDir = join(WERK_DIR, slug);
 zetColormapKlaar(kitDir);
 
-for (const { bronNaam, naam, pad, primitieven } of gevraagd) {
+for (const { bronNaam, naam, pad, primitieven, formaat = bronkit.formaat } of gevraagd) {
   const model = bouwGlb({
-    primitieven: primitieven ?? lees(pad),
+    primitieven: primitieven ?? lees(pad, formaat),
     naam,
     bronNaam,
     bron: bronkit.naam,
     generator: 'tools/importeer/aanvullen.mjs',
     schaal,
     oorsprong,
-    vOmlaag,
+    vOmlaag: vOmlaagVoor(formaat),
     winst,
     palet,
   });

@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
 import { join, dirname, resolve, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { GROUPS, determineGroup } from './semantiek.mjs';
 import { leesFbx } from './fbx.mjs';
@@ -82,18 +83,17 @@ function leesBron(pad, formaat) {
   return leesGltf(pad);
 }
 
-function bronModellen(bronkit) {
-  const uitgepakt = pakBronUit(bronkit);
-  const map = vindModelmap(uitgepakt, bronkit.formaat);
-  if (!map) throw new Error(`${bronkit.map}: no .${bronkit.formaat} found`);
+function bronFormaatModellen(bronkit, uitgepakt, formaat) {
+  const map = vindModelmap(uitgepakt, formaat);
+  if (!map) return null;
 
   const bestanden = readdirSync(map)
-    .filter((n) => extname(n).toLowerCase() === `.${bronkit.formaat}`)
+    .filter((n) => extname(n).toLowerCase() === `.${formaat}`)
     .sort();
 
   const modellen = [];
   for (const bestand of bestanden) {
-    const primitieven = leesBron(join(map, bestand), bronkit.formaat);
+    const primitieven = leesBron(join(map, bestand), formaat);
     if (primitieven.length === 0) continue;
 
     if (bronkit.splitsPerMesh) {
@@ -117,7 +117,38 @@ function bronModellen(bronkit) {
     if (n > 1) model.naam = `${model.naam}-${n}`;
   }
 
-  return { map, uitgepakt, modellen };
+  return { map, modellen };
+}
+
+// A pack may ship the same models in more than one format. The primary format decides
+// what a model is, and an extra format only adds names it has no file for: KayKit's obj
+// export writes one file per node, so post_skull there is the bare post while the gltf
+// of that name is the post with its skull. Reading gltf first keeps the assembled model
+// and still picks up the loose parts — the gate leaves, the coffin lid — that gltf packs
+// inside a parent file and never gives a file of their own.
+function bronModellen(bronkit) {
+  const uitgepakt = pakBronUit(bronkit);
+  const formaten = [bronkit.formaat, ...(bronkit.extraFormaten ?? [])];
+
+  let hoofdmap = null;
+  const modellen = [];
+  const namen = new Set();
+
+  for (const formaat of formaten) {
+    const gelezen = bronFormaatModellen(bronkit, uitgepakt, formaat);
+    if (!gelezen) {
+      if (formaat === bronkit.formaat) throw new Error(`${bronkit.map}: no .${formaat} found`);
+      continue;
+    }
+    hoofdmap ??= gelezen.map;
+    for (const model of gelezen.modellen) {
+      if (namen.has(model.naam)) continue;
+      namen.add(model.naam);
+      modellen.push(model);
+    }
+  }
+
+  return { map: hoofdmap, uitgepakt, modellen };
 }
 
 const meet = (primitieven) => {
@@ -329,14 +360,23 @@ for (const bronkit of BRONKITS) {
   // that names a workfile is imported however far its triangle count has moved since.
   // Only what is left over falls back to the count, which cannot tell a model from its
   // equally heavy neighbour.
-  const opBron = new Map(kit.modellen.filter((m) => m.bronmodel).map((m) => [m.bronmodel, m.naam]));
+  // One source model can back more than one workfile: a multi-part model imported whole
+  // and again as one of its parts both record it as their bronmodel, and both are then
+  // imported however the source counts them.
+  const opBron = new Map();
+  for (const model of kit.modellen) {
+    if (!model.bronmodel) continue;
+    const namen = opBron.get(model.bronmodel);
+    if (namen) namen.push(model.naam);
+    else opBron.set(model.bronmodel, [model.naam]);
+  }
   const opNaamKit = new Set(kit.modellen.map((m) => m.naam));
 
   const geraakt = new Set();
   const rest = [];
   for (const model of gemeten) {
-    const naam = opBron.get(model.naam) ?? (opNaamKit.has(kebab(model.naam)) ? kebab(model.naam) : null);
-    if (naam !== null) geraakt.add(naam);
+    const namen = opBron.get(model.naam) ?? (opNaamKit.has(kebab(model.naam)) ? [kebab(model.naam)] : null);
+    if (namen !== null) for (const naam of namen) geraakt.add(naam);
     else rest.push(model);
   }
 
@@ -367,14 +407,17 @@ for (const bronkit of BRONKITS) {
   const gekopieerd = new Map();
   const gebruikteNamen = new Set();
 
+  // Keyed on content, not path: a pack that ships the same atlas next to each of its
+  // export formats would otherwise land in kits/missing once per format.
   const neemMee = (pad) => {
-    if (gekopieerd.has(pad)) return gekopieerd.get(pad);
+    const sleutel = createHash('sha1').update(readFileSync(pad)).digest('hex');
+    if (gekopieerd.has(sleutel)) return gekopieerd.get(sleutel);
     let naam = basename(pad);
     for (let n = 2; gebruikteNamen.has(naam); n++) {
       naam = `${basename(pad, extname(pad))}-${n}${extname(pad)}`;
     }
     gebruikteNamen.add(naam);
-    gekopieerd.set(pad, naam);
+    gekopieerd.set(sleutel, naam);
     copyFileSync(pad, join(uitvoerMap, naam));
     return naam;
   };
