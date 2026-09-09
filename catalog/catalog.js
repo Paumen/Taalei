@@ -313,7 +313,7 @@ function makeCard(model, kits, groups, variants = []) {
     paths: familyPaths,
     family,
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
-    tags: [...new Set(family.flatMap((m) => m.tags ?? []))],
+    tags: withParents(family.flatMap((m) => m.tags ?? [])),
     sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
   };
   cards.push(item);
@@ -538,6 +538,26 @@ function foldVariants(models) {
   return out;
 }
 
+// While a material parent is picked, its subtypes lead the order within every section:
+// asking for Wood is asking to see the planks together, then the worked, then the beams.
+// A model on the bare parent has no subtype and sorts last.
+function subtypeRank() {
+  const ranked = new Map();
+  for (const [id, state] of tagState) {
+    if (state !== 'only') continue;
+    for (const child of childrenOf.get(id) ?? []) ranked.set(child, ranked.size);
+  }
+  if (!ranked.size) return null;
+  return (model) => {
+    let best = Infinity;
+    for (const id of model.tags ?? []) {
+      const rank = ranked.get(id);
+      if (rank !== undefined && rank < best) best = rank;
+    }
+    return best;
+  };
+}
+
 function buildPanel() {
   observer.disconnect();
   cards.length = 0;
@@ -546,7 +566,9 @@ function buildPanel() {
   lastChoice = null;
   panel.replaceChildren();
 
-  const order = SORTINGS[sorting] ?? SORTINGS.naam;
+  const chosen = SORTINGS[sorting] ?? SORTINGS.naam;
+  const rank = subtypeRank();
+  const order = rank ? (a, b) => rank(a) - rank(b) || chosen(a, b) : chosen;
 
   for (const part of sectionsFor(catalog.models)) {
     const sorted = [...part.models].sort(order);
@@ -581,10 +603,31 @@ let activePath = '';
 
 const register = { models: new Map(), kits: new Map(), groups: new Map(), variants: new Map(), tags: new Map() };
 
+// A material may name a parent. A model carries the subtype it is and never the parent on
+// top, so the filter adds the parent here — selecting Wood has to find every wood-beam.
+const parentOf = new Map();
+const childrenOf = new Map();
+const withParents = (ids) => {
+  const own = new Set(ids);
+  for (const id of ids) { const p = parentOf.get(id); if (p) own.add(p); }
+  return [...own];
+};
+
 const TYPE_TAGS = ['object', 'structure', 'nature'];
 
 const SHORT_NAME = {
-  'precious-metal': 'Precious',
+  'metal-iron': 'Iron',
+  'metal-gold': 'Gold',
+  'metal-silver': 'Silver',
+  'metal-copper': 'Copper',
+  'stone-masonry': 'Masonry',
+  'stone-rock': 'Rock',
+  'stone-soil': 'Soil',
+  'wood-planks': 'Planks',
+  'wood-worked': 'Worked',
+  'wood-beam': 'Beam',
+  'wood-log': 'Log',
+  'wood-bark': 'Bark',
   animation: 'Anim',
   structure: 'Struct',
   qua: 'Quat',
@@ -602,16 +645,23 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
+// The material ids carry the family themselves — metal-iron, wood-planks — so the panel
+// prints them as they stand rather than staging a parent and a child in two columns.
 function tagRows(model) {
   if (!model.tags?.length) return [];
-  const names = (type) =>
-    model.tags
-      .filter((id) => (register.tags.get(id)?.type ?? 'tag') === type)
-      .map((id) => register.tags.get(id)?.name ?? id);
+  const own = (type) =>
+    model.tags.filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
 
-  return TAG_TYPES.map(({ type, head }) => [head, names(type).join(', ')]).filter(
-    ([, value]) => value,
-  );
+  const rows = [];
+  for (const { type, head } of TAG_TYPES) {
+    const ids = own(type);
+    if (!ids.length) continue;
+    rows.push({
+      kop: head,
+      waarde: (type === 'material' ? ids : ids.map((id) => register.tags.get(id)?.name ?? id)).join(', '),
+    });
+  }
+  return rows;
 }
 
 function colorSwatches(colors) {
@@ -679,7 +729,7 @@ function showDetail(model) {
       vol: 'Grid-modular / grounded / centered',
       waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
     },
-    ...tagRows(model).map(([kop, waarde]) => ({ kop, waarde, breed: true })),
+    ...tagRows(model).map((row) => ({ ...row, breed: true })),
   ];
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
@@ -913,12 +963,39 @@ function buildColorBar(colors) {
 
 function reorder() {
   for (const strip of new Set(chipButtons.map((c) => c.strip))) {
-    const own = chipButtons
-      .filter((c) => c.strip === strip)
+    const all = chipButtons.filter((c) => c.strip === strip);
+    const own = all
+      .filter((c) => !c.parent)
       .sort((a, b) => (a.byCount
         ? b.count - a.count || a.order - b.order
         : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
-    for (const chip of own) strip.append(chip.element);
+    for (const chip of own) {
+      strip.append(chip.element);
+      const kids = all.filter((c) => c.parent === chip.id).sort((a, b) => a.order - b.order);
+      if (!kids.length) continue;
+      const tray = kids[0].tray;
+      for (const child of kids) tray.append(child.element);
+      tray.hidden = kids.every((c) => c.element.hidden);
+      chip.element.classList.toggle('tagknop-ouder', !tray.hidden);
+      strip.append(tray);
+    }
+  }
+}
+
+// A subtype waits behind its parent: it appears once the parent is picked, and drops its
+// own state again when the parent is let go, so nothing keeps filtering out of sight.
+const chipHidden = (chip, count = chip.count) =>
+  count === 0 || Boolean(chip.parent && chip.state.get(chip.parent) !== 'only');
+
+function syncSubtypes() {
+  for (const chip of chipButtons) {
+    if (!chip.parent) continue;
+    const hidden = chipHidden(chip);
+    if (hidden && chip.state.has(chip.id)) {
+      chip.state.delete(chip.id);
+      showState(chip.element, undefined);
+    }
+    chip.element.hidden = hidden;
   }
 }
 
@@ -932,6 +1009,16 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 
   const ownIds = items.map((i) => i.id);
 
+  // A subtype sits in a tray hung off its parent chip: the tray keeps the family together
+  // when the row wraps, which adjacency alone does not.
+  const trays = new Map();
+  for (const parent of new Set(items.map((i) => i.parent).filter(Boolean))) {
+    const tray = document.createElement('span');
+    tray.className = 'tagbak';
+    tray.dataset.parent = parent;
+    trays.set(parent, tray);
+  }
+
   for (const item of items) {
     const button = document.createElement('button');
     button.type = 'button';
@@ -944,12 +1031,18 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 
     button.addEventListener('click', () => {
       rotateState(state, item.id, button);
+      if (item.parent || childrenOf.has(item.id)) { refresh(); return; }
+      syncSubtypes();
       reorder();
       filter();
     });
 
-    strip.append(button);
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length });
+    if (item.dot) button.classList.add('tagknop-punt');
+
+    const tray = item.parent ? trays.get(item.parent) : null;
+    if (tray) { button.classList.add('tagknop-subtype'); tray.append(button); } else { strip.append(button); }
+
+    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null, tray });
   }
 
   row.append(strip);
@@ -965,7 +1058,7 @@ function buildTagBar(tags) {
   const shape = buildChipRow(
     container,
     'Size',
-    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.short, hint: k.hint })),
+    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint, dot: true })),
     sizeState,
     'sizes',
   );
@@ -981,7 +1074,7 @@ function buildTagBar(tags) {
     buildChipRow(
       container,
       head,
-      own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })),
+      own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description, parent: t.parent ?? null })),
       tagState,
       'tags',
       { byCount: true },
@@ -999,20 +1092,21 @@ function refresh() {
   for (const card of cards) {
     for (const model of card.family) {
       bump(`sizes|${sizeClass(model.wdh).id}`);
-      for (const id of model.tags ?? []) bump(`tags|${id}`);
+      for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
     }
   }
   for (const chip of chipButtons) {
     const { id, element, countEl, state, field } = chip;
     const count = counts.get(`${field}|${id}`) ?? 0;
     chip.count = count;
-    element.hidden = count === 0;
+    element.hidden = chipHidden(chip, count);
     countEl.textContent = count;
     if (count === 0 && state.get(id) === 'only') {
       state.delete(id);
       showState(element, undefined);
     }
   }
+  syncSubtypes();
   reorder();
   for (const { row } of chipButtons) {
     row.hidden = !chipButtons.some((c) => c.row === row && !c.element.hidden);
@@ -1028,6 +1122,7 @@ function onClear() {
   sizeState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
+  syncSubtypes();
   reorder();
   filter();
 }
@@ -1081,6 +1176,13 @@ async function start() {
   catalog = data;
 
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
+  parentOf.clear();
+  childrenOf.clear();
+  for (const tag of data.tags ?? []) {
+    if (!tag.parent) continue;
+    parentOf.set(tag.id, tag.parent);
+    childrenOf.set(tag.parent, [...(childrenOf.get(tag.parent) ?? []), tag.id]);
+  }
 
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
