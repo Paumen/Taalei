@@ -26,6 +26,7 @@ const DEFAULTS = {
   stats: false, timeout: 120000, verbose: false, three: '',
   ladder: 0, annotate: false, lockScale: false,
   ss: 1,
+  rulerUnit: 0, rowSpan: 0, sort: 'input',
 };
 
 // min/max/integer per numeric flag. Unbounded numbers used to produce silent
@@ -35,6 +36,7 @@ const RANGES = {
   exposure: [0.01, 20], fit: [0.1, 10], fov: [1, 170],
   sheetCols: [0, 64, true], sheetTile: [0, 4096, true],
   timeout: [1000, 3600000, true], ladder: [0, 8, true], ss: [1, 4, true],
+  rulerUnit: [0, 1000], rowSpan: [0, 1000],
 };
 
 const HELP = `
@@ -54,6 +56,11 @@ render.mjs <file.glb|dir> [...] [flags]
                      (default neutral: AgX desaturates the colormap bands by about a
                       quarter, which reads as washed-out timber)
   --compare          all models side by side in one scene, front-on, with grid + ruler
+                     the ruler unit follows the tallest model, so a row of small
+                     things fills the frame; --ruler-unit <m> and --row-span <m>
+                     pin it instead, and two sheets given the same pair (and the
+                     same --width) are directly comparable to each other
+  --sort <input|height|width>   order of the compare row; input keeps the order given
   --grid --axes --bbox --ruler
   --isolate          one tile per mesh (max 32), each fitted to its own bounds;
                      add --lock-scale to keep the parts size-comparable instead
@@ -263,6 +270,10 @@ bad('env', [opts.env], ALL_ENVS);
 if (!modes.length) die('--modes is empty');
 if (!viewNames.length) die('--views is empty');
 if (opts.compare && viewNames.length > 1) die('--compare renders one view: got ' + viewNames.join(', '));
+if (!['input', 'height', 'width'].includes(opts.sort)) die('--sort must be input, height or width, got: ' + opts.sort);
+// A span narrower than the two ruler staffs leaves no room for a single model.
+if (opts.rowSpan && opts.rulerUnit && opts.rowSpan < opts.rulerUnit * 1.3)
+  die('--row-span ' + opts.rowSpan + ' is too narrow for --ruler-unit ' + opts.rulerUnit);
 
 const MODE_LABEL = { pbr:'PBR', albedo:'Albedo', clay:'Clay', claywire:'Clay+wire', wireframe:'Wireframe',
   normal:'Normals', faceorient:'Face dir', silhouette:'Silhouette', depth:'Depth', uv:'UV checker',
@@ -623,7 +634,33 @@ function purge(group) {
   group.clear();
 }
 
-const RULER_UNIT = 1, RULER_MINOR = 0.25;
+// The ruler staff is one major unit tall and the frame is built around it, so a
+// fixed 1 m unit made every sheet of small things a smear at the baseline: 20 plates
+// under 0.1 m drawn inside a 1 m frame. The unit is chosen per compare run from the
+// tallest model (setRulerUnit), which keeps one shared scale inside a sheet while
+// filling it. Two sheets only share a scale if both were given --ruler-unit and
+// --row-span; the sheet legend and the stats record what was used either way.
+let RULER_UNIT = 1, RULER_MINOR = 0.25;
+// 1-2.5-5 ladder: the minor line then lands on a readable fraction at every step.
+const UNIT_LADDER = [0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10, 25];
+function setRulerUnit(u) {
+  RULER_UNIT = u;
+  RULER_MINOR = u / 4;
+}
+// 2.5 -> "2.5 m", 0.25 -> "25 cm", 0.01 -> "10 mm": the unit a reader would use.
+function fmtM(u) {
+  if (u >= 1) return +u.toFixed(3) + ' m';
+  if (u >= 0.01) return +(u * 100).toFixed(1) + ' cm';
+  return +(u * 1000).toFixed(1) + ' mm';
+}
+// The staff must be no taller than the row it stands in, or the frame has to grow to
+// clear it and the models lose the space again. So: the largest ladder step that fits
+// under the tallest model, and the frame is sized by the content alone.
+function pickRulerUnit(tallest) {
+  let pick = UNIT_LADDER[0];
+  for (const u of UNIT_LADDER) if (u <= tallest) pick = u;
+  return pick;
+}
 
 // Modes whose pixels are data, not a picture. A tone curve or an sRGB transfer
 // applied to these silently corrupts the value being read.
@@ -826,14 +863,27 @@ window.API = {
     }
     S.model = root;
 
+    // Size-sorted rows put like against like, so a row is read as one size band
+    // instead of a 2.5 m ship next to a 0.02 m coin. Input order is kept otherwise:
+    // a caller grouping by tag is deliberate and must not be reshuffled.
+    if (cfg.sort === 'height') items.sort((a, b) => a.h - b.h || a.w - b.w);
+    else if (cfg.sort === 'width') items.sort((a, b) => a.w - b.w || a.h - b.h);
+
+    const tallest = Math.max(...items.map(it => it.h));
+    setRulerUnit(cfg.rulerUnit || pickRulerUnit(tallest));
+
     const gap = RULER_UNIT * 0.18;
     const total = items.reduce((a, it) => a + it.w + gap, 0) - gap;
     // The frame is exactly rowH tall, so it has to clear the tallest model or the
     // row silently crops it. The ruler staff stays RULER_UNIT high either way, so
     // the scale reference does not move; only the headroom above it grows.
-    const rowH = Math.max(RULER_UNIT, Math.max(...items.map(it => it.h)) * 1.06);
-    const nRows = Math.max(1, Math.ceil(total / (RULER_UNIT * 7)));
-    const rowW = Math.max(total / nRows, RULER_UNIT) + RULER_UNIT * 1.1;  // margin for both staffs
+    const rowH = tallest * 1.06;
+    // Row width follows the frame height, not the unit: tying it to the unit made a
+    // 2.5 m sheet five times wider than a 0.5 m one and threw away the resolution the
+    // adaptive unit had just won. A ~5:1 row keeps the pixels per metre steady.
+    const span = cfg.rowSpan || rowH * 5;
+    const nRows = Math.max(1, Math.ceil(total / span));
+    const rowW = cfg.rowSpan || Math.max(total / nRows, RULER_UNIT) + RULER_UNIT * 1.1;
 
     S.rows = []; let row = [], x = 0;
     for (const it of items) {
@@ -848,7 +898,7 @@ window.API = {
     root.updateMatrixWorld(true);
     setEnv(cfg);
     return {
-      rowW, rowH, missingResources: S.missing.slice(),
+      rowW, rowH, unit: RULER_UNIT, minor: RULER_MINOR, tallest, missingResources: S.missing.slice(),
       rows: S.rows.map(r => ({
         items: r.items.map(it => ({ name: it.name, kit: it.kit, h: +it.h.toFixed(2), cx: it.cx - r.w / 2 }))
       }))
@@ -1437,6 +1487,10 @@ window.API = {
     c.width = tw; c.height = th * S.tiles.length;
     const g = c.getContext('2d');
     g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+    // Without the unit on the sheet the ruler is unreadable across runs: the staff
+    // looks identical whether it stands for 0.1 m or 2.5 m.
+    const legend = 'ruler ' + fmtM(cfg.unit) + '  ·  grid ' + fmtM(cfg.minor)
+      + '  ·  ' + (tw / cfg.rowW).toFixed(0) + ' px/m';
     for (let ri = 0; ri < S.tiles.length; ri++) {
       const y = ri * th;
       g.drawImage(S.tiles[ri].bmp, 0, y, tw, th);
@@ -1451,6 +1505,13 @@ window.API = {
         g.fillText(q.it.name + '  h=' + q.it.h.toFixed(2), q.x, ly);
       }
     }
+    g.textAlign = 'left';
+    g.font = '600 ' + Math.round(line * 0.95) + 'px ui-sans-serif, system-ui, sans-serif';
+    const lw = g.measureText(legend).width;
+    g.fillStyle = 'rgba(255,255,255,0.86)';
+    g.fillRect(0, c.height - lead - inset, lw + inset * 2, lead + inset);
+    g.fillStyle = '#3a3a38';
+    g.fillText(legend, inset, c.height - inset * 1.2);
     return c.toDataURL('image/png').split(',')[1];
   },
 
@@ -1560,6 +1621,7 @@ const cfgBase = {
   annotate: opts.annotate, lockScale: opts.lockScale,
   isolateIndex: -1,
   sheetCols: opts.sheetCols, sheetTile: opts.sheetTile,
+  rulerUnit: opts.rulerUnit, rowSpan: opts.rowSpan, sort: opts.sort,
 };
 
 // Cell size follows the tile count unless the caller pinned it. A tile rendered
@@ -1602,8 +1664,12 @@ if (opts.compare) {
       console.warn('! missing resource: ' + decodeURIComponent(u.replace(/^\/asset\/f\d+\//, '')) + '  (renders untextured)');
   }
   if (opts.band) await page.evaluate(([b, c, r]) => window.API.bandOnly(b, c, r), [opts.band, BAND_COLUMNS, BAND_ROWS]);
+  // The scale is the whole point of the sheet, so it is stated, not left to the eye.
   console.log('compare: ' + models.length + ' models, ' + layout.rows.length + ' row(s), '
     + layout.rowW.toFixed(2) + ' m wide');
+  console.log('  scale: ruler ' + layout.unit + ' m, grid ' + layout.minor + ' m, tallest '
+    + layout.tallest.toFixed(2) + ' m, ' + (opts.width / layout.rowW).toFixed(1) + ' px/m'
+    + (opts.rulerUnit || opts.rowSpan ? '  (pinned)' : ''));
   cfgBase.rowW = layout.rowW;
   const rowH = Math.round(opts.width * (layout.rowH / layout.rowW));
   // Tilting the row is a different render of the same layout, so the view goes in the
@@ -1622,7 +1688,7 @@ if (opts.compare) {
         await write(path.join(opts.out, 'compare_' + mode + viewSuffix + '_row' + (ri + 1) + '.png'), b64);
     }
     const b64 = await page.evaluate(([r, cfg]) => window.API.compareSheet(r, cfg),
-      [layout.rows, { ...cfgBase, height: rowH }]);
+      [layout.rows, { ...cfgBase, height: rowH, unit: layout.unit, minor: layout.minor }]);
     await write(path.join(opts.out, 'compare_' + mode + bandSuffix + viewSuffix + '.png'), b64);
   }
   if (opts.stats) await fs.writeFile(path.join(opts.out, 'compare.stats.json'), JSON.stringify(layout, null, 2));
