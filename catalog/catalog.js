@@ -623,16 +623,35 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
+// Materials read as their family: a model carries wood-beam, not wood, so the panel says
+// "Wood · Beam" and folds several subtypes of one family into a single entry.
+function materialNames(ids) {
+  const out = [];
+  const perFamily = new Map();
+  for (const id of ids) {
+    const tag = register.tags.get(id);
+    const name = tag?.name ?? id;
+    const parent = tag?.parent;
+    if (!parent) { out.push({ key: id, text: name }); continue; }
+    const own = perFamily.get(parent);
+    if (own) { own.subtypes.push(name); continue; }
+    const entry = { key: parent, subtypes: [name] };
+    perFamily.set(parent, entry);
+    out.push(entry);
+  }
+  return out.map((e) =>
+    e.text ?? `${register.tags.get(e.key)?.name ?? e.key} · ${e.subtypes.join(', ')}`);
+}
+
 function tagRows(model) {
   if (!model.tags?.length) return [];
-  const names = (type) =>
-    model.tags
-      .filter((id) => (register.tags.get(id)?.type ?? 'tag') === type)
-      .map((id) => register.tags.get(id)?.name ?? id);
+  const own = (type) =>
+    model.tags.filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
 
-  return TAG_TYPES.map(({ type, head }) => [head, names(type).join(', ')]).filter(
-    ([, value]) => value,
-  );
+  return TAG_TYPES.map(({ type, head }) => [
+    head,
+    (type === 'material' ? materialNames(own(type)) : own(type).map((id) => register.tags.get(id)?.name ?? id)).join(', '),
+  ]).filter(([, value]) => value);
 }
 
 function colorSwatches(colors) {
@@ -1007,6 +1026,8 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
       filter();
     });
 
+    if (item.dot) button.classList.add('tagknop-punt');
+
     const tray = item.parent ? trays.get(item.parent) : null;
     if (tray) { button.classList.add('tagknop-subtype'); tray.append(button); } else { strip.append(button); }
 
@@ -1026,7 +1047,7 @@ function buildTagBar(tags) {
   const shape = buildChipRow(
     container,
     'Size',
-    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.short, hint: k.hint })),
+    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint, dot: true })),
     sizeState,
     'sizes',
   );
