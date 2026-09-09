@@ -420,6 +420,9 @@ a { color: var(--accent); }
   transform: rotate(45deg);
 }
 
+/* a one-letter label needs the dot to keep the count from reading as part of it */
+.tagknop-punt .tagknop-aantal::before { content: "· "; }
+
 .tagknop-aantal {
   font-size: 11px;
   font-variant-numeric: tabular-nums;
