@@ -434,6 +434,26 @@ a { color: var(--accent); }
   opacity: .7;
 }
 
+/* One line per family: the parent, then the subtypes the model actually carries. */
+.detail-materialen {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-materiaal { display: flex; gap: 6px; }
+
+.detail-materiaal-ouder {
+  min-width: 52px;
+  color: var(--inkt);
+}
+
+.detail-materiaal-kind::before {
+  margin-right: 5px;
+  color: var(--lijn-zwaar, var(--lijn));
+  content: "›";
+}
+
 .kleurbalk-wis {
   flex: none;
   padding: 4px 11px;
