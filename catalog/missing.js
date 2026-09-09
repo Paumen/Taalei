@@ -382,7 +382,7 @@ function groupsFor(models) {
     }
     return [...per]
       .map(([id, own]) => ({ key: id, title: register.groups.get(id)?.name ?? id, models: own }))
-      .sort((a, b) => b.models.length - a.models.length || a.title.localeCompare(b.title));
+      .sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
   }
 
   const per = new Map();
@@ -400,7 +400,7 @@ function groupsFor(models) {
         : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalogue.`,
       models: own,
     };
-  }).sort((a, b) => b.models.length - a.models.length || a.title.localeCompare(b.title));
+  }).sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
 }
 
 function draw() {
