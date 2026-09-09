@@ -123,7 +123,9 @@ const ASSEMBLIES = new Set([
   'fantasy-props/barrel-apples',
   'pirate-kit/crate-bottles',
   'pirate-quaternius/chest-gold',
-  'restaurant/crate-ham', 'restaurant/crate-steak', 'restaurant/food-dinner',
+  'restaurant/crate-buns', 'restaurant/crate-carrots', 'restaurant/crate-cheese',
+  'restaurant/crate-ham', 'restaurant/crate-lettuce', 'restaurant/crate-onions',
+  'restaurant/crate-steak', 'restaurant/crate-tomatoes', 'restaurant/food-dinner',
   'resources/textiles-stack-large',
   'village-kit/well-plaza',
 ]);
