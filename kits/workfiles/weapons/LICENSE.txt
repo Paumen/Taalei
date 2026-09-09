@@ -61,9 +61,19 @@
 	Twee dingen om te weten bij het taggen. De omwikkelde grepen van
 	deze pack komen op taupe 14,3 uit, maar in de donkere helft van
 	die baan; appendix A M19 vraagt om de lichte helft 0,02-0,40, dus
-	de lint meldt ze als waarschuwing. En de boog (bow-a) is in zijn
-	geheel op taupe geland in plaats van op een houtbaan — hij draagt
-	daarom `wood` zonder subtype, niet `wood-beam`.
+	de lint meldt ze als waarschuwing.
+
+	En de bogen zijn na de import met de hand omgekleurd. De
+	baan-voor-baan-afbeelding legde de boogarm op taupe 14,3 en de
+	pees op licht hout 0,0 — precies verwisseld: het hout op de
+	koordbaan en het koord op een houtbaan. Beide tags haalden de lint
+	toch, want die kijkt per model en niet per driehoek. Met
+	tools/colormap-recolor.mjs staat de arm nu op donker hout 2,0 en
+	de pees op taupe 14,3, zoals adventurers/bow-strung. Dat raakt
+	bow-a, bow-a-with-string en bow-b-with-string; de nokken van de
+	bow-a zijn meegegaan naar taupe, omdat ze in dezelfde baan zaten
+	als de pees en een baanverplaatsing ze niet kan scheiden. bow-b
+	stond al goed.
 
 	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
 	die het deelt, anders zou één hoekpunt de kleuren van twee
