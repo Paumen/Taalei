@@ -92,7 +92,7 @@ const dry = argv.includes('--dry');
 const meshFlag = argv.indexOf('--mesh');
 const meshName = meshFlag === -1 ? null : argv[meshFlag + 1];
 if (meshFlag !== -1 && !meshName) { console.error('error: --mesh wants a mesh name'); process.exit(2); }
-const rest = argv.filter((a, i) => a !== '--dry' && i !== meshFlag && i !== meshFlag + 1);
+const rest = argv.filter((a, i) => a !== '--dry' && (meshFlag === -1 || (i !== meshFlag && i !== meshFlag + 1)));
 
 let plan = [];
 if (rest[0] === '--map') {
