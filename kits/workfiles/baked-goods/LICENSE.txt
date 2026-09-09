@@ -1,0 +1,75 @@
+	Baked Goods
+
+			------------------------------
+
+	Tiny Treats : Baked Goods (1.0)
+	Gemaakt door Isa Lousberg — https://www.isalousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: cake_birthday_slice wordt cake-birthday-slice. Er is geen
+	naam aangepast en er is geen model overgeslagen: alle 32 modellen
+	van de pack staan in de kit.
+
+	Op 0,25 gezet, tegen het tafelgerei aan dat er al staat. bread
+	meet zo 0,21 lang naast restaurant/food-ingredient-ham met 0,3,
+	en cake-birthday 0,31 breed naast restaurant/plate met 0,2 — een
+	taart hoort groter te zijn dan het bord ernaast. Bewust niet de
+	0,245 van de restaurantkit: die pack is keukengerei en deze is het
+	eten zelf, en op 0,25 valt het brood precies goed op dat gerei.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,25)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen kleurenvel: een rooster van banen, elk één
+	kleur met zijn eigen verloop van licht naar donker. Dat vel is
+	niet meegekomen — de modellen zijn op de gedeelde
+	kits/colormap.png gezet, die net zo is opgebouwd, zodat ze
+	dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
+
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van
+	de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan
+	álle driehoeken van die bronbaan naar die ene doelbaan, en houdt
+	elk hoekpunt zijn eigen plek in het verloop.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor
+	een hele baan en niet voor één kleur.
+
+	De verste sprong is de roze baan van het glazuur (12,5): er staat
+	geen roze op de gedeelde sheet, dus de roze donut en de roze rand
+	van de aardbeien- en verjaardagstaart lezen hier als licht hout
+	0,0, een bleek perzik. Dat raakt cake-birthday, cake-strawberry,
+	cupcake en donut-pink met hun gesneden versies. Daarna de rode
+	baan van de kersen (11,7) op pie-cherry.
+
+	Het gebakken deeg zelf komt op terracotta 5,0 uit, het rauwe deeg
+	en de slagroom op gebroken wit 5,2, en de chocolade op donker
+	bruin 2,0 — dat laatste is een houtbaan. Appendix A had geen regel
+	die eten een baan geeft, dus is er met deze pack één bijgekomen:
+	M45, dat eten net als fauna elke kleur laat nemen. N3 en N4 zijn
+	er in dezelfde beweging op verruimd voor versierd eten, en die
+	modellen dragen daarvoor de tag `decorated` — de taart met de
+	kaarsen komt op zes banen uit en de roze donut op vijf.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

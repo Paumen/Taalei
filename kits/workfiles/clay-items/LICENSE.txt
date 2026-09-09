@@ -1,0 +1,64 @@
+	Clay Items
+
+			------------------------------
+
+	Clay Items — Free Tier (1.1)
+	Gemaakt door Glitch Pixel Interactive —
+	https://glitchpixelinteractive.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf. De naam
+	en het logo van Glitch Pixel Interactive vallen er niet onder en
+	zijn niet meegekomen.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Namen die aan elkaar geschreven stonden zijn uit elkaar gehaald en
+	alles is klein gezet: CrockpotLid wordt crockpot-lid en WideVase
+	wordt wide-vase. Er is geen model overgeslagen: alle 10 modellen
+	van de free tier staan in de kit.
+
+	Op 0,65 gezet, tegen het tafelgerei aan dat er al staat. plate
+	meet zo 0,20 breed, precies restaurant/plate en dungeon/plate, en
+	bowl 0,19 naast restaurant/bowl met 0,2. jug komt op 0,22 × 0,23
+	uit naast props/jug-a met 0,2 × 0,2.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,65)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	Deze pack werkt niet met een rooster van banen maar met een
+	geschilderde albedotextuur, plus een normal- en een roughnessmap.
+	Die twee laatste zijn niet meegekomen — de stijlgids vraagt
+	roughness 1 en metallic 0 (§1). De albedo is per driehoek
+	bemonsterd en op de gedeelde kits/colormap.png gelegd, zodat de
+	modellen dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is.
+
+	De hele pack is één materiaal, gebakken klei, en komt daarom op
+	één baan uit: terracotta 5,0. De verste sprong is de crockpot en
+	de wide-vase met 7,7 — het gebrande roodbruin van de pack (#9f4624)
+	is op de gedeelde sheet iets lichter en oranjer.
+
+	Twee dingen om te weten. De modellen zijn glad geschaduwd rond een
+	ronde doorsnede in plaats van vlak gefacetteerd; ze dragen daarom
+	`ngons`, en §2 telt hun vlakken. En omdat elk model precies één
+	baan gebruikt is er per model één materiaal getagd, `ceramic`, wat
+	N1 tot en met N3 precies haalt.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

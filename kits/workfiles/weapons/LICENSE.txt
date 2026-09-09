@@ -1,0 +1,73 @@
+	Fantasy Weapons
+
+			------------------------------
+
+	KayKit : Fantasy Weapons Bits (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein
+	gezet: bow_A_withString wordt bow-a-with-string. Er is geen naam
+	aangepast en er is geen model overgeslagen: alle 31 modellen van
+	de pack staan in de kit.
+
+	Op 0,2625 gezet, precies de factor van de adventurers- en de
+	skeletonskit. Dat is met opzet: die twee packs staan op hetzelfde
+	skelet, en op deze factor past een wapen uit deze pack in de hand
+	van die figuren. sword-a meet 0,47 hoog naast adventurers/
+	sword-one-handed met 0,5, en shield-a 0,21 × 0,26 naast
+	adventurers/shield-square met 0,2 × 0,3. De polewapens steken daar
+	bewust bovenuit: spear-a 0,82 en sword-e 0,85, tegen een figuur
+	van 0,6 tot 0,7 hoog.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal
+	(0,2625) staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen kleurenvel: een rooster van banen, elk één
+	kleur met zijn eigen verloop van licht naar donker. Dat vel is
+	niet meegekomen — de modellen zijn op de gedeelde
+	kits/colormap.png gezet, die net zo is opgebouwd, zodat ze
+	dezelfde kleuren delen met de andere kits en in hetzelfde
+	kleurfilter meedoen.
+
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van
+	de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan
+	álle driehoeken van die bronbaan naar die ene doelbaan, en houdt
+	elk hoekpunt zijn eigen plek in het verloop.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor
+	een hele baan en niet voor één kleur.
+
+	De verste sprong is het blad van dagger-b (9,5): dat gaat naar
+	licht blauwgrijs 3,2, de zilverbaan. Daarna het goud van staff-b
+	(7,5) en het staal van de koppen en de bladen (7,4), dat op licht
+	grijs 15,3 uitkomt.
+
+	Twee dingen om te weten bij het taggen. De omwikkelde grepen van
+	deze pack komen op taupe 14,3 uit, maar in de donkere helft van
+	die baan; appendix A M19 vraagt om de lichte helft 0,02-0,40, dus
+	de lint meldt ze als waarschuwing. En de boog (bow-a) is in zijn
+	geheel op taupe geland in plaats van op een houtbaan — hij draagt
+	daarom `wood` zonder subtype, niet `wood-beam`.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.
