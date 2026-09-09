@@ -104,7 +104,7 @@ function bronModellen(bronkit) {
       continue;
     }
 
-    const naam = grofsteWeg(basename(bestand, extname(bestand)));
+    const naam = grofsteWeg(basename(bestand, extname(bestand)).replace(/\.gltf$/i, ''));
     if (!naam) continue;
     const fijnste = primitieven.filter((p) => grofsteWeg(p.naam) !== null);
     modellen.push({ naam, bestand, primitieven: fijnste.length ? fijnste : primitieven });
