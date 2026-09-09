@@ -245,7 +245,10 @@ if (opts.ladder) {
 
 const modes = opts.modes === 'all' ? ALL_MODES : opts.modes.split(',').map(s=>s.trim()).filter(Boolean);
 if (opts.compare && opts.isolate) die('--compare and --isolate are different job sets; pick one');
-if (opts.compare) opts.views = 'front';  // a row read against a ruler only works square-on
+// A row read against a ruler only works square-on, so front is the default -- but a
+// row of flat things (plates, cutlery, floor tiles) is a smear at the baseline seen
+// dead-on, so an explicit --views still wins. One view only: the row is one layout.
+if (opts.compare && !opts.given.has('views')) opts.views = 'front';
 const viewNames = opts.views.split(',').map(s=>s.trim()).filter(Boolean);
 
 // Fail on a typo before launching a browser: an unknown mode used to throw a raw
@@ -259,6 +262,7 @@ bad('tone', [opts.tone], ALL_TONES);
 bad('env', [opts.env], ALL_ENVS);
 if (!modes.length) die('--modes is empty');
 if (!viewNames.length) die('--views is empty');
+if (opts.compare && viewNames.length > 1) die('--compare renders one view: got ' + viewNames.join(', '));
 
 const MODE_LABEL = { pbr:'PBR', albedo:'Albedo', clay:'Clay', claywire:'Clay+wire', wireframe:'Wireframe',
   normal:'Normals', faceorient:'Face dir', silhouette:'Silhouette', depth:'Depth', uv:'UV checker',
@@ -1405,9 +1409,11 @@ window.API = {
   // write over itself and the outermost labels stay on the canvas.
   async compareSheet(rowsMeta, cfg) {
     const tw = cfg.width, th = cfg.height;
-    const line = Math.max(13, Math.round(tw / 78)), lead = Math.round(line * 1.5);
-    const nameFont = '600 ' + Math.round(line * 1.15) + 'px ui-sans-serif, system-ui, sans-serif';
-    const kitFont = line + 'px ui-sans-serif, system-ui, sans-serif';
+    // The kit leads the caption: which kit a model comes from is what a compare row
+    // is read for, so the name+height line sits under it and smaller.
+    const line = Math.max(11, Math.round(tw / 78)), lead = Math.round(line * 1.2);
+    const nameFont = '600 ' + Math.round(line * 0.72) + 'px ui-sans-serif, system-ui, sans-serif';
+    const kitFont = '600 ' + Math.round(line * 0.95) + 'px ui-sans-serif, system-ui, sans-serif';
     const gap = Math.round(line * 0.9), inset = Math.round(line * 0.4);
 
     const mg = document.createElement('canvas').getContext('2d');
@@ -1600,19 +1606,24 @@ if (opts.compare) {
     + layout.rowW.toFixed(2) + ' m wide');
   cfgBase.rowW = layout.rowW;
   const rowH = Math.round(opts.width * (layout.rowH / layout.rowW));
+  // Tilting the row is a different render of the same layout, so the view goes in the
+  // file name -- front and 0/25 must not overwrite each other on disk.
+  const cv = views[0];
+  const viewSuffix = cv.name === 'front' ? '' : '_' + cv.name;
 
   for (const mode of modes) {
     await page.evaluate(() => window.API.clearTiles());
     for (let ri = 0; ri < layout.rows.length; ri++) {
       await page.evaluate(i => window.API.showRow(i), ri);
-      const cfg = { ...cfgBase, mode, preset: 'front', height: rowH, keepTile: true };
+      const cfg = { ...cfgBase, mode, preset: cv.preset, az: cv.az, el: cv.el,
+        viewOrtho: cv.viewOrtho, height: rowH, keepTile: true };
       const b64 = await page.evaluate(c => window.API.render(c), cfg);
       if (!opts.sheetOnly && layout.rows.length > 1)
-        await write(path.join(opts.out, 'compare_' + mode + '_row' + (ri + 1) + '.png'), b64);
+        await write(path.join(opts.out, 'compare_' + mode + viewSuffix + '_row' + (ri + 1) + '.png'), b64);
     }
     const b64 = await page.evaluate(([r, cfg]) => window.API.compareSheet(r, cfg),
       [layout.rows, { ...cfgBase, height: rowH }]);
-    await write(path.join(opts.out, 'compare_' + mode + bandSuffix + '.png'), b64);
+    await write(path.join(opts.out, 'compare_' + mode + bandSuffix + viewSuffix + '.png'), b64);
   }
   if (opts.stats) await fs.writeFile(path.join(opts.out, 'compare.stats.json'), JSON.stringify(layout, null, 2));
   await browser.close(); server.close();
