@@ -367,8 +367,8 @@ const SOURCES = [
     name: 'KayKit',
     description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
-      'adventurers', 'dungeon', 'forest', 'halloween', 'resources', 'restaurant',
-      'rpgtools', 'skeletons', 'weapons',
+      'adventurers', 'dungeon', 'forest', 'furniture', 'halloween', 'resources',
+      'restaurant', 'rpgtools', 'skeletons', 'weapons',
     ],
   },
   {

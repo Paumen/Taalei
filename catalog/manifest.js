@@ -1660,5 +1660,29 @@ window.KENNEY_KITS = [
    "rice-pot",
    "wide-vase"
   ]
+ },
+ {
+  "slug": "furniture",
+  "name": "Furniture Bits",
+  "url": "https://www.kaylousberg.com",
+  "models": [
+   "armchair",
+   "bed-single-a",
+   "bed-single-b",
+   "cabinet-medium",
+   "cabinet-small",
+   "chair-a-wood",
+   "chair-b-wood",
+   "chair-stool-wood",
+   "couch-pillows",
+   "rug-oval-a",
+   "rug-rectangle-stripes-a",
+   "shelf-a-big",
+   "shelf-b-small",
+   "table-low",
+   "table-medium",
+   "table-medium-long",
+   "table-small"
+  ]
  }
 ]

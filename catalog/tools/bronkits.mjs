@@ -17,7 +17,7 @@ export const BRONKITS = [
   { map: 'KayKit_RPGToolsBits_1.0_FREE', naam: 'KayKit RPG Tools Bits', kit: 'rpgtools', formaat: 'gltf' },
   { map: 'KayKit_HalloweenBits_1.0_FREE', naam: 'KayKit Halloween Bits', kit: 'halloween', formaat: 'obj' },
   { map: 'KayKit_Restaurant_Bits_1.0_FREE', naam: 'KayKit Restaurant Bits', kit: 'restaurant', formaat: 'obj' },
-  { map: 'KayKit_Furniture_Bits_1.0_FREE', naam: 'KayKit Furniture Bits', kit: null, formaat: 'gltf' },
+  { map: 'KayKit_Furniture_Bits_1.0_FREE', naam: 'KayKit Furniture Bits', kit: 'furniture', formaat: 'gltf' },
   { map: 'KayKit_Adventurers_2.0_FREE', naam: 'KayKit Adventurers', kit: 'adventurers', formaat: 'gltf' },
   { map: 'KayKit_Skeletons_1.1_FREE', naam: 'KayKit Skeletons', kit: 'skeletons', formaat: 'gltf' },
 
@@ -39,7 +39,7 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_House_Plants_1.0_FREE', naam: 'Tiny Treats House Plants', kit: null, formaat: 'gltf' },
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: 'baked-goods', formaat: 'gltf' },
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-items', formaat: 'gltf' },
-  { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: null, formaat: 'obj' },
+  { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'dungeon-quaternius', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: null, formaat: 'fbx', splitsPerMesh: true },
 ];
