@@ -2673,7 +2673,8 @@
    "members": [
     "dungeon/floor-dirt-small-a",
     "dungeon/floor-dirt-small-b",
-    "dungeon/floor-dirt-small-c"
+    "dungeon/floor-dirt-small-c",
+    "dungeon/floor-dirt-small-d"
    ],
    "main": "dungeon/floor-dirt-small-a",
    "kits": [
@@ -2700,12 +2701,18 @@
      0.7,
      0.7,
      0.073
+    ],
+    [
+     0.7,
+     0.7,
+     0.048
     ]
    ],
    "driehoeken": [
     45,
     36,
-    33
+    33,
+    20
    ],
    "kleuren": [
     [
@@ -2716,6 +2723,9 @@
     ],
     [
      "#88796d"
+    ],
+    [
+     "#8b7561"
     ]
    ],
    "paren": [
@@ -2726,8 +2736,14 @@
      "overlap": null
     },
     {
-     "a": "dungeon/floor-dirt-small-a",
+     "a": "dungeon/floor-dirt-small-b",
      "b": "dungeon/floor-dirt-small-c",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "dungeon/floor-dirt-small-c",
+     "b": "dungeon/floor-dirt-small-d",
      "soort": "handmatig",
      "overlap": null
     }
@@ -13553,6 +13569,134 @@
     {
      "a": "dungeon/wall-tsplit",
      "b": "dungeon/wall-tsplit-sloped",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/floor-tile-large",
+    "dungeon/floor-tile-large-rocks"
+   ],
+   "main": "dungeon/floor-tile-large",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     1.4,
+     1.4,
+     0.053
+    ],
+    [
+     1.4,
+     1.4,
+     0.223
+    ]
+   ],
+   "driehoeken": [
+    188,
+    338
+   ],
+   "kleuren": [
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/floor-tile-large",
+     "b": "dungeon/floor-tile-large-rocks",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "village-kit/cobblestone-dirt-transition-corner-a",
+    "village-kit/cobblestone-dirt-transition-corner-b",
+    "village-kit/cobblestone-dirt-transition-corner-c",
+    "village-kit/cobblestone-dirt-transition-corner-d"
+   ],
+   "main": "village-kit/cobblestone-dirt-transition-corner-a",
+   "kits": [
+    "village-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ]
+   ],
+   "driehoeken": [
+    376,
+    436,
+    322,
+    352
+   ],
+   "kleuren": [
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-a",
+     "b": "village-kit/cobblestone-dirt-transition-corner-b",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-b",
+     "b": "village-kit/cobblestone-dirt-transition-corner-c",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-c",
+     "b": "village-kit/cobblestone-dirt-transition-corner-d",
      "soort": "handmatig",
      "overlap": null
     }
