@@ -12670,7 +12670,9 @@
   {
    "members": [
     "rpgtools/pencil-a-long",
-    "rpgtools/pencil-b-long"
+    "rpgtools/pencil-a-short",
+    "rpgtools/pencil-b-long",
+    "rpgtools/pencil-b-short"
    ],
    "main": "rpgtools/pencil-a-long",
    "kits": [
@@ -12689,32 +12691,69 @@
      0.177
     ],
     [
+     0.024,
+     0.028,
+     0.107
+    ],
+    [
      0.032,
      0.032,
      0.182
+    ],
+    [
+     0.032,
+     0.032,
+     0.112
     ]
    ],
    "driehoeken": [
     48,
+    48,
+    268,
     268
    ],
    "kleuren": [
     [
-     "#3e3e44",
-     "#cb9d78",
-     "#ffb349"
+     "#8b7561",
+     "#d9ae87",
+     "#f2a93c"
     ],
     [
-     "#3e3e44",
-     "#7a767c",
-     "#dd9f79",
-     "#ffb349"
+     "#343745",
+     "#d9ae87",
+     "#f2a93c"
+    ],
+    [
+     "#79757b",
+     "#8b7561",
+     "#d07b56",
+     "#d9ae87",
+     "#f2a93c"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#d07b56",
+     "#d9ae87",
+     "#f2a93c"
     ]
    ],
    "paren": [
     {
      "a": "rpgtools/pencil-a-long",
+     "b": "rpgtools/pencil-a-short",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "rpgtools/pencil-a-short",
      "b": "rpgtools/pencil-b-long",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "rpgtools/pencil-b-long",
+     "b": "rpgtools/pencil-b-short",
      "soort": "handmatig",
      "overlap": null
     }
@@ -12863,60 +12902,6 @@
     {
      "a": "rpgtools/screw-a",
      "b": "rpgtools/screw-b",
-     "soort": "handmatig",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpgtools/pencil-a-short",
-    "rpgtools/pencil-b-short"
-   ],
-   "main": "rpgtools/pencil-a-short",
-   "kits": [
-    "rpgtools"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.024,
-     0.028,
-     0.107
-    ],
-    [
-     0.032,
-     0.032,
-     0.112
-    ]
-   ],
-   "driehoeken": [
-    48,
-    268
-   ],
-   "kleuren": [
-    [
-     "#343745",
-     "#d9ae87",
-     "#f2a93c"
-    ],
-    [
-     "#343745",
-     "#79757b",
-     "#d07b56",
-     "#d9ae87",
-     "#f2a93c"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "rpgtools/pencil-a-short",
-     "b": "rpgtools/pencil-b-short",
      "soort": "handmatig",
      "overlap": null
     }
@@ -14008,6 +13993,159 @@
     {
      "a": "quaternius-nature/log",
      "b": "quaternius-nature/log-moss",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "adventurers/sword-two-handed",
+    "adventurers/sword-two-handed-colored"
+   ],
+   "main": "adventurers/sword-two-handed",
+   "kits": [
+    "adventurers"
+   ],
+   "type": "color-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.22,
+     0.065,
+     0.621
+    ],
+    [
+     0.22,
+     0.065,
+     0.621
+    ]
+   ],
+   "driehoeken": [
+    412,
+    412
+   ],
+   "kleuren": [
+    [
+     "#79757b",
+     "#979ebd"
+    ],
+    [
+     "#79757b",
+     "#979ebd",
+     "#f2a93c"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "adventurers/sword-two-handed",
+     "b": "adventurers/sword-two-handed-colored",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "skeletons/shield-large-a",
+    "skeletons/shield-large-b"
+   ],
+   "main": "skeletons/shield-large-a",
+   "kits": [
+    "skeletons"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.23,
+     0.095,
+     0.298
+    ],
+    [
+     0.23,
+     0.102,
+     0.298
+    ]
+   ],
+   "driehoeken": [
+    626,
+    326
+   ],
+   "kleuren": [
+    [
+     "#79757b",
+     "#875b42",
+     "#d8d1bd"
+    ],
+    [
+     "#79757b",
+     "#875b42"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "skeletons/shield-large-a",
+     "b": "skeletons/shield-large-b",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/cannon",
+    "pirate-kit/cannon-mobile"
+   ],
+   "main": "pirate-kit/cannon-mobile",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.356,
+     0.489,
+     0.268
+    ],
+    [
+     0.426,
+     0.489,
+     0.35
+    ]
+   ],
+   "driehoeken": [
+    232,
+    472
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#875b42"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#875b42"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/cannon",
+     "b": "pirate-kit/cannon-mobile",
      "soort": "handmatig",
      "overlap": null
     }
