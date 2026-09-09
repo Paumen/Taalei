@@ -80,7 +80,10 @@ const isRoof = (m) =>
 
 const isFlower = (m) => m.gr === 'flowers' || /(^|-)flower/.test(m.name);
 const isFauna = (m) => has(m, 'fauna');
-const anyColour = (m) => isFlower(m) || isFauna(m);
+const isFood = (m) => has(m, 'food');
+// M45 gives food the freedom M32 gives fauna: what it is made of says nothing about its band.
+const anyColour = (m) => isFlower(m) || isFauna(m) || isFood(m);
+const isDecoratedFood = (m) => isFood(m) && has(m, 'decorated');
 
 const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => has(m, 'metal-copper');
@@ -338,21 +341,21 @@ const RULES = [
       return `${m.colors.length} band(s) for ${mats.length} (${mats.join(', ')})`;
     } },
 
-  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.',
+  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.',
     severity: 'error', noJoker: true,
     check: (m) => {
       const n = counting(m).length;
       const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
-      const per = has(m, 'food', 'fauna', 'vegetation') ? 3 : 2;
+      const per = isDecoratedFood(m) ? 5 : has(m, 'food', 'fauna', 'vegetation') ? 3 : 2;
       if (!n || used <= per * n) return null;
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
 
-  { id: 'N4', text: 'Ceiling: 6 bands for a human character, 5 for anything else. A skeleton takes the 5.',
+  { id: 'N4', text: 'Ceiling: 6 bands for a human character or a decorated food, 5 for anything else. A skeleton takes the 5.',
     severity: 'error',
     check: (m) => {
       const bands = m.colors.length;
-      const ceiling = m.gr === 'characters' && !isSkeleton(m) ? 6 : 5;
+      const ceiling = (m.gr === 'characters' && !isSkeleton(m)) || isDecoratedFood(m) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
     } },

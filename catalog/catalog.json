@@ -7,9 +7,19 @@
    "url": "https://www.kaylousberg.com"
   },
   {
+   "slug": "baked-goods",
+   "name": "Baked Goods",
+   "url": "https://www.isalousberg.com"
+  },
+  {
    "slug": "castle-kit",
    "name": "Kenney Castle Kit",
    "url": "https://kenney.nl/assets/castle-kit"
+  },
+  {
+   "slug": "clay-items",
+   "name": "Clay Items",
+   "url": "https://glitchpixelinteractive.com/"
   },
   {
    "slug": "dungeon",
@@ -153,6 +163,11 @@
   {
    "slug": "village-kit",
    "name": "Modular Village"
+  },
+  {
+   "slug": "weapons",
+   "name": "Fantasy Weapons",
+   "url": "https://www.kaylousberg.com"
   }
  ],
  "variants": [
@@ -2572,6 +2587,12 @@
    "description": "Meat and dishes made of it: chicken leg, steak, ham, roast, stew. Also carries food."
   },
   {
+   "id": "decorated",
+   "name": "Decorated food",
+   "type": "tag",
+   "description": "Food finished on top rather than left plain: icing, sprinkles, cream, fruit or candles. N3 and N4 allow it more bands."
+  },
+  {
    "id": "key",
    "name": "Key",
    "type": "tag",
@@ -2925,24 +2946,19 @@
    "color": "#5f8f8a"
   },
   {
-   "id": "food",
-   "name": "Food",
-   "color": "#c25b4e"
-  },
-  {
    "id": "bones",
    "name": "Bones & skulls",
    "color": "#cfc6ad"
   },
   {
-   "id": "plates-bowls",
-   "name": "Plates & bowls",
-   "color": "#e8dcc0"
-  },
-  {
    "id": "characters",
    "name": "Characters",
    "color": "#8a6fb0"
+  },
+  {
+   "id": "plates-bowls",
+   "name": "Plates & bowls",
+   "color": "#e8dcc0"
   },
   {
    "id": "signs",
@@ -2955,14 +2971,14 @@
    "color": "#c9a227"
   },
   {
-   "id": "cooking",
-   "name": "Cooking & tableware",
-   "color": "#9c3f2e"
-  },
-  {
    "id": "lights",
    "name": "Lights & lamps",
    "color": "#f2cb45"
+  },
+  {
+   "id": "cooking",
+   "name": "Cooking & tableware",
+   "color": "#9c3f2e"
   },
   {
    "id": "books-scrolls",
@@ -2988,6 +3004,11 @@
    "id": "assemblies",
    "name": "Assemblies",
    "color": "#b5651d"
+  },
+  {
+   "id": "food",
+   "name": "Food",
+   "color": "#c25b4e"
   },
   {
    "id": "resources",
@@ -5512,6 +5533,1508 @@
    ]
   },
   {
+   "kit": "baked-goods",
+   "name": "baguette-half",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8936,
+   "vtx": 180,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00018,
+   "dens": 231172,
+   "anglePct": 9,
+   "vpt": 0.63,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.305,
+     0.789
+    ],
+    "5,2": [
+     0.313,
+     0.789
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "baguette-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 128,
+   "tpu": 373,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5344,
+   "vtx": 98,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00012,
+   "dens": 778475,
+   "anglePct": 60,
+   "vpt": 0.77,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.305,
+     0.789
+    ],
+    "5,2": [
+     0.313,
+     0.789
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "baguette",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 344,
+   "tpu": 1003,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9924,
+   "vtx": 201,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00021,
+   "dens": 176039,
+   "anglePct": 7,
+   "vpt": 0.58,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.305,
+     0.789
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "bread-half",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 354,
+   "tpu": 1032,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 10540,
+   "vtx": 218,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00019,
+   "dens": 203953,
+   "anglePct": 27,
+   "vpt": 0.62,
+   "grad": 0.72,
+   "spread": {
+    "5,0": [
+     0.102,
+     0.891
+    ],
+    "5,2": [
+     0.328,
+     0.664
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "bread-roll",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 318,
+   "tpu": 927,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9772,
+   "vtx": 201,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0001,
+   "dens": 384580,
+   "anglePct": 5,
+   "vpt": 0.63,
+   "grad": 0.66,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.695
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "bread-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7724,
+   "vtx": 156,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00016,
+   "dens": 606673,
+   "anglePct": 72,
+   "vpt": 0.72,
+   "grad": 0.58,
+   "spread": {
+    "5,2": [
+     0.328,
+     0.664
+    ],
+    "5,0": [
+     0.102,
+     0.844
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "bread",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 454,
+   "tpu": 1324,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12752,
+   "vtx": 269,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00022,
+   "dens": 145730,
+   "anglePct": 10,
+   "vpt": 0.59,
+   "grad": 0.79,
+   "spread": {
+    "5,0": [
+     0.102,
+     0.891
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-birthday-cut",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 2756,
+   "tpu": 8035,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 91148,
+   "vtx": 2286,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00011,
+   "dens": 153432,
+   "anglePct": 35,
+   "vpt": 0.83,
+   "grad": 0.49,
+   "spread": {
+    "6,0": [
+     0.141,
+     0.742
+    ],
+    "5,0": [
+     0.438,
+     0.898
+    ],
+    "3,2": [
+     0.133,
+     0.688
+    ],
+    "0,0": [
+     0.133,
+     0.688
+    ],
+    "5,2": [
+     0.375,
+     0.523
+    ]
+   },
+   "colors": [
+    "#979ebd",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "emissive",
+    "fire",
+    "food",
+    "ngons",
+    "object",
+    "wax"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-birthday-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 476,
+   "tpu": 1388,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 18012,
+   "vtx": 428,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00016,
+   "dens": 132292,
+   "anglePct": 20,
+   "vpt": 0.9,
+   "grad": 0.44,
+   "spread": {
+    "6,0": [
+     0.141,
+     0.742
+    ],
+    "5,0": [
+     0.5,
+     0.945
+    ],
+    "3,2": [
+     0.133,
+     0.164
+    ],
+    "0,0": [
+     0.133,
+     0.688
+    ],
+    "5,2": [
+     0.375,
+     0.523
+    ]
+   },
+   "colors": [
+    "#979ebd",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "emissive",
+    "fire",
+    "food",
+    "object",
+    "wax"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-birthday",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 3040,
+   "tpu": 8863,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 99084,
+   "vtx": 2482,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
+   "dens": 162584,
+   "anglePct": 41,
+   "vpt": 0.82,
+   "grad": 0.47,
+   "spread": {
+    "6,0": [
+     0.141,
+     0.742
+    ],
+    "5,0": [
+     0.438,
+     0.883
+    ],
+    "3,2": [
+     0.133,
+     0.688
+    ],
+    "0,0": [
+     0.133,
+     0.688
+    ],
+    "5,2": [
+     0.375,
+     0.375
+    ]
+   },
+   "colors": [
+    "#979ebd",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "emissive",
+    "fire",
+    "food",
+    "ngons",
+    "object",
+    "wax"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-chocolate-cut",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 2084,
+   "tpu": 6076,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 69328,
+   "vtx": 1730,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00014,
+   "dens": 144845,
+   "anglePct": 33,
+   "vpt": 0.83,
+   "grad": 0.66,
+   "spread": {
+    "2,0": [
+     0.195,
+     0.945
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-chocolate-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 380,
+   "tpu": 1108,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15228,
+   "vtx": 359,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0002,
+   "dens": 131850,
+   "anglePct": 19,
+   "vpt": 0.94,
+   "grad": 0.73,
+   "spread": {
+    "2,0": [
+     0.133,
+     0.945
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-chocolate",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 2252,
+   "tpu": 6566,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 73240,
+   "vtx": 1822,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00013,
+   "dens": 150364,
+   "anglePct": 38,
+   "vpt": 0.81,
+   "grad": 0.65,
+   "spread": {
+    "2,0": [
+     0.195,
+     0.945
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-strawberry-cut",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 2220,
+   "tpu": 6472,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 76484,
+   "vtx": 1928,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 148754,
+   "anglePct": 33,
+   "vpt": 0.87,
+   "grad": 0.5,
+   "spread": {
+    "0,0": [
+     0.133,
+     0.508
+    ],
+    "5,2": [
+     0.188,
+     0.773
+    ],
+    "5,0": [
+     0.094,
+     0.625
+    ],
+    "3,1": [
+     0.047,
+     0.5
+    ],
+    "6,0": [
+     0.148,
+     0.234
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "flora",
+    "foliage",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-strawberry-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 764,
+   "tpu": 2227,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 26272,
+   "vtx": 632,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00011,
+   "dens": 255564,
+   "anglePct": 17,
+   "vpt": 0.83,
+   "grad": 0.49,
+   "spread": {
+    "0,0": [
+     0.133,
+     0.508
+    ],
+    "5,2": [
+     0.188,
+     0.773
+    ],
+    "5,0": [
+     0.094,
+     0.625
+    ],
+    "3,1": [
+     0.047,
+     0.5
+    ],
+    "6,0": [
+     0.148,
+     0.234
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "flora",
+    "foliage",
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cake-strawberry",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 2336,
+   "tpu": 6810,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 79124,
+   "vtx": 1990,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00012,
+   "dens": 150368,
+   "anglePct": 38,
+   "vpt": 0.85,
+   "grad": 0.44,
+   "spread": {
+    "0,0": [
+     0.133,
+     0.508
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ],
+    "5,0": [
+     0.148,
+     0.453
+    ],
+    "3,1": [
+     0.047,
+     0.5
+    ],
+    "6,0": [
+     0.148,
+     0.234
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "flora",
+    "foliage",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cinnamon-roll",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 558,
+   "tpu": 1627,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18660,
+   "vtx": 433,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00011,
+   "dens": 860752,
+   "anglePct": 0,
+   "vpt": 0.78,
+   "grad": 0.56,
+   "spread": {
+    "5,0": [
+     0.375,
+     0.867
+    ],
+    "5,2": [
+     0.266,
+     0.891
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cookie",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 508,
+   "tpu": 1481,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14840,
+   "vtx": 324,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
+   "dens": 818973,
+   "anglePct": 21,
+   "vpt": 0.64,
+   "grad": 0.51,
+   "spread": {
+    "5,0": [
+     0.313,
+     0.875
+    ],
+    "2,0": [
+     0.102,
+     0.578
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "croissant",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 404,
+   "tpu": 1178,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11980,
+   "vtx": 254,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00011,
+   "dens": 293969,
+   "anglePct": 11,
+   "vpt": 0.63,
+   "grad": 0.26,
+   "spread": {
+    "5,0": [
+     0.602,
+     0.859
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "cupcake",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 778,
+   "tpu": 2268,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 27184,
+   "vtx": 659,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
+   "dens": 750386,
+   "anglePct": 19,
+   "vpt": 0.85,
+   "grad": 0.55,
+   "spread": {
+    "0,0": [
+     0.195,
+     0.914
+    ],
+    "5,0": [
+     0.148,
+     0.844
+    ],
+    "6,0": [
+     0.148,
+     0.234
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ],
+    "3,2": [
+     0.195,
+     0.227
+    ],
+    "3,1": [
+     0.047,
+     0.5
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#979ebd",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "flora",
+    "foliage",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "donut-chocolate",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 948,
+   "tpu": 2764,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 25924,
+   "vtx": 588,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00003,
+   "dens": 1718587,
+   "anglePct": 2,
+   "vpt": 0.62,
+   "grad": 0.65,
+   "spread": {
+    "5,0": [
+     0.094,
+     0.672
+    ],
+    "2,0": [
+     0.195,
+     0.875
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d07b56"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "donut-pink",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 948,
+   "tpu": 2764,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 26420,
+   "vtx": 604,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00003,
+   "dens": 1718587,
+   "anglePct": 2,
+   "vpt": 0.64,
+   "grad": 0.36,
+   "spread": {
+    "5,0": [
+     0.094,
+     0.672
+    ],
+    "0,0": [
+     0.305,
+     0.805
+    ],
+    "6,0": [
+     0.258,
+     0.289
+    ],
+    "5,2": [
+     0.258,
+     0.289
+    ],
+    "3,2": [
+     0.266,
+     0.297
+    ]
+   },
+   "colors": [
+    "#979ebd",
+    "#d07b56",
+    "#d8d1bd",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "donut",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9836,
+   "vtx": 192,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
+   "dens": 773998,
+   "anglePct": 0,
+   "vpt": 0.5,
+   "grad": 0.65,
+   "spread": {
+    "5,0": [
+     0.063,
+     0.711
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "muffin",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 692,
+   "tpu": 2017,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22316,
+   "vtx": 523,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00005,
+   "dens": 871317,
+   "anglePct": 11,
+   "vpt": 0.76,
+   "grad": 0.69,
+   "spread": {
+    "2,0": [
+     0.102,
+     0.914
+    ],
+    "5,0": [
+     0.453,
+     0.797
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-apple-cut",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 774,
+   "tpu": 2257,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 23620,
+   "vtx": 548,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00023,
+   "dens": 127488,
+   "anglePct": 30,
+   "vpt": 0.71,
+   "grad": 0.55,
+   "spread": {
+    "5,0": [
+     0.047,
+     0.648
+    ],
+    "6,0": [
+     0.281,
+     0.734
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#f2a93c"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-apple-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 448,
+   "tpu": 1306,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14624,
+   "vtx": 328,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 285299,
+   "anglePct": 30,
+   "vpt": 0.73,
+   "grad": 0.51,
+   "spread": {
+    "5,0": [
+     0.047,
+     0.648
+    ],
+    "6,0": [
+     0.281,
+     0.711
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#f2a93c"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-apple",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 576,
+   "tpu": 1679,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17400,
+   "vtx": 392,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00032,
+   "dens": 88217,
+   "anglePct": 23,
+   "vpt": 0.68,
+   "grad": 0.6,
+   "spread": {
+    "5,0": [
+     0.047,
+     0.648
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-cherry-cut",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 840,
+   "tpu": 2449,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25300,
+   "vtx": 588,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00032,
+   "dens": 138359,
+   "anglePct": 23,
+   "vpt": 0.7,
+   "grad": 0.56,
+   "spread": {
+    "5,0": [
+     0.297,
+     0.859
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-cherry-slice",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 387,
+   "tpu": 1128,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12948,
+   "vtx": 287,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00017,
+   "dens": 252854,
+   "anglePct": 33,
+   "vpt": 0.74,
+   "grad": 0.56,
+   "spread": {
+    "5,0": [
+     0.297,
+     0.859
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "pie-cherry",
+   "gr": "food",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 769,
+   "tpu": 2242,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 21796,
+   "vtx": 493,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00037,
+   "dens": 117776,
+   "anglePct": 21,
+   "vpt": 0.64,
+   "grad": 0.56,
+   "spread": {
+    "5,0": [
+     0.297,
+     0.859
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "waffle-stacked",
+   "gr": "food",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 1144,
+   "tpu": 3335,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 36220,
+   "vtx": 873,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "dens": 350435,
+   "anglePct": 0,
+   "vpt": 0.76,
+   "grad": 0.49,
+   "spread": {
+    "5,0": [
+     0.438,
+     0.922
+    ],
+    "5,2": [
+     0.234,
+     0.758
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "decorated",
+    "food",
+    "object",
+    "stacks"
+   ]
+  },
+  {
+   "kit": "baked-goods",
+   "name": "waffle",
+   "gr": "food",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 528,
+   "tpu": 1539,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16976,
+   "vtx": 388,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "dens": 920194,
+   "anglePct": 5,
+   "vpt": 0.73,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.438,
+     0.922
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "object"
+   ]
+  },
+  {
    "kit": "castle-kit",
    "name": "flag-pennant",
    "gr": "signs",
@@ -5742,6 +7265,411 @@
     "wood-planks"
    ],
    "variant": "v215"
+  },
+  {
+   "kit": "clay-items",
+   "name": "bowl",
+   "gr": "plates-bowls",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15688,
+   "vtx": 345,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0002,
+   "dens": 147492,
+   "anglePct": 2,
+   "vpt": 0.63,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "object",
+    "tableware"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "crockpot-lid",
+   "gr": "cooking",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 800,
+   "tpu": 2332,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 19104,
+   "vtx": 402,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00021,
+   "dens": 150143,
+   "anglePct": 17,
+   "vpt": 0.5,
+   "grad": 0,
+   "spread": {
+    "5,0": [
+     0.961,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "object",
+    "pans"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "crockpot",
+   "gr": "cooking",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 512,
+   "tpu": 1493,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12744,
+   "vtx": 258,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00057,
+   "dens": 45866,
+   "anglePct": 29,
+   "vpt": 0.5,
+   "grad": 0,
+   "spread": {
+    "5,0": [
+     0.961,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "container",
+    "ngons",
+    "object",
+    "pans"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "cup",
+   "gr": "cooking",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 512,
+   "tpu": 1493,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12708,
+   "vtx": 258,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
+   "dens": 761452,
+   "anglePct": 7,
+   "vpt": 0.5,
+   "grad": 0,
+   "spread": {
+    "5,0": [
+     0.961,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "object",
+    "tableware"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "jug",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1024,
+   "tpu": 2985,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25988,
+   "vtx": 576,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00018,
+   "dens": 123240,
+   "anglePct": 9,
+   "vpt": 0.56,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "container",
+    "jugs",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "planter",
+   "gr": "furniture",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 480,
+   "tpu": 1399,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12000,
+   "vtx": 242,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00118,
+   "dens": 13983,
+   "anglePct": 16,
+   "vpt": 0.5,
+   "grad": 0,
+   "spread": {
+    "5,0": [
+     0.961,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "container",
+    "ngons",
+    "object"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "plate",
+   "gr": "plates-bowls",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 448,
+   "tpu": 1306,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13464,
+   "vtx": 294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00021,
+   "dens": 256124,
+   "anglePct": 45,
+   "vpt": 0.66,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "object",
+    "tableware"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "platter",
+   "gr": "plates-bowls",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12076,
+   "vtx": 262,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00031,
+   "dens": 150753,
+   "anglePct": 8,
+   "vpt": 0.68,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "object",
+    "tableware"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "rice-pot",
+   "gr": "cooking",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 736,
+   "tpu": 2146,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 19824,
+   "vtx": 438,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00047,
+   "dens": 46733,
+   "anglePct": 4,
+   "vpt": 0.6,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "container",
+    "ngons",
+    "object",
+    "pans"
+   ]
+  },
+  {
+   "kit": "clay-items",
+   "name": "wide-vase",
+   "gr": "bottles-jugs",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 800,
+   "tpu": 2332,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 21236,
+   "vtx": 470,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00019,
+   "dens": 221658,
+   "anglePct": 9,
+   "vpt": 0.59,
+   "grad": 0.13,
+   "spread": {
+    "5,0": [
+     0.836,
+     0.961
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "jugs",
+    "ngons",
+    "object"
+   ]
   },
   {
    "kit": "dungeon",
@@ -65399,6 +67327,1585 @@
     "wood-planks"
    ],
    "variant": "v157"
+  },
+  {
+   "kit": "weapons",
+   "name": "arrow-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 4924,
+   "vtx": 97,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00026,
+   "dens": 143305,
+   "anglePct": 46,
+   "vpt": 1.52,
+   "grad": 0.74,
+   "spread": {
+    "4,2": [
+     0.125,
+     0.852
+    ],
+    "15,3": [
+     0.047,
+     0.969
+    ],
+    "2,0": [
+     0.188,
+     0.734
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "robin-hood",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "arrow-b",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 602,
+   "tpu": 1755,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 27848,
+   "vtx": 712,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 992216,
+   "anglePct": 1,
+   "vpt": 1.18,
+   "grad": 0.63,
+   "spread": {
+    "14,3": [
+     0.086,
+     0.594
+    ],
+    "15,3": [
+     0.258,
+     0.695
+    ],
+    "4,2": [
+     0.102,
+     0.852
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "robin-hood",
+    "textile",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "axe-a",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 1206,
+   "tpu": 3516,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 46376,
+   "vtx": 1178,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.0001,
+   "dens": 266269,
+   "anglePct": 25,
+   "vpt": 0.98,
+   "grad": 0.58,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.766
+    ],
+    "2,0": [
+     0.031,
+     0.844
+    ],
+    "0,0": [
+     0.219,
+     0.75
+    ],
+    "15,3": [
+     0.242,
+     0.805
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "axe-b",
+   "gr": "tools",
+   "wdh": [
+    0.3,
+    0.1,
+    0.4
+   ],
+   "tris": 1246,
+   "tpu": 3633,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 48572,
+   "vtx": 1239,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00015,
+   "dens": 142904,
+   "anglePct": 20,
+   "vpt": 0.99,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.766
+    ],
+    "2,0": [
+     0.031,
+     0.844
+    ],
+    "0,0": [
+     0.219,
+     0.75
+    ],
+    "15,3": [
+     0.242,
+     0.805
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "axe-c",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.4
+   ],
+   "tris": 890,
+   "tpu": 2595,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 35968,
+   "vtx": 912,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
+   "dens": 236513,
+   "anglePct": 6,
+   "vpt": 1.02,
+   "grad": 0.71,
+   "spread": {
+    "14,3": [
+     0.242,
+     0.781
+    ],
+    "2,0": [
+     0.031,
+     0.844
+    ],
+    "15,3": [
+     0.18,
+     0.906
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "bow-a-with-string",
+   "gr": "tools",
+   "wdh": [
+    0.5,
+    0.1,
+    0.1
+   ],
+   "tris": 700,
+   "tpu": 2041,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 28588,
+   "vtx": 716,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 545620,
+   "anglePct": 15,
+   "vpt": 1.02,
+   "grad": 0.34,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.836
+    ],
+    "0,0": [
+     0.305,
+     0.453
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "ngons",
+    "object",
+    "robin-hood",
+    "rope",
+    "weapons",
+    "wood"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "bow-a",
+   "gr": "tools",
+   "wdh": [
+    0.5,
+    0.1,
+    0.1
+   ],
+   "tris": 492,
+   "tpu": 1434,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21832,
+   "vtx": 545,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "dens": 383493,
+   "anglePct": 18,
+   "vpt": 1.11,
+   "grad": 0.4,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.836
+    ],
+    "0,0": [
+     0.305,
+     0.453
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "ngons",
+    "object",
+    "robin-hood",
+    "weapons",
+    "wood"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "bow-b-with-string",
+   "gr": "tools",
+   "wdh": [
+    0.5,
+    0.2,
+    0.1
+   ],
+   "tris": 2368,
+   "tpu": 6904,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 104140,
+   "vtx": 2764,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 607923,
+   "anglePct": 11,
+   "vpt": 1.17,
+   "grad": 0.66,
+   "spread": {
+    "14,3": [
+     0.086,
+     0.781
+    ],
+    "2,0": [
+     0.273,
+     0.781
+    ],
+    "15,3": [
+     0.164,
+     0.883
+    ],
+    "0,0": [
+     0.516,
+     0.555
+    ],
+    "4,2": [
+     0.102,
+     0.852
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "robin-hood",
+    "rope",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "bow-b",
+   "gr": "tools",
+   "wdh": [
+    0.5,
+    0.2,
+    0.1
+   ],
+   "tris": 2244,
+   "tpu": 6542,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 99264,
+   "vtx": 2636,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 576089,
+   "anglePct": 4,
+   "vpt": 1.17,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.086,
+     0.781
+    ],
+    "2,0": [
+     0.273,
+     0.781
+    ],
+    "15,3": [
+     0.164,
+     0.883
+    ],
+    "4,2": [
+     0.102,
+     0.852
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "robin-hood",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "dagger-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 374,
+   "tpu": 1090,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17416,
+   "vtx": 429,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00008,
+   "dens": 246713,
+   "anglePct": 19,
+   "vpt": 1.15,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.289,
+     0.875
+    ],
+    "15,3": [
+     0.18,
+     0.797
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "dagger-b",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.4
+   ],
+   "tris": 502,
+   "tpu": 1464,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21448,
+   "vtx": 531,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
+   "dens": 358258,
+   "anglePct": 12,
+   "vpt": 1.06,
+   "grad": 0.79,
+   "spread": {
+    "2,0": [
+     0.289,
+     0.875
+    ],
+    "3,2": [
+     0.023,
+     0.922
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#979ebd"
+   ],
+   "tags": [
+    "kay",
+    "metal-silver",
+    "object",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "fistweapon-a-stacked",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 436,
+   "tpu": 1271,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 22156,
+   "vtx": 564,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00006,
+   "dens": 975330,
+   "anglePct": 7,
+   "vpt": 1.29,
+   "grad": 0.55,
+   "spread": {
+    "15,3": [
+     0.219,
+     0.773
+    ]
+   },
+   "colors": [
+    "#79757b"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "stacks",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "fistweapon-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 218,
+   "tpu": 636,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11792,
+   "vtx": 282,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00006,
+   "dens": 1858483,
+   "anglePct": 18,
+   "vpt": 1.29,
+   "grad": 0.55,
+   "spread": {
+    "15,3": [
+     0.219,
+     0.773
+    ]
+   },
+   "colors": [
+    "#79757b"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "fistweapon-b-stacked",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22820,
+   "vtx": 584,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00012,
+   "dens": 283723,
+   "anglePct": 8,
+   "vpt": 1.33,
+   "grad": 0.3,
+   "spread": {
+    "2,0": [
+     0.391,
+     0.602
+    ],
+    "15,3": [
+     0.117,
+     0.453
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "stacks",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "fistweapon-b",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12188,
+   "vtx": 294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00012,
+   "dens": 375372,
+   "anglePct": 13,
+   "vpt": 1.34,
+   "grad": 0.3,
+   "spread": {
+    "2,0": [
+     0.391,
+     0.602
+    ],
+    "15,3": [
+     0.117,
+     0.453
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "halberd",
+   "gr": "tools",
+   "wdh": [
+    0.3,
+    0.1,
+    0.7
+   ],
+   "tris": 1496,
+   "tpu": 4234,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 65564,
+   "vtx": 1723,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 80535,
+   "anglePct": 28,
+   "vpt": 1.15,
+   "grad": 0.8,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.836
+    ],
+    "2,0": [
+     0.258,
+     0.766
+    ],
+    "15,3": [
+     0.047,
+     0.945
+    ],
+    "4,2": [
+     0.102,
+     0.852
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "ngons",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "hammer-a",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 524,
+   "tpu": 1528,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 24588,
+   "vtx": 625,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00028,
+   "dens": 69401,
+   "anglePct": 49,
+   "vpt": 1.19,
+   "grad": 0.56,
+   "spread": {
+    "15,3": [
+     0.25,
+     0.828
+    ],
+    "2,0": [
+     0.188,
+     0.656
+    ],
+    "14,3": [
+     0.375,
+     0.938
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "hammer-b",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.2,
+    0.4
+   ],
+   "tris": 712,
+   "tpu": 2076,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 30420,
+   "vtx": 772,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00014,
+   "dens": 59086,
+   "anglePct": 5,
+   "vpt": 1.08,
+   "grad": 0.62,
+   "spread": {
+    "15,3": [
+     0.211,
+     0.875
+    ],
+    "14,3": [
+     0.438,
+     0.875
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "hammer-c",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.4
+   ],
+   "tris": 840,
+   "tpu": 2449,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 33436,
+   "vtx": 842,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00015,
+   "dens": 154620,
+   "anglePct": 19,
+   "vpt": 1,
+   "grad": 0.48,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.813
+    ],
+    "2,0": [
+     0.156,
+     0.828
+    ],
+    "15,3": [
+     0.211,
+     0.641
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "shield-a",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 354,
+   "tpu": 1032,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15924,
+   "vtx": 386,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00034,
+   "dens": 111236,
+   "anglePct": 8,
+   "vpt": 1.09,
+   "grad": 0.61,
+   "spread": {
+    "2,0": [
+     0.211,
+     0.789
+    ],
+    "0,0": [
+     0.094,
+     0.891
+    ],
+    "15,3": [
+     0.328,
+     0.664
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "shield-b",
+   "gr": "tools",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 368,
+   "tpu": 1073,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 17156,
+   "vtx": 422,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00047,
+   "dens": 60879,
+   "anglePct": 6,
+   "vpt": 1.15,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.219,
+     0.82
+    ],
+    "5,2": [
+     0.234,
+     0.938
+    ],
+    "4,2": [
+     0.234,
+     0.938
+    ],
+    "14,3": [
+     0.414,
+     0.617
+    ],
+    "2,0": [
+     0.211,
+     0.789
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "shield-c",
+   "gr": "tools",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 584,
+   "tpu": 1703,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29152,
+   "vtx": 756,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00047,
+   "dens": 49348,
+   "anglePct": 16,
+   "vpt": 1.29,
+   "grad": 0.5,
+   "spread": {
+    "2,0": [
+     0.211,
+     0.789
+    ],
+    "14,3": [
+     0.422,
+     0.945
+    ],
+    "15,3": [
+     0.328,
+     0.797
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "spear-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.8
+   ],
+   "tris": 1216,
+   "tpu": 3012,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 54184,
+   "vtx": 1420,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00008,
+   "dens": 311007,
+   "anglePct": 13,
+   "vpt": 1.17,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.086,
+     0.773
+    ],
+    "2,0": [
+     0.258,
+     0.766
+    ],
+    "15,3": [
+     0.258,
+     0.82
+    ],
+    "4,2": [
+     0.102,
+     0.852
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "ngons",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "staff-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.6
+   ],
+   "tris": 500,
+   "tpu": 1458,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21028,
+   "vtx": 518,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0001,
+   "dens": 926358,
+   "anglePct": 15,
+   "vpt": 1.04,
+   "grad": 0.69,
+   "spread": {
+    "0,0": [
+     0.086,
+     0.773
+    ],
+    "2,0": [
+     0.031,
+     0.719
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "ngons",
+    "object",
+    "weapons",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "staff-b",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.6
+   ],
+   "tris": 664,
+   "tpu": 1936,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 33112,
+   "vtx": 865,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00013,
+   "dens": 93630,
+   "anglePct": 7,
+   "vpt": 1.3,
+   "grad": 0.68,
+   "spread": {
+    "0,0": [
+     0.086,
+     0.773
+    ],
+    "6,0": [
+     0.188,
+     0.773
+    ],
+    "2,0": [
+     0.32,
+     0.727
+    ],
+    "4,2": [
+     0.063,
+     0.93
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#875b42",
+    "#d9ae87",
+    "#f2a93c"
+   ],
+   "tags": [
+    "gemstone",
+    "kay",
+    "metal-gold",
+    "ngons",
+    "object",
+    "weapons",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "sword-a",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.5
+   ],
+   "tris": 292,
+   "tpu": 851,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14200,
+   "vtx": 344,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00025,
+   "dens": 115186,
+   "anglePct": 9,
+   "vpt": 1.18,
+   "grad": 0.46,
+   "spread": {
+    "0,0": [
+     0.102,
+     0.641
+    ],
+    "2,0": [
+     0.094,
+     0.531
+    ]
+   },
+   "colors": [
+    "#875b42",
+    "#d9ae87"
+   ],
+   "tags": [
+    "kay",
+    "object",
+    "weapons",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "sword-b",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.5
+   ],
+   "tris": 460,
+   "tpu": 1341,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20680,
+   "vtx": 515,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00014,
+   "dens": 191564,
+   "anglePct": 21,
+   "vpt": 1.12,
+   "grad": 0.76,
+   "spread": {
+    "2,0": [
+     0.289,
+     0.875
+    ],
+    "15,3": [
+     0.047,
+     0.875
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "sword-c",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.6
+   ],
+   "tris": 349,
+   "tpu": 1017,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18388,
+   "vtx": 464,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "dens": 222975,
+   "anglePct": 40,
+   "vpt": 1.33,
+   "grad": 0.77,
+   "spread": {
+    "1,0": [
+     0.078,
+     0.93
+    ],
+    "15,3": [
+     0.031,
+     0.703
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#b3825f"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons",
+    "wood"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "sword-d",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.5
+   ],
+   "tris": 730,
+   "tpu": 2128,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27292,
+   "vtx": 671,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
+   "dens": 69123,
+   "anglePct": 9,
+   "vpt": 0.92,
+   "grad": 0.72,
+   "spread": {
+    "4,2": [
+     0.289,
+     0.875
+    ],
+    "15,3": [
+     0.039,
+     0.805
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "sword-e",
+   "gr": "tools",
+   "wdh": [
+    0.2,
+    0.1,
+    0.9
+   ],
+   "tris": 616,
+   "tpu": 1472,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 29196,
+   "vtx": 752,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00018,
+   "dens": 50364,
+   "anglePct": 5,
+   "vpt": 1.22,
+   "grad": 0.64,
+   "spread": {
+    "2,0": [
+     0.273,
+     0.867
+    ],
+    "15,3": [
+     0.047,
+     0.742
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron",
+    "object",
+    "weapons",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "weapons",
+   "name": "wand-a",
+   "gr": "tools",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 442,
+   "tpu": 1289,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 20200,
+   "vtx": 503,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00008,
+   "dens": 472061,
+   "anglePct": 14,
+   "vpt": 1.14,
+   "grad": 0.64,
+   "spread": {
+    "14,3": [
+     0.289,
+     0.875
+    ],
+    "15,3": [
+     0.203,
+     0.734
+    ],
+    "2,0": [
+     0.414,
+     0.508
+    ],
+    "4,2": [
+     0.063,
+     0.93
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#79757b",
+    "#875b42",
+    "#8b7561"
+   ],
+   "tags": [
+    "gemstone",
+    "kay",
+    "metal-iron",
+    "ngons",
+    "object",
+    "textile",
+    "weapons",
+    "wood-beam"
+   ]
   }
  ]
 }
