@@ -138,9 +138,6 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   input.type = 'search';
   input.className = 'tagedit-zoek';
   input.placeholder = '+ add a tag…';
-  const list = document.createElement('div');
-  list.className = 'tagedit-lijst';
-  list.hidden = true;
 
   const currentSet = new Set(current);
   function renderList() {
@@ -149,41 +146,67 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
       .filter((t) => !currentSet.has(t.id))
       .filter((t) => !q || t.name.toLowerCase().includes(q) || t.id.includes(q))
       .slice(0, 40);
-    list.replaceChildren();
-    for (const t of options) {
-      const opt = document.createElement('button');
-      opt.type = 'button';
-      opt.className = 'tagedit-optie';
-      opt.textContent = t.name;
-      if (t.description) opt.title = t.description;
-      opt.addEventListener('mousedown', (e) => e.preventDefault());
-      opt.addEventListener('click', () => {
-        toggleTag(model, t.id);
-        redraw();
-        onEdit?.();
-      });
-      list.append(opt);
-    }
-    list.hidden = options.length === 0;
-    if (!list.hidden) positionList();
-  }
-
-  // The list is fixed-positioned so it isn't clipped by an ancestor with `overflow:
-  // hidden` — the swipe card in particular relies on that clip for its rounded corners
-  // and drag transform, and would otherwise chop the dropdown off almost entirely.
-  function positionList() {
-    const rect = input.getBoundingClientRect();
-    list.style.left = `${rect.left}px`;
-    list.style.top = `${rect.bottom + 4}px`;
-    list.style.width = `${rect.width}px`;
+    openSharedList(input, options, (t) => {
+      toggleTag(model, t.id);
+      redraw();
+      onEdit?.();
+    });
   }
 
   input.addEventListener('input', renderList);
   input.addEventListener('focus', renderList);
-  input.addEventListener('blur', () => { list.hidden = true; });
+  input.addEventListener('blur', hideSharedList);
 
-  picker.append(input, list);
+  picker.append(input);
   container.append(picker);
+}
+
+// One dropdown, shared by every tag editor on the page, reparented on each open to
+// wherever the active input actually lives. Keeping a single instance — instead of one
+// per card, nested under it — means it is never clipped by an ancestor's `overflow:
+// hidden` or trapped by an ancestor's `transform` (which would otherwise make that
+// ancestor the containing block for a `position: fixed` descendant): both the swipe card
+// itself and its scaled-down preview card behind it rely on exactly that combination.
+// Inside an open <dialog> (catalog.html's detail view) it has to stay a descendant of
+// that dialog instead of moving to <body>: an open dialog paints in the browser's own
+// "top layer", above all regular content regardless of z-index, so a body-level sibling
+// of it would end up hidden behind the dialog rather than floating above it.
+let sharedList = null;
+
+function getSharedList(host) {
+  if (!sharedList) {
+    sharedList = document.createElement('div');
+    sharedList.className = 'tagedit-lijst';
+    sharedList.hidden = true;
+  }
+  if (sharedList.parentElement !== host) host.append(sharedList);
+  return sharedList;
+}
+
+function openSharedList(input, options, onPick) {
+  const host = input.closest('dialog[open]') ?? document.body;
+  const list = getSharedList(host);
+  list.replaceChildren();
+  for (const t of options) {
+    const opt = document.createElement('button');
+    opt.type = 'button';
+    opt.className = 'tagedit-optie';
+    opt.textContent = t.name;
+    if (t.description) opt.title = t.description;
+    opt.addEventListener('mousedown', (e) => e.preventDefault());
+    opt.addEventListener('click', () => onPick(t));
+    list.append(opt);
+  }
+  list.hidden = options.length === 0;
+  if (list.hidden) return;
+  const rect = input.getBoundingClientRect();
+  list.style.left = `${rect.left}px`;
+  list.style.top = `${rect.bottom + 4}px`;
+  list.style.width = `${rect.width}px`;
+}
+
+function hideSharedList() {
+  if (sharedList) sharedList.hidden = true;
 }
 
 // Wires up the small floating bar (count · Download JSON · Clear) shared by catalog.html
