@@ -387,7 +387,7 @@ function makeDraggable(card) {
 
   card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    if (e.target.closest('button, input, .tagedit-lijst')) return;
+    if (e.target.closest('button, input, .tagedit-toggles')) return;
     if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
     card.setPointerCapture(e.pointerId);

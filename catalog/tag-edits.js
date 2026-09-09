@@ -101,77 +101,46 @@ export function exportEdits() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-// Renders the effective tags of one model as removable chips, plus a search box to add
-// any tag from the catalogue that isn't on the model yet. Rebuilds itself on every change.
+// Renders every tag in the catalogue as a toggle: pressed means the model carries it.
+// Grouped materials first, then the rest, in a scrolling panel. Rebuilds on every change.
 export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
   container.replaceChildren();
   const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
+  const on = new Set(effectiveTags(model));
 
-  const chips = document.createElement('div');
-  chips.className = 'tagedit-chips';
-  const current = effectiveTags(model);
-  for (const id of current) {
-    const tag = tagsById.get(id);
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'keuzechip tagedit-chip';
-    chip.textContent = `${tag?.name ?? id} ×`;
-    chip.title = tag?.description ? `${tag.description} — click to remove` : 'Click to remove this tag';
-    chip.addEventListener('click', () => {
-      toggleTag(model, id);
-      redraw();
-      onEdit?.();
-    });
-    chips.append(chip);
-  }
-  if (current.length === 0) {
-    const empty = document.createElement('span');
-    empty.className = 'tagedit-leeg';
-    empty.textContent = 'No tags yet.';
-    chips.append(empty);
-  }
-  container.append(chips);
+  const panel = document.createElement('div');
+  panel.className = 'tagedit-toggles';
 
-  const picker = document.createElement('div');
-  picker.className = 'tagedit-picker';
-  const input = document.createElement('input');
-  input.type = 'search';
-  input.className = 'tagedit-zoek';
-  input.placeholder = '+ add a tag…';
-  const list = document.createElement('div');
-  list.className = 'tagedit-lijst';
-  list.hidden = true;
+  const groups = [['material', 'Materials'], ['tag', 'Tags']];
+  for (const [type, heading] of groups) {
+    const tags = [...tagsById.values()].filter((t) => (t.type ?? 'tag') === type);
+    if (tags.length === 0) continue;
 
-  const currentSet = new Set(current);
-  function renderList() {
-    const q = input.value.trim().toLowerCase();
-    const options = [...tagsById.values()]
-      .filter((t) => !currentSet.has(t.id))
-      .filter((t) => !q || t.name.toLowerCase().includes(q) || t.id.includes(q))
-      .slice(0, 40);
-    list.replaceChildren();
-    for (const t of options) {
-      const opt = document.createElement('button');
-      opt.type = 'button';
-      opt.className = 'tagedit-optie';
-      opt.textContent = t.name;
-      if (t.description) opt.title = t.description;
-      opt.addEventListener('mousedown', (e) => e.preventDefault());
-      opt.addEventListener('click', () => {
-        toggleTag(model, t.id);
+    const label = document.createElement('p');
+    label.className = 'tagedit-groep';
+    label.textContent = heading;
+    panel.append(label);
+
+    const row = document.createElement('div');
+    row.className = 'tagedit-chips';
+    for (const tag of tags) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'keuzechip';
+      chip.textContent = tag.name ?? tag.id;
+      chip.setAttribute('aria-pressed', String(on.has(tag.id)));
+      if (tag.description) chip.title = tag.description;
+      chip.addEventListener('click', () => {
+        toggleTag(model, tag.id);
         redraw();
         onEdit?.();
       });
-      list.append(opt);
+      row.append(chip);
     }
-    list.hidden = options.length === 0;
+    panel.append(row);
   }
-  input.addEventListener('input', renderList);
-  input.addEventListener('focus', renderList);
-  input.addEventListener('blur', () => { list.hidden = true; });
 
-  picker.append(input, list);
-  container.append(picker);
+  container.append(panel);
 }
 
 // Wires up the small floating bar (count · Download JSON · Clear) shared by catalog.html

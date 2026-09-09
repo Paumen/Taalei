@@ -1141,60 +1141,22 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   margin-bottom: 6px;
 }
 
-.tagedit-chip { padding: 4px 10px 4px 12px; }
-
-.tagedit-leeg {
-  color: var(--inkt-zacht);
-  font-size: 12px;
-}
-
-.tagedit-picker { position: relative; }
-
-.tagedit-zoek {
-  display: block;
-  width: 100%;
-  min-height: 30px;
-  padding: 5px 10px;
-  color: var(--inkt);
-  font: inherit;
-  font-size: 12px;
-  background: var(--papier-diep);
-  border: 1px solid var(--lijn);
-  border-radius: 8px;
-}
-
-.tagedit-lijst {
-  position: absolute;
-  z-index: 5;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
-  max-height: 200px;
-  padding: 4px;
+.tagedit-toggles {
+  max-height: 264px;
+  padding-right: 4px;
   overflow-y: auto;
-  background: var(--kaart);
-  border: 1px solid var(--lijn);
-  border-radius: 8px;
-  box-shadow: var(--schaduw);
 }
 
-.tagedit-lijst[hidden] { display: none; }
-
-.tagedit-optie {
-  display: block;
-  width: 100%;
-  padding: 6px 8px;
-  text-align: left;
-  color: var(--inkt);
-  font: inherit;
-  font-size: 12px;
-  background: none;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
+.tagedit-groep {
+  margin: 8px 0 4px;
+  color: var(--inkt-zacht);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.tagedit-optie:hover { background: var(--papier-diep); }
+.tagedit-groep:first-child { margin-top: 0; }
 
 .tagedit-balk {
   position: fixed;
