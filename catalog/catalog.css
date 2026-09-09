@@ -357,6 +357,36 @@ a { color: var(--accent); }
 }
 
 .tagknop[hidden] { display: none; }
+
+/* Subtypes hang in a tray off their parent chip: the tray's tint and the notch that
+   tucks under the chip are what say "these belong to Wood" when the row wraps. */
+.tagbak {
+  display: inline-flex;
+  flex: none;
+  gap: 4px;
+  align-items: center;
+  margin-left: -12px;
+  padding: 3px 5px 3px 15px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--kaart));
+}
+
+.tagbak[hidden] { display: none; }
+
+/* the parent keeps its right edge open so the tray reads as hanging off it */
+.tagknop-ouder {
+  z-index: 1;
+  border-right-color: transparent;
+}
+
+.tagknop-subtype {
+  padding: 2px 8px;
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--lijn));
+  background: var(--papier);
+  font-size: 11px;
+}
+
 .tagknop:hover { border-color: var(--accent); color: var(--inkt); }
 .tagknop:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
@@ -388,6 +418,14 @@ a { color: var(--accent); }
   background: var(--zwaar);
   box-shadow: 0 0 0 1px var(--papier);
   transform: rotate(45deg);
+}
+
+/* A one-letter label needs the dot to keep the count from reading as part of it. The
+   flex gap already spaces both sides, so the dot itself carries no space of its own. */
+.tagknop-punt { gap: 4px; }
+.tagknop-punt .tagknop-aantal::before {
+  margin-right: 4px;
+  content: "·";
 }
 
 .tagknop-aantal {

@@ -449,6 +449,14 @@ function readTags(known) {
   const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
   if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
+  // A parent is a material of its own, never a subtype: one level, so the filter can show
+  // the parent and expand to its children without walking a chain.
+  const material = new Set(tags.filter((t) => t.type === 'material').map((t) => t.id));
+  const badParent = tags
+    .filter((t) => t.parent && (!material.has(t.parent) || tags.find((p) => p.id === t.parent)?.parent))
+    .map((t) => `${t.id} -> ${t.parent}`);
+  if (badParent.length) console.warn(`! parent is not a top-level material: ${badParent.join(', ')}`);
+
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
 
@@ -608,7 +616,10 @@ const output = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
-  tags: tags.tags.map((t) => ({ id: t.id, name: t.name, type: t.type, description: t.description, ...(t.po ? { po: true } : {}) })),
+  tags: tags.tags.map((t) => ({
+    id: t.id, name: t.name, type: t.type, description: t.description,
+    ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
+  })),
   groups: catalog.groups.map((g) => ({ id: g.id, name: g.name, color: g.color })),
   models: models.map((m) => ({
     kit: m.kit,

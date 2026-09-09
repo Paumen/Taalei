@@ -78,20 +78,20 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M3.** Grass is light green.
 - **M4.** Stems and leaves are light green.
 - **M5.** Flowers may be any colour. Cactus flowers count too.
-- **M6.** Timber is any of the wood bands, not bark. 
-- **M7.** A trunk with a cut face carries timber and bark.
-- **M8.** Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
+- **M6.** Wood is any of the three wood bands; wood-bark is bark 3,0.
+- **M7.** A trunk with a cut face carries wood-log and wood-bark.
+- **M8.** stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
   light grey 15,3. **to be reduced to 2**
-- **M9.** Rocks are light grey 15,3, secondarily taupe 14,3.
-- **M10.** Sand and dirt are taupe 14,3.
-- **M11.** Metal is light grey 15,3.
-- **M12.** Steel and cast iron may be blue-grey 6,1.
-- **M13.** Precious metal is gold 6,0 or silver 3,2.
-- **M14.** Copper is terracotta 5,0.
-- **M15.** Keys take any metal or precious-metal colour.
-- **M16.** Buckles are metal, light grey 15,3.
+- **M9.** stone-rock is light grey 15,3, secondarily taupe 14,3.
+- **M10.** stone-soil — sand and dirt — is taupe 14,3.
+- **M11.** metal-iron is light grey 15,3.
+- **M12.** metal-iron may be blue-grey 6,1 where it is steel or cast iron.
+- **M13.** metal-gold is gold 6,0; metal-silver is silver 3,2.
+- **M14.** metal-copper is terracotta 5,0 and takes no other metal subtype.
+- **M15.** Keys take the colour of any metal subtype.
+- **M16.** Buckles are metal-iron, light grey 15,3.
 - **M17.** The bands on container group: barrels, chests, buckets, kegs, crates and boxes
-  are metal, light grey 15,3.
+  are metal-iron, light grey 15,3.
 - **M18.** Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark
   red 8,0.
 - 18b The flags and sails of a rigged ship may also be blue-grey 6,1.
@@ -117,13 +117,13 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M37.** Book covers are bark, dark red 8,0, dark green 1,1 or
   blue-grey 6,1. 
 - **M38.** Roofs are ceramic, dark red.
-- **M39.** Chests, barrels, kegs, buckets, boxes and crates are mainly timber,
-  often with metal accents.
-- **M40.** Structures and furniture are mostly timber, then stone (the bigger
+- **M39.** Chests, barrels, kegs, buckets, boxes and crates are mainly wood,
+  often with metal-iron accents.
+- **M40.** Structures and furniture are mostly wood, then stone (the bigger
   sort, not modern brick). Metal sparingly.
 - **M41.** Plastic is dark red 8,0 or yellow/gold 6,0.
-- **M42.** Band tags take their band: `planks` wood light 0,0, `worked-planks`
-  wood middle 1,0, `beam` wood dark 2,0. `logs` and `bark` are W1's.
+- **M42.** Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
+  `wood-beam` 2,0. `wood-log` and `wood-bark` are W1's.
 - **M43.** Skin is salmon 13,0, taupe 14,3 or bark 3,0.
 - **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
 
@@ -134,19 +134,19 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
   wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
-- **C5.** Yellow: precious metal, emissive, fire and plastic (M41).
+- **C5.** Yellow: metal-gold, emissive, fire and plastic (M41).
 - **C6.** Dark red: ceramics, glass, roofs, plastic (M41), minor accents.
 - **C7.** Dark green: foliage, glass, and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
-- **C9.** Lighter browns: timber only.
-- **C10.** Darkest brown: bark, leather, skin, and a log or trunk.
+- **C9.** Lighter browns: wood only.
+- **C10.** Darkest brown: wood-bark, leather, skin, and a log or trunk.
 - **C11.** Tranaparant: glass only.
 
 ### N. Counting — bands against materials
 - **N1.** A model has at least one material.
-- **N2.** A model uses at least as many bands as it has materials. Timber counts
-  once per band tag; timber with no band tag counts once.
+- **N2.** A model uses at least as many bands as it has materials. Every material
+  tag counts, subtypes included.
 - **N3.** A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times.
 - **N4.** Ceiling: **6 bands for a human character, 5 for anything else.** A
   skeleton takes the 5. An assembly is not a model; each part answers on its own.
