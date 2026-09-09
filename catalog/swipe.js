@@ -1,3 +1,5 @@
+import { renderTagEditor, mountEditBar } from './tag-edits.js';
+
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
   { id: 'rechts', sign: '→', name: 'Right', default: 'Keep' },
@@ -258,7 +260,10 @@ function makeCard(model, depth) {
   const path = document.createElement('p');
   path.className = 'pad';
   path.textContent = model.path;
-  text.append(name, origin, meta, path);
+  const tags = document.createElement('div');
+  tags.className = 'swipe-tags';
+  renderTagEditor(tags, model, register.tags);
+  text.append(name, origin, meta, path, tags);
 
   const rotate = document.createElement('button');
   rotate.type = 'button';
@@ -382,7 +387,7 @@ function makeDraggable(card) {
 
   card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    if (e.target.closest('button')) return;
+    if (e.target.closest('button, input, .tagedit-lijst')) return;
     if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
     card.setPointerCapture(e.pointerId);
@@ -620,6 +625,8 @@ async function start() {
     stack.replaceChildren();
     show('dek');
   });
+
+  mountEditBar();
 
   el('#opzet-formulier').addEventListener('input', setupCount);
   el('#opzet-annuleer').addEventListener('click', () => show('dek'));
