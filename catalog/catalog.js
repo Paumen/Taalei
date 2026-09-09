@@ -538,6 +538,26 @@ function foldVariants(models) {
   return out;
 }
 
+// While a material parent is picked, its subtypes lead the order within every section:
+// asking for Wood is asking to see the planks together, then the worked, then the beams.
+// A model on the bare parent has no subtype and sorts last.
+function subtypeRank() {
+  const ranked = new Map();
+  for (const [id, state] of tagState) {
+    if (state !== 'only') continue;
+    for (const child of childrenOf.get(id) ?? []) ranked.set(child, ranked.size);
+  }
+  if (!ranked.size) return null;
+  return (model) => {
+    let best = Infinity;
+    for (const id of model.tags ?? []) {
+      const rank = ranked.get(id);
+      if (rank !== undefined && rank < best) best = rank;
+    }
+    return best;
+  };
+}
+
 function buildPanel() {
   observer.disconnect();
   cards.length = 0;
@@ -546,7 +566,9 @@ function buildPanel() {
   lastChoice = null;
   panel.replaceChildren();
 
-  const order = SORTINGS[sorting] ?? SORTINGS.naam;
+  const chosen = SORTINGS[sorting] ?? SORTINGS.naam;
+  const rank = subtypeRank();
+  const order = rank ? (a, b) => rank(a) - rank(b) || chosen(a, b) : chosen;
 
   for (const part of sectionsFor(catalog.models)) {
     const sorted = [...part.models].sort(order);
@@ -1009,6 +1031,7 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 
     button.addEventListener('click', () => {
       rotateState(state, item.id, button);
+      if (item.parent || childrenOf.has(item.id)) { refresh(); return; }
       syncSubtypes();
       reorder();
       filter();
