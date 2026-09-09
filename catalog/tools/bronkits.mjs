@@ -15,8 +15,10 @@ export const BRONKITS = [
   { map: 'KayKit_Forest_Nature_Pack_1.0_FREE', naam: 'KayKit Forest Nature Pack', kit: 'forest', formaat: 'gltf' },
   { map: 'KayKit_ResourceBits_1.0_FREE', naam: 'KayKit Resource Bits', kit: 'resources', formaat: 'gltf' },
   { map: 'KayKit_RPGToolsBits_1.0_FREE', naam: 'KayKit RPG Tools Bits', kit: 'rpgtools', formaat: 'gltf' },
-  { map: 'KayKit_HalloweenBits_1.0_FREE', naam: 'KayKit Halloween Bits', kit: 'halloween', formaat: 'obj' },
-  { map: 'KayKit_Restaurant_Bits_1.0_FREE', naam: 'KayKit Restaurant Bits', kit: 'restaurant', formaat: 'obj' },
+  // gltf holds the assembled models, obj one file per node. Reading gltf first keeps a
+  // multi-part model whole; the obj pass then adds the loose parts gltf has no file for.
+  { map: 'KayKit_HalloweenBits_1.0_FREE', naam: 'KayKit Halloween Bits', kit: 'halloween', formaat: 'gltf', extraFormaten: ['obj'] },
+  { map: 'KayKit_Restaurant_Bits_1.0_FREE', naam: 'KayKit Restaurant Bits', kit: 'restaurant', formaat: 'gltf', extraFormaten: ['obj'] },
   { map: 'KayKit_Furniture_Bits_1.0_FREE', naam: 'KayKit Furniture Bits', kit: 'furniture', formaat: 'gltf' },
   { map: 'KayKit_Adventurers_2.0_FREE', naam: 'KayKit Adventurers', kit: 'adventurers', formaat: 'gltf' },
   { map: 'KayKit_Skeletons_1.1_FREE', naam: 'KayKit Skeletons', kit: 'skeletons', formaat: 'gltf' },
