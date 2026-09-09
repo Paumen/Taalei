@@ -2673,7 +2673,8 @@
    "members": [
     "dungeon/floor-dirt-small-a",
     "dungeon/floor-dirt-small-b",
-    "dungeon/floor-dirt-small-c"
+    "dungeon/floor-dirt-small-c",
+    "dungeon/floor-dirt-small-d"
    ],
    "main": "dungeon/floor-dirt-small-a",
    "kits": [
@@ -2700,12 +2701,18 @@
      0.7,
      0.7,
      0.073
+    ],
+    [
+     0.7,
+     0.7,
+     0.048
     ]
    ],
    "driehoeken": [
     45,
     36,
-    33
+    33,
+    20
    ],
    "kleuren": [
     [
@@ -2716,6 +2723,9 @@
     ],
     [
      "#88796d"
+    ],
+    [
+     "#8b7561"
     ]
    ],
    "paren": [
@@ -2726,8 +2736,14 @@
      "overlap": null
     },
     {
-     "a": "dungeon/floor-dirt-small-a",
+     "a": "dungeon/floor-dirt-small-b",
      "b": "dungeon/floor-dirt-small-c",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "dungeon/floor-dirt-small-c",
+     "b": "dungeon/floor-dirt-small-d",
      "soort": "handmatig",
      "overlap": null
     }
@@ -10304,6 +10320,7 @@
   {
    "members": [
     "restaurant/pot-a",
+    "restaurant/pot-a-stew",
     "restaurant/pot-b"
    ],
    "main": "restaurant/pot-a",
@@ -10312,7 +10329,8 @@
    ],
    "type": "detail-variant",
    "types": [
-    "naming"
+    "naming",
+    "manual"
    ],
    "sameSize": false,
    "minOverlap": null,
@@ -10325,16 +10343,27 @@
     [
      0.343,
      0.245,
+     0.126
+    ],
+    [
+     0.343,
+     0.245,
      0.123
     ]
    ],
    "driehoeken": [
     324,
+    612,
     324
    ],
    "kleuren": [
     [
      "#6d738a"
+    ],
+    [
+     "#79757b",
+     "#d07b56",
+     "#d8d1bd"
     ],
     [
      "#3e3e44"
@@ -10343,8 +10372,14 @@
    "paren": [
     {
      "a": "restaurant/pot-a",
+     "b": "restaurant/pot-a-stew",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "restaurant/pot-a-stew",
      "b": "restaurant/pot-b",
-     "soort": "naming",
+     "soort": "handmatig",
      "overlap": null
     }
    ]
@@ -11918,7 +11953,9 @@
   {
    "members": [
     "rpg-quaternius/potion-1-filled",
-    "rpg-quaternius/potion-1-empty"
+    "rpg-quaternius/potion-1-empty",
+    "rpg-quaternius/potion-2-filled",
+    "rpg-quaternius/potion-2-empty"
    ],
    "main": "rpg-quaternius/potion-1-filled",
    "kits": [
@@ -11930,31 +11967,67 @@
    ],
    "sameSize": false,
    "minOverlap": null,
+   "wdh": [
+    [
+     0.107,
+     0.107,
+     0.154
+    ],
+    [
+     0.107,
+     0.107,
+     0.154
+    ],
+    [
+     0.14,
+     0.14,
+     0.196
+    ],
+    [
+     0.14,
+     0.14,
+     0.196
+    ]
+   ],
+   "driehoeken": [
+    1470,
+    1328,
+    1822,
+    1584
+   ],
+   "kleuren": [
+    [
+     "#7f3927",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#23562c",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ]
+   ],
    "paren": [
     {
      "a": "rpg-quaternius/potion-1-filled",
      "b": "rpg-quaternius/potion-1-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-2-filled",
-    "rpg-quaternius/potion-2-empty"
-   ],
-   "main": "rpg-quaternius/potion-2-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-1-empty",
+     "b": "rpg-quaternius/potion-2-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-2-filled",
      "b": "rpg-quaternius/potion-2-empty",
@@ -11966,7 +12039,11 @@
   {
    "members": [
     "rpg-quaternius/potion-3-filled",
-    "rpg-quaternius/potion-3-empty"
+    "rpg-quaternius/potion-3-empty",
+    "rpg-quaternius/potion-4-filled",
+    "rpg-quaternius/potion-4-empty",
+    "rpg-quaternius/potion-5-filled",
+    "rpg-quaternius/potion-5-empty"
    ],
    "main": "rpg-quaternius/potion-3-filled",
    "kits": [
@@ -11978,55 +12055,100 @@
    ],
    "sameSize": false,
    "minOverlap": null,
+   "wdh": [
+    [
+     0.115,
+     0.115,
+     0.196
+    ],
+    [
+     0.115,
+     0.115,
+     0.196
+    ],
+    [
+     0.115,
+     0.115,
+     0.198
+    ],
+    [
+     0.115,
+     0.115,
+     0.198
+    ],
+    [
+     0.113,
+     0.113,
+     0.197
+    ],
+    [
+     0.113,
+     0.113,
+     0.197
+    ]
+   ],
+   "driehoeken": [
+    1982,
+    1584,
+    1854,
+    1584,
+    2142,
+    1840
+   ],
+   "kleuren": [
+    [
+     "#23562c",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#7f3927",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#1367a6",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ]
+   ],
    "paren": [
     {
      "a": "rpg-quaternius/potion-3-filled",
      "b": "rpg-quaternius/potion-3-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-4-filled",
-    "rpg-quaternius/potion-4-empty"
-   ],
-   "main": "rpg-quaternius/potion-4-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-3-empty",
+     "b": "rpg-quaternius/potion-4-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-4-filled",
      "b": "rpg-quaternius/potion-4-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-5-filled",
-    "rpg-quaternius/potion-5-empty"
-   ],
-   "main": "rpg-quaternius/potion-5-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-4-empty",
+     "b": "rpg-quaternius/potion-5-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-5-filled",
      "b": "rpg-quaternius/potion-5-empty",
@@ -12038,7 +12160,9 @@
   {
    "members": [
     "rpg-quaternius/potion-6-filled",
-    "rpg-quaternius/potion-6-empty"
+    "rpg-quaternius/potion-6-empty",
+    "rpg-quaternius/potion-7-filled",
+    "rpg-quaternius/potion-7-empty"
    ],
    "main": "rpg-quaternius/potion-6-filled",
    "kits": [
@@ -12050,31 +12174,67 @@
    ],
    "sameSize": false,
    "minOverlap": null,
+   "wdh": [
+    [
+     0.113,
+     0.113,
+     0.241
+    ],
+    [
+     0.113,
+     0.113,
+     0.241
+    ],
+    [
+     0.113,
+     0.113,
+     0.242
+    ],
+    [
+     0.113,
+     0.113,
+     0.242
+    ]
+   ],
+   "driehoeken": [
+    2878,
+    2352,
+    1662,
+    1328
+   ],
+   "kleuren": [
+    [
+     "#7f3927",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#23562c",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ]
+   ],
    "paren": [
     {
      "a": "rpg-quaternius/potion-6-filled",
      "b": "rpg-quaternius/potion-6-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-7-filled",
-    "rpg-quaternius/potion-7-empty"
-   ],
-   "main": "rpg-quaternius/potion-7-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-6-empty",
+     "b": "rpg-quaternius/potion-7-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-7-filled",
      "b": "rpg-quaternius/potion-7-empty",
@@ -12086,7 +12246,9 @@
   {
    "members": [
     "rpg-quaternius/potion-8-filled",
-    "rpg-quaternius/potion-8-empty"
+    "rpg-quaternius/potion-8-empty",
+    "rpg-quaternius/potion-9-filled",
+    "rpg-quaternius/potion-9-empty"
    ],
    "main": "rpg-quaternius/potion-8-filled",
    "kits": [
@@ -12098,31 +12260,67 @@
    ],
    "sameSize": false,
    "minOverlap": null,
+   "wdh": [
+    [
+     0.113,
+     0.113,
+     0.109
+    ],
+    [
+     0.113,
+     0.113,
+     0.109
+    ],
+    [
+     0.201,
+     0.201,
+     0.207
+    ],
+    [
+     0.201,
+     0.201,
+     0.207
+    ]
+   ],
+   "driehoeken": [
+    1662,
+    1328,
+    1678,
+    1472
+   ],
+   "kleuren": [
+    [
+     "#7f3927",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#23562c",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ]
+   ],
    "paren": [
     {
      "a": "rpg-quaternius/potion-8-filled",
      "b": "rpg-quaternius/potion-8-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-9-filled",
-    "rpg-quaternius/potion-9-empty"
-   ],
-   "main": "rpg-quaternius/potion-9-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-8-empty",
+     "b": "rpg-quaternius/potion-9-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-9-filled",
      "b": "rpg-quaternius/potion-9-empty",
@@ -12134,7 +12332,9 @@
   {
    "members": [
     "rpg-quaternius/potion-10-filled",
-    "rpg-quaternius/potion-10-empty"
+    "rpg-quaternius/potion-10-empty",
+    "rpg-quaternius/potion-11-filled",
+    "rpg-quaternius/potion-11-empty"
    ],
    "main": "rpg-quaternius/potion-10-filled",
    "kits": [
@@ -12146,31 +12346,67 @@
    ],
    "sameSize": false,
    "minOverlap": null,
+   "wdh": [
+    [
+     0.07,
+     0.061,
+     0.124
+    ],
+    [
+     0.07,
+     0.061,
+     0.124
+    ],
+    [
+     0.134,
+     0.116,
+     0.15
+    ],
+    [
+     0.134,
+     0.116,
+     0.15
+    ]
+   ],
+   "driehoeken": [
+    404,
+    372,
+    452,
+    420
+   ],
+   "kleuren": [
+    [
+     "#1367a6",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#1367a6",
+     "#8b7561",
+     "#ffffff"
+    ],
+    [
+     "#8b7561",
+     "#ffffff"
+    ]
+   ],
    "paren": [
     {
      "a": "rpg-quaternius/potion-10-filled",
      "b": "rpg-quaternius/potion-10-empty",
      "soort": "handmatig",
      "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpg-quaternius/potion-11-filled",
-    "rpg-quaternius/potion-11-empty"
-   ],
-   "main": "rpg-quaternius/potion-11-filled",
-   "kits": [
-    "rpg-quaternius"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
+    },
+    {
+     "a": "rpg-quaternius/potion-10-empty",
+     "b": "rpg-quaternius/potion-11-filled",
+     "soort": "handmatig",
+     "overlap": null
+    },
     {
      "a": "rpg-quaternius/potion-11-filled",
      "b": "rpg-quaternius/potion-11-empty",
@@ -12654,7 +12890,9 @@
   {
    "members": [
     "rpgtools/pencil-a-long",
-    "rpgtools/pencil-b-long"
+    "rpgtools/pencil-a-short",
+    "rpgtools/pencil-b-long",
+    "rpgtools/pencil-b-short"
    ],
    "main": "rpgtools/pencil-a-long",
    "kits": [
@@ -12673,32 +12911,69 @@
      0.177
     ],
     [
+     0.024,
+     0.028,
+     0.107
+    ],
+    [
      0.032,
      0.032,
      0.182
+    ],
+    [
+     0.032,
+     0.032,
+     0.112
     ]
    ],
    "driehoeken": [
     48,
+    48,
+    268,
     268
    ],
    "kleuren": [
     [
-     "#3e3e44",
-     "#cb9d78",
-     "#ffb349"
+     "#8b7561",
+     "#d9ae87",
+     "#f2a93c"
     ],
     [
-     "#3e3e44",
-     "#7a767c",
-     "#dd9f79",
-     "#ffb349"
+     "#343745",
+     "#d9ae87",
+     "#f2a93c"
+    ],
+    [
+     "#79757b",
+     "#8b7561",
+     "#d07b56",
+     "#d9ae87",
+     "#f2a93c"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#d07b56",
+     "#d9ae87",
+     "#f2a93c"
     ]
    ],
    "paren": [
     {
      "a": "rpgtools/pencil-a-long",
+     "b": "rpgtools/pencil-a-short",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "rpgtools/pencil-a-short",
      "b": "rpgtools/pencil-b-long",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "rpgtools/pencil-b-long",
+     "b": "rpgtools/pencil-b-short",
      "soort": "handmatig",
      "overlap": null
     }
@@ -12847,60 +13122,6 @@
     {
      "a": "rpgtools/screw-a",
      "b": "rpgtools/screw-b",
-     "soort": "handmatig",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "rpgtools/pencil-a-short",
-    "rpgtools/pencil-b-short"
-   ],
-   "main": "rpgtools/pencil-a-short",
-   "kits": [
-    "rpgtools"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.024,
-     0.028,
-     0.107
-    ],
-    [
-     0.032,
-     0.032,
-     0.112
-    ]
-   ],
-   "driehoeken": [
-    48,
-    268
-   ],
-   "kleuren": [
-    [
-     "#343745",
-     "#d9ae87",
-     "#f2a93c"
-    ],
-    [
-     "#343745",
-     "#79757b",
-     "#d07b56",
-     "#d9ae87",
-     "#f2a93c"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "rpgtools/pencil-a-short",
-     "b": "rpgtools/pencil-b-short",
      "soort": "handmatig",
      "overlap": null
     }
@@ -13336,6 +13557,868 @@
     {
      "a": "pirate-kit/flag-high",
      "b": "pirate-kit/flag-high-pennant",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "graveyard-kit/crypt",
+    "graveyard-kit/crypt-a",
+    "graveyard-kit/crypt-b"
+   ],
+   "main": "graveyard-kit/crypt",
+   "kits": [
+    "graveyard-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.468,
+     0.725,
+     0.476
+    ],
+    [
+     0.403,
+     0.725,
+     0.34
+    ],
+    [
+     0.403,
+     0.725,
+     0.34
+    ]
+   ],
+   "driehoeken": [
+    252,
+    108,
+    118
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#79757b"
+    ],
+    [
+     "#79757b"
+    ],
+    [
+     "#343745",
+     "#79757b"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "graveyard-kit/crypt",
+     "b": "graveyard-kit/crypt-a",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "graveyard-kit/crypt-a",
+     "b": "graveyard-kit/crypt-b",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/wall-wood-door",
+    "fantasy-town-kit/wall-wood-doorway-square"
+   ],
+   "main": "fantasy-town-kit/wall-wood-door",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.065,
+     0.65,
+     0.65
+    ],
+    [
+     0.065,
+     0.65,
+     0.65
+    ]
+   ],
+   "driehoeken": [
+    376,
+    82
+   ],
+   "kleuren": [
+    [
+     "#875b42",
+     "#d9ae87"
+    ],
+    [
+     "#875b42",
+     "#d9ae87"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/wall-wood-door",
+     "b": "fantasy-town-kit/wall-wood-doorway-square",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/wall-pillar",
+    "dungeon/wall-scaffold"
+   ],
+   "main": "dungeon/wall-pillar",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     1.4,
+     0.525,
+     1.4
+    ],
+    [
+     1.4,
+     0.35,
+     1.4
+    ]
+   ],
+   "driehoeken": [
+    540,
+    584
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#79757b"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#875b42"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/wall-pillar",
+     "b": "dungeon/wall-scaffold",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/wall-tsplit",
+    "dungeon/wall-tsplit-sloped"
+   ],
+   "main": "dungeon/wall-tsplit",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     1.4,
+     0.875,
+     1.4
+    ],
+    [
+     1.4,
+     0.875,
+     1.4
+    ]
+   ],
+   "driehoeken": [
+    596,
+    555
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#79757b"
+    ],
+    [
+     "#343745",
+     "#79757b"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/wall-tsplit",
+     "b": "dungeon/wall-tsplit-sloped",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/floor-tile-large",
+    "dungeon/floor-tile-large-rocks"
+   ],
+   "main": "dungeon/floor-tile-large",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     1.4,
+     1.4,
+     0.053
+    ],
+    [
+     1.4,
+     1.4,
+     0.223
+    ]
+   ],
+   "driehoeken": [
+    188,
+    338
+   ],
+   "kleuren": [
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "dungeon/floor-tile-large",
+     "b": "dungeon/floor-tile-large-rocks",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "village-kit/cobblestone-dirt-transition-corner-a",
+    "village-kit/cobblestone-dirt-transition-corner-b",
+    "village-kit/cobblestone-dirt-transition-corner-c",
+    "village-kit/cobblestone-dirt-transition-corner-d"
+   ],
+   "main": "village-kit/cobblestone-dirt-transition-corner-a",
+   "kits": [
+    "village-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ],
+    [
+     0.96,
+     0.96,
+     0.109
+    ]
+   ],
+   "driehoeken": [
+    376,
+    436,
+    322,
+    352
+   ],
+   "kleuren": [
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-a",
+     "b": "village-kit/cobblestone-dirt-transition-corner-b",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-b",
+     "b": "village-kit/cobblestone-dirt-transition-corner-c",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "village-kit/cobblestone-dirt-transition-corner-c",
+     "b": "village-kit/cobblestone-dirt-transition-corner-d",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "castle-kit/tower-square-mid-open",
+    "castle-kit/tower-square-mid-open-simple"
+   ],
+   "main": "castle-kit/tower-square-mid-open",
+   "kits": [
+    "castle-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.605,
+     0.605,
+     0.656
+    ],
+    [
+     0.605,
+     0.605,
+     0.571
+    ]
+   ],
+   "driehoeken": [
+    240,
+    176
+   ],
+   "kleuren": [
+    [
+     "#875b42",
+     "#d9ae87"
+    ],
+    [
+     "#875b42",
+     "#d9ae87"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "castle-kit/tower-square-mid-open",
+     "b": "castle-kit/tower-square-mid-open-simple",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-quaternius/cliff-2",
+    "pirate-quaternius/cliff-3",
+    "pirate-quaternius/cliff-4"
+   ],
+   "main": "pirate-quaternius/cliff-2",
+   "kits": [
+    "pirate-quaternius"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     2.029,
+     1.802,
+     1.752
+    ],
+    [
+     1.738,
+     1.507,
+     1.565
+    ],
+    [
+     1.87,
+     1.804,
+     1.401
+    ]
+   ],
+   "driehoeken": [
+    19144,
+    19962,
+    23714
+   ],
+   "kleuren": [
+    [
+     "#79757b"
+    ],
+    [
+     "#79757b"
+    ],
+    [
+     "#79757b"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-quaternius/cliff-2",
+     "b": "pirate-quaternius/cliff-3",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "pirate-quaternius/cliff-3",
+     "b": "pirate-quaternius/cliff-4",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-quaternius/rock-1",
+    "pirate-quaternius/rock-2",
+    "pirate-quaternius/rock-3",
+    "pirate-quaternius/rock-4",
+    "pirate-quaternius/rock-5"
+   ],
+   "main": "pirate-quaternius/rock-1",
+   "kits": [
+    "pirate-quaternius"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.174,
+     0.167,
+     0.149
+    ],
+    [
+     0.199,
+     0.192,
+     0.266
+    ],
+    [
+     0.195,
+     0.148,
+     0.155
+    ],
+    [
+     0.193,
+     0.189,
+     0.18
+    ],
+    [
+     0.153,
+     0.148,
+     0.153
+    ]
+   ],
+   "driehoeken": [
+    766,
+    3072,
+    712,
+    712,
+    716
+   ],
+   "kleuren": [
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ],
+    [
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-quaternius/rock-1",
+     "b": "pirate-quaternius/rock-2",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "pirate-quaternius/rock-2",
+     "b": "pirate-quaternius/rock-3",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "pirate-quaternius/rock-3",
+     "b": "pirate-quaternius/rock-4",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "pirate-quaternius/rock-4",
+     "b": "pirate-quaternius/rock-5",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "fantasy-town-kit/rock-small",
+    "fantasy-town-kit/rock-wide"
+   ],
+   "main": "fantasy-town-kit/rock-small",
+   "kits": [
+    "fantasy-town-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.649,
+     0.862,
+     0.663
+    ],
+    [
+     0.711,
+     1.019,
+     0.663
+    ]
+   ],
+   "driehoeken": [
+    128,
+    156
+   ],
+   "kleuren": [
+    [
+     "#79757b"
+    ],
+    [
+     "#79757b"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "fantasy-town-kit/rock-small",
+     "b": "fantasy-town-kit/rock-wide",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "quaternius-nature/log",
+    "quaternius-nature/log-moss"
+   ],
+   "main": "quaternius-nature/log",
+   "kits": [
+    "quaternius-nature"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.253,
+     1.068,
+     0.299
+    ],
+    [
+     0.359,
+     1.068,
+     0.275
+    ]
+   ],
+   "driehoeken": [
+    464,
+    614
+   ],
+   "kleuren": [
+    [
+     "#563b2b",
+     "#7f3927",
+     "#d8d1bd",
+     "#d9ae87"
+    ],
+    [
+     "#23562c",
+     "#563b2b",
+     "#8b7561"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "quaternius-nature/log",
+     "b": "quaternius-nature/log-moss",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "adventurers/sword-two-handed",
+    "adventurers/sword-two-handed-colored"
+   ],
+   "main": "adventurers/sword-two-handed",
+   "kits": [
+    "adventurers"
+   ],
+   "type": "color-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.22,
+     0.065,
+     0.621
+    ],
+    [
+     0.22,
+     0.065,
+     0.621
+    ]
+   ],
+   "driehoeken": [
+    412,
+    412
+   ],
+   "kleuren": [
+    [
+     "#79757b",
+     "#979ebd"
+    ],
+    [
+     "#79757b",
+     "#979ebd",
+     "#f2a93c"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "adventurers/sword-two-handed",
+     "b": "adventurers/sword-two-handed-colored",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "skeletons/shield-large-a",
+    "skeletons/shield-large-b"
+   ],
+   "main": "skeletons/shield-large-a",
+   "kits": [
+    "skeletons"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.23,
+     0.095,
+     0.298
+    ],
+    [
+     0.23,
+     0.102,
+     0.298
+    ]
+   ],
+   "driehoeken": [
+    626,
+    326
+   ],
+   "kleuren": [
+    [
+     "#79757b",
+     "#875b42",
+     "#d8d1bd"
+    ],
+    [
+     "#79757b",
+     "#875b42"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "skeletons/shield-large-a",
+     "b": "skeletons/shield-large-b",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "pirate-kit/cannon",
+    "pirate-kit/cannon-mobile"
+   ],
+   "main": "pirate-kit/cannon-mobile",
+   "kits": [
+    "pirate-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.356,
+     0.489,
+     0.268
+    ],
+    [
+     0.426,
+     0.489,
+     0.35
+    ]
+   ],
+   "driehoeken": [
+    232,
+    472
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#875b42"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#875b42"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "pirate-kit/cannon",
+     "b": "pirate-kit/cannon-mobile",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "graveyard-kit/lantern-candle",
+    "graveyard-kit/lantern-glass"
+   ],
+   "main": "graveyard-kit/lantern-candle",
+   "kits": [
+    "graveyard-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.156,
+     0.156,
+     0.252
+    ],
+    [
+     0.156,
+     0.156,
+     0.252
+    ]
+   ],
+   "driehoeken": [
+    224,
+    186
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#79757b",
+     "#d8d1bd",
+     "#f2a93c"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#f2a93c"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "graveyard-kit/lantern-candle",
+     "b": "graveyard-kit/lantern-glass",
      "soort": "handmatig",
      "overlap": null
     }
