@@ -10320,6 +10320,7 @@
   {
    "members": [
     "restaurant/pot-a",
+    "restaurant/pot-a-stew",
     "restaurant/pot-b"
    ],
    "main": "restaurant/pot-a",
@@ -10328,7 +10329,8 @@
    ],
    "type": "detail-variant",
    "types": [
-    "naming"
+    "naming",
+    "manual"
    ],
    "sameSize": false,
    "minOverlap": null,
@@ -10341,16 +10343,27 @@
     [
      0.343,
      0.245,
+     0.126
+    ],
+    [
+     0.343,
+     0.245,
      0.123
     ]
    ],
    "driehoeken": [
     324,
+    612,
     324
    ],
    "kleuren": [
     [
      "#6d738a"
+    ],
+    [
+     "#79757b",
+     "#d07b56",
+     "#d8d1bd"
     ],
     [
      "#3e3e44"
@@ -10359,8 +10372,14 @@
    "paren": [
     {
      "a": "restaurant/pot-a",
+     "b": "restaurant/pot-a-stew",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "restaurant/pot-a-stew",
      "b": "restaurant/pot-b",
-     "soort": "naming",
+     "soort": "handmatig",
      "overlap": null
     }
    ]
@@ -14146,6 +14165,59 @@
     {
      "a": "pirate-kit/cannon",
      "b": "pirate-kit/cannon-mobile",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "graveyard-kit/lantern-candle",
+    "graveyard-kit/lantern-glass"
+   ],
+   "main": "graveyard-kit/lantern-candle",
+   "kits": [
+    "graveyard-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": true,
+   "minOverlap": null,
+   "wdh": [
+    [
+     0.156,
+     0.156,
+     0.252
+    ],
+    [
+     0.156,
+     0.156,
+     0.252
+    ]
+   ],
+   "driehoeken": [
+    224,
+    186
+   ],
+   "kleuren": [
+    [
+     "#343745",
+     "#79757b",
+     "#d8d1bd",
+     "#f2a93c"
+    ],
+    [
+     "#343745",
+     "#79757b",
+     "#f2a93c"
+    ]
+   ],
+   "paren": [
+    {
+     "a": "graveyard-kit/lantern-candle",
+     "b": "graveyard-kit/lantern-glass",
      "soort": "handmatig",
      "overlap": null
     }
