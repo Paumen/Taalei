@@ -357,6 +357,13 @@ a { color: var(--accent); }
 }
 
 .tagknop[hidden] { display: none; }
+
+/* a subtype only shows while its parent is picked, so it reads as belonging to it */
+.tagknop-subtype {
+  border-style: dashed;
+  margin-left: -3px;
+}
+
 .tagknop:hover { border-color: var(--accent); color: var(--inkt); }
 .tagknop:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
