@@ -313,7 +313,7 @@ function makeCard(model, kits, groups, variants = []) {
     paths: familyPaths,
     family,
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
-    tags: [...new Set(family.flatMap((m) => m.tags ?? []))],
+    tags: withParents(family.flatMap((m) => m.tags ?? [])),
     sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
   };
   cards.push(item);
@@ -581,10 +581,31 @@ let activePath = '';
 
 const register = { models: new Map(), kits: new Map(), groups: new Map(), variants: new Map(), tags: new Map() };
 
+// A material may name a parent. A model carries the subtype it is and never the parent on
+// top, so the filter adds the parent here — selecting Wood has to find every wood-beam.
+const parentOf = new Map();
+const childrenOf = new Map();
+const withParents = (ids) => {
+  const own = new Set(ids);
+  for (const id of ids) { const p = parentOf.get(id); if (p) own.add(p); }
+  return [...own];
+};
+
 const TYPE_TAGS = ['object', 'structure', 'nature'];
 
 const SHORT_NAME = {
-  'precious-metal': 'Precious',
+  'metal-iron': 'Iron',
+  'metal-gold': 'Gold',
+  'metal-silver': 'Silver',
+  'metal-copper': 'Copper',
+  'stone-masonry': 'Masonry',
+  'stone-rock': 'Rock',
+  'stone-soil': 'Soil',
+  'wood-planks': 'Planks',
+  'wood-worked': 'Worked',
+  'wood-beam': 'Beam',
+  'wood-log': 'Log',
+  'wood-bark': 'Bark',
   animation: 'Anim',
   structure: 'Struct',
   qua: 'Quat',
@@ -913,12 +934,35 @@ function buildColorBar(colors) {
 
 function reorder() {
   for (const strip of new Set(chipButtons.map((c) => c.strip))) {
-    const own = chipButtons
-      .filter((c) => c.strip === strip)
+    const all = chipButtons.filter((c) => c.strip === strip);
+    const own = all
+      .filter((c) => !c.parent)
       .sort((a, b) => (a.byCount
         ? b.count - a.count || a.order - b.order
         : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
-    for (const chip of own) strip.append(chip.element);
+    for (const chip of own) {
+      strip.append(chip.element);
+      for (const child of all.filter((c) => c.parent === chip.id).sort((a, b) => a.order - b.order)) {
+        strip.append(child.element);
+      }
+    }
+  }
+}
+
+// A subtype waits behind its parent: it appears once the parent is picked, and drops its
+// own state again when the parent is let go, so nothing keeps filtering out of sight.
+const chipHidden = (chip, count = chip.count) =>
+  count === 0 || Boolean(chip.parent && chip.state.get(chip.parent) !== 'only');
+
+function syncSubtypes() {
+  for (const chip of chipButtons) {
+    if (!chip.parent) continue;
+    const hidden = chipHidden(chip);
+    if (hidden && chip.state.has(chip.id)) {
+      chip.state.delete(chip.id);
+      showState(chip.element, undefined);
+    }
+    chip.element.hidden = hidden;
   }
 }
 
@@ -944,12 +988,15 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 
     button.addEventListener('click', () => {
       rotateState(state, item.id, button);
+      syncSubtypes();
       reorder();
       filter();
     });
 
+    if (item.parent) button.classList.add('tagknop-subtype');
+
     strip.append(button);
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length });
+    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null });
   }
 
   row.append(strip);
@@ -981,7 +1028,7 @@ function buildTagBar(tags) {
     buildChipRow(
       container,
       head,
-      own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })),
+      own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description, parent: t.parent ?? null })),
       tagState,
       'tags',
       { byCount: true },
@@ -999,20 +1046,21 @@ function refresh() {
   for (const card of cards) {
     for (const model of card.family) {
       bump(`sizes|${sizeClass(model.wdh).id}`);
-      for (const id of model.tags ?? []) bump(`tags|${id}`);
+      for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
     }
   }
   for (const chip of chipButtons) {
     const { id, element, countEl, state, field } = chip;
     const count = counts.get(`${field}|${id}`) ?? 0;
     chip.count = count;
-    element.hidden = count === 0;
+    element.hidden = chipHidden(chip, count);
     countEl.textContent = count;
     if (count === 0 && state.get(id) === 'only') {
       state.delete(id);
       showState(element, undefined);
     }
   }
+  syncSubtypes();
   reorder();
   for (const { row } of chipButtons) {
     row.hidden = !chipButtons.some((c) => c.row === row && !c.element.hidden);
@@ -1028,6 +1076,7 @@ function onClear() {
   sizeState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
+  syncSubtypes();
   reorder();
   filter();
 }
@@ -1081,6 +1130,13 @@ async function start() {
   catalog = data;
 
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
+  parentOf.clear();
+  childrenOf.clear();
+  for (const tag of data.tags ?? []) {
+    if (!tag.parent) continue;
+    parentOf.set(tag.id, tag.parent);
+    childrenOf.set(tag.parent, [...(childrenOf.get(tag.parent) ?? []), tag.id]);
+  }
 
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
