@@ -6,9 +6,11 @@
 // moves by whole cells, which keeps its position inside the band and with it the
 // baked shading (style guide §1). The atlas on disk is not touched.
 //
-// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry]
+// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name]
 //        node tools/colormap-recolor.mjs --map plan.json [--dry]
-//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0" }, …]
+//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…" }, …]
+//   --mesh limits the move to the meshes of that name, for a model that answers
+//   for several parts at once.
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
@@ -42,13 +44,14 @@ const glbsUnder = (path) => {
 // Every accessor the model reads TEXCOORD_0 from, with the vertices that sit in
 // the source cell shifted whole cells across. An accessor shared by several
 // primitives is rewritten once; the test is per vertex, so untouched bands stay put.
-function recolor(glb, [fromColumn, fromRow], [toColumn, toRow]) {
+function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null) {
   const { json, bin } = glb;
   const shiftU = (toColumn - fromColumn) / COLUMNS;
   const shiftV = (toRow - fromRow) / ROWS;
   const accessors = new Set();
-  for (const mesh of json.meshes ?? []) {
-    for (const primitive of mesh.primitives ?? []) {
+  for (const target of json.meshes ?? []) {
+    if (mesh && target.name !== mesh) continue;
+    for (const primitive of target.primitives ?? []) {
       const index = primitive.attributes?.TEXCOORD_0;
       if (index !== undefined) accessors.add(index);
     }
@@ -86,7 +89,10 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow]) {
 
 const argv = process.argv.slice(2);
 const dry = argv.includes('--dry');
-const rest = argv.filter((a) => a !== '--dry');
+const meshFlag = argv.indexOf('--mesh');
+const meshName = meshFlag === -1 ? null : argv[meshFlag + 1];
+if (meshFlag !== -1 && !meshName) { console.error('error: --mesh wants a mesh name'); process.exit(2); }
+const rest = argv.filter((a, i) => a !== '--dry' && i !== meshFlag && i !== meshFlag + 1);
 
 let plan = [];
 if (rest[0] === '--map') {
@@ -98,14 +104,14 @@ if (rest[0] === '--map') {
     console.error('usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry]');
     process.exit(2);
   }
-  plan = inputs.flatMap((input) => glbsUnder(input).map((file) => ({ file, from, to })));
+  plan = inputs.flatMap((input) => glbsUnder(input).map((file) => ({ file, from, to, mesh: meshName })));
 }
 
 let touched = 0;
-for (const { file, from, to } of plan) {
+for (const { file, from, to, mesh = null } of plan) {
   const glb = readGlb(file);
-  const moved = recolor(glb, parseCell(from), parseCell(to));
-  if (moved === 0) { console.log(`  ${file}: nothing in ${from}`); continue; }
+  const moved = recolor(glb, parseCell(from), parseCell(to), mesh);
+  if (moved === 0) { console.log(`  ${file}: nothing in ${from}${mesh ? ` on mesh ${mesh}` : ''}`); continue; }
   if (!dry) writeGlb(file, glb.json, glb.bin, writeFileSync);
   touched++;
   console.log(`${dry ? 'would move' : 'moved'} ${moved} uv${moved === 1 ? '' : 's'} ${from} -> ${to}  ${file}`);
