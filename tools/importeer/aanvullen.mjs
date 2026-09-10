@@ -66,7 +66,10 @@ function pakBronUit(map) {
   return doel;
 }
 
-// The kit's own import settings, read back from a model that is already in it.
+// The kit's own import settings, read back from a model that is already in it. The
+// extras hold the import scale, but a kit that was resized afterwards keeps that second
+// factor in a `rescale-wrapper` node instead, so read that back too — dungeon and
+// dungeon-quaternius sit at x2 over their extras, pirate-quaternius at x0.65.
 function kitInstellingen(slug, gevraagdeSchaal) {
   const dir = join(WERK_DIR, slug);
   const bestanden = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith('.glb')) : [];
@@ -74,18 +77,23 @@ function kitInstellingen(slug, gevraagdeSchaal) {
     if (gevraagdeSchaal === null) {
       throw new Error(`${slug}: kit is leeg, geef --schaal voor de eerste import`);
     }
-    return { schaal: gevraagdeSchaal, oorsprong: 'gecentreerd' };
+    return { schaal: gevraagdeSchaal, oorsprong: 'gecentreerd', herschaal: 1 };
   }
   const perSchaal = new Map();
   const perOorsprong = new Map();
+  const perHerschaal = new Map();
   for (const bestand of bestanden) {
-    const extras = readGlb(join(dir, bestand)).json.asset?.extras?.taaleiland ?? {};
+    const glb = readGlb(join(dir, bestand));
+    const extras = glb.json.asset?.extras?.taaleiland ?? {};
     perSchaal.set(extras.schaal, (perSchaal.get(extras.schaal) ?? 0) + 1);
     const o = extras.oorsprong ?? 'gecentreerd';
     perOorsprong.set(o, (perOorsprong.get(o) ?? 0) + 1);
+    const wikkel = (glb.json.nodes ?? []).find((n) => n.name === 'rescale-wrapper');
+    const h = wikkel?.scale?.[0] ?? 1;
+    perHerschaal.set(h, (perHerschaal.get(h) ?? 0) + 1);
   }
   const meeste = (m) => [...m].sort((a, b) => b[1] - a[1])[0][0];
-  return { schaal: meeste(perSchaal), oorsprong: meeste(perOorsprong) };
+  return { schaal: meeste(perSchaal), oorsprong: meeste(perOorsprong), herschaal: meeste(perHerschaal) };
 }
 
 const argv = process.argv.slice(2);
@@ -195,7 +203,7 @@ for (const bestand of readdirSync(modelmap).sort()) {
 }
 const winst = aantal ? palet.niveau / (som / aantal) : 1;
 
-const { schaal, oorsprong } = kitInstellingen(slug, gevraagdeSchaal);
+const { schaal, oorsprong, herschaal } = kitInstellingen(slug, gevraagdeSchaal);
 const kitDir = join(WERK_DIR, slug);
 zetColormapKlaar(kitDir);
 
@@ -210,6 +218,7 @@ for (const { bronNaam, naam, pad, primitieven, formaat = bronkit.formaat } of ge
     oorsprong,
     vOmlaag: vOmlaagVoor(formaat),
     winst,
+    herschaal,
     palet,
   });
   schrijfModel(join(kitDir, `${naam}.glb`), model);
@@ -220,4 +229,8 @@ for (const { bronNaam, naam, pad, primitieven, formaat = bronkit.formaat } of ge
       `  afstand ${v.ergsteAfstand}`,
   );
 }
-console.log(`${slug}: ${gevraagd.length} toegevoegd, schaal ${schaal}, oorsprong ${oorsprong}, belichting ×${winst.toFixed(2)}`);
+console.log(
+  `${slug}: ${gevraagd.length} toegevoegd, schaal ${schaal}` +
+    `${herschaal === 1 ? '' : ` ×${herschaal} (rescale-wrapper)`}` +
+    `, oorsprong ${oorsprong}, belichting ×${winst.toFixed(2)}`,
+);
