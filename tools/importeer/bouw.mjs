@@ -192,6 +192,7 @@ export function bouwGlb({
   oorsprong = 'gecentreerd',
   vOmlaag = true,
   winst = 1,
+  herschaal = 1,
   palet = laadPalet(),
 }) {
   const posities = [];
@@ -300,6 +301,19 @@ export function bouwGlb({
   if (schaal !== 1) node.scale = [schaal, schaal, schaal];
   if (verplaatsing && verplaatsing.some((waarde) => waarde !== 0)) node.translation = verplaatsing;
 
+  // A kit that was resized after its import carries that factor as a wrapper node over
+  // every model rather than in `schaal`, so a model added later has to carry the same
+  // wrapper or it lands at a fraction of the size of the models beside it.
+  const nodes =
+    herschaal === 1
+      ? [node]
+      : [
+          { mesh: 0, name: naam },
+          { name: naam, ...(node.scale ? { scale: node.scale } : {}),
+            ...(node.translation ? { translation: node.translation } : {}), children: [0] },
+          { name: 'rescale-wrapper', scale: [herschaal, herschaal, herschaal], children: [1] },
+        ];
+
   const json = {
     asset: {
       generator,
@@ -316,8 +330,8 @@ export function bouwGlb({
       },
     },
     scene: 0,
-    scenes: [{ nodes: [0] }],
-    nodes: [node],
+    scenes: [{ nodes: [nodes.length - 1] }],
+    nodes,
     meshes: [{
       name: naam,
       primitives: [{
@@ -362,7 +376,7 @@ export function bouwGlb({
       hoekpunten: posities.length / 3,
       driehoeken: indices.length / 3,
       maat: [max[0] - min[0], max[1] - min[1], max[2] - min[2]].map((waarde) =>
-        afronden(waarde * schaal, 3),
+        afronden(waarde * schaal * herschaal, 3),
       ),
       ergsteAfstand: afronden(ergsteAfstand, 1),
       ergsteKleur,

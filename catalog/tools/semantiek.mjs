@@ -96,7 +96,7 @@ export const KIT_GROUPS = {
 const BUILDING_KITS = [
   ['fantasy-town-kit', /^(wall|roof|pillar|watermill|windmill|blade)\b/],
   ['village-kit', /^(canopy|chimney|cobblestone|dirt|door|roof|stone|stucco|waterwheel|windmill|wood|window)\b/],
-  ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column|scaffold|door|bricks?)\b/],
+  ['dungeon', /^(wall|floor|ceiling|pillar|rubble|column|scaffold|door|bricks?|tile)\b/],
 ];
 
 const MODULAR_TERRAIN = [
@@ -183,6 +183,7 @@ const exceptions = {
   'small-props/wheel-a': 'transport',
   'dungeon/loot-sack-a': 'storage',
   'dungeon/loot-sack-b': 'storage',
+  'dungeon/trapdoor': 'building-kit',
   'dungeon/scaffold-stairs': 'connections',
   'dungeon/spell-book': 'books-scrolls',
   'dungeon/weapon-rack': 'furniture',

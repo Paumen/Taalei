@@ -59,3 +59,76 @@
 	van de ene driehoek dwars over de kleuren tussen de twee cellen heen
 	— zichtbaar als willekeurige strepen op bijvoorbeeld chest-gold. De
 	geometrie is verder ongemoeid.
+
+			------------------------------
+
+	KayKit : Dungeon Pack (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Ook deze pack is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten; de licentie staat in de pack zelf
+	(`License.txt`).
+
+			------------------------------
+
+	Herkomst en bewerking (1.0)
+
+	De kit wordt door twee packs gevoed. Naast de 1.1 hierboven levert de
+	1.0 185 modellen als .gltf.glb (naast .fbx en de personages, die
+	buiten de catalogus blijven); daarvan staan er 141 in de catalogus.
+
+	De bronnamen zijn gewone Engelse woorden met underscores en
+	camelCase, 1-op-1 overgezet naar kebab-case: `bookA` → `book-a`,
+	`floorDecoration_woodLeft` → `floor-decoration-wood-left`,
+	`tileBrickA_large` → `tile-brick-a-large`. Waar de 1.0 en de 1.1
+	dezelfde naam voor een ánder model gebruiken, krijgt die van de 1.0
+	een onderscheidende toevoeging — `chair` werd `chair-rounded`,
+	`plate` werd `plate-rounded`, `tableMedium` werd
+	`table-medium-rounded`.
+
+	Eén schaalfactor voor de hele pack (stijlgids §4), en die van de kit
+	zelf: de extras houden 0,175 vast, en daar staat over elk model een
+	`rescale-wrapper` van ×2 overheen die de kit na zijn import gekregen
+	heeft. Samen 0,35. Een wand is in de 1.0 4 breed × 4 hoog; op 0,35
+	komt dat op 1,4 × 1,4 uit, hetzelfde raster als de wanden en de
+	vloer- en plafondtegels van de 1.1-helft (`wall`, `floor-tile-large`,
+	`ceiling-tile`, alle drie 1,4 × 1,4). Een model dat later wordt
+	toegevoegd moet die wrapper dus meekrijgen, anders komt het op de
+	helft uit; tools/importeer/aanvullen.mjs leest hem nu terug uit de
+	kit, naast de schaal en de oorsprong.
+
+	De pack heeft geen texture-atlas. Elk model draagt vlakke materialen
+	met een naam en één `baseColorFactor`: WoodDark, Stone, StoneDark,
+	Metal, BrownDark, Beige, Gold, Red, White. Die kleuren zijn donker en
+	bijna neutraal, en de importeur kiest een baan op chroma — dus
+	WoodDark, Stone, StoneDark én Metal landen alle vier op lichtgrijs
+	15,3, en BrownDark op donkerrood 8,0. Dat is niet wat ze zíjn, dus is
+	elk materiaal daarna met tools/colormap-recolor.mjs naar de baan
+	verplaatst die appendix A eraan geeft, in het spoor van de
+	1.0-modellen die er al stonden: hout naar 0,0/1,0/2,0, leer naar bast
+	3,0, metselwerk naar taupe 14,3 of blauwgrijs 6,1, goud naar 6,0,
+	edelsteen naar donkerrood 8,0. Omdat twee materialen op dezelfde cel
+	kunnen landen — Stone en WoodDark allebei op 15,3, elk op hun eigen
+	punt van de baan — verplaatst dat per punt (`--uv`) en niet per cel.
+
+	De verste Oklab-sprongen die dat oplevert: WoodDark #6d605c → hout
+	licht 0,0 (22,5), Red #ff2c60 → donkerrood 8,0 (20,9), Metal #aab8be
+	→ lichtgrijs 15,3 (11,3), BrownDark #9b5a45 → bast 3,0 (10,3),
+	WoodDark → hout midden 1,0 (10,0). Alle overige sprongen liggen onder
+	de 9.
+
+	Omdat de bron per materiaal één vlakke kleur heeft, staat elk
+	materiaal op één punt van zijn baan in plaats van over het verloop
+	uitgespreid: de W1-waarschuwing van tools/catalog-lint.mjs (elke
+	houtbaan spreidt over minstens 0,03 L) geldt voor deze modellen
+	daarom net zo goed als voor de 1.0-modellen die er al stonden.
+
+	De steigers volgen de lijn die de vijftien steigers die er al stonden
+	trekken: de staande stijlen op hout donker 2,0 (wood-beam, M42),
+	alles wat ze dragen — dekplanken, liggers, leuningen — op hout midden
+	1,0 (wood-worked). Dat is precies wat `--upright` in
+	colormap-recolor.mjs selecteert: de samenhangende stukken die hoger
+	zijn dan ze breed of diep zijn.
