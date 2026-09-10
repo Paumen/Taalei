@@ -456,12 +456,39 @@ for (const rule of RULES) {
   }
 }
 
-const jokerSpent = new Set();
+// S1: the joker covers one band across every rule that band trips, and S5 says the
+// reason on the tag names it. Fall back to the first joker-eligible finding's band
+// for a reason that names none, which keeps the old behaviour for those.
+const LANE_OF_NAME = new Map(Object.entries(BANDS).map(([name, lane]) => [name, lane]));
+const reasonBand = (model) => {
+  const reason = SPECIAL_REASONS[model] ?? '';
+  for (const [name, lane] of LANE_OF_NAME) if (reason.startsWith(`${name} ${lane}`)) return band(name);
+  if (reason.startsWith('clear glass')) return CLEAR;
+  return null;
+};
+const ruleById = new Map(RULES.map((r) => [r.id, r]));
+const jokerLane = new Map();
+for (const f of findings) {
+  if (!f.joker || jokerLane.has(f.model)) continue;
+  jokerLane.set(f.model, reasonBand(f.model) ?? ruleById.get(f.rule)?.band ?? null);
+}
+const modelByName = new Map(models.map((m) => [`${m.kit}/${m.name}`, m]));
+// A reason that names no band (it names only a rule) cannot say which band to cover,
+// so it keeps the old behaviour and spends the joker on a single finding.
+const spent = new Set();
 findings = findings.filter((f) => {
   if (!f.joker) return true;
-  if (jokerSpent.has(f.model)) return true;
-  jokerSpent.add(f.model);
-  return false;
+  const lane = jokerLane.get(f.model);
+  if (!lane) {
+    if (spent.has(f.model)) return true;
+    spent.add(f.model);
+    return false;
+  }
+  const ruleBand = ruleById.get(f.rule)?.band;
+  // A band rule is covered only when it names the joker's band; a material rule is
+  // covered when the model actually carries that band, which is what the joker excuses.
+  if (ruleBand ? ruleBand === lane : uses(modelByName.get(f.model), lane)) return false;
+  return true;
 });
 
 const perRule = new Map();
