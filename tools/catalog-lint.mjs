@@ -237,7 +237,7 @@ const RULES = [
 
   halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
     severity: 'warning', lane: 'taupe', low: 0.02, high: 0.40,
-    when: (m) => m.gr === 'tools' && has(m, 'textile') && uses(m, band('taupe')) }),
+    when: (m) => (m.gr === 'tools' || m.gr === 'weapons') && has(m, 'textile') && uses(m, band('taupe')) }),
   materialTakes({ id: 'M20', text: 'Leather is bark.', severity: 'error',
     tag: 'leather', colors: ['bark'] }),
   materialTakes({ id: 'M22', text: 'Rope is taupe 14,3.', severity: 'error',
