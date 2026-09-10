@@ -92,9 +92,8 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M16.** Buckles are metal-iron, light grey 15,3.
 - **M17.** The bands on container group: barrels, chests, buckets, kegs, crates and boxes
   are metal-iron, light grey 15,3.
-- **M18.** Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark
-  red 8,0.
-- 18b The flags and sails of a rigged ship may also be blue-grey 6,1.
+- **M18.** Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
+- 18b The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
 - **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
 - **M20.** Leather is bark.
@@ -127,6 +126,22 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M43.** Skin is wood light 0,0, taupe 14,3 or bark 3,0.
 - **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
 - **M45.** Food may be any colour, like fauna. What it is made of decides nothing about its band.
+- **M46.** Tools are metal-iron; a handle is wood, textile or both.
+- **M47.** Weapons are metal-iron, with a handle of wood or textile.
+- **M48.** A simple weapon or a bow may be wholly or partly wood.
+- **M49.** A special weapon may be partly metal-gold, metal-silver or gemstone.
+- **M50.** Some weapons carry textile or leather straps.
+- **M51.** Food of grain or bread is taupe 14,3.
+- **M52.** A model whose only material is bone is off-white 5,2 alone.
+- **M53.** Plates are usually ceramic, and may be metal-iron or wood.
+- **M54.** Furniture is wood, except a rug, a carpet or an upholstered seat, which is textile.
+- **M55.** Coins are metal-gold.
+- **M56.** Flags and sails are textile.
+- **M57.** Signs, flag poles and posts are usually wood.
+- **M58.** Pans are usually metal-iron.
+- **M59.** Cutlery is metal-iron.
+- **M60.** Pots are ceramic; a pan may be metal-iron.
+- **M61.** A boat or ship is built from more than one wood.
 
 ### C. Colour to material
 
@@ -136,8 +151,8 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
 - **C5.** Yellow: metal-gold, emissive, fire and plastic (M41).
-- **C6.** Dark red: ceramics, glass, roofs, plastic (M41), minor accents.
-- **C7.** Dark green: foliage, glass, and minor accents.
+- **C6.** Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), minor accents.
+- **C7.** Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
 - **C9.** Lighter browns: wood only; skin may take wood light 0,0 (M43).
