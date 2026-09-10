@@ -126,6 +126,17 @@ const jokerBand = new Map();
 const TAGS = JSON.parse(readFileSync(join(ROOT, 'catalog/tags.json'), 'utf8')).tags;
 const SPECIAL_REASONS = TAGS.find((t) => t.id === 'special')?.reasons ?? {};
 
+// S1: the joker covers one band across every rule that band trips, and S5 says the
+// reason on the tag names it. Fall back to the first joker-eligible finding's band
+// for a reason that names none, which keeps the old behaviour for those.
+const LANE_OF_NAME = new Map(Object.entries(BANDS).map(([name, lane]) => [name, lane]));
+const reasonBand = (model) => {
+  const reason = SPECIAL_REASONS[model] ?? '';
+  for (const [name, lane] of LANE_OF_NAME) if (reason.startsWith(`${name} ${lane}`)) return band(name);
+  if (reason.startsWith('clear glass')) return CLEAR;
+  return null;
+};
+
 // OKLab lightness of the colormap down one lane: position 0 = light top, 1 = dark bottom.
 const toLinear = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
 function lightnessAt(lane, position) {
@@ -354,7 +365,10 @@ const RULES = [
     severity: 'error', noJoker: true,
     check: (m) => {
       const n = counting(m).length;
-      const used = m.colors.filter((hex) => hex !== jokerBand.get(m)).length;
+      // S5: N3 leaves the joker's band out of its count, and the reason on the tag
+      // names that band — a joker that trips no band rule has none in jokerBand.
+      const joker = reasonBand(`${m.kit}/${m.name}`) ?? jokerBand.get(m);
+      const used = m.colors.filter((hex) => hex !== joker).length;
       const per = isDecoratedFood(m) ? 5 : has(m, 'food', 'fauna', 'vegetation') ? 3 : 2;
       if (!n || used <= per * n) return null;
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
@@ -456,16 +470,6 @@ for (const rule of RULES) {
   }
 }
 
-// S1: the joker covers one band across every rule that band trips, and S5 says the
-// reason on the tag names it. Fall back to the first joker-eligible finding's band
-// for a reason that names none, which keeps the old behaviour for those.
-const LANE_OF_NAME = new Map(Object.entries(BANDS).map(([name, lane]) => [name, lane]));
-const reasonBand = (model) => {
-  const reason = SPECIAL_REASONS[model] ?? '';
-  for (const [name, lane] of LANE_OF_NAME) if (reason.startsWith(`${name} ${lane}`)) return band(name);
-  if (reason.startsWith('clear glass')) return CLEAR;
-  return null;
-};
 const ruleById = new Map(RULES.map((r) => [r.id, r]));
 const jokerLane = new Map();
 for (const f of findings) {
