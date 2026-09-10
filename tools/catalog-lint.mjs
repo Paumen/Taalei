@@ -222,9 +222,9 @@ const RULES = [
   materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal-iron', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal-iron') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
     severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'],
+    colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
 
   halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
@@ -317,8 +317,8 @@ const RULES = [
     severity: 'error', color: 'wood light', tags: [...WOOD_TAGS, 'skin'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: wood only.',
     severity: 'error', color: 'wood middle', tags: WOOD_TAGS }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only (textile may take brown 2,0 per M18).',
-    severity: 'error', color: 'wood dark', tags: [...WOOD_TAGS, 'textile'] }),
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only.',
+    severity: 'error', color: 'wood dark', tags: WOOD_TAGS }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
     severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),
 
