@@ -10578,12 +10578,14 @@
   },
   {
    "members": [
+    "pirate-kit/patch-grass-foliage",
     "pirate-kit/patch-grass",
-    "pirate-kit/patch-grass-foliage"
+    "mini-forest/patch-grass"
    ],
    "main": "pirate-kit/patch-grass-foliage",
    "kits": [
-    "pirate-kit"
+    "pirate-kit",
+    "mini-forest"
    ],
    "type": "detail-variant",
    "types": [
@@ -10591,34 +10593,16 @@
    ],
    "sameSize": false,
    "minOverlap": null,
-   "wdh": [
-    [
-     1.339,
-     1.044,
-     0.063
-    ],
-    [
-     1.339,
-     1.044,
-     0.143
-    ]
-   ],
-   "driehoeken": [
-    84,
-    300
-   ],
-   "kleuren": [
-    [
-     "#6d8d33"
-    ],
-    [
-     "#6d8d33"
-    ]
-   ],
    "paren": [
     {
-     "a": "pirate-kit/patch-grass",
-     "b": "pirate-kit/patch-grass-foliage",
+     "a": "pirate-kit/patch-grass-foliage",
+     "b": "pirate-kit/patch-grass",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "pirate-kit/patch-grass-foliage",
+     "b": "mini-forest/patch-grass",
      "soort": "handmatig",
      "overlap": null
     }
@@ -17519,6 +17503,449 @@
     {
      "a": "dungeon/scaffold-small-medium-railing",
      "b": "dungeon/scaffold-small-medium-corner-left",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/plate-full",
+    "dungeon/plate-half"
+   ],
+   "main": "dungeon/plate-full",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/plate-full",
+     "b": "dungeon/plate-half",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "food-quaternius/plate",
+    "food-quaternius/plate-2"
+   ],
+   "main": "food-quaternius/plate",
+   "kits": [
+    "food-quaternius"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "food-quaternius/plate",
+     "b": "food-quaternius/plate-2",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "props/candle-b",
+    "props/candle-c"
+   ],
+   "main": "props/candle-b",
+   "kits": [
+    "props"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "props/candle-b",
+     "b": "props/candle-c",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "adventurers/spellbook-closed",
+    "adventurers/spellbook-open"
+   ],
+   "main": "adventurers/spellbook-closed",
+   "kits": [
+    "adventurers"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "adventurers/spellbook-closed",
+     "b": "adventurers/spellbook-open",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/book-b",
+    "dungeon/book-open-b"
+   ],
+   "main": "dungeon/book-b",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/book-b",
+     "b": "dungeon/book-open-b",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "clay-items/crockpot-closed",
+    "clay-items/crockpot",
+    "clay-items/crockpot-lid"
+   ],
+   "main": "clay-items/crockpot-closed",
+   "kits": [
+    "clay-items"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "clay-items/crockpot-closed",
+     "b": "clay-items/crockpot",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "clay-items/crockpot-closed",
+     "b": "clay-items/crockpot-lid",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "restaurant/pot-large-closed",
+    "restaurant/pot-large",
+    "restaurant/lid-large"
+   ],
+   "main": "restaurant/pot-large-closed",
+   "kits": [
+    "restaurant"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "restaurant/pot-large-closed",
+     "b": "restaurant/pot-large",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "restaurant/pot-large-closed",
+     "b": "restaurant/lid-large",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "restaurant/pot-b-closed",
+    "restaurant/lid-b"
+   ],
+   "main": "restaurant/pot-b-closed",
+   "kits": [
+    "restaurant"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "restaurant/pot-b-closed",
+     "b": "restaurant/lid-b",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/chest-rare-mimic-closed",
+    "dungeon/chest-top-rare",
+    "dungeon/chest-rare-mimic"
+   ],
+   "main": "dungeon/chest-rare-mimic-closed",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/chest-rare-mimic-closed",
+     "b": "dungeon/chest-top-rare",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "dungeon/chest-rare-mimic-closed",
+     "b": "dungeon/chest-rare-mimic",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/chest-uncommon-closed",
+    "dungeon/chest-top-uncommon-mimic",
+    "dungeon/chest-top-uncommon"
+   ],
+   "main": "dungeon/chest-uncommon-closed",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/chest-uncommon-closed",
+     "b": "dungeon/chest-top-uncommon-mimic",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "dungeon/chest-uncommon-closed",
+     "b": "dungeon/chest-top-uncommon",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "small-props/trough-1-a",
+    "small-props/trough-3-a"
+   ],
+   "main": "small-props/trough-1-a",
+   "kits": [
+    "small-props"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "small-props/trough-1-a",
+     "b": "small-props/trough-3-a",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/pot-a-decorated",
+    "dungeon/pot-a"
+   ],
+   "main": "dungeon/pot-a-decorated",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/pot-a-decorated",
+     "b": "dungeon/pot-a",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/pot-b",
+    "dungeon/pot-b-decorated"
+   ],
+   "main": "dungeon/pot-b",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/pot-b",
+     "b": "dungeon/pot-b-decorated",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "dungeon/pot-c-decorated",
+    "dungeon/pot-c"
+   ],
+   "main": "dungeon/pot-c-decorated",
+   "kits": [
+    "dungeon"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "dungeon/pot-c-decorated",
+     "b": "dungeon/pot-c",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "halloween/fence-seperate",
+    "halloween/fence-seperate-broken"
+   ],
+   "main": "halloween/fence-seperate",
+   "kits": [
+    "halloween"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "halloween/fence-seperate",
+     "b": "halloween/fence-seperate-broken",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "halloween/fence-pillar",
+    "halloween/fence-pillar-broken"
+   ],
+   "main": "halloween/fence-pillar",
+   "kits": [
+    "halloween"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "halloween/fence-pillar",
+     "b": "halloween/fence-pillar-broken",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "graveyard-kit/cross",
+    "graveyard-kit/cross-column",
+    "graveyard-kit/cross-wood"
+   ],
+   "main": "graveyard-kit/cross",
+   "kits": [
+    "graveyard-kit"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ],
+   "sameSize": false,
+   "minOverlap": null,
+   "paren": [
+    {
+     "a": "graveyard-kit/cross",
+     "b": "graveyard-kit/cross-column",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "graveyard-kit/cross",
+     "b": "graveyard-kit/cross-wood",
      "soort": "handmatig",
      "overlap": null
     }
