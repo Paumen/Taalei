@@ -3260,6 +3260,12 @@
    "description": "Meat and dishes made of it: chicken leg, steak, ham, roast, stew. Also carries food."
   },
   {
+   "id": "grain",
+   "name": "Grain",
+   "type": "tag",
+   "description": "Food made of grain: bread, rolls, baguettes, croissants, waffles, buns. Also carries food. M51 gives it taupe 14,3."
+  },
+  {
    "id": "decorated",
    "name": "Decorated food",
    "type": "tag",
@@ -6249,6 +6255,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ],
    "variant": "v236"
@@ -6293,6 +6300,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ],
    "variant": "v236"
@@ -6332,6 +6340,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ]
   },
@@ -6375,6 +6384,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ],
    "variant": "v237"
@@ -6414,6 +6424,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "ngons",
     "object"
    ]
@@ -6458,6 +6469,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ]
   },
@@ -6496,6 +6508,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ],
    "variant": "v237"
@@ -7137,6 +7150,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ]
   },
@@ -7685,6 +7699,7 @@
    "tags": [
     "decorated",
     "food",
+    "grain",
     "object",
     "stacks"
    ]
@@ -7724,6 +7739,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object"
    ]
   },
@@ -28231,6 +28247,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object",
     "qua"
    ]
@@ -28270,6 +28287,7 @@
    ],
    "tags": [
     "food",
+    "grain",
     "object",
     "qua"
    ]
@@ -44548,7 +44566,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 11844,
+   "bytes": 11548,
    "vtx": 258,
    "grounded": true,
    "centered": true,
@@ -44594,7 +44612,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 12904,
+   "bytes": 12608,
    "vtx": 292,
    "grounded": true,
    "centered": true,
@@ -45992,7 +46010,7 @@
    "vpt": 1.55,
    "grad": 0.86,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.047,
      0.914
     ],
@@ -46007,8 +46025,8 @@
    },
    "colors": [
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
-    "#d9ae87",
     "#ffffff"
    ],
    "tags": [
@@ -46019,7 +46037,8 @@
     "pirate",
     "ships",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v65"
   },
@@ -46035,9 +46054,9 @@
    "tris": 1686,
    "tpu": 203,
    "mat": 2,
-   "bands": 2,
+   "bands": 3,
    "calls": 7,
-   "bytes": 99860,
+   "bytes": 99040,
    "vtx": 2600,
    "grounded": true,
    "centered": true,
@@ -46046,11 +46065,15 @@
    "dens": 203,
    "anglePct": 59,
    "vpt": 1.54,
-   "grad": 0.87,
+   "grad": 0.86,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "5,2": [
      0.094,
@@ -46059,6 +46082,7 @@
    },
    "colors": [
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46070,7 +46094,8 @@
     "pirate",
     "ships",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v37"
   },
@@ -46086,9 +46111,9 @@
    "tris": 1901,
    "tpu": 185,
    "mat": 2,
-   "bands": 3,
+   "bands": 4,
    "calls": 7,
-   "bytes": 122128,
+   "bytes": 121304,
    "vtx": 3221,
    "grounded": true,
    "centered": true,
@@ -46097,11 +46122,15 @@
    "dens": 185,
    "anglePct": 63,
    "vpt": 1.69,
-   "grad": 0.86,
+   "grad": 0.85,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "6,1": [
      0.094,
@@ -46115,6 +46144,7 @@
    "colors": [
     "#343745",
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46127,7 +46157,8 @@
     "ships",
     "skull",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v65"
   },
@@ -46143,9 +46174,9 @@
    "tris": 1775,
    "tpu": 214,
    "mat": 2,
-   "bands": 3,
+   "bands": 4,
    "calls": 7,
-   "bytes": 114668,
+   "bytes": 113844,
    "vtx": 3011,
    "grounded": true,
    "centered": true,
@@ -46154,11 +46185,15 @@
    "dens": 214,
    "anglePct": 61,
    "vpt": 1.7,
-   "grad": 0.86,
+   "grad": 0.85,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "6,1": [
      0.094,
@@ -46172,6 +46207,7 @@
    "colors": [
     "#343745",
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46184,7 +46220,8 @@
     "ships",
     "skull",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v37"
   },
@@ -46200,9 +46237,9 @@
    "tris": 1456,
    "tpu": 211,
    "mat": 2,
-   "bands": 3,
+   "bands": 4,
    "calls": 5,
-   "bytes": 92368,
+   "bytes": 91780,
    "vtx": 2440,
    "grounded": true,
    "minEdge": 0.013,
@@ -46210,11 +46247,15 @@
    "dens": 211,
    "anglePct": 61,
    "vpt": 1.68,
-   "grad": 0.87,
+   "grad": 0.85,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "6,1": [
      0.094,
@@ -46228,6 +46269,7 @@
    "colors": [
     "#343745",
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46240,7 +46282,8 @@
     "ships",
     "skull",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v66"
   },
@@ -46256,9 +46299,9 @@
    "tris": 1365,
    "tpu": 198,
    "mat": 2,
-   "bands": 2,
+   "bands": 3,
    "calls": 5,
-   "bytes": 82000,
+   "bytes": 81412,
    "vtx": 2151,
    "grounded": true,
    "minEdge": 0.013,
@@ -46266,11 +46309,15 @@
    "dens": 198,
    "anglePct": 61,
    "vpt": 1.58,
-   "grad": 0.88,
+   "grad": 0.86,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "5,2": [
      0.094,
@@ -46279,6 +46326,7 @@
    },
    "colors": [
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46290,7 +46338,8 @@
     "pirate",
     "ships",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v66"
   },
@@ -46306,9 +46355,9 @@
    "tris": 2173,
    "tpu": 262,
    "mat": 2,
-   "bands": 3,
+   "bands": 4,
    "calls": 16,
-   "bytes": 150220,
+   "bytes": 148296,
    "vtx": 3763,
    "grounded": true,
    "centered": true,
@@ -46317,11 +46366,15 @@
    "dens": 262,
    "anglePct": 69,
    "vpt": 1.73,
-   "grad": 0.85,
+   "grad": 0.84,
    "spread": {
     "2,0": [
      0.047,
      0.945
+    ],
+    "1,0": [
+     0.047,
+     0.914
     ],
     "5,2": [
      0.266,
@@ -46335,6 +46388,7 @@
    "colors": [
     "#68872d",
     "#875b42",
+    "#b3825f",
     "#d8d1bd",
     "#ffffff"
    ],
@@ -46348,7 +46402,8 @@
     "pirate",
     "ships",
     "textile",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ]
   },
   {
@@ -46743,7 +46798,6 @@
     "#d9ae87"
    ],
    "tags": [
-    "boats",
     "ken",
     "object",
     "pirate",
@@ -48374,7 +48428,7 @@
    "tris": 5578,
    "tpu": 6688,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 370320,
    "vtx": 10477,
@@ -48385,10 +48439,14 @@
    "dens": 9271,
    "anglePct": 27,
    "vpt": 1.88,
-   "grad": 0.62,
+   "grad": 0.61,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.469,
+     0.961
+    ],
+    "2,0": [
+     0.836,
      0.961
     ],
     "15,3": [
@@ -48402,8 +48460,9 @@
    },
    "colors": [
     "#79757b",
+    "#875b42",
     "#8b7561",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "boats",
@@ -48413,7 +48472,8 @@
     "pirate",
     "qua",
     "rope",
-    "wood-planks"
+    "wood-beam",
+    "wood-worked"
    ]
   },
   {
@@ -55818,6 +55878,7 @@
     "assembly",
     "container",
     "food",
+    "grain",
     "kay",
     "wood-worked"
    ],
@@ -65626,7 +65687,6 @@
     "#875b42"
    ],
    "tags": [
-    "boats",
     "object",
     "own",
     "pirate",
@@ -69586,7 +69646,6 @@
     "#d9ae87"
    ],
    "tags": [
-    "boats",
     "object",
     "own",
     "wood-planks"
@@ -69625,7 +69684,6 @@
     "#d9ae87"
    ],
    "tags": [
-    "boats",
     "object",
     "own",
     "wood-planks"

@@ -140,6 +140,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M57.** Signs, flag poles and posts are usually wood.
 - **M58.** Pans are usually metal-iron.
 - **M59.** Cutlery is metal-iron.
+- **M60.** Pots are ceramic; a pan may be metal-iron.
 - **M61.** A boat or ship is built from more than one wood.
 
 ### C. Colour to material
