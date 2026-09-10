@@ -222,10 +222,18 @@ const RULES = [
   materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal, light grey 15,3.',
     severity: 'error', tag: 'metal-iron', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal-iron') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
     severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'wood dark', 'dark green', 'dark red'],
+    colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
+
+  { id: 'M18b', text: 'The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.',
+    severity: 'error',
+    // Bands are counted per model, so a ship that carries rope has taupe explained
+    // by M22 and is left alone; the rule bites on a rigged model with no rope on it.
+    check: (m) => (isRigged(m) && uses(m, band('taupe')) && !has(m, 'rope'))
+      ? 'is rigged and uses taupe 14,3, which no flag or sail may take'
+      : null },
 
   halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
     severity: 'warning', lane: 'taupe', low: 0.02, high: 0.40,
@@ -305,11 +313,12 @@ const RULES = [
   bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, emissive, fire and plastic (M41).',
     severity: 'error', color: 'yellow', tags: ['metal', 'metal-gold', 'emissive', 'fire', 'plastic'],
     groups: ['coins-jewelry', 'lights'], unless: isKey }),
-  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), minor accents.',
-    severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'plastic'],
+  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), minor accents.',
+    severity: 'error', color: 'dark red', tags: ['ceramic', 'glass', 'plastic', 'textile'],
     accent: true, unless: isRoof }),
-  bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, and minor accents.',
-    severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true }),
+  bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.',
+    severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true,
+    unless: (m) => has(m, 'textile') && (m.gr === 'characters' || has(m, 'weapons')) }),
   bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, including grass and weed accents growing on objects and structures.',
     severity: 'error', color: 'light green', tags: ['flora'] }),
 
@@ -317,8 +326,8 @@ const RULES = [
     severity: 'error', color: 'wood light', tags: [...WOOD_TAGS, 'skin'] }),
   bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: wood only.',
     severity: 'error', color: 'wood middle', tags: WOOD_TAGS }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only (textile may take brown 2,0 per M18).',
-    severity: 'error', color: 'wood dark', tags: [...WOOD_TAGS, 'textile'] }),
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only.',
+    severity: 'error', color: 'wood dark', tags: WOOD_TAGS }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
     severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),
 
