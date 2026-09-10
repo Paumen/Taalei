@@ -126,6 +126,21 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M43.** Skin is wood light 0,0, taupe 14,3 or bark 3,0.
 - **M44.** Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
 - **M45.** Food may be any colour, like fauna. What it is made of decides nothing about its band.
+- **M46.** Tools are metal-iron; a handle is wood, textile or both.
+- **M47.** Weapons are metal-iron, with a handle of wood or textile.
+- **M48.** A simple weapon or a bow may be wholly or partly wood.
+- **M49.** A special weapon may be partly metal-gold, metal-silver or gemstone.
+- **M50.** Some weapons carry textile or leather straps.
+- **M51.** Food of grain or bread is taupe 14,3.
+- **M52.** A model whose only material is bone is off-white 5,2 alone.
+- **M53.** Plates are usually ceramic, and may be metal-iron or wood.
+- **M54.** Furniture is wood, except a rug, a carpet or an upholstered seat, which is textile.
+- **M55.** Coins are metal-gold.
+- **M56.** Flags and sails are textile.
+- **M57.** Signs, flag poles and posts are usually wood.
+- **M58.** Pans are usually metal-iron.
+- **M59.** Cutlery is metal-iron.
+- **M61.** A boat or ship is built from more than one wood.
 
 ### C. Colour to material
 
