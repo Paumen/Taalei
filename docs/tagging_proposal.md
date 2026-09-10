@@ -49,36 +49,50 @@ Review board: <https://claude.ai/code/artifact/efc0dcc1-879b-4f58-aaf4-db8efe890
 
 ## 3. The kind set
 
-`≈` marks a keyword estimate that still needs a data pass. `*` waits at its parent,
-below the T5 gate until a kit brings more.
+`*` waits at its parent: below the T5 gate until a kit brings more.
 
 ```
 object
-  object-container    barrel 16 · chest 22 · crate 18 · bag 15 · bottle 26 · jug 5 · bucket 6
-                      box 6 · pot 51 · pan 4*
-  object-kitchenware  tableware: plates 17 · cutlery 8 · bowls 4*
-                      cookware:  lids 4 · stands 2
-  object-food         43    meat · vegetable · baked · grain
-  object-tool         47    hand · long · supplies
-  object-weapon       melee: sword 15 · axe 12 · dagger 6 · hammer 6
-                      range: bow 17 · crossbow 8 · arrow 8 · quiver 6 · staff 9
-  object-wearable     ≈18   shield 15 · helmet · armour · cape · ring
-  object-lighting     28    candle 15 · lantern 12 · torch 6 · fire 8
-  object-transport    36    boat 9 · ship 15 · cart 14 · other
-  object-pocketitem   ≈70   book 36 · scroll 5 · coin 14 · jewellery ≈15 · key 9 · lock 2
-  object-resource     metal ≈37 · timber 22 · plank ≈11 · stone ≈15 · textile ≈13
+  object-container          barrel · chest · crate · bag · bottle · jug · bucket · box
+                            pot · pan*
+  object-kitchenware
+    kitchenware-tableware   plates · cutlery · bowls*
+    kitchenware-cookware    what is left once the vessels move out: lids, campfire stands
+  object-food               meat · vegetable · baked · grain
+  object-furniture          tables · seating (stools, benches, chairs)
+                            other (shelves, cabinets, beds*, rugs*)
+  object-tool               hand · long · supplies
+  object-weapon
+    weapon-melee            sword · axe · dagger · hammer · fist*
+    weapon-range            bow · crossbow · arrow · quiver · staff
+  object-wearable           shield · helmet* · armour* · clothing* (capes, robes, shoes)
+  object-lighting           candle · lantern (mounted ones too) · torch · fire
+  object-transport          boat · ship · cart · other (anchors, paddles, wheels)
+  object-pocketitem         book · scroll · coin · jewellery · key · lock
+  object-resource           metal · timber · plank · stone · textile
+  object                    the catch-all: levers, springs, hearts, stars
 
 nature
-  nature-flora-tree      conifer 17 · palm 14 · leafed 38
-  nature-flora-deadwood  ≈105  bare 53 · branch 49 · stump 3
-  nature-flora-plant     flower 21 · cactus 8 · grass 21 · other
-  nature-fauna           42    fish 18 · bone 19 · other
-  nature-fungi           8
-  nature-terrain         rock 136 · ground 17 · water ≈11 · cave 8
+  nature-flora
+    flora-tree              conifer · palm · leafed
+    flora-deadwood          bare · branch · stump*
+    flora-plant             flower · grass · cactus · other (cattails)
+  nature-fauna              fish · bone · other
+  nature-fungi
+  nature-terrain            rock (mountains, boulders, cliffs*, pebbles*)
+                            ground (dirt and stone paths, sand and grass patches)
+                            water · cave
 
 structure
-  structure-building  wall 151 · floor 62 · roof 31 · door 27 · window 22 · pillar ≈36 · access 31
-  structure-site      144   fence 42 · deck 57 · grave 24 · sign 21
+  structure-building        wall · floor · roof · door · window
+                            pillar (columns, arches) · access (stairs, ladders)
+  structure-site            fence · sign (signboards, banners, flags, targets)
+                            deck (scaffolds, platforms, docks, bridges)
+                            grave (gravestones, crypts, coffins)
 
-character  15
+character
 ```
+
+A model may sit in two of these at once (K3): an axe is `object-weapon-melee-axe` and
+`object-tool`, a knife is a tool and `kitchenware-tableware-cutlery`, a mushroom is
+`nature-fungi` and `object-food`.
