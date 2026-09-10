@@ -92,8 +92,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **M16.** Buckles are metal-iron, light grey 15,3.
 - **M17.** The bands on container group: barrels, chests, buckets, kegs, crates and boxes
   are metal-iron, light grey 15,3.
-- **M18.** Textile is off-white, taupe 14,3, brown 2,0, dark green 1,1 or dark
-  red 8,0.
+- **M18.** Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
 - 18b The flags and sails of a rigged ship may also be blue-grey 6,1.
 - **M19.** Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
