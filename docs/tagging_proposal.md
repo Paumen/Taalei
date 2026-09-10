@@ -4,7 +4,7 @@ Status: **proposal, nothing merged into `asset_style_guide.md`**. Exact wording 
 approval; each K-rule is under 140 chars. Second pass, with the PO's decisions applied.
 
 Review board (statuses, options, notes):
-<https://claude.ai/code/artifact/0f4f0e02-f14e-4820-849d-bea1d571c9d6>
+<https://claude.ai/code/artifact/30cef874-3c92-4364-b1ca-b26e78ee5e84>
 
 ## 1. Four fields, four jobs
 
@@ -17,10 +17,11 @@ Review board (statuses, options, notes):
 
 ## 2. Rules — proposed Appendix A block K
 
-- **K1.** A model carries at least one kind tag, or the `assembly` flag — never both, never neither. *(open)*
+- **K1.** A model carries at least one kind tag, or the `assembly` flag — never both, never neither.
 - **K2.** Tag the deepest level that fits. There is no minimum depth.
 - **K3.** A kind implies its parents. Never tag a parent beside its own child.
-- **K4.** Kind is what a thing is, material is what it is made of. Neither decides the other. *(open)*
+- **K4.** Kind is what a thing is, material is what it is made of. Neither decides the other.
+- **K4b.** A kind leaf may carry its material's name: `object-resource-plank` beside material `wood-planks`.
 - **K5.** A new sub-kind needs more than 5 models, variants included. An existing one is never retired for dropping below.
 - **K6.** The set is closed. A model fitting no leaf takes its branch's catch-all, never a new tag.
 - **K7.** A model may carry several kinds. An axe is a weapon and a tool.
@@ -30,11 +31,11 @@ Review board (statuses, options, notes):
 - **K11.** Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
 - **K12.** `size` is measured, never hand-set: s, m and l from the bounding box.
 - **K13.** Only kind and material are closed. Artist, theme and cross-reference tags stay an open field.
-- **K14.** `animation` is measured. `ngons`, `stacks`, `assembly` and `hero` are judged. *(open)*
+- **K14.** `animation` is measured. `ngons`, `stacks`, `assembly` and `hero` are judged.
 - **K15.** Artist tags are derived from the kit, never stored per model.
 
-K1 and K7 are in tension: K7 allows several kinds, so K1 can no longer say "exactly one".
-One of the two has to give — that is the open call.
+K1 settled at "at least one", which is what K7 requires. The exposure that leaves: nothing
+now stops an assembly being given three kinds instead of the flag.
 
 ## 3. The kind set
 
@@ -51,15 +52,14 @@ object — 10 children, was 16
   object-wearable     ≈18   shield 15 · helmet · armour · cape · ring
   object-lighting     28    candle 15 · lantern 12 · torch 6 · fire 8
   object-transport    36    boat 9 · ship 15 · cart 14 · other
-  object-item         ≈89   book 36 · scroll 5 · coin 14 · jewellery ≈15 · key 11
-                            mechanism · bone 19 · trinket 4                             merge
+  object-pocketitem   ≈70   book 36 · scroll 5 · coin 14 · jewellery ≈15 · key 9 · lock 2
   object-resource     metal ≈37 · timber 22 · plank ≈11 · stone ≈15 · textile ≈13
 
 nature — 4 children
   nature-flora-tree      conifer 17 · palm 14 · leafed 38
   nature-flora-deadwood  ≈105  bare 53 · branch 49 · stump 3
   nature-flora-plant     flower 21 · cactus 8 · grass 21 · other
-  nature-fauna           23    fish 18 · other
+  nature-fauna           42    fish 18 · bone 19 · other
   nature-fungi           8
   nature-terrain         rock 136 · ground 17 · water ≈11 · cave 8
 
@@ -70,9 +70,13 @@ structure — 2 children, was 5
 character  15
 ```
 
-Three merges carry the width down. `object-gear` over tool, weapon and wearable was
+Two merges carry the width down. `object-gear` over tool, weapon and wearable was
 considered and dropped: with melee and range kept, a sword would sit five levels deep,
 and "gear" stops telling an axe from a shield.
+
+`mechanism` is dropped as a name — it was only a lever and a spring. Those, plus the
+heart and the star, sit at the bare `object` catch-all under K6, which also makes an
+`object-decor` leaf unnecessary.
 
 ## 4. Settled
 
@@ -85,6 +89,8 @@ and "gear" stops telling an axe from a shield.
 - **Weapons** — melee and range levels kept.
 - **Artist tags** — derived from `kit`, deleting ~1500 stored tags.
 - **Cohort rule dropped** — judging style metrics per kind is a goal, not a tagging rule.
+- **Bones** — `nature-fauna-bone`: what remains of an animal, 19 models.
+- **Pocket items** — books, scrolls, coins, jewellery and keys in one leaf.
 
 ## 5. Two corrections to the first pass
 
@@ -94,6 +100,28 @@ and "gear" stops telling an axe from a shield.
 2. **`lamp` is not a distinct kind.** The tag holds 12 models, 10 of them lanterns; the
    two named "lamp" render as the same lantern body on a bracket. Folded into `lantern`.
 
-`stacks` also resists automation: names catch 42 of 54, missing `box-stacked`,
-`crates-stacked` and `parts-pile-*` while wrongly catching `rope-bundle-a`, which is one
-coiled rope. Those nine are worth a review pass; the tag stays judged.
+## 6. `stacks` cannot be automated
+
+The PO's hypothesis — a stack is N copies of another model in the same kit — was tested
+directly against the geometry, comparing sorted triangle areas so the match survives
+translation and rotation.
+
+| detector | recall | precision |
+|---|---|---|
+| triangle count, ±6% | 94% | 5% |
+| exact count ratio, exact area match | 24% | 72% |
+| count ratio ±25%, 90% area coverage | 30% | 52% |
+
+It does not go higher, for three reasons found in the data:
+
+1. **Where it holds, it holds exactly.** `gold-bars-stack-large` is 48 × `gold-bar`, every
+   triangle area matching — including the one extra face that made a strict comparison fail.
+2. **Most stacks are not whole copies.** `gold-bars` is 8.67 × a bar with 69% of its
+   triangles explained; the bars are partly buried in each other. `book-stack-1` is exactly
+   4 × `book-simplified-single` yet shares 2% of its geometry — it stacks a different book.
+3. **The cleanest repeats are not stacks.** The highest-confidence hits in the whole
+   catalogue are modular building parts: `wall` = 2 × `wall-half`, `fence-gate-pillar`
+   = 2 × `fence-pillar` at 100% coverage.
+
+Geometry can propose a stack; it cannot decide one. Best use is a review hint, not an
+auto-tag — the tag stays judged.
