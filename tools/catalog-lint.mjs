@@ -227,6 +227,14 @@ const RULES = [
     colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
 
+  { id: 'M18b', text: 'The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.',
+    severity: 'error',
+    // Bands are counted per model, so a ship that carries rope has taupe explained
+    // by M22 and is left alone; the rule bites on a rigged model with no rope on it.
+    check: (m) => (isRigged(m) && uses(m, band('taupe')) && !has(m, 'rope'))
+      ? 'is rigged and uses taupe 14,3, which no flag or sail may take'
+      : null },
+
   halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
     severity: 'warning', lane: 'taupe', low: 0.02, high: 0.40,
     when: (m) => m.gr === 'tools' && has(m, 'textile') && uses(m, band('taupe')) }),
