@@ -3,7 +3,7 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROUPS, CATEGORIES, KIT_GROUPS, determineGroup } from './semantiek.mjs';
+import { GROUPS, CATEGORIES, KIT_GROUPS, determineGroup, splitWeapons } from './semantiek.mjs';
 import { buildScaleGroups } from './schaalgroepen.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
@@ -20,6 +20,17 @@ const ROWS = 4;
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
+
+// The semantic group is fixed while the files are scanned, which is before readTags runs,
+// so the weapons split reads the one tag membership it needs straight from tags.json.
+function readWeaponTagged() {
+  const file = join(CATALOG_DIR, 'tags.json');
+  if (!existsSync(file)) return new Set();
+  const { tags = [] } = JSON.parse(readFileSync(file, 'utf8'));
+  return new Set(tags.find((t) => t.id === 'weapons')?.models ?? []);
+}
+
+const WEAPON_TAGGED = readWeaponTagged();
 
 function readKitMetadata() {
   const source = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
@@ -292,7 +303,7 @@ for (const slug of kitSlugs) {
     const glb = readGlb(join(dir, file));
     const gltf = glb.json;
     const scene = measureScene(glb);
-    const group = determineGroup(slug, name);
+    const group = splitWeapons(determineGroup(slug, name), name, WEAPON_TAGGED.has(`${slug}/${name}`));
     if (group === 'other') noGroup.push(`${slug}/${name}`);
 
     const read = readColors(glb, dir);

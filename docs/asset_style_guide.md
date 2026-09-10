@@ -61,13 +61,13 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 ### S. Special — the one way out of every rule below
 
 - **S1.** `special` is a material tag and a joker: it exempts **one** band on the
-  model from **one** rule.
+  model from every rule that band trips.
 - **S2.** The joker is spent once. A second band with no material behind it is a
   finding, whatever the first one was.
 - **S3.** Spent on N4 it lifts the ceiling by one; every other band still answers
   to M and C. N2 and N3 do not count the joker as a material.
 - **S5.** N3 leaves the joker's band out of its count; N2 keeps it. That band is
-  named by the first rule the joker is spent on; an M rule names none.
+  the one the reason on the tag names.
 - **S4.** Only the PO assigns the tag. A `special` records which band it covers
   and why; one without a stated reason is a finding on the tag.
 
@@ -151,7 +151,7 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 - **C3.** Light blue-grey 3,2: silver (M13).
 - **C4.** Blue 4,2: sparingly, minor accents only.
 - **C5.** Yellow: metal-gold, emissive, fire and plastic (M41).
-- **C6.** Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), minor accents.
+- **C6.** Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), gemstones (M36), minor accents.
 - **C7.** Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
 - **C8.** Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.

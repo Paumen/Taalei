@@ -38,8 +38,10 @@ export const GROUPS = [
     description: 'What you cook with, apart from the food itself: the two campfire stands from the survival kit and the props kit\'s fire, the cooking pots, pans and frying pans, the cups and mugs, and the fork, knife and spoon. The campfires that are only stacked logs — the star and teepee from natuur and the modular-terrain camp campfire — are timber stock rather than cooking gear and live with the timber. The plates and bowls you serve it on are split off into their own group next to this one, and the food that goes on them has a group of its own as well; the bare and broken tables live with the furniture, the jugs and the sack with the chests and barrels.' },
   { id: 'plates-bowls', name: 'Plates & bowls', short: 'Plates', color: '#e8dcc0',
     description: 'What you eat off: the plate, the small plate and the plate stack from the dungeon kit, the plate and small plate and the two bowls from the restaurant kit, the two plates from props and the two from food-quaternius, and the plate that comes with the fantasy-props table. Split off from cooking & tableware, which keeps the campfire stands, the pans and pots, the cups and mugs and the cutlery. The dungeon kit\'s two full plates are what you eat rather than what you eat off, so they stay with the food.' },
-  { id: 'tools', name: 'Tools & weapons', short: 'Tools', color: '#6d738a',
-    description: 'Axe, hammer and broom — pairable with mechanics like "word chopping". Twenty-eight strong in the rpgtools kit: anvil, file, grindstone, hammers, screwdrivers and more blacksmith and carpentry gear, plus an explorer\'s measuring and drawing kit: compass, drafting compass, magnifying glass, pencils and rope. The weapons half of the group\'s name was empty until the two KayKit character packs arrived: swords, axes, daggers, bows and crossbows with their arrows and quivers, staffs, a wand, a smoke bomb, two horned helmets and thirteen shields, sized for the figures that carry them.' },
+  { id: 'tools', name: 'Tools', short: 'Tools', color: '#6d738a',
+    description: 'What you work with: axe, hammer and broom — pairable with mechanics like "word chopping". Twenty-eight strong in the rpgtools kit: anvil, file, grindstone, hammers, screwdrivers and more blacksmith and carpentry gear, plus an explorer\'s measuring and drawing kit: compass, drafting compass, magnifying glass, pencils and rope, and the fishing rods, pitchfork and paddle from small-props. Used to be tools & weapons; everything you fight with is split off into weapons & armour next door. The line is the `weapons` tag, not the name, so the rpgtools axe and hammer stay here while the KayKit axes and war hammers of the same name go across.' },
+  { id: 'weapons', name: 'Weapons & armour', short: 'Weapons', color: '#4c5468',
+    description: 'What you fight with, and what you take a blow on: swords, axes, daggers, halberds and spears, bows and crossbows with their arrows and quivers, fist weapons, staffs and a wand, a smoke bomb, and the broken and wall-mounted pieces — mostly from the two KayKit character packs and the dungeon kit, sized for the figures that carry them. The armour half is the thirteen shields and the two horned helmets. Split off from tools, which keeps the blacksmith, carpentry and measuring gear. Membership follows the `weapons` tag rather than the model name, so a rarity-tier axe lands here and a workshop axe does not; the helmets carry no such tag and are placed by name.' },
   { id: 'resources', name: 'Resources & supplies', short: 'Resources', color: '#4f7d8c',
     description: 'The resources themselves, apart from what you put them in: chunks of ore (copper, gold, iron, silver), stones, textiles and parts from the resources kit. Usable as loot, currency or building stock. Everything made of wood is split off into timber resources next door, the pallet and the survival kit\'s plank stack with it. The bars and the piled-up stacks from the resources kit live with the assemblies.' },
   { id: 'timber', name: 'Timber resources', short: 'Timber', color: '#714c39',
@@ -544,6 +546,11 @@ export function determineGroup(kit, model) {
   }
   return 'other';
 }
+
+// Weapons and armour leave the tools group by tag, not by name: the rpgtools axe and the
+// KayKit war axe share a filename. Armour carries no `weapons` tag and is placed by name.
+export const splitWeapons = (group, model, isWeapon) =>
+  group === 'tools' && (isWeapon || /^helmet\b/.test(model)) ? 'weapons' : group;
 
 const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
 const CATEGORY_PER_TAB = new Map(CATEGORIES.map((c) => [c.tab, c.id]));
