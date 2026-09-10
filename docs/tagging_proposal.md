@@ -1,10 +1,9 @@
 # Tagging — proposal for the style guide
 
 Status: **proposal, nothing merged into `asset_style_guide.md`**. Exact wording for PO
-approval; each K-rule is under 140 chars. Second pass, with the PO's decisions applied.
+approval; every rule is under 140 chars.
 
-Review board (statuses, options, notes):
-<https://claude.ai/code/artifact/efc0dcc1-879b-4f58-aaf4-db8efe8909fa>
+Review board: <https://claude.ai/code/artifact/efc0dcc1-879b-4f58-aaf4-db8efe8909fa>
 
 ## 1. Four fields, four jobs
 
@@ -15,35 +14,46 @@ Review board (statuses, options, notes):
 | `size` | rough bbox: `s` `m` `l` | measured | automated |
 | `tag` | kit/artist, theme, flags | open | mixed |
 
-## 2. Rules — proposed Appendix A block K
+## 2. Rules
+
+### T. Tag fields — what is closed, and how the axes meet
+
+- **T1.** Only kind and material are closed sets. Artist, theme and flags stay an open field.
+- **T2.** Kind is what a thing is, material is what it is made of. Neither decides the other.
+- **T3.** A kind leaf may carry its material's name: `object-resource-plank` beside material `wood-planks`.
+- **T4.** A tag implies its parents. Never tag a parent beside its own child.
+- **T5.** A new sub-tag needs more than 5 models, variants included. An existing one is never retired for dropping below.
+- **T6.** A closed set stays closed. A model fitting no leaf takes its branch's catch-all, never a new tag.
+- **T7.** Artist tags are derived from the kit, never stored per model.
+
+### K. Kind — what the model represents
 
 - **K1.** A model carries at least one kind tag, or the `assembly` flag — never both, never neither.
 - **K2.** Tag the deepest level that fits. There is no minimum depth.
-- **K3.** A kind implies its parents. Never tag a parent beside its own child.
-- **K4.** Kind is what a thing is, material is what it is made of. Neither decides the other.
-- **K4b.** A kind leaf may carry its material's name: `object-resource-plank` beside material `wood-planks`.
-- **K5.** A new sub-kind needs more than 5 models, variants included. An existing one is never retired for dropping below.
-- **K6.** The set is closed. A model fitting no leaf takes its branch's catch-all, never a new tag.
-- **K7.** A model may carry several kinds. An axe is a weapon and a tool.
-- **K8.** A ship has a mast, a boat has none.
-- **K9.** Terrain is the surface walked on; a plant standing on it is flora.
-- **K10.** `special` and `hero` are the PO's alone. Claude proposes `hero` when adding to the catalogue.
-- **K11.** Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
-- **K12.** `size` is measured, never hand-set: s, m and l from the bounding box.
-- **K13.** Only kind and material are closed. Artist, theme and cross-reference tags stay an open field.
-- **K14.** `animation` is measured. `ngons`, `plural`, `assembly` and `hero` are judged.
-- **K16.** `plural` is several of one kind in one model; `assembly` is several kinds. Piled loose or built in, both count.
-- **K15.** Artist tags are derived from the kit, never stored per model.
+- **K3.** A model may carry several kinds. An axe is a weapon and a tool.
+- **K4.** A ship has a mast, a boat has none.
+- **K5.** Terrain is the surface walked on; a plant standing on it is flora.
 
-K1 settled at "at least one", which is what K7 requires. The exposure that leaves: nothing
-now stops an assembly being given three kinds instead of the flag.
+### F. Flags — measured or judged
+
+- **F1.** `size` is measured, never hand-set: s, m and l from the bounding box.
+- **F2.** `animation` is measured. `ngons`, `plural`, `assembly` and `hero` are judged.
+- **F3.** `ngons` marks a round cross-section — the form §2 counts facets on.
+- **F4.** `plural` is several of one kind in one model; `assembly` is several kinds. Piled loose or built in, both count.
+- **F5.** Geometry may propose `plural`; it never decides it. Repeated parts are not repeated kinds.
+
+### P. The PO's own
+
+- **P1.** `special` and `hero` are the PO's alone. Claude proposes `hero` when adding to the catalogue.
+- **P2.** Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
 
 ## 3. The kind set
 
-`≈` marks a keyword estimate that still needs a data pass.
+`≈` marks a keyword estimate that still needs a data pass. `*` waits at its parent,
+below the T5 gate until a kit brings more.
 
 ```
-object — 10 children, was 16
+object
   object-container    barrel 16 · chest 22 · crate 18 · bag 15 · bottle 26 · jug 5 · bucket 6
                       box 6 · pot 51 · pan 4*
   object-kitchenware  tableware: plates 17 · cutlery 8 · bowls 4*
@@ -58,7 +68,7 @@ object — 10 children, was 16
   object-pocketitem   ≈70   book 36 · scroll 5 · coin 14 · jewellery ≈15 · key 9 · lock 2
   object-resource     metal ≈37 · timber 22 · plank ≈11 · stone ≈15 · textile ≈13
 
-nature — 4 children
+nature
   nature-flora-tree      conifer 17 · palm 14 · leafed 38
   nature-flora-deadwood  ≈105  bare 53 · branch 49 · stump 3
   nature-flora-plant     flower 21 · cactus 8 · grass 21 · other
@@ -66,75 +76,9 @@ nature — 4 children
   nature-fungi           8
   nature-terrain         rock 136 · ground 17 · water ≈11 · cave 8
 
-structure — 2 children, was 5
+structure
   structure-building  wall 151 · floor 62 · roof 31 · door 27 · window 22 · pillar ≈36 · access 31
-  structure-site      144   fence 42 · deck 57 · grave 24 · sign 21                      merge
+  structure-site      144   fence 42 · deck 57 · grave 24 · sign 21
 
 character  15
 ```
-
-`*` waits at its parent: below the K5 gate until a kit brings more.
-
-Two merges carry the width down. `object-gear` over tool, weapon and wearable was
-considered and dropped: with melee and range kept, a sword would sit five levels deep,
-and "gear" stops telling an axe from a shield.
-
-`mechanism` is dropped as a name — it was only a lever and a spring. Those, plus the
-heart and the star, sit at the bare `object` catch-all under K6, which also makes an
-`object-decor` leaf unnecessary.
-
-## 4. Settled
-
-- **Depth** — deepest level that fits, no floor.
-- **Several kinds allowed** — an axe is a weapon and a tool, with no cross-list.
-- **Raw stock** — `object-resource` splits by material family, each with a `stacks` flag.
-- **Trees** — living trees split from `nature-flora-deadwood`; grass moves under
-  `nature-flora-plant`, which also settles the terrain/flora grass collision.
-- **Cave** — opened despite 8 models, to fill from the cave kits.
-- **Weapons** — melee and range levels kept.
-- **Artist tags** — derived from `kit`, deleting ~1500 stored tags.
-- **Cohort rule dropped** — judging style metrics per kind is a goal, not a tagging rule.
-- **Bones** — `nature-fauna-bone`: what remains of an animal, 19 models.
-- **Pocket items** — books, scrolls, coins, jewellery and keys in one leaf.
-- **`stacks` renamed `plural`** — and redefined as any repeat of one kind, built in or piled.
-- **K5 stays at 5** — no waiver. `cutlery` clears it at 8 precisely because a model may
-  take two kinds: three of the eight are the knives that also sit in `tools`.
-
-## 5. Two corrections to the first pass
-
-1. **`ngons` is not a measurement.** `tags.json` defines it as "built around a round
-   cross-section" — the hook for §2's facet rule, which is a judgement about form, not a
-   file property. Only `animation` is measured.
-2. **`lamp` is not a distinct kind.** The tag holds 12 models, 10 of them lanterns; the
-   two named "lamp" render as the same lantern body on a bracket. Folded into `lantern`.
-
-## 6. `stacks` cannot be automated
-
-The PO's hypothesis — a stack is N copies of another model in the same kit — was tested
-directly against the geometry, comparing sorted triangle areas so the match survives
-translation and rotation.
-
-| detector | recall | precision |
-|---|---|---|
-| triangle count, ±6% | 94% | 5% |
-| exact count ratio, exact area match | 24% | 72% |
-| count ratio ±25%, 90% area coverage | 30% | 52% |
-
-It does not go higher, for three reasons found in the data:
-
-1. **Where it holds, it holds exactly.** `gold-bars-stack-large` is 48 × `gold-bar`, every
-   triangle area matching — including the one extra face that made a strict comparison fail.
-2. **Most stacks are not whole copies.** `gold-bars` is 8.67 × a bar with 69% of its
-   triangles explained; the bars are partly buried in each other. `book-stack-1` is exactly
-   4 × `book-simplified-single` yet shares 2% of its geometry — it stacks a different book.
-3. **The cleanest repeats are not stacks.** The highest-confidence hits in the whole
-   catalogue are modular building parts: `wall` = 2 × `wall-half`, `fence-gate-pillar`
-   = 2 × `fence-pillar` at 100% coverage.
-
-Geometry can propose; it cannot decide. The tag stays judged.
-
-One consequence of the rename: under `plural` — any repeat of one kind — most of the
-detector's apparent false positives are correct after all. `wall` = 2 × `wall-half` and
-`fence-gate-pillar` = 2 × `fence-pillar` really are several of one kind, just built in
-rather than piled. Of 31 detections, 15 are models carrying no such tag today, so the
-detector is worth a sweep before the tag is considered complete.
