@@ -6,20 +6,39 @@
 // moves by whole cells, which keeps its position inside the band and with it the
 // baked shading (style guide §1). The atlas on disk is not touched.
 //
-// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name]
+// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v]
 //        node tools/colormap-recolor.mjs --map plan.json [--dry]
-//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…" }, …]
+//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…", "uv": "u,v" }, …]
 //   --mesh limits the move to the meshes of that name, for a model that answers
 //   for several parts at once.
+//   --uv limits the move to the vertices sitting on that one point of the source
+//   cell. A pack whose materials are flat colours puts every material on a single
+//   point of the band it matched, so two materials that matched the same cell —
+//   KayKit's Stone and WoodDark both land on light grey — are still apart inside
+//   it, and only --uv can move one without the other.
+//   --upright limits the move to the connected pieces that stand: a piece whose
+//   height beats both its width and its depth. That is the posts and legs of a
+//   frame and not the planks they carry, which is the line the dungeon scaffolds
+//   draw between wood-beam and wood-worked (appendix A, M42). Whole pieces move,
+//   so a vertex a post shares with the deck it holds up goes with the post.
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
 const COLUMNS = 16;
 const ROWS = 4;
 
 const COMPONENT = { 5120: Int8Array, 5121: Uint8Array, 5122: Int16Array, 5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array };
+
+const parseUv = (text) => {
+  const [u, v] = String(text).split(',').map(Number);
+  if (!Number.isFinite(u) || !Number.isFinite(v)) {
+    console.error(`error: not a uv point: ${text}`);
+    process.exit(2);
+  }
+  return [u, v];
+};
 
 const parseCell = (text) => {
   const [column, row] = String(text).split(',').map(Number);
@@ -44,7 +63,65 @@ const glbsUnder = (path) => {
 // Every accessor the model reads TEXCOORD_0 from, with the vertices that sit in
 // the source cell shifted whole cells across. An accessor shared by several
 // primitives is rewritten once; the test is per vertex, so untouched bands stay put.
-function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null) {
+const UV_EPSILON = 1e-4;
+
+// The vertices of every connected piece that stands taller than it is wide or deep.
+// Pieces are found over welded positions, so the two triangles of a shared corner
+// still count as one piece; the result is a set of TEXCOORD_0 vertex indices per
+// accessor, because that is what the move works on.
+function uprightVertices(glb, mesh = null) {
+  const { json } = glb;
+  const perAccessor = new Map();
+  for (const target of json.meshes ?? []) {
+    if (mesh && target.name !== mesh) continue;
+    for (const primitive of target.primitives ?? []) {
+      const uvIndex = primitive.attributes?.TEXCOORD_0;
+      const posIndex = primitive.attributes?.POSITION;
+      if (uvIndex === undefined || posIndex === undefined || primitive.indices === undefined) continue;
+
+      const pos = readAccessor(glb, posIndex);
+      const idx = readAccessor(glb, primitive.indices).data;
+
+      const perPlace = new Map();
+      const parent = [];
+      const find = (x) => { while (parent[x] !== x) x = parent[x] = parent[parent[x]]; return x; };
+      const union = (a, b) => { a = find(a); b = find(b); if (a !== b) parent[a] = b; };
+      const place = [];
+      for (let i = 0; i < pos.count; i++) {
+        const key = [0, 1, 2].map((axis) => pos.data[i * pos.width + axis].toFixed(4)).join(',');
+        if (!perPlace.has(key)) { perPlace.set(key, parent.length); parent.push(parent.length); }
+        place.push(perPlace.get(key));
+      }
+      for (let i = 0; i + 2 < idx.length; i += 3) {
+        union(place[idx[i]], place[idx[i + 1]]);
+        union(place[idx[i + 1]], place[idx[i + 2]]);
+      }
+
+      const pieces = new Map();
+      for (let i = 0; i < pos.count; i++) {
+        const root = find(place[i]);
+        let piece = pieces.get(root);
+        if (!piece) { piece = { low: [Infinity, Infinity, Infinity], high: [-Infinity, -Infinity, -Infinity] }; pieces.set(root, piece); }
+        for (let axis = 0; axis < 3; axis++) {
+          const value = pos.data[i * pos.width + axis];
+          if (value < piece.low[axis]) piece.low[axis] = value;
+          if (value > piece.high[axis]) piece.high[axis] = value;
+        }
+      }
+
+      const chosen = perAccessor.get(uvIndex) ?? new Set();
+      for (let i = 0; i < pos.count; i++) {
+        const piece = pieces.get(find(place[i]));
+        const size = piece.high.map((value, axis) => value - piece.low[axis]);
+        if (size[1] > size[0] && size[1] > size[2]) chosen.add(i);
+      }
+      perAccessor.set(uvIndex, chosen);
+    }
+  }
+  return perAccessor;
+}
+
+function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv = null, upright = false) {
   const { json, bin } = glb;
   const shiftU = (toColumn - fromColumn) / COLUMNS;
   const shiftV = (toRow - fromRow) / ROWS;
@@ -57,8 +134,12 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null) {
     }
   }
 
+  const upstanding = upright ? uprightVertices(glb, mesh) : null;
+
   let moved = 0;
   for (const index of accessors) {
+    const standing = upstanding?.get(index) ?? null;
+    if (upright && !standing) continue;
     const accessor = json.accessors[index];
     if (accessor.sparse) throw new Error('sparse accessor is not supported');
     if (accessor.componentType !== 5126) throw new Error(`TEXCOORD_0 is not float: accessor ${index}`);
@@ -73,7 +154,10 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null) {
       const row = new Type(bin.buffer, bin.byteOffset + start + i * stride, 2);
       const column = Math.min(COLUMNS - 1, Math.max(0, Math.floor(row[0] * COLUMNS)));
       const line = Math.min(ROWS - 1, Math.max(0, Math.floor(row[1] * ROWS)));
-      if (column === fromColumn && line === fromRow) {
+      const onPoint =
+        !uv || (Math.abs(row[0] - uv[0]) < UV_EPSILON && Math.abs(row[1] - uv[1]) < UV_EPSILON);
+      const onPiece = !standing || standing.has(i);
+      if (column === fromColumn && line === fromRow && onPoint && onPiece) {
         row[0] += shiftU;
         row[1] += shiftV;
         moved++;
@@ -92,7 +176,14 @@ const dry = argv.includes('--dry');
 const meshFlag = argv.indexOf('--mesh');
 const meshName = meshFlag === -1 ? null : argv[meshFlag + 1];
 if (meshFlag !== -1 && !meshName) { console.error('error: --mesh wants a mesh name'); process.exit(2); }
-const rest = argv.filter((a, i) => a !== '--dry' && (meshFlag === -1 || (i !== meshFlag && i !== meshFlag + 1)));
+const upright = argv.includes('--upright');
+const uvFlag = argv.indexOf('--uv');
+const uvPoint = uvFlag === -1 ? null : argv[uvFlag + 1];
+if (uvFlag !== -1 && !uvPoint) { console.error('error: --uv wants a u,v point'); process.exit(2); }
+const consumed = new Set();
+if (meshFlag !== -1) { consumed.add(meshFlag); consumed.add(meshFlag + 1); }
+if (uvFlag !== -1) { consumed.add(uvFlag); consumed.add(uvFlag + 1); }
+const rest = argv.filter((a, i) => a !== '--dry' && a !== '--upright' && !consumed.has(i));
 
 let plan = [];
 if (rest[0] === '--map') {
@@ -101,19 +192,24 @@ if (rest[0] === '--map') {
 } else {
   const [from, to, ...inputs] = rest;
   if (!from || !to || inputs.length === 0) {
-    console.error('usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry]');
+    console.error(
+      'usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--upright]',
+    );
     process.exit(2);
   }
-  plan = inputs.flatMap((input) => glbsUnder(input).map((file) => ({ file, from, to, mesh: meshName })));
+  plan = inputs.flatMap((input) =>
+    glbsUnder(input).map((file) => ({ file, from, to, mesh: meshName, uv: uvPoint, upright })));
 }
 
 let touched = 0;
-for (const { file, from, to, mesh = null } of plan) {
+for (const { file, from, to, mesh = null, uv = null, upright: standing = false } of plan) {
   const glb = readGlb(file);
-  const moved = recolor(glb, parseCell(from), parseCell(to), mesh);
-  if (moved === 0) { console.log(`  ${file}: nothing in ${from}${mesh ? ` on mesh ${mesh}` : ''}`); continue; }
+  const moved = recolor(glb, parseCell(from), parseCell(to), mesh, uv ? parseUv(uv) : null, standing);
+  const waar =
+    `${from}${uv ? ` at ${uv}` : ''}${standing ? ' on the upright pieces' : ''}${mesh ? ` on mesh ${mesh}` : ''}`;
+  if (moved === 0) { console.log(`  ${file}: nothing in ${waar}`); continue; }
   if (!dry) writeGlb(file, glb.json, glb.bin, writeFileSync);
   touched++;
-  console.log(`${dry ? 'would move' : 'moved'} ${moved} uv${moved === 1 ? '' : 's'} ${from} -> ${to}  ${file}`);
+  console.log(`${dry ? 'would move' : 'moved'} ${moved} uv${moved === 1 ? '' : 's'} ${waar} -> ${to}  ${file}`);
 }
 console.log(`${touched} model(s) ${dry ? 'to change' : 'changed'}`);
