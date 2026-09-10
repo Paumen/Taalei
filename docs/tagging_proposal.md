@@ -4,7 +4,7 @@ Status: **proposal, nothing merged into `asset_style_guide.md`**. Exact wording 
 approval; each K-rule is under 140 chars. Second pass, with the PO's decisions applied.
 
 Review board (statuses, options, notes):
-<https://claude.ai/code/artifact/30cef874-3c92-4364-b1ca-b26e78ee5e84>
+<https://claude.ai/code/artifact/efc0dcc1-879b-4f58-aaf4-db8efe8909fa>
 
 ## 1. Four fields, four jobs
 
@@ -31,7 +31,8 @@ Review board (statuses, options, notes):
 - **K11.** Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
 - **K12.** `size` is measured, never hand-set: s, m and l from the bounding box.
 - **K13.** Only kind and material are closed. Artist, theme and cross-reference tags stay an open field.
-- **K14.** `animation` is measured. `ngons`, `stacks`, `assembly` and `hero` are judged.
+- **K14.** `animation` is measured. `ngons`, `plural`, `assembly` and `hero` are judged.
+- **K16.** `plural` is several of one kind in one model; `assembly` is several kinds. Piled loose or built in, both count.
 - **K15.** Artist tags are derived from the kit, never stored per model.
 
 K1 settled at "at least one", which is what K7 requires. The exposure that leaves: nothing
@@ -43,8 +44,10 @@ now stops an assembly being given three kinds instead of the flag.
 
 ```
 object — 10 children, was 16
-  object-container    barrel 16 · chest 22 · crate 18 · bag 15 · bottle 26 · jug 5 · bucket 6 · box 6
-  object-kitchenware  ≈53   pot, pan, lid, cauldron · plate, bowl, cup, mug, cutlery      merge
+  object-container    barrel 16 · chest 22 · crate 18 · bag 15 · bottle 26 · jug 5 · bucket 6
+                      box 6 · pot 51 · pan 4*
+  object-kitchenware  tableware: plates 17 · cutlery 8 · bowls 4*
+                      cookware:  lids 4 · stands 2
   object-food         43    meat · vegetable · baked · grain
   object-tool         47    hand · long · supplies
   object-weapon       melee: sword 15 · axe 12 · dagger 6 · hammer 6
@@ -70,6 +73,8 @@ structure — 2 children, was 5
 character  15
 ```
 
+`*` waits at its parent: below the K5 gate until a kit brings more.
+
 Two merges carry the width down. `object-gear` over tool, weapon and wearable was
 considered and dropped: with melee and range kept, a sword would sit five levels deep,
 and "gear" stops telling an axe from a shield.
@@ -91,6 +96,9 @@ heart and the star, sit at the bare `object` catch-all under K6, which also make
 - **Cohort rule dropped** — judging style metrics per kind is a goal, not a tagging rule.
 - **Bones** — `nature-fauna-bone`: what remains of an animal, 19 models.
 - **Pocket items** — books, scrolls, coins, jewellery and keys in one leaf.
+- **`stacks` renamed `plural`** — and redefined as any repeat of one kind, built in or piled.
+- **K5 stays at 5** — no waiver. `cutlery` clears it at 8 precisely because a model may
+  take two kinds: three of the eight are the knives that also sit in `tools`.
 
 ## 5. Two corrections to the first pass
 
@@ -123,5 +131,10 @@ It does not go higher, for three reasons found in the data:
    catalogue are modular building parts: `wall` = 2 × `wall-half`, `fence-gate-pillar`
    = 2 × `fence-pillar` at 100% coverage.
 
-Geometry can propose a stack; it cannot decide one. Best use is a review hint, not an
-auto-tag — the tag stays judged.
+Geometry can propose; it cannot decide. The tag stays judged.
+
+One consequence of the rename: under `plural` — any repeat of one kind — most of the
+detector's apparent false positives are correct after all. `wall` = 2 × `wall-half` and
+`fence-gate-pillar` = 2 × `fence-pillar` really are several of one kind, just built in
+rather than piled. Of 31 detections, 15 are models carrying no such tag today, so the
+detector is worth a sweep before the tag is considered complete.
