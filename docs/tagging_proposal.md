@@ -49,50 +49,150 @@ Review board: <https://claude.ai/code/artifact/efc0dcc1-879b-4f58-aaf4-db8efe890
 
 ## 3. The kind set
 
-`*` waits at its parent: below the T5 gate until a kit brings more.
+The PO's tree, with only this session's decisions applied. Changes are marked in the
+right-hand column; everything unmarked is the original wording, typos fixed.
 
 ```
-object
-  object-container          barrel · chest · crate · bag · bottle · jug · bucket · box
-                            pot · pan*
-  object-kitchenware
-    kitchenware-tableware   plates · cutlery · bowls*
-    kitchenware-cookware    what is left once the vessels move out: lids, campfire stands
-  object-food               meat · vegetable · baked · grain
-  object-furniture          tables · seating (stools, benches, chairs)
-                            other (shelves, cabinets, beds*, rugs*)
-  object-tool               hand · long · supplies
-  object-weapon
-    weapon-melee            sword · axe · dagger · hammer · fist*
-    weapon-range            bow · crossbow · arrow · quiver · staff
-  object-wearable           shield · helmet* · armour* · clothing* (capes, robes, shoes)
-  object-lighting           candle · lantern (mounted ones too) · torch · fire
-  object-transport          boat · ship · cart · other (anchors, paddles, wheels)
-  object-pocketitem         book · scroll · coin · jewellery · key · lock
-  object-resource           metal · timber · plank · stone · textile
-  object                    the catch-all: levers, springs, hearts, stars
+object-container-jug
+object-container-chest
+object-container-barrel
+object-container-bucket
+object-container-crate
+object-container-bottle
+object-container-bag
+object-container-box                          added
+object-container-pot                          added
+object-container-pan
+object-container
 
-nature
-  nature-flora
-    flora-tree              conifer · palm · leafed
-    flora-deadwood          bare · branch · stump*
-    flora-plant             flower · grass · cactus · other (cattails)
-  nature-fauna              fish · bone · other
-  nature-fungi
-  nature-terrain            rock (mountains, boulders, cliffs*, pebbles*)
-                            ground (dirt and stone paths, sand and grass patches)
-                            water · cave
+object-kitchenware-tableware-plates           was object-tablewear
+object-kitchenware-tableware-cutlery
+object-kitchenware-tableware-bowls
+object-kitchenware-tableware
+object-kitchenware-cookware
+object-kitchenware
 
-structure
-  structure-building        wall · floor · roof · door · window
-                            pillar (columns, arches) · access (stairs, ladders)
-  structure-site            fence · sign (signboards, banners, flags, targets)
-                            deck (scaffolds, platforms, docks, bridges)
-                            grave (gravestones, crypts, coffins)
+object-furniture-table
+object-furniture-seating (eg stools, banks)
+object-furniture (eg rugs, beds, cabinet, shelves)
+
+object-food-meat
+object-food-vegetable
+object-food-baked
+object-food-grain                             added
+object-food
+
+object-weapon-melee-sword
+object-weapon-melee-dagger
+object-weapon-melee-axe
+object-weapon-melee-fist
+object-weapon-melee-hammer
+object-weapon-melee
+object-weapon-range-bow
+object-weapon-range-crossbow
+object-weapon-range-arrow
+object-weapon-range-quiver
+object-weapon-range-staff
+object-weapon-range
+object-weapon
+
+object-wearables (eg shield, helmet, cape, ring, necklace)   flattened
+
+object-tool-hand
+object-tool-long
+object-tool-supplies
+object-tool
+
+object-transport-boat
+object-transport-ship
+object-transport-cart
+object-transport (eg anchor, paddle, wheel)
+
+object-lighting-lantern                       lamp folded in
+object-lighting-torch
+object-lighting-candles
+object-lighting
+
+object-pocketitem-book                        answers coins, scroll,
+object-pocketitem-scroll                      books and key
+object-pocketitem-coin
+object-pocketitem-jewellery
+object-pocketitem-key
+object-pocketitem
+
+object-resource-metal                         answers gold, planks, logs
+object-resource-timber
+object-resource-plank
+object-resource-stone
+object-resource-textile
+object-resource
+
+object (eg levers, springs)                   answers levers, springs
+
+nature-flora-plant-cacti
+nature-flora-plant-flower
+nature-flora-plant-grass                      was nature-flora-grass
+nature-flora-plant (eg cattail)
+nature-flora-tree-conifer
+nature-flora-tree-palm
+nature-flora-tree
+nature-flora-deadwood-bare                    new parent, holds branch
+nature-flora-deadwood-branch
+nature-flora-deadwood-stump
+nature-flora-deadwood
+nature-flora (eg cobweb, shelves)
+
+nature-fungi                                  answers mushroom
+
+nature-fauna-fish                             was nature-fauna-ocean
+nature-fauna-bone                             answers bones
+nature-fauna
+
+nature-terrain-rocks-mountain
+nature-terrain-rocks-formation
+nature-terrain-rocks-cliff
+nature-terrain-rocks-boulder
+nature-terrain-rocks-pebble
+nature-terrain-rocks
+nature-terrain-ground                         was path-dirt, path-stone,
+nature-terrain-water                          path, grass and beach
+nature-terrain-cave
+nature-terrain
+
+structure-building-access (stairs, ladders)   answers ladder
+structure-building-door
+structure-building-floor
+structure-building-roof
+structure-building-window
+structure-building-wall
+structure-building-pillar                     added
+structure-building
+
+structure-site-fence                          answers signs, flags, fences
+structure-site-sign
+structure-site-deck                           was structure-bridge and
+structure-site-grave                          structure-platforms
+structure-site
 
 character
 ```
 
 A model may sit in two of these at once (K3): an axe is `object-weapon-melee-axe` and
-`object-tool`, a knife is a tool and `kitchenware-tableware-cutlery`, a mushroom is
-`nature-fungi` and `object-food`.
+`object-tool`, a knife is a tool and `object-kitchenware-tableware-cutlery`, a mushroom
+is `nature-fungi` and `object-food`.
+
+## 4. Proposed, not agreed
+
+Observations from the catalogue that the PO has not ruled on. Nothing here is in the
+set above.
+
+- **Below the T5 gate today**, so they would open empty or near-empty: `melee-fist` (4),
+  `tableware-bowls` (4), `container-pan` (4), `deadwood-stump` (3), `rocks-cliff` (4),
+  `rocks-pebble` (4). `rocks-formation` matches no model at all.
+- **`nature-flora-tree` has no leaf for a leafed tree**, though 38 models are one.
+  Conifer and palm are named; the rest sit at the parent.
+- **`nature-flora (eg cobweb, shelves)`** — "shelves" is unread; shells? And a cobweb is
+  animal-made, not flora.
+- **`coconut`** was in the notes under palm; 4 models, so below the gate.
+- **A `fire` leaf under lighting** would take 8 models — campfires and braziers, which
+  are not candles, lanterns or torches.
