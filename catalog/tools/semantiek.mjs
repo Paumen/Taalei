@@ -131,6 +131,7 @@ const ASSEMBLIES = new Set([
   'restaurant/crate-steak', 'restaurant/crate-tomatoes', 'restaurant/food-dinner',
   'resources/textiles-stack-large',
   'village-kit/well-plaza',
+  'halloween/bench-decorated',
 ]);
 
 const FOOD = [
