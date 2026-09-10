@@ -179,14 +179,26 @@ function kitGegevens(slug) {
   for (const bestand of readdirSync(dir).filter((n) => n.endsWith('.glb'))) {
     const glb = readGlb(join(dir, bestand));
     const extras = glb.json.asset?.extras?.taaleiland ?? {};
+    const gemeten = measureScene(glb);
     modellen.push({
       naam: basename(bestand, '.glb'),
       bronmodel: extras.bronmodel ?? null,
-      driehoeken: measureScene(glb).triangles,
+      driehoeken: gemeten.triangles,
+      wdh: gemeten.wdh,
     });
     schaal ??= extras.schaal ?? null;
   }
   return { modellen, schaal, aantal: modellen.length };
+}
+
+// Two unrelated models can easily share a triangle count — a staff and a wall segment
+// both landed on 674 in the KayKit_Dungeon_Pack_1.0 case, which silently hid the staff
+// as "already in the catalogue". Requiring the bounding box to agree too (scaled to the
+// same units) turns that kind of coincidence into a rejection instead of a false match.
+const WDH_TOLERANCE = 0.05;
+
+function wdhMatches(a, b) {
+  return a.every((v, k) => Math.abs(v - b[k]) <= Math.max(WDH_TOLERANCE * Math.max(v, b[k]), 0.01));
 }
 
 // ─── writing a preview ───────────────────────────────────────────────────────────────
@@ -380,30 +392,49 @@ for (const bronkit of BRONKITS) {
     else rest.push(model);
   }
 
+  const schaal = kit.schaal ?? 1;
+
   const teGaan = new Map();
-  for (const { naam, driehoeken } of kit.modellen) {
+  for (const { naam, driehoeken, wdh } of kit.modellen) {
     if (geraakt.has(naam)) continue;
-    teGaan.set(driehoeken, (teGaan.get(driehoeken) ?? 0) + 1);
+    const kandidaten = teGaan.get(driehoeken) ?? [];
+    kandidaten.push({ naam, wdh });
+    teGaan.set(driehoeken, kandidaten);
   }
 
+  const gevonden = [];
   const ontbreekt = [];
   for (const model of rest) {
-    const open = teGaan.get(model.driehoeken) ?? 0;
-    if (open > 0) teGaan.set(model.driehoeken, open - 1);
-    else ontbreekt.push(model);
+    const kandidaten = teGaan.get(model.driehoeken) ?? [];
+    // model.wdh is raw [dx, dy, dz]; the catalogue side (measureScene) reports
+    // [width, depth, height] = [dx, dz, dy] — reorder before comparing axes.
+    const bronWdh = [model.wdh[0], model.wdh[2], model.wdh[1]].map((v) => v * schaal);
+    const index = kandidaten.findIndex((k) => wdhMatches(k.wdh, bronWdh));
+    if (index === -1) {
+      ontbreekt.push(model);
+      continue;
+    }
+    const [match] = kandidaten.splice(index, 1);
+    gevonden.push({ bron: model.naam, catalogus: match.naam, driehoeken: model.driehoeken });
   }
 
-  const onherkend = [...teGaan.values()].reduce((som, n) => som + n, 0);
+  const onherkend = [...teGaan.values()].reduce((som, arr) => som + arr.length, 0);
   if (onherkend) {
     waarschuwingen.push(
       `${bronkit.kit}: ${onherkend} of ${kit.aantal} workfiles match no model in ` +
-        `${bronkit.naam} by name or by triangle count — renamed and edited after import, so ` +
+        `${bronkit.naam} by name or by triangle count and size — renamed and edited after import, so ` +
         'that many source models are listed as missing while they may not be',
+    );
+  }
+  if (gevonden.length) {
+    waarschuwingen.push(
+      `${bronkit.kit}: ${gevonden.length} model(s) in ${bronkit.naam} matched a catalogue workfile ` +
+        'only by triangle count and size, not by name — verify these by hand:\n' +
+        gevonden.map((g) => `    ${g.bron} (${g.driehoeken} tris) -> ${g.catalogus}`).join('\n'),
     );
   }
 
   const uitvoerMap = join(DOEL_DIR, bronkit.map);
-  const schaal = kit.schaal ?? 1;
   const gekopieerd = new Map();
   const gebruikteNamen = new Set();
 
