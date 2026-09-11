@@ -146,8 +146,8 @@ const ironIs = ({ id, text, severity, want, kinds, unless = null }) => ({
 });
 
 // M66 is the fallback, so it owns every kind the rules above do not name.
-const CLAIMED = ['obj-weapon-melee', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool',
-  'obj-weapon-cannon', 'str', 'obj-kitchenware-cookware', 'char'];
+const CLAIMED = ['obj-weapon-melee', 'obj-weapon-ranged', 'obj-equipment', 'obj-kitchenware-tableware',
+  'obj-tool', 'obj-weapon-cannon', 'str', 'obj-kitchenware-cookware', 'char'];
 
 const jokerBand = new Map();
 
@@ -329,15 +329,15 @@ const RULES = [
   materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-beam', colors: ['wood dark'] }),
 
-  ironIs({ id: 'M62', text: 'obj-weapon-melee, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
+  ironIs({ id: 'M62', text: 'obj-weapon-melee, obj-weapon-ranged, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
     severity: 'warning', want: ['steel'],
-    kinds: ['obj-weapon-melee', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
+    kinds: ['obj-weapon-melee', 'obj-weapon-ranged', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
     unless: (m) => kindIs(m, 'obj-tool-supplies') }),
   ironIs({ id: 'M63', text: 'obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.',
     severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
   ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str kind with iron are metal-iron-cast.',
     severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
-  ironIs({ id: 'M65', text: 'obj-kitchenware-cookware takes both irons: a pot or cauldron is cast, a pan is steel.',
+  ironIs({ id: 'M65', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
     severity: 'warning', want: ['cast', 'steel'], kinds: ['obj-kitchenware-cookware'] }),
   ironIs({ id: 'M66', text: 'All other iron is metal-iron-wrought.',
     severity: 'warning', want: ['wrought'], kinds: ['obj', 'env', 'assy'],

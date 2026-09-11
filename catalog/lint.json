@@ -237,7 +237,7 @@
   },
   {
    "id": "M62",
-   "text": "obj-weapon-melee, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
+   "text": "obj-weapon-melee, obj-weapon-ranged, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
    "severity": "warning"
   },
   {
@@ -252,7 +252,7 @@
   },
   {
    "id": "M65",
-   "text": "obj-kitchenware-cookware takes both irons: a pot or cauldron is cast, a pan is steel.",
+   "text": "Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.",
    "severity": "warning"
   },
   {
@@ -892,7 +892,7 @@
    "rule": "M38",
    "severity": "error",
    "model": "survival-kit/structure-metal-roof",
-   "detail": "is a roof but carries metal-iron-cast",
+   "detail": "is a roof but carries metal-iron-wrought, metal-iron-cast",
    "joker": false
   },
   {
@@ -962,7 +962,7 @@
    "rule": "M39",
    "severity": "error",
    "model": "rpgtools/bucket-metal",
-   "detail": "is a container but carries metal-iron-wrought",
+   "detail": "is a container but carries metal-iron-steel, metal-iron-wrought",
    "joker": false
   },
   {
@@ -1473,7 +1473,7 @@
    "rule": "W2",
    "severity": "warning",
    "model": "weapons/arrow-a",
-   "detail": "dark grey 13,3 0.922",
+   "detail": "light grey 15,3 0.922",
    "joker": false
   }
  ]
