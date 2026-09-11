@@ -636,7 +636,7 @@ const output = {
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
   tags: tags.tags.map((t) => ({
-    id: t.id, name: t.name, type: t.type, description: t.description,
+    id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
     ...(t.color ? { color: t.color } : {}),
   })),
