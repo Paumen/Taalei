@@ -344,11 +344,17 @@ function cardUnder(x, y) {
   return document.elementFromPoint(x, y)?.closest('.kaart-houder[data-pad]');
 }
 
+// Pointer capture is what carries a drag from one card to the next, but it also takes the
+// click off the card, so the card's own handler never runs: the press itself has to select.
 panel.addEventListener('pointerdown', (e) => {
   if (!selectMode || e.button !== 0) return;
+  // the checkbox keeps its own click, capture and all
+  if (e.target.closest('.kaart-kies')) return;
   const holder = e.target.closest('.kaart-houder[data-pad]');
   if (!holder) return;
-  swipe = { on: !chosenPaths.has(holder.dataset.pad), done: new Set() };
+  const path = holder.dataset.pad;
+  swipe = { on: !chosenPaths.has(path), done: new Set([path]) };
+  setSelection(familyPerPath.get(path) ?? [path], swipe.on);
   panel.setPointerCapture(e.pointerId);
 });
 
@@ -698,28 +704,6 @@ const TAG_TYPES = [
 
 const kindBreadcrumb = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
 
-// The five fields of §7, kind and use first. The material ids carry the family
-// themselves — metal-iron, wood-planks — so the panel prints them as they stand.
-function tagRows(model) {
-  const own = (type) =>
-    (model.tags ?? []).filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
-
-  const uses = effectiveUses(model);
-  const rows = [
-    { kop: 'Kind', vol: 'What it is — Appendix B', waarde: kindBreadcrumb(effectiveKind(model, register.tags)) },
-    { kop: 'Use', vol: 'What it is for — U1', waarde: uses.length ? uses.join(', ') : '—' },
-  ];
-  for (const { type, head } of TAG_TYPES) {
-    const ids = own(type);
-    if (!ids.length) continue;
-    rows.push({
-      kop: head,
-      waarde: (type === 'material' ? ids : ids.map((id) => register.tags.get(id)?.name ?? id)).join(', '),
-    });
-  }
-  return rows;
-}
-
 function colorSwatches(colors) {
   if (!colors?.length) return null;
   const strip = document.createElement('div');
@@ -735,18 +719,8 @@ function colorSwatches(colors) {
   return strip;
 }
 
-function fillFacts(model, rows = null) {
+function fillFacts(rows) {
   const data = document.querySelector('#detail-gegevens');
-  if (!rows) {
-    rows = [...data.querySelectorAll('dt')].map((dt) => ({
-      kop: dt.textContent, vol: dt.title || undefined, breed: dt.className === 'breed',
-      element: dt.nextElementSibling.firstElementChild ?? null, waarde: dt.nextElementSibling.textContent,
-    }));
-    const fresh = new Map(tagRows(model).map((r) => [r.kop, r]));
-    rows = rows.filter((r) => !['Material', 'Tags'].includes(r.kop) || fresh.has(r.kop));
-    for (const r of rows) if (fresh.has(r.kop)) { r.waarde = fresh.get(r.kop).waarde; fresh.delete(r.kop); }
-    for (const r of fresh.values()) rows.push({ ...r, breed: true });
-  }
   data.replaceChildren();
   for (const { kop, vol, waarde, breed, element } of rows) {
     const name = document.createElement('dt');
@@ -809,9 +783,8 @@ function showDetail(model) {
       vol: 'Grid-modular / grounded / centered',
       waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
     },
-    ...tagRows(model).map((row) => ({ ...row, breed: true })),
   ];
-  fillFacts(model, rows);
+  fillFacts(rows);
 
   const download = document.querySelector('#detail-download');
   download.href = modelUrl(model.path);
@@ -858,7 +831,6 @@ function showDetail(model) {
     onChange: () => {
       document.querySelector('#detail-herkomst').textContent =
         `${kit?.name ?? model.kit} · ${kindBreadcrumb(effectiveKind(model, register.tags))}`;
-      fillFacts(model);
     },
   });
 

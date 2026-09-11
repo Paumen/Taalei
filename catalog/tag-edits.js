@@ -16,6 +16,9 @@ function load() {
 let edits = load();
 const listeners = [];
 
+// Material families opened by hand in the editor. Per-session view state, never an edit.
+const expanded = new Set();
+
 function save() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
@@ -138,11 +141,17 @@ const kindChain = (id) => {
   return chain;
 };
 
-function chip(text, pressed, title, action) {
+function chip(text, pressed, title, action, count) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'keuzechip';
-  button.textContent = text;
+  button.append(document.createTextNode(text));
+  if (count !== undefined) {
+    const n = document.createElement('span');
+    n.className = 'keuzechip-aantal';
+    n.textContent = count;
+    button.append(n);
+  }
   button.setAttribute('aria-pressed', String(pressed));
   if (title) button.title = title;
   button.addEventListener('click', action);
@@ -180,15 +189,67 @@ function renderKindPicker(panel, model, tagsById, redraw, onEdit) {
     row.dataset.diepte = String(depth);
     const chosen = chain[depth] ?? null;
     for (const tag of level) {
-      row.append(chip(tag.name, tag.id === chosen, tag.description, () => pick(tag.id)));
+      row.append(chip(tag.name, tag.id === chosen, tag.description, () => pick(tag.id), tag.count));
     }
     panel.append(row);
     level = chosen ? childrenOf(chosen) : [];
   }
 }
 
-// Renders the five fields as toggles: pressed means the model carries it. Kind as a
-// tree walk, use as its eight, then materials and the open tags. Rebuilds on every change.
+// Materials collapse to their families: 21 chips, with metal, wood and stone opening a
+// tray of subtypes. A family the model actually carries is open and has no caret — hiding
+// a pressed chip would be worse than the extra row.
+function renderMaterials(panel, model, tagsById, on, redraw, onEdit) {
+  const mats = [...tagsById.values()].filter((t) => t.type === 'material');
+  if (!mats.length) return;
+  heading(panel, 'Materials');
+
+  const row = document.createElement('div');
+  row.className = 'tagedit-chips';
+  const flip = (id) => { toggleTag(model, id); redraw(); onEdit?.(); };
+
+  for (const tag of mats.filter((t) => !t.parent)) {
+    const kids = mats.filter((k) => k.parent === tag.id);
+    const carried = kids.some((k) => on.has(k.id));
+    const open = kids.length > 0 && (carried || expanded.has(tag.id));
+    const button = chip(tag.name, on.has(tag.id), tag.description, () => flip(tag.id), tag.count);
+    row.append(button);
+    if (!kids.length) continue;
+
+    button.classList.toggle('keuzechip-ouder', open);
+    if (!carried) {
+      const caret = document.createElement('span');
+      caret.className = 'keuzechip-pijl';
+      caret.textContent = open ? '▾' : '▸';
+      caret.title = `${open ? 'Hide' : 'Show'} the ${tag.name.toLowerCase()} subtypes`;
+      caret.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (expanded.has(tag.id)) expanded.delete(tag.id);
+        else expanded.add(tag.id);
+        redraw();
+      });
+      button.append(caret);
+    }
+    if (!open) continue;
+
+    const tray = document.createElement('span');
+    tray.className = 'tagedit-bak';
+    for (const kid of kids) {
+      const sub = chip(kid.name, on.has(kid.id), kid.description, () => {
+        // keep the family open across the toggle, or the chip just clicked would vanish
+        expanded.add(tag.id);
+        flip(kid.id);
+      }, kid.count);
+      sub.classList.add('keuzechip-subtype');
+      tray.append(sub);
+    }
+    row.append(tray);
+  }
+  panel.append(row);
+}
+
+// Renders the five fields as toggles: pressed means the model carries it. Kind as a tree
+// walk, use as its eight, materials as families, then the open tags. Rebuilds on every change.
 export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
   container.replaceChildren();
   const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
@@ -199,10 +260,11 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
 
   renderKindPicker(panel, model, tagsById, redraw, onEdit);
 
-  const groups = [['use', 'Use'], ['material', 'Materials'], ['tag', 'Tags']];
-  for (const [type, label] of groups) {
+  // use and tag are short closed sets with no parents, so they stay flat
+  for (const [type, label] of [['use', 'Use'], ['tag', 'Tags']]) {
     const tags = [...tagsById.values()].filter((t) => (t.type ?? 'tag') === type);
     if (tags.length === 0) continue;
+    if (type === 'tag') renderMaterials(panel, model, tagsById, on, redraw, onEdit);
     heading(panel, label);
     const row = document.createElement('div');
     row.className = 'tagedit-chips';
@@ -211,7 +273,7 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
         toggleTag(model, tag.id);
         redraw();
         onEdit?.();
-      }));
+      }, tag.count));
     }
     panel.append(row);
   }

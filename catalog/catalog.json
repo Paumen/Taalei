@@ -3028,13 +3028,15 @@
    "id": "metal",
    "name": "Metal",
    "type": "material",
-   "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits."
+   "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
+   "count": 0
   },
   {
    "id": "metal-iron",
    "name": "Iron",
    "type": "material",
    "description": "Iron, steel and cast iron where it dominates or is the working part: tools, weapons, fittings, bars, grates, lanterns. Steel and cast iron may take blue-grey 6,1 (M12). A model may carry a second metal subtype for its trim.",
+   "count": 339,
    "parent": "metal"
   },
   {
@@ -3042,6 +3044,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0 (M13).",
+   "count": 60,
    "parent": "metal"
   },
   {
@@ -3049,6 +3052,7 @@
    "name": "Silver",
    "type": "material",
    "description": "Silver: bars, nuggets and their stacks, and blades that read as silver. Takes light blue-grey 3,2 (M13, C3).",
+   "count": 15,
    "parent": "metal"
   },
   {
@@ -3056,19 +3060,22 @@
    "name": "Copper",
    "type": "material",
    "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 (M14) and never shares a model with another metal subtype.",
+   "count": 9,
    "parent": "metal"
   },
   {
    "id": "wood",
    "name": "Wood",
    "type": "material",
-   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits."
+   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
+   "count": 4
   },
   {
    "id": "wood-planks",
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes wood light 0,0 (M42).",
+   "count": 156,
    "parent": "wood"
   },
   {
@@ -3076,6 +3083,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes wood middle 1,0 (M42).",
+   "count": 229,
    "parent": "wood"
   },
   {
@@ -3083,6 +3091,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes wood dark 2,0 (M42).",
+   "count": 336,
    "parent": "wood"
   },
   {
@@ -3090,6 +3099,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
+   "count": 28,
    "parent": "wood"
   },
   {
@@ -3097,19 +3107,22 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too (M7).",
+   "count": 111,
    "parent": "wood"
   },
   {
    "id": "stone",
    "name": "Stone",
    "type": "material",
-   "description": "Stone with no subtype named: use it only where neither masonry, rock nor soil fits."
+   "description": "Stone with no subtype named: use it only where neither masonry, rock nor soil fits.",
+   "count": 0
   },
   {
    "id": "stone-masonry",
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
+   "count": 174,
    "parent": "stone"
   },
   {
@@ -3117,6 +3130,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains. Hewn stone is stone-masonry.",
+   "count": 147,
    "parent": "stone"
   },
   {
@@ -3124,122 +3138,142 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose ground: sand and dirt patches, dirt floors and tiles. Laid paving is stone-masonry.",
+   "count": 8,
    "parent": "stone"
   },
   {
    "id": "paper",
    "name": "Paper",
    "type": "material",
-   "description": "Paper and parchment: books, scrolls, maps, open or closed."
+   "description": "Paper and parchment: books, scrolls, maps, open or closed.",
+   "count": 53
   },
   {
    "id": "textile",
    "name": "Textile",
    "type": "material",
-   "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather."
+   "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
+   "count": 134
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
-   "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles."
+   "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
+   "count": 60
   },
   {
    "id": "foliage",
    "name": "Foliage",
    "type": "material",
-   "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads. M2-M4 and C8 give it its band."
+   "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads. M2-M4 and C8 give it its band.",
+   "count": 114
   },
   {
    "id": "ceramic",
    "name": "Ceramic",
    "type": "material",
-   "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles."
+   "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
+   "count": 95
   },
   {
    "id": "bone",
    "name": "Bone",
    "type": "material",
-   "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat."
+   "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
+   "count": 54
   },
   {
    "id": "food",
    "name": "Food",
    "type": "material",
-   "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat."
+   "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
+   "count": 64
   },
   {
    "id": "wax",
    "name": "Wax",
    "type": "material",
-   "description": "Candle wax, lit or unlit, loose or on a holder."
+   "description": "Candle wax, lit or unlit, loose or on a holder.",
+   "count": 20
   },
   {
    "id": "glass",
    "name": "Glass",
    "type": "material",
-   "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses."
+   "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
+   "count": 80
   },
   {
    "id": "liquid",
    "name": "Liquid",
    "type": "material",
-   "description": "What a vessel visibly holds: the potion in a flask. Not the vessel itself."
+   "description": "What a vessel visibly holds: the potion in a flask. Not the vessel itself.",
+   "count": 20
   },
   {
    "id": "emissive",
    "name": "Emissive",
    "type": "material",
-   "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only."
+   "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
+   "count": 21
   },
   {
    "id": "rope",
    "name": "Rope",
    "type": "material",
-   "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes."
+   "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
+   "count": 41
   },
   {
    "id": "cork",
    "name": "Cork",
    "type": "material",
-   "description": "A cork stopper in a bottle or flask, or anything cut from cork."
+   "description": "A cork stopper in a bottle or flask, or anything cut from cork.",
+   "count": 54
   },
   {
    "id": "gemstone",
    "name": "Gemstone",
    "type": "material",
-   "description": "A cut stone set in jewellery or a hilt."
+   "description": "A cut stone set in jewellery or a hilt.",
+   "count": 24
   },
   {
    "id": "special",
    "name": "Special",
    "type": "material",
    "description": "A PO-approved joker: exempts one band on the model from one appendix A rule. The band and reason are recorded per model under reasons; a special without one is a finding.",
+   "count": 16,
    "po": true
   },
   {
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
-   "description": "Moulded plastic, dark red or yellow: the platformer kit's game pieces."
+   "description": "Moulded plastic, dark red or yellow: the platformer kit's game pieces.",
+   "count": 4
   },
   {
    "id": "vegetation",
    "name": "Vegetation",
    "type": "material",
-   "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain. M44 gives it its bands."
+   "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain. M44 gives it its bands.",
+   "count": 45
   },
   {
    "id": "skin",
    "name": "Skin",
    "type": "material",
-   "description": "Bare skin of a human figure: face, hands, arms. Skeletons are bone; sea creatures are fauna."
+   "description": "Bare skin of a human figure: face, hands, arms. Skeletons are bone; sea creatures are fauna.",
+   "count": 9
   },
   {
    "id": "obj",
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
+   "count": 657,
    "color": "#c07c8a"
   },
   {
@@ -3247,364 +3281,423 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
+   "count": 153,
    "color": "#dd9f79"
   },
   {
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
-   "description": "bag, sack, pouch, purse, backpack, satchel"
+   "description": "bag, sack, pouch, purse, backpack, satchel",
+   "count": 12
   },
   {
    "id": "obj-container-barrel",
    "name": "Barrel",
    "type": "kind",
-   "description": "barrel, cask, keg"
+   "description": "barrel, cask, keg",
+   "count": 14
   },
   {
    "id": "obj-container-bottle",
    "name": "Bottle",
    "type": "kind",
-   "description": "bottle, flask, vial, potion"
+   "description": "bottle, flask, vial, potion",
+   "count": 56
   },
   {
    "id": "obj-container-bucket",
    "name": "Bucket",
    "type": "kind",
-   "description": "bucket, pail"
+   "description": "bucket, pail",
+   "count": 6
   },
   {
    "id": "obj-container-chest",
    "name": "Chest",
    "type": "kind",
-   "description": "chest, trunk, coffer, strongbox"
+   "description": "chest, trunk, coffer, strongbox",
+   "count": 22
   },
   {
    "id": "obj-container-crate",
    "name": "Crate",
    "type": "kind",
-   "description": "crate, box, case"
+   "description": "crate, box, case",
+   "count": 13
   },
   {
    "id": "obj-container-jug",
    "name": "Jug",
    "type": "kind",
-   "description": "jug, pitcher, ewer"
+   "description": "jug, pitcher, ewer",
+   "count": 14
   },
   {
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot (storage), planter, vase, urn, amphora, jar"
+   "description": "pot (storage), planter, vase, urn, amphora, jar",
+   "count": 9
   },
   {
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
+   "count": 24,
    "color": "#6b5b95"
   },
   {
    "id": "obj-equipment-armor",
    "name": "Armor",
    "type": "kind",
-   "description": "helmet, chestplate, pauldron, greaves, gauntlet"
+   "description": "helmet, chestplate, pauldron, greaves, gauntlet",
+   "count": 2
   },
   {
    "id": "obj-equipment-clothing",
    "name": "Clothing",
    "type": "kind",
-   "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove"
+   "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
+   "count": 0
   },
   {
    "id": "obj-equipment-shield",
    "name": "Shield",
    "type": "kind",
-   "description": "shield, buckler"
+   "description": "shield, buckler",
+   "count": 15
   },
   {
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
+   "count": 60,
    "color": "#c25b4e"
   },
   {
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "bread, loaf, wheat sheaf, flour sack, cake, pie, donut, croissant, muffin, waffle, cookie, roll, cinnamon, baguette, slice, brownie"
+   "description": "bread, loaf, wheat sheaf, flour sack, cake, pie, donut, croissant, muffin, waffle, cookie, roll, cinnamon, baguette, slice, brownie",
+   "count": 35
   },
   {
    "id": "obj-food-meat",
    "name": "Meat",
    "type": "kind",
-   "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg"
+   "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
+   "count": 10
   },
   {
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato"
+   "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
+   "count": 5
   },
   {
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
    "description": "bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer",
+   "count": 47,
    "color": "#c07c8a"
   },
   {
    "id": "obj-furniture-seating",
    "name": "Seating",
    "type": "kind",
-   "description": "chair, stool, bench, throne"
+   "description": "chair, stool, bench, throne",
+   "count": 17
   },
   {
    "id": "obj-furniture-table",
    "name": "Table",
    "type": "kind",
-   "description": "table, desk, workbench"
+   "description": "table, desk, workbench",
+   "count": 14
   },
   {
    "id": "obj-kitchenware",
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
+   "count": 44,
    "color": "#9c3f2e"
   },
   {
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, ladle, cutting board"
+   "description": "grill, spit, ladle, cutting board",
+   "count": 15
   },
   {
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
-   "description": "pan, skillet"
+   "description": "pan, skillet",
+   "count": 4
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "cooking pot, cauldron, kettle, crockpot"
+   "description": "cooking pot, cauldron, kettle, crockpot",
+   "count": 9
   },
   {
    "id": "obj-kitchenware-tableware",
    "name": "Tableware",
    "type": "kind",
-   "description": "mug, cup, goblet, tankard, teapot, glass"
+   "description": "mug, cup, goblet, tankard, teapot, glass",
+   "count": 29
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
    "name": "Bowl",
    "type": "kind",
-   "description": "bowl"
+   "description": "bowl",
+   "count": 3
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
    "name": "Cutlery",
    "type": "kind",
-   "description": "knife (table), fork, spoon"
+   "description": "knife (table), fork, spoon",
+   "count": 7
   },
   {
    "id": "obj-kitchenware-tableware-plate",
    "name": "Plate",
    "type": "kind",
-   "description": "plate, dish, platter, tray, saucer"
+   "description": "plate, dish, platter, tray, saucer",
+   "count": 14
   },
   {
    "id": "obj-lighting",
    "name": "Lighting",
    "type": "kind",
    "description": "campfire, chandelier, streetlight",
+   "count": 28,
    "color": "#f2cb45"
   },
   {
    "id": "obj-lighting-candle",
    "name": "Candle",
    "type": "kind",
-   "description": "candle, candlestick, candelabra"
+   "description": "candle, candlestick, candelabra",
+   "count": 10
   },
   {
    "id": "obj-lighting-lantern",
    "name": "Lantern",
    "type": "kind",
-   "description": "lantern, lamp"
+   "description": "lantern, lamp",
+   "count": 8
   },
   {
    "id": "obj-lighting-torch",
    "name": "Torch",
    "type": "kind",
-   "description": "torch, brazier"
+   "description": "torch, brazier",
+   "count": 6
   },
   {
    "id": "obj-pocketitem",
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
+   "count": 55,
    "color": "#f1976c"
   },
   {
    "id": "obj-pocketitem-book",
    "name": "Book",
    "type": "kind",
-   "description": "book, tome, journal"
+   "description": "book, tome, journal",
+   "count": 21
   },
   {
    "id": "obj-pocketitem-coin",
    "name": "Coin",
    "type": "kind",
-   "description": "coin, gold pile, gem (cut)"
+   "description": "coin, gold pile, gem (cut)",
+   "count": 14
   },
   {
    "id": "obj-pocketitem-key",
    "name": "Key",
    "type": "kind",
-   "description": "key"
+   "description": "key",
+   "count": 9
   },
   {
    "id": "obj-pocketitem-scroll",
    "name": "Scroll",
    "type": "kind",
-   "description": "scroll, letter, map (rolled), parchment, blueprint"
+   "description": "scroll, letter, map (rolled), parchment, blueprint",
+   "count": 8
   },
   {
    "id": "obj-tool",
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, anvil, grindstone",
+   "count": 53,
    "color": "#6d738a"
   },
   {
    "id": "obj-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush"
+   "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush",
+   "count": 26
   },
   {
    "id": "obj-tool-long",
    "name": "Long",
    "type": "kind",
-   "description": "shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)"
+   "description": "shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)",
+   "count": 7
   },
   {
    "id": "obj-tool-supplies",
    "name": "Supplies",
    "type": "kind",
-   "description": "screw, nail, bolt, rope, chain, hook, wire"
+   "description": "screw, nail, bolt, rope, chain, hook, wire",
+   "count": 10
   },
   {
    "id": "obj-transport",
    "name": "Transport",
    "type": "kind",
    "description": "saddle, balloon",
+   "count": 32,
    "color": "#5a7a9c"
   },
   {
    "id": "obj-transport-accessory",
    "name": "Accessory",
    "type": "kind",
-   "description": "anchor, paddle, oar, wheel, sail, rudder, mast"
+   "description": "anchor, paddle, oar, wheel, sail, rudder, mast",
+   "count": 4
   },
   {
    "id": "obj-transport-boat",
    "name": "Boat",
    "type": "kind",
-   "description": "boat, rowboat, canoe, raft, dinghy"
+   "description": "boat, rowboat, canoe, raft, dinghy",
+   "count": 10
   },
   {
    "id": "obj-transport-cart",
    "name": "Cart",
    "type": "kind",
-   "description": "cart, wagon, carriage, wheelbarrow, sled"
+   "description": "cart, wagon, carriage, wheelbarrow, sled",
+   "count": 4
   },
   {
    "id": "obj-transport-ship",
    "name": "Ship",
    "type": "kind",
-   "description": "ship, galleon, longship, hull (ship)"
+   "description": "ship, galleon, longship, hull (ship)",
+   "count": 11
   },
   {
    "id": "obj-weapon",
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits (K2).",
+   "count": 97,
    "color": "#4c5468"
   },
   {
    "id": "obj-weapon-magic",
    "name": "Magic",
    "type": "kind",
-   "description": "wand, orb, tome (weapon), spell book"
+   "description": "wand, orb, tome (weapon), spell book",
+   "count": 15
   },
   {
    "id": "obj-weapon-magic-staff",
    "name": "Staff",
    "type": "kind",
-   "description": "staff, wizard staff"
+   "description": "staff, wizard staff",
+   "count": 9
   },
   {
    "id": "obj-weapon-melee",
    "name": "Melee",
    "type": "kind",
-   "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade"
+   "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade",
+   "count": 46
   },
   {
    "id": "obj-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
-   "description": "axe, hatchet, battleaxe"
+   "description": "axe, hatchet, battleaxe",
+   "count": 12
   },
   {
    "id": "obj-weapon-melee-dagger",
    "name": "Dagger",
    "type": "kind",
-   "description": "dagger, knife (combat)"
+   "description": "dagger, knife (combat)",
+   "count": 6
   },
   {
    "id": "obj-weapon-melee-hammer",
    "name": "Hammer",
    "type": "kind",
-   "description": "hammer (war), mace, club, flail"
+   "description": "hammer (war), mace, club, flail",
+   "count": 6
   },
   {
    "id": "obj-weapon-melee-sword",
    "name": "Sword",
    "type": "kind",
-   "description": "sword, blade, rapier, scimitar, katana"
+   "description": "sword, blade, rapier, scimitar, katana",
+   "count": 16
   },
   {
    "id": "obj-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
-   "description": "sling, throwing knife, javelin"
+   "description": "sling, throwing knife, javelin",
+   "count": 33
   },
   {
    "id": "obj-weapon-ranged-accessory",
    "name": "Accessory",
    "type": "kind",
-   "description": "arrow, bolt, quiver"
+   "description": "arrow, bolt, quiver",
+   "count": 16
   },
   {
    "id": "obj-weapon-ranged-bow",
    "name": "Bow",
    "type": "kind",
-   "description": "bow, longbow"
+   "description": "bow, longbow",
+   "count": 9
   },
   {
    "id": "obj-weapon-ranged-crossbow",
    "name": "Crossbow",
    "type": "kind",
-   "description": "crossbow"
+   "description": "crossbow",
+   "count": 8
   },
   {
    "id": "char",
    "name": "Character",
    "type": "kind",
    "description": "playable, npc, skeleton (rigged), animal (rigged)",
+   "count": 15,
    "color": "#8a6fb0"
   },
   {
@@ -3612,6 +3705,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
+   "count": 375,
    "color": "#6cb588"
   },
   {
@@ -3619,6 +3713,7 @@
    "name": "Fauna",
    "type": "kind",
    "description": "fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
+   "count": 22,
    "color": "#3e8fd0"
   },
   {
@@ -3626,73 +3721,85 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits (K2).",
+   "count": 169,
    "color": "#6cb588"
   },
   {
    "id": "env-flora-deadwood",
    "name": "Deadwood",
    "type": "kind",
-   "description": "dead tree, fallen tree, root"
+   "description": "dead tree, fallen tree, root",
+   "count": 72
   },
   {
    "id": "env-flora-deadwood-branch",
    "name": "Branch",
    "type": "kind",
-   "description": "branch, twig, log, driftwood"
+   "description": "branch, twig, log, driftwood",
+   "count": 28
   },
   {
    "id": "env-flora-deadwood-stump",
    "name": "Stump",
    "type": "kind",
-   "description": "stump"
+   "description": "stump",
+   "count": 3
   },
   {
    "id": "env-flora-plant",
    "name": "Plant",
    "type": "kind",
-   "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad"
+   "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
+   "count": 59
   },
   {
    "id": "env-flora-plant-cactus",
    "name": "Cactus",
    "type": "kind",
-   "description": "cactus, succulent"
+   "description": "cactus, succulent",
+   "count": 8
   },
   {
    "id": "env-flora-plant-flower",
    "name": "Flower",
    "type": "kind",
-   "description": "flower, tulip, rose, sunflower, bellflower, daisy, lily, violet"
+   "description": "flower, tulip, rose, sunflower, bellflower, daisy, lily, violet",
+   "count": 21
   },
   {
    "id": "env-flora-plant-grass",
    "name": "Grass",
    "type": "kind",
-   "description": "grass, grass tuft, reed"
+   "description": "grass, grass tuft, reed",
+   "count": 21
   },
   {
    "id": "env-flora-tree",
    "name": "Tree",
    "type": "kind",
-   "description": "tree, oak, birch, willow, bush (tree-sized)"
+   "description": "tree, oak, birch, willow, bush (tree-sized)",
+   "count": 38
   },
   {
    "id": "env-flora-tree-conifer",
    "name": "Conifer",
    "type": "kind",
-   "description": "conifer, pine, spruce, fir"
+   "description": "conifer, pine, spruce, fir",
+   "count": 17
   },
   {
    "id": "env-flora-tree-palm",
    "name": "Palm",
    "type": "kind",
-   "description": "palm"
+   "description": "palm",
+   "count": 14
   },
   {
    "id": "env-fungi",
    "name": "Fungi",
    "type": "kind",
    "description": "mushroom, toadstool, fungus, lichen",
+   "count": 6,
    "color": "#e08fb0"
   },
   {
@@ -3700,63 +3807,73 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
+   "count": 19,
    "color": "#cfc6ad"
   },
   {
    "id": "env-remains-bones",
    "name": "Bones",
    "type": "kind",
-   "description": "bone, skull, skeleton (prop), ribcage, carcass"
+   "description": "bone, skull, skeleton (prop), ribcage, carcass",
+   "count": 19
   },
   {
    "id": "env-rock",
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
+   "count": 140,
    "color": "#9da4c4"
   },
   {
    "id": "env-rock-boulder",
    "name": "Boulder",
    "type": "kind",
-   "description": "boulder, rock (large)"
+   "description": "boulder, rock (large)",
+   "count": 92
   },
   {
    "id": "env-rock-formation",
    "name": "Formation",
    "type": "kind",
-   "description": "arch (rock), monolith, spire, cliff, outcrop"
+   "description": "arch (rock), monolith, spire, cliff, outcrop",
+   "count": 13
   },
   {
    "id": "env-rock-pebble",
    "name": "Pebble",
    "type": "kind",
-   "description": "pebble, stone (small), gravel"
+   "description": "pebble, stone (small), gravel",
+   "count": 35
   },
   {
    "id": "env-terrain",
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
+   "count": 17,
    "color": "#8a5d4b"
   },
   {
    "id": "env-terrain-ground",
    "name": "Ground",
    "type": "kind",
-   "description": "ground, dirt path, stone path, sand, snow patch"
+   "description": "ground, dirt path, stone path, sand, snow patch",
+   "count": 10
   },
   {
    "id": "env-terrain-mountain",
    "name": "Mountain",
    "type": "kind",
-   "description": "mountain, hill, mesa, volcano"
+   "description": "mountain, hill, mesa, volcano",
+   "count": 7
   },
   {
    "id": "env-water",
    "name": "Water",
    "type": "kind",
    "description": "water, pond, wave, waterfall, ice, pool, lake",
+   "count": 0,
    "color": "#4fa3c7"
   },
   {
@@ -3764,6 +3881,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "well, fountain, gallows, waterwheel, mine entrance, fireplace",
+   "count": 461,
    "color": "#877a63"
   },
   {
@@ -3771,137 +3889,159 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits (K2).",
+   "count": 31,
    "color": "#c98a5a"
   },
   {
    "id": "str-access-bridge",
    "name": "Bridge",
    "type": "kind",
-   "description": "bridge, plank (crossing), rope bridge"
+   "description": "bridge, plank (crossing), rope bridge",
+   "count": 1
   },
   {
    "id": "str-access-ladder",
    "name": "Ladder",
    "type": "kind",
-   "description": "ladder"
+   "description": "ladder",
+   "count": 7
   },
   {
    "id": "str-access-stairs",
    "name": "Stairs",
    "type": "kind",
-   "description": "stairs, steps, ramp"
+   "description": "stairs, steps, ramp",
+   "count": 23
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
+   "count": 48,
    "color": "#b08968"
   },
   {
    "id": "str-barrier-fence",
    "name": "Fence",
    "type": "kind",
-   "description": "fence, fence segment, railing, palisade, gate (fence)"
+   "description": "fence, fence segment, railing, palisade, gate (fence)",
+   "count": 44
   },
   {
    "id": "str-barrier-post",
    "name": "Post",
    "type": "kind",
-   "description": "post, bollard, stake"
+   "description": "post, bollard, stake",
+   "count": 4
   },
   {
    "id": "str-building",
    "name": "Building",
    "type": "kind",
    "description": "house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill",
+   "count": 313,
    "color": "#a8762a"
   },
   {
    "id": "str-building-door",
    "name": "Door",
    "type": "kind",
-   "description": "door, gate (building), hatch"
+   "description": "door, gate (building), hatch",
+   "count": 30
   },
   {
    "id": "str-building-floor",
    "name": "Floor",
    "type": "kind",
-   "description": "floor, floor tile, ceiling"
+   "description": "floor, floor tile, ceiling",
+   "count": 76
   },
   {
    "id": "str-building-pillar",
    "name": "Pillar",
    "type": "kind",
-   "description": "pillar, column, beam, support"
+   "description": "pillar, column, beam, support",
+   "count": 13
   },
   {
    "id": "str-building-roof",
    "name": "Roof",
    "type": "kind",
-   "description": "roof, roof tile, chimney, gable"
+   "description": "roof, roof tile, chimney, gable",
+   "count": 44
   },
   {
    "id": "str-building-wall",
    "name": "Wall",
    "type": "kind",
-   "description": "wall, wall segment, arch (building), corner"
+   "description": "wall, wall segment, arch (building), corner",
+   "count": 83
   },
   {
    "id": "str-building-window",
    "name": "Window",
    "type": "kind",
-   "description": "window, shutter"
+   "description": "window, shutter",
+   "count": 25
   },
   {
    "id": "str-marker",
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
+   "count": 33,
    "color": "#ffb349"
   },
   {
    "id": "str-marker-flag",
    "name": "Flag",
    "type": "kind",
-   "description": "flag, banner, pennant"
+   "description": "flag, banner, pennant",
+   "count": 10
   },
   {
    "id": "str-marker-sign",
    "name": "Sign",
    "type": "kind",
-   "description": "sign, signpost, notice board, direction arrow"
+   "description": "sign, signpost, notice board, direction arrow",
+   "count": 5
   },
   {
    "id": "str-marker-tombstone",
    "name": "Tombstone",
    "type": "kind",
-   "description": "tombstone, gravestone, cross (grave), memorial"
+   "description": "tombstone, gravestone, cross (grave), memorial",
+   "count": 18
   },
   {
    "id": "str-platform",
    "name": "Platform",
    "type": "kind",
    "description": "stage, altar, plinth, pedestal",
+   "count": 23,
    "color": "#877a63"
   },
   {
    "id": "str-platform-deck",
    "name": "Deck",
    "type": "kind",
-   "description": "deck, boardwalk, scaffold"
+   "description": "deck, boardwalk, scaffold",
+   "count": 21
   },
   {
    "id": "str-platform-dock",
    "name": "Dock",
    "type": "kind",
-   "description": "dock, pier, jetty"
+   "description": "dock, pier, jetty",
+   "count": 0
   },
   {
    "id": "assy",
    "name": "Assembly",
    "type": "kind",
    "description": "several distinct things, one top-level",
+   "count": 52,
    "color": "#b5651d"
   },
   {
@@ -3909,152 +4049,177 @@
    "name": "Scene",
    "type": "kind",
    "description": "crosses env / str / obj",
+   "count": 0,
    "color": "#6f7f8f"
   },
   {
    "id": "use:container",
    "name": "Container",
    "type": "use",
-   "description": "You put something in it."
+   "description": "You put something in it.",
+   "count": 158
   },
   {
    "id": "use:food",
    "name": "Food",
    "type": "use",
-   "description": "You eat it."
+   "description": "You eat it.",
+   "count": 71
   },
   {
    "id": "use:weapon",
    "name": "Weapon",
    "type": "use",
-   "description": "You fight with it."
+   "description": "You fight with it.",
+   "count": 112
   },
   {
    "id": "use:tool",
    "name": "Tool",
    "type": "use",
-   "description": "You work with it."
+   "description": "You work with it.",
+   "count": 67
   },
   {
    "id": "use:wearable",
    "name": "Wearable",
    "type": "use",
-   "description": "You wear it."
+   "description": "You wear it.",
+   "count": 17
   },
   {
    "id": "use:decor",
    "name": "Decor",
    "type": "use",
-   "description": "It is there to be looked at."
+   "description": "It is there to be looked at.",
+   "count": 0
   },
   {
    "id": "use:transport",
    "name": "Transport",
    "type": "use",
-   "description": "It moves things or people."
+   "description": "It moves things or people.",
+   "count": 32
   },
   {
    "id": "use:light",
    "name": "Light",
    "type": "use",
-   "description": "It gives light."
+   "description": "It gives light.",
+   "count": 41
   },
   {
    "id": "decorated",
    "name": "Decorated food",
    "type": "tag",
-   "description": "Food finished on top rather than left plain: icing, sprinkles, cream, fruit or candles. N3 and N4 allow it more bands."
+   "description": "Food finished on top rather than left plain: icing, sprinkles, cream, fruit or candles. N3 and N4 allow it more bands.",
+   "count": 15
   },
   {
    "id": "pirate",
    "name": "Pirate",
    "type": "tag",
-   "description": "Pirate-themed props and scenery from any kit: ships, boats, cannons, flags, treasure, palms, the pirate crew."
+   "description": "Pirate-themed props and scenery from any kit: ships, boats, cannons, flags, treasure, palms, the pirate crew.",
+   "count": 79
   },
   {
    "id": "halloween",
    "name": "Halloween",
    "type": "tag",
-   "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone."
+   "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
+   "count": 254
   },
   {
    "id": "robin-hood",
    "name": "Robin Hood",
    "type": "tag",
-   "description": "A Sherwood archer's camp: rangers and rogues, bows and arrows, campfires, logs, tents, forest props."
+   "description": "A Sherwood archer's camp: rangers and rogues, bows and arrows, campfires, logs, tents, forest props.",
+   "count": 93
   },
   {
    "id": "ngons",
    "name": "Ngons",
    "type": "tag",
-   "description": "Built around a round cross-section: bowls, plates, pots, mugs, coins, rings, candles, barrels, buckets, logs, wheels, masts. Rule §2 counts their facets."
+   "description": "Built around a round cross-section: bowls, plates, pots, mugs, coins, rings, candles, barrels, buckets, logs, wheels, masts. Rule §2 counts their facets.",
+   "count": 240
   },
   {
    "id": "hero",
    "name": "Hero",
    "type": "tag",
    "description": "A larger set piece built to stand out: houses, ships, the balloon, the lighthouse, the well, the waterwheel, the compass.",
+   "count": 53,
    "po": true
   },
   {
    "id": "plural",
    "name": "Plural",
    "type": "tag",
-   "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4)."
+   "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
+   "count": 54
   },
   {
    "id": "s",
    "name": "Small",
    "type": "size",
-   "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 805
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
-   "description": "Longest axis from half to one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Longest axis from half to one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 635
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
-   "description": "Longest axis over one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Longest axis over one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 120
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "tag",
-   "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 253
   },
   {
    "id": "kay",
    "name": "KayKit",
    "type": "tag",
-   "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 657
   },
   {
    "id": "qua",
    "name": "Quaternius",
    "type": "tag",
-   "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 218
   },
   {
    "id": "own",
    "name": "Taalei",
    "type": "tag",
-   "description": "Kits made or assembled for Taalei itself, on the shared colormap. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Kits made or assembled for Taalei itself, on the shared colormap. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 386
   },
   {
    "id": "animation",
    "name": "Animation",
    "type": "tag",
-   "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 41
   },
   {
    "id": "modular",
    "name": "Modular",
    "type": "tag",
-   "description": "Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit. Derived from the models themselves, so not tracked in catalog/tags.json."
+   "description": "Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 228
   }
  ],
  "models": [

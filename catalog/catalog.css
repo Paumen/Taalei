@@ -1154,6 +1154,14 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   overflow-y: auto;
 }
 
+/* In the dialog the side column already scrolls, so a box of its own would be a scroller
+   inside a scroller — and a short one hides the materials behind the kind picker. On a
+   swipe card there is no outer scroll, so there the box stays. */
+.detail-info .tagedit-toggles {
+  max-height: none;
+  overflow: visible;
+}
+
 .tagedit-groep {
   margin: 8px 0 4px;
   color: var(--inkt-zacht);
@@ -1171,6 +1179,48 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 .tagedit-niveau[data-diepte="2"] { --diepte: 2; }
 .tagedit-niveau[data-diepte="3"] { --diepte: 3; }
 .tagedit-niveau .keuzechip { min-height: 26px; padding: 3px 9px; font-size: 11.5px; }
+
+/* Material families in the editor. The filter row hangs its tray off the parent chip on
+   the same line; here a family is up to five chips wide, so it takes a row of its own,
+   indented under the parent — which also lets it wrap instead of running off the panel. */
+.tagedit-bak {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 1px 0 3px 14px;
+  padding: 4px 9px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 999px 999px 0;
+  background: color-mix(in srgb, var(--accent) 10%, var(--kaart));
+}
+
+.keuzechip-ouder { border-color: var(--accent); }
+
+.keuzechip-subtype {
+  min-height: 26px;
+  padding: 3px 9px;
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--lijn));
+  background: var(--papier);
+  font-size: 11.5px;
+}
+
+.keuzechip-pijl {
+  margin-left: 1px;
+  color: var(--inkt-zacht);
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.keuzechip[aria-pressed="true"] .keuzechip-pijl { color: var(--papier); }
+
+.keuzechip-aantal {
+  color: var(--inkt-zacht);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.keuzechip[aria-pressed="true"] .keuzechip-aantal { color: color-mix(in srgb, var(--papier) 75%, transparent); }
 
 .tagedit-balk {
   position: fixed;
