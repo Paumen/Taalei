@@ -1,7 +1,7 @@
 # Asset style guide
 
 For an LLM creating or adjusting assets.
-Scope: items in catalog.
+Scope: items in catalog, and how they are tagged.
 
 ## 0. Look
 
@@ -44,11 +44,56 @@ Scope: items in catalog.
 - Default on Y = 0; pivot at footprint centre in X/Z.
 - Deviate deliberately, for a functional reason.
 - Split nodes put their origin at the joint.
-- Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
+- **G1.** Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
 
 ## 6. Reference Assets
 - Render and look at the reference assets before creating a new asset — reading them is not enough.
 - When validating, render at least two reference assets from same group beside the new one at the same scale.
+
+## 7. Tagging
+
+| field | job | set | who |
+|---|---|---|---|
+| `material` | what it is **made of** | closed, 33, parented | Claude, linted |
+| `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** | Claude via glossary, PO reviews |
+| `use` | what it is **for** — where you'd look | closed, small, zero or more | Claude, PO reviews |
+| `size` | rough bbox: `s` `m` `l` | measured | automated |
+| `tag` | kit/artist, theme, flags, candidate kinds | open | mixed |
+
+### T. Fields
+
+- **T1.** `kind`, `material` and `use` are closed sets.
+- **T2.** Kind is form (what peers it's compared against). Material is substance. Use is function.
+- **T3.** A kind leaf may carry its material's name: `env-remains-bones` beside material `bone`.
+- **T4.** A kind implies its parents.
+- **T5.** A new leaf needs at least 6 models, variants included. An existing leaf is not retired for dropping below.
+- **T6.** Artist tags are derived from the kit, and only for artists of which several kits are adopted in catalog.
+
+### K. Kind
+
+- **K1.** Exactly one kind per model. `assy` and `scene` are kinds.
+- **K2.** Tag the deepest leaf that fits. The parent is the "other" level; never add `-other` leaves.
+- **K3.** Tie-breaker: when two kinds fit, pick the one whose lint rules you want applied. A leather bag is `obj-container-bag`, not `obj-equipment`.
+- **K4.** `assy` = distinct things in one top-level (table + mugs); `scene` crosses them (house + tree). A dual-function axe is one kind, two uses.
+- **K5.** Ground mesh → `env-terrain`; placed body → `env-rock`. A cobbled path is terrain; a cliff prop is `env-rock-formation`.
+- **K6.** `env-fauna` = ambient/prop creature; `char` = rigged or acting.
+- **K7.** Kit of origin never decides kind. A mushroom from a food kit is `env-fungi`.
+- **K8.** Appendix B is the glossary. Every common noun resolves to exactly one kind. Resolve against it before tagging.
+- **K9.** Style rules attach to kind. A leaf with fewer than 6 models inherits its parent's rules; sparse leaves get no hand-written rules.
+
+### U. Use
+
+- **U1.** Set: `container` `food` `weapon` `tool` `wearable` `decor` `transport` `light`.
+- **U2.** Use is for browsing and retrieval only. Lint and normalization ignore it.
+- **U3.** A use is not implied by kind; tag it explicitly. `obj-container-*` models still carry `use:container`.
+- **U4.** Catalogue search and LLM asset lookup always query kind and use together.
+
+### F. Flags
+
+- **F1.** `size` is measured, never hand-set.
+- **F2.** `animation` is measured. `ngons` and `hero` are judged.
+- **F3.** `ngons` marks a round cross-section — the form §2 counts facets on.
+- **F4.** `plural` is several instances of one thing in one model. It replaces the `stacks` tag, which is removed.
 
 ## Appendix A: Material and colour rules
 
@@ -66,10 +111,12 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
   finding, whatever the first one was.
 - **S3.** Spent on N4 it lifts the ceiling by one; every other band still answers
   to M and C. N2 and N3 do not count the joker as a material.
-- **S5.** N3 leaves the joker's band out of its count; N2 keeps it. That band is
-  the one the reason on the tag names.
 - **S4.** Only the PO assigns the tag. A `special` records which band it covers
   and why; one without a stated reason is a finding on the tag.
+- **S5.** N3 leaves the joker's band out of its count; N2 keeps it. That band is
+  the one the reason on the tag names.
+- **S6.** `hero` is the PO's alone, like `special` (S4). Claude proposes `hero` when adding to the catalogue.
+- **S7.** Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
 
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
@@ -171,3 +218,151 @@ wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
 
 - **W1.** Every wood gradient band spreads over at least 0.03 L.
 - **W2.** No band spreads over more than 0.90 of its cell, light end to dark end.
+
+## Appendix B: Kind tree + glossary
+
+`obj` = manufactured/portable thing · `env` = naturally occurring thing ·
+`str` = constructed part of the world · `char` = living or acting entity
+
+Format: `kind — nouns that resolve here`. Parent lines list nouns that have no
+leaf yet (see K2).
+
+```
+obj-container-jug — jug, pitcher, ewer
+obj-container-chest — chest, trunk, coffer, strongbox
+obj-container-barrel — barrel, cask, keg
+obj-container-bucket — bucket, pail
+obj-container-crate — crate, box, case
+obj-container-bottle — bottle, flask, vial, potion
+obj-container-bag — bag, sack, pouch, purse, backpack, satchel
+obj-container-pot — pot (storage), planter, vase, urn, amphora, jar
+obj-container — basket, tub, trough, bin, can, coffin
+
+obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
+obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer
+obj-kitchenware-tableware-bowl — bowl
+obj-kitchenware-tableware — mug, cup, goblet, tankard, teapot, glass
+obj-kitchenware-cookware-pan — pan, skillet
+obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
+obj-kitchenware-cookware — grill, spit, ladle, cutting board
+obj-kitchenware
+
+obj-furniture-table — table, desk, workbench
+obj-furniture-seating — chair, stool, bench, throne
+obj-furniture — bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer
+
+obj-food-meat — meat, ham, sausage, drumstick, steak, burger, roast, leg
+obj-food-vegetable — carrot, cabbage, pumpkin, turnip, onion, potato, tomato
+obj-food-grain — bread, loaf, wheat sheaf, flour sack, cake, pie, donut, croissant, muffin, waffle, cookie, roll, cinnamon, baguette, slice, brownie
+obj-food — fish (as food), fruit, apple, cheese, egg, honey, coconut
+
+obj-weapon-melee-sword — sword, blade, rapier, scimitar, katana
+obj-weapon-melee-dagger — dagger, knife (combat)
+obj-weapon-melee-axe — axe, hatchet, battleaxe
+obj-weapon-melee-hammer — hammer (war), mace, club, flail
+obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade
+
+obj-weapon-ranged-bow — bow, longbow
+obj-weapon-ranged-crossbow — crossbow
+obj-weapon-ranged-accessory — arrow, bolt, quiver
+obj-weapon-ranged — sling, throwing knife, javelin
+
+obj-weapon-magic-staff — staff, wizard staff
+obj-weapon-magic — wand, orb, tome (weapon), spell book
+
+obj-weapon
+
+obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
+obj-equipment-shield — shield, buckler
+obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
+obj-equipment — ring, necklace, amulet, bracelet, crown, goggles, earring
+
+obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
+obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
+obj-tool-supplies — screw, nail, bolt, rope, chain, hook, wire
+obj-tool — lever, spring, gear, pulley, anvil, grindstone
+
+obj-transport-ship — ship, galleon, longship, hull (ship)
+obj-transport-boat — boat, rowboat, canoe, raft, dinghy
+obj-transport-cart — cart, wagon, carriage, wheelbarrow, sled
+obj-transport-accessory — anchor, paddle, oar, wheel, sail, rudder, mast
+obj-transport — saddle, balloon
+
+obj-lighting-lantern — lantern, lamp
+obj-lighting-torch — torch, brazier
+obj-lighting-candle — candle, candlestick, candelabra
+obj-lighting — campfire, chandelier, streetlight
+
+obj-pocketitem-coin — coin, gold pile, gem (cut)
+obj-pocketitem-key — key
+obj-pocketitem-book — book, tome, journal
+obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
+obj-pocketitem — compass, hourglass, dice, mirror (hand)
+
+obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
+
+str-building-door — door, gate (building), hatch
+str-building-floor — floor, floor tile, ceiling
+str-building-roof — roof, roof tile, chimney, gable
+str-building-window — window, shutter
+str-building-wall — wall, wall segment, arch (building), corner
+str-building-pillar — pillar, column, beam, support
+str-building — house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill
+
+str-platform-deck — deck, boardwalk, scaffold
+str-platform-dock — dock, pier, jetty
+str-platform — stage, altar, plinth, pedestal
+
+str-barrier-fence — fence, fence segment, railing, palisade, gate (fence)
+str-barrier-post — post, bollard, stake
+str-barrier — wall (low, garden), hedge (trimmed), barricade
+
+str-access-stairs — stairs, steps, ramp
+str-access-ladder — ladder
+str-access-bridge — bridge, plank (crossing), rope bridge
+str-access
+
+str-marker-sign — sign, signpost, notice board, direction arrow
+str-marker-flag — flag, banner, pennant
+str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
+str-marker — milestone, waystone, totem
+
+str — well, fountain, gallows, waterwheel, mine entrance, fireplace
+
+env-flora-plant-cactus — cactus, succulent
+env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet
+env-flora-plant-grass — grass, grass tuft, reed
+env-flora-plant — cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad
+
+env-flora-tree-conifer — conifer, pine, spruce, fir
+env-flora-tree-palm — palm
+env-flora-tree — tree, oak, birch, willow, bush (tree-sized)
+
+env-flora-deadwood-stump — stump
+env-flora-deadwood-branch — branch, twig, log, driftwood
+env-flora-deadwood — dead tree, fallen tree, root
+
+env-fungi — mushroom, toadstool, fungus, lichen
+
+env-fauna — fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail
+
+env-remains-bones — bone, skull, skeleton (prop), ribcage, carcas
+env-remains — shell, egg (wild), nest, feather
+
+env-rock-formation — arch (rock), monolith, spire, cliff, out crop
+env-rock-boulder — boulder, rock (large)
+env-rock-pebble — pebble, stone (small), gravel
+env-rock — crystal, ore (in rock), stalagmite
+
+env-terrain-mountain — mountain, hill, mesa, volcano
+env-terrain-ground — ground, dirt path, stone path, sand, snow patch
+env-terrain — island base, cave floor, riverbed
+
+env-water — water, pond, wave, waterfall, ice, pool, lake
+
+env — cloud, snow drift, lava, smoke, fog
+
+assy — several distinct things, one top-level
+scene — crosses env / str / obj
+char — playable, npc, skeleton (rigged), animal (rigged)
+```
