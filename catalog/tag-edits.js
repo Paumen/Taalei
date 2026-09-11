@@ -3,7 +3,7 @@
 // tags.json's per-tag "models" arrays, merged by tools/apply-tag-edits.mjs.
 // Kind and use are fields on the model in catalog.json but entries in tags.json like any
 // other, so they travel in the same diff: a kind is `obj-container-jug`, a use is `use:food`.
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=abc4bc0b5e';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=dddc70f0fd';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 

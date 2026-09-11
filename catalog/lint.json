@@ -56,8 +56,18 @@
    "severity": "error"
   },
   {
-   "id": "M11-M12",
-   "text": "metal-iron is light grey 15,3. metal-iron may be blue-grey 6,1 where it is steel or cast iron.",
+   "id": "M11",
+   "text": "metal-iron-steel is light grey 15,3.",
+   "severity": "error"
+  },
+  {
+   "id": "M12-cast",
+   "text": "metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.",
+   "severity": "error"
+  },
+  {
+   "id": "M12-wrought",
+   "text": "metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.",
    "severity": "error"
   },
   {
@@ -87,7 +97,7 @@
   },
   {
    "id": "M17",
-   "text": "The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron, light grey 15,3.",
+   "text": "The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.",
    "severity": "error"
   },
   {
@@ -226,13 +236,43 @@
    "severity": "error"
   },
   {
+   "id": "M62",
+   "text": "obj-weapon-melee, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
+   "severity": "warning"
+  },
+  {
+   "id": "M63",
+   "text": "obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.",
+   "severity": "warning"
+  },
+  {
+   "id": "M64",
+   "text": "obj-weapon-cannon and every str kind with iron are metal-iron-cast.",
+   "severity": "warning"
+  },
+  {
+   "id": "M65",
+   "text": "obj-kitchenware-cookware takes both irons: a pot or cauldron is cast, a pan is steel.",
+   "severity": "warning"
+  },
+  {
+   "id": "M66",
+   "text": "All other iron is metal-iron-wrought.",
+   "severity": "warning"
+  },
+  {
+   "id": "M68",
+   "text": "char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.",
+   "severity": "warning"
+  },
+  {
    "id": "C1",
-   "text": "Light grey 15,3: metal, stone and rock only.",
+   "text": "Light grey 15,3: metal-iron-steel, stone and rock only.",
    "severity": "error"
   },
   {
    "id": "C2",
-   "text": "Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).",
+   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).",
    "severity": "error"
   },
   {
@@ -306,6 +346,11 @@
    "severity": "warning"
   },
   {
+   "id": "C15",
+   "text": "Dark grey 13,3: metal-iron-wrought only.",
+   "severity": "warning"
+  },
+  {
    "id": "N1",
    "text": "A model has at least one material.",
    "severity": "error"
@@ -340,6 +385,11 @@
    "name": "light grey",
    "lane": "15,3",
    "hex": "#79757b"
+  },
+  {
+   "name": "dark grey",
+   "lane": "13,3",
+   "hex": "#5b5550"
   },
   {
    "name": "blue-grey",
@@ -552,13 +602,6 @@
    "joker": false
   },
   {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "survival-kit/workbench-anvil",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
    "rule": "M19",
    "severity": "warning",
    "model": "adventurers/bow-strung",
@@ -667,7 +710,7 @@
    "rule": "M19",
    "severity": "warning",
    "model": "weapons/shield-c",
-   "detail": "taupe 14,3 spans 0.21-0.94, outside 0.02-0.40",
+   "detail": "taupe 14,3 spans 0.02-0.59, outside 0.02-0.40",
    "joker": false
   },
   {
@@ -718,6 +761,13 @@
    "model": "weapons/wand-a",
    "detail": "taupe 14,3 spans 0.29-0.88, outside 0.02-0.40",
    "joker": false
+  },
+  {
+   "rule": "M20",
+   "severity": "error",
+   "model": "pirate-quaternius/pirate-captain",
+   "detail": "is leather but uses blue, blue-grey, dark red, taupe, terracotta, yellow — none of bark",
+   "joker": true
   },
   {
    "rule": "M27",
@@ -842,7 +892,7 @@
    "rule": "M38",
    "severity": "error",
    "model": "survival-kit/structure-metal-roof",
-   "detail": "is a roof but carries metal-iron",
+   "detail": "is a roof but carries metal-iron-cast",
    "joker": false
   },
   {
@@ -856,7 +906,7 @@
    "rule": "M38",
    "severity": "error",
    "model": "village-kit/chimney-pipe",
-   "detail": "is a roof but carries metal-iron",
+   "detail": "is a roof but carries metal-iron-cast",
    "joker": false
   },
   {
@@ -912,8 +962,85 @@
    "rule": "M39",
    "severity": "error",
    "model": "rpgtools/bucket-metal",
-   "detail": "is a container but carries metal-iron",
+   "detail": "is a container but carries metal-iron-wrought",
    "joker": false
+  },
+  {
+   "rule": "M62",
+   "severity": "warning",
+   "model": "rpgtools/tongs",
+   "detail": "obj-tool-hand carries metal-iron-wrought but takes metal-iron-steel",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/barbarian",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/knight",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/mage",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/ranger",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/rogue-hooded",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "adventurers/rogue",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "pirate-quaternius/pirate-captain",
+   "detail": "uses blue-grey 6,1 but carries metal-iron-steel, metal-gold, textile, leather, special, skin",
+   "joker": true
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "pirate-quaternius/pirate-henry",
+   "detail": "uses blue-grey 6,1 but carries wood-beam, metal-iron-steel, textile, leather, skin",
+   "joker": false
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "rpgtools/pencil-a-short",
+   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
+   "joker": true
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "rpgtools/pencil-b-short",
+   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
+   "joker": true
   },
   {
    "rule": "C8",
@@ -1073,7 +1200,7 @@
    "rule": "C12",
    "severity": "warning",
    "model": "village-kit/door-simple",
-   "detail": "uses taupe 14,3 but carries wood-worked, metal-iron",
+   "detail": "uses taupe 14,3 but carries wood-worked, metal-iron-cast",
    "joker": false
   },
   {
@@ -1261,15 +1388,43 @@
   {
    "rule": "N2",
    "severity": "error",
+   "model": "medieval-village/well",
+   "detail": "3 band(s) for 4 (wood-beam, stone-masonry, ceramic, rope)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
+   "model": "primitive-tools/bow",
+   "detail": "2 band(s) for 3 (wood-worked, textile, rope)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
    "model": "small-props/mannequin-1-a",
-   "detail": "4 band(s) for 5 (wood-log, metal-iron, bone, rope, vegetation)",
+   "detail": "4 band(s) for 5 (wood-log, metal-iron-wrought, bone, rope, vegetation)",
    "joker": false
   },
   {
    "rule": "N2",
    "severity": "error",
    "model": "small-props/mannequin-2-a",
-   "detail": "4 band(s) for 5 (wood-worked, metal-iron, bone, rope, vegetation)",
+   "detail": "4 band(s) for 5 (wood-worked, metal-iron-wrought, bone, rope, vegetation)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
+   "model": "weapons/bow-a-with-string",
+   "detail": "2 band(s) for 3 (wood-beam, textile, rope)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
+   "model": "weapons/wand-a",
+   "detail": "4 band(s) for 5 (wood-beam, metal-iron-wrought, textile, cork, gemstone)",
    "joker": false
   },
   {
@@ -1318,7 +1473,7 @@
    "rule": "W2",
    "severity": "warning",
    "model": "weapons/arrow-a",
-   "detail": "light grey 15,3 0.922",
+   "detail": "dark grey 13,3 0.922",
    "joker": false
   }
  ]
