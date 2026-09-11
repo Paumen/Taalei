@@ -1,4 +1,5 @@
 import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState } from './chiprij.js';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -135,12 +136,6 @@ function rotateState(cardState, key, button) {
   else cardState.delete(key);
   showState(button, next);
   return next;
-}
-
-function showState(button, state) {
-  button.setAttribute('aria-pressed', String(state === 'only'));
-  if (state === 'not') button.dataset.uit = '';
-  else delete button.dataset.uit;
 }
 
 const keysWith = (cardState, value) =>
@@ -1010,97 +1005,36 @@ function buildColorBar(colors) {
   container.append(group);
 }
 
-// Chips nest to any depth: a parent's tray holds its children, and a child with children
-// of its own hangs its tray inside that one. Materials go one level, kinds up to four.
-function reorder() {
-  for (const strip of new Set(chipButtons.map((c) => c.strip))) {
-    const all = chipButtons.filter((c) => c.strip === strip);
-    const sorted = (list) => list.sort((a, b) => (a.byCount
-      ? b.count - a.count || a.order - b.order
-      : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
-    const mount = (container, parent) => {
-      for (const chip of sorted(all.filter((c) => (c.parent ?? null) === parent))) {
-        container.append(chip.element);
-        const kids = all.filter((c) => c.parent === chip.id);
-        if (!kids.length) continue;
-        const tray = kids[0].tray;
-        mount(tray, chip.id);
-        tray.hidden = kids.every((c) => c.element.hidden);
-        chip.element.classList.toggle('tagknop-ouder', !tray.hidden);
-        container.append(tray);
-      }
-    };
-    mount(strip, null);
-  }
-}
+const reorder = () => layoutChips(chipButtons);
 
-// A subtype waits behind its parent: it appears once every ancestor is picked, and drops
-// its own state again when one is let go, so nothing keeps filtering out of sight.
-const chipHidden = (chip, count = chip.count) =>
-  count === 0 || chip.ancestors.some((id) => chip.state.get(id) !== 'only');
-
-function syncSubtypes() {
+// The bar's own sync: live counts from the cards, and a chip that goes hidden or empty
+// drops its state so nothing keeps filtering out of sight.
+function syncSubtypes(counts = null) {
+  syncChips(chipButtons, {
+    stateOf: (id, chip) => chip.state.get(id),
+    countOf: counts ? (chip) => counts.get(`${chip.field}|${chip.id}`) ?? 0 : null,
+    onHide: (chip) => { chip.state.delete(chip.id); },
+  });
   for (const chip of chipButtons) {
-    if (!chip.parent) continue;
-    const hidden = chipHidden(chip);
-    if (hidden && chip.state.has(chip.id)) {
-      chip.state.delete(chip.id);
-      showState(chip.element, undefined);
-    }
-    chip.element.hidden = hidden;
+    if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
   }
 }
 
 function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false } = {}) {
-  const row = shareRow ?? document.createElement('div');
-  if (!shareRow) row.className = 'kleurbalk tagrij';
-  const strip = document.createElement('div');
-  strip.className = 'tagbalk-knoppen';
-  strip.setAttribute('role', 'group');
-  strip.setAttribute('aria-label', `Filter by ${head.toLowerCase()}`);
-
-  const ownIds = items.map((i) => i.id);
-
-  // A subtype sits in a tray hung off its parent chip: the tray keeps the family together
-  // when the row wraps, which adjacency alone does not.
-  const trays = new Map();
-  for (const parent of new Set(items.map((i) => i.parent).filter(Boolean))) {
-    const tray = document.createElement('span');
-    tray.className = 'tagbak';
-    tray.dataset.parent = parent;
-    trays.set(parent, tray);
-  }
-
-  for (const item of items) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'tagknop';
-    button.dataset.tag = item.id;
-    button.title = item.hint ?? item.name;
-    showState(button, state.get(item.id));
-    const countEl = span('tagknop-aantal');
-    button.append(document.createTextNode(item.name), countEl);
-
-    button.addEventListener('click', () => {
-      rotateState(state, item.id, button);
-      if (item.parent || childrenOf.has(item.id)) { refresh(); return; }
+  const { row, chips } = makeChipStrip({
+    label: `Filter by ${head.toLowerCase()}`,
+    items, container, shareRow, byCount, hideEmpty: true,
+    stateOf: (id) => state.get(id),
+    onPick: (id, button) => {
+      rotateState(state, id, button);
+      if (items.find((i) => i.id === id)?.parent || items.some((i) => i.parent === id)) { refresh(); return; }
       syncSubtypes();
       reorder();
       filter();
-    });
-
-    if (item.dot) button.classList.add('tagknop-punt');
-
-    const tray = item.parent ? trays.get(item.parent) : null;
-    if (tray) { button.classList.add('tagknop-subtype'); tray.append(button); } else { strip.append(button); }
-
-    const ancestors = [];
-    for (let p = item.parent; p; p = items.find((i) => i.id === p)?.parent ?? null) ancestors.push(p);
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null, ancestors, tray });
-  }
-
-  row.append(strip);
-  if (!shareRow) container.append(row);
+    },
+  });
+  for (const chip of chips) { chip.state = state; chip.field = field; }
+  chipButtons.push(...chips);
   return row;
 }
 
@@ -1171,22 +1105,9 @@ function refresh() {
       for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
     }
   }
-  for (const chip of chipButtons) {
-    const { id, element, countEl, state, field } = chip;
-    const count = counts.get(`${field}|${id}`) ?? 0;
-    chip.count = count;
-    element.hidden = chipHidden(chip, count);
-    countEl.textContent = count;
-    if (count === 0 && state.get(id) === 'only') {
-      state.delete(id);
-      showState(element, undefined);
-    }
-  }
+  syncSubtypes(counts);
   syncSubtypes();
   reorder();
-  for (const { row } of chipButtons) {
-    row.hidden = !chipButtons.some((c) => c.row === row && !c.element.hidden);
-  }
   document.querySelector('#alles-wis').hidden = filtersOff();
 
   filter();

@@ -3273,7 +3273,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
-   "count": 657,
+   "count": 658,
    "color": "#c07c8a"
   },
   {
@@ -3511,7 +3511,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 55,
+   "count": 54,
    "color": "#f1976c"
   },
   {
@@ -3526,7 +3526,7 @@
    "name": "Coin",
    "type": "kind",
    "description": "coin, gold pile, gem (cut)",
-   "count": 14
+   "count": 13
   },
   {
    "id": "obj-pocketitem-key",
@@ -3543,11 +3543,47 @@
    "count": 8
   },
   {
+   "id": "obj-resource",
+   "name": "Resource",
+   "type": "kind",
+   "description": "hide, raw stock, spare part",
+   "count": 60,
+   "color": "#4f7d8c"
+  },
+  {
+   "id": "obj-resource-metal",
+   "name": "Metal",
+   "type": "kind",
+   "description": "ingot, bar, nugget, ore lump",
+   "count": 37
+  },
+  {
+   "id": "obj-resource-stone",
+   "name": "Stone",
+   "type": "kind",
+   "description": "brick (loose), cut block",
+   "count": 4
+  },
+  {
+   "id": "obj-resource-textile",
+   "name": "Textile",
+   "type": "kind",
+   "description": "textile bolt, cloth roll",
+   "count": 5
+  },
+  {
+   "id": "obj-resource-wood",
+   "name": "Wood",
+   "type": "kind",
+   "description": "plank (stock), board (loose), pallet",
+   "count": 9
+  },
+  {
    "id": "obj-tool",
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, anvil, grindstone",
-   "count": 53,
+   "count": 49,
    "color": "#6d738a"
   },
   {
@@ -4041,7 +4077,7 @@
    "name": "Assembly",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 52,
+   "count": 51,
    "color": "#b5651d"
   },
   {
@@ -46034,7 +46070,7 @@
   {
    "kit": "pirate-kit",
    "name": "platform-planks",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -53384,7 +53420,7 @@
   {
    "kit": "resources",
    "name": "copper-bar",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -53424,7 +53460,7 @@
   {
    "kit": "resources",
    "name": "copper-bars-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.4,
@@ -53465,7 +53501,7 @@
   {
    "kit": "resources",
    "name": "copper-bars-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -53506,7 +53542,7 @@
   {
    "kit": "resources",
    "name": "copper-bars-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -53547,7 +53583,7 @@
   {
    "kit": "resources",
    "name": "copper-bars",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.3,
@@ -53594,7 +53630,7 @@
   {
    "kit": "resources",
    "name": "copper-nugget-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -53634,7 +53670,7 @@
   {
    "kit": "resources",
    "name": "copper-nugget-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -53674,7 +53710,7 @@
   {
    "kit": "resources",
    "name": "copper-nugget-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -53714,7 +53750,7 @@
   {
    "kit": "resources",
    "name": "copper-nuggets",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -53754,7 +53790,7 @@
   {
    "kit": "resources",
    "name": "gold-bar",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -53794,7 +53830,7 @@
   {
    "kit": "resources",
    "name": "gold-bars-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.4,
@@ -53835,7 +53871,7 @@
   {
    "kit": "resources",
    "name": "gold-bars-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -53876,7 +53912,7 @@
   {
    "kit": "resources",
    "name": "gold-bars-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -53917,7 +53953,7 @@
   {
    "kit": "resources",
    "name": "gold-bars",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.3,
@@ -53964,7 +54000,7 @@
   {
    "kit": "resources",
    "name": "gold-nugget-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54004,7 +54040,7 @@
   {
    "kit": "resources",
    "name": "gold-nugget-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54044,7 +54080,7 @@
   {
    "kit": "resources",
    "name": "gold-nugget-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54084,7 +54120,7 @@
   {
    "kit": "resources",
    "name": "gold-nuggets",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54124,7 +54160,7 @@
   {
    "kit": "resources",
    "name": "iron-bar",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54164,7 +54200,7 @@
   {
    "kit": "resources",
    "name": "iron-bars-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.4,
@@ -54205,7 +54241,7 @@
   {
    "kit": "resources",
    "name": "iron-bars-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54246,7 +54282,7 @@
   {
    "kit": "resources",
    "name": "iron-bars-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54287,7 +54323,7 @@
   {
    "kit": "resources",
    "name": "iron-bars",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.3,
@@ -54334,7 +54370,7 @@
   {
    "kit": "resources",
    "name": "iron-nugget-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54374,7 +54410,7 @@
   {
    "kit": "resources",
    "name": "iron-nugget-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54414,7 +54450,7 @@
   {
    "kit": "resources",
    "name": "iron-nugget-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54454,7 +54490,7 @@
   {
    "kit": "resources",
    "name": "iron-nuggets",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54494,7 +54530,7 @@
   {
    "kit": "resources",
    "name": "pallet-wood",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "use": [
     "container"
    ],
@@ -54536,7 +54572,7 @@
   {
    "kit": "resources",
    "name": "parts-cog",
-   "kind": "obj-tool",
+   "kind": "obj-resource",
    "use": [
     "tool"
    ],
@@ -54579,7 +54615,7 @@
   {
    "kit": "resources",
    "name": "parts-pile-large",
-   "kind": "obj-tool",
+   "kind": "obj-resource",
    "use": [
     "tool"
    ],
@@ -54626,7 +54662,7 @@
   {
    "kit": "resources",
    "name": "parts-pile-medium",
-   "kind": "obj-tool",
+   "kind": "obj-resource",
    "use": [
     "container",
     "tool"
@@ -54681,7 +54717,7 @@
   {
    "kit": "resources",
    "name": "parts-pile-small",
-   "kind": "obj-tool",
+   "kind": "obj-resource",
    "use": [
     "tool"
    ],
@@ -54723,7 +54759,7 @@
   {
    "kit": "resources",
    "name": "silver-bar",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54763,7 +54799,7 @@
   {
    "kit": "resources",
    "name": "silver-bars-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.4,
@@ -54804,7 +54840,7 @@
   {
    "kit": "resources",
    "name": "silver-bars-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54845,7 +54881,7 @@
   {
    "kit": "resources",
    "name": "silver-bars-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -54886,7 +54922,7 @@
   {
    "kit": "resources",
    "name": "silver-bars",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.3,
@@ -54933,7 +54969,7 @@
   {
    "kit": "resources",
    "name": "silver-nugget-large",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -54973,7 +55009,7 @@
   {
    "kit": "resources",
    "name": "silver-nugget-medium",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -55013,7 +55049,7 @@
   {
    "kit": "resources",
    "name": "silver-nugget-small",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -55053,7 +55089,7 @@
   {
    "kit": "resources",
    "name": "silver-nuggets",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.2,
@@ -55093,7 +55129,7 @@
   {
    "kit": "resources",
    "name": "stone-brick",
-   "kind": "obj",
+   "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
     0.1,
@@ -55132,7 +55168,7 @@
   {
    "kit": "resources",
    "name": "stone-bricks-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
     0.4,
@@ -55178,7 +55214,7 @@
   {
    "kit": "resources",
    "name": "stone-bricks-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
     0.4,
@@ -55224,7 +55260,7 @@
   {
    "kit": "resources",
    "name": "stone-bricks-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
     0.3,
@@ -55348,7 +55384,7 @@
   {
    "kit": "resources",
    "name": "textiles-a",
-   "kind": "obj",
+   "kind": "obj-resource-textile",
    "size": "s",
    "wdh": [
     0.2,
@@ -55388,7 +55424,7 @@
   {
    "kit": "resources",
    "name": "textiles-b",
-   "kind": "obj",
+   "kind": "obj-resource-textile",
    "size": "s",
    "wdh": [
     0.2,
@@ -55435,7 +55471,7 @@
   {
    "kit": "resources",
    "name": "textiles-c",
-   "kind": "obj",
+   "kind": "obj-resource-textile",
    "size": "s",
    "wdh": [
     0.2,
@@ -55480,7 +55516,7 @@
   {
    "kit": "resources",
    "name": "textiles-stack-large",
-   "kind": "assy",
+   "kind": "obj-resource-textile",
    "size": "s",
    "wdh": [
     0.4,
@@ -55536,7 +55572,7 @@
   {
    "kit": "resources",
    "name": "textiles-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-textile",
    "size": "s",
    "wdh": [
     0.4,
@@ -55735,7 +55771,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-a",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.1,
@@ -55775,7 +55811,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-b",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.1,
@@ -55815,7 +55851,7 @@
   {
    "kit": "resources",
    "name": "wood-plank-c",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.1,
@@ -55855,7 +55891,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-large",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.4,
@@ -55895,7 +55931,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-medium",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.4,
@@ -55935,7 +55971,7 @@
   {
    "kit": "resources",
    "name": "wood-planks-stack-small",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "s",
    "wdh": [
     0.2,
@@ -59295,7 +59331,7 @@
   {
    "kit": "rpg-quaternius",
    "name": "gold-ingots",
-   "kind": "obj-pocketitem-coin",
+   "kind": "obj-resource-metal",
    "size": "s",
    "wdh": [
     0.1,
@@ -67045,7 +67081,7 @@
   {
    "kit": "small-props",
    "name": "skin-hang-a",
-   "kind": "obj",
+   "kind": "obj-resource",
    "size": "m",
    "wdh": [
     0.6,
@@ -68157,7 +68193,7 @@
   {
    "kit": "survival-kit",
    "name": "resource-planks",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "size": "m",
    "wdh": [
     0.4,

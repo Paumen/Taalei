@@ -381,6 +381,9 @@ a { color: var(--accent); }
   background: color-mix(in srgb, var(--accent) 22%, var(--kaart));
 }
 
+/* a parent whose child is picked: open, but not itself picked */
+.tagknop-open { border-color: var(--accent); color: var(--inkt); }
+
 /* the parent keeps its right edge open so the tray reads as hanging off it */
 .tagknop-ouder {
   z-index: 1;
@@ -1139,88 +1142,19 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   pointer-events: none;
 }
 
-/* Manual tag editing, shared by the detail dialog (catalog.html) and the swipe cards
-   (swipe.html) — see catalog/tag-edits.js. */
-.tagedit-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 6px;
+/* Manual tag editing, shared by the detail dialog (index.html) and the swipe cards
+   (swipe.html) — see catalog/tag-edits.js. The rows are the filter bar's own chip rows,
+   so the chrome lives with .tagrij; only the fit inside a panel is set here. */
+.detail-info .tagrij,
+.swipe-tags .tagrij {
+  margin: 0 -4px;
+  padding: 3px 4px;
+  border-bottom: 0;
+  background: transparent;
 }
 
-.tagedit-toggles {
-  max-height: 264px;
-  padding-right: 4px;
-  overflow-y: auto;
-}
-
-/* In the dialog the side column already scrolls, so a box of its own would be a scroller
-   inside a scroller — and a short one hides the materials behind the kind picker. On a
-   swipe card there is no outer scroll, so there the box stays. */
-.detail-info .tagedit-toggles {
-  max-height: none;
-  overflow: visible;
-}
-
-.tagedit-groep {
-  margin: 8px 0 4px;
-  color: var(--inkt-zacht);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.tagedit-groep:first-child { margin-top: 0; }
-
-/* the kind picker: one row per level of the tree, each a step further in */
-.tagedit-niveau { padding-left: calc(var(--diepte, 0) * 10px); }
-.tagedit-niveau[data-diepte="1"] { --diepte: 1; }
-.tagedit-niveau[data-diepte="2"] { --diepte: 2; }
-.tagedit-niveau[data-diepte="3"] { --diepte: 3; }
-.tagedit-niveau .keuzechip { min-height: 26px; padding: 3px 9px; font-size: 11.5px; }
-
-/* Material families in the editor. The filter row hangs its tray off the parent chip on
-   the same line; here a family is up to five chips wide, so it takes a row of its own,
-   indented under the parent — which also lets it wrap instead of running off the panel. */
-.tagedit-bak {
-  display: flex;
-  flex-basis: 100%;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 1px 0 3px 14px;
-  padding: 4px 9px;
-  border-left: 2px solid var(--accent);
-  border-radius: 0 999px 999px 0;
-  background: color-mix(in srgb, var(--accent) 10%, var(--kaart));
-}
-
-.keuzechip-ouder { border-color: var(--accent); }
-
-.keuzechip-subtype {
-  min-height: 26px;
-  padding: 3px 9px;
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--lijn));
-  background: var(--papier);
-  font-size: 11.5px;
-}
-
-.keuzechip-pijl {
-  margin-left: 1px;
-  color: var(--inkt-zacht);
-  font-size: 9px;
-  cursor: pointer;
-}
-
-.keuzechip[aria-pressed="true"] .keuzechip-pijl { color: var(--papier); }
-
-.keuzechip-aantal {
-  color: var(--inkt-zacht);
-  font-size: 10px;
-  font-variant-numeric: tabular-nums;
-}
-
-.keuzechip[aria-pressed="true"] .keuzechip-aantal { color: color-mix(in srgb, var(--papier) 75%, transparent); }
+.detail-info .tagrij + .tagrij,
+.swipe-tags .tagrij + .tagrij { border-top: 1px solid var(--lijn); }
 
 .tagedit-balk {
   position: fixed;
