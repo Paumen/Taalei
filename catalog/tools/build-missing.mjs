@@ -5,7 +5,7 @@ import { join, dirname, resolve, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
-import { GROUPS, determineGroup } from './semantiek.mjs';
+import { readKindTree, kindName, kindFromName, KIND_COLORS } from './kinds.mjs';
 import { leesFbx } from './fbx.mjs';
 import { pakUit } from './zip.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -468,7 +468,8 @@ for (const bronkit of BRONKITS) {
     modellen.push({
       kit: bronkit.map,
       name: model.naam,
-      gr: determineGroup(bronkit.kit ?? bronkit.map, kebab(model.naam)),
+      // nothing here is curated yet: the glossary nouns in the name are the best guess
+      kind: kindFromName(kebab(model.naam), model.wdh ?? [1, 1, 1]),
       wdh: wdh.map(round1),
       tris: model.driehoeken,
       tpu: trianglesPerUnit(model.driehoeken, wdh),
@@ -505,10 +506,7 @@ const uitvoer = {
   modelPath: DOEL_PAD,
   kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
   sources: bronnen,
-  groups: [
-    ...GROUPS.map((g) => ({ id: g.id, name: g.name, color: g.color })),
-    { id: 'other', name: 'Other' },
-  ],
+  kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id), ...(KIND_COLORS[id] ? { color: KIND_COLORS[id] } : {}) })),
   models: modellen,
 };
 

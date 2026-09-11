@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar } from './tag-edits.js';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=3dee7e3e1d';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -54,12 +54,21 @@ const summary = el('#samenvatting');
 
 const flatMode = { on: false };
 
-const register = { models: [], perId: new Map(), kits: new Map(), groups: new Map(), tags: new Map() };
+const register = { models: [], perId: new Map(), kits: new Map(), kinds: new Map(), tags: new Map() };
+
+const WITHOUT = '_zonder';
+const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
+const kindChain = (id) => {
+  const chain = [];
+  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
+  return chain;
+};
+const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
 
 const labelDefault = (direction) => SOURCE.labels?.[direction.id] ?? direction.default;
 
 const state = {
-  filters: { search: '', kits: [], groups: [], tags: [], shuffle: false },
+  filters: { search: '', kits: [], kinds: [], uses: [], tags: [], shuffle: false },
   labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, labelDefault(r)])),
   order: [],
   choices: [],
@@ -103,13 +112,17 @@ function remaining() {
 }
 
 function matches(model) {
-  const { search, kits, groups, tags = [] } = state.filters;
+  const { search, kits, kinds = [], uses = [], tags = [] } = state.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
-  if (groups.length && !groups.includes(model.gr)) return false;
+  // a picked kind catches everything under it (T4); "No kind" is the curation queue
+  const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
+  if (kinds.length && !chain.some((k) => kinds.includes(k))) return false;
+  const own = model.use?.length ? model.use : [WITHOUT];
+  if (uses.length && !own.some((u) => uses.includes(u))) return false;
   if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
   if (search) {
     const needle = search.toLowerCase();
-    if (!`${model.name} ${model.kit} ${model.gr}`.toLowerCase().includes(needle)) return false;
+    if (!`${model.name} ${model.kit} ${model.kind ?? ''}`.toLowerCase().includes(needle)) return false;
   }
   return true;
 }
@@ -173,7 +186,8 @@ function setupFilters() {
   return {
     search: el('#zoek').value.trim(),
     kits: chosenValues(el('#kitlijst')),
-    groups: chosenValues(el('#groeplijst')),
+    kinds: chosenValues(el('#soortlijst')),
+    uses: chosenValues(el('#gebruiklijst')),
     tags: chosenValues(el('#taglijst')),
     shuffle: el('#schud').checked,
   };
@@ -192,16 +206,31 @@ function fillSetup() {
   const kits = [...register.kits.values()]
     .map((k) => ({ id: k.slug, name: k.name, count: register.models.filter((m) => m.kit === k.slug).length }))
     .filter((k) => k.count > 0);
-  const groups = [...register.groups.values()]
-    .map((g) => ({ id: g.id, name: g.name, count: register.models.filter((m) => m.gr === g.id).length }))
-    .filter((g) => g.count > 0);
+  // the tree in order, indented by depth; a parent counts everything under it
+  const kinds = [...register.kinds.values()]
+    .map((k) => ({
+      id: k.id,
+      name: `${'\u2003'.repeat(kindChain(k.id).length - 1)}${k.name}`,
+      count: register.models.filter((m) => m.kind && kindChain(m.kind).includes(k.id)).length,
+    }))
+    .filter((k) => k.count > 0);
+  const noKind = register.models.filter((m) => !m.kind).length;
+  if (noKind) kinds.push({ id: WITHOUT, name: 'No kind', count: noKind });
+  const uses = [...register.tags.values()]
+    .filter((t) => t.type === 'use')
+    .map((t) => ({ id: t.id.replace(/^use:/, ''), name: t.name, count: register.models.filter((m) => m.use?.includes(t.id.replace(/^use:/, ''))).length }))
+    .filter((u) => u.count > 0);
+  const noUse = register.models.filter((m) => !m.use?.length).length;
+  if (noUse) uses.push({ id: WITHOUT, name: 'No use', count: noUse });
 
   const tags = [...register.tags.values()]
+    .filter((t) => t.type !== 'kind' && t.type !== 'use' && t.type !== 'size')
     .map((t) => ({ id: t.id, name: t.name, count: register.models.filter((m) => (m.tags ?? []).includes(t.id)).length }))
     .filter((t) => t.count > 0);
 
   checklist(el('#kitlijst'), kits, state.filters.kits);
-  checklist(el('#groeplijst'), groups, state.filters.groups);
+  checklist(el('#soortlijst'), kinds, state.filters.kinds ?? []);
+  checklist(el('#gebruiklijst'), uses, state.filters.uses ?? []);
   checklist(el('#taglijst'), tags, state.filters.tags ?? []);
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
@@ -223,7 +252,6 @@ function setLighting(viewer) {
 
 function makeCard(model, depth) {
   const kit = register.kits.get(model.kit);
-  const group = register.groups.get(model.gr);
 
   const card = document.createElement('article');
   card.className = 'swipe-kaart';
@@ -248,7 +276,7 @@ function makeCard(model, depth) {
   name.textContent = model.name;
   const origin = document.createElement('p');
   origin.className = 'herkomst';
-  origin.textContent = `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
+  origin.textContent = `${kit?.name ?? model.kit} · ${kindLabel(model.kind)}`;
   const meta = document.createElement('p');
   meta.className = 'meta';
   meta.textContent = [
@@ -262,7 +290,9 @@ function makeCard(model, depth) {
   path.textContent = model.path;
   const tags = document.createElement('div');
   tags.className = 'swipe-tags';
-  renderTagEditor(tags, model, register.tags);
+  renderTagEditor(tags, model, register.tags, {
+    onChange: () => { origin.textContent = `${kit?.name ?? model.kit} · ${kindLabel(effectiveKind(model, register.tags))}`; },
+  });
   text.append(name, origin, meta, path, tags);
 
   const rotate = document.createElement('button');
@@ -443,7 +473,7 @@ function rows() {
       id,
       name: model.name,
       kit: model.kit,
-      group: model.gr,
+      kind: model.kind ?? null,
       path: model.path,
       direction,
       label: labelFor(direction),
@@ -587,8 +617,8 @@ function exportJson() {
 function exportCsv() {
   const cell = (value) => `"${String(value).replaceAll('"', '""')}"`;
   const rowsOut = [
-    ['direction', 'label', 'id', 'name', 'kit', 'group', 'path'],
-    ...rows().map((r) => [r.direction, r.label, r.id, r.name, r.kit, r.group, r.path]),
+    ['direction', 'label', 'id', 'name', 'kit', 'kind', 'path'],
+    ...rows().map((r) => [r.direction, r.label, r.id, r.name, r.kit, r.kind, r.path]),
   ];
   file(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
 }
@@ -607,7 +637,7 @@ async function start() {
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
-  register.groups = new Map(data.groups.map((g) => [g.id, g]));
+  register.kinds = new Map((data.tags ?? []).filter((t) => t.type === 'kind').map((t) => [t.id, t]));
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
   load();
