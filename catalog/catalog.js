@@ -125,7 +125,6 @@ let swipe = null;
 const colorState = new Map();
 const sizeState = new Map();
 const kindState = new Map([['assy', 'not']]);
-const useState = new Map();
 
 const tagState = new Map();
 
@@ -316,7 +315,6 @@ function makeCard(model, kits, variants = []) {
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
     tags: withParents(family.flatMap((m) => m.tags ?? [])),
     kinds: [...new Set(family.flatMap((m) => (m.kind ? kindChain(m.kind) : [WITHOUT])))],
-    uses: [...new Set(family.flatMap((m) => (m.use?.length ? m.use : [WITHOUT])))],
     sizes: [...new Set(family.map((m) => m.size))],
   };
   cards.push(item);
@@ -1100,10 +1098,12 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 function buildTagBar(tags) {
   const container = document.querySelector('#tagbalk');
 
-  // Kind first: the closed tree, one chip per node, children in a tray behind the parent.
+  // Kind and size share one row: the tree is what you reach for first, and the three size
+  // chips are narrow enough to ride along on its right. Use has no row of its own — a
+  // model's uses are set and read in the model panel, where the rest of its tags are.
   // "No kind" is the curation queue: what the migration could not settle.
   const kinds = tags.filter((t) => t.type === 'kind');
-  buildChipRow(
+  const shape = buildChipRow(
     container,
     'Kind',
     [
@@ -1112,19 +1112,6 @@ function buildTagBar(tags) {
     ],
     kindState,
     'kinds',
-  );
-
-  // Use and size share one row: both are short closed sets.
-  const uses = tags.filter((t) => t.type === 'use');
-  const shape = buildChipRow(
-    container,
-    'Use',
-    [
-      ...uses.map((t) => ({ id: t.id.replace(/^use:/, ''), name: chipName(t), full: t.name, hint: t.description })),
-      { id: WITHOUT, name: 'No use', hint: 'Carries none of the eight uses' },
-    ],
-    useState,
-    'uses',
   );
   buildChipRow(
     container,
@@ -1160,7 +1147,6 @@ function refresh() {
     for (const model of card.family) {
       bump(`sizes|${model.size}`);
       for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
-      for (const id of (model.use?.length ? model.use : [WITHOUT])) bump(`uses|${id}`);
       for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
     }
   }
@@ -1172,14 +1158,13 @@ function refresh() {
   filter();
 }
 
-const filtersOff = () => colorState.size + tagState.size + sizeState.size + kindState.size + useState.size === 0;
+const filtersOff = () => colorState.size + tagState.size + sizeState.size + kindState.size === 0;
 
 function onClear() {
   colorState.clear();
   tagState.clear();
   sizeState.clear();
   kindState.clear();
-  useState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
   syncSubtypes();
@@ -1192,7 +1177,7 @@ function filter() {
   let visible = 0;
 
   // A model has one kind, so two picked kinds mean either — and a picked leaf narrows its
-  // picked parent rather than widening it. Two picked uses mean both, like materials.
+  // picked parent rather than widening it.
   const onlyKinds = keysWith(kindState, 'only');
   const deepest = onlyKinds.filter((k) => !onlyKinds.some((o) => o !== k && o.startsWith(`${k}-`)));
   const notKinds = keysWith(kindState, 'not');
@@ -1202,7 +1187,6 @@ function filter() {
     const hit =
       matches(card.colors, colorState) &&
       kindHit(card.kinds) &&
-      matches(card.uses, useState) &&
       matches(card.tags, tagState) &&
       matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) });
     card.element.hidden = !hit;
