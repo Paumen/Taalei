@@ -1,14 +1,15 @@
 // Colour verdicts made from the model panel, staged locally until exported.
-// Shape: { [modelId]: { [hex]: 'partial' | 'wrong' } } — a band the PO judges partly off
-// ('partial') or plainly not the colour the rules ask for ('wrong'). Purely a report:
+// Shape: { [modelId]: { [hex]: 'partial' | 'wrong' | 'add' } } — a band the PO judges partly
+// off ('partial'), plainly not the colour the rules ask for ('wrong'), or one the model
+// does not carry and should ('add', picked from the band list). Purely a report:
 // nothing here recolours anything, and no tool merges it back the way tag edits merge.
 // It is the human counterpart of the lint findings the panel prints beside it.
 
 const STORAGE_KEY = 'taaleiland-kleurmerken-v1';
 
-// the cycle one tap walks: clean → partial → wrong → clean
+// the cycle one tap walks on a band the model carries: clean → partial → wrong → clean
 export const VERDICTS = ['partial', 'wrong'];
-const LABEL = { partial: 'partly wrong', wrong: 'wrong' };
+const LABEL = { partial: 'partly wrong', wrong: 'wrong', add: 'proposed, not on the model' };
 
 function load() {
   try {
@@ -38,9 +39,30 @@ export function onChange(fn) {
 export const verdictOf = (model, hex) => marks[model.id]?.[hex] ?? null;
 export const verdictLabel = (verdict) => LABEL[verdict] ?? 'as the rules ask';
 
+function set(model, hex, verdict) {
+  const own = (marks[model.id] ??= {});
+  if (verdict) own[hex] = verdict;
+  else delete own[hex];
+  if (Object.keys(own).length === 0) delete marks[model.id];
+  save();
+  notify();
+}
+
+// A band the model does not carry but should. Proposing one twice is proposing it once.
+export function proposeBand(model, hex) {
+  set(model, hex, 'add');
+}
+
+// Bands proposed for this model, in the order they were picked.
+export const proposedBands = (model) =>
+  Object.entries(marks[model.id] ?? {}).filter(([, v]) => v === 'add').map(([hex]) => hex);
+
 // Walks one band to the next verdict and stages it. Returns the verdict it landed on.
+// A proposed band has nowhere further to walk: one tap takes the proposal back.
 export function cycleVerdict(model, hex) {
-  const next = VERDICTS[VERDICTS.indexOf(verdictOf(model, hex)) + 1] ?? null;
+  const current = verdictOf(model, hex);
+  if (current === 'add') { set(model, hex, null); return null; }
+  const next = VERDICTS[VERDICTS.indexOf(current) + 1] ?? null;
   const own = (marks[model.id] ??= {});
   if (next) own[hex] = next;
   else delete own[hex];
@@ -72,7 +94,7 @@ export function exportMarks() {
   const content = {
     tool: 'catalog colour marks',
     created: new Date().toISOString(),
-    note: 'Colours a reader judged off, per model, keyed by the hex the panel shows: "partial" is partly wrong, "wrong" is the wrong colour outright. A report against docs/asset_style_guide.md Appendix A — no tool merges this back.',
+    note: 'Colours a reader judged off, per model, keyed by the hex the panel shows: "partial" is partly wrong, "wrong" is the wrong colour outright, "add" is a band the model does not carry and should. A report against docs/asset_style_guide.md Appendix A — no tool merges this back.',
     models,
   };
   const blob = new Blob([JSON.stringify(content, null, 1) + '\n'], { type: 'application/json' });
