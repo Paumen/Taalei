@@ -346,10 +346,10 @@ env-fungi — mushroom, toadstool, fungus, lichen
 
 env-fauna — fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail
 
-env-remains-bones — bone, skull, skeleton (prop), ribcage, carcas
+env-remains-bones — bone, skull, skeleton (prop), ribcage, carcass
 env-remains — shell, egg (wild), nest, feather
 
-env-rock-formation — arch (rock), monolith, spire, cliff, out crop
+env-rock-formation — arch (rock), monolith, spire, cliff, outcrop
 env-rock-boulder — boulder, rock (large)
 env-rock-pebble — pebble, stone (small), gravel
 env-rock — crystal, ore (in rock), stalagmite
