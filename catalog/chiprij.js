@@ -119,7 +119,10 @@ export function makeChipStrip({
     button.type = 'button';
     button.className = 'tagknop';
     button.dataset.tag = item.id;
-    button.title = item.hint ?? item.full ?? item.name;
+    // An abbreviated label keeps its full name in the tooltip even when the tag also
+    // carries a description — the description explains the tag, it does not name it.
+    const full = item.full && item.full !== item.name ? item.full : null;
+    button.title = [full, item.hint].filter(Boolean).join(' — ') || item.name;
     showChipState(button, stateOf(item.id));
     const countEl = span('tagknop-aantal');
     if (item.count !== undefined) countEl.textContent = item.count;
