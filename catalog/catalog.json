@@ -3281,7 +3281,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 153,
+   "count": 147,
    "color": "#dd9f79"
   },
   {
@@ -3338,7 +3338,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot (storage), planter, vase, urn, amphora, jar",
-   "count": 9
+   "count": 3
   },
   {
    "id": "obj-equipment",
@@ -3374,7 +3374,7 @@
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
-   "count": 60,
+   "count": 59,
    "color": "#c25b4e"
   },
   {
@@ -3389,7 +3389,7 @@
    "name": "Meat",
    "type": "kind",
    "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
-   "count": 10
+   "count": 9
   },
   {
    "id": "obj-food-vegetable",
@@ -3425,7 +3425,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 45,
+   "count": 50,
    "color": "#9c3f2e"
   },
   {
@@ -3433,21 +3433,21 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 15
+   "count": 20
   },
   {
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
    "description": "pan, skillet",
-   "count": 4
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 9
+   "count": 7
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -3461,7 +3461,7 @@
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 4
+   "count": 3
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -3482,7 +3482,7 @@
    "name": "Lighting",
    "type": "kind",
    "description": "campfire, chandelier, streetlight",
-   "count": 28,
+   "count": 30,
    "color": "#f2cb45"
   },
   {
@@ -9092,7 +9092,7 @@
   {
    "kit": "dungeon",
    "name": "artifact",
-   "kind": "obj-kitchenware-tableware-bowl",
+   "kind": "obj-kitchenware-tableware",
    "size": "s",
    "wdh": [
     0.2,
@@ -56967,7 +56967,7 @@
   {
    "kit": "restaurant",
    "name": "lid-b",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware",
    "size": "s",
    "wdh": [
     0.2,
@@ -57008,7 +57008,7 @@
   {
    "kit": "restaurant",
    "name": "lid-large",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
     0.4,
@@ -57252,7 +57252,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57294,7 +57294,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a-stew",
-   "kind": "obj-food-meat",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "food"
    ],
@@ -57349,7 +57349,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57393,7 +57393,7 @@
   {
    "kit": "restaurant",
    "name": "pot-b-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "container"
    ],
@@ -57494,7 +57494,7 @@
   {
    "kit": "restaurant",
    "name": "pot-b",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "container"
    ],
@@ -57538,7 +57538,7 @@
   {
    "kit": "restaurant",
    "name": "pot-large-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57581,7 +57581,7 @@
   {
    "kit": "restaurant",
    "name": "pot-large",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -67658,7 +67658,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-fishing-stand",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-lighting",
    "use": [
     "light"
    ],
@@ -67700,7 +67700,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-stand",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-lighting",
    "use": [
     "light"
    ],
