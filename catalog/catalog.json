@@ -3075,7 +3075,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes wood light 0,0 (M42).",
-   "count": 156,
+   "count": 149,
    "parent": "wood"
   },
   {
@@ -3083,7 +3083,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes wood middle 1,0 (M42).",
-   "count": 229,
+   "count": 243,
    "parent": "wood"
   },
   {
@@ -3091,7 +3091,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes wood dark 2,0 (M42).",
-   "count": 336,
+   "count": 328,
    "parent": "wood"
   },
   {
@@ -3281,7 +3281,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 153,
+   "count": 147,
    "color": "#dd9f79"
   },
   {
@@ -3338,7 +3338,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot (storage), planter, vase, urn, amphora, jar",
-   "count": 9
+   "count": 3
   },
   {
    "id": "obj-equipment",
@@ -3374,7 +3374,7 @@
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
-   "count": 60,
+   "count": 59,
    "color": "#c25b4e"
   },
   {
@@ -3389,7 +3389,7 @@
    "name": "Meat",
    "type": "kind",
    "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
-   "count": 10
+   "count": 9
   },
   {
    "id": "obj-food-vegetable",
@@ -3425,7 +3425,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 45,
+   "count": 50,
    "color": "#9c3f2e"
   },
   {
@@ -3433,21 +3433,21 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 15
+   "count": 20
   },
   {
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
    "description": "pan, skillet",
-   "count": 4
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 9
+   "count": 7
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -3461,7 +3461,7 @@
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 4
+   "count": 3
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -3482,7 +3482,7 @@
    "name": "Lighting",
    "type": "kind",
    "description": "campfire, chandelier, streetlight",
-   "count": 28,
+   "count": 30,
    "color": "#f2cb45"
   },
   {
@@ -9092,7 +9092,7 @@
   {
    "kit": "dungeon",
    "name": "artifact",
-   "kind": "obj-kitchenware-tableware-bowl",
+   "kind": "obj-kitchenware-tableware",
    "size": "s",
    "wdh": [
     0.2,
@@ -9845,7 +9845,7 @@
    "vpt": 3,
    "grad": 0.45,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.266,
      0.781
     ],
@@ -9859,14 +9859,14 @@
     ]
    },
    "colors": [
-    "#875b42",
     "#8b7561",
+    "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v242"
   },
@@ -9896,7 +9896,7 @@
    "vpt": 3,
    "grad": 0.69,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.063,
      0.953
     ],
@@ -9910,14 +9910,14 @@
     ]
    },
    "colors": [
-    "#875b42",
     "#8b7561",
+    "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v242"
   },
@@ -18664,7 +18664,7 @@
    "vpt": 0.98,
    "grad": 0,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.031,
      0.031
     ],
@@ -18679,13 +18679,13 @@
    },
    "colors": [
     "#79757b",
-    "#d8d1bd",
-    "#d9ae87"
+    "#b3825f",
+    "#d8d1bd"
    ],
    "tags": [
     "kay",
     "metal-iron",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -18777,19 +18777,19 @@
      0.031,
      0.031
     ],
-    "0,0": [
+    "1,0": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#79757b",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "kay",
     "metal-iron",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -20414,7 +20414,7 @@
      0,
      0.664
     ],
-    "0,0": [
+    "1,0": [
      0.719,
      0.992
     ],
@@ -20426,14 +20426,14 @@
    "colors": [
     "#79757b",
     "#875b42",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
     "metal-iron",
     "wood-beam",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -20473,7 +20473,7 @@
      0.031,
      0.031
     ],
-    "0,0": [
+    "1,0": [
      0.836,
      0.836
     ],
@@ -20486,13 +20486,13 @@
     "#343745",
     "#79757b",
     "#875b42",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "kay",
     "metal-iron",
     "wood-beam",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -20528,20 +20528,20 @@
      0,
      0.664
     ],
-    "0,0": [
+    "1,0": [
      0.719,
      0.992
     ]
    },
    "colors": [
     "#79757b",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
     "metal-iron",
-    "wood-planks"
+    "wood-worked"
    ],
    "variant": "v50"
   },
@@ -24392,7 +24392,6 @@
    "tags": [
     "metal-iron",
     "qua",
-    "wood-beam",
     "wood-worked"
    ]
   },
@@ -32423,20 +32422,20 @@
      0.211,
      0.836
     ],
-    "2,0": [
+    "1,0": [
      0.125,
      0.852
     ]
    },
    "colors": [
-    "#875b42",
     "#8b7561",
+    "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v243"
   },
@@ -32466,7 +32465,7 @@
    "vpt": 1.3,
    "grad": 0.69,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.125,
      0.852
     ],
@@ -32480,14 +32479,14 @@
     ]
    },
    "colors": [
-    "#875b42",
     "#8b7561",
+    "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v243"
   },
@@ -51087,7 +51086,7 @@
    "vpt": 2.95,
    "grad": 0.7,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.148,
      0.844
     ],
@@ -51098,12 +51097,12 @@
    },
    "colors": [
     "#343745",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "metal-iron",
     "own",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -56967,7 +56966,7 @@
   {
    "kit": "restaurant",
    "name": "lid-b",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware",
    "size": "s",
    "wdh": [
     0.2,
@@ -57008,7 +57007,7 @@
   {
    "kit": "restaurant",
    "name": "lid-large",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
     0.4,
@@ -57252,7 +57251,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57294,7 +57293,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a-stew",
-   "kind": "obj-food-meat",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "food"
    ],
@@ -57349,7 +57348,7 @@
   {
    "kit": "restaurant",
    "name": "pot-a",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57393,7 +57392,7 @@
   {
    "kit": "restaurant",
    "name": "pot-b-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "container"
    ],
@@ -57494,7 +57493,7 @@
   {
    "kit": "restaurant",
    "name": "pot-b",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware",
    "use": [
     "container"
    ],
@@ -57538,7 +57537,7 @@
   {
    "kit": "restaurant",
    "name": "pot-large-closed",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -57581,7 +57580,7 @@
   {
    "kit": "restaurant",
    "name": "pot-large",
-   "kind": "obj-container-pot",
+   "kind": "obj-kitchenware-cookware-pan",
    "use": [
     "container"
    ],
@@ -67658,7 +67657,7 @@
   {
    "kit": "survival-kit",
    "name": "campfire-fishing-stand",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-lighting",
    "use": [
     "light"
    ],
@@ -67673,7 +67672,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7576,
+   "bytes": 7400,
    "vtx": 168,
    "grounded": true,
    "centered": true,
@@ -67684,23 +67683,23 @@
    "vpt": 1.68,
    "grad": 0.9,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#875b42"
+    "#b3825f"
    ],
    "tags": [
     "ken",
-    "wood-beam"
+    "wood-worked"
    ]
   },
   {
    "kit": "survival-kit",
    "name": "campfire-stand",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-lighting",
    "use": [
     "light"
    ],
@@ -67715,7 +67714,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6276,
+   "bytes": 6100,
    "vtx": 132,
    "grounded": true,
    "centered": true,
@@ -67726,17 +67725,17 @@
    "vpt": 1.74,
    "grad": 0.9,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#875b42"
+    "#b3825f"
    ],
    "tags": [
     "ken",
-    "wood-beam"
+    "wood-worked"
    ]
   },
   {
@@ -77060,7 +77059,7 @@
      0.211,
      0.789
     ],
-    "0,0": [
+    "1,0": [
      0.094,
      0.891
     ],
@@ -77072,13 +77071,13 @@
    "colors": [
     "#79757b",
     "#875b42",
-    "#d9ae87"
+    "#b3825f"
    ],
    "tags": [
     "kay",
     "metal-iron",
     "wood-beam",
-    "wood-planks"
+    "wood-worked"
    ]
   },
   {
@@ -77123,21 +77122,21 @@
      0.414,
      0.617
     ],
-    "2,0": [
+    "1,0": [
      0.211,
      0.789
     ]
    },
    "colors": [
     "#79757b",
-    "#875b42",
     "#8b7561",
+    "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "metal-iron",
-    "wood-beam"
+    "wood-worked"
    ]
   },
   {
