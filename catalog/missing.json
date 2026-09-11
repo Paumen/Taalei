@@ -160,6 +160,31 @@
   {
    "slug": "Windmill",
    "name": "Windmill"
+  },
+  {
+   "slug": "Fantasy_House_by_Quaternius",
+   "name": "Fantasy House",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "Blood_Ring_by_Quaternius",
+   "name": "Blood Ring",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "Skeleton_by_Quaternius",
+   "name": "Skeleton",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "camping_asset_pack_Demo",
+   "name": "Camping Asset Pack (Demo)",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "tools_mekmeesk",
+   "name": "Tools (mekmeesk)",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
   }
  ],
  "sources": [
@@ -623,6 +648,56 @@
    "unmatched": 0,
    "scale": 0.01,
    "folder": "Windmill/FBX"
+  },
+  {
+   "slug": "Fantasy_House_by_Quaternius",
+   "name": "Fantasy House",
+   "format": "fbx",
+   "inSource": 1,
+   "inCatalog": 0,
+   "missing": 1,
+   "unmatched": 0,
+   "folder": ""
+  },
+  {
+   "slug": "Blood_Ring_by_Quaternius",
+   "name": "Blood Ring",
+   "format": "fbx",
+   "inSource": 1,
+   "inCatalog": 0,
+   "missing": 1,
+   "unmatched": 0,
+   "folder": ""
+  },
+  {
+   "slug": "Skeleton_by_Quaternius",
+   "name": "Skeleton",
+   "format": "fbx",
+   "inSource": 1,
+   "inCatalog": 0,
+   "missing": 1,
+   "unmatched": 0,
+   "folder": ""
+  },
+  {
+   "slug": "camping_asset_pack_Demo",
+   "name": "Camping Asset Pack (Demo)",
+   "format": "fbx",
+   "inSource": 8,
+   "inCatalog": 0,
+   "missing": 8,
+   "unmatched": 0,
+   "folder": "camping asset pack (Demo)/fbx"
+  },
+  {
+   "slug": "tools_mekmeesk",
+   "name": "Tools (mekmeesk)",
+   "format": "fbx",
+   "inSource": 33,
+   "inCatalog": 0,
+   "missing": 33,
+   "unmatched": 0,
+   "folder": ""
   }
  ],
  "kinds": [
@@ -867,6 +942,27 @@
    "id": "obj-pocketitem",
    "name": "Pocket item",
    "color": "#f1976c"
+  },
+  {
+   "id": "obj-resource-metal",
+   "name": "Metal"
+  },
+  {
+   "id": "obj-resource-wood",
+   "name": "Wood"
+  },
+  {
+   "id": "obj-resource-stone",
+   "name": "Stone"
+  },
+  {
+   "id": "obj-resource-textile",
+   "name": "Textile"
+  },
+  {
+   "id": "obj-resource",
+   "name": "Resource",
+   "color": "#4f7d8c"
   },
   {
    "id": "obj",
@@ -5009,7 +5105,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "brick",
-   "kind": "obj",
    "wdh": [
     0.3,
     0.3,
@@ -9163,7 +9258,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "brick-wall-curve-small",
-   "kind": "obj",
+   "kind": "str-building-wall",
    "wdh": [
     0.7,
     0.5,
@@ -9179,7 +9274,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "brick-wall-curve",
-   "kind": "obj",
+   "kind": "str-building-wall",
    "wdh": [
     0.7,
     0.5,
@@ -9195,7 +9290,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "brick-wall-end",
-   "kind": "obj",
+   "kind": "str-building-wall",
    "wdh": [
     0.7,
     0.6,
@@ -9211,7 +9306,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "brick-wall",
-   "kind": "obj",
+   "kind": "str-building-wall",
    "wdh": [
     0.7,
     0.5,
@@ -9509,7 +9604,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "iron-fence-bar",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "wdh": [
     0.1,
     0.4,
@@ -13721,7 +13816,7 @@
   {
    "kit": "KayKit_ResourceBits_1.0_FREE",
    "name": "Pallet_Wood_Covered_A",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "wdh": [
     0.4,
     0.1,
@@ -13737,7 +13832,7 @@
   {
    "kit": "KayKit_ResourceBits_1.0_FREE",
    "name": "Pallet_Wood_Covered_B",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "wdh": [
     0.4,
     0.1,
@@ -13753,7 +13848,7 @@
   {
    "kit": "KayKit_ResourceBits_1.0_FREE",
    "name": "Textiles_Stack_Large_Colored",
-   "kind": "obj",
+   "kind": "obj-resource-textile",
    "wdh": [
     0.4,
     0.2,
@@ -23925,7 +24020,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "WoodPlank_01",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "wdh": [
     61.5,
     2,
@@ -23941,7 +24036,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "WoodPlank_02",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "wdh": [
     62.1,
     2,
@@ -23957,7 +24052,7 @@
   {
    "kit": "PropsLite_FBX",
    "name": "WoodPlank_03",
-   "kind": "obj",
+   "kind": "obj-resource-wood",
    "wdh": [
     62,
     2,
@@ -26360,7 +26455,6 @@
   {
    "kit": "TropicalIslandLite_FBX",
    "name": "Plank_01",
-   "kind": "obj",
    "wdh": [
     1.1,
     0.1,
@@ -26599,7 +26693,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickA_medium",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     0.7,
     0.2,
@@ -26615,7 +26709,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickA_small",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     0.4,
     0.2,
@@ -26631,7 +26725,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickB_largeCrackedA",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     1,
     0.2,
@@ -26647,7 +26741,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickB_largeCrackedB",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     1,
     0.2,
@@ -26663,7 +26757,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickB_medium",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     0.7,
     0.2,
@@ -26679,7 +26773,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "tileBrickB_small",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     0.4,
     0.2,
@@ -28970,7 +29064,7 @@
   {
    "kit": "Updated_Modular_Dungeon_2019",
    "name": "Arch_bars",
-   "kind": "obj",
+   "kind": "obj-resource-metal",
    "wdh": [
     0.5,
     0.7,
@@ -29049,7 +29143,6 @@
   {
    "kit": "Updated_Modular_Dungeon_2019",
    "name": "Brick",
-   "kind": "obj",
    "wdh": [
     0.2,
     0.1,
@@ -29176,7 +29269,7 @@
   {
    "kit": "Updated_Modular_Dungeon_2019",
    "name": "Floor_BricksSeparate2",
-   "kind": "obj",
+   "kind": "str-building-floor",
    "wdh": [
     0.3,
     0.1,
@@ -30716,6 +30809,657 @@
    "bytes": 3832,
    "scaled": true,
    "file": "Windmill.fbx"
+  },
+  {
+   "kit": "Fantasy_House_by_Quaternius",
+   "name": "House_1",
+   "kind": "str-building",
+   "wdh": [
+    214.4,
+    339,
+    265.9
+   ],
+   "tris": 5758,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 308588,
+   "file": "House_1.fbx"
+  },
+  {
+   "kit": "Blood_Ring_by_Quaternius",
+   "name": "Blood Ring",
+   "kind": "obj-equipment",
+   "wdh": [
+    1.6,
+    1.3,
+    1.4
+   ],
+   "tris": 2818,
+   "tpu": 973,
+   "mat": 1,
+   "bytes": 93784,
+   "file": "Blood Ring.fbx"
+  },
+  {
+   "kit": "Skeleton_by_Quaternius",
+   "name": "Skeleton",
+   "kind": "env-remains-bones",
+   "wdh": [
+    2.7,
+    1,
+    2.2
+   ],
+   "tris": 7471,
+   "tpu": 1192,
+   "mat": 1,
+   "bytes": 209768,
+   "file": "Skeleton.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "big_tree",
+   "kind": "env-flora-tree",
+   "wdh": [
+    434.7,
+    725.5,
+    376.4
+   ],
+   "tris": 548,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 33196,
+   "file": "big_tree.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "camping_axe",
+   "kind": "obj-weapon-melee-axe",
+   "wdh": [
+    51.2,
+    121,
+    15.8
+   ],
+   "tris": 60,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 4288,
+   "file": "camping_axe.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "camping_campfire ready to use",
+   "kind": "obj-lighting",
+   "wdh": [
+    145.1,
+    56.9,
+    136.1
+   ],
+   "tris": 2498,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 127336,
+   "file": "camping_campfire ready to use.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "firewood-03",
+   "kind": "env-flora-deadwood-branch",
+   "wdh": [
+    81.6,
+    12.7,
+    20.5
+   ],
+   "tris": 292,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 15720,
+   "file": "firewood-03.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "log01",
+   "wdh": [
+    259.4,
+    62.4,
+    92.1
+   ],
+   "tris": 374,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 18580,
+   "file": "log01.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "opened_tent",
+   "kind": "str-building",
+   "wdh": [
+    414,
+    277.7,
+    291.7
+   ],
+   "tris": 741,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 34088,
+   "file": "opened_tent.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "picnic_table",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    173.9,
+    114.6,
+    127.2
+   ],
+   "tris": 352,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 17988,
+   "file": "picnic_table.fbx"
+  },
+  {
+   "kit": "camping_asset_pack_Demo",
+   "name": "rock_type1",
+   "wdh": [
+    51.7,
+    24.8,
+    47.4
+   ],
+   "tris": 70,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 6176,
+   "file": "rock_type1.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "Cylinder",
+   "wdh": [
+    159.7,
+    2130.7,
+    585
+   ],
+   "tris": 236,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 13216,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "pliaers_dull",
+   "wdh": [
+    57.8,
+    1091.8,
+    300.5
+   ],
+   "tris": 320,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 17996,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "bolt_l",
+   "kind": "obj-weapon-ranged-accessory",
+   "wdh": [
+    129.3,
+    303.7,
+    149.3
+   ],
+   "tris": 44,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3364,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "bolt_m",
+   "kind": "obj-weapon-ranged-accessory",
+   "wdh": [
+    129.3,
+    237.1,
+    149.3
+   ],
+   "tris": 44,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3364,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "bolt_s",
+   "kind": "obj-weapon-ranged-accessory",
+   "wdh": [
+    129.3,
+    178.2,
+    149.3
+   ],
+   "tris": 44,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3364,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "nut_l",
+   "wdh": [
+    125.1,
+    67.5,
+    144.5
+   ],
+   "tris": 48,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3484,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "nut_s",
+   "wdh": [
+    125.1,
+    37.3,
+    144.5
+   ],
+   "tris": 48,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3436,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "nail_s",
+   "kind": "obj-tool-supplies",
+   "wdh": [
+    172.7,
+    521.7,
+    172.7
+   ],
+   "tris": 76,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 5000,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "nail_l",
+   "kind": "obj-tool-supplies",
+   "wdh": [
+    172.7,
+    820.8,
+    172.7
+   ],
+   "tris": 76,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 5000,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_precision",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    120.3,
+    603.3,
+    2583.6
+   ],
+   "tris": 1040,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 54776,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_bandsaw",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    111.2,
+    787.4,
+    3198.6
+   ],
+   "tris": 756,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 41448,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_big",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    94,
+    535.6,
+    2470
+   ],
+   "tris": 1208,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 65616,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_handsaw",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    66.2,
+    2012.3,
+    545.6
+   ],
+   "tris": 768,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 41600,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "pliers_sharp",
+   "wdh": [
+    51.8,
+    1045.8,
+    495.4
+   ],
+   "tris": 604,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 33200,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "screwdriver_poke",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    89.1,
+    1005.9,
+    102.9
+   ],
+   "tris": 188,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 11168,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "screwdriver_slap",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    89.1,
+    1011.6,
+    102.9
+   ],
+   "tris": 200,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 11816,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_simple",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    83.9,
+    1335.8,
+    654.4
+   ],
+   "tris": 388,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 21772,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_doubleaxe",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    88.8,
+    1446.6,
+    548.7
+   ],
+   "tris": 528,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 27896,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_rocket",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    210.7,
+    1230,
+    544.1
+   ],
+   "tris": 408,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 22376,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_bangpop",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    196.7,
+    1471,
+    548.8
+   ],
+   "tris": 588,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 32292,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_small_lowcount",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    73.7,
+    591.1,
+    1813.2
+   ],
+   "tris": 588,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 31364,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_beemboom",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    106.9,
+    1386.7,
+    571
+   ],
+   "tris": 544,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 27612,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_smallhit",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    140.9,
+    1234.3,
+    588.8
+   ],
+   "tris": 224,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 12392,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "brush",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    86.2,
+    1310.8,
+    344.9
+   ],
+   "tris": 492,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 24860,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "crowbar",
+   "wdh": [
+    79,
+    2112.4,
+    436
+   ],
+   "tris": 332,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 18636,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_ouch",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    211.2,
+    1117.7,
+    451.4
+   ],
+   "tris": 128,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 7728,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "saw_small_highcount",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    73.7,
+    584.8,
+    1813.2
+   ],
+   "tris": 828,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 45256,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_rectangle",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    119.4,
+    1306.8,
+    495.1
+   ],
+   "tris": 40,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3076,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_kindathor",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    205.8,
+    1350.9,
+    514.2
+   ],
+   "tris": 192,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 11192,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_plastic",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    140.1,
+    1633.4,
+    654.4
+   ],
+   "tris": 622,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 34216,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "axe",
+   "kind": "obj-weapon-melee-axe",
+   "wdh": [
+    86.7,
+    1831.3,
+    591.2
+   ],
+   "tris": 392,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 22016,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "hammer_cool",
+   "kind": "obj-weapon-melee-hammer",
+   "wdh": [
+    208.5,
+    1488.9,
+    610.6
+   ],
+   "tris": 120,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 7392,
+   "file": "tools_mekmeesk.fbx"
+  },
+  {
+   "kit": "tools_mekmeesk",
+   "name": "Cylinder.001",
+   "wdh": [
+    202.7,
+    1599.5,
+    1193.9
+   ],
+   "tris": 440,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 24296,
+   "file": "tools_mekmeesk.fbx"
   }
  ]
 }
