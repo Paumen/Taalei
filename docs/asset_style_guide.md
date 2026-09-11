@@ -237,6 +237,7 @@ text alone.
 - **N3.** `FE` 🟢 A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.
 - **N4.** `FE` 🟢 Ceiling: **6 bands for a human character or a decorated food, 5 for
   anything else.** A skeleton takes the 5; an assembly answers per part.
+- **N5.** `FE` 🟢 A model of size `l` may take a sixth band where it carries at least five material tags.
 
 ### W. 
 

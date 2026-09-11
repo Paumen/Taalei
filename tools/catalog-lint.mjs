@@ -377,7 +377,9 @@ const RULES = [
     severity: 'error',
     check: (m) => {
       const bands = m.colors.length;
-      const ceiling = (m.kind === 'char' && !isSkeleton(m)) || isDecoratedFood(m) ? 6 : 5;
+      // N5 lifts the ceiling to 6 for a size-l model carrying five material tags
+      const ceiling = (m.kind === 'char' && !isSkeleton(m)) || isDecoratedFood(m)
+        || (m.size === 'l' && counting(m).length >= 5) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (kind ${m.kind})`;
     } },
