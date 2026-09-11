@@ -60,6 +60,7 @@ export const KIND_COLORS = {
   'obj-container': '#dd9f79', 'obj-kitchenware': '#9c3f2e', 'obj-furniture': '#c07c8a',
   'obj-food': '#c25b4e', 'obj-weapon': '#4c5468', 'obj-equipment': '#6b5b95', 'obj-tool': '#6d738a',
   'obj-transport': '#5a7a9c', 'obj-lighting': '#f2cb45', 'obj-pocketitem': '#f1976c',
+  'obj-resource': '#4f7d8c',
   'str-building': '#a8762a', 'str-platform': '#877a63', 'str-barrier': '#b08968',
   'str-access': '#c98a5a', 'str-marker': '#ffb349',
   'env-flora': '#6cb588', 'env-fungi': '#e08fb0', 'env-fauna': '#3e8fd0', 'env-remains': '#cfc6ad',
@@ -149,13 +150,20 @@ export const NAME_KIND = [
   [w('candle|candlestick|candelabra'), 'obj-lighting-candle'],
   [w('campfire|chandelier|streetlight|fire|fireplace'), 'obj-lighting'],
 
-  [w('coin|gold-pile|gem|ingot'), 'obj-pocketitem-coin'],
+  [w('coin|gold-pile|gem'), 'obj-pocketitem-coin'],
   [w('key|keyring'), 'obj-pocketitem-key'],
   [w('book|tome|journal'), 'obj-pocketitem-book'],
   [w('scroll|letter|map|parchment|blueprint'), 'obj-pocketitem-scroll'],
   [w('compass|hourglass|dice|mirror|artifact|star|heart'), 'obj-pocketitem'],
 
-  [w('stand|rack|easel|statue|signboard|bell|cage|mannequin|target|plank|pallet|nugget|bar|brick|textile|parts'), 'obj'],
+  [w('ingot|nugget|ore-lump'), 'obj-resource-metal'],
+  [w('bar'), 'obj-resource-metal'],
+  [w('wood-plank|resource-plank|platform-plank|pallet'), 'obj-resource-wood'],
+  [w('stone-brick'), 'obj-resource-stone'],
+  [w('textile|cloth-roll'), 'obj-resource-textile'],
+  [w('hide|raw-stock|spare-part'), 'obj-resource'],
+
+  [w('stand|rack|easel|statue|signboard|bell|cage|mannequin|target'), 'obj'],
 
   [w('door|gate|hatch|doorway|trapdoor'), 'str-building-door'],
   [w('floor|tile|ceiling|foundation'), 'str-building-floor'],

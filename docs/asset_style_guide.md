@@ -322,6 +322,12 @@ obj-pocketitem-book — book, tome, journal
 obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
+obj-resource-metal — ingot, bar, nugget, ore lump
+obj-resource-wood — plank (stock), board (loose), pallet
+obj-resource-stone — brick (loose), cut block
+obj-resource-textile — textile bolt, cloth roll
+obj-resource — hide, raw stock, spare part
+
 obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
 
 str-building-door — door, gate (building), hatch
