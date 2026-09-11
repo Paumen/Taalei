@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState } from './chiprij.js';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=5530df15fe';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState } from './chiprij.js?v=5530df15fe';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -350,6 +350,7 @@ panel.addEventListener('pointerdown', (e) => {
   const path = holder.dataset.pad;
   swipe = { on: !chosenPaths.has(path), done: new Set([path]) };
   setSelection(familyPerPath.get(path) ?? [path], swipe.on);
+  lastChoice = cardsPerPath.get(path)?.[0] ?? lastChoice;
   panel.setPointerCapture(e.pointerId);
 });
 
@@ -965,7 +966,8 @@ document.querySelector('#selectie-wis').addEventListener('click', () => {
 });
 
 detailSelect.addEventListener('click', () => {
-  setSelection([activePath], !chosenPaths.has(activePath));
+  // the card selects the whole variant family, so the panel has to as well
+  setSelection(familyPerPath.get(activePath) ?? [activePath], !chosenPaths.has(activePath));
 });
 
 function checkColor(hex) {
