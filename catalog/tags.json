@@ -507,12 +507,7 @@
     "dungeon/ceiling-tile",
     "dungeon/crates-stacked",
     "dungeon/door",
-    "dungeon/shield-common",
-    "dungeon/shield-uncommon",
-    "dungeon/torch",
     "dungeon/torch-lit",
-    "dungeon/torch-mounted",
-    "dungeon/torch-wall",
     "fantasy-props/barrel-apples",
     "fantasy-town-kit/banner-green",
     "fantasy-town-kit/banner-red",
@@ -588,7 +583,6 @@
     "platformer-kit/platform-ramp",
     "platformer-kit/poles",
     "platformer-kit/sign",
-    "props/cup-a",
     "props/fire-a",
     "resources/pallet-wood",
     "resources/parts-pile-medium",
@@ -653,8 +647,7 @@
     "village-kit/well-plaza",
     "village-kit/windmill-blades",
     "village-kit/wood-steps",
-    "village-kit/wood-steps-stucco",
-    "weapons/shield-a"
+    "village-kit/wood-steps-stucco"
    ],
    "parent": "wood"
   },
@@ -677,6 +670,8 @@
     "dungeon/barrel-dark",
     "dungeon/barrel-large",
     "dungeon/barrel-small",
+    "dungeon/bed-floor",
+    "dungeon/bed-frame",
     "dungeon/bench",
     "dungeon/bookcase",
     "dungeon/bookcase-filled",
@@ -749,6 +744,8 @@
     "dungeon/shelf-large",
     "dungeon/shelf-small",
     "dungeon/shelves",
+    "dungeon/shield-common",
+    "dungeon/shield-uncommon",
     "dungeon/stairs-wood",
     "dungeon/stool",
     "dungeon/stool-rounded",
@@ -760,6 +757,9 @@
     "dungeon/table-medium-rounded",
     "dungeon/table-small",
     "dungeon/table-small-rounded",
+    "dungeon/torch",
+    "dungeon/torch-mounted",
+    "dungeon/torch-wall",
     "dungeon/trapdoor",
     "dungeon/trunk-large-c",
     "dungeon/trunk-medium-c",
@@ -777,6 +777,8 @@
     "fantasy-town-kit/stall-stool",
     "fantasy-town-kit/watermill",
     "fantasy-town-kit/watermill-wide",
+    "furniture/bed-single-a",
+    "furniture/bed-single-b",
     "furniture/cabinet-medium",
     "furniture/cabinet-small",
     "furniture/chair-a-wood",
@@ -817,6 +819,7 @@
     "props/barrel-a",
     "props/box-a",
     "props/bucket-a",
+    "props/cup-a",
     "restaurant/chair-b",
     "restaurant/crate",
     "restaurant/crate-buns",
@@ -847,6 +850,8 @@
     "survival-kit/box",
     "survival-kit/box-large",
     "survival-kit/box-open",
+    "survival-kit/campfire-fishing-stand",
+    "survival-kit/campfire-stand",
     "survival-kit/fence",
     "survival-kit/fence-doorway",
     "tropical-island/barrel",
@@ -892,6 +897,8 @@
     "weapons/arrow-a",
     "weapons/fistweapon-b",
     "weapons/fistweapon-b-stacked",
+    "weapons/shield-a",
+    "weapons/shield-b",
     "weapons/sword-a"
    ],
    "parent": "wood"
@@ -930,8 +937,6 @@
     "dungeon/barrel-large-decorated",
     "dungeon/barrel-small-stack",
     "dungeon/bed-decorated",
-    "dungeon/bed-floor",
-    "dungeon/bed-frame",
     "dungeon/box-small-decorated",
     "dungeon/box-stacked",
     "dungeon/chest-gold",
@@ -999,7 +1004,6 @@
     "dungeon/wall-window-open",
     "dungeon/wall-window-open-scaffold",
     "dungeon/weapon-rack",
-    "fantasy-props/chair-1",
     "fantasy-props/crate-metal",
     "fantasy-props/mug",
     "fantasy-town-kit/balcony-wall",
@@ -1045,8 +1049,6 @@
     "fantasy-town-kit/watermill",
     "fantasy-town-kit/watermill-wide",
     "food-quaternius/frying-pan",
-    "furniture/bed-single-a",
-    "furniture/bed-single-b",
     "furniture/cabinet-medium",
     "furniture/cabinet-small",
     "furniture/shelf-a-big",
@@ -1162,8 +1164,6 @@
     "small-props/trough-1-a",
     "small-props/trough-3-a",
     "small-props/wheel-a",
-    "survival-kit/campfire-fishing-stand",
-    "survival-kit/campfire-stand",
     "survival-kit/signpost",
     "survival-kit/signpost-single",
     "survival-kit/structure",
@@ -1231,7 +1231,6 @@
     "weapons/hammer-a",
     "weapons/hammer-c",
     "weapons/shield-a",
-    "weapons/shield-b",
     "weapons/spear-a",
     "weapons/staff-a",
     "weapons/staff-b",
@@ -3080,13 +3079,7 @@
    "models": [
     "clay-items/planter",
     "graveyard-kit/urn-round",
-    "graveyard-kit/urn-square",
-    "restaurant/pot-a",
-    "restaurant/pot-a-closed",
-    "restaurant/pot-b",
-    "restaurant/pot-b-closed",
-    "restaurant/pot-large",
-    "restaurant/pot-large-closed"
+    "graveyard-kit/urn-square"
    ]
   },
   {
@@ -3221,7 +3214,6 @@
     "restaurant/food-ingredient-ham",
     "restaurant/food-ingredient-steak",
     "restaurant/food-stew",
-    "restaurant/pot-a-stew",
     "restaurant/pot-b-stew"
    ]
   },
@@ -3324,8 +3316,10 @@
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
    "models": [
-    "survival-kit/campfire-fishing-stand",
-    "survival-kit/campfire-stand"
+    "restaurant/lid-b",
+    "restaurant/pot-a-stew",
+    "restaurant/pot-b",
+    "restaurant/pot-b-closed"
    ]
   },
   {
@@ -3335,9 +3329,14 @@
    "description": "pan, skillet",
    "models": [
     "food-quaternius/frying-pan",
+    "restaurant/lid-large",
     "restaurant/pan-006",
     "restaurant/pan-a",
-    "restaurant/pan-b"
+    "restaurant/pan-b",
+    "restaurant/pot-a",
+    "restaurant/pot-a-closed",
+    "restaurant/pot-large",
+    "restaurant/pot-large-closed"
    ]
   },
   {
@@ -3352,9 +3351,7 @@
     "clay-items/rice-pot",
     "food-quaternius/cooking-pot",
     "food-quaternius/cooking-pot-2",
-    "restaurant/lid-a",
-    "restaurant/lid-b",
-    "restaurant/lid-large"
+    "restaurant/lid-a"
    ]
   },
   {
@@ -3365,6 +3362,7 @@
    "models": [
     "adventurers/mug-empty",
     "clay-items/cup",
+    "dungeon/artifact",
     "dungeon/mug",
     "fantasy-props/mug",
     "props/cup-a"
@@ -3377,7 +3375,6 @@
    "description": "bowl",
    "models": [
     "clay-items/bowl",
-    "dungeon/artifact",
     "restaurant/bowl",
     "restaurant/bowl-small"
    ]
@@ -3429,7 +3426,9 @@
     "modulair-terrein/hilly-prop-camp-campfire",
     "natuur/campfire-star",
     "natuur/campfire-teepee",
-    "props/fire-a"
+    "props/fire-a",
+    "survival-kit/campfire-fishing-stand",
+    "survival-kit/campfire-stand"
    ]
   },
   {
