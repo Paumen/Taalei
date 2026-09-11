@@ -10,6 +10,7 @@ const ROOT = new URL('..', import.meta.url).pathname;
 
 const BANDS = {
   'light grey': '15,3',
+  'dark grey': '13,3',
   'blue-grey': '6,1',
   'light blue-grey': '3,2',
   blue: '4,2',
@@ -68,7 +69,8 @@ const STANDS_IN_FOR_MATERIAL = ['env-flora', 'env-fungi', 'env-fauna', 'env-terr
 // Parents and subtypes both count: a model carries the subtype it is, and the parent
 // only where no subtype fits, so `metal` + `metal-gold` is two materials, not one.
 const MATERIAL_TAGS = ['wood', 'wood-planks', 'wood-worked', 'wood-beam', 'wood-log', 'wood-bark',
-  'metal', 'metal-iron', 'metal-gold', 'metal-silver', 'metal-copper',
+  'metal', 'metal-iron', 'metal-iron-steel', 'metal-iron-wrought', 'metal-iron-cast',
+  'metal-gold', 'metal-silver', 'metal-copper',
   'stone', 'stone-masonry', 'stone-rock', 'stone-soil',
   'paper', 'textile', 'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork',
   'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic', 'vegetation', 'skin'];
@@ -125,6 +127,27 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = 
     return `is ${tag ?? id} but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — none of ${colors.join(', ')}`;
   },
 });
+
+// M62-M68 key the iron subtype to the kind. M67 lets a model carry a second subtype on
+// top, so what is checked is that the kind's own subtype is present -- never that the
+// others are absent. A model with no iron at all is none of these rules' business.
+const IRON = ['steel', 'wrought', 'cast'];
+const ironOf = (m) => IRON.filter((s) => has(m, `metal-iron-${s}`));
+const ironIs = ({ id, text, severity, want, kinds, unless = null }) => ({
+  id, text, severity,
+  check: (m) => {
+    if (!kindIs(m, ...kinds)) return null;
+    if (unless?.(m)) return null;
+    const got = ironOf(m);
+    if (!got.length) return null;
+    if (want.some((w) => got.includes(w))) return null;
+    return `${m.kind} carries metal-iron-${got.join(', metal-iron-')} but takes ${want.map((w) => `metal-iron-${w}`).join(' or ')}`;
+  },
+});
+
+// M66 is the fallback, so it owns every kind the rules above do not name.
+const CLAIMED = ['obj-weapon-melee', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool',
+  'obj-weapon-cannon', 'str', 'obj-kitchenware-cookware', 'char'];
 
 const jokerBand = new Map();
 
@@ -199,8 +222,14 @@ const RULES = [
   materialTakes({ id: 'M10', text: 'stone-soil — sand and dirt — is taupe 14,3.', severity: 'error',
     tag: 'stone-soil', colors: ['taupe'] }),
 
-  materialTakes({ id: 'M11-M12', text: 'metal-iron is light grey 15,3. metal-iron may be blue-grey 6,1 where it is steel or cast iron.',
-    severity: 'error', tag: 'metal-iron', colors: ['light grey', 'blue-grey'],
+  materialTakes({ id: 'M11', text: 'metal-iron-steel is light grey 15,3.',
+    severity: 'error', tag: 'metal-iron-steel', colors: ['light grey'],
+    unless: (m) => isCopper(m) || isKey(m) }),
+  materialTakes({ id: 'M12-wrought', text: 'metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.',
+    severity: 'error', tag: 'metal-iron-wrought', colors: ['dark grey'],
+    unless: (m) => isCopper(m) || isKey(m) }),
+  materialTakes({ id: 'M12-cast', text: 'metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.',
+    severity: 'error', tag: 'metal-iron-cast', colors: ['blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
   materialTakes({ id: 'M13', text: 'metal-gold is gold 6,0; metal-silver is silver 3,2.', severity: 'error',
     tag: 'metal-gold', colors: ['yellow'], unless: isKey }),
@@ -212,15 +241,16 @@ const RULES = [
     severity: 'error',
     check: (m) => {
       if (!isCopper(m)) return null;
-      const other = ['metal', 'metal-iron', 'metal-gold', 'metal-silver'].filter((t) => has(m, t));
+      const other = ['metal', 'metal-iron', 'metal-iron-steel', 'metal-iron-wrought', 'metal-iron-cast',
+        'metal-gold', 'metal-silver'].filter((t) => has(m, t));
       return other.length ? `carries metal-copper alongside ${other.join(', ')}` : null;
     } },
   materialTakes({ id: 'M15', text: 'Keys take the colour of any metal subtype.', severity: 'error',
-    tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
+    tag: 'key', colors: ['light grey', 'dark grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
-  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron, light grey 15,3.',
-    severity: 'error', tag: 'metal-iron', colors: ['light grey'],
-    when: (m) => isContainer(m) && has(m, 'metal-iron') }),
+  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.',
+    severity: 'error', tag: 'metal-iron-wrought', colors: ['dark grey'],
+    when: (m) => isContainer(m) && has(m, 'metal-iron-wrought') }),
   materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.',
     severity: 'error', tag: 'textile',
     colors: ['off-white', 'taupe', 'dark green', 'dark red'],
@@ -299,12 +329,30 @@ const RULES = [
   materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-beam', colors: ['wood dark'] }),
 
-  bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
+  ironIs({ id: 'M62', text: 'obj-weapon-melee, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
+    severity: 'warning', want: ['steel'],
+    kinds: ['obj-weapon-melee', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
+    unless: (m) => kindIs(m, 'obj-tool-supplies') }),
+  ironIs({ id: 'M63', text: 'obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.',
+    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
+  ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str kind with iron are metal-iron-cast.',
+    severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
+  ironIs({ id: 'M65', text: 'obj-kitchenware-cookware takes both irons: a pot or cauldron is cast, a pan is steel.',
+    severity: 'warning', want: ['cast', 'steel'], kinds: ['obj-kitchenware-cookware'] }),
+  ironIs({ id: 'M66', text: 'All other iron is metal-iron-wrought.',
+    severity: 'warning', want: ['wrought'], kinds: ['obj', 'env', 'assy'],
+    unless: (m) => kindIs(m, ...CLAIMED) && !kindIs(m, 'obj-tool-supplies') }),
+  ironIs({ id: 'M68', text: 'char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.',
+    severity: 'warning', want: ['steel'], kinds: ['char'] }),
+
+  bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal-iron-steel, stone and rock only.',
     severity: 'error', color: 'light grey',
-    tags: ['metal', 'metal-iron', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey }),
-  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: steel and cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
-    severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron', 'stone', 'stone-masonry', 'wax'],
+    tags: ['metal', 'metal-iron-steel', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey }),
+  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
+    severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry', 'wax'],
     unless: (m) => isBook(m) || isRigged(m) }),
+  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought only.',
+    severity: 'warning', color: 'dark grey', tags: ['metal', 'metal-iron-wrought'], unless: isKey }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
     severity: 'error', color: 'light blue-grey', tags: ['metal', 'metal-silver'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
