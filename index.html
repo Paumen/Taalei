@@ -93,9 +93,12 @@
   <button class="detail-sluit" id="detail-sluit" aria-label="Close">&times;</button>
   <div class="detail-viewer" id="detail-viewer"></div>
   <div class="detail-info">
-    <h2 id="detail-naam"></h2>
-    <p class="detail-herkomst" id="detail-herkomst"></p>
+    <div class="detail-kop">
+      <h2 id="detail-naam"></h2>
+      <p class="detail-herkomst" id="detail-herkomst"></p>
+    </div>
     <dl id="detail-gegevens"></dl>
+    <div class="detail-lint" id="detail-lint" aria-label="Lint findings" hidden></div>
     <div class="detail-keuze" id="detail-variant" hidden>
       <span class="detail-keuze-kop">Variants</span>
       <div class="detail-chips" id="detail-variant-keuze" role="group" aria-label="Variants"></div>
@@ -120,10 +123,18 @@
   <button type="button" id="selectie-wis">Clear</button>
 </div>
 
-<div class="tagedit-balk" id="tagedit-balk" hidden>
-  <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
-  <button type="button" id="tagedit-balk-download">Download tag edits</button>
-  <button type="button" id="tagedit-balk-wis">Clear</button>
+<div class="onderbalken">
+  <div class="tagedit-balk" id="kleurmerk-balk" hidden>
+    <span class="tagedit-balk-telling" id="kleurmerk-balk-telling" aria-live="polite"></span>
+    <button type="button" id="kleurmerk-balk-download">Download colour marks</button>
+    <button type="button" id="kleurmerk-balk-wis">Clear</button>
+  </div>
+
+  <div class="tagedit-balk" id="tagedit-balk" hidden>
+    <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
+    <button type="button" id="tagedit-balk-download">Download tag edits</button>
+    <button type="button" id="tagedit-balk-wis">Clear</button>
+  </div>
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
