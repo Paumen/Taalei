@@ -1,5 +1,6 @@
 import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=5c428ae0de';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState } from './chiprij.js?v=5c428ae0de';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5c428ae0de';
+import { cycleVerdict, verdictOf, verdictLabel, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -655,6 +656,8 @@ const detailAnimationChoice = document.querySelector('#detail-animatie-keuze');
 const detailVariant = document.querySelector('#detail-variant');
 const detailVariantChoice = document.querySelector('#detail-variant-keuze');
 let activePath = '';
+const lintFindings = new Map();
+const lintRules = new Map();
 
 const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
@@ -668,65 +671,78 @@ const withParents = (ids) => {
   return [...own];
 };
 
-const SHORT_NAME = {
-  'metal-iron': 'Iron',
-  'metal-gold': 'Gold',
-  'metal-silver': 'Silver',
-  'metal-copper': 'Copper',
-  'stone-masonry': 'Masonry',
-  'stone-rock': 'Rock',
-  'stone-soil': 'Soil',
-  'wood-planks': 'Planks',
-  'wood-worked': 'Worked',
-  'wood-beam': 'Beam',
-  'wood-log': 'Log',
-  'wood-bark': 'Bark',
-  animation: 'Anim',
-  structure: 'Struct',
-  qua: 'Quat',
-  assembly: 'Asmbly',
-  ceramic: 'Cerm',
-  textile: 'Textil',
-  leather: 'Leathr',
-  foliage: 'Foliag',
-};
-
-const chipName = (tag) => SHORT_NAME[tag.id] ?? tag.name;
-
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
   { type: 'tag', head: 'Tags' },
 ];
 
-const kindBreadcrumb = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
-
-function colorSwatches(colors) {
+// Every band the model uses, each one a button that walks clean → partly wrong → wrong.
+// A verdict is one reader's judgement against Appendix A, staged in this browser and
+// exported as a report; it never recolours the model.
+function colorSwatches(model) {
+  const colors = model.colors;
   if (!colors?.length) return null;
   const strip = document.createElement('div');
   strip.className = 'detail-stalen';
   for (const hex of colors) {
-    const dot = document.createElement('span');
+    const dot = document.createElement('button');
+    dot.type = 'button';
     dot.className = 'detail-staal';
     dot.style.setProperty('--staal-kleur', hex);
-    // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
-    dot.title = hex;
+    const show = () => {
+      const verdict = verdictOf(model, hex);
+      // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
+      dot.title = `${hex} — ${verdictLabel(verdict)} (tap to change)`;
+      if (verdict) dot.dataset.oordeel = verdict;
+      else delete dot.dataset.oordeel;
+    };
+    show();
+    dot.addEventListener('click', () => { cycleVerdict(model, hex); show(); });
     strip.append(dot);
   }
   return strip;
 }
 
-function fillFacts(rows) {
+// Facts come in as lines, and a line stays a line: the counts that are read against each
+// other (tris beside tris-per-unit, calls beside mats and bands) sit on one row rather
+// than wherever a two-column grid happened to drop them. Only the long tail of style
+// measurements is left to wrap on its own.
+function fillFacts(lines) {
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
-  for (const { kop, vol, waarde, breed, element } of rows) {
-    const name = document.createElement('dt');
-    name.textContent = kop;
-    if (vol) name.title = vol;
-    const valueEl = document.createElement('dd');
-    if (element) valueEl.append(element);
-    else valueEl.textContent = waarde;
-    if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
-    data.append(name, valueEl);
+  for (const facts of lines) {
+    const line = document.createElement('div');
+    line.className = 'feitrij';
+    for (const { kop, vol, waarde, element } of facts) {
+      const name = document.createElement('dt');
+      name.textContent = kop;
+      if (vol) name.title = vol;
+      const valueEl = document.createElement('dd');
+      if (element) valueEl.append(element);
+      else valueEl.textContent = waarde;
+      line.append(name, valueEl);
+    }
+    data.append(line);
+  }
+}
+
+// What lint says about this one model, errors first. Silent when the run found nothing,
+// and silent when lint.json is missing — the panel is readable without it.
+function fillLint(model) {
+  const box = document.querySelector('#detail-lint');
+  const own = lintFindings.get(model.id) ?? [];
+  box.replaceChildren();
+  box.hidden = own.length === 0;
+  for (const finding of own) {
+    const line = document.createElement('p');
+    line.className = 'detail-lintregel';
+    line.dataset.ernst = finding.severity;
+    const code = document.createElement('span');
+    code.className = 'detail-lintcode';
+    code.textContent = finding.rule;
+    code.title = lintRules.get(finding.rule) ?? finding.rule;
+    line.append(code, document.createTextNode(finding.detail));
+    box.append(line);
   }
 }
 
@@ -734,53 +750,62 @@ function showDetail(model) {
   const kit = register.kits.get(model.kit);
   activePath = model.path;
   document.querySelector('#detail-naam').textContent = model.name;
-  document.querySelector('#detail-herkomst').textContent =
-    `${kit?.name ?? model.kit} · ${kindBreadcrumb(effectiveKind(model, register.tags))}`;
+  document.querySelector('#detail-herkomst').textContent = kit?.name ?? model.kit;
 
-  const rows = [
-    { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh), breed: true },
-    {
-      kop: 'Tris',
-      vol: 'Triangles',
-      waarde: `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`,
-      breed: model.tris >= HEAVY_FROM,
-    },
-    {
-      kop: 'Tris / unit',
-      vol: 'Triangles per unit',
-      waarde: !Number.isFinite(model.tpu)
-        ? '—'
-        : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
-      breed: Number.isFinite(model.tpu) && model.tpu > budgetPerUnit,
-    },
-    { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
-    { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
-    { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
-    { kop: 'Verts / tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
-    { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
-    { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
-    { kop: 'Density', waarde: number.format(model.dens) },
-    { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
-    { kop: 'Gradient', vol: 'Gradient spread within the colour band', waarde: model.grad === undefined ? '—' : unit.format(model.grad) },
-    {
-      kop: 'Bands',
-      vol: 'Colour bands the model uses — the clear glass is a material, not a band',
-      waarde: model.bands === undefined ? '—' : number.format(model.bands),
-    },
-    {
-      kop: 'Colours',
-      vol: 'Colour bands the model uses',
-      waarde: '—',
-      element: colorSwatches(model.colors),
-      breed: true,
-    },
-    {
-      kop: 'Grid/gnd/ctr',
-      vol: 'Grid-modular / grounded / centered',
-      waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
-    },
+  const lines = [
+    [{ kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh) }],
+    [
+      {
+        kop: 'Tris',
+        vol: 'Triangles',
+        waarde: `${number.format(model.tris)}${model.tris >= HEAVY_FROM ? ' (heavy)' : ''}`,
+      },
+      {
+        kop: '/ unit',
+        vol: 'Triangles per unit',
+        waarde: !Number.isFinite(model.tpu)
+          ? '—'
+          : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
+      },
+    ],
+    [
+      { kop: 'Calls', vol: 'Draw calls', waarde: model.calls === undefined ? '—' : number.format(model.calls) },
+      { kop: 'Mats', vol: 'Materials', waarde: number.format(model.mat) },
+      {
+        kop: 'Bands',
+        vol: 'Colour bands the model uses — the clear glass is a material, not a band',
+        waarde: model.bands === undefined ? '—' : number.format(model.bands),
+      },
+    ],
+    [
+      { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
+      { kop: '/ tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
+      { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
+      { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
+      { kop: 'Density', waarde: number.format(model.dens) },
+      { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
+      {
+        kop: 'Gradient',
+        vol: 'Gradient spread within the colour band',
+        waarde: model.grad === undefined ? '—' : unit.format(model.grad),
+      },
+    ],
+    [
+      {
+        kop: 'Colours',
+        vol: 'Colour bands the model uses — tap a band to mark it partly wrong, then wrong',
+        waarde: '—',
+        element: colorSwatches(model),
+      },
+      {
+        kop: 'Grid/gnd/ctr',
+        vol: 'Grid-modular / grounded / centered',
+        waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
+      },
+    ],
   ];
-  fillFacts(rows);
+  fillFacts(lines);
+  fillLint(model);
 
   const download = document.querySelector('#detail-download');
   download.href = modelUrl(model.path);
@@ -823,12 +848,7 @@ function showDetail(model) {
 
   detailViewer.replaceChildren(viewer);
 
-  renderTagEditor(document.querySelector('#detail-tags'), model, register.tags, {
-    onChange: () => {
-      document.querySelector('#detail-herkomst').textContent =
-        `${kit?.name ?? model.kit} · ${kindBreadcrumb(effectiveKind(model, register.tags))}`;
-    },
-  });
+  renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
 
   detail.showModal();
   updateSelection();
@@ -1050,7 +1070,7 @@ function buildTagBar(tags) {
     container,
     'Kind',
     [
-      ...kinds.map((t) => ({ id: t.id, name: t.name, hint: t.description, parent: kindParent(t.id) })),
+      ...kinds.map((t) => ({ id: t.id, name: chipName(t), full: t.name, hint: t.description, parent: kindParent(t.id) })),
       { id: WITHOUT, name: 'No kind', hint: 'Models the migration could not resolve to a kind — tag them in the model panel' },
     ],
     kindState,
@@ -1063,7 +1083,7 @@ function buildTagBar(tags) {
     container,
     'Use',
     [
-      ...uses.map((t) => ({ id: t.id.replace(/^use:/, ''), name: t.name, hint: t.description })),
+      ...uses.map((t) => ({ id: t.id.replace(/^use:/, ''), name: chipName(t), full: t.name, hint: t.description })),
       { id: WITHOUT, name: 'No use', hint: 'Carries none of the eight uses' },
     ],
     useState,
@@ -1084,7 +1104,7 @@ function buildTagBar(tags) {
     buildChipRow(
       container,
       head,
-      own.map((t) => ({ id: t.id, name: chipName(t), hint: t.description, parent: t.parent ?? null })),
+      own.map((t) => ({ id: t.id, name: chipName(t), full: t.name, hint: t.description, parent: t.parent ?? null })),
       tagState,
       'tags',
       { byCount: true },
@@ -1162,6 +1182,24 @@ function filter() {
   emptyMessage.hidden = visible > 0;
 }
 
+// Findings from `node tools/catalog-lint.mjs --json catalog/lint.json`, by model id.
+// Regenerate it whenever the catalogue is relinted; without it the panel simply shows none.
+async function loadLint() {
+  try {
+    const response = await fetch(modelUrl('catalog/lint.json'));
+    if (!response.ok) return;
+    const data = await response.json();
+    for (const rule of data.rules ?? []) lintRules.set(rule.id, `${rule.id} — ${rule.text}`);
+    const rank = { error: 0, warning: 1 };
+    for (const finding of data.findings ?? []) {
+      lintFindings.set(finding.model, [...(lintFindings.get(finding.model) ?? []), finding]);
+    }
+    for (const own of lintFindings.values()) {
+      own.sort((a, b) => (rank[a.severity] ?? 9) - (rank[b.severity] ?? 9) || a.rule.localeCompare(b.rule));
+    }
+  } catch {}
+}
+
 async function start() {
   const response = await fetch(modelUrl('catalog/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
@@ -1195,9 +1233,12 @@ async function start() {
     childrenOf.set(tag.parent, [...(childrenOf.get(tag.parent) ?? []), tag.id]);
   }
 
+  await loadLint();
+
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
   mountEditBar();
+  mountMarkBar();
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);
 
