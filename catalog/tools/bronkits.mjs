@@ -8,7 +8,7 @@ export const BRONKITS = [
   { map: 'kenney_prototypekit', naam: 'Kenney Prototype Kit', kit: 'prototype-kit', formaat: 'glb' },
   { map: 'kenney_castlekit', naam: 'Kenney Castle Kit', kit: 'castle-kit', formaat: 'glb' },
   { map: 'kenney_graveyardkit_5.0', naam: 'Kenney Graveyard Kit', kit: 'graveyard-kit', formaat: 'glb' },
-  { map: 'kenney_holidaykit', naam: 'Kenney Holiday Kit', kit: null, formaat: 'glb' },
+  { map: 'kenney_holidaykit', naam: 'Kenney Holiday Kit', kit: 'holiday-kit', formaat: 'glb' },
   { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: 'mini-dungeon', formaat: 'glb' },
 
   { map: 'KayKit_Dungeon_Pack_1.1_FREE', naam: 'KayKit Dungeon Asset Pack', kit: 'dungeon', formaat: 'gltf' },
@@ -45,15 +45,14 @@ export const BRONKITS = [
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
 
-  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: null, formaat: 'fbx' },
-  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: null, formaat: 'fbx' },
-  { map: 'camping_asset_pack_Demo', naam: 'Camping Asset Pack (Demo)', kit: null, formaat: 'fbx' },
+  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'rpg-quaternius', formaat: 'fbx' },
+  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'rpg-quaternius', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: null, formaat: 'fbx', splitsPerMesh: true },
-  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: null, formaat: 'fbx' },
+  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
 
   // glb, not the fbx zips: those put every model in its own folder, which build-missing's
   // one-folder rule reads as a two-model pack, and the park's fbx ships without its atlas.
-  { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: null, formaat: 'glb' },
-  { map: 'Pond_pack', naam: 'Pond Pack', kit: null, formaat: 'glb' },
-  { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: null, formaat: 'glb' },
+  { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'park', formaat: 'glb' },
+  { map: 'Pond_pack', naam: 'Pond Pack', kit: 'pond', formaat: 'glb' },
+  { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-village', formaat: 'glb' },
 ];

@@ -1,0 +1,86 @@
+	Pond Pack
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .glb aangeleverd, in een zip met de naam
+	`Pond_pack`, zonder licentiebestand en zonder verwijzing naar een
+	maker of een packpagina. De CC0-vermelding hierboven is vastgesteld
+	door de eigenaar van dit project bij het inladen; ze komt niet uit de
+	pack zelf. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Van de 22 modellen zijn er 19 ingeladen: de drie kuipen, de drie
+	stenen, de zes takken en de zeven dieren. Niet ingeladen zijn `Cat
+	Tail` (vier driehoeken, een plat vlak), `Mini Plant` en `Clawfoot
+	Bathtub`. Spaties zijn koppeltekens geworden en alles is klein gezet:
+	`Tree Branch-2` wordt tree-branch-2. Er is geen naam aangepast.
+
+	De pack levert drie takken twee keer. `Branch` en `Tree Branch-3`,
+	`Branch B` en `Tree Branch-2`, en `Tree Branch` en `Tree Branch-4`
+	hebben elk dezelfde geometrie en hetzelfde aantal driehoeken; alleen
+	de kleur van de stam verschilt. Ze staan alle zes in de kit, en na het
+	hermappen liggen de paren nog steeds op verschillende houtbanen.
+
+	Schaal
+
+	Op 0,341 gezet. `Clay Pot` meet 0,953 breed in de pack en komt daarmee
+	op 0,325 uit — precies clay-items/planter (0,325), hetzelfde soort
+	pot. Een tweede referentie wijst dezelfde kant op: `Rock A` meet 0,499
+	breed en komt op 0,170 uit, naast forest/rock-1-a (0,173).
+
+	Kleur
+
+	De pack heeft een eigen kleurenvel. Dat vel is niet meegekomen — de
+	modellen zijn op de gedeelde kits/colormap.png gezet, die net zo is
+	opgebouwd, zodat ze dezelfde kleuren delen met de andere kits en in
+	hetzelfde kleurfilter meedoen. Het gaat baan voor baan: van elke baan
+	van de pack wordt één keer bepaald welke baan van de gedeelde sheet er
+	het beste bij past, waarna álle driehoeken van die bronbaan daarheen
+	gaan en elk hoekpunt zijn eigen plek in het verloop houdt. De pack is
+	donkerder dan de sheet en is bij het inladen ×1,67 opgehaald.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is, en gelden voor een hele baan en
+	niet voor één kleur.
+
+	Dit is de pack met de verste sprongen van de vier die tegelijk zijn
+	ingeladen. `Bird` springt 31,6: het bijna-witte #fcf7f2 van de borst
+	heeft geen tegenhanger en landt op light grey 15,3. De zes takken
+	springen 27,6: hun afgebroken uiteinde is in de pack zwart (#000000)
+	en er staat geen zwart op de gedeelde sheet. `Dragonfly` springt 25,1,
+	van het bleekgroene #e4f4e4 naar taupe 14,3.
+
+	Na het inladen zijn vier banen verplaatst met
+	tools/colormap-recolor.mjs, omdat de dichtstbijzijnde baan niet de
+	baan is die Appendix A voor dat materiaal aanwijst:
+
+	  water in de drie kuipen   light blue-grey 3,2 → blue 4,2   (M28)
+	  pot van `Clay Pot`        wood middle 1,0    → terracotta 5,0 (M25)
+	  afgebroken uiteinden      blue-grey 6,1      → bark 3,0     (C10)
+	  zalmkleurige takken       terracotta 5,0     → wood light 0,0 (M6)
+
+	Een recolour is een UV-verschuiving over hele cellen, dus de ingebakken
+	schaduw blijft staan: elk hoekpunt houdt zijn plek in het verloop.
+
+	Zeven modellen — de vogels, de kikkers en de libellen — zijn env-fauna
+	en dragen geen materiaal: M32 laat fauna elke kleur, en die banen zijn
+	gelaten zoals de pack ze bedoelde. Vijf van hen spreiden hun baan over
+	meer dan 0,90 van de cel en vallen daarmee onder W2; dat is het
+	verloop van de pack zelf en is niet rechtgetrokken.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.
