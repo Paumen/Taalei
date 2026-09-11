@@ -18,8 +18,6 @@
     <a href="catalog/missing.html">Missing</a>
   </nav>
 
-  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
-
   <div class="kop-bediening">
     <div class="knopgroep">
       <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
@@ -41,48 +39,52 @@
 </div>
 
 <div class="ordebalk">
-  <select id="groepering" aria-label="Group by" title="Group by">
-    <option value="geen">no grouping</option>
-    <option value="kit">by kit</option>
-    <option value="kind2" selected>by kind</option>
-    <option value="kind1">by kind · root</option>
-    <option value="kind3">by kind · leaf</option>
-    <option value="tag">by tag</option>
-    <option value="maat">by size</option>
-  </select>
+  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
 
-  <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+  <div class="ordebalk-keuzes">
+    <select id="groepering" aria-label="Group by" title="Group by">
+      <option value="geen">no grouping</option>
+      <option value="kit">by kit</option>
+      <option value="kind2" selected>by kind</option>
+      <option value="kind1">by kind · root</option>
+      <option value="kind3">by kind · leaf</option>
+      <option value="tag">by tag</option>
+      <option value="maat">by size</option>
+    </select>
 
-  <select id="sortering" aria-label="Sort by" title="Sort by">
-    <option value="naam">by name</option>
-    <option value="groot">largest first</option>
-    <option value="klein">smallest first</option>
-    <option value="zwaar">most triangles</option>
-    <option value="licht">fewest triangles</option>
-    <option value="bestand">largest file</option>
-    <option value="bestandKlein">smallest file</option>
-    <optgroup label="style measurements">
-      <option value="meesteVtx">most vertices</option>
-      <option value="minsteVtx">fewest vertices</option>
-      <option value="grofsteFacet">biggest facets</option>
-      <option value="fijnsteFacet">finest facets</option>
-      <option value="dichtste">densest</option>
-      <option value="ijlste">sparsest</option>
-      <option value="kleinsteRand">smallest min edge</option>
-      <option value="grootsteRand">largest min edge</option>
-      <option value="meestOpRaster">most on-angle</option>
-      <option value="minstOpRaster">least on-angle</option>
-      <option value="breedsteVerloop">widest gradient</option>
-      <option value="smalsteVerloop">narrowest gradient</option>
-      <option value="meesteBanden">most colour bands</option>
-      <option value="minsteBanden">fewest colour bands</option>
-      <option value="meesteMats">most materials</option>
-      <option value="minsteMats">fewest materials</option>
-      <option value="nietRasterEerst">off-grid first</option>
-      <option value="nietGeaardEerst">not grounded first</option>
-      <option value="nietGecentreerdEerst">off-center first</option>
-    </optgroup>
-  </select>
+    <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+
+    <select id="sortering" aria-label="Sort by" title="Sort by">
+      <option value="naam">by name</option>
+      <option value="groot">largest first</option>
+      <option value="klein">smallest first</option>
+      <option value="zwaar">most triangles</option>
+      <option value="licht">fewest triangles</option>
+      <option value="bestand">largest file</option>
+      <option value="bestandKlein">smallest file</option>
+      <optgroup label="style measurements">
+        <option value="meesteVtx">most vertices</option>
+        <option value="minsteVtx">fewest vertices</option>
+        <option value="grofsteFacet">biggest facets</option>
+        <option value="fijnsteFacet">finest facets</option>
+        <option value="dichtste">densest</option>
+        <option value="ijlste">sparsest</option>
+        <option value="kleinsteRand">smallest min edge</option>
+        <option value="grootsteRand">largest min edge</option>
+        <option value="meestOpRaster">most on-angle</option>
+        <option value="minstOpRaster">least on-angle</option>
+        <option value="breedsteVerloop">widest gradient</option>
+        <option value="smalsteVerloop">narrowest gradient</option>
+        <option value="meesteBanden">most colour bands</option>
+        <option value="minsteBanden">fewest colour bands</option>
+        <option value="meesteMats">most materials</option>
+        <option value="minsteMats">fewest materials</option>
+        <option value="nietRasterEerst">off-grid first</option>
+        <option value="nietGeaardEerst">not grounded first</option>
+        <option value="nietGecentreerdEerst">off-center first</option>
+      </optgroup>
+    </select>
+  </div>
 </div>
 
 <main id="paneel"></main>
@@ -93,9 +95,12 @@
   <button class="detail-sluit" id="detail-sluit" aria-label="Close">&times;</button>
   <div class="detail-viewer" id="detail-viewer"></div>
   <div class="detail-info">
-    <h2 id="detail-naam"></h2>
-    <p class="detail-herkomst" id="detail-herkomst"></p>
+    <div class="detail-kop">
+      <h2 id="detail-naam"></h2>
+      <p class="detail-herkomst" id="detail-herkomst"></p>
+    </div>
     <dl id="detail-gegevens"></dl>
+    <div class="detail-lint" id="detail-lint" aria-label="Lint findings" hidden></div>
     <div class="detail-keuze" id="detail-variant" hidden>
       <span class="detail-keuze-kop">Variants</span>
       <div class="detail-chips" id="detail-variant-keuze" role="group" aria-label="Variants"></div>
@@ -120,10 +125,18 @@
   <button type="button" id="selectie-wis">Clear</button>
 </div>
 
-<div class="tagedit-balk" id="tagedit-balk" hidden>
-  <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
-  <button type="button" id="tagedit-balk-download">Download tag edits</button>
-  <button type="button" id="tagedit-balk-wis">Clear</button>
+<div class="onderbalken">
+  <div class="tagedit-balk" id="kleurmerk-balk" hidden>
+    <span class="tagedit-balk-telling" id="kleurmerk-balk-telling" aria-live="polite"></span>
+    <button type="button" id="kleurmerk-balk-download">Download colour marks</button>
+    <button type="button" id="kleurmerk-balk-wis">Clear</button>
+  </div>
+
+  <div class="tagedit-balk" id="tagedit-balk" hidden>
+    <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
+    <button type="button" id="tagedit-balk-download">Download tag edits</button>
+    <button type="button" id="tagedit-balk-wis">Clear</button>
+  </div>
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
