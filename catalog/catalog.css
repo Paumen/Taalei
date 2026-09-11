@@ -70,6 +70,10 @@ a { color: var(--accent); }
   color: var(--inkt-zacht);
 }
 
+/* In de ordebalk is de telling de linkerhelft van de regel: hij duwt de keuzes naar
+   rechts zonder zelf mee te groeien, anders wipt de laatste keuze naar de volgende regel. */
+.ordebalk .kop-sub { margin: 0 auto 0 0; }
+
 .kop-regel {
   display: flex;
   flex-wrap: wrap;
@@ -91,8 +95,10 @@ a { color: var(--accent); }
 
 .kop-paginas a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
+/* De paginabalk en de knoppen delen één regel; pas als de kop echt te smal wordt valt
+   de balk terug op een eigen regel. */
 .paginabalk {
-  flex: 1 0 100%;
+  flex: 0 1 auto;
   display: flex;
   gap: 2px;
   padding: 3px;
@@ -285,6 +291,7 @@ a { color: var(--accent); }
 @media (max-width: 700px) {
 
   .kop-bediening { min-width: 0; max-width: 100%; }
+
   .schakelaar { min-width: 0; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
   .schakelaar::-webkit-scrollbar { display: none; }
   .schakelaar button { flex: none; }
@@ -293,9 +300,12 @@ a { color: var(--accent); }
   .staal { width: 22px; height: 22px; }
 }
 
+/* De telling staat bij de sorteerkeuzes: allebei zeggen ze wat je nu ziet, en samen
+   kosten ze één regel in plaats van twee. */
 .ordebalk {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-end;
   gap: 4px 14px;
   padding: 4px clamp(10px, 3vw, 24px) 0;
@@ -324,6 +334,24 @@ a { color: var(--accent); }
 
 .ordebalk select:hover { border-bottom-color: var(--accent); }
 .ordebalk select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Op een telefoon blijven de telling en de twee keuzes nog steeds één regel: smallere
+   tussenruimte en keuzes die mogen krimpen, in plaats van "by name" die eronder valt. */
+/* De drie bedieningen blijven bij elkaar: valt de regel toch om, dan zakt de hele groep
+   onder de telling in plaats van dat er één keuze losraakt. */
+.ordebalk-keuzes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+}
+
+@media (max-width: 700px) {
+  .ordebalk,
+  .ordebalk-keuzes { gap: 4px 6px; }
+  .ordebalk select { min-width: 0; max-width: 104px; font-size: 12.5px; }
+  .ordebalk .kop-sub { font-size: 12px; }
+}
 
 .tagbalk-knoppen {
   display: flex;

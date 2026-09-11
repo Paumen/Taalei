@@ -18,8 +18,6 @@
     <a href="catalog/missing.html">Missing</a>
   </nav>
 
-  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
-
   <div class="kop-bediening">
     <div class="knopgroep">
       <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
@@ -41,48 +39,52 @@
 </div>
 
 <div class="ordebalk">
-  <select id="groepering" aria-label="Group by" title="Group by">
-    <option value="geen">no grouping</option>
-    <option value="kit">by kit</option>
-    <option value="kind2" selected>by kind</option>
-    <option value="kind1">by kind · root</option>
-    <option value="kind3">by kind · leaf</option>
-    <option value="tag">by tag</option>
-    <option value="maat">by size</option>
-  </select>
+  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
 
-  <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+  <div class="ordebalk-keuzes">
+    <select id="groepering" aria-label="Group by" title="Group by">
+      <option value="geen">no grouping</option>
+      <option value="kit">by kit</option>
+      <option value="kind2" selected>by kind</option>
+      <option value="kind1">by kind · root</option>
+      <option value="kind3">by kind · leaf</option>
+      <option value="tag">by tag</option>
+      <option value="maat">by size</option>
+    </select>
 
-  <select id="sortering" aria-label="Sort by" title="Sort by">
-    <option value="naam">by name</option>
-    <option value="groot">largest first</option>
-    <option value="klein">smallest first</option>
-    <option value="zwaar">most triangles</option>
-    <option value="licht">fewest triangles</option>
-    <option value="bestand">largest file</option>
-    <option value="bestandKlein">smallest file</option>
-    <optgroup label="style measurements">
-      <option value="meesteVtx">most vertices</option>
-      <option value="minsteVtx">fewest vertices</option>
-      <option value="grofsteFacet">biggest facets</option>
-      <option value="fijnsteFacet">finest facets</option>
-      <option value="dichtste">densest</option>
-      <option value="ijlste">sparsest</option>
-      <option value="kleinsteRand">smallest min edge</option>
-      <option value="grootsteRand">largest min edge</option>
-      <option value="meestOpRaster">most on-angle</option>
-      <option value="minstOpRaster">least on-angle</option>
-      <option value="breedsteVerloop">widest gradient</option>
-      <option value="smalsteVerloop">narrowest gradient</option>
-      <option value="meesteBanden">most colour bands</option>
-      <option value="minsteBanden">fewest colour bands</option>
-      <option value="meesteMats">most materials</option>
-      <option value="minsteMats">fewest materials</option>
-      <option value="nietRasterEerst">off-grid first</option>
-      <option value="nietGeaardEerst">not grounded first</option>
-      <option value="nietGecentreerdEerst">off-center first</option>
-    </optgroup>
-  </select>
+    <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+
+    <select id="sortering" aria-label="Sort by" title="Sort by">
+      <option value="naam">by name</option>
+      <option value="groot">largest first</option>
+      <option value="klein">smallest first</option>
+      <option value="zwaar">most triangles</option>
+      <option value="licht">fewest triangles</option>
+      <option value="bestand">largest file</option>
+      <option value="bestandKlein">smallest file</option>
+      <optgroup label="style measurements">
+        <option value="meesteVtx">most vertices</option>
+        <option value="minsteVtx">fewest vertices</option>
+        <option value="grofsteFacet">biggest facets</option>
+        <option value="fijnsteFacet">finest facets</option>
+        <option value="dichtste">densest</option>
+        <option value="ijlste">sparsest</option>
+        <option value="kleinsteRand">smallest min edge</option>
+        <option value="grootsteRand">largest min edge</option>
+        <option value="meestOpRaster">most on-angle</option>
+        <option value="minstOpRaster">least on-angle</option>
+        <option value="breedsteVerloop">widest gradient</option>
+        <option value="smalsteVerloop">narrowest gradient</option>
+        <option value="meesteBanden">most colour bands</option>
+        <option value="minsteBanden">fewest colour bands</option>
+        <option value="meesteMats">most materials</option>
+        <option value="minsteMats">fewest materials</option>
+        <option value="nietRasterEerst">off-grid first</option>
+        <option value="nietGeaardEerst">not grounded first</option>
+        <option value="nietGecentreerdEerst">off-center first</option>
+      </optgroup>
+    </select>
+  </div>
 </div>
 
 <main id="paneel"></main>
