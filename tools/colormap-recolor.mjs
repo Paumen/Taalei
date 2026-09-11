@@ -6,9 +6,10 @@
 // moves by whole cells, which keeps its position inside the band and with it the
 // baked shading (style guide §1). The atlas on disk is not touched.
 //
-// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v]
+// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--piece n[,n]]
+//        node tools/colormap-recolor.mjs --pieces <file.glb|dir> [...] [--mesh name]
 //        node tools/colormap-recolor.mjs --map plan.json [--dry]
-//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…", "uv": "u,v" }, …]
+//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…", "uv": "u,v", "piece": [2] }, …]
 //   --mesh limits the move to the meshes of that name, for a model that answers
 //   for several parts at once.
 //   --uv limits the move to the vertices sitting on that one point of the source
@@ -16,6 +17,11 @@
 //   point of the band it matched, so two materials that matched the same cell —
 //   KayKit's Stone and WoodDark both land on light grey — are still apart inside
 //   it, and only --uv can move one without the other.
+//   --piece limits the move to the connected pieces you name. `--pieces` lists them
+//   first: one line per piece with its vertex count and bounding box, numbered in
+//   that listing's order. That is how a band is added to a pack whose whole model
+//   sits on one uv point — a stone head or a strap is its own piece there, and
+//   nothing else in the model can be told apart by uv.
 //   --upright limits the move to the connected pieces that stand: a piece whose
 //   height beats both its width and its depth. That is the posts and legs of a
 //   frame and not the planks they carry, which is the line the dungeon scaffolds
@@ -65,13 +71,12 @@ const glbsUnder = (path) => {
 // primitives is rewritten once; the test is per vertex, so untouched bands stay put.
 const UV_EPSILON = 1e-4;
 
-// The vertices of every connected piece that stands taller than it is wide or deep.
+// Every connected piece of the model, with the TEXCOORD_0 vertices it owns.
 // Pieces are found over welded positions, so the two triangles of a shared corner
-// still count as one piece; the result is a set of TEXCOORD_0 vertex indices per
-// accessor, because that is what the move works on.
-function uprightVertices(glb, mesh = null) {
+// still count as one piece. Vertex indices are what both selectors work on.
+function connectedPieces(glb, mesh = null) {
   const { json } = glb;
-  const perAccessor = new Map();
+  const found = [];
   for (const target of json.meshes ?? []) {
     if (mesh && target.name !== mesh) continue;
     for (const primitive of target.primitives ?? []) {
@@ -101,27 +106,58 @@ function uprightVertices(glb, mesh = null) {
       for (let i = 0; i < pos.count; i++) {
         const root = find(place[i]);
         let piece = pieces.get(root);
-        if (!piece) { piece = { low: [Infinity, Infinity, Infinity], high: [-Infinity, -Infinity, -Infinity] }; pieces.set(root, piece); }
+        if (!piece) {
+          piece = { mesh: target.name ?? '', accessor: uvIndex, vertices: new Set(),
+            low: [Infinity, Infinity, Infinity], high: [-Infinity, -Infinity, -Infinity] };
+          pieces.set(root, piece);
+        }
+        piece.vertices.add(i);
         for (let axis = 0; axis < 3; axis++) {
           const value = pos.data[i * pos.width + axis];
           if (value < piece.low[axis]) piece.low[axis] = value;
           if (value > piece.high[axis]) piece.high[axis] = value;
         }
       }
-
-      const chosen = perAccessor.get(uvIndex) ?? new Set();
-      for (let i = 0; i < pos.count; i++) {
-        const piece = pieces.get(find(place[i]));
-        const size = piece.high.map((value, axis) => value - piece.low[axis]);
-        if (size[1] > size[0] && size[1] > size[2]) chosen.add(i);
-      }
-      perAccessor.set(uvIndex, chosen);
+      found.push(...pieces.values());
     }
+  }
+  // Numbered for --piece, so the order has to hold from one run to the next:
+  // biggest first, and position breaks a tie between two pieces of equal size.
+  return found.sort((a, b) =>
+    b.vertices.size - a.vertices.size ||
+    a.low[0] - b.low[0] || a.low[1] - b.low[1] || a.low[2] - b.low[2]);
+}
+
+// The vertices of every connected piece that stands taller than it is wide or deep:
+// the posts and legs of a frame and not the planks they carry.
+function uprightVertices(glb, mesh = null) {
+  const perAccessor = new Map();
+  for (const piece of connectedPieces(glb, mesh)) {
+    const size = piece.high.map((value, axis) => value - piece.low[axis]);
+    if (!(size[1] > size[0] && size[1] > size[2])) continue;
+    const chosen = perAccessor.get(piece.accessor) ?? new Set();
+    for (const i of piece.vertices) chosen.add(i);
+    perAccessor.set(piece.accessor, chosen);
   }
   return perAccessor;
 }
 
-function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv = null, upright = false) {
+// The vertices of the pieces named by --piece, per accessor, in the numbering
+// `--pieces` prints.
+function pieceVertices(glb, mesh, wanted) {
+  const pieces = connectedPieces(glb, mesh);
+  const perAccessor = new Map();
+  for (const number of wanted) {
+    const piece = pieces[number - 1];
+    if (!piece) throw new Error(`no piece ${number}: the model has ${pieces.length}`);
+    const chosen = perAccessor.get(piece.accessor) ?? new Set();
+    for (const i of piece.vertices) chosen.add(i);
+    perAccessor.set(piece.accessor, chosen);
+  }
+  return perAccessor;
+}
+
+function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv = null, upright = false, piece = null) {
   const { json, bin } = glb;
   const shiftU = (toColumn - fromColumn) / COLUMNS;
   const shiftV = (toRow - fromRow) / ROWS;
@@ -134,12 +170,15 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv 
     }
   }
 
+  const picked = piece ? pieceVertices(glb, mesh, piece) : null;
   const upstanding = upright ? uprightVertices(glb, mesh) : null;
 
   let moved = 0;
   for (const index of accessors) {
     const standing = upstanding?.get(index) ?? null;
     if (upright && !standing) continue;
+    const wanted = picked?.get(index) ?? null;
+    if (piece && !wanted) continue;
     const accessor = json.accessors[index];
     if (accessor.sparse) throw new Error('sparse accessor is not supported');
     if (accessor.componentType !== 5126) throw new Error(`TEXCOORD_0 is not float: accessor ${index}`);
@@ -156,7 +195,7 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv 
       const line = Math.min(ROWS - 1, Math.max(0, Math.floor(row[1] * ROWS)));
       const onPoint =
         !uv || (Math.abs(row[0] - uv[0]) < UV_EPSILON && Math.abs(row[1] - uv[1]) < UV_EPSILON);
-      const onPiece = !standing || standing.has(i);
+      const onPiece = (!standing || standing.has(i)) && (!wanted || wanted.has(i));
       if (column === fromColumn && line === fromRow && onPoint && onPiece) {
         row[0] += shiftU;
         row[1] += shiftV;
@@ -177,13 +216,40 @@ const meshFlag = argv.indexOf('--mesh');
 const meshName = meshFlag === -1 ? null : argv[meshFlag + 1];
 if (meshFlag !== -1 && !meshName) { console.error('error: --mesh wants a mesh name'); process.exit(2); }
 const upright = argv.includes('--upright');
+const listPieces = argv.includes('--pieces');
+const pieceFlag = argv.indexOf('--piece');
+const pieceList = pieceFlag === -1 ? null : argv[pieceFlag + 1];
+if (pieceFlag !== -1 && !pieceList) { console.error('error: --piece wants a piece number, or several separated by commas'); process.exit(2); }
+const pieces = pieceList === null ? null : pieceList.split(',').map((n) => {
+  const number = Number(n);
+  if (!Number.isInteger(number) || number < 1) { console.error(`error: not a piece number: ${n}`); process.exit(2); }
+  return number;
+});
 const uvFlag = argv.indexOf('--uv');
 const uvPoint = uvFlag === -1 ? null : argv[uvFlag + 1];
 if (uvFlag !== -1 && !uvPoint) { console.error('error: --uv wants a u,v point'); process.exit(2); }
 const consumed = new Set();
 if (meshFlag !== -1) { consumed.add(meshFlag); consumed.add(meshFlag + 1); }
 if (uvFlag !== -1) { consumed.add(uvFlag); consumed.add(uvFlag + 1); }
-const rest = argv.filter((a, i) => a !== '--dry' && a !== '--upright' && !consumed.has(i));
+if (pieceFlag !== -1) { consumed.add(pieceFlag); consumed.add(pieceFlag + 1); }
+const rest = argv.filter((a, i) => a !== '--dry' && a !== '--upright' && a !== '--pieces' && !consumed.has(i));
+
+// --pieces only reports: it names what --piece can select, and changes nothing.
+if (listPieces) {
+  const inputs = rest[0] === '--map' ? [] : rest.slice(2);
+  const files = (inputs.length ? inputs : rest).flatMap((input) => glbsUnder(input));
+  for (const file of files) {
+    const glb = readGlb(file);
+    const found = connectedPieces(glb, meshName);
+    console.log(`${file}: ${found.length} piece(s)`);
+    found.forEach((piece, i) => {
+      const size = piece.high.map((value, axis) => (value - piece.low[axis]).toFixed(3));
+      console.log(`  ${i + 1}. ${piece.vertices.size} verts  ${size.join(' x ')}` +
+        `  at ${piece.low.map((v) => v.toFixed(3)).join(',')}${piece.mesh ? `  mesh ${piece.mesh}` : ''}`);
+    });
+  }
+  process.exit(0);
+}
 
 let plan = [];
 if (rest[0] === '--map') {
@@ -193,20 +259,20 @@ if (rest[0] === '--map') {
   const [from, to, ...inputs] = rest;
   if (!from || !to || inputs.length === 0) {
     console.error(
-      'usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--upright]',
+      'usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--upright] [--piece n[,n]] [--pieces]',
     );
     process.exit(2);
   }
   plan = inputs.flatMap((input) =>
-    glbsUnder(input).map((file) => ({ file, from, to, mesh: meshName, uv: uvPoint, upright })));
+    glbsUnder(input).map((file) => ({ file, from, to, mesh: meshName, uv: uvPoint, upright, piece: pieces })));
 }
 
 let touched = 0;
-for (const { file, from, to, mesh = null, uv = null, upright: standing = false } of plan) {
+for (const { file, from, to, mesh = null, uv = null, upright: standing = false, piece = null } of plan) {
   const glb = readGlb(file);
-  const moved = recolor(glb, parseCell(from), parseCell(to), mesh, uv ? parseUv(uv) : null, standing);
+  const moved = recolor(glb, parseCell(from), parseCell(to), mesh, uv ? parseUv(uv) : null, standing, piece);
   const waar =
-    `${from}${uv ? ` at ${uv}` : ''}${standing ? ' on the upright pieces' : ''}${mesh ? ` on mesh ${mesh}` : ''}`;
+    `${from}${uv ? ` at ${uv}` : ''}${standing ? ' on the upright pieces' : ''}${piece ? ` on piece ${piece.join(',')}` : ''}${mesh ? ` on mesh ${mesh}` : ''}`;
   if (moved === 0) { console.log(`  ${file}: nothing in ${waar}`); continue; }
   if (!dry) writeGlb(file, glb.json, glb.bin, writeFileSync);
   touched++;
