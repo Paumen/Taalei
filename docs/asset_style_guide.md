@@ -224,7 +224,7 @@ text alone.
   growing on objects and structures.
 - **C9.** `FE` 🟢 Lighter browns: wood only; skin may take wood light 0,0 (M43).
 - **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
-- **C11.** `FE` 🟢 Tranaparant: glass only.
+- **C11.** `FE` 🟢 Transparent: glass only.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
 - **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).
@@ -235,7 +235,7 @@ text alone.
   tag counts, subtypes included.
 - **N3.** `FE` 🟢 A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.
 - **N4.** `FE` 🟢 Ceiling: **6 bands for a human character or a decorated food, 5 for
-  anything else.** A skeleton takes the 5. An assembly is not a model; each part answers on its own.
+  anything else.** A skeleton takes the 5; an assembly answers per part.
 
 ### W. 
 

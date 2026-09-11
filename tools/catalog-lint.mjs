@@ -157,14 +157,14 @@ const halfOf = ({ id, text, severity, lane, low, high, when }) => ({
 
 const RULES = [
 
-  { id: 'G1', text: 'A model draws in one call; only moving features (animation tag) or glass earn more (guide §5).',
+  { id: 'G1', text: 'Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.',
     severity: 'warning', noJoker: true,
     check: (m) => {
       if (!(m.calls > 1) || has(m, 'animation', 'glass')) return null;
       return `${m.calls} draw calls with no animation or glass tag`;
     } },
 
-  { id: 'S4', text: 'A special records which band it covers and why; one without a stated reason is a finding on the tag.',
+  { id: 'S4', text: 'Only the PO assigns the tag. A special records which band it covers and why; one without a stated reason is a finding on the tag.',
     severity: 'error', noJoker: true,
     check: (m) => {
       if (!has(m, 'special')) return null;
@@ -187,14 +187,14 @@ const RULES = [
     when: (m) => has(m, 'wood', 'wood-planks', 'wood-worked', 'wood-beam') }),
   materialTakes({ id: 'M6-bark', text: 'Wood is any of the three wood bands; wood-bark is bark 3,0.',
     severity: 'error', tag: 'wood-bark', colors: ['bark'] }),
-  materialTakes({ id: 'M8', text: 'Worked stone — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
+  materialTakes({ id: 'M8', text: 'stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
     severity: 'error', tag: 'stone-masonry', colors: ['taupe', 'blue-grey', 'light grey'] }),
-  materialTakes({ id: 'M9', text: 'Rocks are light grey 15,3, secondarily taupe 14,3.',
+  materialTakes({ id: 'M9', text: 'stone-rock is light grey 15,3, secondarily taupe 14,3.',
     severity: 'error', tag: 'stone-rock', colors: ['light grey', 'taupe'] }),
-  materialTakes({ id: 'M10', text: 'Sand and dirt are taupe 14,3.', severity: 'error',
+  materialTakes({ id: 'M10', text: 'stone-soil — sand and dirt — is taupe 14,3.', severity: 'error',
     tag: 'stone-soil', colors: ['taupe'] }),
 
-  materialTakes({ id: 'M11-M12', text: 'Metal is light grey 15,3. Steel and cast iron may be blue-grey 6,1.',
+  materialTakes({ id: 'M11-M12', text: 'metal-iron is light grey 15,3. metal-iron may be blue-grey 6,1 where it is steel or cast iron.',
     severity: 'error', tag: 'metal-iron', colors: ['light grey', 'blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
   materialTakes({ id: 'M13', text: 'metal-gold is gold 6,0; metal-silver is silver 3,2.', severity: 'error',
@@ -213,10 +213,10 @@ const RULES = [
   materialTakes({ id: 'M15', text: 'Keys take the colour of any metal subtype.', severity: 'error',
     tag: 'key', colors: ['light grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
     when: isKey }),
-  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal, light grey 15,3.',
+  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron, light grey 15,3.',
     severity: 'error', tag: 'metal-iron', colors: ['light grey'],
     when: (m) => isContainer(m) && has(m, 'metal-iron') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0. Flags and sails of a rigged ship may also be blue-grey 6,1.',
+  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.',
     severity: 'error', tag: 'textile',
     colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
@@ -274,7 +274,7 @@ const RULES = [
       if (!uses(m, band('dark red'))) return `is a roof but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — no dark red`;
       return null;
     } },
-  { id: 'M39', text: 'Chests, barrels, kegs, buckets, boxes and crates are mainly timber, often with metal accents.',
+  { id: 'M39', text: 'Chests, barrels, kegs, buckets, boxes and crates are mainly wood, often with metal-iron accents.',
     severity: 'error',
     check: (m) => (isContainer(m) && !has(m, ...WOOD_TAGS))
       ? `is a container but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
@@ -287,11 +287,11 @@ const RULES = [
   materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.', severity: 'error',
     tag: 'vegetation', colors: ['taupe', 'off-white', 'terracotta', 'dark red', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
 
-  materialTakes({ id: 'M42-planks', text: 'Wood subtypes take their band: wood-planks 0,0.', severity: 'error',
+  materialTakes({ id: 'M42-planks', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-planks', colors: ['wood light'] }),
-  materialTakes({ id: 'M42-worked', text: 'Wood subtypes take their band: wood-worked 1,0.', severity: 'error',
+  materialTakes({ id: 'M42-worked', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-worked', colors: ['wood middle'] }),
-  materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-beam 2,0.', severity: 'error',
+  materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-beam', colors: ['wood dark'] }),
 
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal, stone and rock only.',
@@ -304,7 +304,7 @@ const RULES = [
     severity: 'error', color: 'light blue-grey', tags: ['metal', 'metal-silver'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
     severity: 'error', color: 'blue', tags: [], accent: true }),
-  bandOnlyFor({ id: 'C5', text: 'Yellow: precious metal, emissive, fire and plastic (M41).',
+  bandOnlyFor({ id: 'C5', text: 'Yellow: metal-gold, emissive, fire and plastic (M41).',
     severity: 'error', color: 'yellow', tags: ['metal', 'metal-gold', 'emissive', 'fire', 'plastic'],
     groups: ['coins-jewelry', 'lights'], unless: isKey }),
   bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), gemstones (M36), minor accents.',
@@ -318,9 +318,9 @@ const RULES = [
 
   bandOnlyFor({ id: 'C9-light', text: 'Lighter browns: wood only; skin may take wood light 0,0 (M43).',
     severity: 'error', color: 'wood light', tags: [...WOOD_TAGS, 'skin'] }),
-  bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: wood only.',
+  bandOnlyFor({ id: 'C9-middle', text: 'Lighter browns: wood only; skin may take wood light 0,0 (M43).',
     severity: 'error', color: 'wood middle', tags: WOOD_TAGS }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only.',
+  bandOnlyFor({ id: 'C9-dark', text: 'Lighter browns: wood only; skin may take wood light 0,0 (M43).',
     severity: 'error', color: 'wood dark', tags: WOOD_TAGS }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
     severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),
@@ -368,7 +368,7 @@ const RULES = [
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
 
-  { id: 'N4', text: 'Ceiling: 6 bands for a human character or a decorated food, 5 for anything else. A skeleton takes the 5.',
+  { id: 'N4', text: 'Ceiling: 6 bands for a human character or a decorated food, 5 for anything else. A skeleton takes the 5; an assembly answers per part.',
     severity: 'error',
     check: (m) => {
       const bands = m.colors.length;
