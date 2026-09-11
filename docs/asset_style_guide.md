@@ -169,7 +169,7 @@ text alone.
 - **M22.** `FE` 🟢 Rope is taupe 14,3.
 - **M23.** `FE` 🟢 All cork is taupe 14,3.
 - **M24.** `FE` 🟢 Glass is transparent, dark green or dark red.
-- **M25.** `FE` 🟢 Ceramics are terracotta, off-white, taupe or dark red.
+- **M25.** `FE` 🟢 Ceramics are terracotta, off-white, or dark red.
 - **M26.** `PE` 🟢 Bottles are glass or ceramic.
 - **M27.** `PE` 🟢 The glass bottles exists in red and green.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
