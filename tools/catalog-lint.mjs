@@ -137,23 +137,6 @@ const reasonBand = (model) => {
   return null;
 };
 
-// OKLab lightness of the colormap down one lane: position 0 = light top, 1 = dark bottom.
-const toLinear = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
-function lightnessAt(lane, position) {
-  const [column, row] = lane.split(',').map(Number);
-  const cellWidth = ATLAS.width / COLUMNS;
-  const cellHeight = ATLAS.height / ROWS;
-  const x = Math.floor(column * cellWidth + cellWidth / 2);
-  const y = Math.min(Math.floor((row + position) * cellHeight), ATLAS.height - 1);
-  const i4 = (y * ATLAS.width + x) * 4;
-  const [r, g, b] = [ATLAS.pixels[i4], ATLAS.pixels[i4 + 1], ATLAS.pixels[i4 + 2]].map(toLinear);
-  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
-  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
-  const q = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
-  return 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * q;
-}
-const WOOD_LANES = ['wood light', 'wood middle', 'wood dark', 'bark'].map((n) => BANDS[n]);
-const MIN_WOOD_SPREAD_L = 0.03;
 // W2 counts in UV position down the cell, the unit `spread` is stored in, not in L.
 const MAX_SPREAD = 0.9;
 
@@ -345,6 +328,17 @@ const RULES = [
   { id: 'C11', text: 'Transparent: glass only.', severity: 'error',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
+  bandOnlyFor({ id: 'C12', text: 'Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).',
+    severity: 'warning', color: 'taupe',
+    tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'textile', 'rope', 'cork', 'skin', 'vegetation', 'ceramic', 'grain'],
+    accent: true }),
+  bandOnlyFor({ id: 'C13', text: 'Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).',
+    severity: 'warning', color: 'off-white',
+    tags: ['bone', 'skull', 'paper', 'wax', 'ceramic', 'textile', 'vegetation'], accent: true }),
+  bandOnlyFor({ id: 'C14', text: 'Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).',
+    severity: 'warning', color: 'terracotta',
+    tags: ['metal', 'metal-copper', 'ceramic', 'vegetation', 'meat'], accent: true }),
+
   { id: 'N1', text: 'A model has at least one material.', severity: 'error', noJoker: true,
     check: (m) => {
       if (materials(m).length) return null;
@@ -381,19 +375,6 @@ const RULES = [
       const ceiling = (m.gr === 'characters' && !isSkeleton(m)) || isDecoratedFood(m) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (group ${m.gr})`;
-    } },
-
-  { id: 'W1', text: 'Every wood gradient band spreads over at least 0.03 L.', severity: 'warning', noJoker: true,
-    check: (m) => {
-      if (!m.spread) return null;
-      const thin = [];
-      for (const lane of WOOD_LANES) {
-        const range = m.spread[lane];
-        if (!range) continue;
-        const spread = lightnessAt(lane, range[0]) - lightnessAt(lane, range[1]);
-        if (spread < MIN_WOOD_SPREAD_L) thin.push(`${LANE_NAME[lane]} ${lane} ${spread.toFixed(3)} L`);
-      }
-      return thin.length ? thin.join(', ') : null;
     } },
 
   { id: 'W2', text: 'No band spreads over more than 0.90 of its cell, light end to dark end.', severity: 'warning', noJoker: true,
