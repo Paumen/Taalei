@@ -157,7 +157,6 @@ text alone.
 - **M13.** `FE` 🟢 metal-gold is gold 6,0; metal-silver is silver 3,2.
 - **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
 - **M15.** `PE` 🟢 Keys take the colour of any metal subtype.
-- **M16.** `--` ⚪ Buckles are metal-iron-wrought, dark grey 13,3.
 - **M17.** `PE` 🟢 The bands on container group: barrels, chests, buckets, kegs, crates and boxes
   are metal-iron-wrought, dark grey 13,3.
 - **M18.** `PE` 🟢 Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
@@ -210,12 +209,12 @@ text alone.
 - **M59.** `--` ⚪ Cutlery is metal-iron.
 - **M60.** `--` ⚪ Pots are ceramic; a pan may be metal-iron.
 - **M61.** `--` ⚪ A boat or ship is built from more than one wood.
-- **M62.** `PW` 🔴 obj-weapon-melee, obj-weapon-ranged, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
-- **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.
-- **M64.** `PW` 🟢 obj-weapon-cannon and every str kind with iron are metal-iron-cast.
+- **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
+- **M63.** `PW` 🟢 obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.
+- **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
 - **M65.** `PW` 🟢 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
 - **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
-- **M67.** `--` ⚪ A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
+- **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
 - **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
 
 ### C. Colour to material

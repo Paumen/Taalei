@@ -17693,7 +17693,9 @@
   {
    "members": [
     "restaurant/pot-b-closed",
-    "restaurant/lid-b"
+    "restaurant/lid-b",
+    "restaurant/pot-a-closed",
+    "restaurant/lid-a"
    ],
    "main": "restaurant/pot-b-closed",
    "kits": [
@@ -17701,13 +17703,26 @@
    ],
    "type": "detail-variant",
    "types": [
-    "manual"
+    "manual",
+    "color-variant"
    ],
    "sameSize": false,
    "minOverlap": null,
    "paren": [
     {
      "a": "restaurant/pot-b-closed",
+     "b": "restaurant/lid-b",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "restaurant/pot-a-closed",
+     "b": "restaurant/pot-b-closed",
+     "soort": "handmatig",
+     "overlap": null
+    },
+    {
+     "a": "restaurant/lid-a",
      "b": "restaurant/lid-b",
      "soort": "handmatig",
      "overlap": null
@@ -17946,6 +17961,126 @@
     {
      "a": "graveyard-kit/cross",
      "b": "graveyard-kit/cross-wood",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "food-quaternius/cooking-pot",
+    "food-quaternius/cooking-pot-steel"
+   ],
+   "main": "food-quaternius/cooking-pot",
+   "kits": [
+    "food-quaternius"
+   ],
+   "type": "color-variant",
+   "types": [
+    "color-variant"
+   ],
+   "sameSize": true,
+   "minOverlap": 1,
+   "paren": [
+    {
+     "a": "food-quaternius/cooking-pot",
+     "b": "food-quaternius/cooking-pot-steel",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "food-quaternius/cooking-pot-2",
+    "food-quaternius/cooking-pot-2-steel"
+   ],
+   "main": "food-quaternius/cooking-pot-2",
+   "kits": [
+    "food-quaternius"
+   ],
+   "type": "color-variant",
+   "types": [
+    "color-variant"
+   ],
+   "sameSize": true,
+   "minOverlap": 1,
+   "paren": [
+    {
+     "a": "food-quaternius/cooking-pot-2",
+     "b": "food-quaternius/cooking-pot-2-steel",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "food-quaternius/frying-pan",
+    "food-quaternius/frying-pan-steel"
+   ],
+   "main": "food-quaternius/frying-pan",
+   "kits": [
+    "food-quaternius"
+   ],
+   "type": "color-variant",
+   "types": [
+    "color-variant"
+   ],
+   "sameSize": true,
+   "minOverlap": 1,
+   "paren": [
+    {
+     "a": "food-quaternius/frying-pan",
+     "b": "food-quaternius/frying-pan-steel",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "medieval-village/cauldron",
+    "medieval-village/cauldron-steel"
+   ],
+   "main": "medieval-village/cauldron",
+   "kits": [
+    "medieval-village"
+   ],
+   "type": "color-variant",
+   "types": [
+    "color-variant"
+   ],
+   "sameSize": true,
+   "minOverlap": 1,
+   "paren": [
+    {
+     "a": "medieval-village/cauldron",
+     "b": "medieval-village/cauldron-steel",
+     "soort": "handmatig",
+     "overlap": null
+    }
+   ]
+  },
+  {
+   "members": [
+    "restaurant/pan-006",
+    "restaurant/pan-006-cast"
+   ],
+   "main": "restaurant/pan-006",
+   "kits": [
+    "restaurant"
+   ],
+   "type": "color-variant",
+   "types": [
+    "color-variant"
+   ],
+   "sameSize": true,
+   "minOverlap": 1,
+   "paren": [
+    {
+     "a": "restaurant/pan-006",
+     "b": "restaurant/pan-006-cast",
      "soort": "handmatig",
      "overlap": null
     }
