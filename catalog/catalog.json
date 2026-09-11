@@ -3136,7 +3136,7 @@
    "name": "Stone",
    "type": "material",
    "description": "Stone with no subtype named: use it only where neither masonry, rock nor soil fits.",
-   "count": 1
+   "count": 2
   },
   {
    "id": "stone-masonry",
@@ -3195,7 +3195,7 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 101
+   "count": 99
   },
   {
    "id": "bone",
@@ -3223,7 +3223,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 80
+   "count": 82
   },
   {
    "id": "liquid",
@@ -16339,10 +16339,10 @@
    ],
    "tris": 1072,
    "tpu": 3125,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 33348,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
+   "bytes": 34404,
    "vtx": 793,
    "grounded": true,
    "centered": true,
@@ -16353,10 +16353,6 @@
    "vpt": 0.74,
    "grad": 0,
    "spread": {
-    "5,2": [
-     0.156,
-     0.156
-    ],
     "14,3": [
      0.523,
      0.523
@@ -16369,11 +16365,11 @@
    "colors": [
     "#23562c",
     "#8b7561",
-    "#d8d1bd"
+    "#ffffff"
    ],
    "tags": [
-    "ceramic",
     "cork",
+    "glass",
     "kay",
     "liquid"
    ],
@@ -16394,10 +16390,10 @@
    ],
    "tris": 1072,
    "tpu": 3125,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 33340,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
+   "bytes": 34396,
    "vtx": 793,
    "grounded": true,
    "centered": true,
@@ -16408,10 +16404,6 @@
    "vpt": 0.74,
    "grad": 0,
    "spread": {
-    "5,2": [
-     0.156,
-     0.156
-    ],
     "14,3": [
      0.523,
      0.523
@@ -16424,11 +16416,11 @@
    "colors": [
     "#7f3927",
     "#8b7561",
-    "#d8d1bd"
+    "#ffffff"
    ],
    "tags": [
-    "ceramic",
     "cork",
+    "glass",
     "kay",
     "liquid"
    ],
@@ -38936,7 +38928,7 @@
    "tris": 372,
    "tpu": 1085,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 22872,
    "vtx": 592,
@@ -38947,7 +38939,7 @@
    "dens": 3435,
    "anglePct": 6,
    "vpt": 1.59,
-   "grad": 0.8,
+   "grad": 0.62,
    "spread": {
     "0,0": [
      0.094,
@@ -38955,11 +38947,16 @@
     ],
     "14,3": [
      0.094,
+     0.398
+    ],
+    "1,0": [
+     0.094,
      0.898
     ]
    },
    "colors": [
     "#8b7561",
+    "#b3825f",
     "#d9ae87"
    ],
    "tags": [
@@ -52481,8 +52478,8 @@
      0.586
     ],
     "4,2": [
-     0.961,
-     0.961
+     0.398,
+     0.398
     ]
    },
    "colors": [
@@ -52604,8 +52601,8 @@
      0.586
     ],
     "4,2": [
-     0.961,
-     0.961
+     0.398,
+     0.398
     ]
    },
    "colors": [
@@ -53036,8 +53033,8 @@
      0.586
     ],
     "4,2": [
-     0.961,
-     0.961
+     0.398,
+     0.398
     ]
    },
    "colors": [
@@ -53113,26 +53110,36 @@
    "tris": 990,
    "tpu": 2886,
    "mat": 1,
-   "bands": 1,
+   "bands": 3,
    "calls": 1,
-   "bytes": 69528,
-   "vtx": 1942,
+   "bytes": 70288,
+   "vtx": 1962,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00004,
    "dens": 1043579,
    "anglePct": 9,
-   "vpt": 1.96,
+   "vpt": 1.98,
    "grad": 0,
    "spread": {
+    "14,3": [
+     0.195,
+     0.195
+    ],
     "1,0": [
+     0.406,
+     0.406
+    ],
+    "5,2": [
      0.406,
      0.406
     ]
    },
    "colors": [
-    "#b3825f"
+    "#8b7561",
+    "#b3825f",
+    "#d8d1bd"
    ],
    "tags": [
     "rope",
@@ -53252,30 +53259,46 @@
    "tris": 1490,
    "tpu": 4344,
    "mat": 1,
-   "bands": 1,
+   "bands": 4,
    "calls": 1,
-   "bytes": 105896,
-   "vtx": 2984,
+   "bytes": 106144,
+   "vtx": 2988,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00009,
    "dens": 321618,
    "anglePct": 5,
-   "vpt": 2,
+   "vpt": 2.01,
    "grad": 0,
    "spread": {
     "1,0": [
      0.406,
      0.406
+    ],
+    "14,3": [
+     0.195,
+     0.195
+    ],
+    "3,0": [
+     0.406,
+     0.406
+    ],
+    "6,1": [
+     0.406,
+     0.406
     ]
    },
    "colors": [
+    "#343745",
+    "#563b2b",
+    "#8b7561",
     "#b3825f"
    ],
    "tags": [
     "leather",
     "rope",
+    "stone",
     "wood-worked"
    ]
   },
@@ -53378,7 +53401,7 @@
    "tris": 1644,
    "tpu": 4793,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 115408,
    "vtx": 3252,
@@ -53395,6 +53418,10 @@
      0.406,
      0.406
     ],
+    "14,3": [
+     0.195,
+     0.195
+    ],
     "6,1": [
      0.406,
      0.406
@@ -53402,6 +53429,7 @@
    },
    "colors": [
     "#343745",
+    "#8b7561",
     "#b3825f"
    ],
    "tags": [
@@ -53474,22 +53502,26 @@
    "tris": 568,
    "tpu": 1656,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 40024,
-   "vtx": 1098,
+   "bytes": 40204,
+   "vtx": 1100,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00009,
    "dens": 412286,
    "anglePct": 13,
-   "vpt": 1.93,
+   "vpt": 1.94,
    "grad": 0,
    "spread": {
     "1,0": [
      0.406,
      0.406
+    ],
+    "14,3": [
+     0.195,
+     0.195
     ],
     "6,1": [
      0.406,
@@ -53498,6 +53530,7 @@
    },
    "colors": [
     "#343745",
+    "#8b7561",
     "#b3825f"
    ],
    "tags": [
@@ -53912,19 +53945,23 @@
    "tris": 592,
    "tpu": 1726,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 41956,
-   "vtx": 1154,
+   "bytes": 43544,
+   "vtx": 1200,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00008,
    "dens": 502120,
    "anglePct": 16,
-   "vpt": 1.95,
+   "vpt": 2.03,
    "grad": 0,
    "spread": {
+    "14,3": [
+     0.195,
+     0.195
+    ],
     "2,0": [
      0.523,
      0.523
@@ -53936,7 +53973,8 @@
    },
    "colors": [
     "#343745",
-    "#875b42"
+    "#875b42",
+    "#8b7561"
    ],
    "tags": [
     "metal-iron",
@@ -69204,11 +69242,11 @@
    "dens": 133700,
    "anglePct": 11,
    "vpt": 0.75,
-   "grad": 0.94,
+   "grad": 0.9,
    "spread": {
     "5,2": [
      0.031,
-     0.969
+     0.93
     ]
    },
    "colors": [
@@ -69246,11 +69284,11 @@
    "dens": 135281,
    "anglePct": 13,
    "vpt": 0.69,
-   "grad": 0.94,
+   "grad": 0.9,
    "spread": {
     "5,2": [
      0.031,
-     0.969
+     0.93
     ]
    },
    "colors": [
@@ -80011,7 +80049,7 @@
    "tris": 700,
    "tpu": 2041,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 28588,
    "vtx": 716,
@@ -80022,20 +80060,25 @@
    "dens": 545620,
    "anglePct": 15,
    "vpt": 1.02,
-   "grad": 0.34,
+   "grad": 0.31,
    "spread": {
     "2,0": [
      0.336,
      0.836
     ],
     "14,3": [
-     0.305,
-     0.453
+     0.195,
+     0.344
+    ],
+    "5,2": [
+     0.313,
+     0.328
     ]
    },
    "colors": [
     "#875b42",
-    "#8b7561"
+    "#8b7561",
+    "#d8d1bd"
    ],
    "tags": [
     "kay",
