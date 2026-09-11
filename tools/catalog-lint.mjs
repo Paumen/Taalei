@@ -145,9 +145,29 @@ const ironIs = ({ id, text, severity, want, kinds, unless = null }) => ({
   },
 });
 
+const IRON_BAND = { steel: 'light grey', wrought: 'dark grey', cast: 'blue-grey' };
+
+// M65's pairing clause is the one rule that cannot be answered from a single model: the
+// counterpart is another row. The index is built on first use, after `models` exists.
+let cookwareIrons = null;
+const variantIrons = (m) => {
+  if (!cookwareIrons) {
+    cookwareIrons = new Map();
+    for (const other of models) {
+      if (!other.variant || !kindIs(other, 'obj-kitchenware-cookware')) continue;
+      const seen = cookwareIrons.get(other.variant) ?? new Set();
+      for (const subtype of ironOf(other)) seen.add(subtype);
+      cookwareIrons.set(other.variant, seen);
+    }
+  }
+  return (m.variant && cookwareIrons.get(m.variant)) || new Set();
+};
+
 // M66 is the fallback, so it owns every kind the rules above do not name.
-const CLAIMED = ['obj-weapon-melee', 'obj-weapon-ranged', 'obj-equipment', 'obj-kitchenware-tableware',
-  'obj-tool', 'obj-weapon-cannon', 'str', 'obj-kitchenware-cookware', 'char'];
+const CLAIMED = ['obj-weapon', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool',
+  'str', 'obj-kitchenware-cookware', 'char'];
+// M63's two kinds sit inside CLAIMED but want wrought, which is what M66 says anyway
+const CLAIMED_BUT_WROUGHT = ['obj-tool-supplies', 'obj-weapon-ranged-accessory'];
 
 const jokerBand = new Map();
 
@@ -329,19 +349,38 @@ const RULES = [
   materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-beam', colors: ['wood dark'] }),
 
-  ironIs({ id: 'M62', text: 'obj-weapon-melee, obj-weapon-ranged, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
+  ironIs({ id: 'M62', text: 'obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
     severity: 'warning', want: ['steel'],
-    kinds: ['obj-weapon-melee', 'obj-weapon-ranged', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
-    unless: (m) => kindIs(m, 'obj-tool-supplies') }),
-  ironIs({ id: 'M63', text: 'obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.',
-    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
-  ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str kind with iron are metal-iron-cast.',
+    kinds: ['obj-weapon', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
+    // the wrought carve-outs of M63 and the cast cannon of M64 sit inside these kinds
+    unless: (m) => kindIs(m, 'obj-tool-supplies', 'obj-weapon-ranged-accessory', 'obj-weapon-cannon') }),
+  ironIs({ id: 'M63', text: 'obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.',
+    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies', 'obj-weapon-ranged-accessory'] }),
+  ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.',
     severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
   ironIs({ id: 'M65', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
     severity: 'warning', want: ['cast', 'steel'], kinds: ['obj-kitchenware-cookware'] }),
   ironIs({ id: 'M66', text: 'All other iron is metal-iron-wrought.',
     severity: 'warning', want: ['wrought'], kinds: ['obj', 'env', 'assy'],
-    unless: (m) => kindIs(m, ...CLAIMED) && !kindIs(m, 'obj-tool-supplies') }),
+    unless: (m) => kindIs(m, ...CLAIMED) && !kindIs(m, ...CLAIMED_BUT_WROUGHT) }),
+  { id: 'M65-pair', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
+    severity: 'warning',
+    check: (m) => {
+      if (!kindIs(m, 'obj-kitchenware-cookware') || !ironOf(m).length) return null;
+      const irons = variantIrons(m);
+      if (irons.has('steel') && irons.has('cast')) return null;
+      if (!m.variant) return 'is metal cookware in no variant group, so it has no recorded counterpart';
+      return `variant ${m.variant} carries only ${[...irons].join(', ')} — cookware exists as both`;
+    } },
+  { id: 'M67', text: 'A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.',
+    severity: 'warning',
+    check: (m) => {
+      const got = ironOf(m);
+      if (got.length < 2) return null;
+      const missing = got.filter((subtype) => !(BANDS[IRON_BAND[subtype]] in (m.spread ?? {})));
+      if (!missing.length) return null;
+      return `carries ${got.join(' + ')} but ${missing.map((s) => `metal-iron-${s}`).join(', ')} has no band of its own`;
+    } },
   ironIs({ id: 'M68', text: 'char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.',
     severity: 'warning', want: ['steel'], kinds: ['char'] }),
 

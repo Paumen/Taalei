@@ -237,17 +237,17 @@
   },
   {
    "id": "M62",
-   "text": "obj-weapon-melee, obj-weapon-ranged, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
+   "text": "obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
    "severity": "warning"
   },
   {
    "id": "M63",
-   "text": "obj-tool-supplies is metal-iron-wrought; the rest of obj-tool stays steel.",
+   "text": "obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.",
    "severity": "warning"
   },
   {
    "id": "M64",
-   "text": "obj-weapon-cannon and every str kind with iron are metal-iron-cast.",
+   "text": "obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.",
    "severity": "warning"
   },
   {
@@ -256,8 +256,18 @@
    "severity": "warning"
   },
   {
+   "id": "M65-pair",
+   "text": "Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.",
+   "severity": "warning"
+  },
+  {
    "id": "M66",
    "text": "All other iron is metal-iron-wrought.",
+   "severity": "warning"
+  },
+  {
+   "id": "M67",
+   "text": "A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.",
    "severity": "warning"
   },
   {
@@ -1403,14 +1413,14 @@
    "rule": "N2",
    "severity": "error",
    "model": "small-props/mannequin-1-a",
-   "detail": "4 band(s) for 5 (wood-log, metal-iron-wrought, bone, rope, vegetation)",
+   "detail": "4 band(s) for 5 (wood-log, metal-iron-steel, bone, rope, vegetation)",
    "joker": false
   },
   {
    "rule": "N2",
    "severity": "error",
    "model": "small-props/mannequin-2-a",
-   "detail": "4 band(s) for 5 (wood-worked, metal-iron-wrought, bone, rope, vegetation)",
+   "detail": "4 band(s) for 5 (wood-worked, metal-iron-steel, bone, rope, vegetation)",
    "joker": false
   },
   {
@@ -1424,7 +1434,7 @@
    "rule": "N2",
    "severity": "error",
    "model": "weapons/wand-a",
-   "detail": "4 band(s) for 5 (wood-beam, metal-iron-wrought, textile, cork, gemstone)",
+   "detail": "4 band(s) for 5 (wood-beam, metal-iron-steel, textile, cork, gemstone)",
    "joker": false
   },
   {
@@ -1473,7 +1483,7 @@
    "rule": "W2",
    "severity": "warning",
    "model": "weapons/arrow-a",
-   "detail": "light grey 15,3 0.922",
+   "detail": "dark grey 13,3 0.922",
    "joker": false
   }
  ]
