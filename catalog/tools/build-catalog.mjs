@@ -222,13 +222,34 @@ function colorName(hex) {
 
 const SCALE_PAGES = ['schaal.html', 'schaal-natuur.html', 'schaal-structuur.html'];
 
+// The modules a page imports rather than loads with a <script src>: a bare specifier
+// carries no version, so the browser keeps serving the cached copy however often the
+// page is stamped. They are versioned in the import itself, and they count towards the
+// hash — a fix that lands only in one of them has to change the version, or nothing
+// re-downloads.
+const MODULES = ['tag-edits.js', 'chiprij.js'];
+const IMPORTERS = ['catalog.js', 'swipe.js', 'tag-edits.js'];
+const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
+
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js',
-    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js']
+    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
-    .map((name) => readFileSync(join(CATALOG_DIR, name)))
+    // strip the stamp before hashing, or every build would rewrite a file it just hashed
+    .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))
     .join('');
   const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
+
+  for (const name of IMPORTERS) {
+    const path = join(CATALOG_DIR, name);
+    if (!existsSync(path)) continue;
+    const before = readFileSync(path, 'utf8');
+    const after = before.replace(
+      new RegExp(`(from '\\./(?:${MODULES.map((m) => m.replace('.', '\\.')).join('|')}))(?:\\?v=[a-f0-9]+)?'`, 'g'),
+      `$1?v=${version}'`,
+    );
+    if (after !== before) writeFileSync(path, after);
+  }
 
   const stamp = (path, replacements) => {
     let html = readFileSync(path, 'utf8');
