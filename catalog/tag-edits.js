@@ -16,6 +16,13 @@ function load() {
 }
 
 let edits = load();
+// a diff staged before the base snapshot was fixed can hold a model in both add and
+// remove for one tag; prune cancels those, and the repair is written back
+{
+  const before = JSON.stringify(edits);
+  for (const id of Object.keys(edits)) prune(id);
+  if (JSON.stringify(edits) !== before) save();
+}
 const listeners = [];
 
 // Parents opened in the editor. Per-session view state, never an edit — it must not reach
@@ -34,7 +41,14 @@ function notify() {
 
 function prune(tagId) {
   const e = edits[tagId];
-  if (e && e.add.length === 0 && e.remove.length === 0) delete edits[tagId];
+  if (!e) return;
+  // adding and removing the same model is no edit at all
+  const both = e.add.filter((id) => e.remove.includes(id));
+  if (both.length) {
+    e.add = e.add.filter((id) => !both.includes(id));
+    e.remove = e.remove.filter((id) => !both.includes(id));
+  }
+  if (e.add.length === 0 && e.remove.length === 0) delete edits[tagId];
 }
 
 export function onChange(fn) {
@@ -45,11 +59,23 @@ export const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
 export const useId = (u) => `use:${u}`;
 
 // Every id the model carries in tags.json terms: its tags, its kind and its uses.
-const baseIds = (model) => [
-  ...(model.tags ?? []),
-  ...(model.kind ? [model.kind] : []),
-  ...(model.use ?? []).map(useId),
-];
+//
+// Snapshotted per model, because the catalogue page writes the *effective* kind and use
+// back onto the model so a staged edit moves its card between sections. Read live, that
+// would make a staged value look like the catalogue's own: letting it go again would then
+// record a remove against a tag the catalogue never had, on top of the add that put it
+// there, and the export would both add and remove it.
+const bases = new WeakMap();
+const baseIds = (model) => {
+  if (!bases.has(model)) {
+    bases.set(model, [
+      ...(model.tags ?? []),
+      ...(model.kind ? [model.kind] : []),
+      ...(model.use ?? []).map(useId),
+    ]);
+  }
+  return bases.get(model);
+};
 
 // The catalogue's own ids plus whatever this browser has staged on top, minus whatever
 // it has staged off.
