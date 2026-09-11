@@ -1,6 +1,6 @@
 import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=5c428ae0de';
 import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5c428ae0de';
-import { cycleVerdict, verdictOf, verdictLabel, mountMarkBar } from './color-edits.js?v=5c428ae0de';
+import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -658,6 +658,12 @@ const detailVariantChoice = document.querySelector('#detail-variant-keuze');
 let activePath = '';
 const lintFindings = new Map();
 const lintRules = new Map();
+let lintBands = [];
+const bandNames = new Map();
+const bandLabel = (hex) => {
+  const name = bandNames.get(hex);
+  return name ? `${name} — ${hex}` : hex;
+};
 
 const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
@@ -676,31 +682,62 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// Every band the model uses, each one a button that walks clean → partly wrong → wrong.
+// Every band the model uses, each one a button that walks clean → partly wrong → wrong,
+// followed by the bands a reader has proposed on top and a picker to propose another.
 // A verdict is one reader's judgement against Appendix A, staged in this browser and
 // exported as a report; it never recolours the model.
 function colorSwatches(model) {
-  const colors = model.colors;
-  if (!colors?.length) return null;
+  if (!model.colors?.length && !lintBands.length) return null;
   const strip = document.createElement('div');
   strip.className = 'detail-stalen';
-  for (const hex of colors) {
+
+  const redraw = () => {
+    const fresh = colorSwatches(model);
+    if (fresh) strip.replaceWith(fresh);
+  };
+
+  const swatch = (hex) => {
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'detail-staal';
     dot.style.setProperty('--staal-kleur', hex);
-    const show = () => {
-      const verdict = verdictOf(model, hex);
-      // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
-      dot.title = `${hex} — ${verdictLabel(verdict)} (tap to change)`;
-      if (verdict) dot.dataset.oordeel = verdict;
-      else delete dot.dataset.oordeel;
-    };
-    show();
-    dot.addEventListener('click', () => { cycleVerdict(model, hex); show(); });
-    strip.append(dot);
+    const verdict = verdictOf(model, hex);
+    // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
+    dot.title = `${bandLabel(hex)} — ${verdictLabel(verdict)} (tap to change)`;
+    if (verdict) dot.dataset.oordeel = verdict;
+    dot.addEventListener('click', () => { cycleVerdict(model, hex); redraw(); });
+    return dot;
+  };
+
+  for (const hex of model.colors ?? []) strip.append(swatch(hex));
+  for (const hex of proposedBands(model)) {
+    if (!model.colors?.includes(hex)) strip.append(swatch(hex));
   }
+
+  if (lintBands.length) strip.append(bandPicker(model, redraw));
   return strip;
+}
+
+// Adds a band the model does not carry. The list is the colormap's own, so a proposal is
+// always a band that exists — naming a colour the atlas has no lane for helps nobody.
+function bandPicker(model, redraw) {
+  const picker = document.createElement('select');
+  picker.className = 'detail-staal-keuze';
+  picker.setAttribute('aria-label', 'Propose a band this model should carry');
+  picker.title = 'Propose a band this model should carry';
+  const placeholder = new Option('+', '');
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  picker.append(placeholder);
+  for (const band of lintBands) {
+    picker.append(new Option(band.lane ? `${band.name} ${band.lane}` : band.name, band.hex));
+  }
+  picker.addEventListener('change', () => {
+    if (!picker.value) return;
+    proposeBand(model, picker.value);
+    redraw();
+  });
+  return picker;
 }
 
 // Facts come in as lines, and a line stays a line: the counts that are read against each
@@ -1190,6 +1227,8 @@ async function loadLint() {
     if (!response.ok) return;
     const data = await response.json();
     for (const rule of data.rules ?? []) lintRules.set(rule.id, `${rule.id} — ${rule.text}`);
+    lintBands = data.bands ?? [];
+    for (const band of lintBands) bandNames.set(band.hex, band.lane ? `${band.name} ${band.lane}` : band.name);
     const rank = { error: 0, warning: 1 };
     for (const finding of data.findings ?? []) {
       lintFindings.set(finding.model, [...(lintFindings.get(finding.model) ?? []), finding]);

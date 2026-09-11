@@ -501,9 +501,15 @@ console.log(`${errors} error(s), ${findings.length - errors} warning(s)`);
 if (unknown.size) console.log(`colours outside the colormap: ${[...unknown].join(', ')}`);
 
 if (jsonPath) {
+  // The colormap lives in a PNG only this tool reads, so the band table travels with the
+  // findings: the catalogue page has no other way to name a band or offer one to pick.
   writeFileSync(jsonPath, JSON.stringify({
     rules: RULES.map(({ id, text, severity }) => ({ id, text, severity })),
     accent: { maxSize: MAX_ACCENT_SIZE, busy: BUSY },
+    bands: [
+      ...Object.entries(BANDS).map(([name, lane]) => ({ name, lane, hex: HEX[name] })),
+      { name: 'clear glass', lane: null, hex: CLEAR },
+    ],
     findings,
   }, null, 1) + '\n');
   console.log(`→ ${jsonPath}`);
