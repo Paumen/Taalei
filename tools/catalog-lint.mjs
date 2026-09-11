@@ -330,7 +330,7 @@ const RULES = [
 
   bandOnlyFor({ id: 'C12', text: 'Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).',
     severity: 'warning', color: 'taupe',
-    tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'textile', 'rope', 'cork', 'skin', 'vegetation', 'ceramic', 'grain'],
+    tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'textile', 'rope', 'cork', 'skin', 'vegetation', 'grain'],
     accent: true }),
   bandOnlyFor({ id: 'C13', text: 'Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).',
     severity: 'warning', color: 'off-white',
