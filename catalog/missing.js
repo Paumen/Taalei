@@ -18,7 +18,16 @@ function span(className, text) {
 
 // ─── the models ──────────────────────────────────────────────────────────────────────
 
-const register = { models: [], packs: new Map(), groups: new Map() };
+const register = { models: [], packs: new Map(), kinds: new Map() };
+
+const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
+const kindChain = (id) => {
+  const chain = [];
+  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
+  return chain;
+};
+const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : 'No kind');
+const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy', 'scene'];
 const cards = [];
 let sections = [];
 
@@ -39,7 +48,7 @@ function matches(model) {
   if (state.search) {
     const needle = state.search.toLowerCase();
     const pack = register.packs.get(model.kit)?.name ?? model.kit;
-    if (!`${model.name} ${pack} ${model.gr}`.toLowerCase().includes(needle)) return false;
+    if (!`${model.name} ${pack} ${model.kind ?? ''}`.toLowerCase().includes(needle)) return false;
   }
   return true;
 }
@@ -160,7 +169,7 @@ function showDetail(model) {
 
   const list = el('#detail-gegevens');
   list.replaceChildren();
-  fact(list, 'Group', register.groups.get(model.gr)?.name ?? model.gr, true);
+  fact(list, 'Kind', `${kindLabel(model.kind)} (guessed from the name)`, true);
   fact(
     list,
     'Size',
@@ -374,15 +383,19 @@ function makeSection({ title, hint, count }) {
 function groupsFor(models) {
   if (state.grouping === 'geen') return [{ key: '', title: 'All models', models }];
 
-  if (state.grouping === 'groep') {
+  if (state.grouping === 'kind') {
+    // by kind branch, roots in the catalogue's order, the smaller sections first
     const per = new Map();
     for (const model of models) {
-      if (!per.has(model.gr)) per.set(model.gr, []);
-      per.get(model.gr).push(model);
+      const chain = model.kind ? kindChain(model.kind) : [];
+      const key = chain[Math.min(2, chain.length) - 1] ?? '';
+      if (!per.has(key)) per.set(key, []);
+      per.get(key).push(model);
     }
+    const rank = (id) => (id ? ROOT_ORDER.indexOf(id.split('-')[0]) : 99);
     return [...per]
-      .map(([id, own]) => ({ key: id, title: register.groups.get(id)?.name ?? id, models: own }))
-      .sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
+      .map(([id, own]) => ({ key: id, title: id ? kindLabel(id) : 'No kind', models: own }))
+      .sort((a, b) => rank(a.key) - rank(b.key) || a.models.length - b.models.length || a.title.localeCompare(b.title));
   }
 
   const per = new Map();
@@ -449,7 +462,7 @@ async function start() {
   for (const model of data.models) model.path = `${modelPath}/${model.kit}/${model.name}.glb`;
 
   register.models = data.models;
-  register.groups = new Map(data.groups.map((g) => [g.id, g]));
+  register.kinds = new Map((data.kinds ?? []).map((k) => [k.id, k]));
   register.packs = new Map(
     data.sources.map((s) => [s.slug, { ...s, short: s.name.replace(/\s+(Kit|Pack)$/, '') }]),
   );

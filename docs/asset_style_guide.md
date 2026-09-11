@@ -171,7 +171,7 @@ text alone.
 - **M24.** `FE` 🟢 Glass is transparent, dark green or dark red.
 - **M25.** `FE` 🟢 Ceramics are terracotta, off-white, or dark red.
 - **M26.** `PE` 🟢 Bottles are glass or ceramic.
-- **M27.** `PE` 🟢 The glass bottles exists in red and green.
+- **M27.** `PE` 🔴 The glass bottles exists in red and green.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
 - **M29.** `FE` 🟢 Bones and skulls are off-white.
 - **M30.** `FE` 🟢 Paper is off-white.
@@ -183,7 +183,7 @@ text alone.
 - **M36.** `FE` 🟢 Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
 - **M37.** `PE` 🟢 Book covers are bark, dark red 8,0, dark green 1,1 or
   blue-grey 6,1. 
-- **M38.** `PE` 🟢 Roofs are ceramic, dark red.
+- **M38.** `PE` 🔴 Roofs are ceramic, dark red.
 - **M39.** `PE` 🔴 Chests, barrels, kegs, buckets, boxes and crates are mainly wood,
   often with metal-iron accents.
 - **M40.** `--` ⚪ Structures and furniture are mostly wood, then stone (the bigger

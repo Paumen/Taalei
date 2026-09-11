@@ -322,7 +322,9 @@ const [alleGroups, catalogData] = await Promise.all([
   fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
 
-const groups = CATEGORY ? alleGroups.filter((g) => g.category === CATEGORY) : alleGroups;
+// the page's meta names the kind roots it shows, e.g. "obj,char"
+const ROOTS = CATEGORY ? CATEGORY.split(',') : null;
+const groups = ROOTS ? alleGroups.filter((g) => ROOTS.includes(g.category)) : alleGroups;
 
 const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
 const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');
@@ -337,9 +339,9 @@ for (const group of groups) {
 const content = document.getElementById('inhoud');
 
 const SIZE_CLASSES = [
-  { id: 'small', name: 'Small', limit: 0.5 },
-  { id: 'medium', name: 'Medium', limit: 1.5 },
-  { id: 'large', name: 'Large', limit: Infinity },
+  { id: 's', name: 'Small', limit: 0.5 },
+  { id: 'm', name: 'Medium', limit: 1.5 },
+  { id: 'l', name: 'Large', limit: Infinity },
 ];
 const sizeOf = (item) => {
   const longest = Math.max(...item.wdh);
