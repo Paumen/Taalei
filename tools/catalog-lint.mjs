@@ -337,7 +337,7 @@ const RULES = [
     tags: ['bone', 'skull', 'paper', 'wax', 'ceramic', 'textile', 'vegetation'], accent: true }),
   bandOnlyFor({ id: 'C14', text: 'Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).',
     severity: 'warning', color: 'terracotta',
-    tags: ['metal', 'metal-copper', 'ceramic', 'vegetation', 'meat'], accent: true }),
+    tags: ['metal-copper', 'ceramic', 'vegetation', 'meat'], accent: true }),
 
   { id: 'N1', text: 'A model has at least one material.', severity: 'error', noJoker: true,
     check: (m) => {
