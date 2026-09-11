@@ -3,7 +3,7 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { GROUPS, CATEGORIES, KIT_GROUPS, determineGroup, splitWeapons } from './semantiek.mjs';
+import { readKindTree, kindIs, kindAncestors, USES, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups } from './schaalgroepen.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
@@ -20,17 +20,6 @@ const ROWS = 4;
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
-
-// The semantic group is fixed while the files are scanned, which is before readTags runs,
-// so the weapons split reads the one tag membership it needs straight from tags.json.
-function readWeaponTagged() {
-  const file = join(CATALOG_DIR, 'tags.json');
-  if (!existsSync(file)) return new Set();
-  const { tags = [] } = JSON.parse(readFileSync(file, 'utf8'));
-  return new Set(tags.find((t) => t.id === 'weapons')?.models ?? []);
-}
-
-const WEAPON_TAGGED = readWeaponTagged();
 
 function readKitMetadata() {
   const source = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
@@ -233,13 +222,34 @@ function colorName(hex) {
 
 const SCALE_PAGES = ['schaal.html', 'schaal-natuur.html', 'schaal-structuur.html'];
 
+// The modules a page imports rather than loads with a <script src>: a bare specifier
+// carries no version, so the browser keeps serving the cached copy however often the
+// page is stamped. They are versioned in the import itself, and they count towards the
+// hash — a fix that lands only in one of them has to change the version, or nothing
+// re-downloads.
+const MODULES = ['tag-edits.js', 'chiprij.js'];
+const IMPORTERS = ['catalog.js', 'swipe.js', 'tag-edits.js'];
+const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
+
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js',
-    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js']
+    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
-    .map((name) => readFileSync(join(CATALOG_DIR, name)))
+    // strip the stamp before hashing, or every build would rewrite a file it just hashed
+    .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))
     .join('');
   const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
+
+  for (const name of IMPORTERS) {
+    const path = join(CATALOG_DIR, name);
+    if (!existsSync(path)) continue;
+    const before = readFileSync(path, 'utf8');
+    const after = before.replace(
+      new RegExp(`(from '\\./(?:${MODULES.map((m) => m.replace('.', '\\.')).join('|')}))(?:\\?v=[a-f0-9]+)?'`, 'g'),
+      `$1?v=${version}'`,
+    );
+    if (after !== before) writeFileSync(path, after);
+  }
 
   const stamp = (path, replacements) => {
     let html = readFileSync(path, 'utf8');
@@ -283,7 +293,6 @@ const kits = [];
 const models = [];
 const colorPerModel = new Map();
 const noMetadata = [];
-const noGroup = [];
 const noColor = [];
 
 for (const slug of kitSlugs) {
@@ -303,9 +312,6 @@ for (const slug of kitSlugs) {
     const glb = readGlb(join(dir, file));
     const gltf = glb.json;
     const scene = measureScene(glb);
-    const group = splitWeapons(determineGroup(slug, name), name, WEAPON_TAGGED.has(`${slug}/${name}`));
-    if (group === 'other') noGroup.push(`${slug}/${name}`);
-
     const read = readColors(glb, dir);
     if (read.lanes.size === 0 && read.materials.size === 0) noColor.push(`${slug}/${name}`);
     const paletteKey = read.atlas ? readAtlas(read.atlas).key : `material:${slug}`;
@@ -315,7 +321,6 @@ for (const slug of kitSlugs) {
       id: `${slug}/${name}`,
       name,
       kit: slug,
-      group,
       palette: null,
       colors: [],
       path,
@@ -354,13 +359,17 @@ for (const slug of kitSlugs) {
     count: files.length,
     tab: meta?.tab ?? null,
     ownPalette: meta?.ownPalette ?? false,
-    kitGroup: KIT_GROUPS[slug] ?? null,
     note: meta?.note ?? null,
     palette: null,
   });
 }
 
-const TYPES = ['material', 'tag'];
+// The five fields of §7. size is measured here and never listed in tags.json.
+const TYPES = ['material', 'kind', 'use', 'size', 'tag'];
+const KIND_TREE = readKindTree();
+
+// The three kits whose walls, roofs, pillars and floors click together on one grid.
+const BUILDING_KITS = ['fantasy-town-kit', 'village-kit', 'dungeon'];
 
 const SOURCES = [
   {
@@ -399,14 +408,13 @@ const SOURCES = [
   },
 ];
 
-const TAB_PER_GROUP = new Map(GROUPS.map((g) => [g.id, g.tab ?? null]));
-
 const DERIVED = [
-  ...CATEGORIES.map(({ id, name, description, tab }) => ({
+  ...SIZES.map(({ id, name, description }) => ({
     id,
     name,
+    type: 'size',
     description,
-    belongs: (m) => m.group !== 'assemblies' && TAB_PER_GROUP.get(m.group) === tab,
+    belongs: (m) => sizeOf(m.wdh) === id,
   })),
   ...SOURCES.map(({ id, name, description, kits }) => ({
     id,
@@ -425,14 +433,7 @@ const DERIVED = [
     id: 'modular',
     name: 'Modular',
     description: 'Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit.',
-    belongs: (m) => m.group === 'building-kit',
-  },
-  {
-    id: 'assembly',
-    name: 'Assembly',
-    description:
-      'Not one thing but a little scene finished as it stands: a set table, a stacked crate, a chest full of bottles.',
-    belongs: (m) => m.group === 'assemblies',
+    belongs: (m) => BUILDING_KITS.includes(m.kit) && kindIs(m.kind, 'str-building') && m.kind !== 'str-building',
   },
 ];
 
@@ -460,13 +461,35 @@ function readTags(known) {
   const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
   if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
-  // A parent is a material of its own, never a subtype: one level, so the filter can show
-  // the parent and expand to its children without walking a chain.
+  // A material parent is a material of its own, never a subtype: one level, so the filter
+  // can show the parent and expand to its children without walking a chain. A kind's
+  // parent is its id minus the last segment and needs no field.
   const material = new Set(tags.filter((t) => t.type === 'material').map((t) => t.id));
   const badParent = tags
     .filter((t) => t.parent && (!material.has(t.parent) || tags.find((p) => p.id === t.parent)?.parent))
     .map((t) => `${t.id} -> ${t.parent}`);
   if (badParent.length) console.warn(`! parent is not a top-level material: ${badParent.join(', ')}`);
+
+  const unknownKind = tags.filter((t) => t.type === 'kind' && !KIND_TREE.has(t.id)).map((t) => t.id);
+  if (unknownKind.length) console.warn(`! kind not in Appendix B: ${unknownKind.join(', ')}`);
+  const missingKind = [...KIND_TREE.keys()].filter((id) => !tags.some((t) => t.type === 'kind' && t.id === id));
+  if (missingKind.length) console.warn(`! Appendix B kind not in tags.json: ${missingKind.join(', ')}`);
+  const unknownUse = tags.filter((t) => t.type === 'use' && !USES.includes(t.id.replace(/^use:/, ''))).map((t) => t.id);
+  if (unknownUse.length) console.warn(`! use outside U1: ${unknownUse.join(', ')}`);
+  const closed = new Set(tags.filter((t) => t.type === 'kind' || t.type === 'use').map((t) => t.id));
+  const shadowed = tags.filter((t) => t.type === 'tag' && closed.has(t.id)).map((t) => t.id);
+  if (shadowed.length) console.warn(`! open tag shares an id with a kind or use: ${shadowed.join(', ')}`);
+
+  // K1: exactly one kind per model
+  const kindsPer = new Map();
+  for (const tag of tags) {
+    if (tag.type !== 'kind') continue;
+    for (const id of tag.models ?? []) kindsPer.set(id, [...(kindsPer.get(id) ?? []), tag.id]);
+  }
+  const several = [...kindsPer].filter(([, k]) => k.length > 1).map(([id, k]) => `${id}: ${k.join(', ')}`);
+  if (several.length) console.warn(`! more than one kind (K1): ${several.join('; ')}`);
+  const noKind = [...known].filter((id) => !kindsPer.has(id));
+  if (noKind.length) console.warn(`! ${noKind.length} model(s) without a kind (K1): ${noKind.join(', ')}`);
 
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
@@ -496,12 +519,21 @@ for (const model of models) {
 
 const tags = readTags(new Set(models.map((m) => m.id)));
 
+const typeOf = new Map(tags.tags.map((t) => [t.id, t.type ?? 'tag']));
+for (const model of models) {
+  const own = tags.perModel.get(model.id) ?? [];
+  // kind, use and size are fields of their own; tags keeps the materials and the open tags
+  model.kind = own.find((id) => typeOf.get(id) === 'kind') ?? null;
+  model.use = own.filter((id) => typeOf.get(id) === 'use').map((id) => id.replace(/^use:/, '')).sort();
+  model.size = sizeOf(model.wdh);
+  const rest = own.filter((id) => !['kind', 'use', 'size'].includes(typeOf.get(id)));
+  model.tags = rest;
+}
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
   if (members.length === 0) continue;
-  for (const model of members) {
-    tags.perModel.set(model.id, [...(tags.perModel.get(model.id) ?? []), id]);
-  }
+  // size is a field of the model, not a tag on it; the entry only feeds the filter row
+  if (type !== 'size') for (const model of members) model.tags.push(id);
   tags.tags.push({
     id,
     name,
@@ -512,8 +544,13 @@ for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
 }
 
 for (const model of models) {
-  const own = tags.perModel.get(model.id);
-  if (own) model.tags = [...own].sort();
+  model.tags.sort();
+  if (!model.tags.length) delete model.tags;
+}
+for (const tag of tags.tags) {
+  if (tag.type !== 'kind') continue;
+  // a kind implies its parents (T4): the parent's count is every model under it
+  tag.count = models.filter((m) => kindIs(m.kind, tag.id)).length;
 }
 
 const palettes = new Map();
@@ -589,19 +626,11 @@ for (const model of models) {
   for (const hex of model.colors) colors.set(hex, (colors.get(hex) ?? 0) + 1);
 }
 
-const CATEGORY_ORDER = ['object', 'nature', 'structures'];
-const categoryRank = (group) => CATEGORY_ORDER.indexOf(group.tab ?? 'object');
-
 const catalog = {
   budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   variants: variants.groups,
   tags: tags.tags,
-  groups: GROUPS.map(({ description, ...g }) => ({
-    ...g,
-    count: models.filter((m) => m.group === g.id).length,
-  })).sort((a, b) =>
-    categoryRank(a) - categoryRank(b) || a.count - b.count || a.name.localeCompare(b.name)),
   palettes: [...palettes.values()]
     .map((p) => ({
       id: p.id,
@@ -628,14 +657,16 @@ const output = {
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
   tags: tags.tags.map((t) => ({
-    id: t.id, name: t.name, type: t.type, description: t.description,
+    id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
+    ...(t.color ? { color: t.color } : {}),
   })),
-  groups: catalog.groups.map((g) => ({ id: g.id, name: g.name, color: g.color })),
   models: models.map((m) => ({
     kit: m.kit,
     name: m.name,
-    gr: m.group,
+    kind: m.kind,
+    use: m.use.length ? m.use : undefined,
+    size: m.size,
     wdh: m.wdh.map(round1),
     tris: m.triangles,
     tpu: m.trianglesPerUnit,
@@ -672,9 +703,6 @@ writeVersion();
 
 console.log(`${models.length} models in ${kits.length} kits → catalog/catalog.json`);
 for (const tag of tags.tags) console.log(`${tag.type} ${tag.id}: ${tag.count} models`);
-for (const g of catalog.groups) {
-  console.log(`  ${String(g.count).padStart(3)}  ${g.name}`);
-}
 for (const p of catalog.palettes) {
   console.log(`palette ${p.id} — ${p.colors.length} colours from ${p.atlas ?? 'own materials'}:`);
   for (const k of p.colors) {
@@ -719,7 +747,6 @@ if (flat.length) {
 }
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
-if (noGroup.length) console.warn(`! no semantic group: ${noGroup.join(', ')}`);
 if (noColor.length) {
   console.warn(`! ${noColor.length} models without colour in the .glb (colour filter skips them)`);
 }

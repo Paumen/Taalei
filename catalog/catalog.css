@@ -374,6 +374,16 @@ a { color: var(--accent); }
 
 .tagbak[hidden] { display: none; }
 
+/* a tray inside a tray: a kind's grandchildren, one shade deeper */
+.tagbak .tagbak {
+  margin-left: -10px;
+  padding: 2px 4px 2px 13px;
+  background: color-mix(in srgb, var(--accent) 22%, var(--kaart));
+}
+
+/* a parent whose child is picked: open, but not itself picked */
+.tagknop-open { border-color: var(--accent); color: var(--inkt); }
+
 /* the parent keeps its right edge open so the tray reads as hanging off it */
 .tagknop-ouder {
   z-index: 1;
@@ -677,7 +687,7 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   background: var(--merk-kleur, var(--inkt-zacht));
 }
 .sectie[data-soort="kit"] .kaart-merk { display: none; }
-.sectie[data-soort="groep"] .kaart-grootte { display: none; }
+.sectie[data-soort^="kind"] .kaart-grootte { display: none; }
 
 .leeg {
   display: none;
@@ -1132,31 +1142,19 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   pointer-events: none;
 }
 
-/* Manual tag editing, shared by the detail dialog (catalog.html) and the swipe cards
-   (swipe.html) — see catalog/tag-edits.js. */
-.tagedit-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 6px;
+/* Manual tag editing, shared by the detail dialog (index.html) and the swipe cards
+   (swipe.html) — see catalog/tag-edits.js. The rows are the filter bar's own chip rows,
+   so the chrome lives with .tagrij; only the fit inside a panel is set here. */
+.detail-info .tagrij,
+.swipe-tags .tagrij {
+  margin: 0 -4px;
+  padding: 3px 4px;
+  border-bottom: 0;
+  background: transparent;
 }
 
-.tagedit-toggles {
-  max-height: 264px;
-  padding-right: 4px;
-  overflow-y: auto;
-}
-
-.tagedit-groep {
-  margin: 8px 0 4px;
-  color: var(--inkt-zacht);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.tagedit-groep:first-child { margin-top: 0; }
+.detail-info .tagrij + .tagrij,
+.swipe-tags .tagrij + .tagrij { border-top: 1px solid var(--lijn); }
 
 .tagedit-balk {
   position: fixed;
