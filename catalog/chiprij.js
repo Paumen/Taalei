@@ -10,10 +10,13 @@
 // editor alike — so a row fits more chips before it has to be swiped. Keyed by tag id, so
 // the same name under two ids can shorten differently. The full name stays in the tooltip.
 const SHORT_NAME = {
-  // kind
-  assy: 'Asmbly',
+  // kind — the roots shorten to their own ids, which is what makes the root row read as
+  // one set: obj · char · env · str · assy, none of them wider than the next
+  obj: 'Obj',
   char: 'Char',
   env: 'Env',
+  str: 'Str',
+  assy: 'Assy',
   'env-flora-deadwood': 'Deadwd',
   'env-rock-formation': 'Formatn',
   'obj-container': 'Contnr',
@@ -33,7 +36,6 @@ const SHORT_NAME = {
   'obj-transport-accessory': 'Accsry',
   'obj-weapon-ranged-accessory': 'Accsry',
   'obj-weapon-ranged-crossbow': 'Crossbw',
-  str: 'Struct',
   'str-marker-tombstone': 'Tombst',
   'str-platform': 'Platfm',
   // material
@@ -56,11 +58,13 @@ const SHORT_NAME = {
   'wood-log': 'Log',
   'wood-planks': 'Planks',
   'wood-worked': 'Worked',
-  // tag
+  // tag — the three source packs shorten to their ids the way the kind roots do
+  kay: 'Kay',
+  ken: 'Ken',
+  qua: 'Qua',
   animation: 'Anim',
   decorated: 'Dec food',
   halloween: 'Hallown',
-  qua: 'Quat',
   'robin-hood': 'Robin',
   // use
   'use:container': 'Contnr',
