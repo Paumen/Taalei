@@ -6,6 +6,75 @@
 // per root. The two callers differ only in what a pressed chip means: in the bar it
 // narrows the view, in the editor it assigns the tag.
 
+// Chip labels are abbreviated wherever a chip row shows them — the filter bar and the tag
+// editor alike — so a row fits more chips before it has to be swiped. Keyed by tag id, so
+// the same name under two ids can shorten differently. The full name stays in the tooltip.
+const SHORT_NAME = {
+  // kind — the roots shorten to their own ids, which is what makes the root row read as
+  // one set: obj · char · env · str · assy, none of them wider than the next
+  obj: 'Obj',
+  char: 'Char',
+  env: 'Env',
+  str: 'Str',
+  assy: 'Assy',
+  'env-flora-deadwood': 'Deadwd',
+  'env-rock-formation': 'Formatn',
+  'obj-container': 'Contnr',
+  'obj-equipment': 'Equip',
+  'obj-equipment-clothing': 'Cloth',
+  'obj-food-vegetable': 'Veget',
+  'obj-furniture': 'Furn',
+  'obj-furniture-seating': 'Seatng',
+  'obj-kitchenware': 'Kitchw',
+  'obj-kitchenware-cookware': 'Cookw',
+  'obj-kitchenware-tableware': 'Tablew',
+  'obj-lighting': 'Light',
+  'obj-pocketitem': 'Pocket',
+  'obj-resource': 'Resrce',
+  'obj-tool-supplies': 'Suppl',
+  'obj-transport': 'Transp',
+  'obj-transport-accessory': 'Accsry',
+  'obj-weapon-ranged-accessory': 'Accsry',
+  'obj-weapon-ranged-crossbow': 'Crossbw',
+  'str-marker-tombstone': 'Tombst',
+  'str-platform': 'Platfm',
+  // material
+  ceramic: 'Cerm',
+  emissive: 'Emiss',
+  foliage: 'Foliag',
+  gemstone: 'Gemst',
+  leather: 'Leathr',
+  'metal-copper': 'Copper',
+  'metal-gold': 'Gold',
+  'metal-iron': 'Iron',
+  'metal-silver': 'Silver',
+  'stone-masonry': 'Masonry',
+  'stone-rock': 'Rock',
+  'stone-soil': 'Soil',
+  textile: 'Textil',
+  vegetation: 'Vegetn',
+  'wood-bark': 'Bark',
+  'wood-beam': 'Beam',
+  'wood-log': 'Log',
+  'wood-planks': 'Planks',
+  'wood-worked': 'Worked',
+  // tag — the three source packs shorten to their ids the way the kind roots do
+  kay: 'Kay',
+  ken: 'Ken',
+  qua: 'Qua',
+  animation: 'Anim',
+  decorated: 'Dec food',
+  halloween: 'Hallown',
+  'robin-hood': 'Robin',
+  // use
+  'use:container': 'Contnr',
+  'use:transport': 'Transp',
+  'use:wearable': 'Wearbl',
+};
+
+// tag: a catalog.json tag record, or anything with an id and a name.
+export const chipName = (tag) => SHORT_NAME[tag.id] ?? tag.name ?? tag.id;
+
 // 'only' is picked, 'not' excluded, 'open' reveals the tray without picking the chip
 // itself — the editor needs that for a parent whose subtype the model carries.
 const PICKED = new Set(['only', 'open']);
@@ -23,7 +92,8 @@ const span = (className) => {
   return el;
 };
 
-// items: { id, name, hint, parent, count, dot }
+// items: { id, name, full, hint, parent, count, dot } — `full` is the unabbreviated name,
+// shown in the tooltip when the item carries no hint of its own.
 export function makeChipStrip({
   label, items, container = null, shareRow = null,
   byCount = false, hideEmpty = false, stateOf, onPick,
@@ -49,7 +119,10 @@ export function makeChipStrip({
     button.type = 'button';
     button.className = 'tagknop';
     button.dataset.tag = item.id;
-    button.title = item.hint ?? item.name;
+    // An abbreviated label keeps its full name in the tooltip even when the tag also
+    // carries a description — the description explains the tag, it does not name it.
+    const full = item.full && item.full !== item.name ? item.full : null;
+    button.title = [full, item.hint].filter(Boolean).join(' — ') || item.name;
     showChipState(button, stateOf(item.id));
     const countEl = span('tagknop-aantal');
     if (item.count !== undefined) countEl.textContent = item.count;

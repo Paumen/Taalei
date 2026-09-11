@@ -3,7 +3,7 @@
 // tags.json's per-tag "models" arrays, merged by tools/apply-tag-edits.mjs.
 // Kind and use are fields on the model in catalog.json but entries in tags.json like any
 // other, so they travel in the same diff: a kind is `obj-container-jug`, a use is `use:food`.
-import { makeChipStrip, layoutChips, syncChips } from './chiprij.js?v=5c428ae0de';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=5c428ae0de';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -166,10 +166,9 @@ export function exportEdits() {
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
 
 // Renders the five fields as the filter bar renders its own: one horizontally scrolling
-// row per field, children in a tray behind their parent, counts on every chip, and what
-// the model carries sorted to the front so it is visible without swiping. No captions —
-// the bar names its rows through aria-label alone, and the panel's subtitle already
-// prints the kind path.
+// row per field, children in a tray behind their parent, and what the model carries
+// sorted to the front so it is visible without swiping. No captions — the bar names its
+// rows through aria-label alone, and the Kind row already reads as the kind path.
 export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
   container.replaceChildren();
   const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
@@ -207,11 +206,13 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
     if (!own.length) continue;
     const { chips } = makeChipStrip({
       label: `Set ${label.toLowerCase()}`,
+      // No counts here: the editor says what this one model carries, and a catalogue-wide
+      // tally on every chip only costs the row width the abbreviations just bought.
       items: own.map((t) => ({
         id: t.id,
-        name: t.name ?? t.id,
+        name: chipName(t),
+        full: t.name ?? t.id,
         hint: t.description,
-        count: t.count,
         parent: parent?.(t) ?? null,
       })),
       container,
