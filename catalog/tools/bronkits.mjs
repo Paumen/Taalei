@@ -49,6 +49,7 @@ export const BRONKITS = [
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: null, formaat: 'fbx' },
   { map: 'camping_asset_pack_Demo', naam: 'Camping Asset Pack (Demo)', kit: null, formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: null, formaat: 'fbx', splitsPerMesh: true },
+  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: null, formaat: 'fbx' },
 
   // glb, not the fbx zips: those put every model in its own folder, which build-missing's
   // one-folder rule reads as a two-model pack, and the park's fbx ships without its atlas.
