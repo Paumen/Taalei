@@ -175,6 +175,7 @@ window.KENNEY_KITS = [
    "patch-grass",
    "stones",
    "target",
+   "tent",
    "tree",
    "tree-high"
   ]
@@ -1343,6 +1344,7 @@ window.KENNEY_KITS = [
   "models": [
    "backpack",
    "bag",
+   "blood-ring",
    "bone",
    "book-1-closed",
    "book-1-open",
@@ -1355,7 +1357,6 @@ window.KENNEY_KITS = [
    "coin",
    "coin-skull",
    "coin-star",
-   "fish-bone",
    "gold-ingots",
    "key-1",
    "key-2",
@@ -1393,9 +1394,9 @@ window.KENNEY_KITS = [
    "ring-5",
    "ring-6",
    "scroll",
+   "skeleton",
    "skull",
-   "skull-2",
-   "star"
+   "skull-2"
   ]
  },
  {
@@ -1713,6 +1714,117 @@ window.KENNEY_KITS = [
   "name": "Windmill",
   "models": [
    "windmill"
+  ]
+ },
+ {
+  "slug": "primitive-tools",
+  "name": "Low Poly Primitive Tools",
+  "url": null,
+  "models": [
+   "bow",
+   "stone-arrow",
+   "stone-axe",
+   "stone-club",
+   "stone-hammer",
+   "stone-knife",
+   "stone-pickaxe",
+   "stone-shield",
+   "stone-shovel",
+   "stone-spear",
+   "torch",
+   "wooden-arrow",
+   "wooden-axe",
+   "wooden-club",
+   "wooden-hammer",
+   "wooden-knife",
+   "wooden-pickaxe",
+   "wooden-shield",
+   "wooden-shovel",
+   "wooden-spear"
+  ]
+ },
+ {
+  "slug": "pond",
+  "name": "Pond Pack",
+  "url": null,
+  "models": [
+   "bird",
+   "branch",
+   "branch-b",
+   "brown-bird",
+   "clay-pot",
+   "dragonfly",
+   "green-frog",
+   "metal-tub",
+   "red-dragonfly",
+   "rock-a",
+   "rock-a-2",
+   "rock-a-3",
+   "round-bird",
+   "tree-branch",
+   "tree-branch-2",
+   "tree-branch-3",
+   "tree-branch-4",
+   "wooden-tub",
+   "yellow-frog"
+  ]
+ },
+ {
+  "slug": "park",
+  "name": "Pretty Park Set",
+  "url": null,
+  "models": [
+   "bench",
+   "flower-a",
+   "flower-b",
+   "street-lantern",
+   "tree",
+   "tree-large"
+  ]
+ },
+ {
+  "slug": "medieval-village",
+  "name": "Medieval Village Pack",
+  "url": null,
+  "models": [
+   "bag",
+   "bag-open",
+   "bags",
+   "barrel",
+   "bell",
+   "bell-tower",
+   "bench",
+   "bench-2",
+   "blacksmith",
+   "bonfire",
+   "cart",
+   "cauldron",
+   "crate",
+   "fantasy-barracks",
+   "fantasy-house",
+   "fantasy-house-2",
+   "fantasy-house-3",
+   "fantasy-inn",
+   "fantasy-sawmill",
+   "fantasy-stable",
+   "gazebo",
+   "hay",
+   "market-stand",
+   "market-stand-2",
+   "mill",
+   "package",
+   "package-2",
+   "sawmill-saw",
+   "well"
+  ]
+ },
+ {
+  "slug": "holiday-kit",
+  "name": "Holiday Kit",
+  "url": "https://kenney.nl/assets/holiday-kit",
+  "models": [
+   "hanukkah-menorah",
+   "hanukkah-menorah-candles"
   ]
  }
 ]

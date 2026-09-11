@@ -1,0 +1,70 @@
+	Low Poly Primitive Tools
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`Low_Poly_Primitive_Tools`, zonder licentiebestand en zonder
+	verwijzing naar een maker of een packpagina. De CC0-vermelding
+	hierboven is vastgesteld door de eigenaar van dit project bij het
+	inladen; ze komt niet uit de pack zelf. De maker is niet bekend en er
+	is dus ook niemand om te crediteren — wie de herkomst alsnog
+	achterhaalt, vult hem hier aan.
+
+	Alle 20 modellen van de pack zijn ingeladen. Spaties zijn koppeltekens
+	geworden en alles is klein gezet: `Stone Pickaxe` wordt
+	stone-pickaxe. Er is geen naam aangepast.
+
+	Schaal
+
+	Op 0,00354 gezet. Twee referenties uit de catalogus wijzen dezelfde
+	kant op: de boog meet 142,020 in de pack en komt op 0,503 uit —
+	precies weapons/bow-b (0,503) — en `Wooden Pickaxe` meet 114,757 en
+	komt op 0,406 uit, precies rpgtools/pickaxe (0,406). De speren en
+	bijlen van deze pack zijn naar verhouding langer dan die van KayKit
+	(stone-axe 0,47 tegen adventurers/axe-one-handed 0,33); dat is de
+	verhouding van de pack zelf en geldt voor de hele pack, want §4 geeft
+	één factor per pack.
+
+	Kleur
+
+	De pack heeft geen texture-atlas: elk model draagt één vlakke kleur,
+	één materiaal per bestand. Elk model komt daardoor op precies één
+	baan van de gedeelde kits/colormap.png uit. Vier bronkleuren zijn in
+	gebruik:
+
+	  #b48666  → wood middle 1,0
+	  #89593f  → wood dark 2,0
+	  #5e3d2c  → bark 3,0
+	  #5c5c5c  → light grey 15,3
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is. De verste sprong is 1,2, van het
+	grijs #5c5c5c naar light grey 15,3; daarna 0,8 van #5e3d2c naar bark
+	3,0. De pack valt dus vrijwel samen met de gedeelde sheet.
+
+	Let op bij het taggen: de kleuren van de pack volgen de namen níet.
+	`Stone Axe`, `Stone Club`, `Stone Pickaxe` en `Stone Shovel` dragen
+	hetzelfde bruin als het houten gereedschap, en `Stone Hammer` is
+	donkerbruin, terwijl `Wooden Hammer` juist licht is. Alleen `Stone
+	Arrow`, `Stone Knife`, `Stone Shield` en `Stone Spear` staan op grijs.
+	De materiaaltags volgen de baan waar het model op staat en niet de
+	naam die de pack eraan geeft, zoals Appendix A voorschrijft: de vier
+	grijze dragen stone-rock, de rest een houtsoort. De namen van de pack
+	zijn onaangeroerd gebleven.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

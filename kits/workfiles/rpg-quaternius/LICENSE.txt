@@ -1,0 +1,74 @@
+	Quaternius Ultimate RPG
+
+			------------------------------
+
+	Ultimate RPG Pack
+	Gemaakt door Quaternius — https://quaternius.com/packs/ultimaterpg.html
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten.
+
+			------------------------------
+
+	Twee losse packs in dezelfde kit
+
+	De kit is gevuld uit de Ultimate RPG Pack. Daar zijn later twee losse
+	packs van dezelfde maker bij gezet, omdat elk daarvan één model telt
+	en die modellen naast wat er al stond horen: de ring naast ring-3 tot
+	ring-6, het skelet naast bone, skull en skull-2.
+
+	  Blood Ring.fbx  → blood-ring
+	  Skeleton.fbx    → skeleton
+
+	Beide zijn aangeleverd als .fbx met een `Cards_Atlas.png`, in zips met
+	de namen `Blood_Ring_by_Quaternius` en `Skeleton_by_Quaternius`, en
+	beide zips bevatten géén licentiebestand. De CC0-vermelding hierboven
+	is voor die twee vastgesteld door de eigenaar van dit project bij het
+	inladen; ze komt niet uit de pack zelf. De maker staat wel vast: beide
+	zips dragen zijn naam.
+
+	Schaal
+
+	Geen eigen factor gekozen. Een bestaande kit leest zijn schaal terug
+	uit de .glb-extras van de modellen die er al in staan, en dat is hier
+	0,16 — de factor van de Ultimate RPG Pack. `Blood Ring` komt daarmee
+	op 0,26 breed uit, naast ring-5 (0,21); `Skeleton` op 0,43 lang.
+
+	Kleur
+
+	Het atlasje van deze twee packs is niet meegekomen — de modellen zijn
+	op de gedeelde kits/colormap.png gezet, baan voor baan, waarbij elk
+	hoekpunt zijn eigen plek in het verloop houdt.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstand hieronder staat in die maat, op een
+	schaal waar 100 het hele bereik is. Beide packs springen 10,9 op
+	dezelfde baan: het felle karmijn #c62132 van de kaartkunst komt op
+	terracotta 5,0 uit, want er staat geen fel rood op de gedeelde sheet.
+
+	Bij `blood-ring` is die baan daarna met tools/colormap-recolor.mjs
+	naar dark red 8,0 gehaald: de steen is een gemsteen, en M36 wijst
+	daar dark red, dark green of blue voor aan. De ring staat nu op
+	yellow 6,0 plus dark red 8,0 met gemstone en metal-gold, precies zoals
+	ring-4 en ring-6 al stonden.
+
+	`skeleton` is geen los bot maar een tafereeltje: een grondvlak met een
+	half begraven skelet en een bloem erin. Het is `assy` getagd — meer
+	losse dingen in één top-level (K4) — en draagt bone, stone-soil,
+	foliage en vegetation. Let op: het grondvlak en de botten delen in de
+	pack één vleeskleur en staan daardoor samen op wood light 0,0, niet op
+	het off-white dat M29 voor botten aanwijst en niet op het taupe dat
+	M10 voor grond aanwijst. Er is geen baan om ze uit elkaar te trekken.
+	De lint slaat `assy` over, dus dit levert geen finding op; het is wél
+	een afwijking van Appendix A en staat hier zodat ze niet stilzwijgend
+	blijft. Het model draagt bovendien een omgekeerd driehoekje in het
+	grondvlak.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

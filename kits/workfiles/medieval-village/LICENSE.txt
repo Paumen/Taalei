@@ -1,0 +1,97 @@
+	Medieval Village Pack
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .glb aangeleverd, in een zip met de naam
+	`Medieval_Village_Pack`, zonder licentiebestand en zonder verwijzing
+	naar een maker of een packpagina. De CC0-vermelding hierboven is
+	vastgesteld door de eigenaar van dit project bij het inladen; ze komt
+	niet uit de pack zelf. De maker is niet bekend en er is dus ook
+	niemand om te crediteren — wie de herkomst alsnog achterhaalt, vult
+	hem hier aan.
+
+	Van de 39 modellen zijn er 29 ingeladen: de negen gebouwen, de twee
+	marktkramen, de klokkentoren en de klok, de put, de kar, de ketel, het
+	vuur, de zaag, het hooi en het kleine spul (vaten, kratten, zakken,
+	pakken, banken). Niet ingeladen zijn de losse bouwdelen — `Door
+	Round`, `Door Straight`, `Window`, `Window-2`, `Round Window`,
+	`Stairs`, `Fence`, `Path Straight` — en `Rocks` en `Smoke`. Spaties
+	zijn koppeltekens geworden en alles is klein gezet: `Fantasy House-2`
+	wordt fantasy-house-2. Er is geen naam aangepast.
+
+	Schaal
+
+	Op 1,21 gezet. `Door Round` meet 0,723 hoog in de pack en komt daarmee
+	op 0,875 uit — precies dungeon/door (0,875), de deur waaraan de
+	muurhoogte van het raster afleesbaar is. Een tweede referentie wijst
+	dezelfde kant op: `Barrel` meet 0,204 hoog en komt op 0,247 uit,
+	naast village-kit/barrel-a (0,240). De gebouwen komen daarmee op twee
+	tot vier eenheden hoog uit, en de molen op 5,81.
+
+	Kleur
+
+	De pack heeft een eigen kleurenvel. Dat vel is niet meegekomen — de
+	modellen zijn op de gedeelde kits/colormap.png gezet, die net zo is
+	opgebouwd. Het gaat baan voor baan: van elke baan van de pack wordt
+	één keer bepaald welke baan van de gedeelde sheet er het beste bij
+	past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is, en gelden voor een hele baan en
+	niet voor één kleur.
+
+	Deze pack ligt dicht bij de gedeelde sheet. De verste sprong is 8,3
+	bij `Package` en `Package-2`, waarvan het olijfgroene #4b3e21 op taupe
+	14,3 landt; daarna 7,2 bij `Cauldron` (#895e24) en 5,8 bij het
+	blauwgroene leisteen #215860 van de daken, dat op blue-grey 6,1
+	uitkomt.
+
+	Na het inladen zijn vijf banen verplaatst met
+	tools/colormap-recolor.mjs:
+
+	  donker vakwerkhout, hele kit   bark 3,0      → wood dark 2,0
+	  klok en klokkentoren           wood middle 1,0 → terracotta 5,0 (M14)
+	  zaagvlakken van de blokken     taupe 14,3    → wood light 0,0
+	    (alleen `Bonfire` en `Sawmill Saw`, die geen pleister of jute dragen)
+	  hooischoof                     wood light 0,0 → taupe 14,3  (M44, M51)
+	  plantjes aan de molen          dark green 1,1 → light green 3,1 (C8)
+
+	De eerste is de grootste ingreep en raakt 21 modellen. Het donkerste
+	bruin van de pack is bewerkt timmerhout — vakwerk, balken, planken,
+	duigen — en landde bij het hermappen op bark 3,0, de baan die volgens
+	C10 voor schors, leer en huid is. Het is naar wood dark 2,0 gehaald,
+	de baan waar de pack zijn tweede bruin al had staan; de twee bruinen
+	van de pack vallen daardoor samen. Dat kost het vakwerk wat contrast
+	met de raamkozijnen en is de prijs voor een materiaaltag die klopt.
+
+	De klok is brons en stond op een houtbaan; terracotta is volgens M14
+	de baan van metal-copper. De hooischoof is gedroogd gewas en hoort
+	volgens M44 en M51 op taupe. De plantjes aan de molen zijn
+	onkruidaccenten op een bouwwerk, waarvoor C8 light green aanwijst.
+
+	Een recolour is een UV-verschuiving over hele cellen, dus de ingebakken
+	schaduw blijft staan: elk hoekpunt houdt zijn plek in het verloop.
+
+	Let op: de pack levert drie modellen met omgekeerde driehoeken —
+	`Fantasy Stable` (het hele afdak), `Mill` (de wieken en een dakdeel)
+	en `Gazebo` (een splinter). Ze zijn overgenomen zoals de pack ze
+	levert; met `node tools/renders/render.mjs … --modes faceorient` zijn
+	ze terug te vinden (achterkanten rood, magenta in pbr).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.
