@@ -1,9 +1,9 @@
 // Manual tag edits made from index.html or swipe.html, staged locally until exported.
 // Shape: { [tagId]: { add: [modelId, …], remove: [modelId, …] } } — a diff against
-// tags.json's per-tag "models" arrays, so it can be reviewed and merged in by hand.
+// tags.json's per-tag "models" arrays, merged by tools/apply-tag-edits.mjs.
 // Kind and use are fields on the model in catalog.json but entries in tags.json like any
 // other, so they travel in the same diff: a kind is `obj-container-jug`, a use is `use:food`.
-import { makeChipStrip, layoutChips, syncChips } from './chiprij.js?v=5530df15fe';
+import { makeChipStrip, layoutChips, syncChips } from './chiprij.js?v=af91f7e191';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -151,7 +151,7 @@ export function exportEdits() {
   const content = {
     tool: 'catalog tag editor',
     created: new Date().toISOString(),
-    note: 'Diff against catalog/tags.json — for each tag, add its "add" ids to "models" and drop its "remove" ids. Kinds and uses (use:…) are entries there like any other tag.',
+    note: 'Diff against catalog/tags.json: node tools/apply-tag-edits.mjs <this file> merges it, --dry shows what it would do first. Per tag, "add" ids join that tag\'s "models" and "remove" ids leave it; kinds and uses (use:…) are entries there like any other tag.',
     tags,
   };
   const blob = new Blob([JSON.stringify(content, null, 1) + '\n'], { type: 'application/json' });
