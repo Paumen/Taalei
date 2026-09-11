@@ -221,7 +221,7 @@ text alone.
 - **C5.** `PE` 🟢 Yellow: metal-gold, emissive, fire and plastic (M41).
 - **C6.** `PE` 🟢 Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), gemstones (M36), minor accents.
 - **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
-- **C8.** `FE` 🟢 Light green: nature only — flora, including grass and weed accents
+- **C8.** `FE` 🔴 Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
 - **C9.** `FE` 🟢 Lighter browns: wood only; skin may take wood light 0,0 (M43).
 - **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
