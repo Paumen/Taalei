@@ -204,6 +204,18 @@ function unweldSlab(glb, slabs) {
   const chosen = new Map();
   const rebuilt = new Map();
 
+  // Each primitive's copies are appended to its own reading of the accessor, so two
+  // primitives that split the same one would each miss the other's. Refuse that layout
+  // before a byte is touched rather than write a model whose indices point at nothing.
+  const seen = new Set();
+  for (const { primitive, triangles } of slabs) {
+    if (!triangles.length) continue;
+    for (const index of [...Object.values(primitive.attributes), primitive.indices]) {
+      if (seen.has(index)) throw new Error('--range does not rewrite an accessor two primitives share');
+      seen.add(index);
+    }
+  }
+
   for (const { primitive, triangles } of slabs) {
     const uvIndex = primitive.attributes.TEXCOORD_0;
     const picked = chosen.get(uvIndex) ?? new Set();
