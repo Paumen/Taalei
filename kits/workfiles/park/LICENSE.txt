@@ -1,0 +1,86 @@
+	Pretty Park Set
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .glb aangeleverd, in een zip met de naam
+	`Pretty_park_set`, zonder licentiebestand en zonder verwijzing naar
+	een maker of een packpagina. De CC0-vermelding hierboven is
+	vastgesteld door de eigenaar van dit project bij het inladen; ze komt
+	niet uit de pack zelf. De maker is niet bekend en er is dus ook
+	niemand om te crediteren — wie de herkomst alsnog achterhaalt, vult
+	hem hier aan.
+
+	Van de 28 modellen zijn er 6 ingeladen: de bank, de lantaarnpaal, de
+	twee bomen en de twee bloemen. De negen `Floor Grass Sliced`-tegels,
+	de heggen, de struiken, het gras, de kasseien, de fontein, de
+	prullenbak en de vogel zijn niet gevraagd en staan er niet in.
+	Spaties zijn koppeltekens geworden en alles is klein gezet: `Street
+	Lantern` wordt street-lantern. Er is geen naam aangepast.
+
+	Schaal
+
+	Op 0,5 gezet. De vloertegel van de pack meet 2 × 2 en komt daarmee op
+	1 × 1 uit, precies het raster van §4 — één vloersegment is één eenheid.
+	De boom bevestigt het los daarvan: `Tree` meet 3,618 hoog en komt op
+	1,809 uit, naast fantasy-town-kit/tree-high-round (1,788).
+
+	Kleur
+
+	De pack heeft een eigen kleurenvel. Dat vel is niet meegekomen — de
+	modellen zijn op de gedeelde kits/colormap.png gezet, die net zo is
+	opgebouwd. Het gaat baan voor baan: van elke baan van de pack wordt
+	één keer bepaald welke baan van de gedeelde sheet er het beste bij
+	past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is, en gelden voor een hele baan en
+	niet voor één kleur.
+
+	De verste sprong onder de ingeladen modellen is 10,8, bij `Tree` en
+	`Tree Large`: het bladerdek staat in de pack op een donkergroen dat
+	het dichtst bij light green 3,1 uitkomt. Daarna 10,5 bij `Flower B`,
+	waarvan de blauwe bloemblaadjes op light blue-grey 3,2 landen.
+
+	Na het inladen zijn vier banen verplaatst met
+	tools/colormap-recolor.mjs, omdat de dichtstbijzijnde baan niet de
+	baan is die Appendix A voor dat materiaal aanwijst:
+
+	  bladerdek van de bomen   light green 3,1     → dark green 1,1  (M1)
+	  stam van de bomen        wood middle 1,0     → bark 3,0        (C10)
+	  frame van bank en paal   light blue-grey 3,2 → blue-grey 6,1   (M12)
+	  ruiten van de lantaarn   off-white 5,2       → yellow 6,0      (M33)
+
+	De eerste zet het bladerdek terug op de donkergroene kant waar de pack
+	zelf zat, en brengt de sprong van 10,8 dus juist terug. De stam op
+	bark en het blad op dark green is hoe forest/tree-1-a..c en
+	fantasy-town-kit/tree-high-round al staan. Light blue-grey is volgens
+	C3 alleen voor zilver, en het gietijzeren frame hoort op blue-grey
+	(M12). De ruiten van de lantaarn staan nu op geel en dragen emissive,
+	zoals graveyard-kit/lantern-glass en de lantaarns van de halloweenkit:
+	de gedeelde sheet heeft maar één glaskleur en die is doorzichtig, en
+	off-white is volgens M24 geen glas.
+
+	Een recolour is een UV-verschuiving over hele cellen, dus de ingebakken
+	schaduw blijft staan: elk hoekpunt houdt zijn plek in het verloop.
+
+	De twee bloemen zijn env-flora-plant-flower en dragen vegetation; M5
+	laat bloemen elke kleur, en hun banen zijn gelaten zoals de pack ze
+	bedoelde.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

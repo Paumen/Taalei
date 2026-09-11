@@ -61,3 +61,24 @@
 	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png,
 	zodat deze modellen dezelfde kleuren delen met de andere kits en in
 	hetzelfde kleurfilter meedoen. De geometrie is verder ongemoeid.
+
+	Bronnaam in de extras
+
+	De importeur van deze kit legde de bronnaam niet vast, alleen voor de
+	zes modellen die hij hernoemde (`Candle_02`, `Candle_03`, `Food_02`,
+	`Fence_01`, `Plate_01`, `Plate_04`). catalog/tools/build-missing.mjs
+	koppelt een werkbestand in de eerste plaats aan zijn bronmodel via die
+	`bronmodel` in de .glb-extras, en pas daarna op naam; de andere 22
+	modellen droegen hem niet en werden daardoor als ontbrekend gemeld
+	terwijl ze er gewoon in zaten — `Box_01`, `Barrel_01` en `Bag_01`
+	stonden al als box-a, barrel-a en bag-a in de catalogus.
+
+	Die 22 dragen hem nu wel. De koppeling is geverifieerd op
+	driehoekental én op de verhoudingen van de bounding box tegen de
+	uitgepakte pack, en komt overeen met de tabel hierboven. Alleen de
+	extras zijn aangeraakt; aan de geometrie is niets veranderd.
+
+	Twee bronmodellen blijven als ontbrekend gemeld, en terecht:
+	`Bucket_01_2` is het hengsel dat in bucket-a is opgegaan — een
+	werkbestand kan maar één `bronmodel` vastleggen, en dat is `Bucket_01`
+	— en `Cup_02` is de tweede beker, die niet is ingeladen.
