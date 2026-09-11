@@ -1,6 +1,8 @@
-// Manual tag edits made from catalog.html or swipe.html, staged locally until exported.
+// Manual tag edits made from index.html or swipe.html, staged locally until exported.
 // Shape: { [tagId]: { add: [modelId, …], remove: [modelId, …] } } — a diff against
 // tags.json's per-tag "models" arrays, so it can be reviewed and merged in by hand.
+// Kind and use are fields on the model in catalog.json but entries in tags.json like any
+// other, so they travel in the same diff: a kind is `obj-container-jug`, a use is `use:food`.
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
 function load() {
@@ -33,10 +35,20 @@ export function onChange(fn) {
   listeners.push(fn);
 }
 
-// The catalogue's own tags plus whatever this browser has staged on top, minus whatever
+export const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
+export const useId = (u) => `use:${u}`;
+
+// Every id the model carries in tags.json terms: its tags, its kind and its uses.
+const baseIds = (model) => [
+  ...(model.tags ?? []),
+  ...(model.kind ? [model.kind] : []),
+  ...(model.use ?? []).map(useId),
+];
+
+// The catalogue's own ids plus whatever this browser has staged on top, minus whatever
 // it has staged off.
 export function effectiveTags(model) {
-  const tags = new Set(model.tags ?? []);
+  const tags = new Set(baseIds(model));
   for (const [tagId, e] of Object.entries(edits)) {
     if (e.add.includes(model.id)) tags.add(tagId);
     if (e.remove.includes(model.id)) tags.delete(tagId);
@@ -44,28 +56,46 @@ export function effectiveTags(model) {
   return [...tags];
 }
 
+export const effectiveKind = (model, tagsById) =>
+  effectiveTags(model).find((id) => isKindId(id, tagsById)) ?? null;
+
+export const effectiveUses = (model) =>
+  effectiveTags(model).filter((id) => id.startsWith('use:')).map((id) => id.slice(4));
+
 export function hasPendingEdit(model) {
   return Object.values(edits).some((e) => e.add.includes(model.id) || e.remove.includes(model.id));
 }
 
+function stage(model, tagId, on) {
+  const hadBase = baseIds(model).includes(tagId);
+  const e = (edits[tagId] ??= { add: [], remove: [] });
+  if (on) {
+    if (hadBase) e.remove = e.remove.filter((id) => id !== model.id);
+    else if (!e.add.includes(model.id)) e.add.push(model.id);
+  } else {
+    if (hadBase) { if (!e.remove.includes(model.id)) e.remove.push(model.id); }
+    else e.add = e.add.filter((id) => id !== model.id);
+  }
+  prune(tagId);
+}
+
 // Flips one tag on one model and stages the change. Returns whether the tag is now on.
 export function toggleTag(model, tagId) {
-  const hadBase = (model.tags ?? []).includes(tagId);
-  const e = (edits[tagId] ??= { add: [], remove: [] });
-  const nowHas = hadBase ? !e.remove.includes(model.id) : e.add.includes(model.id);
-
-  if (nowHas) {
-    if (hadBase) e.remove.push(model.id);
-    else e.add = e.add.filter((id) => id !== model.id);
-  } else {
-    if (hadBase) e.remove = e.remove.filter((id) => id !== model.id);
-    else e.add.push(model.id);
-  }
-
-  prune(tagId);
+  const nowHas = effectiveTags(model).includes(tagId);
+  stage(model, tagId, !nowHas);
   save();
   notify();
   return !nowHas;
+}
+
+// Exactly one kind per model (K1): setting one takes the old one off. Pass null to clear.
+export function setKind(model, kindId, tagsById) {
+  const current = effectiveKind(model, tagsById);
+  if (current === kindId) return;
+  if (current) stage(model, current, false);
+  if (kindId) stage(model, kindId, true);
+  save();
+  notify();
 }
 
 export function pendingCount() {
@@ -78,7 +108,7 @@ export function clearEdits() {
   notify();
 }
 
-const timeStamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+const timeStamp = () => new Date().toISOString().replace(/[:T]/g, '-').slice(0, 16);
 
 export function exportEdits() {
   const tags = Object.fromEntries(
@@ -89,7 +119,7 @@ export function exportEdits() {
   const content = {
     tool: 'catalog tag editor',
     created: new Date().toISOString(),
-    note: 'Diff against catalog/tags.json — for each tag, add its "add" ids to "models" and drop its "remove" ids.',
+    note: 'Diff against catalog/tags.json — for each tag, add its "add" ids to "models" and drop its "remove" ids. Kinds and uses (use:…) are entries there like any other tag.',
     tags,
   };
   const blob = new Blob([JSON.stringify(content, null, 1) + '\n'], { type: 'application/json' });
@@ -101,8 +131,64 @@ export function exportEdits() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-// Renders every tag in the catalogue as a toggle: pressed means the model carries it.
-// Grouped materials first, then the rest, in a scrolling panel. Rebuilds on every change.
+const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
+const kindChain = (id) => {
+  const chain = [];
+  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
+  return chain;
+};
+
+function chip(text, pressed, title, action) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'keuzechip';
+  button.textContent = text;
+  button.setAttribute('aria-pressed', String(pressed));
+  if (title) button.title = title;
+  button.addEventListener('click', action);
+  return button;
+}
+
+function heading(panel, text) {
+  const label = document.createElement('p');
+  label.className = 'tagedit-groep';
+  label.textContent = text;
+  panel.append(label);
+}
+
+// Kind is picked by walking down the tree: one row per level, the chosen node pressed,
+// the next row its children. Pressing a branch is a valid stop (K2: the parent is the
+// "other" level); pressing the chosen node again clears the kind.
+function renderKindPicker(panel, model, tagsById, redraw, onEdit) {
+  const kinds = [...tagsById.values()].filter((t) => t.type === 'kind');
+  const childrenOf = (id) => kinds.filter((t) => kindParent(t.id) === id);
+  const current = effectiveKind(model, tagsById);
+  const chain = current ? kindChain(current) : [];
+
+  heading(panel, current ? `Kind — ${chain.map((id) => tagsById.get(id)?.name ?? id).join(' › ')}` : 'Kind — none');
+
+  const pick = (id) => {
+    setKind(model, id === current ? null : id, tagsById);
+    redraw();
+    onEdit?.();
+  };
+
+  let level = kinds.filter((t) => !kindParent(t.id));
+  for (let depth = 0; level.length; depth++) {
+    const row = document.createElement('div');
+    row.className = 'tagedit-chips tagedit-niveau';
+    row.dataset.diepte = String(depth);
+    const chosen = chain[depth] ?? null;
+    for (const tag of level) {
+      row.append(chip(tag.name, tag.id === chosen, tag.description, () => pick(tag.id)));
+    }
+    panel.append(row);
+    level = chosen ? childrenOf(chosen) : [];
+  }
+}
+
+// Renders the five fields as toggles: pressed means the model carries it. Kind as a
+// tree walk, use as its eight, then materials and the open tags. Rebuilds on every change.
 export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
   container.replaceChildren();
   const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
@@ -111,31 +197,21 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   const panel = document.createElement('div');
   panel.className = 'tagedit-toggles';
 
-  const groups = [['material', 'Materials'], ['tag', 'Tags']];
-  for (const [type, heading] of groups) {
+  renderKindPicker(panel, model, tagsById, redraw, onEdit);
+
+  const groups = [['use', 'Use'], ['material', 'Materials'], ['tag', 'Tags']];
+  for (const [type, label] of groups) {
     const tags = [...tagsById.values()].filter((t) => (t.type ?? 'tag') === type);
     if (tags.length === 0) continue;
-
-    const label = document.createElement('p');
-    label.className = 'tagedit-groep';
-    label.textContent = heading;
-    panel.append(label);
-
+    heading(panel, label);
     const row = document.createElement('div');
     row.className = 'tagedit-chips';
     for (const tag of tags) {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'keuzechip';
-      chip.textContent = tag.name ?? tag.id;
-      chip.setAttribute('aria-pressed', String(on.has(tag.id)));
-      if (tag.description) chip.title = tag.description;
-      chip.addEventListener('click', () => {
+      row.append(chip(tag.name ?? tag.id, on.has(tag.id), tag.description, () => {
         toggleTag(model, tag.id);
         redraw();
         onEdit?.();
-      });
-      row.append(chip);
+      }));
     }
     panel.append(row);
   }
@@ -143,7 +219,7 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   container.append(panel);
 }
 
-// Wires up the small floating bar (count · Download JSON · Clear) shared by catalog.html
+// Wires up the small floating bar (count · Download JSON · Clear) shared by index.html
 // and swipe.html. Call once per page after the DOM is ready.
 export function mountEditBar() {
   const bar = document.querySelector('#tagedit-balk');

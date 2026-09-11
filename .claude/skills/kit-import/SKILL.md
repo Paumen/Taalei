@@ -18,12 +18,14 @@ pack — `kit: null` means `aanvullen.mjs` refuses to run.
    Names are kebab: underscores to hyphens, camelCase split, lowercased
    (`bow_A_withString` → `bow-a-with-string`). `--schaal` is only for a kit that
    is still empty; an existing kit reads its scale back out of the `.glb` extras.
-3. Grouping in `catalog/tools/semantiek.mjs` — a `rules` pattern where a whole
-   family fits, an `exceptions` entry for a one-off. Anything left in group
-   `other` is unfinished work.
+3. Kind and use in `catalog/tags.json` — exactly one kind per model, resolved
+   against the Appendix B glossary (K8), and zero or more of the eight uses as
+   `use:<value>`. A model without a kind shows up under "No kind" in the
+   catalogue's Kind filter and is unfinished work. The model panel in
+   `index.html` sets both and downloads the diff to merge in.
 4. Kit entry in `catalog/manifest.js`, and the slug into `SOURCES` in
    `build-catalog.mjs` if the maker has a source filter.
-5. Tags in `catalog/tags.json` — see below.
+5. Materials and open tags in `catalog/tags.json` — see below.
 6. `node catalog/tools/build-catalog.mjs` then
    `node catalog/tools/build-missing.mjs`, in that order.
 7. `LICENSE.txt` in the kit's workfiles dir. Copy the shape of an existing one
@@ -82,7 +84,7 @@ three wood bands and bark do.
   line, so a handful of additions look like a rewrite. Confirm no existing model
   changed.
 - Render every new model and look at it. §6 asks for at least two reference
-  assets from the same group beside the new ones at the same scale
+  assets of the same kind beside the new ones at the same scale
   (`render.mjs … --compare`).
 
 ## Traps

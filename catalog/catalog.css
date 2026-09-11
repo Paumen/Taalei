@@ -374,6 +374,13 @@ a { color: var(--accent); }
 
 .tagbak[hidden] { display: none; }
 
+/* a tray inside a tray: a kind's grandchildren, one shade deeper */
+.tagbak .tagbak {
+  margin-left: -10px;
+  padding: 2px 4px 2px 13px;
+  background: color-mix(in srgb, var(--accent) 22%, var(--kaart));
+}
+
 /* the parent keeps its right edge open so the tray reads as hanging off it */
 .tagknop-ouder {
   z-index: 1;
@@ -677,7 +684,7 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   background: var(--merk-kleur, var(--inkt-zacht));
 }
 .sectie[data-soort="kit"] .kaart-merk { display: none; }
-.sectie[data-soort="groep"] .kaart-grootte { display: none; }
+.sectie[data-soort^="kind"] .kaart-grootte { display: none; }
 
 .leeg {
   display: none;
@@ -1157,6 +1164,13 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 }
 
 .tagedit-groep:first-child { margin-top: 0; }
+
+/* the kind picker: one row per level of the tree, each a step further in */
+.tagedit-niveau { padding-left: calc(var(--diepte, 0) * 10px); }
+.tagedit-niveau[data-diepte="1"] { --diepte: 1; }
+.tagedit-niveau[data-diepte="2"] { --diepte: 2; }
+.tagedit-niveau[data-diepte="3"] { --diepte: 3; }
+.tagedit-niveau .keuzechip { min-height: 26px; padding: 3px 9px; font-size: 11.5px; }
 
 .tagedit-balk {
   position: fixed;

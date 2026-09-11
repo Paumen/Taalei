@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar } from './tag-edits.js';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -13,13 +13,15 @@ const KIT_COLORS = {
   rocks: '#8a91ae',
 };
 
-const GROUP_ALIASES = {
-  bouw: 'structures',
-  mechaniek: 'items',
-  terrein: 'ground',
-  reisgerei: 'items',
-  kamp: 'furniture',
+// Kind ids are paths (obj-container-jug): the parent is the id minus its last segment.
+const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
+const kindChain = (id) => {
+  const chain = [];
+  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
+  return chain;
 };
+const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy', 'scene'];
+const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 
 const MODEL_PATH = 'kits/workfiles';
 
@@ -83,17 +85,17 @@ function collectColors(models) {
 
 const HEAVY_FROM = 5000;
 
+// size is measured at build (F1); the vocabulary entries only name and describe it
 const SIZE_CLASSES = [
-  { id: 'small', sign: 'S', short: 'Small', limit: 0.5, hint: 'small — under half a unit' },
-  { id: 'medium', sign: 'M', short: 'Medium', limit: 1.5, hint: 'medium — half to one and a half units' },
-  { id: 'large', sign: 'L', short: 'Large', limit: Infinity, hint: 'large — over one and a half units' },
+  { id: 's', sign: 'S', short: 'Small', hint: 'small — under half a unit' },
+  { id: 'm', sign: 'M', short: 'Medium', hint: 'medium — half to one and a half units' },
+  { id: 'l', sign: 'L', short: 'Large', hint: 'large — over one and a half units' },
 ];
 
-function sizeClass(wdh) {
-  const longest = Math.max(...wdh);
-  const cls = SIZE_CLASSES.find((k) => longest < k.limit) ?? SIZE_CLASSES.at(-1);
-  return { ...cls, longest };
-}
+const sizeClass = (model) => ({
+  ...(SIZE_CLASSES.find((k) => k.id === model.size) ?? SIZE_CLASSES.at(-1)),
+  longest: Math.max(...model.wdh),
+});
 
 let budgetPerUnit = 2000;
 
@@ -107,7 +109,7 @@ const detail = document.querySelector('#detail');
 const cards = [];
 const sections = [];
 
-let grouping = 'groep';
+let grouping = 'kind2';
 let sorting = 'naam';
 
 const chosenPaths = new Set();
@@ -120,8 +122,10 @@ let swipe = null;
 
 const colorState = new Map();
 const sizeState = new Map();
+const kindState = new Map([['assy', 'not']]);
+const useState = new Map();
 
-const tagState = new Map([['assembly', 'not']]);
+const tagState = new Map();
 
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
@@ -249,9 +253,8 @@ function glyph(kind, sign, hint) {
   return el;
 }
 
-function makeCard(model, kits, groups, variants = []) {
+function makeCard(model, kits, variants = []) {
   const kit = kits.get(model.kit);
-  const group = groups.get(model.gr);
 
   const card = document.createElement('button');
   card.type = 'button';
@@ -263,7 +266,7 @@ function makeCard(model, kits, groups, variants = []) {
   box.dataset.src = modelUrl(model.path);
   box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
 
-  const size = sizeClass(model.wdh);
+  const size = sizeClass(model);
   const glyphs = span('kaart-glyfen');
   glyphs.append(glyph('maat', size.sign, `${size.hint} (longest axis ${size.longest.toFixed(2)})`));
   if (model.anim?.length) {
@@ -316,7 +319,9 @@ function makeCard(model, kits, groups, variants = []) {
     family,
     colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
     tags: withParents(family.flatMap((m) => m.tags ?? [])),
-    sizes: [...new Set(family.map((m) => sizeClass(m.wdh).id))],
+    kinds: [...new Set(family.flatMap((m) => (m.kind ? kindChain(m.kind) : [WITHOUT])))],
+    uses: [...new Set(family.flatMap((m) => (m.use?.length ? m.use : [WITHOUT])))],
+    sizes: [...new Set(family.map((m) => m.size))],
   };
   cards.push(item);
 
@@ -451,6 +456,53 @@ const WITHOUT = '_zonder';
 
 const groupingType = () => grouping;
 
+// Sections by kind, cut at the chosen depth: a model shallower than the cut keys on the
+// kind it has. Roots in a fixed order, then the smaller sections first at every level.
+const KIND_DEPTH = { kind1: 1, kind2: 2, kind3: 3 };
+
+function kindSections(models, depth) {
+  const bucket = new Map();
+  const perNode = new Map();
+  for (const model of models) {
+    const chain = model.kind ? kindChain(model.kind) : [];
+    for (const id of chain) perNode.set(id, (perNode.get(id) ?? 0) + 1);
+    const key = chain[Math.min(depth, chain.length) - 1] ?? WITHOUT;
+    if (!bucket.has(key)) bucket.set(key, []);
+    bucket.get(key).push(model);
+  }
+  const rank = (id) => {
+    if (id === WITHOUT) return [99];
+    const chain = kindChain(id);
+    return [rootRank(id), ...chain.slice(1).map((k) => perNode.get(k) ?? 0)];
+  };
+  const compare = (a, b) => {
+    const ra = rank(a), rb = rank(b);
+    // a model on the branch itself is the "other" bucket and closes its branch
+    for (let i = 0; i < Math.max(ra.length, rb.length); i++) {
+      const d = (ra[i] ?? Infinity) - (rb[i] ?? Infinity);
+      if (d) return d;
+    }
+    return a.localeCompare(b);
+  };
+  const title = (id) => {
+    if (id === WITHOUT) return 'No kind';
+    const chain = kindChain(id);
+    const names = chain.map((k) => register.kinds.get(k)?.name ?? k);
+    return chain.length === 1 ? names[0] : names.slice(1).join(' › ');
+  };
+  const color = (id) => {
+    if (id === WITHOUT) return null;
+    for (const k of [...kindChain(id)].reverse()) {
+      const c = register.kinds.get(k)?.color;
+      if (c) return c;
+    }
+    return null;
+  };
+  return [...bucket.keys()].sort(compare).map((id) => ({
+    id, title: title(id), color: color(id), hint: register.kinds.get(id)?.description, models: bucket.get(id),
+  }));
+}
+
 function sectionsFor(models) {
   const inView = models;
 
@@ -489,12 +541,7 @@ function sectionsFor(models) {
     );
   }
 
-  if (type === 'groep') {
-    return perKey(
-      (m) => [m.gr],
-      catalog.groups.map((g) => ({ id: g.id, title: g.name, color: g.color })),
-    );
-  }
+  if (KIND_DEPTH[type]) return kindSections(inView, KIND_DEPTH[type]);
 
   if (type === 'tag') {
     const own = catalog.tags;
@@ -512,10 +559,14 @@ function sectionsFor(models) {
   }
 
   return perKey(
-    (m) => [sizeClass(m.wdh).id],
+    (m) => [m.size],
     SIZE_CLASSES.map((k) => ({ id: k.id, title: k.short, hint: k.hint })),
   );
 }
+
+// Inside a kind section the deeper kinds cluster first, then the name: a barrel row
+// reads barrel, barrel, keg rather than alphabetically across the whole container branch.
+const byKindPath = (a, b) => (a.kind ?? '~').localeCompare(b.kind ?? '~') || SORTINGS.naam(a, b);
 
 let variantMain = new Map();
 
@@ -568,7 +619,7 @@ function buildPanel() {
   lastChoice = null;
   panel.replaceChildren();
 
-  const chosen = SORTINGS[sorting] ?? SORTINGS.naam;
+  const chosen = sorting === 'naam' && KIND_DEPTH[groupingType()] ? byKindPath : SORTINGS[sorting] ?? SORTINGS.naam;
   const rank = subtypeRank();
   const order = rank ? (a, b) => rank(a) - rank(b) || chosen(a, b) : chosen;
 
@@ -586,7 +637,7 @@ function buildPanel() {
 
     const own = [];
     for (const { model, variants } of foldVariants(sorted)) {
-      const item = makeCard(model, register.kits, register.groups, variants);
+      const item = makeCard(model, register.kits, variants);
       grid.append(item.element);
       own.push(item);
     }
@@ -603,7 +654,7 @@ const detailVariant = document.querySelector('#detail-variant');
 const detailVariantChoice = document.querySelector('#detail-variant-keuze');
 let activePath = '';
 
-const register = { models: new Map(), kits: new Map(), groups: new Map(), variants: new Map(), tags: new Map() };
+const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
 // A material may name a parent. A model carries the subtype it is and never the parent on
 // top, so the filter adds the parent here — selecting Wood has to find every wood-beam.
@@ -614,8 +665,6 @@ const withParents = (ids) => {
   for (const id of ids) { const p = parentOf.get(id); if (p) own.add(p); }
   return [...own];
 };
-
-const TYPE_TAGS = ['object', 'structure', 'nature'];
 
 const SHORT_NAME = {
   'metal-iron': 'Iron',
@@ -647,14 +696,19 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// The material ids carry the family themselves — metal-iron, wood-planks — so the panel
-// prints them as they stand rather than staging a parent and a child in two columns.
-function tagRows(model) {
-  if (!model.tags?.length) return [];
-  const own = (type) =>
-    model.tags.filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
+const kindBreadcrumb = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
 
-  const rows = [];
+// The five fields of §7, kind and use first. The material ids carry the family
+// themselves — metal-iron, wood-planks — so the panel prints them as they stand.
+function tagRows(model) {
+  const own = (type) =>
+    (model.tags ?? []).filter((id) => (register.tags.get(id)?.type ?? 'tag') === type);
+
+  const uses = effectiveUses(model);
+  const rows = [
+    { kop: 'Kind', vol: 'What it is — Appendix B', waarde: kindBreadcrumb(effectiveKind(model, register.tags)) },
+    { kop: 'Use', vol: 'What it is for — U1', waarde: uses.length ? uses.join(', ') : '—' },
+  ];
   for (const { type, head } of TAG_TYPES) {
     const ids = own(type);
     if (!ids.length) continue;
@@ -681,13 +735,37 @@ function colorSwatches(colors) {
   return strip;
 }
 
+function fillFacts(model, rows = null) {
+  const data = document.querySelector('#detail-gegevens');
+  if (!rows) {
+    rows = [...data.querySelectorAll('dt')].map((dt) => ({
+      kop: dt.textContent, vol: dt.title || undefined, breed: dt.className === 'breed',
+      element: dt.nextElementSibling.firstElementChild ?? null, waarde: dt.nextElementSibling.textContent,
+    }));
+    const fresh = new Map(tagRows(model).map((r) => [r.kop, r]));
+    rows = rows.filter((r) => !['Material', 'Tags'].includes(r.kop) || fresh.has(r.kop));
+    for (const r of rows) if (fresh.has(r.kop)) { r.waarde = fresh.get(r.kop).waarde; fresh.delete(r.kop); }
+    for (const r of fresh.values()) rows.push({ ...r, breed: true });
+  }
+  data.replaceChildren();
+  for (const { kop, vol, waarde, breed, element } of rows) {
+    const name = document.createElement('dt');
+    name.textContent = kop;
+    if (vol) name.title = vol;
+    const valueEl = document.createElement('dd');
+    if (element) valueEl.append(element);
+    else valueEl.textContent = waarde;
+    if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
+    data.append(name, valueEl);
+  }
+}
+
 function showDetail(model) {
   const kit = register.kits.get(model.kit);
-  const group = register.groups.get(model.gr);
   activePath = model.path;
   document.querySelector('#detail-naam').textContent = model.name;
   document.querySelector('#detail-herkomst').textContent =
-    `${kit?.name ?? model.kit} · ${group?.name ?? model.gr}`;
+    `${kit?.name ?? model.kit} · ${kindBreadcrumb(effectiveKind(model, register.tags))}`;
 
   const rows = [
     { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh), breed: true },
@@ -733,18 +811,7 @@ function showDetail(model) {
     },
     ...tagRows(model).map((row) => ({ ...row, breed: true })),
   ];
-  const data = document.querySelector('#detail-gegevens');
-  data.replaceChildren();
-  for (const { kop, vol, waarde, breed, element } of rows) {
-    const name = document.createElement('dt');
-    name.textContent = kop;
-    if (vol) name.title = vol;
-    const valueEl = document.createElement('dd');
-    if (element) valueEl.append(element);
-    else valueEl.textContent = waarde;
-    if (breed) { name.className = 'breed'; valueEl.className = 'breed'; }
-    data.append(name, valueEl);
-  }
+  fillFacts(model, rows);
 
   const download = document.querySelector('#detail-download');
   download.href = modelUrl(model.path);
@@ -787,7 +854,13 @@ function showDetail(model) {
 
   detailViewer.replaceChildren(viewer);
 
-  renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
+  renderTagEditor(document.querySelector('#detail-tags'), model, register.tags, {
+    onChange: () => {
+      document.querySelector('#detail-herkomst').textContent =
+        `${kit?.name ?? model.kit} · ${kindBreadcrumb(effectiveKind(model, register.tags))}`;
+      fillFacts(model);
+    },
+  });
 
   detail.showModal();
   updateSelection();
@@ -965,31 +1038,34 @@ function buildColorBar(colors) {
   container.append(group);
 }
 
+// Chips nest to any depth: a parent's tray holds its children, and a child with children
+// of its own hangs its tray inside that one. Materials go one level, kinds up to four.
 function reorder() {
   for (const strip of new Set(chipButtons.map((c) => c.strip))) {
     const all = chipButtons.filter((c) => c.strip === strip);
-    const own = all
-      .filter((c) => !c.parent)
-      .sort((a, b) => (a.byCount
-        ? b.count - a.count || a.order - b.order
-        : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
-    for (const chip of own) {
-      strip.append(chip.element);
-      const kids = all.filter((c) => c.parent === chip.id).sort((a, b) => a.order - b.order);
-      if (!kids.length) continue;
-      const tray = kids[0].tray;
-      for (const child of kids) tray.append(child.element);
-      tray.hidden = kids.every((c) => c.element.hidden);
-      chip.element.classList.toggle('tagknop-ouder', !tray.hidden);
-      strip.append(tray);
-    }
+    const sorted = (list) => list.sort((a, b) => (a.byCount
+      ? b.count - a.count || a.order - b.order
+      : Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order));
+    const mount = (container, parent) => {
+      for (const chip of sorted(all.filter((c) => (c.parent ?? null) === parent))) {
+        container.append(chip.element);
+        const kids = all.filter((c) => c.parent === chip.id);
+        if (!kids.length) continue;
+        const tray = kids[0].tray;
+        mount(tray, chip.id);
+        tray.hidden = kids.every((c) => c.element.hidden);
+        chip.element.classList.toggle('tagknop-ouder', !tray.hidden);
+        container.append(tray);
+      }
+    };
+    mount(strip, null);
   }
 }
 
-// A subtype waits behind its parent: it appears once the parent is picked, and drops its
-// own state again when the parent is let go, so nothing keeps filtering out of sight.
+// A subtype waits behind its parent: it appears once every ancestor is picked, and drops
+// its own state again when one is let go, so nothing keeps filtering out of sight.
 const chipHidden = (chip, count = chip.count) =>
-  count === 0 || Boolean(chip.parent && chip.state.get(chip.parent) !== 'only');
+  count === 0 || chip.ancestors.some((id) => chip.state.get(id) !== 'only');
 
 function syncSubtypes() {
   for (const chip of chipButtons) {
@@ -1046,7 +1122,9 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
     const tray = item.parent ? trays.get(item.parent) : null;
     if (tray) { button.classList.add('tagknop-subtype'); tray.append(button); } else { strip.append(button); }
 
-    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null, tray });
+    const ancestors = [];
+    for (let p = item.parent; p; p = items.find((i) => i.id === p)?.parent ?? null) ancestors.push(p);
+    chipButtons.push({ id: item.id, element: button, countEl, row, ownIds, state, field, strip, byCount, count: 0, order: chipButtons.length, parent: item.parent ?? null, ancestors, tray });
   }
 
   row.append(strip);
@@ -1057,23 +1135,43 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 function buildTagBar(tags) {
   const container = document.querySelector('#tagbalk');
 
-  // Size and type share one row: both ask what kind of thing a model is, and the two
-  // together are shorter than either row is wide.
+  // Kind first: the closed tree, one chip per node, children in a tray behind the parent.
+  // "No kind" is the curation queue: what the migration could not settle.
+  const kinds = tags.filter((t) => t.type === 'kind');
+  buildChipRow(
+    container,
+    'Kind',
+    [
+      ...kinds.map((t) => ({ id: t.id, name: t.name, hint: t.description, parent: kindParent(t.id) })),
+      { id: WITHOUT, name: 'No kind', hint: 'Models the migration could not resolve to a kind — tag them in the model panel' },
+    ],
+    kindState,
+    'kinds',
+  );
+
+  // Use and size share one row: both are short closed sets.
+  const uses = tags.filter((t) => t.type === 'use');
   const shape = buildChipRow(
+    container,
+    'Use',
+    [
+      ...uses.map((t) => ({ id: t.id.replace(/^use:/, ''), name: t.name, hint: t.description })),
+      { id: WITHOUT, name: 'No use', hint: 'Carries none of the eight uses' },
+    ],
+    useState,
+    'uses',
+  );
+  buildChipRow(
     container,
     'Size',
     SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint, dot: true })),
     sizeState,
     'sizes',
+    { shareRow: shape },
   );
 
-  const types = TYPE_TAGS.map((id) => tags.find((t) => t.id === id)).filter(Boolean);
-  if (types.length) {
-    buildChipRow(container, 'Type', types.map((t) => ({ id: t.id, name: chipName(t), hint: t.description })), tagState, 'tags', { shareRow: shape });
-  }
-
   for (const { type, head } of TAG_TYPES) {
-    const own = tags.filter((t) => (t.type ?? 'tag') === type && !TYPE_TAGS.includes(t.id));
+    const own = tags.filter((t) => (t.type ?? 'tag') === type);
     if (own.length === 0) continue;
     buildChipRow(
       container,
@@ -1095,7 +1193,9 @@ function refresh() {
   const bump = (key) => counts.set(key, (counts.get(key) ?? 0) + 1);
   for (const card of cards) {
     for (const model of card.family) {
-      bump(`sizes|${sizeClass(model.wdh).id}`);
+      bump(`sizes|${model.size}`);
+      for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
+      for (const id of (model.use?.length ? model.use : [WITHOUT])) bump(`uses|${id}`);
       for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
     }
   }
@@ -1115,15 +1215,19 @@ function refresh() {
   for (const { row } of chipButtons) {
     row.hidden = !chipButtons.some((c) => c.row === row && !c.element.hidden);
   }
-  document.querySelector('#alles-wis').hidden = colorState.size + tagState.size + sizeState.size === 0;
+  document.querySelector('#alles-wis').hidden = filtersOff();
 
   filter();
 }
+
+const filtersOff = () => colorState.size + tagState.size + sizeState.size + kindState.size + useState.size === 0;
 
 function onClear() {
   colorState.clear();
   tagState.clear();
   sizeState.clear();
+  kindState.clear();
+  useState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
   syncSubtypes();
@@ -1132,14 +1236,22 @@ function onClear() {
 }
 
 function filter() {
-  document.querySelector('#alles-wis').hidden =
-    colorState.size + tagState.size + sizeState.size === 0;
+  document.querySelector('#alles-wis').hidden = filtersOff();
   let visible = 0;
 
+  // A model has one kind, so two picked kinds mean either — and a picked leaf narrows its
+  // picked parent rather than widening it. Two picked uses mean both, like materials.
+  const onlyKinds = keysWith(kindState, 'only');
+  const deepest = onlyKinds.filter((k) => !onlyKinds.some((o) => o !== k && o.startsWith(`${k}-`)));
+  const notKinds = keysWith(kindState, 'not');
+  const kindHit = (own) =>
+    (!deepest.length || own.some((k) => deepest.includes(k))) && !own.some((k) => notKinds.includes(k));
   for (const card of cards) {
     const hit =
       matches(card.colors, colorState) &&
-      matches(card.tags, tagState, { any: TYPE_TAGS }) &&
+      kindHit(card.kinds) &&
+      matches(card.uses, useState) &&
+      matches(card.tags, tagState) &&
       matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) });
     card.element.hidden = !hit;
     if (hit) visible++;
@@ -1164,17 +1276,17 @@ async function start() {
   if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
-  const groups = new Map(data.groups.map((g) => [g.id, g]));
 
   register.kits = kits;
-  register.groups = groups;
+  register.kinds = new Map((data.tags ?? []).filter((t) => t.type === 'kind').map((t) => [t.id, t]));
   register.models = new Map(data.models.map((m) => [m.id, m]));
   register.variants = new Map((data.variants ?? []).map((v) => [v.id, v.members]));
 
-  const groupsInUse = new Set(data.models.map((m) => m.gr));
+  const kindsInUse = new Set(data.models.map((m) => m.kind).filter(Boolean));
+  const noKind = data.models.filter((m) => !m.kind).length;
   summary.textContent =
-    `${data.models.length} models · ${data.kits.length} kits · ` +
-    `${data.groups.filter((g) => groupsInUse.has(g.id)).length} groups`;
+    `${data.models.length} models · ${data.kits.length} kits · ${kindsInUse.size} kinds` +
+    (noKind ? ` · ${noKind} without a kind` : '');
 
   variantMain = new Map((data.variants ?? []).map((v) => [v.id, v.main]));
   catalog = data;
@@ -1216,10 +1328,6 @@ async function start() {
     if (detailViewerEl) setLighting(detailViewerEl, '0.7');
   });
 
-  const aliases = new Map(
-    Object.entries(GROUP_ALIASES).map(([old, next]) => [`groep-${old}`, `groep-${next}`]),
-  );
-
   const groupingChoice = document.querySelector('#groepering');
   const sortingChoice = document.querySelector('#sortering');
   groupingChoice.value = grouping;
@@ -1234,8 +1342,16 @@ async function start() {
   });
 
   const raw = location.hash.slice(1);
-  const anchor = aliases.get(raw) ?? raw;
+  const anchor = raw;
   refresh();
+  // a staged kind or use edit moves the model between sections and counts
+  onTagEdit(() => {
+    for (const model of register.models.values()) {
+      model.kind = effectiveKind(model, register.tags);
+      model.use = effectiveUses(model);
+    }
+    if (!detail.open) refresh();
+  });
   document.getElementById(anchor)?.scrollIntoView();
 }
 
