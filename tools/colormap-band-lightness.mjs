@@ -6,13 +6,17 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const COLUMNS = 16;
 const ROWS = 4;
 
-const options = { band: null, top: null, bottom: null, atlas: 'kits/colormap.png', out: 'kits/colormap-band.png', inPlace: false };
+const options = { band: null, top: null, bottom: null, a: null, b: null, atlas: 'kits/colormap.png', out: 'kits/colormap-band.png', inPlace: false };
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (a === '--band') options.band = argv[++i];
   else if (a === '--top') options.top = Number(argv[++i]);
   else if (a === '--bottom') options.bottom = Number(argv[++i]);
+  // An unused cell is black, so its a and b are 0 and reshading it can only ever make
+  // a neutral grey. These set the hue outright, which is how a new band is opened.
+  else if (a === '--a') options.a = Number(argv[++i]);
+  else if (a === '--b') options.b = Number(argv[++i]);
   else if (a === '--atlas') options.atlas = argv[++i];
   else if (a === '--out') options.out = argv[++i];
   else if (a === '--in-place') options.inPlace = true;
@@ -75,7 +79,9 @@ const pixels = Buffer.from(atlas.pixels);
 const ends = [];
 for (let y = 0; y < rows; y++) {
   const L = options.top + (options.bottom - options.top) * (y / (rows - 1));
-  const [, a, b] = before[y];
+  const [, wasA, wasB] = before[y];
+  const a = options.a ?? wasA;
+  const b = options.b ?? wasB;
   const [r, g, bl] = toRgb(L, a, b);
   if (y === 0 || y === rows - 1) ends.push(`${r},${g},${bl}`);
   for (let x = x0; x < x1; x++) {
@@ -89,6 +95,10 @@ for (let y = 0; y < rows; y++) {
 const was = (lab) => lab[0].toFixed(3);
 console.log(`band ${options.band}  L ${was(before[0])} -> ${was(before[rows - 1])}  (span ${(before[0][0] - before[rows - 1][0]).toFixed(3)})`);
 console.log(`      becomes L ${options.top.toFixed(3)} -> ${options.bottom.toFixed(3)}  (span ${(options.top - options.bottom).toFixed(3)})   ${ends[0]} -> ${ends[1]}`);
+
+if (options.a !== null || options.b !== null) {
+  console.log(`      hue set to a=${(options.a ?? 0).toFixed(4)} b=${(options.b ?? 0).toFixed(4)}`);
+}
 
 const out = options.inPlace ? source : resolve(ROOT, options.out);
 writePng(out, { width: atlas.width, height: atlas.height, pixels });

@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=abc4bc0b5e';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=abc4bc0b5e';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=c45cff68d4';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=c45cff68d4';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -667,11 +667,15 @@ const register = { models: new Map(), kits: new Map(), kinds: new Map(), variant
 
 // A material may name a parent. A model carries the subtype it is and never the parent on
 // top, so the filter adds the parent here — selecting Wood has to find every wood-beam.
+// The chain can run deeper than one level (metal > metal-iron > metal-iron-steel), so this
+// walks all the way up: selecting Metal has to find a steel tong too.
 const parentOf = new Map();
 const childrenOf = new Map();
 const withParents = (ids) => {
   const own = new Set(ids);
-  for (const id of ids) { const p = parentOf.get(id); if (p) own.add(p); }
+  for (const id of ids) {
+    for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
+  }
   return [...own];
 };
 
