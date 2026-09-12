@@ -775,7 +775,7 @@ let SOFT_ENV = null;
 function softEnv() {
   if (!SOFT_ENV) {
     const W = 128, H = 64;
-    const ZENITH = [255, 253, 249], HORIZON = [224, 224, 226], NADIR = [170, 168, 164];
+    const ZENITH = [255, 253, 249], HORIZON = [242, 242, 243], NADIR = [222, 220, 216];
     const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
     const data = new Uint8Array(W * H * 4);
     for (let y = 0; y < H; y++) {

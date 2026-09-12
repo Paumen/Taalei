@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=f264c049f8';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f264c049f8';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=05c24cffa6';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=05c24cffa6';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -187,7 +187,8 @@ function demoClip(clips) {
 // The assets bake their own shading: a face's position down its colour band sets how
 // light it reads, top faces at the light end and undersides at the dark end. A lit
 // environment adds a second, competing light, so the default is a soft sky that only
-// varies top to bottom — the same direction the bake runs in. Flat mode drops even that
+// varies top to bottom — the same direction the bake runs in — and gently, well under
+// what the bake itself carries, or the undersides get darkened twice. Flat mode drops even that
 // and shows the bake alone. Tone mapping is pinned so a viewer upgrade cannot swap in a
 // curve that shifts the palette.
 const FLAT_ENVIRONMENT = 'catalog/effen-omgeving.png';
