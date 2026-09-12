@@ -13,7 +13,7 @@ const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-kitchenware-ta
 // Rows stood on their longest axis: length is the measure, and the models disagree
 // about which axis they lie on, so each is turned upright on its own.
 const STAND_UP = new Set(['obj-kitchenware-tableware-cutlery', 'obj-pocketitem-key',
-  'obj-pocketitem-scroll']);
+  'obj-pocketitem-scroll', 'obj-weapon-ranged-bow', 'obj-weapon-ranged-crossbow']);
 
 // Rows too wide for the standard ruler.
 const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-building', 'env-terrain-mountain']);
