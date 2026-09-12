@@ -43,6 +43,15 @@ const textWidth = ({ kit, model }) => {
   return Math.ceil(Math.max(a, b)) + 16;
 };
 
+// The row heading already names the kind, so a model repeating it says nothing:
+// in the Shield row, shield reads as nothing at all, shield-large as large and
+// stone-shield as stone.
+const kindWords = (name) =>
+  new Set(name.split('›').pop().trim().toLowerCase().split(/[^a-z0-9]+/).filter(Boolean));
+
+const shortModel = (model, words) =>
+  model.split('-').filter((part) => !words.has(part.toLowerCase())).join('-');
+
 const colors = () => {
   const style = getComputedStyle(document.documentElement);
   const read = (name, fallback) => (style.getPropertyValue(name).trim() || fallback);
@@ -134,6 +143,7 @@ export async function drawFamily(group, canvas, width) {
   sun.position.set(3, 6, 5);
   scene.add(sun);
 
+  const words = kindWords(group.name);
   const pieces = [];
   for (const item of group.items) {
     let gltf;
@@ -164,7 +174,7 @@ export async function drawFamily(group, canvas, width) {
       h: size.y,
       kit: item.kit,
       tags: item.tags ?? [],
-      label: { kit: item.kit, model: item.model },
+      label: { kit: item.kit, model: shortModel(item.model, words) },
     });
   }
   if (!pieces.length) return null;
