@@ -17,7 +17,7 @@
   font-size: 12px;
 }
 
-.ordebalk input[type="search"] {
+.sort-bar input[type="search"] {
   flex: 1 1 12ch;
   min-width: 12ch;
   max-width: 28ch;
@@ -31,11 +31,11 @@
   font-size: 13px;
 }
 
-.ordebalk input[type="search"]:hover { border-bottom-color: var(--accent); }
-.ordebalk input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.sort-bar input[type="search"]:hover { border-bottom-color: var(--accent); }
+.sort-bar input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* The order bar carries a search box and three selects here, so it needs the room. */
-.ordebalk { justify-content: flex-start; }
+.sort-bar { justify-content: flex-start; }
 
 /* Nothing in this catalogue belongs to a kit with its own colour, so the dot in front of
    the pack name would be the same grey on every card. */

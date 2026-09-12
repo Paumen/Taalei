@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, kindAncestors, USES, SIZES, sizeOf } from './kinds.mjs';
-import { buildScaleGroups } from './schaalgroepen.mjs';
+import { buildScaleGroups, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
 
@@ -220,7 +220,7 @@ function colorName(hex) {
   return base;
 }
 
-const SCALE_PAGES = ['schaal.html', 'schaal-natuur.html', 'schaal-structuur.html'];
+const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
 // The modules a page imports rather than loads with a <script src>: a bare specifier
 // carries no version, so the browser keeps serving the cached copy however often the
@@ -232,7 +232,7 @@ const IMPORTERS = ['catalog.js', 'swipe.js', 'tag-edits.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
 function writeVersion() {
-  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'schaalgroepen.json', 'schaal.js',
+  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
     'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
     // strip the stamp before hashing, or every build would rewrite a file it just hashed
@@ -264,7 +264,7 @@ function writeVersion() {
   for (const page of SCALE_PAGES) {
     stamp(join(CATALOG_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-      [/src="schaal\.js(?:\?v=[a-f0-9]+)?"/, `src="schaal.js?v=${version}"`],
+      [/src="scale\.js(?:\?v=[a-f0-9]+)?"/, `src="scale.js?v=${version}"`],
     ]);
   }
   stamp(join(CATALOG_DIR, 'swipe.html'), [
@@ -704,9 +704,9 @@ const output = {
 writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
 
 const scaleGroups = buildScaleGroups(models);
-writeFileSync(join(CATALOG_DIR, 'schaalgroepen.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
+writeFileSync(join(CATALOG_DIR, 'scale-groups.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
-console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/schaalgroepen.json`);
+console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/scale-groups.json`);
 
 writeVersion();
 

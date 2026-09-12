@@ -1,10 +1,40 @@
-// Scale families for schaal.html: one row per kind, so a new asset is measured against
-// its own cohort (§6) and not against the catalogue at large. A parent kind with models
-// of its own is a row too — those are the ones with no leaf that fits.
+// Scale families for the scale pages: one row per kind, so a new asset is measured
+// against its own cohort (§6) and not against the catalogue at large. A parent kind with
+// models of its own is a row too — those are the ones with no leaf that fits.
 
-import { kindName, kindAncestors, kindRoot, ROOT_ORDER } from './kinds.mjs';
+import { kindName, kindAncestors, kindIs } from './kinds.mjs';
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
+
+// One page per tab. `branches` are kind prefixes; a kind takes the tab whose matching
+// branch is the longest, so obj-weapon reaches obj-equip while a bare obj falls through
+// to obj-gen. Every root is a branch somewhere, so no kind is left without a page.
+export const SCALE_TABS = [
+  {
+    id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
+    branches: ['obj', 'obj-container', 'obj-kitchenware', 'obj-furniture', 'obj-food',
+      'obj-transport', 'obj-lighting', 'obj-resource'],
+  },
+  {
+    id: 'obj-equip', name: 'Obj equip', file: 'scale-obj-equip.html',
+    branches: ['obj-weapon', 'obj-equipment', 'obj-tool', 'obj-pocketitem', 'char'],
+  },
+  { id: 'str-gen', name: 'Str gen', file: 'scale-str-gen.html', branches: ['str'] },
+  { id: 'env-flora', name: 'Env flora', file: 'scale-env-flora.html', branches: ['env-flora', 'env-fungi'] },
+  { id: 'env-gen', name: 'Env gen', file: 'scale-env-gen.html', branches: ['env'] },
+];
+
+const tabOf = (kind) => {
+  let best = null;
+  let length = -1;
+  for (const tab of SCALE_TABS) {
+    for (const branch of tab.branches) {
+      if (kindIs(kind, branch) && branch.length > length) { best = tab; length = branch.length; }
+    }
+  }
+  if (!best) throw new Error(`kind ${kind} belongs to no scale tab — add a branch in SCALE_TABS`);
+  return best;
+};
 
 // Rows seen from above rather than from the side: what is flat says more in plan.
 const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-kitchenware-tableware-bowl',
@@ -34,6 +64,9 @@ export function buildScaleGroups(models) {
   const perKind = new Map();
   for (const m of models) {
     if (!m.kind || m.kind === 'assy' || m.kind === 'scene' || SKIP.has(m.id)) continue;
+    // A stack of bars measures the stack, not the bar, so a plural (F4) sets no scale
+    // for its row and reads as an outsized member of it.
+    if (m.tags?.includes('plural')) continue;
     if (!perKind.has(m.kind)) perKind.set(m.kind, []);
     perKind.get(m.kind).push(m);
   }
@@ -44,7 +77,7 @@ export function buildScaleGroups(models) {
     groups.push({
       slug: kind,
       name: breadcrumb(kind),
-      category: kindRoot(kind),
+      category: tabOf(kind).id,
       topView: TOP_VIEW.has(kind) || undefined,
       standUp: STAND_UP.has(kind) || undefined,
       wideRow: WIDE_ROW.has(kind) || undefined,
@@ -57,6 +90,6 @@ export function buildScaleGroups(models) {
       })),
     });
   }
-  return groups.sort((a, b) =>
-    ROOT_ORDER.indexOf(a.category) - ROOT_ORDER.indexOf(b.category) || a.slug.localeCompare(b.slug));
+  const rank = (id) => SCALE_TABS.findIndex((t) => t.id === id);
+  return groups.sort((a, b) => rank(a.category) - rank(b.category) || a.slug.localeCompare(b.slug));
 }

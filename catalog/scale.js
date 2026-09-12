@@ -334,16 +334,16 @@ function colorName(hex) {
   return base;
 }
 
-const CATEGORY = document.querySelector('meta[name=schaal-categorie]')?.content || null;
+const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
-const [alleGroups, catalogData] = await Promise.all([
-  fetch(`schaalgroepen.json?v=${version}`).then((r) => r.json()),
+const [allGroups, catalogData] = await Promise.all([
+  fetch(`scale-groups.json?v=${version}`).then((r) => r.json()),
   fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
 
-// the page's meta names the kind roots it shows, e.g. "obj,char"
-const ROOTS = CATEGORY ? CATEGORY.split(',') : null;
-const groups = ROOTS ? alleGroups.filter((g) => ROOTS.includes(g.category)) : alleGroups;
+// the page's meta names the scale tabs it shows, e.g. "obj-gen"
+const TABS = CATEGORY ? CATEGORY.split(',') : null;
+const groups = TABS ? allGroups.filter((g) => TABS.includes(g.category)) : allGroups;
 
 const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
 const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');
@@ -468,8 +468,8 @@ function buildSections() {
       section.classList.add('bezig');
       queue = queue.then(async () => {
         try {
-          // Een dubbelbrede rij krijgt ook een dubbel zo breed doek, anders halveert
-          // het aantal pixels per unit en wordt juist die familie het onscherpst.
+          // A double-wide row gets a double-wide canvas too: otherwise it halves the
+          // pixels per unit, and that family comes out the blurriest of all.
           const out = await drawFamily(group, canvas, group.wideRow ? WIDTH * 2 : WIDTH);
           if (!out) section.classList.add('mislukt');
         } catch (error) {
