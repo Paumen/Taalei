@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=90cef089f0';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=90cef089f0';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=501cec0ee4';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=501cec0ee4';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
