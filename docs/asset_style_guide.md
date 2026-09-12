@@ -210,7 +210,7 @@ text alone.
 - **M60.** `--` ⚪ Pots are ceramic; a pan may be metal-iron.
 - **M61.** `--` ⚪ A boat or ship is built from more than one wood.
 - **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
-- **M63.** `PW` 🟢 obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.
+- **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
 - **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
 - **M65.** `PW` 🟢 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
 - **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
