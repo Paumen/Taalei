@@ -78,7 +78,7 @@ function setLighting(viewer, shadow) {
   } else {
     viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', shadow);
-    viewer.setAttribute('exposure', '1.15');
+    viewer.setAttribute('exposure', '1.25');
   }
 }
 
