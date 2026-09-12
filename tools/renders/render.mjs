@@ -17,7 +17,7 @@ const THREE_VERSION = '0.169.0';
 const DEFAULTS = {
   out: './renders', modes: 'pbr', views: 'iso',
   width: 1024, height: 1024,
-  bg: '#f2f2f0', env: 'neutral', exposure: 1, tone: 'neutral',
+  bg: '#f2f2f0', env: 'soft', exposure: 1.15, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
@@ -49,7 +49,10 @@ render.mjs <file.glb|dir> [...] [flags]
   --width/--height   --ss <1-4>  supersample factor, downscaled on output
                      (smooths edges, but also thins 1px wires -- see --modes wireframe)
   --bg <css|transparent> --exposure <n>
-  --env <neutral|studio|direct|none>   none = no lights and no environment at all
+  --env <soft|neutral|studio|direct|none>   none = no lights and no environment at all
+                     (default soft: a sky that varies only top to bottom, so it
+                      reinforces the shading baked into the colormap bands instead
+                      of adding a second light across them)
   --tone <neutral|agx|aces|linear|none>  --fov <deg> --fit <n> --ortho
                      (default neutral: AgX desaturates the colormap bands by about a
                       quarter, which reads as washed-out timber)
@@ -211,10 +214,14 @@ function parseView(n) {
   return null;
 }
 const ALL_TONES = ['agx','aces','neutral','linear','none'];
+// 'soft' is the default and matches the catalogue: a top-to-bottom gradient sky with
+// no variation around the horizon. The assets bake their own shading into the band
+// gradient, top faces light and undersides dark, so an environment with sideways
+// structure lights them a second time and fights that bake.
 // 'direct' is the old 'none': strong key/fill/ambient, no environment map.
 // 'none' now means exactly that — no lights, no environment. Only useful with
 // unlit modes (albedo, silhouette, uv, wireframe, normal, depth, faceorient).
-const ALL_ENVS  = ['neutral','studio','direct','none'];
+const ALL_ENVS  = ['soft','neutral','studio','direct','none'];
 
 // Ladder presets only fill in what the caller left alone, so any flag still wins.
 let ladderJobs = null;
@@ -761,8 +768,36 @@ function roomEnv() {
   }
   return ROOM_ENV;
 }
+// The soft sky, built in code so it needs no asset next to the script. Same gradient
+// as catalog/zachte-omgeving.png: bright at the zenith, mid at the horizon, dimmer
+// below, and identical all the way round.
+let SOFT_ENV = null;
+function softEnv() {
+  if (!SOFT_ENV) {
+    const W = 128, H = 64;
+    const ZENITH = [255, 253, 249], HORIZON = [224, 224, 226], NADIR = [170, 168, 164];
+    const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+    const data = new Uint8Array(W * H * 4);
+    for (let y = 0; y < H; y++) {
+      const c = Math.cos((y / (H - 1)) * Math.PI);
+      const [r, g, b] = c >= 0 ? mix(HORIZON, ZENITH, c) : mix(HORIZON, NADIR, -c);
+      for (let x = 0; x < W; x++) {
+        const o = (y * W + x) * 4;
+        data[o] = r; data[o + 1] = g; data[o + 2] = b; data[o + 3] = 255;
+      }
+    }
+    const tex = new THREE.DataTexture(data, W, H, THREE.RGBAFormat);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+    SOFT_ENV = pmrem.fromEquirectangular(tex).texture;
+    tex.dispose();
+  }
+  return SOFT_ENV;
+}
 function setEnv(cfg) {
-  scene.environment = (cfg.env === 'neutral' || cfg.env === 'studio') ? roomEnv() : null;
+  scene.environment = cfg.env === 'soft' ? softEnv()
+    : (cfg.env === 'neutral' || cfg.env === 'studio') ? roomEnv() : null;
   const old = scene.children.filter(o => o.isLight);
   old.forEach(o => { scene.remove(o); if (o.dispose) o.dispose(); });
   // 'direct' is lights but no reflections; 'none' is nothing at all.
