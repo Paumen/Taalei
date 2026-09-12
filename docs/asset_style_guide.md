@@ -101,7 +101,7 @@ Band ids are column,row in `kits/colormap.png`. Where a colour name below has
 an id, it is: light grey 15,3 · dark grey 13,3 · blue-grey 6,1 · light blue-grey 3,2 ·
 blue 4,2 · off-white 5,2 · taupe 14,3 · terracotta 5,0 ·
 yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
-wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
+light brown 0,0 · mid brown 1,0 · dark brown 2,0 · bark 3,0.
 
 ### Status of a rule
 
@@ -146,7 +146,7 @@ text alone.
 - **M3.** `FE` 🟢 Grass is light green.
 - **M4.** `PE` 🟢 Stems and leaves are light green.
 - **M5.** `--` ⚪ Flowers may be any colour. Cactus flowers count too.
-- **M6.** `FE` 🟢 Wood is any of the three wood bands; wood-bark is bark 3,0.
+- **M6.** `FE` 🟢 Wood is any of the three brown bands; wood-bark is bark 3,0.
 - **M7.** `--` ⚪ A trunk with a cut face carries wood-log and wood-bark.
 - **M8.** `PE` 🟢 stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
   light grey 15,3. **to be reduced to 2**
@@ -190,15 +190,15 @@ text alone.
 - **M41.** `FE` 🟢 Plastic is dark red 8,0 or yellow/gold 6,0.
 - **M42.** `FE` 🟢 Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
   `wood-beam` 2,0. `wood-log` and `wood-bark` follow M6.
-- **M43.** `FE` 🟢 Skin is wood light 0,0, taupe 14,3 or bark 3,0.
-- **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.
+- **M43.** `FE` 🟢 Skin is light brown 0,0, taupe 14,3 or bark 3,0.
+- **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), stems off-white 5,2, blooms any colour.
 - **M45.** `--` ⚪ Food may be any colour, like fauna. What it is made of decides nothing about its band.
 - **M46.** `--` ⚪ Tools are metal-iron; a handle is wood, textile or both.
 - **M47.** `--` ⚪ Weapons are metal-iron, with a handle of wood or textile.
 - **M48.** `--` ⚪ A simple weapon or a bow may be wholly or partly wood.
 - **M49.** `--` ⚪ A special weapon may be partly metal-gold, metal-silver or gemstone.
 - **M50.** `--` ⚪ Some weapons carry textile or leather straps.
-- **M51.** `--` ⚪ Food of grain or bread is taupe 14,3.
+- **M51.** `--` ⚪ Wheat, grain and straw are light brown 0,0; grain food and baked goods take a brown: 0,0, 1,0 or 2,0.
 - **M52.** `--` ⚪ A model whose only material is bone is off-white 5,2 alone.
 - **M53.** `--` ⚪ Plates are usually ceramic, and may be metal-iron or wood.
 - **M54.** `--` ⚪ Furniture is wood, except a rug, a carpet or an upholstered seat, which is textile.
@@ -229,10 +229,10 @@ text alone.
 - **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
 - **C8.** `FE` 🔴 Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
-- **C9.** `FE` 🟢 Lighter browns: wood only; skin may take wood light 0,0 (M43).
+- **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).
 - **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
 - **C11.** `FE` 🟢 Transparent: glass only.
-- **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).
+- **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
 - **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).
 - **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought only.
