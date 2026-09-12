@@ -12,9 +12,10 @@ const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 export const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
-    branches: ['obj', 'obj-container', 'obj-kitchenware', 'obj-furniture', 'obj-food',
+    branches: ['obj', 'obj-kitchenware', 'obj-furniture', 'obj-food',
       'obj-transport', 'obj-lighting', 'obj-resource'],
   },
+  { id: 'obj-container', name: 'Obj container', file: 'scale-obj-container.html', branches: ['obj-container'] },
   {
     id: 'obj-equip', name: 'Obj equip', file: 'scale-obj-equip.html',
     branches: ['obj-weapon', 'obj-equipment', 'obj-tool', 'obj-pocketitem', 'char'],
@@ -58,12 +59,17 @@ const SKIP = new Set([
   'quat-rpg/book-3-open', 'quat-rpg/book-4-open',
 ]);
 
+// An empty potion is the filled one without its liquid — the same vessel, so the eleven
+// of them say nothing the filled bottles have not already said about a bottle's size.
+const SKIP_RULE = (m) => m.kind === 'obj-container-bottle' && /(^|-)empty$/.test(m.name);
+
 const breadcrumb = (id) => [...kindAncestors(id).reverse(), id].map(kindName).join(' › ');
 
 export function buildScaleGroups(models) {
   const perKind = new Map();
   for (const m of models) {
     if (!m.kind || m.kind === 'assy' || m.kind === 'scene' || SKIP.has(m.id)) continue;
+    if (SKIP_RULE(m)) continue;
     // A stack of bars measures the stack, not the bar, so a plural (F4) sets no scale
     // for its row and reads as an outsized member of it.
     if (m.tags?.includes('plural')) continue;
@@ -90,6 +96,11 @@ export function buildScaleGroups(models) {
       })),
     });
   }
+  // Smallest family first: a row of three says what it says at a glance, and the pages
+  // that carry a row of eighty put it last rather than in the way.
   const rank = (id) => SCALE_TABS.findIndex((t) => t.id === id);
-  return groups.sort((a, b) => rank(a.category) - rank(b.category) || a.slug.localeCompare(b.slug));
+  return groups.sort((a, b) =>
+    rank(a.category) - rank(b.category)
+    || a.items.length - b.items.length
+    || a.slug.localeCompare(b.slug));
 }

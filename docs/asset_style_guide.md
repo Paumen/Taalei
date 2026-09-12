@@ -346,9 +346,14 @@ str-part-roof — roof, roof tile, chimney, gable
 str-part-window — window, shutter
 str-part-wall — wall, wall segment, arch (building), corner
 str-part-pillar — pillar, column, beam, support
-str-part — house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill
+str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
+str-part — room, cellar, souterrain, dungeon
 
-str-platform-deck — deck, boardwalk, scaffold
+str-building — house (whole), hut, tower, crypt, church, castle, lighthouse, inn, barracks, stables, blacksmith, mill, windmill, watermill, sawmill, gazebo, well
+
+str-stands — tent, stall, market stand, awning, canopy
+
+str-platform-deck — deck, boardwalk
 str-platform-dock — dock, pier, jetty
 str-platform — stage, altar, plinth, pedestal
 
@@ -366,7 +371,7 @@ str-marker-flag — flag, banner, pennant
 str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
 str-marker — milestone, waystone, totem
 
-str — well, fountain, gallows, waterwheel, mine entrance, fireplace
+str — fountain, gallows, waterwheel, mine entrance, fireplace
 
 env-flora-plant-cactus — cactus, succulent
 env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet

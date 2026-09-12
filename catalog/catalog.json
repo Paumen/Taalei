@@ -4018,7 +4018,7 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "well, fountain, gallows, waterwheel, mine entrance, fireplace",
+   "description": "fountain, gallows, waterwheel, mine entrance, fireplace",
    "count": 477,
    "color": "#877a63"
   },
@@ -4056,7 +4056,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
-   "count": 51,
+   "count": 49,
    "color": "#b08968"
   },
   {
@@ -4064,7 +4064,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "fence, fence segment, railing, palisade, gate (fence)",
-   "count": 44
+   "count": 42
   },
   {
    "id": "str-barrier-post",
@@ -4074,11 +4074,19 @@
    "count": 4
   },
   {
+   "id": "str-building",
+   "name": "Building",
+   "type": "kind",
+   "description": "house (whole), hut, tower, crypt, church, castle, lighthouse, inn, barracks, stables, blacksmith, mill, windmill, watermill, sawmill, gazebo, well",
+   "count": 23,
+   "color": "#7d4f3a"
+  },
+  {
    "id": "str-part",
    "name": "Part",
    "type": "kind",
-   "description": "house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill",
-   "count": 327,
+   "description": "room, cellar, souterrain, dungeon",
+   "count": 301,
    "color": "#a8762a"
   },
   {
@@ -4086,14 +4094,21 @@
    "name": "Door",
    "type": "kind",
    "description": "door, gate (building), hatch",
-   "count": 30
+   "count": 29
   },
   {
    "id": "str-part-floor",
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 76
+   "count": 72
+  },
+  {
+   "id": "str-part-frame",
+   "name": "Frame",
+   "type": "kind",
+   "description": "frame, framework, post-and-beam frame, scaffold, structure (open)",
+   "count": 18
   },
   {
    "id": "str-part-pillar",
@@ -4107,7 +4122,7 @@
    "name": "Roof",
    "type": "kind",
    "description": "roof, roof tile, chimney, gable",
-   "count": 44
+   "count": 40
   },
   {
    "id": "str-part-wall",
@@ -4157,15 +4172,15 @@
    "name": "Platform",
    "type": "kind",
    "description": "stage, altar, plinth, pedestal",
-   "count": 23,
+   "count": 21,
    "color": "#877a63"
   },
   {
    "id": "str-platform-deck",
    "name": "Deck",
    "type": "kind",
-   "description": "deck, boardwalk, scaffold",
-   "count": 21
+   "description": "deck, boardwalk",
+   "count": 19
   },
   {
    "id": "str-platform-dock",
@@ -4173,6 +4188,14 @@
    "type": "kind",
    "description": "dock, pier, jetty",
    "count": 0
+  },
+  {
+   "id": "str-stands",
+   "name": "Stands",
+   "type": "kind",
+   "description": "tent, stall, market stand, awning, canopy",
+   "count": 8,
+   "color": "#d8a05a"
   },
   {
    "id": "assy",
@@ -4357,7 +4380,7 @@
    "name": "Modular",
    "type": "tag",
    "description": "Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 227
+   "count": 228
   }
  ],
  "models": [
@@ -14432,7 +14455,7 @@
   {
    "kit": "fs-town",
    "name": "well-a",
-   "kind": "str-part-roof",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.7,
@@ -14481,7 +14504,6 @@
     "animation",
     "ceramic",
     "hero",
-    "modular",
     "ngons",
     "own",
     "rope",
@@ -24817,7 +24839,7 @@
   {
    "kit": "kay-dun-1",
    "name": "scaffold-high-railing",
-   "kind": "str-platform-deck",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     1,
@@ -24856,6 +24878,7 @@
    ],
    "tags": [
     "kay",
+    "modular",
     "wood-beam",
     "wood-worked"
    ],
@@ -24864,7 +24887,7 @@
   {
    "kit": "kay-dun-1",
    "name": "scaffold-high",
-   "kind": "str-platform-deck",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     1,
@@ -24903,6 +24926,7 @@
    ],
    "tags": [
     "kay",
+    "modular",
     "wood-beam",
     "wood-worked"
    ],
@@ -39590,7 +39614,7 @@
   {
    "kit": "kay-hallow",
    "name": "crypt",
-   "kind": "str-part-door",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.9,
@@ -50522,7 +50546,7 @@
   {
    "kit": "ken-castle",
    "name": "tower-square-mid-open-simple",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -50568,7 +50592,7 @@
   {
    "kit": "ken-castle",
    "name": "tower-square-mid-open",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -50653,7 +50677,7 @@
   {
    "kit": "ken-cave",
    "name": "template-floor-layer-hole",
-   "kind": "str-part-floor",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.8,
@@ -50698,7 +50722,7 @@
   {
    "kit": "ken-cave",
    "name": "template-floor-layer-raised",
-   "kind": "str-part-floor",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.8,
@@ -50833,7 +50857,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "building-structure",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.7,
@@ -51095,7 +51119,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "tent",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.8,
@@ -51523,7 +51547,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-a",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.4,
@@ -51564,7 +51588,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-b",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.4,
@@ -51610,7 +51634,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-large",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.3,
@@ -51746,7 +51770,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.5,
@@ -55045,7 +55069,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-fence-sides",
-   "kind": "str-barrier-fence",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -55085,7 +55109,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-fence",
-   "kind": "str-barrier-fence",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -55313,7 +55337,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-roof",
-   "kind": "str-part-roof",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.8,
@@ -55358,7 +55382,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -57956,7 +57980,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-canvas",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -58002,7 +58026,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-floor",
-   "kind": "str-part-floor",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -58092,7 +58116,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-metal-floor",
-   "kind": "str-part-floor",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -58137,7 +58161,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-metal-roof",
-   "kind": "str-part-roof",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -58227,7 +58251,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-metal",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -58272,7 +58296,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-roof",
-   "kind": "str-part-roof",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -58317,7 +58341,7 @@
   {
    "kit": "ken-survival",
    "name": "structure",
-   "kind": "str-part",
+   "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -58357,7 +58381,7 @@
   {
    "kit": "ken-survival",
    "name": "tent-canvas-half",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.6,
@@ -58402,7 +58426,7 @@
   {
    "kit": "ken-survival",
    "name": "tent-canvas",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.6,
@@ -58448,7 +58472,7 @@
   {
    "kit": "ken-survival",
    "name": "tent",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.6,
@@ -60527,7 +60551,7 @@
   {
    "kit": "ken-town",
    "name": "stall-red",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.9,
@@ -60612,7 +60636,7 @@
   {
    "kit": "ken-town",
    "name": "stall",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.6,
@@ -62269,7 +62293,7 @@
   {
    "kit": "medieval-town",
    "name": "bell-tower",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.8,
@@ -62447,7 +62471,7 @@
   {
    "kit": "medieval-town",
    "name": "blacksmith",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     3.5,
@@ -62775,7 +62799,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-barracks",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.8,
@@ -62824,7 +62848,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-house-2",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.9,
@@ -62881,7 +62905,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-house-3",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     2,
@@ -62938,7 +62962,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-house",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.8,
@@ -62987,7 +63011,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-inn",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     3.7,
@@ -63044,7 +63068,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-sawmill",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     4,
@@ -63107,7 +63131,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-stable",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     4.3,
@@ -63164,7 +63188,7 @@
   {
    "kit": "medieval-town",
    "name": "gazebo",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.9,
@@ -63249,7 +63273,7 @@
   {
    "kit": "medieval-town",
    "name": "market-stand-2",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.9,
@@ -63298,7 +63322,7 @@
   {
    "kit": "medieval-town",
    "name": "market-stand",
-   "kind": "str-part",
+   "kind": "str-stands",
    "size": "m",
    "wdh": [
     0.5,
@@ -63347,7 +63371,7 @@
   {
    "kit": "medieval-town",
    "name": "mill",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     3.1,
@@ -63551,7 +63575,7 @@
   {
    "kit": "medieval-town",
    "name": "well",
-   "kind": "str",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.6,
@@ -74670,7 +74694,7 @@
   {
    "kit": "quat-pirate",
    "name": "house-1",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     5.2,
@@ -74725,7 +74749,7 @@
   {
    "kit": "quat-pirate",
    "name": "house-2",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     1.4,
@@ -74780,7 +74804,7 @@
   {
    "kit": "quat-pirate",
    "name": "house-3",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     3.2,
@@ -81363,7 +81387,7 @@
   {
    "kit": "taalei-kit",
    "name": "lighthouse",
-   "kind": "str-part",
+   "kind": "str-building",
    "use": [
     "light"
    ],
@@ -81533,7 +81557,7 @@
   {
    "kit": "windmill",
    "name": "windmill",
-   "kind": "str-part",
+   "kind": "str-building",
    "size": "l",
    "wdh": [
     2.8,
