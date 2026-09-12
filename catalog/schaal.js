@@ -1,6 +1,8 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
+const GRID_MINOR = 0.1;
+const GRID_MAJOR = 0.2;
 const ROW_WIDTH = 5;
 const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
@@ -40,6 +42,15 @@ const textWidth = ({ kit, model }) => {
   const b = measureCtx.measureText(model).width;
   return Math.ceil(Math.max(a, b)) + 16;
 };
+
+// The row heading already names the kind, so a model repeating it says nothing:
+// in the Shield row, shield reads as nothing at all, shield-large as large and
+// stone-shield as stone.
+const kindWords = (name) =>
+  new Set(name.split('›').pop().trim().toLowerCase().split(/[^a-z0-9]+/).filter(Boolean));
+
+const shortModel = (model, words) =>
+  model.split('-').filter((part) => !words.has(part.toLowerCase())).join('-');
 
 const colors = () => {
   const style = getComputedStyle(document.documentElement);
@@ -111,8 +122,8 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
 
 function background(y, left, right, height, fine, heavy) {
   const g = new THREE.Group();
-  const top = Math.ceil(Math.max(height, 1) * 4) / 4;
-  for (const [step, color, opacity, thickness] of [[0.25, fine, 1, 1], [1, heavy, 1, 2]]) {
+  const top = Math.ceil(Math.max(height, 1) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
+  for (const [step, color, opacity, thickness] of [[GRID_MINOR, fine, 1, 1], [GRID_MAJOR, heavy, 1, 2]]) {
     const points = [];
     for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
     for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
@@ -132,6 +143,7 @@ export async function drawFamily(group, canvas, width) {
   sun.position.set(3, 6, 5);
   scene.add(sun);
 
+  const words = kindWords(group.name);
   const pieces = [];
   for (const item of group.items) {
     let gltf;
@@ -147,7 +159,11 @@ export async function drawFamily(group, canvas, width) {
     const pivot = new THREE.Group();
     pivot.add(obj);
 
-    if (group.topView) obj.rotation.x = -Math.PI / 2;
+    if (group.standUp) {
+      // turn the longest side upright, whichever axis the model happens to lie on
+      if (size.z >= size.x && size.z >= size.y) obj.rotation.x = -Math.PI / 2;
+      else if (size.x > size.y) obj.rotation.z = Math.PI / 2;
+    } else if (group.topView) obj.rotation.x = -Math.PI / 2;
     else if (size.z > size.x * 1.4) obj.rotation.y = Math.PI / 2;
     box = new THREE.Box3().setFromObject(pivot);
     size = box.getSize(new THREE.Vector3());
@@ -158,7 +174,7 @@ export async function drawFamily(group, canvas, width) {
       h: size.y,
       kit: item.kit,
       tags: item.tags ?? [],
-      label: { kit: item.kit, model: `${item.model}  ${group.topView ? 'd' : 'h'}=${size.y.toFixed(2)}` },
+      label: { kit: item.kit, model: shortModel(item.model, words) },
     });
   }
   if (!pieces.length) return null;

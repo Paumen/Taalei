@@ -369,7 +369,7 @@ const TYPES = ['material', 'kind', 'use', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
 // The three kits whose walls, roofs, pillars and floors click together on one grid.
-const BUILDING_KITS = ['fantasy-town-kit', 'village-kit', 'dungeon'];
+const BUILDING_KITS = ['ken-town', 'fs-town', 'kay-dun-1', 'kay-dun-2'];
 
 const SOURCES = [
   {
@@ -377,9 +377,9 @@ const SOURCES = [
     name: 'Kenney',
     description: 'Kits from Kenney (kenney.nl).',
     kits: [
-      'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'holiday-kit',
-      'mini-forest', 'mini-dungeon', 'modular-cave-kit', 'pirate-kit',
-      'platformer-kit', 'prototype-kit', 'survival-kit',
+      'ken-castle', 'ken-town', 'ken-grave', 'ken-holiday',
+      'ken-forest-mini', 'ken-mini-dun', 'ken-cave', 'ken-pirate',
+      'ken-platformer', 'ken-proto', 'ken-survival',
     ],
   },
   {
@@ -387,8 +387,8 @@ const SOURCES = [
     name: 'KayKit',
     description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
-      'adventurers', 'dungeon', 'forest', 'furniture', 'halloween', 'resources',
-      'restaurant', 'rpgtools', 'skeletons', 'weapons',
+      'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
+      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-weapons',
     ],
   },
   {
@@ -396,15 +396,15 @@ const SOURCES = [
     name: 'Quaternius',
     description: 'Kits from Quaternius (quaternius.com).',
     kits: [
-      'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'dungeon-quaternius',
-      'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
+      'fantasy-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
+      'quat-rpg', 'quat-food', 'quat-fish', 'quat-ships',
     ],
   },
   {
     id: 'own',
     name: 'Taalei',
     description: 'Kits made or assembled for Taalei itself, on the shared colormap.',
-    kits: ['village-kit', 'natuur', 'modulair-terrein', 'rocks', 'props', 'small-props', 'taalei-kit'],
+    kits: ['fs-town', 'natuur', 'fs-terrain', 'rocks', 'props', 'small-props', 'taalei-kit'],
   },
 ];
 

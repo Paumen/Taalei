@@ -1,7 +1,7 @@
 window.KENNEY_KITS = [
  {
-  "slug": "survival-kit",
-  "name": "Survival Kit",
+  "slug": "ken-survival",
+  "name": "ken-survival",
   "url": "https://kenney.nl/assets/survival-kit",
   "models": [
    "bottle",
@@ -52,8 +52,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pirate-kit",
-  "name": "Pirate Kit",
+  "slug": "ken-pirate",
+  "name": "ken-pirate",
   "url": "https://kenney.nl/assets/pirate-kit",
   "models": [
    "barrel",
@@ -106,8 +106,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "modular-cave-kit",
-  "name": "Modular Cave Kit",
+  "slug": "ken-cave",
+  "name": "ken-cave",
   "url": "https://kenney.nl/assets/modular-cave-kit",
   "ownPalette": true,
   "outsideCatalog": [
@@ -164,8 +164,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "mini-forest",
-  "name": "Mini Forest",
+  "slug": "ken-forest-mini",
+  "name": "ken-forest-mini",
   "url": "https://kenney.nl/assets/mini-forest",
   "models": [
    "bridge",
@@ -181,8 +181,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "fantasy-town-kit",
-  "name": "Fantasy Town Kit",
+  "slug": "ken-town",
+  "name": "ken-town",
   "url": "https://kenney.nl/assets/fantasy-town-kit",
   "models": [
    "balcony-wall",
@@ -258,8 +258,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "platformer-kit",
-  "name": "Platformer Kit",
+  "slug": "ken-platformer",
+  "name": "ken-platformer",
   "url": "https://kenney.nl/assets/platformer-kit",
   "models": [
    "arrow",
@@ -293,8 +293,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "onderwater-kit",
-  "name": "Underwater",
+  "slug": "quat-ocean",
+  "name": "quat-ocean",
   "url": "https://quaternius.com/",
   "outsideCatalog": true,
   "models": [
@@ -347,7 +347,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "taalei-kit",
-  "name": "Taalei Kit",
+  "name": "taalei-kit",
   "url": null,
   "models": [
    "balloon",
@@ -356,7 +356,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "props",
-  "name": "Props",
+  "name": "props",
   "url": null,
   "models": [
    "bag-a",
@@ -386,7 +386,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "rocks",
-  "name": "Rocks",
+  "name": "rocks",
   "url": null,
   "models": [
    "debris-a",
@@ -417,8 +417,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "village-kit",
-  "name": "Modular Village",
+  "slug": "fs-town",
+  "name": "fs-town",
   "url": null,
   "models": [
    "barrel-a",
@@ -561,8 +561,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "rpgtools",
-  "name": "RPG Tools",
+  "slug": "kay-tools",
+  "name": "kay-tools",
   "url": "https://www.kaylousberg.com",
   "models": [
    "anvil",
@@ -606,8 +606,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "forest",
-  "name": "Forest",
+  "slug": "kay-forest",
+  "name": "kay-forest",
   "url": "https://www.kaylousberg.com",
   "models": [
    "grass-1-a",
@@ -670,8 +670,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "resources",
-  "name": "Resources",
+  "slug": "kay-resources",
+  "name": "kay-resources",
   "url": "https://www.kaylousberg.com",
   "models": [
    "copper-bar",
@@ -737,151 +737,302 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "dungeon",
-  "name": "Dungeon",
-  "url": "https://www.kaylousberg.com",
-  "models": [
-   "barrel-large",
-   "barrel-large-decorated",
-   "barrel-small",
-   "barrel-small-stack",
-   "bed-decorated",
-   "bed-floor",
-   "bed-frame",
-   "bottle-a-brown",
-   "bottle-a-labeled-brown",
-   "bottle-b-brown",
-   "bottle-c-brown",
-   "box-large",
-   "box-small",
-   "box-small-decorated",
-   "box-stacked",
-   "candle",
-   "candle-lit",
-   "candle-melted",
-   "candle-thin",
-   "candle-thin-lit",
-   "candle-triple",
-   "ceiling-tile",
-   "chair",
-   "chest",
-   "chest-gold",
-   "coin",
-   "coin-stack-large",
-   "coin-stack-medium",
-   "coin-stack-small",
-   "column",
-   "crates-stacked",
-   "floor-dirt-large",
-   "floor-dirt-large-rocky",
-   "floor-dirt-small-a",
-   "floor-dirt-small-b",
-   "floor-dirt-small-c",
-   "floor-dirt-small-corner",
-   "floor-dirt-small-d",
-   "floor-dirt-small-weeds",
-   "floor-foundation-allsides",
-   "floor-foundation-corner",
-   "floor-foundation-diagonal-corner",
-   "floor-foundation-front",
-   "floor-foundation-front-and-back",
-   "floor-foundation-front-and-sides",
-   "floor-tile-big-grate-open",
-   "floor-tile-big-spikes",
-   "floor-tile-extralarge-grates-open",
-   "floor-tile-grate-open",
-   "floor-tile-large",
-   "floor-tile-large-rocks",
-   "floor-tile-small",
-   "floor-tile-small-broken-a",
-   "floor-tile-small-broken-b",
-   "floor-tile-small-corner",
-   "floor-tile-small-decorated",
-   "floor-tile-small-weeds-a",
-   "floor-tile-small-weeds-b",
-   "floor-wood-large",
-   "floor-wood-large-dark",
-   "floor-wood-small",
-   "floor-wood-small-dark",
-   "keg",
-   "keg-decorated",
-   "key",
-   "keyring",
-   "keyring-hanging",
-   "pillar",
-   "plate",
-   "plate-food-a",
-   "plate-food-b",
-   "plate-small",
-   "plate-stack",
-   "rubble-half",
-   "rubble-large",
-   "shelf-large",
-   "shelf-small",
-   "shelf-small-candles",
-   "shelves",
-   "stairs",
-   "stairs-long",
-   "stairs-narrow",
-   "stairs-wall-left",
-   "stairs-wall-right",
-   "stairs-walled",
-   "stairs-wide",
-   "stairs-wood",
-   "stairs-wood-decorated",
-   "stool",
-   "table-long",
-   "table-long-broken",
-   "table-long-decorated-a",
-   "table-long-decorated-c",
-   "table-medium",
-   "table-medium-broken",
-   "table-medium-decorated-a",
-   "table-small",
-   "table-small-decorated-a",
-   "table-small-decorated-b",
-   "torch",
-   "torch-lit",
-   "torch-mounted",
-   "trunk-large-c",
-   "trunk-small-c",
-   "wall",
-   "wall-arched",
-   "wall-archedwindow-gated",
-   "wall-archedwindow-gated-scaffold",
-   "wall-archedwindow-open",
-   "wall-broken",
-   "wall-corner",
-   "wall-corner-gated",
-   "wall-corner-scaffold",
-   "wall-corner-small",
-   "wall-cracked",
-   "wall-crossing",
-   "wall-doorway",
-   "wall-doorway-scaffold",
-   "wall-doorway-sides",
-   "wall-doorway-tsplit",
-   "wall-endcap",
-   "wall-gated",
-   "wall-half",
-   "wall-half-endcap",
-   "wall-half-endcap-sloped",
-   "wall-open-scaffold",
-   "wall-pillar",
-   "wall-scaffold",
-   "wall-shelves",
-   "wall-sloped",
-   "wall-tsplit",
-   "wall-tsplit-sloped",
-   "wall-window-closed",
-   "wall-window-closed-scaffold",
-   "wall-window-open",
-   "wall-window-open-scaffold"
-  ]
- },
+ "slug": "kay-dun-1",
+ "name": "kay-dun-1",
+ "url": "https://www.kaylousberg.com",
+ "models": [
+  "arrow",
+  "artifact",
+  "axe-common",
+  "axe-double-common",
+  "axe-double-rare",
+  "axe-double-uncommon",
+  "axe-rare",
+  "axe-uncommon",
+  "barrel",
+  "barrel-dark",
+  "bench",
+  "book-a",
+  "book-b",
+  "book-c",
+  "book-d",
+  "book-e",
+  "book-f",
+  "book-open-a",
+  "book-open-b",
+  "bookcase",
+  "bookcase-filled",
+  "bookcase-wide",
+  "bookcase-wide-broken",
+  "bookcase-wide-filled",
+  "bricks",
+  "bucket",
+  "chair-rounded",
+  "chest-common",
+  "chest-common-empty",
+  "chest-rare",
+  "chest-rare-mimic",
+  "chest-rare-mimic-closed",
+  "chest-top-common",
+  "chest-top-common-empty",
+  "chest-top-rare",
+  "chest-top-rare-mimic",
+  "chest-top-uncommon",
+  "chest-top-uncommon-mimic",
+  "chest-uncommon",
+  "chest-uncommon-closed",
+  "chest-uncommon-mimic",
+  "chest-uncommon-mimic-closed",
+  "coin-crown",
+  "coins-large",
+  "coins-medium",
+  "coins-small",
+  "crate-dark",
+  "crate-platform-large",
+  "crossbow-common",
+  "crossbow-rare",
+  "crossbow-uncommon",
+  "dagger-common",
+  "dagger-rare",
+  "dagger-uncommon",
+  "door",
+  "door-gate",
+  "floor-decoration-shattered-bricks",
+  "floor-decoration-tiles-large",
+  "floor-decoration-tiles-small",
+  "floor-decoration-wood",
+  "floor-decoration-wood-left",
+  "floor-decoration-wood-right",
+  "hammer-common",
+  "hammer-rare",
+  "hammer-uncommon",
+  "loot-sack-a",
+  "loot-sack-b",
+  "mug",
+  "pillar-broken",
+  "plate-full",
+  "plate-half",
+  "plate-rounded",
+  "pot-a",
+  "pot-a-decorated",
+  "pot-b",
+  "pot-b-decorated",
+  "pot-c",
+  "pot-c-decorated",
+  "potion-large-green",
+  "potion-large-red",
+  "potion-medium-green",
+  "potion-medium-red",
+  "potion-small-green",
+  "potion-small-red",
+  "pots",
+  "quiver-empty",
+  "quiver-full",
+  "quiver-half-full",
+  "scaffold-high",
+  "scaffold-high-corner-both",
+  "scaffold-high-corner-left",
+  "scaffold-high-corner-right",
+  "scaffold-high-railing",
+  "scaffold-low",
+  "scaffold-low-corner-both",
+  "scaffold-low-corner-left",
+  "scaffold-low-corner-right",
+  "scaffold-low-railing",
+  "scaffold-medium",
+  "scaffold-medium-corner-both",
+  "scaffold-medium-corner-left",
+  "scaffold-medium-corner-right",
+  "scaffold-medium-railing",
+  "scaffold-small-high",
+  "scaffold-small-high-corner-left",
+  "scaffold-small-high-corner-right",
+  "scaffold-small-high-long",
+  "scaffold-small-high-railing",
+  "scaffold-small-high-railing-long",
+  "scaffold-small-low",
+  "scaffold-small-low-corner-left",
+  "scaffold-small-low-corner-right",
+  "scaffold-small-low-long",
+  "scaffold-small-low-railing",
+  "scaffold-small-low-railing-long",
+  "scaffold-small-medium",
+  "scaffold-small-medium-corner-left",
+  "scaffold-small-medium-corner-right",
+  "scaffold-small-medium-long",
+  "scaffold-small-medium-railing",
+  "scaffold-small-medium-railing-long",
+  "scaffold-stairs",
+  "shield-common",
+  "shield-rare",
+  "shield-uncommon",
+  "spell-book",
+  "staff-common",
+  "staff-rare",
+  "staff-uncommon",
+  "stool-rounded",
+  "sword-common",
+  "sword-rare",
+  "sword-uncommon",
+  "table-large",
+  "table-medium-rounded",
+  "table-small-rounded",
+  "tile-brick-a-large",
+  "tile-brick-b-large",
+  "torch-wall",
+  "trapdoor",
+  "weapon-rack"
+ ]
+},
  {
-  "slug": "modulair-terrein",
-  "name": "Modular Terrain",
+ "slug": "kay-dun-2",
+ "name": "kay-dun-2",
+ "url": "https://www.kaylousberg.com",
+ "models": [
+  "barrel-large",
+  "barrel-large-decorated",
+  "barrel-small",
+  "barrel-small-stack",
+  "bed-decorated",
+  "bed-floor",
+  "bed-frame",
+  "bottle-a-brown",
+  "bottle-a-green",
+  "bottle-a-labeled-brown",
+  "bottle-a-labeled-green",
+  "bottle-b-brown",
+  "bottle-b-green",
+  "bottle-c-brown",
+  "bottle-c-green",
+  "box-small-decorated",
+  "box-stacked",
+  "candle",
+  "candle-lit",
+  "candle-melted",
+  "candle-thin",
+  "candle-thin-lit",
+  "candle-triple",
+  "ceiling-tile",
+  "chair",
+  "chest",
+  "chest-gold",
+  "coin",
+  "coin-stack-large",
+  "coin-stack-medium",
+  "coin-stack-small",
+  "column",
+  "crates-stacked",
+  "floor-dirt-large",
+  "floor-dirt-large-rocky",
+  "floor-dirt-small-a",
+  "floor-dirt-small-b",
+  "floor-dirt-small-c",
+  "floor-dirt-small-corner",
+  "floor-dirt-small-d",
+  "floor-dirt-small-weeds",
+  "floor-foundation-allsides",
+  "floor-foundation-corner",
+  "floor-foundation-diagonal-corner",
+  "floor-foundation-front",
+  "floor-foundation-front-and-back",
+  "floor-foundation-front-and-sides",
+  "floor-tile-big-grate-open",
+  "floor-tile-big-spikes",
+  "floor-tile-extralarge-grates-open",
+  "floor-tile-grate-open",
+  "floor-tile-large",
+  "floor-tile-large-rocks",
+  "floor-tile-small",
+  "floor-tile-small-broken-a",
+  "floor-tile-small-broken-b",
+  "floor-tile-small-corner",
+  "floor-tile-small-decorated",
+  "floor-tile-small-weeds-a",
+  "floor-tile-small-weeds-b",
+  "floor-wood-large",
+  "floor-wood-large-dark",
+  "floor-wood-small",
+  "floor-wood-small-dark",
+  "keg",
+  "keg-decorated",
+  "key",
+  "keyring",
+  "keyring-hanging",
+  "pillar",
+  "plate",
+  "plate-food-a",
+  "plate-food-b",
+  "plate-small",
+  "plate-stack",
+  "rubble-half",
+  "rubble-large",
+  "shelf-large",
+  "shelf-small",
+  "shelf-small-candles",
+  "shelves",
+  "stairs",
+  "stairs-long",
+  "stairs-narrow",
+  "stairs-wall-left",
+  "stairs-wall-right",
+  "stairs-walled",
+  "stairs-wide",
+  "stairs-wood",
+  "stairs-wood-decorated",
+  "stool",
+  "table-long",
+  "table-long-broken",
+  "table-long-decorated-a",
+  "table-long-decorated-c",
+  "table-medium",
+  "table-medium-broken",
+  "table-medium-decorated-a",
+  "table-small",
+  "table-small-decorated-a",
+  "table-small-decorated-b",
+  "torch",
+  "torch-lit",
+  "torch-mounted",
+  "trunk-large-c",
+  "trunk-medium-c",
+  "trunk-small-c",
+  "wall",
+  "wall-arched",
+  "wall-archedwindow-gated",
+  "wall-archedwindow-gated-scaffold",
+  "wall-archedwindow-open",
+  "wall-broken",
+  "wall-corner",
+  "wall-corner-gated",
+  "wall-corner-scaffold",
+  "wall-corner-small",
+  "wall-cracked",
+  "wall-crossing",
+  "wall-doorway",
+  "wall-doorway-scaffold",
+  "wall-doorway-sides",
+  "wall-doorway-tsplit",
+  "wall-endcap",
+  "wall-gated",
+  "wall-half",
+  "wall-half-endcap",
+  "wall-half-endcap-sloped",
+  "wall-open-scaffold",
+  "wall-pillar",
+  "wall-scaffold",
+  "wall-shelves",
+  "wall-sloped",
+  "wall-tsplit",
+  "wall-tsplit-sloped",
+  "wall-window-closed",
+  "wall-window-closed-scaffold",
+  "wall-window-open",
+  "wall-window-open-scaffold"
+ ]
+},
+ {
+  "slug": "fs-terrain",
+  "name": "fs-terrain",
   "url": null,
   "outsideCatalog": [
    "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
@@ -1016,8 +1167,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "prototype-kit",
-  "name": "Prototype Kit",
+  "slug": "ken-proto",
+  "name": "ken-proto",
   "url": "https://kenney.nl/assets/prototype-kit",
   "models": [
    "coin",
@@ -1026,8 +1177,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "halloween",
-  "name": "Halloween",
+  "slug": "kay-hallow",
+  "name": "kay-hallow",
   "url": "https://www.kaylousberg.com",
   "models": [
    "bench",
@@ -1061,8 +1212,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "restaurant",
-  "name": "Restaurant",
+  "slug": "kay-food",
+  "name": "kay-food",
   "url": "https://www.kaylousberg.com",
   "models": [
    "bowl",
@@ -1093,7 +1244,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "fantasy-props",
-  "name": "Fantasy Props",
+  "name": "fantasy-props",
   "url": "https://quaternius.com/",
   "models": [
    "bag",
@@ -1126,8 +1277,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "quaternius-nature",
-  "name": "Quaternius Nature",
+  "slug": "quat-nature",
+  "name": "quat-nature",
   "url": "https://quaternius.com/",
   "models": [
    "cactus-2",
@@ -1169,7 +1320,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "natuur",
-  "name": "Nature",
+  "name": "natuur",
   "url": null,
   "models": [
    "branch-1",
@@ -1268,8 +1419,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pirate-quaternius",
-  "name": "Quaternius Pirate Kit",
+  "slug": "quat-pirate",
+  "name": "quat-pirate",
   "url": "https://quaternius.com/packs/piratekit.html",
   "models": [
    "anchor",
@@ -1317,29 +1468,46 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "dungeon-quaternius",
-  "name": "Quaternius Modular Dungeons",
-  "url": "https://quaternius.com/packs/modulardungeon.html",
-  "models": [
-   "arch",
-   "arch-door",
-   "bucket",
-   "cobweb",
-   "cobweb-2",
-   "column",
-   "floor-bricks-separate",
-   "floor-modular",
-   "skull",
-   "stairs-modular",
-   "stairs-side-cover",
-   "stairs-side-cover-wall",
-   "wall-cover-modular",
-   "wall-modular"
-  ]
- },
+ "slug": "quat-dun-1",
+ "name": "quat-dun-1",
+ "url": "https://quaternius.com/packs/modulardungeon.html",
+ "models": [
+ ]
+},
  {
-  "slug": "rpg-quaternius",
-  "name": "Quaternius Ultimate RPG",
+ "slug": "quat-dun-2",
+ "name": "quat-dun-2",
+ "url": "https://quaternius.com/packs/modulardungeon.html",
+ "models": [
+  "arch",
+  "arch-door",
+  "bag-coins",
+  "bag-standing",
+  "bucket",
+  "chest",
+  "chest-gold",
+  "cobweb",
+  "cobweb-2",
+  "column",
+  "crate",
+  "floor-bricks-separate",
+  "floor-modular",
+  "pedestal-2",
+  "skull",
+  "stairs-modular",
+  "stairs-side-cover",
+  "stairs-side-cover-wall",
+  "statue-horse",
+  "sword-wall-mount",
+  "trapdoor",
+  "trapdoor-open",
+  "wall-cover-modular",
+  "wall-modular"
+ ]
+},
+ {
+  "slug": "quat-rpg",
+  "name": "quat-rpg",
   "url": "https://quaternius.com/packs/ultimaterpg.html",
   "models": [
    "backpack",
@@ -1400,8 +1568,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "food-quaternius",
-  "name": "Quaternius Ultimate Food",
+  "slug": "quat-food",
+  "name": "quat-food",
   "url": "https://quaternius.com/packs/ultimatefood.html",
   "models": [
    "bottle-1",
@@ -1425,8 +1593,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "fish-quaternius",
-  "name": "Quaternius Animated Fish",
+  "slug": "quat-fish",
+  "name": "quat-fish",
   "url": "https://quaternius.com/packs/animatedfish.html",
   "models": [
    "dolphin",
@@ -1439,8 +1607,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "ships-quaternius",
-  "name": "Quaternius Ships",
+  "slug": "quat-ships",
+  "name": "quat-ships",
   "url": "https://quaternius.com/packs/ships.html",
   "models": [
    "boat",
@@ -1449,8 +1617,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "castle-kit",
-  "name": "Kenney Castle Kit",
+  "slug": "ken-castle",
+  "name": "ken-castle",
   "url": "https://kenney.nl/assets/castle-kit",
   "models": [
    "tower-square-mid-open",
@@ -1458,8 +1626,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "graveyard-kit",
-  "name": "Kenney Graveyard Kit",
+  "slug": "ken-grave",
+  "name": "ken-grave",
   "url": "https://kenney.nl/assets/graveyard-kit",
   "models": [
    "crypt-large",
@@ -1467,8 +1635,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "adventurers",
-  "name": "Adventurers",
+  "slug": "kay-adventurers",
+  "name": "kay-adventurers",
   "url": "https://www.kaylousberg.com",
   "outsideCatalog": [
    "shield-round-colored"
@@ -1514,8 +1682,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "skeletons",
-  "name": "Skeletons",
+  "slug": "kay-skeleton",
+  "name": "kay-skeleton",
   "url": "https://www.kaylousberg.com",
   "models": [
    "arrow",
@@ -1539,7 +1707,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "small-props",
-  "name": "Small Props Pack",
+  "name": "small-props",
   "url": null,
   "models": [
    "anvil-b",
@@ -1573,8 +1741,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "weapons",
-  "name": "Fantasy Weapons",
+  "slug": "kay-weapons",
+  "name": "kay-weapons",
   "url": "https://www.kaylousberg.com",
   "models": [
    "arrow-a",
@@ -1611,8 +1779,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "baked-goods",
-  "name": "Baked Goods",
+  "slug": "isa-food",
+  "name": "isa-food",
   "url": "https://www.isalousberg.com",
   "models": [
    "baguette",
@@ -1650,8 +1818,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "clay-items",
-  "name": "Clay Items",
+  "slug": "clay-props",
+  "name": "clay-props",
   "url": "https://glitchpixelinteractive.com/",
   "models": [
    "bowl",
@@ -1667,8 +1835,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "furniture",
-  "name": "Furniture Bits",
+  "slug": "kay-furniture",
+  "name": "kay-furniture",
   "url": "https://www.kaylousberg.com",
   "models": [
    "armchair",
@@ -1691,19 +1859,19 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "mini-dungeon",
-  "name": "Mini Dungeon",
-  "url": "https://kenney.nl/assets/mini-dungeon",
-  "models": [
-   "banner",
-   "barrel",
-   "chair",
-   "table"
-  ]
- },
+ "slug": "ken-mini-dun",
+ "name": "ken-mini-dun",
+ "url": "https://kenney.nl/assets/mini-dungeon",
+ "models": [
+  "banner",
+  "barrel",
+  "chair",
+  "table"
+ ]
+},
  {
   "slug": "tropical-island",
-  "name": "Tropical Island Lite",
+  "name": "tropical-island",
   "models": [
    "barrel",
    "sword-pirate"
@@ -1711,14 +1879,14 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "windmill",
-  "name": "Windmill",
+  "name": "windmill",
   "models": [
    "windmill"
   ]
  },
  {
   "slug": "primitive-tools",
-  "name": "Low Poly Primitive Tools",
+  "name": "primitive-tools",
   "url": null,
   "models": [
    "bow",
@@ -1744,8 +1912,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pond",
-  "name": "Pond Pack",
+  "slug": "isa-pond",
+  "name": "isa-pond",
   "url": null,
   "models": [
    "bird",
@@ -1770,8 +1938,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "park",
-  "name": "Pretty Park Set",
+  "slug": "isa-park",
+  "name": "isa-park",
   "url": null,
   "models": [
    "bench",
@@ -1783,8 +1951,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "medieval-village",
-  "name": "Medieval Village Pack",
+  "slug": "medieval-town",
+  "name": "medieval-town",
   "url": null,
   "models": [
    "bag",
@@ -1819,8 +1987,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "holiday-kit",
-  "name": "Holiday Kit",
+  "slug": "ken-holiday",
+  "name": "ken-holiday",
   "url": "https://kenney.nl/assets/holiday-kit",
   "models": [
    "hanukkah-menorah",
