@@ -259,19 +259,17 @@ Format: `kind — nouns that resolve here`. Parent lines list nouns that have no
 leaf yet (see K2).
 
 ```
-obj-container-jug — jug, pitcher, ewer
 obj-container-chest — chest, trunk, coffer, strongbox
 obj-container-barrel — barrel, cask, keg
 obj-container-bucket — bucket, pail
 obj-container-crate — crate, box, case
 obj-container-bottle — bottle, flask, vial, potion
 obj-container-bag — bag, sack, pouch, purse, backpack, satchel
-obj-container-pot — pot (storage), planter, vase, urn, amphora, jar
+obj-container-pot — pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer
 obj-container — basket, tub, trough, bin, can, coffin
 
 obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
-obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer
-obj-kitchenware-tableware-bowl — bowl
+obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer, bowl
 obj-kitchenware-tableware — mug, cup, goblet, tankard, teapot, glass
 obj-kitchenware-cookware-pan — pan, skillet
 obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot

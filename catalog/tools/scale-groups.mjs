@@ -39,7 +39,7 @@ const tabOf = (kind) => {
 };
 
 // Rows seen from above rather than from the side: what is flat says more in plan.
-const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-kitchenware-tableware-bowl',
+const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate',
   'str-part-floor', 'obj-furniture', 'env-remains', 'env-terrain-ground']);
 
 // Rows stood on their longest axis: length is the measure, and the models disagree
@@ -51,7 +51,7 @@ const STAND_UP = new Set(['obj-kitchenware-tableware-cutlery', 'obj-pocketitem-k
 // grid, so these measure against 0.6 — still whole major gridlines, three instead of five.
 const SHORT_RULER = new Set(['env-rock-pebble', 'env-flora-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
-  'obj-container-jug', 'obj-container-chest', 'obj-container-bucket', 'obj-food',
+  'obj-container-chest', 'obj-container-bucket', 'obj-food',
   'obj-resource', 'obj-weapon-melee-dagger', 'obj-weapon-ranged-accessory']);
 
 // The same, named by branch: every leaf under these is small, and neither parent holds
