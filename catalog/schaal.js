@@ -1,6 +1,8 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
 
+const GRID_MINOR = 0.1;
+const GRID_MAJOR = 0.2;
 const ROW_WIDTH = 5;
 const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
@@ -111,8 +113,8 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
 
 function background(y, left, right, height, fine, heavy) {
   const g = new THREE.Group();
-  const top = Math.ceil(Math.max(height, 1) * 4) / 4;
-  for (const [step, color, opacity, thickness] of [[0.25, fine, 1, 1], [1, heavy, 1, 2]]) {
+  const top = Math.ceil(Math.max(height, 1) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
+  for (const [step, color, opacity, thickness] of [[GRID_MINOR, fine, 1, 1], [GRID_MAJOR, heavy, 1, 2]]) {
     const points = [];
     for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
     for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
@@ -162,7 +164,7 @@ export async function drawFamily(group, canvas, width) {
       h: size.y,
       kit: item.kit,
       tags: item.tags ?? [],
-      label: { kit: item.kit, model: `${item.model}  ${group.topView ? 'd' : 'h'}=${size.y.toFixed(2)}` },
+      label: { kit: item.kit, model: item.model },
     });
   }
   if (!pieces.length) return null;
