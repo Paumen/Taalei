@@ -331,11 +331,11 @@ obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
 obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant, brooch
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
-obj-resource-metal — ingot, bar, nugget, ore lump
+obj-resource-metal — ingot, bar, nugget, ore lump, cog, spare part
 obj-resource-wood — plank (stock), board (loose), pallet
 obj-resource-stone — brick (loose), cut block
 obj-resource-textile — textile bolt, cloth roll
-obj-resource — hide, raw stock, spare part
+obj-resource — hide, raw stock
 
 obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
 
