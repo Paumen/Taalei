@@ -64,13 +64,12 @@ const colors = () => {
   };
 };
 
-// A unit tall in five steps, so one step is one major gridline (0.2) rather than the
-// 0.25 that lined up with nothing.
-const RULER_STEPS = 5;
+// One step is one major gridline, so a unit-tall stick has five and a 0.6 one has three.
+const RULER_STEP = GRID_MAJOR;
 
-function ruler() {
-  const height = 1;
-  const part = height / RULER_STEPS;
+function ruler(height) {
+  const steps = Math.max(1, Math.round(height / RULER_STEP));
+  const part = height / steps;
   const thickness = 0.08;
   const block = new THREE.BoxGeometry(thickness, part, thickness);
   const red = new THREE.MeshLambertMaterial({ color: 0xcc3333 });
@@ -80,7 +79,7 @@ function ruler() {
     h: height,
     build() {
       const g = new THREE.Group();
-      for (let i = 0; i < RULER_STEPS; i++) {
+      for (let i = 0; i < steps; i++) {
         const mesh = new THREE.Mesh(block, i % 2 ? red : white);
         mesh.position.set(0, part / 2 + i * part, 0);
         g.add(mesh);
@@ -123,17 +122,54 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
   return rows;
 }
 
+// Three levels, so a glance tells a tenth from a fifth from a whole unit: 0.1 dashed and
+// horizontal only, 0.2 solid both ways, and the unit line both ways as a thin quad —
+// WebGL ignores linewidth on a line material, and a dark colour alone is not bold.
+const GRID_UNIT = 1;
+const UNIT_WEIGHT = 0.006;
+const DASH = 0.022;
+
+function gridLines(y, left, right, top, step, color, { dashed = false, vertical = true } = {}) {
+  const points = [];
+  if (vertical) {
+    for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
+  }
+  for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+  const material = dashed
+    ? new THREE.LineDashedMaterial({ color, dashSize: DASH, gapSize: DASH })
+    : new THREE.LineBasicMaterial({ color });
+  const lines = new THREE.LineSegments(geo, material);
+  if (dashed) lines.computeLineDistances();
+  return lines;
+}
+
+function unitLines(y, left, right, top, color) {
+  const g = new THREE.Group();
+  const material = new THREE.MeshBasicMaterial({ color });
+  const bar = (w, h, cx, cy) => {
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(w, h), material);
+    mesh.position.set(cx, cy, -0.49);
+    g.add(mesh);
+  };
+  for (let x = Math.ceil(left / GRID_UNIT) * GRID_UNIT; x <= right + 1e-6; x += GRID_UNIT) {
+    bar(UNIT_WEIGHT, top, x, y + top / 2);
+  }
+  for (let h = 0; h <= top + 1e-6; h += GRID_UNIT) {
+    bar(right - left, UNIT_WEIGHT, (left + right) / 2, y + h);
+  }
+  return g;
+}
+
 function background(y, left, right, height, fine, heavy) {
   const g = new THREE.Group();
-  const top = Math.ceil(Math.max(height, 1) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
-  for (const [step, color, opacity, thickness] of [[GRID_MINOR, fine, 1, 1], [GRID_MAJOR, heavy, 1, 2]]) {
-    const points = [];
-    for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
-    for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
-    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity, linewidth: thickness })));
-  }
+  const top = Math.ceil(Math.max(height, GRID_MAJOR) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
+  // the tenth reads as height off the baseline, so it runs across only: a full 0.1 mesh
+  // is a wall of lines that hides the models standing in it
+  g.add(gridLines(y, left, right, top, GRID_MINOR, fine, { dashed: true, vertical: false }));
+  g.add(gridLines(y, left, right, top, GRID_MAJOR, fine));
+  g.add(unitLines(y, left, right, top, heavy));
   return g;
 }
 
@@ -182,7 +218,7 @@ export async function drawFamily(group, canvas, width) {
   }
   if (!pieces.length) return null;
 
-  const rulerObj = ruler();
+  const rulerObj = ruler(group.rulerHeight ?? 1);
   const rowWidth = group.wideRow ? ROW_WIDTH * WIDE_FACTOR : ROW_WIDTH;
   const onScreen = canvas.getBoundingClientRect().width || width;
   const labelScale = (LABEL_PX * rowWidth) / onScreen;

@@ -355,7 +355,7 @@ str-stands — tent, stall, market stand, awning, canopy
 
 str-platform-deck — deck, boardwalk
 str-platform-dock — dock, pier, jetty
-str-platform — stage, altar, plinth, pedestal
+str-platform
 
 str-barrier-fence — fence, fence segment, railing, palisade, gate (fence)
 str-barrier-post — post, bollard, stake
@@ -371,7 +371,7 @@ str-marker-flag — flag, banner, pennant
 str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
 str-marker — milestone, waystone, totem
 
-str — fountain, gallows, waterwheel, mine entrance, fireplace
+str — stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace
 
 env-flora-plant-cactus — cactus, succulent
 env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet
