@@ -13,9 +13,10 @@ export const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
     branches: ['obj', 'obj-kitchenware', 'obj-furniture', 'obj-food',
-      'obj-transport', 'obj-lighting', 'obj-resource'],
+      'obj-lighting', 'obj-resource'],
   },
   { id: 'obj-container', name: 'Obj container', file: 'scale-obj-container.html', branches: ['obj-container'] },
+  { id: 'obj-transport', name: 'Obj transport', file: 'scale-obj-transport.html', branches: ['obj-transport'] },
   {
     id: 'obj-equip', name: 'Obj equip', file: 'scale-obj-equip.html',
     branches: ['obj-weapon', 'obj-equipment', 'obj-tool', 'obj-pocketitem', 'char'],
