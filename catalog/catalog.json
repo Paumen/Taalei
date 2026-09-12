@@ -3092,6 +3092,26 @@
     "kay-food/pan-006",
     "kay-food/pan-006-cast"
    ]
+  },
+  {
+   "id": "v298",
+   "type": "detail-variant",
+   "main": "kay-dun-1/book-a",
+   "members": [
+    "kay-dun-1/book-a",
+    "kay-dun-1/book-open-a"
+   ]
+  },
+  {
+   "id": "v299",
+   "type": "color-variant",
+   "main": "kay-dun-1/book-c",
+   "members": [
+    "kay-dun-1/book-c",
+    "kay-dun-1/book-d",
+    "kay-dun-1/book-e",
+    "kay-dun-1/book-f"
+   ]
   }
  ],
  "tags": [
@@ -3163,7 +3183,7 @@
    "name": "Wood",
    "type": "material",
    "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
-   "count": 10
+   "count": 12
   },
   {
    "id": "wood-planks",
@@ -3202,7 +3222,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too (M7).",
-   "count": 122,
+   "count": 124,
    "parent": "wood"
   },
   {
@@ -3210,7 +3230,7 @@
    "name": "Stone",
    "type": "material",
    "description": "Stone with no subtype named: use it only where neither masonry, rock nor soil fits.",
-   "count": 2
+   "count": 3
   },
   {
    "id": "stone-masonry",
@@ -3248,14 +3268,14 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 147
+   "count": 150
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 61
+   "count": 69
   },
   {
    "id": "foliage",
@@ -3318,7 +3338,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 51
+   "count": 49
   },
   {
    "id": "cork",
@@ -21296,7 +21316,8 @@
     "kay",
     "metal-iron-wrought",
     "paper"
-   ]
+   ],
+   "variant": "v298"
   },
   {
    "kit": "kay-dun-1",
@@ -21324,9 +21345,9 @@
    "vpt": 1.19,
    "grad": 0,
    "spread": {
-    "6,1": [
-     0.961,
-     0.961
+    "3,0": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21338,12 +21359,13 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#563b2b",
     "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
+    "leather",
     "metal-iron-wrought",
     "paper"
    ],
@@ -21375,9 +21397,9 @@
    "vpt": 1.33,
    "grad": 0,
    "spread": {
-    "6,1": [
-     0.711,
-     0.711
+    "8,0": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21385,13 +21407,14 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "paper"
-   ]
+   ],
+   "variant": "v299"
   },
   {
    "kit": "kay-dun-1",
@@ -21419,9 +21442,9 @@
    "vpt": 1.33,
    "grad": 0,
    "spread": {
-    "6,1": [
-     0.836,
-     0.836
+    "1,1": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21429,13 +21452,14 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#23562c",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "paper"
-   ]
+   ],
+   "variant": "v299"
   },
   {
    "kit": "kay-dun-1",
@@ -21463,9 +21487,9 @@
    "vpt": 1.33,
    "grad": 0,
    "spread": {
-    "1,1": [
-     0.031,
-     0.031
+    "6,1": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21473,13 +21497,14 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#343745",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "paper"
-   ]
+   ],
+   "variant": "v299"
   },
   {
    "kit": "kay-dun-1",
@@ -21507,9 +21532,9 @@
    "vpt": 1.33,
    "grad": 0,
    "spread": {
-    "6,1": [
-     0.836,
-     0.836
+    "3,0": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21517,13 +21542,15 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#563b2b",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
+    "leather",
     "paper"
-   ]
+   ],
+   "variant": "v299"
   },
   {
    "kit": "kay-dun-1",
@@ -21551,9 +21578,9 @@
    "vpt": 1.22,
    "grad": 0,
    "spread": {
-    "1,1": [
-     0.031,
-     0.031
+    "6,1": [
+     0.898,
+     0.898
     ],
     "5,2": [
      0.156,
@@ -21565,7 +21592,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#343745",
     "#5b5550",
     "#d8d1bd"
    ],
@@ -21573,7 +21600,8 @@
     "kay",
     "metal-iron-wrought",
     "paper"
-   ]
+   ],
+   "variant": "v298"
   },
   {
    "kit": "kay-dun-1",
@@ -43676,18 +43704,18 @@
      0.133,
      0.898
     ],
-    "14,3": [
+    "3,0": [
      0.563,
      0.781
     ]
    },
    "colors": [
-    "#7f3927",
-    "#8b7561"
+    "#563b2b",
+    "#7f3927"
    ],
    "tags": [
     "kay",
-    "rope",
+    "leather",
     "textile"
    ]
   },
@@ -46345,18 +46373,18 @@
    "tris": 1519,
    "tpu": 4429,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
-   "bytes": 69732,
-   "vtx": 1844,
+   "bytes": 70664,
+   "vtx": 1874,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00009,
    "dens": 88523,
    "anglePct": 6,
-   "vpt": 1.21,
-   "grad": 0.8,
+   "vpt": 1.23,
+   "grad": 0.78,
    "spread": {
     "14,3": [
      0.133,
@@ -46369,9 +46397,14 @@
     "5,2": [
      0.055,
      0.945
+    ],
+    "3,0": [
+     0.172,
+     0.859
     ]
    },
    "colors": [
+    "#563b2b",
     "#875b42",
     "#8b7561",
     "#d8d1bd"
@@ -46380,6 +46413,7 @@
     "bone",
     "halloween",
     "kay",
+    "leather",
     "textile",
     "wood-beam"
    ]
@@ -49058,24 +49092,24 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 28588,
-   "vtx": 716,
+   "bytes": 30128,
+   "vtx": 760,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00005,
    "dens": 545620,
    "anglePct": 15,
-   "vpt": 1.02,
-   "grad": 0.34,
+   "vpt": 1.09,
+   "grad": 0.44,
    "spread": {
     "2,0": [
-     0.336,
-     0.836
+     0.383,
+     0.719
     ],
     "14,3": [
-     0.195,
-     0.344
+     0.047,
+     0.539
     ]
    },
    "colors": [
@@ -49109,24 +49143,24 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21832,
-   "vtx": 545,
+   "bytes": 22348,
+   "vtx": 557,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00007,
    "dens": 383493,
    "anglePct": 18,
-   "vpt": 1.11,
-   "grad": 0.4,
+   "vpt": 1.13,
+   "grad": 0.43,
    "spread": {
     "2,0": [
-     0.336,
-     0.836
+     0.383,
+     0.719
     ],
     "14,3": [
-     0.305,
-     0.453
+     0.047,
+     0.539
     ]
    },
    "colors": [
@@ -67673,16 +67707,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 70356,
-   "vtx": 1962,
+   "bytes": 71316,
+   "vtx": 1992,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00005,
    "dens": 649565,
    "anglePct": 9,
-   "vpt": 1.98,
-   "grad": 0.05,
+   "vpt": 2.01,
+   "grad": 0.17,
    "spread": {
     "14,3": [
      0.195,
@@ -67873,7 +67907,7 @@
    "tris": 1520,
    "tpu": 4431,
    "mat": 1,
-   "bands": 1,
+   "bands": 4,
    "calls": 1,
    "bytes": 100008,
    "vtx": 2792,
@@ -67889,12 +67923,30 @@
     "2,0": [
      0.523,
      0.523
+    ],
+    "15,3": [
+     0.523,
+     0.523
+    ],
+    "3,0": [
+     0.695,
+     0.695
+    ],
+    "14,3": [
+     0.297,
+     0.297
     ]
    },
    "colors": [
-    "#875b42"
+    "#563b2b",
+    "#79757b",
+    "#875b42",
+    "#8b7561"
    ],
    "tags": [
+    "leather",
+    "stone",
+    "textile",
     "wood-beam"
    ]
   },
@@ -67915,7 +67967,7 @@
    "tris": 1074,
    "tpu": 3131,
    "mat": 1,
-   "bands": 1,
+   "bands": 3,
    "calls": 1,
    "bytes": 75404,
    "vtx": 2107,
@@ -67931,13 +67983,27 @@
     "15,3": [
      0.961,
      0.961
+    ],
+    "14,3": [
+     0.297,
+     0.297
+    ],
+    "3,0": [
+     0.695,
+     0.695
     ]
    },
    "colors": [
-    "#79757b"
+    "#563b2b",
+    "#79757b",
+    "#8b7561"
    ],
    "tags": [
-    "stone-rock"
+    "leather",
+    "stone-rock",
+    "textile",
+    "wood",
+    "wood-bark"
    ]
   },
   {
@@ -67956,22 +68022,26 @@
    "tris": 1644,
    "tpu": 4793,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
-   "bytes": 115472,
-   "vtx": 3252,
+   "bytes": 116360,
+   "vtx": 3276,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00008,
    "dens": 170284,
    "anglePct": 12,
-   "vpt": 1.98,
+   "vpt": 1.99,
    "grad": 0,
    "spread": {
     "1,0": [
      0.406,
      0.406
+    ],
+    "3,0": [
+     0.547,
+     0.547
     ],
     "14,3": [
      0.195,
@@ -67983,11 +68053,13 @@
     ]
    },
    "colors": [
+    "#563b2b",
     "#79757b",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
+    "leather",
     "metal-iron-steel",
     "textile",
     "wood-worked"
@@ -68110,7 +68182,7 @@
    "tris": 1706,
    "tpu": 3961,
    "mat": 1,
-   "bands": 1,
+   "bands": 3,
    "calls": 1,
    "bytes": 119516,
    "vtx": 3367,
@@ -68121,18 +68193,31 @@
    "dens": 1834444,
    "anglePct": 19,
    "vpt": 1.97,
-   "grad": 0,
+   "grad": 0.12,
    "spread": {
+    "3,0": [
+     0.398,
+     0.695
+    ],
+    "14,3": [
+     0.297,
+     0.297
+    ],
     "15,3": [
      0.961,
      0.961
     ]
    },
    "colors": [
-    "#79757b"
+    "#563b2b",
+    "#79757b",
+    "#8b7561"
    ],
    "tags": [
-    "stone-rock"
+    "stone-rock",
+    "textile",
+    "wood",
+    "wood-bark"
    ]
   },
   {
@@ -68334,17 +68419,17 @@
      0.406,
      0.406
     ],
-    "14,3": [
+    "3,0": [
      0.406,
      0.406
     ]
    },
    "colors": [
-    "#8b7561",
+    "#563b2b",
     "#b3825f"
    ],
    "tags": [
-    "rope",
+    "leather",
     "wood-worked"
    ]
   },
@@ -68464,7 +68549,7 @@
    "dens": 228985,
    "anglePct": 14,
    "vpt": 1.93,
-   "grad": 0.18,
+   "grad": 0.1,
    "spread": {
     "2,0": [
      0.523,
