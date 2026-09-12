@@ -38,7 +38,7 @@ const tabOf = (kind) => {
 
 // Rows seen from above rather than from the side: what is flat says more in plan.
 const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-kitchenware-tableware-bowl',
-  'str-building-floor', 'obj-furniture', 'env-remains', 'env-terrain-ground']);
+  'str-part-floor', 'obj-furniture', 'env-remains', 'env-terrain-ground']);
 
 // Rows stood on their longest axis: length is the measure, and the models disagree
 // about which axis they lie on, so each is turned upright on its own.
@@ -46,7 +46,7 @@ const STAND_UP = new Set(['obj-kitchenware-tableware-cutlery', 'obj-pocketitem-k
   'obj-pocketitem-scroll', 'obj-weapon-ranged-bow', 'obj-weapon-ranged-crossbow']);
 
 // Rows too wide for the standard ruler.
-const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-building', 'env-terrain-mountain']);
+const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-part', 'env-terrain-mountain']);
 
 // Skins of one hull show nothing about scale; the plain ships stand in for them.
 // An open book measures its spread, not the book, so the closed ones speak for it.

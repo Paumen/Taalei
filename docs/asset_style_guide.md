@@ -340,13 +340,13 @@ obj-resource — hide, raw stock, spare part
 
 obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
 
-str-building-door — door, gate (building), hatch
-str-building-floor — floor, floor tile, ceiling
-str-building-roof — roof, roof tile, chimney, gable
-str-building-window — window, shutter
-str-building-wall — wall, wall segment, arch (building), corner
-str-building-pillar — pillar, column, beam, support
-str-building — house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill
+str-part-door — door, gate (building), hatch
+str-part-floor — floor, floor tile, ceiling
+str-part-roof — roof, roof tile, chimney, gable
+str-part-window — window, shutter
+str-part-wall — wall, wall segment, arch (building), corner
+str-part-pillar — pillar, column, beam, support
+str-part — house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill
 
 str-platform-deck — deck, boardwalk, scaffold
 str-platform-dock — dock, pier, jetty

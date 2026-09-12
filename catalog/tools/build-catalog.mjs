@@ -433,7 +433,7 @@ const DERIVED = [
     id: 'modular',
     name: 'Modular',
     description: 'Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit.',
-    belongs: (m) => BUILDING_KITS.includes(m.kit) && kindIs(m.kind, 'str-building') && m.kind !== 'str-building',
+    belongs: (m) => BUILDING_KITS.includes(m.kit) && kindIs(m.kind, 'str-part') && m.kind !== 'str-part',
   },
 ];
 
