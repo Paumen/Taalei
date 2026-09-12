@@ -2972,8 +2972,7 @@
    "main": "kay-dun-1/chest-rare-mimic-closed",
    "members": [
     "kay-dun-1/chest-rare-mimic-closed",
-    "kay-dun-1/chest-top-rare",
-    "kay-dun-1/chest-rare-mimic"
+    "kay-dun-1/chest-top-rare"
    ]
   },
   {
@@ -2982,7 +2981,6 @@
    "main": "kay-dun-1/chest-uncommon-closed",
    "members": [
     "kay-dun-1/chest-uncommon-closed",
-    "kay-dun-1/chest-top-uncommon-mimic",
     "kay-dun-1/chest-top-uncommon"
    ]
   },
@@ -3117,7 +3115,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools (M62). Takes light grey 15,3 (M11).",
-   "count": 173,
+   "count": 169,
    "parent": "metal-iron"
   },
   {
@@ -3141,7 +3139,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0 (M13).",
-   "count": 64,
+   "count": 63,
    "parent": "metal"
   },
   {
@@ -3180,7 +3178,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes wood middle 1,0 (M42).",
-   "count": 259,
+   "count": 254,
    "parent": "wood"
   },
   {
@@ -3278,7 +3276,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 55
+   "count": 51
   },
   {
    "id": "food",
@@ -3370,7 +3368,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
-   "count": 725,
+   "count": 720,
    "color": "#c07c8a"
   },
   {
@@ -3378,7 +3376,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 157,
+   "count": 152,
    "color": "#dd9f79"
   },
   {
@@ -3414,7 +3412,7 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 22
+   "count": 17
   },
   {
    "id": "obj-container-crate",
@@ -3608,15 +3606,15 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 51,
+   "count": 55,
    "color": "#f1976c"
   },
   {
    "id": "obj-pocketitem-book",
    "name": "Book",
    "type": "kind",
-   "description": "book, tome, journal",
-   "count": 21
+   "description": "book, tome, journal, spell book",
+   "count": 25
   },
   {
    "id": "obj-pocketitem-coin",
@@ -3752,15 +3750,15 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits (K2).",
-   "count": 114,
+   "count": 110,
    "color": "#4c5468"
   },
   {
    "id": "obj-weapon-magic",
    "name": "Magic",
    "type": "kind",
-   "description": "wand, orb, tome (weapon), spell book",
-   "count": 15
+   "description": "wand, orb, focus (magic)",
+   "count": 11
   },
   {
    "id": "obj-weapon-magic-staff",
@@ -4197,7 +4195,7 @@
    "name": "Container",
    "type": "use",
    "description": "You put something in it.",
-   "count": 170
+   "count": 165
   },
   {
    "id": "use:food",
@@ -4303,7 +4301,7 @@
    "name": "Small",
    "type": "size",
    "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 890
+   "count": 885
   },
   {
    "id": "m",
@@ -4331,7 +4329,7 @@
    "name": "KayKit",
    "type": "tag",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 658
+   "count": 653
   },
   {
    "id": "qua",
@@ -20311,7 +20309,7 @@
   {
    "kit": "kay-adventurers",
    "name": "spellbook-closed",
-   "kind": "obj-weapon-magic",
+   "kind": "obj-pocketitem-book",
    "use": [
     "weapon"
    ],
@@ -20349,14 +20347,14 @@
      0.25,
      0.859
     ],
-    "15,3": [
+    "13,3": [
      0.43,
      0.875
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#d8d1bd"
    ],
@@ -20364,7 +20362,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "paper"
    ],
    "variant": "v279"
@@ -20372,7 +20370,7 @@
   {
    "kit": "kay-adventurers",
    "name": "spellbook-open",
-   "kind": "obj-weapon-magic",
+   "kind": "obj-pocketitem-book",
    "use": [
     "weapon"
    ],
@@ -20406,7 +20404,7 @@
      0.25,
      0.859
     ],
-    "15,3": [
+    "13,3": [
      0.43,
      0.875
     ],
@@ -20417,7 +20415,7 @@
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#d8d1bd"
    ],
@@ -20425,7 +20423,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "paper"
    ],
    "variant": "v279"
@@ -22144,66 +22142,6 @@
   },
   {
    "kit": "kay-dun-1",
-   "name": "chest-rare-mimic",
-   "kind": "obj-container-chest",
-   "use": [
-    "container"
-   ],
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.3,
-    0.3
-   ],
-   "tris": 1854,
-   "tpu": 5405,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 57908,
-   "vtx": 1414,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00045,
-   "dens": 52838,
-   "anglePct": 44,
-   "vpt": 0.76,
-   "grad": 0,
-   "spread": {
-    "6,0": [
-     0.961,
-     0.961
-    ],
-    "1,0": [
-     0.156,
-     0.156
-    ],
-    "5,2": [
-     0.156,
-     0.156
-    ],
-    "8,0": [
-     0.711,
-     0.711
-    ]
-   },
-   "colors": [
-    "#7f3927",
-    "#b3825f",
-    "#d8d1bd",
-    "#f2a93c"
-   ],
-   "tags": [
-    "bone",
-    "kay",
-    "metal-gold",
-    "wood-worked"
-   ],
-   "variant": "v284"
-  },
-  {
-   "kit": "kay-dun-1",
    "name": "chest-rare",
    "kind": "obj-container-chest",
    "use": [
@@ -22247,54 +22185,6 @@
    "tags": [
     "kay",
     "metal-gold",
-    "wood-worked"
-   ]
-  },
-  {
-   "kit": "kay-dun-1",
-   "name": "chest-top-common-empty",
-   "kind": "obj-container-chest",
-   "use": [
-    "container"
-   ],
-   "size": "s",
-   "wdh": [
-    0.4,
-    0.3,
-    0.2
-   ],
-   "tris": 344,
-   "tpu": 1003,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 18000,
-   "vtx": 448,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00165,
-   "dens": 12691,
-   "anglePct": 20,
-   "vpt": 1.3,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.344,
-     0.344
-    ],
-    "1,0": [
-     0.836,
-     0.836
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#b3825f"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -22456,61 +22346,6 @@
   },
   {
    "kit": "kay-dun-1",
-   "name": "chest-top-uncommon-mimic",
-   "kind": "obj-container-chest",
-   "use": [
-    "container"
-   ],
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.3,
-    0.3
-   ],
-   "tris": 2040,
-   "tpu": 5948,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 69676,
-   "vtx": 1746,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00043,
-   "dens": 42261,
-   "anglePct": 30,
-   "vpt": 0.86,
-   "grad": 0.22,
-   "spread": {
-    "13,3": [
-     0.031,
-     0.711
-    ],
-    "1,0": [
-     0.031,
-     0.031
-    ],
-    "5,2": [
-     0.156,
-     0.156
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#b3825f",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "bone",
-    "kay",
-    "metal-iron-wrought",
-    "wood-worked"
-   ],
-   "variant": "v285"
-  },
-  {
-   "kit": "kay-dun-1",
    "name": "chest-top-uncommon",
    "kind": "obj-container-chest",
    "use": [
@@ -22618,114 +22453,6 @@
     "wood-worked"
    ],
    "variant": "v285"
-  },
-  {
-   "kit": "kay-dun-1",
-   "name": "chest-uncommon-mimic-closed",
-   "kind": "obj-container-chest",
-   "use": [
-    "container"
-   ],
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.3,
-    0.3
-   ],
-   "tris": 3894,
-   "tpu": 11353,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 126044,
-   "vtx": 3160,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00044,
-   "dens": 74906,
-   "anglePct": 37,
-   "vpt": 0.81,
-   "grad": 0.16,
-   "spread": {
-    "13,3": [
-     0.031,
-     0.711
-    ],
-    "1,0": [
-     0.031,
-     0.031
-    ],
-    "5,2": [
-     0.156,
-     0.156
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#b3825f",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "bone",
-    "kay",
-    "metal-iron-wrought",
-    "wood-worked"
-   ]
-  },
-  {
-   "kit": "kay-dun-1",
-   "name": "chest-uncommon-mimic",
-   "kind": "obj-container-chest",
-   "use": [
-    "container"
-   ],
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.3,
-    0.3
-   ],
-   "tris": 1854,
-   "tpu": 5405,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 57924,
-   "vtx": 1414,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00045,
-   "dens": 52838,
-   "anglePct": 44,
-   "vpt": 0.76,
-   "grad": 0.09,
-   "spread": {
-    "13,3": [
-     0.031,
-     0.711
-    ],
-    "1,0": [
-     0.031,
-     0.031
-    ],
-    "5,2": [
-     0.156,
-     0.156
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#b3825f",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "bone",
-    "kay",
-    "metal-iron-wrought",
-    "wood-worked"
-   ]
   },
   {
    "kit": "kay-dun-1",
@@ -26691,7 +26418,7 @@
   {
    "kit": "kay-dun-1",
    "name": "spell-book",
-   "kind": "obj-weapon-magic",
+   "kind": "obj-pocketitem-book",
    "use": [
     "weapon"
    ],
@@ -26725,7 +26452,7 @@
      0.156,
      0.156
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -26736,14 +26463,14 @@
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "paper",
     "textile"
    ]
@@ -46417,7 +46144,7 @@
   {
    "kit": "kay-skeleton",
    "name": "spellbook",
-   "kind": "obj-weapon-magic",
+   "kind": "obj-pocketitem-book",
    "use": [
     "weapon"
    ],
@@ -46451,21 +46178,21 @@
      0.336,
      0.336
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "halloween",
     "kay",
     "leather",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "paper"
    ]
   },
