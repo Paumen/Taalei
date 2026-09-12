@@ -17,7 +17,7 @@ const THREE_VERSION = '0.169.0';
 const DEFAULTS = {
   out: './renders', modes: 'pbr', views: 'iso',
   width: 1024, height: 1024,
-  bg: '#f2f2f0', env: 'soft', exposure: 1.15, tone: 'neutral',
+  bg: '#f2f2f0', env: 'soft', exposure: 1.3, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
