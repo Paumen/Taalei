@@ -21,11 +21,11 @@ const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-build
 // Skins of one hull show nothing about scale; the plain ships stand in for them.
 // An open book measures its spread, not the book, so the closed ones speak for it.
 const SKIP = new Set([
-  'pirate-kit/ship-pirate-small', 'pirate-kit/ship-pirate-medium', 'pirate-kit/ship-pirate-large',
-  'pirate-kit/ship-ghost', 'pirate-kit/ship-wreck',
-  'kay-dun-1/book-open-a', 'kay-dun-1/book-open-b', 'rpgtools/journal-open',
-  'rpg-quaternius/book-1-open', 'rpg-quaternius/book-2-open',
-  'rpg-quaternius/book-3-open', 'rpg-quaternius/book-4-open',
+  'ken-pirate/ship-pirate-small', 'ken-pirate/ship-pirate-medium', 'ken-pirate/ship-pirate-large',
+  'ken-pirate/ship-ghost', 'ken-pirate/ship-wreck',
+  'kay-dun-1/book-open-a', 'kay-dun-1/book-open-b', 'kay-tools/journal-open',
+  'quat-rpg/book-1-open', 'quat-rpg/book-2-open',
+  'quat-rpg/book-3-open', 'quat-rpg/book-4-open',
 ]);
 
 const breadcrumb = (id) => [...kindAncestors(id).reverse(), id].map(kindName).join(' › ');

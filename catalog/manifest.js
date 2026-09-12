@@ -1,7 +1,7 @@
 window.KENNEY_KITS = [
  {
-  "slug": "survival-kit",
-  "name": "Survival Kit",
+  "slug": "ken-survival",
+  "name": "ken-survival",
   "url": "https://kenney.nl/assets/survival-kit",
   "models": [
    "bottle",
@@ -52,8 +52,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pirate-kit",
-  "name": "Pirate Kit",
+  "slug": "ken-pirate",
+  "name": "ken-pirate",
   "url": "https://kenney.nl/assets/pirate-kit",
   "models": [
    "barrel",
@@ -106,8 +106,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "modular-cave-kit",
-  "name": "Modular Cave Kit",
+  "slug": "ken-cave",
+  "name": "ken-cave",
   "url": "https://kenney.nl/assets/modular-cave-kit",
   "ownPalette": true,
   "outsideCatalog": [
@@ -164,8 +164,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "mini-forest",
-  "name": "Mini Forest",
+  "slug": "ken-forest-mini",
+  "name": "ken-forest-mini",
   "url": "https://kenney.nl/assets/mini-forest",
   "models": [
    "bridge",
@@ -181,8 +181,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "fantasy-town-kit",
-  "name": "Fantasy Town Kit",
+  "slug": "ken-town",
+  "name": "ken-town",
   "url": "https://kenney.nl/assets/fantasy-town-kit",
   "models": [
    "balcony-wall",
@@ -258,8 +258,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "platformer-kit",
-  "name": "Platformer Kit",
+  "slug": "ken-platformer",
+  "name": "ken-platformer",
   "url": "https://kenney.nl/assets/platformer-kit",
   "models": [
    "arrow",
@@ -293,8 +293,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "onderwater-kit",
-  "name": "Underwater",
+  "slug": "quat-ocean",
+  "name": "quat-ocean",
   "url": "https://quaternius.com/",
   "outsideCatalog": true,
   "models": [
@@ -417,8 +417,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "village-kit",
-  "name": "Modular Village",
+  "slug": "fs-town",
+  "name": "fs-town",
   "url": null,
   "models": [
    "barrel-a",
@@ -561,8 +561,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "rpgtools",
-  "name": "RPG Tools",
+  "slug": "kay-tools",
+  "name": "kay-tools",
   "url": "https://www.kaylousberg.com",
   "models": [
    "anvil",
@@ -606,8 +606,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "forest",
-  "name": "Forest",
+  "slug": "kay-forest",
+  "name": "kay-forest",
   "url": "https://www.kaylousberg.com",
   "models": [
    "grass-1-a",
@@ -670,8 +670,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "resources",
-  "name": "Resources",
+  "slug": "kay-resources",
+  "name": "kay-resources",
   "url": "https://www.kaylousberg.com",
   "models": [
    "copper-bar",
@@ -1031,8 +1031,8 @@ window.KENNEY_KITS = [
  ]
 },
  {
-  "slug": "modulair-terrein",
-  "name": "Modular Terrain",
+  "slug": "fs-terrain",
+  "name": "fs-terrain",
   "url": null,
   "outsideCatalog": [
    "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
@@ -1167,8 +1167,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "prototype-kit",
-  "name": "Prototype Kit",
+  "slug": "ken-proto",
+  "name": "ken-proto",
   "url": "https://kenney.nl/assets/prototype-kit",
   "models": [
    "coin",
@@ -1177,8 +1177,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "halloween",
-  "name": "Halloween",
+  "slug": "kay-hallow",
+  "name": "kay-hallow",
   "url": "https://www.kaylousberg.com",
   "models": [
    "bench",
@@ -1212,8 +1212,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "restaurant",
-  "name": "Restaurant",
+  "slug": "kay-food",
+  "name": "kay-food",
   "url": "https://www.kaylousberg.com",
   "models": [
    "bowl",
@@ -1277,8 +1277,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "quaternius-nature",
-  "name": "Quaternius Nature",
+  "slug": "quat-nature",
+  "name": "quat-nature",
   "url": "https://quaternius.com/",
   "models": [
    "cactus-2",
@@ -1419,8 +1419,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pirate-quaternius",
-  "name": "Quaternius Pirate Kit",
+  "slug": "quat-pirate",
+  "name": "quat-pirate",
   "url": "https://quaternius.com/packs/piratekit.html",
   "models": [
    "anchor",
@@ -1506,8 +1506,8 @@ window.KENNEY_KITS = [
  ]
 },
  {
-  "slug": "rpg-quaternius",
-  "name": "Quaternius Ultimate RPG",
+  "slug": "quat-rpg",
+  "name": "quat-rpg",
   "url": "https://quaternius.com/packs/ultimaterpg.html",
   "models": [
    "backpack",
@@ -1568,8 +1568,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "food-quaternius",
-  "name": "Quaternius Ultimate Food",
+  "slug": "quat-food",
+  "name": "quat-food",
   "url": "https://quaternius.com/packs/ultimatefood.html",
   "models": [
    "bottle-1",
@@ -1593,8 +1593,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "fish-quaternius",
-  "name": "Quaternius Animated Fish",
+  "slug": "quat-fish",
+  "name": "quat-fish",
   "url": "https://quaternius.com/packs/animatedfish.html",
   "models": [
    "dolphin",
@@ -1607,8 +1607,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "ships-quaternius",
-  "name": "Quaternius Ships",
+  "slug": "quat-ships",
+  "name": "quat-ships",
   "url": "https://quaternius.com/packs/ships.html",
   "models": [
    "boat",
@@ -1617,8 +1617,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "castle-kit",
-  "name": "Kenney Castle Kit",
+  "slug": "ken-castle",
+  "name": "ken-castle",
   "url": "https://kenney.nl/assets/castle-kit",
   "models": [
    "tower-square-mid-open",
@@ -1626,8 +1626,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "graveyard-kit",
-  "name": "Kenney Graveyard Kit",
+  "slug": "ken-grave",
+  "name": "ken-grave",
   "url": "https://kenney.nl/assets/graveyard-kit",
   "models": [
    "crypt-large",
@@ -1635,8 +1635,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "adventurers",
-  "name": "Adventurers",
+  "slug": "kay-adventurers",
+  "name": "kay-adventurers",
   "url": "https://www.kaylousberg.com",
   "outsideCatalog": [
    "shield-round-colored"
@@ -1682,8 +1682,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "skeletons",
-  "name": "Skeletons",
+  "slug": "kay-skeleton",
+  "name": "kay-skeleton",
   "url": "https://www.kaylousberg.com",
   "models": [
    "arrow",
@@ -1741,8 +1741,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "weapons",
-  "name": "Fantasy Weapons",
+  "slug": "kay-weapons",
+  "name": "kay-weapons",
   "url": "https://www.kaylousberg.com",
   "models": [
    "arrow-a",
@@ -1779,8 +1779,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "baked-goods",
-  "name": "Baked Goods",
+  "slug": "isa-food",
+  "name": "isa-food",
   "url": "https://www.isalousberg.com",
   "models": [
    "baguette",
@@ -1818,8 +1818,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "clay-items",
-  "name": "Clay Items",
+  "slug": "clay-props",
+  "name": "clay-props",
   "url": "https://glitchpixelinteractive.com/",
   "models": [
    "bowl",
@@ -1835,8 +1835,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "furniture",
-  "name": "Furniture Bits",
+  "slug": "kay-furniture",
+  "name": "kay-furniture",
   "url": "https://www.kaylousberg.com",
   "models": [
    "armchair",
@@ -1912,8 +1912,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "pond",
-  "name": "Pond Pack",
+  "slug": "isa-pond",
+  "name": "isa-pond",
   "url": null,
   "models": [
    "bird",
@@ -1938,8 +1938,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "park",
-  "name": "Pretty Park Set",
+  "slug": "isa-park",
+  "name": "isa-park",
   "url": null,
   "models": [
    "bench",
@@ -1951,8 +1951,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "medieval-village",
-  "name": "Medieval Village Pack",
+  "slug": "medieval-town",
+  "name": "medieval-town",
   "url": null,
   "models": [
    "bag",
@@ -1987,8 +1987,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "holiday-kit",
-  "name": "Holiday Kit",
+  "slug": "ken-holiday",
+  "name": "ken-holiday",
   "url": "https://kenney.nl/assets/holiday-kit",
   "models": [
    "hanukkah-menorah",
