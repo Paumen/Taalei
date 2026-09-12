@@ -16,8 +16,9 @@ const GUIDE = join(ROOT, 'docs/asset_style_guide.md');
 // reads a proxy tag, a name, or only one clause.
 const COVERAGE = {
   full: `M1 M2 M3 M6 M9 M10 M13 M14 M20 M22 M23 M24 M25 M28 M29 M30 M31 M33 M34
-         M36 M41 M42 M43 C3 C8 C9 C10 C11 N1 N2 N3 N4 N5 S4 W2`,
+         M36 M41 M42 M43 C3 C8 C9 C10 C11 C15 N1 N2 N3 N4 N5 S4 W2`,
   partial: `G1 M4 M8 M11 M12 M15 M17 M18 18b M19 M26 M27 M37 M38 M39 M44
+            M62 M63 M64 M65 M66 M67 M68
             C1 C2 C4 C5 C6 C7 C12 C13 C14 S1 S2 S3 S5`,
 };
 const coverage = new Map();
@@ -26,15 +27,15 @@ for (const [kind, list] of Object.entries(COVERAGE)) {
 }
 
 // One rule may be checked by several lint ids, and one lint id may span two rules.
-const GUIDE_ID = { 'M6-bark': 'M6', 'M11-M12': 'M11', 'M13-silver': 'M13', 'M14-only': 'M14',
-  'M31-half': 'M31', 'M42-planks': 'M42', 'M42-worked': 'M42', 'M42-beam': 'M42',
+const GUIDE_ID = { 'M6-bark': 'M6', 'M12-wrought': 'M12', 'M12-cast': 'M12', 'M13-silver': 'M13', 'M14-only': 'M14',
+  'M31-half': 'M31', 'M65-pair': 'M65', 'M42-planks': 'M42', 'M42-worked': 'M42', 'M42-beam': 'M42',
   'C9-light': 'C9', 'C9-middle': 'C9', 'C9-dark': 'C9', M18b: '18b' };
 const guideId = (id) => GUIDE_ID[id] ?? id;
 
 // Rules with no check of their own, whose severity and pass/fail follow another's:
-// M12 shares M11's check, N5 lifts N4's ceiling from inside it, and the joker of
-// S1-S5 runs inside every band rule.
-const FOLLOWS = { M12: 'M11', N5: 'N4', S1: 'M1', S2: 'M1', S3: 'M1', S5: 'M1' };
+// N5 lifts N4's ceiling from inside it, and the joker of S1-S5 runs inside every band
+// rule. M12 has checks of its own now (M12-wrought, M12-cast) and no longer follows M11.
+const FOLLOWS = { N5: 'N4', S1: 'M1', S2: 'M1', S3: 'M1', S5: 'M1' };
 
 const tmp = join(tmpdir(), `rule-status-${process.pid}.json`);
 // lint exits non-zero while any error-severity finding stands, which is the normal

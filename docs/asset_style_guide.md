@@ -54,7 +54,7 @@ Scope: items in catalog, and how they are tagged.
 
 | field | job | set | who |
 |---|---|---|---|
-| `material` | what it is **made of** | closed, 33, parented | Claude, linted |
+| `material` | what it is **made of** | closed, 36, parented | Claude, linted |
 | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** | Claude via glossary, PO reviews |
 | `use` | what it is **for** — where you'd look | closed, small, zero or more | Claude, PO reviews |
 | `size` | rough bbox: `s` `m` `l` | measured | automated |
@@ -98,7 +98,7 @@ Scope: items in catalog, and how they are tagged.
 ## Appendix A: Material and colour rules
 
 Band ids are column,row in `kits/colormap.png`. Where a colour name below has
-an id, it is: light grey 15,3 · blue-grey 6,1 · light blue-grey 3,2 ·
+an id, it is: light grey 15,3 · dark grey 13,3 · blue-grey 6,1 · light blue-grey 3,2 ·
 blue 4,2 · off-white 5,2 · taupe 14,3 · terracotta 5,0 ·
 yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
 wood light 0,0 · wood middle 1,0 · wood dark 2,0 · bark 3,0.
@@ -152,19 +152,18 @@ text alone.
   light grey 15,3. **to be reduced to 2**
 - **M9.** `FE` 🟢 stone-rock is light grey 15,3, secondarily taupe 14,3.
 - **M10.** `FE` 🟢 stone-soil — sand and dirt — is taupe 14,3.
-- **M11.** `PE` 🟢 metal-iron is light grey 15,3.
-- **M12.** `PE` 🟢 metal-iron may be blue-grey 6,1 where it is steel or cast iron.
+- **M11.** `PE` 🟢 metal-iron-steel is light grey 15,3.
+- **M12.** `PE` 🟢 metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.
 - **M13.** `FE` 🟢 metal-gold is gold 6,0; metal-silver is silver 3,2.
 - **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
 - **M15.** `PE` 🟢 Keys take the colour of any metal subtype.
-- **M16.** `--` ⚪ Buckles are metal-iron, light grey 15,3.
 - **M17.** `PE` 🟢 The bands on container group: barrels, chests, buckets, kegs, crates and boxes
-  are metal-iron, light grey 15,3.
+  are metal-iron-wrought, dark grey 13,3.
 - **M18.** `PE` 🟢 Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
 - **18b** `PE` 🟢 The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
 - **M19.** `PW` 🔴 Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
-- **M20.** `FE` 🟢 Leather is bark.
+- **M20.** `FE` 🔴 Leather is bark.
 - **M21.** `--` ⚪ Belts, shoes and straps are leather.
 - **M22.** `FE` 🟢 Rope is taupe 14,3.
 - **M23.** `FE` 🟢 All cork is taupe 14,3.
@@ -210,11 +209,18 @@ text alone.
 - **M59.** `--` ⚪ Cutlery is metal-iron.
 - **M60.** `--` ⚪ Pots are ceramic; a pan may be metal-iron.
 - **M61.** `--` ⚪ A boat or ship is built from more than one wood.
+- **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
+- **M63.** `PW` 🟢 obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.
+- **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
+- **M65.** `PW` 🟢 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
+- **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
+- **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
+- **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
 
 ### C. Colour to material
 
-- **C1.** `PE` 🟢 Light grey 15,3: metal, stone and rock only. **to be reduced to 2**
-- **C2.** `PE` 🟢 Blue-grey 6,1: steel and cast iron (M12), worked stone (M8),
+- **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone and rock only. **to be reduced to 2**
+- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8),
   wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** `FE` 🟢 Light blue-grey 3,2: silver (M13).
 - **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents only.
@@ -229,6 +235,7 @@ text alone.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
 - **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).
+- **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought only.
 
 ### N. Counting — bands against materials
 - **N1.** `FE` 🟢 A model has at least one material.
@@ -293,6 +300,8 @@ obj-weapon-ranged — sling, throwing knife, javelin
 
 obj-weapon-magic-staff — staff, wizard staff
 obj-weapon-magic — wand, orb, tome (weapon), spell book
+
+obj-weapon-cannon — cannon, cannonball
 
 obj-weapon
 

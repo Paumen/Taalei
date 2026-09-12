@@ -2956,7 +2956,9 @@
    "main": "restaurant/pot-b-closed",
    "members": [
     "restaurant/pot-b-closed",
-    "restaurant/lid-b"
+    "restaurant/lid-b",
+    "restaurant/pot-a-closed",
+    "restaurant/lid-a"
    ]
   },
   {
@@ -3042,6 +3044,51 @@
     "graveyard-kit/cross-column",
     "graveyard-kit/cross-wood"
    ]
+  },
+  {
+   "id": "v293",
+   "type": "color-variant",
+   "main": "food-quaternius/cooking-pot",
+   "members": [
+    "food-quaternius/cooking-pot",
+    "food-quaternius/cooking-pot-steel"
+   ]
+  },
+  {
+   "id": "v294",
+   "type": "color-variant",
+   "main": "food-quaternius/cooking-pot-2",
+   "members": [
+    "food-quaternius/cooking-pot-2",
+    "food-quaternius/cooking-pot-2-steel"
+   ]
+  },
+  {
+   "id": "v295",
+   "type": "color-variant",
+   "main": "food-quaternius/frying-pan",
+   "members": [
+    "food-quaternius/frying-pan",
+    "food-quaternius/frying-pan-steel"
+   ]
+  },
+  {
+   "id": "v296",
+   "type": "color-variant",
+   "main": "medieval-village/cauldron",
+   "members": [
+    "medieval-village/cauldron",
+    "medieval-village/cauldron-steel"
+   ]
+  },
+  {
+   "id": "v297",
+   "type": "color-variant",
+   "main": "restaurant/pan-006",
+   "members": [
+    "restaurant/pan-006",
+    "restaurant/pan-006-cast"
+   ]
   }
  ],
  "tags": [
@@ -3056,9 +3103,33 @@
    "id": "metal-iron",
    "name": "Iron",
    "type": "material",
-   "description": "Iron, steel and cast iron where it dominates or is the working part: tools, weapons, fittings, bars, grates, lanterns. Steel and cast iron may take blue-grey 6,1 (M12). A model may carry a second metal subtype for its trim.",
-   "count": 350,
+   "description": "Iron of any kind, as the parent of steel, wrought and cast (M11, M12). A model carries the subtype it is, never this on top.",
+   "count": 0,
    "parent": "metal"
+  },
+  {
+   "id": "metal-iron-steel",
+   "name": "Steel",
+   "type": "material",
+   "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools (M62). Takes light grey 15,3 (M11).",
+   "count": 163,
+   "parent": "metal-iron"
+  },
+  {
+   "id": "metal-iron-wrought",
+   "name": "Wrought iron",
+   "type": "material",
+   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames (M66). Takes dark grey 13,3 (M12).",
+   "count": 151,
+   "parent": "metal-iron"
+  },
+  {
+   "id": "metal-iron-cast",
+   "name": "Cast iron",
+   "type": "material",
+   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots (M64, M65). Takes blue-grey 6,1 (M12).",
+   "count": 66,
+   "parent": "metal-iron"
   },
   {
    "id": "metal-gold",
@@ -3112,7 +3183,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes wood dark 2,0 (M42).",
-   "count": 354,
+   "count": 355,
    "parent": "wood"
   },
   {
@@ -3209,7 +3280,7 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 66
+   "count": 67
   },
   {
    "id": "wax",
@@ -3294,7 +3365,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
-   "count": 720,
+   "count": 725,
    "color": "#c07c8a"
   },
   {
@@ -3446,7 +3517,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 51,
+   "count": 56,
    "color": "#9c3f2e"
   },
   {
@@ -3454,21 +3525,21 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 21
+   "count": 26
   },
   {
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
    "description": "pan, skillet",
-   "count": 9
+   "count": 11
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 8
+   "count": 11
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -3665,6 +3736,13 @@
    "count": 11
   },
   {
+   "id": "obj-weapon-cannon",
+   "name": "Cannon",
+   "type": "kind",
+   "description": "Cannon and the shot it fires. Cast iron (M64).",
+   "count": 5
+  },
+  {
    "id": "obj-weapon",
    "name": "Weapon",
    "type": "kind",
@@ -3726,14 +3804,14 @@
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
-   "count": 36
+   "count": 34
   },
   {
    "id": "obj-weapon-ranged-accessory",
    "name": "Accessory",
    "type": "kind",
    "description": "arrow, bolt, quiver",
-   "count": 18
+   "count": 16
   },
   {
    "id": "obj-weapon-ranged-bow",
@@ -4114,7 +4192,7 @@
    "name": "Container",
    "type": "use",
    "description": "You put something in it.",
-   "count": 169
+   "count": 170
   },
   {
    "id": "use:food",
@@ -4198,7 +4276,7 @@
    "name": "Ngons",
    "type": "tag",
    "description": "Built around a round cross-section: bowls, plates, pots, mugs, coins, rings, candles, barrels, buckets, logs, wheels, masts. Rule §2 counts their facets.",
-   "count": 248
+   "count": 253
   },
   {
    "id": "hero",
@@ -4220,7 +4298,7 @@
    "name": "Small",
    "type": "size",
    "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 854
+   "count": 859
   },
   {
    "id": "m",
@@ -4248,14 +4326,14 @@
    "name": "KayKit",
    "type": "tag",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 657
+   "count": 658
   },
   {
    "id": "qua",
    "name": "Quaternius",
    "type": "tag",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 220
+   "count": 223
   },
   {
    "id": "own",
@@ -4335,7 +4413,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-beam"
    ],
@@ -4390,7 +4468,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-beam"
    ],
@@ -4451,7 +4529,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-beam"
    ],
@@ -4506,7 +4584,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-beam"
    ],
@@ -4562,7 +4640,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "textile",
     "wood-beam"
@@ -4617,7 +4695,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -4684,7 +4762,7 @@
     "animation",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "skin",
     "textile"
@@ -4981,7 +5059,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "textile",
     "wood-beam"
@@ -5036,7 +5114,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "textile",
     "wood-beam"
@@ -5086,7 +5164,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "metal-silver"
    ]
   },
@@ -5147,7 +5225,7 @@
     "animation",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "skin",
     "textile"
    ],
@@ -5346,7 +5424,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "skin",
     "textile"
    ],
@@ -5526,7 +5604,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "robin-hood",
     "wood-beam"
@@ -5650,7 +5728,7 @@
     "animation",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "skin",
     "textile"
@@ -5848,7 +5926,7 @@
     "animation",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "skin",
     "textile"
@@ -6052,7 +6130,7 @@
     "animation",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "skin",
     "textile"
@@ -6238,7 +6316,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -6287,7 +6365,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-beam"
    ]
@@ -6337,7 +6415,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -6386,7 +6464,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -6446,7 +6524,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "paper"
    ],
    "variant": "v279"
@@ -6469,7 +6547,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 16592,
+   "bytes": 16588,
    "vtx": 418,
    "grounded": true,
    "centered": true,
@@ -6507,7 +6585,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "paper"
    ],
    "variant": "v279"
@@ -6611,7 +6689,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "metal-silver"
    ]
   },
@@ -6665,7 +6743,7 @@
    "tags": [
     "kay",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-steel",
     "metal-silver"
    ],
    "variant": "v220"
@@ -6714,7 +6792,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "metal-silver"
    ],
    "variant": "v220"
@@ -9085,7 +9163,7 @@
    "vpt": 1.31,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -9100,12 +9178,12 @@
    },
    "colors": [
     "#23562c",
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "textile",
     "wood-worked"
    ]
@@ -9200,7 +9278,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -9248,7 +9326,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -9303,7 +9381,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -9350,7 +9428,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -9405,7 +9483,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -9452,7 +9530,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -9493,20 +9571,20 @@
      0.523,
      0.523
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
     "cork",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -9607,18 +9685,18 @@
      0.047,
      0.945
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.797
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -9706,18 +9784,18 @@
      0.047,
      0.945
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.18
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -9759,20 +9837,20 @@
      0.523,
      0.523
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
     "cork",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -10016,19 +10094,19 @@
      0.156,
      0.156
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper"
    ]
   },
@@ -10066,19 +10144,19 @@
      0.156,
      0.156
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper"
    ],
    "variant": "v280"
@@ -10293,19 +10371,19 @@
      0.156,
      0.156
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#23562c",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper"
    ]
   },
@@ -10343,20 +10421,20 @@
      0.156,
      0.156
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper"
    ],
    "variant": "v280"
@@ -11180,18 +11258,18 @@
      0.031,
      0.031
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -11707,7 +11785,7 @@
    "vpt": 1.72,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ],
@@ -11725,7 +11803,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f",
     "#f2a93c"
@@ -11734,7 +11812,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -11989,7 +12067,7 @@
    "vpt": 1.3,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ],
@@ -11999,12 +12077,12 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -12037,7 +12115,7 @@
    "vpt": 1.3,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ],
@@ -12047,12 +12125,12 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -12180,7 +12258,7 @@
    "tris": 2040,
    "tpu": 5948,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 69608,
    "vtx": 1746,
@@ -12191,19 +12269,15 @@
    "dens": 126411,
    "anglePct": 30,
    "vpt": 0.86,
-   "grad": 0,
+   "grad": 0.22,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
-     0.031
+     0.711
     ],
     "1,0": [
      0.031,
      0.031
-    ],
-    "6,1": [
-     0.711,
-     0.711
     ],
     "5,2": [
      0.156,
@@ -12211,15 +12285,14 @@
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b",
+    "#5b5550",
     "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "bone",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v285"
@@ -12253,7 +12326,7 @@
    "vpt": 1.37,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -12263,12 +12336,12 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v285"
@@ -12302,7 +12375,7 @@
    "vpt": 1.51,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -12320,7 +12393,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f",
     "#f2a93c"
@@ -12329,7 +12402,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v285"
@@ -12350,7 +12423,7 @@
    "tris": 3894,
    "tpu": 11353,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 125980,
    "vtx": 3160,
@@ -12361,19 +12434,15 @@
    "dens": 224726,
    "anglePct": 37,
    "vpt": 0.81,
-   "grad": 0,
+   "grad": 0.16,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
-     0.031
+     0.711
     ],
     "1,0": [
      0.031,
      0.031
-    ],
-    "6,1": [
-     0.711,
-     0.711
     ],
     "5,2": [
      0.156,
@@ -12381,15 +12450,14 @@
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b",
+    "#5b5550",
     "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "bone",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -12409,7 +12477,7 @@
    "tris": 1854,
    "tpu": 5405,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 57916,
    "vtx": 1414,
@@ -12420,19 +12488,15 @@
    "dens": 19730,
    "anglePct": 44,
    "vpt": 0.76,
-   "grad": 0,
+   "grad": 0.09,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
-     0.031
+     0.711
     ],
     "1,0": [
      0.031,
      0.031
-    ],
-    "6,1": [
-     0.711,
-     0.711
     ],
     "5,2": [
      0.156,
@@ -12440,15 +12504,14 @@
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b",
+    "#5b5550",
     "#b3825f",
     "#d8d1bd"
    ],
    "tags": [
     "bone",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -12481,7 +12544,7 @@
    "vpt": 1.66,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -12499,7 +12562,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f",
     "#f2a93c"
@@ -12508,7 +12571,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -12545,19 +12608,19 @@
      0.281,
      0.719
     ],
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "animation",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "anim": [
@@ -12964,18 +13027,18 @@
      0.836,
      0.836
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -13012,18 +13075,18 @@
      0.836,
      0.836
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -13126,7 +13189,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -13175,7 +13238,7 @@
    "tags": [
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -13222,7 +13285,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -13265,7 +13328,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -13319,7 +13382,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -13366,7 +13429,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -13396,22 +13459,23 @@
    "vpt": 1.38,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.898,
      0.898
     ],
-    "6,1": [
+    "13,3": [
      0.711,
      0.711
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
+    "metal-iron-wrought",
     "modular"
    ]
   },
@@ -13456,7 +13520,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-planks"
    ]
@@ -14334,7 +14398,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ]
@@ -14365,7 +14429,7 @@
    "vpt": 3,
    "grad": 0.71,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.719,
      0.984
     ],
@@ -14375,13 +14439,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#8b7561"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ]
@@ -14428,7 +14492,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ]
@@ -14475,7 +14539,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ]
@@ -15082,7 +15146,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -15137,7 +15201,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -15184,7 +15248,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -15284,19 +15348,19 @@
      0.039,
      0.938
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.531
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-beam",
     "wood-worked"
@@ -15328,18 +15392,18 @@
    "vpt": 3,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -15368,7 +15432,7 @@
    "vpt": 3,
    "grad": 0.83,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ],
@@ -15382,14 +15446,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#d07b56",
     "#f2a93c"
    ],
    "tags": [
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -15418,18 +15482,18 @@
    "vpt": 3,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -15569,7 +15633,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -15814,7 +15878,7 @@
    "vpt": 0.72,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.094,
      0.094
     ],
@@ -15824,13 +15888,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#8b7561"
    ],
    "tags": [
     "food",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v276"
   },
@@ -15864,7 +15928,7 @@
    "vpt": 0.74,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.094,
      0.094
     ],
@@ -15874,13 +15938,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#8b7561"
    ],
    "tags": [
     "food",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v276"
   },
@@ -15921,7 +15985,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -16718,19 +16782,19 @@
      0.031,
      0.031
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -16766,7 +16830,7 @@
      0.031,
      0.031
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -16778,12 +16842,12 @@
    "colors": [
     "#23562c",
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "textile"
    ],
    "variant": "v255"
@@ -16821,7 +16885,7 @@
      0.031,
      0.031
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ],
@@ -16833,12 +16897,12 @@
    "colors": [
     "#23562c",
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "textile"
    ],
    "variant": "v255"
@@ -18697,7 +18761,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -18753,7 +18817,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -18801,7 +18865,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -18860,7 +18924,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "paper",
     "textile"
    ]
@@ -19317,7 +19381,7 @@
      0.047,
      0.938
     ],
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ],
@@ -19331,14 +19395,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d07b56",
     "#d9ae87"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam"
    ]
   },
@@ -19552,7 +19616,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19606,7 +19670,7 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19653,7 +19717,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -20367,7 +20431,7 @@
    "vpt": 3,
    "grad": 0.65,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.664
     ],
@@ -20381,7 +20445,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#d9ae87",
     "#f2a93c"
    ],
@@ -20389,7 +20453,7 @@
     "emissive",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-planks"
    ],
    "variant": "v50"
@@ -20423,7 +20487,7 @@
    "vpt": 3,
    "grad": 0.61,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.664
     ],
@@ -20437,14 +20501,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam",
     "wood-worked"
    ]
@@ -20465,7 +20529,7 @@
    "tris": 604,
    "tpu": 1761,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 23888,
    "vtx": 585,
@@ -20476,34 +20540,29 @@
    "dens": 12317,
    "anglePct": 16,
    "vpt": 0.97,
-   "grad": 0,
+   "grad": 0.75,
    "spread": {
     "2,0": [
      0.031,
      0.031
     ],
-    "15,3": [
+    "13,3": [
      0.031,
-     0.031
+     0.898
     ],
     "1,0": [
      0.836,
      0.836
-    ],
-    "6,1": [
-     0.898,
-     0.898
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam",
     "wood-worked"
    ]
@@ -20537,7 +20596,7 @@
    "vpt": 3,
    "grad": 0.59,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.664
     ],
@@ -20547,13 +20606,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v50"
@@ -20599,7 +20658,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-worked"
    ]
@@ -20637,18 +20696,18 @@
      0.219,
      0.773
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.492
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v248"
@@ -20686,18 +20745,18 @@
      0.109,
      0.664
     ],
-    "15,3": [
+    "13,3": [
      0.141,
      0.609
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -20734,18 +20793,18 @@
      0.219,
      0.773
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.406
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v248"
@@ -20844,7 +20903,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry",
     "wood-beam"
@@ -20893,7 +20952,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ],
@@ -21035,7 +21094,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ],
@@ -21333,7 +21392,7 @@
     "animation",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry",
     "wood-beam"
@@ -21483,7 +21542,7 @@
     "animation",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry",
     "wood-beam"
@@ -21581,7 +21640,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "stone-masonry"
    ]
@@ -22430,7 +22489,7 @@
    ],
    "tags": [
     "halloween",
-    "metal-iron",
+    "metal-iron-cast",
     "qua",
     "stone-masonry",
     "wood-beam"
@@ -22610,17 +22669,17 @@
      0.219,
      0.781
     ],
-    "15,3": [
+    "13,3": [
      0.711,
      0.961
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "qua",
     "wood-worked"
@@ -22656,7 +22715,7 @@
      0.031,
      0.406
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.094
     ],
@@ -22666,14 +22725,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f",
     "#f2a93c"
    ],
    "tags": [
     "halloween",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "wood-worked"
    ]
@@ -22711,18 +22770,18 @@
      0.031,
      0.406
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.094
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "halloween",
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "wood-worked"
    ]
@@ -23262,7 +23321,7 @@
    ],
    "tags": [
     "halloween",
-    "metal-iron",
+    "metal-iron-steel",
     "qua",
     "wood-beam"
    ]
@@ -23308,7 +23367,7 @@
    ],
    "tags": [
     "halloween",
-    "metal-iron",
+    "metal-iron-cast",
     "qua",
     "wood-planks"
    ]
@@ -23354,7 +23413,7 @@
    ],
    "tags": [
     "halloween",
-    "metal-iron",
+    "metal-iron-cast",
     "qua",
     "wood-planks"
    ]
@@ -23624,18 +23683,18 @@
      0.555,
      0.57
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.523
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "paper",
     "qua"
    ]
@@ -24265,18 +24324,18 @@
      0.336,
      0.664
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.406
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "qua",
     "robin-hood",
@@ -24302,7 +24361,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 382788,
+   "bytes": 382632,
    "vtx": 11049,
    "grounded": true,
    "centered": true,
@@ -24313,18 +24372,18 @@
    "vpt": 2.41,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "halloween",
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "qua"
    ]
   },
@@ -24357,16 +24416,16 @@
    "vpt": 1.06,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua"
    ]
   },
@@ -24404,18 +24463,18 @@
      0.961,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "wood-worked"
    ]
@@ -24457,18 +24516,18 @@
      0.648,
      0.773
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.156
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "wood-beam",
     "wood-worked"
@@ -24596,7 +24655,7 @@
     "#875b42"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "qua",
     "wood-beam"
@@ -24827,7 +24886,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
   },
@@ -24866,7 +24925,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
   },
@@ -24945,7 +25004,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
   },
@@ -25292,19 +25351,19 @@
      0.094,
      0.898
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-worked"
    ]
   },
@@ -25345,19 +25404,19 @@
      0.094,
      0.898
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam",
     "wood-worked"
    ]
@@ -25483,19 +25542,19 @@
      0.305,
      0.898
     ],
-    "15,3": [
+    "6,1": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "wood-beam"
    ]
   },
@@ -25721,18 +25780,18 @@
      0.18,
      0.813
     ],
-    "15,3": [
+    "6,1": [
      0.734,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-beam"
    ]
@@ -27218,7 +27277,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9220,
+   "bytes": 9224,
    "vtx": 224,
    "grounded": true,
    "minEdge": 0.033,
@@ -27232,7 +27291,7 @@
      0.297,
      0.695
     ],
-    "15,3": [
+    "6,1": [
      0.297,
      0.695
     ],
@@ -27242,13 +27301,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-beam"
    ]
@@ -27268,7 +27327,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 3748,
+   "bytes": 3752,
    "vtx": 64,
    "grounded": true,
    "minEdge": 0.033,
@@ -27282,7 +27341,7 @@
      0.297,
      0.695
     ],
-    "15,3": [
+    "6,1": [
      0.297,
      0.695
     ],
@@ -27292,13 +27351,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-beam"
    ]
@@ -27900,7 +27959,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10208,
+   "bytes": 10212,
    "vtx": 252,
    "grounded": true,
    "minEdge": 0.009,
@@ -27918,19 +27977,19 @@
      0.297,
      0.695
     ],
-    "15,3": [
+    "6,1": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "wood-beam"
    ]
@@ -28280,20 +28339,20 @@
      0.297,
      0.695
     ],
-    "15,3": [
+    "6,1": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "animation",
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "wood-beam",
     "wood-worked"
@@ -28336,20 +28395,20 @@
      0.297,
      0.695
     ],
-    "15,3": [
+    "6,1": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#b3825f"
    ],
    "tags": [
     "animation",
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "wood-beam",
     "wood-worked"
@@ -29070,6 +29129,47 @@
   },
   {
    "kit": "food-quaternius",
+   "name": "cooking-pot-2-steel",
+   "kind": "obj-kitchenware-cookware-pot",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 21760,
+   "vtx": 584,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00048,
+   "dens": 69282,
+   "anglePct": 33,
+   "vpt": 2.25,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#79757b"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "ngons",
+    "qua"
+   ],
+   "variant": "v294"
+  },
+  {
+   "kit": "food-quaternius",
    "name": "cooking-pot-2",
    "kind": "obj-kitchenware-cookware-pot",
    "size": "s",
@@ -29103,10 +29203,52 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "qua"
-   ]
+   ],
+   "variant": "v294"
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "cooking-pot-steel",
+   "kind": "obj-kitchenware-cookware-pot",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 20608,
+   "vtx": 548,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00083,
+   "dens": 37824,
+   "anglePct": 39,
+   "vpt": 2.11,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#79757b"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "ngons",
+    "qua"
+   ],
+   "variant": "v293"
   },
   {
    "kit": "food-quaternius",
@@ -29143,10 +29285,11 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "qua"
-   ]
+   ],
+   "variant": "v293"
   },
   {
    "kit": "food-quaternius",
@@ -29278,9 +29421,56 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
+  },
+  {
+   "kit": "food-quaternius",
+   "name": "frying-pan-steel",
+   "kind": "obj-kitchenware-cookware-pan",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 214,
+   "tpu": 624,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21036,
+   "vtx": 570,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00036,
+   "dens": 130342,
+   "anglePct": 12,
+   "vpt": 2.66,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.844
+    ],
+    "2,0": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#875b42"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "ngons",
+    "qua",
+    "wood-beam"
+   ],
+   "variant": "v295"
   },
   {
    "kit": "food-quaternius",
@@ -29322,11 +29512,12 @@
     "#875b42"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "qua",
     "wood-beam"
-   ]
+   ],
+   "variant": "v295"
   },
   {
    "kit": "food-quaternius",
@@ -29366,7 +29557,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
   },
@@ -29490,7 +29681,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "qua"
    ]
   },
@@ -34284,7 +34475,7 @@
    "vpt": 1.23,
    "grad": 0.7,
    "spread": {
-    "6,1": [
+    "15,3": [
      0.102,
      0.891
     ],
@@ -34292,7 +34483,7 @@
      0.102,
      0.414
     ],
-    "15,3": [
+    "13,3": [
      0.102,
      0.891
     ],
@@ -34302,7 +34493,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#d8d1bd",
     "#f2a93c"
@@ -34311,7 +34502,8 @@
     "emissive",
     "halloween",
     "ken",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "wax"
    ],
    "variant": "v223"
@@ -34345,7 +34537,7 @@
    "vpt": 1.33,
    "grad": 0.71,
    "spread": {
-    "6,1": [
+    "15,3": [
      0.102,
      0.891
     ],
@@ -34353,13 +34545,13 @@
      0.5,
      0.5
     ],
-    "15,3": [
+    "13,3": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#f2a93c"
    ],
@@ -34367,7 +34559,8 @@
     "emissive",
     "halloween",
     "ken",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ],
    "variant": "v223"
   },
@@ -34780,7 +34973,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v266"
   },
@@ -34826,7 +35019,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "stone-masonry"
    ],
    "variant": "v266"
@@ -34908,7 +35101,7 @@
      0.07,
      0.969
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.922
     ],
@@ -34922,7 +35115,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#b3825f",
     "#d8d1bd",
@@ -34933,7 +35126,7 @@
     "emissive",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wax",
     "wood-worked"
    ]
@@ -35183,19 +35376,19 @@
      0.289,
      0.766
     ],
-    "15,3": [
+    "13,3": [
      0.18,
      0.727
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam"
    ]
   },
@@ -35294,7 +35487,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "stone-masonry"
    ]
   },
@@ -35335,7 +35528,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v265"
   },
@@ -35417,7 +35610,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v265"
   },
@@ -35463,7 +35656,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "stone-masonry"
    ],
    "variant": "v265"
@@ -35587,7 +35780,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v290"
   },
@@ -35628,7 +35821,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v290"
   },
@@ -35674,7 +35867,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "stone-masonry"
    ]
   },
@@ -35955,17 +36148,17 @@
      0.07,
      0.969
     ],
-    "6,1": [
+    "15,3": [
      0.148,
      0.906
     ],
-    "15,3": [
+    "13,3": [
      0.328,
      0.891
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#f2a93c",
     "#ffffff"
@@ -35975,7 +36168,8 @@
     "glass",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -36011,7 +36205,7 @@
      0.07,
      0.969
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.906
     ],
@@ -36021,7 +36215,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#f2a93c",
     "#ffffff"
@@ -36031,7 +36225,8 @@
     "glass",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -36366,17 +36561,17 @@
      0.023,
      0.922
     ],
-    "6,1": [
+    "15,3": [
      0.086,
      0.844
     ],
-    "15,3": [
+    "13,3": [
      0.102,
      0.664
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#f2a93c"
    ],
@@ -36384,7 +36579,8 @@
     "emissive",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -36420,7 +36616,7 @@
      0.07,
      0.969
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.906
     ],
@@ -36430,7 +36626,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#875b42",
     "#f2a93c",
     "#ffffff"
@@ -36440,7 +36636,7 @@
     "glass",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam"
    ]
   },
@@ -36470,7 +36666,7 @@
    "vpt": 0.9,
    "grad": 0.72,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.102,
      0.664
     ],
@@ -36480,14 +36676,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "bone",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -36516,7 +36712,7 @@
    "vpt": 1.01,
    "grad": 0.73,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.328,
      0.891
     ],
@@ -36530,7 +36726,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d8d1bd"
    ],
@@ -36538,7 +36734,7 @@
     "bone",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam"
    ]
   },
@@ -36942,11 +37138,11 @@
      0.07,
      0.969
     ],
-    "6,1": [
+    "15,3": [
      0.148,
      0.906
     ],
-    "15,3": [
+    "13,3": [
      0.328,
      0.891
     ],
@@ -36956,8 +37152,8 @@
     ]
    },
    "colors": [
-    "#343745",
     "#563b2b",
+    "#5b5550",
     "#79757b",
     "#d8d1bd",
     "#f2a93c"
@@ -36967,7 +37163,8 @@
     "emissive",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "wood-bark"
    ]
   },
@@ -37450,17 +37647,17 @@
      0.281,
      0.773
     ],
-    "15,3": [
+    "13,3": [
      0.961,
      0.961
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -37794,22 +37991,82 @@
      0.094,
      0.094
     ],
-    "15,3": [
+    "13,3": [
      0.711,
      0.711
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "textile",
     "wood-worked"
    ]
+  },
+  {
+   "kit": "medieval-village",
+   "name": "cauldron-steel",
+   "kind": "obj-kitchenware-cookware-pot",
+   "use": [
+    "container"
+   ],
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.3
+   ],
+   "tris": 1238,
+   "tpu": 3609,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 54784,
+   "vtx": 1435,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00055,
+   "dens": 25717,
+   "anglePct": 18,
+   "vpt": 1.16,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.219,
+     0.219
+    ],
+    "15,3": [
+     0.961,
+     0.961
+    ],
+    "14,3": [
+     0.156,
+     0.156
+    ],
+    "1,0": [
+     0.961,
+     0.961
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#79757b",
+    "#8b7561",
+    "#b3825f"
+   ],
+   "tags": [
+    "food",
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "ngons"
+   ],
+   "variant": "v296"
   },
   {
    "kit": "medieval-village",
@@ -37840,11 +38097,11 @@
    "vpt": 1.16,
    "grad": 0,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.219,
      0.219
     ],
-    "15,3": [
+    "6,1": [
      0.961,
      0.961
     ],
@@ -37859,15 +38116,17 @@
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
     "food",
-    "metal-iron",
+    "metal-iron-cast",
+    "metal-iron-wrought",
     "ngons"
-   ]
+   ],
+   "variant": "v296"
   },
   {
    "kit": "medieval-village",
@@ -38681,7 +38940,7 @@
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "wood-bark",
     "wood-log"
    ]
@@ -38817,18 +39076,18 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -39225,7 +39484,7 @@
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-beam"
    ]
@@ -46670,7 +46929,7 @@
    "vpt": 0.92,
    "grad": 0.34,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.508,
      0.852
     ],
@@ -46680,12 +46939,12 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#f2a93c"
    ],
    "tags": [
     "emissive",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -46809,18 +47068,18 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "pirate",
     "wood-worked"
@@ -47072,7 +47331,7 @@
   {
    "kit": "pirate-kit",
    "name": "cannon-ball",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-cannon",
    "use": [
     "weapon"
    ],
@@ -47107,7 +47366,7 @@
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "pirate"
    ]
@@ -47115,7 +47374,7 @@
   {
    "kit": "pirate-kit",
    "name": "cannon-mobile",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-cannon",
    "use": [
     "weapon"
    ],
@@ -47130,7 +47389,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 31500,
+   "bytes": 31068,
    "vtx": 766,
    "grounded": true,
    "centered": true,
@@ -47149,19 +47408,20 @@
      0.047,
      0.945
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#875b42"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
+    "metal-iron-wrought",
     "pirate",
     "wood-beam"
    ],
@@ -47170,7 +47430,7 @@
   {
    "kit": "pirate-kit",
    "name": "cannon",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-cannon",
    "use": [
     "weapon"
    ],
@@ -47211,7 +47471,7 @@
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "pirate",
     "wood-beam"
@@ -47234,9 +47494,9 @@
    "tris": 232,
    "tpu": 676,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 2,
-   "bytes": 44536,
+   "bytes": 43912,
    "vtx": 696,
    "grounded": true,
    "centered": true,
@@ -47245,13 +47505,9 @@
    "dens": 7595,
    "anglePct": 85,
    "vpt": 3,
-   "grad": 0.65,
+   "grad": 0.67,
    "spread": {
-    "6,1": [
-     0.297,
-     0.5
-    ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.695
     ],
@@ -47261,14 +47517,13 @@
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "animation",
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "wood-worked"
    ],
@@ -47411,19 +47666,19 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "textile",
     "wood-beam"
@@ -47445,7 +47700,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11112,
+   "bytes": 10936,
    "vtx": 260,
    "grounded": true,
    "minEdge": 0.015,
@@ -47463,19 +47718,19 @@
      0.094,
      0.898
     ],
-    "15,3": [
+    "6,1": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "textile",
     "wood-beam"
@@ -47516,19 +47771,19 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "textile",
     "wood-beam"
@@ -47550,7 +47805,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11096,
+   "bytes": 10920,
    "vtx": 260,
    "grounded": true,
    "minEdge": 0.015,
@@ -47568,19 +47823,19 @@
      0.094,
      0.898
     ],
-    "15,3": [
+    "6,1": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "textile",
     "wood-beam"
@@ -49130,17 +49385,17 @@
    "vpt": 2.98,
    "grad": 0.7,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "pirate",
     "qua"
@@ -49179,17 +49434,17 @@
      0.219,
      0.781
     ],
-    "15,3": [
+    "13,3": [
      0.203,
      0.789
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "pirate",
     "qua",
@@ -49343,7 +49598,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "cannon",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-cannon",
    "use": [
     "weapon"
    ],
@@ -49369,7 +49624,7 @@
    "vpt": 1.21,
    "grad": 0.66,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.773
     ],
@@ -49384,11 +49639,12 @@
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#875b42"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
+    "metal-iron-wrought",
     "ngons",
     "pirate",
     "qua",
@@ -49398,7 +49654,7 @@
   {
    "kit": "pirate-quaternius",
    "name": "cannonball",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-cannon",
    "use": [
     "weapon"
    ],
@@ -49433,7 +49689,7 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "pirate",
     "qua"
@@ -49465,7 +49721,7 @@
    "vpt": 2.09,
    "grad": 0.65,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ],
@@ -49492,7 +49748,7 @@
    },
    "colors": [
     "#23562c",
-    "#79757b",
+    "#5b5550",
     "#8b7561",
     "#d8d1bd",
     "#d9ae87",
@@ -49503,7 +49759,7 @@
     "cork",
     "glass",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "qua",
     "wood-planks"
@@ -49542,17 +49798,17 @@
      0.352,
      0.641
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "qua",
     "wood-worked"
@@ -49936,13 +50192,13 @@
      0.219,
      0.961
     ],
-    "15,3": [
+    "6,1": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87",
     "#ffffff"
@@ -49950,7 +50206,7 @@
    "tags": [
     "glass",
     "hero",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "qua",
     "wood-beam",
@@ -49987,7 +50243,7 @@
      0.031,
      0.898
     ],
-    "15,3": [
+    "6,1": [
      0.047,
      0.945
     ],
@@ -49997,7 +50253,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87",
     "#ffffff"
@@ -50005,7 +50261,7 @@
    "tags": [
     "glass",
     "hero",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "qua",
     "wood-beam",
@@ -50070,7 +50326,7 @@
    "tags": [
     "glass",
     "hero",
-    "metal-iron",
+    "metal-iron-cast",
     "pirate",
     "qua",
     "rope",
@@ -50121,14 +50377,14 @@
      0.172,
      0.828
     ],
-    "6,1": [
+    "15,3": [
      0.031,
      0.773
     ]
    },
    "colors": [
-    "#343745",
     "#563b2b",
+    "#79757b",
     "#875b42",
     "#8b7561",
     "#d9ae87"
@@ -50136,7 +50392,7 @@
    "tags": [
     "animation",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "qua",
     "skin",
@@ -50223,7 +50479,7 @@
     "halloween",
     "leather",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "qua",
     "skin",
@@ -50308,7 +50564,7 @@
    "tags": [
     "animation",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "qua",
     "skin",
@@ -50570,19 +50826,19 @@
      0.156,
      0.844
     ],
-    "15,3": [
+    "13,3": [
      0.25,
      0.742
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "plural",
     "qua",
     "robin-hood",
@@ -50677,7 +50933,7 @@
      0.031,
      0.711
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.961
     ],
@@ -50695,7 +50951,7 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#d8d1bd",
@@ -50703,7 +50959,7 @@
    ],
    "tags": [
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "qua",
     "rope",
@@ -50749,7 +51005,7 @@
      0.836,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ],
@@ -50759,14 +51015,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "qua",
     "rope",
@@ -50807,14 +51063,14 @@
      0.156,
      0.836
     ],
-    "6,1": [
+    "15,3": [
      0.031,
      0.773
     ]
    },
    "colors": [
-    "#343745",
     "#563b2b",
+    "#79757b",
     "#d8d1bd"
    ],
    "tags": [
@@ -50822,7 +51078,7 @@
     "bone",
     "halloween",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "qua"
    ],
@@ -50882,14 +51138,14 @@
      0.047,
      0.945
     ],
-    "6,1": [
+    "15,3": [
      0.031,
      0.773
     ]
    },
    "colors": [
-    "#343745",
     "#563b2b",
+    "#79757b",
     "#8b7561",
     "#d8d1bd"
    ],
@@ -50898,7 +51154,7 @@
     "bone",
     "halloween",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "qua"
    ],
@@ -51269,18 +51525,18 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.297,
      0.695
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -51706,7 +51962,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 2,
-   "bytes": 15960,
+   "bytes": 15956,
    "vtx": 230,
    "grounded": true,
    "centered": true,
@@ -51721,7 +51977,7 @@
      0.094,
      0.898
     ],
-    "6,1": [
+    "13,3": [
      0.406,
      0.695
     ],
@@ -51731,14 +51987,15 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#7f3927"
    ],
    "tags": [
     "animation",
     "ken",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "plastic"
    ],
    "anim": [
@@ -51781,20 +52038,20 @@
      0.094,
      0.898
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#d07b56",
     "#f2a93c"
    ],
    "tags": [
     "ken",
     "metal-gold",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -52152,7 +52409,7 @@
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-steel",
     "plastic"
    ]
   },
@@ -52599,7 +52856,7 @@
    "vpt": 0.51,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.586,
      0.586
     ],
@@ -52610,11 +52867,11 @@
    },
    "colors": [
     "#1367a6",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "liquid",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons"
    ]
   },
@@ -53031,7 +53288,7 @@
      0.961,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.586,
      0.586
     ],
@@ -53042,12 +53299,12 @@
    },
    "colors": [
     "#1367a6",
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
     "liquid",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "wood-worked"
    ]
@@ -53420,18 +53677,18 @@
      0.195,
      0.195
     ],
-    "6,1": [
+    "15,3": [
      0.406,
      0.406
     ]
    },
    "colors": [
-    "#343745",
+    "#79757b",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-worked"
    ]
@@ -53521,18 +53778,18 @@
      0.195,
      0.195
     ],
-    "6,1": [
+    "15,3": [
      0.406,
      0.406
     ]
    },
    "colors": [
-    "#343745",
+    "#79757b",
     "#8b7561",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "rope",
     "wood-worked"
    ]
@@ -53964,18 +54221,18 @@
      0.523,
      0.523
     ],
-    "6,1": [
+    "15,3": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#343745",
+    "#79757b",
     "#875b42",
     "#8b7561"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "rope",
     "wood-beam"
    ]
@@ -54103,17 +54360,17 @@
      0.313,
      0.68
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-worked"
@@ -54494,17 +54751,17 @@
      0.219,
      0.781
     ],
-    "15,3": [
+    "13,3": [
      0.055,
      0.117
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-worked"
@@ -54722,17 +54979,17 @@
      0.148,
      0.844
     ],
-    "6,1": [
+    "15,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#343745",
+    "#79757b",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "wood-worked"
    ]
@@ -54805,7 +55062,7 @@
    "vpt": 2.94,
    "grad": 0.67,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ],
@@ -54815,11 +55072,11 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-planks"
@@ -57813,17 +58070,17 @@
    "vpt": 3,
    "grad": 0.77,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.773
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v12"
   },
@@ -57853,17 +58110,17 @@
    "vpt": 3,
    "grad": 0.77,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.773
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "plural"
    ],
    "variant": "v14"
@@ -57894,17 +58151,17 @@
    "vpt": 3,
    "grad": 0.77,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.773
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "plural"
    ],
    "variant": "v15"
@@ -57935,17 +58192,17 @@
    "vpt": 3,
    "grad": 0.77,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.773
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "plural"
    ],
    "variant": "v16"
@@ -57980,19 +58237,19 @@
      0.266,
      0.836
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.773
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "plural"
    ],
    "variant": "v13"
@@ -58012,7 +58269,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11824,
+   "bytes": 11676,
    "vtx": 300,
    "grounded": true,
    "centered": true,
@@ -58023,17 +58280,17 @@
    "vpt": 3,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v17"
   },
@@ -58063,17 +58320,17 @@
    "vpt": 3,
    "grad": 0.73,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.734
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v18"
   },
@@ -58103,17 +58360,17 @@
    "vpt": 3,
    "grad": 0.73,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.734
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v19"
   },
@@ -58132,7 +58389,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 38340,
+   "bytes": 38192,
    "vtx": 1080,
    "grounded": true,
    "centered": true,
@@ -58143,17 +58400,17 @@
    "vpt": 3,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v20"
   },
@@ -58228,17 +58485,17 @@
    "vpt": 1.25,
    "grad": 0.68,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.156,
      0.836
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons"
    ]
   },
@@ -58258,9 +58515,9 @@
    "tris": 2736,
    "tpu": 7977,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 280776,
+   "bytes": 280620,
    "vtx": 8208,
    "grounded": true,
    "centered": true,
@@ -58269,24 +58526,19 @@
    "dens": 93987,
    "anglePct": 11,
    "vpt": 3,
-   "grad": 0.89,
+   "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
-    ],
-    "6,1": [
-     0.258,
-     0.711
     ]
    },
    "colors": [
-    "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -58308,7 +58560,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 160320,
+   "bytes": 160172,
    "vtx": 4668,
    "grounded": true,
    "centered": true,
@@ -58327,19 +58579,19 @@
      0,
      0.477
     ],
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam",
     "wood-planks"
    ]
@@ -58362,7 +58614,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 118728,
+   "bytes": 118580,
    "vtx": 3444,
    "grounded": true,
    "centered": true,
@@ -58373,17 +58625,17 @@
    "vpt": 3,
    "grad": 0.9,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.047,
      0.945
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -60550,7 +60802,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -60591,9 +60843,10 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons"
-   ]
+   ],
+   "variant": "v283"
   },
   {
    "kit": "restaurant",
@@ -60632,7 +60885,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v283"
   },
@@ -60679,6 +60932,47 @@
   },
   {
    "kit": "restaurant",
+   "name": "pan-006-cast",
+   "kind": "obj-kitchenware-cookware-pan",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 278,
+   "tpu": 810,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12296,
+   "vtx": 288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0005,
+   "dens": 56308,
+   "anglePct": 42,
+   "vpt": 1.04,
+   "grad": 0.38,
+   "spread": {
+    "6,1": [
+     0.297,
+     0.68
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "ngons"
+   ],
+   "variant": "v297"
+  },
+  {
+   "kit": "restaurant",
    "name": "pan-006",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
@@ -60713,9 +61007,10 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons"
-   ]
+   ],
+   "variant": "v297"
   },
   {
    "kit": "restaurant",
@@ -60753,7 +61048,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons"
    ],
    "variant": "v148"
@@ -60794,7 +61089,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons"
    ],
    "variant": "v148"
@@ -60919,8 +61214,9 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
-   ]
+    "metal-iron-steel"
+   ],
+   "variant": "v283"
   },
   {
    "kit": "restaurant",
@@ -60972,7 +61268,7 @@
    "tags": [
     "food",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons"
    ],
    "variant": "v149"
@@ -61016,7 +61312,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons"
    ],
    "variant": "v149"
@@ -61060,7 +61356,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v283"
   },
@@ -61093,7 +61389,7 @@
    "vpt": 1.19,
    "grad": 0.61,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.219,
      0.867
     ],
@@ -61111,7 +61407,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#68872d",
     "#d07b56",
     "#f2a93c"
@@ -61119,7 +61415,7 @@
    "tags": [
     "food",
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -61161,7 +61457,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons"
    ],
    "variant": "v149"
@@ -62322,19 +62618,19 @@
      0.273,
      0.836
     ],
-    "15,3": [
+    "13,3": [
      0.156,
      0.836
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "hero",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "robin-hood"
    ]
@@ -62373,19 +62669,19 @@
      0.297,
      0.852
     ],
-    "15,3": [
+    "13,3": [
      0.156,
      0.836
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "hero",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "qua",
     "robin-hood"
    ]
@@ -62704,7 +63000,7 @@
      0.195,
      0.797
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
@@ -62712,13 +63008,13 @@
    "colors": [
     "#343745",
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "hero",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper",
     "qua",
     "robin-hood"
@@ -62759,19 +63055,19 @@
      0.148,
      0.844
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
     "#343745",
-    "#79757b",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper",
     "qua",
     "robin-hood"
@@ -63071,16 +63367,16 @@
    "vpt": 2.8,
    "grad": 0.7,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua"
    ]
   },
@@ -63188,16 +63484,16 @@
    "vpt": 2.77,
    "grad": 0.7,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua"
    ]
   },
@@ -63383,16 +63679,16 @@
    "vpt": 1.94,
    "grad": 0.62,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.344,
      0.961
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "qua"
    ]
   },
@@ -64926,7 +65222,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -64983,7 +65279,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "textile",
     "wood-beam"
@@ -65100,22 +65396,23 @@
    "vpt": 1.03,
    "grad": 0.45,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.211,
      0.711
     ],
-    "6,1": [
+    "15,3": [
      0.789,
      0.805
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "ngons"
    ]
   },
@@ -65163,7 +65460,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-planks"
    ]
   },
@@ -65236,7 +65533,7 @@
     "hero",
     "kay",
     "metal-gold",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "robin-hood",
     "special"
@@ -65261,9 +65558,9 @@
    "tris": 1144,
    "tpu": 3335,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 4,
-   "bytes": 122092,
+   "bytes": 121560,
    "vtx": 3432,
    "grounded": true,
    "minEdge": 0.001,
@@ -65276,21 +65573,16 @@
     "15,3": [
      0.047,
      0.945
-    ],
-    "6,1": [
-     0.094,
-     0.984
     ]
    },
    "colors": [
-    "#343745",
     "#79757b"
    ],
    "tags": [
     "animation",
     "hero",
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ],
    "anim": [
     "spin"
@@ -65340,7 +65632,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-planks"
    ]
@@ -65363,7 +65655,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 116784,
+   "bytes": 116472,
    "vtx": 3342,
    "grounded": true,
    "centered": true,
@@ -65378,7 +65670,7 @@
      0.039,
      0.938
     ],
-    "6,1": [
+    "13,3": [
      0.086,
      0.797
     ],
@@ -65396,7 +65688,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#875b42",
     "#8b7561",
@@ -65406,7 +65698,8 @@
     "animation",
     "hero",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "ngons",
     "robin-hood",
     "textile",
@@ -65471,7 +65764,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -65494,7 +65787,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 93784,
+   "bytes": 93576,
    "vtx": 2694,
    "grounded": true,
    "centered": true,
@@ -65505,7 +65798,7 @@
    "vpt": 3,
    "grad": 0.57,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.281,
      0.477
     ],
@@ -65523,7 +65816,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#875b42",
     "#d9ae87"
@@ -65531,7 +65824,8 @@
    "tags": [
     "animation",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "ngons",
     "wood-beam",
     "wood-planks"
@@ -65589,7 +65883,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam",
     "wood-planks"
    ]
@@ -65628,7 +65922,7 @@
      0.383,
      0.984
     ],
-    "15,3": [
+    "13,3": [
      0,
      0.891
     ],
@@ -65639,14 +65933,14 @@
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "paper"
    ]
   },
@@ -65749,7 +66043,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-planks"
    ]
   },
@@ -65771,7 +66065,7 @@
    "mat": 2,
    "bands": 3,
    "calls": 3,
-   "bytes": 82168,
+   "bytes": 81828,
    "vtx": 2316,
    "grounded": true,
    "centered": true,
@@ -65786,7 +66080,7 @@
      0,
      0.75
     ],
-    "6,1": [
+    "13,3": [
      0.047,
      0.945
     ],
@@ -65796,7 +66090,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#d8d1bd",
     "#ffffff"
@@ -65805,7 +66099,8 @@
     "glass",
     "hero",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -65854,7 +66149,7 @@
    "tags": [
     "glass",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "robin-hood",
     "wood-planks"
@@ -66024,17 +66319,17 @@
    "vpt": 3,
    "grad": 0.34,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.336
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons"
    ]
   },
@@ -66141,7 +66436,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "special",
     "wood-planks"
    ],
@@ -66206,7 +66501,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "special",
     "wood-planks"
    ],
@@ -66271,7 +66566,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "special",
     "wood-planks"
    ],
@@ -66331,7 +66626,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -66468,7 +66763,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "wood-planks"
    ]
@@ -66517,7 +66812,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-planks"
    ]
@@ -66551,17 +66846,17 @@
    "vpt": 1.12,
    "grad": 0.26,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.273,
      0.531
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ],
    "variant": "v201"
   },
@@ -66594,17 +66889,17 @@
    "vpt": 3,
    "grad": 0.54,
    "spread": {
-    "15,3": [
+    "13,3": [
      0,
      0.539
     ]
    },
    "colors": [
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons"
    ],
    "variant": "v201"
@@ -66653,7 +66948,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-planks"
    ],
@@ -66703,7 +66998,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-planks"
    ],
@@ -66753,7 +67048,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-planks"
    ],
@@ -66803,7 +67098,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-planks"
    ],
@@ -66863,7 +67158,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -66886,7 +67181,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 37080,
+   "bytes": 36848,
    "vtx": 1020,
    "grounded": true,
    "centered": true,
@@ -66897,17 +67192,17 @@
    "vpt": 3,
    "grad": 0.89,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.016,
      0.906
     ]
    },
    "colors": [
-    "#343745"
+    "#5b5550"
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -67065,7 +67360,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-planks"
    ]
   },
@@ -67113,7 +67408,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "rope"
    ],
    "variant": "v202"
@@ -67157,7 +67452,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ],
    "variant": "v202"
   },
@@ -67202,19 +67497,19 @@
      0.148,
      0.844
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d8d1bd",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "pirate",
     "qua",
     "robin-hood",
@@ -67408,7 +67703,7 @@
    "vpt": 1.35,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.133,
      0.813
     ],
@@ -67422,14 +67717,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "textile",
     "wood-worked"
@@ -67520,7 +67815,7 @@
      0.125,
      0.789
     ],
-    "15,3": [
+    "13,3": [
      0.133,
      0.813
     ],
@@ -67530,14 +67825,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "textile",
     "wood-worked"
@@ -67595,7 +67890,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -67650,7 +67945,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -67840,7 +68135,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -67882,13 +68177,13 @@
      0.344,
      0.898
     ],
-    "6,1": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#d8d1bd"
    ],
@@ -67896,7 +68191,8 @@
     "bone",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -67936,13 +68232,13 @@
      0.344,
      0.344
     ],
-    "6,1": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#d8d1bd"
    ],
@@ -67950,7 +68246,8 @@
     "bone",
     "halloween",
     "kay",
-    "metal-iron"
+    "metal-iron-steel",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -68044,14 +68341,14 @@
      0.039,
      0.461
     ],
-    "15,3": [
+    "13,3": [
      0.375,
      0.75
     ]
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f"
    ],
@@ -68059,7 +68356,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "wood-worked"
    ],
@@ -68157,7 +68454,7 @@
     "bone",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ],
    "variant": "v221"
@@ -68208,7 +68505,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ],
    "variant": "v221"
@@ -68242,7 +68539,7 @@
    "vpt": 1.33,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.344,
      0.344
     ],
@@ -68256,14 +68553,14 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#875b42"
    ],
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "textile",
     "wood-beam"
@@ -68315,7 +68612,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ]
   },
@@ -68365,7 +68662,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "wood-beam"
    ]
@@ -68426,7 +68723,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "robin-hood",
     "textile",
@@ -68687,7 +68984,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ],
    "anim": [
@@ -68840,7 +69137,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 10,
-   "bytes": 5133716,
+   "bytes": 4940728,
    "vtx": 15834,
    "grounded": true,
    "centered": true,
@@ -68863,13 +69160,13 @@
      0,
      0.672
     ],
-    "6,1": [
+    "15,3": [
      0.586,
      0.961
     ]
    },
    "colors": [
-    "#343745",
+    "#79757b",
     "#7f3927",
     "#8b7561",
     "#d8d1bd"
@@ -68879,7 +69176,7 @@
     "bone",
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ],
    "anim": [
@@ -69032,7 +69329,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 10,
-   "bytes": 5265112,
+   "bytes": 5072068,
    "vtx": 17802,
    "grounded": true,
    "centered": true,
@@ -69055,7 +69352,7 @@
      0,
      0.688
     ],
-    "6,1": [
+    "15,3": [
      0.047,
      0.945
     ],
@@ -69065,8 +69362,8 @@
     ]
    },
    "colors": [
-    "#343745",
     "#563b2b",
+    "#79757b",
     "#7f3927",
     "#8b7561",
     "#d8d1bd"
@@ -69077,7 +69374,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ],
    "anim": [
@@ -69350,7 +69647,7 @@
     "halloween",
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "paper"
    ]
   },
@@ -69569,7 +69866,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ],
    "variant": "v256"
@@ -69619,7 +69916,7 @@
    "tags": [
     "halloween",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam"
    ],
    "variant": "v256"
@@ -69662,7 +69959,7 @@
     "#79757b"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own"
    ]
   },
@@ -69828,17 +70125,17 @@
      0.156,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.469
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-worked"
    ]
@@ -69971,18 +70268,18 @@
      0.523,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.055,
      0.938
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-beam",
     "wood-planks"
@@ -70021,17 +70318,17 @@
      0.055,
      0.938
     ],
-    "15,3": [
+    "13,3": [
      0.055,
      0.938
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-worked"
    ]
@@ -70172,16 +70469,16 @@
    "vpt": 1.67,
    "grad": 0.88,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.055,
      0.938
     ]
    },
    "colors": [
-    "#79757b"
+    "#343745"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "own"
    ]
   },
@@ -70233,7 +70530,7 @@
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "rope",
     "wood-worked"
@@ -70288,7 +70585,7 @@
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "rope",
     "wood-worked"
@@ -70349,7 +70646,7 @@
    ],
    "tags": [
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "rope",
     "wood-worked"
@@ -70399,7 +70696,7 @@
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "wood-worked"
    ]
@@ -70438,7 +70735,7 @@
      0.055,
      0.938
     ],
-    "15,3": [
+    "13,3": [
      0.289,
      0.875
     ],
@@ -70449,13 +70746,13 @@
    },
    "colors": [
     "#563b2b",
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#8b7561"
    ],
    "tags": [
     "leather",
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "rope",
     "textile",
@@ -70513,7 +70810,7 @@
    ],
    "tags": [
     "bone",
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "robin-hood",
     "rope",
@@ -70573,7 +70870,7 @@
    ],
    "tags": [
     "bone",
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "robin-hood",
     "rope",
@@ -70611,16 +70908,16 @@
    "vpt": 1.19,
    "grad": 0,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#343745"
+    "#5b5550"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own"
    ]
   },
@@ -70672,7 +70969,7 @@
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-steel",
     "own",
     "wood-beam"
    ]
@@ -70930,18 +71227,18 @@
      0.711,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.648
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-beam",
     "wood-planks"
@@ -70985,7 +71282,7 @@
      0.711,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.648
     ],
@@ -70996,13 +71293,13 @@
    },
    "colors": [
     "#1367a6",
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
     "liquid",
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-beam",
     "wood-planks"
@@ -71816,17 +72113,17 @@
    "vpt": 1.16,
    "grad": 0.79,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#79757b"
+    "#343745"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v268"
   },
@@ -71856,22 +72153,23 @@
    "vpt": 1.1,
    "grad": 0.79,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.102,
      0.891
     ],
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ],
    "variant": "v268"
   },
@@ -71901,17 +72199,17 @@
    "vpt": 1.09,
    "grad": 0.79,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#79757b"
+    "#343745"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast"
    ],
    "variant": "v268"
   },
@@ -72560,22 +72858,23 @@
    "vpt": 1.7,
    "grad": 0.79,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.102,
      0.891
     ],
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -72608,18 +72907,19 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -72648,22 +72948,23 @@
    "vpt": 1.23,
    "grad": 0.79,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.102,
      0.891
     ],
-    "15,3": [
+    "6,1": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -72696,18 +72997,19 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.297,
      0.695
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -72740,18 +73042,19 @@
      0.102,
      0.891
     ],
-    "15,3": [
+    "13,3": [
      0.297,
      0.695
     ]
    },
    "colors": [
     "#343745",
-    "#79757b"
+    "#5b5550"
    ],
    "tags": [
     "ken",
-    "metal-iron"
+    "metal-iron-cast",
+    "metal-iron-wrought"
    ]
   },
   {
@@ -73176,7 +73479,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 21520,
+   "bytes": 21224,
    "vtx": 527,
    "grounded": true,
    "centered": true,
@@ -73191,18 +73494,18 @@
      0.047,
      0.945
     ],
-    "15,3": [
+    "13,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42"
    ],
    "tags": [
     "ken",
-    "metal-iron",
+    "metal-iron-wrought",
     "wood-beam"
    ]
   },
@@ -73252,13 +73555,13 @@
      0.445,
      0.492
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#d8d1bd",
@@ -73267,7 +73570,7 @@
    "tags": [
     "emissive",
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "rope",
@@ -73322,13 +73625,13 @@
      0.445,
      0.492
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#d8d1bd",
@@ -73337,7 +73640,7 @@
    "tags": [
     "emissive",
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "rope",
@@ -73364,7 +73667,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 91616,
+   "bytes": 91612,
    "vtx": 2652,
    "gridMod": true,
    "grounded": true,
@@ -73392,13 +73695,13 @@
      0.336,
      0.5
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#7f3927",
     "#8b7561",
     "#d8d1bd",
@@ -73407,7 +73710,7 @@
    "tags": [
     "emissive",
     "hero",
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "rope",
@@ -73475,7 +73778,7 @@
     "emissive",
     "glass",
     "hero",
-    "metal-iron",
+    "metal-iron-cast",
     "ngons",
     "own",
     "wood-beam"
@@ -73514,17 +73817,17 @@
      0.406,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.648,
      0.648
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "pirate",
     "wood-worked"
@@ -73579,7 +73882,7 @@
    ],
    "tags": [
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "pirate",
     "textile"
    ]
@@ -73618,17 +73921,17 @@
      0.344,
      0.656
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-worked"
@@ -73652,7 +73955,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25368,
+   "bytes": 25364,
    "vtx": 660,
    "gridMod": true,
    "grounded": true,
@@ -73668,17 +73971,17 @@
      0.344,
      0.648
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-worked"
@@ -73719,17 +74022,17 @@
      0.219,
      0.781
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "ngons",
     "own",
     "wood-worked"
@@ -73765,7 +74068,7 @@
      0.32,
      0.68
     ],
-    "15,3": [
+    "13,3": [
      0.195,
      0.797
     ],
@@ -73775,12 +74078,12 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#875b42",
     "#8b7561"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "rope",
     "wood-beam"
@@ -74446,16 +74749,16 @@
    "vpt": 1.93,
    "grad": 0.7,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#79757b"
+    "#343745"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "own"
    ]
@@ -75092,7 +75395,7 @@
     "#b3825f"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "modular",
     "own",
     "wood-worked"
@@ -75173,7 +75476,7 @@
      0.148,
      0.844
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ],
@@ -75183,7 +75486,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#f2a93c",
@@ -75192,7 +75495,7 @@
    "tags": [
     "emissive",
     "glass",
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-beam"
    ],
@@ -75237,13 +75540,13 @@
      0.148,
      0.844
     ],
-    "6,1": [
+    "13,3": [
      0.148,
      0.844
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#875b42",
     "#8b7561",
     "#f2a93c",
@@ -75252,7 +75555,7 @@
    "tags": [
     "emissive",
     "glass",
-    "metal-iron",
+    "metal-iron-wrought",
     "own",
     "wood-beam"
    ],
@@ -76488,7 +76791,7 @@
      0.633,
      0.992
     ],
-    "15,3": [
+    "6,1": [
      0.148,
      0.844
     ],
@@ -76498,12 +76801,12 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#343745",
     "#875b42",
     "#d9ae87"
    ],
    "tags": [
-    "metal-iron",
+    "metal-iron-cast",
     "own",
     "wood-beam",
     "wood-planks"
@@ -79777,7 +80080,7 @@
      0.125,
      0.852
     ],
-    "15,3": [
+    "13,3": [
      0.047,
      0.969
     ],
@@ -79787,13 +80090,13 @@
     ]
    },
    "colors": [
-    "#79757b",
+    "#5b5550",
     "#7f3927",
     "#b3825f"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "textile",
     "wood-worked"
@@ -79832,7 +80135,7 @@
      0.086,
      0.594
     ],
-    "15,3": [
+    "13,3": [
      0.258,
      0.695
     ],
@@ -79843,12 +80146,12 @@
    },
    "colors": [
     "#1367a6",
-    "#79757b",
+    "#5b5550",
     "#8b7561"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-wrought",
     "robin-hood",
     "textile"
    ]
@@ -79908,7 +80211,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -79968,7 +80271,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -80022,7 +80325,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -80182,7 +80485,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "rope",
     "textile",
@@ -80243,7 +80546,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "robin-hood",
     "rope",
     "textile",
@@ -80294,7 +80597,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ]
   },
@@ -80385,7 +80688,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "plural"
    ],
    "variant": "v253"
@@ -80429,7 +80732,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ],
    "variant": "v253"
   },
@@ -80477,7 +80780,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "plural",
     "wood-worked"
    ],
@@ -80527,7 +80830,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ],
    "variant": "v254"
@@ -80586,7 +80889,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "textile",
     "wood-beam"
@@ -80641,7 +80944,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -80690,7 +80993,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ]
   },
@@ -80743,7 +81046,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile",
     "wood-beam"
    ]
@@ -80798,7 +81101,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-beam",
     "wood-worked"
    ]
@@ -80853,7 +81156,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "wood-worked"
    ]
   },
@@ -80891,7 +81194,7 @@
      0.016,
      0.594
     ],
-    "6,1": [
+    "13,3": [
      0.422,
      0.945
     ],
@@ -80901,13 +81204,14 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#79757b",
     "#8b7561"
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
+    "metal-iron-wrought",
     "textile"
    ]
   },
@@ -80965,7 +81269,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "textile",
     "wood-beam"
@@ -81173,7 +81477,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ]
   },
@@ -81221,7 +81525,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ]
   },
@@ -81269,7 +81573,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron"
+    "metal-iron-steel"
    ]
   },
   {
@@ -81322,7 +81626,7 @@
    "tags": [
     "kay",
     "leather",
-    "metal-iron",
+    "metal-iron-steel",
     "textile"
    ]
   },
@@ -81382,7 +81686,7 @@
     "cork",
     "gemstone",
     "kay",
-    "metal-iron",
+    "metal-iron-steel",
     "ngons",
     "textile",
     "wood-beam"

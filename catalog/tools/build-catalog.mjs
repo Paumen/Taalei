@@ -461,14 +461,23 @@ function readTags(known) {
   const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
   if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
-  // A material parent is a material of its own, never a subtype: one level, so the filter
-  // can show the parent and expand to its children without walking a chain. A kind's
-  // parent is its id minus the last segment and needs no field.
+  // A material parent is a material of its own. The chain may run deeper than one level —
+  // metal > metal-iron > metal-iron-steel — so the filter walks it instead of assuming a
+  // single hop; what is rejected here is a parent that is no material, and a cycle. A
+  // kind's parent is its id minus the last segment and needs no field.
   const material = new Set(tags.filter((t) => t.type === 'material').map((t) => t.id));
-  const badParent = tags
-    .filter((t) => t.parent && (!material.has(t.parent) || tags.find((p) => p.id === t.parent)?.parent))
-    .map((t) => `${t.id} -> ${t.parent}`);
-  if (badParent.length) console.warn(`! parent is not a top-level material: ${badParent.join(', ')}`);
+  const parentOfTag = new Map(tags.filter((t) => t.parent).map((t) => [t.id, t.parent]));
+  const badParent = [];
+  for (const tag of tags) {
+    if (!tag.parent) continue;
+    if (!material.has(tag.parent)) { badParent.push(`${tag.id} -> ${tag.parent}`); continue; }
+    const seen = new Set([tag.id]);
+    for (let p = tag.parent; p; p = parentOfTag.get(p)) {
+      if (seen.has(p)) { badParent.push(`${tag.id} -> ${tag.parent} (cycle)`); break; }
+      seen.add(p);
+    }
+  }
+  if (badParent.length) console.warn(`! parent is not a material: ${badParent.join(', ')}`);
 
   const unknownKind = tags.filter((t) => t.type === 'kind' && !KIND_TREE.has(t.id)).map((t) => t.id);
   if (unknownKind.length) console.warn(`! kind not in Appendix B: ${unknownKind.join(', ')}`);
