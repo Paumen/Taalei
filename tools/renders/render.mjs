@@ -8,6 +8,7 @@ import fss from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { readPng } from '../../catalog/tools/png.mjs';
 
 // Only the pin for the CDN fallback. By default the page is served three.js from
 // whatever copy is installed on this machine (see resolveThree), which needs no
@@ -17,7 +18,7 @@ const THREE_VERSION = '0.169.0';
 const DEFAULTS = {
   out: './renders', modes: 'pbr', views: 'iso',
   width: 1024, height: 1024,
-  bg: '#f2f2f0', env: 'soft', exposure: 1.3, tone: 'neutral',
+  bg: '#f2f2f0', env: 'soft', exposure: 2.26, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
@@ -50,9 +51,8 @@ render.mjs <file.glb|dir> [...] [flags]
                      (smooths edges, but also thins 1px wires -- see --modes wireframe)
   --bg <css|transparent> --exposure <n>
   --env <soft|neutral|studio|direct|none>   none = no lights and no environment at all
-                     (default soft: a sky that varies only top to bottom, so it
-                      reinforces the shading baked into the colormap bands instead
-                      of adding a second light across them)
+                     (default soft: the catalogue's own environment image, a gentle
+                      sky with part of the old studio room blended in)
   --tone <neutral|agx|aces|linear|none>  --fov <deg> --fit <n> --ortho
                      (default neutral: AgX desaturates the colormap bands by about a
                       quarter, which reads as washed-out timber)
@@ -214,10 +214,9 @@ function parseView(n) {
   return null;
 }
 const ALL_TONES = ['agx','aces','neutral','linear','none'];
-// 'soft' is the default and matches the catalogue: a top-to-bottom gradient sky with
-// no variation around the horizon. The assets bake their own shading into the band
-// gradient, top faces light and undersides dark, so an environment with sideways
-// structure lights them a second time and fights that bake.
+// 'soft' is the default and reads catalog/zachte-omgeving.png, so this tool and the
+// catalogue light a model identically. Exposure still differs between the two: the
+// same environment does not produce the same brightness in model-viewer and here.
 // 'direct' is the old 'none': strong key/fill/ambient, no environment map.
 // 'none' now means exactly that — no lights, no environment. Only useful with
 // unlit modes (albedo, silhouette, uv, wireframe, normal, depth, faceorient).
@@ -430,12 +429,22 @@ const server = http.createServer(async (req, res) => {
 await new Promise(r => server.listen(0, '127.0.0.1', r));
 const ORIGIN = 'http://127.0.0.1:' + server.address().port;
 
+// The environment image is the catalogue's own file, read once and handed to the page as
+// raw pixels. Sharing the file rather than re-deriving the gradient is what stops the two
+// viewers drifting apart.
+const ENV_PNG = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../catalog/zachte-omgeving.png');
+const ENV_IMAGE = (() => {
+  const img = readPng(ENV_PNG);
+  return { w: img.width, h: img.height, b64: Buffer.from(img.pixels).toString('base64') };
+})();
+
 function pageHTML() {
   const cdn = THREE_SRC.dir ? ORIGIN + '/three' : THREE_SRC.base;
   return '<!doctype html><html><head><meta charset="utf-8">'
     + '<style>html,body{margin:0;background:#000}canvas{display:block}</style>'
     + '<script type="importmap">{"imports":{"three":"' + cdn + '/build/three.module.js","three/addons/":"' + cdn + '/examples/jsm/"}}</' + 'script>'
-    + '</head><body><script type="module">const THREE_CDN = ' + JSON.stringify(cdn) + ';' + PAGE_SCRIPT + '</' + 'script></body></html>';
+    + '</head><body><script type="module">const THREE_CDN = ' + JSON.stringify(cdn) + ';'
+    + 'const ENV_IMAGE = ' + JSON.stringify(ENV_IMAGE) + ';' + PAGE_SCRIPT + '</' + 'script></body></html>';
 }
 
 const PAGE_SCRIPT = String.raw`
@@ -768,25 +777,18 @@ function roomEnv() {
   }
   return ROOM_ENV;
 }
-// The soft sky, built in code so it needs no asset next to the script. Same gradient
-// as catalog/zachte-omgeving.png: bright at the zenith, mid at the horizon, dimmer
-// below, and identical all the way round.
+// The environment comes from catalog/zachte-omgeving.png, the same image the catalogue
+// uses: a soft top-to-bottom sky with three quarters of the old studio room blended into
+// it. The sky alone would not fight the shading baked into the colormap bands, but it also
+// cannot describe a hollow — a bowl reads as a plate under it — so some of the room's
+// directional structure is kept deliberately.
 let SOFT_ENV = null;
 function softEnv() {
   if (!SOFT_ENV) {
-    const W = 128, H = 64;
-    const ZENITH = [255, 253, 249], HORIZON = [242, 242, 243], NADIR = [222, 220, 216];
-    const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
-    const data = new Uint8Array(W * H * 4);
-    for (let y = 0; y < H; y++) {
-      const c = Math.cos((y / (H - 1)) * Math.PI);
-      const [r, g, b] = c >= 0 ? mix(HORIZON, ZENITH, c) : mix(HORIZON, NADIR, -c);
-      for (let x = 0; x < W; x++) {
-        const o = (y * W + x) * 4;
-        data[o] = r; data[o + 1] = g; data[o + 2] = b; data[o + 3] = 255;
-      }
-    }
-    const tex = new THREE.DataTexture(data, W, H, THREE.RGBAFormat);
+    const bin = atob(ENV_IMAGE.b64);
+    const data = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) data[i] = bin.charCodeAt(i);
+    const tex = new THREE.DataTexture(data, ENV_IMAGE.w, ENV_IMAGE.h, THREE.RGBAFormat);
     tex.mapping = THREE.EquirectangularReflectionMapping;
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.needsUpdate = true;
