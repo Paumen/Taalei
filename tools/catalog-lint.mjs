@@ -166,8 +166,8 @@ const variantIrons = (m) => {
 // M66 is the fallback, so it owns every kind the rules above do not name.
 const CLAIMED = ['obj-weapon', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool',
   'str', 'obj-kitchenware-cookware', 'char'];
-// M63's two kinds sit inside CLAIMED but want wrought, which is what M66 says anyway
-const CLAIMED_BUT_WROUGHT = ['obj-tool-supplies', 'obj-weapon-ranged-accessory'];
+// M63's kind sits inside CLAIMED but wants wrought, which is what M66 says anyway
+const CLAIMED_BUT_WROUGHT = ['obj-tool-supplies'];
 
 const jokerBand = new Map();
 
@@ -352,10 +352,10 @@ const RULES = [
   ironIs({ id: 'M62', text: 'obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
     severity: 'warning', want: ['steel'],
     kinds: ['obj-weapon', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
-    // the wrought carve-outs of M63 and the cast cannon of M64 sit inside these kinds
-    unless: (m) => kindIs(m, 'obj-tool-supplies', 'obj-weapon-ranged-accessory', 'obj-weapon-cannon') }),
-  ironIs({ id: 'M63', text: 'obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.',
-    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies', 'obj-weapon-ranged-accessory'] }),
+    // the wrought carve-out of M63 and the cast cannon of M64 sit inside these kinds
+    unless: (m) => kindIs(m, 'obj-tool-supplies', 'obj-weapon-cannon') }),
+  ironIs({ id: 'M63', text: 'obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.',
+    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
   ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.',
     severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
   ironIs({ id: 'M65', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
