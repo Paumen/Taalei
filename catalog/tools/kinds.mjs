@@ -111,7 +111,7 @@ export const NAME_KIND = [
   [w('shield|buckler'), 'obj-equipment-shield'],
   [w('helmet|chestplate|pauldron|greave|gauntlet|armor|armour'), 'obj-equipment-armor'],
   [w('cape|cloak|robe|hat|hood|boot|shoe|belt|glove'), 'obj-equipment-clothing'],
-  [w('ring|necklace|amulet|bracelet|crown|goggle|earring'), 'obj-equipment'],
+  [w('crown|goggle'), 'obj-equipment'],
 
   [w('hammer|saw|chisel|trowel|wrench|tong|brush|mallet|file|handplane|handdrill|scissor|screwdriver|magnifying-glass|compass|drafting-compass|pencil'), 'obj-tool-hand'],
   [w('shovel|spade|pickaxe|rake|hoe|pitchfork|broom|fishing-rod'), 'obj-tool-long'],
@@ -153,6 +153,7 @@ export const NAME_KIND = [
   [w('key|keyring'), 'obj-pocketitem-key'],
   [w('book|tome|journal'), 'obj-pocketitem-book'],
   [w('scroll|letter|map|parchment|blueprint'), 'obj-pocketitem-scroll'],
+  [w('ring|necklace|amulet|bracelet|earring|pendant|brooch'), 'obj-pocketitem-jewellery'],
   [w('compass|hourglass|dice|mirror|artifact|star|heart'), 'obj-pocketitem'],
 
   [w('ingot|nugget|ore-lump'), 'obj-resource-metal'],
