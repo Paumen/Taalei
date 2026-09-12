@@ -72,7 +72,7 @@ const MATERIAL_TAGS = ['wood', 'wood-planks', 'wood-worked', 'wood-beam', 'wood-
   'metal', 'metal-iron', 'metal-iron-steel', 'metal-iron-wrought', 'metal-iron-cast',
   'metal-gold', 'metal-silver', 'metal-copper',
   'stone', 'stone-masonry', 'stone-rock', 'stone-soil',
-  'paper', 'textile', 'leather', 'ceramic', 'bone', 'food', 'wax', 'glass', 'rope', 'cork',
+  'paper', 'textile', 'leather', 'ceramic', 'bone', 'food', 'wax', 'wick', 'glass', 'rope', 'cork',
   'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic', 'vegetation', 'skin'];
 
 const WOOD_TAGS = MATERIAL_TAGS.filter((t) => t === 'wood' || t.startsWith('wood-'));
@@ -317,6 +317,8 @@ const RULES = [
     tag: 'emissive', colors: ['yellow'] }),
   materialTakes({ id: 'M34', text: 'Candle wax are off-white 5,2.', severity: 'error',
     tag: 'wax', colors: ['off-white'] }),
+  materialTakes({ id: 'M35', text: 'Wicks are dark grey 13,3.', severity: 'warning',
+    tag: 'wick', colors: ['dark grey'] }),
   materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
   materialTakes({ id: 'M37', text: 'Book covers are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
@@ -387,11 +389,11 @@ const RULES = [
   bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal-iron-steel, stone and rock only.',
     severity: 'error', color: 'light grey',
     tags: ['metal', 'metal-iron-steel', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey }),
-  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).',
-    severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry', 'wax'],
+  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), and the flags and sails of a rigged ship (M18).',
+    severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry'],
     unless: (m) => isBook(m) || isRigged(m) }),
-  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought only.',
-    severity: 'warning', color: 'dark grey', tags: ['metal', 'metal-iron-wrought'], unless: isKey }),
+  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought (M12) and wicks (M35).',
+    severity: 'warning', color: 'dark grey', tags: ['metal', 'metal-iron-wrought', 'wick'], unless: isKey }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
     severity: 'error', color: 'light blue-grey', tags: ['metal', 'metal-silver'], unless: isKey }),
   bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
