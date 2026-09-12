@@ -22,6 +22,7 @@ export const SCALE_TABS = [
     branches: ['obj-weapon', 'obj-equipment', 'obj-tool', 'obj-pocketitem', 'char'],
   },
   { id: 'str-gen', name: 'Str gen', file: 'scale-str-gen.html', branches: ['str'] },
+  { id: 'str-part', name: 'Str part', file: 'scale-str-part.html', branches: ['str-part'] },
   { id: 'env-flora', name: 'Env flora', file: 'scale-env-flora.html', branches: ['env-flora', 'env-fungi'] },
   { id: 'env-gen', name: 'Env gen', file: 'scale-env-gen.html', branches: ['env'] },
 ];
