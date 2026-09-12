@@ -46,6 +46,24 @@ const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-kitchenware-ta
 const STAND_UP = new Set(['obj-kitchenware-tableware-cutlery', 'obj-pocketitem-key',
   'obj-pocketitem-scroll', 'obj-weapon-ranged-bow', 'obj-weapon-ranged-crossbow']);
 
+// Rows of small things: a unit-tall ruler beside a flower or a dagger is mostly empty
+// grid, so these measure against 0.6 — still whole major gridlines, three instead of five.
+const SHORT_RULER = new Set(['env-rock-pebble', 'env-flora-deadwood-branch',
+  'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
+  'obj-container-jug', 'obj-container-chest', 'obj-container-bucket', 'obj-food',
+  'obj-resource', 'obj-weapon-melee-dagger', 'obj-weapon-ranged-accessory']);
+
+// The same, named by branch: every leaf under these is small, and neither parent holds
+// models of its own to draw a row for.
+const SHORT_RULER_BRANCHES = ['obj-pocketitem', 'obj-kitchenware'];
+
+const SHORT_RULER_HEIGHT = 0.6;
+
+const rulerHeight = (kind) =>
+  SHORT_RULER.has(kind) || SHORT_RULER_BRANCHES.some((b) => kindIs(kind, b))
+    ? SHORT_RULER_HEIGHT
+    : undefined;
+
 // Rows too wide for the standard ruler.
 const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-part', 'env-terrain-mountain']);
 
@@ -87,6 +105,7 @@ export function buildScaleGroups(models) {
       topView: TOP_VIEW.has(kind) || undefined,
       standUp: STAND_UP.has(kind) || undefined,
       wideRow: WIDE_ROW.has(kind) || undefined,
+      rulerHeight: rulerHeight(kind),
       items: items.map((m) => ({
         slug: m.kit,
         model: m.name,

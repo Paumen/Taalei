@@ -181,7 +181,6 @@ export const NAME_KIND = [
 
   [w('deck|boardwalk|platform'), 'str-platform-deck'],
   [w('dock|pier|jetty'), 'str-platform-dock'],
-  [w('stage|altar|plinth|pedestal|shrine'), 'str-platform'],
 
   [w('fence|railing|palisade'), 'str-barrier-fence'],
   [w('post|bollard|stake|pole'), 'str-barrier-post'],
@@ -196,7 +195,7 @@ export const NAME_KIND = [
   [w('tombstone|gravestone|grave|gravemarker|cross|memorial|plaque'), 'str-marker-tombstone'],
   [w('milestone|waystone|totem'), 'str-marker'],
 
-  [w('fountain|gallows|waterwheel|mine|fireplace'), 'str'],
+  [w('stage|altar|plinth|pedestal|shrine|fountain|gallows|waterwheel|mine|fireplace'), 'str'],
 
   [w('cactus|succulent'), 'env-flora-plant-cactus'],
   [w('flower|tulip|rose|sunflower|bellflower|daisy|lily|violet'), 'env-flora-plant-flower'],
