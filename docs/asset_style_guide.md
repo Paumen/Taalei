@@ -299,7 +299,7 @@ obj-weapon-ranged-accessory — arrow, bolt, quiver
 obj-weapon-ranged — sling, throwing knife, javelin
 
 obj-weapon-magic-staff — staff, wizard staff
-obj-weapon-magic — wand, orb, tome (weapon), spell book
+obj-weapon-magic — wand, orb, focus (magic)
 
 obj-weapon-cannon — cannon, cannonball
 
@@ -328,7 +328,7 @@ obj-lighting — campfire, chandelier, streetlight
 
 obj-pocketitem-coin — coin, gold pile, gem (cut)
 obj-pocketitem-key — key
-obj-pocketitem-book — book, tome, journal
+obj-pocketitem-book — book, tome, journal, spell book
 obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
@@ -340,17 +340,22 @@ obj-resource — hide, raw stock, spare part
 
 obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
 
-str-building-door — door, gate (building), hatch
-str-building-floor — floor, floor tile, ceiling
-str-building-roof — roof, roof tile, chimney, gable
-str-building-window — window, shutter
-str-building-wall — wall, wall segment, arch (building), corner
-str-building-pillar — pillar, column, beam, support
-str-building — house (whole), tower, hut, tent, awning, room, cellar, souterrain, dungeon, crypt, mill, windmill, lighthouse, church, castle, stand, stall, stables, watermill
+str-part-door — door, gate (building), hatch
+str-part-floor — floor, floor tile, ceiling
+str-part-roof — roof, roof tile, chimney, gable
+str-part-window — window, shutter
+str-part-wall — wall, wall segment, arch (building), corner
+str-part-pillar — pillar, column, beam, support
+str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
+str-part — room, cellar, souterrain, dungeon
 
-str-platform-deck — deck, boardwalk, scaffold
+str-building — house (whole), hut, tower, crypt, church, castle, lighthouse, inn, barracks, stables, blacksmith, mill, windmill, watermill, sawmill, gazebo, well
+
+str-stands — tent, stall, market stand, awning, canopy
+
+str-platform-deck — deck, boardwalk
 str-platform-dock — dock, pier, jetty
-str-platform — stage, altar, plinth, pedestal
+str-platform
 
 str-barrier-fence — fence, fence segment, railing, palisade, gate (fence)
 str-barrier-post — post, bollard, stake
@@ -366,7 +371,7 @@ str-marker-flag — flag, banner, pennant
 str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
 str-marker — milestone, waystone, totem
 
-str — well, fountain, gallows, waterwheel, mine entrance, fireplace
+str — stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace
 
 env-flora-plant-cactus — cactus, succulent
 env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet

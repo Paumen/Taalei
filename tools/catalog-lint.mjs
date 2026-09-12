@@ -83,7 +83,7 @@ const materials = (m) => MATERIAL_TAGS.filter((t) => m.tags?.includes(t));
 
 const counting = (m) => materials(m).filter((t) => t !== 'special');
 
-const isRoof = (m) => m.kind === 'str-building-roof';
+const isRoof = (m) => m.kind === 'str-part-roof';
 
 // M5: flowers may be any colour, cactus flowers too — a cactus with non-green matter is one in bloom
 const isFlower = (m) => m.kind === 'env-flora-plant-flower' || (m.kind === 'env-flora-plant-cactus' && has(m, 'vegetation'));

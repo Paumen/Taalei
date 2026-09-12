@@ -6,8 +6,8 @@ const GRID_MAJOR = 0.2;
 const ROW_WIDTH = 5;
 const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
-const GAP = 0.35;
-const LINE = 2.3;
+const GAP = 0.2;
+const LINE = 2.05;
 const FONT_KIT = '500 58px system-ui, sans-serif';
 const FONT_MODEL = '700 58px system-ui, sans-serif';
 
@@ -64,9 +64,12 @@ const colors = () => {
   };
 };
 
-function ruler() {
-  const height = 1;
-  const part = height / 4;
+// One step is one major gridline, so a unit-tall stick has five and a 0.6 one has three.
+const RULER_STEP = GRID_MAJOR;
+
+function ruler(height) {
+  const steps = Math.max(1, Math.round(height / RULER_STEP));
+  const part = height / steps;
   const thickness = 0.08;
   const block = new THREE.BoxGeometry(thickness, part, thickness);
   const red = new THREE.MeshLambertMaterial({ color: 0xcc3333 });
@@ -74,10 +77,9 @@ function ruler() {
   return {
     w: thickness,
     h: height,
-    label: { kit: '', model: '' },
     build() {
       const g = new THREE.Group();
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < steps; i++) {
         const mesh = new THREE.Mesh(block, i % 2 ? red : white);
         mesh.position.set(0, part / 2 + i * part, 0);
         g.add(mesh);
@@ -114,23 +116,60 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
   if (row.length) rows.push({ row, width });
   for (const x of rows) {
     x.lines = labelLines(x.row, labelScale);
-    x.labelBlock = labelScale * (0.7 + LINE * (x.lines - 1) + LINE);
-    x.height = Math.max(rulerObj.h + labelScale * 1.4, ...x.row.map((p) => p.h)) + x.labelBlock;
+    x.labelBlock = labelScale * (0.45 + LINE * x.lines);
+    x.height = Math.max(rulerObj.h, ...x.row.map((p) => p.h)) + x.labelBlock;
   }
   return rows;
 }
 
+// Three levels, so a glance tells a tenth from a fifth from a whole unit: 0.1 dashed and
+// horizontal only, 0.2 solid both ways, and the unit line both ways as a thin quad —
+// WebGL ignores linewidth on a line material, and a dark colour alone is not bold.
+const GRID_UNIT = 1;
+const UNIT_WEIGHT = 0.006;
+const DASH = 0.022;
+
+function gridLines(y, left, right, top, step, color, { dashed = false, vertical = true } = {}) {
+  const points = [];
+  if (vertical) {
+    for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
+  }
+  for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+  const material = dashed
+    ? new THREE.LineDashedMaterial({ color, dashSize: DASH, gapSize: DASH })
+    : new THREE.LineBasicMaterial({ color });
+  const lines = new THREE.LineSegments(geo, material);
+  if (dashed) lines.computeLineDistances();
+  return lines;
+}
+
+function unitLines(y, left, right, top, color) {
+  const g = new THREE.Group();
+  const material = new THREE.MeshBasicMaterial({ color });
+  const bar = (w, h, cx, cy) => {
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(w, h), material);
+    mesh.position.set(cx, cy, -0.49);
+    g.add(mesh);
+  };
+  for (let x = Math.ceil(left / GRID_UNIT) * GRID_UNIT; x <= right + 1e-6; x += GRID_UNIT) {
+    bar(UNIT_WEIGHT, top, x, y + top / 2);
+  }
+  for (let h = 0; h <= top + 1e-6; h += GRID_UNIT) {
+    bar(right - left, UNIT_WEIGHT, (left + right) / 2, y + h);
+  }
+  return g;
+}
+
 function background(y, left, right, height, fine, heavy) {
   const g = new THREE.Group();
-  const top = Math.ceil(Math.max(height, 1) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
-  for (const [step, color, opacity, thickness] of [[GRID_MINOR, fine, 1, 1], [GRID_MAJOR, heavy, 1, 2]]) {
-    const points = [];
-    for (let x = Math.ceil(left / step) * step; x <= right + 1e-6; x += step) points.push(x, y, -0.5, x, y + top, -0.5);
-    for (let h = 0; h <= top + 1e-6; h += step) points.push(left, y + h, -0.5, right, y + h, -0.5);
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
-    g.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity, linewidth: thickness })));
-  }
+  const top = Math.ceil(Math.max(height, GRID_MAJOR) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
+  // the tenth reads as height off the baseline, so it runs across only: a full 0.1 mesh
+  // is a wall of lines that hides the models standing in it
+  g.add(gridLines(y, left, right, top, GRID_MINOR, fine, { dashed: true, vertical: false }));
+  g.add(gridLines(y, left, right, top, GRID_MAJOR, fine));
+  g.add(unitLines(y, left, right, top, heavy));
   return g;
 }
 
@@ -179,7 +218,7 @@ export async function drawFamily(group, canvas, width) {
   }
   if (!pieces.length) return null;
 
-  const rulerObj = ruler();
+  const rulerObj = ruler(group.rulerHeight ?? 1);
   const rowWidth = group.wideRow ? ROW_WIDTH * WIDE_FACTOR : ROW_WIDTH;
   const onScreen = canvas.getBoundingClientRect().width || width;
   const labelScale = (LABEL_PX * rowWidth) / onScreen;
@@ -222,17 +261,14 @@ export async function drawFamily(group, canvas, width) {
       const obj = rulerObj.build();
       obj.position.set(lx, y, 0);
       scene.add(obj);
-      const width = labelScale * (textWidth(rulerObj.label) / 96);
-      const ly = y + rulerObj.h + labelScale * 1.25;
-      label(rulerObj.label, lx, ly, width);
-      xMin = Math.min(xMin, lx - width / 2);
-      xMax = Math.max(xMax, lx + width / 2);
-      yMax = Math.max(yMax, ly);
+      // the ruler is a unit tall whatever the row holds, so it sets the row's top
+      // wherever every model in it is shorter
+      yMax = Math.max(yMax, y + rulerObj.h);
     }
     for (const p of r.row) {
       p.obj.position.set(p.x, y, 0);
       scene.add(p.obj);
-      const ly = y - labelScale * 0.7 - p.line * labelScale * LINE;
+      const ly = y - labelScale * 0.45 - p.line * labelScale * LINE;
       label(p.label, p.x, ly, p.labelWidth);
       xMin = Math.min(xMin, p.x - p.w / 2, p.x - p.labelWidth / 2);
       xMax = Math.max(xMax, p.x + p.w / 2, p.x + p.labelWidth / 2);
@@ -249,7 +285,7 @@ export async function drawFamily(group, canvas, width) {
     }
   });
 
-  const margin = Math.max(GAP, labelScale);
+  const margin = labelScale;
   const viewW = rulerRight - rulerLeft + margin * 2;
   const viewH = yMax - yMin + margin * 2;
   xMin = rulerLeft - margin;
@@ -334,16 +370,16 @@ function colorName(hex) {
   return base;
 }
 
-const CATEGORY = document.querySelector('meta[name=schaal-categorie]')?.content || null;
+const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
-const [alleGroups, catalogData] = await Promise.all([
-  fetch(`schaalgroepen.json?v=${version}`).then((r) => r.json()),
+const [allGroups, catalogData] = await Promise.all([
+  fetch(`scale-groups.json?v=${version}`).then((r) => r.json()),
   fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
 
-// the page's meta names the kind roots it shows, e.g. "obj,char"
-const ROOTS = CATEGORY ? CATEGORY.split(',') : null;
-const groups = ROOTS ? alleGroups.filter((g) => ROOTS.includes(g.category)) : alleGroups;
+// the page's meta names the scale tabs it shows, e.g. "obj-gen"
+const TABS = CATEGORY ? CATEGORY.split(',') : null;
+const groups = TABS ? allGroups.filter((g) => TABS.includes(g.category)) : allGroups;
 
 const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
 const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');
@@ -468,8 +504,8 @@ function buildSections() {
       section.classList.add('bezig');
       queue = queue.then(async () => {
         try {
-          // Een dubbelbrede rij krijgt ook een dubbel zo breed doek, anders halveert
-          // het aantal pixels per unit en wordt juist die familie het onscherpst.
+          // A double-wide row gets a double-wide canvas too: otherwise it halves the
+          // pixels per unit, and that family comes out the blurriest of all.
           const out = await drawFamily(group, canvas, group.wideRow ? WIDTH * 2 : WIDTH);
           if (!out) section.classList.add('mislukt');
         } catch (error) {

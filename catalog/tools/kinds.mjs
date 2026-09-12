@@ -61,7 +61,8 @@ export const KIND_COLORS = {
   'obj-food': '#c25b4e', 'obj-weapon': '#4c5468', 'obj-equipment': '#6b5b95', 'obj-tool': '#6d738a',
   'obj-transport': '#5a7a9c', 'obj-lighting': '#f2cb45', 'obj-pocketitem': '#f1976c',
   'obj-resource': '#4f7d8c',
-  'str-building': '#a8762a', 'str-platform': '#877a63', 'str-barrier': '#b08968',
+  'str-part': '#a8762a', 'str-building': '#7d4f3a', 'str-stands': '#d8a05a',
+  'str-platform': '#877a63', 'str-barrier': '#b08968',
   'str-access': '#c98a5a', 'str-marker': '#ffb349',
   'env-flora': '#6cb588', 'env-fungi': '#e08fb0', 'env-fauna': '#3e8fd0', 'env-remains': '#cfc6ad',
   'env-rock': '#9da4c4', 'env-terrain': '#8a5d4b', 'env-water': '#4fa3c7',
@@ -165,17 +166,21 @@ export const NAME_KIND = [
 
   [w('stand|rack|easel|statue|signboard|bell|cage|mannequin|target'), 'obj'],
 
-  [w('door|gate|hatch|doorway|trapdoor'), 'str-building-door'],
-  [w('floor|tile|ceiling|foundation'), 'str-building-floor'],
-  [w('roof|chimney|gable'), 'str-building-roof'],
-  [w('window|shutter'), 'str-building-window'],
-  [w('wall|arch|corner|stucco|block|panel|bricks|rubble'), 'str-building-wall'],
-  [w('pillar|column|beam|support'), 'str-building-pillar'],
-  [w('house|tower|hut|tent|awning|canopy|room|cellar|dungeon|crypt|mill|windmill|lighthouse|church|castle|stand|stall|stable|watermill|sawmill|building|structure|balcony|overhang|blade'), 'str-building'],
+  [w('frame|framework|structure|scaffold'), 'str-part-frame'],
+  [w('door|gate|hatch|doorway|trapdoor'), 'str-part-door'],
+  [w('floor|tile|ceiling|foundation'), 'str-part-floor'],
+  [w('roof|chimney|gable'), 'str-part-roof'],
+  [w('window|shutter'), 'str-part-window'],
+  [w('wall|arch|corner|stucco|block|panel|bricks|rubble'), 'str-part-wall'],
+  [w('pillar|column|beam|support'), 'str-part-pillar'],
+  [w('room|cellar|souterrain|dungeon|balcony|overhang'), 'str-part'],
 
-  [w('deck|boardwalk|scaffold|platform'), 'str-platform-deck'],
+  [w('house|hut|tower|crypt|church|castle|lighthouse|inn|barracks|stable|blacksmith|mill|windmill|watermill|sawmill|gazebo|well|building|blade'), 'str-building'],
+
+  [w('tent|stall|market-stand|awning|canopy'), 'str-stands'],
+
+  [w('deck|boardwalk|platform'), 'str-platform-deck'],
   [w('dock|pier|jetty'), 'str-platform-dock'],
-  [w('stage|altar|plinth|pedestal|shrine'), 'str-platform'],
 
   [w('fence|railing|palisade'), 'str-barrier-fence'],
   [w('post|bollard|stake|pole'), 'str-barrier-post'],
@@ -190,7 +195,7 @@ export const NAME_KIND = [
   [w('tombstone|gravestone|grave|gravemarker|cross|memorial|plaque'), 'str-marker-tombstone'],
   [w('milestone|waystone|totem'), 'str-marker'],
 
-  [w('well|fountain|gallows|waterwheel|mine|fireplace'), 'str'],
+  [w('stage|altar|plinth|pedestal|shrine|fountain|gallows|waterwheel|mine|fireplace'), 'str'],
 
   [w('cactus|succulent'), 'env-flora-plant-cactus'],
   [w('flower|tulip|rose|sunflower|bellflower|daisy|lily|violet'), 'env-flora-plant-flower'],

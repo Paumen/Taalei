@@ -70,9 +70,9 @@ a { color: var(--accent); }
   color: var(--inkt-zacht);
 }
 
-/* In de ordebalk is de telling de linkerhelft van de regel: hij duwt de keuzes naar
-   rechts zonder zelf mee te groeien, anders wipt de laatste keuze naar de volgende regel. */
-.ordebalk .kop-sub { margin: 0 auto 0 0; }
+/* In the sort bar the count is the left half of the line: it pushes the choices right
+   without growing itself, or the last choice tips onto the next line. */
+.sort-bar .kop-sub { margin: 0 auto 0 0; }
 
 .kop-regel {
   display: flex;
@@ -133,19 +133,12 @@ a { color: var(--accent); }
   font-weight: 600;
 }
 
-/* Tweede balk op de schaalpagina's: dezelfde pil, maar lichter, zodat je ziet dat hij
-   onder "Scale" hangt en niet naast de vier hoofdpagina's staat. */
-.schaalbalk {
-  margin-top: 6px;
+/* Second bar on the scale pages: the same pill, but lighter, so you see it hangs under
+   "Scale" rather than standing beside the four main pages. */
+.scale-bar {
+  margin-top: 2px;
   background: none;
   border-color: transparent;
-}
-
-.schaalbalk-kop {
-  color: var(--inkt-zacht);
-  font-size: 13px;
-  opacity: .7;
-  padding-right: 4px;
 }
 
 .kop-bediening {
@@ -302,7 +295,7 @@ a { color: var(--accent); }
 
 /* De telling staat bij de sorteerkeuzes: allebei zeggen ze wat je nu ziet, en samen
    kosten ze één regel in plaats van twee. */
-.ordebalk {
+.sort-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -318,7 +311,7 @@ a { color: var(--accent); }
   gap: 6px 14px;
 }
 
-.ordebalk select {
+.sort-bar select {
   padding: 4px 6px 4px 2px;
   border: 0;
   border-bottom: 1px solid var(--lijn);
@@ -332,14 +325,14 @@ a { color: var(--accent); }
   cursor: pointer;
 }
 
-.ordebalk select:hover { border-bottom-color: var(--accent); }
-.ordebalk select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.sort-bar select:hover { border-bottom-color: var(--accent); }
+.sort-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* Op een telefoon blijven de telling en de twee keuzes nog steeds één regel: smallere
    tussenruimte en keuzes die mogen krimpen, in plaats van "by name" die eronder valt. */
 /* De drie bedieningen blijven bij elkaar: valt de regel toch om, dan zakt de hele groep
    onder de telling in plaats van dat er één keuze losraakt. */
-.ordebalk-keuzes {
+.sort-bar-choices {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -347,10 +340,10 @@ a { color: var(--accent); }
 }
 
 @media (max-width: 700px) {
-  .ordebalk,
-  .ordebalk-keuzes { gap: 4px 6px; }
-  .ordebalk select { min-width: 0; max-width: 104px; font-size: 12.5px; }
-  .ordebalk .kop-sub { font-size: 12px; }
+  .sort-bar,
+  .sort-bar-choices { gap: 4px 6px; }
+  .sort-bar select { min-width: 0; max-width: 104px; font-size: 12.5px; }
+  .sort-bar .kop-sub { font-size: 12px; }
 }
 
 .tagbalk-knoppen {
@@ -976,7 +969,7 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 .keuzechip-kies { margin: 0; width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
 
-.ordebalk-wis {
+.sort-bar-reset {
   padding: 3px 11px;
   border: 1px solid var(--lijn);
   border-radius: 999px;
@@ -987,10 +980,10 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   cursor: pointer;
 }
 
-.ordebalk-wis:hover { border-color: var(--accent); color: var(--inkt); }
-.ordebalk-wis[hidden] { display: none; }
+.sort-bar-reset:hover { border-color: var(--accent); color: var(--inkt); }
+.sort-bar-reset[hidden] { display: none; }
 
-.ordebalk { justify-content: space-between; }
+.sort-bar { justify-content: space-between; }
 
 .detail-acties button,
 .detail-acties a {
@@ -1138,18 +1131,20 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 
 .familie-index a:hover { color: var(--inkt); border-color: var(--accent); }
 
-.schaalpagina main {
+.scale-page main {
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  padding: 0 20px 60px;
+  gap: 6px;
+  padding: 0 6px 10px;
 }
 
 .familie { scroll-margin-top: 20px; }
 
 .familie h2 {
-  margin: 0 0 2px;
-  font-size: 18px;
+  margin: 0 0 1px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .familie-meta {
@@ -1341,3 +1336,12 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   .tagedit-balk-telling { font-size: 12px; }
   .tagedit-balk button { padding: 5px 10px; font-size: 11.5px; }
 }
+
+/* Scale pages sit under a fixed unit ruler, so page chrome is the only slack there is:
+   the header, the filter bars and the strip around each canvas all come down. */
+.scale-page .kop { padding: 3px clamp(6px, 1.5vw, 12px); gap: 2px 10px; }
+.scale-page .kleurbalk { padding: 1px clamp(6px, 1.5vw, 12px); gap: 8px; }
+.scale-page .staal { width: 18px; height: 18px; border-radius: 5px; }
+.scale-page .tagknop { padding: 1px 7px; }
+.scale-page .sort-bar { padding: 0 6px; min-height: 0; }
+.scale-page .familie-doek { border-radius: 4px; box-shadow: none; }
