@@ -147,7 +147,11 @@ export async function drawFamily(group, canvas, width) {
     const pivot = new THREE.Group();
     pivot.add(obj);
 
-    if (group.topView) obj.rotation.x = -Math.PI / 2;
+    if (group.standUp) {
+      // turn the longest side upright, whichever axis the model happens to lie on
+      if (size.z >= size.x && size.z >= size.y) obj.rotation.x = -Math.PI / 2;
+      else if (size.x > size.y) obj.rotation.z = Math.PI / 2;
+    } else if (group.topView) obj.rotation.x = -Math.PI / 2;
     else if (size.z > size.x * 1.4) obj.rotation.y = Math.PI / 2;
     box = new THREE.Box3().setFromObject(pivot);
     size = box.getSize(new THREE.Vector3());
