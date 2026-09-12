@@ -23,7 +23,7 @@ const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-build
 const SKIP = new Set([
   'pirate-kit/ship-pirate-small', 'pirate-kit/ship-pirate-medium', 'pirate-kit/ship-pirate-large',
   'pirate-kit/ship-ghost', 'pirate-kit/ship-wreck',
-  'dungeon/book-open-a', 'dungeon/book-open-b', 'rpgtools/journal-open',
+  'kay-dun-1/book-open-a', 'kay-dun-1/book-open-b', 'rpgtools/journal-open',
   'rpg-quaternius/book-1-open', 'rpg-quaternius/book-2-open',
   'rpg-quaternius/book-3-open', 'rpg-quaternius/book-4-open',
 ]);

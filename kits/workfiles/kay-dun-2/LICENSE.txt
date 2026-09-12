@@ -1,0 +1,147 @@
+	Dungeon
+
+			------------------------------
+
+	KayKit : Dungeon Asset Pack (1.1)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf
+	(`License.txt`).
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack levert 211 modellen als .gltf + .bin (naast .fbx en .obj);
+	135 zijn gekozen: wanden, vloertegels, een plafondtegel, trappen,
+	een pilaar, puin en een zuil, plus meubels, containers, gereedschap
+	en decor. De bronnamen zijn al gewone Engelse woorden met
+	underscores, 1-op-1 overgezet naar kebab-case — `barrier_colum_half`
+	is een tikfout van de pack zelf (`colum` i.p.v. `column`) en is
+	bewust ongewijzigd overgezet.
+
+	Eén schaalfactor voor de hele pack (stijlgids §4): 0,175. Elke wand is
+	in de bron 4 breed × 4 hoog en komt daarmee op 0,7 × 0,7 uit, niet op
+	de 1 × 1 van §4 — even hoog als de wand van fantasy-town-kit (0,70).
+
+	Deze alinea stond tot nu toe op 0,25 en op een wand van 1 × 1, met
+	mini-dungeon's eigen wand (1 × 1 × 1,1) ernaast. Dat klopte niet met de
+	bestanden: die stonden op 0,175 met een `rescale-wrapper` van ×2
+	erover, samen 0,35, en gaven een wand van 1,4 × 1,4. Die wrapper is op
+	verzoek gehalveerd en daarmee weg — de kit staat nu kaal op 0,175.
+	De maten hieronder in deze alinea zijn nog van de 0,25-lezing en dus
+	de helft te groot; op 0,175 komt chest uit op 0,30 × 0,25 × 0,23 en
+	barrel-large op 0,32 × 0,32 × 0,35.
+
+	Een eerste versie van het
+	importscript gaf de meubels en het decor een eigen factor 1
+	(ongeschaald): op zichzelf een geloofwaardige stoel (0,75 × 0,75 ×
+	1,227), maar naast een wand van 1 hoog kwam die stoel er hoger uit
+	dan de muur, en de kist (chest, 1,3 hoog) er nog overheen. De
+	verhouding stoel/wand in de bron zelf — 1,227 / 4 = 31% — is wél
+	geloofwaardig; die gaat alleen verloren als de twee met een andere
+	factor worden geschaald. Op 0,25 komt chest uit op 0,43 × 0,36 × 0,33
+	en barrel-large op 0,45 × 0,45 × 0,50 — beide vlak naast mini-
+	dungeon's eigen chest (0,50 × 0,50 × 0,45) en barrel (0,52 × 0,52 ×
+	0,48).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-dungeon.mjs: rechtstreeks uit .gltf + .bin gelezen,
+	met de oorsprong op y=0 en het grondvlak gecentreerd.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024
+	(`dungeon_texture.png`). Die is niet meegekomen: de UV's zijn omgezet
+	naar de gedeelde kits/colormap.png. Acht modellen (de getraliede
+	vloertegels en gepoorte wanden) hebben zuiver zwarte hoekpunten voor
+	het traliewerk; zwart ontbreekt in het gedeelde palet met opzet — een
+	zwarte cel zou niet van lege ruimte te onderscheiden zijn, zie
+	tools/importeer-tropical.mjs — en komt daarom uit op #343437, de
+	donkerste kleur die er wél is, op een afstand van 142-159. Alle
+	andere kleuren lagen binnen 110 van een bestaande cel.
+
+	Elk hoekpunt is vóór het hermappen ontkoppeld van de driehoeken die
+	het delen (tools/glb.mjs, `ontvlecht()`): zonder dat kon een
+	hoekpunt op de rand tussen twee sterk verschillende kleuren niet aan
+	beide driehoeken tegelijk gelijk gegeven worden, en sleepte de UV
+	van de ene driehoek dwars over de kleuren tussen de twee cellen heen
+	— zichtbaar als willekeurige strepen op bijvoorbeeld chest-gold. De
+	geometrie is verder ongemoeid.
+
+			------------------------------
+
+	KayKit : Dungeon Pack (1.0)
+	Gemaakt door Kay Lousberg — https://www.kaylousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Ook deze pack is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten; de licentie staat in de pack zelf
+	(`License.txt`).
+
+			------------------------------
+
+	Herkomst en bewerking (1.0)
+
+	De kit wordt door twee packs gevoed. Naast de 1.1 hierboven levert de
+	1.0 185 modellen als .gltf.glb (naast .fbx en de personages, die
+	buiten de catalogus blijven); daarvan staan er 141 in de catalogus.
+
+	De bronnamen zijn gewone Engelse woorden met underscores en
+	camelCase, 1-op-1 overgezet naar kebab-case: `bookA` → `book-a`,
+	`floorDecoration_woodLeft` → `floor-decoration-wood-left`,
+	`tileBrickA_large` → `tile-brick-a-large`. Waar de 1.0 en de 1.1
+	dezelfde naam voor een ánder model gebruiken, krijgt die van de 1.0
+	een onderscheidende toevoeging — `chair` werd `chair-rounded`,
+	`plate` werd `plate-rounded`, `tableMedium` werd
+	`table-medium-rounded`.
+
+	Eén schaalfactor voor de hele pack (stijlgids §4), en die van de kit
+	zelf: 0,175. Een wand is in de 1.0 4 breed × 4 hoog en komt daarmee op
+	0,7 × 0,7 uit, hetzelfde raster als de wanden en de vloer- en
+	plafondtegels van de 1.1-helft (`wall`, `floor-tile-large`,
+	`ceiling-tile`, alle drie 0,7 × 0,7).
+
+	Tot nu toe stond over elk model een `rescale-wrapper` van ×2, samen
+	0,35, en kwam dat raster op 1,4 × 1,4 uit. Die wrapper is op verzoek
+	gehalveerd; ×2 × 0,5 is 1, dus is hij uit de bestanden verdwenen en
+	staat de kit kaal op 0,175. Een model dat later wordt toegevoegd hoeft
+	dus geen wrapper meer mee te krijgen; tools/importeer/aanvullen.mjs
+	leest de schaal en de oorsprong terug uit de kit.
+
+	De pack heeft geen texture-atlas. Elk model draagt vlakke materialen
+	met een naam en één `baseColorFactor`: WoodDark, Stone, StoneDark,
+	Metal, BrownDark, Beige, Gold, Red, White. Die kleuren zijn donker en
+	bijna neutraal, en de importeur kiest een baan op chroma — dus
+	WoodDark, Stone, StoneDark én Metal landen alle vier op lichtgrijs
+	15,3, en BrownDark op donkerrood 8,0. Dat is niet wat ze zíjn, dus is
+	elk materiaal daarna met tools/colormap-recolor.mjs naar de baan
+	verplaatst die appendix A eraan geeft, in het spoor van de
+	1.0-modellen die er al stonden: hout naar 0,0/1,0/2,0, leer naar bast
+	3,0, metselwerk naar taupe 14,3 of blauwgrijs 6,1, goud naar 6,0,
+	edelsteen naar donkerrood 8,0. Omdat twee materialen op dezelfde cel
+	kunnen landen — Stone en WoodDark allebei op 15,3, elk op hun eigen
+	punt van de baan — verplaatst dat per punt (`--uv`) en niet per cel.
+
+	De verste Oklab-sprongen die dat oplevert: WoodDark #6d605c → hout
+	licht 0,0 (22,5), Red #ff2c60 → donkerrood 8,0 (20,9), Metal #aab8be
+	→ lichtgrijs 15,3 (11,3), BrownDark #9b5a45 → bast 3,0 (10,3),
+	WoodDark → hout midden 1,0 (10,0). Alle overige sprongen liggen onder
+	de 9.
+
+	Omdat de bron per materiaal één vlakke kleur heeft, staat elk
+	materiaal op één punt van zijn baan in plaats van over het verloop
+	uitgespreid: de W1-waarschuwing van tools/catalog-lint.mjs (elke
+	houtbaan spreidt over minstens 0,03 L) geldt voor deze modellen
+	daarom net zo goed als voor de 1.0-modellen die er al stonden.
+
+	De steigers volgen de lijn die de vijftien steigers die er al stonden
+	trekken: de staande stijlen op hout donker 2,0 (wood-beam, M42),
+	alles wat ze dragen — dekplanken, liggers, leuningen — op hout midden
+	1,0 (wood-worked). Dat is precies wat `--upright` in
+	colormap-recolor.mjs selecteert: de samenhangende stukken die hoger
+	zijn dan ze breed of diep zijn.
