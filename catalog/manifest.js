@@ -347,7 +347,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "taalei-kit",
-  "name": "Taalei Kit",
+  "name": "taalei-kit",
   "url": null,
   "models": [
    "balloon",
@@ -356,7 +356,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "props",
-  "name": "Props",
+  "name": "props",
   "url": null,
   "models": [
    "bag-a",
@@ -386,7 +386,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "rocks",
-  "name": "Rocks",
+  "name": "rocks",
   "url": null,
   "models": [
    "debris-a",
@@ -738,7 +738,7 @@ window.KENNEY_KITS = [
  },
  {
  "slug": "kay-dun-1",
- "name": "Kay_Dun_1",
+ "name": "kay-dun-1",
  "url": "https://www.kaylousberg.com",
  "models": [
   "arrow",
@@ -886,7 +886,7 @@ window.KENNEY_KITS = [
 },
  {
  "slug": "kay-dun-2",
- "name": "Kay_Dun_2",
+ "name": "kay-dun-2",
  "url": "https://www.kaylousberg.com",
  "models": [
   "barrel-large",
@@ -1244,7 +1244,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "fantasy-props",
-  "name": "Fantasy Props",
+  "name": "fantasy-props",
   "url": "https://quaternius.com/",
   "models": [
    "bag",
@@ -1320,7 +1320,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "natuur",
-  "name": "Nature",
+  "name": "natuur",
   "url": null,
   "models": [
    "branch-1",
@@ -1469,14 +1469,14 @@ window.KENNEY_KITS = [
  },
  {
  "slug": "quat-dun-1",
- "name": "Quat_Dun_1",
+ "name": "quat-dun-1",
  "url": "https://quaternius.com/packs/modulardungeon.html",
  "models": [
  ]
 },
  {
  "slug": "quat-dun-2",
- "name": "Quat_Dun_2",
+ "name": "quat-dun-2",
  "url": "https://quaternius.com/packs/modulardungeon.html",
  "models": [
   "arch",
@@ -1707,7 +1707,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "small-props",
-  "name": "Small Props Pack",
+  "name": "small-props",
   "url": null,
   "models": [
    "anvil-b",
@@ -1860,7 +1860,7 @@ window.KENNEY_KITS = [
  },
  {
  "slug": "ken-mini-dun",
- "name": "Ken_Mini_Dun",
+ "name": "ken-mini-dun",
  "url": "https://kenney.nl/assets/mini-dungeon",
  "models": [
   "banner",
@@ -1871,7 +1871,7 @@ window.KENNEY_KITS = [
 },
  {
   "slug": "tropical-island",
-  "name": "Tropical Island Lite",
+  "name": "tropical-island",
   "models": [
    "barrel",
    "sword-pirate"
@@ -1879,14 +1879,14 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "windmill",
-  "name": "Windmill",
+  "name": "windmill",
   "models": [
    "windmill"
   ]
  },
  {
   "slug": "primitive-tools",
-  "name": "Low Poly Primitive Tools",
+  "name": "primitive-tools",
   "url": null,
   "models": [
    "bow",
