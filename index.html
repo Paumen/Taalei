@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D catalogue</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by kind: objects, characters, nature, structures and assemblies.">
-<meta name="catalogus-versie" content="47db0d8709">
-<link rel="stylesheet" href="catalog/catalog.css?v=47db0d8709"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-versie" content="ddfc60798d">
+<link rel="stylesheet" href="catalog/catalog.css?v=ddfc60798d"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
 <header class="kop">
   <nav class="paginabalk" aria-label="Pages">
     <span aria-current="page">Catalogue</span>
-    <a href="catalog/schaal.html">Scale</a>
+    <a href="catalog/scale-obj-gen.html">Scale</a>
     <a href="catalog/swipe.html">Swipe</a>
     <a href="catalog/missing.html">Missing</a>
   </nav>
@@ -38,10 +38,10 @@
 <div id="tagbalk"></div>
 </div>
 
-<div class="ordebalk">
+<div class="sort-bar">
   <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
 
-  <div class="ordebalk-keuzes">
+  <div class="sort-bar-choices">
     <select id="groepering" aria-label="Group by" title="Group by">
       <option value="geen">no grouping</option>
       <option value="kit">by kit</option>
@@ -52,7 +52,7 @@
       <option value="maat">by size</option>
     </select>
 
-    <button class="ordebalk-wis" id="alles-wis" type="button" hidden>Reset</button>
+    <button class="sort-bar-reset" id="alles-wis" type="button" hidden>Reset</button>
 
     <select id="sortering" aria-label="Sort by" title="Sort by">
       <option value="naam">by name</option>
@@ -140,5 +140,5 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=47db0d8709" type="module"></script></body>
+<script src="catalog/catalog.js?v=ddfc60798d" type="module"></script></body>
 </html>
