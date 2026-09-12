@@ -50,7 +50,7 @@ anything a figure holds belongs here), 0.28 (rpgtools), 0.3 (forest).
 
 ## Tagging
 
-Never tag from a model's colour list. It says a model uses taupe and wood light;
+Never tag from a model's colour list. It says a model uses taupe and light brown;
 it does not say which part is which, and that is the whole question. A sword
 whose blade sits on a wood band is a wooden sword, and tagging it `metal-iron`
 because swords are usually metal is the mistake this section exists to prevent.
