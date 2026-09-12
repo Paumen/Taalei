@@ -299,7 +299,7 @@ obj-weapon-ranged-accessory — arrow, bolt, quiver
 obj-weapon-ranged — sling, throwing knife, javelin
 
 obj-weapon-magic-staff — staff, wizard staff
-obj-weapon-magic — wand, orb, tome (weapon), spell book
+obj-weapon-magic — wand, orb, focus (magic)
 
 obj-weapon-cannon — cannon, cannonball
 
@@ -328,7 +328,7 @@ obj-lighting — campfire, chandelier, streetlight
 
 obj-pocketitem-coin — coin, gold pile, gem (cut)
 obj-pocketitem-key — key
-obj-pocketitem-book — book, tome, journal
+obj-pocketitem-book — book, tome, journal, spell book
 obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
