@@ -58,8 +58,16 @@
 
 	Wat er met de bestanden is gebeurd, staat in
 	tools/importeer-natuur.mjs: omgezet naar .glb, met de oorsprong op
-	y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,5)
-	staat op de wortelnode, niet in de hoekpunten.
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten.
+
+	De kit is op verzoek gehalveerd: over elk model staat nu een
+	`rescale-wrapper` van ×0,5. De extras van de bestanden houden 0,3 als
+	importschaal vast, dus samen 0,15. Let op dat deze alinea tot nu toe
+	0,5 als schaal noemde, wat niet strookt met die 0,3 in de extras; de
+	0,3 is wat de bestanden zelf dragen en waar aanvullen.mjs op afgaat.
+	Alle maten die hierboven genoemd worden zijn nog van vóór de
+	halvering en dus het dubbele van wat de kit nu meet.
 
 	Deze pack heeft geen kleurenvel met banen maar een geschilderde
 	textuur. Daar valt geen baan over te nemen, dus wordt er een

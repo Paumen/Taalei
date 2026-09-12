@@ -24,9 +24,20 @@
 	is een tikfout van de pack zelf (`colum` i.p.v. `column`) en is
 	bewust ongewijzigd overgezet.
 
-	Eén schaalfactor voor de hele pack (stijlgids §4): 0,25. Elke wand is
-	in de bron 4 breed × 4 hoog; op 0,25 komt dat op 1 × 1 uit —
-	mini-dungeon's eigen wand is 1 × 1 × 1,1. Een eerste versie van het
+	Eén schaalfactor voor de hele pack (stijlgids §4): 0,175. Elke wand is
+	in de bron 4 breed × 4 hoog en komt daarmee op 0,7 × 0,7 uit, niet op
+	de 1 × 1 van §4 — even hoog als de wand van fantasy-town-kit (0,70).
+
+	Deze alinea stond tot nu toe op 0,25 en op een wand van 1 × 1, met
+	mini-dungeon's eigen wand (1 × 1 × 1,1) ernaast. Dat klopte niet met de
+	bestanden: die stonden op 0,175 met een `rescale-wrapper` van ×2
+	erover, samen 0,35, en gaven een wand van 1,4 × 1,4. Die wrapper is op
+	verzoek gehalveerd en daarmee weg — de kit staat nu kaal op 0,175.
+	De maten hieronder in deze alinea zijn nog van de 0,25-lezing en dus
+	de helft te groot; op 0,175 komt chest uit op 0,30 × 0,25 × 0,23 en
+	barrel-large op 0,32 × 0,32 × 0,35.
+
+	Een eerste versie van het
 	importscript gaf de meubels en het decor een eigen factor 1
 	(ongeschaald): op zichzelf een geloofwaardige stoel (0,75 × 0,75 ×
 	1,227), maar naast een wand van 1 hoog kwam die stoel er hoger uit
@@ -90,15 +101,17 @@
 	`table-medium-rounded`.
 
 	Eén schaalfactor voor de hele pack (stijlgids §4), en die van de kit
-	zelf: de extras houden 0,175 vast, en daar staat over elk model een
-	`rescale-wrapper` van ×2 overheen die de kit na zijn import gekregen
-	heeft. Samen 0,35. Een wand is in de 1.0 4 breed × 4 hoog; op 0,35
-	komt dat op 1,4 × 1,4 uit, hetzelfde raster als de wanden en de
-	vloer- en plafondtegels van de 1.1-helft (`wall`, `floor-tile-large`,
-	`ceiling-tile`, alle drie 1,4 × 1,4). Een model dat later wordt
-	toegevoegd moet die wrapper dus meekrijgen, anders komt het op de
-	helft uit; tools/importeer/aanvullen.mjs leest hem nu terug uit de
-	kit, naast de schaal en de oorsprong.
+	zelf: 0,175. Een wand is in de 1.0 4 breed × 4 hoog en komt daarmee op
+	0,7 × 0,7 uit, hetzelfde raster als de wanden en de vloer- en
+	plafondtegels van de 1.1-helft (`wall`, `floor-tile-large`,
+	`ceiling-tile`, alle drie 0,7 × 0,7).
+
+	Tot nu toe stond over elk model een `rescale-wrapper` van ×2, samen
+	0,35, en kwam dat raster op 1,4 × 1,4 uit. Die wrapper is op verzoek
+	gehalveerd; ×2 × 0,5 is 1, dus is hij uit de bestanden verdwenen en
+	staat de kit kaal op 0,175. Een model dat later wordt toegevoegd hoeft
+	dus geen wrapper meer mee te krijgen; tools/importeer/aanvullen.mjs
+	leest de schaal en de oorsprong terug uit de kit.
 
 	De pack heeft geen texture-atlas. Elk model draagt vlakke materialen
 	met een naam en één `baseColorFactor`: WoodDark, Stone, StoneDark,
