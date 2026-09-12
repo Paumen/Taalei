@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=c2f7ceb724';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=c2f7ceb724';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=07cf1ac2d2';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=07cf1ac2d2';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -15,7 +15,7 @@ const KIT_COLORS = {
   rocks: '#8a91ae',
 };
 
-// Kind ids are paths (obj-container-jug): the parent is the id minus its last segment.
+// Kind ids are paths (obj-container-pot): the parent is the id minus its last segment.
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
 const kindChain = (id) => {
   const chain = [];

@@ -36,7 +36,7 @@ const TAG_KIND = {
   flowers: 'env-flora-plant-flower', grass: 'env-flora-plant-grass', fungi: 'env-fungi',
   fauna: 'env-fauna', skull: 'env-remains-bones', branch: 'env-flora-deadwood', flora: 'env-flora',
   barrel: 'obj-container-barrel', chest: 'obj-container-chest', bag: 'obj-container-bag',
-  bottles: 'obj-container-bottle', jugs: 'obj-container-jug', container: 'obj-container',
+  bottles: 'obj-container-bottle', jugs: 'obj-container-pot', container: 'obj-container',
   pans: 'obj-kitchenware-cookware', tableware: 'obj-kitchenware-tableware',
   tables: 'obj-furniture-table', seating: 'obj-furniture-seating', furniture: 'obj-furniture',
   meat: 'obj-food-meat', grain: 'obj-food-grain', coconut: 'obj-food',

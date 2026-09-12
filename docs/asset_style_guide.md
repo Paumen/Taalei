@@ -259,19 +259,17 @@ Format: `kind — nouns that resolve here`. Parent lines list nouns that have no
 leaf yet (see K2).
 
 ```
-obj-container-jug — jug, pitcher, ewer
 obj-container-chest — chest, trunk, coffer, strongbox
 obj-container-barrel — barrel, cask, keg
 obj-container-bucket — bucket, pail
 obj-container-crate — crate, box, case
 obj-container-bottle — bottle, flask, vial, potion
 obj-container-bag — bag, sack, pouch, purse, backpack, satchel
-obj-container-pot — pot (storage), planter, vase, urn, amphora, jar
+obj-container-pot — pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer
 obj-container — basket, tub, trough, bin, can, coffin
 
 obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
-obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer
-obj-kitchenware-tableware-bowl — bowl
+obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer, bowl
 obj-kitchenware-tableware — mug, cup, goblet, tankard, teapot, glass
 obj-kitchenware-cookware-pan — pan, skillet
 obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
@@ -308,7 +306,7 @@ obj-weapon
 obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
 obj-equipment-shield — shield, buckler
 obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
-obj-equipment — ring, necklace, amulet, bracelet, crown, goggles, earring
+obj-equipment — crown, goggles
 
 obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
 obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
@@ -330,13 +328,14 @@ obj-pocketitem-coin — coin, gold pile, gem (cut)
 obj-pocketitem-key — key
 obj-pocketitem-book — book, tome, journal, spell book
 obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
+obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant, brooch
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
-obj-resource-metal — ingot, bar, nugget, ore lump
+obj-resource-metal — ingot, bar, nugget, ore lump, cog, spare part
 obj-resource-wood — plank (stock), board (loose), pallet
 obj-resource-stone — brick (loose), cut block
 obj-resource-textile — textile bolt, cloth roll
-obj-resource — hide, raw stock, spare part
+obj-resource — hide, raw stock
 
 obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
 

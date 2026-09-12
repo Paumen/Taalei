@@ -3260,11 +3260,15 @@
    ]
   },
   {
-   "id": "obj-container-jug",
-   "name": "Jug",
+   "id": "obj-container-pot",
+   "name": "Pot",
    "type": "kind",
-   "description": "jug, pitcher, ewer",
+   "description": "pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer",
    "models": [
+    "clay-props/planter",
+    "ken-grave/urn-round",
+    "ken-grave/urn-square",
+    "isa-pond/clay-pot",
     "clay-props/jug",
     "clay-props/wide-vase",
     "kay-dun-1/pot-a",
@@ -3282,33 +3286,12 @@
    ]
   },
   {
-   "id": "obj-container-pot",
-   "name": "Pot",
-   "type": "kind",
-   "description": "pot (storage), planter, vase, urn, amphora, jar",
-   "models": [
-    "clay-props/planter",
-    "ken-grave/urn-round",
-    "ken-grave/urn-square",
-    "isa-pond/clay-pot"
-   ]
-  },
-  {
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
    "color": "#6b5b95",
-   "models": [
-    "quat-rpg/blood-ring",
-    "quat-rpg/necklace-1",
-    "quat-rpg/necklace-2",
-    "quat-rpg/necklace-3",
-    "quat-rpg/ring-3",
-    "quat-rpg/ring-4",
-    "quat-rpg/ring-5",
-    "quat-rpg/ring-6"
-   ]
+   "models": []
   },
   {
    "id": "obj-equipment-armor",
@@ -3593,17 +3576,6 @@
    ]
   },
   {
-   "id": "obj-kitchenware-tableware-bowl",
-   "name": "Bowl",
-   "type": "kind",
-   "description": "bowl",
-   "models": [
-    "clay-props/bowl",
-    "kay-food/bowl",
-    "kay-food/bowl-small"
-   ]
-  },
-  {
    "id": "obj-kitchenware-tableware-cutlery",
    "name": "Cutlery",
    "type": "kind",
@@ -3622,7 +3594,7 @@
    "id": "obj-kitchenware-tableware-plate",
    "name": "Plate",
    "type": "kind",
-   "description": "plate, dish, platter, tray, saucer",
+   "description": "plate, dish, platter, tray, saucer, bowl",
    "models": [
     "clay-props/plate",
     "clay-props/platter",
@@ -3637,7 +3609,10 @@
     "props/plate-b",
     "props/plate-c",
     "kay-food/plate",
-    "kay-food/plate-small"
+    "kay-food/plate-small",
+    "clay-props/bowl",
+    "kay-food/bowl",
+    "kay-food/bowl-small"
    ]
   },
   {
@@ -3804,16 +3779,28 @@
    ]
   },
   {
+   "id": "obj-pocketitem-jewellery",
+   "name": "Jewellery",
+   "type": "kind",
+   "description": "ring, necklace, amulet, bracelet, earring, pendant, brooch",
+   "models": [
+    "quat-rpg/blood-ring",
+    "quat-rpg/ring-3",
+    "quat-rpg/ring-4",
+    "quat-rpg/ring-5",
+    "quat-rpg/ring-6",
+    "quat-rpg/necklace-1",
+    "quat-rpg/necklace-2",
+    "quat-rpg/necklace-3"
+   ]
+  },
+  {
    "id": "obj-resource",
    "name": "Resource",
    "type": "kind",
-   "description": "hide, raw stock, spare part",
+   "description": "hide, raw stock",
    "color": "#4f7d8c",
    "models": [
-    "kay-resources/parts-cog",
-    "kay-resources/parts-pile-large",
-    "kay-resources/parts-pile-medium",
-    "kay-resources/parts-pile-small",
     "small-props/skin-hang-a"
    ]
   },
@@ -3821,7 +3808,7 @@
    "id": "obj-resource-metal",
    "name": "Metal",
    "type": "kind",
-   "description": "ingot, bar, nugget, ore lump",
+   "description": "ingot, bar, nugget, ore lump, cog, spare part",
    "models": [
     "kay-resources/copper-bar",
     "kay-resources/copper-bars",
@@ -3859,7 +3846,11 @@
     "kay-resources/silver-nugget-medium",
     "kay-resources/silver-nugget-small",
     "kay-resources/silver-nuggets",
-    "quat-rpg/gold-ingots"
+    "quat-rpg/gold-ingots",
+    "kay-resources/parts-cog",
+    "kay-resources/parts-pile-large",
+    "kay-resources/parts-pile-medium",
+    "kay-resources/parts-pile-small"
    ]
   },
   {
