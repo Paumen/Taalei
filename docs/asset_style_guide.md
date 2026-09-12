@@ -54,7 +54,7 @@ Scope: items in catalog, and how they are tagged.
 
 | field | job | set | who |
 |---|---|---|---|
-| `material` | what it is **made of** | closed, 36, parented | Claude, linted |
+| `material` | what it is **made of** | closed, 37, parented | Claude, linted |
 | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** | Claude via glossary, PO reviews |
 | `use` | what it is **for** — where you'd look | closed, small, zero or more | Claude, PO reviews |
 | `size` | rough bbox: `s` `m` `l` | measured | automated |
@@ -178,7 +178,7 @@ text alone.
 - **M32.** `--` ⚪ Fauna may be any colors. 
 - **M33.** `FE` 🟢 Flames and glow are yellow 6,0.
 - **M34.** `FE` 🟢 Candle wax are off-white 5,2.
-- **M35.** `--` ⚪ Wicks are blue-grey 6,1.
+- **M35.** `FW` 🟢 Wicks are dark grey 13,3.
 - **M36.** `FE` 🟢 Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
 - **M37.** `PE` 🟢 Book covers are bark, dark red 8,0, dark green 1,1 or
   blue-grey 6,1. 
@@ -220,8 +220,7 @@ text alone.
 ### C. Colour to material
 
 - **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone and rock only. **to be reduced to 2**
-- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8),
-  wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).
+- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), and the flags and sails of a rigged ship (M18).
 - **C3.** `FE` 🟢 Light blue-grey 3,2: silver (M13).
 - **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents only.
 - **C5.** `PE` 🟢 Yellow: metal-gold, emissive, fire and plastic (M41).
@@ -235,7 +234,7 @@ text alone.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
 - **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).
-- **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought only.
+- **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought (M12) and wicks (M35).
 
 ### N. Counting — bands against materials
 - **N1.** `FE` 🟢 A model has at least one material.
