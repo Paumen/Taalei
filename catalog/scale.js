@@ -6,8 +6,8 @@ const GRID_MAJOR = 0.2;
 const ROW_WIDTH = 5;
 const WIDE_FACTOR = 2;
 const LABEL_PX = 20;
-const GAP = 0.35;
-const LINE = 2.3;
+const GAP = 0.2;
+const LINE = 2.05;
 const FONT_KIT = '500 58px system-ui, sans-serif';
 const FONT_MODEL = '700 58px system-ui, sans-serif';
 
@@ -64,9 +64,13 @@ const colors = () => {
   };
 };
 
+// A unit tall in five steps, so one step is one major gridline (0.2) rather than the
+// 0.25 that lined up with nothing.
+const RULER_STEPS = 5;
+
 function ruler() {
   const height = 1;
-  const part = height / 4;
+  const part = height / RULER_STEPS;
   const thickness = 0.08;
   const block = new THREE.BoxGeometry(thickness, part, thickness);
   const red = new THREE.MeshLambertMaterial({ color: 0xcc3333 });
@@ -74,10 +78,9 @@ function ruler() {
   return {
     w: thickness,
     h: height,
-    label: { kit: '', model: '' },
     build() {
       const g = new THREE.Group();
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < RULER_STEPS; i++) {
         const mesh = new THREE.Mesh(block, i % 2 ? red : white);
         mesh.position.set(0, part / 2 + i * part, 0);
         g.add(mesh);
@@ -114,8 +117,8 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
   if (row.length) rows.push({ row, width });
   for (const x of rows) {
     x.lines = labelLines(x.row, labelScale);
-    x.labelBlock = labelScale * (0.7 + LINE * (x.lines - 1) + LINE);
-    x.height = Math.max(rulerObj.h + labelScale * 1.4, ...x.row.map((p) => p.h)) + x.labelBlock;
+    x.labelBlock = labelScale * (0.45 + LINE * x.lines);
+    x.height = Math.max(rulerObj.h, ...x.row.map((p) => p.h)) + x.labelBlock;
   }
   return rows;
 }
@@ -222,17 +225,14 @@ export async function drawFamily(group, canvas, width) {
       const obj = rulerObj.build();
       obj.position.set(lx, y, 0);
       scene.add(obj);
-      const width = labelScale * (textWidth(rulerObj.label) / 96);
-      const ly = y + rulerObj.h + labelScale * 1.25;
-      label(rulerObj.label, lx, ly, width);
-      xMin = Math.min(xMin, lx - width / 2);
-      xMax = Math.max(xMax, lx + width / 2);
-      yMax = Math.max(yMax, ly);
+      // the ruler is a unit tall whatever the row holds, so it sets the row's top
+      // wherever every model in it is shorter
+      yMax = Math.max(yMax, y + rulerObj.h);
     }
     for (const p of r.row) {
       p.obj.position.set(p.x, y, 0);
       scene.add(p.obj);
-      const ly = y - labelScale * 0.7 - p.line * labelScale * LINE;
+      const ly = y - labelScale * 0.45 - p.line * labelScale * LINE;
       label(p.label, p.x, ly, p.labelWidth);
       xMin = Math.min(xMin, p.x - p.w / 2, p.x - p.labelWidth / 2);
       xMax = Math.max(xMax, p.x + p.w / 2, p.x + p.labelWidth / 2);
@@ -249,7 +249,7 @@ export async function drawFamily(group, canvas, width) {
     }
   });
 
-  const margin = Math.max(GAP, labelScale);
+  const margin = labelScale;
   const viewW = rulerRight - rulerLeft + margin * 2;
   const viewH = yMax - yMin + margin * 2;
   xMin = rulerLeft - margin;
