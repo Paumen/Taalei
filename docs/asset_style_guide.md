@@ -306,7 +306,7 @@ obj-weapon
 obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
 obj-equipment-shield — shield, buckler
 obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
-obj-equipment — ring, necklace, amulet, bracelet, crown, goggles, earring
+obj-equipment — crown, goggles
 
 obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
 obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
@@ -328,6 +328,7 @@ obj-pocketitem-coin — coin, gold pile, gem (cut)
 obj-pocketitem-key — key
 obj-pocketitem-book — book, tome, journal, spell book
 obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
+obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant, brooch
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
 obj-resource-metal — ingot, bar, nugget, ore lump
