@@ -251,7 +251,10 @@ export async function drawFamily(group, canvas, width) {
   const midY = (yMin + yMax) / 2;
   const cam = new THREE.OrthographicCamera(
     (-viewH * aspect) / 2, (viewH * aspect) / 2, viewH / 2, -viewH / 2, 0.1, 200);
-  cam.position.set(midX, midY + viewH * 0.1, 30);
+  // Straight on, no tilt: the grid sits at z = -0.5 and the models at z = 0, so any
+  // tilt renders the grid above the models' feet and drops each model below the line
+  // by its own depth. Orthographic buys no depth cue from a tilt to pay for that.
+  cam.position.set(midX, midY, 30);
   cam.lookAt(midX, midY, 0);
   renderer.render(scene, cam);
   canvas.width = canvasW;
