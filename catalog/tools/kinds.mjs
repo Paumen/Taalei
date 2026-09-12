@@ -116,7 +116,7 @@ export const NAME_KIND = [
   [w('hammer|saw|chisel|trowel|wrench|tong|brush|mallet|file|handplane|handdrill|scissor|screwdriver|magnifying-glass|compass|drafting-compass|pencil'), 'obj-tool-hand'],
   [w('shovel|spade|pickaxe|rake|hoe|pitchfork|broom|fishing-rod'), 'obj-tool-long'],
   [w('screw|nail|rope|chain|hook|wire'), 'obj-tool-supplies'],
-  [w('lever|spring|gear|cog|pulley|anvil|grindstone|workbench|parts'), 'obj-tool'],
+  [w('lever|spring|gear|pulley|anvil|grindstone|workbench'), 'obj-tool'],
 
   [w('crockpot|cauldron|kettle|cooking-pot|rice-pot|lid'), 'obj-kitchenware-cookware-pot'],
   [w('pan|skillet|frying-pan'), 'obj-kitchenware-cookware-pan'],
@@ -156,12 +156,12 @@ export const NAME_KIND = [
   [w('ring|necklace|amulet|bracelet|earring|pendant|brooch'), 'obj-pocketitem-jewellery'],
   [w('compass|hourglass|dice|mirror|artifact|star|heart'), 'obj-pocketitem'],
 
-  [w('ingot|nugget|ore-lump'), 'obj-resource-metal'],
+  [w('ingot|nugget|ore-lump|cog|part|spare-part'), 'obj-resource-metal'],
   [w('bar'), 'obj-resource-metal'],
   [w('wood-plank|resource-plank|platform-plank|pallet'), 'obj-resource-wood'],
   [w('stone-brick'), 'obj-resource-stone'],
   [w('textile|cloth-roll'), 'obj-resource-textile'],
-  [w('hide|raw-stock|spare-part'), 'obj-resource'],
+  [w('hide|raw-stock'), 'obj-resource'],
 
   [w('stand|rack|easel|statue|signboard|bell|cage|mannequin|target'), 'obj'],
 
