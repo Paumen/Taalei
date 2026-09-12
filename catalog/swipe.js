@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=a278d20356';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=f264c049f8';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -22,6 +22,7 @@ const SOURCE = SOURCES[new URLSearchParams(location.search).get('source')] ?? SO
 const STORAGE_KEY = `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
+const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -239,14 +240,15 @@ function fillSetup() {
 }
 
 function setLighting(viewer) {
+  viewer.setAttribute('tone-mapping', 'neutral');
   if (flatMode.on) {
     viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0');
     viewer.setAttribute('exposure', '1.3');
   } else {
-    viewer.setAttribute('environment-image', 'neutral');
+    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0.7');
-    viewer.setAttribute('exposure', '1.05');
+    viewer.setAttribute('exposure', '1.15');
   }
 }
 

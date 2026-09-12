@@ -66,17 +66,19 @@ const SORTINGS = {
 // ─── viewers ─────────────────────────────────────────────────────────────────────────
 
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
+const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
 const flatMode = { on: false };
 
 function setLighting(viewer, shadow) {
+  viewer.setAttribute('tone-mapping', 'neutral');
   if (flatMode.on) {
     viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0');
     viewer.setAttribute('exposure', '1.3');
   } else {
-    viewer.setAttribute('environment-image', 'neutral');
+    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', shadow);
-    viewer.setAttribute('exposure', '1.05');
+    viewer.setAttribute('exposure', '1.15');
   }
 }
 

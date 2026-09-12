@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=a278d20356';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=a278d20356';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=f264c049f8';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f264c049f8';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -184,18 +184,26 @@ function demoClip(clips) {
   return clips.find((name) => name === 'open-close' || name === 'toggle') ?? clips[0];
 }
 
+// The assets bake their own shading: a face's position down its colour band sets how
+// light it reads, top faces at the light end and undersides at the dark end. A lit
+// environment adds a second, competing light, so the default is a soft sky that only
+// varies top to bottom — the same direction the bake runs in. Flat mode drops even that
+// and shows the bake alone. Tone mapping is pinned so a viewer upgrade cannot swap in a
+// curve that shifts the palette.
 const FLAT_ENVIRONMENT = 'catalog/effen-omgeving.png';
+const SOFT_ENVIRONMENT = 'catalog/zachte-omgeving.png';
 const flatMode = { on: false };
 
 function setLighting(viewer, shadow) {
+  viewer.setAttribute('tone-mapping', 'neutral');
   if (flatMode.on) {
     viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0');
     viewer.setAttribute('exposure', '1.3');
   } else {
-    viewer.setAttribute('environment-image', 'neutral');
+    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', shadow);
-    viewer.setAttribute('exposure', '1.05');
+    viewer.setAttribute('exposure', '1.15');
   }
 }
 
