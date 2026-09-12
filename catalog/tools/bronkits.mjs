@@ -9,9 +9,9 @@ export const BRONKITS = [
   { map: 'kenney_castlekit', naam: 'Kenney Castle Kit', kit: 'castle-kit', formaat: 'glb' },
   { map: 'kenney_graveyardkit_5.0', naam: 'Kenney Graveyard Kit', kit: 'graveyard-kit', formaat: 'glb' },
   { map: 'kenney_holidaykit', naam: 'Kenney Holiday Kit', kit: 'holiday-kit', formaat: 'glb' },
-  { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: 'mini-dungeon', formaat: 'glb' },
+  { map: 'kenney_mini-dungeon', naam: 'Kenney Mini Dungeon', kit: 'ken-mini-dun', formaat: 'glb' },
 
-  { map: 'KayKit_Dungeon_Pack_1.1_FREE', naam: 'KayKit Dungeon Asset Pack', kit: 'dungeon', formaat: 'gltf' },
+  { map: 'KayKit_Dungeon_Pack_1.1_FREE', naam: 'KayKit Dungeon Asset Pack', kit: 'kay-dun-2', formaat: 'gltf' },
   { map: 'KayKit_Forest_Nature_Pack_1.0_FREE', naam: 'KayKit Forest Nature Pack', kit: 'forest', formaat: 'gltf' },
   { map: 'KayKit_ResourceBits_1.0_FREE', naam: 'KayKit Resource Bits', kit: 'resources', formaat: 'gltf' },
   { map: 'KayKit_RPGToolsBits_1.0_FREE', naam: 'KayKit RPG Tools Bits', kit: 'rpgtools', formaat: 'gltf' },
@@ -35,13 +35,16 @@ export const BRONKITS = [
   { map: 'LowPolyNaturePackLite', naam: 'Low Poly Nature Pack Lite', kit: null, formaat: 'fbx' },
   { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
-  { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'dungeon', formaat: 'glb' },
+  { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', formaat: 'glb' },
   { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'skeletons', formaat: 'glb' },
   { map: 'KayKit_FantasyWeaponsBits_1.0_FREE', naam: 'KayKit Fantasy Weapons Bits', kit: 'weapons', formaat: 'gltf' },
   { map: 'Tiny_Treats_House_Plants_1.0_FREE', naam: 'Tiny Treats House Plants', kit: null, formaat: 'gltf' },
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: 'baked-goods', formaat: 'gltf' },
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-items', formaat: 'gltf' },
-  { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'dungeon-quaternius', formaat: 'obj' },
+  { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', formaat: 'obj' },
+  // Same 48 models as the Updated pack, never imported: its kit holds no workfiles, so
+  // build-missing lists the whole pack as still to come.
+  { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
 

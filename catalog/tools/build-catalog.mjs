@@ -369,7 +369,7 @@ const TYPES = ['material', 'kind', 'use', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
 // The three kits whose walls, roofs, pillars and floors click together on one grid.
-const BUILDING_KITS = ['fantasy-town-kit', 'village-kit', 'dungeon'];
+const BUILDING_KITS = ['fantasy-town-kit', 'village-kit', 'kay-dun-1', 'kay-dun-2'];
 
 const SOURCES = [
   {
@@ -378,7 +378,7 @@ const SOURCES = [
     description: 'Kits from Kenney (kenney.nl).',
     kits: [
       'castle-kit', 'fantasy-town-kit', 'graveyard-kit', 'holiday-kit',
-      'mini-forest', 'mini-dungeon', 'modular-cave-kit', 'pirate-kit',
+      'mini-forest', 'ken-mini-dun', 'modular-cave-kit', 'pirate-kit',
       'platformer-kit', 'prototype-kit', 'survival-kit',
     ],
   },
@@ -387,7 +387,7 @@ const SOURCES = [
     name: 'KayKit',
     description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
-      'adventurers', 'dungeon', 'forest', 'furniture', 'halloween', 'resources',
+      'adventurers', 'kay-dun-1', 'kay-dun-2', 'forest', 'furniture', 'halloween', 'resources',
       'restaurant', 'rpgtools', 'skeletons', 'weapons',
     ],
   },
@@ -396,7 +396,7 @@ const SOURCES = [
     name: 'Quaternius',
     description: 'Kits from Quaternius (quaternius.com).',
     kits: [
-      'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'dungeon-quaternius',
+      'fantasy-props', 'quaternius-nature', 'pirate-quaternius', 'quat-dun-1', 'quat-dun-2',
       'rpg-quaternius', 'food-quaternius', 'fish-quaternius', 'ships-quaternius',
     ],
   },
