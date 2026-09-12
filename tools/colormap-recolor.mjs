@@ -31,6 +31,12 @@
 //   the ones outside keep the originals. Nothing moves and no triangle is added — the
 //   model only gains the handful of vertices a hard colour edge needs, the way every
 //   other band boundary in these kits already carries one.
+//   --radius is the same cut measured out from an axis instead of along it:
+//   `--radius y,1.2,9` takes the triangles whose centre sits that far from the Y axis.
+//   That is how a part that stands out all round a shaft is moved — the fletching of an
+//   arrow is three vanes at 120 degrees, so no slab and no uv tells it from the shaft it
+//   is welded to. It combines with --range the way two ranges do: a triangle must be
+//   inside every one of them.
 //   --shade moves the selected vertices inside the destination band instead of across
 //   bands: `--shade 0.35` puts their light end 0.35 down the cell, carrying the spread
 //   along, so the baked shading of §1 survives. Give the same cell as from and to to
@@ -170,8 +176,9 @@ function pieceVertices(glb, mesh, wanted) {
   return perAccessor;
 }
 
-// The triangles whose centre sits inside every --range slab, per primitive. A triangle
-// must be in all of them, so two ranges on different axes cut a box out of the model.
+// The triangles whose centre sits inside every --range slab and --radius shell, per
+// primitive. A triangle must be in all of them, so two ranges on different axes cut a
+// box out of the model, and a range with a radius cuts a ring off a shaft.
 function slabTriangles(glb, mesh, ranges) {
   const found = [];
   for (const target of glb.json.meshes ?? []) {
@@ -187,7 +194,13 @@ function slabTriangles(glb, mesh, ranges) {
         const corners = [idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]];
         const middle = [0, 1, 2].map((axis) =>
           corners.reduce((sum, v) => sum + pos.data[v * pos.width + axis], 0) / 3);
-        if (ranges.every(({ axis, low, high }) => middle[axis] >= low && middle[axis] <= high)) inside.push(t);
+        const fits = ({ axis, low, high, radial }) => {
+          const d = radial
+            ? Math.hypot(...[0, 1, 2].filter((a) => a !== axis).map((a) => middle[a]))
+            : middle[axis];
+          return d >= low && d <= high;
+        };
+        if (ranges.every(fits)) inside.push(t);
       }
       found.push({ primitive, triangles: inside });
     }
@@ -452,6 +465,16 @@ argv.forEach((a, i) => {
   ranges.push({ axis: AXIS[axis], low: Number(low), high: Number(high) });
   rangeIndexes.add(i); rangeIndexes.add(i + 1);
 });
+argv.forEach((a, i) => {
+  if (a !== '--radius') return;
+  const [axis, low, high] = String(argv[i + 1] ?? '').split(',');
+  if (!(axis in AXIS) || !Number.isFinite(Number(low)) || !Number.isFinite(Number(high))) {
+    console.error(`error: --radius wants axis,low,high — for example y,1.2,9`);
+    process.exit(2);
+  }
+  ranges.push({ axis: AXIS[axis], low: Number(low), high: Number(high), radial: true });
+  rangeIndexes.add(i); rangeIndexes.add(i + 1);
+});
 const shadeFlag = argv.indexOf('--shade');
 const shade = shadeFlag === -1 ? null : Number(argv[shadeFlag + 1]);
 if (shadeFlag !== -1 && !(shade >= 0 && shade <= 1)) {
@@ -494,7 +517,7 @@ if (rest[0] === '--map') {
   const [from, to, ...inputs] = rest;
   if (!from || !to || inputs.length === 0) {
     console.error(
-      'usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--upright] [--piece n[,n]] [--range axis,low,high] [--shade 0..1] [--pieces]',
+      'usage: colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--upright] [--piece n[,n]] [--range axis,low,high] [--radius axis,low,high] [--shade 0..1] [--pieces]',
     );
     process.exit(2);
   }
@@ -511,7 +534,8 @@ for (const { file, from, to, mesh = null, uv = null, upright: standing = false, 
   const glb = readGlb(file);
   const moved = recolor(glb, parseCell(from), parseCell(to), mesh, uv ? parseUv(uv) : null, standing,
     piece, range, position);
-  const slabs = range ? range.map(({ axis, low, high }) => ` in ${'xyz'[axis]} ${low}..${high}`).join('') : '';
+  const slabs = range ? range.map(({ axis, low, high, radial }) =>
+    radial ? ` at ${low}..${high} from the ${'xyz'[axis]} axis` : ` in ${'xyz'[axis]} ${low}..${high}`).join('') : '';
   const waar =
     `${from}${uv ? ` at ${uv}` : ''}${standing ? ' on the upright pieces' : ''}${piece ? ` on piece ${piece.join(',')}` : ''}${slabs}${mesh ? ` on mesh ${mesh}` : ''}`;
   if (moved === 0) { console.log(`  ${file}: nothing in ${waar}`); continue; }
