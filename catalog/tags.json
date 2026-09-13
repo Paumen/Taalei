@@ -4160,39 +4160,54 @@
    "id": "obj-resource-wood",
    "name": "Wood",
    "type": "kind",
-   "description": "plank (stock), board (loose), pallet",
+   "description": "Wood stock with no leaf that fits (K2).",
+   "models": []
+  },
+  {
+   "id": "obj-resource-wood-log",
+   "name": "Log",
+   "type": "kind",
+   "description": "log (cut), timber, firewood, cordwood",
    "models": [
-    "ken-grave/debris-wood",
+    "ken-survival/tree-log-small",
+    "ken-survival/tree-log",
+    "kay-resources/wood-log-a",
+    "kay-resources/wood-log-b",
+    "kay-resources/wood-log-stack",
+    "quat-pirate/sawmill",
+    "natuur/timber-stack-1",
+    "natuur/timber-stack-2",
+    "natuur/timber-whole-1",
+    "props/firewood-a",
     "fs-terrain/hilly-prop-camp-wood-pile",
     "natuur/log-1",
     "natuur/log-2",
     "natuur/log-3",
     "natuur/log-4",
     "natuur/log-5",
+    "small-props/cut-wood-1-a",
     "natuur/timber-cut-1",
     "natuur/timber-cut-2",
     "natuur/timber-cut-3",
-    "natuur/timber-cut-4",
-    "natuur/timber-stack-1",
-    "natuur/timber-stack-2",
-    "natuur/timber-whole-1",
-    "ken-pirate/platform-planks",
-    "quat-pirate/sawmill",
-    "props/firewood-a",
-    "kay-resources/pallet-wood",
-    "kay-resources/wood-log-a",
-    "kay-resources/wood-log-b",
-    "kay-resources/wood-log-stack",
+    "natuur/timber-cut-4"
+   ]
+  },
+  {
+   "id": "obj-resource-wood-plank",
+   "name": "Plank",
+   "type": "kind",
+   "description": "plank (stock), board (loose), pallet",
+   "models": [
     "kay-resources/wood-plank-a",
     "kay-resources/wood-plank-b",
     "kay-resources/wood-plank-c",
-    "kay-resources/wood-planks-stack-large",
     "kay-resources/wood-planks-stack-medium",
+    "kay-resources/wood-planks-stack-large",
     "kay-resources/wood-planks-stack-small",
-    "small-props/cut-wood-1-a",
+    "ken-pirate/platform-planks",
     "ken-survival/resource-planks",
-    "ken-survival/tree-log",
-    "ken-survival/tree-log-small"
+    "ken-grave/debris-wood",
+    "kay-resources/pallet-wood"
    ]
   },
   {
@@ -4531,7 +4546,11 @@
     "kay-skeleton/quiver-b",
     "kay-skeleton/shield-round-arrows",
     "kay-weapons/arrow-a",
-    "kay-weapons/arrow-b"
+    "kay-weapons/arrow-b",
+    "kay-adventurers/arrow-crossbow",
+    "kay-adventurers/arrow-crossbow-bundle",
+    "kay-adventurers/arrow-bow",
+    "kay-adventurers/arrow-bow-bundle"
    ]
   },
   {
@@ -4540,8 +4559,6 @@
    "type": "kind",
    "description": "bow, longbow",
    "models": [
-    "kay-adventurers/arrow-bow",
-    "kay-adventurers/arrow-bow-bundle",
     "kay-adventurers/bow",
     "kay-adventurers/bow-strung",
     "primitive-tools/bow",
@@ -4558,8 +4575,6 @@
    "type": "kind",
    "description": "crossbow",
    "models": [
-    "kay-adventurers/arrow-crossbow",
-    "kay-adventurers/arrow-crossbow-bundle",
     "kay-adventurers/crossbow-one-handed",
     "kay-adventurers/crossbow-two-handed",
     "kay-dun-1/crossbow-common",

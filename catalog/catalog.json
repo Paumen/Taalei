@@ -4434,8 +4434,22 @@
    "id": "obj-resource-wood",
    "name": "Wood",
    "type": "kind",
-   "description": "plank (stock), board (loose), pallet",
+   "description": "Wood stock with no leaf that fits (K2).",
    "count": 31
+  },
+  {
+   "id": "obj-resource-wood-log",
+   "name": "Log",
+   "type": "kind",
+   "description": "log (cut), timber, firewood, cordwood",
+   "count": 21
+  },
+  {
+   "id": "obj-resource-wood-plank",
+   "name": "Plank",
+   "type": "kind",
+   "description": "plank (stock), board (loose), pallet",
+   "count": 10
   },
   {
    "id": "obj-tool",
@@ -4578,21 +4592,21 @@
    "name": "Accessory",
    "type": "kind",
    "description": "arrow, bolt, quiver",
-   "count": 16
+   "count": 20
   },
   {
    "id": "obj-weapon-ranged-bow",
    "name": "Bow",
    "type": "kind",
    "description": "bow, longbow",
-   "count": 10
+   "count": 8
   },
   {
    "id": "obj-weapon-ranged-crossbow",
    "name": "Crossbow",
    "type": "kind",
    "description": "crossbow",
-   "count": 8
+   "count": 6
   },
   {
    "id": "char",
@@ -7942,7 +7956,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-camp-wood-pile",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.3,
@@ -20523,7 +20537,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-bow-bundle",
-   "kind": "obj-weapon-ranged-bow",
+   "kind": "obj-weapon-ranged-accessory",
    "use": [
     "weapon"
    ],
@@ -20584,7 +20598,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-bow",
-   "kind": "obj-weapon-ranged-bow",
+   "kind": "obj-weapon-ranged-accessory",
    "use": [
     "weapon"
    ],
@@ -20639,7 +20653,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-crossbow-bundle",
-   "kind": "obj-weapon-ranged-crossbow",
+   "kind": "obj-weapon-ranged-accessory",
    "use": [
     "weapon"
    ],
@@ -20700,7 +20714,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-crossbow",
-   "kind": "obj-weapon-ranged-crossbow",
+   "kind": "obj-weapon-ranged-accessory",
    "use": [
     "weapon"
    ],
@@ -45809,7 +45823,7 @@
   {
    "kit": "kay-resources",
    "name": "pallet-wood",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "use": [
     "container"
    ],
@@ -46901,7 +46915,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-log-a",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -46954,7 +46968,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-log-b",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.1,
@@ -47002,7 +47016,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-log-stack",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.4,
@@ -47049,7 +47063,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-plank-a",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.1,
@@ -47089,7 +47103,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-plank-b",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.1,
@@ -47129,7 +47143,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-plank-c",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.1,
@@ -47169,7 +47183,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-planks-stack-large",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.4,
@@ -47210,7 +47224,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-planks-stack-medium",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.4,
@@ -47251,7 +47265,7 @@
   {
    "kit": "kay-resources",
    "name": "wood-planks-stack-small",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.2,
@@ -55029,7 +55043,7 @@
   {
    "kit": "ken-grave",
    "name": "debris-wood",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "s",
    "wdh": [
     0.3,
@@ -58613,7 +58627,7 @@
   {
    "kit": "ken-pirate",
    "name": "platform-planks",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
     0.5,
@@ -62472,7 +62486,7 @@
   {
    "kit": "ken-survival",
    "name": "resource-planks",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
     0.4,
@@ -63533,7 +63547,7 @@
   {
    "kit": "ken-survival",
    "name": "tree-log-small",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
     0.3,
@@ -63581,7 +63595,7 @@
   {
    "kit": "ken-survival",
    "name": "tree-log",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
     0.3,
@@ -70114,7 +70128,7 @@
   {
    "kit": "natuur",
    "name": "log-1",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -70162,7 +70176,7 @@
   {
    "kit": "natuur",
    "name": "log-2",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -70210,7 +70224,7 @@
   {
    "kit": "natuur",
    "name": "log-3",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -70258,7 +70272,7 @@
   {
    "kit": "natuur",
    "name": "log-4",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.3,
@@ -70306,7 +70320,7 @@
   {
    "kit": "natuur",
    "name": "log-5",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.4,
@@ -71796,7 +71810,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-1",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -71842,7 +71856,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-2",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -71888,7 +71902,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-3",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.1,
@@ -71934,7 +71948,7 @@
   {
    "kit": "natuur",
    "name": "timber-cut-4",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -71980,7 +71994,7 @@
   {
    "kit": "natuur",
    "name": "timber-stack-1",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -72028,7 +72042,7 @@
   {
    "kit": "natuur",
    "name": "timber-stack-2",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -72076,7 +72090,7 @@
   {
    "kit": "natuur",
    "name": "timber-whole-1",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -74677,7 +74691,7 @@
   {
    "kit": "props",
    "name": "firewood-a",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.2,
@@ -80624,7 +80638,7 @@
   {
    "kit": "quat-pirate",
    "name": "sawmill",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
     0.7,
@@ -85470,7 +85484,7 @@
   {
    "kit": "small-props",
    "name": "cut-wood-1-a",
-   "kind": "obj-resource-wood",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.3,

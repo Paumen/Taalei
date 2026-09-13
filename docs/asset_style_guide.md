@@ -377,7 +377,9 @@ obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant,
 obj-pocketitem — compass, hourglass, dice, mirror (hand)
 
 obj-resource-metal — ingot, bar, nugget, ore lump, cog, spare part
-obj-resource-wood — plank (stock), board (loose), pallet
+obj-resource-wood-log — log (cut), timber, firewood, cordwood
+obj-resource-wood-plank — plank (stock), board (loose), pallet
+obj-resource-wood
 obj-resource-stone — brick (loose), cut block
 obj-resource-textile — textile bolt, cloth roll
 obj-resource — hide, raw stock
@@ -427,7 +429,7 @@ env-flora-tree-palm — palm
 env-flora-tree — tree, oak, birch, willow, bush (tree-sized)
 
 env-flora-deadwood-stump — stump
-env-flora-deadwood-branch — branch, twig, log, driftwood
+env-flora-deadwood-branch — branch, twig, log (fallen), driftwood
 env-flora-deadwood — dead tree, fallen tree, root
 
 env-fungi — mushroom, toadstool, fungus, lichen
