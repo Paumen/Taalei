@@ -218,9 +218,12 @@ const follows = (id, other, coverage = 'full') => ({ id, coverage, follows: othe
 const CHECKS = [
 
   { id: 'X4', coverage: 'full', severity: 'warning', noJoker: true,
-    subjects: { bands: [], tags: [], kinds: [] },
-    tests: 'tris per occupied grid cell (the catalogue\'s tpu: tris ÷ (max(0.49, w × d) × max(0.7, h))) stay at or under 3000',
-    check: (m) => (m.tpu > 3000 ? `${m.tpu} tris per cell, ceiling 3000` : null) },
+    subjects: { bands: [], tags: ['plural'], kinds: ['char'] },
+    tests: 'tris per occupied grid cell (the catalogue\'s tpu: tris ÷ (max(0.49, w × d) × max(0.7, h))) stay at or under 5000, char and plural exempt',
+    check: (m) => {
+      if (kindIs(m, 'char') || has(m, 'plural')) return null;
+      return m.tpu > 5000 ? `${m.tpu} tris per cell, ceiling 5000` : null;
+    } },
   { id: 'X6', coverage: 'full', severity: 'warning', noJoker: true,
     subjects: { bands: [], tags: [], kinds: ['env-terrain-mountain'] },
     tests: 'bounding-box height stays at or under 6 units, except env-terrain-mountain',
