@@ -40,5 +40,6 @@ kind), `--json path.json` (all findings, for grouping the report by catalogue gr
 by kit — the console report is per rule only).
 `node tools/rule-status.mjs --check` verifies the status markers and the rule grammar:
 id pattern, 140-char limit, cross-references, band names and ids, lint coverage. It also
-regenerates docs/rule_index.md (rules by material tag, band and kind).
+regenerates section C of Appendix A from the rows of M, and docs/rule_index.md (rules by
+material tag, band and kind).
 

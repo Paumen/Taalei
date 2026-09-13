@@ -97,7 +97,6 @@ const isKey = (m) => m.kind === 'obj-pocketitem-key';
 
 const CONTAINER_KINDS = ['obj-container-barrel', 'obj-container-chest', 'obj-container-bucket', 'obj-container-crate'];
 const isContainer = (m) => kindIs(m, ...CONTAINER_KINDS);
-const isLog = (m) => has(m, 'wood-log') || kindIs(m, 'env-flora-deadwood');
 const isBottle = (m) => m.kind === 'obj-container-bottle';
 const isBook = (m) => kindIs(m, 'obj-pocketitem-book', 'obj-weapon-magic') && has(m, 'paper');
 
@@ -328,7 +327,7 @@ const CHECKS = [
   materialTakes({ id: 'M24', coverage: 'full', severity: 'error',
     tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
   materialTakes({ id: 'M25', coverage: 'full', severity: 'error',
-    tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
+    tag: 'ceramic', colors: ['terracotta', 'off-white', 'dark red'] }),
   { id: 'M26', coverage: 'partial', severity: 'error',
     subjects: { bands: [], tags: ['glass', 'ceramic'], kinds: ['obj-container-bottle'] },
     tests: 'obj-container-bottle models carry `glass` or `ceramic`',
@@ -418,28 +417,32 @@ const CHECKS = [
     tags: ['metal', 'metal-iron-wrought', 'wick'], unless: isKey, also: ['keys'] }),
   bandOnlyFor({ id: 'C3', coverage: 'full', severity: 'error', color: 'light blue-grey',
     tags: ['metal', 'metal-silver'], unless: isKey, also: ['keys'] }),
-  bandOnlyFor({ id: 'C4', coverage: 'partial', severity: 'error', color: 'blue', tags: [], accent: true }),
+  bandOnlyFor({ id: 'C4', coverage: 'partial', severity: 'error', color: 'blue',
+    tags: ['liquid', 'gemstone'], kinds: ['obj-pocketitem-scroll'], accent: true }),
   bandOnlyFor({ id: 'C5', coverage: 'partial', severity: 'error', color: 'yellow',
     tags: ['metal', 'metal-gold', 'emissive'],
     kinds: ['obj-lighting', 'obj-pocketitem-coin'], unless: isKey, also: ['keys'] }),
   bandOnlyFor({ id: 'C6', coverage: 'partial', severity: 'error', color: 'dark red',
-    tags: ['ceramic', 'gemstone', 'glass', 'textile'], kinds: ['env-fungi'],
-    accent: true, unless: isRoof, also: ['roofs'] }),
+    tags: ['ceramic', 'gemstone', 'glass', 'liquid', 'textile'], kinds: ['env-fungi', 'obj-pocketitem-scroll'],
+    accent: true, unless: (m) => isRoof(m) || isBook(m), also: ['roofs', 'book covers'] }),
   bandOnlyFor({ id: 'C7', coverage: 'partial', severity: 'error', color: 'dark green',
-    tags: ['foliage', 'glass'], accent: true, also: ['textile on char or weapon models'],
-    unless: (m) => has(m, 'textile') && (m.kind === 'char' || usedFor(m, 'weapon')) }),
+    tags: ['foliage', 'glass', 'liquid', 'gemstone'], kinds: ['obj-pocketitem-scroll'], accent: true,
+    also: ['textile on char or weapon models', 'book covers'],
+    unless: (m) => (has(m, 'textile') && (m.kind === 'char' || usedFor(m, 'weapon'))) || isBook(m) }),
   bandOnlyFor({ id: 'C8', coverage: 'full', severity: 'error', color: 'light green',
     // foliage is the green matter itself, so a weed accent on a floor tile carries it
     tags: ['foliage'], kinds: ['env-flora', 'env-fungi'] }),
 
   bandOnlyFor({ id: 'C9-light', coverage: 'full', severity: 'error', color: 'light brown',
-    tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain'] }),
+    tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain', 'env-fungi'] }),
   bandOnlyFor({ id: 'C9-middle', coverage: 'full', severity: 'error', color: 'mid brown',
     tags: WOOD_TAGS, kinds: ['obj-food-grain', 'env-fungi'] }),
   bandOnlyFor({ id: 'C9-dark', coverage: 'full', severity: 'error', color: 'dark brown',
-    tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
+    tags: WOOD_TAGS, kinds: ['obj-food-grain', 'env-fungi'] }),
   bandOnlyFor({ id: 'C10', coverage: 'full', severity: 'error', color: 'bark',
-    tags: ['wood-bark', 'leather', 'skin'], unless: isLog, also: ['logs (`wood-log` or env-flora-deadwood)'] }),
+    tags: ['wood-bark', 'leather', 'skin'], kinds: ['env-flora-deadwood'], unless: isBook, also: ['book covers'] }),
+  follows('M90', 'C8', 'partial'),
+  follows('M91', 'C10', 'partial'),
 
   { id: 'C11', coverage: 'full', severity: 'error',
     subjects: { bands: [], tags: ['glass'], kinds: [] },
