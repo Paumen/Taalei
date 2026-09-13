@@ -37,31 +37,33 @@
 
 	Kleur
 
-	De pack heeft geen texture-atlas: elk model draagt één vlakke kleur,
-	één materiaal per bestand. Elk model komt daardoor op precies één
-	baan van de gedeelde kits/colormap.png uit. Vier bronkleuren zijn in
+	De pack heeft geen texture-atlas: hij kleurt met vlakke materialen,
+	per polygoon toegewezen. Een model draagt er twee tot vier — steel,
+	kop en binding zijn elk hun eigen materiaal — en komt dus op evenzoveel
+	banen van de gedeelde kits/colormap.png uit. Zes bronkleuren zijn in
 	gebruik:
 
-	  #b48666  → mid brown 1,0
-	  #89593f  → dark brown 2,0
-	  #5e3d2c  → bark 3,0
-	  #5c5c5c  → light grey 15,3
+	  #89593f  → dark brown 2,0    19 modellen
+	  #b48666  → mid brown 1,0     18 modellen
+	  #5c5c5c  → dark grey 13,3     9 modellen
+	  #9a4e47  → dark red 8,0       1 model  (Stone Arrow)
+	  #adadad  → light grey 15,3    1 model  (Wooden Arrow)
+	  #5e3d2c  → bark 3,0           1 model  (Torch)
 
 	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
 	verschil betekent; de afstanden hieronder staan in die maat, op een
-	schaal waar 100 het hele bereik is. De verste sprong is 1,2, van het
-	grijs #5c5c5c naar light grey 15,3; daarna 0,8 van #5e3d2c naar bark
-	3,0. De pack valt dus vrijwel samen met de gedeelde sheet.
+	schaal waar 100 het hele bereik is. De verste sprong is 2,2, van het
+	roodbruin #9a4e47 naar dark red 8,0; daarna 1,4 van #b48666 naar mid
+	brown 1,0. De pack valt dus vrijwel samen met de gedeelde sheet.
 
-	Let op bij het taggen: de kleuren van de pack volgen de namen níet.
-	`Stone Axe`, `Stone Club`, `Stone Pickaxe` en `Stone Shovel` dragen
-	hetzelfde bruin als het houten gereedschap, en `Stone Hammer` is
-	donkerbruin, terwijl `Wooden Hammer` juist licht is. Alleen `Stone
-	Arrow`, `Stone Knife`, `Stone Shield` en `Stone Spear` staan op grijs.
-	De materiaaltags volgen de baan waar het model op staat en niet de
-	naam die de pack eraan geeft, zoals Appendix A voorschrijft: de vier
-	grijze dragen stone-rock, de rest een houtsoort. De namen van de pack
-	zijn onaangeroerd gebleven.
+	Let op bij het taggen: deze banen zijn die van de pack zelf en niet
+	die van Appendix A. Het grijs van de stenen koppen landt op dark
+	grey 13,3, de baan van metal-iron-wrought (M12, C15), terwijl M9
+	stone-rock op light grey 15,3 zet; grips en bindingen staan op bruin
+	in plaats van op taupe 14,3 (M19, M22). Wie de banen naar de regels
+	terugzet, doet dat met de hand — de importer kiest de dichtstbijzijnde
+	baan en weet van materialen niets. De namen van de pack zijn
+	onaangeroerd gebleven; ze zeggen ook niets over de kleur.
 
 	Wat er met de bestanden is gebeurd, staat in
 	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
