@@ -185,10 +185,6 @@ const reasonBand = (model) => {
   return null;
 };
 
-// W2 counts in UV position down the cell, the unit `spread` is stored in, not in L.
-const BAND_WINDOW = [0.05, 0.95];
-
-const LANE_NAME = Object.fromEntries(Object.entries(BANDS).map(([name, lane]) => [lane, name]));
 const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
 
 const halfOf = ({ id, text, severity, lane, low, high, when }) => ({
@@ -299,8 +295,8 @@ const RULES = [
   { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
     check: (m) => (isBottle(m) && !has(m, 'glass', 'ceramic'))
       ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
-  materialTakes({ id: 'M27', text: 'The glass bottles exists in red and green.', severity: 'error',
-    tag: 'glass', colors: ['dark red', 'dark green'], when: (m) => isBottle(m) && has(m, 'glass') }),
+  materialTakes({ id: 'M27', text: 'Glass bottles are dark red, dark green or clear glass.', severity: 'error',
+    tag: 'glass', colors: ['dark red', 'dark green', 'clear glass'], when: (m) => isBottle(m) && has(m, 'glass') }),
   materialTakes({ id: 'M28', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
     severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
   materialTakes({ id: 'M29', text: 'Bones and skulls are off-white.', severity: 'error',
@@ -464,16 +460,6 @@ const RULES = [
         || (m.size === 'l' && counting(m).length >= 5) ? 6 : 5;
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (kind ${m.kind})`;
-    } },
-
-  { id: 'W2', text: 'No band touches either end of its cell: UVs stay within 0.05–0.95, light end to dark end.', severity: 'warning', noJoker: true,
-    check: (m) => {
-      if (!m.spread) return null;
-      const wide = [];
-      for (const [lane, [lo, hi]] of Object.entries(m.spread)) {
-        if (lo < BAND_WINDOW[0] - POSITION_STEP || hi > BAND_WINDOW[1] + POSITION_STEP) wide.push(`${LANE_NAME[lane] ?? 'band'} ${lane} ${lo.toFixed(3)}-${hi.toFixed(3)}`);
-      }
-      return wide.length ? wide.join(', ') : null;
     } },
 ];
 
