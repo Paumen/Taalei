@@ -2129,5 +2129,33 @@ window.KENNEY_KITS = [
    "tent",
    "tree-3"
   ]
+ },
+ {
+  "slug": "medieval-forge",
+  "name": "medieval-forge",
+  "url": null,
+  "models": [
+   "anvil",
+   "armor-stand",
+   "barrel",
+   "barrel-2",
+   "box",
+   "box-2",
+   "bridge",
+   "bridge-2",
+   "forceps",
+   "furnace",
+   "grinder",
+   "shield",
+   "shield-2",
+   "stairs",
+   "stone-bridge",
+   "stone-bridge-2",
+   "wall-1",
+   "wall-2",
+   "wooden-pillar-lamp",
+   "wooden-platform",
+   "wooden-platform-2"
+  ]
  }
 ]
