@@ -73,4 +73,9 @@ export const BRONKITS = [
 
   // one obj export, one folder per model — every folder holds its own model
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: null, formaat: 'obj', alleMappen: true },
+  // same shape in fbx; the kitchen set puts a model's colour variants in its folder too
+  { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: null, formaat: 'fbx', alleMappen: true },
+  // every model in one FBX folder beside the atlas, so the one-folder rule fits
+  { map: 'AssetPack', naam: 'Asset Pack', kit: null, formaat: 'fbx' },
 ];
