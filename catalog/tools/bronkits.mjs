@@ -66,4 +66,8 @@ export const BRONKITS = [
   // one fbx export, sorted into four folders by theme — every folder holds its own models
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: null, formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: null, formaat: 'glb' },
+
+  // three packs in one download, each a single glb holding all its models
+  { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
+  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: null, formaat: 'fbx' },
 ];

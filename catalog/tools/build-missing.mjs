@@ -514,7 +514,8 @@ for (const bronkit of BRONKITS) {
     missing: ontbreekt.length,
     unmatched: onherkend,
     scale: kit.schaal,
-    folder: map.slice(uitgepakt.length + 1),
+    // empty where the pack's folders share no parent below the zip's root
+    folder: map.slice(uitgepakt.length + 1) || null,
   });
 
   console.log(
