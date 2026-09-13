@@ -454,7 +454,6 @@
     "kay-dun-1/axe-rare",
     "kay-dun-1/chest-common",
     "kay-dun-1/chest-rare",
-    "kay-dun-1/chest-rare-mimic-closed",
     "kay-dun-1/chest-top-rare",
     "kay-dun-1/chest-top-rare-mimic",
     "kay-dun-1/chest-uncommon",
@@ -805,7 +804,6 @@
     "kay-dun-1/chair-rounded",
     "kay-dun-1/chest-common",
     "kay-dun-1/chest-rare",
-    "kay-dun-1/chest-rare-mimic-closed",
     "kay-dun-1/chest-top-common",
     "kay-dun-1/chest-top-rare",
     "kay-dun-1/chest-top-rare-mimic",
@@ -2607,7 +2605,6 @@
    "models": [
     "quat-dun-2/skull",
     "kay-dun-1/chest-common-empty",
-    "kay-dun-1/chest-rare-mimic-closed",
     "kay-dun-1/chest-top-rare-mimic",
     "kay-dun-2/plate-food-a",
     "kay-dun-2/plate-food-b",
@@ -3270,7 +3267,8 @@
     "quat-rpg/padlock",
     "fs-town/bell-a",
     "ken-holiday/snowman",
-    "ken-holiday/snowman-hat"
+    "ken-holiday/snowman-hat",
+    "small-props/fireplace-1-1-a"
    ]
   },
   {
@@ -3427,7 +3425,6 @@
    "models": [
     "kay-dun-1/chest-common",
     "kay-dun-1/chest-rare",
-    "kay-dun-1/chest-rare-mimic-closed",
     "kay-dun-1/chest-top-common",
     "kay-dun-1/chest-top-rare",
     "kay-dun-1/chest-top-rare-mimic",
@@ -3550,7 +3547,8 @@
     "kay-skeleton/shield-small-b",
     "kay-weapons/shield-a",
     "kay-weapons/shield-b",
-    "kay-weapons/shield-c"
+    "kay-weapons/shield-c",
+    "kay-skeleton/shield-round-arrows"
    ]
   },
   {
@@ -3629,8 +3627,7 @@
     "props/roast-a",
     "kay-food/food-ingredient-ham",
     "kay-food/food-ingredient-steak",
-    "kay-food/food-stew",
-    "kay-food/pot-b-stew"
+    "kay-food/food-stew"
    ]
   },
   {
@@ -3659,56 +3656,95 @@
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
-   "description": "bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer",
+   "description": "rug, carpet",
    "color": "#c07c8a",
    "models": [
-    "kay-dun-2/bed-floor",
-    "kay-dun-2/bed-frame",
-    "kay-dun-1/bookcase",
-    "kay-dun-1/bookcase-wide",
-    "kay-dun-1/bookcase-wide-broken",
-    "kay-dun-2/shelf-large",
-    "kay-dun-2/shelf-small",
-    "kay-furniture/bed-single-a",
-    "kay-furniture/bed-single-b",
-    "kay-furniture/cabinet-medium",
-    "kay-furniture/cabinet-small",
     "kay-furniture/rug-oval-a",
     "kay-furniture/rug-rectangle-stripes-a",
-    "kay-furniture/shelf-a-big",
-    "kay-furniture/shelf-b-small",
-    "props/carpet-a",
-    "ken-survival/bedroll-packed",
+    "props/carpet-a"
+   ]
+  },
+  {
+   "id": "obj-furniture-bed",
+   "name": "Bed",
+   "type": "kind",
+   "description": "bed, bedroll, bunk, cot, hammock",
+   "models": [
+    "kay-dun-2/bed-frame",
+    "kay-dun-2/bed-floor",
+    "kay-furniture/bed-single-b",
+    "kay-furniture/bed-single-a",
     "ken-survival/bedroll",
-    "ken-survival/bedroll-frame"
+    "ken-survival/bedroll-frame",
+    "ken-survival/bedroll-packed"
    ]
   },
   {
    "id": "obj-furniture-seating",
    "name": "Seating",
    "type": "kind",
-   "description": "chair, stool, bench, throne",
+   "description": "Seating with no leaf that fits (K2).",
+   "models": []
+  },
+  {
+   "id": "obj-furniture-seating-bench",
+   "name": "Bench",
+   "type": "kind",
+   "description": "bench, couch, sofa, pew",
    "models": [
+    "isa-park/bench",
     "kay-dun-1/bench",
-    "kay-dun-2/chair",
-    "kay-dun-1/chair-rounded",
-    "kay-dun-2/stool",
-    "kay-dun-1/stool-rounded",
-    "fantasy-props/chair-1",
-    "ken-town/stall-bench",
-    "ken-town/stall-stool",
-    "kay-furniture/armchair",
-    "kay-furniture/chair-a-wood",
-    "kay-furniture/chair-b-wood",
-    "kay-furniture/chair-stool-wood",
-    "kay-furniture/couch-pillows",
     "kay-hallow/bench",
     "medieval-town/bench",
     "medieval-town/bench-2",
+    "kay-furniture/couch-pillows",
+    "ken-town/stall-bench"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-chair",
+   "name": "Chair",
+   "type": "kind",
+   "description": "chair, armchair, throne",
+   "models": [
+    "kay-furniture/armchair",
+    "kay-dun-2/chair",
     "ken-mini-dun/chair",
-    "isa-park/bench",
+    "fantasy-props/chair-1",
+    "kay-furniture/chair-a-wood",
+    "kay-furniture/chair-b-wood",
     "kay-food/chair-b",
-    "small-props/stool-a"
+    "kay-dun-1/chair-rounded"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-stool",
+   "name": "Stool",
+   "type": "kind",
+   "description": "stool, footstool",
+   "models": [
+    "kay-furniture/chair-stool-wood",
+    "ken-town/stall-stool",
+    "kay-dun-2/stool",
+    "small-props/stool-a",
+    "kay-dun-1/stool-rounded"
+   ]
+  },
+  {
+   "id": "obj-furniture-storage",
+   "name": "Storage",
+   "type": "kind",
+   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "models": [
+    "kay-dun-1/bookcase",
+    "kay-dun-1/bookcase-wide",
+    "kay-dun-1/bookcase-wide-broken",
+    "kay-furniture/cabinet-medium",
+    "kay-furniture/cabinet-small",
+    "kay-furniture/shelf-b-small",
+    "kay-dun-2/shelf-large",
+    "kay-dun-2/shelf-small",
+    "kay-furniture/shelf-a-big"
    ]
   },
   {
@@ -3746,12 +3782,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "models": [
-    "kay-food/lid-b",
-    "kay-food/pot-a-stew",
-    "kay-food/pot-b",
-    "kay-food/pot-b-closed"
-   ]
+   "models": []
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -3788,7 +3819,12 @@
     "quat-food/cooking-pot-steel",
     "medieval-town/cauldron",
     "medieval-town/cauldron-steel",
-    "kay-food/lid-a"
+    "kay-food/lid-a",
+    "kay-food/pot-b-closed",
+    "kay-food/lid-b",
+    "kay-food/pot-a-stew",
+    "kay-food/pot-b",
+    "kay-food/pot-b-stew"
    ]
   },
   {
@@ -4122,39 +4158,54 @@
    "id": "obj-resource-wood",
    "name": "Wood",
    "type": "kind",
-   "description": "plank (stock), board (loose), pallet",
+   "description": "Wood stock with no leaf that fits (K2).",
+   "models": []
+  },
+  {
+   "id": "obj-resource-wood-log",
+   "name": "Log",
+   "type": "kind",
+   "description": "log (cut), timber, firewood, cordwood",
    "models": [
-    "ken-grave/debris-wood",
+    "ken-survival/tree-log-small",
+    "ken-survival/tree-log",
+    "kay-resources/wood-log-a",
+    "kay-resources/wood-log-b",
+    "kay-resources/wood-log-stack",
+    "quat-pirate/sawmill",
+    "natuur/timber-stack-1",
+    "natuur/timber-stack-2",
+    "natuur/timber-whole-1",
+    "props/firewood-a",
     "fs-terrain/hilly-prop-camp-wood-pile",
     "natuur/log-1",
     "natuur/log-2",
     "natuur/log-3",
     "natuur/log-4",
     "natuur/log-5",
+    "small-props/cut-wood-1-a",
     "natuur/timber-cut-1",
     "natuur/timber-cut-2",
     "natuur/timber-cut-3",
-    "natuur/timber-cut-4",
-    "natuur/timber-stack-1",
-    "natuur/timber-stack-2",
-    "natuur/timber-whole-1",
-    "ken-pirate/platform-planks",
-    "quat-pirate/sawmill",
-    "props/firewood-a",
-    "kay-resources/pallet-wood",
-    "kay-resources/wood-log-a",
-    "kay-resources/wood-log-b",
-    "kay-resources/wood-log-stack",
+    "natuur/timber-cut-4"
+   ]
+  },
+  {
+   "id": "obj-resource-wood-plank",
+   "name": "Plank",
+   "type": "kind",
+   "description": "plank (stock), board (loose), pallet",
+   "models": [
     "kay-resources/wood-plank-a",
     "kay-resources/wood-plank-b",
     "kay-resources/wood-plank-c",
-    "kay-resources/wood-planks-stack-large",
     "kay-resources/wood-planks-stack-medium",
+    "kay-resources/wood-planks-stack-large",
     "kay-resources/wood-planks-stack-small",
-    "small-props/cut-wood-1-a",
+    "ken-pirate/platform-planks",
     "ken-survival/resource-planks",
-    "ken-survival/tree-log",
-    "ken-survival/tree-log-small"
+    "ken-grave/debris-wood",
+    "kay-resources/pallet-wood"
    ]
   },
   {
@@ -4491,9 +4542,12 @@
     "kay-skeleton/arrow-half",
     "kay-skeleton/quiver",
     "kay-skeleton/quiver-b",
-    "kay-skeleton/shield-round-arrows",
     "kay-weapons/arrow-a",
-    "kay-weapons/arrow-b"
+    "kay-weapons/arrow-b",
+    "kay-adventurers/arrow-crossbow",
+    "kay-adventurers/arrow-crossbow-bundle",
+    "kay-adventurers/arrow-bow",
+    "kay-adventurers/arrow-bow-bundle"
    ]
   },
   {
@@ -4502,8 +4556,6 @@
    "type": "kind",
    "description": "bow, longbow",
    "models": [
-    "kay-adventurers/arrow-bow",
-    "kay-adventurers/arrow-bow-bundle",
     "kay-adventurers/bow",
     "kay-adventurers/bow-strung",
     "primitive-tools/bow",
@@ -4520,8 +4572,6 @@
    "type": "kind",
    "description": "crossbow",
    "models": [
-    "kay-adventurers/arrow-crossbow",
-    "kay-adventurers/arrow-crossbow-bundle",
     "kay-adventurers/crossbow-one-handed",
     "kay-adventurers/crossbow-two-handed",
     "kay-dun-1/crossbow-common",
@@ -5163,21 +5213,10 @@
    "description": "stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace",
    "color": "#877a63",
    "models": [
-    "fs-town/waterwheel",
-    "fs-town/waterwheel-flume-brace",
-    "fs-town/waterwheel-flume-brace-double",
-    "fs-town/waterwheel-flume-curved",
-    "fs-town/waterwheel-flume-end",
-    "fs-town/waterwheel-flume-straight",
-    "fs-town/well-base-cobblestone",
-    "fs-town/well-base-dirt",
-    "fs-town/well-base-grass",
-    "fs-town/well-inside",
     "kay-hallow/shrine",
     "ken-town/fountain-round",
     "ken-town/fountain-round-detail",
-    "quat-dun-2/pedestal-2",
-    "small-props/fireplace-1-1-a"
+    "quat-dun-2/pedestal-2"
    ]
   },
   {
@@ -5247,15 +5286,7 @@
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
    "color": "#b08968",
-   "models": [
-    "fs-town/wood-rope-corner",
-    "fs-town/wood-rope-stairs",
-    "fs-town/wood-rope-straight",
-    "ken-grave/stone-wall",
-    "ken-grave/stone-wall-column",
-    "ken-grave/stone-wall-curve",
-    "ken-grave/stone-wall-damaged"
-   ]
+   "models": []
   },
   {
    "id": "str-barrier-fence",
@@ -5315,7 +5346,14 @@
     "ken-town/fence-broken",
     "ken-town/fence-curved",
     "ken-town/fence-gate",
-    "props/fence-a"
+    "props/fence-a",
+    "ken-grave/stone-wall",
+    "ken-grave/stone-wall-column",
+    "ken-grave/stone-wall-curve",
+    "ken-grave/stone-wall-damaged",
+    "fs-town/wood-rope-corner",
+    "fs-town/wood-rope-stairs",
+    "fs-town/wood-rope-straight"
    ]
   },
   {
@@ -5370,12 +5408,6 @@
    "description": "room, cellar, souterrain, dungeon",
    "color": "#a8762a",
    "models": [
-    "fs-town/canopy-full",
-    "fs-town/canopy-ramp-full",
-    "fs-town/canopy-ramp-mid",
-    "fs-town/canopy-side",
-    "fs-town/canopy-sides-opposite",
-    "fs-town/canopy-top",
     "fs-town/stone-curb-a",
     "fs-town/stone-curb-b",
     "fs-town/stone-curb-c",
@@ -5391,7 +5423,17 @@
     "ken-town/overhang",
     "ken-town/watermill",
     "ken-town/watermill-wide",
-    "ken-town/windmill"
+    "ken-town/windmill",
+    "fs-town/waterwheel",
+    "fs-town/waterwheel-flume-brace",
+    "fs-town/waterwheel-flume-curved",
+    "fs-town/waterwheel-flume-end",
+    "fs-town/waterwheel-flume-straight",
+    "fs-town/waterwheel-flume-brace-double",
+    "fs-town/well-base-cobblestone",
+    "fs-town/well-base-dirt",
+    "fs-town/well-base-grass",
+    "fs-town/well-inside"
    ]
   },
   {
@@ -5619,21 +5661,6 @@
     "quat-dun-2/wall-modular",
     "kay-dun-2/rubble-half",
     "kay-dun-2/rubble-large",
-    "kay-dun-1/scaffold-high-corner-both",
-    "kay-dun-1/scaffold-high-corner-left",
-    "kay-dun-1/scaffold-high-corner-right",
-    "kay-dun-1/scaffold-low-corner-both",
-    "kay-dun-1/scaffold-low-corner-left",
-    "kay-dun-1/scaffold-low-corner-right",
-    "kay-dun-1/scaffold-medium-corner-both",
-    "kay-dun-1/scaffold-medium-corner-left",
-    "kay-dun-1/scaffold-medium-corner-right",
-    "kay-dun-1/scaffold-small-high-corner-left",
-    "kay-dun-1/scaffold-small-high-corner-right",
-    "kay-dun-1/scaffold-small-low-corner-left",
-    "kay-dun-1/scaffold-small-low-corner-right",
-    "kay-dun-1/scaffold-small-medium-corner-left",
-    "kay-dun-1/scaffold-small-medium-corner-right",
     "kay-dun-2/wall",
     "kay-dun-2/wall-arched",
     "kay-dun-2/wall-corner",
@@ -5677,8 +5704,6 @@
     "ken-survival/metal-panel-narrow",
     "ken-survival/metal-panel-screws",
     "ken-survival/structure-metal-wall",
-    "fs-town/canopy-corner",
-    "fs-town/canopy-ramp-corner",
     "fs-town/stone-arch",
     "fs-town/stone-wall-a",
     "fs-town/stone-wall-b",
@@ -5832,7 +5857,22 @@
     "ken-pirate/platform",
     "ken-platformer/platform",
     "ken-platformer/platform-fortified",
-    "ken-platformer/platform-ramp"
+    "ken-platformer/platform-ramp",
+    "kay-dun-1/scaffold-high-corner-right",
+    "kay-dun-1/scaffold-high-corner-left",
+    "kay-dun-1/scaffold-high-corner-both",
+    "kay-dun-1/scaffold-low-corner-both",
+    "kay-dun-1/scaffold-low-corner-right",
+    "kay-dun-1/scaffold-low-corner-left",
+    "kay-dun-1/scaffold-medium-corner-left",
+    "kay-dun-1/scaffold-medium-corner-both",
+    "kay-dun-1/scaffold-medium-corner-right",
+    "kay-dun-1/scaffold-small-medium-corner-right",
+    "kay-dun-1/scaffold-small-medium-corner-left",
+    "kay-dun-1/scaffold-small-low-corner-right",
+    "kay-dun-1/scaffold-small-low-corner-left",
+    "kay-dun-1/scaffold-small-high-corner-left",
+    "kay-dun-1/scaffold-small-high-corner-right"
    ]
   },
   {
@@ -5857,7 +5897,15 @@
     "ken-town/stall-red",
     "medieval-town/market-stand",
     "medieval-town/market-stand-2",
-    "tropical-island/tent"
+    "tropical-island/tent",
+    "fs-town/canopy-sides-opposite",
+    "fs-town/canopy-full",
+    "fs-town/canopy-ramp-full",
+    "fs-town/canopy-ramp-mid",
+    "fs-town/canopy-side",
+    "fs-town/canopy-top",
+    "fs-town/canopy-corner",
+    "fs-town/canopy-ramp-corner"
    ]
   },
   {
@@ -5977,7 +6025,6 @@
     "kay-dun-1/chest-common",
     "kay-dun-1/chest-common-empty",
     "kay-dun-1/chest-rare",
-    "kay-dun-1/chest-rare-mimic-closed",
     "kay-dun-1/chest-top-common",
     "kay-dun-1/chest-top-rare",
     "kay-dun-1/chest-top-rare-mimic",
