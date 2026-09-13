@@ -32,12 +32,12 @@
   },
   {
    "id": "M6",
-   "text": "Wood is any of the three wood bands; wood-bark is bark 3,0.",
+   "text": "Wood is any of the three brown bands; wood-bark is bark 3,0.",
    "severity": "error"
   },
   {
    "id": "M6-bark",
-   "text": "Wood is any of the three wood bands; wood-bark is bark 3,0.",
+   "text": "Wood is any of the three brown bands; wood-bark is bark 3,0.",
    "severity": "error"
   },
   {
@@ -186,6 +186,11 @@
    "severity": "error"
   },
   {
+   "id": "M35",
+   "text": "Wicks are dark grey 13,3.",
+   "severity": "warning"
+  },
+  {
    "id": "M36",
    "text": "Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.",
    "severity": "error"
@@ -227,12 +232,12 @@
   },
   {
    "id": "M43",
-   "text": "Skin is wood light 0,0, taupe 14,3 or bark 3,0.",
+   "text": "Skin is light brown 0,0, taupe 14,3 or bark 3,0.",
    "severity": "error"
   },
   {
    "id": "M44",
-   "text": "Vegetation is a plant's non-green matter: dried stalks and husks taupe 14,3, mushroom stems off-white 5,2, blooms and caps any colour.",
+   "text": "Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), stems off-white 5,2, blooms any colour.",
    "severity": "error"
   },
   {
@@ -242,7 +247,7 @@
   },
   {
    "id": "M63",
-   "text": "obj-tool-supplies and obj-weapon-ranged-accessory are metal-iron-wrought; their parent kinds stay steel.",
+   "text": "obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.",
    "severity": "warning"
   },
   {
@@ -282,7 +287,7 @@
   },
   {
    "id": "C2",
-   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), wicks (M35), book covers (M37), and the flags and sails of a rigged ship (M18).",
+   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), and the flags and sails of a rigged ship (M18).",
    "severity": "error"
   },
   {
@@ -317,17 +322,17 @@
   },
   {
    "id": "C9-dark",
-   "text": "Lighter browns: wood only; skin may take wood light 0,0 (M43).",
+   "text": "Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).",
    "severity": "error"
   },
   {
    "id": "C9-light",
-   "text": "Lighter browns: wood only; skin may take wood light 0,0 (M43).",
+   "text": "Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).",
    "severity": "error"
   },
   {
    "id": "C9-middle",
-   "text": "Lighter browns: wood only; skin may take wood light 0,0 (M43).",
+   "text": "Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).",
    "severity": "error"
   },
   {
@@ -342,7 +347,7 @@
   },
   {
    "id": "C12",
-   "text": "Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44), grain food (M51) and grips (M19).",
+   "text": "Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).",
    "severity": "warning"
   },
   {
@@ -357,7 +362,7 @@
   },
   {
    "id": "C15",
-   "text": "Dark grey 13,3: metal-iron-wrought only.",
+   "text": "Dark grey 13,3: metal-iron-wrought (M12) and wicks (M35).",
    "severity": "warning"
   },
   {
@@ -452,19 +457,19 @@
    "hex": "#68872d"
   },
   {
-   "name": "wood light",
+   "name": "light brown",
    "lane": "0,0",
-   "hex": "#d9ae87"
+   "hex": "#dbae80"
   },
   {
-   "name": "wood middle",
+   "name": "mid brown",
    "lane": "1,0",
-   "hex": "#b3825f"
+   "hex": "#b58158"
   },
   {
-   "name": "wood dark",
+   "name": "dark brown",
    "lane": "2,0",
-   "hex": "#875b42"
+   "hex": "#8b5936"
   },
   {
    "name": "bark",
@@ -481,624 +486,568 @@
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "dungeon/floor-tile-big-spikes",
+   "model": "kay-dun-2/floor-tile-big-spikes",
    "detail": "2 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "fantasy-town-kit/cart-high",
+   "model": "kay-tools/map-empty",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "kay-tools/scissors",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "kay-tools/tongs",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-pirate/boat-row-large",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-pirate/boat-row-small",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-pirate/cannon-mobile",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "fantasy-town-kit/cart",
+   "model": "ken-pirate/cannon",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "fantasy-town-kit/fence-gate",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "fantasy-town-kit/wall-wood-door",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "pirate-kit/boat-row-large",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "pirate-kit/boat-row-small",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "pirate-kit/cannon-mobile",
+   "model": "ken-pirate/mast-ropes",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "pirate-kit/cannon",
+   "model": "ken-pirate/mast",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "pirate-kit/mast-ropes",
+   "model": "ken-pirate/structure-fence-sides",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-platformer/spring",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "pirate-kit/mast",
+   "model": "ken-survival/fence-doorway",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-survival/structure-floor",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-survival/structure-roof",
+   "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "G1",
+   "severity": "warning",
+   "model": "ken-town/cart-high",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "pirate-kit/structure-fence-sides",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "platformer-kit/spring",
+   "model": "ken-town/cart",
    "detail": "3 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "rpgtools/map-empty",
+   "model": "ken-town/fence-gate",
    "detail": "2 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "G1",
    "severity": "warning",
-   "model": "rpgtools/scissors",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "rpgtools/tongs",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "survival-kit/fence-doorway",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "survival-kit/structure-floor",
-   "detail": "2 draw calls with no animation or glass tag",
-   "joker": false
-  },
-  {
-   "rule": "G1",
-   "severity": "warning",
-   "model": "survival-kit/structure-roof",
+   "model": "ken-town/wall-wood-door",
    "detail": "2 draw calls with no animation or glass tag",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "adventurers/bow-strung",
+   "model": "kay-adventurers/bow-strung",
    "detail": "taupe 14,3 spans 0.30-0.45, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "adventurers/staff",
+   "model": "kay-adventurers/staff",
    "detail": "taupe 14,3 spans 0.16-0.84, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "rpgtools/torch",
+   "model": "kay-tools/torch",
    "detail": "taupe 14,3 spans 0.65-0.84, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/arrow-b",
+   "model": "kay-weapons/arrow-b",
    "detail": "taupe 14,3 spans 0.09-0.59, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/axe-a",
+   "model": "kay-weapons/axe-a",
    "detail": "taupe 14,3 spans 0.34-0.77, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/axe-b",
+   "model": "kay-weapons/axe-b",
    "detail": "taupe 14,3 spans 0.34-0.77, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/axe-c",
+   "model": "kay-weapons/axe-c",
    "detail": "taupe 14,3 spans 0.24-0.78, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/bow-b-with-string",
+   "model": "kay-weapons/bow-a-with-string",
+   "detail": "taupe 14,3 spans 0.05-0.54, outside 0.02-0.40",
+   "joker": false
+  },
+  {
+   "rule": "M19",
+   "severity": "warning",
+   "model": "kay-weapons/bow-b-with-string",
    "detail": "taupe 14,3 spans 0.09-0.78, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/bow-b",
+   "model": "kay-weapons/bow-b",
    "detail": "taupe 14,3 spans 0.09-0.78, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/dagger-a",
+   "model": "kay-weapons/dagger-a",
    "detail": "taupe 14,3 spans 0.29-0.88, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/dagger-b",
+   "model": "kay-weapons/dagger-b",
    "detail": "taupe 14,3 spans 0.29-0.88, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/halberd",
+   "model": "kay-weapons/halberd",
    "detail": "taupe 14,3 spans 0.15-0.84, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/hammer-a",
+   "model": "kay-weapons/hammer-a",
    "detail": "taupe 14,3 spans 0.38-0.94, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/hammer-b",
+   "model": "kay-weapons/hammer-b",
    "detail": "taupe 14,3 spans 0.44-0.88, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/hammer-c",
+   "model": "kay-weapons/hammer-c",
    "detail": "taupe 14,3 spans 0.34-0.81, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/shield-c",
+   "model": "kay-weapons/shield-c",
    "detail": "taupe 14,3 spans 0.02-0.59, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/spear-a",
+   "model": "kay-weapons/spear-a",
    "detail": "taupe 14,3 spans 0.09-0.77, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/staff-a",
+   "model": "kay-weapons/staff-a",
    "detail": "taupe 14,3 spans 0.09-0.77, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/staff-b",
+   "model": "kay-weapons/staff-b",
    "detail": "taupe 14,3 spans 0.09-0.77, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/sword-b",
+   "model": "kay-weapons/sword-b",
    "detail": "taupe 14,3 spans 0.29-0.88, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/sword-c",
+   "model": "kay-weapons/sword-c",
    "detail": "taupe 14,3 spans 0.08-0.93, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/sword-e",
+   "model": "kay-weapons/sword-e",
    "detail": "taupe 14,3 spans 0.27-0.87, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M19",
    "severity": "warning",
-   "model": "weapons/wand-a",
+   "model": "kay-weapons/wand-a",
    "detail": "taupe 14,3 spans 0.29-0.88, outside 0.02-0.40",
    "joker": false
   },
   {
    "rule": "M20",
    "severity": "error",
-   "model": "pirate-quaternius/pirate-captain",
+   "model": "quat-pirate/pirate-captain",
    "detail": "is leather but uses blue, blue-grey, dark red, taupe, terracotta, yellow — none of bark",
    "joker": true
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-1-empty",
+   "model": "quat-rpg/potion-1-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-10-empty",
+   "model": "quat-rpg/potion-10-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-10-filled",
+   "model": "quat-rpg/potion-10-filled",
    "detail": "is glass but uses blue, taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-11-empty",
+   "model": "quat-rpg/potion-11-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-11-filled",
+   "model": "quat-rpg/potion-11-filled",
    "detail": "is glass but uses blue, taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-2-empty",
+   "model": "quat-rpg/potion-2-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-3-empty",
+   "model": "quat-rpg/potion-3-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-4-empty",
+   "model": "quat-rpg/potion-4-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-5-empty",
+   "model": "quat-rpg/potion-5-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-5-filled",
+   "model": "quat-rpg/potion-5-filled",
    "detail": "is glass but uses blue, taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-6-empty",
+   "model": "quat-rpg/potion-6-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-7-empty",
+   "model": "quat-rpg/potion-7-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-8-empty",
+   "model": "quat-rpg/potion-8-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M27",
    "severity": "error",
-   "model": "rpg-quaternius/potion-9-empty",
+   "model": "quat-rpg/potion-9-empty",
    "detail": "is glass but uses taupe, clear glass — none of dark red, dark green",
    "joker": false
   },
   {
    "rule": "M31-half",
    "severity": "warning",
-   "model": "restaurant/food-stew",
+   "model": "kay-food/food-stew",
    "detail": "terracotta 5,0 spans 0.09-0.73, outside 0.55-1.00",
    "joker": false
   },
   {
    "rule": "M31-half",
    "severity": "warning",
-   "model": "restaurant/pot-b-stew",
+   "model": "kay-food/pot-b-stew",
    "detail": "terracotta 5,0 spans 0.09-0.73, outside 0.55-1.00",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "pirate-kit/structure-roof",
-   "detail": "is a roof but carries wood-planks, wood-beam",
-   "joker": false
-  },
-  {
-   "rule": "M38",
-   "severity": "error",
-   "model": "survival-kit/structure-metal-roof",
-   "detail": "is a roof but carries metal-iron-wrought, metal-iron-cast",
-   "joker": false
-  },
-  {
-   "rule": "M38",
-   "severity": "error",
-   "model": "survival-kit/structure-roof",
-   "detail": "is a roof but carries wood-planks, wood-beam",
-   "joker": false
-  },
-  {
-   "rule": "M38",
-   "severity": "error",
-   "model": "village-kit/chimney-pipe",
+   "model": "fs-town/chimney-pipe",
    "detail": "is a roof but carries metal-iron-cast",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-rake-concave",
+   "model": "fs-town/roof-accent-rake-concave",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-rake-convex",
+   "model": "fs-town/roof-accent-rake-convex",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-rake-eave",
+   "model": "fs-town/roof-accent-rake-eave",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-rake-straight",
+   "model": "fs-town/roof-accent-rake-straight",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-ridge-end",
+   "model": "fs-town/roof-accent-ridge-end",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M38",
    "severity": "error",
-   "model": "village-kit/roof-accent-ridge",
+   "model": "fs-town/roof-accent-ridge",
    "detail": "is a roof but carries wood-beam",
    "joker": false
   },
   {
    "rule": "M39",
    "severity": "error",
-   "model": "dungeon/chest-common-empty",
+   "model": "kay-dun-1/chest-common-empty",
    "detail": "is a container but carries stone-masonry, bone",
    "joker": false
   },
   {
    "rule": "M39",
    "severity": "error",
-   "model": "rpgtools/bucket-metal",
+   "model": "kay-tools/bucket-metal",
    "detail": "is a container but carries metal-iron-steel, metal-iron-wrought",
    "joker": false
   },
   {
    "rule": "M62",
    "severity": "warning",
-   "model": "rpgtools/tongs",
+   "model": "kay-tools/tongs",
    "detail": "obj-tool-hand carries metal-iron-wrought but takes metal-iron-steel",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/barbarian",
+   "model": "kay-adventurers/barbarian",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/knight",
+   "model": "kay-adventurers/knight",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/mage",
+   "model": "kay-adventurers/mage",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/ranger",
+   "model": "kay-adventurers/ranger",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/rogue-hooded",
+   "model": "kay-adventurers/rogue-hooded",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "adventurers/rogue",
+   "model": "kay-adventurers/rogue",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "pirate-quaternius/pirate-captain",
+   "model": "kay-tools/pencil-a-short",
+   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
+   "joker": true
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "kay-tools/pencil-b-short",
+   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
+   "joker": true
+  },
+  {
+   "rule": "C2",
+   "severity": "error",
+   "model": "quat-pirate/pirate-captain",
    "detail": "uses blue-grey 6,1 but carries metal-iron-steel, metal-gold, textile, leather, special, skin",
    "joker": true
   },
   {
    "rule": "C2",
    "severity": "error",
-   "model": "pirate-quaternius/pirate-henry",
+   "model": "quat-pirate/pirate-henry",
    "detail": "uses blue-grey 6,1 but carries wood-beam, metal-iron-steel, textile, leather, skin",
    "joker": false
   },
   {
-   "rule": "C2",
-   "severity": "error",
-   "model": "rpgtools/pencil-a-short",
-   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
-   "joker": true
-  },
-  {
-   "rule": "C2",
-   "severity": "error",
-   "model": "rpgtools/pencil-b-short",
-   "detail": "uses blue-grey 6,1 but carries wood-planks, metal-iron-steel, special",
-   "joker": true
-  },
-  {
    "rule": "C8",
    "severity": "error",
-   "model": "resources/wood-log-a",
+   "model": "kay-resources/wood-log-a",
    "detail": "uses light green 3,1 but carries wood-log, wood-bark",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/plate-small",
-   "detail": "uses taupe 14,3 but carries ceramic",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/plate-stack",
-   "detail": "uses taupe 14,3 but carries ceramic",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/plate",
-   "detail": "uses taupe 14,3 but carries ceramic",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/pot-a",
-   "detail": "uses taupe 14,3 but carries ceramic",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/pot-b",
-   "detail": "uses taupe 14,3 but carries ceramic",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "dungeon/pot-c",
-   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
@@ -1111,64 +1060,71 @@
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "food-quaternius/plate-2",
+   "model": "fs-terrain/beach-prop-tree-palm-a",
+   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "joker": false
+  },
+  {
+   "rule": "C12",
+   "severity": "warning",
+   "model": "fs-terrain/beach-prop-tree-palm-b",
+   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "joker": false
+  },
+  {
+   "rule": "C12",
+   "severity": "warning",
+   "model": "fs-terrain/beach-prop-tree-palm-c",
+   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "joker": false
+  },
+  {
+   "rule": "C12",
+   "severity": "warning",
+   "model": "fs-town/door-simple",
+   "detail": "uses taupe 14,3 but carries wood-worked, metal-iron-cast",
+   "joker": false
+  },
+  {
+   "rule": "C12",
+   "severity": "warning",
+   "model": "kay-dun-1/pot-a",
    "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "food-quaternius/plate",
+   "model": "kay-dun-1/pot-b",
    "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "modulair-terrein/beach-prop-tree-palm-a",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "model": "kay-dun-1/pot-c",
+   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "modulair-terrein/beach-prop-tree-palm-b",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "model": "kay-dun-2/plate-small",
+   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "modulair-terrein/beach-prop-tree-palm-c",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "model": "kay-dun-2/plate-stack",
+   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "natuur/tree-palm-1",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "natuur/tree-palm-2",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "natuur/tree-palm-3",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
-   "joker": false
-  },
-  {
-   "rule": "C12",
-   "severity": "warning",
-   "model": "natuur/tree-palm-4",
-   "detail": "uses taupe 14,3 but carries wood-planks, foliage",
+   "model": "kay-dun-2/plate",
+   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
@@ -1209,281 +1165,288 @@
   {
    "rule": "C12",
    "severity": "warning",
-   "model": "village-kit/door-simple",
-   "detail": "uses taupe 14,3 but carries wood-worked, metal-iron-cast",
+   "model": "quat-food/plate-2",
+   "detail": "uses taupe 14,3 but carries ceramic",
+   "joker": false
+  },
+  {
+   "rule": "C12",
+   "severity": "warning",
+   "model": "quat-food/plate",
+   "detail": "uses taupe 14,3 but carries ceramic",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "fantasy-town-kit/blade",
+   "model": "fs-town/stone-stucco-doorway-wide-tall-a",
+   "detail": "uses off-white 5,2 but carries wood-worked, stone-masonry",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stone-stucco-doorway-wide-tall-b",
+   "detail": "uses off-white 5,2 but carries wood-worked, stone-masonry",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-doorway-narrow-tall",
+   "detail": "uses off-white 5,2 but carries wood-beam",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-doorway-wide-tall",
+   "detail": "uses off-white 5,2 but carries wood-beam",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-double-narrow-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-double-narrow",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-double-wide-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-double-wide",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-rounded-narrow-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-rounded-narrow",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-rounded-wide-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-rounded-wide",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-single-narrow-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-single-narrow",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-single-wide-tall",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/stucco-window-single-wide",
+   "detail": "uses off-white 5,2 but carries wood-worked, glass",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "fs-town/wood-steps-stucco",
    "detail": "uses off-white 5,2 but carries wood-planks",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "fantasy-town-kit/fence-broken",
+   "model": "ken-pirate/boat-row-large",
+   "detail": "uses off-white 5,2 but carries wood-beam",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "ken-town/blade",
    "detail": "uses off-white 5,2 but carries wood-planks",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "fantasy-town-kit/stairs-stone-corner",
+   "model": "ken-town/fence-broken",
+   "detail": "uses off-white 5,2 but carries wood-planks",
+   "joker": false
+  },
+  {
+   "rule": "C13",
+   "severity": "warning",
+   "model": "ken-town/stairs-stone-corner",
    "detail": "uses off-white 5,2 but carries stone-masonry",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "pirate-kit/boat-row-large",
-   "detail": "uses off-white 5,2 but carries wood-beam",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "quaternius-nature/tree-birch-dead-1",
+   "model": "quat-nature/tree-birch-dead-1",
    "detail": "uses off-white 5,2 but carries wood-bark",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "quaternius-nature/tree-birch-dead-2",
+   "model": "quat-nature/tree-birch-dead-2",
    "detail": "uses off-white 5,2 but carries wood-bark",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "quaternius-nature/tree-birch-dead-3",
+   "model": "quat-nature/tree-birch-dead-3",
    "detail": "uses off-white 5,2 but carries wood-bark",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "quaternius-nature/tree-birch-dead-4",
+   "model": "quat-nature/tree-birch-dead-4",
    "detail": "uses off-white 5,2 but carries wood-bark",
    "joker": false
   },
   {
    "rule": "C13",
    "severity": "warning",
-   "model": "quaternius-nature/tree-birch-dead-5",
+   "model": "quat-nature/tree-birch-dead-5",
    "detail": "uses off-white 5,2 but carries wood-bark",
    "joker": false
   },
   {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stone-stucco-doorway-wide-tall-a",
-   "detail": "uses off-white 5,2 but carries wood-worked, stone-masonry",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stone-stucco-doorway-wide-tall-b",
-   "detail": "uses off-white 5,2 but carries wood-worked, stone-masonry",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-doorway-narrow-tall",
-   "detail": "uses off-white 5,2 but carries wood-beam",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-doorway-wide-tall",
-   "detail": "uses off-white 5,2 but carries wood-beam",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-double-narrow-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-double-narrow",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-double-wide-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-double-wide",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-rounded-narrow-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-rounded-narrow",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-rounded-wide-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-rounded-wide",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-single-narrow-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-single-narrow",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-single-wide-tall",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/stucco-window-single-wide",
-   "detail": "uses off-white 5,2 but carries wood-worked, glass",
-   "joker": false
-  },
-  {
-   "rule": "C13",
-   "severity": "warning",
-   "model": "village-kit/wood-steps-stucco",
-   "detail": "uses off-white 5,2 but carries wood-planks",
+   "rule": "N2",
+   "severity": "error",
+   "model": "fs-town/well-a",
+   "detail": "4 band(s) for 5 (wood-planks, wood-beam, stone-masonry, ceramic, rope)",
    "joker": false
   },
   {
    "rule": "N2",
    "severity": "error",
-   "model": "medieval-village/well",
-   "detail": "3 band(s) for 4 (wood-beam, stone-masonry, ceramic, rope)",
+   "model": "kay-tools/lantern",
+   "detail": "4 band(s) for 5 (metal-iron-steel, metal-iron-wrought, wax, wick, glass)",
    "joker": false
   },
   {
    "rule": "N2",
    "severity": "error",
-   "model": "primitive-tools/bow",
-   "detail": "2 band(s) for 3 (wood-worked, textile, rope)",
-   "joker": false
-  },
-  {
-   "rule": "N2",
-   "severity": "error",
-   "model": "small-props/mannequin-1-a",
-   "detail": "4 band(s) for 5 (wood-log, metal-iron-steel, bone, rope, vegetation)",
-   "joker": false
-  },
-  {
-   "rule": "N2",
-   "severity": "error",
-   "model": "small-props/mannequin-2-a",
-   "detail": "4 band(s) for 5 (wood-worked, metal-iron-steel, bone, rope, vegetation)",
-   "joker": false
-  },
-  {
-   "rule": "N2",
-   "severity": "error",
-   "model": "weapons/bow-a-with-string",
+   "model": "kay-weapons/bow-a-with-string",
    "detail": "2 band(s) for 3 (wood-beam, textile, rope)",
    "joker": false
   },
   {
    "rule": "N2",
    "severity": "error",
-   "model": "weapons/wand-a",
+   "model": "kay-weapons/wand-a",
    "detail": "4 band(s) for 5 (wood-beam, metal-iron-steel, textile, cork, gemstone)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
+   "model": "ken-grave/lantern-candle",
+   "detail": "3 band(s) for 4 (metal-iron-steel, metal-iron-wrought, wax, wick)",
+   "joker": false
+  },
+  {
+   "rule": "N2",
+   "severity": "error",
+   "model": "medieval-town/well",
+   "detail": "3 band(s) for 4 (wood-beam, stone-masonry, ceramic, rope)",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
    "model": "fantasy-props/crate-metal",
-   "detail": "wood dark 2,0 0.930",
+   "detail": "dark brown 2,0 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "pond/bird",
+   "model": "isa-pond/bird",
    "detail": "light grey 15,3 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "pond/brown-bird",
-   "detail": "wood middle 1,0 0.930",
+   "model": "isa-pond/brown-bird",
+   "detail": "mid brown 1,0 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "pond/dragonfly",
+   "model": "isa-pond/dragonfly",
    "detail": "taupe 14,3 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "pond/red-dragonfly",
-   "detail": "wood dark 2,0 0.930",
+   "model": "isa-pond/red-dragonfly",
+   "detail": "dark brown 2,0 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "pond/round-bird",
+   "model": "isa-pond/round-bird",
    "detail": "taupe 14,3 0.930",
    "joker": false
   },
   {
    "rule": "W2",
    "severity": "warning",
-   "model": "weapons/arrow-a",
-   "detail": "dark grey 13,3 0.922",
+   "model": "kay-weapons/arrow-a",
+   "detail": "light grey 15,3 0.922",
    "joker": false
   }
  ]
