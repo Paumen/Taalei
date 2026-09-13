@@ -190,22 +190,22 @@ text alone.
 - **M43.** `FE` 🟢 Skin is light brown 0,0, taupe 14,3 or bark 3,0.
 - **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.
 - **M45.** `--` ⚪ Food may be any colour, like fauna. What it is made of decides nothing about its band.
-- **M46.** `--` ⚪ Tools are metal-iron; a handle is wood, textile or both.
-- **M47.** `--` ⚪ Weapons are metal-iron, with a handle of wood or textile.
-- **M48.** `--` ⚪ A simple weapon or a bow may be wholly or partly wood.
-- **M49.** `--` ⚪ A special weapon may be partly metal-gold, metal-silver or gemstone.
-- **M50.** `--` ⚪ Some weapons carry textile or leather straps.
-- **M51.** `--` ⚪ Wheat, grain and straw are light brown 0,0; grain food and baked goods take a brown: 0,0, 1,0 or 2,0.
+- **M46.** `--` ⚪ obj-tool is metal-iron; a handle is wood, textile or both.
+- **M47.** `--` ⚪ obj-weapon is metal-iron, with a handle of wood or textile.
+- **M48.** `--` ⚪ A simple obj-weapon or an obj-weapon-ranged-bow may be wholly or partly wood.
+- **M49.** `--` ⚪ A special obj-weapon may be partly metal-gold, metal-silver or gemstone.
+- **M50.** `--` ⚪ Some obj-weapon models carry textile or leather straps.
+- **M51.** `--` ⚪ Wheat, grain and straw are light brown 0,0; obj-food-grain takes a brown: 0,0, 1,0 or 2,0.
 - **M52.** `--` ⚪ A model whose only material is bone is off-white 5,2 alone.
-- **M53.** `--` ⚪ Ceramic plates and bowls are off-white 5,2 or terracotta 5,0; a plate may also be metal-iron or wood.
-- **M54.** `--` ⚪ Furniture is wood, except a rug, a carpet or an upholstered seat, which is textile.
-- **M55.** `--` ⚪ Coins are metal-gold.
-- **M56.** `--` ⚪ Flags and sails are textile.
-- **M57.** `--` ⚪ Signs, flag poles and posts are usually wood.
-- **M58.** `--` ⚪ Pans are metal-iron-steel or metal-iron-cast, paired as variants (M65).
-- **M59.** `--` ⚪ Cutlery is metal-iron.
-- **M60.** `--` ⚪ Cooking pots and crockpots are ceramic, terracotta 5,0; cauldrons and kettles are iron (M65).
-- **M61.** `--` ⚪ A boat or ship is built from more than one wood.
+- **M53.** `--` ⚪ Ceramic obj-kitchenware-tableware-plate is off-white 5,2 or terracotta 5,0; a plate may also be metal-iron or wood.
+- **M54.** `--` ⚪ obj-furniture is wood, except a rug, a carpet or an upholstered obj-furniture-seating, which is textile.
+- **M55.** `--` ⚪ Coins (obj-pocketitem-coin) are metal-gold.
+- **M56.** `--` ⚪ str-marker-flag and sails (obj-transport-accessory) are textile.
+- **M57.** `--` ⚪ str-marker-sign, flag poles and str-barrier-post are usually wood.
+- **M58.** `--` ⚪ obj-kitchenware-cookware-pan is metal-iron-steel or metal-iron-cast, paired as variants (M65).
+- **M59.** `--` ⚪ obj-kitchenware-tableware-cutlery is metal-iron.
+- **M60.** `--` ⚪ Cooking pots and crockpots (obj-kitchenware-cookware-pot) are ceramic, terracotta 5,0; cauldrons and kettles are iron (M65).
+- **M61.** `--` ⚪ obj-transport-boat and obj-transport-ship are built from more than one wood.
 - **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
 - **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
 - **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
@@ -213,26 +213,26 @@ text alone.
 - **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
 - **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
 - **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
-- **M69.** `--` ⚪ Sails, canopies, canvas and tents are off-white 5,2, or striped dark red 8,0 and off-white.
-- **M70.** `--` ⚪ Dark red textile is only character clothing, or striped with off-white on sails and canvas (M69).
+- **M69.** `--` ⚪ Sails (obj-transport-accessory) and str-stands canvas are off-white 5,2, or striped dark red 8,0 and off-white.
+- **M70.** `--` ⚪ Dark red textile is only char clothing, or striped with off-white on sails and str-stands canvas (M69).
 - **M71.** `--` ⚪ Glass on a str model, and all glass on a model of size m or l, is clear. Only size s glass may be dark red or dark green.
-- **M72.** `--` ⚪ Fungus stems are off-white 5,2; caps are dark red 8,0 or mid brown 1,0.
+- **M72.** `--` ⚪ env-fungi stems are off-white 5,2; caps are dark red 8,0 or mid brown 1,0.
 - **M73.** `--` ⚪ Bells are metal-copper, metal-gold or metal-silver; never iron.
-- **M74.** `--` ⚪ Tongs are metal-iron-steel or metal-iron-wrought; never cast.
-- **M75.** `--` ⚪ Bag fasteners and closures are rope or leather.
-- **M76.** `--` ⚪ Straps holding a resource stack, metal stacks included, are leather.
+- **M74.** `--` ⚪ Tongs (obj-tool-hand) are metal-iron-steel or metal-iron-wrought; never cast.
+- **M75.** `--` ⚪ obj-container-bag fasteners and closures are rope or leather.
+- **M76.** `--` ⚪ Straps holding an obj-resource stack, obj-resource-metal included, are leather.
 - **M77.** `--` ⚪ Sticks and unworked poles are wood-bark; poles on obj-tool-long are dark brown 2,0, tagged wood-beam.
 - **M78.** `--` ⚪ Wood handles on obj-tool-hand are light brown 0,0, tagged wood-planks.
-- **M79.** `--` ⚪ Grips, fasteners and joins on weapons, tools and shields are often textile, rope or leather, not wood or metal; look closely.
+- **M79.** `--` ⚪ Grips, fasteners and joins on obj-weapon, obj-tool and obj-equipment-shield are often textile, rope or leather, not wood or metal.
 - **M80.** `--` ⚪ A fastener joining stone, bone or steel to wood is usually leather.
 - **M81.** `--` ⚪ Wooden parts of obj-transport are mid brown 1,0 or dark brown 2,0.
-- **M82.** `--` ⚪ Mugs, cups and tankards are wood, dark brown 2,0 or mid brown 1,0, with metal-iron-steel hoops and handles.
-- **M83.** `--` ⚪ Food defaults: fish light grey 15,3, dark grey 13,3, blue-grey 6,1 or blue 4,2; cheese yellow 6,0; vegetables light green 3,1.
-- **M84.** `--` ⚪ Carrot and pumpkin are terracotta 5,0; chocolate is dark brown 2,0. Bread: M51, meat: M31.
-- **M85.** `--` ⚪ Jewellery is metal-gold 6,0 with gemstones (M36).
-- **M86.** `--` ⚪ Scrolls are off-white 5,2; accents dark red 8,0, dark green 1,1 or blue 4,2; text blue-grey 6,1.
-- **M87.** `--` ⚪ Book straps, bands, binders and corners are bark for leather, dark grey 13,3 for metal-iron-wrought.
-- **M88.** `--` ⚪ On a log the cut face is light wood and the round side wood-bark; never inverted.
+- **M82.** `--` ⚪ Mugs, cups and tankards (obj-kitchenware-tableware) are wood, dark brown 2,0 or mid brown 1,0, with metal-iron-steel hoops and handles.
+- **M83.** `--` ⚪ obj-food defaults: fish light grey 15,3, dark grey 13,3, blue-grey 6,1 or blue 4,2; cheese yellow 6,0; obj-food-vegetable light green 3,1.
+- **M84.** `--` ⚪ Carrot and pumpkin (obj-food-vegetable) are terracotta 5,0; chocolate is dark brown 2,0. Bread: M51, meat: M31.
+- **M85.** `--` ⚪ obj-pocketitem-jewellery is metal-gold 6,0 with gemstones (M36).
+- **M86.** `--` ⚪ obj-pocketitem-scroll is off-white 5,2; accents dark red 8,0, dark green 1,1 or blue 4,2; text blue-grey 6,1.
+- **M87.** `--` ⚪ obj-pocketitem-book straps, bands, binders and corners are bark for leather, dark grey 13,3 for metal-iron-wrought.
+- **M88.** `--` ⚪ On an env-flora-deadwood-branch log the cut face is light wood and the round side wood-bark; never inverted.
 
 ### C. Colour to material
 
@@ -266,25 +266,25 @@ text alone.
 
 "High" is the bounding-box Y extent; "longest dimension" its largest extent. Kinds name the leaf and its children.
 
-- **D1.** `--` ⚪ Hoops on barrels, chests, buckets, boxes and crates are 5–15% of the model's longest dimension high.
-- **D2.** `--` ⚪ A barrel or bucket has at most three hoops.
-- **D3.** `--` ⚪ A barrel has 8 to 14 side planks and 100 to 1500 tris.
-- **D4.** `--` ⚪ A barrel is 0.2–0.8 high and at most 0.75 wide.
-- **D5.** `--` ⚪ A near-cube crate (extents within 15%) shows 3 to 7 planks side by side per face and is 0.2–0.8 high.
-- **D6.** `--` ⚪ obj-container-pot is 0.2–0.4 high; a bottle, potion or bucket 0.1–0.4; a chest with lid 0.2–0.5.
-- **D7.** `--` ⚪ A shield is 0.2–0.6 high.
-- **D8.** `--` ⚪ Furniture fits a 1.2 × 1.2 × 1.2 box; a table fits 0.5 high on a 2 × 2 footprint.
-- **D9.** `--` ⚪ A table or seat is at least 0.2 high; seating at most 0.7.
-- **D10.** `--` ⚪ Cookware pans and pots, lid included, are at most 0.4 high.
-- **D11.** `--` ⚪ Plates, bowls and cutlery: longest dimension 0.1–0.4.
-- **D12.** `--` ⚪ A candle is 0.1–0.7 high; a lantern or torch 0.1–1.0.
-- **D13.** `--` ⚪ A scroll or closed book: longest dimension 0.1–0.3. An open book is judged by its longest cover edge.
-- **D14.** `--` ⚪ A coin or key: longest dimension at most 0.2; plural coin models are exempt.
+- **D1.** `--` ⚪ Hoops on obj-container-barrel, -chest, -bucket and -crate are 5–15% of the model's longest dimension high.
+- **D2.** `--` ⚪ obj-container-barrel and -bucket have at most three hoops.
+- **D3.** `--` ⚪ obj-container-barrel has 8 to 14 side planks and 100 to 1500 tris.
+- **D4.** `--` ⚪ obj-container-barrel is 0.2–0.8 high and at most 0.75 wide.
+- **D5.** `--` ⚪ A near-cube obj-container-crate (extents within 15%) shows 3 to 7 planks side by side per face and is 0.2–0.8 high.
+- **D6.** `--` ⚪ obj-container-pot is 0.2–0.4 high; obj-container-bottle and -bucket 0.1–0.4; an obj-container-chest with lid 0.2–0.5.
+- **D7.** `--` ⚪ obj-equipment-shield is 0.2–0.6 high.
+- **D8.** `--` ⚪ obj-furniture fits a 1.2 × 1.2 × 1.2 box; obj-furniture-table fits 0.5 high on a 2 × 2 footprint.
+- **D9.** `--` ⚪ obj-furniture-table and -seating are at least 0.2 high; -seating at most 0.7.
+- **D10.** `--` ⚪ obj-kitchenware-cookware-pan and -pot, lid included, are at most 0.4 high.
+- **D11.** `--` ⚪ obj-kitchenware-tableware-plate and -cutlery: longest dimension 0.1–0.4.
+- **D12.** `--` ⚪ obj-lighting-candle is 0.1–0.7 high; obj-lighting-lantern and -torch 0.1–1.0.
+- **D13.** `--` ⚪ obj-pocketitem-scroll or a closed obj-pocketitem-book: longest dimension 0.1–0.3. An open book is judged by its longest cover edge.
+- **D14.** `--` ⚪ obj-pocketitem-coin and -key: longest dimension at most 0.2; plural coin models are exempt.
 - **D15.** `--` ⚪ obj-tool-long is 0.3–1.2 long.
 - **D16.** `--` ⚪ A humanoid char, skeleton included, is 0.4–0.8 high; animals are exempt.
-- **D17.** `--` ⚪ Bow, crossbow, sword 0.4–1.0; hammer or mace 0.2–0.8; dagger 0.1–0.5; axe 0.2–0.8; staff 0.2–1.2.
-- **D18.** `--` ⚪ Sail, flag, banner, canopy and canvas cloth is under 0.1 thick.
-- **D19.** `--` ⚪ A tree, conifer and palm included, is 0.6–2.4 high.
+- **D17.** `--` ⚪ obj-weapon: ranged-bow, ranged-crossbow, melee-sword 0.4–1.0; melee-hammer, melee-axe 0.2–0.8; melee-dagger 0.1–0.5; magic-staff 0.2–1.2.
+- **D18.** `--` ⚪ str-marker-flag, sails, canopy and canvas cloth is under 0.1 thick.
+- **D19.** `--` ⚪ env-flora-tree, conifer and palm included, is 0.6–2.4 high.
 
 ### Open items
 
