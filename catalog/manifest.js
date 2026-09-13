@@ -2089,5 +2089,45 @@ window.KENNEY_KITS = [
    "snowman-hat",
    "tree"
   ]
+ },
+ {
+  "slug": "desert-buildings",
+  "name": "desert-buildings",
+  "url": null,
+  "models": [
+   "awning-a",
+   "awning-b",
+   "barrel",
+   "crate",
+   "ladder-a",
+   "ladder-b",
+   "large-building-a",
+   "large-building-b",
+   "large-building-c",
+   "large-building-d",
+   "large-building-frame-a",
+   "large-building-frame-b",
+   "large-building-frame-c",
+   "large-building-frame-d",
+   "medium-building-a",
+   "medium-building-b",
+   "medium-building-frame-a",
+   "medium-building-frame-b",
+   "small-building-a",
+   "small-building-frame-a",
+   "well"
+  ]
+ },
+ {
+  "slug": "jelly-forest",
+  "name": "jelly-forest",
+  "url": null,
+  "licenseLabel": "JellySquish asset licence",
+  "models": [
+   "log",
+   "mushrooms-1",
+   "tent",
+   "tree-3"
+  ]
  }
 ]
