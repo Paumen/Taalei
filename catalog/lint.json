@@ -2,378 +2,577 @@
  "rules": [
   {
    "id": "G1",
+   "guide": "G1",
    "text": "Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
+  },
+  {
+   "id": "X4",
+   "guide": "X4",
+   "text": "Max 5000 tris per occupied grid cell; char and plural models are exempt. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h)) over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller than 0.5 × 0.5 × 0.5 is judged as if it were that size.",
+   "severity": "warning",
+   "coverage": "full"
+  },
+  {
+   "id": "X6",
+   "guide": "X6",
+   "text": "Nothing is taller than 6 units, except env-terrain-mountain.",
+   "severity": "warning",
+   "coverage": "full"
+  },
+  {
+   "id": "S1",
+   "guide": "S1",
+   "text": "special is a material tag and a joker: it exempts one band on the model from every rule that band trips.",
+   "coverage": "partial",
+   "follows": "M1"
+  },
+  {
+   "id": "S2",
+   "guide": "S2",
+   "text": "The joker is spent once. A second band with no material behind it is a finding, whatever the first one was.",
+   "coverage": "partial",
+   "follows": "M1"
+  },
+  {
+   "id": "S3",
+   "guide": "S3",
+   "text": "Spent on N4 it lifts the ceiling by one; every other band still answers to M and C. N2 and N3 do not count the joker as a material.",
+   "coverage": "partial",
+   "follows": "M1"
   },
   {
    "id": "S4",
+   "guide": "S4",
    "text": "Only the PO assigns the tag. A special records which band it covers and why; one without a stated reason is a finding on the tag.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
+  },
+  {
+   "id": "S5",
+   "guide": "S5",
+   "text": "N3 leaves the joker's band out of its count; N2 keeps it. That band is the one the reason on the tag names.",
+   "coverage": "partial",
+   "follows": "M1"
   },
   {
    "id": "M1",
-   "text": "Trees are dark green.",
-   "severity": "error"
+   "guide": "M1",
+   "text": "env-flora-tree is dark green 1,1; env-flora-tree-palm follows M2.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M2",
-   "text": "Palm fronds are light green.",
-   "severity": "error"
+   "guide": "M2",
+   "text": "env-flora-tree-palm fronds are light green 3,1.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M3",
-   "text": "Grass is light green.",
-   "severity": "error"
+   "guide": "M3",
+   "text": "env-flora-plant-grass is light green 3,1.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M4",
+   "guide": "M4",
    "text": "Stems and leaves are light green.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M6",
+   "guide": "M6",
    "text": "Wood is any of the three brown bands; wood-bark is bark 3,0.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M6-bark",
+   "guide": "M6",
    "text": "Wood is any of the three brown bands; wood-bark is bark 3,0.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M8",
+   "guide": "M8",
    "text": "stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M9",
+   "guide": "M9",
    "text": "stone-rock is light grey 15,3, secondarily taupe 14,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M10",
+   "guide": "M10",
    "text": "stone-soil — sand and dirt — is taupe 14,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M11",
+   "guide": "M11",
    "text": "metal-iron-steel is light grey 15,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M12-cast",
+   "guide": "M12",
    "text": "metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M12-wrought",
+   "guide": "M12",
    "text": "metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M13",
-   "text": "metal-gold is gold 6,0; metal-silver is silver 3,2.",
-   "severity": "error"
+   "guide": "M13",
+   "text": "metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M13-silver",
-   "text": "metal-gold is gold 6,0; metal-silver is silver 3,2.",
-   "severity": "error"
+   "guide": "M13",
+   "text": "metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M14",
+   "guide": "M14",
    "text": "metal-copper is terracotta 5,0 and takes no other metal subtype.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M14-only",
+   "guide": "M14",
    "text": "metal-copper is terracotta 5,0 and takes no other metal subtype.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M15",
-   "text": "Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.",
-   "severity": "error"
+   "guide": "M15",
+   "text": "obj-pocketitem-key is metal-iron-wrought, dark grey 13,3, or metal-gold, yellow 6,0.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M17",
-   "text": "The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.",
-   "severity": "error"
+   "guide": "M17",
+   "text": "Hoops on obj-container-barrel, -chest, -bucket and -crate are metal-iron-wrought, dark grey 13,3.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M18",
+   "guide": "M18",
    "text": "Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M18b",
-   "text": "The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.",
-   "severity": "error"
+   "guide": "M18b",
+   "text": "Textile on obj-transport-ship, -boat and -accessory is off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M19",
+   "guide": "M19",
    "text": "Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M20",
+   "guide": "M20",
    "text": "Leather is bark.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M22",
+   "guide": "M22",
    "text": "Rope is taupe 14,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M23",
+   "guide": "M23",
    "text": "All cork is taupe 14,3.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M24",
+   "guide": "M24",
    "text": "Glass is transparent, dark green or dark red.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M25",
+   "guide": "M25",
    "text": "Ceramics are terracotta, off-white, taupe or dark red.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M26",
-   "text": "Bottles are glass or ceramic.",
-   "severity": "error"
+   "guide": "M26",
+   "text": "obj-container-bottle is glass or ceramic.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M27",
-   "text": "Glass bottles are dark red, dark green or clear glass.",
-   "severity": "error"
+   "guide": "M27",
+   "text": "A glass obj-container-bottle is dark red 8,0, dark green 1,1 or clear glass.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M28",
+   "guide": "M28",
    "text": "A liquid is dark red 8,0, dark green 1,1 or blue 4,2.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M29",
-   "text": "Bones and skulls are off-white.",
-   "severity": "error"
+   "guide": "M29",
+   "text": "Bone and env-remains-bones are off-white 5,2.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M30",
+   "guide": "M30",
    "text": "Paper is off-white.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M31",
-   "text": "Meat is dark red 8,0.",
-   "severity": "error"
+   "guide": "M31",
+   "text": "obj-food-meat is dark red 8,0.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M33",
+   "guide": "M33",
    "text": "Flames, glow and lights are yellow 6,0, spread wide across the band.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M34",
+   "guide": "M34",
    "text": "Candle wax are off-white 5,2.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M35",
+   "guide": "M35",
    "text": "Wicks are dark grey 13,3.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "full"
   },
   {
    "id": "M36",
+   "guide": "M36",
    "text": "Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M37",
-   "text": "Book covers are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.",
-   "severity": "error"
+   "guide": "M37",
+   "text": "Covers of obj-pocketitem-book and obj-weapon-magic with paper are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M38",
-   "text": "Roofs are ceramic, dark red.",
-   "severity": "error"
+   "guide": "M38",
+   "text": "str-part-roof is ceramic, dark red 8,0.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M39",
-   "text": "Chests, barrels, kegs, buckets, boxes and crates are mainly wood, often with metal-iron accents.",
-   "severity": "error"
+   "guide": "M39",
+   "text": "obj-container-barrel, -chest, -bucket and -crate are mainly wood, often with metal-iron accents.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M42-beam",
+   "guide": "M42",
    "text": "Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M42-planks",
+   "guide": "M42",
    "text": "Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M42-worked",
+   "guide": "M42",
    "text": "Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M43",
+   "guide": "M43",
    "text": "Skin is light brown 0,0, taupe 14,3 or bark 3,0.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "M44",
+   "guide": "M44",
    "text": "Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "M62",
+   "guide": "M62",
    "text": "obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M63",
+   "guide": "M63",
    "text": "obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M64",
+   "guide": "M64",
    "text": "obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M65",
+   "guide": "M65",
    "text": "Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M65-pair",
+   "guide": "M65",
    "text": "Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M66",
+   "guide": "M66",
    "text": "All other iron is metal-iron-wrought.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M67",
+   "guide": "M67",
    "text": "A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "M68",
+   "guide": "M68",
    "text": "char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "C1",
+   "guide": "C1",
    "text": "Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C2",
-   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).",
-   "severity": "error"
+   "guide": "C2",
+   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (M18b), scroll text (M86), fish (M83).",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C3",
+   "guide": "C3",
    "text": "Light blue-grey 3,2: silver (M13).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C4",
+   "guide": "C4",
    "text": "Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C5",
+   "guide": "C5",
    "text": "Yellow: metal-gold, emissive, fire and cheese (M83).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C6",
-   "text": "Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.",
-   "severity": "error"
+   "guide": "C6",
+   "text": "Dark red: ceramics, glass, str-part-roof, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.",
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C7",
+   "guide": "C7",
    "text": "Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "partial"
   },
   {
    "id": "C8",
+   "guide": "C8",
    "text": "Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C9-dark",
+   "guide": "C9",
    "text": "Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C9-light",
+   "guide": "C9",
    "text": "Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C9-middle",
+   "guide": "C9",
    "text": "Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C10",
-   "text": "Darkest brown: wood-bark, leather, skin, and a log or trunk.",
-   "severity": "error"
+   "guide": "C10",
+   "text": "Bark 3,0: wood-bark, leather, skin, wood-log and env-flora-deadwood.",
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C11",
+   "guide": "C11",
    "text": "Transparent: glass only.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "C12",
+   "guide": "C12",
    "text": "Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "C13",
+   "guide": "C13",
    "text": "Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "C14",
+   "guide": "C14",
    "text": "Terracotta 5,0: copper (M14), ceramics (M25), carrot and pumpkin (M84) and blooms (M44).",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "partial"
   },
   {
    "id": "C15",
+   "guide": "C15",
    "text": "Dark grey 13,3: metal-iron-wrought (M12), wicks (M35) and fish (M83).",
-   "severity": "warning"
+   "severity": "warning",
+   "coverage": "full"
   },
   {
    "id": "N1",
+   "guide": "N1",
    "text": "A model has at least one material.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "N2",
+   "guide": "N2",
    "text": "A model uses at least as many bands as it has materials. Every material tag counts, subtypes included.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "N3",
+   "guide": "N3",
    "text": "A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
   },
   {
    "id": "N4",
+   "guide": "N4",
    "text": "Ceiling: 6 bands for a human character or a decorated food, 5 for anything else. A skeleton takes the 5; an assembly answers per part.",
-   "severity": "error"
+   "severity": "error",
+   "coverage": "full"
+  },
+  {
+   "id": "N5",
+   "guide": "N5",
+   "text": "A model of size l may take a sixth band where it carries at least five material tags.",
+   "coverage": "full",
+   "follows": "N4"
   }
  ],
  "accent": {
@@ -599,6 +798,363 @@
    "severity": "warning",
    "model": "ken-town/wall-wood-door",
    "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/cage-small",
+   "detail": "13376 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/chain-coil",
+   "detail": "10915 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/crate-metal",
+   "detail": "7983 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-birthday-cut",
+   "detail": "8035 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-birthday",
+   "detail": "8863 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-chocolate-cut",
+   "detail": "6076 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-chocolate",
+   "detail": "6566 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-strawberry-cut",
+   "detail": "6472 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-strawberry",
+   "detail": "6810 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/monstera-plant-large",
+   "detail": "16222 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/monstera-plant-medium",
+   "detail": "8431 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/pothos-plant-large",
+   "detail": "19172 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/pothos-plant-medium",
+   "detail": "10239 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/yucca-plant-large",
+   "detail": "14694 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/yucca-plant-medium",
+   "detail": "7848 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/zzplant-plant-large",
+   "detail": "21831 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/zzplant-plant-medium",
+   "detail": "7883 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-common-empty",
+   "detail": "6551 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-rare-mimic-closed",
+   "detail": "11481 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-top-rare-mimic",
+   "detail": "6076 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-hallow/coffin-decorated",
+   "detail": "6017 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/parts-pile-large",
+   "detail": "7977 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skull-broken",
+   "detail": "5918 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skull",
+   "detail": "5988 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/staff-gem",
+   "detail": "8006 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/bow-b-with-string",
+   "detail": "6904 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/bow-b",
+   "detail": "6542 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "medieval-town/cart",
+   "detail": "6826 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/wooden-shield",
+   "detail": "8630 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/arch-door",
+   "detail": "12571 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/arch",
+   "detail": "9882 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/crate",
+   "detail": "7294 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/sword-wall-mount",
+   "detail": "6945 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-flower-1",
+   "detail": "6157 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-common-dead-1",
+   "detail": "5424 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/cannon",
+   "detail": "6886 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/gold-bag",
+   "detail": "11528 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/rock-2",
+   "detail": "8956 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/shark",
+   "detail": "6372 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/backpack",
+   "detail": "11545 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/blood-ring",
+   "detail": "8216 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-2-filled",
+   "detail": "5312 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-3-filled",
+   "detail": "5778 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-4-filled",
+   "detail": "5405 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-5-empty",
+   "detail": "5364 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-5-filled",
+   "detail": "6245 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-6-empty",
+   "detail": "6857 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-6-filled",
+   "detail": "8391 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/dried-fish-1-a",
+   "detail": "6055 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/fireplace-1-1-a",
+   "detail": "5114 tris per cell, ceiling 5000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/mannequin-2-a",
+   "detail": "5134 tris per cell, ceiling 5000",
    "joker": false
   },
   {
