@@ -53,3 +53,32 @@
 	is daarom vóór het hermappen ontkoppeld van de driehoeken die het
 	delen (tools/glb.mjs, `ontvlecht()`). De geometrie is verder
 	ongemoeid.
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is Pallet_Wood_Covered_A →
+	pallet-wood-covered-a toegevoegd. Schaal 0,245, teruggelezen uit de
+	kit: het pallet meet 0,422 × 0,422 × 0,074, naast pallet-wood (0,380 ×
+	0,368 × 0,074).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De sprong is 4,7 (van 5,0 naar middenbruin 1,0). Het pallet zelf kwam
+	op middenbruin 1,0 en staat nu op lichtbruin 0,0 (wood-planks, M42) als
+	pallet-wood; het doek eroverheen kwam op lichtbruin 0,0 en staat op
+	gebroken wit 5,2 (textiel, M18 en M69).
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

@@ -113,3 +113,36 @@
 	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
 	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
 	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
+
+			------------------------------
+
+	Herkomst en bewerking (tweede aanvulling)
+
+	Met tools/importeer/aanvullen.mjs zijn pumpkin_orange →
+	pumpkin-orange en gravemarker_B → gravemarker-b toegevoegd. Schaal
+	0,277353 met de wrapper van ×0,896, teruggelezen uit de kit: de pompoen
+	meet 0,249 × 0,249 × 0,174, naast pumpkin-orange-small (0,149 × 0,149 ×
+	0,137), en het kruis 0,200 × 0,103 × 0,293, naast gravemarker-a (0,200
+	× 0,069 × 0,297).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprongen: de pompoen (8,7, van 7,0 naar terracotta 5,0) en
+	het kruis (3,6, van 7,1 naar donkergrijs 13,3). De steel van de pompoen
+	kwam op donkergrijs 13,3 en staat op lichtgroen 3,1 (M4), de banen van
+	pumpkin-orange-small. Het kruis kwam op 13,3 met de twee schedels op
+	lichtgrijs 15,3; het hout staat nu op middenbruin 1,0 (wood-worked,
+	M42) als gravemarker-a, de schedels op gebroken wit 5,2 (bot, M29).
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
