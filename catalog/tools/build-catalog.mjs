@@ -233,7 +233,7 @@ const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
-    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', ...MODULES]
+    'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', 'thumbs.json', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
     // strip the stamp before hashing, or every build would rewrite a file it just hashed
     .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))

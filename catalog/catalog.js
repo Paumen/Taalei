@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=e4243ac088';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e4243ac088';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=5cb43fb186';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5cb43fb186';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -26,9 +26,14 @@ const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy', 'scene'];
 const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 
 const MODEL_PATH = 'kits/workfiles';
+const THUMB_PATH = 'catalog/thumbs';
 
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+
+// Thumbnail version per model id, from catalog/thumbs.json (node catalog/tools/build-thumbs.mjs).
+// A card with a thumbnail shows the picture; one without falls back to a live viewer.
+const thumbs = new Map();
 
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
@@ -251,6 +256,21 @@ function showSnapshot(box) {
   box.replaceChildren(image);
 }
 
+// The thumbnails are rendered by the same model-viewer build with the same lighting as
+// the cards used to carry live, one per mode, so Flat only swaps the file.
+const thumbSrc = (box) =>
+  `${box.dataset.thumb}${flatMode.on ? '.flat' : ''}.webp?v=${box.dataset.thumbV}`;
+
+function showThumb(box) {
+  const image = document.createElement('img');
+  image.src = thumbSrc(box);
+  image.alt = box.dataset.alt;
+  image.width = image.height = 256;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  box.replaceChildren(image);
+}
+
 function glyph(kind, sign, hint) {
   const el = span(`glyf glyf-${kind}`, sign);
   el.title = hint;
@@ -269,6 +289,12 @@ function makeCard(model, kits, variants = []) {
   box.className = 'kaart-viewer';
   box.dataset.src = modelUrl(model.path);
   box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
+  const thumb = thumbs.get(model.id);
+  if (thumb) {
+    box.dataset.thumb = `${THUMB_PATH}/${model.kit}/${model.name}`;
+    box.dataset.thumbV = thumb;
+    showThumb(box);
+  }
 
   const size = sizeClass(model);
   const glyphs = span('kaart-glyfen');
@@ -339,7 +365,7 @@ function makeCard(model, kits, variants = []) {
   });
 
   holder.dataset.pad = model.path;
-  observer.observe(box);
+  if (!thumb) observer.observe(box);
   return item;
 }
 
@@ -1236,6 +1262,16 @@ async function loadLint() {
   } catch {}
 }
 
+// Silent when thumbs.json is missing: every card then carries a live viewer as before.
+async function loadThumbs() {
+  try {
+    const response = await fetch(modelUrl('catalog/thumbs.json'));
+    if (!response.ok) return;
+    const data = await response.json();
+    for (const [id, own] of Object.entries(data.models ?? {})) thumbs.set(id, own.v);
+  } catch {}
+}
+
 async function start() {
   const response = await fetch(modelUrl('catalog/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
@@ -1269,7 +1305,7 @@ async function start() {
     childrenOf.set(tag.parent, [...(childrenOf.get(tag.parent) ?? []), tag.id]);
   }
 
-  await loadLint();
+  await Promise.all([loadLint(), loadThumbs()]);
 
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
@@ -1291,6 +1327,11 @@ async function start() {
     lightButton.setAttribute('aria-pressed', String(flatMode.on));
 
     for (const box of document.querySelectorAll('.kaart-viewer')) {
+      if (box.dataset.thumb) {
+        const image = box.querySelector('img');
+        if (image) image.src = thumbSrc(box);
+        continue;
+      }
       delete box.dataset.momentopname;
       const viewer = box.querySelector('model-viewer');
       if (viewer) setLighting(viewer, '0.6');
