@@ -16,7 +16,7 @@ const GUIDE = join(ROOT, 'docs/asset_style_guide.md');
 // reads a proxy tag, a name, or only one clause.
 const COVERAGE = {
   full: `M1 M2 M3 M6 M9 M10 M13 M14 M20 M22 M23 M24 M25 M28 M29 M30 M31 M33 M34 M35
-         M36 M42 M43 C3 C8 C9 C10 C11 C15 N1 N2 N3 N4 N5 S4 W2`,
+         M36 M42 M43 C3 C8 C9 C10 C11 C15 N1 N2 N3 N4 N5 S4`,
   partial: `G1 M4 M8 M11 M12 M15 M17 M18 18b M19 M26 M27 M37 M38 M39 M44
             M62 M63 M64 M65 M66 M67 M68
             C1 C2 C4 C5 C6 C7 C12 C13 C14 S1 S2 S3 S5`,
