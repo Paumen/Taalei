@@ -1,7 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { inflateSync } from 'node:zlib';
 
 const MAGIC = 'Kaydara FBX Binary  ';
+const AFBEELDING = /\.(png|jpe?g)$/i;
 
 function readProperty(buf, pos) {
   const type = String.fromCharCode(buf[pos]);
@@ -161,15 +163,36 @@ function layerLookup(layer, valuesName, indexName, width) {
   };
 }
 
+// An fbx may carry its texture inside itself, as the bytes of a Video record, and then
+// ship no image file at all — Charming Kitchen Set and Architecture Pack both do, and
+// preview colourless without this. Write those bytes out beside the model, so the name
+// the material asks for resolves against a file like any other texture: every reader of
+// this shape looks a texture up among the pack's images, never inside the fbx.
+function pakMediaUit(video, dir) {
+  const inhoud = child(video, 'Content')?.props[0];
+  if (!inhoud?.length) return null;
+
+  const gevraagd = child(video, 'RelativeFilename')?.props[0]
+    ?? child(video, 'FileName')?.props[0]
+    ?? String(video.props[1] ?? '').split('\0')[0];
+  const naam = String(gevraagd).replace(/\\+/g, '/').split('/').pop();
+  if (!naam || !AFBEELDING.test(naam)) return null;
+
+  const pad = join(dir, naam);
+  if (!existsSync(pad)) writeFileSync(pad, Buffer.from(inhoud));
+  return naam;
+}
+
 const naarSrgb = (lineair) => {
   const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
   return Math.round(Math.min(Math.max(v, 0), 1) * 255);
 };
 
 /**
- * Reads a binary .fbx and returns one entry per mesh, in the same shape as leesGltf and
- * leesObj in tools/importeer/bron.mjs: triangulated, with world positions, and with a
- * name taken from the Model the geometry hangs under.
+ * Reads a binary .fbx and returns one entry per mesh and material, in the same shape as
+ * leesGltf and leesObj in tools/importeer/bron.mjs: triangulated, with world positions,
+ * and with a name taken from the Model the geometry hangs under. A mesh split over
+ * several materials returns one entry per material, all under that same name.
  */
 export function leesFbx(pad) {
   const { roots } = readTree(pad);
@@ -201,18 +224,24 @@ export function leesFbx(pad) {
   const hangtOnder = (id, soort) =>
     (kinderen.get(id) ?? []).map((k) => perId.get(k)).filter((r) => r?.name === soort);
 
-  const textuurVan = (modelId) => {
-    for (const materiaal of hangtOnder(modelId, 'Material')) {
-      for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
-        const bestand = child(textuur, 'RelativeFilename')?.props[0]
-          ?? child(textuur, 'FileName')?.props[0];
-        if (bestand) return String(bestand).replace(/\\+/g, '/').split('/').pop();
-      }
-      const kleur = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
-      if (kleur) return { kleur: kleur.slice(0, 3).map(naarSrgb) };
+  const naast = dirname(pad);
+
+  const beschrijf = (materiaal) => {
+    for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
+      const geschreven = hangtOnder(textuur.props[0], 'Video')
+        .map((video) => pakMediaUit(video, naast))
+        .find(Boolean);
+      const bestand = child(textuur, 'RelativeFilename')?.props[0]
+        ?? child(textuur, 'FileName')?.props[0];
+      const naam = bestand ? String(bestand).replace(/\\+/g, '/').split('/').pop() : null;
+      if (naam || geschreven) return naam ?? geschreven;
     }
-    return null;
+    const kleur = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
+    return kleur ? { kleur: kleur.slice(0, 3).map(naarSrgb) } : null;
   };
+
+  // In connection order: that is the order LayerElementMaterial indexes into.
+  const materialenVan = (modelId) => hangtOnder(modelId, 'Material').map(beschrijf);
 
   const naarYOp = upAxisMatrix(roots);
   const primitieven = [];
@@ -253,9 +282,23 @@ export function leesFbx(pad) {
     const normaalLaag = layerLookup(child(geometry, 'LayerElementNormal'), 'Normals', 'NormalsIndex', 3);
     const uvLaag = layerLookup(child(geometry, 'LayerElementUV'), 'UV', 'UVIndex', 2);
 
-    const posities = [];
-    const normalen = [];
-    const uvs = [];
+    // A mesh may carry several materials, one per polygon — the doors and beams of a
+    // building sit in the same mesh as its walls. Each material becomes its own
+    // primitive; reading only the first paints the whole mesh in the wall's colour.
+    const materiaalLaag = child(geometry, 'LayerElementMaterial');
+    const materiaalIndices = child(materiaalLaag, 'Materials')?.props[0];
+    const perPolygoon = child(materiaalLaag, 'MappingInformationType')?.props[0] === 'ByPolygon';
+    const materiaalVan = (polygoon) => {
+      if (!materiaalIndices?.length) return 0;
+      return (perPolygoon ? materiaalIndices[polygoon] : materiaalIndices[0]) ?? 0;
+    };
+
+    const delen = new Map();
+    const deelVan = (index) => {
+      let deel = delen.get(index);
+      if (!deel) delen.set(index, (deel = { posities: [], normalen: [], uvs: [] }));
+      return deel;
+    };
     let hoeken = [];
     let heeftNormalen = Boolean(normaalLaag);
     let heeftUvs = Boolean(uvLaag);
@@ -273,12 +316,13 @@ export function leesFbx(pad) {
       hoeken.push(zetHoek(i));
       if (polygons[i] >= 0) continue;
 
+      const deel = deelVan(materiaalVan(polygoon));
       for (let k = 1; k + 1 < hoeken.length; k++) {
         for (const hoek of [hoeken[0], hoeken[k], hoeken[k + 1]]) {
-          posities.push(...hoek.p);
-          if (hoek.n) normalen.push(...hoek.n);
+          deel.posities.push(...hoek.p);
+          if (hoek.n) deel.normalen.push(...hoek.n);
           else heeftNormalen = false;
-          if (hoek.t) uvs.push(hoek.t[0], 1 - hoek.t[1]);
+          if (hoek.t) deel.uvs.push(hoek.t[0], 1 - hoek.t[1]);
           else heeftUvs = false;
         }
       }
@@ -286,21 +330,28 @@ export function leesFbx(pad) {
       polygoon++;
     }
 
-    if (posities.length === 0) continue;
+    const materialen = materialenVan(model?.props[0]);
+    // A material that names neither a texture nor a colour says nothing about the faces
+    // carrying it: fall back to the first one that does, the way the single-material
+    // read did before the split.
+    const eerste = materialen.find((m) => m !== null) ?? null;
 
-    const gevonden = textuurVan(model?.props[0]);
-    primitieven.push({
-      naam: naamVan(model ?? geometry),
-      posities: Float64Array.from(posities),
-      normalen: heeftNormalen ? Float64Array.from(normalen) : null,
-      uvs: heeftUvs ? Float64Array.from(uvs) : null,
-      hoekkleuren: null,
-      indices: Uint32Array.from({ length: posities.length / 3 }, (_, i) => i),
-      materiaal:
-        typeof gevonden === 'string' ? { textuur: gevonden, kleur: null }
-        : gevonden ? { textuur: null, kleur: gevonden.kleur }
-        : { textuur: null, kleur: [255, 255, 255] },
-    });
+    for (const [index, deel] of [...delen].sort((a, b) => a[0] - b[0])) {
+      if (deel.posities.length === 0) continue;
+      const gevonden = materialen[index] ?? eerste;
+      primitieven.push({
+        naam: naamVan(model ?? geometry),
+        posities: Float64Array.from(deel.posities),
+        normalen: heeftNormalen ? Float64Array.from(deel.normalen) : null,
+        uvs: heeftUvs ? Float64Array.from(deel.uvs) : null,
+        hoekkleuren: null,
+        indices: Uint32Array.from({ length: deel.posities.length / 3 }, (_, i) => i),
+        materiaal:
+          typeof gevonden === 'string' ? { textuur: gevonden, kleur: null }
+          : gevonden ? { textuur: null, kleur: gevonden.kleur }
+          : { textuur: null, kleur: [255, 255, 255] },
+      });
+    }
   }
 
   return primitieven;

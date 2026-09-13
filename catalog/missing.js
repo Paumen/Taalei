@@ -451,6 +451,14 @@ function draw() {
 
   const filtered = Boolean(state.search || state.pack || state.state);
   el('#alles-wis').hidden = !filtered;
+
+  const packButton = el('#naar-swipe-pack');
+  const pack = state.pack ? register.packs.get(state.pack) : null;
+  packButton.hidden = !pack;
+  if (pack) {
+    packButton.href = `swipe.html?source=missing&kit=${encodeURIComponent(pack.slug)}`;
+    packButton.textContent = `Swipe ${pack.short}`;
+  }
 }
 
 // ─── start ───────────────────────────────────────────────────────────────────────────
