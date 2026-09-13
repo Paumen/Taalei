@@ -1,0 +1,118 @@
+	JellySquish Forest Asset Pack (sample)
+
+			------------------------------
+
+	Licentie: eigen licentie van JellySquish — GEEN CC0.
+
+	De pack levert een `License.txt` mee. Die staat gebruik toe voor
+	persoonlijke, educatieve en commerciële doeleinden, en staat ook
+	bewerken en afgeleide werken toe, zonder naamsvermelding. Maar:
+
+	  - de inhoud mag niet in sublicentie, verkocht of verhuurd worden;
+	  - de inhoud mag niet opnieuw verspreid of aangeboden worden om te
+	    downloaden, ook niet in bewerkte vorm, zonder uitdrukkelijke
+	    toestemming van JellySquish;
+	  - de inhoud mag niet in AI-trainings- of machine-learningdatasets.
+
+	De tweede regel raakt deze catalogus: de vier .glb's hier zijn een
+	bewerkte vorm van de pack, en dit repository biedt ze aan om te
+	downloaden. Dat is iets om met JellySquish te regelen of om anders op
+	te lossen; het is bij het inladen aan de eigenaar van dit project
+	gemeld en hier vastgelegd.
+
+	Maker: JellySquish, jellysquishgaming@gmail.com, 14 augustus 2025.
+	Naamsvermelding is niet verplicht maar wordt op prijs gesteld.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .glb aangeleverd, in een zip met de naam
+	`JellySquish_Forest_Asset_Pack_Sample_Version`. Dit is de gratis
+	sample van een grotere pack: zeven modellen.
+
+	Van die zeven zijn er 4 ingeladen: de tent, de boom, de paddenstoelen
+	en de boomstam. `compass_and_magnifying_glass`, `platform_2x2_grass`
+	en `rock_group_medium` zijn niet gevraagd en staan er niet in.
+
+	Liggende streepjes zijn koppeltekens geworden: `tree_3` wordt tree-3,
+	`mushrooms_1` wordt mushrooms-1. Er is geen naam aangepast.
+
+	Schaal
+
+	Ingeladen op 0,608, zonder latere herschaling.
+
+	De maat is gekozen op de boom: `tree_3` meet 2,842 hoog in de pack en
+	komt daarmee op 1,728 uit, gelijk aan ken-town/tree (1,728). Dat valt
+	binnen §4 D19, dat een env-flora-tree tussen 0,6 en 2,4 houdt. De tent
+	komt op 1,43 hoog uit, tussen ken-forest-mini/tent (0,65) en
+	tropical-island/tent (1,86) in; de stam op 0,46 naast quat-nature/log
+	(0,30).
+
+	De pack houdt zijn eigen onderlinge verhoudingen er niet op na zoals
+	de catalogus dat doet: `mushrooms_1` komt op 0,52 hoog uit, terwijl
+	natuur/mushroom-brown 0,03 is. In de pack is een paddenstoel een
+	vijfde van een boom, in de catalogus een vijftigste. §4 X5 geeft een
+	pack één factor, dus dat is niet recht te zetten zonder de boom mis te
+	zetten. Het zijn nu grote paddenstoelen.
+
+	Kleur
+
+	De pack heeft een eigen kleurenvel. Dat vel is niet meegekomen — de
+	modellen zijn op de gedeelde kits/colormap.png gezet, die net zo is
+	opgebouwd. Het gaat baan voor baan: van elke baan van de pack wordt
+	één keer bepaald welke baan van de gedeelde sheet er het beste bij
+	past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is, en gelden voor een hele baan en
+	niet voor één kleur.
+
+	De verste sprong onder de ingeladen modellen is 9,1, bij `tent`: de
+	haringen staan in de pack op het bijna zwarte #231b0d en komen daarmee
+	het dichtst bij bark 3,0 uit. Daarna 6,6 bij `log`, waarvan het
+	lichte kopse vlak (#c39042) op yellow 6,0 landt, en 4,7 bij
+	`mushrooms_1`, waarvan de hoeden (#c39042) op light brown 0,0 landen.
+	`tree_3` blijft op 3,4, met het bladerdek (#526727) op light green 3,1.
+
+	Na het inladen zijn deze banen verplaatst met
+	tools/colormap-recolor.mjs, omdat de dichtstbijzijnde baan niet de
+	baan is die Appendix A voor dat materiaal aanwijst:
+
+	  bladerdek van de boom     light green 3,1 → dark green 1,1   (M1)
+	  stam van de boom          dark brown 2,0  → bark 3,0         (C10)
+	  ronde zijde van de stam   dark brown 2,0  → bark 3,0         (M88)
+	  kopse vlakken van de stam dark brown 2,0  → light brown 0,0  (M88)
+	  kopse vlak van de tak     yellow 6,0      → light brown 0,0  (M88)
+	  hoeden van de zwammen     light brown 0,0 → mid brown 1,0    (M72)
+	  stelen van de zwammen     light brown 0,0 → off-white 5,2    (M72)
+	  dakzeil van de tent       terracotta 5,0  → dark red 8,0     (M18, M69)
+	  haringen van de tent      yellow 6,0      → bark 3,0         (M77)
+
+	Het bladerdek op dark green en de stam op bark is hoe ken-town/tree en
+	natuur/tree-pine-1 al staan. De stam van `log` is een gevelde
+	boomstam met twee kopse vlakken: M88 wil de ronde zijde op wood-bark
+	en het kopse vlak op licht hout, en niet andersom. De hoeden en
+	stelen van de zwammen landden allebei op light brown en zijn
+	uiteengehaald op hun eigen punt in die baan; M72 zet de stelen op
+	off-white en de hoeden op mid brown. Het dakzeil van de tent is
+	textiel, en dat mag volgens M18 alleen off-white, dark green of dark
+	red zijn; M69 staat voor een str-stands juist de streep dark red naast
+	off-white toe, en dat is precies wat de tent nu is. De haringen zijn
+	onbewerkte stokjes en gaan volgens M77 naar wood-bark, waar de koppen
+	al stonden.
+
+	Een recolour is een UV-verschuiving over hele cellen, dus de ingebakken
+	schaduw blijft staan: elk hoekpunt houdt zijn plek in het verloop.
+
+	De scheerlijnen van de tent staan bij het doek op off-white en dragen
+	geen eigen materiaal. Ze zijn te dun om als rope apart te zetten, wat
+	volgens M22 een eigen baan op taupe zou vragen.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

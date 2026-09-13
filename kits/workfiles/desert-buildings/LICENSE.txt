@@ -1,0 +1,118 @@
+	Low Poly Desert Buildings
+
+			------------------------------
+
+	Licentie: onbekend — voorlopig als CC0 genoteerd, ter bevestiging
+	door de eigenaar van dit project.
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Zolang dat niet bevestigd is, staat er geen licentie vast en is er
+	geen toestemming waar dit bestand zich op beroept.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`Low_Poly_Desert_Buildings`, zonder licentiebestand en zonder
+	verwijzing naar een maker of een packpagina. De CC0 hierboven komt
+	dus niet uit de pack en is bij het inladen ook niet vastgesteld; ze
+	staat er omdat de catalogus zonder opgave CC0 aanneemt, en wacht op
+	bevestiging. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	De pack is één fbx-export, gesorteerd over vier mappen: `Building
+	Frames`, `Buildlings` (de schrijffout is van de pack), `Miscellaneous`
+	en `Walls`. Elke map heeft eigen modellen, dus `alleMappen` staat aan
+	in catalog/tools/bronkits.mjs.
+
+	Van de 30 modellen zijn er 21 ingeladen: de zeven casco's, de zeven
+	gebouwen, de twee luifels, de twee ladders, de ton, de kist en de put.
+	De losse `Door`, `Door Frame A/B`, `Post A/B`, `Shutter A/B` en `Wall
+	A/B` zijn niet gevraagd en staan er niet in.
+
+	Spaties zijn koppeltekens geworden en alles is klein gezet: `Large
+	Building Frame A` wordt large-building-frame-a. Er is geen naam
+	aangepast.
+
+	De zeven `... Building Frame`-modellen zijn het casco: dezelfde muren
+	als het bijbehorende gebouw, maar met lege deur- en raamopeningen. Ze
+	dragen daarom str-building en niet str-part-frame — de vorm is een
+	heel huis en geen open geraamte (Appendix B). Dat is een keuze van de
+	eigenaar van dit project bij het inladen.
+
+	Schaal
+
+	Ingeladen op 0,00304, zonder latere herschaling.
+
+	De maat is gekozen op de ladder: `Ladder A` meet 681,5 in de pack en
+	komt daarmee op 2,072 uit, gelijk aan fs-town/ladder-a (2,073). Drie
+	losse controles komen op dezelfde maat uit: `Well` wordt 0,77 hoog
+	naast fs-town/well-a (0,80), `Barrel` 0,33 naast fs-town/barrel-a
+	(0,26) en props/barrel-a (0,66), en `Door` — niet ingeladen — zou
+	0,67 worden naast ken-town/wall-wood-door (0,72). Een groot gebouw
+	komt op 2,93 × 4,29 × 2,40 uit, tussen medieval-town/fantasy-house
+	(1,07 hoog) en medieval-town/fantasy-inn (3,49 hoog) in.
+
+	`well` zit met 7179 driehoeken per rastercel boven het plafond van
+	5000 uit §4 (X4). Dat zit in de bron: 3180 driehoeken op een put van
+	0,76. Er is niets aan de geometrie veranderd om eronder te komen.
+
+	Kleur
+
+	De pack heeft een eigen kleurenvel. Dat vel is niet meegekomen — de
+	modellen zijn op de gedeelde kits/colormap.png gezet, die net zo is
+	opgebouwd. Het gaat baan voor baan: van elke baan van de pack wordt
+	één keer bepaald welke baan van de gedeelde sheet er het beste bij
+	past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is, en gelden voor een hele baan en
+	niet voor één kleur.
+
+	De verste sprong onder de ingeladen modellen is 3,4, bij `Awning B`:
+	de palmbladeren staan in de pack op #e5b464 en komen daarmee het
+	dichtst bij yellow 6,0 uit. Daarna 2,4 bij de gebouwen met luiken,
+	waarvan het bijna zwarte #452309 op bark 3,0 landt, en 2,0 bij `Barrel`,
+	`Crate` en de twee ladders, waarvan #c78062 op terracotta 5,0 landt.
+	De pack zit dus dicht op de gedeelde sheet.
+
+	Na het inladen zijn deze banen verplaatst met
+	tools/colormap-recolor.mjs, omdat de dichtstbijzijnde baan niet de
+	baan is die Appendix A voor dat materiaal aanwijst:
+
+	  muren en vloeren          light brown 0,0   → taupe 14,3    (M8)
+	  latwerk, lijsten, sporten terracotta 5,0    → mid brown 1,0 (M42)
+	  beslag van de luiken      bark 3,0          → blue-grey 6,1 (M64, M12)
+	  palmbladeren van Awning B yellow 6,0        → taupe 14,3    (M44)
+	  staanders van de put      terracotta 5,0    → dark brown 2,0 (M42)
+
+	De muren en de binnenvloeren zijn leem: stone-masonry, en dat is
+	volgens M8 taupe, blue-grey of light grey. Het latwerk van de
+	dakranden, de deur- en raamlijsten en de sporten van de ladder zijn
+	bewerkt hout en staan daarmee op mid brown (wood-worked, M42); de
+	balken, stijlen, deuren en luiken blijven op dark brown (wood-beam).
+	Het beslag op de luiken en de deurkruk zijn ijzer, en een str-model
+	met ijzer draagt volgens M64 metal-iron-cast, dat op blue-grey staat
+	(M12). De palmbladeren zijn droge plantenresten en gaan volgens M44
+	naar taupe, waar de gevlochten mat van beide luifels al staat; ze
+	houden hun eigen plek in het verloop, dus ze blijven van die mat te
+	onderscheiden. De put heeft twee staanders en een bovenligger die in
+	de pack twee tinten zijn maar allebei constructiehout: ze staan nu
+	samen op dark brown.
+
+	`barrel` is de uitzondering: daar zijn beide houtbanen samengebracht
+	op mid brown, zodat de duigen en de kop één materiaal (wood-worked)
+	zijn met de hoepels op dark grey ernaast (M17). Ze staan op twee
+	plekken in dezelfde baan, dus het verschil is nog te zien.
+
+	Een recolour is een UV-verschuiving over hele cellen, dus de ingebakken
+	schaduw blijft staan: elk hoekpunt houdt zijn plek in het verloop.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

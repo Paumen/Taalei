@@ -30,16 +30,19 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-function vindModelmap(dir, formaat) {
+// Eén map, de volste. `alleMappen` is voor de pack die één formaat over mappen per
+// thema verdeelt: daar zijn alle mappen eigen modellen, net als in build-missing.mjs.
+function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
     if (extname(pad).toLowerCase() !== `.${formaat}`) continue;
     perMap.set(dirname(pad), (perMap.get(dirname(pad)) ?? 0) + 1);
   }
   if (perMap.size === 0) throw new Error(`${dir}: geen .${formaat}`);
-  return [...perMap].sort(
+  const gesorteerd = [...perMap].sort(
     (a, b) => b[1] - a[1] || a[0].split('/').length - b[0].split('/').length || a[0].localeCompare(b[0]),
-  )[0][0];
+  );
+  return alleMappen ? gesorteerd.map(([map]) => map).sort() : [gesorteerd[0][0]];
 }
 
 // Een fbx noemt zijn textuur zonder pad; los hem op tegen de afbeeldingen in de
@@ -76,17 +79,19 @@ if (!existsSync(uitgepakt)) {
 }
 
 const { formaat } = bronkit;
-const modelmap = vindModelmap(uitgepakt, formaat);
+const modelmappen = vindModelmappen(uitgepakt, formaat, bronkit.alleMappen);
 const leesRuw = (pad) => (formaat === 'obj' ? leesObj(pad) : formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad));
 const lees = (pad) => koppelTexturen(leesRuw(pad), uitgepakt);
 const vOmlaag = formaat !== 'obj';
 const schaal = Number(schaalTekst);
 const palet = laadPalet();
 
-const gelezen = readdirSync(modelmap)
-  .filter((n) => extname(n).toLowerCase() === `.${formaat}`)
-  .sort()
-  .map((n) => [basename(n, extname(n)), lees(join(modelmap, n))]);
+const gelezen = modelmappen.flatMap((map) =>
+  readdirSync(map)
+    .filter((n) => extname(n).toLowerCase() === `.${formaat}`)
+    .sort()
+    .map((n) => [basename(n, extname(n)), lees(join(map, n))]),
+);
 
 let som = 0;
 let aantal = 0;

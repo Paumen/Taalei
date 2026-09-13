@@ -39,7 +39,11 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-function vindModelmap(dir, formaat) {
+// One folder, the fullest — the other formats' folders are the same models again.
+// `alleMappen` is for the pack that sorts one format's models into folders by theme:
+// there every folder is its own models, so all of them count. Same rule as
+// build-missing.mjs, which is what listed the models as missing in the first place.
+function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
     if (extname(pad).toLowerCase() !== `.${formaat}`) continue;
@@ -47,9 +51,10 @@ function vindModelmap(dir, formaat) {
     perMap.set(map, (perMap.get(map) ?? 0) + 1);
   }
   if (perMap.size === 0) throw new Error(`${dir}: geen .${formaat}`);
-  return [...perMap].sort(
+  const gesorteerd = [...perMap].sort(
     (a, b) => b[1] - a[1] || a[0].split('/').length - b[0].split('/').length || a[0].localeCompare(b[0]),
-  )[0][0];
+  );
+  return alleMappen ? gesorteerd.map(([map]) => map).sort() : [gesorteerd[0][0]];
 }
 
 function pakBronUit(map) {
@@ -135,7 +140,7 @@ const slug = bronkit.kit ?? EXTRA_KITS[mapNaam];
 if (!slug) throw new Error(`${mapNaam}: geen kit om in te vullen`);
 
 const uitgepakt = pakBronUit(mapNaam);
-const modelmap = vindModelmap(uitgepakt, bronkit.formaat);
+const hoofdmappen = vindModelmappen(uitgepakt, bronkit.formaat, bronkit.alleMappen);
 const leesRuw = (pad, formaat) =>
   formaat === 'obj' ? leesObj(pad) : formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
 const lees = (pad, formaat = bronkit.formaat) => koppelTexturen(leesRuw(pad, formaat), uitgepakt);
@@ -146,10 +151,11 @@ const vOmlaag = vOmlaagVoor(bronkit.formaat);
 // A pack may ship a second format holding parts the primary format keeps inside a parent
 // file — KayKit's obj export writes one file per node. The primary format is asked first,
 // so a name both formats have is the assembled model, not the part that borrows its name.
-const modelmappen = [[bronkit.formaat, modelmap]];
+const modelmappen = hoofdmappen.map((map) => [bronkit.formaat, map]);
 for (const formaat of bronkit.extraFormaten ?? []) {
-  const map = vindModelmap(uitgepakt, formaat);
-  if (map) modelmappen.push([formaat, map]);
+  for (const map of vindModelmappen(uitgepakt, formaat, bronkit.alleMappen)) {
+    modelmappen.push([formaat, map]);
+  }
 }
 
 // A splitsPerMesh pack keeps several models in one file, so there the source name is
@@ -161,11 +167,19 @@ const grofsteWeg = (naam) => {
   return Number(match[1]) === 0 ? naam.replace(LOD, '') : null;
 };
 
+// Every .<primary format> file of the pack, in the folders vindModelmappen named.
+function* bronBestanden() {
+  for (const map of hoofdmappen) {
+    for (const bestand of readdirSync(map).sort()) {
+      if (extname(bestand).toLowerCase() !== `.${bronkit.formaat}`) continue;
+      yield join(map, bestand);
+    }
+  }
+}
+
 function meshIndex() {
   const index = new Map();
-  for (const bestand of readdirSync(modelmap).sort()) {
-    if (extname(bestand).toLowerCase() !== `.${bronkit.formaat}`) continue;
-    const pad = join(modelmap, bestand);
+  for (const pad of bronBestanden()) {
     for (const primitief of lees(pad)) {
       const naam = grofsteWeg(primitief.naam);
       if (!naam) continue;
@@ -186,7 +200,7 @@ const gevraagd = paren.map((paar) => {
   if (!bronNaam || !naam) throw new Error(`${paar}: verwacht <source name>=<model name>`);
   if (meshen) {
     const treffer = meshen.get(bronNaam);
-    if (!treffer) throw new Error(`${bronNaam}: geen mesh met die naam in ${modelmap}`);
+    if (!treffer) throw new Error(`${bronNaam}: geen mesh met die naam in ${hoofdmappen.join(', ')}`);
     return { bronNaam, naam, pad: treffer.pad, primitieven: treffer.primitieven };
   }
   for (const [formaat, map] of modelmappen) {
@@ -200,9 +214,8 @@ const gevraagd = paren.map((paar) => {
 const palet = laadPalet();
 let som = 0;
 let aantal = 0;
-for (const bestand of readdirSync(modelmap).sort()) {
-  if (extname(bestand).toLowerCase() !== `.${bronkit.formaat}`) continue;
-  const meting = meetBelichting(lees(join(modelmap, bestand)), vOmlaag);
+for (const bestand of bronBestanden()) {
+  const meting = meetBelichting(lees(bestand), vOmlaag);
   som += meting.som;
   aantal += meting.aantal;
 }
