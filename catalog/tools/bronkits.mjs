@@ -70,4 +70,7 @@ export const BRONKITS = [
   // three packs in one download, each a single glb holding all its models
   { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: null, formaat: 'fbx' },
+
+  // one obj export, one folder per model — every folder holds its own model
+  { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: null, formaat: 'obj', alleMappen: true },
 ];
