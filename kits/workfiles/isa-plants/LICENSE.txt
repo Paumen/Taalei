@@ -1,0 +1,95 @@
+	House Plants
+
+			------------------------------
+
+	Tiny Treats : House Plants (1.0)
+	Gemaakt door Isa Lousberg — https://www.isalousberg.com
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Onderstrepingen zijn koppeltekens geworden en alles is klein gezet:
+	yucca_branch_medium_A wordt yucca-branch-medium-a. Er is geen naam
+	aangepast.
+
+	Van de 113 modellen van de pack staan er 36 in de kit: de vier
+	cactussen, de vier vetplanten, de drie maten van elk van de vijf
+	kamerplanten (monstera, pothos, sansevieria, yucca, zzplant), de drie
+	losse yuccastammen, de drie maten pot A, de drie maten schotel A, de
+	stapel potten, de twee gieters en de schep. Niet ingeladen zijn de
+	losse blaadjes en ranken, de pot- en plantcombinaties die al als los
+	model bestaan, en de potvormen B tot en met D met schotel B — die
+	komen later, of niet.
+
+	Op 0,217 gezet: pot-a-large is daarmee 0,325 breed, precies zo breed
+	als clay-props/planter, dezelfde terracotta bloempot, en als
+	isa-pond/clay-pot. pot-a-medium komt zo op 0,217 uit naast
+	dungeon/pot-b met 0,212 en pot-a-small op 0,108 naast dungeon/pot-a
+	met 0,132: de drie maten van de pack beslaan zo het hele potbereik
+	van de catalogus. De grote monstera wordt 0,64 hoog, ongeveer een
+	ridder (adventurers/knight, 0,67) — dat is de maat van een echte
+	grote kamerplant. Bewust niet de 0,25 van de bakkerijpack van dezelfde
+	maker: die pack is eten op tafelgerei en deze staat op de vloer.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong
+	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,217)
+	staat op de wortelnode, niet in de hoekpunten.
+
+	De pack heeft een eigen kleurenvel van 8 bij 4 banen, elk één kleur
+	met zijn eigen verloop van licht naar donker. Dat vel is niet
+	meegekomen — de modellen zijn op de gedeelde kits/colormap.png gezet,
+	die net zo is opgebouwd, zodat ze dezelfde kleuren delen met de
+	andere kits en in hetzelfde kleurfilter meedoen.
+
+	Het gaat baan voor baan, niet kleur voor kleur. Van elke baan van de
+	pack wordt één keer bepaald welke baan van de gedeelde sheet er het
+	beste bij past — over het hele verloop vergeleken, en desnoods
+	omgedraaid als de doelbaan de andere kant op loopt. Daarna gaan álle
+	driehoeken van die bronbaan naar die ene doelbaan, en houdt elk
+	hoekpunt zijn eigen plek in het verloop.
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
+	zichtbaar verschil betekent; de afstanden hieronder staan in die
+	maat, op een schaal waar 100 het hele bereik is, en gelden voor een
+	hele baan en niet voor één kleur.
+
+	De verste sprong is de bleekgroene baan van de pack (6,2, een grijzig
+	olijfgroen): die komt op lichtgroen 3,1 uit, 13,4 ver. Dat raakt de
+	drie sansevieria's, cactus-c en succulent-c, die daarmee hun grijze
+	zweem verliezen. Daarna de roze baan (3,2) op 13,1, de enige baan van
+	succulent-b; er staat geen roze op de gedeelde sheet. Dan het
+	donkere blauwgroen (1,1 → 3,1, 10,8) van monstera, zzplant, de
+	yuccabladeren, cactus-a en succulent-d, en het frissere groen (0,1 →
+	3,1, 10,3) van pothos, cactus-b, cactus-d en succulent-a: alle
+	bladgroen van de pack valt op de gedeelde sheet samen in die ene
+	lichtgroene baan. Het oranjerood van de schephandgreep (2,2) sprong
+	9,9 naar terracotta, het geel van de tweede gieter (1,2) 8,6 naar
+	goud 6,0, en de terracotta van de potten zelf (5,0) maar 5,2 — die
+	staat er bijna gelijk op.
+
+	Daarna is er met de hand verplaatst, voor bijlage A van de
+	stijlgids. De potaarde ging van donkerbruin 2,0 naar taupe 14,3
+	(M10, grond is taupe); de yuccastam van terracotta 5,0 naar bast 3,0
+	(M6 en C10, een stam is wood-bark); het blad van de schep van
+	lichtblauwgrijs 3,2 naar lichtgrijs 15,3 (M11 en M62, gereedschap is
+	staal) en de handgreep van terracotta 5,0 naar lichtbruin 0,0 (M42,
+	wood-planks, zoals rpgtools/trowel); gieter A van lichtblauwgrijs 3,2
+	naar donkergrijs 13,3 (M66 en M12, ander ijzer is smeedijzer, net als
+	pond/metal-tub); en succulent-b van lichtbruin 0,0 naar terracotta
+	5,0 — lichtbruin is een houtbaan (C9) en terracotta is de enige baan
+	die bloei toelaat (C14 en M44). Gieter B houdt zijn goudgele baan en
+	draagt daarvoor `plastic` (M41 en C5).
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken die
+	het deelt, anders zou één hoekpunt de kleuren van twee buurvlakken
+	over elkaar heen slepen. Daarna zijn gelijke hoekpunten (zelfde plek,
+	normaal én UV) weer samengevoegd. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.
