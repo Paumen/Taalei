@@ -76,7 +76,7 @@ function chromaAt(L) {
 
 const pixels = Buffer.from(atlas.pixels);
 const top = options.anchor + options.step * options.cells + options.gap * (options.cells - 1);
-console.log(`wood ramp L ${top.toFixed(3)} -> ${options.anchor.toFixed(3)}, band ${options.step}, gap ${options.gap} (${(options.gap / options.step).toFixed(2)} of a band)`);
+console.log(`brown ramp L ${top.toFixed(3)} -> ${options.anchor.toFixed(3)}, band ${options.step}, gap ${options.gap} (${(options.gap / options.step).toFixed(2)} of a band)`);
 
 for (let cell = 0; cell < options.cells; cell++) {
   const high = top - (options.step + options.gap) * cell;

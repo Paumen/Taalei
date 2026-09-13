@@ -72,7 +72,7 @@ render.mjs <file.glb|dir> [...] [flags]
   --band <col,row>   keep one cell of the colormap and flatten every other filled
                      cell to grey, so only the triangles carrying that band stay
                      coloured. Cells are the 16x4 grid of kits/colormap.png, so
-                     --band 2,0 is bark. Reads the base-colour texture the model
+                     --band 2,0 is dark brown. Reads the base-colour texture the model
                      already carries; the atlas on disk is not touched.
   --stats            <name>.stats.json next to the tiles: counts, bounds, mesh
                      integrity, UV layout and the palette the model actually uses
