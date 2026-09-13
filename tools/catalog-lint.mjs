@@ -302,17 +302,22 @@ const CHECKS = [
     subject: 'container models (barrel, chest, bucket, crate) tagged `metal-iron-wrought`',
     when: (m) => isContainer(m) && has(m, 'metal-iron-wrought') }),
   materialTakes({ id: 'M18', coverage: 'partial', severity: 'error',
-    tag: 'textile', colors: ['off-white', 'taupe', 'dark green', 'dark red'],
-    unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
+    tag: 'textile', colors: ['off-white', 'dark green', 'dark red'],
+    unless: (m) => (isRigged(m) && uses(m, band('blue-grey')))
+      || (usedFor(m, 'tool', 'weapon') && uses(m, band('taupe'))) }),
 
-  { id: 'M18b', coverage: 'partial', severity: 'error',
-    subjects: { bands: ['taupe'], tags: ['textile', 'rope'], kinds: RIGGED_KINDS },
-    tests: 'rigged models (ship, boat or rigging with `textile`) carrying no `rope` do not use taupe 14,3',
-    // Bands are counted per model, so a ship that carries rope has taupe explained
-    // by M22 and is left alone; the rule bites on a rigged model with no rope on it.
-    check: (m) => (isRigged(m) && uses(m, band('taupe')) && !has(m, 'rope'))
-      ? 'is rigged and uses taupe 14,3, which no flag or sail may take'
+  { id: 'M18-taupe', coverage: 'partial', severity: 'warning',
+    subjects: { bands: ['taupe'], tags: ['textile'], kinds: [] },
+    tests: 'models tagged `textile` take taupe 14,3 only as a grip or binding (M19), or for another material that takes it',
+    // Bands are counted per model, so a model that carries rope, cork, skin, vegetation
+    // or stone has its taupe explained by that material and is left alone; what is left
+    // is cloth on taupe, which M18 no longer allows.
+    check: (m) => (has(m, 'textile') && uses(m, band('taupe'))
+      && !has(m, 'rope', 'cork', 'skin', 'vegetation', 'stone', 'stone-soil', 'stone-rock', 'stone-masonry')
+      && !usedFor(m, 'tool', 'weapon'))
+      ? 'uses taupe 14,3 on textile, which no cloth may take'
       : null },
+  follows('M18b', 'M18', 'partial'),
 
   halfOf({ id: 'M19', coverage: 'partial', severity: 'warning', color: 'taupe', low: 0.02, high: 0.40,
     tags: ['textile'], subject: 'models used as tool or weapon, tagged `textile` and using taupe,',
@@ -442,7 +447,8 @@ const CHECKS = [
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
   bandOnlyFor({ id: 'C12', coverage: 'partial', severity: 'warning', color: 'taupe',
-    tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'textile', 'rope', 'cork', 'skin', 'vegetation'],
+    tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'rope', 'cork', 'skin', 'vegetation'],
+    unless: (m) => usedFor(m, 'tool', 'weapon') && has(m, 'textile'), also: ['grips on tools and weapons (M19)'],
     accent: true }),
   bandOnlyFor({ id: 'C13', coverage: 'partial', severity: 'warning', color: 'off-white',
     tags: ['bone', 'paper', 'wax', 'ceramic', 'textile', 'vegetation'], kinds: ['env-remains-bones'], accent: true }),
