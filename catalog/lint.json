@@ -45,21 +45,21 @@
   {
    "id": "M1",
    "guide": "M1",
-   "text": "Trees are dark green.",
+   "text": "env-flora-tree is dark green 1,1; env-flora-tree-palm follows M2.",
    "severity": "error",
    "coverage": "full"
   },
   {
    "id": "M2",
    "guide": "M2",
-   "text": "Palm fronds are light green.",
+   "text": "env-flora-tree-palm fronds are light green 3,1.",
    "severity": "error",
    "coverage": "full"
   },
   {
    "id": "M3",
    "guide": "M3",
-   "text": "Grass is light green.",
+   "text": "env-flora-plant-grass is light green 3,1.",
    "severity": "error",
    "coverage": "full"
   },
@@ -87,7 +87,7 @@
   {
    "id": "M8",
    "guide": "M8",
-   "text": "stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3. to be reduced to 2",
+   "text": "stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -129,14 +129,14 @@
   {
    "id": "M13",
    "guide": "M13",
-   "text": "metal-gold is gold 6,0; metal-silver is silver 3,2.",
+   "text": "metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.",
    "severity": "error",
    "coverage": "full"
   },
   {
    "id": "M13-silver",
    "guide": "M13",
-   "text": "metal-gold is gold 6,0; metal-silver is silver 3,2.",
+   "text": "metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.",
    "severity": "error",
    "coverage": "full"
   },
@@ -157,14 +157,14 @@
   {
    "id": "M15",
    "guide": "M15",
-   "text": "Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.",
+   "text": "obj-pocketitem-key is metal-iron-wrought, dark grey 13,3, or metal-gold, yellow 6,0.",
    "severity": "error",
    "coverage": "partial"
   },
   {
    "id": "M17",
    "guide": "M17",
-   "text": "The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.",
+   "text": "Hoops on obj-container-barrel, -chest, -bucket and -crate are metal-iron-wrought, dark grey 13,3.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -176,9 +176,9 @@
    "coverage": "partial"
   },
   {
-   "id": "18b",
-   "guide": "18b",
-   "text": "The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.",
+   "id": "M18b",
+   "guide": "M18b",
+   "text": "Textile on obj-transport-ship, -boat and -accessory is off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -220,21 +220,21 @@
   {
    "id": "M25",
    "guide": "M25",
-   "text": "Ceramics are terracotta, off-white, or dark red.",
+   "text": "Ceramics are terracotta, off-white, taupe or dark red.",
    "severity": "error",
    "coverage": "full"
   },
   {
    "id": "M26",
    "guide": "M26",
-   "text": "Bottles are glass or ceramic.",
+   "text": "obj-container-bottle is glass or ceramic.",
    "severity": "error",
    "coverage": "partial"
   },
   {
    "id": "M27",
    "guide": "M27",
-   "text": "Glass bottles are dark red, dark green or clear glass.",
+   "text": "A glass obj-container-bottle is dark red 8,0, dark green 1,1 or clear glass.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -248,7 +248,7 @@
   {
    "id": "M29",
    "guide": "M29",
-   "text": "Bones and skulls are off-white.",
+   "text": "Bone and env-remains-bones are off-white 5,2.",
    "severity": "error",
    "coverage": "full"
   },
@@ -262,7 +262,7 @@
   {
    "id": "M31",
    "guide": "M31",
-   "text": "Meat is dark red 8,0.",
+   "text": "obj-food-meat is dark red 8,0.",
    "severity": "error",
    "coverage": "full"
   },
@@ -297,21 +297,21 @@
   {
    "id": "M37",
    "guide": "M37",
-   "text": "Book covers are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.",
+   "text": "Covers of obj-pocketitem-book and obj-weapon-magic with paper are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.",
    "severity": "error",
    "coverage": "partial"
   },
   {
    "id": "M38",
    "guide": "M38",
-   "text": "Roofs are ceramic, dark red.",
+   "text": "str-part-roof is ceramic, dark red 8,0.",
    "severity": "error",
    "coverage": "partial"
   },
   {
    "id": "M39",
    "guide": "M39",
-   "text": "Chests, barrels, kegs, buckets, boxes and crates are mainly wood, often with metal-iron accents.",
+   "text": "obj-container-barrel, -chest, -bucket and -crate are mainly wood, often with metal-iron accents.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -409,14 +409,14 @@
   {
    "id": "C1",
    "guide": "C1",
-   "text": "Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only. to be reduced to 2",
+   "text": "Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.",
    "severity": "error",
    "coverage": "partial"
   },
   {
    "id": "C2",
    "guide": "C2",
-   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).",
+   "text": "Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (M18b), scroll text (M86), fish (M83).",
    "severity": "error",
    "coverage": "partial"
   },
@@ -444,7 +444,7 @@
   {
    "id": "C6",
    "guide": "C6",
-   "text": "Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.",
+   "text": "Dark red: ceramics, glass, str-part-roof, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.",
    "severity": "error",
    "coverage": "partial"
   },
@@ -486,7 +486,7 @@
   {
    "id": "C10",
    "guide": "C10",
-   "text": "Darkest brown: wood-bark, leather, skin, and a log or trunk.",
+   "text": "Bark 3,0: wood-bark, leather, skin, wood-log and env-flora-deadwood.",
    "severity": "error",
    "coverage": "full"
   },

@@ -5,53 +5,51 @@ Scope: items in catalog, and how they are tagged.
 
 ## 0. Look
 
-- Toy-like and iconic: chunky, slightly caricatured — not thin or spindly, and
+- **L1.** `--` ⚪ Toy-like and iconic: chunky, slightly caricatured — not thin or spindly, and
   not so pared back it reads as primitive. Building panels are the exception:
   they may be thin, and get the look once assembled.
-- Clean deliberate facets, chamfered edges — rounded-soft, not noisy.
-- Few details, except on organic objects.
-- Every object was invented before 1850.
-- Models of one deepest kind look alike in shape, colour and style.
+- **L2.** `--` ⚪ Clean deliberate facets, chamfered edges — rounded-soft, not noisy.
+- **L3.** `--` ⚪ Few details, except on organic objects.
+- **L4.** `--` ⚪ Every object was invented before 1850.
+- **L5.** `--` ⚪ Models of one deepest kind look alike in shape, colour and style.
 
 ## 1. Colour
-- Colours come from the shared colormap image (`kits/colormap.png`): assets colour
+- **P1.** `--` ⚪ Colours come from the shared colormap image (`kits/colormap.png`): assets colour
   themselves by pointing UVs at its bands.
-- When recolouring onto the shared map, keep the baked shading: the UV spread across
+- **P2.** `--` ⚪ When recolouring onto the shared map, keep the baked shading: the UV spread across
   the gradient band must be maintained.
-- Defaults:
-  - `alphaMode`: `OPAQUE`, except for the one clear glass colour.
-  - `roughnessFactor`: 1
-  - `metallicFactor`: 0
+- **P3.** `--` ⚪ Defaults: `alphaMode` `OPAQUE`, except for the one clear glass colour;
+  `roughnessFactor` 1; `metallicFactor` 0.
 
 ## 2. Geometry
-- Flat-piece construction. At most 16 flat pieces per full circle equivalent.
-- Typically 8-12. Use 16 only for hero objects, and for objects that are a true
+- **G1.** `PW` 🔴 Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
+- **G2.** `--` ⚪ Flat-piece construction. At most 16 flat pieces per full circle equivalent.
+- **G3.** `--` ⚪ Typically 8-12. Use 16 only for hero objects, and for objects that are a true
   even circle in reality.
 
 ## 3. Outlines and shading
-- Avoid outlines, unless one is a distinctive core feature of the object's appearance. Note it to the PO when you use one.
-- Faces use palette colours and gradient bands for baked shading.
-- No shadow casting in assets.
+- **R1.** `--` ⚪ Avoid outlines, unless one is a distinctive core feature of the object's appearance. Note it to the PO when you use one.
+- **R2.** `--` ⚪ Faces use palette colours and gradient bands for baked shading.
+- **R3.** `--` ⚪ No shadow casting in assets.
 
 ## 4. Scale
-- One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
-- Assets may stretch multiple units.
-- No solid pieces thinner than 0.015 units.
-- Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
+- **X1.** `--` ⚪ One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
+- **X2.** `--` ⚪ Assets may stretch multiple units.
+- **X3.** `--` ⚪ No solid pieces thinner than 0.015 units.
+- **X4.** `--` ⚪ Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
   over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
   than 0.5 × 0.5 × 0.5 is judged as if it were that size.
-- Imported packs get one scale factor for the whole pack for now.
-- Nothing is taller than 6 units, except env-terrain-mountain.
+- **X5.** `--` ⚪ Imported packs get one scale factor for the whole pack for now.
+- **X6.** `--` ⚪ Nothing is taller than 6 units, except env-terrain-mountain.
 
 ## 5. Origin and orientation
-- Default on Y = 0; pivot at footprint centre in X/Z.
-- Deviate deliberately, for a functional reason.
-- Split nodes put their origin at the joint.
-- **G1.** `PW` 🔴 Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
+- **O1.** `--` ⚪ Default on Y = 0; pivot at footprint centre in X/Z.
+- **O2.** `--` ⚪ Deviate deliberately, for a functional reason.
+- **O3.** `--` ⚪ Split nodes put their origin at the joint.
 
 ## 6. Reference Assets
-- Render and look at the reference assets before creating a new asset — reading them is not enough.
-- When validating, render at least two reference assets from same group beside the new one at the same scale.
+- **V1.** `--` ⚪ Render and look at the reference assets before creating a new asset — reading them is not enough.
+- **V2.** `--` ⚪ When validating, render at least two reference assets from same group beside the new one at the same scale.
 
 ## 7. Tagging
 
@@ -101,7 +99,7 @@ Scope: items in catalog, and how they are tagged.
 ## Appendix A: Material and colour rules
 
 Band ids are column,row in `kits/colormap.png`. Where a colour name below has
-an id, it is: light grey 15,3 · dark grey 13,3 · blue-grey 6,1 · light blue-grey 3,2 ·
+an id, it is: light grey 15,3 · dark grey 13,3 · blue-grey 6,1 · light blue-grey/silver 3,2 ·
 blue 4,2 · off-white 5,2 · taupe 14,3 · terracotta 5,0 ·
 yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
 light brown 0,0 · mid brown 1,0 · dark brown 2,0 · bark 3,0.
@@ -144,25 +142,25 @@ text alone.
 
 ### M. Material to colour — what a thing is made of, and the colour that takes
 
-- **M1.** `FE` 🟢 Trees are dark green.
-- **M2.** `FE` 🟢 Palm fronds are light green.
-- **M3.** `FE` 🟢 Grass is light green.
+- **M1.** `FE` 🟢 env-flora-tree is dark green 1,1; env-flora-tree-palm follows M2.
+- **M2.** `FE` 🟢 env-flora-tree-palm fronds are light green 3,1.
+- **M3.** `FE` 🟢 env-flora-plant-grass is light green 3,1.
 - **M4.** `PE` 🟢 Stems and leaves are light green.
 - **M5.** `--` ⚪ Flowers may be any colour. Cactus flowers count too.
 - **M6.** `FE` 🟢 Wood is any of the three brown bands; wood-bark is bark 3,0.
 - **M7.** `--` ⚪ A trunk with a cut face carries wood-log and wood-bark.
 - **M8.** `PE` 🟢 stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
-  light grey 15,3. **to be reduced to 2**
+  light grey 15,3.
 - **M9.** `FE` 🟢 stone-rock is light grey 15,3, secondarily taupe 14,3.
 - **M10.** `FE` 🟢 stone-soil — sand and dirt — is taupe 14,3.
 - **M11.** `PE` 🟢 metal-iron-steel is light grey 15,3.
 - **M12.** `PE` 🟢 metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.
-- **M13.** `FE` 🟢 metal-gold is gold 6,0; metal-silver is silver 3,2.
+- **M13.** `FE` 🟢 metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.
 - **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
-- **M15.** `PE` 🟢 Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.
-- **M17.** `PE` 🟢 The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.
+- **M15.** `PE` 🟢 obj-pocketitem-key is metal-iron-wrought, dark grey 13,3, or metal-gold, yellow 6,0.
+- **M17.** `PE` 🟢 Hoops on obj-container-barrel, -chest, -bucket and -crate are metal-iron-wrought, dark grey 13,3.
 - **M18.** `PE` 🟢 Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
-- **18b** `PE` 🟢 The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
+- **M18b.** `PE` 🟢 Textile on obj-transport-ship, -boat and -accessory is off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
 - **M19.** `PW` 🔴 Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
 - **M20.** `FE` 🔴 Leather is bark.
@@ -170,23 +168,21 @@ text alone.
 - **M22.** `FE` 🟢 Rope is taupe 14,3.
 - **M23.** `FE` 🟢 All cork is taupe 14,3.
 - **M24.** `FE` 🟢 Glass is transparent, dark green or dark red.
-- **M25.** `FE` 🟢 Ceramics are terracotta, off-white, or dark red.
-- **M26.** `PE` 🟢 Bottles are glass or ceramic.
-- **M27.** `PE` 🟢 Glass bottles are dark red, dark green or clear glass.
+- **M25.** `FE` 🟢 Ceramics are terracotta, off-white, taupe or dark red.
+- **M26.** `PE` 🟢 obj-container-bottle is glass or ceramic.
+- **M27.** `PE` 🟢 A glass obj-container-bottle is dark red 8,0, dark green 1,1 or clear glass.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
-- **M29.** `FE` 🟢 Bones and skulls are off-white.
+- **M29.** `FE` 🟢 Bone and env-remains-bones are off-white 5,2.
 - **M30.** `FE` 🟢 Paper is off-white.
-- **M31.** `FE` 🟢 Meat is dark red 8,0.
+- **M31.** `FE` 🟢 obj-food-meat is dark red 8,0.
 - **M32.** `--` ⚪ Fauna may be any colors. 
 - **M33.** `FE` 🟢 Flames, glow and lights are yellow 6,0, spread wide across the band.
 - **M34.** `FE` 🟢 Candle wax are off-white 5,2.
 - **M35.** `FW` 🟢 Wicks are dark grey 13,3.
 - **M36.** `FE` 🟢 Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
-- **M37.** `PE` 🟢 Book covers are bark, dark red 8,0, dark green 1,1 or
-  blue-grey 6,1. 
-- **M38.** `PE` 🔴 Roofs are ceramic, dark red.
-- **M39.** `PE` 🔴 Chests, barrels, kegs, buckets, boxes and crates are mainly wood,
-  often with metal-iron accents.
+- **M37.** `PE` 🟢 Covers of obj-pocketitem-book and obj-weapon-magic with paper are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.
+- **M38.** `PE` 🔴 str-part-roof is ceramic, dark red 8,0.
+- **M39.** `PE` 🔴 obj-container-barrel, -chest, -bucket and -crate are mainly wood, often with metal-iron accents.
 - **M40.** `--` ⚪ Structures and furniture are mostly wood, then stone (the bigger
   sort, not modern brick). Metal sparingly.
 - **M42.** `FE` 🟢 Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
@@ -240,16 +236,16 @@ text alone.
 
 ### C. Colour to material
 
-- **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only. **to be reduced to 2**
-- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).
+- **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.
+- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (M18b), scroll text (M86), fish (M83).
 - **C3.** `FE` 🟢 Light blue-grey 3,2: silver (M13).
 - **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).
 - **C5.** `PE` 🔴 Yellow: metal-gold, emissive, fire and cheese (M83).
-- **C6.** `PE` 🔴 Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.
+- **C6.** `PE` 🔴 Dark red: ceramics, glass, str-part-roof, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.
 - **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
 - **C8.** `FE` 🔴 Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).
 - **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).
-- **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
+- **C10.** `FE` 🟢 Bark 3,0: wood-bark, leather, skin, wood-log and env-flora-deadwood.
 - **C11.** `FE` 🟢 Transparent: glass only.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
@@ -289,6 +285,10 @@ text alone.
 - **D17.** `--` ⚪ Bow, crossbow, sword 0.4–1.0; hammer or mace 0.2–0.8; dagger 0.1–0.5; axe 0.2–0.8; staff 0.2–1.2.
 - **D18.** `--` ⚪ Sail, flag, banner, canopy and canvas cloth is under 0.1 thick.
 - **D19.** `--` ⚪ A tree, conifer and palm included, is 0.6–2.4 high.
+
+### Open items
+
+- M8, C1: to be reduced to 2 bands.
 
 ## Appendix B: Kind tree + glossary
 

@@ -25,6 +25,14 @@ try {
 const report = JSON.parse(readFileSync(tmp, 'utf8'));
 rmSync(tmp, { force: true });
 
+// docs/rule_index.md is lint's --index output, regenerated here like the markers
+const INDEX = join(ROOT, 'docs/rule_index.md');
+execFileSync('node', [join(ROOT, 'tools/catalog-lint.mjs'), '--index', tmp], { stdio: 'ignore' });
+const indexAfter = readFileSync(tmp, 'utf8');
+rmSync(tmp, { force: true });
+let indexBefore = '';
+try { indexBefore = readFileSync(INDEX, 'utf8'); } catch { /* not written yet */ }
+
 const before = readFileSync(GUIDE, 'utf8');
 const { rules, bands } = readGuide(before);
 
@@ -78,13 +86,14 @@ for (const line of after.split('\n')) {
   if (loose && !rules.has(loose[1])) problems.push(`${loose[1]}: rule line does not fit the grammar \`- **ID.** \`code\` light text\``);
 }
 
-const stale = before !== after;
+const stale = before !== after || indexBefore !== indexAfter;
 for (const p of problems) console.log(`guide: ${p}`);
 if (process.argv.includes('--check')) {
-  console.log(stale ? 'rule statuses are stale — run node tools/rule-status.mjs' : 'rule statuses are current');
+  console.log(stale ? 'rule statuses or index are stale — run node tools/rule-status.mjs' : 'rule statuses and index are current');
   console.log(problems.length ? `${problems.length} grammar problem(s)` : 'rule grammar is clean');
   process.exit(stale || problems.length ? 1 : 0);
 }
 writeFileSync(GUIDE, after);
-console.log(stale ? 'rule statuses updated' : 'rule statuses already current');
+if (indexBefore !== indexAfter) writeFileSync(INDEX, indexAfter);
+console.log(stale ? 'rule statuses and index updated' : 'rule statuses and index already current');
 if (problems.length) process.exit(1);
