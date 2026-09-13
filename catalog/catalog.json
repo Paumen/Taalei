@@ -4104,7 +4104,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
-   "count": 760,
+   "count": 756,
    "color": "#c07c8a"
   },
   {
@@ -4112,7 +4112,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 167,
+   "count": 165,
    "color": "#dd9f79"
   },
   {
@@ -4148,7 +4148,7 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 20
+   "count": 19
   },
   {
    "id": "obj-container-crate",
@@ -4371,7 +4371,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 83,
+   "count": 82,
    "color": "#4f7d8c"
   },
   {
@@ -4379,7 +4379,7 @@
    "name": "Metal",
    "type": "kind",
    "description": "ingot, bar, nugget, ore lump, cog, spare part",
-   "count": 41
+   "count": 40
   },
   {
    "id": "obj-resource-stone",
@@ -4479,7 +4479,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits (K2).",
-   "count": 110,
+   "count": 109,
    "color": "#4c5468"
   },
   {
@@ -4501,7 +4501,7 @@
    "name": "Melee",
    "type": "kind",
    "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 54
+   "count": 53
   },
   {
    "id": "obj-weapon-melee-axe",
@@ -4529,7 +4529,7 @@
    "name": "Sword",
    "type": "kind",
    "description": "sword, blade, rapier, scimitar, katana",
-   "count": 16
+   "count": 15
   },
   {
    "id": "obj-weapon-ranged",
@@ -4931,7 +4931,7 @@
    "name": "Assembly",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 54,
+   "count": 58,
    "color": "#b5651d"
   },
   {
@@ -5038,7 +5038,7 @@
    "name": "Hero",
    "type": "tag",
    "description": "A larger set piece built to stand out: houses, ships, the balloon, the lighthouse, the well, the waterwheel, the compass.",
-   "count": 53,
+   "count": 65,
    "po": true
   },
   {
@@ -5046,7 +5046,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 59
+   "count": 60
   },
   {
    "id": "s",
@@ -24329,7 +24329,7 @@
   {
    "kit": "kay-dun-1",
    "name": "chest-common-empty",
-   "kind": "obj-container-chest",
+   "kind": "assy",
    "use": [
     "container"
    ],
@@ -42474,7 +42474,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin-decorated",
-   "kind": "obj-container",
+   "kind": "assy",
    "use": [
     "container"
    ],
@@ -45859,7 +45859,7 @@
   {
    "kit": "kay-resources",
    "name": "parts-pile-large",
-   "kind": "obj-resource-metal",
+   "kind": "assy",
    "use": [
     "tool"
    ],
@@ -67403,6 +67403,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "metal-copper",
     "stone-masonry",
     "wood-beam"
@@ -67576,6 +67577,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam"
    ]
@@ -67896,6 +67898,7 @@
     "#8b7561"
    ],
    "tags": [
+    "hero",
     "stone-masonry",
     "wood-beam"
    ],
@@ -67954,6 +67957,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam"
    ],
@@ -68012,6 +68016,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam"
    ],
@@ -68062,6 +68067,7 @@
     "#8b7561"
    ],
    "tags": [
+    "hero",
     "stone-masonry",
     "wood-beam"
    ],
@@ -68120,6 +68126,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam"
    ]
@@ -68182,6 +68189,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam",
     "wood-log"
@@ -68240,6 +68248,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "wood-beam"
    ]
@@ -68486,6 +68495,7 @@
     "ceramic",
     "foliage",
     "glass",
+    "hero",
     "stone-masonry",
     "textile",
     "wood-beam"
@@ -68679,6 +68689,7 @@
    ],
    "tags": [
     "ceramic",
+    "hero",
     "ngons",
     "rope",
     "stone-masonry",
@@ -75961,7 +75972,7 @@
   {
    "kit": "quat-dun-2",
    "name": "sword-wall-mount",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "assy",
    "use": [
     "weapon"
    ],
@@ -79933,6 +79944,7 @@
    "tags": [
     "metal-gold",
     "pirate",
+    "plural",
     "qua",
     "textile"
    ]
@@ -86930,6 +86942,7 @@
    "tags": [
     "ceramic",
     "glass",
+    "hero",
     "stone-masonry",
     "textile",
     "wood-beam"
