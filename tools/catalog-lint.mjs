@@ -411,11 +411,11 @@ const RULES = [
     // foliage is the green matter itself, so a weed accent on a floor tile carries it
     severity: 'error', color: 'light green', tags: ['foliage'], kinds: ['env-flora', 'env-fungi'] }),
 
-  bandOnlyFor({ id: 'C9-light', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).',
-    severity: 'error', color: 'light brown', tags: [...WOOD_TAGS, 'skin'], kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C9-middle', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).',
+  bandOnlyFor({ id: 'C9-light', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
+    severity: 'error', color: 'light brown', tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain'] }),
+  bandOnlyFor({ id: 'C9-middle', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
     severity: 'error', color: 'mid brown', tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).',
+  bandOnlyFor({ id: 'C9-dark', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
     severity: 'error', color: 'dark brown', tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
     severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),

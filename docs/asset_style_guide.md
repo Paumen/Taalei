@@ -228,7 +228,7 @@ text alone.
 - **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
 - **C8.** `FE` 🔴 Light green: nature only — flora, including grass and weed accents
   growing on objects and structures.
-- **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood and grain food (M51); skin may take light brown 0,0 (M43).
+- **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).
 - **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
 - **C11.** `FE` 🟢 Transparent: glass only.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).
