@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=15091f3d84';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=15091f3d84';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=bd04799d0c';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=bd04799d0c';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -116,7 +116,7 @@ const detail = document.querySelector('#detail');
 const cards = [];
 const sections = [];
 
-let grouping = 'kind2';
+let grouping = 'kindauto';
 let sorting = 'naam';
 
 const chosenPaths = new Set();
@@ -494,17 +494,42 @@ const groupingType = () => grouping;
 
 // Sections by kind, cut at the chosen depth: a model shallower than the cut keys on the
 // kind it has. Roots in a fixed order, then the smaller sections first at every level.
-const KIND_DEPTH = { kind1: 1, kind2: 2, kind3: 3 };
+const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4 };
 
-function kindSections(models, depth) {
+// `kindauto` starts at the same cut as `kind2` and takes a section one level deeper
+// whenever it holds more than this — again and again, until every section fits or has no
+// deeper kind left to split on (a wall is `str-part-wall` and nothing below it).
+const KIND_SPLIT_OVER = { kindauto: 48 };
+
+function kindSections(models, depth, splitOver = 0) {
   const bucket = new Map();
   const perNode = new Map();
+  const cutOf = new Map();
   for (const model of models) {
     const chain = model.kind ? kindChain(model.kind) : [];
     for (const id of chain) perNode.set(id, (perNode.get(id) ?? 0) + 1);
     const key = chain[Math.min(depth, chain.length) - 1] ?? WITHOUT;
     if (!bucket.has(key)) bucket.set(key, []);
     bucket.get(key).push(model);
+  }
+  for (let split = Boolean(splitOver); split; ) {
+    split = false;
+    for (const [key, group] of [...bucket]) {
+      const cut = cutOf.get(key) ?? depth;
+      if (key === WITHOUT || group.length <= splitOver) continue;
+      if (!group.some((m) => kindChain(m.kind).length > cut)) continue;
+      bucket.delete(key);
+      for (const model of group) {
+        const chain = kindChain(model.kind);
+        // a model that ends above the deeper cut keys on the kind it has, so the
+        // branch's own models stay together in a section of that name
+        const deeper = chain[Math.min(cut + 1, chain.length) - 1];
+        if (!bucket.has(deeper)) bucket.set(deeper, []);
+        bucket.get(deeper).push(model);
+        cutOf.set(deeper, cut + 1);
+      }
+      split = true;
+    }
   }
   const rank = (id) => {
     if (id === WITHOUT) return [99];
@@ -577,7 +602,7 @@ function sectionsFor(models) {
     );
   }
 
-  if (KIND_DEPTH[type]) return kindSections(inView, KIND_DEPTH[type]);
+  if (KIND_DEPTH[type]) return kindSections(inView, KIND_DEPTH[type], KIND_SPLIT_OVER[type] ?? 0);
 
   if (type === 'tag') {
     const own = catalog.tags;
