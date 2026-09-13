@@ -8,6 +8,20 @@
    "coverage": "partial"
   },
   {
+   "id": "X4",
+   "guide": "X4",
+   "text": "Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h)) over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller than 0.5 × 0.5 × 0.5 is judged as if it were that size.",
+   "severity": "warning",
+   "coverage": "full"
+  },
+  {
+   "id": "X6",
+   "guide": "X6",
+   "text": "Nothing is taller than 6 units, except env-terrain-mountain.",
+   "severity": "warning",
+   "coverage": "full"
+  },
+  {
    "id": "S1",
    "guide": "S1",
    "text": "special is a material tag and a joker: it exempts one band on the model from every rule that band trips.",
@@ -784,6 +798,1301 @@
    "severity": "warning",
    "model": "ken-town/wall-wood-door",
    "detail": "2 draw calls with no animation or glass tag",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "clay-props/crockpot-closed",
+   "detail": "3825 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/cage-small",
+   "detail": "13376 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/chain-coil",
+   "detail": "10915 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/crate-metal",
+   "detail": "7983 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fantasy-props/key-gold",
+   "detail": "3983 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "fs-town/well-a",
+   "detail": "3633 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-birthday-cut",
+   "detail": "8035 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-birthday",
+   "detail": "8863 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-chocolate-cut",
+   "detail": "6076 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-chocolate",
+   "detail": "6566 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-strawberry-cut",
+   "detail": "6472 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/cake-strawberry",
+   "detail": "6810 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-food/waffle-stacked",
+   "detail": "3335 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/monstera-plant-large",
+   "detail": "16222 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/monstera-plant-medium",
+   "detail": "8431 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/pothos-plant-large",
+   "detail": "19172 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/pothos-plant-medium",
+   "detail": "10239 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/pothos-plant-small",
+   "detail": "4735 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/sansevieria-plant-large",
+   "detail": "3195 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/succulent-b",
+   "detail": "3504 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/succulent-c",
+   "detail": "3347 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/succulent-d",
+   "detail": "3184 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/yucca-plant-large",
+   "detail": "14694 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/yucca-plant-medium",
+   "detail": "7848 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/yucca-plant-small",
+   "detail": "4595 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/zzplant-plant-large",
+   "detail": "21831 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/zzplant-plant-medium",
+   "detail": "7883 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-plants/zzplant-plant-small",
+   "detail": "3149 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "isa-pond/metal-tub",
+   "detail": "4816 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/barbarian",
+   "detail": "20767 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/knight",
+   "detail": "16910 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/mage",
+   "detail": "19440 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/ranger",
+   "detail": "25948 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/rogue-hooded",
+   "detail": "20948 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-adventurers/rogue",
+   "detail": "22047 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/bench",
+   "detail": "3638 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chair-rounded",
+   "detail": "4583 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-common-empty",
+   "detail": "6551 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-rare-mimic-closed",
+   "detail": "11481 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/chest-top-rare-mimic",
+   "detail": "6076 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/coins-large",
+   "detail": "8770 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/coins-medium",
+   "detail": "3650 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/crate-dark",
+   "detail": "3487 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/crate-platform-large",
+   "detail": "3539 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/floor-decoration-shattered-bricks",
+   "detail": "3615 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/hammer-rare",
+   "detail": "3720 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/loot-sack-a",
+   "detail": "3405 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/loot-sack-b",
+   "detail": "3405 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/pillar-broken",
+   "detail": "4916 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/potion-large-green",
+   "detail": "3125 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/potion-large-red",
+   "detail": "3125 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/potion-small-green",
+   "detail": "3125 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/potion-small-red",
+   "detail": "3125 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/stool-rounded",
+   "detail": "3638 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-1/table-large",
+   "detail": "3603 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-2/coin-stack-large",
+   "detail": "5178 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-dun-2/wall-cracked",
+   "detail": "4069 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-hallow/coffin-decorated",
+   "detail": "6017 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-hallow/ribcage",
+   "detail": "3615 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/copper-bars-stack-large",
+   "detail": "15114 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/copper-bars-stack-medium",
+   "detail": "3778 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/gold-bars-stack-large",
+   "detail": "15114 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/gold-bars-stack-medium",
+   "detail": "3778 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/iron-bars-stack-large",
+   "detail": "15114 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/iron-bars-stack-medium",
+   "detail": "3778 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/parts-pile-large",
+   "detail": "7977 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/parts-pile-medium",
+   "detail": "4536 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/parts-pile-small",
+   "detail": "3347 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/silver-bars-stack-large",
+   "detail": "15114 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/silver-bars-stack-medium",
+   "detail": "3778 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/stone-bricks-stack-large",
+   "detail": "4210 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/stone-chunks-large",
+   "detail": "4601 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/textiles-stack-large",
+   "detail": "4886 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/textiles-stack-small",
+   "detail": "4863 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/wood-log-stack",
+   "detail": "10426 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-resources/wood-planks-stack-large",
+   "detail": "3429 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/ribcage-broken",
+   "detail": "4764 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skeleton-mage",
+   "detail": "13376 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skeleton-minion",
+   "detail": "15417 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skeleton-rogue",
+   "detail": "15388 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skeleton-warrior",
+   "detail": "17300 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skull-broken",
+   "detail": "5918 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/skull",
+   "detail": "5988 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/staff-gem",
+   "detail": "8006 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-skeleton/staff",
+   "detail": "4429 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-tools/compass-base",
+   "detail": "3848 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-tools/drafting-compass",
+   "detail": "3335 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-tools/grindstone",
+   "detail": "3248 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-tools/rope-bundle-a",
+   "detail": "3638 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/axe-a",
+   "detail": "3516 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/axe-b",
+   "detail": "3633 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/bow-b-with-string",
+   "detail": "6904 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/bow-b",
+   "detail": "6542 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/halberd",
+   "detail": "4234 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "kay-weapons/spear-a",
+   "detail": "3012 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "ken-holiday/hanukkah-menorah-candles",
+   "detail": "3353 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "medieval-town/barrel",
+   "detail": "3382 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "medieval-town/cart",
+   "detail": "6826 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "medieval-town/cauldron-steel",
+   "detail": "3609 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "medieval-town/cauldron",
+   "detail": "3609 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "natuur/timber-stack-2",
+   "detail": "4257 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "natuur/tree-palm-2",
+   "detail": "4770 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "natuur/tree-palm-6",
+   "detail": "3015 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-axe",
+   "detail": "4735 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-club",
+   "detail": "4344 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-hammer",
+   "detail": "4431 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-knife",
+   "detail": "3131 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-pickaxe",
+   "detail": "4793 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-shield",
+   "detail": "3913 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/stone-spear",
+   "detail": "3600 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/wooden-axe",
+   "detail": "3569 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/wooden-hammer",
+   "detail": "3079 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/wooden-pickaxe",
+   "detail": "3190 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "primitive-tools/wooden-shield",
+   "detail": "8630 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/arch-door",
+   "detail": "12571 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/arch",
+   "detail": "9882 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/chest",
+   "detail": "4886 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/cobweb",
+   "detail": "3230 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/crate",
+   "detail": "7294 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/floor-modular",
+   "detail": "3429 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/skull",
+   "detail": "4058 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/stairs-modular",
+   "detail": "4140 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/stairs-side-cover-wall",
+   "detail": "3650 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/sword-wall-mount",
+   "detail": "6945 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-dun-2/wall-modular",
+   "detail": "4875 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-4",
+   "detail": "3359 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-flower-1",
+   "detail": "6157 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-flower-2",
+   "detail": "3913 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-flower-3",
+   "detail": "3452 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/cactus-flower-4",
+   "detail": "4758 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-common-dead-1",
+   "detail": "5424 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-common-dead-2",
+   "detail": "4068 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-common-dead-5",
+   "detail": "3166 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-pine-1",
+   "detail": "3131 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-nature/tree-willow-dead-2",
+   "detail": "3344 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/cannon",
+   "detail": "6886 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/chest",
+   "detail": "4770 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/coins",
+   "detail": "5901 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/fish-tuna",
+   "detail": "3032 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/gold-bag",
+   "detail": "11528 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/pirate-anne",
+   "detail": "36058 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/pirate-captain",
+   "detail": "30834 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/pirate-henry",
+   "detail": "32251 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/rock-2",
+   "detail": "8956 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/shark",
+   "detail": "6372 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/ship-small",
+   "detail": "3671 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/skeleton-headless",
+   "detail": "34017 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/skeleton",
+   "detail": "41574 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/tree-palm-1",
+   "detail": "3394 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/tree-palm-2",
+   "detail": "3999 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-pirate/tree-palm-3",
+   "detail": "3690 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/backpack",
+   "detail": "11545 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/bag",
+   "detail": "3592 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/blood-ring",
+   "detail": "8216 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/book-3-closed",
+   "detail": "3090 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-1-empty",
+   "detail": "3872 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-1-filled",
+   "detail": "4286 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-2-empty",
+   "detail": "4618 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-2-filled",
+   "detail": "5312 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-3-empty",
+   "detail": "4618 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-3-filled",
+   "detail": "5778 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-4-empty",
+   "detail": "4618 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-4-filled",
+   "detail": "5405 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-5-empty",
+   "detail": "5364 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-5-filled",
+   "detail": "6245 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-6-empty",
+   "detail": "6857 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-6-filled",
+   "detail": "8391 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-7-empty",
+   "detail": "3872 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-7-filled",
+   "detail": "4845 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-8-empty",
+   "detail": "3872 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-8-filled",
+   "detail": "4845 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-9-empty",
+   "detail": "4292 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/potion-9-filled",
+   "detail": "4892 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "quat-rpg/skull-2",
+   "detail": "4851 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "rocks/rockwall-straight",
+   "detail": "3831 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/cart-1-a",
+   "detail": "3092 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/dried-fish-1-a",
+   "detail": "6055 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/fireplace-1-1-a",
+   "detail": "5114 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/fishing-rod-a",
+   "detail": "3475 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/fishing-rod-b",
+   "detail": "3475 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/fishing-rod-c",
+   "detail": "3475 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/mannequin-1-a",
+   "detail": "4001 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/mannequin-2-a",
+   "detail": "5134 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "small-props/practice-target-2-a",
+   "detail": "3020 tris per cell, ceiling 3000",
+   "joker": false
+  },
+  {
+   "rule": "X4",
+   "severity": "warning",
+   "model": "tropical-island/barrel",
+   "detail": "4029 tris per cell, ceiling 3000",
    "joker": false
   },
   {

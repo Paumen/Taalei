@@ -36,11 +36,11 @@ Scope: items in catalog, and how they are tagged.
 - **X1.** `--` ⚪ One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
 - **X2.** `--` ⚪ Assets may stretch multiple units.
 - **X3.** `--` ⚪ No solid pieces thinner than 0.015 units.
-- **X4.** `--` ⚪ Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
+- **X4.** `FW` 🔴 Max 3000 tris per occupied grid cell. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
   over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
   than 0.5 × 0.5 × 0.5 is judged as if it were that size.
 - **X5.** `--` ⚪ Imported packs get one scale factor for the whole pack for now.
-- **X6.** `--` ⚪ Nothing is taller than 6 units, except env-terrain-mountain.
+- **X6.** `FW` 🟢 Nothing is taller than 6 units, except env-terrain-mountain.
 
 ## 5. Origin and orientation
 - **O1.** `--` ⚪ Default on Y = 0; pivot at footprint centre in X/Z.

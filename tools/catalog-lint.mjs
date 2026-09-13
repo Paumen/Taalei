@@ -217,6 +217,15 @@ const follows = (id, other, coverage = 'full') => ({ id, coverage, follows: othe
 
 const CHECKS = [
 
+  { id: 'X4', coverage: 'full', severity: 'warning', noJoker: true,
+    subjects: { bands: [], tags: [], kinds: [] },
+    tests: 'tris per occupied grid cell (the catalogue\'s tpu: tris ÷ (max(0.49, w × d) × max(0.7, h))) stay at or under 3000',
+    check: (m) => (m.tpu > 3000 ? `${m.tpu} tris per cell, ceiling 3000` : null) },
+  { id: 'X6', coverage: 'full', severity: 'warning', noJoker: true,
+    subjects: { bands: [], tags: [], kinds: ['env-terrain-mountain'] },
+    tests: 'bounding-box height stays at or under 6 units, except env-terrain-mountain',
+    check: (m) => (m.wdh[2] > 6 && m.kind !== 'env-terrain-mountain' ? `${m.wdh[2]} units high, ceiling 6` : null) },
+
   { id: 'G1', coverage: 'partial', severity: 'warning', noJoker: true,
     subjects: { bands: [], tags: ['animation', 'glass'], kinds: [] },
     tests: 'models drawing in more than one call carry `animation` or `glass`',
