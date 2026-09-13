@@ -33,6 +33,28 @@ function cleanUp(scene) {
 
 const loader = new GLTFLoader();
 const load = (path) => new Promise((res, rej) => loader.load(path, res, undefined, rej));
+
+// Parsed scenes stay in memory for the life of the page, so a filter click or a
+// scroll back up redraws a family without fetching or parsing a single model again.
+// The renderer is shared too, so their geometry and texture stay on the GPU as well.
+const LOAD_LIMIT = 8;
+const models = new Map();
+let inFlight = 0;
+const waiting = [];
+const slot = () => new Promise((res) => (inFlight < LOAD_LIMIT ? (inFlight++, res()) : waiting.push(res)));
+const free = () => (waiting.length ? waiting.shift()() : inFlight--);
+
+function loadModel(path) {
+  if (!models.has(path)) {
+    const p = slot()
+      .then(() => load(modelUrl(`../${path}`)))
+      .then((gltf) => gltf.scene, (error) => { models.delete(path); throw error; })
+      .finally(free);
+    models.set(path, p);
+  }
+  return models.get(path);
+}
+
 const measureCtx = document.createElement('canvas').getContext('2d');
 
 const textWidth = ({ kit, model }) => {
@@ -184,15 +206,15 @@ export async function drawFamily(group, canvas, width) {
 
   const words = kindWords(group.name);
   const pieces = [];
-  for (const item of group.items) {
-    let gltf;
-    try {
-      gltf = await load(modelUrl(`../${item.path}`));
-    } catch (error) {
-      console.error('load failed', item.path, error);
-      continue;
-    }
-    const obj = gltf.scene;
+  const loaded = await Promise.all(group.items.map((item) =>
+    loadModel(item.path).catch((error) => { console.error('load failed', item.path, error); return null; })));
+  for (const [i, item] of group.items.entries()) {
+    const obj = loaded[i];
+    if (!obj) continue;
+    // a cached scene still sits in the pivot and pose of its last draw
+    obj.removeFromParent();
+    obj.rotation.set(0, 0, 0);
+    obj.position.set(0, 0, 0);
     let box = new THREE.Box3().setFromObject(obj);
     let size = box.getSize(new THREE.Vector3());
     const pivot = new THREE.Group();
@@ -323,6 +345,8 @@ export async function drawFamily(group, canvas, width) {
     return { kit: v.kit, tags: v.tags ?? [], x: px0, y: py0, w: px1 - px0, h: py1 - py0 };
   });
 
+  // the models are cached, so take them out before disposing the rest of the scene
+  for (const p of pieces) scene.remove(p.obj);
   cleanUp(scene);
   return { height, width: canvasW, count: pieces.length, boxes: inPixels };
 }
@@ -502,6 +526,8 @@ function buildSections() {
       const group = visible.find((g) => g.slug === section.id);
       const canvas = section.querySelector('canvas');
       section.classList.add('bezig');
+      // fetch now, so a family's models are in by the time the draw queue reaches it
+      for (const item of group.items) loadModel(item.path).catch(() => {});
       queue = queue.then(async () => {
         try {
           // A double-wide row gets a double-wide canvas too: otherwise it halves the
