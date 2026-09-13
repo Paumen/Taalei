@@ -29,13 +29,12 @@
 	de 1 × 1 van §4 — even hoog als de wand van fantasy-town-kit (0,70).
 
 	Deze alinea stond tot nu toe op 0,25 en op een wand van 1 × 1, met
-	mini-dungeon's eigen wand (1 × 1 × 1,1) ernaast. Dat klopte niet met de
-	bestanden: die stonden op 0,175 met een `rescale-wrapper` van ×2
-	erover, samen 0,35, en gaven een wand van 1,4 × 1,4. Die wrapper is op
-	verzoek gehalveerd en daarmee weg — de kit staat nu kaal op 0,175.
-	De maten hieronder in deze alinea zijn nog van de 0,25-lezing en dus
-	de helft te groot; op 0,175 komt chest uit op 0,30 × 0,25 × 0,23 en
-	barrel-large op 0,32 × 0,32 × 0,35.
+	mini-dungeon's eigen wand (1 × 1 × 1,1) ernaast. Dat klopte niet met
+	de bestanden. De kit is sindsdien een aantal keren op verzoek
+	herschaald; die factor staat in de `rescale-wrapper` over elk model en
+	niet hier, want hij verandert. De maten hieronder in deze alinea zijn
+	nog van de 0,25-lezing; wat een model nu meet, staat in
+	catalog/catalog.json.
 
 	Een eerste versie van het
 	importscript gaf de meubels en het decor een eigen factor 1
@@ -106,12 +105,12 @@
 	plafondtegels van de 1.1-helft (`wall`, `floor-tile-large`,
 	`ceiling-tile`, alle drie 0,7 × 0,7).
 
-	Tot nu toe stond over elk model een `rescale-wrapper` van ×2, samen
-	0,35, en kwam dat raster op 1,4 × 1,4 uit. Die wrapper is op verzoek
-	gehalveerd; ×2 × 0,5 is 1, dus is hij uit de bestanden verdwenen en
-	staat de kit kaal op 0,175. Een model dat later wordt toegevoegd hoeft
-	dus geen wrapper meer mee te krijgen; tools/importeer/aanvullen.mjs
-	leest de schaal en de oorsprong terug uit de kit.
+	Daarbovenop is de kit een aantal keren op verzoek herschaald. Die
+	factor rijdt mee in een `rescale-wrapper` over elk model en staat
+	niet hier, want hij verandert; het raster hierboven schuift dus mee.
+	Een model dat later wordt toegevoegd hoeft niets mee te krijgen:
+	tools/importeer/aanvullen.mjs leest de schaal, de wrapper en de
+	oorsprong terug uit de kit.
 
 	De pack heeft geen texture-atlas. Elk model draagt vlakke materialen
 	met een naam en één `baseColorFactor`: WoodDark, Stone, StoneDark,

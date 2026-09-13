@@ -180,11 +180,16 @@ function kitGegevens(slug) {
     const glb = readGlb(join(dir, bestand));
     const extras = glb.json.asset?.extras?.taaleiland ?? {};
     const gemeten = measureScene(glb);
+    // A resize after import rides in a `rescale-wrapper` node, not in extras.schaal, so
+    // the measured box is that factor larger than the import the source side is compared
+    // against. Divide it back out, or every model of a resized kit misses on size.
+    const wikkel = (glb.json.nodes ?? []).find((n) => n.name === 'rescale-wrapper');
+    const factor = wikkel?.scale?.[0] ?? 1;
     modellen.push({
       naam: basename(bestand, '.glb'),
       bronmodel: extras.bronmodel ?? null,
       driehoeken: gemeten.triangles,
-      wdh: gemeten.wdh,
+      wdh: gemeten.wdh.map((v) => v / factor),
     });
     schaal ??= extras.schaal ?? null;
   }
