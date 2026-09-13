@@ -159,7 +159,7 @@ text alone.
 - **M12.** `PE` 🟢 metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.
 - **M13.** `FE` 🟢 metal-gold is gold 6,0; metal-silver is silver 3,2.
 - **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
-- **M15.** `PE` 🔴 Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.
+- **M15.** `PE` 🟢 Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.
 - **M17.** `PE` 🟢 The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.
 - **M18.** `PE` 🟢 Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
 - **18b** `PE` 🟢 The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
@@ -176,7 +176,7 @@ text alone.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
 - **M29.** `FE` 🟢 Bones and skulls are off-white.
 - **M30.** `FE` 🟢 Paper is off-white.
-- **M31.** `FE` 🔴 Meat is dark red 8,0.
+- **M31.** `FE` 🟢 Meat is dark red 8,0.
 - **M32.** `--` ⚪ Fauna may be any colors. 
 - **M33.** `FE` 🟢 Flames, glow and lights are yellow 6,0, spread wide across the band.
 - **M34.** `FE` 🟢 Candle wax are off-white 5,2.
