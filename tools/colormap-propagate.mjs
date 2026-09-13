@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // The shared colormap is distributed to the kits by copy: every kit carries its own
 // Textures/colormap.png, and modular-cave-kit additionally carries colormap-gedeeld.png,
-// which agrees on the wood cells but not elsewhere. Respacing kits/colormap.png therefore
+// which agrees on the brown cells but not elsewhere. Respacing kits/colormap.png therefore
 // changes nothing on its own -- the assets read their kit's copy. This copies just the
-// wood cells across, so a map that differs elsewhere keeps its own colours.
+// brown cells across, so a map that differs elsewhere keeps its own colours.
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng, writePng } from '../catalog/tools/png.mjs';
@@ -14,7 +14,7 @@ const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--cells') options.cells = Number(argv[++i]);
   else if (argv[i] === '--source') options.source = argv[++i];
-  // --cell carries one named cell instead of the wood slab, which is how a band opened
+  // --cell carries one named cell instead of the brown slab, which is how a band opened
   // outside row 0 reaches the kits. Repeat it to carry several.
   else if (argv[i] === '--cell') options.cell.push(argv[++i]);
   else if (argv[i] !== '--dry') { console.error(`unknown flag: ${argv[i]}`); process.exit(2); }
@@ -33,7 +33,7 @@ const regions = options.cell.length
       return [Math.round(col * cellW), Math.round(row * cellH), Math.round((col + 1) * cellW), Math.round((row + 1) * cellH)];
     })
   : [[0, 0, Math.round(options.cells * cellW), Math.round(cellH)]];
-const what = options.cell.length ? `cell ${options.cell.join(' ')}` : `${options.cells} wood cells`;
+const what = options.cell.length ? `cell ${options.cell.join(' ')}` : `${options.cells} brown cells`;
 
 const targets = [];
 const walk = (dir) => {

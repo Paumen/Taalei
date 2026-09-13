@@ -8,6 +8,7 @@ import fss from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { readPng } from '../../catalog/tools/png.mjs';
 
 // Only the pin for the CDN fallback. By default the page is served three.js from
 // whatever copy is installed on this machine (see resolveThree), which needs no
@@ -17,7 +18,7 @@ const THREE_VERSION = '0.169.0';
 const DEFAULTS = {
   out: './renders', modes: 'pbr', views: 'iso',
   width: 1024, height: 1024,
-  bg: '#f2f2f0', env: 'neutral', exposure: 1, tone: 'neutral',
+  bg: '#f2f2f0', env: 'soft', exposure: 1.65, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
@@ -49,7 +50,9 @@ render.mjs <file.glb|dir> [...] [flags]
   --width/--height   --ss <1-4>  supersample factor, downscaled on output
                      (smooths edges, but also thins 1px wires -- see --modes wireframe)
   --bg <css|transparent> --exposure <n>
-  --env <neutral|studio|direct|none>   none = no lights and no environment at all
+  --env <soft|neutral|studio|direct|none>   none = no lights and no environment at all
+                     (default soft: the catalogue's own environment image, a gentle
+                      sky with part of the old studio room blended in)
   --tone <neutral|agx|aces|linear|none>  --fov <deg> --fit <n> --ortho
                      (default neutral: AgX desaturates the colormap bands by about a
                       quarter, which reads as washed-out timber)
@@ -69,7 +72,7 @@ render.mjs <file.glb|dir> [...] [flags]
   --band <col,row>   keep one cell of the colormap and flatten every other filled
                      cell to grey, so only the triangles carrying that band stay
                      coloured. Cells are the 16x4 grid of kits/colormap.png, so
-                     --band 2,0 is bark. Reads the base-colour texture the model
+                     --band 2,0 is dark brown. Reads the base-colour texture the model
                      already carries; the atlas on disk is not touched.
   --stats            <name>.stats.json next to the tiles: counts, bounds, mesh
                      integrity, UV layout and the palette the model actually uses
@@ -211,10 +214,13 @@ function parseView(n) {
   return null;
 }
 const ALL_TONES = ['agx','aces','neutral','linear','none'];
+// 'soft' is the default and reads catalog/zachte-omgeving.png, so this tool and the
+// catalogue light a model identically. Exposure still differs between the two: the
+// same environment does not produce the same brightness in model-viewer and here.
 // 'direct' is the old 'none': strong key/fill/ambient, no environment map.
 // 'none' now means exactly that — no lights, no environment. Only useful with
 // unlit modes (albedo, silhouette, uv, wireframe, normal, depth, faceorient).
-const ALL_ENVS  = ['neutral','studio','direct','none'];
+const ALL_ENVS  = ['soft','neutral','studio','direct','none'];
 
 // Ladder presets only fill in what the caller left alone, so any flag still wins.
 let ladderJobs = null;
@@ -423,12 +429,22 @@ const server = http.createServer(async (req, res) => {
 await new Promise(r => server.listen(0, '127.0.0.1', r));
 const ORIGIN = 'http://127.0.0.1:' + server.address().port;
 
+// The environment image is the catalogue's own file, read once and handed to the page as
+// raw pixels. Sharing the file rather than re-deriving the gradient is what stops the two
+// viewers drifting apart.
+const ENV_PNG = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../catalog/zachte-omgeving.png');
+const ENV_IMAGE = (() => {
+  const img = readPng(ENV_PNG);
+  return { w: img.width, h: img.height, b64: Buffer.from(img.pixels).toString('base64') };
+})();
+
 function pageHTML() {
   const cdn = THREE_SRC.dir ? ORIGIN + '/three' : THREE_SRC.base;
   return '<!doctype html><html><head><meta charset="utf-8">'
     + '<style>html,body{margin:0;background:#000}canvas{display:block}</style>'
     + '<script type="importmap">{"imports":{"three":"' + cdn + '/build/three.module.js","three/addons/":"' + cdn + '/examples/jsm/"}}</' + 'script>'
-    + '</head><body><script type="module">const THREE_CDN = ' + JSON.stringify(cdn) + ';' + PAGE_SCRIPT + '</' + 'script></body></html>';
+    + '</head><body><script type="module">const THREE_CDN = ' + JSON.stringify(cdn) + ';'
+    + 'const ENV_IMAGE = ' + JSON.stringify(ENV_IMAGE) + ';' + PAGE_SCRIPT + '</' + 'script></body></html>';
 }
 
 const PAGE_SCRIPT = String.raw`
@@ -761,8 +777,29 @@ function roomEnv() {
   }
   return ROOM_ENV;
 }
+// The environment comes from catalog/zachte-omgeving.png, the same image the catalogue
+// uses: a soft top-to-bottom sky with three quarters of the old studio room blended into
+// it. The sky alone would not fight the shading baked into the colormap bands, but it also
+// cannot describe a hollow — a bowl reads as a plate under it — so some of the room's
+// directional structure is kept deliberately.
+let SOFT_ENV = null;
+function softEnv() {
+  if (!SOFT_ENV) {
+    const bin = atob(ENV_IMAGE.b64);
+    const data = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) data[i] = bin.charCodeAt(i);
+    const tex = new THREE.DataTexture(data, ENV_IMAGE.w, ENV_IMAGE.h, THREE.RGBAFormat);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+    SOFT_ENV = pmrem.fromEquirectangular(tex).texture;
+    tex.dispose();
+  }
+  return SOFT_ENV;
+}
 function setEnv(cfg) {
-  scene.environment = (cfg.env === 'neutral' || cfg.env === 'studio') ? roomEnv() : null;
+  scene.environment = cfg.env === 'soft' ? softEnv()
+    : (cfg.env === 'neutral' || cfg.env === 'studio') ? roomEnv() : null;
   const old = scene.children.filter(o => o.isLight);
   old.forEach(o => { scene.remove(o); if (o.dispose) o.dispose(); });
   // 'direct' is lights but no reflections; 'none' is nothing at all.
