@@ -27,7 +27,10 @@ pack — `kit: null` means `aanvullen.mjs` refuses to run.
    `build-catalog.mjs` if the maker has a source filter.
 5. Materials and open tags in `catalog/tags.json` — see below.
 6. `node catalog/tools/build-catalog.mjs` then
-   `node catalog/tools/build-missing.mjs`, in that order.
+   `node catalog/tools/build-missing.mjs`, in that order. Then
+   `node catalog/tools/build-thumbs.mjs --kit <slug>` for the card thumbnails
+   (it only renders models whose `.glb` changed), and `build-catalog.mjs` once
+   more so the version stamp picks up `thumbs.json`.
 7. `LICENSE.txt` in the kit's workfiles dir. Copy the shape of an existing one
    (`kits/workfiles/restaurant/LICENSE.txt`): Dutch, pack and CC0 header, then
    naming, scale reasoning, and the colour remapping with its worst Oklab jumps.
