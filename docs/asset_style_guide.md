@@ -210,7 +210,7 @@ text alone.
 - **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
 - **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
 - **M65.** `PW` 🔴 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
-- **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
+- **M66.** `PW` 🔴 All other iron is metal-iron-wrought.
 - **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
 - **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
 - **M69.** `--` ⚪ Sails (obj-transport-accessory) and str-stands canvas are off-white 5,2, or striped dark red 8,0 and off-white.
