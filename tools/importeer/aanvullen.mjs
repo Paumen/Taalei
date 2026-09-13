@@ -168,7 +168,12 @@ function meshIndex() {
     const pad = join(modelmap, bestand);
     for (const primitief of lees(pad)) {
       const naam = grofsteWeg(primitief.naam);
-      if (naam && !index.has(naam)) index.set(naam, { pad, primitieven: [primitief] });
+      if (!naam) continue;
+      // A mesh split over several materials reads back as one primitive per material,
+      // all under the mesh's name — the model is all of them, not the first.
+      const treffer = index.get(naam);
+      if (!treffer) index.set(naam, { pad, primitieven: [primitief] });
+      else if (treffer.pad === pad) treffer.primitieven.push(primitief);
     }
   }
   return index;

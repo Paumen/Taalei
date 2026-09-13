@@ -115,10 +115,16 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
       if (primitieven.length === 0) continue;
 
       if (bronkit.splitsPerMesh) {
+        // One model per mesh, not per primitive: a mesh split over several materials
+        // reads back as one entry per material, all under the mesh's own name.
+        const perMesh = new Map();
         for (const primitief of primitieven) {
           const naam = grofsteWeg(primitief.naam);
-          if (naam) modellen.push({ naam, bestand, primitieven: [primitief] });
+          if (!naam) continue;
+          if (perMesh.has(naam)) perMesh.get(naam).push(primitief);
+          else perMesh.set(naam, [primitief]);
         }
+        for (const [naam, delen] of perMesh) modellen.push({ naam, bestand, primitieven: delen });
         continue;
       }
 
