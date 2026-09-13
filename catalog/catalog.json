@@ -4198,7 +4198,7 @@
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
-   "count": 69,
+   "count": 68,
    "color": "#c25b4e"
   },
   {
@@ -4213,7 +4213,7 @@
    "name": "Meat",
    "type": "kind",
    "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
-   "count": 9
+   "count": 8
   },
   {
    "id": "obj-food-vegetable",
@@ -4226,16 +4226,51 @@
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
-   "description": "bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer",
+   "description": "rug, carpet",
    "count": 53,
    "color": "#c07c8a"
+  },
+  {
+   "id": "obj-furniture-bed",
+   "name": "Bed",
+   "type": "kind",
+   "description": "bed, bedroll, bunk, cot, hammock",
+   "count": 7
   },
   {
    "id": "obj-furniture-seating",
    "name": "Seating",
    "type": "kind",
-   "description": "chair, stool, bench, throne",
+   "description": "Seating with no leaf that fits (K2).",
    "count": 20
+  },
+  {
+   "id": "obj-furniture-seating-bench",
+   "name": "Bench",
+   "type": "kind",
+   "description": "bench, couch, sofa, pew",
+   "count": 7
+  },
+  {
+   "id": "obj-furniture-seating-chair",
+   "name": "Chair",
+   "type": "kind",
+   "description": "chair, armchair, throne",
+   "count": 8
+  },
+  {
+   "id": "obj-furniture-seating-stool",
+   "name": "Stool",
+   "type": "kind",
+   "description": "stool, footstool",
+   "count": 5
+  },
+  {
+   "id": "obj-furniture-storage",
+   "name": "Storage",
+   "type": "kind",
+   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "count": 9
   },
   {
    "id": "obj-furniture-table",
@@ -4249,7 +4284,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 63,
+   "count": 64,
    "color": "#9c3f2e"
   },
   {
@@ -4257,7 +4292,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 26
+   "count": 27
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -4271,7 +4306,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 11
+   "count": 16
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -6500,7 +6535,7 @@
   {
    "kit": "fantasy-props",
    "name": "chair-1",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "m",
    "wdh": [
     0.4,
@@ -17900,7 +17935,7 @@
   {
    "kit": "isa-park",
    "name": "bench",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "s",
    "wdh": [
     0.4,
@@ -23492,7 +23527,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bench",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "s",
    "wdh": [
     0.4,
@@ -23973,7 +24008,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase-wide-broken",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.6,
@@ -24123,7 +24158,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase-wide",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.6,
@@ -24163,7 +24198,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.3,
@@ -24290,7 +24325,7 @@
   {
    "kit": "kay-dun-1",
    "name": "chair-rounded",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -28963,7 +28998,7 @@
   {
    "kit": "kay-dun-1",
    "name": "stool-rounded",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-stool",
    "size": "s",
    "wdh": [
     0.2,
@@ -29827,7 +29862,7 @@
   {
    "kit": "kay-dun-2",
    "name": "bed-floor",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.4,
@@ -29878,7 +29913,7 @@
   {
    "kit": "kay-dun-2",
    "name": "bed-frame",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.4,
@@ -30804,7 +30839,7 @@
   {
    "kit": "kay-dun-2",
    "name": "chair",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -33199,7 +33234,7 @@
   {
    "kit": "kay-dun-2",
    "name": "shelf-large",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.5,
@@ -33293,7 +33328,7 @@
   {
    "kit": "kay-dun-2",
    "name": "shelf-small",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "s",
    "wdh": [
     0.3,
@@ -33800,7 +33835,7 @@
   {
    "kit": "kay-dun-2",
    "name": "stool",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-stool",
    "size": "s",
    "wdh": [
     0.2,
@@ -36338,7 +36373,7 @@
   {
    "kit": "kay-food",
    "name": "chair-b",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -37774,7 +37809,7 @@
   {
    "kit": "kay-food",
    "name": "lid-b",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-pot",
    "size": "s",
    "wdh": [
     0.2,
@@ -38144,7 +38179,7 @@
   {
    "kit": "kay-food",
    "name": "pot-a-stew",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "food"
    ],
@@ -38243,7 +38278,7 @@
   {
    "kit": "kay-food",
    "name": "pot-b-closed",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "container"
    ],
@@ -38286,7 +38321,7 @@
   {
    "kit": "kay-food",
    "name": "pot-b-stew",
-   "kind": "obj-food-meat",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "food"
    ],
@@ -38344,7 +38379,7 @@
   {
    "kit": "kay-food",
    "name": "pot-b",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "container"
    ],
@@ -41354,7 +41389,7 @@
   {
    "kit": "kay-furniture",
    "name": "armchair",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "m",
    "wdh": [
     0.5,
@@ -41393,7 +41428,7 @@
   {
    "kit": "kay-furniture",
    "name": "bed-single-a",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.5,
@@ -41444,7 +41479,7 @@
   {
    "kit": "kay-furniture",
    "name": "bed-single-b",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.5,
@@ -41495,7 +41530,7 @@
   {
    "kit": "kay-furniture",
    "name": "cabinet-medium",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.6,
@@ -41540,7 +41575,7 @@
   {
    "kit": "kay-furniture",
    "name": "cabinet-small",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "s",
    "wdh": [
     0.3,
@@ -41585,7 +41620,7 @@
   {
    "kit": "kay-furniture",
    "name": "chair-a-wood",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -41624,7 +41659,7 @@
   {
    "kit": "kay-furniture",
    "name": "chair-b-wood",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -41664,7 +41699,7 @@
   {
    "kit": "kay-furniture",
    "name": "chair-stool-wood",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-stool",
    "size": "s",
    "wdh": [
     0.2,
@@ -41703,7 +41738,7 @@
   {
    "kit": "kay-furniture",
    "name": "couch-pillows",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "m",
    "wdh": [
     0.9,
@@ -41827,7 +41862,7 @@
   {
    "kit": "kay-furniture",
    "name": "shelf-a-big",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "m",
    "wdh": [
     0.6,
@@ -41872,7 +41907,7 @@
   {
    "kit": "kay-furniture",
    "name": "shelf-b-small",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-storage",
    "size": "s",
    "wdh": [
     0.3,
@@ -42311,7 +42346,7 @@
   {
    "kit": "kay-hallow",
    "name": "bench",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "s",
    "wdh": [
     0.5,
@@ -57198,7 +57233,7 @@
   {
    "kit": "ken-mini-dun",
    "name": "chair",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.2,
@@ -61362,7 +61397,7 @@
   {
    "kit": "ken-survival",
    "name": "bedroll-frame",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.3,
@@ -61401,7 +61436,7 @@
   {
    "kit": "ken-survival",
    "name": "bedroll-packed",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "s",
    "wdh": [
     0.3,
@@ -61440,7 +61475,7 @@
   {
    "kit": "ken-survival",
    "name": "bedroll",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-bed",
    "size": "m",
    "wdh": [
     0.4,
@@ -65513,7 +65548,7 @@
   {
    "kit": "ken-town",
    "name": "stall-bench",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "m",
    "wdh": [
     0.2,
@@ -65598,7 +65633,7 @@
   {
    "kit": "ken-town",
    "name": "stall-stool",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-stool",
    "size": "s",
    "wdh": [
     0.2,
@@ -67451,7 +67486,7 @@
   {
    "kit": "medieval-town",
    "name": "bench-2",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "m",
    "wdh": [
     0.7,
@@ -67489,7 +67524,7 @@
   {
    "kit": "medieval-town",
    "name": "bench",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-bench",
    "size": "m",
    "wdh": [
     0.7,
@@ -86255,7 +86290,7 @@
   {
    "kit": "small-props",
    "name": "stool-a",
-   "kind": "obj-furniture-seating",
+   "kind": "obj-furniture-seating-stool",
    "size": "s",
    "wdh": [
     0.1,

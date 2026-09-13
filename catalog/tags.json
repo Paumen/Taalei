@@ -3629,8 +3629,7 @@
     "props/roast-a",
     "kay-food/food-ingredient-ham",
     "kay-food/food-ingredient-steak",
-    "kay-food/food-stew",
-    "kay-food/pot-b-stew"
+    "kay-food/food-stew"
    ]
   },
   {
@@ -3659,56 +3658,95 @@
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
-   "description": "bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer",
+   "description": "rug, carpet",
    "color": "#c07c8a",
    "models": [
-    "kay-dun-2/bed-floor",
-    "kay-dun-2/bed-frame",
-    "kay-dun-1/bookcase",
-    "kay-dun-1/bookcase-wide",
-    "kay-dun-1/bookcase-wide-broken",
-    "kay-dun-2/shelf-large",
-    "kay-dun-2/shelf-small",
-    "kay-furniture/bed-single-a",
-    "kay-furniture/bed-single-b",
-    "kay-furniture/cabinet-medium",
-    "kay-furniture/cabinet-small",
     "kay-furniture/rug-oval-a",
     "kay-furniture/rug-rectangle-stripes-a",
-    "kay-furniture/shelf-a-big",
-    "kay-furniture/shelf-b-small",
-    "props/carpet-a",
-    "ken-survival/bedroll-packed",
+    "props/carpet-a"
+   ]
+  },
+  {
+   "id": "obj-furniture-bed",
+   "name": "Bed",
+   "type": "kind",
+   "description": "bed, bedroll, bunk, cot, hammock",
+   "models": [
+    "kay-dun-2/bed-frame",
+    "kay-dun-2/bed-floor",
+    "kay-furniture/bed-single-b",
+    "kay-furniture/bed-single-a",
     "ken-survival/bedroll",
-    "ken-survival/bedroll-frame"
+    "ken-survival/bedroll-frame",
+    "ken-survival/bedroll-packed"
    ]
   },
   {
    "id": "obj-furniture-seating",
    "name": "Seating",
    "type": "kind",
-   "description": "chair, stool, bench, throne",
+   "description": "Seating with no leaf that fits (K2).",
+   "models": []
+  },
+  {
+   "id": "obj-furniture-seating-bench",
+   "name": "Bench",
+   "type": "kind",
+   "description": "bench, couch, sofa, pew",
    "models": [
+    "isa-park/bench",
     "kay-dun-1/bench",
-    "kay-dun-2/chair",
-    "kay-dun-1/chair-rounded",
-    "kay-dun-2/stool",
-    "kay-dun-1/stool-rounded",
-    "fantasy-props/chair-1",
-    "ken-town/stall-bench",
-    "ken-town/stall-stool",
-    "kay-furniture/armchair",
-    "kay-furniture/chair-a-wood",
-    "kay-furniture/chair-b-wood",
-    "kay-furniture/chair-stool-wood",
-    "kay-furniture/couch-pillows",
     "kay-hallow/bench",
     "medieval-town/bench",
     "medieval-town/bench-2",
+    "kay-furniture/couch-pillows",
+    "ken-town/stall-bench"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-chair",
+   "name": "Chair",
+   "type": "kind",
+   "description": "chair, armchair, throne",
+   "models": [
+    "kay-furniture/armchair",
+    "kay-dun-2/chair",
     "ken-mini-dun/chair",
-    "isa-park/bench",
+    "fantasy-props/chair-1",
+    "kay-furniture/chair-a-wood",
+    "kay-furniture/chair-b-wood",
     "kay-food/chair-b",
-    "small-props/stool-a"
+    "kay-dun-1/chair-rounded"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-stool",
+   "name": "Stool",
+   "type": "kind",
+   "description": "stool, footstool",
+   "models": [
+    "kay-furniture/chair-stool-wood",
+    "ken-town/stall-stool",
+    "kay-dun-2/stool",
+    "small-props/stool-a",
+    "kay-dun-1/stool-rounded"
+   ]
+  },
+  {
+   "id": "obj-furniture-storage",
+   "name": "Storage",
+   "type": "kind",
+   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "models": [
+    "kay-dun-1/bookcase",
+    "kay-dun-1/bookcase-wide",
+    "kay-dun-1/bookcase-wide-broken",
+    "kay-furniture/cabinet-medium",
+    "kay-furniture/cabinet-small",
+    "kay-furniture/shelf-b-small",
+    "kay-dun-2/shelf-large",
+    "kay-dun-2/shelf-small",
+    "kay-furniture/shelf-a-big"
    ]
   },
   {
@@ -3746,12 +3784,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "models": [
-    "kay-food/lid-b",
-    "kay-food/pot-a-stew",
-    "kay-food/pot-b",
-    "kay-food/pot-b-closed"
-   ]
+   "models": []
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -3788,7 +3821,12 @@
     "quat-food/cooking-pot-steel",
     "medieval-town/cauldron",
     "medieval-town/cauldron-steel",
-    "kay-food/lid-a"
+    "kay-food/lid-a",
+    "kay-food/pot-b-closed",
+    "kay-food/lid-b",
+    "kay-food/pot-a-stew",
+    "kay-food/pot-b",
+    "kay-food/pot-b-stew"
    ]
   },
   {

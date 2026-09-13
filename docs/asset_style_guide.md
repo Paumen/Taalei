@@ -209,7 +209,7 @@ text alone.
 - **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
 - **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
 - **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
-- **M65.** `PW` 🟢 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
+- **M65.** `PW` 🔴 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
 - **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
 - **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
 - **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
@@ -316,9 +316,14 @@ obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
 obj-kitchenware-cookware — grill, spit, ladle, cutting board
 obj-kitchenware
 
+obj-furniture-seating-bench — bench, couch, sofa, pew
+obj-furniture-seating-chair — chair, armchair, throne
+obj-furniture-seating-stool — stool, footstool
+obj-furniture-seating
 obj-furniture-table — table, desk, workbench
-obj-furniture-seating — chair, stool, bench, throne
-obj-furniture — bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers
+obj-furniture-bed — bed, bedroll, bunk, cot, hammock
+obj-furniture-storage — cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser
+obj-furniture — rug, carpet
 
 obj-food-meat — meat, ham, sausage, drumstick, steak, burger, roast, leg
 obj-food-vegetable — carrot, cabbage, pumpkin, turnip, onion, potato, tomato
