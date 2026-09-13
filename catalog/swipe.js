@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=b58464c63c';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=edf0e3ec25';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -18,8 +18,13 @@ const SOURCES = {
   },
 };
 
-const SOURCE = SOURCES[new URLSearchParams(location.search).get('source')] ?? SOURCES.catalogus;
-const STORAGE_KEY = `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}`;
+const PARAMS = new URLSearchParams(location.search);
+const SOURCE = SOURCES[PARAMS.get('source')] ?? SOURCES.catalogus;
+// One kit or source pack to swipe. Its own deck and its own choices: the key carries the
+// slug, so a pack keeps what was decided about it while another is being swiped.
+const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
+const STORAGE_KEY =
+  `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
@@ -632,17 +637,33 @@ async function start() {
   modelPath = data.modelPath ?? modelPath;
   data.models.forEach(hydrate);
 
-  document.title = `Taaleiland — ${SOURCE.title}`;
-  const kop = el('.kop-titel h1 .breed');
-  if (kop) kop.textContent = SOURCE.title;
-
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
   register.kinds = new Map((data.tags ?? []).filter((t) => t.type === 'kind').map((t) => [t.id, t]));
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
 
+  const kit = KIT_PARAM && register.kits.has(KIT_PARAM) ? KIT_PARAM : null;
+  if (KIT_PARAM && !kit) {
+    notice.hidden = false;
+    notice.className = 'leeg melding-fout';
+    notice.textContent = `No kit ${KIT_PARAM} in ${SOURCE.file} — swiping everything instead.`;
+  }
+  const title = kit ? `${SOURCE.title} — ${register.kits.get(kit).name}` : SOURCE.title;
+  document.title = `Taaleiland — ${title}`;
+  const kop = el('.kop-titel h1 .breed');
+  if (kop) kop.textContent = title;
+
   load();
+
+  // The kit in the URL decides what the deck holds, not whatever was stored: a link to one
+  // pack must open on that pack. It stays a filter, so Settings can still widen it.
+  if (kit) {
+    state.filters.kits = [kit];
+    state.order = state.order.filter((id) => register.perId.get(id)?.kit === kit);
+    state.choices = state.choices.filter((k) => register.perId.get(k.id)?.kit === kit);
+    state.started = state.started && state.order.length > 0;
+  }
 
   el('#opzet-formulier').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -710,7 +731,7 @@ async function start() {
   });
 
   if (!state.started) {
-    state.order = register.models.map((m) => m.id);
+    state.order = register.models.filter((m) => !kit || m.kit === kit).map((m) => m.id);
     state.started = true;
     save();
   }
