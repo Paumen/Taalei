@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=73a9d2fb42';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=cd16032304';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -248,7 +248,7 @@ function setLighting(viewer) {
   } else {
     viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
     viewer.setAttribute('shadow-intensity', '0.7');
-    viewer.setAttribute('exposure', '2.0');
+    viewer.setAttribute('exposure', '1.5');
   }
 }
 
