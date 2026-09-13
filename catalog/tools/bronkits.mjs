@@ -77,5 +77,5 @@ export const BRONKITS = [
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
   { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: null, formaat: 'fbx', alleMappen: true },
   // every model in one FBX folder beside the atlas, so the one-folder rule fits
-  { map: 'AssetPack', naam: 'Asset Pack', kit: null, formaat: 'fbx' },
+  { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];

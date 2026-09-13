@@ -1,0 +1,156 @@
+	Medieval Forge (Asset Pack)
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`AssetPack`, zonder licentiebestand en zonder verwijzing naar een
+	maker of een packpagina. Naast de 43 .fbx zit er één texture-atlas in
+	(`Atlas.png`, 1600 × 900) en het Blender-bestand waaruit ze zijn
+	geëxporteerd. De CC0-vermelding hierboven is vastgesteld door de
+	eigenaar van dit project bij het inladen; ze komt niet uit de pack
+	zelf. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Van de 43 modellen zijn er 21 ingeladen, met name genoemd door de
+	eigenaar van dit project. De overige 22 — deuren, muurvarianten,
+	zwaarden, hamers, een mes, toolholders, de derde stenen brug en de
+	losse platformpoten — staan nog als ontbrekend in catalog/missing.
+	Twee van die 22 zijn leeg: `DoorWall2.fbx` en `Wall5.fbx` bevatten
+	geen driehoeken. Daar struikelt tools/importeer/worst-kleursprong.mjs
+	over; de tabel hieronder is gemeten met een kopie die lege bestanden
+	overslaat.
+
+	Namen
+
+	CamelCase is uit elkaar gehaald, een cijfer krijgt een koppelteken
+	ervoor en alles is klein gezet: `StoneBridge2` wordt stone-bridge-2,
+	`ArmorStand` wordt armor-stand. Twee namen zijn verder aangepast,
+	omdat ze anders een tikfout of een haakje de catalogus in dragen:
+
+	  WodenPillar(Lamp)  → wooden-pillar-lamp
+	  woodenplatform     → wooden-platform
+	  woodenplatform2    → wooden-platform-2
+
+	Schaal
+
+	Op 0,00495 gezet. Twee referenties uit de catalogus wijzen dezelfde
+	kant op: `anvil` meet 91,454 in de pack en komt op 0,453 uit — dat is
+	kay-tools/anvil (0,4528) — en `NormalSword` meet 94,224 en komt op
+	0,466 uit, precies kay-adventurers/sword-one-handed (0,4660). Het
+	zwaard zit niet in deze import, maar het is wel een tweede, los
+	gemeten ijkpunt uit dezelfde pack. De pack blijkt daarmee op een
+	raster van 200 eenheden te staan: `Stairs` is precies 200 hoog en
+	`Wall3` precies 200 breed, wat op 0,00495 neerkomt op 0,99 — het ene
+	wand-/vloervak van §4.
+
+	Kleur
+
+	De pack heeft geen gedeelde kleurenkaart met verlopen: `Atlas.png` is
+	een raster van vlakke stalen, en een model wijst per polygoon een
+	staal aan. De 21 ingeladen modellen gebruiken samen 18 bronkleuren.
+	De belichtingswinst over de hele pack kwam op ×1,00 uit, dus de
+	importer heeft de kleuren zonder ophaling gematcht.
+
+	Let op: het matchen gebeurt per model, niet pack-breed. Eenzelfde
+	bronkleur kan daardoor in twee modellen op twee banen landen: het
+	grijs #a0a5a0 gaat in `Bridge` naar off-white 5,2 en in `StoneBridge`,
+	`Shield` en `forceps` naar light grey 15,3, omdat de match de
+	onderlinge lichtheid binnen het model vasthoudt (§1, P2).
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is. Per model de verste sprong:
+
+	  wooden-pillar-lamp   16,1  #e1fafa → 3,2      (lantaarnglas)
+	  grinder              12,5  #cddcdc → 15,3     (slijpsteen)
+	  furnace              11,9  #232323 → 13,3     (stookgat)
+	  barrel                7,7  #82cdd7 → 3,2      (hoepel)
+	  bridge                5,6  #a0a5a0 → 5,2      (stenen leuning)
+	  bridge-2              5,5  #f5d7af → 0,0      (dek)
+	  box                   4,5  #96c3d7 → 3,2      (rand)
+	  wall-1 / wall-2       4,1  #facdaf → 0,0      (pleisterwerk)
+	  armor-stand           3,1  #a5b4c3 → 3,2      (harnas)
+	  barrel-2              3,1  #a5b4c3 → 3,2      (hoepel)
+	  shield / shield-2     2,1  #a0a5a0 → 15,3     (rand)
+	  stone-bridge (× 2)    2,1  #a0a5a0 → 15,3     (metselwerk)
+	  forceps               2,1  #a0a5a0 → 15,3     (tang)
+	  stairs                2,0  #e1b496 → 0,0      (hoekstrook)
+	  box-2                 1,3  #c87d5a → 5,0      (frame)
+	  wooden-platform (× 2) 1,3  #c87d5a → 5,0      (planken)
+	  anvil                 1,1  #464646 → 13,3     (aambeeld)
+
+	De drie verste sprongen zijn de drie plekken waar de pack een kleur
+	gebruikt die de gedeelde sheet niet heeft: het bijna-witte glas van de
+	lantaarn, het koele grijs van de slijpsteen en het bijna-zwarte
+	stookgat. Voor de rest valt de pack goed samen met de sheet.
+
+	Herkleuren naar Appendix A
+
+	De banen die de importer koos zijn die van de pack zelf en niet die
+	van Appendix A: de pack is warm en zet zowat al zijn hout, metselwerk
+	en planken op terracotta 5,0, wat C14 daar niet toelaat. Ze zijn met
+	de hand teruggezet met tools/colormap-recolor.mjs — de importer kiest
+	de dichtstbijzijnde baan en weet van materialen niets. Wat er is
+	verplaatst:
+
+	  anvil               13,3 → 15,3   metal-iron-steel (M11, M62)
+	  armor-stand          5,0 → 2,0    wood-beam (M42)
+	                       3,2 → 13,3   metal-iron-wrought (M12, M66)
+	  barrel, barrel-2     5,0 → 1,0    wood-worked (M39, M42)
+	                       3,2 → 13,3   hoepels, metal-iron-wrought (M17)
+	  box                  5,0 → 1,0    wood-worked (M39, M42)
+	                       3,2 → 13,3   banden, metal-iron-wrought (M17)
+	  box-2                5,0 → 1,0    wood-worked (M39, M42)
+	  bridge               5,2 → 15,3   stone-masonry (M8; C13 laat geen
+	                                    steen op off-white toe)
+	                       5,0 → 0,0    dek, wood-planks (M42)
+	  bridge-2             0,0 → 2,0    leuning en staanders, wood-beam
+	                       5,0 → 0,0    dek, wood-planks (M42)
+	  furnace              0,0 → 14,3   stone-masonry (M8)
+	                      13,3 → 6,1    metal-iron-cast (M64: ijzer op een
+	                                    str-model is cast)
+	  grinder              0,0 → 2,0    frame en kruk, wood-beam (M42)
+	                       5,0 → 2,0    as, wood-beam (M42)
+	  shield, shield-2     5,0 → 2,0    schildblad, wood-beam (M42)
+	  stairs               5,0 → 14,3   stone-masonry (M8)
+	                       0,0 → 15,3   hoekstroken, stone-masonry (M8)
+	  wall-1, wall-2       0,0 → 14,3   pleisterwerk, stone-masonry (M8)
+	                       5,0 → 15,3   losse stenen, stone-masonry (M8)
+	                       5,0 → 2,0    stijlen en kozijn, wood-beam
+	  wall-2              15,3 → 6,1    tralies, metal-iron-cast (M64)
+	  wooden-pillar-lamp   0,0 → 2,0    paal en console, wood-beam (M42)
+	                       3,2 → 13,3   lantaarn, metal-iron-wrought (M66)
+	  wooden-platform (×2) 5,0 → 0,0    wood-planks (M42)
+
+	De twee stenen bruggen (`stone-bridge`, `stone-bridge-2`), `forceps`
+	en de gele gloed bovenop `furnace` (6,0) stonden al goed en zijn
+	onaangeroerd. De twee terracotta-banen die gebleven zijn — de
+	baksteenlagen van `furnace` — dragen ceramic, wat C14 wel toelaat.
+
+	De twee 5,0-banen van `wall-1` en `wall-2` zaten op één baan maar op
+	twee punten binnen die baan, en zijn met `--uv` los van elkaar
+	verplaatst: 0.3438,0.0087 zijn de losse stenen, 0.3438,0.1328 de
+	stijlen en het kozijn.
+
+	Wat er verder met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.
+
+	Twee dingen uit de bron zijn blijven staan en zijn geen importfout.
+	`furnace` en `wall-2` tonen omgekeerde vlakken in de openingen — in de
+	renders van tools/renders/render.mjs zijn die magenta. En `furnace`
+	(10832) en `grinder` (7872) zitten boven het plafond van X4 (5000
+	driehoeken per rastervak); dat zit in de brongeometrie en is niet met
+	herkleuren te verhelpen.
