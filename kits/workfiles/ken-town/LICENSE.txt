@@ -53,3 +53,45 @@
 	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
 	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
 	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
+
+			------------------------------
+
+	Herkomst en bewerking (tweede aanvulling)
+
+	Met tools/importeer/aanvullen.mjs zijn chimney-top, chimney-base en
+	fountain-square toegevoegd; de namen van de pack zijn kebab-case en
+	onaangeroerd. Schaal 0,65 met de wrapper van ×1,1016, teruggelezen uit
+	de kit: de schoorsteenvoet meet 0,246 × 0,372 × 0,716, de kop 0,180 ×
+	0,243 × 0,448, en de fontein 1,432 × 1,432 × 0,326, precies het
+	grondvlak van fountain-round (1,432 × 1,432 × 0,200).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprongen: de fontein (23,4, van #79dcff naar blauw 4,2) en de
+	twee schoorstenen (6,6, van 7,3 naar lichtgrijs 15,3). Het lichtere
+	steen van alle drie kwam op lichtblauwgrijs 3,2, dat appendix A alleen
+	aan zilver geeft (C3). Bij de schoorstenen staat dat nu op lichtgrijs
+	15,3 en het donkere steen op taupe 14,3, allebei stone-masonry (M8);
+	bij de fontein ging het naar lichtgrijs 15,3, naast fountain-round.
+
+	De schoorstenen zijn str-part-roof — appendix B laat `chimney` daar
+	uitkomen — maar dragen steen in plaats van het donkerrode keramiek van
+	M38. Dat is een keuze van de PO; de twee M38-bevindingen die eruit
+	volgen staan open.
+
+	Het water van fountain-square blijft op blauw 4,2 (M28) en draagt
+	daarvoor een `special` van de PO tegen C4, met de woorden van
+	fountain-round.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

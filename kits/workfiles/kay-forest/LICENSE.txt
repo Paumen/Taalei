@@ -58,3 +58,31 @@
 	rand tussen twee tinten niet met de UV van de ene driehoek dwars over
 	de kleuren tussen twee cellen heen kan slepen. De geometrie is verder
 	ongemoeid.
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is Grass_2_C_Singlesided_Color1 →
+	grass-2-c-singlesided toegevoegd, in de letterreeks van hierboven.
+	Schaal 0,3 met de wrapper van ×0,96, teruggelezen uit de kit: de pol
+	meet 0,251 × 0,213 × 0,269, naast grass-2-b-singlesided (0,111 × 0,109
+	× 0,265) — de C-maat is de brede van de reeks.
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De sprong is 6,4 (van 0,0 naar lichtgroen 3,1). Er is niets verplaatst:
+	de pol staat heel op lichtgroen 3,1, de baan die M3 gras geeft.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
