@@ -4,8 +4,12 @@ window.KENNEY_KITS = [
   "name": "ken-survival",
   "url": "https://kenney.nl/assets/survival-kit",
   "models": [
+   "bedroll",
+   "bedroll-frame",
+   "bedroll-packed",
    "bottle",
    "bottle-large",
+   "box-large-open",
    "campfire-fishing-stand",
    "campfire-pit",
    "campfire-stand",
@@ -238,6 +242,7 @@ window.KENNEY_KITS = [
    "wall-wood-corner-diagonal",
    "wall-wood-corner-diagonal-half",
    "wall-wood-corner-edge",
+   "wall-wood-curved",
    "wall-wood-detail-cross",
    "wall-wood-detail-diagonal",
    "wall-wood-detail-horizontal",
@@ -264,11 +269,17 @@ window.KENNEY_KITS = [
   "models": [
    "arrow",
    "arrows",
+   "chest",
+   "coin-gold",
    "crate",
    "crate-strong",
    "fence-broken",
    "fence-corner",
    "fence-corner-curved",
+   "fence-low-broken",
+   "fence-low-corner",
+   "fence-low-corner-curved",
+   "fence-low-straight",
    "fence-rope",
    "fence-straight",
    "flowers",
@@ -289,7 +300,9 @@ window.KENNEY_KITS = [
    "sign",
    "spring",
    "star",
-   "stones"
+   "stones",
+   "tree",
+   "tree-pine-small"
   ]
  },
  {
@@ -369,6 +382,7 @@ window.KENNEY_KITS = [
    "bucket-a",
    "carpet-a",
    "cup-a",
+   "cup-b",
    "fire-a",
    "firewood-a",
    "jug-a",
@@ -765,6 +779,7 @@ window.KENNEY_KITS = [
   "bookcase-wide",
   "bookcase-wide-broken",
   "bookcase-wide-filled",
+  "bookcase-wide-filled-broken",
   "bricks",
   "bucket",
   "chair-rounded",
@@ -874,6 +889,7 @@ window.KENNEY_KITS = [
   "table-small-rounded",
   "tile-brick-a-large",
   "tile-brick-b-large",
+  "torch",
   "torch-wall",
   "trapdoor",
   "weapon-rack"
@@ -1184,6 +1200,8 @@ window.KENNEY_KITS = [
    "candle-melted",
    "candle-thin",
    "candle-triple",
+   "coffin-lid",
+   "floor-dirt-grave",
    "floor-dirt-small",
    "lantern-hanging",
    "lantern-standing",
@@ -1220,11 +1238,23 @@ window.KENNEY_KITS = [
    "crate-steak",
    "cutting-board",
    "food-dinner",
+   "food-ingredient-carrot",
+   "food-ingredient-carrot-chopped",
    "food-ingredient-cheese",
    "food-ingredient-ham",
    "food-ingredient-ham-cooked",
+   "food-ingredient-lettuce",
+   "food-ingredient-onion",
+   "food-ingredient-onion-chopped",
+   "food-ingredient-onion-rings",
    "food-ingredient-steak",
+   "food-ingredient-tomato",
+   "food-ingredient-tomato-slice",
+   "food-ingredient-tomato-slices",
    "food-stew",
+   "jar-c-large",
+   "jar-c-medium",
+   "jar-c-small",
    "knife",
    "pan-006",
    "pan-a",
@@ -1617,7 +1647,9 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/castle-kit",
   "models": [
    "tower-square-mid-open",
-   "tower-square-mid-open-simple"
+   "tower-square-mid-open-simple",
+   "tree-large",
+   "tree-small"
   ]
  },
  {
@@ -1626,7 +1658,25 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/graveyard-kit",
   "models": [
    "crypt-large",
-   "crypt-large-roof"
+   "crypt-large-roof",
+   "detail-bowl",
+   "detail-chalice",
+   "detail-plate",
+   "grave",
+   "grave-border",
+   "iron-fence",
+   "iron-fence-bar",
+   "iron-fence-border",
+   "iron-fence-border-column",
+   "iron-fence-border-curve",
+   "iron-fence-border-gate",
+   "iron-fence-curve",
+   "iron-fence-damaged",
+   "lightpost-single",
+   "stone-wall",
+   "stone-wall-column",
+   "stone-wall-curve",
+   "stone-wall-damaged"
   ]
  },
  {
@@ -1861,7 +1911,10 @@ window.KENNEY_KITS = [
   "banner",
   "barrel",
   "chair",
-  "table"
+  "chest",
+  "table",
+  "wood-structure",
+  "wood-support"
  ]
 },
  {
@@ -1869,7 +1922,8 @@ window.KENNEY_KITS = [
   "name": "tropical-island",
   "models": [
    "barrel",
-   "sword-pirate"
+   "sword-pirate",
+   "tent"
   ]
  },
  {
@@ -1987,7 +2041,10 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/holiday-kit",
   "models": [
    "hanukkah-menorah",
-   "hanukkah-menorah-candles"
+   "hanukkah-menorah-candles",
+   "snowman",
+   "snowman-hat",
+   "tree"
   ]
  }
 ]
