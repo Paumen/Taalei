@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=6662fb7498';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=6662fb7498';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=79e0a8ccde';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=79e0a8ccde';
 import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
 
 const KIT_COLORS = {
@@ -494,7 +494,7 @@ const groupingType = () => grouping;
 
 // Sections by kind, cut at the chosen depth: a model shallower than the cut keys on the
 // kind it has. Roots in a fixed order, then the smaller sections first at every level.
-const KIND_DEPTH = { kind1: 1, kind2: 2, kind3: 3 };
+const KIND_DEPTH = { kind1: 1, kind2: 2, kind3: 3, kind4: 4 };
 
 function kindSections(models, depth) {
   const bucket = new Map();
