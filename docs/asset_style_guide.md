@@ -10,6 +10,8 @@ Scope: items in catalog, and how they are tagged.
   they may be thin, and get the look once assembled.
 - Clean deliberate facets, chamfered edges — rounded-soft, not noisy.
 - Few details, except on organic objects.
+- Every object was invented before 1850.
+- Models of one deepest kind look alike in shape, colour and style.
 
 ## 1. Colour
 - Colours come from the shared colormap image (`kits/colormap.png`): assets colour
@@ -39,6 +41,7 @@ Scope: items in catalog, and how they are tagged.
   over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
   than 0.5 × 0.5 × 0.5 is judged as if it were that size.
 - Imported packs get one scale factor for the whole pack for now.
+- Nothing is taller than 6 units, except env-terrain-mountain.
 
 ## 5. Origin and orientation
 - Default on Y = 0; pivot at footprint centre in X/Z.
@@ -54,7 +57,7 @@ Scope: items in catalog, and how they are tagged.
 
 | field | job | set | who |
 |---|---|---|---|
-| `material` | what it is **made of** | closed, 37, parented | Claude, linted |
+| `material` | what it is **made of** | closed, 36, parented | Claude, linted |
 | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** | Claude via glossary, PO reviews |
 | `use` | what it is **for** — where you'd look | closed, small, zero or more | Claude, PO reviews |
 | `size` | rough bbox: `s` `m` `l` | measured | automated |
@@ -156,11 +159,10 @@ text alone.
 - **M12.** `PE` 🟢 metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.
 - **M13.** `FE` 🟢 metal-gold is gold 6,0; metal-silver is silver 3,2.
 - **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
-- **M15.** `PE` 🟢 Keys take the colour of any metal subtype.
-- **M17.** `PE` 🟢 The bands on container group: barrels, chests, buckets, kegs, crates and boxes
-  are metal-iron-wrought, dark grey 13,3.
+- **M15.** `PE` 🔴 Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.
+- **M17.** `PE` 🟢 The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.
 - **M18.** `PE` 🟢 Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.
-- **18b** `PE` 🟢 The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
+- **18b** `PE` 🟢 The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.
 - **M19.** `PW` 🔴 Wrapped grips and bindings on tools and weapons are always taupe 14,3,
   light half 0.02-0.40.
 - **M20.** `FE` 🔴 Leather is bark.
@@ -174,9 +176,9 @@ text alone.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
 - **M29.** `FE` 🟢 Bones and skulls are off-white.
 - **M30.** `FE` 🟢 Paper is off-white.
-- **M31.** `FE` 🔴 Meat is terracotta 5,0, dark half 0.55-1.00.
+- **M31.** `FE` 🔴 Meat is dark red 8,0.
 - **M32.** `--` ⚪ Fauna may be any colors. 
-- **M33.** `FE` 🟢 Flames and glow are yellow 6,0.
+- **M33.** `FE` 🟢 Flames, glow and lights are yellow 6,0, spread wide across the band.
 - **M34.** `FE` 🟢 Candle wax are off-white 5,2.
 - **M35.** `FW` 🟢 Wicks are dark grey 13,3.
 - **M36.** `FE` 🟢 Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
@@ -187,11 +189,10 @@ text alone.
   often with metal-iron accents.
 - **M40.** `--` ⚪ Structures and furniture are mostly wood, then stone (the bigger
   sort, not modern brick). Metal sparingly.
-- **M41.** `FE` 🟢 Plastic is dark red 8,0 or yellow/gold 6,0.
 - **M42.** `FE` 🟢 Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
   `wood-beam` 2,0. `wood-log` and `wood-bark` follow M6.
 - **M43.** `FE` 🟢 Skin is light brown 0,0, taupe 14,3 or bark 3,0.
-- **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), stems off-white 5,2, blooms any colour.
+- **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.
 - **M45.** `--` ⚪ Food may be any colour, like fauna. What it is made of decides nothing about its band.
 - **M46.** `--` ⚪ Tools are metal-iron; a handle is wood, textile or both.
 - **M47.** `--` ⚪ Weapons are metal-iron, with a handle of wood or textile.
@@ -200,14 +201,14 @@ text alone.
 - **M50.** `--` ⚪ Some weapons carry textile or leather straps.
 - **M51.** `--` ⚪ Wheat, grain and straw are light brown 0,0; grain food and baked goods take a brown: 0,0, 1,0 or 2,0.
 - **M52.** `--` ⚪ A model whose only material is bone is off-white 5,2 alone.
-- **M53.** `--` ⚪ Plates are usually ceramic, and may be metal-iron or wood.
+- **M53.** `--` ⚪ Ceramic plates and bowls are off-white 5,2 or terracotta 5,0; a plate may also be metal-iron or wood.
 - **M54.** `--` ⚪ Furniture is wood, except a rug, a carpet or an upholstered seat, which is textile.
 - **M55.** `--` ⚪ Coins are metal-gold.
 - **M56.** `--` ⚪ Flags and sails are textile.
 - **M57.** `--` ⚪ Signs, flag poles and posts are usually wood.
-- **M58.** `--` ⚪ Pans are usually metal-iron.
+- **M58.** `--` ⚪ Pans are metal-iron-steel or metal-iron-cast, paired as variants (M65).
 - **M59.** `--` ⚪ Cutlery is metal-iron.
-- **M60.** `--` ⚪ Pots are ceramic; a pan may be metal-iron.
+- **M60.** `--` ⚪ Cooking pots and crockpots are ceramic, terracotta 5,0; cauldrons and kettles are iron (M65).
 - **M61.** `--` ⚪ A boat or ship is built from more than one wood.
 - **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
 - **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
@@ -216,38 +217,82 @@ text alone.
 - **M66.** `PW` 🟢 All other iron is metal-iron-wrought.
 - **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
 - **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
+- **M69.** `--` ⚪ Sails, canopies, canvas and tents are off-white 5,2, or striped dark red 8,0 and off-white.
+- **M70.** `--` ⚪ Dark red textile is only character clothing, or striped with off-white on sails and canvas (M69).
+- **M71.** `--` ⚪ Glass on a str model, and all glass on a model of size m or l, is clear. Only size s glass may be dark red or dark green.
+- **M72.** `--` ⚪ Fungus stems are off-white 5,2; caps are dark red 8,0 or mid brown 1,0.
+- **M73.** `--` ⚪ Bells are metal-copper, metal-gold or metal-silver; never iron.
+- **M74.** `--` ⚪ Tongs are metal-iron-steel or metal-iron-wrought; never cast.
+- **M75.** `--` ⚪ Bag fasteners and closures are rope or leather.
+- **M76.** `--` ⚪ Straps holding a resource stack, metal stacks included, are leather.
+- **M77.** `--` ⚪ Sticks and unworked poles are wood-bark; poles on obj-tool-long are dark brown 2,0, tagged wood-beam.
+- **M78.** `--` ⚪ Wood handles on obj-tool-hand are light brown 0,0, tagged wood-planks.
+- **M79.** `--` ⚪ Grips, fasteners and joins on weapons, tools and shields are often textile, rope or leather, not wood or metal; look closely.
+- **M80.** `--` ⚪ A fastener joining stone, bone or steel to wood is usually leather.
+- **M81.** `--` ⚪ Wooden parts of obj-transport are mid brown 1,0 or dark brown 2,0.
+- **M82.** `--` ⚪ Mugs, cups and tankards are wood, dark brown 2,0 or mid brown 1,0, with metal-iron-steel hoops and handles.
+- **M83.** `--` ⚪ Food defaults: fish light grey 15,3, dark grey 13,3, blue-grey 6,1 or blue 4,2; cheese yellow 6,0; vegetables light green 3,1.
+- **M84.** `--` ⚪ Carrot and pumpkin are terracotta 5,0; chocolate is dark brown 2,0. Bread: M51, meat: M31.
+- **M85.** `--` ⚪ Jewellery is metal-gold 6,0 with gemstones (M36).
+- **M86.** `--` ⚪ Scrolls are off-white 5,2; accents dark red 8,0, dark green 1,1 or blue 4,2; text blue-grey 6,1.
+- **M87.** `--` ⚪ Book straps, bands, binders and corners are bark for leather, dark grey 13,3 for metal-iron-wrought.
+- **M88.** `--` ⚪ On a log the cut face is light wood and the round side wood-bark; never inverted.
 
 ### C. Colour to material
 
-- **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone and rock only. **to be reduced to 2**
-- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), and the flags and sails of a rigged ship (M18).
+- **C1.** `PE` 🟢 Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only. **to be reduced to 2**
+- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).
 - **C3.** `FE` 🟢 Light blue-grey 3,2: silver (M13).
-- **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents only.
-- **C5.** `PE` 🟢 Yellow: metal-gold, emissive, fire and plastic (M41).
-- **C6.** `PE` 🟢 Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), gemstones (M36), minor accents.
+- **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).
+- **C5.** `PE` 🔴 Yellow: metal-gold, emissive, fire and cheese (M83).
+- **C6.** `PE` 🔴 Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.
 - **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
-- **C8.** `FE` 🔴 Light green: nature only — flora, including grass and weed accents
-  growing on objects and structures.
-- **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).
+- **C8.** `FE` 🔴 Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).
+- **C9.** `FE` 🟢 Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).
 - **C10.** `FE` 🟢 Darkest brown: wood-bark, leather, skin, and a log or trunk.
 - **C11.** `FE` 🟢 Transparent: glass only.
 - **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).
 - **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
-- **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).
-- **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought (M12) and wicks (M35).
+- **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), carrot and pumpkin (M84) and blooms (M44).
+- **C15.** `FW` 🟢 Dark grey 13,3: metal-iron-wrought (M12), wicks (M35) and fish (M83).
 
 ### N. Counting — bands against materials
-- **N1.** `FE` 🟢 A model has at least one material.
+- **N1.** `FE` 🔴 A model has at least one material.
 - **N2.** `FE` 🔴 A model uses at least as many bands as it has materials. Every material
   tag counts, subtypes included.
 - **N3.** `FE` 🟢 A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.
 - **N4.** `FE` 🟢 Ceiling: **6 bands for a human character or a decorated food, 5 for
   anything else.** A skeleton takes the 5; an assembly answers per part.
 - **N5.** `FE` 🟢 A model of size `l` may take a sixth band where it carries at least five material tags.
+- **N6.** `--` ⚪ An import with 2 colours keeps 2; 3–4 may drop 1; 5 may drop 2; more keep at least 3. N4 still caps.
 
 ### W. 
 
-- **W2.** `FW` 🔴 No band spreads over more than 0.90 of its cell, light end to dark end.
+- **W2.** `FW` 🔴 No band touches either end of its cell: UVs stay within 0.05–0.95, light end to dark end.
+
+### D. Dimensions and detail
+
+"High" is the bounding-box Y extent; "longest dimension" its largest extent. Kinds name the leaf and its children.
+
+- **D1.** `--` ⚪ Hoops on barrels, chests, buckets, boxes and crates are 5–15% of the model's longest dimension high.
+- **D2.** `--` ⚪ A barrel or bucket has at most three hoops.
+- **D3.** `--` ⚪ A barrel has 8 to 14 side planks and 100 to 1500 tris.
+- **D4.** `--` ⚪ A barrel is 0.2–0.8 high and at most 0.75 wide.
+- **D5.** `--` ⚪ A near-cube crate (extents within 15%) shows 3 to 7 planks side by side per face and is 0.2–0.8 high.
+- **D6.** `--` ⚪ obj-container-pot is 0.2–0.4 high; a bottle, potion or bucket 0.1–0.4; a chest with lid 0.2–0.5.
+- **D7.** `--` ⚪ A shield is 0.2–0.6 high.
+- **D8.** `--` ⚪ Furniture fits a 1.2 × 1.2 × 1.2 box; a table fits 0.5 high on a 2 × 2 footprint.
+- **D9.** `--` ⚪ A table or seat is at least 0.2 high; seating at most 0.7.
+- **D10.** `--` ⚪ Cookware pans and pots, lid included, are at most 0.4 high.
+- **D11.** `--` ⚪ Plates, bowls and cutlery: longest dimension 0.1–0.4.
+- **D12.** `--` ⚪ A candle is 0.1–0.7 high; a lantern or torch 0.1–1.0.
+- **D13.** `--` ⚪ A scroll or closed book: longest dimension 0.1–0.3. An open book is judged by its longest cover edge.
+- **D14.** `--` ⚪ A coin or key: longest dimension at most 0.2; plural coin models are exempt.
+- **D15.** `--` ⚪ obj-tool-long is 0.3–1.2 long.
+- **D16.** `--` ⚪ A humanoid char, skeleton included, is 0.4–0.8 high; animals are exempt.
+- **D17.** `--` ⚪ Bow, crossbow, sword 0.4–1.0; hammer or mace 0.2–0.8; dagger 0.1–0.5; axe 0.2–0.8; staff 0.2–1.2.
+- **D18.** `--` ⚪ Sail, flag, banner, canopy and canvas cloth is under 0.1 thick.
+- **D19.** `--` ⚪ A tree, conifer and palm included, is 0.6–2.4 high.
 
 ## Appendix B: Kind tree + glossary
 
@@ -277,7 +322,7 @@ obj-kitchenware
 
 obj-furniture-table — table, desk, workbench
 obj-furniture-seating — chair, stool, bench, throne
-obj-furniture — bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers, fridge, freezer
+obj-furniture — bed, cabinet, shelf, bookcase, wardrobe, rug, chest of drawers
 
 obj-food-meat — meat, ham, sausage, drumstick, steak, burger, roast, leg
 obj-food-vegetable — carrot, cabbage, pumpkin, turnip, onion, potato, tomato
@@ -305,7 +350,7 @@ obj-weapon
 obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
 obj-equipment-shield — shield, buckler
 obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
-obj-equipment — crown, goggles
+obj-equipment — crown
 
 obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
 obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
