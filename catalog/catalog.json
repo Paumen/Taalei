@@ -29,6 +29,11 @@
    "name": "isa-park"
   },
   {
+   "slug": "isa-plants",
+   "name": "isa-plants",
+   "url": "https://www.isalousberg.com"
+  },
+  {
    "slug": "isa-pond",
    "name": "isa-pond"
   },
@@ -3135,7 +3140,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools (M62). Takes light grey 15,3 (M11).",
-   "count": 168,
+   "count": 169,
    "parent": "metal-iron"
   },
   {
@@ -3143,7 +3148,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames (M66). Takes dark grey 13,3 (M12).",
-   "count": 147,
+   "count": 148,
    "parent": "metal-iron"
   },
   {
@@ -3190,7 +3195,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0 (M42).",
-   "count": 147,
+   "count": 148,
    "parent": "wood"
   },
   {
@@ -3222,7 +3227,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too (M7).",
-   "count": 134,
+   "count": 140,
    "parent": "wood"
   },
   {
@@ -3252,8 +3257,8 @@
    "id": "stone-soil",
    "name": "Soil",
    "type": "material",
-   "description": "Loose ground: sand and dirt patches, dirt floors and tiles. Laid paving is stone-masonry.",
-   "count": 11,
+   "description": "Loose ground and loose dirt: sand and dirt patches, dirt floors and tiles, the soil filling a plant pot. Laid paving is stone-masonry.",
+   "count": 14,
    "parent": "stone"
   },
   {
@@ -3282,14 +3287,14 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads. M2-M4 and C8 give it its band.",
-   "count": 127
+   "count": 152
   },
   {
    "id": "ceramic",
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 109
+   "count": 116
   },
   {
    "id": "bone",
@@ -3373,15 +3378,15 @@
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
-   "description": "Moulded plastic, dark red or yellow: the platformer kit's game pieces.",
-   "count": 4
+   "description": "Moulded plastic, dark red or yellow (M41): the platformer kit's game pieces, and modern moulded ware such as a watering can.",
+   "count": 5
   },
   {
    "id": "vegetation",
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain. M44 gives it its bands.",
-   "count": 50
+   "count": 51
   },
   {
    "id": "skin",
@@ -3395,7 +3400,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage",
-   "count": 750,
+   "count": 760,
    "color": "#c07c8a"
   },
   {
@@ -3403,7 +3408,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 161,
+   "count": 167,
    "color": "#dd9f79"
   },
   {
@@ -3453,7 +3458,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer",
-   "count": 21
+   "count": 25
   },
   {
    "id": "obj-equipment",
@@ -3540,7 +3545,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 60,
+   "count": 63,
    "color": "#9c3f2e"
   },
   {
@@ -3569,7 +3574,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "mug, cup, goblet, tankard, teapot, glass",
-   "count": 34
+   "count": 37
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -3583,7 +3588,7 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, platter, tray, saucer, bowl",
-   "count": 19
+   "count": 22
   },
   {
    "id": "obj-lighting",
@@ -3698,7 +3703,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, anvil, grindstone",
-   "count": 52,
+   "count": 53,
    "color": "#6d738a"
   },
   {
@@ -3706,7 +3711,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush",
-   "count": 29
+   "count": 30
   },
   {
    "id": "obj-tool-long",
@@ -3863,7 +3868,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 381,
+   "count": 407,
    "color": "#6cb588"
   },
   {
@@ -3879,7 +3884,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits (K2).",
-   "count": 163,
+   "count": 189,
    "color": "#6cb588"
   },
   {
@@ -3908,14 +3913,14 @@
    "name": "Plant",
    "type": "kind",
    "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
-   "count": 60
+   "count": 86
   },
   {
    "id": "env-flora-plant-cactus",
    "name": "Cactus",
    "type": "kind",
    "description": "cactus, succulent",
-   "count": 8
+   "count": 16
   },
   {
    "id": "env-flora-plant-flower",
@@ -4238,7 +4243,7 @@
    "name": "Container",
    "type": "use",
    "description": "You put something in it.",
-   "count": 173
+   "count": 179
   },
   {
    "id": "use:food",
@@ -4259,7 +4264,7 @@
    "name": "Tool",
    "type": "use",
    "description": "You work with it.",
-   "count": 78
+   "count": 81
   },
   {
    "id": "use:wearable",
@@ -4322,7 +4327,7 @@
    "name": "Ngons",
    "type": "tag",
    "description": "Built around a round cross-section: bowls, plates, pots, mugs, coins, rings, candles, barrels, buckets, logs, wheels, masts. Rule §2 counts their facets.",
-   "count": 270
+   "count": 279
   },
   {
    "id": "hero",
@@ -4337,21 +4342,21 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 58
+   "count": 59
   },
   {
    "id": "s",
    "name": "Small",
    "type": "size",
    "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 908
+   "count": 940
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Longest axis from half to one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 696
+   "count": 700
   },
   {
    "id": "l",
@@ -17423,6 +17428,1467 @@
    "tags": [
     "foliage",
     "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "cactus-a",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 224,
+   "tpu": 653,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11620,
+   "vtx": 276,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00013,
+   "dens": 221605,
+   "anglePct": 0,
+   "vpt": 1.23,
+   "grad": 0.55,
+   "spread": {
+    "3,1": [
+     0.383,
+     0.938
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "cactus-b",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 130,
+   "tpu": 379,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6448,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00013,
+   "dens": 290049,
+   "anglePct": 0,
+   "vpt": 1.02,
+   "grad": 0.8,
+   "spread": {
+    "3,1": [
+     0.047,
+     0.844
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "cactus-c",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 270,
+   "tpu": 787,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12824,
+   "vtx": 305,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00009,
+   "dens": 714830,
+   "anglePct": 33,
+   "vpt": 1.13,
+   "grad": 0.43,
+   "spread": {
+    "3,1": [
+     0.469,
+     0.898
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "cactus-d",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 504,
+   "tpu": 1469,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15800,
+   "vtx": 354,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 1118012,
+   "anglePct": 2,
+   "vpt": 0.7,
+   "grad": 0.8,
+   "spread": {
+    "3,1": [
+     0.094,
+     0.898
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "monstera-plant-large",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 5612,
+   "tpu": 16362,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 179004,
+   "vtx": 4495,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0002,
+   "dens": 25664,
+   "anglePct": 3,
+   "vpt": 0.8,
+   "grad": 0.45,
+   "spread": {
+    "3,1": [
+     0.336,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "monstera-plant-medium",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.5,
+    0.3
+   ],
+   "tris": 2892,
+   "tpu": 8431,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 94492,
+   "vtx": 2364,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00015,
+   "dens": 40352,
+   "anglePct": 3,
+   "vpt": 0.82,
+   "grad": 0.45,
+   "spread": {
+    "3,1": [
+     0.336,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "monstera-plant-small",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.2
+   ],
+   "tris": 940,
+   "tpu": 2741,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 33492,
+   "vtx": 824,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
+   "dens": 66567,
+   "anglePct": 1,
+   "vpt": 0.88,
+   "grad": 0.45,
+   "spread": {
+    "3,1": [
+     0.336,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pot-a-large",
+   "kind": "obj-container-pot",
+   "use": [
+    "container"
+   ],
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12928,
+   "vtx": 306,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00117,
+   "dens": 12565,
+   "anglePct": 44,
+   "vpt": 1.06,
+   "grad": 0.55,
+   "spread": {
+    "5,0": [
+     0.242,
+     0.805
+    ],
+    "14,3": [
+     0.219,
+     0.469
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pot-a-medium",
+   "kind": "obj-container-pot",
+   "use": [
+    "container"
+   ],
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 10084,
+   "vtx": 230,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00073,
+   "dens": 30178,
+   "anglePct": 29,
+   "vpt": 1.06,
+   "grad": 0.35,
+   "spread": {
+    "5,0": [
+     0.445,
+     0.805
+    ],
+    "14,3": [
+     0.328,
+     0.57
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pot-a-small",
+   "kind": "obj-container-pot",
+   "use": [
+    "container"
+   ],
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 10148,
+   "vtx": 232,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0002,
+   "dens": 208969,
+   "anglePct": 39,
+   "vpt": 1.07,
+   "grad": 0.35,
+   "spread": {
+    "5,0": [
+     0.445,
+     0.805
+    ],
+    "14,3": [
+     0.328,
+     0.57
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pothos-plant-large",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "tris": 6576,
+   "tpu": 19172,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 253744,
+   "vtx": 6650,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00012,
+   "dens": 44128,
+   "anglePct": 4,
+   "vpt": 1.01,
+   "grad": 0.49,
+   "spread": {
+    "3,1": [
+     0.109,
+     0.602
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pothos-plant-medium",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.3,
+    0.4
+   ],
+   "tris": 3512,
+   "tpu": 10239,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 136676,
+   "vtx": 3566,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00009,
+   "dens": 75322,
+   "anglePct": 2,
+   "vpt": 1.02,
+   "grad": 0.46,
+   "spread": {
+    "3,1": [
+     0.109,
+     0.57
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pothos-plant-small",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1624,
+   "tpu": 4735,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 63900,
+   "vtx": 1646,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 343948,
+   "anglePct": 3,
+   "vpt": 1.01,
+   "grad": 0.46,
+   "spread": {
+    "3,1": [
+     0.109,
+     0.57
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "pots-stacked",
+   "kind": "obj-container-pot",
+   "use": [
+    "container"
+   ],
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 588,
+   "tpu": 1714,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25228,
+   "vtx": 633,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00022,
+   "dens": 275933,
+   "anglePct": 23,
+   "vpt": 1.08,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.328,
+     0.805
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons",
+    "plural"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "sansevieria-plant-large",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.4,
+    0.6
+   ],
+   "tris": 1096,
+   "tpu": 3195,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 47820,
+   "vtx": 1242,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00049,
+   "dens": 18346,
+   "anglePct": 3,
+   "vpt": 1.13,
+   "grad": 0.65,
+   "spread": {
+    "3,1": [
+     0.172,
+     0.82
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "sansevieria-plant-medium",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.4
+   ],
+   "tris": 648,
+   "tpu": 1889,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 29572,
+   "vtx": 756,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00029,
+   "dens": 35464,
+   "anglePct": 2,
+   "vpt": 1.17,
+   "grad": 0.65,
+   "spread": {
+    "3,1": [
+     0.172,
+     0.82
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "sansevieria-plant-small",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 276,
+   "tpu": 805,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13036,
+   "vtx": 309,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00017,
+   "dens": 89619,
+   "anglePct": 2,
+   "vpt": 1.12,
+   "grad": 0.65,
+   "spread": {
+    "3,1": [
+     0.172,
+     0.82
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "saucer-a-large",
+   "kind": "obj-kitchenware-tableware-plate",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11228,
+   "vtx": 258,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00089,
+   "dens": 37059,
+   "anglePct": 64,
+   "vpt": 1.01,
+   "grad": 0.32,
+   "spread": {
+    "5,0": [
+     0.43,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "saucer-a-medium",
+   "kind": "obj-kitchenware-tableware-plate",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8760,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00063,
+   "dens": 62729,
+   "anglePct": 74,
+   "vpt": 1.01,
+   "grad": 0.32,
+   "spread": {
+    "5,0": [
+     0.43,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "saucer-a-small",
+   "kind": "obj-kitchenware-tableware-plate",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8756,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00025,
+   "dens": 264208,
+   "anglePct": 75,
+   "vpt": 1.01,
+   "grad": 0.3,
+   "spread": {
+    "5,0": [
+     0.453,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "ngons"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "shovel",
+   "kind": "obj-tool-hand",
+   "use": [
+    "tool"
+   ],
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 296,
+   "tpu": 863,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11240,
+   "vtx": 251,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00008,
+   "dens": 529101,
+   "anglePct": 16,
+   "vpt": 0.85,
+   "grad": 0.67,
+   "spread": {
+    "0,0": [
+     0.219,
+     0.82
+    ],
+    "15,3": [
+     0.086,
+     0.805
+    ]
+   },
+   "colors": [
+    "#79757b",
+    "#dbae80"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "succulent-a",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 924,
+   "tpu": 2694,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 37776,
+   "vtx": 962,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "dens": 1062910,
+   "anglePct": 6,
+   "vpt": 1.04,
+   "grad": 0.81,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.961
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "succulent-b",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1202,
+   "tpu": 3504,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 48092,
+   "vtx": 1232,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
+   "dens": 1267215,
+   "anglePct": 6,
+   "vpt": 1.02,
+   "grad": 0.85,
+   "spread": {
+    "5,0": [
+     0.07,
+     0.922
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "vegetation"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "succulent-c",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1148,
+   "tpu": 3347,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 51860,
+   "vtx": 1360,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 1264196,
+   "anglePct": 2,
+   "vpt": 1.18,
+   "grad": 0.77,
+   "spread": {
+    "3,1": [
+     0.086,
+     0.852
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "succulent-d",
+   "kind": "env-flora-plant-cactus",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 1092,
+   "tpu": 3184,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 68900,
+   "vtx": 1903,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "dens": 1053241,
+   "anglePct": 1,
+   "vpt": 1.74,
+   "grad": 0.4,
+   "spread": {
+    "3,1": [
+     0.266,
+     0.664
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "watering-can-a",
+   "kind": "obj-container",
+   "use": [
+    "container",
+    "tool"
+   ],
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 630,
+   "tpu": 1837,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 20912,
+   "vtx": 490,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00017,
+   "dens": 152467,
+   "anglePct": 28,
+   "vpt": 0.78,
+   "grad": 0.44,
+   "spread": {
+    "13,3": [
+     0.406,
+     0.844
+    ]
+   },
+   "colors": [
+    "#5b5550"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "ngons"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "watering-can-b",
+   "kind": "obj-container",
+   "use": [
+    "container",
+    "tool"
+   ],
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 710,
+   "tpu": 2070,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 23920,
+   "vtx": 569,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00018,
+   "dens": 154937,
+   "anglePct": 26,
+   "vpt": 0.8,
+   "grad": 0.43,
+   "spread": {
+    "6,0": [
+     0.414,
+     0.844
+    ]
+   },
+   "colors": [
+    "#f2a93c"
+   ],
+   "tags": [
+    "ngons",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-branch-medium-a",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.2
+   ],
+   "tris": 916,
+   "tpu": 2671,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39976,
+   "vtx": 1031,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00012,
+   "dens": 73312,
+   "anglePct": 3,
+   "vpt": 1.13,
+   "grad": 0.28,
+   "spread": {
+    "3,0": [
+     0.445,
+     0.906
+    ],
+    "3,1": [
+     0.422,
+     0.664
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-branch-medium-b",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "tris": 948,
+   "tpu": 2764,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 41192,
+   "vtx": 1063,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00012,
+   "dens": 59069,
+   "anglePct": 3,
+   "vpt": 1.12,
+   "grad": 0.29,
+   "spread": {
+    "3,0": [
+     0.383,
+     0.906
+    ],
+    "3,1": [
+     0.297,
+     0.539
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-branch-medium-c",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.4
+   ],
+   "tris": 996,
+   "tpu": 2904,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 43304,
+   "vtx": 1120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00012,
+   "dens": 45328,
+   "anglePct": 3,
+   "vpt": 1.12,
+   "grad": 0.39,
+   "spread": {
+    "3,0": [
+     0.023,
+     0.906
+    ],
+    "3,1": [
+     0.172,
+     0.422
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-plant-large",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.5
+   ],
+   "tris": 5040,
+   "tpu": 14694,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 211340,
+   "vtx": 5613,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00011,
+   "dens": 62867,
+   "anglePct": 3,
+   "vpt": 1.11,
+   "grad": 0.53,
+   "spread": {
+    "3,0": [
+     0.023,
+     0.906
+    ],
+    "3,1": [
+     0.188,
+     0.656
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-plant-medium",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "tris": 2692,
+   "tpu": 7848,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 115108,
+   "vtx": 3046,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00011,
+   "dens": 73885,
+   "anglePct": 3,
+   "vpt": 1.13,
+   "grad": 0.56,
+   "spread": {
+    "3,0": [
+     0.023,
+     0.906
+    ],
+    "3,1": [
+     0.172,
+     0.656
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "yucca-plant-small",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.3
+   ],
+   "tris": 1576,
+   "tpu": 4595,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 68760,
+   "vtx": 1807,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
+   "dens": 118720,
+   "anglePct": 9,
+   "vpt": 1.15,
+   "grad": 0.59,
+   "spread": {
+    "3,0": [
+     0.023,
+     0.906
+    ],
+    "3,1": [
+     0.156,
+     0.656
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "zzplant-plant-large",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.3,
+    0.6
+   ],
+   "tris": 7488,
+   "tpu": 21831,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 308852,
+   "vtx": 8201,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "dens": 113722,
+   "anglePct": 2,
+   "vpt": 1.1,
+   "grad": 0.44,
+   "spread": {
+    "3,1": [
+     0.344,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "zzplant-plant-medium",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.3
+   ],
+   "tris": 2704,
+   "tpu": 7883,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 117172,
+   "vtx": 3108,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
+   "dens": 157742,
+   "anglePct": 2,
+   "vpt": 1.15,
+   "grad": 0.44,
+   "spread": {
+    "3,1": [
+     0.344,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
+   ]
+  },
+  {
+   "kit": "isa-plants",
+   "name": "zzplant-plant-small",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 1080,
+   "tpu": 3149,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 48224,
+   "vtx": 1258,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00005,
+   "dens": 365205,
+   "anglePct": 2,
+   "vpt": 1.16,
+   "grad": 0.44,
+   "spread": {
+    "3,1": [
+     0.344,
+     0.781
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage"
    ]
   },
   {

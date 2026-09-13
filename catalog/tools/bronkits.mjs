@@ -38,7 +38,7 @@ export const BRONKITS = [
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', formaat: 'glb' },
   { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'kay-skeleton', formaat: 'glb' },
   { map: 'KayKit_FantasyWeaponsBits_1.0_FREE', naam: 'KayKit Fantasy Weapons Bits', kit: 'kay-weapons', formaat: 'gltf' },
-  { map: 'Tiny_Treats_House_Plants_1.0_FREE', naam: 'Tiny Treats House Plants', kit: null, formaat: 'gltf' },
+  { map: 'Tiny_Treats_House_Plants_1.0_FREE', naam: 'Tiny Treats House Plants', kit: 'isa-plants', formaat: 'gltf' },
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: 'isa-food', formaat: 'gltf' },
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-props', formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', formaat: 'obj' },
