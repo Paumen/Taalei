@@ -26,3 +26,37 @@
 	• Twitter:	 twitter.com/KenneyNL
 	• BlueSky:	 kenney.bsky.social
 	• Instagram: instagram.com/kenney_nl
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs zijn 10 modellen toegevoegd: arrows,
+	crate, coin-gold, chest, fence-low-broken, fence-low-corner,
+	fence-low-corner-curved, fence-low-straight, tree en tree-pine-small;
+	namen onaangeroerd, schaal 0,65 uit de kit: een hekdeel is 0,65 lang
+	als fence-straight, de boom 1,26 hoog naast tree-pine (1,3).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprongen: het groen van de bomen (14,4, op lichtgroen 3,1; nu
+	donkergroen 1,1, M1, stam op bast 3,0) en het hout (5,5, op terracotta
+	5,0). Dat hout staat nu op lichtbruin 0,0 (de pijlen, als arrow), op
+	middenbruin 1,0 (crate, chest) en bij de lage hekken op 0,0 met de
+	palen op bast 3,0 (wood-log en wood-bark, M7, als fence-rope). Het
+	beslag van de kist (3,2 en 6,1) is smeedijzer 13,3 (M17). De binnenring
+	van de munt (5,0) staat op goud 6,0 (M55), dieper in de baan dan de
+	buitenkant.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

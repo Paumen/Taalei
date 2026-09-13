@@ -1,0 +1,51 @@
+	Tropical Island Lite
+
+			------------------------------
+
+	Licentie: niet in de pack vastgelegd
+
+	De bronbestanden zijn als .fbx aangeleverd in een zip met de naam
+	`tropical`, map `TropicalIslandLite_FBX`, zonder licentiebestand en
+	zonder verwijzing naar een maker of een packpagina. Er is dus geen
+	licentie om hier over te nemen; wie de herkomst achterhaalt, vult hem
+	hier aan. De kit stond al in de catalogus (barrel, sword-pirate) toen
+	dit bestand werd geschreven.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	Van de 12 modellen in de pack staan er 3 in de kit: Barrel_04 → barrel,
+	PirateSword_01 → sword-pirate en, met tools/importeer/aanvullen.mjs,
+	Tent_01 → tent. De naam is kebab-case zonder het volgnummer, zoals bij
+	de twee die er al stonden.
+
+	Schaal
+
+	De kit staat op 0,6, maar de pack meet niet in één eenheid: Barrel_04
+	is 0,8 hoog en Tent_01 310 — de tent is in centimeters geëxporteerd.
+	Op 0,6 werd hij 186 units hoog; hij staat daarom op 0,006 (0,6 × 0,01),
+	dezelfde oplossing als de cm-modellen van de props-kit. Zo komt hij op
+	1,58 × 1,47 × 1,86 uit, naast survival-kit/tent-canvas (0,6 × 0,6 × 0,5)
+	en de huisjes van fantasy-town-kit (wanden van 0,65).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprong is het lichte doek (17,3, #d7a073), dat de importeur op
+	donkerbruin 2,0 zette. Het doek is een lapjeswerk van twee tinten en is
+	textiel (M18): de lichte lappen staan op gebroken wit 5,2, de donkere op
+	taupe 14,3. Het touw om de stokken (5,0) staat op taupe 14,3, in het
+	lichte eind van de baan (M22); de stokken bleven op bast 3,0.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
