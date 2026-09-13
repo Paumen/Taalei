@@ -1,31 +1,24 @@
-
+// Checks catalog/catalog.json against the rules of docs/asset_style_guide.md. Rule text,
+// ids and the band table come from the guide (catalog/tools/rules.mjs); this file holds
+// only the checks. A check's id is its guide id, or the guide id plus a `-suffix` when
+// one rule takes several checks (M42-planks). `coverage` records how far the check
+// proves the rule: 'full', or 'partial' when it reads a proxy tag, a name or one clause.
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng } from '../catalog/tools/png.mjs';
+import { readGuide, referencedIds } from '../catalog/tools/rules.mjs';
+import { readKindTree } from '../catalog/tools/kinds.mjs';
 
 const COLUMNS = 16;
 const ROWS = 4;
 const ROOT = new URL('..', import.meta.url).pathname;
 
-const BANDS = {
-  'light grey': '15,3',
-  'dark grey': '13,3',
-  'blue-grey': '6,1',
-  'light blue-grey': '3,2',
-  blue: '4,2',
-  'off-white': '5,2',
-  taupe: '14,3',
-  terracotta: '5,0',
-  yellow: '6,0',
-  'dark red': '8,0',
-  'dark green': '1,1',
-  'light green': '3,1',
-  'light brown': '0,0',
-  'mid brown': '1,0',
-  'dark brown': '2,0',
-  bark: '3,0',
-};
+const GUIDE = readGuide();
+const RULE_TEXT = GUIDE.rules;
+const BAND_TABLE = GUIDE.bands;
+const BANDS = Object.fromEntries([...BAND_TABLE.values()].map((b) => [b.name, b.lane]));
+const BAND_NAMES = Object.keys(BANDS);
 
 const CLEAR = '#ffffff';
 
@@ -50,15 +43,19 @@ function readBands() {
 const HEX = readBands();
 const bandName = Object.fromEntries(Object.entries(HEX).map(([name, hex]) => [hex, name]));
 bandName[CLEAR] = 'clear glass';
-const band = (name) => HEX[name];
-const bands = (...names) => names.map(band);
+const band = (name) => {
+  if (!(name in HEX)) throw new Error(`band "${name}" is not in the Appendix A band table`);
+  return HEX[name];
+};
+const lane = (name) => BANDS[name];
 
 const MAX_ACCENT_SIZE = 0.5;
 const BUSY = 4;
 const looksLikeAccent = (m) =>
   (Math.max(...m.wdh) <= MAX_ACCENT_SIZE && m.colors.length >= 2) || m.colors.length >= BUSY;
 
-// Kind and use are fields of §7; the predicates below key on them, never on a name.
+// Kind and use are fields of §7; the predicates below key on them, never on a name,
+// except where no kind exists for what the rule names (isSkeleton).
 const kindIs = (m, ...prefixes) => prefixes.some((p) => m.kind === p || m.kind?.startsWith(`${p}-`));
 const usedFor = (m, ...uses) => uses.some((u) => m.use?.includes(u));
 
@@ -68,7 +65,7 @@ const STANDS_IN_FOR_MATERIAL = ['env-flora', 'env-fungi', 'env-fauna', 'env-terr
 
 // Parents and subtypes both count: a model carries the subtype it is, and the parent
 // only where no subtype fits, so `metal` + `metal-gold` is two materials, not one.
-const MATERIAL_TAGS = ['wood', 'wood-planks', 'wood-worked', 'wood-beam', 'wood-log', 'wood-bark',
+export const MATERIAL_TAGS = ['wood', 'wood-planks', 'wood-worked', 'wood-beam', 'wood-log', 'wood-bark',
   'metal', 'metal-iron', 'metal-iron-steel', 'metal-iron-wrought', 'metal-iron-cast',
   'metal-gold', 'metal-silver', 'metal-copper',
   'stone', 'stone-masonry', 'stone-rock', 'stone-soil',
@@ -93,19 +90,30 @@ const isFood = (m) => has(m, 'food') || kindIs(m, 'obj-food');
 const anyColour = (m) => isFlower(m) || isFauna(m) || isFood(m);
 const isDecoratedFood = (m) => isFood(m) && has(m, 'decorated');
 
+// no kind separates a skeleton from other char models (Appendix B), so the name decides
 const isSkeleton = (m) => /skeleton/.test(m.name);
 const isCopper = (m) => has(m, 'metal-copper');
 const isKey = (m) => m.kind === 'obj-pocketitem-key';
 
-const isContainer = (m) => kindIs(m, 'obj-container-barrel', 'obj-container-chest', 'obj-container-bucket', 'obj-container-crate');
+const CONTAINER_KINDS = ['obj-container-barrel', 'obj-container-chest', 'obj-container-bucket', 'obj-container-crate'];
+const isContainer = (m) => kindIs(m, ...CONTAINER_KINDS);
 const isLog = (m) => has(m, 'wood-log') || kindIs(m, 'env-flora-deadwood');
 const isBottle = (m) => m.kind === 'obj-container-bottle';
 const isBook = (m) => kindIs(m, 'obj-pocketitem-book', 'obj-weapon-magic') && has(m, 'paper');
 
-const isRigged = (m) => /(^|-)(mast|ship|sail)(s|-|$)/.test(m.name) && has(m, 'textile');
+// a rigged vessel or its rigging: ship, boat, mast or sail (Appendix B) carrying textile
+const RIGGED_KINDS = ['obj-transport-ship', 'obj-transport-boat', 'obj-transport-accessory'];
+const isRigged = (m) => kindIs(m, ...RIGGED_KINDS) && has(m, 'textile');
 
-const bandOnlyFor = ({ id, text, severity, color, tags, kinds = [], accent = false, unless = null }) => ({
-  id, text, severity, band: band(color),
+const describe = (m) => materials(m).length ? materials(m).join(', ') : 'no material';
+const bandsOf = (m) => m.colors.map((h) => bandName[h] ?? h).join(', ');
+
+// Each factory records what the check touches (`subjects`) and what it proves (`tests`),
+// for --explain and --index.
+const bandOnlyFor = ({ id, coverage, severity, color, tags, kinds = [], accent = false, unless = null, also = [] }) => ({
+  id, coverage, severity, band: band(color),
+  subjects: { bands: [color], tags, kinds },
+  tests: `models using ${color} ${lane(color)} carry one of ${[...tags.map((t) => `\`${t}\``), ...kinds.map((k) => `kind ${k}`), ...also].join(', ') || 'nothing'}${accent ? ', or the band is a minor accent' : ''}`,
   check: (m) => {
     if (!uses(m, band(color))) return null;
     if (anyColour(m)) return null;
@@ -113,18 +121,20 @@ const bandOnlyFor = ({ id, text, severity, color, tags, kinds = [], accent = fal
     if (kindIs(m, ...kinds)) return null;
     if (unless?.(m)) return null;
     if (accent && looksLikeAccent(m)) return null;
-    return `uses ${color} ${BANDS[color]} but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}`;
+    return `uses ${color} ${lane(color)} but carries ${describe(m)}`;
   },
 });
 
-const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = null }) => ({
-  id, text, severity,
+const materialTakes = ({ id, coverage, severity, tag, colors, when = null, unless = null, kinds = [], subject = null }) => ({
+  id, coverage, severity,
+  subjects: { bands: colors.filter((c) => c !== 'clear glass'), tags: MATERIAL_TAGS.includes(tag) ? [tag] : [], kinds },
+  tests: `${subject ?? `models tagged \`${tag}\``} use at least one of ${colors.join(', ')}`,
   check: (m) => {
     if (when ? !when(m) : !has(m, tag)) return null;
     if (unless?.(m)) return null;
     const allowed = colors.map((c) => (c === 'clear glass' ? CLEAR : band(c)));
     if (uses(m, ...allowed)) return null;
-    return `is ${tag ?? id} but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — none of ${colors.join(', ')}`;
+    return `is ${tag ?? id} but uses ${bandsOf(m)} — none of ${colors.join(', ')}`;
   },
 });
 
@@ -133,8 +143,10 @@ const materialTakes = ({ id, text, severity, tag, colors, when = null, unless = 
 // others are absent. A model with no iron at all is none of these rules' business.
 const IRON = ['steel', 'wrought', 'cast'];
 const ironOf = (m) => IRON.filter((s) => has(m, `metal-iron-${s}`));
-const ironIs = ({ id, text, severity, want, kinds, unless = null }) => ({
-  id, text, severity,
+const ironIs = ({ id, coverage, severity, want, kinds, unless = null }) => ({
+  id, coverage, severity,
+  subjects: { bands: want.map((w) => IRON_BAND[w]), tags: want.map((w) => `metal-iron-${w}`), kinds },
+  tests: `models of kind ${kinds.join(', ')} carrying iron carry ${want.map((w) => `\`metal-iron-${w}\``).join(' or ')}`,
   check: (m) => {
     if (!kindIs(m, ...kinds)) return null;
     if (unless?.(m)) return null;
@@ -177,185 +189,202 @@ const SPECIAL_REASONS = TAGS.find((t) => t.id === 'special')?.reasons ?? {};
 // S1: the joker covers one band across every rule that band trips, and S5 says the
 // reason on the tag names it. Fall back to the first joker-eligible finding's band
 // for a reason that names none, which keeps the old behaviour for those.
-const LANE_OF_NAME = new Map(Object.entries(BANDS).map(([name, lane]) => [name, lane]));
 const reasonBand = (model) => {
   const reason = SPECIAL_REASONS[model] ?? '';
-  for (const [name, lane] of LANE_OF_NAME) if (reason.startsWith(`${name} ${lane}`)) return band(name);
+  for (const [name, id] of Object.entries(BANDS)) if (reason.startsWith(`${name} ${id}`)) return band(name);
   if (reason.startsWith('clear glass')) return CLEAR;
   return null;
 };
 
 const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
 
-const halfOf = ({ id, text, severity, lane, low, high, when }) => ({
-  id, text, severity,
+const halfOf = ({ id, coverage, severity, color, low, high, when, subject, tags = [] }) => ({
+  id, coverage, severity,
+  subjects: { bands: [color], tags, kinds: [] },
+  tests: `${subject} keep ${color} ${lane(color)} within ${low.toFixed(2)}-${high.toFixed(2)} of the band`,
   check: (m) => {
     if (!when(m)) return null;
-    const range = m.spread?.[BANDS[lane]];
+    const range = m.spread?.[lane(color)];
     if (!range) return null;
     const [min, max] = range;
     if (min >= low - POSITION_STEP && max <= high + POSITION_STEP) return null;
-    return `${lane} ${BANDS[lane]} spans ${min.toFixed(2)}-${max.toFixed(2)}, outside ${low.toFixed(2)}-${high.toFixed(2)}`;
+    return `${color} ${lane(color)} spans ${min.toFixed(2)}-${max.toFixed(2)}, outside ${low.toFixed(2)}-${high.toFixed(2)}`;
   },
 });
 
-const RULES = [
+// A rule with no check of its own, whose severity and pass/fail follow another's.
+const follows = (id, other, coverage = 'full') => ({ id, coverage, follows: other, tests: `judged by ${other}` });
 
-  { id: 'G1', text: 'Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.',
-    severity: 'warning', noJoker: true,
+const CHECKS = [
+
+  { id: 'X4', coverage: 'full', severity: 'warning', noJoker: true,
+    subjects: { bands: [], tags: ['plural'], kinds: ['char'] },
+    tests: 'tris per occupied grid cell (the catalogue\'s tpu: tris ÷ (max(0.49, w × d) × max(0.7, h))) stay at or under 5000, char and plural exempt',
+    check: (m) => {
+      if (kindIs(m, 'char') || has(m, 'plural')) return null;
+      return m.tpu > 5000 ? `${m.tpu} tris per cell, ceiling 5000` : null;
+    } },
+  { id: 'X6', coverage: 'full', severity: 'warning', noJoker: true,
+    subjects: { bands: [], tags: [], kinds: ['env-terrain-mountain'] },
+    tests: 'bounding-box height stays at or under 6 units, except env-terrain-mountain',
+    check: (m) => (m.wdh[2] > 6 && m.kind !== 'env-terrain-mountain' ? `${m.wdh[2]} units high, ceiling 6` : null) },
+
+  { id: 'G1', coverage: 'partial', severity: 'warning', noJoker: true,
+    subjects: { bands: [], tags: ['animation', 'glass'], kinds: [] },
+    tests: 'models drawing in more than one call carry `animation` or `glass`',
     check: (m) => {
       if (!(m.calls > 1) || has(m, 'animation', 'glass')) return null;
       return `${m.calls} draw calls with no animation or glass tag`;
     } },
 
-  { id: 'S4', text: 'Only the PO assigns the tag. A special records which band it covers and why; one without a stated reason is a finding on the tag.',
-    severity: 'error', noJoker: true,
+  follows('S1', 'M1', 'partial'),
+  follows('S2', 'M1', 'partial'),
+  follows('S3', 'M1', 'partial'),
+  { id: 'S4', coverage: 'full', severity: 'error', noJoker: true,
+    subjects: { bands: [], tags: ['special'], kinds: [] },
+    tests: 'models tagged `special` have a band and reason recorded in catalog/tags.json',
     check: (m) => {
       if (!has(m, 'special')) return null;
       const reason = SPECIAL_REASONS[`${m.kit}/${m.name}`];
       return reason?.trim() ? null : 'carries special but catalog/tags.json records no band and reason for it';
     } },
+  follows('S5', 'M1', 'partial'),
 
-  materialTakes({ id: 'M1', text: 'Trees are dark green.', severity: 'error',
-    tag: 'tree', colors: ['dark green'],
+  materialTakes({ id: 'M1', coverage: 'full', severity: 'error',
+    tag: 'tree', colors: ['dark green'], kinds: ['env-flora-tree'], subject: 'env-flora-tree models other than palms',
     when: (m) => kindIs(m, 'env-flora-tree') && m.kind !== 'env-flora-tree-palm' }),
-  materialTakes({ id: 'M2', text: 'Palm fronds are light green.', severity: 'error',
-    tag: 'palm', colors: ['light green'], when: (m) => m.kind === 'env-flora-tree-palm' }),
-  materialTakes({ id: 'M3', text: 'Grass is light green.', severity: 'error',
-    tag: 'grass', colors: ['light green'], when: (m) => m.kind === 'env-flora-plant-grass' }),
-  materialTakes({ id: 'M4', text: 'Stems and leaves are light green.', severity: 'error',
-    tag: 'foliage', colors: ['light green'],
+  materialTakes({ id: 'M2', coverage: 'full', severity: 'error',
+    tag: 'palm', colors: ['light green'], kinds: ['env-flora-tree-palm'], subject: 'env-flora-tree-palm models',
+    when: (m) => m.kind === 'env-flora-tree-palm' }),
+  materialTakes({ id: 'M3', coverage: 'full', severity: 'error',
+    tag: 'grass', colors: ['light green'], kinds: ['env-flora-plant-grass'], subject: 'env-flora-plant-grass models',
+    when: (m) => m.kind === 'env-flora-plant-grass' }),
+  materialTakes({ id: 'M4', coverage: 'partial', severity: 'error',
+    tag: 'foliage', colors: ['light green'], subject: 'models tagged `foliage` that are neither tree nor grass',
     when: (m) => has(m, 'foliage') && !kindIs(m, 'env-flora-tree') && m.kind !== 'env-flora-plant-grass' }),
-  materialTakes({ id: 'M6', text: 'Wood is any of the three brown bands; wood-bark is bark 3,0.',
-    severity: 'error', tag: 'wood', colors: ['light brown', 'mid brown', 'dark brown'],
+  materialTakes({ id: 'M6', coverage: 'full', severity: 'error',
+    tag: 'wood', colors: ['light brown', 'mid brown', 'dark brown'],
+    subject: 'models tagged `wood`, `wood-planks`, `wood-worked` or `wood-beam`',
     when: (m) => has(m, 'wood', 'wood-planks', 'wood-worked', 'wood-beam') }),
-  materialTakes({ id: 'M6-bark', text: 'Wood is any of the three brown bands; wood-bark is bark 3,0.',
-    severity: 'error', tag: 'wood-bark', colors: ['bark'] }),
-  materialTakes({ id: 'M8', text: 'stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or light grey 15,3.',
-    severity: 'error', tag: 'stone-masonry', colors: ['taupe', 'blue-grey', 'light grey'] }),
-  materialTakes({ id: 'M9', text: 'stone-rock is light grey 15,3, secondarily taupe 14,3.',
-    severity: 'error', tag: 'stone-rock', colors: ['light grey', 'taupe'] }),
-  materialTakes({ id: 'M10', text: 'stone-soil — sand and dirt — is taupe 14,3.', severity: 'error',
-    tag: 'stone-soil', colors: ['taupe'] }),
+  materialTakes({ id: 'M6-bark', coverage: 'full', severity: 'error', tag: 'wood-bark', colors: ['bark'] }),
+  materialTakes({ id: 'M8', coverage: 'partial', severity: 'error',
+    tag: 'stone-masonry', colors: ['taupe', 'blue-grey', 'light grey'] }),
+  materialTakes({ id: 'M9', coverage: 'full', severity: 'error', tag: 'stone-rock', colors: ['light grey', 'taupe'] }),
+  materialTakes({ id: 'M10', coverage: 'full', severity: 'error', tag: 'stone-soil', colors: ['taupe'] }),
 
-  materialTakes({ id: 'M11', text: 'metal-iron-steel is light grey 15,3.',
-    severity: 'error', tag: 'metal-iron-steel', colors: ['light grey'],
+  materialTakes({ id: 'M11', coverage: 'partial', severity: 'error',
+    tag: 'metal-iron-steel', colors: ['light grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
-  materialTakes({ id: 'M12-wrought', text: 'metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.',
-    severity: 'error', tag: 'metal-iron-wrought', colors: ['dark grey'],
+  materialTakes({ id: 'M12-wrought', coverage: 'partial', severity: 'error',
+    tag: 'metal-iron-wrought', colors: ['dark grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
-  materialTakes({ id: 'M12-cast', text: 'metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.',
-    severity: 'error', tag: 'metal-iron-cast', colors: ['blue-grey'],
+  materialTakes({ id: 'M12-cast', coverage: 'partial', severity: 'error',
+    tag: 'metal-iron-cast', colors: ['blue-grey'],
     unless: (m) => isCopper(m) || isKey(m) }),
-  materialTakes({ id: 'M13', text: 'metal-gold is gold 6,0; metal-silver is silver 3,2.', severity: 'error',
+  materialTakes({ id: 'M13', coverage: 'full', severity: 'error',
     tag: 'metal-gold', colors: ['yellow'], unless: isKey }),
-  materialTakes({ id: 'M13-silver', text: 'metal-gold is gold 6,0; metal-silver is silver 3,2.', severity: 'error',
+  materialTakes({ id: 'M13-silver', coverage: 'full', severity: 'error',
     tag: 'metal-silver', colors: ['light blue-grey'], unless: isKey }),
-  materialTakes({ id: 'M14', text: 'metal-copper is terracotta 5,0 and takes no other metal subtype.',
-    severity: 'error', tag: 'metal-copper', colors: ['terracotta'] }),
-  { id: 'M14-only', text: 'metal-copper is terracotta 5,0 and takes no other metal subtype.',
-    severity: 'error',
+  materialTakes({ id: 'M14', coverage: 'full', severity: 'error', tag: 'metal-copper', colors: ['terracotta'] }),
+  { id: 'M14-only', coverage: 'full', severity: 'error',
+    subjects: { bands: [], tags: ['metal-copper'], kinds: [] },
+    tests: 'models tagged `metal-copper` carry no other metal tag',
     check: (m) => {
       if (!isCopper(m)) return null;
       const other = ['metal', 'metal-iron', 'metal-iron-steel', 'metal-iron-wrought', 'metal-iron-cast',
         'metal-gold', 'metal-silver'].filter((t) => has(m, t));
       return other.length ? `carries metal-copper alongside ${other.join(', ')}` : null;
     } },
-  materialTakes({ id: 'M15', text: 'Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.', severity: 'error',
-    tag: 'key', colors: ['dark grey', 'yellow'], when: isKey }),
-  materialTakes({ id: 'M17', text: 'The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.',
-    severity: 'error', tag: 'metal-iron-wrought', colors: ['dark grey'],
+  materialTakes({ id: 'M15', coverage: 'partial', severity: 'error',
+    tag: 'key', colors: ['dark grey', 'yellow'], kinds: ['obj-pocketitem-key'], subject: 'obj-pocketitem-key models', when: isKey }),
+  materialTakes({ id: 'M17', coverage: 'partial', severity: 'error',
+    tag: 'metal-iron-wrought', colors: ['dark grey'], kinds: CONTAINER_KINDS,
+    subject: 'container models (barrel, chest, bucket, crate) tagged `metal-iron-wrought`',
     when: (m) => isContainer(m) && has(m, 'metal-iron-wrought') }),
-  materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.',
-    severity: 'error', tag: 'textile',
-    colors: ['off-white', 'taupe', 'dark green', 'dark red'],
+  materialTakes({ id: 'M18', coverage: 'partial', severity: 'error',
+    tag: 'textile', colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
 
-  { id: 'M18b', text: 'The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.',
-    severity: 'error',
+  { id: 'M18b', coverage: 'partial', severity: 'error',
+    subjects: { bands: ['taupe'], tags: ['textile', 'rope'], kinds: RIGGED_KINDS },
+    tests: 'rigged models (ship, boat or rigging with `textile`) carrying no `rope` do not use taupe 14,3',
     // Bands are counted per model, so a ship that carries rope has taupe explained
     // by M22 and is left alone; the rule bites on a rigged model with no rope on it.
     check: (m) => (isRigged(m) && uses(m, band('taupe')) && !has(m, 'rope'))
       ? 'is rigged and uses taupe 14,3, which no flag or sail may take'
       : null },
 
-  halfOf({ id: 'M19', text: 'Wrapped grips and bindings on tools and weapons are always taupe 14,3, light half 0.02-0.40.',
-    severity: 'warning', lane: 'taupe', low: 0.02, high: 0.40,
+  halfOf({ id: 'M19', coverage: 'partial', severity: 'warning', color: 'taupe', low: 0.02, high: 0.40,
+    tags: ['textile'], subject: 'models used as tool or weapon, tagged `textile` and using taupe,',
     when: (m) => usedFor(m, 'tool', 'weapon') && has(m, 'textile') && uses(m, band('taupe')) }),
-  materialTakes({ id: 'M20', text: 'Leather is bark.', severity: 'error',
-    tag: 'leather', colors: ['bark'] }),
-  materialTakes({ id: 'M22', text: 'Rope is taupe 14,3.', severity: 'error',
-    tag: 'rope', colors: ['taupe'] }),
-  materialTakes({ id: 'M23', text: 'All cork is taupe 14,3.', severity: 'error',
-    tag: 'cork', colors: ['taupe'] }),
-  materialTakes({ id: 'M24', text: 'Glass is transparent, dark green or dark red.',
-    severity: 'error', tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
-  materialTakes({ id: 'M25', text: 'Ceramics are terracotta, off-white, taupe or dark red.',
-    severity: 'error', tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
-  { id: 'M26', text: 'Bottles are glass or ceramic.', severity: 'error',
-    check: (m) => (isBottle(m) && !has(m, 'glass', 'ceramic'))
-      ? `is a bottle but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
-  materialTakes({ id: 'M27', text: 'Glass bottles are dark red, dark green or clear glass.', severity: 'error',
-    tag: 'glass', colors: ['dark red', 'dark green', 'clear glass'], when: (m) => isBottle(m) && has(m, 'glass') }),
-  materialTakes({ id: 'M28', text: 'A liquid is dark red 8,0, dark green 1,1 or blue 4,2.',
-    severity: 'error', tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
-  materialTakes({ id: 'M29', text: 'Bones and skulls are off-white.', severity: 'error',
-    tag: 'bone', colors: ['off-white'], when: (m) => has(m, 'bone') || m.kind === 'env-remains-bones' }),
-  materialTakes({ id: 'M30', text: 'Paper is off-white.', severity: 'error',
-    tag: 'paper', colors: ['off-white'] }),
-  materialTakes({ id: 'M31', text: 'Meat is dark red 8,0.', severity: 'error',
-    tag: 'meat', colors: ['dark red'], when: (m) => m.kind === 'obj-food-meat' }),
-  materialTakes({ id: 'M33', text: 'Flames, glow and lights are yellow 6,0, spread wide across the band.', severity: 'error',
-    tag: 'emissive', colors: ['yellow'] }),
-  materialTakes({ id: 'M34', text: 'Candle wax are off-white 5,2.', severity: 'error',
-    tag: 'wax', colors: ['off-white'] }),
-  materialTakes({ id: 'M35', text: 'Wicks are dark grey 13,3.', severity: 'warning',
-    tag: 'wick', colors: ['dark grey'] }),
-  materialTakes({ id: 'M36', text: 'Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.',
-    severity: 'error', tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
-  materialTakes({ id: 'M37', text: 'Book covers are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.',
-    severity: 'error', tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
-    when: isBook }),
-  { id: 'M38', text: 'Roofs are ceramic, dark red.', severity: 'error',
+  materialTakes({ id: 'M20', coverage: 'full', severity: 'error', tag: 'leather', colors: ['bark'] }),
+  materialTakes({ id: 'M22', coverage: 'full', severity: 'error', tag: 'rope', colors: ['taupe'] }),
+  materialTakes({ id: 'M23', coverage: 'full', severity: 'error', tag: 'cork', colors: ['taupe'] }),
+  materialTakes({ id: 'M24', coverage: 'full', severity: 'error',
+    tag: 'glass', colors: ['clear glass', 'dark green', 'dark red'] }),
+  materialTakes({ id: 'M25', coverage: 'full', severity: 'error',
+    tag: 'ceramic', colors: ['terracotta', 'off-white', 'taupe', 'dark red'] }),
+  { id: 'M26', coverage: 'partial', severity: 'error',
+    subjects: { bands: [], tags: ['glass', 'ceramic'], kinds: ['obj-container-bottle'] },
+    tests: 'obj-container-bottle models carry `glass` or `ceramic`',
+    check: (m) => (isBottle(m) && !has(m, 'glass', 'ceramic')) ? `is a bottle but carries ${describe(m)}` : null },
+  materialTakes({ id: 'M27', coverage: 'partial', severity: 'error',
+    tag: 'glass', colors: ['dark red', 'dark green', 'clear glass'], kinds: ['obj-container-bottle'],
+    subject: 'obj-container-bottle models tagged `glass`', when: (m) => isBottle(m) && has(m, 'glass') }),
+  materialTakes({ id: 'M28', coverage: 'full', severity: 'error',
+    tag: 'liquid', colors: ['dark red', 'dark green', 'blue'] }),
+  materialTakes({ id: 'M29', coverage: 'full', severity: 'error',
+    tag: 'bone', colors: ['off-white'], kinds: ['env-remains-bones'],
+    subject: 'models tagged `bone` or of kind env-remains-bones',
+    when: (m) => has(m, 'bone') || m.kind === 'env-remains-bones' }),
+  materialTakes({ id: 'M30', coverage: 'full', severity: 'error', tag: 'paper', colors: ['off-white'] }),
+  materialTakes({ id: 'M31', coverage: 'full', severity: 'error',
+    tag: 'meat', colors: ['dark red'], kinds: ['obj-food-meat'], subject: 'obj-food-meat models',
+    when: (m) => m.kind === 'obj-food-meat' }),
+  materialTakes({ id: 'M33', coverage: 'full', severity: 'error', tag: 'emissive', colors: ['yellow'] }),
+  materialTakes({ id: 'M34', coverage: 'full', severity: 'error', tag: 'wax', colors: ['off-white'] }),
+  materialTakes({ id: 'M35', coverage: 'full', severity: 'warning', tag: 'wick', colors: ['dark grey'] }),
+  materialTakes({ id: 'M36', coverage: 'full', severity: 'error',
+    tag: 'gemstone', colors: ['dark red', 'dark green', 'blue'] }),
+  materialTakes({ id: 'M37', coverage: 'partial', severity: 'error',
+    tag: 'book', colors: ['bark', 'dark red', 'dark green', 'blue-grey'],
+    kinds: ['obj-pocketitem-book', 'obj-weapon-magic'],
+    subject: 'obj-pocketitem-book and obj-weapon-magic models tagged `paper`', when: isBook }),
+  { id: 'M38', coverage: 'partial', severity: 'error',
+    subjects: { bands: ['dark red'], tags: ['ceramic'], kinds: ['str-part-roof'] },
+    tests: 'str-part-roof models carry `ceramic` and use dark red 8,0',
     check: (m) => {
       if (!isRoof(m)) return null;
-      if (!has(m, 'ceramic')) return `is a roof but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}`;
-      if (!uses(m, band('dark red'))) return `is a roof but uses ${m.colors.map((h) => bandName[h] ?? h).join(', ')} — no dark red`;
+      if (!has(m, 'ceramic')) return `is a roof but carries ${describe(m)}`;
+      if (!uses(m, band('dark red'))) return `is a roof but uses ${bandsOf(m)} — no dark red`;
       return null;
     } },
-  { id: 'M39', text: 'Chests, barrels, kegs, buckets, boxes and crates are mainly wood, often with metal-iron accents.',
-    severity: 'error',
-    check: (m) => (isContainer(m) && !has(m, ...WOOD_TAGS))
-      ? `is a container but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
-  materialTakes({ id: 'M43', text: 'Skin is light brown 0,0, taupe 14,3 or bark 3,0.', severity: 'error',
+  { id: 'M39', coverage: 'partial', severity: 'error',
+    subjects: { bands: [], tags: WOOD_TAGS, kinds: CONTAINER_KINDS },
+    tests: 'container models (barrel, chest, bucket, crate) carry a wood tag',
+    check: (m) => (isContainer(m) && !has(m, ...WOOD_TAGS)) ? `is a container but carries ${describe(m)}` : null },
+  materialTakes({ id: 'M43', coverage: 'full', severity: 'error',
     tag: 'skin', colors: ['light brown', 'taupe', 'bark'] }),
 
-  materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.', severity: 'error',
+  materialTakes({ id: 'M44', coverage: 'partial', severity: 'error',
     tag: 'vegetation', colors: ['taupe', 'light brown', 'off-white', 'terracotta', 'dark red', 'yellow', 'blue', 'blue-grey', 'light blue-grey', 'mid brown'] }),
 
-  materialTakes({ id: 'M42-planks', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
-    tag: 'wood-planks', colors: ['light brown'] }),
-  materialTakes({ id: 'M42-worked', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
-    tag: 'wood-worked', colors: ['mid brown'] }),
-  materialTakes({ id: 'M42-beam', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
-    tag: 'wood-beam', colors: ['dark brown'] }),
+  materialTakes({ id: 'M42-planks', coverage: 'full', severity: 'error', tag: 'wood-planks', colors: ['light brown'] }),
+  materialTakes({ id: 'M42-worked', coverage: 'full', severity: 'error', tag: 'wood-worked', colors: ['mid brown'] }),
+  materialTakes({ id: 'M42-beam', coverage: 'full', severity: 'error', tag: 'wood-beam', colors: ['dark brown'] }),
 
-  ironIs({ id: 'M62', text: 'obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.',
-    severity: 'warning', want: ['steel'],
+  ironIs({ id: 'M62', coverage: 'partial', severity: 'warning', want: ['steel'],
     kinds: ['obj-weapon', 'obj-equipment', 'obj-kitchenware-tableware', 'obj-tool'],
     // the wrought carve-out of M63 and the cast cannon of M64 sit inside these kinds
     unless: (m) => kindIs(m, 'obj-tool-supplies', 'obj-weapon-cannon') }),
-  ironIs({ id: 'M63', text: 'obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.',
-    severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
-  ironIs({ id: 'M64', text: 'obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.',
-    severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
-  ironIs({ id: 'M65', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
-    severity: 'warning', want: ['cast', 'steel'], kinds: ['obj-kitchenware-cookware'] }),
-  ironIs({ id: 'M66', text: 'All other iron is metal-iron-wrought.',
-    severity: 'warning', want: ['wrought'], kinds: ['obj', 'env', 'assy'],
+  ironIs({ id: 'M63', coverage: 'partial', severity: 'warning', want: ['wrought'], kinds: ['obj-tool-supplies'] }),
+  ironIs({ id: 'M64', coverage: 'partial', severity: 'warning', want: ['cast'], kinds: ['obj-weapon-cannon', 'str'] }),
+  ironIs({ id: 'M65', coverage: 'partial', severity: 'warning', want: ['cast', 'steel'], kinds: ['obj-kitchenware-cookware'] }),
+  ironIs({ id: 'M66', coverage: 'partial', severity: 'warning', want: ['wrought'], kinds: ['obj', 'env', 'assy'],
     unless: (m) => kindIs(m, ...CLAIMED) && !kindIs(m, ...CLAIMED_BUT_WROUGHT) }),
-  { id: 'M65-pair', text: 'Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.',
-    severity: 'warning',
+  { id: 'M65-pair', coverage: 'partial', severity: 'warning',
+    subjects: { bands: [], tags: ['metal-iron-steel', 'metal-iron-cast'], kinds: ['obj-kitchenware-cookware'] },
+    tests: 'obj-kitchenware-cookware models with iron sit in a variant group that carries both steel and cast',
     check: (m) => {
       if (!kindIs(m, 'obj-kitchenware-cookware') || !ironOf(m).length) return null;
       const irons = variantIrons(m);
@@ -363,83 +392,84 @@ const RULES = [
       if (!m.variant) return 'is metal cookware in no variant group, so it has no recorded counterpart';
       return `variant ${m.variant} carries only ${[...irons].join(', ')} — cookware exists as both`;
     } },
-  { id: 'M67', text: 'A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.',
-    severity: 'warning',
+  { id: 'M67', coverage: 'partial', severity: 'warning',
+    subjects: { bands: Object.values(IRON_BAND), tags: IRON.map((s) => `metal-iron-${s}`), kinds: [] },
+    tests: 'models carrying two or more iron subtypes use a band for each',
     check: (m) => {
       const got = ironOf(m);
       if (got.length < 2) return null;
-      const missing = got.filter((subtype) => !(BANDS[IRON_BAND[subtype]] in (m.spread ?? {})));
+      const missing = got.filter((subtype) => !(lane(IRON_BAND[subtype]) in (m.spread ?? {})));
       if (!missing.length) return null;
       return `carries ${got.join(' + ')} but ${missing.map((s) => `metal-iron-${s}`).join(', ')} has no band of its own`;
     } },
-  ironIs({ id: 'M68', text: 'char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.',
-    severity: 'warning', want: ['steel'], kinds: ['char'] }),
+  ironIs({ id: 'M68', coverage: 'partial', severity: 'warning', want: ['steel'], kinds: ['char'] }),
 
-  bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.',
-    severity: 'error', color: 'light grey',
-    tags: ['metal', 'metal-iron-steel', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey }),
-  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).',
-    severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry'],
-    unless: (m) => isBook(m) || isRigged(m) }),
-  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought (M12), wicks (M35) and fish (M83).',
-    severity: 'warning', color: 'dark grey', tags: ['metal', 'metal-iron-wrought', 'wick'], unless: isKey }),
-  bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
-    severity: 'error', color: 'light blue-grey', tags: ['metal', 'metal-silver'], unless: isKey }),
-  bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).',
-    severity: 'error', color: 'blue', tags: [], accent: true }),
-  bandOnlyFor({ id: 'C5', text: 'Yellow: metal-gold, emissive, fire and cheese (M83).',
-    severity: 'error', color: 'yellow', tags: ['metal', 'metal-gold', 'emissive'],
-    kinds: ['obj-lighting', 'obj-pocketitem-coin'], unless: isKey }),
-  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.',
-    severity: 'error', color: 'dark red', tags: ['ceramic', 'gemstone', 'glass', 'textile'], kinds: ['env-fungi'],
-    accent: true, unless: isRoof }),
-  bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.',
-    severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true,
+  bandOnlyFor({ id: 'C1', coverage: 'partial', severity: 'error', color: 'light grey',
+    tags: ['metal', 'metal-iron-steel', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey, also: ['keys'] }),
+  bandOnlyFor({ id: 'C2', coverage: 'partial', severity: 'error', color: 'blue-grey',
+    tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry'],
+    unless: (m) => isBook(m) || isRigged(m), also: ['books', 'rigged models'] }),
+  bandOnlyFor({ id: 'C15', coverage: 'full', severity: 'warning', color: 'dark grey',
+    tags: ['metal', 'metal-iron-wrought', 'wick'], unless: isKey, also: ['keys'] }),
+  bandOnlyFor({ id: 'C3', coverage: 'full', severity: 'error', color: 'light blue-grey',
+    tags: ['metal', 'metal-silver'], unless: isKey, also: ['keys'] }),
+  bandOnlyFor({ id: 'C4', coverage: 'partial', severity: 'error', color: 'blue', tags: [], accent: true }),
+  bandOnlyFor({ id: 'C5', coverage: 'partial', severity: 'error', color: 'yellow',
+    tags: ['metal', 'metal-gold', 'emissive'],
+    kinds: ['obj-lighting', 'obj-pocketitem-coin'], unless: isKey, also: ['keys'] }),
+  bandOnlyFor({ id: 'C6', coverage: 'partial', severity: 'error', color: 'dark red',
+    tags: ['ceramic', 'gemstone', 'glass', 'textile'], kinds: ['env-fungi'],
+    accent: true, unless: isRoof, also: ['roofs'] }),
+  bandOnlyFor({ id: 'C7', coverage: 'partial', severity: 'error', color: 'dark green',
+    tags: ['foliage', 'glass'], accent: true, also: ['textile on char or weapon models'],
     unless: (m) => has(m, 'textile') && (m.kind === 'char' || usedFor(m, 'weapon')) }),
-  bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).',
+  bandOnlyFor({ id: 'C8', coverage: 'full', severity: 'error', color: 'light green',
     // foliage is the green matter itself, so a weed accent on a floor tile carries it
-    severity: 'error', color: 'light green', tags: ['foliage'], kinds: ['env-flora', 'env-fungi'] }),
+    tags: ['foliage'], kinds: ['env-flora', 'env-fungi'] }),
 
-  bandOnlyFor({ id: 'C9-light', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
-    severity: 'error', color: 'light brown', tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C9-middle', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
-    severity: 'error', color: 'mid brown', tags: WOOD_TAGS, kinds: ['obj-food-grain', 'env-fungi'] }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
-    severity: 'error', color: 'dark brown', tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
-    severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),
+  bandOnlyFor({ id: 'C9-light', coverage: 'full', severity: 'error', color: 'light brown',
+    tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain'] }),
+  bandOnlyFor({ id: 'C9-middle', coverage: 'full', severity: 'error', color: 'mid brown',
+    tags: WOOD_TAGS, kinds: ['obj-food-grain', 'env-fungi'] }),
+  bandOnlyFor({ id: 'C9-dark', coverage: 'full', severity: 'error', color: 'dark brown',
+    tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
+  bandOnlyFor({ id: 'C10', coverage: 'full', severity: 'error', color: 'bark',
+    tags: ['wood-bark', 'leather', 'skin'], unless: isLog, also: ['logs (`wood-log` or env-flora-deadwood)'] }),
 
-  { id: 'C11', text: 'Transparent: glass only.', severity: 'error',
+  { id: 'C11', coverage: 'full', severity: 'error',
+    subjects: { bands: [], tags: ['glass'], kinds: [] },
+    tests: 'models using the clear glass colour carry `glass`',
     check: (m) => (uses(m, CLEAR) && !has(m, 'glass')) ? 'uses the clear glass but carries no glass' : null },
 
-  bandOnlyFor({ id: 'C12', text: 'Taupe 14,3: soil, rock (M9), masonry (M8), textile (M18), rope, cork, skin, dried vegetation (M44) and grips (M19).',
-    severity: 'warning', color: 'taupe',
+  bandOnlyFor({ id: 'C12', coverage: 'partial', severity: 'warning', color: 'taupe',
     tags: ['stone', 'stone-soil', 'stone-rock', 'stone-masonry', 'textile', 'rope', 'cork', 'skin', 'vegetation'],
     accent: true }),
-  bandOnlyFor({ id: 'C13', text: 'Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).',
-    severity: 'warning', color: 'off-white',
+  bandOnlyFor({ id: 'C13', coverage: 'partial', severity: 'warning', color: 'off-white',
     tags: ['bone', 'paper', 'wax', 'ceramic', 'textile', 'vegetation'], kinds: ['env-remains-bones'], accent: true }),
-  bandOnlyFor({ id: 'C14', text: 'Terracotta 5,0: copper (M14), ceramics (M25), carrot and pumpkin (M84) and blooms (M44).',
-    severity: 'warning', color: 'terracotta',
+  bandOnlyFor({ id: 'C14', coverage: 'partial', severity: 'warning', color: 'terracotta',
     tags: ['metal-copper', 'ceramic', 'vegetation'], accent: true }),
 
-  { id: 'N1', text: 'A model has at least one material.', severity: 'error', noJoker: true,
+  { id: 'N1', coverage: 'full', severity: 'error', noJoker: true,
+    subjects: { bands: [], tags: [], kinds: STANDS_IN_FOR_MATERIAL },
+    tests: `models carry a material tag, unless of kind ${STANDS_IN_FOR_MATERIAL.join(', ')}`,
     check: (m) => {
       if (materials(m).length) return null;
       if (kindIs(m, ...STANDS_IN_FOR_MATERIAL)) return null;
       return `has no material tag (kind ${m.kind})`;
     } },
 
-  { id: 'N2', text: 'A model uses at least as many bands as it has materials. Every material tag counts, subtypes included.',
-    severity: 'error', noJoker: true,
+  { id: 'N2', coverage: 'full', severity: 'error', noJoker: true,
+    subjects: { bands: [], tags: [], kinds: [] },
+    tests: 'a model uses at least as many bands as it carries material tags, `special` not counted',
     check: (m) => {
       const mats = counting(m);
       if (!mats.length || m.colors.length >= mats.length) return null;
       return `${m.colors.length} band(s) for ${mats.length} (${mats.join(', ')})`;
     } },
 
-  { id: 'N3', text: 'A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.',
-    severity: 'error', noJoker: true,
+  { id: 'N3', coverage: 'full', severity: 'error', noJoker: true,
+    subjects: { bands: [], tags: ['food', 'vegetation', 'decorated'], kinds: ['obj-food', 'env-fauna'] },
+    tests: 'bands per material tag stay within 2, or 3 for food, fauna and vegetation, or 5 for decorated food',
     check: (m) => {
       const n = counting(m).length;
       // S5: N3 leaves the joker's band out of its count, and the reason on the tag
@@ -451,8 +481,9 @@ const RULES = [
       return `${used} bands for ${n} material(s) (${counting(m).join(', ')}), ceiling ${per * n}`;
     } },
 
-  { id: 'N4', text: 'Ceiling: 6 bands for a human character or a decorated food, 5 for anything else. A skeleton takes the 5; an assembly answers per part.',
-    severity: 'error',
+  { id: 'N4', coverage: 'full', severity: 'error',
+    subjects: { bands: [], tags: ['decorated'], kinds: ['char', 'obj-food'] },
+    tests: 'a model uses at most 5 bands, or 6 for a non-skeleton char, a decorated food, or a size-l model with five material tags (N5)',
     check: (m) => {
       const bands = m.colors.length;
       // N5 lifts the ceiling to 6 for a size-l model carrying five material tags
@@ -461,34 +492,79 @@ const RULES = [
       if (bands <= ceiling) return null;
       return `${bands} bands, ceiling ${ceiling} (kind ${m.kind})`;
     } },
+  follows('N5', 'N4'),
 ];
 
-const BLOCK_ORDER = ['G', 'S', 'M', 'C', 'N', 'W'];
+// a check's guide rule: the id up to the first `-`
+export const guideIdOf = (id) => id.split('-')[0];
+
+for (const c of CHECKS) {
+  c.guide = guideIdOf(c.id);
+  const rule = RULE_TEXT.get(c.guide);
+  if (!rule) throw new Error(`check ${c.id} has no rule ${c.guide} in the style guide`);
+  c.text = rule.plain;
+}
+const RULES = CHECKS.filter((c) => c.check);
+
+const BLOCK_ORDER = ['L', 'P', 'G', 'R', 'X', 'O', 'V', 'T', 'K', 'U', 'F', 'S', 'M', 'C', 'N', 'D'];
 const rank = (id) => {
   const [, block, number, rest] = id.match(/^([A-Z])(\d+)(.*)$/);
   return [BLOCK_ORDER.indexOf(block), Number(number), rest];
 };
-RULES.sort((a, b) => {
+const byRank = (a, b) => {
   const [ba, na, ra] = rank(a.id);
   const [bb, nb, rb] = rank(b.id);
   return ba - bb || na - nb || ra.localeCompare(rb);
-});
+};
+CHECKS.sort(byRank);
+RULES.sort(byRank);
 
 const args = process.argv.slice(2);
-let kitFilter = null, ruleFilter = null, severityFilter = null, jsonPath = null;
-let limit = 5, listRules = false;
+let kitFilter = null, ruleFilter = null, severityFilter = null, modelFilter = null, jsonPath = null, explainId = null;
+let limit = 5, listRules = false, index = null;
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--kit') kitFilter = args[++i];
   else if (args[i] === '--rule') ruleFilter = args[++i];
   else if (args[i] === '--severity') severityFilter = args[++i];
+  else if (args[i] === '--model') modelFilter = args[++i];
   else if (args[i] === '--limit') limit = Number(args[++i]);
   else if (args[i] === '--json') jsonPath = args[++i];
   else if (args[i] === '--rules') listRules = true;
+  else if (args[i] === '--explain') explainId = args[++i];
+  else if (args[i] === '--index') index = args[i + 1] && !args[i + 1].startsWith('--') ? args[++i] : true;
   else throw new Error(`unknown argument: ${args[i]}`);
 }
 
+// `--rule M42` takes M42 and M42-planks; `--rule M` takes the whole block.
+const ruleMatches = (id) => !ruleFilter || id === ruleFilter || id.startsWith(`${ruleFilter}-`)
+  || (/^[A-Z]$/.test(ruleFilter) && id.startsWith(ruleFilter));
+
+const status = (id) => {
+  const rule = RULE_TEXT.get(id);
+  return rule ? `${rule.code} ${rule.light}` : '?? ⚪';
+};
+
 if (listRules) {
-  for (const r of RULES) console.log(`${r.id.padEnd(10)} ${r.severity.padEnd(6)} ${r.text}`);
+  for (const r of CHECKS) {
+    console.log(`${r.id.padEnd(11)} ${status(r.guide)} ${r.severity?.padEnd(7) ?? 'follows'} ${r.coverage.padEnd(7)} ${r.text}`);
+  }
+  process.exit(0);
+}
+
+if (explainId) {
+  const rule = RULE_TEXT.get(guideIdOf(explainId));
+  if (!rule) { console.error(`no rule ${explainId} in the style guide`); process.exit(2); }
+  console.log(`${rule.id}  ${rule.code} ${rule.light}  ${rule.block || rule.section}  (docs/asset_style_guide.md:${rule.line})`);
+  console.log(`  ${rule.plain}`);
+  const refs = referencedIds(rule.plain).filter((id) => RULE_TEXT.has(id));
+  if (refs.length) console.log(`  refers to: ${refs.join(', ')}`);
+  const own = CHECKS.filter((c) => c.guide === rule.id && (c.id === explainId || guideIdOf(explainId) === explainId));
+  if (!own.length) console.log('  not automated: nothing measures it');
+  for (const c of own) {
+    console.log(`  ${c.id}: ${c.follows ? `follows ${c.follows}` : `${c.severity}, ${c.coverage}`} — ${c.tests}`);
+  }
+  const followers = CHECKS.filter((c) => c.follows === rule.id);
+  if (followers.length) console.log(`  judged with it: ${followers.map((c) => c.id).join(', ')}`);
   process.exit(0);
 }
 
@@ -504,6 +580,13 @@ const inCatalog = catalog.models
 
 const models = inCatalog;
 
+if (index) {
+  const out = buildIndex();
+  if (index === true) console.log(out);
+  else { writeFileSync(index, out); console.log(`→ ${index}`); }
+  process.exit(0);
+}
+
 const unknown = new Set();
 for (const m of models) for (const hex of m.colors) if (!bandName[hex]) unknown.add(hex);
 
@@ -517,11 +600,14 @@ for (const m of models) {
   }
 }
 
+const modelMatches = (m) => !modelFilter || `${m.kit}/${m.name}` === modelFilter || m.name === modelFilter;
+
 let findings = [];
 for (const rule of RULES) {
-  if (ruleFilter && rule.id !== ruleFilter) continue;
+  if (!ruleMatches(rule.id)) continue;
   if (severityFilter && rule.severity !== severityFilter) continue;
   for (const m of models) {
+    if (!modelMatches(m)) continue;
     const detail = rule.check(m);
     if (detail) findings.push({ rule: rule.id, severity: rule.severity, model: `${m.kit}/${m.name}`, detail, joker: !rule.noJoker && (m.tags?.includes('special') ?? false) });
   }
@@ -555,7 +641,8 @@ findings = findings.filter((f) => {
 const perRule = new Map();
 for (const f of findings) perRule.set(f.rule, [...(perRule.get(f.rule) ?? []), f]);
 
-console.log(`${models.length} models, ${findings.length} findings\n`);
+const read = modelFilter ? models.filter(modelMatches) : models;
+console.log(`${read.length} models, ${findings.length} findings\n`);
 for (const rule of RULES) {
   const hits = perRule.get(rule.id);
   if (!hits) continue;
@@ -574,7 +661,7 @@ if (jsonPath) {
   // The colormap lives in a PNG only this tool reads, so the band table travels with the
   // findings: the catalogue page has no other way to name a band or offer one to pick.
   writeFileSync(jsonPath, JSON.stringify({
-    rules: RULES.map(({ id, text, severity }) => ({ id, text, severity })),
+    rules: CHECKS.map(({ id, guide, text, severity, coverage, follows: f }) => ({ id, guide, text, severity, coverage, ...(f ? { follows: f } : {}) })),
     accent: { maxSize: MAX_ACCENT_SIZE, busy: BUSY },
     bands: [
       ...Object.entries(BANDS).map(([name, lane]) => ({ name, lane, hex: HEX[name] })),
@@ -586,3 +673,43 @@ if (jsonPath) {
 }
 
 process.exit(errors ? 1 : 0);
+
+// Every rule of the guide by the material tags, bands and kinds it concerns: what a
+// check declares in `subjects`, plus what the rule text names — a tag id, a band name,
+// a kind id, or a glossary noun of Appendix B (K8: every noun resolves to one kind).
+function buildIndex() {
+  const kinds = readKindTree();
+  const nounToKind = new Map();
+  for (const [kind, nouns] of kinds) {
+    for (const raw of nouns.split(',')) {
+      const noun = raw.replace(/\(.*?\)/g, '').trim().toLowerCase();
+      if (noun && !nounToKind.has(noun)) nounToKind.set(noun, kind);
+    }
+  }
+  const byTag = new Map(), byBand = new Map(), byKind = new Map();
+  const add = (map, key, id) => map.set(key, new Set([...(map.get(key) ?? []), id]));
+  const wordIn = (text, word) => new RegExp(`(?<![\\w-])${word.replace(/[-/()]/g, '\\$&')}(?:s|es)?(?![\\w-])`, 'i').test(text);
+  for (const rule of RULE_TEXT.values()) {
+    const text = rule.plain;
+    for (const tag of MATERIAL_TAGS) if (wordIn(text, tag)) add(byTag, tag, rule.id);
+    for (const b of BAND_TABLE.values()) for (const name of [b.name, ...b.aliases]) if (wordIn(text, name)) add(byBand, b.name, rule.id);
+    if (/clear glass|transparent/i.test(text)) add(byBand, 'clear glass', rule.id);
+    for (const kind of kinds.keys()) if (wordIn(text, kind)) add(byKind, kind, rule.id);
+    for (const [noun, kind] of nounToKind) if (noun.length > 2 && wordIn(text, noun)) add(byKind, kind, rule.id);
+  }
+  for (const c of CHECKS) {
+    for (const tag of c.subjects?.tags ?? []) if (MATERIAL_TAGS.includes(tag)) add(byTag, tag, c.guide);
+    for (const b of c.subjects?.bands ?? []) add(byBand, b, c.guide);
+    for (const k of c.subjects?.kinds ?? []) add(byKind, k, c.guide);
+  }
+  const ruleSort = (a, b) => byRank({ id: a }, { id: b });
+  const section = (title, map, order) => [`## ${title}`, '',
+    ...order.filter((k) => map.has(k)).map((k) => `- \`${k}\`: ${[...map.get(k)].sort(ruleSort).join(', ')}`), ''];
+  return [
+    '# Style guide rule index', '',
+    'Regenerated by `node tools/rule-status.mjs` from `catalog-lint.mjs --index`: rules by what they name. Do not edit.', '',
+    ...section('By material tag', byTag, MATERIAL_TAGS),
+    ...section('By band', byBand, [...BAND_NAMES, 'clear glass']),
+    ...section('By kind', byKind, [...kinds.keys()].sort()),
+  ].join('\n');
+}
