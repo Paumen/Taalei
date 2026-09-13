@@ -172,7 +172,7 @@ text alone.
 - **M24.** `FE` 🟢 Glass is transparent, dark green or dark red.
 - **M25.** `FE` 🟢 Ceramics are terracotta, off-white, or dark red.
 - **M26.** `PE` 🟢 Bottles are glass or ceramic.
-- **M27.** `PE` 🔴 The glass bottles exists in red and green.
+- **M27.** `PE` 🟢 Glass bottles are dark red, dark green or clear glass.
 - **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
 - **M29.** `FE` 🟢 Bones and skulls are off-white.
 - **M30.** `FE` 🟢 Paper is off-white.
@@ -265,10 +265,6 @@ text alone.
   anything else.** A skeleton takes the 5; an assembly answers per part.
 - **N5.** `FE` 🟢 A model of size `l` may take a sixth band where it carries at least five material tags.
 - **N6.** `--` ⚪ An import with 2 colours keeps 2; 3–4 may drop 1; 5 may drop 2; more keep at least 3. N4 still caps.
-
-### W. 
-
-- **W2.** `FW` 🔴 No band touches either end of its cell: UVs stay within 0.05–0.95, light end to dark end.
 
 ### D. Dimensions and detail
 
