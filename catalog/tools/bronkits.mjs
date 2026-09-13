@@ -58,4 +58,16 @@ export const BRONKITS = [
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', formaat: 'glb' },
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', formaat: 'glb' },
+
+  // glb, not the fbx zip that ships beside it: the fbx puts each model in its own folder,
+  // which the one-folder rule reads as a three-model pack. The glb names carry the export's
+  // hash suffixes, the fbx names do not — rename on import.
+  { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: null, formaat: 'glb' },
+  // one fbx export, sorted into four folders by theme — every folder holds its own models
+  { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: null, formaat: 'glb' },
+
+  // three packs in one download, each a single glb holding all its models
+  { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
+  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: null, formaat: 'fbx' },
 ];

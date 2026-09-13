@@ -1,7 +1,7 @@
 //   node catalog/tools/build-missing.mjs
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
-import { join, dirname, resolve, basename, extname } from 'node:path';
+import { join, dirname, resolve, relative, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
@@ -41,7 +41,10 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-function vindModelmap(dir, formaat) {
+// One folder, the fullest: a pack ships its models once per export format, and the other
+// formats' folders are the same models again. `alleMappen` is for the pack that instead
+// sorts one format's models into folders by theme — there every folder is its own models.
+function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
     if (extname(pad).toLowerCase() !== `.${formaat}`) continue;
@@ -49,9 +52,18 @@ function vindModelmap(dir, formaat) {
     perMap.set(map, (perMap.get(map) ?? 0) + 1);
   }
   if (perMap.size === 0) return null;
-  return [...perMap].sort(
+  const gesorteerd = [...perMap].sort(
     (a, b) => b[1] - a[1] || a[0].split('/').length - b[0].split('/').length || a[0].localeCompare(b[0]),
-  )[0][0];
+  );
+  return alleMappen ? gesorteerd.map(([map]) => map).sort() : [gesorteerd[0][0]];
+}
+
+function gemeenschappelijkeMap(mappen) {
+  const delen = mappen.map((map) => map.split('/'));
+  const eerste = delen[0];
+  let n = 0;
+  while (n < eerste.length && delen.every((d) => d[n] === eerste[n])) n++;
+  return eerste.slice(0, n).join('/');
 }
 
 function pakBronUit(bronkit) {
@@ -84,30 +96,37 @@ function leesBron(pad, formaat) {
 }
 
 function bronFormaatModellen(bronkit, uitgepakt, formaat) {
-  const map = vindModelmap(uitgepakt, formaat);
-  if (!map) return null;
+  const mappen = vindModelmappen(uitgepakt, formaat, bronkit.alleMappen);
+  if (!mappen) return null;
 
-  const bestanden = readdirSync(map)
-    .filter((n) => extname(n).toLowerCase() === `.${formaat}`)
-    .sort();
+  const wortel = gemeenschappelijkeMap(mappen);
 
   const modellen = [];
-  for (const bestand of bestanden) {
-    const primitieven = leesBron(join(map, bestand), formaat);
-    if (primitieven.length === 0) continue;
+  for (const map of mappen) {
+    const bestanden = readdirSync(map)
+      .filter((n) => extname(n).toLowerCase() === `.${formaat}`)
+      .sort();
 
-    if (bronkit.splitsPerMesh) {
-      for (const primitief of primitieven) {
-        const naam = grofsteWeg(primitief.naam);
-        if (naam) modellen.push({ naam, bestand, primitieven: [primitief] });
+    for (const naamBestand of bestanden) {
+      // relative to the folder the pack reports, so a model of a second folder still
+      // names a file that can be found back from it
+      const bestand = relative(wortel, join(map, naamBestand));
+      const primitieven = leesBron(join(map, naamBestand), formaat);
+      if (primitieven.length === 0) continue;
+
+      if (bronkit.splitsPerMesh) {
+        for (const primitief of primitieven) {
+          const naam = grofsteWeg(primitief.naam);
+          if (naam) modellen.push({ naam, bestand, primitieven: [primitief] });
+        }
+        continue;
       }
-      continue;
-    }
 
-    const naam = grofsteWeg(basename(bestand, extname(bestand)).replace(/\.gltf$/i, ''));
-    if (!naam) continue;
-    const fijnste = primitieven.filter((p) => grofsteWeg(p.naam) !== null);
-    modellen.push({ naam, bestand, primitieven: fijnste.length ? fijnste : primitieven });
+      const naam = grofsteWeg(basename(naamBestand, extname(naamBestand)).replace(/\.gltf$/i, ''));
+      if (!naam) continue;
+      const fijnste = primitieven.filter((p) => grofsteWeg(p.naam) !== null);
+      modellen.push({ naam, bestand, primitieven: fijnste.length ? fijnste : primitieven });
+    }
   }
 
   const gezien = new Map();
@@ -117,7 +136,7 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
     if (n > 1) model.naam = `${model.naam}-${n}`;
   }
 
-  return { map, modellen };
+  return { map: wortel, modellen };
 }
 
 // A pack may ship the same models in more than one format. The primary format decides
@@ -495,7 +514,8 @@ for (const bronkit of BRONKITS) {
     missing: ontbreekt.length,
     unmatched: onherkend,
     scale: kit.schaal,
-    folder: map.slice(uitgepakt.length + 1),
+    // empty where the pack's folders share no parent below the zip's root
+    folder: map.slice(uitgepakt.length + 1) || null,
   });
 
   console.log(
