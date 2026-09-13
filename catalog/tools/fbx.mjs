@@ -1,7 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { inflateSync } from 'node:zlib';
 
 const MAGIC = 'Kaydara FBX Binary  ';
+const AFBEELDING = /\.(png|jpe?g)$/i;
 
 function readProperty(buf, pos) {
   const type = String.fromCharCode(buf[pos]);
@@ -161,6 +163,26 @@ function layerLookup(layer, valuesName, indexName, width) {
   };
 }
 
+// An fbx may carry its texture inside itself, as the bytes of a Video record, and then
+// ship no image file at all — Charming Kitchen Set and Architecture Pack both do, and
+// preview colourless without this. Write those bytes out beside the model, so the name
+// the material asks for resolves against a file like any other texture: every reader of
+// this shape looks a texture up among the pack's images, never inside the fbx.
+function pakMediaUit(video, dir) {
+  const inhoud = child(video, 'Content')?.props[0];
+  if (!inhoud?.length) return null;
+
+  const gevraagd = child(video, 'RelativeFilename')?.props[0]
+    ?? child(video, 'FileName')?.props[0]
+    ?? String(video.props[1] ?? '').split('\0')[0];
+  const naam = String(gevraagd).replace(/\\+/g, '/').split('/').pop();
+  if (!naam || !AFBEELDING.test(naam)) return null;
+
+  const pad = join(dir, naam);
+  if (!existsSync(pad)) writeFileSync(pad, Buffer.from(inhoud));
+  return naam;
+}
+
 const naarSrgb = (lineair) => {
   const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
   return Math.round(Math.min(Math.max(v, 0), 1) * 255);
@@ -202,11 +224,17 @@ export function leesFbx(pad) {
   const hangtOnder = (id, soort) =>
     (kinderen.get(id) ?? []).map((k) => perId.get(k)).filter((r) => r?.name === soort);
 
+  const naast = dirname(pad);
+
   const beschrijf = (materiaal) => {
     for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
+      const geschreven = hangtOnder(textuur.props[0], 'Video')
+        .map((video) => pakMediaUit(video, naast))
+        .find(Boolean);
       const bestand = child(textuur, 'RelativeFilename')?.props[0]
         ?? child(textuur, 'FileName')?.props[0];
-      if (bestand) return String(bestand).replace(/\\+/g, '/').split('/').pop();
+      const naam = bestand ? String(bestand).replace(/\\+/g, '/').split('/').pop() : null;
+      if (naam || geschreven) return naam ?? geschreven;
     }
     const kleur = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
     return kleur ? { kleur: kleur.slice(0, 3).map(naarSrgb) } : null;
