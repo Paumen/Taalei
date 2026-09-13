@@ -73,7 +73,7 @@ const MATERIAL_TAGS = ['wood', 'wood-planks', 'wood-worked', 'wood-beam', 'wood-
   'metal-gold', 'metal-silver', 'metal-copper',
   'stone', 'stone-masonry', 'stone-rock', 'stone-soil',
   'paper', 'textile', 'leather', 'ceramic', 'bone', 'food', 'wax', 'wick', 'glass', 'rope', 'cork',
-  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'plastic', 'vegetation', 'skin'];
+  'gemstone', 'foliage', 'liquid', 'emissive', 'special', 'vegetation', 'skin'];
 
 const WOOD_TAGS = MATERIAL_TAGS.filter((t) => t === 'wood' || t.startsWith('wood-'));
 
@@ -186,7 +186,7 @@ const reasonBand = (model) => {
 };
 
 // W2 counts in UV position down the cell, the unit `spread` is stored in, not in L.
-const MAX_SPREAD = 0.9;
+const BAND_WINDOW = [0.05, 0.95];
 
 const LANE_NAME = Object.fromEntries(Object.entries(BANDS).map(([name, lane]) => [lane, name]));
 const POSITION_STEP = 0.01; // UV positions are quantised to the atlas pixel row (1/128) and stored at 3 decimals
@@ -265,10 +265,9 @@ const RULES = [
         'metal-gold', 'metal-silver'].filter((t) => has(m, t));
       return other.length ? `carries metal-copper alongside ${other.join(', ')}` : null;
     } },
-  materialTakes({ id: 'M15', text: 'Keys take the colour of any metal subtype.', severity: 'error',
-    tag: 'key', colors: ['light grey', 'dark grey', 'blue-grey', 'yellow', 'light blue-grey', 'terracotta'],
-    when: isKey }),
-  materialTakes({ id: 'M17', text: 'The bands on container group: barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.',
+  materialTakes({ id: 'M15', text: 'Keys are metal-iron-wrought, dark grey 13,3, or metal-gold 6,0.', severity: 'error',
+    tag: 'key', colors: ['dark grey', 'yellow'], when: isKey }),
+  materialTakes({ id: 'M17', text: 'The hoops on barrels, chests, buckets, kegs, crates and boxes are metal-iron-wrought, dark grey 13,3.',
     severity: 'error', tag: 'metal-iron-wrought', colors: ['dark grey'],
     when: (m) => isContainer(m) && has(m, 'metal-iron-wrought') }),
   materialTakes({ id: 'M18', text: 'Textile is off-white, taupe 14,3, dark green 1,1 or dark red 8,0.',
@@ -276,7 +275,7 @@ const RULES = [
     colors: ['off-white', 'taupe', 'dark green', 'dark red'],
     unless: (m) => isRigged(m) && uses(m, band('blue-grey')) }),
 
-  { id: 'M18b', text: 'The flags and sails of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.',
+  { id: 'M18b', text: 'The flags and banners of a rigged ship are off-white, dark green 1,1, dark red 8,0 or blue-grey 6,1 — never taupe 14,3.',
     severity: 'error',
     // Bands are counted per model, so a ship that carries rope has taupe explained
     // by M22 and is left alone; the rule bites on a rigged model with no rope on it.
@@ -308,12 +307,9 @@ const RULES = [
     tag: 'bone', colors: ['off-white'], when: (m) => has(m, 'bone') || m.kind === 'env-remains-bones' }),
   materialTakes({ id: 'M30', text: 'Paper is off-white.', severity: 'error',
     tag: 'paper', colors: ['off-white'] }),
-  materialTakes({ id: 'M31', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.', severity: 'error',
-    tag: 'meat', colors: ['terracotta'], when: (m) => m.kind === 'obj-food-meat' }),
-  halfOf({ id: 'M31-half', text: 'Meat is terracotta 5,0, dark half 0.55-1.00.',
-    severity: 'warning', lane: 'terracotta', low: 0.55, high: 1.00,
-    when: (m) => m.kind === 'obj-food-meat' && uses(m, band('terracotta')) }),
-  materialTakes({ id: 'M33', text: 'Flames and glow are yellow 6,0.', severity: 'error',
+  materialTakes({ id: 'M31', text: 'Meat is dark red 8,0.', severity: 'error',
+    tag: 'meat', colors: ['dark red'], when: (m) => m.kind === 'obj-food-meat' }),
+  materialTakes({ id: 'M33', text: 'Flames, glow and lights are yellow 6,0, spread wide across the band.', severity: 'error',
     tag: 'emissive', colors: ['yellow'] }),
   materialTakes({ id: 'M34', text: 'Candle wax are off-white 5,2.', severity: 'error',
     tag: 'wax', colors: ['off-white'] }),
@@ -335,14 +331,11 @@ const RULES = [
     severity: 'error',
     check: (m) => (isContainer(m) && !has(m, ...WOOD_TAGS))
       ? `is a container but carries ${materials(m).length ? materials(m).join(', ') : 'no material'}` : null },
-  materialTakes({ id: 'M41', text: 'Plastic is dark red 8,0 or yellow/gold 6,0.', severity: 'error',
-    tag: 'plastic', colors: ['dark red', 'yellow'] }),
-
   materialTakes({ id: 'M43', text: 'Skin is light brown 0,0, taupe 14,3 or bark 3,0.', severity: 'error',
     tag: 'skin', colors: ['light brown', 'taupe', 'bark'] }),
 
-  materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), stems off-white 5,2, blooms any colour.', severity: 'error',
-    tag: 'vegetation', colors: ['taupe', 'light brown', 'off-white', 'terracotta', 'dark red', 'yellow', 'blue', 'blue-grey', 'light blue-grey'] }),
+  materialTakes({ id: 'M44', text: 'Vegetation is a plant\'s non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.', severity: 'error',
+    tag: 'vegetation', colors: ['taupe', 'light brown', 'off-white', 'terracotta', 'dark red', 'yellow', 'blue', 'blue-grey', 'light blue-grey', 'mid brown'] }),
 
   materialTakes({ id: 'M42-planks', text: 'Wood subtypes take their band: wood-planks 0,0, wood-worked 1,0, wood-beam 2,0. wood-log and wood-bark follow M6.', severity: 'error',
     tag: 'wood-planks', colors: ['light brown'] }),
@@ -386,36 +379,36 @@ const RULES = [
   ironIs({ id: 'M68', text: 'char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.',
     severity: 'warning', want: ['steel'], kinds: ['char'] }),
 
-  bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal-iron-steel, stone and rock only.',
+  bandOnlyFor({ id: 'C1', text: 'Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.',
     severity: 'error', color: 'light grey',
     tags: ['metal', 'metal-iron-steel', 'stone', 'stone-masonry', 'stone-rock'], unless: isKey }),
-  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), and the flags and sails of a rigged ship (M18).',
+  bandOnlyFor({ id: 'C2', text: 'Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (18b), scroll text (M86), fish (M83).',
     severity: 'error', color: 'blue-grey', tags: ['metal', 'metal-iron-cast', 'stone', 'stone-masonry'],
     unless: (m) => isBook(m) || isRigged(m) }),
-  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought (M12) and wicks (M35).',
+  bandOnlyFor({ id: 'C15', text: 'Dark grey 13,3: metal-iron-wrought (M12), wicks (M35) and fish (M83).',
     severity: 'warning', color: 'dark grey', tags: ['metal', 'metal-iron-wrought', 'wick'], unless: isKey }),
   bandOnlyFor({ id: 'C3', text: 'Light blue-grey 3,2: silver (M13).',
     severity: 'error', color: 'light blue-grey', tags: ['metal', 'metal-silver'], unless: isKey }),
-  bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents only.',
+  bandOnlyFor({ id: 'C4', text: 'Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).',
     severity: 'error', color: 'blue', tags: [], accent: true }),
-  bandOnlyFor({ id: 'C5', text: 'Yellow: metal-gold, emissive, fire and plastic (M41).',
-    severity: 'error', color: 'yellow', tags: ['metal', 'metal-gold', 'emissive', 'plastic'],
+  bandOnlyFor({ id: 'C5', text: 'Yellow: metal-gold, emissive, fire and cheese (M83).',
+    severity: 'error', color: 'yellow', tags: ['metal', 'metal-gold', 'emissive'],
     kinds: ['obj-lighting', 'obj-pocketitem-coin'], unless: isKey }),
-  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, plastic (M41), textile (M18), gemstones (M36), minor accents.',
-    severity: 'error', color: 'dark red', tags: ['ceramic', 'gemstone', 'glass', 'plastic', 'textile'],
+  bandOnlyFor({ id: 'C6', text: 'Dark red: ceramics, glass, roofs, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.',
+    severity: 'error', color: 'dark red', tags: ['ceramic', 'gemstone', 'glass', 'textile'], kinds: ['env-fungi'],
     accent: true, unless: isRoof }),
   bandOnlyFor({ id: 'C7', text: 'Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.',
     severity: 'error', color: 'dark green', tags: ['foliage', 'glass'], accent: true,
     unless: (m) => has(m, 'textile') && (m.kind === 'char' || usedFor(m, 'weapon')) }),
-  bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, including grass and weed accents growing on objects and structures.',
+  bandOnlyFor({ id: 'C8', text: 'Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).',
     // foliage is the green matter itself, so a weed accent on a floor tile carries it
     severity: 'error', color: 'light green', tags: ['foliage'], kinds: ['env-flora', 'env-fungi'] }),
 
-  bandOnlyFor({ id: 'C9-light', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
+  bandOnlyFor({ id: 'C9-light', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
     severity: 'error', color: 'light brown', tags: [...WOOD_TAGS, 'skin', 'vegetation'], kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C9-middle', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
-    severity: 'error', color: 'mid brown', tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
-  bandOnlyFor({ id: 'C9-dark', text: 'Browns 0,0 1,0 2,0: wood and grain food (M51); light brown 0,0 also skin (M43) and grain straw (M44).',
+  bandOnlyFor({ id: 'C9-middle', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
+    severity: 'error', color: 'mid brown', tags: WOOD_TAGS, kinds: ['obj-food-grain', 'env-fungi'] }),
+  bandOnlyFor({ id: 'C9-dark', text: 'Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).',
     severity: 'error', color: 'dark brown', tags: WOOD_TAGS, kinds: ['obj-food-grain'] }),
   bandOnlyFor({ id: 'C10', text: 'Darkest brown: wood-bark, leather, skin, and a log or trunk.',
     severity: 'error', color: 'bark', tags: ['wood-bark', 'leather', 'skin'], unless: isLog }),
@@ -430,9 +423,9 @@ const RULES = [
   bandOnlyFor({ id: 'C13', text: 'Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).',
     severity: 'warning', color: 'off-white',
     tags: ['bone', 'paper', 'wax', 'ceramic', 'textile', 'vegetation'], kinds: ['env-remains-bones'], accent: true }),
-  bandOnlyFor({ id: 'C14', text: 'Terracotta 5,0: copper (M14), ceramics (M25), meat (M31) and blooms and caps (M44).',
+  bandOnlyFor({ id: 'C14', text: 'Terracotta 5,0: copper (M14), ceramics (M25), carrot and pumpkin (M84) and blooms (M44).',
     severity: 'warning', color: 'terracotta',
-    tags: ['metal-copper', 'ceramic', 'vegetation'], kinds: ['obj-food-meat'], accent: true }),
+    tags: ['metal-copper', 'ceramic', 'vegetation'], accent: true }),
 
   { id: 'N1', text: 'A model has at least one material.', severity: 'error', noJoker: true,
     check: (m) => {
@@ -473,12 +466,12 @@ const RULES = [
       return `${bands} bands, ceiling ${ceiling} (kind ${m.kind})`;
     } },
 
-  { id: 'W2', text: 'No band spreads over more than 0.90 of its cell, light end to dark end.', severity: 'warning', noJoker: true,
+  { id: 'W2', text: 'No band touches either end of its cell: UVs stay within 0.05–0.95, light end to dark end.', severity: 'warning', noJoker: true,
     check: (m) => {
       if (!m.spread) return null;
       const wide = [];
       for (const [lane, [lo, hi]] of Object.entries(m.spread)) {
-        if (hi - lo > MAX_SPREAD) wide.push(`${LANE_NAME[lane] ?? 'band'} ${lane} ${(hi - lo).toFixed(3)}`);
+        if (lo < BAND_WINDOW[0] - POSITION_STEP || hi > BAND_WINDOW[1] + POSITION_STEP) wide.push(`${LANE_NAME[lane] ?? 'band'} ${lane} ${lo.toFixed(3)}-${hi.toFixed(3)}`);
       }
       return wide.length ? wide.join(', ') : null;
     } },
