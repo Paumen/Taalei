@@ -64,3 +64,35 @@
 	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
 	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
 	geen driehoek bijgekomen, afgegaan of verplaatst.
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs zijn snowman, snowman-hat en tree
+	toegevoegd; namen onaangeroerd, schaal 0,65 uit de kit: de boom komt op
+	1,25 hoog uit, naast fantasy-town-kit/tree (1,7); de sneeuwpop op 0,89
+	met hoed.
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprongen: het groen van de boom (14,4, op lichtgroen 3,1; nu
+	donkergroen 1,1, M1, met de stam op bast 3,0) en de sneeuw (11,9, van
+	0,3 naar gebroken wit 5,2). De takarmen (5,0) staan op bast 3,0; de
+	wortelneus bleef op terracotta 5,0. De hoed (13,3) en de sjaal (3,2)
+	zijn textiel op donkerrood 8,0 (M18), de hoed in het donkere eind. De
+	ogen en knopen van steenkool bleven op donkergrijs 13,3 en de sneeuw op
+	5,2: appendix A kent geen materiaal voor sneeuw of steenkool.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
