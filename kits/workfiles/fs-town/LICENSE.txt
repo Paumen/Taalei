@@ -112,3 +112,35 @@
 	Met de nieuwe cellen staan alle families er weer bij zoals de pack ze
 	bedoeld heeft. De onderbouwing per familie staat in
 	tools/importeer-village.mjs.
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is Prop_Broom → broom toegevoegd;
+	de `Prop_`-voorvoegsels van de pack vallen weg, als bij lamp-street en
+	well-a. Schaal 0,48 met de wrapper van ×1,1, teruggelezen uit de kit:
+	de bezem meet 0,066 × 0,084 × 0,420, naast small-props/broom-a (0,041 ×
+	0,107 × 0,692).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De sprong is 2,5 (van #f1e5c0 naar gebroken wit 5,2). De hele bezem
+	kwam op die ene baan. De steel staat nu op donkerbruin 2,0 (wood-beam,
+	M77) en de kop op taupe 14,3 (droge plantstof, M44), de combinatie van
+	small-props/broom-a. De steel is met `--range y,0.239,1.0` van de kop
+	gescheiden; de grens liep tussen driehoeken door, dus er is geen
+	hoekpunt bijgekomen.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
