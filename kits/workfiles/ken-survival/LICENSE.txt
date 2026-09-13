@@ -26,3 +26,41 @@
 	• Twitter:   twitter.com/KenneyNL
 	• Instagram: instagram.com/kenney_nl
 	• Mastodon:  mastodon.gamedev.place/@kenney
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs zijn 5 modellen toegevoegd: chest,
+	box-large-open, bedroll-packed, bedroll-frame en bedroll. De namen van
+	de pack zijn kebab-case en onaangeroerd. De schaal (1,04) is uit de
+	.glb-extras van de kit teruggelezen: chest komt op 0,27 × 0,27 × 0,28
+	uit, naast mini-dungeon/chest (0,35 × 0,35 × 0,32).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprongen: de bedrollen (6,8, van 7,2 naar terracotta 5,0) en
+	de open kist (6, van 7,3 naar gebroken wit 5,2). Kenney's hout kwam op
+	terracotta 5,0 en staat nu op middenbruin 1,0 (kist, open doos) en
+	donkerbruin 2,0 (het frame, wood-beam als survival-kit/tent). Het
+	beslag van de kist (3,2) is smeedijzer 13,3 (M17). De bedrollen zijn
+	textiel: het dek donkerrood 8,0, de mat gebroken wit 5,2 (M18). Op de
+	open doos zijn de lichte vlakken papieren labels (5,2, M30) en staat de
+	donkere binnenkant (6,1) in het donkere eind van de houtbaan 1,0.
+
+	De binnenkant van het deksel van box-large-open is in de pack zelf een
+	omgekeerd vlak, net als het doek van tent-canvas dat er al stond;
+	dat is niet aangepast.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

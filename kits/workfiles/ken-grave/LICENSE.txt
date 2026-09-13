@@ -1,0 +1,77 @@
+	
+
+	Graveyard Kit (5.0)
+
+	Created/distributed by Kenney (www.kenney.nl)
+	Creation date: 17-10-2025 11:00
+	
+			------------------------------
+
+	License: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You can use this content for personal, educational, and commercial purposes.
+
+	Support by crediting 'Kenney' or 'www.kenney.nl' (this is not a requirement)
+
+			------------------------------
+
+	• Website : www.kenney.nl
+	• Donate  : www.kenney.nl/donate
+
+	• Patreon : patreon.com/kenney
+	
+	Follow on social media for updates:
+
+	• Twitter:	 twitter.com/KenneyNL
+	• BlueSky:	 kenney.bsky.social
+	• Instagram: instagram.com/kenney_nl
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De kit stond al in de catalogus (35 modellen, met de hand gevuld) toen
+	dit bestand werd geschreven; dit beschrijft de 18 modellen die er met
+	tools/importeer/aanvullen.mjs bij zijn gekomen: detail-plate,
+	detail-chalice, detail-bowl, grave, grave-border, iron-fence,
+	iron-fence-bar, iron-fence-border, iron-fence-damaged, iron-fence-curve,
+	iron-fence-border-gate, iron-fence-border-curve,
+	iron-fence-border-column, lightpost-single, stone-wall,
+	stone-wall-column, stone-wall-curve en stone-wall-damaged. De namen van
+	de pack zijn kebab-case en zijn onaangeroerd overgenomen.
+
+	Schaal
+
+	Op 0,65, de factor die de kit al had en die aanvullen.mjs uit de
+	.glb-extras terugleest — dezelfde factor als elke Kenney-kit in deze
+	catalogus. Een hekdeel (iron-fence, stone-wall) is in de pack 1 breed
+	en komt daarmee op 0,65 uit, precies fantasy-town-kit/wall-wood (0,650)
+	en fantasy-town-kit/fence (0,650 lang).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De verste sprong is het donkere ijzer van de hekken en de lantaarnpaal
+	(14,4): dat zocht de importeur op lichtgroen 3,1 en zilvergrijs 3,2.
+	Het zwarte ijzer zit nu op donkergrijs 13,3 (smeedijzer, M12) en de
+	stenen voet, de zuilen en de sokkel van de lantaarnpaal op lichtgrijs
+	15,3 (metselwerk, M8), net als pillar-small. De muren (5,2) kwamen op
+	15,3 en 3,2; die 3,2 is blauwgrijs 6,1 geworden, de combinatie van
+	crypt. Het schaaltje, de kelk en de kom (2,5, op lichtbruin 0,0) zijn
+	gebroken wit 5,2 (keramiek, M25) en voor de kelk lichtgrijs 15,3 (staal,
+	M62). Het graf en de grafrand (4,7, op terracotta 5,0): de aardhoop
+	taupe 14,3 (M10), de stenen lichtgrijs 15,3 (M9). De vlam van de
+	lantaarnpaal was al geel 6,0 en is gebleven.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

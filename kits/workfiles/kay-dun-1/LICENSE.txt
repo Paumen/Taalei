@@ -145,3 +145,29 @@
 	1,0 (wood-worked). Dat is precies wat `--upright` in
 	colormap-recolor.mjs selecteert: de samenhangende stukken die hoger
 	zijn dan ze breed of diep zijn.
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling 1.0)
+
+	Met tools/importeer/aanvullen.mjs zijn uit de 1.0 bookcaseWideFilled_broken
+	→ bookcase-wide-filled-broken en torch → torch toegevoegd. Schaal 0,175
+	met de wrapper van ×1,44, teruggelezen uit de kit.
+
+	De 1.0 heeft vlakke materialen, en de importeur kiest een baan op
+	chroma (zie hierboven): de rode kast (#484471 op 3,2, sprong 18,3;
+	Metal #aab8be op 15,3, 11,3). Daarna verplaatst met
+	tools/colormap-recolor.mjs: de kast naar middenbruin 1,0 en de grijze en
+	donkere boekruggen naar blauwgrijs 6,1 (M37), de kruik naar gebroken
+	wit 5,2 — dezelfde vier banen als bookcase-wide-filled. De toorts: de
+	steel van 8,0 naar donkerbruin 2,0, de korf van 15,3 naar smeedijzer
+	13,3, als torch-wall.
+
+	chair, stool, tableMedium en tableSmall van de 1.0 staan al in de kit
+	als chair-rounded, stool-rounded, table-medium-rounded en
+	table-small-rounded (zelfde driehoeken, zelfde verhoudingen); die zijn
+	niet opnieuw ingeladen.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

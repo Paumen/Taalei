@@ -26,3 +26,30 @@
 	• Twitter:	 twitter.com/KenneyNL
 	• BlueSky:	 kenney.bsky.social
 	• Instagram: instagram.com/kenney_nl
+
+			------------------------------
+
+	Herkomst en bewerking (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is platform toegevoegd; naam
+	onaangeroerd, schaal 0,253906 uit de .glb-extras van de kit: 0,64 ×
+	0,64 × 0,06, naast structure-platform (0,6 × 0,6 × 0,2).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De sprong is 5,5 (van 6,3 naar donkerbruin 2,0). De planken kwamen op
+	terracotta 5,0 en staan op lichtbruin 0,0 (wood-planks, M42); de
+	dwarsbalken bleven op 2,0 — de combinatie van structure-platform.
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
