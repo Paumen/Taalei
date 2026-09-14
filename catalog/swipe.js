@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=4d2713cb40';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=531b5b3049';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
