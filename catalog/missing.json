@@ -217,8 +217,7 @@
   },
   {
    "slug": "Cooking_Assets",
-   "name": "Cooking Assets",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "Cooking Assets"
   },
   {
    "slug": "Architecture_Pack_001",
@@ -227,8 +226,7 @@
   },
   {
    "slug": "Charming_Kitchen_set",
-   "name": "Charming Kitchen Set",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "Charming Kitchen Set"
   },
   {
    "slug": "AssetPack",
@@ -842,11 +840,13 @@
   {
    "slug": "Cooking_Assets",
    "name": "Cooking Assets",
+   "kit": "cooking-assets",
    "format": "obj",
    "inSource": 130,
-   "inCatalog": 0,
-   "missing": 130,
-   "unmatched": 0
+   "inCatalog": 46,
+   "missing": 84,
+   "unmatched": 0,
+   "scale": 0.037
   },
   {
    "slug": "Architecture_Pack_001",
@@ -860,11 +860,13 @@
   {
    "slug": "Charming_Kitchen_set",
    "name": "Charming Kitchen Set",
+   "kit": "charming-kitchen",
    "format": "fbx",
    "inSource": 55,
-   "inCatalog": 0,
-   "missing": 55,
-   "unmatched": 0
+   "inCatalog": 19,
+   "missing": 36,
+   "unmatched": 0,
+   "scale": 0.0025
   },
   {
    "slug": "AssetPack",
@@ -1111,6 +1113,10 @@
   {
    "id": "obj-lighting-candle",
    "name": "Candle"
+  },
+  {
+   "id": "obj-lighting-campfire",
+   "name": "Campfire"
   },
   {
    "id": "obj-lighting",
@@ -1387,11 +1393,6 @@
    "id": "assy",
    "name": "Assembly",
    "color": "#b5651d"
-  },
-  {
-   "id": "scene",
-   "name": "Scene",
-   "color": "#6f7f8f"
   },
   {
    "id": "char",
@@ -37111,61 +37112,33 @@
   },
   {
    "kit": "Cooking_Assets",
-   "name": "sercups_beer_mug",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    2.1,
-    2.7,
-    1.5
-   ],
-   "tris": 220,
-   "tpu": 27,
-   "mat": 1,
-   "bytes": 7544,
-   "file": "Beer Mug/sercups_beer_mug.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_big_spoon",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1.9,
-    7.7,
-    1.1
-   ],
-   "tris": 310,
-   "tpu": 18,
-   "mat": 1,
-   "bytes": 9972,
-   "file": "Big Spoon/cutensils_big_spoon.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
    "name": "cutensils_big_spoon_slotted",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1.9,
-    7.7,
-    1.1
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 582,
-   "tpu": 35,
+   "tpu": 1697,
    "mat": 1,
-   "bytes": 20864,
+   "bytes": 20908,
+   "scaled": true,
    "file": "Big Spoon-sq7hMbCwna/cutensils_big_spoon_slotted.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_blender",
    "wdh": [
-    4.4,
-    9.4,
-    4.4
+    0.2,
+    0.3,
+    0.2
    ],
    "tris": 890,
-   "tpu": 5,
+   "tpu": 2595,
    "mat": 2,
-   "bytes": 36644,
+   "bytes": 36684,
+   "scaled": true,
    "file": "Blender/appliance_blender.obj"
   },
   {
@@ -37173,14 +37146,15 @@
    "name": "knife_boning_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.8,
-    5.6,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 596,
-   "tpu": 185,
+   "tpu": 1738,
    "mat": 1,
-   "bytes": 23052,
+   "bytes": 23096,
+   "scaled": true,
    "file": "Boning Knife/knife_boning_knife.obj"
   },
   {
@@ -37188,14 +37162,15 @@
    "name": "cutensils_bottle_opener",
    "kind": "obj-container-bottle",
    "wdh": [
-    1.3,
-    4.3,
-    0.3
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 256,
-   "tpu": 64,
+   "tpu": 746,
    "mat": 1,
-   "bytes": 10388,
+   "bytes": 10432,
+   "scaled": true,
    "file": "Bottle Opener/cutensils_bottle_opener.obj"
   },
   {
@@ -37203,58 +37178,46 @@
    "name": "cutensils_box_grater",
    "kind": "obj-container-crate",
    "wdh": [
-    2.6,
-    5.4,
-    2
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 9504,
-   "tpu": 346,
+   "tpu": 27708,
    "mat": 1,
-   "bytes": 363552,
+   "bytes": 363596,
+   "scaled": true,
    "file": "Box Grater/cutensils_box_grater.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_bread_knife",
-   "kind": "obj-food-grain",
-   "wdh": [
-    0.8,
-    7.3,
-    0.2
-   ],
-   "tris": 1570,
-   "tpu": 370,
-   "mat": 1,
-   "bytes": 82088,
-   "file": "Bread Knife/knife_bread_knife.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_brush",
    "kind": "obj-tool-hand",
    "wdh": [
-    1.8,
-    6.9,
-    0.4
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 592,
-   "tpu": 67,
+   "tpu": 1726,
    "mat": 1,
-   "bytes": 16944,
+   "bytes": 16988,
+   "scaled": true,
    "file": "Brush/cutensils_brush.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_blender_bullet",
    "wdh": [
-    2.1,
-    5.6,
-    2.1
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 724,
-   "tpu": 28,
+   "tpu": 2111,
    "mat": 2,
-   "bytes": 28992,
+   "bytes": 29036,
+   "scaled": true,
    "file": "Bullet Blender/appliance_blender_bullet.obj"
   },
   {
@@ -37262,189 +37225,61 @@
    "name": "utensil_butter_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.5,
-    4.7,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 214,
-   "tpu": 134,
+   "tpu": 624,
    "mat": 1,
-   "bytes": 7452,
+   "bytes": 7492,
+   "scaled": true,
    "file": "Butter Knife/utensil_butter_knife.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "utensil_butter_knife_001",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    0.5,
-    4.7,
-    0.1
-   ],
-   "tris": 198,
-   "tpu": 124,
-   "mat": 1,
-   "bytes": 6976,
-   "file": "Butter Knife/utensil_butter_knife_001.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_can_opener",
    "kind": "obj-container",
    "wdh": [
-    1.9,
-    6.5,
-    0.8
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 926,
-   "tpu": 100,
+   "tpu": 2700,
    "mat": 1,
-   "bytes": 35980,
+   "bytes": 36024,
+   "scaled": true,
    "file": "Can Opener/cutensils_can_opener.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_casserole_pot",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    7.3,
-    3.1,
-    4.7
-   ],
-   "tris": 372,
-   "tpu": 3,
-   "mat": 2,
-   "bytes": 15352,
-   "file": "Casserole Pot/pan_casserole_pot.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_cast_iron_skillet",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    3.6,
-    0.9,
-    5.8
-   ],
-   "tris": 174,
-   "tpu": 9,
-   "mat": 1,
-   "bytes": 8836,
-   "file": "Cast Iron Skillet/pan_cast_iron_skillet.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_ceramic_pot_large",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    5.3,
-    3.6,
-    5.1
-   ],
-   "tris": 440,
-   "tpu": 5,
-   "mat": 1,
-   "bytes": 11364,
-   "file": "Ceramic Pot Large/pan_ceramic_pot_large.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_champagne_flute",
    "wdh": [
-    1.3,
-    4.3,
-    1.3
-   ],
-   "tris": 230,
-   "tpu": 30,
-   "mat": 1,
-   "bytes": 7096,
-   "file": "Champagne Flute/sercups_champagne_flute.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "board_charcuterie_board",
-   "wdh": [
-    7.3,
-    0.5,
-    3.9
-   ],
-   "tris": 380,
-   "tpu": 26,
-   "mat": 1,
-   "bytes": 12672,
-   "file": "Charcuterie Board/board_charcuterie_board.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_chef_knife",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1,
-    7.6,
-    0.2
-   ],
-   "tris": 372,
-   "tpu": 68,
-   "mat": 1,
-   "bytes": 15848,
-   "file": "Chef Knife/knife_chef_knife.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "Chopsticks",
-   "wdh": [
-    0.3,
-    5.5,
+    0.1,
+    0.2,
     0.1
    ],
-   "tris": 408,
-   "tpu": 306,
+   "tris": 230,
+   "tpu": 671,
    "mat": 1,
-   "bytes": 16092,
-   "file": "Chopsticks/Chopsticks.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_cleaver_w_hole",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1.5,
-    6.7,
-    0.2
-   ],
-   "tris": 828,
-   "tpu": 117,
-   "mat": 1,
-   "bytes": 22784,
-   "file": "Cleaver/knife_cleaver_w_hole.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "misc_cloche",
-   "wdh": [
-    9.3,
-    6.5,
-    9.3
-   ],
-   "tris": 526,
-   "tpu": 1,
-   "mat": 1,
-   "bytes": 15000,
-   "file": "Cloche/misc_cloche.obj"
+   "bytes": 7140,
+   "scaled": true,
+   "file": "Champagne Flute/sercups_champagne_flute.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_cocktail_glass",
    "wdh": [
-    2.7,
-    3.8,
-    2.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 230,
-   "tpu": 8,
+   "tpu": 671,
    "mat": 1,
-   "bytes": 7100,
+   "bytes": 7144,
+   "scaled": true,
    "file": "Cocktail Glass/sercups_cocktail_glass.obj"
   },
   {
@@ -37452,14 +37287,15 @@
    "name": "sercups_cognac_balloon",
    "kind": "obj-transport",
    "wdh": [
-    2.2,
-    2.8,
-    2.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 268,
-   "tpu": 20,
+   "tpu": 781,
    "mat": 1,
-   "bytes": 7584,
+   "bytes": 7628,
+   "scaled": true,
    "file": "Cognac Glass/sercups_cognac_balloon.obj"
   },
   {
@@ -37467,102 +37303,46 @@
    "name": "appliance_cooler_box",
    "kind": "obj-container-crate",
    "wdh": [
-    21.2,
-    16.5,
-    13.9
+    0.8,
+    0.6,
+    0.5
    ],
    "tris": 2282,
-   "tpu": 0,
+   "tpu": 6653,
    "mat": 1,
-   "bytes": 62484,
+   "bytes": 62528,
+   "scaled": true,
    "file": "Cooler Box/appliance_cooler_box.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_asian_turner",
-   "wdh": [
-    2.6,
-    9.6,
-    0.9
-   ],
-   "tris": 306,
-   "tpu": 13,
-   "mat": 1,
-   "bytes": 10140,
-   "file": "Cutensils Asian Turn/cutensils_asian_turner.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "board_cutting_board_001",
-   "kind": "obj-kitchenware-cookware",
-   "wdh": [
-    4.9,
-    0.3,
-    3.1
-   ],
-   "tris": 144,
-   "tpu": 28,
-   "mat": 1,
-   "bytes": 7348,
-   "file": "Cutting Board/board_cutting_board_001.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "board_cutting_board_002",
-   "kind": "obj-kitchenware-cookware",
-   "wdh": [
-    4.9,
-    0.3,
-    3.1
-   ],
-   "tris": 92,
-   "tpu": 18,
-   "mat": 1,
-   "bytes": 3444,
-   "file": "Cutting Board/board_cutting_board_002.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "board_cutting_board_plastic",
    "kind": "obj-kitchenware-cookware",
    "wdh": [
-    4.1,
+    0.2,
     0.1,
-    2.5
+    0.1
    ],
    "tris": 132,
-   "tpu": 109,
+   "tpu": 385,
    "mat": 1,
-   "bytes": 8688,
+   "bytes": 8732,
+   "scaled": true,
    "file": "Cutting Board/board_cutting_board_plastic.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_dutch_oven",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    9.4,
-    2.9,
-    4.3
-   ],
-   "tris": 372,
-   "tpu": 3,
-   "mat": 1,
-   "bytes": 14468,
-   "file": "Dutch Oven/pan_dutch_oven.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_electric_oven",
    "wdh": [
-    13.8,
-    8.8,
-    8.8
+    0.5,
+    0.3,
+    0.3
    ],
    "tris": 608,
-   "tpu": 1,
+   "tpu": 1773,
    "mat": 3,
-   "bytes": 28996,
+   "bytes": 29036,
+   "scaled": true,
    "file": "Electric Oven/appliance_electric_oven.obj"
   },
   {
@@ -37570,14 +37350,15 @@
    "name": "knife_filleting_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.8,
-    5.6,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 636,
-   "tpu": 206,
+   "tpu": 1854,
    "mat": 1,
-   "bytes": 24320,
+   "bytes": 24364,
+   "scaled": true,
    "file": "Filleting Knife/knife_filleting_knife.obj"
   },
   {
@@ -37585,100 +37366,75 @@
    "name": "appliance_food_processor",
    "kind": "obj-food",
    "wdh": [
-    3.8,
-    6.3,
-    4.7
+    0.1,
+    0.2,
+    0.2
    ],
    "tris": 840,
-   "tpu": 8,
+   "tpu": 2449,
    "mat": 2,
-   "bytes": 33156,
+   "bytes": 33200,
+   "scaled": true,
    "file": "Food Processor/appliance_food_processor.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "thermometer",
    "wdh": [
-    3.3,
-    3.5,
-    0.4
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 330,
-   "tpu": 41,
+   "tpu": 962,
    "mat": 1,
-   "bytes": 10696,
+   "bytes": 10736,
+   "scaled": true,
    "file": "Food Thermometer/thermometer.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_footed_pilsner_glass",
    "wdh": [
-    1.7,
-    3,
-    1.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 76,
-   "tpu": 8,
+   "tpu": 222,
    "mat": 1,
-   "bytes": 4124,
+   "bytes": 4168,
+   "scaled": true,
    "file": "Footed Pilsner/sercups_footed_pilsner_glass.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "utensil_fork",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    0.7,
-    4.9,
-    0.5
-   ],
-   "tris": 408,
-   "tpu": 183,
-   "mat": 1,
-   "bytes": 16988,
-   "file": "Fork/utensil_fork.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_frying_pan",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    3.5,
-    1.4,
-    6.5
-   ],
-   "tris": 342,
-   "tpu": 11,
-   "mat": 1,
-   "bytes": 13716,
-   "file": "Frying Pan/pan_frying_pan.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "funnel_small",
    "wdh": [
-    2,
-    2.4,
-    2.5
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 250,
-   "tpu": 21,
+   "tpu": 729,
    "mat": 1,
-   "bytes": 9380,
+   "bytes": 9424,
+   "scaled": true,
    "file": "Funnel/funnel_small.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_glass",
    "wdh": [
-    1.7,
-    2.8,
-    1.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 76,
-   "tpu": 9,
+   "tpu": 222,
    "mat": 1,
-   "bytes": 3856,
+   "bytes": 3900,
+   "scaled": true,
    "file": "Glass/sercups_glass.obj"
   },
   {
@@ -37686,42 +37442,45 @@
    "name": "sercups_goblet",
    "kind": "obj-kitchenware-tableware",
    "wdh": [
-    2.3,
-    4,
-    2.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 172,
-   "tpu": 8,
+   "tpu": 501,
    "mat": 1,
-   "bytes": 6232,
+   "bytes": 6276,
+   "scaled": true,
    "file": "Goblet/sercups_goblet.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_grater",
    "wdh": [
-    1.6,
-    6.7,
-    0.3
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 10512,
-   "tpu": 1401,
+   "tpu": 30647,
    "mat": 1,
-   "bytes": 360032,
+   "bytes": 360076,
+   "scaled": true,
    "file": "Grater/cutensils_grater.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_hurricane_glass",
    "wdh": [
-    1.8,
-    4.2,
-    1.8
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 354,
-   "tpu": 26,
+   "tpu": 1032,
    "mat": 1,
-   "bytes": 9892,
+   "bytes": 9936,
+   "scaled": true,
    "file": "Hurricane Glass/sercups_hurricane_glass.obj"
   },
   {
@@ -37729,156 +37488,121 @@
    "name": "cutensils_ice_scream_scooper",
    "kind": "env-water",
    "wdh": [
-    1.8,
-    5.7,
-    1.2
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 296,
-   "tpu": 23,
+   "tpu": 863,
    "mat": 1,
-   "bytes": 10952,
+   "bytes": 10996,
+   "scaled": true,
    "file": "Ice cream Scooper/cutensils_ice_scream_scooper.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "immersion_blender",
    "wdh": [
-    1.7,
-    9.3,
-    1.7
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 448,
-   "tpu": 17,
+   "tpu": 1306,
    "mat": 1,
-   "bytes": 16784,
+   "bytes": 16828,
+   "scaled": true,
    "file": "Immersion Blender/immersion_blender.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_stove_induction",
    "wdh": [
-    6.2,
-    1.1,
-    9.1
+    0.2,
+    0.1,
+    0.3
    ],
    "tris": 352,
-   "tpu": 6,
+   "tpu": 1026,
    "mat": 1,
-   "bytes": 16472,
+   "bytes": 16512,
+   "scaled": true,
    "file": "Induction Stove/appliance_stove_induction.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_irish_coffee_glass",
    "wdh": [
-    2.2,
-    3.3,
-    2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 584,
-   "tpu": 40,
+   "tpu": 1703,
    "mat": 1,
-   "bytes": 14608,
+   "bytes": 14652,
+   "scaled": true,
    "file": "Irish Coffee Glass/sercups_irish_coffee_glass.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "juicer_manual",
    "wdh": [
-    1.9,
-    0.7,
-    2.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1076,
-   "tpu": 351,
+   "tpu": 3137,
    "mat": 1,
-   "bytes": 27972,
+   "bytes": 28016,
+   "scaled": true,
    "file": "Juicer/juicer_manual.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "juicer_mechanical",
    "wdh": [
-    6.7,
-    1.5,
-    2.1
+    0.2,
+    0.1,
+    0.1
    ],
    "tris": 1466,
-   "tpu": 70,
+   "tpu": 4274,
    "mat": 1,
-   "bytes": 53364,
+   "bytes": 53408,
+   "scaled": true,
    "file": "Juicer/juicer_mechanical.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "misc_kettle",
-   "kind": "obj-kitchenware-cookware-pot",
-   "wdh": [
-    6,
-    6.3,
-    4.7
-   ],
-   "tris": 618,
-   "tpu": 3,
-   "mat": 1,
-   "bytes": 20932,
-   "file": "Kettle/misc_kettle.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_laddle",
-   "wdh": [
-    3.1,
-    7.4,
-    1.5
-   ],
-   "tris": 392,
-   "tpu": 12,
-   "mat": 1,
-   "bytes": 11776,
-   "file": "Laddle/cutensils_laddle.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_laddle_2",
-   "wdh": [
-    2,
-    7.2,
-    3.5
-   ],
-   "tris": 224,
-   "tpu": 4,
-   "mat": 1,
-   "bytes": 6348,
-   "file": "Laddle/cutensils_laddle_2.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "loaf_pan",
    "kind": "obj-food-grain",
    "wdh": [
-    8.2,
-    2.2,
-    5.7
+    0.3,
+    0.1,
+    0.2
    ],
    "tris": 94,
-   "tpu": 1,
+   "tpu": 274,
    "mat": 1,
-   "bytes": 3564,
+   "bytes": 3608,
+   "scaled": true,
    "file": "Loaf Pan/loaf_pan.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_margarita_glass",
    "wdh": [
-    3,
-    3.9,
-    3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 210,
-   "tpu": 6,
+   "tpu": 612,
    "mat": 1,
-   "bytes": 8008,
+   "bytes": 8048,
+   "scaled": true,
    "file": "Margarita Glass/sercups_margarita_glass.obj"
   },
   {
@@ -37886,14 +37610,15 @@
    "name": "mcup_measuring_cup_large",
    "kind": "obj-kitchenware-tableware",
    "wdh": [
-    5.8,
-    2.3,
-    4.2
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 282,
-   "tpu": 5,
+   "tpu": 822,
    "mat": 2,
-   "bytes": 9568,
+   "bytes": 9612,
+   "scaled": true,
    "file": "Measuring Cup/mcup_measuring_cup_large.obj"
   },
   {
@@ -37901,14 +37626,15 @@
    "name": "mcup_measuring_cup_small",
    "kind": "obj-kitchenware-tableware",
    "wdh": [
-    4.1,
-    2.3,
-    2.5
+    0.2,
+    0.1,
+    0.1
    ],
    "tris": 282,
-   "tpu": 12,
+   "tpu": 822,
    "mat": 2,
-   "bytes": 9564,
+   "bytes": 9608,
+   "scaled": true,
    "file": "Measuring Cup/mcup_measuring_cup_small.obj"
   },
   {
@@ -37916,14 +37642,15 @@
    "name": "mspoon_measuring_spoon_stack_small_w_ring",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.7,
-    1.7,
-    0.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 704,
-   "tpu": 877,
+   "tpu": 2052,
    "mat": 1,
-   "bytes": 22380,
+   "bytes": 22424,
+   "scaled": true,
    "file": "Measuring Spoon/mspoon_measuring_spoon_stack_small_w_ring.obj"
   },
   {
@@ -37931,14 +37658,15 @@
    "name": "mspoon_measuring_spoons_large",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1.6,
-    3.5,
-    0.8
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 250,
-   "tpu": 54,
+   "tpu": 729,
    "mat": 1,
-   "bytes": 8564,
+   "bytes": 8608,
+   "scaled": true,
    "file": "Measuring Spoon/mspoon_measuring_spoons_large.obj"
   },
   {
@@ -37946,14 +37674,15 @@
    "name": "mspoon_measuring_spoons_medium_001",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.7,
-    1.8,
-    0.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 128,
-   "tpu": 152,
+   "tpu": 373,
    "mat": 1,
-   "bytes": 5760,
+   "bytes": 5800,
+   "scaled": true,
    "file": "Measuring Spoon-QivyLZPgyP/mspoon_measuring_spoons_medium_001.obj"
   },
   {
@@ -37961,14 +37690,15 @@
    "name": "mspoon_measuring_spoon_stack_medium_w_ring",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1.4,
-    1.9,
-    0.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 704,
-   "tpu": 383,
+   "tpu": 2052,
    "mat": 1,
-   "bytes": 23148,
+   "bytes": 23188,
+   "scaled": true,
    "file": "Measuring Spoon-jswx1SrKlY/mspoon_measuring_spoon_stack_medium_w_ring.obj"
   },
   {
@@ -37976,14 +37706,15 @@
    "name": "mspoon_measuring_spoon_stack_large",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1.6,
-    3.5,
-    1
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1000,
-   "tpu": 181,
+   "tpu": 2915,
    "mat": 1,
-   "bytes": 30288,
+   "bytes": 30332,
+   "scaled": true,
    "file": "Measuring Spoons/mspoon_measuring_spoon_stack_large.obj"
   },
   {
@@ -37991,14 +37722,15 @@
    "name": "mspoon_measuring_spoon_stack_small_medium_w_ring",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1.4,
-    2,
-    0.9
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1216,
-   "tpu": 471,
+   "tpu": 3545,
    "mat": 1,
-   "bytes": 39920,
+   "bytes": 39964,
+   "scaled": true,
    "file": "Measuring Spoons-32oypFuMuX/mspoon_measuring_spoon_stack_small_medium_w_ring.obj"
   },
   {
@@ -38006,14 +37738,15 @@
    "name": "mspoon_measuring_spoon_stack_all_w_ring",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    2.5,
-    3.7,
-    1.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 2216,
-   "tpu": 140,
+   "tpu": 6461,
    "mat": 1,
-   "bytes": 74240,
+   "bytes": 74284,
+   "scaled": true,
    "file": "Measuring Spoons-CYDutjpiBg/mspoon_measuring_spoon_stack_all_w_ring.obj"
   },
   {
@@ -38021,14 +37754,15 @@
    "name": "mspoon_measuring_spoon_stack_large_w_ring",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    2.1,
-    3.7,
-    1.1
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1192,
-   "tpu": 138,
+   "tpu": 3475,
    "mat": 1,
-   "bytes": 37084,
+   "bytes": 37128,
+   "scaled": true,
    "file": "Measuring Spoons-IfAc3pnISo/mspoon_measuring_spoon_stack_large_w_ring.obj"
   },
   {
@@ -38036,70 +37770,75 @@
    "name": "cutensils_meat_mallet",
    "kind": "obj-food-meat",
    "wdh": [
-    3,
-    6.3,
-    1.3
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 518,
-   "tpu": 21,
+   "tpu": 1510,
    "mat": 1,
-   "bytes": 30264,
+   "bytes": 30308,
+   "scaled": true,
    "file": "Meat Mallet/cutensils_meat_mallet.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_melon_baller",
    "wdh": [
-    0.9,
-    5.1,
-    0.6
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 296,
-   "tpu": 96,
+   "tpu": 863,
    "mat": 1,
-   "bytes": 10660,
+   "bytes": 10700,
+   "scaled": true,
    "file": "Melon Baller/cutensils_melon_baller.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_mesh_strainer",
    "wdh": [
-    3.5,
-    7.6,
-    1.5
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 23808,
-   "tpu": 581,
+   "tpu": 69411,
    "mat": 1,
-   "bytes": 623112,
+   "bytes": 623156,
+   "scaled": true,
    "file": "Mesh Strainer/cutensils_mesh_strainer.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_microwave",
    "wdh": [
-    10,
-    6,
-    7.1
+    0.4,
+    0.2,
+    0.3
    ],
    "tris": 744,
-   "tpu": 2,
+   "tpu": 2169,
    "mat": 3,
-   "bytes": 38560,
+   "bytes": 38604,
+   "scaled": true,
    "file": "Microwave/appliance_microwave.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "misc_hanger_5",
    "wdh": [
-    10,
-    2.4,
-    1.5
+    0.4,
+    0.1,
+    0.1
    ],
    "tris": 934,
-   "tpu": 27,
+   "tpu": 2723,
    "mat": 1,
-   "bytes": 23824,
+   "bytes": 23868,
+   "scaled": true,
    "file": "Misc Hanger/misc_hanger_5.obj"
   },
   {
@@ -38107,14 +37846,15 @@
    "name": "misc_ice_tray",
    "kind": "obj-kitchenware-tableware-plate",
    "wdh": [
-    5,
-    0.7,
-    2
+    0.2,
+    0.1,
+    0.1
    ],
    "tris": 1214,
-   "tpu": 163,
+   "tpu": 3539,
    "mat": 1,
-   "bytes": 37284,
+   "bytes": 37328,
+   "scaled": true,
    "file": "Misc Ice Tray/misc_ice_tray.obj"
   },
   {
@@ -38122,205 +37862,108 @@
    "name": "mbowl_mixing_bowl",
    "kind": "obj-kitchenware-tableware-plate",
    "wdh": [
-    2.3,
-    1.2,
-    2.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 320,
-   "tpu": 50,
+   "tpu": 933,
    "mat": 1,
-   "bytes": 8464,
+   "bytes": 8504,
+   "scaled": true,
    "file": "Mixing Bowl/mbowl_mixing_bowl.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensil_grind_mortar_and_pestle",
-   "wdh": [
-    2,
-    2,
-    2
-   ],
-   "tris": 248,
-   "tpu": 29,
-   "mat": 1,
-   "bytes": 6956,
-   "file": "Mortar and pestle/cutensil_grind_mortar_and_pestle.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "muffin_tray",
    "kind": "obj-food-grain",
    "wdh": [
-    9.1,
-    0.8,
-    6.3
+    0.3,
+    0.1,
+    0.2
    ],
    "tris": 1402,
-   "tpu": 30,
+   "tpu": 4087,
    "mat": 1,
-   "bytes": 45452,
+   "bytes": 45496,
+   "scaled": true,
    "file": "Muffin Tray/muffin_tray.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_demitasse",
    "wdh": [
-    2.9,
-    1.7,
-    2.4
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 412,
-   "tpu": 35,
+   "tpu": 1201,
    "mat": 1,
-   "bytes": 11256,
+   "bytes": 11296,
+   "scaled": true,
    "file": "Mug/sercups_demitasse.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "sercups_mug",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    3,
-    2.7,
-    2
-   ],
-   "tris": 232,
-   "tpu": 14,
-   "mat": 1,
-   "bytes": 7700,
-   "file": "Mug/sercups_mug.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_naikiri_knife",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1.4,
-    6.8,
-    0.2
-   ],
-   "tris": 430,
-   "tpu": 66,
-   "mat": 1,
-   "bytes": 17480,
-   "file": "Naikiri Knife/knife_naikiri_knife.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "insulator_Cylinder_183",
    "wdh": [
-    5.7,
-    4.6,
-    1.2
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 744,
-   "tpu": 23,
+   "tpu": 2169,
    "mat": 1,
-   "bytes": 17860,
+   "bytes": 17904,
+   "scaled": true,
    "file": "Oven mitts/insulator_Cylinder_183.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_paella_pan",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    9.7,
-    2.9,
-    12.6
-   ],
-   "tris": 196,
-   "tpu": 1,
-   "mat": 1,
-   "bytes": 9952,
-   "file": "Pan/pan_paella_pan.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_saute_pan",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    6.9,
-    2.7,
-    11.6
-   ],
-   "tris": 452,
-   "tpu": 2,
-   "mat": 2,
-   "bytes": 16664,
-   "file": "Pan Saute Pan/pan_saute_pan.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_skillet",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    7.1,
-    2.7,
-    11.7
-   ],
-   "tris": 480,
-   "tpu": 2,
-   "mat": 1,
-   "bytes": 18316,
-   "file": "Pan Skillet/pan_skillet.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "pan_wokCylinder_165",
    "kind": "obj-kitchenware-cookware-pan",
    "wdh": [
-    9.4,
-    4.7,
-    13.4
+    0.3,
+    0.2,
+    0.5
    ],
    "tris": 512,
-   "tpu": 1,
+   "tpu": 1493,
    "mat": 1,
-   "bytes": 17488,
+   "bytes": 17532,
+   "scaled": true,
    "file": "Pan Wok/pan_wokCylinder_165.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_paring_knife_001",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    0.9,
-    6.5,
-    0.2
-   ],
-   "tris": 388,
-   "tpu": 99,
-   "mat": 1,
-   "bytes": 16688,
-   "file": "Paring Knife/knife_paring_knife_001.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_pasta_spoon",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    2.1,
-    7.7,
-    1.3
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 1088,
-   "tpu": 52,
+   "tpu": 3172,
    "mat": 1,
-   "bytes": 38712,
+   "bytes": 38756,
+   "scaled": true,
    "file": "Pasta Spoon/cutensils_pasta_spoon.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_peeler",
    "wdh": [
-    2,
-    4.5,
-    0.4
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 392,
-   "tpu": 63,
+   "tpu": 1143,
    "mat": 1,
-   "bytes": 14016,
+   "bytes": 14060,
+   "scaled": true,
    "file": "Peeler/cutensils_peeler.obj"
   },
   {
@@ -38328,14 +37971,15 @@
    "name": "knife_peeling_knife_001",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.6,
-    3.7,
+    0.1,
+    0.1,
     0.1
    ],
    "tris": 436,
-   "tpu": 264,
+   "tpu": 1271,
    "mat": 1,
-   "bytes": 17808,
+   "bytes": 17852,
+   "scaled": true,
    "file": "Peeling Knife/knife_peeling_knife_001.obj"
   },
   {
@@ -38343,14 +37987,15 @@
    "name": "knife_peeling_knife_002",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.6,
-    4.1,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 436,
-   "tpu": 237,
+   "tpu": 1271,
    "mat": 1,
-   "bytes": 17360,
+   "bytes": 17404,
+   "scaled": true,
    "file": "Peeling Knife/knife_peeling_knife_002.obj"
   },
   {
@@ -38358,173 +38003,106 @@
    "name": "knife_peeling_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.6,
-    4.7,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 476,
-   "tpu": 226,
+   "tpu": 1388,
    "mat": 1,
-   "bytes": 19260,
+   "bytes": 19304,
+   "scaled": true,
    "file": "Peeling Knife-hrjJOzkYs2/knife_peeling_knife.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensil_grind_pepper_grinder",
    "wdh": [
-    2,
-    7,
-    2.1
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 1625,
-   "tpu": 56,
+   "tpu": 4738,
    "mat": 1,
-   "bytes": 53020,
+   "bytes": 53064,
+   "scaled": true,
    "file": "Pepper Grinder/cutensil_grind_pepper_grinder.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_pizza_cutter",
    "wdh": [
-    4.5,
-    6.7,
-    0.6
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 426,
-   "tpu": 20,
+   "tpu": 1242,
    "mat": 1,
-   "bytes": 13872,
+   "bytes": 13916,
+   "scaled": true,
    "file": "Pizza Cutter/cutensils_pizza_cutter.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "plate_oval",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    3.3,
-    0.2,
-    1.7
-   ],
-   "tris": 252,
-   "tpu": 242,
-   "mat": 1,
-   "bytes": 10160,
-   "file": "Plate Oval/plate_oval.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "plate_oval_001",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    10.7,
-    0.6,
-    5.4
-   ],
-   "tris": 252,
-   "tpu": 7,
-   "mat": 1,
-   "bytes": 10160,
-   "file": "Plate Oval/plate_oval_001.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "plate_rectangle",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    4.2,
-    0.1,
-    1.9
-   ],
-   "tris": 52,
-   "tpu": 45,
-   "mat": 1,
-   "bytes": 4348,
-   "file": "Plate Rectangle/plate_rectangle.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "insulator_pot_holder",
    "kind": "obj-container-pot",
    "wdh": [
-    3.1,
-    0.5,
-    3.1
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1060,
-   "tpu": 232,
+   "tpu": 3090,
    "mat": 1,
-   "bytes": 26156,
+   "bytes": 26196,
+   "scaled": true,
    "file": "Pot Holder/insulator_pot_holder.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_refrigerator",
    "wdh": [
-    12.4,
-    33.3,
-    11.1
+    0.5,
+    1.2,
+    0.4
    ],
    "tris": 2082,
-   "tpu": 0,
+   "tpu": 5279,
    "mat": 2,
-   "bytes": 88632,
+   "bytes": 88676,
+   "scaled": true,
    "file": "Refrigerator/appliance_refrigerator.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_rice_cooker",
    "wdh": [
-    10.2,
-    7.9,
-    8.4
+    0.4,
+    0.3,
+    0.3
    ],
    "tris": 7314,
-   "tpu": 11,
+   "tpu": 21324,
    "mat": 3,
-   "bytes": 263252,
+   "bytes": 263296,
+   "scaled": true,
    "file": "Rice Cooker/appliance_rice_cooker.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "sspoon_rice_paddle",
-   "kind": "obj-transport-accessory",
-   "wdh": [
-    1.8,
-    4.8,
-    0.7
-   ],
-   "tris": 324,
-   "tpu": 53,
-   "mat": 1,
-   "bytes": 8580,
-   "file": "Rice Paddle/sspoon_rice_paddle.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "misc_rolling_pin",
-   "wdh": [
-    1,
-    1,
-    7.6
-   ],
-   "tris": 308,
-   "tpu": 40,
-   "mat": 1,
-   "bytes": 8276,
-   "file": "Rolling Pin/misc_rolling_pin.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_rubber_spatula_w_hole_yellow",
    "wdh": [
-    1.9,
-    6.9,
-    0.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 318,
-   "tpu": 35,
+   "tpu": 927,
    "mat": 1,
-   "bytes": 9976,
+   "bytes": 10020,
+   "scaled": true,
    "file": "Rubber Spatula/cutensils_rubber_spatula_w_hole_yellow.obj"
   },
   {
@@ -38532,88 +38110,46 @@
    "name": "knife_salmon_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.9,
-    9,
-    0.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 340,
-   "tpu": 60,
+   "tpu": 991,
    "mat": 1,
-   "bytes": 14732,
+   "bytes": 14776,
+   "scaled": true,
    "file": "Salmon Knife/knife_salmon_knife.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "utensil_shaker",
    "wdh": [
-    1.2,
-    2.8,
-    1.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 418,
-   "tpu": 112,
+   "tpu": 1219,
    "mat": 2,
-   "bytes": 16784,
+   "bytes": 16828,
+   "scaled": true,
    "file": "Salt Shaker/utensil_shaker.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "knife_santoku_knife",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1,
-    6.8,
-    0.2
-   ],
-   "tris": 448,
-   "tpu": 91,
-   "mat": 1,
-   "bytes": 17940,
-   "file": "Santoku Knife/knife_santoku_knife.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_sauce_pan_large_001",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    4.4,
-    2.6,
-    7.6
-   ],
-   "tris": 428,
-   "tpu": 5,
-   "mat": 2,
-   "bytes": 15956,
-   "file": "Sauce Pan/pan_sauce_pan_large_001.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_sauce_pan_small_001",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    3,
-    2.5,
-    6.2
-   ],
-   "tris": 448,
-   "tpu": 9,
-   "mat": 2,
-   "bytes": 17036,
-   "file": "Sauce Pan/pan_sauce_pan_small_001.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "misc_scissors",
    "kind": "obj-tool-hand",
    "wdh": [
-    1.4,
     0.1,
-    3.5
+    0.1,
+    0.1
    ],
    "tris": 596,
-   "tpu": 350,
+   "tpu": 1738,
    "mat": 1,
-   "bytes": 17736,
+   "bytes": 17776,
+   "scaled": true,
    "file": "Scissors/misc_scissors.obj"
   },
   {
@@ -38621,14 +38157,15 @@
    "name": "serving_bowl_1_002",
    "kind": "obj-kitchenware-tableware-plate",
    "wdh": [
-    2.3,
-    1.7,
-    2.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 296,
-   "tpu": 33,
+   "tpu": 863,
    "mat": 2,
-   "bytes": 11440,
+   "bytes": 11484,
+   "scaled": true,
    "file": "Serving Bowl/serving_bowl_1_002.obj"
   },
   {
@@ -38636,228 +38173,151 @@
    "name": "serving_bowl_2",
    "kind": "obj-kitchenware-tableware-plate",
    "wdh": [
-    1.9,
-    1.2,
-    1.9
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 312,
-   "tpu": 75,
+   "tpu": 910,
    "mat": 1,
-   "bytes": 10908,
+   "bytes": 10952,
+   "scaled": true,
    "file": "Serving Bowl/serving_bowl_2.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "serving_bowl_3",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    4.6,
-    2.3,
-    4.6
-   ],
-   "tris": 296,
-   "tpu": 6,
-   "mat": 1,
-   "bytes": 10296,
-   "file": "Serving Bowl/serving_bowl_3.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_shot_glass",
    "wdh": [
-    1.2,
-    1.4,
-    1.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 92,
-   "tpu": 44,
+   "tpu": 268,
    "mat": 1,
-   "bytes": 4212,
+   "bytes": 4256,
+   "scaled": true,
    "file": "Shot Glass/sercups_shot_glass.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_skimmer",
    "wdh": [
-    3,
-    7.5,
-    1.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 4068,
-   "tpu": 154,
+   "tpu": 11860,
    "mat": 1,
-   "bytes": 141108,
+   "bytes": 141152,
+   "scaled": true,
    "file": "Skimmer/cutensils_skimmer.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_spatula",
-   "wdh": [
-    2.5,
-    7.2,
-    1.1
-   ],
-   "tris": 290,
-   "tpu": 15,
-   "mat": 1,
-   "bytes": 9620,
-   "file": "Spatula/cutensils_spatula.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_spatula_slotted",
    "wdh": [
-    2.5,
-    7.2,
-    1.1
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 666,
-   "tpu": 34,
+   "tpu": 1942,
    "mat": 1,
-   "bytes": 23152,
+   "bytes": 23196,
+   "scaled": true,
    "file": "Spatula-7Dtbkkz9pe/cutensils_spatula_slotted.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "utensil_spoon",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    1,
-    4.8,
-    0.6
-   ],
-   "tris": 324,
-   "tpu": 96,
-   "mat": 1,
-   "bytes": 10692,
-   "file": "Spoon/utensil_spoon.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "knife_steak_knife",
    "kind": "obj-food-meat",
    "wdh": [
-    0.9,
-    6.6,
-    0.2
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 364,
-   "tpu": 91,
+   "tpu": 1061,
    "mat": 1,
-   "bytes": 15644,
+   "bytes": 15688,
+   "scaled": true,
    "file": "Steak Knife/knife_steak_knife.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "pan_stock_pot",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    6.6,
-    7.8,
-    9.1
-   ],
-   "tris": 472,
-   "tpu": 1,
-   "mat": 1,
-   "bytes": 20892,
-   "file": "Stock Pot/pan_stock_pot.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_stove_001",
    "wdh": [
-    13.3,
-    3.9,
-    9.2
+    0.5,
+    0.1,
+    0.3
    ],
    "tris": 672,
-   "tpu": 1,
+   "tpu": 1959,
    "mat": 1,
-   "bytes": 31700,
+   "bytes": 31740,
+   "scaled": true,
    "file": "Stove/appliance_stove_001.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_oven",
    "wdh": [
-    12.1,
-    17.5,
-    12.7
+    0.4,
+    0.6,
+    0.5
    ],
    "tris": 2462,
-   "tpu": 1,
+   "tpu": 7178,
    "mat": 2,
-   "bytes": 110196,
+   "bytes": 110240,
+   "scaled": true,
    "file": "Stove Oven/appliance_oven.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_stove",
    "wdh": [
-    6.7,
-    3.9,
-    9.3
+    0.2,
+    0.1,
+    0.3
    ],
    "tris": 392,
-   "tpu": 2,
+   "tpu": 1143,
    "mat": 1,
-   "bytes": 19260,
+   "bytes": 19304,
+   "scaled": true,
    "file": "Stovetop/appliance_stove.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "misc_strainer",
-   "wdh": [
-    7.6,
-    2.6,
-    6
-   ],
-   "tris": 12936,
-   "tpu": 111,
-   "mat": 1,
-   "bytes": 351660,
-   "file": "Strainer/misc_strainer.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "sercups_teacup",
-   "wdh": [
-    3,
-    2,
-    2.4
-   ],
-   "tris": 450,
-   "tpu": 33,
-   "mat": 1,
-   "bytes": 12256,
-   "file": "Teacup/sercups_teacup.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_toaster",
    "wdh": [
-    4.1,
-    4.4,
-    7.3
+    0.2,
+    0.2,
+    0.3
    ],
    "tris": 664,
-   "tpu": 5,
+   "tpu": 1936,
    "mat": 1,
-   "bytes": 26144,
+   "bytes": 26184,
+   "scaled": true,
    "file": "Toaster/appliance_toaster.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "appliance_toaster_oven",
    "wdh": [
-    9.2,
-    6.9,
-    6.2
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 668,
-   "tpu": 2,
+   "tpu": 1948,
    "mat": 2,
-   "bytes": 27564,
+   "bytes": 27608,
+   "scaled": true,
    "file": "Toaster Oven/appliance_toaster_oven.obj"
   },
   {
@@ -38865,145 +38325,92 @@
    "name": "knife_tomato_knife",
    "kind": "obj-food-vegetable",
    "wdh": [
-    0.6,
-    5.1,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 554,
-   "tpu": 243,
+   "tpu": 1615,
    "mat": 1,
-   "bytes": 22288,
+   "bytes": 22332,
+   "scaled": true,
    "file": "Tomato Knife/knife_tomato_knife.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_tongs",
-   "kind": "obj-tool-hand",
-   "wdh": [
-    1.8,
-    7,
-    0.9
-   ],
-   "tris": 402,
-   "tpu": 34,
-   "mat": 1,
-   "bytes": 17916,
-   "file": "Tongs/cutensils_tongs.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_tongs_closed",
-   "kind": "obj-tool-hand",
-   "wdh": [
-    1.8,
-    7,
-    0.9
-   ],
-   "tris": 402,
-   "tpu": 34,
-   "mat": 1,
-   "bytes": 17924,
-   "file": "Tongs/cutensils_tongs_closed.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "knife_utility_knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    0.6,
-    5.1,
+    0.1,
+    0.2,
     0.1
    ],
    "tris": 556,
-   "tpu": 244,
+   "tpu": 1621,
    "mat": 1,
-   "bytes": 21600,
+   "bytes": 21640,
+   "scaled": true,
    "file": "Utility Knife/knife_utility_knife.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_vodka_glass",
    "wdh": [
-    1.6,
-    2.1,
-    1.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 76,
-   "tpu": 15,
+   "tpu": 222,
    "mat": 1,
-   "bytes": 3604,
+   "bytes": 3648,
+   "scaled": true,
    "file": "Vodka Glass/sercups_vodka_glass.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_weizen_glass",
    "wdh": [
-    1.2,
-    2.7,
-    1.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 140,
-   "tpu": 35,
+   "tpu": 408,
    "mat": 1,
-   "bytes": 5016,
+   "bytes": 5060,
+   "scaled": true,
    "file": "Weizen Glass/sercups_weizen_glass.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_whisk",
-   "wdh": [
-    2.3,
-    6.1,
-    2.2
-   ],
-   "tris": 1682,
-   "tpu": 54,
-   "mat": 1,
-   "bytes": 40896,
-   "file": "Whisk/cutensils_whisk.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "sercups_wine_glass",
    "wdh": [
-    2,
-    3.7,
-    2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 140,
-   "tpu": 9,
+   "tpu": 408,
    "mat": 1,
-   "bytes": 5464,
+   "bytes": 5504,
+   "scaled": true,
    "file": "Wine Glass/sercups_wine_glass.obj"
-  },
-  {
-   "kit": "Cooking_Assets",
-   "name": "cutensils_wooden_paddle",
-   "kind": "obj-transport-accessory",
-   "wdh": [
-    1.8,
-    7,
-    0.2
-   ],
-   "tris": 168,
-   "tpu": 19,
-   "mat": 1,
-   "bytes": 6852,
-   "file": "Wooden Pad/cutensils_wooden_paddle.obj"
   },
   {
    "kit": "Cooking_Assets",
    "name": "misc_wooden_spoon",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    1,
-    0.4,
-    5.9
+    0.1,
+    0.1,
+    0.2
    ],
    "tris": 152,
-   "tpu": 53,
+   "tpu": 443,
    "mat": 1,
-   "bytes": 4824,
+   "bytes": 4868,
+   "scaled": true,
    "file": "Wooden Spoon/misc_wooden_spoon.obj"
   },
   {
@@ -39152,258 +38559,184 @@
   },
   {
    "kit": "Charming_Kitchen_set",
-   "name": "mug_blue",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    51.2,
-    35,
-    37.5
-   ],
-   "tris": 228,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 10944,
-   "file": "Blue Mug/mug_blue.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
    "name": "container_kitchen_A_blue",
    "wdh": [
-    40,
-    53.3,
-    40
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 328,
-   "tpu": 0,
+   "tpu": 956,
    "mat": 1,
-   "bytes": 11224,
+   "bytes": 11260,
+   "scaled": true,
    "file": "Container Kitchen A/container_kitchen_A_blue.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "container_kitchen_A_red",
    "wdh": [
-    40,
-    53.3,
-    40
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 328,
-   "tpu": 0,
+   "tpu": 956,
    "mat": 1,
-   "bytes": 11224,
+   "bytes": 11260,
+   "scaled": true,
    "file": "Container Kitchen A/container_kitchen_A_red.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "container_kitchen_A_white",
-   "wdh": [
-    40,
-    53.3,
-    40
-   ],
-   "tris": 328,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 11356,
-   "file": "Container Kitchen A/container_kitchen_A_white.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "container_kitchen_B_blue",
    "wdh": [
-    40,
-    40,
-    40
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 424,
-   "tpu": 0,
+   "tpu": 1236,
    "mat": 1,
-   "bytes": 14136,
+   "bytes": 14172,
+   "scaled": true,
    "file": "Container Kitchen B/container_kitchen_B_blue.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "container_kitchen_B_red",
-   "wdh": [
-    40,
-    40,
-    40
-   ],
-   "tris": 424,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 14132,
-   "file": "Container Kitchen B/container_kitchen_B_red.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "container_kitchen_B_white",
-   "wdh": [
-    40,
-    40,
-    40
-   ],
-   "tris": 424,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 14008,
-   "file": "Container Kitchen B/container_kitchen_B_white.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_corner_inner",
    "kind": "str-part-wall",
    "wdh": [
-    175,
-    100,
-    175
+    0.4,
+    0.3,
+    0.4
    ],
    "tris": 75,
-   "tpu": 0,
+   "tpu": 219,
    "mat": 1,
-   "bytes": 5412,
+   "bytes": 5448,
+   "scaled": true,
    "file": "Countertop Corner/countertop_corner_inner.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_counter_outer",
    "wdh": [
-    150,
-    100,
-    150
+    0.4,
+    0.3,
+    0.4
    ],
    "tris": 58,
-   "tpu": 0,
+   "tpu": 169,
    "mat": 1,
-   "bytes": 4828,
+   "bytes": 4864,
+   "scaled": true,
    "file": "Countertop Counter O/countertop_counter_outer.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_single",
    "wdh": [
-    100,
-    100,
-    150.1
+    0.3,
+    0.3,
+    0.4
    ],
    "tris": 298,
-   "tpu": 0,
+   "tpu": 869,
    "mat": 1,
-   "bytes": 13112,
+   "bytes": 13148,
+   "scaled": true,
    "file": "Countertop Single/countertop_single.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_sink",
    "wdh": [
-    200,
-    175.8,
-    150.1
+    0.5,
+    0.4,
+    0.4
    ],
    "tris": 1308,
-   "tpu": 0,
+   "tpu": 3813,
    "mat": 1,
-   "bytes": 55752,
+   "bytes": 55788,
+   "scaled": true,
    "file": "Countertop Sink/countertop_sink.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_straight_A",
    "wdh": [
-    200,
-    100,
-    150.1
+    0.5,
+    0.3,
+    0.4
    ],
    "tris": 428,
-   "tpu": 0,
+   "tpu": 1248,
    "mat": 1,
-   "bytes": 18512,
+   "bytes": 18548,
+   "scaled": true,
    "file": "Countertop Straight/countertop_straight_A.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_straight_B",
    "wdh": [
-    200,
-    100,
-    150.1
+    0.5,
+    0.3,
+    0.4
    ],
    "tris": 546,
-   "tpu": 0,
+   "tpu": 1592,
    "mat": 1,
-   "bytes": 22804,
+   "bytes": 22840,
+   "scaled": true,
    "file": "Countertop Straight/countertop_straight_B.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "countertop_straight_C",
    "wdh": [
-    200,
-    100,
-    150.1
+    0.5,
+    0.3,
+    0.4
    ],
    "tris": 794,
-   "tpu": 0,
+   "tpu": 2315,
    "mat": 1,
-   "bytes": 31908,
+   "bytes": 31944,
+   "scaled": true,
    "file": "Countertop Straight/countertop_straight_C.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "cuttingboard",
-   "wdh": [
-    130,
-    10,
-    75
-   ],
-   "tris": 162,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 7712,
-   "file": "Cutting Board/cuttingboard.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "dishrack",
    "wdh": [
-    60,
-    50,
-    80
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 392,
-   "tpu": 0,
+   "tpu": 1143,
    "mat": 1,
-   "bytes": 15260,
+   "bytes": 15296,
+   "scaled": true,
    "file": "Dishrack/dishrack.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "dishrack_plates",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    75,
-    78.4,
-    80
-   ],
-   "tris": 840,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 32332,
-   "file": "Dishrack Plates/dishrack_plates.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "extractor_hood",
    "kind": "obj-equipment-clothing",
    "wdh": [
-    200,
-    200,
-    160
+    0.5,
+    0.5,
+    0.4
    ],
    "tris": 212,
-   "tpu": 0,
+   "tpu": 618,
    "mat": 1,
-   "bytes": 10032,
+   "bytes": 10068,
+   "scaled": true,
    "file": "Extractor Hood/extractor_hood.fbx"
   },
   {
@@ -39411,278 +38744,122 @@
    "name": "floor_tiles_kitchen",
    "kind": "str-part-floor",
    "wdh": [
-    200,
-    50,
-    200
+    0.5,
+    0.1,
+    0.5
    ],
    "tris": 180,
-   "tpu": 0,
+   "tpu": 525,
    "mat": 1,
-   "bytes": 8284,
+   "bytes": 8320,
+   "scaled": true,
    "file": "Floor Tiles Kitchen/floor_tiles_kitchen.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "fridge",
    "wdh": [
-    204,
-    300.1,
-    101
+    0.5,
+    0.8,
+    0.3
    ],
    "tris": 1024,
-   "tpu": 0,
+   "tpu": 2985,
    "mat": 3,
-   "bytes": 42728,
+   "bytes": 42764,
+   "scaled": true,
    "file": "Fridge/fridge.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "kettle",
-   "kind": "obj-kitchenware-cookware-pot",
-   "wdh": [
-    81.3,
-    59.5,
-    60
-   ],
-   "tris": 587,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 18732,
-   "file": "Kettle/kettle.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "blinds_kitchen",
    "wdh": [
-    160,
-    195,
-    30
+    0.4,
+    0.5,
+    0.1
    ],
    "tris": 404,
-   "tpu": 0,
+   "tpu": 1178,
    "mat": 1,
-   "bytes": 16304,
+   "bytes": 16340,
+   "scaled": true,
    "file": "Kitchen Blinds/blinds_kitchen.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "knife",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    26.8,
-    104.3,
-    9.9
-   ],
-   "tris": 140,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 7368,
-   "file": "Kitchen Knife/knife.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "lid",
-   "kind": "obj-kitchenware-cookware-pot",
-   "wdh": [
-    70,
-    21.1,
-    70
-   ],
-   "tris": 256,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 9664,
-   "file": "Lid/lid.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "mug_yellow",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    51.2,
-    35,
-    37.5
-   ],
-   "tris": 228,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 10948,
-   "file": "Mug Yellow/mug_yellow.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "oven_glove",
    "kind": "obj-equipment-clothing",
    "wdh": [
-    44.4,
-    19.6,
-    52.4
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 382,
-   "tpu": 0,
+   "tpu": 1114,
    "mat": 1,
-   "bytes": 11776,
+   "bytes": 11812,
+   "scaled": true,
    "file": "Oven Glove/oven_glove.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "pan",
-   "kind": "obj-kitchenware-cookware-pan",
-   "wdh": [
-    70,
-    20,
-    100
-   ],
-   "tris": 410,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 12668,
-   "file": "Pan/pan.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "papertowel_holder",
    "wdh": [
-    40,
-    80,
-    47.5
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 196,
-   "tpu": 0,
+   "tpu": 571,
    "mat": 1,
-   "bytes": 8116,
+   "bytes": 8152,
+   "scaled": true,
    "file": "Papertowel Holder/papertowel_holder.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "plate",
-   "kind": "obj-kitchenware-tableware-plate",
-   "wdh": [
-    75,
-    10,
-    75
-   ],
-   "tris": 224,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 9836,
-   "file": "Plate/plate.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "pot",
-   "kind": "obj-container-pot",
-   "wdh": [
-    100,
-    40,
-    70
-   ],
-   "tris": 476,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 14476,
-   "file": "Pot/pot.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "mug_red",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    51.2,
-    35,
-    37.5
-   ],
-   "tris": 228,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 10944,
-   "file": "Red Mug/mug_red.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "spatula",
-   "wdh": [
-    29.1,
-    82.3,
-    9.1
-   ],
-   "tris": 302,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 11000,
-   "file": "Spatula/spatula.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "spoon",
-   "kind": "obj-kitchenware-tableware-cutlery",
-   "wdh": [
-    27.3,
-    84.6,
-    9.2
-   ],
-   "tris": 242,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 8744,
-   "file": "Spoon/spoon.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "stove",
    "wdh": [
-    200,
-    130,
-    165.4
+    0.5,
+    0.3,
+    0.4
    ],
    "tris": 1356,
-   "tpu": 0,
+   "tpu": 3953,
    "mat": 3,
-   "bytes": 65012,
+   "bytes": 65048,
+   "scaled": true,
    "file": "Stove/stove.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "toaster",
    "wdh": [
-    91.6,
-    60,
-    50
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 464,
-   "tpu": 0,
+   "tpu": 1353,
    "mat": 1,
-   "bytes": 17688,
+   "bytes": 17724,
+   "scaled": true,
    "file": "Toaster/toaster.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "utensils_cup",
-   "kind": "obj-kitchenware-tableware",
-   "wdh": [
-    64.5,
-    83.2,
-    40
-   ],
-   "tris": 734,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 26824,
-   "file": "Utensils Cup/utensils_cup.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "wall_cabinet_corner",
    "kind": "obj-furniture",
    "wdh": [
-    175,
-    100,
-    175
+    0.4,
+    0.3,
+    0.4
    ],
    "tris": 312,
-   "tpu": 0,
+   "tpu": 910,
    "mat": 1,
-   "bytes": 13972,
+   "bytes": 14008,
+   "scaled": true,
    "file": "Wall Cabinet Corner/wall_cabinet_corner.fbx"
   },
   {
@@ -39690,14 +38867,15 @@
    "name": "wall_cabinet_single_left",
    "kind": "obj-furniture",
    "wdh": [
-    100,
-    100,
-    100
+    0.2,
+    0.3,
+    0.2
    ],
    "tris": 168,
-   "tpu": 0,
+   "tpu": 490,
    "mat": 1,
-   "bytes": 8120,
+   "bytes": 8156,
+   "scaled": true,
    "file": "Wall Cabinet Single/wall_cabinet_single_left.fbx"
   },
   {
@@ -39705,14 +38883,15 @@
    "name": "wall_cabinet_single_right",
    "kind": "obj-furniture",
    "wdh": [
-    100,
-    100,
-    100
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 168,
-   "tpu": 0,
+   "tpu": 490,
    "mat": 1,
-   "bytes": 8092,
+   "bytes": 8128,
+   "scaled": true,
    "file": "Wall Cabinet Single/wall_cabinet_single_right.fbx"
   },
   {
@@ -39720,14 +38899,15 @@
    "name": "wall_cabinet_straight",
    "kind": "obj-furniture",
    "wdh": [
-    200,
-    100,
-    100
+    0.5,
+    0.3,
+    0.2
    ],
    "tris": 296,
-   "tpu": 0,
+   "tpu": 863,
    "mat": 1,
-   "bytes": 12952,
+   "bytes": 12988,
+   "scaled": true,
    "file": "Wall Cabinet Straight/wall_cabinet_straight.fbx"
   },
   {
@@ -39735,14 +38915,15 @@
    "name": "wall_knife_rack",
    "kind": "obj-kitchenware-tableware-cutlery",
    "wdh": [
-    160,
-    104.1,
-    17
+    0.4,
+    0.3,
+    0.1
    ],
    "tris": 456,
-   "tpu": 0,
+   "tpu": 1329,
    "mat": 1,
-   "bytes": 20456,
+   "bytes": 20492,
+   "scaled": true,
    "file": "Wall Knife Rack/wall_knife_rack.fbx"
   },
   {
@@ -39750,14 +38931,15 @@
    "name": "wall_papertowel_holder",
    "kind": "str-part-wall",
    "wdh": [
-    160,
-    57.5,
-    49
+    0.4,
+    0.1,
+    0.1
    ],
    "tris": 228,
-   "tpu": 0,
+   "tpu": 665,
    "mat": 1,
-   "bytes": 8796,
+   "bytes": 8832,
+   "scaled": true,
    "file": "Wall Papertowel/wall_papertowel_holder.fbx"
   },
   {
@@ -39765,14 +38947,15 @@
    "name": "wall_plain_kitchen_corner_outer",
    "kind": "str-part-wall",
    "wdh": [
-    225.1,
-    400,
-    225.1
+    0.6,
+    1,
+    0.6
    ],
    "tris": 50,
-   "tpu": 0,
+   "tpu": 127,
    "mat": 1,
-   "bytes": 4508,
+   "bytes": 4544,
+   "scaled": true,
    "file": "Wall Plain Kitchen/wall_plain_kitchen_corner_outer.fbx"
   },
   {
@@ -39780,14 +38963,15 @@
    "name": "wall_plain_kitchen_straight",
    "kind": "str-part-wall",
    "wdh": [
-    200,
-    400,
-    50
+    0.5,
+    1,
+    0.1
    ],
    "tris": 32,
-   "tpu": 0,
+   "tpu": 91,
    "mat": 1,
-   "bytes": 3316,
+   "bytes": 3352,
+   "scaled": true,
    "file": "Wall Plain Kitchen-lrfoY2FUMe/wall_plain_kitchen_straight.fbx"
   },
   {
@@ -39795,14 +38979,15 @@
    "name": "wall_plain_kitchen_corner_inner",
    "kind": "str-part-wall",
    "wdh": [
-    225,
-    400,
-    225
+    0.6,
+    1,
+    0.6
    ],
    "tris": 52,
-   "tpu": 0,
+   "tpu": 132,
    "mat": 1,
-   "bytes": 4584,
+   "bytes": 4620,
+   "scaled": true,
    "file": "Wall Plain Kitchen-o2tecBL394/wall_plain_kitchen_corner_inner.fbx"
   },
   {
@@ -39810,59 +38995,31 @@
    "name": "wall_plain_kitchen_window",
    "kind": "str-part-window",
    "wdh": [
-    200,
-    400,
-    60
+    0.5,
+    1,
+    0.2
    ],
    "tris": 216,
-   "tpu": 0,
+   "tpu": 617,
    "mat": 2,
-   "bytes": 15220,
+   "bytes": 15256,
+   "scaled": true,
    "file": "Wall Plain Kitchen-reQyVpOQW3/wall_plain_kitchen_window.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "wall_shelf_kitchen",
-   "kind": "obj-furniture",
-   "wdh": [
-    200,
-    50,
-    70
-   ],
-   "tris": 116,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 7480,
-   "file": "Wall Shelf Kitchen/wall_shelf_kitchen.fbx"
-  },
-  {
-   "kit": "Charming_Kitchen_set",
-   "name": "wall_shelf_kitchen_corner",
-   "kind": "obj-furniture",
-   "wdh": [
-    175,
-    50,
-    175
-   ],
-   "tris": 181,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 11188,
-   "file": "Wall Shelf Kitchen/wall_shelf_kitchen_corner.fbx"
   },
   {
    "kit": "Charming_Kitchen_set",
    "name": "wall_shelf_kitchen_hooks_decorated",
    "kind": "obj-tool-supplies",
    "wdh": [
-    200,
-    80.3,
-    70
+    0.5,
+    0.2,
+    0.2
    ],
    "tris": 902,
-   "tpu": 0,
+   "tpu": 2630,
    "mat": 1,
-   "bytes": 42764,
+   "bytes": 42800,
+   "scaled": true,
    "file": "Wall Shelf Kitchen/wall_shelf_kitchen_hooks_decorated.fbx"
   },
   {
@@ -39870,14 +39027,15 @@
    "name": "wall_shelf_kitchen_hooks",
    "kind": "obj-tool-supplies",
    "wdh": [
-    200,
-    50,
-    70
+    0.5,
+    0.1,
+    0.2
    ],
    "tris": 218,
-   "tpu": 0,
+   "tpu": 636,
    "mat": 1,
-   "bytes": 13096,
+   "bytes": 13132,
+   "scaled": true,
    "file": "Wall Shelf Kitchen H/wall_shelf_kitchen_hooks.fbx"
   },
   {
@@ -39885,14 +39043,15 @@
    "name": "wall_tiles_kitchen_straight",
    "kind": "str-part-floor",
    "wdh": [
-    200,
-    400,
-    50
+    0.5,
+    1,
+    0.1
    ],
    "tris": 352,
-   "tpu": 0,
+   "tpu": 1006,
    "mat": 1,
-   "bytes": 25732,
+   "bytes": 25768,
+   "scaled": true,
    "file": "Wall Tiles Kitchen/wall_tiles_kitchen_straight.fbx"
   },
   {
@@ -39900,14 +39059,15 @@
    "name": "wall_tiles_kitchen_window",
    "kind": "str-part-floor",
    "wdh": [
-    200,
-    400,
-    60
+    0.5,
+    1,
+    0.2
    ],
    "tris": 456,
-   "tpu": 0,
+   "tpu": 1303,
    "mat": 2,
-   "bytes": 32012,
+   "bytes": 32048,
+   "scaled": true,
    "file": "Wall Tiles Kitchen W/wall_tiles_kitchen_window.fbx"
   },
   {
@@ -39915,14 +39075,15 @@
    "name": "wall_tiles_kitchen_doorway",
    "kind": "str-part-door",
    "wdh": [
-    200,
-    400,
-    50
+    0.5,
+    1,
+    0.1
    ],
    "tris": 410,
-   "tpu": 0,
+   "tpu": 1171,
    "mat": 3,
-   "bytes": 24636,
+   "bytes": 24672,
+   "scaled": true,
    "file": "Wall Tiles Kitchen-omh1Ks0LHO/wall_tiles_kitchen_doorway.fbx"
   },
   {
@@ -39930,14 +39091,15 @@
    "name": "wall_tiles_kitchen_corner_inner",
    "kind": "str-part-floor",
    "wdh": [
-    225,
-    400,
-    225
+    0.6,
+    1,
+    0.6
    ],
    "tris": 584,
-   "tpu": 0,
+   "tpu": 1483,
    "mat": 1,
-   "bytes": 41840,
+   "bytes": 41876,
+   "scaled": true,
    "file": "Wall Tiles Kitchen-uYl2trxmns/wall_tiles_kitchen_corner_inner.fbx"
   },
   {
@@ -39945,14 +39107,15 @@
    "name": "wall_tiles_kitchen_corner_outer",
    "kind": "str-part-floor",
    "wdh": [
-    225.1,
-    400,
-    225.1
+    0.6,
+    1,
+    0.6
    ],
    "tris": 738,
-   "tpu": 0,
+   "tpu": 1874,
    "mat": 1,
-   "bytes": 52684,
+   "bytes": 52720,
+   "scaled": true,
    "file": "Wall Tiles Kitchen-ypup5Vp53J/wall_tiles_kitchen_corner_outer.fbx"
   },
   {
