@@ -9,7 +9,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_MAP = 'Asian_Cementery_Rocks_Packs';
 const BRON_NAAM = 'Asian, Cemetery and Rocks Packs';
 const KIT = 'asia-grave';
-const SCHAAL = 0.25;
+const SCHAAL = 0.15;
 const RAND = [0.05, 0.95];
 
 const BANDEN = {
