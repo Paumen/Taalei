@@ -177,7 +177,7 @@ const PAKKETTEN = [
   {
     kit: 'quat-ships',
     bron: 'Ships_Pack_by_Quaternius_OBJ',
-    schaal: 1.2,
+    schaal: 1.25,
     modellen: [
       {
         naam: 'viking-boat', bronmodel: 'Viking boat', kind: 'obj-transport-boat',
@@ -195,7 +195,7 @@ const PAKKETTEN = [
   {
     kit: 'quat-food',
     bron: 'Ultimate_Food_Pack_by_Quaternius_OBJ',
-    schaal: 0.11,
+    schaal: 0.1,
     modellen: [
       { naam: 'waffle', bronmodel: 'Waffle', kind: 'obj-food-grain', tags: ['use:food'],
         kleuren: { '#a38b67': korst } },
