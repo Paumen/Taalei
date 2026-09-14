@@ -60,8 +60,8 @@ export const BRONKITS = [
   { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: null, formaat: 'fbx' },
 
-  { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: null, formaat: 'obj', alleMappen: true },
+  { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: 'charming-kitchen', formaat: 'fbx', alleMappen: true },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];
