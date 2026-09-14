@@ -53,7 +53,7 @@ export const BRONKITS = [
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', formaat: 'glb' },
 
-  { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: null, formaat: 'glb' },
+  { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'rts-town', formaat: 'glb' },
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'desert-buildings', formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
