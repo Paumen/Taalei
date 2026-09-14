@@ -81,22 +81,23 @@ function tekenTextuurUit(bin, bufferView, json) {
 
 function materiaalUitGltf(json, index, dir, bin) {
   const materiaal = json.materials?.[index];
-  if (!materiaal) return { textuur: null, kleur: [255, 255, 255] };
+  if (!materiaal) return { naam: null, textuur: null, kleur: [255, 255, 255] };
 
+  const naam = materiaal.name ?? null;
   const pbr = materiaal.pbrMetallicRoughness ?? {};
   const texIndex = pbr.baseColorTexture?.index;
   if (texIndex !== undefined) {
     const image = json.images?.[json.textures?.[texIndex]?.source];
     if (!image) throw new Error('baseColorTexture zonder image');
-    if (image.uri) return { textuur: resolve(dir, decodeURIComponent(image.uri)), kleur: null };
+    if (image.uri) return { naam, textuur: resolve(dir, decodeURIComponent(image.uri)), kleur: null };
     if (image.bufferView !== undefined) {
-      return { textuur: tekenTextuurUit(bin, image.bufferView, json), kleur: null };
+      return { naam, textuur: tekenTextuurUit(bin, image.bufferView, json), kleur: null };
     }
     throw new Error('baseColorTexture zonder image-uri of bufferView');
   }
 
   const factor = pbr.baseColorFactor ?? [1, 1, 1, 1];
-  return { textuur: null, kleur: factor.slice(0, 3).map(naarSrgb) };
+  return { naam, textuur: null, kleur: factor.slice(0, 3).map(naarSrgb) };
 }
 
 export function leesGltf(pad) {

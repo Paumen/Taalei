@@ -46,7 +46,7 @@ export const BRONKITS = [
 
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-rpg', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-rpg', formaat: 'fbx' },
-  { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: null, formaat: 'fbx', splitsPerMesh: true },
+  { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
 
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', formaat: 'glb' },
