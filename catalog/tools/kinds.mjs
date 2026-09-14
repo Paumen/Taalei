@@ -1,5 +1,5 @@
 // The kind field of §7: the tree comes from Appendix B of the style guide and nothing
-// else. Shared by the build, the migration and the lint.
+// else. Shared by the build and the migration.
 
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
