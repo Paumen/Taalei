@@ -60,7 +60,6 @@ for (let cell = 0; cell < options.cells; cell++) {
   const x = Math.floor(cell * cellWidth + cellWidth / 2);
   for (let y = 0; y < cellHeight; y++) {
     const i4 = (y * atlas.width + x) * 4;
-    // an unfilled cell is black; it carries no hue to sample and must not enter the ramp
     if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
     ramp.push(toOklab(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]));
   }

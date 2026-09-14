@@ -14,7 +14,6 @@ const KIT_COLORS = {
   rocks: '#8a91ae',
 };
 
-// Kind ids are paths (obj-container-pot): the parent is the id minus its last segment.
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
 const kindChain = (id) => {
   const chain = [];
@@ -30,8 +29,6 @@ const THUMB_PATH = 'catalog/thumbs';
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
 
-// Thumbnail version per model id, from catalog/thumbs.json (node catalog/tools/build-thumbs.mjs).
-// A card with a thumbnail shows the picture; one without falls back to a live viewer.
 const thumbs = new Map();
 
 function hydrate(m) {
@@ -91,7 +88,6 @@ function collectColors(models) {
 
 const HEAVY_FROM = 5000;
 
-// size is measured at build (F1); the vocabulary entries only name and describe it
 const SIZE_CLASSES = [
   { id: 's', sign: 'S', short: 'Small', hint: 'small — under half a unit' },
   { id: 'm', sign: 'M', short: 'Medium', hint: 'medium — half to one and a half units' },
@@ -188,13 +184,6 @@ function demoClip(clips) {
   return clips.find((name) => name === 'open-close' || name === 'toggle') ?? clips[0];
 }
 
-// The assets bake their own shading: a face's position down its colour band sets how
-// light it reads, top faces at the light end and undersides at the dark end. A lit
-// environment adds a second, competing light, so the default is a soft sky that only
-// varies top to bottom — the same direction the bake runs in — and gently, well under
-// what the bake itself carries, or the undersides get darkened twice. Flat mode drops even that
-// and shows the bake alone. Tone mapping is pinned so a viewer upgrade cannot swap in a
-// curve that shifts the palette.
 const FLAT_ENVIRONMENT = 'catalog/effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'catalog/zachte-omgeving.png';
 const flatMode = { on: false };
@@ -255,8 +244,6 @@ function showSnapshot(box) {
   box.replaceChildren(image);
 }
 
-// The thumbnails are rendered by the same model-viewer build with the same lighting as
-// the cards used to carry live, one per mode, so Flat only swaps the file.
 const thumbSrc = (box) =>
   `${box.dataset.thumb}${flatMode.on ? '.flat' : ''}.webp?v=${box.dataset.thumbV}`;
 
@@ -317,8 +304,6 @@ function makeCard(model, kits, variants = []) {
 
   card.append(box, glyphs, text);
 
-  // The variants folded into this card come along with it: the card promises
-  // "⧉ n variants", so a tick on it means all n, not just the one on the front.
   const family = [model, ...variants];
   const familyPaths = family.map((m) => m.path);
   familyPerPath.set(model.path, familyPaths);
@@ -372,11 +357,8 @@ function cardUnder(x, y) {
   return document.elementFromPoint(x, y)?.closest('.kaart-houder[data-pad]');
 }
 
-// Pointer capture is what carries a drag from one card to the next, but it also takes the
-// click off the card, so the card's own handler never runs: the press itself has to select.
 panel.addEventListener('pointerdown', (e) => {
   if (!selectMode || e.button !== 0) return;
-  // the checkbox keeps its own click, capture and all
   if (e.target.closest('.kaart-kies')) return;
   const holder = e.target.closest('.kaart-houder[data-pad]');
   if (!holder) return;
@@ -491,13 +473,8 @@ const WITHOUT = '_zonder';
 
 const groupingType = () => grouping;
 
-// Sections by kind, cut at the chosen depth: a model shallower than the cut keys on the
-// kind it has. Roots in a fixed order, then the smaller sections first at every level.
 const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4 };
 
-// `kindauto` starts at the same cut as `kind2` and takes a section one level deeper
-// whenever it holds more than this — again and again, until every section fits or has no
-// deeper kind left to split on (a wall is `str-part-wall` and nothing below it).
 const KIND_SPLIT_OVER = { kindauto: 48 };
 
 function kindSections(models, depth, splitOver = 0) {
@@ -520,8 +497,6 @@ function kindSections(models, depth, splitOver = 0) {
       bucket.delete(key);
       for (const model of group) {
         const chain = kindChain(model.kind);
-        // a model that ends above the deeper cut keys on the kind it has, so the
-        // branch's own models stay together in a section of that name
         const deeper = chain[Math.min(cut + 1, chain.length) - 1];
         if (!bucket.has(deeper)) bucket.set(deeper, []);
         bucket.get(deeper).push(model);
@@ -537,7 +512,6 @@ function kindSections(models, depth, splitOver = 0) {
   };
   const compare = (a, b) => {
     const ra = rank(a), rb = rank(b);
-    // a model on the branch itself is the "other" bucket and closes its branch
     for (let i = 0; i < Math.max(ra.length, rb.length); i++) {
       const d = (ra[i] ?? Infinity) - (rb[i] ?? Infinity);
       if (d) return d;
@@ -624,8 +598,6 @@ function sectionsFor(models) {
   );
 }
 
-// Inside a kind section the deeper kinds cluster first, then the name: a barrel row
-// reads barrel, barrel, keg rather than alphabetically across the whole container branch.
 const byKindPath = (a, b) => (a.kind ?? '~').localeCompare(b.kind ?? '~') || SORTINGS.naam(a, b);
 
 let variantMain = new Map();
@@ -651,9 +623,6 @@ function foldVariants(models) {
   return out;
 }
 
-// While a material parent is picked, its subtypes lead the order within every section:
-// asking for Wood is asking to see the planks together, then the worked, then the beams.
-// A model on the bare parent has no subtype and sorts last.
 function subtypeRank() {
   const ranked = new Map();
   for (const [id, state] of tagState) {
@@ -715,10 +684,6 @@ const detailVariantChoice = document.querySelector('#detail-variant-keuze');
 let activePath = '';
 const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
-// A material may name a parent. A model carries the subtype it is and never the parent on
-// top, so the filter adds the parent here — selecting Wood has to find every wood-beam.
-// The chain can run deeper than one level (metal > metal-iron > metal-iron-steel), so this
-// walks all the way up: selecting Metal has to find a steel tong too.
 const parentOf = new Map();
 const childrenOf = new Map();
 const withParents = (ids) => {
@@ -734,8 +699,6 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// Every band the model uses, one dot each. The hex stays reachable for whoever needs it,
-// without being shown.
 function colorSwatches(model) {
   if (!model.colors?.length) return null;
   const strip = document.createElement('div');
@@ -752,10 +715,6 @@ function colorSwatches(model) {
   return strip;
 }
 
-// Facts come in as lines, and a line stays a line: the counts that are read against each
-// other (tris beside tris-per-unit, calls beside mats and bands) sit on one row rather
-// than wherever a two-column grid happened to drop them. Only the long tail of style
-// measurements is left to wrap on its own.
 function fillFacts(lines) {
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
@@ -1014,7 +973,6 @@ document.querySelector('#selectie-wis').addEventListener('click', () => {
 });
 
 detailSelect.addEventListener('click', () => {
-  // the card selects the whole variant family, so the panel has to as well
   setSelection(familyPerPath.get(activePath) ?? [activePath], !chosenPaths.has(activePath));
 });
 
@@ -1057,8 +1015,6 @@ function buildColorBar(colors) {
 
 const reorder = () => layoutChips(chipButtons);
 
-// The bar's own sync: live counts from the cards, and a chip that goes hidden or empty
-// drops its state so nothing keeps filtering out of sight.
 function syncSubtypes(counts = null) {
   syncChips(chipButtons, {
     stateOf: (id, chip) => chip.state.get(id),
@@ -1091,10 +1047,6 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
 function buildTagBar(tags) {
   const container = document.querySelector('#tagbalk');
 
-  // Kind and size share one row: the tree is what you reach for first, and the three size
-  // chips are narrow enough to ride along on its right. Use has no row of its own — a
-  // model's uses are set and read in the model panel, where the rest of its tags are.
-  // "No kind" is the curation queue: what the migration could not settle.
   const kinds = tags.filter((t) => t.type === 'kind');
   const shape = buildChipRow(
     container,
@@ -1132,8 +1084,6 @@ function buildTagBar(tags) {
 function refresh() {
   buildPanel();
 
-  // Counted per model, variants included, not per card — a card folds a whole family of
-  // variants into one tile, but the chip count promises how many models actually match.
   const counts = new Map();
   const bump = (key) => counts.set(key, (counts.get(key) ?? 0) + 1);
   for (const card of cards) {
@@ -1169,8 +1119,6 @@ function filter() {
   document.querySelector('#alles-wis').hidden = filtersOff();
   let visible = 0;
 
-  // A model has one kind, so two picked kinds mean either — and a picked leaf narrows its
-  // picked parent rather than widening it.
   const onlyKinds = keysWith(kindState, 'only');
   const deepest = onlyKinds.filter((k) => !onlyKinds.some((o) => o !== k && o.startsWith(`${k}-`)));
   const notKinds = keysWith(kindState, 'not');
@@ -1196,7 +1144,6 @@ function filter() {
   emptyMessage.hidden = visible > 0;
 }
 
-// Silent when thumbs.json is missing: every card then carries a live viewer as before.
 async function loadThumbs() {
   try {
     const response = await fetch(modelUrl('catalog/thumbs.json'));
@@ -1290,7 +1237,6 @@ async function start() {
   const raw = location.hash.slice(1);
   const anchor = raw;
   refresh();
-  // a staged kind or use edit moves the model between sections and counts
   onTagEdit(() => {
     for (const model of register.models.values()) {
       model.kind = effectiveKind(model, register.tags);

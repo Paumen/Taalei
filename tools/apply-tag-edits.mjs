@@ -1,17 +1,3 @@
-// Merges a tag-edits export from the catalogue's model panel or swipe page into
-// catalog/tags.json.
-//
-//   node tools/apply-tag-edits.mjs <export.json>          apply
-//   node tools/apply-tag-edits.mjs <export.json> --dry     show what it would do
-//
-// The export is a diff: per tag, `add` ids to append to that tag's `models` and `remove`
-// ids to drop. Applying it by hand is how it was done before, and a session is easily
-// fifteen models across fourteen tags.
-//
-// Nothing is written unless the whole file passes: a half-applied diff would leave models
-// with two kinds or none, which the build only notices afterwards. Re-applying the same
-// file is a no-op.
-
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readKindTree } from '../catalog/tools/kinds.mjs';
@@ -48,12 +34,10 @@ for (const [tag, entry] of Object.entries(diff)) {
   for (const id of [...add, ...remove]) {
     if (!known.has(id)) push(`${tag}: no such model: ${id}`);
   }
-  // the shape the editor produced while it read a staged value as the catalogue's own
   const both = add.filter((id) => remove.includes(id));
   for (const id of both) push(`${tag}: ${id} is in both add and remove`);
 }
 
-// K1 and U1 checked against the result, not the current state
 const touched = [...new Set(Object.values(diff).flatMap((e) => [...(e.add ?? []), ...(e.remove ?? [])]))];
 const typeOf = (id) => byId.get(id)?.type ?? 'tag';
 const after = new Map();
@@ -78,7 +62,6 @@ if (problems.length) {
   process.exit(1);
 }
 
-// what changes, per model, so the diff is reviewable before it lands
 const kindsOf = (set) => [...set].filter((t) => typeOf(t) === 'kind');
 console.log(`${touched.length} model(s) in ${Object.keys(diff).length} tag(s)${DRY ? ' — dry run' : ''}\n`);
 for (const id of [...touched].sort()) {

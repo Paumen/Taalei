@@ -9,7 +9,6 @@ function readProperty(buf, pos) {
   const type = String.fromCharCode(buf[pos]);
   pos += 1;
 
-  // a single value
   if (type === 'Y') return [buf.readInt16LE(pos), pos + 2];
   if (type === 'C') return [buf.readUInt8(pos) !== 0, pos + 1];
   if (type === 'I') return [buf.readInt32LE(pos), pos + 4];
@@ -17,7 +16,6 @@ function readProperty(buf, pos) {
   if (type === 'D') return [buf.readDoubleLE(pos), pos + 8];
   if (type === 'L') return [Number(buf.readBigInt64LE(pos)), pos + 8];
 
-  // a string or a lump of raw bytes
   if (type === 'S' || type === 'R') {
     const length = buf.readUInt32LE(pos);
     const start = pos + 4;
@@ -25,7 +23,6 @@ function readProperty(buf, pos) {
     return [type === 'S' ? slice.toString('utf8') : slice, start + length];
   }
 
-  // an array, zlib-packed when the encoding says so
   const count = buf.readUInt32LE(pos);
   const encoding = buf.readUInt32LE(pos + 4);
   const packedLength = buf.readUInt32LE(pos + 8);
@@ -70,7 +67,6 @@ function readRecord(buf, pos, wide) {
   }
 
   const children = [];
-  // whatever is left before `end` is a child list, closed by an all-zero record
   const sentinel = wide ? 25 : 13;
   while (cursor + sentinel <= end) {
     const child = readRecord(buf, cursor, wide);
@@ -136,7 +132,6 @@ function upAxisMatrix(roots) {
   const up = property70(settings, 'UpAxis')?.[0] ?? 1;
   const sign = property70(settings, 'UpAxisSign')?.[0] ?? 1;
   if (up === 1) return null;
-  // Z-up → Y-up
   return sign >= 0
     ? [1, 0, 0, 0, 0, 1, 0, -1, 0]
     : [1, 0, 0, 0, 0, -1, 0, 1, 0];
@@ -163,11 +158,6 @@ function layerLookup(layer, valuesName, indexName, width) {
   };
 }
 
-// An fbx may carry its texture inside itself, as the bytes of a Video record, and then
-// ship no image file at all — Charming Kitchen Set and Architecture Pack both do, and
-// preview colourless without this. Write those bytes out beside the model, so the name
-// the material asks for resolves against a file like any other texture: every reader of
-// this shape looks a texture up among the pack's images, never inside the fbx.
 function pakMediaUit(video, dir) {
   const inhoud = child(video, 'Content')?.props[0];
   if (!inhoud?.length) return null;
@@ -188,12 +178,6 @@ const naarSrgb = (lineair) => {
   return Math.round(Math.min(Math.max(v, 0), 1) * 255);
 };
 
-/**
- * Reads a binary .fbx and returns one entry per mesh and material, in the same shape as
- * leesGltf and leesObj in tools/importeer/bron.mjs: triangulated, with world positions,
- * and with a name taken from the Model the geometry hangs under. A mesh split over
- * several materials returns one entry per material, all under that same name.
- */
 export function leesFbx(pad) {
   const { roots } = readTree(pad);
   const objects = roots.find((r) => r.name === 'Objects');
@@ -210,10 +194,8 @@ export function leesFbx(pad) {
     parents.get(from).push(to);
   }
 
-  // an FBX object name is "Name\0\x01Class" — only the part before the NUL is the name
   const naamVan = (record) => String(record?.props[1] ?? '').split('\0')[0] || 'mesh';
 
-  // the other direction: everything that hangs under a given id
   const kinderen = new Map();
   for (const [from, doelen] of parents) {
     for (const to of doelen) {
@@ -240,7 +222,6 @@ export function leesFbx(pad) {
     return kleur ? { kleur: kleur.slice(0, 3).map(naarSrgb) } : null;
   };
 
-  // In connection order: that is the order LayerElementMaterial indexes into.
   const materialenVan = (modelId) => hangtOnder(modelId, 'Material').map(beschrijf);
 
   const naarYOp = upAxisMatrix(roots);
@@ -256,8 +237,6 @@ export function leesFbx(pad) {
       .map((id) => perId.get(id))
       .find((r) => r?.name === 'Model');
 
-    // placement of the model the geometry hangs under, plus the geometric offset that
-    // FBX keeps separate from it
     const schaal = property70(model, 'Lcl Scaling') ?? [1, 1, 1];
     const draai = property70(model, 'Lcl Rotation') ?? [0, 0, 0];
     const geoSchaal = property70(model, 'GeometricScaling') ?? [1, 1, 1];
@@ -282,9 +261,6 @@ export function leesFbx(pad) {
     const normaalLaag = layerLookup(child(geometry, 'LayerElementNormal'), 'Normals', 'NormalsIndex', 3);
     const uvLaag = layerLookup(child(geometry, 'LayerElementUV'), 'UV', 'UVIndex', 2);
 
-    // A mesh may carry several materials, one per polygon — the doors and beams of a
-    // building sit in the same mesh as its walls. Each material becomes its own
-    // primitive; reading only the first paints the whole mesh in the wall's colour.
     const materiaalLaag = child(geometry, 'LayerElementMaterial');
     const materiaalIndices = child(materiaalLaag, 'Materials')?.props[0];
     const perPolygoon = child(materiaalLaag, 'MappingInformationType')?.props[0] === 'ByPolygon';
@@ -331,9 +307,6 @@ export function leesFbx(pad) {
     }
 
     const materialen = materialenVan(model?.props[0]);
-    // A material that names neither a texture nor a colour says nothing about the faces
-    // carrying it: fall back to the first one that does, the way the single-material
-    // read did before the split.
     const eerste = materialen.find((m) => m !== null) ?? null;
 
     for (const [index, deel] of [...delen].sort((a, b) => a[0] - b[0])) {

@@ -15,8 +15,6 @@ export const BRONKITS = [
   { map: 'KayKit_Forest_Nature_Pack_1.0_FREE', naam: 'KayKit Forest Nature Pack', kit: 'kay-forest', formaat: 'gltf' },
   { map: 'KayKit_ResourceBits_1.0_FREE', naam: 'KayKit Resource Bits', kit: 'kay-resources', formaat: 'gltf' },
   { map: 'KayKit_RPGToolsBits_1.0_FREE', naam: 'KayKit RPG Tools Bits', kit: 'kay-tools', formaat: 'gltf' },
-  // gltf holds the assembled models, obj one file per node. Reading gltf first keeps a
-  // multi-part model whole; the obj pass then adds the loose parts gltf has no file for.
   { map: 'KayKit_HalloweenBits_1.0_FREE', naam: 'KayKit Halloween Bits', kit: 'kay-hallow', formaat: 'gltf', extraFormaten: ['obj'] },
   { map: 'KayKit_Restaurant_Bits_1.0_FREE', naam: 'KayKit Restaurant Bits', kit: 'kay-food', formaat: 'gltf', extraFormaten: ['obj'] },
   { map: 'KayKit_Furniture_Bits_1.0_FREE', naam: 'KayKit Furniture Bits', kit: 'kay-furniture', formaat: 'gltf' },
@@ -42,8 +40,6 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: 'isa-food', formaat: 'gltf' },
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-props', formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', formaat: 'obj' },
-  // Same 48 models as the Updated pack, never imported: its kit holds no workfiles, so
-  // build-missing lists the whole pack as still to come.
   { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
@@ -53,29 +49,19 @@ export const BRONKITS = [
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: null, formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
 
-  // glb, not the fbx zips: those put every model in its own folder, which build-missing's
-  // one-folder rule reads as a two-model pack, and the park's fbx ships without its atlas.
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', formaat: 'glb' },
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', formaat: 'glb' },
 
-  // glb, not the fbx zip that ships beside it: the fbx puts each model in its own folder,
-  // which the one-folder rule reads as a three-model pack. The glb names carry the export's
-  // hash suffixes, the fbx names do not — rename on import.
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: null, formaat: 'glb' },
-  // one fbx export, sorted into four folders by theme — every folder holds its own models
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'desert-buildings', formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
-  // three packs in one download, each a single glb holding all its models
   { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: null, formaat: 'fbx' },
 
-  // one obj export, one folder per model — every folder holds its own model
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: null, formaat: 'obj', alleMappen: true },
-  // same shape in fbx; the kitchen set puts a model's colour variants in its folder too
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
   { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: null, formaat: 'fbx', alleMappen: true },
-  // every model in one FBX folder beside the atlas, so the one-folder rule fits
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];

@@ -13,8 +13,6 @@ for (let i = 0; i < argv.length; i++) {
   if (a === '--band') options.band = argv[++i];
   else if (a === '--top') options.top = Number(argv[++i]);
   else if (a === '--bottom') options.bottom = Number(argv[++i]);
-  // An unused cell is black, so its a and b are 0 and reshading it can only ever make
-  // a neutral grey. These set the hue outright, which is how a new band is opened.
   else if (a === '--a') options.a = Number(argv[++i]);
   else if (a === '--b') options.b = Number(argv[++i]);
   else if (a === '--atlas') options.atlas = argv[++i];

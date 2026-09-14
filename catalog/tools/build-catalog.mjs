@@ -152,7 +152,6 @@ function gradientSpread(gradient) {
   return total === 0 ? null : spread / total;
 }
 
-// Per lane: the UV range a model covers down the band, 0 = light top, 1 = dark bottom.
 function laneSpread(gradient) {
   if (gradient.size === 0) return null;
   return Object.fromEntries([...gradient].map(([lane, { min, max }]) => [lane, [round(min, 3), round(max, 3)]]));
@@ -222,11 +221,6 @@ function colorName(hex) {
 
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
-// The modules a page imports rather than loads with a <script src>: a bare specifier
-// carries no version, so the browser keeps serving the cached copy however often the
-// page is stamped. They are versioned in the import itself, and they count towards the
-// hash — a fix that lands only in one of them has to change the version, or nothing
-// re-downloads.
 const MODULES = ['tag-edits.js', 'chiprij.js'];
 const IMPORTERS = ['catalog.js', 'swipe.js', 'tag-edits.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
@@ -235,7 +229,6 @@ function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
     'swipe.css', 'swipe.js', 'missing.json', 'missing.css', 'missing.js', 'thumbs.json', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
-    // strip the stamp before hashing, or every build would rewrite a file it just hashed
     .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))
     .join('');
   const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
@@ -328,8 +321,6 @@ for (const slug of kitSlugs) {
       triangles: scene.triangles,
       trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
       materials: (gltf.materials ?? []).length,
-      // Bands, not colours: an untextured material such as the clear glass adds a
-      // colour to `colors` without being a band of its own.
       bands: read.lanes.size,
       wdh: scene.wdh,
       calls: scene.calls,
@@ -364,11 +355,9 @@ for (const slug of kitSlugs) {
   });
 }
 
-// The five fields of §7. size is measured here and never listed in tags.json.
 const TYPES = ['material', 'kind', 'use', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
-// The three kits whose walls, roofs, pillars and floors click together on one grid.
 const BUILDING_KITS = ['ken-town', 'fs-town', 'kay-dun-1', 'kay-dun-2'];
 
 const SOURCES = [
@@ -461,10 +450,6 @@ function readTags(known) {
   const noType = tags.filter((t) => !TYPES.includes(t.type)).map((t) => t.id);
   if (noType.length) console.warn(`! tag without a valid type: ${noType.join(', ')}`);
 
-  // A material parent is a material of its own. The chain may run deeper than one level —
-  // metal > metal-iron > metal-iron-steel — so the filter walks it instead of assuming a
-  // single hop; what is rejected here is a parent that is no material, and a cycle. A
-  // kind's parent is its id minus the last segment and needs no field.
   const material = new Set(tags.filter((t) => t.type === 'material').map((t) => t.id));
   const parentOfTag = new Map(tags.filter((t) => t.parent).map((t) => [t.id, t.parent]));
   const badParent = [];
@@ -489,7 +474,6 @@ function readTags(known) {
   const shadowed = tags.filter((t) => t.type === 'tag' && closed.has(t.id)).map((t) => t.id);
   if (shadowed.length) console.warn(`! open tag shares an id with a kind or use: ${shadowed.join(', ')}`);
 
-  // K1: exactly one kind per model
   const kindsPer = new Map();
   for (const tag of tags) {
     if (tag.type !== 'kind') continue;
@@ -531,7 +515,6 @@ const tags = readTags(new Set(models.map((m) => m.id)));
 const typeOf = new Map(tags.tags.map((t) => [t.id, t.type ?? 'tag']));
 for (const model of models) {
   const own = tags.perModel.get(model.id) ?? [];
-  // kind, use and size are fields of their own; tags keeps the materials and the open tags
   model.kind = own.find((id) => typeOf.get(id) === 'kind') ?? null;
   model.use = own.filter((id) => typeOf.get(id) === 'use').map((id) => id.replace(/^use:/, '')).sort();
   model.size = sizeOf(model.wdh);
@@ -541,7 +524,6 @@ for (const model of models) {
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
   if (members.length === 0) continue;
-  // size is a field of the model, not a tag on it; the entry only feeds the filter row
   if (type !== 'size') for (const model of members) model.tags.push(id);
   tags.tags.push({
     id,
@@ -558,7 +540,6 @@ for (const model of models) {
 }
 for (const tag of tags.tags) {
   if (tag.type !== 'kind') continue;
-  // a kind implies its parents (T4): the parent's count is every model under it
   tag.count = models.filter((m) => kindIs(m.kind, tag.id)).length;
 }
 

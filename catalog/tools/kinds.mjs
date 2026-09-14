@@ -1,6 +1,3 @@
-// The kind field of §7: the tree comes from Appendix B of the style guide and nothing
-// else. Shared by the build and the migration.
-
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const GUIDE = join(ROOT, 'docs/asset_style_guide.md');
 
-// id → glossary nouns, every implied parent included (T4)
 export function readKindTree(guide = readFileSync(GUIDE, 'utf8')) {
   const block = guide.split('## Appendix B')[1]?.match(/```\n([\s\S]*?)```/)?.[1];
   if (!block) throw new Error('Appendix B code block not found in the style guide');
@@ -54,7 +50,6 @@ export const kindAncestors = (id) => {
 };
 export const rootRank = (id) => ROOT_ORDER.indexOf(kindRoot(id));
 
-// Branch colours: the old group's colour where a branch is that group, else a new one.
 export const KIND_COLORS = {
   obj: '#c07c8a', char: '#8a6fb0', env: '#6cb588', str: '#877a63', assy: '#b5651d', scene: '#6f7f8f',
   'obj-container': '#dd9f79', 'obj-kitchenware': '#9c3f2e', 'obj-furniture': '#c07c8a',
@@ -79,8 +74,6 @@ export const USE_TEXT = {
   transport: 'It moves things or people.', light: 'It gives light.',
 };
 
-// §7 size, measured from the bounding box: longest axis under half a unit is small,
-// under one and a half is medium, the rest large.
 export const SIZES = [
   { id: 's', name: 'Small', limit: 0.5, description: 'Longest axis under half a unit.' },
   { id: 'm', name: 'Medium', limit: 1.5, description: 'Longest axis from half to one and a half units.' },
@@ -88,8 +81,6 @@ export const SIZES = [
 ];
 export const sizeOf = (wdh) => (SIZES.find((k) => Math.max(...wdh) < k.limit) ?? SIZES.at(-1)).id;
 
-// Model name → kind: the glossary nouns as patterns, first hit wins. Used by the
-// migration and by the missing-models page, where nothing is curated yet.
 const w = (s) => new RegExp(`(^|-)(${s})(s|es)?(-|$)`);
 export const NAME_KIND = [
   [w('carrot|cabbage|pumpkin|turnip|onion|potato|tomato|lettuce'), 'obj-food-vegetable'],
@@ -221,8 +212,6 @@ export const NAME_KIND = [
   [w('cloud|lava|smoke|fog'), 'env'],
 ];
 
-// Rock and stone by size: the glossary puts a large rock with the boulders and a small
-// stone with the pebbles, and the name alone does not say which.
 const ROCK = /(^|-)(rock|stone)(s|-|$)/;
 export const rockBySize = (wdh) => (Math.max(...wdh) < 0.3 ? 'env-rock-pebble' : 'env-rock-boulder');
 

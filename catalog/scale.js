@@ -34,9 +34,6 @@ function cleanUp(scene) {
 const loader = new GLTFLoader();
 const load = (path) => new Promise((res, rej) => loader.load(path, res, undefined, rej));
 
-// Parsed scenes stay in memory for the life of the page, so a filter click or a
-// scroll back up redraws a family without fetching or parsing a single model again.
-// The renderer is shared too, so their geometry and texture stay on the GPU as well.
 const LOAD_LIMIT = 8;
 const models = new Map();
 let inFlight = 0;
@@ -65,9 +62,6 @@ const textWidth = ({ kit, model }) => {
   return Math.ceil(Math.max(a, b)) + 16;
 };
 
-// The row heading already names the kind, so a model repeating it says nothing:
-// in the Shield row, shield reads as nothing at all, shield-large as large and
-// stone-shield as stone.
 const kindWords = (name) =>
   new Set(name.split('›').pop().trim().toLowerCase().split(/[^a-z0-9]+/).filter(Boolean));
 
@@ -86,7 +80,6 @@ const colors = () => {
   };
 };
 
-// One step is one major gridline, so a unit-tall stick has five and a 0.6 one has three.
 const RULER_STEP = GRID_MAJOR;
 
 function ruler(height) {
@@ -144,9 +137,6 @@ function layOut(pieces, labelScale, rulerObj, rowWidth) {
   return rows;
 }
 
-// Three levels, so a glance tells a tenth from a fifth from a whole unit: 0.1 dashed and
-// horizontal only, 0.2 solid both ways, and the unit line both ways as a thin quad —
-// WebGL ignores linewidth on a line material, and a dark colour alone is not bold.
 const GRID_UNIT = 1;
 const UNIT_WEIGHT = 0.006;
 const DASH = 0.022;
@@ -187,8 +177,6 @@ function unitLines(y, left, right, top, color) {
 function background(y, left, right, height, fine, heavy) {
   const g = new THREE.Group();
   const top = Math.ceil(Math.max(height, GRID_MAJOR) / GRID_MAJOR - 1e-6) * GRID_MAJOR;
-  // the tenth reads as height off the baseline, so it runs across only: a full 0.1 mesh
-  // is a wall of lines that hides the models standing in it
   g.add(gridLines(y, left, right, top, GRID_MINOR, fine, { dashed: true, vertical: false }));
   g.add(gridLines(y, left, right, top, GRID_MAJOR, fine));
   g.add(unitLines(y, left, right, top, heavy));
@@ -211,7 +199,6 @@ export async function drawFamily(group, canvas, width) {
   for (const [i, item] of group.items.entries()) {
     const obj = loaded[i];
     if (!obj) continue;
-    // a cached scene still sits in the pivot and pose of its last draw
     obj.removeFromParent();
     obj.rotation.set(0, 0, 0);
     obj.position.set(0, 0, 0);
@@ -221,7 +208,6 @@ export async function drawFamily(group, canvas, width) {
     pivot.add(obj);
 
     if (group.standUp) {
-      // turn the longest side upright, whichever axis the model happens to lie on
       if (size.z >= size.x && size.z >= size.y) obj.rotation.x = -Math.PI / 2;
       else if (size.x > size.y) obj.rotation.z = Math.PI / 2;
     } else if (group.topView) obj.rotation.x = -Math.PI / 2;
@@ -283,8 +269,6 @@ export async function drawFamily(group, canvas, width) {
       const obj = rulerObj.build();
       obj.position.set(lx, y, 0);
       scene.add(obj);
-      // the ruler is a unit tall whatever the row holds, so it sets the row's top
-      // wherever every model in it is shorter
       yMax = Math.max(yMax, y + rulerObj.h);
     }
     for (const p of r.row) {
@@ -325,9 +309,6 @@ export async function drawFamily(group, canvas, width) {
   const midY = (yMin + yMax) / 2;
   const cam = new THREE.OrthographicCamera(
     (-viewH * aspect) / 2, (viewH * aspect) / 2, viewH / 2, -viewH / 2, 0.1, 200);
-  // Straight on, no tilt: the grid sits at z = -0.5 and the models at z = 0, so any
-  // tilt renders the grid above the models' feet and drops each model below the line
-  // by its own depth. Orthographic buys no depth cue from a tilt to pay for that.
   cam.position.set(midX, midY, 30);
   cam.lookAt(midX, midY, 0);
   renderer.render(scene, cam);
@@ -345,7 +326,6 @@ export async function drawFamily(group, canvas, width) {
     return { kit: v.kit, tags: v.tags ?? [], x: px0, y: py0, w: px1 - px0, h: py1 - py0 };
   });
 
-  // the models are cached, so take them out before disposing the rest of the scene
   for (const p of pieces) scene.remove(p.obj);
   cleanUp(scene);
   return { height, width: canvasW, count: pieces.length, boxes: inPixels };
@@ -401,7 +381,6 @@ const [allGroups, catalogData] = await Promise.all([
   fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
 
-// the page's meta names the scale tabs it shows, e.g. "obj-gen"
 const TABS = CATEGORY ? CATEGORY.split(',') : null;
 const groups = TABS ? allGroups.filter((g) => TABS.includes(g.category)) : allGroups;
 
@@ -526,12 +505,9 @@ function buildSections() {
       const group = visible.find((g) => g.slug === section.id);
       const canvas = section.querySelector('canvas');
       section.classList.add('bezig');
-      // fetch now, so a family's models are in by the time the draw queue reaches it
       for (const item of group.items) loadModel(item.path).catch(() => {});
       queue = queue.then(async () => {
         try {
-          // A double-wide row gets a double-wide canvas too: otherwise it halves the
-          // pixels per unit, and that family comes out the blurriest of all.
           const out = await drawFamily(group, canvas, group.wideRow ? WIDTH * 2 : WIDTH);
           if (!out) section.classList.add('mislukt');
         } catch (error) {

@@ -1,15 +1,3 @@
-// Rendert elk model uit catalog.json als diagnostisch blad van acht tegels
-// (render.mjs --ladder 8: pbr, claywire, normals, silhouet).
-// Gebruik: node tools/renders/catalogus.mjs [uitdir] [--ladder n]
-// Standaard uitdir: docs/catalogus_views
-//
-// Per kit één renderloop, niet één voor de hele catalogus. Dat is geen detail:
-// render.mjs kwalificeert dubbele modelnamen met hun map, en `tree` bestaat in
-// vijf kits. Binnen één kit zijn de namen uniek, dus heet de uitvoermap altijd
-// naar het model zelf — en dat maakt hervatten exact: een map die er al staat is
-// af en wordt overgeslagen. Over de hele catalogus in één run zou de naam
-// afhangen van wie er verder in de batch zit, en dus verschuiven zodra je
-// hervat.
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';

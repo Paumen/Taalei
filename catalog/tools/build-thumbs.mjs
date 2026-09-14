@@ -1,19 +1,3 @@
-#!/usr/bin/env node
-// build-thumbs.mjs — card thumbnails for the catalogue, rendered by model-viewer itself.
-//
-// A card used to carry a live <model-viewer>; with 1200 cards that meant sixty-odd WebGL
-// scenes and as many .glb downloads per screenful. Now the card shows a WebP and the
-// live viewer is kept for the model panel. The thumbnails come out of the same
-// model-viewer build, environment images, exposure and camera the panel uses, so a card
-// and the panel behind it show the same picture.
-//
-// Two files per model: <name>.webp (soft sky, the default) and <name>.flat.webp (the
-// Flat mode: bake only). A model is re-rendered when its .glb changed; the hashes live in
-// catalog/thumbs.json, which the page also reads to know which cards have a thumbnail
-// and which version to fetch.
-//
-//   node catalog/tools/build-thumbs.mjs [--kit slug] [--force] [--jobs n] [--limit n] [--no-prune]
-
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { createHash } from 'node:crypto';
@@ -26,8 +10,6 @@ const CATALOG_DIR = join(ROOT, 'catalog');
 const THUMB_DIR = join(CATALOG_DIR, 'thumbs');
 const MANIFEST = join(CATALOG_DIR, 'thumbs.json');
 
-// 256 px: sharp on a 2x screen at the card's 112 px minimum, and small enough that a
-// screenful of cards weighs less than one of the models it replaces.
 const SIZE = 256;
 const QUALITY = 0.82;
 const LOAD_TIMEOUT = 90_000;
@@ -86,7 +68,6 @@ for (const m of catalog.models) {
 const queue = limit ? todo.slice(0, limit) : todo;
 console.log(`${catalog.models.length} models: ${unchanged} up to date, ${queue.length} to render${limit && todo.length > limit ? ` (of ${todo.length})` : ''}`);
 
-// Thumbnails of models that are no longer in the catalogue only take up space.
 if (prune && !onlyKit && existsSync(THUMB_DIR)) {
   const known = new Set(catalog.models.map((m) => `${m.kit}/${m.name}`));
   let pruned = 0;
@@ -111,8 +92,6 @@ if (queue.length === 0) {
   process.exit(missingGlb ? 1 : 0);
 }
 
-// The page needs the repo as a site: model-viewer from catalog/vendor, the two
-// environment images from catalog/, and the .glb files with the colormap next to them.
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.glb': 'model/gltf-binary', '.png': 'image/png', '.jpg': 'image/jpeg', '.bin': 'application/octet-stream',
@@ -131,8 +110,6 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 
-// The two viewers mirror attachViewer() and setLighting() in catalog.js. Keep them in
-// step: a thumbnail lit differently from the panel is a card that lies.
 const PAGE = `<!doctype html><meta charset="utf-8">
 <style>
   html, body { margin: 0; background: transparent; }
@@ -157,8 +134,6 @@ window.render = async (src, quality, timeout) => {
   const loads = viewers.map((v) => once(v, 'load', timeout));
   for (const v of viewers) v.src = src;
   await Promise.all(loads);
-  // load fires when the scene is built, not when the first frame with the new model
-  // has been drawn into this element's canvas; give the renderer two frames.
   await frames(3);
   return viewers.map((v) => v.toDataURL('image/webp', quality).split(',')[1]);
 };
@@ -202,7 +177,6 @@ async function worker() {
     } catch (e) {
       failed++;
       console.error(`  x ${item.id}: ${e.message.split('\n')[0]}`);
-      // a model that hangs the viewer must not poison the next one on this page
       await page.reload();
       await page.waitForFunction(() => window.ready === true, null, { timeout: LOAD_TIMEOUT });
     }
