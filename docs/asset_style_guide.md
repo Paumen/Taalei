@@ -404,7 +404,8 @@ obj-transport — saddle, balloon
 obj-lighting-lantern — lantern, lamp
 obj-lighting-torch — torch, brazier
 obj-lighting-candle — candle, candlestick, candelabra
-obj-lighting — campfire, chandelier
+obj-lighting-campfire — campfire, bonfire, fire pit
+obj-lighting — chandelier
 
 obj-pocketitem-coin — coin, gold pile, gem (cut)
 obj-pocketitem-key — key

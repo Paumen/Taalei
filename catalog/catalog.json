@@ -3824,6 +3824,51 @@
     "fs-town/stucco-window-double-narrow-tall",
     "fs-town/stucco-window-double-wide"
    ]
+  },
+  {
+   "id": "v373",
+   "type": "detail-variant",
+   "main": "ken-survival/tool-hoe",
+   "members": [
+    "ken-survival/tool-hoe",
+    "ken-survival/tool-hoe-upgraded"
+   ]
+  },
+  {
+   "id": "v374",
+   "type": "detail-variant",
+   "main": "ken-survival/tool-pickaxe",
+   "members": [
+    "ken-survival/tool-pickaxe",
+    "ken-survival/tool-pickaxe-upgraded"
+   ]
+  },
+  {
+   "id": "v375",
+   "type": "detail-variant",
+   "main": "ken-survival/tool-shovel",
+   "members": [
+    "ken-survival/tool-shovel",
+    "ken-survival/tool-shovel-upgraded"
+   ]
+  },
+  {
+   "id": "v376",
+   "type": "detail-variant",
+   "main": "ken-survival/tool-hammer",
+   "members": [
+    "ken-survival/tool-hammer",
+    "ken-survival/tool-hammer-upgraded"
+   ]
+  },
+  {
+   "id": "v377",
+   "type": "detail-variant",
+   "main": "isa-food/waffle",
+   "members": [
+    "isa-food/waffle",
+    "isa-food/waffle-stacked"
+   ]
   }
  ],
  "tags": [
@@ -4336,7 +4381,7 @@
    "id": "obj-lighting",
    "name": "Lighting",
    "type": "kind",
-   "description": "campfire, chandelier, streetlight",
+   "description": "chandelier, streetlight",
    "count": 38,
    "color": "#f2cb45"
   },
@@ -4348,11 +4393,18 @@
    "count": 12
   },
   {
+   "id": "obj-lighting-campfire",
+   "name": "Campfire",
+   "type": "kind",
+   "description": "Campfire: an open fire built at ground level, for warmth or cooking.",
+   "count": 7
+  },
+  {
    "id": "obj-lighting-lantern",
    "name": "Lantern",
    "type": "kind",
    "description": "lantern, lamp",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-lighting-torch",
@@ -4438,7 +4490,7 @@
    "name": "Wood",
    "type": "kind",
    "description": "Wood stock with no leaf that fits (K2).",
-   "count": 32
+   "count": 31
   },
   {
    "id": "obj-resource-wood-log",
@@ -4452,7 +4504,7 @@
    "name": "Plank",
    "type": "kind",
    "description": "plank (stock), board (loose), pallet",
-   "count": 11
+   "count": 10
   },
   {
    "id": "obj-tool",
@@ -4496,7 +4548,7 @@
    "name": "Accessory",
    "type": "kind",
    "description": "anchor, paddle, oar, wheel, sail, rudder, mast",
-   "count": 4
+   "count": 5
   },
   {
    "id": "obj-transport-boat",
@@ -4517,7 +4569,7 @@
    "name": "Ship",
    "type": "kind",
    "description": "ship, galleon, longship, hull (ship)",
-   "count": 11
+   "count": 10
   },
   {
    "id": "obj-weapon-cannon",
@@ -4531,7 +4583,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits (K2).",
-   "count": 110,
+   "count": 111,
    "color": "#4c5468"
   },
   {
@@ -4859,7 +4911,7 @@
    "name": "Building",
    "type": "kind",
    "description": "house (whole), hut, tower, crypt, church, castle, lighthouse, inn, barracks, stables, blacksmith, mill, windmill, watermill, sawmill, gazebo, well",
-   "count": 40,
+   "count": 41,
    "color": "#7d4f3a"
   },
   {
@@ -8951,7 +9003,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-camp-campfire",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -18997,7 +19049,8 @@
     "decorated",
     "food",
     "plural"
-   ]
+   ],
+   "variant": "v377"
   },
   {
    "kit": "isa-food",
@@ -19038,7 +19091,8 @@
    ],
    "tags": [
     "food"
-   ]
+   ],
+   "variant": "v377"
   },
   {
    "kit": "isa-park",
@@ -47346,7 +47400,7 @@
   {
    "kit": "kay-resources",
    "name": "pallet-wood-covered-a",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource",
    "use": [
     "container"
    ],
@@ -57898,7 +57952,7 @@
   {
    "kit": "ken-grave",
    "name": "lightpost-single",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-lantern",
    "use": [
     "light"
    ],
@@ -63672,7 +63726,7 @@
   {
    "kit": "ken-survival",
    "name": "campfire-fishing-stand",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -63714,7 +63768,7 @@
   {
    "kit": "ken-survival",
    "name": "campfire-stand",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -65458,7 +65512,8 @@
     "ken",
     "metal-iron-steel",
     "wood-planks"
-   ]
+   ],
+   "variant": "v376"
   },
   {
    "kit": "ken-survival",
@@ -65506,7 +65561,8 @@
     "ken",
     "metal-iron-steel",
     "wood-planks"
-   ]
+   ],
+   "variant": "v376"
   },
   {
    "kit": "ken-survival",
@@ -65554,7 +65610,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v373"
   },
   {
    "kit": "ken-survival",
@@ -65602,7 +65659,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v373"
   },
   {
    "kit": "ken-survival",
@@ -65650,7 +65708,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v374"
   },
   {
    "kit": "ken-survival",
@@ -65698,7 +65757,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v374"
   },
   {
    "kit": "ken-survival",
@@ -65746,7 +65806,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v375"
   },
   {
    "kit": "ken-survival",
@@ -65794,7 +65855,8 @@
     "ken",
     "metal-iron-steel",
     "wood-beam"
-   ]
+   ],
+   "variant": "v375"
   },
   {
    "kit": "ken-survival",
@@ -69695,7 +69757,7 @@
   {
    "kit": "medieval-forge",
    "name": "armor-stand",
-   "kind": "obj",
+   "kind": "obj-weapon",
    "size": "m",
    "wdh": [
     0.4,
@@ -70062,7 +70124,7 @@
   {
    "kit": "medieval-forge",
    "name": "furnace",
-   "kind": "str",
+   "kind": "str-building",
    "size": "m",
    "wdh": [
     0.7,
@@ -71024,7 +71086,7 @@
   {
    "kit": "medieval-town",
    "name": "bonfire",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -72261,7 +72323,7 @@
   {
    "kit": "natuur",
    "name": "campfire-star",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -72310,7 +72372,7 @@
   {
    "kit": "natuur",
    "name": "campfire-teepee",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -77982,7 +78044,7 @@
   {
    "kit": "props",
    "name": "fire-a",
-   "kind": "obj-lighting",
+   "kind": "obj-lighting-campfire",
    "use": [
     "light"
    ],
@@ -82582,7 +82644,7 @@
   {
    "kit": "quat-pirate",
    "name": "anchor",
-   "kind": "obj-transport-ship",
+   "kind": "obj-transport-accessory",
    "use": [
     "transport"
    ],
