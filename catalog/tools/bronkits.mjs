@@ -70,6 +70,6 @@ export const BRONKITS = [
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: 'isa-kitchen', formaat: 'fbx', alleMappen: true },
+  { map: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', naam: 'Tiny Treats Charming Kitchen', kit: 'isa-kitchen', formaat: 'gltf' },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];
