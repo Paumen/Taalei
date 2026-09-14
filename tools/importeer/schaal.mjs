@@ -113,7 +113,7 @@ function werkbestanden(slug) {
         naam: basename(bestand, '.glb'),
         bronmodel: glb.json.asset?.extras?.taaleiland?.bronmodel ?? null,
         schaal: glb.json.asset?.extras?.taaleiland?.schaal ?? null,
-        wdh: gemeten.wdh,
+        wdh: gemeten.wdhExact,
         driehoeken: gemeten.triangles,
         knoop: knoopFactor(glb.json),
       };
@@ -163,7 +163,10 @@ function metenTegenBron(bronkit, bestanden) {
     if (assen.length === 0) continue;
     const verhoudingen = assen.map((k) => bestand.wdh[k] / bronWdh[k]);
     if (Math.max(...verhoudingen) / Math.min(...verhoudingen) > 1 + SPREIDING) continue;
-    gemeten.set(bestand.naam, verhoudingen.reduce((a, b) => a + b, 0) / verhoudingen.length);
+    gemeten.set(bestand.naam, {
+      factor: verhoudingen.reduce((a, b) => a + b, 0) / verhoudingen.length,
+      bron: bronWdh,
+    });
   }
   return gemeten;
 }
@@ -392,7 +395,7 @@ for (const bronkit of BRONKITS) {
   if (bestanden.length === 0) continue;
 
   const gemeten = metenTegenBron(bronkit, bestanden);
-  const groepen = groepeer(gemeten.values());
+  const groepen = groepeer([...gemeten.values()].map((g) => g.factor));
   if (groepen.length === 0) {
     console.log(`${bronkit.kit.padEnd(17)} no source model matched — left alone`);
     continue;
@@ -400,7 +403,7 @@ for (const bronkit of BRONKITS) {
   const hoofdgroep = groepen.reduce((a, b) => (b.aantal > a.aantal ? b : a));
   const bakken = new Map();
   for (const bestand of bestanden) {
-    const waarde = gemeten.get(bestand.naam);
+    const waarde = gemeten.get(bestand.naam)?.factor;
     if (waarde === undefined || !bestand.knoop) continue;
     const bak = Number((waarde / bestand.knoop).toPrecision(4));
     bakken.set(bak, (bakken.get(bak) ?? 0) + 1);
@@ -408,7 +411,7 @@ for (const bronkit of BRONKITS) {
   const hoofdBak = [...bakken.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 
   const factorVan = (bestand) => {
-    const waarde = gemeten.get(bestand.naam);
+    const waarde = gemeten.get(bestand.naam)?.factor;
     const geschat =
       waarde !== undefined ? waarde
       : hoofdBak !== null && bestand.knoop ? bestand.knoop * hoofdBak
@@ -457,8 +460,9 @@ for (const bronkit of BRONKITS) {
     }
     if (!raaktGeometrie && JSON.stringify(glb.json) === voor) continue;
 
-    const na = measureScene(glb).wdh;
-    const verwacht = bestand.wdh.map((v) => (v / huidig) * nieuw);
+    const na = measureScene(glb).wdhExact;
+    const bron = gemeten.get(bestand.naam)?.bron;
+    const verwacht = bron ? bron.map((v) => v * nieuw) : bestand.wdh.map((v) => (v / huidig) * nieuw);
     if (!gelijkeMaat(na, verwacht)) {
       mislukt.push(
         `${bestand.pad}: size became ${na.map((v) => v.toFixed(4))} instead of ${verwacht.map((v) => v.toFixed(4))}`,
