@@ -3,6 +3,7 @@ import { join, dirname, resolve, relative, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readPng } from './png.mjs';
 import { readKindTree, kindName, kindFromName, KIND_COLORS } from './kinds.mjs';
 import { leesFbx } from './fbx.mjs';
 import { pakUit } from './zip.mjs';
@@ -18,6 +19,8 @@ const DOEL_DIR = join(ROOT, 'kits', 'missing');
 const DOEL_PAD = 'kits/missing';
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
+
+const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'missing-colors.json'), 'utf8'));
 
 const kebab = (naam) =>
   naam
@@ -214,6 +217,69 @@ function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   return afbeeldingen.length === 1 ? afbeeldingen[0] : null;
 }
 
+const ALGEMENE_WOORDEN = new Set([
+  'albedo', 'base', 'basecolor', 'color', 'colour', 'default', 'diffuse',
+  'map', 'material', 'tex', 'texture',
+]);
+
+const woorden = (naam) =>
+  new Set(
+    basename(String(naam ?? ''), extname(String(naam ?? '')))
+      .toLowerCase()
+      .split(/[^a-z]+/)
+      .filter((woord) => woord.length > 2 && !ALGEMENE_WOORDEN.has(woord)),
+  );
+
+const overlap = (a, b) => [...a].filter((woord) => b.has(woord)).length;
+
+function gelijkendeAfbeelding(gevraagd, materiaalNaam, afbeeldingen) {
+  const uitTextuur = woorden(gevraagd);
+  const uitMateriaal = woorden(materiaalNaam);
+  if (uitTextuur.size === 0 && uitMateriaal.size === 0) return null;
+
+  let beste = null;
+  let besteScore = 0;
+  for (const pad of afbeeldingen) {
+    const kandidaat = woorden(pad);
+    const score = overlap(uitTextuur, kandidaat) * 2 + overlap(uitMateriaal, kandidaat);
+    if (score === 0) continue;
+    if (
+      score > besteScore
+      || (score === besteScore && basename(pad).length < basename(beste).length)
+      || (score === besteScore && basename(pad).length === basename(beste).length && pad < beste)
+    ) {
+      beste = pad;
+      besteScore = score;
+    }
+  }
+  return beste;
+}
+
+const gemiddelden = new Map();
+
+function gemiddeldeKleur(pad) {
+  if (gemiddelden.has(pad)) return gemiddelden.get(pad);
+
+  let kleur = null;
+  if (extname(pad).toLowerCase() === '.png') {
+    const { width, height, pixels } = readPng(pad);
+    const som = [0, 0, 0];
+    let gewicht = 0;
+    for (let i = 0; i < width * height; i++) {
+      const alpha = pixels[i * 4 + 3] / 255;
+      if (alpha < 0.5) continue;
+      for (let k = 0; k < 3; k++) som[k] += (pixels[i * 4 + k] / 255) ** 2.2 * alpha;
+      gewicht += alpha;
+    }
+    if (gewicht > 0) kleur = som.map((v) => Math.round(((v / gewicht) ** (1 / 2.2)) * 255));
+  }
+
+  gemiddelden.set(pad, kleur);
+  return kleur;
+}
+
+const uitHex = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
 function las(primitief, midden, metUvs) {
   const bron = primitief.posities;
   const aantal = bron.length / 3;
@@ -251,7 +317,7 @@ function las(primitief, midden, metUvs) {
   };
 }
 
-function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen) {
+function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleuren) {
   const buffers = [];
   const accessors = [];
   const bufferViews = [];
@@ -316,7 +382,10 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen) {
       attributes.TEXCOORD_0 !== undefined
         ? { baseColorTexture: { index: beeldIndex.get(textuurNaam) }, metallicFactor: 0, roughnessFactor: 1 }
         : {
-            baseColorFactor: [...(primitief.materiaal.kleur ?? [255, 255, 255]).map((v) => (v / 255) ** 2.2), 1],
+            baseColorFactor: [
+              ...(kleuren[n] ?? primitief.materiaal.kleur ?? [255, 255, 255]).map((v) => (v / 255) ** 2.2),
+              1,
+            ],
             metallicFactor: 0,
             roughnessFactor: 1,
           };
@@ -361,6 +430,7 @@ const waarschuwingen = [];
 for (const bronkit of BRONKITS) {
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
+  const handkleuren = HANDKLEUREN[bronkit.map] ?? {};
   const kit = bronkit.kit
     ? kitGegevens(bronkit.kit)
     : { modellen: [], schaal: null, aantal: 0 };
@@ -444,13 +514,29 @@ for (const bronkit of BRONKITS) {
   if (ontbreekt.length) mkdirSync(uitvoerMap, { recursive: true });
 
   for (const model of ontbreekt) {
-    const texturen = model.primitieven.map((primitief) => {
-      const pad = vindTextuur(primitief.materiaal.textuur, uitgepakt, afbeeldingen);
-      return pad ? neemMee(pad) : null;
-    });
+    const texturen = [];
+    const kleuren = [];
+    for (const primitief of model.primitieven) {
+      const { textuur, naam } = primitief.materiaal;
+      const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
+      texturen.push(gevonden ? neemMee(gevonden) : null);
+      if (gevonden) {
+        kleuren.push(null);
+        continue;
+      }
+      const gekozen = handkleuren[naam]
+        ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
+        ?? handkleuren[basename(String(textuur ?? ''))];
+      if (gekozen) {
+        kleuren.push(uitHex(gekozen));
+        continue;
+      }
+      const lijkend = gelijkendeAfbeelding(textuur, naam, afbeeldingen);
+      kleuren.push(lijkend ? gemiddeldeKleur(lijkend) : null);
+    }
 
     const pad = join(uitvoerMap, `${model.naam}.glb`);
-    schrijfPreview(pad, model.primitieven, model, schaal, texturen);
+    schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
 
     const wdh = model.wdh.map((v) => v * schaal);
     modellen.push({
