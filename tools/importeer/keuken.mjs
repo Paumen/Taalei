@@ -120,11 +120,111 @@ const KITS = [
       { bestand: 'utensil_spoon', naam: 'spoon', kleuren: { '#cdd2da': 'nickel' } },
     ],
   },
+  {
+    kit: 'asia-rg',
+    bron: 'Stylized_Asia_RG',
+    naam: 'Stylized Asia RG',
+    formaat: 'fbx',
+    schaal: 0.38,
+    modellen: [
+      { bestand: 'Bambo_1', naam: 'bamboo', banden: { 'Green_4': 'moss', 'Green_2': 'moss', 'Green_3': 'moss' } },
+      { bestand: 'Sign_1', naam: 'banner', banden: { 'Wood 1': 'chestnut', 'Wood 2': 'chestnut', 'Sign': 'ivory' } },
+      { bestand: 'Boat_1', naam: 'boat', banden: { 'Wood_3': 'camel', 'Wood_4': 'camel', 'Wood_1': 'chestnut', 'Metal_1': 'basalt', 'Wood_6': 'chestnut', 'Concrate': 'camel', 'Wood_7': 'camel', 'Wood_5': 'chestnut', 'Wood_8': 'camel' } },
+      { bestand: 'Bowl_2', naam: 'bowl', banden: { 'Porcelain': 'ivory' } },
+      { bestand: 'Bowl_Scrap_2', naam: 'bowl-shard', banden: { 'Porcelain': 'ivory' } },
+      { bestand: 'Cart_1', naam: 'cart', banden: { 'Wood_4': 'camel', 'Metal_1': 'basalt' } },
+      { bestand: 'Pot', naam: 'cauldron', banden: { 'Concrate_2': 'slate', 'Concrate_1': 'slate' } },
+      { bestand: 'Coin', naam: 'coin', banden: { 'Metal': 'nickel', 'Gold': 'amber' } },
+      { bestand: 'Dojo_1', naam: 'dojo', banden: { 'Wood Planks': 'tan', 'Wood 2': 'chestnut', 'Concrate': 'taupe', 'Wood 1': 'chestnut', 'Wood 6': 'chestnut', 'Roof': 'sienna', 'Wood 9': 'tan', 'Props': 'ivory' } },
+      { bestand: 'Dragon', naam: 'dragon-ornament', banden: { 'Gold': 'amber' } },
+      { bestand: 'Drum', naam: 'drum', banden: { 'Wood 1': 'camel', 'Wood 2': 'camel', 'Wood 3': 'camel', 'Wood 7': 'camel', 'Wood 5': 'chestnut', 'Metal_2': 'nickel', 'Wood Red': 'chestnut', 'Membrane': 'umber' } },
+      { bestand: 'Fan_1', naam: 'fan', banden: { 'Wood_7': 'chestnut', 'Wood Red': 'ivory', 'Wood_3': 'chestnut', 'Blue': 'azure', 'Sign': 'ivory' } },
+      { bestand: 'Fence 1_1', naam: 'fence-rail-a', banden: { 'Wood_1': 'chestnut' } },
+      { bestand: 'Fence 1_2', naam: 'fence-rail-b', banden: { 'Wood_1': 'chestnut' } },
+      { bestand: 'Fence 2_1', naam: 'fence-rope-a', banden: { 'Wood_1': 'chestnut', 'Rope': 'taupe' } },
+      { bestand: 'Fence 2_2', naam: 'fence-rope-b', banden: { 'Wood_1': 'chestnut', 'Rope': 'taupe' } },
+      { bestand: 'FootBridge_1', naam: 'footbridge', banden: { 'Wood_5': 'chestnut', 'Wood_4': 'tan', 'Wood_1': 'chestnut' } },
+      { bestand: 'GardenWall_2', naam: 'garden-wall-a', banden: { 'Bricks': 'taupe', 'Wood_3': 'chestnut', 'Wood_2': 'tan', 'Wood_1': 'chestnut', 'Concrate': 'ivory', 'Roof': 'sienna' } },
+      { bestand: 'GardenWall_2_2', naam: 'garden-wall-b', banden: { 'Bricks': 'taupe', 'Wood_3': 'chestnut', 'Wood_2': 'tan', 'Wood_1': 'chestnut', 'Concrate': 'ivory', 'Roof': 'sienna', 'Wood_4': 'chestnut' } },
+      { bestand: 'GardenWall_3', naam: 'garden-wall-c', banden: { 'Bricks': 'taupe', 'Wood_3': 'chestnut', 'Concrate': 'ivory', 'Roof': 'sienna' } },
+      { bestand: 'GardenWall_4', naam: 'garden-wall-corner', banden: { 'Wood_4': 'chestnut', 'Bricks': 'taupe', 'Concrate': 'ivory', 'Roof': 'sienna', 'Wood_3': 'chestnut' } },
+      { bestand: 'GardenWall_3_1', naam: 'garden-wall-d', banden: { 'Bricks': 'taupe', 'Wood_3': 'chestnut', 'Concrate': 'ivory', 'Roof': 'sienna', 'Wood_4': 'chestnut' } },
+      { bestand: 'GardenWall_Gate', naam: 'garden-wall-gate-a', banden: { 'Concrate': 'ivory', 'Bricks': 'taupe', 'Roof': 'sienna', 'Wood_2': 'chestnut', 'Wood_1': 'chestnut', 'Wood_3': 'tan' } },
+      { bestand: 'GardenWall_Gate_2', naam: 'garden-wall-gate-b', banden: { 'Concrate': 'ivory', 'Bricks': 'taupe', 'Roof': 'sienna', 'Wood_2': 'chestnut', 'Wood_1': 'chestnut', 'Wood_3': 'tan', 'Wood_4': 'chestnut' } },
+      { bestand: 'Gate_1', naam: 'gate', banden: { 'Wood_1': 'chestnut', 'Roof': 'sienna' } },
+      { bestand: 'Altana_1', naam: 'gazebo', banden: { 'Wood 7': 'chestnut', 'Wood 6': 'chestnut', 'Wood 4': 'chestnut', 'Wood 3': 'chestnut', 'Wood 5': 'tan', 'Wood 1': 'chestnut', 'Roof Asian': 'sienna' } },
+      { bestand: 'Geisha', naam: 'geisha-a', banden: { 'Material': 'tan' } },
+      { bestand: 'Geisha 2', naam: 'geisha-b', banden: { 'Material': 'tan', 'Wood': 'chestnut' } },
+      { bestand: 'Gong', naam: 'gong', banden: { 'Wood 1': 'chestnut', 'Wood 2': 'chestnut', 'Gong': 'terracotta', 'Props': 'taupe' } },
+      { bestand: 'Grass', naam: 'grass', banden: { 'Grass': 'moss' } },
+      { bestand: 'Building_1', naam: 'house-a', banden: { 'Wood 1': 'chestnut', 'Metal': 'sienna', 'Concrate': 'taupe', 'Wood 4': 'tan', 'White': 'ivory', 'Bricks': 'taupe', 'Wood 5': 'chestnut', 'Roof Asian': 'sienna', 'Wood 6': 'chestnut', 'Wood 7': 'chestnut', 'Wood 8': 'chestnut', 'Metal_1': 'basalt' } },
+      { bestand: 'Building_2', naam: 'house-b', banden: { 'Wood_2': 'chestnut', 'Concrate4': 'taupe', 'Wood_11': 'tan', 'Wood_Crates': 'tan', 'Bricks': 'taupe', 'Wood_Doors': 'chestnut', 'Concrate3': 'ivory', 'Wood_DCrate': 'tan', 'Roof': 'sienna' } },
+      { bestand: 'Building_3', naam: 'house-c', banden: { 'Wood_2': 'chestnut', 'Concrate4': 'taupe', 'Wood_11': 'tan', 'Wood_Crates': 'tan', 'Bricks': 'taupe', 'Wood_Doors': 'chestnut', 'Concrate3': 'ivory', 'Wood_DCrate': 'tan', 'Roof': 'sienna' } },
+      { bestand: 'Building_4', naam: 'house-d', banden: { 'Wood_Doors': 'chestnut', 'Wall': 'ivory', 'Concrate4': 'taupe', 'Wood_2': 'chestnut', 'Wood_1': 'tan', 'Wood_3': 'chestnut', 'Roof': 'sienna', 'Wood_8': 'chestnut' } },
+      { bestand: 'Building 5', naam: 'house-e', banden: { 'Concrate': 'taupe', 'Wood 3': 'chestnut', 'Wood 2': 'chestnut', 'Wood 1': 'tan', 'Bricks': 'taupe', 'Wood 4': 'chestnut', 'Roof': 'sienna', 'Wood 5': 'tan', 'Wood Planks': 'ivory', 'Wood 6': 'chestnut' } },
+      { bestand: 'Building_6', naam: 'house-f', banden: { 'Wood_1': 'chestnut', 'Concrate': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Wood_Roof1': 'chestnut', 'Wood_5': 'tan', 'Wood_4': 'chestnut', 'Wood_9': 'chestnut', 'Wood_13': 'tan', 'Wood_12': 'chestnut', 'Wood_Roof2': 'chestnut', 'Wood_Roof_2': 'chestnut' } },
+      { bestand: 'Small Building_1', naam: 'house-small', banden: { 'Wood_3': 'chestnut', 'Wood 5': 'tan', 'Concrate': 'taupe', 'Wood_8': 'chestnut', 'Wood_4': 'tan', 'Wood_2': 'chestnut', 'Roof': 'sienna', 'Gold': 'amber', 'Wood_1': 'chestnut' } },
+      { bestand: 'Katana', naam: 'katana', banden: { 'Wood_3': 'camel', 'Gold': 'amber', 'Metal_2': 'nickel', 'Metal_1': 'basalt', 'Metal_3': 'taupe' } },
+      { bestand: 'Kunai', naam: 'kunai', banden: { 'Metal_2': 'nickel', 'Metal_1': 'basalt', 'Wood_1': 'camel' } },
+      { bestand: 'Wall_Ladder', naam: 'ladder', banden: { 'Wood_3': 'chestnut', 'Wood_4': 'chestnut' } },
+      { bestand: 'Lampion_1', naam: 'lantern-paper-a', banden: { 'Gold': 'amber', 'Red_2': 'amber', 'Rope': 'taupe' } },
+      { bestand: 'Lampion_2', naam: 'lantern-paper-b', banden: { 'Red_2': 'amber', 'Rope': 'taupe', 'Gold': 'amber' } },
+      { bestand: 'Lily Flower', naam: 'lily', banden: { 'Lily': 'moss' } },
+      { bestand: 'Board', naam: 'notice-board', banden: { 'Wood 3': 'chestnut', 'Wood 2': 'chestnut', 'Wood Red': 'chestnut', 'Wood 1': 'ivory', 'Concrate': 'taupe' } },
+      { bestand: 'Pagoda', naam: 'pagoda', banden: { 'Wood_5': 'chestnut', 'Concrate': 'taupe', 'Wood_1': 'chestnut', 'Wood_2': 'tan', 'Wood_3': 'chestnut', 'Wood Column_1': 'chestnut', 'Wood Column_2': 'chestnut', 'Wood_4': 'chestnut', 'Roof': 'sienna', 'Wood_6': 'chestnut', 'Wood_Fence_2': 'chestnut', 'Wood_Fence_1': 'chestnut', 'Wood_Crates': 'tan', 'Gold': 'amber', 'Wood_Doors': 'chestnut', 'Metal 2': 'nickel' } },
+      { bestand: 'Umbrella', naam: 'parasol', banden: { 'Wood 1': 'chestnut', 'Color 1': 'ivory', 'Color 2': 'ivory' } },
+      { bestand: 'Podest_1', naam: 'platform-deck', banden: { 'Wood_9': 'chestnut', 'Wood_2': 'chestnut', 'Wood_Red': 'tan' } },
+      { bestand: 'Podest_2', naam: 'platform-stone', banden: { 'Bricks': 'nickel', 'Concrate': 'taupe' } },
+      { bestand: 'Podest_3', naam: 'platform-wood', banden: { 'Wood_3': 'chestnut', 'Concrate': 'taupe', 'Wood_2': 'tan' } },
+      { bestand: 'Rake', naam: 'rake', banden: { 'Wood 1': 'chestnut' } },
+      { bestand: 'Wall_1_1', naam: 'rampart-a', banden: { 'Wood 1': 'chestnut', 'Concrate_1': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Concrate 3': 'taupe', 'Wood 3': 'chestnut', 'Wood 2': 'tan', 'Wood 4': 'chestnut', 'Concrate_4': 'taupe' } },
+      { bestand: 'Wall_1_2', naam: 'rampart-b', banden: { 'Wood 1': 'chestnut', 'Concrate_1': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Concrate 3': 'taupe', 'Wood 3': 'chestnut', 'Wood 2': 'tan', 'Wood 4': 'chestnut', 'Concrate_4': 'taupe' } },
+      { bestand: 'Wall_1_3', naam: 'rampart-c', banden: { 'Wood 1': 'chestnut', 'Concrate_1': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Concrate 3': 'taupe', 'Wood 3': 'chestnut', 'Wood 2': 'tan', 'Wood 4': 'chestnut', 'Concrate_4': 'taupe' } },
+      { bestand: 'Wall_1_5', naam: 'rampart-corner', banden: { 'Wood 1': 'chestnut', 'Concrate_1': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Concrate 3': 'taupe', 'Wood 3': 'tan', 'Concrate_4': 'taupe', 'wr': 'chestnut' } },
+      { bestand: 'Wall_1_4', naam: 'rampart-d', banden: { 'Wood 1': 'chestnut', 'Concrate_1': 'taupe', 'Bricks': 'taupe', 'Roof': 'sienna', 'Concrate 3': 'taupe', 'Wood 3': 'chestnut', 'Wood 2': 'tan', 'Wood 4': 'chestnut', 'Concrate_4': 'taupe' } },
+      { bestand: 'Wall_Column_1', naam: 'rampart-post', banden: { 'Wood 1': 'chestnut', 'Metal': 'slate' } },
+      { bestand: 'Reed Multi', naam: 'reeds', banden: { 'Lily': 'moss', 'Glass': 'umber' } },
+      { bestand: 'RiverBridge_1', naam: 'river-bridge', banden: { 'Wood_8': 'chestnut', 'Wood_5': 'tan', 'Wood_4': 'chestnut' } },
+      { bestand: 'Rock_Formation_3', naam: 'rock-formation-a', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rodck_Formation_2', naam: 'rock-formation-b', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rock_4', naam: 'rock-small', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rock_1', naam: 'rock-tall-a', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rock_2', naam: 'rock-tall-b', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rock_3', naam: 'rock-tall-c', banden: { 'Concrate': 'nickel' } },
+      { bestand: 'Rope_1', naam: 'rope', banden: { 'Sign': 'taupe' } },
+      { bestand: 'Rope_Bells_1', naam: 'rope-bells', banden: { 'Rope': 'taupe', 'Gold': 'amber', 'Metal_1': 'amber' } },
+      { bestand: 'Sakwa_1', naam: 'sack-a', banden: { 'Rope': 'ivory' } },
+      { bestand: 'Sakwa_2', naam: 'sack-b', banden: { 'Rope': 'ivory' } },
+      { bestand: 'Shrine_1', naam: 'shrine', banden: { 'Wood_Stairs': 'tan', 'Wood_4': 'chestnut', 'Concrate': 'taupe', 'Wood_8': 'chestnut', 'Wood_2': 'chestnut', 'Wood_1': 'chestnut', 'Wood_Red': 'tan', 'Wood_WindowR': 'chestnut', 'Wood_Doors': 'chestnut', 'Wall': 'taupe', 'Wood_10': 'chestnut', 'Wood_3': 'chestnut', 'Roof': 'sienna', 'Wood_5': 'chestnut', 'Gold': 'amber' } },
+      { bestand: 'Stairs_3', naam: 'stairs', banden: { 'Wood_Stairs': 'tan', 'Wood_8': 'chestnut' } },
+      { bestand: 'Tile_1_1', naam: 'stepping-stone-a', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Tile_1_2', naam: 'stepping-stone-b', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Tile_1_3', naam: 'stepping-stone-c', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Tile_1_4', naam: 'stepping-stone-d', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Tile_1_5', naam: 'stepping-stone-e', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Stone_1', naam: 'stepping-stone-f', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Stone_2', naam: 'stepping-stone-g', banden: { 'Concrate': 'taupe' } },
+      { bestand: 'Stone Lamp_1', naam: 'stone-lantern', banden: { 'Concrate3': 'taupe', 'Concrate_1': 'taupe' } },
+      { bestand: 'Chair_1', naam: 'stool', banden: { 'Wood_8': 'camel' } },
+      { bestand: 'Table_1', naam: 'table', banden: { 'Wood_2': 'camel', 'Metal 2': 'camel', 'Wood_1': 'camel' } },
+      { bestand: 'TeaPot', naam: 'teapot', banden: { 'Porcelain': 'ivory' } },
+      { bestand: 'Token_1', naam: 'token', banden: { 'Sign': 'camel' } },
+      { bestand: 'Token on rope', naam: 'token-hanging', banden: { 'Sign': 'camel' } },
+      { bestand: 'Tora _1', naam: 'torii', banden: { 'Wood Red': 'chestnut', 'Wood 1': 'chestnut', 'Concrate': 'taupe', 'Wood 2': 'chestnut' } },
+      { bestand: 'Manekin', naam: 'training-dummy', banden: { 'Wood 1': 'chestnut', 'Wood 2': 'chestnut', 'Rope': 'taupe' } },
+      { bestand: 'TreePLace', naam: 'tree-bed', banden: { 'Concrate3': 'taupe', 'Grass': 'moss' } },
+      { bestand: 'Vase_2', naam: 'vase', banden: { 'Vase': 'ivory', 'Vase 2': 'ivory', 'Vase 3': 'ivory' } },
+      { bestand: 'Balkon', naam: 'walkway', banden: { 'Wood_10': 'tan', 'Wood_1': 'chestnut' } },
+      { bestand: 'Wall Shield Style', naam: 'wall-shield', banden: { 'Gong': 'camel' } },
+    ],
+  },
 ];
 
 const ontleed = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
 const helderheid = ([r, g, b]) => r * 0.299 + g * 0.587 + b * 0.114;
 const afstand = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+
+const stamNaam = (naam) => String(naam ?? '').replace(/\.\d+$/, '');
 
 function bandVan(kleuren, rgb) {
   let beste = null;
@@ -138,6 +238,13 @@ function bandVan(kleuren, rgb) {
   }
   if (!BANDEN[beste]) throw new Error(`unknown band: ${beste}`);
   return beste;
+}
+
+function bandVanMateriaal(model, materiaal) {
+  const band = model.banden[stamNaam(materiaal.naam)];
+  if (!band) throw new Error(`${model.bestand}: no band for material ${materiaal.naam}`);
+  if (!BANDEN[band]) throw new Error(`unknown band: ${band}`);
+  return band;
 }
 
 function zoekBestand(map, naam) {
@@ -165,7 +272,7 @@ function bronBestand(kit, model) {
 
 function vindTextuur(kit, gevraagd) {
   if (!gevraagd) return null;
-  if (gevraagd.includes('/')) return gevraagd;
+  if (gevraagd.includes('/') && statSync(gevraagd, { throwIfNoEntry: false })) return gevraagd;
   return zoekBestand(join(UITPAK_DIR, kit.bron), gevraagd.replace(/\\+/g, '/').split('/').pop());
 }
 
@@ -187,7 +294,11 @@ function bronKleuren(kit) {
     const kleuren = [];
     for (const prim of primitieven) {
       const pad = vindTextuur(kit, prim.materiaal.textuur);
-      if (!pad) throw new Error(`${model.bestand}: primitive without a texture`);
+      if (!pad) {
+        if (!model.banden) throw new Error(`${model.bestand}: primitive without a texture`);
+        kleuren.push(null);
+        continue;
+      }
       if (!texturen.has(pad)) texturen.set(pad, leesTextuur(pad));
       const monster = texturen.get(pad);
       const perHoek = [];
@@ -227,9 +338,14 @@ function schrijfModel(kit, gelezen, bereik) {
       const plek3 = [0, 1, 2].map((k) => Math.fround(prim.posities[i * 3 + k] * kit.schaal + verschuif[k]));
       const norm = [0, 1, 2].map((k) => Math.fround(prim.normalen ? prim.normalen[i * 3 + k] : 0));
 
-      const band = bandVan(model.kleuren, kleuren[p][i]);
+      const rgb = kleuren[p]?.[i] ?? null;
+      const band = model.banden
+        ? bandVanMateriaal(model, prim.materiaal)
+        : bandVan(model.kleuren, rgb);
       const [kolom, rij] = BANDEN[band];
-      const deel = (bereik.licht - helderheid(kleuren[p][i])) / (bereik.licht - bereik.donker);
+      const deel = rgb
+        ? (bereik.licht - helderheid(rgb)) / (bereik.licht - bereik.donker)
+        : 0.5;
       const plek = RAND + Math.min(Math.max(deel, 0), 1) * (1 - 2 * RAND);
       const uv = [Math.fround((kolom + 0.5) / KOLOMMEN), Math.fround((rij + plek) / RIJEN)];
 
@@ -307,7 +423,13 @@ function schrijfModel(kit, gelezen, bereik) {
   return { naam: model.naam, hoeken: telling, driehoeken: indices.length / 3 };
 }
 
-for (const kit of KITS) {
+const gevraagd = process.argv.slice(2);
+const teDoen = gevraagd.length ? KITS.filter((kit) => gevraagd.includes(kit.kit)) : KITS;
+for (const naam of gevraagd) {
+  if (!KITS.some((kit) => kit.kit === naam)) throw new Error(`unknown kit: ${naam}`);
+}
+
+for (const kit of teDoen) {
   mkdirSync(join(WERK_DIR, kit.kit, 'Textures'), { recursive: true });
   copyFileSync(COLORMAP, join(WERK_DIR, kit.kit, 'Textures', 'colormap.png'));
 
@@ -316,7 +438,7 @@ for (const kit of KITS) {
   let donker = Infinity;
   for (const { kleuren } of gelezen) {
     for (const perPrim of kleuren) {
-      for (const rgb of perPrim) {
+      for (const rgb of perPrim ?? []) {
         const l = helderheid(rgb);
         if (l > licht) licht = l;
         if (l < donker) donker = l;
