@@ -8,12 +8,13 @@ import { bronModellen, meet, kebab } from '../../catalog/tools/bronmodellen.mjs'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 
-const KEN_DOEL = { 'ken-pirate': 0.26, 'ken-survival': 1.3, 'ken-cave': 0.1625 };
+const DOEL = { 'ken-pirate': 0.26, 'ken-survival': 1.3, 'ken-cave': 0.1625, 'isa-kitchen': 0.24 };
 const KEN_STANDAARD = 0.65;
 const ONGEMOEID = new Set(['quat-ocean']);
 const SPREIDING = 0.02;
 const SNAP = 0.005;
 const MAAT_TOLERANTIE = 0.002;
+const AFRONDING = 0.0015;
 const RUIS = 1e-4;
 
 const alleenRapport = process.argv.includes('--report');
@@ -334,7 +335,7 @@ function eenKnoop(json, factor) {
 }
 
 function gelijkeMaat(a, b) {
-  return a.every((v, k) => Math.abs(v - b[k]) <= MAAT_TOLERANTIE * Math.max(v, b[k], 1e-6));
+  return a.every((v, k) => Math.abs(v - b[k]) <= Math.max(MAAT_TOLERANTIE * Math.max(v, b[k]), AFRONDING));
 }
 
 let geschreven = 0;
@@ -377,7 +378,7 @@ for (const bronkit of BRONKITS) {
     return Number(factor.toPrecision(3));
   };
 
-  const doel = bronkit.kit.startsWith('ken-') ? (KEN_DOEL[bronkit.kit] ?? KEN_STANDAARD) : null;
+  const doel = DOEL[bronkit.kit] ?? (bronkit.kit.startsWith('ken-') ? KEN_STANDAARD : null);
   const uit = new Map();
 
   for (const bestand of bestanden) {
