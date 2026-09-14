@@ -409,8 +409,39 @@ const sizeOf = (item) => {
 const colorState = new Map();
 const tagState = new Map();
 const sizeState = new Map();
+const kitState = new Map();
 const chipButtons = [];
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
+
+const STORAGE_KEY = 'taaleiland-scale-filters-v1';
+const STORED_STATES = { color: colorState, tag: tagState, size: sizeState, kit: kitState };
+
+function saveStates() {
+  try {
+    const out = Object.entries(STORED_STATES)
+      .filter(([, state]) => state.size)
+      .map(([name, state]) => [name, Object.fromEntries(state)]);
+    if (out.length) localStorage.setItem(STORAGE_KEY, JSON.stringify(Object.fromEntries(out)));
+    else localStorage.removeItem(STORAGE_KEY);
+  } catch {}
+}
+
+function loadStates() {
+  let stored;
+  try {
+    stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
+  } catch {
+    return;
+  }
+  if (!stored || typeof stored !== 'object') return;
+  for (const [name, state] of Object.entries(STORED_STATES)) {
+    for (const [id, value] of Object.entries(stored[name] ?? {})) {
+      if (value === 'only' || value === 'not') state.set(id, value);
+    }
+  }
+}
+
+loadStates();
 
 function showState(button, state) {
   button.setAttribute('aria-pressed', String(state === 'only'));
@@ -429,7 +460,8 @@ function matches(own, state) {
 const passesFilter = (item) =>
   matches(item.colors ?? [], colorState) &&
   matches(item.tags ?? [], tagState) &&
-  matches([sizeOf(item)], sizeState);
+  matches([sizeOf(item)], sizeState) &&
+  matches([item.slug], kitState);
 
 const filtered = () =>
   groups.map((g) => ({ ...g, items: g.items.filter(passesFilter) })).filter((g) => g.items.length);
@@ -450,9 +482,16 @@ function rotate(state, id, button) {
   else state.delete(id);
   showState(button, next);
   reorder();
-  document.querySelector('#alles-wis').hidden =
-    colorState.size + tagState.size + sizeState.size === 0;
+  saveStates();
+  showReset();
   buildSections();
+}
+
+const activeCount = () =>
+  colorState.size + tagState.size + sizeState.size + kitState.size;
+
+function showReset() {
+  document.querySelector('#alles-wis').hidden = activeCount() === 0;
 }
 
 function chipRow(container, items, state) {
@@ -559,16 +598,25 @@ function buildFilters() {
     .filter((t) => t.count);
   if (tags.length) chipRow(tagbar, tags, tagState);
 
+  const kits = [...new Set(all.map((i) => i.slug))]
+    .map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.slug === slug) }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  if (kits.length > 1) chipRow(tagbar, kits, kitState);
+
   document.querySelector('#alles-wis').addEventListener('click', () => {
     colorState.clear();
     tagState.clear();
     sizeState.clear();
+    kitState.clear();
     for (const { element } of chipButtons) showState(element, undefined);
     reorder();
-    document.querySelector('#alles-wis').hidden = true;
+    saveStates();
+    showReset();
     buildSections();
   });
 }
 
 buildFilters();
+reorder();
+showReset();
 buildSections();
