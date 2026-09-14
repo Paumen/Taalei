@@ -6,8 +6,8 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const GUIDE = join(ROOT, 'docs/asset_style_guide.md');
 
 export function readKindTree(guide = readFileSync(GUIDE, 'utf8')) {
-  const block = guide.split('## Appendix B')[1]?.match(/```\n([\s\S]*?)```/)?.[1];
-  if (!block) throw new Error('Appendix B code block not found in the style guide');
+  const block = guide.split('## Appendix: kind tree + glossary')[1]?.match(/```\n([\s\S]*?)```/)?.[1];
+  if (!block) throw new Error('Appendix: kind tree + glossary code block not found in the style guide');
   const nodes = new Map();
   for (const raw of block.split('\n')) {
     const line = raw.trim();
