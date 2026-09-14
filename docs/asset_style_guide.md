@@ -422,7 +422,12 @@ obj-resource-stone — brick (loose), cut block
 obj-resource-textile — textile bolt, cloth roll
 obj-resource — hide, raw stock
 
-obj — barrel stand, weapon stand, easel, statue, signboard (freestanding), music instrument, bell, cage
+obj-instrument — bell, gong, drum
+
+obj-art-sculpture — statue, fountain
+obj-art
+
+obj — barrel stand, weapon stand, easel, signboard (freestanding), cage
 
 str-part-door — door, gate (building), hatch
 str-part-floor — floor, floor tile, ceiling
@@ -433,7 +438,9 @@ str-part-pillar — pillar, column, beam, support
 str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
 str-part — room, cellar, souterrain, dungeon
 
-str-building — house (whole), hut, tower, crypt, church, castle, lighthouse, inn, barracks, stables, blacksmith, mill, windmill, watermill, sawmill, gazebo, well
+str-building-tower — tower, lighthouse, mill, windmill
+
+str-building — house (whole), hut, crypt, church, castle, inn, barracks, stables, blacksmith, watermill, sawmill, gazebo, well
 
 str-stands — tent, stall, market stand, awning, canopy
 
