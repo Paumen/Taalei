@@ -9,7 +9,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_MAP = 'Ultimate_Fantasy_RTS';
 const BRON_NAAM = 'Ultimate Fantasy RTS';
 const KIT = 'rts-town';
-const SCHAAL = 2.4;
+const SCHAAL = 0.96;
 const RAND = [0.05, 0.95];
 const SPREIDING = [0.12, 0.88];
 
