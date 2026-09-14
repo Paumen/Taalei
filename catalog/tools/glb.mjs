@@ -233,10 +233,12 @@ export function measureScene(glb) {
   const round = (v) => Math.round(v * 1000) / 1000;
   const measure = (axis) => (min[axis] === Infinity ? 0 : round(max[axis] - min[axis]));
   const size = [measure(0), measure(1), measure(2)];
+  const exact = (axis) => (min[axis] === Infinity ? 0 : max[axis] - min[axis]);
   const volume = size[0] * size[1] * size[2];
 
   return {
     wdh: [size[0], size[2], size[1]],
+    wdhExact: [exact(0), exact(2), exact(1)],
     min: min.map((v) => (Number.isFinite(v) ? round(v) : 0)),
     max: max.map((v) => (Number.isFinite(v) ? round(v) : 0)),
     triangles,
