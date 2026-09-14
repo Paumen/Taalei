@@ -1,0 +1,75 @@
+	Rocks Pack (asia-rocks)
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bron is één zip met de naam `all2packasian.zip`, met daarin drie
+	packs naast elkaar: `Asian_Pack`, `CementeryPack` en `RocksPack`. Elk
+	pack is hier een eigen kit: asia-pack, asia-grave en asia-rocks. Elk
+	pack levert hetzelfde model als .fbx en als .glb; de .glb is ingeladen.
+	Er zit geen licentiebestand in en er wordt geen maker of packpagina
+	genoemd. De CC0-vermelding hierboven is vastgesteld door de eigenaar
+	van dit project bij het inladen; ze komt niet uit de pack zelf. De
+	maker is niet bekend en er is dus ook niemand om te crediteren — wie de
+	herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Deze kit komt uit `RocksPack`. Dat pack is één bestand met alle
+	modellen naast elkaar; ze zijn per mesh uit elkaar gesneden. Van de 30
+	meshes zijn er 10 ingeladen. Wat niet is ingeladen: de meshes die ook in
+	`Asian_Pack` staan en daar zijn ingeladen (de rotsen en blokken die hier
+	als `*-2` terugkomen) en de kleurdubbels `rock_big_B_gray_1..5`.
+
+
+	Schaal
+
+	Eén schaalfactor voor alle drie de packs (stijlgids §6, P08). Ingeladen
+	op 0,25, in de geometrie gebakken. De packs zijn groot geauthord — een
+	pot mat 1,22 hoog, de grootste rots 8,5 — en 0,25 is de factor waarop
+	de maatregels van §2 samen uitkomen: pot 0,31 (G19), vat 0,30 (G15),
+	krat 0,45 (G17), boom 1,12–1,41 (G42), lantaarn 0,42 (G35). De
+	vloertegels komen zo op 0,50 × 0,50 en vallen op het raster. De
+	onderlinge verhoudingen blijven staan: schalen gebeurt per bron en niet
+	per model of per kit.
+
+	Namen
+
+	De pack nummert door; hier is dat kebab-case met letterachtervoegsels
+	en een naam die zegt wat het ding is. De bronnaam staat in elk .glb
+	onder `asset.extras.taaleiland.bronmodel`.
+
+	  rock_big_B_1..5            → boulder-a .. boulder-e
+	  Cube.010, *_dark_2..5      → boulder-dark-a .. boulder-dark-e
+
+
+	Kleur
+
+	De bron heeft twee eigen palet-atlassen van 1024 × 1024,
+	`ColorPalette.png` en `ColorPalette2.png`. Ze staan in verticale
+	stroken van 16 pixels: één strook is één materiaal, van licht naar
+	donker, met de schaduw in de UV's gebakken. Geen van beide is
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png.
+
+	Per strook is over de hele bron bepaald hoe ver de UV's erin reiken;
+	dat bereik legt op 5–95% van de doelband, zodat de gebakken schaduw
+	zijn onderlinge verhouding houdt (stijlgids I07). Een model dat maar
+	een deel van de strook gebruikt, houdt dus ook maar een deel van de
+	band.
+
+	De banden volgen §4 en §5 van de stijlgids. Van de rotsen staan de
+	bruine op `taupe` en de donkere op `nickel`.
+
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/asia-packs.mjs: uit het gezamenlijke bestand gesneden,
+	geschaald, met de oorsprong op y=0 en het grondvlak gecentreerd, en de
+	vertices opnieuw gelast. De geometrie is verder ongemoeid: de bron
+	heeft hier en daar een omgekeerd driehoekje, en dat is zo gelaten.
