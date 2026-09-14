@@ -209,17 +209,22 @@ export function leesFbx(pad) {
   const naast = dirname(pad);
 
   const beschrijf = (materiaal) => {
+    const rauw = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
+    const kleur = rauw ? rauw.slice(0, 3).map(naarSrgb) : null;
+    const naam = naamVan(materiaal);
+
     for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {
       const geschreven = hangtOnder(textuur.props[0], 'Video')
         .map((video) => pakMediaUit(video, naast))
         .find(Boolean);
       const bestand = child(textuur, 'RelativeFilename')?.props[0]
         ?? child(textuur, 'FileName')?.props[0];
-      const naam = bestand ? String(bestand).replace(/\\+/g, '/').split('/').pop() : null;
-      if (naam || geschreven) return naam ?? geschreven;
+      const bestandsnaam = bestand ? String(bestand).replace(/\\+/g, '/').split('/').pop() : null;
+      if (bestandsnaam || geschreven) {
+        return { naam, textuur: bestandsnaam ?? geschreven, kleur };
+      }
     }
-    const kleur = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
-    return kleur ? { kleur: kleur.slice(0, 3).map(naarSrgb) } : null;
+    return kleur ? { naam, textuur: null, kleur } : null;
   };
 
   const materialenVan = (modelId) => hangtOnder(modelId, 'Material').map(beschrijf);
@@ -319,10 +324,7 @@ export function leesFbx(pad) {
         uvs: heeftUvs ? Float64Array.from(deel.uvs) : null,
         hoekkleuren: null,
         indices: Uint32Array.from({ length: deel.posities.length / 3 }, (_, i) => i),
-        materiaal:
-          typeof gevonden === 'string' ? { textuur: gevonden, kleur: null }
-          : gevonden ? { textuur: null, kleur: gevonden.kleur }
-          : { textuur: null, kleur: [255, 255, 255] },
+        materiaal: gevonden ?? { naam: null, textuur: null, kleur: [255, 255, 255] },
       });
     }
   }
