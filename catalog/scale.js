@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ae28f5c5d9';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=bc26700104';
 
 const GRID_MINOR = 0.1;
 const GRID_MAJOR = 0.2;
