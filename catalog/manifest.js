@@ -1288,17 +1288,25 @@ window.KENNEY_KITS = [
    "bottle-1",
    "bucket-wooden-1",
    "cage-small",
+   "chalice",
    "key-gold",
    "key-metal",
    "mug",
    "potion-2",
    "potion-4",
+   "pouch-large",
    "scroll-1",
    "scroll-2",
+   "shield-wooden",
+   "stall",
+   "stall-cart",
    "table-plate",
    "torch-metal",
+   "training-dummy",
    "vase-2",
-   "vase-4"
+   "vase-4",
+   "weapon-stand",
+   "whetstone"
   ]
  },
  {
@@ -2331,6 +2339,29 @@ window.KENNEY_KITS = [
    "vase",
    "walkway",
    "wall-shield"
+  ]
+ },
+ {
+  "slug": "mek-tools",
+  "name": "mek-tools",
+  "url": null,
+  "models": [
+   "axe",
+   "axe-double",
+   "brush",
+   "hammer-bar",
+   "hammer-block",
+   "hammer-pein",
+   "hammer-square",
+   "hammer-stepped",
+   "hammer-wedge",
+   "nail-large",
+   "nail-small",
+   "saw-coarse",
+   "saw-crosscut",
+   "saw-fine",
+   "saw-large",
+   "sword"
   ]
  }
 ]
