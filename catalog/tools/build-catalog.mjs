@@ -222,7 +222,7 @@ function colorName(hex) {
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
 const MODULES = ['tag-edits.js', 'chiprij.js'];
-const IMPORTERS = ['catalog.js', 'swipe.js', 'tag-edits.js'];
+const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'tag-edits.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
 function writeVersion() {

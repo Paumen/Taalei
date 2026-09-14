@@ -62,6 +62,8 @@ function gemeenschappelijkeMap(mappen) {
   return eerste.slice(0, n).join('/');
 }
 
+const bronId = (bronkit) => (bronkit.submap ? `${bronkit.map}/${bronkit.submap}` : bronkit.map);
+
 function pakBronUit(bronkit) {
   const doel = join(UITPAK_DIR, bronkit.map);
   const map = join(BRON_DIR, bronkit.map);
@@ -138,7 +140,9 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
 }
 
 function bronModellen(bronkit) {
-  const uitgepakt = pakBronUit(bronkit);
+  const zip = pakBronUit(bronkit);
+  const uitgepakt = bronkit.submap ? join(zip, bronkit.submap) : zip;
+  if (!existsSync(uitgepakt)) throw new Error(`${bronId(bronkit)}: no such folder in the source zip`);
   const formaten = [bronkit.formaat, ...(bronkit.extraFormaten ?? [])];
 
   let hoofdmap = null;
@@ -148,7 +152,7 @@ function bronModellen(bronkit) {
   for (const formaat of formaten) {
     const gelezen = bronFormaatModellen(bronkit, uitgepakt, formaat);
     if (!gelezen) {
-      if (formaat === bronkit.formaat) throw new Error(`${bronkit.map}: no .${formaat} found`);
+      if (formaat === bronkit.formaat) throw new Error(`${bronId(bronkit)}: no .${formaat} found`);
       continue;
     }
     hoofdmap ??= gelezen.map;
@@ -430,7 +434,7 @@ const waarschuwingen = [];
 for (const bronkit of BRONKITS) {
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
-  const handkleuren = HANDKLEUREN[bronkit.map] ?? {};
+  const handkleuren = HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? {};
   const kit = bronkit.kit
     ? kitGegevens(bronkit.kit)
     : { modellen: [], schaal: null, aantal: 0 };
@@ -494,7 +498,7 @@ for (const bronkit of BRONKITS) {
     );
   }
 
-  const uitvoerMap = join(DOEL_DIR, bronkit.map);
+  const uitvoerMap = join(DOEL_DIR, bronId(bronkit));
   const gekopieerd = new Map();
   const gebruikteNamen = new Set();
 
@@ -540,7 +544,7 @@ for (const bronkit of BRONKITS) {
 
     const wdh = model.wdh.map((v) => v * schaal);
     modellen.push({
-      kit: bronkit.map,
+      kit: bronId(bronkit),
       name: model.naam,
       kind: kindFromName(kebab(model.naam), model.wdh ?? [1, 1, 1]),
       wdh: wdh.map(round1),
@@ -554,7 +558,7 @@ for (const bronkit of BRONKITS) {
   }
 
   bronnen.push({
-    slug: bronkit.map,
+    slug: bronId(bronkit),
     name: bronkit.naam,
     kit: bronkit.kit,
     format: bronkit.formaat,
@@ -567,7 +571,7 @@ for (const bronkit of BRONKITS) {
   });
 
   console.log(
-    `${bronkit.map.padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
+    `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
       `${String(kit.aantal).padStart(4)} in catalogue → ${String(ontbreekt.length).padStart(4)} missing` +
       (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
       (bronkit.kit ? '' : '  — never imported'),
