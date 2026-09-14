@@ -34,7 +34,7 @@ export const BRONKITS = [
   { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', formaat: 'glb' },
-  { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'kay-skeleton', formaat: 'glb' },
+  { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'kay-skeleton-1', formaat: 'glb' },
   { map: 'KayKit_FantasyWeaponsBits_1.0_FREE', naam: 'KayKit Fantasy Weapons Bits', kit: 'kay-weapons', formaat: 'gltf' },
   { map: 'Tiny_Treats_House_Plants_1.0_FREE', naam: 'Tiny Treats House Plants', kit: 'isa-plants', formaat: 'gltf' },
   { map: 'Tiny_Treats_Baked_Goods_1.0_FREE', naam: 'Tiny Treats Baked Goods', kit: 'isa-food', formaat: 'gltf' },
@@ -44,8 +44,8 @@ export const BRONKITS = [
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
   { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
 
-  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-rpg', formaat: 'fbx' },
-  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-rpg', formaat: 'fbx' },
+  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', formaat: 'fbx' },
+  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
 
@@ -53,7 +53,7 @@ export const BRONKITS = [
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', formaat: 'glb' },
 
-  { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'rts-town', formaat: 'glb' },
+  { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', formaat: 'glb' },
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'desert-buildings', formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
@@ -62,6 +62,6 @@ export const BRONKITS = [
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: 'charming-kitchen', formaat: 'fbx', alleMappen: true },
+  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: 'isa-kitchen', formaat: 'fbx', alleMappen: true },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];
