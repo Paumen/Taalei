@@ -409,6 +409,7 @@ const sizeOf = (item) => {
 const colorState = new Map();
 const tagState = new Map();
 const sizeState = new Map();
+const kitState = new Map();
 const chipButtons = [];
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
@@ -429,7 +430,8 @@ function matches(own, state) {
 const passesFilter = (item) =>
   matches(item.colors ?? [], colorState) &&
   matches(item.tags ?? [], tagState) &&
-  matches([sizeOf(item)], sizeState);
+  matches([sizeOf(item)], sizeState) &&
+  matches([item.slug], kitState);
 
 const filtered = () =>
   groups.map((g) => ({ ...g, items: g.items.filter(passesFilter) })).filter((g) => g.items.length);
@@ -451,7 +453,7 @@ function rotate(state, id, button) {
   showState(button, next);
   reorder();
   document.querySelector('#alles-wis').hidden =
-    colorState.size + tagState.size + sizeState.size === 0;
+    colorState.size + tagState.size + sizeState.size + kitState.size === 0;
   buildSections();
 }
 
@@ -559,10 +561,16 @@ function buildFilters() {
     .filter((t) => t.count);
   if (tags.length) chipRow(tagbar, tags, tagState);
 
+  const kits = [...new Set(all.map((i) => i.slug))]
+    .map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.slug === slug) }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  if (kits.length > 1) chipRow(tagbar, kits, kitState);
+
   document.querySelector('#alles-wis').addEventListener('click', () => {
     colorState.clear();
     tagState.clear();
     sizeState.clear();
+    kitState.clear();
     for (const { element } of chipButtons) showState(element, undefined);
     reorder();
     document.querySelector('#alles-wis').hidden = true;
