@@ -413,6 +413,36 @@ const kitState = new Map();
 const chipButtons = [];
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
+const STORAGE_KEY = 'taaleiland-scale-filters-v1';
+const STORED_STATES = { color: colorState, tag: tagState, size: sizeState, kit: kitState };
+
+function saveStates() {
+  try {
+    const out = Object.entries(STORED_STATES)
+      .filter(([, state]) => state.size)
+      .map(([name, state]) => [name, Object.fromEntries(state)]);
+    if (out.length) localStorage.setItem(STORAGE_KEY, JSON.stringify(Object.fromEntries(out)));
+    else localStorage.removeItem(STORAGE_KEY);
+  } catch {}
+}
+
+function loadStates() {
+  let stored;
+  try {
+    stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
+  } catch {
+    return;
+  }
+  if (!stored || typeof stored !== 'object') return;
+  for (const [name, state] of Object.entries(STORED_STATES)) {
+    for (const [id, value] of Object.entries(stored[name] ?? {})) {
+      if (value === 'only' || value === 'not') state.set(id, value);
+    }
+  }
+}
+
+loadStates();
+
 function showState(button, state) {
   button.setAttribute('aria-pressed', String(state === 'only'));
   if (state === 'not') button.dataset.uit = '';
@@ -452,9 +482,16 @@ function rotate(state, id, button) {
   else state.delete(id);
   showState(button, next);
   reorder();
-  document.querySelector('#alles-wis').hidden =
-    colorState.size + tagState.size + sizeState.size + kitState.size === 0;
+  saveStates();
+  showReset();
   buildSections();
+}
+
+const activeCount = () =>
+  colorState.size + tagState.size + sizeState.size + kitState.size;
+
+function showReset() {
+  document.querySelector('#alles-wis').hidden = activeCount() === 0;
 }
 
 function chipRow(container, items, state) {
@@ -573,10 +610,13 @@ function buildFilters() {
     kitState.clear();
     for (const { element } of chipButtons) showState(element, undefined);
     reorder();
-    document.querySelector('#alles-wis').hidden = true;
+    saveStates();
+    showReset();
     buildSections();
   });
 }
 
 buildFilters();
+reorder();
+showReset();
 buildSections();
