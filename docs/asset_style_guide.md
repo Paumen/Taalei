@@ -1,302 +1,339 @@
-# Asset style guide
+# Bible
 
-For an LLM creating or adjusting assets.
-Scope: items in catalog, and how they are tagged.
+Scope: items in the catalogue.
 
-## 0. Look
+**[F01] Rule format.** Tables hold the standardised rules: one row = one subject, fixed columns, kind-tree order, a deeper kind overrides its parent. Everything that doesn't fit the columns is prose under the table. Rule text is capped at 140 characters.
 
-- **L1.** `--` ⚪ Toy-like and iconic: chunky, slightly caricatured — not thin or spindly, and
-  not so pared back it reads as primitive. Building panels are the exception:
-  they may be thin, and get the look once assembled.
-- **L2.** `--` ⚪ Clean deliberate facets, chamfered edges — rounded-soft, not noisy.
-- **L3.** `--` ⚪ Few details, except on organic objects.
-- **L4.** `--` ⚪ Every object was invented before 1850.
-- **L5.** `--` ⚪ Models of one deepest kind look alike in shape, colour and style.
+Definitions:
 
-## 1. Colour
-- **P1.** `--` ⚪ Colours come from the shared colormap image (`kits/colormap.png`): assets colour
-  themselves by pointing UVs at its bands.
-- **P2.** `--` ⚪ When recolouring onto the shared map, keep the baked shading: the UV spread across
-  the gradient band must be maintained.
-- **P3.** `--` ⚪ Defaults: `alphaMode` `OPAQUE`, except for the one clear glass colour;
-  `roughnessFactor` 1; `metallicFactor` 0.
+- [D01] "high" is the bounding-box Y extent.
+- [D02] "long" is the extent along the object's main axis; "longest dimension" is an object's largest extent.
+- [D03] A kind names the leaf and its children.
+- [D04] Tri density = tris ÷ (max(0.49, w × d) × max(0.7, h)). A 2 × 2 floor tile is judged on four cells; anything under 0.5 × 0.5 × 0.5 is judged as that size.
+- [D05] Vegetation is a plant's non-green matter. Fungi are not vegetation.
+- [D06] "Hooped containers" = `obj-container-barrel`, `obj-container-chest`, `obj-container-bucket`, `obj-container-crate`.
 
-## 2. Geometry
-- **G1.** `PW` 🔴 Objects with distinctive moving features, or with glass, draw in two or more calls. All others in one.
-- **G2.** `--` ⚪ Flat-piece construction. At most 16 flat pieces per full circle equivalent.
-- **G3.** `--` ⚪ Typically 8-12. Use 16 only for hero objects, and for objects that are a true
-  even circle in reality.
+Colour ids:
 
-## 3. Outlines and shading
-- **R1.** `--` ⚪ Avoid outlines, unless one is a distinctive core feature of the object's appearance. Note it to the PO when you use one.
-- **R2.** `--` ⚪ Faces use palette colours and gradient bands for baked shading.
-- **R3.** `--` ⚪ No shadow casting in assets.
-
-## 4. Scale
-- **X1.** `--` ⚪ One wall/floor segment = 1 × 1 unit footprint, wall height = 1 unit.
-- **X2.** `--` ⚪ Assets may stretch multiple units.
-- **X3.** `--` ⚪ No solid pieces thinner than 0.015 units.
-- **X4.** `FW` 🔴 Max 5000 tris per occupied grid cell; char and plural models are exempt. Measured as tris ÷ (max(0.49, w × d) × max(0.7, h))
-  over the bounding box: a 2 × 2 floor tile is judged on four cells, and an asset smaller
-  than 0.5 × 0.5 × 0.5 is judged as if it were that size.
-- **X5.** `--` ⚪ Imported packs get one scale factor for the whole pack for now.
-- **X6.** `FW` 🟢 Nothing is taller than 6 units, except env-terrain-mountain.
-
-## 5. Origin and orientation
-- **O1.** `--` ⚪ Default on Y = 0; pivot at footprint centre in X/Z.
-- **O2.** `--` ⚪ Deviate deliberately, for a functional reason.
-- **O3.** `--` ⚪ Split nodes put their origin at the joint.
-
-## 6. Reference Assets
-- **V1.** `--` ⚪ Render and look at the reference assets before creating a new asset — reading them is not enough.
-- **V2.** `--` ⚪ When validating, render at least two reference assets from same group beside the new one at the same scale.
-
-## 7. Tagging
-
-| field | job | set | who |
-|---|---|---|---|
-| `material` | what it is **made of** | closed, 36, parented | Claude, linted |
-| `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** | Claude via glossary, PO reviews |
-| `use` | what it is **for** — where you'd look | closed, small, zero or more | Claude, PO reviews |
-| `size` | rough bbox: `s` `m` `l` | measured | automated |
-| `tag` | kit/artist, theme, flags, candidate kinds | open | mixed |
-
-### T. Fields
-
-- **T1.** `--` ⚪ `kind`, `material` and `use` are closed sets.
-- **T2.** `--` ⚪ Kind is form (what peers it's compared against). Material is substance. Use is function.
-- **T3.** `--` ⚪ A kind leaf may carry its material's name: `env-remains-bones` beside material `bone`.
-- **T4.** `--` ⚪ A kind implies its parents.
-- **T5.** `--` ⚪ A new leaf needs at least 6 models, variants included. An existing leaf is not retired for dropping below.
-- **T6.** `--` ⚪ Artist tags are derived from the kit, and only for artists of which several kits are adopted in catalog.
-
-### K. Kind
-
-- **K1.** `--` ⚪ Exactly one kind per model. `assy` and `scene` are kinds.
-- **K2.** `--` ⚪ Tag the deepest leaf that fits. The parent is the "other" level; never add `-other` leaves.
-- **K3.** `--` ⚪ Tie-breaker: when two kinds fit, pick the one whose lint rules you want applied. A leather bag is `obj-container-bag`, not `obj-equipment`.
-- **K4.** `--` ⚪ `assy` = distinct things in one top-level (table + mugs); `scene` crosses them (house + tree). A dual-function axe is one kind, two uses.
-- **K5.** `--` ⚪ Ground mesh → `env-terrain`; placed body → `env-rock`. A cobbled path is terrain; a cliff prop is `env-rock-formation`.
-- **K6.** `--` ⚪ `env-fauna` = ambient/prop creature; `char` = rigged or acting.
-- **K7.** `--` ⚪ Kit of origin never decides kind. A mushroom from a food kit is `env-fungi`.
-- **K8.** `--` ⚪ Appendix B is the glossary. Every common noun resolves to exactly one kind. Resolve against it before tagging.
-- **K9.** `--` ⚪ Style rules attach to kind. A leaf with fewer than 6 models inherits its parent's rules; sparse leaves get no hand-written rules.
-
-### U. Use
-
-- **U1.** `--` ⚪ Set: `container` `food` `weapon` `tool` `wearable` `decor` `transport` `light`.
-- **U2.** `--` ⚪ Use is for browsing and retrieval only. Lint and normalization ignore it.
-- **U3.** `--` ⚪ A use is not implied by kind; tag it explicitly. `obj-container-*` models still carry `use:container`.
-- **U4.** `--` ⚪ Catalogue search and LLM asset lookup always query kind and use together.
-
-### F. Flags
-
-- **F1.** `--` ⚪ `size` is measured, never hand-set.
-- **F2.** `--` ⚪ `animation` is measured. `ngons` and `hero` are judged.
-- **F3.** `--` ⚪ `ngons` marks a round cross-section — the form §2 counts facets on.
-- **F4.** `--` ⚪ `plural` is several instances of one thing in one model. It replaces the `stacks` tag, which is removed.
-
-## Appendix A: Material and colour rules
-
-Band ids are column,row in `kits/colormap.png`. Where a colour name below has
-an id, it is: light grey 15,3 · dark grey 13,3 · blue-grey 6,1 · light blue-grey/silver 3,2 ·
-blue 4,2 · off-white 5,2 · taupe 14,3 · terracotta 5,0 ·
-yellow/gold 6,0 · dark red 8,0 · dark green 1,1 · light green 3,1 ·
-light brown 0,0 · mid brown 1,0 · dark brown 2,0 · bark 3,0.
-
-### Status of a rule
-
-Every rule carries how far it is automated and whether the catalogue passes it
-today. A new rule starts as a warning and is raised to error once it has been
-tuned against the catalogue.
-
-| code | meaning |
+| band | id |
 |---|---|
-| `FE` | fully lint enforced — error |
-| `PE` | partially lint enforced — error |
-| `FW` | fully lint enforced — warning |
-| `PW` | partially lint enforced — warning |
-| `--` | not automated |
+| `tan` | C01 |
+| `camel` | C02 |
+| `chestnut` | C03 |
+| `umber` | C04 |
+| `terracotta` | C06 |
+| `amber` | C07 |
+| `sienna` | C09 |
+| `hunter` | C13 |
+| `moss` | C15 |
+| `slate` | C18 |
+| `azure` | C25 |
+| `ivory` | C27 |
+| `basalt` | C313 |
+| `taupe` | C314 |
+| `nickel` | C315 |
 
-🟢 no findings in the catalogue today · 🔴 findings open · ⚪ nothing measures it.
-Statuses are regenerated by `node tools/rule-status.mjs`, never hand-set; it reads
-lint's findings and rewrites every marker below. `--check` fails when they are stale.
-Lint reads 1750 models and skips the `assemblies` group and any model with no colours.
-A status marker is metadata, not rule text — the 140-char limit measures the rule
-text alone.
+Tag fields:
 
-### S. Special — the one way out of every rule below
+| id | field | job | set |
+|---|---|---|---|
+| `F02` | `material` | what it is **made of** | closed, 36, parented |
+| `F03` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
+| `F04` | `size` | rough bbox: `s` `m` `l` | closed |
+| `F05` | `tag` | kit/artist, theme, flags | open |
 
-- **S1.** `PE` 🟢 `special` is a material tag and a joker: it exempts **one** band on the
-  model from every rule that band trips.
-- **S2.** `PE` 🟢 The joker is spent once. A second band with no material behind it is a
-  finding, whatever the first one was.
-- **S3.** `PE` 🟢 Spent on N4 it lifts the ceiling by one; every other band still answers
-  to M and C. N2 and N3 do not count the joker as a material.
-- **S4.** `FE` 🟢 Only the PO assigns the tag. A `special` records which band it covers
-  and why; one without a stated reason is a finding on the tag.
-- **S5.** `PE` 🟢 N3 leaves the joker's band out of its count; N2 keeps it. That band is
-  the one the reason on the tag names.
-- **S6.** `--` ⚪ `hero` is the PO's alone, like `special` (S4). Claude proposes `hero` when adding to the catalogue.
-- **S7.** `--` ⚪ Claude asks for `special` only after legal recolouring and a kind or material change have both failed.
+---
 
-### M. Material to colour — what a thing is made of, and the colour that takes
+## 1. Intent
 
-- **M1.** `FE` 🟢 env-flora-tree is dark green 1,1; env-flora-tree-palm follows M2.
-- **M2.** `FE` 🟢 env-flora-tree-palm fronds are light green 3,1.
-- **M3.** `FE` 🟢 env-flora-plant-grass is light green 3,1.
-- **M4.** `PE` 🟢 Stems and leaves are light green.
-- **M5.** `--` ⚪ Flowers may be any colour. Cactus flowers count too.
-- **M6.** `FE` 🔴 Wood is any of the three brown bands; wood-bark is bark 3,0.
-- **M7.** `--` ⚪ A trunk with a cut face carries wood-log and wood-bark.
-- **M8.** `PE` 🟢 stone-masonry — walls, bricks, floors — is taupe 14,3, blue-grey 6,1 or
-  light grey 15,3.
-- **M9.** `FE` 🔴 stone-rock is light grey 15,3, secondarily taupe 14,3.
-- **M10.** `FE` 🟢 stone-soil — sand and dirt — is taupe 14,3.
-- **M11.** `PE` 🟢 metal-iron-steel is light grey 15,3.
-- **M12.** `PE` 🔴 metal-iron-wrought is dark grey 13,3; metal-iron-cast is blue-grey 6,1.
-- **M13.** `FE` 🟢 metal-gold is yellow 6,0; metal-silver is light blue-grey 3,2.
-- **M14.** `FE` 🟢 metal-copper is terracotta 5,0 and takes no other metal subtype.
-- **M15.** `PE` 🟢 obj-pocketitem-key is metal-iron-wrought, dark grey 13,3, or metal-gold, yellow 6,0.
-- **M17.** `PE` 🔴 Hoops on obj-container-barrel, -chest, -bucket and -crate are metal-iron-wrought, dark grey 13,3.
-- **M18.** `PE` 🔴 Textile is off-white 5,2, dark green 1,1 or dark red 8,0; taupe 14,3 only for grips and bindings (M19).
-- **M18b.** `PE` 🔴 Textile on obj-transport-ship, -boat and -accessory may also be blue-grey 6,1.
-- **M19.** `PW` 🔴 Wrapped grips and bindings on tools and weapons are always taupe 14,3,
-  light half 0.02-0.40.
-- **M20.** `FE` 🔴 Leather is bark.
-- **M21.** `--` ⚪ Belts, shoes and straps are leather.
-- **M22.** `FE` 🔴 Rope is taupe 14,3.
-- **M23.** `FE` 🟢 All cork is taupe 14,3.
-- **M24.** `FE` 🟢 Glass is transparent, dark green or dark red.
-- **M25.** `FE` 🟢 Ceramics are terracotta, off-white, taupe or dark red.
-- **M26.** `PE` 🟢 obj-container-bottle is glass or ceramic.
-- **M27.** `PE` 🟢 A glass obj-container-bottle is dark red 8,0, dark green 1,1 or clear glass.
-- **M28.** `FE` 🟢 A liquid is dark red 8,0, dark green 1,1 or blue 4,2.
-- **M29.** `FE` 🔴 Bone and env-remains-bones are off-white 5,2.
-- **M30.** `FE` 🟢 Paper is off-white.
-- **M31.** `FE` 🟢 obj-food-meat is dark red 8,0.
-- **M32.** `--` ⚪ Fauna may be any colors. 
-- **M33.** `FE` 🟢 Flames, glow and lights are yellow 6,0, spread wide across the band.
-- **M34.** `FE` 🟢 Candle wax are off-white 5,2.
-- **M35.** `FW` 🟢 Wicks are dark grey 13,3.
-- **M36.** `FE` 🟢 Gemstones are dark red 8,0, dark green 1,1 or blue 4,2.
-- **M37.** `PE` 🟢 Covers of obj-pocketitem-book and obj-weapon-magic with paper are bark, dark red 8,0, dark green 1,1 or blue-grey 6,1.
-- **M38.** `PE` 🔴 str-part-roof is ceramic, dark red 8,0.
-- **M39.** `PE` 🔴 obj-container-barrel, -chest, -bucket and -crate are mainly wood, often with metal-iron accents.
-- **M40.** `--` ⚪ Structures and furniture are mostly wood, then stone (the bigger
-  sort, not modern brick). Metal sparingly.
-- **M42.** `FE` 🔴 Wood subtypes take their band: `wood-planks` 0,0, `wood-worked` 1,0,
-  `wood-beam` 2,0. `wood-log` and `wood-bark` follow M6.
-- **M43.** `FE` 🟢 Skin is light brown 0,0, taupe 14,3 or bark 3,0.
-- **M44.** `PE` 🟢 Vegetation is a plant's non-green matter: dried stalks taupe 14,3, grain straw light brown (M51), blooms any colour. Fungi: M72.
-- **M45.** `--` ⚪ Food may be any colour, like fauna. What it is made of decides nothing about its band.
-- **M46.** `--` ⚪ obj-tool is metal-iron; a handle is wood, textile or both.
-- **M47.** `--` ⚪ obj-weapon is metal-iron, with a handle of wood or textile.
-- **M48.** `--` ⚪ A simple obj-weapon or an obj-weapon-ranged-bow may be wholly or partly wood.
-- **M49.** `--` ⚪ A special obj-weapon may be partly metal-gold, metal-silver or gemstone.
-- **M50.** `--` ⚪ Some obj-weapon models carry textile or leather straps.
-- **M51.** `--` ⚪ Wheat, grain and straw are light brown 0,0; obj-food-grain takes a brown: 0,0, 1,0 or 2,0.
-- **M52.** `--` ⚪ A model whose only material is bone is off-white 5,2 alone.
-- **M53.** `--` ⚪ Ceramic obj-kitchenware-tableware-plate is off-white 5,2 or terracotta 5,0; a plate may also be metal-iron or wood.
-- **M54.** `--` ⚪ obj-furniture is wood, except a rug, a carpet or an upholstered obj-furniture-seating, which is textile.
-- **M55.** `--` ⚪ Coins (obj-pocketitem-coin) are metal-gold.
-- **M56.** `--` ⚪ str-marker-flag and sails (obj-transport-accessory) are textile.
-- **M57.** `--` ⚪ str-marker-sign, flag poles and str-barrier-post are usually wood.
-- **M58.** `--` ⚪ obj-kitchenware-cookware-pan is metal-iron-steel or metal-iron-cast, paired as variants (M65).
-- **M59.** `--` ⚪ obj-kitchenware-tableware-cutlery is metal-iron.
-- **M60.** `--` ⚪ Cooking pots and crockpots (obj-kitchenware-cookware-pot) are ceramic, terracotta 5,0; cauldrons and kettles are iron (M65).
-- **M61.** `--` ⚪ obj-transport-boat and obj-transport-ship are built from more than one wood.
-- **M62.** `PW` 🔴 obj-weapon, obj-equipment, obj-kitchenware-tableware and obj-tool are metal-iron-steel.
-- **M63.** `PW` 🟢 obj-tool-supplies is metal-iron-wrought; its parent kind stays steel.
-- **M64.** `PW` 🟢 obj-weapon-cannon and every str model with iron carry metal-iron-cast; another subtype may sit on top.
-- **M65.** `PW` 🔴 Metal cookware always exists as both steel and cast, paired as variants; a model keeps the iron it is.
-- **M66.** `PW` 🔴 All other iron is metal-iron-wrought.
-- **M67.** `PW` 🟢 A model may carry more than one iron subtype; each counts under N2. Never merge two iron bands into one.
-- **M68.** `PW` 🟢 char iron is metal-iron-steel. An assembly answers per part; until it does, M66 stands.
-- **M69.** `--` ⚪ Sails (obj-transport-accessory) and str-stands canvas are off-white 5,2, or striped dark red 8,0 and off-white.
-- **M70.** `--` ⚪ Dark red textile is only char clothing, or striped with off-white on sails and str-stands canvas (M69).
-- **M71.** `--` ⚪ Glass on a str model, and all glass on a model of size m or l, is clear. Only size s glass may be dark red or dark green.
-- **M72.** `--` ⚪ env-fungi stems are off-white 5,2; caps are dark red 8,0 or mid brown 1,0.
-- **M73.** `--` ⚪ Bells are metal-copper, metal-gold or metal-silver; never iron.
-- **M74.** `--` ⚪ Tongs (obj-tool-hand) are metal-iron-steel or metal-iron-wrought; never cast.
-- **M75.** `--` ⚪ obj-container-bag fasteners and closures are rope or leather.
-- **M76.** `--` ⚪ Straps holding an obj-resource stack, obj-resource-metal included, are leather.
-- **M77.** `--` ⚪ Sticks and unworked poles are wood-bark; poles on obj-tool-long are dark brown 2,0, tagged wood-beam.
-- **M78.** `--` ⚪ Wood handles on obj-tool-hand are light brown 0,0, tagged wood-planks.
-- **M79.** `--` ⚪ Grips, fasteners and joins on obj-weapon, obj-tool and obj-equipment-shield are often textile, rope or leather, not wood or metal.
-- **M80.** `--` ⚪ A fastener joining stone, bone or steel to wood is usually leather.
-- **M81.** `--` ⚪ Wooden parts of obj-transport are mid brown 1,0 or dark brown 2,0.
-- **M82.** `--` ⚪ Mugs, cups and tankards (obj-kitchenware-tableware) are wood, dark brown 2,0 or mid brown 1,0, with metal-iron-steel hoops and handles.
-- **M83.** `--` ⚪ obj-food defaults: fish light grey 15,3, dark grey 13,3, blue-grey 6,1 or blue 4,2; cheese yellow 6,0; obj-food-vegetable light green 3,1.
-- **M84.** `--` ⚪ Carrot and pumpkin (obj-food-vegetable) are terracotta 5,0; chocolate is dark brown 2,0. Bread: M51, meat: M31.
-- **M85.** `--` ⚪ obj-pocketitem-jewellery is metal-gold 6,0 with gemstones (M36).
-- **M86.** `--` ⚪ obj-pocketitem-scroll is off-white 5,2; accents dark red 8,0, dark green 1,1 or blue 4,2; text blue-grey 6,1.
-- **M87.** `--` ⚪ obj-pocketitem-book straps, bands, binders and corners are bark for leather, dark grey 13,3 for metal-iron-wrought.
-- **M88.** `--` ⚪ On an env-flora-deadwood-branch log the cut face is light wood and the round side wood-bark; never inverted.
+How a model should look and draw.
 
-### C. Colour to material
+Form:
 
-- **C1.** `PE` 🔴 Light grey 15,3: metal-iron-steel, stone, rock and fish (M83) only.
-- **C2.** `PE` 🔴 Blue-grey 6,1: cast iron (M12), worked stone (M8), book covers (M37), rigged-ship flags (M18b), scroll text (M86), fish (M83).
-- **C3.** `FE` 🟢 Light blue-grey 3,2: silver (M13).
-- **C4.** `PE` 🟢 Blue 4,2: sparingly, minor accents, scroll accents (M86) and fish (M83).
-- **C5.** `PE` 🔴 Yellow: metal-gold, emissive, fire and cheese (M83).
-- **C6.** `PE` 🔴 Dark red: ceramics, glass, str-part-roof, meat (M31), fungus caps (M72), textile (M70), gemstones (M36), minor accents.
-- **C7.** `PE` 🟢 Dark green: foliage, glass, textile only on character clothing or weapons (M18), and minor accents.
-- **C8.** `FE` 🔴 Light green: nature only — flora, grass and weed accents growing on objects and structures, and vegetables (M83).
-- **C9.** `FE` 🔴 Browns 0,0 1,0 2,0: wood, grain food (M51), chocolate (M84), fungus caps (M72); light brown 0,0 also skin (M43) and straw (M44).
-- **C10.** `FE` 🔴 Bark 3,0: wood-bark, leather, skin, wood-log and env-flora-deadwood.
-- **C11.** `FE` 🟢 Transparent: glass only.
-- **C12.** `PW` 🔴 Taupe 14,3: soil, rock (M9), masonry (M8), rope, cork, skin, dried vegetation (M44) and grips (M19).
-- **C13.** `PW` 🔴 Off-white 5,2: bone, paper, wax, ceramics (M25), textile (M18) and mushroom stems (M44).
-- **C14.** `PW` 🟢 Terracotta 5,0: copper (M14), ceramics (M25), carrot and pumpkin (M84) and blooms (M44).
-- **C15.** `FW` 🔴 Dark grey 13,3: metal-iron-wrought (M12), wicks (M35) and fish (M83).
+- [I01] Toy-like and iconic: chunky, slightly caricatured — not thin or spindly, and not so pared back it reads as primitive.
+- [I02] Clean, deliberate facets, chamfered edges — rounded-soft, not noisy.
+- [I03] Few details, except on organic objects.
+- [I04] Every object was invented before 1850.
+- [I05] Models of one deepest kind look alike in shape, colour and style.
 
-### N. Counting — bands against materials
-- **N1.** `FE` 🔴 A model has at least one material.
-- **N2.** `FE` 🔴 A model uses at least as many bands as it has materials. Every material
-  tag counts, subtypes included.
-- **N3.** `FE` 🟢 A model uses at most twice as many bands as materials; food, fauna and vegetation may use three times, a decorated food five.
-- **N4.** `FE` 🟢 Ceiling: **6 bands for a human character or a decorated food, 5 for
-  anything else.** A skeleton takes the 5; an assembly answers per part.
-- **N5.** `FE` 🟢 A model of size `l` may take a sixth band where it carries at least five material tags.
-- **N6.** `--` ⚪ An import with 2 colours keeps 2; 3–4 may drop 1; 5 may drop 2; more keep at least 3. N4 still caps.
+Colour:
 
-### D. Dimensions and detail
+- [I06] Colours come from the shared colormap image (`kits/colormap.png`): assets colour themselves by pointing UVs at its bands.
+- [I07] When recolouring onto the shared map, keep the baked shading: the UV spread across the gradient band must be maintained.
 
-"High" is the bounding-box Y extent; "longest dimension" its largest extent. Kinds name the leaf and its children.
+Draw:
 
-- **D1.** `--` ⚪ Hoops on obj-container-barrel, -chest, -bucket and -crate are 5–15% of the model's longest dimension high.
-- **D2.** `--` ⚪ obj-container-barrel and -bucket have at most three hoops.
-- **D3.** `--` ⚪ obj-container-barrel has 8 to 14 side planks and 100 to 1500 tris.
-- **D4.** `--` ⚪ obj-container-barrel is 0.2–0.8 high and at most 0.75 wide.
-- **D5.** `--` ⚪ A near-cube obj-container-crate (extents within 15%) shows 3 to 7 planks side by side per face and is 0.2–0.8 high.
-- **D6.** `--` ⚪ obj-container-pot is 0.2–0.4 high; obj-container-bottle and -bucket 0.1–0.4; an obj-container-chest with lid 0.2–0.5.
-- **D7.** `--` ⚪ obj-equipment-shield is 0.2–0.6 high.
-- **D8.** `--` ⚪ obj-furniture fits a 1.2 × 1.2 × 1.2 box; obj-furniture-table fits 0.5 high on a 2 × 2 footprint.
-- **D9.** `--` ⚪ obj-furniture-table and -seating are at least 0.2 high; -seating at most 0.7.
-- **D10.** `--` ⚪ obj-kitchenware-cookware-pan and -pot, lid included, are at most 0.4 high.
-- **D11.** `--` ⚪ obj-kitchenware-tableware-plate and -cutlery: longest dimension 0.1–0.4.
-- **D12.** `--` ⚪ obj-lighting-candle is 0.1–0.7 high; obj-lighting-lantern and -torch 0.1–1.0.
-- **D13.** `--` ⚪ obj-pocketitem-scroll or a closed obj-pocketitem-book: longest dimension 0.1–0.3. An open book is judged by its longest cover edge.
-- **D14.** `--` ⚪ obj-pocketitem-coin and -key: longest dimension at most 0.2; plural coin models are exempt.
-- **D15.** `--` ⚪ obj-tool-long is 0.3–1.2 long.
-- **D16.** `--` ⚪ A humanoid char, skeleton included, is 0.4–0.8 high; animals are exempt.
-- **D17.** `--` ⚪ obj-weapon: ranged-bow, ranged-crossbow, melee-sword 0.4–1.0; melee-hammer, melee-axe 0.2–0.8; melee-dagger 0.1–0.5; magic-staff 0.2–1.2.
-- **D18.** `--` ⚪ str-marker-flag, sails, canopy and canvas cloth is under 0.1 thick.
-- **D19.** `--` ⚪ env-flora-tree, conifer and palm included, is 0.6–2.4 high.
+- [I08] Defaults: `alphaMode` `OPAQUE`, except for the one clear `glass` colour; `roughnessFactor` 1; `metallicFactor` 0.
+- [I09] Objects with distinctive moving features, or with `glass`, draw in 2 or more calls. All others in one.
+- [I10] Avoid outlines unless an outline is a distinctive core feature of the object's appearance.
+- [I11] No shadow casting in assets.
 
-### Open items
+---
 
-- M8, C1: to be reduced to 2 bands.
+## 2. Geometry & budget
 
-## Appendix B: Kind tree + glossary
+Everything measured off the mesh: extents, counts, pivots, band counts.
+
+### Construction & placement
+
+- [G01] Flat pieces per full circle equivalent: typically 8–12. Use 16 only for `hero`-tagged models and forms that are truly circular in reality.
+- [G02] No solid pieces thinner than 0.015 units.
+- [G03] Max 5000 tris per occupied grid cell; `char`- and `plural`-tagged models are exempt.
+- [G04] Default on Y = 0, pivot at footprint centre in X/Z; leave either only deliberately, for a functional reason.
+- [G05] Split nodes put their origin at the joint.
+
+### Band counts
+
+- [G06] A model has at least 1 material.
+- [G07] A model uses at least as many bands as it has materials. Every material tag counts, subtypes included.
+- [G08] A model uses at most twice as many bands as materials; `food`, `env-fauna` and `vegetation` may use 3 times, a decorated `food` 5.
+- [G09] Band ceiling: 5. Human `char` and decorated `food`: 6. `char` skeleton: 5.
+- [G10] A model of size `l` may exceed the band ceiling by 1 when it carries at least 5 material tags.
+- [G11] Material counts ignore `special` as a material.
+- [G12] Max-band rules leave the `special` band out (ceiling +1); the min-band rule keeps it.
+
+### Size
+
+| id | kind | dimension | min | max |
+|---|---|---|---|---|
+| `G13` | any | high | — | 6 |
+| `G14` | `obj-container-chest` with lid | high | 0.2 | 0.5 |
+| `G15` | `obj-container-barrel` | high | 0.2 | 0.8 |
+| `G16` | `obj-container-bucket` | high | 0.1 | 0.4 |
+| `G17` | `obj-container-crate`, near-cube | high | 0.2 | 0.8 |
+| `G18` | `obj-container-bottle` | high | 0.1 | 0.4 |
+| `G19` | `obj-container-pot` | high | 0.2 | 0.4 |
+| `G20` | `obj-kitchenware-tableware-cutlery` | longest | 0.1 | 0.4 |
+| `G21` | `obj-kitchenware-tableware-plate` | longest | 0.1 | 0.4 |
+| `G22` | `obj-kitchenware-cookware-pan` with lid | high | — | 0.4 |
+| `G23` | `obj-kitchenware-cookware-pot` with lid | high | — | 0.4 |
+| `G24` | `obj-furniture-seating` | high | 0.2 | 0.7 |
+| `G25` | `obj-furniture-table` | high | 0.2 | — |
+| `G26` | `obj-weapon-melee-sword` | long | 0.4 | 1.0 |
+| `G27` | `obj-weapon-melee-dagger` | long | 0.1 | 0.5 |
+| `G28` | `obj-weapon-melee-axe` | long | 0.2 | 0.8 |
+| `G29` | `obj-weapon-melee-hammer` | long | 0.2 | 0.8 |
+| `G30` | `obj-weapon-ranged-bow` | long | 0.4 | 1.0 |
+| `G31` | `obj-weapon-ranged-crossbow` | long | 0.4 | 1.0 |
+| `G32` | `obj-weapon-magic-staff` | long | 0.2 | 1.2 |
+| `G33` | `obj-equipment-shield` | high | 0.2 | 0.6 |
+| `G34` | `obj-tool-long` | long | 0.3 | 1.2 |
+| `G35` | `obj-lighting-lantern` | high | 0.1 | 1.0 |
+| `G36` | `obj-lighting-torch` | high | 0.1 | 1.0 |
+| `G37` | `obj-lighting-candle` | high | 0.1 | 0.7 |
+| `G38` | `obj-pocketitem-coin` | longest | — | 0.2 |
+| `G39` | `obj-pocketitem-key` | longest | — | 0.2 |
+| `G40` | `obj-pocketitem-book`, closed | longest | 0.1 | 0.3 |
+| `G41` | `obj-pocketitem-scroll` | longest | 0.1 | 0.3 |
+| `G42` | `env-flora-tree` | high | 0.6 | 2.4 |
+| `G43` | humanoid `char`, `char` skeleton included | high | 0.4 | 0.8 |
+
+- [G44] `env-terrain-mountain` is exempt from the 6-high cap.
+- [G45] Hooped-container hoops are 5–15% of the longest dimension high.
+- [G46] `obj-container-barrel` is at most 0.75 wide, has 8–14 side planks, 100–1500 tris and at most 3 hoops.
+- [G47] `obj-container-bucket` has at most 3 hoops.
+- [G48] Near-cube `obj-container-crate` (extents within 15%) has 3–7 planks side by side per face.
+- [G49] `obj-furniture` fits 1.2 × 1.2 × 1.2; `obj-furniture-table` fits 2 × 2 × 0.5.
+- [G50] Open `obj-pocketitem-book` is judged on its longest cover edge.
+- [G51] Plural `obj-pocketitem-coin` is exempt from the 0.2 cap.
+- [G52] `str-marker-flag`, `obj-transport-accessory` sails, `str-stands` canopy and canvas cloth are under 0.1 thick.
+
+---
+
+## 3. Taxonomy
+
+What a model *is*, before any material or colour question.
+
+Kind and material sets:
+
+- [T01] A kind leaf may carry its material's name: `env-remains-bones` beside material `bone`.
+- [T02] A kind implies its parents.
+- [T03] `assy` is a kind: distinct things in one top-level (`obj-furniture-table` + `obj-kitchenware-tableware` mugs).
+- [T04] Tag the deepest leaf that fits. The parent is the "other" level.
+- [T05] The appendix below is the glossary. Every common noun resolves to exactly one kind. Resolve against it before tagging.
+
+Tie-breakers:
+
+- [T06] `env-terrain-ground` mesh → `env-terrain`; placed body → `env-rock`. A cobbled path is `env-terrain`; a cliff prop is `env-rock-formation`.
+- [T07] Kit of origin never decides kind. A mushroom from a food kit is `env-fungi`.
+
+Tag semantics:
+
+- [T08] Artist tags are derived from the kit, and only for artists with several kits adopted in the catalogue.
+- [T09] `size` is measured, never hand-set.
+- [T10] `animation` is measured.
+- [T11] `ngons` marks a round cross-section — the form the flat-pieces-per-circle limit counts on.
+- [T12] `plural` is several instances of one thing in one model.
+- [T13] `special` is a material tag and a joker: it exempts **one** band on the model from every rule that band trips.
+- [T14] A `special` records which band it covers and why.
+
+---
+
+## 4. Kind → material
+
+What a kind is made of. Colour follows from section 5. `—` = the whole model.
+
+| id | kind | part | material |
+|---|---|---|---|
+| `M01` | hooped containers | hoops | `metal-iron` |
+| `M02` | `obj-container-bottle` | — | `glass` or `ceramic` |
+| `M03` | `obj-container-bag` | fasteners, closures | `rope` or `leather` |
+| `M04` | `obj-kitchenware-tableware-plate` | — | `ceramic`, `metal-iron` or `wood` |
+| `M05` | `obj-kitchenware-tableware` mugs, cups, tankards | hoops, handles | `metal-iron` |
+| `M06` | `obj-kitchenware-tableware` | `metal-iron` | `metal-iron-steel` |
+| `M07` | `obj-furniture` | — | `wood` |
+| `M08` | `obj-furniture` rugs, carpets | — | `textile` |
+| `M09` | `obj-furniture-seating`, upholstered | — | `textile` |
+| `M10` | `obj-weapon`, `obj-tool` | `metal-iron` | `metal-iron-steel` |
+| `M11` | `obj-weapon`, `obj-tool` | handles | `wood`, `textile` or both |
+| `M12` | `obj-weapon` | straps | `textile` or `leather` |
+| `M13` | `obj-weapon-cannon` | `metal-iron` | `metal-iron-cast` |
+| `M14` | `obj-equipment` | `metal-iron` | `metal-iron-steel` |
+| `M15` | `obj-equipment-clothing` belts, shoes, straps | — | `leather` |
+| `M16` | `obj-tool-hand` | `wood` handles | `wood-planks` |
+| `M17` | `obj-tool-long` | poles | `wood-beam` |
+| `M18` | `obj-tool-supplies` | `metal-iron` | `metal-iron-wrought` |
+| `M19` | `obj-transport-accessory` | sails | `textile` |
+| `M20` | `obj-pocketitem-coin` | — | `metal-gold` |
+| `M21` | `obj-pocketitem-key` | — | `metal-iron` or `metal-gold` |
+| `M22` | `obj-pocketitem-book` | straps, bands, binders, corners | `leather` or `metal-iron` |
+| `M23` | `obj-pocketitem-jewellery` | — | `metal-gold` with `gemstone` |
+| `M24` | `obj-resource-wood-log`, `env-flora-deadwood-branch`, trunks with a cut face | cut face | `wood-log` |
+| `M25` | `obj-resource-wood-log`, `env-flora-deadwood-branch`, trunks with a cut face | round side | `wood-bark` |
+| `M26` | `obj` bells | — | `metal-copper` or `metal-gold` |
+| `M27` | `str` | `metal-iron` | `metal-iron-cast` |
+| `M28` | `str-part-roof` | — | `ceramic`, `sienna` |
+| `M29` | `str-marker-flag` | — | `textile` |
+| `M30` | `char` | `metal-iron` | `metal-iron-steel` |
+
+- [M31] `metal-iron` with no subtype set by a kind row is `metal-iron-wrought`.
+- [M32] Hooped containers are mainly `wood`, often with `metal-iron` accents.
+- [M33] `obj-kitchenware-tableware` mugs, cups and tankards are often `wood`.
+- [M34] `obj-kitchenware-cookware` `metal` exists as paired variants, one `metal-iron-steel` and one `metal-iron-cast`.
+- [M35] `obj-tool` and `obj-weapon` `metal` is at least `metal-iron`.
+- [M36] `obj-weapon`, `obj-tool` and `obj-equipment-shield` grips, fasteners and joins are often `textile`, `rope` or `leather`.
+- [M37] Simple `obj-weapon` and `obj-weapon-ranged-bow` may be wholly or partly `wood`.
+- [M38] Special `obj-weapon` may be partly `metal-gold` or `gemstone`.
+- [M39] Sticks and unworked poles are `wood-bark`.
+- [M40] A fastener joining `stone`, `bone` or `metal-iron-steel` to `wood` is usually `leather`.
+- [M41] `obj-transport-boat` and `obj-transport-ship` are built from more than one `wood`.
+- [M42] `str` is mainly `wood`, then `stone` (the bigger sort, not modern brick); `metal` sparingly.
+- [M43] `str-marker-sign`, `str-barrier-post` and `str-marker-flag` poles are usually `wood`.
+- [M44] Cut face `wood-log` / round side `wood-bark` is never the other way round.
+- [M45] `obj` bells are never `metal-iron`.
+
+---
+
+## 5. Subject → colour
+
+`—` = the whole subject. Material rows first (material-tree order), then kind rows (kind-tree order); a kind row overrides a material row.
+
+| id | subject | part | band |
+|---|---|---|---|
+| `B01` | `metal-iron-steel` | — | `nickel` |
+| `B02` | `metal-iron-wrought` | — | `basalt` |
+| `B03` | `metal-iron-cast` | — | `slate` |
+| `B04` | `metal-gold` | — | `amber` |
+| `B05` | `metal-copper` | — | `terracotta` |
+| `B06` | `wood-planks` | — | `tan` |
+| `B07` | `wood-worked` | — | `camel` |
+| `B08` | `wood-beam` | — | `chestnut` |
+| `B09` | `wood-bark` | — | `umber` |
+| `B10` | `stone-masonry` | — | `taupe`, `slate` or `nickel` |
+| `B11` | `stone-rock` | — | `nickel` or `taupe` |
+| `B12` | `stone-soil` | — | `taupe` |
+| `B13` | `paper` | — | `ivory` |
+| `B14` | `textile` | — | `ivory` or `hunter` |
+| `B15` | `leather` | — | `umber` |
+| `B16` | `ceramic` | — | `terracotta`, `ivory`, `taupe` or `sienna` |
+| `B17` | `bone` | — | `ivory` |
+| `B18` | `wax` | — | `ivory` |
+| `B19` | `wick` | — | `basalt` |
+| `B20` | `glass`, size `m` or `l` | — | `transparent` |
+| `B21` | `glass`, size `s` | — | `transparent`, `sienna` or `hunter` |
+| `B22` | `liquid` | — | `sienna`, `hunter` or `azure` |
+| `B23` | `rope` | — | `taupe` |
+| `B24` | `cork` | — | `taupe` |
+| `B25` | `gemstone` | — | `sienna`, `hunter` or `azure` |
+| `B26` | `skin` | — | `tan`, `taupe` or `umber` |
+| `B27` | `obj-kitchenware-tableware-plate` | `ceramic` | `ivory` or `terracotta` |
+| `B28` | `obj-kitchenware-tableware` mug, cup, tankard | `wood` | `camel` or `chestnut` |
+| `B29` | `obj-kitchenware-cookware-pot` | `ceramic` | `terracotta` |
+| `B30` | `obj-food` cheese | — | `amber` |
+| `B31` | `obj-food-meat` | — | `sienna` |
+| `B32` | `obj-food-vegetable` carrot, pumpkin | — | `terracotta` |
+| `B33` | `obj-food-grain` | — | `tan`, `camel` or `chestnut` |
+| `B34` | `obj-food-grain` wheat, straw | — | `tan` |
+| `B35` | chocolate | — | `chestnut` |
+| `B36` | `obj-weapon`, `obj-tool` | wrapped grips, bindings | `taupe` |
+| `B37` | `obj-weapon-magic` `paper` | covers | `umber`, `sienna`, `hunter` or `slate` |
+| `B38` | `obj-transport` | `wood` | `camel` or `chestnut` |
+| `B39` | `obj-transport-accessory` sails, `str-stands` canvas | — | `ivory`, or striped `sienna` and `ivory` |
+| `B40` | `obj-pocketitem-book` | covers | `umber`, `sienna`, `hunter` or `slate` |
+| `B41` | `obj-pocketitem-scroll` | — | `ivory` |
+| `B42` | `obj-pocketitem-scroll` | text | `slate` |
+| `B43` | `obj-pocketitem-scroll` | accents | `sienna`, `hunter` or `azure` |
+| `B44` | `str` | `glass` | `transparent` |
+| `B45` | `env-flora` | stems, leaves | `moss` |
+| `B46` | `env-flora-tree` | — | `hunter` |
+| `B47` | `env-fungi` | stems | `ivory` |
+| `B48` | `env-fungi` | caps | `sienna` or `camel` |
+| `B49` | any | dried stalks | `taupe` |
+| `B50` | any | flames, glow, lights | `amber` |
+
+- [B51] `wood-log` is any brown.
+- [B52] Never merge two `metal-iron` bands into one.
+- [B53] `stone-masonry` covers `str-part-wall`, `str-part-floor` and `obj-resource-stone` bricks; `stone-soil` covers `env-terrain-ground` sand and dirt.
+- [B54] `textile` may also be `sienna` on `char` `obj-equipment-clothing` and on sail/canvas striping.
+- [B55] `obj-transport-ship`, `obj-transport-boat` and `obj-transport-accessory` `textile` may also be `slate`.
+- [B56] `obj-weapon` and `obj-tool` wrapped grips and bindings keep UVs in the light half of the `taupe` band (0.02–0.40).
+- [B57] `wax` here is `obj-lighting-candle` wax.
+- [B58] `obj-food` may be any colour; its material decides nothing about the band.
+- [B59] `obj-food` fish is usually `nickel`, `basalt`, `slate` or `azure`.
+- [B60] `obj-food-vegetable` is usually `moss`.
+- [B61] `env-flora-tree-palm` is exempt from the `hunter` rule.
+- [B62] `env-flora-plant-flower` and `env-flora-plant-cactus` flowers may be any colour.
+- [B63] `env-fauna` may be any colour.
+- [B64] Flames, glow and lights spread UVs wide across the `amber` gradient band.
+
+---
+
+## 6. Governance & process
+
+Who decides, and what happens around the asset.
+
+Roles:
+
+- [P01] Only the PO assigns material tag `special` and tag `hero`.
+- [P02] Claude proposes `hero` when adding to the catalogue.
+- [P03] Claude asks for material tag `special` only after both recolouring within the colour rules and a kind or material change have failed.
+- [P04] Tell the PO when an asset uses an outline.
+
+Creating and validating:
+
+- [P05] Render and look at the reference assets before creating a new asset — reading them is not enough.
+- [P06] When validating, render at least 2 reference assets from the same group beside the new one at the same scale.
+- [P07] `assy` models are not validated directly.
+
+Importing:
+
+- [P08] Imported packs get one scale factor for the whole pack for now.
+- [P09] An import with 2 colours keeps 2; 3–4 may drop 1; 5 may drop 2; more keep ≥3.
+
+Catalogue upkeep:
+
+- [P10] An existing leaf is not retired for dropping below 6 models.
+- [P11] The `stacks` tag is removed; `plural` replaces it.
+
+---
+
+## Appendix: kind tree + glossary
 
 `obj` = manufactured/portable thing · `env` = naturally occurring thing ·
 `str` = constructed part of the world · `char` = living or acting entity
 
 Format: `kind — nouns that resolve here`. Parent lines list nouns that have no
-leaf yet (see K2).
+leaf yet.
 
 ```
 obj-container-chest — chest, trunk, coffer, strongbox
@@ -338,7 +375,7 @@ obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gau
 
 obj-weapon-ranged-bow — bow, longbow
 obj-weapon-ranged-crossbow — crossbow
-obj-weapon-ranged-accessory — arrow, bolt, quiver
+obj-weapon-ranged-accessory — arrow, bolt (crossbow), quiver
 obj-weapon-ranged — sling, throwing knife, javelin
 
 obj-weapon-magic-staff — staff, wizard staff
@@ -355,7 +392,7 @@ obj-equipment — crown
 
 obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
 obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
-obj-tool-supplies — screw, nail, bolt, rope, chain, hook, wire
+obj-tool-supplies — screw, nail, bolt (fastener), rope, chain, hook, wire
 obj-tool — lever, spring, gear, pulley, anvil, grindstone
 
 obj-transport-ship — ship, galleon, longship, hull (ship)
@@ -453,6 +490,31 @@ env-water — water, pond, wave, waterfall, ice, pool, lake
 env — cloud, snow drift, lava, smoke, fog
 
 assy — several distinct things, one top-level
-scene — crosses env / str / obj
 char — playable, npc, skeleton (rigged), animal (rigged)
+```
+
+Materials
+```
+metal
+├─ metal-iron
+│  ├─ metal-iron-steel
+│  ├─ metal-iron-wrought
+│  └─ metal-iron-cast
+├─ metal-gold
+└─ metal-copper
+wood
+├─ wood-planks
+├─ wood-worked
+├─ wood-beam
+├─ wood-log
+└─ wood-bark
+stone
+├─ stone-masonry
+├─ stone-rock
+└─ stone-soil
+paper      textile    leather    foliage
+ceramic    bone       food       wax
+wick       glass      liquid     emissive
+rope       cork       gemstone   special
+plastic    vegetation skin 
 ```
