@@ -20,8 +20,6 @@ const SOURCES = {
 
 const PARAMS = new URLSearchParams(location.search);
 const SOURCE = SOURCES[PARAMS.get('source')] ?? SOURCES.catalogus;
-// One kit or source pack to swipe. Its own deck and its own choices: the key carries the
-// slug, so a pack keeps what was decided about it while another is being swiped.
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
 const STORAGE_KEY =
   `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
@@ -120,7 +118,6 @@ function remaining() {
 function matches(model) {
   const { search, kits, kinds = [], uses = [], tags = [] } = state.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
-  // a picked kind catches everything under it (T4); "No kind" is the curation queue
   const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
   if (kinds.length && !chain.some((k) => kinds.includes(k))) return false;
   const own = model.use?.length ? model.use : [WITHOUT];
@@ -212,7 +209,6 @@ function fillSetup() {
   const kits = [...register.kits.values()]
     .map((k) => ({ id: k.slug, name: k.name, count: register.models.filter((m) => m.kit === k.slug).length }))
     .filter((k) => k.count > 0);
-  // the tree in order, indented by depth; a parent counts everything under it
   const kinds = [...register.kinds.values()]
     .map((k) => ({
       id: k.id,
@@ -656,8 +652,6 @@ async function start() {
 
   load();
 
-  // The kit in the URL decides what the deck holds, not whatever was stored: a link to one
-  // pack must open on that pack. It stays a filter, so Settings can still widen it.
   if (kit) {
     state.filters.kits = [kit];
     state.order = state.order.filter((id) => register.perId.get(id)?.kit === kit);

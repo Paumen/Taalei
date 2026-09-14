@@ -1,20 +1,3 @@
-#!/usr/bin/env node
-// glass-split.mjs — move the triangles of one band onto the kit's clear glass.
-//
-// The clear glass of §1 is not a band of the colormap: it is a second, untextured
-// material with alphaMode BLEND, so a bottle that should be see-through cannot be
-// recoloured into it — its triangles have to leave the textured primitive and join a
-// glass one. That is a second draw call, which G1 allows an object with glass.
-//
-// Usage: node tools/glass-split.mjs <file.glb> [...] --band <col,row> [--uv u,v] [--dry]
-//   --band  the colormap cell whose triangles become glass, e.g. 5,2 for a bottle
-//           body sitting on off-white.
-//   --uv    narrows that to the triangles on one point of the cell, for a model that
-//           puts two parts on the same band.
-// Geometry is untouched: the same triangles come out, split over two primitives, with
-// the vertices each side needs. Run the catalogue build afterwards, and remember the
-// model's material tag: a body that is now glass is no longer ceramic.
-
 import { readFileSync, writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
@@ -25,7 +8,6 @@ const UV_EPSILON = 1e-4;
 const COMPONENT = { 5121: Uint8Array, 5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array };
 const WIDTH = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4 };
 
-// What the kits that already carry glass use, down to the alpha.
 const GLASS = {
   name: 'glas',
   pbrMetallicRoughness: { baseColorFactor: [1, 1, 1, 0.2], metallicFactor: 0, roughnessFactor: 0.5 },
@@ -62,8 +44,6 @@ function read(glb, index) {
   return { width, values: Array.from(new Type(glb.bin.buffer, glb.bin.byteOffset + start, accessor.count * width)) };
 }
 
-// Everything is written out again from scratch: one view per accessor, tightly packed,
-// four-byte aligned. That is the layout these kits already carry.
 function writeAccessors(glb, blocks) {
   const json = glb.json;
   json.accessors = [];

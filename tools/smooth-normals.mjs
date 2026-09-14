@@ -1,20 +1,7 @@
-#!/usr/bin/env node
-// smooth-normals.mjs — rebuild a model's vertex normals with a crease threshold.
-//
-// Geometry, UVs and the colormap are untouched; only NORMAL changes. Faces meeting
-// at an angle below the threshold share an averaged normal, so the surface reads as
-// curved; sharper meetings keep their own facet normal, so real corners stay crisp.
-// The threshold is recorded back into asset.extras.taaleiland.schaduw, which is where
-// this kit already carries `{ modus: 'glad', drempel: <degrees> }`.
-
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
 
-// An averaged normal this far from its own facet is not a smoothed surface any more,
-// it is two faces pointing different ways being blended into nonsense. Past 90 degrees
-// the normal points into the model and the surface renders black, so refuse well short
-// of that and leave the facet normal in place.
 const MAX_BEND = 80;
 
 const HELP = `
@@ -78,8 +65,6 @@ function collect(glb) {
   };
 }
 
-// Face normals, plus the area they cover: a big face should pull an averaged normal
-// further than a sliver does.
 function faceNormals(position, index) {
   const faces = index.count / 3;
   const normals = new Array(faces);
@@ -101,8 +86,6 @@ function smoothNormals(position, index, angle) {
   const { normals, areas } = faceNormals(position, index);
   const faces = index.count / 3;
 
-  // Faces are only neighbours if they actually share a point in space, so group by
-  // rounded position rather than by vertex id -- a seam splits the id, not the surface.
   const atPoint = new Map();
   for (let f = 0; f < faces; f++) {
     for (let k = 0; k < 3; k++) {
@@ -143,8 +126,6 @@ function smoothNormals(position, index, angle) {
   return { normals: out, bent, refused, corners: faces * 3 };
 }
 
-// Rebuild the vertex list, merging corners that agree on all three attributes. Without
-// this a smoothed model carries three vertices per triangle and the file doubles.
 function weld(position, uv, index, normals) {
   const corners = index.count;
   const seen = new Map();

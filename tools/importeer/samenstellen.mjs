@@ -1,18 +1,3 @@
-#!/usr/bin/env node
-// samenstellen.mjs — import several source models as one model: a chest with its lid on,
-// a pot with its lid.
-//
-// A pack that ships a lid as its own file authors it in its own space, and aanvullen.mjs
-// imports each part on its own, centred and grounded, so the pose between them is gone by
-// the time the models are in a kit. This reads the parts from the source and offsets each
-// one before they become a single model, so the pose comes from the source geometry rather
-// than from two workfiles that no longer know about each other.
-//
-//   node tools/importeer/samenstellen.mjs <source pack> <model name> <source name>[@x,y,z] ...
-//
-// The offset is in source units, applied before the pack scale. Where a pack already
-// authors the parts in place — the ClayItems crockpot and its lid — leave it off.
-
 import { existsSync, readdirSync, statSync, writeFileSync, rmSync, mkdirSync } from 'node:fs';
 import { join, dirname, extname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -96,7 +81,6 @@ const uitgepakt = pakBronUit(mapNaam);
 const leesRuw = (pad, formaat) =>
   formaat === 'obj' ? leesObj(pad) : formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
 
-// Same texture resolution as aanvullen.mjs: by name, and otherwise the pack's only image.
 const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
 function koppelTexturen(primitieven) {
   for (const primitief of primitieven) {
@@ -127,8 +111,6 @@ function vindDeel(bronNaam) {
   throw new Error(`${bronNaam}: niet in ${modelmappen.map(([, map]) => map).join(', ')}`);
 }
 
-// Only one v direction can hold for the whole model, so a composition mixes formats no
-// further than the parts already agree on.
 const gevraagd = delen.map((deel) => {
   const [bronNaam, offset] = deel.split('@');
   const verschuiving = offset ? offset.split(',').map(Number) : [0, 0, 0];
@@ -143,8 +125,6 @@ if (gevraagd.some((d) => d.formaat !== formaatVanModel)) {
 }
 const vOmlaag = formaatVanModel !== 'obj';
 
-// Gain over the whole pack, the way kit.mjs and aanvullen.mjs measure it, so a composed
-// model lands on the same bands as the parts imported on their own.
 const palet = laadPalet();
 const [, hoofdmap] = modelmappen[0];
 let som = 0;

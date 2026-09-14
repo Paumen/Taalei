@@ -46,7 +46,6 @@ function atlasPad(glb, materiaalIndex, basisDir) {
   return pad;
 }
 
-// Schrijfhulp: een nieuwe bufferView of accessor achteraan de bestaande buffer.
 function achteraan(json, stukken) {
   let lengte = stukken.reduce((som, buf) => som + buf.length, 0);
   const nieuweView = (buf) => {
