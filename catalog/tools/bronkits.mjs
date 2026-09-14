@@ -57,7 +57,7 @@ export const BRONKITS = [
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'desert-buildings', formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
-  { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: null, formaat: 'glb', alleMappen: true, splitsPerMesh: true },
+  { map: 'Asian_Cementery_Rocks_Packs', naam: 'Asian, Cementery and Rocks Packs', kit: 'asia-grave', formaat: 'glb', alleMappen: true, splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },

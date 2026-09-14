@@ -1,0 +1,120 @@
+	Asian, Cemetery and Rocks Packs
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bron is één zip met de naam `all2packasian.zip`, met daarin drie
+	packs naast elkaar: `Asian_Pack`, `CementeryPack` en `RocksPack`. Elk
+	pack levert hetzelfde model als .fbx en als .glb; de .glb is ingeladen.
+	Er zit geen licentiebestand in en er wordt geen maker of packpagina
+	genoemd. De CC0-vermelding hierboven is vastgesteld door de eigenaar
+	van dit project bij het inladen; ze komt niet uit de pack zelf. De
+	maker is niet bekend en er is dus ook niemand om te crediteren — wie de
+	herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Elk pack is één bestand met alle modellen naast elkaar; ze zijn per
+	mesh uit elkaar gesneden. Van de 202 meshes zijn er 149 ingeladen. Wat
+	niet is ingeladen: de winter-, herfst- en sneeuwvarianten
+	(`*_winter*`, `clover_fall`, `snow_1..4`), de kleurdubbels van de
+	rotsen (`*-2`, `rock_big_B_gray_*`), `mineral_ore_jade`, de wortels
+	(`root_1..3`) en de bamboe-, tak- en struikvarianten die alleen in
+	stand of bladstand verschillen.
+
+	Schaal
+
+	Eén schaalfactor voor de hele pack (stijlgids §6, P08). Ingeladen op
+	0,25, in de geometrie gebakken. De pack is groot geauthord — een pot
+	mat 1,22 hoog, de grootste rots 8,5 — en 0,25 is de factor waarop de
+	maatregels van §2 samen uitkomen: pot 0,31 (G19), vat 0,30 (G15),
+	krat 0,45 (G17), boom 1,12–1,41 (G42), lantaarn 0,42 (G35). De
+	vloertegels komen zo op 0,50 × 0,50 en vallen op het raster. De
+	onderlinge verhoudingen van de pack blijven staan: schalen gebeurt per
+	pack en niet per model.
+
+	Namen
+
+	De pack nummert door; hier is dat kebab-case met letterachtervoegsels
+	en een naam die zegt wat het ding is. De bronnaam staat in elk .glb
+	onder `asset.extras.taaleiland.bronmodel`.
+
+	  building_1..3              → house-a .. house-c
+	  shop / shrine / shrine_2   → market-house, shrine-small, shrine-large
+	  stand                      → market-stand
+	  arch / arch_2 / arch.001   → arch-beam, torii, arch-stone
+	  stonewall_1..5             → garden-wall-a .. garden-wall-e
+	  wall_decor_1..4            → wall-decor-a .. wall-decor-d
+	  pillar_1                   → pillar-wood
+	  pillar_2..4 (+ _long)      → pillar-a .. pillar-c (+ -tall)
+	  column_1..3                → column-tall, column-medium, column-short
+	  fence_1..3                 → fence-corner, fence-a, fence-b
+	  fence_large/medium/short   → iron-fence-large/-medium/-short
+	  fence_fragment             → iron-fence-broken
+	  fence_pillar_1..3          → iron-fence-post-a .. -c
+	  metal_fence/outside_fence  → iron-fence-bars, iron-fence-run
+	  grave_1..4                 → grave-a .. grave-d
+	  graves_group / _group2     → graves-a, graves-b
+	  prop_tomb_1..5             → tombstone-a .. tombstone-e
+	  tomb_1..3                  → tomb-obelisk, tomb-a, tomb-b
+	  tomb_statue                → statue-mourner
+	  tile_1..5                  → floor-tile-a .. floor-tile-e
+	  bones_1/2 / bones_group    → bones-a, bones-b, bones-pile
+	  bamboo_3/9/6               → bamboo-a, bamboo-b, bamboo-c
+	  garden_plant_1/4/5/8       → plant-a .. plant-d
+	  garden_tree_1              → tree-garden
+	  ancient_tree_1/2           → tree-ancient-a, tree-ancient-b
+	  gravel_1..3                → gravel-a .. gravel-c
+	  rock_big_1..3              → rock-large-a .. rock-large-c
+	  rock_medium_1..4           → rock-medium-a .. rock-medium-d
+	  rock_small_1..5            → rock-small-a .. rock-small-e
+	  rock_block_1..3            → rock-block-a .. rock-block-c
+	  rock_big_B_1..5            → boulder-a .. boulder-e
+	  Cube.010, *_dark_2..5      → boulder-dark-a .. boulder-dark-e
+	  wood_1..4                  → plank-a .. plank-d
+	  lamp / lamp.001            → stone-lantern, lamppost
+	  fighting_post              → training-post
+	  wheel                      → waterwheel
+	  mineral_ore                → ore-gold
+	  pot_1/2, urn_1/2           → pot-large, pot-small, urn-a, urn-b
+	  coffin / coffin_2          → coffin-a, coffin-b
+	  barrel_1/2                 → barrel-a, barrel-b
+	  altar / altar2             → altar-a, altar-b
+	  roof / platform / steps    → roof-pagoda, platform-stone, steps-stone
+	  bridge / bridge_stone      → bridge-wood, bridge-stone
+	  post_1/2                   → post-a, post-b
+	  statue_frog/statue_monk    → statue-frog, statue-monk
+	  block                      → stone-block
+
+	Kleur
+
+	De pack heeft twee eigen palet-atlassen van 1024 × 1024,
+	`ColorPalette.png` en `ColorPalette2.png`. Ze staan in verticale
+	stroken van 16 pixels: één strook is één materiaal, van licht naar
+	donker, met de schaduw in de UV's gebakken. Geen van beide is
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png.
+
+	Per strook is over de hele pack bepaald hoe ver de UV's erin reiken;
+	dat bereik legt op 5–95% van de doelband, zodat de gebakken schaduw
+	zijn onderlinge verhouding houdt (stijlgids I07). Een model dat maar
+	een deel van de strook gebruikt, houdt dus ook maar een deel van de
+	band.
+
+	De banden volgen §4 en §5 van de stijlgids. De twee steenfamilies
+	blijven uit elkaar: het Aziatische pack staat op `taupe`, de
+	begraafplaats op `nickel`. Van de rotsen staan de bruine op `taupe` en
+	de donkere op `nickel`. De dakpannen — rood in het bronpack, groen op
+	de altaren en schrijnen — staan alle op `sienna` (M28).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/asia-grave.mjs: uit het gezamenlijke bestand gesneden,
+	geschaald, met de oorsprong op y=0 en het grondvlak gecentreerd, en de
+	vertices opnieuw gelast. De geometrie is verder ongemoeid: de bron
+	heeft hier en daar een omgekeerd driehoekje, en dat is zo gelaten.
