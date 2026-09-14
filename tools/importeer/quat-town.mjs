@@ -308,18 +308,6 @@ const MODELLEN = {
     naam: 'stumps', bron: 'Resource_Tree_Group_Cut', kind: 'env-flora-deadwood-stump', tags: ['plural'],
     kleuren: { '#886a42': schors, '#a58758': stam },
   },
-  'Temple-nR264crTSr.glb': {
-    naam: 'temple-1-a', bron: 'Temple_FirstAge_Level1', kind: 'str-building', tags: [],
-    kleuren: { '#886a42': balk, '#a58758': plank, '#b15945': vlag },
-  },
-  'Temple.glb': {
-    naam: 'temple-2-a', bron: 'Temple_SecondAge_Level1', kind: 'str-building', tags: ['ngons'],
-    kleuren: { '#888880': steen, '#b0b1a6': steen, '#b15945': dakpan },
-  },
-  'Temple-CE2Mn7lh6A.glb': {
-    naam: 'temple-2-c', bron: 'Temple_SecondAge_Level3', kind: 'str-building', tags: ['ngons'],
-    kleuren: { '#888880': steen, '#b0b1a6': steen, '#b15945': dakpan },
-  },
   'Tower House.glb': {
     naam: 'tower-house-2', bron: 'TowerHouse_SecondAge', kind: 'str-building', tags: [],
     kleuren: { '#886a42': balk, '#888880': steen, '#a58758': plank, '#b0b1a6': steen, '#b15945': dakpan, '#b4b4a9': steen },
