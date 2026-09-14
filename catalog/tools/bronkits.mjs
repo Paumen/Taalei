@@ -49,6 +49,12 @@ export const BRONKITS = [
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
 
+  { map: 'Animated_Fish_Pack_by_Quaternius_OBJ_FBX', naam: 'Animated Fish Pack', kit: 'quat-fish', formaat: 'obj' },
+  { map: 'Ultimate_Food_Pack_by_Quaternius_OBJ', naam: 'Ultimate Food Pack', kit: 'quat-food', formaat: 'obj' },
+  { map: 'Pirate_Kit_by_Quaternius_glTF_OBJ', naam: 'Pirate Kit', kit: 'quat-pirate', formaat: 'gltf' },
+  { map: 'Ultimate_RPG_Pack_by_Quaternius_OBJ', naam: 'Ultimate RPG Pack', kit: 'quat-rpg', formaat: 'obj' },
+  { map: 'Ships_Pack_by_Quaternius_OBJ', naam: 'Ships Pack', kit: 'quat-ships', formaat: 'obj' },
+
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', formaat: 'glb' },
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', formaat: 'glb' },
@@ -64,6 +70,6 @@ export const BRONKITS = [
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Charming_Kitchen_set', naam: 'Charming Kitchen Set', kit: 'isa-kitchen', formaat: 'fbx', alleMappen: true },
+  { map: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', naam: 'Tiny Treats Charming Kitchen', kit: 'isa-kitchen', formaat: 'gltf' },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 ];
