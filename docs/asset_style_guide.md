@@ -87,7 +87,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 - [G06] A model has at least 1 material.
 - [G07] A model uses at least as many bands as it has materials. Every material tag counts, subtypes included.
 - [G08] A model uses at most twice as many bands as materials; `food`, `env-fauna` and `vegetation` may use 3 times, a decorated `food` 5.
-- [G09] Band ceiling: 5. Human `char` and decorated `food`: 6. `char` skeleton: 5.
+- [G09] Band ceiling: 5.`char` 6. 
 - [G10] A model of size `l` may exceed the band ceiling by 1 when it carries at least 5 material tags.
 - [G11] Material counts ignore `special` as a material.
 - [G12] Max-band rules leave the `special` band out (ceiling +1); the min-band rule keeps it.
