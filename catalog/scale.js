@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=d52586d42d';
 
 const GRID_MINOR = 0.1;
 const GRID_MAJOR = 0.2;
@@ -397,21 +398,71 @@ for (const group of groups) {
 const content = document.getElementById('inhoud');
 
 const SIZE_CLASSES = [
-  { id: 's', name: 'Small', limit: 0.5 },
-  { id: 'm', name: 'Medium', limit: 1.5 },
-  { id: 'l', name: 'Large', limit: Infinity },
+  { id: 's', sign: 'S', short: 'Small', limit: 0.5, hint: 'small — under half a unit' },
+  { id: 'm', sign: 'M', short: 'Medium', limit: 1.5, hint: 'medium — half to one and a half units' },
+  { id: 'l', sign: 'L', short: 'Large', limit: Infinity, hint: 'large — over one and a half units' },
 ];
+
 const sizeOf = (item) => {
   const longest = Math.max(...item.wdh);
   return (SIZE_CLASSES.find((k) => longest < k.limit) ?? SIZE_CLASSES.at(-1)).id;
 };
 
+const TAG_TYPES = [
+  { type: 'material', head: 'Material' },
+  { type: 'tag', head: 'Tags' },
+];
+
+const parentOf = new Map();
+for (const tag of catalogData.tags ?? []) {
+  if (tag.parent) parentOf.set(tag.id, tag.parent);
+}
+
+const withParents = (ids) => {
+  const own = new Set(ids);
+  for (const id of ids) {
+    for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
+  }
+  return [...own];
+};
+
+const allItems = groups.flatMap((g) => g.items);
+for (const item of allItems) {
+  item.tagIds = withParents(item.tags ?? []);
+  item.sizeId = sizeOf(item);
+}
+
+const KIT_IDS = [...new Set(allItems.map((i) => i.slug))];
+const SIZE_IDS = SIZE_CLASSES.map((k) => k.id);
+
 const colorState = new Map();
-const tagState = new Map();
 const sizeState = new Map();
+const tagState = new Map();
 const kitState = new Map();
+
 const chipButtons = [];
+
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
+
+function rotateState(state, key, button) {
+  const next = NEXT[state.get(key)];
+  if (next) state.set(key, next);
+  else state.delete(key);
+  showState(button, next);
+  return next;
+}
+
+const keysWith = (state, value) => [...state].filter(([, v]) => v === value).map(([k]) => k);
+
+function matches(own, state, { any = [] } = {}) {
+  const only = keysWith(state, 'only');
+  const either = only.filter((e) => any.includes(e));
+  const all = only.filter((e) => !any.includes(e));
+  if (either.length && !own.some((e) => either.includes(e))) return false;
+  if (!all.every((e) => own.includes(e))) return false;
+  const not = keysWith(state, 'not');
+  return !own.some((e) => not.includes(e));
+}
 
 const STORAGE_KEY = 'taaleiland-scale-filters-v1';
 const STORED_STATES = { color: colorState, tag: tagState, size: sizeState, kit: kitState };
@@ -443,79 +494,35 @@ function loadStates() {
 
 loadStates();
 
-function showState(button, state) {
-  button.setAttribute('aria-pressed', String(state === 'only'));
-  if (state === 'not') button.dataset.uit = '';
-  else delete button.dataset.uit;
-}
-
-const keysWith = (state, value) => [...state].filter(([, v]) => v === value).map(([k]) => k);
-
-function matches(own, state) {
-  const only = keysWith(state, 'only');
-  if (only.length && !own.some((e) => only.includes(e))) return false;
-  return !own.some((e) => keysWith(state, 'not').includes(e));
-}
-
 const passesFilter = (item) =>
   matches(item.colors ?? [], colorState) &&
-  matches(item.tags ?? [], tagState) &&
-  matches([sizeOf(item)], sizeState) &&
-  matches([item.slug], kitState);
+  matches(item.tagIds, tagState) &&
+  matches([item.sizeId], sizeState, { any: SIZE_IDS }) &&
+  matches([item.slug], kitState, { any: KIT_IDS });
 
 const filtered = () =>
   groups.map((g) => ({ ...g, items: g.items.filter(passesFilter) })).filter((g) => g.items.length);
 
-function reorder() {
-  for (const strip of new Set(chipButtons.map((c) => c.strip))) {
-    for (const chip of chipButtons
-      .filter((c) => c.strip === strip)
-      .sort((a, b) => Number(b.state.has(b.id)) - Number(a.state.has(a.id)) || a.order - b.order)) {
-      strip.append(chip.element);
-    }
+const filtersOff = () => colorState.size + tagState.size + sizeState.size + kitState.size === 0;
+
+const reorder = () => layoutChips(chipButtons);
+
+function syncSubtypes() {
+  syncChips(chipButtons, {
+    stateOf: (id, chip) => chip.state.get(id),
+    onHide: (chip) => { chip.state.delete(chip.id); },
+  });
+  for (const chip of chipButtons) {
+    if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
   }
 }
 
-function rotate(state, id, button) {
-  const next = NEXT[state.get(id)];
-  if (next) state.set(id, next);
-  else state.delete(id);
-  showState(button, next);
+function apply() {
+  syncSubtypes();
   reorder();
   saveStates();
-  showReset();
+  document.querySelector('#alles-wis').hidden = filtersOff();
   buildSections();
-}
-
-const activeCount = () =>
-  colorState.size + tagState.size + sizeState.size + kitState.size;
-
-function showReset() {
-  document.querySelector('#alles-wis').hidden = activeCount() === 0;
-}
-
-function chipRow(container, items, state) {
-  const row = document.createElement('div');
-  row.className = 'kleurbalk tagrij';
-  const strip = document.createElement('div');
-  strip.className = 'tagbalk-knoppen';
-  strip.setAttribute('role', 'group');
-  for (const item of items) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'tagknop';
-    button.dataset.tag = item.id;
-    const count = document.createElement('span');
-    count.className = 'tagknop-aantal';
-    count.textContent = item.count;
-    button.append(document.createTextNode(item.name), count);
-    showState(button, state.get(item.id));
-    button.addEventListener('click', () => rotate(state, item.id, button));
-    strip.append(button);
-    chipButtons.push({ id: item.id, element: button, state, strip, order: chipButtons.length });
-  }
-  row.append(strip);
-  container.append(row);
 }
 
 const WIDTH = 1800;
@@ -562,61 +569,128 @@ function buildSections() {
   for (const section of content.querySelectorAll('.familie')) watcher.observe(section);
 }
 
-function buildFilters() {
-  const all = groups.flatMap((g) => g.items);
-  const count = (f) => all.filter(f).length;
-
-  const colorRow = document.querySelector('#kleurbalk-stalen');
-  const colorCounts = new Map();
-  for (const item of all) {
-    for (const hex of item.colors ?? []) colorCounts.set(hex, (colorCounts.get(hex) ?? 0) + 1);
+function collectColors(items) {
+  const counts = new Map();
+  for (const item of items) {
+    for (const hex of item.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
   }
-  const colorList = [...colorCounts]
-    .map(([hex, c]) => ({ hex, count: c, name: colorName(hex) }))
+  return [...counts]
+    .map(([hex, count]) => ({ hex, count, name: colorName(hex) }))
     .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
+}
 
-  for (const color of colorList) {
+function checkColor(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
+}
+
+function buildColorBar(colors) {
+  const container = document.querySelector('#kleurbalk-stalen');
+  const swatches = document.createElement('div');
+  swatches.className = 'kleurgroep-stalen';
+  swatches.setAttribute('role', 'group');
+  swatches.setAttribute('aria-label', 'Filter by colour');
+
+  for (const color of colors) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'staal';
+    button.dataset.sleutel = color.hex;
     button.style.setProperty('--staal-kleur', color.hex);
-    button.title = `${color.name} ${color.hex}`;
-    button.setAttribute('aria-label', button.title);
+    button.style.setProperty('--vink', checkColor(color.hex));
     showState(button, colorState.get(color.hex));
-    button.addEventListener('click', () => rotate(colorState, color.hex, button));
-    colorRow.append(button);
-    chipButtons.push({ id: color.hex, element: button, state: colorState, strip: colorRow, order: chipButtons.length });
+    button.title = `${color.name} ${color.hex} — ${color.count} models`;
+    button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models`);
+
+    button.addEventListener('click', () => {
+      rotateState(colorState, color.hex, button);
+      apply();
+    });
+
+    swatches.append(button);
   }
 
-  const tagbar = document.querySelector('#tagbalk');
-  chipRow(tagbar, SIZE_CLASSES
-    .map((k) => ({ id: k.id, name: k.name, count: count((i) => sizeOf(i) === k.id) }))
-    .filter((k) => k.count), sizeState);
+  const group = document.createElement('div');
+  group.className = 'kleurgroep';
+  group.append(swatches);
+  container.append(group);
+}
 
-  const tags = (catalogData.tags ?? [])
-    .map((t) => ({ id: t.id, name: t.name, count: count((i) => (i.tags ?? []).includes(t.id)) }))
-    .filter((t) => t.count);
-  if (tags.length) chipRow(tagbar, tags, tagState);
-
-  const kits = [...new Set(all.map((i) => i.slug))]
-    .map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.slug === slug) }))
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-  if (kits.length > 1) chipRow(tagbar, kits, kitState);
-
-  document.querySelector('#alles-wis').addEventListener('click', () => {
-    colorState.clear();
-    tagState.clear();
-    sizeState.clear();
-    kitState.clear();
-    for (const { element } of chipButtons) showState(element, undefined);
-    reorder();
-    saveStates();
-    showReset();
-    buildSections();
+function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false } = {}) {
+  const { row, chips } = makeChipStrip({
+    label: `Filter by ${head.toLowerCase()}`,
+    items, container, shareRow, byCount, hideEmpty: true,
+    stateOf: (id) => state.get(id),
+    onPick: (id, button) => {
+      rotateState(state, id, button);
+      apply();
+    },
   });
+  for (const chip of chips) { chip.state = state; chip.field = field; }
+  chipButtons.push(...chips);
+  return row;
+}
+
+function onClear() {
+  colorState.clear();
+  tagState.clear();
+  sizeState.clear();
+  kitState.clear();
+  for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
+  for (const { element } of chipButtons) showState(element, undefined);
+  apply();
+}
+
+function buildFilters() {
+  const count = (f) => allItems.filter(f).length;
+
+  buildColorBar(collectColors(allItems));
+
+  const container = document.querySelector('#tagbalk');
+
+  buildChipRow(
+    container,
+    'Size',
+    SIZE_CLASSES.map((k) => ({
+      id: k.id, name: k.sign, full: k.short, hint: k.hint, dot: true,
+      count: count((i) => i.sizeId === k.id),
+    })),
+    sizeState,
+    'sizes',
+  );
+
+  for (const { type, head } of TAG_TYPES) {
+    const own = (catalogData.tags ?? []).filter((t) => (t.type ?? 'tag') === type);
+    if (own.length === 0) continue;
+    buildChipRow(
+      container,
+      head,
+      own.map((t) => ({
+        id: t.id, name: chipName(t), full: t.name, hint: t.description, parent: t.parent ?? null,
+        count: count((i) => i.tagIds.includes(t.id)),
+      })),
+      tagState,
+      'tags',
+      { byCount: true },
+    );
+  }
+
+  if (KIT_IDS.length > 1) {
+    buildChipRow(
+      container,
+      'Kit',
+      KIT_IDS.map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.slug === slug) })),
+      kitState,
+      'kits',
+      { byCount: true },
+    );
+  }
+
+  document.querySelector('#alles-wis').addEventListener('click', onClear);
 }
 
 buildFilters();
+syncSubtypes();
 reorder();
-showReset();
+document.querySelector('#alles-wis').hidden = filtersOff();
 buildSections();
