@@ -12,6 +12,8 @@ Definitions:
 - [D04] Tri density = tris ÷ (max(0.49, w × d) × max(0.7, h)). A 2 × 2 floor tile is judged on four cells; anything under 0.5 × 0.5 × 0.5 is judged as that size.
 - [D05] Vegetation is a plant's non-green matter. Fungi are not vegetation.
 - [D06] "Hooped containers" = `obj-container-barrel`, `obj-container-chest`, `obj-container-bucket`, `obj-container-crate`.
+- [D07] A variant group is a set of models that read as one thing; its `main` is the member the catalogue shows for the group.
+- [D08] "Reads as" is what a player notices at a glance, not what the numbers differ by.
 
 Colour ids:
 
@@ -324,6 +326,43 @@ Catalogue upkeep:
 
 - [P10] An existing leaf is not retired for dropping below 6 models.
 - [P11] The `stacks` tag is removed; `plural` replaces it.
+
+---
+
+## 7. Variants
+
+Which models sit together as one entry and which stand apart. Groups live in
+`catalog/asset_variants.json`; `build-catalog.mjs` attaches them to the catalogue.
+
+A group exists for one of these reasons.
+
+| id | reason | shared | differs |
+|---|---|---|---|
+| `V01` | material | kind, size, shape | the material it is made of |
+| `V02` | recolour | kind, size, shape, material | band |
+| `V03` | size | kind, shape, material, band | extents, by redesign |
+| `V04` | state | kind, material | a part moved, removed, filled or recoloured |
+| `V05` | plural | kind, material, band | how many instances |
+
+- [V06] A group needs at least one reason above. Without one the models are one model: dedupe.
+- [V07] Members come from one kit; a second kit only for the same artist, and never across artists without PO approval.
+- [V08] Members carry the same `kind`.
+- [V09] Claude groups variants as assets enter the catalogue: name and tri count propose a group, shape and a render confirm it.
+- [V10] The more models of a kind the catalogue already holds, the more of them sit inside a group rather than beside it.
+- [V11] Reasons stack: the more of them apply at once, and the wider each one parts, the sooner a model earns its own row.
+- [V12] Judge how a difference reads, not how far it measures: a recoloured book parts further than a recoloured tree.
+- [V13] A size variant is redesigned at that size: a longer ladder gains rungs, a longer pencil keeps its tip.
+- [V14] Scaling a model, globally or on one axis, is never a size variant.
+- [V15] For kinds the catalogue wants variety in, material and recolour variants are made on purpose (M34 is one).
+
+A variant is what keeps a kind from ballooning. Filled and empty, open and
+closed, lit and unlit, with lid, without lid and the lid alone each double a
+group; left apart, ten potions and a shelf of pans crowd out everything else.
+The same reasons that justify a variant are what justify the model being in the
+catalogue at all, so the judgement runs both ways: too alike and it is a dedupe,
+too far apart and it is its own row. A ship that gains a mast and sails is the
+borderline — it is a size variant by V03 and a set piece of its own by V11, and
+that one goes to the PO.
 
 ---
 
