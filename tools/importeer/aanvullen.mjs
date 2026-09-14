@@ -1,15 +1,3 @@
-#!/usr/bin/env node
-// aanvullen.mjs — import extra models from a source pack into a kit that already exists.
-//
-// Unlike kit.mjs this never clears the kit directory: it adds the named models only.
-// The lighting gain is measured over the whole source pack, so a model added later
-// lands on the same colormap bands as one imported with the pack.
-//
-//   node tools/importeer/aanvullen.mjs <source pack> [--schaal n] <source name>=<model name> ...
-//
-// --schaal is only for a kit that is still empty: an existing kit reads its scale
-// and origin back from the models already in it.
-
 import { existsSync, readdirSync, statSync, writeFileSync, rmSync, mkdirSync } from 'node:fs';
 import { join, dirname, extname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,8 +14,6 @@ const BRON_DIR = join(ROOT, 'kits', 'sources');
 const UITPAK_DIR = join(BRON_DIR, '.uitgepakt');
 const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 
-// Packs whose models sit in a kit that BRONKITS does not name, because the kit was
-// filled by hand rather than by an importer.
 const EXTRA_KITS = { kenney_castlekit: 'castle-kit', 'kenney_graveyardkit_5.0': 'graveyard-kit' };
 
 function alleBestanden(dir, uit = []) {
@@ -39,10 +25,6 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-// One folder, the fullest — the other formats' folders are the same models again.
-// `alleMappen` is for the pack that sorts one format's models into folders by theme:
-// there every folder is its own models, so all of them count. Same rule as
-// build-missing.mjs, which is what listed the models as missing in the first place.
 function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
@@ -71,10 +53,6 @@ function pakBronUit(map) {
   return doel;
 }
 
-// The kit's own import settings, read back from a model that is already in it. The
-// extras hold the import scale, but a kit that was resized afterwards keeps that second
-// factor in a `rescale-wrapper` node instead, so read that back too — dungeon and
-// dungeon-quaternius sit at x2 over their extras, pirate-quaternius at x0.65.
 function kitInstellingen(slug, gevraagdeSchaal) {
   const dir = join(WERK_DIR, slug);
   const bestanden = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith('.glb')) : [];
@@ -110,9 +88,6 @@ if (schaalVlag !== -1) {
   argv.splice(schaalVlag, 2);
 }
 
-// An fbx names its texture without a path ("City Atlas Map.png" for a file called
-// "Atlas Map.png"), so resolve it against the images in the unpacked pack the way
-// build-missing.mjs does: by name, and otherwise the pack's only image.
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 function koppelTexturen(primitieven, uitgepakt) {
@@ -144,13 +119,9 @@ const hoofdmappen = vindModelmappen(uitgepakt, bronkit.formaat, bronkit.alleMapp
 const leesRuw = (pad, formaat) =>
   formaat === 'obj' ? leesObj(pad) : formaat === 'fbx' ? leesFbx(pad) : leesGltf(pad);
 const lees = (pad, formaat = bronkit.formaat) => koppelTexturen(leesRuw(pad, formaat), uitgepakt);
-// fbx.mjs already flips v on read, so only obj still carries v from the bottom up.
 const vOmlaagVoor = (formaat) => formaat !== 'obj';
 const vOmlaag = vOmlaagVoor(bronkit.formaat);
 
-// A pack may ship a second format holding parts the primary format keeps inside a parent
-// file — KayKit's obj export writes one file per node. The primary format is asked first,
-// so a name both formats have is the assembled model, not the part that borrows its name.
 const modelmappen = hoofdmappen.map((map) => [bronkit.formaat, map]);
 for (const formaat of bronkit.extraFormaten ?? []) {
   for (const map of vindModelmappen(uitgepakt, formaat, bronkit.alleMappen)) {
@@ -158,8 +129,6 @@ for (const formaat of bronkit.extraFormaten ?? []) {
   }
 }
 
-// A splitsPerMesh pack keeps several models in one file, so there the source name is
-// a mesh rather than a file — the same split build-missing.mjs makes.
 const LOD = /_LOD(\d+)$/i;
 const grofsteWeg = (naam) => {
   const match = naam.match(LOD);
@@ -167,7 +136,6 @@ const grofsteWeg = (naam) => {
   return Number(match[1]) === 0 ? naam.replace(LOD, '') : null;
 };
 
-// Every .<primary format> file of the pack, in the folders vindModelmappen named.
 function* bronBestanden() {
   for (const map of hoofdmappen) {
     for (const bestand of readdirSync(map).sort()) {
@@ -183,8 +151,6 @@ function meshIndex() {
     for (const primitief of lees(pad)) {
       const naam = grofsteWeg(primitief.naam);
       if (!naam) continue;
-      // A mesh split over several materials reads back as one primitive per material,
-      // all under the mesh's name — the model is all of them, not the first.
       const treffer = index.get(naam);
       if (!treffer) index.set(naam, { pad, primitieven: [primitief] });
       else if (treffer.pad === pad) treffer.primitieven.push(primitief);
@@ -210,7 +176,6 @@ const gevraagd = paren.map((paar) => {
   throw new Error(`${bronNaam}: niet in ${modelmappen.map(([, map]) => map).join(', ')}`);
 });
 
-// Gain over the whole pack, the way kit.mjs measures it over a full import.
 const palet = laadPalet();
 let som = 0;
 let aantal = 0;

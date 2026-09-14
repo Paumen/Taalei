@@ -1,17 +1,3 @@
-// Migrates catalog/tags.json to the §7 fields: reads the kind tree from Appendix B of the
-// style guide, resolves one kind per model (current tags first, then the pinned
-// per-model list, then the model name against the glossary nouns, then the old group as
-// a branch only), seeds `use`, retires the tags the new fields absorb, and writes a
-// report of everything it could not settle on a leaf.
-//
-//   node tools/kind-map.mjs                 writes catalog/tags.json and docs/kind_migration_report.md
-//   node tools/kind-map.mjs --dry           report only
-//   node tools/kind-map.mjs --from x.json   read models, old tags and old groups from that catalog.json
-//
-// Re-runnable: a model already carrying a kind in tags.json keeps it (curation wins);
-// pass --reset to resolve everything afresh. A reset needs the catalogue as it was before
-// the migration (--from), because the rebuilt one no longer carries the old fields.
-
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -28,9 +14,6 @@ const FROM = args.includes('--from') ? args[args.indexOf('--from') + 1] : CATALO
 
 import { readKindTree, kindName, kindDepth, kindRoot, kindIs as isOrUnder, kindDescription, KIND_COLORS as COLORS, USES, USE_NAME, USE_TEXT, kindFromName, ROOT_ORDER } from '../catalog/tools/kinds.mjs';
 
-// ─── resolution tables ────────────────────────────────────────────────────────────────
-
-// Current tag → kind. A branch here means the name decides the leaf inside it.
 const TAG_KIND = {
   palms: 'env-flora-tree-palm', conifer: 'env-flora-tree-conifer', cacti: 'env-flora-plant-cactus',
   flowers: 'env-flora-plant-flower', grass: 'env-flora-plant-grass', fungi: 'env-fungi',
@@ -50,7 +33,6 @@ const TAG_KIND = {
   character: 'char', assembly: 'assy',
 };
 
-// Old group → the branch it stood for. Never a leaf: a group never pins a leaf.
 const GROUP_BRANCH = {
   rocks: 'env-rock', ground: 'env-terrain', ocean: 'env-fauna', plants: 'env-flora-plant',
   grass: 'env-flora-plant-grass', flowers: 'env-flora-plant-flower', trees: 'env-flora-tree',
@@ -65,10 +47,8 @@ const GROUP_BRANCH = {
   cave: 'str-part', 'cave-terrain': 'env-terrain',
 };
 
-// A branch-level tag with no leaf found inside it falls back to this leaf.
 const BRANCH_DEFAULT = { 'str-barrier': 'str-barrier-fence' };
 
-// Pinned per model where neither a tag nor the name lands on the right glossary line.
 const OVERRIDES = {
   'ken-grave/gravestone-roof': 'str-marker-tombstone',
   'ken-grave/crypt-small-roof': 'str-part',
@@ -166,27 +146,21 @@ const OVERRIDES = {
   'kay-adventurers/spellbook-open': 'obj-weapon-magic',
 };
 
-// Use, from the tags that were really uses and from the kind (U3: stored, not implied).
 const USE_OF_TAG = { container: 'container', weapons: 'weapon', tools: 'tool', lamp: 'light', fire: 'light' };
 const USE_OF_KIND = [
   ['obj-container', 'container'], ['obj-weapon', 'weapon'], ['obj-tool', 'tool'], ['obj-food', 'food'],
   ['obj-lighting', 'light'], ['obj-transport', 'transport'], ['obj-equipment-armor', 'wearable'],
   ['obj-equipment-shield', 'wearable'], ['obj-equipment-clothing', 'wearable'],
 ];
-// Tags the new fields absorb: kinds, uses and the derived roots.
 const RETIRED = new Set([
   ...Object.keys(TAG_KIND), ...Object.keys(USE_OF_TAG), 'resources', 'nature', 'structure', 'object',
 ]);
 
-// ─── resolve ──────────────────────────────────────────────────────────────────────────
-
 function fromTags(model, tree) {
   const found = new Set();
   for (const tag of model.tags ?? []) if (TAG_KIND[tag]) found.add(TAG_KIND[tag]);
-  // keep the deepest of every chain
   const deepest = [...found].filter((a) => ![...found].some((b) => b !== a && isOrUnder(b, a)));
   if (deepest.length <= 1) return { kind: deepest[0] ?? null, collision: null };
-  // two chains: the old group says which the model was filed under
   const branch = GROUP_BRANCH[model.gr];
   const agreeing = branch ? deepest.filter((k) => isOrUnder(k, branch) || isOrUnder(branch, k)) : [];
   if (agreeing.length === 1) return { kind: agreeing[0], collision: null };
@@ -201,7 +175,6 @@ function resolveKind(model, tree) {
   if (tagged.collision) {
     const pinned = OVERRIDES[id];
     if (pinned) return { kind: pinned, by: 'override', note: `tags disagree: ${tagged.collision.join(' / ')}` };
-    // the name settles a disagreement when it names exactly one of the candidates
     const named = fromName(model);
     const hit = tagged.collision.filter((k) => named && (isOrUnder(named, k) || isOrUnder(k, named)));
     if (hit.length === 1) return { kind: isOrUnder(named, hit[0]) ? named : hit[0], by: 'tag+name', note: `tags disagree: ${tagged.collision.join(' / ')}` };
@@ -215,8 +188,6 @@ function resolveKind(model, tree) {
     if (pinned) return { kind: pinned, by: 'override' };
     const leaf = fromName(model, tagged.kind);
     if (leaf) return { kind: leaf, by: 'tag+name' };
-    // an umbrella tag (flora on a mushroom, fire on a birthday cake) yields to a glossary
-    // noun that lands on a leaf elsewhere; a leaf tag never does
     const isLeaf = ![...tree.keys()].some((k) => k.startsWith(`${tagged.kind}-`));
     if (!isLeaf) {
       const elsewhere = fromName(model);
@@ -241,8 +212,6 @@ function resolveUse(model, kind) {
   if (kind === 'assy' || kind === 'scene' || kind === 'char') use.delete('container');
   return [...use].sort();
 }
-
-// ─── run ──────────────────────────────────────────────────────────────────────────────
 
 const tree = readKindTree();
 const catalog = JSON.parse(readFileSync(FROM, 'utf8'));
@@ -275,7 +244,6 @@ for (const model of catalog.models) {
   else if (kind && kindDepth(kind) === 1 && !['assy', 'scene', 'char'].includes(kind)) report.parent.push(line);
 }
 
-// vocabulary: kinds in tree order after the roots, uses, then whatever tags.json keeps
 const kindEntries = [...tree].map(([id, nouns]) => ({
   id, name: kindName(id), type: 'kind',
   description: kindDescription(id, nouns),
@@ -284,7 +252,6 @@ const kindEntries = [...tree].map(([id, nouns]) => ({
 }));
 kindEntries.sort((a, b) => ROOT_ORDER.indexOf(kindRoot(a.id)) - ROOT_ORDER.indexOf(kindRoot(b.id)) || a.id.localeCompare(b.id));
 
-// use values share the id space with materials (food is both), so the entry is use:<value>
 const useEntries = USES.map((u) => ({
   id: `use:${u}`, name: USE_NAME[u], type: 'use', description: USE_TEXT[u], models: perUse.get(u).sort(),
 }));

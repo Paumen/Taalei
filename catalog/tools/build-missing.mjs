@@ -1,5 +1,3 @@
-//   node catalog/tools/build-missing.mjs
-
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
 import { join, dirname, resolve, relative, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,8 +28,6 @@ const kebab = (naam) =>
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 
-// ─── source packs ────────────────────────────────────────────────────────────────────
-
 function alleBestanden(dir, uit = []) {
   for (const naam of readdirSync(dir)) {
     const pad = join(dir, naam);
@@ -41,9 +37,6 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-// One folder, the fullest: a pack ships its models once per export format, and the other
-// formats' folders are the same models again. `alleMappen` is for the pack that instead
-// sorts one format's models into folders by theme — there every folder is its own models.
 function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
@@ -108,15 +101,11 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
       .sort();
 
     for (const naamBestand of bestanden) {
-      // relative to the folder the pack reports, so a model of a second folder still
-      // names a file that can be found back from it
       const bestand = relative(wortel, join(map, naamBestand));
       const primitieven = leesBron(join(map, naamBestand), formaat);
       if (primitieven.length === 0) continue;
 
       if (bronkit.splitsPerMesh) {
-        // One model per mesh, not per primitive: a mesh split over several materials
-        // reads back as one entry per material, all under the mesh's own name.
         const perMesh = new Map();
         for (const primitief of primitieven) {
           const naam = grofsteWeg(primitief.naam);
@@ -145,12 +134,6 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
   return { map: wortel, modellen };
 }
 
-// A pack may ship the same models in more than one format. The primary format decides
-// what a model is, and an extra format only adds names it has no file for: KayKit's obj
-// export writes one file per node, so post_skull there is the bare post while the gltf
-// of that name is the post with its skull. Reading gltf first keeps the assembled model
-// and still picks up the loose parts — the gate leaves, the coffin lid — that gltf packs
-// inside a parent file and never gives a file of their own.
 function bronModellen(bronkit) {
   const uitgepakt = pakBronUit(bronkit);
   const formaten = [bronkit.formaat, ...(bronkit.extraFormaten ?? [])];
@@ -193,8 +176,6 @@ const meet = (primitieven) => {
   return { driehoeken, laag, hoog, wdh: hoog.map((v, k) => v - laag[k]) };
 };
 
-// ─── the catalogue side ──────────────────────────────────────────────────────────────
-
 function kitGegevens(slug) {
   const dir = join(WERK_DIR, slug);
   if (!existsSync(dir)) return { modellen: [], schaal: null, aantal: 0 };
@@ -205,9 +186,6 @@ function kitGegevens(slug) {
     const glb = readGlb(join(dir, bestand));
     const extras = glb.json.asset?.extras?.taaleiland ?? {};
     const gemeten = measureScene(glb);
-    // A resize after import rides in a `rescale-wrapper` node, not in extras.schaal, so
-    // the measured box is that factor larger than the import the source side is compared
-    // against. Divide it back out, or every model of a resized kit misses on size.
     const wikkel = (glb.json.nodes ?? []).find((n) => n.name === 'rescale-wrapper');
     const factor = wikkel?.scale?.[0] ?? 1;
     modellen.push({
@@ -221,17 +199,11 @@ function kitGegevens(slug) {
   return { modellen, schaal, aantal: modellen.length };
 }
 
-// Two unrelated models can easily share a triangle count — a staff and a wall segment
-// both landed on 674 in the KayKit_Dungeon_Pack_1.0 case, which silently hid the staff
-// as "already in the catalogue". Requiring the bounding box to agree too (scaled to the
-// same units) turns that kind of coincidence into a rejection instead of a false match.
 const WDH_TOLERANCE = 0.05;
 
 function wdhMatches(a, b) {
   return a.every((v, k) => Math.abs(v - b[k]) <= Math.max(WDH_TOLERANCE * Math.max(v, b[k]), 0.01));
 }
-
-// ─── writing a preview ───────────────────────────────────────────────────────────────
 
 function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   if (!gevraagd) return null;
@@ -379,8 +351,6 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen) {
   writeGlb(pad, json, bin, writeFileSync);
 }
 
-// ─── run ─────────────────────────────────────────────────────────────────────────────
-
 rmSync(DOEL_DIR, { recursive: true, force: true });
 mkdirSync(DOEL_DIR, { recursive: true });
 
@@ -397,14 +367,6 @@ for (const bronkit of BRONKITS) {
 
   const gemeten = bron.map((model) => ({ ...model, ...meet(model.primitieven) }));
 
-  // Name first: an importer records the source name it built a workfile from, and where
-  // it did not, the workfile still carries that name kebab-cased. Either way a model
-  // that names a workfile is imported however far its triangle count has moved since.
-  // Only what is left over falls back to the count, which cannot tell a model from its
-  // equally heavy neighbour.
-  // One source model can back more than one workfile: a multi-part model imported whole
-  // and again as one of its parts both record it as their bronmodel, and both are then
-  // imported however the source counts them.
   const opBron = new Map();
   for (const model of kit.modellen) {
     if (!model.bronmodel) continue;
@@ -436,8 +398,6 @@ for (const bronkit of BRONKITS) {
   const ontbreekt = [];
   for (const model of rest) {
     const kandidaten = teGaan.get(model.driehoeken) ?? [];
-    // model.wdh is raw [dx, dy, dz]; the catalogue side (measureScene) reports
-    // [width, depth, height] = [dx, dz, dy] — reorder before comparing axes.
     const bronWdh = [model.wdh[0], model.wdh[2], model.wdh[1]].map((v) => v * schaal);
     const index = kandidaten.findIndex((k) => wdhMatches(k.wdh, bronWdh));
     if (index === -1) {
@@ -468,8 +428,6 @@ for (const bronkit of BRONKITS) {
   const gekopieerd = new Map();
   const gebruikteNamen = new Set();
 
-  // Keyed on content, not path: a pack that ships the same atlas next to each of its
-  // export formats would otherwise land in kits/missing once per format.
   const neemMee = (pad) => {
     const sleutel = createHash('sha1').update(readFileSync(pad)).digest('hex');
     if (gekopieerd.has(sleutel)) return gekopieerd.get(sleutel);
@@ -498,7 +456,6 @@ for (const bronkit of BRONKITS) {
     modellen.push({
       kit: bronkit.map,
       name: model.naam,
-      // nothing here is curated yet: the glossary nouns in the name are the best guess
       kind: kindFromName(kebab(model.naam), model.wdh ?? [1, 1, 1]),
       wdh: wdh.map(round1),
       tris: model.driehoeken,
@@ -520,7 +477,6 @@ for (const bronkit of BRONKITS) {
     missing: ontbreekt.length,
     unmatched: onherkend,
     scale: kit.schaal,
-    // empty where the pack's folders share no parent below the zip's root
     folder: map.slice(uitgepakt.length + 1) || null,
   });
 

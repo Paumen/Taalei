@@ -16,8 +16,6 @@ function span(className, text) {
   return node;
 }
 
-// ─── the models ──────────────────────────────────────────────────────────────────────
-
 const register = { models: [], packs: new Map(), kinds: new Map() };
 
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
@@ -63,8 +61,6 @@ const SORTINGS = {
   licht: (a, b) => a.tris - b.tris,
 };
 
-// ─── viewers ─────────────────────────────────────────────────────────────────────────
-
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
 const flatMode = { on: false };
@@ -98,8 +94,6 @@ function attachViewer(box) {
 
 const soon = globalThis.requestIdleCallback ?? ((f) => setTimeout(f, 1));
 
-// A card that scrolls away hands in a still of itself, so scrolling back doesn't mean
-// re-loading and re-rendering a thousand models.
 function detachViewer(box) {
   const viewer = box.querySelector('model-viewer');
   if (!viewer) return;
@@ -135,8 +129,6 @@ const observer = new IntersectionObserver(
   },
   { rootMargin: '800px 0px' },
 );
-
-// ─── detail ──────────────────────────────────────────────────────────────────────────
 
 const dialog = el('#detail');
 const detailSelect = el('#detail-selecteer');
@@ -212,8 +204,6 @@ detailSelect.addEventListener('click', () => {
   if (activePath) setSelection([activePath], !chosenPaths.has(activePath));
 });
 
-// ─── selection ───────────────────────────────────────────────────────────────────────
-
 const selectionBar = el('#selectiebalk');
 const selectionCount = el('#selectiebalk-telling');
 const selectionCopy = el('#selectie-kopieer');
@@ -284,8 +274,6 @@ el('#selectie-wis').addEventListener('click', () => {
   setSelection([...chosenPaths], false);
   lastChoice = null;
 });
-
-// ─── drawing ─────────────────────────────────────────────────────────────────────────
 
 function makeCard(model) {
   const pack = register.packs.get(model.kit);
@@ -386,7 +374,6 @@ function groupsFor(models) {
   if (state.grouping === 'geen') return [{ key: '', title: 'All models', models }];
 
   if (state.grouping === 'kind') {
-    // by kind branch, roots in the catalogue's order, the smaller sections first
     const per = new Map();
     for (const model of models) {
       const chain = model.kind ? kindChain(model.kind) : [];
@@ -461,8 +448,6 @@ function draw() {
   }
 }
 
-// ─── start ───────────────────────────────────────────────────────────────────────────
-
 async function start() {
   const response = await fetch('missing.json');
   if (!response.ok) throw new Error(`missing.json not found (${response.status}) — run node catalog/tools/build-missing.mjs`);
@@ -534,7 +519,6 @@ async function start() {
   lightButton.addEventListener('click', () => {
     flatMode.on = !flatMode.on;
     lightButton.setAttribute('aria-pressed', String(flatMode.on));
-    // a stored still carries the old lighting, so it has to go
     for (const card of cards) {
       delete card.box.dataset.momentopname;
       const viewer = card.box.querySelector('model-viewer');

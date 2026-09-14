@@ -29,7 +29,6 @@ function centraleMap(buf) {
   return { aantal, begin };
 }
 
-/** Unpacks every file in `zip` under `doel`, keeping the paths inside the archive. */
 export function pakUit(zip, doel) {
   const buf = readFileSync(zip);
   const { aantal, begin } = centraleMap(buf);

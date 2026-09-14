@@ -154,8 +154,6 @@ function kleurVanDriehoek(primitief, hoek, vOmlaag, winst, kleurVoorDriehoek, ba
   const { textuur, kleur } = primitief.materiaal;
 
   if (textuur && primitief.uvs) {
-    // The band lookup samples the source atlas, so it needs the same v as laadTextuur:
-    // an obj carries v from the bottom up and would otherwise read the mirrored row.
     const hoekUvs = hoek.map((i) => [primitief.uvs[i * 2], vOmlaag ? primitief.uvs[i * 2 + 1] : 1 - primitief.uvs[i * 2 + 1]]);
     const hoekkleuren = primitief.hoekkleuren
       ? hoek.map((i) => [
@@ -301,9 +299,6 @@ export function bouwGlb({
   if (schaal !== 1) node.scale = [schaal, schaal, schaal];
   if (verplaatsing && verplaatsing.some((waarde) => waarde !== 0)) node.translation = verplaatsing;
 
-  // A kit that was resized after its import carries that factor as a wrapper node over
-  // every model rather than in `schaal`, so a model added later has to carry the same
-  // wrapper or it lands at a fraction of the size of the models beside it.
   const nodes =
     herschaal === 1
       ? [node]
