@@ -415,7 +415,7 @@ obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gau
 obj-weapon-ranged-bow — bow, longbow
 obj-weapon-ranged-crossbow — crossbow
 obj-weapon-ranged-accessory — arrow, bolt (crossbow), dart, quiver
-obj-weapon-ranged — sling, throwing knife, javelin
+obj-weapon-ranged — sling, throwing knife, javelin, pistol, rifle, musket, blunderbuss, shotgun
 
 obj-weapon-magic-staff — staff, wizard staff
 obj-weapon-magic — wand, orb, focus (magic)
@@ -461,7 +461,7 @@ obj-resource-stone — brick (loose), cut block
 obj-resource-textile — textile bolt, cloth roll
 obj-resource — hide, raw stock
 
-obj-instrument — bell, gong, drum
+obj-instrument — bell, gong, drum, lute
 
 obj-art-sculpture — statue, fountain
 obj-art
