@@ -24,9 +24,6 @@ Conditional (only if claude CLI present)
 * registers claude-design MCP server (user scope, HTTP)
 
 
-Asset and material rules live in docs/asset_style_guide.md — the look, the
-colormap bands, geometry, scale, and the numbered rules of Appendix A (which
-colour a material takes, what counts as leather, timber or bark). Read it
-before creating, recolouring or tagging an asset.
-Never create or adjust rules in style guide without show exact words to PO for approval. A rule in appendix A must be below 140 chars. Style guide is autoritive.
+Asset and material rules live in docs/asset_style_guide.md.
+tools/render/render.mjs can be used to render glbs in various ways.
 
