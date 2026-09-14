@@ -36,7 +36,6 @@ pack — `kit: null` means `aanvullen.mjs` refuses to run.
    naming, scale reasoning, and the colour remapping with its worst Oklab jumps.
    `tools/importeer/worst-kleursprong.mjs <pack map> <scale>` prints those jumps;
    the importer itself only prints the distance, not which band moved where.
-8. `node tools/catalog-lint.mjs --kit <slug>` must show 0 errors.
 
 ## Scale
 
@@ -81,8 +80,8 @@ three wood bands and bark do.
 
 ## Before you report
 
-- Baseline the lint before touching anything and report the delta. `main` is not
-  lint-clean, so an absolute count says nothing.
+- Check every new model against the Appendix A rules of
+  `docs/asset_style_guide.md` by hand and report what does not fit.
 - Diff `catalog.json` semantically, not textually: models are sorted one key per
   line, so a handful of additions look like a rewrite. Confirm no existing model
   changed.

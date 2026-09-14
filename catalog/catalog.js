@@ -1,6 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=e9d5662248';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e9d5662248';
-import { cycleVerdict, verdictOf, verdictLabel, proposeBand, proposedBands, mountMarkBar } from './color-edits.js?v=5c428ae0de';
+import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=2c9626aa42';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=2c9626aa42';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -714,15 +713,6 @@ const detailAnimationChoice = document.querySelector('#detail-animatie-keuze');
 const detailVariant = document.querySelector('#detail-variant');
 const detailVariantChoice = document.querySelector('#detail-variant-keuze');
 let activePath = '';
-const lintFindings = new Map();
-const lintRules = new Map();
-let lintBands = [];
-const bandNames = new Map();
-const bandLabel = (hex) => {
-  const name = bandNames.get(hex);
-  return name ? `${name} — ${hex}` : hex;
-};
-
 const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
 // A material may name a parent. A model carries the subtype it is and never the parent on
@@ -744,62 +734,22 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-// Every band the model uses, each one a button that walks clean → partly wrong → wrong,
-// followed by the bands a reader has proposed on top and a picker to propose another.
-// A verdict is one reader's judgement against Appendix A, staged in this browser and
-// exported as a report; it never recolours the model.
+// Every band the model uses, one dot each. The hex stays reachable for whoever needs it,
+// without being shown.
 function colorSwatches(model) {
-  if (!model.colors?.length && !lintBands.length) return null;
+  if (!model.colors?.length) return null;
   const strip = document.createElement('div');
   strip.className = 'detail-stalen';
 
-  const redraw = () => {
-    const fresh = colorSwatches(model);
-    if (fresh) strip.replaceWith(fresh);
-  };
-
-  const swatch = (hex) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
+  for (const hex of model.colors) {
+    const dot = document.createElement('span');
     dot.className = 'detail-staal';
     dot.style.setProperty('--staal-kleur', hex);
-    const verdict = verdictOf(model, hex);
-    // de hex blijft bereikbaar voor wie hem nodig heeft, zonder hem te tonen
-    dot.title = `${bandLabel(hex)} — ${verdictLabel(verdict)} (tap to change)`;
-    if (verdict) dot.dataset.oordeel = verdict;
-    dot.addEventListener('click', () => { cycleVerdict(model, hex); redraw(); });
-    return dot;
-  };
-
-  for (const hex of model.colors ?? []) strip.append(swatch(hex));
-  for (const hex of proposedBands(model)) {
-    if (!model.colors?.includes(hex)) strip.append(swatch(hex));
+    dot.title = hex;
+    strip.append(dot);
   }
 
-  if (lintBands.length) strip.append(bandPicker(model, redraw));
   return strip;
-}
-
-// Adds a band the model does not carry. The list is the colormap's own, so a proposal is
-// always a band that exists — naming a colour the atlas has no lane for helps nobody.
-function bandPicker(model, redraw) {
-  const picker = document.createElement('select');
-  picker.className = 'detail-staal-keuze';
-  picker.setAttribute('aria-label', 'Propose a band this model should carry');
-  picker.title = 'Propose a band this model should carry';
-  const placeholder = new Option('+', '');
-  placeholder.disabled = true;
-  placeholder.selected = true;
-  picker.append(placeholder);
-  for (const band of lintBands) {
-    picker.append(new Option(band.lane ? `${band.name} ${band.lane}` : band.name, band.hex));
-  }
-  picker.addEventListener('change', () => {
-    if (!picker.value) return;
-    proposeBand(model, picker.value);
-    redraw();
-  });
-  return picker;
 }
 
 // Facts come in as lines, and a line stays a line: the counts that are read against each
@@ -822,26 +772,6 @@ function fillFacts(lines) {
       line.append(name, valueEl);
     }
     data.append(line);
-  }
-}
-
-// What lint says about this one model, errors first. Silent when the run found nothing,
-// and silent when lint.json is missing — the panel is readable without it.
-function fillLint(model) {
-  const box = document.querySelector('#detail-lint');
-  const own = lintFindings.get(model.id) ?? [];
-  box.replaceChildren();
-  box.hidden = own.length === 0;
-  for (const finding of own) {
-    const line = document.createElement('p');
-    line.className = 'detail-lintregel';
-    line.dataset.ernst = finding.severity;
-    const code = document.createElement('span');
-    code.className = 'detail-lintcode';
-    code.textContent = finding.rule;
-    code.title = lintRules.get(finding.rule) ?? finding.rule;
-    line.append(code, document.createTextNode(finding.detail));
-    box.append(line);
   }
 }
 
@@ -892,7 +822,7 @@ function showDetail(model) {
     [
       {
         kop: 'Colours',
-        vol: 'Colour bands the model uses — tap a band to mark it partly wrong, then wrong',
+        vol: 'Colour bands the model uses',
         waarde: '—',
         element: colorSwatches(model),
       },
@@ -904,7 +834,6 @@ function showDetail(model) {
     ],
   ];
   fillFacts(lines);
-  fillLint(model);
 
   const download = document.querySelector('#detail-download');
   download.href = modelUrl(model.path);
@@ -1267,26 +1196,6 @@ function filter() {
   emptyMessage.hidden = visible > 0;
 }
 
-// Findings from `node tools/catalog-lint.mjs --json catalog/lint.json`, by model id.
-// Regenerate it whenever the catalogue is relinted; without it the panel simply shows none.
-async function loadLint() {
-  try {
-    const response = await fetch(modelUrl('catalog/lint.json'));
-    if (!response.ok) return;
-    const data = await response.json();
-    for (const rule of data.rules ?? []) lintRules.set(rule.id, `${rule.id} — ${rule.text}`);
-    lintBands = data.bands ?? [];
-    for (const band of lintBands) bandNames.set(band.hex, band.lane ? `${band.name} ${band.lane}` : band.name);
-    const rank = { error: 0, warning: 1 };
-    for (const finding of data.findings ?? []) {
-      lintFindings.set(finding.model, [...(lintFindings.get(finding.model) ?? []), finding]);
-    }
-    for (const own of lintFindings.values()) {
-      own.sort((a, b) => (rank[a.severity] ?? 9) - (rank[b.severity] ?? 9) || a.rule.localeCompare(b.rule));
-    }
-  } catch {}
-}
-
 // Silent when thumbs.json is missing: every card then carries a live viewer as before.
 async function loadThumbs() {
   try {
@@ -1330,12 +1239,11 @@ async function start() {
     childrenOf.set(tag.parent, [...(childrenOf.get(tag.parent) ?? []), tag.id]);
   }
 
-  await Promise.all([loadLint(), loadThumbs()]);
+  await loadThumbs();
 
   buildColorBar(collectColors(data.models));
   buildTagBar(data.tags ?? []);
   mountEditBar();
-  mountMarkBar();
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);
 
