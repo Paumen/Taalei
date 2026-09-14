@@ -1,14 +1,3 @@
-#!/usr/bin/env node
-// worst-kleursprong.mjs — per model de verste kleursprong van een bronpack naar
-// de gedeelde colormap, voor de LICENSE.txt van een kit.
-//
-// De importer meldt alleen de afstand; dit meldt ook wélke baan waarheen ging.
-// Er wordt niets weggeschreven: het bouwt de modellen in het geheugen op
-// dezelfde manier als aanvullen.mjs, met dezelfde belichtingswinst over de hele
-// pack, zodat de getallen kloppen met wat er in kits/workfiles staat.
-//
-//   node tools/importeer/worst-kleursprong.mjs <bronmap> <schaal> [--limiet n]
-
 import { readdirSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, extname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,8 +19,6 @@ function alleBestanden(dir, uit = []) {
   return uit;
 }
 
-// Eén map, de volste. `alleMappen` is voor de pack die één formaat over mappen per
-// thema verdeelt: daar zijn alle mappen eigen modellen, net als in build-missing.mjs.
 function vindModelmappen(dir, formaat, alleMappen) {
   const perMap = new Map();
   for (const pad of alleBestanden(dir)) {
@@ -45,8 +32,6 @@ function vindModelmappen(dir, formaat, alleMappen) {
   return alleMappen ? gesorteerd.map(([map]) => map).sort() : [gesorteerd[0][0]];
 }
 
-// Een fbx noemt zijn textuur zonder pad; los hem op tegen de afbeeldingen in de
-// uitgepakte pack, zoals aanvullen.mjs dat doet.
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 function koppelTexturen(primitieven, uitgepakt) {

@@ -1,52 +1,3 @@
-#!/usr/bin/env node
-// colormap-recolor.mjs — move an asset from one colormap cell to another.
-//
-// Assets colour themselves by pointing UVs at bands of the 16x4 colormap, so a
-// recolour is a UV translation: every vertex whose UV lands in the source cell
-// moves by whole cells, which keeps its position inside the band and with it the
-// baked shading (style guide §1). The atlas on disk is not touched.
-//
-// Usage: node tools/colormap-recolor.mjs <from> <to> <file.glb|dir> [...] [--dry] [--mesh name] [--uv u,v] [--piece n[,n]]
-//        node tools/colormap-recolor.mjs --pieces <file.glb|dir> [...] [--mesh name]
-//        node tools/colormap-recolor.mjs --map plan.json [--dry]
-//   plan.json: [{ "file": "kits/workfiles/…/x.glb", "from": "13,0", "to": "5,0", "mesh": "…", "uv": "u,v", "piece": [2] }, …]
-//   --mesh limits the move to the meshes of that name, for a model that answers
-//   for several parts at once.
-//   --uv limits the move to the vertices sitting on that one point of the source
-//   cell. A pack whose materials are flat colours puts every material on a single
-//   point of the band it matched, so two materials that matched the same cell —
-//   KayKit's Stone and WoodDark both land on light grey — are still apart inside
-//   it, and only --uv can move one without the other.
-//   --piece limits the move to the connected pieces you name. `--pieces` lists them
-//   first: one line per piece with its vertex count and bounding box, numbered in
-//   that listing's order. That is how a band is added to a pack whose whole model
-//   sits on one uv point — a stone head or a strap is its own piece there, and
-//   nothing else in the model can be told apart by uv.
-//   --range limits the move to a slab of the model: `--range y,-60,-20` takes the
-//   triangles whose centre sits between those two, in the units --pieces prints.
-//   Repeat it to cross axes. That is how a grip wrapped into the shaft it belongs to
-//   is moved: it is no piece of its own, and no uv tells it from the shaft.
-//   A slab is the one selector that cuts across welded geometry, so it also splits the
-//   vertices its boundary runs through: the triangles inside get their own copies and
-//   the ones outside keep the originals. Nothing moves and no triangle is added — the
-//   model only gains the handful of vertices a hard colour edge needs, the way every
-//   other band boundary in these kits already carries one.
-//   --radius is the same cut measured out from an axis instead of along it:
-//   `--radius y,1.2,9` takes the triangles whose centre sits that far from the Y axis.
-//   That is how a part that stands out all round a shaft is moved — the fletching of an
-//   arrow is three vanes at 120 degrees, so no slab and no uv tells it from the shaft it
-//   is welded to. It combines with --range the way two ranges do: a triangle must be
-//   inside every one of them.
-//   --shade moves the selected vertices inside the destination band instead of across
-//   bands: `--shade 0.35` puts their light end 0.35 down the cell, carrying the spread
-//   along, so the baked shading of §1 survives. Give the same cell as from and to to
-//   re-shade a band without recolouring it.
-//   --upright limits the move to the connected pieces that stand: a piece whose
-//   height beats both its width and its depth. That is the posts and legs of a
-//   frame and not the planks they carry, which is the line the dungeon scaffolds
-//   draw between wood-beam and wood-worked (appendix A, M42). Whole pieces move,
-//   so a vertex a post shares with the deck it holds up goes with the post.
-
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readGlb, writeGlb, readAccessor } from '../catalog/tools/glb.mjs';
@@ -85,14 +36,8 @@ const glbsUnder = (path) => {
   return out.sort();
 };
 
-// Every accessor the model reads TEXCOORD_0 from, with the vertices that sit in
-// the source cell shifted whole cells across. An accessor shared by several
-// primitives is rewritten once; the test is per vertex, so untouched bands stay put.
 const UV_EPSILON = 1e-4;
 
-// Every connected piece of the model, with the TEXCOORD_0 vertices it owns.
-// Pieces are found over welded positions, so the two triangles of a shared corner
-// still count as one piece. Vertex indices are what both selectors work on.
 function connectedPieces(glb, mesh = null) {
   const { json } = glb;
   const found = [];
@@ -140,15 +85,11 @@ function connectedPieces(glb, mesh = null) {
       found.push(...pieces.values());
     }
   }
-  // Numbered for --piece, so the order has to hold from one run to the next:
-  // biggest first, and position breaks a tie between two pieces of equal size.
   return found.sort((a, b) =>
     b.vertices.size - a.vertices.size ||
     a.low[0] - b.low[0] || a.low[1] - b.low[1] || a.low[2] - b.low[2]);
 }
 
-// The vertices of every connected piece that stands taller than it is wide or deep:
-// the posts and legs of a frame and not the planks they carry.
 function uprightVertices(glb, mesh = null) {
   const perAccessor = new Map();
   for (const piece of connectedPieces(glb, mesh)) {
@@ -161,8 +102,6 @@ function uprightVertices(glb, mesh = null) {
   return perAccessor;
 }
 
-// The vertices of the pieces named by --piece, per accessor, in the numbering
-// `--pieces` prints.
 function pieceVertices(glb, mesh, wanted) {
   const pieces = connectedPieces(glb, mesh);
   const perAccessor = new Map();
@@ -176,9 +115,6 @@ function pieceVertices(glb, mesh, wanted) {
   return perAccessor;
 }
 
-// The triangles whose centre sits inside every --range slab and --radius shell, per
-// primitive. A triangle must be in all of them, so two ranges on different axes cut a
-// box out of the model, and a range with a radius cuts a ring off a shaft.
 function slabTriangles(glb, mesh, ranges) {
   const found = [];
   for (const target of glb.json.meshes ?? []) {
@@ -208,18 +144,11 @@ function slabTriangles(glb, mesh, ranges) {
   return found;
 }
 
-// Give the triangles inside the slab their own copies of every vertex they share with
-// a triangle outside it, so the two sides can carry different uvs and the colour edge
-// lands on the triangle edge instead of smearing across the atlas. Returns the new
-// TEXCOORD_0 vertices per accessor; the model is rewritten in place, buffers and all.
 function unweldSlab(glb, slabs) {
   const { json } = glb;
   const chosen = new Map();
   const rebuilt = new Map();
 
-  // Each primitive's copies are appended to its own reading of the accessor, so two
-  // primitives that split the same one would each miss the other's. Refuse that layout
-  // before a byte is touched rather than write a model whose indices point at nothing.
   const seen = new Set();
   for (const { primitive, triangles } of slabs) {
     if (!triangles.length) continue;
@@ -285,9 +214,6 @@ function unweldSlab(glb, slabs) {
   return chosen;
 }
 
-// One buffer, one view per accessor, tightly packed: the layout these kits already
-// carry. Anything else (interleaving, a view two accessors share) is refused rather
-// than silently mangled.
 function rewriteBuffers(glb, rebuilt) {
   const { json } = glb;
   if ((json.buffers ?? []).length !== 1) throw new Error('--range needs a model with one buffer');
@@ -405,8 +331,6 @@ function recolor(glb, [fromColumn, fromRow], [toColumn, toRow], mesh = null, uv 
     if (accessor.max) accessor.max = max;
   }
 
-  // The whole selection slides together, so the distance between its lightest and its
-  // darkest vertex — the baked shading — is the same afterwards.
   if (shade !== null && shaded.length) {
     const light = Math.min(...shaded.map((row) => row[1])) * ROWS - toRow;
     const dark = Math.max(...shaded.map((row) => row[1])) * ROWS - toRow;
@@ -492,7 +416,6 @@ if (shadeFlag !== -1) { consumed.add(shadeFlag); consumed.add(shadeFlag + 1); }
 for (const i of rangeIndexes) consumed.add(i);
 const rest = argv.filter((a, i) => a !== '--dry' && a !== '--upright' && a !== '--pieces' && !consumed.has(i));
 
-// --pieces only reports: it names what --piece can select, and changes nothing.
 if (listPieces) {
   const inputs = rest[0] === '--map' ? [] : rest.slice(2);
   const files = (inputs.length ? inputs : rest).flatMap((input) => glbsUnder(input));

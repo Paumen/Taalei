@@ -1,9 +1,3 @@
-#!/usr/bin/env node
-// The shared colormap is distributed to the kits by copy: every kit carries its own
-// Textures/colormap.png, and modular-cave-kit additionally carries colormap-gedeeld.png,
-// which agrees on the brown cells but not elsewhere. Respacing kits/colormap.png therefore
-// changes nothing on its own -- the assets read their kit's copy. This copies just the
-// brown cells across, so a map that differs elsewhere keeps its own colours.
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPng, writePng } from '../catalog/tools/png.mjs';
@@ -14,8 +8,6 @@ const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--cells') options.cells = Number(argv[++i]);
   else if (argv[i] === '--source') options.source = argv[++i];
-  // --cell carries one named cell instead of the brown slab, which is how a band opened
-  // outside row 0 reaches the kits. Repeat it to carry several.
   else if (argv[i] === '--cell') options.cell.push(argv[++i]);
   else if (argv[i] !== '--dry') { console.error(`unknown flag: ${argv[i]}`); process.exit(2); }
 }
@@ -23,7 +15,6 @@ for (let i = 0; i < argv.length; i++) {
 const src = readPng(options.source);
 const cellW = src.width / COLUMNS, cellH = src.height / ROWS;
 
-// Rectangles to carry across, as [x0, y0, x1, y1] in pixels.
 const regions = options.cell.length
   ? options.cell.map((id) => {
       const m = /^(\d+),(\d+)$/.exec(id);
@@ -62,8 +53,6 @@ for (const t of targets.sort()) {
           if (pixels[i4 + c] !== src.pixels[i4 + c]) diff++;
           pixels[i4 + c] = src.pixels[i4 + c];
         }
-        // An unused cell is transparent black in some kit copies; opening a band there
-        // has to bring the alpha with it or the new colour never shows.
         pixels[i4 + 3] = src.pixels[i4 + 3];
       }
     }

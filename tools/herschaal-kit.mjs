@@ -1,17 +1,3 @@
-#!/usr/bin/env node
-// herschaal-kit.mjs — resize a kit that is already imported.
-//
-//   node tools/herschaal-kit.mjs <kit> --met 0.7     multiply the current size by 0.7
-//   node tools/herschaal-kit.mjs <kit> --naar 0.65   set the factor outright
-//   node tools/herschaal-kit.mjs <kit> --met 0.7 --dry
-//
-// The factor rides in a `rescale-wrapper` node over every model rather than in the
-// import scale, which is how dungeon, dungeon-quaternius and pirate-quaternius carry
-// theirs — aanvullen.mjs reads it back from there so a model added later lands at the
-// size of the models beside it. Re-running is safe: --naar is idempotent.
-//
-// Rebuild the catalogue afterwards, or the recorded dimensions still describe the old size.
-
 import { readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readGlb, writeGlb } from '../catalog/tools/glb.mjs';
@@ -53,7 +39,6 @@ for (const bestand of bestanden) {
   if (nieuw === oud) continue;
 
   if (nieuw === 1) {
-    // back to its import size: the wrapper has nothing left to say, so drop it
     const kind = nodes[wikkelIndex].children[0];
     json.nodes = nodes.filter((_, i) => i !== wikkelIndex);
     const verschuif = (i) => (i > wikkelIndex ? i - 1 : i);

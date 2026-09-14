@@ -70,8 +70,6 @@ a { color: var(--accent); }
   color: var(--inkt-zacht);
 }
 
-/* In the sort bar the count is the left half of the line: it pushes the choices right
-   without growing itself, or the last choice tips onto the next line. */
 .sort-bar .kop-sub { margin: 0 auto 0 0; }
 
 .kop-regel {
@@ -95,8 +93,6 @@ a { color: var(--accent); }
 
 .kop-paginas a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
-/* De paginabalk en de knoppen delen één regel; pas als de kop echt te smal wordt valt
-   de balk terug op een eigen regel. */
 .paginabalk {
   flex: 0 1 auto;
   display: flex;
@@ -133,8 +129,6 @@ a { color: var(--accent); }
   font-weight: 600;
 }
 
-/* Second bar on the scale pages: the same pill, but lighter, so you see it hangs under
-   "Scale" rather than standing beside the four main pages. */
 .scale-bar {
   margin-top: 2px;
   background: none;
@@ -293,8 +287,6 @@ a { color: var(--accent); }
   .staal { width: 22px; height: 22px; }
 }
 
-/* De telling staat bij de sorteerkeuzes: allebei zeggen ze wat je nu ziet, en samen
-   kosten ze één regel in plaats van twee. */
 .sort-bar {
   display: flex;
   flex-wrap: wrap;
@@ -328,10 +320,6 @@ a { color: var(--accent); }
 .sort-bar select:hover { border-bottom-color: var(--accent); }
 .sort-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-/* Op een telefoon blijven de telling en de twee keuzes nog steeds één regel: smallere
-   tussenruimte en keuzes die mogen krimpen, in plaats van "by name" die eronder valt. */
-/* De drie bedieningen blijven bij elkaar: valt de regel toch om, dan zakt de hele groep
-   onder de telling in plaats van dat er één keuze losraakt. */
 .sort-bar-choices {
   display: flex;
   flex-wrap: wrap;
@@ -379,8 +367,6 @@ a { color: var(--accent); }
 
 .tagknop[hidden] { display: none; }
 
-/* Subtypes hang in a tray off their parent chip: the tray's tint and the notch that
-   tucks under the chip are what say "these belong to Wood" when the row wraps. */
 .tagbak {
   display: inline-flex;
   flex: none;
@@ -395,17 +381,14 @@ a { color: var(--accent); }
 
 .tagbak[hidden] { display: none; }
 
-/* a tray inside a tray: a kind's grandchildren, one shade deeper */
 .tagbak .tagbak {
   margin-left: -10px;
   padding: 2px 4px 2px 13px;
   background: color-mix(in srgb, var(--accent) 22%, var(--kaart));
 }
 
-/* a parent whose child is picked: open, but not itself picked */
 .tagknop-open { border-color: var(--accent); color: var(--inkt); }
 
-/* the parent keeps its right edge open so the tray reads as hanging off it */
 .tagknop-ouder {
   z-index: 1;
   border-right-color: transparent;
@@ -451,8 +434,6 @@ a { color: var(--accent); }
   transform: rotate(45deg);
 }
 
-/* A one-letter label needs the dot to keep the count from reading as part of it. The
-   flex gap already spaces both sides, so the dot itself carries no space of its own. */
 .tagknop-punt { gap: 4px; }
 .tagknop-punt .tagknop-aantal::before {
   margin-right: 4px;
@@ -737,11 +718,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .detail[open] {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(260px, 1fr);
-  /* De rij mag niet met de zijkolom meegroeien. Een model met 132 animaties zet daar
-     132 chips neer; zonder deze regel wordt de rij zo hoog als die lijst, rekt de
-     weergave mee tot ver buiten het venster en valt het model onder de rand van het
-     paneel. Met een begrensde rij scrollt de zijkolom (overflow-y staat er al op) en
-     houdt de weergave de hoogte van het paneel. */
   grid-template-rows: minmax(0, 1fr);
 }
 
@@ -762,14 +738,9 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   padding: 22px 22px 24px;
   border-left: 1px solid var(--lijn);
   overflow-y: auto;
-  /* de gegevenslijst kijkt naar de breedte van dit paneel, niet naar die van het
-     venster: op een telefoon is het paneel juist breder dan de zijkolom op een
-     groot scherm, dus een vensterbreedte zegt er niets over */
   container-type: inline-size;
 }
 
-/* Naam en kit delen één regel: de kit is de bijzin bij de naam, geen eigen regel waard.
-   Op een smal paneel valt de kit onder de naam in plaats van de naam af te knijpen. */
 .detail-kop {
   display: flex;
   flex-wrap: wrap;
@@ -790,8 +761,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   color: var(--inkt-zacht);
 }
 
-/* De feiten staan per regel gegroepeerd: wat je tegen elkaar afleest staat naast elkaar.
-   Een regel wikkelt pas als hij echt niet past, dus het label blijft bij zijn waarde. */
 .detail dl { margin: 0 0 12px; font-size: 13px; }
 
 .feitrij {
@@ -936,7 +905,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 }
 
 @media (max-width: 720px) {
-  /* Onder elkaar: de weergave krijgt haar eigen hoogte, de gegevens de rest. */
   .detail[open] { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
   .detail-viewer { min-height: 46vh; }
   .detail-info { border-left: 0; border-top: 1px solid var(--lijn); }
@@ -1169,9 +1137,6 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   pointer-events: none;
 }
 
-/* Manual tag editing, shared by the detail dialog (index.html) and the swipe cards
-   (swipe.html) — see catalog/tag-edits.js. The rows are the filter bar's own chip rows,
-   so the chrome lives with .tagrij; only the fit inside a panel is set here. */
 .detail-info .tagrij,
 .swipe-tags .tagrij {
   margin: 0 -4px;
@@ -1183,8 +1148,6 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
 .detail-info .tagrij + .tagrij,
 .swipe-tags .tagrij + .tagrij { border-top: 1px solid var(--lijn); }
 
-/* Beide zwevende balken staan in één stapel: de onderste is de tagbalk, de kleurbalk
-   schuift erboven zodra er iets gemarkeerd is. */
 .onderbalken {
   position: fixed;
   left: 18px;
@@ -1255,8 +1218,6 @@ body:has(.tagedit-balk:not([hidden])) { padding-bottom: 56px; }
   .tagedit-balk button { padding: 5px 10px; font-size: 11.5px; }
 }
 
-/* Scale pages sit under a fixed unit ruler, so page chrome is the only slack there is:
-   the header, the filter bars and the strip around each canvas all come down. */
 .scale-page .kop { padding: 3px clamp(6px, 1.5vw, 12px); gap: 2px 10px; }
 .scale-page .kleurbalk { padding: 1px clamp(6px, 1.5vw, 12px); gap: 8px; }
 .scale-page .staal { width: 18px; height: 18px; border-radius: 5px; }
