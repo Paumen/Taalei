@@ -1,5 +1,6 @@
 It is strictly forbidden to look at any previous commits or prs and related files.
 do not assume anything, if you doubt, you ask clarification.
+never write assumptions, comments, requirements, statements, rules or similar in code files.
 
 installed:
 Python (pip)
