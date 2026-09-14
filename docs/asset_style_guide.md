@@ -386,7 +386,7 @@ obj-container — basket, tub, trough, bin, can, coffin
 
 obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
 obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer, bowl
-obj-kitchenware-tableware — mug, cup, goblet, tankard, teapot, glass
+obj-kitchenware-tableware — mug, cup, goblet, chalice, tankard, teapot, glass
 obj-kitchenware-cookware-pan — pan, skillet
 obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
 obj-kitchenware-cookware — grill, spit, ladle, cutting board
@@ -414,7 +414,7 @@ obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gau
 
 obj-weapon-ranged-bow — bow, longbow
 obj-weapon-ranged-crossbow — crossbow
-obj-weapon-ranged-accessory — arrow, bolt (crossbow), quiver
+obj-weapon-ranged-accessory — arrow, bolt (crossbow), dart, quiver
 obj-weapon-ranged — sling, throwing knife, javelin
 
 obj-weapon-magic-staff — staff, wizard staff
@@ -466,7 +466,7 @@ obj-instrument — bell, gong, drum
 obj-art-sculpture — statue, fountain
 obj-art
 
-obj — barrel stand, weapon stand, easel, signboard (freestanding), cage
+obj — barrel stand, weapon stand, easel, signboard (freestanding), cage, heart token, star token
 
 str-part-door — door, gate (building), hatch
 str-part-floor — floor, floor tile, ceiling
