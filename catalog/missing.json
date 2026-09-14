@@ -368,8 +368,8 @@
    "kit": "kay-dun-2",
    "format": "gltf",
    "inSource": 211,
-   "inCatalog": 139,
-   "missing": 72,
+   "inCatalog": 138,
+   "missing": 73,
    "unmatched": 0,
    "scale": 0.175,
    "folder": "kk dungeon/KayKit_Dungeon_Pack_1.1_FREE/KayKit_Dungeon_Pack_1.1_FREE/Assets/gltf"
@@ -464,9 +464,9 @@
    "kit": "kay-skeleton",
    "format": "gltf",
    "inSource": 13,
-   "inCatalog": 33,
+   "inCatalog": 17,
    "missing": 0,
-   "unmatched": 20,
+   "unmatched": 4,
    "scale": 0.2625,
    "folder": "KayKit_Skeletons_1.1_FREE/assets/gltf"
   },
@@ -592,21 +592,21 @@
    "kit": "kay-dun-1",
    "format": "glb",
    "inSource": 185,
-   "inCatalog": 136,
+   "inCatalog": 137,
    "missing": 50,
-   "unmatched": 1,
+   "unmatched": 2,
    "scale": 0.175,
    "folder": "KayKit Dungeon Pack 1.0 (1)/Models/gltf"
   },
   {
    "slug": "KayKit_Skeletons_1.0",
    "name": "KayKit Skeletons 1.0",
-   "kit": "kay-skeleton",
+   "kit": "kay-skeleton-1",
    "format": "glb",
    "inSource": 29,
-   "inCatalog": 33,
+   "inCatalog": 16,
    "missing": 13,
-   "unmatched": 17,
+   "unmatched": 0,
    "scale": 0.2625,
    "folder": "Models/assets/gltf"
   },
@@ -664,10 +664,10 @@
    "kit": "quat-dun-2",
    "format": "obj",
    "inSource": 48,
-   "inCatalog": 24,
-   "missing": 24,
+   "inCatalog": 10,
+   "missing": 38,
    "unmatched": 0,
-   "scale": 0.21,
+   "scale": 0.42,
    "folder": ".Updated Modular Dungeon - May 2019/OBJ"
   },
   {
@@ -676,9 +676,10 @@
    "kit": "quat-dun-1",
    "format": "obj",
    "inSource": 48,
-   "inCatalog": 0,
-   "missing": 48,
+   "inCatalog": 14,
+   "missing": 34,
    "unmatched": 0,
+   "scale": 0.21,
    "folder": "OBJ"
   },
   {
@@ -708,23 +709,23 @@
   {
    "slug": "Blood_Ring_by_Quaternius",
    "name": "Blood Ring",
-   "kit": "quat-rpg",
+   "kit": "quat-blood-ring",
    "format": "fbx",
    "inSource": 1,
-   "inCatalog": 55,
+   "inCatalog": 1,
    "missing": 0,
-   "unmatched": 54,
+   "unmatched": 0,
    "scale": 0.16
   },
   {
    "slug": "Skeleton_by_Quaternius",
    "name": "Skeleton",
-   "kit": "quat-rpg",
+   "kit": "quat-skeleton",
    "format": "fbx",
    "inSource": 1,
-   "inCatalog": 55,
+   "inCatalog": 1,
    "missing": 0,
-   "unmatched": 54,
+   "unmatched": 0,
    "scale": 0.16
   },
   {
@@ -786,7 +787,7 @@
   {
    "slug": "Ultimate_Fantasy_RTS",
    "name": "Ultimate Fantasy RTS",
-   "kit": "rts-town",
+   "kit": "quat-town",
    "format": "glb",
    "inSource": 107,
    "inCatalog": 97,
@@ -864,7 +865,7 @@
   {
    "slug": "Charming_Kitchen_set",
    "name": "Charming Kitchen Set",
-   "kit": "charming-kitchen",
+   "kit": "isa-kitchen",
    "format": "fbx",
    "inSource": 55,
    "inCatalog": 19,
@@ -12083,6 +12084,22 @@
    "bytes": 45348,
    "scaled": true,
    "file": "pillar_decorated.gltf"
+  },
+  {
+   "kit": "KayKit_Dungeon_Pack_1.1_FREE",
+   "name": "plate_stack",
+   "kind": "obj-kitchenware-tableware-plate",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "bytes": 17212,
+   "scaled": true,
+   "file": "plate_stack.gltf"
   },
   {
    "kit": "KayKit_Dungeon_Pack_1.1_FREE",
@@ -27223,15 +27240,47 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
-   "name": "Arch_Door_bottompivot",
+   "name": "Arch",
+   "kind": "str-part-wall",
+   "wdh": [
+    1.7,
+    1.7,
+    0.4
+   ],
+   "tris": 4484,
+   "tpu": 2206,
+   "mat": 3,
+   "bytes": 236052,
+   "scaled": true,
+   "file": "Arch.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Arch_Door",
    "kind": "str-part-door",
    "wdh": [
-    0.5,
-    0.7,
+    1,
+    1.3,
     0.1
    ],
    "tris": 1220,
-   "tpu": 3557,
+   "tpu": 1279,
+   "mat": 4,
+   "bytes": 57736,
+   "scaled": true,
+   "file": "Arch_Door.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Arch_Door_bottompivot",
+   "kind": "str-part-door",
+   "wdh": [
+    1,
+    1.3,
+    0.1
+   ],
+   "tris": 1220,
+   "tpu": 1279,
    "mat": 4,
    "bytes": 57748,
    "scaled": true,
@@ -27242,12 +27291,12 @@
    "name": "Arch_bars",
    "kind": "obj-resource-metal",
    "wdh": [
-    0.5,
-    0.7,
+    1,
+    1.4,
     0.1
    ],
    "tris": 1603,
-   "tpu": 4673,
+   "tpu": 1546,
    "mat": 1,
    "bytes": 63436,
    "scaled": true,
@@ -27258,12 +27307,12 @@
    "name": "Banner",
    "kind": "str-marker-flag",
    "wdh": [
-    0.5,
-    0.8,
+    1,
+    1.6,
     0.1
    ],
    "tris": 564,
-   "tpu": 1644,
+   "tpu": 509,
    "mat": 4,
    "bytes": 30552,
    "scaled": true,
@@ -27274,12 +27323,12 @@
    "name": "Banner_wall",
    "kind": "str-part-wall",
    "wdh": [
-    0.3,
-    0.6,
-    0.1
+    0.7,
+    1.2,
+    0.2
    ],
    "tris": 440,
-   "tpu": 1283,
+   "tpu": 763,
    "mat": 3,
    "bytes": 23252,
    "scaled": true,
@@ -27290,9 +27339,9 @@
    "name": "Barrel",
    "kind": "obj-container-barrel",
    "wdh": [
-    0.2,
-    0.3,
-    0.2
+    0.4,
+    0.6,
+    0.4
    ],
    "tris": 1384,
    "tpu": 4035,
@@ -27305,9 +27354,9 @@
    "kit": "Updated_Modular_Dungeon_2019",
    "name": "Barrel2",
    "wdh": [
-    0.2,
-    0.3,
-    0.2
+    0.4,
+    0.6,
+    0.4
    ],
    "tris": 1088,
    "tpu": 3172,
@@ -27320,9 +27369,9 @@
    "kit": "Updated_Modular_Dungeon_2019",
    "name": "Brick",
    "wdh": [
-    0.2,
+    0.3,
     0.1,
-    0.1
+    0.2
    ],
    "tris": 140,
    "tpu": 408,
@@ -27333,12 +27382,28 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Bucket",
+   "kind": "obj-container-bucket",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 3,
+   "bytes": 21872,
+   "scaled": true,
+   "file": "Bucket.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
    "name": "Chair",
    "kind": "obj-furniture-seating",
    "wdh": [
-    0.1,
-    0.2,
-    0.1
+    0.3,
+    0.5,
+    0.3
    ],
    "tris": 1298,
    "tpu": 3784,
@@ -27346,6 +27411,37 @@
    "bytes": 60348,
    "scaled": true,
    "file": "Chair.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Cobweb",
+   "kind": "env-remains",
+   "wdh": [
+    0.5,
+    0.3,
+    0.4
+   ],
+   "tris": 1108,
+   "tpu": 3230,
+   "mat": 1,
+   "bytes": 60956,
+   "scaled": true,
+   "file": "Cobweb.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Cobweb2",
+   "wdh": [
+    0.6,
+    0.4,
+    0.4
+   ],
+   "tris": 868,
+   "tpu": 2531,
+   "mat": 1,
+   "bytes": 48000,
+   "scaled": true,
+   "file": "Cobweb2.obj"
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
@@ -27365,6 +27461,591 @@
   },
   {
    "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Column",
+   "kind": "str-part-pillar",
+   "wdh": [
+    0.5,
+    1.7,
+    0.5
+   ],
+   "tris": 440,
+   "tpu": 672,
+   "mat": 2,
+   "bytes": 22900,
+   "scaled": true,
+   "file": "Column.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Column2",
+   "wdh": [
+    0.5,
+    1.7,
+    0.5
+   ],
+   "tris": 548,
+   "tpu": 836,
+   "mat": 2,
+   "bytes": 26624,
+   "scaled": true,
+   "file": "Column2.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Decorative_Wall",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.7,
+    0.6,
+    0.2
+   ],
+   "tris": 1156,
+   "tpu": 3370,
+   "mat": 2,
+   "bytes": 55664,
+   "scaled": true,
+   "file": "Decorative_Wall.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Fence_90_Modular",
+   "kind": "str-barrier-fence",
+   "wdh": [
+    0.6,
+    0.5,
+    0.6
+   ],
+   "tris": 112,
+   "tpu": 327,
+   "mat": 2,
+   "bytes": 7788,
+   "scaled": true,
+   "file": "Fence_90_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Fence_End_Modular",
+   "kind": "str-barrier-fence",
+   "wdh": [
+    0.6,
+    0.5,
+    0.3
+   ],
+   "tris": 102,
+   "tpu": 297,
+   "mat": 2,
+   "bytes": 7252,
+   "scaled": true,
+   "file": "Fence_End_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Fence_Straight_Modular",
+   "kind": "str-barrier-fence",
+   "wdh": [
+    0.8,
+    0.5,
+    0.3
+   ],
+   "tris": 104,
+   "tpu": 303,
+   "mat": 2,
+   "bytes": 7332,
+   "scaled": true,
+   "file": "Fence_Straight_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Floor_BricksSeparate",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.4,
+    0.1,
+    0.5
+   ],
+   "tris": 236,
+   "tpu": 688,
+   "mat": 1,
+   "bytes": 12640,
+   "scaled": true,
+   "file": "Floor_BricksSeparate.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Floor_BricksSeparate2",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.5,
+    0.2,
+    0.5
+   ],
+   "tris": 484,
+   "tpu": 1411,
+   "mat": 1,
+   "bytes": 24788,
+   "scaled": true,
+   "file": "Floor_BricksSeparate2.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Floor_Modular",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.8,
+    0.1,
+    0.8
+   ],
+   "tris": 1176,
+   "tpu": 2856,
+   "mat": 1,
+   "bytes": 60416,
+   "scaled": true,
+   "file": "Floor_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Pedestal",
+   "kind": "str",
+   "wdh": [
+    0.8,
+    0.9,
+    0.8
+   ],
+   "tris": 1844,
+   "tpu": 2975,
+   "mat": 1,
+   "bytes": 85440,
+   "scaled": true,
+   "file": "Pedestal.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Skull",
+   "kind": "env-remains-bones",
+   "wdh": [
+    0.3,
+    0.2,
+    0.2
+   ],
+   "tris": 1392,
+   "tpu": 4058,
+   "mat": 1,
+   "bytes": 76296,
+   "scaled": true,
+   "file": "Skull.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Spikes",
+   "wdh": [
+    0.7,
+    0.5,
+    0.7
+   ],
+   "tris": 504,
+   "tpu": 1388,
+   "mat": 1,
+   "bytes": 31808,
+   "scaled": true,
+   "file": "Spikes.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Stairs_Modular",
+   "kind": "str-access-stairs",
+   "wdh": [
+    0.8,
+    0.8,
+    0.9
+   ],
+   "tris": 1420,
+   "tpu": 2298,
+   "mat": 1,
+   "bytes": 72300,
+   "scaled": true,
+   "file": "Stairs_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Stairs_SideCover",
+   "kind": "str-access-stairs",
+   "wdh": [
+    0.2,
+    0.9,
+    0.9
+   ],
+   "tris": 892,
+   "tpu": 2105,
+   "mat": 1,
+   "bytes": 45668,
+   "scaled": true,
+   "file": "Stairs_SideCover.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Stairs_SideCoverWall",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.2,
+    0.9,
+    0.9
+   ],
+   "tris": 1252,
+   "tpu": 2999,
+   "mat": 1,
+   "bytes": 64008,
+   "scaled": true,
+   "file": "Stairs_SideCoverWall.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Table_Big",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    0.7,
+    0.4,
+    1.4
+   ],
+   "tris": 916,
+   "tpu": 1347,
+   "mat": 3,
+   "bytes": 47072,
+   "scaled": true,
+   "file": "Table_Big.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Table_Small",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    0.5,
+    0.4,
+    0.8
+   ],
+   "tris": 804,
+   "tpu": 1974,
+   "mat": 3,
+   "bytes": 41504,
+   "scaled": true,
+   "file": "Table_Small.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Torch",
+   "kind": "obj-lighting-torch",
+   "wdh": [
+    0.1,
+    0.5,
+    0.2
+   ],
+   "tris": 386,
+   "tpu": 1125,
+   "mat": 2,
+   "bytes": 22000,
+   "scaled": true,
+   "file": "Torch.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Trap_empty",
+   "wdh": [
+    0.8,
+    0.1,
+    0.8
+   ],
+   "tris": 1456,
+   "tpu": 3557,
+   "mat": 1,
+   "bytes": 57148,
+   "scaled": true,
+   "file": "Trap_empty.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Trap_spikes",
+   "wdh": [
+    0.8,
+    0.5,
+    0.8
+   ],
+   "tris": 2032,
+   "tpu": 4964,
+   "mat": 2,
+   "bytes": 88188,
+   "scaled": true,
+   "file": "Trap_spikes.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Vase",
+   "kind": "obj-container-pot",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "bytes": 12812,
+   "scaled": true,
+   "file": "Vase.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "WallCover_Modular",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.8,
+    0.2,
+    0.2
+   ],
+   "tris": 280,
+   "tpu": 816,
+   "mat": 1,
+   "bytes": 14724,
+   "scaled": true,
+   "file": "WallCover_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Wall_Modular",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.8,
+    0.8,
+    0.2
+   ],
+   "tris": 1672,
+   "tpu": 3375,
+   "mat": 3,
+   "bytes": 89024,
+   "scaled": true,
+   "file": "Wall_Modular.obj"
+  },
+  {
+   "kit": "Updated_Modular_Dungeon_2019",
+   "name": "Woodfire",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 224,
+   "tpu": 653,
+   "mat": 3,
+   "bytes": 15856,
+   "scaled": true,
+   "file": "Woodfire.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Arch_Door_bottompivot",
+   "kind": "str-part-door",
+   "wdh": [
+    0.5,
+    0.7,
+    0.1
+   ],
+   "tris": 1220,
+   "tpu": 3557,
+   "mat": 4,
+   "bytes": 57748,
+   "scaled": true,
+   "file": "Arch_Door_bottompivot.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Arch_bars",
+   "kind": "obj-resource-metal",
+   "wdh": [
+    0.5,
+    0.7,
+    0.1
+   ],
+   "tris": 1603,
+   "tpu": 4673,
+   "mat": 1,
+   "bytes": 63436,
+   "scaled": true,
+   "file": "Arch_bars.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Bag_Coins",
+   "kind": "obj-container-bag",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 976,
+   "tpu": 2845,
+   "mat": 2,
+   "bytes": 48876,
+   "scaled": true,
+   "file": "Bag_Coins.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Bag_Standing",
+   "kind": "obj-container-bag",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 456,
+   "tpu": 1329,
+   "mat": 2,
+   "bytes": 26552,
+   "scaled": true,
+   "file": "Bag_Standing.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Banner",
+   "kind": "str-marker-flag",
+   "wdh": [
+    0.5,
+    0.8,
+    0.1
+   ],
+   "tris": 564,
+   "tpu": 1644,
+   "mat": 4,
+   "bytes": 30552,
+   "scaled": true,
+   "file": "Banner.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Banner_wall",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 3,
+   "bytes": 23252,
+   "scaled": true,
+   "file": "Banner_wall.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Barrel",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 1384,
+   "tpu": 4035,
+   "mat": 3,
+   "bytes": 72464,
+   "scaled": true,
+   "file": "Barrel.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Barrel2",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 1088,
+   "tpu": 3172,
+   "mat": 2,
+   "bytes": 58376,
+   "scaled": true,
+   "file": "Barrel2.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Brick",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 140,
+   "tpu": 408,
+   "mat": 1,
+   "bytes": 7444,
+   "scaled": true,
+   "file": "Brick.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Chair",
+   "kind": "obj-furniture-seating",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 1298,
+   "tpu": 3784,
+   "mat": 3,
+   "bytes": 60348,
+   "scaled": true,
+   "file": "Chair.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Chest",
+   "kind": "obj-container-chest",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1676,
+   "tpu": 4886,
+   "mat": 3,
+   "bytes": 79784,
+   "scaled": true,
+   "file": "Chest.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Chest_Gold",
+   "kind": "obj-container-chest",
+   "wdh": [
+    0.2,
+    0.2,
+    0.3
+   ],
+   "tris": 22512,
+   "tpu": 65633,
+   "mat": 4,
+   "bytes": 996476,
+   "scaled": true,
+   "file": "Chest_Gold.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Coin_Pile",
+   "kind": "obj-pocketitem-coin",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 3220,
+   "tpu": 9388,
+   "mat": 1,
+   "bytes": 141420,
+   "scaled": true,
+   "file": "Coin_Pile.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Column2",
    "wdh": [
     0.3,
@@ -27379,7 +28060,23 @@
    "file": "Column2.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Crate",
+   "kind": "obj-container-crate",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 2502,
+   "tpu": 7294,
+   "mat": 2,
+   "bytes": 99136,
+   "scaled": true,
+   "file": "Crate.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Decorative_Wall",
    "kind": "str-part-wall",
    "wdh": [
@@ -27395,7 +28092,7 @@
    "file": "Decorative_Wall.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Fence_90_Modular",
    "kind": "str-barrier-fence",
    "wdh": [
@@ -27411,7 +28108,7 @@
    "file": "Fence_90_Modular.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Fence_End_Modular",
    "kind": "str-barrier-fence",
    "wdh": [
@@ -27427,7 +28124,7 @@
    "file": "Fence_End_Modular.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Fence_Straight_Modular",
    "kind": "str-barrier-fence",
    "wdh": [
@@ -27443,7 +28140,7 @@
    "file": "Fence_Straight_Modular.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Floor_BricksSeparate2",
    "kind": "str-part-floor",
    "wdh": [
@@ -27459,7 +28156,7 @@
    "file": "Floor_BricksSeparate2.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Pedestal",
    "kind": "str",
    "wdh": [
@@ -27475,7 +28172,22 @@
    "file": "Pedestal.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Pedestal2",
+   "wdh": [
+    0.4,
+    0.5,
+    0.4
+   ],
+   "tris": 1182,
+   "tpu": 3446,
+   "mat": 1,
+   "bytes": 53776,
+   "scaled": true,
+   "file": "Pedestal2.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Spikes",
    "wdh": [
     0.4,
@@ -27490,7 +28202,39 @@
    "file": "Spikes.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Statue_Horse",
+   "kind": "obj",
+   "wdh": [
+    0.4,
+    1.2,
+    0.7
+   ],
+   "tris": 1850,
+   "tpu": 5322,
+   "mat": 2,
+   "bytes": 92036,
+   "scaled": true,
+   "file": "Statue_Horse.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Sword_WallMount",
+   "kind": "obj-weapon-melee-sword",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 2382,
+   "tpu": 6945,
+   "mat": 6,
+   "bytes": 110812,
+   "scaled": true,
+   "file": "Sword_WallMount.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Table_Big",
    "kind": "obj-furniture-table",
    "wdh": [
@@ -27506,7 +28250,7 @@
    "file": "Table_Big.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Table_Small",
    "kind": "obj-furniture-table",
    "wdh": [
@@ -27522,7 +28266,7 @@
    "file": "Table_Small.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Torch",
    "kind": "obj-lighting-torch",
    "wdh": [
@@ -27538,7 +28282,7 @@
    "file": "Torch.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Trap_empty",
    "wdh": [
     0.4,
@@ -27553,7 +28297,7 @@
    "file": "Trap_empty.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Trap_spikes",
    "wdh": [
     0.4,
@@ -27568,7 +28312,39 @@
    "file": "Trap_spikes.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Trapdoor",
+   "kind": "str-part-door",
+   "wdh": [
+    0.4,
+    0.1,
+    0.4
+   ],
+   "tris": 504,
+   "tpu": 1469,
+   "mat": 4,
+   "bytes": 30532,
+   "scaled": true,
+   "file": "Trapdoor.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
+   "name": "Trapdoor_open",
+   "kind": "str-part-door",
+   "wdh": [
+    0.4,
+    0.1,
+    0.6
+   ],
+   "tris": 564,
+   "tpu": 1644,
+   "mat": 4,
+   "bytes": 33012,
+   "scaled": true,
+   "file": "Trapdoor_open.obj"
+  },
+  {
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Vase",
    "kind": "obj-container-pot",
    "wdh": [
@@ -27584,7 +28360,7 @@
    "file": "Vase.obj"
   },
   {
-   "kit": "Updated_Modular_Dungeon_2019",
+   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
    "name": "Woodfire",
    "wdh": [
     0.2,
@@ -27596,717 +28372,6 @@
    "mat": 3,
    "bytes": 15856,
    "scaled": true,
-   "file": "Woodfire.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Arch",
-   "kind": "str-part-wall",
-   "wdh": [
-    4.1,
-    4,
-    1
-   ],
-   "tris": 4484,
-   "tpu": 274,
-   "mat": 3,
-   "bytes": 236024,
-   "file": "Arch.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Arch_Door",
-   "kind": "str-part-door",
-   "wdh": [
-    2.4,
-    3.2,
-    0.3
-   ],
-   "tris": 1220,
-   "tpu": 226,
-   "mat": 4,
-   "bytes": 57708,
-   "file": "Arch_Door.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Arch_Door_bottompivot",
-   "kind": "str-part-door",
-   "wdh": [
-    2.4,
-    3.2,
-    0.3
-   ],
-   "tris": 1220,
-   "tpu": 226,
-   "mat": 4,
-   "bytes": 57720,
-   "file": "Arch_Door_bottompivot.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Arch_bars",
-   "kind": "obj-resource-metal",
-   "wdh": [
-    2.5,
-    3.4,
-    0.1
-   ],
-   "tris": 1603,
-   "tpu": 273,
-   "mat": 1,
-   "bytes": 63408,
-   "file": "Arch_bars.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Bag_Coins",
-   "kind": "obj-container-bag",
-   "wdh": [
-    0.4,
-    0.1,
-    0.2
-   ],
-   "tris": 976,
-   "tpu": 2845,
-   "mat": 2,
-   "bytes": 48848,
-   "file": "Bag_Coins.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Bag_Standing",
-   "kind": "obj-container-bag",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 456,
-   "tpu": 1329,
-   "mat": 2,
-   "bytes": 26524,
-   "file": "Bag_Standing.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Banner",
-   "kind": "str-marker-flag",
-   "wdh": [
-    2.4,
-    3.8,
-    0.2
-   ],
-   "tris": 564,
-   "tpu": 90,
-   "mat": 4,
-   "bytes": 30524,
-   "file": "Banner.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Banner_wall",
-   "kind": "str-part-wall",
-   "wdh": [
-    1.6,
-    2.8,
-    0.6
-   ],
-   "tris": 440,
-   "tpu": 135,
-   "mat": 3,
-   "bytes": 23224,
-   "file": "Banner_wall.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Barrel",
-   "kind": "obj-container-barrel",
-   "wdh": [
-    1,
-    1.3,
-    1
-   ],
-   "tris": 1384,
-   "tpu": 954,
-   "mat": 3,
-   "bytes": 72436,
-   "file": "Barrel.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Barrel2",
-   "wdh": [
-    1,
-    1.3,
-    1
-   ],
-   "tris": 1088,
-   "tpu": 773,
-   "mat": 2,
-   "bytes": 58348,
-   "file": "Barrel2.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Brick",
-   "wdh": [
-    0.7,
-    0.2,
-    0.4
-   ],
-   "tris": 140,
-   "tpu": 408,
-   "mat": 1,
-   "bytes": 7416,
-   "file": "Brick.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Bucket",
-   "kind": "obj-container-bucket",
-   "wdh": [
-    0.4,
-    0.5,
-    0.4
-   ],
-   "tris": 360,
-   "tpu": 1050,
-   "mat": 3,
-   "bytes": 21844,
-   "file": "Bucket.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Chair",
-   "kind": "obj-furniture-seating",
-   "wdh": [
-    0.6,
-    1.2,
-    0.7
-   ],
-   "tris": 1298,
-   "tpu": 2543,
-   "mat": 3,
-   "bytes": 60320,
-   "file": "Chair.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Chest",
-   "kind": "obj-container-chest",
-   "wdh": [
-    1.2,
-    0.9,
-    0.8
-   ],
-   "tris": 1676,
-   "tpu": 1920,
-   "mat": 3,
-   "bytes": 79756,
-   "file": "Chest.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Chest_Gold",
-   "kind": "obj-container-chest",
-   "wdh": [
-    1.2,
-    0.9,
-    1.5
-   ],
-   "tris": 22512,
-   "tpu": 14320,
-   "mat": 4,
-   "bytes": 996448,
-   "file": "Chest_Gold.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Cobweb",
-   "kind": "env-remains",
-   "wdh": [
-    1.2,
-    0.8,
-    0.9
-   ],
-   "tris": 1108,
-   "tpu": 1337,
-   "mat": 1,
-   "bytes": 60928,
-   "file": "Cobweb.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Cobweb2",
-   "wdh": [
-    1.3,
-    0.8,
-    1
-   ],
-   "tris": 868,
-   "tpu": 745,
-   "mat": 1,
-   "bytes": 47972,
-   "file": "Cobweb2.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Coin_Pile",
-   "kind": "obj-pocketitem-coin",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 3220,
-   "tpu": 9388,
-   "mat": 1,
-   "bytes": 141392,
-   "file": "Coin_Pile.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Column",
-   "kind": "str-part-pillar",
-   "wdh": [
-    1.3,
-    4.1,
-    1.3
-   ],
-   "tris": 440,
-   "tpu": 64,
-   "mat": 2,
-   "bytes": 22872,
-   "file": "Column.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Column2",
-   "wdh": [
-    1.3,
-    4.1,
-    1.3
-   ],
-   "tris": 548,
-   "tpu": 79,
-   "mat": 2,
-   "bytes": 26596,
-   "file": "Column2.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Crate",
-   "kind": "obj-container-crate",
-   "wdh": [
-    1.4,
-    1.3,
-    1.3
-   ],
-   "tris": 2502,
-   "tpu": 1058,
-   "mat": 2,
-   "bytes": 99108,
-   "file": "Crate.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Decorative_Wall",
-   "kind": "str-part-wall",
-   "wdh": [
-    1.7,
-    1.5,
-    0.4
-   ],
-   "tris": 1156,
-   "tpu": 623,
-   "mat": 2,
-   "bytes": 55636,
-   "file": "Decorative_Wall.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Fence_90_Modular",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    1.4,
-    1.3,
-    1.4
-   ],
-   "tris": 112,
-   "tpu": 45,
-   "mat": 2,
-   "bytes": 7760,
-   "file": "Fence_90_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Fence_End_Modular",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    1.4,
-    1.3,
-    0.8
-   ],
-   "tris": 102,
-   "tpu": 73,
-   "mat": 2,
-   "bytes": 7224,
-   "file": "Fence_End_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Fence_Straight_Modular",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    2,
-    1.3,
-    0.8
-   ],
-   "tris": 104,
-   "tpu": 51,
-   "mat": 2,
-   "bytes": 7304,
-   "file": "Fence_Straight_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Floor_BricksSeparate",
-   "kind": "str-part-floor",
-   "wdh": [
-    1,
-    0.3,
-    1.2
-   ],
-   "tris": 236,
-   "tpu": 401,
-   "mat": 1,
-   "bytes": 12612,
-   "file": "Floor_BricksSeparate.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Floor_BricksSeparate2",
-   "kind": "str-part-floor",
-   "wdh": [
-    1.3,
-    0.5,
-    1.2
-   ],
-   "tris": 484,
-   "tpu": 662,
-   "mat": 1,
-   "bytes": 24760,
-   "file": "Floor_BricksSeparate2.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Floor_Modular",
-   "kind": "str-part-floor",
-   "wdh": [
-    2,
-    0.3,
-    2
-   ],
-   "tris": 1176,
-   "tpu": 1171,
-   "mat": 1,
-   "bytes": 60388,
-   "file": "Floor_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Pedestal",
-   "kind": "str",
-   "wdh": [
-    1.9,
-    2.2,
-    2
-   ],
-   "tris": 1844,
-   "tpu": 220,
-   "mat": 1,
-   "bytes": 85412,
-   "file": "Pedestal.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Pedestal2",
-   "wdh": [
-    1.7,
-    2.3,
-    1.7
-   ],
-   "tris": 1182,
-   "tpu": 168,
-   "mat": 1,
-   "bytes": 53748,
-   "file": "Pedestal2.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Skull",
-   "kind": "env-remains-bones",
-   "wdh": [
-    0.6,
-    0.5,
-    0.4
-   ],
-   "tris": 1392,
-   "tpu": 4058,
-   "mat": 1,
-   "bytes": 76268,
-   "file": "Skull.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Spikes",
-   "wdh": [
-    1.8,
-    1.2,
-    1.8
-   ],
-   "tris": 504,
-   "tpu": 138,
-   "mat": 1,
-   "bytes": 31780,
-   "file": "Spikes.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Stairs_Modular",
-   "kind": "str-access-stairs",
-   "wdh": [
-    2,
-    2,
-    2.1
-   ],
-   "tris": 1420,
-   "tpu": 170,
-   "mat": 1,
-   "bytes": 72272,
-   "file": "Stairs_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Stairs_SideCover",
-   "kind": "str-access-stairs",
-   "wdh": [
-    0.4,
-    2,
-    2.1
-   ],
-   "tris": 892,
-   "tpu": 482,
-   "mat": 1,
-   "bytes": 45640,
-   "file": "Stairs_SideCover.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Stairs_SideCoverWall",
-   "kind": "str-part-wall",
-   "wdh": [
-    0.4,
-    2,
-    2
-   ],
-   "tris": 1252,
-   "tpu": 686,
-   "mat": 1,
-   "bytes": 63980,
-   "file": "Stairs_SideCoverWall.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Statue_Horse",
-   "kind": "obj",
-   "wdh": [
-    1.7,
-    5.9,
-    3.4
-   ],
-   "tris": 1850,
-   "tpu": 54,
-   "mat": 2,
-   "bytes": 92008,
-   "file": "Statue_Horse.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Sword_WallMount",
-   "kind": "obj-weapon-melee-sword",
-   "wdh": [
-    1.1,
-    0.8,
-    0.2
-   ],
-   "tris": 2382,
-   "tpu": 3769,
-   "mat": 6,
-   "bytes": 110784,
-   "file": "Sword_WallMount.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Table_Big",
-   "kind": "obj-furniture-table",
-   "wdh": [
-    1.6,
-    0.9,
-    3.3
-   ],
-   "tris": 916,
-   "tpu": 205,
-   "mat": 3,
-   "bytes": 47044,
-   "file": "Table_Big.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Table_Small",
-   "kind": "obj-furniture-table",
-   "wdh": [
-    1.3,
-    0.9,
-    2
-   ],
-   "tris": 804,
-   "tpu": 365,
-   "mat": 3,
-   "bytes": 41476,
-   "file": "Table_Small.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Torch",
-   "kind": "obj-lighting-torch",
-   "wdh": [
-    0.3,
-    1.2,
-    0.4
-   ],
-   "tris": 386,
-   "tpu": 1125,
-   "mat": 2,
-   "bytes": 21972,
-   "file": "Torch.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Trap_empty",
-   "wdh": [
-    2,
-    0.1,
-    2
-   ],
-   "tris": 1456,
-   "tpu": 1494,
-   "mat": 1,
-   "bytes": 57120,
-   "file": "Trap_empty.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Trap_spikes",
-   "wdh": [
-    2,
-    1.2,
-    2
-   ],
-   "tris": 2032,
-   "tpu": 438,
-   "mat": 2,
-   "bytes": 88160,
-   "file": "Trap_spikes.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Trapdoor",
-   "kind": "str-part-door",
-   "wdh": [
-    1.7,
-    0.2,
-    1.7
-   ],
-   "tris": 504,
-   "tpu": 605,
-   "mat": 4,
-   "bytes": 30504,
-   "file": "Trapdoor.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Trapdoor_open",
-   "kind": "str-part-door",
-   "wdh": [
-    1.7,
-    0.2,
-    2.7
-   ],
-   "tris": 564,
-   "tpu": 432,
-   "mat": 4,
-   "bytes": 32984,
-   "file": "Trapdoor_open.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Vase",
-   "kind": "obj-container-pot",
-   "wdh": [
-    0.3,
-    0.4,
-    0.3
-   ],
-   "tris": 220,
-   "tpu": 641,
-   "mat": 1,
-   "bytes": 12784,
-   "file": "Vase.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "WallCover_Modular",
-   "kind": "str-part-wall",
-   "wdh": [
-    2,
-    0.4,
-    0.5
-   ],
-   "tris": 280,
-   "tpu": 461,
-   "mat": 1,
-   "bytes": 14696,
-   "file": "WallCover_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Wall_Modular",
-   "kind": "str-part-wall",
-   "wdh": [
-    2,
-    2,
-    0.4
-   ],
-   "tris": 1672,
-   "tpu": 595,
-   "mat": 3,
-   "bytes": 88996,
-   "file": "Wall_Modular.obj"
-  },
-  {
-   "kit": "Modular_Dungeons_Pack_by_Quaternius_OBJ",
-   "name": "Woodfire",
-   "wdh": [
-    0.8,
-    0.8,
-    0.8
-   ],
-   "tris": 224,
-   "tpu": 422,
-   "mat": 3,
-   "bytes": 15828,
    "file": "Woodfire.obj"
   },
   {

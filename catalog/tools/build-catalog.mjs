@@ -377,7 +377,7 @@ const SOURCES = [
     description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
       'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
-      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-weapons',
+      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons',
     ],
   },
   {
@@ -386,7 +386,7 @@ const SOURCES = [
     description: 'Kits from Quaternius (quaternius.com).',
     kits: [
       'fantasy-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
-      'quat-rpg', 'quat-food', 'quat-fish', 'quat-ships',
+      'quat-rpg', 'quat-blood-ring', 'quat-skeleton', 'quat-food', 'quat-fish', 'quat-ships',
     ],
   },
   {
