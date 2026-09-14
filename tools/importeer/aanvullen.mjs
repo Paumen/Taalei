@@ -42,6 +42,13 @@ const hout = ['wood-worked', 'camel'];
 const schors = ['wood-bark', 'chestnut'];
 const staal = ['metal-iron-steel', 'nickel'];
 const smeedijzer = ['metal-iron-wrought', 'basalt'];
+const goud = ['metal-gold', 'amber'];
+const leer = ['leather', 'umber'];
+const greep = ['leather', 'taupe', 0.21];
+const touw = ['rope', 'taupe'];
+const been = ['bone', 'ivory'];
+const steenBlauw = ['gemstone', 'azure'];
+const steenRood = ['gemstone', 'sienna'];
 const gietijzer = ['metal-iron-cast', 'slate'];
 const aardewerk = ['ceramic', 'ivory'];
 const lak = ['ceramic', 'basalt'];
@@ -193,6 +200,84 @@ const PAKKETTEN = [
     ],
   },
   {
+    kit: 'quat-rpg',
+    bron: 'Ultimate_RPG_Pack_by_Quaternius_OBJ',
+    schaal: 0.15,
+    modellen: [
+      { naam: 'armor-horned', bronmodel: 'Armor_Black', kind: 'obj-equipment-armor',
+        tags: ['use:wearable', 'hero'], kleuren: { '#1f1f1f': staal, '#552d28': been } },
+      { naam: 'armor-horned-golden', bronmodel: 'Armor_Golden', kind: 'obj-equipment-armor',
+        tags: ['use:wearable'], kleuren: { '#a58e3d': goud } },
+      { naam: 'armor-leather', bronmodel: 'Armor_Leather', kind: 'obj-equipment-armor',
+        tags: ['use:wearable'], kleuren: { '#5d4539': leer } },
+      { naam: 'armor-metal', bronmodel: 'Armor_Metal', kind: 'obj-equipment-armor',
+        tags: ['use:wearable'], kleuren: { '#7f7f75': staal } },
+      { naam: 'armor-metal-2', bronmodel: 'Armor_Metal2', kind: 'obj-equipment-armor',
+        tags: ['use:wearable'], kleuren: { '#919092': staal } },
+      { naam: 'arrow', bronmodel: 'Arrow', kind: 'obj-weapon-ranged-accessory',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#63474a': hout, '#552d28': doek } },
+      { naam: 'arrow-golden', bronmodel: 'Arrow_Golden', kind: 'obj-weapon-ranged-accessory',
+        tags: ['use:weapon'], kleuren: { '#a58e3d': goud, '#63474a': hout } },
+      { naam: 'axe-double', bronmodel: 'Axe_Double', kind: 'obj-weapon-melee-axe',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#63474a': hout, '#402d39': greep } },
+      { naam: 'axe-small', bronmodel: 'Axe_small', kind: 'obj-weapon-melee-axe',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#63474a': hout, '#402d39': greep } },
+      { naam: 'bow-golden', bronmodel: 'Bow_Golden', kind: 'obj-weapon-ranged-bow',
+        tags: ['use:weapon', 'robin-hood'],
+        kleuren: { '#a58e3d': goud, '#63474a': hout, '#d1d1d1': touw } },
+      { naam: 'bow-wooden', bronmodel: 'Bow_Wooden', kind: 'obj-weapon-ranged-bow',
+        tags: ['use:weapon', 'robin-hood'],
+        kleuren: { '#402d39': balk, '#63474a': hout, '#d1d1d1': touw } },
+      { naam: 'chalice', bronmodel: 'Chalice', kind: 'obj-kitchenware-tableware',
+        tags: ['ngons'], kleuren: { '#b9a54f': goud } },
+      { naam: 'chest-closed', bronmodel: 'Chest_Closed', kind: 'obj-container-chest',
+        tags: ['use:container'],
+        kleuren: { '#705147': hout, '#3f394e': smeedijzer, '#464255': smeedijzer } },
+      { naam: 'chest-ingots', bronmodel: 'Chest_Ingots', kind: 'obj-container-chest',
+        tags: ['use:container', 'hero'],
+        kleuren: { '#705147': hout, '#3f394e': smeedijzer, '#464255': smeedijzer, '#b9a54f': goud } },
+      { naam: 'chest-open', bronmodel: 'Chest_Open', kind: 'obj-container-chest',
+        tags: ['use:container'],
+        kleuren: { '#705147': hout, '#3f394e': smeedijzer, '#464255': smeedijzer } },
+      { naam: 'crown', bronmodel: 'Crown', kind: 'obj-equipment',
+        tags: ['use:wearable', 'hero'], kleuren: { '#b9a54f': goud } },
+      { naam: 'dagger', bronmodel: 'Dagger', kind: 'obj-weapon-melee-dagger',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#7f7f75': staal, '#63474a': hout, '#402d39': greep } },
+      { naam: 'dart', bronmodel: 'Dart', kind: 'obj-weapon-ranged-accessory',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#63474a': hout, '#552d28': doek } },
+      { naam: 'fish-bone', bronmodel: 'FishBone', kind: 'env-remains-bones',
+        tags: [], kleuren: { '#8f8672': been } },
+      { naam: 'glove', bronmodel: 'Glove', kind: 'obj-equipment-clothing',
+        tags: ['use:wearable'], kleuren: { '#5d4539': leer } },
+      { naam: 'hammer-double', bronmodel: 'Hammer_Double', kind: 'obj-weapon-melee-hammer',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#63474a': hout, '#402d39': greep } },
+      { naam: 'heart', bronmodel: 'Heart', kind: 'obj',
+        tags: [], kleuren: { '#d1493c': steenRood } },
+      { naam: 'pouch', bronmodel: 'Pouch', kind: 'obj-container-bag',
+        tags: ['use:container', 'ngons'], kleuren: { '#5d4539': leer, '#ffffff': touw } },
+      { naam: 'ring-1', bronmodel: 'Ring1', kind: 'obj-pocketitem-jewellery',
+        tags: ['ngons'], kleuren: { '#a58e3d': goud } },
+      { naam: 'ring-2', bronmodel: 'Ring2', kind: 'obj-pocketitem-jewellery',
+        tags: ['ngons'], kleuren: { '#a58e3d': goud } },
+      { naam: 'ring-7', bronmodel: 'Ring7', kind: 'obj-pocketitem-jewellery',
+        tags: ['ngons'], kleuren: { '#134c55': steenBlauw, '#0f3e46': steenBlauw } },
+      { naam: 'star', bronmodel: 'Star', kind: 'obj',
+        tags: [], kleuren: { '#b9a54f': goud } },
+      { naam: 'sword', bronmodel: 'Sword', kind: 'obj-weapon-melee-sword',
+        tags: ['use:weapon'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#7f7f75': staal, '#63474a': hout, '#402d39': greep } },
+      { naam: 'sword-big', bronmodel: 'Sword_big', kind: 'obj-weapon-melee-sword',
+        tags: ['use:weapon', 'hero'],
+        kleuren: { '#5d6476': staal, '#919092': staal, '#7f7f75': staal, '#63474a': hout, '#402d39': greep } },
+    ],
+  },
+  {
     kit: 'quat-food',
     bron: 'Ultimate_Food_Pack_by_Quaternius_OBJ',
     schaal: 0.1,
@@ -322,9 +407,10 @@ function bandLicht(band, deel) {
 function bandPlekken(pakket) {
   const plek = new Map();
   for (const opgave of pakket.modellen) {
-    for (const [hex, [, band]] of Object.entries(opgave.kleuren ?? {})) {
+    for (const [hex, [, band, vast]] of Object.entries(opgave.kleuren ?? {})) {
       const sleutel = `${band}:${hex}`;
       if (plek.has(sleutel)) continue;
+      if (vast !== undefined) { plek.set(sleutel, vast); continue; }
 
       const gezocht = helderheid(hex);
       let beste = SPREIDING[0];
