@@ -34,9 +34,26 @@ they force the row to `sev manual`.
 
 **[F07] Subject.** What the assert is about: `model`, `dim:w`, `dim:d`,
 `dim:high`, `dim:long`, `dim:longest`, `bands`, `mat`, `mat:<id>`, `band`,
-`calls`, `tris`, `minEdge`, or `part:<name>`. A `part:` subject names a piece
-of the mesh; parts are not recorded per model, so every `part:` row is
-`sev manual` (Q07).
+`calls`, `tris`, `minEdge`, or `part:<name> (<presence>)`. A `part:` subject
+names a piece of the mesh. Parts are not recorded per model, so the row's own
+claim is `sev manual`, but its presence makes two model-level checks fall out
+of it — see F12. Presence is `always`, `usual` or `sometimes`: whether a model
+of that kind has the part at all (Q07).
+
+**[F12] What a part rule still checks.** Four checks are derived from the
+rows, with no rule-specific logic:
+
+| id | derived from | check | sev |
+|---|---|---|---|
+| `F12.1` | a `part:… (always)` row | the model carries that rule's material | error |
+| `F12.2` | a `part:… (usual)` row | the model carries that rule's material | warn |
+| `F12.3` | every row for the kind | the model's materials are among those the kind's rows name, where the kind is `closed` (Q17) | error |
+| `F12.4` | §5 and the model's materials | the model's bands are among those §5 allows for its materials and kind | error |
+
+`F12.4` needs no part data at all: §5 gives every material a band, so the union
+over a model's materials bounds its bands whether or not the parts are known.
+A material with no §5 row (Q08) is skipped, not failed. `sometimes` derives
+nothing.
 
 **[F08] Assert.** Closed vocabulary:
 
@@ -87,26 +104,29 @@ Definitions:
 | `D09` | longest | an object's largest extent |
 | `D10` | near-cube | extents within 15% of each other |
 
-Colour bands. The band name is the token used in `value`; the id is its
-position on `kits/colormap.png`.
+Colour bands. The band name is the token used in `value`. The lane is its
+`column,row` cell of the 16 × 4 grid of `kits/colormap.png`, the same key
+`catalog.json` uses in `spread`; the linter matches on the lane. The C id does
+not decode to the lane (Q18).
 
-| band | id |
-|---|---|
-| `tan` | C01 |
-| `camel` | C02 |
-| `chestnut` | C03 |
-| `umber` | C04 |
-| `terracotta` | C06 |
-| `amber` | C07 |
-| `sienna` | C09 |
-| `hunter` | C13 |
-| `moss` | C15 |
-| `slate` | C18 |
-| `azure` | C25 |
-| `ivory` | C27 |
-| `basalt` | C313 |
-| `taupe` | C314 |
-| `nickel` | C315 |
+| band | lane | id |
+|---|---|---|
+| `tan` | 0,0 | C01 |
+| `camel` | 1,0 | C02 |
+| `chestnut` | 2,0 | C03 |
+| `umber` | 3,0 | C04 |
+| `terracotta` | 5,0 | C06 |
+| `amber` | 6,0 | C07 |
+| `sienna` | 8,0 | C09 |
+| `hunter` | 1,1 | C13 |
+| `moss` | 3,1 | C15 |
+| `slate` | 6,1 | C18 |
+| `azure` | 4,2 | C25 |
+| `ivory` | 5,2 | C27 |
+| `basalt` | 13,3 | C313 |
+| `taupe` | 14,3 | C314 |
+| `nickel` | 15,3 | C315 |
+| — | 3,2 | — (Q19) |
 
 Tag fields:
 
@@ -153,7 +173,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G02` | `*` | — (Q16) | `minEdge` | min | 0.015 | error |
 | `G03` | `*` | `tag:char` + `tag:plural` | `tris` | max | 5000 per occupied grid cell (Q01) | error |
 | `G04` | `*` | — (Q02) | model | is | `grounded` and `centered` | error |
-| `G05` | `*` | — | `part:split node` | is | origin at the joint | manual |
+| `G05` | `*` | — | `part:split node` (sometimes) | is | origin at the joint | manual |
 
 ### 2.2 Band counts
 
@@ -215,18 +235,18 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | id | when | subject | assert | value | sev |
 |---|---|---|---|---|---|
 | `G44` | `kind:env-terrain-mountain` | — | exempt | `G13` | error |
-| `G45` | hooped containers (`D06`) | `part:hoop` | range | 5–15% of longest, high | manual |
+| `G45` | hooped containers (`D06`) | `part:hoop` (usual) | range | 5–15% of longest, high | manual |
 | `G46.1` | `kind:obj-container-barrel` | `dim:w` | max | 0.75 | error |
-| `G46.2` | `kind:obj-container-barrel` | `part:side plank` | count-range | 8–14 | manual |
+| `G46.2` | `kind:obj-container-barrel` | `part:side plank` (always) | count-range | 8–14 | manual |
 | `G46.3` | `kind:obj-container-barrel` | `tris` | range | 100–1500 | error |
-| `G46.4` | `kind:obj-container-barrel` | `part:hoop` | count-max | 3 | manual |
-| `G47` | `kind:obj-container-bucket` | `part:hoop` | count-max | 3 | manual |
-| `G48` | `kind:obj-container-crate` & near-cube | `part:plank` | count-range | 3–7 side by side per face | manual |
+| `G46.4` | `kind:obj-container-barrel` | `part:hoop` (always) | count-max | 3 | manual |
+| `G47` | `kind:obj-container-bucket` | `part:hoop` (always) | count-max | 3 | manual |
+| `G48` | `kind:obj-container-crate` & near-cube | `part:plank` (always) | count-range | 3–7 side by side per face | manual |
 | `G49.1` | `kind:obj-furniture`, except `G49.2` | model | fits | 1.2 × 1.2 × 1.2 | error |
 | `G49.2` | `kind:obj-furniture-table` | model | fits | 2 × 2 × 0.5 | error |
 | `G50` | `kind:obj-pocketitem-book` & open | `dim:longest` | see | `G40`, on the longest cover edge | manual |
 | `G51` | `kind:obj-pocketitem-coin` & `tag:plural` | — | exempt | `G38` | error |
-| `G52` | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | `part:sail, canopy, canvas` | max | 0.1 thick | manual |
+| `G52` | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | `part:sail, canopy, canvas` (sometimes) | max | 0.1 thick | manual |
 
 ---
 
@@ -263,31 +283,34 @@ subtype; `part:<name>` = that piece of the mesh.
 
 | id | when | subject | assert | material | sev |
 |---|---|---|---|---|---|
-| `M01` | hooped containers (`D06`) | `part:hoop` | is | `metal-iron` | manual |
+| `M01.1` | `kind:obj-container-barrel` | `part:hoop` (always) | is | `metal-iron` | manual |
+| `M01.2` | `kind:obj-container-bucket` | `part:hoop` (always) | is | `metal-iron` | manual |
+| `M01.3` | `kind:obj-container-chest` | `part:hoop` (usual) | is | `metal-iron` | manual |
+| `M01.4` | `kind:obj-container-crate` | `part:hoop` (sometimes) | is | `metal-iron` | manual |
 | `M02` | `kind:obj-container-bottle` | model | one-of | `glass`, `ceramic` | error |
-| `M03` | `kind:obj-container-bag` | `part:fastener, closure` | one-of | `rope`, `leather` | manual |
+| `M03` | `kind:obj-container-bag` | `part:fastener, closure` (sometimes) | one-of | `rope`, `leather` | manual |
 | `M04` | `kind:obj-kitchenware-tableware-plate` | model | one-of | `ceramic`, `metal-iron`, `wood` | error |
-| `M05` | `kind:obj-kitchenware-tableware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron` | manual |
+| `M05` | `kind:obj-kitchenware-tableware` mug, cup, tankard | `part:hoop, handle` (sometimes) | is | `metal-iron` | manual |
 | `M06` | `kind:obj-kitchenware-tableware` | `mat:metal-iron` | is | `metal-iron-steel` | error |
 | `M07` | `kind:obj-furniture` | model | is | `wood` | error |
 | `M08` | `kind:obj-furniture` rug, carpet | model | is | `textile` | manual |
 | `M09` | `kind:obj-furniture-seating` upholstered | model | is | `textile` | manual |
 | `M10` | `kind:obj-weapon` + `kind:obj-tool` | `mat:metal-iron` | is | `metal-iron-steel` | error |
-| `M11` | `kind:obj-weapon` + `kind:obj-tool` | `part:handle` | one-of | `wood`, `textile`, both | manual |
-| `M12` | `kind:obj-weapon` | `part:strap` | one-of | `textile`, `leather` | manual |
+| `M11` | `kind:obj-weapon` + `kind:obj-tool` | `part:handle` (usual) | one-of | `wood`, `textile`, both | manual |
+| `M12` | `kind:obj-weapon` | `part:strap` (sometimes) | one-of | `textile`, `leather` | manual |
 | `M13` | `kind:obj-weapon-cannon` | `mat:metal-iron` | is | `metal-iron-cast` | error |
 | `M14` | `kind:obj-equipment` | `mat:metal-iron` | is | `metal-iron-steel` | error |
 | `M15` | `kind:obj-equipment-clothing` belt, shoe, strap | model | is | `leather` | manual |
-| `M16` | `kind:obj-tool-hand` | `part:wood handle` | is | `wood-planks` | manual |
-| `M17` | `kind:obj-tool-long` | `part:pole` | is | `wood-beam` | manual |
+| `M16` | `kind:obj-tool-hand` | `part:wood handle` (usual) | is | `wood-planks` | manual |
+| `M17` | `kind:obj-tool-long` | `part:pole` (always) | is | `wood-beam` | manual |
 | `M18` | `kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-wrought` | error |
-| `M19` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` | manual |
+| `M19` | `kind:obj-transport-accessory` | `part:sail` (sometimes) | is | `textile` | manual |
 | `M20` | `kind:obj-pocketitem-coin` | model | is | `metal-gold` | error |
 | `M21` | `kind:obj-pocketitem-key` | model | one-of | `metal-iron`, `metal-gold` | error |
-| `M22` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` | one-of | `leather`, `metal-iron` | manual |
+| `M22` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` (usual) | one-of | `leather`, `metal-iron` | manual |
 | `M23` | `kind:obj-pocketitem-jewellery` | model | is | `metal-gold` with `gemstone` | error |
-| `M24` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | `part:cut face` | is | `wood-log` | manual |
-| `M25` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | `part:round side` | is | `wood-bark` | manual |
+| `M24` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | `part:cut face` (always) | is | `wood-log` | manual |
+| `M25` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | `part:round side` (always) | is | `wood-bark` | manual |
 | `M26` | `kind:obj` bells | model | one-of | `metal-copper`, `metal-gold` | manual |
 | `M27` | `kind:str` | `mat:metal-iron` | is | `metal-iron-cast` | error |
 | `M28` | `kind:str-part-roof` | model | is | `ceramic` (colour half in `B65`) | error |
@@ -298,14 +321,14 @@ subtype; `part:<name>` = that piece of the mesh.
 | `M33` | `kind:obj-kitchenware-tableware` mug, cup, tankard | model | expect | `wood` | manual |
 | `M34` | `kind:obj-kitchenware-cookware` & `mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` | manual |
 | `M35` | `kind:obj-tool` + `kind:obj-weapon` | `mat:metal` | is | `metal-iron` or deeper | error |
-| `M36` | `kind:obj-weapon` + `kind:obj-tool` + `kind:obj-equipment-shield` | `part:grip, fastener, join` | expect | `textile`, `rope`, `leather` | manual |
+| `M36` | `kind:obj-weapon` + `kind:obj-tool` + `kind:obj-equipment-shield` | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` | manual |
 | `M37` | `kind:obj-weapon` simple + `kind:obj-weapon-ranged-bow` | model | allow | `wood`, wholly or partly — widens `M35` | none |
 | `M38` | `kind:obj-weapon` special | model | allow | `metal-gold`, `gemstone`, partly — widens `M35` | none |
 | `M39` | `*` sticks, unworked poles | model | is | `wood-bark` | manual |
-| `M40` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | expect | `leather` | manual |
+| `M40` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` (sometimes) | expect | `leather` | manual |
 | `M41` | `kind:obj-transport-boat` + `kind:obj-transport-ship` | `mat:wood` | count-min | 2 | error |
 | `M42` | `kind:str` | model | expect | mainly `wood`, then `stone`; `metal` sparingly | warn |
-| `M43` | `kind:str-marker-sign` + `kind:str-barrier-post` + `kind:str-marker-flag` | `part:pole` | expect | `wood` | manual |
+| `M43` | `kind:str-marker-sign` + `kind:str-barrier-post` + `kind:str-marker-flag` | `part:pole` (usual) | expect | `wood` | manual |
 | `M44` | `*` | — | see | `M24`, `M25`; never the other way round | none |
 | `M45` | `kind:obj` bells | model | not | `metal-iron` | manual |
 
@@ -354,36 +377,36 @@ kind row overrides a material row.
 | `B33` | `kind:obj-food-grain` | model | one-of | `tan`, `camel`, `chestnut` | error |
 | `B34` | `kind:obj-food-grain` wheat, straw | model | is | `tan` | manual |
 | `B35` | `*` chocolate | model | is | `chestnut` | manual |
-| `B36` | `kind:obj-weapon` + `kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe` | manual |
-| `B37` | `kind:obj-weapon-magic` & `mat:paper` | `part:cover` | one-of | `umber`, `sienna`, `hunter`, `slate` | manual |
+| `B36` | `kind:obj-weapon` + `kind:obj-tool` | `part:wrapped grip, binding` (sometimes) | is | `taupe` | manual |
+| `B37` | `kind:obj-weapon-magic` & `mat:paper` | `part:cover` (sometimes) | one-of | `umber`, `sienna`, `hunter`, `slate` | manual |
 | `B38` | `kind:obj-transport` | `mat:wood` | one-of | `camel`, `chestnut` | error |
 | `B39` | `kind:obj-transport-accessory` sails + `kind:str-stands` canvas | model | one-of | `ivory`, striped `sienna` and `ivory` | manual |
-| `B40` | `kind:obj-pocketitem-book` | `part:cover` | one-of | `umber`, `sienna`, `hunter`, `slate` | manual |
+| `B40` | `kind:obj-pocketitem-book` | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` | manual |
 | `B41` | `kind:obj-pocketitem-scroll` | model | is | `ivory` | error |
-| `B42` | `kind:obj-pocketitem-scroll` | `part:text` | is | `slate` | manual |
-| `B43` | `kind:obj-pocketitem-scroll` | `part:accent` | one-of | `sienna`, `hunter`, `azure` | manual |
+| `B42` | `kind:obj-pocketitem-scroll` | `part:text` (sometimes) | is | `slate` | manual |
+| `B43` | `kind:obj-pocketitem-scroll` | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` | manual |
 | `B44` | `kind:str` | `mat:glass` | is | `transparent` | error |
-| `B45` | `kind:env-flora` | `part:stem, leaf` | is | `moss` | manual |
+| `B45` | `kind:env-flora` | `part:stem, leaf` (usual) | is | `moss` | manual |
 | `B46` | `kind:env-flora-tree` | model | is | `hunter` | error |
-| `B47` | `kind:env-fungi` | `part:stem` | is | `ivory` | manual |
-| `B48` | `kind:env-fungi` | `part:cap` | one-of | `sienna`, `camel` | manual |
-| `B49` | `*` | `part:dried stalk` | is | `taupe` | manual |
-| `B50` | `*` | `part:flame, glow, light` | is | `amber` | manual |
+| `B47` | `kind:env-fungi` | `part:stem` (always) | is | `ivory` | manual |
+| `B48` | `kind:env-fungi` | `part:cap` (always) | one-of | `sienna`, `camel` | manual |
+| `B49` | `*` | `part:dried stalk` (sometimes) | is | `taupe` | manual |
+| `B50` | `*` | `part:flame, glow, light` (sometimes) | is | `amber` | manual |
 | `B51` | `mat=wood-log` | model | one-of | any brown band (Q09) | manual |
 | `B52` | `mat:metal-iron` | `bands` | not | two `metal-iron` bands merged into one | error |
 | `B53.1` | `kind:str-part-wall` + `kind:str-part-floor` + `kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` | manual |
 | `B53.2` | `kind:env-terrain-ground` sand, dirt | `mat:stone` | is | `stone-soil` | manual |
 | `B54` | `tag:char` & `kind:obj-equipment-clothing`, + sail/canvas striping | `mat:textile` | allow | `sienna` — widens `B14` | none |
 | `B55` | `kind:obj-transport-ship` + `kind:obj-transport-boat` + `kind:obj-transport-accessory` | `mat:textile` | allow | `slate` — widens `B14` | none |
-| `B56` | `kind:obj-weapon` + `kind:obj-tool` | `part:wrapped grip, binding` | range | UV 0.02–0.40 of the `taupe` band | manual |
+| `B56` | `kind:obj-weapon` + `kind:obj-tool` | `part:wrapped grip, binding` (sometimes) | range | UV 0.02–0.40 of the `taupe` band | manual |
 | `B57` | `mat=wax` | model | see | `B18` is `obj-lighting-candle` wax | none |
 | `B58` | `kind:obj-food` | model | allow | any band; its material decides nothing | none |
 | `B59` | `kind:obj-food` fish | model | expect | `nickel`, `basalt`, `slate`, `azure` | manual |
 | `B60` | `kind:obj-food-vegetable` | model | expect | `moss` | warn |
 | `B61` | `kind:env-flora-tree-palm` | model | exempt | `B46` | error |
-| `B62` | `kind:env-flora-plant-flower` + `kind:env-flora-plant-cactus` | `part:flower` | allow | any band | none |
+| `B62` | `kind:env-flora-plant-flower` + `kind:env-flora-plant-cactus` | `part:flower` (usual) | allow | any band | none |
 | `B63` | `kind:env-fauna` | model | allow | any band | none |
-| `B64` | `*` | `part:flame, glow, light` | is | UVs spread wide across the `amber` band (Q10) | manual |
+| `B64` | `*` | `part:flame, glow, light` (sometimes) | is | UVs spread wide across the `amber` band (Q10) | manual |
 | `B65` | `kind:str-part-roof` | model | is | `sienna` | error |
 
 ---
@@ -459,9 +482,9 @@ Each one blocks a rule from being checkable, or leaves two readings of it. The
 | `Q02` | `G04` | "Only deliberately, for a functional reason" has no token a model can carry, so every ungrounded or off-centre model fails. Which tag marks the deliberate ones? |
 | `Q03` | `T10` | There is no `animation` tag and no animation field in `catalog.json`. Where is it measured to? |
 | `Q04` | `T14` | A `special` must record its band and reason, but no field holds either. Where? |
-| `Q05` | `B20`, `B21`, `B44` | `transparent` is used as a band but is not in the colour-band table and is not on the colormap. Is it a band, or the absence of one? |
+| `Q05` | `B20`, `B21`, `B44` | `transparent` is used as a band but is not in the band table and is not a painted lane. Is it a band, or the absence of one? |
 | `Q06` | `D02`, `G26`–`G34` | "Long" is the main axis, which is not recorded; only `wdh` is. Record the axis, or read these nine rows as `longest`? |
-| `Q07` | 35 `part:` rows | No part of a mesh is recorded per model, so every part rule is unlintable. Close the part list and record it, or leave these as manual review? |
+| `Q07` | every `part:` row | The presence values were read off the catalogue, not decided: barrel and bucket hoops 100% of models, `obj-tool-long` poles 19/19, cut faces 38/38, chest hoops 22/25, tool handles 39/45, book straps 20/25, crate hoops 3/21, sails 2/8. Confirm each, or record parts per model and check them directly. |
 | `Q08` | `F02` | The field said "closed, 36"; `tags.json` holds 37 materials, including `metal-silver`, which is not in the material tree. Also `foliage`, `plastic`, `emissive`, `food`, `vegetation` and `special` have no colour row in §5, so §5 is not total over the materials. |
 | `Q09` | `B51` | "Any brown" names no band. `tan`, `camel`, `chestnut` and `umber` are the brown bands — is that the set, and may a log mix them? |
 | `Q10` | `I07`, `B64` | "Spread maintained" and "spread wide" have no number, while `catalog.json` records `grad` and `spread` per band. What is the threshold? |
@@ -470,6 +493,9 @@ Each one blocks a rule from being checkable, or leaves two readings of it. The
 | `Q13` | `F02`–`F05` | `tags.json` carries a fifth field, `use` (eight `use:` tags), and a `scene` kind. Neither appears in this document. |
 | `Q14` | all | Rule ids quoted in `tags.json` descriptions (M11, M12, M13, M28, M41, M42, M44, T15, M20) point at an older numbering. They need remapping to the ids here. |
 | `Q15` | `M28`, `B65` | `M28` set a material and a band in one cell; the band is split out as `B65`. Confirm the split, and the id. |
+| `Q17` | `F12.3` | Material closure only runs where a kind's rows are known to be complete. Which kinds are closed? None is marked, so `F12.3` runs nowhere yet. |
+| `Q18` | band ids | The C id decodes four ways: row 0 is the column + 1 (`tan` C01 = lane 0,0), row 1 the column + 12 (`slate` C18 = 6,1), row 3 the column + 300 (`nickel` C315 = 15,3), and row 2 disagrees with itself (`azure` C25 = 4,2 is + 21, `ivory` C27 = 5,2 is + 22). Renumber, or drop the column and keep the lane? |
+| `Q19` | band table | `kits/colormap.png` paints 16 lanes; the table names 15. Lane 3,2 (#979ebd) has no name and no rule. Name it, or is it unused? |
 | `Q16` | `G02`, `G52` | Nothing may be thinner than 0.015, yet flags, sails, canopies and canvas must be under 0.1 thick — the two only agree if cloth is not a solid piece. Which is it? |
 
 ---
