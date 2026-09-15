@@ -385,7 +385,7 @@ const SOURCES = [
     name: 'Quaternius',
     description: 'Kits from Quaternius (quaternius.com).',
     kits: [
-      'fantasy-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
+      'quat-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
       'quat-rpg', 'quat-blood-ring', 'quat-skeleton', 'quat-food', 'quat-fish', 'quat-ships',
     ],
   },
