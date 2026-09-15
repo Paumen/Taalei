@@ -71,7 +71,7 @@ export function buildScaleGroups(models) {
   for (const m of models) {
     if (!m.kind || m.kind === 'assy' || m.kind === 'scene' || SKIP.has(m.id)) continue;
     if (SKIP_RULE(m)) continue;
-    if (m.tags?.includes('plural')) continue;
+    if (m.tags?.includes('plural') || m.tags?.includes('pickup')) continue;
     if (!perKind.has(m.kind)) perKind.set(m.kind, []);
     perKind.get(m.kind).push(m);
   }
