@@ -152,12 +152,12 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G21` | `kind:obj-container-crate & D06` | — | `dim:high` | range | 0.2–0.8 |
 | `G22` | `kind:obj-container-bottle` | — | `dim:high` | range | 0.1–0.4 |
 | `G23` | `kind:obj-container-pot` | — | `dim:high` | range | 0.2–0.4 |
-| `G24` | `kind:obj-kitchenware-tableware-cutlery` | — | `dim:longest` | range | 0.1–0.4 |
+| `G24` | `kind:obj-kitchenware-tableware-cutlery` | — | `dim:longest` | range | 0.05–0.4 |
 | `G25` | `kind:obj-kitchenware-tableware-plate` | — | `dim:longest` | range | 0.1–0.4 |
 | `G26` | `kind:obj-kitchenware-cookware-pan` | `tag:comp` | `dim:high` | max | 0.4 |
 | `G27` | `kind:obj-kitchenware-cookware-pot` | `tag:comp` | `dim:high` | max | 0.4 |
 | `G28` | `kind:obj-furniture-seating` | — | `dim:high` | range | 0.2–0.7 |
-| `G29` | `kind:obj-furniture-table` | — | `dim:high` | min | 0.2 |
+| `G29` | `kind:obj-furniture-table` | — | `dim:high` | range | 0.2–0.5 |
 | `G30` | `kind:obj-weapon-melee-sword` | — | `dim:longest` | range | 0.4–1.0 |
 | `G31` | `kind:obj-weapon-melee-dagger` | — | `dim:longest` | range | 0.1–0.5 |
 | `G32` | `kind:obj-weapon-melee-axe` | — | `dim:longest` | range | 0.2–0.8 |
@@ -167,7 +167,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G36` | `kind:obj-weapon-magic-staff` | — | `dim:longest` | range | 0.2–1.2 |
 | `G37` | `kind:obj-equipment-shield` | — | `dim:high` | range | 0.2–0.6 |
 | `G38` | `kind:obj-tool-long` | — | `dim:longest` | range | 0.3–1.2 |
-| `G39` | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.1–1.0 |
+| `G39` | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.2–1.2 |
 | `G40` | `kind:obj-lighting-torch` | — | `dim:high` | range | 0.1–1.0 |
 | `G41` | `kind:obj-lighting-candle` | — | `dim:high` | range | 0.1–0.7 |
 | `G42` | `kind:obj-pocketitem-coin` | `tag:plural` | `dim:longest` | max | 0.2 |
@@ -176,23 +176,17 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G46` | `kind:obj-pocketitem-scroll` | — | `dim:longest` | range | 0.1–0.4 |
 | `G47` | `kind:env-flora-tree` | — | `dim:high` | range | 0.6–2.4 |
 | `G48` | `kind:char` | — | `dim:high` | range | 0.4–0.8 |
-
-any l min 0.05-30
-object l 0.05-10
-furniture l 0.1-1.2
-stool h 0.2-0.6
-chair h 0.3-0.9
-bench h 0.2-0.8
-bed l 0.6-1.2
-
-resource-plank l 0.2-1.2
-furniture storage l 0.2-1.2
-candle h 0.1-0.7
-Table h 0.2-0.5
-lantern h 0.2-1.2
-cup h 0.05-0.2
-Cutlery l 0.05-2.0
-sculpture l 0.2-10
+| `G58` | `*` | — | `dim:longest` | range | 0.05–30 |
+| `G59` | `kind:obj` | — | `dim:longest` | range | 0.05–10 |
+| `G60` | `kind:obj-furniture` | — | `dim:longest` | range | 0.1–1.2 |
+| `G61` | `kind:obj-furniture-seating-stool` | — | `dim:high` | range | 0.2–0.6 |
+| `G62` | `kind:obj-furniture-seating-chair` | — | `dim:high` | range | 0.3–0.9 |
+| `G63` | `kind:obj-furniture-seating-bench` | — | `dim:high` | range | 0.2–0.8 |
+| `G64` | `kind:obj-furniture-bed` | — | `dim:longest` | range | 0.6–1.2 |
+| `G65` | `kind:obj-furniture-storage` | — | `dim:longest` | range | 0.2–1.2 |
+| `G66` | `kind:obj-kitchenware-tableware-drinkware` | — | `dim:high` | range | 0.05–0.2 |
+| `G67` | `kind:obj-resource-wood-plank` | — | `dim:longest` | range | 0.2–1.2 |
+| `G68` | `kind:obj-art-sculpture` | — | `dim:longest` | range | 0.2–10 |
 
 ### 2.5 Boxes and part counts
 
