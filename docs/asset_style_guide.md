@@ -167,29 +167,29 @@ Definitions:
 
 Colour bands. The band name is the token used in `value`. The lane is its
 `column,row` cell of the 16 × 4 grid of `kits/colormap.png`, the same key
-`catalog.json` uses in `spread`; the linter matches on the lane. The C id does
-not decode to the lane (Q18). Lane 3,2 is painted but unnamed (Q19).
-`transparent` is a band with no lane: it names a surface the colormap does not
-paint.
+`catalog.json` uses in `spread`; the linter matches on the lane. A band is
+named by its name or its lane, and by nothing else. `transparent` is a band
+with no lane: it names a surface the colormap does not paint. Lane 3,2
+(#979ebd) is painted but unused; no band names it, so `I06` forbids it.
 
-| band | lane | id |
-|---|---|---|
-| `transparent` | — | — |
-| `tan` | 0,0 | C01 |
-| `camel` | 1,0 | C02 |
-| `chestnut` | 2,0 | C03 |
-| `umber` | 3,0 | C04 |
-| `terracotta` | 5,0 | C06 |
-| `amber` | 6,0 | C07 |
-| `sienna` | 8,0 | C09 |
-| `hunter` | 1,1 | C13 |
-| `moss` | 3,1 | C15 |
-| `slate` | 6,1 | C18 |
-| `azure` | 4,2 | C25 |
-| `ivory` | 5,2 | C27 |
-| `basalt` | 13,3 | C313 |
-| `taupe` | 14,3 | C314 |
-| `nickel` | 15,3 | C315 |
+| band | lane |
+|---|---|
+| `transparent` | — |
+| `tan` | 0,0 |
+| `camel` | 1,0 |
+| `chestnut` | 2,0 |
+| `umber` | 3,0 |
+| `terracotta` | 5,0 |
+| `amber` | 6,0 |
+| `sienna` | 8,0 |
+| `hunter` | 1,1 |
+| `moss` | 3,1 |
+| `slate` | 6,1 |
+| `azure` | 4,2 |
+| `ivory` | 5,2 |
+| `basalt` | 13,3 |
+| `taupe` | 14,3 |
+| `nickel` | 15,3 |
 
 Tag fields:
 
@@ -211,6 +211,7 @@ Withdrawn ids:
 | `G11`, `G12` | `F15` — how `special` counts, not a rule |
 | `G04` | `G04.1`, `G04.2` — one predicate per row |
 | `G10` | `G10.1`, `G10.2` — the cap is a number, not `G09` + 1 |
+| `G02` | `G02`, `G02.1` — cloth has its own floor |
 | `G44` | `G13`'s `except` cell |
 | `G51` | `G38`'s `except` cell |
 | `B61` | `B46`'s `except` cell |
@@ -251,7 +252,8 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | id | scope | when | except | subject | assert | value | sev | check | source |
 |---|---|---|---|---|---|---|---|---|---|
 | `G01` | model | `tag:ngons` | `tag:hero` | model | count-range | 8–12 flat pieces per full circle | warn | manual | — |
-| `G02` | model | `*` | — | `minEdge` | min | 0.015 | error | auto | catalog |
+| `G02` | model | `*` | `mat:textile` | `minEdge` | min | 0.015 | error | auto | catalog |
+| `G02.1` | model | `mat:textile` | — | `minEdge` | min | 0.01 | error | auto | catalog |
 | `G03` | model | `*` | `kind:char` + `tag:plural` | `dens` | max | 5000 | warn | auto | catalog |
 | `G04.1` | model | `*` | `tag:floating` | `grounded` | is | true | error | auto | catalog |
 | `G04.2` | model | `*` | `tag:offcenter` | `centered` | is | true | error | auto | catalog |
@@ -321,7 +323,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G49.1` | model | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 | error | auto | catalog |
 | `G49.2` | model | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 | error | auto | catalog |
 | `G50` | model | `kind:obj-pocketitem-book` & open | — | `dim:longest` | see | `G40`, on the longest cover edge | — | none | — |
-| `G52` | model | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` (sometimes) | max | 0.1 thick | error | manual | — |
+| `G52` | model | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` (sometimes) | range | 0.01–0.05 thick | error | manual | — |
 
 ---
 
@@ -553,10 +555,7 @@ Each one blocks a rule from being checkable, or leaves two readings of it. The
 | `Q08` | `F02` | The field said "closed, 36"; `tags.json` holds 37 materials, including `metal-silver`, which is not in the material tree. Also `foliage`, `plastic`, `emissive`, `food`, `vegetation` and `special` have no colour row in §5, so §5 is not total over the materials. |
 | `Q12` | `V06` | `asset_variants.json` types are `detail-variant`, `color-variant` and `maatvariant`. `color-variant` is `D12` and `maatvariant` is `D13`; `detail-variant` covers more than one reason and is sorted group by group by the PO. Until it is, `V06` fails every group carrying it. |
 | `Q15` | `M28`, `B65` | `M28` set a material and a band in one cell; the band is split out as `B65`. Confirm the split, and the id. |
-| `Q16` | `G02`, `G52` | Nothing may be thinner than 0.015, yet flags, sails, canopies and canvas must be under 0.1 thick — the two only agree if cloth is not a solid piece. Which is it? |
 | `Q17` | `F12.3` | Material closure only runs where a kind's rows are known to be complete. Which kinds are closed? None is marked, so `F12.3` runs nowhere yet. |
-| `Q18` | band ids | The C id decodes four ways: row 0 is the column + 1 (`tan` C01 = lane 0,0), row 1 the column + 12 (`slate` C18 = 6,1), row 3 the column + 300 (`nickel` C315 = 15,3), and row 2 disagrees with itself (`azure` C25 = 4,2 is + 21, `ivory` C27 = 5,2 is + 22). Renumber, or drop the column and keep the lane? |
-| `Q19` | band table | `kits/colormap.png` paints 16 lanes; the table names 15. Lane 3,2 (#979ebd) has no name and no rule. Name it, or is it unused? |
 | `Q20` | `M07` | Rugs and upholstered seating leave `M07` through a prose `except`, which makes `M07` `check manual`. Which tag marks them, so `M07` can run? |
 
 ---
