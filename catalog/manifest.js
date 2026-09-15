@@ -295,7 +295,6 @@ window.KENNEY_KITS = [
    "platform-fortified",
    "platform-overhang",
    "platform-ramp",
-   "poles",
    "rocks",
    "sign",
    "spring",
@@ -1274,8 +1273,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "fantasy-props",
-  "name": "fantasy-props",
+  "slug": "quat-props",
+  "name": "quat-props",
   "url": "https://quaternius.com/",
   "models": [
    "bag",
@@ -1304,15 +1303,12 @@ window.KENNEY_KITS = [
    "scroll-1",
    "scroll-2",
    "shield-wooden",
-   "stall",
-   "stall-cart",
    "table-plate",
    "torch-metal",
    "training-dummy",
    "vase-2",
    "vase-4",
-   "weapon-stand",
-   "whetstone"
+   "weapon-stand"
   ]
  },
  {
@@ -1683,7 +1679,6 @@ window.KENNEY_KITS = [
    "donut-2",
    "donut-3",
    "donut-4",
-   "egg-fried",
    "egg-whole-white",
    "eggplant",
    "fish",
@@ -2262,7 +2257,6 @@ window.KENNEY_KITS = [
    "stone-bridge-2",
    "wall-1",
    "wall-2",
-   "wooden-pillar-lamp",
    "wooden-platform",
    "wooden-platform-2"
   ]
@@ -2438,8 +2432,7 @@ window.KENNEY_KITS = [
    "training-dummy",
    "tree-bed",
    "vase",
-   "walkway",
-   "wall-shield"
+   "walkway"
   ]
  },
  {
@@ -2458,7 +2451,6 @@ window.KENNEY_KITS = [
    "hammer-wedge",
    "saw-coarse",
    "saw-crosscut",
-   "saw-fine",
    "saw-large",
    "sword"
   ]
@@ -3074,8 +3066,6 @@ window.KENNEY_KITS = [
    "torii",
    "tower",
    "training-post",
-   "tree-ancient-a",
-   "tree-ancient-b",
    "tree-garden",
    "urn-a",
    "urn-b",
@@ -3097,11 +3087,6 @@ window.KENNEY_KITS = [
    "boulder-b",
    "boulder-c",
    "boulder-d",
-   "boulder-dark-a",
-   "boulder-dark-b",
-   "boulder-dark-c",
-   "boulder-dark-d",
-   "boulder-dark-e",
    "boulder-e"
   ]
  }
