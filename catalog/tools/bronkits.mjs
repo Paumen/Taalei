@@ -21,7 +21,7 @@ export const BRONKITS = [
   { map: 'KayKit_Adventurers_2.0_FREE', naam: 'KayKit Adventurers', kit: 'kay-adventurers', formaat: 'gltf' },
   { map: 'KayKit_Skeletons_1.1_FREE', naam: 'KayKit Skeletons', kit: 'kay-skeleton', formaat: 'gltf' },
 
-  { map: 'FantasyProps_glTF_1k', naam: 'Fantasy Props MegaKit', kit: 'fantasy-props', formaat: 'gltf' },
+  { map: 'FantasyProps_glTF_1k', naam: 'Fantasy Props MegaKit', kit: 'quat-props', formaat: 'gltf' },
   { map: 'Ultimate_Nature_Pack_by_Quaternius_OBJ', naam: 'Ultimate Nature Pack', kit: 'quat-nature', formaat: 'obj' },
   { map: 'nature_kit', naam: 'Nature Kit', kit: 'natuur', formaat: 'obj' },
   { map: 'Modular Village', naam: 'Modular Village', kit: 'fs-town', formaat: 'obj' },
