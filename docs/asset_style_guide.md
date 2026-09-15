@@ -53,7 +53,7 @@ by nature and its `when` is free text.
 
 | scope | subjects |
 |---|---|
-| `model` | `model`, any recorded field of F11 (`kind`, `size`, `tags`, `mat`, `bands`, `calls`, `tris`, `minEdge`, `grounded`, `centered`), `dim:w`, `dim:d`, `dim:high`, `dim:long`, `dim:longest`, `band`, `mat:<id>`, `part:<name> (<presence>)`, `—` |
+| `model` | `model`, any recorded field of F11 (`kind`, `size`, `tags`, `mat`, `bands`, `calls`, `tris`, `dens`, `grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name> (<presence>)`, `—` |
 | `group` | `type`, `kits`, `kind`, `member`, `grouping` |
 | `process` | `PO`, `Claude`, `build`, `—` |
 
@@ -130,9 +130,9 @@ this document, not a judgement for the linter.
 maxima ignore the `special` band; band minima keep it.
 
 **[F11] Units and sources.** Lengths are catalogue units, measured off the
-mesh as recorded in `catalog/catalog.json`: `wdh` (w, d, h), `tris`, `mat`,
-`bands`, `calls`, `grounded`, `centered`, `minEdge`, `spread`, `colors`,
-`size`, `kind`, `tags`.
+mesh as recorded in `catalog/catalog.json`: `wdh` (w, d, h), `tris`, `dens`,
+`grad`, `anim`, `mat`, `bands`, `calls`, `grounded`, `centered`, `minEdge`,
+`spread`, `colors`, `size`, `kind`, `tags`, `specialBand`, `specialWhy`.
 
 **[F12] What a part rule still checks.** Five checks are derived from the
 rows, with no rule-specific logic:
@@ -156,9 +156,8 @@ Definitions:
 | id | term | definition |
 |---|---|---|
 | `D01` | high | the bounding-box Y extent |
-| `D02` | long | the extent along the object's main axis (Q06) |
 | `D03` | kind | a kind names the leaf and its children |
-| `D04` | tri density | tris ÷ (max(0.49, w × d) × max(0.7, h)) (Q01) |
+| `D04` | tri density | `dens`: tris ÷ (w × d × h), triangles per 1 × 1 × 1 cell |
 | `D05` | vegetation | a plant's non-green matter; fungi are not vegetation |
 | `D06` | hooped containers | `obj-container-` `barrel`, `chest`, `bucket`, `crate` |
 | `D07` | variant group | models that read as one thing; `main` is the one shown |
@@ -170,9 +169,12 @@ Colour bands. The band name is the token used in `value`. The lane is its
 `column,row` cell of the 16 × 4 grid of `kits/colormap.png`, the same key
 `catalog.json` uses in `spread`; the linter matches on the lane. The C id does
 not decode to the lane (Q18). Lane 3,2 is painted but unnamed (Q19).
+`transparent` is a band with no lane: it names a surface the colormap does not
+paint.
 
 | band | lane | id |
 |---|---|---|
+| `transparent` | — | — |
 | `tan` | 0,0 | C01 |
 | `camel` | 1,0 | C02 |
 | `chestnut` | 2,0 | C03 |
@@ -202,7 +204,9 @@ Withdrawn ids:
 
 | id | went to |
 |---|---|
+| `D02` | `D09` — `long` and `longest` are the same extent |
 | `T02` | `F12.5` — a tree invariant, not a per-model rule |
+| `T14` | `T14.1`, `T14.2` — one recorded field per row |
 | `T13` | `F10` — the `special` escape is the exemption rule |
 | `G11`, `G12` | `F15` — how `special` counts, not a rule |
 | `G04` | `G04.1`, `G04.2` — one predicate per row |
@@ -228,7 +232,7 @@ How a model should look and draw.
 | `I04` | model | `*` | — | model | is | invented before 1850 | — | intent | — |
 | `I05` | model | `*` | — | model | is | like its deepest kind in shape, colour, style | — | intent | — |
 | `I06` | model | `*` | — | `band` | one-of | `any` | error | auto | catalog |
-| `I07` | model | `*` | — | `band` | is | UV spread across the gradient band kept | error | manual | — |
+| `I07` | model | `*` | — | `grad` | not | 0 | error | auto | catalog |
 | `I08.1` | model | `!mat:glass` | — | model | is | `alphaMode` `OPAQUE` | error | auto | glb |
 | `I08.2` | model | `*` | — | model | is | `roughnessFactor` 1, `metallicFactor` 0 | error | auto | glb |
 | `I09.1` | model | `mat:glass` | — | `calls` | min | 2 | error | auto | catalog |
@@ -248,9 +252,9 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 |---|---|---|---|---|---|---|---|---|---|
 | `G01` | model | `tag:ngons` | `tag:hero` | model | count-range | 8–12 flat pieces per full circle | warn | manual | — |
 | `G02` | model | `*` | — | `minEdge` | min | 0.015 | error | auto | catalog |
-| `G03` | model | `*` | `kind:char` + `tag:plural` | `tris` | max | 5000 per occupied grid cell | error | manual | catalog |
-| `G04.1` | model | `*` | — | `grounded` | is | true | error | auto | catalog |
-| `G04.2` | model | `*` | — | `centered` | is | true | error | auto | catalog |
+| `G03` | model | `*` | `kind:char` + `tag:plural` | `dens` | max | 5000 | warn | auto | catalog |
+| `G04.1` | model | `*` | `tag:floating` | `grounded` | is | true | error | auto | catalog |
+| `G04.2` | model | `*` | `tag:offcenter` | `centered` | is | true | error | auto | catalog |
 | `G05` | model | `*` | — | `part:split node` (sometimes) | is | origin at the joint | error | manual | — |
 
 ### 2.2 Band counts
@@ -284,15 +288,15 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G23` | model | `kind:obj-kitchenware-cookware-pot` & with lid | — | `dim:high` | max | 0.4 | error | manual | catalog |
 | `G24` | model | `kind:obj-furniture-seating` | — | `dim:high` | range | 0.2–0.7 | error | auto | catalog |
 | `G25` | model | `kind:obj-furniture-table` | — | `dim:high` | min | 0.2 | error | auto | catalog |
-| `G26` | model | `kind:obj-weapon-melee-sword` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G27` | model | `kind:obj-weapon-melee-dagger` | — | `dim:long` | range | 0.1–0.5 | error | manual | — |
-| `G28` | model | `kind:obj-weapon-melee-axe` | — | `dim:long` | range | 0.2–0.8 | error | manual | — |
-| `G29` | model | `kind:obj-weapon-melee-hammer` | — | `dim:long` | range | 0.2–0.8 | error | manual | — |
-| `G30` | model | `kind:obj-weapon-ranged-bow` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G31` | model | `kind:obj-weapon-ranged-crossbow` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G32` | model | `kind:obj-weapon-magic-staff` | — | `dim:long` | range | 0.2–1.2 | error | manual | — |
+| `G26` | model | `kind:obj-weapon-melee-sword` | — | `dim:longest` | range | 0.4–1.0 | error | auto | catalog |
+| `G27` | model | `kind:obj-weapon-melee-dagger` | — | `dim:longest` | range | 0.1–0.5 | error | auto | catalog |
+| `G28` | model | `kind:obj-weapon-melee-axe` | — | `dim:longest` | range | 0.2–0.8 | error | auto | catalog |
+| `G29` | model | `kind:obj-weapon-melee-hammer` | — | `dim:longest` | range | 0.2–0.8 | error | auto | catalog |
+| `G30` | model | `kind:obj-weapon-ranged-bow` | — | `dim:longest` | range | 0.4–1.0 | error | auto | catalog |
+| `G31` | model | `kind:obj-weapon-ranged-crossbow` | — | `dim:longest` | range | 0.4–1.0 | error | auto | catalog |
+| `G32` | model | `kind:obj-weapon-magic-staff` | — | `dim:longest` | range | 0.2–1.2 | error | auto | catalog |
 | `G33` | model | `kind:obj-equipment-shield` | — | `dim:high` | range | 0.2–0.6 | error | auto | catalog |
-| `G34` | model | `kind:obj-tool-long` | — | `dim:long` | range | 0.3–1.2 | error | manual | — |
+| `G34` | model | `kind:obj-tool-long` | — | `dim:longest` | range | 0.3–1.2 | error | auto | catalog |
 | `G35` | model | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.1–1.0 | error | auto | catalog |
 | `G36` | model | `kind:obj-lighting-torch` | — | `dim:high` | range | 0.1–1.0 | error | auto | catalog |
 | `G37` | model | `kind:obj-lighting-candle` | — | `dim:high` | range | 0.1–0.7 | error | auto | catalog |
@@ -336,10 +340,11 @@ What a model *is*, before any material or colour question.
 | `T07` | model | `*` | — | `kind` | not | decided by kit of origin | error | manual | — |
 | `T08` | model | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted | error | manual | catalog |
 | `T09` | process | building the catalogue | — | build | note | `size` is measured, never hand-set | — | process | — |
-| `T10` | process | building the catalogue | — | build | note | `animation` is measured | — | process | — |
+| `T10` | process | building the catalogue | — | build | note | `anim` is read off the glb, never hand-set | — | process | — |
 | `T11` | model | `tag:ngons` | — | model | is | round cross-section, what `G01` counts on | error | manual | — |
 | `T12` | model | `tag:plural` | — | model | is | several instances of one thing in one model | error | manual | — |
-| `T14` | model | `mat:special` | — | `tags` | is | recorded with the band it covers and why | error | manual | — |
+| `T14.1` | model | `mat:special` | — | `specialBand` | one-of | `any` | error | auto | catalog |
+| `T14.2` | model | `mat:special` | — | `specialWhy` | not | empty | error | auto | catalog |
 | `T15` | model | `tag:pickup` | — | model | is | sized to be seen and collected, not to stand in the world | error | manual | — |
 
 ---
@@ -419,7 +424,7 @@ model's bands by the union over the rows that match it.
 | `B07` | model | `mat=wood-worked` | — | model | one-of | `camel` | error | auto | catalog |
 | `B08` | model | `mat=wood-beam` | — | model | one-of | `chestnut` | error | auto | catalog |
 | `B09` | model | `mat=wood-bark` | — | model | one-of | `umber` | error | auto | catalog |
-| `B51` | model | `mat=wood-log` | — | model | one-of | any brown band | error | manual | catalog |
+| `B51` | model | `mat=wood-log` | — | model | one-of | `tan`, `camel`, `chestnut` | error | auto | catalog |
 | `B10` | model | `mat=stone-masonry` | — | model | one-of | `taupe`, `slate`, `nickel` | error | auto | catalog |
 | `B11` | model | `mat=stone-rock` | — | model | one-of | `nickel`, `taupe` | error | auto | catalog |
 | `B12` | model | `mat=stone-soil` | — | model | one-of | `taupe` | error | auto | catalog |
@@ -472,7 +477,7 @@ model's bands by the union over the rows that match it.
 | `B63` | model | `kind:env-fauna` | — | model | one-of | `any` | error | auto | catalog |
 | `B49` | model | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` | error | manual | — |
 | `B50` | model | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber` | error | manual | — |
-| `B64` | model | `*` | — | `part:flame, glow, light` (sometimes) | is | UVs spread wide across the `amber` band | error | manual | — |
+| `B64` | model | `*` | — | `part:flame, glow, light` (sometimes) | is | the `amber` lane's UV range not 0 | error | manual | — |
 
 ---
 
@@ -544,20 +549,9 @@ Each one blocks a rule from being checkable, or leaves two readings of it. The
 
 | id | rule | question |
 |---|---|---|
-| `Q01` | `D04`, `G03` | D04 clamps w × d at 0.49 and h at 0.7, but its own text says anything under 0.5 × 0.5 × 0.5 is judged as that size; and no rule names tri density, while `G03` counts per grid cell and `catalog.json` carries `budgetPerUnit` 2000 and a measured `dens`. Which of the three is the budget? |
-| `Q02` | `G04.1`, `G04.2` | "Only deliberately, for a functional reason" has no token a model can carry, so every ungrounded or off-centre model fails. Which tag marks the deliberate ones? |
-| `Q03` | `T10` | There is no `animation` tag and no animation field in `catalog.json`. Where is it measured to? |
-| `Q04` | `T14` | A `special` must record its band and reason, but no field holds either. Where? |
-| `Q05` | `B20`, `B21`, `B44` | `transparent` is used as a band but is not in the band table and is not a painted lane. Is it a band, or the absence of one? |
-| `Q06` | `D02`, `G26`–`G34` | "Long" is the main axis, which is not recorded; only `wdh` is. Those nine rows are `check manual` for that reason alone. Record the axis, or read them as `longest`? |
 | `Q07` | every `part:` row | The presence values were read off the catalogue, not decided: barrel and bucket hoops 100% of models, `obj-tool-long` poles 19/19, cut faces 38/38, chest hoops 22/25, tool handles 39/45, book straps 20/25, crate hoops 3/21, sails 2/8. Confirm each, or record parts per model and check them directly. |
 | `Q08` | `F02` | The field said "closed, 36"; `tags.json` holds 37 materials, including `metal-silver`, which is not in the material tree. Also `foliage`, `plastic`, `emissive`, `food`, `vegetation` and `special` have no colour row in §5, so §5 is not total over the materials. |
-| `Q09` | `B51` | "Any brown" names no band. `tan`, `camel`, `chestnut` and `umber` are the brown bands — is that the set, and may a log mix them? |
-| `Q10` | `I07`, `B64` | "Spread maintained" and "spread wide" have no number, while `catalog.json` records `grad` and `spread` per band. What is the threshold? |
-| `Q11` | `P09.3` | 5 colours may drop to 3, and 6+ must keep ≥ 3 — so more source colours allow more dropping. Intended? |
-| `Q12` | `V06` | `asset_variants.json` types are `detail-variant`, `color-variant` and `maatvariant`, none of them `D11`–`D15`. The spec is the target, so the data needs migrating: which of D11–D15 does `detail-variant` become? |
-| `Q13` | `F02`–`F05` | `tags.json` carries a fifth field, `use` (eight `use:` tags), and a `scene` kind. Neither appears in this document. |
-| `Q14` | all | Rule ids quoted in `tags.json` descriptions (M11, M12, M13, M28, M41, M42, M44, T15, M20) point at an older numbering. They need remapping to the ids here. |
+| `Q12` | `V06` | `asset_variants.json` types are `detail-variant`, `color-variant` and `maatvariant`. `color-variant` is `D12` and `maatvariant` is `D13`; `detail-variant` covers more than one reason and is sorted group by group by the PO. Until it is, `V06` fails every group carrying it. |
 | `Q15` | `M28`, `B65` | `M28` set a material and a band in one cell; the band is split out as `B65`. Confirm the split, and the id. |
 | `Q16` | `G02`, `G52` | Nothing may be thinner than 0.015, yet flags, sails, canopies and canvas must be under 0.1 thick — the two only agree if cloth is not a solid piece. Which is it? |
 | `Q17` | `F12.3` | Material closure only runs where a kind's rows are known to be complete. Which kinds are closed? None is marked, so `F12.3` runs nowhere yet. |
