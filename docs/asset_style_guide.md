@@ -4,23 +4,25 @@ Scope: items in the catalogue.
 
 ## 0. How to read a rule
 
-**[F01] Rule format.** Every rule is one table row. No rule lives in prose. A
-rule table's columns are exactly these, in this order:
+**[F01] Rule format.** Every rule about a model is one table row. A rule table's
+columns are exactly these, in this order:
 
-`id | scope | when | except | subject | assert | value | sev | check | source`
+`id | when | except | subject | assert | value | sev | check`
 
-No rule table drops, renames, adds or reorders a column. A table whose first
-two columns are not `id` and `scope` is reference data, not rules: the term,
-definition, band, tag-field, variant-reason and open-question tables. A rule's
-`when`, `subject` and `value` cells together are capped at 200 characters.
+No rule table drops, renames, adds or reorders a column. A table whose first two
+columns are not `id` and `when` is reference data, not rules: the term,
+definition, band, tag-field and variant-reason tables. A rule's `when`, `subject`
+and `value` cells together are capped at 200 characters.
 
 Ids are stable. A withdrawn id is never reused and never renumbered; the
 withdrawn list at the end of this section says where each one went.
 
-**[F13] Scope.** Which entity the row is about: `model` (an item in the
-catalogue), `group` (a variant group in `catalog/asset_variants.json`) or
-`process` (people and the build, not an artefact). Scope decides which
-subjects F07 allows and what a `when` selector is matched against.
+**[F13] What is a row and what is not.** A table row is about one model, and a
+`when` selector is matched against models. Everything that is about something
+else is a list, not a row: what holds of a variant group (§7), and what people
+and the build do (§3, §6, §7). A list item keeps its id and says what it asks
+for; where one is checked against `catalog/asset_variants.json`, the item names
+its `sev` and `check`.
 
 **[F06] Selector (`when`, `except`).** A selector is terms joined by `+` (any
 of them matches) or `&` (all of them must). `&` binds tighter than `+`; there
@@ -45,25 +47,23 @@ part of the term.
 
 An empty `except` cell (`—`) means no exemption; `except` holds a selector and
 nothing else. Words in a `when` or `except` cell that are not terms (`mug, cup,
-tankard`, `upholstered`, `simple`) name a reading a person makes; on a `model`
-or `group` row they force the row to `check manual`. A `process` row is prose
-by nature and its `when` is free text.
+tankard`, `upholstered`, `simple`) narrow the row further than the terms do. The
+linter selects on the terms, which is a superset, and Claude judges the words
+against that set; the row is `check review`.
 
-**[F07] Subject.** What the assert is about. Closed per scope:
-
-| scope | subjects |
-|---|---|
-| `model` | `model`, any recorded field of F11 (`kind`, `size`, `tags`, `mat`, `bands`, `calls`, `tris`, `minEdge`, `grounded`, `centered`), `dim:w`, `dim:d`, `dim:high`, `dim:long`, `dim:longest`, `band`, `mat:<id>`, `part:<name> (<presence>)`, `—` |
-| `group` | `type`, `kits`, `kind`, `member`, `grouping` |
-| `process` | `PO`, `Claude`, `build`, `—` |
+**[F07] Subject.** What the assert is about. A closed set: `model`, any recorded
+field of F11 (`kind`, `size`, `tags`, `mat`, `bands`, `calls`, `tris`, `dens`,
+`grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`),
+`dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`,
+`part:<name> (<presence>)`, `—`.
 
 `mat` is the model's material-tag count; `mat:<id>` is the model's use of that
 material, refined to a subtype; `bands` is its band count, `band` each band it
-carries. A `part:` subject names a piece of the mesh. Parts are not recorded
-per model, so every `part:` row is `source —` and `check manual`, but its
-presence makes two model-level checks fall out of it — see F12. Presence is
-`always`, `usual` or `sometimes`: whether a model of that kind has the part at
-all (Q07).
+carries. A `part:` subject names a piece of the mesh. No field names parts yet,
+so a `part:` row is `check review`: the linter selects the models of its `when`
+and hands them to Claude with the part to look for. Two model-level checks also
+fall out of the row on their own — see F12. Presence is `always`, `usual` or
+`sometimes`: whether a model of that kind has the part at all.
 
 **[F08] Assert.** Closed vocabulary:
 
@@ -84,35 +84,30 @@ all (Q07).
 | `expect` | token list | subject is normally one of the tokens; always `sev warn` |
 | `default` | token | applies only where no more specific row constrains the same subject |
 | `see` | rule id | the row defers to that rule; it checks nothing |
-| `note` | prose | a reading the linter never evaluates: `check none` on a `model` or `group` row, `check process` on a `process` row |
+| `note` | prose | a reading the linter never evaluates; always `check none` |
 
 A value naming a material or a kind may take the same `:` / `=` distinction as
 a selector: a trailing `:` means that id or any descendant (`metal-iron:`), a
 bare id means exactly that id (`metal-iron`). In a band list, the token `any`
 means every band of the band table.
 
-**[F09] Severity, check and source.** Three columns, three questions.
+**[F09] Severity and check.** Two columns, two questions.
 
 | column | values | means |
 |---|---|---|
-| `sev` | `error` | fails the build, or, where `check` is `manual`, is treated as a failure by the reviewer |
+| `sev` | `error` | fails the build; on a `review` row, what Claude reports as broken fails it |
 | | `warn` | reported, does not fail; every `expect` row is `warn` |
-| | `—` | the row asserts nothing to fail: `check` is `intent`, `process` or `none` |
+| | `—` | the row asserts nothing to fail: `check` is `intent` or `none` |
 | `check` | `auto` | the linter evaluates it |
-| | `manual` | true but not evaluable; the linter skips it and lists it |
-| | `intent` | how a model should look; human judgement |
-| | `process` | about people or the build, not an artefact |
+| | `review` | the linter selects the models the row covers and hands that list to Claude, which decides each one |
+| | `intent` | how a model should look; Claude judges it off a render, and it is reported rather than failed |
 | | `none` | a `see` or `note` row; nothing to check |
-| `source` | `catalog` | read from `catalog/catalog.json` |
-| | `glb` | read from the glb itself |
-| | `variants` | read from `catalog/asset_variants.json` |
-| | `—` | nothing records it |
 
-Two invariants, both checkable over this document: `source —` forces `check`
-to be anything but `auto`, and `sev —` forces `check` to be `intent`, `process`
-or `none`. A `check manual` row with a `source` names the rule that would run
-if its selector or value were made into terms; a `check manual` row with
-`source —` names the rule that would run if the data were recorded.
+One invariant, checkable over this document: `sev —` forces `check` to be
+`intent` or `none`. `review` is never a dead end. A `review` row becomes `auto`
+the day its selector and value are written in terms and the field it reads is
+recorded; meanwhile its `when` already narrows the work. F11 says where each
+field is read from.
 
 **[F10] Exemption.** A model leaves a rule only through that rule's `except`
 cell, or through material tag `special`, whose band is exempt from every rule
@@ -130,9 +125,12 @@ this document, not a judgement for the linter.
 maxima ignore the `special` band; band minima keep it.
 
 **[F11] Units and sources.** Lengths are catalogue units, measured off the
-mesh as recorded in `catalog/catalog.json`: `wdh` (w, d, h), `tris`, `mat`,
-`bands`, `calls`, `grounded`, `centered`, `minEdge`, `spread`, `colors`,
-`size`, `kind`, `tags`.
+mesh as recorded in `catalog/catalog.json`: `wdh` (w, d, h), `tris`, `dens`,
+`grad`, `anim`, `mat`, `bands`, `calls`, `grounded`, `centered`, `minEdge`,
+`spread`, `colors`, `size`, `kind`, `tags`, `specialBand`, `specialWhy`. Three
+things are read off the glb itself and held in no field: `alphaMode`,
+`roughnessFactor` with `metallicFactor`, and shadow casting. Group facts are
+read from `catalog/asset_variants.json`.
 
 **[F12] What a part rule still checks.** Five checks are derived from the
 rows, with no rule-specific logic:
@@ -141,24 +139,25 @@ rows, with no rule-specific logic:
 |---|---|---|---|
 | `F12.1` | a `part:… (always)` row | the model carries that rule's material | error |
 | `F12.2` | a `part:… (usual)` row | the model carries that rule's material | warn |
-| `F12.3` | every row for the kind | the model's materials are among those the kind's rows name, where the kind is `closed` (Q17) | error |
+| `F12.3` | every row for the kind | the model's materials are among those the kind's rows name, where the kind is `closed` | error |
 | `F12.4` | §5 and the model's materials | the model's bands are among those §5 allows for its materials and kind | error |
 | `F12.5` | the material tree | no model carries a material tag and an ancestor of it | error |
 
 `F12.4` needs no part data at all: §5 gives every material a band, so the union
 over a model's materials bounds its bands whether or not the parts are known.
 It is also why §5 uses `one-of` throughout: a §5 row names the set a subject
-may draw from, never an equality. A material with no §5 row (Q08) is skipped,
-not failed. `sometimes` derives nothing.
+may draw from, never an equality. A material with no §5 row is skipped,
+not failed. A `sometimes` row derives no material check — the part may be
+absent — so it stays `review`, and the linter hands Claude the models its `when`
+selects.
 
 Definitions:
 
 | id | term | definition |
 |---|---|---|
 | `D01` | high | the bounding-box Y extent |
-| `D02` | long | the extent along the object's main axis (Q06) |
 | `D03` | kind | a kind names the leaf and its children |
-| `D04` | tri density | tris ÷ (max(0.49, w × d) × max(0.7, h)) (Q01) |
+| `D04` | tri density | `dens`: tris ÷ (w × d × h), triangles per 1 × 1 × 1 cell |
 | `D05` | vegetation | a plant's non-green matter; fungi are not vegetation |
 | `D06` | hooped containers | `obj-container-` `barrel`, `chest`, `bucket`, `crate` |
 | `D07` | variant group | models that read as one thing; `main` is the one shown |
@@ -168,32 +167,35 @@ Definitions:
 
 Colour bands. The band name is the token used in `value`. The lane is its
 `column,row` cell of the 16 × 4 grid of `kits/colormap.png`, the same key
-`catalog.json` uses in `spread`; the linter matches on the lane. The C id does
-not decode to the lane (Q18). Lane 3,2 is painted but unnamed (Q19).
+`catalog.json` uses in `spread`; the linter matches on the lane. A band is
+named by its name or its lane, and by nothing else. `transparent` is a band
+with no lane: it names a surface the colormap does not paint. Lane 3,2
+(#979ebd) is painted but unused; no band names it, so `I06` forbids it.
 
-| band | lane | id |
-|---|---|---|
-| `tan` | 0,0 | C01 |
-| `camel` | 1,0 | C02 |
-| `chestnut` | 2,0 | C03 |
-| `umber` | 3,0 | C04 |
-| `terracotta` | 5,0 | C06 |
-| `amber` | 6,0 | C07 |
-| `sienna` | 8,0 | C09 |
-| `hunter` | 1,1 | C13 |
-| `moss` | 3,1 | C15 |
-| `slate` | 6,1 | C18 |
-| `azure` | 4,2 | C25 |
-| `ivory` | 5,2 | C27 |
-| `basalt` | 13,3 | C313 |
-| `taupe` | 14,3 | C314 |
-| `nickel` | 15,3 | C315 |
+| band | lane |
+|---|---|
+| `transparent` | — |
+| `tan` | 0,0 |
+| `camel` | 1,0 |
+| `chestnut` | 2,0 |
+| `umber` | 3,0 |
+| `terracotta` | 5,0 |
+| `amber` | 6,0 |
+| `sienna` | 8,0 |
+| `hunter` | 1,1 |
+| `moss` | 3,1 |
+| `slate` | 6,1 |
+| `azure` | 4,2 |
+| `ivory` | 5,2 |
+| `basalt` | 13,3 |
+| `taupe` | 14,3 |
+| `nickel` | 15,3 |
 
 Tag fields:
 
 | id | field | job | set |
 |---|---|---|---|
-| `F02` | `material` | what it is **made of** | closed, parented (Q08) |
+| `F02` | `material` | what it is **made of** | closed, parented |
 | `F03` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F04` | `size` | rough bbox: `s` `m` `l` | closed, measured |
 | `F05` | `tag` | kit/artist, theme, flags | open |
@@ -202,11 +204,14 @@ Withdrawn ids:
 
 | id | went to |
 |---|---|
+| `D02` | `D09` — `long` and `longest` are the same extent |
 | `T02` | `F12.5` — a tree invariant, not a per-model rule |
+| `T14` | `T14.1`, `T14.2` — one recorded field per row |
 | `T13` | `F10` — the `special` escape is the exemption rule |
 | `G11`, `G12` | `F15` — how `special` counts, not a rule |
 | `G04` | `G04.1`, `G04.2` — one predicate per row |
 | `G10` | `G10.1`, `G10.2` — the cap is a number, not `G09` + 1 |
+| `G02` | `G02`, `G02.1` — cloth has its own floor |
 | `G44` | `G13`'s `except` cell |
 | `G51` | `G38`'s `except` cell |
 | `B61` | `B46`'s `except` cell |
@@ -220,21 +225,21 @@ Withdrawn ids:
 
 How a model should look and draw.
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `I01` | model | `*` | — | model | is | chunky, caricatured; not thin, not primitive | — | intent | — |
-| `I02` | model | `*` | — | model | is | clean facets, chamfered edges, rounded-soft | — | intent | — |
-| `I03` | model | `!kind:env` | — | model | is | few details | — | intent | — |
-| `I04` | model | `*` | — | model | is | invented before 1850 | — | intent | — |
-| `I05` | model | `*` | — | model | is | like its deepest kind in shape, colour, style | — | intent | — |
-| `I06` | model | `*` | — | `band` | one-of | `any` | error | auto | catalog |
-| `I07` | model | `*` | — | `band` | is | UV spread across the gradient band kept | error | manual | — |
-| `I08.1` | model | `!mat:glass` | — | model | is | `alphaMode` `OPAQUE` | error | auto | glb |
-| `I08.2` | model | `*` | — | model | is | `roughnessFactor` 1, `metallicFactor` 0 | error | auto | glb |
-| `I09.1` | model | `mat:glass` | — | `calls` | min | 2 | error | auto | catalog |
-| `I09.2` | model | `*` | — | model | is | 2+ calls only for moving features or glass | error | manual | catalog |
-| `I10` | model | `*` | — | model | not | outline, unless the outline is a core feature | error | manual | — |
-| `I11` | model | `*` | — | model | is | no shadow casting | error | auto | glb |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `I01` | `*` | — | model | is | chunky, caricatured; not thin, not primitive | — | intent |
+| `I02` | `*` | — | model | is | clean facets, chamfered edges, rounded-soft | — | intent |
+| `I03` | `!kind:env` | — | model | is | few details | — | intent |
+| `I04` | `*` | — | model | is | invented before 1850 | — | intent |
+| `I05` | `*` | — | model | is | like its deepest kind in shape, colour, style | — | intent |
+| `I06` | `*` | — | `band` | one-of | `any` | error | auto |
+| `I07` | `*` | — | `grad` | not | 0 | error | auto |
+| `I08.1` | `!mat:glass` | — | model | is | `alphaMode` `OPAQUE` | error | auto |
+| `I08.2` | `*` | — | model | is | `roughnessFactor` 1, `metallicFactor` 0 | error | auto |
+| `I09.1` | `mat:glass` | — | `calls` | min | 2 | error | auto |
+| `I09.2` | `*` | — | model | is | 2+ calls only for moving features or glass | error | review |
+| `I10` | `*` | — | model | not | outline, unless the outline is a core feature | error | review |
+| `I11` | `*` | — | model | is | no shadow casting | error | auto |
 
 ---
 
@@ -244,80 +249,81 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 ### 2.1 Construction & placement
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `G01` | model | `tag:ngons` | `tag:hero` | model | count-range | 8–12 flat pieces per full circle | warn | manual | — |
-| `G02` | model | `*` | — | `minEdge` | min | 0.015 | error | auto | catalog |
-| `G03` | model | `*` | `kind:char` + `tag:plural` | `tris` | max | 5000 per occupied grid cell | error | manual | catalog |
-| `G04.1` | model | `*` | — | `grounded` | is | true | error | auto | catalog |
-| `G04.2` | model | `*` | — | `centered` | is | true | error | auto | catalog |
-| `G05` | model | `*` | — | `part:split node` (sometimes) | is | origin at the joint | error | manual | — |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `G01` | `tag:ngons` | `tag:hero` | model | count-range | 8–12 flat pieces per full circle | warn | review |
+| `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 | error | auto |
+| `G02.1` | `mat:textile` | — | `minEdge` | min | 0.01 | error | auto |
+| `G03` | `*` | `kind:char` + `tag:plural` | `dens` | max | 5000 | warn | auto |
+| `G04.1` | `*` | `tag:floating` | `grounded` | is | true | error | auto |
+| `G04.2` | `*` | `tag:offcenter` | `centered` | is | true | error | auto |
+| `G05` | `*` | — | `part:split node` (sometimes) | is | origin at the joint | error | review |
 
 ### 2.2 Band counts
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `G06` | model | `*` | — | `mat` | min | 1 | error | auto | catalog |
-| `G07` | model | `*` | — | `bands` | min | `mat` | error | auto | catalog |
-| `G08.1` | model | `*` | — | `bands` | max | `mat` × 2 | error | auto | catalog |
-| `G08.2` | model | `mat:food` + `mat:vegetation` + `kind:env-fauna` | — | `bands` | max | `mat` × 3 | error | auto | catalog |
-| `G08.3` | model | `mat:food` & `tag:decorated` | — | `bands` | max | `mat` × 5 | error | auto | catalog |
-| `G09.1` | model | `!kind:char` | `size:l` & `mat>=5` | `bands` | max | 5 | error | auto | catalog |
-| `G09.2` | model | `kind:char` | `size:l` & `mat>=5` | `bands` | max | 6 | error | auto | catalog |
-| `G10.1` | model | `!kind:char` & `size:l` & `mat>=5` | — | `bands` | max | 6 | error | auto | catalog |
-| `G10.2` | model | `kind:char` & `size:l` & `mat>=5` | — | `bands` | max | 7 | error | auto | catalog |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `G06` | `*` | — | `mat` | min | 1 | error | auto |
+| `G07` | `*` | — | `bands` | min | `mat` | error | auto |
+| `G08.1` | `*` | — | `bands` | max | `mat` × 2 | error | auto |
+| `G08.2` | `mat:food` + `mat:vegetation` + `kind:env-fauna` | — | `bands` | max | `mat` × 3 | error | auto |
+| `G08.3` | `mat:food` & `tag:decorated` | — | `bands` | max | `mat` × 5 | error | auto |
+| `G09.1` | `!kind:char` | `size:l` & `mat>=5` | `bands` | max | 5 | error | auto |
+| `G09.2` | `kind:char` | `size:l` & `mat>=5` | `bands` | max | 6 | error | auto |
+| `G10.1` | `!kind:char` & `size:l` & `mat>=5` | — | `bands` | max | 6 | error | auto |
+| `G10.2` | `kind:char` & `size:l` & `mat>=5` | — | `bands` | max | 7 | error | auto |
 
 ### 2.3 Size
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `G13` | model | `*` | `kind:env-terrain-mountain` | `dim:high` | max | 6 | error | auto | catalog |
-| `G14` | model | `kind:obj-container-chest` & with lid | — | `dim:high` | range | 0.2–0.5 | error | manual | catalog |
-| `G15` | model | `kind:obj-container-barrel` | — | `dim:high` | range | 0.2–0.8 | error | auto | catalog |
-| `G16` | model | `kind:obj-container-bucket` | — | `dim:high` | range | 0.1–0.4 | error | auto | catalog |
-| `G17` | model | `kind:obj-container-crate` & `D10` | — | `dim:high` | range | 0.2–0.8 | error | auto | catalog |
-| `G18` | model | `kind:obj-container-bottle` | — | `dim:high` | range | 0.1–0.4 | error | auto | catalog |
-| `G19` | model | `kind:obj-container-pot` | — | `dim:high` | range | 0.2–0.4 | error | auto | catalog |
-| `G20` | model | `kind:obj-kitchenware-tableware-cutlery` | — | `dim:longest` | range | 0.1–0.4 | error | auto | catalog |
-| `G21` | model | `kind:obj-kitchenware-tableware-plate` | — | `dim:longest` | range | 0.1–0.4 | error | auto | catalog |
-| `G22` | model | `kind:obj-kitchenware-cookware-pan` & with lid | — | `dim:high` | max | 0.4 | error | manual | catalog |
-| `G23` | model | `kind:obj-kitchenware-cookware-pot` & with lid | — | `dim:high` | max | 0.4 | error | manual | catalog |
-| `G24` | model | `kind:obj-furniture-seating` | — | `dim:high` | range | 0.2–0.7 | error | auto | catalog |
-| `G25` | model | `kind:obj-furniture-table` | — | `dim:high` | min | 0.2 | error | auto | catalog |
-| `G26` | model | `kind:obj-weapon-melee-sword` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G27` | model | `kind:obj-weapon-melee-dagger` | — | `dim:long` | range | 0.1–0.5 | error | manual | — |
-| `G28` | model | `kind:obj-weapon-melee-axe` | — | `dim:long` | range | 0.2–0.8 | error | manual | — |
-| `G29` | model | `kind:obj-weapon-melee-hammer` | — | `dim:long` | range | 0.2–0.8 | error | manual | — |
-| `G30` | model | `kind:obj-weapon-ranged-bow` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G31` | model | `kind:obj-weapon-ranged-crossbow` | — | `dim:long` | range | 0.4–1.0 | error | manual | — |
-| `G32` | model | `kind:obj-weapon-magic-staff` | — | `dim:long` | range | 0.2–1.2 | error | manual | — |
-| `G33` | model | `kind:obj-equipment-shield` | — | `dim:high` | range | 0.2–0.6 | error | auto | catalog |
-| `G34` | model | `kind:obj-tool-long` | — | `dim:long` | range | 0.3–1.2 | error | manual | — |
-| `G35` | model | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.1–1.0 | error | auto | catalog |
-| `G36` | model | `kind:obj-lighting-torch` | — | `dim:high` | range | 0.1–1.0 | error | auto | catalog |
-| `G37` | model | `kind:obj-lighting-candle` | — | `dim:high` | range | 0.1–0.7 | error | auto | catalog |
-| `G38` | model | `kind:obj-pocketitem-coin` | `tag:plural` | `dim:longest` | max | 0.2 | error | auto | catalog |
-| `G39` | model | `kind:obj-pocketitem-key` | — | `dim:longest` | max | 0.2 | error | auto | catalog |
-| `G40` | model | `kind:obj-pocketitem-book` & closed | — | `dim:longest` | range | 0.1–0.3 | error | manual | catalog |
-| `G41` | model | `kind:obj-pocketitem-scroll` | — | `dim:longest` | range | 0.1–0.3 | error | auto | catalog |
-| `G42` | model | `kind:env-flora-tree` | — | `dim:high` | range | 0.6–2.4 | error | auto | catalog |
-| `G43` | model | `kind:char` humanoid, skeleton included | — | `dim:high` | range | 0.4–0.8 | error | manual | catalog |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `G13` | `*` | `kind:env-terrain-mountain` | `dim:high` | max | 6 | error | auto |
+| `G14` | `kind:obj-container-chest` & with lid | — | `dim:high` | range | 0.2–0.5 | error | review |
+| `G15` | `kind:obj-container-barrel` | — | `dim:high` | range | 0.2–0.8 | error | auto |
+| `G16` | `kind:obj-container-bucket` | — | `dim:high` | range | 0.1–0.4 | error | auto |
+| `G17` | `kind:obj-container-crate` & `D10` | — | `dim:high` | range | 0.2–0.8 | error | auto |
+| `G18` | `kind:obj-container-bottle` | — | `dim:high` | range | 0.1–0.4 | error | auto |
+| `G19` | `kind:obj-container-pot` | — | `dim:high` | range | 0.2–0.4 | error | auto |
+| `G20` | `kind:obj-kitchenware-tableware-cutlery` | — | `dim:longest` | range | 0.1–0.4 | error | auto |
+| `G21` | `kind:obj-kitchenware-tableware-plate` | — | `dim:longest` | range | 0.1–0.4 | error | auto |
+| `G22` | `kind:obj-kitchenware-cookware-pan` & with lid | — | `dim:high` | max | 0.4 | error | review |
+| `G23` | `kind:obj-kitchenware-cookware-pot` & with lid | — | `dim:high` | max | 0.4 | error | review |
+| `G24` | `kind:obj-furniture-seating` | — | `dim:high` | range | 0.2–0.7 | error | auto |
+| `G25` | `kind:obj-furniture-table` | — | `dim:high` | min | 0.2 | error | auto |
+| `G26` | `kind:obj-weapon-melee-sword` | — | `dim:longest` | range | 0.4–1.0 | error | auto |
+| `G27` | `kind:obj-weapon-melee-dagger` | — | `dim:longest` | range | 0.1–0.5 | error | auto |
+| `G28` | `kind:obj-weapon-melee-axe` | — | `dim:longest` | range | 0.2–0.8 | error | auto |
+| `G29` | `kind:obj-weapon-melee-hammer` | — | `dim:longest` | range | 0.2–0.8 | error | auto |
+| `G30` | `kind:obj-weapon-ranged-bow` | — | `dim:longest` | range | 0.4–1.0 | error | auto |
+| `G31` | `kind:obj-weapon-ranged-crossbow` | — | `dim:longest` | range | 0.4–1.0 | error | auto |
+| `G32` | `kind:obj-weapon-magic-staff` | — | `dim:longest` | range | 0.2–1.2 | error | auto |
+| `G33` | `kind:obj-equipment-shield` | — | `dim:high` | range | 0.2–0.6 | error | auto |
+| `G34` | `kind:obj-tool-long` | — | `dim:longest` | range | 0.3–1.2 | error | auto |
+| `G35` | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.1–1.0 | error | auto |
+| `G36` | `kind:obj-lighting-torch` | — | `dim:high` | range | 0.1–1.0 | error | auto |
+| `G37` | `kind:obj-lighting-candle` | — | `dim:high` | range | 0.1–0.7 | error | auto |
+| `G38` | `kind:obj-pocketitem-coin` | `tag:plural` | `dim:longest` | max | 0.2 | error | auto |
+| `G39` | `kind:obj-pocketitem-key` | — | `dim:longest` | max | 0.2 | error | auto |
+| `G40` | `kind:obj-pocketitem-book` & closed | — | `dim:longest` | range | 0.1–0.3 | error | review |
+| `G41` | `kind:obj-pocketitem-scroll` | — | `dim:longest` | range | 0.1–0.3 | error | auto |
+| `G42` | `kind:env-flora-tree` | — | `dim:high` | range | 0.6–2.4 | error | auto |
+| `G43` | `kind:char` humanoid, skeleton included | — | `dim:high` | range | 0.4–0.8 | error | review |
 
 ### 2.4 Boxes and part counts
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `G45` | model | `D06` | — | `part:hoop` (usual) | range | 5–15% of longest, high | error | manual | — |
-| `G46.1` | model | `kind:obj-container-barrel` | — | `dim:w` | max | 0.75 | error | auto | catalog |
-| `G46.2` | model | `kind:obj-container-barrel` | — | `part:side plank` (always) | count-range | 8–14 | error | manual | — |
-| `G46.3` | model | `kind:obj-container-barrel` | — | `tris` | range | 100–1500 | error | auto | catalog |
-| `G46.4` | model | `kind:obj-container-barrel` | — | `part:hoop` (always) | count-max | 3 | error | manual | — |
-| `G47` | model | `kind:obj-container-bucket` | — | `part:hoop` (always) | count-max | 3 | error | manual | — |
-| `G48` | model | `kind:obj-container-crate` & `D10` | — | `part:plank` (always) | count-range | 3–7 side by side per face | error | manual | — |
-| `G49.1` | model | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 | error | auto | catalog |
-| `G49.2` | model | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 | error | auto | catalog |
-| `G50` | model | `kind:obj-pocketitem-book` & open | — | `dim:longest` | see | `G40`, on the longest cover edge | — | none | — |
-| `G52` | model | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` (sometimes) | max | 0.1 thick | error | manual | — |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `G45` | `D06` | — | `part:hoop` (usual) | range | 5–15% of longest, high | error | review |
+| `G46.1` | `kind:obj-container-barrel` | — | `dim:w` | max | 0.75 | error | auto |
+| `G46.2` | `kind:obj-container-barrel` | — | `part:side plank` (always) | count-range | 8–14 | error | review |
+| `G46.3` | `kind:obj-container-barrel` | — | `tris` | range | 100–1500 | error | auto |
+| `G46.4` | `kind:obj-container-barrel` | — | `part:hoop` (always) | count-max | 3 | error | review |
+| `G47` | `kind:obj-container-bucket` | — | `part:hoop` (always) | count-max | 3 | error | review |
+| `G48` | `kind:obj-container-crate` & `D10` | — | `part:plank` (always) | count-range | 3–7 side by side per face | error | review |
+| `G49.1` | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 | error | auto |
+| `G49.2` | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 | error | auto |
+| `G50` | `kind:obj-pocketitem-book` & open | — | `dim:longest` | see | `G40`, on the longest cover edge | — | none |
+| `G52` | `kind:str-marker-flag` + `kind:str-stands` + `kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` (sometimes) | range | 0.01–0.05 thick | error | review |
 
 ---
 
@@ -325,22 +331,26 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 What a model *is*, before any material or colour question.
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `T01` | model | `*` | — | `kind` | note | a leaf may carry its material's name (`env-remains-bones`) | — | none | — |
-| `T03` | model | `kind=assy` | — | `kind` | is | distinct things in one top-level | error | manual | — |
-| `T04` | model | `*` | — | `kind` | is | the deepest leaf that fits; the parent is "other" | error | manual | — |
-| `T05` | model | `*` | — | `kind` | is | the one kind the appendix glossary resolves the noun to | error | manual | — |
-| `T06.1` | model | `kind:env-terrain` | — | `kind` | is | ground mesh and cobbled path `env-terrain`, not `env-rock` | error | manual | — |
-| `T06.2` | model | `kind:env-rock` | — | `kind` | is | placed body `env-rock`, cliff prop `env-rock-formation` | error | manual | — |
-| `T07` | model | `*` | — | `kind` | not | decided by kit of origin | error | manual | — |
-| `T08` | model | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted | error | manual | catalog |
-| `T09` | process | building the catalogue | — | build | note | `size` is measured, never hand-set | — | process | — |
-| `T10` | process | building the catalogue | — | build | note | `animation` is measured | — | process | — |
-| `T11` | model | `tag:ngons` | — | model | is | round cross-section, what `G01` counts on | error | manual | — |
-| `T12` | model | `tag:plural` | — | model | is | several instances of one thing in one model | error | manual | — |
-| `T14` | model | `mat:special` | — | `tags` | is | recorded with the band it covers and why | error | manual | — |
-| `T15` | model | `tag:pickup` | — | model | is | sized to be seen and collected, not to stand in the world | error | manual | — |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `T01` | `*` | — | `kind` | note | a leaf may carry its material's name (`env-remains-bones`) | — | none |
+| `T03` | `kind=assy` | — | `kind` | is | distinct things in one top-level | error | review |
+| `T04` | `*` | — | `kind` | is | the deepest leaf that fits; the parent is "other" | error | review |
+| `T05` | `*` | — | `kind` | is | the one kind the appendix glossary resolves the noun to | error | review |
+| `T06.1` | `kind:env-terrain` | — | `kind` | is | ground mesh and cobbled path `env-terrain`, not `env-rock` | error | review |
+| `T06.2` | `kind:env-rock` | — | `kind` | is | placed body `env-rock`, cliff prop `env-rock-formation` | error | review |
+| `T07` | `*` | — | `kind` | not | decided by kit of origin | error | review |
+| `T08` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted | error | review |
+| `T11` | `tag:ngons` | — | model | is | round cross-section, what `G01` counts on | error | review |
+| `T12` | `tag:plural` | — | model | is | several instances of one thing in one model | error | review |
+| `T14.1` | `mat:special` | — | `specialBand` | one-of | `any` | error | auto |
+| `T14.2` | `mat:special` | — | `specialWhy` | not | empty | error | auto |
+| `T15` | `tag:pickup` | — | model | is | sized to be seen and collected, not to stand in the world | error | review |
+
+Building the catalogue:
+
+- **`T09`** — `size` is measured, never hand-set.
+- **`T10`** — `anim` is read off the glb, never hand-set.
 
 ---
 
@@ -348,58 +358,58 @@ What a model *is*, before any material or colour question.
 
 What a kind is made of. Colour follows from section 5.
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `M01.1` | model | `kind:obj-container-barrel` | — | `part:hoop` (always) | is | `metal-iron` | error | manual | — |
-| `M01.2` | model | `kind:obj-container-bucket` | — | `part:hoop` (always) | is | `metal-iron` | error | manual | — |
-| `M01.3` | model | `kind:obj-container-chest` | — | `part:hoop` (usual) | is | `metal-iron` | error | manual | — |
-| `M01.4` | model | `kind:obj-container-crate` | — | `part:hoop` (sometimes) | is | `metal-iron` | error | manual | — |
-| `M02` | model | `kind:obj-container-bottle` | — | model | any-of | `glass`, `ceramic` | error | auto | catalog |
-| `M03` | model | `kind:obj-container-bag` | — | `part:fastener, closure` (sometimes) | any-of | `rope`, `leather` | error | manual | — |
-| `M04` | model | `kind:obj-kitchenware-tableware-plate` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` | error | auto | catalog |
-| `M05` | model | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `part:hoop, handle` (sometimes) | is | `metal-iron:` | error | manual | — |
-| `M06` | model | `kind:obj-kitchenware-tableware` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto | catalog |
-| `M07` | model | `kind:obj-furniture` | rug, carpet + upholstered | model | any-of | `wood:` | error | manual | catalog |
-| `M08` | model | `kind:obj-furniture` rug, carpet | — | model | any-of | `textile` | error | manual | catalog |
-| `M09` | model | `kind:obj-furniture-seating` upholstered | — | model | any-of | `textile` | error | manual | catalog |
-| `M10` | model | `kind:obj-weapon` + `kind:obj-tool` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto | catalog |
-| `M11` | model | `kind:obj-weapon` + `kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` | error | manual | — |
-| `M12` | model | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` | error | manual | — |
-| `M13` | model | `kind:obj-weapon-cannon` | — | `mat:metal-iron` | is | `metal-iron-cast` | error | auto | catalog |
-| `M14` | model | `kind:obj-equipment` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto | catalog |
-| `M15` | model | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | any-of | `leather` | error | manual | catalog |
-| `M16` | model | `kind:obj-tool-hand` | — | `part:wood handle` (usual) | is | `wood-planks` | error | manual | — |
-| `M17` | model | `kind:obj-tool-long` | — | `part:pole` (always) | is | `wood-beam` | error | manual | — |
-| `M18` | model | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` | error | auto | catalog |
-| `M19` | model | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` | error | manual | — |
-| `M20` | model | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` | error | auto | catalog |
-| `M21` | model | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` | error | auto | catalog |
-| `M22` | model | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` | error | manual | — |
-| `M23` | model | `kind:obj-pocketitem-jewellery` | — | model | all-of | `metal-gold`, `gemstone` | error | auto | catalog |
-| `M24` | model | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | — | `part:cut face` (always) | is | `wood-log` | error | manual | — |
-| `M25` | model | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | — | `part:round side` (always) | is | `wood-bark` | error | manual | — |
-| `M26` | model | `kind:obj` bells | — | model | any-of | `metal-copper`, `metal-gold` | error | manual | catalog |
-| `M27` | model | `kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` | error | auto | catalog |
-| `M28` | model | `kind:str-part-roof` | — | model | any-of | `ceramic` | error | auto | catalog |
-| `M29` | model | `kind:str-marker-flag` | — | model | any-of | `textile` | error | auto | catalog |
-| `M30` | model | `kind:char` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto | catalog |
-| `M31` | model | `mat=metal-iron` | — | `mat:metal-iron` | default | `metal-iron-wrought` | error | auto | catalog |
-| `M32` | model | `D06` | — | model | expect | mainly `wood`, often `metal-iron` accents | warn | manual | catalog |
-| `M33` | model | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | model | expect | `wood:` | warn | manual | catalog |
-| `M34` | model | `kind:obj-kitchenware-cookware` & `mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` | error | manual | catalog |
-| `M35` | model | `kind:obj-tool` + `kind:obj-weapon` | — | `mat:metal` | is | `metal-iron:` | error | auto | catalog |
-| `M36` | model | `kind:obj-weapon` + `kind:obj-tool` + `kind:obj-equipment-shield` | — | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` | warn | manual | — |
-| `M37` | model | `kind:obj-weapon` simple + `kind:obj-weapon-ranged-bow` | — | model | note | `wood:` wholly or partly is fine; `M35` constrains only the metal | — | none | — |
-| `M38` | model | `kind:obj-weapon` special | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` | error | manual | catalog |
-| `M39` | model | `*` sticks, unworked poles | — | model | any-of | `wood-bark` | error | manual | catalog |
-| `M40` | model | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | expect | `leather` | warn | manual | — |
-| `M41` | model | `kind:obj-transport-boat` + `kind:obj-transport-ship` | — | `mat:wood` | count-min | 2 | error | auto | catalog |
-| `M42` | model | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly | warn | manual | catalog |
-| `M43` | model | `kind:str-marker-sign` + `kind:str-barrier-post` + `kind:str-marker-flag` | — | `part:pole` (usual) | expect | `wood:` | warn | manual | — |
-| `M44` | model | `*` | — | — | see | `M24`, `M25`; never the other way round | — | none | — |
-| `M45` | model | `kind:obj` bells | — | model | not | `metal-iron:` | error | manual | catalog |
-| `M46` | model | `kind:str-part-wall` + `kind:str-part-floor` + `kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` | error | manual | catalog |
-| `M47` | model | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` | error | manual | catalog |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `M01.1` | `kind:obj-container-barrel` | — | `part:hoop` (always) | is | `metal-iron` | error | review |
+| `M01.2` | `kind:obj-container-bucket` | — | `part:hoop` (always) | is | `metal-iron` | error | review |
+| `M01.3` | `kind:obj-container-chest` | — | `part:hoop` (usual) | is | `metal-iron` | error | review |
+| `M01.4` | `kind:obj-container-crate` | — | `part:hoop` (sometimes) | is | `metal-iron` | error | review |
+| `M02` | `kind:obj-container-bottle` | — | model | any-of | `glass`, `ceramic` | error | auto |
+| `M03` | `kind:obj-container-bag` | — | `part:fastener, closure` (sometimes) | any-of | `rope`, `leather` | error | review |
+| `M04` | `kind:obj-kitchenware-tableware-plate` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` | error | auto |
+| `M05` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `part:hoop, handle` (sometimes) | is | `metal-iron:` | error | review |
+| `M06` | `kind:obj-kitchenware-tableware` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto |
+| `M07` | `kind:obj-furniture` | rug, carpet + upholstered | model | any-of | `wood:` | error | review |
+| `M08` | `kind:obj-furniture` rug, carpet | — | model | any-of | `textile` | error | review |
+| `M09` | `kind:obj-furniture-seating` upholstered | — | model | any-of | `textile` | error | review |
+| `M10` | `kind:obj-weapon` + `kind:obj-tool` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto |
+| `M11` | `kind:obj-weapon` + `kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` | error | review |
+| `M12` | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` | error | review |
+| `M13` | `kind:obj-weapon-cannon` | — | `mat:metal-iron` | is | `metal-iron-cast` | error | auto |
+| `M14` | `kind:obj-equipment` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto |
+| `M15` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | any-of | `leather` | error | review |
+| `M16` | `kind:obj-tool-hand` | — | `part:wood handle` (usual) | is | `wood-planks` | error | review |
+| `M17` | `kind:obj-tool-long` | — | `part:pole` (always) | is | `wood-beam` | error | review |
+| `M18` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` | error | auto |
+| `M19` | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` | error | review |
+| `M20` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` | error | auto |
+| `M21` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` | error | auto |
+| `M22` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` | error | review |
+| `M23` | `kind:obj-pocketitem-jewellery` | — | model | all-of | `metal-gold`, `gemstone` | error | auto |
+| `M24` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | — | `part:cut face` (always) | is | `wood-log` | error | review |
+| `M25` | `kind:obj-resource-wood-log` + `kind:env-flora-deadwood-branch` + cut-face trunks | — | `part:round side` (always) | is | `wood-bark` | error | review |
+| `M26` | `kind:obj` bells | — | model | any-of | `metal-copper`, `metal-gold` | error | review |
+| `M27` | `kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` | error | auto |
+| `M28` | `kind:str-part-roof` | — | model | any-of | `ceramic` | error | auto |
+| `M29` | `kind:str-marker-flag` | — | model | any-of | `textile` | error | auto |
+| `M30` | `kind:char` | — | `mat:metal-iron` | is | `metal-iron-steel` | error | auto |
+| `M31` | `mat=metal-iron` | — | `mat:metal-iron` | default | `metal-iron-wrought` | error | auto |
+| `M32` | `D06` | — | model | expect | mainly `wood`, often `metal-iron` accents | warn | review |
+| `M33` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | model | expect | `wood:` | warn | review |
+| `M34` | `kind:obj-kitchenware-cookware` & `mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` | error | review |
+| `M35` | `kind:obj-tool` + `kind:obj-weapon` | — | `mat:metal` | is | `metal-iron:` | error | auto |
+| `M36` | `kind:obj-weapon` + `kind:obj-tool` + `kind:obj-equipment-shield` | — | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` | warn | review |
+| `M37` | `kind:obj-weapon` simple + `kind:obj-weapon-ranged-bow` | — | model | note | `wood:` wholly or partly is fine; `M35` constrains only the metal | — | none |
+| `M38` | `kind:obj-weapon` special | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` | error | review |
+| `M39` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` | error | review |
+| `M40` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | expect | `leather` | warn | review |
+| `M41` | `kind:obj-transport-boat` + `kind:obj-transport-ship` | — | `mat:wood` | count-min | 2 | error | auto |
+| `M42` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly | warn | review |
+| `M43` | `kind:str-marker-sign` + `kind:str-barrier-post` + `kind:str-marker-flag` | — | `part:pole` (usual) | expect | `wood:` | warn | review |
+| `M44` | `*` | — | — | see | `M24`, `M25`; never the other way round | — | none |
+| `M45` | `kind:obj` bells | — | model | not | `metal-iron:` | error | review |
+| `M46` | `kind:str-part-wall` + `kind:str-part-floor` + `kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` | error | review |
+| `M47` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` | error | review |
 
 ---
 
@@ -408,71 +418,71 @@ What a kind is made of. Colour follows from section 5.
 Every row names the set of bands its subject may draw from; F12.4 bounds a
 model's bands by the union over the rows that match it.
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `B01` | model | `mat=metal-iron-steel` | — | model | one-of | `nickel` | error | auto | catalog |
-| `B02` | model | `mat=metal-iron-wrought` | — | model | one-of | `basalt` | error | auto | catalog |
-| `B03` | model | `mat=metal-iron-cast` | — | model | one-of | `slate` | error | auto | catalog |
-| `B04` | model | `mat=metal-gold` | — | model | one-of | `amber` | error | auto | catalog |
-| `B05` | model | `mat=metal-copper` | — | model | one-of | `terracotta` | error | auto | catalog |
-| `B06` | model | `mat=wood-planks` | — | model | one-of | `tan` | error | auto | catalog |
-| `B07` | model | `mat=wood-worked` | — | model | one-of | `camel` | error | auto | catalog |
-| `B08` | model | `mat=wood-beam` | — | model | one-of | `chestnut` | error | auto | catalog |
-| `B09` | model | `mat=wood-bark` | — | model | one-of | `umber` | error | auto | catalog |
-| `B51` | model | `mat=wood-log` | — | model | one-of | any brown band | error | manual | catalog |
-| `B10` | model | `mat=stone-masonry` | — | model | one-of | `taupe`, `slate`, `nickel` | error | auto | catalog |
-| `B11` | model | `mat=stone-rock` | — | model | one-of | `nickel`, `taupe` | error | auto | catalog |
-| `B12` | model | `mat=stone-soil` | — | model | one-of | `taupe` | error | auto | catalog |
-| `B13` | model | `mat=paper` | — | model | one-of | `ivory` | error | auto | catalog |
-| `B14` | model | `mat=textile` | — | model | one-of | `ivory`, `hunter` | error | auto | catalog |
-| `B15` | model | `mat=leather` | — | model | one-of | `umber` | error | auto | catalog |
-| `B16` | model | `mat=ceramic` | — | model | one-of | `terracotta`, `ivory`, `taupe`, `sienna` | error | auto | catalog |
-| `B17` | model | `mat=bone` | — | model | one-of | `ivory` | error | auto | catalog |
-| `B18` | model | `mat=wax` | — | model | one-of | `ivory` | error | auto | catalog |
-| `B19` | model | `mat=wick` | — | model | one-of | `basalt` | error | auto | catalog |
-| `B20` | model | `mat=glass` & `size:m\|l` | — | model | one-of | `transparent` | error | auto | catalog |
-| `B21` | model | `mat=glass` & `size:s` | — | model | one-of | `transparent`, `sienna`, `hunter` | error | auto | catalog |
-| `B22` | model | `mat=liquid` | — | model | one-of | `sienna`, `hunter`, `azure` | error | auto | catalog |
-| `B23` | model | `mat=rope` | — | model | one-of | `taupe` | error | auto | catalog |
-| `B24` | model | `mat=cork` | — | model | one-of | `taupe` | error | auto | catalog |
-| `B25` | model | `mat=gemstone` | — | model | one-of | `sienna`, `hunter`, `azure` | error | auto | catalog |
-| `B26` | model | `mat=skin` | — | model | one-of | `tan`, `taupe`, `umber` | error | auto | catalog |
-| `B52` | model | `mat:metal-iron` | — | `bands` | not | two `metal-iron` bands merged into one | error | manual | — |
-| `B57` | model | `mat=wax` | — | model | see | `B18` is `obj-lighting-candle` wax | — | none | — |
-| `B27` | model | `kind:obj-kitchenware-tableware-plate` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` | error | auto | catalog |
-| `B28` | model | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` | error | manual | catalog |
-| `B29` | model | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` | error | auto | catalog |
-| `B58` | model | `kind:obj-food` | — | model | one-of | `any` | error | auto | catalog |
-| `B59` | model | `kind:obj-food` fish | — | model | expect | `nickel`, `basalt`, `slate`, `azure` | warn | manual | catalog |
-| `B30` | model | `kind:obj-food` cheese | — | model | one-of | `amber` | error | manual | catalog |
-| `B31` | model | `kind:obj-food-meat` | — | model | one-of | `sienna` | error | auto | catalog |
-| `B60` | model | `kind:obj-food-vegetable` | — | model | expect | `moss` | warn | auto | catalog |
-| `B32` | model | `kind:obj-food-vegetable` carrot, pumpkin | — | model | one-of | `terracotta` | error | manual | catalog |
-| `B33` | model | `kind:obj-food-grain` | — | model | one-of | `tan`, `camel`, `chestnut` | error | auto | catalog |
-| `B34` | model | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` | error | manual | catalog |
-| `B35` | model | `*` chocolate | — | model | one-of | `chestnut` | error | manual | catalog |
-| `B36` | model | `kind:obj-weapon` + `kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe` | error | manual | — |
-| `B56` | model | `kind:obj-weapon` + `kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | range | UV 0.02–0.40 of the `taupe` band | error | manual | — |
-| `B37` | model | `kind:obj-weapon-magic` & `mat:paper` | — | `part:cover` (sometimes) | one-of | `umber`, `sienna`, `hunter`, `slate` | error | manual | — |
-| `B38` | model | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` | error | auto | catalog |
-| `B55` | model | `kind:obj-transport-ship` + `kind:obj-transport-boat` + `kind:obj-transport-accessory` | — | `mat:textile` | one-of | `ivory`, `hunter`, `slate` | error | auto | catalog |
-| `B39` | model | `kind:obj-transport-accessory` sails + `kind:str-stands` canvas | — | model | one-of | `ivory`, striped `sienna` and `ivory` | error | manual | catalog |
-| `B40` | model | `kind:obj-pocketitem-book` | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` | error | manual | — |
-| `B41` | model | `kind:obj-pocketitem-scroll` | — | model | one-of | `ivory` | error | auto | catalog |
-| `B42` | model | `kind:obj-pocketitem-scroll` | — | `part:text` (sometimes) | one-of | `slate` | error | manual | — |
-| `B43` | model | `kind:obj-pocketitem-scroll` | — | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` | error | manual | — |
-| `B54` | model | `kind:char` + `kind:obj-equipment-clothing` | — | `mat:textile` | one-of | `ivory`, `hunter`, `sienna` | error | auto | catalog |
-| `B44` | model | `kind:str` | — | `mat:glass` | one-of | `transparent` | error | auto | catalog |
-| `B65` | model | `kind:str-part-roof` | — | model | one-of | `sienna` | error | auto | catalog |
-| `B45` | model | `kind:env-flora` | — | `part:stem, leaf` (usual) | one-of | `moss` | error | manual | — |
-| `B46` | model | `kind:env-flora-tree` | `kind:env-flora-tree-palm` | model | one-of | `hunter` | error | auto | catalog |
-| `B62` | model | `kind:env-flora-plant-flower` + `kind:env-flora-plant-cactus` | — | `part:flower` (usual) | one-of | `any` | error | manual | — |
-| `B47` | model | `kind:env-fungi` | — | `part:stem` (always) | one-of | `ivory` | error | manual | — |
-| `B48` | model | `kind:env-fungi` | — | `part:cap` (always) | one-of | `sienna`, `camel` | error | manual | — |
-| `B63` | model | `kind:env-fauna` | — | model | one-of | `any` | error | auto | catalog |
-| `B49` | model | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` | error | manual | — |
-| `B50` | model | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber` | error | manual | — |
-| `B64` | model | `*` | — | `part:flame, glow, light` (sometimes) | is | UVs spread wide across the `amber` band | error | manual | — |
+| id | when | except | subject | assert | value | sev | check |
+|---|---|---|---|---|---|---|---|
+| `B01` | `mat=metal-iron-steel` | — | model | one-of | `nickel` | error | auto |
+| `B02` | `mat=metal-iron-wrought` | — | model | one-of | `basalt` | error | auto |
+| `B03` | `mat=metal-iron-cast` | — | model | one-of | `slate` | error | auto |
+| `B04` | `mat=metal-gold` | — | model | one-of | `amber` | error | auto |
+| `B05` | `mat=metal-copper` | — | model | one-of | `terracotta` | error | auto |
+| `B06` | `mat=wood-planks` | — | model | one-of | `tan` | error | auto |
+| `B07` | `mat=wood-worked` | — | model | one-of | `camel` | error | auto |
+| `B08` | `mat=wood-beam` | — | model | one-of | `chestnut` | error | auto |
+| `B09` | `mat=wood-bark` | — | model | one-of | `umber` | error | auto |
+| `B51` | `mat=wood-log` | — | model | one-of | `tan`, `camel`, `chestnut` | error | auto |
+| `B10` | `mat=stone-masonry` | — | model | one-of | `taupe`, `slate`, `nickel` | error | auto |
+| `B11` | `mat=stone-rock` | — | model | one-of | `nickel`, `taupe` | error | auto |
+| `B12` | `mat=stone-soil` | — | model | one-of | `taupe` | error | auto |
+| `B13` | `mat=paper` | — | model | one-of | `ivory` | error | auto |
+| `B14` | `mat=textile` | — | model | one-of | `ivory`, `hunter` | error | auto |
+| `B15` | `mat=leather` | — | model | one-of | `umber` | error | auto |
+| `B16` | `mat=ceramic` | — | model | one-of | `terracotta`, `ivory`, `taupe`, `sienna` | error | auto |
+| `B17` | `mat=bone` | — | model | one-of | `ivory` | error | auto |
+| `B18` | `mat=wax` | — | model | one-of | `ivory` | error | auto |
+| `B19` | `mat=wick` | — | model | one-of | `basalt` | error | auto |
+| `B20` | `mat=glass` & `size:m\|l` | — | model | one-of | `transparent` | error | auto |
+| `B21` | `mat=glass` & `size:s` | — | model | one-of | `transparent`, `sienna`, `hunter` | error | auto |
+| `B22` | `mat=liquid` | — | model | one-of | `sienna`, `hunter`, `azure` | error | auto |
+| `B23` | `mat=rope` | — | model | one-of | `taupe` | error | auto |
+| `B24` | `mat=cork` | — | model | one-of | `taupe` | error | auto |
+| `B25` | `mat=gemstone` | — | model | one-of | `sienna`, `hunter`, `azure` | error | auto |
+| `B26` | `mat=skin` | — | model | one-of | `tan`, `taupe`, `umber` | error | auto |
+| `B52` | `mat:metal-iron` | — | `bands` | not | two `metal-iron` bands merged into one | error | review |
+| `B57` | `mat=wax` | — | model | see | `B18` is `obj-lighting-candle` wax | — | none |
+| `B27` | `kind:obj-kitchenware-tableware-plate` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` | error | auto |
+| `B28` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` | error | review |
+| `B29` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` | error | auto |
+| `B58` | `kind:obj-food` | — | model | one-of | `any` | error | auto |
+| `B59` | `kind:obj-food` fish | — | model | expect | `nickel`, `basalt`, `slate`, `azure` | warn | review |
+| `B30` | `kind:obj-food` cheese | — | model | one-of | `amber` | error | review |
+| `B31` | `kind:obj-food-meat` | — | model | one-of | `sienna` | error | auto |
+| `B60` | `kind:obj-food-vegetable` | — | model | expect | `moss` | warn | auto |
+| `B32` | `kind:obj-food-vegetable` carrot, pumpkin | — | model | one-of | `terracotta` | error | review |
+| `B33` | `kind:obj-food-grain` | — | model | one-of | `tan`, `camel`, `chestnut` | error | auto |
+| `B34` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` | error | review |
+| `B35` | `*` chocolate | — | model | one-of | `chestnut` | error | review |
+| `B36` | `kind:obj-weapon` + `kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe` | error | review |
+| `B56` | `kind:obj-weapon` + `kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | range | UV 0.02–0.40 of the `taupe` band | error | review |
+| `B37` | `kind:obj-weapon-magic` & `mat:paper` | — | `part:cover` (sometimes) | one-of | `umber`, `sienna`, `hunter`, `slate` | error | review |
+| `B38` | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` | error | auto |
+| `B55` | `kind:obj-transport-ship` + `kind:obj-transport-boat` + `kind:obj-transport-accessory` | — | `mat:textile` | one-of | `ivory`, `hunter`, `slate` | error | auto |
+| `B39` | `kind:obj-transport-accessory` sails + `kind:str-stands` canvas | — | model | one-of | `ivory`, striped `sienna` and `ivory` | error | review |
+| `B40` | `kind:obj-pocketitem-book` | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` | error | review |
+| `B41` | `kind:obj-pocketitem-scroll` | — | model | one-of | `ivory` | error | auto |
+| `B42` | `kind:obj-pocketitem-scroll` | — | `part:text` (sometimes) | one-of | `slate` | error | review |
+| `B43` | `kind:obj-pocketitem-scroll` | — | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` | error | review |
+| `B54` | `kind:char` + `kind:obj-equipment-clothing` | — | `mat:textile` | one-of | `ivory`, `hunter`, `sienna` | error | auto |
+| `B44` | `kind:str` | — | `mat:glass` | one-of | `transparent` | error | auto |
+| `B65` | `kind:str-part-roof` | — | model | one-of | `sienna` | error | auto |
+| `B45` | `kind:env-flora` | — | `part:stem, leaf` (usual) | one-of | `moss` | error | review |
+| `B46` | `kind:env-flora-tree` | `kind:env-flora-tree-palm` | model | one-of | `hunter` | error | auto |
+| `B62` | `kind:env-flora-plant-flower` + `kind:env-flora-plant-cactus` | — | `part:flower` (usual) | one-of | `any` | error | review |
+| `B47` | `kind:env-fungi` | — | `part:stem` (always) | one-of | `ivory` | error | review |
+| `B48` | `kind:env-fungi` | — | `part:cap` (always) | one-of | `sienna`, `camel` | error | review |
+| `B63` | `kind:env-fauna` | — | model | one-of | `any` | error | auto |
+| `B49` | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` | error | review |
+| `B50` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber` | error | review |
+| `B64` | `*` | — | `part:flame, glow, light` (sometimes) | is | the `amber` lane's UV range not 0 | error | review |
 
 ---
 
@@ -480,21 +490,30 @@ model's bands by the union over the rows that match it.
 
 Who decides, and what happens around the asset.
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `P01` | process | `mat:special`, `tag:hero` | — | PO | note | only the PO assigns them | — | process | — |
-| `P02` | process | adding to the catalogue | — | Claude | note | proposes `hero` | — | process | — |
-| `P03` | process | `mat:special` | — | Claude | note | asks only after recolour and a kind or material change failed | — | process | — |
-| `P04` | process | outline on an asset | — | Claude | note | tells the PO | — | process | — |
-| `P05` | process | creating an asset | — | Claude | note | renders and looks at the reference assets first | — | process | — |
-| `P06` | process | validating | — | Claude | note | renders 2+ references of the group beside it, same scale | — | process | — |
-| `P07` | process | `kind=assy` | — | build | note | not validated directly | — | process | — |
-| `P08` | process | importing a pack | — | Claude | note | one scale factor for the whole pack for now | — | process | — |
-| `P09` | process | importing, 2 colours | — | Claude | note | keeps 2 | — | process | — |
-| `P09.1` | process | importing, 3–4 colours | — | Claude | note | may drop 1 | — | process | — |
-| `P09.2` | process | importing, 5 colours | — | Claude | note | may drop 2 | — | process | — |
-| `P09.3` | process | importing, 6+ colours | — | Claude | note | keeps ≥ 3 | — | process | — |
-| `P10` | process | a leaf below 6 models | — | PO | note | not retired for that | — | process | — |
+Who assigns what:
+
+- **`P01`** — only the PO assigns `mat:special` and `tag:hero`.
+- **`P02`** — adding to the catalogue, Claude proposes `hero`.
+- **`P03`** — Claude asks for `mat:special` only after a recolour and a kind or
+  material change have both failed.
+- **`P04`** — an outline on an asset, Claude tells the PO.
+- **`P10`** — the PO does not retire a leaf for being below 6 models.
+
+Making and validating:
+
+- **`P05`** — creating an asset, Claude renders and looks at the reference
+  assets first.
+- **`P06`** — validating, Claude renders 2+ references of the group beside it at
+  the same scale.
+- **`P07`** — a `kind=assy` is not validated directly.
+
+Importing a pack:
+
+- **`P08`** — one scale factor for the whole pack, for now.
+- **`P09`** — 2 source colours: keep 2.
+- **`P09.1`** — 3–4 source colours: may drop 1.
+- **`P09.2`** — 5 source colours: may drop 2.
+- **`P09.3`** — 6 or more source colours: keep at least 3.
 
 ---
 
@@ -512,21 +531,32 @@ catalogue. A group exists for one of these reasons.
 | `D14` | state | kind, material | a part moved, removed, filled or recoloured |
 | `D15` | plural | kind, material, band | how many instances |
 
-| id | scope | when | except | subject | assert | value | sev | check | source |
-|---|---|---|---|---|---|---|---|---|---|
-| `V06` | group | `*` | — | `type` | one-of | `D11`, `D12`, `D13`, `D14`, `D15` | error | auto | variants |
-| `V07` | group | `*` | — | `kits` | is | one kit; a second only for the same artist, never across artists without the PO | error | manual | variants |
-| `V08` | group | `*` | — | `kind` | is | the same for every member | error | auto | variants |
-| `V09` | process | assets entering | — | Claude | note | name and tris propose, shape and a render confirm | — | process | — |
-| `V10` | group | `*` | — | grouping | is | the more models of a kind, the more sit inside a group | — | intent | — |
-| `V11` | group | `*` | — | grouping | is | reasons stack; the more and wider, the sooner its own row | — | intent | — |
-| `V12` | group | `*` | — | grouping | is | judged by how it reads, not how far it measures | — | intent | — |
-| `V13` | group | `D13` | — | member | is | redesigned at that size: a longer ladder gains rungs | — | intent | — |
-| `V14` | group | `D13` | — | member | not | scaled, globally or on one axis | — | intent | — |
-| `V15` | group | kinds wanting variety | — | grouping | is | `D11` and `D12` are made on purpose (`M34` is one) | — | intent | — |
-| `V16` | process | a ship gaining a mast and sails | — | PO | note | `D13` and `V11` both apply; it goes to the PO | — | process | — |
+What holds of every group, read from `catalog/asset_variants.json`:
 
-A group without one of `D11`–`D15` is a dedupe, not a group (Q12).
+- **`V06`** — its `type` is one of `D11`, `D12`, `D13`, `D14`, `D15`. A group
+  without one of them is a dedupe, not a group. *error · auto*
+- **`V07`** — its `kits` is one kit; a second only for the same artist, never
+  across artists without the PO. *error · review*
+- **`V08`** — its `kind` is the same for every member. *error · auto*
+
+How groups are drawn, none of it failed by the build:
+
+- **`V10`** — the more models of a kind, the more sit inside a group.
+- **`V11`** — reasons stack; the more and the wider, the sooner a model earns
+  its own row.
+- **`V12`** — a group is judged by how it reads, not by how far it measures.
+- **`V13`** — a `D13` member is redesigned at that size: a longer ladder gains
+  rungs.
+- **`V14`** — a `D13` member is never scaled, globally or on one axis.
+- **`V15`** — for kinds wanting variety, `D11` and `D12` are made on purpose
+  (`M34` is one).
+
+Who decides:
+
+- **`V09`** — for assets entering, name and tris propose; shape and a render
+  confirm.
+- **`V16`** — a ship gaining a mast and sails: `D13` and `V11` both apply, so it
+  goes to the PO.
 
 A variant is what keeps a kind from ballooning. Filled and empty, open and
 closed, lit and unlit, with lid, without lid and the lid alone each double a
@@ -534,36 +564,6 @@ group; left apart, ten potions and a shelf of pans crowd out everything else.
 The same reasons that justify a variant are what justify the model being in
 the catalogue at all, so the judgement runs both ways: too alike and it is a
 dedupe, too far apart and it is its own row.
-
----
-
-## 8. Open questions
-
-Each one blocks a rule from being checkable, or leaves two readings of it. The
-`sev`, `check` and `source` of the rule stay as written until the PO answers.
-
-| id | rule | question |
-|---|---|---|
-| `Q01` | `D04`, `G03` | D04 clamps w × d at 0.49 and h at 0.7, but its own text says anything under 0.5 × 0.5 × 0.5 is judged as that size; and no rule names tri density, while `G03` counts per grid cell and `catalog.json` carries `budgetPerUnit` 2000 and a measured `dens`. Which of the three is the budget? |
-| `Q02` | `G04.1`, `G04.2` | "Only deliberately, for a functional reason" has no token a model can carry, so every ungrounded or off-centre model fails. Which tag marks the deliberate ones? |
-| `Q03` | `T10` | There is no `animation` tag and no animation field in `catalog.json`. Where is it measured to? |
-| `Q04` | `T14` | A `special` must record its band and reason, but no field holds either. Where? |
-| `Q05` | `B20`, `B21`, `B44` | `transparent` is used as a band but is not in the band table and is not a painted lane. Is it a band, or the absence of one? |
-| `Q06` | `D02`, `G26`–`G34` | "Long" is the main axis, which is not recorded; only `wdh` is. Those nine rows are `check manual` for that reason alone. Record the axis, or read them as `longest`? |
-| `Q07` | every `part:` row | The presence values were read off the catalogue, not decided: barrel and bucket hoops 100% of models, `obj-tool-long` poles 19/19, cut faces 38/38, chest hoops 22/25, tool handles 39/45, book straps 20/25, crate hoops 3/21, sails 2/8. Confirm each, or record parts per model and check them directly. |
-| `Q08` | `F02` | The field said "closed, 36"; `tags.json` holds 37 materials, including `metal-silver`, which is not in the material tree. Also `foliage`, `plastic`, `emissive`, `food`, `vegetation` and `special` have no colour row in §5, so §5 is not total over the materials. |
-| `Q09` | `B51` | "Any brown" names no band. `tan`, `camel`, `chestnut` and `umber` are the brown bands — is that the set, and may a log mix them? |
-| `Q10` | `I07`, `B64` | "Spread maintained" and "spread wide" have no number, while `catalog.json` records `grad` and `spread` per band. What is the threshold? |
-| `Q11` | `P09.3` | 5 colours may drop to 3, and 6+ must keep ≥ 3 — so more source colours allow more dropping. Intended? |
-| `Q12` | `V06` | `asset_variants.json` types are `detail-variant`, `color-variant` and `maatvariant`, none of them `D11`–`D15`. The spec is the target, so the data needs migrating: which of D11–D15 does `detail-variant` become? |
-| `Q13` | `F02`–`F05` | `tags.json` carries a fifth field, `use` (eight `use:` tags), and a `scene` kind. Neither appears in this document. |
-| `Q14` | all | Rule ids quoted in `tags.json` descriptions (M11, M12, M13, M28, M41, M42, M44, T15, M20) point at an older numbering. They need remapping to the ids here. |
-| `Q15` | `M28`, `B65` | `M28` set a material and a band in one cell; the band is split out as `B65`. Confirm the split, and the id. |
-| `Q16` | `G02`, `G52` | Nothing may be thinner than 0.015, yet flags, sails, canopies and canvas must be under 0.1 thick — the two only agree if cloth is not a solid piece. Which is it? |
-| `Q17` | `F12.3` | Material closure only runs where a kind's rows are known to be complete. Which kinds are closed? None is marked, so `F12.3` runs nowhere yet. |
-| `Q18` | band ids | The C id decodes four ways: row 0 is the column + 1 (`tan` C01 = lane 0,0), row 1 the column + 12 (`slate` C18 = 6,1), row 3 the column + 300 (`nickel` C315 = 15,3), and row 2 disagrees with itself (`azure` C25 = 4,2 is + 21, `ivory` C27 = 5,2 is + 22). Renumber, or drop the column and keep the lane? |
-| `Q19` | band table | `kits/colormap.png` paints 16 lanes; the table names 15. Lane 3,2 (#979ebd) has no name and no rule. Name it, or is it unused? |
-| `Q20` | `M07` | Rugs and upholstered seating leave `M07` through a prose `except`, which makes `M07` `check manual`. Which tag marks them, so `M07` can run? |
 
 ---
 
