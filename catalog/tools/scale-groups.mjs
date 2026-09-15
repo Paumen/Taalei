@@ -1,6 +1,6 @@
 import { kindName, kindAncestors, kindIs } from './kinds.mjs';
 
-const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
+const round05 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 
 export const SCALE_TABS = [
   {
@@ -90,7 +90,7 @@ export function buildScaleGroups(models) {
       items: items.map((m) => ({
         slug: m.kit,
         model: m.name,
-        wdh: m.wdh.map(round1),
+        wdh: m.wdh.map(round05),
         tags: m.tags?.length ? m.tags : undefined,
         colors: m.colors?.length ? m.colors : undefined,
       })),

@@ -18,7 +18,7 @@ const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'missing-colors.json'), 'utf8'));
 
-const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
+const round05 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 
 function kitGegevens(slug) {
@@ -385,7 +385,7 @@ for (const bronkit of BRONKITS) {
       kit: bronId(bronkit),
       name: model.naam,
       kind: kindFromName(kebab(model.naam), model.wdh ?? [1, 1, 1]),
-      wdh: wdh.map(round1),
+      wdh: wdh.map(round05),
       tris: model.driehoeken,
       tpu: trianglesPerUnit(model.driehoeken, wdh),
       mat: model.primitieven.length,
