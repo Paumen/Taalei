@@ -4788,7 +4788,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 94
+   "count": 95
   },
   {
    "id": "foliage",
@@ -4916,7 +4916,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 193,
+   "count": 190,
    "color": "#dd9f79"
   },
   {
@@ -4952,7 +4952,7 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 20
+   "count": 25
   },
   {
    "id": "obj-container-crate",
@@ -5088,7 +5088,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits (K2).",
-   "count": 134,
+   "count": 138,
    "color": "#9c3f2e"
   },
   {
@@ -5096,7 +5096,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 61
+   "count": 65
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -5110,7 +5110,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 27
+   "count": 31
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -5131,7 +5131,7 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, platter, tray, saucer, bowl",
-   "count": 33
+   "count": 34
   },
   {
    "id": "obj-lighting",
@@ -5239,7 +5239,7 @@
    "name": "Textile",
    "type": "kind",
    "description": "textile bolt, cloth roll",
-   "count": 5
+   "count": 7
   },
   {
    "id": "obj-resource-wood",
@@ -5267,7 +5267,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, anvil, grindstone",
-   "count": 80,
+   "count": 79,
    "color": "#6d738a"
   },
   {
@@ -5304,14 +5304,14 @@
    "name": "Accessory",
    "type": "kind",
    "description": "anchor, paddle, oar, wheel, sail, rudder, mast",
-   "count": 5
+   "count": 7
   },
   {
    "id": "obj-transport-boat",
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 12
+   "count": 10
   },
   {
    "id": "obj-transport-cart",
@@ -5339,7 +5339,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits (K2).",
-   "count": 138,
+   "count": 142,
    "color": "#4c5468"
   },
   {
@@ -5667,7 +5667,7 @@
    "name": "Building",
    "type": "kind",
    "description": "house (whole), hut, crypt, church, castle, inn, barracks, stables, blacksmith, watermill, sawmill, gazebo, well",
-   "count": 109,
+   "count": 107,
    "color": "#7d4f3a"
   },
   {
@@ -5675,7 +5675,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 349,
+   "count": 346,
    "color": "#a8762a"
   },
   {
@@ -5704,7 +5704,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 24
+   "count": 23
   },
   {
    "id": "str-part-roof",
@@ -5732,7 +5732,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 51,
+   "count": 56,
    "color": "#ffb349"
   },
   {
@@ -5754,7 +5754,7 @@
    "name": "Tombstone",
    "type": "kind",
    "description": "tombstone, gravestone, cross (grave), memorial",
-   "count": 33
+   "count": 38
   },
   {
    "id": "str-platform",
@@ -5807,7 +5807,7 @@
    "name": "Container",
    "type": "use",
    "description": "You put something in it.",
-   "count": 225
+   "count": 224
   },
   {
    "id": "use:food",
@@ -6191,10 +6191,7 @@
   {
    "kit": "asia-grave",
    "name": "coffin-a",
-   "kind": "obj-container",
-   "use": [
-    "container"
-   ],
+   "kind": "obj-container-chest",
    "size": "m",
    "wdh": [
     0.4,
@@ -6233,7 +6230,7 @@
   {
    "kit": "asia-grave",
    "name": "coffin-b",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "use": [
     "container"
    ],
@@ -11603,7 +11600,7 @@
   {
    "kit": "asia-pack",
    "name": "training-post",
-   "kind": "obj",
+   "kind": "obj-weapon",
    "size": "m",
    "wdh": [
     0.4,
@@ -16053,7 +16050,7 @@
   {
    "kit": "asia-rg",
    "name": "training-dummy",
-   "kind": "obj",
+   "kind": "obj-weapon",
    "size": "m",
    "wdh": [
     0.4,
@@ -17193,7 +17190,7 @@
   {
    "kit": "cooking-assets",
    "name": "cloche",
-   "kind": "obj-kitchenware-tableware",
+   "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
     0.4,
@@ -17667,7 +17664,7 @@
   {
    "kit": "cooking-assets",
    "name": "mortar-and-pestle",
-   "kind": "obj-tool",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "tool"
    ],
@@ -23131,7 +23128,7 @@
   {
    "kit": "fs-town",
    "name": "boat-oars-a",
-   "kind": "obj-transport-boat",
+   "kind": "obj-transport-accessory",
    "use": [
     "transport"
    ],
@@ -30727,7 +30724,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-a-white",
-   "kind": "obj-container",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "container"
    ],
@@ -30769,7 +30766,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-b-red",
-   "kind": "obj-container",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "container"
    ],
@@ -30811,7 +30808,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-b-white",
-   "kind": "obj-container",
+   "kind": "obj-kitchenware-cookware-pot",
    "use": [
     "container"
    ],
@@ -56744,7 +56741,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin-lid",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "size": "m",
    "wdh": [
     0.5,
@@ -56791,7 +56788,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "use": [
     "container"
    ],
@@ -60127,7 +60124,7 @@
   {
    "kit": "kay-resources",
    "name": "pallet-wood-covered-a",
-   "kind": "obj-resource",
+   "kind": "obj-resource-textile",
    "use": [
     "container"
    ],
@@ -60169,6 +60166,7 @@
    ],
    "tags": [
     "kay",
+    "leather",
     "textile",
     "wood-planks"
    ]
@@ -68986,7 +68984,7 @@
   {
    "kit": "ken-grave",
    "name": "coffin",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "use": [
     "container"
    ],
@@ -69030,7 +69028,7 @@
   {
    "kit": "ken-grave",
    "name": "cross-column",
-   "kind": "str-part-pillar",
+   "kind": "str-marker-tombstone",
    "size": "m",
    "wdh": [
     0.3,
@@ -69266,7 +69264,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-large",
-   "kind": "str-building",
+   "kind": "str-marker-tombstone",
    "size": "l",
    "wdh": [
     1.5,
@@ -69313,7 +69311,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-small-roof",
-   "kind": "str-part",
+   "kind": "str-marker-tombstone",
    "size": "m",
    "wdh": [
     1.1,
@@ -69359,7 +69357,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-small",
-   "kind": "str-part",
+   "kind": "str-marker-tombstone",
    "size": "m",
    "wdh": [
     1,
@@ -69405,7 +69403,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt",
-   "kind": "str-building",
+   "kind": "str-marker-tombstone",
    "size": "m",
    "wdh": [
     0.5,
@@ -103116,7 +103114,7 @@
   {
    "kit": "quat-props",
    "name": "training-dummy",
-   "kind": "obj",
+   "kind": "obj-weapon",
    "size": "m",
    "wdh": [
     0.6,
@@ -103258,7 +103256,7 @@
   {
    "kit": "quat-props",
    "name": "weapon-stand",
-   "kind": "obj",
+   "kind": "obj-weapon",
    "size": "m",
    "wdh": [
     1.1,
@@ -113778,7 +113776,7 @@
   {
    "kit": "small-props",
    "name": "boat-frame-a",
-   "kind": "obj-transport-boat",
+   "kind": "obj-transport-accessory",
    "use": [
     "transport"
    ],
@@ -114727,7 +114725,7 @@
   {
    "kit": "small-props",
    "name": "skin-hang-a",
-   "kind": "obj-resource",
+   "kind": "obj-resource-textile",
    "size": "m",
    "wdh": [
     0.5,
