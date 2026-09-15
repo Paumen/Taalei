@@ -2,31 +2,7 @@
 
 Scope: items in the catalogue.
 
-## 0. How to read a rule
-
-**[F01] Rule format.** Every rule about a model is one table row. A rule table's
-columns are exactly these, in this order:
-
-`id | when | except | subject | assert | value | sev | check`
-
-No rule table drops, renames, adds or reorders a column. A table whose first two
-columns are not `id` and `when` is reference data, not rules: the term,
-definition, band, tag-field and variant-reason tables. A rule's `when`, `subject`
-and `value` cells together are capped at 200 characters.
-
-Ids are stable. A withdrawn id is never reused and never renumbered; the
-withdrawn list at the end of this section says where each one went.
-
-**[F13] What is a row and what is not.** A table row is about one model, and a
-`when` selector is matched against models. Everything that is about something
-else is a list, not a row: what holds of a variant group (§7), and what people
-and the build do (§3, §6, §7). A list item keeps its id and says what it asks
-for; where one is checked against `catalog/asset_variants.json`, the item names
-its `sev` and `check`.
-
-**[F06] Selector (`when`, `except`).** A selector is terms joined by `+` (any
-of them matches) or `&` (all of them must). `&` binds tighter than `+`; there
-are no brackets. A term is one of:
+A term is one of:
 
 | term | matches |
 |---|---|
@@ -41,29 +17,11 @@ are no brackets. A term is one of:
 | `D06`, `D10` | a definition id that names a set of models |
 | `!<term>` | models the term does not match |
 
-A term's value may list alternatives with `\|`: `size:m\|l`. The pipe is
-escaped in this document because the tables are markdown; the escape is not
-part of the term.
-
-An empty `except` cell (`—`) means no exemption; `except` holds a selector and
-nothing else. Words in a `when` or `except` cell that are not terms (`mug, cup,
-tankard`, `upholstered`, `simple`) narrow the row further than the terms do. The
-linter selects on the terms, which is a superset, and Claude judges the words
-against that set; the row is `check review`.
-
 **[F07] Subject.** What the assert is about. A closed set: `model`, any recorded
 field of F11 (`kind`, `size`, `tags`, `mat`, `bands`, `calls`, `tris`, `dens`,
 `grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`),
 `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`,
 `part:<name> (<presence>)`, `—`.
-
-`mat` is the model's material-tag count; `mat:<id>` is the model's use of that
-material, refined to a subtype; `bands` is its band count, `band` each band it
-carries. A `part:` subject names a piece of the mesh. No field names parts yet,
-so a `part:` row is `check review`: the linter selects the models of its `when`
-and hands them to Claude with the part to look for. Two model-level checks also
-fall out of the row on their own — see F12. Presence is `always`, `usual` or
-`sometimes`: whether a model of that kind has the part at all.
 
 **[F08] Assert.** Closed vocabulary:
 
@@ -86,70 +44,8 @@ fall out of the row on their own — see F12. Presence is `always`, `usual` or
 | `see` | rule id | the row defers to that rule; it checks nothing |
 | `note` | prose | a reading the linter never evaluates; always `check none` |
 
-A value naming a material or a kind may take the same `:` / `=` distinction as
-a selector: a trailing `:` means that id or any descendant (`metal-iron:`), a
-bare id means exactly that id (`metal-iron`). In a band list, the token `any`
-means every band of the band table.
-
-**[F09] Severity and check.** Two columns, two questions.
-
-| column | values | means |
-|---|---|---|
-| `sev` | `error` | fails the build; on a `review` row, what Claude reports as broken fails it |
-| | `warn` | reported, does not fail; every `expect` row is `warn` |
-| | `—` | the row asserts nothing to fail: `check` is `intent` or `none` |
-| `check` | `auto` | the linter evaluates it |
-| | `review` | the linter selects the models the row covers and hands that list to Claude, which decides each one |
-| | `intent` | how a model should look; Claude judges it off a render, and it is reported rather than failed |
-| | `none` | a `see` or `note` row; nothing to check |
-
-One invariant, checkable over this document: `sev —` forces `check` to be
-`intent` or `none`. `review` is never a dead end. A `review` row becomes `auto`
-the day its selector and value are written in terms and the field it reads is
-recorded; meanwhile its `when` already narrows the work. F11 says where each
-field is read from.
-
-**[F10] Exemption.** A model leaves a rule only through that rule's `except`
-cell, or through material tag `special`, whose band is exempt from every rule
-that band trips. There is no other escape: no row exempts another row.
-
-**[F14] Precedence.** Document order carries no meaning. Where two rows
-constrain the same subject of the same model, specificity decides: a kind row
-beats a material row; among kind rows the deeper kind wins; among material
-rows the deeper material wins. The winning row's value replaces the loser's,
-so every row states its complete set. Rows constraining different subjects all
-hold together. Two rows of equal specificity on one subject are a defect in
-this document, not a judgement for the linter.
-
 **[F15] `special` in the counts.** `mat` is counted without `special`. Band
 maxima ignore the `special` band; band minima keep it.
-
-**[F11] Units and sources.** Lengths are catalogue units, measured off the
-mesh as recorded in `catalog/catalog.json`: `wdh` (w, d, h), `tris`, `dens`,
-`grad`, `anim`, `mat`, `bands`, `calls`, `grounded`, `centered`, `minEdge`,
-`spread`, `colors`, `size`, `kind`, `tags`, `specialBand`, `specialWhy`. Three
-things are read off the glb itself and held in no field: `alphaMode`,
-`roughnessFactor` with `metallicFactor`, and shadow casting. Group facts are
-read from `catalog/asset_variants.json`.
-
-**[F12] What a part rule still checks.** Five checks are derived from the
-rows, with no rule-specific logic:
-
-| id | derived from | what it checks | sev |
-|---|---|---|---|
-| `F12.1` | a `part:… (always)` row | the model carries that rule's material | error |
-| `F12.2` | a `part:… (usual)` row | the model carries that rule's material | warn |
-| `F12.3` | every row for the kind | the model's materials are among those the kind's rows name, where the kind is `closed` | error |
-| `F12.4` | §5 and the model's materials | the model's bands are among those §5 allows for its materials and kind | error |
-| `F12.5` | the material tree | no model carries a material tag and an ancestor of it | error |
-
-`F12.4` needs no part data at all: §5 gives every material a band, so the union
-over a model's materials bounds its bands whether or not the parts are known.
-It is also why §5 uses `one-of` throughout: a §5 row names the set a subject
-may draw from, never an equality. A material with no §5 row is skipped,
-not failed. A `sometimes` row derives no material check — the part may be
-absent — so it stays `review`, and the linter hands Claude the models its `when`
-selects.
 
 Definitions:
 
@@ -158,19 +54,12 @@ Definitions:
 | `D01` | high | the bounding-box Y extent |
 | `D03` | kind | a kind names the leaf and its children |
 | `D04` | tri density | `dens`: tris ÷ (w × d × h), triangles per 1 × 1 × 1 cell |
-| `D05` | vegetation | a plant's non-green matter; fungi are not vegetation |
-| `D06` | hooped containers | `obj-container-` `barrel`, `chest`, `bucket`, `crate` |
 | `D07` | variant group | models that read as one thing; `main` is the one shown |
-| `D08` | reads as | what a player notices at a glance, not what numbers differ by |
 | `D09` | longest | an object's largest extent |
 | `D10` | near-cube | extents within 15% of each other |
 
-Colour bands. The band name is the token used in `value`. The lane is its
-`column,row` cell of the 16 × 4 grid of `kits/colormap.png`, the same key
-`catalog.json` uses in `spread`; the linter matches on the lane. A band is
-named by its name or its lane, and by nothing else. `transparent` is a band
-with no lane: it names a surface the colormap does not paint. Lane 3,2
-(#979ebd) is painted but unused; no band names it, so `I06` forbids it.
+Colour bands. 
+`column,row` cell of the 16 × 4 grid of `kits/colormap.png`.
 
 | band | lane |
 |---|---|
@@ -198,26 +87,7 @@ Tag fields:
 | `F02` | `material` | what it is **made of** | closed, parented |
 | `F03` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F04` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F05` | `tag` | kit/artist, theme, flags | open |
-
-Withdrawn ids:
-
-| id | went to |
-|---|---|
-| `D02` | `D09` — `long` and `longest` are the same extent |
-| `T02` | `F12.5` — a tree invariant, not a per-model rule |
-| `T14` | `T14.1`, `T14.2` — one recorded field per row |
-| `T13` | `F10` — the `special` escape is the exemption rule |
-| `G11`, `G12` | `F15` — how `special` counts, not a rule |
-| `G04` | `G04.1`, `G04.2` — one predicate per row |
-| `G10` | `G10.1`, `G10.2` — the cap is a number, not `G09` + 1 |
-| `G02` | `G02`, `G02.1` — cloth has its own floor |
-| `G44` | `G13`'s `except` cell |
-| `G51` | `G38`'s `except` cell |
-| `B61` | `B46`'s `except` cell |
-| `B53.1`, `B53.2` | `M46`, `M47` — they assert a material, not a band |
-| `V01`–`V05` | `D11`–`D15` — they are definitions, not rules |
-| `P11` | dropped; `tag:stacks` is gone and `plural` replaces it, as `tags.json` records |
+| `F05` | `tag` | kit/artist, theme, flags (hero, plural, anim, comp, etc) | open |
 
 ---
 
@@ -488,8 +358,6 @@ model's bands by the union over the rows that match it.
 
 ## 6. Governance & process
 
-Who decides, and what happens around the asset.
-
 Who assigns what:
 
 - **`P01`** — only the PO assigns `mat:special` and `tag:hero`.
@@ -506,6 +374,8 @@ Making and validating:
 - **`P06`** — validating, Claude renders 2+ references of the group beside it at
   the same scale.
 - **`P07`** — a `kind=assy` is not validated directly.
+- **`P07`** — Rescaling must be done for a kit globally.
+
 
 Importing a pack:
 
@@ -533,8 +403,6 @@ catalogue. A group exists for one of these reasons.
 
 What holds of every group, read from `catalog/asset_variants.json`:
 
-- **`V06`** — its `type` is one of `D11`, `D12`, `D13`, `D14`, `D15`. A group
-  without one of them is a dedupe, not a group. *error · auto*
 - **`V07`** — its `kits` is one kit; a second only for the same artist, never
   across artists without the PO. *error · review*
 - **`V08`** — its `kind` is the same for every member. *error · auto*
@@ -547,16 +415,8 @@ How groups are drawn, none of it failed by the build:
 - **`V12`** — a group is judged by how it reads, not by how far it measures.
 - **`V13`** — a `D13` member is redesigned at that size: a longer ladder gains
   rungs.
-- **`V14`** — a `D13` member is never scaled, globally or on one axis.
 - **`V15`** — for kinds wanting variety, `D11` and `D12` are made on purpose
   (`M34` is one).
-
-Who decides:
-
-- **`V09`** — for assets entering, name and tris propose; shape and a render
-  confirm.
-- **`V16`** — a ship gaining a mast and sails: `D13` and `V11` both apply, so it
-  goes to the PO.
 
 A variant is what keeps a kind from ballooning. Filled and empty, open and
 closed, lit and unlit, with lid, without lid and the lid alone each double a
@@ -569,11 +429,18 @@ dedupe, too far apart and it is its own row.
 
 ## Appendix: kind tree + glossary
 
-`obj` = manufactured/portable thing · `env` = naturally occurring thing ·
-`str` = constructed part of the world · `char` = living or acting entity
+Main:
+`obj` = manufactured/portable thing
+`env` = naturally occurring thing
+`str` = constructed fixed thing
 
-Format: `kind — nouns that resolve here`. Parent lines list nouns that have no
-leaf yet.
+Other
+`char` = living or acting entity, incl potential obj it may equip, wear, carry
+`assy` = a mix of different things from different kinds.
+
+Format: `kind — nouns that resolve here`. 
+Parent lines list nouns that have no leaf yet.
+Match with deepest tier reasonable.
 
 ```
 obj-container-chest — chest, trunk, coffer, strongbox
