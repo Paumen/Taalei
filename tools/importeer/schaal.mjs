@@ -17,23 +17,25 @@ const DOEL = {
   'cooking-assets': 0.04,
   'desert-buildings': 0.0024,
   'fantasy-props': 0.8,
-  'fs-terrain': 0.35,
+  'fs-terrain': 0.5,
   'fs-town': 0.5,
   'isa-food': 0.24,
-  'isa-kitchen': 0.24,
+  'isa-kitchen': 0.32,
   'isa-park': 0.24,
   'isa-plants': 0.24,
   'isa-pond': 0.24,
   'jelly-forest': 0.4,
+  'kay-food': 0.22,
+  'kay-hallow': 0.24,
   'ken-cave': 0.187,
   'ken-pirate': 0.3,
   'ken-survival': 1.5,
   'medieval-forge': 0.006,
   'medieval-town': 1.1,
   'mek-tools': 0.00022,
-  natuur: 0.2,
+  natuur: 0.4,
   'primitive-tools': 0.0045,
-  props: 0.0066,
+  props: 0.008,
   'quat-blood-ring': 0.15,
   'quat-dun-1': 0.25,
   'quat-dun-2': 0.4,
@@ -41,12 +43,12 @@ const DOEL = {
   'quat-food': 0.15,
   'quat-nature': 0.4,
   'quat-pirate': 0.35,
-  'quat-rpg': 0.35,
+  'quat-rpg': 0.21,
   'quat-ships': 1.25,
   'quat-skeleton': 0.5,
   'quat-town': 1.2,
   rocks: 0.15,
-  'small-props': 0.006,
+  'small-props': 0.0037,
   windmill: 0.008,
 };
 const KEN_STANDAARD = 0.75;
@@ -111,7 +113,7 @@ function werkbestanden(slug) {
         naam: basename(bestand, '.glb'),
         bronmodel: glb.json.asset?.extras?.taaleiland?.bronmodel ?? null,
         schaal: glb.json.asset?.extras?.taaleiland?.schaal ?? null,
-        wdh: gemeten.wdh,
+        wdh: gemeten.wdhExact,
         driehoeken: gemeten.triangles,
         knoop: knoopFactor(glb.json),
       };
@@ -161,7 +163,10 @@ function metenTegenBron(bronkit, bestanden) {
     if (assen.length === 0) continue;
     const verhoudingen = assen.map((k) => bestand.wdh[k] / bronWdh[k]);
     if (Math.max(...verhoudingen) / Math.min(...verhoudingen) > 1 + SPREIDING) continue;
-    gemeten.set(bestand.naam, verhoudingen.reduce((a, b) => a + b, 0) / verhoudingen.length);
+    gemeten.set(bestand.naam, {
+      factor: verhoudingen.reduce((a, b) => a + b, 0) / verhoudingen.length,
+      bron: bronWdh,
+    });
   }
   return gemeten;
 }
@@ -390,7 +395,7 @@ for (const bronkit of BRONKITS) {
   if (bestanden.length === 0) continue;
 
   const gemeten = metenTegenBron(bronkit, bestanden);
-  const groepen = groepeer(gemeten.values());
+  const groepen = groepeer([...gemeten.values()].map((g) => g.factor));
   if (groepen.length === 0) {
     console.log(`${bronkit.kit.padEnd(17)} no source model matched — left alone`);
     continue;
@@ -398,7 +403,7 @@ for (const bronkit of BRONKITS) {
   const hoofdgroep = groepen.reduce((a, b) => (b.aantal > a.aantal ? b : a));
   const bakken = new Map();
   for (const bestand of bestanden) {
-    const waarde = gemeten.get(bestand.naam);
+    const waarde = gemeten.get(bestand.naam)?.factor;
     if (waarde === undefined || !bestand.knoop) continue;
     const bak = Number((waarde / bestand.knoop).toPrecision(4));
     bakken.set(bak, (bakken.get(bak) ?? 0) + 1);
@@ -406,7 +411,7 @@ for (const bronkit of BRONKITS) {
   const hoofdBak = [...bakken.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 
   const factorVan = (bestand) => {
-    const waarde = gemeten.get(bestand.naam);
+    const waarde = gemeten.get(bestand.naam)?.factor;
     const geschat =
       waarde !== undefined ? waarde
       : hoofdBak !== null && bestand.knoop ? bestand.knoop * hoofdBak
@@ -455,8 +460,9 @@ for (const bronkit of BRONKITS) {
     }
     if (!raaktGeometrie && JSON.stringify(glb.json) === voor) continue;
 
-    const na = measureScene(glb).wdh;
-    const verwacht = bestand.wdh.map((v) => (v / huidig) * nieuw);
+    const na = measureScene(glb).wdhExact;
+    const bron = gemeten.get(bestand.naam)?.bron;
+    const verwacht = bron ? bron.map((v) => v * nieuw) : bestand.wdh.map((v) => (v / huidig) * nieuw);
     if (!gelijkeMaat(na, verwacht)) {
       mislukt.push(
         `${bestand.pad}: size became ${na.map((v) => v.toFixed(4))} instead of ${verwacht.map((v) => v.toFixed(4))}`,

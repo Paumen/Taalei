@@ -168,6 +168,7 @@ Tag semantics:
 - [T12] `plural` is several instances of one thing in one model.
 - [T13] `special` is a material tag and a joker: it exempts **one** band on the model from every rule that band trips.
 - [T14] A `special` records which band it covers and why.
+- [T15] `pickup` marks an item sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, token.
 
 ---
 
