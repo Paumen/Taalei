@@ -99,7 +99,8 @@ Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
 - **flags** — `plural` (several instances of one thing), `ngons` (round cross
-  section), `decorated` (food finished on top).
+  section), `decorated` (food finished on top), `pickup` (a lone coin, key,
+  ring, potion or token sized to be collected, not to stand in the world).
 
 `hero` and material `special` are the PO's to assign (P01–P03): propose, never
 set. Artist tags (`kay`, `ken`, `qua`, …) are derived by `build-catalog.mjs`
