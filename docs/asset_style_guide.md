@@ -522,9 +522,11 @@ str-part-pillar — pillar, column, beam, support
 str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
 str-part — room, cellar, souterrain, dungeon
 
-str-building-tower — tower, lighthouse, mill, windmill
+str-building-tower — tower, lighthouse, mill, windmill, church
 
-str-building — house (whole), hut, crypt, church, castle, inn, barracks, stables, blacksmith, watermill, sawmill, gazebo, well
+str-building-dwelling — house (whole), hut, inn, 
+str-building-fort — castle, inn, barracks, stables, blacksmith
+str-building — watermill, sawmill, gazebo, well
 
 str-stands — tent, stall, market stand, awning, canopy
 
@@ -618,4 +620,3 @@ vegetation skin
 
 
 
- 
