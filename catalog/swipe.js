@@ -1,4 +1,8 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=4be9c0fe17';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=bafcfdc260';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=bafcfdc260';
+import { renderCommentBox } from './comments.js?v=bafcfdc260';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=bafcfdc260';
+import './bouwstempel.js?v=bafcfdc260';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -36,6 +40,7 @@ const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
 
 let limitsPerKind = {};
+let longestKinds = new Set();
 let drawAtScale = null;
 
 const lintText = (f) =>
@@ -72,6 +77,8 @@ const summary = el('#samenvatting');
 
 const flatMode = { on: false };
 
+let refreshExtract = () => {};
+
 const register = { models: [], perId: new Map(), kits: new Map(), kinds: new Map(), tags: new Map() };
 
 const WITHOUT = '_zonder';
@@ -83,10 +90,36 @@ const kindChain = (id) => {
 };
 const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
 
+const parentOf = new Map();
+const tagCache = new WeakMap();
+
+function tagsOf(model) {
+  if (!tagCache.has(model)) {
+    const own = new Set(model.tags ?? []);
+    for (const id of model.tags ?? []) {
+      for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
+    }
+    tagCache.set(model, [...own]);
+  }
+  return tagCache.get(model);
+}
+
 const labelDefault = (direction) => SOURCE.labels?.[direction.id] ?? direction.default;
 
+const FILTER_FIELDS = ['kits', 'kinds', 'tags'];
+
+const asState = (value) => {
+  if (Array.isArray(value)) return Object.fromEntries(value.map((id) => [id, 'only']));
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).filter(([, v]) => v === 'only' || v === 'not'),
+    );
+  }
+  return {};
+};
+
 const state = {
-  filters: { search: '', kits: [], kinds: [], tags: [], shuffle: false },
+  filters: { search: '', kits: {}, kinds: {}, tags: {}, shuffle: false },
   labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, labelDefault(r)])),
   order: [],
   choices: [],
@@ -109,6 +142,7 @@ function load() {
   if (!stored || typeof stored !== 'object') return;
 
   Object.assign(state.filters, stored.filters ?? {});
+  for (const field of FILTER_FIELDS) state.filters[field] = asState(state.filters[field]);
   for (const direction of DIRECTION_IDS) {
     if (typeof stored.labels?.[direction] === 'string') state.labels[direction] = stored.labels[direction];
   }
@@ -129,12 +163,21 @@ function remaining() {
   return state.order.filter((id) => !decided.has(id));
 }
 
+const keysWith = (own, value) => Object.keys(own).filter((id) => own[id] === value);
+
+function passes(mine, own) {
+  const only = keysWith(own, 'only');
+  if (only.length && !mine.some((id) => only.includes(id))) return false;
+  const not = keysWith(own, 'not');
+  return !mine.some((id) => not.includes(id));
+}
+
 function matches(model) {
-  const { search, kits, kinds = [], tags = [] } = state.filters;
-  if (kits.length && !kits.includes(model.kit)) return false;
+  const { search, kits, kinds, tags } = state.filters;
+  if (!passes([model.kit], kits)) return false;
   const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
-  if (kinds.length && !chain.some((k) => kinds.includes(k))) return false;
-  if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
+  if (!passes(chain, kinds)) return false;
+  if (!passes(tagsOf(model), tags)) return false;
   if (search) {
     const needle = search.toLowerCase();
     if (!`${model.name} ${model.kit} ${model.kind ?? ''}`.toLowerCase().includes(needle)) return false;
@@ -162,6 +205,7 @@ function show(screen) {
 }
 
 function updateSummary() {
+  refreshExtract();
   const total = state.order.length;
   if (!total) {
     summary.textContent = 'No models in this selection — adjust the settings.';
@@ -175,36 +219,123 @@ function updateSummary() {
   summary.textContent = `${number.format(done)} of ${number.format(total)} judged · ${parts.join(' · ')}`;
 }
 
-function checklist(container, items, chosen) {
-  container.replaceChildren();
-  for (const item of items) {
-    const label = document.createElement('label');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.value = item.id;
-    checkbox.checked = chosen.includes(item.id);
-    const name = document.createElement('span');
-    name.textContent = item.name;
-    const count = document.createElement('span');
-    count.className = 'aantal-mee';
-    count.textContent = number.format(item.count);
-    label.append(checkbox, name, count);
-    container.append(label);
-  }
-}
+const draft = { kits: {}, kinds: {}, tags: {} };
+const filterChips = [];
 
-function chosenValues(container) {
-  return [...container.querySelectorAll('input:checked')].map((v) => v.value);
-}
+const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
 function setupFilters() {
   return {
     search: el('#zoek').value.trim(),
-    kits: chosenValues(el('#kitlijst')),
-    kinds: chosenValues(el('#soortlijst')),
-    tags: chosenValues(el('#taglijst')),
+    kits: { ...draft.kits },
+    kinds: { ...draft.kinds },
+    tags: { ...draft.tags },
     shuffle: el('#schud').checked,
   };
+}
+
+function syncFilterChips() {
+  syncChips(filterChips, {
+    stateOf: (id, chip) => draft[chip.field][id],
+    onHide: (chip) => { delete draft[chip.field][chip.id]; },
+  });
+  layoutChips(filterChips);
+  for (const block of document.querySelectorAll('.opzet-rij')) {
+    const strip = block.querySelector('.opzet-rij-strook');
+    block.classList.toggle('opzet-rij-past', strip.scrollHeight <= strip.clientHeight + 1);
+  }
+}
+
+function filterRow(container, head, items, field, { byCount = false } = {}) {
+  const block = document.createElement('div');
+  block.className = 'opzet-rij';
+
+  const title = document.createElement('span');
+  title.className = 'opzet-rij-kop';
+  title.textContent = head;
+
+  const more = document.createElement('button');
+  more.type = 'button';
+  more.className = 'opzet-meer';
+  more.textContent = 'more';
+  more.setAttribute('aria-expanded', 'false');
+  more.addEventListener('click', () => {
+    const open = block.classList.toggle('opzet-rij-open');
+    more.textContent = open ? 'less' : 'more';
+    more.setAttribute('aria-expanded', String(open));
+  });
+
+  const strip = document.createElement('div');
+  strip.className = 'opzet-rij-strook';
+
+  block.append(title, strip, more);
+  container.append(block);
+
+  const { chips } = makeChipStrip({
+    label: `Filter by ${head.toLowerCase()}`,
+    items, container: strip, byCount, hideEmpty: true,
+    stateOf: (id) => draft[field][id],
+    onPick: (id, button) => {
+      const next = NEXT[draft[field][id]];
+      if (next) draft[field][id] = next;
+      else delete draft[field][id];
+      showState(button, next);
+      syncFilterChips();
+      setupCount();
+    },
+  });
+  for (const chip of chips) chip.field = field;
+  filterChips.push(...chips);
+}
+
+function filterItems() {
+  const count = (belongs) => register.models.filter(belongs).length;
+
+  const kits = [...register.kits.values()]
+    .map((k) => ({
+      id: k.slug,
+      name: (k.name ?? k.slug).replace(/\s+Kit$/, ''),
+      full: k.name,
+      count: count((m) => m.kit === k.slug),
+    }))
+    .filter((k) => k.count > 0);
+
+  const kinds = [...register.kinds.values()]
+    .map((k) => ({
+      id: k.id,
+      name: chipName(k),
+      full: k.name,
+      hint: k.description,
+      parent: kindParent(k.id),
+      count: count((m) => m.kind && kindChain(m.kind).includes(k.id)),
+    }))
+    .filter((k) => k.count > 0);
+  const noKind = count((m) => !m.kind);
+  if (noKind) kinds.push({ id: WITHOUT, name: 'No kind', count: noKind });
+
+  const tags = [...register.tags.values()]
+    .filter((t) => t.type !== 'kind' && t.type !== 'size')
+    .map((t) => ({
+      id: t.id,
+      name: chipName(t),
+      full: t.name,
+      hint: t.description,
+      parent: t.parent ?? null,
+      count: count((m) => tagsOf(m).includes(t.id)),
+    }))
+    .filter((t) => t.count > 0);
+
+  return { kits, kinds, tags };
+}
+
+function buildFilterRows() {
+  const container = el('#opzet-filters');
+  container.replaceChildren();
+  filterChips.length = 0;
+  const items = filterItems();
+  if (items.kits.length > 1) filterRow(container, 'Kit', items.kits, 'kits', { byCount: true });
+  filterRow(container, 'Kind', items.kinds, 'kinds');
+  if (items.tags.length) filterRow(container, 'Tag', items.tags, 'tags', { byCount: true });
 }
 
 function setupCount() {
@@ -217,26 +348,9 @@ function setupCount() {
 }
 
 function fillSetup() {
-  const kits = [...register.kits.values()]
-    .map((k) => ({ id: k.slug, name: k.name, count: register.models.filter((m) => m.kit === k.slug).length }))
-    .filter((k) => k.count > 0);
-  const kinds = [...register.kinds.values()]
-    .map((k) => ({
-      id: k.id,
-      name: `${'\u2003'.repeat(kindChain(k.id).length - 1)}${k.name}`,
-      count: register.models.filter((m) => m.kind && kindChain(m.kind).includes(k.id)).length,
-    }))
-    .filter((k) => k.count > 0);
-  const noKind = register.models.filter((m) => !m.kind).length;
-  if (noKind) kinds.push({ id: WITHOUT, name: 'No kind', count: noKind });
-  const tags = [...register.tags.values()]
-    .filter((t) => t.type !== 'kind' && t.type !== 'size')
-    .map((t) => ({ id: t.id, name: t.name, count: register.models.filter((m) => (m.tags ?? []).includes(t.id)).length }))
-    .filter((t) => t.count > 0);
-
-  checklist(el('#kitlijst'), kits, state.filters.kits);
-  checklist(el('#soortlijst'), kinds, state.filters.kinds ?? []);
-  checklist(el('#taglijst'), tags, state.filters.tags ?? []);
+  for (const field of FILTER_FIELDS) draft[field] = { ...state.filters[field] };
+  if (!filterChips.length) buildFilterRows();
+  syncFilterChips();
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
   for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
@@ -323,7 +437,11 @@ function makeCard(model, depth) {
     });
   }
 
-  text.append(name, origin, meta, path, ...(findings.length ? [lint, schaal] : []), tags);
+  const note = document.createElement('div');
+  note.className = 'swipe-opmerking';
+  renderCommentBox(note, model);
+
+  text.append(name, origin, meta, path, ...(findings.length ? [lint, schaal] : []), tags, note);
 
   const rotate = document.createElement('button');
   rotate.type = 'button';
@@ -348,7 +466,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=bafcfdc260'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);
@@ -360,6 +478,7 @@ async function drawScaleCard(model, canvas) {
       slug: model.kind,
       name: model.kind,
       limits,
+      byLongest: longestKinds.has(model.kind) || undefined,
       rulerHeight,
       rowWidth: Math.max(model.wdh[0] * 4, reach * 1.1),
       items: [{ slug: model.kit, model: model.name, wdh: model.wdh, tags: model.tags, path: model.path }],
@@ -469,7 +588,7 @@ function makeDraggable(card) {
 
   card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    if (e.target.closest('button, input, .tagedit-toggles')) return;
+    if (e.target.closest('button, input, textarea, .tagedit-toggles')) return;
     if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
     card.setPointerCapture(e.pointerId);
@@ -647,25 +766,25 @@ function file(name, content, type) {
 
 const timeStamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
 
-function exportJson() {
+function swipeSection() {
   const all = rows();
-  const content = {
-    tool: 'catalog/swipe.html',
-    source: SOURCE.file,
-    created: new Date().toISOString(),
-    filters: state.filters,
-    directions: Object.fromEntries(
-      DIRECTIONS.map((r) => [
-        r.id,
-        { label: labelFor(r.id), paths: all.filter((x) => x.direction === r.id).map((x) => x.path) },
-      ]),
-    ),
-    choices: SOURCE.onlyLint
-      ? all.map((x) => ({ ...x, lint: register.perId.get(x.id)?.lint ?? [] }))
-      : all,
-    stillToDo: remaining().map((id) => register.perId.get(id).path),
+  if (!all.length) return {};
+  return {
+    swipe: {
+      source: SOURCE.file,
+      filters: state.filters,
+      directions: Object.fromEntries(
+        DIRECTIONS.map((r) => [
+          r.id,
+          { label: labelFor(r.id), paths: all.filter((x) => x.direction === r.id).map((x) => x.path) },
+        ]),
+      ),
+      choices: SOURCE.onlyLint
+        ? all.map((x) => ({ ...x, lint: register.perId.get(x.id)?.lint ?? [] }))
+        : all,
+      stillToDo: remaining().map((id) => register.perId.get(id).path),
+    },
   };
-  file(`swipe-${timeStamp()}.json`, JSON.stringify(content, null, 1) + '\n', 'application/json');
 }
 
 function exportCsv() {
@@ -704,12 +823,17 @@ async function start() {
 
   if (SOURCE.onlyLint) data.models = data.models.filter((m) => m.lint?.length);
   limitsPerKind = data.limits ?? {};
+  longestKinds = new Set(data.byLongest ?? []);
 
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
   register.kinds = new Map((data.tags ?? []).filter((t) => t.type === 'kind').map((t) => [t.id, t]));
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
+  parentOf.clear();
+  for (const tag of data.tags ?? []) {
+    if (tag.parent) parentOf.set(tag.id, tag.parent);
+  }
 
   const kit = KIT_PARAM && register.kits.has(KIT_PARAM) ? KIT_PARAM : null;
   if (KIT_PARAM && !kit) {
@@ -745,15 +869,25 @@ async function start() {
     show('dek');
   });
 
-  mountEditBar();
+  setPageParts({
+    sections: swipeSection,
+    counts: () => [{ n: state.choices.length, one: 'model judged', many: 'models judged' }],
+  });
+  refreshExtract = mountExtractBar();
 
   el('#opzet-formulier').addEventListener('input', setupCount);
+  el('#opzet-wis').addEventListener('click', () => {
+    for (const field of FILTER_FIELDS) draft[field] = {};
+    el('#zoek').value = '';
+    syncFilterChips();
+    setupCount();
+  });
   el('#opzet-annuleer').addEventListener('click', () => show('dek'));
-  el('#instellingen').addEventListener('click', () => { fillSetup(); show('opzet'); });
+  el('#instellingen').addEventListener('click', () => { show('opzet'); fillSetup(); });
   el('#naar-uitslag').addEventListener('click', () => show('uitslag'));
   el('#verder').addEventListener('click', () => show('dek'));
   el('#terug').addEventListener('click', () => undo());
-  el('#download-json').addEventListener('click', exportJson);
+  el('#download-json').addEventListener('click', () => downloadExtract());
   el('#download-csv').addEventListener('click', exportCsv);
   el('#wis-alles').addEventListener('click', () => {
     if (!confirm('Clear all choices?')) return;
