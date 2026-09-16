@@ -198,10 +198,8 @@ function limitLines(y, left, right, limits, color) {
   return g;
 }
 
-const LIMIT_REACH = 1.6;
-
 const drawableLimits = (limits, contentTop) => Object.fromEntries(
-  Object.entries(limits ?? {}).filter(([, v]) => Number.isFinite(v) && v > 0 && v <= contentTop * LIMIT_REACH),
+  Object.entries(limits ?? {}).filter(([, v]) => Number.isFinite(v) && v > 0 && v <= contentTop),
 );
 
 function background(y, left, right, height, fine, heavy) {
@@ -294,9 +292,8 @@ export async function drawFamily(group, canvas, width) {
 
   rows.forEach((r, i) => {
     const y = base[i];
-    const contentTop = Math.max(rulerObj.h, ...r.row.map((p) => p.h));
-    const shown = drawableLimits(group.limits, contentTop);
-    const rowTop = Math.max(contentTop, ...Object.values(shown).map((v) => v * 1.02));
+    const rowTop = Math.max(rulerObj.h, ...r.row.map((p) => p.h));
+    const shown = drawableLimits(group.limits, rowTop);
     scene.add(background(y, rulerLeft, rulerRight, rowTop, lineFine, lineHeavy));
     scene.add(limitLines(y, rulerLeft, rulerRight, shown, limitColor));
     yMax = Math.max(yMax, y + rowTop);
