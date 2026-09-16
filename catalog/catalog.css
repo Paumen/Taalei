@@ -10,6 +10,9 @@
   --accent: #995a41;
   --accent-zacht: #f0c59d;
   --zwaar: #e76047;
+  --lint-fout: #c0392b;
+  --lint-waarschuwing: #b07a1e;
+  --limiet-lijn: #b5543f;
   --radius: 12px;
   --schaduw: 0 1px 2px rgba(47, 42, 38, .06), 0 4px 14px rgba(47, 42, 38, .05);
   color-scheme: light dark;
@@ -27,6 +30,9 @@
     --lijn: #3a3330;
     --accent: #dd9f79;
     --accent-zacht: #5a4032;
+    --lint-fout: #e8705f;
+    --lint-waarschuwing: #d9a441;
+    --limiet-lijn: #e08a70;
     --schaduw: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
   }
 }
@@ -624,6 +630,40 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .glyf-maat { color: var(--inkt); }
 .glyf-animatie { color: var(--accent); }
 .glyf-variant { color: var(--merk-kleur, var(--inkt)); }
+
+.swipe-schaal { margin: 6px 0 2px; }
+
+.swipe-schaal canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--lijn);
+  border-radius: 6px;
+  background: var(--papier-diep);
+}
+
+.glyf-lint-fout { color: var(--lint-fout); }
+.glyf-lint-waarschuwing { color: var(--lint-waarschuwing); }
+
+.lintlijst {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.lintregel {
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--papier-diep);
+  border-left: 3px solid var(--lijn);
+}
+
+.lintregel.lint-error { border-left-color: var(--lint-fout); color: var(--lint-fout); }
+.lintregel.lint-warning { border-left-color: var(--lint-waarschuwing); color: var(--lint-waarschuwing); }
 
 .kaart-viewer {
   position: relative;
