@@ -4,6 +4,8 @@ Scope: items in the catalogue.
 
 ## 0. Reading the rules
 
+For a model of a given kind, every rule on its ancestor kinds also applies.
+
 **Tag fields**
 
 | id | field | job | set |
@@ -11,7 +13,7 @@ Scope: items in the catalogue.
 | `F01` | `material` | what it is **made of** | closed, parented |
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F04` | `tag` | kit/artist, theme, flags (hero, plural, anim, comp, etc) | open |
+| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `anim`, `comp`, `pickup`, `floating`, `offcenter`, `ngons`, etc.) | open |
 
 **[F05] Term.** A term is one of:
 
@@ -24,6 +26,7 @@ Scope: items in the catalogue.
 | `tag:<id>` | models carrying that open tag |
 | `size:<s\|m\|l>` | models measured at that size |
 | `<field><op><number>` | a recorded numeric field compared: `nmat>=5`, `tris<100`; ops `= > >= < <=` |
+| `D<nn>` | the models the definition's term matches |
 | `!<term>` | models the term does not match |
 | `<term> & <term>` | models both terms match |
 | `<term> \| <term>` | models either term matches; `&` binds before `\|` |
@@ -67,8 +70,8 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D03` | hooped container | `kind:obj-container-barrel \| kind:obj-container-bucket \| kind:obj-container-chest \| kind:obj-container-crate` |
 | `D04` | variant group | models that read as one thing; `main` is the one shown |
 | `D05` | longest | an object's largest extent |
-| `D06` | TBD | referenced by `G21`, `G54`; not yet defined |
-| `D12` | palette bands | `pbands`: the fewest distinct bands that give every non-`special` material one band from its palette |
+| `D06` | TBD | referenced by `G21`; not yet defined |
+| `D07` | palette bands | `pbands`: the fewest distinct bands that give every non-`special` material one band from its palette |
 
 **Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`.
 
@@ -97,7 +100,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 - **`I01`** — Chunky, caricatured; not thin, not primitive.
 - **`I02`** — Clean facets, chamfered edges, rounded-soft.
-- **`I03`** — Few details, except.
+- **`I03`** — Few details, except. ⚑ O1
 - **`I04`** — Invented before 1850.
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
@@ -117,6 +120,8 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 Everything measured off the mesh: extents, counts, pivots, band counts.
 
+`tag:plural` and `kind:assy` are exempt.
+
 ### 2.1 Construction & placement
 
 | id | when | except | subject | assert | value |
@@ -124,7 +129,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G01` | `tag:ngons` | `tag:hero` | model | range | 8–12 flat pieces per full circle |
 | `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
-| `G04` | `*` | `kind:char \| tag:plural` | `dens` | max | TBD — re-measure references under `D02` |
+| `G04` | `*` | `kind:char` | `dens` | max | TBD — re-measure references under `D02` |
 | `G05` | `*` | `tag:floating` | `grounded` | is | true |
 | `G06` | `*` | `tag:offcenter` | `centered` | is | true |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
@@ -138,75 +143,31 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G10` | `*` | — | `bands` | min | `pbands` |
 | `G11` | `*` | `kind:obj-food \| kind:env-fauna` | `bands` | max | `nmat` × 2 |
 | `G12` | `kind:obj-food \| kind:env-fauna` | — | `bands` | max | `nmat` × 3 |
-| `G14` | `*` | `kind:char \| size:l` | `bands` | max | 5 |
-| `G15` | `kind:char` | — | `bands` | max | 6 |
-| `G16` | `size:l` | — | `bands` | max | 6 |
+| `G13` | `*` | `kind:char \| size:l` | `bands` | max | 5 |
+| `G14` | `kind:char` | — | `bands` | max | 6 |
+| `G15` | `size:l` | — | `bands` | max | 6 |
 
-### 2.4 Size
+### 2.3 Size
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `G18` | `kind:obj-container-chest` | `tag:comp` | `dim:high` | range | 0.2–0.5 |
-| `G19` | `kind:obj-container-barrel` | — | `dim:high` | range | 0.2–0.8 |
-| `G20` | `kind:obj-container-bucket` | — | `dim:high` | range | 0.1–0.4 |
-| `G21` | `kind:obj-container-crate & D06` | — | `dim:high` | range | 0.2–0.8 |
-| `G22` | `kind:obj-container-bottle` | — | `dim:high` | range | 0.1–0.4 |
-| `G23` | `kind:obj-container-pot` | — | `dim:high` | range | 0.2–0.4 |
-| `G24` | `kind:obj-kitchenware-tableware-cutlery` | — | `dim:longest` | range | 0.1–0.4 |
-| `G25` | `kind:obj-kitchenware-tableware-plate` | — | `dim:longest` | range | 0.1–0.4 |
-| `G26` | `kind:obj-kitchenware-cookware-pan` | `tag:comp` | `dim:high` | max | 0.4 |
-| `G27` | `kind:obj-kitchenware-cookware-pot` | `tag:comp` | `dim:high` | max | 0.4 |
-| `G28` | `kind:obj-furniture-seating` | — | `dim:high` | range | 0.2–0.7 |
-| `G29` | `kind:obj-furniture-table` | — | `dim:high` | min | 0.2 |
-| `G30` | `kind:obj-weapon-melee-sword` | — | `dim:longest` | range | 0.4–1.0 |
-| `G31` | `kind:obj-weapon-melee-dagger` | — | `dim:longest` | range | 0.1–0.5 |
-| `G32` | `kind:obj-weapon-melee-axe` | — | `dim:longest` | range | 0.2–0.8 |
-| `G33` | `kind:obj-weapon-melee-hammer` | — | `dim:longest` | range | 0.2–0.8 |
-| `G34` | `kind:obj-weapon-ranged-bow` | — | `dim:longest` | range | 0.4–1.0 |
-| `G35` | `kind:obj-weapon-ranged-crossbow` | — | `dim:longest` | range | 0.4–1.0 |
-| `G36` | `kind:obj-weapon-magic-staff` | — | `dim:longest` | range | 0.2–1.2 |
-| `G37` | `kind:obj-equipment-shield` | — | `dim:high` | range | 0.2–0.6 |
-| `G38` | `kind:obj-tool-long` | — | `dim:longest` | range | 0.3–1.2 |
-| `G39` | `kind:obj-lighting-lantern` | — | `dim:high` | range | 0.1–1.0 |
-| `G40` | `kind:obj-lighting-torch` | — | `dim:high` | range | 0.1–1.0 |
-| `G41` | `kind:obj-lighting-candle` | — | `dim:high` | range | 0.1–0.7 |
-| `G42` | `kind:obj-pocketitem-coin` | `tag:plural` | `dim:longest` | max | 0.2 |
-| `G43` | `kind:obj-pocketitem-key` | — | `dim:longest` | max | 0.2 |
-| `G44` | `kind:obj-pocketitem-book` | — | `dim:longest` | range | 0.1–0.3 |
-| `G46` | `kind:obj-pocketitem-scroll` | — | `dim:longest` | range | 0.1–0.4 |
-| `G47` | `kind:env-flora-tree` | — | `dim:high` | range | 0.6–2.4 |
-| `G48` | `kind:char` | — | `dim:high` | range | 0.4–0.8 |
+`tag:comp`, `tag:plural` and `kind:assy` are exempt.
 
-any l min 0.05-30
-object l 0.05-10
-furniture l 0.1-1.2
-stool h 0.2-0.6
-chair h 0.3-0.9
-bench h 0.2-0.8
-bed l 0.6-1.2
+Min and max per kind live in the JSON ⚑ O2. Each applies to `dim:high` or `dim:longest`, as set there.
 
-resource-plank l 0.2-1.2
-furniture storage l 0.2-1.2
-candle h 0.1-0.7
-Table h 0.2-0.5
-lantern h 0.2-1.2
-cup h 0.05-0.2
-Cutlery l 0.05-2.0
-sculpture l 0.2-10
+### 2.4 Boxes and part counts
 
-### 2.5 Boxes and part counts
+`tag:comp`, `tag:plural` and `kind:assy` are exempt.
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `G49` | `D03` | — | `part:hoop` | range | 5–15% of longest, high |
-| `G50` | `kind:obj-container-barrel` | — | `dim:w` | max | 0.75 |
-| `G51` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
-| `G52` | `kind:obj-container-barrel` | — | `tris` | range | 100–1500 |
-| `G53` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
-| `G54` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
-| `G55` | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 |
-| `G56` | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 |
-| `G57` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G16` | `D03` | — | `part:hoop` | range | 5–15% of longest, high |
+| `G17` | `kind:obj-container-barrel` | — | `dim:w` | max | 0.75 |
+| `G18` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
+| `G19` | `kind:obj-container-barrel` | — | `tris` | range | 100–1500 |
+| `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
+| `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
+| `G22` | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 |
+| `G23` | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 ⚑ O3 |
+| `G24` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 
 ---
 
@@ -216,19 +177,21 @@ What a model *is*, before any material or colour question.
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `T03` | `*` | — | `kind` | is | the kind the glossary resolves the noun to; a noun not in the glossary takes the deepest leaf that fits; the parent is "other" |
-| `T04` | `*` | — | `kind` | not | decided by kit of origin |
-| `T05` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted |
-| `T07` | `tag:plural` | — | model | is | several instances of one thing in one model |
-| `T09` | `mat:special` | — | `specialWhy` | not | empty |
+| `T01` | `*` | — | `kind` | is | the kind the glossary resolves the noun to; a noun not in the glossary takes the deepest leaf that fits; the parent is "other" |
+| `T02` | `*` | — | `kind` | not | decided by kit of origin |
+| `T03` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted |
+| `T04` | `tag:plural` | — | model | is | several instances of one thing in one model |
+| `T05` | `mat:special` | — | `specialWhy` | not | empty |
 
-- **`T10`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
+- **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 
 ---
 
-## 4. Kind → material
+## 4. Kind → materials
 
-What a kind is made of. Colour follows from section 5.
+What a kind is made of. Colour follows from §5.
+
+`kind:assy` is exempt.
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
@@ -236,48 +199,50 @@ What a kind is made of. Colour follows from section 5.
 | `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment \| kind:char` | `kind:obj-weapon-cannon \| kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-steel` |
 | `M02` | `kind:obj-weapon-cannon \| kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` |
 | `M03` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` |
-| `M05` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M06` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | is | `metal-iron` |
-| `M07` | `kind:obj-container-chest` | — | `part:hoop` | is | `metal-iron` |
-| `M08` | `kind:obj-container-crate` | — | `part:hoop` | is | `metal-iron` |
-| `M09` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
-| `M10` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
-| `M11` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
-| `M12` | `kind:obj-kitchenware-tableware-plate` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
-| `M13` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `part:hoop, handle` | is | `metal-iron:` |
-| `M14` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | model | expect | `wood:` |
-| `M17` | `kind:obj-furniture-seating` | — | model | has | `textile` |
-| `M18` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` |
-| `M19` | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` |
-| `M20` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` |
-| `M21` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | expect | `leather` |
-| `M22` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special | `mat:metal` | is | `metal-iron:` |
-| `M23` | `kind:obj-weapon` special | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
-| `M25` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
-| `M26` | `kind:obj-tool-hand` | — | `part:wood handle` (usual) | is | `wood-planks` |
-| `M27` | `kind:obj-tool-long` | — | `part:pole` (always) | is | `wood-beam` |
-| `M28` | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` |
-| `M29` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
-| `M30` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
-| `M31` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
-| `M32` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` |
-| `M33` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
-| `M34` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` \| cut-face trunks | — | `part:cut face` (always) | is | `wood-log`, never `wood-bark` |
-| `M35` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` \| cut-face trunks | — | `part:round side` (always) | is | `wood-bark`, never `wood-log` |
-| `M36` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
-| `M37` | `kind:obj` bells | — | model | has | `metal-copper`, `metal-gold` |
-| `M38` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly |
-| `M39` | `kind:str-part-roof` | — | model | has | `ceramic` |
-| `M40` | `kind:str-marker-flag` | — | model | has | `textile` |
-| `M41` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | `part:pole` (usual) | expect | `wood:` |
-| `M42` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
-| `M43` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
+| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
+| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | is | `metal-iron` ⚑ O4 |
+| `M06` | `kind:obj-container-chest` | — | `part:hoop` | is | `metal-iron` |
+| `M07` | `kind:obj-container-crate` | — | `part:hoop` | is | `metal-iron` |
+| `M08` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
+| `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
+| `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
+| `M11` | `kind:obj-kitchenware-tableware-plate` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
+| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | expect | `wood:` |
+| `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
+| `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` |
+| `M16` | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` |
+| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | expect | `leather` |
+| `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
+| `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
+| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
+| `M22` | `kind:obj-tool-hand` | — | `part:wood handle` (usual) | is | `wood-planks` |
+| `M23` | `kind:obj-tool-long` | — | `part:pole` (always) | is | `wood-beam` |
+| `M24` | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` |
+| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
+| `M26` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
+| `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
+| `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` |
+| `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
+| `M30` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | `part:cut face` (always) | is | `wood-log` |
+| `M31` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | `part:round side` (always) | is | `wood-bark` |
+| `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
+| `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
+| `M34` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly |
+| `M35` | `kind:str-part-roof` | — | model | has | `ceramic` |
+| `M36` | `kind:str-marker-flag` | — | model | has | `textile` |
+| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | `part:pole` (usual) | expect | `wood:` |
+| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
+| `M39` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
 
 ---
 
 ## 5. Subject → colour
 
 Every row names the set of bands its subject may draw from. How rows combine: `F08`.
+
+`kind:assy` is exempt.
 
 ### 5.1 Material palettes
 
@@ -303,7 +268,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B18` | `mat=bone` | — | `mat:bone` | one-of | `ivory` |
 | `B19` | `mat=wax` | — | `mat:wax` | one-of | `ivory` |
 | `B20` | `mat=wick` | — | `mat:wick` | one-of | `basalt` |
-| `B21` | `mat=glass & size:m \| mat=glass & size:l` | — | `mat:glass` | one-of | `transparent` |
+| `B21` | `mat=glass & !size:s` | — | `mat:glass` | one-of | `transparent` |
 | `B22` | `mat=glass & size:s` | — | `mat:glass` | one-of | `transparent`, `sienna`, `hunter` |
 | `B23` | `mat=liquid` | — | `mat:liquid` | one-of | `sienna`, `hunter`, `azure` |
 | `B24` | `mat=rope` | — | `mat:rope` | one-of | `taupe` |
@@ -316,9 +281,9 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
 | `B28` | `kind:obj-kitchenware-tableware-plate` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` |
-| `B29` | `kind:obj-kitchenware-tableware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` |
+| `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B30` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` |
-| `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` \| fish, cheese, chocolate | model | one-of | `any` |
+| `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` fish, cheese, chocolate | model | one-of | `any` |
 | `B32` | `kind:obj-food` fish | — | model | expect | `nickel`, `basalt`, `slate`, `azure` |
 | `B33` | `kind:obj-food` cheese | — | model | one-of | `amber` |
 | `B34` | `kind:obj-food-meat` | — | model | one-of | `sienna` |
@@ -327,11 +292,11 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B37` | `kind:obj-food-grain` | wheat, straw | model | one-of | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` |
 | `B39` | `*` chocolate | — | model | one-of | `chestnut` |
-| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe`, within UV 0.02–0.40 of the lane |
+| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe`, within UV 0.02–0.40 of the lane ⚑ O5 |
 | `B41` | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B42` | `kind:obj-transport-ship \| kind:obj-transport-boat \| kind:obj-transport-accessory` | sails | `mat:textile` | one-of | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` |
+| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` ⚑ O5 |
+| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` ⚑ O6 | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` |
 | `B45` | `kind:obj-pocketitem-scroll` | — | `mat:paper` | one-of | `ivory` |
 | `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` (sometimes) | one-of | `slate` |
 | `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` |
@@ -345,7 +310,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B55` | `kind:env-fungi` | — | `part:cap` (always) | one-of | `sienna`, `camel` |
 | `B56` | `kind:env-fauna` | — | model | one-of | `any` |
 | `B57` | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` |
-| `B58` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber`, with the lane's UV range not 0 |
+| `B58` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber`, with the lane's UV range not 0 ⚑ O5 |
 
 ---
 
@@ -353,22 +318,22 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 Who assigns what:
 
-- **`P01`** — only the PO assigns `mat:special` and `tag:hero`.
-- **`P02`** — adding to the catalogue, Claude proposes `hero`.
+- **`P01`** — Only the PO assigns `mat:special` and `tag:hero`.
+- **`P02`** — When adding to the catalogue, Claude proposes `hero`.
 - **`P03`** — Claude asks for `mat:special` only after a recolour and a kind or material change have both failed.
-- **`P04`** — an outline on an asset, Claude tells the PO.
-- **`P05`** — the PO does not retire a leaf for being below 6 models.
+- **`P04`** — When an asset has an outline, Claude tells the PO.
+- **`P05`** — The PO does not retire a leaf for having fewer than 6 models.
 
 Making and validating:
 
-- **`P06`** — creating an asset, Claude renders and looks at the reference assets first.
-- **`P07`** — validating, Claude renders 2+ references of the group beside it at the same scale.
-- **`P08`** — a `kind:assy` is not validated directly.
-- **`P09`** — rescaling is done for a kit globally.
+- **`P06`** — When creating an asset, Claude first renders and looks at the reference assets.
+- **`P07`** — When validating, Claude renders 2+ references of the group beside it at the same scale.
+- **`P08`** — A `kind:assy` is not validated directly.
+- **`P09`** — Rescaling is done globally for a kit.
 
 Importing a pack:
 
-- **`P10`** — one scale factor for the whole pack, for now.
+- **`P10`** — One scale factor for the whole pack, for now.
 - **`P11`** — 2 source colours: keep 2.
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.
@@ -382,21 +347,21 @@ Which models sit together as one entry and which stand apart. Groups live in `ca
 
 | id | reason | shared | differs |
 |---|---|---|---|
-| `D07` | material | kind, size, shape | the material it is made of |
-| `D08` | recolour | kind, size, shape, material | band |
-| `D09` | size | kind, shape, material, band | extents, by redesign |
-| `D10` | state | kind, material | a part moved, removed, filled or recoloured |
-| `D11` | plural | kind, material, band | how many instances |
+| `D08` | material | kind, size, shape | the material it is made of |
+| `D09` | recolour | kind, size, shape, material | band |
+| `D10` | size | kind, shape, material, band | extents, by redesign |
+| `D11` | state | kind, material | a part moved, removed, filled or recoloured |
+| `D12` | plural | kind, material, band | how many instances |
 
 What holds of every group, read from `catalog/asset_variants.json`:
 
-- **`V01`** — its `kits` is one kit; a second only for the same artist, never across artists without the PO.
-- **`V02`** — its `kind` is the same for every member.
-- **`V03`** — the more models of a kind, the more sit inside a group.
-- **`V04`** — reasons stack; the more and the wider, the sooner a model earns its own row.
-- **`V05`** — a group is judged by how it reads, not by how far it measures.
-- **`V06`** — a `D09` member is redesigned at that size: a longer ladder gains rungs.
-- **`V07`** — for kinds wanting variety, `D07` and `D08` are made on purpose (`M05` is one).
+- **`V01`** — Its `kits` is one kit; a second only for the same artist, never across artists without the PO.
+- **`V02`** — Its `kind` is the same for every member.
+- **`V03`** — The more models of a kind, the more sit inside a group.
+- **`V04`** — Reasons stack; the more and the wider, the sooner a model earns its own row.
+- **`V05`** — A group is judged by how it reads, not by how far it measures.
+- **`V06`** — A `D10` member is redesigned at that size: a longer ladder gains rungs.
+- **`V07`** — For kinds wanting variety, `D08` and `D09` are made on purpose (`M04` is one).
 
 A variant is what keeps a kind from ballooning. Filled and empty, open and closed, lit and unlit, with lid, without lid and the lid alone each double a group; left apart, ten potions and a shelf of pans crowd out everything else. The same reasons that justify a variant are what justify the model being in the catalogue at all, so the judgement runs both ways: too alike and it is a dedupe, too far apart and it is its own row.
 
@@ -409,16 +374,185 @@ Main:
 `env` = naturally occurring thing
 `str` = constructed fixed thing
 
-Other
-`char` = living or acting entity, incl potential obj it may equip, wear, carry
-`assy` = a mix of different things from different kinds.
+Other:
+`char` = living or acting entity, incl. any obj it may equip, wear or carry
+`assy` = a mix of different things from different kinds
 
-The tree lives in `catalog/kinds.json`: each node is `id`, the `nouns` that resolve to it, and its `children`.
-A node's nouns have no deeper child that fits.
-Match with deepest tier reasonable.
+Format: `kind — nouns that resolve here`.
+Parent lines list nouns that have no leaf yet.
+Match with the deepest reasonable tier.
 Ground you walk on is `env-terrain`; a rock set on it is `env-rock`.
 
-Materials
+```
+obj-container-chest — chest, trunk, coffer, strong box
+obj-container-barrel — barrel, cask, keg
+obj-container-bucket — bucket, pail, basin, tub
+obj-container-crate — crate, box, case, package
+obj-container-bottle — bottle, flask, vial, potion
+obj-container-bag — bag, sack, pouch, purse, backpack
+obj-container-pot — pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer
+obj-container — basket, trough, bin, can, coffin
+
+obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
+obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer, bowl
+obj-kitchenware-tableware-drinkware — mug, cup, goblet, chalice, tankard, glass
+obj-kitchenware-tableware
+obj-kitchenware-cookware-pan — pan, skillet
+obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
+obj-kitchenware-cookware — grill, spit, ladle, cutting board
+obj-kitchenware
+
+obj-furniture-seating-bench — bench, couch, sofa, pew
+obj-furniture-seating-chair — chair, armchair, throne
+obj-furniture-seating-stool — stool, footstool
+obj-furniture-seating
+obj-furniture-table — table, desk
+obj-furniture-bed — bed, bedroll, bunk, cot, hammock
+obj-furniture-storage — cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser
+obj-furniture — rug, carpet
+
+obj-food-meat — meat, ham, sausage, drumstick, steak, roast, leg
+obj-food-vegetable — carrot, cabbage, pumpkin, turnip, onion, potato, tomato
+obj-food-grain — bread, loaf, wheat sheaf, flour sack, cake, pie, croissant, waffle, cookie, roll, baguette
+obj-food — fish (as food), fruit, apple, cheese, egg, honey, coconut
+
+obj-weapon-melee-sword — sword, blade, rapier, scimitar, katana
+obj-weapon-melee-dagger — dagger, knife (combat)
+obj-weapon-melee-axe — axe, hatchet, battleaxe
+obj-weapon-melee-hammer — hammer (war), mace, club, flail
+obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade
+
+obj-weapon-ranged-bow — bow, longbow
+obj-weapon-ranged-crossbow — crossbow
+obj-weapon-ranged-accessory — arrow, bolt (crossbow), dart, quiver
+obj-weapon-ranged — sling, throwing knife, javelin, pistol, rifle, musket, blunderbuss, shotgun
+
+obj-weapon-magic-staff — staff, wizard staff
+obj-weapon-magic — wand, orb, focus (magic)
+
+obj-weapon-cannon — cannon, cannonball
+
+obj-weapon
+
+obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
+obj-equipment-shield — shield, buckler
+obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
+obj-equipment — crown
+
+obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
+obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
+obj-tool-supplies — screw, nail, bolt (fastener), rope, chain, hook, wire
+obj-tool — lever, spring, gear, pulley, anvil, grindstone
+
+obj-transport-ship — ship, galleon, longship, hull (ship)
+obj-transport-boat — boat, rowboat, canoe, raft, dinghy
+obj-transport-cart — cart, wagon, carriage, wheelbarrow, sled
+obj-transport-accessory — anchor, paddle, oar, wheel, sail, rudder, mast
+obj-transport — saddle, balloon
+
+obj-lighting-lantern — lantern, lamp
+obj-lighting-torch — torch, brazier
+obj-lighting-candle — candle, candlestick, candelabra
+obj-lighting-campfire — campfire, bonfire, fire pit
+obj-lighting — chandelier
+
+obj-pocketitem-coin — coin, gold pile, gem (cut)
+obj-pocketitem-key — key
+obj-pocketitem-book — book, tome, journal, spell book
+obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
+obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant, brooch
+obj-pocketitem — compass, hourglass, dice, mirror (hand)
+
+obj-resource-metal — ingot, bar, nugget, ore lump, cog, spare part
+obj-resource-wood-log — log (cut), timber, firewood, cordwood
+obj-resource-wood-plank — plank (stock), board (loose), pallet
+obj-resource-wood
+obj-resource-stone — brick (loose), cut block
+obj-resource-textile — textile bolt, cloth roll
+obj-resource — hide, raw stock
+
+obj-instrument — bell, gong, drum, lute
+
+obj-art-sculpture — statue, fountain
+obj-art
+
+obj — barrel stand, weapon stand, easel, signboard (freestanding), cage, heart token, star token
+
+str-part-door — door, gate (building), hatch
+str-part-floor — floor, floor tile, ceiling
+str-part-roof — roof, roof tile, chimney, gable
+str-part-window — window, shutter
+str-part-wall — wall, wall segment, arch (building), corner
+str-part-pillar — pillar, column, beam, support
+str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
+str-part — room, cellar, souterrain, dungeon
+
+str-building-tower — tower, lighthouse, mill, windmill, church ⚑ O7
+
+str-building-dwelling — house (whole), hut, inn
+str-building-fort — castle, inn, barracks, stables, blacksmith ⚑ O7
+str-building — watermill, sawmill, gazebo, well
+
+str-stands — tent, stall, market stand, awning, canopy
+
+str-platform-deck — deck, boardwalk
+str-platform-dock — dock, pier, jetty
+str-platform
+
+str-barrier-fence — fence, fence segment, railing, palisade, gate (fence)
+str-barrier-post — post, bollard, stake
+str-barrier — wall (low, garden), hedge (trimmed), barricade
+
+str-access-stairs — stairs, steps, ramp
+str-access-ladder — ladder
+str-access-bridge — bridge, plank (crossing), rope bridge
+str-access
+
+str-marker-sign — sign, signpost, notice board, direction arrow
+str-marker-flag — flag, banner, pennant
+str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
+str-marker — milestone, waystone, totem
+
+str — stage, altar, plinth, pedestal, shrine, gallows, waterwheel, mine entrance, fireplace
+
+env-flora-plant-cactus — cactus, succulent
+env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet
+env-flora-plant-grass — grass, grass tuft, reed
+env-flora-plant — cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad
+
+env-flora-tree-conifer — conifer, pine, spruce, fir
+env-flora-tree-palm — palm
+env-flora-tree — tree, oak, birch, willow, bush (tree-sized)
+
+env-flora-deadwood-stump — stump
+env-flora-deadwood-branch — branch, twig, log (fallen), driftwood
+env-flora-deadwood — dead tree, fallen tree, root
+
+env-fungi — mushroom, toadstool, fungus, lichen
+
+env-fauna — fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail
+
+env-remains-bones — bone, skull, skeleton (prop), ribcage, carcass
+env-remains — shell, egg (wild), nest, feather
+
+env-rock-formation — arch (rock), monolith, spire, cliff, cliff prop, outcrop
+env-rock-boulder — boulder, rock (large)
+env-rock-pebble — pebble, stone (small), gravel
+env-rock — crystal, ore (in rock), stalagmite
+
+env-terrain-mountain — mountain, hill, mesa, volcano
+env-terrain-ground — ground, ground mesh, dirt path, stone path, cobbled path, sand, snow patch
+env-terrain — island base, cave floor, riverbed
+
+env-water — water, pond, wave, waterfall, ice, pool, lake
+
+env — cloud, snow drift, lava, smoke, fog
+
+assy — several distinct things, one top-level
+char — playable, npc, skeleton (rigged), animal (rigged)
+```
+
+Materials ⚑ O8
 ```
 metal
 ├─ metal-iron
@@ -444,10 +578,16 @@ rope       cork       gemstone   special
 vegetation skin
 ```
 
+---
 
+## Open
 
-
-
-
-
-
+- **O1** — `I03`: "except" is cut off. Except what?
+- **O2** — §2.3: the JSON file isn't named.
+- **O3** — `G23`: with `fits` read as w × d × h, tables max out at 0.5 high. Is that intended?
+- **O4** — `M05`–`M07` are identical and could merge into one `D03` row.
+- **O5** — `B40`, `B43`, `B58`: UV conditions and "striped" aren't tokens under `F07`.
+- **O6** — `B44`: `&` binds first, so `mat:paper` only narrows `kind:obj-weapon-magic`, not books. Is that intended?
+- **O7** — "inn" is under both dwelling and fort; "church" sits under tower and "blacksmith" under fort.
+- **O8** — `foliage` and `vegetation` overlap; `food`, `emissive`, `foliage` and `vegetation` have no §5.1 palette.
+- **O9** — `I08`, `I09`, `I11`: values are multi-token or prose under `is`.
