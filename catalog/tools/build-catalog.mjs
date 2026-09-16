@@ -3,7 +3,7 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { readKindTree, kindIs, kindAncestors, USES, SIZES, sizeOf } from './kinds.mjs';
+import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
@@ -355,7 +355,7 @@ for (const slug of kitSlugs) {
   });
 }
 
-const TYPES = ['material', 'kind', 'use', 'size', 'tag'];
+const TYPES = ['material', 'kind', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
 const BUILDING_KITS = ['ken-town', 'fs-town', 'kay-dun-1', 'kay-dun-2'];
@@ -468,11 +468,9 @@ function readTags(known) {
   if (unknownKind.length) console.warn(`! kind not in Appendix B: ${unknownKind.join(', ')}`);
   const missingKind = [...KIND_TREE.keys()].filter((id) => !tags.some((t) => t.type === 'kind' && t.id === id));
   if (missingKind.length) console.warn(`! Appendix B kind not in tags.json: ${missingKind.join(', ')}`);
-  const unknownUse = tags.filter((t) => t.type === 'use' && !USES.includes(t.id.replace(/^use:/, ''))).map((t) => t.id);
-  if (unknownUse.length) console.warn(`! use outside U1: ${unknownUse.join(', ')}`);
-  const closed = new Set(tags.filter((t) => t.type === 'kind' || t.type === 'use').map((t) => t.id));
+  const closed = new Set(tags.filter((t) => t.type === 'kind').map((t) => t.id));
   const shadowed = tags.filter((t) => t.type === 'tag' && closed.has(t.id)).map((t) => t.id);
-  if (shadowed.length) console.warn(`! open tag shares an id with a kind or use: ${shadowed.join(', ')}`);
+  if (shadowed.length) console.warn(`! open tag shares an id with a kind: ${shadowed.join(', ')}`);
 
   const kindsPer = new Map();
   for (const tag of tags) {
@@ -516,9 +514,8 @@ const typeOf = new Map(tags.tags.map((t) => [t.id, t.type ?? 'tag']));
 for (const model of models) {
   const own = tags.perModel.get(model.id) ?? [];
   model.kind = own.find((id) => typeOf.get(id) === 'kind') ?? null;
-  model.use = own.filter((id) => typeOf.get(id) === 'use').map((id) => id.replace(/^use:/, '')).sort();
   model.size = sizeOf(model.wdh);
-  const rest = own.filter((id) => !['kind', 'use', 'size'].includes(typeOf.get(id)));
+  const rest = own.filter((id) => !['kind', 'size'].includes(typeOf.get(id)));
   model.tags = rest;
 }
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
@@ -655,7 +652,6 @@ const output = {
     kit: m.kit,
     name: m.name,
     kind: m.kind,
-    use: m.use.length ? m.use : undefined,
     size: m.size,
     wdh: m.wdh.map(round1),
     tris: m.triangles,

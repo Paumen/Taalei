@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, effectiveUses, onChange as onTagEdit } from './tag-edits.js?v=97cf5d0bea';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=97cf5d0bea';
+import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=cf6df2f837';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=cf6df2f837';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -1240,7 +1240,6 @@ async function start() {
   onTagEdit(() => {
     for (const model of register.models.values()) {
       model.kind = effectiveKind(model, register.tags);
-      model.use = effectiveUses(model);
     }
     if (!detail.open) refresh();
   });

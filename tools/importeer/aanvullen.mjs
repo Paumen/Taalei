@@ -94,12 +94,12 @@ const PAKKETTEN = [
       },
       {
         naam: 'bucket', bronmodel: 'Prop_Bucket', kind: 'obj-container-bucket',
-        tags: ['use:container', 'use:tool', 'ngons', 'pirate', 'sailing'],
+        tags: ['ngons', 'pirate', 'sailing'],
         kleuren: { '#57412c': hout, '#857b80': smeedijzer },
       },
       {
         naam: 'bucket-fishes', bronmodel: 'Prop_Bucket_Fishes', kind: 'obj-container-bucket',
-        tags: ['use:container', 'use:food', 'ngons', 'plural', 'pirate', 'sailing'],
+        tags: ['ngons', 'plural', 'pirate', 'sailing'],
         kleuren: {
           '#57412c': hout, '#857b80': smeedijzer,
           '#7f93af': visLijf, '#9eacbb': visLijf, '#4d8fca': visRug,
@@ -107,7 +107,7 @@ const PAKKETTEN = [
       },
       {
         naam: 'chicken-leg', bronmodel: 'UI_ChickenLeg', kind: 'obj-food-meat',
-        tags: ['use:food', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#885e38': rood, '#8b1e1f': rood, '#9e957f': room },
       },
       {
@@ -120,12 +120,12 @@ const PAKKETTEN = [
       },
       {
         naam: 'swords', bronmodel: 'UI_Swords', kind: 'obj-weapon-melee-sword',
-        tags: ['use:weapon', 'plural', 'pirate'],
+        tags: ['plural', 'pirate'],
         kleuren: { '#857b80': staal, '#a79da4': staal, '#e6a945': goud, '#885e38': greep },
       },
       {
         naam: 'wheat', bronmodel: 'UI_Wheat', kind: 'obj-food-grain',
-        tags: ['use:food', 'plural'], kleuren: { '#b2a15e': koren },
+        tags: ['plural'], kleuren: { '#b2a15e': koren },
       },
       {
         naam: 'logs', bronmodel: 'UI_Wood', kind: 'obj-resource-wood-log',
@@ -133,32 +133,32 @@ const PAKKETTEN = [
       },
       {
         naam: 'axe', bronmodel: 'Weapon_Axe', kind: 'obj-weapon-melee-axe',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#3a3739': staal, '#857b80': staal, '#57412c': hout, '#9e957f': greep },
       },
       {
         naam: 'axe-rifle', bronmodel: 'Weapon_AxeRifle', kind: 'obj-weapon-ranged',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#57412c': hout, '#857b80': staal, '#3a3739': staal },
       },
       {
         naam: 'cutlass', bronmodel: 'Weapon_Cutlass', kind: 'obj-weapon-melee-sword',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#885e38': greep, '#e6a945': goud, '#857b80': staal, '#a79da4': staal },
       },
       {
         naam: 'dagger', bronmodel: 'Weapon_Dagger', kind: 'obj-weapon-melee-dagger',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#3a3739': staal, '#857b80': staal, '#57412c': hout, '#9e957f': greep },
       },
       {
         naam: 'axe-double', bronmodel: 'Weapon_DoubleAxe', kind: 'obj-weapon-melee-axe',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#3a3739': staal, '#857b80': staal, '#57412c': hout, '#9e957f': greep },
       },
       {
         naam: 'shotgun-double', bronmodel: 'Weapon_DoubleShotgun', kind: 'obj-weapon-ranged',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: {
           '#857b80': staal, '#ffffff': staal, '#e6a945': goud,
           '#57412c': hout, '#907245': hout,
@@ -171,22 +171,22 @@ const PAKKETTEN = [
       },
       {
         naam: 'pistol', bronmodel: 'Weapon_Pistol', kind: 'obj-weapon-ranged',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#857b80': staal, '#e6a945': goud, '#57412c': hout },
       },
       {
         naam: 'rifle', bronmodel: 'Weapon_Rifle', kind: 'obj-weapon-ranged',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#857b80': staal, '#e6a945': goud, '#57412c': hout },
       },
       {
         naam: 'sword-1', bronmodel: 'Weapon_Sword_1', kind: 'obj-weapon-melee-sword',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#3a3739': staal, '#857b80': staal, '#57412c': hout },
       },
       {
         naam: 'sword-2', bronmodel: 'Weapon_Sword_2', kind: 'obj-weapon-melee-sword',
-        tags: ['use:weapon', 'pirate'],
+        tags: ['pirate'],
         kleuren: { '#3a3739': staal, '#857b80': staal, '#57412c': hout, '#e6a945': goud },
       },
     ],
