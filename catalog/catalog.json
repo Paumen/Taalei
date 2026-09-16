@@ -427,8 +427,7 @@
    "members": [
     "kay-resources/copper-bar",
     "kay-resources/gold-bar",
-    "kay-resources/iron-bar",
-    "kay-resources/silver-bar"
+    "kay-resources/iron-bar"
    ]
   },
   {
@@ -438,8 +437,7 @@
    "members": [
     "kay-resources/copper-bars",
     "kay-resources/gold-bars",
-    "kay-resources/iron-bars",
-    "kay-resources/silver-bars"
+    "kay-resources/iron-bars"
    ]
   },
   {
@@ -449,8 +447,7 @@
    "members": [
     "kay-resources/copper-bars-stack-large",
     "kay-resources/gold-bars-stack-large",
-    "kay-resources/iron-bars-stack-large",
-    "kay-resources/silver-bars-stack-large"
+    "kay-resources/iron-bars-stack-large"
    ]
   },
   {
@@ -460,8 +457,7 @@
    "members": [
     "kay-resources/copper-bars-stack-medium",
     "kay-resources/gold-bars-stack-medium",
-    "kay-resources/iron-bars-stack-medium",
-    "kay-resources/silver-bars-stack-medium"
+    "kay-resources/iron-bars-stack-medium"
    ]
   },
   {
@@ -471,8 +467,7 @@
    "members": [
     "kay-resources/copper-bars-stack-small",
     "kay-resources/gold-bars-stack-small",
-    "kay-resources/iron-bars-stack-small",
-    "kay-resources/silver-bars-stack-small"
+    "kay-resources/iron-bars-stack-small"
    ]
   },
   {
@@ -482,8 +477,7 @@
    "members": [
     "kay-resources/copper-nugget-large",
     "kay-resources/gold-nugget-large",
-    "kay-resources/iron-nugget-large",
-    "kay-resources/silver-nugget-large"
+    "kay-resources/iron-nugget-large"
    ]
   },
   {
@@ -493,8 +487,7 @@
    "members": [
     "kay-resources/copper-nugget-medium",
     "kay-resources/gold-nugget-medium",
-    "kay-resources/iron-nugget-medium",
-    "kay-resources/silver-nugget-medium"
+    "kay-resources/iron-nugget-medium"
    ]
   },
   {
@@ -504,8 +497,7 @@
    "members": [
     "kay-resources/copper-nugget-small",
     "kay-resources/gold-nugget-small",
-    "kay-resources/iron-nugget-small",
-    "kay-resources/silver-nugget-small"
+    "kay-resources/iron-nugget-small"
    ]
   },
   {
@@ -515,8 +507,7 @@
    "members": [
     "kay-resources/copper-nuggets",
     "kay-resources/gold-nuggets",
-    "kay-resources/iron-nuggets",
-    "kay-resources/silver-nuggets"
+    "kay-resources/iron-nuggets"
    ]
   },
   {
@@ -5023,19 +5014,11 @@
    "parent": "metal"
   },
   {
-   "id": "metal-silver",
-   "name": "Silver",
-   "type": "material",
-   "description": "Silver: bars, nuggets and their stacks, and blades that read as silver. Takes light blue-grey 3,2.",
-   "count": 14,
-   "parent": "metal"
-  },
-  {
    "id": "metal-copper",
    "name": "Copper",
    "type": "material",
    "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 and never shares a model with another metal subtype.",
-   "count": 14,
+   "count": 19,
    "parent": "metal"
   },
   {
@@ -5135,7 +5118,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 96
+   "count": 95
   },
   {
    "id": "foliage",
@@ -5248,7 +5231,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1071,
+   "count": 1062,
    "color": "#c07c8a"
   },
   {
@@ -5578,7 +5561,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 90,
+   "count": 81,
    "color": "#4f7d8c"
   },
   {
@@ -5586,7 +5569,7 @@
    "name": "Metal",
    "type": "kind",
    "description": "ingot, bar, nugget, ore lump, cog, spare part",
-   "count": 40
+   "count": 31
   },
   {
    "id": "obj-resource-stone",
@@ -6210,7 +6193,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 111
+   "count": 107
   },
   {
    "id": "pickup",
@@ -6294,14 +6277,14 @@
    "name": "Small",
    "type": "size",
    "description": "Longest axis under half a unit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1146
+   "count": 1138
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Longest axis from half to one and a half units. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 976
+   "count": 975
   },
   {
    "id": "l",
@@ -6322,7 +6305,7 @@
    "name": "KayKit",
    "type": "tag",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 698
+   "count": 689
   },
   {
    "id": "qua",
@@ -36958,8 +36941,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "metal-silver"
+    "metal-copper",
+    "metal-iron-steel"
    ]
   },
   {
@@ -38491,8 +38474,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "metal-silver"
+    "metal-copper",
+    "metal-iron-steel"
    ]
   },
   {
@@ -38541,9 +38524,9 @@
    ],
    "tags": [
     "kay",
+    "metal-copper",
     "metal-gold",
-    "metal-iron-steel",
-    "metal-silver"
+    "metal-iron-steel"
    ],
    "variant": "v212"
   },
@@ -38588,8 +38571,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "metal-silver"
+    "metal-copper",
+    "metal-iron-steel"
    ],
    "variant": "v212"
   },
@@ -62181,379 +62164,6 @@
   },
   {
    "kit": "kay-resources",
-   "name": "silver-bar",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.1,
-    0.25,
-    0.1
-   ],
-   "tris": 108,
-   "tpu": 315,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 12444,
-   "vtx": 324,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00084,
-   "dens": 50000,
-   "anglePct": 38,
-   "vpt": 3,
-   "grad": 0.79,
-   "spread": {
-    "3,2": [
-     0,
-     0.789
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver"
-   ],
-   "variant": "v12"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-bars-stack-large",
-   "kind": "obj-resource-metal",
-   "size": "m",
-   "wdh": [
-    0.5,
-    0.5,
-    0.45
-   ],
-   "tris": 5184,
-   "tpu": 15114,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 530252,
-   "vtx": 15552,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00084,
-   "dens": 45990,
-   "anglePct": 38,
-   "vpt": 3,
-   "grad": 0.79,
-   "spread": {
-    "3,2": [
-     0,
-     0.789
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver",
-    "plural"
-   ],
-   "variant": "v14"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-bars-stack-medium",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.25,
-    0.45
-   ],
-   "tris": 1296,
-   "tpu": 3778,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 133656,
-   "vtx": 3888,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00084,
-   "dens": 50000,
-   "anglePct": 38,
-   "vpt": 3,
-   "grad": 0.79,
-   "spread": {
-    "3,2": [
-     0,
-     0.789
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver",
-    "plural"
-   ],
-   "variant": "v15"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-bars-stack-small",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.25,
-    0.25
-   ],
-   "tris": 648,
-   "tpu": 1889,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 67556,
-   "vtx": 1944,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00084,
-   "dens": 50000,
-   "anglePct": 38,
-   "vpt": 3,
-   "grad": 0.79,
-   "spread": {
-    "3,2": [
-     0,
-     0.789
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver",
-    "plural"
-   ],
-   "variant": "v16"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-bars",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.4,
-    0.25,
-    0.25
-   ],
-   "tris": 936,
-   "tpu": 2729,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 96924,
-   "vtx": 2808,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00081,
-   "dens": 37970,
-   "anglePct": 38,
-   "vpt": 3,
-   "grad": 0.72,
-   "spread": {
-    "3,0": [
-     0.266,
-     0.836
-    ],
-    "3,2": [
-     0,
-     0.789
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-silver",
-    "plural"
-   ],
-   "variant": "v13"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-nugget-large",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.15,
-    0.1,
-    0.15
-   ],
-   "tris": 100,
-   "tpu": 292,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 11680,
-   "vtx": 300,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00052,
-   "dens": 47291,
-   "anglePct": 1,
-   "vpt": 3,
-   "grad": 0.9,
-   "spread": {
-    "3,2": [
-     0.047,
-     0.945
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver"
-   ],
-   "variant": "v17"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-nugget-medium",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 40,
-   "tpu": 117,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 5556,
-   "vtx": 120,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.0005,
-   "dens": 72689,
-   "anglePct": 0,
-   "vpt": 3,
-   "grad": 0.73,
-   "spread": {
-    "3,2": [
-     0.016,
-     0.75
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver"
-   ],
-   "variant": "v18"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-nugget-small",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.05,
-    0.05,
-    0.05
-   ],
-   "tris": 40,
-   "tpu": 117,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 5560,
-   "vtx": 120,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00012,
-   "dens": 601251,
-   "anglePct": 2,
-   "vpt": 3,
-   "grad": 0.73,
-   "spread": {
-    "3,2": [
-     0.016,
-     0.75
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver"
-   ],
-   "variant": "v19"
-  },
-  {
-   "kit": "kay-resources",
-   "name": "silver-nuggets",
-   "kind": "obj-resource-metal",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.25,
-    0.15
-   ],
-   "tris": 360,
-   "tpu": 1050,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 38188,
-   "vtx": 1080,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00036,
-   "dens": 35634,
-   "anglePct": 2,
-   "vpt": 3,
-   "grad": 0.9,
-   "spread": {
-    "3,2": [
-     0.047,
-     0.945
-    ]
-   },
-   "colors": [
-    "#979ebd"
-   ],
-   "tags": [
-    "kay",
-    "metal-silver"
-   ],
-   "variant": "v20"
-  },
-  {
-   "kit": "kay-resources",
    "name": "stone-brick",
    "kind": "obj-resource-stone",
    "size": "s",
@@ -68619,7 +68229,7 @@
    ],
    "tags": [
     "kay",
-    "metal-silver",
+    "metal-copper",
     "textile"
    ]
   },
