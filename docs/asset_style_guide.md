@@ -151,7 +151,13 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `tag:comp`, `tag:plural`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in the kinds.JSON. Each applies to `dim:high` or `dim:longest`, as set there.
+Min and max per kind live in the kinds.JSON. Each applies to `high` or `longest`, as set there.
+
+if size lint error or warning:
+1. verify if model has right kinds tag.
+2. verify if model meets tag:plural, tag:pickup, tag:comp criteria.
+3. check if more models same kit have errors/warnings.
+
 
 ### 2.4 Boxes and part counts
 
