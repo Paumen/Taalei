@@ -149,7 +149,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 ### 2.3 Size
 
-`tag:comp`, `tag:plural` and `kind:assy` are exempt.
+`tag:comp`, `tag:plural`, `kind:assy` and `tag:pickup` are exempt.
 
 Min and max per kind live in the kinds.JSON. Each applies to `dim:high` or `dim:longest`, as set there.
 
