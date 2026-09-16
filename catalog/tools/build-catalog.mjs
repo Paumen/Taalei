@@ -7,6 +7,7 @@ import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs'
 import { buildScaleGroups, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
+import { buildLimits, findingsFor, isExempt } from '../../lint/rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
@@ -18,6 +19,15 @@ const COLUMNS = 16;
 const ROWS = 4;
 
 const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
+
+const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
+const LINT_LIMITS = buildLimits(JSON.parse(readFileSync(join(ROOT, LINT_VARS.kinds), 'utf8')));
+
+function lintOf(model, wdh) {
+  if (!model.kind || isExempt(model, LINT_VARS)) return undefined;
+  const found = findingsFor({ ...model, wdh }, LINT_LIMITS.get(model.kind), LINT_VARS);
+  return found.length ? found : undefined;
+}
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
@@ -221,7 +231,7 @@ function colorName(hex) {
 
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
-const MODULES = ['tag-edits.js', 'chiprij.js'];
+const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js'];
 const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'tag-edits.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
@@ -648,6 +658,10 @@ const output = {
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
     ...(t.color ? { color: t.color } : {}),
   })),
+  limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()
+    .map((kind) => [kind, Object.fromEntries(
+      Object.entries(LINT_LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
+    )])),
   models: models.map((m) => ({
     kit: m.kit,
     name: m.name,
@@ -675,6 +689,7 @@ const output = {
     tags: m.tags,
     anim: m.animations,
     variant: m.variant,
+    lint: lintOf(m, m.wdh.map(round1)),
   })),
 };
 
