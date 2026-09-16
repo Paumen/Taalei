@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=97cf5d0bea';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=cf6df2f837';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -46,7 +46,6 @@ export function onChange(fn) {
 }
 
 export const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
-export const useId = (u) => `use:${u}`;
 
 const bases = new WeakMap();
 const baseIds = (model) => {
@@ -54,7 +53,6 @@ const baseIds = (model) => {
     bases.set(model, [
       ...(model.tags ?? []),
       ...(model.kind ? [model.kind] : []),
-      ...(model.use ?? []).map(useId),
     ]);
   }
   return bases.get(model);
@@ -71,9 +69,6 @@ export function effectiveTags(model) {
 
 export const effectiveKind = (model, tagsById) =>
   effectiveTags(model).find((id) => isKindId(id, tagsById)) ?? null;
-
-export const effectiveUses = (model) =>
-  effectiveTags(model).filter((id) => id.startsWith('use:')).map((id) => id.slice(4));
 
 export function hasPendingEdit(model) {
   return Object.values(edits).some((e) => e.add.includes(model.id) || e.remove.includes(model.id));
@@ -130,7 +125,7 @@ export function exportEdits() {
   const content = {
     tool: 'catalog tag editor',
     created: new Date().toISOString(),
-    note: 'Diff against catalog/tags.json: node tools/apply-tag-edits.mjs <this file> merges it, --dry shows what it would do first. Per tag, "add" ids join that tag\'s "models" and "remove" ids leave it; kinds and uses (use:…) are entries there like any other tag.',
+    note: 'Diff against catalog/tags.json: node tools/apply-tag-edits.mjs <this file> merges it, --dry shows what it would do first. Per tag, "add" ids join that tag\'s "models" and "remove" ids leave it; kinds are entries there like any other tag.',
     tags,
   };
   const blob = new Blob([JSON.stringify(content, null, 1) + '\n'], { type: 'application/json' });
@@ -153,7 +148,6 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   const rows = [
     { label: 'Kind', of: (t) => t.type === 'kind', parent: (t) => kindParent(t.id),
       pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
-    { label: 'Use', of: (t) => t.type === 'use' },
     { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null },
     { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
   ];

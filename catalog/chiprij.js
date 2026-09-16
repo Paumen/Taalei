@@ -51,9 +51,6 @@ const SHORT_NAME = {
   decorated: 'Dec food',
   halloween: 'Hallown',
   'robin-hood': 'Robin',
-  'use:container': 'Contnr',
-  'use:transport': 'Transp',
-  'use:wearable': 'Wearbl',
 };
 
 export const chipName = (tag) => SHORT_NAME[tag.id] ?? tag.name ?? tag.id;

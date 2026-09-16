@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=97cf5d0bea';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=cf6df2f837';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -72,7 +72,7 @@ const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.
 const labelDefault = (direction) => SOURCE.labels?.[direction.id] ?? direction.default;
 
 const state = {
-  filters: { search: '', kits: [], kinds: [], uses: [], tags: [], shuffle: false },
+  filters: { search: '', kits: [], kinds: [], tags: [], shuffle: false },
   labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, labelDefault(r)])),
   order: [],
   choices: [],
@@ -116,12 +116,10 @@ function remaining() {
 }
 
 function matches(model) {
-  const { search, kits, kinds = [], uses = [], tags = [] } = state.filters;
+  const { search, kits, kinds = [], tags = [] } = state.filters;
   if (kits.length && !kits.includes(model.kit)) return false;
   const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
   if (kinds.length && !chain.some((k) => kinds.includes(k))) return false;
-  const own = model.use?.length ? model.use : [WITHOUT];
-  if (uses.length && !own.some((u) => uses.includes(u))) return false;
   if (tags.length && !(model.tags ?? []).some((t) => tags.includes(t))) return false;
   if (search) {
     const needle = search.toLowerCase();
@@ -190,7 +188,6 @@ function setupFilters() {
     search: el('#zoek').value.trim(),
     kits: chosenValues(el('#kitlijst')),
     kinds: chosenValues(el('#soortlijst')),
-    uses: chosenValues(el('#gebruiklijst')),
     tags: chosenValues(el('#taglijst')),
     shuffle: el('#schud').checked,
   };
@@ -218,21 +215,13 @@ function fillSetup() {
     .filter((k) => k.count > 0);
   const noKind = register.models.filter((m) => !m.kind).length;
   if (noKind) kinds.push({ id: WITHOUT, name: 'No kind', count: noKind });
-  const uses = [...register.tags.values()]
-    .filter((t) => t.type === 'use')
-    .map((t) => ({ id: t.id.replace(/^use:/, ''), name: t.name, count: register.models.filter((m) => m.use?.includes(t.id.replace(/^use:/, ''))).length }))
-    .filter((u) => u.count > 0);
-  const noUse = register.models.filter((m) => !m.use?.length).length;
-  if (noUse) uses.push({ id: WITHOUT, name: 'No use', count: noUse });
-
   const tags = [...register.tags.values()]
-    .filter((t) => t.type !== 'kind' && t.type !== 'use' && t.type !== 'size')
+    .filter((t) => t.type !== 'kind' && t.type !== 'size')
     .map((t) => ({ id: t.id, name: t.name, count: register.models.filter((m) => (m.tags ?? []).includes(t.id)).length }))
     .filter((t) => t.count > 0);
 
   checklist(el('#kitlijst'), kits, state.filters.kits);
   checklist(el('#soortlijst'), kinds, state.filters.kinds ?? []);
-  checklist(el('#gebruiklijst'), uses, state.filters.uses ?? []);
   checklist(el('#taglijst'), tags, state.filters.tags ?? []);
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
