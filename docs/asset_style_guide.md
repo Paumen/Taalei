@@ -232,8 +232,8 @@ What a kind is made of. Colour follows from §5.
 | `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
 | `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` |
 | `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
-| `M30` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | model | has | `wood-log` |
-| `M31` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | model | has | `wood-bark` |
+| `M30` | `kind:obj-resource-wood-log` | — | model | has | `wood-log` |
+| `M31` | `kind:obj-resource-wood-log` | — | model | has | `wood-bark` |
 | `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
 | `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
 | `M34` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly |
