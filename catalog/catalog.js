@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=f894957034';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f894957034';
+import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=8027f9f61d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=8027f9f61d';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -127,6 +127,7 @@ const sizeState = new Map();
 const kindState = new Map([['assy', 'not']]);
 
 const tagState = new Map();
+const lintState = new Map();
 
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
@@ -257,6 +258,16 @@ function showThumb(box) {
   box.replaceChildren(image);
 }
 
+const LINT_LEVELS = [
+  { id: 'error', title: 'Errors', hint: 'Outside a size limit by more than the warning band' },
+  { id: 'warning', title: 'Warnings', hint: 'Outside a size limit but within the warning band' },
+];
+
+const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
+
+const lintText = (f) =>
+  `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`;
+
 function glyph(kind, sign, hint) {
   const el = span(`glyf glyf-${kind}`, sign);
   el.title = hint;
@@ -287,6 +298,11 @@ function makeCard(model, kits, variants = []) {
   glyphs.append(glyph('maat', size.sign, `${size.hint} (longest axis ${size.longest.toFixed(2)})`));
   if (model.anim?.length) {
     glyphs.append(glyph('animatie', '▶', `${model.anim.length} animation${model.anim.length > 1 ? 's' : ''} — playable in the model panel`));
+  }
+  const levels = lintLevels(model);
+  if (levels.length) {
+    glyphs.append(glyph(levels.includes('error') ? 'lint-fout' : 'lint-waarschuwing', '⚠',
+      model.lint.map(lintText).join('\n')));
   }
   if (variants.length) {
     glyphs.append(glyph('variant', `⧉ ${variants.length + 1}`,
@@ -335,6 +351,7 @@ function makeCard(model, kits, variants = []) {
     tags: withParents(family.flatMap((m) => m.tags ?? [])),
     kinds: [...new Set(family.flatMap((m) => (m.kind ? kindChain(m.kind) : [WITHOUT])))],
     sizes: [...new Set(family.map((m) => m.size))],
+    lint: [...new Set(family.flatMap(lintLevels))],
   };
   cards.push(item);
 
@@ -576,6 +593,13 @@ function sectionsFor(models) {
   }
 
   if (KIND_DEPTH[type]) return kindSections(inView, KIND_DEPTH[type], KIND_SPLIT_OVER[type] ?? 0);
+
+  if (type === 'lint') {
+    return perKey(
+      (m) => (lintLevels(m).length ? lintLevels(m) : [WITHOUT]),
+      [...LINT_LEVELS.map((k) => ({ id: k.id, title: k.title, hint: k.hint })), { id: WITHOUT, title: 'Clean' }],
+    );
+  }
 
   if (type === 'tag') {
     const own = catalog.tags;
@@ -835,6 +859,16 @@ function showDetail(model) {
 
   detailViewer.replaceChildren(viewer);
 
+  const lintBlock = document.querySelector('#detail-lint');
+  const lintList = document.querySelector('#detail-lint-lijst');
+  lintBlock.hidden = !model.lint?.length;
+  lintList.replaceChildren(...(model.lint ?? []).map((f) => {
+    const row = document.createElement('li');
+    row.className = `lintregel lint-${f.level}`;
+    row.textContent = `${f.level} · ${lintText(f)}`;
+    return row;
+  }));
+
   renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
 
   detail.showModal();
@@ -1066,6 +1100,14 @@ function buildTagBar(tags) {
     'sizes',
     { shareRow: shape },
   );
+  buildChipRow(
+    container,
+    'Lint',
+    LINT_LEVELS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
+    lintState,
+    'lint',
+    { shareRow: shape },
+  );
 
   for (const { type, head } of TAG_TYPES) {
     const own = tags.filter((t) => (t.type ?? 'tag') === type);
@@ -1091,6 +1133,7 @@ function refresh() {
       bump(`sizes|${model.size}`);
       for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
       for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
+      for (const id of lintLevels(model)) bump(`lint|${id}`);
     }
   }
   syncSubtypes(counts);
@@ -1101,13 +1144,15 @@ function refresh() {
   filter();
 }
 
-const filtersOff = () => colorState.size + tagState.size + sizeState.size + kindState.size === 0;
+const filtersOff = () =>
+  colorState.size + tagState.size + sizeState.size + kindState.size + lintState.size === 0;
 
 function onClear() {
   colorState.clear();
   tagState.clear();
   sizeState.clear();
   kindState.clear();
+  lintState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
   syncSubtypes();
@@ -1129,7 +1174,8 @@ function filter() {
       matches(card.colors, colorState) &&
       kindHit(card.kinds) &&
       matches(card.tags, tagState) &&
-      matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) });
+      matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) }) &&
+      matches(card.lint, lintState, { any: LINT_LEVELS.map((k) => k.id) });
     card.element.hidden = !hit;
     if (hit) visible++;
   }

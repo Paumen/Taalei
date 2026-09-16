@@ -13,7 +13,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F01` | `material` | what it is **made of** | closed, parented |
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `anim`, `comp`, `pickup`, `floating`, `offcenter`, `ngons`, etc.) | open |
+| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `anim`, `comp`, `pickup`, `broken`, `floating`, `offcenter`, `ngons`, etc.) | open |
 
 **[F05] Term.** A term is one of:
 
@@ -149,7 +149,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 ### 2.3 Size
 
-`tag:comp`, `tag:plural`, `kind:assy` and `tag:pickup` are exempt.
+`tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
 Min and max per kind live in the kinds.JSON. Each applies to `high` or `longest`, as set there.
 

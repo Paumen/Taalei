@@ -3,14 +3,18 @@
   "slug": "obj",
   "name": "Object",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "parasol",
     "wdh": [
-     0.45,
-     0.45,
-     0.4
+     0.5,
+     0.55,
+     0.45
     ],
     "tags": [
      "asia",
@@ -44,6 +48,10 @@
   "slug": "obj-art",
   "name": "Object › Art",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "ken-holiday",
@@ -93,6 +101,10 @@
   "slug": "obj-resource-stone",
   "name": "Object › Resource › Stone",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -149,6 +161,10 @@
   "name": "Object › Furniture",
   "category": "obj-gen",
   "topView": true,
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "kay-furniture",
@@ -220,6 +236,10 @@
   "slug": "obj-resource-textile",
   "name": "Object › Resource › Textile",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
   "items": [
    {
     "slug": "kay-resources",
@@ -299,14 +319,19 @@
   "slug": "obj-furniture-seating-stool",
   "name": "Object › Furniture › Seating › Stool",
   "category": "obj-gen",
+  "limits": {
+   "high.max": 0.6,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "stool",
     "wdh": [
-     0.2,
-     0.2,
-     0.15
+     0.25,
+     0.25,
+     0.2
     ],
     "tags": [
      "asia",
@@ -403,6 +428,11 @@
   "slug": "obj-furniture-seating-bench",
   "name": "Object › Furniture › Seating › Bench",
   "category": "obj-gen",
+  "limits": {
+   "high.max": 0.8,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "isa-park",
@@ -522,6 +552,12 @@
   "slug": "obj-furniture-seating-chair",
   "name": "Object › Furniture › Seating › Chair",
   "category": "obj-gen",
+  "limits": {
+   "high.min": 0.3,
+   "high.max": 0.9,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "kay-dun-1",
@@ -643,6 +679,12 @@
   "slug": "obj-lighting-campfire",
   "name": "Object › Lighting › Campfire",
   "category": "obj-gen",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -777,6 +819,10 @@
   "slug": "obj-furniture-bed",
   "name": "Object › Furniture › Bed",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.6,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "kay-dun-2",
@@ -947,6 +993,10 @@
   "slug": "obj-instrument",
   "name": "Object › Instrument",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -1021,9 +1071,9 @@
     "slug": "asia-rg",
     "model": "drum",
     "wdh": [
-     0.45,
-     0.3,
-     0.55
+     0.55,
+     0.35,
+     0.65
     ],
     "tags": [
      "asia",
@@ -1044,9 +1094,9 @@
     "slug": "asia-rg",
     "model": "gong",
     "wdh": [
-     0.7,
-     0.25,
-     0.7
+     0.8,
+     0.3,
+     0.8
     ],
     "tags": [
      "asia",
@@ -1065,9 +1115,9 @@
     "slug": "asia-rg",
     "model": "rope-bells",
     "wdh": [
-     1,
+     1.15,
      0.05,
-     0.15
+     0.2
     ],
     "tags": [
      "asia",
@@ -1142,6 +1192,12 @@
   "slug": "obj-lighting-torch",
   "name": "Object › Lighting › Torch",
   "category": "obj-gen",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -1326,9 +1382,185 @@
   ]
  },
  {
+  "slug": "obj-resource-wood-plank",
+  "name": "Object › Resource › Wood › Plank",
+  "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 1.4
+  },
+  "items": [
+   {
+    "slug": "asia-pack",
+    "model": "plank-a",
+    "wdh": [
+     0.15,
+     0.65,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plank-b",
+    "wdh": [
+     0.15,
+     0.6,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plank-c",
+    "wdh": [
+     0.15,
+     0.65,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plank-d",
+    "wdh": [
+     0.15,
+     0.6,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "pallet-wood",
+    "wdh": [
+     0.45,
+     0.45,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "wood-plank-a",
+    "wdh": [
+     0.1,
+     0.45,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "wood-plank-b",
+    "wdh": [
+     0.1,
+     0.45,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "wood-plank-c",
+    "wdh": [
+     0.1,
+     0.45,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-pirate",
+    "model": "platform-planks",
+    "wdh": [
+     0.55,
+     0.8,
+     0.15
+    ],
+    "tags": [
+     "ken",
+     "pirate",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "resource-planks",
+    "wdh": [
+     0.55,
+     0.95,
+     0.15
+    ],
+    "tags": [
+     "ken",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-food-meat",
   "name": "Object › Food › Meat",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-dun-2",
@@ -1540,193 +1772,13 @@
   ]
  },
  {
-  "slug": "obj-resource-wood-plank",
-  "name": "Object › Resource › Wood › Plank",
-  "category": "obj-gen",
-  "items": [
-   {
-    "slug": "asia-pack",
-    "model": "plank-a",
-    "wdh": [
-     0.15,
-     0.65,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plank-b",
-    "wdh": [
-     0.15,
-     0.6,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plank-c",
-    "wdh": [
-     0.15,
-     0.65,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plank-d",
-    "wdh": [
-     0.15,
-     0.6,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "pallet-wood",
-    "wdh": [
-     0.45,
-     0.45,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "wood-plank-a",
-    "wdh": [
-     0.1,
-     0.45,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "wood-plank-b",
-    "wdh": [
-     0.1,
-     0.45,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "wood-plank-c",
-    "wdh": [
-     0.1,
-     0.45,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "debris-wood",
-    "wdh": [
-     0.35,
-     0.4,
-     0.1
-    ],
-    "tags": [
-     "ken",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-pirate",
-    "model": "platform-planks",
-    "wdh": [
-     0.55,
-     0.8,
-     0.15
-    ],
-    "tags": [
-     "ken",
-     "pirate",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "resource-planks",
-    "wdh": [
-     0.55,
-     0.95,
-     0.15
-    ],
-    "tags": [
-     "ken",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-furniture-storage",
   "name": "Object › Furniture › Storage",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "isa-kitchen",
@@ -1778,22 +1830,6 @@
     "colors": [
      "#5b5550",
      "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "bookcase-wide-broken",
-    "wdh": [
-     0.6,
-     0.15,
-     0.6
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
     ]
    },
    {
@@ -1938,6 +1974,12 @@
   "slug": "obj-lighting-candle",
   "name": "Object › Lighting › Candle",
   "category": "obj-gen",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 0.7,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-dun-2",
@@ -2193,14 +2235,19 @@
   "slug": "obj-furniture-table",
   "name": "Object › Furniture › Table",
   "category": "obj-gen",
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "table",
     "wdh": [
-     0.95,
-     0.65,
-     0.35
+     1.1,
+     0.75,
+     0.4
     ],
     "tags": [
      "asia",
@@ -2260,42 +2307,10 @@
    },
    {
     "slug": "kay-dun-2",
-    "model": "table-long-broken",
-    "wdh": [
-     0.7,
-     1.3,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
     "model": "table-long",
     "wdh": [
      0.6,
      1.2,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "table-medium-broken",
-    "wdh": [
-     0.7,
-     0.75,
      0.3
     ],
     "tags": [
@@ -2444,6 +2459,11 @@
   "name": "Object › Kitchenware › Cookware",
   "category": "obj-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "cooking-assets",
@@ -2691,6 +2711,12 @@
   "slug": "obj-lighting-lantern",
   "name": "Object › Lighting › Lantern",
   "category": "obj-gen",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -2735,9 +2761,9 @@
     "slug": "asia-rg",
     "model": "lantern-paper-a",
     "wdh": [
-     0.1,
-     0.1,
-     0.25
+     0.15,
+     0.15,
+     0.3
     ],
     "tags": [
      "asia",
@@ -2775,7 +2801,7 @@
     "wdh": [
      0.2,
      0.2,
-     0.4
+     0.5
     ],
     "tags": [
      "asia",
@@ -3017,6 +3043,10 @@
   "slug": "obj-resource-wood-log",
   "name": "Object › Resource › Wood › Log",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
   "items": [
    {
     "slug": "kay-resources",
@@ -3316,6 +3346,11 @@
   "name": "Object › Kitchenware › Tableware",
   "category": "obj-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -3637,6 +3672,11 @@
   "name": "Object › Kitchenware › Cookware › Pan",
   "category": "obj-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "cooking-assets",
@@ -3963,6 +4003,11 @@
   "category": "obj-gen",
   "standUp": true,
   "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 0.35
+  },
   "items": [
    {
     "slug": "cooking-assets",
@@ -4280,6 +4325,10 @@
   "slug": "obj-art-sculpture",
   "name": "Object › Art › Sculpture",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -4397,9 +4446,9 @@
     "slug": "asia-rg",
     "model": "dragon-ornament",
     "wdh": [
-     0.8,
+     0.95,
      0.1,
-     0.35
+     0.4
     ],
     "tags": [
      "asia",
@@ -4413,9 +4462,9 @@
     "slug": "asia-rg",
     "model": "geisha-a",
     "wdh": [
-     0.45,
+     0.55,
      0.2,
-     0.7
+     0.85
     ],
     "tags": [
      "asia",
@@ -4429,9 +4478,9 @@
     "slug": "asia-rg",
     "model": "geisha-b",
     "wdh": [
-     0.45,
+     0.55,
      0.2,
-     0.75
+     0.85
     ],
     "tags": [
      "asia",
@@ -4641,6 +4690,10 @@
   "slug": "obj-food-vegetable",
   "name": "Object › Food › Vegetable",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-food",
@@ -5052,6 +5105,10 @@
   "slug": "obj-resource-metal",
   "name": "Object › Resource › Metal",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
   "items": [
    {
     "slug": "kay-resources",
@@ -5433,6 +5490,10 @@
   "name": "Object › Food",
   "category": "obj-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -5929,18 +5990,534 @@
   ]
  },
  {
+  "slug": "obj-kitchenware-tableware-plate",
+  "name": "Object › Kitchenware › Tableware › Plate",
+  "category": "obj-gen",
+  "topView": true,
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.1,
+   "longest.max": 0.4
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "bowl",
+    "wdh": [
+     0.05,
+     0.05,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "clay-props",
+    "model": "bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "clay-props",
+    "model": "plate",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "clay-props",
+    "model": "platter",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "cloche",
+    "wdh": [
+     0.35,
+     0.35,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "ngons"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "plate-oval-small",
+    "wdh": [
+     0.15,
+     0.05,
+     0.05
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "plate-rectangle",
+    "wdh": [
+     0.15,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "platter-oval",
+    "wdh": [
+     0.45,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "serving-bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "plate",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "saucer-a-large",
+    "wdh": [
+     0.35,
+     0.35,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "saucer-a-medium",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "saucer-a-small",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "plate-rounded",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "plate-small",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "plate",
+    "wdh": [
+     0.3,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "bowl-dirty",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "food",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "bowl-small",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "plate-small",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "plate",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "model": "detail-bowl",
+    "wdh": [
+     0.15,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "ken",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "model": "detail-plate",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ken",
+     "ngons"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "plate-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "own"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "plate-b",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "own"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "plate-c",
+    "wdh": [
+     0.3,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "own"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "plate-2",
+    "wdh": [
+     0.3,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "qua"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "plate",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "qua"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "soy-sauce",
+    "wdh": [
+     0.1,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "liquid",
+     "ngons",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "table-plate",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "qua"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-kitchenware-cookware-pot",
   "name": "Object › Kitchenware › Cookware › Pot",
   "category": "obj-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "cauldron",
     "wdh": [
-     0.45,
-     0.45,
-     0.35
+     0.55,
+     0.55,
+     0.4
     ],
     "tags": [
      "asia",
@@ -6468,531 +7045,13 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-tableware-plate",
-  "name": "Object › Kitchenware › Tableware › Plate",
-  "category": "obj-gen",
-  "topView": true,
-  "rulerHeight": 0.6,
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "bowl-shard",
-    "wdh": [
-     0.05,
-     0.05,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "bowl",
-    "wdh": [
-     0.05,
-     0.05,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "clay-props",
-    "model": "bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "clay-props",
-    "model": "plate",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "clay-props",
-    "model": "platter",
-    "wdh": [
-     0.25,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "cloche",
-    "wdh": [
-     0.35,
-     0.35,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "ngons"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "plate-oval-small",
-    "wdh": [
-     0.15,
-     0.05,
-     0.05
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "plate-rectangle",
-    "wdh": [
-     0.15,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "platter-oval",
-    "wdh": [
-     0.45,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "serving-bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "plate",
-    "wdh": [
-     0.25,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "saucer-a-large",
-    "wdh": [
-     0.35,
-     0.35,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "saucer-a-medium",
-    "wdh": [
-     0.25,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "saucer-a-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "plate-rounded",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "plate-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "plate",
-    "wdh": [
-     0.3,
-     0.3,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "bowl-dirty",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "food",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "bowl-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "plate-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "plate",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "detail-bowl",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ken",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "detail-plate",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ken",
-     "ngons"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "plate-a",
-    "wdh": [
-     0.2,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "own"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "plate-b",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "own"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "plate-c",
-    "wdh": [
-     0.3,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "own"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "plate-2",
-    "wdh": [
-     0.3,
-     0.3,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "qua"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "plate",
-    "wdh": [
-     0.25,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "qua"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "soy-sauce",
-    "wdh": [
-     0.1,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "liquid",
-     "ngons",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "table-plate",
-    "wdh": [
-     0.25,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "qua"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-food-grain",
   "name": "Object › Food › Grain",
   "category": "obj-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "isa-food",
@@ -7803,6 +7862,12 @@
   "slug": "obj-container",
   "name": "Object › Container",
   "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "isa-plants",
@@ -7921,6 +7986,12 @@
   "name": "Object › Container › Bucket",
   "category": "obj-container",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "isa-pond",
@@ -8108,6 +8179,12 @@
   "slug": "obj-container-bag",
   "name": "Object › Container › Bag",
   "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -8447,6 +8524,12 @@
   "slug": "obj-container-barrel",
   "name": "Object › Container › Barrel",
   "category": "obj-container",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -8849,6 +8932,12 @@
   "slug": "obj-container-crate",
   "name": "Object › Container › Crate",
   "category": "obj-container",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -9223,6 +9312,12 @@
   "name": "Object › Container › Chest",
   "category": "obj-container",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -9699,6 +9794,12 @@
   "slug": "obj-container-pot",
   "name": "Object › Container › Pot",
   "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -9772,9 +9873,9 @@
     "slug": "asia-rg",
     "model": "vase",
     "wdh": [
-     0.2,
-     0.2,
-     0.2
+     0.25,
+     0.25,
+     0.25
     ],
     "tags": [
      "asia",
@@ -10240,6 +10341,12 @@
   "name": "Object › Container › Bottle",
   "category": "obj-container",
   "rulerHeight": 0.6,
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-dun-1",
@@ -10941,6 +11048,10 @@
   "slug": "obj-transport",
   "name": "Object › Transport",
   "category": "obj-transport",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "taalei-kit",
@@ -11028,6 +11139,10 @@
   "name": "Object › Transport › Ship",
   "category": "obj-transport",
   "wideRow": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "ken-pirate",
@@ -11160,6 +11275,10 @@
   "slug": "obj-transport-accessory",
   "name": "Object › Transport › Accessory",
   "category": "obj-transport",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "fs-town",
@@ -11320,14 +11439,18 @@
   "name": "Object › Transport › Boat",
   "category": "obj-transport",
   "wideRow": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "boat",
     "wdh": [
-     1.1,
-     4.8,
-     1.05
+     1.3,
+     5.5,
+     1.2
     ],
     "tags": [
      "asia",
@@ -11514,6 +11637,10 @@
   "slug": "obj-transport-cart",
   "name": "Object › Transport › Cart",
   "category": "obj-transport",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -11537,9 +11664,9 @@
     "slug": "asia-rg",
     "model": "cart",
     "wdh": [
-     0.75,
-     1.35,
-     0.4
+     0.85,
+     1.55,
+     0.45
     ],
     "tags": [
      "asia",
@@ -11693,6 +11820,10 @@
   "slug": "obj-equipment",
   "name": "Object › Equipment",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -11736,6 +11867,10 @@
   "slug": "obj-equipment-armor",
   "name": "Object › Equipment › Armor",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-skeleton-1",
@@ -11786,6 +11921,10 @@
   "name": "Object › Pocket item",
   "category": "obj-equip",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -11807,7 +11946,7 @@
     "slug": "asia-rg",
     "model": "token",
     "wdh": [
-     0.05,
+     0.1,
      0.05,
      0.05
     ],
@@ -11822,9 +11961,60 @@
   ]
  },
  {
+  "slug": "obj-pocketitem-key",
+  "name": "Object › Pocket item › Key",
+  "category": "obj-equip",
+  "standUp": true,
+  "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 0.2
+  },
+  "items": [
+   {
+    "slug": "quat-props",
+    "model": "key-gold",
+    "wdh": [
+     0.05,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "hero",
+     "metal-gold",
+     "qua"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "key-metal",
+    "wdh": [
+     0.05,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-wrought",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-weapon-magic",
   "name": "Object › Weapon › Magic",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -11872,88 +12062,13 @@
   ]
  },
  {
-  "slug": "obj-pocketitem-key",
-  "name": "Object › Pocket item › Key",
-  "category": "obj-equip",
-  "standUp": true,
-  "rulerHeight": 0.6,
-  "items": [
-   {
-    "slug": "kay-dun-2",
-    "model": "keyring-hanging",
-    "wdh": [
-     0.2,
-     0.1,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "metal-gold",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "keyring",
-    "wdh": [
-     0.3,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "key-gold",
-    "wdh": [
-     0.05,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "hero",
-     "metal-gold",
-     "qua"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "key-metal",
-    "wdh": [
-     0.05,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-wrought",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-weapon-ranged",
   "name": "Object › Weapon › Ranged",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
   "items": [
    {
     "slug": "quat-pirate",
@@ -12043,6 +12158,10 @@
   "slug": "obj-weapon-cannon",
   "name": "Object › Weapon › Cannon",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "ken-pirate",
@@ -12154,6 +12273,10 @@
   "slug": "obj-weapon-melee",
   "name": "Object › Weapon › Melee",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-weapons",
@@ -12277,6 +12400,10 @@
   "name": "Object › Weapon › Ranged › Crossbow",
   "category": "obj-equip",
   "standUp": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -12400,6 +12527,10 @@
   "slug": "obj-tool",
   "name": "Object › Tool",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-tools",
@@ -12540,6 +12671,10 @@
   "category": "obj-equip",
   "standUp": true,
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 0.6
+  },
   "items": [
    {
     "slug": "kay-tools",
@@ -12699,6 +12834,10 @@
   "slug": "obj-tool-supplies",
   "name": "Object › Tool › Supplies",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -12844,6 +12983,10 @@
   "slug": "obj-weapon-magic-staff",
   "name": "Object › Weapon › Magic › Staff",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -12946,27 +13089,6 @@
    },
    {
     "slug": "kay-skeleton-1",
-    "model": "staff-gem-broken",
-    "wdh": [
-     0.1,
-     0.15,
-     0.4
-    ],
-    "tags": [
-     "bone",
-     "gemstone",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
     "model": "staff-gem",
     "wdh": [
      0.15,
@@ -13035,6 +13157,10 @@
   "slug": "obj-weapon-melee-hammer",
   "name": "Object › Weapon › Melee › Hammer",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 0.8
+  },
   "items": [
    {
     "slug": "kay-dun-1",
@@ -13212,6 +13338,10 @@
   "name": "Object › Weapon › Ranged › Bow",
   "category": "obj-equip",
   "standUp": true,
+  "limits": {
+   "longest.min": 0.4,
+   "longest.max": 1
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -13429,6 +13559,10 @@
   "slug": "obj-weapon",
   "name": "Object › Weapon",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -13452,9 +13586,9 @@
     "slug": "asia-rg",
     "model": "training-dummy",
     "wdh": [
-     0.45,
      0.5,
-     0.7
+     0.55,
+     0.8
     ],
     "tags": [
      "asia",
@@ -13658,6 +13792,10 @@
   "name": "Object › Weapon › Melee › Dagger",
   "category": "obj-equip",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 0.5
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -13871,6 +14009,12 @@
   "slug": "char",
   "name": "Character",
   "category": "obj-equip",
+  "limits": {
+   "high.min": 0.4,
+   "high.max": 0.8,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -14256,6 +14400,10 @@
   "name": "Object › Pocket item › Book",
   "category": "obj-equip",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.1,
+   "longest.max": 0.3
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -14613,14 +14761,18 @@
   "slug": "obj-tool-long",
   "name": "Object › Tool › Long",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.3,
+   "longest.max": 1.2
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "rake",
     "wdh": [
      0.05,
-     0.2,
-     0.45
+     0.25,
+     0.5
     ],
     "tags": [
      "asia",
@@ -14972,9 +15124,826 @@
   ]
  },
  {
+  "slug": "obj-weapon-melee-sword",
+  "name": "Object › Weapon › Melee › Sword",
+  "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.4,
+   "longest.max": 1
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "katana",
+    "wdh": [
+     0.4,
+     0.05,
+     0.05
+    ],
+    "tags": [
+     "asia",
+     "metal-gold",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#8b7561",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "sword-one-handed",
+    "wdh": [
+     0.15,
+     0.05,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "metal-silver"
+    ],
+    "colors": [
+     "#88848a",
+     "#979ebd"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "sword-two-handed-colored",
+    "wdh": [
+     0.25,
+     0.05,
+     0.7
+    ],
+    "tags": [
+     "kay",
+     "metal-gold",
+     "metal-iron-steel",
+     "metal-silver"
+    ],
+    "colors": [
+     "#88848a",
+     "#979ebd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "sword-two-handed",
+    "wdh": [
+     0.25,
+     0.05,
+     0.7
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "metal-silver"
+    ],
+    "colors": [
+     "#88848a",
+     "#979ebd"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "sword-common",
+    "wdh": [
+     0.1,
+     0.05,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "sword-rare",
+    "wdh": [
+     0.2,
+     0.05,
+     0.55
+    ],
+    "tags": [
+     "gemstone",
+     "kay",
+     "metal-gold",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "sword-uncommon",
+    "wdh": [
+     0.1,
+     0.05,
+     0.45
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-skeleton",
+    "model": "blade",
+    "wdh": [
+     0.15,
+     0.05,
+     0.45
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#563b2b",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "sword-a",
+    "wdh": [
+     0.2,
+     0.05,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "sword-b",
+    "wdh": [
+     0.2,
+     0.05,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "sword-c",
+    "wdh": [
+     0.1,
+     0.05,
+     0.65
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "sword-d",
+    "wdh": [
+     0.2,
+     0.1,
+     0.6
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "sword-e",
+    "wdh": [
+     0.25,
+     0.05,
+     1
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "mek-tools",
+    "model": "sword",
+    "wdh": [
+     0.05,
+     0.25,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "ngons",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "cutlass",
+    "wdh": [
+     0.15,
+     0.05,
+     0.4
+    ],
+    "tags": [
+     "leather",
+     "metal-gold",
+     "metal-iron-steel",
+     "pirate",
+     "qua"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "sword-1",
+    "wdh": [
+     0.1,
+     0.05,
+     0.5
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "pirate",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "sword-2",
+    "wdh": [
+     0.1,
+     0.05,
+     0.45
+    ],
+    "tags": [
+     "metal-gold",
+     "metal-iron-steel",
+     "pirate",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "sword-big",
+    "wdh": [
+     0.1,
+     0.05,
+     0.55
+    ],
+    "tags": [
+     "hero",
+     "leather",
+     "metal-iron-steel",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "sword",
+    "wdh": [
+     0.1,
+     0.05,
+     0.5
+    ],
+    "tags": [
+     "leather",
+     "metal-iron-steel",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "tropical-island",
+    "model": "sword-pirate",
+    "wdh": [
+     0.1,
+     0.05,
+     0.5
+    ],
+    "tags": [
+     "leather",
+     "metal-iron-steel",
+     "pirate",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#88848a",
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-weapon-ranged-accessory",
+  "name": "Object › Weapon › Ranged › Accessory",
+  "category": "obj-equip",
+  "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
+  "items": [
+   {
+    "slug": "kay-adventurers",
+    "model": "arrow-bow-bundle",
+    "wdh": [
+     0.15,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "robin-hood",
+     "wood-beam"
+    ],
+    "colors": [
+     "#1367a6",
+     "#563b2b",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "arrow-bow",
+    "wdh": [
+     0.05,
+     0.4,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "robin-hood",
+     "wood-beam"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "arrow-crossbow-bundle",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "robin-hood",
+     "wood-beam"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "arrow-crossbow",
+    "wdh": [
+     0.05,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "robin-hood",
+     "wood-beam"
+    ],
+    "colors": [
+     "#23562c",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "model": "quiver",
+    "wdh": [
+     0.1,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "robin-hood",
+     "wood-beam"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "arrow",
+    "wdh": [
+     0.05,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#23562c",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "quiver-empty",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#563b2b",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "quiver-full",
+    "wdh": [
+     0.1,
+     0.05,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "quiver-half-full",
+    "wdh": [
+     0.1,
+     0.05,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-skeleton",
+    "model": "arrow-half",
+    "wdh": [
+     0.05,
+     0.05,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "robin-hood",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-skeleton",
+    "model": "arrow",
+    "wdh": [
+     0.05,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "robin-hood",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-skeleton",
+    "model": "quiver",
+    "wdh": [
+     0.1,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "metal-iron-steel",
+     "robin-hood",
+     "wood-worked"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "model": "quiver-b",
+    "wdh": [
+     0.1,
+     0.05,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "robin-hood",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "arrow-a",
+    "wdh": [
+     0.05,
+     0.35,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "robin-hood",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "model": "arrow-b",
+    "wdh": [
+     0.05,
+     0.4,
+     0.05
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "robin-hood",
+     "textile"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "primitive-tools",
+    "model": "stone-arrow",
+    "wdh": [
+     0.05,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "leather",
+     "stone-rock",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "primitive-tools",
+    "model": "wooden-arrow",
+    "wdh": [
+     0.05,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "arrow-golden",
+    "wdh": [
+     0.05,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-gold",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "arrow",
+    "wdh": [
+     0.05,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "qua",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "dart",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "qua",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-shield",
   "name": "Object › Equipment › Shield",
   "category": "obj-equip",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -15388,6 +16357,10 @@
   "slug": "obj-weapon-melee-axe",
   "name": "Object › Weapon › Melee › Axe",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.2,
+   "longest.max": 0.8
+  },
   "items": [
    {
     "slug": "kay-adventurers",
@@ -15821,892 +16794,13 @@
   ]
  },
  {
-  "slug": "obj-weapon-melee-sword",
-  "name": "Object › Weapon › Melee › Sword",
-  "category": "obj-equip",
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "katana",
-    "wdh": [
-     0.35,
-     0.05,
-     0.05
-    ],
-    "tags": [
-     "asia",
-     "metal-gold",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#8b7561",
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "sword-one-handed",
-    "wdh": [
-     0.15,
-     0.05,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "metal-silver"
-    ],
-    "colors": [
-     "#88848a",
-     "#979ebd"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "sword-two-handed-colored",
-    "wdh": [
-     0.25,
-     0.05,
-     0.7
-    ],
-    "tags": [
-     "kay",
-     "metal-gold",
-     "metal-iron-steel",
-     "metal-silver"
-    ],
-    "colors": [
-     "#88848a",
-     "#979ebd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "sword-two-handed",
-    "wdh": [
-     0.25,
-     0.05,
-     0.7
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "metal-silver"
-    ],
-    "colors": [
-     "#88848a",
-     "#979ebd"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "sword-common",
-    "wdh": [
-     0.1,
-     0.05,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "sword-rare",
-    "wdh": [
-     0.2,
-     0.05,
-     0.55
-    ],
-    "tags": [
-     "gemstone",
-     "kay",
-     "metal-gold",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "sword-uncommon",
-    "wdh": [
-     0.1,
-     0.05,
-     0.45
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "blade",
-    "wdh": [
-     0.15,
-     0.05,
-     0.45
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#563b2b",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "model": "sword-broken-half",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "model": "sword-broken",
-    "wdh": [
-     0.1,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "sword-a",
-    "wdh": [
-     0.2,
-     0.05,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "sword-b",
-    "wdh": [
-     0.2,
-     0.05,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "sword-c",
-    "wdh": [
-     0.1,
-     0.05,
-     0.65
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "sword-d",
-    "wdh": [
-     0.2,
-     0.1,
-     0.6
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "sword-e",
-    "wdh": [
-     0.25,
-     0.05,
-     1
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#88848a",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "mek-tools",
-    "model": "sword",
-    "wdh": [
-     0.05,
-     0.25,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "ngons",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "cutlass",
-    "wdh": [
-     0.15,
-     0.05,
-     0.4
-    ],
-    "tags": [
-     "leather",
-     "metal-gold",
-     "metal-iron-steel",
-     "pirate",
-     "qua"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "sword-1",
-    "wdh": [
-     0.1,
-     0.05,
-     0.5
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "pirate",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "sword-2",
-    "wdh": [
-     0.1,
-     0.05,
-     0.45
-    ],
-    "tags": [
-     "metal-gold",
-     "metal-iron-steel",
-     "pirate",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "sword-big",
-    "wdh": [
-     0.1,
-     0.05,
-     0.55
-    ],
-    "tags": [
-     "hero",
-     "leather",
-     "metal-iron-steel",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "sword",
-    "wdh": [
-     0.1,
-     0.05,
-     0.5
-    ],
-    "tags": [
-     "leather",
-     "metal-iron-steel",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "tropical-island",
-    "model": "sword-pirate",
-    "wdh": [
-     0.1,
-     0.05,
-     0.5
-    ],
-    "tags": [
-     "leather",
-     "metal-iron-steel",
-     "pirate",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#88848a",
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-weapon-ranged-accessory",
-  "name": "Object › Weapon › Ranged › Accessory",
-  "category": "obj-equip",
-  "rulerHeight": 0.6,
-  "items": [
-   {
-    "slug": "kay-adventurers",
-    "model": "arrow-bow-bundle",
-    "wdh": [
-     0.15,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "robin-hood",
-     "wood-beam"
-    ],
-    "colors": [
-     "#1367a6",
-     "#563b2b",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "arrow-bow",
-    "wdh": [
-     0.05,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "wood-beam"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "arrow-crossbow-bundle",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "robin-hood",
-     "wood-beam"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "arrow-crossbow",
-    "wdh": [
-     0.05,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "wood-beam"
-    ],
-    "colors": [
-     "#23562c",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "model": "quiver",
-    "wdh": [
-     0.1,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "robin-hood",
-     "wood-beam"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "arrow",
-    "wdh": [
-     0.05,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#23562c",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "quiver-empty",
-    "wdh": [
-     0.05,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#563b2b",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "quiver-full",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "quiver-half-full",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "arrow-broken-half",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "robin-hood",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "arrow-broken",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "arrow-half",
-    "wdh": [
-     0.05,
-     0.05,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "robin-hood",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "arrow",
-    "wdh": [
-     0.05,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "quiver",
-    "wdh": [
-     0.1,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "metal-iron-steel",
-     "robin-hood",
-     "wood-worked"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "model": "quiver-b",
-    "wdh": [
-     0.1,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "robin-hood",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "arrow-a",
-    "wdh": [
-     0.05,
-     0.35,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "model": "arrow-b",
-    "wdh": [
-     0.05,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "robin-hood",
-     "textile"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "primitive-tools",
-    "model": "stone-arrow",
-    "wdh": [
-     0.05,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "leather",
-     "stone-rock",
-     "textile",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "primitive-tools",
-    "model": "wooden-arrow",
-    "wdh": [
-     0.05,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "textile",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "arrow-golden",
-    "wdh": [
-     0.05,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "metal-gold",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "arrow",
-    "wdh": [
-     0.05,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "qua",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "dart",
-    "wdh": [
-     0.05,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "qua",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-tool-hand",
   "name": "Object › Tool › Hand",
   "category": "obj-equip",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
   "items": [
    {
     "slug": "cooking-assets",
@@ -17570,6 +17664,10 @@
   "slug": "str",
   "name": "Structure",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -17644,6 +17742,10 @@
   "slug": "str-barrier",
   "name": "Structure › Barrier",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -17741,6 +17843,10 @@
   "slug": "str-platform-dock",
   "name": "Structure › Platform › Dock",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "quat-town",
@@ -17884,6 +17990,10 @@
   "slug": "str-barrier-post",
   "name": "Structure › Barrier › Post",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -18015,14 +18125,18 @@
   "slug": "str-marker-sign",
   "name": "Structure › Marker › Sign",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "notice-board",
     "wdh": [
-     0.75,
-     0.35,
-     0.9
+     0.9,
+     0.4,
+     1
     ],
     "tags": [
      "asia",
@@ -18152,14 +18266,18 @@
   "slug": "str-building-tower",
   "name": "Structure › Building › Tower",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "pagoda",
     "wdh": [
-     4.05,
-     4.05,
-     6.25
+     4.65,
+     4.65,
+     7.2
     ],
     "tags": [
      "asia",
@@ -18348,6 +18466,10 @@
   "slug": "str-access-bridge",
   "name": "Structure › Access › Bridge",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -18385,9 +18507,9 @@
     "slug": "asia-rg",
     "model": "footbridge",
     "wdh": [
-     2.1,
-     4.25,
-     2.75
+     2.45,
+     4.85,
+     3.15
     ],
     "tags": [
      "asia",
@@ -18403,9 +18525,9 @@
     "slug": "asia-rg",
     "model": "river-bridge",
     "wdh": [
-     10.15,
-     2,
-     2.15
+     11.65,
+     2.3,
+     2.45
     ],
     "tags": [
      "asia",
@@ -18505,14 +18627,18 @@
   "slug": "str-access-ladder",
   "name": "Structure › Access › Ladder",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "ladder",
     "wdh": [
-     0.45,
-     1.3,
-     1.95
+     0.5,
+     1.5,
+     2.2
     ],
     "tags": [
      "asia",
@@ -18608,23 +18734,6 @@
    },
    {
     "slug": "ken-platformer",
-    "model": "ladder-broken",
-    "wdh": [
-     0.4,
-     0.1,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
     "model": "ladder-long",
     "wdh": [
      0.4,
@@ -18679,14 +18788,18 @@
   "slug": "str-marker-flag",
   "name": "Structure › Marker › Flag",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "banner",
     "wdh": [
-     0.3,
+     0.35,
      0.1,
-     0.8
+     0.9
     ],
     "tags": [
      "asia",
@@ -18892,6 +19005,10 @@
   "slug": "str-access-stairs",
   "name": "Structure › Access › Stairs",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -18913,9 +19030,9 @@
     "slug": "asia-rg",
     "model": "stairs",
     "wdh": [
-     0.45,
-     0.45,
-     0.25
+     0.55,
+     0.5,
+     0.3
     ],
     "tags": [
      "asia",
@@ -19318,6 +19435,10 @@
   "slug": "str-stands",
   "name": "Structure › Stands",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -19845,6 +19966,10 @@
   "slug": "str-marker-tombstone",
   "name": "Structure › Marker › Tombstone",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -20058,24 +20183,6 @@
     "colors": [
      "#7f3927",
      "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
-    "model": "grave-a-destroyed",
-    "wdh": [
-     0.5,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
      "#8b7561"
     ]
    },
@@ -20383,24 +20490,6 @@
    },
    {
     "slug": "ken-grave",
-    "model": "gravestone-broken",
-    "wdh": [
-     0.4,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-grave",
     "model": "gravestone-cross-large",
     "wdh": [
      0.35,
@@ -20424,25 +20513,6 @@
      0.35,
      0.25,
      0.7
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "gravestone-debris",
-    "wdh": [
-     0.35,
-     0.5,
-     0.2
     ],
     "tags": [
      "graveyard",
@@ -20553,6 +20623,10 @@
   "slug": "str-platform-deck",
   "name": "Structure › Platform › Deck",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -20575,9 +20649,9 @@
     "slug": "asia-rg",
     "model": "platform-deck",
     "wdh": [
-     3.15,
-     2.85,
-     0.75
+     3.65,
+     3.3,
+     0.85
     ],
     "tags": [
      "asia",
@@ -20593,9 +20667,9 @@
     "slug": "asia-rg",
     "model": "platform-stone",
     "wdh": [
-     2.95,
-     2.05,
-     0.3
+     3.35,
+     2.35,
+     0.35
     ],
     "tags": [
      "asia",
@@ -20610,9 +20684,9 @@
     "slug": "asia-rg",
     "model": "platform-wood",
     "wdh": [
-     2.9,
-     2.05,
-     0.3
+     3.35,
+     2.35,
+     0.35
     ],
     "tags": [
      "asia",
@@ -20630,9 +20704,9 @@
     "slug": "asia-rg",
     "model": "walkway",
     "wdh": [
-     3.3,
-     0.45,
-     0.3
+     3.8,
+     0.55,
+     0.35
     ],
     "tags": [
      "asia",
@@ -21342,6 +21416,10 @@
   "slug": "str-barrier-fence",
   "name": "Structure › Barrier › Fence",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -21357,24 +21435,6 @@
     ],
     "colors": [
      "#343745"
-    ]
-   },
-   {
-    "slug": "asia-grave",
-    "model": "iron-fence-broken",
-    "wdh": [
-     0.35,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "halloween",
-     "metal-iron-cast",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
     ]
    },
    {
@@ -21550,8 +21610,8 @@
     "model": "fence-rail-a",
     "wdh": [
      0.05,
-     0.85,
-     0.3
+     0.95,
+     0.35
     ],
     "tags": [
      "asia",
@@ -21566,8 +21626,8 @@
     "model": "fence-rail-b",
     "wdh": [
      0.05,
-     0.85,
-     0.3
+     0.95,
+     0.35
     ],
     "tags": [
      "asia",
@@ -21582,8 +21642,8 @@
     "model": "fence-rope-a",
     "wdh": [
      0.1,
-     0.65,
-     0.3
+     0.75,
+     0.35
     ],
     "tags": [
      "asia",
@@ -21600,8 +21660,8 @@
     "model": "fence-rope-b",
     "wdh": [
      0.1,
-     0.65,
-     0.3
+     0.75,
+     0.35
     ],
     "tags": [
      "asia",
@@ -21940,26 +22000,6 @@
    },
    {
     "slug": "kay-hallow",
-    "model": "fence-broken",
-    "wdh": [
-     0.95,
-     0.1,
-     0.55
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "metal-iron-cast",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
     "model": "fence-gate-left",
     "wdh": [
      0.4,
@@ -22034,24 +22074,6 @@
    },
    {
     "slug": "kay-hallow",
-    "model": "fence-pillar-broken",
-    "wdh": [
-     0.1,
-     0.1,
-     0.35
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
     "model": "fence-pillar",
     "wdh": [
      0.1,
@@ -22066,24 +22088,6 @@
     ],
     "colors": [
      "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
-    "model": "fence-seperate-broken",
-    "wdh": [
-     0.95,
-     0.05,
-     0.5
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
     ]
    },
    {
@@ -22122,24 +22126,6 @@
     "colors": [
      "#343745",
      "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "fence-damaged",
-    "wdh": [
-     0.75,
-     0.25,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
     ]
    },
    {
@@ -22278,24 +22264,6 @@
    },
    {
     "slug": "ken-grave",
-    "model": "iron-fence-damaged",
-    "wdh": [
-     0.75,
-     0.25,
-     0.65
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   },
-   {
-    "slug": "ken-grave",
     "model": "iron-fence",
     "wdh": [
      0.75,
@@ -22352,25 +22320,6 @@
    },
    {
     "slug": "ken-grave",
-    "model": "stone-wall-damaged",
-    "wdh": [
-     0.75,
-     0.15,
-     0.55
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-grave",
     "model": "stone-wall",
     "wdh": [
      0.75,
@@ -22406,24 +22355,6 @@
    },
    {
     "slug": "ken-platformer",
-    "model": "fence-broken",
-    "wdh": [
-     0.75,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
     "model": "fence-corner-curved",
     "wdh": [
      0.75,
@@ -22455,25 +22386,6 @@
     ],
     "colors": [
      "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
-    "model": "fence-low-broken",
-    "wdh": [
-     0.75,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "ngons",
-     "wood-bark",
-     "wood-log"
-    ],
-    "colors": [
-     "#563b2b",
      "#dbae80"
     ]
    },
@@ -22623,23 +22535,6 @@
    },
    {
     "slug": "ken-town",
-    "model": "fence-broken",
-    "wdh": [
-     0.2,
-     0.75,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "wood-planks"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
     "model": "fence-curved",
     "wdh": [
      0.75,
@@ -22715,6 +22610,10 @@
   "slug": "str-building",
   "name": "Structure › Building",
   "category": "str-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -22946,9 +22845,9 @@
     "slug": "asia-rg",
     "model": "dojo",
     "wdh": [
-     12,
-     17.45,
-     5.4
+     13.8,
+     20.05,
+     6.2
     ],
     "tags": [
      "asia",
@@ -22970,9 +22869,9 @@
     "slug": "asia-rg",
     "model": "gazebo",
     "wdh": [
-     2.5,
-     2.35,
-     1.95
+     2.9,
+     2.7,
+     2.25
     ],
     "tags": [
      "asia",
@@ -22990,9 +22889,9 @@
     "slug": "asia-rg",
     "model": "house-a",
     "wdh": [
-     9,
-     4.75,
-     4.45
+     10.35,
+     5.45,
+     5.1
     ],
     "tags": [
      "asia",
@@ -23016,9 +22915,9 @@
     "slug": "asia-rg",
     "model": "house-b",
     "wdh": [
-     5.15,
-     2.7,
-     2.85
+     5.95,
+     3.1,
+     3.3
     ],
     "tags": [
      "asia",
@@ -23040,9 +22939,9 @@
     "slug": "asia-rg",
     "model": "house-c",
     "wdh": [
-     5.15,
-     2.05,
-     1.8
+     5.95,
+     2.35,
+     2.05
     ],
     "tags": [
      "asia",
@@ -23064,9 +22963,9 @@
     "slug": "asia-rg",
     "model": "house-d",
     "wdh": [
-     2.9,
-     1.6,
-     1.3
+     3.35,
+     1.85,
+     1.5
     ],
     "tags": [
      "asia",
@@ -23088,9 +22987,9 @@
     "slug": "asia-rg",
     "model": "house-e",
     "wdh": [
-     4.5,
-     2.9,
-     1.95
+     5.2,
+     3.35,
+     2.25
     ],
     "tags": [
      "asia",
@@ -23112,9 +23011,9 @@
     "slug": "asia-rg",
     "model": "house-f",
     "wdh": [
-     5.6,
-     4,
-     2.45
+     6.45,
+     4.6,
+     2.8
     ],
     "tags": [
      "asia",
@@ -23134,9 +23033,9 @@
     "slug": "asia-rg",
     "model": "house-small",
     "wdh": [
-     2.05,
-     2.05,
-     2.25
+     2.35,
+     2.35,
+     2.6
     ],
     "tags": [
      "asia",
@@ -23158,9 +23057,9 @@
     "slug": "asia-rg",
     "model": "shrine",
     "wdh": [
-     1.65,
-     1.85,
-     1.7
+     1.9,
+     2.15,
+     1.95
     ],
     "tags": [
      "asia",
@@ -24763,6 +24662,10 @@
   "slug": "str-part-frame",
   "name": "Structure › Part › Frame",
   "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "kay-dun-1",
@@ -25119,6 +25022,10 @@
   "slug": "str-part-pillar",
   "name": "Structure › Part › Pillar",
   "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -25321,9 +25228,9 @@
     "slug": "asia-rg",
     "model": "rampart-post",
     "wdh": [
-     0.35,
      0.4,
-     1.9
+     0.45,
+     2.2
     ],
     "tags": [
      "asia",
@@ -25403,24 +25310,6 @@
     ],
     "colors": [
      "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "pillar-broken",
-    "wdh": [
-     0.5,
-     0.5,
-     1.05
-    ],
-    "tags": [
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
     ]
    },
    {
@@ -25555,10 +25444,510 @@
   ]
  },
  {
+  "slug": "str-part-window",
+  "name": "Structure › Part › Window",
+  "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "items": [
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-double-narrow-tall",
+    "wdh": [
+     0.6,
+     0.55,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-double-narrow",
+    "wdh": [
+     0.6,
+     0.55,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-double-wide-tall",
+    "wdh": [
+     0.6,
+     1,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-double-wide",
+    "wdh": [
+     0.6,
+     1,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-rounded-narrow-tall",
+    "wdh": [
+     0.6,
+     0.5,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-rounded-narrow",
+    "wdh": [
+     0.6,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-rounded-wide-tall",
+    "wdh": [
+     0.6,
+     1,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-rounded-wide",
+    "wdh": [
+     0.6,
+     1,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-single-narrow-tall",
+    "wdh": [
+     0.6,
+     0.5,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-single-narrow",
+    "wdh": [
+     0.6,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-single-wide-tall",
+    "wdh": [
+     0.6,
+     1,
+     1
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "stucco-window-single-wide",
+    "wdh": [
+     0.6,
+     1,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "modular",
+     "own",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "window-upper-convex",
+    "wdh": [
+     0.6,
+     1.3,
+     1.35
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "modular",
+     "own",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "window-upper-straight",
+    "wdh": [
+     0.6,
+     1.3,
+     1.6
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "modular",
+     "own",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-archedwindow-gated-scaffold",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "metal-iron-cast",
+     "modular",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-archedwindow-gated",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "metal-iron-cast",
+     "modular",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-archedwindow-open",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "modular",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-window-closed-scaffold",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "modular",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-window-closed",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "modular",
+     "stone-masonry",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-window-open-scaffold",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "modular",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "wall-window-open",
+    "wdh": [
+     1.2,
+     0.3,
+     1.2
+    ],
+    "tags": [
+     "halloween",
+     "kay",
+     "modular",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "wall-wood-window-glass",
+    "wdh": [
+     0.1,
+     0.75,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "modular",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "wall-wood-window-round",
+    "wdh": [
+     0.15,
+     0.75,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "modular",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "wall-wood-window-shutters",
+    "wdh": [
+     0.1,
+     0.75,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "modular",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-part",
   "name": "Structure › Part",
   "category": "str-part",
   "wideRow": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -25997,520 +26386,13 @@
   ]
  },
  {
-  "slug": "str-part-window",
-  "name": "Structure › Part › Window",
-  "category": "str-part",
-  "items": [
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-double-narrow-tall",
-    "wdh": [
-     0.6,
-     0.55,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-double-narrow",
-    "wdh": [
-     0.6,
-     0.55,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-double-wide-tall",
-    "wdh": [
-     0.6,
-     1,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-double-wide",
-    "wdh": [
-     0.6,
-     1,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-rounded-narrow-tall",
-    "wdh": [
-     0.6,
-     0.5,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-rounded-narrow",
-    "wdh": [
-     0.6,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-rounded-wide-tall",
-    "wdh": [
-     0.6,
-     1,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-rounded-wide",
-    "wdh": [
-     0.6,
-     1,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-single-narrow-tall",
-    "wdh": [
-     0.6,
-     0.5,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-single-narrow",
-    "wdh": [
-     0.6,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-single-wide-tall",
-    "wdh": [
-     0.6,
-     1,
-     1
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "stucco-window-single-wide",
-    "wdh": [
-     0.6,
-     1,
-     0.5
-    ],
-    "tags": [
-     "glass",
-     "modular",
-     "own",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "window-upper-convex",
-    "wdh": [
-     0.6,
-     1.3,
-     1.35
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "modular",
-     "own",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "window-upper-straight",
-    "wdh": [
-     0.6,
-     1.3,
-     1.6
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "modular",
-     "own",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-archedwindow-gated-scaffold",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "metal-iron-cast",
-     "modular",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-archedwindow-gated",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "metal-iron-cast",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-archedwindow-open",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-broken",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-window-closed-scaffold",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-window-closed",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-window-open-scaffold",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-window-open",
-    "wdh": [
-     1.2,
-     0.3,
-     1.2
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "wall-wood-window-glass",
-    "wdh": [
-     0.1,
-     0.75,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "modular",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "wall-wood-window-round",
-    "wdh": [
-     0.15,
-     0.75,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "modular",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "wall-wood-window-shutters",
-    "wdh": [
-     0.1,
-     0.75,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "modular",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-part-door",
   "name": "Structure › Part › Door",
   "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -26566,9 +26448,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-gate-a",
     "wdh": [
-     1.95,
-     1.15,
-     1.8
+     2.25,
+     1.3,
+     2.1
     ],
     "tags": [
      "asia",
@@ -26590,9 +26472,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-gate-b",
     "wdh": [
-     1.95,
-     1.15,
-     1.8
+     2.25,
+     1.3,
+     2.1
     ],
     "tags": [
      "asia",
@@ -26614,9 +26496,9 @@
     "slug": "asia-rg",
     "model": "gate",
     "wdh": [
-     1.7,
-     0.8,
-     1.8
+     2,
+     0.95,
+     2.05
     ],
     "tags": [
      "asia",
@@ -26632,9 +26514,9 @@
     "slug": "asia-rg",
     "model": "torii",
     "wdh": [
-     2.65,
-     0.25,
-     1.45
+     3.05,
+     0.3,
+     1.65
     ],
     "tags": [
      "asia",
@@ -27264,6 +27146,10 @@
   "slug": "str-part-roof",
   "name": "Structure › Part › Roof",
   "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -28086,6 +27972,10 @@
   "name": "Structure › Part › Floor",
   "category": "str-part",
   "topView": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -29023,42 +28913,6 @@
    },
    {
     "slug": "kay-dun-2",
-    "model": "floor-tile-small-broken-a",
-    "wdh": [
-     0.6,
-     0.6,
-     0.05
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "floor-tile-small-broken-b",
-    "wdh": [
-     0.6,
-     0.6,
-     0.05
-    ],
-    "tags": [
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
     "model": "floor-tile-small-corner",
     "wdh": [
      0.6,
@@ -29472,6 +29326,10 @@
   "slug": "str-part-wall",
   "name": "Structure › Part › Wall",
   "category": "str-part",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-grave",
@@ -29509,9 +29367,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-a",
     "wdh": [
-     1.2,
-     0.6,
-     1.15
+     1.4,
+     0.7,
+     1.3
     ],
     "tags": [
      "asia",
@@ -29533,9 +29391,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-b",
     "wdh": [
-     1.2,
-     0.6,
-     1.15
+     1.4,
+     0.7,
+     1.3
     ],
     "tags": [
      "asia",
@@ -29557,9 +29415,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-c",
     "wdh": [
-     1.2,
-     0.6,
-     1.15
+     1.4,
+     0.7,
+     1.3
     ],
     "tags": [
      "asia",
@@ -29579,9 +29437,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-corner",
     "wdh": [
-     0.7,
-     0.7,
-     1.15
+     0.8,
+     0.8,
+     1.3
     ],
     "tags": [
      "asia",
@@ -29601,9 +29459,9 @@
     "slug": "asia-rg",
     "model": "garden-wall-d",
     "wdh": [
-     1.2,
-     0.6,
-     1.15
+     1.4,
+     0.7,
+     1.3
     ],
     "tags": [
      "asia",
@@ -29623,9 +29481,9 @@
     "slug": "asia-rg",
     "model": "rampart-a",
     "wdh": [
-     1.6,
-     2.4,
-     3.25
+     1.85,
+     2.75,
+     3.75
     ],
     "tags": [
      "asia",
@@ -29645,9 +29503,9 @@
     "slug": "asia-rg",
     "model": "rampart-b",
     "wdh": [
-     1.6,
-     2.4,
-     3.25
+     1.85,
+     2.8,
+     3.75
     ],
     "tags": [
      "asia",
@@ -29667,9 +29525,9 @@
     "slug": "asia-rg",
     "model": "rampart-c",
     "wdh": [
-     1.6,
-     2.4,
-     3.25
+     1.85,
+     2.75,
+     3.75
     ],
     "tags": [
      "asia",
@@ -29689,9 +29547,9 @@
     "slug": "asia-rg",
     "model": "rampart-corner",
     "wdh": [
-     1.2,
-     2.7,
-     3.3
+     1.4,
+     3.15,
+     3.8
     ],
     "tags": [
      "asia",
@@ -29711,9 +29569,9 @@
     "slug": "asia-rg",
     "model": "rampart-d",
     "wdh": [
-     1.6,
-     2.4,
-     3.25
+     1.85,
+     2.75,
+     3.75
     ],
     "tags": [
      "asia",
@@ -30075,40 +29933,6 @@
    },
    {
     "slug": "kay-dun-2",
-    "model": "rubble-half",
-    "wdh": [
-     1.2,
-     0.9,
-     1.05
-    ],
-    "tags": [
-     "kay",
-     "modular",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "rubble-large",
-    "wdh": [
-     2.45,
-     0.95,
-     1.05
-    ],
-    "tags": [
-     "kay",
-     "modular",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
     "model": "wall-arched",
     "wdh": [
      1.2,
@@ -30202,27 +30026,6 @@
     ],
     "colors": [
      "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "wall-cracked",
-    "wdh": [
-     1.2,
-     0.4,
-     1.2
-    ],
-    "tags": [
-     "foliage",
-     "halloween",
-     "kay",
-     "modular",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#343745",
-     "#68872d",
      "#88848a"
     ]
    },
@@ -30677,24 +30480,6 @@
    },
    {
     "slug": "ken-town",
-    "model": "wall-wood-broken",
-    "wdh": [
-     0.1,
-     0.75,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "modular",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
     "model": "wall-wood-corner-diagonal-half",
     "wdh": [
      0.4,
@@ -31081,6 +30866,10 @@
   "slug": "env-flora-deadwood-stump",
   "name": "Environment › Flora › Deadwood › Stump",
   "category": "env-flora",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "natuur",
@@ -31146,6 +30935,10 @@
   "name": "Environment › Fungi",
   "category": "env-flora",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -31303,6 +31096,12 @@
   "slug": "env-flora-tree",
   "name": "Environment › Flora › Tree",
   "category": "env-flora",
+  "limits": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -31508,6 +31307,12 @@
   "slug": "env-flora-tree-palm",
   "name": "Environment › Flora › Tree › Palm",
   "category": "env-flora",
+  "limits": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -31782,6 +31587,10 @@
   "name": "Environment › Flora › Deadwood › Branch",
   "category": "env-flora",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -32049,6 +31858,10 @@
   "slug": "env-flora-plant-cactus",
   "name": "Environment › Flora › Plant › Cactus",
   "category": "env-flora",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "isa-plants",
@@ -32311,6 +32124,10 @@
   "name": "Environment › Flora › Plant › Grass",
   "category": "env-flora",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -32654,6 +32471,12 @@
   "slug": "env-flora-tree-conifer",
   "name": "Environment › Flora › Tree › Conifer",
   "category": "env-flora",
+  "limits": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -33081,6 +32904,10 @@
   "name": "Environment › Flora › Plant › Flower",
   "category": "env-flora",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
@@ -33088,7 +32915,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.2
+     0.25
     ],
     "tags": [
      "asia",
@@ -33540,6 +33367,10 @@
   "slug": "env-flora-plant",
   "name": "Environment › Flora › Plant",
   "category": "env-flora",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -34043,6 +33874,10 @@
   "slug": "env-flora-deadwood",
   "name": "Environment › Flora › Deadwood",
   "category": "env-flora",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "kay-forest",
@@ -34735,6 +34570,10 @@
   "slug": "env",
   "name": "Environment",
   "category": "env-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "quat-dun-1",
@@ -34777,6 +34616,10 @@
   "name": "Environment › Remains",
   "category": "env-gen",
   "topView": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -34833,6 +34676,10 @@
   "name": "Environment › Terrain › Mountain",
   "category": "env-gen",
   "wideRow": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -34953,14 +34800,18 @@
   "name": "Environment › Terrain › Ground",
   "category": "env-gen",
   "topView": true,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "tree-bed",
     "wdh": [
-     1.35,
-     1.3,
-     0.15
+     1.55,
+     1.5,
+     0.2
     ],
     "tags": [
      "asia",
@@ -35217,14 +35068,18 @@
   "slug": "env-rock-formation",
   "name": "Environment › Rock › Formation",
   "category": "env-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-rg",
     "model": "rock-formation-a",
     "wdh": [
-     3.25,
-     1.95,
-     1.85
+     3.75,
+     2.25,
+     2.15
     ],
     "tags": [
      "asia",
@@ -35238,9 +35093,9 @@
     "slug": "asia-rg",
     "model": "rock-formation-b",
     "wdh": [
-     2.15,
-     6.55,
-     3.85
+     2.5,
+     7.5,
+     4.45
     ],
     "tags": [
      "asia",
@@ -35254,9 +35109,9 @@
     "slug": "asia-rg",
     "model": "rock-tall-a",
     "wdh": [
-     1.9,
-     1.85,
-     4.1
+     2.2,
+     2.15,
+     4.7
     ],
     "tags": [
      "asia",
@@ -35270,9 +35125,9 @@
     "slug": "asia-rg",
     "model": "rock-tall-b",
     "wdh": [
-     2,
-     1.6,
-     3
+     2.3,
+     1.85,
+     3.45
     ],
     "tags": [
      "asia",
@@ -35286,9 +35141,9 @@
     "slug": "asia-rg",
     "model": "rock-tall-c",
     "wdh": [
-     1.55,
-     1.85,
-     2.65
+     1.8,
+     2.1,
+     3.05
     ],
     "tags": [
      "asia",
@@ -35516,6 +35371,10 @@
   "slug": "env-remains-bones",
   "name": "Environment › Remains › Bones",
   "category": "env-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "kay-hallow",
@@ -35656,41 +35515,6 @@
     "tags": [
      "bone",
      "graveyard",
-     "halloween",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "model": "ribcage-broken",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "bone",
-     "graveyard",
-     "halloween",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "model": "skull-broken",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "bone",
      "halloween",
      "kay"
     ],
@@ -35903,6 +35727,10 @@
   "slug": "env-fauna",
   "name": "Environment › Fauna",
   "category": "env-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "fs-terrain",
@@ -36372,6 +36200,10 @@
   "name": "Environment › Rock › Pebble",
   "category": "env-gen",
   "rulerHeight": 0.6,
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -36394,7 +36226,7 @@
     "model": "stepping-stone-a",
     "wdh": [
      0.25,
-     0.2,
+     0.25,
      0.05
     ],
     "tags": [
@@ -36409,8 +36241,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-b",
     "wdh": [
-     0.2,
-     0.2,
+     0.25,
+     0.25,
      0.05
     ],
     "tags": [
@@ -36425,8 +36257,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-c",
     "wdh": [
-     0.2,
-     0.2,
+     0.25,
+     0.25,
      0.05
     ],
     "tags": [
@@ -36441,8 +36273,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-d",
     "wdh": [
-     0.2,
-     0.2,
+     0.25,
+     0.25,
      0.05
     ],
     "tags": [
@@ -36457,8 +36289,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-e",
     "wdh": [
-     0.2,
-     0.2,
+     0.25,
+     0.25,
      0.05
     ],
     "tags": [
@@ -36473,8 +36305,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-f",
     "wdh": [
-     0.55,
-     0.6,
+     0.65,
+     0.7,
      0.3
     ],
     "tags": [
@@ -36489,8 +36321,8 @@
     "slug": "asia-rg",
     "model": "stepping-stone-g",
     "wdh": [
-     0.35,
-     0.35,
+     0.4,
+     0.4,
      0.2
     ],
     "tags": [
@@ -36819,24 +36651,6 @@
     ]
    },
    {
-    "slug": "ken-grave",
-    "model": "debris",
-    "wdh": [
-     0.4,
-     0.4,
-     0.1
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
     "slug": "ken-platformer",
     "model": "stones",
     "wdh": [
@@ -37013,38 +36827,6 @@
    },
    {
     "slug": "rocks",
-    "model": "debris-a",
-    "wdh": [
-     0.8,
-     0.8,
-     0.2
-    ],
-    "tags": [
-     "own",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "rocks",
-    "model": "debris-b",
-    "wdh": [
-     0.8,
-     0.8,
-     0.15
-    ],
-    "tags": [
-     "own",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "rocks",
     "model": "pebbles-dirt-a",
     "wdh": [
      0.3,
@@ -37113,6 +36895,10 @@
   "slug": "env-rock-boulder",
   "name": "Environment › Rock › Boulder",
   "category": "env-gen",
+  "limits": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
   "items": [
    {
     "slug": "asia-pack",
@@ -37342,9 +37128,9 @@
     "slug": "asia-rg",
     "model": "rock-small",
     "wdh": [
-     0.6,
      0.7,
-     0.95
+     0.8,
+     1.1
     ],
     "tags": [
      "asia",

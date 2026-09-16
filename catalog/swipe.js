@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=f894957034';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=8027f9f61d';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -16,16 +16,30 @@ const SOURCES = {
     title: 'Swipe what is missing',
     labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
   },
+  lint: {
+    file: 'catalog.json',
+    title: 'Swipe the size lint',
+    key: 'lint',
+    onlyLint: true,
+    labels: { links: 'Retag', rechts: 'Add tag', omhoog: 'Flag rescale', omlaag: 'TBD' },
+  },
 };
 
 const PARAMS = new URLSearchParams(location.search);
 const SOURCE = SOURCES[PARAMS.get('source')] ?? SOURCES.catalogus;
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
 const STORAGE_KEY =
-  `taaleiland-swipe-v1${SOURCE === SOURCES.catalogus ? '' : '-missing'}${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
+  `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : SOURCE === SOURCES.catalogus ? '' : '-missing'}`
+  + `${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
+
+let limitsPerKind = {};
+let drawAtScale = null;
+
+const lintText = (f) =>
+  `${f.level} · ${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`;
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -250,6 +264,8 @@ function makeCard(model, depth) {
   card.dataset.diepte = String(depth);
   card.dataset.id = model.id;
 
+  const findings = SOURCE.onlyLint ? (model.lint ?? []) : [];
+
   const box = document.createElement('div');
   box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
@@ -280,12 +296,34 @@ function makeCard(model, depth) {
   const path = document.createElement('p');
   path.className = 'pad';
   path.textContent = model.path;
+
+  const lint = document.createElement('ul');
+  lint.className = 'lintlijst';
+  lint.replaceChildren(...findings.map((f) => {
+    const row = document.createElement('li');
+    row.className = `lintregel lint-${f.level}`;
+    row.textContent = lintText(f);
+    return row;
+  }));
   const tags = document.createElement('div');
   tags.className = 'swipe-tags';
   renderTagEditor(tags, model, register.tags, {
     onChange: () => { origin.textContent = `${kit?.name ?? model.kit} · ${kindLabel(effectiveKind(model, register.tags))}`; },
   });
-  text.append(name, origin, meta, path, tags);
+  const schaal = document.createElement('div');
+  schaal.className = 'swipe-schaal';
+  if (findings.length) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 900;
+    canvas.height = 300;
+    schaal.append(canvas);
+    drawScaleCard(model, canvas).catch((error) => {
+      console.error('scale draw failed', model.id, error);
+      schaal.remove();
+    });
+  }
+
+  text.append(name, origin, meta, path, ...(findings.length ? [lint, schaal] : []), tags);
 
   const rotate = document.createElement('button');
   rotate.type = 'button';
@@ -307,6 +345,28 @@ function makeCard(model, depth) {
   card.append(box, text, rotate, stamp);
   if (depth === 0) makeDraggable(card);
   return card;
+}
+
+async function drawScaleCard(model, canvas) {
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js'));
+  const limits = limitsPerKind[model.kind] ?? {};
+  const high = model.wdh[2];
+  const longest = Math.max(...model.wdh);
+  const reach = Math.max(high, longest, ...Object.values(limits).filter((v) => v <= longest * 4));
+  const step = 0.2;
+  const rulerHeight = Math.max(step, Math.ceil((reach * 1.25) / step) * step);
+  await drawAtScale(
+    {
+      slug: model.kind,
+      name: model.kind,
+      limits,
+      rulerHeight,
+      rowWidth: Math.max(model.wdh[0] * 4, reach * 1.1),
+      items: [{ slug: model.kit, model: model.name, wdh: model.wdh, tags: model.tags, path: model.path }],
+    },
+    canvas,
+    canvas.width,
+  );
 }
 
 function drawDeck() {
@@ -600,7 +660,9 @@ function exportJson() {
         { label: labelFor(r.id), paths: all.filter((x) => x.direction === r.id).map((x) => x.path) },
       ]),
     ),
-    choices: all,
+    choices: SOURCE.onlyLint
+      ? all.map((x) => ({ ...x, lint: register.perId.get(x.id)?.lint ?? [] }))
+      : all,
     stillToDo: remaining().map((id) => register.perId.get(id).path),
   };
   file(`swipe-${timeStamp()}.json`, JSON.stringify(content, null, 1) + '\n', 'application/json');
@@ -621,6 +683,9 @@ async function start() {
   const data = await response.json();
   modelPath = data.modelPath ?? modelPath;
   data.models.forEach(hydrate);
+
+  if (SOURCE.onlyLint) data.models = data.models.filter((m) => m.lint?.length);
+  limitsPerKind = data.limits ?? {};
 
   register.models = data.models;
   register.perId = new Map(data.models.map((m) => [m.id, m]));
