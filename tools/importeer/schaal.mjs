@@ -11,7 +11,7 @@ const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 const DOEL = {
   'asia-grave': 0.15,
   'asia-pack': 0.3,
-  'asia-rg': 0.4,
+  'asia-rg': 0.46,
   'asia-rocks': 0.2,
   'clay-props': 0.65,
   'cooking-assets': 0.04,
