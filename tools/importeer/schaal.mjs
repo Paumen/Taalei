@@ -9,6 +9,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 
 const DOEL = {
+  architecture: 4,
   'asia-grave': 0.15,
   'asia-pack': 0.3,
   'asia-rg': 0.46,
