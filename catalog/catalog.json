@@ -6280,19 +6280,19 @@
   },
   "obj-food": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 0.6
   },
   "obj-food-grain": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 0.6
   },
   "obj-food-meat": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 0.6
   },
   "obj-food-vegetable": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 0.6
   },
   "obj-furniture": {
    "longest.min": 0.2,
@@ -6437,11 +6437,11 @@
   },
   "obj-tool": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 1.2
   },
   "obj-tool-hand": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 1.2
   },
   "obj-tool-long": {
    "longest.min": 0.3,
@@ -6449,7 +6449,7 @@
   },
   "obj-tool-supplies": {
    "longest.min": 0.05,
-   "longest.max": 10
+   "longest.max": 1.2
   },
   "obj-transport": {
    "longest.min": 0.05,
@@ -6577,35 +6577,35 @@
   },
   "str-part": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-door": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-floor": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-frame": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-pillar": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-roof": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-wall": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-part-window": {
    "longest.min": 0.05,
-   "longest.max": 30
+   "longest.max": 4
   },
   "str-platform-deck": {
    "longest.min": 0.05,
@@ -84482,6 +84482,16 @@
     "metal-iron-steel",
     "wood-bark",
     "wood-log"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "longest",
+     "value": 1.9,
+     "bound": "max",
+     "limit": 1.2,
+     "from": "obj-tool"
+    }
    ]
   },
   {
@@ -112708,6 +112718,16 @@
     "own",
     "rope",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "longest",
+     "value": 0.9,
+     "bound": "max",
+     "limit": 0.6,
+     "from": "obj-food"
+    }
    ]
   },
   {
