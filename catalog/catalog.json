@@ -5959,6 +5959,13 @@
    "po": true
   },
   {
+   "id": "comp",
+   "name": "Component",
+   "type": "tag",
+   "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
+   "count": 0
+  },
+  {
    "id": "plural",
    "name": "Plural",
    "type": "tag",
@@ -6092,6 +6099,527 @@
    "count": 214
   }
  ],
+ "limits": {
+  "assy": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "char": {
+   "high.min": 0.4,
+   "high.max": 0.8,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-fauna": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-deadwood": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-deadwood-branch": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-deadwood-stump": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-plant": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-plant-cactus": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-plant-flower": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-plant-grass": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-tree": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-tree-conifer": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-flora-tree-palm": {
+   "high.min": 0.6,
+   "high.max": 2.6,
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-fungi": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-remains": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-remains-bones": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-rock": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-rock-boulder": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-rock-formation": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-rock-pebble": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-terrain-ground": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "env-terrain-mountain": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "obj": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-art": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-art-sculpture": {
+   "longest.min": 0.2,
+   "longest.max": 10
+  },
+  "obj-container": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-bag": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-barrel": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-bottle": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-bucket": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-chest": {
+   "high.min": 0.2,
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-crate": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-container-pot": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-equipment": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-equipment-armor": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-equipment-clothing": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-equipment-shield": {
+   "high.min": 0.2,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-food": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-food-grain": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-food-meat": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-food-vegetable": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-furniture": {
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-furniture-bed": {
+   "longest.min": 0.6,
+   "longest.max": 1.2
+  },
+  "obj-furniture-seating-bench": {
+   "high.max": 0.8,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-furniture-seating-chair": {
+   "high.min": 0.3,
+   "high.max": 0.9,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-furniture-seating-stool": {
+   "high.max": 0.6,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-furniture-storage": {
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-furniture-table": {
+   "high.max": 0.5,
+   "longest.min": 0.2,
+   "longest.max": 1.2
+  },
+  "obj-instrument": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-kitchenware-cookware": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-kitchenware-cookware-pan": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-kitchenware-cookware-pot": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-kitchenware-tableware": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-kitchenware-tableware-cutlery": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 0.35
+  },
+  "obj-kitchenware-tableware-plate": {
+   "high.max": 0.5,
+   "longest.min": 0.1,
+   "longest.max": 0.4
+  },
+  "obj-lighting": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-lighting-campfire": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-lighting-candle": {
+   "high.min": 0.1,
+   "high.max": 0.7,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-lighting-lantern": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-lighting-torch": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-pocketitem": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-pocketitem-book": {
+   "longest.min": 0.1,
+   "longest.max": 0.3
+  },
+  "obj-pocketitem-coin": {
+   "longest.min": 0.05,
+   "longest.max": 0.2
+  },
+  "obj-pocketitem-jewellery": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-pocketitem-key": {
+   "longest.min": 0.05,
+   "longest.max": 0.2
+  },
+  "obj-pocketitem-scroll": {
+   "longest.min": 0.1,
+   "longest.max": 0.6
+  },
+  "obj-resource-metal": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
+  "obj-resource-stone": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
+  "obj-resource-textile": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
+  "obj-resource-wood-log": {
+   "longest.min": 0.05,
+   "longest.max": 1.4
+  },
+  "obj-resource-wood-plank": {
+   "longest.min": 0.2,
+   "longest.max": 1.4
+  },
+  "obj-tool": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-tool-hand": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-tool-long": {
+   "longest.min": 0.3,
+   "longest.max": 1.2
+  },
+  "obj-tool-supplies": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-transport": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-transport-accessory": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-transport-boat": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-transport-cart": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-transport-ship": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-weapon": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-weapon-cannon": {
+   "longest.min": 0.05,
+   "longest.max": 10
+  },
+  "obj-weapon-magic": {
+   "longest.min": 0.1,
+   "longest.max": 1.2
+  },
+  "obj-weapon-magic-staff": {
+   "longest.min": 0.1,
+   "longest.max": 1.2
+  },
+  "obj-weapon-melee": {
+   "longest.min": 0.1,
+   "longest.max": 10
+  },
+  "obj-weapon-melee-axe": {
+   "longest.min": 0.2,
+   "longest.max": 0.8
+  },
+  "obj-weapon-melee-dagger": {
+   "longest.min": 0.1,
+   "longest.max": 0.5
+  },
+  "obj-weapon-melee-hammer": {
+   "longest.min": 0.2,
+   "longest.max": 0.8
+  },
+  "obj-weapon-melee-sword": {
+   "longest.min": 0.4,
+   "longest.max": 1
+  },
+  "obj-weapon-ranged": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
+  "obj-weapon-ranged-accessory": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
+  "obj-weapon-ranged-bow": {
+   "longest.min": 0.4,
+   "longest.max": 1
+  },
+  "obj-weapon-ranged-crossbow": {
+   "longest.min": 0.05,
+   "longest.max": 1
+  },
+  "str": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-access-bridge": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-access-ladder": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-access-stairs": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-barrier": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-barrier-fence": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-barrier-post": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-building": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-building-tower": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-marker": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-marker-flag": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-marker-sign": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-marker-tombstone": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-door": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-floor": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-frame": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-pillar": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-roof": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-wall": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-part-window": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-platform-deck": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-platform-dock": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  },
+  "str-stands": {
+   "longest.min": 0.05,
+   "longest.max": 30
+  }
+ },
  "models": [
   {
    "kit": "asia-grave",
@@ -12262,6 +12790,16 @@
     "asia",
     "ceramic",
     "ngons"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "longest",
+     "value": 0.05,
+     "bound": "min",
+     "limit": 0.1,
+     "from": "obj-kitchenware-tableware-plate"
+    }
    ]
   },
   {
@@ -17910,6 +18448,16 @@
    ],
    "tags": [
     "ceramic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "longest",
+     "value": 0.45,
+     "bound": "max",
+     "limit": 0.4,
+     "from": "obj-kitchenware-tableware-plate"
+    }
    ]
   },
   {
@@ -18902,6 +19450,16 @@
     "sailing",
     "wood-beam",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.15,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-container-crate"
+    }
    ]
   },
   {
@@ -47660,7 +48218,17 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "variant": "v234"
+   "variant": "v234",
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.15,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-container-chest"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -49416,7 +49984,17 @@
     "kay",
     "wood-worked"
    ],
-   "variant": "v232"
+   "variant": "v232",
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "high",
+     "value": 0.25,
+     "bound": "min",
+     "limit": 0.3,
+     "from": "obj-furniture-seating-chair"
+    }
+   ]
   },
   {
    "kit": "kay-food",
@@ -49741,6 +50319,16 @@
    "tags": [
     "kay",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.05,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-container-crate"
+    }
    ]
   },
   {
@@ -55974,6 +56562,16 @@
     "kay",
     "metal-iron-wrought",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.15,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-container-chest"
+    }
    ]
   },
   {
@@ -75196,6 +75794,16 @@
    "tags": [
     "ken",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "longest",
+     "value": 0.4,
+     "bound": "min",
+     "limit": 0.6,
+     "from": "obj-furniture-bed"
+    }
    ]
   },
   {
@@ -77784,7 +78392,17 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v168"
+   "variant": "v168",
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "longest",
+     "value": 1.5,
+     "bound": "max",
+     "limit": 1.4,
+     "from": "obj-resource"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -82494,6 +83112,16 @@
    "tags": [
     "sailing",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.05,
+     "bound": "min",
+     "limit": 0.1,
+     "from": "obj-container"
+    }
    ]
   },
   {
@@ -86192,7 +86820,17 @@
     "own",
     "stone-rock"
    ],
-   "variant": "v116"
+   "variant": "v116",
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "longest",
+     "value": 30.1,
+     "bound": "max",
+     "limit": 30,
+     "from": "defaults"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -88470,7 +89108,17 @@
     "own",
     "wood-bark"
    ],
-   "variant": "v123"
+   "variant": "v123",
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "high",
+     "value": 2.7,
+     "bound": "max",
+     "limit": 2.6,
+     "from": "env-flora-tree"
+    }
+   ]
   },
   {
    "kit": "primitive-tools",
@@ -91412,6 +92060,16 @@
     "metal-gold",
     "qua",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.05,
+     "bound": "min",
+     "limit": 0.1,
+     "from": "obj-container"
+    }
    ]
   },
   {
@@ -99132,7 +99790,17 @@
     "Wave",
     "Yes"
    ],
-   "variant": "v172"
+   "variant": "v172",
+   "lint": [
+    {
+     "level": "warning",
+     "measure": "high",
+     "value": 0.35,
+     "bound": "min",
+     "limit": 0.4,
+     "from": "char"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -102563,7 +103231,17 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v383"
+   "variant": "v383",
+   "lint": [
+    {
+     "level": "error",
+     "measure": "high",
+     "value": 0.15,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-container-chest"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -112737,6 +113415,16 @@
    "tags": [
     "own",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "measure": "longest",
+     "value": 0.15,
+     "bound": "min",
+     "limit": 0.2,
+     "from": "obj-furniture"
+    }
    ]
   },
   {

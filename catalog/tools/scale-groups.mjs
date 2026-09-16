@@ -1,6 +1,18 @@
 import { kindName, kindAncestors, kindIs } from './kinds.mjs';
+import { buildLimits } from '../../lint/rules.mjs';
+import { readFileSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
+
+const LIMITS = buildLimits(JSON.parse(readFileSync(
+  join(resolve(dirname(fileURLToPath(import.meta.url)), '..', '..'), 'lint', 'kinds.json'), 'utf8')));
+
+const limitsOf = (kind) => {
+  const found = Object.entries(LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]);
+  return found.length ? Object.fromEntries(found) : undefined;
+};
 
 export const SCALE_TABS = [
   {
@@ -87,6 +99,7 @@ export function buildScaleGroups(models) {
       standUp: STAND_UP.has(kind) || undefined,
       wideRow: WIDE_ROW.has(kind) || undefined,
       rulerHeight: rulerHeight(kind),
+      limits: limitsOf(kind),
       items: items.map((m) => ({
         slug: m.kit,
         model: m.name,
