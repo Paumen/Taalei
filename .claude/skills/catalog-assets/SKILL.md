@@ -117,6 +117,7 @@ count propose a group; shape and a render confirm it before you write it down.
 ## 9. Rebuild, look, check
 
     node catalog/tools/build-catalog.mjs
+    node lint/size.mjs
     node catalog/tools/build-missing.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
 
