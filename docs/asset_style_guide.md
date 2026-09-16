@@ -213,7 +213,7 @@ What a kind is made of. Colour follows from §5.
 | `M08` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
 | `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
-| `M11` | `kind:obj-kitchenware-tableware-plate` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
+| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | expect | `wood:` |
 | `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
@@ -287,7 +287,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `B28` | `kind:obj-kitchenware-tableware-plate` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` |
+| `B28` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` |
 | `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B30` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` |
 | `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` fish, cheese, chocolate | model | one-of | `any` |

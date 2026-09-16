@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of §7. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — Appendix B, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for — the eight of U1, zero or more, stored and never implied by kind), or tag (anything else worth finding: theme, flags, artist). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), or tag (anything else worth finding: theme, flags, artist). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -12,7 +12,7 @@
    "id": "metal-iron",
    "name": "Iron",
    "type": "material",
-   "description": "Iron of any kind, as the parent of steel, wrought and cast (M11, M12). A model carries the subtype it is, never this on top.",
+   "description": "Iron of any kind, as the parent of steel, wrought and cast. A model carries the subtype it is, never this on top.",
    "models": [],
    "parent": "metal"
   },
@@ -20,7 +20,7 @@
    "id": "metal-iron-steel",
    "name": "Steel",
    "type": "material",
-   "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools (M62). Takes light grey 15,3 (M11).",
+   "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
    "models": [
     "asia-rg/coin",
     "asia-rg/drum",
@@ -302,7 +302,7 @@
    "id": "metal-iron-wrought",
    "name": "Wrought iron",
    "type": "material",
-   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames (M66). Takes dark grey 13,3 (M12).",
+   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
    "models": [
     "asia-rg/boat",
     "asia-rg/cart",
@@ -502,7 +502,7 @@
    "id": "metal-iron-cast",
    "name": "Cast iron",
    "type": "material",
-   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots (M64, M65). Takes blue-grey 6,1 (M12).",
+   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
    "models": [
     "asia-rg/cauldron",
     "asia-rg/rampart-post",
@@ -636,7 +636,7 @@
    "id": "metal-gold",
    "name": "Gold",
    "type": "material",
-   "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0 (M13).",
+   "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
    "models": [
     "asia-rg/coin",
     "asia-rg/dragon-ornament",
@@ -763,7 +763,7 @@
     "kay-resources/silver-nuggets",
     "kay-weapons/dagger-b"
    ],
-   "description": "Silver: bars, nuggets and their stacks, and blades that read as silver. Takes light blue-grey 3,2 (M13, C3).",
+   "description": "Silver: bars, nuggets and their stacks, and blades that read as silver. Takes light blue-grey 3,2.",
    "parent": "metal"
   },
   {
@@ -786,7 +786,7 @@
     "asia-pack/bell",
     "asia-pack/gong"
    ],
-   "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 (M14) and never shares a model with another metal subtype.",
+   "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 and never shares a model with another metal subtype.",
    "parent": "metal"
   },
   {
@@ -816,7 +816,7 @@
    "id": "wood-planks",
    "name": "Planks",
    "type": "material",
-   "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0 (M42).",
+   "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
    "models": [
     "asia-rg/dojo",
     "asia-rg/footbridge",
@@ -1114,7 +1114,7 @@
    "id": "wood-worked",
    "name": "Worked",
    "type": "material",
-   "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0 (M42).",
+   "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
    "models": [
     "asia-rg/boat",
     "asia-rg/cart",
@@ -1518,7 +1518,7 @@
    "id": "wood-beam",
    "name": "Beam",
    "type": "material",
-   "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0 (M42).",
+   "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
    "models": [
     "asia-rg/banner",
     "asia-rg/boat",
@@ -2189,7 +2189,7 @@
    "id": "wood-bark",
    "name": "Bark",
    "type": "material",
-   "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too (M7).",
+   "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
    "models": [
     "fs-terrain/beach-prop-docks-corner",
     "fs-terrain/beach-prop-docks-straight",
@@ -3432,7 +3432,7 @@
    "id": "foliage",
    "name": "Foliage",
    "type": "material",
-   "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads. M2-M4 and C8 give it its band.",
+   "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
    "models": [
     "asia-rg/bamboo",
     "asia-rg/grass",
@@ -4545,7 +4545,7 @@
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
-   "description": "Moulded plastic, dark red or yellow (M41): the platformer kit's game pieces, and modern moulded ware such as a watering can.",
+   "description": "Moulded plastic, dark red or yellow: the platformer kit's game pieces, and modern moulded ware such as a watering can.",
    "models": [
     "isa-plants/watering-can-b",
     "ken-platformer/heart",
@@ -4624,7 +4624,7 @@
     "quat-pirate/wheat",
     "quat-food/pumpkin"
    ],
-   "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain. M44 gives it its bands."
+   "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain."
   },
   {
    "id": "skin",
@@ -5177,7 +5177,7 @@
    "id": "obj-furniture-seating",
    "name": "Seating",
    "type": "kind",
-   "description": "Seating with no leaf that fits (K2).",
+   "description": "Seating with no leaf that fits.",
    "models": []
   },
   {
@@ -5272,7 +5272,7 @@
    "id": "obj-kitchenware",
    "name": "Kitchenware",
    "type": "kind",
-   "description": "Kitchenware with no leaf that fits (K2).",
+   "description": "Kitchenware with no leaf that fits.",
    "color": "#9c3f2e",
    "models": []
   },
@@ -5369,26 +5369,10 @@
    "id": "obj-kitchenware-tableware",
    "name": "Tableware",
    "type": "kind",
-   "description": "mug, cup, goblet, tankard, teapot, glass",
+   "description": "teapot, and any tableware with no leaf that fits",
    "models": [
     "asia-rg/teapot",
-    "isa-kitchen/mug-ivory",
-    "isa-kitchen/mug-taupe",
-    "isa-kitchen/mug-terracotta",
-    "clay-props/cup",
-    "cooking-assets/mug",
-    "cooking-assets/tankard",
-    "cooking-assets/teacup",
-    "quat-props/chalice",
-    "quat-props/mug",
-    "kay-adventurers/mug-empty",
-    "kay-dun-1/artifact",
-    "kay-dun-1/mug",
-    "ken-grave/detail-chalice",
-    "props/cup-a",
-    "props/cup-b",
-    "props/goblet-a",
-    "quat-rpg/chalice"
+    "cooking-assets/cloche"
    ]
   },
   {
@@ -5424,18 +5408,14 @@
    "id": "obj-kitchenware-tableware-plate",
    "name": "Plate",
    "type": "kind",
-   "description": "plate, dish, platter, tray, saucer, bowl",
+   "description": "plate, dish, platter, tray, saucer",
    "models": [
-    "asia-rg/bowl",
-    "asia-rg/bowl-shard",
     "isa-kitchen/plate",
-    "clay-props/bowl",
     "clay-props/plate",
     "clay-props/platter",
     "cooking-assets/plate-oval-small",
     "cooking-assets/plate-rectangle",
     "cooking-assets/platter-oval",
-    "cooking-assets/serving-bowl",
     "quat-props/table-plate",
     "isa-plants/saucer-a-large",
     "isa-plants/saucer-a-medium",
@@ -5444,21 +5424,65 @@
     "kay-dun-2/plate",
     "kay-dun-2/plate-small",
     "kay-dun-1/plate-stack",
-    "kay-food/bowl",
-    "kay-food/bowl-small",
     "kay-food/plate",
     "kay-food/plate-small",
-    "ken-grave/detail-bowl",
     "ken-grave/detail-plate",
     "props/plate-a",
     "props/plate-b",
     "props/plate-c",
     "quat-food/plate",
     "quat-food/plate-2",
-    "kay-food/bowl-dirty",
-    "quat-food/soy-sauce",
-    "cooking-assets/cloche",
     "kay-dun-2/plate-stack"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-bowl",
+   "name": "Bowl",
+   "type": "kind",
+   "description": "bowl",
+   "models": [
+    "asia-rg/bowl",
+    "asia-rg/bowl-shard",
+    "clay-props/bowl",
+    "cooking-assets/serving-bowl",
+    "kay-food/bowl",
+    "kay-food/bowl-small",
+    "kay-food/bowl-dirty",
+    "ken-grave/detail-bowl",
+    "quat-food/soy-sauce"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware",
+   "name": "Drinkware",
+   "type": "kind",
+   "description": "cup, goblet, chalice, tankard, glass",
+   "models": [
+    "clay-props/cup",
+    "cooking-assets/tankard",
+    "cooking-assets/teacup",
+    "quat-props/chalice",
+    "ken-grave/detail-chalice",
+    "props/cup-a",
+    "props/cup-b",
+    "props/goblet-a",
+    "quat-rpg/chalice",
+    "kay-dun-1/artifact"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-mug",
+   "name": "Mug",
+   "type": "kind",
+   "description": "mug",
+   "models": [
+    "isa-kitchen/mug-ivory",
+    "isa-kitchen/mug-taupe",
+    "isa-kitchen/mug-terracotta",
+    "cooking-assets/mug",
+    "quat-props/mug",
+    "kay-adventurers/mug-empty",
+    "kay-dun-1/mug"
    ]
   },
   {
@@ -5763,7 +5787,7 @@
    "id": "obj-resource-wood",
    "name": "Wood",
    "type": "kind",
-   "description": "Wood stock with no leaf that fits (K2).",
+   "description": "Wood stock with no leaf that fits.",
    "models": []
   },
   {
@@ -6019,7 +6043,7 @@
    "id": "obj-weapon-cannon",
    "name": "Cannon",
    "type": "kind",
-   "description": "Cannon and the shot it fires. Cast iron (M64).",
+   "description": "Cannon and the shot it fires. Cast iron.",
    "models": [
     "ken-pirate/cannon",
     "ken-pirate/cannon-ball",
@@ -6034,7 +6058,7 @@
    "id": "obj-weapon",
    "name": "Weapon",
    "type": "kind",
-   "description": "Weapon with no leaf that fits (K2).",
+   "description": "Weapon with no leaf that fits.",
    "color": "#4c5468",
    "models": [
     "kay-dun-1/weapon-rack",
@@ -6345,7 +6369,7 @@
    "id": "env-flora",
    "name": "Flora",
    "type": "kind",
-   "description": "Flora with no leaf that fits (K2).",
+   "description": "Flora with no leaf that fits.",
    "color": "#6cb588",
    "models": []
   },
@@ -7011,7 +7035,7 @@
    "id": "str-access",
    "name": "Access",
    "type": "kind",
-   "description": "Access with no leaf that fits (K2).",
+   "description": "Access with no leaf that fits.",
    "color": "#c98a5a",
    "models": []
   },
@@ -7203,18 +7227,11 @@
    "id": "str-building",
    "name": "Building",
    "type": "kind",
-   "description": "house (whole), hut, crypt, church, castle, inn, barracks, stables, blacksmith, watermill, sawmill, gazebo, well",
+   "description": "watermill, sawmill, gazebo, well",
    "color": "#7d4f3a",
    "models": [
     "asia-rg/dojo",
     "asia-rg/gazebo",
-    "asia-rg/house-a",
-    "asia-rg/house-b",
-    "asia-rg/house-c",
-    "asia-rg/house-d",
-    "asia-rg/house-e",
-    "asia-rg/house-f",
-    "asia-rg/house-small",
     "desert-buildings/large-building-a",
     "desert-buildings/large-building-b",
     "desert-buildings/large-building-c",
@@ -7232,49 +7249,18 @@
     "desert-buildings/well",
     "fs-town/well-a",
     "medieval-forge/furnace",
-    "medieval-town/blacksmith",
-    "medieval-town/fantasy-house",
-    "medieval-town/fantasy-house-2",
-    "medieval-town/fantasy-house-3",
-    "medieval-town/fantasy-inn",
     "medieval-town/fantasy-sawmill",
-    "medieval-town/fantasy-stable",
     "medieval-town/gazebo",
     "medieval-town/well",
-    "quat-pirate/house-1",
-    "quat-pirate/house-2",
-    "quat-pirate/house-3",
     "quat-town/archery-1-a",
     "quat-town/archery-1-b",
     "quat-town/archery-1-c",
     "quat-town/archery-2-a",
     "quat-town/archery-2-b",
     "quat-town/archery-2-c",
-    "quat-town/barracks-1-a",
-    "quat-town/barracks-1-b",
-    "quat-town/barracks-1-c",
-    "quat-town/barracks-2-a",
-    "quat-town/barracks-2-b",
-    "quat-town/barracks-2-c",
     "quat-town/farm-2-a",
     "quat-town/farm-2-b",
     "quat-town/farm-2-c",
-    "quat-town/house-1-1-a",
-    "quat-town/house-1-1-b",
-    "quat-town/house-1-1-c",
-    "quat-town/house-1-2-a",
-    "quat-town/house-1-2-b",
-    "quat-town/house-1-2-c",
-    "quat-town/house-1-3-c",
-    "quat-town/house-2-1-a",
-    "quat-town/house-2-1-b",
-    "quat-town/house-2-1-c",
-    "quat-town/house-2-2-a",
-    "quat-town/house-2-2-b",
-    "quat-town/house-2-2-c",
-    "quat-town/house-2-3-a",
-    "quat-town/house-2-3-b",
-    "quat-town/house-2-3-c",
     "quat-town/storage-1-a",
     "quat-town/storage-1-b",
     "quat-town/storage-1-c",
@@ -7282,25 +7268,11 @@
     "quat-town/storage-2-b",
     "quat-town/storage-2-c",
     "quat-town/tower-house-2",
-    "quat-town/watchtower-1-a",
-    "quat-town/watchtower-1-b",
-    "quat-town/watchtower-1-c",
-    "quat-town/watchtower-2-a",
-    "quat-town/watchtower-2-b",
-    "quat-town/watchtower-2-c",
-    "quat-town/windmill-1",
-    "quat-town/windmill-2",
     "quat-town/wonder-1-a",
     "quat-town/wonder-1-b",
     "quat-town/wonder-1-c",
     "quat-town/wonder-2-b",
     "quat-town/wonder-2-c",
-    "asia-pack/granary",
-    "asia-pack/house-a",
-    "asia-pack/house-b",
-    "asia-pack/house-c",
-    "asia-pack/market-house",
-    "asia-pack/tower",
     "asia-pack/well",
     "asia-pack/altar-a",
     "asia-pack/shrine-large",
@@ -7837,7 +7809,7 @@
    "id": "str-platform",
    "name": "Platform",
    "type": "kind",
-   "description": "Platform with no leaf that fits (K2).",
+   "description": "Platform with no leaf that fits.",
    "color": "#877a63",
    "models": []
   },
@@ -8019,14 +7991,6 @@
     "kay-dun-2/sword-shield-gold",
     "kay-food/crate-potatoes"
    ]
-  },
-  {
-   "id": "scene",
-   "name": "Scene",
-   "type": "kind",
-   "description": "crosses env / str / obj",
-   "color": "#6f7f8f",
-   "models": []
   },
   {
    "id": "decorated",
@@ -9288,7 +9252,7 @@
    "id": "pickup",
    "name": "Pickup",
    "type": "tag",
-   "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token (T15).",
+   "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
    "models": [
     "asia-rg/coin",
     "kay-dun-1/coin-crown",
@@ -9886,17 +9850,26 @@
    "id": "str-building-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: watchtower, bell tower, lighthouse, windmill, granary, barracks, pagoda.",
+   "description": "Tower-form building: tower, watchtower, belltower, lighthouse, mill, windmill, church, pagoda, granary.",
    "models": [
     "asia-rg/pagoda",
     "ken-pirate/tower-complete-large",
     "ken-pirate/tower-complete-small",
     "medieval-town/bell-tower",
-    "medieval-town/fantasy-barracks",
     "medieval-town/mill",
     "taalei-kit/lighthouse",
     "windmill/windmill",
-    "architecture/church"
+    "architecture/church",
+    "quat-town/watchtower-1-a",
+    "quat-town/watchtower-1-b",
+    "quat-town/watchtower-1-c",
+    "quat-town/watchtower-2-a",
+    "quat-town/watchtower-2-b",
+    "quat-town/watchtower-2-c",
+    "quat-town/windmill-1",
+    "quat-town/windmill-2",
+    "asia-pack/granary",
+    "asia-pack/tower"
    ]
   },
   {
@@ -9905,17 +9878,60 @@
    "type": "kind",
    "description": "Building lived in: house (whole), hut, cottage, inn.",
    "models": [
-    "architecture/cottage"
+    "architecture/cottage",
+    "asia-rg/house-a",
+    "asia-rg/house-b",
+    "asia-rg/house-c",
+    "asia-rg/house-d",
+    "asia-rg/house-e",
+    "asia-rg/house-f",
+    "asia-rg/house-small",
+    "medieval-town/fantasy-house",
+    "medieval-town/fantasy-house-2",
+    "medieval-town/fantasy-house-3",
+    "medieval-town/fantasy-inn",
+    "quat-pirate/house-1",
+    "quat-pirate/house-2",
+    "quat-pirate/house-3",
+    "quat-town/house-1-1-a",
+    "quat-town/house-1-1-b",
+    "quat-town/house-1-1-c",
+    "quat-town/house-1-2-a",
+    "quat-town/house-1-2-b",
+    "quat-town/house-1-2-c",
+    "quat-town/house-1-3-c",
+    "quat-town/house-2-1-a",
+    "quat-town/house-2-1-b",
+    "quat-town/house-2-1-c",
+    "quat-town/house-2-2-a",
+    "quat-town/house-2-2-b",
+    "quat-town/house-2-2-c",
+    "quat-town/house-2-3-a",
+    "quat-town/house-2-3-b",
+    "quat-town/house-2-3-c",
+    "asia-pack/house-a",
+    "asia-pack/house-b",
+    "asia-pack/house-c",
+    "asia-pack/market-house"
    ]
   },
   {
    "id": "str-building-fort",
    "name": "Fort",
    "type": "kind",
-   "description": "Fortified or working building: castle, fortress, barracks, stables, blacksmith.",
+   "description": "Fortified or working building: castle, fortress, barracks, stable, blacksmith.",
    "models": [
     "architecture/castle",
-    "architecture/fortress"
+    "architecture/fortress",
+    "medieval-town/blacksmith",
+    "medieval-town/fantasy-stable",
+    "quat-town/barracks-1-a",
+    "quat-town/barracks-1-b",
+    "quat-town/barracks-1-c",
+    "quat-town/barracks-2-a",
+    "quat-town/barracks-2-b",
+    "quat-town/barracks-2-c",
+    "medieval-town/fantasy-barracks"
    ]
   }
  ]

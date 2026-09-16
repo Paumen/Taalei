@@ -96,7 +96,7 @@ const breadcrumb = (id) => [...kindAncestors(id).reverse(), id].map(kindName).jo
 export function buildScaleGroups(models) {
   const perKind = new Map();
   for (const m of models) {
-    if (!m.kind || m.kind === 'assy' || m.kind === 'scene' || SKIP.has(m.id)) continue;
+    if (!m.kind || m.kind === 'assy' || SKIP.has(m.id)) continue;
     if (SKIP_RULE(m)) continue;
     if (m.tags?.includes('plural') || m.tags?.includes('pickup') || m.tags?.includes('broken')) continue;
     if (!perKind.has(m.kind)) perKind.set(m.kind, []);

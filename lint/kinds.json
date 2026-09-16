@@ -128,7 +128,13 @@
           "dish",
           "platter",
           "tray",
-          "saucer",
+          "saucer"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-tableware-bowl",
+         "longest.max": 0.4,
+         "nouns": [
           "bowl"
          ]
         },
@@ -136,12 +142,19 @@
          "id": "obj-kitchenware-tableware-drinkware",
          "high.max": 0.2,
          "nouns": [
-          "mug",
           "cup",
           "goblet",
           "chalice",
           "tankard",
           "glass"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-tableware-drinkware-mug",
+           "nouns": [
+            "mug"
+           ]
+          }
          ]
         }
        ]
@@ -862,10 +875,14 @@
        "id": "str-building-tower",
        "nouns": [
         "tower",
+        "watchtower",
+        "belltower",
         "lighthouse",
         "mill",
         "windmill",
-        "church"
+        "church",
+        "pagoda",
+        "granary"
        ]
       },
       {
@@ -873,6 +890,7 @@
        "nouns": [
         "house (whole)",
         "hut",
+        "cottage",
         "inn"
        ]
       },
@@ -880,8 +898,9 @@
        "id": "str-building-fort",
        "nouns": [
         "castle",
+        "fortress",
         "barracks",
-        "stables",
+        "stable",
         "blacksmith"
        ]
       }
