@@ -1,6 +1,6 @@
 import { kindName, kindAncestors, kindIs } from './kinds.mjs';
 
-const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
+const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 
 export const SCALE_TABS = [
   {

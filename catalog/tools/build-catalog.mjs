@@ -17,7 +17,7 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
-const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
+const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
