@@ -3,7 +3,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const KINDS = join(ROOT, 'catalog/kinds.json');
+const KINDS = join(ROOT, 'lint/kinds.json');
 
 export function readKindTree(tree = JSON.parse(readFileSync(KINDS, 'utf8'))) {
   const nodes = new Map();
