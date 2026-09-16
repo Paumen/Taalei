@@ -23,6 +23,13 @@ const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 const LINT_LIMITS = buildLimits(JSON.parse(readFileSync(join(ROOT, LINT_VARS.kinds), 'utf8')));
 
+const MATERIAL_TREE = new Set();
+const addMaterial = (node) => {
+  MATERIAL_TREE.add(node.id);
+  for (const child of node.children ?? []) addMaterial(child);
+};
+for (const root of JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8')).materials) addMaterial(root);
+
 function lintOf(model, wdh) {
   if (!model.kind || isExempt(model, LINT_VARS)) return undefined;
   const found = findingsFor({ ...model, wdh }, LINT_LIMITS.get(model.kind), LINT_VARS);
@@ -478,6 +485,11 @@ function readTags(known) {
     }
   }
   if (badParent.length) console.warn(`! parent is not a material: ${badParent.join(', ')}`);
+
+  const unknownMaterial = [...material].filter((id) => !MATERIAL_TREE.has(id));
+  if (unknownMaterial.length) throw new Error(`material not in lint/materials.json: ${unknownMaterial.join(', ')}`);
+  const missingMaterial = [...MATERIAL_TREE].filter((id) => !material.has(id));
+  if (missingMaterial.length) throw new Error(`lint/materials.json material not in tags.json: ${missingMaterial.join(', ')}`);
 
   const unknownKind = tags.filter((t) => t.type === 'kind' && !KIND_TREE.has(t.id)).map((t) => t.id);
   if (unknownKind.length) throw new Error(`kind not in lint/kinds.json: ${unknownKind.join(', ')}`);
