@@ -153,6 +153,8 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Min and max per kind live in the kinds.JSON. Each applies to `high` or `longest`, as set there.
 
+Run `node lint/size.mjs`; exemptions and the warning band live in `lint/variables.json`.
+
 if size lint error or warning:
 1. verify if model has right kinds tag.
 2. verify if model meets tag:plural, tag:pickup, tag:comp criteria.
