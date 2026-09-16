@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D catalogue</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by kind: objects, characters, nature, structures and assemblies.">
-<meta name="catalogus-versie" content="4be9c0fe17">
-<link rel="stylesheet" href="catalog/catalog.css?v=4be9c0fe17"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-versie" content="bafcfdc260">
+<meta name="catalogus-gebouwd" content="2026-09-16T19:31:58Z">
+<link rel="stylesheet" href="catalog/catalog.css?v=bafcfdc260"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
@@ -28,6 +29,7 @@
               title="Shows the models unlit: only the atlas colours, with the shading baked into them">Flat</button>
     </div>
 
+    <span class="bouwstempel" id="bouwstempel"></span>
   </div>
 </header>
 
@@ -117,6 +119,7 @@
       <div class="detail-chips" id="detail-animatie-keuze" role="group" aria-label="Animation"></div>
     </div>
     <div id="detail-tags" class="detail-tags"></div>
+    <div class="detail-keuze detail-keuze-verticaal" id="detail-opmerking"></div>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
       <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
@@ -133,13 +136,13 @@
 </div>
 
 <div class="onderbalken">
-  <div class="tagedit-balk" id="tagedit-balk" hidden>
-    <span class="tagedit-balk-telling" id="tagedit-balk-telling" aria-live="polite"></span>
-    <button type="button" id="tagedit-balk-download">Download tag edits</button>
-    <button type="button" id="tagedit-balk-wis">Clear</button>
+  <div class="tagedit-balk" id="extract-balk" hidden>
+    <span class="tagedit-balk-telling" id="extract-balk-telling" aria-live="polite"></span>
+    <button type="button" id="extract-balk-download">Download extract</button>
+    <button type="button" id="extract-balk-wis">Clear</button>
   </div>
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=4be9c0fe17" type="module"></script></body>
+<script src="catalog/catalog.js?v=bafcfdc260" type="module"></script></body>
 </html>
