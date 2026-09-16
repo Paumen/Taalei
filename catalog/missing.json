@@ -999,6 +999,16 @@
  ],
  "kinds": [
   {
+   "id": "obj",
+   "name": "Object",
+   "color": "#c07c8a"
+  },
+  {
+   "id": "obj-container",
+   "name": "Container",
+   "color": "#dd9f79"
+  },
+  {
    "id": "obj-container-chest",
    "name": "Chest"
   },
@@ -1027,9 +1037,13 @@
    "name": "Pot"
   },
   {
-   "id": "obj-container",
-   "name": "Container",
-   "color": "#dd9f79"
+   "id": "obj-kitchenware",
+   "name": "Kitchenware",
+   "color": "#9c3f2e"
+  },
+  {
+   "id": "obj-kitchenware-tableware",
+   "name": "Tableware"
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -1040,8 +1054,12 @@
    "name": "Plate"
   },
   {
-   "id": "obj-kitchenware-tableware",
-   "name": "Tableware"
+   "id": "obj-kitchenware-tableware-drinkware",
+   "name": "Drinkware"
+  },
+  {
+   "id": "obj-kitchenware-cookware",
+   "name": "Cookware"
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -1052,13 +1070,13 @@
    "name": "Pot"
   },
   {
-   "id": "obj-kitchenware-cookware",
-   "name": "Cookware"
+   "id": "obj-furniture",
+   "name": "Furniture",
+   "color": "#c07c8a"
   },
   {
-   "id": "obj-kitchenware",
-   "name": "Kitchenware",
-   "color": "#9c3f2e"
+   "id": "obj-furniture-seating",
+   "name": "Seating"
   },
   {
    "id": "obj-furniture-seating-bench",
@@ -1073,10 +1091,6 @@
    "name": "Stool"
   },
   {
-   "id": "obj-furniture-seating",
-   "name": "Seating"
-  },
-  {
    "id": "obj-furniture-table",
    "name": "Table"
   },
@@ -1089,9 +1103,9 @@
    "name": "Storage"
   },
   {
-   "id": "obj-furniture",
-   "name": "Furniture",
-   "color": "#c07c8a"
+   "id": "obj-food",
+   "name": "Food",
+   "color": "#c25b4e"
   },
   {
    "id": "obj-food-meat",
@@ -1106,9 +1120,13 @@
    "name": "Grain"
   },
   {
-   "id": "obj-food",
-   "name": "Food",
-   "color": "#c25b4e"
+   "id": "obj-weapon",
+   "name": "Weapon",
+   "color": "#4c5468"
+  },
+  {
+   "id": "obj-weapon-melee",
+   "name": "Melee"
   },
   {
    "id": "obj-weapon-melee-sword",
@@ -1127,8 +1145,8 @@
    "name": "Hammer"
   },
   {
-   "id": "obj-weapon-melee",
-   "name": "Melee"
+   "id": "obj-weapon-ranged",
+   "name": "Ranged"
   },
   {
    "id": "obj-weapon-ranged-bow",
@@ -1143,25 +1161,21 @@
    "name": "Accessory"
   },
   {
-   "id": "obj-weapon-ranged",
-   "name": "Ranged"
+   "id": "obj-weapon-magic",
+   "name": "Magic"
   },
   {
    "id": "obj-weapon-magic-staff",
    "name": "Staff"
   },
   {
-   "id": "obj-weapon-magic",
-   "name": "Magic"
-  },
-  {
    "id": "obj-weapon-cannon",
    "name": "Cannon"
   },
   {
-   "id": "obj-weapon",
-   "name": "Weapon",
-   "color": "#4c5468"
+   "id": "obj-equipment",
+   "name": "Equipment",
+   "color": "#6b5b95"
   },
   {
    "id": "obj-equipment-armor",
@@ -1176,9 +1190,9 @@
    "name": "Clothing"
   },
   {
-   "id": "obj-equipment",
-   "name": "Equipment",
-   "color": "#6b5b95"
+   "id": "obj-tool",
+   "name": "Tool",
+   "color": "#6d738a"
   },
   {
    "id": "obj-tool-hand",
@@ -1193,9 +1207,9 @@
    "name": "Supplies"
   },
   {
-   "id": "obj-tool",
-   "name": "Tool",
-   "color": "#6d738a"
+   "id": "obj-transport",
+   "name": "Transport",
+   "color": "#5a7a9c"
   },
   {
    "id": "obj-transport-ship",
@@ -1214,9 +1228,9 @@
    "name": "Accessory"
   },
   {
-   "id": "obj-transport",
-   "name": "Transport",
-   "color": "#5a7a9c"
+   "id": "obj-lighting",
+   "name": "Lighting",
+   "color": "#f2cb45"
   },
   {
    "id": "obj-lighting-lantern",
@@ -1235,9 +1249,9 @@
    "name": "Campfire"
   },
   {
-   "id": "obj-lighting",
-   "name": "Lighting",
-   "color": "#f2cb45"
+   "id": "obj-pocketitem",
+   "name": "Pocket item",
+   "color": "#f1976c"
   },
   {
    "id": "obj-pocketitem-coin",
@@ -1260,13 +1274,17 @@
    "name": "Jewellery"
   },
   {
-   "id": "obj-pocketitem",
-   "name": "Pocket item",
-   "color": "#f1976c"
+   "id": "obj-resource",
+   "name": "Resource",
+   "color": "#4f7d8c"
   },
   {
    "id": "obj-resource-metal",
    "name": "Metal"
+  },
+  {
+   "id": "obj-resource-wood",
+   "name": "Wood"
   },
   {
    "id": "obj-resource-wood-log",
@@ -1277,10 +1295,6 @@
    "name": "Plank"
   },
   {
-   "id": "obj-resource-wood",
-   "name": "Wood"
-  },
-  {
    "id": "obj-resource-stone",
    "name": "Stone"
   },
@@ -1289,26 +1303,26 @@
    "name": "Textile"
   },
   {
-   "id": "obj-resource",
-   "name": "Resource",
-   "color": "#4f7d8c"
-  },
-  {
    "id": "obj-instrument",
    "name": "Instrument"
-  },
-  {
-   "id": "obj-art-sculpture",
-   "name": "Sculpture"
   },
   {
    "id": "obj-art",
    "name": "Art"
   },
   {
-   "id": "obj",
-   "name": "Object",
-   "color": "#c07c8a"
+   "id": "obj-art-sculpture",
+   "name": "Sculpture"
+  },
+  {
+   "id": "str",
+   "name": "Structure",
+   "color": "#877a63"
+  },
+  {
+   "id": "str-part",
+   "name": "Part",
+   "color": "#a8762a"
   },
   {
    "id": "str-part-door",
@@ -1339,23 +1353,31 @@
    "name": "Frame"
   },
   {
-   "id": "str-part",
-   "name": "Part",
-   "color": "#a8762a"
+   "id": "str-building",
+   "name": "Building",
+   "color": "#7d4f3a"
   },
   {
    "id": "str-building-tower",
    "name": "Tower"
   },
   {
-   "id": "str-building",
-   "name": "Building",
-   "color": "#7d4f3a"
+   "id": "str-building-dwelling",
+   "name": "Dwelling"
+  },
+  {
+   "id": "str-building-fort",
+   "name": "Fort"
   },
   {
    "id": "str-stands",
    "name": "Stands",
    "color": "#d8a05a"
+  },
+  {
+   "id": "str-platform",
+   "name": "Platform",
+   "color": "#877a63"
   },
   {
    "id": "str-platform-deck",
@@ -1366,9 +1388,9 @@
    "name": "Dock"
   },
   {
-   "id": "str-platform",
-   "name": "Platform",
-   "color": "#877a63"
+   "id": "str-barrier",
+   "name": "Barrier",
+   "color": "#b08968"
   },
   {
    "id": "str-barrier-fence",
@@ -1379,9 +1401,9 @@
    "name": "Post"
   },
   {
-   "id": "str-barrier",
-   "name": "Barrier",
-   "color": "#b08968"
+   "id": "str-access",
+   "name": "Access",
+   "color": "#c98a5a"
   },
   {
    "id": "str-access-stairs",
@@ -1396,9 +1418,9 @@
    "name": "Bridge"
   },
   {
-   "id": "str-access",
-   "name": "Access",
-   "color": "#c98a5a"
+   "id": "str-marker",
+   "name": "Marker",
+   "color": "#ffb349"
   },
   {
    "id": "str-marker-sign",
@@ -1413,54 +1435,9 @@
    "name": "Tombstone"
   },
   {
-   "id": "str-marker",
-   "name": "Marker",
-   "color": "#ffb349"
-  },
-  {
-   "id": "str",
-   "name": "Structure",
-   "color": "#877a63"
-  },
-  {
-   "id": "env-flora-plant-cactus",
-   "name": "Cactus"
-  },
-  {
-   "id": "env-flora-plant-flower",
-   "name": "Flower"
-  },
-  {
-   "id": "env-flora-plant-grass",
-   "name": "Grass"
-  },
-  {
-   "id": "env-flora-plant",
-   "name": "Plant"
-  },
-  {
-   "id": "env-flora-tree-conifer",
-   "name": "Conifer"
-  },
-  {
-   "id": "env-flora-tree-palm",
-   "name": "Palm"
-  },
-  {
-   "id": "env-flora-tree",
-   "name": "Tree"
-  },
-  {
-   "id": "env-flora-deadwood-stump",
-   "name": "Stump"
-  },
-  {
-   "id": "env-flora-deadwood-branch",
-   "name": "Branch"
-  },
-  {
-   "id": "env-flora-deadwood",
-   "name": "Deadwood"
+   "id": "env",
+   "name": "Environment",
+   "color": "#6cb588"
   },
   {
    "id": "env-fungi",
@@ -1473,13 +1450,18 @@
    "color": "#3e8fd0"
   },
   {
+   "id": "env-remains",
+   "name": "Remains",
+   "color": "#cfc6ad"
+  },
+  {
    "id": "env-remains-bones",
    "name": "Bones"
   },
   {
-   "id": "env-remains",
-   "name": "Remains",
-   "color": "#cfc6ad"
+   "id": "env-rock",
+   "name": "Rock",
+   "color": "#9da4c4"
   },
   {
    "id": "env-rock-formation",
@@ -1494,9 +1476,9 @@
    "name": "Pebble"
   },
   {
-   "id": "env-rock",
-   "name": "Rock",
-   "color": "#9da4c4"
+   "id": "env-terrain",
+   "name": "Terrain",
+   "color": "#8a5d4b"
   },
   {
    "id": "env-terrain-mountain",
@@ -1507,19 +1489,54 @@
    "name": "Ground"
   },
   {
-   "id": "env-terrain",
-   "name": "Terrain",
-   "color": "#8a5d4b"
-  },
-  {
    "id": "env-water",
    "name": "Water",
    "color": "#4fa3c7"
   },
   {
-   "id": "env",
-   "name": "Environment",
+   "id": "env-flora",
+   "name": "Flora",
    "color": "#6cb588"
+  },
+  {
+   "id": "env-flora-plant",
+   "name": "Plant"
+  },
+  {
+   "id": "env-flora-plant-cactus",
+   "name": "Cactus"
+  },
+  {
+   "id": "env-flora-plant-flower",
+   "name": "Flower"
+  },
+  {
+   "id": "env-flora-plant-grass",
+   "name": "Grass"
+  },
+  {
+   "id": "env-flora-tree",
+   "name": "Tree"
+  },
+  {
+   "id": "env-flora-tree-conifer",
+   "name": "Conifer"
+  },
+  {
+   "id": "env-flora-tree-palm",
+   "name": "Palm"
+  },
+  {
+   "id": "env-flora-deadwood",
+   "name": "Deadwood"
+  },
+  {
+   "id": "env-flora-deadwood-stump",
+   "name": "Stump"
+  },
+  {
+   "id": "env-flora-deadwood-branch",
+   "name": "Branch"
   },
   {
    "id": "assy",
@@ -1530,11 +1547,6 @@
    "id": "char",
    "name": "Character",
    "color": "#8a6fb0"
-  },
-  {
-   "id": "env-flora",
-   "name": "Flora",
-   "color": "#6cb588"
   }
  ],
  "models": [
