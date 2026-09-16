@@ -3,25 +3,15 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const GUIDE = join(ROOT, 'docs/asset_style_guide.md');
+const KINDS = join(ROOT, 'catalog/kinds.json');
 
-export function readKindTree(guide = readFileSync(GUIDE, 'utf8')) {
-  const block = guide.split('## Appendix: kind tree + glossary')[1]?.match(/```\n([\s\S]*?)```/)?.[1];
-  if (!block) throw new Error('Appendix: kind tree + glossary code block not found in the style guide');
+export function readKindTree(tree = JSON.parse(readFileSync(KINDS, 'utf8'))) {
   const nodes = new Map();
-  for (const raw of block.split('\n')) {
-    const line = raw.trim();
-    if (!line) continue;
-    const [id, nouns = ''] = line.split(' — ');
-    nodes.set(id.trim(), nouns.trim());
-  }
-  for (const id of [...nodes.keys()]) {
-    const parts = id.split('-');
-    for (let i = 1; i < parts.length; i++) {
-      const parent = parts.slice(0, i).join('-');
-      if (!nodes.has(parent)) nodes.set(parent, '');
-    }
-  }
+  const walk = (node) => {
+    nodes.set(node.id, (node.nouns ?? []).join(', '));
+    for (const child of node.children ?? []) walk(child);
+  };
+  for (const root of tree.kinds) walk(root);
   return nodes;
 }
 
