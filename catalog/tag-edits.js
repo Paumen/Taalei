@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=4be9c0fe17';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=bafcfdc260';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -114,28 +114,13 @@ export function clearEdits() {
   notify();
 }
 
-const timeStamp = () => new Date().toISOString().replace(/[:T]/g, '-').slice(0, 16);
-
-export function exportEdits() {
-  const tags = Object.fromEntries(
+export const allEdits = () =>
+  Object.fromEntries(
     Object.entries(edits)
       .filter(([, e]) => e.add.length || e.remove.length)
+      .sort(([a], [b]) => a.localeCompare(b))
       .map(([id, e]) => [id, { add: [...e.add].sort(), remove: [...e.remove].sort() }]),
   );
-  const content = {
-    tool: 'catalog tag editor',
-    created: new Date().toISOString(),
-    note: 'Diff against catalog/tags.json: node tools/apply-tag-edits.mjs <this file> merges it, --dry shows what it would do first. Per tag, "add" ids join that tag\'s "models" and "remove" ids leave it; kinds are entries there like any other tag.',
-    tags,
-  };
-  const blob = new Blob([JSON.stringify(content, null, 1) + '\n'], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `tag-edits-${timeStamp()}.json`;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
 
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
 
@@ -193,26 +178,3 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   layoutChips(all);
 }
 
-export function mountEditBar() {
-  const bar = document.querySelector('#tagedit-balk');
-  if (!bar) return;
-  const label = document.querySelector('#tagedit-balk-telling');
-  const downloadButton = document.querySelector('#tagedit-balk-download');
-  const clearButton = document.querySelector('#tagedit-balk-wis');
-
-  function refresh() {
-    const n = pendingCount();
-    bar.hidden = n === 0;
-    if (label) label.textContent = `${n} tag edit${n === 1 ? '' : 's'} pending`;
-  }
-
-  downloadButton?.addEventListener('click', () => exportEdits());
-  clearButton?.addEventListener('click', () => {
-    if (pendingCount() === 0) return;
-    if (!confirm('Clear all pending tag edits? This does not undo anything in tags.json.')) return;
-    clearEdits();
-  });
-
-  onChange(refresh);
-  refresh();
-}

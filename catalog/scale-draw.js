@@ -235,7 +235,7 @@ export async function drawFamily(group, canvas, width) {
     const pivot = new THREE.Group();
     pivot.add(obj);
 
-    if (group.standUp) {
+    if (group.byLongest) {
       if (size.z >= size.x && size.z >= size.y) obj.rotation.x = -Math.PI / 2;
       else if (size.x > size.y) obj.rotation.z = Math.PI / 2;
     } else if (group.topView) obj.rotation.x = -Math.PI / 2;
