@@ -207,9 +207,9 @@ What a kind is made of. Colour follows from §5.
 | `M02` | `kind:obj-weapon-cannon \| kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` |
 | `M03` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` |
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | is | `metal-iron` |
-| `M06` | `kind:obj-container-chest` | — | `part:hoop` | is | `metal-iron` |
-| `M07` | `kind:obj-container-crate` | — | `part:hoop` | is | `metal-iron` |
+| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `mat:metal` | is | `metal-iron` |
+| `M06` | `kind:obj-container-chest` | — | `mat:metal` | is | `metal-iron` |
+| `M07` | `kind:obj-container-crate` | — | `mat:metal` | is | `metal-iron` |
 | `M08` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
 | `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
@@ -224,22 +224,22 @@ What a kind is made of. Colour follows from §5.
 | `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
 | `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
-| `M22` | `kind:obj-tool-hand` | — | `part:wood handle` (usual) | is | `wood-planks` |
-| `M23` | `kind:obj-tool-long` | — | `part:pole` (always) | is | `wood-beam` |
+| `M22` | `kind:obj-tool-hand` | — | `mat:wood` | is | `wood-planks` |
+| `M23` | `kind:obj-tool-long` | — | `mat:wood` | is | `wood-beam` |
 | `M24` | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
 | `M26` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
 | `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
 | `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` |
 | `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
-| `M30` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | `part:cut face` (always) | is | `wood-log` |
-| `M31` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | `part:round side` (always) | is | `wood-bark` |
+| `M30` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | model | has | `wood-log` |
+| `M31` | `kind:obj-resource-wood-log \| kind:env-flora-deadwood-branch` cut-face trunks | — | model | has | `wood-bark` |
 | `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
 | `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
 | `M34` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly |
 | `M35` | `kind:str-part-roof` | — | model | has | `ceramic` |
 | `M36` | `kind:str-marker-flag` | — | model | has | `textile` |
-| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | `part:pole` (usual) | expect | `wood:` |
+| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | model | expect | `wood:` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
 | `M39` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
 
