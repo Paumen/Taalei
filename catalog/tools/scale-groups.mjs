@@ -6,8 +6,24 @@ import { fileURLToPath } from 'node:url';
 
 const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 
-const LIMITS = buildLimits(JSON.parse(readFileSync(
-  join(resolve(dirname(fileURLToPath(import.meta.url)), '..', '..'), 'lint', 'kinds.json'), 'utf8')));
+const KIND_LIMITS = JSON.parse(readFileSync(
+  join(resolve(dirname(fileURLToPath(import.meta.url)), '..', '..'), 'lint', 'kinds.json'), 'utf8'));
+
+const LIMITS = buildLimits(KIND_LIMITS);
+
+const NODE = new Map();
+const readNodes = (node) => {
+  NODE.set(node.id, node);
+  for (const child of node.children ?? []) readNodes(child);
+};
+KIND_LIMITS.kinds.forEach(readNodes);
+
+const ownLongest = (kind) => {
+  const node = NODE.get(kind) ?? {};
+  const own = node['longest.min'] !== undefined || node['longest.max'] !== undefined;
+  const resolved = LIMITS.get(kind) ?? {};
+  return own && resolved['high.min'] === undefined && resolved['high.max'] === undefined;
+};
 
 const limitsOf = (kind) => {
   const found = Object.entries(LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]);
@@ -47,8 +63,7 @@ const tabOf = (kind) => {
 const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate',
   'str-part-floor', 'obj-furniture', 'env-remains', 'env-terrain-ground']);
 
-const STAND_UP = new Set(['obj-kitchenware-tableware-cutlery', 'obj-pocketitem-key',
-  'obj-pocketitem-scroll', 'obj-weapon-ranged-bow', 'obj-weapon-ranged-crossbow']);
+export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
 
 const SHORT_RULER = new Set(['env-rock-pebble', 'env-flora-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
@@ -96,7 +111,7 @@ export function buildScaleGroups(models) {
       name: breadcrumb(kind),
       category: tabOf(kind).id,
       topView: TOP_VIEW.has(kind) || undefined,
-      standUp: STAND_UP.has(kind) || undefined,
+      byLongest: byLongest(kind) || undefined,
       wideRow: WIDE_ROW.has(kind) || undefined,
       rulerHeight: rulerHeight(kind),
       limits: limitsOf(kind),

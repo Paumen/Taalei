@@ -1,5 +1,9 @@
-import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=4be9c0fe17';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=4be9c0fe17';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=bafcfdc260';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=bafcfdc260';
+import { colorSwatches, setBands } from './color-edits.js?v=bafcfdc260';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=bafcfdc260';
+import { mountExtractBar, setPageParts } from './extract.js?v=bafcfdc260';
+import './bouwstempel.js?v=bafcfdc260';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -121,6 +125,8 @@ const familyPerPath = new Map();
 let lastChoice = null;
 let selectMode = false;
 let swipe = null;
+let refreshExtract = () => {};
+let commentDirty = false;
 
 const colorState = new Map();
 const sizeState = new Map();
@@ -303,6 +309,9 @@ function makeCard(model, kits, variants = []) {
   if (levels.length) {
     glyphs.append(glyph(levels.includes('error') ? 'lint-fout' : 'lint-waarschuwing', '⚠',
       model.lint.map(lintText).join('\n')));
+  }
+  if (hasComment(model)) {
+    glyphs.append(glyph('opmerking', '✎', 'Carries a comment — read it in the model panel'));
   }
   if (variants.length) {
     glyphs.append(glyph('variant', `⧉ ${variants.length + 1}`,
@@ -723,22 +732,6 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
-function colorSwatches(model) {
-  if (!model.colors?.length) return null;
-  const strip = document.createElement('div');
-  strip.className = 'detail-stalen';
-
-  for (const hex of model.colors) {
-    const dot = document.createElement('span');
-    dot.className = 'detail-staal';
-    dot.style.setProperty('--staal-kleur', hex);
-    dot.title = hex;
-    strip.append(dot);
-  }
-
-  return strip;
-}
-
 function fillFacts(lines) {
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
@@ -805,7 +798,7 @@ function showDetail(model) {
     [
       {
         kop: 'Colours',
-        vol: 'Colour bands the model uses',
+        vol: 'Colour bands the model uses — tap a band to mark it partly wrong, then wrong',
         waarde: '—',
         element: colorSwatches(model),
       },
@@ -870,6 +863,7 @@ function showDetail(model) {
   }));
 
   renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
+  renderCommentBox(document.querySelector('#detail-opmerking'), model);
 
   detail.showModal();
   updateSelection();
@@ -917,7 +911,18 @@ function setAnimation(clip) {
   }
 }
 
-detail.addEventListener('close', () => detailViewer.replaceChildren());
+detail.addEventListener('close', () => {
+  detailViewer.replaceChildren();
+  if (!commentDirty) return;
+  commentDirty = false;
+  refresh();
+});
+
+onComment(() => {
+  refreshExtract();
+  if (detail.open) commentDirty = true;
+  else refresh();
+});
 document.querySelector('#detail-sluit').addEventListener('click', () => detail.close());
 detail.addEventListener('click', (e) => { if (e.target === detail) detail.close(); });
 
@@ -960,6 +965,7 @@ function updateSelection() {
   const count = chosenPaths.size;
   selectionBar.hidden = count === 0;
   selectionCount.textContent = `${count} selected`;
+  refreshExtract();
   if (detail.open) {
     const on = chosenPaths.has(activePath);
     detailSelect.textContent = on ? 'Remove from selection' : 'Add to selection';
@@ -1234,9 +1240,15 @@ async function start() {
 
   await loadThumbs();
 
-  buildColorBar(collectColors(data.models));
+  const colors = collectColors(data.models);
+  buildColorBar(colors);
+  setBands([...colors].sort((a, b) => a.name.localeCompare(b.name) || a.hex.localeCompare(b.hex)));
   buildTagBar(data.tags ?? []);
-  mountEditBar();
+  setPageParts({
+    sections: () => (chosenPaths.size ? { selection: [...chosenPaths] } : {}),
+    counts: () => [{ n: chosenPaths.size, one: 'path selected', many: 'paths selected' }],
+  });
+  refreshExtract = mountExtractBar();
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);
 

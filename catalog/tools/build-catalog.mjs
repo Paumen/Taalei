@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs';
-import { buildScaleGroups, SCALE_TABS } from './scale-groups.mjs';
+import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { buildLimits, findingsFor, isExempt } from '../../lint/rules.mjs';
@@ -231,8 +231,9 @@ function colorName(hex) {
 
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
-const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js'];
-const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'tag-edits.js'];
+const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js', 'color-edits.js', 'comments.js',
+  'extract.js', 'bouwstempel.js'];
+const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'missing.js', 'tag-edits.js', 'extract.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
 function writeVersion() {
@@ -248,16 +249,20 @@ function writeVersion() {
     if (!existsSync(path)) continue;
     const before = readFileSync(path, 'utf8');
     const after = before.replace(
-      new RegExp(`(from '\\./(?:${MODULES.map((m) => m.replace('.', '\\.')).join('|')}))(?:\\?v=[a-f0-9]+)?'`, 'g'),
+      new RegExp(`('\\./(?:${MODULES.map((m) => m.replace('.', '\\.')).join('|')}))(?:\\?v=[a-f0-9]+)?'`, 'g'),
       `$1?v=${version}'`,
     );
     if (after !== before) writeFileSync(path, after);
   }
 
+  const builtAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+
   const stamp = (path, replacements) => {
     let html = readFileSync(path, 'utf8');
     for (const [search, replacement] of replacements) html = html.replace(search, replacement);
-    writeFileSync(path, html.replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${version}">`));
+    writeFileSync(path, html
+      .replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${version}">`)
+      .replace(/<meta name="catalogus-gebouwd" content="[^"]*">/, `<meta name="catalogus-gebouwd" content="${builtAt}">`));
   };
 
   stamp(join(ROOT, 'index.html'), [
@@ -658,6 +663,7 @@ const output = {
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
     ...(t.color ? { color: t.color } : {}),
   })),
+  byLongest: [...new Set(models.map((m) => m.kind).filter(Boolean))].sort().filter(byLongest),
   limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()
     .map((kind) => [kind, Object.fromEntries(
       Object.entries(LINT_LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
