@@ -1,4 +1,4 @@
-import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=83e54a8115';
+import { renderTagEditor, mountEditBar, effectiveKind } from './tag-edits.js?v=99e69e78d8';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -677,7 +677,25 @@ function exportCsv() {
   file(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
 }
 
+function markNav() {
+  if (!SOURCE.key) return;
+  const nav = document.querySelector('.paginabalk[aria-label="Pages"]');
+  if (!nav) return;
+  const current = nav.querySelector('[aria-current="page"]');
+  const target = nav.querySelector(`a[href*="source=${SOURCE.key}"]`);
+  if (!current || !target) return;
+  const link = document.createElement('a');
+  link.href = 'swipe.html';
+  link.textContent = current.textContent;
+  const here = document.createElement('span');
+  here.setAttribute('aria-current', 'page');
+  here.textContent = target.textContent;
+  current.replaceWith(link);
+  target.replaceWith(here);
+}
+
 async function start() {
+  markNav();
   const response = await fetch(SOURCE.file);
   if (!response.ok) throw new Error(`${SOURCE.file} not found (${response.status})`);
   const data = await response.json();

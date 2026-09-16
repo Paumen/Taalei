@@ -1,5 +1,5 @@
-import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=83e54a8115';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=83e54a8115';
+import { renderTagEditor, mountEditBar, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=99e69e78d8';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=99e69e78d8';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
