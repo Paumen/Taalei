@@ -480,9 +480,9 @@ function readTags(known) {
   if (badParent.length) console.warn(`! parent is not a material: ${badParent.join(', ')}`);
 
   const unknownKind = tags.filter((t) => t.type === 'kind' && !KIND_TREE.has(t.id)).map((t) => t.id);
-  if (unknownKind.length) console.warn(`! kind not in Appendix B: ${unknownKind.join(', ')}`);
+  if (unknownKind.length) throw new Error(`kind not in lint/kinds.json: ${unknownKind.join(', ')}`);
   const missingKind = [...KIND_TREE.keys()].filter((id) => !tags.some((t) => t.type === 'kind' && t.id === id));
-  if (missingKind.length) console.warn(`! Appendix B kind not in tags.json: ${missingKind.join(', ')}`);
+  if (missingKind.length) throw new Error(`lint/kinds.json kind not in tags.json: ${missingKind.join(', ')}`);
   const closed = new Set(tags.filter((t) => t.type === 'kind').map((t) => t.id));
   const shadowed = tags.filter((t) => t.type === 'tag' && closed.has(t.id)).map((t) => t.id);
   if (shadowed.length) console.warn(`! open tag shares an id with a kind: ${shadowed.join(', ')}`);
