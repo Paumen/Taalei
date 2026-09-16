@@ -100,7 +100,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 - **`I01`** — Chunky, caricatured; not thin, not primitive.
 - **`I02`** — Clean facets, chamfered edges, rounded-soft.
-- **`I03`** — Few details, except. ⚑ O1
+- **`I03`** — Few details, except. 
 - **`I04`** — Invented before 1850.
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
@@ -151,7 +151,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `tag:comp`, `tag:plural` and `kind:assy` are exempt.
 
-Min and max per kind live in the JSON ⚑ O2. Each applies to `dim:high` or `dim:longest`, as set there.
+Min and max per kind live in the kinds.JSON. Each applies to `dim:high` or `dim:longest`, as set there.
 
 ### 2.4 Boxes and part counts
 
@@ -166,8 +166,7 @@ Min and max per kind live in the JSON ⚑ O2. Each applies to `dim:high` or `dim
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
 | `G22` | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 |
-| `G23` | `kind:obj-furniture-table` | — | model | fits | 2 × 2 × 0.5 ⚑ O3 |
-| `G24` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G23` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 
 ---
 
@@ -200,7 +199,7 @@ What a kind is made of. Colour follows from §5.
 | `M02` | `kind:obj-weapon-cannon \| kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` |
 | `M03` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` |
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | is | `metal-iron` ⚑ O4 |
+| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | is | `metal-iron` |
 | `M06` | `kind:obj-container-chest` | — | `part:hoop` | is | `metal-iron` |
 | `M07` | `kind:obj-container-crate` | — | `part:hoop` | is | `metal-iron` |
 | `M08` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
@@ -292,11 +291,11 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B37` | `kind:obj-food-grain` | wheat, straw | model | one-of | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` |
 | `B39` | `*` chocolate | — | model | one-of | `chestnut` |
-| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe`, within UV 0.02–0.40 of the lane ⚑ O5 |
+| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe`, within UV 0.02–0.40 of the band |
 | `B41` | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B42` | `kind:obj-transport-ship \| kind:obj-transport-boat \| kind:obj-transport-accessory` | sails | `mat:textile` | one-of | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` ⚑ O5 |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` ⚑ O6 | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` |
+| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` |
+| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` |
 | `B45` | `kind:obj-pocketitem-scroll` | — | `mat:paper` | one-of | `ivory` |
 | `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` (sometimes) | one-of | `slate` |
 | `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` |
@@ -310,7 +309,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B55` | `kind:env-fungi` | — | `part:cap` (always) | one-of | `sienna`, `camel` |
 | `B56` | `kind:env-fauna` | — | model | one-of | `any` |
 | `B57` | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` |
-| `B58` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber`, with the lane's UV range not 0 ⚑ O5 |
+| `B58` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber`, with the lane's UV range not 0 |
 
 ---
 
@@ -367,7 +366,9 @@ A variant is what keeps a kind from ballooning. Filled and empty, open and close
 
 ---
 
-## Appendix: kind tree + glossary
+## Appendix
+
+see kinds.json.
 
 Main:
 `obj` = manufactured/portable thing
@@ -378,181 +379,12 @@ Other:
 `char` = living or acting entity, incl. any obj it may equip, wear or carry
 `assy` = a mix of different things from different kinds
 
+
 Format: `kind — nouns that resolve here`.
 Parent lines list nouns that have no leaf yet.
 Match with the deepest reasonable tier.
 Ground you walk on is `env-terrain`; a rock set on it is `env-rock`.
 
-```
-obj-container-chest — chest, trunk, coffer, strong box
-obj-container-barrel — barrel, cask, keg
-obj-container-bucket — bucket, pail, basin, tub
-obj-container-crate — crate, box, case, package
-obj-container-bottle — bottle, flask, vial, potion
-obj-container-bag — bag, sack, pouch, purse, backpack
-obj-container-pot — pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer
-obj-container — basket, trough, bin, can, coffin
-
-obj-kitchenware-tableware-cutlery — knife (table), fork, spoon
-obj-kitchenware-tableware-plate — plate, dish, platter, tray, saucer, bowl
-obj-kitchenware-tableware-drinkware — mug, cup, goblet, chalice, tankard, glass
-obj-kitchenware-tableware
-obj-kitchenware-cookware-pan — pan, skillet
-obj-kitchenware-cookware-pot — cooking pot, cauldron, kettle, crockpot
-obj-kitchenware-cookware — grill, spit, ladle, cutting board
-obj-kitchenware
-
-obj-furniture-seating-bench — bench, couch, sofa, pew
-obj-furniture-seating-chair — chair, armchair, throne
-obj-furniture-seating-stool — stool, footstool
-obj-furniture-seating
-obj-furniture-table — table, desk
-obj-furniture-bed — bed, bedroll, bunk, cot, hammock
-obj-furniture-storage — cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser
-obj-furniture — rug, carpet
-
-obj-food-meat — meat, ham, sausage, drumstick, steak, roast, leg
-obj-food-vegetable — carrot, cabbage, pumpkin, turnip, onion, potato, tomato
-obj-food-grain — bread, loaf, wheat sheaf, flour sack, cake, pie, croissant, waffle, cookie, roll, baguette
-obj-food — fish (as food), fruit, apple, cheese, egg, honey, coconut
-
-obj-weapon-melee-sword — sword, blade, rapier, scimitar, katana
-obj-weapon-melee-dagger — dagger, knife (combat)
-obj-weapon-melee-axe — axe, hatchet, battleaxe
-obj-weapon-melee-hammer — hammer (war), mace, club, flail
-obj-weapon-melee — spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade
-
-obj-weapon-ranged-bow — bow, longbow
-obj-weapon-ranged-crossbow — crossbow
-obj-weapon-ranged-accessory — arrow, bolt (crossbow), dart, quiver
-obj-weapon-ranged — sling, throwing knife, javelin, pistol, rifle, musket, blunderbuss, shotgun
-
-obj-weapon-magic-staff — staff, wizard staff
-obj-weapon-magic — wand, orb, focus (magic)
-
-obj-weapon-cannon — cannon, cannonball
-
-obj-weapon
-
-obj-equipment-armor — helmet, chestplate, pauldron, greaves, gauntlet
-obj-equipment-shield — shield, buckler
-obj-equipment-clothing — cape, cloak, robe, hat, hood, boots, shoes, belt, glove
-obj-equipment — crown
-
-obj-tool-hand — hammer (tool), saw, chisel, trowel, wrench, tongs, brush
-obj-tool-long — shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)
-obj-tool-supplies — screw, nail, bolt (fastener), rope, chain, hook, wire
-obj-tool — lever, spring, gear, pulley, anvil, grindstone
-
-obj-transport-ship — ship, galleon, longship, hull (ship)
-obj-transport-boat — boat, rowboat, canoe, raft, dinghy
-obj-transport-cart — cart, wagon, carriage, wheelbarrow, sled
-obj-transport-accessory — anchor, paddle, oar, wheel, sail, rudder, mast
-obj-transport — saddle, balloon
-
-obj-lighting-lantern — lantern, lamp
-obj-lighting-torch — torch, brazier
-obj-lighting-candle — candle, candlestick, candelabra
-obj-lighting-campfire — campfire, bonfire, fire pit
-obj-lighting — chandelier
-
-obj-pocketitem-coin — coin, gold pile, gem (cut)
-obj-pocketitem-key — key
-obj-pocketitem-book — book, tome, journal, spell book
-obj-pocketitem-scroll — scroll, letter, map (rolled), parchment, blueprint
-obj-pocketitem-jewellery — ring, necklace, amulet, bracelet, earring, pendant, brooch
-obj-pocketitem — compass, hourglass, dice, mirror (hand)
-
-obj-resource-metal — ingot, bar, nugget, ore lump, cog, spare part
-obj-resource-wood-log — log (cut), timber, firewood, cordwood
-obj-resource-wood-plank — plank (stock), board (loose), pallet
-obj-resource-wood
-obj-resource-stone — brick (loose), cut block
-obj-resource-textile — textile bolt, cloth roll
-obj-resource — hide, raw stock
-
-obj-instrument — bell, gong, drum, lute
-
-obj-art-sculpture — statue, fountain
-obj-art
-
-obj — barrel stand, weapon stand, easel, signboard (freestanding), cage, heart token, star token
-
-str-part-door — door, gate (building), hatch
-str-part-floor — floor, floor tile, ceiling
-str-part-roof — roof, roof tile, chimney, gable
-str-part-window — window, shutter
-str-part-wall — wall, wall segment, arch (building), corner
-str-part-pillar — pillar, column, beam, support
-str-part-frame — frame, framework, post-and-beam frame, scaffold, structure (open)
-str-part — room, cellar, souterrain, dungeon
-
-str-building-tower — tower, lighthouse, mill, windmill, church ⚑ O7
-
-str-building-dwelling — house (whole), hut, inn
-str-building-fort — castle, inn, barracks, stables, blacksmith ⚑ O7
-str-building — watermill, sawmill, gazebo, well
-
-str-stands — tent, stall, market stand, awning, canopy
-
-str-platform-deck — deck, boardwalk
-str-platform-dock — dock, pier, jetty
-str-platform
-
-str-barrier-fence — fence, fence segment, railing, palisade, gate (fence)
-str-barrier-post — post, bollard, stake
-str-barrier — wall (low, garden), hedge (trimmed), barricade
-
-str-access-stairs — stairs, steps, ramp
-str-access-ladder — ladder
-str-access-bridge — bridge, plank (crossing), rope bridge
-str-access
-
-str-marker-sign — sign, signpost, notice board, direction arrow
-str-marker-flag — flag, banner, pennant
-str-marker-tombstone — tombstone, gravestone, cross (grave), memorial
-str-marker — milestone, waystone, totem
-
-str — stage, altar, plinth, pedestal, shrine, gallows, waterwheel, mine entrance, fireplace
-
-env-flora-plant-cactus — cactus, succulent
-env-flora-plant-flower — flower, tulip, rose, sunflower, bellflower, daisy, lily, violet
-env-flora-plant-grass — grass, grass tuft, reed
-env-flora-plant — cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad
-
-env-flora-tree-conifer — conifer, pine, spruce, fir
-env-flora-tree-palm — palm
-env-flora-tree — tree, oak, birch, willow, bush (tree-sized)
-
-env-flora-deadwood-stump — stump
-env-flora-deadwood-branch — branch, twig, log (fallen), driftwood
-env-flora-deadwood — dead tree, fallen tree, root
-
-env-fungi — mushroom, toadstool, fungus, lichen
-
-env-fauna — fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail
-
-env-remains-bones — bone, skull, skeleton (prop), ribcage, carcass
-env-remains — shell, egg (wild), nest, feather
-
-env-rock-formation — arch (rock), monolith, spire, cliff, cliff prop, outcrop
-env-rock-boulder — boulder, rock (large)
-env-rock-pebble — pebble, stone (small), gravel
-env-rock — crystal, ore (in rock), stalagmite
-
-env-terrain-mountain — mountain, hill, mesa, volcano
-env-terrain-ground — ground, ground mesh, dirt path, stone path, cobbled path, sand, snow patch
-env-terrain — island base, cave floor, riverbed
-
-env-water — water, pond, wave, waterfall, ice, pool, lake
-
-env — cloud, snow drift, lava, smoke, fog
-
-assy — several distinct things, one top-level
-char — playable, npc, skeleton (rigged), animal (rigged)
-```
-
-Materials ⚑ O8
 ```
 metal
 ├─ metal-iron
@@ -577,17 +409,4 @@ wick       glass      liquid     emissive
 rope       cork       gemstone   special
 vegetation skin
 ```
-
----
-
-## Open
-
-- **O1** — `I03`: "except" is cut off. Except what?
-- **O2** — §2.3: the JSON file isn't named.
-- **O3** — `G23`: with `fits` read as w × d × h, tables max out at 0.5 high. Is that intended?
-- **O4** — `M05`–`M07` are identical and could merge into one `D03` row.
-- **O5** — `B40`, `B43`, `B58`: UV conditions and "striped" aren't tokens under `F07`.
-- **O6** — `B44`: `&` binds first, so `mat:paper` only narrows `kind:obj-weapon-magic`, not books. Is that intended?
-- **O7** — "inn" is under both dwelling and fort; "church" sits under tower and "blacksmith" under fort.
-- **O8** — `foliage` and `vegetation` overlap; `food`, `emissive`, `foliage` and `vegetation` have no §5.1 palette.
-- **O9** — `I08`, `I09`, `I11`: values are multi-token or prose under `is`.
+ 
