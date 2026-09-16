@@ -86,11 +86,11 @@ const MODELLEN = {
     vlakken: { 'p1:5:1': blad, 'p1:14:1': blad, 'p1:21:1': ['vegetation', 'taupe'] },
   },
   barrel_1: {
-    naam: 'barrel-a', kind: 'obj-container-barrel', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'barrel-a', kind: 'obj-container-barrel', tags: ['asia', 'ngons'],
     vlakken: { 'p1:41:0': bewerkt, 'p1:14:0': plank, 'p1:1:0': smeedijzer },
   },
   barrel_2: {
-    naam: 'barrel-b', kind: 'obj-container-barrel', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'barrel-b', kind: 'obj-container-barrel', tags: ['asia', 'ngons'],
     vlakken: { 'p1:41:0': bewerkt, 'p1:14:0': plank, 'p1:1:0': smeedijzer },
   },
   bell: {
@@ -98,7 +98,7 @@ const MODELLEN = {
     vlakken: { 'p1:6:0': ['metal-copper', 'terracotta'], 'p1:1:0': bewerkt, 'p1:9:0': balk, 'p1:29:0': steen },
   },
   brazier: {
-    naam: 'brazier', kind: 'obj-lighting-torch', tags: ['asia', 'ngons'], use: ['light'],
+    naam: 'brazier', kind: 'obj-lighting-torch', tags: ['asia', 'ngons'],
     vlakken: { 'p1:37:0': smeedijzer, 'p1:57:0': gietijzer },
   },
   bridge: { naam: 'bridge-wood', kind: 'str-access-bridge', tags: ['asia'], vlakken: { 'p1:9:0': balk } },
@@ -119,7 +119,7 @@ const MODELLEN = {
     vlakken: { 'p1:9:0': balk, 'p1:17:0': dakpan, 'p1:1:0': bewerkt, 'p1:14:0': plank, 'p1:26:0': steen },
   },
   cart: {
-    naam: 'cart', kind: 'obj-transport-cart', tags: ['asia'], use: ['transport'],
+    naam: 'cart', kind: 'obj-transport-cart', tags: ['asia'],
     vlakken: { 'p1:9:0': balk, 'p1:14:0': bewerkt, 'p1:41:0': bewerkt },
   },
   clover: { naam: 'clover', kind: 'env-flora-plant', tags: ['asia', 'plural'], vlakken: { 'p1:26:1': blad } },
@@ -172,12 +172,12 @@ const MODELLEN = {
   graves_group2: { naam: 'graves-b', kind: 'str-marker-tombstone', tags: ['asia', 'plural'], vlakken: { 'p1:29:0': steen } },
   hive: { naam: 'hive', kind: 'env-remains', tags: ['asia'], vlakken: { 'p1:49:0': ['food', 'amber'] } },
   lamp: {
-    naam: 'stone-lantern', kind: 'obj-lighting-lantern', tags: ['asia', 'ngons'], use: ['light'],
+    naam: 'stone-lantern', kind: 'obj-lighting-lantern', tags: ['asia', 'ngons'],
     vlakken: { 'p1:29:0': steen, 'p1:57:0': smeedijzer },
   },
   mineral_ore: { naam: 'ore-gold', kind: 'env-rock', tags: ['asia'], vlakken: { 'p1:6:0': goud, 'p1:5:0': goud } },
   nest: { naam: 'nest', kind: 'env-remains', tags: ['asia'], vlakken: { 'p1:53:0': ['vegetation', 'taupe'] } },
-  net: { naam: 'net', kind: 'obj-tool-supplies', tags: ['asia'], use: ['tool'], vlakken: { 'p1:41:0': ['rope', 'taupe'], 'p1:34:1': schors } },
+  net: { naam: 'net', kind: 'obj-tool-supplies', tags: ['asia'], vlakken: { 'p1:41:0': ['rope', 'taupe'], 'p1:34:1': schors } },
   pillar_1: { naam: 'pillar-wood', kind: 'str-part-pillar', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:1:0': bewerkt } },
   pillar_2: { naam: 'pillar-a', kind: 'str-part-pillar', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:1:0': goud } },
   pillar_2_long: { naam: 'pillar-a-tall', kind: 'str-part-pillar', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:1:0': goud } },
@@ -192,11 +192,11 @@ const MODELLEN = {
   post_1: { naam: 'post-a', kind: 'str-barrier-post', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:41:0': bewerkt } },
   post_2: { naam: 'post-b', kind: 'str-barrier-post', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:41:0': bewerkt } },
   pot_1: {
-    naam: 'pot-large', kind: 'obj-container-pot', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'pot-large', kind: 'obj-container-pot', tags: ['asia', 'ngons'],
     vlakken: { 'p1:30:0': ['ceramic', 'taupe'], 'p1:31:0': ['ceramic', 'taupe'] },
   },
   pot_2: {
-    naam: 'pot-small', kind: 'obj-container-pot', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'pot-small', kind: 'obj-container-pot', tags: ['asia', 'ngons'],
     vlakken: { 'p1:30:0': ['ceramic', 'taupe'] },
   },
   rock_big_1: { naam: 'rock-large-a', kind: 'env-rock-boulder', tags: ['asia'], vlakken: { 'p1:33:0': rots } },
@@ -259,11 +259,11 @@ const MODELLEN = {
     vlakken: { 'p1:9:0': balk, 'p1:21:0': dakpan, 'p1:29:0': steen, 'p1:14:0': plank, 'p1:26:0': steen },
   },
   urn_1: {
-    naam: 'urn-a', kind: 'obj-container-pot', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'urn-a', kind: 'obj-container-pot', tags: ['asia', 'ngons'],
     vlakken: { 'p1:29:0': ['ceramic', 'taupe'], 'p1:30:0': ['ceramic', 'taupe'] },
   },
   urn_2: {
-    naam: 'urn-b', kind: 'obj-container-pot', tags: ['asia', 'ngons'], use: ['container'],
+    naam: 'urn-b', kind: 'obj-container-pot', tags: ['asia', 'ngons'],
     vlakken: { 'p1:1:0': ['ceramic', 'terracotta'], 'p1:2:0': ['ceramic', 'terracotta'] },
   },
   wall_decor_1: { naam: 'wall-decor-a', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:1:0': bewerkt } },
@@ -282,12 +282,12 @@ const MODELLEN = {
   bones_1: { naam: 'bones-a', kind: 'env-remains-bones', tags: ['halloween', 'plural'], vlakken: { 'p2:17:0': ['bone', 'ivory'] } },
   bones_2: { naam: 'bones-b', kind: 'env-remains-bones', tags: ['halloween', 'plural'], vlakken: { 'p2:17:0': ['bone', 'ivory'] } },
   bones_group: { naam: 'bones-pile', kind: 'env-remains-bones', tags: ['halloween', 'plural'], vlakken: { 'p2:18:0': ['bone', 'ivory'] } },
-  coffin: { naam: 'coffin-a', kind: 'obj-container', tags: ['halloween'], use: ['container'], vlakken: { 'p2:6:1': bewerkt } },
-  coffin_2: { naam: 'coffin-b', kind: 'obj-container', tags: ['halloween'], use: ['container'], vlakken: { 'p2:6:1': bewerkt } },
+  coffin: { naam: 'coffin-a', kind: 'obj-container', tags: ['halloween'], vlakken: { 'p2:6:1': bewerkt } },
+  coffin_2: { naam: 'coffin-b', kind: 'obj-container', tags: ['halloween'], vlakken: { 'p2:6:1': bewerkt } },
   column_1: { naam: 'column-tall', kind: 'str-part-pillar', tags: ['halloween', 'ngons'], vlakken: { 'p2:46:1': grafsteen } },
   column_2: { naam: 'column-medium', kind: 'str-part-pillar', tags: ['halloween', 'ngons'], vlakken: { 'p2:46:1': grafsteen } },
   column_3: { naam: 'column-short', kind: 'str-part-pillar', tags: ['halloween', 'ngons'], vlakken: { 'p2:46:1': grafsteen, 'p2:45:1': grafsteen } },
-  crate: { naam: 'crate', kind: 'obj-container-crate', tags: ['halloween'], use: ['container'], vlakken: { 'p2:5:1': bewerkt } },
+  crate: { naam: 'crate', kind: 'obj-container-crate', tags: ['halloween'], vlakken: { 'p2:5:1': bewerkt } },
   fence_fragment: { naam: 'iron-fence-broken', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:46:1': grafsteen, 'p2:61:1': gietijzer } },
   fence_large: { naam: 'iron-fence-large', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:46:1': grafsteen, 'p2:61:1': gietijzer } },
   fence_medium: { naam: 'iron-fence-medium', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:46:1': grafsteen, 'p2:61:1': gietijzer } },
@@ -296,7 +296,7 @@ const MODELLEN = {
   fence_pillar_2: { naam: 'iron-fence-post-b', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:46:1': grafsteen } },
   fence_pillar_3: { naam: 'iron-fence-post-c', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:46:1': grafsteen } },
   'lamp.001': {
-    naam: 'lamppost', kind: 'obj-lighting-lantern', tags: ['halloween'], use: ['light'],
+    naam: 'lamppost', kind: 'obj-lighting-lantern', tags: ['halloween'],
     vlakken: { 'p2:62:1': smeedijzer, 'p2:61:1': gietijzer, 'p2:57:0': ['emissive', 'amber'] },
   },
   metal_fence: { naam: 'iron-fence-bars', kind: 'str-barrier-fence', tags: ['halloween'], vlakken: { 'p2:61:1': gietijzer } },
@@ -640,7 +640,7 @@ for (const model of gekozen) {
   const materialen = [...new Set(Object.values(opgave.vlakken).map(([materiaal]) => materiaal))];
   regels.push([
     `${kit}/${opgave.naam}`,
-    [opgave.kind, ...materialen, ...(opgave.use ?? []).map((u) => `use:${u}`), ...opgave.tags],
+    [opgave.kind, ...materialen, ...opgave.tags],
   ]);
   perKit.get(kit).push(opgave.naam);
   console.log(
