@@ -197,19 +197,41 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
-`M01` `M02` `M03` `M05` `M06` `M07` `M22` `M23` live as `mat.<material>` on the kind nodes in the kinds.JSON, read as "carries this material, so carries one of this subtype". The deeper kind wins, so their `!` branches are not repeated there.
+### 4.1 Subtype per kind
 
-Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`. The other rows need parts or nouns the catalogue does not record, and are checked by eye.
+A `mat.<material>` field on a kind node in the kinds.JSON. It reads: a model of this kind that carries any material under `<material>` carries at least one under the named subtype. A model carrying none of that material is not asked.
+
+The deepest kind on a model's chain that names the material wins, so a narrower kind replaces a wider one instead of excluding itself from it.
+
+```
+kind                            field             required
+
+obj
+├─ obj-container-barrel         mat.metal         metal-iron
+├─ obj-container-bucket         mat.metal         metal-iron
+├─ obj-container-chest          mat.metal         metal-iron
+├─ obj-container-crate          mat.metal         metal-iron
+├─ obj-kitchenware-tableware    mat.metal-iron    metal-iron-steel
+├─ obj-equipment                mat.metal-iron    metal-iron-steel
+├─ obj-weapon                   mat.metal-iron    metal-iron-steel
+│  └─ obj-weapon-cannon         mat.metal-iron    metal-iron-cast
+└─ obj-tool                     mat.metal-iron    metal-iron-steel
+   ├─ obj-tool-supplies         mat.metal-iron    metal-iron-wrought
+   ├─ obj-tool-hand             mat.wood          wood-planks
+   └─ obj-tool-long             mat.wood          wood-beam
+char                            mat.metal-iron    metal-iron-steel
+str                             mat.metal-iron    metal-iron-cast
+```
+
+Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
+
+### 4.2 The rest
+
+Parts, nouns and groups the catalogue does not record. Checked by eye.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon & !kind:obj-weapon-cannon \| kind:obj-tool & !kind:obj-tool-supplies \| kind:obj-equipment \| kind:char` | `mat:metal-iron` | is | `metal-iron-steel` |
-| `M02` | `kind:obj-weapon-cannon \| kind:str` | `mat:metal-iron` | is | `metal-iron-cast` |
-| `M03` | `kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-wrought` |
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | `mat:metal` | is | `metal-iron` |
-| `M06` | `kind:obj-container-chest` | `mat:metal` | is | `metal-iron` |
-| `M07` | `kind:obj-container-crate` | `mat:metal` | is | `metal-iron` |
 | `M08` | `D03` | model | has | `wood:` |
 | `M09` | `kind:obj-container-bottle` | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
@@ -224,8 +246,6 @@ Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`. The other row
 | `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
 | `M20` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
-| `M22` | `kind:obj-tool-hand` | `mat:wood` | is | `wood-planks` |
-| `M23` | `kind:obj-tool-long` | `mat:wood` | is | `wood-beam` |
 | `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
 | `M26` | `kind:obj-pocketitem-coin` | model | is | `metal-gold` |
