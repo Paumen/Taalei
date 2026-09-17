@@ -32,7 +32,11 @@ for (const root of JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf
 
 function lintOf(model, wdh) {
   if (!model.kind || isExempt(model, LINT_VARS)) return undefined;
-  const found = findingsFor({ ...model, wdh }, LINT_LIMITS.get(model.kind), LINT_VARS);
+  const found = findingsFor(
+    { ...model, wdh, tpu: model.trianglesPerUnit },
+    LINT_LIMITS.get(model.kind),
+    LINT_VARS,
+  );
   return found.length ? found : undefined;
 }
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
