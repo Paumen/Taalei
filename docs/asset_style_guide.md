@@ -293,37 +293,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `B01` | `mat=metal-iron-steel` | — | `mat:metal-iron-steel` | is | `nickel` |
-| `B02` | `mat=metal-iron-wrought` | — | `mat:metal-iron-wrought` | is | `basalt` |
-| `B03` | `mat=metal-iron-cast` | — | `mat:metal-iron-cast` | is | `slate` |
-| `B04` | `mat=metal-gold` | — | `mat:metal-gold` | is | `amber` |
-| `B05` | `mat=metal-copper` | — | `mat:metal-copper` | is | `terracotta` |
-| `B06` | `mat=wood-planks` | — | `mat:wood-planks` | is | `tan` |
-| `B07` | `mat=wood-worked` | — | `mat:wood-worked` | is | `camel` |
-| `B08` | `mat=wood-beam` | — | `mat:wood-beam` | is | `chestnut` |
-| `B09` | `mat=wood-bark` | — | `mat:wood-bark` | is | `umber` |
-| `B10` | `mat=wood-log` | — | `mat:wood-log` | is | `tan`, `camel`, `chestnut` |
-| `B11` | `mat=stone-masonry` | — | `mat:stone-masonry` | is | `taupe`, `slate`, `nickel` |
-| `B12` | `mat=stone-rock` | — | `mat:stone-rock` | is | `nickel`, `taupe` |
-| `B13` | `mat=stone-soil` | — | `mat:stone-soil` | is | `taupe` |
-| `B14` | `mat=paper` | — | `mat:paper` | is | `ivory` |
-| `B15` | `mat=textile` | — | `mat:textile` | is | `ivory`, `hunter` |
-| `B16` | `mat=leather` | — | `mat:leather` | is | `umber` |
-| `B17` | `mat=ceramic` | — | `mat:ceramic` | is | `terracotta`, `ivory`, `taupe`, `sienna` |
-| `B18` | `mat=bone` | — | `mat:bone` | is | `ivory` |
-| `B19` | `mat=wax` | — | `mat:wax` | is | `ivory` |
-| `B20` | `mat=wick` | — | `mat:wick` | is | `basalt` |
-| `B21` | `mat=glass & !size:s` | — | `mat:glass` | is | `transparent` |
-| `B22` | `mat=glass & size:s` | — | `mat:glass` | is | `transparent`, `sienna`, `hunter` |
-| `B23` | `mat=liquid` | — | `mat:liquid` | is | `sienna`, `hunter`, `azure` |
-| `B24` | `mat=rope` | — | `mat:rope` | is | `taupe` |
-| `B25` | `mat=cork` | — | `mat:cork` | is | `taupe` |
-| `B26` | `mat=gemstone` | — | `mat:gemstone` | is | `sienna`, `hunter`, `azure` |
-| `B27` | `mat=skin` | — | `mat:skin` | is | `tan`, `taupe`, `umber` |
-
-These rows live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A row that holds only at one size — `B22` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+One row per material: the bands a model carrying it may draw from. They live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A palette that holds only at one size — glass at `size:s` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
 
 The catalogue records bands per model, not per material, so the rows are checked as coverage: a model carrying a material shows at least one band out of that material's palette.
 
@@ -385,7 +355,7 @@ Five of them name a `part:` or a noun that the coverage reading makes redundant,
 |---|---|---|---|
 | `B29` | `drinkware` mug, cup, tankard, `mat:wood` | `drinkware`, `mat:wood` | a goblet, chalice or glass is not wooden, so `mat:wood` already picks out the noun |
 | `B34` | `kind:obj-food-meat`, model | unchanged, read as coverage | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
-| `B44` | `part:cover` | model | the paper is `ivory` by `B14`, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
+| `B44` | `part:cover` | model | the paper is `ivory` by its §5.1 palette, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
 | `B52` | `part:leaf, canopy` | model | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
 | `B54` | `part:stem` | model | the stem is the only `ivory` part of a fungus |
 
