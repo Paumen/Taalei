@@ -199,29 +199,15 @@ What a kind is made of. Colour follows from §5.
 
 ### 4.1 Subtype per kind
 
-A `mat.<material>` field on a kind node in the kinds.JSON. It reads: a model of this kind that carries any material under `<material>` carries at least one under the named subtype. A model carrying none of that material is not asked.
+A kind `<K>` in the kinds.JSON carries `mat.<M>: <R>`, `<M>` a material and `<R>` one of its subtypes. It is the row:
 
-The deepest kind on a model's chain that names the material wins, so a narrower kind replaces a wider one instead of excluding itself from it.
+| when | subject | assert | value |
+|---|---|---|---|
+| `kind:<K>` | `mat:<M>` | has | `<R>` |
 
-```
-kind                            field             required
+Resolved per `F08` rule 3 alone: of the nodes on a model's kind chain naming `<M>`, only the deepest is read. A wider kind is replaced, never excluded, so no `!` terms.
 
-obj
-├─ obj-container-barrel         mat.metal         metal-iron
-├─ obj-container-bucket         mat.metal         metal-iron
-├─ obj-container-chest          mat.metal         metal-iron
-├─ obj-container-crate          mat.metal         metal-iron
-├─ obj-kitchenware-tableware    mat.metal-iron    metal-iron-steel
-├─ obj-equipment                mat.metal-iron    metal-iron-steel
-├─ obj-weapon                   mat.metal-iron    metal-iron-steel
-│  └─ obj-weapon-cannon         mat.metal-iron    metal-iron-cast
-└─ obj-tool                     mat.metal-iron    metal-iron-steel
-   ├─ obj-tool-supplies         mat.metal-iron    metal-iron-wrought
-   ├─ obj-tool-hand             mat.wood          wood-planks
-   └─ obj-tool-long             mat.wood          wood-beam
-char                            mat.metal-iron    metal-iron-steel
-str                             mat.metal-iron    metal-iron-cast
-```
+Which kinds carry which field is the kinds.JSON.
 
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
 
