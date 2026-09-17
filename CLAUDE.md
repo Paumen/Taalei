@@ -1,9 +1,13 @@
-Claude contract:
-It is strictly forbidden to look at any previous commits or prs and related files.
-do not assume anything, if you doubt, you ask clarification.
-never write assumptions, comments, requirements, statements, rules or similar in code files.
-All new code is written in English.
+## Claude contract:
+** It is strictly forbidden to look at any previous commits or prs and related files.
+** do not assume anything, if you doubt, you ask clarification.
+** never write assumptions, comments, requirements, statements, rules or similar in code files.
+** All new code is written in English.
+** never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
+** Keep docs tersely, and in plain English..
 
+
+## what's installed
 installed:
 Python (pip)
 * mcp ≥1.0, cairosvg, matplotlib, graphviz
