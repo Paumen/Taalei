@@ -2,6 +2,7 @@ export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
+const BAND = 'band';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
@@ -132,22 +133,24 @@ export function paletteFindingsFor(model, palettes, materialIds, vars) {
   return out;
 }
 
-export function buildKindBands(kinds, rows) {
+export function buildKindBands(kinds) {
+  const own = new Map();
   const parent = new Map();
   const walk = (node, from) => {
+    own.set(node.id, Object.entries(node)
+      .filter(([key]) => key === BAND || key.startsWith(`${BAND}.`))
+      .map(([key, bands]) => [key === BAND ? null : key.slice(BAND.length + 1), bands]));
     parent.set(node.id, from);
     for (const child of node.children ?? []) walk(child, node.id);
   };
   for (const root of kinds.kinds) walk(root, null);
 
   const byKind = new Map();
-  for (const id of parent.keys()) {
+  for (const id of own.keys()) {
     const byMat = new Map();
     for (let at = id; at; at = parent.get(at)) {
-      for (const row of rows) {
-        if (!row.kinds.includes(at) || byMat.has(row.mat ?? null)) continue;
-        if (row.excludes?.some((k) => idUnder(id, k))) continue;
-        byMat.set(row.mat ?? null, { id: row.id, bands: row.bands, from: at });
+      for (const [mat, bands] of own.get(at)) {
+        if (!byMat.has(mat)) byMat.set(mat, { bands, from: at });
       }
     }
     byKind.set(id, byMat);
@@ -165,7 +168,6 @@ export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
     const lanes = row.bands.map((band) => palettes.lanes.get(band));
     if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
     out.push({
-      rule: row.id,
       from: row.from,
       material: present.join(' ') || '—',
       wants: row.bands.join(' '),

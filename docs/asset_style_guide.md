@@ -50,11 +50,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 **[F08] Combining rows.** A row whose `except` matches the model does not apply. Rows that apply and do not disagree all hold. When two rows assert on the same subject and disagree, the more specific row wins:
 
 1. a `part:` subject over a `mat:` subject, and a `mat:` subject over `model`;
-2. a §5.2 row over a §5.1 row;
+2. a §5.2 or §5.3 row over a §5.1 row;
 3. a row naming a deeper kind over a row naming a shallower kind;
 4. any term over `*`.
 
-§4 and §5.2 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
+§4 and §5.3 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
 
@@ -319,7 +319,32 @@ if palette lint error:
 2. verify if the band is a §5.2 case.
 3. check if more models same kit have errors.
 
-### 5.2 By kind and part
+### 5.2 In the kinds.JSON
+
+The rows the catalogue can answer live in the kinds.JSON, on the node of the kind they name, as the bands that kind may draw from. Two fields:
+
+```
+band.«material»: [ «band», … ]     holds for a model of the kind carrying «material»
+band: [ «band», … ]                holds for every model of the kind
+```
+
+Checked as coverage, like §5.1: the model shows at least one band out of the list. The bands are recorded per model, not per material, so `band.«material»` says when the list applies, not which bands belong to that material. Of the kinds on a model's chain setting the same field, only the deepest is read — `F08` rule 3, which is how a palm takes `moss` where the trees above it take `hunter`. Two fields naming different materials both apply. A list admitting `transparent` holds no band, so it is not checked.
+
+Some of these came from a row naming a part or a noun that the coverage reading makes redundant, so the field is kept on the kind alone:
+
+| kind | as written | why the part drops |
+|---|---|---|
+| `obj-kitchenware-tableware-drinkware` | mug, cup, tankard, `mat:wood` | a goblet, chalice or glass is not wooden, so `band.wood` already picks out the noun |
+| `obj-food-meat` | model, `is` `sienna` | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
+| `obj-pocketitem-book` | `part:cover` | the paper is `ivory` by its §5.1 palette, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
+| `env-flora-tree` | `part:leaf, canopy` | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
+| `env-fungi` | `part:stem` | the stem is the only `ivory` part of a fungus |
+
+Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a kind's own bands are checked on their own terms and not also against the material's wider palette.
+
+---
+
+### 5.3 The rest
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
@@ -344,24 +369,6 @@ if palette lint error:
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
 The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
-
-The rows the catalogue can answer live in `lint/kind-bands.json`: `B28`, `B29`, `B30`, `B34`, `B41`, `B44`, `B45`, `B48`, `B49`, `B50`, `B52` and `B54`. Each names kinds and a band list, and may name a material.
-
-Checked as coverage, like §5.1: a model of the kind shows at least one band out of the row's list. A row naming a material holds only for a model carrying it; the bands are recorded per model, not per material, so the material says when the row applies, not which bands belong to it. Where two rows name the same material, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
-
-Five of them name a `part:` or a noun that the coverage reading makes redundant, so the row is kept on the kind alone:
-
-| id | as written | as checked | why it holds |
-|---|---|---|---|
-| `B29` | `drinkware` mug, cup, tankard, `mat:wood` | `drinkware`, `mat:wood` | a goblet, chalice or glass is not wooden, so `mat:wood` already picks out the noun |
-| `B34` | `kind:obj-food-meat`, model | unchanged, read as coverage | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
-| `B44` | `part:cover` | model | the paper is `ivory` by its §5.1 palette, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
-| `B52` | `part:leaf, canopy` | model | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
-| `B54` | `part:stem` | model | the stem is the only `ivory` part of a fungus |
-
-Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a row here is checked on its own terms and not also against the material's wider palette.
-
----
 
 ## 6. Governance & process
 
