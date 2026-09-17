@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { buildLimits, findingsFor, isExempt } from '../../lint/rules.mjs';
 
@@ -643,7 +643,6 @@ for (const model of models) {
 }
 
 const catalog = {
-  budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   variants: variants.groups,
   tags: tags.tags,
@@ -669,7 +668,6 @@ const catalog = {
 };
 
 const output = {
-  budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
   tags: tags.tags.map((t) => ({
@@ -750,19 +748,6 @@ for (const kit of kits) {
   }
 }
 
-const overBudget = models
-  .filter((m) => m.trianglesPerUnit !== null && m.trianglesPerUnit > BUDGET_PER_UNIT)
-  .sort((a, b) => b.trianglesPerUnit - a.trianglesPerUnit);
-const WORST = 25;
-if (overBudget.length) {
-  console.warn(`! ${overBudget.length} models over ${BUDGET_PER_UNIT} triangles per unit, the worst ${Math.min(WORST, overBudget.length)}:`);
-  for (const m of overBudget.slice(0, WORST)) {
-    console.warn(`  ${String(m.trianglesPerUnit).padStart(6)}  ${m.id}  (${m.triangles} tri, ${m.wdh.join(' × ')})`);
-  }
-  if (overBudget.length > WORST) {
-    console.warn(`  … and ${overBudget.length - WORST} more; the full list is in catalog.json`);
-  }
-}
 const flat = models.filter((m) => m.trianglesPerUnit === null);
 if (flat.length) {
   console.warn(`! ${flat.length} flat models without volume, so without triangles per unit: ${flat.map((m) => m.id).join(', ')}`);

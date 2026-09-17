@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSy
 import { join, dirname, resolve, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readGlb, writeGlb, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { readKindTree, kindName, kindFromName } from './kinds.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -417,7 +417,6 @@ for (const bronkit of BRONKITS) {
 }
 
 const uitvoer = {
-  budgetPerUnit: BUDGET_PER_UNIT,
   modelPath: DOEL_PAD,
   kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
   sources: bronnen,
