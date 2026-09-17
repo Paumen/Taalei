@@ -148,7 +148,22 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in the kinds.JSON. Each applies to `high` or `longest`, as set there.
+Min and max per kind live in the kinds.JSON, as `high.min`, `high.max`, `longest.min` and `longest.max`. Each is inherited from the nearest kind up the chain that sets it, falling back to the `defaults` block, which sets `longest` for everything. So a kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind has a «limit»<br/>on high or longest (kinds.json,<br/>nearest ancestor setting it, else defaults)"]
+  A --> T["THEN the model's own high or longest,<br/>from wdh (catalog.json),<br/>must sit within «limit» (kinds.json)"]
+  T --> Y(["within &nbsp; pass"])
+  T --> W(["past it by ≤ «warnBand» of the limit &nbsp; warning<br/>(variables.json)"])
+  T --> N(["further &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef warn fill:#fdf0d5,stroke:#c9a227,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class W warn
+  class N bad
+```
 
 Run `node lint/size.mjs`; exemptions and the warning band live in `lint/variables.json`.
 
@@ -197,15 +212,40 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
+### 4.1 Subtype per kind
+
+These rows live in the kinds.JSON, on the node of the kind they name.
+
+```
+mat.«material»: «subtype»       «material»   a material id
+                                «subtype»    «material» or one under it
+```
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND it is made of «material»<br/>(catalog.json tags, materials.json)"]
+  A --> T["THEN that model must have «subtype»<br/>(catalog.json tags, kinds.json)"]
+  T --> Y(["yes &nbsp; pass"])
+  T --> N(["no &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class N bad
+```
+
+Of the kinds on a model's chain setting the same `mat.«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. Two rows naming different `«material»` ids both apply, even where one id sits under the other.
+
+`materials.json` is what says a tag counts as under `«material»`. `variables.json` says which kinds are exempt, and holds `special` out of the check.
+
+Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
+
+### 4.2 The rest
+
+Parts, nouns and groups the catalogue does not record. Checked by eye.
+
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon & !kind:obj-weapon-cannon \| kind:obj-tool & !kind:obj-tool-supplies \| kind:obj-equipment \| kind:char` | `mat:metal-iron` | is | `metal-iron-steel` |
-| `M02` | `kind:obj-weapon-cannon \| kind:str` | `mat:metal-iron` | is | `metal-iron-cast` |
-| `M03` | `kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-wrought` |
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | `mat:metal` | is | `metal-iron` |
-| `M06` | `kind:obj-container-chest` | `mat:metal` | is | `metal-iron` |
-| `M07` | `kind:obj-container-crate` | `mat:metal` | is | `metal-iron` |
 | `M08` | `D03` | model | has | `wood:` |
 | `M09` | `kind:obj-container-bottle` | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
@@ -220,8 +260,6 @@ What a kind is made of. Colour follows from §5.
 | `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
 | `M20` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
-| `M22` | `kind:obj-tool-hand` | `mat:wood` | is | `wood-planks` |
-| `M23` | `kind:obj-tool-long` | `mat:wood` | is | `wood-beam` |
 | `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
 | `M26` | `kind:obj-pocketitem-coin` | model | is | `metal-gold` |
