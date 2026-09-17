@@ -43,10 +43,8 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `max` | number | subject ≤ value; same |
 | `range` | a–b | a ≤ subject ≤ b |
 | `fits` | w × d × h | axis-aligned extents each ≤ the box |
-| `is` | token | a single-valued subject equals the token |
+| `is` | token list | every value the subject carries is among the tokens; a single-valued subject equals the one token |
 | `not` | token | subject never equals the token |
-| `one-of` | token list | the tokens are the whole set the subject may draw from |
-| `any-of` | token list | every value the subject carries is among the tokens, and it carries at least one |
 | `has` | token list | the subject carries at least one of the tokens; other values are allowed |
 
 **[F08] Combining rows.** A row whose `except` matches the model does not apply. Rows that apply and do not disagree all hold. When two rows assert on the same subject and disagree, the more specific row wins:
@@ -56,7 +54,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 3. a row naming a deeper kind over a row naming a shallower kind;
 4. any term over `*`.
 
-`M00` is a fallback: it applies only where no other §4 row sets `mat:metal-iron`.
+§4 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
 
@@ -199,48 +197,47 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `M00` | `mat=metal-iron` | `kind:obj-kitchenware-cookware` | `mat:metal-iron` | is | `metal-iron-wrought` |
-| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment \| kind:char` | `kind:obj-weapon-cannon \| kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-steel` |
-| `M02` | `kind:obj-weapon-cannon \| kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` |
-| `M03` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` |
-| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `mat:metal` | is | `metal-iron` |
-| `M06` | `kind:obj-container-chest` | — | `mat:metal` | is | `metal-iron` |
-| `M07` | `kind:obj-container-crate` | — | `mat:metal` | is | `metal-iron` |
-| `M08` | `D03` | — | model | has | `wood:` |
-| `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
-| `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
-| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
-| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
-| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | has | `wood:` |
-| `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
-| `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` | any-of | `wood:`, `textile` |
-| `M16` | `kind:obj-weapon` | — | `part:strap` | any-of | `textile`, `leather` |
-| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` | any-of | `textile`, `rope`, `leather` |
-| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` | any-of | `leather` |
-| `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
-| `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
-| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
-| `M22` | `kind:obj-tool-hand` | — | `mat:wood` | is | `wood-planks` |
-| `M23` | `kind:obj-tool-long` | — | `mat:wood` | is | `wood-beam` |
-| `M24` | `kind:obj-transport-accessory` | — | `part:sail` | is | `textile` |
-| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
-| `M26` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
-| `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
-| `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` | any-of | `leather`, `metal-iron:` |
-| `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
-| `M30` | `kind:obj-resource-wood-log` | — | model | has | `wood-log` |
-| `M31` | `kind:obj-resource-wood-log` | — | model | has | `wood-bark` |
-| `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
-| `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
-| `M34` | `kind:str` | — | model | has | `wood:` |
-| `M35` | `kind:str-part-roof` | — | model | has | `ceramic` |
-| `M36` | `kind:str-marker-flag` | — | model | has | `textile` |
-| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | model | has | `wood:` |
-| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
-| `M39` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
+| id | when | subject | assert | value |
+|---|---|---|---|---|
+| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon & !kind:obj-weapon-cannon \| kind:obj-tool & !kind:obj-tool-supplies \| kind:obj-equipment \| kind:char` | `mat:metal-iron` | is | `metal-iron-steel` |
+| `M02` | `kind:obj-weapon-cannon \| kind:str` | `mat:metal-iron` | is | `metal-iron-cast` |
+| `M03` | `kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-wrought` |
+| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
+| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | `mat:metal` | is | `metal-iron` |
+| `M06` | `kind:obj-container-chest` | `mat:metal` | is | `metal-iron` |
+| `M07` | `kind:obj-container-crate` | `mat:metal` | is | `metal-iron` |
+| `M08` | `D03` | model | has | `wood:` |
+| `M09` | `kind:obj-container-bottle` | model | has | `glass`, `ceramic` |
+| `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
+| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | model | is | `ceramic`, `metal-iron:`, `wood:` |
+| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | model | has | `wood:` |
+| `M14` | `kind:obj-furniture-seating` | model | has | `textile` |
+| `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
+| `M16` | `kind:obj-weapon` | `part:strap` | is | `textile`, `leather` |
+| `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
+| `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
+| `M20` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:`, `metal-gold` |
+| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
+| `M22` | `kind:obj-tool-hand` | `mat:wood` | is | `wood-planks` |
+| `M23` | `kind:obj-tool-long` | `mat:wood` | is | `wood-beam` |
+| `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
+| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
+| `M26` | `kind:obj-pocketitem-coin` | model | is | `metal-gold` |
+| `M27` | `kind:obj-pocketitem-key` | model | is | `metal-iron:`, `metal-gold` |
+| `M28` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
+| `M29` | `kind:obj-pocketitem-jewellery` | model | is | `metal-gold`, `gemstone` |
+| `M30` | `kind:obj-resource-wood-log` | model | has | `wood-log` |
+| `M31` | `kind:obj-resource-wood-log` | model | has | `wood-bark` |
+| `M32` | `*` sticks, unworked poles | model | is | `wood-bark` |
+| `M33` | `kind:obj-instrument` bells | model | has | `metal-copper`, `metal-gold` |
+| `M34` | `kind:str` | model | has | `wood:` |
+| `M35` | `kind:str-part-roof` | model | has | `ceramic` |
+| `M36` | `kind:str-marker-flag` | model | has | `textile` |
+| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | model | has | `wood:` |
+| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
+| `M39` | `kind:env-terrain-ground` sand, dirt | `mat:stone` | is | `stone-soil` |
 
 ---
 
@@ -254,69 +251,69 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `B01` | `mat=metal-iron-steel` | — | `mat:metal-iron-steel` | one-of | `nickel` |
-| `B02` | `mat=metal-iron-wrought` | — | `mat:metal-iron-wrought` | one-of | `basalt` |
-| `B03` | `mat=metal-iron-cast` | — | `mat:metal-iron-cast` | one-of | `slate` |
-| `B04` | `mat=metal-gold` | — | `mat:metal-gold` | one-of | `amber` |
-| `B05` | `mat=metal-copper` | — | `mat:metal-copper` | one-of | `terracotta` |
-| `B06` | `mat=wood-planks` | — | `mat:wood-planks` | one-of | `tan` |
-| `B07` | `mat=wood-worked` | — | `mat:wood-worked` | one-of | `camel` |
-| `B08` | `mat=wood-beam` | — | `mat:wood-beam` | one-of | `chestnut` |
-| `B09` | `mat=wood-bark` | — | `mat:wood-bark` | one-of | `umber` |
-| `B10` | `mat=wood-log` | — | `mat:wood-log` | one-of | `tan`, `camel`, `chestnut` |
-| `B11` | `mat=stone-masonry` | — | `mat:stone-masonry` | one-of | `taupe`, `slate`, `nickel` |
-| `B12` | `mat=stone-rock` | — | `mat:stone-rock` | one-of | `nickel`, `taupe` |
-| `B13` | `mat=stone-soil` | — | `mat:stone-soil` | one-of | `taupe` |
-| `B14` | `mat=paper` | — | `mat:paper` | one-of | `ivory` |
-| `B15` | `mat=textile` | — | `mat:textile` | one-of | `ivory`, `hunter` |
-| `B16` | `mat=leather` | — | `mat:leather` | one-of | `umber` |
-| `B17` | `mat=ceramic` | — | `mat:ceramic` | one-of | `terracotta`, `ivory`, `taupe`, `sienna` |
-| `B18` | `mat=bone` | — | `mat:bone` | one-of | `ivory` |
-| `B19` | `mat=wax` | — | `mat:wax` | one-of | `ivory` |
-| `B20` | `mat=wick` | — | `mat:wick` | one-of | `basalt` |
-| `B21` | `mat=glass & !size:s` | — | `mat:glass` | one-of | `transparent` |
-| `B22` | `mat=glass & size:s` | — | `mat:glass` | one-of | `transparent`, `sienna`, `hunter` |
-| `B23` | `mat=liquid` | — | `mat:liquid` | one-of | `sienna`, `hunter`, `azure` |
-| `B24` | `mat=rope` | — | `mat:rope` | one-of | `taupe` |
-| `B25` | `mat=cork` | — | `mat:cork` | one-of | `taupe` |
-| `B26` | `mat=gemstone` | — | `mat:gemstone` | one-of | `sienna`, `hunter`, `azure` |
-| `B27` | `mat=skin` | — | `mat:skin` | one-of | `tan`, `taupe`, `umber` |
+| `B01` | `mat=metal-iron-steel` | — | `mat:metal-iron-steel` | is | `nickel` |
+| `B02` | `mat=metal-iron-wrought` | — | `mat:metal-iron-wrought` | is | `basalt` |
+| `B03` | `mat=metal-iron-cast` | — | `mat:metal-iron-cast` | is | `slate` |
+| `B04` | `mat=metal-gold` | — | `mat:metal-gold` | is | `amber` |
+| `B05` | `mat=metal-copper` | — | `mat:metal-copper` | is | `terracotta` |
+| `B06` | `mat=wood-planks` | — | `mat:wood-planks` | is | `tan` |
+| `B07` | `mat=wood-worked` | — | `mat:wood-worked` | is | `camel` |
+| `B08` | `mat=wood-beam` | — | `mat:wood-beam` | is | `chestnut` |
+| `B09` | `mat=wood-bark` | — | `mat:wood-bark` | is | `umber` |
+| `B10` | `mat=wood-log` | — | `mat:wood-log` | is | `tan`, `camel`, `chestnut` |
+| `B11` | `mat=stone-masonry` | — | `mat:stone-masonry` | is | `taupe`, `slate`, `nickel` |
+| `B12` | `mat=stone-rock` | — | `mat:stone-rock` | is | `nickel`, `taupe` |
+| `B13` | `mat=stone-soil` | — | `mat:stone-soil` | is | `taupe` |
+| `B14` | `mat=paper` | — | `mat:paper` | is | `ivory` |
+| `B15` | `mat=textile` | — | `mat:textile` | is | `ivory`, `hunter` |
+| `B16` | `mat=leather` | — | `mat:leather` | is | `umber` |
+| `B17` | `mat=ceramic` | — | `mat:ceramic` | is | `terracotta`, `ivory`, `taupe`, `sienna` |
+| `B18` | `mat=bone` | — | `mat:bone` | is | `ivory` |
+| `B19` | `mat=wax` | — | `mat:wax` | is | `ivory` |
+| `B20` | `mat=wick` | — | `mat:wick` | is | `basalt` |
+| `B21` | `mat=glass & !size:s` | — | `mat:glass` | is | `transparent` |
+| `B22` | `mat=glass & size:s` | — | `mat:glass` | is | `transparent`, `sienna`, `hunter` |
+| `B23` | `mat=liquid` | — | `mat:liquid` | is | `sienna`, `hunter`, `azure` |
+| `B24` | `mat=rope` | — | `mat:rope` | is | `taupe` |
+| `B25` | `mat=cork` | — | `mat:cork` | is | `taupe` |
+| `B26` | `mat=gemstone` | — | `mat:gemstone` | is | `sienna`, `hunter`, `azure` |
+| `B27` | `mat=skin` | — | `mat:skin` | is | `tan`, `taupe`, `umber` |
 
 ### 5.2 By kind and part
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `B28` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | `mat:ceramic` | one-of | `ivory`, `terracotta` |
-| `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` |
-| `B30` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` |
-| `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` fish, cheese, chocolate | model | one-of | `any` |
-| `B32` | `kind:obj-food` fish | — | model | one-of | `nickel`, `basalt`, `slate`, `azure` |
-| `B33` | `kind:obj-food` cheese | — | model | one-of | `amber` |
-| `B34` | `kind:obj-food-meat` | — | model | one-of | `sienna` |
-| `B35` | `kind:obj-food-vegetable` | carrot, pumpkin | model | one-of | `moss` |
-| `B36` | `kind:obj-food-vegetable` carrot, pumpkin | — | model | one-of | `terracotta` |
-| `B37` | `kind:obj-food-grain` | wheat, straw | model | one-of | `tan`, `camel`, `chestnut` |
-| `B38` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` |
-| `B39` | `*` chocolate | — | model | one-of | `chestnut` |
-| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` | one-of | `taupe`, within UV 0.02–0.40 of the band |
-| `B41` | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` |
-| `B42` | `kind:obj-transport-ship \| kind:obj-transport-boat \| kind:obj-transport-accessory` | sails | `mat:textile` | one-of | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` | one-of | `umber`, `sienna`, `hunter`, `slate` |
-| `B45` | `kind:obj-pocketitem-scroll` | — | `mat:paper` | one-of | `ivory` |
-| `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` | one-of | `slate` |
-| `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` | one-of | `sienna`, `hunter`, `azure` |
-| `B48` | `kind:char \| kind:obj-equipment-clothing` | — | `mat:textile` | one-of | `ivory`, `hunter`, `sienna` |
-| `B49` | `kind:str` | — | `mat:glass` | one-of | `transparent` |
-| `B50` | `kind:str-part-roof` | — | `mat:ceramic` | one-of | `sienna` |
-| `B51` | `kind:env-flora` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:stem, leaf` | one-of | `moss` |
-| `B52` | `kind:env-flora-tree` | `kind:env-flora-tree-palm` | `part:leaf, canopy` | one-of | `hunter` |
-| `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | — | `part:flower` | one-of | `any` |
-| `B54` | `kind:env-fungi` | — | `part:stem` | one-of | `ivory` |
-| `B55` | `kind:env-fungi` | — | `part:cap` | one-of | `sienna`, `camel` |
-| `B56` | `kind:env-fauna` | — | model | one-of | `any` |
-| `B57` | `*` | — | `part:dried stalk` | one-of | `taupe` |
-| `B58` | `*` | — | `part:flame, glow, light` | one-of | `amber`, with the lane's UV range not 0 |
+| `B28` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | `mat:ceramic` | is | `ivory`, `terracotta` |
+| `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `mat:wood` | is | `camel`, `chestnut` |
+| `B30` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | is | `terracotta` |
+| `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` fish, cheese, chocolate | model | is | `any` |
+| `B32` | `kind:obj-food` fish | — | model | is | `nickel`, `basalt`, `slate`, `azure` |
+| `B33` | `kind:obj-food` cheese | — | model | is | `amber` |
+| `B34` | `kind:obj-food-meat` | — | model | is | `sienna` |
+| `B35` | `kind:obj-food-vegetable` | carrot, pumpkin | model | is | `moss` |
+| `B36` | `kind:obj-food-vegetable` carrot, pumpkin | — | model | is | `terracotta` |
+| `B37` | `kind:obj-food-grain` | wheat, straw | model | is | `tan`, `camel`, `chestnut` |
+| `B38` | `kind:obj-food-grain` wheat, straw | — | model | is | `tan` |
+| `B39` | `*` chocolate | — | model | is | `chestnut` |
+| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
+| `B41` | `kind:obj-transport` | — | `mat:wood` | is | `camel`, `chestnut` |
+| `B42` | `kind:obj-transport-ship \| kind:obj-transport-boat \| kind:obj-transport-accessory` | sails | `mat:textile` | is | `ivory`, `hunter`, `slate` |
+| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
+| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` | is | `umber`, `sienna`, `hunter`, `slate` |
+| `B45` | `kind:obj-pocketitem-scroll` | — | `mat:paper` | is | `ivory` |
+| `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` | is | `slate` |
+| `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` | is | `sienna`, `hunter`, `azure` |
+| `B48` | `kind:char \| kind:obj-equipment-clothing` | — | `mat:textile` | is | `ivory`, `hunter`, `sienna` |
+| `B49` | `kind:str` | — | `mat:glass` | is | `transparent` |
+| `B50` | `kind:str-part-roof` | — | `mat:ceramic` | is | `sienna` |
+| `B51` | `kind:env-flora` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
+| `B52` | `kind:env-flora-tree` | `kind:env-flora-tree-palm` | `part:leaf, canopy` | is | `hunter` |
+| `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | — | `part:flower` | is | `any` |
+| `B54` | `kind:env-fungi` | — | `part:stem` | is | `ivory` |
+| `B55` | `kind:env-fungi` | — | `part:cap` | is | `sienna`, `camel` |
+| `B56` | `kind:env-fauna` | — | model | is | `any` |
+| `B57` | `*` | — | `part:dried stalk` | is | `taupe` |
+| `B58` | `*` | — | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
 ---
 
