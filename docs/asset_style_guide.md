@@ -224,12 +224,26 @@ has: [ «material», [«material», …] ]        a plain entry is required outr
                                             a nested list is any one of them
 ```
 
-`mat.` asks a model that already carries the material to carry the right one. `has` asks for the material in the first place.
+`mat.` asks a model that already carries the material to carry the right one:
 
 ```mermaid
 flowchart LR
   I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND it is made of «material»<br/>(catalog.json tags, materials.json)"]
   A --> T["THEN that model must have «subtype»<br/>(catalog.json tags, kinds.json)"]
+  T --> Y(["yes &nbsp; pass"])
+  T --> N(["no &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class N bad
+```
+
+`has` asks for the material in the first place:
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind's has names «material»<br/>(kinds.json)"]
+  A --> T["THEN that model must have «material»<br/>(catalog.json tags, materials.json)"]
   T --> Y(["yes &nbsp; pass"])
   T --> N(["no &nbsp; error"])
   classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
