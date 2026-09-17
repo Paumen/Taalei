@@ -30,6 +30,9 @@
        "high.min": 0.2,
        "high.max": 0.5,
        "mat.metal": "metal-iron",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "chest",
         "trunk",
@@ -41,6 +44,9 @@
        "id": "obj-container-barrel",
        "high.min": 0.2,
        "mat.metal": "metal-iron",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "barrel",
         "cask",
@@ -51,6 +57,9 @@
        "id": "obj-container-bucket",
        "high.max": 0.4,
        "mat.metal": "metal-iron",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "bucket",
         "pail",
@@ -62,6 +71,9 @@
        "id": "obj-container-crate",
        "high.min": 0.2,
        "mat.metal": "metal-iron",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "crate",
         "box",
@@ -72,6 +84,12 @@
       {
        "id": "obj-container-bottle",
        "high.max": 0.4,
+       "has": [
+        [
+         "glass",
+         "ceramic"
+        ]
+       ],
        "nouns": [
         "bottle",
         "flask",
@@ -128,6 +146,13 @@
          "id": "obj-kitchenware-tableware-plate",
          "longest.min": 0.1,
          "longest.max": 0.4,
+         "has": [
+          [
+           "ceramic",
+           "metal-iron",
+           "wood"
+          ]
+         ],
          "nouns": [
           "plate",
           "dish",
@@ -139,6 +164,13 @@
         {
          "id": "obj-kitchenware-tableware-bowl",
          "longest.max": 0.4,
+         "has": [
+          [
+           "ceramic",
+           "metal-iron",
+           "wood"
+          ]
+         ],
          "nouns": [
           "bowl"
          ]
@@ -656,6 +688,9 @@
       {
        "id": "obj-pocketitem-coin",
        "longest.max": 0.2,
+       "has": [
+        "metal-gold"
+       ],
        "nouns": [
         "coin",
         "gold pile",
@@ -665,6 +700,12 @@
       {
        "id": "obj-pocketitem-key",
        "longest.max": 0.2,
+       "has": [
+        [
+         "metal-iron",
+         "metal-gold"
+        ]
+       ],
        "nouns": [
         "key"
        ]
@@ -694,6 +735,12 @@
       },
       {
        "id": "obj-pocketitem-jewellery",
+       "has": [
+        [
+         "metal-gold",
+         "gemstone"
+        ]
+       ],
        "nouns": [
         "ring",
         "necklace",
@@ -730,6 +777,10 @@
        "children": [
         {
          "id": "obj-resource-wood-log",
+         "has": [
+          "wood-log",
+          "wood-bark"
+         ],
          "nouns": [
           "log (cut)",
           "timber",
@@ -969,6 +1020,9 @@
       },
       {
        "id": "str-barrier-post",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "post",
         "bollard",
@@ -1014,6 +1068,9 @@
      "children": [
       {
        "id": "str-marker-sign",
+       "has": [
+        "wood"
+       ],
        "nouns": [
         "sign",
         "signpost",
@@ -1023,6 +1080,10 @@
       },
       {
        "id": "str-marker-flag",
+       "has": [
+        "textile",
+        "wood"
+       ],
        "nouns": [
         "flag",
         "banner",

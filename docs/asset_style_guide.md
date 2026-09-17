@@ -212,14 +212,19 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
-### 4.1 Subtype per kind
+### 4.1 In the kinds.JSON
 
-These rows live in the kinds.JSON, on the node of the kind they name.
+These rows live in the kinds.JSON, on the node of the kind they name. Two fields:
 
 ```
 mat.«material»: «subtype»       «material»   a material id
                                 «subtype»    «material» or one under it
+
+has: [ «material», [«material», …] ]        a plain entry is required outright,
+                                            a nested list is any one of them
 ```
+
+`mat.` asks a model that already carries the material to carry the right one:
 
 ```mermaid
 flowchart LR
@@ -233,7 +238,21 @@ flowchart LR
   class N bad
 ```
 
-Of the kinds on a model's chain setting the same `mat.«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. Two rows naming different `«material»` ids both apply, even where one id sits under the other.
+`has` asks for the material in the first place:
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind's has names «material»<br/>(kinds.json)"]
+  A --> T["THEN that model must have «material»<br/>(catalog.json tags, materials.json)"]
+  T --> Y(["yes &nbsp; pass"])
+  T --> N(["no &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class N bad
+```
+
+Of the kinds on a model's chain setting the same `mat.«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. Two rows naming different `«material»` ids both apply, even where one id sits under the other. A `has` entry never overrides: every entry down the chain holds at once.
 
 `materials.json` is what says a tag counts as under `«material»`. `variables.json` says which kinds are exempt, and holds `special` out of the check.
 
@@ -246,13 +265,9 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | id | when | subject | assert | value |
 |---|---|---|---|---|
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M08` | `D03` | model | has | `wood:` |
-| `M09` | `kind:obj-container-bottle` | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
-| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | model | is | `ceramic`, `metal-iron:`, `wood:` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | model | has | `wood:` |
-| `M14` | `kind:obj-furniture-seating` | model | has | `textile` |
 | `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
 | `M16` | `kind:obj-weapon` | `part:strap` | is | `textile`, `leather` |
 | `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
@@ -262,20 +277,11 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
 | `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
-| `M26` | `kind:obj-pocketitem-coin` | model | is | `metal-gold` |
-| `M27` | `kind:obj-pocketitem-key` | model | is | `metal-iron:`, `metal-gold` |
 | `M28` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
-| `M29` | `kind:obj-pocketitem-jewellery` | model | is | `metal-gold`, `gemstone` |
-| `M30` | `kind:obj-resource-wood-log` | model | has | `wood-log` |
-| `M31` | `kind:obj-resource-wood-log` | model | has | `wood-bark` |
 | `M32` | `*` sticks, unworked poles | model | is | `wood-bark` |
 | `M33` | `kind:obj-instrument` bells | model | has | `metal-copper`, `metal-gold` |
-| `M34` | `kind:str` | model | has | `wood:` |
-| `M35` | `kind:str-part-roof` | model | has | `ceramic` |
-| `M36` | `kind:str-marker-flag` | model | has | `textile` |
-| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | model | has | `wood:` |
+| `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
-| `M39` | `kind:env-terrain-ground` sand, dirt | `mat:stone` | is | `stone-soil` |
 
 ---
 
