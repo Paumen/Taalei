@@ -44,10 +44,8 @@ for (const { raw, id } of NOUNS) {
 
 const DISPLAY = read('lint/kind-display.json');
 for (const id of Object.keys(DISPLAY.kinds)) if (!NODES.has(id)) fail(`${id} has display data but is not a kind`);
-for (const [id, { name, color }] of Object.entries(DISPLAY.kinds)) {
-  const node = NODES.get(id);
-  if (name) node.name = name;
-  if (color) node.color = color;
+for (const [id, { name }] of Object.entries(DISPLAY.kinds)) {
+  if (name) NODES.get(id).name = name;
 }
 
 export const SIZES = DISPLAY.sizes;
@@ -61,7 +59,6 @@ export const sizeOf = (wdh) => (SIZES.find((size) => size.limit !== null && Math
 const node = (id) => NODES.get(id) ?? fail(`${id} is not a kind`);
 
 export const kindName = (id) => node(id).name ?? (([last]) => last[0].toUpperCase() + last.slice(1))([id.split('-').at(-1)]);
-export const kindColor = (id) => node(id).color ?? null;
 export const kindParent = (id) => node(id).parent;
 export const kindIs = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 export const kindAncestors = (id) => {

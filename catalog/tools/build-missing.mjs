@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
 import { readPng } from './png.mjs';
-import { readKindTree, kindName, kindFromName, kindColor } from './kinds.mjs';
+import { readKindTree, kindName, kindFromName } from './kinds.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { alleBestanden, bronModellen, bronId, meet, kebab } from './bronmodellen.mjs';
 
@@ -421,7 +421,7 @@ const uitvoer = {
   modelPath: DOEL_PAD,
   kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
   sources: bronnen,
-  kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id), ...(kindColor(id) ? { color: kindColor(id) } : {}) })),
+  kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) })),
   models: modellen,
 };
 
