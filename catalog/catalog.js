@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=2a22869db7';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=2a22869db7';
-import { colorSwatches, setBands } from './color-edits.js?v=2a22869db7';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=2a22869db7';
-import { mountExtractBar, setPageParts } from './extract.js?v=2a22869db7';
-import './bouwstempel.js?v=2a22869db7';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=73aa872a19';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=73aa872a19';
+import { colorSwatches, setBands } from './color-edits.js?v=73aa872a19';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=73aa872a19';
+import { mountExtractBar, setPageParts } from './extract.js?v=73aa872a19';
+import './bouwstempel.js?v=73aa872a19';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -102,8 +102,6 @@ const sizeClass = (model) => ({
   ...(SIZE_CLASSES.find((k) => k.id === model.size) ?? SIZE_CLASSES.at(-1)),
   longest: Math.max(...model.wdh),
 });
-
-let budgetPerUnit = 2000;
 
 const number = new Intl.NumberFormat('en-GB');
 
@@ -472,14 +470,14 @@ const SORTINGS = {
   klein: (a, b) => longest(a) - longest(b),
   zwaar: (a, b) => b.tris - a.tris,
   licht: (a, b) => a.tris - b.tris,
+  dichtste: (a, b) => num(b.tpu) - num(a.tpu),
+  ijlste: (a, b) => num(a.tpu) - num(b.tpu),
   bestand: (a, b) => b.bytes - a.bytes,
   bestandKlein: (a, b) => a.bytes - b.bytes,
   meesteVtx: (a, b) => b.vtx - a.vtx,
   minsteVtx: (a, b) => a.vtx - b.vtx,
   grofsteFacet: (a, b) => num(b.avgTri) - num(a.avgTri),
   fijnsteFacet: (a, b) => num(a.avgTri) - num(b.avgTri),
-  dichtste: (a, b) => num(b.dens) - num(a.dens),
-  ijlste: (a, b) => num(a.dens) - num(b.dens),
   kleinsteRand: (a, b) => num(a.minEdge) - num(b.minEdge),
   grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
   meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
@@ -768,9 +766,7 @@ function showDetail(model) {
       {
         kop: '/ unit',
         vol: 'Triangles per unit',
-        waarde: !Number.isFinite(model.tpu)
-          ? '—'
-          : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
+        waarde: Number.isFinite(model.tpu) ? number.format(model.tpu) : '—',
       },
     ],
     [
@@ -787,7 +783,6 @@ function showDetail(model) {
       { kop: '/ tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
       { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
       { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
-      { kop: 'Density', waarde: number.format(model.dens) },
       { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
       {
         kop: 'Gradient',
@@ -1210,8 +1205,6 @@ async function start() {
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);
-
-  if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
 

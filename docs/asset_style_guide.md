@@ -13,7 +13,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F01` | `material` | what it is **made of** | closed, parented |
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `anim`, `comp`, `pickup`, `broken`, `floating`, `offcenter`, `ngons`, etc.) | open |
+| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `floating`, `offcenter`, `ngons`, etc.) | open |
 
 **[F05] Term.** A term is one of:
 
@@ -33,7 +33,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `pbands`, `bands`, `calls`, `tris`, `dens`, `grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -56,9 +56,9 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 §4 and §5.3 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
-**[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
+**[F09] `special` in the counts.** `nmat` counts materials without `special`; `bands` counts bands without the `special` one.
 
-**[F10] Rules that live in the JSON.** Four checks read their rows from `lint/kinds.json` and `lint/materials.json` rather than from a table here: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). All four read the same way:
+**[F10] Rules that live in the JSON.** Five checks read their rows from `lint/*.json` rather than from a table here: measures (§2.2) from `lint/measures.json`, and four tree checks from `lint/kinds.json` and `lint/materials.json`: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). A measures row carries its own `when` and `except` terms. The tree checks read the same way:
 
 - **Inheritance.** A field set on a kind or a material holds for everything under it. Where a chain sets the same field more than once, only the deepest is read (`F08` rule 3) — this is how a palm takes `moss` where the trees above it take `hunter`. Fields naming different materials all apply at once. `has` is the exception: every `has` entry down the chain holds.
 - **Coverage.** Bands are recorded per model, not per material, so a band row passes when the model shows at least one band from the list. A list admitting `transparent` holds no band and is not checked.
@@ -70,12 +70,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | id | term | definition |
 |---|---|---|
 | `D01` | high | the bounding-box Y extent |
-| `D02` | tri density | `dens`: tris ÷ bbox surface area, 2(w·d + w·h + d·h) |
+| `D02` | tri budget | `tpu`: tris per unit of footprint × height, each floored so a small model is not read as dense |
 | `D03` | hooped container | `kind:obj-container-barrel \| kind:obj-container-bucket \| kind:obj-container-chest \| kind:obj-container-crate` |
 | `D04` | variant group | models that read as one thing; `main` is the one shown |
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
-| `D07` | palette bands | `pbands`: the fewest distinct bands that give every non-`special` material one band from its palette |
 
 **Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`.
 
@@ -109,18 +108,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `I07` | `*` | — | `grad` | not | 0 |
-| `I08` | `*` | `mat:glass` | model | is | `alphaMode` `OPAQUE` |
-| `I09` | `*` | — | model | is | `roughnessFactor` 1, `metallicFactor` 0 |
-| `I10` | `mat:glass` | — | `calls` | min | 2 |
-| `I11` | `*` | `mat:glass` | model | is | 2+ calls only for moving features |
-| `I12` | `*` | — | model | is | no shadow casting |
+The measured global rows, `I07`–`I11`, live in `lint/measures.json` (§2.2).
 
 ---
 
-## 2. Geometry & budget
+## 2. Geometry
 
 Everything measured off the mesh: extents, counts, pivots, band counts.
 
@@ -133,29 +125,23 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G01` | `tag:ngons` | `tag:hero` | model | range | 8–12 flat pieces per full circle |
 | `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
-| `G04` | `*` | `kind:char` | `dens` | max | TBD — re-measure references under `D02` |
-| `G05` | `*` | `tag:floating` | `grounded` | is | true |
-| `G06` | `*` | `tag:offcenter` | `centered` | is | true |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
-| `G08` | `*` | `kind:env-terrain-mountain` | `dim:high` | max | 6 |
 
-### 2.2 Bands
+`G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `G09` | `*` | — | `nmat` | min | 1 |
-| `G10` | `*` | — | `bands` | min | `pbands` |
-| `G11` | `*` | `kind:obj-food \| kind:env-fauna` | `bands` | max | `nmat` × 2 |
-| `G12` | `kind:obj-food \| kind:env-fauna` | — | `bands` | max | `nmat` × 3 |
-| `G13` | `*` | `kind:char \| size:l` | `bands` | max | 5 |
-| `G14` | `kind:char` | — | `bands` | max | 6 |
-| `G15` | `size:l` | — | `bands` | max | 6 |
+### 2.2 Measures — in `lint/measures.json`
 
-### 2.3 Size
+Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-`tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
+Rows here: `I07`–`I11` (gradient, alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred), `G09` and `G11`–`G15` (materials and the band budget), `G19` (barrel triangles).
 
-Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min` and `longest.max`, inherited per `F10`, falling back to the `defaults` block, which sets `longest` for everything. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
+
+### 2.3 Size and budget
+
+`kind:assy` is exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
+
+Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is often held to several measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
@@ -168,12 +154,9 @@ Run `node lint/size.mjs`.
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
 | `G16` | `D03` | — | `part:hoop` | range | 5–15% of longest, high |
-| `G17` | `kind:obj-container-barrel` | — | `dim:w` | max | 0.75 |
 | `G18` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
-| `G19` | `kind:obj-container-barrel` | — | `tris` | range | 100–1500 |
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
-| `G22` | `kind:obj-furniture` | `kind:obj-furniture-table` | model | fits | 1.2 × 1.2 × 1.2 |
 | `G23` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 
 ---
@@ -227,13 +210,11 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
-| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | model | has | `wood:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:`, `ceramic` |
 | `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
 | `M16` | `kind:obj-weapon` | `part:strap` | is | `textile`, `leather` |
 | `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
 | `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
-| `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
-| `M20` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
 | `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
@@ -276,7 +257,6 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `B31` | `kind:obj-food & !kind:obj-food-meat & !kind:obj-food-vegetable & !kind:obj-food-grain & !fish & !cheese & !chocolate` | model | is | `any` |
 | `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure` |
 | `B33` | `kind:obj-food` cheese | model | is | `amber` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
@@ -290,9 +270,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B46` | `kind:obj-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
-| `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | `part:flower` | is | `any` |
 | `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel` |
-| `B56` | `kind:env-fauna` | model | is | `any` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 

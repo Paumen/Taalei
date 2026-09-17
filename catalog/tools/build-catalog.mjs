@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, trianglesPerUnit, BUDGET_PER_UNIT } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { buildLimits, findingsFor, isExempt } from '../../lint/rules.mjs';
 
@@ -32,7 +32,11 @@ for (const root of JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf
 
 function lintOf(model, wdh) {
   if (!model.kind || isExempt(model, LINT_VARS)) return undefined;
-  const found = findingsFor({ ...model, wdh }, LINT_LIMITS.get(model.kind), LINT_VARS);
+  const found = findingsFor(
+    { ...model, wdh, tpu: model.trianglesPerUnit },
+    LINT_LIMITS.get(model.kind),
+    LINT_VARS,
+  );
   return found.length ? found : undefined;
 }
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
@@ -343,6 +347,9 @@ for (const slug of kitSlugs) {
       triangles: scene.triangles,
       trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
       materials: (gltf.materials ?? []).length,
+      alpha: (gltf.materials ?? []).some((m) => (m.alphaMode ?? 'OPAQUE') !== 'OPAQUE'),
+      pbr: (gltf.materials ?? []).some((m) =>
+        (m.pbrMetallicRoughness?.roughnessFactor ?? 1) !== 1 || (m.pbrMetallicRoughness?.metallicFactor ?? 1) !== 0),
       bands: read.lanes.size,
       wdh: scene.wdh,
       calls: scene.calls,
@@ -352,7 +359,6 @@ for (const slug of kitSlugs) {
       pivotIsCenter: scene.pivotIsCenter,
       minEdgeLength: scene.minEdgeLength,
       averageTriangleArea: scene.averageTriangleArea,
-      density: scene.density,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
       laneSpread: laneSpread(read.gradient),
@@ -641,7 +647,6 @@ for (const model of models) {
 }
 
 const catalog = {
-  budgetPerUnit: BUDGET_PER_UNIT,
   kits,
   variants: variants.groups,
   tags: tags.tags,
@@ -667,7 +672,6 @@ const catalog = {
 };
 
 const output = {
-  budgetPerUnit: BUDGET_PER_UNIT,
   kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
   variants: variants.groups,
   tags: tags.tags.map((t) => ({
@@ -698,7 +702,6 @@ const output = {
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
     avgTri: round(m.averageTriangleArea, 5),
-    dens: Math.round(m.density),
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
@@ -706,6 +709,8 @@ const output = {
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
+    alpha: m.alpha || undefined,
+    pbr: m.pbr || undefined,
     variant: m.variant,
     lint: lintOf(m, m.wdh.map(round1)),
   })),
@@ -747,22 +752,9 @@ for (const kit of kits) {
   }
 }
 
-const overBudget = models
-  .filter((m) => m.trianglesPerUnit !== null && m.trianglesPerUnit > BUDGET_PER_UNIT)
-  .sort((a, b) => b.trianglesPerUnit - a.trianglesPerUnit);
-const WORST = 25;
-if (overBudget.length) {
-  console.warn(`! ${overBudget.length} models over ${BUDGET_PER_UNIT} triangles per unit, the worst ${Math.min(WORST, overBudget.length)}:`);
-  for (const m of overBudget.slice(0, WORST)) {
-    console.warn(`  ${String(m.trianglesPerUnit).padStart(6)}  ${m.id}  (${m.triangles} tri, ${m.wdh.join(' × ')})`);
-  }
-  if (overBudget.length > WORST) {
-    console.warn(`  … and ${overBudget.length - WORST} more; the full list is in catalog.json`);
-  }
-}
 const flat = models.filter((m) => m.trianglesPerUnit === null);
 if (flat.length) {
-  console.warn(`! ${flat.length} flat models without volume, so without density: ${flat.map((m) => m.id).join(', ')}`);
+  console.warn(`! ${flat.length} flat models without volume, so without triangles per unit: ${flat.map((m) => m.id).join(', ')}`);
 }
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
