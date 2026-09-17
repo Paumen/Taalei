@@ -64,6 +64,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **Coverage.** Bands are recorded per model, not per material, so a band row passes when the model shows at least one band from the list. A list admitting `transparent` holds no band and is not checked.
 - **Exemptions** live in `lint/variables.json`, per check.
 - **Each check reads only its own rows**, so §5.1 and §5.2 never widen or fault each other.
+- **In the catalogue.** All five run in the catalogue build as well as from the command line. A finding shows as the ⚠ glyph on the card, as a row under Lint in the model panel, under the Lint and Check filters, and in the lint swipe. The measures rows named under `mark` in `lint/variables.json` show instead as their own value, bold and red, in the model panel.
 
 **Definitions**
 

@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=73aa872a19';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=73aa872a19';
-import { renderCommentBox } from './comments.js?v=73aa872a19';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=73aa872a19';
-import './bouwstempel.js?v=73aa872a19';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=89a1fc825b';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=89a1fc825b';
+import { renderCommentBox } from './comments.js?v=89a1fc825b';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=89a1fc825b';
+import './bouwstempel.js?v=89a1fc825b';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -22,7 +22,7 @@ const SOURCES = {
   },
   lint: {
     file: 'catalog.json',
-    title: 'Swipe the size lint',
+    title: 'Swipe the lint',
     key: 'lint',
     onlyLint: true,
     labels: { links: 'Retag', rechts: 'Add tag', omhoog: 'Flag rescale', omlaag: 'TBD' },
@@ -43,8 +43,7 @@ let limitsPerKind = {};
 let longestKinds = new Set();
 let drawAtScale = null;
 
-const lintText = (f) =>
-  `${f.level} · ${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`;
+const lintText = (f) => `${f.check} · ${f.text}`;
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -466,7 +465,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=73aa872a19'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=89a1fc825b'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);

@@ -254,6 +254,66 @@ export function measureFindingsFor(model, rows, materialIds, vars) {
 
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
+const CHECK_TEXT = {
+  size: (f) => `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`,
+  mat: (f) => `${f.family} needs ${f.required}, has ${f.present} (${f.from})`,
+  palette: (f) => `${f.material} wants ${f.wants}, has ${f.has}`,
+  bands: (f) => `${f.material} wants ${f.wants}, has ${f.has} (${f.from})`,
+  measures: (f) => `${f.rule} ${f.field} ${f.actual} wants ${f.wants}`,
+};
+
+export function buildChecks({ vars, kinds, materials, measures }) {
+  const materialIds = new Set();
+  const collect = (nodes) => {
+    for (const node of nodes) {
+      materialIds.add(node.id);
+      collect(node.children ?? []);
+    }
+  };
+  collect(materials.materials);
+
+  return {
+    vars,
+    materialIds,
+    limits: buildLimits(kinds),
+    mat: buildMaterialRules(kinds),
+    palettes: buildPalettes(materials, vars),
+    bands: buildKindBands(kinds),
+    measures: measures.rows,
+  };
+}
+
+export function checkModel(model, checks) {
+  const { vars, materialIds } = checks;
+  const exempt = (check) => vars[check].exemptKinds.some((k) => idUnder(model.kind, k));
+  const found = [];
+  const push = (check, level, rows) => {
+    for (const row of rows) found.push({ level: level ?? row.level, check, text: CHECK_TEXT[check](row) });
+  };
+
+  if (model.kind) {
+    if (!isExempt(model, vars)) push('size', null, findingsFor(model, checks.limits.get(model.kind), vars));
+    if (!exempt('mat')) {
+      push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));
+    }
+    if (!exempt('palette')) {
+      push('palette', 'error', paletteFindingsFor(model, checks.palettes, materialIds, vars));
+    }
+    if (!exempt('bands')) {
+      push('bands', 'error',
+        kindBandFindingsFor(model, checks.bands.get(model.kind), checks.palettes, materialIds, vars));
+    }
+  }
+
+  const mark = [];
+  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars)) {
+    if (vars.mark.includes(row.rule)) mark.push(row.field);
+    else push('measures', 'error', [row]);
+  }
+
+  return { lint: found.length ? found : undefined, mark: mark.length ? mark : undefined };
+}
+
 export function findingsFor(model, limits, vars) {
   const out = [];
   const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
