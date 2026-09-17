@@ -5238,7 +5238,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 200,
+   "count": 203,
    "color": "#dd9f79"
   },
   {
@@ -5288,7 +5288,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer",
-   "count": 33
+   "count": 36
   },
   {
    "id": "obj-equipment",
@@ -5410,7 +5410,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 137,
+   "count": 134,
    "color": "#9c3f2e"
   },
   {
@@ -5418,7 +5418,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 65
+   "count": 62
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -5432,7 +5432,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 31
+   "count": 28
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -32722,7 +32722,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-a-white",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.15,
@@ -32755,19 +32755,12 @@
    "tags": [
     "ceramic",
     "ngons"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "ceramic wants terracotta, has ivory (obj-kitchenware-cookware-pot)"
-    }
    ]
   },
   {
    "kit": "isa-kitchen",
    "name": "canister-b-red",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.15,
@@ -32805,7 +32798,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-b-white",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.15,
@@ -32838,13 +32831,6 @@
    "tags": [
     "ceramic",
     "ngons"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "ceramic wants terracotta, has ivory (obj-kitchenware-cookware-pot)"
-    }
    ]
   },
   {
@@ -73506,15 +73492,15 @@
      0.359,
      0.891
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
    },
    "colors": [
     "#88848a",
-    "#8b5936",
-    "#b58158"
+    "#b58158",
+    "#dbae80"
    ],
    "tags": [
     "ken",
@@ -73522,14 +73508,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v392",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has camel nickel chestnut"
-    }
-   ]
+   "variant": "v392"
   },
   {
    "kit": "ken-holiday",
@@ -73564,15 +73543,15 @@
      0.102,
      0.891
     ],
-    "2,0": [
+    "0,0": [
      0.297,
      0.695
     ]
    },
    "colors": [
     "#88848a",
-    "#8b5936",
-    "#b58158"
+    "#b58158",
+    "#dbae80"
    ],
    "tags": [
     "ken",
@@ -73580,14 +73559,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v392",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has camel nickel chestnut"
-    }
-   ]
+   "variant": "v392"
   },
   {
    "kit": "ken-holiday",
@@ -117289,26 +117261,19 @@
      0.156,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.281,
      0.648
     ]
    },
    "colors": [
-    "#88848a",
+    "#5b5550",
     "#b58158"
    ],
    "tags": [
     "metal-iron-wrought",
     "own",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has camel nickel"
-    }
    ]
   },
   {
@@ -117427,7 +117392,7 @@
    "vpt": 2.11,
    "grad": 0.86,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.031,
      0.961
     ],
@@ -117442,7 +117407,7 @@
    },
    "colors": [
     "#563b2b",
-    "#88848a",
+    "#5b5550",
     "#dbae80"
    ],
    "tags": [
@@ -117456,12 +117421,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has nickel umber tan"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-beam wants chestnut, has nickel umber tan"
+     "text": "wood-beam wants chestnut, has basalt umber tan"
     }
    ]
   },
@@ -117497,13 +117457,13 @@
      0.031,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.031,
      0.961
     ]
    },
    "colors": [
-    "#88848a",
+    "#5b5550",
     "#8b5936",
     "#b58158"
    ],
@@ -117511,13 +117471,6 @@
     "metal-iron-wrought",
     "own",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has chestnut camel nickel"
-    }
    ],
    "mark": [
     "centered"
@@ -117649,24 +117602,17 @@
    "vpt": 1.69,
    "grad": 0.93,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.031,
      0.961
     ]
    },
    "colors": [
-    "#88848a"
+    "#343745"
    ],
    "tags": [
     "metal-iron-cast",
     "own"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has nickel"
-    }
    ]
   },
   {
@@ -118113,24 +118059,17 @@
    "vpt": 1.19,
    "grad": 0,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.031,
      0.031
     ]
    },
    "colors": [
-    "#343745"
+    "#5b5550"
    ],
    "tags": [
     "metal-iron-wrought",
     "own"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has slate"
-    }
    ]
   },
   {
@@ -118445,13 +118384,13 @@
      0.711,
      0.961
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.773
     ]
    },
    "colors": [
-    "#88848a",
+    "#5b5550",
     "#8b5936",
     "#dbae80"
    ],
@@ -118461,14 +118400,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v270",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has chestnut tan nickel"
-    }
-   ]
+   "variant": "v270"
   },
   {
    "kit": "small-props",
@@ -118507,14 +118439,14 @@
      0.156,
      0.648
     ],
-    "15,3": [
+    "13,3": [
      0.344,
      0.773
     ]
    },
    "colors": [
     "#1367a6",
-    "#88848a",
+    "#5b5550",
     "#8b5936",
     "#dbae80"
    ],
@@ -118525,14 +118457,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v270",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has chestnut tan azure nickel"
-    }
-   ]
+   "variant": "v270"
   },
   {
    "kit": "small-props",
@@ -118562,26 +118487,19 @@
      0.648,
      0.961
     ],
-    "14,3": [
+    "1,0": [
      0.031,
      0.586
     ]
    },
    "colors": [
     "#8b5936",
-    "#8b7561"
+    "#b58158"
    ],
    "tags": [
     "own",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-worked wants camel, has chestnut taupe"
-    }
    ],
    "mark": [
     "grounded"
