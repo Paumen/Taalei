@@ -107,6 +107,52 @@ export function readAccessor({ json, bin }, index) {
   return { data: out, width, count: accessor.count };
 }
 
+// The UV-carrying primitives of a model, in file order, each with the vertex groups
+// its index buffer ties together. A shell is one such group: flat shading splits
+// vertices along every hard edge, so a part is many shells, not one. The lowest
+// member vertex names a shell, so the numbering follows the file rather than the
+// order the groups happened to close in, and stays the same between tools.
+export function meshShells(glb) {
+  const { json } = glb;
+  const out = [];
+  const seen = new Set();
+  for (const mesh of json.meshes ?? []) {
+    for (const prim of mesh.primitives ?? []) {
+      const uv = prim.attributes?.TEXCOORD_0;
+      if (uv === undefined || seen.has(uv)) continue;
+      seen.add(uv);
+      const count = json.accessors[uv].count;
+      const parent = new Int32Array(count);
+      for (let i = 0; i < count; i++) parent[i] = i;
+      const find = (i) => {
+        while (parent[i] !== i) i = parent[i] = parent[parent[i]];
+        return i;
+      };
+      const union = (a, b) => {
+        const ra = find(a);
+        const rb = find(b);
+        if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb);
+      };
+      if (prim.indices !== undefined) {
+        const idx = readAccessor(glb, prim.indices);
+        for (let t = 0; t + 2 < idx.count; t += 3) {
+          union(idx.data[t], idx.data[t + 1]);
+          union(idx.data[t + 1], idx.data[t + 2]);
+        }
+      }
+      const groups = new Map();
+      for (let i = 0; i < count; i++) {
+        const root = find(i);
+        if (!groups.has(root)) groups.set(root, []);
+        groups.get(root).push(i);
+      }
+      const members = [...groups.entries()].sort((a, b) => a[0] - b[0]).map(([, m]) => m);
+      out.push({ mesh: mesh.name ?? '', prim, uv, count, members });
+    }
+  }
+  return out;
+}
+
 const STRICT_ANGLES = [0, 30, 45, 60, 90];
 const STRICT_TOLERANCE = 2;
 

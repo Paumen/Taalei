@@ -1,6 +1,6 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=9572ceedef';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=9572ceedef';
-import { commentCount, clearComments, allComments, onChange as onComment } from './comments.js?v=9572ceedef';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=69c848a8f3';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=69c848a8f3';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=69c848a8f3';
 
 const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
 
@@ -9,6 +9,7 @@ const NOTE = [
   '"tags" holds the tag and kind edits: per tag, "add" ids join that tag\'s "models" in catalog/tags.json and "remove" ids leave it.',
   '"colours" holds colour marks per model, keyed by the hex the panel shows: "partial" is partly wrong, "wrong" is the wrong colour outright, "add" is a band the model does not carry and should.',
   '"comments" holds one free-text note per model.',
+  '"views" holds, per commented model, the angle the panel was showing when the note was written: "view" and "fit" are ready for tools/renders/render.mjs --views and --fit, "zoom" is how far in the view was against the framing model-viewer chose, and "orbit" and "fov" are what the panel reported.',
   '"swipe" holds the swipe run: the label of every direction with the paths judged that way.',
   '"selection" holds the paths ticked in the catalogue.',
 ].join(' ');
@@ -28,9 +29,11 @@ const staged = () => {
   const tags = allEdits();
   const colours = allMarks();
   const comments = allComments();
+  const views = allViews();
   if (Object.keys(tags).length) out.tags = tags;
   if (Object.keys(colours).length) out.colours = colours;
   if (Object.keys(comments).length) out.comments = comments;
+  if (Object.keys(views).length) out.views = views;
   return out;
 };
 

@@ -32,6 +32,10 @@ nothing that should keep its colour.
   whole-band move.
 - `comments` — one note per model. These carry the real instruction; the marks
   only say where to look.
+- `views` — per commented model, the angle the panel was showing when the note
+  was written. `view` and `fit` go straight to `render.mjs --views` and
+  `--fit`. Render a note's own view before reading the note: it is the angle
+  the problem was visible from, and iso often hides it.
 
 Notes are terse and often typo'd. `iso` is "in plaats van" — *instead of*.
 Map the hexes to band names from the lane table in `lint/materials.json`.
@@ -82,12 +86,14 @@ Use shells instead.
 
 The import may have collapsed two source colours into one, or it may be
 faithful and the source itself reads badly. Those need opposite fixes, so
-find out which:
+find out which. Unzip the pack from `kits/sources/`, then:
 
-Unzip the pack from `kits/sources/`, read the source model's UVs against its
-own texture, and tally the colour per vertex. Vertex counts and bounds often
-match the workfile exactly, so the source's colour split maps straight onto
-the workfile's shells. This settled several models that looked ambiguous.
+    node tools/importeer/bronkleur.mjs <kit>/<model> <source .gltf or .glb>
+
+Per shell: the band it carries now, the colour it carried in the source, and
+the band nearest that colour. A source colour far from every band — the cherry
+filling is 72 away from the closest — is one the palette cannot hold, so the
+import had to round it somewhere.
 
 `P11`–`P14` in the bible: a pack's source colours have to survive the import.
 Two source colours collapsed onto one band is a bug, not a style choice.
@@ -95,10 +101,15 @@ Two source colours collapsed onto one band is a bug, not a style choice.
 ## 6. Ask with a picture
 
 When a note names a part in a few words, do not guess and do not offer a
-multiple-choice of colours. Copy the model to `kits/workfiles/_scratch/`,
-reband each candidate group to a loud distinct band, render it, and ask which
-group is meant. Delete the scratch copy afterwards. This costs two minutes
-and settles in one round what guessing does not settle in three.
+multiple-choice of colours. Paint the candidates and ask which group is meant:
+
+    node tools/renders/render.mjs <file>.glb --out <out> --views back \
+      --mark 12,13,14 --mark 40,41 --sheet --sheet-only
+
+Each `--mark` group takes its own loud colour. Shell numbers are the ones
+`reband --list` prints, the original file is untouched, and the marked copy is
+cleaned up on exit. This costs two minutes and settles in one round what
+guessing does not settle in three.
 
 Do not ask at all when the bible already decides — `B40` gives a wrapped grip
 taupe, `M33` gives bells copper.

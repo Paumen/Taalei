@@ -2,7 +2,7 @@
 import { writeFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor, meshShells } from '../../catalog/tools/glb.mjs';
 import { BANDEN } from './leerbanden.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -85,65 +85,31 @@ const cellOf = (u, v) => [
   Math.min(Math.max(Math.floor(v * ROWS), 0), ROWS - 1),
 ];
 
-// One target per primitive: where its UVs live in the buffer, and which vertices hang
-// together. Shells come from the index buffer, so a welded model still separates into
-// the pieces it was built from.
-const targets = [];
-const seen = new Set();
-for (const mesh of json.meshes ?? []) {
-  for (const prim of mesh.primitives ?? []) {
-    const index = prim.attributes?.TEXCOORD_0;
-    if (index === undefined || seen.has(index)) continue;
-    seen.add(index);
-    const accessor = json.accessors[index];
-    if (accessor.componentType !== FLOAT || accessor.type !== 'VEC2') {
-      throw new Error(`${id}: TEXCOORD_0 accessor ${index} is not float VEC2`);
-    }
-    const view = json.bufferViews[accessor.bufferView];
-    targets.push({
-      accessor,
-      mesh: mesh.name ?? '',
-      start: (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0),
-      step: view.byteStride ?? 8,
-      count: accessor.count,
-      indices: prim.indices === undefined ? null : readAccessor(glb, prim.indices),
-      position: prim.attributes?.POSITION === undefined ? null : readAccessor(glb, prim.attributes.POSITION),
-    });
+// One target per UV-carrying primitive: where its UVs live in the buffer, plus the
+// accessors the filters read. meshShells gives the shell numbering, so reband and
+// render.mjs address the same parts by the same numbers.
+const prims = meshShells(glb);
+const targets = prims.map(({ mesh, prim, uv, count }) => {
+  const accessor = json.accessors[uv];
+  if (accessor.componentType !== FLOAT || accessor.type !== 'VEC2') {
+    throw new Error(`${id}: TEXCOORD_0 accessor ${uv} is not float VEC2`);
   }
-}
-
-function shellsOf(target) {
-  const parent = new Int32Array(target.count);
-  for (let i = 0; i < parent.length; i++) parent[i] = i;
-  const find = (i) => {
-    while (parent[i] !== i) i = parent[i] = parent[parent[i]];
-    return i;
+  const view = json.bufferViews[accessor.bufferView];
+  return {
+    accessor,
+    mesh,
+    start: (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0),
+    step: view.byteStride ?? 8,
+    count,
+    indices: prim.indices === undefined ? null : readAccessor(glb, prim.indices),
+    position: prim.attributes?.POSITION === undefined ? null : readAccessor(glb, prim.attributes.POSITION),
   };
-  const union = (a, b) => {
-    const ra = find(a);
-    const rb = find(b);
-    if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb);
-  };
-  const idx = target.indices;
-  if (idx) {
-    for (let t = 0; t + 2 < idx.count; t += 3) {
-      union(idx.data[t], idx.data[t + 1]);
-      union(idx.data[t + 1], idx.data[t + 2]);
-    }
-  }
-  // Lowest member vertex names a shell, so the numbering follows the file and not the
-  // order the groups happened to close in.
-  const groups = new Map();
-  for (let i = 0; i < parent.length; i++) {
-    const root = find(i);
-    if (!groups.has(root)) groups.set(root, []);
-    groups.get(root).push(i);
-  }
-  return [...groups.entries()].sort((a, b) => a[0] - b[0]).map(([, members]) => members);
-}
+});
 
 const shells = [];
-for (const target of targets) for (const members of shellsOf(target)) shells.push({ target, members });
+prims.forEach((prim, n) => {
+  for (const members of prim.members) shells.push({ target: targets[n], members });
+});
 
 function describe(shell) {
   const { target, members } = shell;
