@@ -48,7 +48,16 @@ for (const [id, { name }] of Object.entries(DISPLAY.kinds)) {
   if (name) NODES.get(id).name = name;
 }
 
-export const SIZES = DISPLAY.sizes;
+const SIZE_LIMITS = read('lint/variables.json').sizes;
+const SIZE_NAMES = new Map(DISPLAY.sizes.map((size) => [size.id, size]));
+for (const { id } of DISPLAY.sizes) {
+  if (!SIZE_LIMITS.some((size) => size.id === id)) fail(`size ${id} has a name but no limit in lint/variables.json`);
+}
+
+export const SIZES = SIZE_LIMITS.map(({ id, limit }) => {
+  const { name, description } = SIZE_NAMES.get(id) ?? fail(`size ${id} has no name in lint/kind-display.json`);
+  return { id, limit, name, description };
+});
 if (!SIZES.length) fail('no sizes');
 if (SIZES.at(-1).limit !== null) fail('the largest size must be open-ended');
 if (SIZES.slice(0, -1).some((size, i) => size.limit === null || (i && size.limit <= SIZES[i - 1].limit)))
