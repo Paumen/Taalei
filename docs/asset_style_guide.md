@@ -48,7 +48,6 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `one-of` | token list | the tokens are the whole set the subject may draw from |
 | `any-of` | token list | every value the subject carries is among the tokens, and it carries at least one |
 | `has` | token list | the subject carries at least one of the tokens; other values are allowed |
-| `expect` | token list | subject is normally one of the tokens |
 
 **[F08] Combining rows.** A row whose `except` matches the model does not apply. Rows that apply and do not disagree all hold. When two rows assert on the same subject and disagree, the more specific row wins:
 
@@ -210,17 +209,17 @@ What a kind is made of. Colour follows from §5.
 | `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `mat:metal` | is | `metal-iron` |
 | `M06` | `kind:obj-container-chest` | — | `mat:metal` | is | `metal-iron` |
 | `M07` | `kind:obj-container-crate` | — | `mat:metal` | is | `metal-iron` |
-| `M08` | `D03` | — | model | expect | mainly `wood`, often `metal-iron` accents |
+| `M08` | `D03` | — | model | has | `wood:` |
 | `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
 | `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
 | `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
-| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | expect | `wood:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | has | `wood:` |
 | `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
 | `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` |
 | `M16` | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` |
-| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` (usual) | expect | `textile`, `rope`, `leather` |
-| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | expect | `leather` |
+| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` (usual) | any-of | `textile`, `rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | any-of | `leather` |
 | `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
 | `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
@@ -236,10 +235,10 @@ What a kind is made of. Colour follows from §5.
 | `M31` | `kind:obj-resource-wood-log` | — | model | has | `wood-bark` |
 | `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
 | `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
-| `M34` | `kind:str` | — | model | expect | mainly `wood`, then `stone`; `metal` sparingly |
+| `M34` | `kind:str` | — | model | has | `wood:` |
 | `M35` | `kind:str-part-roof` | — | model | has | `ceramic` |
 | `M36` | `kind:str-marker-flag` | — | model | has | `textile` |
-| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | model | expect | `wood:` |
+| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | model | has | `wood:` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
 | `M39` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
 
@@ -291,10 +290,10 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B30` | `kind:obj-kitchenware-cookware-pot` | — | `mat:ceramic` | one-of | `terracotta` |
 | `B31` | `kind:obj-food` | `kind:obj-food-meat \| kind:obj-food-vegetable \| kind:obj-food-grain` fish, cheese, chocolate | model | one-of | `any` |
-| `B32` | `kind:obj-food` fish | — | model | expect | `nickel`, `basalt`, `slate`, `azure` |
+| `B32` | `kind:obj-food` fish | — | model | one-of | `nickel`, `basalt`, `slate`, `azure` |
 | `B33` | `kind:obj-food` cheese | — | model | one-of | `amber` |
 | `B34` | `kind:obj-food-meat` | — | model | one-of | `sienna` |
-| `B35` | `kind:obj-food-vegetable` | carrot, pumpkin | model | expect | `moss` |
+| `B35` | `kind:obj-food-vegetable` | carrot, pumpkin | model | one-of | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | — | model | one-of | `terracotta` |
 | `B37` | `kind:obj-food-grain` | wheat, straw | model | one-of | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` |
