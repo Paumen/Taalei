@@ -9,6 +9,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { readPng } from '../../catalog/tools/png.mjs';
+import { readGlb, writeGlb, meshShells } from '../../catalog/tools/glb.mjs';
 
 // Only the pin for the CDN fallback. By default the page is served three.js from
 // whatever copy is installed on this machine (see resolveThree), which needs no
@@ -23,7 +24,7 @@ const DEFAULTS = {
   grid: false, axes: false, bbox: false, ruler: false,
   isolate: false,
   sheet: false, sheetCols: 0, sheetTile: 0, sheetOnly: false,
-  sheetEach: false, band: '',
+  sheetEach: false, band: '', mark: [],
   stats: false, timeout: 120000, verbose: false, three: '',
   ladder: 0, annotate: false, lockScale: false,
   ss: 1,
@@ -69,6 +70,10 @@ render.mjs <file.glb|dir> [...] [flags]
                      one per model instead. --ladder and --isolate always sheet per model.
                        1 tile 1x1 @1932   2 tiles 2x1 @1288   3-8 tiles 4 cols @644
                        9-16 tiles 4 cols @476   17-28 tiles 4 cols @364
+  --mark <shells>    paint those shells a loud band and render that, so a part can be
+                     pointed at. Repeat for more groups, each in its own colour.
+                     Shell numbers are the ones tools/importeer/reband.mjs --list
+                     prints. One model at a time; the original is never changed.
   --band <col,row>   keep one cell of the colormap and flatten every other filled
                      cell to grey, so only the triangles carrying that band stay
                      coloured. Cells are the 16x4 grid of kits/colormap.png, so
@@ -114,6 +119,8 @@ function parseArgs(argv) {
     if (typeof cur === 'boolean') { o[key] = true; continue; }
     const val = argv[++i];
     if (val === undefined) die(a + ' needs a value');
+    // repeatable flags keep every value; the spread above shares DEFAULTS' array
+    if (Array.isArray(cur)) { if (o[key] === cur) o[key] = []; o[key].push(val); continue; }
     if (typeof cur === 'number') {
       const n = Number(val);
       if (!Number.isFinite(n)) die(a + ' needs a number, got: ' + val);
@@ -362,8 +369,63 @@ function resolveThree() {
 }
 const THREE_SRC = resolveThree();
 
-const models = await collect(opts.inputs);
+let models = await collect(opts.inputs);
 if (!models.length) { console.error('no .glb/.gltf inputs'); process.exit(1); }
+
+// --mark: loud, flat colours on named shells, written to a copy beside the original so
+// its relative textures still resolve. Cells are picked to read apart from each other
+// and from the timber bands most models are made of.
+const MARK_CELLS = [[4,2],[3,1],[8,0],[6,0],[1,1],[5,0]];
+const marked = [];
+if (opts.mark.length) {
+  if (models.length !== 1) die('--mark takes one model at a time, got ' + models.length);
+  if (opts.mark.length > MARK_CELLS.length) die('--mark: at most ' + MARK_CELLS.length + ' groups');
+  const groups = opts.mark.map((g, n) => ({
+    cell: MARK_CELLS[n],
+    shells: new Set(g.split(',').map(t => {
+      const v = Number(t.trim());
+      if (!Number.isInteger(v) || v < 1) die('--mark wants whole numbers from 1, got: ' + t);
+      return v;
+    })),
+  }));
+  const src = models[0];
+  if (!/\.glb$/i.test(src)) die('--mark needs a .glb, got: ' + path.basename(src));
+  const glb = readGlb(src);
+  const bin = Buffer.from(glb.bin);
+  const prims = meshShells(glb);
+  const total = prims.reduce((n, p) => n + p.members.length, 0);
+  for (const g of groups) for (const n of g.shells) {
+    if (n > total) die('--mark: no shell ' + n + ', the model has ' + total);
+  }
+  let at = 0;
+  let painted = 0;
+  for (const prim of prims) {
+    const acc = glb.json.accessors[prim.uv];
+    const view = glb.json.bufferViews[acc.bufferView];
+    const start = (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
+    const step = view.byteStride ?? 8;
+    for (const members of prim.members) {
+      at++;
+      const group = groups.find(g => g.shells.has(at));
+      if (!group) continue;
+      const [col, row] = group.cell;
+      for (const i of members) {
+        const o = start + i * step;
+        bin.writeFloatLE(Math.fround((col + 0.5) / BAND_COLUMNS), o);
+        bin.writeFloatLE(Math.fround((row + 0.5) / BAND_ROWS), o + 4);
+        painted++;
+      }
+    }
+    delete acc.min;
+    delete acc.max;
+  }
+  const out = src.replace(/\.glb$/i, `.mark-${process.pid}.glb`);
+  writeGlb(out, glb.json, bin, fss.writeFileSync);
+  marked.push(out);
+  models = [out];
+  console.log(`--mark: ${painted} vertices over ${groups.length} group(s) -> ${path.basename(out)}`);
+}
+process.on('exit', () => { for (const f of marked) { try { fss.unlinkSync(f); } catch {} } });
 
 // Output goes to <out>/<basename>/, and basenames repeat across kits -- this repo
 // alone has six wall.glb and six flag.glb. Both landed in the same folder and the

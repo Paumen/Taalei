@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=e5813edd7e';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e5813edd7e';
-import { colorSwatches, setBands } from './color-edits.js?v=e5813edd7e';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=e5813edd7e';
-import { mountExtractBar, setPageParts } from './extract.js?v=e5813edd7e';
-import './bouwstempel.js?v=e5813edd7e';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=bb993e13ad';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=bb993e13ad';
+import { colorSwatches, setBands } from './color-edits.js?v=bb993e13ad';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=bb993e13ad';
+import { mountExtractBar, setPageParts } from './extract.js?v=bb993e13ad';
+import './bouwstempel.js?v=bb993e13ad';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -846,6 +846,22 @@ function showDetail(model) {
   const clips = model.anim ?? [];
   viewer.setAttribute('auto-rotate', '');
   viewer.setAttribute('rotation-per-second', '18deg');
+  // the distance model-viewer frames the model at, kept so a later orbit can be read
+  // as a zoom factor rather than a bare number of metres
+  viewer.addEventListener('load', () => {
+    const orbit = viewer.getCameraOrbit?.();
+    if (orbit) viewer.dataset.framedRadius = String(orbit.radius);
+  }, { once: true });
+  // auto-rotate picks up again a few seconds after a drag ends, so the camera at the
+  // moment a note is saved is wherever the spin reached. Keep the last one the reader
+  // actually drove instead.
+  viewer.addEventListener('camera-change', (e) => {
+    if (e.detail?.source !== 'user-interaction') return;
+    const orbit = viewer.getCameraOrbit?.();
+    if (!orbit) return;
+    viewer.dataset.lastLook = [orbit.theta, orbit.phi, orbit.radius].join(' ');
+    showViewHint?.();
+  });
 
   detailAnimation.hidden = clips.length === 0;
   detailAnimationChoice.replaceChildren(
@@ -883,7 +899,7 @@ function showDetail(model) {
   }));
 
   renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
-  renderCommentBox(document.querySelector('#detail-opmerking'), model);
+  ({ showView: showViewHint } = renderCommentBox(document.querySelector('#detail-opmerking'), model, { readView: panelView }));
 
   detail.showModal();
   updateSelection();
@@ -915,6 +931,45 @@ function choiceChip(text, active, action, container, path) {
     chip.prepend(pick);
   }
   return chip;
+}
+
+// What the panel is showing, in the terms tools/renders/render.mjs takes. model-viewer
+// counts phi down from straight up and render.mjs counts elevation up from the
+// horizon, so one is ninety degrees minus the other; azimuth already agrees.
+// framedRadius is the distance model-viewer chose when the model loaded, so the ratio
+// against it is how far the view has been zoomed in since. It is not render.mjs's
+// --fit: model-viewer frames the bounding sphere and render.mjs frames the silhouette,
+// and how far those two differ depends on the model and the angle. zoom says whether
+// a note was written on a detail or on the whole model; the framing is set by eye.
+let showViewHint = null;
+function panelView() {
+  const viewer = detailViewer.querySelector('model-viewer');
+  if (!viewer?.getCameraOrbit) return null;
+  let orbit;
+  const driven = viewer.dataset.lastLook?.split(' ').map(Number);
+  if (driven?.length === 3 && driven.every(Number.isFinite)) {
+    orbit = { theta: driven[0], phi: driven[1], radius: driven[2] };
+  } else {
+    try {
+      orbit = viewer.getCameraOrbit();
+    } catch {
+      return null;
+    }
+  }
+  if (!orbit) return null;
+  const degrees = (radians) => (radians * 180) / Math.PI;
+  const az = Math.round(((degrees(orbit.theta) % 360) + 360) % 360);
+  // straight up or straight down leaves render.mjs no way to tell which way round the
+  // picture goes, and it drops the azimuth. A tenth of a degree off keeps both.
+  const el = Math.min(89.9, Math.max(-89.9, Math.round(90 - degrees(orbit.phi))));
+  const framed = Number(viewer.dataset.framedRadius);
+  const zoom = framed > 0 && orbit.radius > 0 ? framed / orbit.radius : null;
+  return {
+    view: `${az}/${el}`,
+    ...(zoom ? { zoom: Math.round(zoom * 100) / 100 } : {}),
+    orbit: `${az}deg ${Math.round(degrees(orbit.phi))}deg ${orbit.radius.toFixed(3)}m`,
+    fov: Math.round(viewer.getFieldOfView?.() ?? 0),
+  };
 }
 
 function setAnimation(clip) {
