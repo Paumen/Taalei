@@ -197,6 +197,10 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
+`M01` `M02` `M03` `M05` `M06` `M07` `M22` `M23` live as `mat.<material>` on the kind nodes in the kinds.JSON, read as "carries this material, so carries one of this subtype". The deeper kind wins, so their `!` branches are not repeated there.
+
+Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`. The other rows need parts or nouns the catalogue does not record, and are checked by eye.
+
 | id | when | subject | assert | value |
 |---|---|---|---|---|
 | `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon & !kind:obj-weapon-cannon \| kind:obj-tool & !kind:obj-tool-supplies \| kind:obj-equipment \| kind:char` | `mat:metal-iron` | is | `metal-iron-steel` |

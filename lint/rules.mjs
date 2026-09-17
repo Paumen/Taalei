@@ -1,6 +1,7 @@
 export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max'];
 
 const EPSILON = 1e-9;
+const MAT_PREFIX = 'mat.';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
@@ -34,6 +35,47 @@ export function buildLimits(kinds) {
     limits.set(id, out);
   }
   return limits;
+}
+
+export function buildMaterialRules(kinds) {
+  const own = new Map();
+  const parent = new Map();
+  const walk = (node, from) => {
+    own.set(node.id, Object.entries(node)
+      .filter(([key]) => key.startsWith(MAT_PREFIX))
+      .map(([key, required]) => [key.slice(MAT_PREFIX.length), required]));
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+
+  const rules = new Map();
+  for (const id of own.keys()) {
+    const out = new Map();
+    for (let at = id; at; at = parent.get(at)) {
+      for (const [family, required] of own.get(at)) {
+        if (!out.has(family)) out.set(family, { required, from: at });
+      }
+    }
+    rules.set(id, out);
+  }
+  return rules;
+}
+
+export function materialsOf(model, materialIds, vars) {
+  const ignored = vars.mat.ignoreMaterials;
+  return (model.tags ?? []).filter((t) => materialIds.has(t) && !ignored.includes(t));
+}
+
+export function materialFindingsFor(model, rules, materialIds, vars) {
+  const out = [];
+  const mats = materialsOf(model, materialIds, vars);
+  for (const [family, { required, from }] of rules ?? []) {
+    const present = mats.filter((m) => idUnder(m, family));
+    if (!present.length || present.some((m) => idUnder(m, required))) continue;
+    out.push({ family, required, from, present: present.join(' ') });
+  }
+  return out;
 }
 
 export const isExempt = (model, vars) =>
