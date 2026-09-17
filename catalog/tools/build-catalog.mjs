@@ -415,11 +415,10 @@ const SOURCES = [
 ];
 
 const DERIVED = [
-  ...SIZES.map(({ id, name, description }) => ({
+  ...SIZES.map(({ id, name }) => ({
     id,
     name,
     type: 'size',
-    description,
     belongs: (m) => sizeOf(m.wdh) === id,
   })),
   ...SOURCES.map(({ id, name, description, kits }) => ({
@@ -548,7 +547,8 @@ for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
     id,
     name,
     type,
-    description: `${description} Derived from the models themselves, so not tracked in catalog/tags.json.`,
+    description: [description, 'Derived from the models themselves, so not tracked in catalog/tags.json.']
+      .filter(Boolean).join(' '),
     count: members.length,
   });
 }
