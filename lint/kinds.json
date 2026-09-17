@@ -1,5 +1,6 @@
 {
  "defaults": {
+  "high.max": 6,
   "longest.min": 0.05,
   "longest.max": 30
  },
@@ -200,6 +201,9 @@
          "children": [
           {
            "id": "obj-kitchenware-tableware-drinkware-mug",
+           "has": [
+            "wood"
+           ],
            "nouns": [
             "mug"
            ]
@@ -1255,6 +1259,7 @@
      "children": [
       {
        "id": "env-terrain-mountain",
+       "high.max": 30,
        "nouns": [
         "mountain",
         "hill",

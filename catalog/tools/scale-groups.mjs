@@ -22,7 +22,8 @@ const ownLongest = (kind) => {
   const node = NODE.get(kind) ?? {};
   const own = node['longest.min'] !== undefined || node['longest.max'] !== undefined;
   const resolved = LIMITS.get(kind) ?? {};
-  return own && resolved['high.min'] === undefined && resolved['high.max'] === undefined;
+  const fromKind = (field) => resolved[field] !== undefined && resolved[field].from !== 'defaults';
+  return own && !fromKind('high.min') && !fromKind('high.max');
 };
 
 const limitsOf = (kind) => {

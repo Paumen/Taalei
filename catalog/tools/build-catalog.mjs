@@ -343,6 +343,9 @@ for (const slug of kitSlugs) {
       triangles: scene.triangles,
       trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
       materials: (gltf.materials ?? []).length,
+      alpha: (gltf.materials ?? []).some((m) => (m.alphaMode ?? 'OPAQUE') !== 'OPAQUE'),
+      pbr: (gltf.materials ?? []).some((m) =>
+        (m.pbrMetallicRoughness?.roughnessFactor ?? 1) !== 1 || (m.pbrMetallicRoughness?.metallicFactor ?? 1) !== 0),
       bands: read.lanes.size,
       wdh: scene.wdh,
       calls: scene.calls,
@@ -706,6 +709,8 @@ const output = {
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     anim: m.animations,
+    alpha: m.alpha || undefined,
+    pbr: m.pbr || undefined,
     variant: m.variant,
     lint: lintOf(m, m.wdh.map(round1)),
   })),
