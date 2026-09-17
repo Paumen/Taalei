@@ -84,6 +84,19 @@ export function renderCommentBox(container, model, { onChange: onEdit, readView 
   field.value = commentOf(model);
   field.setAttribute('aria-label', `Comment on ${model.name}`);
 
+  // What the note will carry, so the angle recorded is never a surprise. It follows
+  // the last camera the reader drove, not wherever auto-rotate has spun to.
+  const hint = document.createElement('span');
+  hint.className = 'opmerking-zicht';
+  const showView = () => {
+    const view = readView?.();
+    hint.textContent = view
+      ? `records view ${view.view}${view.zoom && view.zoom !== 1 ? ` · ${view.zoom}× in` : ''}`
+      : '';
+    hint.hidden = !view;
+  };
+  showView();
+
   let timer = null;
   const commit = () => {
     clearTimeout(timer);
@@ -96,10 +109,11 @@ export function renderCommentBox(container, model, { onChange: onEdit, readView 
   field.addEventListener('input', () => {
     clearTimeout(timer);
     timer = setTimeout(commit, SAVE_AFTER);
+    showView();
   });
   field.addEventListener('change', commit);
   field.addEventListener('blur', commit);
 
-  container.append(head, field);
-  return field;
+  container.append(head, field, hint);
+  return { field, showView };
 }
