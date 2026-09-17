@@ -385,6 +385,12 @@ if palette lint error:
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
+Of these rows, the ones the catalogue can answer share one shape: `when` names kinds only, `subject` is a `mat:<id>`, `assert` is `is`, and `value` is a plain band list. That is `B28`, `B30`, `B41`, `B45`, `B48`, `B49` and `B50`; they live in `lint/kind-bands.json`. The rest name a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list, and stay checked by eye.
+
+Checked as coverage, like §5.1: a model of the kind carrying the material shows at least one band out of the row's list. Where two rows name the same material, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
+
+Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a row here is checked on its own terms and not also against the material's wider palette.
+
 ---
 
 ## 6. Governance & process

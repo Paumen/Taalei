@@ -132,6 +132,40 @@ export function paletteFindingsFor(model, palettes, materialIds, vars) {
   return out;
 }
 
+const depthOf = (id) => id.split('-').length;
+
+export function kindBandRulesFor(kind, rows) {
+  const byMaterial = new Map();
+  for (const row of rows) {
+    const from = row.kinds.filter((k) => idUnder(kind, k)).sort((a, b) => depthOf(b) - depthOf(a))[0];
+    if (!from) continue;
+    const current = byMaterial.get(row.material);
+    if (current && depthOf(current.from) >= depthOf(from)) continue;
+    byMaterial.set(row.material, { id: row.id, bands: row.bands, from });
+  }
+  return byMaterial;
+}
+
+export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
+  const out = [];
+  const used = Object.keys(model.spread ?? {});
+  const mats = materialsOf(model, materialIds, vars);
+  for (const [family, row] of rules) {
+    const present = mats.filter((m) => idUnder(m, family));
+    if (!present.length) continue;
+    const lanes = row.bands.map((band) => palettes.lanes.get(band));
+    if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
+    out.push({
+      rule: row.id,
+      from: row.from,
+      material: present.join(' '),
+      wants: row.bands.join(' '),
+      has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+    });
+  }
+  return out;
+}
+
 export const isExempt = (model, vars) =>
   vars.exemptKinds.some((k) => idUnder(model.kind, k))
   || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
