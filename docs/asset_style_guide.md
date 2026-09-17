@@ -153,7 +153,7 @@ Min and max per kind live in the kinds.JSON, as `high.min`, `high.max`, `longest
 ```mermaid
 flowchart LR
   I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind has a «limit»<br/>on high or longest (kinds.json,<br/>nearest ancestor setting it, else defaults)"]
-  A --> T["THEN the model's own high or longest,<br/>from wdh (catalog.json),<br/>must sit within «limit»"]
+  A --> T["THEN the model's own high or longest,<br/>from wdh (catalog.json),<br/>must sit within «limit» (kinds.json)"]
   T --> Y(["within &nbsp; pass"])
   T --> W(["past it by ≤ «warnBand» of the limit &nbsp; warning<br/>(variables.json)"])
   T --> N(["further &nbsp; error"])
