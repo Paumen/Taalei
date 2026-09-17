@@ -42,7 +42,7 @@ for (const { raw, id } of NOUNS) {
   seen.set(key, id);
 }
 
-const DISPLAY = read('lint/kind-display.json');
+const DISPLAY = read('catalog/kind-display.json');
 for (const id of Object.keys(DISPLAY.kinds)) if (!NODES.has(id)) fail(`${id} has display data but is not a kind`);
 for (const [id, { name }] of Object.entries(DISPLAY.kinds)) {
   if (name) NODES.get(id).name = name;
@@ -55,8 +55,8 @@ for (const { id } of DISPLAY.sizes) {
 }
 
 export const SIZES = SIZE_LIMITS.map(({ id, limit }) => {
-  const { name, description } = SIZE_NAMES.get(id) ?? fail(`size ${id} has no name in lint/kind-display.json`);
-  return { id, limit, name, description };
+  const { name } = SIZE_NAMES.get(id) ?? fail(`size ${id} has no name in catalog/kind-display.json`);
+  return { id, limit, name };
 });
 if (!SIZES.length) fail('no sizes');
 if (SIZES.at(-1).limit !== null) fail('the largest size must be open-ended');
