@@ -132,25 +132,33 @@ export function paletteFindingsFor(model, palettes, materialIds, vars) {
   return out;
 }
 
-const depthOf = (id) => id.split('-').length;
+export function buildKindBands(kinds, rows) {
+  const parent = new Map();
+  const walk = (node, from) => {
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
 
-export function kindBandRulesFor(kind, rows) {
-  const byMaterial = new Map();
-  for (const row of rows) {
-    const from = row.kinds.filter((k) => idUnder(kind, k)).sort((a, b) => depthOf(b) - depthOf(a))[0];
-    if (!from) continue;
-    const current = byMaterial.get(row.material);
-    if (current && depthOf(current.from) >= depthOf(from)) continue;
-    byMaterial.set(row.material, { id: row.id, bands: row.bands, from });
+  const byKind = new Map();
+  for (const id of parent.keys()) {
+    const byMaterial = new Map();
+    for (let at = id; at; at = parent.get(at)) {
+      for (const row of rows) {
+        if (!row.kinds.includes(at) || byMaterial.has(row.material)) continue;
+        byMaterial.set(row.material, { id: row.id, bands: row.bands, from: at });
+      }
+    }
+    byKind.set(id, byMaterial);
   }
-  return byMaterial;
+  return byKind;
 }
 
 export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   const out = [];
   const used = Object.keys(model.spread ?? {});
   const mats = materialsOf(model, materialIds, vars);
-  for (const [family, row] of rules) {
+  for (const [family, row] of rules ?? []) {
     const present = mats.filter((m) => idUnder(m, family));
     if (!present.length) continue;
     const lanes = row.bands.map((band) => palettes.lanes.get(band));
