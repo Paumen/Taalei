@@ -92,6 +92,11 @@ re-imported: `node tools/importeer/reband.mjs <kit>/<model> <from>:<to>` shifts
 every vertex of one band onto another and keeps its place within the cell.
 Rebuild the catalogue and the kit's thumbs afterwards.
 
+A model with more than one draw call is folded only where the extra primitives
+sit in the same mesh on one material: `node tools/importeer/merge-prims.mjs
+<kit>/<model>`. A part on its own node (a wheel, a paddle, a gate, a blade of a
+pair of scissors) stays apart, so it can still be animated later.
+
 ## 7. Tags
 
 Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
