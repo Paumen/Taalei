@@ -148,7 +148,22 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in the kinds.JSON. Each applies to `high` or `longest`, as set there.
+Min and max per kind live in the kinds.JSON, as `high.min`, `high.max`, `longest.min` and `longest.max`. Each is inherited from the nearest kind up the chain that sets it, falling back to the `defaults` block, which sets `longest` for everything. So a kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind has a «limit»<br/>on high or longest (kinds.json,<br/>nearest ancestor setting it, else defaults)"]
+  A --> T["THEN the model's own high or longest,<br/>from wdh (catalog.json),<br/>must sit within «limit»"]
+  T --> Y(["within &nbsp; pass"])
+  T --> W(["past it by ≤ «warnBand» of the limit &nbsp; warning<br/>(variables.json)"])
+  T --> N(["further &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef warn fill:#fdf0d5,stroke:#c9a227,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class W warn
+  class N bad
+```
 
 Run `node lint/size.mjs`; exemptions and the warning band live in `lint/variables.json`.
 
@@ -208,13 +223,19 @@ mat.«material»: «subtype»       «material»   a material id
 
 ```mermaid
 flowchart LR
-  A["IF kinds.json sets mat.«material»: «subtype» on kind"] --> B["AND catalog.json tags hold «material»"]
-  B --> C["THEN catalog.json tags hold «subtype»"]
-  C --> Y(["yes &nbsp; pass"])
-  C --> N(["no &nbsp; error"])
+  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND it is made of «material»<br/>(catalog.json tags, materials.json)"]
+  A --> T["THEN that model must have «subtype»<br/>(catalog.json tags, kinds.json)"]
+  T --> Y(["yes &nbsp; pass"])
+  T --> N(["no &nbsp; error"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class N bad
 ```
 
-Of the kinds on a model's chain naming a `«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. `materials.json` is what says a tag counts as under `«material»`; `variables.json` says which kinds are exempt.
+Of the kinds on a model's chain setting the same `mat.«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. Two rows naming different `«material»` ids both apply, even where one id sits under the other.
+
+`materials.json` is what says a tag counts as under `«material»`. `variables.json` says which kinds are exempt, and holds `special` out of the check.
 
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
 
