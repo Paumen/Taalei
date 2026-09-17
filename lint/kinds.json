@@ -2,14 +2,12 @@
  "defaults": {
   "high.max": 8,
   "longest.min": 0.05,
-  "longest.max": 30,
-  "tpu.max": 1300
+  "longest.max": 30
  },
  "kinds": [
   {
    "id": "obj",
    "longest.max": 10,
-   "tpu.max": 2200,
    "nouns": [
     "barrel stand",
     "easel",
@@ -46,7 +44,6 @@
       {
        "id": "obj-container-barrel",
        "high.min": 0.2,
-       "tpu.max": 4100,
        "mat.metal": "metal-iron",
        "has": [
         "wood"
@@ -60,7 +57,6 @@
       {
        "id": "obj-container-bucket",
        "high.max": 0.4,
-       "tpu.max": 4300,
        "mat.metal": "metal-iron",
        "has": [
         "wood"
@@ -89,7 +85,6 @@
       {
        "id": "obj-container-bottle",
        "high.max": 0.4,
-       "tpu.max": 1100,
        "has": [
         [
          "glass",
@@ -117,7 +112,6 @@
        "id": "obj-container-pot",
        "high.min": 0.1,
        "high.max": 0.4,
-       "tpu.max": 2800,
        "nouns": [
         "pot (storage)",
         "planter",
@@ -138,7 +132,6 @@
      "children": [
       {
        "id": "obj-kitchenware-tableware",
-       "tpu.max": 1400,
        "mat.metal-iron": "metal-iron-steel",
        "children": [
         {
@@ -154,7 +147,6 @@
          "id": "obj-kitchenware-tableware-plate",
          "longest.min": 0.1,
          "longest.max": 0.4,
-         "tpu.max": 1000,
          "has": [
           [
            "ceramic",
@@ -195,7 +187,6 @@
         {
          "id": "obj-kitchenware-tableware-drinkware",
          "high.max": 0.2,
-         "tpu.max": 2100,
          "band.wood": [
           "camel",
           "chestnut"
@@ -210,7 +201,6 @@
          "children": [
           {
            "id": "obj-kitchenware-tableware-drinkware-mug",
-           "tpu.max": 1400,
            "has": [
             [
              "wood",
@@ -261,7 +251,6 @@
      "id": "obj-furniture",
      "longest.min": 0.2,
      "longest.max": 1.2,
-     "tpu.max": 1400,
      "nouns": [
       "rug",
       "carpet"
@@ -270,7 +259,6 @@
       {
        "id": "obj-furniture-seating",
        "high.max": 0.9,
-       "tpu.max": 1800,
        "children": [
         {
          "id": "obj-furniture-seating-bench",
@@ -295,7 +283,6 @@
         {
          "id": "obj-furniture-seating-stool",
          "high.max": 0.6,
-         "tpu.max": 1100,
          "nouns": [
           "stool",
           "footstool"
@@ -314,7 +301,6 @@
       {
        "id": "obj-furniture-bed",
        "longest.min": 0.6,
-       "tpu.max": 1800,
        "nouns": [
         "bed",
         "bedroll",
@@ -379,7 +365,6 @@
       },
       {
        "id": "obj-food-grain",
-       "tpu.max": 2900,
        "nouns": [
         "bread",
         "loaf",
@@ -398,7 +383,6 @@
     },
     {
      "id": "obj-weapon",
-     "tpu.max": 3000,
      "mat.metal-iron": "metal-iron-steel",
      "children": [
       {
@@ -429,7 +413,6 @@
         {
          "id": "obj-weapon-melee-dagger",
          "longest.max": 0.5,
-         "tpu.max": 2200,
          "nouns": [
           "dagger",
           "knife (combat)"
@@ -449,7 +432,6 @@
          "id": "obj-weapon-melee-hammer",
          "longest.min": 0.2,
          "longest.max": 0.8,
-         "tpu.max": 4200,
          "nouns": [
           "hammer (war)",
           "mace",
@@ -476,7 +458,6 @@
         {
          "id": "obj-weapon-ranged-bow",
          "longest.min": 0.4,
-         "tpu.max": 4100,
          "nouns": [
           "bow",
           "longbow"
@@ -490,7 +471,6 @@
         },
         {
          "id": "obj-weapon-ranged-accessory",
-         "tpu.max": 1300,
          "nouns": [
           "arrow",
           "bolt (crossbow)",
@@ -518,7 +498,6 @@
        "children": [
         {
          "id": "obj-weapon-magic-staff",
-         "tpu.max": 3900,
          "nouns": [
           "staff",
           "wizard staff"
@@ -538,7 +517,6 @@
     },
     {
      "id": "obj-equipment",
-     "tpu.max": 2900,
      "mat.metal-iron": "metal-iron-steel",
      "nouns": [
       "crown"
@@ -615,7 +593,6 @@
        "id": "obj-tool-long",
        "longest.min": 0.3,
        "longest.max": 1.2,
-       "tpu.max": 1500,
        "mat.wood": "wood-beam",
        "nouns": [
         "shovel",
@@ -630,7 +607,6 @@
       },
       {
        "id": "obj-tool-supplies",
-       "tpu.max": 4800,
        "mat.metal-iron": "metal-iron-wrought",
        "nouns": [
         "screw",
@@ -646,7 +622,6 @@
     },
     {
      "id": "obj-transport",
-     "tpu.max": 800,
      "band.wood": [
       "camel",
       "chestnut"
@@ -658,7 +633,6 @@
      "children": [
       {
        "id": "obj-transport-ship",
-       "tpu.max": 200,
        "nouns": [
         "ship",
         "galleon",
@@ -678,7 +652,6 @@
       },
       {
        "id": "obj-transport-cart",
-       "tpu.max": 4200,
        "nouns": [
         "cart",
         "wagon",
@@ -705,7 +678,6 @@
      "id": "obj-lighting",
      "high.min": 0.1,
      "high.max": 1.2,
-     "tpu.max": 1600,
      "nouns": [
       "chandelier"
      ],
@@ -714,7 +686,6 @@
        "id": "obj-lighting-lantern",
        "high.min": 0.2,
        "high.max": 1.2,
-       "tpu.max": 2600,
        "nouns": [
         "lantern",
         "lamp"
@@ -722,7 +693,6 @@
       },
       {
        "id": "obj-lighting-torch",
-       "tpu.max": 2800,
        "nouns": [
         "torch",
         "brazier"
@@ -731,7 +701,6 @@
       {
        "id": "obj-lighting-candle",
        "high.max": 0.7,
-       "tpu.max": 700,
        "nouns": [
         "candle",
         "candlestick",
@@ -740,7 +709,6 @@
       },
       {
        "id": "obj-lighting-campfire",
-       "tpu.max": 2100,
        "nouns": [
         "campfire",
         "bonfire",
@@ -804,7 +772,6 @@
        "id": "obj-pocketitem-scroll",
        "longest.min": 0.1,
        "longest.max": 0.6,
-       "tpu.max": 3500,
        "band.paper": [
         "ivory"
        ],
@@ -839,7 +806,6 @@
     {
      "id": "obj-resource",
      "longest.max": 1.4,
-     "tpu.max": 600,
      "nouns": [
       "hide",
       "raw stock"
@@ -861,7 +827,6 @@
        "children": [
         {
          "id": "obj-resource-wood-log",
-         "tpu.max": 1700,
          "has": [
           "wood-log",
           "wood-bark"
@@ -876,7 +841,6 @@
         {
          "id": "obj-resource-wood-plank",
          "longest.min": 0.2,
-         "tpu.max": 400,
          "nouns": [
           "plank (stock)",
           "board (loose)",
@@ -903,7 +867,6 @@
     },
     {
      "id": "obj-instrument",
-     "tpu.max": 7300,
      "nouns": [
       "bell",
       "gong",
@@ -913,7 +876,6 @@
     },
     {
      "id": "obj-art",
-     "tpu.max": 3200,
      "children": [
       {
        "id": "obj-art-sculpture",
@@ -929,7 +891,6 @@
   },
   {
    "id": "str",
-   "tpu.max": 800,
    "mat.metal-iron": "metal-iron-cast",
    "band.glass": [
     "transparent"
@@ -958,7 +919,6 @@
      "children": [
       {
        "id": "str-part-door",
-       "tpu.max": 2200,
        "nouns": [
         "door",
         "gate (building)",
@@ -975,7 +935,6 @@
       },
       {
        "id": "str-part-roof",
-       "tpu.max": 500,
        "band.ceramic": [
         "sienna"
        ],
@@ -988,7 +947,6 @@
       },
       {
        "id": "str-part-window",
-       "tpu.max": 1100,
        "nouns": [
         "window",
         "shutter"
@@ -1005,7 +963,6 @@
       },
       {
        "id": "str-part-pillar",
-       "tpu.max": 1200,
        "nouns": [
         "pillar",
         "column",
@@ -1027,7 +984,6 @@
     },
     {
      "id": "str-building",
-     "tpu.max": 1600,
      "nouns": [
       "watermill",
       "sawmill",
@@ -1060,7 +1016,6 @@
       },
       {
        "id": "str-building-fort",
-       "tpu.max": 900,
        "nouns": [
         "castle",
         "fortress",
@@ -1083,7 +1038,6 @@
     },
     {
      "id": "str-platform",
-     "tpu.max": 500,
      "children": [
       {
        "id": "str-platform-deck",
@@ -1094,7 +1048,6 @@
       },
       {
        "id": "str-platform-dock",
-       "tpu.max": 1200,
        "nouns": [
         "dock",
         "pier",
@@ -1105,7 +1058,6 @@
     },
     {
      "id": "str-barrier",
-     "tpu.max": 1100,
      "nouns": [
       "wall (low, garden)",
       "hedge (trimmed)",
@@ -1124,7 +1076,6 @@
       },
       {
        "id": "str-barrier-post",
-       "tpu.max": 500,
        "has": [
         "wood"
        ],
@@ -1173,7 +1124,6 @@
      "children": [
       {
        "id": "str-marker-sign",
-       "tpu.max": 400,
        "has": [
         "wood"
        ],
@@ -1211,7 +1161,6 @@
   },
   {
    "id": "env",
-   "tpu.max": 700,
    "nouns": [
     "cloud",
     "snow drift",
@@ -1222,7 +1171,6 @@
    "children": [
     {
      "id": "env-fungi",
-     "tpu.max": 1100,
      "band": [
       "ivory"
      ],
@@ -1235,7 +1183,6 @@
     },
     {
      "id": "env-fauna",
-     "tpu.max": 1400,
      "nouns": [
       "fish",
       "mammal",
@@ -1251,7 +1198,6 @@
     },
     {
      "id": "env-remains",
-     "tpu.max": 2100,
      "nouns": [
       "shell",
       "egg (wild)",
@@ -1273,7 +1219,6 @@
     },
     {
      "id": "env-rock",
-     "tpu.max": 500,
      "nouns": [
       "crystal",
       "ore (in rock)",
@@ -1282,7 +1227,6 @@
      "children": [
       {
        "id": "env-rock-formation",
-       "tpu.max": 100,
        "nouns": [
         "arch (rock)",
         "monolith",
@@ -1301,7 +1245,6 @@
       },
       {
        "id": "env-rock-pebble",
-       "tpu.max": 300,
        "nouns": [
         "pebble",
         "stone (small)",
@@ -1312,7 +1255,6 @@
     },
     {
      "id": "env-terrain",
-     "tpu.max": 400,
      "nouns": [
       "island base",
       "cave floor",
@@ -1331,7 +1273,6 @@
       },
       {
        "id": "env-terrain-ground",
-       "tpu.max": 600,
        "nouns": [
         "ground",
         "ground mesh",
@@ -1358,7 +1299,6 @@
     },
     {
      "id": "env-flora",
-     "tpu.max": 1100,
      "children": [
       {
        "id": "env-flora-plant",
@@ -1375,7 +1315,6 @@
        "children": [
         {
          "id": "env-flora-plant-cactus",
-         "tpu.max": 6400,
          "nouns": [
           "cactus",
           "succulent"
@@ -1383,7 +1322,6 @@
         },
         {
          "id": "env-flora-plant-flower",
-         "tpu.max": 600,
          "nouns": [
           "flower",
           "tulip",
@@ -1397,7 +1335,6 @@
         },
         {
          "id": "env-flora-plant-grass",
-         "tpu.max": 600,
          "nouns": [
           "grass",
           "grass tuft",
@@ -1410,7 +1347,6 @@
        "id": "env-flora-tree",
        "high.min": 0.6,
        "high.max": 2.6,
-       "tpu.max": 700,
        "band": [
         "hunter"
        ],
@@ -1424,7 +1360,6 @@
        "children": [
         {
          "id": "env-flora-tree-conifer",
-         "tpu.max": 400,
          "nouns": [
           "conifer",
           "pine",
@@ -1434,7 +1369,6 @@
         },
         {
          "id": "env-flora-tree-palm",
-         "tpu.max": 2100,
          "band": [
           "moss"
          ],
@@ -1446,7 +1380,6 @@
       },
       {
        "id": "env-flora-deadwood",
-       "tpu.max": 1900,
        "nouns": [
         "dead tree",
         "fallen tree",
@@ -1485,7 +1418,6 @@
    "id": "char",
    "high.min": 0.4,
    "high.max": 0.8,
-   "tpu.max": 41900,
    "mat.metal-iron": "metal-iron-steel",
    "band.textile": [
     "ivory",

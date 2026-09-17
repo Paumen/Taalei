@@ -70,7 +70,6 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | id | term | definition |
 |---|---|---|
 | `D01` | high | the bounding-box Y extent |
-| `D02` | tri budget | `tpu`: tris per unit of footprint × height, each floored so a small model is not read as dense |
 | `D03` | hooped container | `kind:obj-container-barrel \| kind:obj-container-bucket \| kind:obj-container-chest \| kind:obj-container-crate` |
 | `D04` | variant group | models that read as one thing; `main` is the one shown |
 | `D05` | longest | an object's largest extent |
@@ -112,7 +111,7 @@ The measured global rows, `I07`–`I11`, live in `lint/measures.json` (§2.2).
 
 ---
 
-## 2. Geometry & budget
+## 2. Geometry
 
 Everything measured off the mesh: extents, counts, pivots, band counts.
 
@@ -127,7 +126,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
 
-`G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
+`G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 
 ### 2.2 Measures — in `lint/measures.json`
 
@@ -137,11 +136,11 @@ Rows here: `I07`–`I11` (gradient, alpha, PBR factors, draw calls), `G05`–`G0
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
-### 2.3 Size and budget
+### 2.3 Size
 
 `tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest`, an 8 `high.max` and a `tpu.max` for everything; `env-terrain-mountain` lifts the height ceiling. A `tpu.max` sits at about twice the median of the kind's models, so it flags a model far more detailed than its siblings. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min` and `longest.max`, inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 

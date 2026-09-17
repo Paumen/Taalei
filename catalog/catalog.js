@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=5cb980a08b';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5cb980a08b';
-import { colorSwatches, setBands } from './color-edits.js?v=5cb980a08b';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=5cb980a08b';
-import { mountExtractBar, setPageParts } from './extract.js?v=5cb980a08b';
-import './bouwstempel.js?v=5cb980a08b';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=6cc9888eb4';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=6cc9888eb4';
+import { colorSwatches, setBands } from './color-edits.js?v=6cc9888eb4';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=6cc9888eb4';
+import { mountExtractBar, setPageParts } from './extract.js?v=6cc9888eb4';
+import './bouwstempel.js?v=6cc9888eb4';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -102,8 +102,6 @@ const sizeClass = (model) => ({
   ...(SIZE_CLASSES.find((k) => k.id === model.size) ?? SIZE_CLASSES.at(-1)),
   longest: Math.max(...model.wdh),
 });
-
-let budgetPerUnit = 2000;
 
 const number = new Intl.NumberFormat('en-GB');
 
@@ -766,9 +764,7 @@ function showDetail(model) {
       {
         kop: '/ unit',
         vol: 'Triangles per unit',
-        waarde: !Number.isFinite(model.tpu)
-          ? '—'
-          : `${number.format(model.tpu)}${model.tpu > budgetPerUnit ? ` (> ${number.format(budgetPerUnit)})` : ''}`,
+        waarde: Number.isFinite(model.tpu) ? number.format(model.tpu) : '—',
       },
     ],
     [
@@ -1207,8 +1203,6 @@ async function start() {
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);
-
-  if (Number.isFinite(data.budgetPerUnit)) budgetPerUnit = data.budgetPerUnit;
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
 
