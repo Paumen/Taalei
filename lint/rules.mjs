@@ -50,17 +50,6 @@ export const isExempt = (model, vars) =>
   vars.exemptKinds.some((k) => idUnder(model.kind, k))
   || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
 
-const term = (text, model, mats) => {
-  if (text.startsWith('!')) return !term(text.slice(1).trim(), model, mats);
-  if (text === '*') return true;
-  if (text.startsWith('kind:')) return idUnder(model.kind, text.slice(5));
-  if (text.startsWith('mat:')) return [...mats].some((id) => idUnder(id, text.slice(4)));
-  return mats.has(text.slice(4));
-};
-
-const matches = (when, model, mats) =>
-  when.split('|').some((group) => group.split('&').every((text) => term(text.trim(), model, mats)));
-
 const token = (id, want) => (want.endsWith(':') ? idUnder(id, want.slice(0, -1)) : id === want);
 
 const ASSERTS = {
@@ -70,27 +59,30 @@ const ASSERTS = {
   min: (have, value) => have.length >= value,
 };
 
-export function buildRules(materials, kinds) {
-  const ids = { kind: treeIds(kinds.kinds), mat: treeIds(materials.materials) };
-  const has = (text) => ids[text.startsWith('kind:') ? 'kind' : 'mat'].has(text.slice(text.indexOf(':') + 1));
-  const fail = (rule, what) => { throw new Error(`${rule.id}: ${what} is not a kind or material id`); };
+export function buildRules(kinds, materials) {
+  const ids = treeIds(materials.materials);
+  const check = (rule, text) => {
+    if (!ids.has(text.replace(/^mat:/, '').replace(/:$/, ''))) throw new Error(`${rule.id}: ${text} is not a material`);
+  };
 
-  for (const rule of materials.rules) {
-    for (const text of rule.when.split(/[|&]/).map((t) => t.trim().replace(/^!/, '').replace('mat=', 'mat:'))) {
-      if (text !== '*' && !has(text)) fail(rule, text);
+  const rules = new Map();
+  const walk = (node, from) => {
+    const own = node.materials ?? [];
+    for (const rule of own) {
+      if (rule.subject !== 'model') check(rule, rule.subject);
+      if (rule.assert !== 'min') for (const want of rule.value) check(rule, want);
     }
-    if (rule.subject !== 'model' && !has(rule.subject)) fail(rule, rule.subject);
-    if (rule.assert !== 'min') {
-      for (const want of rule.value) if (!ids.mat.has(want.replace(/:$/, ''))) fail(rule, want);
-    }
-  }
-  return { rules: materials.rules, materials: ids.mat };
+    const subjects = new Set(own.map((rule) => rule.subject));
+    rules.set(node.id, [...own, ...from.filter((rule) => !subjects.has(rule.subject))]);
+    for (const child of node.children ?? []) walk(child, rules.get(node.id));
+  };
+  for (const root of kinds.kinds) walk(root, []);
+  return rules;
 }
 
 export function materialFindingsFor(model, mats, rules) {
   const out = [];
-  for (const rule of rules) {
-    if (!matches(rule.when, model, mats)) continue;
+  for (const rule of rules ?? []) {
     const have = (rule.subject === 'model' ? [...mats] : [...mats].filter((id) => idUnder(id, rule.subject.slice(4)))).sort();
     if (ASSERTS[rule.assert](have, rule.value)) continue;
     out.push({ rule: rule.id, subject: rule.subject, assert: rule.assert, value: rule.value, have });

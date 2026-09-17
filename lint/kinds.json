@@ -27,6 +27,9 @@
      "children": [
       {
        "id": "obj-container-chest",
+       "materials": [
+        { "id": "M06", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] }
+       ],
        "high.min": 0.2,
        "high.max": 0.5,
        "nouns": [
@@ -38,6 +41,9 @@
       },
       {
        "id": "obj-container-barrel",
+       "materials": [
+        { "id": "M05", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] }
+       ],
        "high.min": 0.2,
        "nouns": [
         "barrel",
@@ -47,6 +53,9 @@
       },
       {
        "id": "obj-container-bucket",
+       "materials": [
+        { "id": "M05", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] }
+       ],
        "high.max": 0.4,
        "nouns": [
         "bucket",
@@ -57,6 +66,9 @@
       },
       {
        "id": "obj-container-crate",
+       "materials": [
+        { "id": "M07", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] }
+       ],
        "high.min": 0.2,
        "nouns": [
         "crate",
@@ -67,6 +79,9 @@
       },
       {
        "id": "obj-container-bottle",
+       "materials": [
+        { "id": "M09", "subject": "model", "assert": "has", "value": ["glass", "ceramic"] }
+       ],
        "high.max": 0.4,
        "nouns": [
         "bottle",
@@ -109,6 +124,9 @@
      "children": [
       {
        "id": "obj-kitchenware-tableware",
+       "materials": [
+        { "id": "M01", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] }
+       ],
        "children": [
         {
          "id": "obj-kitchenware-tableware-cutlery",
@@ -121,6 +139,9 @@
         },
         {
          "id": "obj-kitchenware-tableware-plate",
+         "materials": [
+          { "id": "M11", "subject": "model", "assert": "any-of", "value": ["ceramic", "metal-iron:", "wood:"] }
+         ],
          "longest.min": 0.1,
          "longest.max": 0.4,
          "nouns": [
@@ -133,6 +154,9 @@
         },
         {
          "id": "obj-kitchenware-tableware-bowl",
+         "materials": [
+          { "id": "M11", "subject": "model", "assert": "any-of", "value": ["ceramic", "metal-iron:", "wood:"] }
+         ],
          "longest.max": 0.4,
          "nouns": [
           "bowl"
@@ -199,6 +223,9 @@
      "children": [
       {
        "id": "obj-furniture-seating",
+       "materials": [
+        { "id": "M14", "subject": "model", "assert": "has", "value": ["textile"] }
+       ],
        "high.max": 0.9,
        "children": [
         {
@@ -321,6 +348,9 @@
     },
     {
      "id": "obj-weapon",
+     "materials": [
+      { "id": "M01", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] }
+     ],
      "children": [
       {
        "id": "obj-weapon-melee",
@@ -438,6 +468,9 @@
       },
       {
        "id": "obj-weapon-cannon",
+       "materials": [
+        { "id": "M02", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-cast"] }
+       ],
        "nouns": [
         "cannon",
         "cannonball"
@@ -447,6 +480,9 @@
     },
     {
      "id": "obj-equipment",
+     "materials": [
+      { "id": "M01", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] }
+     ],
      "nouns": [
       "crown"
      ],
@@ -488,6 +524,9 @@
     },
     {
      "id": "obj-tool",
+     "materials": [
+      { "id": "M01", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] }
+     ],
      "longest.max": 1.2,
      "nouns": [
       "lever",
@@ -500,6 +539,9 @@
      "children": [
       {
        "id": "obj-tool-hand",
+       "materials": [
+        { "id": "M22", "subject": "mat:wood", "assert": "is", "value": ["wood-planks"] }
+       ],
        "nouns": [
         "hammer (tool)",
         "saw",
@@ -512,6 +554,9 @@
       },
       {
        "id": "obj-tool-long",
+       "materials": [
+        { "id": "M23", "subject": "mat:wood", "assert": "is", "value": ["wood-beam"] }
+       ],
        "longest.min": 0.3,
        "longest.max": 1.2,
        "nouns": [
@@ -527,6 +572,9 @@
       },
       {
        "id": "obj-tool-supplies",
+       "materials": [
+        { "id": "M03", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-wrought"] }
+       ],
        "nouns": [
         "screw",
         "nail",
@@ -548,6 +596,9 @@
      "children": [
       {
        "id": "obj-transport-ship",
+       "materials": [
+        { "id": "M25", "subject": "mat:wood", "assert": "min", "value": 2 }
+       ],
        "nouns": [
         "ship",
         "galleon",
@@ -557,6 +608,9 @@
       },
       {
        "id": "obj-transport-boat",
+       "materials": [
+        { "id": "M25", "subject": "mat:wood", "assert": "min", "value": 2 }
+       ],
        "nouns": [
         "boat",
         "rowboat",
@@ -643,6 +697,9 @@
      "children": [
       {
        "id": "obj-pocketitem-coin",
+       "materials": [
+        { "id": "M26", "subject": "model", "assert": "any-of", "value": ["metal-gold"] }
+       ],
        "longest.max": 0.2,
        "nouns": [
         "coin",
@@ -652,6 +709,9 @@
       },
       {
        "id": "obj-pocketitem-key",
+       "materials": [
+        { "id": "M27", "subject": "model", "assert": "any-of", "value": ["metal-iron:", "metal-gold"] }
+       ],
        "longest.max": 0.2,
        "nouns": [
         "key"
@@ -682,6 +742,9 @@
       },
       {
        "id": "obj-pocketitem-jewellery",
+       "materials": [
+        { "id": "M29", "subject": "model", "assert": "any-of", "value": ["metal-gold", "gemstone"] }
+       ],
        "nouns": [
         "ring",
         "necklace",
@@ -718,6 +781,10 @@
        "children": [
         {
          "id": "obj-resource-wood-log",
+         "materials": [
+          { "id": "M30", "subject": "model", "assert": "has", "value": ["wood-log"] },
+          { "id": "M31", "subject": "model", "assert": "has", "value": ["wood-bark"] }
+         ],
          "nouns": [
           "log (cut)",
           "timber",
@@ -778,6 +845,9 @@
   },
   {
    "id": "str",
+   "materials": [
+    { "id": "M02", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-cast"] }
+   ],
    "nouns": [
     "stage",
     "altar",
@@ -818,6 +888,9 @@
       },
       {
        "id": "str-part-roof",
+       "materials": [
+        { "id": "M35", "subject": "model", "assert": "has", "value": ["ceramic"] }
+       ],
        "nouns": [
         "roof",
         "roof tile",
@@ -956,6 +1029,9 @@
       },
       {
        "id": "str-barrier-post",
+       "materials": [
+        { "id": "M37", "subject": "model", "assert": "has", "value": ["wood:"] }
+       ],
        "nouns": [
         "post",
         "bollard",
@@ -1001,6 +1077,9 @@
      "children": [
       {
        "id": "str-marker-sign",
+       "materials": [
+        { "id": "M37", "subject": "model", "assert": "has", "value": ["wood:"] }
+       ],
        "nouns": [
         "sign",
         "signpost",
@@ -1010,6 +1089,10 @@
       },
       {
        "id": "str-marker-flag",
+       "materials": [
+        { "id": "M36", "subject": "model", "assert": "has", "value": ["textile"] },
+        { "id": "M37", "subject": "model", "assert": "has", "value": ["wood:"] }
+       ],
        "nouns": [
         "flag",
         "banner",
@@ -1276,6 +1359,9 @@
   },
   {
    "id": "char",
+   "materials": [
+    { "id": "M01", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] }
+   ],
    "high.min": 0.4,
    "high.max": 0.8,
    "nouns": [
