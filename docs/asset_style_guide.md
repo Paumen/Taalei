@@ -109,7 +109,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
 
-The measured global rows, `I07`–`I11`, live in `lint/measures.json` (§2.2).
+The measured global rows, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2.2).
 
 ---
 
@@ -134,7 +134,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-Rows here: `I07`–`I11` (gradient, alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred), `G09` and `G11`–`G15` (materials and the band budget), `G19` (barrel triangles).
+Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09` and `G11`–`G15` (materials and the band budget), `G19` (barrel triangles).
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 

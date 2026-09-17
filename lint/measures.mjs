@@ -36,20 +36,26 @@ const w = { id: width('id'), kind: width('kind'), field: width('field'), actual:
 
 for (const f of findings) {
   console.log(
-    `${f.rule}  ${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.field.padEnd(w.field)}  ` +
+    `${f.level.padEnd(7)}  ${f.rule}  ${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.field.padEnd(w.field)}  ` +
     `${String(f.actual).padStart(w.actual)}  wants ${f.wants}`,
   );
 }
 
 const perRule = new Map();
-for (const f of findings) perRule.set(f.rule, (perRule.get(f.rule) ?? 0) + 1);
+for (const f of findings) {
+  const row = perRule.get(f.rule) ?? { errors: 0, warnings: 0 };
+  row[`${f.level}s`]++;
+  perRule.set(f.rule, row);
+}
 if (perRule.size) {
   console.log('');
-  for (const [rule, n] of [...perRule].sort(([a], [b]) => a.localeCompare(b))) {
-    console.log(`${rule}  ${String(n).padStart(4)} errors`);
+  for (const [rule, row] of [...perRule].sort(([a], [b]) => a.localeCompare(b))) {
+    console.log(`${rule}  ${String(row.errors).padStart(4)} errors  ${String(row.warnings).padStart(4)} warnings`);
   }
 }
 
-console.log(`\n${models.length} checked, ${active.length} rules, ${findings.length} errors`);
+const errors = findings.filter((f) => f.level === 'error').length;
+const warnings = findings.length - errors;
+console.log(`\n${models.length} checked, ${active.length} rules, ${warnings} warnings, ${errors} errors`);
 
-process.exitCode = findings.length ? 1 : 0;
+process.exitCode = errors ? 1 : 0;
