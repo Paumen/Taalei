@@ -33,9 +33,16 @@ nothing that should keep its colour.
 - `comments` — one note per model. These carry the real instruction; the marks
   only say where to look.
 - `views` — per commented model, the angle the panel was showing when the note
-  was written. `view` and `fit` go straight to `render.mjs --views` and
-  `--fit`. Render a note's own view before reading the note: it is the angle
-  the problem was visible from, and iso often hides it.
+  was written, taken from the last camera the reader drove rather than wherever
+  the panel's auto-rotate had spun to. `view` and `fov` go straight to
+  `render.mjs --views` and `--fov`. Render a note's own view before reading the
+  note: it is the angle the problem was visible from, and iso often hides it.
+
+  `zoom` is against the framing the panel chose, so above about 1.3 the note is
+  about a detail rather than the whole model. It is not `--fit`: the panel
+  frames the bounding sphere and render.mjs frames the silhouette, and the gap
+  between the two depends on the model and the angle — on a snowman seen from
+  above it is nearly a third. Set `--fit` by eye from the first render.
 
 Notes are terse and often typo'd. `iso` is "in plaats van" — *instead of*.
 Map the hexes to band names from the lane table in `lint/materials.json`.
