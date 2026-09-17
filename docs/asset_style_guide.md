@@ -65,8 +65,6 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **Exemptions** live in `lint/variables.json`, per check.
 - **Each check reads only its own rows**, so §5.1 and §5.2 never widen or fault each other.
 
-What to do about a finding is `lint/README.md`.
-
 **Definitions**
 
 | id | term | definition |
@@ -272,9 +270,9 @@ band: [ «band», … ]                holds for every model of the kind
 
 Run `node lint/bands.mjs`.
 
----
-
 ### 5.3 The rest
+
+Checked by eye. Each row names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
@@ -298,7 +296,7 @@ Run `node lint/bands.mjs`.
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
-The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
+---
 
 ## 6. Governance & process
 
@@ -329,7 +327,7 @@ Importing a pack:
 
 ## 7. Variants
 
-Which models sit together as one entry and which stand apart. Groups live in `catalog/asset_variants.json`; `build-catalog.mjs` attaches them to the catalogue. A group exists for one of these reasons.
+Which models sit together as one entry and which stand apart. Groups live in `catalog/asset_variants.json`, attached to the catalogue by `build-catalog.mjs`. A group exists for one of these reasons.
 
 | id | reason | shared | differs |
 |---|---|---|---|
@@ -339,7 +337,7 @@ Which models sit together as one entry and which stand apart. Groups live in `ca
 | `D11` | state | kind, material | a part moved, removed, filled or recoloured |
 | `D12` | plural | kind, material, band | how many instances |
 
-What holds of every group, read from `catalog/asset_variants.json`:
+What holds of every group:
 
 - **`V01`** — Its `kits` is one kit; a second only for the same artist, never across artists without the PO.
 - **`V02`** — Its `kind` is the same for every member.
@@ -348,14 +346,13 @@ What holds of every group, read from `catalog/asset_variants.json`:
 - **`V05`** — A group is judged by how it reads, not by how far it measures.
 - **`V06`** — A `D10` member is redesigned at that size: a longer ladder gains rungs.
 - **`V07`** — For kinds wanting variety, `D08` and `D09` are made on purpose (`M04` is one).
-
-A variant is what keeps a kind from ballooning. Filled and empty, open and closed, lit and unlit, with lid, without lid and the lid alone each double a group; left apart, ten potions and a shelf of pans crowd out everything else. The same reasons that justify a variant are what justify the model being in the catalogue at all, so the judgement runs both ways: too alike and it is a dedupe, too far apart and it is its own row.
+- **`V08`** — The same reasons judge both ways: too alike is a dedupe, too far apart is its own row.
 
 ---
 
 ## Appendix
 
-see kinds.json.
+The kind tree is `lint/kinds.json`, written as `kind — nouns that resolve here`. Parent lines list nouns that have no leaf yet. Match with the deepest reasonable tier: ground you walk on is `env-terrain`, a rock set on it is `env-rock`.
 
 Main:
 `obj` = manufactured/portable thing
@@ -365,10 +362,4 @@ Main:
 Other:
 `char` = living or acting entity, incl. any obj it may equip, wear or carry
 `assy` = a mix of different things from different kinds
-
-
-Format: `kind — nouns that resolve here`.
-Parent lines list nouns that have no leaf yet.
-Match with the deepest reasonable tier.
-Ground you walk on is `env-terrain`; a rock set on it is `env-rock`.
 
