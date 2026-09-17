@@ -87,6 +87,11 @@ Geometry is scaled by the pack factor, grounded at Y = 0, pivoted on the
 footprint centre, welded, and written as one draw call; `node lint/measures.mjs`
 checks all three.
 
+A model already in `kits/workfiles` that sits on the wrong band is moved, not
+re-imported: `node tools/importeer/reband.mjs <kit>/<model> <from>:<to>` shifts
+every vertex of one band onto another and keeps its place within the cell.
+Rebuild the catalogue and the kit's thumbs afterwards.
+
 ## 7. Tags
 
 Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
