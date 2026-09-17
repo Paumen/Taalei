@@ -18,6 +18,7 @@ reband.mjs <kit>/<model> --list
             parts that read as several shades of one band read as one. <from> may
             equal <to> to reposition without changing band.
   --shells  only vertices in those shells; a shell is one connected run of triangles
+  --mesh    only the mesh of that name, for a model whose parts are separate nodes
   --x --y --z  only vertices inside that range, in the model's own units;
             a bound may be left off (--y 1.8: is everything from 1.8 up)
   --list    number the shells with their bands, vertices and extents, and change nothing
@@ -36,6 +37,7 @@ const flag = (name) => {
 
 const listOnly = flag('list') !== null;
 const shellArg = flag('shells');
+const meshArg = flag('mesh');
 const atArg = flag('at');
 const placeAt = atArg === null ? null : Number(atArg);
 if (placeAt !== null && !(placeAt >= 0 && placeAt <= 1)) throw new Error(`--at wants 0 to 1, got: ${atArg}`);
@@ -100,6 +102,7 @@ for (const mesh of json.meshes ?? []) {
     const view = json.bufferViews[accessor.bufferView];
     targets.push({
       accessor,
+      mesh: mesh.name ?? '',
       start: (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0),
       step: view.byteStride ?? 8,
       count: accessor.count,
@@ -181,8 +184,16 @@ function inRange(target, i) {
   });
 }
 
+if (meshArg !== null && !targets.some((t) => t.mesh === meshArg)) {
+  const names = [...new Set(targets.map((t) => t.mesh || '(unnamed)'))].join(', ');
+  throw new Error(`${id}: no mesh named ${meshArg}. This model has: ${names}`);
+}
+
 const keeps = shells.map(
-  (shell, n) => (!wanted || wanted.has(n + 1)) && shell.members.some((i) => inRange(shell.target, i)),
+  (shell, n) =>
+    (!wanted || wanted.has(n + 1)) &&
+    (meshArg === null || shell.target.mesh === meshArg) &&
+    shell.members.some((i) => inRange(shell.target, i)),
 );
 
 if (listOnly) {
@@ -252,6 +263,7 @@ if (split) {
 writeGlb(path, json, bin, writeFileSync);
 const parts = [];
 if (wanted) parts.push(`shell ${[...wanted].sort((a, b) => a - b).join(', ')}`);
+if (meshArg !== null) parts.push(`mesh ${meshArg}`);
 for (const r of ranges.filter(Boolean)) parts.push(`${r.axis} ${r.min}:${r.max}`);
 const where = parts.length ? ` in ${parts.join(', ')}` : '';
 for (const m of moves) console.log(`${id}: ${m.from} → ${m.to}, ${m.moved} vertices${where}`);
