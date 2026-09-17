@@ -2,7 +2,7 @@ export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max
 
 const EPSILON = 1e-9;
 
-export const kindIs = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
+export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
 export function buildLimits(kinds) {
   const own = new Map();
@@ -37,7 +37,7 @@ export function buildLimits(kinds) {
 }
 
 export const isExempt = (model, vars) =>
-  vars.exemptKinds.some((k) => kindIs(model.kind, k))
+  vars.exemptKinds.some((k) => idUnder(model.kind, k))
   || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
 
 export function findingsFor(model, limits, vars) {
