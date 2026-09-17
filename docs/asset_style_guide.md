@@ -199,7 +199,7 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
-Run `node lint/materials.mjs`. It checks the rows written in kind and material ids alone — `M01`–`M03`, `M05`–`M07`, `M09`, `M11`, `M14`, `M22`, `M23`, `M25`–`M27`, `M29`–`M31`, `M35`–`M37` — and reads `kinds` and `materials` from `lint/variables.json`. The other rows name parts, variants, `D`-terms or nouns, which those two files do not carry.
+Run `node lint/materials.mjs`. The rows written in kind and material ids alone — `M01`–`M03`, `M05`–`M07`, `M09`, `M11`, `M14`, `M22`, `M23`, `M25`–`M27`, `M29`–`M31`, `M35`–`M37` — sit on the kind nodes in the kinds.JSON as `materials`, each with its subject, assert and value. A rule reaches every kind under the node it sits on, until a deeper kind sets the same subject. The other rows name parts, variants, `D`-terms or nouns, which the kinds.JSON and the materials.JSON do not carry.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|

@@ -1,13 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildRules, idUnder, materialFindingsFor } from './rules.mjs';
+import { buildRules, idUnder, materialFindingsFor, treeIds } from './rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
 
 const VARS = read('lint/variables.json');
-const { rules, materials } = buildRules(read(VARS.materials), read(VARS.kinds));
+const MATERIALS = read(VARS.materials);
+const RULES = buildRules(read(VARS.kinds), MATERIALS);
+const TREE = treeIds(MATERIALS.materials);
 const { models } = read(VARS.models);
 
 const findings = [];
@@ -17,8 +19,8 @@ let skipped = 0;
 for (const m of models) {
   if (!m.kind || VARS.exemptKinds.some((k) => idUnder(m.kind, k))) { skipped++; continue; }
   checked++;
-  const mats = new Set((m.tags ?? []).filter((t) => materials.has(t)));
-  for (const f of materialFindingsFor(m, mats, rules)) {
+  const mats = new Set((m.tags ?? []).filter((t) => TREE.has(t)));
+  for (const f of materialFindingsFor(m, mats, RULES.get(m.kind))) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }
@@ -45,6 +47,6 @@ if (perKit.size) {
   }
 }
 
-console.log(`\n${rules.length} rules, ${checked} checked, ${skipped} exempt, ${findings.length} errors`);
+console.log(`\n${checked} checked, ${skipped} exempt, ${findings.length} errors`);
 
 process.exitCode = findings.length ? 1 : 0;
