@@ -56,7 +56,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 3. a row naming a deeper kind over a row naming a shallower kind;
 4. any term over `*`.
 
-`M00` is a fallback: it applies only where no other §4 row sets `mat:metal-iron`.
+§4 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
 
@@ -201,48 +201,47 @@ What a kind is made of. Colour follows from §5.
 
 Run `node lint/materials.mjs`. It checks the rows written in kind and material ids alone — `M01`–`M03`, `M05`–`M07`, `M09`, `M11`, `M14`, `M22`, `M23`, `M25`–`M27`, `M29`–`M31`, `M35`–`M37` — and reads `kinds` and `materials` from `lint/variables.json`. The other rows name parts, variants, `D`-terms or nouns, which those two files do not carry.
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `M00` | `mat=metal-iron` | `kind:obj-kitchenware-cookware` | `mat:metal-iron` | is | `metal-iron-wrought` |
-| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment \| kind:char` | `kind:obj-weapon-cannon \| kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-steel` |
-| `M02` | `kind:obj-weapon-cannon \| kind:str` | — | `mat:metal-iron` | is | `metal-iron-cast` |
-| `M03` | `kind:obj-tool-supplies` | — | `mat:metal-iron` | is | `metal-iron-wrought` |
-| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | — | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `mat:metal` | is | `metal-iron` |
-| `M06` | `kind:obj-container-chest` | — | `mat:metal` | is | `metal-iron` |
-| `M07` | `kind:obj-container-crate` | — | `mat:metal` | is | `metal-iron` |
-| `M08` | `D03` | — | model | has | `wood:` |
-| `M09` | `kind:obj-container-bottle` | — | model | has | `glass`, `ceramic` |
-| `M10` | `kind:obj-container-bag` | — | `part:fastener, closure` | any-of | `rope`, `leather` |
-| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | — | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
-| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
-| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | has | `wood:` |
-| `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
-| `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` | any-of | `wood:`, `textile` |
-| `M16` | `kind:obj-weapon` | — | `part:strap` | any-of | `textile`, `leather` |
-| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` | any-of | `textile`, `rope`, `leather` |
-| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` | any-of | `leather` |
-| `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
-| `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
-| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
-| `M22` | `kind:obj-tool-hand` | — | `mat:wood` | is | `wood-planks` |
-| `M23` | `kind:obj-tool-long` | — | `mat:wood` | is | `wood-beam` |
-| `M24` | `kind:obj-transport-accessory` | — | `part:sail` | is | `textile` |
-| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
-| `M26` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
-| `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
-| `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` | any-of | `leather`, `metal-iron:` |
-| `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
-| `M30` | `kind:obj-resource-wood-log` | — | model | has | `wood-log` |
-| `M31` | `kind:obj-resource-wood-log` | — | model | has | `wood-bark` |
-| `M32` | `*` sticks, unworked poles | — | model | any-of | `wood-bark` |
-| `M33` | `kind:obj-instrument` bells | — | model | has | `metal-copper`, `metal-gold` |
-| `M34` | `kind:str` | — | model | has | `wood:` |
-| `M35` | `kind:str-part-roof` | — | model | has | `ceramic` |
-| `M36` | `kind:str-marker-flag` | — | model | has | `textile` |
-| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | — | model | has | `wood:` |
-| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | — | `mat:stone` | is | `stone-masonry` |
-| `M39` | `kind:env-terrain-ground` sand, dirt | — | `mat:stone` | is | `stone-soil` |
+| id | when | subject | assert | value |
+|---|---|---|---|---|
+| `M01` | `kind:obj-kitchenware-tableware \| kind:obj-weapon & !kind:obj-weapon-cannon \| kind:obj-tool & !kind:obj-tool-supplies \| kind:obj-equipment \| kind:char` | `mat:metal-iron` | is | `metal-iron-steel` |
+| `M02` | `kind:obj-weapon-cannon \| kind:str` | `mat:metal-iron` | is | `metal-iron-cast` |
+| `M03` | `kind:obj-tool-supplies` | `mat:metal-iron` | is | `metal-iron-wrought` |
+| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
+| `M05` | `kind:obj-container-barrel \| kind:obj-container-bucket` | `mat:metal` | is | `metal-iron` |
+| `M06` | `kind:obj-container-chest` | `mat:metal` | is | `metal-iron` |
+| `M07` | `kind:obj-container-crate` | `mat:metal` | is | `metal-iron` |
+| `M08` | `D03` | model | has | `wood:` |
+| `M09` | `kind:obj-container-bottle` | model | has | `glass`, `ceramic` |
+| `M10` | `kind:obj-container-bag` | `part:fastener, closure` | any-of | `rope`, `leather` |
+| `M11` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | model | any-of | `ceramic`, `metal-iron:`, `wood:` |
+| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | any-of | `metal-iron:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | model | has | `wood:` |
+| `M14` | `kind:obj-furniture-seating` | model | has | `textile` |
+| `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | any-of | `wood:`, `textile` |
+| `M16` | `kind:obj-weapon` | `part:strap` | any-of | `textile`, `leather` |
+| `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | any-of | `textile`, `rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | any-of | `leather` |
+| `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
+| `M20` | `kind:obj-weapon` special weapon | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
+| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
+| `M22` | `kind:obj-tool-hand` | `mat:wood` | is | `wood-planks` |
+| `M23` | `kind:obj-tool-long` | `mat:wood` | is | `wood-beam` |
+| `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
+| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
+| `M26` | `kind:obj-pocketitem-coin` | model | any-of | `metal-gold` |
+| `M27` | `kind:obj-pocketitem-key` | model | any-of | `metal-iron:`, `metal-gold` |
+| `M28` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` | any-of | `leather`, `metal-iron:` |
+| `M29` | `kind:obj-pocketitem-jewellery` | model | any-of | `metal-gold`, `gemstone` |
+| `M30` | `kind:obj-resource-wood-log` | model | has | `wood-log` |
+| `M31` | `kind:obj-resource-wood-log` | model | has | `wood-bark` |
+| `M32` | `*` sticks, unworked poles | model | any-of | `wood-bark` |
+| `M33` | `kind:obj-instrument` bells | model | has | `metal-copper`, `metal-gold` |
+| `M34` | `kind:str` | model | has | `wood:` |
+| `M35` | `kind:str-part-roof` | model | has | `ceramic` |
+| `M36` | `kind:str-marker-flag` | model | has | `textile` |
+| `M37` | `kind:str-marker-sign \| kind:str-barrier-post \| kind:str-marker-flag` | model | has | `wood:` |
+| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
+| `M39` | `kind:env-terrain-ground` sand, dirt | `mat:stone` | is | `stone-soil` |
 
 ---
 
