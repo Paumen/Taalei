@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=9572ceedef';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=9572ceedef';
-import { colorSwatches, setBands } from './color-edits.js?v=9572ceedef';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=9572ceedef';
-import { mountExtractBar, setPageParts } from './extract.js?v=9572ceedef';
-import './bouwstempel.js?v=9572ceedef';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=69c848a8f3';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=69c848a8f3';
+import { colorSwatches, setBands } from './color-edits.js?v=69c848a8f3';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=69c848a8f3';
+import { mountExtractBar, setPageParts } from './extract.js?v=69c848a8f3';
+import './bouwstempel.js?v=69c848a8f3';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -846,6 +846,12 @@ function showDetail(model) {
   const clips = model.anim ?? [];
   viewer.setAttribute('auto-rotate', '');
   viewer.setAttribute('rotation-per-second', '18deg');
+  // the distance model-viewer frames the model at, kept so a later orbit can be read
+  // as a zoom factor rather than a bare number of metres
+  viewer.addEventListener('load', () => {
+    const orbit = viewer.getCameraOrbit?.();
+    if (orbit) viewer.dataset.framedRadius = String(orbit.radius);
+  }, { once: true });
 
   detailAnimation.hidden = clips.length === 0;
   detailAnimationChoice.replaceChildren(
@@ -883,7 +889,7 @@ function showDetail(model) {
   }));
 
   renderTagEditor(document.querySelector('#detail-tags'), model, register.tags);
-  renderCommentBox(document.querySelector('#detail-opmerking'), model);
+  renderCommentBox(document.querySelector('#detail-opmerking'), model, { readView: panelView });
 
   detail.showModal();
   updateSelection();
@@ -915,6 +921,34 @@ function choiceChip(text, active, action, container, path) {
     chip.prepend(pick);
   }
   return chip;
+}
+
+// What the panel is showing, in the terms tools/renders/render.mjs takes. model-viewer
+// counts phi down from straight up and render.mjs counts elevation up from the
+// horizon, so one is ninety degrees minus the other; azimuth already agrees.
+// framedRadius is the distance model-viewer chose when the model loaded, so the ratio
+// against it is how far the view has been zoomed in since.
+function panelView() {
+  const viewer = detailViewer.querySelector('model-viewer');
+  if (!viewer?.getCameraOrbit) return null;
+  let orbit;
+  try {
+    orbit = viewer.getCameraOrbit();
+  } catch {
+    return null;
+  }
+  if (!orbit) return null;
+  const degrees = (radians) => (radians * 180) / Math.PI;
+  const az = Math.round(((degrees(orbit.theta) % 360) + 360) % 360);
+  const el = Math.round(90 - degrees(orbit.phi));
+  const framed = Number(viewer.dataset.framedRadius);
+  const zoom = framed > 0 && orbit.radius > 0 ? framed / orbit.radius : null;
+  return {
+    view: `${az}/${el}`,
+    ...(zoom ? { zoom: Math.round(zoom * 100) / 100, fit: Math.round((1.06 / zoom) * 100) / 100 } : {}),
+    orbit: `${az}deg ${Math.round(degrees(orbit.phi))}deg ${orbit.radius.toFixed(3)}m`,
+    fov: Math.round(viewer.getFieldOfView?.() ?? 0),
+  };
 }
 
 function setAnimation(clip) {
