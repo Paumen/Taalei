@@ -7,7 +7,7 @@ import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs'
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
-import { buildLimits, findingsFor, isExempt } from '../../lint/rules.mjs';
+import { buildChecks, checkModel } from '../../lint/rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
@@ -21,24 +21,13 @@ const ROWS = 4;
 const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
-const LINT_LIMITS = buildLimits(JSON.parse(readFileSync(join(ROOT, LINT_VARS.kinds), 'utf8')));
-
-const MATERIAL_TREE = new Set();
-const addMaterial = (node) => {
-  MATERIAL_TREE.add(node.id);
-  for (const child of node.children ?? []) addMaterial(child);
-};
-for (const root of JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8')).materials) addMaterial(root);
-
-function lintOf(model, wdh) {
-  if (!model.kind || isExempt(model, LINT_VARS)) return undefined;
-  const found = findingsFor(
-    { ...model, wdh, tpu: model.trianglesPerUnit },
-    LINT_LIMITS.get(model.kind),
-    LINT_VARS,
-  );
-  return found.length ? found : undefined;
-}
+const LINT_CHECKS = buildChecks({
+  vars: LINT_VARS,
+  kinds: JSON.parse(readFileSync(join(ROOT, LINT_VARS.kinds), 'utf8')),
+  materials: JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8')),
+  measures: JSON.parse(readFileSync(join(ROOT, LINT_VARS.measures), 'utf8')),
+});
+const MATERIAL_TREE = LINT_CHECKS.materialIds;
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
@@ -682,38 +671,40 @@ const output = {
   byLongest: [...new Set(models.map((m) => m.kind).filter(Boolean))].sort().filter(byLongest),
   limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()
     .map((kind) => [kind, Object.fromEntries(
-      Object.entries(LINT_LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
+      Object.entries(LINT_CHECKS.limits.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
     )])),
-  models: models.map((m) => ({
-    kit: m.kit,
-    name: m.name,
-    kind: m.kind,
-    size: m.size,
-    wdh: m.wdh.map(round1),
-    tris: m.triangles,
-    tpu: m.trianglesPerUnit,
-    mat: m.materials,
-    bands: m.bands,
-    calls: m.calls,
-    bytes: m.bytes,
-    vtx: m.vertices,
-    gridMod: m.isGridModular || undefined,
-    grounded: m.isGrounded || undefined,
-    centered: m.pivotIsCenter || undefined,
-    minEdge: round(m.minEdgeLength, 4),
-    avgTri: round(m.averageTriangleArea, 5),
-    anglePct: Math.round(m.strictAnglePercent),
-    vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
-    grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
-    spread: m.laneSpread ?? undefined,
-    colors: m.colors.length ? m.colors : undefined,
-    tags: m.tags,
-    anim: m.animations,
-    alpha: m.alpha || undefined,
-    pbr: m.pbr || undefined,
-    variant: m.variant,
-    lint: lintOf(m, m.wdh.map(round1)),
-  })),
+  models: models.map((m) => {
+    const row = {
+      kit: m.kit,
+      name: m.name,
+      kind: m.kind,
+      size: m.size,
+      wdh: m.wdh.map(round1),
+      tris: m.triangles,
+      tpu: m.trianglesPerUnit,
+      mat: m.materials,
+      bands: m.bands,
+      calls: m.calls,
+      bytes: m.bytes,
+      vtx: m.vertices,
+      gridMod: m.isGridModular || undefined,
+      grounded: m.isGrounded || undefined,
+      centered: m.pivotIsCenter || undefined,
+      minEdge: round(m.minEdgeLength, 4),
+      avgTri: round(m.averageTriangleArea, 5),
+      anglePct: Math.round(m.strictAnglePercent),
+      vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
+      grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
+      spread: m.laneSpread ?? undefined,
+      colors: m.colors.length ? m.colors : undefined,
+      tags: m.tags,
+      anim: m.animations,
+      alpha: m.alpha || undefined,
+      pbr: m.pbr || undefined,
+      variant: m.variant,
+    };
+    return { ...row, ...checkModel(row, LINT_CHECKS) };
+  }),
 };
 
 writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
