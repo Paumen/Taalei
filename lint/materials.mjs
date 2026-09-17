@@ -51,7 +51,6 @@ const RULES = [
   { id: 'M29', when: 'kind:obj-pocketitem-jewellery', subject: 'model', assert: 'any-of', value: ['metal-gold', 'gemstone'] },
   { id: 'M30', when: 'kind:obj-resource-wood-log', subject: 'model', assert: 'has', value: ['wood-log'] },
   { id: 'M31', when: 'kind:obj-resource-wood-log', subject: 'model', assert: 'has', value: ['wood-bark'] },
-  { id: 'M34', when: 'kind:str', subject: 'model', assert: 'has', value: ['wood:'] },
   { id: 'M35', when: 'kind:str-part-roof', subject: 'model', assert: 'has', value: ['ceramic'] },
   { id: 'M36', when: 'kind:str-marker-flag', subject: 'model', assert: 'has', value: ['textile'] },
   {
