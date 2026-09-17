@@ -75,13 +75,9 @@ const ASSERTS = {
 };
 
 export function materialFindings(model, mats, rules) {
-  const applies = rules.filter((rule) =>
-    termMatches(rule.when, model, mats) && !(rule.except && termMatches(rule.except, model, mats)));
-  const settled = new Set(applies.filter((rule) => !rule.fallback).map((rule) => rule.subject));
-
   const out = [];
-  for (const rule of applies) {
-    if (rule.fallback && settled.has(rule.subject)) continue;
+  for (const rule of rules) {
+    if (!termMatches(rule.when, model, mats)) continue;
     const have = carried(rule.subject, mats);
     if (ASSERTS[rule.assert](have, rule.value)) continue;
     out.push({ rule: rule.id, subject: rule.subject, assert: rule.assert, value: rule.value, have });

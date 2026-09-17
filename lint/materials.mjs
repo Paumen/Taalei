@@ -13,18 +13,11 @@ const { models } = read(VARS.models);
 
 const RULES = [
   {
-    id: 'M00',
-    when: 'mat=metal-iron',
-    except: 'kind:obj-kitchenware-cookware',
-    subject: 'mat:metal-iron',
-    assert: 'is',
-    value: ['metal-iron-wrought'],
-    fallback: true,
-  },
-  {
     id: 'M01',
-    when: 'kind:obj-kitchenware-tableware | kind:obj-weapon | kind:obj-tool | kind:obj-equipment | kind:char',
-    except: 'kind:obj-weapon-cannon | kind:obj-tool-supplies',
+    when: 'kind:obj-kitchenware-tableware'
+      + ' | kind:obj-weapon & !kind:obj-weapon-cannon'
+      + ' | kind:obj-tool & !kind:obj-tool-supplies'
+      + ' | kind:obj-equipment | kind:char',
     subject: 'mat:metal-iron',
     assert: 'is',
     value: ['metal-iron-steel'],
@@ -65,16 +58,14 @@ const RULES = [
 const fail = (rule, what) => { throw new Error(`${rule.id}: ${what}`); };
 
 for (const rule of RULES) {
-  for (const expr of [rule.when, rule.except].filter(Boolean)) {
-    for (const raw of expr.split(/[|&]/)) {
-      const term = raw.trim().replace(/^!/, '');
-      if (term === '*') continue;
-      if (term.startsWith('kind:')) {
-        if (!KINDS.has(term.slice(5))) fail(rule, `${term} is not in ${VARS.kinds}`);
-      } else if (term.startsWith('mat:') || term.startsWith('mat=')) {
-        if (!MATERIALS.has(term.slice(4))) fail(rule, `${term} is not in ${VARS.materials}`);
-      } else fail(rule, `${term} is outside kind and material ids`);
-    }
+  for (const raw of rule.when.split(/[|&]/)) {
+    const term = raw.trim().replace(/^!/, '');
+    if (term === '*') continue;
+    if (term.startsWith('kind:')) {
+      if (!KINDS.has(term.slice(5))) fail(rule, `${term} is not in ${VARS.kinds}`);
+    } else if (term.startsWith('mat:') || term.startsWith('mat=')) {
+      if (!MATERIALS.has(term.slice(4))) fail(rule, `${term} is not in ${VARS.materials}`);
+    } else fail(rule, `${term} is outside kind and material ids`);
   }
   if (rule.subject !== 'model') {
     if (!rule.subject.startsWith('mat:')) fail(rule, `subject ${rule.subject} is outside kind and material ids`);
