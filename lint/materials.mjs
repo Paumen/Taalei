@@ -1,84 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { idUnder, materialFindings, treeIds } from './rules.mjs';
+import { buildRules, idUnder, materialFindingsFor } from './rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
 
 const VARS = read('lint/variables.json');
-const KINDS = treeIds(read(VARS.kinds).kinds);
-const MATERIALS = treeIds(read(VARS.materials).materials);
+const { rules, materials } = buildRules(read(VARS.materials), read(VARS.kinds));
 const { models } = read(VARS.models);
-
-const RULES = [
-  {
-    id: 'M01',
-    when: 'kind:obj-kitchenware-tableware'
-      + ' | kind:obj-weapon & !kind:obj-weapon-cannon'
-      + ' | kind:obj-tool & !kind:obj-tool-supplies'
-      + ' | kind:obj-equipment | kind:char',
-    subject: 'mat:metal-iron',
-    assert: 'is',
-    value: ['metal-iron-steel'],
-  },
-  { id: 'M02', when: 'kind:obj-weapon-cannon | kind:str', subject: 'mat:metal-iron', assert: 'is', value: ['metal-iron-cast'] },
-  { id: 'M03', when: 'kind:obj-tool-supplies', subject: 'mat:metal-iron', assert: 'is', value: ['metal-iron-wrought'] },
-  { id: 'M05', when: 'kind:obj-container-barrel | kind:obj-container-bucket', subject: 'mat:metal', assert: 'is', value: ['metal-iron'] },
-  { id: 'M06', when: 'kind:obj-container-chest', subject: 'mat:metal', assert: 'is', value: ['metal-iron'] },
-  { id: 'M07', when: 'kind:obj-container-crate', subject: 'mat:metal', assert: 'is', value: ['metal-iron'] },
-  { id: 'M09', when: 'kind:obj-container-bottle', subject: 'model', assert: 'has', value: ['glass', 'ceramic'] },
-  {
-    id: 'M11',
-    when: 'kind:obj-kitchenware-tableware-plate | kind:obj-kitchenware-tableware-bowl',
-    subject: 'model',
-    assert: 'any-of',
-    value: ['ceramic', 'metal-iron:', 'wood:'],
-  },
-  { id: 'M14', when: 'kind:obj-furniture-seating', subject: 'model', assert: 'has', value: ['textile'] },
-  { id: 'M22', when: 'kind:obj-tool-hand', subject: 'mat:wood', assert: 'is', value: ['wood-planks'] },
-  { id: 'M23', when: 'kind:obj-tool-long', subject: 'mat:wood', assert: 'is', value: ['wood-beam'] },
-  { id: 'M25', when: 'kind:obj-transport-boat | kind:obj-transport-ship', subject: 'mat:wood', assert: 'min', value: [2] },
-  { id: 'M26', when: 'kind:obj-pocketitem-coin', subject: 'model', assert: 'any-of', value: ['metal-gold'] },
-  { id: 'M27', when: 'kind:obj-pocketitem-key', subject: 'model', assert: 'any-of', value: ['metal-iron:', 'metal-gold'] },
-  { id: 'M29', when: 'kind:obj-pocketitem-jewellery', subject: 'model', assert: 'any-of', value: ['metal-gold', 'gemstone'] },
-  { id: 'M30', when: 'kind:obj-resource-wood-log', subject: 'model', assert: 'has', value: ['wood-log'] },
-  { id: 'M31', when: 'kind:obj-resource-wood-log', subject: 'model', assert: 'has', value: ['wood-bark'] },
-  { id: 'M35', when: 'kind:str-part-roof', subject: 'model', assert: 'has', value: ['ceramic'] },
-  { id: 'M36', when: 'kind:str-marker-flag', subject: 'model', assert: 'has', value: ['textile'] },
-  {
-    id: 'M37',
-    when: 'kind:str-marker-sign | kind:str-barrier-post | kind:str-marker-flag',
-    subject: 'model',
-    assert: 'has',
-    value: ['wood:'],
-  },
-];
-
-const fail = (rule, what) => { throw new Error(`${rule.id}: ${what}`); };
-
-for (const rule of RULES) {
-  for (const raw of rule.when.split(/[|&]/)) {
-    const term = raw.trim().replace(/^!/, '');
-    if (term === '*') continue;
-    if (term.startsWith('kind:')) {
-      if (!KINDS.has(term.slice(5))) fail(rule, `${term} is not in ${VARS.kinds}`);
-    } else if (term.startsWith('mat:') || term.startsWith('mat=')) {
-      if (!MATERIALS.has(term.slice(4))) fail(rule, `${term} is not in ${VARS.materials}`);
-    } else fail(rule, `${term} is outside kind and material ids`);
-  }
-  if (rule.subject !== 'model') {
-    if (!rule.subject.startsWith('mat:')) fail(rule, `subject ${rule.subject} is outside kind and material ids`);
-    if (!MATERIALS.has(rule.subject.slice(4))) fail(rule, `subject ${rule.subject} is not in ${VARS.materials}`);
-  }
-  if (rule.assert === 'min') {
-    if (rule.value.length !== 1 || typeof rule.value[0] !== 'number') fail(rule, 'min takes one number');
-  } else {
-    for (const token of rule.value) {
-      if (!MATERIALS.has(token.replace(/:$/, ''))) fail(rule, `${token} is not in ${VARS.materials}`);
-    }
-  }
-}
 
 const findings = [];
 let checked = 0;
@@ -87,8 +17,8 @@ let skipped = 0;
 for (const m of models) {
   if (!m.kind || VARS.exemptKinds.some((k) => idUnder(m.kind, k))) { skipped++; continue; }
   checked++;
-  const mats = new Set((m.tags ?? []).filter((t) => MATERIALS.has(t)));
-  for (const f of materialFindings(m, mats, RULES)) {
+  const mats = new Set((m.tags ?? []).filter((t) => materials.has(t)));
+  for (const f of materialFindingsFor(m, mats, rules)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }
@@ -99,9 +29,10 @@ const width = (key) => Math.max(...findings.map((f) => String(f[key]).length), 0
 const w = { id: width('id'), kind: width('kind'), subject: width('subject') };
 
 for (const f of findings) {
-  const wants = `${f.assert} ${f.value.join(', ')}`;
-  const has = f.have.length ? f.have.join(', ') : '—';
-  console.log(`${f.rule}  ${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.subject.padEnd(w.subject)}  ${wants}  (has ${has})`);
+  console.log(
+    `${f.rule}  ${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.subject.padEnd(w.subject)}  ` +
+    `${f.assert} ${[f.value].flat().join(', ')}  (has ${f.have.join(', ') || '—'})`,
+  );
 }
 
 const perKit = new Map();
@@ -110,10 +41,10 @@ if (perKit.size) {
   console.log('');
   const kw = Math.max(...[...perKit.keys()].map((k) => k.length));
   for (const [kit, count] of [...perKit].sort(([a], [b]) => a.localeCompare(b))) {
-    console.log(`${kit.padEnd(kw)}  ${String(count).padStart(4)} errors`);
+    console.log(`${kit.padEnd(kw)}  ${String(count).padStart(3)} errors`);
   }
 }
 
-console.log(`\n${RULES.length} rules, ${checked} checked, ${skipped} exempt, ${findings.length} errors`);
+console.log(`\n${rules.length} rules, ${checked} checked, ${skipped} exempt, ${findings.length} errors`);
 
 process.exitCode = findings.length ? 1 : 0;

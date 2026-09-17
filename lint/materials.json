@@ -51,5 +51,27 @@
   { "id": "special" },
   { "id": "vegetation" },
   { "id": "skin" }
+ ],
+ "rules": [
+  { "id": "M01", "when": "kind:obj-kitchenware-tableware | kind:obj-weapon & !kind:obj-weapon-cannon | kind:obj-tool & !kind:obj-tool-supplies | kind:obj-equipment | kind:char", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-steel"] },
+  { "id": "M02", "when": "kind:obj-weapon-cannon | kind:str", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-cast"] },
+  { "id": "M03", "when": "kind:obj-tool-supplies", "subject": "mat:metal-iron", "assert": "is", "value": ["metal-iron-wrought"] },
+  { "id": "M05", "when": "kind:obj-container-barrel | kind:obj-container-bucket", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] },
+  { "id": "M06", "when": "kind:obj-container-chest", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] },
+  { "id": "M07", "when": "kind:obj-container-crate", "subject": "mat:metal", "assert": "is", "value": ["metal-iron"] },
+  { "id": "M09", "when": "kind:obj-container-bottle", "subject": "model", "assert": "has", "value": ["glass", "ceramic"] },
+  { "id": "M11", "when": "kind:obj-kitchenware-tableware-plate | kind:obj-kitchenware-tableware-bowl", "subject": "model", "assert": "any-of", "value": ["ceramic", "metal-iron:", "wood:"] },
+  { "id": "M14", "when": "kind:obj-furniture-seating", "subject": "model", "assert": "has", "value": ["textile"] },
+  { "id": "M22", "when": "kind:obj-tool-hand", "subject": "mat:wood", "assert": "is", "value": ["wood-planks"] },
+  { "id": "M23", "when": "kind:obj-tool-long", "subject": "mat:wood", "assert": "is", "value": ["wood-beam"] },
+  { "id": "M25", "when": "kind:obj-transport-boat | kind:obj-transport-ship", "subject": "mat:wood", "assert": "min", "value": 2 },
+  { "id": "M26", "when": "kind:obj-pocketitem-coin", "subject": "model", "assert": "any-of", "value": ["metal-gold"] },
+  { "id": "M27", "when": "kind:obj-pocketitem-key", "subject": "model", "assert": "any-of", "value": ["metal-iron:", "metal-gold"] },
+  { "id": "M29", "when": "kind:obj-pocketitem-jewellery", "subject": "model", "assert": "any-of", "value": ["metal-gold", "gemstone"] },
+  { "id": "M30", "when": "kind:obj-resource-wood-log", "subject": "model", "assert": "has", "value": ["wood-log"] },
+  { "id": "M31", "when": "kind:obj-resource-wood-log", "subject": "model", "assert": "has", "value": ["wood-bark"] },
+  { "id": "M35", "when": "kind:str-part-roof", "subject": "model", "assert": "has", "value": ["ceramic"] },
+  { "id": "M36", "when": "kind:str-marker-flag", "subject": "model", "assert": "has", "value": ["textile"] },
+  { "id": "M37", "when": "kind:str-marker-sign | kind:str-barrier-post | kind:str-marker-flag", "subject": "model", "assert": "has", "value": ["wood:"] }
  ]
 }

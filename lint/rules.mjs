@@ -50,35 +50,48 @@ export const isExempt = (model, vars) =>
   vars.exemptKinds.some((k) => idUnder(model.kind, k))
   || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
 
-const oneTerm = (term, model, mats) => {
-  if (term.startsWith('!')) return !oneTerm(term.slice(1).trim(), model, mats);
-  if (term === '*') return true;
-  if (term.startsWith('kind:')) return idUnder(model.kind, term.slice(5));
-  if (term.startsWith('mat:')) return [...mats].some((id) => idUnder(id, term.slice(4)));
-  if (term.startsWith('mat=')) return mats.has(term.slice(4));
-  throw new Error(`term outside kind and material ids: ${term}`);
+const term = (text, model, mats) => {
+  if (text.startsWith('!')) return !term(text.slice(1).trim(), model, mats);
+  if (text === '*') return true;
+  if (text.startsWith('kind:')) return idUnder(model.kind, text.slice(5));
+  if (text.startsWith('mat:')) return [...mats].some((id) => idUnder(id, text.slice(4)));
+  return mats.has(text.slice(4));
 };
 
-export const termMatches = (expr, model, mats) =>
-  expr.split('|').some((group) => group.split('&').every((term) => oneTerm(term.trim(), model, mats)));
+const matches = (when, model, mats) =>
+  when.split('|').some((group) => group.split('&').every((text) => term(text.trim(), model, mats)));
 
-const tokenMatches = (id, token) => (token.endsWith(':') ? idUnder(id, token.slice(0, -1)) : id === token);
-
-const carried = (subject, mats) =>
-  (subject === 'model' ? [...mats] : [...mats].filter((id) => idUnder(id, subject.slice(4)))).sort();
+const token = (id, want) => (want.endsWith(':') ? idUnder(id, want.slice(0, -1)) : id === want);
 
 const ASSERTS = {
-  is: (have, value) => have.every((id) => tokenMatches(id, value[0])),
-  has: (have, value) => have.some((id) => value.some((token) => tokenMatches(id, token))),
-  'any-of': (have, value) => have.length > 0 && have.every((id) => value.some((token) => tokenMatches(id, token))),
-  min: (have, value) => have.length >= value[0],
+  is: (have, value) => have.every((id) => token(id, value[0])),
+  has: (have, value) => have.some((id) => value.some((want) => token(id, want))),
+  'any-of': (have, value) => have.length > 0 && have.every((id) => value.some((want) => token(id, want))),
+  min: (have, value) => have.length >= value,
 };
 
-export function materialFindings(model, mats, rules) {
+export function buildRules(materials, kinds) {
+  const ids = { kind: treeIds(kinds.kinds), mat: treeIds(materials.materials) };
+  const has = (text) => ids[text.startsWith('kind:') ? 'kind' : 'mat'].has(text.slice(text.indexOf(':') + 1));
+  const fail = (rule, what) => { throw new Error(`${rule.id}: ${what} is not a kind or material id`); };
+
+  for (const rule of materials.rules) {
+    for (const text of rule.when.split(/[|&]/).map((t) => t.trim().replace(/^!/, '').replace('mat=', 'mat:'))) {
+      if (text !== '*' && !has(text)) fail(rule, text);
+    }
+    if (rule.subject !== 'model' && !has(rule.subject)) fail(rule, rule.subject);
+    if (rule.assert !== 'min') {
+      for (const want of rule.value) if (!ids.mat.has(want.replace(/:$/, ''))) fail(rule, want);
+    }
+  }
+  return { rules: materials.rules, materials: ids.mat };
+}
+
+export function materialFindingsFor(model, mats, rules) {
   const out = [];
   for (const rule of rules) {
-    if (!termMatches(rule.when, model, mats)) continue;
-    const have = carried(rule.subject, mats);
+    if (!matches(rule.when, model, mats)) continue;
+    const have = (rule.subject === 'model' ? [...mats] : [...mats].filter((id) => idUnder(id, rule.subject.slice(4)))).sort();
     if (ASSERTS[rule.assert](have, rule.value)) continue;
     out.push({ rule: rule.id, subject: rule.subject, assert: rule.assert, value: rule.value, have });
   }
