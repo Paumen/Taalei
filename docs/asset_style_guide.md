@@ -58,6 +58,13 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
 
+**[F10] Rules that live in the JSON.** Four checks read their rows from `lint/kinds.json` and `lint/materials.json` rather than from a table here: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). All four read the same way:
+
+- **Inheritance.** A field set on a kind or a material holds for everything under it. Where a chain sets the same field more than once, only the deepest is read (`F08` rule 3) — this is how a palm takes `moss` where the trees above it take `hunter`. Fields naming different materials all apply at once. `has` is the exception: every `has` entry down the chain holds.
+- **Coverage.** Bands are recorded per model, not per material, so a band row passes when the model shows at least one band from the list. A list admitting `transparent` holds no band and is not checked.
+- **Exemptions** live in `lint/variables.json`, per check.
+- **Each check reads only its own rows**, so §5.1 and §5.2 never widen or fault each other.
+
 **Definitions**
 
 | id | term | definition |
@@ -148,30 +155,11 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in the kinds.JSON, as `high.min`, `high.max`, `longest.min` and `longest.max`. Each is inherited from the nearest kind up the chain that sets it, falling back to the `defaults` block, which sets `longest` for everything. So a kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min` and `longest.max`, inherited per `F10`, falling back to the `defaults` block, which sets `longest` for everything. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
-```mermaid
-flowchart LR
-  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind has a «limit»<br/>on high or longest (kinds.json,<br/>nearest ancestor setting it, else defaults)"]
-  A --> T["THEN the model's own high or longest,<br/>from wdh (catalog.json),<br/>must sit within «limit» (kinds.json)"]
-  T --> Y(["within &nbsp; pass"])
-  T --> W(["past it by ≤ «warnBand» of the limit &nbsp; warning<br/>(variables.json)"])
-  T --> N(["further &nbsp; error"])
-  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
-  classDef warn fill:#fdf0d5,stroke:#c9a227,color:#1a1a1a
-  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
-  class Y ok
-  class W warn
-  class N bad
-```
+Past a limit by no more than `warnBand` is a warning; further is an error.
 
-Run `node lint/size.mjs`; exemptions and the warning band live in `lint/variables.json`.
-
-if size lint error or warning:
-1. verify if model has right kinds tag.
-2. verify if model meets tag:plural, tag:pickup, tag:comp criteria.
-3. check if more models same kit have errors/warnings.
-
+Run `node lint/size.mjs`.
 
 ### 2.4 Boxes and part counts
 
@@ -212,9 +200,9 @@ What a kind is made of. Colour follows from §5.
 
 `kind:assy` is exempt.
 
-### 4.1 In the kinds.JSON
+### 4.1 In `lint/kinds.json`
 
-These rows live in the kinds.JSON, on the node of the kind they name. Two fields:
+These rows live in `lint/kinds.json`, on the node of the kind they name, and read per `F10`. Two fields:
 
 ```
 mat.«material»: «subtype»       «material»   a material id
@@ -224,39 +212,11 @@ has: [ «material», [«material», …] ]        a plain entry is required outr
                                             a nested list is any one of them
 ```
 
-`mat.` asks a model that already carries the material to carry the right one:
+`mat.` only asks a model that already carries the material to carry the right subtype. `has` asks for the material in the first place. Because the deepest row wins, none of these rows carries a `!` term.
 
-```mermaid
-flowchart LR
-  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND it is made of «material»<br/>(catalog.json tags, materials.json)"]
-  A --> T["THEN that model must have «subtype»<br/>(catalog.json tags, kinds.json)"]
-  T --> Y(["yes &nbsp; pass"])
-  T --> N(["no &nbsp; error"])
-  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
-  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
-  class Y ok
-  class N bad
-```
+`lint/materials.json` says which tags count as under `«material»`. `special` is held out of the check.
 
-`has` asks for the material in the first place:
-
-```mermaid
-flowchart LR
-  I["IF the model (catalog.json)<br/>is a «kind» (kinds.json)"] --> A["AND that kind's has names «material»<br/>(kinds.json)"]
-  A --> T["THEN that model must have «material»<br/>(catalog.json tags, materials.json)"]
-  T --> Y(["yes &nbsp; pass"])
-  T --> N(["no &nbsp; error"])
-  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
-  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
-  class Y ok
-  class N bad
-```
-
-Of the kinds on a model's chain setting the same `mat.«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. Two rows naming different `«material»` ids both apply, even where one id sits under the other. A `has` entry never overrides: every entry down the chain holds at once.
-
-`materials.json` is what says a tag counts as under `«material»`. `variables.json` says which kinds are exempt, and holds `special` out of the check.
-
-Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
+Run `node lint/mat.mjs`.
 
 ### 4.2 The rest
 
@@ -293,58 +253,26 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-One row per material: the bands a model carrying it may draw from. They live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A palette that holds only at one size — glass at `size:s` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
 
-The catalogue records bands per model, not per material, so the rows are checked as coverage: a model carrying a material shows at least one band out of that material's palette.
+Run `node lint/palette.mjs`.
 
-```mermaid
-flowchart LR
-  I["IF the model (catalog.json)<br/>is made of «material»<br/>(catalog.json tags, materials.json)"] --> A["AND «material» has a palette<br/>(materials.json bands, or the<br/>model's size in variables.json)"]
-  A --> T["THEN one of the palette's bands<br/>sits in the model's spread<br/>(catalog.json)"]
-  T --> Y(["yes &nbsp; pass"])
-  T --> N(["no &nbsp; error"])
-  T --> S(["the palette admits transparent,<br/>which holds no band &nbsp; not checked"])
-  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
-  classDef warn fill:#fdf0d5,stroke:#c9a227,color:#1a1a1a
-  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
-  class Y ok
-  class S warn
-  class N bad
-```
+### 5.2 In `lint/kinds.json`
 
-Run `node lint/palette.mjs`; exemptions live in `lint/variables.json`. §5.2 is not read, so a band a §5.2 row widens is neither demanded nor faulted here.
-
-if palette lint error:
-1. verify if model has right material tags.
-2. verify if the band is a §5.2 case.
-3. check if more models same kit have errors.
-
-### 5.2 In the kinds.JSON
-
-The rows the catalogue can answer live in the kinds.JSON, on the node of the kind they name, as the bands that kind may draw from. Two fields:
+The rows the catalogue can answer live in `lint/kinds.json`, on the node of the kind they name, as the bands that kind may draw from, and read per `F10`. Two fields:
 
 ```
 band.«material»: [ «band», … ]     holds for a model of the kind carrying «material»
 band: [ «band», … ]                holds for every model of the kind
 ```
 
-Checked as coverage, like §5.1: the model shows at least one band out of the list. The bands are recorded per model, not per material, so `band.«material»` says when the list applies, not which bands belong to that material. Of the kinds on a model's chain setting the same field, only the deepest is read — `F08` rule 3, which is how a palm takes `moss` where the trees above it take `hunter`. Two fields naming different materials both apply. A list admitting `transparent` holds no band, so it is not checked.
+`band.«material»` says when the list applies, not which bands belong to that material.
 
-Some of these came from a row naming a part or a noun that the coverage reading makes redundant, so the field is kept on the kind alone:
-
-| kind | as written | why the part drops |
-|---|---|---|
-| `obj-kitchenware-tableware-drinkware` | mug, cup, tankard, `mat:wood` | a goblet, chalice or glass is not wooden, so `band.wood` already picks out the noun |
-| `obj-food-meat` | model, `is` `sienna` | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
-| `obj-pocketitem-book` | `part:cover` | the paper is `ivory` by its §5.1 palette, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
-| `env-flora-tree` | `part:leaf, canopy` | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
-| `env-fungi` | `part:stem` | the stem is the only `ivory` part of a fungus |
-
-Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a kind's own bands are checked on their own terms and not also against the material's wider palette.
-
----
+Run `node lint/bands.mjs`.
 
 ### 5.3 The rest
+
+Checked by eye. Each row names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
@@ -368,7 +296,7 @@ Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is no
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
-The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
+---
 
 ## 6. Governance & process
 
@@ -399,7 +327,7 @@ Importing a pack:
 
 ## 7. Variants
 
-Which models sit together as one entry and which stand apart. Groups live in `catalog/asset_variants.json`; `build-catalog.mjs` attaches them to the catalogue. A group exists for one of these reasons.
+Which models sit together as one entry and which stand apart. Groups live in `catalog/asset_variants.json`, attached to the catalogue by `build-catalog.mjs`. A group exists for one of these reasons.
 
 | id | reason | shared | differs |
 |---|---|---|---|
@@ -409,7 +337,7 @@ Which models sit together as one entry and which stand apart. Groups live in `ca
 | `D11` | state | kind, material | a part moved, removed, filled or recoloured |
 | `D12` | plural | kind, material, band | how many instances |
 
-What holds of every group, read from `catalog/asset_variants.json`:
+What holds of every group:
 
 - **`V01`** — Its `kits` is one kit; a second only for the same artist, never across artists without the PO.
 - **`V02`** — Its `kind` is the same for every member.
@@ -418,14 +346,13 @@ What holds of every group, read from `catalog/asset_variants.json`:
 - **`V05`** — A group is judged by how it reads, not by how far it measures.
 - **`V06`** — A `D10` member is redesigned at that size: a longer ladder gains rungs.
 - **`V07`** — For kinds wanting variety, `D08` and `D09` are made on purpose (`M04` is one).
-
-A variant is what keeps a kind from ballooning. Filled and empty, open and closed, lit and unlit, with lid, without lid and the lid alone each double a group; left apart, ten potions and a shelf of pans crowd out everything else. The same reasons that justify a variant are what justify the model being in the catalogue at all, so the judgement runs both ways: too alike and it is a dedupe, too far apart and it is its own row.
+- **`V08`** — The same reasons judge both ways: too alike is a dedupe, too far apart is its own row.
 
 ---
 
 ## Appendix
 
-see kinds.json.
+The kind tree is `lint/kinds.json`, written as `kind — nouns that resolve here`. Parent lines list nouns that have no leaf yet. Match with the deepest reasonable tier: ground you walk on is `env-terrain`, a rock set on it is `env-rock`.
 
 Main:
 `obj` = manufactured/portable thing
@@ -435,10 +362,4 @@ Main:
 Other:
 `char` = living or acting entity, incl. any obj it may equip, wear or carry
 `assy` = a mix of different things from different kinds
-
-
-Format: `kind — nouns that resolve here`.
-Parent lines list nouns that have no leaf yet.
-Match with the deepest reasonable tier.
-Ground you walk on is `env-terrain`; a rock set on it is `env-rock`.
 
