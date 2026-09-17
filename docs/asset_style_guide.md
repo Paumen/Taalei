@@ -345,9 +345,9 @@ if palette lint error:
 
 The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
 
-The rows the catalogue can answer live in `lint/kind-bands.json`: `B28`, `B29`, `B30`, `B34`, `B41`, `B44`, `B45`, `B48`, `B49`, `B50`, `B52` and `B54`. Each names kinds, a subject and a band list.
+The rows the catalogue can answer live in `lint/kind-bands.json`: `B28`, `B29`, `B30`, `B34`, `B41`, `B44`, `B45`, `B48`, `B49`, `B50`, `B52` and `B54`. Each names kinds and a band list, and may name a material.
 
-Checked as coverage, like §5.1: a model of the kind shows at least one band out of the row's list. A `mat:<id>` subject holds only for a model carrying that material; a `model` subject holds for every model of the kind. Where two rows name the same subject, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
+Checked as coverage, like §5.1: a model of the kind shows at least one band out of the row's list. A row naming a material holds only for a model carrying it; the bands are recorded per model, not per material, so the material says when the row applies, not which bands belong to it. Where two rows name the same material, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
 
 Five of them name a `part:` or a noun that the coverage reading makes redundant, so the row is kept on the kind alone:
 
