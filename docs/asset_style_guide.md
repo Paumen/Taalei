@@ -199,14 +199,18 @@ What a kind is made of. Colour follows from §5.
 
 ### 4.1 Subtype per kind
 
-These rows live in the kinds.JSON, on the node of the kind they name:
+These rows live in the kinds.JSON, on the node of the kind they name.
 
 ```
-mat.<M>: <R>     <M>   a material id
-                 <R>   <M> or a subtype of it
+mat.<M>: <R>   on kind <K>      <M>  a material id
+                                <R>  <M> or a subtype of it
+
+if     <K> is the deepest kind on the model's chain naming <M>
+and    the model carries a material under <M>
+then   the model carries one under <R>
 ```
 
-On a kind `<K>` it is the row `kind:<K>` · `mat:<M>` · has · `<R>`. Of the kinds on a model's chain naming `<M>`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term.
+The first line is `F08` rule 3 and nothing else, so none of these rows carries a `!` term.
 
 ```mermaid
 flowchart LR
