@@ -2,6 +2,7 @@ export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
+const BAND = 'band';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
@@ -126,6 +127,50 @@ export function paletteFindingsFor(model, palettes, materialIds, vars) {
     out.push({
       material,
       wants: palette.bands.join(' '),
+      has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+    });
+  }
+  return out;
+}
+
+export function buildKindBands(kinds) {
+  const own = new Map();
+  const parent = new Map();
+  const walk = (node, from) => {
+    own.set(node.id, Object.entries(node)
+      .filter(([key]) => key === BAND || key.startsWith(`${BAND}.`))
+      .map(([key, bands]) => [key === BAND ? null : key.slice(BAND.length + 1), bands]));
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+
+  const byKind = new Map();
+  for (const id of own.keys()) {
+    const byMat = new Map();
+    for (let at = id; at; at = parent.get(at)) {
+      for (const [mat, bands] of own.get(at)) {
+        if (!byMat.has(mat)) byMat.set(mat, { bands, from: at });
+      }
+    }
+    byKind.set(id, byMat);
+  }
+  return byKind;
+}
+
+export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
+  const out = [];
+  const used = Object.keys(model.spread ?? {});
+  const mats = materialsOf(model, materialIds, vars);
+  for (const [mat, row] of rules ?? []) {
+    const present = mat === null ? [] : mats.filter((m) => idUnder(m, mat));
+    if (mat !== null && !present.length) continue;
+    const lanes = row.bands.map((band) => palettes.lanes.get(band));
+    if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
+    out.push({
+      from: row.from,
+      material: present.join(' ') || '—',
+      wants: row.bands.join(' '),
       has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
     });
   }

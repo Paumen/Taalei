@@ -50,11 +50,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 **[F08] Combining rows.** A row whose `except` matches the model does not apply. Rows that apply and do not disagree all hold. When two rows assert on the same subject and disagree, the more specific row wins:
 
 1. a `part:` subject over a `mat:` subject, and a `mat:` subject over `model`;
-2. a §5.2 row over a §5.1 row;
+2. a §5.2 or §5.3 row over a §5.1 row;
 3. a row naming a deeper kind over a row naming a shallower kind;
 4. any term over `*`.
 
-§4 and §5.2 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
+§4 and §5.3 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`. Band maxima ignore the `special` band; band minima keep it.
 
@@ -293,37 +293,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-| id | when | except | subject | assert | value |
-|---|---|---|---|---|---|
-| `B01` | `mat=metal-iron-steel` | — | `mat:metal-iron-steel` | is | `nickel` |
-| `B02` | `mat=metal-iron-wrought` | — | `mat:metal-iron-wrought` | is | `basalt` |
-| `B03` | `mat=metal-iron-cast` | — | `mat:metal-iron-cast` | is | `slate` |
-| `B04` | `mat=metal-gold` | — | `mat:metal-gold` | is | `amber` |
-| `B05` | `mat=metal-copper` | — | `mat:metal-copper` | is | `terracotta` |
-| `B06` | `mat=wood-planks` | — | `mat:wood-planks` | is | `tan` |
-| `B07` | `mat=wood-worked` | — | `mat:wood-worked` | is | `camel` |
-| `B08` | `mat=wood-beam` | — | `mat:wood-beam` | is | `chestnut` |
-| `B09` | `mat=wood-bark` | — | `mat:wood-bark` | is | `umber` |
-| `B10` | `mat=wood-log` | — | `mat:wood-log` | is | `tan`, `camel`, `chestnut` |
-| `B11` | `mat=stone-masonry` | — | `mat:stone-masonry` | is | `taupe`, `slate`, `nickel` |
-| `B12` | `mat=stone-rock` | — | `mat:stone-rock` | is | `nickel`, `taupe` |
-| `B13` | `mat=stone-soil` | — | `mat:stone-soil` | is | `taupe` |
-| `B14` | `mat=paper` | — | `mat:paper` | is | `ivory` |
-| `B15` | `mat=textile` | — | `mat:textile` | is | `ivory`, `hunter` |
-| `B16` | `mat=leather` | — | `mat:leather` | is | `umber` |
-| `B17` | `mat=ceramic` | — | `mat:ceramic` | is | `terracotta`, `ivory`, `taupe`, `sienna` |
-| `B18` | `mat=bone` | — | `mat:bone` | is | `ivory` |
-| `B19` | `mat=wax` | — | `mat:wax` | is | `ivory` |
-| `B20` | `mat=wick` | — | `mat:wick` | is | `basalt` |
-| `B21` | `mat=glass & !size:s` | — | `mat:glass` | is | `transparent` |
-| `B22` | `mat=glass & size:s` | — | `mat:glass` | is | `transparent`, `sienna`, `hunter` |
-| `B23` | `mat=liquid` | — | `mat:liquid` | is | `sienna`, `hunter`, `azure` |
-| `B24` | `mat=rope` | — | `mat:rope` | is | `taupe` |
-| `B25` | `mat=cork` | — | `mat:cork` | is | `taupe` |
-| `B26` | `mat=gemstone` | — | `mat:gemstone` | is | `sienna`, `hunter`, `azure` |
-| `B27` | `mat=skin` | — | `mat:skin` | is | `tan`, `taupe`, `umber` |
-
-These rows live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A row that holds only at one size — `B22` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+One row per material: the bands a model carrying it may draw from. They live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A palette that holds only at one size — glass at `size:s` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
 
 The catalogue records bands per model, not per material, so the rows are checked as coverage: a model carrying a material shows at least one band out of that material's palette.
 
@@ -349,43 +319,56 @@ if palette lint error:
 2. verify if the band is a §5.2 case.
 3. check if more models same kit have errors.
 
-### 5.2 By kind and part
+### 5.2 In the kinds.JSON
+
+The rows the catalogue can answer live in the kinds.JSON, on the node of the kind they name, as the bands that kind may draw from. Two fields:
+
+```
+band.«material»: [ «band», … ]     holds for a model of the kind carrying «material»
+band: [ «band», … ]                holds for every model of the kind
+```
+
+Checked as coverage, like §5.1: the model shows at least one band out of the list. The bands are recorded per model, not per material, so `band.«material»` says when the list applies, not which bands belong to that material. Of the kinds on a model's chain setting the same field, only the deepest is read — `F08` rule 3, which is how a palm takes `moss` where the trees above it take `hunter`. Two fields naming different materials both apply. A list admitting `transparent` holds no band, so it is not checked.
+
+Some of these came from a row naming a part or a noun that the coverage reading makes redundant, so the field is kept on the kind alone:
+
+| kind | as written | why the part drops |
+|---|---|---|
+| `obj-kitchenware-tableware-drinkware` | mug, cup, tankard, `mat:wood` | a goblet, chalice or glass is not wooden, so `band.wood` already picks out the noun |
+| `obj-food-meat` | model, `is` `sienna` | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
+| `obj-pocketitem-book` | `part:cover` | the paper is `ivory` by its §5.1 palette, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
+| `env-flora-tree` | `part:leaf, canopy` | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
+| `env-fungi` | `part:stem` | the stem is the only `ivory` part of a fungus |
+
+Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a kind's own bands are checked on their own terms and not also against the material's wider palette.
+
+---
+
+### 5.3 The rest
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `B28` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | `mat:ceramic` | is | `ivory`, `terracotta` |
-| `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `mat:wood` | is | `camel`, `chestnut` |
-| `B30` | `kind:obj-kitchenware-cookware-pot` | `mat:ceramic` | is | `terracotta` |
 | `B31` | `kind:obj-food & !kind:obj-food-meat & !kind:obj-food-vegetable & !kind:obj-food-grain & !fish & !cheese & !chocolate` | model | is | `any` |
 | `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure` |
 | `B33` | `kind:obj-food` cheese | model | is | `amber` |
-| `B34` | `kind:obj-food-meat` | model | is | `sienna` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut` |
 | `B40` | `kind:obj-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
-| `B41` | `kind:obj-transport` | `mat:wood` | is | `camel`, `chestnut` |
 | `B42` | `kind:obj-transport-ship & !sails \| kind:obj-transport-boat & !sails \| kind:obj-transport-accessory & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
 | `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | `part:cover` | is | `umber`, `sienna`, `hunter`, `slate` |
-| `B45` | `kind:obj-pocketitem-scroll` | `mat:paper` | is | `ivory` |
 | `B46` | `kind:obj-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
-| `B48` | `kind:char \| kind:obj-equipment-clothing` | `mat:textile` | is | `ivory`, `hunter`, `sienna` |
-| `B49` | `kind:str` | `mat:glass` | is | `transparent` |
-| `B50` | `kind:str-part-roof` | `mat:ceramic` | is | `sienna` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
-| `B52` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:leaf, canopy` | is | `hunter` |
 | `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | `part:flower` | is | `any` |
-| `B54` | `kind:env-fungi` | `part:stem` | is | `ivory` |
 | `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel` |
 | `B56` | `kind:env-fauna` | model | is | `any` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
----
+The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
 
 ## 6. Governance & process
 
