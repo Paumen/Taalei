@@ -1,6 +1,6 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=e5813edd7e';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=e5813edd7e';
-import { commentCount, clearComments, allComments, onChange as onComment } from './comments.js?v=e5813edd7e';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=bb993e13ad';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=bb993e13ad';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=bb993e13ad';
 
 const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
 
@@ -9,6 +9,7 @@ const NOTE = [
   '"tags" holds the tag and kind edits: per tag, "add" ids join that tag\'s "models" in catalog/tags.json and "remove" ids leave it.',
   '"colours" holds colour marks per model, keyed by the hex the panel shows: "partial" is partly wrong, "wrong" is the wrong colour outright, "add" is a band the model does not carry and should.',
   '"comments" holds one free-text note per model.',
+  '"views" holds, per commented model, the angle the panel was showing when the note was written: "view" and "fov" go straight to tools/renders/render.mjs --views and --fov, "zoom" is how far in the view was against the framing the panel chose, so above about 1.3 the note is about a detail, and "orbit" is what the panel reported.',
   '"swipe" holds the swipe run: the label of every direction with the paths judged that way.',
   '"selection" holds the paths ticked in the catalogue.',
 ].join(' ');
@@ -28,9 +29,11 @@ const staged = () => {
   const tags = allEdits();
   const colours = allMarks();
   const comments = allComments();
+  const views = allViews();
   if (Object.keys(tags).length) out.tags = tags;
   if (Object.keys(colours).length) out.colours = colours;
   if (Object.keys(comments).length) out.comments = comments;
+  if (Object.keys(views).length) out.views = views;
   return out;
 };
 
