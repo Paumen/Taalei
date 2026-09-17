@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=aa81b4b36a';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=aa81b4b36a';
-import { colorSwatches, setBands } from './color-edits.js?v=aa81b4b36a';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=aa81b4b36a';
-import { mountExtractBar, setPageParts } from './extract.js?v=aa81b4b36a';
-import './bouwstempel.js?v=aa81b4b36a';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=73aa872a19';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=73aa872a19';
+import { colorSwatches, setBands } from './color-edits.js?v=73aa872a19';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=73aa872a19';
+import { mountExtractBar, setPageParts } from './extract.js?v=73aa872a19';
+import './bouwstempel.js?v=73aa872a19';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -470,6 +470,8 @@ const SORTINGS = {
   klein: (a, b) => longest(a) - longest(b),
   zwaar: (a, b) => b.tris - a.tris,
   licht: (a, b) => a.tris - b.tris,
+  dichtste: (a, b) => num(b.tpu) - num(a.tpu),
+  ijlste: (a, b) => num(a.tpu) - num(b.tpu),
   bestand: (a, b) => b.bytes - a.bytes,
   bestandKlein: (a, b) => a.bytes - b.bytes,
   meesteVtx: (a, b) => b.vtx - a.vtx,
