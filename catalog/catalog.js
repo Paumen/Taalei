@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=73aa872a19';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=73aa872a19';
-import { colorSwatches, setBands } from './color-edits.js?v=73aa872a19';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=73aa872a19';
-import { mountExtractBar, setPageParts } from './extract.js?v=73aa872a19';
-import './bouwstempel.js?v=73aa872a19';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=89a1fc825b';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=89a1fc825b';
+import { colorSwatches, setBands } from './color-edits.js?v=89a1fc825b';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=89a1fc825b';
+import { mountExtractBar, setPageParts } from './extract.js?v=89a1fc825b';
+import './bouwstempel.js?v=89a1fc825b';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -132,6 +132,7 @@ const kindState = new Map([['assy', 'not']]);
 
 const tagState = new Map();
 const lintState = new Map();
+const checkState = new Map();
 
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
 
@@ -263,14 +264,22 @@ function showThumb(box) {
 }
 
 const LINT_LEVELS = [
-  { id: 'error', title: 'Errors', hint: 'Outside a size limit by more than the warning band' },
+  { id: 'error', title: 'Errors', hint: 'Breaks a rule, or outside a size limit by more than the warning band' },
   { id: 'warning', title: 'Warnings', hint: 'Outside a size limit but within the warning band' },
 ];
 
-const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
+const LINT_CHECKS = [
+  { id: 'size', title: 'Size', hint: 'Extents and triangle budget, per kind' },
+  { id: 'mat', title: 'Materials', hint: 'The materials a kind is asked to carry' },
+  { id: 'palette', title: 'Palette', hint: 'The bands a material may draw from' },
+  { id: 'bands', title: 'Bands', hint: 'The bands a kind may draw from' },
+  { id: 'measures', title: 'Measures', hint: 'Rows that assert on one recorded field' },
+];
 
-const lintText = (f) =>
-  `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`;
+const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
+const lintChecks = (m) => [...new Set((m.lint ?? []).map((f) => f.check))];
+
+const lintText = (f) => `${f.check} · ${f.text}`;
 
 function glyph(kind, sign, hint) {
   const el = span(`glyf glyf-${kind}`, sign);
@@ -359,6 +368,7 @@ function makeCard(model, kits, variants = []) {
     kinds: [...new Set(family.flatMap((m) => (m.kind ? kindChain(m.kind) : [WITHOUT])))],
     sizes: [...new Set(family.map((m) => m.size))],
     lint: [...new Set(family.flatMap(lintLevels))],
+    checks: [...new Set(family.flatMap(lintChecks))],
   };
   cards.push(item);
 
@@ -730,6 +740,21 @@ const TAG_TYPES = [
   { type: 'tag', head: 'Tags' },
 ];
 
+const marked = (model, field, text) =>
+  span((model.mark ?? []).includes(field) ? 'feit-fout' : '', text);
+
+function placing(model) {
+  const box = span('');
+  box.append(
+    marked(model, null, model.gridMod ? '✓' : '—'),
+    ' / ',
+    marked(model, 'grounded', model.grounded ? '✓' : '—'),
+    ' / ',
+    marked(model, 'centered', model.centered ? '✓' : '—'),
+  );
+  return box;
+}
+
 function fillFacts(lines) {
   const data = document.querySelector('#detail-gegevens');
   data.replaceChildren();
@@ -787,7 +812,7 @@ function showDetail(model) {
       {
         kop: 'Gradient',
         vol: 'Gradient spread within the colour band',
-        waarde: model.grad === undefined ? '—' : unit.format(model.grad),
+        element: marked(model, 'grad', model.grad === undefined ? '—' : unit.format(model.grad)),
       },
     ],
     [
@@ -800,7 +825,7 @@ function showDetail(model) {
       {
         kop: 'Grid/gnd/ctr',
         vol: 'Grid-modular / grounded / centered',
-        waarde: [model.gridMod, model.grounded, model.centered].map((v) => (v ? '✓' : '—')).join(' / '),
+        element: placing(model),
       },
     ],
   ];
@@ -853,7 +878,7 @@ function showDetail(model) {
   lintList.replaceChildren(...(model.lint ?? []).map((f) => {
     const row = document.createElement('li');
     row.className = `lintregel lint-${f.level}`;
-    row.textContent = `${f.level} · ${lintText(f)}`;
+    row.textContent = lintText(f);
     return row;
   }));
 
@@ -1109,6 +1134,14 @@ function buildTagBar(tags) {
     'lint',
     { shareRow: shape },
   );
+  buildChipRow(
+    container,
+    'Check',
+    LINT_CHECKS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
+    checkState,
+    'checks',
+    { shareRow: shape },
+  );
 
   for (const { type, head } of TAG_TYPES) {
     const own = tags.filter((t) => (t.type ?? 'tag') === type);
@@ -1135,6 +1168,7 @@ function refresh() {
       for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
       for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
       for (const id of lintLevels(model)) bump(`lint|${id}`);
+      for (const id of lintChecks(model)) bump(`checks|${id}`);
     }
   }
   syncSubtypes(counts);
@@ -1146,7 +1180,8 @@ function refresh() {
 }
 
 const filtersOff = () =>
-  colorState.size + tagState.size + sizeState.size + kindState.size + lintState.size === 0;
+  colorState.size + tagState.size + sizeState.size + kindState.size
+  + lintState.size + checkState.size === 0;
 
 function onClear() {
   colorState.clear();
@@ -1154,6 +1189,7 @@ function onClear() {
   sizeState.clear();
   kindState.clear();
   lintState.clear();
+  checkState.clear();
   for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
   for (const { element } of chipButtons) showState(element, undefined);
   syncSubtypes();
@@ -1176,7 +1212,8 @@ function filter() {
       kindHit(card.kinds) &&
       matches(card.tags, tagState) &&
       matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) }) &&
-      matches(card.lint, lintState, { any: LINT_LEVELS.map((k) => k.id) });
+      matches(card.lint, lintState, { any: LINT_LEVELS.map((k) => k.id) }) &&
+      matches(card.checks, checkState, { any: LINT_CHECKS.map((k) => k.id) });
     card.element.hidden = !hit;
     if (hit) visible++;
   }
