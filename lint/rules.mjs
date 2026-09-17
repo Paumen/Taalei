@@ -93,6 +93,45 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
   return out;
 }
 
+export function buildPalettes(materials, vars) {
+  const lanes = new Map(Object.entries(materials.bands));
+  const names = new Map([...lanes].map(([band, lane]) => [lane, band]));
+  const rows = [];
+  const walk = (node) => {
+    if (node.bands) rows.push({ mat: node.id, size: null, bands: node.bands });
+    for (const child of node.children ?? []) walk(child);
+  };
+  for (const root of materials.materials) walk(root);
+  for (const [mat, bySize] of Object.entries(vars.palette.sizeBands ?? {})) {
+    for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
+  }
+  rows.sort((a, b) => b.mat.length - a.mat.length);
+  return { lanes, names, rows };
+}
+
+export function paletteOf(material, size, palettes) {
+  const rows = palettes.rows.filter((row) => idUnder(material, row.mat));
+  const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
+  if (!row) return null;
+  return { bands: row.bands, lanes: row.bands.map((band) => palettes.lanes.get(band)) };
+}
+
+export function paletteFindingsFor(model, palettes, materialIds, vars) {
+  const out = [];
+  const used = Object.keys(model.spread ?? {});
+  for (const material of materialsOf(model, materialIds, vars)) {
+    const palette = paletteOf(material, model.size, palettes);
+    if (!palette) continue;
+    if (palette.lanes.some((lane) => lane === null || used.includes(lane))) continue;
+    out.push({
+      material,
+      wants: palette.bands.join(' '),
+      has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+    });
+  }
+  return out;
+}
+
 export const isExempt = (model, vars) =>
   vars.exemptKinds.some((k) => idUnder(model.kind, k))
   || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
