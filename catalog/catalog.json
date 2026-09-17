@@ -4985,7 +4985,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 274,
+   "count": 275,
    "parent": "metal-iron"
   },
   {
@@ -4993,7 +4993,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 183,
+   "count": 182,
    "parent": "metal-iron"
   },
   {
@@ -5001,7 +5001,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 125,
+   "count": 126,
    "parent": "metal-iron"
   },
   {
@@ -5009,7 +5009,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 104,
+   "count": 105,
    "parent": "metal"
   },
   {
@@ -5032,7 +5032,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 288,
+   "count": 287,
    "parent": "wood"
   },
   {
@@ -5040,7 +5040,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 391,
+   "count": 384,
    "parent": "wood"
   },
   {
@@ -5131,7 +5131,7 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 223
+   "count": 224
   },
   {
    "id": "bone",
@@ -5187,7 +5187,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 65
+   "count": 71
   },
   {
    "id": "cork",
@@ -9625,38 +9625,38 @@
    "avgTri": 0.00185,
    "anglePct": 11,
    "vpt": 1.44,
-   "grad": 0.63,
+   "grad": 0.77,
    "spread": {
     "2,0": [
      0.164,
      0.867
     ],
-    "1,0": [
-     0.289,
-     0.852
-    ],
-    "3,0": [
+    "6,0": [
      0.047,
      0.945
     ],
     "13,3": [
      0.398,
      0.883
+    ],
+    "1,0": [
+     0.328,
+     0.477
     ]
    },
    "colors": [
-    "#563b2b",
     "#5b5550",
     "#8b5936",
-    "#b58158"
+    "#b58158",
+    "#f2a93c"
    ],
    "tags": [
     "asia",
     "leather",
+    "metal-gold",
     "metal-iron-wrought",
     "ngons",
-    "wood-beam",
-    "wood-worked"
+    "wood-beam"
    ]
   },
   {
@@ -10153,13 +10153,9 @@
    "avgTri": 0.00109,
    "anglePct": 33,
    "vpt": 1.42,
-   "grad": 0.68,
+   "grad": 0.66,
    "spread": {
     "14,3": [
-     0.172,
-     0.797
-    ],
-    "1,0": [
      0.07,
      0.891
     ],
@@ -10170,6 +10166,10 @@
     "5,0": [
      0.266,
      0.859
+    ],
+    "1,0": [
+     0.313,
+     0.813
     ]
    },
    "colors": [
@@ -10182,6 +10182,7 @@
     "asia",
     "metal-copper",
     "ngons",
+    "rope",
     "stone-masonry",
     "wood-beam",
     "wood-worked"
@@ -13803,14 +13804,14 @@
    "avgTri": 0.00099,
    "anglePct": 47,
    "vpt": 0.86,
-   "grad": 0.31,
+   "grad": 0.33,
    "spread": {
     "1,0": [
      0.258,
      0.742
     ],
     "2,0": [
-     0.422,
+     0.281,
      0.68
     ],
     "15,3": [
@@ -15321,7 +15322,7 @@
      0.5,
      0.5
     ],
-    "1,0": [
+    "14,3": [
      0.258,
      0.563
     ]
@@ -15329,13 +15330,13 @@
    "colors": [
     "#5b5550",
     "#88848a",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "asia",
     "metal-iron-steel",
     "metal-iron-wrought",
-    "wood-worked"
+    "rope"
    ]
   },
   {
@@ -17275,7 +17276,7 @@
    "tris": 98,
    "tpu": 286,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 5148,
    "vtx": 80,
@@ -17287,25 +17288,23 @@
    "vpt": 0.82,
    "grad": 0,
    "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
     "1,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
+    "#8b7561",
     "#b58158"
    ],
    "tags": [
     "asia",
     "rope",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants taupe, has camel"
-    }
    ]
   },
   {
@@ -31477,20 +31476,20 @@
      0.133,
      0.688
     ],
-    "0,0": [
+    "5,0": [
      0.133,
-     0.688
+     0.172
     ],
     "5,2": [
-     0.375,
-     0.523
+     0.234,
+     0.688
     ]
    },
    "colors": [
     "#1367a6",
     "#b58158",
+    "#d07b56",
     "#d8d1bd",
-    "#dbae80",
     "#f2a93c"
    ],
    "tags": [
@@ -31532,7 +31531,7 @@
    "avgTri": 0.00014,
    "anglePct": 20,
    "vpt": 0.9,
-   "grad": 0.44,
+   "grad": 0.43,
    "spread": {
     "6,0": [
      0.141,
@@ -31546,20 +31545,20 @@
      0.133,
      0.164
     ],
-    "0,0": [
+    "5,0": [
      0.133,
-     0.688
+     0.172
     ],
     "5,2": [
-     0.375,
-     0.523
+     0.234,
+     0.688
     ]
    },
    "colors": [
     "#1367a6",
     "#b58158",
+    "#d07b56",
     "#d8d1bd",
-    "#dbae80",
     "#f2a93c"
    ],
    "tags": [
@@ -31592,7 +31591,7 @@
    "avgTri": 0.00009,
    "anglePct": 41,
    "vpt": 0.82,
-   "grad": 0.47,
+   "grad": 0.49,
    "spread": {
     "6,0": [
      0.141,
@@ -31606,20 +31605,20 @@
      0.133,
      0.688
     ],
-    "0,0": [
+    "5,0": [
      0.133,
-     0.688
+     0.172
     ],
     "5,2": [
-     0.375,
-     0.375
+     0.234,
+     0.688
     ]
    },
    "colors": [
     "#1367a6",
     "#b58158",
+    "#d07b56",
     "#d8d1bd",
-    "#dbae80",
     "#f2a93c"
    ],
    "tags": [
@@ -32447,7 +32446,7 @@
    "vpt": 0.73,
    "grad": 0.51,
    "spread": {
-    "1,0": [
+    "5,0": [
      0.047,
      0.648
     ],
@@ -32457,7 +32456,7 @@
     ]
    },
    "colors": [
-    "#b58158",
+    "#d07b56",
     "#f2a93c"
    ],
    "tags": [
@@ -32516,7 +32515,7 @@
    "tris": 840,
    "tpu": 2449,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 25300,
    "vtx": 588,
@@ -32526,14 +32525,19 @@
    "avgTri": 0.00029,
    "anglePct": 23,
    "vpt": 0.7,
-   "grad": 0.56,
+   "grad": 0.49,
    "spread": {
     "1,0": [
      0.297,
      0.859
+    ],
+    "8,0": [
+     0.617,
+     0.859
     ]
    },
    "colors": [
+    "#7f3927",
     "#b58158"
    ],
    "tags": [
@@ -32555,7 +32559,7 @@
    "tris": 387,
    "tpu": 1128,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 12952,
    "vtx": 287,
@@ -32565,14 +32569,19 @@
    "avgTri": 0.00016,
    "anglePct": 33,
    "vpt": 0.74,
-   "grad": 0.56,
+   "grad": 0.47,
    "spread": {
     "1,0": [
      0.297,
      0.859
+    ],
+    "8,0": [
+     0.469,
+     0.859
     ]
    },
    "colors": [
+    "#7f3927",
     "#b58158"
    ],
    "tags": [
@@ -37378,13 +37387,6 @@
     "Working_B",
     "Working_C"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter taupe, has nickel sienna umber tan slate"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -37584,13 +37586,6 @@
     "Working_A",
     "Working_B",
     "Working_C"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter taupe, has slate nickel tan umber sienna"
-    }
    ]
   },
   {
@@ -41879,17 +41874,17 @@
    "vpt": 0.76,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.094,
      0.094
     ]
    },
    "colors": [
-    "#88848a"
+    "#d8d1bd"
    ],
    "tags": [
-    "kay",
-    "metal-iron-steel"
+    "ceramic",
+    "kay"
    ]
   },
   {
@@ -61880,7 +61875,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has tan ivory"
+     "text": "leather wants umber camel, has tan ivory"
     }
    ]
   },
@@ -66336,11 +66331,11 @@
    "avgTri": 0.00094,
    "anglePct": 32,
    "vpt": 3,
-   "grad": 0.3,
+   "grad": 0.17,
    "spread": {
     "5,2": [
      0.547,
-     0.773
+     0.57
     ],
     "4,2": [
      0.055,
@@ -67369,7 +67364,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "textile wants ivory hunter taupe, has slate chestnut"
+     "text": "textile wants ivory hunter taupe sienna, has slate chestnut"
     }
    ]
   },
@@ -74847,7 +74842,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "textile wants ivory hunter taupe, has chestnut slate"
+     "text": "textile wants ivory hunter taupe sienna, has chestnut slate"
     },
     {
      "level": "error",
@@ -75595,7 +75590,7 @@
    "mat": 2,
    "bands": 3,
    "calls": 7,
-   "bytes": 106572,
+   "bytes": 106220,
    "vtx": 2810,
    "grounded": true,
    "centered": true,
@@ -75603,15 +75598,15 @@
    "avgTri": 0.02077,
    "anglePct": 62,
    "vpt": 1.55,
-   "grad": 0.86,
+   "grad": 0.63,
    "spread": {
     "1,0": [
      0.047,
      0.914
     ],
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "5,2": [
      0.094,
@@ -75653,7 +75648,7 @@
    "mat": 2,
    "bands": 3,
    "calls": 7,
-   "bytes": 99088,
+   "bytes": 98732,
    "vtx": 2600,
    "grounded": true,
    "centered": true,
@@ -75661,11 +75656,11 @@
    "avgTri": 0.01863,
    "anglePct": 59,
    "vpt": 1.54,
-   "grad": 0.86,
+   "grad": 0.61,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -75710,7 +75705,7 @@
    "mat": 2,
    "bands": 4,
    "calls": 7,
-   "bytes": 121364,
+   "bytes": 121012,
    "vtx": 3221,
    "grounded": true,
    "centered": true,
@@ -75718,11 +75713,11 @@
    "avgTri": 0.0198,
    "anglePct": 63,
    "vpt": 1.69,
-   "grad": 0.85,
+   "grad": 0.65,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -75773,7 +75768,7 @@
    "mat": 2,
    "bands": 4,
    "calls": 7,
-   "bytes": 113892,
+   "bytes": 113540,
    "vtx": 3011,
    "grounded": true,
    "centered": true,
@@ -75781,11 +75776,11 @@
    "avgTri": 0.01769,
    "anglePct": 61,
    "vpt": 1.7,
-   "grad": 0.85,
+   "grad": 0.64,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -75835,18 +75830,18 @@
    "mat": 2,
    "bands": 4,
    "calls": 5,
-   "bytes": 91788,
+   "bytes": 91576,
    "vtx": 2440,
    "grounded": true,
    "minEdge": 0.015,
    "avgTri": 0.01649,
    "anglePct": 61,
    "vpt": 1.68,
-   "grad": 0.85,
+   "grad": 0.62,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -75900,18 +75895,18 @@
    "mat": 2,
    "bands": 3,
    "calls": 5,
-   "bytes": 81432,
+   "bytes": 81220,
    "vtx": 2151,
    "grounded": true,
    "minEdge": 0.015,
    "avgTri": 0.01748,
    "anglePct": 61,
    "vpt": 1.58,
-   "grad": 0.86,
+   "grad": 0.59,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -75960,7 +75955,7 @@
    "mat": 2,
    "bands": 4,
    "calls": 16,
-   "bytes": 148388,
+   "bytes": 147424,
    "vtx": 3763,
    "grounded": true,
    "centered": true,
@@ -75968,11 +75963,11 @@
    "avgTri": 0.01123,
    "anglePct": 69,
    "vpt": 1.73,
-   "grad": 0.84,
+   "grad": 0.7,
    "spread": {
     "2,0": [
-     0.047,
-     0.945
+     0.5,
+     0.5
     ],
     "1,0": [
      0.047,
@@ -81830,7 +81825,7 @@
    "tris": 334,
    "tpu": 212,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 17208,
    "vtx": 432,
@@ -81841,15 +81836,11 @@
    "avgTri": 0.02634,
    "anglePct": 97,
    "vpt": 1.29,
-   "grad": 0.43,
+   "grad": 0.41,
    "spread": {
     "15,3": [
      0.297,
      0.695
-    ],
-    "14,3": [
-     0.234,
-     0.758
     ],
     "4,2": [
      0.234,
@@ -81858,8 +81849,7 @@
    },
    "colors": [
     "#1367a6",
-    "#88848a",
-    "#8b7561"
+    "#88848a"
    ],
    "tags": [
     "ken",
@@ -84907,7 +84897,7 @@
    "vpt": 1.08,
    "grad": 0,
    "spread": {
-    "13,3": [
+    "15,3": [
      0.281,
      0.281
     ],
@@ -84917,19 +84907,12 @@
     ]
    },
    "colors": [
-    "#5b5550",
+    "#88848a",
     "#8b5936"
    ],
    "tags": [
-    "metal-iron-wrought",
+    "metal-iron-steel",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-weapon)"
-    }
    ],
    "mark": [
     "grounded"
@@ -85362,7 +85345,7 @@
    "tris": 2700,
    "tpu": 7872,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 78052,
    "vtx": 1888,
@@ -85371,22 +85354,29 @@
    "avgTri": 0.00033,
    "anglePct": 70,
    "vpt": 0.7,
-   "grad": 0.28,
+   "grad": 0.15,
    "spread": {
     "15,3": [
      0.031,
      0.156
     ],
+    "6,1": [
+     0.523,
+     0.523
+    ],
     "2,0": [
      0.156,
-     0.523
+     0.344
     ]
    },
    "colors": [
+    "#343745",
     "#88848a",
     "#8b5936"
    ],
    "tags": [
+    "metal-iron-cast",
+    "metal-iron-steel",
     "stone-rock",
     "wood-beam"
    ],
@@ -92512,7 +92502,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "textile wants ivory hunter taupe, has nickel umber"
+     "text": "textile wants ivory hunter taupe sienna, has nickel umber"
     }
    ]
   },
@@ -92828,14 +92818,14 @@
    "avgTri": 0.00016,
    "anglePct": 26,
    "vpt": 1.91,
-   "grad": 0,
+   "grad": 0.03,
    "spread": {
     "3,0": [
      0.406,
      0.406
     ],
     "0,0": [
-     0.523,
+     0.406,
      0.523
     ]
    },
@@ -92969,7 +92959,7 @@
      0.523,
      0.523
     ],
-    "1,0": [
+    "14,3": [
      0.406,
      0.406
     ],
@@ -92981,19 +92971,12 @@
    "colors": [
     "#563b2b",
     "#8b5936",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "leather",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter taupe, has chestnut camel umber"
-    }
    ]
   },
   {
@@ -98555,7 +98538,7 @@
    "tris": 988,
    "tpu": 2880,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 31696,
    "vtx": 760,
@@ -98565,7 +98548,7 @@
    "avgTri": 0.00012,
    "anglePct": 30,
    "vpt": 0.77,
-   "grad": 0.19,
+   "grad": 0.25,
    "spread": {
     "0,0": [
      0.766,
@@ -98577,16 +98560,11 @@
     ],
     "8,0": [
      0.031,
-     0.117
-    ],
-    "14,3": [
-     0.039,
      0.383
     ]
    },
    "colors": [
     "#7f3927",
-    "#8b7561",
     "#dbae80",
     "#f2a93c"
    ],
@@ -98594,13 +98572,6 @@
     "decorated",
     "food",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 4 wants max 3"
-    }
    ]
   },
   {
@@ -101520,14 +101491,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v386",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has taupe nickel camel"
-    }
-   ]
+   "variant": "v386"
   },
   {
    "kit": "quat-pirate",
@@ -101624,14 +101588,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v386",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
-    }
-   ]
+   "variant": "v386"
   },
   {
    "kit": "quat-pirate",
@@ -102480,7 +102437,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has taupe amber nickel"
+     "text": "leather wants umber camel, has taupe amber nickel"
     }
    ]
   },
@@ -102497,7 +102454,7 @@
    "tris": 494,
    "tpu": 1440,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 20032,
    "vtx": 488,
@@ -102507,38 +102464,33 @@
    "avgTri": 0.00013,
    "anglePct": 43,
    "vpt": 0.99,
-   "grad": 0.45,
+   "grad": 0.72,
    "spread": {
     "15,3": [
      0.242,
      0.961
     ],
-    "1,0": [
-     0.867,
-     0.906
-    ],
     "14,3": [
      0.188,
-     0.219
+     0.906
     ]
    },
    "colors": [
     "#88848a",
-    "#8b7561",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "leather",
     "metal-iron-steel",
     "pirate",
     "qua",
-    "wood-worked"
+    "rope"
    ],
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
+     "text": "leather wants umber camel, has nickel taupe"
     }
    ]
   },
@@ -103239,7 +103191,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has slate terracotta taupe sienna amber azure"
+     "text": "leather wants umber camel, has slate terracotta taupe sienna amber azure"
     },
     {
      "level": "error",
@@ -106690,14 +106642,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v381",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
-    }
-   ]
+   "variant": "v381"
   },
   {
    "kit": "quat-rpg",
@@ -106748,14 +106693,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v381",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
-    }
-   ]
+   "variant": "v381"
   },
   {
    "kit": "quat-rpg",
@@ -107759,13 +107697,6 @@
     "metal-gold",
     "qua",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter taupe, has sienna amber"
-    }
    ]
   },
   {
@@ -107820,7 +107751,7 @@
    "tris": 726,
    "tpu": 2117,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 30896,
    "vtx": 784,
@@ -107830,37 +107761,32 @@
    "avgTri": 0.00003,
    "anglePct": 51,
    "vpt": 1.08,
-   "grad": 0.46,
+   "grad": 0.77,
    "spread": {
     "15,3": [
      0.234,
      0.93
     ],
-    "1,0": [
-     0.797,
-     0.953
-    ],
     "14,3": [
      0.094,
-     0.289
+     0.953
     ]
    },
    "colors": [
     "#88848a",
-    "#8b7561",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "leather",
     "metal-iron-steel",
     "qua",
-    "wood-worked"
+    "rope"
    ],
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
+     "text": "leather wants umber camel, has nickel taupe"
     }
    ]
   },
@@ -108077,13 +108003,6 @@
     "metal-iron-steel",
     "qua",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
-    }
    ]
   },
   {
@@ -110122,7 +110041,7 @@
    "tris": 830,
    "tpu": 2420,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 40200,
    "vtx": 1055,
@@ -110132,39 +110051,34 @@
    "avgTri": 0.00008,
    "anglePct": 62,
    "vpt": 1.27,
-   "grad": 0.44,
+   "grad": 0.88,
    "spread": {
     "15,3": [
      0.039,
      0.93
     ],
-    "1,0": [
-     0.797,
-     0.961
-    ],
     "14,3": [
      0.094,
-     0.344
+     0.961
     ]
    },
    "colors": [
     "#88848a",
-    "#8b7561",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "hero",
     "leather",
     "metal-iron-steel",
     "qua",
-    "wood-worked"
+    "rope"
    ],
    "variant": "v384",
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
+     "text": "leather wants umber camel, has nickel taupe"
     }
    ]
   },
@@ -110181,7 +110095,7 @@
    "tris": 872,
    "tpu": 2542,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 38556,
    "vtx": 996,
@@ -110191,38 +110105,33 @@
    "avgTri": 0.00006,
    "anglePct": 56,
    "vpt": 1.14,
-   "grad": 0.5,
+   "grad": 0.83,
    "spread": {
     "15,3": [
      0.133,
      0.93
     ],
-    "1,0": [
-     0.805,
-     0.953
-    ],
     "14,3": [
      0.086,
-     0.297
+     0.953
     ]
    },
    "colors": [
     "#88848a",
-    "#8b7561",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "leather",
     "metal-iron-steel",
     "qua",
-    "wood-worked"
+    "rope"
    ],
    "variant": "v384",
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has nickel camel taupe"
+     "text": "leather wants umber camel, has nickel taupe"
     }
    ]
   },
@@ -117333,7 +117242,7 @@
    "tris": 1484,
    "tpu": 4327,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 95732,
    "vtx": 2665,
@@ -117343,7 +117252,7 @@
    "avgTri": 0.00026,
    "anglePct": 15,
    "vpt": 1.8,
-   "grad": 0.66,
+   "grad": 0.65,
    "spread": {
     "6,0": [
      0.281,
@@ -117357,6 +117266,10 @@
      0.898,
      0.961
     ],
+    "5,2": [
+     0.523,
+     0.773
+    ],
     "15,3": [
      0.406,
      0.773
@@ -117366,6 +117279,7 @@
     "#5b5550",
     "#88848a",
     "#8b7561",
+    "#d8d1bd",
     "#f2a93c"
    ],
    "tags": [
@@ -117382,12 +117296,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "bone wants ivory, has amber taupe basalt nickel"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-log wants tan camel chestnut, has amber taupe basalt nickel"
+     "text": "wood-log wants tan camel chestnut, has amber taupe basalt ivory nickel"
     }
    ]
   },
@@ -117574,7 +117483,7 @@
    "vpt": 1.55,
    "grad": 0.62,
    "spread": {
-    "0,0": [
+    "14,3": [
      0.219,
      0.961
     ],
@@ -117593,25 +117502,17 @@
    },
    "colors": [
     "#8b5936",
+    "#8b7561",
     "#d07b56",
-    "#d8d1bd",
-    "#dbae80"
+    "#d8d1bd"
    ],
    "tags": [
     "own",
     "robin-hood",
     "rope",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
-   "variant": "v219",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants taupe, has tan chestnut terracotta ivory"
-    }
-   ]
+   "variant": "v219"
   },
   {
    "kit": "small-props",
@@ -117646,7 +117547,7 @@
      0.523,
      0.961
     ],
-    "1,0": [
+    "14,3": [
      0.031,
      0.961
     ],
@@ -117657,7 +117558,7 @@
    },
    "colors": [
     "#8b5936",
-    "#b58158",
+    "#8b7561",
     "#d07b56",
     "#d8d1bd"
    ],
@@ -117665,17 +117566,9 @@
     "own",
     "robin-hood",
     "rope",
-    "wood-beam",
-    "wood-worked"
+    "wood-beam"
    ],
-   "variant": "v219",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants taupe, has terracotta chestnut camel ivory"
-    }
-   ]
+   "variant": "v219"
   },
   {
    "kit": "small-props",
@@ -117722,11 +117615,6 @@
     "wood-beam"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has camel taupe"
-    },
     {
      "level": "error",
      "check": "palette",
