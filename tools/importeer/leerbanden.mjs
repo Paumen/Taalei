@@ -18,7 +18,6 @@ export const BANDEN = {
   hunter: [1, 1],
   moss: [3, 1],
   slate: [6, 1],
-  glass: [3, 2],
   azure: [4, 2],
   ivory: [5, 2],
   basalt: [13, 3],
