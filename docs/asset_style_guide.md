@@ -353,41 +353,41 @@ if palette lint error:
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `B28` | `kind:obj-kitchenware-tableware-plate \| kind:obj-kitchenware-tableware-bowl` | `mat:ceramic` | is | `ivory`, `terracotta` |
-| `B29` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `mat:wood` | is | `camel`, `chestnut` |
-| `B30` | `kind:obj-kitchenware-cookware-pot` | `mat:ceramic` | is | `terracotta` |
 | `B31` | `kind:obj-food & !kind:obj-food-meat & !kind:obj-food-vegetable & !kind:obj-food-grain & !fish & !cheese & !chocolate` | model | is | `any` |
 | `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure` |
 | `B33` | `kind:obj-food` cheese | model | is | `amber` |
-| `B34` | `kind:obj-food-meat` | model | is | `sienna` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut` |
 | `B40` | `kind:obj-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
-| `B41` | `kind:obj-transport` | `mat:wood` | is | `camel`, `chestnut` |
 | `B42` | `kind:obj-transport-ship & !sails \| kind:obj-transport-boat & !sails \| kind:obj-transport-accessory & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
 | `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | `part:cover` | is | `umber`, `sienna`, `hunter`, `slate` |
-| `B45` | `kind:obj-pocketitem-scroll` | `mat:paper` | is | `ivory` |
 | `B46` | `kind:obj-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
-| `B48` | `kind:char \| kind:obj-equipment-clothing` | `mat:textile` | is | `ivory`, `hunter`, `sienna` |
-| `B49` | `kind:str` | `mat:glass` | is | `transparent` |
-| `B50` | `kind:str-part-roof` | `mat:ceramic` | is | `sienna` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
-| `B52` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:leaf, canopy` | is | `hunter` |
 | `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | `part:flower` | is | `any` |
-| `B54` | `kind:env-fungi` | `part:stem` | is | `ivory` |
 | `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel` |
 | `B56` | `kind:env-fauna` | model | is | `any` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 
-Of these rows, the ones the catalogue can answer share one shape: `when` names kinds only, `subject` is a `mat:<id>`, `assert` is `is`, and `value` is a plain band list. That is `B28`, `B30`, `B41`, `B45`, `B48`, `B49` and `B50`; they live in `lint/kind-bands.json`. The rest name a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list, and stay checked by eye.
+The rows above are checked by eye. Each names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list.
 
-Checked as coverage, like §5.1: a model of the kind carrying the material shows at least one band out of the row's list. Where two rows name the same material, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
+The rows the catalogue can answer live in `lint/kind-bands.json`: `B28`, `B29`, `B30`, `B34`, `B41`, `B44`, `B45`, `B48`, `B49`, `B50`, `B52` and `B54`. Each names kinds, a subject and a band list.
+
+Checked as coverage, like §5.1: a model of the kind shows at least one band out of the row's list. A `mat:<id>` subject holds only for a model carrying that material; a `model` subject holds for every model of the kind. Where two rows name the same subject, the one on the deeper kind is read — `F08` rule 3. A row admitting `transparent` holds no band, so it is not checked.
+
+Five of them name a `part:` or a noun that the coverage reading makes redundant, so the row is kept on the kind alone:
+
+| id | as written | as checked | why it holds |
+|---|---|---|---|
+| `B29` | `drinkware` mug, cup, tankard, `mat:wood` | `drinkware`, `mat:wood` | a goblet, chalice or glass is not wooden, so `mat:wood` already picks out the noun |
+| `B34` | `kind:obj-food-meat`, model | unchanged, read as coverage | under `is` every band must be `sienna`, which no meat model meets: each carries bone or fat as `ivory` |
+| `B44` | `part:cover` | model | the paper is `ivory` by `B14`, so `umber`, `sienna`, `hunter` and `slate` can only be the cover |
+| `B52` | `part:leaf, canopy` | model | a trunk is wood, whose palettes hold no `hunter`, so only the canopy can carry it |
+| `B54` | `part:stem` | model | the stem is the only `ivory` part of a fungus |
 
 Run `node lint/bands.mjs`; exemptions live in `lint/variables.json`. §5.1 is not read, so a row here is checked on its own terms and not also against the material's wider palette.
 

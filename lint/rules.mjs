@@ -142,14 +142,15 @@ export function buildKindBands(kinds, rows) {
 
   const byKind = new Map();
   for (const id of parent.keys()) {
-    const byMaterial = new Map();
+    const bySubject = new Map();
     for (let at = id; at; at = parent.get(at)) {
       for (const row of rows) {
-        if (!row.kinds.includes(at) || byMaterial.has(row.material)) continue;
-        byMaterial.set(row.material, { id: row.id, bands: row.bands, from: at });
+        if (!row.kinds.includes(at) || bySubject.has(row.subject)) continue;
+        if (row.excludes?.some((k) => idUnder(id, k))) continue;
+        bySubject.set(row.subject, { id: row.id, bands: row.bands, requires: row.requires, from: at });
       }
     }
-    byKind.set(id, byMaterial);
+    byKind.set(id, bySubject);
   }
   return byKind;
 }
@@ -158,8 +159,9 @@ export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   const out = [];
   const used = Object.keys(model.spread ?? {});
   const mats = materialsOf(model, materialIds, vars);
-  for (const [family, row] of rules ?? []) {
-    const present = mats.filter((m) => idUnder(m, family));
+  for (const [subject, row] of rules ?? []) {
+    if (row.requires && !mats.some((m) => idUnder(m, row.requires))) continue;
+    const present = subject === 'model' ? [subject] : mats.filter((m) => idUnder(m, subject));
     if (!present.length) continue;
     const lanes = row.bands.map((band) => palettes.lanes.get(band));
     if (lanes.some((lane) => lane === null || used.includes(lane))) continue;

@@ -1,11 +1,17 @@
 {
  "rows": [
-  { "id": "B28", "kinds": ["obj-kitchenware-tableware-plate", "obj-kitchenware-tableware-bowl"], "material": "ceramic", "bands": ["ivory", "terracotta"] },
-  { "id": "B30", "kinds": ["obj-kitchenware-cookware-pot"], "material": "ceramic", "bands": ["terracotta"] },
-  { "id": "B41", "kinds": ["obj-transport"], "material": "wood", "bands": ["camel", "chestnut"] },
-  { "id": "B45", "kinds": ["obj-pocketitem-scroll"], "material": "paper", "bands": ["ivory"] },
-  { "id": "B48", "kinds": ["char", "obj-equipment-clothing"], "material": "textile", "bands": ["ivory", "hunter", "sienna"] },
-  { "id": "B49", "kinds": ["str"], "material": "glass", "bands": ["transparent"] },
-  { "id": "B50", "kinds": ["str-part-roof"], "material": "ceramic", "bands": ["sienna"] }
+  { "id": "B28", "kinds": ["obj-kitchenware-tableware-plate", "obj-kitchenware-tableware-bowl"], "subject": "ceramic", "bands": ["ivory", "terracotta"] },
+  { "id": "B29", "kinds": ["obj-kitchenware-tableware-drinkware"], "subject": "wood", "bands": ["camel", "chestnut"] },
+  { "id": "B30", "kinds": ["obj-kitchenware-cookware-pot"], "subject": "ceramic", "bands": ["terracotta"] },
+  { "id": "B34", "kinds": ["obj-food-meat"], "subject": "model", "bands": ["sienna"] },
+  { "id": "B41", "kinds": ["obj-transport"], "subject": "wood", "bands": ["camel", "chestnut"] },
+  { "id": "B44", "kinds": ["obj-pocketitem-book"], "subject": "model", "bands": ["umber", "sienna", "hunter", "slate"] },
+  { "id": "B44", "kinds": ["obj-weapon-magic"], "requires": "paper", "subject": "model", "bands": ["umber", "sienna", "hunter", "slate"] },
+  { "id": "B45", "kinds": ["obj-pocketitem-scroll"], "subject": "paper", "bands": ["ivory"] },
+  { "id": "B48", "kinds": ["char", "obj-equipment-clothing"], "subject": "textile", "bands": ["ivory", "hunter", "sienna"] },
+  { "id": "B49", "kinds": ["str"], "subject": "glass", "bands": ["transparent"] },
+  { "id": "B50", "kinds": ["str-part-roof"], "subject": "ceramic", "bands": ["sienna"] },
+  { "id": "B52", "kinds": ["env-flora-tree"], "excludes": ["env-flora-tree-palm"], "subject": "model", "bands": ["hunter"] },
+  { "id": "B54", "kinds": ["env-fungi"], "subject": "model", "bands": ["ivory"] }
  ]
 }
