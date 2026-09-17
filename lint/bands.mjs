@@ -9,7 +9,7 @@ const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
 const VARS = read('lint/variables.json');
 const MATERIALS = read(VARS.materials);
 const PALETTES = buildPalettes(MATERIALS, VARS);
-const RULES = buildKindBands(read(VARS.kinds), read(VARS.kindBands).rows);
+const RULES = buildKindBands(read(VARS.kinds));
 const { models } = read(VARS.models);
 
 const materialIds = new Set();
@@ -33,14 +33,14 @@ for (const m of models) {
   }
 }
 
-findings.sort((a, b) => a.kit.localeCompare(b.kit) || a.id.localeCompare(b.id) || a.rule.localeCompare(b.rule));
+findings.sort((a, b) => a.kit.localeCompare(b.kit) || a.id.localeCompare(b.id) || a.material.localeCompare(b.material));
 
 const width = (key) => Math.max(...findings.map((f) => String(f[key]).length), 0);
-const w = { id: width('id'), kind: width('kind'), rule: width('rule'), material: width('material'), wants: width('wants'), has: width('has') };
+const w = { id: width('id'), kind: width('kind'), material: width('material'), wants: width('wants'), has: width('has') };
 
 for (const f of findings) {
   console.log(
-    `${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.rule.padEnd(w.rule)}  ${f.material.padEnd(w.material)}  ` +
+    `${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ${f.material.padEnd(w.material)}  ` +
     `wants ${f.wants.padEnd(w.wants)}  has ${f.has.padEnd(w.has)}  (${f.from})`,
   );
 }
