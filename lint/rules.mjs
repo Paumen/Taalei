@@ -41,9 +41,12 @@ export function buildMaterialRules(kinds) {
   const own = new Map();
   const parent = new Map();
   const walk = (node, from) => {
-    own.set(node.id, Object.entries(node)
-      .filter(([key]) => key.startsWith(MAT_PREFIX))
-      .map(([key, required]) => [key.slice(MAT_PREFIX.length), required]));
+    own.set(node.id, {
+      subtype: Object.entries(node)
+        .filter(([key]) => key.startsWith(MAT_PREFIX))
+        .map(([key, required]) => [key.slice(MAT_PREFIX.length), required]),
+      has: (node.has ?? []).map((entry) => (Array.isArray(entry) ? entry : [entry])),
+    });
     parent.set(node.id, from);
     for (const child of node.children ?? []) walk(child, node.id);
   };
@@ -51,13 +54,21 @@ export function buildMaterialRules(kinds) {
 
   const rules = new Map();
   for (const id of own.keys()) {
-    const out = new Map();
+    const subtype = new Map();
+    const has = [];
+    const seen = new Set();
     for (let at = id; at; at = parent.get(at)) {
-      for (const [family, required] of own.get(at)) {
-        if (!out.has(family)) out.set(family, { required, from: at });
+      for (const [family, required] of own.get(at).subtype) {
+        if (!subtype.has(family)) subtype.set(family, { required, from: at });
+      }
+      for (const any of own.get(at).has) {
+        const key = any.join('|');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        has.push({ any, from: at });
       }
     }
-    rules.set(id, out);
+    rules.set(id, { subtype, has });
   }
   return rules;
 }
@@ -70,10 +81,14 @@ export function materialsOf(model, materialIds, vars) {
 export function materialFindingsFor(model, rules, materialIds, vars) {
   const out = [];
   const mats = materialsOf(model, materialIds, vars);
-  for (const [family, { required, from }] of rules ?? []) {
+  for (const [family, { required, from }] of rules?.subtype ?? []) {
     const present = mats.filter((m) => idUnder(m, family));
     if (!present.length || present.some((m) => idUnder(m, required))) continue;
     out.push({ family, required, from, present: present.join(' ') });
+  }
+  for (const { any, from } of rules?.has ?? []) {
+    if (mats.some((m) => any.some((id) => idUnder(m, id)))) continue;
+    out.push({ family: '—', required: any.join(' or '), from, present: mats.join(' ') || '—' });
   }
   return out;
 }
