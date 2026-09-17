@@ -323,6 +323,32 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B26` | `mat=gemstone` | — | `mat:gemstone` | is | `sienna`, `hunter`, `azure` |
 | `B27` | `mat=skin` | — | `mat:skin` | is | `tan`, `taupe`, `umber` |
 
+These rows live in the materials.JSON, on the node of the material they name, as `bands`. The band names they draw on are the lane table at the top of that file. A row that holds only at one size — `B22` — lives in `variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+
+The catalogue records bands per model, not per material, so the rows are checked as coverage: a model carrying a material shows at least one band out of that material's palette.
+
+```mermaid
+flowchart LR
+  I["IF the model (catalog.json)<br/>is made of «material»<br/>(catalog.json tags, materials.json)"] --> A["AND «material» has a palette<br/>(materials.json bands, or the<br/>model's size in variables.json)"]
+  A --> T["THEN one of the palette's bands<br/>sits in the model's spread<br/>(catalog.json)"]
+  T --> Y(["yes &nbsp; pass"])
+  T --> N(["no &nbsp; error"])
+  T --> S(["the palette admits transparent,<br/>which holds no band &nbsp; not checked"])
+  classDef ok fill:#e8f0e3,stroke:#7a9468,color:#1a1a1a
+  classDef warn fill:#fdf0d5,stroke:#c9a227,color:#1a1a1a
+  classDef bad fill:#f6ded8,stroke:#b8756a,color:#1a1a1a
+  class Y ok
+  class S warn
+  class N bad
+```
+
+Run `node lint/palette.mjs`; exemptions live in `lint/variables.json`. §5.2 is not read, so a band a §5.2 row widens is neither demanded nor faulted here.
+
+if palette lint error:
+1. verify if model has right material tags.
+2. verify if the band is a §5.2 case.
+3. check if more models same kit have errors.
+
 ### 5.2 By kind and part
 
 | id | when | except | subject | assert | value |
