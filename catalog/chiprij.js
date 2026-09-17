@@ -33,7 +33,6 @@ const SHORT_NAME = {
   'metal-copper': 'Copper',
   'metal-gold': 'Gold',
   'metal-iron': 'Iron',
-  'metal-silver': 'Silver',
   'stone-masonry': 'Masonry',
   'stone-rock': 'Rock',
   'stone-soil': 'Soil',
