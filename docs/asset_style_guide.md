@@ -199,15 +199,14 @@ What a kind is made of. Colour follows from §5.
 
 ### 4.1 Subtype per kind
 
-These rows live in the kinds.JSON. A kind `<K>` carrying `mat.<M>: <R>`, where `<M>` is a material and `<R>` one of its subtypes, is the row
+These rows live in the kinds.JSON, on the node of the kind they name:
 
-| when | subject | assert | value |
-|---|---|---|---|
-| `kind:<K>` | `mat:<M>` | has | `<R>` |
+```
+mat.<M>: <R>     <M>   a material id
+                 <R>   <M> or a subtype of it
+```
 
-and the kinds.JSON is the list of them.
-
-Of the kinds on a model's chain naming `<M>`, only the deepest is read — `F08` rule 3, and nothing else. A narrower kind replaces a wider one rather than excluding itself from it, so none of these rows carries a `!` term.
+On a kind `<K>` it is the row `kind:<K>` · `mat:<M>` · has · `<R>`. Of the kinds on a model's chain naming `<M>`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term.
 
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
 
