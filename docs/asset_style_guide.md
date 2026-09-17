@@ -210,13 +210,11 @@ On a kind `<K>` it is the row `kind:<K>` · `mat:<M>` · has · `<R>`. Of the ki
 
 ```mermaid
 flowchart LR
-  A["model"] --> B{"deepest kind<br/>naming M"}
-  B -- none --> N(["not asked"])
-  B -- "mat.M: R" --> C{"carries<br/>under M"}
-  C -- no --> N
-  C -- yes --> D{"one<br/>under R"}
-  D -- yes --> P(["pass"])
-  D -- no --> E(["error"])
+  V["lint/variables.json<br/>where the other three live,<br/>which kinds are exempt,<br/>which materials are ignored"] --> L["lint/mat.mjs"]
+  K["lint/kinds.json<br/>the kind tree,<br/>and mat.M: R on its nodes"] --> L
+  T["lint/materials.json<br/>the material tree,<br/>so what counts as under M"] --> L
+  C["catalog/catalog.json<br/>each model's kind<br/>and its material tags"] --> L
+  L --> O(["one error per model that carries<br/>the material and none of the subtype"])
 ```
 
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
