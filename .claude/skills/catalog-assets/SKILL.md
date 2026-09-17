@@ -47,7 +47,7 @@ most: `kay-food`, `ken-holiday`, `medieval-town`. Add the kit's row to
 
 ## 5. Scale factor
 
-One factor for the whole pack (P08). The target factors live in
+One factor for the whole pack, as the bible's process rules say. The target factors live in
 `tools/importeer/schaal.mjs` (`DOEL`, plus the `ken-` and `kay-` defaults) —
 use the pack's factor from there, and keep it in step with that table rather
 than copying a number that was right last month.
@@ -57,14 +57,15 @@ a handful at a guess and render them beside catalogue models of the same kind.
 
     node tools/renders/render.mjs <dir> --out <out> --views iso --sheet --sheet-only --lock-scale
 
-`--lock-scale` is what makes the sizes comparable. Check the result against the
-§2 size rows for the kinds involved before settling.
+`--lock-scale` is what makes the sizes comparable. Check the result with
+`node lint/size.mjs` for the kinds involved before settling.
 
 ## 6. Recolour onto the shared colormap
 
-Every asset colours itself from `kits/colormap.png` (I06): 16 × 4 cells, one
-band per cell, each band a vertical gradient. Baked shading is kept (I07) — the
-spread across the gradient carries over, it is not flattened to one colour.
+Every asset colours itself from `kits/colormap.png`: 16 × 4 cells, one
+band per cell, each band a vertical gradient. Baked shading is kept — the
+spread across the gradient carries over, it is not flattened to one colour;
+`node lint/measures.mjs` flags a model with no spread.
 
 `tools/importeer/aanvullen.mjs` is the working example and handles both source
 shapes:
@@ -80,15 +81,17 @@ shapes:
 
 When the kit already holds models from this pack, take the band mapping from
 them: recolour each source colour or cell the way its siblings were recoloured,
-so a new crate lands on the crate's band. §5 of the bible decides the rest.
+so a new crate lands on the crate's band. The bible's colour section and
+`node lint/palette.mjs` and `node lint/bands.mjs` decide the rest.
 Geometry is scaled by the pack factor, grounded at Y = 0, pivoted on the
-footprint centre (G04), welded, and written as one draw call (I09).
+footprint centre, welded, and written as one draw call; `node lint/measures.mjs`
+checks all three.
 
 ## 7. Tags
 
 Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
 
-- **kind** — mandatory, exactly one, the deepest leaf that fits (T04). Resolve
+- **kind** — mandatory, exactly one, the deepest leaf that fits. Resolve
   the noun against the Appendix glossary; add a noun to a leaf when it clearly
   belongs there. `assy` is a kind, not a tag: several distinct things in one
   model.
@@ -102,13 +105,14 @@ Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
   section), `decorated` (food finished on top), `pickup` (a lone coin, key,
   ring, potion or token sized to be collected, not to stand in the world).
 
-`hero` and material `special` are the PO's to assign (P01–P03): propose, never
-set. Artist tags (`kay`, `ken`, `qua`, …) are derived by `build-catalog.mjs`
-from the kit — do not write them by hand. `size` is measured, never set (T09).
+`hero` and material `special` are the PO's to assign, per the bible's process
+rules: propose, never set. Artist tags (`kay`, `ken`, `qua`, …) are derived by
+`build-catalog.mjs` from the kit — do not write them by hand. `size` is
+measured, never set.
 
 ## 8. Variants
 
-Group what reads as one thing, following §7 of the bible. Clusters live in
+Group what reads as one thing, following the bible's variants section. Clusters live in
 `catalog/asset_variants.json`: `members`, `main`, `type`. Name and triangle
 count propose a group; shape and a render confirm it before you write it down.
 `type` takes one of the values the file already uses — `detail-variant`,
@@ -122,12 +126,11 @@ count propose a group; shape and a render confirm it before you write it down.
     node catalog/tools/build-missing.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
 
-Then render the new models and look at them (P05) — on their own, and beside at
-least two catalogue models of the same group at locked scale (P06). Reading the
-numbers is not looking.
+Then render the new models and look at them, as the bible's process rules ask —
+on their own, and beside at least two catalogue models of the same group at
+locked scale. Reading the numbers is not looking.
 
-Before committing, check the batch against the bible and report what does not
-fit rather than bending it silently: band count against materials (G07, G08),
-the band ceiling (G09), the §2 size rows for each kind, draw calls (I09). Where
-a pack-wide scale puts a model outside its size row, P08 wins and the deviation
-goes in the PR.
+Before committing, run every lint (`size`, `measures`, `mat`, `palette`,
+`bands`) and report what does not fit rather than bending it silently. Where
+a pack-wide scale puts a model outside its size limits, the one pack factor
+wins and the deviation goes in the PR.

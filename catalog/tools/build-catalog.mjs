@@ -355,7 +355,6 @@ for (const slug of kitSlugs) {
       pivotIsCenter: scene.pivotIsCenter,
       minEdgeLength: scene.minEdgeLength,
       averageTriangleArea: scene.averageTriangleArea,
-      density: scene.density,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
       laneSpread: laneSpread(read.gradient),
@@ -701,7 +700,6 @@ const output = {
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
     avgTri: round(m.averageTriangleArea, 5),
-    dens: Math.round(m.density),
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
@@ -767,7 +765,7 @@ if (overBudget.length) {
 }
 const flat = models.filter((m) => m.trianglesPerUnit === null);
 if (flat.length) {
-  console.warn(`! ${flat.length} flat models without volume, so without density: ${flat.map((m) => m.id).join(', ')}`);
+  console.warn(`! ${flat.length} flat models without volume, so without triangles per unit: ${flat.map((m) => m.id).join(', ')}`);
 }
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);

@@ -33,7 +33,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `bands`, `calls`, `tris`, `dens`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -70,7 +70,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | id | term | definition |
 |---|---|---|
 | `D01` | high | the bounding-box Y extent |
-| `D02` | tri density | `dens`: tris ÷ bbox surface area, 2(w·d + w·h + d·h) |
+| `D02` | tri budget | `tpu`: tris per unit of footprint × height, each floored so a small model is not read as dense |
 | `D03` | hooped container | `kind:obj-container-barrel \| kind:obj-container-bucket \| kind:obj-container-chest \| kind:obj-container-crate` |
 | `D04` | variant group | models that read as one thing; `main` is the one shown |
 | `D05` | longest | an object's largest extent |
@@ -125,10 +125,9 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G01` | `tag:ngons` | `tag:hero` | model | range | 8–12 flat pieces per full circle |
 | `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
-| `G04` | `*` | `kind:char` | `dens` | max | TBD — re-measure references under `D02` |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
 
-`G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
+`G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 
 ### 2.2 Measures — in `lint/measures.json`
 
@@ -138,11 +137,11 @@ Rows here: `I07`–`I11` (gradient, alpha, PBR factors, draw calls), `G05`–`G0
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
-### 2.3 Size
+### 2.3 Size and budget
 
 `tag:comp`, `tag:plural`, `tag:broken`, `kind:assy` and `tag:pickup` are exempt.
 
-Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min` and `longest.max`, inherited per `F10`, falling back to the `defaults` block, which sets `longest` and a 6 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+Min and max per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest`, an 8 `high.max` and a `tpu.max` for everything; `env-terrain-mountain` lifts the height ceiling. A `tpu.max` sits at about twice the median of the kind's models, so it flags a model far more detailed than its siblings. A kind is often held to both measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
@@ -211,13 +210,11 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
-| `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:` |
+| `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:`, `ceramic` |
 | `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
 | `M16` | `kind:obj-weapon` | `part:strap` | is | `textile`, `leather` |
 | `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
 | `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
-| `M19` | `kind:obj-tool \| kind:obj-weapon & !special weapon` | `mat:metal` | is | `metal-iron:` |
-| `M20` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
 | `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |

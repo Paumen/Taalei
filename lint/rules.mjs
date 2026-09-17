@@ -1,4 +1,4 @@
-export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max'];
+export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -258,10 +258,11 @@ export const isExempt = (model, vars) =>
 
 export function findingsFor(model, limits, vars) {
   const out = [];
-  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh) };
+  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
   for (const [field, { value: limit, from }] of Object.entries(limits ?? {})) {
     const [measure, bound] = field.split('.');
     const value = measures[measure];
+    if (value === null || value === undefined) continue;
     const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
     if (deviation <= EPSILON) continue;
     out.push({

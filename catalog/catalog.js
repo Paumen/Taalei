@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=b3b3fcb9a0';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=b3b3fcb9a0';
-import { colorSwatches, setBands } from './color-edits.js?v=b3b3fcb9a0';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=b3b3fcb9a0';
-import { mountExtractBar, setPageParts } from './extract.js?v=b3b3fcb9a0';
-import './bouwstempel.js?v=b3b3fcb9a0';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=5cb980a08b';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5cb980a08b';
+import { colorSwatches, setBands } from './color-edits.js?v=5cb980a08b';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=5cb980a08b';
+import { mountExtractBar, setPageParts } from './extract.js?v=5cb980a08b';
+import './bouwstempel.js?v=5cb980a08b';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -478,8 +478,6 @@ const SORTINGS = {
   minsteVtx: (a, b) => a.vtx - b.vtx,
   grofsteFacet: (a, b) => num(b.avgTri) - num(a.avgTri),
   fijnsteFacet: (a, b) => num(a.avgTri) - num(b.avgTri),
-  dichtste: (a, b) => num(b.dens) - num(a.dens),
-  ijlste: (a, b) => num(a.dens) - num(b.dens),
   kleinsteRand: (a, b) => num(a.minEdge) - num(b.minEdge),
   grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
   meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
@@ -787,7 +785,6 @@ function showDetail(model) {
       { kop: '/ tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
       { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
       { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
-      { kop: 'Density', waarde: number.format(model.dens) },
       { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
       {
         kop: 'Gradient',
