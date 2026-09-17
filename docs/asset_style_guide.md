@@ -33,7 +33,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `pbands`, `bands`, `calls`, `tris`, `dens`, `grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name> (<presence>)`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `pbands`, `bands`, `calls`, `tris`, `dens`, `grad`, `anim`, `minEdge`, `grounded`, `centered`, `specialBand`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -216,20 +216,20 @@ What a kind is made of. Colour follows from §5.
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | `part:hoop, handle` | any-of | `metal-iron:` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | — | model | has | `wood:` |
 | `M14` | `kind:obj-furniture-seating` | — | model | has | `textile` |
-| `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` (usual) | any-of | `wood:`, `textile` |
-| `M16` | `kind:obj-weapon` | — | `part:strap` (sometimes) | any-of | `textile`, `leather` |
-| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` (usual) | any-of | `textile`, `rope`, `leather` |
-| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` (sometimes) | any-of | `leather` |
+| `M15` | `kind:obj-weapon \| kind:obj-tool` | — | `part:handle` | any-of | `wood:`, `textile` |
+| `M16` | `kind:obj-weapon` | — | `part:strap` | any-of | `textile`, `leather` |
+| `M17` | `kind:obj-weapon \| kind:obj-tool \| kind:obj-equipment-shield` | fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:grip, fastener, join` | any-of | `textile`, `rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | — | `part:fastener` | any-of | `leather` |
 | `M19` | `kind:obj-tool \| kind:obj-weapon` | `kind:obj-weapon` special weapon | `mat:metal` | is | `metal-iron:` |
 | `M20` | `kind:obj-weapon` special weapon | — | `mat:metal` | one-of | `metal-iron:`, `metal-gold` |
 | `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | — | model | has | `leather` |
 | `M22` | `kind:obj-tool-hand` | — | `mat:wood` | is | `wood-planks` |
 | `M23` | `kind:obj-tool-long` | — | `mat:wood` | is | `wood-beam` |
-| `M24` | `kind:obj-transport-accessory` | — | `part:sail` (sometimes) | is | `textile` |
+| `M24` | `kind:obj-transport-accessory` | — | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | — | `mat:wood` | min | 2 |
 | `M26` | `kind:obj-pocketitem-coin` | — | model | any-of | `metal-gold` |
 | `M27` | `kind:obj-pocketitem-key` | — | model | any-of | `metal-iron:`, `metal-gold` |
-| `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` (usual) | any-of | `leather`, `metal-iron:` |
+| `M28` | `kind:obj-pocketitem-book` | — | `part:strap, band, binder, corner` | any-of | `leather`, `metal-iron:` |
 | `M29` | `kind:obj-pocketitem-jewellery` | — | model | any-of | `metal-gold`, `gemstone` |
 | `M30` | `kind:obj-resource-wood-log` | — | model | has | `wood-log` |
 | `M31` | `kind:obj-resource-wood-log` | — | model | has | `wood-bark` |
@@ -298,25 +298,25 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 | `B37` | `kind:obj-food-grain` | wheat, straw | model | one-of | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | — | model | one-of | `tan` |
 | `B39` | `*` chocolate | — | model | one-of | `chestnut` |
-| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` (sometimes) | one-of | `taupe`, within UV 0.02–0.40 of the band |
+| `B40` | `kind:obj-weapon \| kind:obj-tool` | — | `part:wrapped grip, binding` | one-of | `taupe`, within UV 0.02–0.40 of the band |
 | `B41` | `kind:obj-transport` | — | `mat:wood` | one-of | `camel`, `chestnut` |
 | `B42` | `kind:obj-transport-ship \| kind:obj-transport-boat \| kind:obj-transport-accessory` | sails | `mat:textile` | one-of | `ivory`, `hunter`, `slate` |
 | `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | — | `mat:textile` | one-of | `ivory`, striped `sienna` and `ivory` |
-| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` (usual) | one-of | `umber`, `sienna`, `hunter`, `slate` |
+| `B44` | `kind:obj-pocketitem-book \| kind:obj-weapon-magic & mat:paper` | — | `part:cover` | one-of | `umber`, `sienna`, `hunter`, `slate` |
 | `B45` | `kind:obj-pocketitem-scroll` | — | `mat:paper` | one-of | `ivory` |
-| `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` (sometimes) | one-of | `slate` |
-| `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` (sometimes) | one-of | `sienna`, `hunter`, `azure` |
+| `B46` | `kind:obj-pocketitem-scroll` | — | `part:text` | one-of | `slate` |
+| `B47` | `kind:obj-pocketitem-scroll` | — | `part:accent` | one-of | `sienna`, `hunter`, `azure` |
 | `B48` | `kind:char \| kind:obj-equipment-clothing` | — | `mat:textile` | one-of | `ivory`, `hunter`, `sienna` |
 | `B49` | `kind:str` | — | `mat:glass` | one-of | `transparent` |
 | `B50` | `kind:str-part-roof` | — | `mat:ceramic` | one-of | `sienna` |
-| `B51` | `kind:env-flora` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:stem, leaf` (usual) | one-of | `moss` |
+| `B51` | `kind:env-flora` | `kind:env-flora-tree & !kind:env-flora-tree-palm` | `part:stem, leaf` | one-of | `moss` |
 | `B52` | `kind:env-flora-tree` | `kind:env-flora-tree-palm` | `part:leaf, canopy` | one-of | `hunter` |
-| `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | — | `part:flower` (usual) | one-of | `any` |
-| `B54` | `kind:env-fungi` | — | `part:stem` (always) | one-of | `ivory` |
-| `B55` | `kind:env-fungi` | — | `part:cap` (always) | one-of | `sienna`, `camel` |
+| `B53` | `kind:env-flora-plant-flower \| kind:env-flora-plant-cactus` | — | `part:flower` | one-of | `any` |
+| `B54` | `kind:env-fungi` | — | `part:stem` | one-of | `ivory` |
+| `B55` | `kind:env-fungi` | — | `part:cap` | one-of | `sienna`, `camel` |
 | `B56` | `kind:env-fauna` | — | model | one-of | `any` |
-| `B57` | `*` | — | `part:dried stalk` (sometimes) | one-of | `taupe` |
-| `B58` | `*` | — | `part:flame, glow, light` (sometimes) | one-of | `amber`, with the lane's UV range not 0 |
+| `B57` | `*` | — | `part:dried stalk` | one-of | `taupe` |
+| `B58` | `*` | — | `part:flame, glow, light` | one-of | `amber`, with the lane's UV range not 0 |
 
 ---
 
