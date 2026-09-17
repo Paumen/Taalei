@@ -433,28 +433,3 @@ Parent lines list nouns that have no leaf yet.
 Match with the deepest reasonable tier.
 Ground you walk on is `env-terrain`; a rock set on it is `env-rock`.
 
-```
-metal
-├─ metal-iron
-│  ├─ metal-iron-steel
-│  ├─ metal-iron-wrought
-│  └─ metal-iron-cast
-├─ metal-gold
-└─ metal-copper
-wood
-├─ wood-planks
-├─ wood-worked
-├─ wood-beam
-├─ wood-log
-└─ wood-bark
-stone
-├─ stone-masonry
-├─ stone-rock
-└─ stone-soil
-paper      textile    leather    foliage
-ceramic    bone       food       wax
-wick       glass      liquid     emissive
-rope       cork       gemstone   special
-vegetation skin
-```
- 
