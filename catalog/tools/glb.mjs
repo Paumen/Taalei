@@ -234,7 +234,6 @@ export function measureScene(glb) {
   const measure = (axis) => (min[axis] === Infinity ? 0 : round(max[axis] - min[axis]));
   const size = [measure(0), measure(1), measure(2)];
   const exact = (axis) => (min[axis] === Infinity ? 0 : max[axis] - min[axis]);
-  const volume = size[0] * size[1] * size[2];
 
   return {
     wdh: [size[0], size[2], size[1]],
@@ -249,12 +248,9 @@ export function measureScene(glb) {
     pivotIsCenter: Number.isFinite(min[0]) && Math.abs((min[0] + max[0]) / 2) < 0.02 && Math.abs((min[2] + max[2]) / 2) < 0.02,
     minEdgeLength: minEdgeSq === Infinity ? 0 : round(Math.sqrt(minEdgeSq)),
     averageTriangleArea: triangles > 0 ? surfaceArea / triangles : 0,
-    density: volume > 0 ? triangles / volume : 0,
     strictAnglePercent: surfaceArea > 0 ? (strictArea / surfaceArea) * 100 : 0,
   };
 }
-
-export const BUDGET_PER_UNIT = 2000;
 
 export function trianglesPerUnit(triangles, wdh) {
   if (wdh.some((size) => size === 0)) return null;

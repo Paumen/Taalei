@@ -1,4 +1,4 @@
-export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max'];
+export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -177,16 +177,92 @@ export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   return out;
 }
 
-export const isExempt = (model, vars) =>
-  vars.exemptKinds.some((k) => idUnder(model.kind, k))
-  || (model.tags ?? []).some((t) => vars.exemptTags.includes(t));
+const NUMERIC_OPS = {
+  '=': (a, b) => a === b,
+  '>': (a, b) => a > b,
+  '>=': (a, b) => a >= b,
+  '<': (a, b) => a < b,
+  '<=': (a, b) => a <= b,
+};
+
+export function fieldOf(model, name, materialIds, vars) {
+  if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
+  if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
+  return model[name];
+}
+
+export function matchTerm(term, model, materialIds, vars) {
+  const text = term.trim();
+  if (text === '') return false;
+  const or = text.split('|');
+  if (or.length > 1) return or.some((t) => matchTerm(t, model, materialIds, vars));
+  const and = text.split('&');
+  if (and.length > 1) return and.every((t) => matchTerm(t, model, materialIds, vars));
+  if (text.startsWith('!')) return !matchTerm(text.slice(1), model, materialIds, vars);
+  if (text === '*') return true;
+  const [, key, op, value] = text.match(/^([a-zA-Z]+)(:|=|>=|<=|>|<)(.+)$/) ?? [];
+  if (!key) throw new Error(`term not understood: ${text}`);
+  switch (key) {
+    case 'kind': return idUnder(model.kind, value);
+    case 'mat': {
+      const mats = materialsOf(model, materialIds, vars);
+      return op === ':' ? mats.some((m) => idUnder(m, value)) : mats.includes(value);
+    }
+    case 'tag': return (model.tags ?? []).includes(value);
+    case 'size': return model.size === value;
+    default: return NUMERIC_OPS[op](fieldOf(model, key, materialIds, vars), Number(value));
+  }
+}
+
+function resolveValue(value, model, materialIds, vars) {
+  if (typeof value !== 'string') return value;
+  const scaled = value.match(/^([a-zA-Z]+)(?:\s*×\s*([\d.]+))?$/);
+  if (scaled) return fieldOf(model, scaled[1], materialIds, vars) * Number(scaled[2] ?? 1);
+  const range = value.match(/^([\d.]+)\s*[–-]\s*([\d.]+)$/);
+  if (range) return [Number(range[1]), Number(range[2])];
+  throw new Error(`value not understood: ${value}`);
+}
+
+function holds(assert, actual, wanted) {
+  switch (assert) {
+    case 'min': return actual >= wanted;
+    case 'max': return actual <= wanted;
+    case 'range': return actual >= wanted[0] && actual <= wanted[1];
+    case 'is': return (actual ?? false) === wanted;
+    case 'not': return (actual ?? false) !== wanted;
+    default: throw new Error(`assert not understood: ${assert}`);
+  }
+}
+
+export function measureFindingsFor(model, rows, materialIds, vars) {
+  const out = [];
+  for (const row of rows) {
+    if (!matchTerm(row.when, model, materialIds, vars)) continue;
+    if (row.except && matchTerm(row.except, model, materialIds, vars)) continue;
+    const actual = fieldOf(model, row.field, materialIds, vars);
+    const wanted = resolveValue(row.value, model, materialIds, vars);
+    if (holds(row.assert, actual, wanted)) continue;
+    out.push({
+      rule: row.id,
+      field: row.field,
+      actual: actual ?? '—',
+      wants: `${row.assert} ${Array.isArray(wanted) ? wanted.join('–') : wanted}`,
+    });
+  }
+  return out;
+}
+
+export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
 export function findingsFor(model, limits, vars) {
   const out = [];
-  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh) };
+  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
+  const tags = model.tags ?? [];
   for (const [field, { value: limit, from }] of Object.entries(limits ?? {})) {
     const [measure, bound] = field.split('.');
     const value = measures[measure];
+    if (value === null || value === undefined) continue;
+    if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
     const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
     if (deviation <= EPSILON) continue;
     out.push({
