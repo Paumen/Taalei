@@ -21,7 +21,6 @@ const aardewerk = ['ceramic', 'ivory'];
 const lak = ['ceramic', 'basalt'];
 const papier = ['paper', 'ivory'];
 const inkt = ['paper', 'azure'];
-const ruit = ['glass', 'glass'];
 const doek = ['textile', 'ivory'];
 const doekRood = ['textile', 'sienna'];
 const blad = ['foliage', 'moss'];
@@ -31,7 +30,7 @@ const bouillon = ['liquid', 'sienna'];
 const stam = ['wood-log', 'tan'];
 const bast = ['wood-bark', 'umber'];
 const koren = ['vegetation', 'tan'];
-const visLijf = ['food', 'glass'];
+const visLijf = ['food', 'nickel'];
 const visRug = ['food', 'azure'];
 
 const deeg = ['food', 'tan'];
