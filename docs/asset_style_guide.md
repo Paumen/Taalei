@@ -208,6 +208,17 @@ mat.<M>: <R>     <M>   a material id
 
 On a kind `<K>` it is the row `kind:<K>` · `mat:<M>` · has · `<R>`. Of the kinds on a model's chain naming `<M>`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term.
 
+```mermaid
+flowchart LR
+  A["model"] --> B{"deepest kind<br/>naming M"}
+  B -- none --> N(["not asked"])
+  B -- "mat.M: R" --> C{"carries<br/>under M"}
+  C -- no --> N
+  C -- yes --> D{"one<br/>under R"}
+  D -- yes --> P(["pass"])
+  D -- no --> E(["error"])
+```
+
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
 
 ### 4.2 The rest
