@@ -4985,7 +4985,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 272,
+   "count": 273,
    "parent": "metal-iron"
   },
   {
@@ -4993,7 +4993,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 187,
+   "count": 186,
    "parent": "metal-iron"
   },
   {
@@ -5032,7 +5032,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 289,
+   "count": 292,
    "parent": "wood"
   },
   {
@@ -5040,7 +5040,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 395,
+   "count": 389,
    "parent": "wood"
   },
   {
@@ -5048,7 +5048,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 615,
+   "count": 616,
    "parent": "wood"
   },
   {
@@ -5056,7 +5056,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 38,
+   "count": 39,
    "parent": "wood"
   },
   {
@@ -5064,7 +5064,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 161,
+   "count": 162,
    "parent": "wood"
   },
   {
@@ -20044,7 +20044,7 @@
    "vpt": 1.06,
    "grad": 0.13,
    "spread": {
-    "2,0": [
+    "0,0": [
      0.891,
      0.891
     ],
@@ -20055,18 +20055,11 @@
    },
    "colors": [
     "#88848a",
-    "#8b5936"
+    "#dbae80"
    ],
    "tags": [
     "metal-iron-steel",
-    "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    }
+    "wood-planks"
    ]
   },
   {
@@ -20094,7 +20087,7 @@
    "vpt": 1.06,
    "grad": 0.13,
    "spread": {
-    "2,0": [
+    "0,0": [
      0.891,
      0.891
     ],
@@ -20105,18 +20098,11 @@
    },
    "colors": [
     "#88848a",
-    "#8b5936"
+    "#dbae80"
    ],
    "tags": [
     "metal-iron-steel",
-    "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    }
+    "wood-planks"
    ]
   },
   {
@@ -66565,7 +66551,7 @@
    "tris": 508,
    "tpu": 1481,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 53244,
    "vtx": 1524,
@@ -66575,28 +66561,23 @@
    "avgTri": 0.00018,
    "anglePct": 14,
    "vpt": 3,
-   "grad": 0.6,
+   "grad": 0.62,
    "spread": {
     "14,3": [
      0.063,
      0.258
     ],
-    "2,0": [
+    "0,0": [
      0.063,
      0.953
     ],
     "15,3": [
      0.039,
      0.938
-    ],
-    "0,0": [
-     0.797,
-     0.938
     ]
    },
    "colors": [
     "#88848a",
-    "#8b5936",
     "#8b7561",
     "#dbae80"
    ],
@@ -66605,18 +66586,13 @@
     "metal-iron-steel",
     "robin-hood",
     "textile",
-    "wood-beam"
+    "wood-planks"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    },
-    {
-     "level": "error",
      "check": "palette",
-     "text": "textile wants ivory hunter, has taupe chestnut nickel tan"
+     "text": "textile wants ivory hunter, has taupe tan nickel"
     }
    ]
   },
@@ -67061,7 +67037,7 @@
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 41820,
    "vtx": 1188,
@@ -67071,19 +67047,15 @@
    "avgTri": 0.00026,
    "anglePct": 11,
    "vpt": 3,
-   "grad": 0.61,
+   "grad": 0.64,
    "spread": {
     "14,3": [
      0.031,
      0.289
     ],
-    "2,0": [
+    "0,0": [
      0.063,
      0.953
-    ],
-    "0,0": [
-     0.797,
-     0.938
     ],
     "15,3": [
      0.047,
@@ -67092,7 +67064,6 @@
    },
    "colors": [
     "#88848a",
-    "#8b5936",
     "#8b7561",
     "#dbae80"
    ],
@@ -67100,18 +67071,13 @@
     "kay",
     "metal-iron-steel",
     "textile",
-    "wood-beam"
+    "wood-planks"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    },
-    {
-     "level": "error",
      "check": "palette",
-     "text": "textile wants ivory hunter, has taupe chestnut tan nickel"
+     "text": "textile wants ivory hunter, has taupe tan nickel"
     }
    ]
   },
@@ -68551,24 +68517,19 @@
    "vpt": 3,
    "grad": 0.89,
    "spread": {
-    "13,3": [
+    "15,3": [
      0.016,
      0.906
     ]
    },
    "colors": [
-    "#5b5550"
+    "#88848a"
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought"
+    "metal-iron-steel"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-tool)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -74033,28 +73994,21 @@
      0.102,
      0.891
     ],
-    "0,0": [
+    "2,0": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#88848a",
-    "#dbae80"
+    "#8b5936"
    ],
    "tags": [
     "graveyard",
     "halloween",
     "ken",
     "metal-iron-steel",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-planks (obj-tool-long)"
-    }
+    "wood-beam"
    ]
   },
   {
@@ -77963,27 +77917,20 @@
      0.102,
      0.891
     ],
-    "0,0": [
+    "2,0": [
      0.148,
      0.891
     ]
    },
    "colors": [
     "#88848a",
-    "#dbae80"
+    "#8b5936"
    ],
    "tags": [
     "ken",
     "metal-iron-steel",
     "pirate",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-planks (obj-tool-long)"
-    }
+    "wood-beam"
    ]
   },
   {
@@ -89650,7 +89597,7 @@
    "vpt": 0.95,
    "grad": 0.18,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.766,
      0.961
     ],
@@ -89661,18 +89608,11 @@
    },
    "colors": [
     "#88848a",
-    "#dbae80"
+    "#8b5936"
    ],
    "tags": [
     "metal-iron-steel",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-planks (obj-tool-long)"
-    }
+    "wood-beam"
    ]
   },
   {
@@ -94185,11 +94125,11 @@
    "vpt": 1.84,
    "grad": 0,
    "spread": {
-    "2,0": [
+    "3,0": [
      0.523,
      0.523
     ],
-    "1,0": [
+    "0,0": [
      0.406,
      0.406
     ],
@@ -94199,36 +94139,26 @@
     ]
    },
    "colors": [
+    "#563b2b",
     "#5b5550",
-    "#8b5936",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "leather",
     "stone-rock",
     "textile",
-    "wood-beam"
+    "wood-planks"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
+     "check": "palette",
+     "text": "stone-rock wants nickel taupe, has umber tan basalt"
     },
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has chestnut camel basalt"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-rock wants nickel taupe, has chestnut camel basalt"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter, has chestnut camel basalt"
+     "text": "textile wants ivory hunter, has umber tan basalt"
     }
    ],
    "mark": [
@@ -94330,11 +94260,11 @@
    "vpt": 1.98,
    "grad": 0,
    "spread": {
-    "1,0": [
+    "2,0": [
      0.406,
      0.406
     ],
-    "2,0": [
+    "3,0": [
      0.523,
      0.523
     ],
@@ -94344,36 +94274,26 @@
     ]
    },
    "colors": [
+    "#563b2b",
     "#5b5550",
-    "#8b5936",
-    "#b58158"
+    "#8b5936"
    ],
    "tags": [
     "leather",
     "stone-rock",
     "textile",
-    "wood-worked"
+    "wood-beam"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-worked (obj-tool-long)"
+     "check": "palette",
+     "text": "stone-rock wants nickel taupe, has chestnut umber basalt"
     },
     {
      "level": "error",
      "check": "palette",
-     "text": "leather wants umber, has camel chestnut basalt"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-rock wants nickel taupe, has camel chestnut basalt"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter, has camel chestnut basalt"
+     "text": "textile wants ivory hunter, has chestnut umber basalt"
     }
    ],
    "mark": [
@@ -94821,34 +94741,22 @@
    "vpt": 1.91,
    "grad": 0,
    "spread": {
-    "1,0": [
+    "3,0": [
      0.406,
      0.406
     ],
-    "2,0": [
+    "0,0": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#8b5936",
-    "#b58158"
+    "#563b2b",
+    "#dbae80"
    ],
    "tags": [
     "leather",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-worked (obj-tool-hand)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants umber, has camel chestnut"
-    }
+    "wood-planks"
    ],
    "mark": [
     "grad"
@@ -119640,31 +119548,19 @@
      0.219,
      0.961
     ],
-    "2,0": [
+    "3,0": [
      0.836,
      0.961
     ]
    },
    "colors": [
-    "#8b5936",
+    "#563b2b",
     "#dbae80"
    ],
    "tags": [
     "own",
-    "wood-beam",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood-log, has wood-beam wood-planks (obj-resource-wood-log)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood-bark, has wood-beam wood-planks (obj-resource-wood-log)"
-    }
+    "wood-bark",
+    "wood-log"
    ]
   },
   {
@@ -119814,15 +119710,10 @@
     "metal-iron-steel",
     "own",
     "rope",
-    "wood-worked"
+    "wood-beam"
    ],
    "variant": "v238",
    "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-worked (obj-tool-long)"
-    },
     {
      "level": "error",
      "check": "palette",
@@ -119857,7 +119748,7 @@
    "vpt": 1.45,
    "grad": 0.83,
    "spread": {
-    "1,0": [
+    "2,0": [
      0.031,
      0.961
     ],
@@ -119868,25 +119759,20 @@
    },
    "colors": [
     "#88848a",
-    "#b58158"
+    "#8b5936"
    ],
    "tags": [
     "metal-iron-steel",
     "own",
     "rope",
-    "wood-worked"
+    "wood-beam"
    ],
    "variant": "v238",
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-worked (obj-tool-long)"
-    },
-    {
-     "level": "error",
      "check": "palette",
-     "text": "rope wants taupe, has camel nickel"
+     "text": "rope wants taupe, has chestnut nickel"
     }
    ],
    "mark": [
@@ -119921,7 +119807,7 @@
      0.031,
      0.648
     ],
-    "1,0": [
+    "2,0": [
      0.031,
      0.961
     ],
@@ -119933,26 +119819,21 @@
    "colors": [
     "#563b2b",
     "#88848a",
-    "#b58158"
+    "#8b5936"
    ],
    "tags": [
     "leather",
     "metal-iron-steel",
     "own",
     "rope",
-    "wood-worked"
+    "wood-beam"
    ],
    "variant": "v238",
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-worked (obj-tool-long)"
-    },
-    {
-     "level": "error",
      "check": "palette",
-     "text": "rope wants taupe, has umber camel nickel"
+     "text": "rope wants taupe, has umber chestnut nickel"
     }
    ],
    "mark": [
@@ -119984,7 +119865,7 @@
    "vpt": 1.56,
    "grad": 0.93,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.031,
      0.961
     ],
@@ -119995,19 +119876,12 @@
    },
    "colors": [
     "#88848a",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "metal-iron-steel",
     "own",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-worked (obj-tool-hand)"
-    }
+    "wood-planks"
    ]
   },
   {
