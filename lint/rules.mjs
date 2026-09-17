@@ -247,6 +247,7 @@ export function measureFindingsFor(model, rows, materialIds, vars) {
       field: row.field,
       actual: actual ?? '—',
       wants: `${row.assert} ${Array.isArray(wanted) ? wanted.join('–') : wanted}`,
+      level: row.level ?? 'error',
     });
   }
   return out;
@@ -308,7 +309,7 @@ export function checkModel(model, checks) {
   const mark = [];
   for (const row of measureFindingsFor(model, checks.measures, materialIds, vars)) {
     if (vars.mark.includes(row.rule)) mark.push(row.field);
-    else push('measures', 'error', [row]);
+    else push('measures', row.level, [row]);
   }
 
   return { lint: found.length ? found : undefined, mark: mark.length ? mark : undefined };
