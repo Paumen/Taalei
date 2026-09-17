@@ -202,24 +202,19 @@ What a kind is made of. Colour follows from §5.
 These rows live in the kinds.JSON, on the node of the kind they name.
 
 ```
-mat.<M>: <R>   on kind <K>      <M>  a material id
-                                <R>  <M> or a subtype of it
-
-if     <K> is the deepest kind on the model's chain naming <M>
-and    the model carries a material under <M>
-then   the model carries one under <R>
+mat.«material»: «subtype»       «material»   a material id
+                                «subtype»    «material» or one under it
 ```
-
-The first line is `F08` rule 3 and nothing else, so none of these rows carries a `!` term.
 
 ```mermaid
 flowchart LR
-  V["lint/variables.json<br/>where the other three live,<br/>which kinds are exempt,<br/>which materials are ignored"] --> L["lint/mat.mjs"]
-  K["lint/kinds.json<br/>the kind tree,<br/>and mat.M: R on its nodes"] --> L
-  T["lint/materials.json<br/>the material tree,<br/>so what counts as under M"] --> L
-  C["catalog/catalog.json<br/>each model's kind<br/>and its material tags"] --> L
-  L --> O(["one error per model that carries<br/>the material and none of the subtype"])
+  A["IF kinds.json sets mat.«material»: «subtype» on kind"] --> B["AND catalog.json tags hold «material»"]
+  B --> C["THEN catalog.json tags hold «subtype»"]
+  C --> Y(["yes &nbsp; pass"])
+  C --> N(["no &nbsp; error"])
 ```
+
+Of the kinds on a model's chain naming a `«material»`, only the deepest is read — `F08` rule 3, so none of these rows carries a `!` term. `materials.json` is what says a tag counts as under `«material»`; `variables.json` says which kinds are exempt.
 
 Run `node lint/mat.mjs`; exemptions live in `lint/variables.json`.
 
