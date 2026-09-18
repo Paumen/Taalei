@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taaleiland — Reject: turned down for style</title>
-<meta name="description" content="Models from the source packs that will not be imported because their style does not fit the island. Shown straight from the source, so a call can be looked at again.">
-<meta name="catalogus-gebouwd" content="2026-09-18T23:22:24Z">
-<meta name="catalogus-versie" content="6a309a01a3">
-<link rel="stylesheet" href="catalog.css?v=6a309a01a3">
-<link rel="stylesheet" href="list.css?v=6a309a01a3"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<title>Taaleiland — Reject: turned down</title>
+<meta name="description" content="Models from the source packs that will not be imported: their style does not fit the island, or the catalog already has the shape. Shown straight from the source, so a call can be looked at again.">
+<meta name="catalogus-gebouwd" content="2026-09-18T23:41:08Z">
+<meta name="catalogus-versie" content="7791815ef9">
+<link rel="stylesheet" href="catalog.css?v=7791815ef9">
+<link rel="stylesheet" href="list.css?v=7791815ef9"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body data-list="reject.json" data-swipe="reject" data-reject>
 
@@ -43,9 +43,10 @@
 </header>
 
 <p class="uitleg-blok">
-  These models sit in a source pack under <code>kits/sources</code> and are turned down for their
-  style: shape, proportion or finish that does not fit the island. Hue and size are out of scope
-  here — those are fixed on import. The list lives in <code>catalog/style-rejects.json</code>.
+  These models sit in a source pack under <code>kits/sources</code> and are turned down, each for a
+  reason: <em>style</em> — shape, proportion or finish that does not fit the island — or
+  <em>duplicate</em> — the catalog already has this shape. Hue and size are out of scope here:
+  those are fixed on import. The list lives in <code>catalog/rejects.json</code>.
   They're shown exactly as the source has them: own colours, own scale, no palette. Models of one
   pack that share a shape and differ only in colour sit on one card, marked ⧉; the other colours
   are in the model panel.
@@ -62,6 +63,12 @@
 
   <select id="filter-bron" aria-label="Source pack" title="Source pack">
     <option value="">all packs</option>
+  </select>
+
+  <select id="filter-reden" aria-label="Why it was turned down" title="Why it was turned down">
+    <option value="">every reason</option>
+    <option value="style">turned down for style</option>
+    <option value="dedupe">turned down as duplicate</option>
   </select>
 
   <select id="filter-staat" aria-label="Where the pack stands" title="Where the pack stands">
@@ -112,5 +119,5 @@
 </div>
 
 <script src="vendor/model-viewer.min.js" type="module"></script>
-<script src="list.js?v=6a309a01a3" type="module"></script></body>
+<script src="list.js?v=7791815ef9" type="module"></script></body>
 </html>

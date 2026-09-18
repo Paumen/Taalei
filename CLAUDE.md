@@ -9,7 +9,7 @@
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
 * tools/render/render.mjs can be used to render glbs in various ways.
-* catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style (list in catalog/style-rejects.json), a swipe/review functionality, and model scale comparison page.
+* catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/rejects.json), a swipe/review functionality, and model scale comparison page.
 * kits/sources contains original cc0 files in zip, kits/workfiles contains selected and normalize glb for catalog.
 
 ## what's akready installed at setup

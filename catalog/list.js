@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=6a309a01a3';
+import './bouwstempel.js?v=7791815ef9';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -44,7 +44,18 @@ const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy', 'scene'];
 const cards = [];
 let sections = [];
 
-const state = { search: '', pack: '', state: '', grouping: 'bron', sorting: 'naam' };
+const state = { search: '', pack: '', state: '', reason: '', grouping: 'bron', sorting: 'naam' };
+
+const REASONS = {
+  style: { label: 'style', tally: () => 'for style', long: 'its style does not fit the island' },
+  dedupe: {
+    label: 'duplicate',
+    tally: (count) => (count === 1 ? 'as a duplicate' : 'as duplicates'),
+    long: 'the catalog already has this shape',
+  },
+};
+
+const reasonOf = (model) => REASONS[model.reason] ?? null;
 
 const chosenPaths = new Set();
 const cardsPerPath = new Map();
@@ -58,6 +69,7 @@ function matches(model) {
   if (state.pack && model.kit !== state.pack) return false;
   if (state.state === 'nooit' && !nooitIngevoerd(model)) return false;
   if (state.state === 'uit' && nooitIngevoerd(model)) return false;
+  if (state.reason && model.reason !== state.reason) return false;
   if (state.search) {
     const needle = state.search.toLowerCase();
     const pack = register.packs.get(model.kit)?.name ?? model.kit;
@@ -188,7 +200,7 @@ function showDetail(model) {
   activePath = model.path;
   el('#detail-naam').textContent = model.name;
   el('#detail-herkomst').textContent = PAGE.reject
-    ? `${pack?.name ?? model.kit} — turned down because its style does not fit the island`
+    ? `${pack?.name ?? model.kit} — turned down because ${reasonOf(model)?.long ?? 'it does not fit the catalog'}`
     : nooitIngevoerd(model)
       ? `${pack?.name ?? model.kit} — this pack was never imported`
       : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
@@ -211,6 +223,7 @@ function showDetail(model) {
     `${model.wdh.map((v) => unit.format(v)).join(' × ')} ${model.scaled ? 'units' : 'source units'}`,
     true,
   );
+  if (PAGE.reject) fact(list, 'Turned down for', reasonOf(model)?.label ?? model.reason ?? 'unknown', true);
   fact(list, 'Triangles', number.format(model.tris));
   fact(list, 'Meshes', number.format(model.mat));
   fact(list, 'Preview', readableBytes(model.bytes));
@@ -483,13 +496,28 @@ function groupsFor(models) {
       key: slug,
       title: pack?.name ?? slug,
       hint: PAGE.reject
-        ? `${listed} of the ${pack?.inSource ?? own.length} models in this pack ${listed === 1 ? 'was' : 'were'} turned down because the style does not fit the island.`
+        ? `${listed} of the ${pack?.inSource ?? own.length} models in this pack ${listed === 1 ? 'was' : 'were'} turned down: ${reasonBreakdown(own)}.`
         : pack?.kit
           ? `${listed} of ${pack.inSource} models in this pack are not in the catalog — the other ${pack.inCatalog} were imported as “${pack.kit}”.`
           : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalog.`,
       models: own,
     };
   }).sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
+}
+
+function reasonBreakdown(models) {
+  const counts = new Map();
+  for (const model of models) {
+    const key = model.reason ?? '';
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return [...counts]
+    .sort((a, b) => b[1] - a[1])
+    .map(([key, count]) => {
+      const tally = REASONS[key]?.tally(count) ?? 'for an unnamed reason';
+      return `${number.format(count)} ${tally}`;
+    })
+    .join(', ');
 }
 
 function draw() {
@@ -522,10 +550,10 @@ function draw() {
     gekozen.length !== total
       ? `${number.format(gekozen.length)} of ${number.format(total)} models shown`
       : PAGE.reject
-        ? `${number.format(total)} models turned down for their style, from ${register.packs.size} packs`
+        ? `${number.format(total)} models turned down, from ${register.packs.size} packs — ${reasonBreakdown(register.models)}`
         : `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`;
 
-  const filtered = Boolean(state.search || state.pack || state.state);
+  const filtered = Boolean(state.search || state.pack || state.state || state.reason);
   el('#alles-wis').hidden = !filtered;
 
   const packButton = el('#naar-swipe-pack');
@@ -571,15 +599,18 @@ async function start() {
   el('#zoek').addEventListener('input', (e) => { state.search = e.target.value.trim(); draw(); });
   packChoice.addEventListener('change', (e) => { state.pack = e.target.value; draw(); });
   el('#filter-staat').addEventListener('change', (e) => { state.state = e.target.value; draw(); });
+  el('#filter-reden')?.addEventListener('change', (e) => { state.reason = e.target.value; draw(); });
   el('#groepering').addEventListener('change', (e) => { state.grouping = e.target.value; draw(); });
   el('#sortering').addEventListener('change', (e) => { state.sorting = e.target.value; draw(); });
   el('#alles-wis').addEventListener('click', () => {
     state.search = '';
     state.pack = '';
     state.state = '';
+    state.reason = '';
     el('#zoek').value = '';
     packChoice.value = '';
     el('#filter-staat').value = '';
+    if (el('#filter-reden')) el('#filter-reden').value = '';
     draw();
   });
 
