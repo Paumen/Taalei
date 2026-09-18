@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), or tag (anything else worth finding: theme, flags, artist). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -9,9 +9,6 @@
    "models": [
     "kay-mixed/fire-hydrant",
     "kay-mixed/mining-helmet",
-    "kay-mixed/puzzle-cube",
-    "kay-mixed/puzzle-cube-core",
-    "kay-mixed/puzzle-cube-scrambled",
     "isa-playground/cart",
     "post-apocalypse/chest-hunter",
     "post-apocalypse/chest-sienna",
@@ -312,9 +309,6 @@
     "kay-tools/tongs",
     "kay-mixed/instant-camera-a",
     "kay-mixed/mining-helmet",
-    "kay-mixed/rollerskate-a",
-    "kay-mixed/rollerskate-b",
-    "kay-mixed/rollerskate-pair",
     "kay-mixed/umbrella-c",
     "kay-mixed/umbrella-d",
     "toon-shooter/bear-trap",
@@ -564,10 +558,6 @@
     "kay-mixed/plushie-chicken-a",
     "kay-mixed/plushie-chicken-b",
     "kay-mixed/instant-camera-a",
-    "kay-mixed/photo-a",
-    "kay-mixed/puzzle-cube",
-    "kay-mixed/puzzle-cube-core",
-    "kay-mixed/puzzle-cube-scrambled",
     "kay-mixed/wood-stove",
     "medieval-village/barrel",
     "medieval-village/barrel-tapped",
@@ -849,13 +839,25 @@
     "quat-rpg/crown-2",
     "quat-dun-1/bag-coins",
     "quat-dun-1/chest-gold",
-    "quat-dun-1/coins",
     "kay-dun-2/sword-shield-gold",
     "ken-platformer/door",
     "medieval-village/mine-entrance",
     "medieval-village/minecart-ore",
     "medieval-village/barrel-ore",
     "kay-minigame/star",
+    "asia-pack/bell",
+    "medieval-town/bell",
+    "fs-town/bell-a",
+    "asia-pack/gong",
+    "asia-rg/gong",
+    "asia-pack/wall-decor-a",
+    "asia-pack/wall-decor-d",
+    "village/granary-large",
+    "asia-pack/shrine-large",
+    "asia-pack/pillar-wood",
+    "asia-pack/frame-wood",
+    "asia-pack/door-left",
+    "asia-pack/door-right",
     "scythian/ornament"
    ],
    "parent": "metal"
@@ -865,7 +867,6 @@
    "name": "Copper",
    "type": "material",
    "models": [
-    "asia-rg/gong",
     "asia-rg/coin",
     "kay-resources/copper-bar",
     "kay-resources/copper-bars",
@@ -876,15 +877,11 @@
     "kay-resources/copper-nugget-medium",
     "kay-resources/copper-nugget-small",
     "kay-resources/copper-nuggets",
-    "medieval-town/bell",
     "medieval-town/bell-tower",
-    "asia-pack/bell",
-    "asia-pack/gong",
     "kay-adventurers/dagger",
     "kay-adventurers/sword-one-handed",
     "kay-adventurers/sword-two-handed",
-    "kay-adventurers/sword-two-handed-colored",
-    "fs-town/bell-a"
+    "kay-adventurers/sword-two-handed-colored"
    ],
    "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 and never shares a model with another metal subtype.",
    "parent": "metal"
@@ -1538,22 +1535,13 @@
     "asia-pack/altar-b",
     "asia-pack/barrel-a",
     "asia-pack/barrel-b",
-    "asia-pack/bell",
     "asia-pack/cart",
-    "asia-pack/door-left",
-    "asia-pack/door-right",
-    "asia-pack/frame-wood",
-    "asia-pack/gong",
     "asia-pack/house-a",
     "asia-pack/house-b",
     "asia-pack/house-c",
     "asia-pack/market-house",
-    "asia-pack/pillar-wood",
-    "asia-pack/shrine-large",
     "asia-pack/shrine-small",
     "asia-pack/torii",
-    "asia-pack/wall-decor-a",
-    "asia-pack/wall-decor-d",
     "kay-food/crate-lid",
     "kay-food/cutting-board",
     "ken-holiday/sled",
@@ -1612,9 +1600,6 @@
     "kay-mixed/comic-box-closed",
     "kay-mixed/comic-box-open",
     "kay-mixed/comic-box-filled",
-    "kay-mixed/rollerskate-a",
-    "kay-mixed/rollerskate-b",
-    "kay-mixed/rollerskate-pair",
     "kay-mixed/umbrella-c",
     "kay-mixed/umbrella-d",
     "fishing-village/boat-oars",
@@ -1629,7 +1614,6 @@
     "medieval-village/dynamite-crate-open",
     "medieval-village/mine-entrance",
     "medieval-village/barrel-ore",
-    "village/granary-large",
     "village/house-a",
     "village/house-b",
     "village/house-c",
@@ -3488,7 +3472,6 @@
     "kay-mixed/comic-book-blank",
     "kay-mixed/comic-books-stacked",
     "kay-mixed/comic-box-filled",
-    "kay-mixed/photo-a",
     "toon-shooter/cardboard-box",
     "toon-shooter/cardboard-box-flat",
     "toon-shooter/cardboard-boxes-a",
@@ -3884,9 +3867,6 @@
     "kay-resources/pallet-wood-covered-a",
     "kay-adventurers/smokebomb",
     "kay-mixed/mining-helmet",
-    "kay-mixed/rollerskate-a",
-    "kay-mixed/rollerskate-b",
-    "kay-mixed/rollerskate-pair",
     "primitive-tools/wooden-shovel",
     "post-apocalypse/knife",
     "post-apocalypse/spear",
@@ -5130,9 +5110,6 @@
     "quat-pirate/red-x",
     "asia-pack/ore-jade",
     "kay-mixed/instant-camera-a",
-    "kay-mixed/puzzle-cube",
-    "kay-mixed/puzzle-cube-core",
-    "kay-mixed/puzzle-cube-scrambled",
     "quat-rpg/crown-2",
     "kay-minigame/sword"
    ]
@@ -5671,10 +5648,7 @@
     "kay-skeleton-1/hood",
     "kay-skeleton-1/hood-masked",
     "kay-skeleton-1/mage-cloak",
-    "kay-skeleton-1/mage-cowl",
-    "kay-mixed/rollerskate-a",
-    "kay-mixed/rollerskate-b",
-    "kay-mixed/rollerskate-pair"
+    "kay-skeleton-1/mage-cowl"
    ]
   },
   {
@@ -6362,10 +6336,6 @@
    "models": [
     "asia-rg/token",
     "asia-rg/token-hanging",
-    "kay-mixed/photo-a",
-    "kay-mixed/puzzle-cube",
-    "kay-mixed/puzzle-cube-core",
-    "kay-mixed/puzzle-cube-scrambled",
     "kay-minigame/star"
    ]
   },
@@ -6430,8 +6400,7 @@
     "props/coin-a",
     "props/coin-b",
     "props/coin-c",
-    "ken-mini-dun/coin",
-    "quat-dun-1/coins"
+    "ken-mini-dun/coin"
    ]
   },
   {
@@ -8932,7 +8901,7 @@
   {
    "id": "pirate",
    "name": "Pirate",
-   "type": "tag",
+   "type": "theme",
    "description": "Pirate-themed props and scenery from any kit: ships, boats, cannons, flags, treasure, palms, the pirate crew.",
    "models": [
     "ken-pirate/barrel",
@@ -9045,7 +9014,7 @@
   {
    "id": "halloween",
    "name": "Halloween",
-   "type": "tag",
+   "type": "theme",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
    "models": [
     "kay-adventurers/bow",
@@ -9425,7 +9394,7 @@
   {
    "id": "robin-hood",
    "name": "Robin Hood",
-   "type": "tag",
+   "type": "theme",
    "description": "A Sherwood archer's camp: rangers and rogues, bows and arrows, campfires, logs, tents, forest props.",
    "models": [
     "kay-adventurers/arrow-bow",
@@ -9729,7 +9698,6 @@
     "props/coin-c",
     "isa-park/grass-a",
     "isa-park/grass-b",
-    "quat-dun-1/coins",
     "kay-dun-2/plate-stack",
     "isa-plants/zzplant-plant-large",
     "isa-plants/pothos-plant-large",
@@ -9740,7 +9708,6 @@
     "isa-plants/yucca-plant-medium",
     "kay-mixed/chain-links",
     "kay-mixed/comic-books-stacked",
-    "kay-mixed/rollerskate-pair",
     "arena-pack/grass-tufts",
     "trees/waterlilies-white",
     "trees/waterlilies-yellow",
@@ -9918,7 +9885,7 @@
   {
    "id": "asia",
    "name": "Asia",
-   "type": "tag",
+   "type": "theme",
    "description": "Buildings, garden pieces and props from the East-Asian kits: pagodas, torii, shoji houses, stone lanterns, paper lanterns and tatami-scale furniture.",
    "models": [
     "asia-rg/bamboo",
@@ -10124,7 +10091,7 @@
   {
    "id": "grave",
    "name": "Grave",
-   "type": "tag",
+   "type": "theme",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
    "models": [
     "asia-rg/stone-lantern",
@@ -10285,7 +10252,7 @@
   {
    "id": "sailing",
    "name": "Sailing",
-   "type": "tag",
+   "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
    "models": [
     "asia-rg/boat",

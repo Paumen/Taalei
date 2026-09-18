@@ -141,7 +141,7 @@ export function layoutChips(chips) {
   }
 }
 
-export function syncChips(chips, { stateOf, countOf = null, onHide = null } = {}) {
+export function syncChips(chips, { stateOf, countOf = null, onHide = null, skip = null } = {}) {
   for (const chip of chips) {
     if (countOf) {
       chip.count = countOf(chip);
@@ -153,7 +153,7 @@ export function syncChips(chips, { stateOf, countOf = null, onHide = null } = {}
       || chip.ancestors.some((id) => !PICKED.has(stateOf(id, chip)));
     if (hidden && state !== undefined) onHide?.(chip);
     showChipState(chip.element, hidden ? stateOf(chip.id, chip) : state);
-    chip.element.hidden = hidden;
+    chip.element.hidden = hidden || Boolean(skip?.(chip));
   }
   for (const row of new Set(chips.map((c) => c.row))) {
     row.hidden = !chips.some((c) => c.row === row && !c.element.hidden);
