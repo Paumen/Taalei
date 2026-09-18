@@ -72,6 +72,7 @@ export const BRONKITS = [
   { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
   { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
   { map: 'Trees_Pack', naam: 'Trees Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Sweetland_Platformer_Kit', naam: 'Sweetland Platformer Kit', kit: null, formaat: 'glb', splitsPerMesh: true },
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: 'architecture', formaat: 'fbx', alleMappen: true },
