@@ -49,6 +49,7 @@ export const SCALE_TARGETS = {
   'quat-skeleton': 0.5,
   'quat-town': 1.44,
   rocks: 0.15,
+  scythian: 1,
   'small-props': 0.0037,
   trees: 0.24,
   village: 0.39,

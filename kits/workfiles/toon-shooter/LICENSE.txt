@@ -18,7 +18,7 @@
 	the pack itself. The author is unknown, so there is nobody to credit —
 	whoever traces the origin adds it here.
 
-	The pack is one .glb per model. 24 of the 73 are loaded: the rest are
+	The pack is one .glb per model. 25 of the 73 are loaded: the rest are
 	modern military and street props the style guide does not take.
 
 	`pallet`, `pallet-broken` and the four cardboard boxes are past the §1 I04
@@ -50,6 +50,7 @@
   Revolver / Revolver Small    -> revolver, revolver-short
   Sack Trench / ~ Small        -> sandbags, sandbags-small
   Sofa / Sofa Small            -> sofa, sofa-small
+  Shovel                       -> shovel
   Tree_1.._4                   -> tree-a, tree-b, tree-c, tree-d
 
 
@@ -65,7 +66,12 @@
   DarkWood   -> wood-bark, umber (trees) / wood-beam, chestnut (knife)
   Grey, DarkGrey, Grey2, LightGrey, Black -> metal-iron-steel, nickel
   Cardboard  -> paper, ivory           Tape, Sack -> textile, taupe
-  Red        -> textile, sienna        Tree_Green -> foliage, hunter
+  Red        -> textile, sienna (sofa) / wood-worked, camel (shovel D-grip)
+  Tree_Green -> foliage, hunter
+
+	The shovel's D-grip is a handle, and M15 gives a handle `wood:` or
+	`textile`; wood keeps it apart from the steel blade and the wood-beam shaft
+	without painting a grip red.
 
 	The cardboard reads brown in the source; `paper` draws from ivory only
 	(style guide §5.1), so the boxes are cream in the catalogue.
@@ -73,7 +79,8 @@
 	The bands follow §4 and §5 of the style guide.
 
 
-	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	What happened to the files is in tools/importeer/flat-packs.mjs, and for
+	`shovel` in tools/importeer/ontbrekend.mjs: scaled,
 	origin at y=0 with the footprint centred, vertices re-welded, normals
 	smoothed at 60°, and written as one draw call.
 
