@@ -80,7 +80,7 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', naam: 'Tiny Treats Charming Kitchen', kit: 'isa-kitchen', formaat: 'gltf' },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 
-  { map: 'KayKit_Mixed_Bag_1_FREE', naam: 'KayKit Mixed Bag 1', kit: null, formaat: 'gltf' },
+  { map: 'KayKit_Mixed_Bag_1_FREE', naam: 'KayKit Mixed Bag 1', kit: 'kay-mixed', formaat: 'gltf' },
   { map: 'KayKit_Medieval_Builder_Pack_1.0', naam: 'KayKit Medieval Builder Pack', kit: null, formaat: 'glb', alleMappen: true },
   { map: 'KayKit_Spooktober_Seasonal_Pack_1.1', naam: 'KayKit Spooktober Seasonal Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
   { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
