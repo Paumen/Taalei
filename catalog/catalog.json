@@ -6227,7 +6227,7 @@
    "name": "To be animated",
    "type": "tag",
    "description": "Models that need an animation made for them; the model itself carries none yet.",
-   "count": 4
+   "count": 14
   },
   {
    "id": "asia",
@@ -20151,7 +20151,7 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "high 0.15 under min 0.2 (obj-container-crate)"
     }
@@ -31645,7 +31645,7 @@
    "variant": "v300",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "tpu 6076 over max 5000 (obj-food)"
     }
@@ -38934,7 +38934,7 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "high 0.25 over max 0.2 (obj-kitchenware-tableware-drinkware)"
     }
@@ -47309,7 +47309,8 @@
     "kay",
     "metal-iron-cast",
     "modular",
-    "stone-masonry"
+    "stone-masonry",
+    "tobeanimated"
    ],
    "lint": [
     {
@@ -50060,7 +50061,7 @@
    "variant": "v234",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "high 0.15 under min 0.2 (obj-container-chest)"
     }
@@ -67255,7 +67256,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel"
+    "metal-iron-steel",
+    "tobeanimated"
    ],
    "lint": [
     {
@@ -73980,6 +73982,7 @@
     "ken",
     "pirate",
     "sailing",
+    "tobeanimated",
     "wood-beam"
    ],
    "lint": [
@@ -74027,6 +74030,7 @@
     "ken",
     "pirate",
     "sailing",
+    "tobeanimated",
     "wood-beam"
    ],
    "lint": [
@@ -74236,8 +74240,8 @@
    "tpu": 1376,
    "mat": 1,
    "bands": 3,
-   "calls": 3,
-   "bytes": 31036,
+   "calls": 1,
+   "bytes": 28828,
    "vtx": 766,
    "grounded": true,
    "centered": true,
@@ -74273,14 +74277,7 @@
     "sailing",
     "wood-beam"
    ],
-   "variant": "v214",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 3 wants max 1"
-    }
-   ]
+   "variant": "v214"
   },
   {
    "kit": "ken-pirate",
@@ -74296,8 +74293,8 @@
    "tpu": 676,
    "mat": 1,
    "bands": 2,
-   "calls": 3,
-   "bytes": 17344,
+   "calls": 1,
+   "bytes": 15144,
    "vtx": 384,
    "grounded": true,
    "centered": true,
@@ -74328,14 +74325,7 @@
     "sailing",
     "wood-beam"
    ],
-   "variant": "v214",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 3 wants max 1"
-    }
-   ]
+   "variant": "v214"
   },
   {
    "kit": "ken-pirate",
@@ -74736,6 +74726,7 @@
     "rope",
     "sailing",
     "textile",
+    "tobeanimated",
     "wood-beam"
    ],
    "variant": "v63",
@@ -74790,6 +74781,7 @@
     "pirate",
     "sailing",
     "textile",
+    "tobeanimated",
     "wood-beam"
    ],
    "variant": "v63",
@@ -75972,8 +75964,8 @@
    "tpu": 1107,
    "mat": 1,
    "bands": 1,
-   "calls": 2,
-   "bytes": 31048,
+   "calls": 1,
+   "bytes": 30180,
    "vtx": 816,
    "gridMod": true,
    "grounded": true,
@@ -75996,14 +75988,7 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v157",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 2 wants max 1"
-    }
-   ]
+   "variant": "v157"
   },
   {
    "kit": "ken-pirate",
@@ -78732,8 +78717,8 @@
    "tpu": 304,
    "mat": 1,
    "bands": 1,
-   "calls": 2,
-   "bytes": 9796,
+   "calls": 1,
+   "bytes": 8992,
    "vtx": 216,
    "grounded": true,
    "minEdge": 0.033,
@@ -78753,13 +78738,6 @@
    "tags": [
     "ken",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 2 wants max 1"
-    }
    ],
    "mark": [
     "centered"
@@ -79768,8 +79746,8 @@
    "tpu": 436,
    "mat": 1,
    "bands": 2,
-   "calls": 2,
-   "bytes": 13616,
+   "calls": 1,
+   "bytes": 12944,
    "vtx": 328,
    "grounded": true,
    "centered": true,
@@ -79796,13 +79774,6 @@
     "ken",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 2 wants max 1"
-    }
    ]
   },
   {
@@ -80928,6 +80899,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
+    "tobeanimated",
     "wood-beam"
    ],
    "lint": [
@@ -81261,6 +81233,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
+    "tobeanimated",
     "wood-worked"
    ],
    "lint": [
@@ -81320,6 +81293,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
+    "tobeanimated",
     "wood-beam",
     "wood-worked"
    ],
@@ -81604,6 +81578,7 @@
    "tags": [
     "ken",
     "metal-iron-cast",
+    "tobeanimated",
     "wood-beam"
    ],
    "lint": [
@@ -103047,7 +103022,7 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "tpu 36058 over max 30000 (char)"
     },
@@ -117630,7 +117605,7 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
      "text": "longest 0.15 under min 0.2 (obj-furniture)"
     }
