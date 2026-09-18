@@ -5470,7 +5470,7 @@
    "main": "isa-picnic/picnic-blanket-sienna",
    "members": [
     "isa-picnic/picnic-blanket-sienna",
-    "isa-picnic/picnic-blanket-hunter"
+    "isa-picnic/picnic-blanket-taupe"
    ]
   },
   {
@@ -5479,7 +5479,7 @@
    "main": "isa-picnic/picnic-blanket-sienna-folded",
    "members": [
     "isa-picnic/picnic-blanket-sienna-folded",
-    "isa-picnic/picnic-blanket-hunter-folded"
+    "isa-picnic/picnic-blanket-taupe-folded"
    ]
   },
   {
@@ -5488,7 +5488,7 @@
    "main": "isa-picnic/pillow-large-sienna",
    "members": [
     "isa-picnic/pillow-large-sienna",
-    "isa-picnic/pillow-large-hunter"
+    "isa-picnic/pillow-large-taupe"
    ]
   },
   {
@@ -5497,7 +5497,7 @@
    "main": "isa-picnic/pillow-small-sienna",
    "members": [
     "isa-picnic/pillow-small-sienna",
-    "isa-picnic/pillow-small-hunter"
+    "isa-picnic/pillow-small-taupe"
    ]
   },
   {
@@ -5995,7 +5995,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 277
+   "count": 276
   },
   {
    "id": "leather",
@@ -34289,7 +34289,7 @@
    "vpt": 1.16,
    "grad": 0.24,
    "spread": {
-    "1,1": [
+    "14,3": [
      0.43,
      0.688
     ],
@@ -34299,7 +34299,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -34336,7 +34336,7 @@
      0.414,
      0.703
     ],
-    "1,1": [
+    "14,3": [
      0.484,
      0.492
     ],
@@ -34346,8 +34346,8 @@
     ]
    },
    "colors": [
-    "#23562c",
     "#8b5936",
+    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -36226,16 +36226,8 @@
    ],
    "tags": [
     "isa",
-    "textile",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile wants ivory hunter taupe sienna, has chestnut camel"
-    }
    ]
   },
   {
@@ -37887,29 +37879,34 @@
    "tris": 288,
    "tpu": 840,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 10640,
-   "vtx": 233,
+   "bytes": 9072,
+   "vtx": 184,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "avgTri": 0.00017,
    "anglePct": 71,
-   "vpt": 0.81,
-   "grad": 0.21,
+   "vpt": 0.64,
+   "grad": 0.33,
    "spread": {
     "8,0": [
-     0.031,
+     0.102,
      0.211
     ],
     "5,2": [
-     0.031,
+     0.047,
      0.281
+    ],
+    "14,3": [
+     0.148,
+     0.828
     ]
    },
    "colors": [
     "#7f3927",
+    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -38003,95 +38000,6 @@
   },
   {
    "kit": "isa-picnic",
-   "name": "picnic-blanket-hunter-folded",
-   "kind": "obj-furniture",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.25,
-    0.05
-   ],
-   "tris": 152,
-   "tpu": 443,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 11020,
-   "vtx": 269,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00117,
-   "anglePct": 86,
-   "vpt": 1.77,
-   "grad": 0.24,
-   "spread": {
-    "1,1": [
-     0.031,
-     0.211
-    ],
-    "5,2": [
-     0.031,
-     0.305
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "isa",
-    "textile"
-   ],
-   "variant": "v532"
-  },
-  {
-   "kit": "isa-picnic",
-   "name": "picnic-blanket-hunter",
-   "kind": "obj-furniture",
-   "size": "m",
-   "wdh": [
-    0.95,
-    0.95,
-    0.05
-   ],
-   "tris": 240,
-   "tpu": 372,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 12396,
-   "vtx": 296,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00749,
-   "anglePct": 94,
-   "vpt": 1.23,
-   "grad": 0.18,
-   "spread": {
-    "1,1": [
-     0.031,
-     0.211
-    ],
-    "5,2": [
-     0.031,
-     0.211
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "isa",
-    "textile"
-   ],
-   "variant": "v531"
-  },
-  {
-   "kit": "isa-picnic",
    "name": "picnic-blanket-sienna-folded",
    "kind": "obj-furniture",
    "size": "s",
@@ -38103,31 +38011,26 @@
    "tris": 152,
    "tpu": 443,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 10988,
-   "vtx": 268,
+   "bytes": 8108,
+   "vtx": 178,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00117,
    "anglePct": 86,
-   "vpt": 1.76,
-   "grad": 0.18,
+   "vpt": 1.17,
+   "grad": 0.7,
    "spread": {
     "8,0": [
-     0.031,
-     0.211
-    ],
-    "5,2": [
-     0.031,
-     0.211
+     0.148,
+     0.844
     ]
    },
    "colors": [
-    "#7f3927",
-    "#d8d1bd"
+    "#7f3927"
    ],
    "tags": [
     "isa",
@@ -38158,11 +38061,11 @@
    "avgTri": 0.0048,
    "anglePct": 95,
    "vpt": 0.63,
-   "grad": 0.18,
+   "grad": 0.7,
    "spread": {
     "8,0": [
-     0.031,
-     0.211
+     0.148,
+     0.844
     ]
    },
    "colors": [
@@ -38176,47 +38079,82 @@
   },
   {
    "kit": "isa-picnic",
-   "name": "pillow-large-hunter",
+   "name": "picnic-blanket-taupe-folded",
    "kind": "obj-furniture",
    "size": "s",
    "wdh": [
     0.25,
-    0.1,
-    0.25
+    0.25,
+    0.05
    ],
-   "tris": 240,
-   "tpu": 700,
+   "tris": 152,
+   "tpu": 443,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 10892,
-   "vtx": 249,
+   "bytes": 8108,
+   "vtx": 178,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00063,
-   "anglePct": 4,
-   "vpt": 1.04,
-   "grad": 0.48,
+   "minEdge": 0.008,
+   "avgTri": 0.00117,
+   "anglePct": 86,
+   "vpt": 1.17,
+   "grad": 0.7,
    "spread": {
-    "1,1": [
-     0.031,
-     0.211
-    ],
-    "5,2": [
-     0.031,
-     0.898
+    "14,3": [
+     0.148,
+     0.844
     ]
    },
    "colors": [
-    "#23562c",
-    "#d8d1bd"
+    "#8b7561"
    ],
    "tags": [
     "isa",
     "textile"
    ],
-   "variant": "v533"
+   "variant": "v532"
+  },
+  {
+   "kit": "isa-picnic",
+   "name": "picnic-blanket-taupe",
+   "kind": "obj-furniture",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.05
+   ],
+   "tris": 240,
+   "tpu": 372,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9384,
+   "vtx": 202,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00749,
+   "anglePct": 94,
+   "vpt": 0.84,
+   "grad": 0.7,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "isa",
+    "textile"
+   ],
+   "variant": "v531"
   },
   {
    "kit": "isa-picnic",
@@ -38231,30 +38169,25 @@
    "tris": 240,
    "tpu": 700,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 10028,
-   "vtx": 222,
+   "bytes": 7724,
+   "vtx": 150,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
    "avgTri": 0.00063,
    "anglePct": 4,
-   "vpt": 0.93,
-   "grad": 0.18,
+   "vpt": 0.63,
+   "grad": 0.7,
    "spread": {
     "8,0": [
-     0.031,
-     0.211
-    ],
-    "5,2": [
-     0.031,
-     0.211
+     0.148,
+     0.844
     ]
    },
    "colors": [
-    "#7f3927",
-    "#d8d1bd"
+    "#7f3927"
    ],
    "tags": [
     "isa",
@@ -38264,42 +38197,42 @@
   },
   {
    "kit": "isa-picnic",
-   "name": "pillow-small-hunter",
+   "name": "pillow-large-taupe",
    "kind": "obj-furniture",
    "size": "s",
    "wdh": [
-    0.3,
+    0.25,
     0.1,
-    0.15
+    0.25
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6912,
-   "vtx": 126,
+   "bytes": 7724,
+   "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00043,
-   "anglePct": 6,
-   "vpt": 0.53,
-   "grad": 0.38,
+   "minEdge": 0.016,
+   "avgTri": 0.00063,
+   "anglePct": 4,
+   "vpt": 0.63,
+   "grad": 0.7,
    "spread": {
-    "1,1": [
-     0.055,
-     0.438
+    "14,3": [
+     0.148,
+     0.844
     ]
    },
    "colors": [
-    "#23562c"
+    "#8b7561"
    ],
    "tags": [
     "isa",
     "textile"
    ],
-   "variant": "v534"
+   "variant": "v533"
   },
   {
    "kit": "isa-picnic",
@@ -38333,6 +38266,45 @@
    },
    "colors": [
     "#7f3927"
+   ],
+   "tags": [
+    "isa",
+    "textile"
+   ],
+   "variant": "v534"
+  },
+  {
+   "kit": "isa-picnic",
+   "name": "pillow-small-taupe",
+   "kind": "obj-furniture",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.1,
+    0.15
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6912,
+   "vtx": 126,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00043,
+   "anglePct": 6,
+   "vpt": 0.53,
+   "grad": 0.38,
+   "spread": {
+    "14,3": [
+     0.055,
+     0.438
+    ]
+   },
+   "colors": [
+    "#8b7561"
    ],
    "tags": [
     "isa",
@@ -44578,7 +44550,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 63268,
+   "bytes": 63284,
    "vtx": 1619,
    "grounded": true,
    "centered": true,
@@ -44639,7 +44611,7 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 88756,
+   "bytes": 88772,
    "vtx": 2361,
    "grounded": true,
    "centered": true,
@@ -44705,7 +44677,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 20772,
+   "bytes": 20788,
    "vtx": 514,
    "grounded": true,
    "centered": true,
@@ -44755,7 +44727,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12632,
+   "bytes": 12648,
    "vtx": 304,
    "gridMod": true,
    "grounded": true,
@@ -44794,7 +44766,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 115276,
+   "bytes": 115292,
    "vtx": 3139,
    "grounded": true,
    "centered": true,
@@ -44854,7 +44826,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 39904,
+   "bytes": 39920,
    "vtx": 1032,
    "grounded": true,
    "centered": true,
@@ -44909,7 +44881,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 75016,
+   "bytes": 75032,
    "vtx": 1755,
    "grounded": true,
    "centered": true,
@@ -44960,7 +44932,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48980,
+   "bytes": 48996,
    "vtx": 1133,
    "grounded": true,
    "centered": true,
@@ -45011,7 +44983,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 76848,
+   "bytes": 76864,
    "vtx": 1920,
    "grounded": true,
    "centered": true,
@@ -45055,7 +45027,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 58052,
+   "bytes": 58068,
    "vtx": 1457,
    "grounded": true,
    "centered": true,
@@ -45115,7 +45087,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 70484,
+   "bytes": 70500,
    "vtx": 1839,
    "grounded": true,
    "centered": true,
@@ -45176,7 +45148,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 85652,
+   "bytes": 85668,
    "vtx": 2271,
    "grounded": true,
    "centered": true,
@@ -45237,7 +45209,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 87436,
+   "bytes": 87452,
    "vtx": 2262,
    "grounded": true,
    "centered": true,
@@ -45298,7 +45270,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 66568,
+   "bytes": 66584,
    "vtx": 1710,
    "grounded": true,
    "centered": true,
@@ -45359,7 +45331,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 29208,
+   "bytes": 29224,
    "vtx": 683,
    "grounded": true,
    "centered": true,
@@ -45396,7 +45368,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15000,
+   "bytes": 15016,
    "vtx": 320,
    "grounded": true,
    "centered": true,
@@ -45435,7 +45407,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 29068,
+   "bytes": 29084,
    "vtx": 657,
    "grounded": true,
    "centered": true,
@@ -45474,7 +45446,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11636,
+   "bytes": 11652,
    "vtx": 265,
    "grounded": true,
    "centered": true,
@@ -45518,7 +45490,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16240,
+   "bytes": 16256,
    "vtx": 354,
    "grounded": true,
    "centered": true,
@@ -45562,7 +45534,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14696,
+   "bytes": 14712,
    "vtx": 351,
    "grounded": true,
    "centered": true,
@@ -45606,7 +45578,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21488,
+   "bytes": 21504,
    "vtx": 541,
    "grounded": true,
    "centered": true,
@@ -45643,7 +45615,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 43336,
+   "bytes": 43352,
    "vtx": 1122,
    "grounded": true,
    "centered": true,
@@ -45692,7 +45664,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 42152,
+   "bytes": 42168,
    "vtx": 1090,
    "grounded": true,
    "centered": true,
@@ -45735,7 +45707,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22232,
+   "bytes": 22248,
    "vtx": 559,
    "grounded": true,
    "centered": true,
@@ -45773,7 +45745,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17920,
+   "bytes": 17936,
    "vtx": 449,
    "grounded": true,
    "centered": true,
@@ -45811,7 +45783,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22008,
+   "bytes": 22024,
    "vtx": 553,
    "grounded": true,
    "centered": true,
@@ -45848,7 +45820,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 71620,
+   "bytes": 71636,
    "vtx": 1842,
    "grounded": true,
    "centered": true,
@@ -45902,7 +45874,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 71204,
+   "bytes": 71220,
    "vtx": 1879,
    "grounded": true,
    "centered": true,
@@ -45957,7 +45929,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 46416,
+   "bytes": 46432,
    "vtx": 1171,
    "gridMod": true,
    "grounded": true,
@@ -67748,7 +67720,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7816,
+   "bytes": 7828,
    "vtx": 168,
    "grounded": true,
    "centered": true,
@@ -67842,7 +67814,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32240,
+   "bytes": 32260,
    "vtx": 712,
    "grounded": true,
    "centered": true,
@@ -67930,7 +67902,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15680,
+   "bytes": 15696,
    "vtx": 337,
    "grounded": true,
    "centered": true,
@@ -67980,7 +67952,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80996,
+   "bytes": 81016,
    "vtx": 1953,
    "gridMod": true,
    "grounded": true,
@@ -68070,7 +68042,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 41288,
+   "bytes": 41312,
    "vtx": 975,
    "grounded": true,
    "centered": true,
@@ -68109,7 +68081,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24776,
+   "bytes": 24796,
    "vtx": 594,
    "grounded": true,
    "centered": true,
@@ -68148,7 +68120,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 18384,
+   "bytes": 18404,
    "vtx": 400,
    "grounded": true,
    "centered": true,
@@ -68188,7 +68160,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14996,
+   "bytes": 15012,
    "vtx": 320,
    "grounded": true,
    "centered": true,
@@ -68228,7 +68200,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11856,
+   "bytes": 11872,
    "vtx": 247,
    "grounded": true,
    "centered": true,
@@ -68267,7 +68239,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13980,
+   "bytes": 14000,
    "vtx": 292,
    "grounded": true,
    "centered": true,
@@ -68311,7 +68283,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 23624,
+   "bytes": 23644,
    "vtx": 546,
    "grounded": true,
    "centered": true,
@@ -68361,7 +68333,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19976,
+   "bytes": 19992,
    "vtx": 448,
    "grounded": true,
    "centered": true,
@@ -74632,7 +74604,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25480,
+   "bytes": 25500,
    "vtx": 604,
    "grounded": true,
    "centered": true,
@@ -74672,7 +74644,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37824,
+   "bytes": 37844,
    "vtx": 924,
    "grounded": true,
    "centered": true,
@@ -74723,7 +74695,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10276,
+   "bytes": 10296,
    "vtx": 214,
    "grounded": true,
    "centered": true,
@@ -74774,7 +74746,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 13576,
+   "bytes": 13596,
    "vtx": 308,
    "grounded": true,
    "centered": true,
@@ -74825,7 +74797,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12960,
+   "bytes": 12976,
    "vtx": 288,
    "grounded": true,
    "centered": true,
@@ -74869,7 +74841,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15264,
+   "bytes": 15284,
    "vtx": 360,
    "grounded": true,
    "centered": true,
@@ -74913,7 +74885,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 61724,
+   "bytes": 61740,
    "vtx": 1420,
    "grounded": true,
    "centered": true,
@@ -74970,7 +74942,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11104,
+   "bytes": 11120,
    "vtx": 244,
    "grounded": true,
    "centered": true,
@@ -75023,7 +74995,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 30776,
+   "bytes": 30796,
    "vtx": 792,
    "grounded": true,
    "centered": true,
@@ -75075,7 +75047,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11104,
+   "bytes": 11120,
    "vtx": 244,
    "grounded": true,
    "centered": true,
@@ -75128,7 +75100,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 30776,
+   "bytes": 30796,
    "vtx": 792,
    "grounded": true,
    "centered": true,
@@ -75180,7 +75152,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 52484,
+   "bytes": 52504,
    "vtx": 1436,
    "grounded": true,
    "centered": true,
@@ -75225,7 +75197,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 45196,
+   "bytes": 45212,
    "vtx": 1236,
    "grounded": true,
    "centered": true,
@@ -75270,7 +75242,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8956,
+   "bytes": 8972,
    "vtx": 208,
    "grounded": true,
    "centered": true,
@@ -75309,7 +75281,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30720,
+   "bytes": 30736,
    "vtx": 822,
    "grounded": true,
    "centered": true,
@@ -75354,7 +75326,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15688,
+   "bytes": 15704,
    "vtx": 406,
    "grounded": true,
    "centered": true,
@@ -75393,7 +75365,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27716,
+   "bytes": 27736,
    "vtx": 636,
    "grounded": true,
    "centered": true,
@@ -75432,7 +75404,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 110264,
+   "bytes": 110284,
    "vtx": 2626,
    "grounded": true,
    "centered": true,
@@ -75482,7 +75454,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 45708,
+   "bytes": 45724,
    "vtx": 1123,
    "grounded": true,
    "centered": true,
@@ -75521,7 +75493,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 53128,
+   "bytes": 53144,
    "vtx": 1294,
    "grounded": true,
    "centered": true,
@@ -75560,7 +75532,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15476,
+   "bytes": 15496,
    "vtx": 336,
    "gridMod": true,
    "grounded": true,
@@ -75600,7 +75572,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31852,
+   "bytes": 31872,
    "vtx": 752,
    "grounded": true,
    "centered": true,
@@ -75645,7 +75617,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27456,
+   "bytes": 27476,
    "vtx": 639,
    "grounded": true,
    "centered": true,
@@ -75690,7 +75662,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15236,
+   "bytes": 15256,
    "vtx": 381,
    "grounded": true,
    "centered": true,
@@ -75729,7 +75701,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11964,
+   "bytes": 11984,
    "vtx": 272,
    "grounded": true,
    "centered": true,
@@ -75769,7 +75741,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8696,
+   "bytes": 8712,
    "vtx": 186,
    "grounded": true,
    "centered": true,
@@ -75809,7 +75781,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14620,
+   "bytes": 14640,
    "vtx": 355,
    "grounded": true,
    "centered": true,
@@ -75849,7 +75821,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11256,
+   "bytes": 11276,
    "vtx": 254,
    "grounded": true,
    "centered": true,

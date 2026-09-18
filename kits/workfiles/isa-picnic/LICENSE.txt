@@ -40,10 +40,10 @@
   apple / apple_cut / apple_piece      -> apple, apple-cut, apple-piece
   cheese_A / cheese_B                  -> cheese-wedge, cheese-wheel
   picnic_basket_round / _square        -> basket-round, basket-square
-  picnic_blanket_red / _blue           -> picnic-blanket-sienna, -hunter
+  picnic_blanket_red / _blue           -> picnic-blanket-sienna, -taupe
   picnic_blanket_*_folded              -> picnic-blanket-*-folded
-  pillow_large_red / _blue             -> pillow-large-sienna, -hunter
-  pillow_small_red / _blue             -> pillow-small-sienna, -hunter
+  pillow_large_red / _blue             -> pillow-large-sienna, -taupe
+  pillow_small_red / _blue             -> pillow-small-sienna, -taupe
   plate_A / plate_B                    -> plate, plate-flower
   serving_tray_round / _square_A / _B  -> tray-round, tray-square,
                                           tray-square-handles
@@ -67,16 +67,19 @@
   orange-red            -> food, sienna          dough       -> food, tan
 
 	The blankets, the large pillows and the lid cloth on the jam jar carry a
-	separate gingham texture instead of the colour sheet. Their triangles are
-	read from that texture and mapped per colour: white to textile ivory, red
-	to textile sienna, blue to textile hunter. The check survives where a
-	triangle falls on a white square.
+	separate gingham texture instead of the colour sheet. The check runs about
+	sixteen squares across a blanket and the mesh is a plain quad grid under it,
+	so no face lines up with a square: there is nothing for a band to sit on.
+	Those pieces read as one cloth colour each, pinned to the middle of the band
+	so only the normals shade them.
 
 	Blue has no textile band — `textile` draws from ivory, hunter, taupe and
-	sienna only (§5.1) — so the blue blanket and pillows read as hunter and are
-	named for it. The teal mug and teapot land on ceramic ivory and terracotta
-	for the same reason, and the light-blue plate rim on terracotta, which is
-	what obj-kitchenware-tableware-plate allows a ceramic to take (§5.2).
+	sienna only (§5.1). The pack's blue is a light sky blue and hunter is the
+	darkest of the four, so the blue cloth reads as taupe and is named for it;
+	that also leaves hunter free for the pack's own green blanket and pillow set.
+	The teal mug and teapot land on ceramic ivory and terracotta for the same
+	reason, and the light-blue plate rim on terracotta, which is what
+	obj-kitchenware-tableware-plate allows a ceramic to take (§5.2).
 
 	`cheese-wheel` is white in the source and amber here: B33 gives cheese
 	`amber` whatever the source did.

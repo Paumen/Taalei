@@ -27,8 +27,8 @@ const paper = ['paper', 'ivory'];
 const cork = ['cork', 'taupe'];
 
 const cloth = ['textile', 'ivory'];
-const clothRed = ['textile', 'sienna'];
-const clothGreen = ['textile', 'hunter'];
+const clothRed = ['textile', 'sienna', 0.5];
+const clothLinen = ['textile', 'taupe', 0.5];
 
 const leaf = ['foliage', 'moss'];
 const canopy = ['foliage', 'hunter'];
@@ -107,8 +107,8 @@ const PAKKETTEN = [
         cellen: { '5,0': worked, '6,0': beam, '2,0': steel, '*': worked },
       },
       {
-        naam: 'pillow-small-hunter', bronmodel: 'pillow_small_blue', kind: 'obj-furniture', tags: [],
-        cellen: { '3,1': clothGreen, '*': clothGreen },
+        naam: 'pillow-small-taupe', bronmodel: 'pillow_small_blue', kind: 'obj-furniture', tags: [],
+        cellen: { '3,1': clothLinen, '*': clothLinen },
       },
       {
         naam: 'pillow-small-sienna', bronmodel: 'pillow_small_red', kind: 'obj-furniture', tags: [],
@@ -165,49 +165,58 @@ const PAKKETTEN = [
       {
         naam: 'jam-jar', bronmodel: 'jam', kind: 'obj-container-pot', tags: [],
         kleuren: {
-          '#ffffff': cloth, '#e6848c': clothRed, '#d0585e': clothRed,
+          '#ffffff': clothLinen, '#e6848c': clothLinen, '#d0585e': clothLinen,
           '#f8eee6': paper, '#f8ede4': paper, '#f9efe8': paper, '#f9eee7': paper,
           '#f8dcc8': paper, '#f8dac5': paper, '*': fruitRed,
         },
       },
       {
-        naam: 'picnic-blanket-hunter', bronmodel: 'picnic_blanket_blue',
+        naam: 'picnic-blanket-taupe', bronmodel: 'picnic_blanket_blue',
         kind: 'obj-furniture', tags: [],
         kleuren: {
-          '#ffffff': cloth, '#bad0ef': cloth,
-          '#91b3e6': clothGreen, '#74a7d4': clothGreen, '#567ec1': clothGreen, '*': clothGreen,
+          '#567ec1': clothLinen, '#74a7d4': clothLinen, '#91b3e6': clothLinen,
+          '#bad0ef': clothLinen, '#f7e0aa': clothLinen, '#efc055': clothLinen,
+          '#ffffff': clothLinen, '*': clothLinen,
         },
       },
       {
-        naam: 'picnic-blanket-hunter-folded', bronmodel: 'picnic_blanket_blue_folded',
+        naam: 'picnic-blanket-taupe-folded', bronmodel: 'picnic_blanket_blue_folded',
         kind: 'obj-furniture', tags: [],
         kleuren: {
-          '#ffffff': cloth, '#bad0ef': cloth,
-          '#91b3e6': clothGreen, '#74a7d4': clothGreen, '#567ec1': clothGreen, '*': clothGreen,
+          '#567ec1': clothLinen, '#74a7d4': clothLinen, '#91b3e6': clothLinen,
+          '#bad0ef': clothLinen, '#f7e0aa': clothLinen, '#efc055': clothLinen,
+          '#ffffff': clothLinen, '*': clothLinen,
         },
       },
       {
         naam: 'picnic-blanket-sienna', bronmodel: 'picnic_blanket_red',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#ffffff': cloth, '#e6848c': clothRed, '#d0585e': clothRed, '*': clothRed },
+        kleuren: {
+          '#d0585e': clothRed, '#e6848c': clothRed, '#ffffff': clothRed, '*': clothRed,
+        },
       },
       {
         naam: 'picnic-blanket-sienna-folded', bronmodel: 'picnic_blanket_red_folded',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#ffffff': cloth, '#e6848c': clothRed, '#d0585e': clothRed, '*': clothRed },
+        kleuren: {
+          '#d0585e': clothRed, '#e6848c': clothRed, '#ffffff': clothRed, '*': clothRed,
+        },
       },
       {
-        naam: 'pillow-large-hunter', bronmodel: 'pillow_large_blue',
+        naam: 'pillow-large-taupe', bronmodel: 'pillow_large_blue',
         kind: 'obj-furniture', tags: [],
         kleuren: {
-          '#ffffff': cloth, '#f7e0aa': cloth, '#efc055': cloth,
-          '#91b3e6': clothGreen, '#74a7d4': clothGreen, '#567ec1': clothGreen, '*': clothGreen,
+          '#567ec1': clothLinen, '#74a7d4': clothLinen, '#91b3e6': clothLinen,
+          '#bad0ef': clothLinen, '#f7e0aa': clothLinen, '#efc055': clothLinen,
+          '#ffffff': clothLinen, '*': clothLinen,
         },
       },
       {
         naam: 'pillow-large-sienna', bronmodel: 'pillow_large_red',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#ffffff': cloth, '#e6848c': clothRed, '#d0585e': clothRed, '*': clothRed },
+        kleuren: {
+          '#d0585e': clothRed, '#e6848c': clothRed, '#ffffff': clothRed, '*': clothRed,
+        },
       },
     ],
   },
@@ -437,12 +446,12 @@ const PAKKETTEN = [
       },
       {
         naam: 'rug', bronmodel: 'rug', kind: 'obj-furniture', tags: [],
-        cellen: { '4,1': clothGreen, '3,0': cloth, '*': cloth },
+        cellen: { '4,1': clothLinen, '3,0': cloth, '*': cloth },
       },
       {
         naam: 'serving-tray', bronmodel: 'serving_tray',
         kind: 'obj-kitchenware-tableware-plate', tags: [],
-        cellen: { '6,0': beam, '4,1': clothGreen, '3,0': cloth, '*': beam },
+        cellen: { '6,0': beam, '4,1': clothLinen, '3,0': cloth, '*': beam },
       },
       {
         naam: 'table-round', bronmodel: 'table_round_A', kind: 'obj-furniture-table', tags: [],
@@ -484,7 +493,7 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'chair', bronmodel: 'chair', kind: 'obj-furniture-seating-chair', tags: [],
-        cellen: { '5,0': worked, '3,0': cloth, '*': worked },
+        cellen: { '5,0': worked, '3,0': beam, '*': worked },
       },
       {
         naam: 'door-modular', bronmodel: 'door_modular', kind: 'str-part-door', tags: [],
