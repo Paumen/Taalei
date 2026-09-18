@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — TBD: not in the catalog</title>
+<meta name="description" content="Everything the source packs under kits/sources hold that the catalog doesn't: models never imported, and models that were taken out again. Shown straight from the source, to judge one by one.">
+<meta name="catalogus-gebouwd" content="2026-09-18T23:09:27Z">
+<meta name="catalogus-versie" content="6a2d1aede2">
+<link rel="stylesheet" href="catalog.css?v=6a2d1aede2">
+<link rel="stylesheet" href="list.css?v=6a2d1aede2"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+</head>
+<body>
+
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../index.html">Catalog</a>
+    <a href="scale-obj-gen.html">Scale</a>
+    <a href="swipe.html">Swipe</a>
+    <span aria-current="page">TBD</span>
+    <a href="reject.html">Reject</a>
+    <a href="swipe.html?source=lint">Lint</a>
+  </nav>
+
+  <p class="kop-sub" id="samenvatting">Loading…</p>
+
+  <div class="kop-bediening">
+    <div class="knopgroep">
+      <a class="licht-knop" id="naar-swipe" href="swipe.html?source=tbd"
+         title="Judge these models one at a time and note per direction why each was left out">Swipe these</a>
+
+      <a class="licht-knop" id="naar-swipe-pack" href="swipe.html?source=tbd" hidden
+         title="Swipe only the models of the pack this page is filtered to">Swipe this pack</a>
+
+      <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
+              title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
+
+      <button class="licht-knop" id="licht" type="button" aria-pressed="false"
+              title="Shows the models unlit: only the source colours, with the shading baked into them">Flat</button>
+    </div>
+  </div>
+  <span class="bouwstempel" id="bouwstempel"></span>
+</header>
+
+<p class="uitleg-blok">
+  These models sit in a source pack under <code>kits/sources</code> but not in the catalog —
+  either the pack was never imported, or the model was taken out again. They're shown exactly as
+  the source has them: own colours, own scale, no palette. Sizes are in island units wherever the
+  kit's import scale is known. Models of one pack that share a shape and differ only in colour sit
+  on one card, marked ⧉; the other colours are in the model panel.
+</p>
+
+<div class="sort-bar">
+  <input type="search" id="zoek" placeholder="Search by name" autocomplete="off" aria-label="Search by name">
+
+  <select id="groepering" aria-label="Group by" title="Group by">
+    <option value="bron" selected>by source pack</option>
+    <option value="kind">by kind</option>
+    <option value="geen">no grouping</option>
+  </select>
+
+  <select id="filter-bron" aria-label="Source pack" title="Source pack">
+    <option value="">all packs</option>
+  </select>
+
+  <select id="filter-staat" aria-label="Why it is not in the catalog" title="Why it is not in the catalog">
+    <option value="">imported and never imported packs</option>
+    <option value="uit">taken out of an imported pack</option>
+    <option value="nooit">from a pack that was never imported</option>
+  </select>
+
+  <button class="sort-bar-reset" id="alles-wis" type="button" hidden>Reset</button>
+
+  <select id="sortering" aria-label="Sort by" title="Sort by">
+    <option value="naam">by name</option>
+    <option value="groot">largest first</option>
+    <option value="klein">smallest first</option>
+    <option value="zwaar">most triangles</option>
+    <option value="licht">fewest triangles</option>
+  </select>
+</div>
+
+<main id="paneel"></main>
+
+<p class="leeg" id="leeg" hidden>No models found.</p>
+
+<dialog class="detail" id="detail">
+  <button class="detail-sluit" id="detail-sluit" aria-label="Close">&times;</button>
+  <div class="detail-viewer" id="detail-viewer"></div>
+  <div class="detail-info">
+    <h2 id="detail-naam"></h2>
+    <p class="detail-herkomst" id="detail-herkomst"></p>
+    <dl id="detail-gegevens"></dl>
+    <div class="detail-keuze" id="detail-variant" hidden>
+      <span class="detail-keuze-kop">Colours</span>
+      <div class="detail-chips" id="detail-variant-keuze" role="group" aria-label="Colours"></div>
+    </div>
+    <div class="detail-acties">
+      <button id="detail-kopieer">Copy path</button>
+      <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
+      <a id="detail-download" download>Download .glb</a>
+    </div>
+  </div>
+</dialog>
+
+<div class="selectiebalk" id="selectiebalk" hidden>
+  <span class="selectiebalk-telling" id="selectiebalk-telling" aria-live="polite"></span>
+  <button type="button" id="selectie-alles">All in view</button>
+  <button type="button" id="selectie-kopieer" class="primair">Copy paths</button>
+  <button type="button" id="selectie-wis">Clear</button>
+</div>
+
+<script src="vendor/model-viewer.min.js" type="module"></script>
+<script src="list.js?v=6a2d1aede2" type="module"></script></body>
+</html>
