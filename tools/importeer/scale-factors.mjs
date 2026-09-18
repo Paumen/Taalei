@@ -22,6 +22,7 @@ export const SCALE_TARGETS = {
   'jelly-forest': 0.4,
   'kay-builder': 1.2,
   'kay-dun-1': 0.36,
+  'kay-dun-2': 0.27,
   'kay-food': 0.23,
   'kay-hallow': 0.24,
   'ken-cave': 0.187,
