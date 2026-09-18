@@ -286,8 +286,8 @@ const PAKKETTEN = [
       granary_big: {
         naam: 'granary-large', kind: 'str-building-tower', tags: ['asia'],
         vlakken: {
-          'p1:2:0': balk, 'p1:10:0': bewerkt, 'p1:5:0': dakpan,
-          'p1:0:0': bewerkt, 'p1:7:0': steen, 'p1:3:0': plank,
+          'p1:2:0': balk, 'p1:10:0': goud, 'p1:5:0': dakpan,
+          'p1:0:0': goud, 'p1:7:0': steen, 'p1:3:0': plank,
         },
       },
       building_1: {

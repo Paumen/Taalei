@@ -327,7 +327,6 @@ const PAKKETTEN = [
       { naam: 'barrel-2', bronmodel: 'Barrel2', kind: 'obj-container-barrel', tags: ['ngons'] },
       { naam: 'chest', bronmodel: 'Chest', kind: 'obj-container-chest', tags: [] },
       { naam: 'chest-gold', bronmodel: 'Chest_Gold', kind: 'assy', tags: ['halloween'] },
-      { naam: 'coins', bronmodel: 'Coin_Pile', kind: 'obj-pocketitem-coin', tags: ['plural', 'ngons'] },
       { naam: 'crate', bronmodel: 'Crate', kind: 'obj-container-crate', tags: [] },
       { naam: 'pedestal', bronmodel: 'Pedestal', kind: 'str', tags: ['halloween'] },
       { naam: 'pedestal-2', bronmodel: 'Pedestal2', kind: 'str', tags: ['halloween'] },
