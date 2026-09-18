@@ -410,7 +410,7 @@ const SOURCES = [
     id: 'isa',
     name: 'Tiny Treats',
     description: 'Kits from Isa Lousberg (isalousberg.com).',
-    kits: ['isa-food', 'isa-kitchen', 'isa-plants'],
+    kits: ['isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond'],
   },
   {
     id: 'wizp',
