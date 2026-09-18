@@ -100,6 +100,12 @@ re-imported: `node tools/importeer/reband.mjs <kit>/<model> <from>:<to>` shifts
 every vertex of one band onto another and keeps its place within the cell.
 Rebuild the catalogue and the kit's thumbs afterwards.
 
+A model that kept the place it held in the scene it was exported from is moved
+back onto the origin: `node tools/importeer/reorigin.mjs <kit>/<model>` puts its
+lowest vertex on y=0 and its footprint centre on x=0, z=0. It leaves the mesh
+alone, so a part whose origin is its joint — a rotor on its axle, a gate on its
+hinge — is not a case for it.
+
 A model with more than one draw call is folded only where the extra primitives
 sit in the same mesh on one material: `node tools/importeer/merge-prims.mjs
 <kit>/<model>`. A part on its own node (a wheel, a paddle, a gate, a blade of a
