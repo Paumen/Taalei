@@ -1810,7 +1810,10 @@ window.KENNEY_KITS = [
   "models": [
    "altar-stone",
    "altar-wood",
+   "bench",
+   "bench-damaged",
    "coffin-old",
+   "column-large",
    "crypt-large",
    "crypt-large-roof",
    "detail-bowl",
@@ -3464,6 +3467,7 @@ window.KENNEY_KITS = [
    "sandbags",
    "sandbags-small",
    "shotgun",
+   "shovel",
    "sofa",
    "sofa-small",
    "tree-a",
@@ -3510,8 +3514,11 @@ window.KENNEY_KITS = [
    "picnic-blanket-hunter-folded",
    "picnic-blanket-sienna",
    "picnic-blanket-sienna-folded",
+   "picnic-blanket-taupe",
+   "picnic-blanket-taupe-folded",
    "pillow-large-hunter",
    "pillow-large-sienna",
+   "pillow-large-taupe",
    "pillow-small-hunter",
    "pillow-small-sienna",
    "plate",
@@ -3642,6 +3649,15 @@ window.KENNEY_KITS = [
    "survivor-shaun",
    "trash-bag",
    "trash-bags"
+  ]
+ },
+ {
+  "slug": "scythian",
+  "name": "scythian",
+  "url": null,
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/scythian/LICENSE.txt.",
+  "models": [
+   "ornament"
   ]
  }
 ]

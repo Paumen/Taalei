@@ -1,0 +1,61 @@
+	Scythian Decoration (scythian)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Scythian_Decoration/`, two zips of the same
+	model: one .glb, one .obj with .fbx and .mtl. Neither holds a license file
+	and neither names an author or pack page. The CC0 note above was set by the
+	owner of this project on import; it does not come from the pack itself. The
+	author is unknown, so there is nobody to credit — whoever traces the origin
+	adds it here.
+
+	The .obj is the one read. The pack is one model and it is loaded.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 1, so the source
+	units are metres. It is set by comparison: the plaque lands at 0,25 × 0,25
+	beside asia-pack/wall-decor-a at 0,25 × 0,20 and under asia-rg/dragon-
+	ornament at 0,85 long.
+
+
+	Names
+
+	ScythianAntique -> ornament
+
+
+	Colour
+
+	The source paints one flat colour, #e4a95d, over the whole mesh. It does not
+	come along: the model is mapped to metal-gold on the amber band of the
+	shared kits/colormap.png, placed in the band at the height whose luminance
+	matches the source colour and shaded along normal Y, so the baked light-to-
+	dark reading is kept.
+
+
+	Where it sits outside the style guide
+
+	The plaque is Scythian animal-style openwork: interlaced beasts cut out of a
+	sheet 7 mm thick. That is thin and busy where §1 asks for chunky and few
+	details (I01, I03), and its strands are narrower than the 15 mm of G02 — the
+	measured minimum edge is 0. At 4088 triangles over a 0,25 × 0,25 × 0,05
+	footprint the tri budget comes to 11918 against the 10000 ceiling on obj
+	(G04), which the size lint carries as a warning. It is in the catalogue at
+	the owner's request.
+
+
+	What happened to the file is in tools/importeer/ontbrekend.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call. The scale sits on the root
+	node, not in the vertices.
