@@ -42,7 +42,7 @@ const DOEL = {
   'quat-fish': 0.1,
   'quat-food': 0.15,
   'quat-nature': 0.4,
-  'quat-pirate': 0.35,
+  'quat-pirate': 0.385,
   'quat-props': 0.8,
   'quat-rpg': 0.22,
   'quat-ships': 1.25,
