@@ -306,6 +306,37 @@
   {
    "slug": "Farm_Buildings_Bundle",
    "name": "Farm Buildings Bundle"
+  },
+  {
+   "slug": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "Tiny Treats Pleasant Picnic"
+  },
+  {
+   "slug": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "Tiny Treats Fun Playground"
+  },
+  {
+   "slug": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "Tiny Treats Bakery Interior"
+  },
+  {
+   "slug": "gobkit_animal-pack-2",
+   "name": "Gobkit Animal Pack 2",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "gobkit_dino-pack",
+   "name": "Gobkit Dinosaur Pack",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
+  },
+  {
+   "slug": "Post_Apocolypse_Pack",
+   "name": "Post Apocalypse Pack"
+  },
+  {
+   "slug": "Scythian_Decoration",
+   "name": "Scythian Decoration",
+   "note": "This pack was never imported — nothing from it is in the catalogue."
   }
  ],
  "sources": [
@@ -1009,8 +1040,8 @@
    "kit": "medieval-village",
    "format": "glb",
    "inSource": 33,
-   "inCatalog": 31,
-   "missing": 2,
+   "inCatalog": 33,
+   "missing": 0,
    "unmatched": 0,
    "scale": 0.47
   },
@@ -1119,8 +1150,8 @@
    "kit": "kay-mixed",
    "format": "gltf",
    "inSource": 41,
-   "inCatalog": 41,
-   "missing": 0,
+   "inCatalog": 33,
+   "missing": 8,
    "unmatched": 0,
    "scale": 0.3,
    "folder": "KayKit_Mixed_Bag_1_FREE/Assets/gltf"
@@ -1158,7 +1189,7 @@
    "inCatalog": 15,
    "missing": 117,
    "unmatched": 0,
-   "scale": 0.35,
+   "scale": 0.3,
    "folder": "Models/gltf"
   },
   {
@@ -1193,6 +1224,80 @@
    "missing": 0,
    "unmatched": 0,
    "scale": 0.3
+  },
+  {
+   "slug": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "Tiny Treats Pleasant Picnic",
+   "kit": "isa-picnic",
+   "format": "gltf",
+   "inSource": 41,
+   "inCatalog": 32,
+   "missing": 9,
+   "unmatched": 0,
+   "scale": 0.24,
+   "folder": "Tiny_Treats_Pleasant_Picnic_1.0_FREE/Assets/gltf"
+  },
+  {
+   "slug": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "Tiny Treats Fun Playground",
+   "kit": "isa-playground",
+   "format": "gltf",
+   "inSource": 47,
+   "inCatalog": 21,
+   "missing": 26,
+   "unmatched": 0,
+   "scale": 0.24,
+   "folder": "Tiny_Treats_Fun_Playground_1.0_FREE/Assets/gltf"
+  },
+  {
+   "slug": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "Tiny Treats Bakery Interior",
+   "kit": "isa-bakery",
+   "format": "gltf",
+   "inSource": 114,
+   "inCatalog": 34,
+   "missing": 80,
+   "unmatched": 0,
+   "scale": 0.32,
+   "folder": "Tiny_Treats_Bakery_Interior_1.1_FREE/Assets/gltf"
+  },
+  {
+   "slug": "gobkit_animal-pack-2",
+   "name": "Gobkit Animal Pack 2",
+   "format": "glb",
+   "inSource": 10,
+   "inCatalog": 0,
+   "missing": 10,
+   "unmatched": 0
+  },
+  {
+   "slug": "gobkit_dino-pack",
+   "name": "Gobkit Dinosaur Pack",
+   "format": "glb",
+   "inSource": 10,
+   "inCatalog": 0,
+   "missing": 10,
+   "unmatched": 0
+  },
+  {
+   "slug": "Post_Apocolypse_Pack",
+   "name": "Post Apocalypse Pack",
+   "kit": "post-apocalypse",
+   "format": "glb",
+   "inSource": 54,
+   "inCatalog": 19,
+   "missing": 35,
+   "unmatched": 0,
+   "scale": 0.45
+  },
+  {
+   "slug": "Scythian_Decoration",
+   "name": "Scythian Decoration",
+   "format": "obj",
+   "inSource": 1,
+   "inCatalog": 0,
+   "missing": 1,
+   "unmatched": 0
   }
  ],
  "kinds": [
@@ -1551,6 +1656,14 @@
   {
    "id": "str-building-tower",
    "name": "Tower"
+  },
+  {
+   "id": "str-building-mill",
+   "name": "Mill"
+  },
+  {
+   "id": "str-building-well",
+   "name": "Well"
   },
   {
    "id": "str-building-dwelling",
@@ -18347,7 +18460,7 @@
   {
    "kit": "Modular Village",
    "name": "Prop_Well_1",
-   "kind": "str-building",
+   "kind": "str-building-well",
    "wdh": [
     0.7,
     0.8,
@@ -31988,38 +32101,6 @@
    "file": "Wall Shield Style.fbx"
   },
   {
-   "kit": "Medieval_Pack",
-   "name": "box_2",
-   "kind": "obj-container-crate",
-   "wdh": [
-    0.3,
-    0.3,
-    0.3
-   ],
-   "tris": 238,
-   "tpu": 694,
-   "mat": 1,
-   "bytes": 19412,
-   "scaled": true,
-   "file": "medieval_village_pack.glb"
-  },
-  {
-   "kit": "Medieval_Pack",
-   "name": "box_1",
-   "kind": "obj-container-crate",
-   "wdh": [
-    0.3,
-    0.3,
-    0.3
-   ],
-   "tris": 238,
-   "tpu": 694,
-   "mat": 1,
-   "bytes": 19024,
-   "scaled": true,
-   "file": "medieval_village_pack.glb"
-  },
-  {
    "kit": "Fishing_Village_Pack",
    "name": "net",
    "wdh": [
@@ -34836,7 +34917,7 @@
   {
    "kit": "Village_Pack",
    "name": "well",
-   "kind": "str-building",
+   "kind": "str-building-well",
    "wdh": [
     0.6,
     0.3,
@@ -38500,6 +38581,126 @@
    "file": "woodenplatformLegs.fbx"
   },
   {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "guitar_A",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 1018,
+   "tpu": 2968,
+   "mat": 1,
+   "bytes": 51812,
+   "scaled": true,
+   "file": "guitar_A.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "guitar_B",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 1018,
+   "tpu": 2968,
+   "mat": 1,
+   "bytes": 51812,
+   "scaled": true,
+   "file": "guitar_B.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "idol_A",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 892,
+   "tpu": 2601,
+   "mat": 1,
+   "bytes": 23944,
+   "scaled": true,
+   "file": "idol_A.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "idol_B",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 836,
+   "tpu": 2437,
+   "mat": 1,
+   "bytes": 22328,
+   "scaled": true,
+   "file": "idol_B.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "instantcamera_green",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 520,
+   "tpu": 1516,
+   "mat": 1,
+   "bytes": 23144,
+   "scaled": true,
+   "file": "instantcamera_green.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "instantcamera_picture_B",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 28,
+   "tpu": 82,
+   "mat": 1,
+   "bytes": 2848,
+   "scaled": true,
+   "file": "instantcamera_picture_B.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "umbrella_blue",
+   "wdh": [
+    0.5,
+    0.6,
+    0.5
+   ],
+   "tris": 904,
+   "tpu": 2636,
+   "mat": 1,
+   "bytes": 28856,
+   "scaled": true,
+   "file": "umbrella_blue.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "umbrella_green",
+   "wdh": [
+    0.5,
+    0.6,
+    0.5
+   ],
+   "tris": 904,
+   "tpu": 2636,
+   "mat": 1,
+   "bytes": 28860,
+   "scaled": true,
+   "file": "umbrella_green.gltf"
+  },
+  {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "detail_hill",
    "kind": "env-terrain-mountain",
@@ -41874,7 +42075,7 @@
    "tris": 166,
    "tpu": 484,
    "mat": 3,
-   "bytes": 7708,
+   "bytes": 7704,
    "scaled": true,
    "file": "arrow_teamRed.gltf.glb"
   },
@@ -41890,7 +42091,7 @@
    "tris": 166,
    "tpu": 484,
    "mat": 3,
-   "bytes": 7720,
+   "bytes": 7716,
    "scaled": true,
    "file": "arrow_teamYellow.gltf.glb"
   },
@@ -41898,14 +42099,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 540,
    "tpu": 1574,
    "mat": 4,
-   "bytes": 15568,
+   "bytes": 15564,
    "scaled": true,
    "file": "ball.gltf.glb"
   },
@@ -41913,14 +42114,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamBlue",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 540,
    "tpu": 1574,
    "mat": 2,
-   "bytes": 14060,
+   "bytes": 14056,
    "scaled": true,
    "file": "ball_teamBlue.gltf.glb"
   },
@@ -41928,14 +42129,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamRed",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 540,
    "tpu": 1574,
    "mat": 2,
-   "bytes": 14060,
+   "bytes": 14056,
    "scaled": true,
    "file": "ball_teamRed.gltf.glb"
   },
@@ -41943,14 +42144,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamYellow",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 540,
    "tpu": 1574,
    "mat": 2,
-   "bytes": 14068,
+   "bytes": 14064,
    "scaled": true,
    "file": "ball_teamYellow.gltf.glb"
   },
@@ -41959,14 +42160,14 @@
    "name": "barrierFloor",
    "kind": "str-part-floor",
    "wdh": [
-    0.7,
+    0.6,
     0.1,
-    0.7
+    0.6
    ],
    "tris": 1320,
    "tpu": 3848,
    "mat": 1,
-   "bytes": 25760,
+   "bytes": 25756,
    "scaled": true,
    "file": "barrierFloor.gltf.glb"
   },
@@ -41976,13 +42177,13 @@
    "kind": "str-access-ladder",
    "wdh": [
     0.1,
-    0.7,
+    0.6,
     0.3
    ],
    "tris": 208,
    "tpu": 606,
    "mat": 1,
-   "bytes": 7568,
+   "bytes": 7564,
    "scaled": true,
    "file": "barrierLadder.gltf.glb"
   },
@@ -41990,14 +42191,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "barrierLarge",
    "wdh": [
-    2.1,
+    1.8,
     0.3,
     0.1
    ],
    "tris": 672,
-   "tpu": 1315,
+   "tpu": 1790,
    "mat": 1,
-   "bytes": 13808,
+   "bytes": 13804,
    "scaled": true,
    "file": "barrierLarge.gltf.glb"
   },
@@ -42005,14 +42206,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "barrierMedium",
    "wdh": [
-    1.4,
+    1.2,
     0.3,
     0.1
    ],
    "tris": 672,
    "tpu": 1959,
    "mat": 1,
-   "bytes": 13808,
+   "bytes": 13804,
    "scaled": true,
    "file": "barrierMedium.gltf.glb"
   },
@@ -42020,14 +42221,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "barrierSmall",
    "wdh": [
-    0.7,
+    0.6,
     0.3,
     0.1
    ],
    "tris": 672,
    "tpu": 1959,
    "mat": 1,
-   "bytes": 13808,
+   "bytes": 13804,
    "scaled": true,
    "file": "barrierSmall.gltf.glb"
   },
@@ -42035,14 +42236,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "barrierStrut",
    "wdh": [
-    0.4,
-    0.7,
-    0.4
+    0.3,
+    0.6,
+    0.3
    ],
    "tris": 656,
    "tpu": 1913,
    "mat": 1,
-   "bytes": 21200,
+   "bytes": 21196,
    "scaled": true,
    "file": "barrierStrut.gltf.glb"
   },
@@ -42050,14 +42251,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "blaster_teamBlue",
    "wdh": [
+    0.1,
     0.2,
-    0.3,
-    0.5
+    0.4
    ],
    "tris": 1748,
    "tpu": 5096,
    "mat": 2,
-   "bytes": 42948,
+   "bytes": 42944,
    "scaled": true,
    "file": "blaster_teamBlue.gltf.glb"
   },
@@ -42065,14 +42266,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "blaster_teamRed",
    "wdh": [
+    0.1,
     0.2,
-    0.3,
-    0.5
+    0.4
    ],
    "tris": 1748,
    "tpu": 5096,
    "mat": 2,
-   "bytes": 42948,
+   "bytes": 42944,
    "scaled": true,
    "file": "blaster_teamRed.gltf.glb"
   },
@@ -42080,14 +42281,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "blaster_teamYellow",
    "wdh": [
+    0.1,
     0.2,
-    0.3,
-    0.5
+    0.4
    ],
    "tris": 1748,
    "tpu": 5096,
    "mat": 2,
-   "bytes": 42956,
+   "bytes": 42952,
    "scaled": true,
    "file": "blaster_teamYellow.gltf.glb"
   },
@@ -42095,14 +42296,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bomb_teamBlue",
    "wdh": [
+    0.3,
     0.4,
-    0.5,
-    0.4
+    0.3
    ],
    "tris": 1104,
    "tpu": 3219,
    "mat": 3,
-   "bytes": 26040,
+   "bytes": 26036,
    "scaled": true,
    "file": "bomb_teamBlue.gltf.glb"
   },
@@ -42110,14 +42311,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bomb_teamRed",
    "wdh": [
+    0.3,
     0.4,
-    0.5,
-    0.4
+    0.3
    ],
    "tris": 1104,
    "tpu": 3219,
    "mat": 3,
-   "bytes": 26036,
+   "bytes": 26032,
    "scaled": true,
    "file": "bomb_teamRed.gltf.glb"
   },
@@ -42125,14 +42326,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bomb_teamYellow",
    "wdh": [
+    0.3,
     0.4,
-    0.5,
-    0.4
+    0.3
    ],
    "tris": 1104,
    "tpu": 3219,
    "mat": 3,
-   "bytes": 26048,
+   "bytes": 26044,
    "scaled": true,
    "file": "bomb_teamYellow.gltf.glb"
   },
@@ -42142,13 +42343,13 @@
    "kind": "obj-weapon-ranged-bow",
    "wdh": [
     0.5,
-    0.3,
+    0.2,
     0.1
    ],
    "tris": 1336,
    "tpu": 3895,
    "mat": 3,
-   "bytes": 27768,
+   "bytes": 27764,
    "scaled": true,
    "file": "bow_teamRed.gltf.glb"
   },
@@ -42158,13 +42359,13 @@
    "kind": "obj-weapon-ranged-bow",
    "wdh": [
     0.5,
-    0.3,
+    0.2,
     0.1
    ],
    "tris": 1336,
    "tpu": 3895,
    "mat": 3,
-   "bytes": 27776,
+   "bytes": 27772,
    "scaled": true,
    "file": "bow_teamYellow.gltf.glb"
   },
@@ -42172,14 +42373,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamBlue",
    "wdh": [
-    0.6,
+    0.5,
     0.1,
-    0.6
+    0.5
    ],
    "tris": 498,
    "tpu": 1452,
    "mat": 2,
-   "bytes": 11820,
+   "bytes": 11816,
    "scaled": true,
    "file": "button_teamBlue.gltf.glb"
   },
@@ -42187,14 +42388,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamRed",
    "wdh": [
-    0.6,
+    0.5,
     0.1,
-    0.6
+    0.5
    ],
    "tris": 498,
    "tpu": 1452,
    "mat": 2,
-   "bytes": 11820,
+   "bytes": 11816,
    "scaled": true,
    "file": "button_teamRed.gltf.glb"
   },
@@ -42202,14 +42403,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamYellow",
    "wdh": [
-    0.6,
+    0.5,
     0.1,
-    0.6
+    0.5
    ],
    "tris": 498,
    "tpu": 1452,
    "mat": 2,
-   "bytes": 11828,
+   "bytes": 11824,
    "scaled": true,
    "file": "button_teamYellow.gltf.glb"
   },
@@ -42218,13 +42419,13 @@
    "name": "characer_duck",
    "wdh": [
     0.3,
-    0.3,
-    0.3
+    0.2,
+    0.2
    ],
    "tris": 920,
    "tpu": 2682,
    "mat": 1,
-   "bytes": 20288,
+   "bytes": 20284,
    "scaled": true,
    "file": "characer_duck.gltf.glb"
   },
@@ -42233,13 +42434,13 @@
    "name": "character_bear",
    "wdh": [
     0.3,
-    0.3,
+    0.2,
     0.2
    ],
    "tris": 768,
    "tpu": 2239,
    "mat": 1,
-   "bytes": 16596,
+   "bytes": 16592,
    "scaled": true,
    "file": "character_bear.gltf.glb"
   },
@@ -42248,13 +42449,13 @@
    "name": "character_dog",
    "wdh": [
     0.3,
-    0.3,
+    0.2,
     0.2
    ],
    "tris": 768,
    "tpu": 2239,
    "mat": 1,
-   "bytes": 16592,
+   "bytes": 16588,
    "scaled": true,
    "file": "character_dog.gltf.glb"
   },
@@ -42262,14 +42463,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "detail_desert",
    "wdh": [
-    0.6,
+    0.5,
     0.1,
-    0.6
+    0.5
    ],
    "tris": 2840,
    "tpu": 8280,
    "mat": 2,
-   "bytes": 64656,
+   "bytes": 64652,
    "scaled": true,
    "file": "detail_desert.gltf.glb"
   },
@@ -42277,14 +42478,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "diamond_teamBlue",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.3,
+    0.3
    ],
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
-   "bytes": 8300,
+   "bytes": 8296,
    "scaled": true,
    "file": "diamond_teamBlue.gltf.glb"
   },
@@ -42292,14 +42493,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "diamond_teamRed",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.3,
+    0.3
    ],
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
-   "bytes": 8300,
+   "bytes": 8296,
    "scaled": true,
    "file": "diamond_teamRed.gltf.glb"
   },
@@ -42307,14 +42508,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "diamond_teamYellow",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.3,
+    0.3
    ],
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
-   "bytes": 8308,
+   "bytes": 8304,
    "scaled": true,
    "file": "diamond_teamYellow.gltf.glb"
   },
@@ -42324,13 +42525,13 @@
    "kind": "str-marker-flag",
    "wdh": [
     0.4,
-    0.7,
+    0.6,
     0.2
    ],
    "tris": 576,
    "tpu": 1679,
    "mat": 3,
-   "bytes": 15120,
+   "bytes": 15116,
    "scaled": true,
    "file": "flag_teamRed.gltf.glb"
   },
@@ -42340,13 +42541,13 @@
    "kind": "str-marker-flag",
    "wdh": [
     0.4,
-    0.7,
+    0.6,
     0.2
    ],
    "tris": 576,
    "tpu": 1679,
    "mat": 3,
-   "bytes": 15132,
+   "bytes": 15128,
    "scaled": true,
    "file": "flag_teamYellow.gltf.glb"
   },
@@ -42354,14 +42555,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLargeWide_teamBlue",
    "wdh": [
-    1.5,
-    1.1,
+    1.3,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 537,
+   "tpu": 730,
    "mat": 1,
-   "bytes": 13092,
+   "bytes": 13088,
    "scaled": true,
    "file": "gateLargeWide_teamBlue.gltf.glb"
   },
@@ -42369,14 +42570,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLargeWide_teamRed",
    "wdh": [
-    1.5,
-    1.1,
+    1.3,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 537,
+   "tpu": 730,
    "mat": 1,
-   "bytes": 13092,
+   "bytes": 13088,
    "scaled": true,
    "file": "gateLargeWide_teamRed.gltf.glb"
   },
@@ -42384,14 +42585,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLargeWide_teamYellow",
    "wdh": [
-    1.5,
-    1.1,
+    1.3,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 537,
+   "tpu": 730,
    "mat": 1,
-   "bytes": 13096,
+   "bytes": 13092,
    "scaled": true,
    "file": "gateLargeWide_teamYellow.gltf.glb"
   },
@@ -42399,14 +42600,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLarge_teamBlue",
    "wdh": [
-    0.8,
-    1.1,
+    0.7,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 984,
+   "tpu": 1339,
    "mat": 1,
-   "bytes": 13084,
+   "bytes": 13080,
    "scaled": true,
    "file": "gateLarge_teamBlue.gltf.glb"
   },
@@ -42414,14 +42615,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLarge_teamRed",
    "wdh": [
-    0.8,
-    1.1,
+    0.7,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 984,
+   "tpu": 1339,
    "mat": 1,
-   "bytes": 13084,
+   "bytes": 13080,
    "scaled": true,
    "file": "gateLarge_teamRed.gltf.glb"
   },
@@ -42429,14 +42630,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateLarge_teamYellow",
    "wdh": [
-    0.8,
-    1.1,
+    0.7,
+    1,
     0.1
    ],
    "tris": 648,
-   "tpu": 984,
+   "tpu": 1339,
    "mat": 1,
-   "bytes": 13088,
+   "bytes": 13084,
    "scaled": true,
    "file": "gateLarge_teamYellow.gltf.glb"
   },
@@ -42444,14 +42645,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmallWide_teamBlue",
    "wdh": [
-    1.5,
-    0.7,
+    1.3,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 859,
+   "tpu": 1169,
    "mat": 1,
-   "bytes": 13092,
+   "bytes": 13088,
    "scaled": true,
    "file": "gateSmallWide_teamBlue.gltf.glb"
   },
@@ -42459,14 +42660,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmallWide_teamRed",
    "wdh": [
-    1.5,
-    0.7,
+    1.3,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 859,
+   "tpu": 1169,
    "mat": 1,
-   "bytes": 13092,
+   "bytes": 13088,
    "scaled": true,
    "file": "gateSmallWide_teamRed.gltf.glb"
   },
@@ -42474,14 +42675,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmallWide_teamYellow",
    "wdh": [
-    1.5,
-    0.7,
+    1.3,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 859,
+   "tpu": 1169,
    "mat": 1,
-   "bytes": 13096,
+   "bytes": 13092,
    "scaled": true,
    "file": "gateSmallWide_teamYellow.gltf.glb"
   },
@@ -42489,14 +42690,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmall_teamBlue",
    "wdh": [
-    0.8,
     0.7,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 1574,
+   "tpu": 1889,
    "mat": 1,
-   "bytes": 13084,
+   "bytes": 13080,
    "scaled": true,
    "file": "gateSmall_teamBlue.gltf.glb"
   },
@@ -42504,14 +42705,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmall_teamRed",
    "wdh": [
-    0.8,
     0.7,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 1574,
+   "tpu": 1889,
    "mat": 1,
-   "bytes": 13084,
+   "bytes": 13080,
    "scaled": true,
    "file": "gateSmall_teamRed.gltf.glb"
   },
@@ -42519,14 +42720,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "gateSmall_teamYellow",
    "wdh": [
-    0.8,
     0.7,
+    0.6,
     0.1
    ],
    "tris": 648,
-   "tpu": 1574,
+   "tpu": 1889,
    "mat": 1,
-   "bytes": 13088,
+   "bytes": 13084,
    "scaled": true,
    "file": "gateSmall_teamYellow.gltf.glb"
   },
@@ -42534,14 +42735,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamBlue",
    "wdh": [
-    0.4,
     0.3,
-    0.2
+    0.3,
+    0.1
    ],
    "tris": 572,
    "tpu": 1668,
    "mat": 1,
-   "bytes": 11756,
+   "bytes": 11752,
    "scaled": true,
    "file": "heart_teamBlue.gltf.glb"
   },
@@ -42549,14 +42750,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamRed",
    "wdh": [
-    0.4,
     0.3,
-    0.2
+    0.3,
+    0.1
    ],
    "tris": 572,
    "tpu": 1668,
    "mat": 1,
-   "bytes": 11756,
+   "bytes": 11752,
    "scaled": true,
    "file": "heart_teamRed.gltf.glb"
   },
@@ -42564,14 +42765,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamYellow",
    "wdh": [
-    0.4,
     0.3,
-    0.2
+    0.3,
+    0.1
    ],
    "tris": 572,
    "tpu": 1668,
    "mat": 1,
-   "bytes": 11760,
+   "bytes": 11756,
    "scaled": true,
    "file": "heart_teamYellow.gltf.glb"
   },
@@ -42579,14 +42780,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "hoop_teamBlue",
    "wdh": [
-    0.7,
-    1.1,
-    0.7
+    0.6,
+    0.9,
+    0.6
    ],
    "tris": 1556,
-   "tpu": 3023,
+   "tpu": 4115,
    "mat": 2,
-   "bytes": 30840,
+   "bytes": 30836,
    "scaled": true,
    "file": "hoop_teamBlue.gltf.glb"
   },
@@ -42594,14 +42795,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "hoop_teamRed",
    "wdh": [
-    0.7,
-    1.1,
-    0.7
+    0.6,
+    0.9,
+    0.6
    ],
    "tris": 1556,
-   "tpu": 3023,
+   "tpu": 4115,
    "mat": 2,
-   "bytes": 30840,
+   "bytes": 30836,
    "scaled": true,
    "file": "hoop_teamRed.gltf.glb"
   },
@@ -42609,14 +42810,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "hoop_teamYellow",
    "wdh": [
-    0.7,
-    1.1,
-    0.7
+    0.6,
+    0.9,
+    0.6
    ],
    "tris": 1556,
-   "tpu": 3023,
+   "tpu": 4115,
    "mat": 2,
-   "bytes": 30848,
+   "bytes": 30844,
    "scaled": true,
    "file": "hoop_teamYellow.gltf.glb"
   },
@@ -42624,14 +42825,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "lightning",
    "wdh": [
-    0.3,
+    0.2,
     0.4,
     0.1
    ],
    "tris": 228,
    "tpu": 665,
    "mat": 1,
-   "bytes": 6896,
+   "bytes": 6892,
    "scaled": true,
    "file": "lightning.gltf.glb"
   },
@@ -42646,7 +42847,7 @@
    "tris": 1440,
    "tpu": 4198,
    "mat": 1,
-   "bytes": 32824,
+   "bytes": 32820,
    "scaled": true,
    "file": "plantA_desert.gltf.glb"
   },
@@ -42656,12 +42857,12 @@
    "wdh": [
     0.2,
     0.1,
-    0.2
+    0.1
    ],
    "tris": 720,
    "tpu": 2099,
    "mat": 1,
-   "bytes": 18880,
+   "bytes": 18876,
    "scaled": true,
    "file": "plantB_desert.gltf.glb"
   },
@@ -42669,14 +42870,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "powerupBlock_teamBlue",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 316,
    "tpu": 921,
    "mat": 2,
-   "bytes": 9836,
+   "bytes": 9832,
    "scaled": true,
    "file": "powerupBlock_teamBlue.gltf.glb"
   },
@@ -42684,14 +42885,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "powerupBlock_teamRed",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 316,
    "tpu": 921,
    "mat": 2,
-   "bytes": 9836,
+   "bytes": 9832,
    "scaled": true,
    "file": "powerupBlock_teamRed.gltf.glb"
   },
@@ -42699,14 +42900,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "powerupBlock_teamYellow",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 316,
    "tpu": 921,
    "mat": 2,
-   "bytes": 9844,
+   "bytes": 9840,
    "scaled": true,
    "file": "powerupBlock_teamYellow.gltf.glb"
   },
@@ -42715,14 +42916,14 @@
    "name": "ring_teamBlue",
    "kind": "obj-pocketitem-jewellery",
    "wdh": [
-    0.7,
-    1.1,
+    0.6,
+    0.9,
     0.2
    ],
    "tris": 1412,
-   "tpu": 2742,
+   "tpu": 3732,
    "mat": 2,
-   "bytes": 28232,
+   "bytes": 28228,
    "scaled": true,
    "file": "ring_teamBlue.gltf.glb"
   },
@@ -42731,14 +42932,14 @@
    "name": "ring_teamRed",
    "kind": "obj-pocketitem-jewellery",
    "wdh": [
-    0.7,
-    1.1,
+    0.6,
+    0.9,
     0.2
    ],
    "tris": 1412,
-   "tpu": 2742,
+   "tpu": 3732,
    "mat": 2,
-   "bytes": 28232,
+   "bytes": 28228,
    "scaled": true,
    "file": "ring_teamRed.gltf.glb"
   },
@@ -42747,14 +42948,14 @@
    "name": "ring_teamYellow",
    "kind": "obj-pocketitem-jewellery",
    "wdh": [
-    0.7,
-    1.1,
+    0.6,
+    0.9,
     0.2
    ],
    "tris": 1412,
-   "tpu": 2742,
+   "tpu": 3732,
    "mat": 2,
-   "bytes": 28240,
+   "bytes": 28236,
    "scaled": true,
    "file": "ring_teamYellow.gltf.glb"
   },
@@ -42763,14 +42964,14 @@
    "name": "rocksA_desert",
    "kind": "env-rock-boulder",
    "wdh": [
-    0.6,
+    0.5,
     0.1,
-    0.5
+    0.4
    ],
    "tris": 690,
    "tpu": 2012,
    "mat": 1,
-   "bytes": 14876,
+   "bytes": 14872,
    "scaled": true,
    "file": "rocksA_desert.gltf.glb"
   },
@@ -42781,12 +42982,12 @@
    "wdh": [
     0.5,
     0.2,
-    0.5
+    0.4
    ],
    "tris": 552,
    "tpu": 1609,
    "mat": 1,
-   "bytes": 12112,
+   "bytes": 12108,
    "scaled": true,
    "file": "rocksB_desert.gltf.glb"
   },
@@ -42795,13 +42996,13 @@
    "name": "slingshot_teamBlue",
    "wdh": [
     0.2,
-    0.4,
+    0.3,
     0.1
    ],
    "tris": 1518,
    "tpu": 4426,
    "mat": 2,
-   "bytes": 31880,
+   "bytes": 31876,
    "scaled": true,
    "file": "slingshot_teamBlue.gltf.glb"
   },
@@ -42810,13 +43011,13 @@
    "name": "slingshot_teamRed",
    "wdh": [
     0.2,
-    0.4,
+    0.3,
     0.1
    ],
    "tris": 1518,
    "tpu": 4426,
    "mat": 2,
-   "bytes": 31880,
+   "bytes": 31876,
    "scaled": true,
    "file": "slingshot_teamRed.gltf.glb"
   },
@@ -42825,13 +43026,13 @@
    "name": "slingshot_teamYellow",
    "wdh": [
     0.2,
-    0.4,
+    0.3,
     0.1
    ],
    "tris": 1518,
    "tpu": 4426,
    "mat": 2,
-   "bytes": 31888,
+   "bytes": 31884,
    "scaled": true,
    "file": "slingshot_teamYellow.gltf.glb"
   },
@@ -42839,14 +43040,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "spikeRoller",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 1544,
-   "tpu": 4496,
+   "tpu": 4501,
    "mat": 3,
-   "bytes": 43408,
+   "bytes": 43404,
    "scaled": true,
    "file": "spikeRoller.gltf.glb"
   },
@@ -42854,14 +43055,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperDouble_teamBlue",
    "wdh": [
-    0.3,
-    0.6,
-    2.1
+    0.2,
+    0.5,
+    1.8
    ],
    "tris": 2196,
-   "tpu": 2147,
+   "tpu": 2505,
    "mat": 4,
-   "bytes": 52388,
+   "bytes": 52384,
    "scaled": true,
    "file": "swiperDouble_teamBlue.gltf.glb"
   },
@@ -42869,14 +43070,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperDouble_teamRed",
    "wdh": [
-    0.3,
-    0.6,
-    2.1
+    0.2,
+    0.5,
+    1.8
    ],
    "tris": 2196,
-   "tpu": 2147,
+   "tpu": 2505,
    "mat": 4,
-   "bytes": 52388,
+   "bytes": 52384,
    "scaled": true,
    "file": "swiperDouble_teamRed.gltf.glb"
   },
@@ -42884,14 +43085,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperDouble_teamYellow",
    "wdh": [
-    0.3,
-    0.6,
-    2.1
+    0.2,
+    0.5,
+    1.8
    ],
    "tris": 2196,
-   "tpu": 2147,
+   "tpu": 2505,
    "mat": 4,
-   "bytes": 52400,
+   "bytes": 52396,
    "scaled": true,
    "file": "swiperDouble_teamYellow.gltf.glb"
   },
@@ -42899,14 +43100,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperLong_teamBlue",
    "wdh": [
-    0.3,
-    0.6,
-    1.9
+    0.2,
+    0.5,
+    1.6
    ],
    "tris": 1598,
-   "tpu": 1730,
+   "tpu": 2019,
    "mat": 4,
-   "bytes": 39576,
+   "bytes": 39572,
    "scaled": true,
    "file": "swiperLong_teamBlue.gltf.glb"
   },
@@ -42914,14 +43115,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperLong_teamRed",
    "wdh": [
-    0.3,
-    0.6,
-    1.9
+    0.2,
+    0.5,
+    1.6
    ],
    "tris": 1598,
-   "tpu": 1730,
+   "tpu": 2019,
    "mat": 4,
-   "bytes": 39572,
+   "bytes": 39568,
    "scaled": true,
    "file": "swiperLong_teamRed.gltf.glb"
   },
@@ -42929,14 +43130,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiperLong_teamYellow",
    "wdh": [
-    0.3,
-    0.6,
-    1.9
+    0.2,
+    0.5,
+    1.6
    ],
    "tris": 1598,
-   "tpu": 1730,
+   "tpu": 2019,
    "mat": 4,
-   "bytes": 39588,
+   "bytes": 39584,
    "scaled": true,
    "file": "swiperLong_teamYellow.gltf.glb"
   },
@@ -42944,14 +43145,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiper_teamBlue",
    "wdh": [
-    0.3,
-    0.6,
-    1.2
+    0.2,
+    0.5,
+    1
    ],
    "tris": 1406,
-   "tpu": 2422,
+   "tpu": 2826,
    "mat": 4,
-   "bytes": 33792,
+   "bytes": 33788,
    "scaled": true,
    "file": "swiper_teamBlue.gltf.glb"
   },
@@ -42959,14 +43160,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiper_teamRed",
    "wdh": [
-    0.3,
-    0.6,
-    1.2
+    0.2,
+    0.5,
+    1
    ],
    "tris": 1406,
-   "tpu": 2422,
+   "tpu": 2826,
    "mat": 4,
-   "bytes": 33792,
+   "bytes": 33788,
    "scaled": true,
    "file": "swiper_teamRed.gltf.glb"
   },
@@ -42974,14 +43175,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "swiper_teamYellow",
    "wdh": [
-    0.3,
-    0.6,
-    1.2
+    0.2,
+    0.5,
+    1
    ],
    "tris": 1406,
-   "tpu": 2422,
+   "tpu": 2826,
    "mat": 4,
-   "bytes": 33804,
+   "bytes": 33800,
    "scaled": true,
    "file": "swiper_teamYellow.gltf.glb"
   },
@@ -42991,13 +43192,13 @@
    "kind": "obj-weapon-melee-sword",
    "wdh": [
     0.1,
-    0.5,
+    0.4,
     0.1
    ],
    "tris": 532,
    "tpu": 1551,
    "mat": 2,
-   "bytes": 13224,
+   "bytes": 13220,
    "scaled": true,
    "file": "sword_teamRed.gltf.glb"
   },
@@ -43007,13 +43208,13 @@
    "kind": "obj-weapon-melee-sword",
    "wdh": [
     0.1,
-    0.5,
+    0.4,
     0.1
    ],
    "tris": 532,
    "tpu": 1551,
    "mat": 2,
-   "bytes": 13232,
+   "bytes": 13228,
    "scaled": true,
    "file": "sword_teamYellow.gltf.glb"
   },
@@ -43021,14 +43222,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileHigh_desert",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8572,
+   "bytes": 8568,
    "scaled": true,
    "file": "tileHigh_desert.gltf.glb"
   },
@@ -43036,14 +43237,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileHigh_forest",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8572,
+   "bytes": 8568,
    "scaled": true,
    "file": "tileHigh_forest.gltf.glb"
   },
@@ -43051,14 +43252,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileHigh_teamBlue",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8560,
+   "bytes": 8556,
    "scaled": true,
    "file": "tileHigh_teamBlue.gltf.glb"
   },
@@ -43066,14 +43267,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileHigh_teamRed",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8560,
+   "bytes": 8556,
    "scaled": true,
    "file": "tileHigh_teamRed.gltf.glb"
   },
@@ -43081,14 +43282,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileHigh_teamYellow",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8568,
+   "bytes": 8564,
    "scaled": true,
    "file": "tileHigh_teamYellow.gltf.glb"
   },
@@ -43096,14 +43297,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLarge_desert",
    "wdh": [
-    2.1,
-    0.4,
-    2.1
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 225,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8448,
+   "bytes": 8444,
    "scaled": true,
    "file": "tileLarge_desert.gltf.glb"
   },
@@ -43111,14 +43312,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLarge_forest",
    "wdh": [
-    2.1,
-    0.4,
-    2.1
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 225,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8448,
+   "bytes": 8444,
    "scaled": true,
    "file": "tileLarge_forest.gltf.glb"
   },
@@ -43126,14 +43327,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLarge_teamBlue",
    "wdh": [
-    2.1,
-    0.4,
-    2.1
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 225,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8436,
+   "bytes": 8432,
    "scaled": true,
    "file": "tileLarge_teamBlue.gltf.glb"
   },
@@ -43141,14 +43342,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLarge_teamRed",
    "wdh": [
-    2.1,
-    0.4,
-    2.1
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 225,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8436,
+   "bytes": 8432,
    "scaled": true,
    "file": "tileLarge_teamRed.gltf.glb"
   },
@@ -43156,14 +43357,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLarge_teamYellow",
    "wdh": [
-    2.1,
-    0.4,
-    2.1
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 225,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8444,
+   "bytes": 8440,
    "scaled": true,
    "file": "tileLarge_teamYellow.gltf.glb"
   },
@@ -43171,14 +43372,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLow_desert",
    "wdh": [
-    0.7,
-    0.4,
-    0.7
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8568,
+   "bytes": 8564,
    "scaled": true,
    "file": "tileLow_desert.gltf.glb"
   },
@@ -43186,14 +43387,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLow_forest",
    "wdh": [
-    0.7,
-    0.4,
-    0.7
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8568,
+   "bytes": 8564,
    "scaled": true,
    "file": "tileLow_forest.gltf.glb"
   },
@@ -43201,14 +43402,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLow_teamBlue",
    "wdh": [
-    0.7,
-    0.4,
-    0.7
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8560,
+   "bytes": 8556,
    "scaled": true,
    "file": "tileLow_teamBlue.gltf.glb"
   },
@@ -43216,14 +43417,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLow_teamRed",
    "wdh": [
-    0.7,
-    0.4,
-    0.7
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8556,
+   "bytes": 8552,
    "scaled": true,
    "file": "tileLow_teamRed.gltf.glb"
   },
@@ -43231,14 +43432,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileLow_teamYellow",
    "wdh": [
-    0.7,
-    0.4,
-    0.7
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8564,
+   "bytes": 8560,
    "scaled": true,
    "file": "tileLow_teamYellow.gltf.glb"
   },
@@ -43246,14 +43447,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileMedium_desert",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8576,
+   "bytes": 8572,
    "scaled": true,
    "file": "tileMedium_desert.gltf.glb"
   },
@@ -43261,14 +43462,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileMedium_forest",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8576,
+   "bytes": 8572,
    "scaled": true,
    "file": "tileMedium_forest.gltf.glb"
   },
@@ -43276,14 +43477,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileMedium_teamBlue",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8564,
+   "bytes": 8560,
    "scaled": true,
    "file": "tileMedium_teamBlue.gltf.glb"
   },
@@ -43291,14 +43492,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileMedium_teamRed",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8564,
+   "bytes": 8560,
    "scaled": true,
    "file": "tileMedium_teamRed.gltf.glb"
   },
@@ -43306,14 +43507,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileMedium_teamYellow",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8572,
+   "bytes": 8568,
    "scaled": true,
    "file": "tileMedium_teamYellow.gltf.glb"
   },
@@ -43321,14 +43522,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_desert",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8644,
+   "bytes": 8640,
    "scaled": true,
    "file": "tileSlopeLowHigh_desert.gltf.glb"
   },
@@ -43336,14 +43537,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_forest",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8644,
+   "bytes": 8640,
    "scaled": true,
    "file": "tileSlopeLowHigh_forest.gltf.glb"
   },
@@ -43351,14 +43552,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamBlue",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8632,
+   "bytes": 8628,
    "scaled": true,
    "file": "tileSlopeLowHigh_teamBlue.gltf.glb"
   },
@@ -43366,14 +43567,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamRed",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8632,
+   "bytes": 8628,
    "scaled": true,
    "file": "tileSlopeLowHigh_teamRed.gltf.glb"
   },
@@ -43381,14 +43582,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamYellow",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8640,
+   "bytes": 8636,
    "scaled": true,
    "file": "tileSlopeLowHigh_teamYellow.gltf.glb"
   },
@@ -43396,14 +43597,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium._teamRed",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8592,
+   "bytes": 8588,
    "scaled": true,
    "file": "tileSlopeLowMedium._teamRed.gltf.glb"
   },
@@ -43411,14 +43612,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_desert",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8600,
+   "bytes": 8596,
    "scaled": true,
    "file": "tileSlopeLowMedium_desert.gltf.glb"
   },
@@ -43426,14 +43627,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_forest",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8604,
+   "bytes": 8600,
    "scaled": true,
    "file": "tileSlopeLowMedium_forest.gltf.glb"
   },
@@ -43441,14 +43642,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_teamBlue",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8592,
+   "bytes": 8588,
    "scaled": true,
    "file": "tileSlopeLowMedium_teamBlue.gltf.glb"
   },
@@ -43456,14 +43657,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_teamYellow",
    "wdh": [
-    0.7,
+    0.6,
     0.5,
-    0.7
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8600,
+   "bytes": 8596,
    "scaled": true,
    "file": "tileSlopeLowMedium_teamYellow.gltf.glb"
   },
@@ -43471,14 +43672,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_desert",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8604,
+   "bytes": 8600,
    "scaled": true,
    "file": "tileSlopeMediumHigh_desert.gltf.glb"
   },
@@ -43486,14 +43687,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_forest",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8604,
+   "bytes": 8600,
    "scaled": true,
    "file": "tileSlopeMediumHigh_forest.gltf.glb"
   },
@@ -43501,14 +43702,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamBlue",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8592,
+   "bytes": 8588,
    "scaled": true,
    "file": "tileSlopeMediumHigh_teamBlue.gltf.glb"
   },
@@ -43516,14 +43717,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamRed",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8592,
+   "bytes": 8588,
    "scaled": true,
    "file": "tileSlopeMediumHigh_teamRed.gltf.glb"
   },
@@ -43531,14 +43732,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamYellow",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8600,
+   "bytes": 8596,
    "scaled": true,
    "file": "tileSlopeMediumHigh_teamYellow.gltf.glb"
   },
@@ -43546,14 +43747,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSmall_desert",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8464,
+   "bytes": 8460,
    "scaled": true,
    "file": "tileSmall_desert.gltf.glb"
   },
@@ -43561,14 +43762,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSmall_forest",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8464,
+   "bytes": 8460,
    "scaled": true,
    "file": "tileSmall_forest.gltf.glb"
   },
@@ -43576,14 +43777,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSmall_teamBlue",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8452,
+   "bytes": 8448,
    "scaled": true,
    "file": "tileSmall_teamBlue.gltf.glb"
   },
@@ -43591,14 +43792,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSmall_teamRed",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8452,
+   "bytes": 8448,
    "scaled": true,
    "file": "tileSmall_teamRed.gltf.glb"
   },
@@ -43606,14 +43807,14 @@
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSmall_teamYellow",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
    "tpu": 1015,
    "mat": 2,
-   "bytes": 8460,
+   "bytes": 8456,
    "scaled": true,
    "file": "tileSmall_teamYellow.gltf.glb"
   },
@@ -43622,13 +43823,13 @@
    "name": "character_duck",
    "wdh": [
     0.3,
-    0.7,
-    0.4
+    0.6,
+    0.3
    ],
    "tris": 2672,
    "tpu": 7790,
    "mat": 6,
-   "bytes": 54120,
+   "bytes": 54116,
    "scaled": true,
    "file": "Duck/gltf/character_duck.gltf"
   },
@@ -44661,6 +44862,2588 @@
    "bytes": 34300,
    "scaled": true,
    "file": "Water Tank.glb"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "cooler",
+   "wdh": [
+    0.4,
+    0.2,
+    0.3
+   ],
+   "tris": 834,
+   "tpu": 2431,
+   "mat": 3,
+   "bytes": 30692,
+   "scaled": true,
+   "file": "cooler.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "drink_can",
+   "kind": "obj-container",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 264,
+   "tpu": 770,
+   "mat": 1,
+   "bytes": 9788,
+   "scaled": true,
+   "file": "drink_can.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "frisbee",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 352,
+   "tpu": 1026,
+   "mat": 1,
+   "bytes": 10792,
+   "scaled": true,
+   "file": "frisbee.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "picnic_blanket_green",
+   "wdh": [
+    1.4,
+    0.1,
+    1
+   ],
+   "tris": 456,
+   "tpu": 969,
+   "mat": 2,
+   "bytes": 21016,
+   "scaled": true,
+   "file": "picnic_blanket_green.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "picnic_blanket_green_folded",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 152,
+   "tpu": 443,
+   "mat": 1,
+   "bytes": 5156,
+   "scaled": true,
+   "file": "picnic_blanket_green_folded.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "pillow_large_green",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bytes": 6808,
+   "scaled": true,
+   "file": "pillow_large_green.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "pillow_small_green",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bytes": 6876,
+   "scaled": true,
+   "file": "pillow_small_green.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "radio",
+   "wdh": [
+    0.3,
+    0.2,
+    0.2
+   ],
+   "tris": 830,
+   "tpu": 2420,
+   "mat": 2,
+   "bytes": 31952,
+   "scaled": true,
+   "file": "radio.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Pleasant_Picnic_1.0_FREE",
+   "name": "thermos",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 660,
+   "tpu": 1924,
+   "mat": 2,
+   "bytes": 25016,
+   "scaled": true,
+   "file": "thermos.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "bucket_B",
+   "kind": "obj-container-bucket",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 568,
+   "tpu": 1656,
+   "mat": 2,
+   "bytes": 26132,
+   "scaled": true,
+   "file": "bucket_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "merry_go_round",
+   "wdh": [
+    1,
+    0.6,
+    1
+   ],
+   "tris": 864,
+   "tpu": 1565,
+   "mat": 1,
+   "bytes": 30480,
+   "scaled": true,
+   "file": "merry_go_round.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "monkeybar_A",
+   "wdh": [
+    0.5,
+    0.7,
+    1
+   ],
+   "tris": 520,
+   "tpu": 1105,
+   "mat": 1,
+   "bytes": 30572,
+   "scaled": true,
+   "file": "monkeybar_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "monkeybar_B",
+   "wdh": [
+    0.5,
+    0.7,
+    1
+   ],
+   "tris": 680,
+   "tpu": 1446,
+   "mat": 1,
+   "bytes": 29280,
+   "scaled": true,
+   "file": "monkeybar_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "sandbox_round",
+   "wdh": [
+    1,
+    0.1,
+    1
+   ],
+   "tris": 480,
+   "tpu": 1020,
+   "mat": 1,
+   "bytes": 20400,
+   "scaled": true,
+   "file": "sandbox_round.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "sandbox_round_decorated",
+   "wdh": [
+    1,
+    0.2,
+    1
+   ],
+   "tris": 1630,
+   "tpu": 3465,
+   "mat": 1,
+   "bytes": 69792,
+   "scaled": true,
+   "file": "sandbox_round_decorated.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "sandbox_square",
+   "wdh": [
+    1,
+    0.1,
+    1
+   ],
+   "tris": 890,
+   "tpu": 1864,
+   "mat": 1,
+   "bytes": 34548,
+   "scaled": true,
+   "file": "sandbox_square.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "sandbox_square_decorated",
+   "wdh": [
+    1,
+    0.2,
+    1
+   ],
+   "tris": 2380,
+   "tpu": 4985,
+   "mat": 1,
+   "bytes": 100536,
+   "scaled": true,
+   "file": "sandbox_square_decorated.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "seesaw_large",
+   "wdh": [
+    0.4,
+    0.2,
+    1.3
+   ],
+   "tris": 676,
+   "tpu": 1064,
+   "mat": 2,
+   "bytes": 26632,
+   "scaled": true,
+   "file": "seesaw_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "seesaw_small",
+   "wdh": [
+    0.4,
+    0.2,
+    1
+   ],
+   "tris": 452,
+   "tpu": 961,
+   "mat": 2,
+   "bytes": 19364,
+   "scaled": true,
+   "file": "seesaw_small.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "shovel_B",
+   "kind": "obj-tool-long",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 448,
+   "tpu": 1306,
+   "mat": 1,
+   "bytes": 20812,
+   "scaled": true,
+   "file": "shovel_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "slide_A",
+   "wdh": [
+    0.7,
+    1,
+    1.4
+   ],
+   "tris": 1574,
+   "tpu": 1744,
+   "mat": 1,
+   "bytes": 59200,
+   "scaled": true,
+   "file": "slide_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "slide_B",
+   "wdh": [
+    1,
+    1.9,
+    1.5
+   ],
+   "tris": 1288,
+   "tpu": 447,
+   "mat": 1,
+   "bytes": 65052,
+   "scaled": true,
+   "file": "slide_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "spring_horse_A",
+   "kind": "obj-tool",
+   "wdh": [
+    0.2,
+    0.6,
+    0.6
+   ],
+   "tris": 1590,
+   "tpu": 4636,
+   "mat": 2,
+   "bytes": 51776,
+   "scaled": true,
+   "file": "spring_horse_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "spring_horse_B",
+   "kind": "obj-tool",
+   "wdh": [
+    0.2,
+    0.6,
+    0.6
+   ],
+   "tris": 1590,
+   "tpu": 4636,
+   "mat": 2,
+   "bytes": 51776,
+   "scaled": true,
+   "file": "spring_horse_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "stepping_stumps_A",
+   "kind": "env-flora-deadwood-stump",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bytes": 13228,
+   "scaled": true,
+   "file": "stepping_stumps_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "stepping_stumps_A_blue",
+   "kind": "env-flora-deadwood-stump",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bytes": 4672,
+   "scaled": true,
+   "file": "stepping_stumps_A_blue.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "stepping_stumps_A_pink",
+   "kind": "env-flora-deadwood-stump",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bytes": 5652,
+   "scaled": true,
+   "file": "stepping_stumps_A_pink.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "stepping_stumps_A_yellow",
+   "kind": "env-flora-deadwood-stump",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bytes": 5736,
+   "scaled": true,
+   "file": "stepping_stumps_A_yellow.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "swing_A_large",
+   "wdh": [
+    1.4,
+    0.9,
+    0.7
+   ],
+   "tris": 3232,
+   "tpu": 3225,
+   "mat": 3,
+   "bytes": 133516,
+   "scaled": true,
+   "file": "swing_A_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "swing_A_small",
+   "wdh": [
+    1,
+    0.9,
+    0.7
+   ],
+   "tris": 1624,
+   "tpu": 2431,
+   "mat": 2,
+   "bytes": 65740,
+   "scaled": true,
+   "file": "swing_A_small.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "swing_B_large",
+   "wdh": [
+    1.4,
+    0.9,
+    0.7
+   ],
+   "tris": 1200,
+   "tpu": 1198,
+   "mat": 3,
+   "bytes": 41568,
+   "scaled": true,
+   "file": "swing_B_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "swing_B_small",
+   "wdh": [
+    1,
+    0.9,
+    0.7
+   ],
+   "tris": 692,
+   "tpu": 1036,
+   "mat": 2,
+   "bytes": 23848,
+   "scaled": true,
+   "file": "swing_B_small.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "tire_blue",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 316,
+   "tpu": 921,
+   "mat": 1,
+   "bytes": 15828,
+   "scaled": true,
+   "file": "tire_blue.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "tire_pink",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 316,
+   "tpu": 921,
+   "mat": 1,
+   "bytes": 15828,
+   "scaled": true,
+   "file": "tire_pink.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
+   "name": "tire_yellow",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 316,
+   "tpu": 921,
+   "mat": 1,
+   "bytes": 15832,
+   "scaled": true,
+   "file": "tire_yellow.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "bread_oven",
+   "kind": "obj-food-grain",
+   "wdh": [
+    0.7,
+    1,
+    0.6
+   ],
+   "tris": 1206,
+   "tpu": 2549,
+   "mat": 5,
+   "bytes": 56268,
+   "scaled": true,
+   "file": "bread_oven.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "cash_register",
+   "wdh": [
+    0.3,
+    0.4,
+    0.3
+   ],
+   "tris": 1612,
+   "tpu": 4700,
+   "mat": 2,
+   "bytes": 64544,
+   "scaled": true,
+   "file": "cash_register.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "coffee_cup_takeaway",
+   "kind": "obj-kitchenware-tableware-drinkware",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bytes": 10172,
+   "scaled": true,
+   "file": "coffee_cup_takeaway.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "coffee_cup_takeaway_stacked",
+   "kind": "obj-kitchenware-tableware-drinkware",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 624,
+   "tpu": 1819,
+   "mat": 1,
+   "bytes": 22512,
+   "scaled": true,
+   "file": "coffee_cup_takeaway_stacked.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "coffee_machine",
+   "wdh": [
+    0.3,
+    0.4,
+    0.3
+   ],
+   "tris": 1298,
+   "tpu": 3784,
+   "mat": 2,
+   "bytes": 54376,
+   "scaled": true,
+   "file": "coffee_machine.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "counter_table",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    0.6,
+    0.3,
+    0.5
+   ],
+   "tris": 276,
+   "tpu": 805,
+   "mat": 1,
+   "bytes": 16172,
+   "scaled": true,
+   "file": "counter_table.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_corner_inner",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.6,
+    0.3,
+    0.6
+   ],
+   "tris": 75,
+   "tpu": 219,
+   "mat": 1,
+   "bytes": 5468,
+   "scaled": true,
+   "file": "countertop_corner_inner.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_counter_outer",
+   "wdh": [
+    0.5,
+    0.3,
+    0.5
+   ],
+   "tris": 74,
+   "tpu": 216,
+   "mat": 1,
+   "bytes": 5488,
+   "scaled": true,
+   "file": "countertop_counter_outer.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_straight_A_large",
+   "wdh": [
+    0.6,
+    0.3,
+    0.5
+   ],
+   "tris": 108,
+   "tpu": 315,
+   "mat": 1,
+   "bytes": 7492,
+   "scaled": true,
+   "file": "countertop_straight_A_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_straight_A_short",
+   "wdh": [
+    0.3,
+    0.3,
+    0.5
+   ],
+   "tris": 92,
+   "tpu": 268,
+   "mat": 1,
+   "bytes": 6404,
+   "scaled": true,
+   "file": "countertop_straight_A_short.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_straight_B_long",
+   "wdh": [
+    0.6,
+    0.3,
+    0.5
+   ],
+   "tris": 92,
+   "tpu": 268,
+   "mat": 1,
+   "bytes": 6652,
+   "scaled": true,
+   "file": "countertop_straight_B_long.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "countertop_straight_B_short",
+   "wdh": [
+    0.3,
+    0.3,
+    0.5
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bytes": 5540,
+   "scaled": true,
+   "file": "countertop_straight_B_short.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "curtains",
+   "wdh": [
+    0.6,
+    0.4,
+    0.1
+   ],
+   "tris": 554,
+   "tpu": 1615,
+   "mat": 1,
+   "bytes": 22020,
+   "scaled": true,
+   "file": "curtains.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "display_case_long",
+   "kind": "obj-container-crate",
+   "wdh": [
+    0.6,
+    0.5,
+    0.4
+   ],
+   "tris": 422,
+   "tpu": 1230,
+   "mat": 2,
+   "bytes": 26164,
+   "scaled": true,
+   "file": "display_case_long.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "display_case_short",
+   "kind": "obj-container-crate",
+   "wdh": [
+    0.3,
+    0.5,
+    0.4
+   ],
+   "tris": 372,
+   "tpu": 1085,
+   "mat": 2,
+   "bytes": 22828,
+   "scaled": true,
+   "file": "display_case_short.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "door_modular",
+   "kind": "str-part-door",
+   "wdh": [
+    0.5,
+    0.9,
+    0.2
+   ],
+   "tris": 312,
+   "tpu": 910,
+   "mat": 2,
+   "bytes": 15984,
+   "scaled": true,
+   "file": "door_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "dough_rolled_A",
+   "wdh": [
+    0.4,
+    0.1,
+    0.4
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bytes": 5584,
+   "scaled": true,
+   "file": "dough_rolled_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "dough_rolled_B",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bytes": 5588,
+   "scaled": true,
+   "file": "dough_rolled_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "floor_connection",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.6,
+    0.2,
+    0.6
+   ],
+   "tris": 158,
+   "tpu": 461,
+   "mat": 1,
+   "bytes": 9588,
+   "scaled": true,
+   "file": "floor_connection.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "floor_tiled",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.6,
+    0.2,
+    0.6
+   ],
+   "tris": 138,
+   "tpu": 402,
+   "mat": 1,
+   "bytes": 7508,
+   "scaled": true,
+   "file": "floor_tiled.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "floor_wood",
+   "kind": "str-part-floor",
+   "wdh": [
+    0.6,
+    0.2,
+    0.6
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bytes": 8420,
+   "scaled": true,
+   "file": "floor_wood.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "macaron_blue",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "bytes": 11628,
+   "scaled": true,
+   "file": "macaron_blue.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "macaron_pink",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "bytes": 11628,
+   "scaled": true,
+   "file": "macaron_pink.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "macaron_yellow",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "bytes": 11632,
+   "scaled": true,
+   "file": "macaron_yellow.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "milk",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 386,
+   "tpu": 1125,
+   "mat": 1,
+   "bytes": 15312,
+   "scaled": true,
+   "file": "milk.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "mug_A_pink",
+   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 342,
+   "tpu": 997,
+   "mat": 1,
+   "bytes": 13588,
+   "scaled": true,
+   "file": "mug_A_pink.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "mug_A_yellow",
+   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 342,
+   "tpu": 997,
+   "mat": 1,
+   "bytes": 13592,
+   "scaled": true,
+   "file": "mug_A_yellow.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "pastry_stand_B_decorated",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 1864,
+   "tpu": 5434,
+   "mat": 1,
+   "bytes": 64004,
+   "scaled": true,
+   "file": "pastry_stand_B_decorated.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "pricing_card",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 191,
+   "tpu": 557,
+   "mat": 1,
+   "bytes": 10896,
+   "scaled": true,
+   "file": "pricing_card.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "scale",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 730,
+   "tpu": 2128,
+   "mat": 1,
+   "bytes": 26980,
+   "scaled": true,
+   "file": "scale.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "stand_mixer",
+   "wdh": [
+    0.3,
+    0.3,
+    0.2
+   ],
+   "tris": 1584,
+   "tpu": 4618,
+   "mat": 3,
+   "bytes": 58808,
+   "scaled": true,
+   "file": "stand_mixer.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "table_round_B",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    0.5,
+    0.3,
+    0.5
+   ],
+   "tris": 586,
+   "tpu": 1708,
+   "mat": 1,
+   "bytes": 27128,
+   "scaled": true,
+   "file": "table_round_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "table_round_C",
+   "kind": "obj-furniture-table",
+   "wdh": [
+    0.5,
+    0.3,
+    0.5
+   ],
+   "tris": 502,
+   "tpu": 1464,
+   "mat": 1,
+   "bytes": 21984,
+   "scaled": true,
+   "file": "table_round_C.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "tin_A_brown",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bytes": 9712,
+   "scaled": true,
+   "file": "tin_A_brown.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "tin_A_grey",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bytes": 9712,
+   "scaled": true,
+   "file": "tin_A_grey.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "tin_B_brown",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bytes": 9904,
+   "scaled": true,
+   "file": "tin_B_brown.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "tin_B_grey",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bytes": 9900,
+   "scaled": true,
+   "file": "tin_B_grey.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_corner_inner_A",
+   "wdh": [
+    0.7,
+    1.3,
+    0.7
+   ],
+   "tris": 24,
+   "tpu": 36,
+   "mat": 1,
+   "bytes": 2720,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_corner_inner_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_corner_inner_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.6
+   ],
+   "tris": 168,
+   "tpu": 293,
+   "mat": 1,
+   "bytes": 11784,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_corner_inner_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_corner_outer_A",
+   "wdh": [
+    0.7,
+    1.3,
+    0.7
+   ],
+   "tris": 184,
+   "tpu": 265,
+   "mat": 1,
+   "bytes": 13260,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_corner_outer_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_corner_outer_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.6
+   ],
+   "tris": 24,
+   "tpu": 42,
+   "mat": 1,
+   "bytes": 2720,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_corner_outer_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_doorway",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 30,
+   "tpu": 52,
+   "mat": 1,
+   "bytes": 3512,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_doorway.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_corner_inner_A",
+   "wdh": [
+    0.4,
+    1.3,
+    0.4
+   ],
+   "tris": 24,
+   "tpu": 67,
+   "mat": 1,
+   "bytes": 2732,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_corner_inner_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_corner_inner_B",
+   "wdh": [
+    0.3,
+    1.3,
+    0.3
+   ],
+   "tris": 124,
+   "tpu": 362,
+   "mat": 1,
+   "bytes": 8748,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_corner_inner_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_corner_outer_A",
+   "wdh": [
+    0.4,
+    1.3,
+    0.4
+   ],
+   "tris": 140,
+   "tpu": 376,
+   "mat": 1,
+   "bytes": 10124,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_corner_outer_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_corner_outer_B",
+   "wdh": [
+    0.3,
+    1.3,
+    0.3
+   ],
+   "tris": 24,
+   "tpu": 70,
+   "mat": 1,
+   "bytes": 2732,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_corner_outer_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_straight_A",
+   "wdh": [
+    0.3,
+    1.3,
+    0.1
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bytes": 5988,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_straight_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_half_straight_B",
+   "wdh": [
+    0.3,
+    1.3,
+    0.1
+   ],
+   "tris": 10,
+   "tpu": 29,
+   "mat": 1,
+   "bytes": 2124,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_half_straight_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_straight_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 100,
+   "tpu": 174,
+   "mat": 1,
+   "bytes": 7660,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_straight_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_straight_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 10,
+   "tpu": 17,
+   "mat": 1,
+   "bytes": 2112,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_straight_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_center_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 102,
+   "tpu": 178,
+   "mat": 1,
+   "bytes": 8076,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_center_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_center_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 20,
+   "tpu": 35,
+   "mat": 1,
+   "bytes": 2804,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_center_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_left_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 128,
+   "tpu": 223,
+   "mat": 1,
+   "bytes": 9444,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_left_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_left_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 28,
+   "tpu": 49,
+   "mat": 1,
+   "bytes": 3040,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_left_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_right_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 128,
+   "tpu": 223,
+   "mat": 1,
+   "bytes": 9444,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_right_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_full_right_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 28,
+   "tpu": 49,
+   "mat": 1,
+   "bytes": 3044,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_full_right_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_large_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 154,
+   "tpu": 269,
+   "mat": 1,
+   "bytes": 10676,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_large_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_large_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 36,
+   "tpu": 63,
+   "mat": 1,
+   "bytes": 3276,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_large_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_small_A",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 154,
+   "tpu": 269,
+   "mat": 1,
+   "bytes": 10676,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_small_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_modular_panelled_bakery_window_small_B",
+   "wdh": [
+    0.6,
+    1.3,
+    0.1
+   ],
+   "tris": 36,
+   "tpu": 63,
+   "mat": 1,
+   "bytes": 3276,
+   "scaled": true,
+   "file": "wall_modular_panelled_bakery_window_small_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_corner_inner",
+   "wdh": [
+    0.7,
+    1.3,
+    0.7
+   ],
+   "tris": 178,
+   "tpu": 268,
+   "mat": 1,
+   "bytes": 12372,
+   "scaled": true,
+   "file": "wall_panelled_bakery_corner_inner.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_corner_outer",
+   "wdh": [
+    0.7,
+    1.3,
+    0.7
+   ],
+   "tris": 192,
+   "tpu": 277,
+   "mat": 1,
+   "bytes": 13672,
+   "scaled": true,
+   "file": "wall_panelled_bakery_corner_outer.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_doorway",
+   "wdh": [
+    0.6,
+    1.3,
+    0.2
+   ],
+   "tris": 358,
+   "tpu": 624,
+   "mat": 3,
+   "bytes": 19880,
+   "scaled": true,
+   "file": "wall_panelled_bakery_doorway.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_straight",
+   "wdh": [
+    0.6,
+    1.3,
+    0.2
+   ],
+   "tris": 102,
+   "tpu": 178,
+   "mat": 1,
+   "bytes": 7776,
+   "scaled": true,
+   "file": "wall_panelled_bakery_straight.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_window_full_center",
+   "wdh": [
+    0.6,
+    1.3,
+    0.3
+   ],
+   "tris": 216,
+   "tpu": 377,
+   "mat": 2,
+   "bytes": 16176,
+   "scaled": true,
+   "file": "wall_panelled_bakery_window_full_center.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_window_full_left",
+   "wdh": [
+    0.6,
+    1.3,
+    0.3
+   ],
+   "tris": 266,
+   "tpu": 464,
+   "mat": 2,
+   "bytes": 18168,
+   "scaled": true,
+   "file": "wall_panelled_bakery_window_full_left.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_window_full_right",
+   "wdh": [
+    0.6,
+    1.3,
+    0.3
+   ],
+   "tris": 266,
+   "tpu": 464,
+   "mat": 2,
+   "bytes": 18168,
+   "scaled": true,
+   "file": "wall_panelled_bakery_window_full_right.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_window_large",
+   "wdh": [
+    0.6,
+    1.3,
+    0.3
+   ],
+   "tris": 304,
+   "tpu": 530,
+   "mat": 2,
+   "bytes": 19600,
+   "scaled": true,
+   "file": "wall_panelled_bakery_window_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_panelled_bakery_window_small",
+   "wdh": [
+    0.6,
+    1.3,
+    0.3
+   ],
+   "tris": 304,
+   "tpu": 530,
+   "mat": 2,
+   "bytes": 19600,
+   "scaled": true,
+   "file": "wall_panelled_bakery_window_small.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_shelf_bakery_A",
+   "wdh": [
+    0.6,
+    0.3,
+    0.3
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 1,
+   "bytes": 9000,
+   "scaled": true,
+   "file": "wall_shelf_bakery_A.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_shelf_bakery_B",
+   "wdh": [
+    0.6,
+    0.3,
+    0.3
+   ],
+   "tris": 268,
+   "tpu": 781,
+   "mat": 1,
+   "bytes": 11988,
+   "scaled": true,
+   "file": "wall_shelf_bakery_B.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_shelf_bakery_C",
+   "wdh": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "tris": 108,
+   "tpu": 315,
+   "mat": 1,
+   "bytes": 6964,
+   "scaled": true,
+   "file": "wall_shelf_bakery_C.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_shelf_bakery_end",
+   "wdh": [
+    0.6,
+    0.1,
+    0.1
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bytes": 3220,
+   "scaled": true,
+   "file": "wall_shelf_bakery_end.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_sign_large",
+   "wdh": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "tris": 100,
+   "tpu": 292,
+   "mat": 2,
+   "bytes": 7116,
+   "scaled": true,
+   "file": "wall_sign_large.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "wall_sign_small",
+   "wdh": [
+    0.3,
+    0.4,
+    0.1
+   ],
+   "tris": 100,
+   "tpu": 292,
+   "mat": 2,
+   "bytes": 7096,
+   "scaled": true,
+   "file": "wall_sign_small.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "window_full_center_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.3
+   ],
+   "tris": 98,
+   "tpu": 210,
+   "mat": 2,
+   "bytes": 8588,
+   "scaled": true,
+   "file": "window_full_center_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "window_full_left_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.3
+   ],
+   "tris": 112,
+   "tpu": 260,
+   "mat": 2,
+   "bytes": 8956,
+   "scaled": true,
+   "file": "window_full_left_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "window_full_right_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.3
+   ],
+   "tris": 112,
+   "tpu": 260,
+   "mat": 2,
+   "bytes": 8960,
+   "scaled": true,
+   "file": "window_full_right_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "window_large_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.5,
+    1,
+    0.3
+   ],
+   "tris": 126,
+   "tpu": 318,
+   "mat": 2,
+   "bytes": 9284,
+   "scaled": true,
+   "file": "window_large_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
+   "name": "window_small_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.5,
+    0.7,
+    0.3
+   ],
+   "tris": 126,
+   "tpu": 367,
+   "mat": 2,
+   "bytes": 9284,
+   "scaled": true,
+   "file": "window_small_modular.gltf"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Bee",
+   "wdh": [
+    6.6,
+    3.9,
+    4.6
+   ],
+   "tris": 328,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 12776,
+   "file": "Bee.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Blue",
+   "wdh": [
+    3.6,
+    4.2,
+    5
+   ],
+   "tris": 384,
+   "tpu": 5,
+   "mat": 1,
+   "bytes": 15740,
+   "file": "Blue.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Boar",
+   "wdh": [
+    3.2,
+    3.5,
+    4.6
+   ],
+   "tris": 380,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 14852,
+   "file": "Boar.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Fugu",
+   "wdh": [
+    4.3,
+    2.9,
+    4.3
+   ],
+   "tris": 256,
+   "tpu": 5,
+   "mat": 1,
+   "bytes": 13244,
+   "file": "Fugu.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Goat",
+   "wdh": [
+    4.6,
+    4.6,
+    5
+   ],
+   "tris": 396,
+   "tpu": 4,
+   "mat": 1,
+   "bytes": 18312,
+   "file": "Goat.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Marmot",
+   "wdh": [
+    3.5,
+    3.5,
+    4.5
+   ],
+   "tris": 370,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 17104,
+   "file": "Marmot.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Owl",
+   "wdh": [
+    3.8,
+    3.7,
+    3.9
+   ],
+   "tris": 310,
+   "tpu": 6,
+   "mat": 1,
+   "bytes": 12188,
+   "file": "Owl.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Rat",
+   "wdh": [
+    4.1,
+    3.7,
+    5.8
+   ],
+   "tris": 308,
+   "tpu": 4,
+   "mat": 1,
+   "bytes": 13684,
+   "file": "Rat.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Seal",
+   "wdh": [
+    3.8,
+    3.1,
+    5.5
+   ],
+   "tris": 398,
+   "tpu": 6,
+   "mat": 1,
+   "bytes": 15348,
+   "file": "Seal.glb"
+  },
+  {
+   "kit": "gobkit_animal-pack-2",
+   "name": "Whale",
+   "wdh": [
+    4.2,
+    3.1,
+    5.7
+   ],
+   "tris": 272,
+   "tpu": 4,
+   "mat": 1,
+   "bytes": 10560,
+   "file": "Whale.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Ankylosaurus",
+   "wdh": [
+    4.1,
+    3.9,
+    9
+   ],
+   "tris": 624,
+   "tpu": 4,
+   "mat": 1,
+   "bytes": 20432,
+   "file": "Ankylosaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Carnotaurus",
+   "wdh": [
+    2.5,
+    4.2,
+    8.4
+   ],
+   "tris": 656,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 21772,
+   "file": "Carnotaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Oviraptor",
+   "wdh": [
+    2.4,
+    4.8,
+    8.1
+   ],
+   "tris": 1058,
+   "tpu": 11,
+   "mat": 1,
+   "bytes": 37528,
+   "file": "Oviraptor.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Pachycephalosaurus",
+   "wdh": [
+    2.9,
+    5.3,
+    8.3
+   ],
+   "tris": 600,
+   "tpu": 5,
+   "mat": 1,
+   "bytes": 20264,
+   "file": "Pachycephalosaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Plesiosaurus",
+   "wdh": [
+    4.3,
+    4.7,
+    10.3
+   ],
+   "tris": 644,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 19428,
+   "file": "Plesiosaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Pterodactylus",
+   "wdh": [
+    8.6,
+    5.5,
+    7.8
+   ],
+   "tris": 758,
+   "tpu": 2,
+   "mat": 1,
+   "bytes": 38484,
+   "file": "Pterodactylus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Spinosaurus",
+   "wdh": [
+    2.6,
+    4.9,
+    8.9
+   ],
+   "tris": 612,
+   "tpu": 5,
+   "mat": 1,
+   "bytes": 20100,
+   "file": "Spinosaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Stegosaurus",
+   "wdh": [
+    3.5,
+    4.4,
+    9.8
+   ],
+   "tris": 982,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 27952,
+   "file": "Stegosaurus.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Trex",
+   "wdh": [
+    2.6,
+    5.5,
+    8.1
+   ],
+   "tris": 520,
+   "tpu": 4,
+   "mat": 1,
+   "bytes": 17772,
+   "file": "Trex.glb"
+  },
+  {
+   "kit": "gobkit_dino-pack",
+   "name": "Triceratops",
+   "wdh": [
+    3.4,
+    4.5,
+    9
+   ],
+   "tris": 741,
+   "tpu": 5,
+   "mat": 1,
+   "bytes": 24040,
+   "file": "Triceratops.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Barrel",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    0.3,
+    0.5,
+    0.3
+   ],
+   "tris": 882,
+   "tpu": 2571,
+   "mat": 1,
+   "bytes": 37684,
+   "scaled": true,
+   "file": "Barrel.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Big arm",
+   "wdh": [
+    1.3,
+    0.7,
+    0.3
+   ],
+   "tris": 5670,
+   "tpu": 8553,
+   "mat": 1,
+   "bytes": 145624,
+   "scaled": true,
+   "file": "Big arm.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Blood Splat-oQDW3k5As5",
+   "wdh": [
+    0.8,
+    0.1,
+    0.6
+   ],
+   "tris": 74,
+   "tpu": 216,
+   "mat": 1,
+   "bytes": 3840,
+   "scaled": true,
+   "file": "Blood Splat-oQDW3k5As5.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Blood Splat",
+   "wdh": [
+    1.5,
+    0.1,
+    1.6
+   ],
+   "tris": 130,
+   "tpu": 166,
+   "mat": 1,
+   "bytes": 5228,
+   "scaled": true,
+   "file": "Blood Splat.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Blood",
+   "wdh": [
+    0.8,
+    0.1,
+    1
+   ],
+   "tris": 82,
+   "tpu": 174,
+   "mat": 1,
+   "bytes": 4032,
+   "scaled": true,
+   "file": "Blood.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Cinder Block",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 368,
+   "tpu": 1073,
+   "mat": 1,
+   "bytes": 14796,
+   "scaled": true,
+   "file": "Cinder Block.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Container Green",
+   "wdh": [
+    2.6,
+    1.2,
+    1.2
+   ],
+   "tris": 1336,
+   "tpu": 385,
+   "mat": 1,
+   "bytes": 64772,
+   "scaled": true,
+   "file": "Container Green.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Container Red",
+   "wdh": [
+    2.6,
+    1.2,
+    1.2
+   ],
+   "tris": 1032,
+   "tpu": 298,
+   "mat": 1,
+   "bytes": 51972,
+   "scaled": true,
+   "file": "Container Red.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Cross walk",
+   "kind": "str-marker-tombstone",
+   "wdh": [
+    3.6,
+    0.1,
+    3.6
+   ],
+   "tris": 188,
+   "tpu": 107,
+   "mat": 1,
+   "bytes": 11500,
+   "scaled": true,
+   "file": "Cross walk.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Damaged Couch",
+   "kind": "obj-furniture-seating-bench",
+   "wdh": [
+    1.4,
+    0.6,
+    0.5
+   ],
+   "tris": 3078,
+   "tpu": 5793,
+   "mat": 1,
+   "bytes": 116212,
+   "scaled": true,
+   "file": "Damaged Couch.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Guitar",
+   "wdh": [
+    0.3,
+    0.1,
+    0.8
+   ],
+   "tris": 2325,
+   "tpu": 5867,
+   "mat": 1,
+   "bytes": 124652,
+   "scaled": true,
+   "file": "Guitar.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Pistol",
+   "kind": "obj-weapon-ranged",
+   "wdh": [
+    0.1,
+    0.2,
+    0.4
+   ],
+   "tris": 1446,
+   "tpu": 4216,
+   "mat": 1,
+   "bytes": 63272,
+   "scaled": true,
+   "file": "Pistol.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Plastic Barrier",
+   "wdh": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "tris": 852,
+   "tpu": 2484,
+   "mat": 1,
+   "bytes": 39056,
+   "scaled": true,
+   "file": "Plastic Barrier.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Rifle",
+   "kind": "obj-weapon-ranged",
+   "wdh": [
+    0.1,
+    0.2,
+    0.7
+   ],
+   "tris": 2103,
+   "tpu": 5829,
+   "mat": 1,
+   "bytes": 100692,
+   "scaled": true,
+   "file": "Rifle.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Smg",
+   "wdh": [
+    0.1,
+    0.2,
+    0.4
+   ],
+   "tris": 2497,
+   "tpu": 7280,
+   "mat": 1,
+   "bytes": 126192,
+   "scaled": true,
+   "file": "Smg.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street Light",
+   "wdh": [
+    0.2,
+    3,
+    1.3
+   ],
+   "tris": 426,
+   "tpu": 660,
+   "mat": 2,
+   "bytes": 14784,
+   "scaled": true,
+   "file": "Street Light.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street Straight Crack-l7c8pppfFj",
+   "wdh": [
+    3.6,
+    0.3,
+    3.6
+   ],
+   "tris": 676,
+   "tpu": 200,
+   "mat": 1,
+   "bytes": 30272,
+   "scaled": true,
+   "file": "Street Straight Crack-l7c8pppfFj.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street Straight Crack",
+   "wdh": [
+    3.6,
+    0.1,
+    3.6
+   ],
+   "tris": 576,
+   "tpu": 327,
+   "mat": 1,
+   "bytes": 23804,
+   "scaled": true,
+   "file": "Street Straight Crack.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street Straight",
+   "wdh": [
+    3.6,
+    0.1,
+    3.6
+   ],
+   "tris": 228,
+   "tpu": 129,
+   "mat": 1,
+   "bytes": 11428,
+   "scaled": true,
+   "file": "Street Straight.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street T",
+   "wdh": [
+    3.6,
+    0.1,
+    3.6
+   ],
+   "tris": 180,
+   "tpu": 102,
+   "mat": 1,
+   "bytes": 10388,
+   "scaled": true,
+   "file": "Street T.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Street Turn",
+   "wdh": [
+    3.6,
+    0.1,
+    3.6
+   ],
+   "tris": 220,
+   "tpu": 125,
+   "mat": 1,
+   "bytes": 11308,
+   "scaled": true,
+   "file": "Street Turn.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Town Sign",
+   "kind": "str-marker-sign",
+   "wdh": [
+    2.7,
+    2.4,
+    0.8
+   ],
+   "tris": 1397,
+   "tpu": 276,
+   "mat": 1,
+   "bytes": 61832,
+   "scaled": true,
+   "file": "Town Sign.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Barrier-nugx3heueH",
+   "wdh": [
+    0.7,
+    0.5,
+    0.4
+   ],
+   "tris": 732,
+   "tpu": 2134,
+   "mat": 1,
+   "bytes": 37032,
+   "scaled": true,
+   "file": "Traffic Barrier-nugx3heueH.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Barrier",
+   "wdh": [
+    0.7,
+    0.4,
+    0.4
+   ],
+   "tris": 364,
+   "tpu": 1061,
+   "mat": 1,
+   "bytes": 18940,
+   "scaled": true,
+   "file": "Traffic Barrier.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Cone-VGvQupNGtK",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 460,
+   "tpu": 1341,
+   "mat": 1,
+   "bytes": 18564,
+   "scaled": true,
+   "file": "Traffic Cone-VGvQupNGtK.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Cone",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 134,
+   "tpu": 391,
+   "mat": 1,
+   "bytes": 6828,
+   "scaled": true,
+   "file": "Traffic Cone.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Light-lg9AKWejnF",
+   "wdh": [
+    2.4,
+    2.1,
+    0.9
+   ],
+   "tris": 1369,
+   "tpu": 314,
+   "mat": 1,
+   "bytes": 56692,
+   "scaled": true,
+   "file": "Traffic Light-lg9AKWejnF.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Traffic Light",
+   "wdh": [
+    0.7,
+    2.1,
+    0.7
+   ],
+   "tris": 849,
+   "tpu": 849,
+   "mat": 1,
+   "bytes": 37976,
+   "scaled": true,
+   "file": "Traffic Light.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Water Tower",
+   "wdh": [
+    1.2,
+    4.2,
+    1.2
+   ],
+   "tris": 1158,
+   "tpu": 189,
+   "mat": 1,
+   "bytes": 56464,
+   "scaled": true,
+   "file": "Water Tower.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Wheel",
+   "kind": "obj-transport-accessory",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 608,
+   "tpu": 1773,
+   "mat": 1,
+   "bytes": 19708,
+   "scaled": true,
+   "file": "Wheel.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Wheels Stack",
+   "kind": "obj-transport-accessory",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 1824,
+   "tpu": 5318,
+   "mat": 1,
+   "bytes": 62360,
+   "scaled": true,
+   "file": "Wheels Stack.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Wooden Bat Saw",
+   "kind": "obj-tool-hand",
+   "wdh": [
+    0.2,
+    0.1,
+    0.6
+   ],
+   "tris": 2308,
+   "tpu": 6729,
+   "mat": 1,
+   "bytes": 72788,
+   "scaled": true,
+   "file": "Wooden Bat Saw.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Zombie half",
+   "wdh": [
+    0.2,
+    0.5,
+    0.2
+   ],
+   "tris": 4774,
+   "tpu": 13918,
+   "mat": 1,
+   "bytes": 127252,
+   "scaled": true,
+   "file": "Zombie half.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Zombie-VlXjG0N8Eg",
+   "wdh": [
+    0.8,
+    0.6,
+    0.3
+   ],
+   "tris": 7822,
+   "tpu": 21465,
+   "mat": 2,
+   "bytes": 203584,
+   "scaled": true,
+   "file": "Zombie-VlXjG0N8Eg.glb"
+  },
+  {
+   "kit": "Post_Apocolypse_Pack",
+   "name": "Zombie",
+   "wdh": [
+    1.1,
+    0.7,
+    0.3
+   ],
+   "tris": 6174,
+   "tpu": 11292,
+   "mat": 3,
+   "bytes": 167580,
+   "scaled": true,
+   "file": "Zombie.glb"
+  },
+  {
+   "kit": "Scythian_Decoration",
+   "name": "ScythianAntique",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 4088,
+   "tpu": 11918,
+   "mat": 1,
+   "bytes": 221944,
+   "file": "ScythianAntique.obj"
   }
  ]
 }

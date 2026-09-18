@@ -58,23 +58,23 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'candle-small', bronmodel: 'candleSmall', kind: 'obj-lighting-candle',
-        tags: ['halloween', 'ngons'], kleuren: candle,
+        tags: ['halloween'], kleuren: candle,
       },
       {
         naam: 'candle-large', bronmodel: 'candleLarge', kind: 'obj-lighting-candle',
-        tags: ['halloween', 'ngons'], kleuren: candle,
+        tags: ['halloween'], kleuren: candle,
       },
       {
         naam: 'candle-bundle', bronmodel: 'candleBundle', kind: 'obj-lighting-candle',
-        tags: ['halloween', 'ngons', 'plural'], kleuren: candle,
+        tags: ['halloween', 'plural'], kleuren: candle,
       },
       {
         naam: 'candy-a', bronmodel: 'candyA', kind: 'obj-food',
-        tags: ['halloween', 'ngons'], kleuren: { '#e7e7e7': candyLight, '#ff7124': candyOrange },
+        tags: ['halloween'], kleuren: { '#e7e7e7': candyLight, '#ff7124': candyOrange },
       },
       {
         naam: 'candy-b', bronmodel: 'candyB', kind: 'obj-food',
-        tags: ['halloween', 'ngons'], kleuren: { '#ff7124': candyOrange, '#263236': candyDark },
+        tags: ['halloween'], kleuren: { '#ff7124': candyOrange, '#263236': candyDark },
       },
       {
         naam: 'jack', bronmodel: 'character_jack', kind: 'char',
@@ -83,96 +83,96 @@ const PAKKETTEN = [
       },
       {
         naam: 'cauldron', bronmodel: 'cauldron', kind: 'obj-kitchenware-cookware-pot',
-        tags: ['halloween', 'ngons'],
+        tags: ['halloween'],
         kleuren: { '#263236': cast, '#afda7e': brew, '#48bc8d': brew, '#9b5a45': beam },
       },
       {
         naam: 'coffin-a', bronmodel: 'coffinA_bottom', kind: 'obj-container',
-        tags: ['halloween', 'graveyard'],
+        tags: ['halloween', 'grave'],
         kleuren: { '#9b5a45': worked, '#aab8be': steel, '#8b40c8': clothGrey },
       },
       {
         naam: 'coffin-a-lid', bronmodel: 'coffinA_top', kind: 'obj-container',
-        tags: ['halloween', 'graveyard', 'comp'],
+        tags: ['halloween', 'grave', 'comp'],
         kleuren: { '#9b5a45': worked, '#aab8be': steel, '#8b40c8': clothGrey },
       },
       {
         naam: 'coffin-b', bronmodel: 'coffinB_bottom', kind: 'obj-container',
-        tags: ['halloween', 'graveyard'],
+        tags: ['halloween', 'grave'],
         kleuren: { '#263236': beam, '#aab8be': steel, '#ff2c60': clothRed },
       },
       {
         naam: 'coffin-b-lid', bronmodel: 'coffinB_top', kind: 'obj-container',
-        tags: ['halloween', 'graveyard', 'comp'],
+        tags: ['halloween', 'grave', 'comp'],
         kleuren: { '#263236': beam, '#aab8be': steel, '#ff2c60': clothRed },
       },
       {
         naam: 'branches', bronmodel: 'detail_graveyard', kind: 'env-flora-deadwood-branch',
-        tags: ['halloween', 'graveyard', 'plural'], kleuren: deadTree,
+        tags: ['halloween', 'grave', 'plural'], kleuren: deadTree,
       },
       {
         naam: 'fence', bronmodel: 'fence', kind: 'str-barrier-fence',
-        tags: ['halloween', 'graveyard'], kleuren: { '#263236': cast },
+        tags: ['halloween', 'grave'], kleuren: { '#263236': cast },
       },
       {
         naam: 'fence-corner', bronmodel: 'fenceCorner', kind: 'str-barrier-fence',
-        tags: ['halloween', 'graveyard'], kleuren: gravefence,
+        tags: ['halloween', 'grave'], kleuren: gravefence,
       },
       {
         naam: 'fence-double', bronmodel: 'fenceDouble', kind: 'str-barrier-fence',
-        tags: ['halloween', 'graveyard'], kleuren: gravefence,
+        tags: ['halloween', 'grave'], kleuren: gravefence,
       },
       {
         naam: 'fence-post', bronmodel: 'fencePost', kind: 'str-barrier-fence',
-        tags: ['halloween', 'graveyard'], kleuren: { '#798388': masonryGrave },
+        tags: ['halloween', 'grave'], kleuren: { '#798388': masonryGrave },
       },
       {
         naam: 'fence-single', bronmodel: 'fenceSingle', kind: 'str-barrier-fence',
-        tags: ['halloween', 'graveyard'], kleuren: gravefence,
+        tags: ['halloween', 'grave'], kleuren: gravefence,
       },
       {
         naam: 'gravestone', bronmodel: 'gravestone', kind: 'str-marker-tombstone',
-        tags: ['halloween', 'graveyard'], kleuren: { '#798388': masonryGrave },
+        tags: ['halloween', 'grave'], kleuren: { '#798388': masonryGrave },
       },
       {
         naam: 'jackolantern-large', bronmodel: 'jackolantern_big', kind: 'obj-food-vegetable',
-        tags: ['halloween', 'ngons'], kleuren: { '#ff7124': pumpkinShell },
+        tags: ['halloween'], kleuren: { '#ff7124': pumpkinShell },
       },
       {
         naam: 'jackolantern-small', bronmodel: 'jackolantern_small', kind: 'obj-food-vegetable',
-        tags: ['halloween', 'ngons'], kleuren: { '#ff7124': pumpkinShell },
+        tags: ['halloween'], kleuren: { '#ff7124': pumpkinShell },
       },
       {
         naam: 'path-cobbled', bronmodel: 'pathCobbled', kind: 'env-terrain-ground',
-        tags: ['halloween', 'graveyard'], kleuren: { '#798388': masonryGrave },
+        tags: ['halloween', 'grave'], kleuren: { '#798388': masonryGrave },
       },
       {
         naam: 'pumpkin-large', bronmodel: 'pumpkinLarge', kind: 'obj-food-vegetable',
-        tags: ['halloween', 'ngons'], kleuren: { '#ff7124': pumpkinFlesh, '#288b8d': leaf },
+        tags: ['halloween'], kleuren: { '#ff7124': pumpkinFlesh, '#288b8d': leaf },
       },
       {
         naam: 'pumpkin-small', bronmodel: 'pumpkinSmall', kind: 'obj-food-vegetable',
-        tags: ['halloween', 'ngons'], kleuren: { '#ff7124': pumpkinFlesh, '#288b8d': leaf },
+        tags: ['halloween'], kleuren: { '#ff7124': pumpkinFlesh, '#288b8d': leaf },
       },
       {
         naam: 'shrine', bronmodel: 'shrine', kind: 'str',
-        tags: ['halloween', 'graveyard'], kleuren: { '#798388': masonryGrave },
+        tags: ['halloween', 'grave'], kleuren: { '#798388': masonryGrave },
       },
       {
         naam: 'tree-dead-a', bronmodel: 'treeA_graveyard', kind: 'env-flora-deadwood',
-        tags: ['halloween', 'graveyard'], kleuren: deadTree,
+        tags: ['halloween', 'grave'], kleuren: deadTree,
       },
       {
         naam: 'tree-dead-b', bronmodel: 'treeB_graveyard', kind: 'env-flora-deadwood',
-        tags: ['halloween', 'graveyard'], kleuren: deadTree,
+        tags: ['halloween', 'grave'], kleuren: deadTree,
       },
       {
         naam: 'tree-dead-c', bronmodel: 'treeC_graveyard', kind: 'env-flora-deadwood',
-        tags: ['halloween', 'graveyard'], kleuren: deadTree,
+        tags: ['halloween', 'grave'], kleuren: deadTree,
       },
       {
         naam: 'tree-dead-d', bronmodel: 'treeD_graveyard', kind: 'env-flora-deadwood',
-        tags: ['halloween', 'graveyard'], kleuren: deadTree,
+        tags: ['halloween', 'grave'], kleuren: deadTree,
       },
     ],
   },
@@ -180,7 +180,7 @@ const PAKKETTEN = [
   {
     kit: 'kay-minigame',
     bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
-    schaal: 0.35,
+    schaal: 0.3,
     modellen: [
       {
         naam: 'arrow', bronmodel: 'arrow_teamBlue', kind: 'obj-weapon-ranged-accessory',
@@ -207,10 +207,6 @@ const PAKKETTEN = [
         tags: [], kleuren: { '#48bc8d': leaf },
       },
       {
-        naam: 'bomb', bronmodel: 'powerupBomb', kind: 'obj-weapon-cannon',
-        tags: ['ngons'], kleuren: { '#263236': cast, '#daae7e': rope },
-      },
-      {
         naam: 'rocks-a', bronmodel: 'rocksA_forest', kind: 'env-rock-boulder',
         tags: ['plural'], kleuren: { '#798388': rock },
       },
@@ -224,23 +220,15 @@ const PAKKETTEN = [
       },
       {
         naam: 'target-stand', bronmodel: 'targetStand', kind: 'obj',
-        tags: ['ngons'], kleuren: { '#ff2c60': clothRed, '#e7e7e7': cloth, '#9b5a45': beam },
+        tags: [], kleuren: { '#ff2c60': clothRed, '#e7e7e7': cloth, '#9b5a45': beam },
       },
       {
         naam: 'target', bronmodel: 'target', kind: 'obj',
-        tags: ['ngons'], kleuren: { '#ff2c60': clothRed, '#e7e7e7': cloth },
+        tags: [], kleuren: { '#ff2c60': clothRed, '#e7e7e7': cloth },
       },
       {
         naam: 'sword', bronmodel: 'sword_teamBlue', kind: 'obj-weapon-melee-sword',
         tags: [], kleuren: { '#64b4ff': gemBlue, '#aab8be': steel },
-      },
-      {
-        naam: 'cactus', bronmodel: 'tree_desert', kind: 'env-flora-plant-cactus',
-        tags: ['ngons'], kleuren: { '#288b8d': leaf },
-      },
-      {
-        naam: 'tree-pine', bronmodel: 'tree_forest', kind: 'env-flora-tree-conifer',
-        tags: ['ngons'], kleuren: { '#288b8d': needle, '#9b5a45': bark },
       },
     ],
   },
@@ -260,7 +248,7 @@ const PAKKETTEN = [
       },
       {
         naam: 'barracks', bronmodel: 'barracks', kind: 'str-building-fort',
-        tags: ['ngons'],
+        tags: [],
         kleuren: {
           '#c8855f': roofTile, '#798388': masonry, '#e7e7e7': cloth,
           '#9b5a45': beam, '#daae7e': soil, '#596064': masonryDark,
@@ -328,7 +316,7 @@ const PAKKETTEN = [
         },
       },
       {
-        naam: 'lumbermill', bronmodel: 'lumbermill', kind: 'str-building',
+        naam: 'lumbermill', bronmodel: 'lumbermill', kind: 'str-building-mill',
         tags: [],
         kleuren: {
           '#c8855f': roofTile, '#798388': masonry, '#e7e7e7': cloth,
@@ -344,8 +332,8 @@ const PAKKETTEN = [
         },
       },
       {
-        naam: 'mill', bronmodel: 'mill', kind: 'str-building-tower',
-        tags: ['ngons'],
+        naam: 'mill', bronmodel: 'mill', kind: 'str-building-mill',
+        tags: [],
         kleuren: {
           '#c8855f': worked, '#9b5a45': beam, '#daae7e': soil,
           '#e7e7e7': cloth, '#798388': masonry,
@@ -389,17 +377,17 @@ const PAKKETTEN = [
       },
       {
         naam: 'watchtower', bronmodel: 'watchtower', kind: 'str-building-tower',
-        tags: ['ngons'],
+        tags: [],
         kleuren: { '#798388': masonry, '#9b5a45': beam, '#596064': masonryDark, '#daae7e': soil },
       },
       {
-        naam: 'watermill', bronmodel: 'watermill', kind: 'str-building',
+        naam: 'watermill', bronmodel: 'watermill', kind: 'str-building-mill',
         tags: [],
         kleuren: { '#9b5a45': beam, '#798388': masonry, '#e7e7e7': cloth, '#c8855f': roofTile },
       },
       {
-        naam: 'well', bronmodel: 'well', kind: 'str-building',
-        tags: ['ngons'],
+        naam: 'well', bronmodel: 'well', kind: 'str-building-well',
+        tags: [],
         kleuren: {
           '#798388': masonry, '#596064': masonry, '#9b5a45': beam,
           '#c8855f': roofTile, '#48d6e1': water, '#daae7e': soil,

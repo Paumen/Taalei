@@ -375,8 +375,6 @@ for (const slug of kitSlugs) {
 const TYPES = ['material', 'kind', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
-const BUILDING_KITS = ['ken-town', 'fs-town', 'kay-dun-1', 'kay-dun-2'];
-
 const SOURCES = [
   {
     id: 'ken',
@@ -395,6 +393,7 @@ const SOURCES = [
     kits: [
       'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
       'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons', 'kay-mixed',
+      'kay-minigame',
     ],
   },
   {
@@ -404,25 +403,23 @@ const SOURCES = [
     kits: [
       'quat-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
       'quat-rpg', 'quat-blood-ring', 'quat-skeleton', 'quat-food', 'quat-fish', 'quat-ships',
+      'quat-town',
     ],
   },
   {
     id: 'isa',
-    name: 'Tiny Treats',
+    name: 'Isa',
     description: 'Kits from Isa Lousberg (isalousberg.com).',
-    kits: ['isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond'],
+    kits: [
+      'isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond',
+      'isa-picnic', 'isa-playground', 'isa-bakery',
+    ],
   },
   {
     id: 'wizp',
     name: 'WizP',
     description: 'Kits from WizP (wizp.itch.io).',
-    kits: ['asia-pack', 'asia-grave', 'asia-rocks'],
-  },
-  {
-    id: 'own',
-    name: 'Taalei',
-    description: 'Kits made or assembled for Taalei itself, on the shared colormap.',
-    kits: ['fs-town', 'natuur', 'fs-terrain', 'rocks', 'props', 'small-props', 'taalei-kit'],
+    kits: ['asia-pack', 'asia-grave', 'asia-rocks', 'asia-rg'],
   },
 ];
 
@@ -445,12 +442,6 @@ const DERIVED = [
     description:
       'Carries its own animations in the .glb: things that open, flip or turn.',
     belongs: (m) => Boolean(m.animations?.length),
-  },
-  {
-    id: 'modular',
-    name: 'Modular',
-    description: 'Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit.',
-    belongs: (m) => BUILDING_KITS.includes(m.kit) && kindIs(m.kind, 'str-part') && m.kind !== 'str-part',
   },
 ];
 

@@ -13,7 +13,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F01` | `material` | what it is **made of** | closed, parented |
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `floating`, `offcenter`, `ngons`, etc.) | open |
+| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, etc.) | open |
 
 **[F05] Term.** A term is one of:
 
@@ -123,7 +123,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
-| `G01` | `tag:ngons` | `tag:hero` | model | range | 8–12 flat pieces per full circle |
+| `G01` | `*` | `tag:hero` | model | range | 8–12 flat pieces per full circle, where the model has a round cross-section |
 | `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
