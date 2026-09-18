@@ -15,7 +15,8 @@ boxes.mjs <kit>/<model> --remove all|<n,m,...>
   them out. A crate is a box-shaped body with slats and battens sitting inside its own
   bounds: that is what keeps roof tiles, rocks and barrels out of the list.
   --list    number the crates with their size and place, and change nothing
-  --remove  take out those crates, body and slats, by the numbers --list gives
+  --remove  take out those crates, body and slats, by the numbers --list gives,
+            and with them whatever stands on them
   --shells  print the shell numbers of those crates for render.mjs --mark, and
             change nothing`;
 
@@ -134,6 +135,26 @@ const crates = found
   .filter((c) => !found.some((d) => d !== c && Math.max(...d.body.size) > Math.max(...c.body.size) && inside(c.body, d.body, 0)))
   .sort((a, b) => a.body.lo[0] - b.body.lo[0] || a.body.lo[2] - b.body.lo[2]);
 
+// which crate a crate stands on: taking the bottom one away without the ones above it
+// leaves them hanging in the air
+const overlaps = (a, b) => [0, 2].every((k) => a.body.lo[k] < b.body.hi[k] && a.body.hi[k] > b.body.lo[k]);
+const standsOn = crates.map((c) =>
+  crates.findIndex((under) => under !== c && Math.abs(c.body.lo[1] - under.body.hi[1]) < 0.02 * span && overlaps(c, under)),
+);
+const withStack = (chosen) => {
+  const out = new Set(chosen);
+  for (let again = true; again; ) {
+    again = false;
+    standsOn.forEach((under, n) => {
+      if (under !== -1 && out.has(under + 1) && !out.has(n + 1)) {
+        out.add(n + 1);
+        again = true;
+      }
+    });
+  }
+  return [...out].sort((a, b) => a - b);
+};
+
 const pick = (arg) => {
   if (arg === 'all') return crates.map((_, i) => i + 1);
   const wanted = arg.split(',').map((part) => {
@@ -142,7 +163,7 @@ const pick = (arg) => {
     if (n > crates.length) throw new Error(`${id}: no crate ${n}, the model has ${crates.length}`);
     return n;
   });
-  return [...new Set(wanted)];
+  return withStack([...new Set(wanted)]);
 };
 
 if (listOnly || shellsOnly !== null) {
@@ -156,7 +177,8 @@ if (listOnly || shellsOnly !== null) {
   crates.forEach((c, n) => {
     const size = c.body.size.map((v) => +v.toFixed(3)).join(' × ');
     const at = [0, 1, 2].map((k) => +((c.body.lo[k] + c.body.hi[k]) / 2).toFixed(3)).join(' ');
-    console.log(`  ${String(n + 1).padStart(3)}  ${size.padEnd(22)} at ${at.padEnd(22)} ${c.slats.length} slat(s)`);
+    const on = standsOn[n] === -1 ? 'on the ground' : `on ${standsOn[n] + 1}`;
+    console.log(`  ${String(n + 1).padStart(3)}  ${size.padEnd(22)} at ${at.padEnd(22)} ${String(c.slats.length).padStart(2)} slat(s)  ${on}`);
   });
   process.exit(0);
 }
