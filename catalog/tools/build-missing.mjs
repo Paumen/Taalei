@@ -348,7 +348,7 @@ for (const bronkit of BRONKITS) {
   }
   if (gevonden.length) {
     waarschuwingen.push(
-      `${bronkit.kit}: ${gevonden.length} model(s) in ${bronkit.naam} matched a catalogue workfile ` +
+      `${bronkit.kit}: ${gevonden.length} model(s) in ${bronkit.naam} matched a catalog workfile ` +
         'only by triangle count and size, not by name — verify these by hand:\n' +
         gevonden.map((g) => `    ${g.bron} (${g.driehoeken} tris) -> ${g.catalogus}`).join('\n'),
     );
@@ -447,7 +447,7 @@ for (const bronkit of BRONKITS) {
 
   console.log(
     `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
-      `${String(kit.aantal).padStart(4)} in catalogue → ${String(ontbreekt.length).padStart(4)} missing` +
+      `${String(kit.aantal).padStart(4)} in catalog → ${String(ontbreekt.length).padStart(4)} missing` +
       (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
       (bronkit.kit ? '' : '  — never imported'),
   );
@@ -455,7 +455,7 @@ for (const bronkit of BRONKITS) {
 
 const uitvoer = {
   modelPath: DOEL_PAD,
-  kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
+  kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalog.' })),
   sources: bronnen,
   kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) })),
   variants: varianten,
