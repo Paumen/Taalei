@@ -123,8 +123,8 @@ const MODELLEN = {
     vlakken: { 'p1:9:0': balk, 'p1:14:0': bewerkt, 'p1:41:0': bewerkt },
   },
   clover: { naam: 'clover', kind: 'env-flora-plant', tags: ['asia', 'plural'], vlakken: { 'p1:26:1': blad } },
-  door_left: { naam: 'door-left', kind: 'str-part-door', tags: ['asia'], vlakken: { 'p1:1:0': bewerkt } },
-  door_right: { naam: 'door-right', kind: 'str-part-door', tags: ['asia'], vlakken: { 'p1:1:0': bewerkt } },
+  door_left: { naam: 'door-left', kind: 'str-part-door', tags: ['asia'], vlakken: { 'p1:1:0': goud } },
+  door_right: { naam: 'door-right', kind: 'str-part-door', tags: ['asia'], vlakken: { 'p1:1:0': goud } },
   drum: {
     naam: 'drum', kind: 'obj', tags: ['asia', 'ngons'],
     vlakken: { 'p1:1:0': bewerkt, 'p1:9:0': balk, 'p1:14:0': balk, 'p1:37:0': smeedijzer, 'p1:45:0': ['leather', 'umber'] },
@@ -138,7 +138,7 @@ const MODELLEN = {
     naam: 'forge', kind: 'str', tags: ['asia'],
     vlakken: { 'p1:29:0': steen, 'p1:57:0': gietijzer, 'p1:37:0': smeedijzer },
   },
-  frame: { naam: 'frame-wood', kind: 'str-part-frame', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:1:0': bewerkt } },
+  frame: { naam: 'frame-wood', kind: 'str-part-frame', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:1:0': goud } },
   garden_plant_1: { naam: 'plant-a', kind: 'env-flora-plant', tags: ['asia'], vlakken: { 'p1:26:1': blad } },
   garden_plant_4: {
     naam: 'plant-b', kind: 'env-flora-plant', tags: ['asia'],
@@ -178,7 +178,7 @@ const MODELLEN = {
   mineral_ore: { naam: 'ore-gold', kind: 'env-rock', tags: ['asia'], vlakken: { 'p1:6:0': goud, 'p1:5:0': goud } },
   nest: { naam: 'nest', kind: 'env-remains', tags: ['asia'], vlakken: { 'p1:53:0': ['vegetation', 'taupe'] } },
   net: { naam: 'net', kind: 'obj-tool-supplies', tags: ['asia'], vlakken: { 'p1:41:0': ['rope', 'taupe'], 'p1:34:1': schors } },
-  pillar_1: { naam: 'pillar-wood', kind: 'str-part-pillar', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:1:0': bewerkt } },
+  pillar_1: { naam: 'pillar-wood', kind: 'str-part-pillar', tags: ['asia'], vlakken: { 'p1:9:0': balk, 'p1:1:0': goud } },
   pillar_2: { naam: 'pillar-a', kind: 'str-part-pillar', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:1:0': goud } },
   pillar_2_long: { naam: 'pillar-a-tall', kind: 'str-part-pillar', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:1:0': goud } },
   pillar_3: { naam: 'pillar-b', kind: 'str-part-pillar', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:1:0': goud } },
