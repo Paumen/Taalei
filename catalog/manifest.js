@@ -3167,6 +3167,7 @@ window.KENNEY_KITS = [
   "models": [
    "arch",
    "barn",
+   "cabin",
    "castle",
    "church",
    "cottage",
@@ -3233,6 +3234,123 @@ window.KENNEY_KITS = [
    "water-bottle-a",
    "water-bottle-b",
    "wood-stove"
+  ]
+ },
+ {
+  "slug": "fishing-village",
+  "name": "fishing-village",
+  "url": null,
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/fishing-village/LICENSE.txt.",
+  "models": [
+   "boat-oars",
+   "boat-poles",
+   "boat-rack",
+   "jetty-a",
+   "jetty-b",
+   "jetty-deck",
+   "mooring-post",
+   "rail-fence-a",
+   "rail-fence-b",
+   "rope-fence-long",
+   "rope-fence-medium",
+   "rope-fence-short",
+   "stilt-cabin"
+  ]
+ },
+ {
+  "slug": "medieval-village",
+  "name": "medieval-village",
+  "url": null,
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/medieval-village/LICENSE.txt.",
+  "models": [
+   "archery-target",
+   "barrel",
+   "barrel-ore",
+   "barrel-tapped",
+   "dynamite-crate",
+   "dynamite-crate-open",
+   "haystack",
+   "haystack-forked",
+   "house-a",
+   "house-b",
+   "market-stall-green",
+   "market-stall-red",
+   "mine-entrance",
+   "minecart",
+   "minecart-ore",
+   "picket-fence-a",
+   "picket-fence-b",
+   "picket-fence-c",
+   "picket-fence-leaning",
+   "rail-curve",
+   "rail-long",
+   "rail-short",
+   "rail-straight",
+   "rock-a",
+   "rock-b",
+   "sawmill",
+   "silo",
+   "smithy",
+   "weapon-shop",
+   "windmill",
+   "wizard-tower"
+  ]
+ },
+ {
+  "slug": "village",
+  "name": "village",
+  "url": null,
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/village/LICENSE.txt.",
+  "models": [
+   "bridge-arched-a",
+   "bridge-arched-b",
+   "granary-large",
+   "house-a",
+   "house-b",
+   "house-c"
+  ]
+ },
+ {
+  "slug": "arena-pack",
+  "name": "arena-pack",
+  "url": null,
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/arena-pack/LICENSE.txt.",
+  "models": [
+   "grass-tuft",
+   "grass-tufts"
+  ]
+ },
+ {
+  "slug": "trees",
+  "name": "trees",
+  "url": null,
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/trees/LICENSE.txt.",
+  "models": [
+   "banana-tree",
+   "cactus-flowering-round",
+   "cactus-flowering-tall",
+   "cactus-round",
+   "cactus-tall",
+   "dead-tree-a",
+   "dead-tree-b",
+   "dead-tree-c",
+   "dead-tree-spiked-a",
+   "dead-tree-spiked-b",
+   "leafy-plant",
+   "lilypad-a",
+   "lilypad-b",
+   "log-cut",
+   "log-fallen",
+   "palm-a",
+   "palm-b",
+   "palm-bent",
+   "palm-young",
+   "stump-a",
+   "stump-b",
+   "waterlilies-white",
+   "waterlilies-yellow",
+   "waterlily-white",
+   "waterlily-yellow"
   ]
  }
 ]

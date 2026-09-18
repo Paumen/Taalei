@@ -102,6 +102,53 @@
   ]
  },
  {
+  "slug": "obj-resource",
+  "name": "Object › Resource",
+  "category": "obj-gen",
+  "byLongest": true,
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "medieval-village",
+    "model": "haystack-forked",
+    "wdh": [
+     0.6,
+     0.65,
+     0.6
+    ],
+    "tags": [
+     "vegetation",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "haystack",
+    "wdh": [
+     0.6,
+     0.6,
+     0.6
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-resource-stone",
   "name": "Object › Resource › Stone",
   "category": "obj-gen",
@@ -862,6 +909,7 @@
     ],
     "tags": [
      "isa",
+     "textile",
      "wood-beam",
      "wood-worked"
     ],
@@ -1512,223 +1560,6 @@
   ]
  },
  {
-  "slug": "obj",
-  "name": "Object",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "parasol",
-    "wdh": [
-     0.5,
-     0.55,
-     0.45
-    ],
-    "tags": [
-     "asia",
-     "paper",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "instant-camera-a",
-    "wdh": [
-     0.2,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "ceramic",
-     "gemstone",
-     "kay",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#7f3927",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "instant-camera-b",
-    "wdh": [
-     0.2,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "ceramic",
-     "gemstone",
-     "kay",
-     "metal",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#1367a6",
-     "#23562c",
-     "#7f3927",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "plushie-chicken-a",
-    "wdh": [
-     0.25,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "plushie-chicken-b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "umbrella-a",
-    "wdh": [
-     0.55,
-     0.5,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "ngons",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "umbrella-b",
-    "wdh": [
-     0.55,
-     0.5,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "ngons",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#23562c",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "umbrella-c",
-    "wdh": [
-     0.55,
-     0.5,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "ngons",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "umbrella-d",
-    "wdh": [
-     0.55,
-     0.5,
-     0.55
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "ngons",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "fireplace-1-1-a",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "own"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-kitchenware-tableware-drinkware",
   "name": "Object › Kitchenware › Tableware › Drinkware",
   "category": "obj-gen",
@@ -2092,6 +1923,241 @@
     ],
     "colors": [
      "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj",
+  "name": "Object",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "parasol",
+    "wdh": [
+     0.5,
+     0.55,
+     0.45
+    ],
+    "tags": [
+     "asia",
+     "paper",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "instant-camera-a",
+    "wdh": [
+     0.2,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "gemstone",
+     "kay",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "instant-camera-b",
+    "wdh": [
+     0.2,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "gemstone",
+     "kay",
+     "metal",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#1367a6",
+     "#23562c",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "plushie-chicken-a",
+    "wdh": [
+     0.25,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "plushie-chicken-b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "umbrella-a",
+    "wdh": [
+     0.55,
+     0.5,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "ngons",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "umbrella-b",
+    "wdh": [
+     0.55,
+     0.5,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "ngons",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#23562c",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "umbrella-c",
+    "wdh": [
+     0.55,
+     0.5,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "ngons",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "umbrella-d",
+    "wdh": [
+     0.55,
+     0.5,
+     0.55
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "ngons",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "archery-target",
+    "wdh": [
+     0.35,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "fireplace-1-1-a",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "own"
+    ],
+    "colors": [
+     "#343745"
     ]
    }
   ]
@@ -9334,6 +9400,62 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "barrel-ore",
+    "wdh": [
+     0.35,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "metal-gold",
+     "metal-iron-wrought",
+     "ngons",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "barrel-tapped",
+    "wdh": [
+     0.55,
+     0.5,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "ngons",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "barrel",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "ngons",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
     "slug": "props",
     "model": "barrel-a",
     "wdh": [
@@ -9426,462 +9548,6 @@
     ],
     "colors": [
      "#5b5550",
-     "#b58158"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-crate",
-  "name": "Object › Container › Crate",
-  "category": "obj-container",
-  "limits": {
-   "high.min": 0.2,
-   "high.max": 1,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-grave",
-    "model": "crate",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "halloween",
-     "wizp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "desert-buildings",
-    "model": "crate",
-    "wdh": [
-     0.2,
-     0.4,
-     0.15
-    ],
-    "tags": [
-     "sailing",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "crate-a-open",
-    "wdh": [
-     0.5,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "own",
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "crate-a",
-    "wdh": [
-     0.5,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "own",
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "crate-dark",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "crate-platform-large",
-    "wdh": [
-     0.6,
-     0.6,
-     0.7
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "crate-closed",
-    "wdh": [
-     0.45,
-     0.45,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "crate-lid",
-    "wdh": [
-     0.45,
-     0.45,
-     0.05
-    ],
-    "tags": [
-     "comp",
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "crate",
-    "wdh": [
-     0.45,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "comic-box-closed",
-    "wdh": [
-     0.2,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "comic-box-filled",
-    "wdh": [
-     0.2,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "paper",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#23562c",
-     "#7f3927",
-     "#8b7561",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "comic-box-open",
-    "wdh": [
-     0.2,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-pirate",
-    "model": "crate",
-    "wdh": [
-     0.3,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "pirate",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
-    "model": "crate",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "box-large-open",
-    "wdh": [
-     0.35,
-     0.7,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "paper",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "box-large",
-    "wdh": [
-     0.35,
-     0.7,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "box-open",
-    "wdh": [
-     0.35,
-     0.35,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "box",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "box-2",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "box",
-    "wdh": [
-     0.4,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "crate",
-    "wdh": [
-     0.2,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "sailing",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "box-a",
-    "wdh": [
-     0.6,
-     0.6,
-     0.6
-    ],
-    "tags": [
-     "own",
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "model": "crate",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "qua",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "crate",
-    "wdh": [
-     0.55,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "crate-metal",
-    "wdh": [
-     0.7,
-     0.7,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "qua",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
      "#b58158"
     ]
    }
@@ -10389,6 +10055,498 @@
     ],
     "colors": [
      "#5b5550",
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-container-crate",
+  "name": "Object › Container › Crate",
+  "category": "obj-container",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-grave",
+    "model": "crate",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "halloween",
+     "wizp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "desert-buildings",
+    "model": "crate",
+    "wdh": [
+     0.2,
+     0.4,
+     0.15
+    ],
+    "tags": [
+     "sailing",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "crate-a-open",
+    "wdh": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "own",
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "crate-a",
+    "wdh": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "own",
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "crate-dark",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "crate-platform-large",
+    "wdh": [
+     0.6,
+     0.6,
+     0.7
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "crate-closed",
+    "wdh": [
+     0.45,
+     0.45,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "crate-lid",
+    "wdh": [
+     0.45,
+     0.45,
+     0.05
+    ],
+    "tags": [
+     "comp",
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "crate",
+    "wdh": [
+     0.45,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "comic-box-closed",
+    "wdh": [
+     0.2,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "comic-box-filled",
+    "wdh": [
+     0.2,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "paper",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#23562c",
+     "#7f3927",
+     "#8b7561",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "comic-box-open",
+    "wdh": [
+     0.2,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-pirate",
+    "model": "crate",
+    "wdh": [
+     0.3,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "pirate",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-platformer",
+    "model": "crate",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "box-large-open",
+    "wdh": [
+     0.35,
+     0.7,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "paper",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "box-large",
+    "wdh": [
+     0.35,
+     0.7,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "box-open",
+    "wdh": [
+     0.35,
+     0.35,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "box",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "box-2",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "box",
+    "wdh": [
+     0.4,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "crate",
+    "wdh": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "sailing",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "dynamite-crate-open",
+    "wdh": [
+     0.25,
+     0.25,
+     0.4
+    ],
+    "tags": [
+     "textile",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "dynamite-crate",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "box-a",
+    "wdh": [
+     0.6,
+     0.6,
+     0.6
+    ],
+    "tags": [
+     "own",
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "model": "crate",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "qua",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "crate",
+    "wdh": [
+     0.55,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "crate-metal",
+    "wdh": [
+     0.7,
+     0.7,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "qua",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
      "#b58158"
     ]
    }
@@ -12230,6 +12388,72 @@
     ]
    },
    {
+    "slug": "fishing-village",
+    "model": "boat-oars",
+    "wdh": [
+     0.55,
+     1.15,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rope",
+     "sailing",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "boat-poles",
+    "wdh": [
+     0.75,
+     1.15,
+     0.6
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rope",
+     "sailing",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "boat-rack",
+    "wdh": [
+     0.85,
+     1.15,
+     0.55
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rope",
+     "sailing",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
     "slug": "fs-town",
     "model": "boat-a",
     "wdh": [
@@ -12587,6 +12811,38 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "minecart-ore",
+    "wdh": [
+     0.4,
+     0.3,
+     0.35
+    ],
+    "tags": [
+     "metal-gold",
+     "metal-iron-cast"
+    ],
+    "colors": [
+     "#343745",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "minecart",
+    "wdh": [
+     0.4,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-cast"
+    ],
+    "colors": [
+     "#343745"
+    ]
+   },
+   {
     "slug": "small-props",
     "model": "cart-1-a",
     "wdh": [
@@ -12752,6 +13008,7 @@
      0.15
     ],
     "tags": [
+     "gemstone",
      "metal-gold",
      "qua",
      "textile"
@@ -16998,7 +17255,8 @@
      "halloween",
      "ken",
      "metal-iron-steel",
-     "wood-beam"
+     "wood-beam",
+     "wood-planks"
     ],
     "colors": [
      "#88848a",
@@ -17017,7 +17275,8 @@
      "ken",
      "metal-iron-steel",
      "pirate",
-     "wood-beam"
+     "wood-beam",
+     "wood-planks"
     ],
     "colors": [
      "#88848a",
@@ -17142,7 +17401,8 @@
     ],
     "tags": [
      "metal-iron-steel",
-     "wood-beam"
+     "wood-beam",
+     "wood-planks"
     ],
     "colors": [
      "#88848a",
@@ -19206,294 +19466,6 @@
   ]
  },
  {
-  "slug": "str-platform-dock",
-  "name": "Structure › Platform › Dock",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "quat-town",
-    "model": "dock-1",
-    "wdh": [
-     0.65,
-     1.45,
-     0.55
-    ],
-    "tags": [
-     "ngons",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "port-1-a",
-    "wdh": [
-     1.55,
-     0.85,
-     1.15
-    ],
-    "tags": [
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "port-1-b",
-    "wdh": [
-     2.2,
-     2.4,
-     1.15
-    ],
-    "tags": [
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "port-1-c",
-    "wdh": [
-     2.2,
-     2.4,
-     1.2
-    ],
-    "tags": [
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "port-2-a",
-    "wdh": [
-     2.1,
-     3.45,
-     1.7
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "rope",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "port-2-b",
-    "wdh": [
-     2.75,
-     3.45,
-     1.5
-    ],
-    "tags": [
-     "ceramic",
-     "ngons",
-     "rope",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-barrier-post",
-  "name": "Structure › Barrier › Post",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "asia-pack",
-    "model": "post-a",
-    "wdh": [
-     0.25,
-     0.25,
-     0.7
-    ],
-    "tags": [
-     "asia",
-     "wizp",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "post-b",
-    "wdh": [
-     0.2,
-     0.4,
-     0.65
-    ],
-    "tags": [
-     "asia",
-     "wizp",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "wood-post-large",
-    "wdh": [
-     0.1,
-     0.1,
-     0.5
-    ],
-    "tags": [
-     "own",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "wood-post-small",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "own",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
-    "model": "post",
-    "wdh": [
-     0.1,
-     0.4,
-     0.8
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "kay",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "iron-fence-bar",
-    "wdh": [
-     0.1,
-     0.1,
-     0.5
-    ],
-    "tags": [
-     "graveyard",
-     "halloween",
-     "ken",
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "dock-pole",
-    "wdh": [
-     0.15,
-     0.15,
-     1.15
-    ],
-    "tags": [
-     "pirate",
-     "qua",
-     "rope",
-     "sailing",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-marker-sign",
   "name": "Structure › Marker › Sign",
   "category": "str-gen",
@@ -19631,6 +19603,356 @@
     ],
     "colors": [
      "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-barrier-post",
+  "name": "Structure › Barrier › Post",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "asia-pack",
+    "model": "post-a",
+    "wdh": [
+     0.25,
+     0.25,
+     0.7
+    ],
+    "tags": [
+     "asia",
+     "wizp",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "post-b",
+    "wdh": [
+     0.2,
+     0.4,
+     0.65
+    ],
+    "tags": [
+     "asia",
+     "wizp",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "mooring-post",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "sailing",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "wood-post-large",
+    "wdh": [
+     0.1,
+     0.1,
+     0.5
+    ],
+    "tags": [
+     "own",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "wood-post-small",
+    "wdh": [
+     0.1,
+     0.1,
+     0.3
+    ],
+    "tags": [
+     "own",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-hallow",
+    "model": "post",
+    "wdh": [
+     0.1,
+     0.4,
+     0.8
+    ],
+    "tags": [
+     "graveyard",
+     "halloween",
+     "kay",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "model": "iron-fence-bar",
+    "wdh": [
+     0.1,
+     0.1,
+     0.5
+    ],
+    "tags": [
+     "graveyard",
+     "halloween",
+     "ken",
+     "metal-iron-cast"
+    ],
+    "colors": [
+     "#343745"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "dock-pole",
+    "wdh": [
+     0.15,
+     0.15,
+     1.15
+    ],
+    "tags": [
+     "pirate",
+     "qua",
+     "rope",
+     "sailing",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-platform-dock",
+  "name": "Structure › Platform › Dock",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fishing-village",
+    "model": "jetty-a",
+    "wdh": [
+     0.9,
+     1.8,
+     0.8
+    ],
+    "tags": [
+     "sailing",
+     "vegetation",
+     "wood-beam",
+     "wood-log",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "jetty-b",
+    "wdh": [
+     0.9,
+     1.75,
+     0.8
+    ],
+    "tags": [
+     "sailing",
+     "vegetation",
+     "wood-beam",
+     "wood-log",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "dock-1",
+    "wdh": [
+     0.65,
+     1.45,
+     0.55
+    ],
+    "tags": [
+     "ngons",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "port-1-a",
+    "wdh": [
+     1.55,
+     0.85,
+     1.15
+    ],
+    "tags": [
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "port-1-b",
+    "wdh": [
+     2.2,
+     2.4,
+     1.15
+    ],
+    "tags": [
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "port-1-c",
+    "wdh": [
+     2.2,
+     2.4,
+     1.2
+    ],
+    "tags": [
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "port-2-a",
+    "wdh": [
+     2.1,
+     3.45,
+     1.7
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "rope",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "port-2-b",
+    "wdh": [
+     2.75,
+     3.45,
+     1.5
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "rope",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
      "#dbae80"
     ]
    }
@@ -20028,463 +20350,6 @@
   ]
  },
  {
-  "slug": "str-access-bridge",
-  "name": "Structure › Access › Bridge",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "asia-pack",
-    "model": "bridge-stone",
-    "wdh": [
-     1.5,
-     1.6,
-     1.1
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "bridge-wood",
-    "wdh": [
-     2,
-     1.45,
-     0.65
-    ],
-    "tags": [
-     "asia",
-     "wizp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "footbridge",
-    "wdh": [
-     2.45,
-     4.85,
-     3.15
-    ],
-    "tags": [
-     "asia",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "river-bridge",
-    "wdh": [
-     11.65,
-     2.3,
-     2.45
-    ],
-    "tags": [
-     "asia",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-castle",
-    "model": "bridge-straight-pillar",
-    "wdh": [
-     0.7,
-     0.7,
-     0.9
-    ],
-    "tags": [
-     "ken",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-castle",
-    "model": "bridge-straight",
-    "wdh": [
-     0.7,
-     0.7,
-     0.9
-    ],
-    "tags": [
-     "ken",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-forest-mini",
-    "model": "bridge",
-    "wdh": [
-     0.8,
-     0.6,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "rope",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "bridge-2",
-    "wdh": [
-     0.95,
-     0.55,
-     0.25
-    ],
-    "tags": [
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "bridge",
-    "wdh": [
-     0.85,
-     0.6,
-     0.1
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-planks"
-    ],
-    "colors": [
-     "#88848a",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "stone-bridge-2",
-    "wdh": [
-     4.8,
-     1.25,
-     1.5
-    ],
-    "tags": [
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "stone-bridge",
-    "wdh": [
-     6,
-     1.25,
-     1.5
-    ],
-    "tags": [
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-fort",
-  "name": "Structure › Building › Fort",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "architecture",
-    "model": "castle",
-    "wdh": [
-     10.6,
-     9.75,
-     5.55
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "architecture",
-    "model": "fortress",
-    "wdh": [
-     8.4,
-     7.4,
-     2.95
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "blacksmith",
-    "wdh": [
-     4.3,
-     3.6,
-     3.3
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-barracks",
-    "wdh": [
-     2.15,
-     2.35,
-     2.3
-    ],
-    "tags": [
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-stable",
-    "wdh": [
-     5.15,
-     3.65,
-     2.75
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-1-a",
-    "wdh": [
-     1.2,
-     1.3,
-     0.85
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#23562c",
-     "#343745",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-1-b",
-    "wdh": [
-     2.15,
-     1.9,
-     1.05
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#23562c",
-     "#343745",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-1-c",
-    "wdh": [
-     2.8,
-     1.9,
-     1.75
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#23562c",
-     "#343745",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-2-a",
-    "wdh": [
-     1.2,
-     1.7,
-     1.05
-    ],
-    "tags": [
-     "ceramic",
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-2-b",
-    "wdh": [
-     2.05,
-     1.95,
-     1.6
-    ],
-    "tags": [
-     "ceramic",
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "barracks-2-c",
-    "wdh": [
-     2.05,
-     1.95,
-     2.2
-    ],
-    "tags": [
-     "ceramic",
-     "metal-iron-cast",
-     "ngons",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-marker-flag",
   "name": "Structure › Marker › Flag",
   "category": "str-gen",
@@ -20704,6 +20569,522 @@
   ]
  },
  {
+  "slug": "str-building-fort",
+  "name": "Structure › Building › Fort",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "architecture",
+    "model": "castle",
+    "wdh": [
+     10.6,
+     9.75,
+     5.55
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "architecture",
+    "model": "fortress",
+    "wdh": [
+     8.4,
+     7.4,
+     2.95
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "blacksmith",
+    "wdh": [
+     4.3,
+     3.6,
+     3.3
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-barracks",
+    "wdh": [
+     2.15,
+     2.35,
+     2.3
+    ],
+    "tags": [
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-stable",
+    "wdh": [
+     5.15,
+     3.65,
+     2.75
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "smithy",
+    "wdh": [
+     1.3,
+     1.6,
+     1
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "stone-masonry",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-1-a",
+    "wdh": [
+     1.2,
+     1.3,
+     0.85
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#23562c",
+     "#343745",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-1-b",
+    "wdh": [
+     2.15,
+     1.9,
+     1.05
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#23562c",
+     "#343745",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-1-c",
+    "wdh": [
+     2.8,
+     1.9,
+     1.75
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#23562c",
+     "#343745",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-2-a",
+    "wdh": [
+     1.2,
+     1.7,
+     1.05
+    ],
+    "tags": [
+     "ceramic",
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-2-b",
+    "wdh": [
+     2.05,
+     1.95,
+     1.6
+    ],
+    "tags": [
+     "ceramic",
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "barracks-2-c",
+    "wdh": [
+     2.05,
+     1.95,
+     2.2
+    ],
+    "tags": [
+     "ceramic",
+     "metal-iron-cast",
+     "ngons",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-access-bridge",
+  "name": "Structure › Access › Bridge",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "asia-pack",
+    "model": "bridge-stone",
+    "wdh": [
+     1.5,
+     1.6,
+     1.1
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "bridge-wood",
+    "wdh": [
+     2,
+     1.45,
+     0.65
+    ],
+    "tags": [
+     "asia",
+     "wizp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "footbridge",
+    "wdh": [
+     2.45,
+     4.85,
+     3.15
+    ],
+    "tags": [
+     "asia",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "river-bridge",
+    "wdh": [
+     11.65,
+     2.3,
+     2.45
+    ],
+    "tags": [
+     "asia",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-castle",
+    "model": "bridge-straight-pillar",
+    "wdh": [
+     0.7,
+     0.7,
+     0.9
+    ],
+    "tags": [
+     "ken",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-castle",
+    "model": "bridge-straight",
+    "wdh": [
+     0.7,
+     0.7,
+     0.9
+    ],
+    "tags": [
+     "ken",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-forest-mini",
+    "model": "bridge",
+    "wdh": [
+     0.8,
+     0.6,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "rope",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "bridge-2",
+    "wdh": [
+     0.95,
+     0.55,
+     0.25
+    ],
+    "tags": [
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "bridge",
+    "wdh": [
+     0.85,
+     0.6,
+     0.1
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-planks"
+    ],
+    "colors": [
+     "#88848a",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "stone-bridge-2",
+    "wdh": [
+     4.8,
+     1.25,
+     1.5
+    ],
+    "tags": [
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "stone-bridge",
+    "wdh": [
+     6,
+     1.25,
+     1.5
+    ],
+    "tags": [
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "bridge-arched-a",
+    "wdh": [
+     1.1,
+     0.8,
+     0.8
+    ],
+    "tags": [
+     "asia",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "bridge-arched-b",
+    "wdh": [
+     1.05,
+     0.8,
+     0.8
+    ],
+    "tags": [
+     "asia",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-building-tower",
   "name": "Structure › Building › Tower",
   "category": "str-gen",
@@ -20897,6 +21278,70 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "silo",
+    "wdh": [
+     0.8,
+     0.85,
+     1.25
+    ],
+    "tags": [
+     "ceramic",
+     "ngons",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "windmill",
+    "wdh": [
+     1.3,
+     0.9,
+     1.9
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "wizard-tower",
+    "wdh": [
+     1.1,
+     1.2,
+     2
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
     "slug": "quat-town",
     "model": "watchtower-1-a",
     "wdh": [
@@ -21084,6 +21529,30 @@
      "#8b5936",
      "#d8d1bd",
      "#f2a93c"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "granary-large",
+    "wdh": [
+     1.85,
+     1.95,
+     1.9
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
     ]
    },
    {
@@ -21547,650 +22016,6 @@
   ]
  },
  {
-  "slug": "str-building-dwelling",
-  "name": "Structure › Building › Dwelling",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "architecture",
-    "model": "cottage",
-    "wdh": [
-     1.2,
-     1.85,
-     1.1
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "house-a",
-    "wdh": [
-     1.4,
-     0.9,
-     1.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "house-b",
-    "wdh": [
-     1.4,
-     0.9,
-     1.4
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "house-c",
-    "wdh": [
-     1.1,
-     0.9,
-     1.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "market-house",
-    "wdh": [
-     1.1,
-     0.9,
-     1.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-a",
-    "wdh": [
-     10.35,
-     5.45,
-     5.1
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "metal-iron-wrought",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-b",
-    "wdh": [
-     5.95,
-     3.1,
-     3.3
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-c",
-    "wdh": [
-     5.95,
-     2.35,
-     2.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-d",
-    "wdh": [
-     3.35,
-     1.85,
-     1.5
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-e",
-    "wdh": [
-     5.2,
-     3.35,
-     2.25
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-f",
-    "wdh": [
-     6.45,
-     4.6,
-     2.8
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-small",
-    "wdh": [
-     2.35,
-     2.35,
-     2.6
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "metal-gold",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-house-2",
-    "wdh": [
-     2.35,
-     2.95,
-     3.75
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-house-3",
-    "wdh": [
-     2.45,
-     3.75,
-     3.6
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-house",
-    "wdh": [
-     2.15,
-     2.35,
-     1.2
-    ],
-    "tags": [
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "medieval-town",
-    "model": "fantasy-inn",
-    "wdh": [
-     4.45,
-     4.45,
-     3.85
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "hero",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "house-1",
-    "wdh": [
-     5.2,
-     1.75,
-     2.6
-    ],
-    "tags": [
-     "glass",
-     "hero",
-     "metal-iron-cast",
-     "pirate",
-     "qua",
-     "sailing",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#dbae80",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "house-2",
-    "wdh": [
-     1.45,
-     1.45,
-     3.6
-    ],
-    "tags": [
-     "glass",
-     "hero",
-     "metal-iron-cast",
-     "pirate",
-     "qua",
-     "sailing",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#dbae80",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "house-3",
-    "wdh": [
-     3.25,
-     1.45,
-     4.1
-    ],
-    "tags": [
-     "glass",
-     "hero",
-     "metal-iron-cast",
-     "pirate",
-     "qua",
-     "rope",
-     "sailing",
-     "special",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-1-a",
-    "wdh": [
-     1.05,
-     0.9,
-     0.9
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-1-b",
-    "wdh": [
-     1.05,
-     1.4,
-     0.9
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-1-c",
-    "wdh": [
-     1.05,
-     1.4,
-     0.9
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-2-a",
-    "wdh": [
-     1.1,
-     1.4,
-     0.9
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-1-a",
-    "wdh": [
-     1.05,
-     1.05,
-     0.95
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-1-b",
-    "wdh": [
-     1.35,
-     1.4,
-     1.15
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-1-c",
-    "wdh": [
-     1.05,
-     1.4,
-     1.45
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-2-a",
-    "wdh": [
-     1.05,
-     0.95,
-     1.15
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-3-a",
-    "wdh": [
-     0.8,
-     0.8,
-     0.7
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-stands",
   "name": "Structure › Stands",
   "category": "str-gen",
@@ -22583,6 +22408,42 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "market-stall-green",
+    "wdh": [
+     0.7,
+     0.55,
+     0.55
+    ],
+    "tags": [
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#23562c",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "market-stall-red",
+    "wdh": [
+     0.7,
+     0.55,
+     0.55
+    ],
+    "tags": [
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
     "slug": "quat-town",
     "model": "market-1-a",
     "wdh": [
@@ -22744,6 +22605,811 @@
      "#563b2b",
      "#8b7561",
      "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-dwelling",
+  "name": "Structure › Building › Dwelling",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "architecture",
+    "model": "cabin",
+    "wdh": [
+     1.75,
+     1.25,
+     1.4
+    ],
+    "tags": [
+     "foliage",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#23562c",
+     "#88848a",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "architecture",
+    "model": "cottage",
+    "wdh": [
+     1.2,
+     1.85,
+     1.1
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "house-a",
+    "wdh": [
+     1.4,
+     0.9,
+     1.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "house-b",
+    "wdh": [
+     1.4,
+     0.9,
+     1.4
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "house-c",
+    "wdh": [
+     1.1,
+     0.9,
+     1.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "market-house",
+    "wdh": [
+     1.1,
+     0.9,
+     1.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-a",
+    "wdh": [
+     10.35,
+     5.45,
+     5.1
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "metal-iron-wrought",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-b",
+    "wdh": [
+     5.95,
+     3.1,
+     3.3
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-c",
+    "wdh": [
+     5.95,
+     2.35,
+     2.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-d",
+    "wdh": [
+     3.35,
+     1.85,
+     1.5
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-e",
+    "wdh": [
+     5.2,
+     3.35,
+     2.25
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-f",
+    "wdh": [
+     6.45,
+     4.6,
+     2.8
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-small",
+    "wdh": [
+     2.35,
+     2.35,
+     2.6
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "metal-gold",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "stilt-cabin",
+    "wdh": [
+     1.05,
+     1.35,
+     1.45
+    ],
+    "tags": [
+     "emissive",
+     "sailing",
+     "vegetation",
+     "wood-beam",
+     "wood-log",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-house-2",
+    "wdh": [
+     2.35,
+     2.95,
+     3.75
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-house-3",
+    "wdh": [
+     2.45,
+     3.75,
+     3.6
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-house",
+    "wdh": [
+     2.15,
+     2.35,
+     1.2
+    ],
+    "tags": [
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "medieval-town",
+    "model": "fantasy-inn",
+    "wdh": [
+     4.45,
+     4.45,
+     3.85
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "hero",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "house-a",
+    "wdh": [
+     0.95,
+     1.3,
+     1
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "house-b",
+    "wdh": [
+     1.3,
+     1.3,
+     0.9
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "house-1",
+    "wdh": [
+     5.2,
+     1.75,
+     2.6
+    ],
+    "tags": [
+     "glass",
+     "hero",
+     "metal-iron-cast",
+     "pirate",
+     "qua",
+     "sailing",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#dbae80",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "house-2",
+    "wdh": [
+     1.45,
+     1.45,
+     3.6
+    ],
+    "tags": [
+     "glass",
+     "hero",
+     "metal-iron-cast",
+     "pirate",
+     "qua",
+     "sailing",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#dbae80",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "house-3",
+    "wdh": [
+     3.25,
+     1.45,
+     4.1
+    ],
+    "tags": [
+     "glass",
+     "hero",
+     "metal-iron-cast",
+     "pirate",
+     "qua",
+     "rope",
+     "sailing",
+     "special",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-1-a",
+    "wdh": [
+     1.05,
+     0.9,
+     0.9
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-1-b",
+    "wdh": [
+     1.05,
+     1.4,
+     0.9
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-1-c",
+    "wdh": [
+     1.05,
+     1.4,
+     0.9
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-2-a",
+    "wdh": [
+     1.1,
+     1.4,
+     0.9
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-1-a",
+    "wdh": [
+     1.05,
+     1.05,
+     0.95
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-1-b",
+    "wdh": [
+     1.35,
+     1.4,
+     1.15
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-1-c",
+    "wdh": [
+     1.05,
+     1.4,
+     1.45
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-2-a",
+    "wdh": [
+     1.05,
+     0.95,
+     1.15
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-3-a",
+    "wdh": [
+     0.8,
+     0.8,
+     0.7
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "house-a",
+    "wdh": [
+     1.4,
+     0.9,
+     1.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "house-b",
+    "wdh": [
+     1.4,
+     0.9,
+     1.4
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "village",
+    "model": "house-c",
+    "wdh": [
+     1.1,
+     0.9,
+     1.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
     ]
    }
   ]
@@ -23518,6 +24184,22 @@
     ],
     "colors": [
      "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "jetty-deck",
+    "wdh": [
+     0.65,
+     1.8,
+     0.05
+    ],
+    "tags": [
+     "sailing",
+     "wood-planks"
+    ],
+    "colors": [
      "#dbae80"
     ]
    },
@@ -24808,6 +25490,50 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "sawmill",
+    "wdh": [
+     1.6,
+     1.3,
+     0.65
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "weapon-shop",
+    "wdh": [
+     2.3,
+     1.3,
+     1.3
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
     "slug": "quat-town",
     "model": "archery-1-a",
     "wdh": [
@@ -25561,6 +26287,91 @@
     "colors": [
      "#8b5936",
      "#8b7561"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "rail-fence-a",
+    "wdh": [
+     0.5,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "rope",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "rail-fence-b",
+    "wdh": [
+     0.5,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "rope",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "rope-fence-long",
+    "wdh": [
+     0.1,
+     0.95,
+     0.2
+    ],
+    "tags": [
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "rope-fence-medium",
+    "wdh": [
+     0.1,
+     0.5,
+     0.2
+    ],
+    "tags": [
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fishing-village",
+    "model": "rope-fence-short",
+    "wdh": [
+     0.1,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
     ]
    },
    {
@@ -26492,6 +27303,74 @@
     ],
     "colors": [
      "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "picket-fence-a",
+    "wdh": [
+     0.5,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "picket-fence-b",
+    "wdh": [
+     0.5,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "picket-fence-c",
+    "wdh": [
+     0.5,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "picket-fence-leaning",
+    "wdh": [
+     0.8,
+     0.05,
+     0.5
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#dbae80"
     ]
    },
    {
@@ -31501,6 +32380,74 @@
     ]
    },
    {
+    "slug": "medieval-village",
+    "model": "rail-curve",
+    "wdh": [
+     0.8,
+     0.65,
+     0.05
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "rail-long",
+    "wdh": [
+     1,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "rail-short",
+    "wdh": [
+     0.35,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "rail-straight",
+    "wdh": [
+     0.65,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936"
+    ]
+   },
+   {
     "slug": "quat-dun-1",
     "model": "floor-bricks-separate",
     "wdh": [
@@ -33162,6 +34109,36 @@
      "#563b2b",
      "#dbae80"
     ]
+   },
+   {
+    "slug": "trees",
+    "model": "stump-a",
+    "wdh": [
+     0.3,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "stump-b",
+    "wdh": [
+     0.4,
+     0.45,
+     0.35
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
    }
   ]
  },
@@ -33325,286 +34302,6 @@
     ],
     "colors": [
      "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
-  "slug": "env-flora-deadwood-branch",
-  "name": "Environment › Flora › Deadwood › Branch",
-  "category": "env-flora",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-branch-a",
-    "wdh": [
-     0.9,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "own",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-branch-b",
-    "wdh": [
-     0.95,
-     0.4,
-     0.15
-    ],
-    "tags": [
-     "own",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-branch-c",
-    "wdh": [
-     0.95,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "own",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "branch-b",
-    "wdh": [
-     0.1,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "branch",
-    "wdh": [
-     0.15,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "tree-branch-2",
-    "wdh": [
-     0.1,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "tree-branch-3",
-    "wdh": [
-     0.15,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "tree-branch-4",
-    "wdh": [
-     0.15,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "tree-branch",
-    "wdh": [
-     0.15,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "jelly-forest",
-    "model": "log",
-    "wdh": [
-     0.25,
-     0.4,
-     0.3
-    ],
-    "tags": [
-     "ngons",
-     "wood-bark",
-     "wood-log"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "branch-1",
-    "wdh": [
-     0.8,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "own",
-     "robin-hood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "branch-2",
-    "wdh": [
-     0.95,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "own",
-     "robin-hood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "branch-3",
-    "wdh": [
-     0.95,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "own",
-     "robin-hood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "quat-nature",
-    "model": "log-moss",
-    "wdh": [
-     0.35,
-     1.05,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "qua",
-     "special",
-     "vegetation",
-     "wood-bark"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-nature",
-    "model": "log",
-    "wdh": [
-     0.25,
-     1.05,
-     0.3
-    ],
-    "tags": [
-     "qua",
-     "wood",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927",
-     "#d8d1bd",
-     "#dbae80"
     ]
    }
   ]
@@ -33893,6 +34590,335 @@
      "#23562c",
      "#563b2b"
     ]
+   },
+   {
+    "slug": "trees",
+    "model": "banana-tree",
+    "wdh": [
+     1.25,
+     0.3,
+     1.25
+    ],
+    "tags": [
+     "foliage",
+     "wood-bark",
+     "wood-log"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "env-flora-deadwood-branch",
+  "name": "Environment › Flora › Deadwood › Branch",
+  "category": "env-flora",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-branch-a",
+    "wdh": [
+     0.9,
+     0.4,
+     0.05
+    ],
+    "tags": [
+     "own",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-branch-b",
+    "wdh": [
+     0.95,
+     0.4,
+     0.15
+    ],
+    "tags": [
+     "own",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-branch-c",
+    "wdh": [
+     0.95,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "own",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "branch-b",
+    "wdh": [
+     0.1,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "branch",
+    "wdh": [
+     0.15,
+     0.45,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "tree-branch-2",
+    "wdh": [
+     0.1,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "tree-branch-3",
+    "wdh": [
+     0.15,
+     0.45,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "tree-branch-4",
+    "wdh": [
+     0.15,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "tree-branch",
+    "wdh": [
+     0.15,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "jelly-forest",
+    "model": "log",
+    "wdh": [
+     0.25,
+     0.4,
+     0.3
+    ],
+    "tags": [
+     "ngons",
+     "wood-bark",
+     "wood-log"
+    ],
+    "colors": [
+     "#563b2b",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "branch-1",
+    "wdh": [
+     0.8,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "own",
+     "robin-hood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "branch-2",
+    "wdh": [
+     0.95,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "own",
+     "robin-hood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "branch-3",
+    "wdh": [
+     0.95,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "own",
+     "robin-hood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "quat-nature",
+    "model": "log-moss",
+    "wdh": [
+     0.35,
+     1.05,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "qua",
+     "special",
+     "vegetation",
+     "wood-bark"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-nature",
+    "model": "log",
+    "wdh": [
+     0.25,
+     1.05,
+     0.3
+    ],
+    "tags": [
+     "qua",
+     "wood",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "log-cut",
+    "wdh": [
+     0.9,
+     0.85,
+     0.3
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "log-fallen",
+    "wdh": [
+     1.95,
+     0.55,
+     0.65
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
    }
   ]
  },
@@ -34167,6 +35193,76 @@
     "colors": [
      "#68872d",
      "#7f3927"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "cactus-flowering-round",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "cactus-flowering-tall",
+    "wdh": [
+     0.45,
+     0.45,
+     0.55
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "cactus-round",
+    "wdh": [
+     0.45,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "cactus-tall",
+    "wdh": [
+     0.45,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#dbae80"
     ]
    }
   ]
@@ -34487,6 +35583,76 @@
      "#68872d",
      "#dbae80"
     ]
+   },
+   {
+    "slug": "trees",
+    "model": "palm-a",
+    "wdh": [
+     0.9,
+     0.8,
+     1.35
+    ],
+    "tags": [
+     "foliage",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "palm-b",
+    "wdh": [
+     0.9,
+     0.9,
+     1.3
+    ],
+    "tags": [
+     "foliage",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "palm-bent",
+    "wdh": [
+     1.25,
+     0.8,
+     1.2
+    ],
+    "tags": [
+     "foliage",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "palm-young",
+    "wdh": [
+     0.85,
+     1.05,
+     0.6
+    ],
+    "tags": [
+     "foliage",
+     "stone-rock",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d",
+     "#88848a"
+    ]
    }
   ]
  },
@@ -34502,6 +35668,21 @@
    "tpu.max": 10000
   },
   "items": [
+   {
+    "slug": "arena-pack",
+    "model": "grass-tuft",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
    {
     "slug": "fs-terrain",
     "model": "hilly-prop-grass-clump-a",
@@ -34868,924 +36049,6 @@
     ],
     "colors": [
      "#68872d"
-    ]
-   }
-  ]
- },
- {
-  "slug": "env-flora-plant",
-  "name": "Environment › Flora › Plant",
-  "category": "env-flora",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-pack",
-    "model": "plant-a",
-    "wdh": [
-     0.4,
-     0.45,
-     0.6
-    ],
-    "tags": [
-     "asia",
-     "foliage",
-     "wizp"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plant-b",
-    "wdh": [
-     0.45,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "asia",
-     "foliage",
-     "vegetation",
-     "wizp"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plant-c",
-    "wdh": [
-     0.45,
-     0.45,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "foliage",
-     "wizp"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "asia-pack",
-    "model": "plant-d",
-    "wdh": [
-     0.45,
-     0.45,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "vegetation",
-     "wizp"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-cattail-a",
-    "wdh": [
-     0.05,
-     0.05,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-cattail-b",
-    "wdh": [
-     0.05,
-     0.05,
-     0.5
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "monstera-plant-medium",
-    "wdh": [
-     0.5,
-     0.55,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "monstera-plant-small",
-    "wdh": [
-     0.3,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "pothos-plant-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "sansevieria-plant-large",
-    "wdh": [
-     0.3,
-     0.4,
-     0.65
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "sansevieria-plant-medium",
-    "wdh": [
-     0.3,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "sansevieria-plant-small",
-    "wdh": [
-     0.15,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "yucca-branch-medium-a",
-    "wdh": [
-     0.3,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "isa",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "yucca-branch-medium-b",
-    "wdh": [
-     0.3,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "isa",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "yucca-branch-medium-c",
-    "wdh": [
-     0.3,
-     0.25,
-     0.45
-    ],
-    "tags": [
-     "foliage",
-     "isa",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "yucca-plant-small",
-    "wdh": [
-     0.25,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "isa",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "model": "zzplant-plant-small",
-    "wdh": [
-     0.1,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "isa"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "kay-forest",
-    "model": "bush-1-e",
-    "wdh": [
-     0.45,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "kay"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "kay-forest",
-    "model": "bush-1-f",
-    "wdh": [
-     0.7,
-     0.55,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "kay"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "cattail-1",
-    "wdh": [
-     0.05,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "cattail-2",
-    "wdh": [
-     0.05,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "cattail-3",
-    "wdh": [
-     0.05,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "cattail-4",
-    "wdh": [
-     0.05,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "cattail-5",
-    "wdh": [
-     0.05,
-     0.05,
-     0.35
-    ],
-    "tags": [
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
-  "slug": "env-flora-plant-flower",
-  "name": "Environment › Flora › Plant › Flower",
-  "category": "env-flora",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "lily",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "foliage"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-daisy",
-    "wdh": [
-     0.15,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-lily-blue",
-    "wdh": [
-     0.15,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-lily-pink",
-    "wdh": [
-     0.15,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#343745",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-rose",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-sunflower",
-    "wdh": [
-     0.2,
-     0.15,
-     0.4
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#343745",
-     "#68872d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "model": "hilly-prop-flower-tulip",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-park",
-    "model": "flower-a",
-    "wdh": [
-     0.1,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-park",
-    "model": "flower-b",
-    "wdh": [
-     0.1,
-     0.05,
-     0.05
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "flax-flower-a",
-    "wdh": [
-     0.15,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "kay",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "flax-flower-b",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "kay",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-balloon-1",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-balloon-2",
-    "wdh": [
-     0.2,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-balloon-3",
-    "wdh": [
-     0.2,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-bellflower-1",
-    "wdh": [
-     0.1,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-bellflower-2",
-    "wdh": [
-     0.15,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-bellflower-3",
-    "wdh": [
-     0.15,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-daisy-1",
-    "wdh": [
-     0.15,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-daisy-2",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-daisy-3",
-    "wdh": [
-     0.15,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-sunflower-1",
-    "wdh": [
-     0.3,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-sunflower-2",
-    "wdh": [
-     0.2,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-sunflower-3",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-violet-1",
-    "wdh": [
-     0.2,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-violet-2",
-    "wdh": [
-     0.2,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "flower-violet-3",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "foliage",
-     "own",
-     "vegetation"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#d07b56"
     ]
    }
   ]
@@ -36294,6 +36557,1003 @@
     "colors": [
      "#23562c",
      "#563b2b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "env-flora-plant",
+  "name": "Environment › Flora › Plant",
+  "category": "env-flora",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-pack",
+    "model": "plant-a",
+    "wdh": [
+     0.4,
+     0.45,
+     0.6
+    ],
+    "tags": [
+     "asia",
+     "foliage",
+     "wizp"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plant-b",
+    "wdh": [
+     0.45,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "asia",
+     "foliage",
+     "vegetation",
+     "wizp"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plant-c",
+    "wdh": [
+     0.45,
+     0.45,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "foliage",
+     "wizp"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "asia-pack",
+    "model": "plant-d",
+    "wdh": [
+     0.45,
+     0.45,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "vegetation",
+     "wizp"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-cattail-a",
+    "wdh": [
+     0.05,
+     0.05,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-cattail-b",
+    "wdh": [
+     0.05,
+     0.05,
+     0.5
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "monstera-plant-medium",
+    "wdh": [
+     0.5,
+     0.55,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "monstera-plant-small",
+    "wdh": [
+     0.3,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "pothos-plant-small",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "sansevieria-plant-large",
+    "wdh": [
+     0.3,
+     0.4,
+     0.65
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "sansevieria-plant-medium",
+    "wdh": [
+     0.3,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "sansevieria-plant-small",
+    "wdh": [
+     0.15,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "yucca-branch-medium-a",
+    "wdh": [
+     0.3,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "isa",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "yucca-branch-medium-b",
+    "wdh": [
+     0.3,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "isa",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "yucca-branch-medium-c",
+    "wdh": [
+     0.3,
+     0.25,
+     0.45
+    ],
+    "tags": [
+     "foliage",
+     "isa",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "yucca-plant-small",
+    "wdh": [
+     0.25,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "isa",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "model": "zzplant-plant-small",
+    "wdh": [
+     0.1,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "isa"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "kay-forest",
+    "model": "bush-1-e",
+    "wdh": [
+     0.45,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "kay"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "kay-forest",
+    "model": "bush-1-f",
+    "wdh": [
+     0.7,
+     0.55,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "kay"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "cattail-1",
+    "wdh": [
+     0.05,
+     0.05,
+     0.2
+    ],
+    "tags": [
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "cattail-2",
+    "wdh": [
+     0.05,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "cattail-3",
+    "wdh": [
+     0.05,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "cattail-4",
+    "wdh": [
+     0.05,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "cattail-5",
+    "wdh": [
+     0.05,
+     0.05,
+     0.35
+    ],
+    "tags": [
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "leafy-plant",
+    "wdh": [
+     0.65,
+     0.7,
+     0.45
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "lilypad-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "lilypad-b",
+    "wdh": [
+     0.2,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "env-flora-plant-flower",
+  "name": "Environment › Flora › Plant › Flower",
+  "category": "env-flora",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "lily",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-daisy",
+    "wdh": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-lily-blue",
+    "wdh": [
+     0.15,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-lily-pink",
+    "wdh": [
+     0.15,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#343745",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-rose",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-sunflower",
+    "wdh": [
+     0.2,
+     0.15,
+     0.4
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#343745",
+     "#68872d",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "hilly-prop-flower-tulip",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-park",
+    "model": "flower-a",
+    "wdh": [
+     0.1,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-park",
+    "model": "flower-b",
+    "wdh": [
+     0.1,
+     0.05,
+     0.05
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "flax-flower-a",
+    "wdh": [
+     0.15,
+     0.1,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "kay",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "flax-flower-b",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "kay",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-balloon-1",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-balloon-2",
+    "wdh": [
+     0.2,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-balloon-3",
+    "wdh": [
+     0.2,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-bellflower-1",
+    "wdh": [
+     0.1,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-bellflower-2",
+    "wdh": [
+     0.15,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-bellflower-3",
+    "wdh": [
+     0.15,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-daisy-1",
+    "wdh": [
+     0.15,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-daisy-2",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-daisy-3",
+    "wdh": [
+     0.15,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-sunflower-1",
+    "wdh": [
+     0.3,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-sunflower-2",
+    "wdh": [
+     0.2,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-sunflower-3",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-violet-1",
+    "wdh": [
+     0.2,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-violet-2",
+    "wdh": [
+     0.2,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "flower-violet-3",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "foliage",
+     "own",
+     "vegetation"
+    ],
+    "colors": [
+     "#1367a6",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "waterlily-white",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "waterlily-yellow",
+    "wdh": [
+     0.25,
+     0.25,
+     0.05
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#f2a93c"
     ]
    }
   ]
@@ -36992,6 +38252,85 @@
     ],
     "colors": [
      "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "dead-tree-a",
+    "wdh": [
+     0.55,
+     0.7,
+     2.15
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "dead-tree-b",
+    "wdh": [
+     0.6,
+     0.45,
+     1.75
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "dead-tree-c",
+    "wdh": [
+     0.7,
+     0.4,
+     2.25
+    ],
+    "tags": [
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "dead-tree-spiked-a",
+    "wdh": [
+     0.6,
+     0.65,
+     1.35
+    ],
+    "tags": [
+     "halloween",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "trees",
+    "model": "dead-tree-spiked-b",
+    "wdh": [
+     0.7,
+     0.6,
+     1.35
+    ],
+    "tags": [
+     "bone",
+     "halloween",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#d8d1bd"
     ]
    }
   ]
@@ -40786,6 +42125,36 @@
     ],
     "tags": [
      "ken",
+     "stone-rock"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "rock-a",
+    "wdh": [
+     0.85,
+     0.65,
+     0.75
+    ],
+    "tags": [
+     "stone-rock"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "medieval-village",
+    "model": "rock-b",
+    "wdh": [
+     0.45,
+     0.5,
+     0.35
+    ],
+    "tags": [
      "stone-rock"
     ],
     "colors": [
