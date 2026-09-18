@@ -322,7 +322,7 @@ const PAKKETTEN = [
       },
       {
         naam: 'pipes', bronmodel: 'Pipes', kind: 'obj-resource-metal', tags: ['plural', 'ngons'],
-        kleuren: { '#8b8569': paintGreen, '#5c5c5c': cast, '#caa507': paintYellow, '*': cast },
+        kleuren: { '#8b8569': steel, '#5c5c5c': cast, '#caa507': paintYellow, '*': cast },
       },
       {
         naam: 'trash-bag', bronmodel: 'Trash Bag', kind: 'obj-container-bag', tags: [],

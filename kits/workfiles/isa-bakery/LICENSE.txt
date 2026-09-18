@@ -61,22 +61,24 @@
 	That sheet is not carried over — every source cell is mapped to a cell of
 	the shared kits/colormap.png and each triangle keeps its place inside the
 	cell, so the baked light-to-dark reading survives. A base row and its
-	shadow row are one source colour and land on one band.
+	shadow row are one source colour: the pair is read as a single ramp, so the
+	shadow row stays darker than the base row it belongs to.
 
   white          -> ceramic, ivory          brown wood -> wood-beam, chestnut
   light blue     -> ceramic, terracotta     tan wood   -> wood-worked, camel
   grey           -> metal-iron-steel        cream      -> ceramic/food, ivory
   baked crust    -> food, camel             raw dough  -> food, tan
-  blue check     -> textile, hunter         white cloth-> textile, ivory
+  blue check     -> textile, taupe          white cloth-> textile, ivory
 
 	Blue has no ceramic or textile band — those palettes hold ivory, terracotta,
 	taupe and sienna, and ivory, hunter, taupe and sienna (§5.1) — so the blue
 	mug reads as taupe and is named for it, the blue plate pattern as
-	terracotta, and the blue rug and tray cloth as hunter.
+	terracotta, and the blue rug and tray cloth as taupe against the ivory they
+	are striped and checked with.
 
 	`cookie` is a jam-filled biscuit; B37 holds a `obj-food-grain` to tan,
 	camel and chestnut, so the jam reads as chestnut. The flour sacks are
-	`vegetation` on tan and camel for the same reason: a textile band would
+	`vegetation` on camel and tan for the same reason: a textile band would
 	break B37.
 
 	The glass dome on `pastry-stand-covered` is `glass`, which is not
