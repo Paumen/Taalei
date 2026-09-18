@@ -107,6 +107,11 @@
    "url": "https://www.kaylousberg.com"
   },
   {
+   "slug": "kay-builder",
+   "name": "kay-builder",
+   "url": "https://www.kaylousberg.com"
+  },
+  {
    "slug": "kay-dun-1",
    "name": "kay-dun-1",
    "url": "https://www.kaylousberg.com"
@@ -159,6 +164,11 @@
   {
    "slug": "kay-skeleton-1",
    "name": "kay-skeleton-1",
+   "url": "https://www.kaylousberg.com"
+  },
+  {
+   "slug": "kay-spook",
+   "name": "kay-spook",
    "url": "https://www.kaylousberg.com"
   },
   {
@@ -5690,6 +5700,153 @@
     "medieval-village/crate-a",
     "medieval-village/crate-b"
    ]
+  },
+  {
+   "id": "v557",
+   "type": "maatvariant",
+   "main": "kay-spook/candle-large",
+   "members": [
+    "kay-spook/candle-small",
+    "kay-spook/candle-large"
+   ]
+  },
+  {
+   "id": "v558",
+   "type": "detail-variant",
+   "main": "kay-spook/candy-a",
+   "members": [
+    "kay-spook/candy-a",
+    "kay-spook/candy-b"
+   ]
+  },
+  {
+   "id": "v559",
+   "type": "color-variant",
+   "main": "kay-spook/coffin-a",
+   "members": [
+    "kay-spook/coffin-a",
+    "kay-spook/coffin-b"
+   ]
+  },
+  {
+   "id": "v560",
+   "type": "color-variant",
+   "main": "kay-spook/coffin-a-lid",
+   "members": [
+    "kay-spook/coffin-a-lid",
+    "kay-spook/coffin-b-lid"
+   ]
+  },
+  {
+   "id": "v561",
+   "type": "maatvariant",
+   "main": "kay-spook/jackolantern-large",
+   "members": [
+    "kay-spook/jackolantern-large",
+    "kay-spook/jackolantern-small"
+   ]
+  },
+  {
+   "id": "v562",
+   "type": "maatvariant",
+   "main": "kay-spook/pumpkin-large",
+   "members": [
+    "kay-spook/pumpkin-large",
+    "kay-spook/pumpkin-small"
+   ]
+  },
+  {
+   "id": "v563",
+   "type": "detail-variant",
+   "main": "kay-spook/tree-dead-a",
+   "members": [
+    "kay-spook/tree-dead-a",
+    "kay-spook/tree-dead-b",
+    "kay-spook/tree-dead-c",
+    "kay-spook/tree-dead-d"
+   ]
+  },
+  {
+   "id": "v564",
+   "type": "detail-variant",
+   "main": "kay-minigame/plant-a",
+   "members": [
+    "kay-minigame/plant-a",
+    "kay-minigame/plant-b"
+   ]
+  },
+  {
+   "id": "v565",
+   "type": "detail-variant",
+   "main": "kay-minigame/rocks-a",
+   "members": [
+    "kay-minigame/rocks-a",
+    "kay-minigame/rocks-b"
+   ]
+  },
+  {
+   "id": "v566",
+   "type": "detail-variant",
+   "main": "kay-minigame/target-stand",
+   "members": [
+    "kay-minigame/target",
+    "kay-minigame/target-stand"
+   ]
+  },
+  {
+   "id": "v567",
+   "type": "detail-variant",
+   "main": "kay-builder/tree-b",
+   "members": [
+    "kay-builder/tree-a",
+    "kay-builder/tree-b",
+    "kay-builder/tree-c"
+   ]
+  },
+  {
+   "id": "v568",
+   "type": "maatvariant",
+   "main": "kay-builder/rocks",
+   "members": [
+    "kay-builder/rocks",
+    "kay-builder/rocks-small"
+   ]
+  },
+  {
+   "id": "v569",
+   "type": "detail-variant",
+   "main": "kay-builder/forest-detail-a",
+   "members": [
+    "kay-builder/forest-detail-a",
+    "kay-builder/forest-detail-b"
+   ]
+  },
+  {
+   "id": "v570",
+   "type": "detail-variant",
+   "main": "kay-builder/wall-hex-corner-a",
+   "members": [
+    "kay-builder/wall-hex-corner-a",
+    "kay-builder/wall-hex-corner-b"
+   ]
+  },
+  {
+   "id": "v571",
+   "type": "detail-variant",
+   "main": "kay-builder/wall-gate",
+   "members": [
+    "kay-builder/wall-gate",
+    "kay-builder/wall-gate-closed"
+   ]
+  },
+  {
+   "id": "v572",
+   "type": "detail-variant",
+   "main": "kay-builder/bridge",
+   "members": [
+    "kay-builder/bridge",
+    "kay-builder/bridge-roofed"
+   ]
   }
  ],
  "tags": [
@@ -5698,7 +5855,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 11
+   "count": 13
   },
   {
    "id": "metal-iron",
@@ -5713,7 +5870,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 318,
+   "count": 324,
    "parent": "metal-iron"
   },
   {
@@ -5729,7 +5886,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 146,
+   "count": 154,
    "parent": "metal-iron"
   },
   {
@@ -5737,7 +5894,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 108,
+   "count": 109,
    "parent": "metal"
   },
   {
@@ -5768,7 +5925,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 457,
+   "count": 463,
    "parent": "wood"
   },
   {
@@ -5776,7 +5933,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 681,
+   "count": 699,
    "parent": "wood"
   },
   {
@@ -5792,7 +5949,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 181,
+   "count": 193,
    "parent": "wood"
   },
   {
@@ -5807,7 +5964,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 412,
+   "count": 437,
    "parent": "stone"
   },
   {
@@ -5815,7 +5972,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains. Hewn stone is stone-masonry.",
-   "count": 212,
+   "count": 220,
    "parent": "stone"
   },
   {
@@ -5823,7 +5980,7 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose ground and loose dirt: sand and dirt patches, dirt floors and tiles, the soil filling a plant pot. Laid paving is stone-masonry.",
-   "count": 24,
+   "count": 34,
    "parent": "stone"
   },
   {
@@ -5838,28 +5995,28 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 262
+   "count": 277
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 106
+   "count": 107
   },
   {
    "id": "foliage",
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 227
+   "count": 238
   },
   {
    "id": "ceramic",
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 264
+   "count": 273
   },
   {
    "id": "bone",
@@ -5873,21 +6030,21 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 152
+   "count": 156
   },
   {
    "id": "wax",
    "name": "Wax",
    "type": "material",
    "description": "Candle wax, lit or unlit, loose or on a holder.",
-   "count": 27
+   "count": 30
   },
   {
    "id": "wick",
    "name": "Wick",
    "type": "material",
    "description": "The wick of a candle, lamp or lantern: the cord that stands out of the wax, lit or unlit.",
-   "count": 21
+   "count": 24
   },
   {
    "id": "glass",
@@ -5901,21 +6058,21 @@
    "name": "Liquid",
    "type": "material",
    "description": "What a vessel visibly holds: the potion in a flask. Not the vessel itself.",
-   "count": 33
+   "count": 35
   },
   {
    "id": "emissive",
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 33
+   "count": 36
   },
   {
    "id": "rope",
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 90
+   "count": 91
   },
   {
    "id": "cork",
@@ -5929,7 +6086,7 @@
    "name": "Gemstone",
    "type": "material",
    "description": "A cut stone set in jewellery or a hilt.",
-   "count": 34
+   "count": 35
   },
   {
    "id": "special",
@@ -5944,7 +6101,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 87
+   "count": 91
   },
   {
    "id": "skin",
@@ -5958,7 +6115,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1215,
+   "count": 1235,
    "color": "#c07c8a"
   },
   {
@@ -5966,7 +6123,7 @@
    "name": "Container",
    "type": "kind",
    "description": "basket, tub, trough, bin, can, coffin",
-   "count": 234,
+   "count": 238,
    "color": "#dd9f79"
   },
   {
@@ -6052,7 +6209,7 @@
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
-   "count": 129,
+   "count": 135,
    "color": "#c25b4e"
   },
   {
@@ -6074,7 +6231,7 @@
    "name": "Vegetable",
    "type": "kind",
    "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
-   "count": 28
+   "count": 32
   },
   {
    "id": "obj-furniture",
@@ -6138,7 +6295,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 158,
+   "count": 159,
    "color": "#9c3f2e"
   },
   {
@@ -6146,7 +6303,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle, cutting board",
-   "count": 64
+   "count": 65
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -6160,7 +6317,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 29
+   "count": 30
   },
   {
    "id": "obj-kitchenware-tableware",
@@ -6209,7 +6366,7 @@
    "name": "Lighting",
    "type": "kind",
    "description": "chandelier, streetlight",
-   "count": 46,
+   "count": 49,
    "color": "#f2cb45"
   },
   {
@@ -6217,7 +6374,7 @@
    "name": "Candle",
    "type": "kind",
    "description": "candle, candlestick, candelabra",
-   "count": 13
+   "count": 16
   },
   {
    "id": "obj-lighting-campfire",
@@ -6245,7 +6402,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 86,
+   "count": 87,
    "color": "#f1976c"
   },
   {
@@ -6410,7 +6567,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 167,
+   "count": 170,
    "color": "#4c5468"
   },
   {
@@ -6432,7 +6589,7 @@
    "name": "Melee",
    "type": "kind",
    "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 81
+   "count": 82
   },
   {
    "id": "obj-weapon-melee-axe",
@@ -6460,28 +6617,28 @@
    "name": "Sword",
    "type": "kind",
    "description": "sword, blade, rapier, scimitar, katana",
-   "count": 23
+   "count": 24
   },
   {
    "id": "obj-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
-   "count": 55
+   "count": 57
   },
   {
    "id": "obj-weapon-ranged-accessory",
    "name": "Accessory",
    "type": "kind",
    "description": "arrow, bolt, quiver",
-   "count": 22
+   "count": 23
   },
   {
    "id": "obj-weapon-ranged-bow",
    "name": "Bow",
    "type": "kind",
    "description": "bow, longbow",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-weapon-ranged-crossbow",
@@ -6495,7 +6652,7 @@
    "name": "Character",
    "type": "kind",
    "description": "playable, npc, skeleton (rigged), animal (rigged)",
-   "count": 21,
+   "count": 22,
    "color": "#8a6fb0"
   },
   {
@@ -6503,7 +6660,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 544,
+   "count": 562,
    "color": "#6cb588"
   },
   {
@@ -6519,7 +6676,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 265,
+   "count": 277,
    "color": "#6cb588"
   },
   {
@@ -6527,14 +6684,14 @@
    "name": "Deadwood",
    "type": "kind",
    "description": "dead tree, fallen tree, root",
-   "count": 73
+   "count": 78
   },
   {
    "id": "env-flora-deadwood-branch",
    "name": "Branch",
    "type": "kind",
    "description": "branch, twig, log, driftwood",
-   "count": 17
+   "count": 18
   },
   {
    "id": "env-flora-deadwood-stump",
@@ -6548,7 +6705,7 @@
    "name": "Plant",
    "type": "kind",
    "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
-   "count": 121
+   "count": 124
   },
   {
    "id": "env-flora-plant-cactus",
@@ -6576,14 +6733,14 @@
    "name": "Tree",
    "type": "kind",
    "description": "tree, oak, birch, willow, bush (tree-sized)",
-   "count": 71
+   "count": 75
   },
   {
    "id": "env-flora-tree-conifer",
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 28
+   "count": 29
   },
   {
    "id": "env-flora-tree-palm",
@@ -6620,7 +6777,7 @@
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
-   "count": 189,
+   "count": 193,
    "color": "#9da4c4"
   },
   {
@@ -6628,7 +6785,7 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 116
+   "count": 120
   },
   {
    "id": "env-rock-formation",
@@ -6649,7 +6806,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 22,
+   "count": 24,
    "color": "#8a5d4b"
   },
   {
@@ -6657,14 +6814,14 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, dirt path, stone path, sand, snow patch",
-   "count": 15
+   "count": 16
   },
   {
    "id": "env-terrain-mountain",
    "name": "Mountain",
    "type": "kind",
    "description": "mountain, hill, mesa, volcano",
-   "count": 7
+   "count": 8
   },
   {
    "id": "env-water",
@@ -6679,7 +6836,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace",
-   "count": 817,
+   "count": 844,
    "color": "#877a63"
   },
   {
@@ -6687,7 +6844,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 47,
+   "count": 49,
    "color": "#c98a5a"
   },
   {
@@ -6695,7 +6852,7 @@
    "name": "Bridge",
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
-   "count": 13
+   "count": 15
   },
   {
    "id": "str-access-ladder",
@@ -6716,7 +6873,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
-   "count": 112,
+   "count": 117,
    "color": "#b08968"
   },
   {
@@ -6724,7 +6881,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "fence, fence segment, railing, palisade, gate (fence)",
-   "count": 96
+   "count": 101
   },
   {
    "id": "str-barrier-post",
@@ -6738,7 +6895,7 @@
    "name": "Building",
    "type": "kind",
    "description": "watermill, sawmill, gazebo, well",
-   "count": 148,
+   "count": 157,
    "color": "#7d4f3a"
   },
   {
@@ -6746,7 +6903,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 361,
+   "count": 367,
    "color": "#a8762a"
   },
   {
@@ -6754,7 +6911,7 @@
    "name": "Door",
    "type": "kind",
    "description": "door, gate (building), hatch",
-   "count": 53
+   "count": 55
   },
   {
    "id": "str-part-floor",
@@ -6789,7 +6946,7 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 87
+   "count": 91
   },
   {
    "id": "str-part-window",
@@ -6803,7 +6960,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 62,
+   "count": 64,
    "color": "#ffb349"
   },
   {
@@ -6811,7 +6968,7 @@
    "name": "Flag",
    "type": "kind",
    "description": "flag, banner, pennant",
-   "count": 11
+   "count": 12
   },
   {
    "id": "str-marker-sign",
@@ -6825,7 +6982,7 @@
    "name": "Tombstone",
    "type": "kind",
    "description": "tombstone, gravestone, cross (grave), memorial",
-   "count": 43
+   "count": 44
   },
   {
    "id": "str-platform",
@@ -6854,7 +7011,7 @@
    "name": "Stands",
    "type": "kind",
    "description": "tent, stall, market stand, awning, canopy",
-   "count": 30,
+   "count": 31,
    "color": "#d8a05a"
   },
   {
@@ -6862,7 +7019,7 @@
    "name": "Assembly",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 71,
+   "count": 74,
    "color": "#b5651d"
   },
   {
@@ -6877,7 +7034,7 @@
    "name": "Halloween",
    "type": "tag",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
-   "count": 340
+   "count": 368
   },
   {
    "id": "robin-hood",
@@ -6899,21 +7056,21 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 3
+   "count": 5
   },
   {
    "id": "plural",
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 133
+   "count": 144
   },
   {
    "id": "pickup",
    "name": "Pickup",
    "type": "tag",
    "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
-   "count": 60
+   "count": 61
   },
   {
    "id": "broken",
@@ -6941,7 +7098,7 @@
    "name": "Grave",
    "type": "tag",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
-   "count": 132
+   "count": 149
   },
   {
    "id": "sailing",
@@ -6976,56 +7133,56 @@
    "name": "Tower",
    "type": "kind",
    "description": "Tower-form building: tower, watchtower, belltower, lighthouse, mill, windmill, church, pagoda, granary.",
-   "count": 19
+   "count": 20
   },
   {
    "id": "str-building-mill",
    "name": "Mill",
    "type": "kind",
    "description": "Building that mills or saws by wind or water: mill, windmill, watermill, sawmill, lumbermill.",
-   "count": 15
+   "count": 18
   },
   {
    "id": "str-building-well",
    "name": "Well",
    "type": "kind",
    "description": "Well: a shaft sunk for water, with its housing.",
-   "count": 4
+   "count": 5
   },
   {
    "id": "str-building-dwelling",
    "name": "Dwelling",
    "type": "kind",
    "description": "Building lived in: house (whole), hut, cottage, inn.",
-   "count": 42
+   "count": 43
   },
   {
    "id": "str-building-fort",
    "name": "Fort",
    "type": "kind",
    "description": "Fortified or working building: castle, fortress, barracks, stable, blacksmith.",
-   "count": 22
+   "count": 24
   },
   {
    "id": "s",
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1280
+   "count": 1300
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1066
+   "count": 1094
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 322
+   "count": 343
   },
   {
    "id": "ken",
@@ -7039,7 +7196,7 @@
    "name": "KayKit",
    "type": "tag",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 725
+   "count": 737
   },
   {
    "id": "qua",
@@ -44407,6 +44564,1447 @@
    ]
   },
   {
+   "kit": "kay-builder",
+   "name": "archery-range",
+   "kind": "str-building",
+   "size": "l",
+   "wdh": [
+    1.8,
+    1.55,
+    1.55
+   ],
+   "tris": 1668,
+   "tpu": 388,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 63268,
+   "vtx": 1619,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00952,
+   "anglePct": 81,
+   "vpt": 0.97,
+   "grad": 0.42,
+   "spread": {
+    "8,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.203,
+     0.773
+    ],
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "14,3": [
+     0.031,
+     0.047
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "stone-soil",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "barracks",
+   "kind": "str-building-fort",
+   "size": "l",
+   "wdh": [
+    2,
+    1.6,
+    1.3
+   ],
+   "tris": 1960,
+   "tpu": 471,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 88756,
+   "vtx": 2361,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00789,
+   "anglePct": 50,
+   "vpt": 1.2,
+   "grad": 0.41,
+   "spread": {
+    "8,0": [
+     0.031,
+     0.195
+    ],
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "5,2": [
+     0.063,
+     0.297
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "stone-soil",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "bridge-roofed",
+   "kind": "str-access-bridge",
+   "size": "l",
+   "wdh": [
+    2.1,
+    0.75,
+    1.35
+   ],
+   "tris": 480,
+   "tpu": 233,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 20772,
+   "vtx": 514,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.02483,
+   "anglePct": 57,
+   "vpt": 1.07,
+   "grad": 0.46,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "8,0": [
+     0.031,
+     0.195
+    ],
+    "2,0": [
+     0.32,
+     0.32
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "wood-beam"
+   ],
+   "variant": "v572"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "bridge",
+   "kind": "str-access-bridge",
+   "size": "l",
+   "wdh": [
+    2,
+    0.75,
+    0.8
+   ],
+   "tris": 252,
+   "tpu": 218,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12632,
+   "vtx": 304,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.052,
+   "avgTri": 0.03193,
+   "anglePct": 77,
+   "vpt": 1.21,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.898
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ],
+   "variant": "v572"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "castle",
+   "kind": "str-building-fort",
+   "size": "l",
+   "wdh": [
+    1.8,
+    1.85,
+    2.55
+   ],
+   "tris": 2231,
+   "tpu": 263,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 115276,
+   "vtx": 3139,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.01565,
+   "anglePct": 85,
+   "vpt": 1.41,
+   "grad": 0.52,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ],
+    "2,0": [
+     0.32,
+     0.32
+    ],
+    "8,0": [
+     0.055,
+     0.203
+    ],
+    "5,2": [
+     0.031,
+     0.297
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "farm-plot",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    1.45,
+    1.3,
+    0.45
+   ],
+   "tris": 906,
+   "tpu": 685,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 39904,
+   "vtx": 1032,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01357,
+   "anglePct": 83,
+   "vpt": 1.14,
+   "grad": 0.45,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.125
+    ],
+    "1,0": [
+     0.031,
+     0.586
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#8b7561",
+    "#b58158",
+    "#dbae80"
+   ],
+   "tags": [
+    "plural",
+    "stone-soil",
+    "vegetation",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "forest-detail-a",
+   "kind": "assy",
+   "size": "l",
+   "wdh": [
+    1.85,
+    1.2,
+    0.75
+   ],
+   "tris": 2900,
+   "tpu": 1814,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 75016,
+   "vtx": 1755,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00119,
+   "anglePct": 16,
+   "vpt": 0.61,
+   "grad": 0.19,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "3,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.203,
+     0.445
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#88848a"
+   ],
+   "tags": [
+    "foliage",
+    "plural",
+    "stone-rock",
+    "wood-bark"
+   ],
+   "variant": "v569"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "forest-detail-b",
+   "kind": "assy",
+   "size": "l",
+   "wdh": [
+    1.85,
+    1.35,
+    0.75
+   ],
+   "tris": 1878,
+   "tpu": 1009,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 48980,
+   "vtx": 1133,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00107,
+   "anglePct": 20,
+   "vpt": 0.6,
+   "grad": 0.2,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "3,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.203,
+     0.445
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#88848a"
+   ],
+   "tags": [
+    "foliage",
+    "plural",
+    "stone-rock",
+    "wood-bark"
+   ],
+   "variant": "v569"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "forest",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    1.95,
+    1.9,
+    1.35
+   ],
+   "tris": 2328,
+   "tpu": 468,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 76848,
+   "vtx": 1920,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "avgTri": 0.00683,
+   "anglePct": 1,
+   "vpt": 0.82,
+   "grad": 0.15,
+   "spread": {
+    "3,0": [
+     0.102,
+     0.133
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "plural",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "house",
+   "kind": "str-building-dwelling",
+   "size": "l",
+   "wdh": [
+    1.7,
+    1.65,
+    0.9
+   ],
+   "tris": 1666,
+   "tpu": 652,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 58052,
+   "vtx": 1457,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00708,
+   "anglePct": 73,
+   "vpt": 0.87,
+   "grad": 0.55,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.031
+    ],
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "5,2": [
+     0.063,
+     0.164
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "8,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "stone-soil",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "lumbermill",
+   "kind": "str-building-mill",
+   "size": "l",
+   "wdh": [
+    1.8,
+    1.65,
+    1.45
+   ],
+   "tris": 1698,
+   "tpu": 382,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 70484,
+   "vtx": 1839,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01213,
+   "anglePct": 65,
+   "vpt": 1.08,
+   "grad": 0.41,
+   "spread": {
+    "8,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.203,
+     0.547
+    ],
+    "5,2": [
+     0.031,
+     0.164
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "6,1": [
+     0.047,
+     0.227
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "metal-iron-cast",
+    "stone-masonry",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "market",
+   "kind": "str-stands",
+   "size": "l",
+   "wdh": [
+    1.45,
+    1.65,
+    0.85
+   ],
+   "tris": 1924,
+   "tpu": 905,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 85652,
+   "vtx": 2271,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00665,
+   "anglePct": 65,
+   "vpt": 1.18,
+   "grad": 0.45,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.203
+    ],
+    "15,3": [
+     0.203,
+     0.547
+    ],
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "8,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "stone-soil",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "mill",
+   "kind": "str-building-mill",
+   "size": "l",
+   "wdh": [
+    1.7,
+    1.65,
+    2
+   ],
+   "tris": 2270,
+   "tpu": 407,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 87436,
+   "vtx": 2262,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00498,
+   "anglePct": 62,
+   "vpt": 1,
+   "grad": 0.52,
+   "spread": {
+    "1,0": [
+     0.031,
+     0.586
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "5,2": [
+     0.117,
+     0.164
+    ],
+    "15,3": [
+     0.203,
+     0.547
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "stone-masonry",
+    "stone-soil",
+    "textile",
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "mine",
+   "kind": "str",
+   "size": "l",
+   "wdh": [
+    1.6,
+    1.9,
+    0.85
+   ],
+   "tris": 1735,
+   "tpu": 688,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 66568,
+   "vtx": 1710,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.009,
+   "anglePct": 51,
+   "vpt": 0.99,
+   "grad": 0.68,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "6,1": [
+     0.031,
+     0.953
+    ],
+    "3,0": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#563b2b",
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "stone-rock",
+    "stone-soil",
+    "wood-bark",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "mountain",
+   "kind": "env-terrain-mountain",
+   "size": "l",
+   "wdh": [
+    1.8,
+    1.9,
+    1.2
+   ],
+   "tris": 986,
+   "tpu": 238,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 29208,
+   "vtx": 683,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.01036,
+   "anglePct": 5,
+   "vpt": 0.69,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.898
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "rocks-small",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.55,
+    0.2
+   ],
+   "tris": 552,
+   "tpu": 1609,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15000,
+   "vtx": 320,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00065,
+   "anglePct": 1,
+   "vpt": 0.58,
+   "grad": 0.25,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.453
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "plural",
+    "stone-rock"
+   ],
+   "variant": "v568"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "rocks",
+   "kind": "env-rock-boulder",
+   "size": "l",
+   "wdh": [
+    1.9,
+    1.35,
+    0.55
+   ],
+   "tris": 1102,
+   "tpu": 626,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 29068,
+   "vtx": 657,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00308,
+   "anglePct": 3,
+   "vpt": 0.6,
+   "grad": 0.28,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.484
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "plural",
+    "stone-rock"
+   ],
+   "variant": "v568"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "tree-a",
+   "kind": "env-flora-tree",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.4,
+    0.8
+   ],
+   "tris": 287,
+   "tpu": 751,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11636,
+   "vtx": 265,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00315,
+   "anglePct": 5,
+   "vpt": 0.92,
+   "grad": 0.16,
+   "spread": {
+    "3,0": [
+     0.039,
+     0.195
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ],
+   "variant": "v567"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "tree-b",
+   "kind": "env-flora-tree",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.35,
+    0.75
+   ],
+   "tris": 579,
+   "tpu": 1625,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 16240,
+   "vtx": 354,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.0014,
+   "anglePct": 3,
+   "vpt": 0.61,
+   "grad": 0.16,
+   "spread": {
+    "3,0": [
+     0.055,
+     0.172
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ],
+   "variant": "v567"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "tree-c",
+   "kind": "env-flora-tree",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.4,
+    0.75
+   ],
+   "tris": 337,
+   "tpu": 909,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14696,
+   "vtx": 351,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.00292,
+   "anglePct": 2,
+   "vpt": 1.04,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.203
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "wood-bark"
+   ],
+   "variant": "v567"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-corner",
+   "kind": "str-part-wall",
+   "size": "m",
+   "wdh": [
+    1.4,
+    1.4,
+    1.15
+   ],
+   "tris": 456,
+   "tpu": 208,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 21488,
+   "vtx": 541,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01119,
+   "anglePct": 89,
+   "vpt": 1.19,
+   "grad": 0.62,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.82
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-gate-closed",
+   "kind": "str-part-door",
+   "size": "l",
+   "wdh": [
+    2,
+    0.55,
+    1.15
+   ],
+   "tris": 996,
+   "tpu": 810,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 43336,
+   "vtx": 1122,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00997,
+   "anglePct": 89,
+   "vpt": 1.13,
+   "grad": 0.56,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.836
+    ],
+    "6,1": [
+     0.031,
+     0.234
+    ],
+    "2,0": [
+     0.32,
+     0.32
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "stone-masonry",
+    "wood-beam"
+   ],
+   "variant": "v571"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-gate",
+   "kind": "str-part-door",
+   "size": "l",
+   "wdh": [
+    2,
+    0.55,
+    1.15
+   ],
+   "tris": 972,
+   "tpu": 790,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 42152,
+   "vtx": 1090,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0098,
+   "anglePct": 89,
+   "vpt": 1.12,
+   "grad": 0.57,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.836
+    ],
+    "6,1": [
+     0.031,
+     0.234
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ],
+   "variant": "v571"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-hex-corner-a",
+   "kind": "str-part-wall",
+   "size": "l",
+   "wdh": [
+    1.6,
+    1.3,
+    1.15
+   ],
+   "tris": 482,
+   "tpu": 207,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 22232,
+   "vtx": 559,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01047,
+   "anglePct": 83,
+   "vpt": 1.16,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.813
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ],
+   "variant": "v570"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-hex-corner-b",
+   "kind": "str-part-wall",
+   "size": "m",
+   "wdh": [
+    1.35,
+    1.3,
+    1.15
+   ],
+   "tris": 350,
+   "tpu": 174,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17920,
+   "vtx": 449,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01386,
+   "anglePct": 84,
+   "vpt": 1.28,
+   "grad": 0.62,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.82
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ],
+   "variant": "v570"
+  },
+  {
+   "kit": "kay-builder",
+   "name": "wall-straight",
+   "kind": "str-part-wall",
+   "size": "l",
+   "wdh": [
+    2,
+    0.55,
+    1.15
+   ],
+   "tris": 478,
+   "tpu": 389,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 22008,
+   "vtx": 553,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.01067,
+   "anglePct": 89,
+   "vpt": 1.16,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.805
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "watchtower",
+   "kind": "str-building-tower",
+   "size": "l",
+   "wdh": [
+    0.95,
+    1.7,
+    2
+   ],
+   "tris": 1871,
+   "tpu": 569,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 71620,
+   "vtx": 1842,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00528,
+   "anglePct": 21,
+   "vpt": 0.98,
+   "grad": 0.33,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.547
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ],
+    "14,3": [
+     0.031,
+     0.039
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "stone-masonry",
+    "stone-soil",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "watermill",
+   "kind": "str-building-mill",
+   "size": "l",
+   "wdh": [
+    1.55,
+    1.4,
+    1.6
+   ],
+   "tris": 1605,
+   "tpu": 461,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 71204,
+   "vtx": 1879,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00967,
+   "anglePct": 72,
+   "vpt": 1.17,
+   "grad": 0.55,
+   "spread": {
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "15,3": [
+     0.203,
+     0.898
+    ],
+    "5,2": [
+     0.055,
+     0.297
+    ],
+    "8,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "stone-masonry",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-builder",
+   "name": "well",
+   "kind": "str-building-well",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.75
+   ],
+   "tris": 1252,
+   "tpu": 1639,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 46416,
+   "vtx": 1171,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00273,
+   "anglePct": 52,
+   "vpt": 0.94,
+   "grad": 0.58,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.961
+    ],
+    "2,0": [
+     0.031,
+     0.617
+    ],
+    "8,0": [
+     0.031,
+     0.211
+    ],
+    "4,2": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "ceramic",
+    "liquid",
+    "stone-masonry",
+    "stone-soil",
+    "wood-beam"
+   ]
+  },
+  {
    "kit": "kay-dun-1",
    "name": "arrow",
    "kind": "obj-weapon-ranged-accessory",
@@ -66137,6 +67735,56 @@
   },
   {
    "kit": "kay-minigame",
+   "name": "arrow",
+   "kind": "obj-weapon-ranged-accessory",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.35
+   ],
+   "tris": 166,
+   "tpu": 484,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 7816,
+   "vtx": 168,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00038,
+   "anglePct": 10,
+   "vpt": 1.01,
+   "grad": 0.12,
+   "spread": {
+    "15,3": [
+     0.063,
+     0.172
+    ],
+    "1,0": [
+     0.781,
+     0.875
+    ],
+    "4,2": [
+     0.047,
+     0.18
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a",
+    "#b58158"
+   ],
+   "tags": [
+    "kay",
+    "metal",
+    "metal-iron-steel",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
    "name": "bomb",
    "kind": "obj-weapon-cannon",
    "size": "s",
@@ -66181,6 +67829,56 @@
   },
   {
    "kit": "kay-minigame",
+   "name": "bow",
+   "kind": "obj-weapon-ranged-bow",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.05,
+    0.25
+   ],
+   "tris": 1336,
+   "tpu": 3895,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 32240,
+   "vtx": 712,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
+   "anglePct": 9,
+   "vpt": 0.53,
+   "grad": 0.38,
+   "spread": {
+    "1,0": [
+     0.031,
+     0.586
+    ],
+    "14,3": [
+     0.031,
+     0.203
+    ],
+    "4,2": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "kay",
+    "metal",
+    "rope",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
    "name": "cactus",
    "kind": "env-flora-plant-cactus",
    "size": "m",
@@ -66215,6 +67913,102 @@
    "tags": [
     "kay",
     "vegetation"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "flag",
+   "kind": "str-marker-flag",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.15,
+    0.6
+   ],
+   "tris": 576,
+   "tpu": 1679,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15680,
+   "vtx": 337,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00039,
+   "anglePct": 49,
+   "vpt": 0.59,
+   "grad": 0.34,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.203
+    ],
+    "1,0": [
+     0.031,
+     0.586
+    ],
+    "6,1": [
+     0.031,
+     0.219
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#b58158"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "textile",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "forest-detail",
+   "kind": "assy",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.1
+   ],
+   "tris": 2840,
+   "tpu": 8280,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 80996,
+   "vtx": 1953,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00007,
+   "anglePct": 15,
+   "vpt": 0.69,
+   "grad": 0.16,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.117
+    ],
+    "3,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#8b7561"
+   ],
+   "tags": [
+    "foliage",
+    "kay",
+    "plural",
+    "stone-soil"
    ]
   },
   {
@@ -66260,6 +68054,341 @@
     "kay",
     "wood-bark"
    ]
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "plant-a",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 1440,
+   "tpu": 4198,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 41288,
+   "vtx": 975,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "anglePct": 3,
+   "vpt": 0.68,
+   "grad": 0.18,
+   "spread": {
+    "3,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "kay"
+   ],
+   "variant": "v564"
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "plant-b",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.05
+   ],
+   "tris": 720,
+   "tpu": 2099,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 24776,
+   "vtx": 594,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00004,
+   "anglePct": 2,
+   "vpt": 0.83,
+   "grad": 0.18,
+   "spread": {
+    "3,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#68872d"
+   ],
+   "tags": [
+    "foliage",
+    "kay"
+   ],
+   "variant": "v564"
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "rocks-a",
+   "kind": "env-rock-boulder",
+   "size": "s",
+   "wdh": [
+    0.5,
+    0.45,
+    0.1
+   ],
+   "tris": 690,
+   "tpu": 2012,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18384,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00025,
+   "anglePct": 11,
+   "vpt": 0.58,
+   "grad": 0.19,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.391
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "plural",
+    "stone-rock"
+   ],
+   "variant": "v565"
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "rocks-b",
+   "kind": "env-rock-boulder",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.4,
+    0.15
+   ],
+   "tris": 552,
+   "tpu": 1609,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14996,
+   "vtx": 320,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00036,
+   "anglePct": 9,
+   "vpt": 0.58,
+   "grad": 0.23,
+   "spread": {
+    "15,3": [
+     0.203,
+     0.43
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "plural",
+    "stone-rock"
+   ],
+   "variant": "v565"
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "star",
+   "kind": "obj-pocketitem",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.15,
+    0.35
+   ],
+   "tris": 420,
+   "tpu": 1224,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11856,
+   "vtx": 247,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.0004,
+   "anglePct": 2,
+   "vpt": 0.59,
+   "grad": 0.47,
+   "spread": {
+    "6,0": [
+     0.039,
+     0.508
+    ]
+   },
+   "colors": [
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-gold",
+    "pickup"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "sword",
+   "kind": "obj-weapon-melee-sword",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.05,
+    0.4
+   ],
+   "tris": 532,
+   "tpu": 1551,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 13980,
+   "vtx": 292,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00016,
+   "anglePct": 2,
+   "vpt": 0.55,
+   "grad": 0.17,
+   "spread": {
+    "4,2": [
+     0.078,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a"
+   ],
+   "tags": [
+    "gemstone",
+    "kay",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "target-stand",
+   "kind": "obj",
+   "size": "m",
+   "wdh": [
+    0.4,
+    0.45,
+    0.55
+   ],
+   "tris": 784,
+   "tpu": 2286,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 23624,
+   "vtx": 546,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00089,
+   "anglePct": 10,
+   "vpt": 0.7,
+   "grad": 0.27,
+   "spread": {
+    "8,0": [
+     0.086,
+     0.086
+    ],
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "2,0": [
+     0.055,
+     0.609
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v566"
+  },
+  {
+   "kit": "kay-minigame",
+   "name": "target",
+   "kind": "obj",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.15,
+    0.4
+   ],
+   "tris": 700,
+   "tpu": 2041,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19976,
+   "vtx": 448,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00059,
+   "anglePct": 62,
+   "vpt": 0.64,
+   "grad": 0.21,
+   "spread": {
+    "8,0": [
+     0.117,
+     0.117
+    ],
+    "5,2": [
+     0.031,
+     0.297
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "textile"
+   ],
+   "variant": "v566"
   },
   {
    "kit": "kay-mixed",
@@ -72487,6 +74616,1263 @@
     "wood-beam"
    ],
    "variant": "v242"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "branches",
+   "kind": "env-flora-deadwood-branch",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.15
+   ],
+   "tris": 784,
+   "tpu": 2286,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25480,
+   "vtx": 604,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00009,
+   "anglePct": 8,
+   "vpt": 0.77,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#563b2b"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "plural",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "candle-bundle",
+   "kind": "obj-lighting-candle",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 1134,
+   "tpu": 3306,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 37824,
+   "vtx": 924,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
+   "anglePct": 18,
+   "vpt": 0.81,
+   "grad": 0.3,
+   "spread": {
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "13,3": [
+     0.766,
+     0.961
+    ],
+    "6,0": [
+     0.148,
+     0.508
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "halloween",
+    "plural",
+    "wax",
+    "wick"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "candle-large",
+   "kind": "obj-lighting-candle",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.25
+   ],
+   "tris": 330,
+   "tpu": 962,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 10276,
+   "vtx": 214,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.0002,
+   "anglePct": 34,
+   "vpt": 0.65,
+   "grad": 0.31,
+   "spread": {
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "13,3": [
+     0.766,
+     0.961
+    ],
+    "6,0": [
+     0.148,
+     0.508
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "halloween",
+    "wax",
+    "wick"
+   ],
+   "variant": "v557"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "candle-small",
+   "kind": "obj-lighting-candle",
+   "size": "s",
+   "wdh": [
+    0.05,
+    0.05,
+    0.25
+   ],
+   "tris": 378,
+   "tpu": 1102,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 13576,
+   "vtx": 308,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
+   "anglePct": 5,
+   "vpt": 0.81,
+   "grad": 0.3,
+   "spread": {
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "13,3": [
+     0.766,
+     0.961
+    ],
+    "6,0": [
+     0.148,
+     0.508
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "halloween",
+    "wax",
+    "wick"
+   ],
+   "variant": "v557"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "candy-a",
+   "kind": "obj-food",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12960,
+   "vtx": 288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00024,
+   "anglePct": 11,
+   "vpt": 0.75,
+   "grad": 0.31,
+   "spread": {
+    "5,2": [
+     0.031,
+     0.297
+    ],
+    "5,0": [
+     0.031,
+     0.57
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "halloween"
+   ],
+   "variant": "v558"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "candy-b",
+   "kind": "obj-food",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15264,
+   "vtx": 360,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00024,
+   "anglePct": 11,
+   "vpt": 0.94,
+   "grad": 0.53,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.57
+    ],
+    "6,1": [
+     0.438,
+     0.961
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#d07b56"
+   ],
+   "tags": [
+    "food",
+    "halloween"
+   ],
+   "variant": "v558"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "cauldron",
+   "kind": "obj-kitchenware-cookware-pot",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.35,
+    0.35
+   ],
+   "tris": 2472,
+   "tpu": 7207,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 61724,
+   "vtx": 1420,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00021,
+   "anglePct": 0,
+   "vpt": 0.57,
+   "grad": 0.38,
+   "spread": {
+    "6,1": [
+     0.438,
+     0.961
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.07,
+     0.594
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#8b5936"
+   ],
+   "tags": [
+    "halloween",
+    "liquid",
+    "metal-iron-cast",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 7207 over max 5000 (obj-kitchenware)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "coffin-a-lid",
+   "kind": "obj-container",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.1
+   ],
+   "tris": 308,
+   "tpu": 898,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 11104,
+   "vtx": 244,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00187,
+   "anglePct": 62,
+   "vpt": 0.79,
+   "grad": 0.12,
+   "spread": {
+    "1,0": [
+     0.781,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.117
+    ],
+    "14,3": [
+     0.93,
+     0.961
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "comp",
+    "grave",
+    "halloween",
+    "metal-iron-steel",
+    "textile",
+    "wood-worked"
+   ],
+   "variant": "v560"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "coffin-a",
+   "kind": "obj-container",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.15
+   ],
+   "tris": 664,
+   "tpu": 1936,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 30776,
+   "vtx": 792,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00124,
+   "anglePct": 44,
+   "vpt": 1.19,
+   "grad": 0.18,
+   "spread": {
+    "1,0": [
+     0.781,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.516,
+     0.672
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-steel",
+    "textile",
+    "wood-worked"
+   ],
+   "variant": "v559"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "coffin-b-lid",
+   "kind": "obj-container",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.1
+   ],
+   "tris": 308,
+   "tpu": 898,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 11104,
+   "vtx": 244,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00187,
+   "anglePct": 62,
+   "vpt": 0.79,
+   "grad": 0.12,
+   "spread": {
+    "2,0": [
+     0.758,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.117
+    ],
+    "8,0": [
+     0.195,
+     0.211
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "comp",
+    "grave",
+    "halloween",
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v560"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "coffin-b",
+   "kind": "obj-container",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.15
+   ],
+   "tris": 664,
+   "tpu": 1936,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 30776,
+   "vtx": 792,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00124,
+   "anglePct": 44,
+   "vpt": 1.19,
+   "grad": 0.17,
+   "spread": {
+    "2,0": [
+     0.75,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "8,0": [
+     0.031,
+     0.094
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v559"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "fence-corner",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.7,
+    0.4
+   ],
+   "tris": 846,
+   "tpu": 2331,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 52484,
+   "vtx": 1436,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00117,
+   "anglePct": 79,
+   "vpt": 1.7,
+   "grad": 0.59,
+   "spread": {
+    "6,1": [
+     0.438,
+     0.961
+    ],
+    "14,3": [
+     0.047,
+     0.727
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-cast",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "fence-double",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    1.3,
+    0.1,
+    0.4
+   ],
+   "tris": 698,
+   "tpu": 2035,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 45196,
+   "vtx": 1236,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00117,
+   "anglePct": 81,
+   "vpt": 1.77,
+   "grad": 0.58,
+   "spread": {
+    "6,1": [
+     0.438,
+     0.961
+    ],
+    "14,3": [
+     0.047,
+     0.727
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-cast",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "fence-post",
+   "kind": "str-barrier-fence",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.4
+   ],
+   "tris": 142,
+   "tpu": 414,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8956,
+   "vtx": 208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00139,
+   "anglePct": 73,
+   "vpt": 1.46,
+   "grad": 0.68,
+   "spread": {
+    "14,3": [
+     0.047,
+     0.727
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "fence-single",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.1,
+    0.4
+   ],
+   "tris": 494,
+   "tpu": 1440,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 30720,
+   "vtx": 822,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.0012,
+   "anglePct": 78,
+   "vpt": 1.66,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.438,
+     0.961
+    ],
+    "14,3": [
+     0.047,
+     0.727
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-cast",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "fence",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.05,
+    0.4
+   ],
+   "tris": 210,
+   "tpu": 612,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15688,
+   "vtx": 406,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00094,
+   "anglePct": 89,
+   "vpt": 1.93,
+   "grad": 0.52,
+   "spread": {
+    "6,1": [
+     0.438,
+     0.961
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "gravestone",
+   "kind": "str-marker-tombstone",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.25,
+    0.5
+   ],
+   "tris": 986,
+   "tpu": 2875,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 27716,
+   "vtx": 636,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00093,
+   "anglePct": 40,
+   "vpt": 0.65,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.039,
+     0.727
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "jack",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.4,
+    0.4,
+    0.6
+   ],
+   "tris": 4130,
+   "tpu": 12041,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 110264,
+   "vtx": 2626,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00036,
+   "anglePct": 5,
+   "vpt": 0.64,
+   "grad": 0.38,
+   "spread": {
+    "8,0": [
+     0.031,
+     0.211
+    ],
+    "5,0": [
+     0.031,
+     0.57
+    ],
+    "3,0": [
+     0.766,
+     0.961
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#7f3927",
+    "#d07b56"
+   ],
+   "tags": [
+    "halloween",
+    "leather",
+    "textile",
+    "vegetation"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "jackolantern-large",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.3
+   ],
+   "tris": 1384,
+   "tpu": 4035,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 45708,
+   "vtx": 1123,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00061,
+   "anglePct": 2,
+   "vpt": 0.81,
+   "grad": 0.54,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.57
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "halloween",
+    "vegetation"
+   ],
+   "variant": "v561"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "jackolantern-small",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.25,
+    0.25
+   ],
+   "tris": 1708,
+   "tpu": 4980,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 53128,
+   "vtx": 1294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00023,
+   "anglePct": 2,
+   "vpt": 0.76,
+   "grad": 0.54,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.57
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "halloween",
+    "vegetation"
+   ],
+   "variant": "v561"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "path-cobbled",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.05
+   ],
+   "tris": 546,
+   "tpu": 1592,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15476,
+   "vtx": 336,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00043,
+   "anglePct": 28,
+   "vpt": 0.62,
+   "grad": 0.19,
+   "spread": {
+    "14,3": [
+     0.039,
+     0.227
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "pumpkin-large",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.25
+   ],
+   "tris": 1056,
+   "tpu": 3079,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 31852,
+   "vtx": 752,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00024,
+   "anglePct": 5,
+   "vpt": 0.71,
+   "grad": 0.58,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.57
+    ],
+    "3,1": [
+     0.125,
+     0.82
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56"
+   ],
+   "tags": [
+    "foliage",
+    "food",
+    "halloween"
+   ],
+   "variant": "v562"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "pumpkin-small",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.15
+   ],
+   "tris": 926,
+   "tpu": 2700,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27456,
+   "vtx": 639,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00009,
+   "anglePct": 8,
+   "vpt": 0.69,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.031,
+     0.57
+    ],
+    "3,1": [
+     0.125,
+     0.82
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56"
+   ],
+   "tags": [
+    "foliage",
+    "food",
+    "halloween"
+   ],
+   "variant": "v562"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "shrine",
+   "kind": "str",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    0.7
+   ],
+   "tris": 268,
+   "tpu": 781,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15236,
+   "vtx": 381,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00286,
+   "anglePct": 40,
+   "vpt": 1.42,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.039,
+     0.727
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "kay-spook",
+   "name": "tree-dead-a",
+   "kind": "env-flora-deadwood",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.3,
+    0.95
+   ],
+   "tris": 302,
+   "tpu": 665,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11964,
+   "vtx": 272,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00148,
+   "anglePct": 8,
+   "vpt": 0.9,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#563b2b"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "wood-bark"
+   ],
+   "variant": "v563"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "tree-dead-b",
+   "kind": "env-flora-deadwood",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.3,
+    0.85
+   ],
+   "tris": 216,
+   "tpu": 513,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8696,
+   "vtx": 186,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00172,
+   "anglePct": 10,
+   "vpt": 0.86,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#563b2b"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "wood-bark"
+   ],
+   "variant": "v563"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "tree-dead-c",
+   "kind": "env-flora-deadwood",
+   "size": "m",
+   "wdh": [
+    0.4,
+    0.45,
+    0.8
+   ],
+   "tris": 302,
+   "tpu": 763,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14620,
+   "vtx": 355,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0014,
+   "anglePct": 10,
+   "vpt": 1.18,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#563b2b"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "wood-bark"
+   ],
+   "variant": "v563"
+  },
+  {
+   "kit": "kay-spook",
+   "name": "tree-dead-d",
+   "kind": "env-flora-deadwood",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.25,
+    0.9
+   ],
+   "tris": 280,
+   "tpu": 636,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11256,
+   "vtx": 254,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00145,
+   "anglePct": 6,
+   "vpt": 0.91,
+   "grad": 0.18,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#563b2b"
+   ],
+   "tags": [
+    "grave",
+    "halloween",
+    "wood-bark"
+   ],
+   "variant": "v563"
   },
   {
    "kit": "kay-tools",

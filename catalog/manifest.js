@@ -3237,6 +3237,81 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "slug": "kay-spook",
+  "name": "kay-spook",
+  "url": "https://www.kaylousberg.com",
+  "models": [
+   "branches",
+   "candle-bundle",
+   "candle-large",
+   "candle-small",
+   "candy-a",
+   "candy-b",
+   "cauldron",
+   "coffin-a",
+   "coffin-a-lid",
+   "coffin-b",
+   "coffin-b-lid",
+   "fence",
+   "fence-corner",
+   "fence-double",
+   "fence-post",
+   "fence-single",
+   "gravestone",
+   "jack",
+   "jackolantern-large",
+   "jackolantern-small",
+   "path-cobbled",
+   "pumpkin-large",
+   "pumpkin-small",
+   "shrine",
+   "tree-dead-a",
+   "tree-dead-b",
+   "tree-dead-c",
+   "tree-dead-d"
+  ]
+ },
+
+ {
+  "slug": "kay-builder",
+  "name": "kay-builder",
+  "url": "https://www.kaylousberg.com",
+  "models": [
+   "archery-range",
+   "barracks",
+   "bridge",
+   "bridge-roofed",
+   "castle",
+   "farm-plot",
+   "forest",
+   "forest-detail-a",
+   "forest-detail-b",
+   "house",
+   "lumbermill",
+   "market",
+   "mill",
+   "mine",
+   "mountain",
+   "rocks",
+   "rocks-small",
+   "tree-a",
+   "tree-b",
+   "tree-c",
+   "wall-corner",
+   "wall-gate",
+   "wall-gate-closed",
+   "wall-hex-corner-a",
+   "wall-hex-corner-b",
+   "wall-straight",
+   "watchtower",
+   "watermill",
+   "well"
+  ]
+ },
+
+
+
+ {
   "slug": "fishing-village",
   "name": "fishing-village",
   "url": null,
@@ -3533,9 +3608,21 @@ window.KENNEY_KITS = [
   "name": "kay-minigame",
   "url": "https://www.kaylousberg.com",
   "models": [
+   "arrow",
    "bomb",
+   "bow",
    "cactus",
-   "pine"
+   "flag",
+   "forest-detail",
+   "pine",
+   "plant-a",
+   "plant-b",
+   "rocks-a",
+   "rocks-b",
+   "star",
+   "sword",
+   "target",
+   "target-stand"
   ]
  },
  {

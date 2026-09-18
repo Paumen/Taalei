@@ -30,6 +30,7 @@ const DOEL = {
   'isa-playground': 0.24,
   'isa-pond': 0.24,
   'jelly-forest': 0.4,
+  'kay-builder': 1,
   'kay-food': 0.23,
   'kay-hallow': 0.24,
   'ken-cave': 0.187,
