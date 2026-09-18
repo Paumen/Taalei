@@ -3,34 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taaleiland — 3D catalogue</title>
+<title>Taaleiland — 3D catalog</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by kind: objects, characters, nature, structures and assemblies.">
-<meta name="catalogus-versie" content="f8d47b7cab">
-<meta name="catalogus-gebouwd" content="2026-09-18T20:55:28Z">
-<link rel="stylesheet" href="catalog/catalog.css?v=f8d47b7cab"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-versie" content="fb8b440747">
+<meta name="catalogus-gebouwd" content="2026-09-18T21:27:26Z">
+<link rel="stylesheet" href="catalog/catalog.css?v=fb8b440747"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
 <header class="kop">
   <nav class="paginabalk" aria-label="Pages">
-    <span aria-current="page">Catalogue</span>
+    <span aria-current="page">Catalog</span>
     <a href="catalog/scale-obj-gen.html">Scale</a>
     <a href="catalog/swipe.html">Swipe</a>
     <a href="catalog/missing.html">Missing</a>
     <a href="catalog/swipe.html?source=lint">Lint</a>
   </nav>
 
-  <div class="kop-bediening">
-    <div class="knopgroep">
-      <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
-              title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
+  <div class="knopgroep">
+    <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
+            title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
 
-      <button class="licht-knop" id="licht" type="button" aria-pressed="false"
-              title="Shows the models unlit: only the atlas colours, with the shading baked into them">Flat</button>
-    </div>
+    <button class="licht-knop" id="licht" type="button" aria-pressed="false"
+            title="Shows the models unlit: only the atlas colours, with the shading baked into them">Flat</button>
 
-    <span class="bouwstempel" id="bouwstempel"></span>
+    <button class="licht-knop" id="filterpaneel" type="button" aria-pressed="false" aria-expanded="false"
+            title="Show the lint, check, artist and theme filters as well">Filters</button>
   </div>
+
+  <span class="bouwstempel" id="bouwstempel"></span>
 </header>
 
 <div class="balken" id="balken">
@@ -42,7 +43,7 @@
 </div>
 
 <div class="sort-bar">
-  <p class="kop-sub" id="samenvatting">Loading catalogue…</p>
+  <p class="kop-sub" id="samenvatting">Loading catalog…</p>
 
   <div class="sort-bar-choices">
     <select id="groepering" aria-label="Group by" title="Group by">
@@ -145,5 +146,5 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=f8d47b7cab" type="module"></script></body>
+<script src="catalog/catalog.js?v=fb8b440747" type="module"></script></body>
 </html>

@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=f8d47b7cab';
+import './bouwstempel.js?v=fb8b440747';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -183,7 +183,7 @@ function showDetail(model) {
   el('#detail-naam').textContent = model.name;
   el('#detail-herkomst').textContent = nooitIngevoerd(model)
     ? `${pack?.name ?? model.kit} — this pack was never imported`
-    : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalogue`;
+    : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
 
   const viewer = document.createElement('model-viewer');
   viewer.src = modelUrl(`../${model.path}`);
@@ -474,8 +474,8 @@ function groupsFor(models) {
       key: slug,
       title: pack?.name ?? slug,
       hint: pack?.kit
-        ? `${pack.missing} of ${pack.inSource} models in this pack are not in the catalogue — the other ${pack.inCatalog} were imported as “${pack.kit}”.`
-        : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalogue.`,
+        ? `${pack.missing} of ${pack.inSource} models in this pack are not in the catalog — the other ${pack.inCatalog} were imported as “${pack.kit}”.`
+        : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalog.`,
       models: own,
     };
   }).sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
@@ -509,7 +509,7 @@ function draw() {
   const total = register.models.length;
   el('#samenvatting').textContent =
     gekozen.length === total
-      ? `${number.format(total)} models in a source pack but not in the catalogue, from ${register.packs.size} packs`
+      ? `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`
       : `${number.format(gekozen.length)} of ${number.format(total)} models shown`;
 
   const filtered = Boolean(state.search || state.pack || state.state);

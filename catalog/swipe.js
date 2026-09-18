@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=f8d47b7cab';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f8d47b7cab';
-import { renderCommentBox } from './comments.js?v=f8d47b7cab';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=f8d47b7cab';
-import './bouwstempel.js?v=f8d47b7cab';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=fb8b440747';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=fb8b440747';
+import { renderCommentBox } from './comments.js?v=fb8b440747';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=fb8b440747';
+import './bouwstempel.js?v=fb8b440747';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -465,7 +465,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=f8d47b7cab'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=fb8b440747'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);
@@ -940,7 +940,7 @@ async function start() {
 start().catch((error) => {
   notice.hidden = false;
   notice.className = 'leeg melding-fout';
-  notice.textContent = `Could not load the catalogue: ${error.message}`;
-  summary.textContent = 'Could not load the catalogue.';
+  notice.textContent = `Could not load the catalog: ${error.message}`;
+  summary.textContent = 'Could not load the catalog.';
   console.error(error);
 });

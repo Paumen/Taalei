@@ -1,6 +1,6 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=f8d47b7cab';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=f8d47b7cab';
-import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=f8d47b7cab';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=fb8b440747';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=fb8b440747';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=fb8b440747';
 
 const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
 
@@ -11,7 +11,6 @@ const NOTE = [
   '"comments" holds one free-text note per model.',
   '"views" holds, per commented model, the angle the panel was showing when the note was written: "view" and "fov" go straight to tools/renders/render.mjs --views and --fov, "zoom" is how far in the view was against the framing the panel chose, so above about 1.3 the note is about a detail, and "orbit" is what the panel reported.',
   '"swipe" holds the swipe run: the label of every direction with the paths judged that way.',
-  '"selection" holds the paths ticked in the catalogue.',
 ].join(' ');
 
 const timeStamp = () => new Date().toISOString().replace(/[:T]/g, '-').slice(0, 16);
@@ -41,7 +40,7 @@ export function buildExtract() {
   const page = document.title;
   const own = ownSections();
   return {
-    tool: 'taalei catalogue extract',
+    tool: 'taalei catalog extract',
     page,
     version: meta('catalogus-versie'),
     built: meta('catalogus-gebouwd'),
@@ -91,7 +90,7 @@ export function mountExtractBar() {
   downloadButton?.addEventListener('click', () => downloadExtract());
   clearButton?.addEventListener('click', () => {
     if (pendingCount() + markCount() + commentCount() === 0) return;
-    if (!confirm('Clear the staged tag edits, colour marks and comments? Nothing in the catalogue changes either way.')) return;
+    if (!confirm('Clear the staged tag edits, colour marks and comments? Nothing in the catalog changes either way.')) return;
     clearEdits();
     clearMarks();
     clearComments();

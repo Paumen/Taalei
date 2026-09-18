@@ -26,7 +26,7 @@ if (flag('--help') || flag('-h')) {
   --force      re-render even when the .glb is unchanged
   --jobs n     browser pages rendering in parallel (default 2)
   --limit n    stop after n models (for a trial run)
-  --no-prune   keep thumbnails of models that left the catalogue`);
+  --no-prune   keep thumbnails of models that left the catalog`);
   process.exit(0);
 }
 const onlyKit = value('--kit', null);

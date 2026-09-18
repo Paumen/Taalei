@@ -373,7 +373,7 @@ for (const slug of kitSlugs) {
   });
 }
 
-const TYPES = ['material', 'kind', 'size', 'tag'];
+const TYPES = ['material', 'kind', 'size', 'theme', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
 
 const SOURCES = [
@@ -411,6 +411,7 @@ const DERIVED = [
   ...SOURCES.map(({ id, name, description }) => ({
     id,
     name,
+    type: 'artist',
     description,
     belongs: (m) => SOURCE_PER_KIT.get(m.kit) === id,
   })),

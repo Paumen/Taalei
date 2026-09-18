@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=f8d47b7cab';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f8d47b7cab';
-import { colorSwatches, setBands } from './color-edits.js?v=f8d47b7cab';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=f8d47b7cab';
-import { mountExtractBar, setPageParts } from './extract.js?v=f8d47b7cab';
-import './bouwstempel.js?v=f8d47b7cab';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=fb8b440747';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=fb8b440747';
+import { colorSwatches, setBands } from './color-edits.js?v=fb8b440747';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=fb8b440747';
+import { mountExtractBar, setPageParts } from './extract.js?v=fb8b440747';
+import './bouwstempel.js?v=fb8b440747';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -122,11 +122,13 @@ const familyPerPath = new Map();
 
 let lastChoice = null;
 let selectMode = false;
+let filtersOpen = false;
 let swipe = null;
 let refreshExtract = () => {};
 let commentDirty = false;
 
 const colorState = new Map();
+let colorKeys = [];
 const sizeState = new Map();
 const kindState = new Map([['assy', 'not']]);
 
@@ -160,6 +162,7 @@ function matches(own, cardState, { any = [] } = {}) {
 const chipButtons = [];
 
 let catalog = null;
+let totals = { models: 0, kits: 0 };
 
 const readableBytes = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
@@ -738,6 +741,8 @@ const withParents = (ids) => {
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
   { type: 'tag', head: 'Tags' },
+  { type: 'theme', head: 'Theme', extra: true },
+  { type: 'artist', head: 'Artist', extra: true },
 ];
 
 const marked = (model, field, text) =>
@@ -1097,6 +1102,7 @@ function checkColor(hex) {
 }
 
 function buildColorBar(colors) {
+  colorKeys = colors.map((c) => c.hex);
   const container = document.querySelector('#kleurbalk-stalen');
   const swatches = document.createElement('div');
   swatches.className = 'kleurgroep-stalen';
@@ -1135,13 +1141,14 @@ function syncSubtypes(counts = null) {
     stateOf: (id, chip) => chip.state.get(id),
     countOf: counts ? (chip) => counts.get(`${chip.field}|${chip.id}`) ?? 0 : null,
     onHide: (chip) => { chip.state.delete(chip.id); },
+    skip: (chip) => chip.extra && !filtersOpen && chip.state.get(chip.id) === undefined,
   });
   for (const chip of chipButtons) {
     if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
   }
 }
 
-function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false } = {}) {
+function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false, extra = false } = {}) {
   const { row, chips } = makeChipStrip({
     label: `Filter by ${head.toLowerCase()}`,
     items, container, shareRow, byCount, hideEmpty: true,
@@ -1154,7 +1161,7 @@ function buildChipRow(container, head, items, state, field, { shareRow = null, b
       filter();
     },
   });
-  for (const chip of chips) { chip.state = state; chip.field = field; }
+  for (const chip of chips) { chip.state = state; chip.field = field; chip.extra = extra; }
   chipButtons.push(...chips);
   return row;
 }
@@ -1176,7 +1183,7 @@ function buildTagBar(tags) {
   buildChipRow(
     container,
     'Size',
-    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint, dot: true })),
+    SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint })),
     sizeState,
     'sizes',
     { shareRow: shape },
@@ -1187,7 +1194,7 @@ function buildTagBar(tags) {
     LINT_LEVELS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
     lintState,
     'lint',
-    { shareRow: shape },
+    { shareRow: shape, extra: true },
   );
   buildChipRow(
     container,
@@ -1195,10 +1202,10 @@ function buildTagBar(tags) {
     LINT_CHECKS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
     checkState,
     'checks',
-    { shareRow: shape },
+    { shareRow: shape, extra: true },
   );
 
-  for (const { type, head } of TAG_TYPES) {
+  for (const { type, head, extra = false } of TAG_TYPES) {
     const own = tags.filter((t) => (t.type ?? 'tag') === type);
     if (own.length === 0) continue;
     buildChipRow(
@@ -1207,7 +1214,7 @@ function buildTagBar(tags) {
       own.map((t) => ({ id: t.id, name: chipName(t), full: t.name, hint: t.description, parent: t.parent ?? null })),
       tagState,
       'tags',
-      { byCount: true },
+      { byCount: true, extra },
     );
   }
 }
@@ -1261,17 +1268,24 @@ function filter() {
   const notKinds = keysWith(kindState, 'not');
   const kindHit = (own) =>
     (!deepest.length || own.some((k) => deepest.includes(k))) && !own.some((k) => notKinds.includes(k));
+  const shown = new Set();
   for (const card of cards) {
     const hit =
-      matches(card.colors, colorState) &&
+      matches(card.colors, colorState, { any: colorKeys }) &&
       kindHit(card.kinds) &&
       matches(card.tags, tagState) &&
       matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) }) &&
       matches(card.lint, lintState, { any: LINT_LEVELS.map((k) => k.id) }) &&
       matches(card.checks, checkState, { any: LINT_CHECKS.map((k) => k.id) });
     card.element.hidden = !hit;
-    if (hit) visible++;
+    if (hit) {
+      visible++;
+      for (const model of card.family) shown.add(model.id);
+    }
   }
+
+  summary.textContent =
+    `${number.format(shown.size)} / ${number.format(totals.models)} models · ${totals.kits} kits`;
 
   for (const section of sections) {
     const count = section.cards.filter((k) => !k.element.hidden).length;
@@ -1305,11 +1319,7 @@ async function start() {
   register.models = new Map(data.models.map((m) => [m.id, m]));
   register.variants = new Map((data.variants ?? []).map((v) => [v.id, v.members]));
 
-  const kindsInUse = new Set(data.models.map((m) => m.kind).filter(Boolean));
-  const noKind = data.models.filter((m) => !m.kind).length;
-  summary.textContent =
-    `${data.models.length} models · ${data.kits.length} kits · ${kindsInUse.size} kinds` +
-    (noKind ? ` · ${noKind} without a kind` : '');
+  totals = { models: data.models.length, kits: data.kits.length };
 
   variantMain = new Map((data.variants ?? []).map((v) => [v.id, v.main]));
   catalog = data;
@@ -1329,10 +1339,7 @@ async function start() {
   buildColorBar(colors);
   setBands([...colors].sort((a, b) => a.name.localeCompare(b.name) || a.hex.localeCompare(b.hex)));
   buildTagBar(data.tags ?? []);
-  setPageParts({
-    sections: () => (chosenPaths.size ? { selection: [...chosenPaths] } : {}),
-    counts: () => [{ n: chosenPaths.size, one: 'path selected', many: 'paths selected' }],
-  });
+  setPageParts();
   refreshExtract = mountExtractBar();
 
   document.querySelector('#alles-wis').addEventListener('click', onClear);
@@ -1342,6 +1349,16 @@ async function start() {
     selectMode = !selectMode;
     selectButton.setAttribute('aria-pressed', String(selectMode));
     document.body.classList.toggle('kiesmodus', selectMode);
+  });
+
+  const filterButton = document.querySelector('#filterpaneel');
+  filterButton.addEventListener('click', () => {
+    filtersOpen = !filtersOpen;
+    filterButton.setAttribute('aria-pressed', String(filtersOpen));
+    filterButton.setAttribute('aria-expanded', String(filtersOpen));
+    syncSubtypes();
+    reorder();
+    filter();
   });
 
   const lightButton = document.querySelector('#licht');
@@ -1390,6 +1407,6 @@ async function start() {
 }
 
 start().catch((error) => {
-  summary.textContent = `Could not load the catalogue: ${error.message}`;
+  summary.textContent = `Could not load the catalog: ${error.message}`;
   console.error(error);
 });
