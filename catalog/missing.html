@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — Missing from the catalogue</title>
 <meta name="description" content="Everything the source packs under kits/sources hold that the catalogue doesn't: models never imported, and models that were taken out again. Shown straight from the source, to judge one by one.">
-<meta name="catalogus-gebouwd" content="2026-09-18T20:11:21Z">
-<meta name="catalogus-versie" content="2d1b067db8">
-<link rel="stylesheet" href="catalog.css?v=2d1b067db8">
-<link rel="stylesheet" href="missing.css?v=2d1b067db8"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-gebouwd" content="2026-09-18T20:33:56Z">
+<meta name="catalogus-versie" content="19fc125da4">
+<link rel="stylesheet" href="catalog.css?v=19fc125da4">
+<link rel="stylesheet" href="missing.css?v=19fc125da4"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
@@ -45,7 +45,8 @@
   These models sit in a source pack under <code>kits/sources</code> but not in the catalogue —
   either the pack was never imported, or the model was taken out again. They're shown exactly as
   the source has them: own colours, own scale, no palette. Sizes are in island units wherever the
-  kit's import scale is known.
+  kit's import scale is known. Models of one pack that share a shape and differ only in colour sit
+  on one card, marked ⧉; the other colours are in the model panel.
 </p>
 
 <div class="sort-bar">
@@ -89,6 +90,10 @@
     <h2 id="detail-naam"></h2>
     <p class="detail-herkomst" id="detail-herkomst"></p>
     <dl id="detail-gegevens"></dl>
+    <div class="detail-keuze" id="detail-variant" hidden>
+      <span class="detail-keuze-kop">Colours</span>
+      <div class="detail-chips" id="detail-variant-keuze" role="group" aria-label="Colours"></div>
+    </div>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
       <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
@@ -105,5 +110,5 @@
 </div>
 
 <script src="vendor/model-viewer.min.js" type="module"></script>
-<script src="missing.js?v=2d1b067db8" type="module"></script></body>
+<script src="missing.js?v=19fc125da4" type="module"></script></body>
 </html>

@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=2d1b067db8';
+import './bouwstempel.js?v=19fc125da4';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -18,7 +18,14 @@ function span(className, text) {
   return node;
 }
 
-const register = { models: [], packs: new Map(), kinds: new Map() };
+function glyph(kind, sign, hint) {
+  const node = span(`glyf glyf-${kind}`, sign);
+  node.title = hint;
+  return node;
+}
+
+const register = { models: [], packs: new Map(), kinds: new Map(), variants: new Map(), byId: new Map() };
+const variantMain = new Map();
 
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
 const kindChain = (id) => {
@@ -146,6 +153,30 @@ function fact(list, name, value, wide) {
   list.append(dt, dd);
 }
 
+function choiceChip(text, active, action, container, path) {
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.className = 'keuzechip';
+  chip.textContent = text;
+  chip.setAttribute('aria-pressed', String(active));
+  chip.addEventListener('click', () => {
+    for (const sibling of container.querySelectorAll('.keuzechip')) sibling.setAttribute('aria-pressed', 'false');
+    chip.setAttribute('aria-pressed', 'true');
+    action();
+  });
+  const pick = document.createElement('input');
+  pick.type = 'checkbox';
+  pick.className = 'keuzechip-kies';
+  pick.checked = chosenPaths.has(path);
+  pick.setAttribute('aria-label', `Select ${text}`);
+  pick.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSelection([path], pick.checked);
+  });
+  chip.prepend(pick);
+  return chip;
+}
+
 function showDetail(model) {
   const pack = register.packs.get(model.kit);
   activePath = model.path;
@@ -177,6 +208,16 @@ function showDetail(model) {
   fact(list, 'Preview', readableBytes(model.bytes));
   fact(list, 'Source file', model.file, true);
   fact(list, 'Path', model.path, true);
+
+  const members = (register.variants.get(model.variant) ?? [])
+    .map((id) => register.byId.get(id))
+    .filter(Boolean);
+  el('#detail-variant').hidden = members.length < 2;
+  el('#detail-variant-keuze').replaceChildren(
+    ...members.map((v) =>
+      choiceChip(v.name, v.id === model.id, () => showDetail(v), el('#detail-variant-keuze'), v.path),
+    ),
+  );
 
   el('#detail-download').href = modelUrl(`../${model.path}`);
   el('#detail-download').setAttribute('download', `${model.name}.glb`);
@@ -277,7 +318,28 @@ el('#selectie-wis').addEventListener('click', () => {
   lastChoice = null;
 });
 
-function makeCard(model) {
+function foldVariants(models) {
+  const perGroup = new Map();
+  const out = [];
+  for (const model of models) {
+    const existing = model.variant ? perGroup.get(model.variant) : null;
+    if (existing) {
+      if (model.id === variantMain.get(model.variant)) {
+        existing.variants.push(existing.model);
+        existing.model = model;
+      } else {
+        existing.variants.push(model);
+      }
+      continue;
+    }
+    const item = { model, variants: [] };
+    if (model.variant) perGroup.set(model.variant, item);
+    out.push(item);
+  }
+  return out;
+}
+
+function makeCard(model, variants = []) {
   const pack = register.packs.get(model.kit);
 
   const card = document.createElement('button');
@@ -300,9 +362,19 @@ function makeCard(model) {
   name.title = model.name;
   text.append(name, meta);
 
+  const family = [model, ...variants];
+  const familyPaths = family.map((m) => m.path);
+
   card.append(box, text);
+  if (variants.length) {
+    const glyphs = span('kaart-glyfen');
+    glyphs.append(glyph('variant', `⧉ ${family.length}`,
+      `${family.length} colours of the same shape — the others are in the model panel`));
+    card.append(glyphs);
+  }
+
   card.addEventListener('click', () => {
-    if (selectMode) setSelection([model.path], !chosenPaths.has(model.path));
+    if (selectMode) setSelection(familyPaths, !chosenPaths.has(model.path));
     else showDetail(model);
   });
 
@@ -320,16 +392,18 @@ function makeCard(model) {
   holder.append(card, pick);
 
   observer.observe(box);
-  const item = { element: holder, checkbox, path: model.path, paths: [model.path], model, box };
+  const item = { element: holder, checkbox, path: model.path, paths: familyPaths, model, box };
   cards.push(item);
 
-  const siblings = cardsPerPath.get(model.path);
-  if (siblings) siblings.push(item);
-  else cardsPerPath.set(model.path, [item]);
+  for (const path of familyPaths) {
+    const siblings = cardsPerPath.get(path);
+    if (siblings) siblings.push(item);
+    else cardsPerPath.set(path, [item]);
+  }
 
   checkbox.addEventListener('click', (e) => {
     if (e.shiftKey && lastChoice && lastChoice !== item) pickRange(item, checkbox.checked);
-    else setSelection([model.path], checkbox.checked);
+    else setSelection(familyPaths, checkbox.checked);
     lastChoice = item;
   });
 
@@ -422,8 +496,8 @@ function draw() {
     if (group.models.length === 0) continue;
     const { section, grid } = makeSection({ title: group.title, hint: group.hint, count: group.models.length });
     const own = [];
-    for (const model of group.models) {
-      const item = makeCard(model);
+    for (const { model, variants } of foldVariants(group.models)) {
+      const item = makeCard(model, variants);
       grid.append(item.element);
       own.push(item);
     }
@@ -456,7 +530,16 @@ async function start() {
   const data = await response.json();
 
   const modelPath = data.modelPath ?? 'kits/missing';
-  for (const model of data.models) model.path = `${modelPath}/${model.kit}/${model.name}.glb`;
+  for (const model of data.models) {
+    model.id = `${model.kit}/${model.name}`;
+    model.path = `${modelPath}/${model.kit}/${model.name}.glb`;
+    register.byId.set(model.id, model);
+  }
+
+  for (const group of data.variants ?? []) {
+    register.variants.set(group.id, group.members);
+    variantMain.set(group.id, group.main);
+  }
 
   register.models = data.models;
   register.kinds = new Map((data.kinds ?? []).map((k) => [k.id, k]));
@@ -510,7 +593,7 @@ async function start() {
     const holder = cardUnder(e.clientX, e.clientY);
     if (!holder || swipe.done.has(holder.dataset.pad)) return;
     swipe.done.add(holder.dataset.pad);
-    setSelection([holder.dataset.pad], swipe.on);
+    setSelection(cardsPerPath.get(holder.dataset.pad)?.[0]?.paths ?? [holder.dataset.pad], swipe.on);
   });
 
   for (const name of ['pointerup', 'pointercancel']) {
