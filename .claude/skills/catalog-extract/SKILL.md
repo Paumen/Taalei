@@ -152,7 +152,7 @@ it clears before proposing it, and say so.
 ## 9. Check before pushing
 
     node catalog/tools/build-catalog.mjs
-    node catalog/tools/build-missing.mjs
+    node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
     node lint/size.mjs && node lint/measures.mjs && node lint/mat.mjs
     node lint/palette.mjs && node lint/bands.mjs

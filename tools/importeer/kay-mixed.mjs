@@ -26,7 +26,6 @@ const porcelain = ['ceramic', 'ivory'];
 const glazeRed = ['ceramic', 'sienna'];
 
 const gemRed = ['gemstone', 'sienna'];
-const gemGreen = ['gemstone', 'hunter'];
 const gemBlue = ['gemstone', 'azure'];
 
 const leaf = ['foliage', 'moss'];
@@ -43,12 +42,6 @@ const chain = { '6,1': wrought, '*': wrought };
 const umbrella = (canopy, cell) => ({
   [cell]: canopy, '4,2': woodWorked, '6,1': steel, '5,2': woodWorked, '*': cloth,
 });
-const puzzleCube = {
-  '4,0': wrought, '6,1': wrought,
-  '1,3': gemRed, '1,1': gemRed, '3,3': gemGreen, '0,3': gemBlue,
-  '2,3': paintYellow, '1,0': paintYellow, '*': wrought,
-};
-const rollerskate = { '6,1': leather, '6,3': woodWorked, '2,3': steel, '*': leather };
 const idol = { '2,1': gold, '4,2': woodBeam, '*': gold };
 
 const PAKKET = {
@@ -160,10 +153,6 @@ const PAKKET = {
       },
     },
     {
-      naam: 'photo-a', bronmodel: 'instantcamera_picture_A', kind: 'obj-pocketitem', tags: [],
-      cellen: { '1,0': paper, '5,2': paper, '0,0': wrought, '2,1': wrought, '*': paper },
-    },
-    {
       naam: 'photo-b', bronmodel: 'instantcamera_picture_B', kind: 'obj-pocketitem', tags: [],
       cellen: { '1,0': paper, '0,0': wrought, '*': paper },
     },
@@ -171,17 +160,6 @@ const PAKKET = {
     {
       naam: 'mining-helmet', bronmodel: 'mining_helmet', kind: 'obj-equipment-armor', tags: [],
       cellen: { '2,1': paintYellow, '4,2': leather, '6,1': steel, '7,1': porcelain, '*': steel },
-    },
-
-    { naam: 'puzzle-cube', bronmodel: 'puzzlecube_complete', kind: 'obj-pocketitem', tags: [], cellen: puzzleCube },
-    { naam: 'puzzle-cube-core', bronmodel: 'puzzlecube_center', kind: 'obj-pocketitem', tags: [], cellen: puzzleCube },
-    { naam: 'puzzle-cube-scrambled', bronmodel: 'puzzlecube_incomplete', kind: 'obj-pocketitem', tags: [], cellen: puzzleCube },
-
-    { naam: 'rollerskate-a', bronmodel: 'rollerskate_A', kind: 'obj-equipment-clothing', tags: [], cellen: rollerskate },
-    { naam: 'rollerskate-b', bronmodel: 'rollerskate_B', kind: 'obj-equipment-clothing', tags: [], cellen: rollerskate },
-    {
-      naam: 'rollerskate-pair', bronmodel: 'rollerskate_pair', kind: 'obj-equipment-clothing', tags: ['plural'],
-      cellen: rollerskate,
     },
 
     {
