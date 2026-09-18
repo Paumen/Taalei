@@ -1,0 +1,74 @@
+	Ultimate Guns Pack (ultimate-guns)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Ultimate_Guns_Pack/Ultimate_Guns_Pack-glb.zip`.
+	It holds no license file and names no author or pack page. The CC0 note
+	above was set by the owner of this project on import; it does not come from
+	the pack itself. The author is unknown, so there is nobody to credit —
+	whoever traces the origin adds it here.
+
+	The pack is one .glb per model. 7 of the 25 are loaded: the revolvers and
+	shotguns, which are the ones with a design older than the §1 I04 line of
+	1850. The assault rifles, bullpups, submachine guns, snipers and mounts are
+	left in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,20, baked into
+	the geometry. It is set by comparison with the catalogue's other firearms:
+	`shotgun` runs 1,15 long beside quat-pirate/rifle at 1,10, and `revolver`
+	0,40 beside quat-pirate/pistol at 0,50.
+
+	`shotgun` and `shotgun-pump` are 1,15 against the 1,00 limit on
+	obj-weapon-ranged — a warning, not an error. The one pack factor wins
+	(§6, P10).
+
+
+	Names
+
+	The pack names in mixed case and hangs a download hash on repeats; here that
+	is kebab-case with a name that says what the gun is. The source name is in
+	every .glb under `asset.extras.taaleiland.bronmodel`.
+
+  Revolver_1 / _3 / _5       -> revolver, revolver-ribbed, revolver-steel
+  Shotgun_2 / _3             -> shotgun, shotgun-pump
+  Shotgun SawedOff           -> shotgun-sawed-off
+  Shotgun ShortStock         -> shotgun-pistol-grip
+
+
+	Colour
+
+	The source paints one flat colour per material, seven in all. None of them
+	came along: each is mapped to a band of the shared kits/colormap.png and
+	placed in that band at the height whose luminance matches the source
+	colour, shaded along normal Y, so the relative light-to-dark reading is
+	kept.
+
+  Metal, LightMetal, DarkMetal, Grey, Black -> metal-iron-steel, nickel
+  Wood                                      -> wood-worked, camel
+  DarkWood                                  -> wood-beam, chestnut
+
+	The five source greys differ only in luminance, so they share the nickel
+	band and are told apart by their height in it.
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call.
+
+	`shotgun-pistol-grip` keeps one inward-facing face from the source, on the
+	ejection port cover.
