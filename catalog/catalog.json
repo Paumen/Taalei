@@ -5457,7 +5457,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 143,
+   "count": 142,
    "parent": "metal-iron"
   },
   {
@@ -5496,7 +5496,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 429,
+   "count": 425,
    "parent": "wood"
   },
   {
@@ -5587,7 +5587,7 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 249
+   "count": 250
   },
   {
    "id": "bone",
@@ -5622,7 +5622,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 93
+   "count": 92
   },
   {
    "id": "liquid",
@@ -5643,7 +5643,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 83
+   "count": 85
   },
   {
    "id": "cork",
@@ -7769,7 +7769,7 @@
      0.75,
      0.961
     ],
-    "1,1": [
+    "8,0": [
      0.602,
      0.93
     ],
@@ -7783,14 +7783,13 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#88848a",
     "#8b5936",
     "#8b7561"
    ],
    "tags": [
     "ceramic",
-    "glass",
     "stone-masonry",
     "wood-beam"
    ]
@@ -9124,7 +9123,7 @@
    "tris": 166,
    "tpu": 484,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 10848,
    "vtx": 264,
@@ -9134,14 +9133,10 @@
    "avgTri": 0.00062,
    "anglePct": 14,
    "vpt": 1.59,
-   "grad": 0.84,
+   "grad": 0.9,
    "spread": {
     "13,3": [
      0.047,
-     0.945
-    ],
-    "6,1": [
-     0.594,
      0.945
     ],
     "6,0": [
@@ -9150,14 +9145,12 @@
     ]
    },
    "colors": [
-    "#343745",
     "#5b5550",
     "#f2a93c"
    ],
    "tags": [
     "emissive",
     "halloween",
-    "metal-iron-cast",
     "metal-iron-wrought",
     "wizp"
    ]
@@ -22233,6 +22226,10 @@
      0.781,
      0.961
     ],
+    "8,0": [
+     0.031,
+     0.203
+    ],
     "15,3": [
      0.031,
      0.391
@@ -22244,10 +22241,6 @@
     "0,0": [
      0.031,
      0.211
-    ],
-    "8,0": [
-     0.039,
-     0.203
     ]
    },
    "colors": [
@@ -76689,7 +76682,7 @@
      0.102,
      0.891
     ],
-    "1,1": [
+    "8,0": [
      0.102,
      0.891
     ],
@@ -76703,13 +76696,14 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#8b5936",
     "#b58158",
     "#d8d1bd",
     "#ffffff"
    ],
    "tags": [
+    "ceramic",
     "glass",
     "ken",
     "wood-beam",
@@ -81978,7 +81972,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7508,
+   "bytes": 7436,
    "vtx": 174,
    "grounded": true,
    "centered": true,
@@ -81986,14 +81980,14 @@
    "avgTri": 0.00069,
    "anglePct": 67,
    "vpt": 1.81,
-   "grad": 0.75,
+   "grad": 0.81,
    "spread": {
     "5,0": [
-     0.266,
+     0.094,
      0.992
     ],
     "14,3": [
-     0.094,
+     0.5,
      0.898
     ],
     "5,2": [
@@ -86770,7 +86764,7 @@
    "vpt": 1.44,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "8,0": [
      0.102,
      0.891
     ],
@@ -86780,8 +86774,8 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#7f3927",
+    "#b58158"
    ],
    "tags": [
     "ken",
@@ -112393,7 +112387,7 @@
    "tris": 776,
    "tpu": 2262,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 32840,
    "vtx": 835,
@@ -112403,32 +112397,26 @@
    "avgTri": 0.00005,
    "anglePct": 18,
    "vpt": 1.08,
-   "grad": 0.17,
+   "grad": 0.27,
    "spread": {
     "6,0": [
      0.781,
      0.961
     ],
-    "1,0": [
-     0.813,
-     0.93
-    ],
     "14,3": [
      0.117,
-     0.117
+     0.93
     ]
    },
    "colors": [
     "#8b7561",
-    "#b58158",
     "#f2a93c"
    ],
    "tags": [
     "metal-gold",
     "qua",
     "robin-hood",
-    "rope",
-    "wood-worked"
+    "rope"
    ],
    "variant": "v382"
   },
@@ -112445,7 +112433,7 @@
    "tris": 660,
    "tpu": 1924,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 28428,
    "vtx": 719,
@@ -112455,32 +112443,26 @@
    "avgTri": 0.00004,
    "anglePct": 19,
    "vpt": 1.09,
-   "grad": 0.18,
+   "grad": 0.34,
    "spread": {
     "2,0": [
      0.75,
      0.961
     ],
-    "1,0": [
-     0.82,
-     0.922
-    ],
     "14,3": [
      0.117,
-     0.117
+     0.922
     ]
    },
    "colors": [
     "#8b5936",
-    "#8b7561",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "qua",
     "robin-hood",
     "rope",
-    "wood-beam",
-    "wood-worked"
+    "wood-beam"
    ],
    "variant": "v382"
   },
@@ -125806,19 +125788,19 @@
      0.094,
      0.859
     ],
-    "1,0": [
+    "14,3": [
      0.391,
      0.938
     ]
    },
    "colors": [
     "#8b5936",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "asia",
-    "wood-beam",
-    "wood-worked"
+    "rope",
+    "wood-beam"
    ],
    "variant": "v508"
   },
@@ -125851,19 +125833,19 @@
      0.094,
      0.859
     ],
-    "1,0": [
+    "14,3": [
      0.391,
      0.938
     ]
    },
    "colors": [
     "#8b5936",
-    "#b58158"
+    "#8b7561"
    ],
    "tags": [
     "asia",
-    "wood-beam",
-    "wood-worked"
+    "rope",
+    "wood-beam"
    ],
    "variant": "v508",
    "lint": [
