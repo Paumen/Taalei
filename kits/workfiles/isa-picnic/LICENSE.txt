@@ -1,0 +1,89 @@
+	Pleasant Picnic (isa-picnic)
+
+			------------------------------
+
+	Tiny Treats : Pleasant Picnic (1.0)
+	Created by Isa Lousberg — https://www.isalousberg.com
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence file is in the pack itself.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Tiny_Treats_Pleasant_Picnic_1.0_FREE/`.
+	The pack is one .gltf per model with two shared textures. 32 of the 41
+	models are loaded; the cooler, radio, thermos, drink can, frisbee and the
+	green blanket and pillow set are left in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,24, the factor
+	the other Tiny Treats kits at this size use. It is set by comparison:
+	`plate` lands at 0,03 high beside isa-kitchen/plate at 0,03, `apple` at
+	0,09 beside isa-food/bread at 0,12. At the 0,32 of isa-kitchen the large
+	blanket would run 1,60 long against the 1,20 limit on obj-furniture.
+
+
+	Names
+
+	The pack names in mixed case with underscores; here that is kebab-case with
+	a name that says what the thing is. A recoloured model is named after the
+	band it landed on, as the catalogue does elsewhere. The source name is in
+	every .glb under `asset.extras.taaleiland.bronmodel`.
+
+  apple / apple_cut / apple_piece      -> apple, apple-cut, apple-piece
+  cheese_A / cheese_B                  -> cheese-wedge, cheese-wheel
+  picnic_basket_round / _square        -> basket-round, basket-square
+  picnic_blanket_red / _blue           -> picnic-blanket-sienna, -hunter
+  picnic_blanket_*_folded              -> picnic-blanket-*-folded
+  pillow_large_red / _blue             -> pillow-large-sienna, -hunter
+  pillow_small_red / _blue             -> pillow-small-sienna, -hunter
+  plate_A / plate_B                    -> plate, plate-flower
+  serving_tray_round / _square_A / _B  -> tray-round, tray-square,
+                                          tray-square-handles
+  jam                                  -> jam-jar
+
+
+	Colour
+
+	The pack has its own colour sheet: an 8 x 8 grid, each column holding four
+	colours and each colour a base row and a shadow row under it. That sheet is
+	not carried over — every source cell is mapped to a cell of the shared
+	kits/colormap.png and each triangle keeps its place inside the cell, so the
+	baked light-to-dark reading survives. A base row and its shadow row are one
+	source colour and land on one band.
+
+  white, cream          -> ceramic, ivory        light wood  -> wood-worked, camel
+  pink, light blue      -> ceramic, terracotta   dark wood   -> wood-beam, chestnut
+  grey                  -> metal-iron-steel      brown stem  -> vegetation, umber
+  yellow                -> food, amber           green       -> food/vegetation, moss
+  orange-red            -> food, sienna          dough       -> food, tan
+
+	The blankets, the large pillows and the lid cloth on the jam jar carry a
+	separate gingham texture instead of the colour sheet. Their triangles are
+	read from that texture and mapped per colour: white to textile ivory, red
+	to textile sienna, blue to textile hunter. The check survives where a
+	triangle falls on a white square.
+
+	Blue has no textile band — `textile` draws from ivory, hunter, taupe and
+	sienna only (§5.1) — so the blue blanket and pillows read as hunter and are
+	named for it. The teal mug and teapot land on ceramic ivory and terracotta
+	for the same reason, and the light-blue plate rim on terracotta, which is
+	what obj-kitchenware-tableware-plate allows a ceramic to take (§5.2).
+
+	`cheese-wheel` is white in the source and amber here: B33 gives cheese
+	`amber` whatever the source did.
+
+	The green bottle and the goblet are `glass`, which is not band-checked
+	(§5.1), and sit on hunter.
+
+
+	What happened to the files is in tools/importeer/tiny-treats.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, and written
+	as one draw call. The scale sits on the root node, not in the vertices.

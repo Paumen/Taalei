@@ -395,6 +395,7 @@ const SOURCES = [
     kits: [
       'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
       'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons', 'kay-mixed',
+      'kay-minigame',
     ],
   },
   {
@@ -410,7 +411,10 @@ const SOURCES = [
     id: 'isa',
     name: 'Tiny Treats',
     description: 'Kits from Isa Lousberg (isalousberg.com).',
-    kits: ['isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond'],
+    kits: [
+      'isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond',
+      'isa-picnic', 'isa-playground', 'isa-bakery',
+    ],
   },
   {
     id: 'wizp',
