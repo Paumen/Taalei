@@ -27,6 +27,7 @@ export const SCALE_TARGETS = {
   'kay-hallow': 0.24,
   'ken-cave': 0.187,
   'ken-pirate': 0.3,
+  'ken-water': 0.3,
   'ken-survival': 1.4,
   'medieval-forge': 0.006,
   'medieval-town': 1.43,

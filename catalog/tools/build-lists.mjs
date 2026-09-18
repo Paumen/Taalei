@@ -19,7 +19,7 @@ const AFGEWEZEN_PAD = 'kits/reject';
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'preview-colors.json'), 'utf8'));
-const STIJLAFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'style-rejects.json'), 'utf8'));
+const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'rejects.json'), 'utf8'));
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
@@ -361,10 +361,10 @@ for (const bronkit of BRONKITS) {
     );
   }
 
-  const stijlafwijzingen = new Set(STIJLAFWIJZINGEN[bronId(bronkit)] ?? []);
+  const afwijzingen = AFWIJZINGEN[bronId(bronkit)] ?? {};
   const perLijst = {
-    ontbreekt: ontbreekt.filter((model) => !stijlafwijzingen.has(model.naam)),
-    afgewezen: ontbreekt.filter((model) => stijlafwijzingen.has(model.naam)),
+    ontbreekt: ontbreekt.filter((model) => !afwijzingen[model.naam]),
+    afgewezen: ontbreekt.filter((model) => afwijzingen[model.naam]),
   };
 
   for (const lijst of LIJSTEN) {
@@ -426,6 +426,7 @@ for (const bronkit of BRONKITS) {
         mat: model.primitieven.length,
         bytes: statSync(pad).size,
         scaled: kit.schaal !== null || undefined,
+        reason: afwijzingen[model.naam] ?? null,
         file: model.bestand,
       };
       lijst.modellen.push(regel);
@@ -466,7 +467,7 @@ for (const bronkit of BRONKITS) {
   console.log(
     `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
       `${String(kit.aantal).padStart(4)} in catalog → ${String(perLijst.ontbreekt.length).padStart(4)} tbd` +
-      (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} reject for style` : '') +
+      (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} reject` : '') +
       (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
       (bronkit.kit ? '' : '  — never imported'),
   );
@@ -474,12 +475,12 @@ for (const bronkit of BRONKITS) {
 
 const afgewezenLijst = LIJSTEN.find((l) => l.sleutel === 'afgewezen');
 const geraakteAfwijzingen = new Set(afgewezenLijst.modellen.map((m) => `${m.kit}/${m.name}`));
-const losseAfwijzingen = Object.entries(STIJLAFWIJZINGEN)
-  .flatMap(([kit, namen]) => namen.map((naam) => `${kit}/${naam}`))
+const losseAfwijzingen = Object.entries(AFWIJZINGEN)
+  .flatMap(([kit, namen]) => Object.keys(namen).map((naam) => `${kit}/${naam}`))
   .filter((id) => !geraakteAfwijzingen.has(id));
 if (losseAfwijzingen.length) {
   waarschuwingen.push(
-    `${losseAfwijzingen.length} entries in catalog/style-rejects.json match no source model outside the ` +
+    `${losseAfwijzingen.length} entries in catalog/rejects.json match no source model outside the ` +
       'catalog — they were renamed, imported, or the pack was dropped:\n' +
       losseAfwijzingen.map((id) => `    ${id}`).join('\n'),
   );
