@@ -1,0 +1,65 @@
+export const SCALE_TARGETS = {
+  architecture: 4,
+  'arena-pack': 0.15,
+  'asia-grave': 0.15,
+  'asia-pack': 0.3,
+  'asia-rg': 0.46,
+  'asia-rocks': 0.2,
+  'clay-props': 0.65,
+  'cooking-assets': 0.04,
+  'desert-buildings': 0.0024,
+  'fishing-village': 0.435,
+  'fs-terrain': 0.5,
+  'fs-town': 0.5,
+  'isa-bakery': 0.32,
+  'isa-food': 0.24,
+  'isa-kitchen': 0.32,
+  'isa-park': 0.24,
+  'isa-picnic': 0.24,
+  'isa-plants': 0.24,
+  'isa-playground': 0.24,
+  'isa-pond': 0.24,
+  'jelly-forest': 0.4,
+  'kay-builder': 1,
+  'kay-food': 0.23,
+  'kay-hallow': 0.24,
+  'ken-cave': 0.187,
+  'ken-pirate': 0.3,
+  'ken-survival': 1.4,
+  'medieval-forge': 0.006,
+  'medieval-town': 1.1,
+  'medieval-village': 0.47,
+  'mek-tools': 0.00022,
+  natuur: 0.39,
+  'post-apocalypse': 0.45,
+  'primitive-tools': 0.0045,
+  props: 0.008,
+  'quat-blood-ring': 0.15,
+  'quat-dun-1': 0.25,
+  'quat-dun-2': 0.4,
+  'quat-fish': 0.1,
+  'quat-food': 0.15,
+  'quat-nature': 0.4,
+  'quat-pirate': 0.385,
+  'quat-props': 0.8,
+  'quat-rpg': 0.22,
+  'quat-ships': 1.25,
+  'quat-skeleton': 0.5,
+  'quat-town': 1.2,
+  rocks: 0.15,
+  'small-props': 0.0037,
+  trees: 0.24,
+  village: 0.3,
+  windmill: 0.008,
+};
+
+export const KEN_DEFAULT = 0.75;
+export const KAY_DEFAULT = 0.3;
+export const UNTOUCHED = new Set(['quat-ocean']);
+
+export function scaleTarget(kit) {
+  return (
+    SCALE_TARGETS[kit]
+    ?? (kit.startsWith('ken-') ? KEN_DEFAULT : kit.startsWith('kay-') ? KAY_DEFAULT : null)
+  );
+}
