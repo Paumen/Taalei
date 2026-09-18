@@ -2,7 +2,7 @@
  "rows": [
   { "id": "I08", "when": "*", "except": "mat:glass", "field": "alpha", "assert": "is", "value": false },
   { "id": "I09", "when": "*", "except": "mat:glass", "field": "pbr", "assert": "is", "value": false },
-  { "id": "I11", "when": "*", "except": "mat:glass | tag:animation | tag:tobeanimated", "field": "calls", "assert": "max", "value": 1 },
+  { "id": "I11", "when": "*", "except": "mat:glass | tag:animation | tag:tba", "field": "calls", "assert": "max", "value": 1 },
   { "id": "G05", "when": "*", "except": "tag:plural | kind:assy", "field": "grounded", "assert": "is", "value": true, "level": "warning" },
   { "id": "G06", "when": "*", "except": "tag:plural | kind:assy", "field": "centered", "assert": "is", "value": true, "level": "warning" },
   { "id": "G09", "when": "*", "except": "kind:env-fauna | tag:plural | kind:assy", "field": "nmat", "assert": "min", "value": 1 },

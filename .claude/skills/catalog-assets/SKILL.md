@@ -40,7 +40,7 @@ you have not looked at goes wrong quietly.
 
 ## 4. New kit
 
-Slug by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Tiny Treats),
+Slug by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
 most: `kay-food`, `ken-holiday`, `medieval-town`. Add the kit's row to
 `catalog/manifest.js` (slug, name, url, note, licence label).
@@ -108,7 +108,7 @@ Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
 - **material** — what it is made of; the subtype, never the parent on top.
 - **use** — zero or more of the eight `use:` tags.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
-  `robin-hood`, `asia`, `graveyard`, `sailing`. A new theme is worth opening
+  `robin-hood`, `asia`, `grave`, `sailing`. A new theme is worth opening
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
 - **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
