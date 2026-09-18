@@ -69,7 +69,7 @@ export const BRONKITS = [
 
   { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'medieval-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'fishing-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'arena-pack', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'arena-pack', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'trees', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Village_Pack', naam: 'Village Pack', kit: 'village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
 
