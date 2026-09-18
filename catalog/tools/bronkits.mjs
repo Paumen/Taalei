@@ -93,5 +93,5 @@ export const BRONKITS = [
   { map: 'gobkit_animal-pack-2', naam: 'Gobkit Animal Pack 2', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
   { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
-  { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: null, formaat: 'obj' },
+  { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 ];
