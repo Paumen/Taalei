@@ -121,6 +121,13 @@ guessing does not settle in three.
 Do not ask at all when the bible already decides — `B40` gives a wrapped grip
 taupe, `M33` gives bells copper.
 
+Offer an option only after proving it runs. Delete the shells in a scratch copy
+and render it, cut the range and see whether reband takes it. An option that
+reads sensible from a render often cannot be carried out: a ridge in the
+silhouette may be a lathe bulge with no edge loop, and a sheet that looks stray
+may be holding a surface closed. A question answered on an option that does not
+work costs a whole round and spends the reader's judgement on nothing.
+
 ## 7. Small batches, then verdicts
 
 Work ten or so models, push, and ask for a fresh extract with a verdict per
