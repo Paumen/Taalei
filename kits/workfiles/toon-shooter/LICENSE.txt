@@ -1,0 +1,81 @@
+	Toon Shooter Game Kit (toon-shooter)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Toon_Shooter_Game_Kit/Toon_Shooter_Game_Kit-glb.zip`.
+	It holds no license file and names no author or pack page. The CC0 note
+	above was set by the owner of this project on import; it does not come from
+	the pack itself. The author is unknown, so there is nobody to credit —
+	whoever traces the origin adds it here.
+
+	The pack is one .glb per model. 24 of the 73 are loaded: the rest are
+	modern military and street props the style guide does not take.
+
+	`pallet`, `pallet-broken` and the four cardboard boxes are past the §1 I04
+	line of 1850; they are in the catalogue at the owner's request.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,32, baked into
+	the geometry. It is set by comparison: the trees land at 1,88–1,99 high
+	between kay-forest/tree-1-b at 1,48 and fs-terrain/hilly-prop-tree-oak-b at
+	2,34; `sofa` at 0,42 beside medieval-town/bench at 0,35; `knife-bowie` at
+	0,45 beside kay-weapons/dagger-a at 0,39.
+
+
+	Names
+
+	The pack names in mixed case and hangs a download hash on repeats; here that
+	is kebab-case with letter suffixes and a name that says what the thing is.
+	The source name is in every .glb under `asset.extras.taaleiland.bronmodel`.
+
+  Bear Trap                    -> bear-trap
+  Cardboard Boxes*             -> cardboard-box, cardboard-box-flat,
+                                  cardboard-boxes-a, cardboard-boxes-b
+  Short Cannon                 -> carbine        (a carbine, not a cannon)
+  Knife / Knife-NNzzvlGXzO     -> knife-bowie, knife-combat
+  Pallet / Pallet Broken       -> pallet, pallet-broken
+  Wood Planks                  -> planks
+  Revolver / Revolver Small    -> revolver, revolver-short
+  Sack Trench / ~ Small        -> sandbags, sandbags-small
+  Sofa / Sofa Small            -> sofa, sofa-small
+  Tree_1.._4                   -> tree-a, tree-b, tree-c, tree-d
+
+
+	Colour
+
+	The source paints one flat colour per material, thirteen in all. None of
+	them came along: each is mapped to a band of the shared kits/colormap.png
+	and placed in that band at the height whose luminance matches the source
+	colour, shaded along normal Y, so the relative light-to-dark reading is
+	kept.
+
+  Wood       -> wood-worked, camel     Wood_Light -> wood-planks, tan
+  DarkWood   -> wood-bark, umber (trees) / wood-beam, chestnut (knife)
+  Grey, DarkGrey, Grey2, LightGrey, Black -> metal-iron-steel, nickel
+  Cardboard  -> paper, ivory           Tape, Sack -> textile, taupe
+  Red        -> textile, sienna        Tree_Green -> foliage, hunter
+
+	The cardboard reads brown in the source; `paper` draws from ivory only
+	(style guide §5.1), so the boxes are cream in the catalogue.
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call.
+
+	The tree canopies are open where the trunk enters, so they are hollow seen
+	from straight below. That is how the source models are built.
