@@ -195,6 +195,40 @@ a { color: var(--accent); }
   font-weight: 600;
 }
 
+.icoon-knop {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: var(--inkt-zacht);
+  cursor: pointer;
+}
+
+.icoon-knop svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icoon-knop:hover { border-color: var(--accent); color: var(--inkt); }
+.icoon-knop:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.icoon-knop[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--papier);
+}
+
 .kleurbalk {
   display: flex;
   align-items: center;
@@ -311,6 +345,13 @@ a { color: var(--accent); }
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 14px;
+}
+
+.kop > .knopgroep {
+  flex: none;
+  flex-wrap: nowrap;
+  align-self: center;
+  gap: 6px;
 }
 
 .sort-bar select {

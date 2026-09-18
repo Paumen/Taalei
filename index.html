@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taaleiland — 3D catalog</title>
 <meta name="description" content="Every 3D model and asset in Taaleiland, by kit and by kind: objects, characters, nature, structures and assemblies.">
-<meta name="catalogus-versie" content="fb8b440747">
-<meta name="catalogus-gebouwd" content="2026-09-18T21:27:26Z">
-<link rel="stylesheet" href="catalog/catalog.css?v=fb8b440747"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<meta name="catalogus-versie" content="56c7d054fe">
+<meta name="catalogus-gebouwd" content="2026-09-18T21:31:25Z">
+<link rel="stylesheet" href="catalog/catalog.css?v=56c7d054fe"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
 <body>
 
@@ -21,14 +21,28 @@
   </nav>
 
   <div class="knopgroep">
-    <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
-            title="Tap cards to select them instead of opening them — drag across cards to select a run">Select</button>
+    <button class="icoon-knop" id="kiesmodus" type="button" aria-pressed="false" aria-label="Select"
+            title="Select — tap cards to select them instead of opening them, drag across cards to select a run">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>
+        <path d="m8.5 11.5 3.5 3.5L21 6"/>
+      </svg>
+    </button>
 
-    <button class="licht-knop" id="licht" type="button" aria-pressed="false"
-            title="Shows the models unlit: only the atlas colours, with the shading baked into them">Flat</button>
+    <button class="icoon-knop" id="licht" type="button" aria-pressed="false" aria-label="Flat"
+            title="Flat — shows the models unlit: only the atlas colours, with the shading baked into them">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="8"/>
+        <path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
 
-    <button class="licht-knop" id="filterpaneel" type="button" aria-pressed="false" aria-expanded="false"
-            title="Show the lint, check, artist and theme filters as well">Filters</button>
+    <button class="icoon-knop" id="filterpaneel" type="button" aria-pressed="false" aria-expanded="false" aria-label="Filters"
+            title="Filters — show the lint, check, artist and theme filters as well">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 5h16l-6 7v6l-4 2v-8z"/>
+      </svg>
+    </button>
   </div>
 
   <span class="bouwstempel" id="bouwstempel"></span>
@@ -146,5 +160,5 @@
 </div>
 
 <script src="catalog/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/catalog.js?v=fb8b440747" type="module"></script></body>
+<script src="catalog/catalog.js?v=56c7d054fe" type="module"></script></body>
 </html>
