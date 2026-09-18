@@ -1,0 +1,90 @@
+	Post Apocalypse Pack (post-apocalypse)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Post_Apocolypse_Pack/`. It holds no license
+	file and names no author or pack page. The CC0 note above was set by the
+	owner of this project on import; it does not come from the pack itself.
+	The author is unknown, so there is nobody to credit — whoever traces the
+	origin adds it here.
+
+	The pack is one .glb per model with two shared texture atlases. 19 of the
+	54 models are loaded: the four survivors, the two dogs, the hand weapons
+	and the street props. The vehicles, the road and building pieces, the
+	zombie parts and the blood decals are left in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,45. It is set
+	by comparison with the catalogue's other characters: `survivor-matt` lands
+	at 0,68 high beside kay-adventurers/knight at 0,76 and
+	kay-skeleton/skeleton-warrior at 0,78.
+
+	`dog-pug` lands at 0,35 high against the 0,40 minimum on char — a warning,
+	not an error. The one pack factor wins (§6, P10).
+
+
+	Names
+
+	The pack names in mixed case and hangs a download hash on repeats; here
+	that is kebab-case with a name that says what the thing is. A recoloured
+	model is named after the band it landed on. The source name is in every
+	.glb under `asset.extras.taaleiland.bronmodel`.
+
+  Characters Matt / Sam / Shaun  -> survivor-matt, survivor-sam,
+                                    survivor-shaun
+  Lis                            -> survivor-lis
+  Characters Pug                 -> dog-pug
+  German Shepard                 -> dog-shepherd
+  Chest / Chest-RfSBvgcZUD       -> chest-hunter, chest-sienna
+  Wooden Bat Barbed              -> bat-barbed
+  Pallet / Pallet Broken         -> pallet, pallet-broken
+  Trash Bag / Trash Bags         -> trash-bag, trash-bags
+
+
+	Colour
+
+	The source paints from two texture atlases of flat swatches, so every
+	triangle reads one colour. None of them came along: each is mapped to a
+	band of the shared kits/colormap.png and placed in that band at the height
+	whose luminance matches the source colour, shaded along normal Y, so the
+	relative light-to-dark reading is kept.
+
+  light metal    -> metal-iron-steel, nickel   dark metal -> metal-iron-cast
+  pale wood      -> wood-planks, tan           gun stock  -> wood-beam
+  tool handle    -> wood-worked, camel         grip wrap  -> rope, taupe
+  skin, fur      -> skin (tan, umber, taupe)   dark cloth -> leather, umber
+  orange, red    -> textile, sienna            green      -> textile, hunter
+  green paint    -> metal, hunter              red paint  -> metal, sienna
+
+	The wrapped grips on `axe`, `spear` and the survivors take `rope` on taupe,
+	which is what B40 asks of a wrapped grip. The painted chests, the hydrant
+	and the pipes stay red, green and yellow on the parent `metal`, which
+	carries no palette of its own; the chests carry `metal-iron-cast` on their
+	fittings so the `mat.metal` rule on obj-container-chest holds, and
+	`wood-beam` on their panels for the `has` rule.
+
+	A character is held to six bands (G14) and to ivory, hunter and sienna for
+	textile (§5.2), so the survivors' off-whites, blues and blacks are folded
+	into leather, hunter and the metal they already carry. Hair has no material
+	of its own and reads as `skin`.
+
+	The black bin bags take `textile` on taupe, the darkest band that palette
+	allows.
+
+
+	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call. The source rigs and
+	animations are not carried over.

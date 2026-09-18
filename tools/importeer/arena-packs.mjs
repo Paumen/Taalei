@@ -127,6 +127,14 @@ const PAKKETTEN = [
         naam: 'barrel-tapped', kind: 'obj-container-barrel', tags: ['ngons'],
         vlakken: { 'p4:3:0': bewerkt, 'p4:5:0': smeedijzer },
       },
+      box_1: {
+        naam: 'crate-a', kind: 'obj-container-crate', tags: [],
+        vlakken: { 'p2:0:1': plank },
+      },
+      box_2: {
+        naam: 'crate-b', kind: 'obj-container-crate', tags: [],
+        vlakken: { 'p4:3:0': bewerkt },
+      },
       dynamite_closed: {
         naam: 'dynamite-crate', kind: 'obj-container-crate', tags: [],
         vlakken: { 'p2:0:1': plank, 'p2:3:1': bewerkt },
