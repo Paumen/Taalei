@@ -252,23 +252,6 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-park', bron: 'Pretty_park_set', schaal: 0.24, raster: [8, 8],
-    modellen: [
-      {
-        naam: 'fountain', bronmodel: 'Fountain', kind: 'obj-art-sculpture', tags: ['ngons'],
-        cellen: { '2,0': steenGrijs, '2,1': steenGrijs, '0,2': water, '1,6': water, '1,7': water, '*': steenGrijs },
-      },
-      {
-        naam: 'grass-a', bronmodel: 'Grass A', kind: 'env-flora-plant-grass', tags: ['plural'],
-        cellen: { '*': blad },
-      },
-      {
-        naam: 'grass-b', bronmodel: 'Grass B', kind: 'env-flora-plant-grass', tags: ['plural'],
-        cellen: { '*': blad },
-      },
-    ],
-  },
-  {
     kit: 'medieval-forge', bron: 'AssetPack', schaal: 0.006, atlas: true,
     modellen: [{
       naam: 'door', bronmodel: 'Door3', kind: 'str-part-door', tags: [],
@@ -457,19 +440,6 @@ const PAKKETTEN = [
       {
         naam: 'door-b', bronmodel: 'door_B', kind: 'str-part-door',
         tags: [], cellen: { '3,0': giet, '6,0': balk, '1,3': balk, '0,3': balk, '*': balk },
-      },
-    ],
-  },
-  {
-    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', schaal: 0.32, raster: [8, 8],
-    modellen: [
-      {
-        naam: 'chair', bronmodel: 'chair', kind: 'obj-furniture-seating-chair',
-        tags: [], cellen: { '5,0': hout, '5,1': hout, '3,0': doek, '3,1': doek, '*': hout },
-      },
-      {
-        naam: 'door-modular', bronmodel: 'door_modular', kind: 'str-part-door',
-        tags: [], cellen: { '2,0': giet, '2,1': giet, '3,0': hout, '3,1': hout, '*': hout },
       },
     ],
   },

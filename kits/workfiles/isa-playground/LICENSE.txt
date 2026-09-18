@@ -56,7 +56,8 @@
 	That sheet is not carried over — every source cell is mapped to a cell of
 	the shared kits/colormap.png and each triangle keeps its place inside the
 	cell, so the baked light-to-dark reading survives. A base row and its
-	shadow row are one source colour and land on one band.
+	shadow row are one source colour: the pair is read as a single ramp, so the
+	shadow row stays darker than the base row it belongs to.
 
   green paint   -> wood-worked, camel      sand      -> stone-soil, taupe
   tan wood      -> wood-planks, tan        olive     -> foliage, hunter

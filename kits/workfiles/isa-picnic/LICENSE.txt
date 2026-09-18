@@ -57,7 +57,8 @@
 	not carried over — every source cell is mapped to a cell of the shared
 	kits/colormap.png and each triangle keeps its place inside the cell, so the
 	baked light-to-dark reading survives. A base row and its shadow row are one
-	source colour and land on one band.
+	source colour: the pair is read as a single ramp, so the shadow row stays
+	darker than the base row it belongs to.
 
   white, cream          -> ceramic, ivory        light wood  -> wood-worked, camel
   pink, light blue      -> ceramic, terracotta   dark wood   -> wood-beam, chestnut
