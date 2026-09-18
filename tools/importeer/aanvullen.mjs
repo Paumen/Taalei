@@ -164,7 +164,7 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'skull', bronmodel: 'Skull', kind: 'env-remains-bones',
-        tags: ['halloween', 'graveyard'], kleuren: { '#b9a68b': been },
+        tags: ['halloween', 'grave'], kleuren: { '#b9a68b': been },
       },
       {
         naam: 'coins', bronmodel: 'Coin_Pile', kind: 'obj-pocketitem-coin',

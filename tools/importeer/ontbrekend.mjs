@@ -146,7 +146,7 @@ const PAKKETTEN = [
       },
       {
         naam: 'floor-dirt', bronmodel: 'floor_dirt', kind: 'str-part-floor',
-        tags: ['halloween', 'graveyard'],
+        tags: ['halloween', 'grave'],
         cellen: { '*': steen },
       },
     ],
@@ -156,19 +156,19 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'hood', bronmodel: 'skeleton_hood', kind: 'obj-equipment-clothing',
-        tags: ['halloween', 'graveyard'], kleuren: { '*': doekGroen },
+        tags: ['halloween', 'grave'], kleuren: { '*': doekGroen },
       },
       {
         naam: 'hood-masked', bronmodel: 'skeleton_hood_masked', kind: 'obj-equipment-clothing',
-        tags: ['halloween', 'graveyard'], kleuren: { '*': doekGroen },
+        tags: ['halloween', 'grave'], kleuren: { '*': doekGroen },
       },
       {
         naam: 'mage-cloak', bronmodel: 'skeleton_mage_cloak', kind: 'obj-equipment-clothing',
-        tags: ['halloween', 'graveyard'], kleuren: { '*': doekGroen },
+        tags: ['halloween', 'grave'], kleuren: { '*': doekGroen },
       },
       {
         naam: 'mage-cowl', bronmodel: 'skeleton_mage_cowl', kind: 'obj-equipment-clothing',
-        tags: ['halloween', 'graveyard'], kleuren: { '*': doekGroen },
+        tags: ['halloween', 'grave'], kleuren: { '*': doekGroen },
       },
     ],
   },
@@ -364,19 +364,19 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'coffin-old', bronmodel: 'coffin-old', kind: 'obj-container',
-        tags: ['halloween', 'graveyard'], cellen: { '3,2': hout, '5,2': hout, '*': hout },
+        tags: ['halloween', 'grave'], cellen: { '3,2': hout, '5,2': hout, '*': hout },
       },
       {
         naam: 'altar-stone', bronmodel: 'altar-stone', kind: 'str',
-        tags: ['halloween', 'graveyard'], cellen: { '*': steenGrijs },
+        tags: ['halloween', 'grave'], cellen: { '*': steenGrijs },
       },
       {
         naam: 'altar-wood', bronmodel: 'altar-wood', kind: 'str',
-        tags: ['halloween', 'graveyard'], cellen: { '3,2': hout, '15,3': steenGrijs, '*': steenGrijs },
+        tags: ['halloween', 'grave'], cellen: { '3,2': hout, '15,3': steenGrijs, '*': steenGrijs },
       },
       {
         naam: 'shovel', bronmodel: 'shovel', kind: 'obj-tool-long',
-        tags: ['halloween', 'graveyard'], cellen: { '15,3': staal, '3,2': plank, '*': staal },
+        tags: ['halloween', 'grave'], cellen: { '15,3': staal, '3,2': plank, '*': staal },
       },
       {
         naam: 'pumpkin-tall-carved', bronmodel: 'pumpkin-tall-carved', kind: 'obj-food-vegetable',

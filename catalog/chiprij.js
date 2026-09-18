@@ -47,7 +47,6 @@ const SHORT_NAME = {
   ken: 'Ken',
   qua: 'Qua',
   animation: 'Anim',
-  decorated: 'Dec food',
   halloween: 'Hallown',
   'robin-hood': 'Robin',
 };
