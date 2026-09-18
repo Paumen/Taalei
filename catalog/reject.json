@@ -207,13 +207,11 @@
   },
   {
    "slug": "kenney_watercraft-pack_1",
-   "name": "Kenney Watercraft Pack",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Kenney Watercraft Pack"
   },
   {
    "slug": "kenney_nature-kit",
-   "name": "Kenney Nature Kit",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Kenney Nature Kit"
   }
  ],
  "sources": [
@@ -820,21 +818,25 @@
   {
    "slug": "kenney_watercraft-pack_1",
    "name": "Kenney Watercraft Pack",
+   "kit": "ken-water",
    "format": "glb",
    "inSource": 46,
-   "inCatalog": 0,
+   "inCatalog": 4,
    "listed": 2,
    "unmatched": 0,
+   "scale": 0.3,
    "folder": "Models/GLB format"
   },
   {
    "slug": "kenney_nature-kit",
    "name": "Kenney Nature Kit",
+   "kit": "ken-nature",
    "format": "glb",
    "inSource": 329,
-   "inCatalog": 0,
+   "inCatalog": 52,
    "listed": 64,
    "unmatched": 0,
+   "scale": 0.75,
    "folder": "Models/GLTF format"
   }
  ],
@@ -20771,14 +20773,15 @@
    "kit": "kenney_watercraft-pack_1",
    "name": "cargo-container-a",
    "wdh": [
-    1.4,
-    1.1,
-    2.8
+    0.4,
+    0.3,
+    0.8
    ],
    "tris": 160,
-   "tpu": 38,
+   "tpu": 394,
    "mat": 1,
-   "bytes": 8716,
+   "bytes": 8740,
+   "scaled": true,
    "reason": "dedupe",
    "file": "cargo-container-a.glb"
   },
@@ -20786,14 +20789,15 @@
    "kit": "kenney_watercraft-pack_1",
    "name": "cargo-container-c",
    "wdh": [
-    1.4,
-    1.1,
-    2.8
+    0.4,
+    0.3,
+    0.8
    ],
    "tris": 160,
-   "tpu": 38,
+   "tpu": 394,
    "mat": 1,
-   "bytes": 8716,
+   "bytes": 8740,
+   "scaled": true,
    "reason": "dedupe",
    "file": "cargo-container-c.glb"
   },
@@ -20803,13 +20807,14 @@
    "kind": "env-flora-plant-cactus",
    "wdh": [
     0.3,
-    0.5,
-    0.3
+    0.4,
+    0.2
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
-   "bytes": 6268,
+   "bytes": 6296,
+   "scaled": true,
    "reason": "style",
    "file": "cactus_short.glb"
   },
@@ -20818,14 +20823,15 @@
    "name": "cactus_tall",
    "kind": "env-flora-plant-cactus",
    "wdh": [
-    0.4,
-    0.8,
+    0.3,
+    0.6,
     0.3
    ],
    "tris": 122,
    "tpu": 356,
    "mat": 1,
-   "bytes": 6860,
+   "bytes": 6888,
+   "scaled": true,
    "reason": "style",
    "file": "cactus_tall.glb"
   },
@@ -20833,14 +20839,15 @@
    "kit": "kenney_nature-kit",
    "name": "campfire_bricks",
    "wdh": [
-    0.5,
+    0.4,
     0.1,
-    0.5
+    0.4
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
-   "bytes": 7304,
+   "bytes": 7332,
+   "scaled": true,
    "reason": "style",
    "file": "campfire_bricks.glb"
   },
@@ -20848,14 +20855,15 @@
    "kit": "kenney_nature-kit",
    "name": "campfire_logs",
    "wdh": [
-    0.3,
+    0.2,
     0.1,
-    0.3
+    0.2
    ],
    "tris": 112,
    "tpu": 327,
    "mat": 2,
-   "bytes": 11248,
+   "bytes": 11276,
+   "scaled": true,
    "reason": "style",
    "file": "campfire_logs.glb"
   },
@@ -20863,14 +20871,15 @@
    "kit": "kenney_nature-kit",
    "name": "campfire_stones",
    "wdh": [
-    0.5,
+    0.4,
     0.1,
-    0.5
+    0.4
    ],
    "tris": 264,
    "tpu": 770,
    "mat": 1,
-   "bytes": 12204,
+   "bytes": 12232,
+   "scaled": true,
    "reason": "style",
    "file": "campfire_stones.glb"
   },
@@ -20880,12 +20889,13 @@
    "wdh": [
     0.1,
     0.1,
-    0.6
+    0.4
    ],
    "tris": 32,
    "tpu": 93,
    "mat": 1,
-   "bytes": 2876,
+   "bytes": 2904,
+   "scaled": true,
    "reason": "style",
    "file": "canoe_paddle.glb"
   },
@@ -20893,14 +20903,15 @@
    "kit": "kenney_nature-kit",
    "name": "crop_melon",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.3,
+    0.3
    ],
    "tris": 236,
    "tpu": 688,
    "mat": 3,
-   "bytes": 22212,
+   "bytes": 22240,
+   "scaled": true,
    "reason": "style",
    "file": "crop_melon.glb"
   },
@@ -20909,14 +20920,15 @@
    "name": "crop_pumpkin",
    "kind": "obj-food-vegetable",
    "wdh": [
-    0.4,
     0.3,
-    0.5
+    0.3,
+    0.3
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 2,
-   "bytes": 13820,
+   "bytes": 13848,
+   "scaled": true,
    "reason": "style",
    "file": "crop_pumpkin.glb"
   },
@@ -20925,14 +20937,15 @@
    "name": "crops_leafsStageA",
    "kind": "str",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 1,
-   "bytes": 5128,
+   "bytes": 5156,
+   "scaled": true,
    "reason": "style",
    "file": "crops_leafsStageA.glb"
   },
@@ -20941,14 +20954,15 @@
    "name": "crops_leafsStageB",
    "kind": "str",
    "wdh": [
-    0.4,
-    0.7,
-    0.4
+    0.3,
+    0.5,
+    0.3
    ],
    "tris": 84,
    "tpu": 245,
    "mat": 1,
-   "bytes": 5556,
+   "bytes": 5584,
+   "scaled": true,
    "reason": "style",
    "file": "crops_leafsStageB.glb"
   },
@@ -20957,14 +20971,15 @@
    "name": "crops_wheatStageB",
    "kind": "str",
    "wdh": [
-    0.5,
-    0.5,
-    0.4
+    0.4,
+    0.4,
+    0.3
    ],
    "tris": 360,
    "tpu": 1050,
    "mat": 2,
-   "bytes": 38568,
+   "bytes": 38596,
+   "scaled": true,
    "reason": "style",
    "file": "crops_wheatStageB.glb"
   },
@@ -20973,14 +20988,15 @@
    "name": "flower_purpleA",
    "kind": "env-flora-plant-flower",
    "wdh": [
+    0.1,
     0.2,
-    0.2,
-    0.2
+    0.1
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 2,
-   "bytes": 8764,
+   "bytes": 8792,
+   "scaled": true,
    "reason": "style",
    "file": "flower_purpleA.glb"
   },
@@ -20996,7 +21012,8 @@
    "tris": 98,
    "tpu": 286,
    "mat": 2,
-   "bytes": 9948,
+   "bytes": 9976,
+   "scaled": true,
    "reason": "style",
    "file": "flower_purpleB.glb"
   },
@@ -21005,14 +21022,15 @@
    "name": "flower_purpleC",
    "kind": "env-flora-plant-flower",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 78,
    "tpu": 227,
    "mat": 3,
-   "bytes": 12868,
+   "bytes": 12896,
+   "scaled": true,
    "reason": "style",
    "file": "flower_purpleC.glb"
   },
@@ -21021,14 +21039,15 @@
    "name": "flower_redA",
    "kind": "env-flora-plant-flower",
    "wdh": [
+    0.1,
     0.2,
-    0.3,
-    0.2
+    0.1
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 2,
-   "bytes": 8772,
+   "bytes": 8800,
+   "scaled": true,
    "reason": "style",
    "file": "flower_redA.glb"
   },
@@ -21038,13 +21057,14 @@
    "kind": "env-flora-plant-flower",
    "wdh": [
     0.2,
-    0.3,
+    0.2,
     0.2
    ],
    "tris": 98,
    "tpu": 286,
    "mat": 2,
-   "bytes": 9960,
+   "bytes": 9988,
+   "scaled": true,
    "reason": "style",
    "file": "flower_redB.glb"
   },
@@ -21053,14 +21073,15 @@
    "name": "flower_redC",
    "kind": "env-flora-plant-flower",
    "wdh": [
+    0.1,
     0.2,
-    0.2,
-    0.2
+    0.1
    ],
    "tris": 78,
    "tpu": 227,
    "mat": 3,
-   "bytes": 12872,
+   "bytes": 12900,
+   "scaled": true,
    "reason": "style",
    "file": "flower_redC.glb"
   },
@@ -21069,14 +21090,15 @@
    "name": "flower_yellowA",
    "kind": "env-flora-plant-flower",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 2,
-   "bytes": 8764,
+   "bytes": 8792,
+   "scaled": true,
    "reason": "style",
    "file": "flower_yellowA.glb"
   },
@@ -21086,13 +21108,14 @@
    "kind": "env-flora-plant-flower",
    "wdh": [
     0.2,
-    0.2,
+    0.1,
     0.2
    ],
    "tris": 154,
    "tpu": 449,
    "mat": 2,
-   "bytes": 14036,
+   "bytes": 14064,
+   "scaled": true,
    "reason": "style",
    "file": "flower_yellowB.glb"
   },
@@ -21101,14 +21124,15 @@
    "name": "flower_yellowC",
    "kind": "env-flora-plant-flower",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 78,
    "tpu": 227,
    "mat": 3,
-   "bytes": 12868,
+   "bytes": 12896,
+   "scaled": true,
    "reason": "style",
    "file": "flower_yellowC.glb"
   },
@@ -21117,14 +21141,15 @@
    "name": "grass",
    "kind": "env-flora-plant-grass",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.2,
+    0.3
    ],
    "tris": 132,
    "tpu": 385,
    "mat": 1,
-   "bytes": 8216,
+   "bytes": 8244,
+   "scaled": true,
    "reason": "style",
    "file": "grass.glb"
   },
@@ -21133,14 +21158,15 @@
    "name": "grass_large",
    "kind": "env-flora-plant-grass",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.2,
+    0.3
    ],
    "tris": 224,
    "tpu": 653,
    "mat": 1,
-   "bytes": 13204,
+   "bytes": 13232,
+   "scaled": true,
    "reason": "style",
    "file": "grass_large.glb"
   },
@@ -21151,12 +21177,13 @@
    "wdh": [
     0.2,
     0.1,
-    0.3
+    0.2
    ],
    "tris": 36,
    "tpu": 105,
    "mat": 1,
-   "bytes": 2756,
+   "bytes": 2784,
+   "scaled": true,
    "reason": "style",
    "file": "grass_leafs.glb"
   },
@@ -21165,14 +21192,15 @@
    "name": "grass_leafsLarge",
    "kind": "env-flora-plant-grass",
    "wdh": [
-    0.5,
+    0.4,
     0.1,
-    0.5
+    0.4
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
-   "bytes": 7740,
+   "bytes": 7768,
+   "scaled": true,
    "reason": "style",
    "file": "grass_leafsLarge.glb"
   },
@@ -21180,14 +21208,15 @@
    "kit": "kenney_nature-kit",
    "name": "hanging_moss",
    "wdh": [
-    0.2,
-    0.5,
+    0.1,
+    0.4,
     0.1
    ],
    "tris": 52,
    "tpu": 152,
    "mat": 1,
-   "bytes": 3436,
+   "bytes": 3464,
+   "scaled": true,
    "reason": "style",
    "file": "hanging_moss.glb"
   },
@@ -21196,14 +21225,15 @@
    "name": "lily_large",
    "kind": "env-flora-plant-flower",
    "wdh": [
-    0.3,
+    0.2,
     0.1,
-    0.3
+    0.2
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 3,
-   "bytes": 13680,
+   "bytes": 13708,
+   "scaled": true,
    "reason": "style",
    "file": "lily_large.glb"
   },
@@ -21212,14 +21242,15 @@
    "name": "lily_small",
    "kind": "env-flora-plant-flower",
    "wdh": [
-    0.2,
+    0.1,
     0.1,
     0.2
    ],
    "tris": 52,
    "tpu": 152,
    "mat": 2,
-   "bytes": 6896,
+   "bytes": 6924,
+   "scaled": true,
    "reason": "style",
    "file": "lily_small.glb"
   },
@@ -21227,14 +21258,15 @@
    "kit": "kenney_nature-kit",
    "name": "log_large",
    "wdh": [
-    1,
-    0.4,
-    0.5
+    0.8,
+    0.3,
+    0.4
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 2,
-   "bytes": 9676,
+   "bytes": 9704,
+   "scaled": true,
    "reason": "style",
    "file": "log_large.glb"
   },
@@ -21242,14 +21274,15 @@
    "kit": "kenney_nature-kit",
    "name": "log_stack",
    "wdh": [
-    0.4,
     0.3,
-    0.7
+    0.3,
+    0.5
    ],
    "tris": 184,
-   "tpu": 529,
+   "tpu": 536,
    "mat": 2,
-   "bytes": 13156,
+   "bytes": 13184,
+   "scaled": true,
    "reason": "style",
    "file": "log_stack.glb"
   },
@@ -21257,14 +21290,15 @@
    "kit": "kenney_nature-kit",
    "name": "log_stackLarge",
    "wdh": [
-    0.6,
+    0.5,
     0.3,
-    0.7
+    0.5
    ],
    "tris": 310,
-   "tpu": 891,
+   "tpu": 904,
    "mat": 3,
-   "bytes": 30452,
+   "bytes": 30480,
+   "scaled": true,
    "reason": "style",
    "file": "log_stackLarge.glb"
   },
@@ -21273,14 +21307,15 @@
    "name": "mushroom_red",
    "kind": "env-fungi",
    "wdh": [
-    0.2,
+    0.1,
     0.2,
     0.2
    ],
    "tris": 48,
    "tpu": 140,
    "mat": 2,
-   "bytes": 6148,
+   "bytes": 6176,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_red.glb"
   },
@@ -21289,14 +21324,15 @@
    "name": "mushroom_redGroup",
    "kind": "env-fungi",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 2,
-   "bytes": 14804,
+   "bytes": 14832,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_redGroup.glb",
    "variant": "v164"
@@ -21307,13 +21343,14 @@
    "kind": "env-fungi",
    "wdh": [
     0.1,
-    0.3,
+    0.2,
     0.1
    ],
    "tris": 48,
    "tpu": 140,
    "mat": 2,
-   "bytes": 6160,
+   "bytes": 6188,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_redTall.glb",
    "variant": "v165"
@@ -21323,14 +21360,15 @@
    "name": "mushroom_tan",
    "kind": "env-fungi",
    "wdh": [
-    0.2,
-    0.2,
+    0.1,
+    0.1,
     0.2
    ],
    "tris": 48,
    "tpu": 140,
    "mat": 2,
-   "bytes": 6128,
+   "bytes": 6156,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_tan.glb"
   },
@@ -21339,14 +21377,15 @@
    "name": "mushroom_tanGroup",
    "kind": "env-fungi",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 2,
-   "bytes": 14788,
+   "bytes": 14816,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_tanGroup.glb",
    "variant": "v164"
@@ -21357,13 +21396,14 @@
    "kind": "env-fungi",
    "wdh": [
     0.1,
-    0.3,
+    0.2,
     0.1
    ],
    "tris": 48,
    "tpu": 140,
    "mat": 2,
-   "bytes": 6144,
+   "bytes": 6172,
+   "scaled": true,
    "reason": "style",
    "file": "mushroom_tanTall.glb",
    "variant": "v165"
@@ -21372,14 +21412,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bush",
    "wdh": [
-    0.4,
+    0.3,
     0.2,
-    0.4
+    0.3
    ],
    "tris": 32,
    "tpu": 93,
    "mat": 1,
-   "bytes": 3208,
+   "bytes": 3236,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bush.glb"
   },
@@ -21387,14 +21428,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bushDetailed",
    "wdh": [
-    0.6,
-    0.4,
-    0.6
+    0.5,
+    0.3,
+    0.5
    ],
    "tris": 104,
    "tpu": 303,
    "mat": 1,
-   "bytes": 7312,
+   "bytes": 7340,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bushDetailed.glb"
   },
@@ -21402,14 +21444,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bushLarge",
    "wdh": [
-    0.4,
+    0.3,
     0.2,
     0.3
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 1,
-   "bytes": 4640,
+   "bytes": 4668,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bushLarge.glb"
   },
@@ -21417,14 +21460,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bushLargeTriangle",
    "wdh": [
-    0.4,
-    0.2,
-    0.5
+    0.3,
+    0.1,
+    0.4
    ],
    "tris": 39,
    "tpu": 114,
    "mat": 1,
-   "bytes": 3304,
+   "bytes": 3332,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bushLargeTriangle.glb"
   },
@@ -21432,14 +21476,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bushSmall",
    "wdh": [
-    0.4,
+    0.3,
     0.2,
     0.3
    ],
    "tris": 16,
    "tpu": 47,
    "mat": 1,
-   "bytes": 2352,
+   "bytes": 2380,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bushSmall.glb"
   },
@@ -21447,14 +21492,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_bushTriangle",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.2,
+    0.3
    ],
    "tris": 30,
    "tpu": 87,
    "mat": 1,
-   "bytes": 2876,
+   "bytes": 2904,
+   "scaled": true,
    "reason": "style",
    "file": "plant_bushTriangle.glb"
   },
@@ -21462,14 +21508,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_flatShort",
    "wdh": [
-    0.3,
     0.2,
-    0.3
+    0.2,
+    0.2
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 1,
-   "bytes": 2804,
+   "bytes": 2832,
+   "scaled": true,
    "reason": "style",
    "file": "plant_flatShort.glb"
   },
@@ -21477,14 +21524,15 @@
    "kit": "kenney_nature-kit",
    "name": "plant_flatTall",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 32,
    "tpu": 93,
    "mat": 1,
-   "bytes": 2496,
+   "bytes": 2524,
+   "scaled": true,
    "reason": "style",
    "file": "plant_flatTall.glb"
   },
@@ -21493,14 +21541,15 @@
    "name": "pot_large",
    "kind": "obj-container-pot",
    "wdh": [
-    0.6,
+    0.4,
     0.2,
-    0.5
+    0.4
    ],
    "tris": 68,
    "tpu": 198,
    "mat": 2,
-   "bytes": 7468,
+   "bytes": 7496,
+   "scaled": true,
    "reason": "style",
    "file": "pot_large.glb"
   },
@@ -21509,14 +21558,15 @@
    "name": "pot_small",
    "kind": "obj-container-pot",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 72,
    "tpu": 210,
    "mat": 3,
-   "bytes": 10796,
+   "bytes": 10824,
+   "scaled": true,
    "reason": "style",
    "file": "pot_small.glb"
   },
@@ -21525,14 +21575,15 @@
    "name": "statue_block",
    "kind": "obj-art-sculpture",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 140,
    "tpu": 408,
    "mat": 2,
-   "bytes": 14248,
+   "bytes": 14276,
+   "scaled": true,
    "reason": "style",
    "file": "statue_block.glb"
   },
@@ -21541,14 +21592,15 @@
    "name": "stump_old",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.4,
     0.3,
-    0.4
+    0.2,
+    0.3
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
-   "bytes": 6812,
+   "bytes": 6840,
+   "scaled": true,
    "reason": "style",
    "file": "stump_old.glb"
   },
@@ -21557,14 +21609,15 @@
    "name": "stump_oldTall",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.4,
-    0.7,
-    0.4
+    0.3,
+    0.5,
+    0.3
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
-   "bytes": 6820,
+   "bytes": 6848,
+   "scaled": true,
    "reason": "style",
    "file": "stump_oldTall.glb"
   },
@@ -21573,14 +21626,15 @@
    "name": "stump_round",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.3,
     0.2,
-    0.4
+    0.2,
+    0.3
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 2,
-   "bytes": 6816,
+   "bytes": 6844,
+   "scaled": true,
    "reason": "style",
    "file": "stump_round.glb"
   },
@@ -21589,14 +21643,15 @@
    "name": "stump_roundDetailed",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.4,
+    0.3,
     0.2,
-    0.4
+    0.3
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 2,
-   "bytes": 10160,
+   "bytes": 10188,
+   "scaled": true,
    "reason": "style",
    "file": "stump_roundDetailed.glb"
   },
@@ -21605,14 +21660,15 @@
    "name": "stump_square",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.4,
     0.3,
-    0.3
+    0.2,
+    0.2
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 2,
-   "bytes": 5400,
+   "bytes": 5428,
+   "scaled": true,
    "reason": "style",
    "file": "stump_square.glb"
   },
@@ -21621,14 +21677,15 @@
    "name": "stump_squareDetailed",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.4,
+    0.3,
     0.2,
-    0.4
+    0.3
    ],
    "tris": 84,
    "tpu": 245,
    "mat": 2,
-   "bytes": 9312,
+   "bytes": 9340,
+   "scaled": true,
    "reason": "style",
    "file": "stump_squareDetailed.glb"
   },
@@ -21637,14 +21694,15 @@
    "name": "stump_squareDetailedWide",
    "kind": "env-flora-deadwood-stump",
    "wdh": [
-    0.6,
+    0.5,
     0.2,
-    0.6
+    0.5
    ],
    "tris": 84,
    "tpu": 245,
    "mat": 2,
-   "bytes": 9324,
+   "bytes": 9352,
+   "scaled": true,
    "reason": "style",
    "file": "stump_squareDetailedWide.glb"
   },
@@ -21653,14 +21711,15 @@
    "name": "tree_fat",
    "kind": "env-flora-tree",
    "wdh": [
-    0.8,
-    1.2,
-    0.7
+    0.6,
+    0.9,
+    0.5
    ],
    "tris": 50,
-   "tpu": 82,
+   "tpu": 146,
    "mat": 2,
-   "bytes": 6768,
+   "bytes": 6796,
+   "scaled": true,
    "reason": "style",
    "file": "tree_fat.glb",
    "variant": "v166"
@@ -21670,14 +21729,15 @@
    "name": "tree_fat_darkh",
    "kind": "env-flora-tree",
    "wdh": [
-    0.8,
-    1.2,
-    0.7
+    0.6,
+    0.9,
+    0.5
    ],
    "tris": 50,
-   "tpu": 82,
+   "tpu": 146,
    "mat": 2,
-   "bytes": 6788,
+   "bytes": 6816,
+   "scaled": true,
    "reason": "style",
    "file": "tree_fat_darkh.glb",
    "variant": "v166"
@@ -21687,14 +21747,15 @@
    "name": "tree_fat_fall",
    "kind": "env-flora-tree",
    "wdh": [
-    0.8,
-    1.2,
-    0.7
+    0.6,
+    0.9,
+    0.5
    ],
    "tris": 50,
-   "tpu": 82,
+   "tpu": 146,
    "mat": 2,
-   "bytes": 6752,
+   "bytes": 6780,
+   "scaled": true,
    "reason": "style",
    "file": "tree_fat_fall.glb",
    "variant": "v166"
@@ -21704,14 +21765,15 @@
    "name": "tree_palm",
    "kind": "env-flora-tree-palm",
    "wdh": [
-    0.9,
-    1.5,
-    1
+    0.7,
+    1.1,
+    0.8
    ],
    "tris": 186,
-   "tpu": 130,
+   "tpu": 307,
    "mat": 2,
-   "bytes": 17192,
+   "bytes": 17220,
+   "scaled": true,
    "reason": "style",
    "file": "tree_palm.glb"
   },
@@ -21720,14 +21782,15 @@
    "name": "tree_palmBend",
    "kind": "env-flora-tree-palm",
    "wdh": [
-    0.9,
-    1.4,
-    1
+    0.7,
+    1,
+    0.8
    ],
    "tris": 200,
-   "tpu": 153,
+   "tpu": 363,
    "mat": 2,
-   "bytes": 18824,
+   "bytes": 18852,
+   "scaled": true,
    "reason": "style",
    "file": "tree_palmBend.glb"
   },
@@ -21736,14 +21799,15 @@
    "name": "tree_pineTallB",
    "kind": "env-flora-tree-conifer",
    "wdh": [
-    0.4,
-    1.9,
-    0.4
+    0.3,
+    1.5,
+    0.3
    ],
    "tris": 78,
-   "tpu": 149,
+   "tpu": 227,
    "mat": 2,
-   "bytes": 8884,
+   "bytes": 8912,
+   "scaled": true,
    "reason": "style",
    "file": "tree_pineTallB.glb"
   },
@@ -21752,14 +21816,15 @@
    "name": "tree_pineTallB_detailed",
    "kind": "env-flora-tree-conifer",
    "wdh": [
-    0.4,
-    1.9,
-    0.4
+    0.3,
+    1.5,
+    0.3
    ],
    "tris": 166,
-   "tpu": 317,
+   "tpu": 484,
    "mat": 2,
-   "bytes": 15972,
+   "bytes": 16000,
+   "scaled": true,
    "reason": "style",
    "file": "tree_pineTallB_detailed.glb"
   },
@@ -21768,14 +21833,15 @@
    "name": "tree_pineTallD",
    "kind": "env-flora-tree-conifer",
    "wdh": [
-    0.5,
-    2.1,
-    0.6
+    0.4,
+    1.6,
+    0.4
    ],
    "tris": 98,
-   "tpu": 140,
+   "tpu": 250,
    "mat": 2,
-   "bytes": 9960,
+   "bytes": 9988,
+   "scaled": true,
    "reason": "style",
    "file": "tree_pineTallD.glb"
   },
@@ -21784,14 +21850,15 @@
    "name": "tree_pineTallD_detailed",
    "kind": "env-flora-tree-conifer",
    "wdh": [
-    0.5,
-    2.1,
-    0.6
+    0.4,
+    1.6,
+    0.4
    ],
    "tris": 170,
-   "tpu": 244,
+   "tpu": 433,
    "mat": 2,
-   "bytes": 15800,
+   "bytes": 15828,
+   "scaled": true,
    "reason": "style",
    "file": "tree_pineTallD_detailed.glb"
   },
@@ -21800,14 +21867,15 @@
    "name": "tree_tall_fall",
    "kind": "env-flora-tree",
    "wdh": [
-    0.4,
-    1.7,
-    0.5
+    0.3,
+    1.3,
+    0.3
    ],
    "tris": 144,
-   "tpu": 305,
+   "tpu": 420,
    "mat": 2,
-   "bytes": 15392,
+   "bytes": 15420,
+   "scaled": true,
    "reason": "style",
    "file": "tree_tall_fall.glb"
   }
