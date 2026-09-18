@@ -85,7 +85,7 @@ export const BRONKITS = [
   { map: 'KayKit_Spooktober_Seasonal_Pack_1.1', naam: 'KayKit Spooktober Seasonal Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
   { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
 
-  { map: 'Ultimate_Guns_Pack', naam: 'Ultimate Guns Pack', kit: null, formaat: 'glb' },
-  { map: 'Toon_Shooter_Game_Kit', naam: 'Toon Shooter Game Kit', kit: null, formaat: 'glb' },
-  { map: 'Farm_Buildings_Bundle', naam: 'Farm Buildings Bundle', kit: null, formaat: 'glb' },
+  { map: 'Ultimate_Guns_Pack', naam: 'Ultimate Guns Pack', kit: 'ultimate-guns', formaat: 'glb' },
+  { map: 'Toon_Shooter_Game_Kit', naam: 'Toon Shooter Game Kit', kit: 'toon-shooter', formaat: 'glb' },
+  { map: 'Farm_Buildings_Bundle', naam: 'Farm Buildings Bundle', kit: 'farm-buildings', formaat: 'glb' },
 ];

@@ -3352,5 +3352,70 @@ window.KENNEY_KITS = [
    "waterlily-white",
    "waterlily-yellow"
   ]
+ },
+ {
+  "slug": "farm-buildings",
+  "name": "farm-buildings",
+  "url": null,
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/farm-buildings/LICENSE.txt.",
+  "models": [
+   "barn",
+   "barn-large",
+   "barn-open",
+   "barn-small",
+   "chicken-coop",
+   "picket-fence",
+   "rail-fence",
+   "silo",
+   "silo-house",
+   "windmill"
+  ]
+ },
+ {
+  "slug": "toon-shooter",
+  "name": "toon-shooter",
+  "url": null,
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/toon-shooter/LICENSE.txt.",
+  "models": [
+   "bear-trap",
+   "carbine",
+   "cardboard-box",
+   "cardboard-box-flat",
+   "cardboard-boxes-a",
+   "cardboard-boxes-b",
+   "crate",
+   "key",
+   "knife-bowie",
+   "knife-combat",
+   "pallet",
+   "pallet-broken",
+   "planks",
+   "revolver",
+   "revolver-short",
+   "sandbags",
+   "sandbags-small",
+   "shotgun",
+   "sofa",
+   "sofa-small",
+   "tree-a",
+   "tree-b",
+   "tree-c",
+   "tree-d"
+  ]
+ },
+ {
+  "slug": "ultimate-guns",
+  "name": "ultimate-guns",
+  "url": null,
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/ultimate-guns/LICENSE.txt.",
+  "models": [
+   "revolver",
+   "revolver-ribbed",
+   "revolver-steel",
+   "shotgun",
+   "shotgun-pistol-grip",
+   "shotgun-pump",
+   "shotgun-sawed-off"
+  ]
  }
 ]

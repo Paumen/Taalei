@@ -1,0 +1,70 @@
+	Farm Buildings Bundle (farm-buildings)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Farm_Buildings_Bundle/Farm_Buildings_Bundle-glb.zip`.
+	It holds no license file and names no author or pack page. The CC0 note
+	above was set by the owner of this project on import; it does not come from
+	the pack itself. The author is unknown, so there is nobody to credit —
+	whoever traces the origin adds it here.
+
+	The pack is one .glb per model. All 10 are loaded.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,30, baked into
+	the geometry. It is set by comparison: `barn` lands at 1,80 high beside
+	architecture/barn at 1,78, and `chicken-coop` at 0,56 beside the village
+	houses at 0,98–1,05.
+
+
+	Names
+
+	The pack names in mixed case; here that is kebab-case with a name that says
+	what the thing is. The source name is in every .glb under
+	`asset.extras.taaleiland.bronmodel`.
+
+  Barn / Big Barn / Small Barn -> barn, barn-large, barn-small
+  Open Barn                    -> barn-open
+  ChickenCoop                  -> chicken-coop
+  Fence / Fence-e02PFKKhbr     -> picket-fence, rail-fence
+  Silo / Silo House            -> silo, silo-house
+  Tower Windmill               -> windmill
+
+
+	Colour
+
+	The source paints one flat colour per material, ten in all. None of them
+	came along: each is mapped to a band of the shared kits/colormap.png and
+	placed in that band at the height whose luminance matches the source
+	colour, shaded along normal Y, so the relative light-to-dark reading is
+	kept.
+
+  White      -> wood-planks, tan       LightRed  -> wood-worked, camel
+  DarkRed    -> wood-beam, chestnut    Brown     -> wood-beam, chestnut
+  RoofBlack  -> ceramic, sienna        Grey      -> stone-masonry, nickel/taupe
+  DarkGrey   -> per model              Black     -> per model
+  LightBrown -> wood-planks, tan       DarkBrown -> wood-beam, chestnut
+
+	The pack's red-and-white paint has no band: `wood-planks`, `wood-worked`
+	and `wood-beam` draw from tan, camel and chestnut only (style guide §5.1).
+	The three tones are kept apart by band instead of by hue, in the same
+	light-to-dark order as the source.
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call.
