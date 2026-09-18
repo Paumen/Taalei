@@ -75,8 +75,28 @@ function reach(from, to) {
   return worst;
 }
 
-const counts = { kept: 0, extension: 0, name: 0, geometry: 0, 'name+geometry': 0, ambiguous: 0, unmatched: 0 };
+const words = (naam) => new Set(kebab(naam).split('-').filter(Boolean));
+
+// Source models that share a shape differ only in what the pack calls them — a
+// colour tier, a family. Take the one whose name has most in common with the work
+// model, and the one the pack lists first when that leaves a tie.
+function closestName(name, candidates) {
+  const wanted = words(name);
+  let best = candidates[0];
+  let score = -1;
+  for (const candidate of candidates) {
+    const shared = [...words(candidate.model.naam)].filter((w) => wanted.has(w)).length;
+    if (shared > score) {
+      score = shared;
+      best = candidate;
+    }
+  }
+  return best;
+}
+
+const counts = { kept: 0, extension: 0, name: 0, geometry: 0, 'name+geometry': 0, 'same-shape': 0, unmatched: 0 };
 const open = [];
+const settled = [];
 
 for (const bronkit of BRONKITS) {
   if (!bronkit.kit) continue;
@@ -103,7 +123,7 @@ for (const bronkit of BRONKITS) {
     else byTriangles.set(item.driehoeken, [item]);
   }
 
-  const kit = { kept: 0, extension: 0, name: 0, geometry: 0, 'name+geometry': 0, ambiguous: 0, unmatched: 0 };
+  const kit = { kept: 0, extension: 0, name: 0, geometry: 0, 'name+geometry': 0, 'same-shape': 0, unmatched: 0 };
   for (const file of readdirSync(dir)) {
     if (!file.endsWith('.glb')) continue;
     const path = join(dir, file);
@@ -139,9 +159,9 @@ for (const bronkit of BRONKITS) {
         found = named;
         how = 'name+geometry';
       } else if (alike.length > 1) {
-        kit.ambiguous++;
-        open.push(`${bronkit.kit}/${name}: ${alike.length} source models with the same shape`);
-        continue;
+        found = closestName(name, alike);
+        how = 'same-shape';
+        settled.push(`${bronkit.kit}/${name}: ${found.model.naam}, one of ${alike.length} source models with the same shape`);
       } else if (named) {
         found = named;
         how = 'name';
@@ -163,21 +183,26 @@ for (const bronkit of BRONKITS) {
   }
 
   for (const key of Object.keys(kit)) counts[key] += kit[key];
-  const written = kit.extension + kit.name + kit.geometry + kit['name+geometry'];
-  if (written + kit.ambiguous + kit.unmatched === 0) continue;
+  const written = kit.extension + kit.name + kit.geometry + kit['name+geometry'] + kit['same-shape'];
+  if (written + kit.unmatched === 0) continue;
   console.log(
     `${bronkit.kit.padEnd(17)} ${String(written).padStart(4)} linked`
-      + ` (extension ${kit.extension}, name ${kit.name}, geometry ${kit.geometry}, both ${kit['name+geometry']})`
-      + `  ${kit.ambiguous} ambiguous  ${kit.unmatched} unmatched`,
+      + ` (extension ${kit.extension}, name ${kit.name}, geometry ${kit.geometry}, both ${kit['name+geometry']},`
+      + ` same shape ${kit['same-shape']})  ${kit.unmatched} unmatched`,
   );
 }
 
 console.log(
-  `\n${counts.extension + counts.name + counts.geometry + counts['name+geometry']} files `
+  `\n${counts.extension + counts.name + counts.geometry + counts['name+geometry'] + counts['same-shape']} files `
     + `${reportOnly ? 'would get' : 'got'} a source model: ${counts.extension} by dropping a file extension, `
-    + `${counts['name+geometry']} by name and shape, ${counts.geometry} by shape alone, ${counts.name} by name alone`,
+    + `${counts['name+geometry']} by name and shape, ${counts.geometry} by shape alone, ${counts.name} by name alone, `
+    + `${counts['same-shape']} picked out of source models that share a shape`,
 );
-console.log(`${counts.kept} already linked, ${counts.ambiguous} ambiguous, ${counts.unmatched} unmatched`);
+console.log(`${counts.kept} already linked, ${counts.unmatched} unmatched`);
+if (settled.length) {
+  console.log('\npicked out of source models that share a shape:');
+  for (const line of settled) console.log(`  ${line}`);
+}
 if (open.length) {
   console.log('');
   for (const line of open) console.log(`  ${line}`);
