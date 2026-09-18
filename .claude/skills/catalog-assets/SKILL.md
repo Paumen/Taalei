@@ -48,9 +48,17 @@ most: `kay-food`, `ken-holiday`, `medieval-town`. Add the kit's row to
 ## 5. Scale factor
 
 One factor for the whole pack, as the bible's process rules say. The target factors live in
-`tools/importeer/schaal.mjs` (`DOEL`, plus the `ken-` and `kay-` defaults) —
-use the pack's factor from there, and keep it in step with that table rather
-than copying a number that was right last month.
+`tools/importeer/scale-factors.mjs` (`SCALE_TARGETS`, plus the `ken-` and
+`kay-` defaults), which `tools/importeer/schaal.mjs` reads — use the pack's
+factor from there, and keep it in step with that table rather than copying a
+number that was right last month.
+
+`node tools/importeer/scale-check.mjs [kit…]` compares each workfile against
+the model it was imported from and reports the ones that are not the source
+size times the pack's factor. It reads the source model from
+`asset.extras.taaleiland.bronmodel`, which every import spec sets;
+`node tools/importeer/source-link.mjs [kit…] [--report]` fills that field in
+for a workfile that lacks it, matching on name and on the shape of the mesh.
 
 For a pack with no factor yet, pick it by comparison, not by arithmetic: import
 a handful at a guess and render them beside catalogue models of the same kind.
