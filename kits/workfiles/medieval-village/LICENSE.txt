@@ -1,0 +1,73 @@
+	Stylized Medieval Village (medieval-village)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Medieval_Pack/Medieval_Pack.zip`. It holds no license
+	file and names no author or pack page. The CC0 note above was set by the
+	owner of this project on import; it does not come from the pack itself.
+	The author is unknown, so there is nobody to credit — whoever traces the
+	origin adds it here.
+
+	The pack is one file, `medieval_village_pack.glb`, with every model side by side; they
+	are cut apart per mesh. 31 of the 33 meshes are loaded.
+
+	`box_1` and `box_2` are the same mesh as asia-grave/crate and were left out.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,47, baked
+	into the geometry. It is set by comparison with models the same artist's
+	other packs already put in the catalogue, which share meshes with this one.
+
+	Names
+
+	The pack numbers through; here that is kebab-case with letter suffixes and
+	a name that says what the thing is. The source name is in every .glb under
+	`asset.extras.taaleiland.bronmodel`.
+
+  barrel_1 / beer_barrel     -> barrel, barrel-tapped
+  dynamite_closed / _open    -> dynamite-crate, dynamite-crate-open
+  fence_1..4                 -> picket-fence-a..-c, picket-fence-leaning
+  grain_storage              -> silo
+  hay_1 / hay_2              -> haystack-forked, haystack
+  house_1 / house_2          -> house-a, house-b
+  magic_tower                -> wizard-tower
+  mine                       -> mine-entrance
+  minecart_empty / _full     -> minecart, minecart-ore
+  mineral_barrel             -> barrel-ore
+  railway_1..4               -> rail-short, rail-straight, rail-long, rail-curve
+  rock_1 / rock_2            -> rock-a, rock-b
+  target                     -> archery-target
+  tent_1 / tent_2            -> market-stall-red, market-stall-green
+  weapons_shop               -> weapon-shop
+
+
+	Colour
+
+	The source paints from `376ad5009247027e.png`, plus the shared `db6e18e2256954cd.png` and `36e533819afa2dfb.png`. Each
+	atlas is 16 vertical lanes wide and two rows high; one lane is one
+	material, light to dark, with the shading baked into the UVs. None of them
+	came along: the UVs are remapped onto the shared kits/colormap.png.
+
+	Per lane the UV reach is measured over the whole import and laid on 5–95%
+	of the target band, so the baked shading keeps its relative spread. A model
+	that uses only part of a lane keeps only part of the band.
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/arena-packs.mjs: cut out
+	of the shared file, scaled, origin at y=0 with the footprint centred,
+	vertices re-welded, closed shells turned outward and the winding aligned
+	with the source normals.

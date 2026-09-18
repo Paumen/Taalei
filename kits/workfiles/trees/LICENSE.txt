@@ -1,0 +1,72 @@
+	Trees Pack (trees)
+
+			------------------------------
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Trees_Pack/Trees_Pack.zip`. It holds no license
+	file and names no author or pack page. The CC0 note above was set by the
+	owner of this project on import; it does not come from the pack itself.
+	The author is unknown, so there is nobody to credit — whoever traces the
+	origin adds it here.
+
+	The pack is one file, `TreesPack.glb`, with every model side by side; they
+	are cut apart per mesh. 25 of the 93 meshes are loaded.
+
+	The pine* models are bare trunks, stumps and fallen logs, not conifers;
+	they are filed as deadwood. `garden_plant_5` is the same mesh as
+	asia-pack/plant-c and was left out.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,24, baked
+	into the geometry. It is set by comparison with models the same artist's
+	other packs already put in the catalogue, which share meshes with this one.
+
+	Names
+
+	The pack numbers through; here that is kebab-case with letter suffixes and
+	a name that says what the thing is. The source name is in every .glb under
+	`asset.extras.taaleiland.bronmodel`.
+
+  banana2                    -> banana-tree
+  cactus1..4                 -> cactus-flowering-round, cactus-flowering-tall,
+                                cactus-round, cactus-tall
+  coconut1..3 / palm2        -> palm-a, palm-bent, palm-b, palm-young
+  creepy_tree1 / _tree2      -> dead-tree-spiked-a, dead-tree-spiked-b
+  pine4..6                   -> dead-tree-a, dead-tree-b, dead-tree-c
+  pine7 / pine8              -> stump-a, stump-b
+  pine9 / pine10             -> log-fallen, log-cut
+  plant1                     -> leafy-plant
+  waterlily_pink1 / _pink2   -> waterlily-white, lilypad-a
+  waterlily_yellow1/_yellow2 -> waterlily-yellow, lilypad-b
+  waterlily_*_group          -> waterlilies-white, waterlilies-yellow
+
+
+	Colour
+
+	The source paints from `db6e18e2256954cd.png`. Each
+	atlas is 16 vertical lanes wide and two rows high; one lane is one
+	material, light to dark, with the shading baked into the UVs. None of them
+	came along: the UVs are remapped onto the shared kits/colormap.png.
+
+	Per lane the UV reach is measured over the whole import and laid on 5–95%
+	of the target band, so the baked shading keeps its relative spread. A model
+	that uses only part of a lane keeps only part of the band.
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/arena-packs.mjs: cut out
+	of the shared file, scaled, origin at y=0 with the footprint centred,
+	vertices re-welded, closed shells turned outward and the winding aligned
+	with the source normals.
