@@ -68,6 +68,13 @@ export const BRONKITS = [
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'asia-rocks', formaat: 'glb', splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
 
+  { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Trees_Pack', naam: 'Trees Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Village_Pack', naam: 'Village Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Sweetland_Platformer_Kit', naam: 'Sweetland Platformer Kit', kit: null, formaat: 'glb', splitsPerMesh: true },
+
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: 'architecture', formaat: 'fbx', alleMappen: true },
   { map: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', naam: 'Tiny Treats Charming Kitchen', kit: 'isa-kitchen', formaat: 'gltf' },
