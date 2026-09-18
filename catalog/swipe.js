@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=a364f264ab';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=a364f264ab';
-import { renderCommentBox } from './comments.js?v=a364f264ab';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a364f264ab';
-import './bouwstempel.js?v=a364f264ab';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=af99c69f4d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=af99c69f4d';
+import { renderCommentBox } from './comments.js?v=af99c69f4d';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=af99c69f4d';
+import './bouwstempel.js?v=af99c69f4d';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -19,6 +19,12 @@ const SOURCES = {
     file: 'missing.json',
     title: 'Swipe what is missing',
     labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
+  },
+  rejected: {
+    file: 'rejected.json',
+    title: 'Swipe what was rejected for style',
+    key: 'rejected',
+    labels: { links: 'Rightly rejected', rechts: 'Wants adding after all', omhoog: 'Rejected for another reason', omlaag: 'Look again' },
   },
   lint: {
     file: 'catalog.json',
@@ -465,7 +471,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=a364f264ab'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=af99c69f4d'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);

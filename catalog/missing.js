@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=a364f264ab';
+import './bouwstempel.js?v=af99c69f4d';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -10,6 +10,12 @@ const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
 
 const el = (sel) => document.querySelector(sel);
+
+const PAGE = {
+  list: document.body.dataset.list ?? 'missing.json',
+  swipe: document.body.dataset.swipe ?? 'missing',
+  rejected: 'rejected' in document.body.dataset,
+};
 
 function span(className, text) {
   const node = document.createElement('span');
@@ -181,9 +187,11 @@ function showDetail(model) {
   const pack = register.packs.get(model.kit);
   activePath = model.path;
   el('#detail-naam').textContent = model.name;
-  el('#detail-herkomst').textContent = nooitIngevoerd(model)
-    ? `${pack?.name ?? model.kit} — this pack was never imported`
-    : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
+  el('#detail-herkomst').textContent = PAGE.rejected
+    ? `${pack?.name ?? model.kit} — turned down because its style does not fit the island`
+    : nooitIngevoerd(model)
+      ? `${pack?.name ?? model.kit} — this pack was never imported`
+      : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
 
   const viewer = document.createElement('model-viewer');
   viewer.src = modelUrl(`../${model.path}`);
@@ -470,12 +478,15 @@ function groupsFor(models) {
   }
   return [...per].map(([slug, own]) => {
     const pack = register.packs.get(slug);
+    const listed = pack?.listed ?? own.length;
     return {
       key: slug,
       title: pack?.name ?? slug,
-      hint: pack?.kit
-        ? `${pack.missing} of ${pack.inSource} models in this pack are not in the catalog — the other ${pack.inCatalog} were imported as “${pack.kit}”.`
-        : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalog.`,
+      hint: PAGE.rejected
+        ? `${listed} of the ${pack?.inSource ?? own.length} models in this pack ${listed === 1 ? 'was' : 'were'} turned down because the style does not fit the island.`
+        : pack?.kit
+          ? `${listed} of ${pack.inSource} models in this pack are not in the catalog — the other ${pack.inCatalog} were imported as “${pack.kit}”.`
+          : `This pack was never imported: none of its ${pack?.inSource ?? own.length} models are in the catalog.`,
       models: own,
     };
   }).sort((a, b) => a.models.length - b.models.length || a.title.localeCompare(b.title));
@@ -508,9 +519,11 @@ function draw() {
   el('#leeg').hidden = gekozen.length > 0;
   const total = register.models.length;
   el('#samenvatting').textContent =
-    gekozen.length === total
-      ? `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`
-      : `${number.format(gekozen.length)} of ${number.format(total)} models shown`;
+    gekozen.length !== total
+      ? `${number.format(gekozen.length)} of ${number.format(total)} models shown`
+      : PAGE.rejected
+        ? `${number.format(total)} models turned down for their style, from ${register.packs.size} packs`
+        : `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`;
 
   const filtered = Boolean(state.search || state.pack || state.state);
   el('#alles-wis').hidden = !filtered;
@@ -519,14 +532,14 @@ function draw() {
   const pack = state.pack ? register.packs.get(state.pack) : null;
   packButton.hidden = !pack;
   if (pack) {
-    packButton.href = `swipe.html?source=missing&kit=${encodeURIComponent(pack.slug)}`;
+    packButton.href = `swipe.html?source=${PAGE.swipe}&kit=${encodeURIComponent(pack.slug)}`;
     packButton.textContent = `Swipe ${pack.short}`;
   }
 }
 
 async function start() {
-  const response = await fetch('missing.json');
-  if (!response.ok) throw new Error(`missing.json not found (${response.status}) — run node catalog/tools/build-missing.mjs`);
+  const response = await fetch(PAGE.list);
+  if (!response.ok) throw new Error(`${PAGE.list} not found (${response.status}) — run node catalog/tools/build-missing.mjs`);
   const data = await response.json();
 
   const modelPath = data.modelPath ?? 'kits/missing';
@@ -551,7 +564,7 @@ async function start() {
   for (const pack of [...register.packs.values()].sort((a, b) => a.name.localeCompare(b.name))) {
     const option = document.createElement('option');
     option.value = pack.slug;
-    option.textContent = `${pack.name} (${pack.missing})`;
+    option.textContent = `${pack.name} (${pack.listed})`;
     packChoice.append(option);
   }
 

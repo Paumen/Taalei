@@ -13,10 +13,13 @@ const CATALOG_DIR = join(ROOT, 'catalog');
 const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 const DOEL_DIR = join(ROOT, 'kits', 'missing');
 const DOEL_PAD = 'kits/missing';
+const AFGEWEZEN_DIR = join(ROOT, 'kits', 'rejected');
+const AFGEWEZEN_PAD = 'kits/rejected';
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'missing-colors.json'), 'utf8'));
+const STIJLAFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'style-rejects.json'), 'utf8'));
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
@@ -281,10 +284,14 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
 
 rmSync(DOEL_DIR, { recursive: true, force: true });
 mkdirSync(DOEL_DIR, { recursive: true });
+rmSync(AFGEWEZEN_DIR, { recursive: true, force: true });
+mkdirSync(AFGEWEZEN_DIR, { recursive: true });
 
-const modellen = [];
-const bronnen = [];
-const varianten = [];
+const LIJSTEN = [
+  { sleutel: 'ontbreekt', dir: DOEL_DIR, pad: DOEL_PAD, bestand: 'missing.json', modellen: [], bronnen: [], varianten: [] },
+  { sleutel: 'afgewezen', dir: AFGEWEZEN_DIR, pad: AFGEWEZEN_PAD, bestand: 'rejected.json', modellen: [], bronnen: [], varianten: [] },
+];
+
 const waarschuwingen = [];
 
 for (const bronkit of BRONKITS) {
@@ -354,118 +361,147 @@ for (const bronkit of BRONKITS) {
     );
   }
 
-  const uitvoerMap = join(DOEL_DIR, bronId(bronkit));
-  const gekopieerd = new Map();
-  const gebruikteNamen = new Set();
-
-  const neemMee = (pad) => {
-    const sleutel = createHash('sha1').update(readFileSync(pad)).digest('hex');
-    if (gekopieerd.has(sleutel)) return gekopieerd.get(sleutel);
-    let naam = basename(pad);
-    for (let n = 2; gebruikteNamen.has(naam); n++) {
-      naam = `${basename(pad, extname(pad))}-${n}${extname(pad)}`;
-    }
-    gebruikteNamen.add(naam);
-    gekopieerd.set(sleutel, naam);
-    copyFileSync(pad, join(uitvoerMap, naam));
-    return naam;
+  const stijlafwijzingen = new Set(STIJLAFWIJZINGEN[bronId(bronkit)] ?? []);
+  const perLijst = {
+    ontbreekt: ontbreekt.filter((model) => !stijlafwijzingen.has(model.naam)),
+    afgewezen: ontbreekt.filter((model) => stijlafwijzingen.has(model.naam)),
   };
 
-  if (ontbreekt.length) mkdirSync(uitvoerMap, { recursive: true });
+  for (const lijst of LIJSTEN) {
+    const eigen = perLijst[lijst.sleutel];
+    const uitvoerMap = join(lijst.dir, bronId(bronkit));
+    const gekopieerd = new Map();
+    const gebruikteNamen = new Set();
 
-  const perVorm = new Map();
+    const neemMee = (pad) => {
+      const sleutel = createHash('sha1').update(readFileSync(pad)).digest('hex');
+      if (gekopieerd.has(sleutel)) return gekopieerd.get(sleutel);
+      let naam = basename(pad);
+      for (let n = 2; gebruikteNamen.has(naam); n++) {
+        naam = `${basename(pad, extname(pad))}-${n}${extname(pad)}`;
+      }
+      gebruikteNamen.add(naam);
+      gekopieerd.set(sleutel, naam);
+      copyFileSync(pad, join(uitvoerMap, naam));
+      return naam;
+    };
 
-  for (const model of ontbreekt) {
-    const texturen = [];
-    const kleuren = [];
-    for (const primitief of model.primitieven) {
-      const { textuur, naam } = primitief.materiaal;
-      const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
-      texturen.push(gevonden ? neemMee(gevonden) : null);
-      if (gevonden) {
-        kleuren.push(null);
-        continue;
+    if (eigen.length) mkdirSync(uitvoerMap, { recursive: true });
+
+    const perVorm = new Map();
+
+    for (const model of eigen) {
+      const texturen = [];
+      const kleuren = [];
+      for (const primitief of model.primitieven) {
+        const { textuur, naam } = primitief.materiaal;
+        const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
+        texturen.push(gevonden ? neemMee(gevonden) : null);
+        if (gevonden) {
+          kleuren.push(null);
+          continue;
+        }
+        const gekozen = handkleuren[naam]
+          ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
+          ?? handkleuren[basename(String(textuur ?? ''))];
+        if (gekozen) {
+          kleuren.push(uitHex(gekozen));
+          continue;
+        }
+        const lijkend = gelijkendeAfbeelding(textuur, naam, afbeeldingen);
+        kleuren.push(lijkend ? gemiddeldeKleur(lijkend) : null);
       }
-      const gekozen = handkleuren[naam]
-        ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
-        ?? handkleuren[basename(String(textuur ?? ''))];
-      if (gekozen) {
-        kleuren.push(uitHex(gekozen));
-        continue;
-      }
-      const lijkend = gelijkendeAfbeelding(textuur, naam, afbeeldingen);
-      kleuren.push(lijkend ? gemiddeldeKleur(lijkend) : null);
+
+      const pad = join(uitvoerMap, `${model.naam}.glb`);
+      schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
+
+      const wdh = model.wdh.map((v) => v * schaal);
+      const regel = {
+        kit: bronId(bronkit),
+        name: model.naam,
+        kind: kindFromName(kebab(model.naam)),
+        wdh: wdh.map(round1),
+        tris: model.driehoeken,
+        tpu: trianglesPerUnit(model.driehoeken, wdh),
+        mat: model.primitieven.length,
+        bytes: statSync(pad).size,
+        scaled: kit.schaal !== null || undefined,
+        file: model.bestand,
+      };
+      lijst.modellen.push(regel);
+
+      const sleutel = vormsleutel(model.primitieven, model);
+      const leden = perVorm.get(sleutel);
+      if (leden) leden.push(regel);
+      else perVorm.set(sleutel, [regel]);
     }
 
-    const pad = join(uitvoerMap, `${model.naam}.glb`);
-    schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
+    for (const leden of perVorm.values()) {
+      if (leden.length < 2) continue;
+      const id = `v${String(lijst.varianten.length + 1).padStart(3, '0')}`;
+      for (const lid of leden) lid.variant = id;
+      lijst.varianten.push({
+        id,
+        main: `${leden[0].kit}/${leden[0].name}`,
+        members: leden.map((lid) => `${lid.kit}/${lid.name}`),
+      });
+    }
 
-    const wdh = model.wdh.map((v) => v * schaal);
-    const regel = {
-      kit: bronId(bronkit),
-      name: model.naam,
-      kind: kindFromName(kebab(model.naam)),
-      wdh: wdh.map(round1),
-      tris: model.driehoeken,
-      tpu: trianglesPerUnit(model.driehoeken, wdh),
-      mat: model.primitieven.length,
-      bytes: statSync(pad).size,
-      scaled: kit.schaal !== null || undefined,
-      file: model.bestand,
-    };
-    modellen.push(regel);
+    if (!eigen.length) continue;
 
-    const sleutel = vormsleutel(model.primitieven, model);
-    const leden = perVorm.get(sleutel);
-    if (leden) leden.push(regel);
-    else perVorm.set(sleutel, [regel]);
-  }
-
-  for (const leden of perVorm.values()) {
-    if (leden.length < 2) continue;
-    const id = `v${String(varianten.length + 1).padStart(3, '0')}`;
-    for (const lid of leden) lid.variant = id;
-    varianten.push({
-      id,
-      main: `${leden[0].kit}/${leden[0].name}`,
-      members: leden.map((lid) => `${lid.kit}/${lid.name}`),
+    lijst.bronnen.push({
+      slug: bronId(bronkit),
+      name: bronkit.naam,
+      kit: bronkit.kit,
+      format: bronkit.formaat,
+      inSource: gemeten.length,
+      inCatalog: kit.aantal,
+      listed: eigen.length,
+      unmatched: onherkend,
+      scale: kit.schaal,
+      folder: map.slice(uitgepakt.length + 1) || null,
     });
   }
 
-  bronnen.push({
-    slug: bronId(bronkit),
-    name: bronkit.naam,
-    kit: bronkit.kit,
-    format: bronkit.formaat,
-    inSource: gemeten.length,
-    inCatalog: kit.aantal,
-    missing: ontbreekt.length,
-    unmatched: onherkend,
-    scale: kit.schaal,
-    folder: map.slice(uitgepakt.length + 1) || null,
-  });
-
   console.log(
     `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
-      `${String(kit.aantal).padStart(4)} in catalog → ${String(ontbreekt.length).padStart(4)} missing` +
+      `${String(kit.aantal).padStart(4)} in catalog → ${String(perLijst.ontbreekt.length).padStart(4)} missing` +
+      (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} rejected for style` : '') +
       (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
       (bronkit.kit ? '' : '  — never imported'),
   );
 }
 
-const uitvoer = {
-  modelPath: DOEL_PAD,
-  kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalog.' })),
-  sources: bronnen,
-  kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) })),
-  variants: varianten,
-  models: modellen,
-};
+const afgewezenLijst = LIJSTEN.find((l) => l.sleutel === 'afgewezen');
+const geraakteAfwijzingen = new Set(afgewezenLijst.modellen.map((m) => `${m.kit}/${m.name}`));
+const losseAfwijzingen = Object.entries(STIJLAFWIJZINGEN)
+  .flatMap(([kit, namen]) => namen.map((naam) => `${kit}/${naam}`))
+  .filter((id) => !geraakteAfwijzingen.has(id));
+if (losseAfwijzingen.length) {
+  waarschuwingen.push(
+    `${losseAfwijzingen.length} entries in catalog/style-rejects.json match no source model outside the ` +
+      'catalog — they were renamed, imported, or the pack was dropped:\n' +
+      losseAfwijzingen.map((id) => `    ${id}`).join('\n'),
+  );
+}
 
-writeFileSync(join(CATALOG_DIR, 'missing.json'), JSON.stringify(uitvoer, (k, v) => (v === null ? undefined : v), 1) + '\n');
+const soorten = [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) }));
 
-const totaal = bronnen.reduce((som, b) => som + b.missing, 0);
-const gevouwen = varianten.reduce((som, v) => som + v.members.length - 1, 0);
-console.log(`\n${totaal} missing models from ${bronnen.length} packs → catalog/missing.json`);
-console.log(`${varianten.length} shapes appear in more than one colour: ${gevouwen} models fold into another card`);
+for (const lijst of LIJSTEN) {
+  const uitvoer = {
+    modelPath: lijst.pad,
+    kits: lijst.bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalog.' })),
+    sources: lijst.bronnen,
+    kinds: soorten,
+    variants: lijst.varianten,
+    models: lijst.modellen,
+  };
+
+  writeFileSync(join(CATALOG_DIR, lijst.bestand), JSON.stringify(uitvoer, (k, v) => (v === null ? undefined : v), 1) + '\n');
+
+  const gevouwen = lijst.varianten.reduce((som, v) => som + v.members.length - 1, 0);
+  console.log(`\n${lijst.modellen.length} models from ${lijst.bronnen.length} packs → catalog/${lijst.bestand}`);
+  console.log(`${lijst.varianten.length} shapes appear in more than one colour: ${gevouwen} models fold into another card`);
+}
+
 for (const regel of waarschuwingen) console.warn(`! ${regel}`);
