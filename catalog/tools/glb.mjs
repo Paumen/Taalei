@@ -153,6 +153,84 @@ export function meshShells(glb) {
   return out;
 }
 
+// The parts of a model, for a file that names none. Flat shading splits a vertex along
+// every hard edge, so shells of one object still share exact positions while two objects
+// that only intersect in space share none: welding shells by position separates the
+// arrows from the shield they are stuck in. What that leaves is every peg and stud on a
+// tile of its own, so the smallest part joins the one it sits nearest -- by the gap
+// between their boxes, a part inside another scoring zero -- until `want` are left. A
+// part never crosses a primitive: merging across one would make it draw in two
+// materials, so a model with more primitives than `want` keeps one part each.
+export function meshParts(glb, want = 8) {
+  const parts = [];
+  for (const group of meshShells(glb)) {
+    const pos = readAccessor(glb, group.prim.attributes.POSITION);
+    const idx = readAccessor(glb, group.prim.indices);
+    const key = (i) => [0, 1, 2].map((k) => Math.round(pos.data[i * 3 + k] * 1e4)).join(',');
+    const parent = group.members.map((_, i) => i);
+    const find = (i) => { while (parent[i] !== i) i = parent[i] = parent[parent[i]]; return i; };
+    const owner = new Map();
+    group.members.forEach((members, s) => {
+      for (const v of members) {
+        const k = key(v);
+        if (owner.has(k)) {
+          const a = find(owner.get(k)); const b = find(s);
+          if (a !== b) parent[Math.max(a, b)] = Math.min(a, b);
+        } else owner.set(k, s);
+      }
+    });
+    const of = new Map();
+    group.members.forEach((members, s) => { for (const v of members) of.set(v, find(s)); });
+    const byRoot = new Map();
+    for (let t = 0; t + 2 < idx.count; t += 3) {
+      const root = of.get(idx.data[t]);
+      if (!byRoot.has(root)) byRoot.set(root, []);
+      byRoot.get(root).push(idx.data[t], idx.data[t + 1], idx.data[t + 2]);
+    }
+    for (const [, indices] of byRoot) parts.push({ prim: group.prim, pos, indices });
+  }
+
+  const measure = (p) => {
+    const lo = [Infinity, Infinity, Infinity]; const hi = [-Infinity, -Infinity, -Infinity];
+    for (const v of new Set(p.indices)) for (let k = 0; k < 3; k++) {
+      const c = p.pos.data[v * 3 + k];
+      if (c < lo[k]) lo[k] = c;
+      if (c > hi[k]) hi[k] = c;
+    }
+    p.lo = lo; p.hi = hi;
+    p.span = Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]);
+  };
+  parts.forEach(measure);
+
+  const gap = (a, b) => {
+    let d = 0;
+    for (let k = 0; k < 3; k++) {
+      const over = Math.max(a.lo[k] - b.hi[k], b.lo[k] - a.hi[k], 0);
+      d += over * over;
+    }
+    return Math.sqrt(d);
+  };
+
+  let left = parts;
+  while (left.length > want) {
+    left.sort((a, b) => a.span - b.span);
+    // the smallest part of a primitive that holds only it has nowhere to go; the next
+    // smallest still might, so pass over it rather than stopping the whole merge
+    const small = left.find((p) => left.some((q) => q !== p && q.prim === p.prim));
+    if (!small) break;
+    const hosts = left.filter((p) => p !== small && p.prim === small.prim);
+    const host = hosts.reduce((best, p) => {
+      const d = gap(small, p); const bd = gap(small, best);
+      if (d < bd - 1e-6) return p;
+      return d < bd + 1e-6 && p.span > best.span ? p : best;
+    }, hosts[0]);
+    host.indices.push(...small.indices);
+    measure(host);
+    left = left.filter((p) => p !== small);
+  }
+  return left.sort((a, b) => b.indices.length - a.indices.length);
+}
+
 const STRICT_ANGLES = [0, 30, 45, 60, 90];
 const STRICT_TOLERANCE = 2;
 

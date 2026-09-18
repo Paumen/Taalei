@@ -9,7 +9,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { readPng } from '../../catalog/tools/png.mjs';
-import { readGlb, writeGlb, meshShells } from '../../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, meshShells, meshParts } from '../../catalog/tools/glb.mjs';
 
 // Only the pin for the CDN fallback. By default the page is served three.js from
 // whatever copy is installed on this machine (see resolveThree), which needs no
@@ -22,7 +22,7 @@ const DEFAULTS = {
   bg: '#f2f2f0', env: 'soft', exposure: 1.65, tone: 'neutral',
   fit: 1.06, compare: false, fov: 35, ortho: false,
   grid: false, axes: false, bbox: false, ruler: false,
-  isolate: false,
+  isolate: false, parts: 8,
   sheet: false, sheetCols: 0, sheetTile: 0, sheetOnly: false,
   sheetEach: false, band: '', mark: [],
   stats: false, timeout: 120000, verbose: false, three: '',
@@ -37,6 +37,7 @@ const RANGES = {
   exposure: [0.01, 20], fit: [0.1, 10], fov: [1, 170],
   sheetCols: [0, 64, true], sheetTile: [0, 4096, true],
   timeout: [1000, 3600000, true], ladder: [0, 8, true], ss: [1, 4, true],
+  parts: [1, 32, true],
 };
 
 const HELP = `
@@ -59,8 +60,14 @@ render.mjs <file.glb|dir> [...] [flags]
                       quarter, which reads as washed-out timber)
   --compare          all models side by side in one scene, front-on, with grid + ruler
   --grid --axes --bbox --ruler
-  --isolate          one tile per mesh (max 32), each fitted to its own bounds;
-                     add --lock-scale to keep the parts size-comparable instead
+  --isolate          one tile per part, each fitted to its own bounds; a model that
+                     names no parts is split by welding its shells on shared vertex
+                     positions, then the smallest joins its nearest neighbour until
+                     --parts are left. The file on disk is not touched.
+  --parts <1..32>    how many tiles --isolate splits a model into, 8 by default. A model
+                     with fewer parts than that keeps them all; one whose parts carry
+                     different materials keeps at least one per material.
+                     Add --lock-scale to keep the parts size-comparable instead.
   --sheet [--sheet-cols n] [--sheet-tile px] [--sheet-only]
                      --sheet-only implies --sheet and --annotate. Tiles butt edge to
                      edge: no gutters, margins or label strips; the caption lives in
@@ -425,6 +432,41 @@ if (opts.mark.length) {
   models = [out];
   console.log(`--mark: ${painted} vertices over ${groups.length} group(s) -> ${path.basename(out)}`);
 }
+// --isolate: a copy whose primitives are cut one per part, so the page sees the parts
+// as meshes and every tile is one of them. The copy sits beside the original for its
+// relative textures, is deleted on exit, and leaves the model on disk at its own draw
+// calls: a split the renderer never ships costs nothing.
+const origin = new Map();
+if (opts.isolate) {
+  models = models.map((src) => {
+    if (!/\.glb$/i.test(src)) return src;
+    const glb = readGlb(src);
+    if (glb.json.meshes?.some((m) => m.primitives.some((p) => p.attributes?.TEXCOORD_0 === undefined))) return src;
+    const parts = meshParts(glb, opts.parts);
+    const grown = [];
+    let offset = glb.bin.length;
+    const byPrim = new Map();
+    for (const part of parts) {
+      const data = Buffer.alloc(part.indices.length * 4);
+      part.indices.forEach((v, i) => data.writeUInt32LE(v, i * 4));
+      grown.push(data);
+      glb.json.bufferViews.push({ buffer: 0, byteOffset: offset, byteLength: data.length, target: 34963 });
+      glb.json.accessors.push({ bufferView: glb.json.bufferViews.length - 1, componentType: 5125,
+        count: part.indices.length, type: 'SCALAR' });
+      offset += data.length;
+      if (!byPrim.has(part.prim)) byPrim.set(part.prim, []);
+      byPrim.get(part.prim).push({ ...part.prim, indices: glb.json.accessors.length - 1 });
+    }
+    for (const mesh of glb.json.meshes) mesh.primitives = mesh.primitives.flatMap((p) => byPrim.get(p) ?? [p]);
+    glb.json.buffers[0].byteLength = offset;
+    const out = src.replace(/\.glb$/i, `.parts-${process.pid}.glb`);
+    writeGlb(out, glb.json, Buffer.concat([glb.bin, ...grown]), fss.writeFileSync);
+    marked.push(out);
+    origin.set(out, src);
+    console.log(`--isolate: ${path.basename(src)} -> ${parts.length} part(s)`);
+    return out;
+  });
+}
 process.on('exit', () => { for (const f of marked) { try { fss.unlinkSync(f); } catch {} } });
 
 // Output goes to <out>/<basename>/, and basenames repeat across kits -- this repo
@@ -432,17 +474,19 @@ process.on('exit', () => { for (const f of marked) { try { fss.unlinkSync(f); } 
 // second silently destroyed the first. Only names that actually clash get qualified,
 // so a single-kit run keeps its plain folder names.
 const outNames = (() => {
-  const base = models.map(f => path.basename(f).replace(/\.(glb|gltf)$/i, ''));
+  // a --isolate copy is named for the original: its pid would change every run
+  const named = models.map(f => origin.get(f) ?? f);
+  const base = named.map(f => path.basename(f).replace(/\.(glb|gltf)$/i, ''));
   const dup = new Set(base.filter((b, i) => base.indexOf(b) !== i));
   const used = new Set();
   return base.map((b, i) => {
-    let n = dup.has(b) ? path.basename(path.dirname(models[i])) + '__' + b : b;
+    let n = dup.has(b) ? path.basename(path.dirname(named[i])) + '__' + b : b;
     if (used.has(n)) { let k = 2; while (used.has(n + '_' + k)) k++; n = n + '_' + k; }
     used.add(n);
     return n;
   });
 })();
-if (outNames.some((n, i) => n !== path.basename(models[i]).replace(/\.(glb|gltf)$/i, '')))
+if (outNames.some((n, i) => n !== path.basename(origin.get(models[i]) ?? models[i]).replace(/\.(glb|gltf)$/i, '')))
   console.warn('! duplicate model names: qualified with their folder to keep the tiles apart');
 
 // Each file is served under its own /asset/<id>/ prefix so relative URIs inside a
@@ -1767,14 +1811,19 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
       const names = await page.evaluate(() => window.API.meshNames());
       if (names.length >= 32 && stats.meshes > 32) {
         warnings++;
-        console.warn('  ! --isolate caps at 32 parts; ' + (stats.meshes - 32) + ' not rendered');
+        console.warn('  ! --isolate caps at 32 tiles; ' + (stats.meshes - 32) + ' not rendered');
       }
       if (modes.length > 1 || views.length > 1) {
         warnings++;
         console.warn('  ! --isolate uses only the first mode and view (' + modes[0] + ' / ' + views[0].name + ')');
       }
-      names.forEach((mn, idx) => jobs.push({ mode: modes[0], view: views[0], isolateIndex: idx,
-        label: mn.slice(0,22), caption: mn.slice(0,22) + ' · ' + MODE_LABEL[modes[0]] + ' ' + views[0].label }));
+      // a split copy carries no part names, so number them instead of printing mesh_0_7
+      const split = origin.has(file);
+      names.forEach((mn, idx) => {
+        const label = split ? 'part ' + (idx + 1) + '/' + names.length : mn.slice(0, 22);
+        jobs.push({ mode: modes[0], view: views[0], isolateIndex: idx,
+          label, caption: label + ' · ' + MODE_LABEL[modes[0]] + ' ' + views[0].label });
+      });
     } else if (ladderJobs) {
       ladderJobs.forEach((lj, idx) => {
         const view = viewByKey.get(AUTO[lj.view] ? resolveAuto(stats.boundsSize) : lj.view);
