@@ -1,8 +1,9 @@
 const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
 
-const when = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
-});
+const two = (n) => String(n).padStart(2, '0');
+
+const when = (at) =>
+  `${two(at.getDate())}/${two(at.getMonth() + 1)} ${two(at.getHours())}:${two(at.getMinutes())}`;
 
 export function showBuildStamp() {
   const holder = document.querySelector('#bouwstempel');
@@ -14,7 +15,7 @@ export function showBuildStamp() {
     holder.hidden = true;
     return;
   }
-  holder.textContent = `built ${when.format(at)}`;
+  holder.textContent = `built ${when(at)}`;
   holder.title = [`built ${built}`, version && `version ${version}`].filter(Boolean).join(' · ');
 }
 
