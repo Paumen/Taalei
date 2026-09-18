@@ -50,6 +50,23 @@ function wdhMatches(a, b) {
   return a.every((v, k) => Math.abs(v - b[k]) <= Math.max(WDH_TOLERANCE * Math.max(v, b[k]), 0.01));
 }
 
+// The shape of a model, with everything that only carries colour left out: the
+// vertex positions and the triangles they close, moved to where the preview puts
+// them, but no UVs, no materials and no primitive order. Two models of a pack that
+// come out the same are one shape in as many colours.
+function vormsleutel(primitieven, { laag, hoog }) {
+  const midden = [(laag[0] + hoog[0]) / 2, laag[1], (laag[2] + hoog[2]) / 2];
+  const delen = primitieven.map((primitief) => {
+    const hash = createHash('sha1');
+    for (let i = 0; i < primitief.posities.length; i++) {
+      hash.update(`${Math.round((primitief.posities[i] - midden[i % 3]) * 1e5)},`);
+    }
+    for (const index of primitief.indices) hash.update(`${index},`);
+    return hash.digest('hex');
+  });
+  return createHash('sha1').update(delen.sort().join('|')).digest('hex').slice(0, 16);
+}
+
 function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   if (!gevraagd) return null;
   if (gevraagd.includes('/') && existsSync(gevraagd)) return gevraagd;
@@ -267,6 +284,7 @@ mkdirSync(DOEL_DIR, { recursive: true });
 
 const modellen = [];
 const bronnen = [];
+const varianten = [];
 const waarschuwingen = [];
 
 for (const bronkit of BRONKITS) {
@@ -355,6 +373,8 @@ for (const bronkit of BRONKITS) {
 
   if (ontbreekt.length) mkdirSync(uitvoerMap, { recursive: true });
 
+  const perVorm = new Map();
+
   for (const model of ontbreekt) {
     const texturen = [];
     const kleuren = [];
@@ -381,7 +401,7 @@ for (const bronkit of BRONKITS) {
     schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
 
     const wdh = model.wdh.map((v) => v * schaal);
-    modellen.push({
+    const regel = {
       kit: bronId(bronkit),
       name: model.naam,
       kind: kindFromName(kebab(model.naam)),
@@ -392,6 +412,23 @@ for (const bronkit of BRONKITS) {
       bytes: statSync(pad).size,
       scaled: kit.schaal !== null || undefined,
       file: model.bestand,
+    };
+    modellen.push(regel);
+
+    const sleutel = vormsleutel(model.primitieven, model);
+    const leden = perVorm.get(sleutel);
+    if (leden) leden.push(regel);
+    else perVorm.set(sleutel, [regel]);
+  }
+
+  for (const leden of perVorm.values()) {
+    if (leden.length < 2) continue;
+    const id = `v${String(varianten.length + 1).padStart(3, '0')}`;
+    for (const lid of leden) lid.variant = id;
+    varianten.push({
+      id,
+      main: `${leden[0].kit}/${leden[0].name}`,
+      members: leden.map((lid) => `${lid.kit}/${lid.name}`),
     });
   }
 
@@ -421,11 +458,14 @@ const uitvoer = {
   kits: bronnen.map((b) => ({ slug: b.slug, name: b.name, note: b.kit ? null : 'This pack was never imported — nothing from it is in the catalogue.' })),
   sources: bronnen,
   kinds: [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) })),
+  variants: varianten,
   models: modellen,
 };
 
 writeFileSync(join(CATALOG_DIR, 'missing.json'), JSON.stringify(uitvoer, (k, v) => (v === null ? undefined : v), 1) + '\n');
 
 const totaal = bronnen.reduce((som, b) => som + b.missing, 0);
+const gevouwen = varianten.reduce((som, v) => som + v.members.length - 1, 0);
 console.log(`\n${totaal} missing models from ${bronnen.length} packs → catalog/missing.json`);
+console.log(`${varianten.length} shapes appear in more than one colour: ${gevouwen} models fold into another card`);
 for (const regel of waarschuwingen) console.warn(`! ${regel}`);
