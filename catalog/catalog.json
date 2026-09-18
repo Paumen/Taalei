@@ -5512,7 +5512,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 44,
+   "count": 46,
    "parent": "wood"
   },
   {
@@ -5520,7 +5520,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 180,
+   "count": 178,
    "parent": "wood"
   },
   {
@@ -5559,14 +5559,14 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 82
+   "count": 81
   },
   {
    "id": "textile",
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 241
+   "count": 242
   },
   {
    "id": "leather",
@@ -16495,18 +16495,18 @@
      0.492,
      0.633
     ],
-    "5,2": [
+    "8,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#8b5936",
-    "#d8d1bd"
+    "#7f3927",
+    "#8b5936"
    ],
    "tags": [
     "asia",
-    "paper",
+    "textile",
     "wood-beam"
    ]
   },
@@ -85386,7 +85386,7 @@
    "tris": 1002,
    "tpu": 636,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 38124,
    "vtx": 960,
@@ -85399,10 +85399,6 @@
    "vpt": 0.96,
    "grad": 0.71,
    "spread": {
-    "6,1": [
-     0.102,
-     0.891
-    ],
     "15,3": [
      0.102,
      0.891
@@ -85414,7 +85410,6 @@
    },
    "colors": [
     "#1367a6",
-    "#343745",
     "#88848a"
    ],
    "tags": [
@@ -112873,7 +112868,7 @@
    "tris": 726,
    "tpu": 2117,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 30896,
    "vtx": 784,
@@ -112883,18 +112878,23 @@
    "avgTri": 0.00003,
    "anglePct": 51,
    "vpt": 1.08,
-   "grad": 0.77,
+   "grad": 0.76,
    "spread": {
     "15,3": [
      0.234,
-     0.93
+     0.898
     ],
     "14,3": [
      0.094,
      0.953
+    ],
+    "6,1": [
+     0.234,
+     0.93
     ]
    },
    "colors": [
+    "#343745",
     "#88848a",
     "#8b7561"
    ],
@@ -112903,13 +112903,6 @@
     "metal-iron-steel",
     "qua",
     "rope"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has nickel taupe"
-    }
    ]
   },
   {
@@ -124875,7 +124868,7 @@
    "vpt": 1.36,
    "grad": 0.88,
    "spread": {
-    "3,0": [
+    "1,0": [
      0.094,
      0.945
     ],
@@ -124885,12 +124878,12 @@
     ]
    },
    "colors": [
-    "#563b2b",
-    "#68872d"
+    "#68872d",
+    "#b58158"
    ],
    "tags": [
     "foliage",
-    "wood-bark"
+    "wood-log"
    ],
    "variant": "v512"
   },
@@ -125011,7 +125004,7 @@
      0.047,
      0.938
     ],
-    "3,0": [
+    "1,0": [
      0.047,
      0.945
     ],
@@ -125021,14 +125014,14 @@
     ]
    },
    "colors": [
-    "#563b2b",
     "#68872d",
-    "#88848a"
+    "#88848a",
+    "#b58158"
    ],
    "tags": [
     "foliage",
     "stone-rock",
-    "wood-bark"
+    "wood-log"
    ]
   },
   {
