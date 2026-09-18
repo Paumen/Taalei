@@ -403,3 +403,112 @@ export function zetManifest(perKit) {
 
   writeFileSync(pad, tekst);
 }
+
+function schillen(primitief) {
+  const perPunt = new Map();
+  const aantal = primitief.indices.length / 3;
+  for (let t = 0; t < aantal; t++) {
+    for (let k = 0; k < 3; k++) {
+      const i = primitief.indices[t * 3 + k];
+      const sleutel = [0, 1, 2].map((a) => Math.round(primitief.posities[i * 3 + a] * 1e4)).join(',');
+      const lijst = perPunt.get(sleutel);
+      if (lijst) lijst.push(t);
+      else perPunt.set(sleutel, [t]);
+    }
+  }
+
+  const schil = new Int32Array(aantal).fill(-1);
+  const groepen = [];
+  for (let start = 0; start < aantal; start++) {
+    if (schil[start] !== -1) continue;
+    const groep = [];
+    const stapel = [start];
+    schil[start] = groepen.length;
+    while (stapel.length) {
+      const t = stapel.pop();
+      groep.push(t);
+      for (let k = 0; k < 3; k++) {
+        const i = primitief.indices[t * 3 + k];
+        const sleutel = [0, 1, 2].map((a) => Math.round(primitief.posities[i * 3 + a] * 1e4)).join(',');
+        for (const buur of perPunt.get(sleutel)) {
+          if (schil[buur] !== -1) continue;
+          schil[buur] = groepen.length;
+          stapel.push(buur);
+        }
+      }
+    }
+    groepen.push(groep);
+  }
+  return groepen;
+}
+
+export function richtSchillen(model) {
+  let gedraaid = 0;
+  for (const primitief of model.primitieven) {
+    for (const groep of schillen(primitief)) {
+      const randen = new Map();
+      for (const t of groep) {
+        const punt = [0, 1, 2].map((k) => {
+          const i = primitief.indices[t * 3 + k];
+          return [0, 1, 2].map((a) => Math.round(primitief.posities[i * 3 + a] * 1e4)).join(',');
+        });
+        for (let k = 0; k < 3; k++) {
+          const rand = [punt[k], punt[(k + 1) % 3]].sort().join('|');
+          randen.set(rand, (randen.get(rand) ?? 0) + 1);
+        }
+      }
+      if ([...randen.values()].some((n) => n !== 2)) continue;
+
+      let inhoud = 0;
+      for (const t of groep) {
+        const p = [0, 1, 2].map((k) => {
+          const i = primitief.indices[t * 3 + k];
+          return [0, 1, 2].map((a) => primitief.posities[i * 3 + a]);
+        });
+        inhoud += (
+          p[0][0] * (p[1][1] * p[2][2] - p[1][2] * p[2][1])
+          - p[0][1] * (p[1][0] * p[2][2] - p[1][2] * p[2][0])
+          + p[0][2] * (p[1][0] * p[2][1] - p[1][1] * p[2][0])
+        ) / 6;
+      }
+      if (inhoud >= 0) continue;
+
+      const punten = new Set();
+      for (const t of groep) {
+        const b = primitief.indices[t * 3 + 1];
+        primitief.indices[t * 3 + 1] = primitief.indices[t * 3 + 2];
+        primitief.indices[t * 3 + 2] = b;
+        gedraaid++;
+        for (let k = 0; k < 3; k++) punten.add(primitief.indices[t * 3 + k]);
+      }
+      if (!primitief.normalen) continue;
+      for (const i of punten) {
+        for (let a = 0; a < 3; a++) primitief.normalen[i * 3 + a] *= -1;
+      }
+    }
+  }
+  return gedraaid;
+}
+
+export function richtWinding(model) {
+  let gedraaid = 0;
+  for (const primitief of model.primitieven) {
+    if (!primitief.normalen) continue;
+    for (let t = 0; t < primitief.indices.length / 3; t++) {
+      const i = [0, 1, 2].map((k) => primitief.indices[t * 3 + k]);
+      const punt = i.map((n) => [0, 1, 2].map((a) => primitief.posities[n * 3 + a]));
+      const u = [0, 1, 2].map((k) => punt[1][k] - punt[0][k]);
+      const v = [0, 1, 2].map((k) => punt[2][k] - punt[0][k]);
+      const kruis = [
+        u[1] * v[2] - u[2] * v[1],
+        u[2] * v[0] - u[0] * v[2],
+        u[0] * v[1] - u[1] * v[0]];
+      const bron = [0, 1, 2].map((a) => i.reduce((som, n) => som + primitief.normalen[n * 3 + a], 0));
+      if (kruis.reduce((som, w, k) => som + w * bron[k], 0) >= 0) continue;
+      primitief.indices[t * 3 + 1] = i[2];
+      primitief.indices[t * 3 + 2] = i[1];
+      gedraaid++;
+    }
+  }
+  return gedraaid;
+}
