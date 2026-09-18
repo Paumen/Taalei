@@ -3,22 +3,31 @@ import { writeFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor, meshShells } from '../../catalog/tools/glb.mjs';
+import { BANDEN } from './leerbanden.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const FLOAT = 5126;
 const ATTRIBUTES = ['POSITION', 'NORMAL', 'TEXCOORD_0'];
 const WIDTH = { POSITION: 3, NORMAL: 3, TEXCOORD_0: 2 };
+const COLUMNS = 16;
+const ROWS = 4;
 
-const HELP = `boxes.mjs <kit>/<model> --list
-boxes.mjs <kit>/<model> --remove all|<n,m,...>
-  Finds the crates standing on a model in kits/workfiles/<kit>/<model>.glb and takes
-  them out. A crate is a box-shaped body with slats and battens sitting inside its own
-  bounds: that is what keeps roof tiles, rocks and barrels out of the list.
-  --list    number the crates with their size and place, and change nothing
-  --remove  take out those crates, body and slats, by the numbers --list gives,
+const HELP = `props.mjs <kit>/<model> --list [--kind crate,barrel] [--band amber]
+props.mjs <kit>/<model> --remove all|<n,m,...> [--kind ...] [--band ...]
+  Finds the props standing on a model in kits/workfiles/<kit>/<model>.glb and takes them
+  out. A crate is a box-shaped body with slats and battens sitting inside its own bounds,
+  a barrel the same with a round body: the shape is read from above, where a box measures
+  √2 between its corners and its faces whichever way it is turned and a barrel stays
+  nearer its middle. That is what keeps roof tiles, rocks and crenellations out.
+  --kind    crate, barrel, or both, which is the default
+  --band    only props whose every vertex sits on that band, which also reaches the goods
+            lying on a counter: those carry one band and no slats
+  --list    number the props with their size and place, and change nothing
+  --remove  take out those props, body and slats, by the numbers --list gives,
             and with them whatever stands on them
-  --shells  print the shell numbers of those crates for render.mjs --mark, and
-            change nothing`;
+  --shells  print the shell numbers of those props for render.mjs --mark, and
+            change nothing
+  Bands: ${Object.keys(BANDEN).join(' ')}`;
 
 const argv = process.argv.slice(2);
 const flag = (name) => {
@@ -29,6 +38,11 @@ const flag = (name) => {
   return value ?? '';
 };
 
+const kindArg = flag('kind');
+const bandArg = flag('band');
+const kinds = kindArg === null ? ['crate', 'barrel'] : kindArg.split(',').map((k) => k.trim());
+for (const k of kinds) if (!['crate', 'barrel'].includes(k)) throw new Error(`--kind wants crate or barrel, got: ${k}`);
+if (bandArg !== null && !BANDEN[bandArg]) throw new Error(`band not known: ${bandArg}`);
 const listOnly = flag('list') !== null;
 const shellsOnly = flag('shells');
 const removeArg = flag('remove');
@@ -46,11 +60,18 @@ if (json.animations?.length || json.skins?.length) throw new Error(`${id}: anima
 // The objects a model is built from. Flat shading splits a vertex along every hard edge,
 // so one object is many shells; welding the shells that share a vertex position puts an
 // object back together while two that only intersect in space stay apart.
+const bandOfCell = new Map(Object.entries(BANDEN).map(([name, [c, r]]) => [`${c},${r}`, name]));
+const cellOf = (u, v) => [
+  Math.min(Math.max(Math.floor(u * COLUMNS), 0), COLUMNS - 1),
+  Math.min(Math.max(Math.floor(v * ROWS), 0), ROWS - 1),
+];
+
 function objects() {
   const out = [];
   let first = 0;
   for (const group of meshShells(glb)) {
     const pos = readAccessor(glb, group.prim.attributes.POSITION);
+    const uv = readAccessor(glb, group.prim.attributes.TEXCOORD_0);
     const idx = readAccessor(glb, group.prim.indices);
     const key = (i) => [0, 1, 2].map((k) => Math.round(pos.data[i * 3 + k] * 1e4)).join(',');
     const parent = group.members.map((_, i) => i);
@@ -98,9 +119,15 @@ function objects() {
       const radii = [...part.vertices]
         .map((v) => Math.hypot(pos.data[v * 3] - centre[0], pos.data[v * 3 + 2] - centre[1]))
         .filter((r) => r > 0.2 * smallest);
+      const bands = new Set();
+      for (const v of part.vertices) {
+        const [column, row] = cellOf(uv.data[v * 2], uv.data[v * 2 + 1]);
+        bands.add(bandOfCell.get(`${column},${row}`) ?? `${column},${row}`);
+      }
       out.push({
         prim: group.prim,
         vertices: part.vertices,
+        bands,
         square: radii.length ? Math.max(...radii) / Math.min(...radii) : 0,
         lo,
         hi,
@@ -120,26 +147,51 @@ const span = Math.max(
 
 const inside = (a, b, pad) => [0, 1, 2].every((k) => a.lo[k] >= b.lo[k] - pad && a.hi[k] <= b.hi[k] + pad);
 
+const SHAPE = { crate: [1.35, 1.6], barrel: [1.15, 1.35] };
+const onBand = (p) => bandArg === null || (p.bands.size === 1 && p.bands.has(bandArg));
+
 const found = [];
 for (const body of parts) {
   const sides = [...body.size].sort((a, b) => a - b);
   if (!(sides[0] > 0.02 * span && sides[2] < 0.25 * span && sides[2] / sides[0] < 2.4)) continue;
-  if (!(body.square > 1.35 && body.square < 1.6)) continue;
+  const kind = kinds.find((k) => body.square > SHAPE[k][0] && body.square < SHAPE[k][1]);
+  if (!kind) continue;
   // the slats run the full height of a crate, so what marks them is that they are thin,
   // not that they are small, and that they stay within the body they are nailed to
   const slats = parts.filter((p) => p !== body && Math.min(...p.size) < 0.25 * sides[2] && inside(p, body, 0.15 * sides[0]));
   if (slats.length < 3) continue;
-  found.push({ body, slats });
+  if (!onBand(body)) continue;
+  found.push({ kind, body, slats });
+}
+// goods lie on a counter rather than stand on the ground: one band, no slats, and nothing
+// to tell them from a plank but the band they are asked for
+if (bandArg !== null) {
+  const taken = new Set(found.flatMap((c) => [c.body, ...c.slats]));
+  for (const body of parts) {
+    if (taken.has(body) || !onBand(body)) continue;
+    if (Math.max(...body.size) > 0.25 * span) continue;
+    found.push({ kind: 'goods', body, slats: [] });
+  }
 }
 const crates = found
   .filter((c) => !found.some((d) => d !== c && Math.max(...d.body.size) > Math.max(...c.body.size) && inside(c.body, d.body, 0)))
   .sort((a, b) => a.body.lo[0] - b.body.lo[0] || a.body.lo[2] - b.body.lo[2]);
 
-// which crate a crate stands on: taking the bottom one away without the ones above it
-// leaves them hanging in the air
-const overlaps = (a, b) => [0, 2].every((k) => a.body.lo[k] < b.body.hi[k] && a.body.hi[k] > b.body.lo[k]);
+// which prop a prop stands on: taking the bottom one away without the ones above it
+// leaves them hanging in the air. The gap is judged against the props themselves, so two
+// flat goods side by side on one counter do not read as a stack
+const footing = (a, b) => {
+  const over = [0, 2].map((k) => Math.max(0, Math.min(a.body.hi[k], b.body.hi[k]) - Math.max(a.body.lo[k], b.body.lo[k])));
+  const floor = [0, 2].map((k) => Math.min(a.body.size[k], b.body.size[k]));
+  return (over[0] * over[1]) / (floor[0] * floor[1]);
+};
 const standsOn = crates.map((c) =>
-  crates.findIndex((under) => under !== c && Math.abs(c.body.lo[1] - under.body.hi[1]) < 0.02 * span && overlaps(c, under)),
+  crates.findIndex(
+    (under) =>
+      under !== c &&
+      Math.abs(c.body.lo[1] - under.body.hi[1]) < 0.2 * Math.min(c.body.size[1], under.body.size[1]) &&
+      footing(c, under) > 0.3,
+  ),
 );
 const withStack = (chosen) => {
   const out = new Set(chosen);
@@ -160,7 +212,7 @@ const pick = (arg) => {
   const wanted = arg.split(',').map((part) => {
     const n = Number(part.trim());
     if (!Number.isInteger(n) || n < 1) throw new Error(`--remove wants whole numbers from 1 or all, got: ${part}`);
-    if (n > crates.length) throw new Error(`${id}: no crate ${n}, the model has ${crates.length}`);
+    if (n > crates.length) throw new Error(`${id}: no prop ${n}, the model has ${crates.length}`);
     return n;
   });
   return withStack([...new Set(wanted)]);
@@ -173,18 +225,18 @@ if (listOnly || shellsOnly !== null) {
     console.log([...new Set(taken.flatMap((c) => [c.body, ...c.slats].flatMap((p) => p.shells)))].join(','));
     process.exit(0);
   }
-  console.log(`${id}: ${crates.length} crate(s)`);
+  console.log(`${id}: ${crates.length} prop(s)`);
   crates.forEach((c, n) => {
     const size = c.body.size.map((v) => +v.toFixed(3)).join(' × ');
     const at = [0, 1, 2].map((k) => +((c.body.lo[k] + c.body.hi[k]) / 2).toFixed(3)).join(' ');
     const on = standsOn[n] === -1 ? 'on the ground' : `on ${standsOn[n] + 1}`;
-    console.log(`  ${String(n + 1).padStart(3)}  ${size.padEnd(22)} at ${at.padEnd(22)} ${String(c.slats.length).padStart(2)} slat(s)  ${on}`);
+    console.log(`  ${String(n + 1).padStart(3)}  ${c.kind.padEnd(7)} ${size.padEnd(22)} at ${at.padEnd(22)} ${String(c.slats.length).padStart(2)} slat(s)  ${on}`);
   });
   process.exit(0);
 }
 
 const taken = crates.filter((_, n) => pick(removeArg).includes(n + 1));
-if (!taken.length) throw new Error(`${id}: no crate to take out`);
+if (!taken.length) throw new Error(`${id}: no prop to take out`);
 
 const gone = new Map();
 for (const crate of taken) {
@@ -284,4 +336,4 @@ json.bufferViews = bufferViews;
 const bin = Buffer.concat(chunks);
 json.buffers = [{ byteLength: bin.length }];
 writeGlb(path, json, bin, writeFileSync);
-console.log(`${id}: ${taken.length} of ${crates.length} crate(s) out, ${removed} triangles`);
+console.log(`${id}: ${taken.length} of ${crates.length} prop(s) out, ${removed} triangles`);
