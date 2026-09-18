@@ -65,7 +65,7 @@ export const BRONKITS = [
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'asia-pack', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'asia-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'asia-rocks', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', source: 'wizp', formaat: 'fbx' },
+  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
 
   { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'medieval-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'fishing-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
