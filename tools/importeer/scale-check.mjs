@@ -12,7 +12,10 @@ const MIN_SIZE = 1e-9;
 
 const number = (name, fallback) => {
   const found = process.argv.find((a) => a.startsWith(`--${name}=`));
-  return found ? Number(found.slice(name.length + 3)) : fallback;
+  if (!found) return fallback;
+  const value = Number(found.slice(name.length + 3));
+  if (!Number.isFinite(value) || value < 0) throw new Error(`--${name}= needs a number of 0 or more`);
+  return value;
 };
 
 const tolerance = number('tol', 0.001);
@@ -49,7 +52,10 @@ function sourceModels(bronkit) {
 }
 
 function judge(file, source, factor) {
-  const axes = [0, 1, 2].filter((k) => source[k] > MIN_SIZE && file.size[k] > MIN_SIZE);
+  if ([0, 1, 2].some((k) => (source[k] > MIN_SIZE) !== (file.size[k] > MIN_SIZE))) {
+    return { verdict: 'not-uniform', ratios: [], worst: Infinity };
+  }
+  const axes = [0, 1, 2].filter((k) => source[k] > MIN_SIZE);
   if (axes.length === 0) return { verdict: 'flat', ratios: [] };
 
   const ratios = axes.map((k) => file.size[k] / source[k]);
@@ -101,8 +107,9 @@ for (const bronkit of BRONKITS) {
     if (verdict === 'wrong-factor' || verdict === 'not-uniform') {
       problems.push(
         `${verdict.padEnd(12)} ${file.path.padEnd(38)} target ${String(factor).padEnd(8)}`
-          + ` found ${ratios.map((r) => r.toPrecision(4)).join(' ')}`
-          + ` (off by ${(worst * 100).toFixed(2)}%)`,
+          + (ratios.length
+            ? ` found ${ratios.map((r) => r.toPrecision(4)).join(' ')} (off by ${(worst * 100).toFixed(2)}%)`
+            : ' an axis is flat on one side only'),
       );
     }
   }
