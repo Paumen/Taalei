@@ -55,7 +55,10 @@ number that was right last month.
 
 `node tools/importeer/scale-check.mjs [kit…]` compares each workfile against
 the model it was imported from and reports the ones that are not the source
-size times the pack's factor.
+size times the pack's factor. It reads the source model from
+`asset.extras.taaleiland.bronmodel`, which every import spec sets;
+`node tools/importeer/source-link.mjs [kit…] [--report]` fills that field in
+for a workfile that lacks it, matching on name and on the shape of the mesh.
 
 For a pack with no factor yet, pick it by comparison, not by arithmetic: import
 a handful at a guess and render them beside catalogue models of the same kind.

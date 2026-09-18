@@ -37,6 +37,7 @@ function workFiles(slug) {
         sourceModel: glb.json.asset?.extras?.taaleiland?.bronmodel ?? null,
         size: measured.wdhExact,
         triangles: measured.triangles,
+        rigged: (glb.json.skins ?? []).length > 0 || (glb.json.animations ?? []).length > 0,
       };
     });
 }
@@ -61,12 +62,14 @@ function judge(file, source, factor) {
   const ratios = axes.map((k) => file.size[k] / source[k]);
   const uniform = Math.max(...ratios) / Math.min(...ratios) - 1 <= tolerance;
   const worst = Math.max(...ratios.map((r) => Math.abs(r / factor - 1)));
-  if (!uniform) return { verdict: 'not-uniform', ratios, worst };
+  // A skin or an animation means the file's rest pose sets the bounding box, which
+  // the source model's own box need not match side by side.
+  if (!uniform) return { verdict: file.rigged ? 'rigged' : 'not-uniform', ratios, worst };
   if (worst > tolerance) return { verdict: 'wrong-factor', ratios, worst };
   return { verdict: 'exact', ratios, worst };
 }
 
-const counts = { exact: 0, 'wrong-factor': 0, 'not-uniform': 0, flat: 0, edited: 0, unlinked: 0, 'no-target': 0, 'no-source': 0 };
+const counts = { exact: 0, 'wrong-factor': 0, 'not-uniform': 0, rigged: 0, flat: 0, edited: 0, unlinked: 0, 'no-target': 0, 'no-source': 0 };
 const problems = [];
 
 for (const bronkit of BRONKITS) {
@@ -91,7 +94,7 @@ for (const bronkit of BRONKITS) {
     continue;
   }
 
-  const kit = { exact: 0, 'wrong-factor': 0, 'not-uniform': 0, flat: 0, edited: 0, unlinked: 0 };
+  const kit = { exact: 0, 'wrong-factor': 0, 'not-uniform': 0, rigged: 0, flat: 0, edited: 0, unlinked: 0 };
   for (const file of files) {
     const source = file.sourceModel ? models.get(file.sourceModel) : null;
     if (!source) {
@@ -116,7 +119,7 @@ for (const bronkit of BRONKITS) {
   for (const key of Object.keys(kit)) counts[key] += kit[key];
 
   const bad = kit['wrong-factor'] + kit['not-uniform'];
-  const skipped = kit.edited + kit.unlinked + kit.flat;
+  const skipped = kit.edited + kit.unlinked + kit.flat + kit.rigged;
   console.log(
     `${bronkit.kit.padEnd(17)} ${String(files.length).padStart(4)} files  × ${String(factor).padEnd(8)}`
       + ` ${String(kit.exact).padStart(4)} exact  ${String(bad).padStart(3)} off  ${String(skipped).padStart(4)} unverifiable`,
@@ -130,7 +133,8 @@ console.log(
 );
 console.log(
   `unverifiable: ${counts.unlinked} without a recorded source model, ${counts.edited} whose geometry differs from the source, `
-    + `${counts.flat} flat, ${counts['no-target']} in a kit without a target factor, ${counts['no-source']} without readable sources`,
+    + `${counts.rigged} rigged and posed away from the source box, ${counts.flat} flat, `
+    + `${counts['no-target']} in a kit without a target factor, ${counts['no-source']} without readable sources`,
 );
 if (problems.length) {
   console.log('');
