@@ -1,0 +1,18 @@
+{
+  "comment": "First runs on the primed-session cache scheme and the new default configuration: sonnet medium, 8 angles, 8 references, 12 test items, full resolution, seed 5. mix_8a8r draws test items and references across all three categories; obj_8a8r restricts both to objects. Cached mode: references are sent once per condition (the prime turn), every trial forks that session so the reference prefix is served from prompt cache.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true
+  },
+  "conditions": [
+    { "id": "mix_8a8r" },
+    { "id": "obj_8a8r", "test_category": "o", "ref_category": "o" }
+  ]
+}

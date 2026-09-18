@@ -1,0 +1,21 @@
+{
+  "comment": "Effort x reference-count 2x2 rerun on the objects-only default (obj_8a8r = sonnet medium, 8 angles, 8 object refs, 12 object test items, cached, is the baseline corner). Same test set as obj_8a8r, so all three pair against it. The 16-ref object set contains the 8-ref set (prefix of the same shuffled order).",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    { "id": "obj_high",    "effort": "high",               "control": "obj_8a8r" },
+    { "id": "obj_16r",     "n_refs": 16,                   "control": "obj_8a8r" },
+    { "id": "obj_high16r", "effort": "high", "n_refs": 16, "control": "obj_8a8r" }
+  ]
+}

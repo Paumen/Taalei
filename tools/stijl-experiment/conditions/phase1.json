@@ -1,0 +1,28 @@
+{
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 6,
+    "angles": [0, 2, 4, 6],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 20,
+    "seed": 5
+  },
+  "conditions": [
+    { "id": "base" },
+
+    { "id": "refs2",  "n_refs": 2 },
+    { "id": "refs12", "n_refs": 12 },
+
+    { "id": "ang1", "angles": [0] },
+    { "id": "ang2", "angles": [0, 6] },
+    { "id": "ang8", "angles": [0, 1, 2, 3, 4, 5, 6, 7] },
+
+    { "id": "scale50", "scale": 0.5 },
+    { "id": "scale25", "scale": 0.25 },
+
+    { "id": "guide_only",  "n_refs": 0, "style_guide": true },
+    { "id": "guide_refs6", "style_guide": true }
+  ]
+}

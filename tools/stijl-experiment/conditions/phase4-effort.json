@@ -1,0 +1,19 @@
+{
+  "comment": "Effort x reference-count variants around the phase-4 default (mix_8a8r = sonnet medium, 8 angles, 8 refs, 12 mixed test items, cached). Same test set as mix_8a8r, so all three pair against it; together they form a 2x2 of effort {medium, high} x refs {8, 16}. The 16-ref sets contain the 8-ref set (nested quotas).",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true
+  },
+  "conditions": [
+    { "id": "mix_high",    "effort": "high",                "control": "mix_8a8r" },
+    { "id": "mix_16r",     "n_refs": 16,                    "control": "mix_8a8r" },
+    { "id": "mix_high16r", "effort": "high", "n_refs": 16,  "control": "mix_8a8r" }
+  ]
+}

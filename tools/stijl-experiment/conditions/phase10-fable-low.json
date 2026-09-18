@@ -1,0 +1,141 @@
+{
+  "comment": "Fable 5 at effort LOW with 16 references, three runs on each object draw. Set A uses the standard nested 16-reference set. Set B's 16-reference set extends its 8-reference set with the 3 remaining unused object sheets plus 5 set A items; it stays disjoint from set B's test items, so there is no leakage. Three runs per arm because a single 12-item cell sits inside the +/-3 item noise floor.",
+  "defaults": {
+    "model": "claude-fable-5",
+    "effort": "low",
+    "n_refs": 16,
+    "angles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    {
+      "id": "fableA_16r_r1"
+    },
+    {
+      "id": "fableA_16r_r2"
+    },
+    {
+      "id": "fableA_16r_r3"
+    },
+    {
+      "id": "fableB_16r_r1",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o4",
+        "o8",
+        "o11",
+        "o12",
+        "o15",
+        "o18",
+        "o19",
+        "o21",
+        "o26",
+        "o28",
+        "o29",
+        "o32",
+        "o35",
+        "o36",
+        "o40",
+        "o43"
+      ]
+    },
+    {
+      "id": "fableB_16r_r2",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o4",
+        "o8",
+        "o11",
+        "o12",
+        "o15",
+        "o18",
+        "o19",
+        "o21",
+        "o26",
+        "o28",
+        "o29",
+        "o32",
+        "o35",
+        "o36",
+        "o40",
+        "o43"
+      ]
+    },
+    {
+      "id": "fableB_16r_r3",
+      "test_items": [
+        "o1",
+        "o2",
+        "o3",
+        "o5",
+        "o6",
+        "o13",
+        "o14",
+        "o20",
+        "o22",
+        "o38",
+        "o39",
+        "o41"
+      ],
+      "ref_items": [
+        "o4",
+        "o8",
+        "o11",
+        "o12",
+        "o15",
+        "o18",
+        "o19",
+        "o21",
+        "o26",
+        "o28",
+        "o29",
+        "o32",
+        "o35",
+        "o36",
+        "o40",
+        "o43"
+      ]
+    }
+  ]
+}

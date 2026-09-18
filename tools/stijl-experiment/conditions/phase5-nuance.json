@@ -1,0 +1,21 @@
+{
+  "comment": "Prompt v3: the intro now names the models as low poly and tells the model to judge within-spectrum nuances rather than generic low-poly typicality. Run on the objects-only default at 8 and at 16 refs; each pairs against the v2-prompt cell with the same refs (obj_8a8r / obj_16r), so the comparison isolates the wording change.",
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "n_refs": 8,
+    "angles": [0, 1, 2, 3, 4, 5, 6, 7],
+    "scale": 1.0,
+    "style_guide": false,
+    "n_test": 12,
+    "seed": 5,
+    "cached": true,
+    "test_category": "o",
+    "ref_category": "o"
+  },
+  "conditions": [
+    { "id": "obj_nuance",     "control": "obj_8a8r" },
+    { "id": "obj_nuance16",   "n_refs": 16, "control": "obj_16r" },
+    { "id": "obj_nuance_rev", "reverse_refs": true, "control": "obj_nuance" }
+  ]
+}
