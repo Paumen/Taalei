@@ -212,6 +212,11 @@
    "url": "https://kenney.nl/assets/mini-dungeon"
   },
   {
+   "slug": "ken-nature",
+   "name": "ken-nature",
+   "url": "https://kenney.nl/assets/nature-kit"
+  },
+  {
    "slug": "ken-pirate",
    "name": "ken-pirate",
    "url": "https://kenney.nl/assets/pirate-kit"
@@ -235,6 +240,11 @@
    "slug": "ken-town",
    "name": "ken-town",
    "url": "https://kenney.nl/assets/fantasy-town-kit"
+  },
+  {
+   "slug": "ken-water",
+   "name": "ken-water",
+   "url": "https://kenney.nl/assets/watercraft-pack"
   },
   {
    "slug": "medieval-forge",
@@ -5845,6 +5855,78 @@
     "kay-builder/bridge",
     "kay-builder/bridge-roofed"
    ]
+  },
+  {
+   "id": "v572",
+   "type": "maatvariant",
+   "main": "ken-nature/bridge-wood",
+   "members": [
+    "ken-nature/bridge-wood",
+    "ken-nature/bridge-wood-narrow"
+   ]
+  },
+  {
+   "id": "v573",
+   "type": "maatvariant",
+   "main": "ken-nature/bridge-wood-round",
+   "members": [
+    "ken-nature/bridge-wood-round",
+    "ken-nature/bridge-wood-round-narrow"
+   ]
+  },
+  {
+   "id": "v574",
+   "type": "maatvariant",
+   "main": "ken-nature/bridge-stone",
+   "members": [
+    "ken-nature/bridge-stone",
+    "ken-nature/bridge-stone-narrow"
+   ]
+  },
+  {
+   "id": "v575",
+   "type": "maatvariant",
+   "main": "ken-nature/bridge-stone-round",
+   "members": [
+    "ken-nature/bridge-stone-round",
+    "ken-nature/bridge-stone-round-narrow"
+   ]
+  },
+  {
+   "id": "v576",
+   "type": "detail-variant",
+   "main": "ken-nature/tent-large-closed",
+   "members": [
+    "ken-nature/tent-large-closed",
+    "ken-nature/tent-large-open"
+   ]
+  },
+  {
+   "id": "v577",
+   "type": "detail-variant",
+   "main": "ken-nature/tent-small-closed",
+   "members": [
+    "ken-nature/tent-small-closed",
+    "ken-nature/tent-small-open"
+   ]
+  },
+  {
+   "id": "v578",
+   "type": "maatvariant",
+   "main": "ken-nature/bamboo-short",
+   "members": [
+    "ken-nature/bamboo-short",
+    "ken-nature/bamboo-tall"
+   ]
+  },
+  {
+   "id": "v579",
+   "type": "maatvariant",
+   "main": "ken-water/ramp",
+   "members": [
+    "ken-water/ramp",
+    "ken-water/ramp-wide"
+   ]
   }
  ],
  "tags": [
@@ -5868,7 +5950,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 321,
+   "count": 323,
    "parent": "metal-iron"
   },
   {
@@ -5884,7 +5966,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 154,
+   "count": 157,
    "parent": "metal-iron"
   },
   {
@@ -5915,7 +5997,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 312,
+   "count": 338,
    "parent": "wood"
   },
   {
@@ -5923,7 +6005,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 451,
+   "count": 452,
    "parent": "wood"
   },
   {
@@ -5931,7 +6013,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 703,
+   "count": 726,
    "parent": "wood"
   },
   {
@@ -5962,7 +6044,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 438,
+   "count": 454,
    "parent": "stone"
   },
   {
@@ -5970,7 +6052,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains. Hewn stone is stone-masonry.",
-   "count": 220,
+   "count": 224,
    "parent": "stone"
   },
   {
@@ -5978,7 +6060,7 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose ground and loose dirt: sand and dirt patches, dirt floors and tiles, the soil filling a plant pot. Laid paving is stone-masonry.",
-   "count": 34,
+   "count": 38,
    "parent": "stone"
   },
   {
@@ -5993,7 +6075,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 280
+   "count": 286
   },
   {
    "id": "leather",
@@ -6007,7 +6089,7 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 238
+   "count": 240
   },
   {
    "id": "ceramic",
@@ -6028,7 +6110,7 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 156
+   "count": 158
   },
   {
    "id": "wax",
@@ -6099,7 +6181,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 91
+   "count": 94
   },
   {
    "id": "skin",
@@ -6113,7 +6195,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1234,
+   "count": 1239,
    "color": "#c07c8a"
   },
   {
@@ -6207,7 +6289,7 @@
    "name": "Food",
    "type": "kind",
    "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
-   "count": 135,
+   "count": 137,
    "color": "#c25b4e"
   },
   {
@@ -6229,14 +6311,14 @@
    "name": "Vegetable",
    "type": "kind",
    "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
-   "count": 32
+   "count": 34
   },
   {
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
    "description": "rug, carpet",
-   "count": 84,
+   "count": 86,
    "color": "#c07c8a"
   },
   {
@@ -6244,7 +6326,7 @@
    "name": "Bed",
    "type": "kind",
    "description": "bed, bedroll, bunk, cot, hammock",
-   "count": 9
+   "count": 11
   },
   {
    "id": "obj-furniture-seating",
@@ -6522,7 +6604,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle, balloon",
-   "count": 47,
+   "count": 48,
    "color": "#5a7a9c"
   },
   {
@@ -6537,7 +6619,7 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-transport-cart",
@@ -6658,7 +6740,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 562,
+   "count": 576,
    "color": "#6cb588"
   },
   {
@@ -6674,7 +6756,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 277,
+   "count": 280,
    "color": "#6cb588"
   },
   {
@@ -6703,7 +6785,7 @@
    "name": "Plant",
    "type": "kind",
    "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
-   "count": 124
+   "count": 127
   },
   {
    "id": "env-flora-plant-cactus",
@@ -6804,7 +6886,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 24,
+   "count": 35,
    "color": "#8a5d4b"
   },
   {
@@ -6812,7 +6894,7 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, dirt path, stone path, sand, snow patch",
-   "count": 16
+   "count": 27
   },
   {
    "id": "env-terrain-mountain",
@@ -6834,7 +6916,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace",
-   "count": 846,
+   "count": 883,
    "color": "#877a63"
   },
   {
@@ -6842,7 +6924,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 49,
+   "count": 67,
    "color": "#c98a5a"
   },
   {
@@ -6850,7 +6932,7 @@
    "name": "Bridge",
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
-   "count": 15
+   "count": 31
   },
   {
    "id": "str-access-ladder",
@@ -6864,14 +6946,14 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs, steps, ramp",
-   "count": 24
+   "count": 26
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
-   "count": 117,
+   "count": 129,
    "color": "#b08968"
   },
   {
@@ -6879,7 +6961,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "fence, fence segment, railing, palisade, gate (fence)",
-   "count": 101
+   "count": 113
   },
   {
    "id": "str-barrier-post",
@@ -6958,7 +7040,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 65,
+   "count": 68,
    "color": "#ffb349"
   },
   {
@@ -6973,7 +7055,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 7
+   "count": 8
   },
   {
    "id": "str-marker-tombstone",
@@ -7009,7 +7091,7 @@
    "name": "Stands",
    "type": "kind",
    "description": "tent, stall, market stand, awning, canopy",
-   "count": 31,
+   "count": 35,
    "color": "#d8a05a"
   },
   {
@@ -7061,7 +7143,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 142
+   "count": 144
   },
   {
    "id": "pickup",
@@ -7103,7 +7185,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 83
+   "count": 88
   },
   {
    "id": "obj-instrument",
@@ -7166,28 +7248,28 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1299
+   "count": 1306
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1083
+   "count": 1131
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 356
+   "count": 357
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 347
+   "count": 403
   },
   {
    "id": "kay",
@@ -84278,6 +84360,2305 @@
    ]
   },
   {
+   "kit": "ken-nature",
+   "name": "bamboo-short",
+   "kind": "env-flora-plant",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.4
+   ],
+   "tris": 276,
+   "tpu": 805,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 19772,
+   "vtx": 521,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.0007,
+   "anglePct": 49,
+   "vpt": 1.89,
+   "grad": 0.18,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c"
+   ],
+   "tags": [
+    "ken",
+    "plural",
+    "vegetation"
+   ],
+   "variant": "v578"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bamboo-tall",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.25,
+    0.65
+   ],
+   "tris": 564,
+   "tpu": 1644,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 35872,
+   "vtx": 970,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.023,
+   "avgTri": 0.00069,
+   "anglePct": 72,
+   "vpt": 1.72,
+   "grad": 0.18,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c"
+   ],
+   "tags": [
+    "ken",
+    "plural",
+    "vegetation"
+   ],
+   "variant": "v578"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bed-floor",
+   "kind": "obj-furniture-bed",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.55,
+    0.05
+   ],
+   "tris": 124,
+   "tpu": 362,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6780,
+   "vtx": 144,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00299,
+   "anglePct": 90,
+   "vpt": 1.16,
+   "grad": 0.18,
+   "spread": {
+    "5,2": [
+     0.031,
+     0.211
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.55 under min 0.6 (obj-furniture-bed)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bed",
+   "kind": "obj-furniture-bed",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.55,
+    0.2
+   ],
+   "tris": 268,
+   "tpu": 781,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 14548,
+   "vtx": 360,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00193,
+   "anglePct": 83,
+   "vpt": 1.34,
+   "grad": 0.18,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "5,2": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.55 under min 0.6 (obj-furniture-bed)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-center-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.15
+   ],
+   "tris": 52,
+   "tpu": 132,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4432,
+   "vtx": 85,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.038,
+   "avgTri": 0.03072,
+   "anglePct": 100,
+   "vpt": 1.63,
+   "grad": 0.16,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-center",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 52,
+   "tpu": 132,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4516,
+   "vtx": 88,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.038,
+   "avgTri": 0.03451,
+   "anglePct": 100,
+   "vpt": 1.69,
+   "grad": 0.17,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-narrow",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.65,
+    0.25
+   ],
+   "tris": 252,
+   "tpu": 733,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15056,
+   "vtx": 378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00659,
+   "anglePct": 98,
+   "vpt": 1.5,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v574"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-round-narrow",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.65,
+    0.3
+   ],
+   "tris": 360,
+   "tpu": 1047,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19108,
+   "vtx": 484,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00491,
+   "anglePct": 83,
+   "vpt": 1.34,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v575"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.8,
+    0.35
+   ],
+   "tris": 360,
+   "tpu": 845,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19096,
+   "vtx": 484,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00609,
+   "anglePct": 83,
+   "vpt": 1.34,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v575"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-side-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.35
+   ],
+   "tris": 198,
+   "tpu": 474,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11700,
+   "vtx": 283,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00961,
+   "anglePct": 81,
+   "vpt": 1.43,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone-side",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.3
+   ],
+   "tris": 152,
+   "tpu": 364,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9844,
+   "vtx": 234,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.01274,
+   "anglePct": 99,
+   "vpt": 1.54,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-stone",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.8,
+    0.3
+   ],
+   "tris": 252,
+   "tpu": 592,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15044,
+   "vtx": 378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00825,
+   "anglePct": 98,
+   "vpt": 1.5,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v574"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-center-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.15
+   ],
+   "tris": 60,
+   "tpu": 152,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 4860,
+   "vtx": 97,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.038,
+   "avgTri": 0.02662,
+   "anglePct": 100,
+   "vpt": 1.62,
+   "grad": 0.13,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.117,
+     0.117
+    ],
+    "15,3": [
+     0.031,
+     0.031
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-center",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 52,
+   "tpu": 132,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 4516,
+   "vtx": 88,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.038,
+   "avgTri": 0.03451,
+   "anglePct": 100,
+   "vpt": 1.69,
+   "grad": 0.16,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.117,
+     0.117
+    ],
+    "15,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-narrow",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.65,
+    0.25
+   ],
+   "tris": 220,
+   "tpu": 640,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 13840,
+   "vtx": 346,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00763,
+   "anglePct": 100,
+   "vpt": 1.57,
+   "grad": 0.16,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ],
+   "variant": "v572"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-round-narrow",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.65,
+    0.3
+   ],
+   "tris": 336,
+   "tpu": 977,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 18260,
+   "vtx": 462,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00531,
+   "anglePct": 85,
+   "vpt": 1.38,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ],
+   "variant": "v573"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.8,
+    0.35
+   ],
+   "tris": 336,
+   "tpu": 789,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 18184,
+   "vtx": 460,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00658,
+   "anglePct": 85,
+   "vpt": 1.37,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ],
+   "variant": "v573"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-side-round",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.35
+   ],
+   "tris": 190,
+   "tpu": 455,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 11456,
+   "vtx": 277,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.01006,
+   "anglePct": 82,
+   "vpt": 1.46,
+   "grad": 0.15,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "14,3": [
+     0.031,
+     0.031
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood-side",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.3
+   ],
+   "tris": 136,
+   "tpu": 326,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 9232,
+   "vtx": 218,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.0143,
+   "anglePct": 100,
+   "vpt": 1.6,
+   "grad": 0.16,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "bridge-wood",
+   "kind": "str-access-bridge",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.8,
+    0.3
+   ],
+   "tris": 220,
+   "tpu": 517,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 13828,
+   "vtx": 346,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00953,
+   "anglePct": 100,
+   "vpt": 1.57,
+   "grad": 0.16,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-planks"
+   ],
+   "variant": "v572"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "canoe",
+   "kind": "obj-transport-boat",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.85,
+    0.15
+   ],
+   "tris": 200,
+   "tpu": 583,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9980,
+   "vtx": 230,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "avgTri": 0.00267,
+   "anglePct": 42,
+   "vpt": 1.15,
+   "grad": 0.16,
+   "spread": {
+    "2,0": [
+     0.031,
+     0.148
+    ],
+    "1,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "ken",
+    "sailing",
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "carrot",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.45
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8716,
+   "vtx": 200,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "avgTri": 0.00103,
+   "anglePct": 23,
+   "vpt": 1.35,
+   "grad": 0.18,
+   "spread": {
+    "3,1": [
+     0.031,
+     0.211
+    ],
+    "5,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d07b56"
+   ],
+   "tags": [
+    "foliage",
+    "food",
+    "ken"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "corn",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    0.95
+   ],
+   "tris": 300,
+   "tpu": 653,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17040,
+   "vtx": 432,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.0016,
+   "anglePct": 29,
+   "vpt": 1.44,
+   "grad": 0.17,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "6,0": [
+     0.031,
+     0.148
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "vegetation"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "crop-row-corner",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.7,
+    0.05
+   ],
+   "tris": 50,
+   "tpu": 145,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3400,
+   "vtx": 52,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.037,
+   "avgTri": 0.00789,
+   "anglePct": 64,
+   "vpt": 1.04,
+   "grad": 0.09,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "crop-row-end",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.7,
+    0.05
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3864,
+   "vtx": 64,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.061,
+   "avgTri": 0.00815,
+   "anglePct": 75,
+   "vpt": 1,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "crop-row",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.7,
+    0.05
+   ],
+   "tris": 88,
+   "tpu": 238,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4744,
+   "vtx": 88,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.061,
+   "avgTri": 0.01039,
+   "anglePct": 80,
+   "vpt": 1,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-bend-center",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 298,
+   "tpu": 757,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14888,
+   "vtx": 366,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.00146,
+   "anglePct": 57,
+   "vpt": 1.23,
+   "grad": 0.12,
+   "spread": {
+    "2,0": [
+     0.117,
+     0.117
+    ],
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-bend",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 240,
+   "tpu": 610,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11584,
+   "vtx": 274,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00164,
+   "anglePct": 50,
+   "vpt": 1.14,
+   "grad": 0.11,
+   "spread": {
+    "2,0": [
+     0.117,
+     0.117
+    ],
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-corner",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 116,
+   "tpu": 295,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7576,
+   "vtx": 172,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00442,
+   "anglePct": 100,
+   "vpt": 1.48,
+   "grad": 0.15,
+   "spread": {
+    "2,0": [
+     0.117,
+     0.117
+    ],
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-gate",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.05,
+    0.25
+   ],
+   "tris": 524,
+   "tpu": 1528,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 24328,
+   "vtx": 618,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00084,
+   "anglePct": 96,
+   "vpt": 1.18,
+   "grad": 0.15,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ],
+    "6,1": [
+     0.133,
+     0.133
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-cast",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-planks-double",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.05,
+    0.25
+   ],
+   "tris": 152,
+   "tpu": 443,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10008,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00225,
+   "anglePct": 100,
+   "vpt": 1.58,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-planks",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.05,
+    0.25
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6972,
+   "vtx": 156,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00314,
+   "anglePct": 100,
+   "vpt": 1.63,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple-center",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.05,
+    0.25
+   ],
+   "tris": 116,
+   "tpu": 338,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7812,
+   "vtx": 178,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00283,
+   "anglePct": 100,
+   "vpt": 1.53,
+   "grad": 0.15,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple-diagonal-center",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 148,
+   "tpu": 376,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9336,
+   "vtx": 220,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.0027,
+   "anglePct": 100,
+   "vpt": 1.49,
+   "grad": 0.15,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.117,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple-diagonal",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.25
+   ],
+   "tris": 80,
+   "tpu": 203,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5776,
+   "vtx": 122,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.0045,
+   "anglePct": 100,
+   "vpt": 1.53,
+   "grad": 0.16,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.117,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple-high",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.1,
+    0.25
+   ],
+   "tris": 44,
+   "tpu": 128,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4004,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.022,
+   "avgTri": 0.00632,
+   "anglePct": 100,
+   "vpt": 1.64,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple-low",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.1,
+    0.15
+   ],
+   "tris": 44,
+   "tpu": 128,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4000,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.022,
+   "avgTri": 0.00525,
+   "anglePct": 100,
+   "vpt": 1.64,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "fence-simple",
+   "kind": "str-barrier-fence",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.05,
+    0.25
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4992,
+   "vtx": 100,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00447,
+   "anglePct": 100,
+   "vpt": 1.56,
+   "grad": 0.15,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.117,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "patch-sand",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.55,
+    0.05
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8952,
+   "vtx": 199,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00286,
+   "anglePct": 75,
+   "vpt": 1.04,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-stone-circle",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.65,
+    0.05
+   ],
+   "tris": 164,
+   "tpu": 478,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10300,
+   "vtx": 246,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00346,
+   "anglePct": 98,
+   "vpt": 1.5,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-stone-corner",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.6,
+    0.05
+   ],
+   "tris": 112,
+   "tpu": 327,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7228,
+   "vtx": 160,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00279,
+   "anglePct": 89,
+   "vpt": 1.43,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-stone-end",
+   "kind": "env-terrain-ground",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.05
+   ],
+   "tris": 92,
+   "tpu": 268,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6180,
+   "vtx": 131,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00263,
+   "anglePct": 99,
+   "vpt": 1.42,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-stone",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.45,
+    0.05
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8460,
+   "vtx": 195,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00301,
+   "anglePct": 99,
+   "vpt": 1.43,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-wood-corner",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.05
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5592,
+   "vtx": 120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00564,
+   "anglePct": 87,
+   "vpt": 2,
+   "grad": 0.84,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.875
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-wood-end",
+   "kind": "env-terrain-ground",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.4,
+    0.05
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3948,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00943,
+   "anglePct": 72,
+   "vpt": 2,
+   "grad": 0.84,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.875
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "path-wood",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.4,
+    0.05
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5600,
+   "vtx": 120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00941,
+   "anglePct": 86,
+   "vpt": 2,
+   "grad": 0.84,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.875
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "sign",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.05,
+    0.3
+   ],
+   "tris": 44,
+   "tpu": 128,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4044,
+   "vtx": 74,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "avgTri": 0.00239,
+   "anglePct": 100,
+   "vpt": 1.68,
+   "grad": 0.18,
+   "spread": {
+    "0,0": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tent-large-closed",
+   "kind": "str-stands",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.5,
+    0.4
+   ],
+   "tris": 228,
+   "tpu": 665,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12032,
+   "vtx": 288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00916,
+   "anglePct": 66,
+   "vpt": 1.26,
+   "grad": 0.16,
+   "spread": {
+    "5,2": [
+     0.813,
+     0.938
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v576"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tent-large-open",
+   "kind": "str-stands",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.5,
+    0.4
+   ],
+   "tris": 232,
+   "tpu": 676,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12564,
+   "vtx": 304,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00882,
+   "anglePct": 64,
+   "vpt": 1.31,
+   "grad": 0.17,
+   "spread": {
+    "5,2": [
+     0.813,
+     0.961
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v576"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tent-small-closed",
+   "kind": "str-stands",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.5,
+    0.4
+   ],
+   "tris": 220,
+   "tpu": 641,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9228,
+   "vtx": 202,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00595,
+   "anglePct": 46,
+   "vpt": 0.92,
+   "grad": 0.53,
+   "spread": {
+    "5,2": [
+     0.211,
+     0.922
+    ],
+    "2,0": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v577"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tent-small-open",
+   "kind": "str-stands",
+   "size": "m",
+   "wdh": [
+    0.4,
+    0.5,
+    0.4
+   ],
+   "tris": 224,
+   "tpu": 653,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9696,
+   "vtx": 216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00566,
+   "anglePct": 43,
+   "vpt": 0.96,
+   "grad": 0.15,
+   "spread": {
+    "5,2": [
+     0.82,
+     0.961
+    ],
+    "2,0": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v577"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "turnip",
+   "kind": "obj-food-vegetable",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.5
+   ],
+   "tris": 168,
+   "tpu": 490,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8516,
+   "vtx": 190,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "avgTri": 0.00107,
+   "anglePct": 25,
+   "vpt": 1.13,
+   "grad": 0.18,
+   "spread": {
+    "3,1": [
+     0.031,
+     0.211
+    ],
+    "5,2": [
+     0.031,
+     0.211
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "foliage",
+    "food",
+    "ken"
+   ]
+  },
+  {
    "kit": "ken-pirate",
    "name": "barrel",
    "kind": "obj-container-barrel",
@@ -94947,6 +97328,176 @@
    "mark": [
     "grounded"
    ]
+  },
+  {
+   "kit": "ken-water",
+   "name": "buoy-flag",
+   "kind": "str-marker",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.4,
+    0.8
+   ],
+   "tris": 218,
+   "tpu": 546,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12300,
+   "vtx": 300,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "avgTri": 0.00325,
+   "anglePct": 40,
+   "vpt": 1.38,
+   "grad": 0.79,
+   "spread": {
+    "15,3": [
+     0.102,
+     0.891
+    ],
+    "6,1": [
+     0.102,
+     0.891
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "sailing"
+   ]
+  },
+  {
+   "kit": "ken-water",
+   "name": "buoy",
+   "kind": "str-marker",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.3,
+    0.55
+   ],
+   "tris": 118,
+   "tpu": 344,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7720,
+   "vtx": 176,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.035,
+   "avgTri": 0.00436,
+   "anglePct": 61,
+   "vpt": 1.49,
+   "grad": 0.79,
+   "spread": {
+    "15,3": [
+     0.102,
+     0.891
+    ],
+    "6,1": [
+     0.102,
+     0.891
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "sailing"
+   ]
+  },
+  {
+   "kit": "ken-water",
+   "name": "ramp-wide",
+   "kind": "str-access-stairs",
+   "size": "l",
+   "wdh": [
+    1.55,
+    0.85,
+    0.35
+   ],
+   "tris": 128,
+   "tpu": 140,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10348,
+   "vtx": 256,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.03171,
+   "anglePct": 21,
+   "vpt": 2,
+   "grad": 0.79,
+   "spread": {
+    "0,0": [
+     0.102,
+     0.891
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "sailing",
+    "wood-planks"
+   ],
+   "variant": "v579"
+  },
+  {
+   "kit": "ken-water",
+   "name": "ramp",
+   "kind": "str-access-stairs",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.85,
+    0.35
+   ],
+   "tris": 128,
+   "tpu": 265,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10340,
+   "vtx": 256,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.01889,
+   "anglePct": 24,
+   "vpt": 2,
+   "grad": 0.79,
+   "spread": {
+    "0,0": [
+     0.102,
+     0.891
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "sailing",
+    "wood-planks"
+   ],
+   "variant": "v579"
   },
   {
    "kit": "medieval-forge",

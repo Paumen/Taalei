@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=6a309a01a3';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=6a309a01a3';
-import { renderCommentBox } from './comments.js?v=6a309a01a3';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=6a309a01a3';
-import './bouwstempel.js?v=6a309a01a3';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=a49bfc2792';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=a49bfc2792';
+import { renderCommentBox } from './comments.js?v=a49bfc2792';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a49bfc2792';
+import './bouwstempel.js?v=a49bfc2792';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -23,7 +23,7 @@ const SOURCES = {
   },
   reject: {
     file: 'reject.json',
-    title: 'Swipe what was turned down for style',
+    title: 'Swipe what was turned down',
     key: 'reject',
     labels: { links: 'Rightly turned down', rechts: 'Wants adding after all', omhoog: 'Turned down for another reason', omlaag: 'Look again' },
   },
@@ -472,7 +472,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=6a309a01a3'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=a49bfc2792'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);
