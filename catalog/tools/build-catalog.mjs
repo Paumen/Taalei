@@ -8,6 +8,7 @@ import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { buildChecks, checkModel } from '../../lint/rules.mjs';
+import { BRONKITS } from './bronkits.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
@@ -376,52 +377,29 @@ const TYPES = ['material', 'kind', 'size', 'tag'];
 const KIND_TREE = readKindTree();
 
 const SOURCES = [
-  {
-    id: 'ken',
-    name: 'Kenney',
-    description: 'Kits from Kenney (kenney.nl).',
-    kits: [
-      'ken-castle', 'ken-town', 'ken-grave', 'ken-holiday',
-      'ken-forest-mini', 'ken-mini-dun', 'ken-cave', 'ken-pirate',
-      'ken-platformer', 'ken-proto', 'ken-survival',
-    ],
-  },
-  {
-    id: 'kay',
-    name: 'KayKit',
-    description: 'Kits from Kay Lousberg (kaylousberg.com).',
-    kits: [
-      'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
-      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons', 'kay-mixed',
-      'kay-minigame',
-    ],
-  },
-  {
-    id: 'qua',
-    name: 'Quaternius',
-    description: 'Kits from Quaternius (quaternius.com).',
-    kits: [
-      'quat-props', 'quat-nature', 'quat-pirate', 'quat-dun-1', 'quat-dun-2',
-      'quat-rpg', 'quat-blood-ring', 'quat-skeleton', 'quat-food', 'quat-fish', 'quat-ships',
-      'quat-town',
-    ],
-  },
-  {
-    id: 'isa',
-    name: 'Isa',
-    description: 'Kits from Isa Lousberg (isalousberg.com).',
-    kits: [
-      'isa-food', 'isa-kitchen', 'isa-plants', 'isa-park', 'isa-pond',
-      'isa-picnic', 'isa-playground', 'isa-bakery',
-    ],
-  },
-  {
-    id: 'wizp',
-    name: 'WizP',
-    description: 'Kits from WizP (wizp.itch.io).',
-    kits: ['asia-pack', 'asia-grave', 'asia-rocks', 'asia-rg'],
-  },
+  { id: 'ken', name: 'Kenney', description: 'Kits from Kenney (kenney.nl).' },
+  { id: 'kay', name: 'KayKit', description: 'Kits from Kay Lousberg (kaylousberg.com).' },
+  { id: 'qua', name: 'Quaternius', description: 'Kits from Quaternius (quaternius.com).' },
+  { id: 'isa', name: 'Isa', description: 'Kits from Isa Lousberg (isalousberg.com).' },
+  { id: 'wizp', name: 'WizP', description: 'Kits from WizP (wizp.itch.io).' },
 ];
+
+function readSourcePerKit() {
+  const ids = new Set(SOURCES.map((s) => s.id));
+  const perKit = new Map();
+  const unknown = [];
+
+  for (const { kit, source } of BRONKITS) {
+    if (!kit || !source) continue;
+    if (!ids.has(source)) { unknown.push(`${kit}: ${source}`); continue; }
+    perKit.set(kit, source);
+  }
+  if (unknown.length) throw new Error(`bronkits.mjs source is not in SOURCES: ${unknown.join(', ')}`);
+
+  return perKit;
+}
+
+const SOURCE_PER_KIT = readSourcePerKit();
 
 const DERIVED = [
   ...SIZES.map(({ id, name }) => ({
@@ -430,11 +408,11 @@ const DERIVED = [
     type: 'size',
     belongs: (m) => sizeOf(m.wdh) === id,
   })),
-  ...SOURCES.map(({ id, name, description, kits }) => ({
+  ...SOURCES.map(({ id, name, description }) => ({
     id,
     name,
     description,
-    belongs: (m) => kits.includes(m.kit),
+    belongs: (m) => SOURCE_PER_KIT.get(m.kit) === id,
   })),
   {
     id: 'animation',
@@ -519,12 +497,8 @@ function readTags(known) {
 }
 
 const knownSlugs = new Set(kits.map((k) => k.slug));
-const noSource = kits.filter((k) => !SOURCES.some((s) => s.kits.includes(k.slug))).map((k) => k.slug);
-for (const source of SOURCES) {
-  const missing = source.kits.filter((slug) => !knownSlugs.has(slug));
-  if (missing.length) console.warn(`! source ${source.id} names a kit that doesn't exist: ${missing.join(', ')}`);
-}
-if (noSource.length) console.warn(`! kit without a source in SOURCES: ${noSource.join(', ')}`);
+const strayKits = [...SOURCE_PER_KIT.keys()].filter((slug) => !knownSlugs.has(slug));
+if (strayKits.length) console.warn(`! bronkits.mjs gives a source to a kit that isn't in the catalog: ${strayKits.join(', ')}`);
 
 const variants = readVariants(new Set(models.map((m) => m.id)));
 for (const model of models) {
@@ -752,6 +726,10 @@ if (flat.length) {
 }
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
+const noSource = kits
+  .map(({ slug }) => slug)
+  .filter((slug) => !SOURCE_PER_KIT.has(slug) && BRONKITS.some((b) => b.kit === slug));
+if (noSource.length) console.warn(`! no source in bronkits.mjs: ${noSource.join(', ')}`);
 if (noColor.length) {
   console.warn(`! ${noColor.length} models without colour in the .glb (colour filter skips them)`);
 }
