@@ -95,7 +95,7 @@ const MODELLEN = {
   },
   bell: {
     naam: 'bell', kind: 'obj', tags: ['asia', 'ngons'],
-    vlakken: { 'p1:6:0': ['metal-copper', 'terracotta'], 'p1:1:0': bewerkt, 'p1:9:0': balk, 'p1:29:0': steen },
+    vlakken: { 'p1:6:0': goud, 'p1:1:0': goud, 'p1:9:0': balk, 'p1:29:0': steen },
   },
   brazier: {
     naam: 'brazier', kind: 'obj-lighting-torch', tags: ['asia', 'ngons'],
@@ -155,7 +155,7 @@ const MODELLEN = {
   },
   gong: {
     naam: 'gong', kind: 'obj', tags: ['asia', 'ngons'],
-    vlakken: { 'p1:6:0': ['metal-copper', 'terracotta'], 'p1:29:0': steen, 'p1:1:0': bewerkt, 'p1:41:0': bewerkt, 'p1:9:0': balk },
+    vlakken: { 'p1:6:0': goud, 'p1:29:0': steen, 'p1:1:0': goud, 'p1:41:0': goud, 'p1:9:0': balk },
   },
   granary: {
     naam: 'granary', kind: 'str-building', tags: ['asia'],
@@ -228,7 +228,7 @@ const MODELLEN = {
   },
   shrine_2: {
     naam: 'shrine-large', kind: 'str', tags: ['asia'],
-    vlakken: { 'p1:1:0': bewerkt, 'p1:21:0': dakpan, 'p1:29:0': steen, 'p1:9:0': balk, 'p1:26:0': steen },
+    vlakken: { 'p1:1:0': goud, 'p1:21:0': dakpan, 'p1:29:0': steen, 'p1:9:0': balk, 'p1:26:0': steen },
   },
   stand: {
     naam: 'market-stand', kind: 'str-stands', tags: ['asia'],
@@ -266,10 +266,10 @@ const MODELLEN = {
     naam: 'urn-b', kind: 'obj-container-pot', tags: ['asia', 'ngons'],
     vlakken: { 'p1:1:0': ['ceramic', 'terracotta'], 'p1:2:0': ['ceramic', 'terracotta'] },
   },
-  wall_decor_1: { naam: 'wall-decor-a', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:1:0': bewerkt } },
+  wall_decor_1: { naam: 'wall-decor-a', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:1:0': goud } },
   wall_decor_2: { naam: 'wall-decor-b', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:29:0': steen } },
   wall_decor_3: { naam: 'wall-decor-c', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:29:0': steen } },
-  wall_decor_4: { naam: 'wall-decor-d', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:1:0': bewerkt } },
+  wall_decor_4: { naam: 'wall-decor-d', kind: 'str-part-wall', tags: ['asia'], vlakken: { 'p1:1:0': goud } },
   well: { naam: 'well', kind: 'str-building', tags: ['asia', 'ngons'], vlakken: { 'p1:29:0': steen, 'p1:14:0': balk } },
   wheel: { naam: 'waterwheel', kind: 'str', tags: ['asia', 'ngons'], vlakken: { 'p1:14:0': balk, 'p1:13:0': plank } },
   wood_1: { naam: 'plank-a', kind: 'obj-resource-wood-plank', tags: ['asia'], vlakken: { 'p1:14:0': plank } },
