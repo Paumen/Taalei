@@ -111,9 +111,8 @@ Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
   `robin-hood`, `asia`, `graveyard`, `sailing`. A new theme is worth opening
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
-- **flags** — `plural` (several instances of one thing), `ngons` (round cross
-  section), `decorated` (food finished on top), `pickup` (a lone coin, key,
-  ring, potion or token sized to be collected, not to stand in the world).
+- **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
+  key, ring, potion or token sized to be collected, not to stand in the world).
 
 `hero` and material `special` are the PO's to assign, per the bible's process
 rules: propose, never set. Artist tags (`kay`, `ken`, `qua`, …) are derived by
