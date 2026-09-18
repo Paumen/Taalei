@@ -68,11 +68,11 @@ export const BRONKITS = [
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'asia-rocks', formaat: 'glb', splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
 
-  { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: null, formaat: 'glb', splitsPerMesh: true },
-  { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
-  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
-  { map: 'Trees_Pack', naam: 'Trees Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
-  { map: 'Village_Pack', naam: 'Village Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'medieval-village', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'fishing-village', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'arena-pack', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'trees', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Village_Pack', naam: 'Village Pack', kit: 'village', formaat: 'glb', splitsPerMesh: true },
   { map: 'Sweetland_Platformer_Kit', naam: 'Sweetland Platformer Kit', kit: null, formaat: 'glb', splitsPerMesh: true },
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },

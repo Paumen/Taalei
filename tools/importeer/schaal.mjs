@@ -10,6 +10,7 @@ const WERK_DIR = join(ROOT, 'kits', 'workfiles');
 
 const DOEL = {
   architecture: 4,
+  'arena-pack': 0.15,
   'asia-grave': 0.15,
   'asia-pack': 0.3,
   'asia-rg': 0.46,
@@ -17,6 +18,7 @@ const DOEL = {
   'clay-props': 0.65,
   'cooking-assets': 0.04,
   'desert-buildings': 0.0024,
+  'fishing-village': 0.435,
   'fs-terrain': 0.5,
   'fs-town': 0.5,
   'isa-food': 0.24,
@@ -32,6 +34,7 @@ const DOEL = {
   'ken-survival': 1.4,
   'medieval-forge': 0.006,
   'medieval-town': 1.1,
+  'medieval-village': 0.47,
   'mek-tools': 0.00022,
   natuur: 0.39,
   'primitive-tools': 0.0045,
@@ -50,6 +53,8 @@ const DOEL = {
   'quat-town': 1.2,
   rocks: 0.15,
   'small-props': 0.0037,
+  trees: 0.24,
+  village: 0.3,
   windmill: 0.008,
 };
 const KEN_STANDAARD = 0.75;
