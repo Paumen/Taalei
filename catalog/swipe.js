@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=af99c69f4d';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=af99c69f4d';
-import { renderCommentBox } from './comments.js?v=af99c69f4d';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=af99c69f4d';
-import './bouwstempel.js?v=af99c69f4d';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=85dc0a8368';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85dc0a8368';
+import { renderCommentBox } from './comments.js?v=85dc0a8368';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=85dc0a8368';
+import './bouwstempel.js?v=85dc0a8368';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -15,16 +15,17 @@ const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
 
 const SOURCES = {
   catalogus: { file: 'catalog.json', title: 'Swipe models', labels: null },
-  missing: {
-    file: 'missing.json',
-    title: 'Swipe what is missing',
+  tbd: {
+    file: 'tbd.json',
+    title: 'Swipe what is still to decide',
+    key: 'tbd',
     labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
   },
-  rejected: {
-    file: 'rejected.json',
-    title: 'Swipe what was rejected for style',
-    key: 'rejected',
-    labels: { links: 'Rightly rejected', rechts: 'Wants adding after all', omhoog: 'Rejected for another reason', omlaag: 'Look again' },
+  reject: {
+    file: 'reject.json',
+    title: 'Swipe what was turned down for style',
+    key: 'reject',
+    labels: { links: 'Rightly turned down', rechts: 'Wants adding after all', omhoog: 'Turned down for another reason', omlaag: 'Look again' },
   },
   lint: {
     file: 'catalog.json',
@@ -39,7 +40,7 @@ const PARAMS = new URLSearchParams(location.search);
 const SOURCE = SOURCES[PARAMS.get('source')] ?? SOURCES.catalogus;
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
 const STORAGE_KEY =
-  `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : SOURCE === SOURCES.catalogus ? '' : '-missing'}`
+  `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : ''}`
   + `${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 const FLAT_ENVIRONMENT = 'effen-omgeving.png';
@@ -471,7 +472,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=af99c69f4d'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=85dc0a8368'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);

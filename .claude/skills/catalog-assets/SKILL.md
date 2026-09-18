@@ -1,6 +1,6 @@
 ---
 name: catalog-assets
-description: Add 3D assets to the Taalei catalogue — a whole source pack or a handful of models out of one. Covers source zips, kit slugs, the pack scale factor, recolouring onto the shared colormap, tags, variants, and the rebuilds. Use when asked to add, import or adopt models, kits or asset packs, or to fill gaps from the missing tab.
+description: Add 3D assets to the Taalei catalogue — a whole source pack or a handful of models out of one. Covers source zips, kit slugs, the pack scale factor, recolouring onto the shared colormap, tags, variants, and the rebuilds. Use when asked to add, import or adopt models, kits or asset packs, or to fill gaps from the TBD tab.
 ---
 
 # Adding assets to the catalogue
@@ -25,12 +25,12 @@ folder), `naam` (human name), `kit` (slug, `null` until adopted), `formaat`
 (`glb`, `gltf`, `obj`, `fbx`), plus `extraFormaten`, `submap`, `alleMappen` or
 `splitsPerMesh` where the pack needs them.
 
-    node catalog/tools/build-missing.mjs
+    node catalog/tools/build-lists.mjs
 
-Then open the missing tab (`catalog/missing.html`) and look. The previews
+Then open the TBD tab (`catalog/tbd.html`) and look. The previews
 colour themselves from the source texture, or from an average when the material
 carries no map — half-blank, black or grey models mean the pack's materials did
-not resolve. Fix that first, by hand colours in `catalog/missing-colors.json`
+not resolve. Fix that first, by hand colours in `catalog/preview-colors.json`
 keyed by pack and then by material or texture name. An import built on previews
 you have not looked at goes wrong quietly.
 
@@ -146,7 +146,7 @@ count propose a group; shape and a render confirm it before you write it down.
     node catalog/tools/build-catalog.mjs
     node lint/size.mjs
     node lint/measures.mjs
-    node catalog/tools/build-missing.mjs
+    node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
 
 Then render the new models and look at them, as the bible's process rules ask —

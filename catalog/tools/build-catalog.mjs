@@ -234,12 +234,12 @@ const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
 const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js', 'color-edits.js', 'comments.js',
   'extract.js', 'bouwstempel.js'];
-const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'missing.js', 'tag-edits.js', 'extract.js'];
+const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'list.js', 'tag-edits.js', 'extract.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
-    'swipe.css', 'swipe.js', 'missing.json', 'rejected.json', 'missing.css', 'missing.js', 'thumbs.json', ...MODULES]
+    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'list.css', 'list.js', 'thumbs.json', ...MODULES]
     .filter((name) => existsSync(join(CATALOG_DIR, name)))
     .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))
     .join('');
@@ -281,16 +281,16 @@ function writeVersion() {
     [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
     [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
   ]);
-  for (const page of ['missing.html', 'rejected.html']) {
+  for (const page of ['tbd.html', 'reject.html']) {
     stamp(join(CATALOG_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-      [/href="missing\.css(?:\?v=[a-f0-9]+)?"/, `href="missing.css?v=${version}"`],
-      [/src="missing\.js(?:\?v=[a-f0-9]+)?"/, `src="missing.js?v=${version}"`],
+      [/href="list\.css(?:\?v=[a-f0-9]+)?"/, `href="list.css?v=${version}"`],
+      [/src="list\.js(?:\?v=[a-f0-9]+)?"/, `src="list.js?v=${version}"`],
     ]);
   }
   console.log(
     `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/${p}`).join(', ')},` +
-      ' catalog/swipe.html, catalog/missing.html, catalog/rejected.html',
+      ' catalog/swipe.html, catalog/tbd.html, catalog/reject.html',
   );
 }
 
