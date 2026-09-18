@@ -394,7 +394,7 @@ const SOURCES = [
     description: 'Kits from Kay Lousberg (kaylousberg.com).',
     kits: [
       'kay-adventurers', 'kay-dun-1', 'kay-dun-2', 'kay-forest', 'kay-furniture', 'kay-hallow', 'kay-resources',
-      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons',
+      'kay-food', 'kay-tools', 'kay-skeleton', 'kay-skeleton-1', 'kay-weapons', 'kay-mixed',
     ],
   },
   {
