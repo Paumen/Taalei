@@ -6866,13 +6866,6 @@
    "color": "#b5651d"
   },
   {
-   "id": "decorated",
-   "name": "Decorated food",
-   "type": "tag",
-   "description": "Food finished on top rather than left plain: icing, sprinkles, cream, fruit or candles. N3 and N4 allow it more bands.",
-   "count": 30
-  },
-  {
    "id": "pirate",
    "name": "Pirate",
    "type": "tag",
@@ -6894,20 +6887,6 @@
    "count": 95
   },
   {
-   "id": "ngons",
-   "name": "Ngons",
-   "type": "tag",
-   "description": "Built around a round cross-section: bowls, plates, pots, mugs, coins, rings, candles, barrels, buckets, logs, wheels, masts. Rule §2 counts their facets.",
-   "count": 503
-  },
-  {
-   "id": "tobeanimated",
-   "name": "To be animated",
-   "type": "tag",
-   "description": "The model is meant to be animated, so its parts stay separate draw calls: exempt from I11.",
-   "count": 3
-  },
-  {
    "id": "hero",
    "name": "Hero",
    "type": "tag",
@@ -6917,7 +6896,7 @@
   },
   {
    "id": "comp",
-   "name": "Component",
+   "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
    "count": 3
@@ -6937,20 +6916,6 @@
    "count": 60
   },
   {
-   "id": "floating",
-   "name": "Floating",
-   "type": "tag",
-   "description": "Meant to hang or hover, so its lowest point sits above the ground plane on purpose and the grounded check does not apply.",
-   "count": 0
-  },
-  {
-   "id": "offcenter",
-   "name": "Off centre",
-   "type": "tag",
-   "description": "Its pivot sits away from the footprint centre on purpose, as a hinge or a corner piece does, so the centred check does not apply.",
-   "count": 0
-  },
-  {
    "id": "broken",
    "name": "Broken",
    "type": "tag",
@@ -6958,10 +6923,10 @@
    "count": 45
   },
   {
-   "id": "tobeanimated",
-   "name": "To be animated",
+   "id": "tba",
+   "name": "TBA",
    "type": "tag",
-   "description": "Models that need an animation made for them; the model itself carries none yet.",
+   "description": "Needs an animation made for it and keeps the moving parts as separate draw calls, so it is exempt from I11; the model itself carries none yet.",
    "count": 14
   },
   {
@@ -6972,8 +6937,8 @@
    "count": 198
   },
   {
-   "id": "graveyard",
-   "name": "Graveyard",
+   "id": "grave",
+   "name": "Grave",
    "type": "tag",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
    "count": 132
@@ -7081,11 +7046,11 @@
    "name": "Quaternius",
    "type": "tag",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 340
+   "count": 434
   },
   {
    "id": "isa",
-   "name": "Tiny Treats",
+   "name": "Isa",
    "type": "tag",
    "description": "Kits from Isa Lousberg (isalousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
    "count": 205
@@ -7095,14 +7060,7 @@
    "name": "WizP",
    "type": "tag",
    "description": "Kits from WizP (wizp.itch.io). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 143
-  },
-  {
-   "id": "own",
-   "name": "Taalei",
-   "type": "tag",
-   "description": "Kits made or assembled for Taalei itself, on the shared colormap. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 407
+   "count": 232
   },
   {
    "id": "animation",
@@ -7110,13 +7068,6 @@
    "type": "tag",
    "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
    "count": 41
-  },
-  {
-   "id": "modular",
-   "name": "Modular",
-   "type": "tag",
-   "description": "Clicks onto the grid with matching pieces: walls, roofs, pillars and floors of a building kit. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 215
   }
  ],
  "byLongest": [
@@ -8658,7 +8609,6 @@
    ],
    "tags": [
     "halloween",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -8699,7 +8649,6 @@
    ],
    "tags": [
     "halloween",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -8740,7 +8689,6 @@
    ],
    "tags": [
     "halloween",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -9875,7 +9823,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "stone-masonry",
     "wizp",
     "wood-beam",
@@ -9934,7 +9881,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "stone-masonry",
     "wizp",
     "wood-beam",
@@ -10168,7 +10114,6 @@
    "tags": [
     "asia",
     "metal-iron-wrought",
-    "ngons",
     "wizp",
     "wood-planks",
     "wood-worked"
@@ -10220,7 +10165,6 @@
    "tags": [
     "asia",
     "metal-iron-wrought",
-    "ngons",
     "wizp",
     "wood-planks",
     "wood-worked"
@@ -10277,7 +10221,6 @@
    "tags": [
     "asia",
     "metal-copper",
-    "ngons",
     "stone-masonry",
     "wizp",
     "wood-beam",
@@ -10327,7 +10270,6 @@
     "asia",
     "metal-iron-cast",
     "metal-iron-wrought",
-    "ngons",
     "wizp"
    ]
   },
@@ -10625,7 +10567,6 @@
     "leather",
     "metal-gold",
     "metal-iron-wrought",
-    "ngons",
     "wizp",
     "wood-beam"
    ]
@@ -11163,7 +11104,6 @@
    "tags": [
     "asia",
     "metal-copper",
-    "ngons",
     "rope",
     "stone-masonry",
     "wizp",
@@ -12143,7 +12083,6 @@
    "tags": [
     "asia",
     "metal-gold",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -12190,7 +12129,6 @@
    "tags": [
     "asia",
     "metal-gold",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -12237,7 +12175,6 @@
    "tags": [
     "asia",
     "metal-gold",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -12284,7 +12221,6 @@
    "tags": [
     "asia",
     "metal-gold",
-    "ngons",
     "stone-masonry",
     "wizp"
    ],
@@ -12325,7 +12261,6 @@
    ],
    "tags": [
     "asia",
-    "ngons",
     "stone-masonry",
     "wizp"
    ]
@@ -12365,7 +12300,6 @@
    ],
    "tags": [
     "asia",
-    "ngons",
     "stone-masonry",
     "wizp"
    ]
@@ -12769,7 +12703,6 @@
    ],
    "tags": [
     "asia",
-    "ngons",
     "stone-masonry",
     "wizp"
    ]
@@ -12902,7 +12835,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "wizp"
    ]
   },
@@ -12943,7 +12875,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "wizp"
    ]
   },
@@ -13588,7 +13519,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "wizp",
     "wood-beam"
    ]
@@ -13872,7 +13802,6 @@
    "tags": [
     "asia",
     "metal-iron-wrought",
-    "ngons",
     "stone-masonry",
     "wizp"
    ]
@@ -14105,7 +14034,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "wizp"
    ]
   },
@@ -14145,7 +14073,6 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons",
     "wizp"
    ]
   },
@@ -14345,7 +14272,6 @@
    ],
    "tags": [
     "asia",
-    "ngons",
     "wizp",
     "wood-beam",
     "wood-planks"
@@ -14391,7 +14317,6 @@
    ],
    "tags": [
     "asia",
-    "ngons",
     "stone-masonry",
     "wizp",
     "wood-beam"
@@ -14433,7 +14358,8 @@
    "tags": [
     "asia",
     "foliage",
-    "plural"
+    "plural",
+    "wizp"
    ]
   },
   {
@@ -14477,6 +14403,7 @@
    "tags": [
     "asia",
     "textile",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -14527,6 +14454,7 @@
     "asia",
     "metal-iron-wrought",
     "sailing",
+    "wizp",
     "wood-beam",
     "wood-worked"
    ]
@@ -14567,7 +14495,8 @@
    "tags": [
     "asia",
     "broken",
-    "ceramic"
+    "ceramic",
+    "wizp"
    ]
   },
   {
@@ -14606,7 +14535,7 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons"
+    "wizp"
    ]
   },
   {
@@ -14650,6 +14579,7 @@
    "tags": [
     "asia",
     "metal-iron-wrought",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -14689,7 +14619,7 @@
    "tags": [
     "asia",
     "metal-iron-cast",
-    "ngons"
+    "wizp"
    ]
   },
   {
@@ -14734,8 +14664,8 @@
     "asia",
     "metal-copper",
     "metal-gold",
-    "ngons",
-    "pickup"
+    "pickup",
+    "wizp"
    ]
   },
   {
@@ -14796,6 +14726,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -14835,7 +14766,8 @@
    ],
    "tags": [
     "asia",
-    "metal-gold"
+    "metal-gold",
+    "wizp"
    ]
   },
   {
@@ -14890,7 +14822,7 @@
     "asia",
     "leather",
     "metal-iron-steel",
-    "ngons",
+    "wizp",
     "wood-beam",
     "wood-worked"
    ]
@@ -14941,6 +14873,7 @@
    "tags": [
     "asia",
     "paper",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -14979,6 +14912,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15017,6 +14951,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15061,6 +14996,7 @@
    "tags": [
     "asia",
     "rope",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15105,6 +15041,7 @@
    "tags": [
     "asia",
     "rope",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15148,6 +15085,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -15210,6 +15148,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -15273,6 +15212,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -15331,6 +15271,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam"
    ],
    "variant": "v446"
@@ -15388,6 +15329,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15444,6 +15386,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam"
    ],
    "variant": "v446"
@@ -15506,6 +15449,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -15569,6 +15513,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -15615,6 +15560,7 @@
    "tags": [
     "asia",
     "ceramic",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15664,6 +15610,7 @@
    "tags": [
     "asia",
     "ceramic",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -15703,7 +15650,8 @@
    ],
    "tags": [
     "asia",
-    "skin"
+    "skin",
+    "wizp"
    ],
    "variant": "v389"
   },
@@ -15748,6 +15696,7 @@
    "tags": [
     "asia",
     "skin",
+    "wizp",
     "wood-beam"
    ],
    "variant": "v389"
@@ -15798,8 +15747,8 @@
    "tags": [
     "asia",
     "metal-copper",
-    "ngons",
     "rope",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -15840,7 +15789,8 @@
    "tags": [
     "asia",
     "foliage",
-    "plural"
+    "plural",
+    "wizp"
    ]
   },
   {
@@ -15907,6 +15857,7 @@
     "metal-iron-wrought",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -15976,6 +15927,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16038,6 +15990,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16100,6 +16053,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16162,6 +16116,7 @@
     "ceramic",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16218,6 +16173,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16280,6 +16236,7 @@
     "ceramic",
     "metal-gold",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16343,6 +16300,7 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -16393,7 +16351,8 @@
     "asia",
     "metal-iron-steel",
     "metal-iron-wrought",
-    "rope"
+    "rope",
+    "wizp"
    ]
   },
   {
@@ -16432,6 +16391,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -16476,8 +16436,8 @@
    "tags": [
     "asia",
     "emissive",
-    "ngons",
-    "rope"
+    "rope",
+    "wizp"
    ]
   },
   {
@@ -16521,8 +16481,8 @@
    "tags": [
     "asia",
     "emissive",
-    "ngons",
-    "rope"
+    "rope",
+    "wizp"
    ]
   },
   {
@@ -16560,7 +16520,8 @@
    ],
    "tags": [
     "asia",
-    "foliage"
+    "foliage",
+    "wizp"
    ]
   },
   {
@@ -16610,6 +16571,7 @@
     "asia",
     "metal-iron-steel",
     "metal-iron-wrought",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -16660,6 +16622,7 @@
     "asia",
     "paper",
     "stone-masonry",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -16727,6 +16690,7 @@
     "metal-gold",
     "metal-iron-steel",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -16779,6 +16743,7 @@
    "tags": [
     "asia",
     "textile",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -16822,6 +16787,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16866,7 +16832,8 @@
    ],
    "tags": [
     "asia",
-    "stone-masonry"
+    "stone-masonry",
+    "wizp"
    ]
   },
   {
@@ -16915,6 +16882,7 @@
    "tags": [
     "asia",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -16954,6 +16922,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -17009,6 +16978,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -17066,6 +17036,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -17123,6 +17094,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -17180,6 +17152,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -17236,6 +17209,7 @@
     "asia",
     "ceramic",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ],
@@ -17282,7 +17256,7 @@
    "tags": [
     "asia",
     "metal-iron-cast",
-    "ngons",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -17328,7 +17302,8 @@
     "asia",
     "foliage",
     "plural",
-    "vegetation"
+    "vegetation",
+    "wizp"
    ]
   },
   {
@@ -17371,6 +17346,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -17411,7 +17387,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17450,7 +17427,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17488,7 +17466,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17526,7 +17505,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17564,7 +17544,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17602,7 +17583,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17646,7 +17628,8 @@
    "tags": [
     "asia",
     "metal-gold",
-    "rope"
+    "rope",
+    "wizp"
    ]
   },
   {
@@ -17685,7 +17668,8 @@
    "tags": [
     "asia",
     "rope",
-    "textile"
+    "textile",
+    "wizp"
    ],
    "variant": "v403",
    "lint": [
@@ -17732,7 +17716,8 @@
    "tags": [
     "asia",
     "rope",
-    "textile"
+    "textile",
+    "wizp"
    ],
    "variant": "v403",
    "lint": [
@@ -17801,6 +17786,7 @@
     "ceramic",
     "metal-gold",
     "stone-masonry",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -17846,7 +17832,8 @@
    "tags": [
     "asia",
     "metal-iron-steel",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "wizp"
    ]
   },
   {
@@ -17889,6 +17876,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -17929,7 +17917,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -17968,7 +17957,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18007,7 +17997,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18046,7 +18037,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18084,7 +18076,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18122,7 +18115,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18160,7 +18154,8 @@
    ],
    "tags": [
     "asia",
-    "stone-rock"
+    "stone-rock",
+    "wizp"
    ]
   },
   {
@@ -18198,9 +18193,10 @@
    ],
    "tags": [
     "asia",
-    "graveyard",
+    "grave",
     "halloween",
-    "stone-masonry"
+    "stone-masonry",
+    "wizp"
    ]
   },
   {
@@ -18239,7 +18235,7 @@
    ],
    "tags": [
     "asia",
-    "ngons",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -18278,6 +18274,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -18317,7 +18314,7 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons"
+    "wizp"
    ]
   },
   {
@@ -18361,6 +18358,7 @@
    "tags": [
     "asia",
     "rope",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -18399,6 +18397,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-worked"
    ]
   },
@@ -18443,6 +18442,7 @@
    "tags": [
     "asia",
     "stone-masonry",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -18487,6 +18487,7 @@
    "tags": [
     "asia",
     "rope",
+    "wizp",
     "wood-beam"
    ]
   },
@@ -18531,7 +18532,8 @@
    "tags": [
     "asia",
     "foliage",
-    "stone-masonry"
+    "stone-masonry",
+    "wizp"
    ]
   },
   {
@@ -18571,7 +18573,7 @@
    "tags": [
     "asia",
     "ceramic",
-    "ngons"
+    "wizp"
    ]
   },
   {
@@ -18614,6 +18616,7 @@
    ],
    "tags": [
     "asia",
+    "wizp",
     "wood-beam",
     "wood-planks"
    ]
@@ -18847,8 +18850,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -18923,8 +18925,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ],
    "variant": "v266"
   },
@@ -18962,8 +18963,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ],
    "variant": "v266"
   },
@@ -19001,8 +19001,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19039,8 +19038,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19077,8 +19075,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19115,8 +19112,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19154,8 +19150,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19193,8 +19188,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19231,8 +19225,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19350,8 +19343,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19557,8 +19549,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19638,8 +19629,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -19826,8 +19816,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19870,7 +19859,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -19914,7 +19902,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -19952,8 +19939,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -19990,7 +19976,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
     "stone-rock"
    ]
   },
@@ -20028,8 +20013,7 @@
     "#8b7561"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -20109,8 +20093,7 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ]
   },
   {
@@ -20346,7 +20329,6 @@
     "#b58158"
    ],
    "tags": [
-    "ngons",
     "wood-worked"
    ]
   },
@@ -20428,8 +20410,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v397"
   },
@@ -20467,8 +20448,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v397"
   },
@@ -20506,8 +20486,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v398"
   },
@@ -20545,8 +20524,7 @@
     "#d07b56"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -20583,8 +20561,7 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ]
   },
   {
@@ -20621,8 +20598,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v398"
   },
@@ -20741,8 +20717,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -20779,8 +20754,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -20817,8 +20791,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "ngons"
+    "ceramic"
    ]
   },
   {
@@ -21157,7 +21130,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -22110,7 +22082,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
     "stone-masonry",
     "wood-beam"
    ]
@@ -22524,7 +22495,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "stone-masonry",
     "wood-beam",
     "wood-planks",
@@ -22581,7 +22551,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
     "stone-masonry",
     "wood-beam",
     "wood-worked"
@@ -22642,7 +22611,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -23332,8 +23300,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
-    "own",
     "vegetation"
    ]
   },
@@ -23371,8 +23337,6 @@
     "#8b5936"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-log"
    ],
    "mark": [
@@ -23418,8 +23382,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "sailing",
     "wood-bark",
     "wood-log"
@@ -23463,7 +23425,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-beam",
     "wood-planks"
    ],
@@ -23509,7 +23470,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ],
@@ -23555,8 +23515,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -23597,9 +23555,6 @@
    "colors": [
     "#d8d1bd"
    ],
-   "tags": [
-    "own"
-   ],
    "variant": "v59"
   },
   {
@@ -23634,9 +23589,6 @@
    },
    "colors": [
     "#d07b56"
-   ],
-   "tags": [
-    "own"
    ],
    "variant": "v59"
   },
@@ -23673,9 +23625,6 @@
    "colors": [
     "#d07b56"
    ],
-   "tags": [
-    "own"
-   ],
    "variant": "v60"
   },
   {
@@ -23710,9 +23659,6 @@
    },
    "colors": [
     "#d07b56"
-   ],
-   "tags": [
-    "own"
    ],
    "variant": "v60"
   },
@@ -23759,7 +23705,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v102",
@@ -23812,7 +23757,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v102",
@@ -23863,7 +23807,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v102",
@@ -23905,7 +23848,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v103",
@@ -23945,7 +23887,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v103",
@@ -23987,7 +23928,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v103",
@@ -24038,7 +23978,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -24085,7 +24024,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "plural",
     "wood-bark",
     "wood-log"
@@ -24131,7 +24069,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v104"
@@ -24176,7 +24113,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v104"
@@ -24213,7 +24149,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v10",
@@ -24254,7 +24189,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v10",
@@ -24295,7 +24229,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v10",
@@ -24336,7 +24269,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v10",
@@ -24384,8 +24316,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -24429,8 +24359,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -24478,8 +24406,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -24523,8 +24449,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -24571,8 +24495,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "wood-bark",
     "wood-planks"
    ],
@@ -24614,7 +24536,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v11",
@@ -24655,7 +24576,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v11",
@@ -24696,7 +24616,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v11",
@@ -24737,7 +24656,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v11",
@@ -24790,7 +24708,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ]
   },
@@ -24838,7 +24755,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "mark": [
@@ -24889,7 +24805,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "mark": [
@@ -24936,7 +24851,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ]
   },
@@ -24984,7 +24898,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "mark": [
@@ -25034,7 +24947,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "mark": [
@@ -25075,8 +24987,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ],
    "variant": "v105",
    "mark": [
@@ -25117,8 +25028,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ],
    "variant": "v105"
   },
@@ -25156,8 +25066,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ],
    "variant": "v105"
   },
@@ -25194,8 +25103,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ],
    "variant": "v105",
    "mark": [
@@ -25242,7 +25150,6 @@
    ],
    "tags": [
     "food",
-    "own",
     "vegetation"
    ]
   },
@@ -25286,7 +25193,6 @@
    ],
    "tags": [
     "food",
-    "own",
     "vegetation"
    ]
   },
@@ -25324,7 +25230,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v166"
@@ -25363,7 +25268,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v166",
@@ -25405,7 +25309,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v166",
@@ -25447,7 +25350,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v166",
@@ -25490,7 +25392,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-masonry"
    ],
    "variant": "v479"
@@ -25530,7 +25431,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-masonry"
    ],
    "variant": "v479"
@@ -25570,7 +25470,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-masonry"
    ],
    "variant": "v479"
@@ -25610,7 +25509,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-masonry"
    ],
    "variant": "v479"
@@ -25650,7 +25548,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-masonry"
    ],
    "variant": "v479"
@@ -25689,7 +25586,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25728,7 +25624,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25767,7 +25662,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25806,7 +25700,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25845,7 +25738,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25884,7 +25776,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25923,7 +25814,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -25962,7 +25852,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v106"
@@ -26007,7 +25896,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v62"
@@ -26052,7 +25940,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v62"
@@ -26097,7 +25984,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v478"
@@ -26142,7 +26028,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v478"
@@ -26187,7 +26072,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v478"
@@ -26232,7 +26116,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-bark"
    ],
    "variant": "v478"
@@ -26277,8 +26160,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
-    "own",
     "wood-bark"
    ],
    "variant": "v34"
@@ -26322,8 +26203,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
-    "own",
     "wood-bark"
    ],
    "variant": "v34",
@@ -26371,8 +26250,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
-    "own",
     "wood-bark"
    ],
    "variant": "v34"
@@ -26412,7 +26289,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v107"
@@ -26452,7 +26328,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v107"
@@ -26492,7 +26367,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v107"
@@ -26532,7 +26406,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v107"
@@ -26571,7 +26444,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108"
@@ -26611,7 +26483,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108"
@@ -26651,7 +26522,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108"
@@ -26689,7 +26559,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108",
@@ -26732,7 +26601,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108"
@@ -26769,7 +26637,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v108",
@@ -26819,8 +26686,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "wood-worked"
    ]
   },
@@ -26865,8 +26730,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "wood-worked"
    ],
    "variant": "v134"
@@ -26912,8 +26775,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "wood-worked"
    ],
    "variant": "v134"
@@ -26962,7 +26823,6 @@
    ],
    "tags": [
     "metal-copper",
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -27003,7 +26863,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -27045,7 +26904,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -27086,7 +26944,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -27128,7 +26985,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -27177,7 +27033,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation",
     "wood-beam"
    ]
@@ -27215,8 +27070,6 @@
     "#dbae80"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-planks"
    ],
    "variant": "v71",
@@ -27257,8 +27110,6 @@
     "#dbae80"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-planks"
    ],
    "variant": "v71",
@@ -27304,7 +27155,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27350,7 +27200,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27397,7 +27246,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27443,7 +27291,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27489,7 +27336,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27536,7 +27382,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27584,7 +27429,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -27624,7 +27468,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "own",
     "textile"
    ],
    "mark": [
@@ -27676,7 +27519,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "own",
     "wood-beam",
     "wood-worked"
    ],
@@ -27715,7 +27557,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "variant": "v481",
@@ -27755,9 +27596,7 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron-cast",
-    "modular",
-    "own"
+    "metal-iron-cast"
    ],
    "mark": [
     "grounded",
@@ -27797,8 +27636,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v22",
@@ -27840,8 +27677,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v22",
@@ -27883,8 +27718,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v22",
@@ -27926,8 +27759,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v206",
@@ -27969,8 +27800,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v206",
@@ -28012,8 +27841,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v206",
@@ -28055,8 +27882,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v206",
@@ -28098,8 +27923,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v22",
@@ -28141,8 +27964,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "mark": [
@@ -28185,7 +28006,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -28226,7 +28046,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -28265,8 +28084,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-soil"
    ],
    "variant": "v361",
@@ -28308,8 +28125,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-soil"
    ],
    "variant": "v361",
@@ -28351,8 +28166,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-soil"
    ],
    "mark": [
@@ -28393,8 +28206,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-soil"
    ],
    "mark": [
@@ -28446,8 +28257,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "mark": [
@@ -28488,7 +28297,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ]
   },
@@ -28544,7 +28352,6 @@
     "emissive",
     "glass",
     "metal-iron-wrought",
-    "own",
     "wood-beam"
    ],
    "alpha": true,
@@ -28605,7 +28412,6 @@
     "emissive",
     "glass",
     "metal-iron-wrought",
-    "own",
     "wood-beam"
    ],
    "alpha": true,
@@ -28648,8 +28454,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v363",
@@ -28690,8 +28494,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v363",
@@ -28732,8 +28534,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v364",
@@ -28774,8 +28574,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v364",
@@ -28816,8 +28614,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -28857,8 +28653,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v23",
@@ -28907,9 +28701,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -28949,9 +28741,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v365",
    "mark": [
@@ -28998,9 +28788,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v365"
   },
@@ -29047,8 +28835,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v73",
@@ -29094,9 +28880,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v72",
    "mark": [
@@ -29147,8 +28931,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v73",
@@ -29196,9 +28978,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v72"
   },
@@ -29242,9 +29022,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -29284,9 +29062,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v366",
    "mark": [
@@ -29333,9 +29109,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v366"
   },
@@ -29382,8 +29156,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v75",
@@ -29429,9 +29201,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v74",
    "mark": [
@@ -29482,8 +29252,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v75",
@@ -29531,9 +29299,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v74"
   },
@@ -29577,9 +29343,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -29619,9 +29383,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v369",
    "mark": [
@@ -29668,9 +29430,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v369"
   },
@@ -29717,8 +29477,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v77",
@@ -29764,9 +29522,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v76",
    "mark": [
@@ -29817,8 +29573,6 @@
    ],
    "tags": [
     "ceramic",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v77",
@@ -29866,9 +29620,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "modular",
-    "own"
+    "ceramic"
    ],
    "variant": "v76"
   },
@@ -29915,7 +29667,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "own",
     "wood-beam",
     "wood-planks"
    ],
@@ -29957,8 +29708,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "mark": [
@@ -29999,7 +29748,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-masonry"
    ],
    "variant": "v24",
@@ -30040,7 +29788,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-masonry"
    ],
    "variant": "v24",
@@ -30081,7 +29828,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-masonry"
    ],
    "variant": "v24",
@@ -30122,7 +29868,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-masonry"
    ],
    "variant": "v24",
@@ -30168,8 +29913,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30216,8 +29959,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30264,8 +30005,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30312,8 +30051,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30365,8 +30102,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30418,8 +30153,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry",
     "wood-worked"
    ],
@@ -30461,8 +30194,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v04",
@@ -30503,8 +30234,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v04",
@@ -30545,8 +30274,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v04",
@@ -30587,8 +30314,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v04",
@@ -30629,8 +30354,6 @@
     "#8b7561"
    ],
    "tags": [
-    "modular",
-    "own",
     "stone-masonry"
    ],
    "variant": "v04",
@@ -30675,8 +30398,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v370",
@@ -30719,8 +30440,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "special"
    ],
    "variant": "v370",
@@ -30770,8 +30489,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "special"
    ],
    "lint": [
@@ -30820,8 +30537,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -30866,8 +30581,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -30906,8 +30619,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -30947,8 +30658,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -30989,8 +30698,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -31029,8 +30736,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v23",
@@ -31071,8 +30776,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v23",
@@ -31113,8 +30816,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v23",
@@ -31156,8 +30857,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v26",
@@ -31198,8 +30897,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v26",
@@ -31240,8 +30937,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v26",
@@ -31289,8 +30984,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31340,8 +31033,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31391,8 +31082,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31442,8 +31131,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31493,8 +31180,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31544,8 +31229,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31594,8 +31277,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31645,8 +31326,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31696,8 +31375,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31747,8 +31424,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31797,8 +31472,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31848,8 +31521,6 @@
    ],
    "tags": [
     "glass",
-    "modular",
-    "own",
     "wood-worked"
    ],
    "alpha": true,
@@ -31892,7 +31563,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "mark": [
@@ -31932,7 +31602,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -31973,7 +31642,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ]
   },
@@ -32009,7 +31677,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "mark": [
@@ -32051,8 +31718,6 @@
     "#8b5936"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-beam"
    ],
    "variant": "v26"
@@ -32092,7 +31757,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "variant": "v81"
@@ -32132,7 +31796,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "variant": "v81"
@@ -32172,7 +31835,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ]
   },
@@ -32210,8 +31872,6 @@
    "tags": [
     "animation",
     "hero",
-    "ngons",
-    "own",
     "wood-worked"
    ],
    "anim": [
@@ -32273,8 +31933,6 @@
     "animation",
     "ceramic",
     "hero",
-    "ngons",
-    "own",
     "rope",
     "stone-masonry",
     "wood-beam",
@@ -32321,8 +31979,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
-    "own",
     "stone-masonry"
    ],
    "mark": [
@@ -32363,8 +32019,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
-    "own",
     "stone-soil"
    ],
    "variant": "v82",
@@ -32407,9 +32061,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "ngons",
-    "own"
+    "foliage"
    ],
    "variant": "v82"
   },
@@ -32447,8 +32099,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
-    "own",
     "stone-masonry"
    ]
   },
@@ -32499,7 +32149,6 @@
    "tags": [
     "animation",
     "ceramic",
-    "own",
     "rope",
     "stone-masonry",
     "wood-planks"
@@ -32548,7 +32197,6 @@
    "tags": [
     "animation",
     "hero",
-    "own",
     "textile",
     "wood-planks"
    ],
@@ -32607,8 +32255,6 @@
    "tags": [
     "ceramic",
     "glass",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "alpha": true,
@@ -32660,8 +32306,6 @@
    "tags": [
     "ceramic",
     "glass",
-    "modular",
-    "own",
     "wood-beam"
    ],
    "alpha": true,
@@ -32702,7 +32346,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -32744,8 +32387,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-worked"
    ],
    "mark": [
@@ -32786,8 +32427,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-worked"
    ],
    "variant": "v27",
@@ -32829,8 +32468,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-worked"
    ],
    "variant": "v27",
@@ -32872,8 +32509,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-worked"
    ],
    "variant": "v27",
@@ -32915,8 +32550,6 @@
     "#b58158"
    ],
    "tags": [
-    "modular",
-    "own",
     "wood-worked"
    ],
    "variant": "v27",
@@ -32956,7 +32589,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v358",
@@ -32998,7 +32630,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "variant": "v358",
@@ -33038,7 +32669,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -33078,7 +32708,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -33118,7 +32747,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -33163,7 +32791,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -33209,7 +32836,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -33255,7 +32881,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -33302,7 +32927,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v153",
@@ -33344,7 +32968,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-planks"
    ],
    "variant": "v153",
@@ -33542,8 +33165,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -33585,7 +33207,6 @@
     "#b58158"
    ],
    "tags": [
-    "decorated",
     "food",
     "isa"
    ]
@@ -33824,8 +33445,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -34029,8 +33649,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -34069,7 +33688,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "plural"
    ]
   },
@@ -34108,8 +33726,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v548"
   },
@@ -34148,8 +33765,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v548"
   },
@@ -34195,7 +33811,6 @@
    "tags": [
     "glass",
     "isa",
-    "ngons",
     "wood-beam"
    ],
    "variant": "v550"
@@ -34245,10 +33860,8 @@
     "#b58158"
    ],
    "tags": [
-    "decorated",
     "food",
     "isa",
-    "ngons",
     "plural",
     "wood-beam"
    ]
@@ -34289,8 +33902,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -34329,7 +33941,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-beam"
    ],
    "variant": "v550"
@@ -34371,7 +33982,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "plural"
    ],
    "variant": "v549"
@@ -34417,8 +34027,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v549"
   },
@@ -34495,7 +34104,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -34626,7 +34234,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -34665,8 +34272,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v551"
   },
@@ -34705,8 +34311,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v551"
   },
@@ -34960,8 +34565,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -35101,11 +34705,9 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "emissive",
     "food",
     "isa",
-    "ngons",
     "wax"
    ],
    "variant": "v225",
@@ -35171,7 +34773,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "emissive",
     "food",
     "isa",
@@ -35232,11 +34833,9 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "emissive",
     "food",
     "isa",
-    "ngons",
     "wax"
    ],
    "variant": "v225",
@@ -35287,10 +34886,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v300",
    "lint": [
@@ -35340,7 +34937,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
     "isa"
    ],
@@ -35385,10 +34981,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v300",
    "lint": [
@@ -35453,11 +35047,9 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "foliage",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v300",
    "lint": [
@@ -35522,7 +35114,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "foliage",
     "food",
     "isa"
@@ -35583,11 +35174,9 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "foliage",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v300",
    "lint": [
@@ -35637,10 +35226,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -35683,8 +35270,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -35784,11 +35370,9 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "foliage",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "lint": [
     {
@@ -35837,10 +35421,8 @@
     "#b58158"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v302"
   },
@@ -35898,10 +35480,8 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v302",
    "lint": [
@@ -35946,10 +35526,8 @@
     "#b58158"
    ],
    "tags": [
-    "decorated",
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v302"
   },
@@ -35998,8 +35576,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36042,8 +35619,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v226"
   },
@@ -36125,8 +35701,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v226"
   },
@@ -36170,8 +35745,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v227"
   },
@@ -36253,8 +35827,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v227"
   },
@@ -36297,7 +35870,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
     "isa",
     "plural"
@@ -36378,8 +35950,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36417,8 +35988,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36456,8 +36026,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36683,8 +36252,7 @@
    "tags": [
     "isa",
     "metal-iron-cast",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -36766,8 +36334,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -36805,8 +36372,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36844,8 +36410,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36883,8 +36448,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -36922,8 +36486,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -36962,8 +36525,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -37001,8 +36563,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -37139,7 +36700,6 @@
     "ceramic",
     "isa",
     "metal-iron-steel",
-    "ngons",
     "wood-beam",
     "wood-worked"
    ]
@@ -37454,7 +37014,6 @@
    "tags": [
     "isa",
     "liquid",
-    "ngons",
     "stone-masonry"
    ]
   },
@@ -37716,7 +37275,6 @@
    "tags": [
     "food",
     "isa",
-    "ngons",
     "vegetation"
    ],
    "variant": "v530"
@@ -37811,7 +37369,6 @@
    "tags": [
     "food",
     "isa",
-    "ngons",
     "vegetation"
    ],
    "variant": "v530"
@@ -37856,7 +37413,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-beam",
     "wood-worked"
    ],
@@ -37948,8 +37504,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -38025,8 +37580,7 @@
    ],
    "tags": [
     "food",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -38115,7 +37669,6 @@
     "ceramic",
     "food",
     "isa",
-    "ngons",
     "plural"
    ]
   },
@@ -38160,7 +37713,6 @@
    "tags": [
     "food",
     "isa",
-    "ngons",
     "plural",
     "vegetation"
    ]
@@ -38206,7 +37758,6 @@
    "tags": [
     "food",
     "isa",
-    "ngons",
     "paper",
     "textile"
    ]
@@ -38290,8 +37841,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -38712,8 +38262,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v536"
   },
@@ -38771,7 +38320,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "food",
     "isa",
     "vegetation"
@@ -38856,8 +38404,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -38896,7 +38443,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v535"
@@ -39026,7 +38572,6 @@
     "cork",
     "glass",
     "isa",
-    "ngons",
     "paper"
    ]
   },
@@ -39065,8 +38610,7 @@
    ],
    "tags": [
     "glass",
-    "isa",
-    "ngons"
+    "isa"
    ]
   },
   {
@@ -39377,7 +38921,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v324"
@@ -39424,7 +38967,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v324"
@@ -39470,7 +39012,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v324"
@@ -39630,7 +39171,6 @@
    "tags": [
     "ceramic",
     "isa",
-    "ngons",
     "plural"
    ]
   },
@@ -39786,8 +39326,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v291"
   },
@@ -39827,8 +39366,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v291"
   },
@@ -39867,8 +39405,7 @@
    ],
    "tags": [
     "ceramic",
-    "isa",
-    "ngons"
+    "isa"
    ],
    "variant": "v291"
   },
@@ -40105,8 +39642,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v318"
   },
@@ -40145,8 +39681,7 @@
    ],
    "tags": [
     "isa",
-    "metal-gold",
-    "ngons"
+    "metal-gold"
    ],
    "variant": "v318"
   },
@@ -40588,7 +40123,6 @@
    "tags": [
     "isa",
     "metal-iron-steel",
-    "ngons",
     "stone-soil",
     "wood-worked"
    ]
@@ -41025,7 +40559,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v542"
@@ -41065,7 +40598,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v542"
@@ -41105,7 +40637,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "stone-soil"
    ],
    "variant": "v542"
@@ -41190,7 +40721,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-log"
    ],
    "variant": "v541"
@@ -41230,7 +40760,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-log"
    ],
    "variant": "v541"
@@ -41270,7 +40799,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "wood-log"
    ],
    "variant": "v541"
@@ -41310,7 +40838,6 @@
    ],
    "tags": [
     "isa",
-    "ngons",
     "plural",
     "wood-log"
    ]
@@ -41620,8 +41147,7 @@
    "tags": [
     "ceramic",
     "isa",
-    "liquid",
-    "ngons"
+    "liquid"
    ]
   },
   {
@@ -41747,8 +41273,7 @@
    "tags": [
     "isa",
     "liquid",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "lint": [
     {
@@ -42199,7 +41724,6 @@
     "isa",
     "liquid",
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -42291,7 +41815,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
     "wood-bark",
     "wood-log"
    ]
@@ -42335,7 +41858,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ngons",
     "plural",
     "vegetation"
    ]
@@ -42434,7 +41956,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -43641,7 +43162,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "robin-hood",
     "wood-beam"
    ]
@@ -44396,7 +43916,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -44695,7 +44214,6 @@
    "tags": [
     "halloween",
     "kay",
-    "ngons",
     "textile",
     "wood-beam"
    ],
@@ -47154,12 +46672,11 @@
     "#5b5550"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
-    "metal-iron-wrought",
-    "modular"
+    "metal-iron-wrought"
    ],
    "mark": [
     "grounded",
@@ -47204,11 +46721,10 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "wood-worked"
    ],
    "mark": [
@@ -47250,7 +46766,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -47290,7 +46805,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -47329,7 +46843,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -47368,7 +46881,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ]
   },
@@ -47407,7 +46919,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ]
   },
@@ -47446,7 +46957,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ]
   },
@@ -47767,7 +47277,6 @@
    "tags": [
     "broken",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -47935,7 +47444,6 @@
    "tags": [
     "ceramic",
     "kay",
-    "ngons",
     "plural"
    ]
   },
@@ -47979,8 +47487,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v271"
   },
@@ -48019,8 +47526,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v271"
   },
@@ -48065,8 +47571,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v272"
   },
@@ -48106,8 +47611,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v272"
   },
@@ -48151,8 +47655,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v273"
   },
@@ -48191,8 +47694,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v273"
   },
@@ -48865,7 +48367,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-beam",
     "wood-worked"
    ],
@@ -48911,7 +48412,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-beam",
     "wood-worked"
    ],
@@ -50859,7 +50359,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -50898,7 +50397,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -51041,11 +50539,10 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "wood-worked"
    ],
    "mark": [
@@ -51197,7 +50694,6 @@
     "cork",
     "kay",
     "metal-iron-wrought",
-    "ngons",
     "sailing",
     "wood-worked"
    ]
@@ -51298,7 +50794,6 @@
     "cork",
     "kay",
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -51512,8 +51007,7 @@
    "tags": [
     "ceramic",
     "cork",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v40"
   },
@@ -51558,8 +51052,7 @@
    "tags": [
     "cork",
     "glass",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v40"
   },
@@ -51610,7 +51103,6 @@
     "ceramic",
     "cork",
     "kay",
-    "ngons",
     "paper"
    ],
    "variant": "v40"
@@ -51662,7 +51154,6 @@
     "cork",
     "glass",
     "kay",
-    "ngons",
     "paper"
    ],
    "variant": "v40"
@@ -51708,8 +51199,7 @@
    "tags": [
     "ceramic",
     "cork",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v83"
   },
@@ -51754,8 +51244,7 @@
    "tags": [
     "cork",
     "glass",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v83"
   },
@@ -51800,8 +51289,7 @@
    "tags": [
     "ceramic",
     "cork",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v84"
   },
@@ -51846,8 +51334,7 @@
    "tags": [
     "cork",
     "glass",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v84"
   },
@@ -51998,10 +51485,9 @@
    ],
    "tags": [
     "emissive",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ],
@@ -52046,10 +51532,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ],
@@ -52100,10 +51585,9 @@
    ],
    "tags": [
     "emissive",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ],
@@ -52148,10 +51632,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ],
@@ -52196,10 +51679,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ]
@@ -52243,10 +51725,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "ngons",
     "wax",
     "wick"
    ],
@@ -52287,7 +51768,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-planks"
    ]
   },
@@ -52586,7 +52066,6 @@
    "tags": [
     "kay",
     "metal-gold",
-    "ngons",
     "pickup"
    ]
   },
@@ -52624,10 +52103,9 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -52721,7 +52199,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v43"
@@ -52762,7 +52239,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v43"
@@ -52803,7 +52279,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v28"
@@ -52844,7 +52319,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v28"
@@ -52885,7 +52359,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v28"
@@ -52926,7 +52399,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -52966,7 +52438,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v28"
@@ -53013,7 +52484,6 @@
     "foliage",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -53051,10 +52521,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v05"
@@ -53093,10 +52562,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v05"
@@ -53135,10 +52603,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -53176,10 +52643,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v05"
@@ -53218,10 +52684,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v362"
@@ -53260,10 +52725,9 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v362"
@@ -53309,7 +52773,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -53358,9 +52821,8 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry",
-    "tobeanimated"
+    "tba"
    ]
   },
   {
@@ -53404,7 +52866,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -53452,7 +52913,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -53495,7 +52955,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v205"
@@ -53536,7 +52995,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v205"
@@ -53578,7 +53036,6 @@
     "broken",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v44"
@@ -53620,7 +53077,6 @@
     "broken",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v44"
@@ -53661,7 +53117,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -53757,7 +53212,6 @@
    "tags": [
     "foliage",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v45"
@@ -53803,7 +53257,6 @@
    "tags": [
     "foliage",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v45"
@@ -53844,7 +53297,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -53883,7 +53335,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ],
    "variant": "v46"
@@ -53923,7 +53374,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ],
    "variant": "v46"
@@ -53963,7 +53413,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ],
    "variant": "v47"
@@ -54003,7 +53452,6 @@
    ],
    "tags": [
     "kay",
-    "modular",
     "wood-worked"
    ],
    "variant": "v47"
@@ -54118,7 +53566,6 @@
     "cork",
     "kay",
     "metal-iron-wrought",
-    "ngons",
     "wood-beam",
     "wood-worked"
    ]
@@ -54293,7 +53740,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -54444,8 +53890,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -54484,7 +53929,6 @@
    "tags": [
     "ceramic",
     "kay",
-    "ngons",
     "plural"
    ]
   },
@@ -54523,8 +53967,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -54562,7 +54005,6 @@
    "tags": [
     "broken",
     "kay",
-    "modular",
     "stone-rock"
    ],
    "mark": [
@@ -54605,7 +54047,6 @@
    "tags": [
     "broken",
     "kay",
-    "modular",
     "stone-rock"
    ]
   },
@@ -56151,7 +55592,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v50"
@@ -56203,7 +55643,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -56251,7 +55690,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v51"
@@ -56297,7 +55735,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v52"
@@ -56344,7 +55781,6 @@
     "broken",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v52"
@@ -56391,7 +55827,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v151",
@@ -56445,7 +55880,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -56495,7 +55929,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -56540,7 +55973,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v151",
@@ -56596,7 +56028,6 @@
     "foliage",
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -56641,7 +56072,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -56693,7 +56123,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -56743,7 +56172,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -56787,7 +56215,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -56842,7 +56269,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -56891,7 +56317,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -56940,7 +56365,6 @@
     "halloween",
     "kay",
     "metal-iron-cast",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -56984,7 +56408,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -57031,7 +56454,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -57078,7 +56500,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -57126,7 +56547,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ]
@@ -57172,7 +56592,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v203"
@@ -57223,7 +56642,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -57338,7 +56756,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -57382,7 +56799,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v204",
@@ -57430,7 +56846,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v204",
@@ -57489,7 +56904,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam",
     "wood-worked"
@@ -57542,7 +56956,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-worked"
    ],
@@ -57594,7 +57007,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -57646,7 +57058,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry",
     "wood-beam"
    ],
@@ -57693,7 +57104,6 @@
    "tags": [
     "halloween",
     "kay",
-    "modular",
     "stone-masonry"
    ],
    "variant": "v50"
@@ -57739,8 +57149,7 @@
    "tags": [
     "ceramic",
     "food",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -57778,8 +57187,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -57817,8 +57225,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -59360,7 +58767,6 @@
    "tags": [
     "ceramic",
     "kay",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v323"
@@ -59406,7 +58812,6 @@
    "tags": [
     "ceramic",
     "kay",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v323"
@@ -59452,7 +58857,6 @@
    "tags": [
     "ceramic",
     "kay",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v323"
@@ -59536,8 +58940,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v268"
   },
@@ -59615,8 +59018,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v267"
   },
@@ -59655,8 +59057,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ],
    "variant": "v281"
   },
@@ -59695,8 +59096,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v281"
   },
@@ -59735,8 +59135,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v144"
   },
@@ -59775,8 +59174,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ],
    "variant": "v144"
   },
@@ -59815,8 +59213,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -59854,8 +59251,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ]
   },
   {
@@ -59943,8 +59339,7 @@
    "tags": [
     "food",
     "kay",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v145"
   },
@@ -59983,8 +59378,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ],
    "variant": "v145"
   },
@@ -60116,8 +59510,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ],
    "variant": "v145"
   },
@@ -60195,8 +59588,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v267"
   },
@@ -60235,7 +59627,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -62956,7 +62347,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -62996,7 +62387,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -63039,7 +62430,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -63083,7 +62474,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -63124,7 +62515,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -63165,7 +62556,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -64044,7 +63435,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -64085,7 +63476,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast"
@@ -64131,7 +63522,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
@@ -64173,7 +63564,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -64316,7 +63707,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ],
@@ -64357,7 +63748,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ],
@@ -64398,7 +63789,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ],
@@ -64489,7 +63880,7 @@
    ],
    "tags": [
     "comp",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-wrought",
@@ -64535,7 +63926,7 @@
     "#8b5936"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-wrought",
@@ -64587,7 +63978,7 @@
    ],
    "tags": [
     "ceramic",
-    "graveyard",
+    "grave",
     "halloween",
     "hero",
     "kay",
@@ -64635,7 +64026,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
@@ -64676,7 +64067,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast"
@@ -64717,7 +64108,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -64758,7 +64149,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast"
@@ -64804,7 +64195,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
@@ -64847,7 +64238,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -64888,7 +64279,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -64930,7 +64321,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast"
@@ -64971,7 +64362,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast"
@@ -65017,7 +64408,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-cast",
@@ -65057,7 +64448,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-soil"
@@ -65100,7 +64491,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65140,7 +64531,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65181,7 +64572,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65222,7 +64613,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65263,7 +64654,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65304,7 +64695,7 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-worked"
@@ -65350,7 +64741,7 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-wrought",
@@ -65399,7 +64790,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65452,7 +64843,7 @@
    "tags": [
     "emissive",
     "glass",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-steel",
@@ -65511,7 +64902,7 @@
    "tags": [
     "emissive",
     "glass",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-steel",
@@ -65554,7 +64945,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65595,7 +64986,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65636,7 +65027,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65677,7 +65068,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65719,7 +65110,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65810,7 +65201,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -65859,7 +65250,7 @@
    ],
    "tags": [
     "emissive",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-steel",
@@ -65964,7 +65355,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-wrought"
@@ -66058,7 +65449,7 @@
     "#8b5936"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-beam"
@@ -66236,7 +65627,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ]
@@ -66328,7 +65719,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "stone-masonry"
@@ -66415,7 +65806,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ]
@@ -66517,7 +65908,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -66558,7 +65949,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -66599,7 +65990,7 @@
     "#563b2b"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "wood-bark"
@@ -66648,7 +66039,6 @@
     "foliage",
     "halloween",
     "kay",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v249"
@@ -66695,7 +66085,6 @@
     "foliage",
     "halloween",
     "kay",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v249"
@@ -66742,7 +66131,6 @@
     "foliage",
     "halloween",
     "kay",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v249"
@@ -66788,7 +66176,6 @@
    "tags": [
     "kay",
     "metal-iron-cast",
-    "ngons",
     "rope"
    ]
   },
@@ -66827,7 +66214,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "vegetation"
    ]
   },
@@ -66910,8 +66296,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -66949,8 +66334,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v491"
   },
@@ -66989,8 +66373,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v491"
   },
@@ -67029,8 +66412,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -67069,7 +66451,6 @@
    "tags": [
     "kay",
     "metal-iron-wrought",
-    "ngons",
     "plural"
    ]
   },
@@ -67129,7 +66510,6 @@
    "tags": [
     "kay",
     "metal-iron-cast",
-    "ngons",
     "textile",
     "wood-beam",
     "wood-worked"
@@ -67477,8 +66857,7 @@
    "tags": [
     "kay",
     "metal",
-    "metal-iron-cast",
-    "ngons"
+    "metal-iron-cast"
    ]
   },
   {
@@ -68219,8 +67598,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -68277,7 +67655,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "food",
     "kay",
     "vegetation"
@@ -68329,7 +67706,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "textile",
     "wood-worked"
    ],
@@ -68381,7 +67757,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "textile",
     "wood-worked"
    ],
@@ -68422,8 +67797,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v490"
   },
@@ -68462,8 +67836,7 @@
    ],
    "tags": [
     "ceramic",
-    "kay",
-    "ngons"
+    "kay"
    ],
    "variant": "v490"
   },
@@ -68508,8 +67881,7 @@
    "tags": [
     "kay",
     "metal-iron-cast",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "lint": [
     {
@@ -69729,8 +69101,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -70393,7 +69764,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -70440,7 +69810,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -71282,7 +70651,6 @@
     "halloween",
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -71338,7 +70706,6 @@
     "halloween",
     "kay",
     "metal-iron-steel",
-    "ngons",
     "robin-hood",
     "textile",
     "wood-beam",
@@ -72215,7 +71582,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ]
@@ -72255,7 +71622,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ]
@@ -72454,7 +71821,7 @@
     "#23562c"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "textile"
@@ -72495,7 +71862,7 @@
     "#23562c"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "textile"
@@ -72536,7 +71903,7 @@
     "#23562c"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "textile"
@@ -72577,7 +71944,7 @@
     "#23562c"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "textile"
@@ -72665,7 +72032,7 @@
    "tags": [
     "bone",
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay"
    ]
@@ -73065,7 +72432,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-steel",
@@ -73113,7 +72480,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "kay",
     "metal-iron-steel",
@@ -73332,8 +72699,7 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "lint": [
     {
@@ -73453,7 +72819,6 @@
     "kay",
     "metal-gold",
     "metal-iron-steel",
-    "ngons",
     "robin-hood",
     "sailing",
     "special"
@@ -73614,7 +72979,6 @@
     "kay",
     "metal-iron-steel",
     "metal-iron-wrought",
-    "ngons",
     "robin-hood",
     "textile",
     "wood-beam",
@@ -73726,7 +73090,6 @@
     "kay",
     "metal-iron-steel",
     "metal-iron-wrought",
-    "ngons",
     "wood-beam",
     "wood-planks"
    ],
@@ -74039,7 +73402,6 @@
     "glass",
     "kay",
     "metal-iron-steel",
-    "ngons",
     "robin-hood",
     "wood-planks"
    ],
@@ -74081,7 +73443,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "wood-planks"
    ]
   },
@@ -74259,8 +73620,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -74709,9 +74069,7 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
-    "tobeanimated",
-    "tobeanimated",
+    "tba",
     "wood-planks"
    ],
    "mark": [
@@ -74792,8 +74150,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v193"
   },
@@ -74838,7 +74195,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v289"
@@ -74884,7 +74240,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v289"
@@ -74930,7 +74285,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v289"
@@ -74976,7 +74330,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v289"
@@ -75073,8 +74426,7 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "tobeanimated",
-    "tobeanimated"
+    "tba"
    ],
    "mark": [
     "grounded"
@@ -75120,7 +74472,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "pirate",
     "special",
     "textile",
@@ -75180,7 +74531,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "pirate",
     "rope",
     "textile",
@@ -75621,7 +74971,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "robin-hood",
     "rope",
     "textile",
@@ -75669,7 +75018,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "robin-hood",
     "rope",
     "wood-beam"
@@ -76100,7 +75448,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "textile",
     "wood-beam"
    ],
@@ -76457,7 +75804,6 @@
    "tags": [
     "kay",
     "metal-iron-steel",
-    "ngons",
     "textile",
     "wood-beam"
    ],
@@ -76504,7 +75850,6 @@
    ],
    "tags": [
     "kay",
-    "ngons",
     "textile",
     "wood-beam"
    ],
@@ -76563,7 +75908,6 @@
     "gemstone",
     "kay",
     "metal-gold",
-    "ngons",
     "textile",
     "wood-beam"
    ],
@@ -76851,7 +76195,6 @@
     "gemstone",
     "kay",
     "metal-iron-steel",
-    "ngons",
     "textile",
     "wood-beam"
    ]
@@ -77295,7 +76638,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -77340,7 +76682,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -77958,7 +77299,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -78003,7 +77343,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -78041,7 +77380,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78087,7 +77426,7 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry",
@@ -78134,10 +77473,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
-    "ngons",
     "wax",
     "wick"
    ]
@@ -78181,10 +77519,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
-    "ngons",
     "wax",
     "wick"
    ]
@@ -78223,7 +77560,7 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "wood-worked"
@@ -78264,7 +77601,7 @@
     "#b58158"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "wood-worked"
@@ -78310,7 +77647,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78361,7 +77698,7 @@
     "#8b5936"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry",
@@ -78408,7 +77745,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78449,7 +77786,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78495,7 +77832,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78541,7 +77878,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "hero",
     "ken",
@@ -78587,7 +77924,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78632,7 +77969,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78677,7 +78014,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78758,7 +78095,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -78799,8 +78136,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "ngons"
+    "ken"
    ]
   },
   {
@@ -78839,8 +78175,7 @@
    "tags": [
     "halloween",
     "ken",
-    "metal-iron-steel",
-    "ngons"
+    "metal-iron-steel"
    ]
   },
   {
@@ -78878,8 +78213,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "ngons"
+    "ken"
    ]
   },
   {
@@ -79052,7 +78386,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "plural",
@@ -79098,7 +78432,7 @@
     "#8b7561"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-rock",
@@ -79144,7 +78478,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79186,7 +78520,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79226,7 +78560,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79272,7 +78606,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79319,7 +78653,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79359,7 +78693,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79405,7 +78739,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79446,7 +78780,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79492,7 +78826,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -79533,7 +78867,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast"
@@ -79584,7 +78918,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast",
@@ -79634,7 +78968,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast",
@@ -79680,7 +79014,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast",
@@ -79728,7 +79062,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast",
@@ -79773,7 +79107,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast"
@@ -79815,7 +79149,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast"
@@ -79857,7 +79191,7 @@
     "#343745"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-cast"
@@ -79911,7 +79245,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-steel",
@@ -79966,7 +79300,7 @@
    ],
    "tags": [
     "emissive",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-steel",
@@ -80019,7 +79353,7 @@
    ],
    "tags": [
     "emissive",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-wrought",
@@ -80061,7 +79395,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80101,7 +79435,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80147,7 +79481,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80390,7 +79724,7 @@
     "#8b5936"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "metal-iron-steel",
@@ -80436,7 +79770,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80485,7 +79819,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80530,7 +79864,7 @@
    ],
    "tags": [
     "broken",
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80577,7 +79911,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80625,7 +79959,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80671,7 +80005,7 @@
     "#88848a"
    ],
    "tags": [
-    "graveyard",
+    "grave",
     "halloween",
     "ken",
     "stone-masonry"
@@ -80818,7 +80152,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
     "ken"
    ],
@@ -80868,7 +80201,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "decorated",
     "food",
     "ken"
    ],
@@ -81272,7 +80604,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -81363,7 +80694,6 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -81491,7 +80821,6 @@
    "tags": [
     "ken",
     "metal-gold",
-    "ngons",
     "pickup"
    ]
   },
@@ -81746,7 +81075,6 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "wood-worked"
    ]
@@ -81793,7 +81121,7 @@
     "ken",
     "pirate",
     "sailing",
-    "tobeanimated",
+    "tba",
     "wood-beam"
    ]
   },
@@ -81834,7 +81162,7 @@
     "ken",
     "pirate",
     "sailing",
-    "tobeanimated",
+    "tba",
     "wood-beam"
    ]
   },
@@ -81879,7 +81207,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "ngons",
     "paper",
     "pirate"
    ]
@@ -81925,7 +81252,6 @@
    "tags": [
     "glass",
     "ken",
-    "ngons",
     "paper",
     "pirate",
     "sailing"
@@ -81973,7 +81299,6 @@
    "tags": [
     "glass",
     "ken",
-    "ngons",
     "paper",
     "pirate",
     "sailing"
@@ -82015,7 +81340,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "ngons",
     "pirate",
     "sailing"
    ],
@@ -82117,7 +81441,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "ngons",
     "pirate",
     "sailing",
     "wood-beam"
@@ -82522,8 +81845,8 @@
     "pirate",
     "rope",
     "sailing",
+    "tba",
     "textile",
-    "tobeanimated",
     "wood-beam"
    ],
    "variant": "v63"
@@ -82570,8 +81893,8 @@
     "ken",
     "pirate",
     "sailing",
+    "tba",
     "textile",
-    "tobeanimated",
     "wood-beam"
    ],
    "variant": "v63",
@@ -84214,7 +83537,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "stone-masonry",
     "wood-planks"
    ]
@@ -84265,7 +83587,6 @@
    "tags": [
     "hero",
     "ken",
-    "ngons",
     "stone-masonry",
     "wood-planks"
    ]
@@ -84316,7 +83637,6 @@
    "tags": [
     "hero",
     "ken",
-    "ngons",
     "stone-masonry",
     "wood-planks"
    ]
@@ -84450,7 +83770,6 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -84534,7 +83853,6 @@
    "tags": [
     "ken",
     "metal-gold",
-    "ngons",
     "pickup"
    ]
   },
@@ -84811,7 +84129,6 @@
    "tags": [
     "broken",
     "ken",
-    "ngons",
     "wood-bark",
     "wood-log"
    ],
@@ -84861,7 +84178,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "wood-bark",
     "wood-log"
    ],
@@ -84908,7 +84224,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "wood-bark",
     "wood-log"
    ],
@@ -84953,7 +84268,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "wood-bark",
     "wood-log"
    ],
@@ -85007,7 +84321,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "rope",
     "wood-bark",
     "wood-log"
@@ -85644,8 +84957,7 @@
     "ceramic",
     "ken",
     "metal-iron-steel",
-    "tobeanimated",
-    "tobeanimated"
+    "tba"
    ]
   },
   {
@@ -85767,7 +85079,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -85856,7 +85167,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -85896,7 +85206,6 @@
    "tags": [
     "ken",
     "metal-gold",
-    "ngons",
     "pickup"
    ]
   },
@@ -86067,7 +85376,6 @@
     "ceramic",
     "cork",
     "ken",
-    "ngons",
     "paper",
     "pirate",
     "robin-hood"
@@ -86120,7 +85428,6 @@
     "cork",
     "glass",
     "ken",
-    "ngons",
     "paper",
     "pirate",
     "robin-hood",
@@ -86175,7 +85482,6 @@
     "cork",
     "glass",
     "ken",
-    "ngons",
     "paper",
     "pirate",
     "robin-hood",
@@ -87821,7 +87127,7 @@
    ],
    "tags": [
     "ken",
-    "tobeanimated",
+    "tba",
     "wood-beam",
     "wood-planks"
    ]
@@ -88484,7 +87790,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -88530,7 +87835,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -88581,7 +87885,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -88626,7 +87929,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "robin-hood",
     "wood-bark"
    ]
@@ -88672,7 +87974,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "tobeanimated",
+    "tba",
     "wood-beam"
    ]
   },
@@ -88716,7 +88018,6 @@
    ],
    "tags": [
     "ken",
-    "ngons",
     "stone-rock",
     "wood-beam"
    ]
@@ -88760,7 +88061,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v154",
@@ -88802,7 +88102,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v154",
@@ -88999,7 +88298,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "tobeanimated",
+    "tba",
     "wood-worked"
    ],
    "mark": [
@@ -89052,7 +88351,7 @@
    "tags": [
     "ken",
     "metal-iron-wrought",
-    "tobeanimated",
+    "tba",
     "wood-beam",
     "wood-worked"
    ]
@@ -89096,7 +88395,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -89142,7 +88440,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "stone-masonry"
    ],
    "mark": [
@@ -89189,7 +88486,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "stone-masonry"
    ]
   },
@@ -89330,7 +88626,7 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "tobeanimated",
+    "tba",
     "wood-beam"
    ],
    "mark": [
@@ -89430,7 +88726,6 @@
    "tags": [
     "ken",
     "liquid",
-    "ngons",
     "special",
     "stone-masonry"
    ],
@@ -89478,7 +88773,6 @@
    "tags": [
     "ken",
     "liquid",
-    "ngons",
     "special",
     "stone-masonry"
    ],
@@ -89663,7 +88957,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "modular",
     "wood-beam"
    ]
   },
@@ -89701,7 +88994,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-planks"
    ],
    "mark": [
@@ -89744,7 +89036,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-planks"
    ]
   },
@@ -89784,7 +89075,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-planks"
    ]
   },
@@ -89950,8 +89240,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "modular"
+    "ken"
    ]
   },
   {
@@ -89993,8 +89282,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "modular"
+    "ken"
    ],
    "variant": "v56",
    "mark": [
@@ -90040,8 +89328,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "modular"
+    "ken"
    ],
    "variant": "v56",
    "mark": [
@@ -90084,8 +89371,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "modular"
+    "ken"
    ]
   },
   {
@@ -90133,7 +89419,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v367",
@@ -90187,7 +89472,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ]
   },
@@ -90238,7 +89522,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v367"
@@ -90289,7 +89572,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ]
   },
@@ -90337,7 +89619,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v368",
@@ -90381,8 +89662,7 @@
    ],
    "tags": [
     "ceramic",
-    "ken",
-    "modular"
+    "ken"
    ]
   },
   {
@@ -90429,7 +89709,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v368",
@@ -90483,7 +89762,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -90962,7 +90240,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v57"
@@ -91009,7 +90286,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v58"
@@ -91056,7 +90332,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ]
   },
@@ -91102,7 +90377,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v58"
@@ -91149,7 +90423,6 @@
    "tags": [
     "foliage",
     "ken",
-    "ngons",
     "wood-bark"
    ],
    "variant": "v57"
@@ -91199,7 +90472,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91251,7 +90523,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91299,7 +90570,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v371"
@@ -91345,7 +90615,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v371"
@@ -91390,7 +90659,6 @@
    "tags": [
     "broken",
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91436,7 +90704,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91484,7 +90751,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ]
   },
@@ -91529,7 +90795,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ]
   },
@@ -91574,7 +90839,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ]
   },
@@ -91619,7 +90883,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam",
     "wood-planks"
    ]
@@ -91663,7 +90926,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v29",
@@ -91710,7 +90972,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v29",
@@ -91757,7 +91018,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v29",
@@ -91806,7 +91066,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-planks"
    ]
   },
@@ -91849,8 +91108,7 @@
    ],
    "tags": [
     "ken",
-    "modular",
-    "tobeanimated",
+    "tba",
     "wood-beam"
    ],
    "variant": "v202",
@@ -91897,7 +91155,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91949,7 +91206,6 @@
    "tags": [
     "ken",
     "metal-iron-cast",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -91995,7 +91251,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v202",
@@ -92042,7 +91297,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -92088,7 +91342,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -92134,7 +91387,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v30",
@@ -92181,7 +91433,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v30",
@@ -92228,7 +91479,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "variant": "v30",
@@ -92275,7 +91525,6 @@
    ],
    "tags": [
     "ken",
-    "modular",
     "wood-beam"
    ],
    "mark": [
@@ -92328,7 +91577,6 @@
     "animation",
     "ken",
     "metal-iron-cast",
-    "ngons",
     "wood-beam",
     "wood-worked"
    ],
@@ -92386,7 +91634,6 @@
     "animation",
     "ken",
     "metal-iron-cast",
-    "ngons",
     "wood-beam",
     "wood-worked"
    ],
@@ -93615,7 +92862,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "sailing",
     "wood-worked"
    ]
@@ -93719,8 +92965,7 @@
     "#d07b56"
    ],
    "tags": [
-    "metal-copper",
-    "ngons"
+    "metal-copper"
    ]
   },
   {
@@ -94015,8 +93260,7 @@
     "food",
     "halloween",
     "metal-iron-steel",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v280"
   },
@@ -94072,8 +93316,7 @@
     "food",
     "halloween",
     "metal-iron-cast",
-    "metal-iron-wrought",
-    "ngons"
+    "metal-iron-wrought"
    ],
    "variant": "v280"
   },
@@ -95122,7 +94365,6 @@
    "tags": [
     "ceramic",
     "hero",
-    "ngons",
     "rope",
     "stone-masonry",
     "wood-beam"
@@ -95225,7 +94467,6 @@
    "tags": [
     "metal-gold",
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v499"
@@ -95270,7 +94511,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ]
   },
@@ -95314,7 +94554,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "wood-worked"
    ],
    "variant": "v499"
@@ -96474,7 +95713,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "stone-masonry",
     "wood-beam"
    ]
@@ -96767,7 +96005,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -96811,7 +96048,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -96910,7 +96146,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v394"
@@ -96955,7 +96190,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v394"
@@ -97000,7 +96234,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v395"
@@ -97045,7 +96278,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v395"
@@ -97090,7 +96322,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v396"
@@ -97135,7 +96366,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-planks"
    ],
    "variant": "v396"
@@ -97364,7 +96594,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "wood-beam"
    ]
   },
@@ -97402,7 +96631,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -97441,7 +96669,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -97483,7 +96710,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -97531,7 +96757,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -97576,7 +96801,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -97616,7 +96840,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation"
    ],
    "variant": "v109"
@@ -97655,7 +96878,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation"
    ],
    "variant": "v109"
@@ -97695,7 +96917,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation"
    ],
    "variant": "v109"
@@ -97734,7 +96955,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation"
    ],
    "variant": "v109"
@@ -97773,7 +96993,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "vegetation"
    ],
    "variant": "v109"
@@ -97811,8 +97030,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
-    "own",
     "vegetation"
    ],
    "mark": [
@@ -97864,7 +97081,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v110"
@@ -97914,7 +97130,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v110"
@@ -97963,7 +97178,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v110",
@@ -98015,7 +97229,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v111",
@@ -98067,7 +97280,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v111",
@@ -98120,7 +97332,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v111"
@@ -98175,7 +97386,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v112"
@@ -98230,7 +97440,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v112"
@@ -98285,7 +97494,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v112"
@@ -98335,7 +97543,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v113"
@@ -98385,7 +97592,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v113"
@@ -98434,7 +97640,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v113",
@@ -98487,7 +97692,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v114"
@@ -98537,7 +97741,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v114"
@@ -98586,7 +97789,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "vegetation"
    ],
    "variant": "v114",
@@ -98628,8 +97830,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ]
   },
   {
@@ -98666,8 +97867,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ]
   },
   {
@@ -98704,8 +97904,7 @@
     "#68872d"
    ],
    "tags": [
-    "foliage",
-    "own"
+    "foliage"
    ]
   },
   {
@@ -98747,8 +97946,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -98794,8 +97991,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -98841,8 +98036,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -98888,8 +98081,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -98934,8 +98125,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -98977,7 +98166,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v116",
@@ -99018,7 +98206,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v116",
@@ -99059,7 +98246,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v116",
@@ -99108,8 +98294,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
-    "own",
     "vegetation"
    ]
   },
@@ -99158,8 +98342,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
-    "own",
     "robin-hood",
     "vegetation"
    ]
@@ -99204,8 +98386,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
-    "own",
     "robin-hood",
     "vegetation"
    ]
@@ -99250,8 +98430,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
-    "own",
     "robin-hood",
     "vegetation"
    ]
@@ -99289,7 +98467,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99330,7 +98507,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99371,7 +98547,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99412,7 +98587,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99452,7 +98626,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99494,7 +98667,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99535,7 +98707,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99576,7 +98747,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99617,7 +98787,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v117",
@@ -99657,7 +98826,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99699,7 +98867,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99741,7 +98908,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99783,7 +98949,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99825,7 +98990,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99867,7 +99031,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood-bark"
    ],
@@ -99915,9 +99078,6 @@
     "#8b7561",
     "#d8d1bd"
    ],
-   "tags": [
-    "own"
-   ],
    "variant": "v165"
   },
   {
@@ -99957,9 +99117,6 @@
    "colors": [
     "#d07b56",
     "#d8d1bd"
-   ],
-   "tags": [
-    "own"
    ],
    "variant": "v165"
   },
@@ -100001,9 +99158,6 @@
     "#88848a",
     "#d8d1bd"
    ],
-   "tags": [
-    "own"
-   ],
    "variant": "v165"
   },
   {
@@ -100039,9 +99193,6 @@
    "colors": [
     "#8b7561"
    ],
-   "tags": [
-    "own"
-   ],
    "variant": "v164"
   },
   {
@@ -100076,9 +99227,6 @@
    },
    "colors": [
     "#d07b56"
-   ],
-   "tags": [
-    "own"
    ],
    "variant": "v164"
   },
@@ -100116,7 +99264,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v119"
@@ -100155,7 +99302,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v119"
@@ -100195,7 +99341,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v119"
@@ -100234,7 +99379,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v119"
@@ -100278,7 +99422,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood",
     "wood-bark"
@@ -100324,7 +99467,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood",
     "wood-bark"
@@ -100369,7 +99511,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "wood",
     "wood-bark"
@@ -100417,7 +99558,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ],
@@ -100462,7 +99602,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ],
@@ -100507,7 +99646,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ],
@@ -100552,7 +99690,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ],
@@ -100596,7 +99733,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "plural",
     "robin-hood",
     "wood-bark",
@@ -100642,7 +99778,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "plural",
     "robin-hood",
     "wood-bark",
@@ -100689,8 +99824,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
-    "own",
     "robin-hood",
     "wood-bark",
     "wood-log"
@@ -100729,7 +99862,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139",
@@ -100770,7 +99902,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139",
@@ -100811,7 +99942,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139",
@@ -100853,7 +99983,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139"
@@ -100891,7 +100020,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139",
@@ -100931,7 +100059,6 @@
     "#563b2b"
    ],
    "tags": [
-    "own",
     "wood-bark"
    ],
    "variant": "v139",
@@ -100984,7 +100111,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101036,7 +100162,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101088,7 +100213,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101140,7 +100264,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101192,7 +100315,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101244,7 +100366,6 @@
    ],
    "tags": [
     "foliage",
-    "own",
     "wood-planks"
    ],
    "variant": "v122",
@@ -101292,8 +100413,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
-    "own",
     "wood-bark"
    ],
    "variant": "v123"
@@ -101338,8 +100457,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
-    "own",
     "wood-bark"
    ],
    "variant": "v123"
@@ -101708,8 +100825,7 @@
     "#7f3927"
    ],
    "tags": [
-    "metal",
-    "ngons"
+    "metal"
    ]
   },
   {
@@ -101884,7 +101000,6 @@
    "tags": [
     "metal",
     "metal-iron-cast",
-    "ngons",
     "plural"
    ]
   },
@@ -103364,7 +102479,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "wood-beam"
    ]
   },
@@ -103406,7 +102520,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "textile",
     "vegetation"
@@ -103455,8 +102568,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "wood-worked"
    ]
   },
@@ -103500,9 +102611,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v85",
    "mark": [
@@ -103549,9 +102658,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v85",
    "mark": [
@@ -103598,9 +102705,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v86",
    "mark": [
@@ -103647,9 +102752,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v86",
    "mark": [
@@ -103696,9 +102799,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v87",
    "mark": [
@@ -103745,9 +102846,7 @@
    "tags": [
     "cork",
     "glass",
-    "halloween",
-    "ngons",
-    "own"
+    "halloween"
    ],
    "variant": "v87",
    "mark": [
@@ -103787,7 +102886,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "sailing",
     "wood-worked"
    ],
@@ -103835,8 +102933,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "sailing",
     "wood-worked"
    ]
@@ -103882,7 +102978,6 @@
    "tags": [
     "halloween",
     "metal-iron-wrought",
-    "own",
     "wax"
    ],
    "variant": "v264"
@@ -103927,7 +103022,6 @@
    ],
    "tags": [
     "halloween",
-    "own",
     "wax",
     "wick"
    ],
@@ -103973,7 +103067,6 @@
    ],
    "tags": [
     "halloween",
-    "own",
     "wax",
     "wick"
    ],
@@ -104013,7 +103106,6 @@
     "#7f3927"
    ],
    "tags": [
-    "own",
     "textile"
    ]
   },
@@ -104056,8 +103148,7 @@
     "#d07b56"
    ],
    "tags": [
-    "food",
-    "own"
+    "food"
    ]
   },
   {
@@ -104095,7 +103186,6 @@
    ],
    "tags": [
     "metal-gold",
-    "own",
     "pickup"
    ],
    "variant": "v466"
@@ -104135,7 +103225,6 @@
    ],
    "tags": [
     "metal-gold",
-    "own",
     "plural"
    ],
    "variant": "v466"
@@ -104175,7 +103264,6 @@
    ],
    "tags": [
     "metal-gold",
-    "own",
     "plural"
    ],
    "variant": "v466"
@@ -104219,7 +103307,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "wood-beam"
    ],
    "variant": "v290",
@@ -104266,8 +103353,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
-    "own",
     "wood-beam"
    ],
    "variant": "v290",
@@ -104309,7 +103394,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ]
   },
@@ -104352,8 +103436,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "wood-planks"
    ],
    "mark": [
@@ -104397,7 +103479,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "plural",
     "robin-hood",
     "wood-bark",
@@ -104444,9 +103525,7 @@
    ],
    "tags": [
     "liquid",
-    "metal-iron-steel",
-    "ngons",
-    "own"
+    "metal-iron-steel"
    ]
   },
   {
@@ -104489,9 +103568,7 @@
     "#8b7561"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -104534,9 +103611,7 @@
     "#8b7561"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -104578,9 +103653,7 @@
     "#8b7561"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ],
    "mark": [
     "centered"
@@ -104624,9 +103697,7 @@
     "#8b7561"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ],
    "mark": [
     "grounded",
@@ -104667,8 +103738,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "own"
+    "ceramic"
    ]
   },
   {
@@ -104704,9 +103774,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ],
    "variant": "v124",
    "mark": [
@@ -104746,9 +103814,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
-    "ngons",
-    "own"
+    "ceramic"
    ],
    "variant": "v124",
    "mark": [
@@ -104795,8 +103861,7 @@
    ],
    "tags": [
     "ceramic",
-    "food",
-    "own"
+    "food"
    ]
   },
   {
@@ -104837,8 +103902,7 @@
    ],
    "tags": [
     "bone",
-    "food",
-    "own"
+    "food"
    ],
    "mark": [
     "grounded",
@@ -104878,7 +103942,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "wood-beam"
    ],
    "mark": [
@@ -104926,7 +103989,6 @@
    "tags": [
     "gemstone",
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ]
@@ -105224,7 +104286,6 @@
     "#b58158"
    ],
    "tags": [
-    "ngons",
     "qua",
     "wood-beam",
     "wood-worked"
@@ -105270,7 +104331,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "qua",
     "sailing",
     "wood-worked"
@@ -105500,7 +104560,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "plural",
     "qua"
    ]
@@ -105783,7 +104842,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "qua"
    ]
@@ -106096,7 +105155,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ]
   },
@@ -106403,7 +105461,6 @@
     "#b58158"
    ],
    "tags": [
-    "ngons",
     "qua",
     "wood-worked"
    ]
@@ -106448,7 +105505,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "qua",
     "wood-worked"
    ]
@@ -106582,7 +105638,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "plural",
     "qua"
    ]
@@ -106740,7 +105795,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "qua"
    ]
@@ -106962,7 +106017,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ]
   },
@@ -107353,7 +106407,6 @@
    "tags": [
     "foliage",
     "food",
-    "ngons",
     "qua",
     "wood-bark"
    ]
@@ -107539,7 +106592,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "paper",
     "qua"
    ]
@@ -107595,7 +106647,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "paper",
     "qua"
    ]
@@ -107883,7 +106934,6 @@
     "#8b7561"
    ],
    "tags": [
-    "ngons",
     "qua",
     "wood-bark"
    ]
@@ -107922,7 +106972,6 @@
     "#563b2b"
    ],
    "tags": [
-    "ngons",
     "qua",
     "wood-bark"
    ]
@@ -107968,7 +107017,6 @@
    "tags": [
     "liquid",
     "metal-iron-cast",
-    "ngons",
     "qua"
    ],
    "variant": "v278"
@@ -108008,7 +107056,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "qua"
    ],
    "variant": "v278"
@@ -108048,7 +107095,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
     "qua"
    ],
    "variant": "v278"
@@ -108094,7 +107140,6 @@
    "tags": [
     "liquid",
     "metal-iron-cast",
-    "ngons",
     "qua"
    ],
    "variant": "v277"
@@ -108134,7 +107179,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "qua"
    ],
    "variant": "v277"
@@ -108174,7 +107218,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
     "qua"
    ],
    "variant": "v277"
@@ -108261,9 +107304,7 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
-    "ngons",
     "qua"
    ]
   },
@@ -108321,9 +107362,7 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v452",
@@ -108379,9 +107418,7 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v452"
@@ -108421,7 +107458,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v452"
@@ -108470,9 +107506,7 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v452"
@@ -108512,7 +107546,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
     "qua"
    ]
   },
@@ -108725,7 +107758,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "qua",
     "wood-beam"
    ],
@@ -108771,7 +107803,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
     "qua",
     "wood-beam"
    ],
@@ -108821,7 +107852,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "decorated",
     "food",
     "qua"
    ]
@@ -108870,7 +107900,6 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
     "qua"
    ],
@@ -108925,7 +107954,6 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
     "qua"
    ],
@@ -108982,7 +108010,6 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
     "qua"
    ],
@@ -109032,7 +108059,6 @@
     "#dbae80"
    ],
    "tags": [
-    "decorated",
     "food",
     "qua"
    ],
@@ -109193,7 +108219,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
     "qua"
    ]
   },
@@ -109244,7 +108269,6 @@
     "ceramic",
     "food",
     "metal-iron-wrought",
-    "ngons",
     "qua"
    ]
   },
@@ -109371,7 +108395,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ],
    "variant": "v263"
@@ -109411,7 +108434,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ],
    "variant": "v263"
@@ -109644,7 +108666,6 @@
    "tags": [
     "ceramic",
     "liquid",
-    "ngons",
     "qua"
    ]
   },
@@ -109819,7 +108840,6 @@
    "tags": [
     "ceramic",
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v401"
@@ -109875,7 +108895,6 @@
    "tags": [
     "ceramic",
     "food",
-    "ngons",
     "qua"
    ],
    "variant": "v401"
@@ -109958,7 +108977,6 @@
    ],
    "tags": [
     "food",
-    "ngons",
     "plural",
     "qua"
    ]
@@ -111366,7 +110384,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
     "qua",
     "wood-bark"
    ],
@@ -111412,7 +110429,6 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
     "qua",
     "wood-bark"
    ],
@@ -111687,7 +110703,6 @@
    "tags": [
     "hero",
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "qua",
     "sailing"
@@ -111882,7 +110897,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "qua",
     "sailing",
@@ -112025,7 +111039,6 @@
     "cork",
     "glass",
     "halloween",
-    "ngons",
     "pirate",
     "qua"
    ]
@@ -112072,7 +111085,6 @@
     "cork",
     "glass",
     "halloween",
-    "ngons",
     "pirate",
     "qua"
    ]
@@ -112128,7 +111140,6 @@
    "tags": [
     "food",
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "plural",
     "qua",
@@ -112177,7 +111188,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "qua",
     "sailing",
@@ -112231,7 +111241,6 @@
    "tags": [
     "metal-iron-cast",
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "qua",
     "sailing",
@@ -112273,7 +111282,6 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
     "pirate",
     "qua",
     "sailing"
@@ -113157,7 +112165,6 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
     "plural",
     "qua",
     "wood-bark",
@@ -114400,7 +113407,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "pirate",
     "qua"
@@ -115539,7 +114546,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "qua"
    ],
    "variant": "v88"
@@ -115585,7 +114591,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "qua"
    ],
    "variant": "v88"
@@ -115635,7 +114640,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "qua",
     "robin-hood",
     "rope",
@@ -115765,7 +114769,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "qua"
    ]
   },
@@ -115939,7 +114942,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "ngons",
     "qua",
     "wood-beam"
    ]
@@ -115984,7 +114986,6 @@
    ],
    "tags": [
     "glass",
-    "ngons",
     "qua"
    ],
    "variant": "v97"
@@ -116029,7 +115030,6 @@
    ],
    "tags": [
     "glass",
-    "ngons",
     "qua"
    ],
    "variant": "v97"
@@ -116214,7 +115214,6 @@
    "tags": [
     "leather",
     "metal-iron-steel",
-    "ngons",
     "qua",
     "wood-worked"
    ],
@@ -116336,7 +115335,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ]
   },
@@ -116476,7 +115474,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ]
   },
@@ -116515,7 +115512,6 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
     "qua"
    ]
   },
@@ -117102,7 +116098,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "pirate",
     "qua"
@@ -117639,7 +116635,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "qua"
    ]
   },
@@ -117819,7 +116814,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -117862,7 +116856,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -117905,7 +116898,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118739,7 +117731,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118790,7 +117781,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118835,7 +117825,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118886,7 +117875,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118931,7 +117919,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -118982,7 +117969,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119027,7 +118013,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119078,7 +118063,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119123,7 +118107,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119174,7 +118157,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119219,7 +118201,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119270,7 +118251,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119315,7 +118295,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119366,7 +118345,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119411,7 +118389,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119462,7 +118439,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119507,7 +118483,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119558,7 +118533,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119603,7 +118577,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119654,7 +118627,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119699,7 +118671,6 @@
    "tags": [
     "cork",
     "glass",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119750,7 +118721,6 @@
     "cork",
     "glass",
     "liquid",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119798,7 +118768,6 @@
    ],
    "tags": [
     "leather",
-    "ngons",
     "qua",
     "rope"
    ]
@@ -119838,7 +118807,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119879,7 +118847,6 @@
    ],
    "tags": [
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119926,7 +118893,6 @@
     "gemstone",
     "hero",
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -119976,7 +118942,6 @@
     "gemstone",
     "hero",
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ]
@@ -120023,7 +118988,6 @@
     "gemstone",
     "hero",
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ]
@@ -120070,7 +119034,6 @@
     "gemstone",
     "hero",
     "metal-gold",
-    "ngons",
     "pickup",
     "qua"
    ]
@@ -120110,7 +119073,6 @@
    ],
    "tags": [
     "gemstone",
-    "ngons",
     "pickup",
     "qua"
    ],
@@ -120197,7 +119159,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "pirate",
     "qua"
@@ -120237,7 +119199,7 @@
    ],
    "tags": [
     "bone",
-    "graveyard",
+    "grave",
     "halloween",
     "pirate",
     "qua"
@@ -120719,7 +119681,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -120780,7 +119742,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -120842,7 +119804,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -120905,7 +119867,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -120968,7 +119930,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -121031,7 +119993,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -121094,7 +120056,7 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -121157,7 +120119,7 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -121220,7 +120182,7 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -121284,7 +120246,7 @@
    "tags": [
     "ceramic",
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -121347,7 +120309,7 @@
    "tags": [
     "ceramic",
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -121410,7 +120372,7 @@
    "tags": [
     "ceramic",
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -121456,7 +120418,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -121517,6 +120479,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "stone-soil",
     "wood-beam",
@@ -121579,6 +120542,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "stone-soil",
     "wood-beam",
@@ -121641,6 +120605,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "stone-soil",
     "wood-beam",
@@ -121682,6 +120647,7 @@
     "#8b7561"
    ],
    "tags": [
+    "qua",
     "stone-soil"
    ]
   },
@@ -121726,6 +120692,7 @@
    "tags": [
     "foliage",
     "plural",
+    "qua",
     "stone-soil"
    ]
   },
@@ -121781,6 +120748,7 @@
     "foliage",
     "food",
     "plural",
+    "qua",
     "stone-soil"
    ]
   },
@@ -121823,6 +120791,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -121867,6 +120836,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -121911,6 +120881,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -121955,6 +120926,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -122005,6 +120977,7 @@
    ],
    "tags": [
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122056,6 +121029,7 @@
    ],
    "tags": [
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122101,6 +121075,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "wood-beam",
     "wood-planks"
    ]
@@ -122145,6 +121120,7 @@
    ],
    "tags": [
     "plural",
+    "qua",
     "wood-beam",
     "wood-planks"
    ]
@@ -122199,6 +121175,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122255,6 +121232,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122311,6 +121289,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122367,6 +121346,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122424,6 +121404,7 @@
    "tags": [
     "ceramic",
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122481,6 +121462,7 @@
    "tags": [
     "ceramic",
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122537,6 +121519,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122594,6 +121577,7 @@
    "tags": [
     "ceramic",
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122651,6 +121635,7 @@
    "tags": [
     "ceramic",
     "plural",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -122696,8 +121681,8 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
     "plural",
+    "qua",
     "wood-bark",
     "wood-log"
    ]
@@ -122757,7 +121742,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -122819,7 +121804,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -122881,7 +121866,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -122948,7 +121933,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123016,7 +122001,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123084,7 +122069,7 @@
    ],
    "tags": [
     "food",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123147,7 +122132,7 @@
    ],
    "tags": [
     "metal-iron-cast",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-bark",
     "wood-beam",
@@ -123195,6 +122180,7 @@
    "tags": [
     "metal-gold",
     "plural",
+    "qua",
     "stone-rock"
    ],
    "variant": "v410"
@@ -123240,6 +122226,7 @@
    "tags": [
     "metal-gold",
     "plural",
+    "qua",
     "stone-rock"
    ],
    "variant": "v410"
@@ -123285,6 +122272,7 @@
    "tags": [
     "metal-gold",
     "plural",
+    "qua",
     "stone-rock"
    ],
    "variant": "v410"
@@ -123330,6 +122318,7 @@
    "tags": [
     "foliage",
     "plural",
+    "qua",
     "wood-bark"
    ]
   },
@@ -123382,7 +122371,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123439,7 +122428,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123496,7 +122485,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -123564,7 +122553,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "rope",
     "stone-masonry",
     "textile",
@@ -123633,7 +122622,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "rope",
     "stone-masonry",
     "textile",
@@ -123676,6 +122665,7 @@
     "#88848a"
    ],
    "tags": [
+    "qua",
     "stone-rock"
    ]
   },
@@ -123713,6 +122703,7 @@
     "#88848a"
    ],
    "tags": [
+    "qua",
     "stone-rock"
    ]
   },
@@ -123751,6 +122742,7 @@
    ],
    "tags": [
     "plural",
+    "qua",
     "stone-rock"
    ]
   },
@@ -123788,6 +122780,7 @@
     "#88848a"
    ],
    "tags": [
+    "qua",
     "stone-rock"
    ]
   },
@@ -123830,7 +122823,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -123875,7 +122868,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -123920,7 +122913,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -123976,7 +122969,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -124033,7 +123026,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -124090,7 +123083,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -124137,6 +123130,7 @@
    ],
    "tags": [
     "plural",
+    "qua",
     "wood-bark",
     "wood-log"
    ]
@@ -124191,6 +123185,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -124236,7 +123231,7 @@
     "#dbae80"
    ],
    "tags": [
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ]
@@ -124292,7 +123287,7 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -124345,7 +123340,7 @@
    ],
    "tags": [
     "foliage",
-    "ngons",
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -124391,6 +123386,7 @@
    ],
    "tags": [
     "liquid",
+    "qua",
     "stone-masonry"
    ],
    "variant": "v388"
@@ -124441,6 +123437,7 @@
    "tags": [
     "foliage",
     "liquid",
+    "qua",
     "stone-masonry"
    ],
    "variant": "v388"
@@ -124486,6 +123483,7 @@
    "tags": [
     "foliage",
     "plural",
+    "qua",
     "wood-bark"
    ]
   },
@@ -124528,6 +123526,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "wood-beam",
     "wood-planks"
    ]
@@ -124571,6 +123570,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ]
@@ -124614,6 +123614,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -124663,6 +123664,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam"
@@ -124708,6 +123710,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -124757,6 +123760,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam"
@@ -124802,6 +123806,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "wood-beam",
     "wood-planks"
    ],
@@ -124856,6 +123861,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "textile",
     "wood-bark",
@@ -124907,6 +123913,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -124957,6 +123964,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125007,6 +124015,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125063,6 +124072,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -125119,6 +124129,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -125176,6 +124187,7 @@
    ],
    "tags": [
     "foliage",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam"
@@ -125231,6 +124243,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125291,7 +124304,7 @@
    ],
    "tags": [
     "ceramic",
-    "ngons",
+    "qua",
     "stone-masonry",
     "textile",
     "wood-beam",
@@ -125343,6 +124356,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125393,6 +124407,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125443,6 +124458,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125494,6 +124510,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -125544,6 +124561,7 @@
    ],
    "tags": [
     "ceramic",
+    "qua",
     "stone-masonry",
     "wood-beam"
    ],
@@ -125593,6 +124611,7 @@
     "#dbae80"
    ],
    "tags": [
+    "qua",
     "textile",
     "wood-beam",
     "wood-planks"
@@ -125637,6 +124656,7 @@
     "#8b5936"
    ],
    "tags": [
+    "qua",
     "stone-masonry",
     "wood-beam"
    ]
@@ -125674,7 +124694,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-rock"
    ],
    "variant": "v129",
@@ -125716,7 +124735,6 @@
    ],
    "tags": [
     "broken",
-    "own",
     "stone-rock"
    ],
    "variant": "v129",
@@ -125757,7 +124775,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v21",
@@ -125798,7 +124815,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v21",
@@ -125839,7 +124855,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v21",
@@ -125880,7 +124895,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v21",
@@ -125921,7 +124935,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v146",
@@ -125962,7 +124975,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v146",
@@ -126003,7 +125015,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v147",
@@ -126044,7 +125055,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v147",
@@ -126085,7 +125095,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v148",
@@ -126126,7 +125135,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v148",
@@ -126168,7 +125176,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v330",
@@ -126209,7 +125216,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v330",
@@ -126250,7 +125256,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v149",
@@ -126291,7 +125296,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v149",
@@ -126334,7 +125338,6 @@
    ],
    "tags": [
     "hero",
-    "own",
     "stone-rock"
    ],
    "mark": [
@@ -126374,7 +125377,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "mark": [
@@ -126414,7 +125416,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v331",
@@ -126455,7 +125456,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v331",
@@ -126496,7 +125496,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v331",
@@ -126537,7 +125536,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v130",
@@ -126579,7 +125577,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v130",
@@ -126620,7 +125617,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v332",
@@ -126661,7 +125657,6 @@
     "#88848a"
    ],
    "tags": [
-    "own",
     "stone-rock"
    ],
    "variant": "v332",
@@ -126704,8 +125699,7 @@
     "#88848a"
    ],
    "tags": [
-    "metal-iron-steel",
-    "own"
+    "metal-iron-steel"
    ]
   },
   {
@@ -126747,7 +125741,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "textile"
    ],
    "variant": "v233"
@@ -126791,7 +125784,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "textile"
    ],
    "variant": "v233"
@@ -126835,7 +125827,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "textile"
    ],
    "variant": "v233"
@@ -126880,7 +125871,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "own",
     "wood-worked"
    ]
   },
@@ -126918,7 +125908,6 @@
     "#8b5936"
    ],
    "tags": [
-    "own",
     "pirate",
     "sailing",
     "wood-beam"
@@ -126963,7 +125952,6 @@
     "#8b7561"
    ],
    "tags": [
-    "own",
     "rope",
     "wood-beam"
    ]
@@ -127013,7 +126001,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "own",
     "sailing",
     "wood-beam",
     "wood-planks"
@@ -127063,7 +126050,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "own",
     "wood-worked"
    ],
    "mark": [
@@ -127110,7 +126096,6 @@
     "#dbae80"
    ],
    "tags": [
-    "own",
     "wood-bark",
     "wood-log"
    ]
@@ -127165,7 +126150,6 @@
    ],
    "tags": [
     "food",
-    "own",
     "rope",
     "wood-worked"
    ]
@@ -127205,8 +126189,7 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron-cast",
-    "own"
+    "metal-iron-cast"
    ]
   },
   {
@@ -127258,7 +126241,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -127311,7 +126293,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -127370,7 +126351,6 @@
    "tags": [
     "leather",
     "metal-iron-steel",
-    "own",
     "rope",
     "wood-beam"
    ],
@@ -127419,7 +126399,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "wood-planks"
    ]
   },
@@ -127474,7 +126453,6 @@
    "tags": [
     "leather",
     "metal-iron-wrought",
-    "own",
     "rope",
     "textile",
     "wood-beam"
@@ -127536,7 +126514,6 @@
    "tags": [
     "bone",
     "metal-iron-steel",
-    "own",
     "robin-hood",
     "rope",
     "vegetation",
@@ -127605,7 +126582,6 @@
    "tags": [
     "bone",
     "metal-iron-steel",
-    "own",
     "robin-hood",
     "rope",
     "vegetation",
@@ -127654,8 +126630,7 @@
     "#5b5550"
    ],
    "tags": [
-    "metal-iron-wrought",
-    "own"
+    "metal-iron-wrought"
    ]
   },
   {
@@ -127703,7 +126678,6 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "own",
     "wood-beam"
    ]
   },
@@ -127756,7 +126730,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "rope",
     "wood-beam"
@@ -127812,7 +126785,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "own",
     "robin-hood",
     "rope",
     "wood-beam"
@@ -127859,7 +126831,6 @@
    ],
    "tags": [
     "leather",
-    "own",
     "rope",
     "wood-log"
    ]
@@ -127898,7 +126869,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-worked"
    ],
    "lint": [
@@ -127954,7 +126924,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "own",
     "wood-beam",
     "wood-planks"
    ],
@@ -128011,7 +126980,6 @@
    "tags": [
     "liquid",
     "metal-iron-wrought",
-    "own",
     "wood-beam",
     "wood-planks"
    ],
@@ -128055,7 +127023,6 @@
     "#b58158"
    ],
    "tags": [
-    "own",
     "wood-beam",
     "wood-worked"
    ],
@@ -128126,8 +127093,6 @@
     "emissive",
     "hero",
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "rope",
     "textile",
     "wood-beam"
@@ -128197,8 +127162,6 @@
     "emissive",
     "hero",
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "rope",
     "textile",
     "wood-beam"
@@ -128263,8 +127226,6 @@
     "emissive",
     "hero",
     "metal-iron-wrought",
-    "ngons",
-    "own",
     "rope",
     "textile"
    ],
@@ -128328,8 +127289,6 @@
     "glass",
     "hero",
     "metal-iron-cast",
-    "ngons",
-    "own",
     "sailing",
     "wood-beam"
    ]
@@ -130461,7 +129420,6 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "ngons",
     "pirate",
     "sailing",
     "wood-worked"
