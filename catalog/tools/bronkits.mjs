@@ -83,17 +83,17 @@ export const BRONKITS = [
   { map: 'KayKit_Mixed_Bag_1_FREE', naam: 'KayKit Mixed Bag 1', kit: 'kay-mixed', formaat: 'gltf' },
   { map: 'KayKit_Medieval_Builder_Pack_1.0', naam: 'KayKit Medieval Builder Pack', kit: null, formaat: 'glb', alleMappen: true },
   { map: 'KayKit_Spooktober_Seasonal_Pack_1.1', naam: 'KayKit Spooktober Seasonal Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
-  { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: null, formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
+  { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: 'kay-minigame', formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
 
   { map: 'Ultimate_Guns_Pack', naam: 'Ultimate Guns Pack', kit: 'ultimate-guns', formaat: 'glb' },
   { map: 'Toon_Shooter_Game_Kit', naam: 'Toon Shooter Game Kit', kit: 'toon-shooter', formaat: 'glb' },
   { map: 'Farm_Buildings_Bundle', naam: 'Farm Buildings Bundle', kit: 'farm-buildings', formaat: 'glb' },
 
-  { map: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', naam: 'Tiny Treats Pleasant Picnic', kit: null, formaat: 'gltf' },
-  { map: 'Tiny_Treats_Fun_Playground_1.0_FREE', naam: 'Tiny Treats Fun Playground', kit: null, formaat: 'gltf' },
-  { map: 'Tiny_Treats_Bakery_Interior_1.1_FREE', naam: 'Tiny Treats Bakery Interior', kit: null, formaat: 'gltf' },
+  { map: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', naam: 'Tiny Treats Pleasant Picnic', kit: 'isa-picnic', formaat: 'gltf' },
+  { map: 'Tiny_Treats_Fun_Playground_1.0_FREE', naam: 'Tiny Treats Fun Playground', kit: 'isa-playground', formaat: 'gltf' },
+  { map: 'Tiny_Treats_Bakery_Interior_1.1_FREE', naam: 'Tiny Treats Bakery Interior', kit: 'isa-bakery', formaat: 'gltf' },
   { map: 'gobkit_animal-pack-2', naam: 'Gobkit Animal Pack 2', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
-  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: null, formaat: 'glb' },
+  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: null, formaat: 'obj' },
 ];

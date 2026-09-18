@@ -22,6 +22,24 @@ const sackcloth = ['textile', 'taupe'];
 const upholstery = ['textile', 'sienna'];
 const leaf = ['foliage', 'hunter'];
 
+const cast = ['metal-iron-cast', 'slate'];
+const blackMetal = ['metal', 'basalt'];
+const paintRed = ['metal', 'sienna'];
+const paintGreen = ['metal', 'hunter'];
+const paintYellow = ['metal', 'amber'];
+const leather = ['leather', 'umber'];
+const leatherLight = ['leather', 'camel'];
+const grip = ['rope', 'taupe'];
+const strap = ['textile', 'taupe'];
+const clothRed = ['textile', 'sienna'];
+const clothGreen = ['textile', 'hunter'];
+const clothPale = ['textile', 'ivory'];
+const skinLight = ['skin', 'tan'];
+const skinDark = ['skin', 'umber'];
+const hairPale = ['skin', 'taupe'];
+const needles = ['foliage', 'hunter'];
+const cactus = ['vegetation', 'hunter'];
+
 const farmShell = {
   '#d1d1d1': planks, '#8f433a': worked, '#7c3a32': beam, '#4f4f4f': tile,
 };
@@ -216,6 +234,164 @@ const PAKKETTEN = [
         naam: 'shotgun-pistol-grip', bronmodel: 'Shotgun Short Stock', kind: 'obj-weapon-ranged',
         tags: [],
         kleuren: { '#414241': steel, '#373736': steel, '#28292a': steel, '#5c4c42': worked },
+      },
+    ],
+  },
+  {
+    kit: 'kay-minigame',
+    bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
+    schaal: 0.3,
+    modellen: [
+      {
+        naam: 'bomb', bronmodel: 'powerupBomb', kind: 'obj-weapon-cannon', tags: ['ngons'],
+        kleuren: { '#263236': cast, '#daae7e': grip },
+      },
+      {
+        naam: 'cactus', bronmodel: 'tree_desert', kind: 'env-flora-plant-cactus', tags: ['ngons'],
+        kleuren: { '#288b8d': cactus },
+      },
+      {
+        naam: 'pine', bronmodel: 'tree_forest', kind: 'env-flora-tree-conifer', tags: [],
+        kleuren: { '#288b8d': needles, '#9b5a45': bark },
+      },
+    ],
+  },
+  {
+    kit: 'post-apocalypse',
+    bron: 'Post_Apocolypse_Pack',
+    schaal: 0.45,
+    atlas: true,
+    modellen: [
+      {
+        naam: 'axe', bronmodel: 'Axe', kind: 'obj-weapon-melee-axe', tags: [],
+        kleuren: {
+          '#ada8a6': steel, '#8b8786': steel, '#5c5c5c': steel,
+          '#632125': grip, '#8b755e': worked, '*': steel,
+        },
+      },
+      {
+        naam: 'knife', bronmodel: 'Knife', kind: 'obj-weapon-melee-dagger', tags: [],
+        kleuren: {
+          '#5c5c5c': steel, '#ada8a6': steel, '#8b755e': worked, '#2a2929': leather, '*': steel,
+        },
+      },
+      {
+        naam: 'spear', bronmodel: 'Spear', kind: 'obj-weapon-melee', tags: [],
+        kleuren: {
+          '#8b8786': steel, '#5c5c5c': steel, '#ada8a6': steel,
+          '#8b755e': worked, '#9e731d': worked, '#b89651': worked,
+          '#632125': grip, '#2a2929': leather, '*': steel,
+        },
+      },
+      {
+        naam: 'bat-barbed', bronmodel: 'Wooden Bat Barbed', kind: 'obj-weapon-melee-hammer', tags: [],
+        kleuren: {
+          '#8b8786': steel, '#8b755e': worked, '#978657': worked, '#9e731d': worked, '*': worked,
+        },
+      },
+      {
+        naam: 'shotgun', bronmodel: 'Shotgun', kind: 'obj-weapon-ranged', tags: [],
+        kleuren: {
+          '#5c5c5c': steel, '#8b8786': steel, '#8b755e': worked,
+          '#42342a': beam, '#5a4b3e': beam, '#4c3a21': leather, '#284a63': strap, '*': steel,
+        },
+      },
+      {
+        naam: 'chest-hunter', bronmodel: 'Chest', kind: 'obj-container-chest', tags: [],
+        kleuren: {
+          '#506329': paintGreen, '#5c5c5c': cast, '#8b8786': steel, '#5a4b3e': beam, '*': cast,
+        },
+      },
+      {
+        naam: 'chest-sienna', bronmodel: 'Chest-RfSBvgcZUD', kind: 'obj-container-chest', tags: [],
+        kleuren: {
+          '#632125': paintRed, '#5c5c5c': cast, '#8b8786': steel, '#5a4b3e': beam, '*': cast,
+        },
+      },
+      {
+        naam: 'fire-hydrant', bronmodel: 'Fire Hydrant', kind: 'str', tags: ['ngons'],
+        kleuren: { '#992327': paintRed },
+      },
+      {
+        naam: 'pallet', bronmodel: 'Pallet', kind: 'obj-resource-wood-plank', tags: [],
+        kleuren: { '#b89651': planks },
+      },
+      {
+        naam: 'pallet-broken', bronmodel: 'Pallet Broken', kind: 'obj-resource-wood-plank',
+        tags: ['broken'], kleuren: { '#b89651': planks },
+      },
+      {
+        naam: 'pipes', bronmodel: 'Pipes', kind: 'obj-resource-metal', tags: ['plural', 'ngons'],
+        kleuren: { '#8b8569': paintGreen, '#5c5c5c': cast, '#caa507': paintYellow, '*': cast },
+      },
+      {
+        naam: 'trash-bag', bronmodel: 'Trash Bag', kind: 'obj-container-bag', tags: [],
+        kleuren: { '#2a2929': strap },
+      },
+      {
+        naam: 'trash-bags', bronmodel: 'Trash Bags', kind: 'obj-container-bag', tags: ['plural'],
+        kleuren: { '#2a2929': strap },
+      },
+      {
+        naam: 'dog-pug', bronmodel: 'Characters Pug', kind: 'char', tags: [],
+        kleuren: {
+          '#a59351': skinLight, '#a3a59c': skinLight, '#141414': skinDark, '#4b3a19': skinDark,
+          '#312515': leather, '#3b463d': clothGreen, '#3f5363': clothGreen, '#225385': clothGreen,
+          '#923c12': clothRed, '#ada8a6': steel, '*': skinLight,
+        },
+      },
+      {
+        naam: 'dog-shepherd', bronmodel: 'German Shepard', kind: 'char', tags: [],
+        kleuren: {
+          '#5f3a20': skinDark, '#4c3a21': skinDark, '#241f22': hairPale, '#a3a59c': skinLight,
+          '#9e731d': leatherLight, '#8f662a': leatherLight, '#2e2e2e': leather, '#5f4009': leather,
+          '#923c12': clothRed, '*': skinDark,
+        },
+      },
+      {
+        naam: 'survivor-matt', bronmodel: 'Characters Matt', kind: 'char', tags: [],
+        kleuren: {
+          '#7c4e26': skinDark, '#af8d68': skinLight,
+          '#2a2927': leather, '#312515': leather, '#5f311e': leather,
+          '#af6c1c': clothRed, '#4e694b': clothGreen, '#466469': clothGreen,
+          '#99a38b': clothGreen, '#b5b999': clothGreen,
+          '#141414': leather, '#2a2929': leather,
+          '#5c5c5c': steel, '#ada8a6': steel, '#8b755e': worked, '*': skinDark,
+        },
+      },
+      {
+        naam: 'survivor-sam', bronmodel: 'Characters Sam', kind: 'char', tags: [],
+        kleuren: {
+          '#7c4e26': skinDark, '#4c3a21': leather, '#504c43': leather, '#2a2927': leather,
+          '#333333': blackMetal, '#141414': blackMetal,
+          '#b2b2b2': steel, '#ada8a6': steel, '#8b8786': steel, '#5c5c5c': steel,
+          '#ac741d': clothRed, '#af6c1c': clothRed, '#923c12': clothRed,
+          '#632125': grip, '#8b755e': worked, '*': skinDark,
+        },
+      },
+      {
+        naam: 'survivor-shaun', bronmodel: 'Characters Shaun', kind: 'char', tags: [],
+        kleuren: {
+          '#c09264': skinLight, '#af8d68': skinLight,
+          '#5f4009': leather, '#4c3a21': leather, '#2a2927': leather, '#946529': leatherLight,
+          '#632125': clothRed, '#923c12': clothRed,
+          '#466469': clothGreen, '#4e694b': clothGreen, '#284a63': clothGreen,
+          '#b5b999': clothGreen,
+          '#9e731d': worked, '#a58a3b': worked, '#8b755e': worked,
+          '#8b8786': steel, '#c0c0c0': steel, '#141414': leather, '*': skinLight,
+        },
+      },
+      {
+        naam: 'survivor-lis', bronmodel: 'Lis', kind: 'char', tags: [],
+        kleuren: {
+          '#c09264': skinLight,
+          '#2a2929': leather, '#4c3a21': leather, '#5a4b3e': leather,
+          '#141414': leather, '#225385': hairPale, '#284a63': hairPale,
+          '#bd8e30': clothPale, '#a28222': clothPale, '#9e731d': clothPale,
+          '#632125': grip, '#466469': clothGreen, '#b5b999': clothPale,
+          '#8b8786': steel, '#ada8a6': steel, '#b2b2b2': steel, '#5c5c5c': steel,
+          '#8b755e': leather, '*': skinLight,
+        },
       },
     ],
   },
