@@ -30,7 +30,6 @@ export const BRONKITS = [
   { map: 'PropsLite_FBX', naam: 'Medieval Props Lite', kit: 'props', formaat: 'fbx' },
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
   { map: 'ocean', naam: 'Ocean', kit: 'quat-ocean', formaat: 'fbx' },
-  { map: 'LowPolyNaturePackLite', naam: 'Low Poly Nature Pack Lite', kit: null, formaat: 'fbx' },
   { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', formaat: 'glb' },
@@ -73,7 +72,6 @@ export const BRONKITS = [
   { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'arena-pack', formaat: 'glb', splitsPerMesh: true },
   { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'trees', formaat: 'glb', splitsPerMesh: true },
   { map: 'Village_Pack', naam: 'Village Pack', kit: 'village', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Sweetland_Platformer_Kit', naam: 'Sweetland Platformer Kit', kit: null, formaat: 'glb', splitsPerMesh: true },
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: 'architecture', formaat: 'fbx', alleMappen: true },
