@@ -285,13 +285,11 @@
   },
   {
    "slug": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "KayKit Medieval Builder Pack",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "KayKit Medieval Builder Pack"
   },
   {
    "slug": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "KayKit Spooktober Seasonal Pack",
-   "note": "This pack was never imported — nothing from it is in the catalogue."
+   "name": "KayKit Spooktober Seasonal Pack"
   },
   {
    "slug": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -1161,21 +1159,25 @@
   {
    "slug": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "KayKit Medieval Builder Pack",
+   "kit": "kay-builder",
    "format": "glb",
    "inSource": 226,
-   "inCatalog": 0,
-   "missing": 226,
+   "inCatalog": 29,
+   "missing": 197,
    "unmatched": 0,
+   "scale": 1,
    "folder": "Models"
   },
   {
    "slug": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "KayKit Spooktober Seasonal Pack",
+   "kit": "kay-spook",
    "format": "glb",
    "inSource": 48,
-   "inCatalog": 0,
-   "missing": 48,
+   "inCatalog": 28,
+   "missing": 20,
    "unmatched": 0,
+   "scale": 0.3,
    "folder": "Models/gltf"
   },
   {
@@ -1184,8 +1186,8 @@
    "kit": "kay-minigame",
    "format": "glb",
    "inSource": 132,
-   "inCatalog": 3,
-   "missing": 129,
+   "inCatalog": 15,
+   "missing": 117,
    "unmatched": 0,
    "scale": 0.3,
    "folder": "Models/gltf"
@@ -38700,108 +38702,6 @@
   },
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "archeryrange",
-   "wdh": [
-    1.8,
-    1.5,
-    1.6
-   ],
-   "tris": 1668,
-   "tpu": 388,
-   "mat": 6,
-   "bytes": 66360,
-   "file": "objects/gltf/archeryrange.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "barracks",
-   "kind": "str-building-fort",
-   "wdh": [
-    2,
-    1.3,
-    1.6
-   ],
-   "tris": 1960,
-   "tpu": 471,
-   "mat": 6,
-   "bytes": 85808,
-   "file": "objects/gltf/barracks.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "bridge",
-   "kind": "str-access-bridge",
-   "wdh": [
-    2,
-    0.8,
-    0.7
-   ],
-   "tris": 252,
-   "tpu": 218,
-   "mat": 1,
-   "bytes": 10540,
-   "file": "objects/gltf/bridge.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "bridge_roofed",
-   "kind": "str-access-bridge",
-   "wdh": [
-    2.1,
-    1.3,
-    0.7
-   ],
-   "tris": 480,
-   "tpu": 233,
-   "mat": 3,
-   "bytes": 19720,
-   "file": "objects/gltf/bridge_roofed.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "castle",
-   "kind": "str-building-fort",
-   "wdh": [
-    1.8,
-    2.5,
-    1.9
-   ],
-   "tris": 2231,
-   "tpu": 263,
-   "mat": 5,
-   "bytes": 109072,
-   "file": "objects/gltf/castle.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_forestA",
-   "wdh": [
-    1.8,
-    0.7,
-    1.2
-   ],
-   "tris": 2900,
-   "tpu": 1815,
-   "mat": 3,
-   "bytes": 62240,
-   "file": "objects/gltf/detail_forestA.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_forestB",
-   "wdh": [
-    1.9,
-    0.7,
-    1.4
-   ],
-   "tris": 1878,
-   "tpu": 1009,
-   "mat": 3,
-   "bytes": 41176,
-   "file": "objects/gltf/detail_forestB.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "detail_hill",
    "kind": "env-terrain-mountain",
    "wdh": [
@@ -38813,327 +38713,8 @@
    "tpu": 527,
    "mat": 4,
    "bytes": 41464,
+   "scaled": true,
    "file": "objects/gltf/detail_hill.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_rocks",
-   "kind": "env-rock-boulder",
-   "wdh": [
-    1.9,
-    0.6,
-    1.3
-   ],
-   "tris": 1102,
-   "tpu": 776,
-   "mat": 1,
-   "bytes": 23484,
-   "file": "objects/gltf/detail_rocks.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_rocks_small",
-   "kind": "env-rock-boulder",
-   "wdh": [
-    0.6,
-    0.2,
-    0.5
-   ],
-   "tris": 552,
-   "tpu": 1609,
-   "mat": 1,
-   "bytes": 12112,
-   "file": "objects/gltf/detail_rocks_small.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_treeA",
-   "kind": "env-flora-tree",
-   "wdh": [
-    0.6,
-    0.8,
-    0.4
-   ],
-   "tris": 287,
-   "tpu": 837,
-   "mat": 2,
-   "bytes": 7364,
-   "file": "objects/gltf/detail_treeA.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_treeB",
-   "kind": "env-flora-tree",
-   "wdh": [
-    0.5,
-    0.7,
-    0.3
-   ],
-   "tris": 579,
-   "tpu": 1688,
-   "mat": 2,
-   "bytes": 12672,
-   "file": "objects/gltf/detail_treeB.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "detail_treeC",
-   "kind": "env-flora-tree",
-   "wdh": [
-    0.5,
-    0.8,
-    0.4
-   ],
-   "tris": 337,
-   "tpu": 983,
-   "mat": 2,
-   "bytes": 8336,
-   "file": "objects/gltf/detail_treeC.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "farm_plot",
-   "wdh": [
-    1.5,
-    0.5,
-    1.3
-   ],
-   "tris": 906,
-   "tpu": 1050,
-   "mat": 4,
-   "bytes": 33188,
-   "file": "objects/gltf/farm_plot.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "forest",
-   "wdh": [
-    1.9,
-    1.4,
-    1.9
-   ],
-   "tris": 2328,
-   "tpu": 468,
-   "mat": 2,
-   "bytes": 57260,
-   "file": "objects/gltf/forest.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "house",
-   "kind": "str-building-dwelling",
-   "wdh": [
-    1.7,
-    0.9,
-    1.7
-   ],
-   "tris": 1666,
-   "tpu": 652,
-   "mat": 5,
-   "bytes": 49044,
-   "file": "objects/gltf/house.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "lumbermill",
-   "kind": "str-building-mill",
-   "wdh": [
-    1.8,
-    1.5,
-    1.7
-   ],
-   "tris": 1698,
-   "tpu": 382,
-   "mat": 5,
-   "bytes": 57896,
-   "file": "objects/gltf/lumbermill.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "market",
-   "wdh": [
-    1.5,
-    0.9,
-    1.7
-   ],
-   "tris": 1924,
-   "tpu": 905,
-   "mat": 5,
-   "bytes": 76020,
-   "file": "objects/gltf/market.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "mill",
-   "kind": "str-building-mill",
-   "wdh": [
-    1.7,
-    2,
-    1.7
-   ],
-   "tris": 2270,
-   "tpu": 407,
-   "mat": 7,
-   "bytes": 80092,
-   "file": "objects/gltf/mill.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "mine",
-   "wdh": [
-    1.6,
-    0.8,
-    1.9
-   ],
-   "tris": 1735,
-   "tpu": 688,
-   "mat": 6,
-   "bytes": 57176,
-   "file": "objects/gltf/mine.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "mountain",
-   "kind": "env-terrain-mountain",
-   "wdh": [
-    1.8,
-    1.2,
-    1.9
-   ],
-   "tris": 986,
-   "tpu": 238,
-   "mat": 1,
-   "bytes": 23240,
-   "file": "objects/gltf/mountain.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_corner",
-   "wdh": [
-    1.4,
-    1.2,
-    1.4
-   ],
-   "tris": 456,
-   "tpu": 208,
-   "mat": 1,
-   "bytes": 21724,
-   "file": "objects/gltf/wall_corner.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_gate",
-   "wdh": [
-    2,
-    1.2,
-    0.5
-   ],
-   "tris": 972,
-   "tpu": 602,
-   "mat": 2,
-   "bytes": 45660,
-   "file": "objects/gltf/wall_gate.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_gate_closed",
-   "wdh": [
-    2,
-    1.2,
-    0.5
-   ],
-   "tris": 996,
-   "tpu": 617,
-   "mat": 3,
-   "bytes": 47756,
-   "file": "objects/gltf/wall_gate_closed.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_hexCornerA",
-   "wdh": [
-    1.6,
-    1.2,
-    1.3
-   ],
-   "tris": 482,
-   "tpu": 207,
-   "mat": 1,
-   "bytes": 22512,
-   "file": "objects/gltf/wall_hexCornerA.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_hexCornerB",
-   "wdh": [
-    1.4,
-    1.2,
-    1.3
-   ],
-   "tris": 350,
-   "tpu": 174,
-   "mat": 1,
-   "bytes": 18120,
-   "file": "objects/gltf/wall_hexCornerB.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "wall_straight",
-   "wdh": [
-    2,
-    1.2,
-    0.5
-   ],
-   "tris": 478,
-   "tpu": 296,
-   "mat": 1,
-   "bytes": 22340,
-   "file": "objects/gltf/wall_straight.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "watchtower",
-   "kind": "str-building-tower",
-   "wdh": [
-    1,
-    2,
-    1.7
-   ],
-   "tris": 1871,
-   "tpu": 569,
-   "mat": 4,
-   "bytes": 51636,
-   "file": "objects/gltf/watchtower.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "watermill",
-   "kind": "str-building-mill",
-   "wdh": [
-    1.5,
-    1.6,
-    1.4
-   ],
-   "tris": 1605,
-   "tpu": 461,
-   "mat": 5,
-   "bytes": 65064,
-   "file": "objects/gltf/watermill.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Medieval_Builder_Pack_1.0",
-   "name": "well",
-   "kind": "str-building-well",
-   "wdh": [
-    1,
-    0.7,
-    1
-   ],
-   "tris": 1252,
-   "tpu": 1640,
-   "mat": 6,
-   "bytes": 40888,
-   "file": "objects/gltf/well.gltf.glb"
   },
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
@@ -39147,6 +38728,7 @@
    "tpu": 12,
    "mat": 1,
    "bytes": 2676,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest.gltf.glb"
   },
   {
@@ -39161,6 +38743,7 @@
    "tpu": 20,
    "mat": 2,
    "bytes": 4788,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_detail.gltf.glb"
   },
   {
@@ -39175,6 +38758,7 @@
    "tpu": 62,
    "mat": 2,
    "bytes": 8352,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadA.gltf.glb"
   },
   {
@@ -39189,6 +38773,7 @@
    "tpu": 70,
    "mat": 3,
    "bytes": 10476,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadA_detail.gltf.glb"
   },
   {
@@ -39203,6 +38788,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6804,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadB.gltf.glb"
   },
   {
@@ -39217,6 +38803,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8964,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadB_detail.gltf.glb"
   },
   {
@@ -39231,6 +38818,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6768,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadC.gltf.glb"
   },
   {
@@ -39245,6 +38833,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8924,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadC_detail.gltf.glb"
   },
   {
@@ -39259,6 +38848,7 @@
    "tpu": 48,
    "mat": 2,
    "bytes": 7176,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadD.gltf.glb"
   },
   {
@@ -39273,6 +38863,7 @@
    "tpu": 56,
    "mat": 3,
    "bytes": 9336,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadD_detail.gltf.glb"
   },
   {
@@ -39287,6 +38878,7 @@
    "tpu": 64,
    "mat": 2,
    "bytes": 8912,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadE.gltf.glb"
   },
   {
@@ -39301,6 +38893,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 11068,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadE_detail.gltf.glb"
   },
   {
@@ -39315,6 +38908,7 @@
    "tpu": 69,
    "mat": 2,
    "bytes": 9320,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadF.gltf.glb"
   },
   {
@@ -39329,6 +38923,7 @@
    "tpu": 77,
    "mat": 3,
    "bytes": 11476,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadF_detail.gltf.glb"
   },
   {
@@ -39343,6 +38938,7 @@
    "tpu": 63,
    "mat": 2,
    "bytes": 8752,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadG.gltf.glb"
   },
   {
@@ -39357,6 +38953,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 10912,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadG_detail.gltf.glb"
   },
   {
@@ -39371,6 +38968,7 @@
    "tpu": 72,
    "mat": 2,
    "bytes": 9796,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadH.gltf.glb"
   },
   {
@@ -39385,6 +38983,7 @@
    "tpu": 80,
    "mat": 3,
    "bytes": 11920,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadH_detail.gltf.glb"
   },
   {
@@ -39399,6 +38998,7 @@
    "tpu": 83,
    "mat": 2,
    "bytes": 11056,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadI.gltf.glb"
   },
   {
@@ -39413,6 +39013,7 @@
    "tpu": 91,
    "mat": 3,
    "bytes": 13212,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadI_detail.gltf.glb"
   },
   {
@@ -39427,6 +39028,7 @@
    "tpu": 87,
    "mat": 2,
    "bytes": 11412,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadJ.gltf.glb"
   },
   {
@@ -39441,6 +39043,7 @@
    "tpu": 95,
    "mat": 3,
    "bytes": 13572,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadJ_detail.gltf.glb"
   },
   {
@@ -39455,6 +39058,7 @@
    "tpu": 96,
    "mat": 2,
    "bytes": 12332,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadK.gltf.glb"
   },
   {
@@ -39469,6 +39073,7 @@
    "tpu": 104,
    "mat": 3,
    "bytes": 14492,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadK_detail.gltf.glb"
   },
   {
@@ -39483,6 +39088,7 @@
    "tpu": 132,
    "mat": 2,
    "bytes": 15984,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadL.gltf.glb"
   },
   {
@@ -39497,6 +39103,7 @@
    "tpu": 140,
    "mat": 3,
    "bytes": 18112,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadL_detail.gltf.glb"
   },
   {
@@ -39511,6 +39118,7 @@
    "tpu": 136,
    "mat": 2,
    "bytes": 16436,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadM.gltf.glb"
   },
   {
@@ -39525,6 +39133,7 @@
    "tpu": 144,
    "mat": 3,
    "bytes": 18596,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_roadM_detail.gltf.glb"
   },
   {
@@ -39539,6 +39148,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8556,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_transitionA.gltf.glb"
   },
   {
@@ -39553,6 +39163,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8504,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_transitionB.gltf.glb"
   },
   {
@@ -39568,6 +39179,7 @@
    "tpu": 17,
    "mat": 2,
    "bytes": 4176,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterA.gltf.glb"
   },
   {
@@ -39583,6 +39195,7 @@
    "tpu": 26,
    "mat": 3,
    "bytes": 6336,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterA_detail.gltf.glb"
   },
   {
@@ -39598,6 +39211,7 @@
    "tpu": 32,
    "mat": 1,
    "bytes": 2492,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterA_empty.gltf.glb"
   },
   {
@@ -39613,6 +39227,7 @@
    "tpu": 12,
    "mat": 2,
    "bytes": 3696,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterB.gltf.glb"
   },
   {
@@ -39628,6 +39243,7 @@
    "tpu": 21,
    "mat": 3,
    "bytes": 6576,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterB_detail.gltf.glb"
   },
   {
@@ -39643,6 +39259,7 @@
    "tpu": 19,
    "mat": 1,
    "bytes": 2440,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterB_empty.gltf.glb"
   },
   {
@@ -39658,6 +39275,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6452,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterC.gltf.glb"
   },
   {
@@ -39673,6 +39291,7 @@
    "tpu": 49,
    "mat": 3,
    "bytes": 8664,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterC_detail.gltf.glb"
   },
   {
@@ -39688,6 +39307,7 @@
    "tpu": 58,
    "mat": 1,
    "bytes": 4280,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterC_empty.gltf.glb"
   },
   {
@@ -39703,6 +39323,7 @@
    "tpu": 24,
    "mat": 2,
    "bytes": 4876,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterD.gltf.glb"
   },
   {
@@ -39718,6 +39339,7 @@
    "tpu": 33,
    "mat": 3,
    "bytes": 7148,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterD_detail.gltf.glb"
   },
   {
@@ -39733,6 +39355,7 @@
    "tpu": 21,
    "mat": 1,
    "bytes": 3596,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_forest_waterD_empty.gltf.glb"
   },
   {
@@ -39748,6 +39371,7 @@
    "tpu": 12,
    "mat": 1,
    "bytes": 2672,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock.gltf.glb"
   },
   {
@@ -39763,6 +39387,7 @@
    "tpu": 20,
    "mat": 2,
    "bytes": 4780,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_detail.gltf.glb"
   },
   {
@@ -39778,6 +39403,7 @@
    "tpu": 62,
    "mat": 2,
    "bytes": 8348,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadA.gltf.glb"
   },
   {
@@ -39793,6 +39419,7 @@
    "tpu": 70,
    "mat": 3,
    "bytes": 10468,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadA_detail.gltf.glb"
   },
   {
@@ -39808,6 +39435,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6800,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadB.gltf.glb"
   },
   {
@@ -39823,6 +39451,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8956,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadB_detail.gltf.glb"
   },
   {
@@ -39838,6 +39467,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6760,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadC.gltf.glb"
   },
   {
@@ -39853,6 +39483,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8916,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadC_detail.gltf.glb"
   },
   {
@@ -39868,6 +39499,7 @@
    "tpu": 48,
    "mat": 2,
    "bytes": 7172,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadD.gltf.glb"
   },
   {
@@ -39883,6 +39515,7 @@
    "tpu": 56,
    "mat": 3,
    "bytes": 9328,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadD_detail.gltf.glb"
   },
   {
@@ -39898,6 +39531,7 @@
    "tpu": 64,
    "mat": 2,
    "bytes": 8904,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadE.gltf.glb"
   },
   {
@@ -39913,6 +39547,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 11060,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadE_detail.gltf.glb"
   },
   {
@@ -39928,6 +39563,7 @@
    "tpu": 69,
    "mat": 2,
    "bytes": 9312,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadF.gltf.glb"
   },
   {
@@ -39943,6 +39579,7 @@
    "tpu": 77,
    "mat": 3,
    "bytes": 11468,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadF_detail.gltf.glb"
   },
   {
@@ -39958,6 +39595,7 @@
    "tpu": 63,
    "mat": 2,
    "bytes": 8748,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadG.gltf.glb"
   },
   {
@@ -39973,6 +39611,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 10904,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadG_detail.gltf.glb"
   },
   {
@@ -39988,6 +39627,7 @@
    "tpu": 72,
    "mat": 2,
    "bytes": 9788,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadH.gltf.glb"
   },
   {
@@ -40003,6 +39643,7 @@
    "tpu": 80,
    "mat": 3,
    "bytes": 11912,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadH_detail.gltf.glb"
   },
   {
@@ -40018,6 +39659,7 @@
    "tpu": 83,
    "mat": 2,
    "bytes": 11048,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadI.gltf.glb"
   },
   {
@@ -40033,6 +39675,7 @@
    "tpu": 91,
    "mat": 3,
    "bytes": 13204,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadI_detail.gltf.glb"
   },
   {
@@ -40048,6 +39691,7 @@
    "tpu": 87,
    "mat": 2,
    "bytes": 11408,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadJ.gltf.glb"
   },
   {
@@ -40063,6 +39707,7 @@
    "tpu": 95,
    "mat": 3,
    "bytes": 13564,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadJ_detail.gltf.glb"
   },
   {
@@ -40078,6 +39723,7 @@
    "tpu": 96,
    "mat": 2,
    "bytes": 12324,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadK.gltf.glb"
   },
   {
@@ -40093,6 +39739,7 @@
    "tpu": 104,
    "mat": 3,
    "bytes": 14484,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadK_detail.gltf.glb"
   },
   {
@@ -40108,6 +39755,7 @@
    "tpu": 132,
    "mat": 2,
    "bytes": 15980,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadL.gltf.glb"
   },
   {
@@ -40123,6 +39771,7 @@
    "tpu": 140,
    "mat": 3,
    "bytes": 18104,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadL_detail.gltf.glb"
   },
   {
@@ -40138,6 +39787,7 @@
    "tpu": 136,
    "mat": 2,
    "bytes": 16428,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadM.gltf.glb"
   },
   {
@@ -40153,6 +39803,7 @@
    "tpu": 144,
    "mat": 3,
    "bytes": 18588,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_roadM_detail.gltf.glb"
   },
   {
@@ -40168,6 +39819,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8548,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_transitionA.gltf.glb"
   },
   {
@@ -40183,6 +39835,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8496,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_transitionB.gltf.glb"
   },
   {
@@ -40197,6 +39850,7 @@
    "tpu": 17,
    "mat": 2,
    "bytes": 4168,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterA.gltf.glb"
   },
   {
@@ -40211,6 +39865,7 @@
    "tpu": 26,
    "mat": 3,
    "bytes": 6328,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterA_detail.gltf.glb"
   },
   {
@@ -40225,6 +39880,7 @@
    "tpu": 32,
    "mat": 1,
    "bytes": 2488,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterA_empty.gltf.glb"
   },
   {
@@ -40239,6 +39895,7 @@
    "tpu": 12,
    "mat": 2,
    "bytes": 3688,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterB.gltf.glb"
   },
   {
@@ -40253,6 +39910,7 @@
    "tpu": 21,
    "mat": 3,
    "bytes": 6568,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterB_detail.gltf.glb"
   },
   {
@@ -40267,6 +39925,7 @@
    "tpu": 19,
    "mat": 1,
    "bytes": 2436,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterB_empty.gltf.glb"
   },
   {
@@ -40281,6 +39940,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6444,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterC.gltf.glb"
   },
   {
@@ -40295,6 +39955,7 @@
    "tpu": 49,
    "mat": 3,
    "bytes": 8656,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterC_detail.gltf.glb"
   },
   {
@@ -40309,6 +39970,7 @@
    "tpu": 58,
    "mat": 1,
    "bytes": 4276,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterC_empty.gltf.glb"
   },
   {
@@ -40323,6 +39985,7 @@
    "tpu": 24,
    "mat": 2,
    "bytes": 4868,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterD.gltf.glb"
   },
   {
@@ -40337,6 +40000,7 @@
    "tpu": 33,
    "mat": 3,
    "bytes": 7140,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterD_detail.gltf.glb"
   },
   {
@@ -40351,6 +40015,7 @@
    "tpu": 21,
    "mat": 1,
    "bytes": 3592,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_rock_waterD_empty.gltf.glb"
   },
   {
@@ -40366,6 +40031,7 @@
    "tpu": 12,
    "mat": 1,
    "bytes": 2672,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand.gltf.glb"
   },
   {
@@ -40381,6 +40047,7 @@
    "tpu": 20,
    "mat": 2,
    "bytes": 4780,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_detail.gltf.glb"
   },
   {
@@ -40396,6 +40063,7 @@
    "tpu": 62,
    "mat": 2,
    "bytes": 8348,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadA.gltf.glb"
   },
   {
@@ -40411,6 +40079,7 @@
    "tpu": 70,
    "mat": 3,
    "bytes": 10468,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadA_detail.gltf.glb"
   },
   {
@@ -40426,6 +40095,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6800,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadB.gltf.glb"
   },
   {
@@ -40441,6 +40111,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8956,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadB_detail.gltf.glb"
   },
   {
@@ -40456,6 +40127,7 @@
    "tpu": 44,
    "mat": 2,
    "bytes": 6760,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadC.gltf.glb"
   },
   {
@@ -40471,6 +40143,7 @@
    "tpu": 52,
    "mat": 3,
    "bytes": 8916,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadC_detail.gltf.glb"
   },
   {
@@ -40486,6 +40159,7 @@
    "tpu": 48,
    "mat": 2,
    "bytes": 7172,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadD.gltf.glb"
   },
   {
@@ -40501,6 +40175,7 @@
    "tpu": 56,
    "mat": 3,
    "bytes": 9328,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadD_detail.gltf.glb"
   },
   {
@@ -40516,6 +40191,7 @@
    "tpu": 64,
    "mat": 2,
    "bytes": 8904,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadE.gltf.glb"
   },
   {
@@ -40531,6 +40207,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 11060,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadE_detail.gltf.glb"
   },
   {
@@ -40546,6 +40223,7 @@
    "tpu": 69,
    "mat": 2,
    "bytes": 9312,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadF.gltf.glb"
   },
   {
@@ -40561,6 +40239,7 @@
    "tpu": 77,
    "mat": 3,
    "bytes": 11468,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadF_detail.gltf.glb"
   },
   {
@@ -40576,6 +40255,7 @@
    "tpu": 63,
    "mat": 2,
    "bytes": 8748,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadG.gltf.glb"
   },
   {
@@ -40591,6 +40271,7 @@
    "tpu": 71,
    "mat": 3,
    "bytes": 10904,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadG_detail.gltf.glb"
   },
   {
@@ -40606,6 +40287,7 @@
    "tpu": 72,
    "mat": 2,
    "bytes": 9788,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadH.gltf.glb"
   },
   {
@@ -40621,6 +40303,7 @@
    "tpu": 80,
    "mat": 3,
    "bytes": 11912,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadH_detail.gltf.glb"
   },
   {
@@ -40636,6 +40319,7 @@
    "tpu": 83,
    "mat": 2,
    "bytes": 11048,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadI.gltf.glb"
   },
   {
@@ -40651,6 +40335,7 @@
    "tpu": 91,
    "mat": 3,
    "bytes": 13204,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadI_detail.gltf.glb"
   },
   {
@@ -40666,6 +40351,7 @@
    "tpu": 87,
    "mat": 2,
    "bytes": 11408,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadJ.gltf.glb"
   },
   {
@@ -40681,6 +40367,7 @@
    "tpu": 95,
    "mat": 3,
    "bytes": 13564,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadJ_detail.gltf.glb"
   },
   {
@@ -40696,6 +40383,7 @@
    "tpu": 96,
    "mat": 2,
    "bytes": 12324,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadK.gltf.glb"
   },
   {
@@ -40711,6 +40399,7 @@
    "tpu": 104,
    "mat": 3,
    "bytes": 14484,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadK_detail.gltf.glb"
   },
   {
@@ -40726,6 +40415,7 @@
    "tpu": 132,
    "mat": 2,
    "bytes": 15980,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadL.gltf.glb"
   },
   {
@@ -40741,6 +40431,7 @@
    "tpu": 140,
    "mat": 3,
    "bytes": 18104,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadL_detail.gltf.glb"
   },
   {
@@ -40756,6 +40447,7 @@
    "tpu": 136,
    "mat": 2,
    "bytes": 16428,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadM.gltf.glb"
   },
   {
@@ -40771,6 +40463,7 @@
    "tpu": 144,
    "mat": 3,
    "bytes": 18588,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_roadM_detail.gltf.glb"
   },
   {
@@ -40786,6 +40479,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8548,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_transitionA.gltf.glb"
   },
   {
@@ -40801,6 +40495,7 @@
    "tpu": 42,
    "mat": 3,
    "bytes": 8548,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_transitionB.gltf.glb"
   },
   {
@@ -40815,6 +40510,7 @@
    "tpu": 17,
    "mat": 2,
    "bytes": 4168,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterA.gltf.glb"
   },
   {
@@ -40829,6 +40525,7 @@
    "tpu": 26,
    "mat": 3,
    "bytes": 6328,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterA_detail.gltf.glb"
   },
   {
@@ -40843,6 +40540,7 @@
    "tpu": 32,
    "mat": 1,
    "bytes": 2484,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterA_empty.gltf.glb"
   },
   {
@@ -40857,6 +40555,7 @@
    "tpu": 12,
    "mat": 2,
    "bytes": 3688,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterB.gltf.glb"
   },
   {
@@ -40871,6 +40570,7 @@
    "tpu": 21,
    "mat": 3,
    "bytes": 6568,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterB_detail.gltf.glb"
   },
   {
@@ -40885,6 +40585,7 @@
    "tpu": 19,
    "mat": 1,
    "bytes": 2436,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterB_empty.gltf.glb"
   },
   {
@@ -40899,6 +40600,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6444,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterC.gltf.glb"
   },
   {
@@ -40913,6 +40615,7 @@
    "tpu": 49,
    "mat": 3,
    "bytes": 8656,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterC_detail.gltf.glb"
   },
   {
@@ -40927,6 +40630,7 @@
    "tpu": 58,
    "mat": 1,
    "bytes": 4276,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterC_empty.gltf.glb"
   },
   {
@@ -40941,6 +40645,7 @@
    "tpu": 24,
    "mat": 2,
    "bytes": 4868,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterD.gltf.glb"
   },
   {
@@ -40955,6 +40660,7 @@
    "tpu": 33,
    "mat": 3,
    "bytes": 7140,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterD_detail.gltf.glb"
   },
   {
@@ -40969,6 +40675,7 @@
    "tpu": 21,
    "mat": 1,
    "bytes": 3592,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_sand_waterD_empty.gltf.glb"
   },
   {
@@ -40984,6 +40691,7 @@
    "tpu": 12,
    "mat": 1,
    "bytes": 2676,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_water.gltf.glb"
   },
   {
@@ -40999,6 +40707,7 @@
    "tpu": 15,
    "mat": 2,
    "bytes": 4932,
+   "scaled": true,
    "file": "tiles/hex/gltf/hex_water_detail.gltf.glb"
   },
   {
@@ -41013,6 +40722,7 @@
    "tpu": 3,
    "mat": 1,
    "bytes": 1676,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest.gltf.glb"
   },
   {
@@ -41027,6 +40737,7 @@
    "tpu": 9,
    "mat": 2,
    "bytes": 3300,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_detail.gltf.glb"
   },
   {
@@ -41041,6 +40752,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6084,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadA.gltf.glb"
   },
   {
@@ -41055,6 +40767,7 @@
    "tpu": 50,
    "mat": 3,
    "bytes": 8248,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadA_detail.gltf.glb"
   },
   {
@@ -41069,6 +40782,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3956,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadB.gltf.glb"
   },
   {
@@ -41083,6 +40797,7 @@
    "tpu": 23,
    "mat": 3,
    "bytes": 5856,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadB_detail.gltf.glb"
   },
   {
@@ -41097,6 +40812,7 @@
    "tpu": 43,
    "mat": 2,
    "bytes": 6780,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadC.gltf.glb"
   },
   {
@@ -41111,6 +40827,7 @@
    "tpu": 55,
    "mat": 3,
    "bytes": 8980,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadC_detail.gltf.glb"
   },
   {
@@ -41125,6 +40842,7 @@
    "tpu": 46,
    "mat": 2,
    "bytes": 7264,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadD.gltf.glb"
   },
   {
@@ -41139,6 +40857,7 @@
    "tpu": 58,
    "mat": 3,
    "bytes": 9496,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadD_detail.gltf.glb"
   },
   {
@@ -41153,6 +40872,7 @@
    "tpu": 70,
    "mat": 2,
    "bytes": 9584,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadE.gltf.glb"
   },
   {
@@ -41167,6 +40887,7 @@
    "tpu": 82,
    "mat": 3,
    "bytes": 11768,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_roadE_detail.gltf.glb"
   },
   {
@@ -41181,6 +40902,7 @@
    "tpu": 37,
    "mat": 3,
    "bytes": 7408,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterInnerCorner.gltf.glb"
   },
   {
@@ -41195,6 +40917,7 @@
    "tpu": 34,
    "mat": 2,
    "bytes": 6244,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterInnerCorner_empty.gltf.glb"
   },
   {
@@ -41209,6 +40932,7 @@
    "tpu": 35,
    "mat": 3,
    "bytes": 7096,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterInnerCorner_noSides.gltf.glb"
   },
   {
@@ -41223,6 +40947,7 @@
    "tpu": 38,
    "mat": 3,
    "bytes": 7684,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterOuterCorner.gltf.glb"
   },
   {
@@ -41237,6 +40962,7 @@
    "tpu": 31,
    "mat": 2,
    "bytes": 5852,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterOuterCorner_empty.gltf.glb"
   },
   {
@@ -41251,6 +40977,7 @@
    "tpu": 32,
    "mat": 3,
    "bytes": 6860,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterOuterCorner_noSides.gltf.glb"
   },
   {
@@ -41266,6 +40993,7 @@
    "tpu": 18,
    "mat": 3,
    "bytes": 5300,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterStraight.gltf.glb"
   },
   {
@@ -41281,6 +41009,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3972,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterStraight_empty.gltf.glb"
   },
   {
@@ -41296,6 +41025,7 @@
    "tpu": 15,
    "mat": 3,
    "bytes": 4820,
+   "scaled": true,
    "file": "tiles/square/gltf/square_forest_waterStraight_noSides.gltf.glb"
   },
   {
@@ -41311,6 +41041,7 @@
    "tpu": 3,
    "mat": 1,
    "bytes": 1672,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock.gltf.glb"
   },
   {
@@ -41326,6 +41057,7 @@
    "tpu": 9,
    "mat": 2,
    "bytes": 3296,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_detail.gltf.glb"
   },
   {
@@ -41341,6 +41073,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6080,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadA.gltf.glb"
   },
   {
@@ -41356,6 +41089,7 @@
    "tpu": 50,
    "mat": 3,
    "bytes": 8240,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadA_detail.gltf.glb"
   },
   {
@@ -41371,6 +41105,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3952,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadB.gltf.glb"
   },
   {
@@ -41386,6 +41121,7 @@
    "tpu": 23,
    "mat": 3,
    "bytes": 5848,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadB_detail.gltf.glb"
   },
   {
@@ -41401,6 +41137,7 @@
    "tpu": 43,
    "mat": 2,
    "bytes": 6776,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadC.gltf.glb"
   },
   {
@@ -41416,6 +41153,7 @@
    "tpu": 55,
    "mat": 3,
    "bytes": 8972,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadC_detail.gltf.glb"
   },
   {
@@ -41431,6 +41169,7 @@
    "tpu": 46,
    "mat": 2,
    "bytes": 7260,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadD.gltf.glb"
   },
   {
@@ -41446,6 +41185,7 @@
    "tpu": 58,
    "mat": 3,
    "bytes": 9488,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadD_detail.gltf.glb"
   },
   {
@@ -41461,6 +41201,7 @@
    "tpu": 70,
    "mat": 2,
    "bytes": 9580,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadE.gltf.glb"
   },
   {
@@ -41476,6 +41217,7 @@
    "tpu": 82,
    "mat": 3,
    "bytes": 11760,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_roadE_detail.gltf.glb"
   },
   {
@@ -41490,6 +41232,7 @@
    "tpu": 37,
    "mat": 3,
    "bytes": 7400,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterInnerCorner.gltf.glb"
   },
   {
@@ -41504,6 +41247,7 @@
    "tpu": 34,
    "mat": 2,
    "bytes": 6236,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterInnerCorner_empty.gltf.glb"
   },
   {
@@ -41518,6 +41262,7 @@
    "tpu": 35,
    "mat": 3,
    "bytes": 7088,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterInnerCorner_noSides.gltf.glb"
   },
   {
@@ -41532,6 +41277,7 @@
    "tpu": 38,
    "mat": 3,
    "bytes": 7676,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterOuterCorner.gltf.glb"
   },
   {
@@ -41546,6 +41292,7 @@
    "tpu": 31,
    "mat": 2,
    "bytes": 5848,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterOuterCorner_empty.gltf.glb"
   },
   {
@@ -41560,6 +41307,7 @@
    "tpu": 32,
    "mat": 3,
    "bytes": 6852,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterOuterCorner_noSides.gltf.glb"
   },
   {
@@ -41574,6 +41322,7 @@
    "tpu": 18,
    "mat": 3,
    "bytes": 5292,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterStraight.gltf.glb"
   },
   {
@@ -41588,6 +41337,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3964,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterStraight_empty.gltf.glb"
   },
   {
@@ -41602,6 +41352,7 @@
    "tpu": 15,
    "mat": 3,
    "bytes": 4812,
+   "scaled": true,
    "file": "tiles/square/gltf/square_rock_waterStraight_noSides.gltf.glb"
   },
   {
@@ -41617,6 +41368,7 @@
    "tpu": 3,
    "mat": 1,
    "bytes": 1672,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand.gltf.glb"
   },
   {
@@ -41632,6 +41384,7 @@
    "tpu": 9,
    "mat": 2,
    "bytes": 3296,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_detail.gltf.glb"
   },
   {
@@ -41647,6 +41400,7 @@
    "tpu": 38,
    "mat": 2,
    "bytes": 6080,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadA.gltf.glb"
   },
   {
@@ -41662,6 +41416,7 @@
    "tpu": 50,
    "mat": 3,
    "bytes": 8240,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadA_detail.gltf.glb"
   },
   {
@@ -41677,6 +41432,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3952,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadB.gltf.glb"
   },
   {
@@ -41692,6 +41448,7 @@
    "tpu": 23,
    "mat": 3,
    "bytes": 5848,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadB_detail.gltf.glb"
   },
   {
@@ -41707,6 +41464,7 @@
    "tpu": 43,
    "mat": 2,
    "bytes": 6776,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadC.gltf.glb"
   },
   {
@@ -41722,6 +41480,7 @@
    "tpu": 55,
    "mat": 3,
    "bytes": 8972,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadC_detail.gltf.glb"
   },
   {
@@ -41737,6 +41496,7 @@
    "tpu": 46,
    "mat": 2,
    "bytes": 7260,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadD.gltf.glb"
   },
   {
@@ -41752,6 +41512,7 @@
    "tpu": 58,
    "mat": 3,
    "bytes": 9488,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadD_detail.gltf.glb"
   },
   {
@@ -41767,6 +41528,7 @@
    "tpu": 70,
    "mat": 2,
    "bytes": 9580,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadE.gltf.glb"
   },
   {
@@ -41782,6 +41544,7 @@
    "tpu": 82,
    "mat": 3,
    "bytes": 11760,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_roadE_detail.gltf.glb"
   },
   {
@@ -41796,6 +41559,7 @@
    "tpu": 37,
    "mat": 3,
    "bytes": 7400,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterInnerCorner.gltf.glb"
   },
   {
@@ -41810,6 +41574,7 @@
    "tpu": 34,
    "mat": 2,
    "bytes": 6236,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterInnerCorner_empty.gltf.glb"
   },
   {
@@ -41824,6 +41589,7 @@
    "tpu": 35,
    "mat": 3,
    "bytes": 7084,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterInnerCorner_noSides.gltf.glb"
   },
   {
@@ -41838,6 +41604,7 @@
    "tpu": 38,
    "mat": 3,
    "bytes": 7672,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterOuterCorner.gltf.glb"
   },
   {
@@ -41852,6 +41619,7 @@
    "tpu": 31,
    "mat": 2,
    "bytes": 5848,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterOuterCorner_empty.gltf.glb"
   },
   {
@@ -41866,6 +41634,7 @@
    "tpu": 32,
    "mat": 3,
    "bytes": 6852,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterOuterCorner_noSides.gltf.glb"
   },
   {
@@ -41880,6 +41649,7 @@
    "tpu": 18,
    "mat": 3,
    "bytes": 5292,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterStraight.gltf.glb"
   },
   {
@@ -41894,6 +41664,7 @@
    "tpu": 14,
    "mat": 2,
    "bytes": 3964,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterStraight_empty.gltf.glb"
   },
   {
@@ -41908,6 +41679,7 @@
    "tpu": 15,
    "mat": 3,
    "bytes": 4812,
+   "scaled": true,
    "file": "tiles/square/gltf/square_sand_waterStraight_noSides.gltf.glb"
   },
   {
@@ -41923,6 +41695,7 @@
    "tpu": 3,
    "mat": 1,
    "bytes": 1676,
+   "scaled": true,
    "file": "tiles/square/gltf/square_water.gltf.glb"
   },
   {
@@ -41938,6 +41711,7 @@
    "tpu": 11,
    "mat": 2,
    "bytes": 3408,
+   "scaled": true,
    "file": "tiles/square/gltf/square_water_detail.gltf.glb"
   },
   {
@@ -41953,6 +41727,7 @@
    "tpu": 10,
    "mat": 1,
    "bytes": 1928,
+   "scaled": true,
    "file": "tiles/square/gltf/square_water_detail_empty.gltf.glb"
   },
   {
@@ -41968,6 +41743,7 @@
    "tpu": 6,
    "mat": 2,
    "bytes": 2764,
+   "scaled": true,
    "file": "tiles/square/gltf/square_water_detail_noSides.gltf.glb"
   },
   {
@@ -41982,94 +41758,23 @@
    "tris": 2,
    "mat": 1,
    "bytes": 1124,
+   "scaled": true,
    "file": "tiles/square/gltf/square_water_empty.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "candleBundle",
-   "kind": "obj-lighting-candle",
-   "wdh": [
-    0.3,
-    1.1,
-    0.3
-   ],
-   "tris": 1134,
-   "tpu": 3306,
-   "mat": 3,
-   "bytes": 29188,
-   "file": "candleBundle.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "candleLarge",
-   "kind": "obj-lighting-candle",
-   "wdh": [
-    0.3,
-    0.8,
-    0.3
-   ],
-   "tris": 330,
-   "tpu": 962,
-   "mat": 3,
-   "bytes": 9612,
-   "file": "candleLarge.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "candleSmall",
-   "kind": "obj-lighting-candle",
-   "wdh": [
-    0.2,
-    0.9,
-    0.2
-   ],
-   "tris": 378,
-   "tpu": 1102,
-   "mat": 3,
-   "bytes": 11440,
-   "file": "candleSmall.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "candyA",
-   "wdh": [
-    1,
-    0.4,
-    0.4
-   ],
-   "tris": 384,
-   "tpu": 1120,
-   "mat": 2,
-   "bytes": 11028,
-   "file": "candyA.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "candyB",
-   "wdh": [
-    1,
-    0.4,
-    0.4
-   ],
-   "tris": 384,
-   "tpu": 1120,
-   "mat": 2,
-   "bytes": 12748,
-   "file": "candyB.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "candyBag",
    "kind": "obj-container-bag",
    "wdh": [
-    1.2,
-    1.4,
-    0.8
+    0.3,
+    0.4,
+    0.2
    ],
    "tris": 1074,
-   "tpu": 862,
+   "tpu": 3131,
    "mat": 6,
-   "bytes": 39484,
+   "bytes": 39508,
+   "scaled": true,
    "file": "candyBag.gltf.glb"
   },
   {
@@ -42077,621 +41782,286 @@
    "name": "candyBucket",
    "kind": "obj-container-bucket",
    "wdh": [
-    1.1,
-    1.4,
-    1.1
+    0.3,
+    0.4,
+    0.3
    ],
    "tris": 1392,
-   "tpu": 829,
+   "tpu": 4058,
    "mat": 6,
-   "bytes": 44260,
+   "bytes": 44284,
+   "scaled": true,
    "file": "candyBucket.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "candyC",
    "wdh": [
-    1,
-    0.4,
-    0.4
+    0.3,
+    0.1,
+    0.1
    ],
    "tris": 384,
    "tpu": 1120,
    "mat": 2,
-   "bytes": 12224,
+   "bytes": 12248,
+   "scaled": true,
    "file": "candyC.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "candyCorn",
    "wdh": [
-    0.6,
-    0.9,
-    0.4
+    0.2,
+    0.3,
+    0.1
    ],
    "tris": 260,
-   "tpu": 710,
+   "tpu": 758,
    "mat": 3,
-   "bytes": 7892,
+   "bytes": 7916,
+   "scaled": true,
    "file": "candyCorn.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "candyD",
    "wdh": [
-    1,
-    0.4,
-    0.4
+    0.3,
+    0.1,
+    0.1
    ],
    "tris": 384,
    "tpu": 1120,
    "mat": 1,
-   "bytes": 9724,
+   "bytes": 9748,
+   "scaled": true,
    "file": "candyD.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "cauldron",
-   "kind": "obj-kitchenware-cookware-pot",
-   "wdh": [
-    1.2,
-    1.1,
-    1.2
-   ],
-   "tris": 2472,
-   "tpu": 1544,
-   "mat": 4,
-   "bytes": 53204,
-   "file": "cauldron.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "coffinA_bottom",
-   "kind": "obj-container",
-   "wdh": [
-    1.5,
-    0.5,
-    2
-   ],
-   "tris": 664,
-   "tpu": 411,
-   "mat": 3,
-   "bytes": 26460,
-   "file": "coffinA_bottom.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "coffinA_top",
-   "kind": "obj-container",
-   "wdh": [
-    1.5,
-    0.4,
-    2
-   ],
-   "tris": 308,
-   "tpu": 299,
-   "mat": 3,
-   "bytes": 13540,
-   "file": "coffinA_top.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "coffinB_bottom",
-   "kind": "obj-container",
-   "wdh": [
-    1.5,
-    0.5,
-    2
-   ],
-   "tris": 664,
-   "tpu": 411,
-   "mat": 3,
-   "bytes": 26392,
-   "file": "coffinB_bottom.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "coffinB_top",
-   "kind": "obj-container",
-   "wdh": [
-    1.5,
-    0.4,
-    2
-   ],
-   "tris": 308,
-   "tpu": 299,
-   "mat": 3,
-   "bytes": 13472,
-   "file": "coffinB_top.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "detailSingle_graveyard",
    "wdh": [
-    0.4,
-    0.4,
-    0.5
+    0.1,
+    0.1,
+    0.2
    ],
    "tris": 294,
    "tpu": 857,
    "mat": 1,
-   "bytes": 9300,
+   "bytes": 9324,
+   "scaled": true,
    "file": "detailSingle_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "detail_graveyard",
-   "wdh": [
-    1.8,
-    0.4,
-    1.9
-   ],
-   "tris": 784,
-   "tpu": 509,
-   "mat": 1,
-   "bytes": 22764,
-   "file": "detail_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "fence",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    2,
-    1.4,
-    0.1
-   ],
-   "tris": 210,
-   "tpu": 107,
-   "mat": 1,
-   "bytes": 9756,
-   "file": "fence.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "fenceCorner",
-   "wdh": [
-    2.4,
-    1.4,
-    2.4
-   ],
-   "tris": 846,
-   "tpu": 105,
-   "mat": 2,
-   "bytes": 42604,
-   "file": "fenceCorner.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "fenceDouble",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    4.4,
-    1.4,
-    0.4
-   ],
-   "tris": 698,
-   "tpu": 162,
-   "mat": 2,
-   "bytes": 33636,
-   "file": "fenceDouble.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "fencePost",
-   "wdh": [
-    0.4,
-    1.4,
-    0.4
-   ],
-   "tris": 142,
-   "tpu": 368,
-   "mat": 1,
-   "bytes": 8868,
-   "file": "fencePost.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "fenceSingle",
-   "kind": "str-barrier-fence",
-   "wdh": [
-    2.4,
-    1.4,
-    0.4
-   ],
-   "tris": 494,
-   "tpu": 210,
-   "mat": 2,
-   "bytes": 25724,
-   "file": "fenceSingle.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "gravestone",
-   "kind": "str-marker-tombstone",
-   "wdh": [
-    1.6,
-    1.7,
-    0.9
-   ],
-   "tris": 986,
-   "tpu": 413,
-   "mat": 1,
-   "bytes": 24708,
-   "file": "gravestone.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "jackolantern_big",
-   "wdh": [
-    1.3,
-    1.1,
-    1.3
-   ],
-   "tris": 1384,
-   "tpu": 740,
-   "mat": 1,
-   "bytes": 36720,
-   "file": "jackolantern_big.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "jackolantern_small",
-   "wdh": [
-    0.9,
-    0.7,
-    0.9
-   ],
-   "tris": 1708,
-   "tpu": 2661,
-   "mat": 1,
-   "bytes": 45056,
-   "file": "jackolantern_small.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "lampPost",
    "wdh": [
-    0.7,
-    3,
-    0.7
+    0.2,
+    0.9,
+    0.2
    ],
    "tris": 348,
-   "tpu": 247,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 18188,
+   "bytes": 18212,
+   "scaled": true,
    "file": "lampPost.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "lollipopA",
    "wdh": [
-    0.7,
-    1.3,
+    0.2,
+    0.4,
     0.1
    ],
    "tris": 540,
-   "tpu": 865,
+   "tpu": 1574,
    "mat": 3,
-   "bytes": 15812,
+   "bytes": 15836,
+   "scaled": true,
    "file": "lollipopA.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "lollipopB",
    "wdh": [
-    0.7,
-    1.3,
+    0.2,
+    0.4,
     0.1
    ],
    "tris": 540,
-   "tpu": 865,
+   "tpu": 1574,
    "mat": 3,
-   "bytes": 15796,
+   "bytes": 15820,
+   "scaled": true,
    "file": "lollipopB.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "pathCobbled",
-   "wdh": [
-    1.7,
-    0.1,
-    1.7
-   ],
-   "tris": 546,
-   "tpu": 652,
-   "mat": 1,
-   "bytes": 12448,
-   "file": "pathCobbled.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "pathDirt",
    "wdh": [
-    1.6,
+    0.5,
     0.1,
-    1.7
-   ],
-   "tris": 546,
-   "tpu": 663,
-   "mat": 1,
-   "bytes": 12440,
-   "file": "pathDirt.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "pumpkinLarge",
-   "kind": "obj-food-vegetable",
-   "wdh": [
-    1,
-    0.8,
-    1
-   ],
-   "tris": 1056,
-   "tpu": 1479,
-   "mat": 2,
-   "bytes": 25696,
-   "file": "pumpkinLarge.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "pumpkinSmall",
-   "kind": "obj-food-vegetable",
-   "wdh": [
-    0.5,
-    0.5,
     0.5
    ],
-   "tris": 926,
-   "tpu": 2700,
-   "mat": 2,
-   "bytes": 22164,
-   "file": "pumpkinSmall.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "shrine",
-   "kind": "str",
-   "wdh": [
-    1.1,
-    2.3,
-    1.1
-   ],
-   "tris": 268,
-   "tpu": 98,
+   "tris": 546,
+   "tpu": 1592,
    "mat": 1,
-   "bytes": 13096,
-   "file": "shrine.gltf.glb"
+   "bytes": 12464,
+   "scaled": true,
+   "file": "pathDirt.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tile2x2_graveyard",
    "wdh": [
-    4,
-    1,
-    4
+    1.2,
+    0.3,
+    1.2
    ],
    "tris": 348,
-   "tpu": 22,
+   "tpu": 592,
    "mat": 2,
-   "bytes": 8552,
+   "bytes": 8576,
+   "scaled": true,
    "file": "tile2x2_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileHigh_graveyard",
    "wdh": [
-    2,
-    2,
-    2
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
-   "tpu": 43,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8552,
+   "bytes": 8576,
+   "scaled": true,
    "file": "tileHigh_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileLarge_graveyard",
    "wdh": [
-    6,
-    1,
-    6
+    1.8,
+    0.3,
+    1.8
    ],
    "tris": 348,
-   "tpu": 10,
+   "tpu": 358,
    "mat": 2,
-   "bytes": 8428,
+   "bytes": 8452,
+   "scaled": true,
    "file": "tileLarge_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileLow_graveyard",
    "wdh": [
-    2,
-    1,
-    2
+    0.6,
+    0.3,
+    0.6
    ],
    "tris": 348,
-   "tpu": 87,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8552,
+   "bytes": 8576,
+   "scaled": true,
    "file": "tileLow_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileMedium_graveyard",
    "wdh": [
-    2,
-    1.5,
-    2
+    0.6,
+    0.5,
+    0.6
    ],
    "tris": 348,
-   "tpu": 58,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8556,
+   "bytes": 8580,
+   "scaled": true,
    "file": "tileMedium_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeLowHigh_graveyard",
    "wdh": [
-    2,
-    2,
-    2
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
-   "tpu": 43,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8624,
+   "bytes": 8648,
+   "scaled": true,
    "file": "tileSlopeLowHigh_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeLowMedium_graveyard",
    "wdh": [
-    2,
-    1.5,
-    2
+    0.6,
+    0.5,
+    0.6
    ],
    "tris": 348,
-   "tpu": 58,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8584,
+   "bytes": 8608,
+   "scaled": true,
    "file": "tileSlopeLowMedium_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeMediumHigh_graveyard",
    "wdh": [
-    2,
-    2,
-    2
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 348,
-   "tpu": 43,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8584,
+   "bytes": 8608,
+   "scaled": true,
    "file": "tileSlopeMediumHigh_graveyard.gltf.glb"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSmall_graveyard",
    "wdh": [
-    1,
-    1,
-    1
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 348,
-   "tpu": 348,
+   "tpu": 1015,
    "mat": 2,
-   "bytes": 8444,
+   "bytes": 8468,
+   "scaled": true,
    "file": "tileSmall_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "treeA_graveyard",
-   "kind": "env-flora-tree",
-   "wdh": [
-    1.7,
-    3.1,
-    1
-   ],
-   "tris": 302,
-   "tpu": 57,
-   "mat": 1,
-   "bytes": 9404,
-   "file": "treeA_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "treeB_graveyard",
-   "kind": "env-flora-tree",
-   "wdh": [
-    1.5,
-    2.9,
-    1
-   ],
-   "tris": 216,
-   "tpu": 51,
-   "mat": 1,
-   "bytes": 6776,
-   "file": "treeB_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "treeC_graveyard",
-   "kind": "env-flora-tree",
-   "wdh": [
-    1.4,
-    2.7,
-    1.5
-   ],
-   "tris": 302,
-   "tpu": 53,
-   "mat": 1,
-   "bytes": 9332,
-   "file": "treeC_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "treeD_graveyard",
-   "kind": "env-flora-tree",
-   "wdh": [
-    1.8,
-    3,
-    0.8
-   ],
-   "tris": 280,
-   "tpu": 69,
-   "mat": 1,
-   "bytes": 8600,
-   "file": "treeD_graveyard.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
-   "name": "character_jack",
-   "wdh": [
-    1.3,
-    2,
-    1.3
-   ],
-   "tris": 4130,
-   "tpu": 1204,
-   "mat": 9,
-   "bytes": 83696,
-   "file": "Jack/gltf/character_jack.gltf"
   },
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "character_witch",
    "wdh": [
-    1.2,
-    2.2,
-    1.4
+    0.4,
+    0.7,
+    0.4
    ],
    "tris": 4358,
-   "tpu": 1131,
+   "tpu": 12706,
    "mat": 14,
-   "bytes": 95448,
-   "file": "Witch/gltf/character_witch.gltf"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "arrow_teamBlue",
-   "kind": "obj-weapon-ranged-accessory",
-   "wdh": [
-    0.1,
-    0.4,
-    0.1
-   ],
-   "tris": 166,
-   "tpu": 484,
-   "mat": 3,
-   "bytes": 7708,
+   "bytes": 95472,
    "scaled": true,
-   "file": "arrow_teamBlue.gltf.glb"
+   "file": "Witch/gltf/character_witch.gltf"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -42969,22 +42339,6 @@
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "bow_teamBlue",
-   "kind": "obj-weapon-ranged-bow",
-   "wdh": [
-    0.5,
-    0.2,
-    0.1
-   ],
-   "tris": 1336,
-   "tpu": 3895,
-   "mat": 3,
-   "bytes": 27764,
-   "scaled": true,
-   "file": "bow_teamBlue.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bow_teamRed",
    "kind": "obj-weapon-ranged-bow",
    "wdh": [
@@ -43122,21 +42476,6 @@
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "detail_forest",
-   "wdh": [
-    0.5,
-    0.1,
-    0.5
-   ],
-   "tris": 2840,
-   "tpu": 8280,
-   "mat": 2,
-   "bytes": 64652,
-   "scaled": true,
-   "file": "detail_forest.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "diamond_teamBlue",
    "wdh": [
     0.3,
@@ -43179,22 +42518,6 @@
    "bytes": 8304,
    "scaled": true,
    "file": "diamond_teamYellow.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "flag_teamBlue",
-   "kind": "str-marker-flag",
-   "wdh": [
-    0.4,
-    0.6,
-    0.2
-   ],
-   "tris": 576,
-   "tpu": 1679,
-   "mat": 3,
-   "bytes": 15116,
-   "scaled": true,
-   "file": "flag_teamBlue.gltf.glb"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -43530,21 +42853,6 @@
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "plantA_forest",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 1440,
-   "tpu": 4198,
-   "mat": 1,
-   "bytes": 32820,
-   "scaled": true,
-   "file": "plantA_forest.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "plantB_desert",
    "wdh": [
     0.2,
@@ -43557,21 +42865,6 @@
    "bytes": 18876,
    "scaled": true,
    "file": "plantB_desert.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "plantB_forest",
-   "wdh": [
-    0.2,
-    0.1,
-    0.1
-   ],
-   "tris": 720,
-   "tpu": 2099,
-   "mat": 1,
-   "bytes": 18876,
-   "scaled": true,
-   "file": "plantB_forest.gltf.glb"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -43684,22 +42977,6 @@
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "rocksA_forest",
-   "kind": "env-rock-boulder",
-   "wdh": [
-    0.5,
-    0.1,
-    0.4
-   ],
-   "tris": 690,
-   "tpu": 2012,
-   "mat": 1,
-   "bytes": 14872,
-   "scaled": true,
-   "file": "rocksA_forest.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "rocksB_desert",
    "kind": "env-rock-boulder",
    "wdh": [
@@ -43713,22 +42990,6 @@
    "bytes": 12108,
    "scaled": true,
    "file": "rocksB_desert.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "rocksB_forest",
-   "kind": "env-rock-boulder",
-   "wdh": [
-    0.5,
-    0.2,
-    0.4
-   ],
-   "tris": 552,
-   "tpu": 1609,
-   "mat": 1,
-   "bytes": 12108,
-   "scaled": true,
-   "file": "rocksB_forest.gltf.glb"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -43789,21 +43050,6 @@
    "bytes": 43404,
    "scaled": true,
    "file": "spikeRoller.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "star",
-   "wdh": [
-    0.4,
-    0.4,
-    0.1
-   ],
-   "tris": 420,
-   "tpu": 1224,
-   "mat": 1,
-   "bytes": 12788,
-   "scaled": true,
-   "file": "star.gltf.glb"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
@@ -43942,22 +43188,6 @@
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "sword_teamBlue",
-   "kind": "obj-weapon-melee-sword",
-   "wdh": [
-    0.1,
-    0.4,
-    0.1
-   ],
-   "tris": 532,
-   "tpu": 1551,
-   "mat": 2,
-   "bytes": 13224,
-   "scaled": true,
-   "file": "sword_teamBlue.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "sword_teamRed",
    "kind": "obj-weapon-melee-sword",
    "wdh": [
@@ -43987,36 +43217,6 @@
    "bytes": 13228,
    "scaled": true,
    "file": "sword_teamYellow.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "target",
-   "wdh": [
-    0.4,
-    0.4,
-    0.1
-   ],
-   "tris": 700,
-   "tpu": 2041,
-   "mat": 2,
-   "bytes": 18616,
-   "scaled": true,
-   "file": "target.gltf.glb"
-  },
-  {
-   "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
-   "name": "targetStand",
-   "wdh": [
-    0.4,
-    0.6,
-    0.5
-   ],
-   "tris": 784,
-   "tpu": 2286,
-   "mat": 3,
-   "bytes": 22756,
-   "scaled": true,
-   "file": "targetStand.gltf.glb"
   },
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
