@@ -407,6 +407,18 @@ const SOURCES = [
     ],
   },
   {
+    id: 'isa',
+    name: 'Tiny Treats',
+    description: 'Kits from Isa Lousberg (isalousberg.com).',
+    kits: ['isa-food', 'isa-kitchen', 'isa-plants'],
+  },
+  {
+    id: 'wizp',
+    name: 'WizP',
+    description: 'Kits from WizP (wizp.itch.io).',
+    kits: ['asia-pack', 'asia-grave', 'asia-rocks'],
+  },
+  {
     id: 'own',
     name: 'Taalei',
     description: 'Kits made or assembled for Taalei itself, on the shared colormap.',
