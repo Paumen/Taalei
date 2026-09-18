@@ -103,3 +103,34 @@
 	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
 	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
 	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
+
+			------------------------------
+
+	Origin and treatment (addition)
+
+	tools/importeer/ontbrekend.mjs added four more models, keeping the pack's
+	own kebab-case names: bench, bench-damaged, column-large and
+	crypt-large-roof. Scale 0,75, the factor the rest of the kit carries; the
+	bench lands at 0,60 × 0,35 × 0,40, between isa-park/bench (0,50 × 0,30 ×
+	0,35) and medieval-town/bench (0,95 × 0,35 × 0,45).
+
+	The pack's own colour sheet is not carried over. Each source cell is mapped
+	to a cell of the shared kits/colormap.png and every triangle keeps its place
+	inside the cell, so the baked shading survives.
+
+  3,2  orange   -> wood-planks, tan       bench slats
+                  stone-masonry, taupe    column-large collars
+  15,3 pale     -> stone-masonry, nickel  bench legs, column, crypt roof
+  14,3, 1,3     -> stone-masonry, nickel  crypt roof, as crypt-small-roof
+
+	Cell 3,2 is the kit's wood, which is what the bench slats are. On
+	column-large it bands a stone column, so it reads as brickwork there and
+	takes a second stone-masonry band rather than wood; P11 asks both source
+	colours be kept, and stone-masonry draws from taupe, slate and nickel
+	(§5.1).
+
+	crypt-large-roof takes str-marker-tombstone, the kind crypt-small-roof and
+	the rest of the crypt pieces carry.
+
+	The origin is at y = 0 with the footprint centred in X and Z; the scale sits
+	on the root node, not in the vertices.

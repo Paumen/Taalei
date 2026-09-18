@@ -37,6 +37,7 @@ const robijn = ['gemstone', 'sienna'];
 const aardappel = ['food', 'taupe'];
 const pompoen = ['food', 'terracotta'];
 const rook = ['textile', 'ivory'];
+const clothTaupe = ['textile', 'taupe'];
 
 const PAKKETTEN = [
   {
@@ -501,7 +502,66 @@ const PAKKETTEN = [
       { naam: 'hilly-prop-ruins-pillar-e', bronmodel: 'Hilly_Prop_Ruins_Pillar_5', kind: 'str-part-pillar', tags: ['broken'] },
     ],
   },
+  {
+    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', schaal: 0.24, atlas: true,
+    modellen: [
+      {
+        naam: 'picnic-blanket-taupe', bronmodel: 'picnic_blanket_green',
+        kind: 'obj-furniture', tags: [],
+        kleuren: { '#d3e8b7': doek, '#9acfa6': doek, '*': clothTaupe },
+      },
+      {
+        naam: 'picnic-blanket-taupe-folded', bronmodel: 'picnic_blanket_green_folded',
+        kind: 'obj-furniture', tags: [],
+        kleuren: { '#ffffff': doek, '#c5e19f': doek, '*': clothTaupe },
+      },
+      {
+        naam: 'pillow-large-taupe', bronmodel: 'pillow_large_green',
+        kind: 'obj-furniture', tags: [],
+        kleuren: { '#ffffff': doek, '#e2f0cf': doek, '*': clothTaupe },
+      },
+    ],
+  },
+  {
+    kit: 'ken-grave', bron: 'kenney_graveyardkit_5.0', schaal: 0.75, raster: [16, 4],
+    modellen: [
+      {
+        naam: 'bench', bronmodel: 'bench', kind: 'obj-furniture-seating-bench',
+        tags: ['halloween', 'grave'], cellen: { '3,2': plank, '15,3': steenGrijs, '*': steenGrijs },
+      },
+      {
+        naam: 'bench-damaged', bronmodel: 'bench-damaged', kind: 'obj-furniture-seating-bench',
+        tags: ['halloween', 'grave', 'broken'],
+        cellen: { '3,2': plank, '15,3': steenGrijs, '*': steenGrijs },
+      },
+      {
+        naam: 'column-large', bronmodel: 'column-large', kind: 'str-part-pillar',
+        tags: ['halloween', 'grave'], cellen: { '3,2': steen, '15,3': steenGrijs, '*': steenGrijs },
+      },
+      {
+        naam: 'crypt-large-roof', bronmodel: 'crypt-large-roof', kind: 'str-marker-tombstone',
+        tags: ['halloween', 'grave'],
+        cellen: { '1,3': steenGrijs, '14,3': steenGrijs, '15,3': steenGrijs, '*': steenGrijs },
+      },
+    ],
+  },
+  {
+    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit', schaal: 0.32,
+    modellen: [{
+      naam: 'shovel', bronmodel: 'Shovel', kind: 'obj-tool-long', tags: [],
+      kleuren: { '#818491': staal, '#5f4b35': balk, '#8c3735': hout, '*': staal },
+    }],
+  },
+  {
+    kit: 'scythian', bron: 'Scythian_Decoration', schaal: 1,
+    modellen: [{
+      naam: 'ornament', bronmodel: 'ScythianAntique', kind: 'obj-art', tags: [],
+      kleuren: { '*': goud },
+    }],
+  },
 ];
+
+const alleenKits = new Set(process.argv.slice(2));
 
 const TIJDELIJK = join(ROOT, 'kits', 'sources', '.uitgepakt', '.png');
 
@@ -531,6 +591,7 @@ const regels = [];
 const perKit = new Map();
 
 for (const pakket of PAKKETTEN) {
+  if (alleenKits.size && !alleenKits.has(pakket.kit)) continue;
   const bronkit = BRONKITS.find(
     (b) => b.map === pakket.bron && (pakket.submap ? b.submap === pakket.submap : !b.submap),
   );

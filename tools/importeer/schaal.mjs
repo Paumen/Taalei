@@ -16,6 +16,7 @@ const AFRONDING = 0.0015;
 const RUIS = 1e-4;
 
 const alleenRapport = process.argv.includes('--report');
+const alleenKits = new Set(process.argv.slice(2).filter((a) => !a.startsWith('--')));
 
 const BREEDTE = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16 };
 
@@ -346,6 +347,7 @@ const mislukt = [];
 
 for (const bronkit of BRONKITS) {
   if (!bronkit.kit || UNTOUCHED.has(bronkit.kit)) continue;
+  if (alleenKits.size && !alleenKits.has(bronkit.kit)) continue;
   const bestanden = werkbestanden(bronkit.kit);
   if (bestanden.length === 0) continue;
 
