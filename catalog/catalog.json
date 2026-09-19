@@ -6898,7 +6898,7 @@
    "name": "Jar",
    "type": "kind",
    "description": "jar, canister, tin",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-container-pot-vase",
@@ -7004,7 +7004,7 @@
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "carrot, cabbage, turnip, onion, potato, tomato",
+   "description": "cabbage, turnip, onion, potato, tomato",
    "count": 38
   },
   {
@@ -7013,6 +7013,13 @@
    "type": "kind",
    "description": "pumpkin, jackolantern",
    "count": 12
+  },
+  {
+   "id": "obj-food-vegetable-carrot",
+   "name": "Carrot",
+   "type": "kind",
+   "description": "carrot",
+   "count": 6
   },
   {
    "id": "obj-food-fish",
@@ -7111,7 +7118,7 @@
    "name": "Backrest",
    "type": "kind",
    "description": "couch, sofa, backed bench",
-   "count": 6
+   "count": 7
   },
   {
    "id": "obj-furniture-seating-chair",
@@ -7906,7 +7913,7 @@
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 39
+   "count": 38
   },
   {
    "id": "env-flora-tree-palm",
@@ -9112,6 +9119,12 @@
    "tpu.max": 5000
   },
   "obj-food-vegetable": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-carrot": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -28170,7 +28183,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-tree-cedar-b",
-   "kind": "env-flora-tree-conifer",
+   "kind": "env-flora-tree",
    "size": "m",
    "wdh": [
     0.45,
@@ -37469,7 +37482,7 @@
   {
    "kit": "isa-bakery",
    "name": "tin-b",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -63701,7 +63714,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot-chopped",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "s",
    "wdh": [
     0.3,
@@ -63746,7 +63759,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot-pieces",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "s",
    "wdh": [
     0.15,
@@ -63784,7 +63797,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "s",
    "wdh": [
     0.15,
@@ -90666,7 +90679,7 @@
   {
    "kit": "ken-grave",
    "name": "bench-damaged",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.8,
@@ -96387,7 +96400,7 @@
   {
    "kit": "ken-nature",
    "name": "carrot",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "m",
    "wdh": [
     0.3,
@@ -120120,7 +120133,7 @@
   {
    "kit": "props",
    "name": "carrot-a",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "s",
    "wdh": [
     0.05,
@@ -144468,7 +144481,7 @@
   {
    "kit": "styloo-farm",
    "name": "carrot",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-carrot",
    "size": "s",
    "wdh": [
     0.25,
