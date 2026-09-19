@@ -25,6 +25,7 @@ export const SCALE_TARGETS = {
   'kay-dun-2': 0.27,
   'kay-food': 0.23,
   'kay-hallow': 0.24,
+  'kay-hexagon': 1.2,
   'ken-cave': 0.187,
   'ken-pirate': 0.3,
   'ken-water': 0.3,
