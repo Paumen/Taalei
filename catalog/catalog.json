@@ -6777,7 +6777,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1352,
+   "count": 1353,
    "color": "#c07c8a"
   },
   {
@@ -7415,7 +7415,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 95,
+   "count": 96,
    "color": "#4f7d8c"
   },
   {
@@ -7444,14 +7444,14 @@
    "name": "Wood",
    "type": "kind",
    "description": "Wood stock with no leaf that fits.",
-   "count": 45
+   "count": 46
   },
   {
    "id": "obj-resource-wood-log",
    "name": "Log",
    "type": "kind",
    "description": "log (cut), timber, firewood, cordwood",
-   "count": 25
+   "count": 26
   },
   {
    "id": "obj-resource-wood-plank",
@@ -7770,7 +7770,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 640,
+   "count": 639,
    "color": "#6cb588"
   },
   {
@@ -7793,7 +7793,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 314,
+   "count": 313,
    "color": "#6cb588"
   },
   {
@@ -7801,14 +7801,14 @@
    "name": "Deadwood",
    "type": "kind",
    "description": "dead tree, fallen tree, root",
-   "count": 82
+   "count": 81
   },
   {
    "id": "env-flora-deadwood-branch",
    "name": "Branch",
    "type": "kind",
    "description": "branch, twig, log, driftwood",
-   "count": 18
+   "count": 17
   },
   {
    "id": "env-flora-deadwood-stump",
@@ -7816,6 +7816,13 @@
    "type": "kind",
    "description": "stump",
    "count": 14
+  },
+  {
+   "id": "env-flora-deadwood-tree",
+   "name": "Dead tree",
+   "type": "kind",
+   "description": "Tree that died standing: bare trunk and branches, no leaves.",
+   "count": 44
   },
   {
    "id": "env-flora-plant",
@@ -7853,6 +7860,41 @@
    "count": 20
   },
   {
+   "id": "env-flora-plant-water-cattail",
+   "name": "Cattail",
+   "type": "kind",
+   "description": "Stand of cattails or reeds at the waterline.",
+   "count": 10
+  },
+  {
+   "id": "env-flora-plant-water-lilypad",
+   "name": "Lily pad",
+   "type": "kind",
+   "description": "Lily pads floating on the surface, with or without a flower.",
+   "count": 8
+  },
+  {
+   "id": "env-flora-plant-bamboo",
+   "name": "Bamboo",
+   "type": "kind",
+   "description": "Bamboo: jointed stalks standing in a clump.",
+   "count": 6
+  },
+  {
+   "id": "env-flora-plant-bush",
+   "name": "Bush",
+   "type": "kind",
+   "description": "Bush or shrub: a dense low mass of foliage.",
+   "count": 9
+  },
+  {
+   "id": "env-flora-plant-leafy",
+   "name": "Leafy plant",
+   "type": "kind",
+   "description": "Plant read through its broad leaves, house plants among them.",
+   "count": 26
+  },
+  {
    "id": "env-flora-tree",
    "name": "Tree",
    "type": "kind",
@@ -7864,7 +7906,7 @@
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 36
+   "count": 39
   },
   {
    "id": "env-flora-tree-palm",
@@ -7944,7 +7986,7 @@
    "name": "Pebble",
    "type": "kind",
    "description": "pebble, stone (small), gravel",
-   "count": 41
+   "count": 37
   },
   {
    "id": "env-terrain",
@@ -8000,11 +8042,39 @@
    "count": 34
   },
   {
+   "id": "str-access-bridge-section",
+   "name": "Section",
+   "type": "kind",
+   "description": "Bridge piece that tiles with its own kind into a crossing.",
+   "count": 26
+  },
+  {
+   "id": "str-access-bridge-long",
+   "name": "Long",
+   "type": "kind",
+   "description": "Whole crossing in one model, bank to bank.",
+   "count": 7
+  },
+  {
    "id": "str-access-ladder",
    "name": "Ladder",
    "type": "kind",
    "description": "ladder",
    "count": 13
+  },
+  {
+   "id": "str-access-ladder-short",
+   "name": "Short",
+   "type": "kind",
+   "description": "Ladder that reaches one level.",
+   "count": 9
+  },
+  {
+   "id": "str-access-ladder-long",
+   "name": "Long",
+   "type": "kind",
+   "description": "Ladder that reaches past one level.",
+   "count": 4
   },
   {
    "id": "str-access-stairs",
@@ -8018,7 +8088,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), hedge (trimmed), barricade",
-   "count": 143,
+   "count": 142,
    "color": "#b08968"
   },
   {
@@ -8027,6 +8097,13 @@
    "type": "kind",
    "description": "fence, fence segment, railing, palisade, gate (fence)",
    "count": 119
+  },
+  {
+   "id": "str-barrier-fence-high",
+   "name": "High",
+   "type": "kind",
+   "description": "Fence chest-high or taller, and the gates in such a run.",
+   "count": 9
   },
   {
    "id": "str-barrier-post",
@@ -8048,7 +8125,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 423,
+   "count": 424,
    "color": "#a8762a"
   },
   {
@@ -8056,7 +8133,14 @@
    "name": "Door",
    "type": "kind",
    "description": "door, gate (building), hatch",
-   "count": 67
+   "count": 68
+  },
+  {
+   "id": "str-part-door-trapdoor",
+   "name": "Trapdoor",
+   "type": "kind",
+   "description": "Door lying in a floor or a ceiling.",
+   "count": 5
   },
   {
    "id": "str-part-floor",
@@ -8071,6 +8155,13 @@
    "type": "kind",
    "description": "frame, framework, post-and-beam frame, scaffold, structure (open)",
    "count": 24
+  },
+  {
+   "id": "str-part-frame-scaffold",
+   "name": "Scaffold",
+   "type": "kind",
+   "description": "Scaffolding: a temporary frame of poles and planks against a build.",
+   "count": 3
   },
   {
    "id": "str-part-pillar",
@@ -8130,6 +8221,20 @@
    "count": 45
   },
   {
+   "id": "str-marker-tombstone-crypt",
+   "name": "Crypt",
+   "type": "kind",
+   "description": "Grave built as a house: a crypt or mausoleum you could enter.",
+   "count": 8
+  },
+  {
+   "id": "str-marker-tombstone-gravemarker",
+   "name": "Grave marker",
+   "type": "kind",
+   "description": "Stone, cross or slab that marks a single grave.",
+   "count": 33
+  },
+  {
    "id": "str-marker-banner",
    "name": "Banner",
    "type": "kind",
@@ -8172,6 +8277,27 @@
    "type": "kind",
    "description": "Tent: a closed shelter of cloth on poles.",
    "count": 11
+  },
+  {
+   "id": "str-stands-tent-camping",
+   "name": "Camping",
+   "type": "kind",
+   "description": "Tent pitched to sleep in.",
+   "count": 9
+  },
+  {
+   "id": "str-stands-stall",
+   "name": "Stall",
+   "type": "kind",
+   "description": "One trading pitch: a counter, an awning or a stall on posts.",
+   "count": 10
+  },
+  {
+   "id": "str-stands-market",
+   "name": "Market",
+   "type": "kind",
+   "description": "A market in one model: several stalls with their goods.",
+   "count": 8
   },
   {
    "id": "assy",
@@ -8236,7 +8362,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 47
+   "count": 50
   },
   {
    "id": "tba",
@@ -8323,11 +8449,25 @@
    "count": 6
   },
   {
+   "id": "str-building-mill-watermill-wheel",
+   "name": "Wheel",
+   "type": "kind",
+   "description": "The water wheel on its own, without the mill it drives.",
+   "count": 4
+  },
+  {
    "id": "str-building-mill-windmill",
    "name": "Windmill",
    "type": "kind",
    "description": "Mill driven by sails on the wind.",
    "count": 14
+  },
+  {
+   "id": "str-building-mill-windmill-blades",
+   "name": "Blades",
+   "type": "kind",
+   "description": "The sails of a windmill on their own, without the mill they drive.",
+   "count": 3
   },
   {
    "id": "str-building-well",
@@ -8377,6 +8517,13 @@
    "type": "kind",
    "description": "Building or standing structure for worship.",
    "count": 9
+  },
+  {
+   "id": "str-building-religion-church",
+   "name": "Church",
+   "type": "kind",
+   "description": "Church or chapel: a nave with a tower or steeple.",
+   "count": 2
   },
   {
    "id": "str-building-archery",
@@ -8541,7 +8688,25 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "env-flora-deadwood-tree": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "env-flora-plant": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-bamboo": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-bush": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -8565,7 +8730,25 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "env-flora-plant-leafy": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "env-flora-plant-water": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-water-cattail": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-water-lilypad": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -9512,7 +9695,25 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-access-ladder": {
+  "str-access-bridge-long": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-access-bridge-section": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-access-ladder-long": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-access-ladder-short": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -9531,6 +9732,12 @@
    "tpu.max": 5000
   },
   "str-barrier-fence": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-barrier-fence-high": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -9614,13 +9821,31 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-building-mill-watermill-wheel": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-building-mill-windmill": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-building-mill-windmill-blades": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-building-religion": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-religion-church": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -9668,6 +9893,18 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-marker-tombstone-crypt": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-marker-tombstone-gravemarker": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-part": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -9680,6 +9917,12 @@
    "longest.max": 4,
    "tpu.max": 10000
   },
+  "str-part-door-trapdoor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
   "str-part-floor": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -9687,6 +9930,12 @@
    "tpu.max": 5000
   },
   "str-part-frame": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-frame-scaffold": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -9734,7 +9983,25 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-stands-market": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-stands-stall": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-stands-tent": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-stands-tent-camping": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -9929,7 +10196,7 @@
   {
    "kit": "architecture",
    "name": "church",
-   "kind": "str-building-religion",
+   "kind": "str-building-religion-church",
    "size": "l",
    "wdh": [
     1.9,
@@ -10799,7 +11066,7 @@
   {
    "kit": "asia-grave",
    "name": "iron-fence-bars",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     1,
@@ -11101,7 +11368,7 @@
   {
    "kit": "asia-grave",
    "name": "iron-fence-run",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "l",
    "wdh": [
     1.65,
@@ -11314,7 +11581,7 @@
   {
    "kit": "asia-grave",
    "name": "tomb-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.35,
@@ -11354,7 +11621,7 @@
   {
    "kit": "asia-grave",
    "name": "tomb-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.35,
@@ -11394,7 +11661,7 @@
   {
    "kit": "asia-grave",
    "name": "tomb-obelisk",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.35,
@@ -11433,7 +11700,7 @@
   {
    "kit": "asia-grave",
    "name": "tombstone-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.3,
@@ -11473,7 +11740,7 @@
   {
    "kit": "asia-grave",
    "name": "tombstone-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.45,
@@ -11513,7 +11780,7 @@
   {
    "kit": "asia-grave",
    "name": "tombstone-c",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.35,
@@ -11553,7 +11820,7 @@
   {
    "kit": "asia-grave",
    "name": "tombstone-d",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.35,
@@ -11593,7 +11860,7 @@
   {
    "kit": "asia-grave",
    "name": "tombstone-e",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -11788,7 +12055,7 @@
   {
    "kit": "asia-pack",
    "name": "bamboo-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
     0.4,
@@ -11835,7 +12102,7 @@
   {
    "kit": "asia-pack",
    "name": "bamboo-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
     0.55,
@@ -11882,7 +12149,7 @@
   {
    "kit": "asia-pack",
    "name": "bamboo-c",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
     0.65,
@@ -12128,7 +12395,7 @@
   {
    "kit": "asia-pack",
    "name": "bridge-stone",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "l",
    "wdh": [
     1.5,
@@ -12167,7 +12434,7 @@
   {
    "kit": "asia-pack",
    "name": "bridge-wood",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "l",
    "wdh": [
     2,
@@ -13018,7 +13285,7 @@
   {
    "kit": "asia-pack",
    "name": "grave-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.25,
@@ -13058,7 +13325,7 @@
   {
    "kit": "asia-pack",
    "name": "grave-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.3,
@@ -13098,7 +13365,7 @@
   {
    "kit": "asia-pack",
    "name": "grave-c",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.25,
@@ -13139,7 +13406,7 @@
   {
    "kit": "asia-pack",
    "name": "grave-d",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.3,
@@ -13299,7 +13566,7 @@
   {
    "kit": "asia-pack",
    "name": "graves-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.7,
@@ -13340,7 +13607,7 @@
   {
    "kit": "asia-pack",
    "name": "graves-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.7,
@@ -13672,7 +13939,7 @@
   {
    "kit": "asia-pack",
    "name": "market-stand",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.4,
@@ -14355,7 +14622,7 @@
   {
    "kit": "asia-pack",
    "name": "plant-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.4,
@@ -14394,7 +14661,7 @@
   {
    "kit": "asia-pack",
    "name": "plant-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.45,
@@ -14439,7 +14706,7 @@
   {
    "kit": "asia-pack",
    "name": "plant-c",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.45,
@@ -14478,7 +14745,7 @@
   {
    "kit": "asia-pack",
    "name": "plant-d",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.45,
@@ -16081,7 +16348,7 @@
   {
    "kit": "asia-pack",
    "name": "waterwheel",
-   "kind": "str-building-mill-watermill",
+   "kind": "str-building-mill-watermill-wheel",
    "size": "m",
    "wdh": [
     0.85,
@@ -16171,7 +16438,7 @@
   {
    "kit": "asia-rg",
    "name": "bamboo",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
     0.55,
@@ -18173,7 +18440,7 @@
   {
    "kit": "asia-rg",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-long",
    "size": "l",
    "wdh": [
     0.45,
@@ -19059,7 +19326,7 @@
   {
    "kit": "asia-rg",
    "name": "reeds",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "l",
    "wdh": [
     1.8,
@@ -19104,7 +19371,7 @@
   {
    "kit": "asia-rg",
    "name": "river-bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     10.5,
@@ -22764,7 +23031,7 @@
   {
    "kit": "desert-buildings",
    "name": "awning-a",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.45,
@@ -22807,7 +23074,7 @@
   {
    "kit": "desert-buildings",
    "name": "awning-b",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.5,
@@ -22993,7 +23260,7 @@
   {
    "kit": "desert-buildings",
    "name": "ladder-a",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-long",
    "size": "l",
    "wdh": [
     0.05,
@@ -23036,7 +23303,7 @@
   {
    "kit": "desert-buildings",
    "name": "ladder-b",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.05,
@@ -25720,7 +25987,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-bush-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.5,
@@ -25758,7 +26025,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-bush-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "s",
    "wdh": [
     0.45,
@@ -25796,7 +26063,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-bush-c",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.5,
@@ -25834,7 +26101,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-bush-d",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.5,
@@ -26007,7 +26274,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-cattail-a",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -26051,7 +26318,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-cattail-b",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -27859,7 +28126,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-tree-cedar-a",
-   "kind": "env-flora-tree-conifer",
+   "kind": "env-flora-tree",
    "size": "m",
    "wdh": [
     0.45,
@@ -30256,7 +30523,7 @@
   {
    "kit": "fs-town",
    "name": "ladder-a",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-long",
    "size": "l",
    "wdh": [
     0.55,
@@ -33831,7 +34098,7 @@
   {
    "kit": "fs-town",
    "name": "waterwheel",
-   "kind": "str-building-mill-watermill",
+   "kind": "str-building-mill-watermill-wheel",
    "size": "l",
    "wdh": [
     0.75,
@@ -34150,7 +34417,7 @@
   {
    "kit": "fs-town",
    "name": "windmill-blades",
-   "kind": "str-building-mill-windmill",
+   "kind": "str-building-mill-windmill-blades",
    "size": "l",
    "wdh": [
     0.5,
@@ -34969,7 +35236,7 @@
   {
    "kit": "gob-nature",
    "name": "bush-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.7,
@@ -35007,7 +35274,7 @@
   {
    "kit": "gob-nature",
    "name": "bush-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.85,
@@ -42594,7 +42861,7 @@
   {
    "kit": "isa-plants",
    "name": "monstera-plant-large",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.75,
@@ -42633,7 +42900,7 @@
   {
    "kit": "isa-plants",
    "name": "monstera-plant-medium",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.6,
@@ -42671,7 +42938,7 @@
   {
    "kit": "isa-plants",
    "name": "monstera-plant-small",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.35,
@@ -42844,7 +43111,7 @@
   {
    "kit": "isa-plants",
    "name": "pothos-plant-large",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.75,
@@ -42883,7 +43150,7 @@
   {
    "kit": "isa-plants",
    "name": "pothos-plant-medium",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.45,
@@ -42922,7 +43189,7 @@
   {
    "kit": "isa-plants",
    "name": "pothos-plant-small",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.2,
@@ -43002,7 +43269,7 @@
   {
    "kit": "isa-plants",
    "name": "sansevieria-plant-large",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.4,
@@ -43041,7 +43308,7 @@
   {
    "kit": "isa-plants",
    "name": "sansevieria-plant-medium",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.35,
@@ -43080,7 +43347,7 @@
   {
    "kit": "isa-plants",
    "name": "sansevieria-plant-small",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.2,
@@ -43519,7 +43786,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-branch-medium-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.35,
@@ -43564,7 +43831,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-branch-medium-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.35,
@@ -43609,7 +43876,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-branch-medium-c",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.35,
@@ -43654,7 +43921,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-plant-large",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.6,
@@ -43700,7 +43967,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-plant-medium",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.4,
@@ -43746,7 +44013,7 @@
   {
    "kit": "isa-plants",
    "name": "yucca-plant-small",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.25,
@@ -43791,7 +44058,7 @@
   {
    "kit": "isa-plants",
    "name": "zzplant-plant-large",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.45,
@@ -43831,7 +44098,7 @@
   {
    "kit": "isa-plants",
    "name": "zzplant-plant-medium",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.3,
@@ -43871,7 +44138,7 @@
   {
    "kit": "isa-plants",
    "name": "zzplant-plant-small",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.15,
@@ -45608,7 +45875,7 @@
   {
    "kit": "jelly-forest",
    "name": "log",
-   "kind": "env-flora-deadwood-branch",
+   "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
     0.25,
@@ -45694,7 +45961,7 @@
   {
    "kit": "jelly-forest",
    "name": "tent",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "l",
    "wdh": [
     1.6,
@@ -48370,7 +48637,7 @@
   {
    "kit": "kay-builder",
    "name": "bridge-roofed",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     2.5,
@@ -48421,7 +48688,7 @@
   {
    "kit": "kay-builder",
    "name": "bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     2.4,
@@ -48849,7 +49116,7 @@
   {
    "kit": "kay-builder",
    "name": "market",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     1.75,
@@ -53699,7 +53966,7 @@
   {
    "kit": "kay-dun-1",
    "name": "scaffold-high-railing",
-   "kind": "str-part-frame",
+   "kind": "str-part-frame-scaffold",
    "size": "l",
    "wdh": [
     1.45,
@@ -53744,7 +54011,7 @@
   {
    "kit": "kay-dun-1",
    "name": "scaffold-high",
-   "kind": "str-part-frame",
+   "kind": "str-part-frame-scaffold",
    "size": "m",
    "wdh": [
     1.45,
@@ -55890,7 +56157,7 @@
   {
    "kit": "kay-dun-1",
    "name": "trapdoor",
-   "kind": "str-part-door",
+   "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
     0.7,
@@ -65323,7 +65590,7 @@
   {
    "kit": "kay-forest",
    "name": "bush-1-e",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "s",
    "wdh": [
     0.45,
@@ -65362,7 +65629,7 @@
   {
    "kit": "kay-forest",
    "name": "bush-1-f",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.7,
@@ -67968,7 +68235,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-1-a",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.35,
@@ -68009,7 +68276,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-1-b",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.6,
@@ -68050,7 +68317,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-1-c",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     1.1,
@@ -68091,7 +68358,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-2-a",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.35,
@@ -68132,7 +68399,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-2-b",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.55,
@@ -68173,7 +68440,7 @@
   {
    "kit": "kay-forest",
    "name": "tree-bare-2-c",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.45,
@@ -69584,7 +69851,7 @@
   {
    "kit": "kay-hallow",
    "name": "crypt",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "l",
    "wdh": [
     1.45,
@@ -69684,7 +69951,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate-left",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.4,
@@ -69725,7 +69992,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate-pillar",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.95,
@@ -69766,7 +70033,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate-right",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.4,
@@ -69807,7 +70074,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.95,
@@ -70202,7 +70469,7 @@
   {
    "kit": "kay-hallow",
    "name": "grave-a-destroyed",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.5,
@@ -70244,7 +70511,7 @@
   {
    "kit": "kay-hallow",
    "name": "grave-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.5,
@@ -70285,7 +70552,7 @@
   {
    "kit": "kay-hallow",
    "name": "grave-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.5,
@@ -70326,7 +70593,7 @@
   {
    "kit": "kay-hallow",
    "name": "gravemarker-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.2,
@@ -70367,7 +70634,7 @@
   {
    "kit": "kay-hallow",
    "name": "gravemarker-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.2,
@@ -70421,7 +70688,7 @@
   {
    "kit": "kay-hallow",
    "name": "gravestone",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.35,
@@ -71539,7 +71806,7 @@
   {
    "kit": "kay-hallow",
    "name": "tree-dead-large",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.55,
@@ -71580,7 +71847,7 @@
   {
    "kit": "kay-hallow",
    "name": "tree-dead-medium",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.45,
@@ -71621,7 +71888,7 @@
   {
    "kit": "kay-hallow",
    "name": "tree-dead-small",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.35,
@@ -72052,7 +72319,7 @@
   {
    "kit": "kay-hexagon",
    "name": "bridge-a",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     1.6,
@@ -72091,7 +72358,7 @@
   {
    "kit": "kay-hexagon",
    "name": "bridge-b",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     1.6,
@@ -72324,6 +72591,7 @@
     "#b58158"
    ],
    "tags": [
+    "broken",
     "kay",
     "stone-masonry",
     "wood-beam",
@@ -72380,6 +72648,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "broken",
     "ceramic",
     "kay",
     "stone-masonry",
@@ -72437,6 +72706,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "broken",
     "ceramic",
     "kay",
     "stone-masonry",
@@ -72547,7 +72817,7 @@
   {
    "kit": "kay-hexagon",
    "name": "cattail",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.2,
@@ -72592,7 +72862,7 @@
   {
    "kit": "kay-hexagon",
    "name": "cattails",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.25,
@@ -72639,7 +72909,7 @@
   {
    "kit": "kay-hexagon",
    "name": "church",
-   "kind": "str-building-religion",
+   "kind": "str-building-religion-church",
    "size": "l",
    "wdh": [
     1.25,
@@ -73734,7 +74004,7 @@
   {
    "kit": "kay-hexagon",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.3,
@@ -73840,7 +74110,7 @@
   {
    "kit": "kay-hexagon",
    "name": "market",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.15,
@@ -74412,7 +74682,7 @@
   {
    "kit": "kay-hexagon",
    "name": "scaffolding",
-   "kind": "str-part-frame",
+   "kind": "str-part-frame-scaffold",
    "size": "l",
    "wdh": [
     2.3,
@@ -74708,7 +74978,7 @@
   {
    "kit": "kay-hexagon",
    "name": "tent",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.6,
@@ -75059,7 +75329,7 @@
   {
    "kit": "kay-hexagon",
    "name": "tree",
-   "kind": "env-flora-tree",
+   "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
     0.8,
@@ -75103,7 +75373,7 @@
   {
    "kit": "kay-hexagon",
    "name": "trees-large",
-   "kind": "env-flora-tree",
+   "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
     2.2,
@@ -75149,7 +75419,7 @@
   {
    "kit": "kay-hexagon",
    "name": "trees-medium",
-   "kind": "env-flora-tree",
+   "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
     2.25,
@@ -75195,7 +75465,7 @@
   {
    "kit": "kay-hexagon",
    "name": "trees-small",
-   "kind": "env-flora-tree",
+   "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
     1.6,
@@ -75549,7 +75819,7 @@
   {
    "kit": "kay-hexagon",
    "name": "waterlily-a",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.15,
@@ -75588,7 +75858,7 @@
   {
    "kit": "kay-hexagon",
    "name": "waterlily-b",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.25,
@@ -77272,7 +77542,7 @@
   {
    "kit": "kay-minigame",
    "name": "barrier-ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.05,
@@ -77670,7 +77940,7 @@
   {
    "kit": "kay-minigame",
    "name": "plant-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.25,
@@ -77710,7 +77980,7 @@
   {
    "kit": "kay-minigame",
    "name": "plant-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.2,
@@ -84713,7 +84983,7 @@
   {
    "kit": "kay-spook",
    "name": "gravestone",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.5,
@@ -85057,7 +85327,7 @@
   {
    "kit": "kay-spook",
    "name": "tree-dead-a",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.5,
@@ -85098,7 +85368,7 @@
   {
    "kit": "kay-spook",
    "name": "tree-dead-b",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.45,
@@ -85139,7 +85409,7 @@
   {
    "kit": "kay-spook",
    "name": "tree-dead-c",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.4,
@@ -85180,7 +85450,7 @@
   {
    "kit": "kay-spook",
    "name": "tree-dead-d",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.55,
@@ -88910,7 +89180,7 @@
   {
    "kit": "ken-castle",
    "name": "bridge-draw",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -88948,7 +89218,7 @@
   {
    "kit": "ken-castle",
    "name": "bridge-straight-pillar",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.8,
@@ -88993,7 +89263,7 @@
   {
    "kit": "ken-castle",
    "name": "bridge-straight",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.8,
@@ -89650,7 +89920,7 @@
   {
    "kit": "ken-cave",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.2,
@@ -89823,7 +90093,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -89954,7 +90224,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.45,
@@ -90170,7 +90440,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "tent",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     1.1,
@@ -90712,7 +90982,7 @@
   {
    "kit": "ken-grave",
    "name": "cross-column",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -90758,7 +91028,7 @@
   {
    "kit": "ken-grave",
    "name": "cross-wood",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -90810,7 +91080,7 @@
   {
    "kit": "ken-grave",
    "name": "cross",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.6,
@@ -90856,7 +91126,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-a",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "m",
    "wdh": [
     0.55,
@@ -90897,7 +91167,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-b",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "m",
    "wdh": [
     0.55,
@@ -90943,7 +91213,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-large-roof",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "l",
    "wdh": [
     1.75,
@@ -90983,7 +91253,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-large",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "l",
    "wdh": [
     1.75,
@@ -91029,7 +91299,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-small-roof",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "m",
    "wdh": [
     1.3,
@@ -91074,7 +91344,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt-small",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "m",
    "wdh": [
     1.2,
@@ -91119,7 +91389,7 @@
   {
    "kit": "ken-grave",
    "name": "crypt",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-crypt",
    "size": "m",
    "wdh": [
     0.65,
@@ -91204,7 +91474,7 @@
   {
    "kit": "ken-grave",
    "name": "debris",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock",
    "size": "s",
    "wdh": [
     0.45,
@@ -91498,7 +91768,7 @@
   {
    "kit": "ken-grave",
    "name": "grave-border",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock",
    "size": "m",
    "wdh": [
     0.65,
@@ -91585,7 +91855,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-bevel",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.4,
@@ -91631,7 +91901,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-broken",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "s",
    "wdh": [
     0.45,
@@ -91672,7 +91942,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-cross-large",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -91713,7 +91983,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-cross",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -91759,7 +92029,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-debris",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.45,
@@ -91807,7 +92077,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-decorative",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.45,
@@ -91848,7 +92118,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-roof",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.45,
@@ -91894,7 +92164,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-round",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.4,
@@ -91935,7 +92205,7 @@
   {
    "kit": "ken-grave",
    "name": "gravestone-wide",
-   "kind": "str-marker-tombstone",
+   "kind": "str-marker-tombstone-gravemarker",
    "size": "m",
    "wdh": [
     0.75,
@@ -95127,7 +95397,7 @@
   {
    "kit": "ken-nature",
    "name": "bamboo-short",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "s",
    "wdh": [
     0.3,
@@ -95167,7 +95437,7 @@
   {
    "kit": "ken-nature",
    "name": "bamboo-tall",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
     0.3,
@@ -95299,7 +95569,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-center-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95342,7 +95612,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-center",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95385,7 +95655,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-narrow",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95429,7 +95699,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-round-narrow",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95473,7 +95743,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95517,7 +95787,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-side-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95560,7 +95830,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone-side",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95603,7 +95873,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-stone",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95647,7 +95917,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-center-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95702,7 +95972,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-center",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95752,7 +96022,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-narrow",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95803,7 +96073,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-round-narrow",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95859,7 +96129,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95915,7 +96185,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-side-round",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -95970,7 +96240,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood-side",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -96020,7 +96290,7 @@
   {
    "kit": "ken-nature",
    "name": "bridge-wood",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.9,
@@ -97176,7 +97446,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-large-closed",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.75,
@@ -97221,7 +97491,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-large-open",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.75,
@@ -97266,7 +97536,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-small-closed",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.5,
@@ -97311,7 +97581,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-small-open",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.5,
@@ -100751,7 +101021,7 @@
   {
    "kit": "ken-platformer",
    "name": "ladder-broken",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.45,
@@ -100796,7 +101066,7 @@
   {
    "kit": "ken-platformer",
    "name": "ladder-long",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-long",
    "size": "l",
    "wdh": [
     0.45,
@@ -100839,7 +101109,7 @@
   {
    "kit": "ken-platformer",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.45,
@@ -101588,7 +101858,7 @@
   {
    "kit": "ken-proto",
    "name": "ladder",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "m",
    "wdh": [
     0.1,
@@ -102367,7 +102637,7 @@
   {
    "kit": "ken-survival",
    "name": "fence-doorway",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.7,
@@ -102407,7 +102677,7 @@
   {
    "kit": "ken-survival",
    "name": "fence-fortified",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.7,
@@ -102447,7 +102717,7 @@
   {
    "kit": "ken-survival",
    "name": "fence",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-high",
    "size": "m",
    "wdh": [
     0.7,
@@ -103739,7 +104009,7 @@
   {
    "kit": "ken-survival",
    "name": "tent-canvas-half",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.8,
@@ -103784,7 +104054,7 @@
   {
    "kit": "ken-survival",
    "name": "tent-canvas",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.8,
@@ -103829,7 +104099,7 @@
   {
    "kit": "ken-survival",
    "name": "tent",
-   "kind": "str-stands-tent",
+   "kind": "str-stands-tent-camping",
    "size": "m",
    "wdh": [
     0.8,
@@ -104769,7 +105039,7 @@
   {
    "kit": "ken-town",
    "name": "blade",
-   "kind": "str-building-mill-windmill",
+   "kind": "str-building-mill-windmill-blades",
    "size": "l",
    "wdh": [
     0.1,
@@ -106626,7 +106896,7 @@
   {
    "kit": "ken-town",
    "name": "stall-red",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.9,
@@ -106709,7 +106979,7 @@
   {
    "kit": "ken-town",
    "name": "stall",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.55,
@@ -108069,7 +108339,7 @@
   {
    "kit": "ken-town",
    "name": "watermill-wide",
-   "kind": "str-building-mill-watermill",
+   "kind": "str-building-mill-watermill-wheel",
    "size": "l",
    "wdh": [
     0.9,
@@ -108126,7 +108396,7 @@
   {
    "kit": "ken-town",
    "name": "watermill",
-   "kind": "str-building-mill-watermill",
+   "kind": "str-building-mill-watermill-wheel",
    "size": "l",
    "wdh": [
     0.75,
@@ -108234,7 +108504,7 @@
   {
    "kit": "ken-town",
    "name": "windmill",
-   "kind": "str-building-mill-windmill",
+   "kind": "str-building-mill-windmill-blades",
    "size": "l",
    "wdh": [
     0.4,
@@ -108716,7 +108986,7 @@
   {
    "kit": "medieval-forge",
    "name": "bridge-2",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.95,
@@ -108761,7 +109031,7 @@
   {
    "kit": "medieval-forge",
    "name": "bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     0.85,
@@ -109123,7 +109393,7 @@
   {
    "kit": "medieval-forge",
    "name": "stone-bridge-2",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     4.8,
@@ -109162,7 +109432,7 @@
   {
    "kit": "medieval-forge",
    "name": "stone-bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     6,
@@ -110713,7 +110983,7 @@
   {
    "kit": "medieval-town",
    "name": "market-stand-2",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.95,
@@ -110762,7 +111032,7 @@
   {
    "kit": "medieval-town",
    "name": "market-stand",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.5,
@@ -111674,7 +111944,7 @@
   {
    "kit": "medieval-village",
    "name": "market-stall-green",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.8,
@@ -111724,7 +111994,7 @@
   {
    "kit": "medieval-village",
    "name": "market-stall-red",
-   "kind": "str-stands",
+   "kind": "str-stands-stall",
    "size": "m",
    "wdh": [
     0.8,
@@ -113563,7 +113833,7 @@
   {
    "kit": "natuur",
    "name": "cattail-1",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -113601,7 +113871,7 @@
   {
    "kit": "natuur",
    "name": "cattail-2",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -113639,7 +113909,7 @@
   {
    "kit": "natuur",
    "name": "cattail-3",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -113678,7 +113948,7 @@
   {
    "kit": "natuur",
    "name": "cattail-4",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -113716,7 +113986,7 @@
   {
    "kit": "natuur",
    "name": "cattail-5",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-cattail",
    "size": "s",
    "wdh": [
     0.05,
@@ -116561,7 +116831,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-1",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.3,
@@ -116599,7 +116869,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-2",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.45,
@@ -116637,7 +116907,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-3",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.6,
@@ -116675,7 +116945,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-4",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.65,
@@ -116713,7 +116983,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-5",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.6,
@@ -116751,7 +117021,7 @@
   {
    "kit": "natuur",
    "name": "tree-bare-6",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.8,
@@ -120636,7 +120906,7 @@
   {
    "kit": "props",
    "name": "stairs-a",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-short",
    "size": "l",
    "wdh": [
     0.55,
@@ -121689,7 +121959,7 @@
   {
    "kit": "quat-dun-1",
    "name": "trapdoor-open",
-   "kind": "str-part-door",
+   "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
     0.75,
@@ -121741,7 +122011,7 @@
   {
    "kit": "quat-dun-1",
    "name": "trapdoor",
-   "kind": "str-part-door",
+   "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
     0.75,
@@ -122561,7 +122831,7 @@
   {
    "kit": "quat-dun-2",
    "name": "trapdoor-open",
-   "kind": "str-part-door",
+   "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
     0.7,
@@ -122608,7 +122878,7 @@
   {
    "kit": "quat-dun-2",
    "name": "trapdoor",
-   "kind": "str-part-door",
+   "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
     0.7,
@@ -126398,7 +126668,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-1-bark",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.2,
@@ -126437,7 +126707,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-1",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.2,
@@ -126481,7 +126751,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-2-bark",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.3,
@@ -126520,7 +126790,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-2",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.3,
@@ -126564,7 +126834,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-3-bark",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.3,
@@ -126603,7 +126873,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-3",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.3,
@@ -126647,7 +126917,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-4-bark",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.2,
@@ -126686,7 +126956,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-4",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.2,
@@ -126730,7 +127000,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-5-bark",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.25,
@@ -126769,7 +127039,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-birch-dead-5",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.25,
@@ -126813,7 +127083,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-common-dead-1",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.4,
@@ -126859,7 +127129,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-common-dead-2",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.55,
@@ -126898,7 +127168,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-common-dead-3",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.25,
@@ -126937,7 +127207,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-common-dead-4",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.35,
@@ -126976,7 +127246,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-common-dead-5",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.35,
@@ -127105,7 +127375,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-willow-dead-1",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.2,
@@ -127144,7 +127414,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-willow-dead-2",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.45,
@@ -127183,7 +127453,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-willow-dead-3",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.1,
@@ -127222,7 +127492,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-willow-dead-4",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.4,
@@ -127261,7 +127531,7 @@
   {
    "kit": "quat-nature",
    "name": "tree-willow-dead-5",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.25,
@@ -138328,7 +138598,7 @@
   {
    "kit": "quat-town",
    "name": "market-1-a",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.35,
@@ -138390,7 +138660,7 @@
   {
    "kit": "quat-town",
    "name": "market-1-b",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.75,
@@ -138452,7 +138722,7 @@
   {
    "kit": "quat-town",
    "name": "market-1-c",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.7,
@@ -138514,7 +138784,7 @@
   {
    "kit": "quat-town",
    "name": "market-2-a",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.75,
@@ -138582,7 +138852,7 @@
   {
    "kit": "quat-town",
    "name": "market-2-b",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.75,
@@ -138650,7 +138920,7 @@
   {
    "kit": "quat-town",
    "name": "market-2-c",
-   "kind": "str-stands",
+   "kind": "str-stands-market",
    "size": "l",
    "wdh": [
     2.8,
@@ -141255,7 +141525,7 @@
   {
    "kit": "rocks",
    "name": "debris-a",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock",
    "size": "m",
    "wdh": [
     0.8,
@@ -141294,7 +141564,7 @@
   {
    "kit": "rocks",
    "name": "debris-b",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock",
    "size": "m",
    "wdh": [
     0.8,
@@ -144161,7 +144431,7 @@
   {
    "kit": "styloo-farm",
    "name": "bush",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-bush",
    "size": "m",
    "wdh": [
     0.8,
@@ -145768,7 +146038,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge-arch",
-   "kind": "str-barrier",
+   "kind": "str-part-door",
    "size": "l",
    "wdh": [
     1.9,
@@ -145886,7 +146156,7 @@
   {
    "kit": "styloo-farm",
    "name": "leaf",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.05,
@@ -149368,7 +149638,7 @@
   {
    "kit": "trees",
    "name": "dead-tree-a",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.55,
@@ -149407,7 +149677,7 @@
   {
    "kit": "trees",
    "name": "dead-tree-b",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.6,
@@ -149446,7 +149716,7 @@
   {
    "kit": "trees",
    "name": "dead-tree-c",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "l",
    "wdh": [
     0.7,
@@ -149485,7 +149755,7 @@
   {
    "kit": "trees",
    "name": "dead-tree-spiked-a",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.6,
@@ -149525,7 +149795,7 @@
   {
    "kit": "trees",
    "name": "dead-tree-spiked-b",
-   "kind": "env-flora-deadwood",
+   "kind": "env-flora-deadwood-tree",
    "size": "m",
    "wdh": [
     0.7,
@@ -149571,7 +149841,7 @@
   {
    "kit": "trees",
    "name": "leafy-plant",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
     0.65,
@@ -149609,7 +149879,7 @@
   {
    "kit": "trees",
    "name": "lilypad-a",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.2,
@@ -149648,7 +149918,7 @@
   {
    "kit": "trees",
    "name": "lilypad-b",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.2,
@@ -150040,7 +150310,7 @@
   {
    "kit": "trees",
    "name": "waterlilies-white",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "m",
    "wdh": [
     0.55,
@@ -150086,7 +150356,7 @@
   {
    "kit": "trees",
    "name": "waterlilies-yellow",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "m",
    "wdh": [
     0.55,
@@ -150132,7 +150402,7 @@
   {
    "kit": "trees",
    "name": "waterlily-white",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.25,
@@ -150177,7 +150447,7 @@
   {
    "kit": "trees",
    "name": "waterlily-yellow",
-   "kind": "env-flora-plant-water",
+   "kind": "env-flora-plant-water-lilypad",
    "size": "s",
    "wdh": [
     0.25,
@@ -150693,7 +150963,7 @@
   {
    "kit": "village",
    "name": "bridge-arched-a",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     1.45,
@@ -150739,7 +151009,7 @@
   {
    "kit": "village",
    "name": "bridge-arched-b",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-section",
    "size": "m",
    "wdh": [
     1.4,
