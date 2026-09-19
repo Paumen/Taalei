@@ -13,6 +13,8 @@ A pack whose texture is a band grid needs its grid passed as `raster`:
 | KayKit | 8 × 4 |
 | Kenney | 16 × 4 |
 | Tiny Treats | 8 × 8 |
+| Cozy Farm | 8 × 8 |
+| Gobkit | 16 × 4 |
 
 Quaternius, Toon Shooter and the terrain packs carry a flat colour per material
 instead, so they take `kleuren` keyed by hex.
@@ -52,6 +54,19 @@ kitchen's green tiles have no legal band and drop to `ceramic` terracotta.
 `wall_modular_tiles_kitchen_window_large_B` is authored one-sided, to be seen from
 the side away from the default camera.
 
+**Cozy Farm** — cell 5,4 is the wood of every prop, so what it becomes is per model:
+planks on barrels, crates and benches, beam on fences, posts and tool handles, bark
+on fruit stems. Cell 2,7 is every metal part, cast on anything `str` and steel
+elsewhere. Red 0,2 is painted timber on the barns and the tower roof and fruit skin
+on apples and cherries; no wood band takes red, so painted surfaces drop to
+`ceramic` sienna. Cells 1,3 and 2,3 are a yellow that is both fruit flesh and the
+molten metal in the smelters. Grass, husks, hedge fronds and haystack straws are
+single-sided cards, as the pack's read-me says.
+
+**Gobkit Nature Kit** — two greens, 6,0 on the low trees and bushes and 3,0 on the
+medium ones, two browns for their trunks, 2,1 and 6,1, and 14,0 for every rock.
+Nothing else in the kit shares a cell.
+
 **Toon Shooter** — one flat colour per material. `#818491` is steel on objects,
 but `str` forces `metal-iron-cast`, so a fence built from it takes slate.
 
@@ -65,4 +80,5 @@ anything wooden; elsewhere `#bead9c` is taupe stone.
   both ship some.
 - **Inward single faces.** Groove strips, door reveals and one-sided modular
   panels that face away. They show under `render.mjs --modes clay` as magenta and
-  not in the catalogue thumbnails.
+  not in the catalogue thumbnails. Cozy Farm's foliage and straw are whole cards
+  built this way, so its bushes, hedges, haystacks and husks carry a lot of them.
