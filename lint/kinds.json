@@ -374,12 +374,28 @@
        "id": "obj-furniture-storage",
        "longest.min": 0.2,
        "nouns": [
-        "cabinet",
-        "shelf",
-        "bookcase",
-        "wardrobe",
         "chest of drawers",
         "dresser"
+       ],
+       "children": [
+        {
+         "id": "obj-furniture-storage-cabinet",
+         "nouns": [
+          "cabinet",
+          "bookcase",
+          "wardrobe",
+          "cupboard",
+          "closet"
+         ]
+        },
+        {
+         "id": "obj-furniture-storage-shelf",
+         "nouns": [
+          "shelf",
+          "wall shelf",
+          "shelving"
+         ]
+        }
        ]
       }
      ]
@@ -729,13 +745,26 @@
        "id": "obj-tool-hand",
        "mat.wood": "wood-planks",
        "nouns": [
-        "hammer (tool)",
-        "saw",
         "chisel",
         "trowel",
         "wrench",
         "tongs",
         "brush"
+       ],
+       "children": [
+        {
+         "id": "obj-tool-hand-hammer",
+         "nouns": [
+          "hammer (tool)",
+          "mallet"
+         ]
+        },
+        {
+         "id": "obj-tool-hand-saw",
+         "nouns": [
+          "saw"
+         ]
+        }
        ]
       },
       {
@@ -744,14 +773,27 @@
        "longest.max": 1.2,
        "mat.wood": "wood-beam",
        "nouns": [
-        "shovel",
-        "spade",
-        "pickaxe",
         "rake",
         "hoe",
         "pitchfork",
         "broom",
         "scythe (tool)"
+       ],
+       "children": [
+        {
+         "id": "obj-tool-long-pickaxe",
+         "nouns": [
+          "pickaxe",
+          "mattock"
+         ]
+        },
+        {
+         "id": "obj-tool-long-shovel",
+         "nouns": [
+          "shovel",
+          "spade"
+         ]
+        }
        ]
       },
       {

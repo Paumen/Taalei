@@ -5610,7 +5610,8 @@
     "kay-mixed/plushie-chicken-b",
     "kay-mixed/instant-camera-a",
     "kay-mixed/umbrella-c",
-    "kay-mixed/umbrella-d"
+    "kay-mixed/umbrella-d",
+    "kay-minigame/star"
    ]
   },
   {
@@ -5625,9 +5626,6 @@
     "isa-plants/watering-can-b",
     "small-props/trough-1-a",
     "small-props/trough-3-a",
-    "toon-shooter/cardboard-box-flat",
-    "toon-shooter/cardboard-boxes-a",
-    "toon-shooter/cardboard-boxes-b",
     "isa-picnic/basket-round",
     "isa-picnic/basket-square",
     "isa-bakery/basket-a",
@@ -5876,7 +5874,6 @@
     "medieval-village/dynamite-crate",
     "medieval-village/dynamite-crate-open",
     "toon-shooter/crate",
-    "toon-shooter/cardboard-box",
     "medieval-village/crate-a",
     "medieval-village/crate-b",
     "kay-hexagon/crate",
@@ -5885,7 +5882,11 @@
     "kay-hexagon/crate-long-b",
     "kay-hexagon/crate-long-c",
     "kay-hexagon/crate-long",
-    "kay-hexagon/crate-open"
+    "kay-hexagon/crate-open",
+    "toon-shooter/cardboard-box",
+    "toon-shooter/cardboard-box-flat",
+    "toon-shooter/cardboard-boxes-a",
+    "toon-shooter/cardboard-boxes-b"
    ]
   },
   {
@@ -5952,9 +5953,7 @@
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
    "color": "#6b5b95",
    "models": [
-    "quat-rpg/crown",
     "asia-rg/fan",
-    "quat-rpg/crown-2",
     "asia-rg/parasol"
    ]
   },
@@ -5984,7 +5983,9 @@
     "kay-skeleton-1/hood",
     "kay-skeleton-1/hood-masked",
     "kay-skeleton-1/mage-cloak",
-    "kay-skeleton-1/mage-cowl"
+    "kay-skeleton-1/mage-cowl",
+    "quat-rpg/crown",
+    "quat-rpg/crown-2"
    ]
   },
   {
@@ -6331,25 +6332,38 @@
    "id": "obj-furniture-storage",
    "name": "Storage",
    "type": "kind",
-   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "description": "chest of drawers, dresser"
+  },
+  {
+   "id": "obj-furniture-storage-cabinet",
+   "name": "Cabinet",
+   "type": "kind",
+   "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
    "models": [
     "kay-dun-1/bookcase",
     "kay-dun-1/bookcase-wide",
     "kay-dun-1/bookcase-wide-broken",
     "kay-furniture/cabinet-medium",
     "kay-furniture/cabinet-small",
-    "kay-furniture/shelf-b-small",
-    "kay-dun-2/shelf-large",
-    "kay-dun-2/shelf-small",
-    "kay-furniture/shelf-a-big",
-    "isa-kitchen/wall-shelf",
-    "isa-kitchen/wall-shelf-corner",
-    "isa-kitchen/wall-shelf-hooks",
     "isa-bakery/counter-closet-a-large",
     "isa-bakery/counter-closet-a-small",
     "isa-bakery/counter-closet-b-large",
-    "isa-bakery/counter-closet-b-small",
-    "kay-hexagon/weapon-rack"
+    "isa-bakery/counter-closet-b-small"
+   ]
+  },
+  {
+   "id": "obj-furniture-storage-shelf",
+   "name": "Shelf",
+   "type": "kind",
+   "description": "Boards carried on brackets or a frame, open on the front.",
+   "models": [
+    "kay-furniture/shelf-a-big",
+    "kay-furniture/shelf-b-small",
+    "kay-dun-2/shelf-large",
+    "kay-dun-2/shelf-small",
+    "isa-kitchen/wall-shelf",
+    "isa-kitchen/wall-shelf-corner",
+    "isa-kitchen/wall-shelf-hooks"
    ]
   },
   {
@@ -6382,10 +6396,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "color": "#9c3f2e",
-   "models": [
-    "kay-mixed/wood-stove"
-   ]
+   "color": "#9c3f2e"
   },
   {
    "id": "obj-kitchenware-cookware",
@@ -6403,7 +6414,8 @@
     "cooking-assets/whisk",
     "cooking-assets/wooden-paddle",
     "isa-bakery/rolling-pin",
-    "isa-bakery/whisk"
+    "isa-bakery/whisk",
+    "kay-mixed/wood-stove"
    ]
   },
   {
@@ -6569,7 +6581,6 @@
     "kay-food/plate-small",
     "ken-grave/detail-plate",
     "props/plate-a",
-    "props/plate-b",
     "props/plate-c",
     "quat-food/plate",
     "quat-food/plate-2",
@@ -6617,7 +6628,8 @@
     "ken-grave/detail-bowl",
     "quat-food/soy-sauce",
     "isa-picnic/bowl",
-    "isa-bakery/mixing-bowl"
+    "isa-bakery/mixing-bowl",
+    "props/plate-b"
    ]
   },
   {
@@ -6628,9 +6640,7 @@
    "models": [
     "clay-props/cup",
     "cooking-assets/tankard",
-    "cooking-assets/teacup",
-    "props/cup-a",
-    "props/cup-b"
+    "cooking-assets/teacup"
    ]
   },
   {
@@ -6650,7 +6660,9 @@
     "isa-bakery/mug-taupe",
     "isa-bakery/mug-ivory-stacked",
     "isa-bakery/mug-ivory",
-    "kay-holiday/mug-cocoa"
+    "kay-holiday/mug-cocoa",
+    "props/cup-a",
+    "props/cup-b"
    ]
   },
   {
@@ -6766,8 +6778,7 @@
    "color": "#f1976c",
    "models": [
     "asia-rg/token",
-    "asia-rg/token-hanging",
-    "kay-minigame/star"
+    "asia-rg/token-hanging"
    ]
   },
   {
@@ -7057,7 +7068,7 @@
    "id": "obj-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush",
+   "description": "chisel, trowel, wrench, tongs, brush",
    "models": [
     "isa-plants/shovel",
     "kay-tools/axe",
@@ -7065,17 +7076,14 @@
     "kay-tools/compass-base",
     "kay-tools/drafting-compass",
     "kay-tools/file",
-    "kay-tools/hammer",
     "kay-tools/handdrill",
     "kay-tools/handplane",
     "kay-tools/knife",
     "kay-tools/magnifying-glass",
-    "kay-tools/mallet",
     "kay-tools/pencil-a-long",
     "kay-tools/pencil-a-short",
     "kay-tools/pencil-b-long",
     "kay-tools/pencil-b-short",
-    "kay-tools/saw",
     "kay-tools/scissors",
     "kay-tools/screwdriver-a-long",
     "kay-tools/screwdriver-a-short",
@@ -7085,56 +7093,91 @@
     "kay-tools/trowel",
     "kay-tools/wrench-a",
     "kay-tools/wrench-b",
-    "ken-survival/tool-hammer",
-    "ken-survival/tool-hammer-upgraded",
     "medieval-forge/forceps",
-    "primitive-tools/stone-hammer",
-    "primitive-tools/wooden-hammer",
-    "small-props/hammer-1-a",
     "cooking-assets/tongs",
     "cooking-assets/tongs-open",
-    "mek-tools/brush",
-    "mek-tools/hammer-bar",
-    "mek-tools/hammer-block",
-    "mek-tools/hammer-pein",
-    "mek-tools/hammer-square",
+    "mek-tools/brush"
+   ]
+  },
+  {
+   "id": "obj-tool-hand-hammer",
+   "name": "Hammer",
+   "type": "kind",
+   "description": "Hammer or mallet: a weighted head on a short handle, for striking.",
+   "models": [
     "mek-tools/hammer-stepped",
     "mek-tools/hammer-wedge",
-    "mek-tools/saw-coarse",
+    "mek-tools/hammer-pein",
+    "mek-tools/hammer-square",
+    "mek-tools/hammer-bar",
+    "mek-tools/hammer-block",
+    "kay-tools/mallet",
+    "small-props/hammer-1-a",
+    "kay-tools/hammer",
+    "ken-survival/tool-hammer",
+    "ken-survival/tool-hammer-upgraded",
+    "primitive-tools/wooden-hammer",
+    "primitive-tools/stone-hammer"
+   ]
+  },
+  {
+   "id": "obj-tool-hand-saw",
+   "name": "Saw",
+   "type": "kind",
+   "description": "Saw: a toothed blade for cutting.",
+   "models": [
+    "mek-tools/saw-large",
     "mek-tools/saw-crosscut",
-    "mek-tools/saw-large"
+    "mek-tools/saw-coarse",
+    "kay-tools/saw"
    ]
   },
   {
    "id": "obj-tool-long",
    "name": "Long",
    "type": "kind",
-   "description": "shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)",
+   "description": "rake, hoe, pitchfork, broom, scythe (tool)",
    "models": [
     "asia-rg/rake",
     "fs-town/broom",
-    "kay-tools/pickaxe",
-    "kay-tools/shovel",
     "ken-survival/tool-hoe",
     "ken-survival/tool-hoe-upgraded",
-    "ken-survival/tool-pickaxe",
-    "ken-survival/tool-pickaxe-upgraded",
-    "ken-survival/tool-shovel",
-    "ken-survival/tool-shovel-upgraded",
-    "primitive-tools/stone-pickaxe",
-    "primitive-tools/stone-shovel",
-    "primitive-tools/wooden-pickaxe",
-    "primitive-tools/wooden-shovel",
     "small-props/broom-a",
     "small-props/fishing-rod-a",
     "small-props/fishing-rod-b",
     "small-props/fishing-rod-c",
     "small-props/pitchfork-a",
+    "isa-playground/shovel"
+   ]
+  },
+  {
+   "id": "obj-tool-long-pickaxe",
+   "name": "Pickaxe",
+   "type": "kind",
+   "description": "Pickaxe: a pointed head across a long haft, for breaking ground or rock.",
+   "models": [
+    "primitive-tools/wooden-pickaxe",
+    "primitive-tools/stone-pickaxe",
     "mek-tools/pickaxe",
+    "kay-tools/pickaxe",
+    "ken-survival/tool-pickaxe",
+    "ken-survival/tool-pickaxe-upgraded"
+   ]
+  },
+  {
+   "id": "obj-tool-long-shovel",
+   "name": "Shovel",
+   "type": "kind",
+   "description": "Shovel or spade: a blade on a long haft, for digging and moving loose matter.",
+   "models": [
+    "toon-shooter/shovel",
+    "ken-survival/tool-shovel",
+    "ken-survival/tool-shovel-upgraded",
     "ken-pirate/tool-shovel",
     "ken-grave/shovel",
-    "isa-playground/shovel",
-    "toon-shooter/shovel"
+    "kay-tools/shovel",
+    "primitive-tools/stone-shovel",
+    "primitive-tools/wooden-shovel"
    ]
   },
   {
@@ -7202,7 +7245,6 @@
     "quat-pirate/ship-small",
     "quat-ships/boat",
     "quat-ships/boat-sail",
-    "quat-ships/viking-boat",
     "fishing-village/boat-oars",
     "fishing-village/boat-rack",
     "fishing-village/boat-poles",
@@ -7246,7 +7288,8 @@
     "ken-pirate/ship-small",
     "ken-pirate/ship-wreck",
     "quat-pirate/ship-large",
-    "quat-ships/ship-sail"
+    "quat-ships/ship-sail",
+    "quat-ships/viking-boat"
    ]
   },
   {
@@ -7274,7 +7317,8 @@
    "color": "#4c5468",
    "models": [
     "kay-dun-1/weapon-rack",
-    "quat-props/weapon-stand"
+    "quat-props/weapon-stand",
+    "kay-hexagon/weapon-rack"
    ]
   },
   {
@@ -7320,15 +7364,7 @@
    "id": "obj-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
-   "description": "Axe with no leaf that fits.",
-   "models": [
-    "kay-adventurers/axe-two-handed",
-    "kay-skeleton/axe",
-    "kay-weapons/axe-a",
-    "kay-weapons/axe-b",
-    "ken-survival/tool-axe-upgraded",
-    "quat-rpg/axe-small"
-   ]
+   "description": "Axe with no leaf that fits."
   },
   {
    "id": "obj-weapon-melee-axe-single",
@@ -7347,7 +7383,8 @@
     "kay-dun-1/axe-uncommon",
     "kay-weapons/axe-c",
     "mek-tools/axe",
-    "post-apocalypse/axe"
+    "post-apocalypse/axe",
+    "quat-rpg/axe-small"
    ]
   },
   {
@@ -7361,7 +7398,12 @@
     "kay-dun-1/axe-double-uncommon",
     "mek-tools/axe-double",
     "quat-rpg/axe-double",
-    "quat-pirate/axe-double"
+    "quat-pirate/axe-double",
+    "ken-survival/tool-axe-upgraded",
+    "kay-adventurers/axe-two-handed",
+    "kay-weapons/axe-a",
+    "kay-weapons/axe-b",
+    "kay-skeleton/axe"
    ]
   },
   {
@@ -8585,8 +8627,6 @@
     "kay-hallow/fence-gate-left",
     "kay-hallow/fence-gate-pillar",
     "kay-hallow/fence-gate-right",
-    "kay-hallow/fence-pillar",
-    "kay-hallow/fence-pillar-broken",
     "kay-hallow/fence-seperate",
     "kay-hallow/fence-seperate-broken",
     "ken-grave/fence",
@@ -8655,7 +8695,6 @@
     "kay-spook/fence",
     "kay-spook/fence-corner",
     "kay-spook/fence-double",
-    "kay-spook/fence-post",
     "kay-spook/fence-single",
     "ken-nature/fence-bend",
     "ken-nature/fence-bend-center",
@@ -8689,7 +8728,10 @@
     "asia-pack/post-b",
     "quat-pirate/dock-pole",
     "fishing-village/mooring-post",
-    "isa-playground/fence-post"
+    "isa-playground/fence-post",
+    "kay-hallow/fence-pillar",
+    "kay-hallow/fence-pillar-broken",
+    "kay-spook/fence-post"
    ]
   },
   {
@@ -8699,7 +8741,6 @@
    "description": "gazebo, well",
    "color": "#7d4f3a",
    "models": [
-    "medieval-forge/furnace",
     "medieval-town/gazebo",
     "quat-town/storage-1-a",
     "quat-town/storage-1-b",
@@ -9357,9 +9398,6 @@
     "fs-town/canopy-side",
     "fs-town/canopy-sides-opposite",
     "fs-town/canopy-top",
-    "ken-survival/tent",
-    "ken-survival/tent-canvas",
-    "ken-survival/tent-canvas-half",
     "ken-town/stall",
     "ken-town/stall-red",
     "medieval-town/market-stand",
@@ -9391,7 +9429,10 @@
     "ken-forest-mini/tent",
     "jelly-forest/tent",
     "ken-nature/tent-small-closed",
-    "ken-nature/tent-small-open"
+    "ken-nature/tent-small-open",
+    "ken-survival/tent-canvas-half",
+    "ken-survival/tent-canvas",
+    "ken-survival/tent"
    ]
   },
   {
@@ -11176,8 +11217,6 @@
    "type": "kind",
    "description": "Fortified or working building with no leaf that fits.",
    "models": [
-    "architecture/castle",
-    "architecture/fortress",
     "isa-playground/sandcastle-a",
     "isa-playground/sandcastle-b",
     "isa-playground/sandcastle-c"
@@ -11210,7 +11249,8 @@
    "models": [
     "kay-hexagon/blacksmith",
     "medieval-town/blacksmith",
-    "medieval-village/smithy"
+    "medieval-village/smithy",
+    "medieval-forge/furnace"
    ]
   },
   {
@@ -11227,7 +11267,9 @@
     "quat-town/wonder-2-b",
     "quat-town/wonder-2-c",
     "quat-town/wonder-walls-1",
-    "quat-town/wonder-walls-2"
+    "quat-town/wonder-walls-2",
+    "architecture/castle",
+    "architecture/fortress"
    ]
   },
   {
@@ -11273,7 +11315,6 @@
     "quat-town/farm-2-b",
     "quat-town/farm-2-a",
     "quat-town/farm-2-c",
-    "architecture/barn",
     "farm-buildings/chicken-coop"
    ]
   },
@@ -11286,7 +11327,8 @@
     "farm-buildings/barn-open",
     "farm-buildings/barn",
     "farm-buildings/barn-large",
-    "farm-buildings/barn-small"
+    "farm-buildings/barn-small",
+    "architecture/barn"
    ]
   },
   {
