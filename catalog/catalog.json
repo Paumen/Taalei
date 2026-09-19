@@ -7202,21 +7202,28 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 120
+   "count": 63
+  },
+  {
+   "id": "env-rock-cobble",
+   "name": "Cobble",
+   "type": "kind",
+   "description": "cobble, rock (small), stone (loose)",
+   "count": 64
   },
   {
    "id": "env-rock-formation",
    "name": "Formation",
    "type": "kind",
    "description": "arch (rock), monolith, spire, cliff, outcrop",
-   "count": 18
+   "count": 16
   },
   {
    "id": "env-rock-pebble",
    "name": "Pebble",
    "type": "kind",
    "description": "pebble, stone (small), gravel",
-   "count": 48
+   "count": 41
   },
   {
    "id": "env-terrain",
@@ -7883,6 +7890,12 @@
    "tpu.max": 5000
   },
   "env-rock-boulder": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "env-rock-cobble": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -13750,7 +13763,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-block-a",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -13790,7 +13803,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-block-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -13830,7 +13843,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-block-c",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -14150,7 +14163,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-small-a",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -14190,7 +14203,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-small-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -14230,7 +14243,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-small-c",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -14270,7 +14283,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-small-d",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.25,
@@ -14310,7 +14323,7 @@
   {
    "kit": "asia-pack",
    "name": "rock-small-e",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.55,
@@ -27182,7 +27195,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-a",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.45,
@@ -27220,7 +27233,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -27259,7 +27272,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-c",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -27298,7 +27311,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-d",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.45,
@@ -27336,7 +27349,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-e",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "l",
    "wdh": [
     0.5,
@@ -27375,7 +27388,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-f",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -46159,7 +46172,7 @@
   {
    "kit": "kay-builder",
    "name": "rocks-small",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.8,
@@ -46199,7 +46212,7 @@
   {
    "kit": "kay-builder",
    "name": "rocks",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "l",
    "wdh": [
     2.25,
@@ -62763,7 +62776,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-a",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.15,
@@ -62802,7 +62815,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-b",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.15,
@@ -62841,7 +62854,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-c",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.15,
@@ -62880,7 +62893,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-d",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -62919,7 +62932,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-e",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -62958,7 +62971,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-f",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -62997,7 +63010,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-g",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -63036,7 +63049,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-h",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.45,
@@ -63075,7 +63088,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-1-i",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -63426,7 +63439,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-2-a",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.05,
@@ -63465,7 +63478,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-2-b",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.2,
@@ -63504,7 +63517,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-2-c",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -63543,7 +63556,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-2-d",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -63897,7 +63910,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-e",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -63936,7 +63949,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-f",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -63975,7 +63988,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-g",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.55,
@@ -64014,7 +64027,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-h",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -64053,7 +64066,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-i",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -64092,7 +64105,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-j",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -64131,7 +64144,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-k",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.8,
@@ -64170,7 +64183,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-l",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.8,
@@ -73282,7 +73295,7 @@
   {
    "kit": "kay-minigame",
    "name": "rocks-a",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -73322,7 +73335,7 @@
   {
    "kit": "kay-minigame",
    "name": "rocks-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -106426,7 +106439,7 @@
   {
    "kit": "medieval-village",
    "name": "rock-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -109268,7 +109281,7 @@
   {
    "kit": "natuur",
    "name": "rock-1",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -109306,7 +109319,7 @@
   {
    "kit": "natuur",
    "name": "rock-2",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -109344,7 +109357,7 @@
   {
    "kit": "natuur",
    "name": "rock-3",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.55,
@@ -109382,7 +109395,7 @@
   {
    "kit": "natuur",
    "name": "rock-4",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.55,
@@ -109420,7 +109433,7 @@
   {
    "kit": "natuur",
    "name": "rock-5",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.45,
@@ -109458,7 +109471,7 @@
   {
    "kit": "natuur",
    "name": "rock-6",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -109496,7 +109509,7 @@
   {
    "kit": "natuur",
    "name": "rock-7",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.65,
@@ -109534,7 +109547,7 @@
   {
    "kit": "natuur",
    "name": "rock-8",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.6,
@@ -109572,7 +109585,7 @@
   {
    "kit": "natuur",
    "name": "rock-9",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.65,
@@ -120195,7 +120208,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-1",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.2,
@@ -120234,7 +120247,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-2",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.25,
@@ -120273,7 +120286,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-3",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -120312,7 +120325,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-4",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.3,
@@ -120351,7 +120364,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-5",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.25,
@@ -120390,7 +120403,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-6",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -120429,7 +120442,7 @@
   {
    "kit": "quat-nature",
    "name": "rock-7",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -123475,7 +123488,7 @@
   {
    "kit": "quat-pirate",
    "name": "rock-2",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.25,
@@ -135555,7 +135568,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-a",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.45,
@@ -135593,7 +135606,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-b",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.55,
@@ -135745,7 +135758,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-f",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -135783,7 +135796,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-g",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "m",
    "wdh": [
     0.5,
@@ -135822,7 +135835,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-h",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -135860,7 +135873,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-i",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -135898,7 +135911,7 @@
   {
    "kit": "rocks",
    "name": "rock-natural-j",
-   "kind": "env-rock-boulder",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -136203,7 +136216,7 @@
   {
    "kit": "rocks",
    "name": "rockwall-corner",
-   "kind": "env-rock-formation",
+   "kind": "env-rock",
    "size": "m",
    "wdh": [
     0.85,
@@ -136241,7 +136254,7 @@
   {
    "kit": "rocks",
    "name": "rockwall-straight",
-   "kind": "env-rock-formation",
+   "kind": "env-rock",
    "size": "m",
    "wdh": [
     1,
