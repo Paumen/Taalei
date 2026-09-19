@@ -6373,7 +6373,7 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 33
+   "count": 37
   },
   {
    "id": "obj-container-chest-coffin",
@@ -6387,7 +6387,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 38
+   "count": 37
   },
   {
    "id": "obj-container-pot",
@@ -6423,7 +6423,7 @@
    "name": "Clothing",
    "type": "kind",
    "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
-   "count": 5
+   "count": 7
   },
   {
    "id": "obj-equipment-shield",
@@ -6494,7 +6494,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "rug, carpet",
-   "count": 92,
+   "count": 91,
    "color": "#c07c8a"
   },
   {
@@ -6537,7 +6537,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
-   "count": 17
+   "count": 16
   },
   {
    "id": "obj-furniture-table",
@@ -6559,7 +6559,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, ladle",
-   "count": 66
+   "count": 67
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -6622,7 +6622,7 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, saucer",
-   "count": 38
+   "count": 37
   },
   {
    "id": "obj-kitchenware-tableware-plate-serving",
@@ -6636,7 +6636,7 @@
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-kitchenware-tableware-drinkware",
@@ -6650,7 +6650,7 @@
    "name": "Mug",
    "type": "kind",
    "description": "mug",
-   "count": 12
+   "count": 14
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-goblet",
@@ -6700,7 +6700,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 82,
+   "count": 81,
    "color": "#f1976c"
   },
   {
@@ -6837,7 +6837,7 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 13
+   "count": 12
   },
   {
    "id": "obj-transport-cart",
@@ -6851,7 +6851,7 @@
    "name": "Ship",
    "type": "kind",
    "description": "ship, galleon, longship, hull (ship)",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-weapon-cannon",
@@ -6865,7 +6865,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 174,
+   "count": 175,
    "color": "#4c5468"
   },
   {
@@ -7249,14 +7249,14 @@
    "name": "Fence",
    "type": "kind",
    "description": "fence, fence segment, railing, palisade, gate (fence)",
-   "count": 117
+   "count": 114
   },
   {
    "id": "str-barrier-post",
    "name": "Post",
    "type": "kind",
    "description": "post, bollard, stake",
-   "count": 9
+   "count": 12
   },
   {
    "id": "str-building",
@@ -8077,12 +8077,6 @@
   },
   "obj-instrument": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "obj-kitchenware": {
-   "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 5000
@@ -66525,7 +66519,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-pillar-broken",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-post",
    "size": "s",
    "wdh": [
     0.1,
@@ -66562,12 +66556,19 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v275"
+   "variant": "v275",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has stone-masonry (str-barrier-post)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
    "name": "fence-pillar",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
     0.1,
@@ -66603,7 +66604,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v275"
+   "variant": "v275",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has stone-masonry (str-barrier-post)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -71823,7 +71831,7 @@
   {
    "kit": "kay-hexagon",
    "name": "weapon-rack",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-weapon",
    "size": "s",
    "wdh": [
     0.25,
@@ -73273,7 +73281,7 @@
   {
    "kit": "kay-minigame",
    "name": "star",
-   "kind": "obj-pocketitem",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.35,
@@ -74649,7 +74657,7 @@
   {
    "kit": "kay-mixed",
    "name": "wood-stove",
-   "kind": "obj-kitchenware",
+   "kind": "obj-kitchenware-cookware",
    "size": "m",
    "wdh": [
     0.35,
@@ -79958,7 +79966,7 @@
   {
    "kit": "kay-spook",
    "name": "fence-post",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-post",
    "size": "s",
    "wdh": [
     0.1,
@@ -79993,6 +80001,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has stone-masonry (str-barrier-post)"
+    }
    ]
   },
   {
@@ -113932,7 +113947,7 @@
   {
    "kit": "props",
    "name": "cup-a",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
     0.15,
@@ -113976,7 +113991,7 @@
   {
    "kit": "props",
    "name": "cup-b",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
     0.15,
@@ -114397,7 +114412,7 @@
   {
    "kit": "props",
    "name": "plate-b",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
     0.2,
@@ -127481,7 +127496,7 @@
   {
    "kit": "quat-rpg",
    "name": "crown-2",
-   "kind": "obj-equipment",
+   "kind": "obj-equipment-clothing",
    "size": "s",
    "wdh": [
     0.2,
@@ -127526,7 +127541,7 @@
   {
    "kit": "quat-rpg",
    "name": "crown",
-   "kind": "obj-equipment",
+   "kind": "obj-equipment-clothing",
    "size": "s",
    "wdh": [
     0.2,
@@ -130092,7 +130107,7 @@
   {
    "kit": "quat-ships",
    "name": "viking-boat",
-   "kind": "obj-transport-boat",
+   "kind": "obj-transport-ship",
    "size": "l",
    "wdh": [
     1.95,
@@ -137880,7 +137895,7 @@
   {
    "kit": "toon-shooter",
    "name": "cardboard-box-flat",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
     0.3,
@@ -137920,12 +137935,24 @@
     "qua",
     "textile"
    ],
-   "variant": "v520"
+   "variant": "v520",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.15 under min 0.2 (obj-container-chest)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has paper textile (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
     0.3,
@@ -137970,14 +137997,14 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
+     "text": "— needs wood, has paper textile (obj-container-chest)"
     }
    ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-boxes-a",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "size": "m",
    "wdh": [
     0.45,
@@ -138018,12 +138045,19 @@
     "qua",
     "textile"
    ],
-   "variant": "v520"
+   "variant": "v520",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has paper textile (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-boxes-b",
-   "kind": "obj-container",
+   "kind": "obj-container-chest",
    "size": "m",
    "wdh": [
     0.4,
@@ -138064,7 +138098,14 @@
     "qua",
     "textile"
    ],
-   "variant": "v520"
+   "variant": "v520",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has paper textile (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "toon-shooter",
