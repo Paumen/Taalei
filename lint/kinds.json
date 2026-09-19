@@ -22,8 +22,7 @@
      "nouns": [
       "basket",
       "trough",
-      "bin",
-      "can"
+      "bin"
      ],
      "children": [
       {
@@ -59,8 +58,16 @@
        ],
        "nouns": [
         "barrel",
-        "cask",
-        "keg"
+        "cask"
+       ],
+       "children": [
+        {
+         "id": "obj-container-barrel-keg",
+         "nouns": [
+          "keg",
+          "tapped barrel"
+         ]
+        }
        ]
       },
       {
@@ -89,6 +96,15 @@
         "box",
         "case",
         "package"
+       ],
+       "children": [
+        {
+         "id": "obj-container-crate-cube",
+         "nouns": [
+          "cube crate",
+          "cube box"
+         ]
+        }
        ]
       },
       {
@@ -103,18 +119,40 @@
        "nouns": [
         "bottle",
         "flask",
-        "vial",
-        "potion"
+        "vial"
+       ],
+       "children": [
+        {
+         "id": "obj-container-bottle-potion",
+         "nouns": [
+          "potion"
+         ]
+        }
        ]
       },
       {
        "id": "obj-container-bag",
        "nouns": [
         "bag",
-        "sack",
-        "pouch",
-        "purse",
         "backpack"
+       ],
+       "children": [
+        {
+         "id": "obj-container-bag-sack",
+         "nouns": [
+          "sack",
+          "loot sack",
+          "trash bag"
+         ]
+        },
+        {
+         "id": "obj-container-bag-pouch",
+         "nouns": [
+          "pouch",
+          "purse",
+          "coin bag"
+         ]
+        }
        ]
       },
       {
@@ -126,7 +164,6 @@
         "planter",
         "urn",
         "amphora",
-        "jar",
         "jug",
         "pitcher",
         "ewer"
@@ -137,7 +174,22 @@
          "nouns": [
           "vase"
          ]
+        },
+        {
+         "id": "obj-container-pot-jar",
+         "nouns": [
+          "jar",
+          "canister",
+          "tin"
+         ]
         }
+       ]
+      },
+      {
+       "id": "obj-container-can",
+       "nouns": [
+        "can",
+        "watering can"
        ]
       }
      ]
@@ -251,8 +303,7 @@
        "id": "obj-kitchenware-cookware",
        "nouns": [
         "grill",
-        "spit",
-        "ladle"
+        "spit"
        ],
        "children": [
         {
@@ -302,6 +353,26 @@
          "nouns": [
           "cauldron"
          ]
+        },
+        {
+         "id": "obj-kitchenware-cookware-utensil",
+         "nouns": [
+          "ladle",
+          "spatula",
+          "turner",
+          "whisk",
+          "rolling pin",
+          "rice paddle",
+          "wooden paddle"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-cookware-stove",
+         "nouns": [
+          "stove",
+          "oven",
+          "range"
+         ]
         }
        ]
       }
@@ -312,10 +383,6 @@
      "longest.min": 0.2,
      "longest.max": 1.2,
      "tpu.max": 5000,
-     "nouns": [
-      "rug",
-      "carpet"
-     ],
      "children": [
       {
        "id": "obj-furniture-seating",
@@ -326,9 +393,23 @@
          "high.max": 0.8,
          "nouns": [
           "bench",
-          "couch",
-          "sofa",
           "pew"
+         ],
+         "children": [
+          {
+           "id": "obj-furniture-seating-bench-backrest",
+           "nouns": [
+            "couch",
+            "sofa",
+            "backed bench"
+           ]
+          },
+          {
+           "id": "obj-furniture-seating-bench-nobackrest",
+           "nouns": [
+            "backless bench"
+           ]
+          }
          ]
         },
         {
@@ -357,6 +438,14 @@
        "nouns": [
         "table",
         "desk"
+       ],
+       "children": [
+        {
+         "id": "obj-furniture-table-square",
+         "nouns": [
+          "square table"
+         ]
+        }
        ]
       },
       {
@@ -397,6 +486,21 @@
          ]
         }
        ]
+      },
+      {
+       "id": "obj-furniture-pillow",
+       "nouns": [
+        "pillow",
+        "cushion"
+       ]
+      },
+      {
+       "id": "obj-furniture-rug",
+       "nouns": [
+        "rug",
+        "carpet",
+        "picnic blanket"
+       ]
       }
      ]
     },
@@ -405,9 +509,7 @@
      "longest.max": 0.6,
      "tpu.max": 5000,
      "nouns": [
-      "egg",
-      "honey",
-      "coconut"
+      "honey"
      ],
      "children": [
       {
@@ -419,10 +521,18 @@
         "meat",
         "ham",
         "sausage",
-        "drumstick",
         "steak",
-        "roast",
-        "leg"
+        "roast"
+       ],
+       "children": [
+        {
+         "id": "obj-food-meat-chickenleg",
+         "nouns": [
+          "drumstick",
+          "leg",
+          "chicken leg"
+         ]
+        }
        ]
       },
       {
@@ -430,29 +540,31 @@
        "nouns": [
         "carrot",
         "cabbage",
-        "pumpkin",
         "turnip",
         "onion",
         "potato",
         "tomato"
+       ],
+       "children": [
+        {
+         "id": "obj-food-vegetable-pumpkin",
+         "nouns": [
+          "pumpkin",
+          "jackolantern"
+         ]
+        }
        ]
       },
       {
        "id": "obj-food-grain",
        "nouns": [
-        "bread",
-        "loaf",
         "wheat sheaf",
-        "flour sack",
-        "roll",
-        "baguette"
+        "flour sack"
        ],
        "children": [
         {
          "id": "obj-food-grain-pastry",
          "nouns": [
-          "cake",
-          "pie",
           "croissant",
           "waffle",
           "cookie",
@@ -463,6 +575,24 @@
           "cinnamon roll",
           "cream puff",
           "gingerbread"
+         ],
+         "children": [
+          {
+           "id": "obj-food-grain-pastry-pie",
+           "nouns": [
+            "cake",
+            "pie"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-food-grain-bread",
+         "nouns": [
+          "bread",
+          "loaf",
+          "roll",
+          "baguette"
          ]
         }
        ]
@@ -480,10 +610,17 @@
        "id": "obj-food-fruit",
        "nouns": [
         "fruit",
-        "apple",
         "banana",
         "avocado",
         "grapes"
+       ],
+       "children": [
+        {
+         "id": "obj-food-fruit-apple",
+         "nouns": [
+          "apple"
+         ]
+        }
        ]
       },
       {
@@ -498,9 +635,28 @@
        "id": "obj-food-sweet",
        "nouns": [
         "candy",
-        "chocolate",
-        "ice cream",
-        "popsicle"
+        "chocolate"
+       ],
+       "children": [
+        {
+         "id": "obj-food-sweet-icecream",
+         "nouns": [
+          "ice cream",
+          "popsicle"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-food-coconut",
+       "nouns": [
+        "coconut"
+       ]
+      },
+      {
+       "id": "obj-food-egg",
+       "nouns": [
+        "egg"
        ]
       }
      ]
@@ -525,10 +681,19 @@
          "longest.max": 1.0,
          "nouns": [
           "sword",
-          "blade",
           "rapier",
           "scimitar",
           "katana"
+         ],
+         "children": [
+          {
+           "id": "obj-weapon-melee-sword-blade",
+           "nouns": [
+            "blade",
+            "cutlass",
+            "machete"
+           ]
+          }
          ]
         },
         {
@@ -567,8 +732,16 @@
          "nouns": [
           "hammer (war)",
           "mace",
-          "club",
           "flail"
+         ],
+         "children": [
+          {
+           "id": "obj-weapon-melee-hammer-club",
+           "nouns": [
+            "club",
+            "bat"
+           ]
+          }
          ]
         },
         {
@@ -627,13 +800,25 @@
         {
          "id": "obj-weapon-ranged-firearm",
          "nouns": [
-          "pistol",
-          "revolver",
           "rifle",
           "musket",
           "blunderbuss",
-          "shotgun",
           "carbine"
+         ],
+         "children": [
+          {
+           "id": "obj-weapon-ranged-firearm-hand",
+           "nouns": [
+            "pistol",
+            "revolver"
+           ]
+          },
+          {
+           "id": "obj-weapon-ranged-firearm-shotgun",
+           "nouns": [
+            "shotgun"
+           ]
+          }
          ]
         }
        ]
@@ -667,8 +852,17 @@
        "id": "obj-weapon-cannon",
        "mat.metal-iron": "metal-iron-cast",
        "nouns": [
-        "cannon",
-        "cannonball"
+        "cannon"
+       ],
+       "children": [
+        {
+         "id": "obj-weapon-cannon-ball",
+         "nouns": [
+          "cannonball",
+          "bomb",
+          "catapult ball"
+         ]
+        }
        ]
       },
       {
@@ -751,7 +945,6 @@
       "spring",
       "gear",
       "pulley",
-      "anvil",
       "grindstone"
      ],
      "children": [
@@ -821,6 +1014,12 @@
         "chain",
         "hook",
         "wire"
+       ]
+      },
+      {
+       "id": "obj-tool-anvil",
+       "nouns": [
+        "anvil"
        ]
       }
      ]
@@ -895,6 +1094,24 @@
        "nouns": [
         "lantern",
         "lamp"
+       ],
+       "children": [
+        {
+         "id": "obj-lighting-lantern-onpost",
+         "nouns": [
+          "lamp post",
+          "street lamp",
+          "lantern post"
+         ]
+        },
+        {
+         "id": "obj-lighting-lantern-single",
+         "nouns": [
+          "hand lantern",
+          "hanging lantern",
+          "standing lantern"
+         ]
+        }
        ]
       },
       {
@@ -972,6 +1189,20 @@
         "tome",
         "journal",
         "spell book"
+       ],
+       "children": [
+        {
+         "id": "obj-pocketitem-book-closed",
+         "nouns": [
+          "closed book"
+         ]
+        },
+        {
+         "id": "obj-pocketitem-book-open",
+         "nouns": [
+          "open book"
+         ]
+        }
        ]
       },
       {
@@ -984,9 +1215,17 @@
        "nouns": [
         "scroll",
         "letter",
-        "map (rolled)",
         "parchment",
         "blueprint"
+       ],
+       "children": [
+        {
+         "id": "obj-pocketitem-scroll-rolled",
+         "nouns": [
+          "map (rolled)",
+          "rolled scroll"
+         ]
+        }
        ]
       },
       {
@@ -998,13 +1237,20 @@
         ]
        ],
        "nouns": [
-        "ring",
         "necklace",
         "amulet",
         "bracelet",
         "earring",
         "pendant",
         "brooch"
+       ],
+       "children": [
+        {
+         "id": "obj-pocketitem-jewellery-ring",
+         "nouns": [
+          "ring"
+         ]
+        }
        ]
       }
      ]
@@ -1050,8 +1296,15 @@
          "longest.min": 0.2,
          "nouns": [
           "plank (stock)",
-          "board (loose)",
-          "pallet"
+          "board (loose)"
+         ],
+         "children": [
+          {
+           "id": "obj-resource-wood-plank-pallet",
+           "nouns": [
+            "pallet"
+           ]
+          }
          ]
         }
        ]
@@ -1098,6 +1351,15 @@
         "fountain"
        ]
       }
+     ]
+    },
+    {
+     "id": "obj-icon",
+     "nouns": [
+      "icon",
+      "heart (icon)",
+      "star (icon)",
+      "lightning bolt"
      ]
     }
    ]
@@ -1498,7 +1760,6 @@
      "id": "env-fauna",
      "tpu.max": 10000,
      "nouns": [
-      "fish",
       "mammal",
       "bird",
       "insect",
@@ -1508,6 +1769,14 @@
       "lobster",
       "frog",
       "snail"
+     ],
+     "children": [
+      {
+       "id": "env-fauna-fish",
+       "nouns": [
+        "fish"
+       ]
+      }
      ]
     },
     {
@@ -1522,11 +1791,24 @@
       {
        "id": "env-remains-bones",
        "nouns": [
-        "bone",
-        "skull",
         "skeleton (prop)",
         "ribcage",
         "carcass"
+       ],
+       "children": [
+        {
+         "id": "env-remains-bones-skull",
+         "nouns": [
+          "skull"
+         ]
+        },
+        {
+         "id": "env-remains-bones-single",
+         "nouns": [
+          "bone",
+          "bone (single)"
+         ]
+        }
        ]
       }
      ]

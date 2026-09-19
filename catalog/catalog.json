@@ -6777,37 +6777,79 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1351,
+   "count": 1352,
    "color": "#c07c8a"
+  },
+  {
+   "id": "obj-icon",
+   "name": "Icon",
+   "type": "kind",
+   "description": "icon, heart (icon), star (icon), lightning bolt",
+   "count": 6
   },
   {
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin, can",
+   "description": "basket, tub, trough, bin",
    "count": 266,
    "color": "#dd9f79"
+  },
+  {
+   "id": "obj-container-can",
+   "name": "Can",
+   "type": "kind",
+   "description": "can, watering can",
+   "count": 6
   },
   {
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
-   "description": "bag, sack, pouch, purse, backpack, satchel",
+   "description": "bag, backpack, satchel",
    "count": 26
+  },
+  {
+   "id": "obj-container-bag-pouch",
+   "name": "Pouch",
+   "type": "kind",
+   "description": "pouch, purse, coin bag",
+   "count": 4
+  },
+  {
+   "id": "obj-container-bag-sack",
+   "name": "Sack",
+   "type": "kind",
+   "description": "sack, loot sack, trash bag",
+   "count": 17
   },
   {
    "id": "obj-container-barrel",
    "name": "Barrel",
    "type": "kind",
-   "description": "barrel, cask, keg",
+   "description": "barrel, cask",
    "count": 27
+  },
+  {
+   "id": "obj-container-barrel-keg",
+   "name": "Keg",
+   "type": "kind",
+   "description": "keg, tapped barrel",
+   "count": 2
   },
   {
    "id": "obj-container-bottle",
    "name": "Bottle",
    "type": "kind",
-   "description": "bottle, flask, vial, potion",
+   "description": "bottle, flask, vial",
    "count": 59
+  },
+  {
+   "id": "obj-container-bottle-potion",
+   "name": "Potion",
+   "type": "kind",
+   "description": "potion",
+   "count": 34
   },
   {
    "id": "obj-container-bucket",
@@ -6838,11 +6880,25 @@
    "count": 46
   },
   {
+   "id": "obj-container-crate-cube",
+   "name": "Cube",
+   "type": "kind",
+   "description": "cube crate, cube box",
+   "count": 23
+  },
+  {
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot (storage), planter, urn, amphora, jar, jug, pitcher, ewer",
-   "count": 47
+   "description": "pot (storage), planter, urn, amphora, jug, pitcher, ewer",
+   "count": 41
+  },
+  {
+   "id": "obj-container-pot-jar",
+   "name": "Jar",
+   "type": "kind",
+   "description": "jar, canister, tin",
+   "count": 10
   },
   {
    "id": "obj-container-pot-vase",
@@ -6884,37 +6940,79 @@
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
-   "description": "egg, honey, coconut",
-   "count": 165,
+   "description": "honey",
+   "count": 166,
    "color": "#c25b4e"
+  },
+  {
+   "id": "obj-food-egg",
+   "name": "Egg",
+   "type": "kind",
+   "description": "egg",
+   "count": 5
+  },
+  {
+   "id": "obj-food-coconut",
+   "name": "Coconut",
+   "type": "kind",
+   "description": "coconut",
+   "count": 4
   },
   {
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "Bread and unbaked grain: loaves, rolls, baguettes, wheat, flour and dough.",
+   "description": "Unbaked grain: wheat, flour and dough.",
    "count": 66
+  },
+  {
+   "id": "obj-food-grain-bread",
+   "name": "Bread",
+   "type": "kind",
+   "description": "bread, loaf, roll, baguette",
+   "count": 10
   },
   {
    "id": "obj-food-grain-pastry",
    "name": "Pastry",
    "type": "kind",
-   "description": "Baked goods beyond plain bread: cakes, pies, cookies, donuts and the like.",
+   "description": "Baked goods beyond plain bread: cookies, donuts and the like.",
    "count": 42
+  },
+  {
+   "id": "obj-food-grain-pastry-pie",
+   "name": "Pie",
+   "type": "kind",
+   "description": "cake, pie",
+   "count": 15
   },
   {
    "id": "obj-food-meat",
    "name": "Meat",
    "type": "kind",
-   "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
+   "description": "meat, ham, sausage, steak, burger, roast",
    "count": 11
+  },
+  {
+   "id": "obj-food-meat-chickenleg",
+   "name": "Chicken leg",
+   "type": "kind",
+   "description": "drumstick, leg, chicken leg",
+   "count": 3
   },
   {
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
+   "description": "carrot, cabbage, turnip, onion, potato, tomato",
    "count": 38
+  },
+  {
+   "id": "obj-food-vegetable-pumpkin",
+   "name": "Pumpkin",
+   "type": "kind",
+   "description": "pumpkin, jackolantern",
+   "count": 12
   },
   {
    "id": "obj-food-fish",
@@ -6931,6 +7029,13 @@
    "count": 15
   },
   {
+   "id": "obj-food-fruit-apple",
+   "name": "Apple",
+   "type": "kind",
+   "description": "apple",
+   "count": 6
+  },
+  {
    "id": "obj-food-cheese",
    "name": "Cheese",
    "type": "kind",
@@ -6941,23 +7046,44 @@
    "id": "obj-food-sweet",
    "name": "Sweet",
    "type": "kind",
-   "description": "Confectionery and frozen sweets.",
+   "description": "Confectionery.",
    "count": 11
+  },
+  {
+   "id": "obj-food-sweet-icecream",
+   "name": "Ice cream",
+   "type": "kind",
+   "description": "ice cream, popsicle",
+   "count": 6
   },
   {
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
-   "description": "rug, carpet",
+   "description": "Furniture with no leaf that fits.",
    "count": 101,
    "color": "#c07c8a"
+  },
+  {
+   "id": "obj-furniture-rug",
+   "name": "Rug",
+   "type": "kind",
+   "description": "rug, carpet, picnic blanket",
+   "count": 9
+  },
+  {
+   "id": "obj-furniture-pillow",
+   "name": "Pillow",
+   "type": "kind",
+   "description": "pillow, cushion",
+   "count": 7
   },
   {
    "id": "obj-furniture-bed",
    "name": "Bed",
    "type": "kind",
    "description": "bed, bedroll, bunk, cot, hammock",
-   "count": 11
+   "count": 10
   },
   {
    "id": "obj-furniture-seating",
@@ -6970,8 +7096,22 @@
    "id": "obj-furniture-seating-bench",
    "name": "Bench",
    "type": "kind",
-   "description": "bench, couch, sofa, pew",
+   "description": "bench, pew",
    "count": 14
+  },
+  {
+   "id": "obj-furniture-seating-bench-nobackrest",
+   "name": "No backrest",
+   "type": "kind",
+   "description": "backless bench",
+   "count": 5
+  },
+  {
+   "id": "obj-furniture-seating-bench-backrest",
+   "name": "Backrest",
+   "type": "kind",
+   "description": "couch, sofa, backed bench",
+   "count": 6
   },
   {
    "id": "obj-furniture-seating-chair",
@@ -7016,6 +7156,13 @@
    "count": 21
   },
   {
+   "id": "obj-furniture-table-square",
+   "name": "Square",
+   "type": "kind",
+   "description": "square table",
+   "count": 7
+  },
+  {
    "id": "obj-kitchenware",
    "name": "Kitchenware",
    "type": "kind",
@@ -7027,8 +7174,22 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, ladle",
+   "description": "grill, spit",
    "count": 69
+  },
+  {
+   "id": "obj-kitchenware-cookware-stove",
+   "name": "Stove",
+   "type": "kind",
+   "description": "stove, oven, range",
+   "count": 3
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil",
+   "name": "Utensil",
+   "type": "kind",
+   "description": "ladle, spatula, turner, whisk, rolling pin, rice paddle, wooden paddle",
+   "count": 11
   },
   {
    "id": "obj-kitchenware-cookware-pan",
@@ -7158,6 +7319,20 @@
    "count": 19
   },
   {
+   "id": "obj-lighting-lantern-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "hand lantern, hanging lantern, standing lantern",
+   "count": 7
+  },
+  {
+   "id": "obj-lighting-lantern-onpost",
+   "name": "On post",
+   "type": "kind",
+   "description": "lamp post, street lamp, lantern post",
+   "count": 7
+  },
+  {
    "id": "obj-lighting-torch",
    "name": "Torch",
    "type": "kind",
@@ -7180,6 +7355,20 @@
    "count": 28
   },
   {
+   "id": "obj-pocketitem-book-open",
+   "name": "Open",
+   "type": "kind",
+   "description": "open book",
+   "count": 3
+  },
+  {
+   "id": "obj-pocketitem-book-closed",
+   "name": "Closed",
+   "type": "kind",
+   "description": "closed book",
+   "count": 12
+  },
+  {
    "id": "obj-pocketitem-coin",
    "name": "Coin",
    "type": "kind",
@@ -7197,15 +7386,29 @@
    "id": "obj-pocketitem-scroll",
    "name": "Scroll",
    "type": "kind",
-   "description": "scroll, letter, map (rolled), parchment, blueprint",
+   "description": "scroll, letter, parchment, blueprint",
    "count": 10
+  },
+  {
+   "id": "obj-pocketitem-scroll-rolled",
+   "name": "Rolled",
+   "type": "kind",
+   "description": "map (rolled), rolled scroll",
+   "count": 4
   },
   {
    "id": "obj-pocketitem-jewellery",
    "name": "Jewellery",
    "type": "kind",
-   "description": "ring, necklace, amulet, bracelet, earring, pendant, brooch",
+   "description": "necklace, amulet, bracelet, earring, pendant, brooch",
    "count": 11
+  },
+  {
+   "id": "obj-pocketitem-jewellery-ring",
+   "name": "Ring",
+   "type": "kind",
+   "description": "ring",
+   "count": 8
   },
   {
    "id": "obj-resource",
@@ -7254,16 +7457,30 @@
    "id": "obj-resource-wood-plank",
    "name": "Plank",
    "type": "kind",
-   "description": "plank (stock), board (loose), pallet",
+   "description": "plank (stock), board (loose)",
    "count": 20
+  },
+  {
+   "id": "obj-resource-wood-plank-pallet",
+   "name": "Pallet",
+   "type": "kind",
+   "description": "pallet",
+   "count": 6
   },
   {
    "id": "obj-tool",
    "name": "Tool",
    "type": "kind",
-   "description": "lever, spring, gear, pulley, anvil, grindstone",
+   "description": "lever, spring, gear, pulley, grindstone",
    "count": 98,
    "color": "#6d738a"
+  },
+  {
+   "id": "obj-tool-anvil",
+   "name": "Anvil",
+   "type": "kind",
+   "description": "anvil",
+   "count": 3
   },
   {
    "id": "obj-tool-hand",
@@ -7354,8 +7571,15 @@
    "id": "obj-weapon-cannon",
    "name": "Cannon",
    "type": "kind",
-   "description": "Cannon and the shot it fires. Cast iron.",
+   "description": "Cannon. Cast iron.",
    "count": 9
+  },
+  {
+   "id": "obj-weapon-cannon-ball",
+   "name": "Ball",
+   "type": "kind",
+   "description": "cannonball, bomb, catapult ball",
+   "count": 6
   },
   {
    "id": "obj-weapon",
@@ -7418,15 +7642,29 @@
    "id": "obj-weapon-melee-hammer",
    "name": "Hammer",
    "type": "kind",
-   "description": "hammer (war), mace, club, flail",
+   "description": "hammer (war), mace, flail",
    "count": 10
+  },
+  {
+   "id": "obj-weapon-melee-hammer-club",
+   "name": "Club",
+   "type": "kind",
+   "description": "club, bat",
+   "count": 5
   },
   {
    "id": "obj-weapon-melee-sword",
    "name": "Sword",
    "type": "kind",
-   "description": "sword, blade, rapier, scimitar, katana",
+   "description": "sword, rapier, scimitar, katana",
    "count": 26
+  },
+  {
+   "id": "obj-weapon-melee-sword-blade",
+   "name": "Blade",
+   "type": "kind",
+   "description": "blade, cutlass, machete",
+   "count": 5
   },
   {
    "id": "obj-weapon-melee-spear",
@@ -7485,6 +7723,20 @@
    "count": 16
   },
   {
+   "id": "obj-weapon-ranged-firearm-shotgun",
+   "name": "Shotgun",
+   "type": "kind",
+   "description": "shotgun",
+   "count": 7
+  },
+  {
+   "id": "obj-weapon-ranged-firearm-hand",
+   "name": "Handgun",
+   "type": "kind",
+   "description": "pistol, revolver",
+   "count": 6
+  },
+  {
    "id": "obj-weapon-target",
    "name": "Target",
    "type": "kind",
@@ -7518,16 +7770,23 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 641,
+   "count": 640,
    "color": "#6cb588"
   },
   {
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
+   "description": "mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
    "count": 30,
    "color": "#3e8fd0"
+  },
+  {
+   "id": "env-fauna-fish",
+   "name": "Fish",
+   "type": "kind",
+   "description": "fish",
+   "count": 10
   },
   {
    "id": "env-flora",
@@ -7627,15 +7886,29 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 36,
+   "count": 35,
    "color": "#cfc6ad"
   },
   {
    "id": "env-remains-bones",
    "name": "Bones",
    "type": "kind",
-   "description": "bone, skull, skeleton (prop), ribcage, carcass",
+   "description": "skeleton (prop), ribcage, carcass",
    "count": 28
+  },
+  {
+   "id": "env-remains-bones-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "bone, bone (single)",
+   "count": 5
+  },
+  {
+   "id": "env-remains-bones-skull",
+   "name": "Skull",
+   "type": "kind",
+   "description": "skull",
+   "count": 9
   },
   {
    "id": "env-rock",
@@ -8244,6 +8517,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "env-fauna-fish": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "env-flora-deadwood": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -8326,6 +8605,18 @@
    "tpu.max": 5000
   },
   "env-remains-bones": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "env-remains-bones-single": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "env-remains-bones-skull": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -8417,7 +8708,28 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-bag-pouch": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-bag-sack": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-barrel": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-barrel-keg": {
    "high.min": 0.2,
    "high.max": 1,
    "longest.min": 0.05,
@@ -8431,9 +8743,23 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-bottle-potion": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-bucket": {
    "high.min": 0.1,
    "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-can": {
+   "high.min": 0.1,
+   "high.max": 1,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 10000
@@ -8459,7 +8785,21 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-crate-cube": {
+   "high.min": 0.2,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-pot": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-jar": {
    "high.min": 0.1,
    "high.max": 0.4,
    "longest.min": 0.05,
@@ -8510,6 +8850,18 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-coconut": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-egg": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-fish": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -8522,7 +8874,19 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-fruit-apple": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-grain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-grain-bread": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -8534,7 +8898,19 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-grain-pastry-pie": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-meat": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-meat-chickenleg": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -8546,7 +8922,19 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-sweet-icecream": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-vegetable": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-pumpkin": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -8564,7 +8952,31 @@
    "longest.max": 1.2,
    "tpu.max": 5000
   },
+  "obj-furniture-pillow": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "obj-furniture-rug": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
   "obj-furniture-seating-bench": {
+   "high.max": 0.8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "obj-furniture-seating-bench-backrest": {
+   "high.max": 0.8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "obj-furniture-seating-bench-nobackrest": {
    "high.max": 0.8,
    "longest.min": 0.2,
    "longest.max": 1.2,
@@ -8601,14 +9013,20 @@
    "longest.max": 1.2,
    "tpu.max": 5000
   },
-  "obj-instrument": {
+  "obj-furniture-table-square": {
+   "high.max": 0.5,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "obj-icon": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
-  "obj-kitchenware-cookware": {
-   "high.max": 0.5,
+  "obj-instrument": {
+   "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 5000
@@ -8644,6 +9062,18 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-cookware-pot-kettle": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-stove": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-utensil": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -8719,6 +9149,20 @@
    "longest.max": 10,
    "tpu.max": 5000
   },
+  "obj-lighting-lantern-onpost": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-lighting-lantern-single": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
   "obj-lighting-torch": {
    "high.min": 0.1,
    "high.max": 1.2,
@@ -8738,6 +9182,18 @@
    "longest.max": 0.3,
    "tpu.max": 10000
   },
+  "obj-pocketitem-book-closed": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
+   "tpu.max": 10000
+  },
+  "obj-pocketitem-book-open": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
+   "tpu.max": 10000
+  },
   "obj-pocketitem-coin": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -8750,6 +9206,12 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-pocketitem-jewellery-ring": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-pocketitem-key": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -8757,6 +9219,12 @@
    "tpu.max": 10000
   },
   "obj-pocketitem-scroll": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.6,
+   "tpu.max": 10000
+  },
+  "obj-pocketitem-scroll-rolled": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.6,
@@ -8798,7 +9266,19 @@
    "longest.max": 1.4,
    "tpu.max": 5000
   },
+  "obj-resource-wood-plank-pallet": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
   "obj-tool": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-tool-anvil": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 1.2,
@@ -8888,6 +9368,12 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-weapon-cannon-ball": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-weapon-magic": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -8930,6 +9416,12 @@
    "longest.max": 0.8,
    "tpu.max": 10000
   },
+  "obj-weapon-melee-hammer-club": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
   "obj-weapon-melee-spear": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -8937,6 +9429,12 @@
    "tpu.max": 10000
   },
   "obj-weapon-melee-sword": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-melee-sword-blade": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 1,
@@ -8973,6 +9471,18 @@
    "tpu.max": 10000
   },
   "obj-weapon-ranged-firearm": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-ranged-firearm-hand": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-ranged-firearm-shotgun": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 1,
@@ -10055,7 +10565,7 @@
   {
    "kit": "asia-grave",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.3,
@@ -10681,7 +11191,7 @@
   {
    "kit": "asia-grave",
    "name": "lamppost",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.2,
@@ -11916,7 +12426,7 @@
   {
    "kit": "asia-pack",
    "name": "egg",
-   "kind": "env-remains",
+   "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
     0.15,
@@ -18911,7 +19421,7 @@
   {
    "kit": "asia-rg",
    "name": "sack-a",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.15,
@@ -18958,7 +19468,7 @@
   {
    "kit": "asia-rg",
    "name": "sack-b",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.15,
@@ -21112,7 +21622,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-a",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -21155,7 +21665,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-b",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -21508,7 +22018,7 @@
   {
    "kit": "cooking-assets",
    "name": "rice-paddle",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.05,
@@ -21545,7 +22055,7 @@
   {
    "kit": "cooking-assets",
    "name": "rolling-pin",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.05,
@@ -21852,7 +22362,7 @@
   {
    "kit": "cooking-assets",
    "name": "spatula",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -22130,7 +22640,7 @@
   {
    "kit": "cooking-assets",
    "name": "turner",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -22174,7 +22684,7 @@
   {
    "kit": "cooking-assets",
    "name": "whisk",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -22217,7 +22727,7 @@
   {
    "kit": "cooking-assets",
    "name": "wooden-paddle",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.05,
@@ -24539,7 +25049,7 @@
   {
    "kit": "fs-terrain",
    "name": "beach-prop-coconut",
-   "kind": "obj-food",
+   "kind": "obj-food-coconut",
    "size": "s",
    "wdh": [
     0.2,
@@ -29454,7 +29964,7 @@
   {
    "kit": "fs-town",
    "name": "crate-a-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.5,
@@ -29494,7 +30004,7 @@
   {
    "kit": "fs-town",
    "name": "crate-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.5,
@@ -29783,7 +30293,7 @@
   {
    "kit": "fs-town",
    "name": "lamp-street",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.5,
@@ -34992,7 +35502,7 @@
   {
    "kit": "isa-bakery",
    "name": "bread",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -35068,7 +35578,7 @@
   {
    "kit": "isa-bakery",
    "name": "cookie-jar",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.2,
@@ -35614,7 +36124,7 @@
   {
    "kit": "isa-bakery",
    "name": "egg-camel",
-   "kind": "obj-food",
+   "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
     0.1,
@@ -35653,7 +36163,7 @@
   {
    "kit": "isa-bakery",
    "name": "egg-ivory",
-   "kind": "obj-food",
+   "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
     0.1,
@@ -36436,7 +36946,7 @@
   {
    "kit": "isa-bakery",
    "name": "rolling-pin",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.3,
@@ -36474,7 +36984,7 @@
   {
    "kit": "isa-bakery",
    "name": "rug",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     0.95,
@@ -36653,7 +37163,7 @@
   {
    "kit": "isa-bakery",
    "name": "tin-a",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -36925,7 +37435,7 @@
   {
    "kit": "isa-bakery",
    "name": "whisk",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -37059,7 +37569,7 @@
   {
    "kit": "isa-food",
    "name": "baguette-half",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37103,7 +37613,7 @@
   {
    "kit": "isa-food",
    "name": "baguette-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37147,7 +37657,7 @@
   {
    "kit": "isa-food",
    "name": "baguette",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37186,7 +37696,7 @@
   {
    "kit": "isa-food",
    "name": "bread-half",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37230,7 +37740,7 @@
   {
    "kit": "isa-food",
    "name": "bread-roll",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37268,7 +37778,7 @@
   {
    "kit": "isa-food",
    "name": "bread-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37312,7 +37822,7 @@
   {
    "kit": "isa-food",
    "name": "bread",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -37351,7 +37861,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday-cut",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -37419,7 +37929,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday-slice",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.1,
@@ -37479,7 +37989,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -37547,7 +38057,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate-cut",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -37598,7 +38108,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate-slice",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.1,
@@ -37642,7 +38152,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -37693,7 +38203,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry-cut",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -37760,7 +38270,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry-slice",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.1,
@@ -37820,7 +38330,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -38279,7 +38789,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple-cut",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -38323,7 +38833,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple-slice",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.15,
@@ -38366,7 +38876,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -38405,7 +38915,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry-cut",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -38449,7 +38959,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry-slice",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.15,
@@ -38492,7 +39002,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry",
-   "kind": "obj-food-grain-pastry",
+   "kind": "obj-food-grain-pastry-pie",
    "size": "s",
    "wdh": [
     0.3,
@@ -38615,7 +39125,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-a-white",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -38653,7 +39163,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-b-red",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -38691,7 +39201,7 @@
   {
    "kit": "isa-kitchen",
    "name": "canister-b-white",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -39266,7 +39776,7 @@
   {
    "kit": "isa-kitchen",
    "name": "spatula",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.1,
@@ -39348,7 +39858,7 @@
   {
    "kit": "isa-kitchen",
    "name": "stove",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-stove",
    "size": "m",
    "wdh": [
     0.65,
@@ -39449,7 +39959,7 @@
   {
    "kit": "isa-kitchen",
    "name": "table-b",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "m",
    "wdh": [
     0.65,
@@ -39494,7 +40004,7 @@
   {
    "kit": "isa-kitchen",
    "name": "table-c",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "s",
    "wdh": [
     0.5,
@@ -40010,7 +40520,7 @@
   {
    "kit": "isa-park",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.6,
@@ -40266,7 +40776,7 @@
   {
    "kit": "isa-park",
    "name": "street-lantern",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.25,
@@ -40405,7 +40915,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple-cut",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.15,
@@ -40455,7 +40965,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple-piece",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.1,
@@ -40504,7 +41014,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.15,
@@ -40893,7 +41403,7 @@
   {
    "kit": "isa-picnic",
    "name": "jam-jar",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.1,
@@ -41064,7 +41574,7 @@
   {
    "kit": "isa-picnic",
    "name": "picnic-blanket-hunter",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     1.15,
@@ -41152,7 +41662,7 @@
   {
    "kit": "isa-picnic",
    "name": "picnic-blanket-sienna",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     1.45,
@@ -41242,7 +41752,7 @@
   {
    "kit": "isa-picnic",
    "name": "picnic-blanket-taupe",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "l",
    "wdh": [
     1.75,
@@ -41293,7 +41803,7 @@
   {
    "kit": "isa-picnic",
    "name": "pillow-large-hunter",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.3,
@@ -41337,7 +41847,7 @@
   {
    "kit": "isa-picnic",
    "name": "pillow-large-sienna",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.3,
@@ -41381,7 +41891,7 @@
   {
    "kit": "isa-picnic",
    "name": "pillow-large-taupe",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.3,
@@ -41425,7 +41935,7 @@
   {
    "kit": "isa-picnic",
    "name": "pillow-small-hunter",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.35,
@@ -41464,7 +41974,7 @@
   {
    "kit": "isa-picnic",
    "name": "pillow-small-sienna",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.35,
@@ -47338,7 +47848,7 @@
   {
    "kit": "kay-adventurers",
    "name": "smokebomb",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.1,
@@ -47382,7 +47892,7 @@
   {
    "kit": "kay-adventurers",
    "name": "spellbook-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.1,
@@ -49701,7 +50211,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-nobackrest",
    "size": "m",
    "wdh": [
     0.5,
@@ -49741,7 +50251,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-a",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -49846,7 +50356,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-c",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -51110,7 +51620,7 @@
   {
    "kit": "kay-dun-1",
    "name": "crate-dark",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.4,
@@ -51156,7 +51666,7 @@
   {
    "kit": "kay-dun-1",
    "name": "crate-platform-large",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.75,
@@ -51945,7 +52455,7 @@
   {
    "kit": "kay-dun-1",
    "name": "loot-sack-a",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.35,
@@ -51990,7 +52500,7 @@
   {
    "kit": "kay-dun-1",
    "name": "loot-sack-b",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.35,
@@ -52542,7 +53052,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-large-green",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.35,
@@ -52599,7 +53109,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-large-red",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.35,
@@ -52656,7 +53166,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-medium-green",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.3,
@@ -52708,7 +53218,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-medium-red",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.3,
@@ -52760,7 +53270,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-small-green",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -52812,7 +53322,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-small-red",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -54712,7 +55222,7 @@
   {
    "kit": "kay-dun-1",
    "name": "spell-book",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.3,
@@ -55164,7 +55674,7 @@
   {
    "kit": "kay-dun-1",
    "name": "table-small-rounded",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "s",
    "wdh": [
     0.35,
@@ -58390,7 +58900,7 @@
   {
    "kit": "kay-dun-2",
    "name": "keg",
-   "kind": "obj-container-barrel",
+   "kind": "obj-container-barrel-keg",
    "size": "m",
    "wdh": [
     0.5,
@@ -59950,7 +60460,7 @@
   {
    "kit": "kay-dun-2",
    "name": "table-medium",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "m",
    "wdh": [
     0.55,
@@ -60088,7 +60598,7 @@
   {
    "kit": "kay-dun-2",
    "name": "table-small",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "s",
    "wdh": [
     0.25,
@@ -63129,7 +63639,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-ham",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-chickenleg",
    "size": "s",
    "wdh": [
     0.3,
@@ -63664,7 +64174,7 @@
   {
    "kit": "kay-food",
    "name": "jar-c-large",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.1,
@@ -63709,7 +64219,7 @@
   {
    "kit": "kay-food",
    "name": "jar-c-medium",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.1,
@@ -63754,7 +64264,7 @@
   {
    "kit": "kay-food",
    "name": "jar-c-small",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.15,
@@ -64581,7 +65091,7 @@
   {
    "kit": "kay-food",
    "name": "stove",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-stove",
    "size": "m",
    "wdh": [
     0.45,
@@ -68143,7 +68653,7 @@
   {
    "kit": "kay-furniture",
    "name": "couch-pillows",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.9,
@@ -68186,7 +68696,7 @@
   {
    "kit": "kay-furniture",
    "name": "pillow-a",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.2,
@@ -68224,7 +68734,7 @@
   {
    "kit": "kay-furniture",
    "name": "rug-oval-a",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     0.9,
@@ -68263,7 +68773,7 @@
   {
    "kit": "kay-furniture",
    "name": "rug-rectangle-stripes-a",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     0.9,
@@ -68466,7 +68976,7 @@
   {
    "kit": "kay-furniture",
    "name": "table-medium",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "m",
    "wdh": [
     0.6,
@@ -68504,7 +69014,7 @@
   {
    "kit": "kay-furniture",
    "name": "table-small",
-   "kind": "obj-furniture-table",
+   "kind": "obj-furniture-table-square",
    "size": "s",
    "wdh": [
     0.3,
@@ -68775,7 +69285,7 @@
   {
    "kit": "kay-hallow",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-nobackrest",
    "size": "s",
    "wdh": [
     0.5,
@@ -68813,7 +69323,7 @@
   {
    "kit": "kay-hallow",
    "name": "bone-a",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -68895,7 +69405,7 @@
   {
    "kit": "kay-hallow",
    "name": "bone-c",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-single",
    "size": "s",
    "wdh": [
     0.25,
@@ -69952,7 +70462,7 @@
   {
    "kit": "kay-hallow",
    "name": "lantern-hanging",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -70010,7 +70520,7 @@
   {
    "kit": "kay-hallow",
    "name": "lantern-standing",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -70362,7 +70872,7 @@
   {
    "kit": "kay-hallow",
    "name": "post-lantern-lantern",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -70471,7 +70981,7 @@
   {
    "kit": "kay-hallow",
    "name": "post-skull-skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.2,
@@ -70610,7 +71120,7 @@
   {
    "kit": "kay-hallow",
    "name": "pumpkin-orange-jackolantern",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.35,
@@ -70655,7 +71165,7 @@
   {
    "kit": "kay-hallow",
    "name": "pumpkin-orange-small",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.15,
@@ -70700,7 +71210,7 @@
   {
    "kit": "kay-hallow",
    "name": "pumpkin-orange",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.25,
@@ -70926,7 +71436,7 @@
   {
    "kit": "kay-hallow",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.2,
@@ -71999,7 +72509,7 @@
   {
    "kit": "kay-hexagon",
    "name": "catapult-ball",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.3,
@@ -72418,7 +72928,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-b-small",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.15,
@@ -72463,7 +72973,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.25,
@@ -72742,7 +73252,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-small",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.15,
@@ -72794,7 +73304,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.25,
@@ -73581,7 +74091,7 @@
   {
    "kit": "kay-hexagon",
    "name": "pallet",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "s",
    "wdh": [
     0.35,
@@ -73864,7 +74374,7 @@
   {
    "kit": "kay-hexagon",
    "name": "sack",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.15,
@@ -75562,7 +76072,7 @@
   {
    "kit": "kay-holiday",
    "name": "carpet-round-large",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     0.9,
@@ -75601,7 +76111,7 @@
   {
    "kit": "kay-holiday",
    "name": "carpet-round-small",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     0.6,
@@ -75930,7 +76440,7 @@
   {
    "kit": "kay-holiday",
    "name": "lantern-decorated",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.3,
@@ -75992,7 +76502,7 @@
   {
    "kit": "kay-holiday",
    "name": "lantern-mini",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "s",
    "wdh": [
     0.05,
@@ -76630,7 +77140,7 @@
   {
    "kit": "kay-holiday",
    "name": "street-lantern",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.3,
@@ -76800,7 +77310,7 @@
   {
    "kit": "kay-minigame",
    "name": "bomb",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.35,
@@ -77077,7 +77587,7 @@
   {
    "kit": "kay-minigame",
    "name": "lightning",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.3,
@@ -77319,7 +77829,7 @@
   {
    "kit": "kay-minigame",
    "name": "star",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.45,
@@ -77805,7 +78315,7 @@
   {
    "kit": "kay-mixed",
    "name": "comic-book",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -77850,7 +78360,7 @@
   {
    "kit": "kay-mixed",
    "name": "comic-books-stacked",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.25,
@@ -78695,7 +79205,7 @@
   {
    "kit": "kay-mixed",
    "name": "wood-stove",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-stove",
    "size": "m",
    "wdh": [
     0.35,
@@ -79883,7 +80393,7 @@
   {
    "kit": "kay-resources",
    "name": "pallet-wood",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "s",
    "wdh": [
     0.45,
@@ -81210,7 +81720,7 @@
   {
    "kit": "kay-skeleton",
    "name": "blade",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "obj-weapon-melee-sword-blade",
    "size": "m",
    "wdh": [
     0.2,
@@ -82432,7 +82942,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "bone-half",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-single",
    "size": "s",
    "wdh": [
     0.1,
@@ -82472,7 +82982,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "bone",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-single",
    "size": "s",
    "wdh": [
     0.1,
@@ -83040,7 +83550,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "skull-broken",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.35,
@@ -83088,7 +83598,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.35,
@@ -83135,7 +83645,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "spellbook",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.35,
@@ -84294,7 +84804,7 @@
   {
    "kit": "kay-spook",
    "name": "jackolantern-large",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.4,
@@ -84334,7 +84844,7 @@
   {
    "kit": "kay-spook",
    "name": "jackolantern-small",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.3,
@@ -84415,7 +84925,7 @@
   {
    "kit": "kay-spook",
    "name": "pumpkin-large",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.3,
@@ -84461,7 +84971,7 @@
   {
    "kit": "kay-spook",
    "name": "pumpkin-small",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.15,
@@ -84711,7 +85221,7 @@
   {
    "kit": "kay-tools",
    "name": "anvil",
-   "kind": "obj-tool",
+   "kind": "obj-tool-anvil",
    "size": "s",
    "wdh": [
     0.5,
@@ -85373,7 +85883,7 @@
   {
    "kit": "kay-tools",
    "name": "journal-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.1,
@@ -85428,7 +85938,7 @@
   {
    "kit": "kay-tools",
    "name": "journal-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.3,
@@ -85526,7 +86036,7 @@
   {
    "kit": "kay-tools",
    "name": "lantern",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.25,
@@ -85716,7 +86226,7 @@
   {
    "kit": "kay-tools",
    "name": "map-rolled",
-   "kind": "obj-pocketitem-scroll",
+   "kind": "obj-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.05,
@@ -87718,7 +88228,7 @@
   {
    "kit": "kay-weapons",
    "name": "hammer-b",
-   "kind": "obj-weapon-melee-hammer",
+   "kind": "obj-weapon-melee-hammer-club",
    "size": "s",
    "wdh": [
     0.2,
@@ -87762,7 +88272,7 @@
   {
    "kit": "kay-weapons",
    "name": "hammer-c",
-   "kind": "obj-weapon-melee-hammer",
+   "kind": "obj-weapon-melee-hammer-club",
    "size": "s",
    "wdh": [
     0.15,
@@ -89934,7 +90444,7 @@
   {
    "kit": "ken-grave",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.7,
@@ -91839,7 +92349,7 @@
   {
    "kit": "ken-grave",
    "name": "lantern-candle",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.2,
@@ -91893,7 +92403,7 @@
   {
    "kit": "ken-grave",
    "name": "lantern-glass",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-single",
    "size": "s",
    "wdh": [
     0.2,
@@ -91946,7 +92456,7 @@
   {
    "kit": "ken-grave",
    "name": "lightpost-single",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.2,
@@ -92125,7 +92635,7 @@
   {
    "kit": "ken-grave",
    "name": "pumpkin-carved",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.35,
@@ -92177,7 +92687,7 @@
   {
    "kit": "ken-grave",
    "name": "pumpkin-tall-carved",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.3,
@@ -92229,7 +92739,7 @@
   {
    "kit": "ken-grave",
    "name": "pumpkin-tall",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.3,
@@ -92275,7 +92785,7 @@
   {
    "kit": "ken-grave",
    "name": "pumpkin",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.35,
@@ -92693,7 +93203,7 @@
   {
    "kit": "ken-holiday",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.85,
@@ -93828,7 +94338,7 @@
   {
    "kit": "ken-holiday",
    "name": "lantern",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
     0.4,
@@ -97161,7 +97671,7 @@
   {
    "kit": "ken-pirate",
    "name": "cannon-ball",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.2,
@@ -99690,7 +100200,7 @@
   {
    "kit": "ken-platformer",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.45,
@@ -100202,7 +100712,7 @@
   {
    "kit": "ken-platformer",
    "name": "heart",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.35,
@@ -100786,7 +101296,7 @@
   {
    "kit": "ken-platformer",
    "name": "star",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.3,
@@ -101315,7 +101825,7 @@
   {
    "kit": "ken-survival",
    "name": "bedroll-packed",
-   "kind": "obj-furniture-bed",
+   "kind": "obj-furniture-pillow",
    "size": "s",
    "wdh": [
     0.35,
@@ -101692,7 +102202,7 @@
   {
    "kit": "ken-survival",
    "name": "box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.35,
@@ -101977,7 +102487,7 @@
   {
    "kit": "ken-survival",
    "name": "fish-large",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -102025,7 +102535,7 @@
   {
    "kit": "ken-survival",
    "name": "fish",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -106078,7 +106588,7 @@
   {
    "kit": "ken-town",
    "name": "stall-bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-nobackrest",
    "size": "m",
    "wdh": [
     0.25,
@@ -107945,7 +108455,7 @@
   {
    "kit": "medieval-forge",
    "name": "anvil",
-   "kind": "obj-tool",
+   "kind": "obj-tool-anvil",
    "size": "m",
    "wdh": [
     0.55,
@@ -108113,7 +108623,7 @@
   {
    "kit": "medieval-forge",
    "name": "box-2",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.25,
@@ -108919,7 +109429,7 @@
   {
    "kit": "medieval-town",
    "name": "bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.15,
@@ -108965,7 +109475,7 @@
   {
    "kit": "medieval-town",
    "name": "bags",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.25,
@@ -109155,7 +109665,7 @@
   {
    "kit": "medieval-town",
    "name": "bench-2",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-nobackrest",
    "size": "m",
    "wdh": [
     0.65,
@@ -109193,7 +109703,7 @@
   {
    "kit": "medieval-town",
    "name": "bench",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.65,
@@ -109512,7 +110022,7 @@
   {
    "kit": "medieval-town",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.15,
@@ -110693,7 +111203,7 @@
   {
    "kit": "medieval-village",
    "name": "barrel-tapped",
-   "kind": "obj-container-barrel",
+   "kind": "obj-container-barrel-keg",
    "size": "m",
    "wdh": [
     0.6,
@@ -110782,7 +111292,7 @@
   {
    "kit": "medieval-village",
    "name": "crate-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.3,
@@ -110821,7 +111331,7 @@
   {
    "kit": "medieval-village",
    "name": "crate-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.35,
@@ -110911,7 +111421,7 @@
   {
    "kit": "medieval-village",
    "name": "dynamite-crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.3,
@@ -113244,7 +113754,7 @@
   {
    "kit": "natuur",
    "name": "coconut",
-   "kind": "obj-food",
+   "kind": "obj-food-coconut",
    "size": "s",
    "wdh": [
     0.1,
@@ -116711,7 +117221,7 @@
   {
    "kit": "post-apocalypse",
    "name": "bat-barbed",
-   "kind": "obj-weapon-melee-hammer",
+   "kind": "obj-weapon-melee-hammer-club",
    "size": "s",
    "wdh": [
     0.05,
@@ -117106,7 +117616,7 @@
   {
    "kit": "post-apocalypse",
    "name": "pallet-broken",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "s",
    "wdh": [
     0.35,
@@ -117146,7 +117656,7 @@
   {
    "kit": "post-apocalypse",
    "name": "pallet",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "s",
    "wdh": [
     0.35,
@@ -117235,7 +117745,7 @@
   {
    "kit": "post-apocalypse",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "s",
    "wdh": [
     0.05,
@@ -117630,7 +118140,7 @@
   {
    "kit": "post-apocalypse",
    "name": "trash-bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.2,
@@ -117669,7 +118179,7 @@
   {
    "kit": "post-apocalypse",
    "name": "trash-bags",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.35,
@@ -117861,7 +118371,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-club",
-   "kind": "obj-weapon-melee-hammer",
+   "kind": "obj-weapon-melee-hammer-club",
    "size": "m",
    "wdh": [
     0.2,
@@ -118368,7 +118878,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-club",
-   "kind": "obj-weapon-melee-hammer",
+   "kind": "obj-weapon-melee-hammer-club",
    "size": "s",
    "wdh": [
     0.1,
@@ -118729,7 +119239,7 @@
   {
    "kit": "props",
    "name": "bag-a",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "m",
    "wdh": [
     0.45,
@@ -118816,7 +119326,7 @@
   {
    "kit": "props",
    "name": "bottle-a-green",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -118861,7 +119371,7 @@
   {
    "kit": "props",
    "name": "bottle-a",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -119086,7 +119596,7 @@
   {
    "kit": "props",
    "name": "box-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.6,
@@ -119303,7 +119813,7 @@
   {
    "kit": "props",
    "name": "carpet-a",
-   "kind": "obj-furniture",
+   "kind": "obj-furniture-rug",
    "size": "m",
    "wdh": [
     1.2,
@@ -120165,7 +120675,7 @@
   {
    "kit": "quat-blood-ring",
    "name": "blood-ring",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.25,
@@ -120354,7 +120864,7 @@
   {
    "kit": "quat-dun-1",
    "name": "bag-coins",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.2,
@@ -120405,7 +120915,7 @@
   {
    "kit": "quat-dun-1",
    "name": "bag-standing",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.1,
@@ -120768,7 +121278,7 @@
   {
    "kit": "quat-dun-1",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.6,
@@ -120971,7 +121481,7 @@
   {
    "kit": "quat-dun-1",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.25,
@@ -121495,7 +122005,7 @@
   {
    "kit": "quat-dun-2",
    "name": "bag-coins",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.2,
@@ -121546,7 +122056,7 @@
   {
    "kit": "quat-dun-2",
    "name": "bag-standing",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.1,
@@ -121805,7 +122315,7 @@
   {
    "kit": "quat-dun-2",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.55,
@@ -121923,7 +122433,7 @@
   {
    "kit": "quat-dun-2",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.25,
@@ -122224,7 +122734,7 @@
   {
    "kit": "quat-fish",
    "name": "fish-1",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.1,
@@ -122277,7 +122787,7 @@
   {
    "kit": "quat-fish",
    "name": "fish-2",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.2,
@@ -122325,7 +122835,7 @@
   {
    "kit": "quat-fish",
    "name": "fish-3",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.15,
@@ -122522,7 +123032,7 @@
   {
    "kit": "quat-food",
    "name": "apple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.1,
@@ -122812,7 +123322,7 @@
   {
    "kit": "quat-food",
    "name": "bread-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -122851,7 +123361,7 @@
   {
    "kit": "quat-food",
    "name": "bread",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-bread",
    "size": "s",
    "wdh": [
     0.1,
@@ -122934,7 +123444,7 @@
   {
    "kit": "quat-food",
    "name": "chicken-leg",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-chickenleg",
    "size": "s",
    "wdh": [
     0.2,
@@ -123056,7 +123566,7 @@
   {
    "kit": "quat-food",
    "name": "coconut-half",
-   "kind": "obj-food",
+   "kind": "obj-food-coconut",
    "size": "s",
    "wdh": [
     0.1,
@@ -123099,7 +123609,7 @@
   {
    "kit": "quat-food",
    "name": "coconut",
-   "kind": "obj-food",
+   "kind": "obj-food-coconut",
    "size": "s",
    "wdh": [
     0.1,
@@ -123672,7 +124182,7 @@
   {
    "kit": "quat-food",
    "name": "egg-whole-white",
-   "kind": "obj-food",
+   "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
     0.05,
@@ -124017,7 +124527,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-1",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.1,
@@ -124066,7 +124576,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-2",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.1,
@@ -124127,7 +124637,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-3",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.1,
@@ -124176,7 +124686,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-4",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.1,
@@ -124383,7 +124893,7 @@
   {
    "kit": "quat-food",
    "name": "peanut-butter",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
     0.05,
@@ -124599,7 +125109,7 @@
   {
    "kit": "quat-food",
    "name": "popsicle-chocolate",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.05,
@@ -124644,7 +125154,7 @@
   {
    "kit": "quat-food",
    "name": "popsicle-multiple",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
     0.05,
@@ -124699,7 +125209,7 @@
   {
    "kit": "quat-food",
    "name": "pumpkin",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
     0.25,
@@ -127065,7 +127575,7 @@
   {
    "kit": "quat-pirate",
    "name": "bomb",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.15,
@@ -127159,7 +127669,7 @@
   {
    "kit": "quat-pirate",
    "name": "bottle-1",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -127205,7 +127715,7 @@
   {
    "kit": "quat-pirate",
    "name": "bottle-2",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -127410,7 +127920,7 @@
   {
    "kit": "quat-pirate",
    "name": "cannonball",
-   "kind": "obj-weapon-cannon",
+   "kind": "obj-weapon-cannon-ball",
    "size": "s",
    "wdh": [
     0.15,
@@ -127564,7 +128074,7 @@
   {
    "kit": "quat-pirate",
    "name": "chicken-leg",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-chickenleg",
    "size": "s",
    "wdh": [
     0.2,
@@ -127808,7 +128318,7 @@
   {
    "kit": "quat-pirate",
    "name": "cutlass",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "obj-weapon-melee-sword-blade",
    "size": "s",
    "wdh": [
     0.15,
@@ -127957,7 +128467,7 @@
   {
    "kit": "quat-pirate",
    "name": "fish-mackerel",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.55,
@@ -128000,7 +128510,7 @@
   {
    "kit": "quat-pirate",
    "name": "fish-tuna",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.75,
@@ -128048,7 +128558,7 @@
   {
    "kit": "quat-pirate",
    "name": "gold-bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.25,
@@ -128715,7 +129225,7 @@
   {
    "kit": "quat-pirate",
    "name": "pistol",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.45,
@@ -129301,7 +129811,7 @@
   {
    "kit": "quat-pirate",
    "name": "shotgun-double",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     0.55,
@@ -129522,7 +130032,7 @@
   {
    "kit": "quat-pirate",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.15,
@@ -129650,7 +130160,7 @@
   {
    "kit": "quat-pirate",
    "name": "sword-2",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "obj-weapon-melee-sword-blade",
    "size": "s",
    "wdh": [
     0.1,
@@ -129701,7 +130211,7 @@
   {
    "kit": "quat-pirate",
    "name": "swords",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "obj-weapon-melee-sword-blade",
    "size": "s",
    "wdh": [
     0.2,
@@ -129980,7 +130490,7 @@
   {
    "kit": "quat-props",
    "name": "bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "m",
    "wdh": [
     0.45,
@@ -130127,7 +130637,7 @@
   {
    "kit": "quat-props",
    "name": "book-7",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -130507,7 +131017,7 @@
   {
    "kit": "quat-props",
    "name": "book-simplified-single",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.05,
@@ -130929,7 +131439,7 @@
   {
    "kit": "quat-props",
    "name": "crate-metal",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.6,
@@ -131103,7 +131613,7 @@
   {
    "kit": "quat-props",
    "name": "potion-2",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -131147,7 +131657,7 @@
   {
    "kit": "quat-props",
    "name": "potion-4",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -131191,7 +131701,7 @@
   {
    "kit": "quat-props",
    "name": "pouch-large",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.15,
@@ -131235,7 +131745,7 @@
   {
    "kit": "quat-props",
    "name": "scroll-1",
-   "kind": "obj-pocketitem-scroll",
+   "kind": "obj-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.15,
@@ -131281,7 +131791,7 @@
   {
    "kit": "quat-props",
    "name": "scroll-2",
-   "kind": "obj-pocketitem-scroll",
+   "kind": "obj-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.15,
@@ -132217,7 +132727,7 @@
   {
    "kit": "quat-rpg",
    "name": "bone",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-single",
    "size": "s",
    "wdh": [
     0.25,
@@ -132258,7 +132768,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-1-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.05,
@@ -132350,7 +132860,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-2-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.05,
@@ -132442,7 +132952,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-3-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.1,
@@ -132552,7 +133062,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-4-closed",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.05,
@@ -133394,7 +133904,7 @@
   {
    "kit": "quat-rpg",
    "name": "heart",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.2,
@@ -133832,7 +134342,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-1-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -133876,7 +134386,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-1-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -133926,7 +134436,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-10-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -133970,7 +134480,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-10-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.1,
@@ -134020,7 +134530,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-11-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -134064,7 +134574,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-11-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -134114,7 +134624,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-2-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -134158,7 +134668,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-2-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.2,
@@ -134208,7 +134718,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-3-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134252,7 +134762,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-3-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134302,7 +134812,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-4-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134346,7 +134856,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-4-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134396,7 +134906,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-5-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134440,7 +134950,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-5-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134490,7 +135000,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-6-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134534,7 +135044,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-6-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134584,7 +135094,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-7-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134628,7 +135138,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-7-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134678,7 +135188,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-8-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134722,7 +135232,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-8-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.15,
@@ -134772,7 +135282,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-9-empty",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.3,
@@ -134816,7 +135326,7 @@
   {
    "kit": "quat-rpg",
    "name": "potion-9-filled",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-potion",
    "size": "s",
    "wdh": [
     0.3,
@@ -134866,7 +135376,7 @@
   {
    "kit": "quat-rpg",
    "name": "pouch",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.1,
@@ -134910,7 +135420,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-1",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -134950,7 +135460,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-2",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -134990,7 +135500,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-3",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -135036,7 +135546,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-4",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -135084,7 +135594,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-5",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -135132,7 +135642,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-6",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -135180,7 +135690,7 @@
   {
    "kit": "quat-rpg",
    "name": "ring-7",
-   "kind": "obj-pocketitem-jewellery",
+   "kind": "obj-pocketitem-jewellery-ring",
    "size": "s",
    "wdh": [
     0.15,
@@ -135220,7 +135730,7 @@
   {
    "kit": "quat-rpg",
    "name": "scroll",
-   "kind": "obj-pocketitem-scroll",
+   "kind": "obj-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.35,
@@ -135266,7 +135776,7 @@
   {
    "kit": "quat-rpg",
    "name": "skull-2",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.2,
@@ -135309,7 +135819,7 @@
   {
    "kit": "quat-rpg",
    "name": "skull",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
     0.15,
@@ -135350,7 +135860,7 @@
   {
    "kit": "quat-rpg",
    "name": "star",
-   "kind": "obj",
+   "kind": "obj-icon",
    "size": "s",
    "wdh": [
     0.25,
@@ -141743,7 +142253,7 @@
   {
    "kit": "small-props",
    "name": "anvil-b",
-   "kind": "obj-tool",
+   "kind": "obj-tool-anvil",
    "size": "s",
    "wdh": [
     0.3,
@@ -141780,7 +142290,7 @@
   {
    "kit": "small-props",
    "name": "bag-1-c",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.3,
@@ -141823,7 +142333,7 @@
   {
    "kit": "small-props",
    "name": "bag-2-c",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.1,
@@ -141866,7 +142376,7 @@
   {
    "kit": "small-props",
    "name": "bag-3-c",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
     0.25,
@@ -143100,7 +143610,7 @@
   {
    "kit": "styloo-farm",
    "name": "apple-moss",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.15,
@@ -143150,7 +143660,7 @@
   {
    "kit": "styloo-farm",
    "name": "apple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.15,
@@ -143521,7 +144031,7 @@
   {
    "kit": "styloo-farm",
    "name": "bench-small",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-nobackrest",
    "size": "s",
    "wdh": [
     0.3,
@@ -144003,7 +144513,7 @@
   {
    "kit": "styloo-farm",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.2,
@@ -144268,7 +144778,7 @@
   {
    "kit": "styloo-farm",
    "name": "egg",
-   "kind": "obj-food",
+   "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
     0.1,
@@ -144707,7 +145217,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish-tan",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -144751,7 +145261,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish-umber",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -144795,7 +145305,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -146631,7 +147141,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can-basalt",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -146675,7 +147185,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can-flower-basalt",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -146735,7 +147245,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can-flower-slate",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -146790,7 +147300,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can-flower",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -146845,7 +147355,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can-slate",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -146889,7 +147399,7 @@
   {
    "kit": "styloo-farm",
    "name": "watering-can",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.45,
@@ -147547,7 +148057,7 @@
   {
    "kit": "toon-shooter",
    "name": "cardboard-box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.3,
@@ -147705,7 +148215,7 @@
   {
    "kit": "toon-shooter",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.25,
@@ -147957,7 +148467,7 @@
   {
    "kit": "toon-shooter",
    "name": "pallet-broken",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "m",
    "wdh": [
     0.55,
@@ -148003,7 +148513,7 @@
   {
    "kit": "toon-shooter",
    "name": "pallet",
-   "kind": "obj-resource-wood-plank",
+   "kind": "obj-resource-wood-plank-pallet",
    "size": "m",
    "wdh": [
     0.55,
@@ -148087,7 +148597,7 @@
   {
    "kit": "toon-shooter",
    "name": "revolver-short",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.2,
@@ -148132,7 +148642,7 @@
   {
    "kit": "toon-shooter",
    "name": "revolver",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.3,
@@ -148259,7 +148769,7 @@
   {
    "kit": "toon-shooter",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "s",
    "wdh": [
     0.5,
@@ -148392,7 +148902,7 @@
   {
    "kit": "toon-shooter",
    "name": "sofa",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     1.05,
@@ -149757,7 +150267,7 @@
   {
    "kit": "tropical-island",
    "name": "sword-pirate",
-   "kind": "obj-weapon-melee-sword",
+   "kind": "obj-weapon-melee-sword-blade",
    "size": "m",
    "wdh": [
     0.1,
@@ -149857,7 +150367,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver-ribbed",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.4,
@@ -149901,7 +150411,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver-steel",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.4,
@@ -149939,7 +150449,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.4,
@@ -149983,7 +150493,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-pistol-grip",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     0.9,
@@ -150026,7 +150536,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-pump",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     1.15,
@@ -150077,7 +150587,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-sawed-off",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     0.75,
@@ -150126,7 +150636,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged-firearm",
+   "kind": "obj-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     1.15,
