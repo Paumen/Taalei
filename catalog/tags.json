@@ -7701,7 +7701,8 @@
     "quat-town/logs",
     "quat-pirate/logs",
     "kay-hexagon/timber",
-    "fs-terrain/hilly-prop-camp-sitting-log"
+    "fs-terrain/hilly-prop-camp-sitting-log",
+    "jelly-forest/log"
    ]
   },
   {
@@ -8492,56 +8493,12 @@
    "type": "kind",
    "description": "dead tree, fallen tree, root",
    "models": [
-    "kay-forest/tree-bare-1-a",
-    "kay-forest/tree-bare-1-b",
-    "kay-forest/tree-bare-1-c",
-    "kay-forest/tree-bare-2-a",
-    "kay-forest/tree-bare-2-b",
-    "kay-forest/tree-bare-2-c",
-    "kay-hallow/tree-dead-large",
-    "kay-hallow/tree-dead-medium",
-    "kay-hallow/tree-dead-small",
     "natuur/root-1",
     "natuur/root-2",
     "natuur/root-3",
     "natuur/root-4",
     "natuur/root-5",
-    "natuur/root-6",
-    "natuur/tree-bare-1",
-    "natuur/tree-bare-2",
-    "natuur/tree-bare-3",
-    "natuur/tree-bare-4",
-    "natuur/tree-bare-5",
-    "natuur/tree-bare-6",
-    "quat-nature/tree-birch-dead-1",
-    "quat-nature/tree-birch-dead-1-bark",
-    "quat-nature/tree-birch-dead-2",
-    "quat-nature/tree-birch-dead-2-bark",
-    "quat-nature/tree-birch-dead-3",
-    "quat-nature/tree-birch-dead-3-bark",
-    "quat-nature/tree-birch-dead-4",
-    "quat-nature/tree-birch-dead-4-bark",
-    "quat-nature/tree-birch-dead-5",
-    "quat-nature/tree-birch-dead-5-bark",
-    "quat-nature/tree-common-dead-1",
-    "quat-nature/tree-common-dead-2",
-    "quat-nature/tree-common-dead-3",
-    "quat-nature/tree-common-dead-4",
-    "quat-nature/tree-common-dead-5",
-    "quat-nature/tree-willow-dead-1",
-    "quat-nature/tree-willow-dead-2",
-    "quat-nature/tree-willow-dead-3",
-    "quat-nature/tree-willow-dead-4",
-    "quat-nature/tree-willow-dead-5",
-    "trees/dead-tree-spiked-a",
-    "trees/dead-tree-spiked-b",
-    "trees/dead-tree-a",
-    "trees/dead-tree-b",
-    "trees/dead-tree-c",
-    "kay-spook/tree-dead-a",
-    "kay-spook/tree-dead-b",
-    "kay-spook/tree-dead-c",
-    "kay-spook/tree-dead-d"
+    "natuur/root-6"
    ]
   },
   {
@@ -8559,7 +8516,6 @@
     "isa-pond/tree-branch-2",
     "isa-pond/tree-branch-3",
     "isa-pond/tree-branch-4",
-    "jelly-forest/log",
     "natuur/branch-1",
     "natuur/branch-2",
     "natuur/branch-3",
@@ -8593,57 +8549,68 @@
    ]
   },
   {
+   "id": "env-flora-deadwood-tree",
+   "name": "Dead tree",
+   "type": "kind",
+   "description": "Tree that died standing: bare trunk and branches, no leaves.",
+   "models": [
+    "kay-forest/tree-bare-2-a",
+    "kay-forest/tree-bare-2-b",
+    "kay-forest/tree-bare-2-c",
+    "kay-forest/tree-bare-1-c",
+    "kay-forest/tree-bare-1-b",
+    "kay-forest/tree-bare-1-a",
+    "natuur/tree-bare-3",
+    "natuur/tree-bare-2",
+    "natuur/tree-bare-1",
+    "natuur/tree-bare-4",
+    "natuur/tree-bare-5",
+    "natuur/tree-bare-6",
+    "trees/dead-tree-spiked-a",
+    "trees/dead-tree-spiked-b",
+    "trees/dead-tree-a",
+    "trees/dead-tree-b",
+    "trees/dead-tree-c",
+    "quat-nature/tree-willow-dead-4",
+    "quat-nature/tree-willow-dead-3",
+    "quat-nature/tree-willow-dead-5",
+    "quat-nature/tree-willow-dead-2",
+    "quat-nature/tree-willow-dead-1",
+    "kay-hallow/tree-dead-medium",
+    "kay-hallow/tree-dead-large",
+    "kay-hallow/tree-dead-small",
+    "kay-spook/tree-dead-a",
+    "kay-spook/tree-dead-b",
+    "kay-spook/tree-dead-c",
+    "kay-spook/tree-dead-d",
+    "quat-nature/tree-common-dead-1",
+    "quat-nature/tree-common-dead-2",
+    "quat-nature/tree-common-dead-3",
+    "quat-nature/tree-common-dead-4",
+    "quat-nature/tree-common-dead-5",
+    "quat-nature/tree-birch-dead-1-bark",
+    "quat-nature/tree-birch-dead-1",
+    "quat-nature/tree-birch-dead-2",
+    "quat-nature/tree-birch-dead-2-bark",
+    "quat-nature/tree-birch-dead-3",
+    "quat-nature/tree-birch-dead-3-bark",
+    "quat-nature/tree-birch-dead-4",
+    "quat-nature/tree-birch-dead-4-bark",
+    "quat-nature/tree-birch-dead-5",
+    "quat-nature/tree-birch-dead-5-bark"
+   ]
+  },
+  {
    "id": "env-flora-plant",
    "name": "Plant",
    "type": "kind",
    "description": "bush, shrub, fern, ivy, vine",
    "models": [
-    "asia-rg/bamboo",
-    "isa-plants/monstera-plant-large",
-    "isa-plants/monstera-plant-medium",
-    "isa-plants/monstera-plant-small",
-    "isa-plants/pothos-plant-large",
-    "isa-plants/pothos-plant-medium",
-    "isa-plants/pothos-plant-small",
-    "isa-plants/sansevieria-plant-large",
-    "isa-plants/sansevieria-plant-medium",
-    "isa-plants/sansevieria-plant-small",
-    "isa-plants/yucca-branch-medium-a",
-    "isa-plants/yucca-branch-medium-b",
-    "isa-plants/yucca-branch-medium-c",
-    "isa-plants/yucca-plant-large",
-    "isa-plants/yucca-plant-medium",
-    "isa-plants/yucca-plant-small",
-    "isa-plants/zzplant-plant-large",
-    "isa-plants/zzplant-plant-medium",
-    "isa-plants/zzplant-plant-small",
-    "kay-forest/bush-1-e",
-    "kay-forest/bush-1-f",
     "quat-town/farm-field-b",
     "quat-town/farm-field-c",
-    "asia-pack/bamboo-a",
-    "asia-pack/bamboo-b",
-    "asia-pack/bamboo-c",
     "asia-pack/clover",
-    "asia-pack/plant-a",
-    "asia-pack/plant-b",
-    "asia-pack/plant-c",
-    "asia-pack/plant-d",
-    "trees/leafy-plant",
-    "kay-minigame/plant-a",
-    "kay-minigame/plant-b",
     "kay-builder/farm-plot",
-    "ken-nature/bamboo-short",
-    "ken-nature/bamboo-tall",
-    "ken-nature/corn",
-    "fs-terrain/hilly-prop-bush-a",
-    "fs-terrain/hilly-prop-bush-b",
-    "fs-terrain/hilly-prop-bush-c",
-    "fs-terrain/hilly-prop-bush-d",
-    "gob-nature/bush-a",
-    "gob-nature/bush-b",
-    "styloo-farm/bush",
-    "styloo-farm/leaf"
+    "ken-nature/corn"
    ]
   },
   {
@@ -8753,26 +8720,107 @@
    "type": "kind",
    "description": "Plant that grows in or on water.",
    "models": [
-    "asia-rg/reeds",
-    "trees/waterlily-white",
-    "trees/waterlily-yellow",
-    "trees/waterlilies-white",
-    "trees/waterlilies-yellow",
     "asia-rg/lily",
+    "kay-hexagon/waterplant"
+   ]
+  },
+  {
+   "id": "env-flora-plant-water-cattail",
+   "name": "Cattail",
+   "type": "kind",
+   "description": "Stand of cattails or reeds at the waterline.",
+   "models": [
+    "fs-terrain/hilly-prop-cattail-a",
+    "fs-terrain/hilly-prop-cattail-b",
     "natuur/cattail-1",
     "natuur/cattail-2",
     "natuur/cattail-3",
     "natuur/cattail-4",
     "natuur/cattail-5",
-    "fs-terrain/hilly-prop-cattail-a",
-    "fs-terrain/hilly-prop-cattail-b",
     "kay-hexagon/cattails",
     "kay-hexagon/cattail",
-    "kay-hexagon/waterplant",
+    "asia-rg/reeds"
+   ]
+  },
+  {
+   "id": "env-flora-plant-water-lilypad",
+   "name": "Lily pad",
+   "type": "kind",
+   "description": "Lily pads floating on the surface, with or without a flower.",
+   "models": [
+    "trees/waterlily-white",
+    "trees/waterlily-yellow",
+    "kay-hexagon/waterlily-a",
+    "kay-hexagon/waterlily-b",
     "trees/lilypad-a",
     "trees/lilypad-b",
-    "kay-hexagon/waterlily-a",
-    "kay-hexagon/waterlily-b"
+    "trees/waterlilies-white",
+    "trees/waterlilies-yellow"
+   ]
+  },
+  {
+   "id": "env-flora-plant-bamboo",
+   "name": "Bamboo",
+   "type": "kind",
+   "description": "Bamboo: jointed stalks standing in a clump.",
+   "models": [
+    "ken-nature/bamboo-short",
+    "ken-nature/bamboo-tall",
+    "asia-pack/bamboo-a",
+    "asia-pack/bamboo-b",
+    "asia-pack/bamboo-c",
+    "asia-rg/bamboo"
+   ]
+  },
+  {
+   "id": "env-flora-plant-bush",
+   "name": "Bush",
+   "type": "kind",
+   "description": "Bush or shrub: a dense low mass of foliage.",
+   "models": [
+    "gob-nature/bush-a",
+    "gob-nature/bush-b",
+    "kay-forest/bush-1-f",
+    "kay-forest/bush-1-e",
+    "styloo-farm/bush",
+    "fs-terrain/hilly-prop-bush-a",
+    "fs-terrain/hilly-prop-bush-b",
+    "fs-terrain/hilly-prop-bush-c",
+    "fs-terrain/hilly-prop-bush-d"
+   ]
+  },
+  {
+   "id": "env-flora-plant-leafy",
+   "name": "Leafy plant",
+   "type": "kind",
+   "description": "Plant read through its broad leaves, house plants among them.",
+   "models": [
+    "asia-pack/plant-a",
+    "isa-plants/monstera-plant-small",
+    "isa-plants/monstera-plant-medium",
+    "isa-plants/monstera-plant-large",
+    "trees/leafy-plant",
+    "styloo-farm/leaf",
+    "isa-plants/sansevieria-plant-large",
+    "isa-plants/sansevieria-plant-medium",
+    "isa-plants/sansevieria-plant-small",
+    "isa-plants/pothos-plant-large",
+    "isa-plants/pothos-plant-medium",
+    "isa-plants/pothos-plant-small",
+    "asia-pack/plant-d",
+    "asia-pack/plant-c",
+    "asia-pack/plant-b",
+    "kay-minigame/plant-a",
+    "kay-minigame/plant-b",
+    "isa-plants/zzplant-plant-medium",
+    "isa-plants/zzplant-plant-large",
+    "isa-plants/zzplant-plant-small",
+    "isa-plants/yucca-plant-medium",
+    "isa-plants/yucca-plant-large",
+    "isa-plants/yucca-plant-small",
+    "isa-plants/yucca-branch-medium-b",
+    "isa-plants/yucca-branch-medium-a",
+    "isa-plants/yucca-branch-medium-c"
    ]
   },
   {
@@ -8807,13 +8855,10 @@
     "kay-builder/tree-a",
     "kay-builder/tree-b",
     "kay-builder/tree-c",
-    "kay-hexagon/tree",
-    "kay-hexagon/trees-large",
-    "kay-hexagon/trees-medium",
-    "kay-hexagon/trees-small",
     "gob-nature/tree-a",
     "gob-nature/tree-b",
-    "gob-nature/tree-c"
+    "gob-nature/tree-c",
+    "fs-terrain/hilly-prop-tree-cedar-a"
    ]
   },
   {
@@ -8846,7 +8891,6 @@
     "quat-nature/tree-pine-3",
     "quat-town/pine-trees",
     "kay-hallow/tree-pine-orange-large",
-    "fs-terrain/hilly-prop-tree-cedar-a",
     "fs-terrain/hilly-prop-tree-cedar-b",
     "fs-terrain/hilly-prop-tree-pine-a",
     "kay-minigame/pine",
@@ -8857,7 +8901,11 @@
     "kay-hexagon/conifer",
     "gob-nature/conifer-small",
     "gob-nature/conifer",
-    "gob-nature/conifer-large"
+    "gob-nature/conifer-large",
+    "kay-hexagon/trees-large",
+    "kay-hexagon/trees-medium",
+    "kay-hexagon/trees-small",
+    "kay-hexagon/tree"
    ]
   },
   {
@@ -8987,7 +9035,11 @@
     "asia-pack/ore-gold",
     "asia-pack/ore-jade",
     "rocks/rockwall-corner",
-    "rocks/rockwall-straight"
+    "rocks/rockwall-straight",
+    "ken-grave/grave-border",
+    "rocks/debris-a",
+    "rocks/debris-b",
+    "ken-grave/debris"
    ]
   },
   {
@@ -9198,8 +9250,6 @@
     "isa-pond/rock-a",
     "isa-pond/rock-a-2",
     "isa-pond/rock-a-3",
-    "ken-grave/debris",
-    "ken-grave/grave-border",
     "ken-platformer/stones",
     "ken-survival/resource-stone",
     "natuur/stepping-stone-1",
@@ -9210,8 +9260,6 @@
     "quat-pirate/rock-3",
     "quat-pirate/rock-4",
     "quat-pirate/rock-5",
-    "rocks/debris-a",
-    "rocks/debris-b",
     "rocks/pebbles-dirt-a",
     "rocks/pebbles-dirt-b",
     "rocks/pebbles-dirt-c",
@@ -9324,40 +9372,56 @@
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
    "models": [
-    "asia-rg/footbridge",
-    "asia-rg/river-bridge",
-    "ken-forest-mini/bridge",
-    "medieval-forge/bridge",
+    "asia-rg/footbridge"
+   ]
+  },
+  {
+   "id": "str-access-bridge-section",
+   "name": "Section",
+   "type": "kind",
+   "description": "Bridge piece that tiles with its own kind into a crossing.",
+   "models": [
     "medieval-forge/bridge-2",
-    "medieval-forge/stone-bridge",
-    "medieval-forge/stone-bridge-2",
-    "asia-pack/bridge-stone",
-    "asia-pack/bridge-wood",
-    "ken-castle/bridge-straight-pillar",
-    "ken-castle/bridge-straight",
+    "medieval-forge/bridge",
+    "ken-forest-mini/bridge",
     "village/bridge-arched-a",
     "village/bridge-arched-b",
-    "kay-builder/bridge",
-    "kay-builder/bridge-roofed",
-    "ken-nature/bridge-wood",
-    "ken-nature/bridge-wood-narrow",
-    "ken-nature/bridge-wood-round",
-    "ken-nature/bridge-wood-round-narrow",
-    "ken-nature/bridge-wood-center",
-    "ken-nature/bridge-wood-center-round",
-    "ken-nature/bridge-wood-side",
-    "ken-nature/bridge-wood-side-round",
-    "ken-nature/bridge-stone",
-    "ken-nature/bridge-stone-narrow",
     "ken-nature/bridge-stone-round",
     "ken-nature/bridge-stone-round-narrow",
-    "ken-nature/bridge-stone-center",
     "ken-nature/bridge-stone-center-round",
-    "ken-nature/bridge-stone-side",
+    "ken-nature/bridge-stone-center",
+    "ken-nature/bridge-stone",
+    "ken-nature/bridge-stone-narrow",
+    "asia-pack/bridge-stone",
+    "ken-castle/bridge-draw",
     "ken-nature/bridge-stone-side-round",
+    "ken-nature/bridge-stone-side",
+    "asia-pack/bridge-wood",
+    "ken-castle/bridge-straight",
+    "ken-castle/bridge-straight-pillar",
+    "ken-nature/bridge-wood-center",
+    "ken-nature/bridge-wood",
+    "ken-nature/bridge-wood-narrow",
+    "ken-nature/bridge-wood-side",
+    "ken-nature/bridge-wood-round",
+    "ken-nature/bridge-wood-round-narrow",
+    "ken-nature/bridge-wood-center-round",
+    "ken-nature/bridge-wood-side-round"
+   ]
+  },
+  {
+   "id": "str-access-bridge-long",
+   "name": "Long",
+   "type": "kind",
+   "description": "Whole crossing in one model, bank to bank.",
+   "models": [
+    "medieval-forge/stone-bridge-2",
+    "medieval-forge/stone-bridge",
+    "asia-rg/river-bridge",
     "kay-hexagon/bridge-a",
     "kay-hexagon/bridge-b",
-    "ken-castle/bridge-draw"
+    "kay-builder/bridge",
+    "kay-builder/bridge-roofed"
    ]
   },
   {
@@ -9365,20 +9429,35 @@
    "name": "Ladder",
    "type": "kind",
    "description": "ladder",
+   "models": []
+  },
+  {
+   "id": "str-access-ladder-short",
+   "name": "Short",
+   "type": "kind",
+   "description": "Ladder that reaches one level.",
    "models": [
-    "asia-rg/ladder",
-    "desert-buildings/ladder-a",
-    "desert-buildings/ladder-b",
-    "fs-town/ladder-a",
+    "kay-minigame/barrier-ladder",
+    "ken-proto/ladder",
     "ken-cave/ladder",
     "ken-forest-mini/ladder",
     "ken-platformer/ladder",
     "ken-platformer/ladder-broken",
-    "ken-platformer/ladder-long",
+    "desert-buildings/ladder-b",
     "props/stairs-a",
-    "kay-hexagon/ladder",
-    "ken-proto/ladder",
-    "kay-minigame/barrier-ladder"
+    "kay-hexagon/ladder"
+   ]
+  },
+  {
+   "id": "str-access-ladder-long",
+   "name": "Long",
+   "type": "kind",
+   "description": "Ladder that reaches past one level.",
+   "models": [
+    "asia-rg/ladder",
+    "desert-buildings/ladder-a",
+    "fs-town/ladder-a",
+    "ken-platformer/ladder-long"
    ]
   },
   {
@@ -9432,8 +9511,7 @@
     "toon-shooter/sandbags",
     "toon-shooter/sandbags-small",
     "styloo-farm/hedge",
-    "styloo-farm/hedge-amber",
-    "styloo-farm/hedge-arch"
+    "styloo-farm/hedge-amber"
    ]
   },
   {
@@ -9467,10 +9545,6 @@
     "fs-town/wood-rope-straight",
     "kay-hallow/fence",
     "kay-hallow/fence-broken",
-    "kay-hallow/fence-gate",
-    "kay-hallow/fence-gate-left",
-    "kay-hallow/fence-gate-pillar",
-    "kay-hallow/fence-gate-right",
     "kay-hallow/fence-seperate",
     "kay-hallow/fence-seperate-broken",
     "ken-grave/fence",
@@ -9496,22 +9570,17 @@
     "ken-platformer/fence-low-straight",
     "ken-platformer/fence-rope",
     "ken-platformer/fence-straight",
-    "ken-survival/fence",
-    "ken-survival/fence-doorway",
-    "ken-survival/fence-fortified",
     "ken-town/fence",
     "ken-town/fence-broken",
     "ken-town/fence-curved",
     "ken-town/fence-gate",
     "props/fence-a",
-    "asia-grave/iron-fence-bars",
     "asia-grave/iron-fence-broken",
     "asia-grave/iron-fence-large",
     "asia-grave/iron-fence-medium",
     "asia-grave/iron-fence-post-a",
     "asia-grave/iron-fence-post-b",
     "asia-grave/iron-fence-post-c",
-    "asia-grave/iron-fence-run",
     "asia-grave/iron-fence-short",
     "asia-pack/fence-a",
     "asia-pack/fence-b",
@@ -9561,6 +9630,23 @@
     "styloo-farm/fence-rail",
     "styloo-farm/fence-rail-clean",
     "styloo-farm/fence-rail-mirror"
+   ]
+  },
+  {
+   "id": "str-barrier-fence-high",
+   "name": "High",
+   "type": "kind",
+   "description": "Fence chest-high or taller, and the gates in such a run.",
+   "models": [
+    "ken-survival/fence",
+    "ken-survival/fence-fortified",
+    "kay-hallow/fence-gate",
+    "kay-hallow/fence-gate-left",
+    "kay-hallow/fence-gate-pillar",
+    "kay-hallow/fence-gate-right",
+    "ken-survival/fence-doorway",
+    "asia-grave/iron-fence-bars",
+    "asia-grave/iron-fence-run"
    ]
   },
   {
@@ -9648,7 +9734,6 @@
     "fs-town/stucco-doorway-wide-tall",
     "kay-dun-1/door",
     "kay-dun-1/door-gate",
-    "kay-dun-1/trapdoor",
     "kay-dun-2/wall-doorway",
     "kay-dun-2/wall-doorway-scaffold",
     "kay-dun-2/wall-doorway-sides",
@@ -9664,8 +9749,6 @@
     "ken-town/wall-wood-doorway-square-wide-curved",
     "quat-dun-1/arch",
     "quat-dun-1/arch-door",
-    "quat-dun-2/trapdoor",
-    "quat-dun-2/trapdoor-open",
     "asia-pack/door-left",
     "asia-pack/door-right",
     "asia-pack/torii",
@@ -9679,8 +9762,6 @@
     "medieval-town/door-straight",
     "medieval-forge/door",
     "quat-dun-1/arch-door-bottompivot",
-    "quat-dun-1/trapdoor",
-    "quat-dun-1/trapdoor-open",
     "quat-dun-2/arch-door",
     "quat-dun-2/arch-door-bottompivot",
     "ken-castle/gate",
@@ -9701,7 +9782,21 @@
     "ken-holiday/cabin-doorway",
     "ken-holiday/cabin-overhang-doorway",
     "quat-town/wall-towers-door-2",
-    "quat-town/wall-towers-gate-2"
+    "quat-town/wall-towers-gate-2",
+    "styloo-farm/hedge-arch"
+   ]
+  },
+  {
+   "id": "str-part-door-trapdoor",
+   "name": "Trapdoor",
+   "type": "kind",
+   "description": "Door lying in a floor or a ceiling.",
+   "models": [
+    "quat-dun-2/trapdoor-open",
+    "quat-dun-2/trapdoor",
+    "quat-dun-1/trapdoor",
+    "quat-dun-1/trapdoor-open",
+    "kay-dun-1/trapdoor"
    ]
   },
   {
@@ -9807,8 +9902,6 @@
    "type": "kind",
    "description": "frame, framework, post-and-beam frame, scaffold, structure (open)",
    "models": [
-    "kay-dun-1/scaffold-high",
-    "kay-dun-1/scaffold-high-railing",
     "ken-castle/tower-square-mid-open",
     "ken-castle/tower-square-mid-open-simple",
     "ken-cave/template-floor-layer-hole",
@@ -9827,10 +9920,20 @@
     "ken-survival/structure-metal-floor",
     "ken-survival/structure-metal-roof",
     "ken-survival/structure-roof",
-    "kay-hexagon/scaffolding",
     "kay-hexagon/building-site-a",
     "kay-hexagon/building-site-b",
     "kay-hexagon/building-site-c"
+   ]
+  },
+  {
+   "id": "str-part-frame-scaffold",
+   "name": "Scaffold",
+   "type": "kind",
+   "description": "Scaffolding: a temporary frame of poles and planks against a build.",
+   "models": [
+    "kay-dun-1/scaffold-high",
+    "kay-dun-1/scaffold-high-railing",
+    "kay-hexagon/scaffolding"
    ]
   },
   {
@@ -10145,51 +10248,67 @@
    "type": "kind",
    "description": "tombstone, gravestone, cross (grave), memorial",
    "models": [
+    "ken-grave/pillar-obelisk",
+    "kay-hallow/plaque",
+    "ken-grave/altar-stone",
+    "ken-grave/altar-wood"
+   ]
+  },
+  {
+   "id": "str-marker-tombstone-crypt",
+   "name": "Crypt",
+   "type": "kind",
+   "description": "Grave built as a house: a crypt or mausoleum you could enter.",
+   "models": [
+    "ken-grave/crypt-large",
+    "ken-grave/crypt",
+    "ken-grave/crypt-a",
+    "ken-grave/crypt-b",
+    "kay-hallow/crypt",
+    "ken-grave/crypt-small-roof",
+    "ken-grave/crypt-small",
+    "ken-grave/crypt-large-roof"
+   ]
+  },
+  {
+   "id": "str-marker-tombstone-gravemarker",
+   "name": "Grave marker",
+   "type": "kind",
+   "description": "Stone, cross or slab that marks a single grave.",
+   "models": [
+    "kay-hallow/gravemarker-a",
+    "kay-hallow/gravemarker-b",
     "ken-grave/cross",
+    "ken-grave/cross-column",
     "ken-grave/cross-wood",
+    "asia-pack/graves-a",
+    "asia-pack/graves-b",
+    "kay-spook/gravestone",
     "ken-grave/gravestone-bevel",
-    "ken-grave/gravestone-broken",
     "ken-grave/gravestone-cross",
     "ken-grave/gravestone-cross-large",
+    "ken-grave/gravestone-roof",
+    "ken-grave/gravestone-broken",
     "ken-grave/gravestone-debris",
     "ken-grave/gravestone-decorative",
-    "ken-grave/gravestone-roof",
     "ken-grave/gravestone-round",
     "ken-grave/gravestone-wide",
-    "ken-grave/pillar-obelisk",
-    "kay-hallow/grave-a",
-    "kay-hallow/grave-a-destroyed",
-    "kay-hallow/grave-b",
-    "kay-hallow/gravemarker-a",
-    "kay-hallow/gravestone",
-    "kay-hallow/plaque",
-    "kay-hallow/gravemarker-b",
     "asia-grave/tomb-a",
     "asia-grave/tomb-b",
-    "asia-grave/tomb-obelisk",
-    "asia-grave/tombstone-a",
     "asia-grave/tombstone-b",
+    "asia-grave/tombstone-a",
     "asia-grave/tombstone-c",
     "asia-grave/tombstone-d",
     "asia-grave/tombstone-e",
-    "asia-pack/grave-a",
-    "asia-pack/grave-b",
     "asia-pack/grave-c",
     "asia-pack/grave-d",
-    "asia-pack/graves-a",
-    "asia-pack/graves-b",
-    "ken-grave/cross-column",
-    "ken-grave/crypt",
-    "ken-grave/crypt-large",
-    "ken-grave/crypt-small",
-    "ken-grave/crypt-small-roof",
-    "kay-hallow/crypt",
-    "ken-grave/crypt-a",
-    "ken-grave/crypt-b",
-    "ken-grave/altar-stone",
-    "ken-grave/altar-wood",
-    "kay-spook/gravestone",
-    "ken-grave/crypt-large-roof"
+    "kay-hallow/grave-a",
+    "kay-hallow/grave-a-destroyed",
+    "kay-hallow/grave-b",
+    "kay-hallow/gravestone",
+    "asia-pack/grave-a",
+    "asia-pack/grave-b",
+    "asia-grave/tomb-obelisk"
    ]
   },
   {
@@ -10287,8 +10406,6 @@
    "description": "stall, market stand, awning, canopy",
    "color": "#d8a05a",
    "models": [
-    "desert-buildings/awning-a",
-    "desert-buildings/awning-b",
     "fs-town/canopy-corner",
     "fs-town/canopy-full",
     "fs-town/canopy-ramp-corner",
@@ -10296,23 +10413,7 @@
     "fs-town/canopy-ramp-mid",
     "fs-town/canopy-side",
     "fs-town/canopy-sides-opposite",
-    "fs-town/canopy-top",
-    "ken-town/stall",
-    "ken-town/stall-red",
-    "medieval-town/market-stand",
-    "medieval-town/market-stand-2",
-    "quat-town/market-1-a",
-    "quat-town/market-1-b",
-    "quat-town/market-1-c",
-    "quat-town/market-2-a",
-    "quat-town/market-2-b",
-    "quat-town/market-2-c",
-    "asia-pack/market-stand",
-    "medieval-village/market-stall-red",
-    "medieval-village/market-stall-green",
-    "kay-builder/market",
-    "kay-hexagon/market",
-    "kay-hexagon/tent"
+    "fs-town/canopy-top"
    ]
   },
   {
@@ -10322,16 +10423,58 @@
    "description": "Tent: a closed shelter of cloth on poles.",
    "models": [
     "kay-mixed/circus-tent",
-    "tropical-island/tent",
-    "ken-nature/tent-large-closed",
-    "ken-nature/tent-large-open",
-    "ken-forest-mini/tent",
-    "jelly-forest/tent",
-    "ken-nature/tent-small-closed",
-    "ken-nature/tent-small-open",
+    "tropical-island/tent"
+   ]
+  },
+  {
+   "id": "str-stands-tent-camping",
+   "name": "Camping",
+   "type": "kind",
+   "description": "Tent pitched to sleep in.",
+   "models": [
     "ken-survival/tent-canvas-half",
     "ken-survival/tent-canvas",
-    "ken-survival/tent"
+    "ken-survival/tent",
+    "ken-forest-mini/tent",
+    "jelly-forest/tent",
+    "ken-nature/tent-large-closed",
+    "ken-nature/tent-large-open",
+    "ken-nature/tent-small-closed",
+    "ken-nature/tent-small-open"
+   ]
+  },
+  {
+   "id": "str-stands-stall",
+   "name": "Stall",
+   "type": "kind",
+   "description": "One trading pitch: a counter, an awning or a stall on posts.",
+   "models": [
+    "kay-hexagon/tent",
+    "ken-town/stall-red",
+    "ken-town/stall",
+    "medieval-town/market-stand-2",
+    "medieval-town/market-stand",
+    "asia-pack/market-stand",
+    "medieval-village/market-stall-red",
+    "medieval-village/market-stall-green",
+    "desert-buildings/awning-b",
+    "desert-buildings/awning-a"
+   ]
+  },
+  {
+   "id": "str-stands-market",
+   "name": "Market",
+   "type": "kind",
+   "description": "A market in one model: several stalls with their goods.",
+   "models": [
+    "quat-town/market-2-b",
+    "quat-town/market-2-a",
+    "quat-town/market-2-c",
+    "quat-town/market-1-b",
+    "quat-town/market-1-a",
+    "quat-town/market-1-c",
+    "kay-hexagon/market",
+    "kay-builder/market"
    ]
   },
   {
@@ -11400,7 +11543,10 @@
     "toon-shooter/pallet-broken",
     "post-apocalypse/pallet-broken",
     "ken-grave/bench-damaged",
-    "kay-hexagon/ruin"
+    "kay-hexagon/ruin",
+    "kay-hexagon/building-site-c",
+    "kay-hexagon/building-site-b",
+    "kay-hexagon/building-site-a"
    ]
   },
   {
@@ -12010,11 +12156,19 @@
    "description": "Mill driven by a water wheel.",
    "models": [
     "kay-builder/watermill",
-    "kay-hexagon/watermill",
-    "ken-town/watermill-wide",
-    "ken-town/watermill",
+    "kay-hexagon/watermill"
+   ]
+  },
+  {
+   "id": "str-building-mill-watermill-wheel",
+   "name": "Wheel",
+   "type": "kind",
+   "description": "The water wheel on its own, without the mill it drives.",
+   "models": [
+    "fs-town/waterwheel",
     "asia-pack/waterwheel",
-    "fs-town/waterwheel"
+    "ken-town/watermill-wide",
+    "ken-town/watermill"
    ]
   },
   {
@@ -12025,18 +12179,26 @@
    "models": [
     "kay-builder/mill",
     "medieval-town/mill",
-    "ken-town/blade",
     "quat-town/windmill-2",
-    "fs-town/windmill-blades",
     "farm-buildings/windmill",
     "kay-hexagon/windmill",
-    "ken-town/windmill",
     "medieval-village/windmill",
     "windmill/windmill",
     "quat-town/windmill-1",
     "styloo-farm/windmill-small",
     "styloo-farm/windmill",
     "styloo-farm/windmill-large"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill-blades",
+   "name": "Blades",
+   "type": "kind",
+   "description": "The sails of a windmill on their own, without the mill they drive.",
+   "models": [
+    "ken-town/windmill",
+    "fs-town/windmill-blades",
+    "ken-town/blade"
    ]
   },
   {
@@ -12198,9 +12360,17 @@
     "asia-pack/shrine-large",
     "asia-pack/shrine-small",
     "asia-rg/gazebo",
-    "architecture/church",
-    "kay-hexagon/church",
     "kay-spook/shrine"
+   ]
+  },
+  {
+   "id": "str-building-religion-church",
+   "name": "Church",
+   "type": "kind",
+   "description": "Church or chapel: a nave with a tower or steeple.",
+   "models": [
+    "kay-hexagon/church",
+    "architecture/church"
    ]
   },
   {
