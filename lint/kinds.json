@@ -23,8 +23,7 @@
       "basket",
       "trough",
       "bin",
-      "can",
-      "coffin"
+      "can"
      ],
      "children": [
       {
@@ -40,6 +39,15 @@
         "trunk",
         "coffer",
         "strong box"
+       ],
+       "children": [
+        {
+         "id": "obj-container-chest-coffin",
+         "nouns": [
+          "coffin",
+          "sarcophagus"
+         ]
+        }
        ]
       },
       {
@@ -116,13 +124,20 @@
        "nouns": [
         "pot (storage)",
         "planter",
-        "vase",
         "urn",
         "amphora",
         "jar",
         "jug",
         "pitcher",
         "ewer"
+       ],
+       "children": [
+        {
+         "id": "obj-container-pot-vase",
+         "nouns": [
+          "vase"
+         ]
+        }
        ]
       }
      ]
@@ -163,9 +178,18 @@
          "nouns": [
           "plate",
           "dish",
-          "platter",
-          "tray",
           "saucer"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-tableware-plate-serving",
+           "nouns": [
+            "tray",
+            "platter",
+            "pastry stand",
+            "cloche"
+           ]
+          }
          ]
         },
         {
@@ -195,8 +219,6 @@
          ],
          "nouns": [
           "cup",
-          "goblet",
-          "chalice",
           "tankard",
           "glass"
          ],
@@ -212,6 +234,14 @@
            "nouns": [
             "mug"
            ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-goblet",
+           "nouns": [
+            "goblet",
+            "chalice",
+            "wine glass"
+           ]
           }
          ]
         }
@@ -222,15 +252,22 @@
        "nouns": [
         "grill",
         "spit",
-        "ladle",
-        "cutting board"
+        "ladle"
        ],
        "children": [
         {
          "id": "obj-kitchenware-cookware-pan",
          "nouns": [
-          "pan",
-          "skillet"
+          "pan"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-cookware-pan-frying",
+           "nouns": [
+            "frying pan",
+            "skillet"
+           ]
+          }
          ]
         },
         {
@@ -240,9 +277,30 @@
          ],
          "nouns": [
           "cooking pot",
-          "cauldron",
-          "kettle",
           "crockpot"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-cookware-pot-kettle",
+           "nouns": [
+            "kettle",
+            "teapot"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-kitchenware-cookware-board",
+         "nouns": [
+          "cutting board",
+          "chopping board",
+          "charcuterie board"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-cookware-cauldron",
+         "nouns": [
+          "cauldron"
          ]
         }
        ]
@@ -331,10 +389,6 @@
      "longest.max": 0.6,
      "tpu.max": 5000,
      "nouns": [
-      "fish (as food)",
-      "fruit",
-      "apple",
-      "cheese",
       "egg",
       "honey",
       "coconut"
@@ -382,6 +436,42 @@
         "roll",
         "baguette"
        ]
+      },
+      {
+       "id": "obj-food-fish",
+       "nouns": [
+        "fish (as food)",
+        "sushi",
+        "sashimi",
+        "tentacle"
+       ]
+      },
+      {
+       "id": "obj-food-fruit",
+       "nouns": [
+        "fruit",
+        "apple",
+        "banana",
+        "avocado",
+        "grapes"
+       ]
+      },
+      {
+       "id": "obj-food-cheese",
+       "nouns": [
+        "cheese",
+        "cheese wheel",
+        "cheese wedge"
+       ]
+      },
+      {
+       "id": "obj-food-sweet",
+       "nouns": [
+        "candy",
+        "chocolate",
+        "ice cream",
+        "popsicle"
+       ]
       }
      ]
     },
@@ -393,9 +483,6 @@
        "id": "obj-weapon-melee",
        "longest.min": 0.1,
        "nouns": [
-        "spear",
-        "pike",
-        "halberd",
         "scythe (weapon)",
         "knuckles",
         "claws",
@@ -426,10 +513,21 @@
          "id": "obj-weapon-melee-axe",
          "longest.min": 0.2,
          "longest.max": 0.8,
-         "nouns": [
-          "axe",
-          "hatchet",
-          "battleaxe"
+         "children": [
+          {
+           "id": "obj-weapon-melee-axe-single",
+           "nouns": [
+            "axe",
+            "hatchet"
+           ]
+          },
+          {
+           "id": "obj-weapon-melee-axe-double",
+           "nouns": [
+            "battleaxe",
+            "double axe"
+           ]
+          }
          ]
         },
         {
@@ -442,6 +540,15 @@
           "club",
           "flail"
          ]
+        },
+        {
+         "id": "obj-weapon-melee-spear",
+         "nouns": [
+          "spear",
+          "pike",
+          "halberd",
+          "naginata"
+         ]
         }
        ]
       },
@@ -451,12 +558,7 @@
        "nouns": [
         "sling",
         "throwing knife",
-        "javelin",
-        "pistol",
-        "rifle",
-        "musket",
-        "blunderbuss",
-        "shotgun"
+        "javelin"
        ],
        "children": [
         {
@@ -475,11 +577,33 @@
         },
         {
          "id": "obj-weapon-ranged-accessory",
+         "children": [
+          {
+           "id": "obj-weapon-ranged-accessory-quiver",
+           "nouns": [
+            "quiver"
+           ]
+          },
+          {
+           "id": "obj-weapon-ranged-accessory-arrow",
+           "nouns": [
+            "arrow",
+            "bolt (crossbow)",
+            "dart"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-weapon-ranged-firearm",
          "nouns": [
-          "arrow",
-          "bolt (crossbow)",
-          "dart",
-          "quiver"
+          "pistol",
+          "revolver",
+          "rifle",
+          "musket",
+          "blunderbuss",
+          "shotgun",
+          "carbine"
          ]
         }
        ]
@@ -515,6 +639,27 @@
        "nouns": [
         "cannon",
         "cannonball"
+       ]
+      },
+      {
+       "id": "obj-weapon-target",
+       "children": [
+        {
+         "id": "obj-weapon-target-dummy",
+         "nouns": [
+          "training dummy",
+          "training post",
+          "armour stand",
+          "mannequin"
+         ]
+        },
+        {
+         "id": "obj-weapon-target-bullseye",
+         "nouns": [
+          "target",
+          "archery target"
+         ]
+        }
        ]
       }
      ]
@@ -888,7 +1033,12 @@
        "id": "obj-art-sculpture",
        "longest.min": 0.2,
        "nouns": [
-        "statue",
+        "statue"
+       ]
+      },
+      {
+       "id": "obj-art-fountain",
+       "nouns": [
         "fountain"
        ]
       }
@@ -905,12 +1055,9 @@
    ],
    "nouns": [
     "stage",
-    "altar",
     "plinth",
     "pedestal",
-    "shrine",
     "gallows",
-    "waterwheel",
     "mine entrance",
     "fireplace"
    ],
@@ -1004,20 +1151,34 @@
         "tower",
         "watchtower",
         "belltower",
-        "lighthouse",
-        "church",
-        "pagoda",
-        "granary"
+        "lighthouse"
        ]
       },
       {
        "id": "str-building-mill",
-       "nouns": [
-        "mill",
-        "windmill",
-        "watermill",
-        "sawmill",
-        "lumbermill"
+       "children": [
+        {
+         "id": "str-building-mill-sawmill",
+         "nouns": [
+          "sawmill",
+          "lumbermill"
+         ]
+        },
+        {
+         "id": "str-building-mill-watermill",
+         "nouns": [
+          "watermill",
+          "waterwheel"
+         ]
+        },
+        {
+         "id": "str-building-mill-windmill",
+         "nouns": [
+          "windmill",
+          "mill",
+          "windmill blade"
+         ]
+        }
        ]
       },
       {
@@ -1037,12 +1198,72 @@
       },
       {
        "id": "str-building-fort",
+       "children": [
+        {
+         "id": "str-building-fort-barracks",
+         "nouns": [
+          "barracks",
+          "stable",
+          "dojo"
+         ]
+        },
+        {
+         "id": "str-building-fort-smithy",
+         "nouns": [
+          "blacksmith",
+          "smithy",
+          "forge"
+         ]
+        },
+        {
+         "id": "str-building-fort-castle",
+         "nouns": [
+          "castle",
+          "fortress",
+          "keep"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "str-building-religion",
        "nouns": [
-        "castle",
-        "fortress",
-        "barracks",
-        "stable",
-        "blacksmith"
+        "church",
+        "shrine",
+        "temple",
+        "altar",
+        "pagoda"
+       ]
+      },
+      {
+       "id": "str-building-archery",
+       "nouns": [
+        "archery range",
+        "butts",
+        "weapon shop"
+       ]
+      },
+      {
+       "id": "str-building-farming",
+       "nouns": [
+        "farm",
+        "chicken coop",
+        "farmhouse"
+       ],
+       "children": [
+        {
+         "id": "str-building-farming-barn",
+         "nouns": [
+          "barn"
+         ]
+        },
+        {
+         "id": "str-building-farming-silo",
+         "nouns": [
+          "silo",
+          "granary"
+         ]
+        }
        ]
       }
      ]
@@ -1050,11 +1271,18 @@
     {
      "id": "str-stands",
      "nouns": [
-      "tent",
       "stall",
       "market stand",
       "awning",
       "canopy"
+     ],
+     "children": [
+      {
+       "id": "str-stands-tent",
+       "nouns": [
+        "tent"
+       ]
+      }
      ]
     },
     {
@@ -1165,7 +1393,6 @@
        ],
        "nouns": [
         "flag",
-        "banner",
         "pennant"
        ]
       },
@@ -1176,6 +1403,12 @@
         "gravestone",
         "cross (grave)",
         "memorial"
+       ]
+      },
+      {
+       "id": "str-marker-banner",
+       "nouns": [
+        "banner"
        ]
       }
      ]
@@ -1330,14 +1563,11 @@
        "id": "env-flora-plant",
        "tpu.max": 10000,
        "nouns": [
-        "cattail",
         "bush",
         "shrub",
         "fern",
         "ivy",
-        "vine",
-        "seaweed",
-        "lily pad"
+        "vine"
        ],
        "children": [
         {
@@ -1356,7 +1586,6 @@
           "sunflower",
           "bellflower",
           "daisy",
-          "lily",
           "violet"
          ]
         },
@@ -1364,8 +1593,17 @@
          "id": "env-flora-plant-grass",
          "nouns": [
           "grass",
-          "grass tuft",
-          "reed"
+          "grass tuft"
+         ]
+        },
+        {
+         "id": "env-flora-plant-water",
+         "nouns": [
+          "cattail",
+          "reed",
+          "water lily",
+          "lily pad",
+          "waterplant"
          ]
         }
        ]

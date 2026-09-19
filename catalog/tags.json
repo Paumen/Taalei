@@ -5610,17 +5610,14 @@
     "kay-mixed/plushie-chicken-b",
     "kay-mixed/instant-camera-a",
     "kay-mixed/umbrella-c",
-    "kay-mixed/umbrella-d",
-    "kay-minigame/target-stand",
-    "kay-minigame/target",
-    "kay-hexagon/target"
+    "kay-mixed/umbrella-d"
    ]
   },
   {
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin, can, coffin",
+   "description": "basket, tub, trough, bin, can",
    "color": "#dd9f79",
    "models": [
     "quat-props/cage-small",
@@ -5628,18 +5625,13 @@
     "isa-plants/watering-can-b",
     "small-props/trough-1-a",
     "small-props/trough-3-a",
-    "ken-grave/coffin-old",
     "toon-shooter/cardboard-box-flat",
     "toon-shooter/cardboard-boxes-a",
     "toon-shooter/cardboard-boxes-b",
     "isa-picnic/basket-round",
     "isa-picnic/basket-square",
     "isa-bakery/basket-a",
-    "isa-bakery/basket-b",
-    "kay-spook/coffin-a",
-    "kay-spook/coffin-a-lid",
-    "kay-spook/coffin-b",
-    "kay-spook/coffin-b-lid"
+    "isa-bakery/basket-b"
    ]
   },
   {
@@ -5827,14 +5819,27 @@
     "quat-rpg/chest-closed",
     "quat-rpg/chest-ingots",
     "quat-rpg/chest-open",
-    "asia-grave/coffin-a",
-    "asia-grave/coffin-b",
-    "kay-hallow/coffin",
-    "kay-hallow/coffin-lid",
-    "ken-grave/coffin",
     "quat-dun-1/chest",
     "post-apocalypse/chest-hunter",
     "post-apocalypse/chest-sienna"
+   ]
+  },
+  {
+   "id": "obj-container-chest-coffin",
+   "name": "Coffin",
+   "type": "kind",
+   "description": "Coffin, and the lid of one.",
+   "models": [
+    "kay-hallow/coffin-lid",
+    "asia-grave/coffin-b",
+    "asia-grave/coffin-a",
+    "ken-grave/coffin",
+    "kay-hallow/coffin",
+    "kay-spook/coffin-a",
+    "kay-spook/coffin-b",
+    "kay-spook/coffin-a-lid",
+    "kay-spook/coffin-b-lid",
+    "ken-grave/coffin-old"
    ]
   },
   {
@@ -5887,14 +5892,10 @@
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer",
+   "description": "pot (storage), planter, urn, amphora, jar, jug, pitcher, ewer",
    "models": [
-    "asia-rg/vase",
     "clay-props/jug",
     "clay-props/planter",
-    "clay-props/wide-vase",
-    "quat-props/vase-2",
-    "quat-props/vase-4",
     "isa-plants/pot-a-large",
     "isa-plants/pot-a-medium",
     "isa-plants/pot-a-small",
@@ -5920,8 +5921,6 @@
     "asia-pack/urn-a",
     "asia-pack/urn-b",
     "quat-food/peanut-butter",
-    "quat-dun-1/vase",
-    "quat-dun-2/vase",
     "isa-kitchen/canister-a-white",
     "isa-kitchen/canister-b-red",
     "isa-kitchen/canister-b-white",
@@ -5930,6 +5929,20 @@
     "isa-bakery/tin-a",
     "isa-bakery/tin-b",
     "kay-holiday/tree-stand"
+   ]
+  },
+  {
+   "id": "obj-container-pot-vase",
+   "name": "Vase",
+   "type": "kind",
+   "description": "Vase: a narrow-necked open vessel for display.",
+   "models": [
+    "quat-props/vase-2",
+    "quat-dun-2/vase",
+    "quat-dun-1/vase",
+    "asia-rg/vase",
+    "clay-props/wide-vase",
+    "quat-props/vase-4"
    ]
   },
   {
@@ -6009,47 +6022,21 @@
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
-   "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
+   "description": "egg, honey, coconut",
    "color": "#c25b4e",
    "models": [
     "kay-dun-1/plate-full",
     "kay-dun-1/plate-half",
     "quat-food/coconut",
     "quat-food/coconut-half",
-    "quat-food/fish",
     "fs-terrain/beach-prop-coconut",
     "natuur/coconut",
     "props/plate-food-a",
-    "kay-food/food-ingredient-cheese",
-    "kay-food/food-ingredient-cheese-chopped",
-    "quat-food/tentacle",
-    "quat-food/sushi-nigiri-1",
-    "quat-food/sashimi-salmon",
-    "quat-food/popsicle-multiple",
-    "quat-food/popsicle-chocolate",
-    "quat-food/ice-cream-1",
-    "quat-food/ice-cream-2",
-    "quat-food/ice-cream-3",
-    "quat-food/ice-cream-4",
     "quat-food/egg-whole-white",
-    "quat-food/chocolate-bar",
-    "quat-food/banana",
-    "quat-food/apple",
-    "quat-food/avocado",
-    "quat-food/sushi-roll-1",
-    "quat-food/sushi-roll-2",
     "kay-mixed/taco",
-    "isa-picnic/apple",
-    "isa-picnic/apple-cut",
-    "isa-picnic/apple-piece",
-    "isa-picnic/cheese-wedge",
-    "isa-picnic/cheese-wheel",
-    "isa-picnic/grapes",
     "isa-picnic/sandwich",
     "isa-bakery/egg-ivory",
-    "isa-bakery/egg-camel",
-    "kay-spook/candy-a",
-    "kay-spook/candy-b"
+    "isa-bakery/egg-camel"
    ]
   },
   {
@@ -6175,6 +6162,64 @@
     "kay-spook/pumpkin-small",
     "ken-nature/carrot",
     "ken-nature/turnip"
+   ]
+  },
+  {
+   "id": "obj-food-fish",
+   "name": "Fish",
+   "type": "kind",
+   "description": "Fish and other seafood as food, raw or prepared.",
+   "models": [
+    "quat-food/fish",
+    "quat-food/sashimi-salmon",
+    "quat-food/sushi-nigiri-1",
+    "quat-food/sushi-roll-1",
+    "quat-food/sushi-roll-2",
+    "quat-food/tentacle"
+   ]
+  },
+  {
+   "id": "obj-food-fruit",
+   "name": "Fruit",
+   "type": "kind",
+   "description": "Fruit, whole or cut.",
+   "models": [
+    "isa-picnic/apple",
+    "isa-picnic/apple-cut",
+    "isa-picnic/apple-piece",
+    "quat-food/apple",
+    "quat-food/avocado",
+    "quat-food/banana",
+    "isa-picnic/grapes"
+   ]
+  },
+  {
+   "id": "obj-food-cheese",
+   "name": "Cheese",
+   "type": "kind",
+   "description": "Cheese, whole or portioned.",
+   "models": [
+    "kay-food/food-ingredient-cheese-chopped",
+    "kay-food/food-ingredient-cheese",
+    "isa-picnic/cheese-wheel",
+    "isa-picnic/cheese-wedge"
+   ]
+  },
+  {
+   "id": "obj-food-sweet",
+   "name": "Sweet",
+   "type": "kind",
+   "description": "Confectionery and frozen sweets.",
+   "models": [
+    "kay-spook/candy-a",
+    "kay-spook/candy-b",
+    "quat-food/chocolate-bar",
+    "quat-food/ice-cream-2",
+    "quat-food/ice-cream-1",
+    "quat-food/ice-cream-3",
+    "quat-food/ice-cream-4",
+    "quat-food/popsicle-multiple",
+    "quat-food/popsicle-chocolate"
    ]
   },
   {
@@ -6346,13 +6391,9 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, ladle, cutting board",
+   "description": "grill, spit, ladle",
    "models": [
-    "isa-kitchen/cutting-board",
     "isa-kitchen/spatula",
-    "cooking-assets/charcuterie-board",
-    "cooking-assets/cutting-board-a",
-    "cooking-assets/cutting-board-b",
     "cooking-assets/ladle-a",
     "cooking-assets/ladle-b",
     "cooking-assets/rice-paddle",
@@ -6361,7 +6402,6 @@
     "cooking-assets/turner",
     "cooking-assets/whisk",
     "cooking-assets/wooden-paddle",
-    "kay-food/cutting-board",
     "isa-bakery/rolling-pin",
     "isa-bakery/whisk"
    ]
@@ -6370,37 +6410,43 @@
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
-   "description": "pan, skillet",
+   "description": "pan",
    "models": [
-    "quat-food/frying-pan",
-    "quat-food/frying-pan-steel",
     "kay-food/lid-large",
     "kay-food/pan-006",
     "kay-food/pan-006-cast",
-    "kay-food/pan-a",
-    "kay-food/pan-b",
     "kay-food/pot-a",
     "kay-food/pot-a-closed",
     "kay-food/pot-large",
     "kay-food/pot-large-closed",
-    "isa-kitchen/pan",
-    "cooking-assets/frying-pan",
     "cooking-assets/paella-pan",
     "cooking-assets/sauce-pan-large",
-    "cooking-assets/sauce-pan-small",
+    "cooking-assets/sauce-pan-small"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-pan-frying",
+   "name": "Frying pan",
+   "type": "kind",
+   "description": "Shallow pan with one long handle, for frying.",
+   "models": [
+    "cooking-assets/skillet-cast",
     "cooking-assets/saute-pan",
-    "cooking-assets/skillet",
-    "cooking-assets/skillet-cast"
+    "isa-kitchen/pan",
+    "quat-food/frying-pan",
+    "quat-food/frying-pan-steel",
+    "cooking-assets/frying-pan",
+    "kay-food/pan-a",
+    "kay-food/pan-b",
+    "cooking-assets/skillet"
    ]
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "cooking pot, cauldron, kettle, crockpot",
+   "description": "cooking pot, crockpot",
    "models": [
-    "asia-rg/cauldron",
-    "isa-kitchen/kettle",
     "isa-kitchen/lid",
     "isa-kitchen/pot",
     "clay-props/crockpot",
@@ -6410,7 +6456,6 @@
     "cooking-assets/casserole-pot",
     "cooking-assets/crock-large",
     "cooking-assets/dutch-oven",
-    "cooking-assets/kettle",
     "cooking-assets/stock-pot",
     "kay-food/lid-a",
     "kay-food/lid-b",
@@ -6418,28 +6463,57 @@
     "kay-food/pot-b",
     "kay-food/pot-b-closed",
     "kay-food/pot-b-stew",
-    "medieval-town/cauldron",
-    "medieval-town/cauldron-steel",
     "quat-food/cooking-pot",
     "quat-food/cooking-pot-2",
     "quat-food/cooking-pot-2-steel",
     "quat-food/cooking-pot-steel",
     "quat-food/cooking-pot-soup",
     "quat-food/cooking-pot-2-soup",
-    "cooking-assets/mortar-and-pestle",
+    "cooking-assets/mortar-and-pestle"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-pot-kettle",
+   "name": "Kettle",
+   "type": "kind",
+   "description": "Closed pot with a spout, for boiling or pouring.",
+   "models": [
+    "isa-kitchen/kettle",
+    "cooking-assets/kettle",
     "isa-picnic/teapot",
-    "kay-spook/cauldron"
+    "asia-rg/teapot"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-board",
+   "name": "Board",
+   "type": "kind",
+   "description": "Flat board to cut or serve food on.",
+   "models": [
+    "cooking-assets/cutting-board-a",
+    "cooking-assets/cutting-board-b",
+    "kay-food/cutting-board",
+    "cooking-assets/charcuterie-board",
+    "isa-kitchen/cutting-board"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-cauldron",
+   "name": "Cauldron",
+   "type": "kind",
+   "description": "Cauldron: a wide-bellied cooking vessel on legs or a hook.",
+   "models": [
+    "medieval-town/cauldron",
+    "medieval-town/cauldron-steel",
+    "kay-spook/cauldron",
+    "asia-rg/cauldron"
    ]
   },
   {
    "id": "obj-kitchenware-tableware",
    "name": "Tableware",
    "type": "kind",
-   "description": "teapot, and any tableware with no leaf that fits",
-   "models": [
-    "asia-rg/teapot",
-    "cooking-assets/cloche"
-   ]
+   "description": "and any tableware with no leaf that fits"
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -6477,13 +6551,11 @@
    "id": "obj-kitchenware-tableware-plate",
    "name": "Plate",
    "type": "kind",
-   "description": "plate, dish, platter, tray, saucer",
+   "description": "plate, dish, saucer",
    "models": [
     "isa-kitchen/plate",
     "clay-props/plate",
     "clay-props/platter",
-    "cooking-assets/plate-oval-small",
-    "cooking-assets/plate-rectangle",
     "cooking-assets/platter-oval",
     "quat-props/table-plate",
     "isa-plants/saucer-a-large",
@@ -6504,18 +6576,29 @@
     "kay-dun-2/plate-stack",
     "isa-picnic/plate",
     "isa-picnic/plate-flower",
-    "isa-picnic/tray-round",
-    "isa-picnic/tray-square",
-    "isa-picnic/tray-square-handles",
-    "isa-bakery/pastry-stand",
-    "isa-bakery/pastry-stand-covered",
-    "isa-bakery/pastry-stand-tiered",
     "isa-bakery/plate",
     "isa-bakery/plate-stacked",
-    "isa-bakery/serving-tray",
     "kay-holiday/plate-ivory",
     "kay-holiday/plate-terracotta",
     "kay-holiday/plate-small-terracotta"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-plate-serving",
+   "name": "Serving",
+   "type": "kind",
+   "description": "Plate or stand that carries food to the table rather than holding one portion.",
+   "models": [
+    "isa-bakery/pastry-stand-tiered",
+    "isa-bakery/pastry-stand",
+    "isa-bakery/pastry-stand-covered",
+    "cooking-assets/plate-rectangle",
+    "cooking-assets/plate-oval-small",
+    "cooking-assets/cloche",
+    "isa-bakery/serving-tray",
+    "isa-picnic/tray-round",
+    "isa-picnic/tray-square",
+    "isa-picnic/tray-square-handles"
    ]
   },
   {
@@ -6541,19 +6624,13 @@
    "id": "obj-kitchenware-tableware-drinkware",
    "name": "Drinkware",
    "type": "kind",
-   "description": "cup, goblet, chalice, tankard, glass",
+   "description": "cup, tankard, glass",
    "models": [
     "clay-props/cup",
     "cooking-assets/tankard",
     "cooking-assets/teacup",
-    "quat-props/chalice",
-    "ken-grave/detail-chalice",
     "props/cup-a",
-    "props/cup-b",
-    "props/goblet-a",
-    "quat-rpg/chalice",
-    "kay-dun-1/artifact",
-    "isa-picnic/wine-glass"
+    "props/cup-b"
    ]
   },
   {
@@ -6574,6 +6651,20 @@
     "isa-bakery/mug-ivory-stacked",
     "isa-bakery/mug-ivory",
     "kay-holiday/mug-cocoa"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-goblet",
+   "name": "Goblet",
+   "type": "kind",
+   "description": "Stemmed drinking vessel on a foot.",
+   "models": [
+    "ken-grave/detail-chalice",
+    "quat-props/chalice",
+    "kay-dun-1/artifact",
+    "props/goblet-a",
+    "isa-picnic/wine-glass",
+    "quat-rpg/chalice"
    ]
   },
   {
@@ -7183,17 +7274,7 @@
    "color": "#4c5468",
    "models": [
     "kay-dun-1/weapon-rack",
-    "ken-forest-mini/target",
-    "small-props/mannequin-1-a",
-    "small-props/mannequin-2-a",
-    "small-props/practice-target-1-a",
-    "small-props/practice-target-2-a",
-    "medieval-forge/armor-stand",
-    "asia-pack/training-post",
-    "asia-rg/training-dummy",
-    "quat-props/training-dummy",
-    "quat-props/weapon-stand",
-    "medieval-village/archery-target"
+    "quat-props/weapon-stand"
    ]
   },
   {
@@ -7227,50 +7308,60 @@
    "id": "obj-weapon-melee",
    "name": "Melee",
    "type": "kind",
-   "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade",
+   "description": "scythe (weapon), knuckles, claws, gauntlet blade",
    "models": [
-    "primitive-tools/stone-spear",
-    "primitive-tools/wooden-spear",
     "kay-weapons/fistweapon-a",
     "kay-weapons/fistweapon-a-stacked",
     "kay-weapons/fistweapon-b",
-    "kay-weapons/fistweapon-b-stacked",
-    "kay-weapons/halberd",
-    "kay-weapons/spear-a",
-    "asia-rg/naginata",
-    "post-apocalypse/spear"
+    "kay-weapons/fistweapon-b-stacked"
    ]
   },
   {
    "id": "obj-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
-   "description": "axe, hatchet, battleaxe",
+   "description": "Axe with no leaf that fits.",
    "models": [
-    "kay-adventurers/axe-one-handed",
     "kay-adventurers/axe-two-handed",
-    "kay-dun-1/axe-common",
-    "kay-dun-1/axe-double-common",
-    "kay-dun-1/axe-double-rare",
-    "kay-dun-1/axe-double-uncommon",
-    "kay-dun-1/axe-rare",
-    "kay-dun-1/axe-uncommon",
-    "primitive-tools/stone-axe",
-    "primitive-tools/wooden-axe",
     "kay-skeleton/axe",
     "kay-weapons/axe-a",
     "kay-weapons/axe-b",
-    "kay-weapons/axe-c",
-    "ken-survival/tool-axe",
     "ken-survival/tool-axe-upgraded",
+    "quat-rpg/axe-small"
+   ]
+  },
+  {
+   "id": "obj-weapon-melee-axe-single",
+   "name": "Single axe",
+   "type": "kind",
+   "description": "Axe with one blade.",
+   "models": [
+    "quat-pirate/axe",
+    "ken-survival/tool-axe",
+    "primitive-tools/stone-axe",
+    "primitive-tools/wooden-axe",
+    "kay-adventurers/axe-one-handed",
+    "props/axe-a",
+    "kay-dun-1/axe-rare",
+    "kay-dun-1/axe-common",
+    "kay-dun-1/axe-uncommon",
+    "kay-weapons/axe-c",
     "mek-tools/axe",
+    "post-apocalypse/axe"
+   ]
+  },
+  {
+   "id": "obj-weapon-melee-axe-double",
+   "name": "Double axe",
+   "type": "kind",
+   "description": "Axe with a blade on both sides of the haft.",
+   "models": [
+    "kay-dun-1/axe-double-common",
+    "kay-dun-1/axe-double-rare",
+    "kay-dun-1/axe-double-uncommon",
     "mek-tools/axe-double",
     "quat-rpg/axe-double",
-    "quat-rpg/axe-small",
-    "quat-pirate/axe",
-    "quat-pirate/axe-double",
-    "props/axe-a",
-    "post-apocalypse/axe"
+    "quat-pirate/axe-double"
    ]
   },
   {
@@ -7346,59 +7437,71 @@
    ]
   },
   {
+   "id": "obj-weapon-melee-spear",
+   "name": "Spear",
+   "type": "kind",
+   "description": "Pole weapon with a head on a long shaft.",
+   "models": [
+    "post-apocalypse/spear",
+    "kay-weapons/spear-a",
+    "asia-rg/naginata",
+    "kay-weapons/halberd",
+    "primitive-tools/wooden-spear",
+    "primitive-tools/stone-spear"
+   ]
+  },
+  {
    "id": "obj-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
    "models": [
-    "quat-pirate/axe-rifle",
-    "quat-pirate/shotgun-double",
-    "quat-pirate/pistol",
-    "quat-pirate/rifle",
-    "asia-rg/shuriken",
-    "toon-shooter/carbine",
-    "toon-shooter/revolver",
-    "toon-shooter/revolver-short",
-    "toon-shooter/shotgun",
-    "ultimate-guns/revolver",
-    "ultimate-guns/revolver-ribbed",
-    "ultimate-guns/revolver-steel",
-    "ultimate-guns/shotgun",
-    "ultimate-guns/shotgun-pump",
-    "ultimate-guns/shotgun-sawed-off",
-    "ultimate-guns/shotgun-pistol-grip",
-    "post-apocalypse/shotgun"
+    "asia-rg/shuriken"
    ]
   },
   {
    "id": "obj-weapon-ranged-accessory",
    "name": "Accessory",
    "type": "kind",
-   "description": "arrow, bolt, quiver",
+   "description": "Ranged accessory with no leaf that fits."
+  },
+  {
+   "id": "obj-weapon-ranged-accessory-quiver",
+   "name": "Quiver",
+   "type": "kind",
+   "description": "Quiver: the case that carries arrows or bolts.",
    "models": [
-    "kay-adventurers/quiver",
-    "kay-dun-1/arrow",
-    "kay-dun-1/quiver-empty",
     "kay-dun-1/quiver-full",
     "kay-dun-1/quiver-half-full",
-    "primitive-tools/stone-arrow",
-    "primitive-tools/wooden-arrow",
+    "kay-dun-1/quiver-empty",
+    "kay-skeleton-1/quiver-b",
+    "kay-adventurers/quiver",
+    "kay-skeleton/quiver"
+   ]
+  },
+  {
+   "id": "obj-weapon-ranged-accessory-arrow",
+   "name": "Arrow",
+   "type": "kind",
+   "description": "Shaft shot from a bow or crossbow, and the dart thrown by hand.",
+   "models": [
+    "kay-dun-1/arrow",
     "kay-skeleton/arrow",
+    "kay-adventurers/arrow-bow",
     "kay-skeleton/arrow-broken",
     "kay-skeleton/arrow-broken-half",
-    "kay-skeleton/arrow-half",
-    "kay-skeleton/quiver",
-    "kay-skeleton-1/quiver-b",
-    "kay-weapons/arrow-a",
-    "kay-weapons/arrow-b",
     "kay-adventurers/arrow-crossbow",
-    "kay-adventurers/arrow-crossbow-bundle",
-    "kay-adventurers/arrow-bow",
-    "kay-adventurers/arrow-bow-bundle",
+    "kay-skeleton/arrow-half",
     "quat-rpg/arrow",
     "quat-rpg/arrow-golden",
+    "kay-weapons/arrow-a",
+    "kay-weapons/arrow-b",
+    "kay-minigame/arrow",
     "quat-rpg/dart",
-    "kay-minigame/arrow"
+    "primitive-tools/wooden-arrow",
+    "kay-adventurers/arrow-bow-bundle",
+    "kay-adventurers/arrow-crossbow-bundle",
+    "primitive-tools/stone-arrow"
    ]
   },
   {
@@ -7432,6 +7535,65 @@
     "kay-dun-1/crossbow-rare",
     "kay-dun-1/crossbow-uncommon",
     "kay-skeleton/crossbow"
+   ]
+  },
+  {
+   "id": "obj-weapon-ranged-firearm",
+   "name": "Firearm",
+   "type": "kind",
+   "description": "Weapon that fires a shot with powder.",
+   "models": [
+    "quat-pirate/rifle",
+    "ultimate-guns/revolver",
+    "ultimate-guns/revolver-ribbed",
+    "ultimate-guns/revolver-steel",
+    "toon-shooter/revolver",
+    "toon-shooter/revolver-short",
+    "quat-pirate/pistol",
+    "toon-shooter/carbine",
+    "quat-pirate/axe-rifle",
+    "ultimate-guns/shotgun-sawed-off",
+    "ultimate-guns/shotgun-pistol-grip",
+    "quat-pirate/shotgun-double",
+    "ultimate-guns/shotgun",
+    "ultimate-guns/shotgun-pump",
+    "post-apocalypse/shotgun",
+    "toon-shooter/shotgun"
+   ]
+  },
+  {
+   "id": "obj-weapon-target",
+   "name": "Target",
+   "type": "kind",
+   "description": "Target with no leaf that fits."
+  },
+  {
+   "id": "obj-weapon-target-dummy",
+   "name": "Dummy",
+   "type": "kind",
+   "description": "Body-shaped or post-shaped stand to strike in practice.",
+   "models": [
+    "asia-rg/training-dummy",
+    "quat-props/training-dummy",
+    "asia-pack/training-post",
+    "medieval-forge/armor-stand",
+    "small-props/mannequin-2-a",
+    "small-props/mannequin-1-a"
+   ]
+  },
+  {
+   "id": "obj-weapon-target-bullseye",
+   "name": "Bullseye",
+   "type": "kind",
+   "description": "Ringed face to shoot or throw at.",
+   "models": [
+    "ken-forest-mini/target",
+    "small-props/practice-target-2-a",
+    "small-props/practice-target-1-a",
+    "medieval-village/archery-target",
+    "kay-hexagon/target",
+    "kay-minigame/target-stand",
+    "kay-minigame/target"
    ]
   },
   {
@@ -7631,11 +7793,9 @@
    "id": "env-flora-plant",
    "name": "Plant",
    "type": "kind",
-   "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
+   "description": "bush, shrub, fern, ivy, vine",
    "models": [
     "asia-rg/bamboo",
-    "fs-terrain/hilly-prop-cattail-a",
-    "fs-terrain/hilly-prop-cattail-b",
     "isa-plants/monstera-plant-large",
     "isa-plants/monstera-plant-medium",
     "isa-plants/monstera-plant-small",
@@ -7656,11 +7816,6 @@
     "isa-plants/zzplant-plant-small",
     "kay-forest/bush-1-e",
     "kay-forest/bush-1-f",
-    "natuur/cattail-1",
-    "natuur/cattail-2",
-    "natuur/cattail-3",
-    "natuur/cattail-4",
-    "natuur/cattail-5",
     "quat-town/farm-field-b",
     "quat-town/farm-field-c",
     "asia-pack/bamboo-a",
@@ -7672,17 +7827,12 @@
     "asia-pack/plant-c",
     "asia-pack/plant-d",
     "trees/leafy-plant",
-    "trees/lilypad-a",
-    "trees/lilypad-b",
     "kay-minigame/plant-a",
     "kay-minigame/plant-b",
     "kay-builder/farm-plot",
     "ken-nature/bamboo-short",
     "ken-nature/bamboo-tall",
-    "ken-nature/corn",
-    "kay-hexagon/waterplant",
-    "kay-hexagon/cattail",
-    "kay-hexagon/cattails"
+    "ken-nature/corn"
    ]
   },
   {
@@ -7718,9 +7868,8 @@
    "id": "env-flora-plant-flower",
    "name": "Flower",
    "type": "kind",
-   "description": "flower, tulip, rose, sunflower, bellflower, daisy, lily, violet",
+   "description": "flower, tulip, rose, sunflower, bellflower, daisy, violet",
    "models": [
-    "asia-rg/lily",
     "fs-terrain/hilly-prop-flower-daisy",
     "fs-terrain/hilly-prop-flower-lily-blue",
     "fs-terrain/hilly-prop-flower-lily-pink",
@@ -7745,21 +7894,16 @@
     "natuur/flower-violet-2",
     "natuur/flower-violet-3",
     "kay-mixed/flax-flower-a",
-    "kay-mixed/flax-flower-b",
-    "trees/waterlily-white",
-    "trees/waterlilies-white",
-    "trees/waterlily-yellow",
-    "trees/waterlilies-yellow"
+    "kay-mixed/flax-flower-b"
    ]
   },
   {
    "id": "env-flora-plant-grass",
    "name": "Grass",
    "type": "kind",
-   "description": "grass, grass tuft, reed",
+   "description": "grass, grass tuft",
    "models": [
     "asia-rg/grass",
-    "asia-rg/reeds",
     "fs-terrain/hilly-prop-grass-clump-a",
     "fs-terrain/hilly-prop-grass-clump-b",
     "fs-terrain/hilly-prop-grass-clump-c",
@@ -7787,6 +7931,32 @@
     "kay-forest/grass-2-d-singlesided",
     "arena-pack/grass-tuft",
     "arena-pack/grass-tufts"
+   ]
+  },
+  {
+   "id": "env-flora-plant-water",
+   "name": "Water plant",
+   "type": "kind",
+   "description": "Plant that grows in or on water.",
+   "models": [
+    "asia-rg/reeds",
+    "trees/waterlily-white",
+    "trees/waterlily-yellow",
+    "trees/waterlilies-white",
+    "trees/waterlilies-yellow",
+    "asia-rg/lily",
+    "natuur/cattail-1",
+    "natuur/cattail-2",
+    "natuur/cattail-3",
+    "natuur/cattail-4",
+    "natuur/cattail-5",
+    "fs-terrain/hilly-prop-cattail-a",
+    "fs-terrain/hilly-prop-cattail-b",
+    "kay-hexagon/cattails",
+    "kay-hexagon/cattail",
+    "kay-hexagon/waterplant",
+    "trees/lilypad-a",
+    "trees/lilypad-b"
    ]
   },
   {
@@ -8252,14 +8422,13 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace",
+   "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
    "color": "#877a63",
    "models": [
     "quat-town/mine",
     "architecture/ferris-wheel",
     "kay-mixed/fire-hydrant",
     "post-apocalypse/fire-hydrant",
-    "kay-spook/shrine",
     "kay-builder/mine",
     "kay-hexagon/mine"
    ]
@@ -8527,57 +8696,18 @@
    "id": "str-building",
    "name": "Building",
    "type": "kind",
-   "description": "watermill, sawmill, gazebo, well",
+   "description": "gazebo, well",
    "color": "#7d4f3a",
    "models": [
-    "asia-rg/dojo",
-    "asia-rg/gazebo",
-    "desert-buildings/large-building-a",
-    "desert-buildings/large-building-b",
-    "desert-buildings/large-building-c",
-    "desert-buildings/large-building-d",
-    "desert-buildings/large-building-frame-a",
-    "desert-buildings/large-building-frame-b",
-    "desert-buildings/large-building-frame-c",
-    "desert-buildings/large-building-frame-d",
-    "desert-buildings/medium-building-a",
-    "desert-buildings/medium-building-b",
-    "desert-buildings/medium-building-frame-a",
-    "desert-buildings/medium-building-frame-b",
-    "desert-buildings/small-building-a",
-    "desert-buildings/small-building-frame-a",
     "medieval-forge/furnace",
     "medieval-town/gazebo",
-    "quat-town/archery-1-a",
-    "quat-town/archery-1-b",
-    "quat-town/archery-1-c",
-    "quat-town/archery-2-a",
-    "quat-town/archery-2-b",
-    "quat-town/archery-2-c",
-    "quat-town/farm-2-a",
-    "quat-town/farm-2-b",
-    "quat-town/farm-2-c",
     "quat-town/storage-1-a",
     "quat-town/storage-1-b",
     "quat-town/storage-1-c",
     "quat-town/storage-2-a",
     "quat-town/storage-2-b",
     "quat-town/storage-2-c",
-    "quat-town/tower-house-2",
-    "asia-pack/altar-a",
-    "asia-pack/shrine-large",
-    "asia-pack/shrine-small",
-    "asia-rg/shrine",
-    "architecture/barn",
-    "medieval-village/weapon-shop",
-    "farm-buildings/barn",
-    "farm-buildings/barn-large",
-    "farm-buildings/barn-small",
-    "farm-buildings/barn-open",
-    "farm-buildings/chicken-coop",
-    "asia-pack/altar-b",
-    "kay-builder/archery-range",
-    "kay-hexagon/archery-range"
+    "quat-town/tower-house-2"
    ]
   },
   {
@@ -9040,19 +9170,15 @@
    "id": "str-marker-flag",
    "name": "Flag",
    "type": "kind",
-   "description": "flag, banner, pennant",
+   "description": "flag, pennant",
    "models": [
-    "asia-rg/banner",
     "ken-castle/flag",
     "ken-castle/flag-pennant",
     "ken-castle/flag-wide",
-    "ken-mini-dun/banner",
     "ken-pirate/flag",
     "ken-pirate/flag-high",
     "ken-pirate/flag-high-pennant",
     "ken-pirate/flag-pennant",
-    "ken-town/banner-green",
-    "ken-town/banner-red",
     "kay-minigame/flag",
     "kay-hexagon/flag"
    ]
@@ -9124,6 +9250,18 @@
     "ken-grave/altar-wood",
     "kay-spook/gravestone",
     "ken-grave/crypt-large-roof"
+   ]
+  },
+  {
+   "id": "str-marker-banner",
+   "name": "Banner",
+   "type": "kind",
+   "description": "Cloth hung from a crossbar or a wall, read from one side.",
+   "models": [
+    "ken-town/banner-green",
+    "ken-town/banner-red",
+    "ken-mini-dun/banner",
+    "asia-rg/banner"
    ]
   },
   {
@@ -9206,7 +9344,7 @@
    "id": "str-stands",
    "name": "Stands",
    "type": "kind",
-   "description": "tent, stall, market stand, awning, canopy",
+   "description": "stall, market stand, awning, canopy",
    "color": "#d8a05a",
    "models": [
     "desert-buildings/awning-a",
@@ -9219,8 +9357,6 @@
     "fs-town/canopy-side",
     "fs-town/canopy-sides-opposite",
     "fs-town/canopy-top",
-    "jelly-forest/tent",
-    "ken-forest-mini/tent",
     "ken-survival/tent",
     "ken-survival/tent-canvas",
     "ken-survival/tent-canvas-half",
@@ -9228,7 +9364,6 @@
     "ken-town/stall-red",
     "medieval-town/market-stand",
     "medieval-town/market-stand-2",
-    "tropical-island/tent",
     "quat-town/market-1-a",
     "quat-town/market-1-b",
     "quat-town/market-1-c",
@@ -9236,16 +9371,27 @@
     "quat-town/market-2-b",
     "quat-town/market-2-c",
     "asia-pack/market-stand",
-    "kay-mixed/circus-tent",
     "medieval-village/market-stall-red",
     "medieval-village/market-stall-green",
     "kay-builder/market",
-    "ken-nature/tent-large-closed",
-    "ken-nature/tent-large-open",
-    "ken-nature/tent-small-closed",
-    "ken-nature/tent-small-open",
     "kay-hexagon/market",
     "kay-hexagon/tent"
+   ]
+  },
+  {
+   "id": "str-stands-tent",
+   "name": "Tent",
+   "type": "kind",
+   "description": "Tent: a closed shelter of cloth on poles.",
+   "models": [
+    "kay-mixed/circus-tent",
+    "tropical-island/tent",
+    "ken-nature/tent-large-closed",
+    "ken-nature/tent-large-open",
+    "ken-forest-mini/tent",
+    "jelly-forest/tent",
+    "ken-nature/tent-small-closed",
+    "ken-nature/tent-small-open"
    ]
   },
   {
@@ -10828,21 +10974,16 @@
    "id": "obj-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
-   "description": "Statue, fountain.",
+   "description": "Statue.",
    "models": [
     "asia-rg/dragon-ornament",
     "asia-rg/geisha-a",
     "asia-rg/geisha-b",
     "kay-hallow/shrine",
-    "ken-town/fountain-round",
-    "ken-town/fountain-round-detail",
-    "ken-town/fountain-square",
     "quat-dun-2/pedestal-2",
     "quat-dun-2/statue-horse",
     "quat-town/town-center-1-b",
     "quat-town/town-center-1-c",
-    "quat-town/town-center-2-a",
-    "quat-town/town-center-2-c",
     "asia-grave/statue-mourner",
     "asia-pack/statue-frog",
     "asia-pack/statue-monk",
@@ -10850,40 +10991,45 @@
     "asia-pack/wall-decor-b",
     "asia-pack/wall-decor-c",
     "asia-pack/wall-decor-d",
-    "isa-park/fountain",
-    "ken-town/fountain-square-detail",
     "quat-dun-1/pedestal",
     "quat-dun-1/pedestal-2",
     "quat-dun-2/pedestal"
    ]
   },
   {
+   "id": "obj-art-fountain",
+   "name": "Fountain",
+   "type": "kind",
+   "description": "Fountain: a standing water feature with a basin.",
+   "models": [
+    "quat-town/town-center-2-a",
+    "quat-town/town-center-2-c",
+    "isa-park/fountain",
+    "ken-town/fountain-round",
+    "ken-town/fountain-round-detail",
+    "ken-town/fountain-square",
+    "ken-town/fountain-square-detail"
+   ]
+  },
+  {
    "id": "str-building-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: tower, watchtower, belltower, lighthouse, mill, windmill, church, pagoda, granary.",
+   "description": "Tower-form building: tower, watchtower, belltower, lighthouse.",
    "models": [
     "asia-rg/pagoda",
     "ken-pirate/tower-complete-large",
     "ken-pirate/tower-complete-small",
     "medieval-town/bell-tower",
     "taalei-kit/lighthouse",
-    "architecture/church",
     "quat-town/watchtower-1-a",
     "quat-town/watchtower-1-b",
     "quat-town/watchtower-1-c",
     "quat-town/watchtower-2-a",
     "quat-town/watchtower-2-b",
     "quat-town/watchtower-2-c",
-    "asia-pack/granary",
-    "asia-pack/tower",
-    "medieval-village/silo",
     "medieval-village/wizard-tower",
-    "village/granary-large",
-    "farm-buildings/silo",
-    "farm-buildings/silo-house",
     "kay-builder/watchtower",
-    "kay-hexagon/church",
     "kay-hexagon/tower-a",
     "kay-hexagon/tower-b",
     "kay-hexagon/tower-base",
@@ -10894,29 +11040,51 @@
    "id": "str-building-mill",
    "name": "Mill",
    "type": "kind",
-   "description": "Building that mills or saws by wind or water: mill, windmill, watermill, sawmill, lumbermill.",
+   "description": "Mill with no leaf that fits."
+  },
+  {
+   "id": "str-building-mill-sawmill",
+   "name": "Sawmill",
+   "type": "kind",
+   "description": "Mill that saws timber.",
    "models": [
-    "asia-pack/waterwheel",
-    "farm-buildings/windmill",
-    "fs-town/waterwheel",
-    "fs-town/windmill-blades",
-    "ken-town/blade",
-    "ken-town/watermill",
-    "ken-town/watermill-wide",
-    "ken-town/windmill",
-    "medieval-town/fantasy-sawmill",
-    "medieval-town/mill",
-    "medieval-village/sawmill",
-    "medieval-village/windmill",
-    "quat-town/windmill-1",
-    "quat-town/windmill-2",
-    "windmill/windmill",
-    "kay-builder/lumbermill",
-    "kay-builder/mill",
-    "kay-builder/watermill",
     "kay-hexagon/lumbermill",
+    "kay-builder/lumbermill",
+    "medieval-town/fantasy-sawmill",
+    "medieval-village/sawmill"
+   ]
+  },
+  {
+   "id": "str-building-mill-watermill",
+   "name": "Watermill",
+   "type": "kind",
+   "description": "Mill driven by a water wheel.",
+   "models": [
+    "kay-builder/watermill",
     "kay-hexagon/watermill",
-    "kay-hexagon/windmill"
+    "ken-town/watermill-wide",
+    "ken-town/watermill",
+    "asia-pack/waterwheel",
+    "fs-town/waterwheel"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill",
+   "name": "Windmill",
+   "type": "kind",
+   "description": "Mill driven by sails on the wind.",
+   "models": [
+    "kay-builder/mill",
+    "medieval-town/mill",
+    "ken-town/blade",
+    "quat-town/windmill-2",
+    "fs-town/windmill-blades",
+    "farm-buildings/windmill",
+    "kay-hexagon/windmill",
+    "ken-town/windmill",
+    "medieval-village/windmill",
+    "windmill/windmill",
+    "quat-town/windmill-1"
    ]
   },
   {
@@ -10985,42 +11153,154 @@
     "kay-hexagon/house-a",
     "kay-hexagon/house-b",
     "kay-hexagon/tavern",
-    "kay-hexagon/ruin"
+    "kay-hexagon/ruin",
+    "desert-buildings/large-building-a",
+    "desert-buildings/large-building-b",
+    "desert-buildings/large-building-c",
+    "desert-buildings/large-building-d",
+    "desert-buildings/large-building-frame-a",
+    "desert-buildings/large-building-frame-b",
+    "desert-buildings/large-building-frame-c",
+    "desert-buildings/large-building-frame-d",
+    "desert-buildings/medium-building-a",
+    "desert-buildings/medium-building-frame-a",
+    "desert-buildings/medium-building-b",
+    "desert-buildings/medium-building-frame-b",
+    "desert-buildings/small-building-a",
+    "desert-buildings/small-building-frame-a"
    ]
   },
   {
    "id": "str-building-fort",
    "name": "Fort",
    "type": "kind",
-   "description": "Fortified or working building: castle, fortress, barracks, stable, blacksmith.",
+   "description": "Fortified or working building with no leaf that fits.",
    "models": [
     "architecture/castle",
     "architecture/fortress",
-    "medieval-town/blacksmith",
-    "medieval-town/fantasy-stable",
-    "quat-town/barracks-1-a",
-    "quat-town/barracks-1-b",
-    "quat-town/barracks-1-c",
-    "quat-town/barracks-2-a",
-    "quat-town/barracks-2-b",
-    "quat-town/barracks-2-c",
+    "isa-playground/sandcastle-a",
+    "isa-playground/sandcastle-b",
+    "isa-playground/sandcastle-c"
+   ]
+  },
+  {
+   "id": "str-building-fort-barracks",
+   "name": "Barracks",
+   "type": "kind",
+   "description": "Building that houses or trains a garrison.",
+   "models": [
     "medieval-town/fantasy-barracks",
-    "medieval-village/smithy",
-    "quat-town/wonder-1-a",
+    "kay-builder/barracks",
+    "kay-hexagon/barracks",
+    "quat-town/barracks-1-b",
+    "quat-town/barracks-1-a",
+    "quat-town/barracks-1-c",
+    "quat-town/barracks-2-b",
+    "quat-town/barracks-2-a",
+    "quat-town/barracks-2-c",
+    "medieval-town/fantasy-stable",
+    "asia-rg/dojo"
+   ]
+  },
+  {
+   "id": "str-building-fort-smithy",
+   "name": "Smithy",
+   "type": "kind",
+   "description": "Building where metal is worked.",
+   "models": [
+    "kay-hexagon/blacksmith",
+    "medieval-town/blacksmith",
+    "medieval-village/smithy"
+   ]
+  },
+  {
+   "id": "str-building-fort-castle",
+   "name": "Castle",
+   "type": "kind",
+   "description": "Walled seat of a lord.",
+   "models": [
+    "kay-builder/castle",
+    "kay-hexagon/castle",
     "quat-town/wonder-1-b",
+    "quat-town/wonder-1-a",
     "quat-town/wonder-1-c",
     "quat-town/wonder-2-b",
     "quat-town/wonder-2-c",
     "quat-town/wonder-walls-1",
-    "quat-town/wonder-walls-2",
-    "isa-playground/sandcastle-a",
-    "isa-playground/sandcastle-b",
-    "isa-playground/sandcastle-c",
-    "kay-builder/barracks",
-    "kay-builder/castle",
-    "kay-hexagon/barracks",
-    "kay-hexagon/blacksmith",
-    "kay-hexagon/castle"
+    "quat-town/wonder-walls-2"
+   ]
+  },
+  {
+   "id": "str-building-religion",
+   "name": "Religion",
+   "type": "kind",
+   "description": "Building or standing structure for worship.",
+   "models": [
+    "asia-pack/altar-a",
+    "asia-pack/altar-b",
+    "asia-rg/shrine",
+    "asia-pack/shrine-large",
+    "asia-pack/shrine-small",
+    "asia-rg/gazebo",
+    "architecture/church",
+    "kay-hexagon/church",
+    "kay-spook/shrine"
+   ]
+  },
+  {
+   "id": "str-building-archery",
+   "name": "Archery",
+   "type": "kind",
+   "description": "Building where bows are shot or sold.",
+   "models": [
+    "quat-town/archery-1-b",
+    "quat-town/archery-1-a",
+    "quat-town/archery-1-c",
+    "quat-town/archery-2-b",
+    "quat-town/archery-2-a",
+    "quat-town/archery-2-c",
+    "kay-builder/archery-range",
+    "kay-hexagon/archery-range",
+    "medieval-village/weapon-shop"
+   ]
+  },
+  {
+   "id": "str-building-farming",
+   "name": "Farming",
+   "type": "kind",
+   "description": "Farm building with no leaf that fits.",
+   "models": [
+    "quat-town/farm-2-b",
+    "quat-town/farm-2-a",
+    "quat-town/farm-2-c",
+    "architecture/barn",
+    "farm-buildings/chicken-coop"
+   ]
+  },
+  {
+   "id": "str-building-farming-barn",
+   "name": "Barn",
+   "type": "kind",
+   "description": "Barn: a wide store for crop, beast and gear.",
+   "models": [
+    "farm-buildings/barn-open",
+    "farm-buildings/barn",
+    "farm-buildings/barn-large",
+    "farm-buildings/barn-small"
+   ]
+  },
+  {
+   "id": "str-building-farming-silo",
+   "name": "Silo",
+   "type": "kind",
+   "description": "Tall store for grain or feed.",
+   "models": [
+    "asia-pack/granary",
+    "village/granary-large",
+    "asia-pack/tower",
+    "farm-buildings/silo-house",
+    "medieval-village/silo",
+    "farm-buildings/silo"
    ]
   }
  ]
