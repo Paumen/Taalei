@@ -8,6 +8,7 @@ export const SCALE_TARGETS = {
   'clay-props': 0.65,
   'cooking-assets': 0.04,
   'desert-buildings': 0.0024,
+  'farm-buildings': 0.3,
   'fishing-village': 0.435,
   'fs-terrain': 0.5,
   'fs-town': 0.5,
@@ -60,6 +61,7 @@ export const SCALE_TARGETS = {
   'small-props': 0.0037,
   'toon-shooter': 0.32,
   trees: 0.24,
+  'ultimate-guns': 0.2,
   village: 0.39,
   windmill: 0.008,
 };

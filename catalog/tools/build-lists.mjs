@@ -311,14 +311,32 @@ for (const bronkit of BRONKITS) {
     if (namen) namen.push(model.naam);
     else opBron.set(model.bronmodel, [model.naam]);
   }
-  const opNaamKit = new Set(kit.modellen.map((m) => m.naam));
+  const opNaamKit = new Map(kit.modellen.map((m) => [
+    m.naam,
+    m.bronmodel ? basename(m.bronmodel, extname(m.bronmodel)) : null,
+  ]));
 
   const geraakt = new Set();
   const rest = [];
+  const botsingen = [];
   for (const model of gemeten) {
-    const namen = opBron.get(model.naam) ?? (opNaamKit.has(kebab(model.naam)) ? [kebab(model.naam)] : null);
+    let namen = opBron.get(model.naam) ?? null;
+    if (namen === null && opNaamKit.has(kebab(model.naam))) {
+      const gedraaid = opNaamKit.get(kebab(model.naam));
+      if (gedraaid && gedraaid !== model.naam) botsingen.push([model.naam, kebab(model.naam), gedraaid]);
+      else namen = [kebab(model.naam)];
+    }
     if (namen !== null) for (const naam of namen) geraakt.add(naam);
     else rest.push(model);
+  }
+  if (botsingen.length) {
+    waarschuwingen.push(
+      `${bronkit.kit}: ${botsingen.length} workfile name(s) clash with a different source model — ` +
+        'rename the workfile, or the source model stays listed as TBD:\n' +
+        botsingen
+          .map(([bron, werk, van]) => `    ${bronkit.kit}/${werk} came from ${van}, not from ${bron}`)
+          .join('\n'),
+    );
   }
 
   const schaal = kit.schaal ?? 1;

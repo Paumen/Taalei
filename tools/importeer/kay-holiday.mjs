@@ -2,6 +2,7 @@ import { join } from 'node:path';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import { bouw, schrijf, kitMap, zetTags, zetManifest, richtSchillen } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const gold = ['metal-gold', 'amber'];
 const wrought = ['metal-iron-wrought', 'basalt'];
@@ -27,7 +28,6 @@ const milk = ['liquid', 'ivory'];
 const PAKKET = {
   kit: 'kay-holiday',
   bron: 'KayKit_Holiday_Bits_1.0_FREE',
-  schaal: 0.3,
   raster: [8, 4],
   modellen: [
     {
@@ -111,6 +111,8 @@ const PAKKET = {
 const bronkit = BRONKITS.find((b) => b.map === PAKKET.bron);
 if (!bronkit) throw new Error(`${PAKKET.bron}: not in BRONKITS`);
 PAKKET.naam = bronkit.naam;
+PAKKET.schaal = scaleTarget(PAKKET.kit);
+if (PAKKET.schaal === null) throw new Error(`${PAKKET.kit}: no factor in scale-factors.mjs`);
 PAKKET.generator = 'tools/importeer/kay-holiday.mjs';
 
 const { modellen } = bronModellen(bronkit);

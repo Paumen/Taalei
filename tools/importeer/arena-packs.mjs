@@ -3,6 +3,7 @@ import { join, basename } from 'node:path';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import { BANDEN, ROOT, kitMap, schrijf, zetTags, richtSchillen, richtWinding } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const RAND = [0.05, 0.95];
 const LANEN = 16;
@@ -46,7 +47,6 @@ const PAKKETTEN = [
   {
     bron: 'Fishing_Village_Pack',
     kit: 'fishing-village',
-    schaal: 0.435,
     modellen: {
       boat: {
         naam: 'boat-oars', kind: 'obj-transport-boat', tags: ['sailing'],
@@ -117,7 +117,6 @@ const PAKKETTEN = [
   {
     bron: 'Medieval_Pack',
     kit: 'medieval-village',
-    schaal: 0.47,
     modellen: {
       barrel_1: {
         naam: 'barrel', kind: 'obj-container-barrel', tags: ['ngons'],
@@ -273,7 +272,6 @@ const PAKKETTEN = [
   {
     bron: 'Village_Pack',
     kit: 'village',
-    schaal: 0.3,
     modellen: {
       bridge2: {
         naam: 'bridge-arched-a', kind: 'str-access-bridge', tags: ['asia'],
@@ -316,7 +314,6 @@ const PAKKETTEN = [
   {
     bron: 'Cementery_Arena_Pack',
     kit: 'arena-pack',
-    schaal: 0.15,
     modellen: {
       grass_green: {
         naam: 'grass-tuft', kind: 'env-flora-plant-grass', tags: [],
@@ -331,7 +328,6 @@ const PAKKETTEN = [
   {
     bron: 'Trees_Pack',
     kit: 'trees',
-    schaal: 0.24,
     modellen: {
       banana2: {
         naam: 'banana-tree', kind: 'env-flora-tree', tags: [],
@@ -550,6 +546,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron && !b.submap);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/arena-packs.mjs';
 
   const { modellen } = bronModellen(bronkit);
