@@ -6373,7 +6373,7 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 37
+   "count": 33
   },
   {
    "id": "obj-container-chest-coffin",
@@ -6387,7 +6387,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 37
+   "count": 41
   },
   {
    "id": "obj-container-pot",
@@ -6901,14 +6901,14 @@
    "name": "Single axe",
    "type": "kind",
    "description": "Axe with one blade.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-weapon-melee-axe-double",
    "name": "Double axe",
    "type": "kind",
    "description": "Axe with a blade on both sides of the haft.",
-   "count": 6
+   "count": 11
   },
   {
    "id": "obj-weapon-melee-dagger",
@@ -7709,7 +7709,6 @@
   "obj-tool-long",
   "obj-weapon-magic",
   "obj-weapon-melee",
-  "obj-weapon-melee-axe",
   "obj-weapon-melee-dagger",
   "obj-weapon-melee-hammer",
   "obj-weapon-melee-sword",
@@ -8354,12 +8353,6 @@
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "obj-weapon-melee-axe": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 0.8,
    "tpu.max": 10000
   },
   "obj-weapon-melee-axe-double": {
@@ -43062,7 +43055,7 @@
   {
    "kit": "kay-adventurers",
    "name": "axe-two-handed",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "m",
    "wdh": [
     0.35,
@@ -77116,7 +77109,7 @@
   {
    "kit": "kay-skeleton",
    "name": "axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.3,
@@ -82878,7 +82871,7 @@
   {
    "kit": "kay-weapons",
    "name": "axe-a",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.25,
@@ -82935,7 +82928,7 @@
   {
    "kit": "kay-weapons",
    "name": "axe-b",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.35,
@@ -97847,7 +97840,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-axe-upgraded",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.2,
@@ -126515,7 +126508,7 @@
   {
    "kit": "quat-rpg",
    "name": "axe-small",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -137895,7 +137888,7 @@
   {
    "kit": "toon-shooter",
    "name": "cardboard-box-flat",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
     0.3,
@@ -137940,19 +137933,19 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.2 (obj-container-chest)"
+     "text": "high 0.15 under min 0.2 (obj-container-crate)"
     },
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-chest)"
+     "text": "— needs wood, has paper textile (obj-container-crate)"
     }
    ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-box",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
     0.3,
@@ -137997,14 +137990,14 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-chest)"
+     "text": "— needs wood, has paper textile (obj-container-crate)"
     }
    ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-boxes-a",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.45,
@@ -138050,14 +138043,14 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-chest)"
+     "text": "— needs wood, has paper textile (obj-container-crate)"
     }
    ]
   },
   {
    "kit": "toon-shooter",
    "name": "cardboard-boxes-b",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.4,
@@ -138103,7 +138096,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-chest)"
+     "text": "— needs wood, has paper textile (obj-container-crate)"
     }
    ]
   },
