@@ -99,4 +99,6 @@ export const BRONKITS = [
   { map: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', naam: 'KayKit Medieval Hexagon Pack', kit: 'kay-hexagon', source: 'kay', formaat: 'gltf', alleMappen: true },
   { map: 'kenney_watercraft-pack_1', naam: 'Kenney Watercraft Pack', kit: 'ken-water', source: 'ken', formaat: 'glb' },
   { map: 'kenney_nature-kit', naam: 'Kenney Nature Kit', kit: 'ken-nature', source: 'ken', formaat: 'glb' },
+
+  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: null, formaat: 'glb' },
 ];
