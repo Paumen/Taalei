@@ -58,6 +58,7 @@ export const SCALE_TARGETS = {
   rocks: 0.15,
   scythian: 1,
   'small-props': 0.0037,
+  'toon-shooter': 0.32,
   trees: 0.24,
   village: 0.39,
   windmill: 0.008,
