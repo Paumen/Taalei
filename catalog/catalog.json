@@ -6336,7 +6336,7 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin, can, coffin",
+   "description": "basket, tub, trough, bin, can",
    "count": 251,
    "color": "#dd9f79"
   },
@@ -6373,7 +6373,14 @@
    "name": "Chest",
    "type": "kind",
    "description": "chest, trunk, coffer, strongbox",
-   "count": 28
+   "count": 33
+  },
+  {
+   "id": "obj-container-chest-coffin",
+   "name": "Coffin",
+   "type": "kind",
+   "description": "Coffin, and the lid of one.",
+   "count": 10
   },
   {
    "id": "obj-container-crate",
@@ -6386,8 +6393,15 @@
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot (storage), planter, vase, urn, amphora, jar, jug, pitcher, ewer",
+   "description": "pot (storage), planter, urn, amphora, jar, jug, pitcher, ewer",
    "count": 41
+  },
+  {
+   "id": "obj-container-pot-vase",
+   "name": "Vase",
+   "type": "kind",
+   "description": "Vase: a narrow-necked open vessel for display.",
+   "count": 6
   },
   {
    "id": "obj-equipment",
@@ -6422,7 +6436,7 @@
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
-   "description": "fish (as food), fruit, apple, cheese, egg, honey, coconut",
+   "description": "egg, honey, coconut",
    "count": 139,
    "color": "#c25b4e"
   },
@@ -6446,6 +6460,34 @@
    "type": "kind",
    "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
    "count": 34
+  },
+  {
+   "id": "obj-food-fish",
+   "name": "Fish",
+   "type": "kind",
+   "description": "Fish and other seafood as food, raw or prepared.",
+   "count": 6
+  },
+  {
+   "id": "obj-food-fruit",
+   "name": "Fruit",
+   "type": "kind",
+   "description": "Fruit, whole or cut.",
+   "count": 7
+  },
+  {
+   "id": "obj-food-cheese",
+   "name": "Cheese",
+   "type": "kind",
+   "description": "Cheese, whole or portioned.",
+   "count": 4
+  },
+  {
+   "id": "obj-food-sweet",
+   "name": "Sweet",
+   "type": "kind",
+   "description": "Confectionery and frozen sweets.",
+   "count": 9
   },
   {
    "id": "obj-furniture",
@@ -6516,29 +6558,57 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, ladle, cutting board",
-   "count": 65
+   "description": "grill, spit, ladle",
+   "count": 66
   },
   {
    "id": "obj-kitchenware-cookware-pan",
    "name": "Pan",
    "type": "kind",
-   "description": "pan, skillet",
+   "description": "pan",
    "count": 19
+  },
+  {
+   "id": "obj-kitchenware-cookware-pan-frying",
+   "name": "Frying pan",
+   "type": "kind",
+   "description": "Shallow pan with one long handle, for frying.",
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "cooking pot, cauldron, kettle, crockpot",
-   "count": 30
+   "description": "cooking pot, crockpot",
+   "count": 27
+  },
+  {
+   "id": "obj-kitchenware-cookware-pot-kettle",
+   "name": "Kettle",
+   "type": "kind",
+   "description": "Closed pot with a spout, for boiling or pouring.",
+   "count": 4
+  },
+  {
+   "id": "obj-kitchenware-cookware-board",
+   "name": "Board",
+   "type": "kind",
+   "description": "Flat board to cut or serve food on.",
+   "count": 5
+  },
+  {
+   "id": "obj-kitchenware-cookware-cauldron",
+   "name": "Cauldron",
+   "type": "kind",
+   "description": "Cauldron: a wide-bellied cooking vessel on legs or a hook.",
+   "count": 4
   },
   {
    "id": "obj-kitchenware-tableware",
    "name": "Tableware",
    "type": "kind",
-   "description": "teapot, and any tableware with no leaf that fits",
-   "count": 97
+   "description": "and any tableware with no leaf that fits",
+   "count": 96
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
@@ -6551,8 +6621,15 @@
    "id": "obj-kitchenware-tableware-plate",
    "name": "Plate",
    "type": "kind",
-   "description": "plate, dish, platter, tray, saucer",
-   "count": 37
+   "description": "plate, dish, saucer",
+   "count": 38
+  },
+  {
+   "id": "obj-kitchenware-tableware-plate-serving",
+   "name": "Serving",
+   "type": "kind",
+   "description": "Plate or stand that carries food to the table rather than holding one portion.",
+   "count": 10
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
@@ -6565,7 +6642,7 @@
    "id": "obj-kitchenware-tableware-drinkware",
    "name": "Drinkware",
    "type": "kind",
-   "description": "cup, goblet, chalice, tankard, glass",
+   "description": "cup, tankard, glass",
    "count": 23
   },
   {
@@ -6574,6 +6651,13 @@
    "type": "kind",
    "description": "mug",
    "count": 12
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-goblet",
+   "name": "Goblet",
+   "type": "kind",
+   "description": "Stemmed drinking vessel on a foot.",
+   "count": 6
   },
   {
    "id": "obj-lighting",
@@ -6781,7 +6865,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 171,
+   "count": 174,
    "color": "#4c5468"
   },
   {
@@ -6802,15 +6886,29 @@
    "id": "obj-weapon-melee",
    "name": "Melee",
    "type": "kind",
-   "description": "spear, pike, halberd, scythe (weapon), knuckles, claws, gauntlet blade",
+   "description": "scythe (weapon), knuckles, claws, gauntlet blade",
    "count": 82
   },
   {
    "id": "obj-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
-   "description": "axe, hatchet, battleaxe",
+   "description": "Axe with no leaf that fits.",
    "count": 24
+  },
+  {
+   "id": "obj-weapon-melee-axe-single",
+   "name": "Single axe",
+   "type": "kind",
+   "description": "Axe with one blade.",
+   "count": 12
+  },
+  {
+   "id": "obj-weapon-melee-axe-double",
+   "name": "Double axe",
+   "type": "kind",
+   "description": "Axe with a blade on both sides of the haft.",
+   "count": 6
   },
   {
    "id": "obj-weapon-melee-dagger",
@@ -6834,6 +6932,13 @@
    "count": 24
   },
   {
+   "id": "obj-weapon-melee-spear",
+   "name": "Spear",
+   "type": "kind",
+   "description": "Pole weapon with a head on a long shaft.",
+   "count": 6
+  },
+  {
    "id": "obj-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
@@ -6844,8 +6949,22 @@
    "id": "obj-weapon-ranged-accessory",
    "name": "Accessory",
    "type": "kind",
-   "description": "arrow, bolt, quiver",
+   "description": "Ranged accessory with no leaf that fits.",
    "count": 23
+  },
+  {
+   "id": "obj-weapon-ranged-accessory-quiver",
+   "name": "Quiver",
+   "type": "kind",
+   "description": "Quiver: the case that carries arrows or bolts.",
+   "count": 6
+  },
+  {
+   "id": "obj-weapon-ranged-accessory-arrow",
+   "name": "Arrow",
+   "type": "kind",
+   "description": "Shaft shot from a bow or crossbow, and the dart thrown by hand.",
+   "count": 17
   },
   {
    "id": "obj-weapon-ranged-bow",
@@ -6860,6 +6979,34 @@
    "type": "kind",
    "description": "crossbow",
    "count": 6
+  },
+  {
+   "id": "obj-weapon-ranged-firearm",
+   "name": "Firearm",
+   "type": "kind",
+   "description": "Weapon that fires a shot with powder.",
+   "count": 16
+  },
+  {
+   "id": "obj-weapon-target",
+   "name": "Target",
+   "type": "kind",
+   "description": "Target with no leaf that fits.",
+   "count": 13
+  },
+  {
+   "id": "obj-weapon-target-dummy",
+   "name": "Dummy",
+   "type": "kind",
+   "description": "Body-shaped or post-shaped stand to strike in practice.",
+   "count": 6
+  },
+  {
+   "id": "obj-weapon-target-bullseye",
+   "name": "Bullseye",
+   "type": "kind",
+   "description": "Ringed face to shoot or throw at.",
+   "count": 7
   },
   {
    "id": "char",
@@ -6918,7 +7065,7 @@
    "id": "env-flora-plant",
    "name": "Plant",
    "type": "kind",
-   "description": "cattail, bush, shrub, fern, ivy, vine, seaweed, lily pad",
+   "description": "bush, shrub, fern, ivy, vine",
    "count": 130
   },
   {
@@ -6932,15 +7079,22 @@
    "id": "env-flora-plant-flower",
    "name": "Flower",
    "type": "kind",
-   "description": "flower, tulip, rose, sunflower, bellflower, daisy, lily, violet",
-   "count": 30
+   "description": "flower, tulip, rose, sunflower, bellflower, daisy, violet",
+   "count": 25
   },
   {
    "id": "env-flora-plant-grass",
    "name": "Grass",
    "type": "kind",
-   "description": "grass, grass tuft, reed",
-   "count": 29
+   "description": "grass, grass tuft",
+   "count": 28
+  },
+  {
+   "id": "env-flora-plant-water",
+   "name": "Water plant",
+   "type": "kind",
+   "description": "Plant that grows in or on water.",
+   "count": 18
   },
   {
    "id": "env-flora-tree",
@@ -7049,7 +7203,7 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, altar, plinth, pedestal, shrine, fountain, gallows, waterwheel, mine entrance, fireplace",
+   "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
    "count": 922,
    "color": "#877a63"
   },
@@ -7108,8 +7262,8 @@
    "id": "str-building",
    "name": "Building",
    "type": "kind",
-   "description": "watermill, sawmill, gazebo, well",
-   "count": 174,
+   "description": "gazebo, well",
+   "count": 175,
    "color": "#7d4f3a"
   },
   {
@@ -7181,8 +7335,8 @@
    "id": "str-marker-flag",
    "name": "Flag",
    "type": "kind",
-   "description": "flag, banner, pennant",
-   "count": 13
+   "description": "flag, pennant",
+   "count": 9
   },
   {
    "id": "str-marker-sign",
@@ -7197,6 +7351,13 @@
    "type": "kind",
    "description": "tombstone, gravestone, cross (grave), memorial",
    "count": 45
+  },
+  {
+   "id": "str-marker-banner",
+   "name": "Banner",
+   "type": "kind",
+   "description": "Cloth hung from a crossbar or a wall, read from one side.",
+   "count": 4
   },
   {
    "id": "str-platform",
@@ -7224,9 +7385,16 @@
    "id": "str-stands",
    "name": "Stands",
    "type": "kind",
-   "description": "tent, stall, market stand, awning, canopy",
+   "description": "stall, market stand, awning, canopy",
    "count": 37,
    "color": "#d8a05a"
+  },
+  {
+   "id": "str-stands-tent",
+   "name": "Tent",
+   "type": "kind",
+   "description": "Tent: a closed shelter of cloth on poles.",
+   "count": 8
   },
   {
    "id": "assy",
@@ -7339,22 +7507,50 @@
    "id": "obj-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
-   "description": "Statue, fountain.",
-   "count": 25
+   "description": "Statue.",
+   "count": 18
+  },
+  {
+   "id": "obj-art-fountain",
+   "name": "Fountain",
+   "type": "kind",
+   "description": "Fountain: a standing water feature with a basin.",
+   "count": 7
   },
   {
    "id": "str-building-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: tower, watchtower, belltower, lighthouse, mill, windmill, church, pagoda, granary.",
-   "count": 25
+   "description": "Tower-form building: tower, watchtower, belltower, lighthouse.",
+   "count": 17
   },
   {
    "id": "str-building-mill",
    "name": "Mill",
    "type": "kind",
-   "description": "Building that mills or saws by wind or water: mill, windmill, watermill, sawmill, lumbermill.",
+   "description": "Mill with no leaf that fits.",
    "count": 21
+  },
+  {
+   "id": "str-building-mill-sawmill",
+   "name": "Sawmill",
+   "type": "kind",
+   "description": "Mill that saws timber.",
+   "count": 4
+  },
+  {
+   "id": "str-building-mill-watermill",
+   "name": "Watermill",
+   "type": "kind",
+   "description": "Mill driven by a water wheel.",
+   "count": 6
+  },
+  {
+   "id": "str-building-mill-windmill",
+   "name": "Windmill",
+   "type": "kind",
+   "description": "Mill driven by sails on the wind.",
+   "count": 11
   },
   {
    "id": "str-building-well",
@@ -7368,14 +7564,70 @@
    "name": "Dwelling",
    "type": "kind",
    "description": "Building lived in: house (whole), hut, cottage, inn.",
-   "count": 47
+   "count": 61
   },
   {
    "id": "str-building-fort",
    "name": "Fort",
    "type": "kind",
-   "description": "Fortified or working building: castle, fortress, barracks, stable, blacksmith.",
-   "count": 27
+   "description": "Fortified or working building with no leaf that fits.",
+   "count": 28
+  },
+  {
+   "id": "str-building-fort-barracks",
+   "name": "Barracks",
+   "type": "kind",
+   "description": "Building that houses or trains a garrison.",
+   "count": 11
+  },
+  {
+   "id": "str-building-fort-smithy",
+   "name": "Smithy",
+   "type": "kind",
+   "description": "Building where metal is worked.",
+   "count": 3
+  },
+  {
+   "id": "str-building-fort-castle",
+   "name": "Castle",
+   "type": "kind",
+   "description": "Walled seat of a lord.",
+   "count": 9
+  },
+  {
+   "id": "str-building-religion",
+   "name": "Religion",
+   "type": "kind",
+   "description": "Building or standing structure for worship.",
+   "count": 9
+  },
+  {
+   "id": "str-building-archery",
+   "name": "Archery",
+   "type": "kind",
+   "description": "Building where bows are shot or sold.",
+   "count": 9
+  },
+  {
+   "id": "str-building-farming",
+   "name": "Farming",
+   "type": "kind",
+   "description": "Farm building with no leaf that fits.",
+   "count": 15
+  },
+  {
+   "id": "str-building-farming-barn",
+   "name": "Barn",
+   "type": "kind",
+   "description": "Barn: a wide store for crop, beast and gear.",
+   "count": 4
+  },
+  {
+   "id": "str-building-farming-silo",
+   "name": "Silo",
+   "type": "kind",
+   "description": "Tall store for grain or feed.",
+   "count": 6
   },
   {
    "id": "s",
@@ -7532,6 +7784,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "env-flora-plant-water": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "env-flora-tree": {
    "high.min": 0.6,
    "high.max": 2.6,
@@ -7619,6 +7877,12 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-art-fountain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-art-sculpture": {
    "high.max": 8,
    "longest.min": 0.2,
@@ -7667,6 +7931,13 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-chest-coffin": {
+   "high.min": 0.2,
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-crate": {
    "high.min": 0.2,
    "high.max": 1,
@@ -7675,6 +7946,13 @@
    "tpu.max": 10000
   },
   "obj-container-pot": {
+   "high.min": 0.1,
+   "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-vase": {
    "high.min": 0.1,
    "high.max": 0.4,
    "longest.min": 0.05,
@@ -7712,6 +7990,24 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-cheese": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-fish": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-grain": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -7719,6 +8015,12 @@
    "tpu.max": 5000
   },
   "obj-food-meat": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-sweet": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -7791,7 +8093,25 @@
    "longest.max": 10,
    "tpu.max": 5000
   },
+  "obj-kitchenware-cookware-board": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-cauldron": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
   "obj-kitchenware-cookware-pan": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-pan-frying": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -7803,7 +8123,7 @@
    "longest.max": 10,
    "tpu.max": 5000
   },
-  "obj-kitchenware-tableware": {
+  "obj-kitchenware-cookware-pot-kettle": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -7827,6 +8147,12 @@
    "longest.max": 10,
    "tpu.max": 5000
   },
+  "obj-kitchenware-tableware-drinkware-goblet": {
+   "high.max": 0.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
   "obj-kitchenware-tableware-drinkware-mug": {
    "high.max": 0.2,
    "longest.min": 0.05,
@@ -7834,6 +8160,12 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-tableware-plate": {
+   "high.max": 0.5,
+   "longest.min": 0.1,
+   "longest.max": 0.4,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-tableware-plate-serving": {
    "high.max": 0.5,
    "longest.min": 0.1,
    "longest.max": 0.4,
@@ -8036,6 +8368,18 @@
    "longest.max": 0.8,
    "tpu.max": 10000
   },
+  "obj-weapon-melee-axe-double": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "obj-weapon-melee-axe-single": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
   "obj-weapon-melee-dagger": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -8046,6 +8390,12 @@
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "obj-weapon-melee-spear": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 10,
    "tpu.max": 10000
   },
   "obj-weapon-melee-sword": {
@@ -8060,7 +8410,13 @@
    "longest.max": 1,
    "tpu.max": 10000
   },
-  "obj-weapon-ranged-accessory": {
+  "obj-weapon-ranged-accessory-arrow": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-ranged-accessory-quiver": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 1,
@@ -8076,6 +8432,24 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-ranged-firearm": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-weapon-target-bullseye": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-weapon-target-dummy": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
    "tpu.max": 10000
   },
   "str": {
@@ -8126,7 +8500,31 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-building-archery": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-building-dwelling": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-farming": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-farming-barn": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-farming-silo": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -8138,7 +8536,43 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "str-building-mill": {
+  "str-building-fort-barracks": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-fort-castle": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-fort-smithy": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-mill-sawmill": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-mill-watermill": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-mill-windmill": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-religion": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -8157,6 +8591,12 @@
    "tpu.max": 10000
   },
   "str-marker": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-marker-banner": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -8245,6 +8685,12 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "str-stands-tent": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
   }
  },
  "models": [
@@ -8288,7 +8734,7 @@
   {
    "kit": "architecture",
    "name": "barn",
-   "kind": "str-building",
+   "kind": "str-building-farming",
    "size": "l",
    "wdh": [
     2,
@@ -8435,7 +8881,7 @@
   {
    "kit": "architecture",
    "name": "church",
-   "kind": "str-building-tower",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     1.9,
@@ -8872,7 +9318,7 @@
   {
    "kit": "asia-grave",
    "name": "coffin-a",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.4,
@@ -8911,7 +9357,7 @@
   {
    "kit": "asia-grave",
    "name": "coffin-b",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.4,
@@ -10148,7 +10594,7 @@
   {
    "kit": "asia-pack",
    "name": "altar-a",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     1.8,
@@ -10206,7 +10652,7 @@
   {
    "kit": "asia-pack",
    "name": "altar-b",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     1.8,
@@ -11482,7 +11928,7 @@
   {
    "kit": "asia-pack",
    "name": "granary",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "m",
    "wdh": [
     0.65,
@@ -13887,7 +14333,7 @@
   {
    "kit": "asia-pack",
    "name": "shrine-large",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "m",
    "wdh": [
     1.1,
@@ -13944,7 +14390,7 @@
   {
    "kit": "asia-pack",
    "name": "shrine-small",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "m",
    "wdh": [
     0.55,
@@ -14215,7 +14661,7 @@
   {
    "kit": "asia-pack",
    "name": "tower",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "m",
    "wdh": [
     0.75,
@@ -14272,7 +14718,7 @@
   {
    "kit": "asia-pack",
    "name": "training-post",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.4,
@@ -14596,7 +15042,7 @@
   {
    "kit": "asia-pack",
    "name": "waterwheel",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "m",
    "wdh": [
     0.85,
@@ -14725,7 +15171,7 @@
   {
    "kit": "asia-rg",
    "name": "banner",
-   "kind": "str-marker-flag",
+   "kind": "str-marker-banner",
    "size": "m",
    "wdh": [
     0.3,
@@ -14941,7 +15387,7 @@
   {
    "kit": "asia-rg",
    "name": "cauldron",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-cauldron",
    "size": "s",
    "wdh": [
     0.5,
@@ -15025,7 +15471,7 @@
   {
    "kit": "asia-rg",
    "name": "dojo",
-   "kind": "str-building",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     12.4,
@@ -15905,7 +16351,7 @@
   {
    "kit": "asia-rg",
    "name": "gazebo",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     2.6,
@@ -16814,7 +17260,7 @@
   {
    "kit": "asia-rg",
    "name": "lily",
-   "kind": "env-flora-plant-flower",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.1,
@@ -16852,7 +17298,7 @@
   {
    "kit": "asia-rg",
    "name": "naginata",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.15,
@@ -17574,7 +18020,7 @@
   {
    "kit": "asia-rg",
    "name": "reeds",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-flora-plant-water",
    "size": "l",
    "wdh": [
     1.8,
@@ -18030,7 +18476,7 @@
   {
    "kit": "asia-rg",
    "name": "shrine",
-   "kind": "str-building",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     1.7,
@@ -18562,7 +19008,7 @@
   {
    "kit": "asia-rg",
    "name": "teapot",
-   "kind": "obj-kitchenware-tableware",
+   "kind": "obj-kitchenware-cookware-pot-kettle",
    "size": "s",
    "wdh": [
     0.1,
@@ -18584,13 +19030,13 @@
    "vpt": 0.56,
    "grad": 0,
    "spread": {
-    "5,2": [
+    "5,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#d8d1bd"
+    "#d07b56"
    ],
    "tags": [
     "asia",
@@ -18726,7 +19172,7 @@
   {
    "kit": "asia-rg",
    "name": "training-dummy",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.45,
@@ -18814,7 +19260,7 @@
   {
    "kit": "asia-rg",
    "name": "vase",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.2,
@@ -19466,7 +19912,7 @@
   {
    "kit": "clay-props",
    "name": "wide-vase",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.15,
@@ -19621,7 +20067,7 @@
   {
    "kit": "cooking-assets",
    "name": "charcuterie-board",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
     0.3,
@@ -19790,7 +20236,7 @@
   {
    "kit": "cooking-assets",
    "name": "cloche",
-   "kind": "obj-kitchenware-tableware",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.35,
@@ -19907,7 +20353,7 @@
   {
    "kit": "cooking-assets",
    "name": "cutting-board-a",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
     0.2,
@@ -19945,7 +20391,7 @@
   {
    "kit": "cooking-assets",
    "name": "cutting-board-b",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
     0.2,
@@ -20057,7 +20503,7 @@
   {
    "kit": "cooking-assets",
    "name": "frying-pan",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.15,
@@ -20094,7 +20540,7 @@
   {
    "kit": "cooking-assets",
    "name": "kettle",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-pot-kettle",
    "size": "s",
    "wdh": [
     0.25,
@@ -20415,7 +20861,7 @@
   {
    "kit": "cooking-assets",
    "name": "plate-oval-small",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.15,
@@ -20452,7 +20898,7 @@
   {
    "kit": "cooking-assets",
    "name": "plate-rectangle",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.15,
@@ -20727,7 +21173,7 @@
   {
    "kit": "cooking-assets",
    "name": "saute-pan",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.25,
@@ -20802,7 +21248,7 @@
   {
    "kit": "cooking-assets",
    "name": "skillet-cast",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.15,
@@ -20839,7 +21285,7 @@
   {
    "kit": "cooking-assets",
    "name": "skillet",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.3,
@@ -21594,7 +22040,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21650,7 +22096,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-b",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21706,7 +22152,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-c",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21762,7 +22208,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-d",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21818,7 +22264,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-frame-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21868,7 +22314,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-frame-b",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21912,7 +22358,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-frame-c",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -21968,7 +22414,7 @@
   {
    "kit": "desert-buildings",
    "name": "large-building-frame-d",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.3,
@@ -22018,7 +22464,7 @@
   {
    "kit": "desert-buildings",
    "name": "medium-building-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.15,
@@ -22074,7 +22520,7 @@
   {
    "kit": "desert-buildings",
    "name": "medium-building-b",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     1.35,
@@ -22130,7 +22576,7 @@
   {
    "kit": "desert-buildings",
    "name": "medium-building-frame-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     2.15,
@@ -22174,7 +22620,7 @@
   {
    "kit": "desert-buildings",
    "name": "medium-building-frame-b",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "l",
    "wdh": [
     1.35,
@@ -22218,7 +22664,7 @@
   {
    "kit": "desert-buildings",
    "name": "small-building-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "m",
    "wdh": [
     1.3,
@@ -22274,7 +22720,7 @@
   {
    "kit": "desert-buildings",
    "name": "small-building-frame-a",
-   "kind": "str-building",
+   "kind": "str-building-dwelling",
    "size": "m",
    "wdh": [
     1.3,
@@ -22361,7 +22807,7 @@
   {
    "kit": "farm-buildings",
    "name": "barn-large",
-   "kind": "str-building",
+   "kind": "str-building-farming-barn",
    "size": "l",
    "wdh": [
     2.3,
@@ -22418,7 +22864,7 @@
   {
    "kit": "farm-buildings",
    "name": "barn-open",
-   "kind": "str-building",
+   "kind": "str-building-farming-barn",
    "size": "l",
    "wdh": [
     1.7,
@@ -22474,7 +22920,7 @@
   {
    "kit": "farm-buildings",
    "name": "barn-small",
-   "kind": "str-building",
+   "kind": "str-building-farming-barn",
    "size": "l",
    "wdh": [
     1.8,
@@ -22531,7 +22977,7 @@
   {
    "kit": "farm-buildings",
    "name": "barn",
-   "kind": "str-building",
+   "kind": "str-building-farming-barn",
    "size": "l",
    "wdh": [
     2.3,
@@ -22588,7 +23034,7 @@
   {
    "kit": "farm-buildings",
    "name": "chicken-coop",
-   "kind": "str-building",
+   "kind": "str-building-farming",
    "size": "m",
    "wdh": [
     0.7,
@@ -22722,7 +23168,7 @@
   {
    "kit": "farm-buildings",
    "name": "silo-house",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "l",
    "wdh": [
     1.6,
@@ -22784,7 +23230,7 @@
   {
    "kit": "farm-buildings",
    "name": "silo",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "l",
    "wdh": [
     1.1,
@@ -22840,7 +23286,7 @@
   {
    "kit": "farm-buildings",
    "name": "windmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     2.4,
@@ -24313,7 +24759,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-cattail-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -24357,7 +24803,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-cattail-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -32094,7 +32540,7 @@
   {
    "kit": "fs-town",
    "name": "waterwheel",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "l",
    "wdh": [
     0.75,
@@ -32413,7 +32859,7 @@
   {
    "kit": "fs-town",
    "name": "windmill-blades",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     0.5,
@@ -34025,7 +34471,7 @@
   {
    "kit": "isa-bakery",
    "name": "pastry-stand-covered",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -34122,7 +34568,7 @@
   {
    "kit": "isa-bakery",
    "name": "pastry-stand-tiered",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -34161,7 +34607,7 @@
   {
    "kit": "isa-bakery",
    "name": "pastry-stand",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -34406,7 +34852,7 @@
   {
    "kit": "isa-bakery",
    "name": "serving-tray",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.3,
@@ -36337,7 +36783,7 @@
   {
    "kit": "isa-kitchen",
    "name": "cutting-board",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
     0.4,
@@ -36467,7 +36913,7 @@
   {
    "kit": "isa-kitchen",
    "name": "kettle",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-pot-kettle",
    "size": "s",
    "wdh": [
     0.25,
@@ -36707,7 +37153,7 @@
   {
    "kit": "isa-kitchen",
    "name": "pan",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.2,
@@ -37229,7 +37675,7 @@
   {
    "kit": "isa-park",
    "name": "fountain",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "m",
    "wdh": [
     0.95,
@@ -37485,7 +37931,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple-cut",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.1,
@@ -37535,7 +37981,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple-piece",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.05,
@@ -37584,7 +38030,7 @@
   {
    "kit": "isa-picnic",
    "name": "apple",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.1,
@@ -37763,7 +38209,7 @@
   {
    "kit": "isa-picnic",
    "name": "cheese-wedge",
-   "kind": "obj-food",
+   "kind": "obj-food-cheese",
    "size": "s",
    "wdh": [
     0.05,
@@ -37801,7 +38247,7 @@
   {
    "kit": "isa-picnic",
    "name": "cheese-wheel",
-   "kind": "obj-food",
+   "kind": "obj-food-cheese",
    "size": "s",
    "wdh": [
     0.1,
@@ -37928,7 +38374,7 @@
   {
    "kit": "isa-picnic",
    "name": "grapes",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.1,
@@ -38765,7 +39211,7 @@
   {
    "kit": "isa-picnic",
    "name": "teapot",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-pot-kettle",
    "size": "s",
    "wdh": [
     0.2,
@@ -38803,7 +39249,7 @@
   {
    "kit": "isa-picnic",
    "name": "tray-round",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -38843,7 +39289,7 @@
   {
    "kit": "isa-picnic",
    "name": "tray-square-handles",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -38882,7 +39328,7 @@
   {
    "kit": "isa-picnic",
    "name": "tray-square",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-plate-serving",
    "size": "s",
    "wdh": [
     0.25,
@@ -38971,7 +39417,7 @@
   {
    "kit": "isa-picnic",
    "name": "wine-glass",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.1,
@@ -42258,7 +42704,7 @@
   {
    "kit": "jelly-forest",
    "name": "tent",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "l",
    "wdh": [
     1.6,
@@ -42355,7 +42801,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-bow-bundle",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.15,
@@ -42412,7 +42858,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-bow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -42463,7 +42909,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-crossbow-bundle",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.1,
@@ -42520,7 +42966,7 @@
   {
    "kit": "kay-adventurers",
    "name": "arrow-crossbow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -42571,7 +43017,7 @@
   {
    "kit": "kay-adventurers",
    "name": "axe-one-handed",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.2,
@@ -43562,7 +44008,7 @@
   {
    "kit": "kay-adventurers",
    "name": "quiver",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.1,
@@ -44805,7 +45251,7 @@
   {
    "kit": "kay-builder",
    "name": "archery-range",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.15,
@@ -44867,7 +45313,7 @@
   {
    "kit": "kay-builder",
    "name": "barracks",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     2.4,
@@ -45024,7 +45470,7 @@
   {
    "kit": "kay-builder",
    "name": "castle",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     2.15,
@@ -45351,7 +45797,7 @@
   {
    "kit": "kay-builder",
    "name": "lumbermill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-sawmill",
    "size": "l",
    "wdh": [
     2.2,
@@ -45476,7 +45922,7 @@
   {
    "kit": "kay-builder",
    "name": "mill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     2.05,
@@ -46156,7 +46602,7 @@
   {
    "kit": "kay-builder",
    "name": "watermill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "l",
    "wdh": [
     1.85,
@@ -46274,7 +46720,7 @@
   {
    "kit": "kay-dun-1",
    "name": "arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -46324,7 +46770,7 @@
   {
    "kit": "kay-dun-1",
    "name": "artifact",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.2,
@@ -46378,7 +46824,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-common",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -46425,7 +46871,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-double-common",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.2,
@@ -46472,7 +46918,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-double-rare",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.3,
@@ -46523,7 +46969,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-double-uncommon",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.3,
@@ -46570,7 +47016,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-rare",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.2,
@@ -46623,7 +47069,7 @@
   {
    "kit": "kay-dun-1",
    "name": "axe-uncommon",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -49976,7 +50422,7 @@
   {
    "kit": "kay-dun-1",
    "name": "quiver-empty",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.1,
@@ -50022,7 +50468,7 @@
   {
    "kit": "kay-dun-1",
    "name": "quiver-full",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.15,
@@ -50075,7 +50521,7 @@
   {
    "kit": "kay-dun-1",
    "name": "quiver-half-full",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.1,
@@ -59732,7 +60178,7 @@
   {
    "kit": "kay-food",
    "name": "cutting-board",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
     0.35,
@@ -60032,7 +60478,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-cheese-chopped",
-   "kind": "obj-food",
+   "kind": "obj-food-cheese",
    "size": "s",
    "wdh": [
     0.25,
@@ -60070,7 +60516,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-cheese",
-   "kind": "obj-food",
+   "kind": "obj-food-cheese",
    "size": "s",
    "wdh": [
     0.25,
@@ -61018,7 +61464,7 @@
   {
    "kit": "kay-food",
    "name": "pan-a",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.25,
@@ -61057,7 +61503,7 @@
   {
    "kit": "kay-food",
    "name": "pan-b",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.25,
@@ -65716,7 +66162,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin-lid",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.5,
@@ -65763,7 +66209,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.5,
@@ -68011,7 +68457,7 @@
   {
    "kit": "kay-hexagon",
    "name": "archery-range",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2,
@@ -68078,7 +68524,7 @@
   {
    "kit": "kay-hexagon",
    "name": "barracks",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     1.75,
@@ -68196,7 +68642,7 @@
   {
    "kit": "kay-hexagon",
    "name": "blacksmith",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-smithy",
    "size": "l",
    "wdh": [
     1.55,
@@ -68659,7 +69105,7 @@
   {
    "kit": "kay-hexagon",
    "name": "castle",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     2.35,
@@ -68758,7 +69204,7 @@
   {
    "kit": "kay-hexagon",
    "name": "cattail",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.2,
@@ -68803,7 +69249,7 @@
   {
    "kit": "kay-hexagon",
    "name": "cattails",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.25,
@@ -68850,7 +69296,7 @@
   {
    "kit": "kay-hexagon",
    "name": "church",
-   "kind": "str-building-tower",
+   "kind": "str-building-religion",
    "size": "l",
    "wdh": [
     1.25,
@@ -69811,7 +70257,7 @@
   {
    "kit": "kay-hexagon",
    "name": "lumbermill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-sawmill",
    "size": "l",
    "wdh": [
     1.65,
@@ -70324,7 +70770,7 @@
   {
    "kit": "kay-hexagon",
    "name": "target",
-   "kind": "obj",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.3,
@@ -71276,7 +71722,7 @@
   {
    "kit": "kay-hexagon",
    "name": "watermill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "l",
    "wdh": [
     1.25,
@@ -71338,7 +71784,7 @@
   {
    "kit": "kay-hexagon",
    "name": "waterplant",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.25,
@@ -71527,7 +71973,7 @@
   {
    "kit": "kay-hexagon",
    "name": "windmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     1.35,
@@ -72347,7 +72793,7 @@
   {
    "kit": "kay-minigame",
    "name": "arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.1,
@@ -72910,7 +73356,7 @@
   {
    "kit": "kay-minigame",
    "name": "target-stand",
-   "kind": "obj",
+   "kind": "obj-weapon-target-bullseye",
    "size": "m",
    "wdh": [
     0.4,
@@ -72960,7 +73406,7 @@
   {
    "kit": "kay-minigame",
    "name": "target",
-   "kind": "obj",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.4,
@@ -73197,7 +73643,7 @@
   {
    "kit": "kay-mixed",
    "name": "circus-tent",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "m",
    "wdh": [
     1.05,
@@ -76464,7 +76910,7 @@
   {
    "kit": "kay-skeleton",
    "name": "arrow-broken-half",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.1,
@@ -76511,7 +76957,7 @@
   {
    "kit": "kay-skeleton",
    "name": "arrow-broken",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.1,
@@ -76564,7 +77010,7 @@
   {
    "kit": "kay-skeleton",
    "name": "arrow-half",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -76610,7 +77056,7 @@
   {
    "kit": "kay-skeleton",
    "name": "arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -76813,7 +77259,7 @@
   {
    "kit": "kay-skeleton",
    "name": "quiver",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.1,
@@ -78304,7 +78750,7 @@
   {
    "kit": "kay-skeleton-1",
    "name": "quiver-b",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-quiver",
    "size": "s",
    "wdh": [
     0.1,
@@ -79044,7 +79490,7 @@
   {
    "kit": "kay-spook",
    "name": "candy-a",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.3,
@@ -79089,7 +79535,7 @@
   {
    "kit": "kay-spook",
    "name": "candy-b",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.3,
@@ -79134,7 +79580,7 @@
   {
    "kit": "kay-spook",
    "name": "cauldron",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-cauldron",
    "size": "s",
    "wdh": [
     0.35,
@@ -79192,7 +79638,7 @@
   {
    "kit": "kay-spook",
    "name": "coffin-a-lid",
-   "kind": "obj-container",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -79246,7 +79692,7 @@
   {
    "kit": "kay-spook",
    "name": "coffin-a",
-   "kind": "obj-container",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -79294,12 +79740,19 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v558"
+   "variant": "v558",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.15 under min 0.2 (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "kay-spook",
    "name": "coffin-b-lid",
-   "kind": "obj-container",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -79353,7 +79806,7 @@
   {
    "kit": "kay-spook",
    "name": "coffin-b",
-   "kind": "obj-container",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -79401,7 +79854,14 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v558"
+   "variant": "v558",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.15 under min 0.2 (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "kay-spook",
@@ -79928,7 +80388,7 @@
   {
    "kit": "kay-spook",
    "name": "shrine",
-   "kind": "str",
+   "kind": "str-building-religion",
    "size": "m",
    "wdh": [
     0.35,
@@ -82302,7 +82762,7 @@
   {
    "kit": "kay-weapons",
    "name": "arrow-a",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -82353,7 +82813,7 @@
   {
    "kit": "kay-weapons",
    "name": "arrow-b",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -82517,7 +82977,7 @@
   {
    "kit": "kay-weapons",
    "name": "axe-c",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.25,
@@ -83034,7 +83494,7 @@
   {
    "kit": "kay-weapons",
    "name": "halberd",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.4,
@@ -83382,7 +83842,7 @@
   {
    "kit": "kay-weapons",
    "name": "spear-a",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.1,
@@ -84771,7 +85231,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "target",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.4,
@@ -84826,7 +85286,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "tent",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "m",
    "wdh": [
     0.95,
@@ -85239,7 +85699,7 @@
   {
    "kit": "ken-grave",
    "name": "coffin-old",
-   "kind": "obj-container",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -85275,12 +85735,19 @@
     "ken",
     "wood-worked"
    ],
-   "variant": "v483"
+   "variant": "v483",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.15 under min 0.2 (obj-container-chest)"
+    }
+   ]
   },
   {
    "kit": "ken-grave",
    "name": "coffin",
-   "kind": "obj-container-chest",
+   "kind": "obj-container-chest-coffin",
    "size": "m",
    "wdh": [
     0.45,
@@ -85937,7 +86404,7 @@
   {
    "kit": "ken-grave",
    "name": "detail-chalice",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.1,
@@ -88405,7 +88872,7 @@
   {
    "kit": "ken-mini-dun",
    "name": "banner",
-   "kind": "str-marker-flag",
+   "kind": "str-marker-banner",
    "size": "s",
    "wdh": [
     0.45,
@@ -90906,7 +91373,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-large-closed",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "m",
    "wdh": [
     0.65,
@@ -90951,7 +91418,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-large-open",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "m",
    "wdh": [
     0.65,
@@ -90996,7 +91463,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-small-closed",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "s",
    "wdh": [
     0.4,
@@ -91041,7 +91508,7 @@
   {
    "kit": "ken-nature",
    "name": "tent-small-open",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "m",
    "wdh": [
     0.4,
@@ -97410,7 +97877,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -98172,7 +98639,7 @@
   {
    "kit": "ken-town",
    "name": "banner-green",
-   "kind": "str-marker-flag",
+   "kind": "str-marker-banner",
    "size": "m",
    "wdh": [
     0.05,
@@ -98219,7 +98686,7 @@
   {
    "kit": "ken-town",
    "name": "banner-red",
-   "kind": "str-marker-flag",
+   "kind": "str-marker-banner",
    "size": "m",
    "wdh": [
     0.05,
@@ -98266,7 +98733,7 @@
   {
    "kit": "ken-town",
    "name": "blade",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     0.1,
@@ -98738,7 +99205,7 @@
   {
    "kit": "ken-town",
    "name": "fountain-round-detail",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     1.5,
@@ -98790,7 +99257,7 @@
   {
    "kit": "ken-town",
    "name": "fountain-round",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     1.5,
@@ -98837,7 +99304,7 @@
   {
    "kit": "ken-town",
    "name": "fountain-square-detail",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     1.5,
@@ -98883,7 +99350,7 @@
   {
    "kit": "ken-town",
    "name": "fountain-square",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     1.5,
@@ -101586,7 +102053,7 @@
   {
    "kit": "ken-town",
    "name": "watermill-wide",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "m",
    "wdh": [
     0.8,
@@ -101643,7 +102110,7 @@
   {
    "kit": "ken-town",
    "name": "watermill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-watermill",
    "size": "m",
    "wdh": [
     0.65,
@@ -101751,7 +102218,7 @@
   {
    "kit": "ken-town",
    "name": "windmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     0.35,
@@ -102009,7 +102476,7 @@
   {
    "kit": "medieval-forge",
    "name": "armor-stand",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.45,
@@ -103250,7 +103717,7 @@
   {
    "kit": "medieval-town",
    "name": "blacksmith",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-smithy",
    "size": "l",
    "wdh": [
     5.55,
@@ -103419,7 +103886,7 @@
   {
    "kit": "medieval-town",
    "name": "cauldron-steel",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-cauldron",
    "size": "m",
    "wdh": [
     0.5,
@@ -103476,7 +103943,7 @@
   {
    "kit": "medieval-town",
    "name": "cauldron",
-   "kind": "obj-kitchenware-cookware-pot",
+   "kind": "obj-kitchenware-cookware-cauldron",
    "size": "m",
    "wdh": [
     0.5,
@@ -103680,7 +104147,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-barracks",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     2.75,
@@ -103967,7 +104434,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-sawmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-sawmill",
    "size": "l",
    "wdh": [
     6.3,
@@ -104035,7 +104502,7 @@
   {
    "kit": "medieval-town",
    "name": "fantasy-stable",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     6.7,
@@ -104315,7 +104782,7 @@
   {
    "kit": "medieval-town",
    "name": "mill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     4.85,
@@ -104606,7 +105073,7 @@
   {
    "kit": "medieval-village",
    "name": "archery-target",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.35,
@@ -105879,7 +106346,7 @@
   {
    "kit": "medieval-village",
    "name": "sawmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-sawmill",
    "size": "l",
    "wdh": [
     1.6,
@@ -105929,7 +106396,7 @@
   {
    "kit": "medieval-village",
    "name": "silo",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "m",
    "wdh": [
     0.8,
@@ -105979,7 +106446,7 @@
   {
    "kit": "medieval-village",
    "name": "smithy",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-smithy",
    "size": "l",
    "wdh": [
     1.3,
@@ -106041,7 +106508,7 @@
   {
    "kit": "medieval-village",
    "name": "weapon-shop",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.3,
@@ -106109,7 +106576,7 @@
   {
    "kit": "medieval-village",
    "name": "windmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     1.3,
@@ -106231,7 +106698,7 @@
   {
    "kit": "mek-tools",
    "name": "axe-double",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.05,
@@ -106274,7 +106741,7 @@
   {
    "kit": "mek-tools",
    "name": "axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.05,
@@ -107068,7 +107535,7 @@
   {
    "kit": "natuur",
    "name": "cattail-1",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -107106,7 +107573,7 @@
   {
    "kit": "natuur",
    "name": "cattail-2",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -107144,7 +107611,7 @@
   {
    "kit": "natuur",
    "name": "cattail-3",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -107183,7 +107650,7 @@
   {
    "kit": "natuur",
    "name": "cattail-4",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -107221,7 +107688,7 @@
   {
    "kit": "natuur",
    "name": "cattail-5",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.05,
@@ -110655,7 +111122,7 @@
   {
    "kit": "post-apocalypse",
    "name": "axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "m",
    "wdh": [
     0.15,
@@ -111208,7 +111675,7 @@
   {
    "kit": "post-apocalypse",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     0.05,
@@ -111270,7 +111737,7 @@
   {
    "kit": "post-apocalypse",
    "name": "spear",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.05,
@@ -111718,7 +112185,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -111772,7 +112239,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "m",
    "wdh": [
     0.25,
@@ -112139,7 +112606,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-spear",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.05,
@@ -112237,7 +112704,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -112285,7 +112752,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "m",
    "wdh": [
     0.2,
@@ -112609,7 +113076,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-spear",
-   "kind": "obj-weapon-melee",
+   "kind": "obj-weapon-melee-spear",
    "size": "m",
    "wdh": [
     0.05,
@@ -112652,7 +113119,7 @@
   {
    "kit": "props",
    "name": "axe-a",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "m",
    "wdh": [
     0.25,
@@ -113678,7 +114145,7 @@
   {
    "kit": "props",
    "name": "goblet-a",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.1,
@@ -115262,7 +115729,7 @@
   {
    "kit": "quat-dun-1",
    "name": "vase",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.1,
@@ -116122,7 +116589,7 @@
   {
    "kit": "quat-dun-2",
    "name": "vase",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.1,
@@ -116501,7 +116968,7 @@
   {
    "kit": "quat-food",
    "name": "apple",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.1,
@@ -116551,7 +117018,7 @@
   {
    "kit": "quat-food",
    "name": "avocado",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.1,
@@ -116648,7 +117115,7 @@
   {
    "kit": "quat-food",
    "name": "banana",
-   "kind": "obj-food",
+   "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.2,
@@ -116957,7 +117424,7 @@
   {
    "kit": "quat-food",
    "name": "chocolate-bar",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.1,
@@ -117772,7 +118239,7 @@
   {
    "kit": "quat-food",
    "name": "fish",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.5,
@@ -117858,7 +118325,7 @@
   {
    "kit": "quat-food",
    "name": "frying-pan-steel",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.25,
@@ -117903,7 +118370,7 @@
   {
    "kit": "quat-food",
    "name": "frying-pan",
-   "kind": "obj-kitchenware-cookware-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.25,
@@ -117996,7 +118463,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-1",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.1,
@@ -118045,7 +118512,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-2",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.1,
@@ -118106,7 +118573,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-3",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.1,
@@ -118155,7 +118622,7 @@
   {
    "kit": "quat-food",
    "name": "ice-cream-4",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.1,
@@ -118578,7 +119045,7 @@
   {
    "kit": "quat-food",
    "name": "popsicle-chocolate",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.05,
@@ -118623,7 +119090,7 @@
   {
    "kit": "quat-food",
    "name": "popsicle-multiple",
-   "kind": "obj-food",
+   "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
     0.05,
@@ -118722,7 +119189,7 @@
   {
    "kit": "quat-food",
    "name": "sashimi-salmon",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.1,
@@ -118891,7 +119358,7 @@
   {
    "kit": "quat-food",
    "name": "sushi-nigiri-1",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.1,
@@ -118934,7 +119401,7 @@
   {
    "kit": "quat-food",
    "name": "sushi-roll-1",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.05,
@@ -118984,7 +119451,7 @@
   {
    "kit": "quat-food",
    "name": "sushi-roll-2",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.05,
@@ -119039,7 +119506,7 @@
   {
    "kit": "quat-food",
    "name": "tentacle",
-   "kind": "obj-food",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
     0.1,
@@ -120848,7 +121315,7 @@
   {
    "kit": "quat-pirate",
    "name": "axe-double",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
     0.25,
@@ -120900,7 +121367,7 @@
   {
    "kit": "quat-pirate",
    "name": "axe-rifle",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     0.8,
@@ -120945,7 +121412,7 @@
   {
    "kit": "quat-pirate",
    "name": "axe",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
     0.15,
@@ -122694,7 +123161,7 @@
   {
    "kit": "quat-pirate",
    "name": "pistol",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.45,
@@ -122784,7 +123251,7 @@
   {
    "kit": "quat-pirate",
    "name": "rifle",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     1,
@@ -123280,7 +123747,7 @@
   {
    "kit": "quat-pirate",
    "name": "shotgun-double",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     0.55,
@@ -124862,7 +125329,7 @@
   {
    "kit": "quat-props",
    "name": "chalice",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.1,
@@ -125500,7 +125967,7 @@
   {
    "kit": "quat-props",
    "name": "training-dummy",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.65,
@@ -125556,7 +126023,7 @@
   {
    "kit": "quat-props",
    "name": "vase-2",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "m",
    "wdh": [
     0.55,
@@ -125599,7 +126066,7 @@
   {
    "kit": "quat-props",
    "name": "vase-4",
-   "kind": "obj-container-pot",
+   "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.3,
@@ -125887,7 +126354,7 @@
   {
    "kit": "quat-rpg",
    "name": "arrow-golden",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -125932,7 +126399,7 @@
   {
    "kit": "quat-rpg",
    "name": "arrow",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -125982,7 +126449,7 @@
   {
    "kit": "quat-rpg",
    "name": "axe-double",
-   "kind": "obj-weapon-melee-axe",
+   "kind": "obj-weapon-melee-axe-double",
    "size": "m",
    "wdh": [
     0.2,
@@ -126714,7 +127181,7 @@
   {
    "kit": "quat-rpg",
    "name": "chalice",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.1,
@@ -127148,7 +127615,7 @@
   {
    "kit": "quat-rpg",
    "name": "dart",
-   "kind": "obj-weapon-ranged-accessory",
+   "kind": "obj-weapon-ranged-accessory-arrow",
    "size": "s",
    "wdh": [
     0.05,
@@ -129742,7 +130209,7 @@
   {
    "kit": "quat-town",
    "name": "archery-1-a",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     1.75,
@@ -129798,7 +130265,7 @@
   {
    "kit": "quat-town",
    "name": "archery-1-b",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.05,
@@ -129862,7 +130329,7 @@
   {
    "kit": "quat-town",
    "name": "archery-1-c",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.7,
@@ -129926,7 +130393,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-a",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2,
@@ -129983,7 +130450,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-b",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.8,
@@ -130040,7 +130507,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-c",
-   "kind": "str-building",
+   "kind": "str-building-archery",
    "size": "l",
    "wdh": [
     2.8,
@@ -130097,7 +130564,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-1-a",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     1.45,
@@ -130160,7 +130627,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-1-b",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     2.6,
@@ -130223,7 +130690,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-1-c",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     3.35,
@@ -130286,7 +130753,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-2-a",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     1.45,
@@ -130349,7 +130816,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-2-b",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     2.45,
@@ -130412,7 +130879,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-2-c",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-barracks",
    "size": "l",
    "wdh": [
     2.45,
@@ -130521,7 +130988,7 @@
   {
    "kit": "quat-town",
    "name": "farm-2-a",
-   "kind": "str-building",
+   "kind": "str-building-farming",
    "size": "l",
    "wdh": [
     2.6,
@@ -130584,7 +131051,7 @@
   {
    "kit": "quat-town",
    "name": "farm-2-b",
-   "kind": "str-building",
+   "kind": "str-building-farming",
    "size": "l",
    "wdh": [
     2.65,
@@ -130647,7 +131114,7 @@
   {
    "kit": "quat-town",
    "name": "farm-2-c",
-   "kind": "str-building",
+   "kind": "str-building-farming",
    "size": "l",
    "wdh": [
     2.75,
@@ -133424,7 +133891,7 @@
   {
    "kit": "quat-town",
    "name": "town-center-2-a",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     2.65,
@@ -133469,7 +133936,7 @@
   {
    "kit": "quat-town",
    "name": "town-center-2-c",
-   "kind": "obj-art-sculpture",
+   "kind": "obj-art-fountain",
    "size": "l",
    "wdh": [
     2.65,
@@ -134253,7 +134720,7 @@
   {
    "kit": "quat-town",
    "name": "windmill-1",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     1.95,
@@ -134308,7 +134775,7 @@
   {
    "kit": "quat-town",
    "name": "windmill-2",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     1.9,
@@ -134364,7 +134831,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-1-a",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     1.8,
@@ -134415,7 +134882,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-1-b",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.15,
@@ -134466,7 +134933,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-1-c",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.15,
@@ -134517,7 +134984,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-2-b",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.05,
@@ -134568,7 +135035,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-2-c",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.05,
@@ -134619,7 +135086,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-walls-1",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.15,
@@ -134669,7 +135136,7 @@
   {
    "kit": "quat-town",
    "name": "wonder-walls-2",
-   "kind": "str-building-fort",
+   "kind": "str-building-fort-castle",
    "size": "l",
    "wdh": [
     3.05,
@@ -136496,7 +136963,7 @@
   {
    "kit": "small-props",
    "name": "mannequin-1-a",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.15,
@@ -136559,7 +137026,7 @@
   {
    "kit": "small-props",
    "name": "mannequin-2-a",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-dummy",
    "size": "m",
    "wdh": [
     0.15,
@@ -136719,7 +137186,7 @@
   {
    "kit": "small-props",
    "name": "practice-target-1-a",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.2,
@@ -136774,7 +137241,7 @@
   {
    "kit": "small-props",
    "name": "practice-target-2-a",
-   "kind": "obj-weapon",
+   "kind": "obj-weapon-target-bullseye",
    "size": "s",
    "wdh": [
     0.2,
@@ -137369,7 +137836,7 @@
   {
    "kit": "toon-shooter",
    "name": "carbine",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.4,
@@ -137906,7 +138373,7 @@
   {
    "kit": "toon-shooter",
    "name": "revolver-short",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.2,
@@ -137951,7 +138418,7 @@
   {
    "kit": "toon-shooter",
    "name": "revolver",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.3,
@@ -138078,7 +138545,7 @@
   {
    "kit": "toon-shooter",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.5,
@@ -138918,7 +139385,7 @@
   {
    "kit": "trees",
    "name": "lilypad-a",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.2,
@@ -138957,7 +139424,7 @@
   {
    "kit": "trees",
    "name": "lilypad-b",
-   "kind": "env-flora-plant",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.2,
@@ -139335,7 +139802,7 @@
   {
    "kit": "trees",
    "name": "waterlilies-white",
-   "kind": "env-flora-plant-flower",
+   "kind": "env-flora-plant-water",
    "size": "m",
    "wdh": [
     0.55,
@@ -139381,7 +139848,7 @@
   {
    "kit": "trees",
    "name": "waterlilies-yellow",
-   "kind": "env-flora-plant-flower",
+   "kind": "env-flora-plant-water",
    "size": "m",
    "wdh": [
     0.55,
@@ -139427,7 +139894,7 @@
   {
    "kit": "trees",
    "name": "waterlily-white",
-   "kind": "env-flora-plant-flower",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.25,
@@ -139472,7 +139939,7 @@
   {
    "kit": "trees",
    "name": "waterlily-yellow",
-   "kind": "env-flora-plant-flower",
+   "kind": "env-flora-plant-water",
    "size": "s",
    "wdh": [
     0.25,
@@ -139612,7 +140079,7 @@
   {
    "kit": "tropical-island",
    "name": "tent",
-   "kind": "str-stands",
+   "kind": "str-stands-tent",
    "size": "l",
    "wdh": [
     1.6,
@@ -139662,7 +140129,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver-ribbed",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.4,
@@ -139706,7 +140173,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver-steel",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.4,
@@ -139744,7 +140211,7 @@
   {
    "kit": "ultimate-guns",
    "name": "revolver",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "s",
    "wdh": [
     0.4,
@@ -139788,7 +140255,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-pistol-grip",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     0.9,
@@ -139831,7 +140298,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-pump",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     1.15,
@@ -139882,7 +140349,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun-sawed-off",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     0.75,
@@ -139931,7 +140398,7 @@
   {
    "kit": "ultimate-guns",
    "name": "shotgun",
-   "kind": "obj-weapon-ranged",
+   "kind": "obj-weapon-ranged-firearm",
    "size": "m",
    "wdh": [
     1.15,
@@ -140080,7 +140547,7 @@
   {
    "kit": "village",
    "name": "granary-large",
-   "kind": "str-building-tower",
+   "kind": "str-building-farming-silo",
    "size": "l",
    "wdh": [
     2.4,
@@ -140335,7 +140802,7 @@
   {
    "kit": "windmill",
    "name": "windmill",
-   "kind": "str-building-mill",
+   "kind": "str-building-mill-windmill",
    "size": "l",
    "wdh": [
     2.8,
