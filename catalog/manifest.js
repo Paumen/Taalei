@@ -1322,6 +1322,30 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "slug": "kay-holiday",
+  "name": "kay-holiday",
+  "url": "https://www.kaylousberg.com",
+  "models": [
+   "armchair",
+   "bell",
+   "carpet-round-large",
+   "carpet-round-small",
+   "cookie",
+   "footstool",
+   "gingerbread-man",
+   "mug-cocoa",
+   "plate-cookies",
+   "plate-ivory",
+   "plate-small-terracotta",
+   "plate-terracotta",
+   "snowman",
+   "snowman-hat",
+   "stool",
+   "street-lantern",
+   "tree-stand"
+  ]
+ },
+ {
   "slug": "kay-food",
   "name": "kay-food",
   "url": "https://www.kaylousberg.com",
