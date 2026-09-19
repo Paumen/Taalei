@@ -34,24 +34,57 @@ not resolve. Fix that first, by hand colours in `catalog/preview-colors.json`
 keyed by pack and then by material or texture name. An import built on previews
 you have not looked at goes wrong quietly.
 
-## 3. Does the kit already exist?
+## 3. Read the source before writing the spec
 
-`kits/workfiles/<slug>/` holds the adopted models of a kit. Exists → step 5.
+Two probes, both cheap, both worth doing before a single line of the import
+spec. They decide the scale, the kinds, the band mapping and the variants.
 
-## 4. New kit
+**Measure every model.** A scratch script over `bronModellen(bronkit)` that
+prints, per requested model, its triangle count, its extents, and — for an
+atlas pack — the source cells it uses with a triangle count each
+(`celVan(primitief, t, raster)`) and a colour sampled from the atlas
+(`atlasKleur`). The counts are what matter: they say which cell is the body and
+which is a two-triangle detail you can fold away. Run it against the exact list
+you were asked for and print a `MISSING` line for any name that does not
+resolve — cheaper than a failed import, and it tells you how many models the
+list really holds rather than how many you thought it held.
+
+**Look at what each cell is.** Sampled colour alone is misleading, because each
+atlas cell is a gradient and one cell often serves several parts. Instead build
+a debug atlas: copy the source texture, paint every used cell a distinct
+saturated colour and darken the rest, write it beside a copy of the source
+`.glb`s under the source texture's file name — the pack's glTF references it by
+URI, so it is picked up — and render:
+
+    node tools/renders/render.mjs <dir>/*.glb --out <out> --views iso --modes albedo --sheet --sheet-only
+
+One sheet then names every part. Expect surprises that no colour sample gives
+you: the light grey cell is plaster walls rather than steel, another grey is the
+window recesses, a third is the rock face of the mine, an orange-brown is sawn
+logs. Guessing here is what makes an import need redoing.
+
+## 4. Does the kit already exist?
+
+`kits/workfiles/<slug>/` holds the adopted models of a kit. Exists → step 6.
+
+## 5. New kit
 
 Slug by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
 most: `kay-food`, `ken-holiday`, `medieval-town`. Add the kit's row to
-`catalog/manifest.js` (slug, name, url, note, licence label).
+`catalog/manifest.js` (slug, name, url, note, licence label) with an empty
+`"models": []` — `zetManifest` fills the list but will not create the row.
 
-## 5. Scale factor
+## 6. Scale factor
 
 One factor for the whole pack, as the bible's process rules say. The target factors live in
 `tools/importeer/scale-factors.mjs` (`SCALE_TARGETS`, plus the `ken-` and
 `kay-` defaults), which `tools/importeer/schaal.mjs` reads — use the pack's
 factor from there, and keep it in step with that table rather than copying a
-number that was right last month.
+number that was right last month. The table is alphabetical; keep it so.
+
+The `schaal` in the import spec is the factor actually baked into the glb, and
+it has to equal `SCALE_TARGETS[kit]` or `scale-check` reports the kit as off.
 
 `node tools/importeer/scale-check.mjs [kit…]` compares each workfile against
 the model it was imported from and reports the ones that are not the source
@@ -60,15 +93,18 @@ size times the pack's factor. It reads the source model from
 `node tools/importeer/source-link.mjs [kit…] [--report]` fills that field in
 for a workfile that lacks it, matching on name and on the shape of the mesh.
 
-For a pack with no factor yet, pick it by comparison, not by arithmetic: import
-a handful at a guess and render them beside catalogue models of the same kind.
+For a pack with no factor yet, start from the pack the same artist already has
+adopted in the same idiom — a second KayKit hex-strategy pack takes the first
+one's factor — and confirm it by comparison, not by arithmetic:
 
     node tools/renders/render.mjs <dir> --out <out> --views iso --sheet --sheet-only --lock-scale
 
-`--lock-scale` is what makes the sizes comparable. Check the result with
-`node lint/size.mjs` for the kinds involved before settling.
+`--lock-scale` is what makes the sizes comparable. A pack built around a tile
+unit gives two defensible anchors, its buildings and its wall pieces; the
+sibling pack settles which. Check the result with `node lint/size.mjs` for the
+kinds involved before settling.
 
-## 6. Recolour onto the shared colormap
+## 7. Recolour onto the shared colormap
 
 Every asset colours itself from `kits/colormap.png`: 16 × 4 cells, one
 band per cell, each band a vertical gradient. Baked shading is kept — the
@@ -87,6 +123,10 @@ shapes:
   band position whose colormap luminance matches the source colour, shaded
   along normal Y.
 
+The mapping is per model, so one source cell may land on different bands in
+different models — a grey that is stone on a wall is a steel hoop on a barrel.
+Use that instead of forcing one global answer.
+
 When the kit already holds models from this pack, take the band mapping from
 them: recolour each source colour or cell the way its siblings were recoloured,
 so a new crate lands on the crate's band. The bible's colour section and
@@ -95,8 +135,45 @@ Geometry is scaled by the pack factor, grounded at Y = 0, pivoted on the
 footprint centre, welded, and written as one draw call; `node lint/measures.mjs`
 checks all three.
 
-A model already in `kits/workfiles` that sits on the wrong band is moved, not
-re-imported: `node tools/importeer/reband.mjs <kit>/<model> <from>:<to>` shifts
+### What the palettes will and will not take
+
+Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
+`palette.mjs` complains:
+
+- Most materials force the band: `wood-planks` is tan, `wood-beam` chestnut,
+  `metal-iron-steel` nickel, `metal-iron-cast` slate, `metal-gold` amber. Pick
+  the material by the band you want, not the other way round.
+- `azure` is admitted only by `liquid`, `gemstone` and bare `metal`. A blue
+  cloth or a blue roof has no legal home.
+- `str` sets `mat.metal-iron: metal-iron-cast`, so iron on any structure is
+  cast and slate, never steel. `obj-container-*` sets `mat.metal: metal-iron`,
+  so hoops and bands on a barrel, bucket or crate take an iron subtype rather
+  than bare `metal`.
+- A material with no `bands` of its own (`foliage`, `food`, `vegetation`,
+  `emissive`, bare `metal`) is unconstrained by §5.1.
+- The §5.1 check is coverage-based: it passes when at least one of the model's
+  bands is in the material's list. That is weak enough to let a wrong band
+  through, so do not lean on it as proof.
+
+Where one source colour sits on many models and no palette admits it — a
+faction colour across a pack's blue, green, red and yellow sets is the usual
+case — settle it with the PO before writing the spec. Dropping it to a band the
+palette does take (the roof tile and cloth the artist's other adopted pack
+uses) is the answer that keeps the kit beside its siblings.
+
+### Band budget
+
+Work it out from the cell counts while writing the spec. `lint/measures.json`
+caps bands at `nmat × 2` (G11), at 5 for most models and 6 for `size:l` (G13,
+G15), and size is measured on the longest extent against `lint/variables.json`
+(`s` ≤ 0.5, `m` ≤ 1.5, `l` above). A big building routinely uses eight or nine
+source cells and has to come down to six bands: fold the smallest-count cells
+into a band the model already carries. `tag:plural` and `kind:assy` are exempt.
+
+### Moving a model already in the catalogue
+
+A model on the wrong band is moved, not re-imported:
+`node tools/importeer/reband.mjs <kit>/<model> <from>:<to>` shifts
 every vertex of one band onto another and keeps its place within the cell.
 Rebuild the catalogue and the kit's thumbs afterwards.
 
@@ -111,7 +188,7 @@ sit in the same mesh on one material: `node tools/importeer/merge-prims.mjs
 <kit>/<model>`. A part on its own node (a wheel, a paddle, a gate, a blade of a
 pair of scissors) stays apart, so it can still be animated later.
 
-## 7. Tags
+## 8. Tags
 
 Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
 
@@ -133,7 +210,16 @@ rules: propose, never set. Artist tags (`kay`, `ken`, `qua`, …) are derived by
 `build-catalog.mjs` from the kit — do not write them by hand. `size` is
 measured, never set.
 
-## 8. Variants
+A source name is not a kind: a pack's "stage" is a construction site, its
+"tent" may be a market canopy. The debug render of step 3 settles it. Where two
+or three models still resolve badly against the glossary, put them to the PO in
+one question rather than guessing each.
+
+`zetTags` throws on any kind, material or flag id that is not already a row in
+`catalog/tags.json`. Check the whole set of ids the spec uses against that file
+before the first run.
+
+## 9. Variants
 
 Group what reads as one thing, following the bible's variants section. Clusters live in
 `catalog/asset_variants.json`: `members`, `main`, `type`. Name and triangle
@@ -141,7 +227,12 @@ count propose a group; shape and a render confirm it before you write it down.
 `type` takes one of the values the file already uses — `detail-variant`,
 `color-variant`, `maatvariant` — so the tab keeps grouping them as it does now.
 
-## 9. Rebuild, look, check
+The file also carries measured fields from the clustering tool, but
+`build-catalog.mjs` reads only `members`, `main` and `type`. Append new clusters
+with those plus `kits` and `types: ["manual"]`, and leave the existing entries
+untouched so the diff stays additive.
+
+## 10. Rebuild, look, check
 
     node catalog/tools/build-catalog.mjs
     node lint/size.mjs
@@ -153,7 +244,17 @@ Then render the new models and look at them, as the bible's process rules ask �
 on their own, and beside at least two catalogue models of the same group at
 locked scale. Reading the numbers is not looking.
 
+Reading the catalogue back: in `catalog/catalog.json` a model's `bands` and
+`mat` are counts, not lists — the bands themselves are the keys of `spread`,
+as `"column,row"` — and `wdh` is width, depth, height with height last.
+
 Before committing, run every lint (`size`, `measures`, `mat`, `palette`,
-`bands`) and report what does not fit rather than bending it silently. Where
-a pack-wide scale puts a model outside its size limits, the one pack factor
-wins and the deviation goes in the PR.
+`bands`) and report what does not fit rather than bending it silently. Take the
+error counts of all five before the import as well, so "no new errors" is a
+comparison rather than a claim. Where a pack-wide scale puts a model outside
+its size limits, the one pack factor wins and the deviation goes in the PR.
+
+`build-lists.mjs` regenerates `kits/tbd/`, so adopting models deletes them
+there, and the catalogue pages get a fresh build stamp. A kit-sized import is
+therefore a few hundred changed files. Check that the set deleted from
+`kits/tbd/` is exactly the set imported, and that nothing else was touched.
