@@ -39,15 +39,27 @@ you have not looked at goes wrong quietly.
 Two probes, both cheap, both worth doing before a single line of the import
 spec. They decide the scale, the kinds, the band mapping and the variants.
 
-**Measure every model.** A scratch script over `bronModellen(bronkit)` that
-prints, per requested model, its triangle count, its extents, and — for an
-atlas pack — the source cells it uses with a triangle count each
-(`celVan(primitief, t, raster)`) and a colour sampled from the atlas
-(`atlasKleur`). The counts are what matter: they say which cell is the body and
-which is a two-triangle detail you can fold away. Run it against the exact list
-you were asked for and print a `MISSING` line for any name that does not
-resolve — cheaper than a failed import, and it tells you how many models the
-list really holds rather than how many you thought it held.
+**Measure every model.**
+
+    node tools/importeer/inspect-source.mjs <pack|kit> [model…] [--raster 8x4]
+
+Triangle count, extents at the pack's factor, primitives, and — for an atlas
+pack — the source cells with a triangle count and sampled colour each. The
+counts are what matter: they say which cell is the body and which is a
+two-triangle detail you can fold away. A name that does not resolve prints
+`MISSING`, so run it against the exact list you were asked for before anything
+else: it tells you how many models the list really holds rather than how many
+you thought it held.
+
+**Read the kit's own answer.**
+
+    node tools/importeer/learn-bands.mjs <pack|kit> [model…] [--raster 8x4]
+
+For a kit that already holds models from this pack, this prints what its
+adopted workfiles did with each source cell or colour. Start from that rather
+than from a sampled colour or an older spec file. `--per-model` gives one line
+per model, which is how you find the sibling closest to what you are importing.
+`docs/pack_notes.md` holds what the tables do not say.
 
 **Look at what each cell is.** Sampled colour alone is misleading, because each
 atlas cell is a gradient and one cell often serves several parts. Instead build
@@ -83,8 +95,10 @@ One factor for the whole pack, as the bible's process rules say. The target fact
 factor from there, and keep it in step with that table rather than copying a
 number that was right last month. The table is alphabetical; keep it so.
 
-The `schaal` in the import spec is the factor actually baked into the glb, and
-it has to equal `SCALE_TARGETS[kit]` or `scale-check` reports the kit as off.
+An import spec does not carry a factor of its own: every importer sets
+`pakket.schaal = scaleTarget(pakket.kit)` in its driver, so re-running one bakes
+the table's current number and `scale-check` stays true. A kit with no row in
+that table throws; add the row rather than hardcoding a number in the spec.
 
 `node tools/importeer/scale-check.mjs [kit…]` compares each workfile against
 the model it was imported from and reports the ones that are not the source
@@ -128,11 +142,16 @@ different models — a grey that is stone on a wall is a steel hoop on a barrel.
 Use that instead of forcing one global answer.
 
 When the kit already holds models from this pack, take the band mapping from
-them: recolour each source colour or cell the way its siblings were recoloured,
-so a new crate lands on the crate's band. The bible's colour section and
+them with `learn-bands.mjs`: recolour each source colour or cell the way its
+siblings were recoloured, so a new crate lands on the crate's band.
+A name you give a workfile that matches a *different* source model marks that
+source model adopted while it is still TBD, so check new names against the
+pack's own names; `build-lists.mjs` warns when one slips through. The bible's colour section and
 `node lint/palette.mjs` and `node lint/bands.mjs` decide the rest.
 Geometry is scaled by the pack factor, grounded at Y = 0, pivoted on the
-footprint centre, welded, and written as one draw call; `node lint/measures.mjs`
+footprint centre, welded, and written as one draw call. `ontdubbel()` drops
+coincident duplicate faces first, which some packs ship on every face and which
+otherwise z-fight; `node lint/measures.mjs`
 checks all three.
 
 ### What the palettes will and will not take

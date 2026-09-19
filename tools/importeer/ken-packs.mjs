@@ -4,6 +4,7 @@ import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import {
   bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest, richtSchillen, richtWinding,
 } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const planks = ['wood-planks', 'tan'];
 const worked = ['wood-worked', 'camel'];
@@ -46,7 +47,7 @@ const path = (naam, bronmodel, kleuren) => ({
 
 const PAKKETTEN = [
   {
-    kit: 'ken-nature', bron: 'kenney_nature-kit', schaal: 0.75,
+    kit: 'ken-nature', bron: 'kenney_nature-kit',
     modellen: [
       {
         naam: 'bed', bronmodel: 'bed', kind: 'obj-furniture-bed', tags: [],
@@ -137,7 +138,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-water', bron: 'kenney_watercraft-pack_1', schaal: 0.3, raster: [16, 4],
+    kit: 'ken-water', bron: 'kenney_watercraft-pack_1', raster: [16, 4],
     modellen: [
       {
         naam: 'buoy', bronmodel: 'buoy', kind: 'str-marker', tags: ['sailing'],
@@ -169,6 +170,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/ken-packs.mjs';
 
   const { modellen } = bronModellen(bronkit);

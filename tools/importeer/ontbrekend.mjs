@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen, alleBestanden } from '../../catalog/tools/bronmodellen.mjs';
 import { bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest, richtSchillen, richtWinding, ROOT } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const plank = ['wood-planks', 'tan'];
 const hout = ['wood-worked', 'camel'];
@@ -41,21 +42,21 @@ const clothTaupe = ['textile', 'taupe'];
 
 const PAKKETTEN = [
   {
-    kit: 'kay-adventurers', bron: 'KayKit_Adventurers_2.0_FREE', schaal: 0.3, raster: [8, 4],
+    kit: 'kay-adventurers', bron: 'KayKit_Adventurers_2.0_FREE', raster: [8, 4],
     modellen: [{
       naam: 'smokebomb', bronmodel: 'smokebomb', kind: 'obj-weapon-cannon', tags: [],
       cellen: { '6,2': giet, '5,1': leer, '*': giet },
     }],
   },
   {
-    kit: 'desert-buildings', bron: 'Low_Poly_Desert_Buildings', schaal: 0.0024,
+    kit: 'desert-buildings', bron: 'Low_Poly_Desert_Buildings',
     modellen: [{
       naam: 'door', bronmodel: 'Door', kind: 'str-part-door', tags: [],
       kleuren: { '#99624b': balk, '#c78062': hout, '#452309': giet, '*': balk },
     }],
   },
   {
-    kit: 'architecture', bron: 'Architecture_Pack_001', schaal: 4, atlas: true,
+    kit: 'architecture', bron: 'Architecture_Pack_001', atlas: true,
     modellen: [
       {
         naam: 'church', bronmodel: 'Church', kind: 'str-building-tower', tags: [],
@@ -107,7 +108,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'medieval-town', bron: 'Medieval_Village_Pack', schaal: 1.1,
+    kit: 'medieval-town', bron: 'Medieval_Village_Pack',
     modellen: [
       {
         naam: 'door-round', bronmodel: 'Door Round', kind: 'str-part-door', tags: [],
@@ -131,14 +132,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-forest-mini', bron: 'kenney_mini-forest_1.0', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-forest-mini', bron: 'kenney_mini-forest_1.0', raster: [16, 4],
     modellen: [{
       naam: 'building-roof', bronmodel: 'building-roof', kind: 'str-part-roof', tags: [],
       cellen: { '14,2': dakpan, '15,2': dakpan, '1,2': balk, '15,3': balk, '*': balk },
     }],
   },
   {
-    kit: 'kay-hallow', bron: 'KayKit_HalloweenBits_1.0_FREE', schaal: 0.24, raster: [8, 4],
+    kit: 'kay-hallow', bron: 'KayKit_HalloweenBits_1.0_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'tree-pine-orange-large', bronmodel: 'tree_pine_orange_large',
@@ -153,7 +154,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'kay-skeleton-1', bron: 'KayKit_Skeletons_1.0', schaal: 0.3,
+    kit: 'kay-skeleton-1', bron: 'KayKit_Skeletons_1.0',
     modellen: [
       {
         naam: 'hood', bronmodel: 'skeleton_hood', kind: 'obj-equipment-clothing',
@@ -174,14 +175,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'quat-pirate', bron: 'Pirate_Kit_by_Quaternius_glTF_OBJ', schaal: 0.35, atlas: true,
+    kit: 'quat-pirate', bron: 'Pirate_Kit_by_Quaternius_glTF_OBJ', atlas: true,
     modellen: [{
       naam: 'bomb', bronmodel: 'Prop_Bomb', kind: 'obj-weapon-cannon', tags: ['pirate'],
       kleuren: { '#3a3739': giet, '#857b80': giet, '#9e957f': touw, '#c7c7c7': doek, '*': giet },
     }],
   },
   {
-    kit: 'fs-town', bron: 'Modular Village', schaal: 0.5,
+    kit: 'fs-town', bron: 'Modular Village',
     modellen: [{
       naam: 'cart-a-barrels', bronmodel: 'Prop_Cart_1_Barrels', kind: 'obj-transport-cart', tags: [],
       kleuren: {
@@ -191,7 +192,7 @@ const PAKKETTEN = [
     }],
   },
   {
-    kit: 'asia-rg', bron: 'Stylized_Asia_RG', schaal: 0.46, atlas: true,
+    kit: 'asia-rg', bron: 'Stylized_Asia_RG', atlas: true,
     modellen: [
       {
         naam: 'shuriken', bronmodel: 'Shuriken', kind: 'obj-weapon-ranged', tags: ['asia'],
@@ -204,14 +205,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'mek-tools', bron: 'tools_mekmeesk', schaal: 0.00022,
+    kit: 'mek-tools', bron: 'tools_mekmeesk',
     modellen: [{
       naam: 'pickaxe', bronmodel: 'Cylinder.001', kind: 'obj-tool-long', tags: [],
       kleuren: { '#e7e7e7': staal, '#584021': plank, '*': staal },
     }],
   },
   {
-    kit: 'ken-pirate', bron: 'kenney_pirate-kit', schaal: 0.3, raster: [16, 4],
+    kit: 'ken-pirate', bron: 'kenney_pirate-kit', raster: [16, 4],
     modellen: [
       {
         naam: 'palm-detailed-bend', bronmodel: 'palm-detailed-bend', kind: 'env-flora-tree-palm',
@@ -228,7 +229,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'props', bron: 'PropsLite_FBX', schaal: 0.008, atlas: true,
+    kit: 'props', bron: 'PropsLite_FBX', atlas: true,
     modellen: [
       {
         naam: 'axe-a', bronmodel: 'Axe_01', kind: 'obj-weapon-melee-axe', tags: [],
@@ -253,7 +254,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-park', bron: 'Pretty_park_set', schaal: 0.24, raster: [8, 8],
+    kit: 'isa-park', bron: 'Pretty_park_set', raster: [8, 8],
     modellen: [
       {
         naam: 'fountain', bronmodel: 'Fountain', kind: 'obj-art-sculpture', tags: ['ngons'],
@@ -270,14 +271,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'medieval-forge', bron: 'AssetPack', schaal: 0.006, atlas: true,
+    kit: 'medieval-forge', bron: 'AssetPack', atlas: true,
     modellen: [{
       naam: 'door', bronmodel: 'Door3', kind: 'str-part-door', tags: [],
       kleuren: { '#96c3d7': giet, '#c87d5a': balk, '*': balk },
     }],
   },
   {
-    kit: 'ken-mini-dun', bron: 'kenney_mini-dungeon', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-mini-dun', bron: 'kenney_mini-dungeon', raster: [16, 4],
     modellen: [
       {
         naam: 'shield-round', bronmodel: 'shield-round', kind: 'obj-equipment-shield', tags: [],
@@ -294,14 +295,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'quat-rpg', bron: 'Ultimate_RPG_Pack_by_Quaternius_OBJ', schaal: 0.22,
+    kit: 'quat-rpg', bron: 'Ultimate_RPG_Pack_by_Quaternius_OBJ',
     modellen: [{
       naam: 'crown-2', bronmodel: 'Crown2', kind: 'obj-equipment', tags: [],
       kleuren: { '#b9a54f': goud, '#d1493c': robijn, '*': goud },
     }],
   },
   {
-    kit: 'kay-forest', bron: 'KayKit_Forest_Nature_Pack_1.0_FREE', schaal: 0.3, raster: [8, 4],
+    kit: 'kay-forest', bron: 'KayKit_Forest_Nature_Pack_1.0_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'grass-1-d-singlesided', bronmodel: 'Grass_1_D_Singlesided_Color1',
@@ -314,8 +315,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'quat-dun-1', bron: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', schaal: 0.25,
-    sleutels: {
+    kit: 'quat-dun-1', bron: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', sleutels: {
       '#705147': hout, '#574039': balk, '#464255': giet, '#33303e': giet,
       '#6e604e': steen, '#938054': goud, '#6e5643': doek, '#35366e': touw,
       '#8d8b89': steenGrijs, '#795239': balk, '#959aa0': staal, '#7f7f75': staal,
@@ -338,15 +338,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'asia-pack', bron: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', schaal: 0.3, atlas: true,
+    kit: 'asia-pack', bron: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', atlas: true,
     modellen: [{
       naam: 'ore-jade', bronmodel: 'mineral_ore_jade', kind: 'env-rock', tags: ['asia'],
       kleuren: { '*': jade },
     }],
   },
   {
-    kit: 'quat-dun-2', bron: 'Updated_Modular_Dungeon_2019', schaal: 0.4,
-    sleutels: {
+    kit: 'quat-dun-2', bron: 'Updated_Modular_Dungeon_2019', sleutels: {
       '#705147': hout, '#574039': hout, '#464255': giet, '#33303e': giet,
       '#6e604e': hout, '#8d8b89': steenGrijs, '*': hout,
     },
@@ -360,7 +359,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-grave', bron: 'kenney_graveyardkit_5.0', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-grave', bron: 'kenney_graveyardkit_5.0', raster: [16, 4],
     modellen: [
       {
         naam: 'coffin-old', bronmodel: 'coffin-old', kind: 'obj-container',
@@ -385,14 +384,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'quat-food', bron: 'Ultimate_Food_Pack_by_Quaternius_OBJ', schaal: 0.15,
+    kit: 'quat-food', bron: 'Ultimate_Food_Pack_by_Quaternius_OBJ',
     modellen: [{
       naam: 'pumpkin', bronmodel: 'Pumpkin', kind: 'obj-food-vegetable', tags: [],
       kleuren: { '#a36436': pompoen, '#655236': ['vegetation', 'moss'], '*': pompoen },
     }],
   },
   {
-    kit: 'ken-castle', bron: 'kenney_castlekit', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-castle', bron: 'kenney_castlekit', raster: [16, 4],
     modellen: [
       {
         naam: 'bridge-straight-pillar', bronmodel: 'bridge-straight-pillar', kind: 'str-access-bridge',
@@ -413,7 +412,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'kay-dun-2', bron: 'KayKit_Dungeon_Pack_1.1_FREE', schaal: 0.3, raster: [8, 4],
+    kit: 'kay-dun-2', bron: 'KayKit_Dungeon_Pack_1.1_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'plate-stack', bronmodel: 'plate_stack', kind: 'obj-kitchenware-tableware-plate',
@@ -430,7 +429,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-town', bron: 'kenney_fantasy-town-kit_2.0', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-town', bron: 'kenney_fantasy-town-kit_2.0', raster: [16, 4],
     modellen: [
       {
         naam: 'chimney', bronmodel: 'chimney', kind: 'str-part-roof',
@@ -448,7 +447,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'kay-food', bron: 'KayKit_Restaurant_Bits_1.0_FREE', schaal: 0.23, raster: [8, 4],
+    kit: 'kay-food', bron: 'KayKit_Restaurant_Bits_1.0_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'crate-potatoes', bronmodel: 'crate_potatoes', kind: 'assy',
@@ -461,7 +460,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', schaal: 0.32, raster: [8, 8],
+    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', raster: [8, 8],
     modellen: [
       {
         naam: 'chair', bronmodel: 'chair', kind: 'obj-furniture-seating-chair',
@@ -474,15 +473,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-platformer', bron: 'kenney_platformer-kit', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-platformer', bron: 'kenney_platformer-kit', raster: [16, 4],
     modellen: [{
       naam: 'door', bronmodel: 'door-rotate', kind: 'str-part-door',
       tags: [], cellen: { '7,1': balk, '1,1': goud, '5,2': steenGrijs, '*': balk },
     }],
   },
   {
-    kit: 'fs-terrain', bron: 'modular_terrain_collection', schaal: 0.5,
-    sleutels: {
+    kit: 'fs-terrain', bron: 'modular_terrain_collection', sleutels: {
       '#9ac26e': loof, '#6a8e6a': loof, '#63aa7d': loof,
       '#bead9c': schors, '#d0cfcd': steen, '*': steen,
     },
@@ -502,7 +500,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', schaal: 0.24, atlas: true,
+    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', atlas: true,
     modellen: [
       {
         naam: 'picnic-blanket-taupe', bronmodel: 'picnic_blanket_green',
@@ -522,7 +520,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'ken-grave', bron: 'kenney_graveyardkit_5.0', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-grave', bron: 'kenney_graveyardkit_5.0', raster: [16, 4],
     modellen: [
       {
         naam: 'bench', bronmodel: 'bench', kind: 'obj-furniture-seating-bench',
@@ -545,14 +543,14 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit', schaal: 0.32,
+    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit',
     modellen: [{
       naam: 'shovel', bronmodel: 'Shovel', kind: 'obj-tool-long', tags: [],
       kleuren: { '#818491': staal, '#5f4b35': balk, '#8c3735': hout, '*': staal },
     }],
   },
   {
-    kit: 'scythian', bron: 'Scythian_Decoration', schaal: 1,
+    kit: 'scythian', bron: 'Scythian_Decoration',
     modellen: [{
       naam: 'ornament', bronmodel: 'ScythianAntique', kind: 'obj-art', tags: [],
       kleuren: { '*': goud },
@@ -596,6 +594,8 @@ for (const pakket of PAKKETTEN) {
   );
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/ontbrekend.mjs';
 
   const { modellen, uitgepakt } = bronModellen(bronkit);

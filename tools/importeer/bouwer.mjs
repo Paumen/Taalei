@@ -490,6 +490,60 @@ export function richtSchillen(model) {
   return gedraaid;
 }
 
+export function ontdubbel(model) {
+  let weg = 0;
+  for (const primitief of model.primitieven) {
+    const aantal = primitief.indices.length / 3;
+    const midden = [0, 0, 0];
+    const punten = primitief.posities.length / 3;
+    for (let i = 0; i < punten; i++) {
+      for (let a = 0; a < 3; a++) midden[a] += primitief.posities[i * 3 + a] / punten;
+    }
+
+    const naarBuiten = (t) => {
+      const p = [0, 1, 2].map((k) => {
+        const i = primitief.indices[t * 3 + k];
+        return [0, 1, 2].map((a) => primitief.posities[i * 3 + a]);
+      });
+      const u = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
+      const v = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
+      const kruis = [
+        u[1] * v[2] - u[2] * v[1],
+        u[2] * v[0] - u[0] * v[2],
+        u[0] * v[1] - u[1] * v[0]];
+      return kruis.reduce(
+        (som, w, k) => som + w * ((p[0][k] + p[1][k] + p[2][k]) / 3 - midden[k]),
+        0,
+      );
+    };
+
+    const perVlak = new Map();
+    for (let t = 0; t < aantal; t++) {
+      const sleutel = [0, 1, 2]
+        .map((k) => {
+          const i = primitief.indices[t * 3 + k];
+          return [0, 1, 2].map((a) => Math.round(primitief.posities[i * 3 + a] * 1e4)).join(',');
+        })
+        .sort()
+        .join('|');
+      const staat = perVlak.get(sleutel);
+      if (!staat || naarBuiten(t) > staat.buiten) perVlak.set(sleutel, { t, buiten: naarBuiten(t) });
+    }
+    if (perVlak.size === aantal) continue;
+
+    const houden = new Set([...perVlak.values()].map(({ t }) => t));
+    const indices = new Uint32Array(houden.size * 3);
+    let n = 0;
+    for (let t = 0; t < aantal; t++) {
+      if (!houden.has(t)) continue;
+      for (let k = 0; k < 3; k++) indices[n++] = primitief.indices[t * 3 + k];
+    }
+    weg += aantal - houden.size;
+    primitief.indices = indices;
+  }
+  return weg;
+}
+
 export function richtWinding(model) {
   let gedraaid = 0;
   for (const primitief of model.primitieven) {
