@@ -95,7 +95,7 @@ export const BRONKITS = [
   { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
-  { map: 'KayKit_Holiday_Bits_1.0_FREE', naam: 'KayKit Holiday Bits', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_Holiday_Bits_1.0_FREE', naam: 'KayKit Holiday Bits', kit: 'kay-holiday', source: 'kay', formaat: 'gltf' },
   { map: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', naam: 'KayKit Medieval Hexagon Pack', kit: null, source: 'kay', formaat: 'gltf', alleMappen: true },
   { map: 'kenney_watercraft-pack_1', naam: 'Kenney Watercraft Pack', kit: 'ken-water', source: 'ken', formaat: 'glb' },
   { map: 'kenney_nature-kit', naam: 'Kenney Nature Kit', kit: 'ken-nature', source: 'ken', formaat: 'glb' },
