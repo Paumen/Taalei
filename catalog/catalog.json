@@ -6444,8 +6444,15 @@
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "bread, loaf, wheat sheaf, flour sack, cake, pie, donut, croissant, muffin, waffle, cookie, roll, cinnamon, baguette, slice, brownie",
+   "description": "Bread and unbaked grain: loaves, rolls, baguettes, wheat, flour and dough.",
    "count": 56
+  },
+  {
+   "id": "obj-food-grain-pastry",
+   "name": "Pastry",
+   "type": "kind",
+   "description": "Baked goods beyond plain bread: cakes, pies, cookies, donuts and the like.",
+   "count": 39
   },
   {
    "id": "obj-food-meat",
@@ -8049,6 +8056,12 @@
    "tpu.max": 5000
   },
   "obj-food-grain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-grain-pastry": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -33928,7 +33941,7 @@
   {
    "kit": "isa-bakery",
    "name": "cookie",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -34127,7 +34140,7 @@
   {
    "kit": "isa-bakery",
    "name": "cream-puff",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -34791,7 +34804,7 @@
   {
    "kit": "isa-bakery",
    "name": "pretzel",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.2,
@@ -35411,7 +35424,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday-cut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35479,7 +35492,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -35539,7 +35552,7 @@
   {
    "kit": "isa-food",
    "name": "cake-birthday",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35607,7 +35620,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate-cut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35658,7 +35671,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -35702,7 +35715,7 @@
   {
    "kit": "isa-food",
    "name": "cake-chocolate",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35753,7 +35766,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry-cut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35820,7 +35833,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -35880,7 +35893,7 @@
   {
    "kit": "isa-food",
    "name": "cake-strawberry",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -35947,7 +35960,7 @@
   {
    "kit": "isa-food",
    "name": "cinnamon-roll",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -35990,7 +36003,7 @@
   {
    "kit": "isa-food",
    "name": "cookie",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36033,7 +36046,7 @@
   {
    "kit": "isa-food",
    "name": "croissant",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.2,
@@ -36071,7 +36084,7 @@
   {
    "kit": "isa-food",
    "name": "cupcake",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36142,7 +36155,7 @@
   {
    "kit": "isa-food",
    "name": "donut-chocolate",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36186,7 +36199,7 @@
   {
    "kit": "isa-food",
    "name": "donut-pink",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36252,7 +36265,7 @@
   {
    "kit": "isa-food",
    "name": "donut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36291,7 +36304,7 @@
   {
    "kit": "isa-food",
    "name": "muffin",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -36339,7 +36352,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple-cut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -36383,7 +36396,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -36426,7 +36439,7 @@
   {
    "kit": "isa-food",
    "name": "pie-apple",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -36465,7 +36478,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry-cut",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -36509,7 +36522,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry-slice",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -36552,7 +36565,7 @@
   {
    "kit": "isa-food",
    "name": "pie-cherry",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.3,
@@ -36591,7 +36604,7 @@
   {
    "kit": "isa-food",
    "name": "waffle-stacked",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -36636,7 +36649,7 @@
   {
    "kit": "isa-food",
    "name": "waffle",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -72273,7 +72286,7 @@
   {
    "kit": "kay-holiday",
    "name": "cookie",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -72360,7 +72373,7 @@
   {
    "kit": "kay-holiday",
    "name": "gingerbread-man",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -88452,7 +88465,7 @@
   {
    "kit": "ken-holiday",
    "name": "gingerbread-man",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.25,
@@ -88501,7 +88514,7 @@
   {
    "kit": "ken-holiday",
    "name": "gingerbread-woman",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.25,
@@ -117908,7 +117921,7 @@
   {
    "kit": "quat-food",
    "name": "croissant",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.2,
@@ -117946,7 +117959,7 @@
   {
    "kit": "quat-food",
    "name": "cupcake",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.1,
@@ -117994,7 +118007,7 @@
   {
    "kit": "quat-food",
    "name": "donut-1",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -118060,7 +118073,7 @@
   {
    "kit": "quat-food",
    "name": "donut-2",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -118109,7 +118122,7 @@
   {
    "kit": "quat-food",
    "name": "donut-3",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -118148,7 +118161,7 @@
   {
    "kit": "quat-food",
    "name": "donut-4",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
@@ -119667,7 +119680,7 @@
   {
    "kit": "quat-food",
    "name": "waffle",
-   "kind": "obj-food-grain",
+   "kind": "obj-food-grain-pastry",
    "size": "s",
    "wdh": [
     0.15,
