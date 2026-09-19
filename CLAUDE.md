@@ -8,7 +8,10 @@
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
-* tools/render/render.mjs can be used to render glbs in various ways.
+* Per-pack quirks — atlas grid, which source colour means what, known source defects — live in docs/pack_notes.md.
+* tools/renders/render.mjs can be used to render glbs in various ways.
+* tools/importeer/ holds the import specs. aanvullen.mjs is the working file for the job at hand; the other spec files are the record of the packs they brought in. Every scale factor comes from scale-factors.mjs, never from the spec.
+* tools/importeer/inspect-source.mjs measures source models before an import is written. tools/importeer/learn-bands.mjs reads a kit's band mapping back out of its adopted workfiles.
 * catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/rejects.json), a swipe/review functionality, and model scale comparison page.
 * kits/sources contains original cc0 files in zip, kits/workfiles contains selected and normalize glb for catalog.
 

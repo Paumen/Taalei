@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { writeGlb } from '../../catalog/tools/glb.mjs';
 import { pakUit } from '../../catalog/tools/zip.mjs';
 import { leesGltf } from './bron.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_MAP = 'Asian_Cementery_Rocks_Packs';
@@ -13,7 +14,6 @@ const PACKS = {
   RocksPack: { kit: 'asia-rocks', naam: 'Rocks Pack' },
 };
 const KITS = Object.values(PACKS).map((p) => p.kit);
-const SCHAAL = 0.175;
 const RAND = [0.05, 0.95];
 
 const BANDEN = {
@@ -416,13 +416,13 @@ function bereiken(modellen) {
   return uit;
 }
 
-function bouw(model, opgave, bereik) {
+function bouw(model, opgave, bereik, schaal) {
   const laag = [Infinity, Infinity, Infinity];
   const hoog = [-Infinity, -Infinity, -Infinity];
   for (const primitief of model.primitieven) {
     for (let i = 0; i < primitief.posities.length; i += 3) {
       for (let k = 0; k < 3; k++) {
-        const v = primitief.posities[i + k] * SCHAAL;
+        const v = primitief.posities[i + k] * schaal;
         if (v < laag[k]) laag[k] = v;
         if (v > hoog[k]) hoog[k] = v;
       }
@@ -440,7 +440,7 @@ function bouw(model, opgave, bereik) {
   for (const primitief of model.primitieven) {
     const index = new Int32Array(primitief.posities.length / 3);
     for (let i = 0; i < index.length; i++) {
-      const p = [0, 1, 2].map((k) => Math.fround(primitief.posities[i * 3 + k] * SCHAAL - midden[k]));
+      const p = [0, 1, 2].map((k) => Math.fround(primitief.posities[i * 3 + k] * schaal - midden[k]));
       const n = [0, 1, 2].map((k) => Math.fround(primitief.normalen ? primitief.normalen[i * 3 + k] : 0));
 
       const u = primitief.uvs[i * 2];
@@ -481,7 +481,7 @@ function bouw(model, opgave, bereik) {
   };
 }
 
-function schrijf(pad, mesh, naam, bronmodel, bron) {
+function schrijf(pad, mesh, naam, bronmodel, bron, schaal) {
   const stukken = [];
   const accessors = [];
   const bufferViews = [];
@@ -534,7 +534,7 @@ function schrijf(pad, mesh, naam, bronmodel, bron) {
     asset: {
       generator: 'tools/importeer/asia-packs.mjs',
       version: '2.0',
-      extras: { taaleiland: { versie: 1, schaal: SCHAAL, palet: 1, bron, bronmodel } },
+      extras: { taaleiland: { versie: 1, schaal, palet: 1, bron, bronmodel } },
     },
     scene: 0,
     scenes: [{ nodes: [0] }],
@@ -634,8 +634,10 @@ const perKit = new Map(KITS.map((kit) => [kit, []]));
 for (const model of gekozen) {
   const opgave = MODELLEN[model.naam];
   const { kit, naam: bron } = PACKS[model.pack];
-  const mesh = bouw(model, opgave, bereik);
-  schrijf(join(doelMappen.get(kit), `${opgave.naam}.glb`), mesh, opgave.naam, model.naam, bron);
+  const schaal = scaleTarget(kit);
+  if (schaal === null) throw new Error(`${kit}: no factor in scale-factors.mjs`);
+  const mesh = bouw(model, opgave, bereik, schaal);
+  schrijf(join(doelMappen.get(kit), `${opgave.naam}.glb`), mesh, opgave.naam, model.naam, bron, schaal);
 
   const materialen = [...new Set(Object.values(opgave.vlakken).map(([materiaal]) => materiaal))];
   regels.push([

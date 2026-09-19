@@ -5,6 +5,7 @@ import {
   bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest, ontdubbel, richtSchillen,
   richtWinding,
 } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const planks = ['wood-planks', 'tan'];
 const worked = ['wood-worked', 'camel'];
@@ -55,7 +56,7 @@ const cabinTrim = beam;
 
 const PAKKETTEN = [
   {
-    kit: 'fs-terrain', bron: 'modular_terrain_collection', schaal: 0.5,
+    kit: 'fs-terrain', bron: 'modular_terrain_collection',
     modellen: [
       {
         naam: 'hilly-prop-stump', bronmodel: 'Hilly_Prop_Stump',
@@ -87,8 +88,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'kay-hexagon', bron: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', schaal: 1.2,
-    raster: [8, 4],
+    kit: 'kay-hexagon', bron: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', raster: [8, 4],
     sleutels: { '2,2': rock, '*': rock },
     modellen: [
       { naam: 'rock-a', bronmodel: 'rock_single_A', kind: 'env-rock-cobble', tags: [] },
@@ -127,7 +127,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'ken-proto', bron: 'kenney_prototypekit', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-proto', bron: 'kenney_prototypekit', raster: [16, 4],
     sleutels: { '7,3': masonryLight, '3,3': masonryDark, '*': masonryLight },
     modellen: [
       { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
@@ -151,7 +151,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'ken-castle', bron: 'kenney_castlekit', schaal: 0.88, raster: [16, 4],
+    kit: 'ken-castle', bron: 'kenney_castlekit', raster: [16, 4],
     sleutels: { '13,3': masonry, '12,3': masonryLight, '15,3': masonryLight, '*': masonry },
     modellen: [
       { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
@@ -172,7 +172,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'ken-holiday', bron: 'kenney_holidaykit', schaal: 0.75, raster: [16, 4],
+    kit: 'ken-holiday', bron: 'kenney_holidaykit', raster: [16, 4],
     sleutels: {
       '3,2': cabinLogs, '11,2': cabinBoards, '5,2': cabinTrim, '1,2': snow, '*': cabinLogs,
     },
@@ -255,7 +255,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'kay-food', bron: 'KayKit_Restaurant_Bits_1.0_FREE', schaal: 0.23, raster: [8, 4],
+    kit: 'kay-food', bron: 'KayKit_Restaurant_Bits_1.0_FREE', raster: [8, 4],
     sleutels: { '4,1': plaster, '2,1': dado, '3,0': cast, '*': plaster },
     modellen: [
       { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
@@ -281,8 +281,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', schaal: 0.32,
-    raster: [8, 8],
+    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', raster: [8, 8],
     sleutels: {
       '3,0': worked, '3,1': worked, '4,0': plaster, '4,1': plaster,
       '6,4': tile, '6,5': tile, '6,6': ruit, '7,7': ruit, '*': plaster,
@@ -337,8 +336,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'isa-bakery', bron: 'Tiny_Treats_Bakery_Interior_1.1_FREE', schaal: 0.32,
-    raster: [8, 8],
+    kit: 'isa-bakery', bron: 'Tiny_Treats_Bakery_Interior_1.1_FREE', raster: [8, 8],
     sleutels: {
       '6,0': beam, '6,1': beam, '4,0': plaster, '4,1': plaster,
       '3,0': worked, '3,1': worked, '6,6': ruit, '7,7': ruit, '*': plaster,
@@ -422,7 +420,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'kay-holiday', bron: 'KayKit_Holiday_Bits_1.0_FREE', schaal: 0.3, raster: [8, 4],
+    kit: 'kay-holiday', bron: 'KayKit_Holiday_Bits_1.0_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'plate-nickel', bronmodel: 'plate_white',
@@ -491,7 +489,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'kay-minigame', bron: 'KayKit_Mini-Game_Variety_Pack_1.2', schaal: 0.37,
+    kit: 'kay-minigame', bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
     modellen: [
       {
         naam: 'lightning', bronmodel: 'lightning', kind: 'obj', tags: ['pickup'],
@@ -509,7 +507,7 @@ const PAKKETTEN = [
   },
 
   {
-    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit', schaal: 0.32,
+    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit',
     modellen: [
       {
         naam: 'fence', bronmodel: 'Fence', kind: 'str-barrier-fence', tags: [],
@@ -533,6 +531,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/aanvullen.mjs';
 
   const { modellen } = bronModellen(bronkit);

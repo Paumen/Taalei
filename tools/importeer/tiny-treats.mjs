@@ -4,6 +4,7 @@ import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import {
   bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest, richtSchillen, richtWinding,
 } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const steel = ['metal-iron-steel', 'nickel'];
 const painted = ['metal', 'sienna'];
@@ -44,7 +45,7 @@ const pip = ['food', 'basalt'];
 
 const PAKKETTEN = [
   {
-    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', schaal: 0.24, raster: [8, 8],
+    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', raster: [8, 8],
     modellen: [
       {
         naam: 'apple', bronmodel: 'apple', kind: 'obj-food', tags: ['ngons'],
@@ -173,7 +174,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', schaal: 0.24, atlas: true,
+    kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', atlas: true,
     modellen: [
       {
         naam: 'jam-jar', bronmodel: 'jam', kind: 'obj-container-pot', tags: ['ngons'],
@@ -225,7 +226,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-playground', bron: 'Tiny_Treats_Fun_Playground_1.0_FREE', schaal: 0.24, raster: [8, 8],
+    kit: 'isa-playground', bron: 'Tiny_Treats_Fun_Playground_1.0_FREE', raster: [8, 8],
     modellen: [
       {
         naam: 'bucket', bronmodel: 'bucket_A', kind: 'obj-container-bucket', tags: ['ngons'],
@@ -327,7 +328,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-bakery', bron: 'Tiny_Treats_Bakery_Interior_1.1_FREE', schaal: 0.32, raster: [8, 8],
+    kit: 'isa-bakery', bron: 'Tiny_Treats_Bakery_Interior_1.1_FREE', raster: [8, 8],
     modellen: [
       {
         naam: 'basket-a', bronmodel: 'basket_A', kind: 'obj-container', tags: [],
@@ -507,6 +508,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/tiny-treats.mjs';
 
   const { modellen } = bronModellen(bronkit);

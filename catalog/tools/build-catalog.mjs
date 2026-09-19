@@ -55,6 +55,7 @@ function readKitMetadata() {
       ),
       ownPalette: kit.ownPalette === true,
       licenseLabel: kit.licenseLabel ?? 'CC0',
+      listed: Array.isArray(kit.models) ? kit.models : null,
     });
   }
   return meta;
@@ -729,6 +730,22 @@ if (flat.length) {
 }
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
+
+for (const [slug, meta] of kitMeta) {
+  if (!meta.listed) continue;
+  const dir = join(MODEL_DIR, slug);
+  const aanwezig = existsSync(dir)
+    ? new Set(readdirSync(dir).filter((n) => n.endsWith('.glb')).map((n) => n.slice(0, -4)))
+    : new Set();
+  const zonderBestand = meta.listed.filter((naam) => !aanwezig.has(naam));
+  const zonderVermelding = [...aanwezig].filter((naam) => !meta.listed.includes(naam));
+  if (zonderBestand.length) {
+    console.warn(`! ${slug}: in manifest.js but no workfile: ${zonderBestand.join(', ')}`);
+  }
+  if (zonderVermelding.length) {
+    console.warn(`! ${slug}: workfile but not in manifest.js: ${zonderVermelding.join(', ')}`);
+  }
+}
 const noSource = kits
   .map(({ slug }) => slug)
   .filter((slug) => !SOURCE_PER_KIT.has(slug) && BRONKITS.some((b) => b.kit === slug));
