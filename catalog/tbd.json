@@ -1182,6 +1182,14 @@
    "name": "Storage"
   },
   {
+   "id": "obj-furniture-storage-cabinet",
+   "name": "Cabinet"
+  },
+  {
+   "id": "obj-furniture-storage-shelf",
+   "name": "Shelf"
+  },
+  {
    "id": "obj-food",
    "name": "Food"
   },
@@ -1326,8 +1334,24 @@
    "name": "Hand"
   },
   {
+   "id": "obj-tool-hand-hammer",
+   "name": "Hammer"
+  },
+  {
+   "id": "obj-tool-hand-saw",
+   "name": "Saw"
+  },
+  {
    "id": "obj-tool-long",
    "name": "Long"
+  },
+  {
+   "id": "obj-tool-long-pickaxe",
+   "name": "Pickaxe"
+  },
+  {
+   "id": "obj-tool-long-shovel",
+   "name": "Shovel"
   },
   {
    "id": "obj-tool-supplies",
@@ -7640,7 +7664,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "shovel-dirt",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "wdh": [
     0.5,
     0.5,
@@ -10959,7 +10983,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "shelf_papertowel",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.5,
     0.2,
@@ -10975,7 +10999,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "shelf_papertowel_decorated",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.5,
     0.4,
@@ -11445,7 +11469,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "cabinet_medium_decorated",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "wdh": [
     0.6,
     0.5,
@@ -11461,7 +11485,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "cabinet_small_decorated",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "wdh": [
     0.3,
     0.5,
@@ -11807,7 +11831,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "shelf_A_small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.3,
     0.1,
@@ -11823,7 +11847,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "shelf_B_large",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.1,
@@ -11839,7 +11863,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "shelf_B_large_decorated",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.2,
@@ -11855,7 +11879,7 @@
   {
    "kit": "KayKit_Furniture_Bits_1.0_FREE",
    "name": "shelf_B_small_decorated",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.3,
     0.3,
@@ -12094,7 +12118,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Shelf_Simple",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.9,
     0.2,
@@ -16715,7 +16739,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "bookcaseFilled_broken",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "wdh": [
     0.4,
     0.7,
@@ -16731,7 +16755,7 @@
   {
    "kit": "KayKit_Dungeon_Pack_1.0",
    "name": "bookcase_broken",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "wdh": [
     0.4,
     0.7,
@@ -19301,7 +19325,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "saw_precision",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "wdh": [
     0.1,
     0.1,
@@ -19317,7 +19341,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "saw_handsaw",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "wdh": [
     0.1,
     0.4,
@@ -19438,7 +19462,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "saw_small_highcount",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "wdh": [
     0.1,
     0.1,
@@ -22446,7 +22470,6 @@
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_meat_mallet",
-   "kind": "obj-food-meat",
    "wdh": [
     0.1,
     0.3,
@@ -24344,6 +24367,7 @@
   {
    "kit": "Tiny_Treats_Charming_Kitchen_1.1_FREE",
    "name": "wall_shelf_kitchen_hooks_decorated",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.3,
@@ -27600,7 +27624,7 @@
   {
    "kit": "Tiny_Treats_Fun_Playground_1.0_FREE",
    "name": "shovel_B",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "wdh": [
     0.1,
     0.2,
@@ -28912,6 +28936,7 @@
   {
    "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
    "name": "wall_shelf_bakery_A",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.3,
@@ -28927,6 +28952,7 @@
   {
    "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
    "name": "wall_shelf_bakery_B",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.3,
@@ -28942,6 +28968,7 @@
   {
    "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
    "name": "wall_shelf_bakery_C",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.3,
@@ -28957,6 +28984,7 @@
   {
    "kit": "Tiny_Treats_Bakery_Interior_1.1_FREE",
    "name": "wall_shelf_bakery_end",
+   "kind": "obj-furniture-storage-shelf",
    "wdh": [
     0.6,
     0.1,
@@ -29835,7 +29863,7 @@
   {
    "kit": "Post_Apocolypse_Pack",
    "name": "Wooden Bat Saw",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "wdh": [
     0.2,
     0.1,
