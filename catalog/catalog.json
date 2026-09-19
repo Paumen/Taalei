@@ -6941,7 +6941,7 @@
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 166,
+   "count": 168,
    "color": "#c25b4e"
   },
   {
@@ -6963,7 +6963,7 @@
    "name": "Grain",
    "type": "kind",
    "description": "Unbaked grain: wheat, flour and dough.",
-   "count": 66
+   "count": 68
   },
   {
    "id": "obj-food-grain-bread",
@@ -7366,14 +7366,14 @@
    "name": "Open",
    "type": "kind",
    "description": "open book",
-   "count": 3
+   "count": 10
   },
   {
    "id": "obj-pocketitem-book-closed",
    "name": "Closed",
    "type": "kind",
    "description": "closed book",
-   "count": 12
+   "count": 18
   },
   {
    "id": "obj-pocketitem-coin",
@@ -7422,7 +7422,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 96,
+   "count": 94,
    "color": "#4f7d8c"
   },
   {
@@ -8348,7 +8348,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 5
+   "count": 6
   },
   {
    "id": "plural",
@@ -8369,7 +8369,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 50
+   "count": 52
   },
   {
    "id": "tba",
@@ -8629,11 +8629,9 @@
   "obj-art-sculpture",
   "obj-food",
   "obj-furniture-bed",
-  "obj-pocketitem-book",
   "obj-pocketitem-coin",
   "obj-pocketitem-key",
   "obj-pocketitem-scroll",
-  "obj-resource",
   "obj-resource-wood-plank",
   "obj-tool",
   "obj-tool-long",
@@ -9372,12 +9370,6 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
-  "obj-pocketitem-book": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
-   "tpu.max": 10000
-  },
   "obj-pocketitem-book-closed": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -9425,12 +9417,6 @@
    "longest.min": 0.1,
    "longest.max": 0.6,
    "tpu.max": 10000
-  },
-  "obj-resource": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 1.4,
-   "tpu.max": 5000
   },
   "obj-resource-metal": {
    "high.max": 8,
@@ -48229,7 +48215,7 @@
   {
    "kit": "kay-adventurers",
    "name": "spellbook-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.25,
@@ -50583,7 +50569,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-b",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -50682,7 +50668,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-d",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -50728,7 +50714,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-e",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -50774,7 +50760,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-f",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -50821,7 +50807,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-open-a",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.25,
@@ -50871,7 +50857,7 @@
   {
    "kit": "kay-dun-1",
    "name": "book-open-b",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.25,
@@ -78543,7 +78529,7 @@
   {
    "kit": "kay-mixed",
    "name": "comic-book-blank",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -83257,6 +83243,7 @@
    ],
    "tags": [
     "bone",
+    "broken",
     "grave",
     "halloween",
     "kay"
@@ -111749,7 +111736,7 @@
   {
    "kit": "medieval-village",
    "name": "haystack-forked",
-   "kind": "obj-resource",
+   "kind": "obj-food-grain",
    "size": "m",
    "wdh": [
     0.7,
@@ -111789,12 +111776,19 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v501"
+   "variant": "v501",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.8 over max 0.6 (obj-food)"
+    }
+   ]
   },
   {
    "kit": "medieval-village",
    "name": "haystack",
-   "kind": "obj-resource",
+   "kind": "obj-food-grain",
    "size": "m",
    "wdh": [
     0.7,
@@ -111828,7 +111822,14 @@
     "vegetation",
     "wizp"
    ],
-   "variant": "v501"
+   "variant": "v501",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.7 over max 0.6 (obj-food)"
+    }
+   ]
   },
   {
    "kit": "medieval-village",
@@ -123885,6 +123886,7 @@
     "#8b7561"
    ],
    "tags": [
+    "broken",
     "qua",
     "wood-bark"
    ]
@@ -130876,7 +130878,7 @@
   {
    "kit": "quat-props",
    "name": "book-5",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.15,
@@ -133097,7 +133099,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-1-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.2,
@@ -133189,7 +133191,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-2-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.25,
@@ -133293,7 +133295,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-3-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.2,
@@ -133396,7 +133398,7 @@
   {
    "kit": "quat-rpg",
    "name": "book-4-open",
-   "kind": "obj-pocketitem-book",
+   "kind": "obj-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.2,
@@ -146200,6 +146202,7 @@
     "#68872d"
    ],
    "tags": [
+    "comp",
     "foliage"
    ]
   },
