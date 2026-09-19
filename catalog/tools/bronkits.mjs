@@ -90,8 +90,11 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', naam: 'Tiny Treats Pleasant Picnic', kit: 'isa-picnic', source: 'isa', formaat: 'gltf' },
   { map: 'Tiny_Treats_Fun_Playground_1.0_FREE', naam: 'Tiny Treats Fun Playground', kit: 'isa-playground', source: 'isa', formaat: 'gltf' },
   { map: 'Tiny_Treats_Bakery_Interior_1.1_FREE', naam: 'Tiny Treats Bakery Interior', kit: 'isa-bakery', source: 'isa', formaat: 'gltf' },
+  { map: 'gobkit_animal-pack', naam: 'Gobkit Animal Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_animal-pack-2', naam: 'Gobkit Animal Pack 2', kit: null, formaat: 'glb' },
+  { map: 'gobkit_minion-pack', naam: 'Gobkit Minion Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
+  { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: null, formaat: 'glb' },
   { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
@@ -99,4 +102,6 @@ export const BRONKITS = [
   { map: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', naam: 'KayKit Medieval Hexagon Pack', kit: 'kay-hexagon', source: 'kay', formaat: 'gltf', alleMappen: true },
   { map: 'kenney_watercraft-pack_1', naam: 'Kenney Watercraft Pack', kit: 'ken-water', source: 'ken', formaat: 'glb' },
   { map: 'kenney_nature-kit', naam: 'Kenney Nature Kit', kit: 'ken-nature', source: 'ken', formaat: 'glb' },
+
+  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: null, formaat: 'glb' },
 ];
