@@ -6332,24 +6332,38 @@
    "id": "obj-furniture-storage",
    "name": "Storage",
    "type": "kind",
-   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "description": "chest of drawers, dresser"
+  },
+  {
+   "id": "obj-furniture-storage-cabinet",
+   "name": "Cabinet",
+   "type": "kind",
+   "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
    "models": [
     "kay-dun-1/bookcase",
     "kay-dun-1/bookcase-wide",
     "kay-dun-1/bookcase-wide-broken",
     "kay-furniture/cabinet-medium",
     "kay-furniture/cabinet-small",
-    "kay-furniture/shelf-b-small",
-    "kay-dun-2/shelf-large",
-    "kay-dun-2/shelf-small",
-    "kay-furniture/shelf-a-big",
-    "isa-kitchen/wall-shelf",
-    "isa-kitchen/wall-shelf-corner",
-    "isa-kitchen/wall-shelf-hooks",
     "isa-bakery/counter-closet-a-large",
     "isa-bakery/counter-closet-a-small",
     "isa-bakery/counter-closet-b-large",
     "isa-bakery/counter-closet-b-small"
+   ]
+  },
+  {
+   "id": "obj-furniture-storage-shelf",
+   "name": "Shelf",
+   "type": "kind",
+   "description": "Boards carried on brackets or a frame, open on the front.",
+   "models": [
+    "kay-furniture/shelf-a-big",
+    "kay-furniture/shelf-b-small",
+    "kay-dun-2/shelf-large",
+    "kay-dun-2/shelf-small",
+    "isa-kitchen/wall-shelf",
+    "isa-kitchen/wall-shelf-corner",
+    "isa-kitchen/wall-shelf-hooks"
    ]
   },
   {
@@ -7054,7 +7068,7 @@
    "id": "obj-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush",
+   "description": "chisel, trowel, wrench, tongs, brush",
    "models": [
     "isa-plants/shovel",
     "kay-tools/axe",
@@ -7062,17 +7076,14 @@
     "kay-tools/compass-base",
     "kay-tools/drafting-compass",
     "kay-tools/file",
-    "kay-tools/hammer",
     "kay-tools/handdrill",
     "kay-tools/handplane",
     "kay-tools/knife",
     "kay-tools/magnifying-glass",
-    "kay-tools/mallet",
     "kay-tools/pencil-a-long",
     "kay-tools/pencil-a-short",
     "kay-tools/pencil-b-long",
     "kay-tools/pencil-b-short",
-    "kay-tools/saw",
     "kay-tools/scissors",
     "kay-tools/screwdriver-a-long",
     "kay-tools/screwdriver-a-short",
@@ -7082,56 +7093,91 @@
     "kay-tools/trowel",
     "kay-tools/wrench-a",
     "kay-tools/wrench-b",
-    "ken-survival/tool-hammer",
-    "ken-survival/tool-hammer-upgraded",
     "medieval-forge/forceps",
-    "primitive-tools/stone-hammer",
-    "primitive-tools/wooden-hammer",
-    "small-props/hammer-1-a",
     "cooking-assets/tongs",
     "cooking-assets/tongs-open",
-    "mek-tools/brush",
-    "mek-tools/hammer-bar",
-    "mek-tools/hammer-block",
-    "mek-tools/hammer-pein",
-    "mek-tools/hammer-square",
+    "mek-tools/brush"
+   ]
+  },
+  {
+   "id": "obj-tool-hand-hammer",
+   "name": "Hammer",
+   "type": "kind",
+   "description": "Hammer or mallet: a weighted head on a short handle, for striking.",
+   "models": [
     "mek-tools/hammer-stepped",
     "mek-tools/hammer-wedge",
-    "mek-tools/saw-coarse",
+    "mek-tools/hammer-pein",
+    "mek-tools/hammer-square",
+    "mek-tools/hammer-bar",
+    "mek-tools/hammer-block",
+    "kay-tools/mallet",
+    "small-props/hammer-1-a",
+    "kay-tools/hammer",
+    "ken-survival/tool-hammer",
+    "ken-survival/tool-hammer-upgraded",
+    "primitive-tools/wooden-hammer",
+    "primitive-tools/stone-hammer"
+   ]
+  },
+  {
+   "id": "obj-tool-hand-saw",
+   "name": "Saw",
+   "type": "kind",
+   "description": "Saw: a toothed blade for cutting.",
+   "models": [
+    "mek-tools/saw-large",
     "mek-tools/saw-crosscut",
-    "mek-tools/saw-large"
+    "mek-tools/saw-coarse",
+    "kay-tools/saw"
    ]
   },
   {
    "id": "obj-tool-long",
    "name": "Long",
    "type": "kind",
-   "description": "shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)",
+   "description": "rake, hoe, pitchfork, broom, scythe (tool)",
    "models": [
     "asia-rg/rake",
     "fs-town/broom",
-    "kay-tools/pickaxe",
-    "kay-tools/shovel",
     "ken-survival/tool-hoe",
     "ken-survival/tool-hoe-upgraded",
-    "ken-survival/tool-pickaxe",
-    "ken-survival/tool-pickaxe-upgraded",
-    "ken-survival/tool-shovel",
-    "ken-survival/tool-shovel-upgraded",
-    "primitive-tools/stone-pickaxe",
-    "primitive-tools/stone-shovel",
-    "primitive-tools/wooden-pickaxe",
-    "primitive-tools/wooden-shovel",
     "small-props/broom-a",
     "small-props/fishing-rod-a",
     "small-props/fishing-rod-b",
     "small-props/fishing-rod-c",
     "small-props/pitchfork-a",
+    "isa-playground/shovel"
+   ]
+  },
+  {
+   "id": "obj-tool-long-pickaxe",
+   "name": "Pickaxe",
+   "type": "kind",
+   "description": "Pickaxe: a pointed head across a long haft, for breaking ground or rock.",
+   "models": [
+    "primitive-tools/wooden-pickaxe",
+    "primitive-tools/stone-pickaxe",
     "mek-tools/pickaxe",
+    "kay-tools/pickaxe",
+    "ken-survival/tool-pickaxe",
+    "ken-survival/tool-pickaxe-upgraded"
+   ]
+  },
+  {
+   "id": "obj-tool-long-shovel",
+   "name": "Shovel",
+   "type": "kind",
+   "description": "Shovel or spade: a blade on a long haft, for digging and moving loose matter.",
+   "models": [
+    "toon-shooter/shovel",
+    "ken-survival/tool-shovel",
+    "ken-survival/tool-shovel-upgraded",
     "ken-pirate/tool-shovel",
     "ken-grave/shovel",
-    "isa-playground/shovel",
-    "toon-shooter/shovel"
+    "kay-tools/shovel",
+    "primitive-tools/stone-shovel",
+    "primitive-tools/wooden-shovel"
    ]
   },
   {

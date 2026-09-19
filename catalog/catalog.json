@@ -6536,8 +6536,22 @@
    "id": "obj-furniture-storage",
    "name": "Storage",
    "type": "kind",
-   "description": "cabinet, shelf, bookcase, wardrobe, chest of drawers, dresser",
+   "description": "chest of drawers, dresser",
    "count": 16
+  },
+  {
+   "id": "obj-furniture-storage-cabinet",
+   "name": "Cabinet",
+   "type": "kind",
+   "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
+   "count": 9
+  },
+  {
+   "id": "obj-furniture-storage-shelf",
+   "name": "Shelf",
+   "type": "kind",
+   "description": "Boards carried on brackets or a frame, open on the front.",
+   "count": 7
   },
   {
    "id": "obj-furniture-table",
@@ -6800,15 +6814,43 @@
    "id": "obj-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "hammer (tool), saw, chisel, trowel, wrench, tongs, brush",
+   "description": "chisel, trowel, wrench, tongs, brush",
    "count": 44
+  },
+  {
+   "id": "obj-tool-hand-hammer",
+   "name": "Hammer",
+   "type": "kind",
+   "description": "Hammer or mallet: a weighted head on a short handle, for striking.",
+   "count": 13
+  },
+  {
+   "id": "obj-tool-hand-saw",
+   "name": "Saw",
+   "type": "kind",
+   "description": "Saw: a toothed blade for cutting.",
+   "count": 4
   },
   {
    "id": "obj-tool-long",
    "name": "Long",
    "type": "kind",
-   "description": "shovel, spade, pickaxe, rake, hoe, pitchfork, broom, scythe (tool)",
+   "description": "rake, hoe, pitchfork, broom, scythe (tool)",
    "count": 24
+  },
+  {
+   "id": "obj-tool-long-pickaxe",
+   "name": "Pickaxe",
+   "type": "kind",
+   "description": "Pickaxe: a pointed head across a long haft, for breaking ground or rock.",
+   "count": 6
+  },
+  {
+   "id": "obj-tool-long-shovel",
+   "name": "Shovel",
+   "type": "kind",
+   "description": "Shovel or spade: a blade on a long haft, for digging and moving loose matter.",
+   "count": 8
   },
   {
    "id": "obj-tool-supplies",
@@ -7698,7 +7740,6 @@
   "obj-art-sculpture",
   "obj-food",
   "obj-furniture-bed",
-  "obj-furniture-storage",
   "obj-pocketitem-book",
   "obj-pocketitem-coin",
   "obj-pocketitem-key",
@@ -8062,7 +8103,13 @@
    "longest.max": 1.2,
    "tpu.max": 5000
   },
-  "obj-furniture-storage": {
+  "obj-furniture-storage-cabinet": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "obj-furniture-storage-shelf": {
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 1.2,
@@ -8283,7 +8330,31 @@
    "longest.max": 1.2,
    "tpu.max": 10000
   },
+  "obj-tool-hand-hammer": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-tool-hand-saw": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
   "obj-tool-long": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-tool-long-pickaxe": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-tool-long-shovel": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 1.2,
@@ -33900,7 +33971,7 @@
   {
    "kit": "isa-bakery",
    "name": "counter-closet-a-large",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.7,
@@ -33939,7 +34010,7 @@
   {
    "kit": "isa-bakery",
    "name": "counter-closet-a-small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.4,
@@ -33978,7 +34049,7 @@
   {
    "kit": "isa-bakery",
    "name": "counter-closet-b-large",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.7,
@@ -34017,7 +34088,7 @@
   {
    "kit": "isa-bakery",
    "name": "counter-closet-b-small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "s",
    "wdh": [
     0.4,
@@ -37393,7 +37464,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-shelf-corner",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "m",
    "wdh": [
     0.55,
@@ -37437,7 +37508,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-shelf-hooks",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "m",
    "wdh": [
     0.65,
@@ -37486,7 +37557,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-shelf",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "m",
    "wdh": [
     0.65,
@@ -47693,7 +47764,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase-wide-broken",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.7,
@@ -47842,7 +47913,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase-wide",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.7,
@@ -47881,7 +47952,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bookcase",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.35,
@@ -56434,7 +56505,7 @@
   {
    "kit": "kay-dun-2",
    "name": "shelf-large",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "m",
    "wdh": [
     0.55,
@@ -56523,7 +56594,7 @@
   {
    "kit": "kay-dun-2",
    "name": "shelf-small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "s",
    "wdh": [
     0.25,
@@ -65108,7 +65179,7 @@
   {
    "kit": "kay-furniture",
    "name": "cabinet-medium",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
     0.6,
@@ -65152,7 +65223,7 @@
   {
    "kit": "kay-furniture",
    "name": "cabinet-small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-cabinet",
    "size": "s",
    "wdh": [
     0.3,
@@ -65470,7 +65541,7 @@
   {
    "kit": "kay-furniture",
    "name": "shelf-a-big",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "m",
    "wdh": [
     0.6,
@@ -65514,7 +65585,7 @@
   {
    "kit": "kay-furniture",
    "name": "shelf-b-small",
-   "kind": "obj-furniture-storage",
+   "kind": "obj-furniture-storage-shelf",
    "size": "s",
    "wdh": [
     0.3,
@@ -81100,7 +81171,7 @@
   {
    "kit": "kay-tools",
    "name": "hammer",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.15,
@@ -81520,7 +81591,7 @@
   {
    "kit": "kay-tools",
    "name": "mallet",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.2,
@@ -81957,7 +82028,7 @@
   {
    "kit": "kay-tools",
    "name": "pickaxe",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "s",
    "wdh": [
     0.45,
@@ -82094,7 +82165,7 @@
   {
    "kit": "kay-tools",
    "name": "saw",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "size": "s",
    "wdh": [
     0.4,
@@ -82442,7 +82513,7 @@
   {
    "kit": "kay-tools",
    "name": "shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.15,
@@ -87958,7 +88029,7 @@
   {
    "kit": "ken-grave",
    "name": "shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.15,
@@ -94001,7 +94072,7 @@
   {
    "kit": "ken-pirate",
    "name": "tool-shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "m",
    "wdh": [
     0.2,
@@ -97930,7 +98001,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-hammer-upgraded",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.15,
@@ -97975,7 +98046,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-hammer",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.15,
@@ -98110,7 +98181,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-pickaxe-upgraded",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "s",
    "wdh": [
     0.25,
@@ -98155,7 +98226,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-pickaxe",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "s",
    "wdh": [
     0.25,
@@ -98200,7 +98271,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-shovel-upgraded",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.15,
@@ -98245,7 +98316,7 @@
   {
    "kit": "ken-survival",
    "name": "tool-shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.1,
@@ -106847,7 +106918,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-bar",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -106891,7 +106962,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-block",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -106935,7 +107006,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-pein",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -106979,7 +107050,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-square",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -107023,7 +107094,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-stepped",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -107067,7 +107138,7 @@
   {
    "kit": "mek-tools",
    "name": "hammer-wedge",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -107111,7 +107182,7 @@
   {
    "kit": "mek-tools",
    "name": "pickaxe",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "s",
    "wdh": [
     0.05,
@@ -107154,7 +107225,7 @@
   {
    "kit": "mek-tools",
    "name": "saw-coarse",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "size": "s",
    "wdh": [
     0.05,
@@ -107203,7 +107274,7 @@
   {
    "kit": "mek-tools",
    "name": "saw-crosscut",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "size": "m",
    "wdh": [
     0.05,
@@ -107246,7 +107317,7 @@
   {
    "kit": "mek-tools",
    "name": "saw-large",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-saw",
    "size": "m",
    "wdh": [
     0.05,
@@ -112357,7 +112428,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-hammer",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.2,
@@ -112467,7 +112538,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-pickaxe",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "m",
    "wdh": [
     0.3,
@@ -112565,7 +112636,7 @@
   {
    "kit": "primitive-tools",
    "name": "stone-shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "m",
    "wdh": [
     0.15,
@@ -112846,7 +112917,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-hammer",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.2,
@@ -112932,7 +113003,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-pickaxe",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-pickaxe",
    "size": "m",
    "wdh": [
     0.25,
@@ -113035,7 +113106,7 @@
   {
    "kit": "primitive-tools",
    "name": "wooden-shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.15,
@@ -136872,7 +136943,7 @@
   {
    "kit": "small-props",
    "name": "hammer-1-a",
-   "kind": "obj-tool-hand",
+   "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
     0.05,
@@ -138623,7 +138694,7 @@
   {
    "kit": "toon-shooter",
    "name": "shovel",
-   "kind": "obj-tool-long",
+   "kind": "obj-tool-long-shovel",
    "size": "s",
    "wdh": [
     0.1,
