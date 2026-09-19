@@ -11,511 +11,473 @@ const planks = ['wood-planks', 'tan'];
 const worked = ['wood-worked', 'camel'];
 const beam = ['wood-beam', 'chestnut'];
 const bark = ['wood-bark', 'umber'];
-const log = ['wood-log', 'tan'];
 
 const steel = ['metal-iron-steel', 'nickel'];
 const cast = ['metal-iron-cast', 'slate'];
 const wrought = ['metal-iron-wrought', 'basalt'];
-const gold = ['metal-gold', 'amber'];
 
 const masonry = ['stone-masonry', 'taupe'];
-const masonryLight = ['stone-masonry', 'nickel'];
 const masonryDark = ['stone-masonry', 'slate'];
 const rock = ['stone-rock', 'nickel'];
+const soilBed = ['stone-soil', 'taupe'];
 
 const plaster = ['ceramic', 'ivory'];
-const dado = ['ceramic', 'taupe'];
-const enamelRed = ['ceramic', 'sienna'];
-const roofTile = ['ceramic', 'sienna'];
-const tile = ['ceramic', 'terracotta'];
-const snow = ['ceramic', 'ivory'];
+const paint = ['ceramic', 'sienna'];
+const enamel = ['ceramic', 'terracotta'];
 
-const cloth = ['textile', 'ivory'];
 const clothRed = ['textile', 'sienna'];
 const clothGreen = ['textile', 'hunter'];
-const clothGrey = ['textile', 'taupe'];
+const grip = ['textile', 'taupe'];
 
-const leaf = ['foliage', 'hunter'];
-const reed = ['foliage', 'moss'];
-const shrub = ['foliage', 'moss'];
+const leafDark = ['foliage', 'hunter'];
+const leafGreen = ['foliage', 'moss'];
+const hedgeGreen = ['foliage', 'hunter'];
+const hedgeAmber = ['foliage', 'amber'];
+const pollen = ['foliage', 'amber'];
 
-const ruit = ['glass', 'ivory'];
-const glow = ['emissive', 'amber'];
-const board = ['paper', 'ivory'];
+const petal = ['vegetation', 'ivory'];
+const straw = ['vegetation', 'tan'];
 
-const dough = ['food', 'tan'];
-const gingerbread = ['food', 'camel'];
-const chocolate = ['food', 'chestnut'];
-const icing = ['food', 'ivory'];
-const candyRed = ['food', 'sienna'];
-const candyPink = ['food', 'terracotta'];
+const strap = ['leather', 'camel'];
+const water = ['liquid', 'azure'];
+const molten = ['emissive', 'amber'];
+const boneIvory = ['bone', 'ivory'];
 
-const cabinLogs = worked;
-const cabinBoards = planks;
-const cabinTrim = beam;
+const hide = ['skin', 'taupe'];
+const hidePale = ['skin', 'tan'];
+const hideDark = ['skin', 'umber'];
+
+const fleshRed = ['food', 'sienna'];
+const fleshGreen = ['food', 'moss'];
+const fleshAmber = ['food', 'amber'];
+const fleshIvory = ['food', 'ivory'];
+const fleshOrange = ['food', 'terracotta'];
+const fleshDark = ['food', 'basalt'];
 
 const PAKKETTEN = [
   {
-    kit: 'fs-terrain', bron: 'modular_terrain_collection',
+    kit: 'gob-nature', bron: 'gobkit_nature-kit', raster: [16, 4],
+    sleutels: { '14,0': rock, '*': leafDark },
     modellen: [
       {
-        naam: 'hilly-prop-stump', bronmodel: 'Hilly_Prop_Stump',
-        kind: 'env-flora-deadwood-stump', tags: [],
-        kleuren: { '#bead9c': bark, '#dfd0b5': log, '*': bark },
+        naam: 'bush-a', bronmodel: 'Bush001', kind: 'env-flora-plant', tags: [],
+        cellen: { '6,0': leafGreen, '*': leafGreen },
       },
       {
-        naam: 'hilly-prop-camp-sitting-log', bronmodel: 'Hilly_Prop_Camp_Sitting_Log',
+        naam: 'bush-b', bronmodel: 'Bush002', kind: 'env-flora-plant', tags: [],
+        cellen: { '6,0': leafGreen, '*': leafGreen },
+      },
+      { naam: 'rock-a', bronmodel: 'Rock001', kind: 'env-rock-boulder', tags: [] },
+      { naam: 'rock-b', bronmodel: 'Rock002', kind: 'env-rock-boulder', tags: [] },
+      { naam: 'rock-c', bronmodel: 'Rock003', kind: 'env-rock-boulder', tags: [] },
+      {
+        naam: 'tree-a', bronmodel: 'TreeLow001', kind: 'env-flora-tree', tags: [],
+        cellen: { '6,0': leafDark, '2,1': bark, '*': leafDark },
+      },
+      {
+        naam: 'tree-b', bronmodel: 'TreeLow002', kind: 'env-flora-tree', tags: [],
+        cellen: { '6,0': leafDark, '2,1': bark, '*': leafDark },
+      },
+      {
+        naam: 'tree-c', bronmodel: 'TreeLow003', kind: 'env-flora-tree', tags: [],
+        cellen: { '6,0': leafDark, '2,1': bark, '*': leafDark },
+      },
+      {
+        naam: 'conifer-small', bronmodel: 'TreeLow004', kind: 'env-flora-tree-conifer', tags: [],
+        cellen: { '6,0': leafDark, '2,1': bark, '*': leafDark },
+      },
+      {
+        naam: 'conifer', bronmodel: 'TreeMed001', kind: 'env-flora-tree-conifer', tags: [],
+        cellen: { '3,0': leafDark, '6,1': bark, '*': leafDark },
+      },
+      {
+        naam: 'conifer-large', bronmodel: 'TreeMed002', kind: 'env-flora-tree-conifer', tags: [],
+        cellen: { '3,0': leafDark, '6,1': bark, '*': leafDark },
+      },
+    ],
+  },
+
+  {
+    kit: 'styloo-farm', bron: 'Cozy_Farm', raster: [8, 8],
+    sleutels: { '5,4': beam, '2,7': steel, '4,0': rock, '*': beam },
+    modellen: [
+      {
+        naam: 'apple', bronmodel: 'apple', kind: 'obj-food-fruit', tags: [],
+        cellen: { '0,2': fleshRed, '6,1': leafDark, '5,4': bark, '*': fleshRed },
+      },
+      {
+        naam: 'apple-moss', bronmodel: 'applegreen', kind: 'obj-food-fruit', tags: [],
+        cellen: { '5,1': fleshGreen, '6,1': leafDark, '5,4': bark, '*': fleshGreen },
+      },
+      {
+        naam: 'banana', bronmodel: 'banana', kind: 'obj-food-fruit', tags: [],
+        cellen: { '5,2': fleshAmber, '*': fleshAmber },
+      },
+      {
+        naam: 'banana-moss', bronmodel: 'bananagreen', kind: 'obj-food-fruit', tags: [],
+        cellen: { '5,1': fleshGreen, '*': fleshGreen },
+      },
+      {
+        naam: 'barn-small', bronmodel: 'barnlvl1', kind: 'str-building-farming-barn', tags: [],
+        cellen: { '0,2': paint, '3,7': cast, '2,7': cast, '4,7': plaster, '*': paint },
+      },
+      {
+        naam: 'barn', bronmodel: 'barnlvl2', kind: 'str-building-farming-barn', tags: [],
+        cellen: { '0,2': paint, '4,7': plaster, '5,7': plaster, '5,4': beam, '*': paint },
+      },
+      {
+        naam: 'barn-large', bronmodel: 'barnlvl3', kind: 'str-building-farming-barn', tags: [],
+        cellen: {
+          '0,2': paint, '4,7': plaster, '5,7': plaster, '5,0': masonry, '5,4': beam, '*': paint,
+        },
+      },
+      {
+        naam: 'barrel', bronmodel: 'barrel', kind: 'obj-container-barrel', tags: [],
+        cellen: { '5,4': planks, '2,7': steel, '*': planks },
+      },
+      {
+        naam: 'bench-small', bronmodel: 'benchlittle',
         kind: 'obj-furniture-seating-bench', tags: [],
-        kleuren: { '#bead9c': bark, '#dfd0b5': log, '*': bark },
+        cellen: { '5,4': planks, '*': planks },
       },
       {
-        naam: 'hilly-prop-bush-a', bronmodel: 'Hilly_Prop_Bush_1',
-        kind: 'env-flora-plant', tags: [], kleuren: { '#9ac26e': shrub, '*': shrub },
+        naam: 'sign-board', bronmodel: 'billboard', kind: 'str-marker-sign', tags: [],
+        cellen: { '5,4': beam, '3,4': strap, '*': beam },
       },
       {
-        naam: 'hilly-prop-bush-b', bronmodel: 'Hilly_Prop_Bush_2',
-        kind: 'env-flora-plant', tags: [], kleuren: { '#9ac26e': shrub, '*': shrub },
+        naam: 'bucket-metal', bronmodel: 'bucket', kind: 'obj-container-bucket', tags: [],
+        cellen: { '2,7': steel, '0,7': steel, '0,6': steel, '5,4': beam, '*': steel },
       },
       {
-        naam: 'hilly-prop-bush-c', bronmodel: 'Hilly_Prop_Bush_3',
-        kind: 'env-flora-plant', tags: [], kleuren: { '#9ac26e': shrub, '*': shrub },
+        naam: 'bucket-wooden', bronmodel: 'bucketwooden', kind: 'obj-container-bucket', tags: [],
+        cellen: { '5,4': planks, '2,7': steel, '*': planks },
       },
       {
-        naam: 'hilly-prop-bush-d', bronmodel: 'Hilly_Prop_Bush_4',
-        kind: 'env-flora-plant', tags: [], kleuren: { '#9ac26e': shrub, '*': shrub },
-      },
-    ],
-  },
-
-  {
-    kit: 'kay-hexagon', bron: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE', raster: [8, 4],
-    sleutels: { '2,2': rock, '*': rock },
-    modellen: [
-      { naam: 'rock-a', bronmodel: 'rock_single_A', kind: 'env-rock-cobble', tags: [] },
-      { naam: 'rock-b', bronmodel: 'rock_single_B', kind: 'env-rock-cobble', tags: [] },
-      { naam: 'rock-c', bronmodel: 'rock_single_C', kind: 'env-rock-cobble', tags: [] },
-      { naam: 'rock-d', bronmodel: 'rock_single_D', kind: 'env-rock-cobble', tags: [] },
-      { naam: 'rocks', bronmodel: 'rock_single_E', kind: 'env-rock-cobble', tags: ['plural'] },
-      { naam: 'mountain-a', bronmodel: 'mountain_A', kind: 'env-terrain-mountain', tags: [] },
-      { naam: 'mountain-b', bronmodel: 'mountain_B', kind: 'env-terrain-mountain', tags: [] },
-      { naam: 'mountain-c', bronmodel: 'mountain_C', kind: 'env-terrain-mountain', tags: [] },
-      {
-        naam: 'conifer', bronmodel: 'tree_single_A', kind: 'env-flora-tree-conifer', tags: [],
-        cellen: { '1,2': leaf, '6,0': bark, '*': leaf },
+        naam: 'hedge', bronmodel: 'bushescubegreen', kind: 'str-barrier', tags: [],
+        cellen: { '5,1': hedgeGreen, '*': hedgeGreen },
       },
       {
-        naam: 'waterlily-a', bronmodel: 'waterlily_A', kind: 'env-flora-plant-water', tags: [],
-        cellen: { '1,2': reed, '*': reed },
+        naam: 'hedge-amber', bronmodel: 'bushescubeyellow', kind: 'str-barrier', tags: [],
+        cellen: { '0,4': hedgeAmber, '*': hedgeAmber },
       },
       {
-        naam: 'waterlily-b', bronmodel: 'waterlily_B', kind: 'env-flora-plant-water', tags: [],
-        cellen: { '1,2': reed, '*': reed },
+        naam: 'bush', bronmodel: 'bushesgreen', kind: 'env-flora-plant', tags: [],
+        cellen: { '5,1': leafGreen, '*': leafGreen },
       },
       {
-        naam: 'flag-red', bronmodel: 'flag_red', kind: 'str-marker-flag', tags: [],
-        cellen: { '1,3': clothRed, '6,0': beam, '*': beam },
+        naam: 'hedge-arch', bronmodel: 'bushesportalgreen', kind: 'str-barrier', tags: [],
+        cellen: { '5,1': hedgeGreen, '*': hedgeGreen },
       },
       {
-        naam: 'crate-b', bronmodel: 'crate_B_big', kind: 'obj-container-crate', tags: [],
-        cellen: { '6,1': beam, '*': beam },
+        naam: 'carrot', bronmodel: 'carrot_', kind: 'obj-food-vegetable', tags: [],
+        cellen: { '1,3': fleshOrange, '5,1': leafGreen, '*': fleshOrange },
       },
       {
-        naam: 'crate-b-small', bronmodel: 'crate_B_small', kind: 'obj-container-crate', tags: [],
-        cellen: { '5,3': planks, '*': planks },
-      },
-    ],
-  },
-
-  {
-    kit: 'ken-proto', bron: 'kenney_prototypekit', raster: [16, 4],
-    sleutels: { '7,3': masonryLight, '3,3': masonryDark, '*': masonryLight },
-    modellen: [
-      { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
-      { naam: 'wall-doorway', bronmodel: 'wall-doorway', kind: 'str-part-wall', tags: [] },
-      {
-        naam: 'wall-window-cutout-large', bronmodel: 'wall-window-cutout-large',
-        kind: 'str-part-wall', tags: [],
+        naam: 'cart', bronmodel: 'cart', kind: 'obj-transport-cart', tags: [],
+        cellen: { '4,4': worked, '5,3': beam, '5,4': beam, '2,7': steel, '*': worked },
       },
       {
-        naam: 'stairs-diagonal', bronmodel: 'stairs-diagonal', kind: 'str-access-stairs', tags: [],
+        naam: 'cheese', bronmodel: 'cheese', kind: 'obj-food-cheese', tags: [],
+        cellen: { '1,3': fleshAmber, '*': fleshAmber },
       },
       {
-        naam: 'ladder', bronmodel: 'ladder', kind: 'str-access-ladder', tags: [],
-        cellen: { '7,3': cast, '*': cast },
+        naam: 'cherries', bronmodel: 'cherry', kind: 'obj-food-fruit', tags: [],
+        cellen: { '0,2': fleshRed, '6,1': leafDark, '5,4': bark, '*': fleshRed },
       },
       {
-        naam: 'door', bronmodel: 'door-rotate', kind: 'str-part-door', tags: [],
-        cellen: { '7,3': beam, '9,2': beam, '3,3': cast, '*': beam },
-      },
-    ],
-  },
-
-  {
-    kit: 'ken-castle', bron: 'kenney_castlekit', raster: [16, 4],
-    sleutels: { '13,3': masonry, '12,3': masonryLight, '15,3': masonryLight, '*': masonry },
-    modellen: [
-      { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
-      { naam: 'wall-doorway', bronmodel: 'wall-doorway', kind: 'str-part-wall', tags: [] },
-      {
-        naam: 'wall-narrow-gate', bronmodel: 'wall-narrow-gate', kind: 'str-part-wall', tags: [],
-      },
-      { naam: 'stairs-stone', bronmodel: 'stairs-stone', kind: 'str-access-stairs', tags: [] },
-      {
-        naam: 'bridge-draw', bronmodel: 'bridge-draw', kind: 'str-access-bridge', tags: [],
-        cellen: { '9,3': planks, '*': planks },
+        naam: 'corn', bronmodel: 'corn', kind: 'obj-food-vegetable', tags: [],
+        cellen: { '0,4': fleshAmber, '5,1': leafGreen, '*': fleshAmber },
       },
       {
-        naam: 'door', bronmodel: 'door', kind: 'str-part-door', tags: [],
-        cellen: { '5,3': cast, '9,3': beam, '*': cast },
-      },
-    ],
-  },
-
-  {
-    kit: 'ken-holiday', bron: 'kenney_holidaykit', raster: [16, 4],
-    sleutels: {
-      '3,2': cabinLogs, '11,2': cabinBoards, '5,2': cabinTrim, '1,2': snow, '*': cabinLogs,
-    },
-    modellen: [
-      { naam: 'cabin-window-a', bronmodel: 'cabin-window-a', kind: 'str-part-wall', tags: [] },
-      { naam: 'cabin-window-b', bronmodel: 'cabin-window-b', kind: 'str-part-wall', tags: [] },
-      { naam: 'cabin-window-c', bronmodel: 'cabin-window-c', kind: 'str-part-wall', tags: [] },
-      {
-        naam: 'cabin-window-large', bronmodel: 'cabin-window-large',
-        kind: 'str-part-wall', tags: [],
-      },
-      { naam: 'cabin-doorway', bronmodel: 'cabin-doorway', kind: 'str-part-wall', tags: [] },
-      {
-        naam: 'cabin-overhang-doorway', bronmodel: 'cabin-overhang-doorway',
-        kind: 'str-part-wall', tags: [],
-      },
-      { naam: 'cabin-door', bronmodel: 'cabin-door-rotate', kind: 'str-part-door', tags: [] },
-      {
-        naam: 'cabin-overhang-door', bronmodel: 'cabin-overhang-door-rotate',
-        kind: 'str-part-door', tags: [],
+        naam: 'egg', bronmodel: 'egg', kind: 'obj-food', tags: [],
+        cellen: { '4,7': fleshIvory, '*': fleshIvory },
       },
       {
-        naam: 'cabin-roof', bronmodel: 'cabin-roof', kind: 'str-part-roof', tags: [],
-        cellen: { '5,2': cabinTrim, '11,2': roofTile, '*': roofTile },
+        naam: 'eggplant', bronmodel: 'eggplant', kind: 'obj-food-vegetable', tags: [],
+        cellen: { '0,0': fleshDark, '3,3': fleshDark, '5,1': leafGreen, '*': fleshDark },
       },
       {
-        naam: 'cabin-roof-point', bronmodel: 'cabin-roof-point', kind: 'str-part-roof', tags: [],
-        cellen: { '5,2': cabinTrim, '11,2': roofTile, '*': roofTile },
+        naam: 'fence-post', bronmodel: 'fence_', kind: 'str-barrier-post', tags: [],
+        cellen: { '5,4': beam, '*': beam },
       },
       {
-        naam: 'cabin-roof-corner', bronmodel: 'cabin-roof-corner', kind: 'str-part-roof', tags: [],
-        cellen: { '5,2': cabinTrim, '11,2': roofTile, '1,2': snow, '*': roofTile },
+        naam: 'fence-post-clean', bronmodel: 'fenceclean', kind: 'str-barrier-post', tags: [],
+        cellen: { '5,4': beam, '*': beam },
       },
       {
-        naam: 'cabin-roof-chimney', bronmodel: 'cabin-roof-chimney',
-        kind: 'str-part-roof', tags: [],
+        naam: 'fence-rail', bronmodel: 'fencemiddle', kind: 'str-barrier-fence', tags: [],
+        cellen: { '5,4': beam, '*': beam },
+      },
+      {
+        naam: 'fence-rail-clean', bronmodel: 'fencemiddleclean',
+        kind: 'str-barrier-fence', tags: [],
+        cellen: { '5,4': beam, '*': beam },
+      },
+      {
+        naam: 'fence-rail-mirror', bronmodel: 'fencemiddlemirror',
+        kind: 'str-barrier-fence', tags: [],
+        cellen: { '5,4': beam, '*': beam },
+      },
+      {
+        naam: 'fish', bronmodel: 'fish', kind: 'env-fauna', tags: [],
+        cellen: { '3,7': hide, '4,0': boneIvory, '*': hide },
+      },
+      {
+        naam: 'fish-tan', bronmodel: 'fish_001', kind: 'env-fauna', tags: [],
+        cellen: { '5,7': hidePale, '4,0': boneIvory, '*': hidePale },
+      },
+      {
+        naam: 'fish-umber', bronmodel: 'fish_002', kind: 'env-fauna', tags: [],
+        cellen: { '1,2': hideDark, '4,0': boneIvory, '*': hideDark },
+      },
+      {
+        naam: 'fish-carcass', bronmodel: 'fishalmostdead', kind: 'env-remains-bones', tags: [],
+        cellen: { '3,7': hide, '4,3': boneIvory, '4,0': boneIvory, '*': boneIvory },
+      },
+      {
+        naam: 'fish-carcass-tan', bronmodel: 'fishalmostdead_001',
+        kind: 'env-remains-bones', tags: [],
+        cellen: { '5,7': hidePale, '4,3': boneIvory, '4,0': boneIvory, '*': boneIvory },
+      },
+      {
+        naam: 'fish-carcass-umber', bronmodel: 'fishalmostdead_002',
+        kind: 'env-remains-bones', tags: [],
+        cellen: { '1,2': hideDark, '4,3': boneIvory, '4,0': boneIvory, '*': boneIvory },
+      },
+      {
+        naam: 'fish-bones', bronmodel: 'fishdead', kind: 'env-remains-bones', tags: [],
+        cellen: { '5,3': boneIvory, '4,3': boneIvory, '*': boneIvory },
+      },
+      {
+        naam: 'fishing-rod', bronmodel: 'fishingrod', kind: 'obj-tool-long', tags: [],
+        cellen: { '0,4': beam, '2,7': steel, '3,7': steel, '3,1': grip, '*': beam },
+      },
+      {
+        naam: 'fishing-rod-hunter', bronmodel: 'fishingrod_001', kind: 'obj-tool-long', tags: [],
+        cellen: { '0,4': beam, '2,7': steel, '3,7': steel, '6,1': clothGreen, '*': beam },
+      },
+      {
+        naam: 'daisy', bronmodel: 'flower', kind: 'env-flora-plant-flower', tags: [],
+        cellen: { '1,1': petal, '1,3': pollen, '5,1': leafGreen, '*': petal },
+      },
+      {
+        naam: 'daisy-head', bronmodel: 'flowerno', kind: 'env-flora-plant-flower', tags: [],
+        cellen: { '1,1': petal, '1,3': pollen, '*': petal },
+      },
+      {
+        naam: 'daisies', bronmodel: 'flowerstack',
+        kind: 'env-flora-plant-flower', tags: ['plural'],
+        cellen: { '1,1': petal, '1,3': pollen, '5,1': leafGreen, '*': petal },
+      },
+      {
+        naam: 'grapes', bronmodel: 'grape', kind: 'obj-food-fruit', tags: [],
+        cellen: { '0,0': fleshGreen, '5,1': leafDark, '*': fleshGreen },
+      },
+      {
+        naam: 'grapes-sienna', bronmodel: 'grapered', kind: 'obj-food-fruit', tags: [],
+        cellen: { '0,2': fleshRed, '5,1': leafDark, '*': fleshRed },
+      },
+      {
+        naam: 'haystack-cube', bronmodel: 'haystackcube', kind: 'obj-food-grain', tags: [],
+        cellen: { '0,4': straw, '0,5': straw, '*': straw },
+      },
+      {
+        naam: 'haystack-round', bronmodel: 'haystackround', kind: 'obj-food-grain', tags: [],
+        cellen: { '0,4': straw, '*': straw },
+      },
+      {
+        naam: 'haystack-thick', bronmodel: 'haystackthick', kind: 'obj-food-grain', tags: [],
+        cellen: { '0,4': straw, '0,5': straw, '*': straw },
+      },
+      {
+        naam: 'haystack-thin', bronmodel: 'haystackthin', kind: 'obj-food-grain', tags: [],
+        cellen: { '0,4': straw, '0,5': straw, '*': straw },
+      },
+      {
+        naam: 'leaf', bronmodel: 'leaf', kind: 'env-flora-plant', tags: [],
+        cellen: { '5,1': leafGreen, '*': leafGreen },
+      },
+      {
+        naam: 'mailbox', bronmodel: 'mailbox', kind: 'str-marker', tags: [],
         cellen: {
-          '11,3': masonryLight, '13,3': masonryLight, '5,2': cabinTrim, '11,2': roofTile,
-          '*': masonryLight,
+          '2,7': cast, '3,7': cast, '4,0': cast, '5,3': beam, '5,4': beam, '0,2': paint,
+          '*': cast,
         },
       },
       {
-        naam: 'cabin-roof-snow-dormer', bronmodel: 'cabin-roof-snow-dormer',
-        kind: 'str-part-roof', tags: [],
+        naam: 'mango', bronmodel: 'mango', kind: 'obj-food-fruit', tags: [],
+        cellen: { '2,3': fleshAmber, '*': fleshAmber },
+      },
+      {
+        naam: 'pond', bronmodel: 'pond', kind: 'assy', tags: [],
+        cellen: { '1,6': water, '4,0': rock, '5,4': planks, '2,7': steel, '1,1': plaster,
+          '*': water },
+      },
+      {
+        naam: 'pond-scene', bronmodel: 'pondscene', kind: 'assy', tags: [],
         cellen: {
-          '11,2': roofTile, '1,3': snow, '1,2': snow, '3,2': cabinLogs, '5,2': cabinTrim,
-          '*': roofTile,
+          '1,6': water, '4,0': rock, '5,7': hidePale, '5,4': planks, '2,7': steel,
+          '0,4': beam, '3,7': steel, '3,1': grip, '1,1': plaster, '*': water,
+        },
+      },
+      { naam: 'rock-a', bronmodel: 'rocks', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-b', bronmodel: 'rocks_001', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-c', bronmodel: 'rocks_002', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-d', bronmodel: 'rocks_003', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-e', bronmodel: 'rocks_004', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-f', bronmodel: 'rocks_005', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-g', bronmodel: 'rocks_006', kind: 'env-rock-cobble', tags: [] },
+      { naam: 'rock-h', bronmodel: 'rocks_007', kind: 'env-rock-cobble', tags: [] },
+      {
+        naam: 'shark', bronmodel: 'shark', kind: 'env-fauna', tags: [],
+        cellen: { '1,1': hide, '4,0': boneIvory, '3,6': boneIvory, '*': hide },
+      },
+      {
+        naam: 'smelter', bronmodel: 'smelter_lvl1', kind: 'str-building-fort-smithy', tags: [],
+        cellen: {
+          '3,7': masonryDark, '2,7': cast, '3,6': cast, '2,3': molten, '1,3': molten,
+          '*': masonryDark,
         },
       },
       {
-        naam: 'floor-wood', bronmodel: 'floor-wood', kind: 'str-part-floor', tags: [],
-        cellen: { '3,2': planks, '*': planks },
+        naam: 'smelter-medium', bronmodel: 'smelter_lvl2',
+        kind: 'str-building-fort-smithy', tags: [],
+        cellen: { '3,7': masonryDark, '2,7': cast, '2,3': molten, '1,3': molten,
+          '*': masonryDark },
       },
       {
-        naam: 'floor-wood-snow', bronmodel: 'floor-wood-snow', kind: 'str-part-floor', tags: [],
-        cellen: { '3,2': planks, '1,3': snow, '*': planks },
-      },
-      {
-        naam: 'floor-stone', bronmodel: 'floor-stone', kind: 'str-part-floor', tags: [],
-        cellen: { '11,3': masonryLight, '*': masonryLight },
-      },
-      {
-        naam: 'bench', bronmodel: 'bench', kind: 'obj-furniture-seating-bench', tags: [],
-        cellen: { '3,2': planks, '15,3': cast, '*': planks },
-      },
-      {
-        naam: 'bench-short', bronmodel: 'bench-short',
-        kind: 'obj-furniture-seating-bench', tags: [],
-        cellen: { '3,2': planks, '15,3': cast, '*': planks },
-      },
-      {
-        naam: 'lantern', bronmodel: 'lantern', kind: 'obj-lighting-lantern', tags: [],
-        cellen: { '11,3': wrought, '13,2': glow, '*': wrought },
-      },
-      {
-        naam: 'candy-cane', bronmodel: 'candy-cane-red', kind: 'obj-food-sweet', tags: [],
-        cellen: { '1,2': icing, '7,3': candyRed, '*': icing },
-      },
-    ],
-  },
-
-  {
-    kit: 'kay-food', bron: 'KayKit_Restaurant_Bits_1.0_FREE', raster: [8, 4],
-    sleutels: { '4,1': plaster, '2,1': dado, '3,0': cast, '*': plaster },
-    modellen: [
-      { naam: 'wall', bronmodel: 'wall', kind: 'str-part-wall', tags: [] },
-      { naam: 'wall-doorway', bronmodel: 'wall_doorway', kind: 'str-part-wall', tags: [] },
-      { naam: 'wall-window', bronmodel: 'wall_window_open', kind: 'str-part-wall', tags: [] },
-      {
-        naam: 'door-a', bronmodel: 'door_A', kind: 'str-part-door', tags: [],
-        cellen: { '3,0': cast, '2,1': beam, '1,3': ruit, '0,3': ruit, '*': cast },
-      },
-      {
-        naam: 'stove', bronmodel: 'stove_multi', kind: 'obj-kitchenware-cookware', tags: [],
-        cellen: { '3,0': steel, '1,1': enamelRed, '1,0': wrought, '0,0': wrought, '*': steel },
-      },
-      {
-        naam: 'chair-a', bronmodel: 'chair_A', kind: 'obj-furniture-seating-chair', tags: [],
-        cellen: { '6,3': clothRed, '3,0': steel, '*': steel },
-      },
-      {
-        naam: 'stool', bronmodel: 'chair_stool', kind: 'obj-furniture-seating-stool', tags: [],
-        cellen: { '6,3': clothRed, '3,0': steel, '*': steel },
-      },
-    ],
-  },
-
-  {
-    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', raster: [8, 8],
-    sleutels: {
-      '3,0': worked, '3,1': worked, '4,0': plaster, '4,1': plaster,
-      '6,4': tile, '6,5': tile, '6,6': ruit, '7,7': ruit, '*': plaster,
-    },
-    modellen: [
-      {
-        naam: 'window-small', bronmodel: 'window_small_modular',
-        kind: 'str-part-window', tags: [],
-      },
-      {
-        naam: 'window-large', bronmodel: 'window_large_modular',
-        kind: 'str-part-window', tags: [],
-      },
-      {
-        naam: 'wall-tiles-window-small', bronmodel: 'wall_tiles_kitchen_window_small',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-tiles-window-large', bronmodel: 'wall_tiles_kitchen_window_large',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-tiles-modular', bronmodel: 'wall_modular_tiles_kitchen_straight_A',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-tiles-modular-window-large',
-        bronmodel: 'wall_modular_tiles_kitchen_window_large_B',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'table-a', bronmodel: 'table_A', kind: 'obj-furniture-table', tags: [],
-        cellen: { '3,0': beam, '3,1': beam, '5,0': worked, '5,1': worked, '*': beam },
-      },
-      {
-        naam: 'table-b', bronmodel: 'table_B', kind: 'obj-furniture-table', tags: [],
-        cellen: { '3,0': beam, '3,1': beam, '5,0': worked, '5,1': worked, '*': beam },
-      },
-      {
-        naam: 'table-c', bronmodel: 'table_C', kind: 'obj-furniture-table', tags: [],
-        cellen: { '3,0': beam, '3,1': beam, '5,0': worked, '5,1': worked, '*': beam },
-      },
-      {
-        naam: 'stove', bronmodel: 'stove', kind: 'obj-kitchenware-cookware', tags: [],
+        naam: 'smelter-large', bronmodel: 'smelter_lv3',
+        kind: 'str-building-fort-smithy', tags: [],
         cellen: {
-          '1,0': wrought, '1,1': wrought, '2,0': steel, '2,1': steel,
-          '2,2': dado, '2,3': dado, '6,6': ruit, '6,7': ruit, '7,6': ruit, '7,7': ruit,
-          '*': steel,
-        },
-      },
-    ],
-  },
-
-  {
-    kit: 'isa-bakery', bron: 'Tiny_Treats_Bakery_Interior_1.1_FREE', raster: [8, 8],
-    sleutels: {
-      '6,0': beam, '6,1': beam, '4,0': plaster, '4,1': plaster,
-      '3,0': worked, '3,1': worked, '6,6': ruit, '7,7': ruit, '*': plaster,
-    },
-    modellen: [
-      {
-        naam: 'window-small', bronmodel: 'window_small_modular',
-        kind: 'str-part-window', tags: [],
-      },
-      {
-        naam: 'window-large', bronmodel: 'window_large_modular',
-        kind: 'str-part-window', tags: [],
-      },
-      {
-        naam: 'wall-panelled-window-small', bronmodel: 'wall_panelled_bakery_window_small',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-panelled-window-large', bronmodel: 'wall_panelled_bakery_window_large',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-panelled-modular', bronmodel: 'wall_modular_panelled_bakery_straight_A',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'wall-panelled', bronmodel: 'wall_panelled_bakery_straight',
-        kind: 'str-part-wall', tags: [],
-      },
-      {
-        naam: 'floor-wood', bronmodel: 'floor_wood', kind: 'str-part-floor', tags: [],
-        cellen: { '6,0': beam, '6,1': beam, '*': beam },
-      },
-      {
-        naam: 'floor-tiled', bronmodel: 'floor_tiled', kind: 'str-part-floor', tags: [],
-        cellen: { '4,0': plaster, '4,1': plaster, '*': plaster },
-      },
-      {
-        naam: 'floor-connection', bronmodel: 'floor_connection', kind: 'str-part-floor', tags: [],
-        cellen: { '4,0': plaster, '4,1': plaster, '6,0': beam, '6,1': beam, '*': plaster },
-      },
-      {
-        naam: 'door-modular', bronmodel: 'door_modular', kind: 'str-part-door', tags: [],
-        cellen: {
-          '1,4': gold, '1,5': gold, '5,0': worked, '5,1': worked,
-          '6,0': beam, '6,1': beam, '6,6': ruit, '7,7': ruit, '*': worked,
+          '3,7': masonryDark, '2,7': cast, '5,4': beam, '5,0': masonry,
+          '2,3': molten, '1,3': molten, '*': masonryDark,
         },
       },
       {
-        naam: 'curtains', bronmodel: 'curtains', kind: 'obj-furniture', tags: [],
-        cellen: { '5,0': worked, '3,0': cloth, '3,1': cloth, '4,3': clothGreen, '*': cloth },
+        naam: 'soil', bronmodel: 'soil', kind: 'env-terrain-ground', tags: [],
+        cellen: { '0,5': soilBed, '*': soilBed },
       },
       {
-        naam: 'counter-table', bronmodel: 'counter_table', kind: 'obj-furniture-table', tags: [],
-        cellen: { '3,0': beam, '3,1': beam, '5,0': worked, '*': beam },
+        naam: 'sword', bronmodel: 'sword', kind: 'obj-weapon-melee-sword', tags: [],
+        cellen: { '2,7': steel, '0,2': clothRed, '5,4': beam, '*': steel },
       },
       {
-        naam: 'scale', bronmodel: 'scale', kind: 'obj-tool', tags: [],
+        naam: 'sword-taupe', bronmodel: 'sword_001', kind: 'obj-weapon-melee-sword', tags: [],
+        cellen: { '2,7': steel, '3,1': grip, '5,4': beam, '*': steel },
+      },
+      {
+        naam: 'tomato', bronmodel: 'tomato', kind: 'obj-food-vegetable', tags: [],
+        cellen: { '3,2': fleshRed, '7,1': leafGreen, '*': fleshRed },
+      },
+      {
+        naam: 'trowel', bronmodel: 'tool', kind: 'obj-tool-hand', tags: [],
+        cellen: { '2,7': steel, '5,4': planks, '*': steel },
+      },
+      {
+        naam: 'knife', bronmodel: 'tool_001', kind: 'obj-tool-hand', tags: [],
+        cellen: { '2,7': steel, '5,4': planks, '*': steel },
+      },
+      {
+        naam: 'saw', bronmodel: 'tool_002', kind: 'obj-tool-hand-saw', tags: [],
+        cellen: { '2,7': steel, '5,4': planks, '*': steel },
+      },
+      {
+        naam: 'pickaxe', bronmodel: 'tool_003', kind: 'obj-tool-long-pickaxe', tags: [],
+        cellen: { '2,7': steel, '5,4': beam, '2,2': grip, '*': steel },
+      },
+      {
+        naam: 'pickaxe-curved', bronmodel: 'tool_004', kind: 'obj-tool-long-pickaxe', tags: [],
+        cellen: { '2,7': steel, '5,4': beam, '2,2': grip, '*': steel },
+      },
+      {
+        naam: 'axe', bronmodel: 'tool_005', kind: 'obj-weapon-melee-axe-single', tags: [],
+        cellen: { '2,7': steel, '5,4': beam, '2,2': grip, '*': steel },
+      },
+      {
+        naam: 'windmill-small', bronmodel: 'towerlvl1',
+        kind: 'str-building-mill-windmill', tags: [],
+        cellen: { '5,4': beam, '5,0': masonry, '5,3': planks, '*': beam },
+      },
+      {
+        naam: 'windmill', bronmodel: 'towerlv2', kind: 'str-building-mill-windmill', tags: [],
+        cellen: { '5,4': beam, '5,0': masonry, '5,3': planks, '0,7': cast, '0,6': cast,
+          '*': beam },
+      },
+      {
+        naam: 'windmill-large', bronmodel: 'towerlv3',
+        kind: 'str-building-mill-windmill', tags: [],
         cellen: {
-          '2,0': steel, '2,1': steel, '2,4': enamelRed, '2,5': enamelRed,
-          '3,0': plaster, '3,1': plaster, '*': steel,
+          '0,2': paint, '5,4': beam, '5,0': masonry, '5,3': planks,
+          '0,7': cast, '0,6': cast, '4,0': masonry, '*': beam,
         },
       },
       {
-        naam: 'milk-carton', bronmodel: 'milk', kind: 'obj-container', tags: [],
-        cellen: { '3,1': board, '3,2': board, '3,3': board, '4,2': board, '*': board },
+        naam: 'puddle', bronmodel: 'waterdrop', kind: 'env-water', tags: [],
+        cellen: { '1,6': water, '*': water },
       },
       {
-        naam: 'macaron-pink', bronmodel: 'macaron_pink', kind: 'obj-food-grain-pastry', tags: [],
-        cellen: { '3,4': candyPink, '4,0': icing, '4,1': icing, '*': candyPink },
+        naam: 'droplets', bronmodel: 'waterdrop_001', kind: 'env-water', tags: ['plural'],
+        cellen: { '1,6': water, '*': water },
       },
       {
-        naam: 'dough-rolled-a', bronmodel: 'dough_rolled_A', kind: 'obj-food-grain', tags: [],
-        cellen: { '4,4': dough, '4,5': dough, '*': dough },
+        naam: 'droplets-wide', bronmodel: 'waterdrop_002', kind: 'env-water', tags: ['plural'],
+        cellen: { '1,6': water, '*': water },
       },
       {
-        naam: 'dough-rolled-b', bronmodel: 'dough_rolled_B', kind: 'obj-food-grain', tags: [],
-        cellen: { '4,4': dough, '4,5': dough, '*': dough },
-      },
-    ],
-  },
-
-  {
-    kit: 'kay-holiday', bron: 'KayKit_Holiday_Bits_1.0_FREE', raster: [8, 4],
-    modellen: [
-      {
-        naam: 'plate-nickel', bronmodel: 'plate_white',
-        kind: 'obj-kitchenware-tableware-plate', tags: [],
-        cellen: { '5,3': steel, '*': steel },
+        naam: 'watering-can', bronmodel: 'wateringcan_001', kind: 'obj-container-pot', tags: [],
+        cellen: { '1,1': steel, '1,2': enamel, '*': steel },
       },
       {
-        naam: 'plate-small-nickel', bronmodel: 'plate_small_white',
-        kind: 'obj-kitchenware-tableware-plate', tags: [],
-        cellen: { '5,3': steel, '*': steel },
+        naam: 'watering-can-slate', bronmodel: 'wateringcan_003',
+        kind: 'obj-container-pot', tags: [],
+        cellen: { '5,1': cast, '1,2': enamel, '*': cast },
       },
       {
-        naam: 'plate-small-ivory', bronmodel: 'plate_small_blue',
-        kind: 'obj-kitchenware-tableware-plate', tags: [],
-        cellen: { '4,3': plaster, '*': plaster },
+        naam: 'watering-can-basalt', bronmodel: 'wateringcan_005',
+        kind: 'obj-container-pot', tags: [],
+        cellen: { '3,7': wrought, '1,2': enamel, '*': wrought },
       },
       {
-        naam: 'lantern-mini', bronmodel: 'lantern_mini', kind: 'obj-lighting-lantern', tags: [],
-        cellen: { '4,0': wrought, '5,3': snow, '2,2': glow, '*': wrought },
+        naam: 'watering-can-flower', bronmodel: 'wateringcanwflower',
+        kind: 'obj-container-pot', tags: [],
+        cellen: { '1,1': steel, '1,2': enamel, '5,1': leafGreen, '1,3': pollen, '*': steel },
       },
       {
-        naam: 'lantern-decorated', bronmodel: 'lantern_decorated',
-        kind: 'obj-lighting-lantern', tags: [],
+        naam: 'watering-can-flower-slate', bronmodel: 'wateringcanwflower_001',
+        kind: 'obj-container-pot', tags: [],
+        cellen: { '5,1': cast, '1,1': plaster, '1,2': enamel, '1,3': pollen, '*': cast },
+      },
+      {
+        naam: 'watering-can-flower-basalt', bronmodel: 'wateringcanwflower_002',
+        kind: 'obj-container-pot', tags: [],
         cellen: {
-          '4,1': wrought, '5,3': snow, '6,2': clothRed, '0,1': leaf, '2,2': glow, '*': wrought,
+          '3,7': wrought, '5,1': leafGreen, '1,1': plaster, '1,2': enamel, '1,3': pollen,
+          '*': wrought,
         },
       },
       {
-        naam: 'milk', bronmodel: 'milk', kind: 'obj-kitchenware-tableware-drinkware', tags: [],
-        cellen: { '5,3': ruit, '*': ruit },
+        naam: 'wheat', bronmodel: 'wheat', kind: 'obj-food-grain', tags: [],
+        cellen: { '0,4': straw, '*': straw },
       },
       {
-        naam: 'plate-cocoa', bronmodel: 'plate_decorated_A', kind: 'assy', tags: [],
+        naam: 'crate', bronmodel: 'woodenbox', kind: 'obj-container-crate', tags: [],
+        cellen: { '5,4': planks, '2,7': steel, '*': planks },
+      },
+      {
+        naam: 'crate-open', bronmodel: 'woodenbox_001', kind: 'obj-container-crate', tags: [],
+        cellen: { '5,4': planks, '2,7': steel, '4,4': worked, '*': planks },
+      },
+      {
+        naam: 'crate-open-slate', bronmodel: 'woodenboxvar',
+        kind: 'obj-container-crate', tags: [],
+        cellen: { '3,7': cast, '2,7': cast, '4,4': worked, '*': cast },
+      },
+      {
+        naam: 'mixer', bronmodel: 'woodenmixer', kind: 'assy', tags: [],
         cellen: {
-          '5,0': gingerbread, '3,2': icing, '5,3': icing, '2,2': tile, '4,3': plaster,
-          '6,2': candyRed, '5,2': candyRed, '1,3': candyRed, '6,0': chocolate, '*': icing,
+          '4,4': worked, '5,4': beam, '2,7': steel, '0,7': steel, '0,6': steel,
+          '3,7': cast, '5,1': leafGreen, '*': worked,
         },
-      },
-      {
-        naam: 'gingerbread-house', bronmodel: 'gingerbread_house',
-        kind: 'obj-food-grain-pastry', tags: [],
-        cellen: {
-          '3,2': icing, '5,3': icing, '5,2': icing, '0,3': candyRed, '6,2': candyRed,
-          '2,2': candyRed, '1,3': candyRed, '5,0': gingerbread, '6,0': gingerbread,
-          '*': gingerbread,
-        },
-      },
-      {
-        naam: 'gingerbread-house-decorated', bronmodel: 'gingerbread_house_decorated',
-        kind: 'obj-food-grain-pastry', tags: [],
-        cellen: {
-          '3,2': icing, '5,3': icing, '5,2': icing, '0,3': candyRed, '6,2': candyRed,
-          '2,2': candyRed, '1,3': candyRed, '5,0': gingerbread, '6,0': gingerbread,
-          '*': gingerbread,
-        },
-      },
-      {
-        naam: 'candycane', bronmodel: 'candycane_small', kind: 'obj-food-sweet', tags: [],
-        cellen: { '5,3': icing, '6,2': candyRed, '*': icing },
-      },
-      {
-        naam: 'football', bronmodel: 'football', kind: 'obj', tags: [],
-        cellen: { '5,3': cloth, '2,0': clothGrey, '*': cloth },
-      },
-    ],
-  },
-
-  {
-    kit: 'kay-minigame', bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
-    modellen: [
-      {
-        naam: 'lightning', bronmodel: 'lightning', kind: 'obj', tags: ['pickup'],
-        kleuren: { '#ffbc24': gold, '*': gold },
-      },
-      {
-        naam: 'flag-red', bronmodel: 'flag_teamRed', kind: 'str-marker-flag', tags: [],
-        kleuren: { '#ff2c60': clothRed, '#c8855f': worked, '#aab8be': cast, '*': cast },
-      },
-      {
-        naam: 'barrier-ladder', bronmodel: 'barrierLadder', kind: 'str-access-ladder', tags: [],
-        kleuren: { '#aab8be': cast, '*': cast },
-      },
-    ],
-  },
-
-  {
-    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit',
-    modellen: [
-      {
-        naam: 'fence', bronmodel: 'Fence', kind: 'str-barrier-fence', tags: [],
-        kleuren: { '#818491': cast, '*': cast },
-      },
-      {
-        naam: 'fence-long', bronmodel: 'Fence Long', kind: 'str-barrier-fence', tags: [],
-        kleuren: { '#818491': cast, '*': cast },
       },
     ],
   },
