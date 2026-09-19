@@ -94,7 +94,7 @@ export const BRONKITS = [
   { map: 'gobkit_animal-pack-2', naam: 'Gobkit Animal Pack 2', kit: null, formaat: 'glb' },
   { map: 'gobkit_minion-pack', naam: 'Gobkit Minion Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
-  { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: null, formaat: 'glb' },
+  { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: 'gob-nature', formaat: 'glb' },
   { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
@@ -103,5 +103,5 @@ export const BRONKITS = [
   { map: 'kenney_watercraft-pack_1', naam: 'Kenney Watercraft Pack', kit: 'ken-water', source: 'ken', formaat: 'glb' },
   { map: 'kenney_nature-kit', naam: 'Kenney Nature Kit', kit: 'ken-nature', source: 'ken', formaat: 'glb' },
 
-  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: null, formaat: 'glb' },
+  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: 'styloo-farm', formaat: 'glb' },
 ];
