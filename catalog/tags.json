@@ -5980,26 +5980,34 @@
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
    "color": "#c07c8a",
    "models": [
-    "ken-platformer/heart",
     "ken-platformer/lock",
-    "ken-platformer/star",
     "quat-rpg/padlock",
     "small-props/fireplace-1-1-a",
-    "quat-rpg/heart",
-    "quat-rpg/star",
     "kay-mixed/plushie-chicken-a",
     "kay-mixed/plushie-chicken-b",
     "kay-mixed/instant-camera-a",
-    "kay-minigame/star",
-    "kay-holiday/football",
-    "kay-minigame/lightning"
+    "kay-holiday/football"
+   ]
+  },
+  {
+   "id": "obj-icon",
+   "name": "Icon",
+   "type": "kind",
+   "description": "icon, heart (icon), star (icon), lightning bolt",
+   "models": [
+    "ken-platformer/heart",
+    "quat-rpg/heart",
+    "kay-minigame/lightning",
+    "quat-rpg/star",
+    "ken-platformer/star",
+    "kay-minigame/star"
    ]
   },
   {
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin, can",
+   "description": "basket, tub, trough, bin",
    "color": "#dd9f79",
    "models": [
     "quat-props/cage-small",
@@ -6015,36 +6023,66 @@
    ]
   },
   {
+   "id": "obj-container-can",
+   "name": "Can",
+   "type": "kind",
+   "description": "can, watering can",
+   "models": [
+    "styloo-farm/watering-can-flower",
+    "styloo-farm/watering-can-flower-basalt",
+    "styloo-farm/watering-can-flower-slate",
+    "styloo-farm/watering-can",
+    "styloo-farm/watering-can-basalt",
+    "styloo-farm/watering-can-slate"
+   ]
+  },
+  {
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
-   "description": "bag, sack, pouch, purse, backpack, satchel",
+   "description": "bag, backpack, satchel",
    "models": [
-    "asia-rg/sack-a",
-    "asia-rg/sack-b",
-    "quat-props/bag",
-    "quat-props/pouch-large",
-    "kay-dun-1/loot-sack-a",
-    "kay-dun-1/loot-sack-b",
-    "medieval-town/bag",
     "medieval-town/bag-open",
-    "medieval-town/bags",
     "medieval-town/package",
     "medieval-town/package-2",
-    "props/bag-a",
-    "quat-dun-2/bag-coins",
-    "quat-dun-2/bag-standing",
-    "quat-pirate/gold-bag",
     "quat-rpg/backpack",
-    "quat-rpg/bag",
+    "quat-rpg/bag"
+   ]
+  },
+  {
+   "id": "obj-container-bag-pouch",
+   "name": "Pouch",
+   "type": "kind",
+   "description": "pouch, purse, coin bag",
+   "models": [
+    "quat-dun-2/bag-coins",
+    "quat-dun-1/bag-coins",
+    "quat-props/pouch-large",
+    "quat-rpg/pouch"
+   ]
+  },
+  {
+   "id": "obj-container-bag-sack",
+   "name": "Sack",
+   "type": "kind",
+   "description": "sack, loot sack, trash bag",
+   "models": [
+    "quat-props/bag",
+    "medieval-town/bag",
+    "props/bag-a",
     "small-props/bag-1-c",
     "small-props/bag-2-c",
     "small-props/bag-3-c",
-    "quat-rpg/pouch",
-    "quat-dun-1/bag-coins",
+    "medieval-town/bags",
+    "quat-dun-2/bag-standing",
     "quat-dun-1/bag-standing",
+    "quat-pirate/gold-bag",
     "post-apocalypse/trash-bag",
     "post-apocalypse/trash-bags",
+    "asia-rg/sack-a",
+    "asia-rg/sack-b",
+    "kay-dun-1/loot-sack-b",
+    "kay-dun-1/loot-sack-a",
     "kay-hexagon/sack"
    ]
   },
@@ -6052,7 +6090,7 @@
    "id": "obj-container-barrel",
    "name": "Barrel",
    "type": "kind",
-   "description": "barrel, cask, keg",
+   "description": "barrel, cask",
    "models": [
     "desert-buildings/barrel",
     "fs-town/barrel-a",
@@ -6062,7 +6100,6 @@
     "kay-dun-1/barrel-dark",
     "kay-dun-2/barrel-large",
     "kay-dun-2/barrel-small",
-    "kay-dun-2/keg",
     "ken-mini-dun/barrel",
     "ken-pirate/barrel",
     "ken-platformer/barrel",
@@ -6077,17 +6114,26 @@
     "quat-dun-1/barrel-2",
     "quat-dun-2/barrel-2",
     "medieval-village/barrel",
-    "medieval-village/barrel-tapped",
     "medieval-village/barrel-ore",
     "kay-hexagon/barrel",
     "styloo-farm/barrel"
    ]
   },
   {
+   "id": "obj-container-barrel-keg",
+   "name": "Keg",
+   "type": "kind",
+   "description": "keg, tapped barrel",
+   "models": [
+    "medieval-village/barrel-tapped",
+    "kay-dun-2/keg"
+   ]
+  },
+  {
    "id": "obj-container-bottle",
    "name": "Bottle",
    "type": "kind",
-   "description": "bottle, flask, vial, potion",
+   "description": "bottle, flask, vial",
    "models": [
     "kay-dun-2/bottle-a-brown",
     "kay-dun-2/bottle-a-green",
@@ -6097,57 +6143,65 @@
     "kay-dun-2/bottle-b-green",
     "kay-dun-2/bottle-c-brown",
     "kay-dun-2/bottle-c-green",
-    "kay-dun-1/potion-large-green",
-    "kay-dun-1/potion-large-red",
-    "kay-dun-1/potion-medium-green",
-    "kay-dun-1/potion-medium-red",
-    "kay-dun-1/potion-small-green",
-    "kay-dun-1/potion-small-red",
     "quat-props/bottle-1",
     "quat-props/bottle-1-green",
-    "quat-props/potion-2",
-    "quat-props/potion-4",
     "quat-food/bottle-1",
     "quat-food/bottle-2",
     "ken-pirate/bottle",
     "ken-pirate/bottle-large",
     "ken-pirate/bottle-red",
-    "quat-pirate/bottle-1",
-    "quat-pirate/bottle-2",
-    "props/bottle-a",
-    "props/bottle-a-green",
     "props/bottle-b",
     "props/bottle-b-red",
     "props/bottle-c",
     "props/bottle-c-red",
-    "quat-rpg/potion-1-empty",
-    "quat-rpg/potion-1-filled",
-    "quat-rpg/potion-10-empty",
-    "quat-rpg/potion-10-filled",
-    "quat-rpg/potion-11-empty",
-    "quat-rpg/potion-11-filled",
-    "quat-rpg/potion-2-empty",
-    "quat-rpg/potion-2-filled",
-    "quat-rpg/potion-3-empty",
-    "quat-rpg/potion-3-filled",
-    "quat-rpg/potion-4-empty",
-    "quat-rpg/potion-4-filled",
-    "quat-rpg/potion-5-empty",
-    "quat-rpg/potion-5-filled",
-    "quat-rpg/potion-6-empty",
-    "quat-rpg/potion-6-filled",
-    "quat-rpg/potion-7-empty",
-    "quat-rpg/potion-7-filled",
-    "quat-rpg/potion-8-empty",
-    "quat-rpg/potion-8-filled",
-    "quat-rpg/potion-9-empty",
-    "quat-rpg/potion-9-filled",
     "ken-survival/bottle",
     "ken-survival/bottle-large",
     "ken-survival/bottle-red",
     "kay-mixed/water-bottle-a",
     "kay-mixed/water-bottle-b",
     "isa-picnic/wine-bottle"
+   ]
+  },
+  {
+   "id": "obj-container-bottle-potion",
+   "name": "Potion",
+   "type": "kind",
+   "description": "potion",
+   "models": [
+    "quat-pirate/bottle-1",
+    "props/bottle-a",
+    "props/bottle-a-green",
+    "quat-pirate/bottle-2",
+    "quat-rpg/potion-1-filled",
+    "quat-rpg/potion-1-empty",
+    "quat-rpg/potion-2-empty",
+    "quat-rpg/potion-2-filled",
+    "quat-rpg/potion-10-filled",
+    "quat-rpg/potion-10-empty",
+    "quat-rpg/potion-11-empty",
+    "quat-rpg/potion-11-filled",
+    "quat-props/potion-2",
+    "quat-props/potion-4",
+    "quat-rpg/potion-3-filled",
+    "quat-rpg/potion-3-empty",
+    "quat-rpg/potion-4-empty",
+    "quat-rpg/potion-4-filled",
+    "quat-rpg/potion-5-empty",
+    "quat-rpg/potion-5-filled",
+    "quat-rpg/potion-6-filled",
+    "quat-rpg/potion-6-empty",
+    "quat-rpg/potion-7-empty",
+    "quat-rpg/potion-7-filled",
+    "quat-rpg/potion-8-filled",
+    "quat-rpg/potion-8-empty",
+    "quat-rpg/potion-9-empty",
+    "quat-rpg/potion-9-filled",
+    "kay-dun-1/potion-large-green",
+    "kay-dun-1/potion-large-red",
+    "kay-dun-1/potion-medium-red",
+    "kay-dun-1/potion-medium-green",
+    "kay-dun-1/potion-small-green",
+    "kay-dun-1/potion-small-red"
    ]
   },
   {
@@ -6232,58 +6286,66 @@
    "description": "crate, box, case",
    "models": [
     "desert-buildings/crate",
-    "quat-props/crate-metal",
-    "fs-town/crate-a",
-    "fs-town/crate-a-open",
-    "kay-dun-1/crate-dark",
-    "kay-dun-1/crate-platform-large",
     "kay-food/crate",
     "kay-food/crate-closed",
     "ken-pirate/crate",
-    "ken-platformer/crate",
-    "ken-survival/box",
     "ken-survival/box-large",
     "ken-survival/box-large-open",
     "ken-survival/box-open",
     "medieval-forge/box",
-    "medieval-forge/box-2",
-    "medieval-town/crate",
-    "props/box-a",
-    "quat-dun-2/crate",
-    "asia-grave/crate",
     "kay-food/crate-lid",
-    "quat-dun-1/crate",
     "kay-mixed/comic-box-closed",
     "kay-mixed/comic-box-open",
     "kay-mixed/comic-box-filled",
-    "medieval-village/dynamite-crate",
     "medieval-village/dynamite-crate-open",
-    "toon-shooter/crate",
-    "medieval-village/crate-a",
-    "medieval-village/crate-b",
-    "kay-hexagon/crate",
-    "kay-hexagon/crate-small",
     "kay-hexagon/crate-long-a",
     "kay-hexagon/crate-long-b",
     "kay-hexagon/crate-long-c",
     "kay-hexagon/crate-long",
     "kay-hexagon/crate-open",
-    "toon-shooter/cardboard-box",
     "toon-shooter/cardboard-box-flat",
     "toon-shooter/cardboard-boxes-a",
     "toon-shooter/cardboard-boxes-b",
-    "kay-hexagon/crate-b",
-    "kay-hexagon/crate-b-small",
-    "styloo-farm/crate",
     "styloo-farm/crate-open",
     "styloo-farm/crate-open-slate"
+   ]
+  },
+  {
+   "id": "obj-container-crate-cube",
+   "name": "Cube",
+   "type": "kind",
+   "description": "cube crate, cube box",
+   "models": [
+    "ken-survival/box",
+    "medieval-forge/box-2",
+    "props/box-a",
+    "toon-shooter/cardboard-box",
+    "asia-grave/crate",
+    "kay-hexagon/crate",
+    "kay-hexagon/crate-small",
+    "ken-platformer/crate",
+    "medieval-town/crate",
+    "quat-dun-1/crate",
+    "quat-dun-2/crate",
+    "styloo-farm/crate",
+    "toon-shooter/crate",
+    "kay-dun-1/crate-dark",
+    "kay-hexagon/crate-b-small",
+    "kay-hexagon/crate-b",
+    "medieval-village/crate-a",
+    "medieval-village/crate-b",
+    "fs-town/crate-a",
+    "fs-town/crate-a-open",
+    "medieval-village/dynamite-crate",
+    "kay-dun-1/crate-platform-large",
+    "quat-props/crate-metal"
    ]
   },
   {
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot (storage), planter, urn, amphora, jar, jug, pitcher, ewer",
+   "description": "pot (storage), planter, urn, amphora, jug, pitcher, ewer",
    "models": [
     "clay-props/jug",
     "clay-props/planter",
@@ -6298,9 +6360,6 @@
     "kay-dun-1/pot-b-decorated",
     "kay-dun-1/pot-c",
     "kay-dun-1/pot-c-decorated",
-    "kay-food/jar-c-large",
-    "kay-food/jar-c-medium",
-    "kay-food/jar-c-small",
     "ken-grave/urn-round",
     "ken-grave/urn-square",
     "props/jug-a",
@@ -6311,21 +6370,26 @@
     "asia-pack/pot-small",
     "asia-pack/urn-a",
     "asia-pack/urn-b",
-    "quat-food/peanut-butter",
-    "isa-kitchen/canister-a-white",
-    "isa-kitchen/canister-b-red",
-    "isa-kitchen/canister-b-white",
-    "isa-picnic/jam-jar",
-    "isa-bakery/cookie-jar",
-    "isa-bakery/tin-a",
     "isa-bakery/tin-b",
-    "kay-holiday/tree-stand",
-    "styloo-farm/watering-can",
-    "styloo-farm/watering-can-slate",
-    "styloo-farm/watering-can-basalt",
-    "styloo-farm/watering-can-flower",
-    "styloo-farm/watering-can-flower-slate",
-    "styloo-farm/watering-can-flower-basalt"
+    "kay-holiday/tree-stand"
+   ]
+  },
+  {
+   "id": "obj-container-pot-jar",
+   "name": "Jar",
+   "type": "kind",
+   "description": "jar, canister, tin",
+   "models": [
+    "isa-kitchen/canister-b-white",
+    "isa-kitchen/canister-b-red",
+    "isa-kitchen/canister-a-white",
+    "isa-bakery/cookie-jar",
+    "isa-picnic/jam-jar",
+    "kay-food/jar-c-medium",
+    "kay-food/jar-c-large",
+    "kay-food/jar-c-small",
+    "quat-food/peanut-butter",
+    "isa-bakery/tin-a"
    ]
   },
   {
@@ -6421,44 +6485,51 @@
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
-   "description": "egg, honey, coconut",
+   "description": "honey",
    "color": "#c25b4e",
    "models": [
     "kay-dun-1/plate-full",
     "kay-dun-1/plate-half",
-    "quat-food/coconut",
-    "quat-food/coconut-half",
-    "fs-terrain/beach-prop-coconut",
-    "natuur/coconut",
     "props/plate-food-a",
-    "quat-food/egg-whole-white",
     "kay-mixed/taco",
-    "isa-picnic/sandwich",
+    "isa-picnic/sandwich"
+   ]
+  },
+  {
+   "id": "obj-food-egg",
+   "name": "Egg",
+   "type": "kind",
+   "description": "egg",
+   "models": [
     "isa-bakery/egg-ivory",
     "isa-bakery/egg-camel",
-    "styloo-farm/egg"
+    "styloo-farm/egg",
+    "quat-food/egg-whole-white",
+    "asia-pack/egg"
+   ]
+  },
+  {
+   "id": "obj-food-coconut",
+   "name": "Coconut",
+   "type": "kind",
+   "description": "coconut",
+   "models": [
+    "quat-food/coconut-half",
+    "quat-food/coconut",
+    "natuur/coconut",
+    "fs-terrain/beach-prop-coconut"
    ]
   },
   {
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "Bread and unbaked grain: loaves, rolls, baguettes, wheat, flour and dough.",
+   "description": "Unbaked grain: wheat, flour and dough.",
    "models": [
-    "isa-food/baguette",
-    "isa-food/baguette-half",
-    "isa-food/baguette-slice",
-    "isa-food/bread",
-    "isa-food/bread-half",
-    "isa-food/bread-roll",
-    "isa-food/bread-slice",
-    "quat-food/bread",
-    "quat-food/bread-slice",
     "medieval-town/hay",
     "quat-nature/wheat",
     "kay-food/food-ingredient-bun",
     "quat-pirate/wheat",
-    "isa-bakery/bread",
     "isa-bakery/dough-ball",
     "isa-bakery/flour-sack",
     "isa-bakery/flour-sack-open",
@@ -6472,20 +6543,29 @@
    ]
   },
   {
+   "id": "obj-food-grain-bread",
+   "name": "Bread",
+   "type": "kind",
+   "description": "bread, loaf, roll, baguette",
+   "models": [
+    "isa-food/baguette",
+    "isa-food/baguette-slice",
+    "isa-food/bread-roll",
+    "quat-food/bread",
+    "quat-food/bread-slice",
+    "isa-food/bread",
+    "isa-food/bread-half",
+    "isa-food/bread-slice",
+    "isa-bakery/bread",
+    "isa-food/baguette-half"
+   ]
+  },
+  {
    "id": "obj-food-grain-pastry",
    "name": "Pastry",
    "type": "kind",
-   "description": "Baked goods beyond plain bread: cakes, pies, cookies, donuts and the like.",
+   "description": "Baked goods beyond plain bread: cookies, donuts and the like.",
    "models": [
-    "isa-food/cake-birthday",
-    "isa-food/cake-birthday-cut",
-    "isa-food/cake-birthday-slice",
-    "isa-food/cake-chocolate",
-    "isa-food/cake-chocolate-cut",
-    "isa-food/cake-chocolate-slice",
-    "isa-food/cake-strawberry",
-    "isa-food/cake-strawberry-cut",
-    "isa-food/cake-strawberry-slice",
     "isa-food/cinnamon-roll",
     "isa-food/cookie",
     "isa-food/croissant",
@@ -6494,12 +6574,6 @@
     "isa-food/donut-chocolate",
     "isa-food/donut-pink",
     "isa-food/muffin",
-    "isa-food/pie-apple",
-    "isa-food/pie-apple-cut",
-    "isa-food/pie-apple-slice",
-    "isa-food/pie-cherry",
-    "isa-food/pie-cherry-cut",
-    "isa-food/pie-cherry-slice",
     "isa-food/waffle",
     "isa-food/waffle-stacked",
     "ken-holiday/gingerbread-man",
@@ -6522,34 +6596,61 @@
    ]
   },
   {
+   "id": "obj-food-grain-pastry-pie",
+   "name": "Pie",
+   "type": "kind",
+   "description": "cake, pie",
+   "models": [
+    "isa-food/cake-birthday-cut",
+    "isa-food/cake-birthday",
+    "isa-food/cake-birthday-slice",
+    "isa-food/cake-chocolate-cut",
+    "isa-food/cake-chocolate",
+    "isa-food/cake-strawberry",
+    "isa-food/cake-strawberry-cut",
+    "isa-food/cake-chocolate-slice",
+    "isa-food/cake-strawberry-slice",
+    "isa-food/pie-apple-slice",
+    "isa-food/pie-cherry-cut",
+    "isa-food/pie-cherry",
+    "isa-food/pie-apple-cut",
+    "isa-food/pie-apple",
+    "isa-food/pie-cherry-slice"
+   ]
+  },
+  {
    "id": "obj-food-meat",
    "name": "Meat",
    "type": "kind",
-   "description": "meat, ham, sausage, drumstick, steak, burger, roast, leg",
+   "description": "meat, ham, sausage, steak, burger, roast",
    "models": [
     "kay-dun-2/plate-food-a",
     "kay-dun-2/plate-food-b",
-    "quat-food/chicken-leg",
     "quat-food/steak",
     "props/roast-a",
-    "kay-food/food-ingredient-ham",
     "kay-food/food-ingredient-steak",
     "kay-food/food-stew",
     "quat-food/hotdog",
-    "quat-food/bacon-cooked",
-    "quat-pirate/chicken-leg"
+    "quat-food/bacon-cooked"
+   ]
+  },
+  {
+   "id": "obj-food-meat-chickenleg",
+   "name": "Chicken leg",
+   "type": "kind",
+   "description": "drumstick, leg, chicken leg",
+   "models": [
+    "quat-food/chicken-leg",
+    "quat-pirate/chicken-leg",
+    "kay-food/food-ingredient-ham"
    ]
   },
   {
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "carrot, cabbage, pumpkin, turnip, onion, potato, tomato",
+   "description": "carrot, cabbage, turnip, onion, potato, tomato",
    "models": [
-    "ken-grave/pumpkin",
-    "ken-grave/pumpkin-carved",
-    "kay-hallow/pumpkin-orange-jackolantern",
-    "kay-hallow/pumpkin-orange-small",
     "props/carrot-a",
     "kay-food/food-ingredient-carrot",
     "kay-food/food-ingredient-carrot-chopped",
@@ -6560,8 +6661,6 @@
     "kay-food/food-ingredient-tomato",
     "kay-food/food-ingredient-tomato-slice",
     "kay-food/food-ingredient-tomato-slices",
-    "kay-hallow/pumpkin-orange",
-    "ken-grave/pumpkin-tall",
     "kay-food/food-ingredient-carrot-pieces",
     "kay-food/food-ingredient-lettuce-chopped",
     "kay-food/food-ingredient-potato",
@@ -6572,18 +6671,32 @@
     "quat-food/lettuce-whole",
     "quat-food/eggplant",
     "quat-food/broccoli",
-    "ken-grave/pumpkin-tall-carved",
-    "quat-food/pumpkin",
-    "kay-spook/jackolantern-large",
-    "kay-spook/jackolantern-small",
-    "kay-spook/pumpkin-large",
-    "kay-spook/pumpkin-small",
     "ken-nature/carrot",
     "ken-nature/turnip",
     "styloo-farm/carrot",
     "styloo-farm/corn",
     "styloo-farm/eggplant",
     "styloo-farm/tomato"
+   ]
+  },
+  {
+   "id": "obj-food-vegetable-pumpkin",
+   "name": "Pumpkin",
+   "type": "kind",
+   "description": "pumpkin, jackolantern",
+   "models": [
+    "kay-spook/jackolantern-large",
+    "kay-spook/jackolantern-small",
+    "kay-spook/pumpkin-large",
+    "kay-spook/pumpkin-small",
+    "quat-food/pumpkin",
+    "ken-grave/pumpkin",
+    "ken-grave/pumpkin-carved",
+    "ken-grave/pumpkin-tall-carved",
+    "kay-hallow/pumpkin-orange-small",
+    "kay-hallow/pumpkin-orange-jackolantern",
+    "kay-hallow/pumpkin-orange",
+    "ken-grave/pumpkin-tall"
    ]
   },
   {
@@ -6606,21 +6719,29 @@
    "type": "kind",
    "description": "Fruit, whole or cut.",
    "models": [
-    "isa-picnic/apple",
-    "isa-picnic/apple-cut",
-    "isa-picnic/apple-piece",
-    "quat-food/apple",
     "quat-food/avocado",
     "quat-food/banana",
     "isa-picnic/grapes",
-    "styloo-farm/apple",
-    "styloo-farm/apple-moss",
     "styloo-farm/banana",
     "styloo-farm/banana-moss",
     "styloo-farm/cherries",
     "styloo-farm/grapes",
     "styloo-farm/grapes-sienna",
     "styloo-farm/mango"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-apple",
+   "name": "Apple",
+   "type": "kind",
+   "description": "apple",
+   "models": [
+    "styloo-farm/apple",
+    "styloo-farm/apple-moss",
+    "quat-food/apple",
+    "isa-picnic/apple",
+    "isa-picnic/apple-cut",
+    "isa-picnic/apple-piece"
    ]
   },
   {
@@ -6640,47 +6761,72 @@
    "id": "obj-food-sweet",
    "name": "Sweet",
    "type": "kind",
-   "description": "Confectionery and frozen sweets.",
+   "description": "Confectionery.",
    "models": [
     "kay-spook/candy-a",
     "kay-spook/candy-b",
     "quat-food/chocolate-bar",
+    "ken-holiday/candy-cane",
+    "kay-holiday/candycane"
+   ]
+  },
+  {
+   "id": "obj-food-sweet-icecream",
+   "name": "Ice cream",
+   "type": "kind",
+   "description": "ice cream, popsicle",
+   "models": [
+    "quat-food/popsicle-multiple",
+    "quat-food/popsicle-chocolate",
     "quat-food/ice-cream-2",
     "quat-food/ice-cream-1",
     "quat-food/ice-cream-3",
-    "quat-food/ice-cream-4",
-    "quat-food/popsicle-multiple",
-    "quat-food/popsicle-chocolate",
-    "ken-holiday/candy-cane",
-    "kay-holiday/candycane"
+    "quat-food/ice-cream-4"
    ]
   },
   {
    "id": "obj-furniture",
    "name": "Furniture",
    "type": "kind",
-   "description": "rug, carpet",
+   "description": "Furniture with no leaf that fits.",
    "color": "#c07c8a",
    "models": [
-    "kay-furniture/pillow-a",
+    "isa-picnic/picnic-blanket-hunter-folded",
+    "isa-picnic/picnic-blanket-sienna-folded",
+    "isa-picnic/picnic-blanket-taupe-folded",
+    "isa-bakery/curtains"
+   ]
+  },
+  {
+   "id": "obj-furniture-rug",
+   "name": "Rug",
+   "type": "kind",
+   "description": "rug, carpet, picnic blanket",
+   "models": [
+    "isa-picnic/picnic-blanket-sienna",
+    "isa-picnic/picnic-blanket-hunter",
+    "isa-picnic/picnic-blanket-taupe",
     "kay-furniture/rug-oval-a",
     "kay-furniture/rug-rectangle-stripes-a",
-    "props/carpet-a",
-    "isa-picnic/pillow-small-hunter",
-    "isa-picnic/pillow-small-sienna",
-    "isa-picnic/picnic-blanket-hunter",
-    "isa-picnic/picnic-blanket-hunter-folded",
-    "isa-picnic/picnic-blanket-sienna",
-    "isa-picnic/picnic-blanket-sienna-folded",
-    "isa-picnic/pillow-large-hunter",
-    "isa-picnic/pillow-large-sienna",
     "isa-bakery/rug",
-    "isa-picnic/picnic-blanket-taupe",
-    "isa-picnic/picnic-blanket-taupe-folded",
-    "isa-picnic/pillow-large-taupe",
     "kay-holiday/carpet-round-large",
     "kay-holiday/carpet-round-small",
-    "isa-bakery/curtains"
+    "props/carpet-a"
+   ]
+  },
+  {
+   "id": "obj-furniture-pillow",
+   "name": "Pillow",
+   "type": "kind",
+   "description": "pillow, cushion",
+   "models": [
+    "ken-survival/bedroll-packed",
+    "kay-furniture/pillow-a",
+    "isa-picnic/pillow-small-sienna",
+    "isa-picnic/pillow-small-hunter",
+    "isa-picnic/pillow-large-sienna",
+    "isa-picnic/pillow-large-hunter",
+    "isa-picnic/pillow-large-taupe"
    ]
   },
   {
@@ -6695,7 +6841,6 @@
     "kay-furniture/bed-single-a",
     "ken-survival/bedroll",
     "ken-survival/bedroll-frame",
-    "ken-survival/bedroll-packed",
     "kay-furniture/bed-double-a",
     "kay-furniture/bed-double-b",
     "ken-nature/bed",
@@ -6712,22 +6857,38 @@
    "id": "obj-furniture-seating-bench",
    "name": "Bench",
    "type": "kind",
-   "description": "bench, couch, sofa, pew",
+   "description": "bench, pew",
    "models": [
-    "isa-park/bench",
+    "toon-shooter/sofa-small",
+    "ken-grave/bench-damaged",
+    "ken-holiday/bench-short"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-bench-nobackrest",
+   "name": "No backrest",
+   "type": "kind",
+   "description": "backless bench",
+   "models": [
     "kay-dun-1/bench",
     "kay-hallow/bench",
-    "medieval-town/bench",
     "medieval-town/bench-2",
-    "kay-furniture/couch-pillows",
-    "ken-town/stall-bench",
-    "toon-shooter/sofa",
-    "toon-shooter/sofa-small",
+    "styloo-farm/bench-small",
+    "ken-town/stall-bench"
+   ]
+  },
+  {
+   "id": "obj-furniture-seating-bench-backrest",
+   "name": "Backrest",
+   "type": "kind",
+   "description": "couch, sofa, backed bench",
+   "models": [
     "ken-grave/bench",
-    "ken-grave/bench-damaged",
     "ken-holiday/bench",
-    "ken-holiday/bench-short",
-    "styloo-farm/bench-small"
+    "medieval-town/bench",
+    "kay-furniture/couch-pillows",
+    "toon-shooter/sofa",
+    "isa-park/bench"
    ]
   },
   {
@@ -6813,24 +6974,32 @@
     "asia-rg/table",
     "kay-dun-1/table-large",
     "kay-dun-1/table-medium-rounded",
-    "kay-dun-1/table-small-rounded",
     "kay-dun-2/table-long",
     "kay-dun-2/table-long-broken",
-    "kay-dun-2/table-medium",
     "kay-dun-2/table-medium-broken",
-    "kay-dun-2/table-small",
     "kay-food/table-round-b",
     "kay-furniture/table-low",
-    "kay-furniture/table-medium",
     "kay-furniture/table-medium-long",
-    "kay-furniture/table-small",
     "ken-mini-dun/table",
     "isa-playground/picnic-table",
     "isa-bakery/table-round",
     "isa-kitchen/table-a",
+    "isa-bakery/counter-table"
+   ]
+  },
+  {
+   "id": "obj-furniture-table-square",
+   "name": "Square",
+   "type": "kind",
+   "description": "square table",
+   "models": [
+    "kay-dun-2/table-small",
+    "kay-furniture/table-small",
+    "kay-furniture/table-medium",
+    "kay-dun-2/table-medium",
     "isa-kitchen/table-b",
     "isa-kitchen/table-c",
-    "isa-bakery/counter-table"
+    "kay-dun-1/table-small-rounded"
    ]
   },
   {
@@ -6844,22 +7013,36 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, ladle",
+   "description": "grill, spit"
+  },
+  {
+   "id": "obj-kitchenware-cookware-stove",
+   "name": "Stove",
+   "type": "kind",
+   "description": "stove, oven, range",
    "models": [
-    "isa-kitchen/spatula",
-    "cooking-assets/ladle-a",
-    "cooking-assets/ladle-b",
-    "cooking-assets/rice-paddle",
-    "cooking-assets/rolling-pin",
-    "cooking-assets/spatula",
-    "cooking-assets/turner",
-    "cooking-assets/whisk",
-    "cooking-assets/wooden-paddle",
-    "isa-bakery/rolling-pin",
-    "isa-bakery/whisk",
     "kay-mixed/wood-stove",
     "kay-food/stove",
     "isa-kitchen/stove"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil",
+   "name": "Utensil",
+   "type": "kind",
+   "description": "ladle, spatula, turner, whisk, rolling pin, rice paddle, wooden paddle",
+   "models": [
+    "cooking-assets/spatula",
+    "cooking-assets/turner",
+    "isa-bakery/rolling-pin",
+    "cooking-assets/rolling-pin",
+    "cooking-assets/rice-paddle",
+    "cooking-assets/ladle-b",
+    "cooking-assets/ladle-a",
+    "isa-bakery/whisk",
+    "cooking-assets/whisk",
+    "isa-kitchen/spatula",
+    "cooking-assets/wooden-paddle"
    ]
   },
   {
@@ -7186,22 +7369,38 @@
     "asia-rg/lantern-paper-a",
     "asia-rg/lantern-paper-b",
     "asia-rg/stone-lantern",
-    "fs-town/lamp-street",
     "fs-town/lamp-wall",
-    "isa-park/street-lantern",
-    "kay-hallow/lantern-hanging",
-    "kay-hallow/lantern-standing",
+    "asia-pack/stone-lantern"
+   ]
+  },
+  {
+   "id": "obj-lighting-lantern-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "hand lantern, hanging lantern, standing lantern",
+   "models": [
     "kay-hallow/post-lantern-lantern",
+    "kay-hallow/lantern-hanging",
+    "asia-grave/lamppost",
     "kay-tools/lantern",
     "ken-grave/lantern-candle",
     "ken-grave/lantern-glass",
-    "ken-grave/lightpost-single",
-    "asia-grave/lamppost",
-    "asia-pack/stone-lantern",
-    "kay-holiday/street-lantern",
+    "kay-hallow/lantern-standing"
+   ]
+  },
+  {
+   "id": "obj-lighting-lantern-onpost",
+   "name": "On post",
+   "type": "kind",
+   "description": "lamp post, street lamp, lantern post",
+   "models": [
     "ken-holiday/lantern",
+    "fs-town/lamp-street",
+    "kay-holiday/lantern-decorated",
+    "ken-grave/lightpost-single",
     "kay-holiday/lantern-mini",
-    "kay-holiday/lantern-decorated"
+    "kay-holiday/street-lantern",
+    "isa-park/street-lantern"
    ]
   },
   {
@@ -7239,33 +7438,49 @@
    "description": "book, tome, journal, spell book",
    "models": [
     "quat-props/book-5",
-    "quat-props/book-7",
-    "quat-props/book-simplified-single",
-    "kay-adventurers/spellbook-closed",
     "kay-adventurers/spellbook-open",
-    "kay-dun-1/book-a",
     "kay-dun-1/book-b",
-    "kay-dun-1/book-c",
     "kay-dun-1/book-d",
     "kay-dun-1/book-e",
     "kay-dun-1/book-f",
     "kay-dun-1/book-open-a",
     "kay-dun-1/book-open-b",
-    "kay-dun-1/spell-book",
-    "kay-skeleton-1/spellbook",
-    "kay-tools/journal-closed",
-    "kay-tools/journal-open",
-    "quat-rpg/book-1-closed",
     "quat-rpg/book-1-open",
-    "quat-rpg/book-2-closed",
     "quat-rpg/book-2-open",
-    "quat-rpg/book-3-closed",
     "quat-rpg/book-3-open",
-    "quat-rpg/book-4-closed",
     "quat-rpg/book-4-open",
+    "kay-mixed/comic-book-blank"
+   ]
+  },
+  {
+   "id": "obj-pocketitem-book-open",
+   "name": "Open",
+   "type": "kind",
+   "description": "open book",
+   "models": [
+    "kay-tools/journal-open",
+    "kay-dun-1/spell-book",
+    "kay-skeleton-1/spellbook"
+   ]
+  },
+  {
+   "id": "obj-pocketitem-book-closed",
+   "name": "Closed",
+   "type": "kind",
+   "description": "closed book",
+   "models": [
+    "quat-rpg/book-1-closed",
+    "quat-rpg/book-2-closed",
+    "quat-rpg/book-3-closed",
+    "quat-rpg/book-4-closed",
+    "quat-props/book-7",
+    "kay-dun-1/book-a",
+    "kay-dun-1/book-c",
+    "quat-props/book-simplified-single",
     "kay-mixed/comic-book",
-    "kay-mixed/comic-book-blank",
-    "kay-mixed/comic-books-stacked"
+    "kay-mixed/comic-books-stacked",
+    "kay-tools/journal-closed",
+    "kay-adventurers/spellbook-closed"
    ]
   },
   {
@@ -7318,37 +7533,53 @@
    "id": "obj-pocketitem-scroll",
    "name": "Scroll",
    "type": "kind",
-   "description": "scroll, letter, map (rolled), parchment, blueprint",
+   "description": "scroll, letter, parchment, blueprint",
    "models": [
-    "quat-props/scroll-1",
-    "quat-props/scroll-2",
     "quat-rpg/parchment",
-    "quat-rpg/scroll",
     "kay-tools/blueprint",
     "kay-tools/blueprint-stacked",
     "kay-tools/map-empty",
-    "kay-tools/map-rolled",
     "kay-tools/map",
     "quat-pirate/papers"
+   ]
+  },
+  {
+   "id": "obj-pocketitem-scroll-rolled",
+   "name": "Rolled",
+   "type": "kind",
+   "description": "map (rolled), rolled scroll",
+   "models": [
+    "quat-props/scroll-1",
+    "quat-props/scroll-2",
+    "kay-tools/map-rolled",
+    "quat-rpg/scroll"
    ]
   },
   {
    "id": "obj-pocketitem-jewellery",
    "name": "Jewellery",
    "type": "kind",
-   "description": "ring, necklace, amulet, bracelet, earring, pendant, brooch",
+   "description": "necklace, amulet, bracelet, earring, pendant, brooch",
+   "models": [
+    "quat-rpg/necklace-1",
+    "quat-rpg/necklace-2",
+    "quat-rpg/necklace-3"
+   ]
+  },
+  {
+   "id": "obj-pocketitem-jewellery-ring",
+   "name": "Ring",
+   "type": "kind",
+   "description": "ring",
    "models": [
     "quat-blood-ring/blood-ring",
+    "quat-rpg/ring-2",
+    "quat-rpg/ring-1",
+    "quat-rpg/ring-7",
     "quat-rpg/ring-3",
     "quat-rpg/ring-4",
     "quat-rpg/ring-5",
-    "quat-rpg/ring-6",
-    "quat-rpg/necklace-1",
-    "quat-rpg/necklace-2",
-    "quat-rpg/necklace-3",
-    "quat-rpg/ring-1",
-    "quat-rpg/ring-2",
-    "quat-rpg/ring-7"
+    "quat-rpg/ring-6"
    ]
   },
   {
@@ -7477,7 +7708,7 @@
    "id": "obj-resource-wood-plank",
    "name": "Plank",
    "type": "kind",
-   "description": "plank (stock), board (loose), pallet",
+   "description": "plank (stock), board (loose)",
    "models": [
     "kay-resources/wood-plank-a",
     "kay-resources/wood-plank-b",
@@ -7488,35 +7719,51 @@
     "ken-pirate/platform-planks",
     "ken-survival/resource-planks",
     "ken-grave/debris-wood",
-    "kay-resources/pallet-wood",
     "asia-pack/plank-a",
     "asia-pack/plank-b",
     "asia-pack/plank-c",
     "asia-pack/plank-d",
-    "toon-shooter/pallet",
-    "toon-shooter/pallet-broken",
-    "toon-shooter/planks",
+    "toon-shooter/planks"
+   ]
+  },
+  {
+   "id": "obj-resource-wood-plank-pallet",
+   "name": "Pallet",
+   "type": "kind",
+   "description": "pallet",
+   "models": [
+    "kay-hexagon/pallet",
     "post-apocalypse/pallet",
     "post-apocalypse/pallet-broken",
-    "kay-hexagon/pallet"
+    "toon-shooter/pallet",
+    "toon-shooter/pallet-broken",
+    "kay-resources/pallet-wood"
    ]
   },
   {
    "id": "obj-tool",
    "name": "Tool",
    "type": "kind",
-   "description": "lever, spring, gear, pulley, anvil, grindstone",
+   "description": "lever, spring, gear, pulley, grindstone",
    "color": "#6d738a",
    "models": [
-    "kay-tools/anvil",
     "kay-tools/grindstone",
     "ken-platformer/lever",
     "ken-platformer/spring",
-    "medieval-forge/anvil",
     "medieval-forge/grinder",
-    "small-props/anvil-b",
     "toon-shooter/bear-trap",
     "isa-bakery/scale"
+   ]
+  },
+  {
+   "id": "obj-tool-anvil",
+   "name": "Anvil",
+   "type": "kind",
+   "description": "anvil",
+   "models": [
+    "small-props/anvil-b",
+    "medieval-forge/anvil",
+    "kay-tools/anvil"
    ]
   },
   {
@@ -7759,17 +8006,25 @@
    "id": "obj-weapon-cannon",
    "name": "Cannon",
    "type": "kind",
-   "description": "Cannon and the shot it fires. Cast iron.",
+   "description": "Cannon. Cast iron.",
    "models": [
     "ken-pirate/cannon",
-    "ken-pirate/cannon-ball",
     "ken-pirate/cannon-mobile",
-    "quat-pirate/cannon",
-    "quat-pirate/cannonball",
-    "kay-adventurers/smokebomb",
-    "quat-pirate/bomb",
+    "quat-pirate/cannon"
+   ]
+  },
+  {
+   "id": "obj-weapon-cannon-ball",
+   "name": "Ball",
+   "type": "kind",
+   "description": "cannonball, bomb, catapult ball",
+   "models": [
     "kay-minigame/bomb",
-    "kay-hexagon/catapult-ball"
+    "quat-pirate/bomb",
+    "ken-pirate/cannon-ball",
+    "quat-pirate/cannonball",
+    "kay-hexagon/catapult-ball",
+    "kay-adventurers/smokebomb"
    ]
   },
   {
@@ -7896,25 +8151,33 @@
    "id": "obj-weapon-melee-hammer",
    "name": "Hammer",
    "type": "kind",
-   "description": "hammer (war), mace, club, flail",
+   "description": "hammer (war), mace, flail",
    "models": [
     "kay-dun-1/hammer-common",
     "kay-dun-1/hammer-rare",
     "kay-dun-1/hammer-uncommon",
+    "kay-weapons/hammer-a",
+    "quat-rpg/hammer-double"
+   ]
+  },
+  {
+   "id": "obj-weapon-melee-hammer-club",
+   "name": "Club",
+   "type": "kind",
+   "description": "club, bat",
+   "models": [
+    "post-apocalypse/bat-barbed",
     "primitive-tools/stone-club",
     "primitive-tools/wooden-club",
-    "kay-weapons/hammer-a",
     "kay-weapons/hammer-b",
-    "kay-weapons/hammer-c",
-    "quat-rpg/hammer-double",
-    "post-apocalypse/bat-barbed"
+    "kay-weapons/hammer-c"
    ]
   },
   {
    "id": "obj-weapon-melee-sword",
    "name": "Sword",
    "type": "kind",
-   "description": "sword, blade, rapier, scimitar, katana",
+   "description": "sword, rapier, scimitar, katana",
    "models": [
     "asia-rg/katana",
     "kay-adventurers/sword-one-handed",
@@ -7923,7 +8186,6 @@
     "kay-dun-1/sword-common",
     "kay-dun-1/sword-rare",
     "kay-dun-1/sword-uncommon",
-    "kay-skeleton/blade",
     "kay-skeleton-1/sword-broken",
     "kay-skeleton-1/sword-broken-half",
     "kay-weapons/sword-a",
@@ -7932,16 +8194,25 @@
     "kay-weapons/sword-d",
     "kay-weapons/sword-e",
     "mek-tools/sword",
-    "tropical-island/sword-pirate",
     "quat-rpg/sword",
     "quat-rpg/sword-big",
-    "quat-pirate/swords",
-    "quat-pirate/cutlass",
     "quat-pirate/sword-1",
-    "quat-pirate/sword-2",
     "kay-minigame/sword",
     "styloo-farm/sword",
     "styloo-farm/sword-taupe"
+   ]
+  },
+  {
+   "id": "obj-weapon-melee-sword-blade",
+   "name": "Blade",
+   "type": "kind",
+   "description": "blade, cutlass, machete",
+   "models": [
+    "quat-pirate/swords",
+    "quat-pirate/sword-2",
+    "quat-pirate/cutlass",
+    "kay-skeleton/blade",
+    "tropical-island/sword-pirate"
    ]
   },
   {
@@ -8052,21 +8323,37 @@
    "description": "Weapon that fires a shot with powder.",
    "models": [
     "quat-pirate/rifle",
-    "ultimate-guns/revolver",
-    "ultimate-guns/revolver-ribbed",
-    "ultimate-guns/revolver-steel",
-    "toon-shooter/revolver",
-    "toon-shooter/revolver-short",
-    "quat-pirate/pistol",
     "toon-shooter/carbine",
-    "quat-pirate/axe-rifle",
+    "quat-pirate/axe-rifle"
+   ]
+  },
+  {
+   "id": "obj-weapon-ranged-firearm-shotgun",
+   "name": "Shotgun",
+   "type": "kind",
+   "description": "shotgun",
+   "models": [
     "ultimate-guns/shotgun-sawed-off",
     "ultimate-guns/shotgun-pistol-grip",
     "quat-pirate/shotgun-double",
     "ultimate-guns/shotgun",
     "ultimate-guns/shotgun-pump",
-    "post-apocalypse/shotgun",
-    "toon-shooter/shotgun"
+    "toon-shooter/shotgun",
+    "post-apocalypse/shotgun"
+   ]
+  },
+  {
+   "id": "obj-weapon-ranged-firearm-hand",
+   "name": "Handgun",
+   "type": "kind",
+   "description": "pistol, revolver",
+   "models": [
+    "quat-pirate/pistol",
+    "toon-shooter/revolver",
+    "toon-shooter/revolver-short",
+    "ultimate-guns/revolver",
+    "ultimate-guns/revolver-ribbed",
+    "ultimate-guns/revolver-steel"
    ]
   },
   {
@@ -8149,13 +8436,10 @@
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
+   "description": "mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
    "color": "#3e8fd0",
    "models": [
     "quat-fish/dolphin",
-    "quat-fish/fish-1",
-    "quat-fish/fish-2",
-    "quat-fish/fish-3",
     "quat-fish/manta-ray",
     "quat-fish/shark",
     "quat-fish/whale",
@@ -8165,8 +8449,6 @@
     "fs-terrain/beach-prop-starfish-b",
     "natuur/starfish-bleached",
     "natuur/starfish-salmon",
-    "quat-pirate/fish-mackerel",
-    "quat-pirate/fish-tuna",
     "quat-pirate/shark",
     "quat-pirate/tentacle",
     "isa-pond/bird",
@@ -8176,12 +8458,25 @@
     "isa-pond/red-dragonfly",
     "isa-pond/round-bird",
     "isa-pond/yellow-frog",
-    "ken-survival/fish",
-    "ken-survival/fish-large",
+    "styloo-farm/shark"
+   ]
+  },
+  {
+   "id": "env-fauna-fish",
+   "name": "Fish",
+   "type": "kind",
+   "description": "fish",
+   "models": [
+    "quat-pirate/fish-tuna",
+    "quat-pirate/fish-mackerel",
+    "quat-fish/fish-3",
+    "quat-fish/fish-2",
+    "quat-fish/fish-1",
     "styloo-farm/fish",
     "styloo-farm/fish-tan",
     "styloo-farm/fish-umber",
-    "styloo-farm/shark"
+    "ken-survival/fish",
+    "ken-survival/fish-large"
    ]
   },
   {
@@ -8618,7 +8913,6 @@
    "description": "shell, egg (wild), nest, feather",
    "color": "#cfc6ad",
    "models": [
-    "asia-pack/egg",
     "asia-pack/hive",
     "asia-pack/nest",
     "fs-terrain/beach-prop-shell-a",
@@ -8632,36 +8926,52 @@
    "id": "env-remains-bones",
    "name": "Bones",
    "type": "kind",
-   "description": "bone, skull, skeleton (prop), ribcage, carcass",
+   "description": "skeleton (prop), ribcage, carcass",
    "models": [
-    "quat-dun-1/skull",
     "quat-food/fish-bone",
-    "kay-hallow/bone-a",
     "kay-hallow/bone-b",
-    "kay-hallow/bone-c",
-    "kay-hallow/post-skull-skull",
     "kay-hallow/ribcage",
-    "kay-hallow/skull",
     "quat-pirate/bones-large",
-    "quat-pirate/skull",
     "quat-pirate/skulls",
-    "quat-rpg/bone",
-    "quat-rpg/skull",
-    "quat-rpg/skull-2",
-    "kay-skeleton-1/bone",
-    "kay-skeleton-1/bone-half",
     "kay-skeleton-1/ribcage-broken",
-    "kay-skeleton-1/skull",
-    "kay-skeleton-1/skull-broken",
     "asia-grave/bones-a",
     "asia-grave/bones-b",
     "asia-grave/bones-pile",
     "quat-rpg/fish-bone",
-    "quat-dun-2/skull",
     "styloo-farm/fish-carcass",
     "styloo-farm/fish-carcass-tan",
     "styloo-farm/fish-carcass-umber",
     "styloo-farm/fish-bones"
+   ]
+  },
+  {
+   "id": "env-remains-bones-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "bone, bone (single)",
+   "models": [
+    "kay-skeleton-1/bone-half",
+    "quat-rpg/bone",
+    "kay-skeleton-1/bone",
+    "kay-hallow/bone-a",
+    "kay-hallow/bone-c"
+   ]
+  },
+  {
+   "id": "env-remains-bones-skull",
+   "name": "Skull",
+   "type": "kind",
+   "description": "skull",
+   "models": [
+    "quat-rpg/skull-2",
+    "quat-rpg/skull",
+    "quat-pirate/skull",
+    "quat-dun-2/skull",
+    "quat-dun-1/skull",
+    "kay-skeleton-1/skull",
+    "kay-skeleton-1/skull-broken",
+    "kay-hallow/skull",
+    "kay-hallow/post-skull-skull"
    ]
   },
   {
