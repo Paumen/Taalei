@@ -92,6 +92,7 @@ export const BRONKITS = [
   { map: 'Tiny_Treats_Bakery_Interior_1.1_FREE', naam: 'Tiny Treats Bakery Interior', kit: 'isa-bakery', source: 'isa', formaat: 'gltf' },
   { map: 'gobkit_animal-pack-2', naam: 'Gobkit Animal Pack 2', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
+  { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: null, formaat: 'glb' },
   { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
