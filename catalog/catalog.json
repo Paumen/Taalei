@@ -6616,7 +6616,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 40,
+   "count": 42,
    "color": "#6b5b95"
   },
   {
@@ -6709,7 +6709,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "rug, carpet",
-   "count": 101,
+   "count": 100,
    "color": "#c07c8a"
   },
   {
@@ -6724,14 +6724,14 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 34
+   "count": 33
   },
   {
    "id": "obj-furniture-seating-bench",
    "name": "Bench",
    "type": "kind",
    "description": "bench, couch, sofa, pew",
-   "count": 14
+   "count": 13
   },
   {
    "id": "obj-furniture-seating-chair",
@@ -6972,7 +6972,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 94,
+   "count": 95,
    "color": "#4f7d8c"
   },
   {
@@ -7001,14 +7001,14 @@
    "name": "Wood",
    "type": "kind",
    "description": "Wood stock with no leaf that fits.",
-   "count": 44
+   "count": 45
   },
   {
    "id": "obj-resource-wood-log",
    "name": "Log",
    "type": "kind",
    "description": "log (cut), timber, firewood, cordwood",
-   "count": 24
+   "count": 25
   },
   {
    "id": "obj-resource-wood-plank",
@@ -7270,7 +7270,7 @@
    "name": "Character",
    "type": "kind",
    "description": "playable, npc, skeleton (rigged), animal (rigged)",
-   "count": 22,
+   "count": 20,
    "color": "#8a6fb0"
   },
   {
@@ -7278,7 +7278,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 603,
+   "count": 605,
    "color": "#6cb588"
   },
   {
@@ -7286,7 +7286,7 @@
    "name": "Fauna",
    "type": "kind",
    "description": "fish, mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
-   "count": 29,
+   "count": 26,
    "color": "#3e8fd0"
   },
   {
@@ -7387,7 +7387,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 27,
+   "count": 32,
    "color": "#cfc6ad"
   },
   {
@@ -7543,7 +7543,7 @@
    "name": "Door",
    "type": "kind",
    "description": "door, gate (building), hatch",
-   "count": 61
+   "count": 67
   },
   {
    "id": "str-part-floor",
@@ -7578,14 +7578,14 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 121
+   "count": 106
   },
   {
    "id": "str-part-window",
    "name": "Window",
    "type": "kind",
    "description": "window, shutter",
-   "count": 29
+   "count": 38
   },
   {
    "id": "str-marker",
@@ -24549,7 +24549,7 @@
   {
    "kit": "fs-terrain",
    "name": "beach-prop-shell-a",
-   "kind": "env-fauna",
+   "kind": "env-remains",
    "size": "s",
    "wdh": [
     0.05,
@@ -24579,12 +24579,19 @@
    "colors": [
     "#d8d1bd"
    ],
-   "variant": "v59"
+   "variant": "v59",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G09 nmat 0 wants min 1"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
    "name": "beach-prop-shell-b",
-   "kind": "env-fauna",
+   "kind": "env-remains",
    "size": "s",
    "wdh": [
     0.05,
@@ -24614,7 +24621,14 @@
    "colors": [
     "#d07b56"
    ],
-   "variant": "v59"
+   "variant": "v59",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G09 nmat 0 wants min 1"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
@@ -25151,7 +25165,7 @@
   {
    "kit": "fs-terrain",
    "name": "hilly-prop-camp-sitting-log",
-   "kind": "obj-furniture-seating-bench",
+   "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
     0.6,
@@ -36061,7 +36075,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled-window-large",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.65,
@@ -36113,7 +36127,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled-window-small",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.65,
@@ -39017,7 +39031,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-modular-window-large",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.65,
@@ -39103,7 +39117,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-window-large",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.65,
@@ -39154,7 +39168,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-window-small",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.65,
@@ -74016,7 +74030,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-a-gate",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "l",
    "wdh": [
     2.1,
@@ -74236,7 +74250,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-gate",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "l",
    "wdh": [
     2.4,
@@ -76201,13 +76215,13 @@
    "vpt": 0.58,
    "grad": 0.18,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.031,
      0.211
     ]
    },
    "colors": [
-    "#23562c"
+    "#68872d"
    ],
    "tags": [
     "kay",
@@ -77800,7 +77814,7 @@
   {
    "kit": "kay-mixed",
    "name": "umbrella-c",
-   "kind": "obj",
+   "kind": "obj-equipment",
    "size": "m",
    "wdh": [
     0.55,
@@ -77851,7 +77865,7 @@
   {
    "kit": "kay-mixed",
    "name": "umbrella-d",
-   "kind": "obj",
+   "kind": "obj-equipment",
    "size": "m",
    "wdh": [
     0.55,
@@ -92074,7 +92088,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-doorway",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "m",
    "wdh": [
     0.75,
@@ -92208,7 +92222,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-doorway",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "m",
    "wdh": [
     0.75,
@@ -92560,7 +92574,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-a",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.75,
@@ -92605,7 +92619,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-b",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.75,
@@ -92650,7 +92664,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-c",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.75,
@@ -92701,7 +92715,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-large",
-   "kind": "str-part-wall",
+   "kind": "str-part-window",
    "size": "m",
    "wdh": [
     0.75,
@@ -114528,7 +114542,7 @@
   {
    "kit": "natuur",
    "name": "shell-layered",
-   "kind": "env-fauna",
+   "kind": "env-remains",
    "size": "s",
    "wdh": [
     0.05,
@@ -114563,12 +114577,19 @@
     "#8b7561",
     "#d8d1bd"
    ],
-   "variant": "v165"
+   "variant": "v165",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G09 nmat 0 wants min 1"
+    }
+   ]
   },
   {
    "kit": "natuur",
    "name": "shell-salmon",
-   "kind": "env-fauna",
+   "kind": "env-remains",
    "size": "s",
    "wdh": [
     0.05,
@@ -114603,12 +114624,19 @@
     "#d07b56",
     "#d8d1bd"
    ],
-   "variant": "v165"
+   "variant": "v165",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G09 nmat 0 wants min 1"
+    }
+   ]
   },
   {
    "kit": "natuur",
    "name": "shell-slate",
-   "kind": "env-fauna",
+   "kind": "env-remains",
    "size": "s",
    "wdh": [
     0.05,
@@ -114643,7 +114671,14 @@
     "#88848a",
     "#d8d1bd"
    ],
-   "variant": "v165"
+   "variant": "v165",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G09 nmat 0 wants min 1"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -116147,7 +116182,7 @@
   {
    "kit": "post-apocalypse",
    "name": "dog-pug",
-   "kind": "char",
+   "kind": "env-fauna",
    "size": "s",
    "wdh": [
     0.15,
@@ -116208,14 +116243,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.3 under min 0.4 (char)"
+     "text": "tpu 10504 over max 10000 (env-fauna)"
     }
    ]
   },
   {
    "kit": "post-apocalypse",
    "name": "dog-shepherd",
-   "kind": "char",
+   "kind": "env-fauna",
    "size": "m",
    "wdh": [
     0.2,
@@ -116273,9 +116308,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 0.35 under min 0.4 (char)"
+     "text": "tpu 14280 over max 10000 (env-fauna)"
     }
    ]
   },
@@ -139090,7 +139125,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-door-2",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "l",
    "wdh": [
     2.85,
@@ -139186,7 +139221,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-gate-2",
-   "kind": "str-part-wall",
+   "kind": "str-part-door",
    "size": "l",
    "wdh": [
     2.85,
@@ -144539,7 +144574,7 @@
    "vpt": 1.36,
    "grad": 0.88,
    "spread": {
-    "3,0": [
+    "1,0": [
      0.094,
      0.945
     ],
@@ -144549,15 +144584,22 @@
     ]
    },
    "colors": [
-    "#563b2b",
-    "#68872d"
+    "#68872d",
+    "#b58158"
    ],
    "tags": [
     "foliage",
     "wizp",
     "wood-bark"
    ],
-   "variant": "v511"
+   "variant": "v511",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-bark wants umber, has camel moss"
+    }
+   ]
   },
   {
    "kit": "trees",
@@ -144584,7 +144626,7 @@
    "vpt": 1.32,
    "grad": 0.85,
    "spread": {
-    "3,0": [
+    "1,0": [
      0.109,
      0.891
     ],
@@ -144594,15 +144636,22 @@
     ]
    },
    "colors": [
-    "#563b2b",
-    "#68872d"
+    "#68872d",
+    "#b58158"
    ],
    "tags": [
     "foliage",
     "wizp",
     "wood-bark"
    ],
-   "variant": "v511"
+   "variant": "v511",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-bark wants umber, has camel moss"
+    }
+   ]
   },
   {
    "kit": "trees",
