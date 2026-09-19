@@ -4,6 +4,7 @@ import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import {
   bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest, richtSchillen,
 } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const planks = ['wood-planks', 'tan'];
 const worked = ['wood-worked', 'camel'];
@@ -48,7 +49,6 @@ const PAKKETTEN = [
   {
     kit: 'farm-buildings',
     bron: 'Farm_Buildings_Bundle',
-    schaal: 0.3,
     modellen: [
       { naam: 'barn', bronmodel: 'Barn', kind: 'str-building', tags: [], kleuren: farmShell },
       { naam: 'barn-large', bronmodel: 'Big Barn', kind: 'str-building', tags: [], kleuren: farmShell },
@@ -95,7 +95,6 @@ const PAKKETTEN = [
   {
     kit: 'toon-shooter',
     bron: 'Toon_Shooter_Game_Kit',
-    schaal: 0.32,
     modellen: [
       {
         naam: 'bear-trap', bronmodel: 'Bear Trap', kind: 'obj-tool', tags: [],
@@ -198,7 +197,6 @@ const PAKKETTEN = [
   {
     kit: 'ultimate-guns',
     bron: 'Ultimate_Guns_Pack',
-    schaal: 0.2,
     modellen: [
       {
         naam: 'revolver', bronmodel: 'Revolver', kind: 'obj-weapon-ranged', tags: [],
@@ -240,7 +238,6 @@ const PAKKETTEN = [
   {
     kit: 'kay-minigame',
     bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
-    schaal: 0.3,
     modellen: [
       {
         naam: 'bomb', bronmodel: 'powerupBomb', kind: 'obj-weapon-cannon', tags: ['ngons'],
@@ -259,7 +256,6 @@ const PAKKETTEN = [
   {
     kit: 'post-apocalypse',
     bron: 'Post_Apocolypse_Pack',
-    schaal: 0.45,
     atlas: true,
     modellen: [
       {
@@ -404,6 +400,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/flat-packs.mjs';
 
   const { modellen } = bronModellen(bronkit);

@@ -2,6 +2,7 @@ import { join } from 'node:path';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import { bouw, schrijf, kitMap, zetTags, zetManifest, richtSchillen } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const steel = ['metal-iron-steel', 'nickel'];
 const cast = ['metal-iron-cast', 'slate'];
@@ -42,7 +43,6 @@ const grove = { '1,2': leaf, '6,0': bark, '*': leaf };
 const PAKKET = {
   kit: 'kay-hexagon',
   bron: 'KayKit_Medieval_Hexagon_Pack_1.0_FREE',
-  schaal: 1.2,
   raster: [8, 4],
   modellen: [
     {
@@ -398,6 +398,8 @@ const PAKKET = {
 const bronkit = BRONKITS.find((b) => b.map === PAKKET.bron);
 if (!bronkit) throw new Error(`${PAKKET.bron}: not in BRONKITS`);
 PAKKET.naam = bronkit.naam;
+PAKKET.schaal = scaleTarget(PAKKET.kit);
+if (PAKKET.schaal === null) throw new Error(`${PAKKET.kit}: no factor in scale-factors.mjs`);
 PAKKET.generator = 'tools/importeer/kay-hexagon.mjs';
 
 const { modellen } = bronModellen(bronkit);

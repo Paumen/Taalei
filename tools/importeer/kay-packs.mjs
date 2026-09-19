@@ -2,6 +2,7 @@ import { join } from 'node:path';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import { bouw, schrijf, bandPlekken, kitMap, zetTags, zetManifest } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const steel = ['metal-iron-steel', 'nickel'];
 const cast = ['metal-iron-cast', 'slate'];
@@ -54,7 +55,6 @@ const PAKKETTEN = [
   {
     kit: 'kay-spook',
     bron: 'KayKit_Spooktober_Seasonal_Pack_1.1',
-    schaal: 0.3,
     modellen: [
       {
         naam: 'candle-small', bronmodel: 'candleSmall', kind: 'obj-lighting-candle',
@@ -180,7 +180,6 @@ const PAKKETTEN = [
   {
     kit: 'kay-minigame',
     bron: 'KayKit_Mini-Game_Variety_Pack_1.2',
-    schaal: 0.3,
     modellen: [
       {
         naam: 'arrow', bronmodel: 'arrow_teamBlue', kind: 'obj-weapon-ranged-accessory',
@@ -236,7 +235,6 @@ const PAKKETTEN = [
   {
     kit: 'kay-builder',
     bron: 'KayKit_Medieval_Builder_Pack_1.0',
-    schaal: 1,
     modellen: [
       {
         naam: 'archery-range', bronmodel: 'archeryrange', kind: 'str-building',
@@ -404,6 +402,8 @@ for (const pakket of PAKKETTEN) {
   const bronkit = BRONKITS.find((b) => b.map === pakket.bron);
   if (!bronkit) throw new Error(`${pakket.bron}: not in BRONKITS`);
   pakket.naam = bronkit.naam;
+  pakket.schaal = scaleTarget(pakket.kit);
+  if (pakket.schaal === null) throw new Error(`${pakket.kit}: no factor in scale-factors.mjs`);
   pakket.generator = 'tools/importeer/kay-packs.mjs';
 
   const { modellen } = bronModellen(bronkit);

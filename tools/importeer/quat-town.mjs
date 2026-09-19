@@ -4,12 +4,14 @@ import { fileURLToPath } from 'node:url';
 import { writeGlb } from '../../catalog/tools/glb.mjs';
 import { pakUit } from '../../catalog/tools/zip.mjs';
 import { leesGltf } from './bron.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_MAP = 'Ultimate_Fantasy_RTS';
 const BRON_NAAM = 'Ultimate Fantasy RTS';
 const KIT = 'quat-town';
-const SCHAAL = 0.96;
+const SCHAAL = scaleTarget(KIT);
+if (SCHAAL === null) throw new Error(`${KIT}: no factor in scale-factors.mjs`);
 const RAND = [0.05, 0.95];
 const SPREIDING = [0.12, 0.88];
 

@@ -2,6 +2,7 @@ import { join } from 'node:path';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen } from '../../catalog/tools/bronmodellen.mjs';
 import { bouw, schrijf, kitMap, zetTags, zetManifest } from './bouwer.mjs';
+import { scaleTarget } from './scale-factors.mjs';
 
 const steel = ['metal-iron-steel', 'nickel'];
 const wrought = ['metal-iron-wrought', 'basalt'];
@@ -47,7 +48,6 @@ const idol = { '2,1': gold, '4,2': woodBeam, '*': gold };
 const PAKKET = {
   kit: 'kay-mixed',
   bron: 'KayKit_Mixed_Bag_1_FREE',
-  schaal: 0.3,
   raster: [8, 4],
   generator: 'tools/importeer/kay-mixed.mjs',
   modellen: [
@@ -277,6 +277,8 @@ function richtSchillen(model) {
 const bronkit = BRONKITS.find((b) => b.map === PAKKET.bron);
 if (!bronkit) throw new Error(`${PAKKET.bron}: not in BRONKITS`);
 PAKKET.naam = bronkit.naam;
+PAKKET.schaal = scaleTarget(PAKKET.kit);
+if (PAKKET.schaal === null) throw new Error(`${PAKKET.kit}: no factor in scale-factors.mjs`);
 
 const { modellen } = bronModellen(bronkit);
 const perNaam = new Map(modellen.map((model) => [model.naam, model]));
