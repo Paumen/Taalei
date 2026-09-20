@@ -10,7 +10,7 @@ export const SCALE_TARGETS = {
   'desert-buildings': 0.0024,
   'farm-buildings': 0.3,
   'fishing-village': 0.435,
-  'fs-terrain': 0.5,
+  'fs-terrain': 0.45,
   'gob-nature': 0.0025,
   'fs-town': 0.5,
   'isa-bakery': 0.32,
