@@ -48,11 +48,11 @@ const PAKKETTEN = [
     kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', raster: [8, 4],
     modellen: [
       {
-        naam: 'apple', bronmodel: 'apple', kind: 'obj-food', tags: ['ngons'],
+        naam: 'apple', bronmodel: 'apple', kind: 'obj-food', tags: [],
         cellen: { '2,2': fruitRed, '6,0': stem, '*': fruitRed },
       },
       {
-        naam: 'apple-cut', bronmodel: 'apple_cut', kind: 'obj-food', tags: ['ngons'],
+        naam: 'apple-cut', bronmodel: 'apple_cut', kind: 'obj-food', tags: [],
         cellen: { '2,2': fruitRed, '6,0': stem, '4,0': cream, '*': fruitRed },
       },
       {
@@ -60,7 +60,7 @@ const PAKKETTEN = [
         cellen: { '2,2': fruitRed, '4,0': cream, '1,0': pip, '*': fruitRed },
       },
       {
-        naam: 'bowl', bronmodel: 'bowl', kind: 'obj-kitchenware-tableware-bowl', tags: ['ngons'],
+        naam: 'bowl', bronmodel: 'bowl', kind: 'obj-kitchenware-tableware-bowl', tags: [],
         cellen: { '3,2': earthenware, '*': earthenware },
       },
       {
@@ -68,7 +68,7 @@ const PAKKETTEN = [
         cellen: { '1,2': cheese, '*': cheese },
       },
       {
-        naam: 'cheese-wheel', bronmodel: 'cheese_B', kind: 'obj-food', tags: ['ngons'],
+        naam: 'cheese-wheel', bronmodel: 'cheese_B', kind: 'obj-food', tags: [],
         cellen: { '3,0': cheese, '4,0': cheese, '*': cheese },
       },
       {
@@ -84,19 +84,19 @@ const PAKKETTEN = [
         cellen: { '1,2': worked, '2,0': steel, '*': steel },
       },
       {
-        naam: 'grapes', bronmodel: 'grapes', kind: 'obj-food', tags: ['plural', 'ngons'],
+        naam: 'grapes', bronmodel: 'grapes', kind: 'obj-food', tags: ['plural'],
         cellen: { '6,2': greens, '6,0': stem, '*': greens },
       },
       {
-        naam: 'grapes-bowl', bronmodel: 'grapes_bowl', kind: 'assy', tags: ['plural', 'ngons'],
+        naam: 'grapes-bowl', bronmodel: 'grapes_bowl', kind: 'assy', tags: ['plural'],
         cellen: { '3,1': porcelain, '6,2': greens, '*': porcelain },
       },
       {
-        naam: 'mug', bronmodel: 'mug', kind: 'obj-kitchenware-tableware-drinkware-mug', tags: ['ngons'],
+        naam: 'mug', bronmodel: 'mug', kind: 'obj-kitchenware-tableware-drinkware-mug', tags: [],
         cellen: { '2,1': porcelain, '*': porcelain },
       },
       {
-        naam: 'basket-round', bronmodel: 'picnic_basket_round', kind: 'obj-container', tags: ['ngons'],
+        naam: 'basket-round', bronmodel: 'picnic_basket_round', kind: 'obj-container', tags: [],
         cellen: { '5,0': worked, '6,0': beam, '*': worked },
       },
       {
@@ -112,7 +112,7 @@ const PAKKETTEN = [
         cellen: { '5,2': clothRed, '*': clothRed },
       },
       {
-        naam: 'plate', bronmodel: 'plate_A', kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        naam: 'plate', bronmodel: 'plate_A', kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '3,0': porcelain, '3,1': earthenware, '*': porcelain },
       },
       {
@@ -120,7 +120,7 @@ const PAKKETTEN = [
         cellen: { '1,2': earthenware, '*': earthenware },
       },
       {
-        naam: 'sandwich', bronmodel: 'sandwich', kind: 'obj-food', tags: ['decorated'],
+        naam: 'sandwich', bronmodel: 'sandwich', kind: 'obj-food', tags: [],
         cellen: {
           '5,0': crust, '4,2': dough, '0,1': salad, '6,2': salad, '1,2': cheese, '2,2': fruitRed,
           '6,0': salad, '*': crust,
@@ -128,7 +128,7 @@ const PAKKETTEN = [
       },
       {
         naam: 'tray-round', bronmodel: 'serving_tray_round',
-        kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '5,0': worked, '*': worked },
       },
       {
@@ -142,16 +142,16 @@ const PAKKETTEN = [
         cellen: { '5,0': worked, '*': worked },
       },
       {
-        naam: 'teapot', bronmodel: 'teapot', kind: 'obj-kitchenware-cookware-pot', tags: ['ngons'],
+        naam: 'teapot', bronmodel: 'teapot', kind: 'obj-kitchenware-cookware-pot', tags: [],
         cellen: { '2,1': earthenware, '*': earthenware },
       },
       {
-        naam: 'wine-bottle', bronmodel: 'wine_bottle', kind: 'obj-container-bottle', tags: ['ngons'],
+        naam: 'wine-bottle', bronmodel: 'wine_bottle', kind: 'obj-container-bottle', tags: [],
         cellen: { '1,1': glass, '7,0': cork, '3,0': paper, '*': glass },
       },
       {
         naam: 'wine-glass', bronmodel: 'wine_glass',
-        kind: 'obj-kitchenware-tableware-drinkware', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-drinkware', tags: [],
         cellen: { '3,1': glass, '*': glass },
       },
     ],
@@ -160,7 +160,7 @@ const PAKKETTEN = [
     kit: 'isa-picnic', bron: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', atlas: true,
     modellen: [
       {
-        naam: 'jam-jar', bronmodel: 'jam', kind: 'obj-container-pot', tags: ['ngons'],
+        naam: 'jam-jar', bronmodel: 'jam', kind: 'obj-container-pot', tags: [],
         kleuren: {
           '#ffffff': clothRed, '#e6848c': clothRed, '#d0585e': clothRed,
           '#f8eee6': paper, '#f8ede4': paper, '#f9efe8': paper, '#f9eee7': paper,
@@ -203,7 +203,7 @@ const PAKKETTEN = [
     kit: 'isa-playground', bron: 'Tiny_Treats_Fun_Playground_1.0_FREE', raster: [8, 4],
     modellen: [
       {
-        naam: 'bucket', bronmodel: 'bucket_A', kind: 'obj-container-bucket', tags: ['ngons'],
+        naam: 'bucket', bronmodel: 'bucket_A', kind: 'obj-container-bucket', tags: [],
         cellen: { '1,2': worked, '3,0': steel, '5,0': sand, '*': worked },
       },
       {
@@ -250,15 +250,15 @@ const PAKKETTEN = [
         cellen: { '5,0': planks, '*': planks },
       },
       {
-        naam: 'sandcastle-a', bronmodel: 'sandcastle_A', kind: 'str-building-fort', tags: ['ngons'],
+        naam: 'sandcastle-a', bronmodel: 'sandcastle_A', kind: 'str-building-fort', tags: [],
         cellen: { '5,0': sand, '*': sand },
       },
       {
-        naam: 'sandcastle-b', bronmodel: 'sandcastle_B', kind: 'str-building-fort', tags: ['ngons'],
+        naam: 'sandcastle-b', bronmodel: 'sandcastle_B', kind: 'str-building-fort', tags: [],
         cellen: { '5,0': sand, '*': sand },
       },
       {
-        naam: 'sandcastle-c', bronmodel: 'sandcastle_C', kind: 'str-building-fort', tags: ['ngons'],
+        naam: 'sandcastle-c', bronmodel: 'sandcastle_C', kind: 'str-building-fort', tags: [],
         cellen: { '5,0': sand, '*': sand },
       },
       {
@@ -267,22 +267,22 @@ const PAKKETTEN = [
       },
       {
         naam: 'stepping-stumps', bronmodel: 'stepping_stumps_B',
-        kind: 'env-flora-deadwood-stump', tags: ['plural', 'ngons'],
+        kind: 'env-flora-deadwood-stump', tags: ['plural'],
         cellen: { '5,0': log, '*': log },
       },
       {
         naam: 'stepping-stump-large', bronmodel: 'stepping_stumps_B_large',
-        kind: 'env-flora-deadwood-stump', tags: ['ngons'],
+        kind: 'env-flora-deadwood-stump', tags: [],
         cellen: { '5,0': log, '*': log },
       },
       {
         naam: 'stepping-stump-medium', bronmodel: 'stepping_stumps_B_medium',
-        kind: 'env-flora-deadwood-stump', tags: ['ngons'],
+        kind: 'env-flora-deadwood-stump', tags: [],
         cellen: { '5,0': log, '*': log },
       },
       {
         naam: 'stepping-stump-small', bronmodel: 'stepping_stumps_B_small',
-        kind: 'env-flora-deadwood-stump', tags: ['ngons'],
+        kind: 'env-flora-deadwood-stump', tags: [],
         cellen: { '5,0': log, '*': log },
       },
       {
@@ -315,11 +315,11 @@ const PAKKETTEN = [
         cellen: { '6,0': beam, '*': beam },
       },
       {
-        naam: 'cookie', bronmodel: 'cookie', kind: 'obj-food-grain', tags: ['decorated'],
+        naam: 'cookie', bronmodel: 'cookie', kind: 'obj-food-grain', tags: [],
         cellen: { '5,0': crust, '2,2': chocolate, '*': crust },
       },
       {
-        naam: 'cookie-jar', bronmodel: 'cookie_jar', kind: 'obj-container-pot', tags: ['ngons'],
+        naam: 'cookie-jar', bronmodel: 'cookie_jar', kind: 'obj-container-pot', tags: [],
         cellen: { '3,0': porcelain, '*': porcelain },
       },
       {
@@ -347,7 +347,7 @@ const PAKKETTEN = [
         cellen: { '5,0': crust, '4,0': dough, '*': crust },
       },
       {
-        naam: 'dough-ball', bronmodel: 'dough_ball', kind: 'obj-food-grain', tags: ['ngons'],
+        naam: 'dough-ball', bronmodel: 'dough_ball', kind: 'obj-food-grain', tags: [],
         cellen: { '4,2': dough, '*': dough },
       },
       {
@@ -359,7 +359,7 @@ const PAKKETTEN = [
         cellen: { '5,0': crust, '*': crust },
       },
       {
-        naam: 'rolling-pin', bronmodel: 'dough_roller', kind: 'obj-kitchenware-cookware', tags: ['ngons'],
+        naam: 'rolling-pin', bronmodel: 'dough_roller', kind: 'obj-kitchenware-cookware', tags: [],
         cellen: { '5,0': worked, '*': worked },
       },
       {
@@ -372,51 +372,51 @@ const PAKKETTEN = [
       },
       {
         naam: 'mug-taupe', bronmodel: 'mug_A_blue',
-        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: [],
         cellen: { '3,1': stoneware, '*': stoneware },
       },
       {
         naam: 'mug-ivory-stacked', bronmodel: 'mug_B_stacked',
-        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: ['plural', 'ngons'],
+        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: ['plural'],
         cellen: { '3,0': porcelain, '*': porcelain },
       },
       {
         naam: 'mug-ivory', bronmodel: 'mug_B',
-        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-drinkware-mug', tags: [],
         cellen: { '3,0': porcelain, '*': porcelain },
       },
       {
         naam: 'mixing-bowl', bronmodel: 'mixing_bowl',
-        kind: 'obj-kitchenware-tableware-bowl', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-bowl', tags: [],
         cellen: { '2,0': steel, '*': steel },
       },
       {
         naam: 'pastry-stand', bronmodel: 'pastry_stand_A',
-        kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '6,0': beam, '*': beam },
       },
       {
         naam: 'pastry-stand-covered', bronmodel: 'pastry_stand_A_covered',
-        kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '6,0': beam, '3,1': glass, '*': beam },
       },
       {
         naam: 'pastry-stand-filled', bronmodel: 'pastry_stand_A_decorated',
-        kind: 'assy', tags: ['plural', 'decorated', 'ngons'],
+        kind: 'assy', tags: ['plural'],
         cellen: { '6,0': beam, '5,0': crust, '2,2': fruitRed, '*': beam },
       },
       {
         naam: 'pastry-stand-tiered', bronmodel: 'pastry_stand_B',
-        kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '2,0': steel, '*': steel },
       },
       {
-        naam: 'plate', bronmodel: 'plate', kind: 'obj-kitchenware-tableware-plate', tags: ['ngons'],
+        naam: 'plate', bronmodel: 'plate', kind: 'obj-kitchenware-tableware-plate', tags: [],
         cellen: { '3,0': porcelain, '3,1': earthenware, '*': porcelain },
       },
       {
         naam: 'plate-stacked', bronmodel: 'plate_stacked',
-        kind: 'obj-kitchenware-tableware-plate', tags: ['plural', 'ngons'],
+        kind: 'obj-kitchenware-tableware-plate', tags: ['plural'],
         cellen: { '3,0': porcelain, '*': porcelain },
       },
       {
@@ -433,15 +433,15 @@ const PAKKETTEN = [
         cellen: { '6,0': beam, '4,1': clothGreen, '3,0': cloth, '*': beam },
       },
       {
-        naam: 'table-round', bronmodel: 'table_round_A', kind: 'obj-furniture-table', tags: ['ngons'],
+        naam: 'table-round', bronmodel: 'table_round_A', kind: 'obj-furniture-table', tags: [],
         cellen: { '6,0': beam, '*': beam },
       },
       {
-        naam: 'tin-a', bronmodel: 'tin_A_beige', kind: 'obj-container-pot', tags: ['ngons'],
+        naam: 'tin-a', bronmodel: 'tin_A_beige', kind: 'obj-container-pot', tags: [],
         cellen: { '4,0': porcelain, '*': porcelain },
       },
       {
-        naam: 'tin-b', bronmodel: 'tin_B_beige', kind: 'obj-container-pot', tags: ['ngons'],
+        naam: 'tin-b', bronmodel: 'tin_B_beige', kind: 'obj-container-pot', tags: [],
         cellen: { '4,0': porcelain, '*': porcelain },
       },
       {
