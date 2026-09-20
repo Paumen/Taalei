@@ -83,7 +83,7 @@ logs. Guessing here is what makes an import need redoing.
 
 Slug by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
-most: `kay-food`, `ken-holiday`, `medieval-town`. Add the kit's row to
+most: `kay-food`, `ken-holiday`, `quat-medieval`. Add the kit's row to
 `catalog/manifest.js` (slug, name, url, note, licence label) with an empty
 `"models": []` — `zetManifest` fills the list but will not create the row.
 
