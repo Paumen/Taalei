@@ -7083,7 +7083,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 69
+   "count": 72
   },
   {
    "id": "food",
@@ -8175,7 +8175,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 643,
+   "count": 646,
    "color": "#6cb588"
   },
   {
@@ -8333,7 +8333,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 39,
+   "count": 42,
    "color": "#cfc6ad"
   },
   {
@@ -8341,7 +8341,7 @@
    "name": "Bones",
    "type": "kind",
    "description": "skeleton (prop), ribcage, carcass",
-   "count": 32
+   "count": 35
   },
   {
    "id": "env-remains-bones-single",
@@ -8355,7 +8355,7 @@
    "name": "Skull",
    "type": "kind",
    "description": "skull",
-   "count": 11
+   "count": 12
   },
   {
    "id": "env-rock",
@@ -8724,7 +8724,7 @@
    "name": "Halloween",
    "type": "theme",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
-   "count": 376
+   "count": 379
   },
   {
    "id": "robin-hood",
@@ -8753,7 +8753,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 159
+   "count": 161
   },
   {
    "id": "pickup",
@@ -9131,7 +9131,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1375
+   "count": 1378
   },
   {
    "id": "m",
@@ -9180,7 +9180,7 @@
    "name": "WizP",
    "type": "artist",
    "description": "Kits from WizP (wizp.itch.io). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 222
+   "count": 225
   },
   {
    "id": "animation",
@@ -11307,6 +11307,46 @@
   },
   {
    "kit": "asia-grave",
+   "name": "bones",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.05
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14604,
+   "vtx": 362,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00019,
+   "anglePct": 4,
+   "vpt": 1.39,
+   "grad": 0.61,
+   "spread": {
+    "5,2": [
+     0.133,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
    "name": "coffin-a",
    "kind": "obj-container-chest-coffin",
    "size": "m",
@@ -12180,6 +12220,85 @@
     "emissive",
     "halloween",
     "metal-iron-wrought",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
+   "name": "ribs",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.1
+   ],
+   "tris": 138,
+   "tpu": 402,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9104,
+   "vtx": 212,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00033,
+   "anglePct": 15,
+   "vpt": 1.54,
+   "grad": 0.79,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.836
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.15,
+    0.1
+   ],
+   "tris": 258,
+   "tpu": 752,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15900,
+   "vtx": 402,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
+   "anglePct": 0,
+   "vpt": 1.56,
+   "grad": 0.69,
+   "spread": {
+    "5,2": [
+     0.258,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
     "wizp"
    ]
   },

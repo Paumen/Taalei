@@ -2849,6 +2849,7 @@ window.KENNEY_KITS = [
   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/asia-grave/LICENSE.txt.",
   "models": [
    "arch-stone",
+   "bones",
    "bones-a",
    "bones-b",
    "bones-pile",
@@ -2873,6 +2874,8 @@ window.KENNEY_KITS = [
    "iron-fence-run",
    "iron-fence-short",
    "lamppost",
+   "ribs",
+   "skull",
    "statue-mourner",
    "stone-block",
    "tomb-a",
