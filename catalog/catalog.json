@@ -7083,7 +7083,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 65
+   "count": 69
   },
   {
    "id": "food",
@@ -8175,7 +8175,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 639,
+   "count": 643,
    "color": "#6cb588"
   },
   {
@@ -8333,7 +8333,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 35,
+   "count": 39,
    "color": "#cfc6ad"
   },
   {
@@ -8341,21 +8341,21 @@
    "name": "Bones",
    "type": "kind",
    "description": "skeleton (prop), ribcage, carcass",
-   "count": 28
+   "count": 32
   },
   {
    "id": "env-remains-bones-single",
    "name": "Single",
    "type": "kind",
    "description": "bone, bone (single)",
-   "count": 5
+   "count": 6
   },
   {
    "id": "env-remains-bones-skull",
    "name": "Skull",
    "type": "kind",
    "description": "skull",
-   "count": 9
+   "count": 11
   },
   {
    "id": "env-rock",
@@ -8724,7 +8724,7 @@
    "name": "Halloween",
    "type": "theme",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
-   "count": 372
+   "count": 376
   },
   {
    "id": "robin-hood",
@@ -8788,7 +8788,7 @@
    "name": "Grave",
    "type": "theme",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
-   "count": 154
+   "count": 156
   },
   {
    "id": "sailing",
@@ -9131,14 +9131,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1372
+   "count": 1375
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1290
+   "count": 1291
   },
   {
    "id": "l",
@@ -9159,7 +9159,7 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 929
+   "count": 933
   },
   {
    "id": "qua",
@@ -82815,6 +82815,46 @@
   },
   {
    "kit": "kay-skeleton",
+   "name": "bone",
+   "kind": "env-remains-bones-single",
+   "size": "s",
+   "wdh": [
+    0.05,
+    0.05,
+    0.15
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10484,
+   "vtx": 232,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00004,
+   "anglePct": 7,
+   "vpt": 0.91,
+   "grad": 0.35,
+   "spread": {
+    "5,2": [
+     0.328,
+     0.68
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "grave",
+    "halloween",
+    "kay"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
    "name": "crossbow",
    "kind": "obj-weapon-ranged-crossbow",
    "size": "s",
@@ -83918,6 +83958,45 @@
   },
   {
    "kit": "kay-skeleton",
+   "name": "skull-horned",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.25,
+    0.25
+   ],
+   "tris": 721,
+   "tpu": 2102,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 38188,
+   "vtx": 1010,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00015,
+   "anglePct": 3,
+   "vpt": 1.4,
+   "grad": 0.89,
+   "spread": {
+    "5,2": [
+     0.055,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
    "name": "staff",
    "kind": "obj-weapon-magic-staff",
    "size": "m",
@@ -84634,6 +84713,57 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "name": "skull-claw",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.25,
+    0.2
+   ],
+   "tris": 1898,
+   "tpu": 5534,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 59136,
+   "vtx": 1444,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0001,
+   "anglePct": 2,
+   "vpt": 0.76,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ],
+    "8,0": [
+     0.938,
+     0.938
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5534 over max 5000 (env)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-skeleton-1",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -84735,6 +84865,46 @@
      "check": "size",
      "text": "longest 0.35 over max 0.3 (obj-pocketitem-book)"
     }
+   ]
+  },
+  {
+   "kit": "kay-skeleton-1",
+   "name": "spine-ribs",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.2,
+    0.5
+   ],
+   "tris": 750,
+   "tpu": 2187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 36916,
+   "vtx": 965,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00017,
+   "anglePct": 4,
+   "vpt": 1.29,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "grave",
+    "halloween",
+    "kay"
    ]
   },
   {

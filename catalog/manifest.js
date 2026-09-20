@@ -2168,6 +2168,7 @@ window.KENNEY_KITS = [
    "arrow-half",
    "axe",
    "blade",
+   "bone",
    "crossbow",
    "quiver",
    "shield-large-a",
@@ -2178,6 +2179,7 @@ window.KENNEY_KITS = [
    "skeleton-minion",
    "skeleton-rogue",
    "skeleton-warrior",
+   "skull-horned",
    "staff"
   ]
  },
@@ -3021,7 +3023,9 @@ window.KENNEY_KITS = [
    "shield-round-arrows",
    "skull",
    "skull-broken",
+   "skull-claw",
    "spellbook",
+   "spine-ribs",
    "staff-gem",
    "staff-gem-broken",
    "sword-broken",
