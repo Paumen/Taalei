@@ -12119,25 +12119,64 @@
    "id": "str-building-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: tower, watchtower, belltower, lighthouse.",
+   "description": "Tower-form building: tower, watchtower, belltower, lighthouse. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-tower-4a",
+   "name": "4 stories + attic",
+   "type": "kind",
+   "description": "Tower of four stories and an attic.",
    "models": [
-    "asia-rg/pagoda",
-    "ken-pirate/tower-complete-large",
-    "ken-pirate/tower-complete-small",
-    "medieval-town/bell-tower",
-    "taalei-kit/lighthouse",
-    "quat-town/watchtower-1-a",
-    "quat-town/watchtower-1-b",
-    "quat-town/watchtower-1-c",
-    "quat-town/watchtower-2-a",
+    "medieval-town/bell-tower"
+   ]
+  },
+  {
+   "id": "str-building-tower-4",
+   "name": "4 stories",
+   "type": "kind",
+   "description": "Tower of four stories.",
+   "models": [
     "quat-town/watchtower-2-b",
-    "quat-town/watchtower-2-c",
-    "medieval-village/wizard-tower",
-    "kay-builder/watchtower",
+    "ken-pirate/tower-complete-large",
     "kay-hexagon/tower-a",
-    "kay-hexagon/tower-b",
+    "kay-hexagon/tower-b"
+   ]
+  },
+  {
+   "id": "str-building-tower-3a",
+   "name": "3 stories + attic",
+   "type": "kind",
+   "description": "Tower of three stories and an attic.",
+   "models": [
+    "taalei-kit/lighthouse"
+   ]
+  },
+  {
+   "id": "str-building-tower-3",
+   "name": "3 stories",
+   "type": "kind",
+   "description": "Tower of three stories.",
+   "models": [
+    "medieval-village/wizard-tower",
+    "quat-town/watchtower-2-a",
+    "quat-town/watchtower-2-c",
+    "quat-town/watchtower-1-c",
+    "kay-builder/watchtower",
+    "ken-pirate/tower-complete-small",
+    "kay-hexagon/tower-catapult",
     "kay-hexagon/tower-base",
-    "kay-hexagon/tower-catapult"
+    "asia-rg/pagoda"
+   ]
+  },
+  {
+   "id": "str-building-tower-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Tower of two stories.",
+   "models": [
+    "quat-town/watchtower-1-b",
+    "quat-town/watchtower-1-a"
    ]
   },
   {
@@ -12150,22 +12189,61 @@
    "id": "str-building-mill-sawmill",
    "name": "Sawmill",
    "type": "kind",
-   "description": "Mill that saws timber.",
+   "description": "Mill that saws timber. A model whose stories cannot be read stays here.",
    "models": [
-    "kay-hexagon/lumbermill",
-    "kay-builder/lumbermill",
-    "medieval-town/fantasy-sawmill",
     "medieval-village/sawmill"
+   ]
+  },
+  {
+   "id": "str-building-mill-sawmill-3",
+   "name": "3 stories",
+   "type": "kind",
+   "description": "Sawmill of three stories.",
+   "models": [
+    "kay-builder/lumbermill"
+   ]
+  },
+  {
+   "id": "str-building-mill-sawmill-2a",
+   "name": "2 stories + attic",
+   "type": "kind",
+   "description": "Sawmill of two stories and an attic.",
+   "models": [
+    "kay-hexagon/lumbermill"
+   ]
+  },
+  {
+   "id": "str-building-mill-sawmill-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Sawmill of one story and an attic.",
+   "models": [
+    "medieval-town/fantasy-sawmill"
    ]
   },
   {
    "id": "str-building-mill-watermill",
    "name": "Watermill",
    "type": "kind",
-   "description": "Mill driven by a water wheel.",
+   "description": "Mill driven by a water wheel. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-mill-watermill-2a",
+   "name": "2 stories + attic",
+   "type": "kind",
+   "description": "Watermill of two stories and an attic.",
    "models": [
-    "kay-builder/watermill",
     "kay-hexagon/watermill"
+   ]
+  },
+  {
+   "id": "str-building-mill-watermill-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Watermill of one story.",
+   "models": [
+    "kay-builder/watermill"
    ]
   },
   {
@@ -12184,19 +12262,51 @@
    "id": "str-building-mill-windmill",
    "name": "Windmill",
    "type": "kind",
-   "description": "Mill driven by sails on the wind.",
+   "description": "Mill driven by sails on the wind. A model whose stories cannot be read stays here.",
    "models": [
-    "kay-builder/mill",
-    "medieval-town/mill",
-    "quat-town/windmill-2",
-    "farm-buildings/windmill",
+    "styloo-farm/windmill-small"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill-3a",
+   "name": "3 stories + attic",
+   "type": "kind",
+   "description": "Windmill of three stories and an attic.",
+   "models": [
+    "medieval-town/mill"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill-3",
+   "name": "3 stories",
+   "type": "kind",
+   "description": "Windmill of three stories.",
+   "models": [
     "kay-hexagon/windmill",
-    "medieval-village/windmill",
-    "windmill/windmill",
+    "farm-buildings/windmill",
     "quat-town/windmill-1",
-    "styloo-farm/windmill-small",
-    "styloo-farm/windmill",
-    "styloo-farm/windmill-large"
+    "windmill/windmill",
+    "kay-builder/mill"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Windmill of two stories.",
+   "models": [
+    "quat-town/windmill-2",
+    "styloo-farm/windmill-large",
+    "medieval-village/windmill"
+   ]
+  },
+  {
+   "id": "str-building-mill-windmill-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Windmill of one story.",
+   "models": [
+    "styloo-farm/windmill"
    ]
   },
   {
@@ -12228,69 +12338,100 @@
    "id": "str-building-dwelling",
    "name": "Dwelling",
    "type": "kind",
-   "description": "Building lived in: house (whole), hut, cottage, inn.",
+   "description": "Building lived in: house (whole), hut, cottage, inn. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-dwelling-2a",
+   "name": "2 stories + attic",
+   "type": "kind",
+   "description": "Dwelling of two stories and an attic.",
    "models": [
-    "architecture/cottage",
-    "asia-rg/house-a",
-    "asia-rg/house-b",
-    "asia-rg/house-c",
-    "asia-rg/house-d",
-    "asia-rg/house-e",
-    "asia-rg/house-f",
-    "asia-rg/house-small",
-    "medieval-town/fantasy-house",
-    "medieval-town/fantasy-house-2",
-    "medieval-town/fantasy-house-3",
-    "medieval-town/fantasy-inn",
-    "quat-pirate/house-1",
-    "quat-pirate/house-2",
-    "quat-pirate/house-3",
-    "quat-town/house-1-1-a",
-    "quat-town/house-1-1-b",
-    "quat-town/house-1-1-c",
-    "quat-town/house-1-2-a",
-    "quat-town/house-1-2-b",
-    "quat-town/house-1-2-c",
-    "quat-town/house-1-3-c",
-    "quat-town/house-2-1-a",
-    "quat-town/house-2-1-b",
-    "quat-town/house-2-1-c",
-    "quat-town/house-2-2-a",
-    "quat-town/house-2-2-b",
-    "quat-town/house-2-2-c",
-    "quat-town/house-2-3-a",
-    "quat-town/house-2-3-b",
-    "quat-town/house-2-3-c",
-    "asia-pack/house-a",
-    "asia-pack/house-b",
-    "asia-pack/house-c",
-    "asia-pack/market-house",
-    "fishing-village/stilt-cabin",
-    "medieval-village/house-a",
-    "medieval-village/house-b",
-    "village/house-a",
-    "village/house-b",
-    "village/house-c",
-    "architecture/cabin",
-    "kay-builder/house",
-    "kay-hexagon/house-a",
     "kay-hexagon/house-b",
-    "kay-hexagon/tavern",
+    "medieval-town/fantasy-house-2",
+    "medieval-town/fantasy-house-3"
+   ]
+  },
+  {
+   "id": "str-building-dwelling-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Dwelling of two stories.",
+   "models": [
     "kay-hexagon/ruin",
-    "desert-buildings/large-building-a",
-    "desert-buildings/large-building-b",
-    "desert-buildings/large-building-c",
-    "desert-buildings/large-building-d",
     "desert-buildings/large-building-frame-a",
     "desert-buildings/large-building-frame-b",
     "desert-buildings/large-building-frame-c",
     "desert-buildings/large-building-frame-d",
-    "desert-buildings/medium-building-a",
-    "desert-buildings/medium-building-frame-a",
+    "desert-buildings/large-building-a",
+    "desert-buildings/large-building-b",
+    "desert-buildings/large-building-c",
+    "desert-buildings/large-building-d",
+    "asia-rg/house-b",
+    "asia-pack/house-b",
+    "village/house-b",
+    "asia-rg/house-a",
+    "quat-pirate/house-3",
+    "quat-town/house-2-3-c",
+    "quat-town/house-2-2-b",
+    "quat-town/house-2-2-a",
+    "quat-town/house-2-2-c",
+    "quat-pirate/house-2",
+    "quat-town/house-1-2-b",
+    "quat-town/house-1-2-a",
+    "quat-town/house-1-2-c"
+   ]
+  },
+  {
+   "id": "str-building-dwelling-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Dwelling of one story and an attic.",
+   "models": [
+    "asia-pack/market-house",
+    "asia-pack/house-c",
+    "village/house-a",
+    "village/house-c",
+    "medieval-village/house-a",
+    "medieval-village/house-b",
+    "kay-hexagon/house-a",
+    "asia-pack/house-a",
+    "quat-town/house-2-1-c",
+    "quat-pirate/house-1",
+    "medieval-town/fantasy-inn"
+   ]
+  },
+  {
+   "id": "str-building-dwelling-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Dwelling of one story.",
+   "models": [
+    "kay-hexagon/tavern",
+    "fishing-village/stilt-cabin",
+    "desert-buildings/small-building-a",
+    "desert-buildings/small-building-frame-a",
     "desert-buildings/medium-building-b",
     "desert-buildings/medium-building-frame-b",
-    "desert-buildings/small-building-a",
-    "desert-buildings/small-building-frame-a"
+    "desert-buildings/medium-building-a",
+    "desert-buildings/medium-building-frame-a",
+    "asia-rg/house-c",
+    "asia-rg/house-small",
+    "asia-rg/house-f",
+    "asia-rg/house-e",
+    "asia-rg/house-d",
+    "quat-town/house-2-3-b",
+    "quat-town/house-2-3-a",
+    "quat-town/house-2-1-b",
+    "quat-town/house-2-1-a",
+    "quat-town/house-1-3-c",
+    "quat-town/house-1-1-b",
+    "quat-town/house-1-1-a",
+    "quat-town/house-1-1-c",
+    "kay-builder/house",
+    "medieval-town/fantasy-house",
+    "architecture/cottage",
+    "architecture/cabin"
    ]
   },
   {
@@ -12308,30 +12449,58 @@
    "id": "str-building-fort-barracks",
    "name": "Barracks",
    "type": "kind",
-   "description": "Building that houses or trains a garrison.",
+   "description": "Building that houses or trains a garrison. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-fort-barracks-3",
+   "name": "3 stories",
+   "type": "kind",
+   "description": "Barracks of three stories.",
    "models": [
-    "medieval-town/fantasy-barracks",
-    "kay-builder/barracks",
+    "medieval-town/fantasy-barracks"
+   ]
+  },
+  {
+   "id": "str-building-fort-barracks-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Barracks of two stories.",
+   "models": [
     "kay-hexagon/barracks",
-    "quat-town/barracks-1-b",
-    "quat-town/barracks-1-a",
-    "quat-town/barracks-1-c",
+    "kay-builder/barracks"
+   ]
+  },
+  {
+   "id": "str-building-fort-barracks-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Barracks of one story and an attic.",
+   "models": [
+    "medieval-town/fantasy-stable"
+   ]
+  },
+  {
+   "id": "str-building-fort-barracks-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Barracks of one story.",
+   "models": [
+    "asia-rg/dojo",
     "quat-town/barracks-2-b",
     "quat-town/barracks-2-a",
     "quat-town/barracks-2-c",
-    "medieval-town/fantasy-stable",
-    "asia-rg/dojo"
+    "quat-town/barracks-1-b",
+    "quat-town/barracks-1-a",
+    "quat-town/barracks-1-c"
    ]
   },
   {
    "id": "str-building-fort-smithy",
    "name": "Smithy",
    "type": "kind",
-   "description": "Building where metal is worked.",
+   "description": "Building where metal is worked. A model whose stories cannot be read stays here.",
    "models": [
-    "kay-hexagon/blacksmith",
-    "medieval-town/blacksmith",
-    "medieval-village/smithy",
     "medieval-forge/furnace",
     "styloo-farm/smelter",
     "styloo-farm/smelter-medium",
@@ -12339,13 +12508,30 @@
    ]
   },
   {
+   "id": "str-building-fort-smithy-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Smithy of one story and an attic.",
+   "models": [
+    "medieval-village/smithy",
+    "medieval-town/blacksmith"
+   ]
+  },
+  {
+   "id": "str-building-fort-smithy-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Smithy of one story.",
+   "models": [
+    "kay-hexagon/blacksmith"
+   ]
+  },
+  {
    "id": "str-building-fort-castle",
    "name": "Castle",
    "type": "kind",
-   "description": "Walled seat of a lord.",
+   "description": "Walled seat of a lord. A model whose stories cannot be read stays here.",
    "models": [
-    "kay-builder/castle",
-    "kay-hexagon/castle",
     "quat-town/wonder-1-b",
     "quat-town/wonder-1-a",
     "quat-town/wonder-1-c",
@@ -12355,6 +12541,24 @@
     "quat-town/wonder-walls-2",
     "architecture/castle",
     "architecture/fortress"
+   ]
+  },
+  {
+   "id": "str-building-fort-castle-4",
+   "name": "4 stories",
+   "type": "kind",
+   "description": "Castle of four stories.",
+   "models": [
+    "kay-hexagon/castle"
+   ]
+  },
+  {
+   "id": "str-building-fort-castle-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Castle of two stories.",
+   "models": [
+    "kay-builder/castle"
    ]
   },
   {
@@ -12386,28 +12590,74 @@
    "id": "str-building-archery",
    "name": "Archery",
    "type": "kind",
-   "description": "Building where bows are shot or sold.",
+   "description": "Building where bows are shot or sold. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-archery-3",
+   "name": "3 stories",
+   "type": "kind",
+   "description": "Archery building of three stories.",
    "models": [
-    "quat-town/archery-1-b",
-    "quat-town/archery-1-a",
-    "quat-town/archery-1-c",
-    "quat-town/archery-2-b",
-    "quat-town/archery-2-a",
-    "quat-town/archery-2-c",
-    "kay-builder/archery-range",
     "kay-hexagon/archery-range",
-    "medieval-village/weapon-shop"
+    "quat-town/archery-2-a",
+    "quat-town/archery-1-b",
+    "quat-town/archery-1-c"
+   ]
+  },
+  {
+   "id": "str-building-archery-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Archery building of two stories.",
+   "models": [
+    "medieval-village/weapon-shop",
+    "kay-builder/archery-range",
+    "quat-town/archery-1-a"
+   ]
+  },
+  {
+   "id": "str-building-archery-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Archery building of one story.",
+   "models": [
+    "quat-town/archery-2-b",
+    "quat-town/archery-2-c"
    ]
   },
   {
    "id": "str-building-farming",
    "name": "Farming",
    "type": "kind",
-   "description": "Farm building with no leaf that fits.",
+   "description": "Farm building with no leaf that fits. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-farming-3a",
+   "name": "3 stories + attic",
+   "type": "kind",
+   "description": "Farm building of three stories and an attic.",
    "models": [
-    "quat-town/farm-2-b",
+    "quat-town/farm-2-c"
+   ]
+  },
+  {
+   "id": "str-building-farming-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Farm building of one story and an attic.",
+   "models": [
+    "quat-town/farm-2-b"
+   ]
+  },
+  {
+   "id": "str-building-farming-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Farm building of one story.",
+   "models": [
     "quat-town/farm-2-a",
-    "quat-town/farm-2-c",
     "farm-buildings/chicken-coop"
    ]
   },
@@ -12415,16 +12665,39 @@
    "id": "str-building-farming-barn",
    "name": "Barn",
    "type": "kind",
-   "description": "Barn: a wide store for crop, beast and gear.",
+   "description": "Barn: a wide store for crop, beast and gear. A model whose stories cannot be read stays here.",
+   "models": []
+  },
+  {
+   "id": "str-building-farming-barn-2",
+   "name": "2 stories",
+   "type": "kind",
+   "description": "Barn of two stories.",
+   "models": [
+    "architecture/barn"
+   ]
+  },
+  {
+   "id": "str-building-farming-barn-1a",
+   "name": "1 story + attic",
+   "type": "kind",
+   "description": "Barn of one story and an attic.",
    "models": [
     "farm-buildings/barn-open",
+    "styloo-farm/barn",
+    "styloo-farm/barn-large",
     "farm-buildings/barn",
     "farm-buildings/barn-large",
-    "farm-buildings/barn-small",
-    "architecture/barn",
-    "styloo-farm/barn-small",
-    "styloo-farm/barn",
-    "styloo-farm/barn-large"
+    "farm-buildings/barn-small"
+   ]
+  },
+  {
+   "id": "str-building-farming-barn-1",
+   "name": "1 story",
+   "type": "kind",
+   "description": "Barn of one story.",
+   "models": [
+    "styloo-farm/barn-small"
    ]
   },
   {

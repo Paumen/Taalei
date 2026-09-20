@@ -173,6 +173,7 @@ What a model *is*, before any material or colour question.
 | `T03` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted |
 | `T04` | `tag:plural` | — | model | is | several instances of one thing in one model |
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
+| `T07` | `kind:str-building` | — | `kind` | is | the story leaf read from the model — door height, wall bands, floor lines; a room in the roof is its own step; a building whose stories do not read stays on the parent |
 
 - **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 
