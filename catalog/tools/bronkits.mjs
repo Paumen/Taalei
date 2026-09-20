@@ -46,7 +46,7 @@ export const BRONKITS = [
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
-  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'primitive-tools', formaat: 'fbx' },
+  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'lpa-tools', formaat: 'fbx' },
 
   { map: 'Animated_Fish_Pack_by_Quaternius_OBJ_FBX', naam: 'Animated Fish Pack', kit: 'quat-fish', source: 'qua', formaat: 'obj' },
   { map: 'Ultimate_Food_Pack_by_Quaternius_OBJ', naam: 'Ultimate Food Pack', kit: 'quat-food', source: 'qua', formaat: 'obj' },
@@ -56,22 +56,22 @@ export const BRONKITS = [
 
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', source: 'isa', formaat: 'glb' },
   { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', source: 'isa', formaat: 'glb' },
-  { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'medieval-town', source: 'qua', formaat: 'glb' },
+  { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'quat-medieval', source: 'qua', formaat: 'glb' },
 
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', source: 'qua', formaat: 'glb' },
-  { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'desert-buildings', formaat: 'fbx', alleMappen: true },
+  { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'lpa-desert', formaat: 'fbx', alleMappen: true },
   { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
-  { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'asia-pack', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'asia-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'asia-rocks', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'wizp-asia', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'wizp-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'wizp-rock', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
 
-  { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'medieval-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'fishing-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'arena-pack', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'trees', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Village_Pack', naam: 'Village Pack', kit: 'village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'wizp-mediev', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'wizp-fish', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Cementery_Arena_Pack', naam: 'Cementery Arena Pack', kit: 'wizp-arena', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'wizp-tree', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+  { map: 'Village_Pack', naam: 'Village Pack', kit: 'wizp-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
 
   { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: 'architecture', formaat: 'fbx', alleMappen: true },
@@ -84,8 +84,8 @@ export const BRONKITS = [
   { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: 'kay-minigame', source: 'kay', formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
 
   { map: 'Ultimate_Guns_Pack', naam: 'Ultimate Guns Pack', kit: 'ultimate-guns', formaat: 'glb' },
-  { map: 'Toon_Shooter_Game_Kit', naam: 'Toon Shooter Game Kit', kit: 'toon-shooter', source: 'qua', formaat: 'glb' },
-  { map: 'Farm_Buildings_Bundle', naam: 'Farm Buildings Bundle', kit: 'farm-buildings', source: 'qua', formaat: 'glb' },
+  { map: 'Toon_Shooter_Game_Kit', naam: 'Toon Shooter Game Kit', kit: 'quat-shoot', source: 'qua', formaat: 'glb' },
+  { map: 'Farm_Buildings_Bundle', naam: 'Farm Buildings Bundle', kit: 'quat-farms', source: 'qua', formaat: 'glb' },
 
   { map: 'Tiny_Treats_Pleasant_Picnic_1.0_FREE', naam: 'Tiny Treats Pleasant Picnic', kit: 'isa-picnic', source: 'isa', formaat: 'gltf' },
   { map: 'Tiny_Treats_Fun_Playground_1.0_FREE', naam: 'Tiny Treats Fun Playground', kit: 'isa-playground', source: 'isa', formaat: 'gltf' },
@@ -95,7 +95,7 @@ export const BRONKITS = [
   { map: 'gobkit_minion-pack', naam: 'Gobkit Minion Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: 'gob-nature', formaat: 'glb' },
-  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'post-apocalypse', source: 'kay', formaat: 'glb' },
+  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'kay-apocalyp', source: 'kay', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
   { map: 'KayKit_Holiday_Bits_1.0_FREE', naam: 'KayKit Holiday Bits', kit: 'kay-holiday', source: 'kay', formaat: 'gltf' },

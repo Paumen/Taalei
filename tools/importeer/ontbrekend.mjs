@@ -49,7 +49,7 @@ const PAKKETTEN = [
     }],
   },
   {
-    kit: 'desert-buildings', bron: 'Low_Poly_Desert_Buildings',
+    kit: 'lpa-desert', bron: 'Low_Poly_Desert_Buildings',
     modellen: [{
       naam: 'door', bronmodel: 'Door', kind: 'str-part-door', tags: [],
       kleuren: { '#99624b': balk, '#c78062': hout, '#452309': giet, '*': balk },
@@ -108,7 +108,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'medieval-town', bron: 'Medieval_Village_Pack',
+    kit: 'quat-medieval', bron: 'Medieval_Village_Pack',
     modellen: [
       {
         naam: 'door-round', bronmodel: 'Door Round', kind: 'str-part-door', tags: [],
@@ -338,7 +338,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'asia-pack', bron: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', atlas: true,
+    kit: 'wizp-asia', bron: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', atlas: true,
     modellen: [{
       naam: 'ore-jade', bronmodel: 'mineral_ore_jade', kind: 'env-rock', tags: ['asia'],
       kleuren: { '*': jade },
@@ -543,7 +543,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'toon-shooter', bron: 'Toon_Shooter_Game_Kit',
+    kit: 'quat-shoot', bron: 'Toon_Shooter_Game_Kit',
     modellen: [{
       naam: 'shovel', bronmodel: 'Shovel', kind: 'obj-tool-long', tags: [],
       kleuren: { '#818491': staal, '#5f4b35': balk, '#8c3735': hout, '*': staal },

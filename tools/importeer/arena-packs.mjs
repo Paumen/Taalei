@@ -46,7 +46,7 @@ const loof = ['foliage', 'hunter'];
 const PAKKETTEN = [
   {
     bron: 'Fishing_Village_Pack',
-    kit: 'fishing-village',
+    kit: 'wizp-fish',
     modellen: {
       boat: {
         naam: 'boat-oars', kind: 'obj-transport-boat', tags: ['sailing'],
@@ -116,7 +116,7 @@ const PAKKETTEN = [
   },
   {
     bron: 'Medieval_Pack',
-    kit: 'medieval-village',
+    kit: 'wizp-mediev',
     modellen: {
       barrel_1: {
         naam: 'barrel', kind: 'obj-container-barrel', tags: ['ngons'],
@@ -271,7 +271,7 @@ const PAKKETTEN = [
   },
   {
     bron: 'Village_Pack',
-    kit: 'village',
+    kit: 'wizp-village',
     modellen: {
       bridge2: {
         naam: 'bridge-arched-a', kind: 'str-access-bridge', tags: ['asia'],
@@ -313,7 +313,7 @@ const PAKKETTEN = [
   },
   {
     bron: 'Cementery_Arena_Pack',
-    kit: 'arena-pack',
+    kit: 'wizp-arena',
     modellen: {
       grass_green: {
         naam: 'grass-tuft', kind: 'env-flora-plant-grass', tags: [],
@@ -327,7 +327,7 @@ const PAKKETTEN = [
   },
   {
     bron: 'Trees_Pack',
-    kit: 'trees',
+    kit: 'wizp-tree',
     modellen: {
       banana2: {
         naam: 'banana-tree', kind: 'env-flora-tree', tags: [],
