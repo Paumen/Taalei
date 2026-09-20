@@ -7083,7 +7083,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 65
+   "count": 83
   },
   {
    "id": "food",
@@ -8175,7 +8175,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 639,
+   "count": 657,
    "color": "#6cb588"
   },
   {
@@ -8333,7 +8333,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 35,
+   "count": 53,
    "color": "#cfc6ad"
   },
   {
@@ -8341,21 +8341,21 @@
    "name": "Bones",
    "type": "kind",
    "description": "skeleton (prop), ribcage, carcass",
-   "count": 28
+   "count": 46
   },
   {
    "id": "env-remains-bones-single",
    "name": "Single",
    "type": "kind",
    "description": "bone, bone (single)",
-   "count": 5
+   "count": 7
   },
   {
    "id": "env-remains-bones-skull",
    "name": "Skull",
    "type": "kind",
    "description": "skull",
-   "count": 9
+   "count": 16
   },
   {
    "id": "env-rock",
@@ -8717,14 +8717,14 @@
    "name": "Pirate",
    "type": "theme",
    "description": "Pirate-themed props and scenery from any kit: ships, boats, cannons, flags, treasure, palms, the pirate crew.",
-   "count": 105
+   "count": 108
   },
   {
    "id": "halloween",
    "name": "Halloween",
    "type": "theme",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
-   "count": 372
+   "count": 385
   },
   {
    "id": "robin-hood",
@@ -8753,7 +8753,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 159
+   "count": 164
   },
   {
    "id": "pickup",
@@ -8788,7 +8788,7 @@
    "name": "Grave",
    "type": "theme",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
-   "count": 154
+   "count": 157
   },
   {
    "id": "sailing",
@@ -9131,14 +9131,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1372
+   "count": 1388
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1290
+   "count": 1292
   },
   {
    "id": "l",
@@ -9159,14 +9159,14 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 929
+   "count": 938
   },
   {
    "id": "qua",
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 504
+   "count": 510
   },
   {
    "id": "isa",
@@ -9180,7 +9180,7 @@
    "name": "WizP",
    "type": "artist",
    "description": "Kits from WizP (wizp.itch.io). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 222
+   "count": 225
   },
   {
    "id": "animation",
@@ -11307,6 +11307,46 @@
   },
   {
    "kit": "asia-grave",
+   "name": "bones",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.05
+   ],
+   "tris": 260,
+   "tpu": 758,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14604,
+   "vtx": 362,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00019,
+   "anglePct": 4,
+   "vpt": 1.39,
+   "grad": 0.61,
+   "spread": {
+    "5,2": [
+     0.133,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
    "name": "coffin-a",
    "kind": "obj-container-chest-coffin",
    "size": "m",
@@ -12180,6 +12220,85 @@
     "emissive",
     "halloween",
     "metal-iron-wrought",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
+   "name": "ribs",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.1
+   ],
+   "tris": 138,
+   "tpu": 402,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9104,
+   "vtx": 212,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00033,
+   "anglePct": 15,
+   "vpt": 1.54,
+   "grad": 0.79,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.836
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "asia-grave",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.15,
+    0.1
+   ],
+   "tris": 258,
+   "tpu": 752,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15900,
+   "vtx": 402,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
+   "anglePct": 0,
+   "vpt": 1.56,
+   "grad": 0.69,
+   "spread": {
+    "5,2": [
+     0.258,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
     "wizp"
    ]
   },
@@ -51253,6 +51372,45 @@
   },
   {
    "kit": "kay-dun-1",
+   "name": "bones",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 960,
+   "tpu": 2799,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 36200,
+   "vtx": 904,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "anglePct": 4,
+   "vpt": 0.94,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "kay",
+    "plural"
+   ]
+  },
+  {
+   "kit": "kay-dun-1",
    "name": "book-a",
    "kind": "obj-pocketitem-book-closed",
    "size": "s",
@@ -56232,6 +56390,49 @@
    ],
    "mark": [
     "grounded"
+   ]
+  },
+  {
+   "kit": "kay-dun-1",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.2,
+    0.2
+   ],
+   "tris": 1157,
+   "tpu": 3373,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 33496,
+   "vtx": 782,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00019,
+   "anglePct": 2,
+   "vpt": 0.68,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ],
+    "6,1": [
+     0.711,
+     0.711
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "kay"
    ]
   },
   {
@@ -82815,6 +83016,46 @@
   },
   {
    "kit": "kay-skeleton",
+   "name": "bone",
+   "kind": "env-remains-bones-single",
+   "size": "s",
+   "wdh": [
+    0.05,
+    0.05,
+    0.15
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10484,
+   "vtx": 232,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00004,
+   "anglePct": 7,
+   "vpt": 0.91,
+   "grad": 0.35,
+   "spread": {
+    "5,2": [
+     0.328,
+     0.68
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "grave",
+    "halloween",
+    "kay"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
    "name": "crossbow",
    "kind": "obj-weapon-ranged-crossbow",
    "size": "s",
@@ -82863,6 +83104,46 @@
    ],
    "mark": [
     "centered"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
+   "name": "limbs",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.1,
+    0.4
+   ],
+   "tris": 2132,
+   "tpu": 6216,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 218988,
+   "vtx": 6396,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00008,
+   "anglePct": 22,
+   "vpt": 3,
+   "grad": 0.78,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.828
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay",
+    "plural"
    ]
   },
   {
@@ -82922,6 +83203,45 @@
    "variant": "v156",
    "mark": [
     "grounded"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
+   "name": "ribcage",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.2,
+    0.3
+   ],
+   "tris": 1256,
+   "tpu": 3662,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 129616,
+   "vtx": 3768,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00016,
+   "anglePct": 8,
+   "vpt": 3,
+   "grad": 0.78,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.828
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
    ]
   },
   {
@@ -83918,6 +84238,84 @@
   },
   {
    "kit": "kay-skeleton",
+   "name": "skull-horned",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.25,
+    0.25
+   ],
+   "tris": 721,
+   "tpu": 2102,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 38188,
+   "vtx": 1010,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00015,
+   "anglePct": 3,
+   "vpt": 1.4,
+   "grad": 0.89,
+   "spread": {
+    "5,2": [
+     0.055,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.3,
+    0.3
+   ],
+   "tris": 548,
+   "tpu": 1598,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 57388,
+   "vtx": 1644,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00067,
+   "anglePct": 3,
+   "vpt": 3,
+   "grad": 0.9,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
+   ]
+  },
+  {
+   "kit": "kay-skeleton",
    "name": "staff",
    "kind": "obj-weapon-magic-staff",
    "size": "m",
@@ -84634,6 +85032,52 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "name": "skull-claw",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.25,
+    0.2
+   ],
+   "tris": 1898,
+   "tpu": 5534,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 59136,
+   "vtx": 1444,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.0001,
+   "anglePct": 2,
+   "vpt": 0.76,
+   "grad": 0.78,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.938
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "kay"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5534 over max 5000 (env)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-skeleton-1",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -84735,6 +85179,46 @@
      "check": "size",
      "text": "longest 0.35 over max 0.3 (obj-pocketitem-book)"
     }
+   ]
+  },
+  {
+   "kit": "kay-skeleton-1",
+   "name": "spine-ribs",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.2,
+    0.5
+   ],
+   "tris": 750,
+   "tpu": 2187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 36916,
+   "vtx": 965,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00017,
+   "anglePct": 4,
+   "vpt": 1.29,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "grave",
+    "halloween",
+    "kay"
    ]
   },
   {
@@ -128780,6 +129264,47 @@
   },
   {
    "kit": "quat-pirate",
+   "name": "bones",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.15,
+    0.25
+   ],
+   "tris": 2688,
+   "tpu": 7837,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 275696,
+   "vtx": 8064,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00003,
+   "anglePct": 2,
+   "vpt": 3,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.047
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "pirate",
+    "plural",
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-pirate",
    "name": "bottle-1",
    "kind": "obj-container-bottle-potion",
    "size": "s",
@@ -130433,6 +130958,53 @@
   },
   {
    "kit": "quat-pirate",
+   "name": "ribcage",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.25
+   ],
+   "tris": 5080,
+   "tpu": 14810,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 519680,
+   "vtx": 15240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
+   "anglePct": 4,
+   "vpt": 3,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.047
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "pirate",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 14810 over max 5000 (env)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-pirate",
    "name": "rifle",
    "kind": "obj-weapon-ranged-firearm",
    "size": "m",
@@ -131148,6 +131720,54 @@
    ],
    "mark": [
     "centered"
+   ]
+  },
+  {
+   "kit": "quat-pirate",
+   "name": "skull-hollow",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1754,
+   "tpu": 5114,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 180444,
+   "vtx": 5262,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00009,
+   "anglePct": 3,
+   "vpt": 3,
+   "grad": 0.9,
+   "spread": {
+    "5,2": [
+     0.047,
+     0.945
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "grave",
+    "halloween",
+    "pirate",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5114 over max 5000 (env)"
+    }
    ]
   },
   {
@@ -137361,6 +137981,82 @@
   },
   {
    "kit": "quat-skeleton",
+   "name": "pelvis",
+   "kind": "env-remains-bones-single",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.2,
+    0.35
+   ],
+   "tris": 444,
+   "tpu": 1294,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13352,
+   "vtx": 286,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00054,
+   "anglePct": 3,
+   "vpt": 0.64,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
+   "name": "ribcage",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.35,
+    0.4
+   ],
+   "tris": 1702,
+   "tpu": 4962,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 43720,
+   "vtx": 999,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00031,
+   "anglePct": 3,
+   "vpt": 0.59,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
    "name": "skeleton",
    "kind": "assy",
    "size": "m",
@@ -137411,6 +138107,44 @@
     "qua",
     "stone-soil",
     "vegetation"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.3,
+    0.3
+   ],
+   "tris": 894,
+   "tpu": 2606,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 24152,
+   "vtx": 539,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00064,
+   "anglePct": 2,
+   "vpt": 0.6,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
    ]
   },
   {
