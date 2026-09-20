@@ -906,6 +906,7 @@ window.KENNEY_KITS = [
    "barrel",
    "barrel-dark",
    "bench",
+   "bones",
    "book-a",
    "book-b",
    "book-c",
@@ -1015,6 +1016,7 @@ window.KENNEY_KITS = [
    "shield-common",
    "shield-rare",
    "shield-uncommon",
+   "skull",
    "spell-book",
    "staff-common",
    "staff-rare",
@@ -3009,7 +3011,10 @@ window.KENNEY_KITS = [
   "name": "quat-skeleton",
   "url": "https://quaternius.com/",
   "models": [
-   "skeleton"
+   "pelvis",
+   "ribcage",
+   "skeleton",
+   "skull"
   ]
  },
  {

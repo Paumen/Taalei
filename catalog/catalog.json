@@ -7083,7 +7083,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 78
+   "count": 83
   },
   {
    "id": "food",
@@ -8175,7 +8175,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 652,
+   "count": 657,
    "color": "#6cb588"
   },
   {
@@ -8333,7 +8333,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 48,
+   "count": 53,
    "color": "#cfc6ad"
   },
   {
@@ -8341,21 +8341,21 @@
    "name": "Bones",
    "type": "kind",
    "description": "skeleton (prop), ribcage, carcass",
-   "count": 41
+   "count": 46
   },
   {
    "id": "env-remains-bones-single",
    "name": "Single",
    "type": "kind",
    "description": "bone, bone (single)",
-   "count": 6
+   "count": 7
   },
   {
    "id": "env-remains-bones-skull",
    "name": "Skull",
    "type": "kind",
    "description": "skull",
-   "count": 14
+   "count": 16
   },
   {
    "id": "env-rock",
@@ -8753,7 +8753,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 163
+   "count": 164
   },
   {
    "id": "pickup",
@@ -9131,7 +9131,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1383
+   "count": 1388
   },
   {
    "id": "m",
@@ -9159,14 +9159,14 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 936
+   "count": 938
   },
   {
    "id": "qua",
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 507
+   "count": 510
   },
   {
    "id": "isa",
@@ -51372,6 +51372,45 @@
   },
   {
    "kit": "kay-dun-1",
+   "name": "bones",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 960,
+   "tpu": 2799,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 36200,
+   "vtx": 904,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "anglePct": 4,
+   "vpt": 0.94,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "kay",
+    "plural"
+   ]
+  },
+  {
+   "kit": "kay-dun-1",
    "name": "book-a",
    "kind": "obj-pocketitem-book-closed",
    "size": "s",
@@ -56351,6 +56390,49 @@
    ],
    "mark": [
     "grounded"
+   ]
+  },
+  {
+   "kit": "kay-dun-1",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.2,
+    0.2
+   ],
+   "tris": 1157,
+   "tpu": 3373,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 33496,
+   "vtx": 782,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00019,
+   "anglePct": 2,
+   "vpt": 0.68,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ],
+    "6,1": [
+     0.711,
+     0.711
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "kay"
    ]
   },
   {
@@ -137899,6 +137981,82 @@
   },
   {
    "kit": "quat-skeleton",
+   "name": "pelvis",
+   "kind": "env-remains-bones-single",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.2,
+    0.35
+   ],
+   "tris": 444,
+   "tpu": 1294,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13352,
+   "vtx": 286,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00054,
+   "anglePct": 3,
+   "vpt": 0.64,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
+   "name": "ribcage",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.35,
+    0.4
+   ],
+   "tris": 1702,
+   "tpu": 4962,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 43720,
+   "vtx": 999,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00031,
+   "anglePct": 3,
+   "vpt": 0.59,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
    "name": "skeleton",
    "kind": "assy",
    "size": "m",
@@ -137949,6 +138107,44 @@
     "qua",
     "stone-soil",
     "vegetation"
+   ]
+  },
+  {
+   "kit": "quat-skeleton",
+   "name": "skull",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.3,
+    0.3
+   ],
+   "tris": 894,
+   "tpu": 2606,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 24152,
+   "vtx": 539,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00064,
+   "anglePct": 2,
+   "vpt": 0.6,
+   "grad": 0,
+   "spread": {
+    "5,2": [
+     0.156,
+     0.156
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "qua"
    ]
   },
   {
