@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=53f0370288';
+import './bouwstempel.js?v=5056149135';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
