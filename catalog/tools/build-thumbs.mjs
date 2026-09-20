@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
-const THUMB_DIR = join(CATALOG_DIR, 'thumbs');
-const MANIFEST = join(CATALOG_DIR, 'thumbs.json');
+const THUMB_DIR = join(CATALOG_DIR, 'build', 'thumbs');
+const MANIFEST = join(CATALOG_DIR, 'build', 'thumbs.json');
 
 const SIZE = 256;
 const QUALITY = 0.82;
@@ -35,7 +35,7 @@ const jobs = Math.max(1, Number(value('--jobs', 2)) || 1);
 const limit = Number(value('--limit', 0)) || 0;
 const prune = !flag('--no-prune');
 
-const catalog = JSON.parse(readFileSync(join(CATALOG_DIR, 'catalog.json'), 'utf8'));
+const catalog = JSON.parse(readFileSync(join(CATALOG_DIR, 'build', 'catalog.json'), 'utf8'));
 const manifest = existsSync(MANIFEST)
   ? JSON.parse(readFileSync(MANIFEST, 'utf8'))
   : { size: SIZE, models: {} };
@@ -190,7 +190,7 @@ server.close();
 writeManifest();
 
 const seconds = ((Date.now() - started) / 1000).toFixed(0);
-console.log(`${done} thumbnail pair(s) rendered in ${seconds} s${failed ? `, ${failed} failed` : ''} → catalog/thumbs, catalog/thumbs.json`);
+console.log(`${done} thumbnail pair(s) rendered in ${seconds} s${failed ? `, ${failed} failed` : ''} → catalog/build/thumbs, catalog/build/thumbs.json`);
 process.exitCode = failed || missingGlb ? 1 : 0;
 
 function writeManifest() {

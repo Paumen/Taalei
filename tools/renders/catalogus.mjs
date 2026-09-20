@@ -13,7 +13,7 @@ if (!/^[1-8]$/.test(LADDER)) { console.error('--ladder wil 1..8, kreeg: ' + LADD
 const uitArg = (li === -1 ? args : args.filter((_, i) => i !== li && i !== li + 1))[0];
 const UIT = path.resolve(ROOT, uitArg ?? 'docs/catalogus_views');
 
-const catalogus = JSON.parse(readFileSync(path.join(ROOT, 'catalog', 'catalog.json'), 'utf8'));
+const catalogus = JSON.parse(readFileSync(path.join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
 const perKit = new Map();
 for (const m of catalogus.models) {
   if (!perKit.has(m.kit)) perKit.set(m.kit, []);

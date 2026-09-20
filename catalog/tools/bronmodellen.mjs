@@ -3,7 +3,7 @@ import { join, dirname, resolve, relative, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesFbx } from './fbx.mjs';
 import { pakUit } from './zip.mjs';
-import { leesGltf, leesObj } from '../../tools/importeer/bron.mjs';
+import { leesGltf, leesObj } from './bron.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_DIR = join(ROOT, 'kits', 'sources');
