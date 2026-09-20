@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=58ff27a8f2';
+import './bouwstempel.js?v=3eb53d0576';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -12,7 +12,7 @@ const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : p
 const el = (sel) => document.querySelector(sel);
 
 const PAGE = {
-  list: document.body.dataset.list ?? 'tbd.json',
+  list: document.body.dataset.list ?? '../build/tbd.json',
   swipe: document.body.dataset.swipe ?? 'tbd',
   reject: 'reject' in document.body.dataset,
 };
@@ -206,7 +206,7 @@ function showDetail(model) {
       : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
 
   const viewer = document.createElement('model-viewer');
-  viewer.src = modelUrl(`../${model.path}`);
+  viewer.src = modelUrl(`../../${model.path}`);
   viewer.alt = `3D model ${model.name} from ${pack?.name ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('camera-controls', '');
@@ -240,7 +240,7 @@ function showDetail(model) {
     ),
   );
 
-  el('#detail-download').href = modelUrl(`../${model.path}`);
+  el('#detail-download').href = modelUrl(`../../${model.path}`);
   el('#detail-download').setAttribute('download', `${model.name}.glb`);
   el('#detail-kopieer').onclick = async (e) => {
     const button = e.currentTarget;
@@ -369,7 +369,7 @@ function makeCard(model, variants = []) {
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
-  box.dataset.src = modelUrl(`../${model.path}`);
+  box.dataset.src = modelUrl(`../../${model.path}`);
   box.dataset.alt = `3D model ${model.name} from ${pack?.name ?? model.kit}`;
 
   const text = document.createElement('div');

@@ -12,7 +12,7 @@
 * tools/renders/render.mjs can be used to render glbs in various ways.
 * A workfile in kits/workfiles is the asset itself. Nothing rewrites one in place; a model that is wrong is replaced or dropped.
 * catalog/tools/bron.mjs reads a source pack out of its zip. catalog/tools/bronmodellen.mjs measures what it finds.
-* catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/rejects.json), a swipe/review functionality, and model scale comparison page.
+* catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/data/rejects.json), a swipe/review functionality, and model scale comparison page.
 * kits/sources contains original cc0 files in zip, kits/workfiles contains selected and normalize glb for catalog.
 
 ## what's akready installed at setup

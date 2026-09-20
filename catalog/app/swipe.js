@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=58ff27a8f2';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=58ff27a8f2';
-import { renderCommentBox } from './comments.js?v=58ff27a8f2';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=58ff27a8f2';
-import './bouwstempel.js?v=58ff27a8f2';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=3eb53d0576';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=3eb53d0576';
+import { renderCommentBox } from './comments.js?v=3eb53d0576';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=3eb53d0576';
+import './bouwstempel.js?v=3eb53d0576';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -14,21 +14,21 @@ const DIRECTIONS = [
 const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
 
 const SOURCES = {
-  catalogus: { file: 'catalog.json', title: 'Swipe models', labels: null },
+  catalogus: { file: '../build/catalog.json', title: 'Swipe models', labels: null },
   tbd: {
-    file: 'tbd.json',
+    file: '../build/tbd.json',
     title: 'Swipe what is still to decide',
     key: 'tbd',
     labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
   },
   reject: {
-    file: 'reject.json',
+    file: '../build/reject.json',
     title: 'Swipe what was turned down',
     key: 'reject',
     labels: { links: 'Rightly turned down', rechts: 'Wants adding after all', omhoog: 'Turned down for another reason', omlaag: 'Look again' },
   },
   lint: {
-    file: 'catalog.json',
+    file: '../build/catalog.json',
     title: 'Swipe the lint',
     key: 'lint',
     onlyLint: true,
@@ -389,7 +389,7 @@ function makeCard(model, depth) {
   const box = document.createElement('div');
   box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
-  viewer.src = modelUrl(`../${model.path}`);
+  viewer.src = modelUrl(`../../${model.path}`);
   viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
@@ -472,7 +472,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=58ff27a8f2'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=3eb53d0576'));
   const limits = limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
   const longest = Math.max(...model.wdh);

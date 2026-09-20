@@ -31,15 +31,15 @@ folder), `naam` (human name), `kit` (slug, `null` until adopted), `formaat`
 
     node catalog/tools/build-lists.mjs
 
-Then open the TBD tab (`catalog/tbd.html`) and look. The previews colour
+Then open the TBD tab (`catalog/app/tbd.html`) and look. The previews colour
 themselves from the source texture, or from an average when the material
 carries no map — half-blank, black or grey models mean the pack's materials did
-not resolve. Fix that by hand in `catalog/preview-colors.json`, keyed by pack
+not resolve. Fix that by hand in `catalog/data/preview-colors.json`, keyed by pack
 and then by material or texture name.
 
 A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
-most. A kit needs its row in `catalog/manifest.js` (slug, name, url, note,
+most. A kit needs its row in `catalog/data/manifest.js` (slug, name, url, note,
 licence label); `zetManifest` fills the model list but will not create the row.
 
 ## 3. Colour and bands
@@ -79,7 +79,7 @@ bend the lint around.
 
 ## 4. Tags
 
-Set in `catalog/tags.json`, per model, as `<kit>/<name>`:
+Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
 
 - **kind** — mandatory, exactly one, the deepest leaf that fits. Resolve
   the noun against the Appendix glossary; add a noun to a leaf when it clearly
@@ -105,13 +105,13 @@ still resolve badly against the glossary, put them to the PO in one question
 rather than guessing each.
 
 `zetTags` throws on any kind, material or flag id that is not already a row in
-`catalog/tags.json`. Check the whole set of ids against that file before the
+`catalog/data/tags.json`. Check the whole set of ids against that file before the
 first run.
 
 ## 5. Variants
 
 Group what reads as one thing, following the bible's variants section. Clusters
-live in `catalog/asset_variants.json`: `members`, `main`, `type`. Name and
+live in `catalog/data/asset_variants.json`: `members`, `main`, `type`. Name and
 triangle count propose a group; shape and a render confirm it before you write
 it down. `type` takes one of the values the file already uses —
 `detail-variant`, `color-variant`, `maatvariant` — so the tab keeps grouping
@@ -140,7 +140,7 @@ group at locked scale:
 is how to judge one kit's size against another's. Reading the numbers is not
 looking.
 
-Reading the catalogue back: in `catalog/catalog.json` a model's `bands` and
+Reading the catalogue back: in `catalog/build/catalog.json` a model's `bands` and
 `mat` are counts, not lists — the bands themselves are the keys of `spread`,
 as `"column,row"` — and `wdh` is width, depth, height with height last.
 

@@ -44,7 +44,7 @@ const free = () => (waiting.length ? waiting.shift()() : inFlight--);
 export function loadModel(path) {
   if (!models.has(path)) {
     const p = slot()
-      .then(() => load(modelUrl(`../${path}`)))
+      .then(() => load(modelUrl(`../../${path}`)))
       .then((gltf) => gltf.scene, (error) => { models.delete(path); throw error; })
       .finally(free);
     models.set(path, p);

@@ -28,7 +28,7 @@ first.
 
 ## 2. Read the extract
 
-- `tags` — `add`/`remove` per tag, applied to `catalog/tags.json`.
+- `tags` — `add`/`remove` per tag, applied to `catalog/data/tags.json`.
 - `colours` — per model, keyed by the hex the panel shows: `wrong`, `partial`,
   `add`. `partial` means part of that band is wrong, so the band as a whole is
   never the answer.

@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=58ff27a8f2';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=58ff27a8f2';
-import { colorSwatches, setBands } from './color-edits.js?v=58ff27a8f2';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=58ff27a8f2';
-import { mountExtractBar, setPageParts } from './extract.js?v=58ff27a8f2';
-import './bouwstempel.js?v=58ff27a8f2';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=3eb53d0576';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=3eb53d0576';
+import { colorSwatches, setBands } from './color-edits.js?v=3eb53d0576';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=3eb53d0576';
+import { mountExtractBar, setPageParts } from './extract.js?v=3eb53d0576';
+import './bouwstempel.js?v=3eb53d0576';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -28,7 +28,7 @@ const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy'];
 const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 
 const MODEL_PATH = 'kits/workfiles';
-const THUMB_PATH = 'catalog/thumbs';
+const THUMB_PATH = 'catalog/build/thumbs';
 
 const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
 const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
@@ -193,8 +193,8 @@ function demoClip(clips) {
   return clips.find((name) => name === 'open-close' || name === 'toggle') ?? clips[0];
 }
 
-const FLAT_ENVIRONMENT = 'catalog/effen-omgeving.png';
-const SOFT_ENVIRONMENT = 'catalog/zachte-omgeving.png';
+const FLAT_ENVIRONMENT = 'catalog/app/effen-omgeving.png';
+const SOFT_ENVIRONMENT = 'catalog/app/zachte-omgeving.png';
 const flatMode = { on: false };
 
 function setLighting(viewer, shadow) {
@@ -1299,7 +1299,7 @@ function filter() {
 
 async function loadThumbs() {
   try {
-    const response = await fetch(modelUrl('catalog/thumbs.json'));
+    const response = await fetch(modelUrl('catalog/build/thumbs.json'));
     if (!response.ok) return;
     const data = await response.json();
     for (const [id, own] of Object.entries(data.models ?? {})) thumbs.set(id, own.v);
@@ -1307,7 +1307,7 @@ async function loadThumbs() {
 }
 
 async function start() {
-  const response = await fetch(modelUrl('catalog/catalog.json'));
+  const response = await fetch(modelUrl('catalog/build/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);

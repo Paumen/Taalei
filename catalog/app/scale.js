@@ -1,6 +1,6 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=58ff27a8f2';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=58ff27a8f2';
-import './bouwstempel.js?v=58ff27a8f2';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=3eb53d0576';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=3eb53d0576';
+import './bouwstempel.js?v=3eb53d0576';
 
 const MODEL_PATH = 'kits/workfiles';
 
@@ -46,8 +46,8 @@ function colorName(hex) {
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
 const [allGroups, catalogData] = await Promise.all([
-  fetch(`scale-groups.json?v=${version}`).then((r) => r.json()),
-  fetch(`catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
+  fetch(`../build/scale-groups.json?v=${version}`).then((r) => r.json()),
+  fetch(`../build/catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
 
 const TABS = CATEGORY ? CATEGORY.split(',') : null;
