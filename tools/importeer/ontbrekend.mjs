@@ -143,7 +143,7 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'tree-pine-orange-large', bronmodel: 'tree_pine_orange_large',
-        kind: 'env-flora-tree-conifer', tags: ['halloween', 'ngons'],
+        kind: 'env-flora-tree-conifer', tags: ['halloween'],
         cellen: { '0,1': loof, '7,1': schors, '*': schors },
       },
       {
@@ -257,7 +257,7 @@ const PAKKETTEN = [
     kit: 'isa-park', bron: 'Pretty_park_set', raster: [8, 4],
     modellen: [
       {
-        naam: 'fountain', bronmodel: 'Fountain', kind: 'obj-art-sculpture', tags: ['ngons'],
+        naam: 'fountain', bronmodel: 'Fountain', kind: 'obj-art-sculpture', tags: [],
         cellen: { '2,0': steenGrijs, '0,1': water, '1,3': water, '*': steenGrijs },
       },
       {
@@ -289,7 +289,7 @@ const PAKKETTEN = [
         cellen: { '13,3': staal, '3,3': balk, '*': staal },
       },
       {
-        naam: 'coin', bronmodel: 'coin', kind: 'obj-pocketitem-coin', tags: ['pickup', 'ngons'],
+        naam: 'coin', bronmodel: 'coin', kind: 'obj-pocketitem-coin', tags: ['pickup'],
         cellen: { '*': goud },
       },
     ],
@@ -325,14 +325,14 @@ const PAKKETTEN = [
       { naam: 'arch-door-bottompivot', bronmodel: 'Arch_Door_bottompivot', kind: 'str-part-door', tags: ['halloween'] },
       { naam: 'bag-coins', bronmodel: 'Bag_Coins', kind: 'obj-container-bag', tags: [] },
       { naam: 'bag-standing', bronmodel: 'Bag_Standing', kind: 'obj-container-bag', tags: [] },
-      { naam: 'barrel-2', bronmodel: 'Barrel2', kind: 'obj-container-barrel', tags: ['ngons'] },
+      { naam: 'barrel-2', bronmodel: 'Barrel2', kind: 'obj-container-barrel', tags: [] },
       { naam: 'chest', bronmodel: 'Chest', kind: 'obj-container-chest', tags: [] },
       { naam: 'chest-gold', bronmodel: 'Chest_Gold', kind: 'assy', tags: ['halloween'] },
       { naam: 'crate', bronmodel: 'Crate', kind: 'obj-container-crate', tags: [] },
       { naam: 'pedestal', bronmodel: 'Pedestal', kind: 'str', tags: ['halloween'] },
       { naam: 'pedestal-2', bronmodel: 'Pedestal2', kind: 'str', tags: ['halloween'] },
       { naam: 'sword-wall-mount', bronmodel: 'Sword_WallMount', kind: 'assy', tags: ['halloween'] },
-      { naam: 'vase', bronmodel: 'Vase', kind: 'obj-container-pot', tags: ['ngons'], kleuren: { '#6e604e': ['ceramic', 'taupe'], '*': ['ceramic', 'taupe'] } },
+      { naam: 'vase', bronmodel: 'Vase', kind: 'obj-container-pot', tags: [], kleuren: { '#6e604e': ['ceramic', 'taupe'], '*': ['ceramic', 'taupe'] } },
       { naam: 'trapdoor', bronmodel: 'Trapdoor', kind: 'str-part-door', tags: ['halloween'] },
       { naam: 'trapdoor-open', bronmodel: 'Trapdoor_open', kind: 'str-part-door', tags: ['halloween'] },
     ],
@@ -352,10 +352,10 @@ const PAKKETTEN = [
     modellen: [
       { naam: 'arch-door', bronmodel: 'Arch_Door', kind: 'str-part-door', tags: ['halloween'] },
       { naam: 'arch-door-bottompivot', bronmodel: 'Arch_Door_bottompivot', kind: 'str-part-door', tags: ['halloween'] },
-      { naam: 'barrel-2', bronmodel: 'Barrel2', kind: 'obj-container-barrel', tags: ['ngons'] },
-      { naam: 'bucket', bronmodel: 'Bucket', kind: 'obj-container-bucket', tags: ['ngons'] },
+      { naam: 'barrel-2', bronmodel: 'Barrel2', kind: 'obj-container-barrel', tags: [] },
+      { naam: 'bucket', bronmodel: 'Bucket', kind: 'obj-container-bucket', tags: [] },
       { naam: 'pedestal', bronmodel: 'Pedestal', kind: 'str', tags: ['halloween'] },
-      { naam: 'vase', bronmodel: 'Vase', kind: 'obj-container-pot', tags: ['ngons'], kleuren: { '#6e604e': ['ceramic', 'taupe'], '*': ['ceramic', 'taupe'] } },
+      { naam: 'vase', bronmodel: 'Vase', kind: 'obj-container-pot', tags: [], kleuren: { '#6e604e': ['ceramic', 'taupe'], '*': ['ceramic', 'taupe'] } },
     ],
   },
   {
@@ -416,7 +416,7 @@ const PAKKETTEN = [
     modellen: [
       {
         naam: 'plate-stack', bronmodel: 'plate_stack', kind: 'obj-kitchenware-tableware-plate',
-        tags: ['plural', 'ngons'], cellen: { '*': ['ceramic', 'taupe'] },
+        tags: ['plural'], cellen: { '*': ['ceramic', 'taupe'] },
       },
       {
         naam: 'sword-shield', bronmodel: 'sword_shield', kind: 'assy',
@@ -491,7 +491,7 @@ const PAKKETTEN = [
       { naam: 'hilly-prop-tree-oak-d', bronmodel: 'Hilly_Prop_Tree_Oak_4', kind: 'env-flora-tree', tags: [] },
       { naam: 'hilly-prop-tree-cedar-a', bronmodel: 'Hilly_Prop_Tree_Cedar_1', kind: 'env-flora-tree-conifer', tags: [] },
       { naam: 'hilly-prop-tree-cedar-b', bronmodel: 'Hilly_Prop_Tree_Cedar_2', kind: 'env-flora-tree-conifer', tags: [] },
-      { naam: 'hilly-prop-tree-pine-a', bronmodel: 'Hilly_Prop_Tree_Pine_1', kind: 'env-flora-tree-conifer', tags: ['ngons'] },
+      { naam: 'hilly-prop-tree-pine-a', bronmodel: 'Hilly_Prop_Tree_Pine_1', kind: 'env-flora-tree-conifer', tags: [] },
       { naam: 'hilly-prop-ruins-pillar-a', bronmodel: 'Hilly_Prop_Ruins_Pillar_1', kind: 'str-part-pillar', tags: ['broken'] },
       { naam: 'hilly-prop-ruins-pillar-b', bronmodel: 'Hilly_Prop_Ruins_Pillar_2', kind: 'str-part-pillar', tags: ['broken'] },
       { naam: 'hilly-prop-ruins-pillar-c', bronmodel: 'Hilly_Prop_Ruins_Pillar_3', kind: 'str-part-pillar', tags: ['broken'] },
