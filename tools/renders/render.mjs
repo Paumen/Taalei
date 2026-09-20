@@ -228,7 +228,7 @@ function parseView(n) {
   return null;
 }
 const ALL_TONES = ['agx','aces','neutral','linear','none'];
-// 'soft' is the default and reads catalog/zachte-omgeving.png, so this tool and the
+// 'soft' is the default and reads catalog/app/zachte-omgeving.png, so this tool and the
 // catalogue light a model identically. Exposure still differs between the two: the
 // same environment does not produce the same brightness in model-viewer and here.
 // 'direct' is the old 'none': strong key/fill/ambient, no environment map.
@@ -538,7 +538,7 @@ const ORIGIN = 'http://127.0.0.1:' + server.address().port;
 // The environment image is the catalogue's own file, read once and handed to the page as
 // raw pixels. Sharing the file rather than re-deriving the gradient is what stops the two
 // viewers drifting apart.
-const ENV_PNG = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../catalog/zachte-omgeving.png');
+const ENV_PNG = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../catalog/app/zachte-omgeving.png');
 const ENV_IMAGE = (() => {
   const img = readPng(ENV_PNG);
   return { w: img.width, h: img.height, b64: Buffer.from(img.pixels).toString('base64') };
@@ -905,7 +905,7 @@ function roomEnv() {
   }
   return ROOM_ENV;
 }
-// The environment comes from catalog/zachte-omgeving.png, the same image the catalogue
+// The environment comes from catalog/app/zachte-omgeving.png, the same image the catalogue
 // uses: a soft top-to-bottom sky with three quarters of the old studio room blended into
 // it. The sky alone would not fight the shading baked into the colormap bands, but it also
 // cannot describe a hollow — a bowl reads as a plate under it — so some of the room's

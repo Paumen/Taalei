@@ -18,8 +18,8 @@ const AFGEWEZEN_PAD = 'kits/reject';
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
-const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'preview-colors.json'), 'utf8'));
-const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'rejects.json'), 'utf8'));
+const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'preview-colors.json'), 'utf8'));
+const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'rejects.json'), 'utf8'));
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
@@ -499,7 +499,7 @@ const losseAfwijzingen = Object.entries(AFWIJZINGEN)
   .filter((id) => !geraakteAfwijzingen.has(id));
 if (losseAfwijzingen.length) {
   waarschuwingen.push(
-    `${losseAfwijzingen.length} entries in catalog/rejects.json match no source model outside the ` +
+    `${losseAfwijzingen.length} entries in catalog/data/rejects.json match no source model outside the ` +
       'catalog — they were renamed, imported, or the pack was dropped:\n' +
       losseAfwijzingen.map((id) => `    ${id}`).join('\n'),
   );
@@ -517,7 +517,7 @@ for (const lijst of LIJSTEN) {
     models: lijst.modellen,
   };
 
-  writeFileSync(join(CATALOG_DIR, lijst.bestand), JSON.stringify(uitvoer, (k, v) => (v === null ? undefined : v), 1) + '\n');
+  writeFileSync(join(CATALOG_DIR, 'build', lijst.bestand), JSON.stringify(uitvoer, (k, v) => (v === null ? undefined : v), 1) + '\n');
 
   const gevouwen = lijst.varianten.reduce((som, v) => som + v.members.length - 1, 0);
   console.log(`\n${lijst.modellen.length} models from ${lijst.bronnen.length} packs → catalog/${lijst.bestand}`);
