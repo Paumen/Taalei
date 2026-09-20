@@ -12,7 +12,7 @@ A pack whose texture is a band grid needs its grid passed as `raster`:
 |---|---|
 | KayKit | 8 × 4 |
 | Kenney | 16 × 4 |
-| Tiny Treats | 8 × 8 |
+| Tiny Treats | 8 × 4 |
 | Cozy Farm | 8 × 8 |
 | Gobkit | 16 × 4 |
 
@@ -48,8 +48,13 @@ no legal band, so the dado drops to `ceramic` taupe.
 and both are taken at both sizes. The white plates take `metal-iron-steel`, which is
 also the closest read of white.
 
-**Tiny Treats (all)** — glass is always a separate 4-triangle primitive named
-`*_GLASS` at cells 6,6 and 7,7, and it reaches past the frame it sits in. The
+**Tiny Treats (all)** — the texture reads as 8 × 8 squares, but a band is one
+light-to-dark ramp two squares tall, so the grid is 8 × 4.
+The picnic set's blankets, large pillows and jam lid carry a gingham on a second
+texture. A check that small does not survive per-triangle sampling, so each of
+those takes one flat cloth band.
+Glass is always a separate 4-triangle primitive named
+`*_GLASS` at cells 6,3 and 7,3, and it reaches past the frame it sits in. The
 kitchen's green tiles have no legal band and drop to `ceramic` terracotta.
 `wall_modular_tiles_kitchen_window_large_B` is authored one-sided, to be seen from
 the side away from the default camera.
