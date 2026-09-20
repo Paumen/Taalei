@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented \u2014 a model carries the subtype it is, never the parent on top), kind (what it is \u2014 the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -396,7 +396,7 @@
    "id": "metal-iron-wrought",
    "name": "Wrought iron",
    "type": "material",
-   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
+   "description": "Wrought iron: forge work \u2014 hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
    "models": [
     "asia-rg/boat",
     "asia-rg/cart",
@@ -615,7 +615,7 @@
    "id": "metal-iron-cast",
    "name": "Cast iron",
    "type": "material",
-   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
+   "description": "Cast iron: poured, heavy and brittle \u2014 cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
    "models": [
     "asia-rg/cauldron",
     "asia-rg/rampart-post",
@@ -5086,7 +5086,13 @@
     "kay-skeleton-1/spine-ribs",
     "asia-grave/skull",
     "asia-grave/bones",
-    "asia-grave/ribs"
+    "asia-grave/ribs",
+    "quat-pirate/skull-hollow",
+    "quat-pirate/ribcage",
+    "quat-pirate/bones",
+    "kay-skeleton/skull",
+    "kay-skeleton/ribcage",
+    "kay-skeleton/limbs"
    ]
   },
   {
@@ -5815,23 +5821,23 @@
     "ken-town/fountain-square"
    ],
    "reasons": {
-    "ken-town/fountain-round": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
-    "ken-town/fountain-round-detail": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
-    "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
+    "ken-town/fountain-round": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
+    "ken-town/fountain-round-detail": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
+    "quat-pirate/house-3": "clear glass \u2014 N4: five bands and the clear glass of its windows; the PO kept all six.",
     "quat-pirate/pirate-captain": "M20: its boot is leather and the model takes no bark band; N4 leaves no room for a seventh and the joker is spent on M20.",
-    "quat-pirate/tentacle": "terracotta 5,0 — N1: fauna made of nothing appendix A names; the tag is its only material.",
-    "quat-nature/log-moss": "dark green 1,1 — M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
-    "kay-food/crate-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-food/food-ingredient-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-tools/compass-base": "clear glass — N4: five bands and the clear glass of its lid; the PO kept all six.",
-    "kay-tools/pencil-a-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-a-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/torch-burnt": "blue-grey 6,1 — C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
-    "fs-town/stucco-arch-half": "render — appendix A gives stucco no material and no band.",
-    "fs-town/stucco-block": "render — appendix A gives stucco no material and no band.",
-    "ken-town/fountain-square": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water."
+    "quat-pirate/tentacle": "terracotta 5,0 \u2014 N1: fauna made of nothing appendix A names; the tag is its only material.",
+    "quat-nature/log-moss": "dark green 1,1 \u2014 M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
+    "kay-food/crate-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-food/food-ingredient-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-tools/compass-base": "clear glass \u2014 N4: five bands and the clear glass of its lid; the PO kept all six.",
+    "kay-tools/pencil-a-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-a-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/torch-burnt": "blue-grey 6,1 \u2014 C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
+    "fs-town/stucco-arch-half": "render \u2014 appendix A gives stucco no material and no band.",
+    "fs-town/stucco-block": "render \u2014 appendix A gives stucco no material and no band.",
+    "ken-town/fountain-square": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water."
    },
    "po": true
   },
@@ -9005,7 +9011,11 @@
     "styloo-farm/fish-bones",
     "kay-skeleton-1/spine-ribs",
     "asia-grave/bones",
-    "asia-grave/ribs"
+    "asia-grave/ribs",
+    "quat-pirate/ribcage",
+    "quat-pirate/bones",
+    "kay-skeleton/ribcage",
+    "kay-skeleton/limbs"
    ]
   },
   {
@@ -9039,7 +9049,9 @@
     "kay-hallow/post-skull-skull",
     "kay-skeleton/skull-horned",
     "kay-skeleton-1/skull-claw",
-    "asia-grave/skull"
+    "asia-grave/skull",
+    "quat-pirate/skull-hollow",
+    "kay-skeleton/skull"
    ]
   },
   {
@@ -10694,7 +10706,10 @@
     "quat-pirate/bomb",
     "ken-pirate/palm-detailed-bend",
     "ken-pirate/palm-bend",
-    "ken-pirate/tool-shovel"
+    "ken-pirate/tool-shovel",
+    "quat-pirate/skull-hollow",
+    "quat-pirate/ribcage",
+    "quat-pirate/bones"
    ]
   },
   {
@@ -11081,7 +11096,13 @@
     "kay-skeleton-1/spine-ribs",
     "asia-grave/skull",
     "asia-grave/bones",
-    "asia-grave/ribs"
+    "asia-grave/ribs",
+    "quat-pirate/skull-hollow",
+    "quat-pirate/ribcage",
+    "quat-pirate/bones",
+    "kay-skeleton/skull",
+    "kay-skeleton/ribcage",
+    "kay-skeleton/limbs"
    ]
   },
   {
@@ -11447,7 +11468,9 @@
     "styloo-farm/droplets",
     "styloo-farm/droplets-wide",
     "asia-grave/bones",
-    "asia-grave/ribs"
+    "asia-grave/ribs",
+    "quat-pirate/bones",
+    "kay-skeleton/limbs"
    ]
   },
   {
@@ -11969,7 +11992,8 @@
     "ken-grave/crypt-large-roof",
     "windmill/windmill",
     "kay-skeleton/bone",
-    "kay-skeleton-1/spine-ribs"
+    "kay-skeleton-1/spine-ribs",
+    "quat-pirate/skull-hollow"
    ]
   },
   {
