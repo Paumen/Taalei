@@ -8538,7 +8538,7 @@
    "name": "Door",
    "type": "kind",
    "description": "door, gate (building), hatch",
-   "count": 66
+   "count": 68
   },
   {
    "id": "str-part-door-trapdoor",
@@ -8546,6 +8546,13 @@
    "type": "kind",
    "description": "Door lying in a floor or a ceiling.",
    "count": 5
+  },
+  {
+   "id": "str-part-door-gate",
+   "name": "Gate",
+   "type": "kind",
+   "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal. A door into a room or a house stays on the parent.",
+   "count": 23
   },
   {
    "id": "str-part-floor",
@@ -8587,7 +8594,14 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 87
+   "count": 85
+  },
+  {
+   "id": "str-part-wall-fort",
+   "name": "Fort",
+   "type": "kind",
+   "description": "A segment or corner of a free-standing wall that encloses ground: rampart, curtain wall, garden wall. A wall that carries a building stays on the parent.",
+   "count": 23
   },
   {
    "id": "str-part-window",
@@ -10590,6 +10604,12 @@
    "longest.max": 4,
    "tpu.max": 10000
   },
+  "str-part-door-gate": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
   "str-part-door-trapdoor": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -10627,6 +10647,12 @@
    "tpu.max": 5000
   },
   "str-part-wall": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-wall-fort": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -11824,7 +11850,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-a",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     1.5,
@@ -11887,7 +11913,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-b",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     1.5,
@@ -11950,7 +11976,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-c",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     1.5,
@@ -12007,7 +12033,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-corner",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     0.9,
@@ -12063,7 +12089,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-d",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     1.5,
@@ -12120,7 +12146,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-gate-a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     2.45,
@@ -12183,7 +12209,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-gate-b",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     2.45,
@@ -12246,7 +12272,7 @@
   {
    "kit": "asia-rg",
    "name": "gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     2.15,
@@ -13626,7 +13652,7 @@
   {
    "kit": "asia-rg",
    "name": "rampart-a",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2,
@@ -13690,7 +13716,7 @@
   {
    "kit": "asia-rg",
    "name": "rampart-b",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2,
@@ -13755,7 +13781,7 @@
   {
    "kit": "asia-rg",
    "name": "rampart-c",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2,
@@ -13819,7 +13845,7 @@
   {
    "kit": "asia-rg",
    "name": "rampart-corner",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     1.5,
@@ -13882,7 +13908,7 @@
   {
    "kit": "asia-rg",
    "name": "rampart-d",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2,
@@ -15108,7 +15134,7 @@
   {
    "kit": "asia-rg",
    "name": "torii",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     3.3,
@@ -42787,7 +42813,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-corner",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2.35,
@@ -42826,7 +42852,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-gate-closed",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     3.45,
@@ -42876,7 +42902,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     3.45,
@@ -42920,7 +42946,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-hex-corner-a",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2.7,
@@ -42959,7 +42985,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-hex-corner-b",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2.35,
@@ -42998,7 +43024,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-straight",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     3.45,
@@ -45538,7 +45564,7 @@
   {
    "kit": "kay-dun-1",
    "name": "door-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     0.8,
@@ -68892,7 +68918,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-a-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     2.8,
@@ -68936,7 +68962,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-a-inside",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2.95,
@@ -68981,7 +69007,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-a-outside",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     2.8,
@@ -69026,7 +69052,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-b-inside",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     1.55,
@@ -69071,7 +69097,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-b-outside",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     1.55,
@@ -69116,7 +69142,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     3.15,
@@ -69160,7 +69186,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     3.15,
@@ -83435,7 +83461,7 @@
   {
    "kit": "ken-castle",
    "name": "wall-doorway",
-   "kind": "str-part-wall",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     0.5,
@@ -83479,7 +83505,7 @@
   {
    "kit": "ken-castle",
    "name": "wall-narrow-gate",
-   "kind": "str-part-wall",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     0.6,
@@ -83523,7 +83549,7 @@
   {
    "kit": "ken-castle",
    "name": "wall",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "m",
    "wdh": [
     0.95,
@@ -111473,7 +111499,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch-door-bottompivot",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     1.2,
@@ -111525,7 +111551,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch-door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     1.2,
@@ -111571,7 +111597,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     2.05,
@@ -112657,7 +112683,7 @@
   {
    "kit": "quat-dun-2",
    "name": "arch-door-bottompivot",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     1.15,
@@ -112703,7 +112729,7 @@
   {
    "kit": "quat-dun-2",
    "name": "arch-door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     1.15,
@@ -134566,7 +134592,7 @@
   {
    "kit": "quat-town",
    "name": "wall-1",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     3.05,
@@ -134610,7 +134636,7 @@
   {
    "kit": "quat-town",
    "name": "wall-2",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     3.5,
@@ -134706,7 +134732,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-2",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-fort",
    "size": "l",
    "wdh": [
     4.45,
@@ -134764,7 +134790,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-door-1",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     4.35,
@@ -134816,7 +134842,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-door-2",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     4.45,
@@ -134874,7 +134900,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-gate-1",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     4.35,
@@ -134926,7 +134952,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-gate-2",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "l",
    "wdh": [
     4.45,
@@ -143678,7 +143704,7 @@
   {
    "kit": "wizp-asia",
    "name": "door-left",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     0.4,
@@ -143718,7 +143744,7 @@
   {
    "kit": "wizp-asia",
    "name": "door-right",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     0.4,
@@ -147047,7 +147073,7 @@
   {
    "kit": "wizp-asia",
    "name": "torii",
-   "kind": "str-part-door",
+   "kind": "str-part-door-gate",
    "size": "m",
    "wdh": [
     1.35,
