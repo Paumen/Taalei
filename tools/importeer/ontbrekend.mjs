@@ -254,11 +254,11 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-park', bron: 'Pretty_park_set', raster: [8, 8],
+    kit: 'isa-park', bron: 'Pretty_park_set', raster: [8, 4],
     modellen: [
       {
         naam: 'fountain', bronmodel: 'Fountain', kind: 'obj-art-sculpture', tags: ['ngons'],
-        cellen: { '2,0': steenGrijs, '2,1': steenGrijs, '0,2': water, '1,6': water, '1,7': water, '*': steenGrijs },
+        cellen: { '2,0': steenGrijs, '0,1': water, '1,3': water, '*': steenGrijs },
       },
       {
         naam: 'grass-a', bronmodel: 'Grass A', kind: 'env-flora-plant-grass', tags: ['plural'],
@@ -460,15 +460,15 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', raster: [8, 8],
+    kit: 'isa-kitchen', bron: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', raster: [8, 4],
     modellen: [
       {
         naam: 'chair', bronmodel: 'chair', kind: 'obj-furniture-seating-chair',
-        tags: [], cellen: { '5,0': hout, '5,1': hout, '3,0': doek, '3,1': doek, '*': hout },
+        tags: [], cellen: { '5,0': hout, '3,0': doek, '*': hout },
       },
       {
         naam: 'door-modular', bronmodel: 'door_modular', kind: 'str-part-door',
-        tags: [], cellen: { '2,0': giet, '2,1': giet, '3,0': hout, '3,1': hout, '*': hout },
+        tags: [], cellen: { '2,0': giet, '3,0': hout, '*': hout },
       },
     ],
   },
@@ -505,17 +505,17 @@ const PAKKETTEN = [
       {
         naam: 'picnic-blanket-taupe', bronmodel: 'picnic_blanket_green',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#d3e8b7': doek, '#9acfa6': doek, '*': clothTaupe },
+        kleuren: { '*': clothTaupe },
       },
       {
         naam: 'picnic-blanket-taupe-folded', bronmodel: 'picnic_blanket_green_folded',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#ffffff': doek, '#c5e19f': doek, '*': clothTaupe },
+        kleuren: { '*': clothTaupe },
       },
       {
         naam: 'pillow-large-taupe', bronmodel: 'pillow_large_green',
         kind: 'obj-furniture', tags: [],
-        kleuren: { '#ffffff': doek, '#e2f0cf': doek, '*': clothTaupe },
+        kleuren: { '*': clothTaupe },
       },
     ],
   },
