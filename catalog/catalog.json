@@ -7083,7 +7083,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 83
+   "count": 84
   },
   {
    "id": "food",
@@ -37306,6 +37306,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "bone",
     "food",
     "isa"
    ],
@@ -125793,6 +125794,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "bone",
     "food",
     "qua"
    ]
@@ -129732,6 +129734,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "bone",
     "food",
     "pirate",
     "qua"
@@ -131305,7 +131308,7 @@
    "tris": 6604,
    "tpu": 4088,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 2,
    "bytes": 1117672,
    "vtx": 19812,
@@ -131314,7 +131317,7 @@
    "avgTri": 0.00042,
    "anglePct": 2,
    "vpt": 3,
-   "grad": 0.72,
+   "grad": 0.3,
    "spread": {
     "15,3": [
      0.406,
@@ -131324,18 +131327,24 @@
      0.148,
      0.844
     ],
+    "5,2": [
+     0.406,
+     0.406
+    ],
     "14,3": [
-     0.047,
+     0.945,
      0.945
     ]
    },
    "colors": [
     "#7f3927",
     "#88848a",
-    "#8b7561"
+    "#8b7561",
+    "#d8d1bd"
    ],
    "tags": [
     "animation",
+    "bone",
     "pirate",
     "qua"
    ],
@@ -131343,6 +131352,13 @@
     "Swim",
     "Swim_Bite",
     "Swim_Fast"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G12 bands 4 wants max 3"
+    }
    ],
    "mark": [
     "grounded"
@@ -146611,6 +146627,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "bone",
     "food"
    ]
   },
@@ -147055,7 +147072,6 @@
     "#dbae80"
    ],
    "tags": [
-    "bone",
     "skin"
    ],
    "variant": "v548"
@@ -147099,7 +147115,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone",
     "skin"
    ],
    "variant": "v548"
@@ -147143,7 +147158,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone",
     "skin"
    ],
    "variant": "v548"
@@ -148511,7 +148525,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone",
     "skin"
    ]
   },
