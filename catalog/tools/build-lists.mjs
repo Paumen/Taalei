@@ -50,7 +50,8 @@ function kitGegevens(slug) {
 const WDH_TOLERANCE = 0.05;
 
 function wdhMatches(a, b) {
-  return a.every((v, k) => Math.abs(v - b[k]) <= Math.max(WDH_TOLERANCE * Math.max(v, b[k]), 0.01));
+  const [x, y] = [[...a].sort((p, q) => p - q), [...b].sort((p, q) => p - q)];
+  return x.every((v, k) => Math.abs(v - y[k]) <= Math.max(WDH_TOLERANCE * Math.max(v, y[k]), 0.01));
 }
 
 // The shape of a model, with everything that only carries colour left out: the
