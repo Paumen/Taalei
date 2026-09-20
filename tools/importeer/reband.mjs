@@ -9,6 +9,9 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const COLUMNS = 16;
 const ROWS = 4;
 const FLOAT = 5126;
+// A place of exactly 1 reads as the first row of the cell below, so --fit leaves
+// this much of the cell free at either end.
+const INSET = 0.02;
 
 const HELP = `reband.mjs <kit>/<model> <from>:<to> [<from>:<to> ...] [--shells 1,4] [--y a:b]
 reband.mjs <kit>/<model> --list
@@ -21,6 +24,10 @@ reband.mjs <kit>/<model> --list
             keeping the spread between them, so models level against each other
             without losing their own shading. The shift is held back where it
             would push a vertex out of the cell.
+  --fit     with --centre, narrow the spread around the new centre until it fits
+            the cell instead of holding the shift back, so a model whose vertices
+            already reach both ends of the cell still lands on the centre asked for.
+            The spread is only ever narrowed, never widened.
   --shells  only vertices in those shells; a shell is one connected run of triangles
   --mesh    only the mesh of that name, for a model whose parts are separate nodes
   --x --y --z  only vertices inside that range, in the model's own units;
@@ -49,6 +56,8 @@ const centreArg = flag('centre');
 const centreOn = centreArg === null ? null : Number(centreArg);
 if (centreOn !== null && !(centreOn >= 0 && centreOn <= 1)) throw new Error(`--centre wants 0 to 1, got: ${centreArg}`);
 if (placeAt !== null && centreOn !== null) throw new Error('--at and --centre ask for different things; give one');
+const fitSpread = flag('fit') !== null;
+if (fitSpread && centreOn === null) throw new Error('--fit narrows the spread around --centre; give --centre too');
 const ranges = ['x', 'y', 'z'].map((axis) => {
   const given = flag(axis);
   if (given === null) return null;
@@ -201,18 +210,33 @@ for (const { target, members } of chosen) {
   }
 }
 
+let mean = 0;
 let shift = 0;
+let scale = 1;
 if (centreOn !== null && picked.length) {
   const places = picked.map((p) => p.place);
-  const mean = places.reduce((sum, p) => sum + p, 0) / places.length;
-  const room = [-Math.min(...places), 1 - Math.max(...places)];
-  shift = Math.min(Math.max(centreOn - mean, room[0]), room[1]);
+  mean = places.reduce((sum, p) => sum + p, 0) / places.length;
+  const low = Math.min(...places);
+  const high = Math.max(...places);
+  if (fitSpread) {
+    shift = centreOn - mean;
+    const below = mean - low;
+    const above = high - mean;
+    scale = Math.min(
+      1,
+      below > 0 ? (centreOn - INSET) / below : Infinity,
+      above > 0 ? (1 - INSET - centreOn) / above : Infinity,
+    );
+    if (!(scale > 0)) throw new Error(`${id}: --centre ${centreOn} leaves no room in the cell for the spread`);
+  } else {
+    shift = Math.min(Math.max(centreOn - mean, -low), 1 - high);
+  }
 }
 
 for (const { at, u, v, column, row, move, place } of picked) {
   bin.writeFloatLE(Math.fround(u + (move.toCell[0] - column) / COLUMNS), at);
   let place2 = placeAt === null ? place : placeAt;
-  if (centreOn !== null) place2 = place + shift;
+  if (centreOn !== null) place2 = mean + shift + (place - mean) * scale;
   bin.writeFloatLE(
     Math.fround(placeAt === null && centreOn === null ? v + (move.toCell[1] - row) / ROWS : (move.toCell[1] + place2) / ROWS),
     at + 4,
@@ -255,5 +279,6 @@ if (wanted) parts.push(`shell ${[...wanted].sort((a, b) => a - b).join(', ')}`);
 if (meshArg !== null) parts.push(`mesh ${meshArg}`);
 for (const r of ranges.filter(Boolean)) parts.push(`${r.axis} ${r.min}:${r.max}`);
 const where = parts.length ? ` in ${parts.join(', ')}` : '';
-const levelled = centreOn === null ? '' : `, centred on ${centreOn} by ${shift.toFixed(3)}`;
+const narrowed = scale === 1 ? '' : `, spread × ${scale.toFixed(3)}`;
+const levelled = centreOn === null ? '' : `, centred on ${centreOn} by ${shift.toFixed(3)}${narrowed}`;
 for (const m of moves) console.log(`${id}: ${m.from} → ${m.to}, ${m.moved} vertices${where}${levelled}`);
