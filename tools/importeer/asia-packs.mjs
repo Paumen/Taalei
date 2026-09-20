@@ -9,9 +9,9 @@ import { scaleTarget } from './scale-factors.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BRON_MAP = 'Asian_Cementery_Rocks_Packs';
 const PACKS = {
-  Asian_Pack: { kit: 'asia-pack', naam: 'Asian Pack' },
-  CementeryPack: { kit: 'asia-grave', naam: 'Cementery Pack' },
-  RocksPack: { kit: 'asia-rocks', naam: 'Rocks Pack' },
+  Asian_Pack: { kit: 'wizp-asia', naam: 'Asian Pack' },
+  CementeryPack: { kit: 'wizp-grave', naam: 'Cementery Pack' },
+  RocksPack: { kit: 'wizp-rock', naam: 'Rocks Pack' },
 };
 const KITS = Object.values(PACKS).map((p) => p.kit);
 const RAND = [0.05, 0.95];
