@@ -47,7 +47,7 @@ const farmShell = {
 
 const PAKKETTEN = [
   {
-    kit: 'farm-buildings',
+    kit: 'quat-farms',
     bron: 'Farm_Buildings_Bundle',
     modellen: [
       { naam: 'barn', bronmodel: 'Barn', kind: 'str-building', tags: [], kleuren: farmShell },
@@ -93,7 +93,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'toon-shooter',
+    kit: 'quat-shoot',
     bron: 'Toon_Shooter_Game_Kit',
     modellen: [
       {
@@ -254,7 +254,7 @@ const PAKKETTEN = [
     ],
   },
   {
-    kit: 'post-apocalypse',
+    kit: 'kay-apocalyp',
     bron: 'Post_Apocolypse_Pack',
     atlas: true,
     modellen: [

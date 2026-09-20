@@ -2382,8 +2382,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "primitive-tools",
-  "name": "primitive-tools",
+  "slug": "lpa-tools",
+  "name": "lpa-tools",
   "url": null,
   "models": [
    "bow",
@@ -2451,8 +2451,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "medieval-town",
-  "name": "medieval-town",
+  "slug": "quat-medieval",
+  "name": "quat-medieval",
   "url": null,
   "models": [
    "bag",
@@ -2574,8 +2574,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "desert-buildings",
-  "name": "desert-buildings",
+  "slug": "lpa-desert",
+  "name": "lpa-desert",
   "url": null,
   "models": [
    "awning-a",
@@ -2851,10 +2851,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "asia-grave",
-  "name": "asia-grave",
+  "slug": "wizp-grave",
+  "name": "wizp-grave",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/asia-grave/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-grave/LICENSE.txt.",
   "models": [
    "arch-stone",
    "bones",
@@ -3047,10 +3047,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "asia-pack",
-  "name": "asia-pack",
+  "slug": "wizp-asia",
+  "name": "wizp-asia",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/asia-pack/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-asia/LICENSE.txt.",
   "models": [
    "altar-a",
    "altar-b",
@@ -3174,10 +3174,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "asia-rocks",
-  "name": "asia-rocks",
+  "slug": "wizp-rock",
+  "name": "wizp-rock",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/asia-rocks/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-rock/LICENSE.txt.",
   "models": [
    "boulder-a",
    "boulder-b",
@@ -3387,10 +3387,10 @@ window.KENNEY_KITS = [
 
 
  {
-  "slug": "fishing-village",
-  "name": "fishing-village",
+  "slug": "wizp-fish",
+  "name": "wizp-fish",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/fishing-village/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-fish/LICENSE.txt.",
   "models": [
    "boat-oars",
    "boat-poles",
@@ -3408,10 +3408,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "medieval-village",
-  "name": "medieval-village",
+  "slug": "wizp-mediev",
+  "name": "wizp-mediev",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/medieval-village/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-mediev/LICENSE.txt.",
   "models": [
    "archery-target",
    "barrel",
@@ -3449,10 +3449,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "village",
-  "name": "village",
+  "slug": "wizp-village",
+  "name": "wizp-village",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/village/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-village/LICENSE.txt.",
   "models": [
    "bridge-arched-a",
    "bridge-arched-b",
@@ -3463,20 +3463,20 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "arena-pack",
-  "name": "arena-pack",
+  "slug": "wizp-arena",
+  "name": "wizp-arena",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/arena-pack/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-arena/LICENSE.txt.",
   "models": [
    "grass-tuft",
    "grass-tufts"
   ]
  },
  {
-  "slug": "trees",
-  "name": "trees",
+  "slug": "wizp-tree",
+  "name": "wizp-tree",
   "url": null,
-  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/trees/LICENSE.txt.",
+  "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-tree/LICENSE.txt.",
   "models": [
    "banana-tree",
    "cactus-flowering-round",
@@ -3506,10 +3506,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "farm-buildings",
-  "name": "farm-buildings",
+  "slug": "quat-farms",
+  "name": "quat-farms",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/farm-buildings/LICENSE.txt.",
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-farms/LICENSE.txt.",
   "models": [
    "barn",
    "barn-large",
@@ -3524,10 +3524,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "toon-shooter",
-  "name": "toon-shooter",
+  "slug": "quat-shoot",
+  "name": "quat-shoot",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/toon-shooter/LICENSE.txt.",
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-shoot/LICENSE.txt.",
   "models": [
    "bear-trap",
    "carbine",
@@ -3727,10 +3727,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "post-apocalypse",
-  "name": "post-apocalypse",
+  "slug": "kay-apocalyp",
+  "name": "kay-apocalyp",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/post-apocalypse/LICENSE.txt.",
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/kay-apocalyp/LICENSE.txt.",
   "models": [
    "axe",
    "bat-barbed",
