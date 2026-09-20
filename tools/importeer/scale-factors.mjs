@@ -32,7 +32,7 @@ export const SCALE_TARGETS = {
   'kay-skeleton': 0.315,
   'kay-skeleton-1': 0.39,
   'ken-cave': 0.187,
-  'ken-holiday': 0.75,
+  'ken-holiday': 0.5625,
   'ken-nature': 1.056,
   'ken-pirate': 0.3,
   'ken-proto': 0.75,
