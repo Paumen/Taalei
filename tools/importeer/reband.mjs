@@ -22,8 +22,9 @@ reband.mjs <kit>/<model> --list
             equal <to> to reposition without changing band.
   --centre <0..1>  shift them so their average place in the cell is this one,
             keeping the spread between them, so models level against each other
-            without losing their own shading. The shift is held back where it
-            would push a vertex out of the cell.
+            without losing their own shading. The average weighs each place by
+            the face area carrying it, which is what the eye reads. The shift is
+            held back where it would push a vertex out of the cell.
   --fit     with --centre, narrow the spread around the new centre until it fits
             the cell instead of holding the shift back, so a model whose vertices
             already reach both ends of the cell still lands on the centre asked for.
@@ -156,6 +157,32 @@ function describe(shell) {
   };
 }
 
+// A vertex carries a third of the area of every face on it. Levelling weighs the
+// places by that, because a band reads as the surface it covers, not as the number
+// of vertices holding it: dense detail carries many vertices over little area and a
+// broad face few over a lot.
+function faceAreas(target) {
+  if (!target.position) return null;
+  const weights = new Float64Array(target.count);
+  const idx = target.indices;
+  const corners = idx ? idx.count : target.count;
+  const corner = (t) => (idx ? idx.data[t] : t);
+  const at = (i, a) => target.position.data[i * 3 + a];
+  for (let t = 0; t + 2 < corners; t += 3) {
+    const [a, b, c] = [corner(t), corner(t + 1), corner(t + 2)];
+    const u = [0, 1, 2].map((k) => at(b, k) - at(a, k));
+    const v = [0, 1, 2].map((k) => at(c, k) - at(a, k));
+    const share =
+      Math.hypot(u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]) / 6;
+    weights[a] += share;
+    weights[b] += share;
+    weights[c] += share;
+  }
+  return weights;
+}
+
+for (const target of targets) target.weights = faceAreas(target);
+
 const AXIS = { x: 0, y: 1, z: 2 };
 const given = ranges.filter(Boolean);
 function inRange(target, i) {
@@ -205,7 +232,7 @@ for (const { target, members } of chosen) {
     const [column, row] = cellOf(u, v);
     const move = moves.find((m) => m.fromCell[0] === column && m.fromCell[1] === row);
     if (!move) continue;
-    picked.push({ at, u, v, column, row, move, place: v * ROWS - row });
+    picked.push({ at, u, v, column, row, move, place: v * ROWS - row, weight: target.weights ? target.weights[i] : 1 });
     move.moved++;
   }
 }
@@ -215,7 +242,10 @@ let shift = 0;
 let scale = 1;
 if (centreOn !== null && picked.length) {
   const places = picked.map((p) => p.place);
-  mean = places.reduce((sum, p) => sum + p, 0) / places.length;
+  const carried = picked.reduce((sum, p) => sum + p.weight, 0);
+  mean = carried > 0
+    ? picked.reduce((sum, p) => sum + p.place * p.weight, 0) / carried
+    : places.reduce((sum, p) => sum + p, 0) / places.length;
   const low = Math.min(...places);
   const high = Math.max(...places);
   if (fitSpread) {
