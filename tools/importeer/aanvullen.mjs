@@ -333,7 +333,7 @@ const PAKKETTEN = [
         cellen: { '1,1': hide, '4,0': boneIvory, '3,6': boneIvory, '*': hide },
       },
       {
-        naam: 'smelter', bronmodel: 'smelter_lvl1', kind: 'str-building-fort-smithy', tags: [],
+        naam: 'smelter', bronmodel: 'smelter_lvl1', kind: 'str-building-workshop', tags: [],
         cellen: {
           '3,7': masonryDark, '2,7': cast, '3,6': cast, '2,3': molten, '1,3': molten,
           '*': masonryDark,
@@ -341,13 +341,13 @@ const PAKKETTEN = [
       },
       {
         naam: 'smelter-medium', bronmodel: 'smelter_lvl2',
-        kind: 'str-building-fort-smithy', tags: [],
+        kind: 'str-building-workshop', tags: [],
         cellen: { '3,7': masonryDark, '2,7': cast, '2,3': molten, '1,3': molten,
           '*': masonryDark },
       },
       {
         naam: 'smelter-large', bronmodel: 'smelter_lv3',
-        kind: 'str-building-fort-smithy', tags: [],
+        kind: 'str-building-workshop', tags: [],
         cellen: {
           '3,7': masonryDark, '2,7': cast, '5,4': beam, '5,0': masonry,
           '2,3': molten, '1,3': molten, '*': masonryDark,
