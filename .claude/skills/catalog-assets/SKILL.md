@@ -202,6 +202,14 @@ lowest vertex on y=0 and its footprint centre on x=0, z=0. It leaves the mesh
 alone, so a part whose origin is its joint — a rotor on its axle, a gate on its
 hinge — is not a case for it.
 
+A model facing a different way from the rest of its kind is turned:
+`node tools/importeer/reorient.mjs <kit>/<model> <turns>`, where `<turns>` is
+one or more axis-angle steps around the world axes, comma separated and applied
+left to right: `x90`, `y-90`, `z180`, `x90,y90`. The thumbnail camera is the
+same for every model, so the turn is the only way to line a model up with its
+kind. It puts the model back where it stood afterwards. Rebuild the catalogue,
+the lists and the kit's thumbs, since the turn changes `wdh`.
+
 A model with more than one draw call is folded only where the extra primitives
 sit in the same mesh on one material: `node tools/importeer/merge-prims.mjs
 <kit>/<model>`. A part on its own node (a wheel, a paddle, a gate, a blade of a
