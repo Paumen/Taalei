@@ -1512,73 +1512,40 @@
       },
       {
        "id": "str-building-mill",
+       "nouns": [
+        "watermill",
+        "windmill",
+        "mill"
+       ],
        "children": [
         {
-         "id": "str-building-mill-sawmill",
+         "id": "str-building-mill-wheel",
          "nouns": [
-          "sawmill",
-          "lumbermill"
-         ],
-         "children": [
-          {
-           "id": "str-building-mill-sawmill-1a"
-          },
-          {
-           "id": "str-building-mill-sawmill-2a"
-          },
-          {
-           "id": "str-building-mill-sawmill-3"
-          }
+          "waterwheel",
+          "water wheel"
          ]
         },
         {
-         "id": "str-building-mill-watermill",
+         "id": "str-building-mill-blades",
          "nouns": [
-          "watermill"
-         ],
-         "children": [
-          {
-           "id": "str-building-mill-watermill-wheel",
-           "nouns": [
-            "waterwheel",
-            "water wheel"
-           ]
-          },
-          {
-           "id": "str-building-mill-watermill-1"
-          },
-          {
-           "id": "str-building-mill-watermill-2a"
-          }
+          "windmill blade",
+          "sail (windmill)"
          ]
         },
         {
-         "id": "str-building-mill-windmill",
-         "nouns": [
-          "windmill",
-          "mill"
-         ],
-         "children": [
-          {
-           "id": "str-building-mill-windmill-blades",
-           "nouns": [
-            "windmill blade",
-            "sail (windmill)"
-           ]
-          },
-          {
-           "id": "str-building-mill-windmill-1"
-          },
-          {
-           "id": "str-building-mill-windmill-2"
-          },
-          {
-           "id": "str-building-mill-windmill-3"
-          },
-          {
-           "id": "str-building-mill-windmill-3a"
-          }
-         ]
+         "id": "str-building-mill-1"
+        },
+        {
+         "id": "str-building-mill-2"
+        },
+        {
+         "id": "str-building-mill-2a"
+        },
+        {
+         "id": "str-building-mill-3"
+        },
+        {
+         "id": "str-building-mill-3a"
         }
        ]
       },
@@ -1608,6 +1575,9 @@
         },
         {
          "id": "str-building-dwelling-2a"
+        },
+        {
+         "id": "str-building-dwelling-3"
         }
        ]
       },
@@ -1619,7 +1589,10 @@
          "nouns": [
           "barracks",
           "stable",
-          "dojo"
+          "dojo",
+          "archery range",
+          "butts",
+          "weapon shop"
          ],
          "children": [
           {
@@ -1637,22 +1610,6 @@
          ]
         },
         {
-         "id": "str-building-fort-smithy",
-         "nouns": [
-          "blacksmith",
-          "smithy",
-          "forge"
-         ],
-         "children": [
-          {
-           "id": "str-building-fort-smithy-1"
-          },
-          {
-           "id": "str-building-fort-smithy-1a"
-          }
-         ]
-        },
-        {
          "id": "str-building-fort-castle",
          "nouns": [
           "castle",
@@ -1661,7 +1618,7 @@
          ],
          "children": [
           {
-           "id": "str-building-fort-castle-2"
+           "id": "str-building-fort-castle-3"
           },
           {
            "id": "str-building-fort-castle-4"
@@ -1690,49 +1647,14 @@
        ]
       },
       {
-       "id": "str-building-archery",
-       "nouns": [
-        "archery range",
-        "butts",
-        "weapon shop"
-       ],
-       "children": [
-        {
-         "id": "str-building-archery-1"
-        },
-        {
-         "id": "str-building-archery-2"
-        },
-        {
-         "id": "str-building-archery-3"
-        }
-       ]
-      },
-      {
        "id": "str-building-farming",
        "nouns": [
         "farm",
         "chicken coop",
-        "farmhouse"
+        "farmhouse",
+        "barn"
        ],
        "children": [
-        {
-         "id": "str-building-farming-barn",
-         "nouns": [
-          "barn"
-         ],
-         "children": [
-          {
-           "id": "str-building-farming-barn-1"
-          },
-          {
-           "id": "str-building-farming-barn-1a"
-          },
-          {
-           "id": "str-building-farming-barn-2"
-          }
-         ]
-        },
         {
          "id": "str-building-farming-silo",
          "nouns": [
@@ -1747,7 +1669,34 @@
          "id": "str-building-farming-1a"
         },
         {
+         "id": "str-building-farming-2"
+        },
+        {
          "id": "str-building-farming-3a"
+        }
+       ]
+      },
+      {
+       "id": "str-building-workshop",
+       "nouns": [
+        "blacksmith",
+        "smithy",
+        "forge",
+        "sawmill",
+        "lumbermill"
+       ],
+       "children": [
+        {
+         "id": "str-building-workshop-1"
+        },
+        {
+         "id": "str-building-workshop-1a"
+        },
+        {
+         "id": "str-building-workshop-2a"
+        },
+        {
+         "id": "str-building-workshop-3"
         }
        ]
       }
