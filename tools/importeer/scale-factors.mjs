@@ -66,7 +66,7 @@ export const SCALE_TARGETS = {
   trees: 0.24,
   'ultimate-guns': 0.2,
   village: 0.39,
-  windmill: 0.008,
+  windmill: 0.0068,
 };
 
 export const KEN_DEFAULT = 0.88;
