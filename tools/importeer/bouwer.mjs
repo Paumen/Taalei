@@ -274,6 +274,31 @@ export function naarMesh(driehoeken, banden) {
   };
 }
 
+function gedraaidTerug(mesh, q) {
+  const [x, y, z, w] = q;
+  const draai = (px, py, pz) => {
+    const ix = w * px + y * pz - z * py;
+    const iy = w * py + z * px - x * pz;
+    const iz = w * pz + x * py - y * px;
+    const iw = -x * px - y * py - z * pz;
+    return [
+      ix * w + iw * -x + iy * -z - iz * -y,
+      iy * w + iw * -y + iz * -x - ix * -z,
+      iz * w + iw * -z + ix * -y - iy * -x,
+    ];
+  };
+  const laag = [Infinity, Infinity, Infinity];
+  const hoog = [-Infinity, -Infinity, -Infinity];
+  for (let i = 0; i < mesh.posities.length; i += 3) {
+    const p = draai(mesh.posities[i], mesh.posities[i + 1], mesh.posities[i + 2]);
+    for (let k = 0; k < 3; k++) {
+      if (p[k] < laag[k]) laag[k] = p[k];
+      if (p[k] > hoog[k]) hoog[k] = p[k];
+    }
+  }
+  return [-(laag[0] + hoog[0]) / 2, -laag[1], -(laag[2] + hoog[2]) / 2];
+}
+
 export function schrijf(pad, mesh, opgave, pakket) {
   const stukken = [];
   const accessors = [];
@@ -340,7 +365,11 @@ export function schrijf(pad, mesh, opgave, pakket) {
     },
     scene: 0,
     scenes: [{ nodes: [0] }],
-    nodes: [{ mesh: 0, name: opgave.naam }],
+    nodes: [{
+      mesh: 0,
+      name: opgave.naam,
+      ...(opgave.rotatie ? { rotation: opgave.rotatie, translation: gedraaidTerug(mesh, opgave.rotatie) } : {}),
+    }],
     meshes: [{ primitives: [{ attributes, indices, material: 0 }] }],
     materials: [{
       name: 'colormap',
