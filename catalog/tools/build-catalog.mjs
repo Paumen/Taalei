@@ -12,6 +12,9 @@ import { BRONKITS } from './bronkits.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
+const APP_DIR = join(CATALOG_DIR, 'app');
+const DATA_DIR = join(CATALOG_DIR, 'data');
+const BUILD_DIR = join(CATALOG_DIR, 'build');
 const KITS_DIR = join(ROOT, 'kits');
 const MODEL_DIR = join(KITS_DIR, 'workfiles');
 const MODEL_PATH = 'kits/workfiles';
@@ -33,13 +36,13 @@ const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
 function readKitMetadata() {
-  const source = readFileSync(join(CATALOG_DIR, 'manifest.js'), 'utf8');
+  const source = readFileSync(join(DATA_DIR, 'manifest.js'), 'utf8');
   const context = { window: {} };
-  runInNewContext(source, context, { timeout: 5000, filename: 'catalog/manifest.js' });
+  runInNewContext(source, context, { timeout: 5000, filename: 'catalog/data/manifest.js' });
 
   const kits = context.window.KENNEY_KITS;
   if (!Array.isArray(kits)) {
-    throw new Error('catalog/manifest.js does not set a window.KENNEY_KITS array');
+    throw new Error('catalog/data/manifest.js does not set a window.KENNEY_KITS array');
   }
 
   const meta = new Map();
@@ -62,7 +65,7 @@ function readKitMetadata() {
 }
 
 function readVariants(idsInCatalog) {
-  const file = join(CATALOG_DIR, 'asset_variants.json');
+  const file = join(DATA_DIR, 'asset_variants.json');
   if (!existsSync(file)) return { groups: [], perModel: new Map() };
 
   const source = JSON.parse(readFileSync(file, 'utf8'));
@@ -238,16 +241,18 @@ const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js', 'color-edits.js'
 const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'list.js', 'tag-edits.js', 'extract.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
+const fileIn = (name) => join(name.endsWith('.json') ? BUILD_DIR : APP_DIR, name);
+
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
     'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'list.css', 'list.js', 'thumbs.json', ...MODULES]
-    .filter((name) => existsSync(join(CATALOG_DIR, name)))
-    .map((name) => unstamped(readFileSync(join(CATALOG_DIR, name), 'utf8')))
+    .filter((name) => existsSync(fileIn(name)))
+    .map((name) => unstamped(readFileSync(fileIn(name), 'utf8')))
     .join('');
   const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
 
   for (const name of IMPORTERS) {
-    const path = join(CATALOG_DIR, name);
+    const path = join(APP_DIR, name);
     if (!existsSync(path)) continue;
     const before = readFileSync(path, 'utf8');
     const after = before.replace(
@@ -268,30 +273,30 @@ function writeVersion() {
   };
 
   stamp(join(ROOT, 'index.html'), [
-    [/href="catalog\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/catalog.css?v=${version}"`],
-    [/src="catalog\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/catalog.js?v=${version}"`],
+    [/href="catalog\/app\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/app/catalog.css?v=${version}"`],
+    [/src="catalog\/app\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/app/catalog.js?v=${version}"`],
   ]);
   for (const page of SCALE_PAGES) {
-    stamp(join(CATALOG_DIR, page), [
+    stamp(join(APP_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
       [/src="scale\.js(?:\?v=[a-f0-9]+)?"/, `src="scale.js?v=${version}"`],
     ]);
   }
-  stamp(join(CATALOG_DIR, 'swipe.html'), [
+  stamp(join(APP_DIR, 'swipe.html'), [
     [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
     [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
     [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
   ]);
   for (const page of ['tbd.html', 'reject.html']) {
-    stamp(join(CATALOG_DIR, page), [
+    stamp(join(APP_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
       [/href="list\.css(?:\?v=[a-f0-9]+)?"/, `href="list.css?v=${version}"`],
       [/src="list\.js(?:\?v=[a-f0-9]+)?"/, `src="list.js?v=${version}"`],
     ]);
   }
   console.log(
-    `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/${p}`).join(', ')},` +
-      ' catalog/swipe.html, catalog/tbd.html, catalog/reject.html',
+    `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/app/${p}`).join(', ')},` +
+      ' catalog/app/swipe.html, catalog/app/tbd.html, catalog/app/reject.html',
   );
 }
 
@@ -428,7 +433,7 @@ const DERIVED = [
 ];
 
 function readTags(known) {
-  const file = join(CATALOG_DIR, 'tags.json');
+  const file = join(DATA_DIR, 'tags.json');
   if (!existsSync(file)) return { tags: [], perModel: new Map() };
 
   const { tags = [] } = JSON.parse(readFileSync(file, 'utf8'));
@@ -688,10 +693,10 @@ const output = {
   }),
 };
 
-writeFileSync(join(CATALOG_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
+writeFileSync(join(BUILD_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');
 
 const scaleGroups = buildScaleGroups(models);
-writeFileSync(join(CATALOG_DIR, 'scale-groups.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
+writeFileSync(join(BUILD_DIR, 'scale-groups.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
 console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/scale-groups.json`);
 

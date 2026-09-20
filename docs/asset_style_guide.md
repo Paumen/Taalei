@@ -307,7 +307,7 @@ Importing a pack:
 
 ## 7. Variants
 
-Which models sit together as one entry and which stand apart. Groups live in `catalog/asset_variants.json`, attached to the catalogue by `build-catalog.mjs`. A group exists for one of these reasons.
+Which models sit together as one entry and which stand apart. Groups live in `catalog/data/asset_variants.json`, attached to the catalogue by `build-catalog.mjs`. A group exists for one of these reasons.
 
 | id | reason | shared | differs |
 |---|---|---|---|
