@@ -848,21 +848,43 @@ DEPTH_MAT.onBeforeCompile = (sh) => {
 const MAX_CLOUD = 200000;
 // Returns { box, cloud }. Writing the cloud straight into S made it unusable for
 // anything but the whole model -- --isolate needs the same measurement per part.
+// Only vertices the index actually draws are measured: the --isolate copy gives every
+// part its own index over the one shared position buffer, so walking the attribute
+// measured the whole model in each part's tile.
 function posedBounds(obj, keepCloud) {
   obj.updateMatrixWorld(true);
   const box = new THREE.Box3(), v = new THREE.Vector3();
   const pts = [];
   let total = 0, any = false;
   const shown = o => o.isMesh && o.visible && o.layers.isEnabled(0);
-  obj.traverse(o => { if (shown(o)) total += o.geometry.attributes.position.count; });
+  const drawn = o => {
+    const idx = o.geometry.index;
+    if (!idx) return null;
+    const seen = new Uint8Array(o.geometry.attributes.position.count);
+    const out = [];
+    for (let i = 0; i < idx.count; i++) {
+      const vi = idx.getX(i);
+      if (!seen[vi]) { seen[vi] = 1; out.push(vi); }
+    }
+    return out;
+  };
+  const lists = new Map();
+  obj.traverse(o => {
+    if (!shown(o)) return;
+    const list = drawn(o);
+    lists.set(o, list);
+    total += list ? list.length : o.geometry.attributes.position.count;
+  });
   const stride = Math.max(1, Math.ceil(total / MAX_CLOUD));
   obj.traverse(o => {
     if (!shown(o)) return;
     any = true;
-    const pos = o.geometry.attributes.position, n = pos.count;
+    const pos = o.geometry.attributes.position, list = lists.get(o);
+    const n = list ? list.length : pos.count;
     for (let i = 0; i < n; i++) {
-      if (o.isSkinnedMesh && o.getVertexPosition) o.getVertexPosition(i, v);
-      else v.fromBufferAttribute(pos, i);
+      const vi = list ? list[i] : i;
+      if (o.isSkinnedMesh && o.getVertexPosition) o.getVertexPosition(vi, v);
+      else v.fromBufferAttribute(pos, vi);
       o.localToWorld(v);
       box.expandByPoint(v);
       if (keepCloud && i % stride === 0) pts.push(v.x, v.y, v.z);
