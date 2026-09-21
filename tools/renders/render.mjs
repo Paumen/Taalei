@@ -48,7 +48,9 @@ render.mjs <file.glb|dir> [...] [flags]
                      (--ladder also uses auto-sil: direction from the bbox)
   --ladder <1..8>   nested default view set; implies --annotate --lock-scale --sheet
   --annotate         burn caption + axis gizmo into every tile
-  --lock-scale       one camera distance from the bounding sphere for all views (comparable scale)
+  --lock-scale       one camera distance from the bounding sphere, shared by every view
+                     and, when a run names several models, by every model, so sizes are
+                     comparable across the sheet (--ladder and --isolate lock per model)
   --width/--height   --ss <1-4>  supersample factor, downscaled on output
                      (smooths edges, but also thins 1px wires -- see --modes wireframe)
   --bg <css|transparent> --exposure <n>
@@ -1788,6 +1790,25 @@ if (opts.compare) {
 // the loop instead lets the process end on its own.
 if (runSheet) await page.evaluate(() => window.API.clearTiles());
 
+// Several models in one run share one lock, measured over every model and view, so a
+// small model reads small beside a large one. A lock taken per model would frame each
+// one to its own bounding sphere, which is the auto-fit the flag exists to avoid.
+// --ladder and --isolate are per-model layouts, so they keep a per-model lock.
+let runLock = null;
+if (opts.lockScale && !opts.compare && models.length > 1 && !ladderJobs && !opts.isolate) {
+  let dist = 0, half = 0;
+  for (let i = 0; i < models.length; i++) {
+    await page.evaluate(([url, cfg]) => window.API.load(url, cfg), [ORIGIN + modelUrls[i], cfgBase]);
+    for (const v of views) {
+      const m = await page.evaluate(c => window.API.measure(c),
+        { ...cfgBase, preset: v.preset, az: v.az, el: v.el });
+      dist = Math.max(dist, m.dist); half = Math.max(half, m.half);
+    }
+  }
+  runLock = { dist, half: Math.max(half, Math.tan(opts.fov * Math.PI / 360) * dist) };
+  console.log('lock: one scale over ' + models.length + ' models, dist=' + runLock.dist.toFixed(3));
+}
+
 for (let i = 0; !opts.compare && i < models.length; i++) {
   const file = models[i];
   const name = outNames[i];
@@ -1875,7 +1896,10 @@ for (let i = 0; !opts.compare && i < models.length; i++) {
     const lockViews = ladderJobs
       ? [...new Set(LADDER.flatMap(l => AUTO[l.view] || [l.view]))].map(parseView)
       : jobs.map(j => j.view);
-    if (opts.lockScale) {
+    if (runLock) {
+      cfgBase.lockDist = runLock.dist;
+      cfgBase.lockHalf = runLock.half;
+    } else if (opts.lockScale) {
       let dist = 0, half = 0;
       for (const v of lockViews) {
         const m = await page.evaluate(c => window.API.measure(c),
