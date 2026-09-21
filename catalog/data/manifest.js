@@ -4111,7 +4111,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "aq-pond",
-  "name": "Free Pond Kit",
+  "name": "aq-pond",
   "url": "https://www.assetquest.dev",
   "licenseLabel": "CC0 1.0",
   "models": [
@@ -4155,7 +4155,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "aq-hallow",
-  "name": "Halloween Kit",
+  "name": "aq-hallow",
   "url": "https://www.assetquest.dev",
   "licenseLabel": "CC0 1.0",
   "models": [
@@ -4212,7 +4212,7 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "aq-mushroom",
-  "name": "Free Mushroom Pack",
+  "name": "aq-mushroom",
   "url": "https://www.assetquest.dev",
   "licenseLabel": "CC0 1.0",
   "models": [
