@@ -5,6 +5,8 @@
 ** All new code is written in English.
 * never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
 * Keep docs tersely, and in plain English..
+* import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport.
+
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
