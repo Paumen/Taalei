@@ -92,7 +92,13 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
 - **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
-  key, ring, potion or token sized to be collected, not to stand in the world).
+  key, ring, potion or token sized to be collected, not to stand in the world),
+  `comp` (a part meant to be built into something larger, so the size rows do
+  not apply), `broken` (a cracked, shattered or partial version of a thing, and
+  the debris left of one), `piece` (a cut or portion of a whole thing: a slice,
+  a chopped heap, a single bloom off the plant), `tba` (needs an animation made
+  for it and keeps the moving parts as separate draw calls, so it is exempt
+  from `I11`; the model carries none yet).
 
 `hero` and material `special` are the PO's to assign, per the bible's process
 rules: propose, never set. Artist tags (`kay`, `ken`, `qua`, …) are derived by

@@ -101,6 +101,65 @@
   ]
  },
  {
+  "slug": "obj-food-coconut",
+  "name": "Object › Food › Coconut",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-terrain",
+    "model": "beach-prop-coconut",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "coconut",
+    "wdh": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "coconut",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "qua",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-food-meat-chickenleg",
   "name": "Object › Food › Meat › Chicken leg",
   "category": "obj-gen",
@@ -302,82 +361,6 @@
     ],
     "colors": [
      "#23562c",
-     "#563b2b"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-coconut",
-  "name": "Object › Food › Coconut",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-terrain",
-    "model": "beach-prop-coconut",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "coconut-half",
-    "wdh": [
-     0.1,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "coconut",
-    "wdh": [
-     0.1,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "coconut",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "qua",
-     "wood-bark"
-    ],
-    "colors": [
      "#563b2b"
     ]
    }
@@ -3475,6 +3458,7 @@
      0.05
     ],
     "tags": [
+     "comp",
      "food",
      "qua"
     ],
@@ -3652,7 +3636,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#7f3927",
@@ -4949,6 +4934,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "ken",
      "wood-beam"
     ],
@@ -5489,7 +5475,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#d8d1bd",
@@ -6430,6 +6417,7 @@
     ],
     "tags": [
      "ceramic",
+     "comp",
      "kay"
     ],
     "colors": [
@@ -8105,6 +8093,7 @@
      0.35
     ],
     "tags": [
+     "comp",
      "halloween",
      "ken",
      "metal-gold",
@@ -8191,7 +8180,8 @@
      0.05
     ],
     "tags": [
-     "food"
+     "food",
+     "piece"
     ],
     "colors": [
      "#b58158",
@@ -8361,7 +8351,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#b58158",
@@ -9569,7 +9560,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#d8d1bd",
@@ -9622,7 +9614,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#68872d",
@@ -10525,7 +10518,8 @@
      0.05
     ],
     "tags": [
-     "ceramic"
+     "ceramic",
+     "comp"
     ],
     "colors": [
      "#d07b56"
@@ -10677,6 +10671,7 @@
      0.05
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-iron-steel"
     ],
@@ -10693,6 +10688,7 @@
      0.05
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-iron-cast"
     ],
@@ -12152,7 +12148,8 @@
     ],
     "tags": [
      "food",
-     "ken"
+     "ken",
+     "piece"
     ],
     "colors": [
      "#8b7561",
@@ -15829,38 +15826,6 @@
     ]
    },
    {
-    "slug": "props",
-    "model": "jug-c",
-    "wdh": [
-     0.3,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "jug-d",
-    "wdh": [
-     0.3,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#23562c",
-     "#8b7561"
-    ]
-   },
-   {
     "slug": "wizp-asia",
     "model": "pot-large",
     "wdh": [
@@ -15996,6 +15961,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "gemstone",
      "kay",
      "metal-gold",
@@ -16018,6 +15984,7 @@
      0.25
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-gold",
      "wood-worked"
@@ -16036,6 +16003,7 @@
      0.35
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-iron-wrought",
      "wood-worked"
@@ -16054,6 +16022,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-gold",
      "wood-worked"
@@ -16072,6 +16041,7 @@
      0.4
     ],
     "tags": [
+     "comp",
      "kay",
      "metal-iron-wrought",
      "wood-worked"
@@ -16112,6 +16082,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "gemstone",
      "kay",
      "metal-gold",
@@ -18312,6 +18283,7 @@
      2.15
     ],
     "tags": [
+     "comp",
      "hero",
      "ken",
      "pirate",
@@ -18336,6 +18308,7 @@
      2.1
     ],
     "tags": [
+     "comp",
      "hero",
      "ken",
      "pirate",
@@ -18376,6 +18349,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "ken",
      "metal-iron-wrought",
      "wood",
@@ -18397,6 +18371,7 @@
      0.05
     ],
     "tags": [
+     "comp",
      "hero",
      "metal-iron-wrought",
      "pirate",
@@ -18416,6 +18391,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-beam",
      "wood-worked"
     ],
@@ -19552,6 +19528,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "ken",
      "metal-iron-cast",
      "pirate",
@@ -27286,6 +27263,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "ken",
      "metal-iron-cast",
      "metal-iron-steel",
@@ -29626,6 +29604,7 @@
      0.75
     ],
     "tags": [
+     "comp",
      "grave",
      "halloween",
      "kay",
@@ -30621,6 +30600,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "grave",
      "halloween",
      "ken",
@@ -30659,6 +30639,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "grave",
      "halloween",
      "ken",
@@ -30678,6 +30659,7 @@
      0.9
     ],
     "tags": [
+     "comp",
      "grave",
      "halloween",
      "ken",
@@ -30918,6 +30900,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -30935,6 +30918,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -30952,6 +30936,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -30969,6 +30954,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -30986,6 +30972,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -31003,6 +30990,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -31020,6 +31008,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "textile",
      "wood-planks"
     ],
@@ -31037,6 +31026,7 @@
      0.05
     ],
     "tags": [
+     "comp",
      "textile"
     ],
     "colors": [
@@ -31776,6 +31766,7 @@
      0.7
     ],
     "tags": [
+     "comp",
      "ken",
      "wood-beam"
     ],
@@ -33205,6 +33196,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "rope",
      "sailing",
      "wizp",
@@ -33974,6 +33966,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "rope",
      "wizp",
      "wood-beam"
@@ -34859,6 +34852,7 @@
      0.35
     ],
     "tags": [
+     "comp",
      "ken",
      "sailing",
      "wood-planks"
@@ -34876,6 +34870,7 @@
      0.35
     ],
     "tags": [
+     "comp",
      "ken",
      "sailing",
      "wood-planks"
@@ -34961,6 +34956,7 @@
     ],
     "tags": [
      "asia",
+     "comp",
      "stone-masonry",
      "wizp"
     ],
@@ -36532,6 +36528,7 @@
      0.75
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -36547,6 +36544,7 @@
      0.75
     ],
     "tags": [
+     "comp",
      "rope",
      "wood-beam"
     ],
@@ -36596,6 +36594,7 @@
      0.5
     ],
     "tags": [
+     "comp",
      "isa",
      "wood-worked"
     ],
@@ -36612,6 +36611,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "isa",
      "wood-worked"
     ],
@@ -36644,6 +36644,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "isa",
      "wood-worked"
     ],
@@ -36660,6 +36661,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "isa",
      "wood-worked"
     ],
@@ -36918,6 +36920,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "grave",
      "halloween",
      "ken",
@@ -37488,6 +37491,7 @@
      0.5
     ],
     "tags": [
+     "comp",
      "halloween",
      "stone-masonry",
      "wizp"
@@ -37505,6 +37509,7 @@
      0.5
     ],
     "tags": [
+     "comp",
      "halloween",
      "stone-masonry",
      "wizp"
@@ -37522,6 +37527,7 @@
      0.5
     ],
     "tags": [
+     "comp",
      "halloween",
      "stone-masonry",
      "wizp"
@@ -38136,6 +38142,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "stone-masonry"
     ],
     "colors": [
@@ -38151,6 +38158,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38167,6 +38175,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "special"
     ],
     "colors": [
@@ -38265,6 +38274,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "halloween",
      "qua",
      "stone-masonry"
@@ -38310,6 +38320,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38325,6 +38336,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38340,6 +38352,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38355,6 +38368,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38370,6 +38384,7 @@
      0.15
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -38385,6 +38400,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -39485,6 +39501,7 @@
      1.05
     ],
     "tags": [
+     "comp",
      "glass",
      "isa",
      "wood-worked"
@@ -39503,6 +39520,7 @@
      0.7
     ],
     "tags": [
+     "comp",
      "glass",
      "isa",
      "wood-worked"
@@ -39521,6 +39539,7 @@
      0.95
     ],
     "tags": [
+     "comp",
      "glass",
      "isa",
      "wood-worked"
@@ -39593,6 +39612,7 @@
      0.65
     ],
     "tags": [
+     "comp",
      "glass",
      "isa",
      "wood-worked"
@@ -40053,6 +40073,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "metal-iron-cast",
      "wizp",
      "wood-beam"
@@ -40071,6 +40092,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "metal-iron-cast",
      "wizp",
      "wood-beam"
@@ -40089,6 +40111,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "metal-iron-cast",
      "wizp",
      "wood-beam"
@@ -40107,6 +40130,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "metal-iron-cast",
      "wizp",
      "wood-beam"
@@ -41570,6 +41594,7 @@
      0.7
     ],
     "tags": [
+     "comp",
      "wood-planks"
     ],
     "colors": [
@@ -41585,6 +41610,7 @@
      0.9
     ],
     "tags": [
+     "comp",
      "wood-planks"
     ],
     "colors": [
@@ -41791,6 +41817,7 @@
     ],
     "tags": [
      "asia",
+     "comp",
      "metal-gold",
      "wizp",
      "wood-beam"
@@ -42674,6 +42701,7 @@
      0.55
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42689,6 +42717,7 @@
      0.25
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42704,6 +42733,7 @@
      0.25
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42719,6 +42749,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42734,6 +42765,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42749,6 +42781,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42764,6 +42797,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42779,6 +42813,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42794,6 +42829,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42809,6 +42845,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42824,6 +42861,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -42839,6 +42877,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42854,6 +42893,7 @@
      0.2
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42869,6 +42909,7 @@
      0.25
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42884,6 +42925,7 @@
      0.25
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42899,6 +42941,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-worked"
     ],
     "colors": [
@@ -42914,6 +42957,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "stone-masonry"
     ],
     "colors": [
@@ -42929,6 +42973,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "stone-soil"
     ],
     "colors": [
@@ -42944,6 +42989,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "foliage"
     ],
     "colors": [
@@ -42959,6 +43005,7 @@
      0.45
     ],
     "tags": [
+     "comp",
      "stone-masonry"
     ],
     "colors": [
@@ -42974,6 +43021,7 @@
      0.1
     ],
     "tags": [
+     "comp",
      "wood-beam"
     ],
     "colors": [
@@ -43007,6 +43055,7 @@
      0.35
     ],
     "tags": [
+     "comp",
      "ken",
      "wood-beam",
      "wood-planks"
@@ -43058,6 +43107,7 @@
      0.3
     ],
     "tags": [
+     "comp",
      "ken",
      "wood-worked"
     ],
@@ -43075,6 +43125,7 @@
      0.9
     ],
     "tags": [
+     "comp",
      "ken",
      "metal-iron-cast",
      "wood-beam"
@@ -43095,6 +43146,7 @@
     ],
     "tags": [
      "asia",
+     "comp",
      "wizp",
      "wood-beam"
     ],
@@ -43111,6 +43163,7 @@
      0.6
     ],
     "tags": [
+     "comp",
      "halloween",
      "stone-masonry",
      "wizp"
@@ -44358,6 +44411,7 @@
     ],
     "tags": [
      "ceramic",
+     "comp",
      "ken"
     ],
     "colors": [
@@ -46860,6 +46914,7 @@
     "tags": [
      "food",
      "ken",
+     "piece",
      "vegetation"
     ],
     "colors": [
