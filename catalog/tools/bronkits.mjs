@@ -105,8 +105,8 @@ export const BRONKITS = [
 
   { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: 'styloo-farm', formaat: 'glb' },
 
-  { map: 'kenney_food-kit', naam: 'Kenney Food Kit', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'Food_Asset_Pack', naam: 'Food Asset Pack', kit: null, formaat: 'fbx' },
-  { map: 'RPG-Mini-Asset-Package', naam: 'RPG Mini Asset Package', kit: null, formaat: 'fbx' },
+  { map: 'kenney_food-kit', naam: 'Kenney Food Kit', kit: 'ken-food', source: 'ken', formaat: 'glb' },
+  { map: 'Food_Asset_Pack', naam: 'Food Asset Pack', kit: 'food-pack', formaat: 'fbx' },
+  { map: 'RPG-Mini-Asset-Package', naam: 'RPG Mini Asset Package', kit: 'rpg-mini', formaat: 'fbx' },
   { map: 'Free_Low_Poly_Vehicles_Pack_by_Rgsdev', naam: 'Low Poly Vehicles Pack', kit: null, formaat: 'fbx', alleMappen: true },
 ];
