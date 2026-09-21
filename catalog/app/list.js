@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=41dceb20c8';
+import './bouwstempel.js?v=cf50498fd5';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -40,7 +40,7 @@ const kindChain = (id) => {
   return chain;
 };
 const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : 'No kind');
-const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy', 'scene'];
+const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'set', 'scene'];
 const cards = [];
 let sections = [];
 

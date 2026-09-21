@@ -69,7 +69,7 @@ export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
 const SHORT_RULER = new Set(['env-rock-pebble', 'env-remains-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
   'obj-container-chest', 'obj-container-bucket', 'obj-food',
-  'obj-resource', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-accessory']);
+  'obj-resource', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-arrow']);
 
 const SHORT_RULER_BRANCHES = ['obj-equipment-pocketitem', 'obj-kitchenware'];
 
@@ -97,7 +97,7 @@ const breadcrumb = (id) => [...kindAncestors(id).reverse(), id].map(kindName).jo
 export function buildScaleGroups(models) {
   const perKind = new Map();
   for (const m of models) {
-    if (!m.kind || m.kind === 'assy' || SKIP.has(m.id)) continue;
+    if (!m.kind || m.kind === 'set' || SKIP.has(m.id)) continue;
     if (SKIP_RULE(m)) continue;
     if (m.tags?.includes('plural') || m.tags?.includes('pickup') || m.tags?.includes('broken')) continue;
     if (!perKind.has(m.kind)) perKind.set(m.kind, []);
