@@ -8921,14 +8921,14 @@
    "name": "2 stories + attic",
    "type": "kind",
    "description": "Mill of two stories and an attic.",
-   "count": 5
+   "count": 1
   },
   {
    "id": "str-building-mill-3",
    "name": "3 stories",
    "type": "kind",
    "description": "Mill of three stories.",
-   "count": 3
+   "count": 7
   },
   {
    "id": "str-building-mill-3a",
@@ -8970,14 +8970,14 @@
    "name": "2 stories + attic",
    "type": "kind",
    "description": "Workshop of two stories and an attic.",
-   "count": 4
+   "count": 2
   },
   {
    "id": "str-building-workshop-3",
    "name": "3 stories",
    "type": "kind",
    "description": "Workshop of three stories.",
-   "count": 0
+   "count": 2
   },
   {
    "id": "str-building-dwelling",
@@ -8991,21 +8991,21 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Dwelling of three stories.",
-   "count": 11
+   "count": 13
   },
   {
    "id": "str-building-dwelling-2a",
    "name": "2 stories + attic",
    "type": "kind",
    "description": "Dwelling of two stories and an attic.",
-   "count": 1
+   "count": 0
   },
   {
    "id": "str-building-dwelling-2",
    "name": "2 stories",
    "type": "kind",
    "description": "Dwelling of two stories.",
-   "count": 23
+   "count": 22
   },
   {
    "id": "str-building-dwelling-1a",
@@ -9040,14 +9040,14 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Barracks of three stories.",
-   "count": 8
+   "count": 10
   },
   {
    "id": "str-building-fort-barracks-2",
    "name": "2 stories",
    "type": "kind",
    "description": "Barracks of two stories.",
-   "count": 9
+   "count": 7
   },
   {
    "id": "str-building-fort-barracks-1a",
@@ -10352,12 +10352,6 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "str-building-dwelling-2a": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
   "str-building-dwelling-3": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -10533,6 +10527,12 @@
    "tpu.max": 10000
   },
   "str-building-workshop-2a": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-workshop-3": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -12850,7 +12850,7 @@
   {
    "kit": "asia-rg",
    "name": "house-f",
-   "kind": "str-building-dwelling-2",
+   "kind": "str-building-dwelling-3",
    "size": "l",
    "wdh": [
     7,
@@ -69263,7 +69263,7 @@
   {
    "kit": "kay-hexagon",
    "name": "watermill",
-   "kind": "str-building-mill-2a",
+   "kind": "str-building-mill-3",
    "size": "l",
    "wdh": [
     1.65,
@@ -117329,7 +117329,7 @@
   {
    "kit": "quat-medieval",
    "name": "blacksmith",
-   "kind": "str-building-workshop-2a",
+   "kind": "str-building-workshop-3",
    "size": "l",
    "wdh": [
     4.6,
@@ -118046,7 +118046,7 @@
   {
    "kit": "quat-medieval",
    "name": "fantasy-sawmill",
-   "kind": "str-building-workshop-2a",
+   "kind": "str-building-workshop-3",
    "size": "l",
    "wdh": [
     5.2,
@@ -131001,7 +131001,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-b",
-   "kind": "str-building-fort-barracks-2",
+   "kind": "str-building-fort-barracks-3",
    "size": "l",
    "wdh": [
     4.35,
@@ -131242,7 +131242,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-1-c",
-   "kind": "str-building-fort-barracks-2",
+   "kind": "str-building-fort-barracks-3",
    "size": "l",
    "wdh": [
     5.25,
@@ -132352,7 +132352,7 @@
   {
    "kit": "quat-town",
    "name": "house-2-1-c",
-   "kind": "str-building-dwelling-2a",
+   "kind": "str-building-dwelling-3",
    "size": "l",
    "wdh": [
     2,
@@ -135332,7 +135332,7 @@
   {
    "kit": "quat-town",
    "name": "windmill-2",
-   "kind": "str-building-mill-2a",
+   "kind": "str-building-mill-3",
    "size": "l",
    "wdh": [
     3,
@@ -141962,7 +141962,7 @@
   {
    "kit": "styloo-farm",
    "name": "windmill-large",
-   "kind": "str-building-mill-2a",
+   "kind": "str-building-mill-3",
    "size": "l",
    "wdh": [
     1.5,
@@ -151295,7 +151295,7 @@
   {
    "kit": "wizp-mediev",
    "name": "windmill",
-   "kind": "str-building-mill-2a",
+   "kind": "str-building-mill-3",
    "size": "l",
    "wdh": [
     2,
