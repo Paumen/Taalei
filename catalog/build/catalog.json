@@ -6970,14 +6970,14 @@
    "name": "Wood",
    "type": "material",
    "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
-   "count": 14
+   "count": 13
   },
   {
    "id": "wood-planks",
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 359,
+   "count": 358,
    "parent": "wood"
   },
   {
@@ -9117,21 +9117,21 @@
    "name": "1 story + attic",
    "type": "kind",
    "description": "Farm building of one story and an attic.",
-   "count": 6
+   "count": 0
   },
   {
    "id": "str-building-farming-2",
    "name": "2 stories",
    "type": "kind",
    "description": "Farm building of two stories.",
-   "count": 2
+   "count": 7
   },
   {
    "id": "str-building-farming-3a",
    "name": "3 stories + attic",
    "type": "kind",
    "description": "Farm building of three stories and an attic.",
-   "count": 2
+   "count": 3
   },
   {
    "id": "str-building-farming-silo",
@@ -10359,12 +10359,6 @@
    "tpu.max": 10000
   },
   "str-building-farming-1": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "str-building-farming-1a": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -71582,16 +71576,7 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
-    "wood",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has azure nickel"
-    }
+    "metal-iron-steel"
    ]
   },
   {
@@ -113477,7 +113462,7 @@
   {
    "kit": "quat-farms",
    "name": "barn-large",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-3a",
    "size": "l",
    "wdh": [
     2.55,
@@ -113534,7 +113519,7 @@
   {
    "kit": "quat-farms",
    "name": "barn-open",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-2",
    "size": "l",
    "wdh": [
     1.9,
@@ -113590,7 +113575,7 @@
   {
    "kit": "quat-farms",
    "name": "barn-small",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-2",
    "size": "l",
    "wdh": [
     2,
@@ -113647,7 +113632,7 @@
   {
    "kit": "quat-farms",
    "name": "barn",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-2",
    "size": "l",
    "wdh": [
     2.55,
@@ -131589,7 +131574,7 @@
   {
    "kit": "quat-town",
    "name": "farm-2-a",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-2",
    "size": "l",
    "wdh": [
     4.05,
@@ -138383,7 +138368,7 @@
   {
    "kit": "styloo-farm",
    "name": "barn-large",
-   "kind": "str-building-farming-1a",
+   "kind": "str-building-farming-2",
    "size": "l",
    "wdh": [
     2.25,
