@@ -8532,6 +8532,20 @@
    "count": 72
   },
   {
+   "id": "str-part-door-frame",
+   "name": "Frame",
+   "type": "kind",
+   "description": "The opening a door hangs in, with the wall piece around it.",
+   "count": 28
+  },
+  {
+   "id": "str-part-door-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "The door leaf on its own, without the opening it hangs in.",
+   "count": 13
+  },
+  {
    "id": "str-part-door-trapdoor",
    "name": "Trapdoor",
    "type": "kind",
@@ -8546,11 +8560,39 @@
    "count": 23
   },
   {
+   "id": "str-part-door-gate-frame",
+   "name": "Frame",
+   "type": "kind",
+   "description": "The opening a gate hangs in, with the structure around it.",
+   "count": 15
+  },
+  {
+   "id": "str-part-door-gate-single",
+   "name": "Single",
+   "type": "kind",
+   "description": "The gate leaf on its own, without the opening it hangs in.",
+   "count": 8
+  },
+  {
    "id": "str-part-floor",
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
    "count": 89
+  },
+  {
+   "id": "str-part-floor-half",
+   "name": "Half",
+   "type": "kind",
+   "description": "Floor piece covering half a module of the kit grid.",
+   "count": 28
+  },
+  {
+   "id": "str-part-floor-unit",
+   "name": "Unit",
+   "type": "kind",
+   "description": "Floor piece covering one full module of the kit grid.",
+   "count": 38
   },
   {
    "id": "str-part-frame",
@@ -8581,11 +8623,25 @@
    "count": 51
   },
   {
+   "id": "str-part-roof-unit",
+   "name": "Unit",
+   "type": "kind",
+   "description": "Roof piece covering one full module of the kit grid.",
+   "count": 41
+  },
+  {
    "id": "str-part-wall",
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
    "count": 84
+  },
+  {
+   "id": "str-part-wall-unit",
+   "name": "Unit",
+   "type": "kind",
+   "description": "Wall piece covering one full module of the kit grid.",
+   "count": 54
   },
   {
    "id": "str-part-wall-fort",
@@ -8600,6 +8656,13 @@
    "type": "kind",
    "description": "window, shutter",
    "count": 38
+  },
+  {
+   "id": "str-part-window-unit",
+   "name": "Unit",
+   "type": "kind",
+   "description": "Wall piece with a window, covering one full module of the kit grid.",
+   "count": 26
   },
   {
    "id": "str-marker",
@@ -10562,7 +10625,25 @@
    "longest.max": 4,
    "tpu.max": 10000
   },
-  "str-part-door-gate": {
+  "str-part-door-frame": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
+  "str-part-door-gate-frame": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
+  "str-part-door-gate-single": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
+  "str-part-door-single": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -10575,6 +10656,18 @@
    "tpu.max": 10000
   },
   "str-part-floor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-floor-half": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-floor-unit": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -10604,6 +10697,12 @@
    "longest.max": 4,
    "tpu.max": 5000
   },
+  "str-part-roof-unit": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
   "str-part-wall": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -10616,7 +10715,19 @@
    "longest.max": 4,
    "tpu.max": 5000
   },
+  "str-part-wall-unit": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
   "str-part-window": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-window-unit": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -10669,7 +10780,7 @@
   {
    "kit": "architecture",
    "name": "arch",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.15,
@@ -12104,7 +12215,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-gate-a",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     2.45,
@@ -12167,7 +12278,7 @@
   {
    "kit": "asia-rg",
    "name": "garden-wall-gate-b",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     2.45,
@@ -12230,7 +12341,7 @@
   {
    "kit": "asia-rg",
    "name": "gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     2.15,
@@ -15092,7 +15203,7 @@
   {
    "kit": "asia-rg",
    "name": "torii",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     3.3,
@@ -17704,7 +17815,7 @@
   {
    "kit": "fs-terrain",
    "name": "beach-prop-docks-straight",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.45,
@@ -22041,7 +22152,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22081,7 +22192,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22121,7 +22232,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-c",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22161,7 +22272,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-corner-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22201,7 +22312,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-corner-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22241,7 +22352,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-corner-c",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22281,7 +22392,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-corner-d",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22321,7 +22432,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-dirt-transition-d",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22361,7 +22472,7 @@
   {
    "kit": "fs-town",
    "name": "cobblestone-floor-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -22598,7 +22709,7 @@
   {
    "kit": "fs-town",
    "name": "dirt-gathered-straight",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -22637,7 +22748,7 @@
   {
    "kit": "fs-town",
    "name": "door-simple",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.1,
@@ -23086,7 +23197,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-corner-inner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.45,
@@ -23129,7 +23240,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-corner-outer-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23174,7 +23285,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-corner-outer",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.45,
@@ -23217,7 +23328,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-side-eave-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23268,7 +23379,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-side-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23313,7 +23424,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-side-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.45,
@@ -23364,7 +23475,7 @@
   {
    "kit": "fs-town",
    "name": "roof-concave-side",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.45,
@@ -23407,7 +23518,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-corner-inner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.45,
@@ -23450,7 +23561,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-corner-outer-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23495,7 +23606,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-corner-outer",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.5,
@@ -23538,7 +23649,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-side-eave-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23589,7 +23700,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-side-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23634,7 +23745,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-side-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -23685,7 +23796,7 @@
   {
    "kit": "fs-town",
    "name": "roof-convex-side",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "s",
    "wdh": [
     0.5,
@@ -23728,7 +23839,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-corner-inner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.45,
@@ -23771,7 +23882,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-corner-outer-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23816,7 +23927,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-corner-outer",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -23860,7 +23971,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-side-eave-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23911,7 +24022,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-side-eave",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.6,
@@ -23956,7 +24067,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-side-edge",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -24007,7 +24118,7 @@
   {
    "kit": "fs-town",
    "name": "roof-straight-side",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -24300,7 +24411,7 @@
   {
    "kit": "fs-town",
    "name": "stone-doorway-narrow-tall-a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -24347,7 +24458,7 @@
   {
    "kit": "fs-town",
    "name": "stone-doorway-narrow-tall-b",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -24394,7 +24505,7 @@
   {
    "kit": "fs-town",
    "name": "stone-doorway-wide-tall-a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.55,
@@ -24440,7 +24551,7 @@
   {
    "kit": "fs-town",
    "name": "stone-doorway-wide-tall-b",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.55,
@@ -24486,7 +24597,7 @@
   {
    "kit": "fs-town",
    "name": "stone-stucco-doorway-wide-tall-a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.55,
@@ -24537,7 +24648,7 @@
   {
    "kit": "fs-town",
    "name": "stone-stucco-doorway-wide-tall-b",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.55,
@@ -24588,7 +24699,7 @@
   {
    "kit": "fs-town",
    "name": "stone-wall-a",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
     0.05,
@@ -24628,7 +24739,7 @@
   {
    "kit": "fs-town",
    "name": "stone-wall-b",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
     0.05,
@@ -24668,7 +24779,7 @@
   {
    "kit": "fs-town",
    "name": "stone-wall-c",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
     0.05,
@@ -24708,7 +24819,7 @@
   {
    "kit": "fs-town",
    "name": "stone-wall-d",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
     0.05,
@@ -24748,7 +24859,7 @@
   {
    "kit": "fs-town",
    "name": "stone-wall-e",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
     0.05,
@@ -24925,7 +25036,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-doorway-narrow-tall",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -24970,7 +25081,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-doorway-wide-tall",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -25572,7 +25683,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-rounded-narrow-tall",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25621,7 +25732,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-rounded-narrow",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25670,7 +25781,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-rounded-wide-tall",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25719,7 +25830,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-rounded-wide",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25768,7 +25879,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-single-narrow-tall",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25817,7 +25928,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-single-narrow",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25866,7 +25977,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-single-wide-tall",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -25915,7 +26026,7 @@
   {
    "kit": "fs-town",
    "name": "stucco-window-single-wide",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -26637,7 +26748,7 @@
   {
    "kit": "fs-town",
    "name": "window-upper-convex",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -26691,7 +26802,7 @@
   {
    "kit": "fs-town",
    "name": "window-upper-straight",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -26784,7 +26895,7 @@
   {
    "kit": "fs-town",
    "name": "wood-floor-corner",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -26824,7 +26935,7 @@
   {
    "kit": "fs-town",
    "name": "wood-floor-straight-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -26864,7 +26975,7 @@
   {
    "kit": "fs-town",
    "name": "wood-floor-straight-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -26904,7 +27015,7 @@
   {
    "kit": "fs-town",
    "name": "wood-floor-straight-c",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -26944,7 +27055,7 @@
   {
    "kit": "fs-town",
    "name": "wood-floor-straight-d",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.45,
@@ -28391,7 +28502,7 @@
   {
    "kit": "isa-bakery",
    "name": "door-modular",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -28644,7 +28755,7 @@
   {
    "kit": "isa-bakery",
    "name": "floor-connection",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.65,
@@ -28688,7 +28799,7 @@
   {
    "kit": "isa-bakery",
    "name": "floor-tiled",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.65,
@@ -28726,7 +28837,7 @@
   {
    "kit": "isa-bakery",
    "name": "floor-wood",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.65,
@@ -29684,7 +29795,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled-modular",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -29729,7 +29840,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled-window-large",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -29781,7 +29892,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled-window-small",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -29833,7 +29944,7 @@
   {
    "kit": "isa-bakery",
    "name": "wall-panelled",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -31824,7 +31935,7 @@
   {
    "kit": "isa-kitchen",
    "name": "door-modular",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -32693,7 +32804,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-modular-window-large",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -32737,7 +32848,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-modular",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -32780,7 +32891,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-window-large",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -32831,7 +32942,7 @@
   {
    "kit": "isa-kitchen",
    "name": "wall-tiles-window-small",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -42777,7 +42888,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-gate-closed",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     3.45,
@@ -42827,7 +42938,7 @@
   {
    "kit": "kay-builder",
    "name": "wall-gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     3.45,
@@ -45489,7 +45600,7 @@
   {
    "kit": "kay-dun-1",
    "name": "door-gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "m",
    "wdh": [
     0.8,
@@ -45537,7 +45648,7 @@
   {
    "kit": "kay-dun-1",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.8,
@@ -45661,7 +45772,7 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-tiles-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.7,
@@ -45699,7 +45810,7 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood-left",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.75,
@@ -45738,7 +45849,7 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood-right",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.75,
@@ -45777,7 +45888,7 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.8,
@@ -49292,7 +49403,7 @@
   {
    "kit": "kay-dun-1",
    "name": "tile-brick-a-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "l",
    "wdh": [
     2.4,
@@ -49330,7 +49441,7 @@
   {
    "kit": "kay-dun-1",
    "name": "tile-brick-b-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "l",
    "wdh": [
     2.4,
@@ -50705,7 +50816,7 @@
   {
    "kit": "kay-dun-2",
    "name": "ceiling-tile",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51143,7 +51254,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-large-rocky",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51183,7 +51294,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51223,7 +51334,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51263,7 +51374,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51303,7 +51414,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-c",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51343,7 +51454,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-corner",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51383,7 +51494,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-d",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51423,7 +51534,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-dirt-small-weeds",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -51715,7 +51826,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-big-grate-open",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51760,7 +51871,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-big-spikes",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51896,7 +52007,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-large-rocks",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51936,7 +52047,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -51976,7 +52087,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small-broken-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52017,7 +52128,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small-broken-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52058,7 +52169,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small-corner",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52149,7 +52260,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small-weeds-a",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52194,7 +52305,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small-weeds-b",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52239,7 +52350,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.55,
@@ -52279,7 +52390,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-wood-large-dark",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -52318,7 +52429,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-wood-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -52357,7 +52468,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-wood-small-dark",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -52396,7 +52507,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-wood-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -54523,7 +54634,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-arched",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54568,7 +54679,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-archedwindow-gated-scaffold",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54620,7 +54731,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-archedwindow-gated",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54666,7 +54777,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-archedwindow-open",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54711,7 +54822,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-broken",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54757,7 +54868,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-corner-gated",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -54803,7 +54914,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-corner-scaffold",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -54854,7 +54965,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-corner-small",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.4,
@@ -54899,7 +55010,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-corner",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -54944,7 +55055,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-cracked",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -54996,7 +55107,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-crossing",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55041,7 +55152,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-doorway-scaffold",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     1.1,
@@ -55185,7 +55296,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-doorway",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     1.1,
@@ -55241,7 +55352,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-endcap",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.3,
@@ -55286,7 +55397,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-gated",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55332,7 +55443,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-half-endcap-sloped",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -55377,7 +55488,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-half-endcap",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -55422,7 +55533,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-half",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.55,
@@ -55467,7 +55578,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-open-scaffold",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55512,7 +55623,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-pillar",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55557,7 +55668,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-scaffold",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55676,7 +55787,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-sloped",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55721,7 +55832,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-tsplit-sloped",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55766,7 +55877,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-tsplit",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55811,7 +55922,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-window-closed-scaffold",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55868,7 +55979,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-window-closed",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55919,7 +56030,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-window-open-scaffold",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -55970,7 +56081,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall-window-open",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -56021,7 +56132,7 @@
   {
    "kit": "kay-dun-2",
    "name": "wall",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -56857,7 +56968,7 @@
   {
    "kit": "kay-food",
    "name": "door-a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.45,
@@ -56908,7 +57019,7 @@
   {
    "kit": "kay-food",
    "name": "door-b",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.45,
@@ -58782,7 +58893,7 @@
   {
    "kit": "kay-food",
    "name": "wall-doorway",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -58832,7 +58943,7 @@
   {
    "kit": "kay-food",
    "name": "wall-window",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -58882,7 +58993,7 @@
   {
    "kit": "kay-food",
    "name": "wall",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1.1,
@@ -62668,7 +62779,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate-arch",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     1,
@@ -62709,7 +62820,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate-right",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.4,
@@ -62750,7 +62861,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     1,
@@ -62797,7 +62908,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     1,
@@ -63426,7 +63537,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.95,
@@ -63700,7 +63811,7 @@
   {
    "kit": "kay-hallow",
    "name": "floor-dirt-grave",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -63742,7 +63853,7 @@
   {
    "kit": "kay-hallow",
    "name": "floor-dirt-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "s",
    "wdh": [
     0.5,
@@ -63782,7 +63893,7 @@
   {
    "kit": "kay-hallow",
    "name": "floor-dirt",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -68850,7 +68961,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-corner-a-gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     2.8,
@@ -69074,7 +69185,7 @@
   {
    "kit": "kay-hexagon",
    "name": "wall-gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     3.15,
@@ -82868,7 +82979,7 @@
   {
    "kit": "ken-castle",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.15,
@@ -83048,7 +83159,7 @@
   {
    "kit": "ken-castle",
    "name": "gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.15,
@@ -83093,7 +83204,7 @@
   {
    "kit": "ken-castle",
    "name": "metal-gate",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.05,
@@ -83348,7 +83459,7 @@
   {
    "kit": "ken-castle",
    "name": "wall-doorway",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -83392,7 +83503,7 @@
   {
    "kit": "ken-castle",
    "name": "wall-narrow-gate",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -83606,7 +83717,7 @@
   {
    "kit": "ken-cave",
    "name": "template-floor-layer",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.85,
@@ -83694,7 +83805,7 @@
   {
    "kit": "ken-forest-mini",
    "name": "building-roof",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     1.2,
@@ -87080,7 +87191,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -87131,7 +87242,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-doorway",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -87214,7 +87325,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -87265,7 +87376,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-doorway",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.5,
@@ -87316,7 +87427,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-chimney",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -87366,7 +87477,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-corner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -87415,7 +87526,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-dormer",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -87474,7 +87585,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-point",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.75,
@@ -87518,7 +87629,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-snow-dormer",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -87574,7 +87685,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-roof",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.65,
@@ -87858,7 +87969,7 @@
   {
    "kit": "ken-holiday",
    "name": "floor-stone",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.5,
@@ -87897,7 +88008,7 @@
   {
    "kit": "ken-holiday",
    "name": "floor-wood-snow",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.5,
@@ -87943,7 +88054,7 @@
   {
    "kit": "ken-holiday",
    "name": "floor-wood",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-half",
    "size": "m",
    "wdh": [
     0.5,
@@ -93355,7 +93466,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-platform-dock-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -93402,7 +93513,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-platform-dock",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -93449,7 +93560,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-platform-small",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -93496,7 +93607,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-platform",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -94114,7 +94225,7 @@
   {
    "kit": "ken-platformer",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -95417,7 +95528,7 @@
   {
    "kit": "ken-proto",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.25,
@@ -95538,7 +95649,7 @@
   {
    "kit": "ken-proto",
    "name": "wall-doorway",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.25,
@@ -95582,7 +95693,7 @@
   {
    "kit": "ken-proto",
    "name": "wall-window-cutout-large",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.15,
@@ -95621,7 +95732,7 @@
   {
    "kit": "ken-proto",
    "name": "wall",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.15,
@@ -96240,7 +96351,7 @@
   {
    "kit": "ken-survival",
    "name": "fence-doorway",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.7,
@@ -96451,7 +96562,7 @@
   {
    "kit": "ken-survival",
    "name": "floor-hole",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -96489,7 +96600,7 @@
   {
    "kit": "ken-survival",
    "name": "floor-old",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -96528,7 +96639,7 @@
   {
    "kit": "ken-survival",
    "name": "floor",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -96567,7 +96678,7 @@
   {
    "kit": "ken-survival",
    "name": "metal-panel-narrow",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.35,
@@ -96606,7 +96717,7 @@
   {
    "kit": "ken-survival",
    "name": "metal-panel-screws",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -96651,7 +96762,7 @@
   {
    "kit": "ken-survival",
    "name": "metal-panel",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.7,
@@ -97303,7 +97414,7 @@
   {
    "kit": "ken-survival",
    "name": "structure-metal-doorway",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.75,
@@ -99398,7 +99509,7 @@
   {
    "kit": "ken-town",
    "name": "planks-half",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.45,
@@ -99439,7 +99550,7 @@
   {
    "kit": "ken-town",
    "name": "planks-opening",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -99478,7 +99589,7 @@
   {
    "kit": "ken-town",
    "name": "planks",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -99633,7 +99744,7 @@
   {
    "kit": "ken-town",
    "name": "roof-corner-inner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -99677,7 +99788,7 @@
   {
    "kit": "ken-town",
    "name": "roof-corner-round",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -99723,7 +99834,7 @@
   {
    "kit": "ken-town",
    "name": "roof-corner",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -99769,7 +99880,7 @@
   {
    "kit": "ken-town",
    "name": "roof-flat",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -99807,7 +99918,7 @@
   {
    "kit": "ken-town",
    "name": "roof-gable-detail",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -99859,7 +99970,7 @@
   {
    "kit": "ken-town",
    "name": "roof-gable-end",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -99909,7 +100020,7 @@
   {
    "kit": "ken-town",
    "name": "roof-gable-top",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -99959,7 +100070,7 @@
   {
    "kit": "ken-town",
    "name": "roof-high-window",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -100008,7 +100119,7 @@
   {
    "kit": "ken-town",
    "name": "roof-left",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     1,
@@ -100060,7 +100171,7 @@
   {
    "kit": "ken-town",
    "name": "roof-point",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -100098,7 +100209,7 @@
   {
    "kit": "ken-town",
    "name": "roof-right",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     1,
@@ -100150,7 +100261,7 @@
   {
    "kit": "ken-town",
    "name": "roof-window",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
     0.95,
@@ -100850,7 +100961,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-arch-top",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -100902,7 +101013,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-arch",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -100954,7 +101065,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-block-half",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -100998,7 +101109,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-block",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101042,7 +101153,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-broken",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101089,7 +101200,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-corner-diagonal-half",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.5,
@@ -101135,7 +101246,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-corner-diagonal",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101179,7 +101290,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-corner-edge",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101223,7 +101334,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-corner",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101267,7 +101378,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-curved",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101312,7 +101423,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-detail-cross",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101358,7 +101469,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-detail-diagonal",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101404,7 +101515,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-detail-horizontal",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101450,7 +101561,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-diagonal",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.9,
@@ -101494,7 +101605,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.1,
@@ -101541,7 +101652,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-doorway-base",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.1,
@@ -101637,7 +101748,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-doorway-square",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.1,
@@ -101683,7 +101794,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-half",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101729,7 +101840,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-side",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101775,7 +101886,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-window-glass",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101821,7 +101932,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-window-round",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.2,
@@ -101867,7 +101978,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood-window-shutters",
-   "kind": "str-part-window",
+   "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -101913,7 +102024,7 @@
   {
    "kit": "ken-town",
    "name": "wall-wood",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.1,
@@ -102531,7 +102642,7 @@
   {
    "kit": "lpa-desert",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.05,
@@ -104800,7 +104911,7 @@
   {
    "kit": "medieval-forge",
    "name": "door",
-   "kind": "str-part-door",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.75,
@@ -111386,7 +111497,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch-door-bottompivot",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "l",
    "wdh": [
     1.2,
@@ -111438,7 +111549,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch-door",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "l",
    "wdh": [
     1.2,
@@ -111484,7 +111595,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "l",
    "wdh": [
     2.05,
@@ -112021,7 +112132,7 @@
   {
    "kit": "quat-dun-1",
    "name": "floor-modular",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1,
@@ -112531,7 +112642,7 @@
   {
    "kit": "quat-dun-1",
    "name": "wall-modular",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1,
@@ -112570,7 +112681,7 @@
   {
    "kit": "quat-dun-2",
    "name": "arch-door-bottompivot",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "l",
    "wdh": [
     1.15,
@@ -112616,7 +112727,7 @@
   {
    "kit": "quat-dun-2",
    "name": "arch-door",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "l",
    "wdh": [
     1.15,
@@ -117577,7 +117688,7 @@
   {
    "kit": "quat-medieval",
    "name": "door-round",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -117628,7 +117739,7 @@
   {
    "kit": "quat-medieval",
    "name": "door-straight",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "m",
    "wdh": [
     0.6,
@@ -134677,7 +134788,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-door-1",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     4.35,
@@ -134729,7 +134840,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-door-2",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     4.45,
@@ -134787,7 +134898,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-gate-1",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     4.35,
@@ -134839,7 +134950,7 @@
   {
    "kit": "quat-town",
    "name": "wall-towers-gate-2",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "l",
    "wdh": [
     4.45,
@@ -140149,7 +140260,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge-arch",
-   "kind": "str-part-door",
+   "kind": "str-part-door-frame",
    "size": "l",
    "wdh": [
     1.3,
@@ -143570,7 +143681,7 @@
   {
    "kit": "wizp-asia",
    "name": "door-left",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "m",
    "wdh": [
     0.4,
@@ -143610,7 +143721,7 @@
   {
    "kit": "wizp-asia",
    "name": "door-right",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-single",
    "size": "m",
    "wdh": [
     0.4,
@@ -146612,7 +146723,7 @@
   {
    "kit": "wizp-asia",
    "name": "roof-pagoda",
-   "kind": "str-part-roof",
+   "kind": "str-part-roof-unit",
    "size": "l",
    "wdh": [
     1.8,
@@ -146939,7 +147050,7 @@
   {
    "kit": "wizp-asia",
    "name": "torii",
-   "kind": "str-part-door-gate",
+   "kind": "str-part-door-gate-frame",
    "size": "m",
    "wdh": [
     1.35,
