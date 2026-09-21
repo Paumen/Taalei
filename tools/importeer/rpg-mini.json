@@ -1,0 +1,229 @@
+{
+ "kit": "rpg-mini",
+ "map": "RPG-Mini-Asset-Package",
+ "bron": "RPG Mini Asset Package",
+ "note": "Source zip carries no licence file and names no maker.",
+ "schaal": 0.005,
+ "drempel": 90,
+ "banden": {
+  "31,32,36": "basalt",
+  "122,86,60": "umber",
+  "174,162,140": "ivory",
+  "199,193,181": "ivory",
+  "215,206,199": "ivory",
+  "67,74,80": "taupe",
+  "82,58,24": "umber",
+  "244,180,27": "amber",
+  "77,101,180": "azure",
+  "138,235,241": "azure",
+  "104,56,108": "azure",
+  "205,96,147": "azure",
+  "234,79,54": "azure",
+  "14,175,155": "azure",
+  "254,174,52": "azure"
+ },
+ "modellen": [
+  {
+   "bron": "Inkbottle",
+   "naam": "inkbottle",
+   "kind": "obj-container-bottle",
+   "materialen": [
+    "ceramic"
+   ]
+  },
+  {
+   "bron": "Feather_Black",
+   "naam": "feather-black",
+   "kind": "env-remains",
+   "materialen": [
+    "bone"
+   ]
+  },
+  {
+   "bron": "Feather_Brown",
+   "naam": "feather-brown",
+   "kind": "env-remains",
+   "materialen": [
+    "bone"
+   ]
+  },
+  {
+   "bron": "Feather_White",
+   "naam": "feather-white",
+   "kind": "env-remains",
+   "materialen": [
+    "bone"
+   ],
+   "banden": {
+    "174,162,140": "taupe"
+   }
+  },
+  {
+   "bron": "Feather(Black)+Inkbottle",
+   "naam": "quill-black-inkbottle",
+   "kind": "assy",
+   "materialen": [
+    "bone",
+    "ceramic"
+   ]
+  },
+  {
+   "bron": "Feather(Brown)+Inkbottle",
+   "naam": "quill-brown-inkbottle",
+   "kind": "assy",
+   "materialen": [
+    "bone",
+    "ceramic"
+   ]
+  },
+  {
+   "bron": "Feather(White)+Inkbottle",
+   "naam": "quill-white-inkbottle",
+   "kind": "assy",
+   "materialen": [
+    "bone",
+    "ceramic"
+   ],
+   "banden": {
+    "174,162,140": "taupe"
+   }
+  },
+  {
+   "bron": "Gempurse",
+   "naam": "purse-gems",
+   "kind": "obj-container-bag-pouch",
+   "materialen": [
+    "leather",
+    "gemstone"
+   ],
+   "banden": {
+    "122,86,60": "camel"
+   }
+  },
+  {
+   "bron": "Goldpurse_Full",
+   "naam": "purse-full",
+   "kind": "obj-container-bag-pouch",
+   "materialen": [
+    "leather",
+    "metal-gold"
+   ],
+   "banden": {
+    "122,86,60": "camel"
+   }
+  },
+  {
+   "bron": "Goldpurse_Empty_1",
+   "naam": "purse-a",
+   "kind": "obj-container-bag-pouch",
+   "materialen": [
+    "leather"
+   ],
+   "banden": {
+    "122,86,60": "camel"
+   }
+  },
+  {
+   "bron": "Goldpurse_Empty_2",
+   "naam": "purse-b",
+   "kind": "obj-container-bag-pouch",
+   "materialen": [
+    "leather"
+   ],
+   "banden": {
+    "122,86,60": "camel"
+   }
+  },
+  {
+   "bron": "Gold_Coin",
+   "naam": "coin",
+   "kind": "obj-pocketitem-coin",
+   "materialen": [
+    "metal-gold"
+   ],
+   "vlaggen": [
+    "pickup"
+   ]
+  },
+  {
+   "bron": "Gold_Coin_Heap_1",
+   "naam": "coin-heap-a",
+   "kind": "obj-pocketitem-coin",
+   "materialen": [
+    "metal-gold"
+   ],
+   "vlaggen": [
+    "plural"
+   ]
+  },
+  {
+   "bron": "Gold_Coin_Heap_2",
+   "naam": "coin-heap-b",
+   "kind": "obj-pocketitem-coin",
+   "materialen": [
+    "metal-gold"
+   ],
+   "vlaggen": [
+    "plural"
+   ]
+  },
+  {
+   "bron": "Gold_Coin_Stack_1",
+   "naam": "coin-stack-a",
+   "kind": "obj-pocketitem-coin",
+   "materialen": [
+    "metal-gold"
+   ],
+   "vlaggen": [
+    "plural"
+   ]
+  },
+  {
+   "bron": "Gold_Coin_Stack_2",
+   "naam": "coin-stack-b",
+   "kind": "obj-pocketitem-coin",
+   "materialen": [
+    "metal-gold"
+   ],
+   "vlaggen": [
+    "plural"
+   ]
+  }
+ ],
+ "varianten": [
+  {
+   "leden": [
+    "purse-a",
+    "purse-b",
+    "purse-full",
+    "purse-gems"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "coin-heap-a",
+    "coin-heap-b",
+    "coin-stack-a",
+    "coin-stack-b"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "feather-black",
+    "feather-brown",
+    "feather-white"
+   ],
+   "type": "color-variant"
+  },
+  {
+   "leden": [
+    "quill-black-inkbottle",
+    "quill-brown-inkbottle",
+    "quill-white-inkbottle"
+   ],
+   "type": "color-variant"
+  }
+ ]
+}
