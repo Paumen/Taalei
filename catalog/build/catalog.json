@@ -8858,7 +8858,7 @@
    "name": "4 stories",
    "type": "kind",
    "description": "Tower of four stories.",
-   "count": 0
+   "count": 4
   },
   {
    "id": "str-building-tower-3a",
@@ -8872,7 +8872,7 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Tower of three stories.",
-   "count": 9
+   "count": 5
   },
   {
    "id": "str-building-tower-2",
@@ -8928,7 +8928,7 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Mill of three stories.",
-   "count": 7
+   "count": 5
   },
   {
    "id": "str-building-mill-3a",
@@ -8936,6 +8936,13 @@
    "type": "kind",
    "description": "Mill of three stories and an attic.",
    "count": 3
+  },
+  {
+   "id": "str-building-mill-4",
+   "name": "4 stories",
+   "type": "kind",
+   "description": "Mill of four stories.",
+   "count": 2
   },
   {
    "id": "str-building-well",
@@ -9040,7 +9047,14 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Barracks of three stories.",
-   "count": 10
+   "count": 4
+  },
+  {
+   "id": "str-building-fort-barracks-4",
+   "name": "4 stories",
+   "type": "kind",
+   "description": "Barracks of four stories.",
+   "count": 6
   },
   {
    "id": "str-building-fort-barracks-2",
@@ -9075,14 +9089,14 @@
    "name": "3 stories",
    "type": "kind",
    "description": "Castle of three stories.",
-   "count": 1
+   "count": 0
   },
   {
    "id": "str-building-fort-castle-4",
    "name": "4 stories",
    "type": "kind",
    "description": "Castle of four stories.",
-   "count": 1
+   "count": 2
   },
   {
    "id": "str-building-religion",
@@ -10406,13 +10420,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "str-building-fort-castle": {
+  "str-building-fort-barracks-4": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "str-building-fort-castle-3": {
+  "str-building-fort-castle": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -10449,6 +10463,12 @@
    "tpu.max": 10000
   },
   "str-building-mill-3a": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-mill-4": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -10491,6 +10511,12 @@
    "tpu.max": 10000
   },
   "str-building-tower-3a": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-tower-4": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -41933,7 +41959,7 @@
   {
    "kit": "kay-builder",
    "name": "castle",
-   "kind": "str-building-fort-castle-3",
+   "kind": "str-building-fort-castle-4",
    "size": "l",
    "wdh": [
     3.1,
@@ -42384,7 +42410,7 @@
   {
    "kit": "kay-builder",
    "name": "mill",
-   "kind": "str-building-mill-3",
+   "kind": "str-building-mill-4",
    "size": "l",
    "wdh": [
     2.9,
@@ -43010,7 +43036,7 @@
   {
    "kit": "kay-builder",
    "name": "watchtower",
-   "kind": "str-building-tower-3",
+   "kind": "str-building-tower-4",
    "size": "l",
    "wdh": [
     1.65,
@@ -68625,7 +68651,7 @@
   {
    "kit": "kay-hexagon",
    "name": "tower-catapult",
-   "kind": "str-building-tower-3",
+   "kind": "str-building-tower-4",
    "size": "l",
    "wdh": [
     1.45,
@@ -130848,7 +130874,7 @@
   {
    "kit": "quat-town",
    "name": "archery-1-b",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     3.7,
@@ -130893,7 +130919,7 @@
   {
    "kit": "quat-town",
    "name": "archery-1-c",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     4.2,
@@ -131001,7 +131027,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-b",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     4.35,
@@ -131058,7 +131084,7 @@
   {
    "kit": "quat-town",
    "name": "archery-2-c",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     4.4,
@@ -131369,7 +131395,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-2-b",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     3.85,
@@ -131432,7 +131458,7 @@
   {
    "kit": "quat-town",
    "name": "barracks-2-c",
-   "kind": "str-building-fort-barracks-3",
+   "kind": "str-building-fort-barracks-4",
    "size": "l",
    "wdh": [
     3.85,
@@ -135175,7 +135201,7 @@
   {
    "kit": "quat-town",
    "name": "watchtower-2-b",
-   "kind": "str-building-tower-3",
+   "kind": "str-building-tower-4",
    "size": "l",
    "wdh": [
     1.9,
@@ -135220,7 +135246,7 @@
   {
    "kit": "quat-town",
    "name": "watchtower-2-c",
-   "kind": "str-building-tower-3",
+   "kind": "str-building-tower-4",
    "size": "l",
    "wdh": [
     1.85,
@@ -135277,7 +135303,7 @@
   {
    "kit": "quat-town",
    "name": "windmill-1",
-   "kind": "str-building-mill-3",
+   "kind": "str-building-mill-4",
    "size": "l",
    "wdh": [
     3.05,
