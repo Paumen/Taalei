@@ -7288,7 +7288,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 214,
+   "count": 215,
    "parent": "metal-iron"
   },
   {
@@ -7304,7 +7304,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 136,
+   "count": 139,
    "parent": "metal"
   },
   {
@@ -7343,7 +7343,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 839,
+   "count": 840,
    "parent": "wood"
   },
   {
@@ -7405,14 +7405,14 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 351
+   "count": 352
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 105
+   "count": 106
   },
   {
    "id": "foliage",
@@ -7525,7 +7525,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 1516,
+   "count": 1519,
    "color": "#c07c8a"
   },
   {
@@ -9243,7 +9243,7 @@
    "name": "Asia",
    "type": "theme",
    "description": "Buildings, garden pieces and props from the East-Asian kits: pagodas, torii, shoji houses, stone lanterns, paper lanterns and tatami-scale furniture.",
-   "count": 198
+   "count": 200
   },
   {
    "id": "grave",
@@ -9264,14 +9264,14 @@
    "name": "Instrument",
    "type": "kind",
    "description": "Musical instrument: bell, gong, drum.",
-   "count": 11
+   "count": 14
   },
   {
    "id": "obj-art",
    "name": "Art",
    "type": "kind",
    "description": "Art object with no leaf that fits.",
-   "count": 38
+   "count": 41
   },
   {
    "id": "obj-art-sculpture",
@@ -9461,14 +9461,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1567
+   "count": 1568
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1279
+   "count": 1281
   },
   {
    "id": "l",
@@ -9489,7 +9489,7 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 964
+   "count": 965
   },
   {
    "id": "qua",
@@ -9510,7 +9510,7 @@
    "name": "WizP",
    "type": "artist",
    "description": "Kits from WizP (wizp.itch.io). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 225
+   "count": 227
   },
   {
    "id": "animation",
@@ -71758,6 +71758,51 @@
     "kay",
     "textile",
     "wood-beam"
+   ]
+  },
+  {
+   "kit": "kay-holiday",
+   "name": "bell-banded",
+   "kind": "obj-art-instrument",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.35
+   ],
+   "tris": 768,
+   "tpu": 2239,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 28032,
+   "vtx": 688,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00037,
+   "anglePct": 17,
+   "vpt": 0.9,
+   "grad": 0.72,
+   "spread": {
+    "6,0": [
+     0.148,
+     0.852
+    ],
+    "8,0": [
+     0.016,
+     0.797
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-gold",
+    "textile"
    ]
   },
   {
@@ -152968,6 +153013,45 @@
   },
   {
    "kit": "wizp-asia",
+   "name": "bell-loose",
+   "kind": "obj-art-instrument",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.45,
+    0.6
+   ],
+   "tris": 520,
+   "tpu": 1516,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31196,
+   "vtx": 834,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00177,
+   "anglePct": 24,
+   "vpt": 1.6,
+   "grad": 0.9,
+   "spread": {
+    "6,0": [
+     0.047,
+     0.945
+    ]
+   },
+   "colors": [
+    "#f2a93c"
+   ],
+   "tags": [
+    "asia",
+    "metal-gold",
+    "wizp"
+   ]
+  },
+  {
+   "kit": "wizp-asia",
    "name": "bell",
    "kind": "obj-art-instrument",
    "size": "m",
@@ -153304,6 +153388,63 @@
     "wizp"
    ],
    "variant": "v589"
+  },
+  {
+   "kit": "wizp-asia",
+   "name": "drum-loose",
+   "kind": "obj-art-instrument",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.9,
+    0.75
+   ],
+   "tris": 1272,
+   "tpu": 2342,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 68992,
+   "vtx": 1874,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00213,
+   "anglePct": 0,
+   "vpt": 1.47,
+   "grad": 0.78,
+   "spread": {
+    "6,0": [
+     0.047,
+     0.945
+    ],
+    "2,0": [
+     0.164,
+     0.836
+    ],
+    "1,0": [
+     0.328,
+     0.477
+    ],
+    "13,3": [
+     0.398,
+     0.883
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#8b5936",
+    "#b58158",
+    "#f2a93c"
+   ],
+   "tags": [
+    "asia",
+    "leather",
+    "metal-gold",
+    "metal-iron-wrought",
+    "wizp",
+    "wood-beam"
+   ]
   },
   {
    "kit": "wizp-asia",
