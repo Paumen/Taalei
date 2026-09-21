@@ -1,0 +1,815 @@
+{
+ "kit": "aq-hallow",
+ "map": "Halloween_Kit_AssetQuest",
+ "bron": "Halloween Kit",
+ "url": "https://www.assetquest.dev",
+ "licenseLabel": "CC0 1.0",
+ "schaal": 0.012,
+ "drempel": 60,
+ "banden": {
+  "62,62,68": "slate",
+  "183,121,70": "camel",
+  "249,232,205": "ivory",
+  "208,216,124": "hunter",
+  "113,113,114": "taupe",
+  "151,165,70": "moss",
+  "225,147,51": "terracotta",
+  "239,186,127": "tan",
+  "188,43,19": "sienna",
+  "252,247,242": "ivory",
+  "16,16,20": "basalt",
+  "249,209,138": "amber",
+  "63,79,63": "hunter",
+  "113,81,175": "slate",
+  "224,170,52": "amber",
+  "56,30,18": "umber",
+  "188,188,188": "nickel",
+  "164,144,211": "slate",
+  "214,177,146": "tan",
+  "85,107,85": "hunter",
+  "239,179,171": "sienna",
+  "80,57,117": "slate",
+  "63,52,79": "slate",
+  "104,67,33": "umber",
+  "101,114,46": "hunter",
+  "147,33,10": "sienna",
+  "224,150,3": "amber",
+  "165,59,22": "umber",
+  "95,95,120": "slate",
+  "53,53,81": "slate",
+  "224,255,255": "amber"
+ },
+ "modellen": [
+  {
+   "bron": "Wolf_Skull",
+   "naam": "skull-wolf",
+   "kind": "env-remains-bones-skull",
+   "materialen": [
+    "bone"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Big_Cat_Skull",
+   "naam": "skull-cat",
+   "kind": "env-remains-bones-skull",
+   "materialen": [
+    "bone"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Bird_Skull",
+   "naam": "skull-bird",
+   "kind": "env-remains-bones-skull",
+   "materialen": [
+    "bone"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Assembled_Wall_1",
+   "naam": "wall",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Broom",
+   "naam": "broom",
+   "kind": "obj-tool-twohand",
+   "materialen": [
+    "wood-beam",
+    "vegetation",
+    "textile"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "239,186,127": "taupe",
+    "183,121,70": "chestnut",
+    "63,79,63": "hunter"
+   }
+  },
+  {
+   "bron": "Candle_1",
+   "naam": "candle-a",
+   "kind": "obj-lighting-candle",
+   "materialen": [
+    "wax",
+    "wick",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "249,209,138": "ivory",
+    "56,30,18": "basalt"
+   }
+  },
+  {
+   "bron": "Candle_2",
+   "naam": "candle-b",
+   "kind": "obj-lighting-candle",
+   "materialen": [
+    "wax",
+    "wick",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "249,209,138": "ivory",
+    "56,30,18": "basalt"
+   }
+  },
+  {
+   "bron": "Candle_3",
+   "naam": "candle-c",
+   "kind": "obj-lighting-candle",
+   "materialen": [
+    "wax",
+    "wick",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "249,209,138": "ivory",
+    "56,30,18": "basalt"
+   }
+  },
+  {
+   "bron": "Candy_1",
+   "naam": "candy-a",
+   "kind": "obj-food-sweet",
+   "materialen": [
+    "food"
+   ],
+   "themas": [
+    "halloween"
+   ]
+  },
+  {
+   "bron": "Candy_2",
+   "naam": "candy-b",
+   "kind": "obj-food-sweet",
+   "materialen": [
+    "food",
+    "paper"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "249,209,138": "ivory"
+   }
+  },
+  {
+   "bron": "Candy_3",
+   "naam": "candy-c",
+   "kind": "obj-food-sweet",
+   "materialen": [
+    "food"
+   ],
+   "themas": [
+    "halloween"
+   ]
+  },
+  {
+   "bron": "Cauldron_1",
+   "naam": "cauldron-a",
+   "kind": "obj-kitchenware-cookware-cookpot-cauldron",
+   "materialen": [
+    "metal-iron-cast"
+   ],
+   "themas": [
+    "halloween"
+   ]
+  },
+  {
+   "bron": "Cauldron_2",
+   "naam": "cauldron-b",
+   "kind": "obj-kitchenware-cookware-cookpot-cauldron",
+   "materialen": [
+    "metal-iron-cast",
+    "liquid"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "151,165,70": "hunter"
+   }
+  },
+  {
+   "bron": "Cauldron_3",
+   "naam": "cauldron-c",
+   "kind": "obj-kitchenware-cookware-cookpot-cauldron",
+   "materialen": [
+    "metal-iron-cast",
+    "liquid"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "151,165,70": "hunter",
+    "208,216,124": "hunter"
+   }
+  },
+  {
+   "bron": "Coffin_1",
+   "naam": "coffin-a",
+   "kind": "obj-container-coffin",
+   "materialen": [
+    "wood-beam",
+    "textile"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "56,30,18": "chestnut"
+   }
+  },
+  {
+   "bron": "Coffin_2",
+   "naam": "coffin-b",
+   "kind": "obj-container-coffin",
+   "materialen": [
+    "wood-worked"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Fence_1",
+   "naam": "fence-a",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-beam"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "113,113,114": "chestnut"
+   }
+  },
+  {
+   "bron": "Fence_2",
+   "naam": "fence-b",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-beam"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "113,113,114": "chestnut"
+   }
+  },
+  {
+   "bron": "Fence_3",
+   "naam": "fence-c",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-beam"
+   ],
+   "vlaggen": [
+    "broken"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "113,113,114": "chestnut"
+   }
+  },
+  {
+   "bron": "Ghost_1",
+   "naam": "ghost-a",
+   "kind": "char",
+   "materialen": [
+    "textile"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "188,188,188": "ivory"
+   }
+  },
+  {
+   "bron": "Ghost_3",
+   "naam": "ghost-b",
+   "kind": "char",
+   "materialen": [
+    "textile"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "188,188,188": "ivory"
+   }
+  },
+  {
+   "bron": "Gravestone_1",
+   "naam": "gravestone-a",
+   "kind": "str-marker-grave",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Gravestone_2",
+   "naam": "gravestone-b",
+   "kind": "str-marker-grave",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Gravestone_3",
+   "naam": "gravestone-c",
+   "kind": "str-marker-grave",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Lantern_1",
+   "naam": "lantern-a",
+   "kind": "obj-lighting-lantern-handheld",
+   "materialen": [
+    "metal-iron-wrought",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "basalt"
+   }
+  },
+  {
+   "bron": "Lantern_2",
+   "naam": "lantern-b",
+   "kind": "obj-lighting-lantern-handheld",
+   "materialen": [
+    "metal-iron-wrought",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "basalt"
+   }
+  },
+  {
+   "bron": "Lantern_3",
+   "naam": "lantern-c",
+   "kind": "obj-lighting-lantern-handheld",
+   "materialen": [
+    "metal-iron-wrought",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "basalt"
+   }
+  },
+  {
+   "bron": "Lantern_Pole",
+   "naam": "lamp-post",
+   "kind": "obj-lighting-lantern-onpost",
+   "materialen": [
+    "metal-iron-wrought"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "basalt"
+   }
+  },
+  {
+   "bron": "Lantern_Staff",
+   "naam": "lantern-staff",
+   "kind": "obj-lighting-lantern-onpost",
+   "materialen": [
+    "metal-iron-wrought",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "basalt"
+   }
+  },
+  {
+   "bron": "Magical_Hat",
+   "naam": "hat-wizard",
+   "kind": "obj-equipment-apparel",
+   "materialen": [
+    "textile"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "225,147,51": "sienna"
+   }
+  },
+  {
+   "bron": "Pirate_Hat",
+   "naam": "hat-pirate",
+   "kind": "obj-equipment-apparel",
+   "materialen": [
+    "leather"
+   ],
+   "themas": [
+    "pirate",
+    "halloween"
+   ],
+   "banden": {
+    "104,67,33": "camel",
+    "83,52,35": "umber",
+    "56,30,18": "umber"
+   }
+  },
+  {
+   "bron": "Top_Hat",
+   "naam": "hat-top",
+   "kind": "obj-equipment-apparel",
+   "materialen": [
+    "leather",
+    "textile"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "62,62,68": "umber",
+    "16,16,20": "umber"
+   }
+  },
+  {
+   "bron": "Pillar_1",
+   "naam": "pillar-a",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Pillar_2",
+   "naam": "pillar-b",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Pillar_3",
+   "naam": "pillar-c",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Pumpkin_1",
+   "naam": "pumpkin-a",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_2",
+   "naam": "pumpkin-b",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_3",
+   "naam": "pumpkin-c",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_Basket",
+   "naam": "pumpkin-basket",
+   "kind": "obj-container",
+   "materialen": [
+    "food",
+    "vegetation"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter",
+    "16,16,20": "hunter"
+   }
+  },
+  {
+   "bron": "Assembled_Pumpkin_Basket",
+   "naam": "pumpkin-basket-full",
+   "kind": "set",
+   "materialen": [
+    "food",
+    "vegetation",
+    "paper"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_Lantern_1",
+   "naam": "jackolantern-a",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_Lantern_2",
+   "naam": "jackolantern-b",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Pumpkin_Lantern_3",
+   "naam": "jackolantern-c",
+   "kind": "obj-food-vegetable-pumpkin",
+   "materialen": [
+    "food",
+    "vegetation",
+    "emissive"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "183,121,70": "hunter"
+   }
+  },
+  {
+   "bron": "Scythe",
+   "naam": "scythe",
+   "kind": "obj-tool-twohand",
+   "materialen": [
+    "metal-iron-steel",
+    "wood-beam"
+   ],
+   "themas": [
+    "halloween"
+   ],
+   "banden": {
+    "113,113,114": "nickel",
+    "183,121,70": "chestnut"
+   }
+  },
+  {
+   "bron": "Sword",
+   "naam": "sword",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "materialen": [
+    "metal-iron-steel",
+    "metal-gold",
+    "leather"
+   ],
+   "themas": [
+    "halloween"
+   ]
+  },
+  {
+   "bron": "Tree_1",
+   "naam": "tree-dead-a",
+   "kind": "env-remains-deadwood-tree",
+   "materialen": [
+    "wood-bark"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "183,121,70": "umber"
+   }
+  },
+  {
+   "bron": "Tree_2",
+   "naam": "tree-dead-b",
+   "kind": "env-remains-deadwood-tree",
+   "materialen": [
+    "wood-bark"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  },
+  {
+   "bron": "Tree_3",
+   "naam": "tree-dead-c",
+   "kind": "env-remains-deadwood-tree",
+   "materialen": [
+    "wood-bark"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ],
+   "banden": {
+    "83,52,35": "umber"
+   }
+  },
+  {
+   "bron": "Urn",
+   "naam": "urn",
+   "kind": "obj-container-pot",
+   "materialen": [
+    "stone-masonry",
+    "metal-gold"
+   ],
+   "themas": [
+    "halloween",
+    "grave"
+   ]
+  }
+ ],
+ "varianten": [
+  {
+   "leden": [
+    "candle-a",
+    "candle-b",
+    "candle-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "cauldron-a",
+    "cauldron-b",
+    "cauldron-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "lantern-a",
+    "lantern-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "pillar-a",
+    "pillar-b",
+    "pillar-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "gravestone-a",
+    "gravestone-b",
+    "gravestone-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "jackolantern-a",
+    "jackolantern-b",
+    "jackolantern-c"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "ghost-a",
+    "ghost-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "tree-dead-a",
+    "tree-dead-b",
+    "tree-dead-c"
+   ],
+   "type": "detail-variant"
+  }
+ ]
+}

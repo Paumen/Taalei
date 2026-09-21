@@ -110,7 +110,7 @@ export const BRONKITS = [
   { map: 'RPG-Mini-Asset-Package', naam: 'RPG Mini Asset Package', kit: 'rpg-mini', formaat: 'fbx' },
   { map: 'Free_Low_Poly_Vehicles_Pack_by_Rgsdev', naam: 'Low Poly Vehicles Pack', kit: null, formaat: 'fbx', alleMappen: true },
 
-  { map: 'Free_Mushroom_Pack_AssetQuest', naam: 'Free Mushroom Pack', kit: null, formaat: 'fbx' },
-  { map: 'Halloween_Kit_AssetQuest', naam: 'Halloween Kit', kit: null, formaat: 'fbx' },
-  { map: 'Free_Pond_Kit_AssetQuest', naam: 'Free Pond Kit', kit: null, formaat: 'fbx' },
+  { map: 'Free_Mushroom_Pack_AssetQuest', naam: 'Free Mushroom Pack', kit: 'aq-mushroom', source: 'aq', formaat: 'fbx' },
+  { map: 'Halloween_Kit_AssetQuest', naam: 'Halloween Kit', kit: 'aq-hallow', source: 'aq', formaat: 'fbx' },
+  { map: 'Free_Pond_Kit_AssetQuest', naam: 'Free Pond Kit', kit: 'aq-pond', source: 'aq', formaat: 'fbx' },
 ];
