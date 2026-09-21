@@ -24883,8 +24883,8 @@
   ]
  },
  {
-  "slug": "str-building-workshop-1a",
-  "name": "Structure › Building › Workshop › 1 story + attic",
+  "slug": "str-building-workshop-2a",
+  "name": "Structure › Building › Workshop › 2 stories + attic",
   "category": "str-gen",
   "limits": {
    "high.max": 8,
@@ -24915,6 +24915,32 @@
      "#88848a",
      "#8b5936",
      "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "lumbermill",
+    "wdh": [
+     2.15,
+     1.9,
+     2.7
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "textile",
+     "wood-beam",
+     "wood-log",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd",
+     "#dbae80"
     ]
    },
    {
@@ -24965,30 +24991,6 @@
      "#8b5936",
      "#8b7561",
      "#ffffff"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "model": "smithy",
-    "wdh": [
-     2,
-     2.4,
-     1.55
-    ],
-    "tags": [
-     "ceramic",
-     "emissive",
-     "stone-masonry",
-     "textile",
-     "wizp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#f2a93c"
     ]
    }
   ]
@@ -26964,6 +26966,175 @@
   ]
  },
  {
+  "slug": "str-building-dwelling-1",
+  "name": "Structure › Building › Dwelling › 1 story",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "lpa-desert",
+    "model": "medium-building-a",
+    "wdh": [
+     2.4,
+     2.65,
+     0.85
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "medium-building-b",
+    "wdh": [
+     1.5,
+     2.65,
+     0.85
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "medium-building-frame-a",
+    "wdh": [
+     2.4,
+     2.6,
+     0.85
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "medium-building-frame-b",
+    "wdh": [
+     1.5,
+     2.6,
+     0.85
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "small-building-a",
+    "wdh": [
+     1.45,
+     1.4,
+     0.85
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "small-building-frame-a",
+    "wdh": [
+     1.45,
+     1.4,
+     0.85
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "fantasy-house",
+    "wdh": [
+     2.3,
+     2.5,
+     1.25
+    ],
+    "tags": [
+     "hero",
+     "qua",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-3-a",
+    "wdh": [
+     1.5,
+     1.5,
+     1.35
+    ],
+    "tags": [
+     "ceramic",
+     "qua",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-building-fort-barracks-3",
   "name": "Structure › Building › Fort › Barracks › 3 stories",
   "category": "str-gen",
@@ -28824,217 +28995,6 @@
   ]
  },
  {
-  "slug": "str-building-dwelling-1",
-  "name": "Structure › Building › Dwelling › 1 story",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "house-small",
-    "wdh": [
-     2.55,
-     2.55,
-     2.8
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "metal-gold",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "medium-building-a",
-    "wdh": [
-     2.4,
-     2.65,
-     0.85
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "medium-building-b",
-    "wdh": [
-     1.5,
-     2.65,
-     0.85
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "medium-building-frame-a",
-    "wdh": [
-     2.4,
-     2.6,
-     0.85
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "medium-building-frame-b",
-    "wdh": [
-     1.5,
-     2.6,
-     0.85
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "small-building-a",
-    "wdh": [
-     1.45,
-     1.4,
-     0.85
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "small-building-frame-a",
-    "wdh": [
-     1.45,
-     1.4,
-     0.85
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "fantasy-house",
-    "wdh": [
-     2.3,
-     2.5,
-     1.25
-    ],
-    "tags": [
-     "hero",
-     "qua",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-1-c",
-    "wdh": [
-     1.95,
-     2.65,
-     1.7
-    ],
-    "tags": [
-     "qua",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-3-a",
-    "wdh": [
-     1.5,
-     1.5,
-     1.35
-    ],
-    "tags": [
-     "ceramic",
-     "qua",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-stands-stall",
   "name": "Structure › Stands › Stall",
   "category": "str-gen",
@@ -29739,341 +29699,6 @@
   ]
  },
  {
-  "slug": "str-building-dwelling-2",
-  "name": "Structure › Building › Dwelling › 2 stories",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "house-c",
-    "wdh": [
-     6.4,
-     2.55,
-     2.25
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "paper",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "house-f",
-    "wdh": [
-     7,
-     4.95,
-     3.05
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-a",
-    "wdh": [
-     2.55,
-     3.7,
-     2.1
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-b",
-    "wdh": [
-     2.55,
-     3.65,
-     1.75
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-c",
-    "wdh": [
-     2.5,
-     2.65,
-     2.1
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-d",
-    "wdh": [
-     2.5,
-     2.65,
-     1.7
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-frame-a",
-    "wdh": [
-     2.55,
-     3.7,
-     2.1
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-frame-b",
-    "wdh": [
-     2.55,
-     3.65,
-     1.75
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-frame-c",
-    "wdh": [
-     2.5,
-     2.65,
-     2.1
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "large-building-frame-d",
-    "wdh": [
-     2.5,
-     2.65,
-     1.7
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-1-2-a",
-    "wdh": [
-     2.05,
-     2.65,
-     1.75
-    ],
-    "tags": [
-     "qua",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "house-2-2-a",
-    "wdh": [
-     2,
-     1.8,
-     2.1
-    ],
-    "tags": [
-     "ceramic",
-     "qua",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "house-b",
-    "wdh": [
-     1.7,
-     1.1,
-     1.7
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-fish",
-    "model": "stilt-cabin",
-    "wdh": [
-     1.15,
-     1.5,
-     1.6
-    ],
-    "tags": [
-     "emissive",
-     "sailing",
-     "vegetation",
-     "wizp",
-     "wood-beam",
-     "wood-log",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "wizp-village",
-    "model": "house-b",
-    "wdh": [
-     2.05,
-     1.3,
-     2
-    ],
-    "tags": [
-     "asia",
-     "ceramic",
-     "stone-masonry",
-     "wizp",
-     "wood-beam",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-barrier-post",
   "name": "Structure › Barrier › Post",
   "category": "str-gen",
@@ -30595,28 +30220,6 @@
     ]
    },
    {
-    "slug": "quat-town",
-    "model": "house-2-1-c",
-    "wdh": [
-     2,
-     2.65,
-     2.75
-    ],
-    "tags": [
-     "ceramic",
-     "qua",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
     "slug": "wizp-asia",
     "model": "house-a",
     "wdh": [
@@ -30769,6 +30372,383 @@
      1.55,
      1.3,
      1.5
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-dwelling-2",
+  "name": "Structure › Building › Dwelling › 2 stories",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "house-c",
+    "wdh": [
+     6.4,
+     2.55,
+     2.25
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "paper",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-f",
+    "wdh": [
+     7,
+     4.95,
+     3.05
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "house-small",
+    "wdh": [
+     2.55,
+     2.55,
+     2.8
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "metal-gold",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-a",
+    "wdh": [
+     2.55,
+     3.7,
+     2.1
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-b",
+    "wdh": [
+     2.55,
+     3.65,
+     1.75
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-c",
+    "wdh": [
+     2.5,
+     2.65,
+     2.1
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-d",
+    "wdh": [
+     2.5,
+     2.65,
+     1.7
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-frame-a",
+    "wdh": [
+     2.55,
+     3.7,
+     2.1
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-frame-b",
+    "wdh": [
+     2.55,
+     3.65,
+     1.75
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-frame-c",
+    "wdh": [
+     2.5,
+     2.65,
+     2.1
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "large-building-frame-d",
+    "wdh": [
+     2.5,
+     2.65,
+     1.7
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-1-c",
+    "wdh": [
+     1.95,
+     2.65,
+     1.7
+    ],
+    "tags": [
+     "qua",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-1-2-a",
+    "wdh": [
+     2.05,
+     2.65,
+     1.75
+    ],
+    "tags": [
+     "qua",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "house-2-2-a",
+    "wdh": [
+     2,
+     1.8,
+     2.1
+    ],
+    "tags": [
+     "ceramic",
+     "qua",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "house-b",
+    "wdh": [
+     1.7,
+     1.1,
+     1.7
+    ],
+    "tags": [
+     "asia",
+     "ceramic",
+     "stone-masonry",
+     "wizp",
+     "wood-beam",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-fish",
+    "model": "stilt-cabin",
+    "wdh": [
+     1.15,
+     1.5,
+     1.6
+    ],
+    "tags": [
+     "emissive",
+     "sailing",
+     "vegetation",
+     "wizp",
+     "wood-beam",
+     "wood-log",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "wizp-village",
+    "model": "house-b",
+    "wdh": [
+     2.05,
+     1.3,
+     2
     ],
     "tags": [
      "asia",
