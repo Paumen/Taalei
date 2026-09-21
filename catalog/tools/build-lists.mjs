@@ -73,11 +73,11 @@ function vormsleutel(primitieven, { laag, hoog }) {
 
 function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   if (!gevraagd) return null;
-  if (gevraagd.includes('/') && existsSync(gevraagd)) return gevraagd;
+  if (gevraagd.includes('/') && existsSync(gevraagd)) return { pad: gevraagd, zeker: true };
   const gezocht = basename(gevraagd).toLowerCase();
   const raak = afbeeldingen.find((p) => basename(p).toLowerCase() === gezocht);
-  if (raak) return raak;
-  return afbeeldingen.length === 1 ? afbeeldingen[0] : null;
+  if (raak) return { pad: raak, zeker: true };
+  return afbeeldingen.length === 1 ? { pad: afbeeldingen[0], zeker: false } : null;
 }
 
 const ALGEMENE_WOORDEN = new Set([
@@ -95,6 +95,14 @@ const woorden = (naam) =>
 
 const overlap = (a, b) => [...a].filter((woord) => b.has(woord)).length;
 
+const DATAKAARTEN = new Set([
+  'alpha', 'ambient', 'emission', 'emissive', 'gloss', 'glossiness', 'height',
+  'mask', 'metallic', 'metalness', 'normal', 'occlusion', 'opacity', 'orm',
+  'roughness', 'specular',
+]);
+
+const isDatakaart = (pad) => [...woorden(pad)].some((woord) => DATAKAARTEN.has(woord));
+
 function gelijkendeAfbeelding(gevraagd, materiaalNaam, afbeeldingen) {
   const uitTextuur = woorden(gevraagd);
   const uitMateriaal = woorden(materiaalNaam);
@@ -103,6 +111,7 @@ function gelijkendeAfbeelding(gevraagd, materiaalNaam, afbeeldingen) {
   let beste = null;
   let besteScore = 0;
   for (const pad of afbeeldingen) {
+    if (isDatakaart(pad) && !isDatakaart(gevraagd)) continue;
     const kandidaat = woorden(pad);
     const score = overlap(uitTextuur, kandidaat) * 2 + overlap(uitMateriaal, kandidaat);
     if (score === 0) continue;
@@ -415,14 +424,15 @@ for (const bronkit of BRONKITS) {
       for (const primitief of model.primitieven) {
         const { textuur, naam } = primitief.materiaal;
         const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
-        texturen.push(gevonden ? neemMee(gevonden) : null);
-        if (gevonden) {
-          kleuren.push(null);
-          continue;
-        }
         const gekozen = handkleuren[naam]
           ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
           ?? handkleuren[basename(String(textuur ?? ''))];
+        if (gevonden && (gevonden.zeker || !gekozen)) {
+          texturen.push(neemMee(gevonden.pad));
+          kleuren.push(null);
+          continue;
+        }
+        texturen.push(null);
         if (gekozen) {
           kleuren.push(uitHex(gekozen));
           continue;
