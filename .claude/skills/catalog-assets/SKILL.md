@@ -74,7 +74,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 `lint/measures.json` caps bands at `nmat × 2` (G11), at 5 for most models and 6
 for `size:l` (G13, G15), and size is measured on the longest extent against
 `lint/variables.json` (`s` ≤ 0.5, `m` ≤ 1.5, `l` above). `tag:plural` and
-`kind:assy` are exempt. A model over its budget is a model to drop, not to
+`kind:set` are exempt. A model over its budget is a model to drop, not to
 bend the lint around.
 
 ## 4. Tags
@@ -83,9 +83,11 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
 
 - **kind** — mandatory, exactly one, the deepest leaf that fits. Resolve
   the noun against the Appendix glossary; add a noun to a leaf when it clearly
-  belongs there. `assy` is a kind, not a tag: several distinct things in one
+  belongs there. `set` is a kind, not a tag: several distinct things in one
   model.
 - **material** — what it is made of; the subtype, never the parent on top.
+- **attribute** — at most one value per attribute. `storeys-0-5` … `storeys-5`
+  on a `kind:str-building` model whose storeys read; none when they do not.
 - **use** — zero or more of the eight `use:` tags.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
   `robin-hood`, `asia`, `grave`, `sailing`. A new theme is worth opening

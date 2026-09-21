@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -6415,10 +6415,10 @@
    ]
   },
   {
-   "id": "obj-icon",
-   "name": "Icon",
+   "id": "obj-symbol",
+   "name": "Symbol",
    "type": "kind",
-   "description": "icon, heart (icon), star (icon), lightning bolt",
+   "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
    "models": [
     "ken-platformer/heart",
     "quat-rpg/heart",
@@ -6602,10 +6602,10 @@
    ]
   },
   {
-   "id": "obj-container-bottle-potion",
-   "name": "Potion",
+   "id": "obj-container-bottle-vial",
+   "name": "Vial",
    "type": "kind",
-   "description": "potion",
+   "description": "Small stoppered bottle for a dose: potion, phial, sample.",
    "models": [
     "quat-pirate/bottle-1",
     "props/bottle-a",
@@ -6702,7 +6702,7 @@
    ]
   },
   {
-   "id": "obj-container-chest-coffin",
+   "id": "obj-container-coffin",
    "name": "Coffin",
    "type": "kind",
    "description": "Coffin, and the lid of one.",
@@ -6991,7 +6991,7 @@
    ]
   },
   {
-   "id": "obj-food-grain-bread",
+   "id": "obj-food-baked-bread",
    "name": "Bread",
    "type": "kind",
    "description": "bread, loaf, roll, baguette",
@@ -7016,10 +7016,10 @@
    ]
   },
   {
-   "id": "obj-food-pastry",
+   "id": "obj-food-baked-pastry",
    "name": "Pastry",
    "type": "kind",
-   "description": "Baked goods beyond plain bread: cookies, donuts and the like.",
+   "description": "Baked goods beyond plain bread and pie: cookies, donuts and the like.",
    "models": [
     "isa-food/cinnamon-roll",
     "isa-food/cookie",
@@ -7061,7 +7061,7 @@
    ]
   },
   {
-   "id": "obj-food-pastry-pie",
+   "id": "obj-food-baked-pie",
    "name": "Pie",
    "type": "kind",
    "description": "cake, pie",
@@ -7089,7 +7089,7 @@
    "id": "obj-food-meat",
    "name": "Meat",
    "type": "kind",
-   "description": "meat, ham, sausage, steak, burger, roast",
+   "description": "Meat off the animal: ham, sausage, steak, roast, drumstick.",
    "models": [
     "kay-dun-2/plate-food-a",
     "kay-dun-2/plate-food-b",
@@ -7105,15 +7105,7 @@
     "ken-food/ham",
     "food-pack/meat-cut",
     "food-pack/ham",
-    "food-pack/sausage"
-   ]
-  },
-  {
-   "id": "obj-food-meat-chickenleg",
-   "name": "Chicken leg",
-   "type": "kind",
-   "description": "drumstick, leg, chicken leg",
-   "models": [
+    "food-pack/sausage",
     "quat-food/chicken-leg",
     "quat-pirate/chicken-leg",
     "kay-food/food-ingredient-ham"
@@ -7637,10 +7629,10 @@
    ]
   },
   {
-   "id": "obj-kitchenware-cookware-pot",
-   "name": "Pot",
+   "id": "obj-kitchenware-cookware-cookpot",
+   "name": "Cookpot",
    "type": "kind",
-   "description": "cooking pot, crockpot",
+   "description": "Deep pot cooked in over heat: cooking pot, crockpot, stockpot.",
    "models": [
     "isa-kitchen/lid",
     "isa-kitchen/pot",
@@ -7669,7 +7661,7 @@
    ]
   },
   {
-   "id": "obj-kitchenware-cookware-pot-kettle",
+   "id": "obj-kitchenware-cookware-kettle",
    "name": "Kettle",
    "type": "kind",
    "description": "Closed pot with a spout, for boiling or pouring.",
@@ -7695,10 +7687,10 @@
    ]
   },
   {
-   "id": "obj-kitchenware-cookware-cauldron",
+   "id": "obj-kitchenware-cookware-cookpot-cauldron",
    "name": "Cauldron",
    "type": "kind",
-   "description": "Cauldron: a wide-bellied cooking vessel on legs or a hook.",
+   "description": "Wide-bellied cookpot on legs or a hook.",
    "models": [
     "quat-medieval/cauldron",
     "quat-medieval/cauldron-steel",
@@ -7789,7 +7781,7 @@
    ]
   },
   {
-   "id": "obj-kitchenware-tableware-plate-serving",
+   "id": "obj-kitchenware-tableware-serving",
    "name": "Serving",
    "type": "kind",
    "description": "Plate or stand that carries food to the table rather than holding one portion.",
@@ -7948,10 +7940,10 @@
    ]
   },
   {
-   "id": "obj-lighting-lantern-single",
-   "name": "Single",
+   "id": "obj-lighting-lantern-handheld",
+   "name": "Handheld",
    "type": "kind",
-   "description": "hand lantern, hanging lantern, standing lantern",
+   "description": "Lantern carried, hung or set down by hand.",
    "models": [
     "kay-hallow/post-lantern-lantern",
     "kay-hallow/lantern-hanging",
@@ -8311,7 +8303,7 @@
    ]
   },
   {
-   "id": "obj-container-pallet",
+   "id": "obj-transport-pallet",
    "name": "Pallet",
    "type": "kind",
    "description": "pallet",
@@ -8341,10 +8333,10 @@
    ]
   },
   {
-   "id": "obj-tool-anvil",
-   "name": "Anvil",
+   "id": "obj-tool-station",
+   "name": "Station",
    "type": "kind",
-   "description": "anvil",
+   "description": "Tool too heavy to carry, worked at where it stands.",
    "models": [
     "small-props/anvil-b",
     "medieval-forge/anvil",
@@ -8427,10 +8419,10 @@
    ]
   },
   {
-   "id": "obj-tool-long",
-   "name": "Long",
+   "id": "obj-tool-twohand",
+   "name": "Two-hand",
    "type": "kind",
-   "description": "rake, hoe, pitchfork, broom, scythe (tool)",
+   "description": "Tool swung or pushed with both hands on a long shaft.",
    "models": [
     "asia-rg/rake",
     "fs-town/broom",
@@ -8444,7 +8436,7 @@
    ]
   },
   {
-   "id": "obj-tool-long-pickaxe",
+   "id": "obj-tool-twohand-pickaxe",
    "name": "Pickaxe",
    "type": "kind",
    "description": "Pickaxe: a pointed head across a long haft, for breaking ground or rock.",
@@ -8460,7 +8452,7 @@
    ]
   },
   {
-   "id": "obj-tool-long-shovel",
+   "id": "obj-tool-twohand-shovel",
    "name": "Shovel",
    "type": "kind",
    "description": "Shovel or spade: a blade on a long haft, for digging and moving loose matter.",
@@ -8757,10 +8749,10 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-melee-hammer",
-   "name": "Hammer",
+   "id": "obj-equipment-weapon-melee-warhammer",
+   "name": "Warhammer",
    "type": "kind",
-   "description": "hammer (war), mace, flail",
+   "description": "Melee weapon that strikes with a head, not an edge: warhammer, mace, flail.",
    "models": [
     "kay-dun-1/hammer-common",
     "kay-dun-1/hammer-rare",
@@ -8813,10 +8805,10 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-melee-sword-blade",
-   "name": "Blade",
+   "id": "obj-equipment-weapon-melee-sword-broad",
+   "name": "Broad",
    "type": "kind",
-   "description": "blade, cutlass, machete",
+   "description": "Sword with a broad, heavy blade: broadsword, cutlass, machete.",
    "models": [
     "quat-pirate/swords",
     "quat-pirate/sword-2",
@@ -8850,13 +8842,7 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-ranged-accessory",
-   "name": "Accessory",
-   "type": "kind",
-   "description": "Ranged accessory with no leaf that fits."
-  },
-  {
-   "id": "obj-equipment-weapon-ranged-accessory-quiver",
+   "id": "obj-equipment-apparel-quiver",
    "name": "Quiver",
    "type": "kind",
    "description": "Quiver: the case that carries arrows or bolts.",
@@ -8870,7 +8856,7 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-ranged-accessory-arrow",
+   "id": "obj-equipment-weapon-ranged-arrow",
    "name": "Arrow",
    "type": "kind",
    "description": "Shaft shot from a bow or crossbow, and the dart thrown by hand.",
@@ -8974,13 +8960,13 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-target",
+   "id": "obj-equipment-target",
    "name": "Target",
    "type": "kind",
    "description": "Target with no leaf that fits."
   },
   {
-   "id": "obj-equipment-weapon-target-dummy",
+   "id": "obj-equipment-target-dummy",
    "name": "Dummy",
    "type": "kind",
    "description": "Body-shaped or post-shaped stand to strike in practice.",
@@ -8994,7 +8980,7 @@
    ]
   },
   {
-   "id": "obj-equipment-weapon-target-bullseye",
+   "id": "obj-equipment-target-bullseye",
    "name": "Bullseye",
    "type": "kind",
    "description": "Ringed face to shoot or throw at.",
@@ -9637,10 +9623,10 @@
    ]
   },
   {
-   "id": "env-remains-bones-single",
-   "name": "Single",
+   "id": "env-remains-bones-limb",
+   "name": "Limb",
    "type": "kind",
-   "description": "bone, bone (single)",
+   "description": "A single bone off a skeleton.",
    "models": [
     "kay-skeleton-1/bone-half",
     "quat-rpg/bone",
@@ -10176,92 +10162,8 @@
    "id": "str-barrier-fence",
    "name": "Fence",
    "type": "kind",
-   "description": "fence, fence segment, railing, palisade, gate (fence)",
-   "models": [
-    "asia-rg/fence-rail-a",
-    "asia-rg/fence-rail-b",
-    "asia-rg/fence-rope-a",
-    "asia-rg/fence-rope-b",
-    "fs-terrain/hilly-prop-fence-boards-a",
-    "fs-terrain/hilly-prop-fence-boards-b",
-    "fs-terrain/hilly-prop-fence-boards-c",
-    "fs-terrain/hilly-prop-fence-boards-d",
-    "fs-terrain/hilly-prop-fence-curve-1x1",
-    "fs-terrain/hilly-prop-fence-curve-2x2",
-    "fs-terrain/hilly-prop-fence-curve-3x3",
-    "fs-terrain/hilly-prop-fence-gate-a",
-    "fs-terrain/hilly-prop-fence-gate-b",
-    "fs-town/wood-railing-stairs",
-    "fs-town/wood-rope-stairs",
-    "kay-hallow/fence",
-    "kay-hallow/fence-broken",
-    "kay-hallow/fence-seperate",
-    "kay-hallow/fence-seperate-broken",
-    "ken-grave/fence",
-    "ken-grave/fence-damaged",
-    "ken-grave/fence-gate",
-    "ken-grave/iron-fence",
-    "ken-grave/iron-fence-border",
-    "ken-grave/iron-fence-border-column",
-    "ken-grave/iron-fence-border-curve",
-    "ken-grave/iron-fence-border-gate",
-    "ken-grave/iron-fence-curve",
-    "ken-grave/iron-fence-damaged",
-    "ken-grave/stone-wall",
-    "ken-grave/stone-wall-column",
-    "ken-grave/stone-wall-curve",
-    "ken-grave/stone-wall-damaged",
-    "ken-platformer/fence-broken",
-    "ken-platformer/fence-corner",
-    "ken-platformer/fence-corner-curved",
-    "ken-platformer/fence-straight",
-    "ken-town/fence",
-    "ken-town/fence-broken",
-    "ken-town/fence-curved",
-    "ken-town/fence-gate",
-    "props/fence-a",
-    "wizp-grave/iron-fence-broken",
-    "wizp-grave/iron-fence-large",
-    "wizp-grave/iron-fence-medium",
-    "wizp-grave/iron-fence-post-a",
-    "wizp-grave/iron-fence-post-b",
-    "wizp-grave/iron-fence-post-c",
-    "wizp-grave/iron-fence-short",
-    "quat-medieval/fence",
-    "wizp-mediev/picket-fence-a",
-    "wizp-mediev/picket-fence-b",
-    "wizp-mediev/picket-fence-c",
-    "wizp-mediev/picket-fence-leaning",
-    "quat-farms/picket-fence",
-    "quat-farms/rail-fence",
-    "isa-playground/fence-corner",
-    "isa-playground/fence-rails",
-    "isa-playground/fence-rails-long",
-    "isa-playground/fence-straight",
-    "isa-playground/fence-straight-long",
-    "isa-playground/fence-straight-long-open",
-    "isa-playground/fence-straight-open",
-    "kay-spook/fence",
-    "kay-spook/fence-corner",
-    "kay-spook/fence-double",
-    "kay-spook/fence-single",
-    "ken-nature/fence-bend",
-    "ken-nature/fence-bend-center",
-    "ken-nature/fence-corner",
-    "ken-nature/fence-gate",
-    "ken-nature/fence-planks",
-    "ken-nature/fence-planks-double",
-    "ken-nature/fence-simple",
-    "ken-nature/fence-simple-center",
-    "ken-nature/fence-simple-diagonal",
-    "ken-nature/fence-simple-diagonal-center",
-    "ken-nature/fence-simple-high",
-    "kay-hexagon/fence-stone",
-    "kay-hexagon/fence-stone-gate",
-    "quat-shoot/fence",
-    "quat-shoot/fence-long",
-    "ken-forest-mini/fence"
-   ]
+   "description": "Fence with no leaf that fits.",
+   "models": []
   },
   {
    "id": "str-barrier-fence-high",
@@ -10401,7 +10303,7 @@
    "id": "str-part-door",
    "name": "Door",
    "type": "kind",
-   "description": "door, gate (building), hatch",
+   "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
    "models": [
     "kay-dun-2/wall-doorway-sides",
     "kay-dun-2/wall-doorway-tsplit",
@@ -10409,8 +10311,8 @@
    ]
   },
   {
-   "id": "str-part-door-frame",
-   "name": "Frame",
+   "id": "str-part-door-doorway",
+   "name": "Doorway",
    "type": "kind",
    "description": "The opening a door hangs in, with the wall piece around it.",
    "models": [
@@ -10483,15 +10385,15 @@
    ]
   },
   {
-   "id": "str-part-door-gate",
+   "id": "str-part-gate",
    "name": "Gate",
    "type": "kind",
-   "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal. A door into a room or a house stays on the parent.",
+   "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
    "models": []
   },
   {
-   "id": "str-part-door-gate-frame",
-   "name": "Frame",
+   "id": "str-part-gate-gateway",
+   "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
    "models": [
@@ -10516,7 +10418,7 @@
    ]
   },
   {
-   "id": "str-part-door-gate-single",
+   "id": "str-part-gate-single",
    "name": "Single",
    "type": "kind",
    "description": "The gate leaf on its own, without the opening it hangs in.",
@@ -10882,8 +10784,8 @@
    ]
   },
   {
-   "id": "str-part-wall-fort",
-   "name": "Fort",
+   "id": "str-part-wall-rampart",
+   "name": "Rampart",
    "type": "kind",
    "description": "A segment or corner of a free-standing wall that encloses ground: rampart, curtain wall, garden wall. A wall that carries a building stays on the parent.",
    "models": [
@@ -11003,10 +10905,10 @@
    ]
   },
   {
-   "id": "str-marker-flag-half",
-   "name": "Half",
+   "id": "str-marker-flag-small",
+   "name": "Small",
    "type": "kind",
-   "description": "Flag on a short pole, about half the height of the kit its full flag.",
+   "description": "Flag on a short pole, about half the height of the full flag in its kit.",
    "models": [
     "kay-hexagon/flag",
     "kay-hexagon/flag-red",
@@ -11034,46 +10936,15 @@
    ]
   },
   {
-   "id": "str-marker-tombstone",
-   "name": "Tombstone",
+   "id": "str-marker-grave",
+   "name": "Grave",
    "type": "kind",
-   "description": "tombstone, gravestone, cross (grave), memorial",
+   "description": "Stone, cross or slab that marks a grave.",
    "models": [
     "ken-grave/pillar-obelisk",
     "kay-hallow/plaque",
     "ken-grave/altar-stone",
-    "ken-grave/altar-wood"
-   ]
-  },
-  {
-   "id": "str-building-tomb",
-   "name": "Tomb",
-   "description": "Building that holds the dead, with no leaf that fits.",
-   "type": "kind",
-   "models": []
-  },
-  {
-   "id": "str-building-tomb-crypt",
-   "name": "Crypt",
-   "type": "kind",
-   "description": "Grave built as a house: a crypt or mausoleum you could enter.",
-   "models": [
-    "ken-grave/crypt-large",
-    "ken-grave/crypt",
-    "ken-grave/crypt-a",
-    "ken-grave/crypt-b",
-    "kay-hallow/crypt",
-    "ken-grave/crypt-small-roof",
-    "ken-grave/crypt-small",
-    "ken-grave/crypt-large-roof"
-   ]
-  },
-  {
-   "id": "str-marker-tombstone-gravemarker",
-   "name": "Grave marker",
-   "type": "kind",
-   "description": "Stone, cross or slab that marks a single grave.",
-   "models": [
+    "ken-grave/altar-wood",
     "kay-hallow/gravemarker-a",
     "kay-hallow/gravemarker-b",
     "ken-grave/cross",
@@ -11107,6 +10978,22 @@
     "wizp-asia/grave-a",
     "wizp-asia/grave-b",
     "wizp-grave/tomb-obelisk"
+   ]
+  },
+  {
+   "id": "str-building-religious-crypt",
+   "name": "Crypt",
+   "type": "kind",
+   "description": "Grave built as a house: a crypt or mausoleum you could enter.",
+   "models": [
+    "ken-grave/crypt-large",
+    "ken-grave/crypt",
+    "ken-grave/crypt-a",
+    "ken-grave/crypt-b",
+    "kay-hallow/crypt",
+    "ken-grave/crypt-small-roof",
+    "ken-grave/crypt-small",
+    "ken-grave/crypt-large-roof"
    ]
   },
   {
@@ -11200,10 +11087,10 @@
    ]
   },
   {
-   "id": "str-temp",
-   "name": "Temporary",
+   "id": "str-canopy",
+   "name": "Canopy",
    "type": "kind",
-   "description": "Stall, market stand, awning, canopy.",
+   "description": "Sheltered pitch under cloth or board: stall, market stand, awning, tent.",
    "color": "#d8a05a",
    "models": [
     "fs-town/canopy-corner",
@@ -11217,7 +11104,7 @@
    ]
   },
   {
-   "id": "str-temp-tent",
+   "id": "str-canopy-tent",
    "name": "Tent",
    "type": "kind",
    "description": "Tent: a closed shelter of cloth on poles.",
@@ -11227,7 +11114,7 @@
    ]
   },
   {
-   "id": "str-temp-tent-camping",
+   "id": "str-canopy-tent-camping",
    "name": "Camping",
    "type": "kind",
    "description": "Tent pitched to sleep in.",
@@ -11244,10 +11131,10 @@
    ]
   },
   {
-   "id": "str-temp-stall",
+   "id": "str-canopy-stall",
    "name": "Stall",
    "type": "kind",
-   "description": "One trading pitch: a counter, an awning or a stall on posts.",
+   "description": "One or more trading pitches: a counter, an awning or a stall on posts.",
    "models": [
     "kay-hexagon/tent",
     "ken-town/stall-red",
@@ -11258,15 +11145,7 @@
     "wizp-mediev/market-stall-red",
     "wizp-mediev/market-stall-green",
     "lpa-desert/awning-b",
-    "lpa-desert/awning-a"
-   ]
-  },
-  {
-   "id": "str-temp-market",
-   "name": "Market",
-   "type": "kind",
-   "description": "A market in one model: several stalls with their goods.",
-   "models": [
+    "lpa-desert/awning-a",
     "quat-town/market-2-b",
     "quat-town/market-2-a",
     "quat-town/market-2-c",
@@ -11278,8 +11157,8 @@
    ]
   },
   {
-   "id": "assy",
-   "name": "Assembly",
+   "id": "set",
+   "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
    "color": "#b5651d",
@@ -12169,7 +12048,14 @@
     "wizp-mediev/rail-curve",
     "wizp-mediev/rail-long",
     "wizp-mediev/rail-short",
-    "wizp-mediev/rail-straight"
+    "wizp-mediev/rail-straight",
+    "fs-town/waterwheel",
+    "wizp-asia/waterwheel",
+    "ken-town/watermill-wide",
+    "ken-town/watermill",
+    "ken-town/windmill",
+    "fs-town/windmill-blades",
+    "ken-town/blade"
    ]
   },
   {
@@ -12351,7 +12237,15 @@
     "rpg-mini/coin-heap-a",
     "rpg-mini/coin-heap-b",
     "rpg-mini/coin-stack-a",
-    "rpg-mini/coin-stack-b"
+    "rpg-mini/coin-stack-b",
+    "quat-town/market-2-b",
+    "quat-town/market-2-a",
+    "quat-town/market-2-c",
+    "quat-town/market-1-b",
+    "quat-town/market-1-a",
+    "quat-town/market-1-c",
+    "kay-hexagon/market",
+    "kay-builder/market"
    ]
   },
   {
@@ -13082,7 +12976,7 @@
    ]
   },
   {
-   "id": "obj-art-fountain",
+   "id": "str-utility-fountain",
    "name": "Fountain",
    "type": "kind",
    "description": "Fountain: a standing water feature with a basin.",
@@ -13097,130 +12991,51 @@
    ]
   },
   {
-   "id": "str-building-tower",
+   "id": "str-building-military-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: tower, watchtower, belltower, lighthouse. A model whose stories cannot be read stays here.",
-   "models": []
-  },
-  {
-   "id": "str-building-tower-5",
-   "name": "5 stories",
-   "type": "kind",
-   "description": "Tower of five stories.",
+   "description": "Tower-form building: tower, watchtower, belltower, lighthouse.",
    "models": [
     "asia-rg/pagoda",
-    "quat-medieval/bell-tower"
-   ]
-  },
-  {
-   "id": "str-building-tower-4",
-   "name": "4 stories",
-   "type": "kind",
-   "description": "Tower of four stories.",
-   "models": [
+    "quat-medieval/bell-tower",
     "kay-builder/watchtower",
     "quat-town/watchtower-2-b",
     "quat-town/watchtower-2-c",
     "kay-hexagon/tower-catapult",
     "taalei-kit/lighthouse",
     "kay-hexagon/tower-a",
-    "kay-hexagon/tower-b"
-   ]
-  },
-  {
-   "id": "str-building-tower-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Tower of three stories.",
-   "models": [
+    "kay-hexagon/tower-b",
     "wizp-mediev/wizard-tower",
     "quat-town/watchtower-2-a",
     "quat-town/watchtower-1-c",
     "ken-pirate/tower-complete-small",
     "kay-hexagon/tower-base",
     "quat-town/watchtower-1-b",
-    "ken-pirate/tower-complete-large"
-   ]
-  },
-  {
-   "id": "str-building-tower-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Tower of two stories.",
-   "models": [
+    "ken-pirate/tower-complete-large",
     "quat-town/watchtower-1-a"
    ]
   },
   {
-   "id": "str-building-mill",
+   "id": "str-building-industrial-mill",
    "name": "Mill",
    "type": "kind",
-   "description": "Mill: driven by water or by wind. A model whose stories cannot be read stays here.",
+   "description": "Mill driven by water or by wind, and the wheel or sails on their own.",
    "models": [
-    "styloo-farm/windmill-small"
-   ]
-  },
-  {
-   "id": "str-building-mill-wheel",
-   "name": "Wheel",
-   "type": "kind",
-   "description": "The water wheel on its own, without the mill it drives.",
-   "models": [
+    "styloo-farm/windmill-small",
     "fs-town/waterwheel",
     "wizp-asia/waterwheel",
     "ken-town/watermill-wide",
-    "ken-town/watermill"
-   ]
-  },
-  {
-   "id": "str-building-mill-blades",
-   "name": "Blades",
-   "type": "kind",
-   "description": "The sails of a windmill on their own, without the mill they drive.",
-   "models": [
+    "ken-town/watermill",
     "ken-town/windmill",
     "fs-town/windmill-blades",
-    "ken-town/blade"
-   ]
-  },
-  {
-   "id": "str-building-mill-1",
-   "name": "1 story",
-   "type": "kind",
-   "description": "Mill of one story.",
-   "models": [
-    "styloo-farm/windmill"
-   ]
-  },
-  {
-   "id": "str-building-mill-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Mill of two stories.",
-   "models": [
-    "kay-builder/watermill"
-   ]
-  },
-  {
-   "id": "str-building-mill-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Mill of three stories.",
-   "models": [
+    "ken-town/blade",
+    "styloo-farm/windmill",
+    "kay-builder/watermill",
     "kay-hexagon/windmill",
     "quat-town/windmill-2",
     "wizp-mediev/windmill",
     "kay-hexagon/watermill",
-    "styloo-farm/windmill-large"
-   ]
-  },
-  {
-   "id": "str-building-mill-4",
-   "name": "4 stories",
-   "type": "kind",
-   "description": "Mill of four stories.",
-   "models": [
+    "styloo-farm/windmill-large",
     "quat-town/windmill-1",
     "kay-builder/mill",
     "quat-medieval/mill",
@@ -13229,7 +13044,7 @@
    ]
   },
   {
-   "id": "str-building-well",
+   "id": "str-utility-well",
    "name": "Well",
    "type": "kind",
    "description": "Well: a shaft sunk for water, with its housing.",
@@ -13243,68 +13058,29 @@
    ]
   },
   {
-   "id": "str-building-workshop",
+   "id": "str-building-industrial-workshop",
    "name": "Workshop",
    "type": "kind",
-   "description": "Building where material is worked: metal at a forge, timber at a saw. A model whose stories cannot be read stays here.",
+   "description": "Building where material is worked: metal at a forge, timber at a saw.",
    "models": [
     "wizp-mediev/sawmill",
     "medieval-forge/furnace",
     "styloo-farm/smelter",
     "styloo-farm/smelter-medium",
-    "styloo-farm/smelter-large"
-   ]
-  },
-  {
-   "id": "str-building-workshop-1",
-   "name": "1 story",
-   "type": "kind",
-   "description": "Workshop of one story.",
-   "models": [
-    "kay-hexagon/blacksmith"
-   ]
-  },
-  {
-   "id": "str-building-workshop-1a",
-   "name": "1 story + attic",
-   "type": "kind",
-   "description": "Workshop of one story and an attic.",
-   "models": [
-    "wizp-mediev/smithy"
-   ]
-  },
-  {
-   "id": "str-building-workshop-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Workshop of two stories.",
-   "models": [
-    "kay-builder/lumbermill"
-   ]
-  },
-  {
-   "id": "str-building-workshop-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Workshop of three stories.",
-   "models": [
+    "styloo-farm/smelter-large",
+    "kay-hexagon/blacksmith",
+    "wizp-mediev/smithy",
+    "kay-builder/lumbermill",
     "quat-medieval/blacksmith",
     "quat-medieval/fantasy-sawmill",
     "kay-hexagon/lumbermill"
    ]
   },
   {
-   "id": "str-building-dwelling",
-   "name": "Dwelling",
+   "id": "str-building-residential-house",
+   "name": "House",
    "type": "kind",
-   "description": "Building lived in: house (whole), hut, cottage, inn. A model whose stories cannot be read stays here.",
-   "models": []
-  },
-  {
-   "id": "str-building-dwelling-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Dwelling of three stories.",
+   "description": "Building lived in: house, hut, cottage, inn.",
    "models": [
     "asia-rg/house-a",
     "asia-rg/house-b",
@@ -13318,15 +13094,7 @@
     "quat-pirate/house-2",
     "quat-town/tower-house-2",
     "asia-rg/house-f",
-    "quat-town/house-2-1-c"
-   ]
-  },
-  {
-   "id": "str-building-dwelling-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Dwelling of two stories.",
-   "models": [
+    "quat-town/house-2-1-c",
     "kay-hexagon/ruin",
     "lpa-desert/large-building-frame-a",
     "lpa-desert/large-building-frame-b",
@@ -13348,15 +13116,7 @@
     "asia-rg/house-c",
     "wizp-fish/stilt-cabin",
     "asia-rg/house-small",
-    "quat-town/house-1-1-c"
-   ]
-  },
-  {
-   "id": "str-building-dwelling-1a",
-   "name": "1 story + attic",
-   "type": "kind",
-   "description": "Dwelling of one story and an attic.",
-   "models": [
+    "quat-town/house-1-1-c",
     "wizp-asia/market-house",
     "wizp-asia/house-c",
     "wizp-village/house-a",
@@ -13373,15 +13133,7 @@
     "quat-town/house-1-1-b",
     "quat-town/house-2-1-b",
     "quat-town/house-1-1-a",
-    "quat-town/house-2-1-a"
-   ]
-  },
-  {
-   "id": "str-building-dwelling-1",
-   "name": "1 story",
-   "type": "kind",
-   "description": "Dwelling of one story.",
-   "models": [
+    "quat-town/house-2-1-a",
     "lpa-desert/small-building-a",
     "lpa-desert/small-building-frame-a",
     "lpa-desert/medium-building-b",
@@ -13395,76 +13147,45 @@
    ]
   },
   {
-   "id": "str-building-combat",
-   "name": "Combat",
+   "id": "str-building-military",
+   "name": "Military",
    "type": "kind",
    "description": "Building for war or defence with no leaf that fits.",
    "models": []
   },
   {
-   "id": "str-building-combat-barracks",
+   "id": "str-building-military-barracks",
    "name": "Barracks",
    "type": "kind",
-   "description": "Building that houses or trains a garrison, and the building where bows are shot or sold. A model whose stories cannot be read stays here.",
-   "models": []
-  },
-  {
-   "id": "str-building-combat-barracks-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Barracks of three stories.",
+   "description": "Building that houses or trains a garrison, and the building where bows are shot or sold.",
    "models": [
     "quat-medieval/fantasy-barracks",
     "asia-rg/dojo",
     "kay-hexagon/archery-range",
     "quat-town/barracks-1-c",
-    "quat-town/archery-1-c"
-   ]
-  },
-  {
-   "id": "str-building-combat-barracks-4",
-   "name": "4 stories",
-   "type": "kind",
-   "description": "Barracks of four stories.",
-   "models": [
+    "quat-town/archery-1-c",
     "quat-town/archery-1-b",
     "quat-town/archery-2-b",
     "quat-town/archery-2-c",
     "quat-town/barracks-2-b",
-    "quat-town/barracks-2-c"
-   ]
-  },
-  {
-   "id": "str-building-combat-barracks-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Barracks of two stories.",
-   "models": [
+    "quat-town/barracks-2-c",
     "kay-hexagon/barracks",
     "kay-builder/barracks",
     "wizp-mediev/weapon-shop",
     "kay-builder/archery-range",
     "quat-town/archery-1-a",
     "quat-town/archery-2-a",
-    "quat-medieval/fantasy-stable"
-   ]
-  },
-  {
-   "id": "str-building-combat-barracks-1a",
-   "name": "1 story + attic",
-   "type": "kind",
-   "description": "Barracks of one story and an attic.",
-   "models": [
+    "quat-medieval/fantasy-stable",
     "quat-town/barracks-1-a",
     "quat-town/barracks-1-b",
     "quat-town/barracks-2-a"
    ]
   },
   {
-   "id": "str-building-combat-castle",
+   "id": "str-building-military-castle",
    "name": "Castle",
    "type": "kind",
-   "description": "Walled seat of a lord. A model whose stories cannot be read stays here.",
+   "description": "Walled seat of a lord.",
    "models": [
     "quat-town/wonder-1-b",
     "quat-town/wonder-1-a",
@@ -13474,24 +13195,8 @@
     "quat-town/wonder-walls-1",
     "quat-town/wonder-walls-2",
     "architecture/castle",
-    "architecture/fortress"
-   ]
-  },
-  {
-   "id": "str-building-combat-castle-4",
-   "name": "4 stories",
-   "type": "kind",
-   "description": "Castle of four stories.",
-   "models": [
-    "kay-builder/castle"
-   ]
-  },
-  {
-   "id": "str-building-combat-castle-5",
-   "name": "5 stories",
-   "type": "kind",
-   "description": "Castle of five stories.",
-   "models": [
+    "architecture/fortress",
+    "kay-builder/castle",
     "kay-hexagon/castle"
    ]
   },
@@ -13521,58 +13226,27 @@
    ]
   },
   {
-   "id": "str-building-farming",
-   "name": "Farming",
+   "id": "str-building-agricultural",
+   "name": "Agricultural",
    "type": "kind",
-   "description": "Farm building: farm, farmhouse, chicken coop, barn. A model whose stories cannot be read stays here.",
-   "models": []
-  },
-  {
-   "id": "str-building-farming-half",
-   "name": "Half story",
-   "type": "kind",
-   "description": "Farm building under a full story: a coop, hutch or shelter you do not walk into.",
+   "description": "Farm building: farm, farmhouse, chicken coop, barn.",
    "models": [
-    "quat-farms/chicken-coop"
-   ]
-  },
-  {
-   "id": "str-building-farming-1",
-   "name": "1 story",
-   "type": "kind",
-   "description": "Farm building of one story.",
-   "models": [
-    "styloo-farm/barn-small"
-   ]
-  },
-  {
-   "id": "str-building-farming-2",
-   "name": "2 stories",
-   "type": "kind",
-   "description": "Farm building of two stories.",
-   "models": [
+    "quat-farms/chicken-coop",
+    "styloo-farm/barn-small",
     "quat-town/farm-2-b",
     "styloo-farm/barn",
     "quat-farms/barn",
     "quat-farms/barn-open",
     "quat-farms/barn-small",
     "quat-town/farm-2-a",
-    "styloo-farm/barn-large"
-   ]
-  },
-  {
-   "id": "str-building-farming-3",
-   "name": "3 stories",
-   "type": "kind",
-   "description": "Farming building of three stories.",
-   "models": [
+    "styloo-farm/barn-large",
     "quat-town/farm-2-c",
     "quat-farms/barn-large",
     "architecture/barn"
    ]
   },
   {
-   "id": "str-building-farming-silo",
+   "id": "str-building-agricultural-silo",
    "name": "Silo",
    "type": "kind",
    "description": "Tall store for grain or feed.",
@@ -13583,6 +13257,313 @@
     "quat-farms/silo-house",
     "wizp-mediev/silo",
     "quat-farms/silo"
+   ]
+  },
+  {
+   "id": "obj-food-baked",
+   "name": "Baked",
+   "type": "kind",
+   "description": "Food baked from dough: bread, pie and pastry.",
+   "models": []
+  },
+  {
+   "id": "str-utility",
+   "name": "Utility",
+   "type": "kind",
+   "description": "Standing works that serve a settlement.",
+   "models": [],
+   "color": "#6e8f86"
+  },
+  {
+   "id": "str-building-residential",
+   "name": "Residential",
+   "type": "kind",
+   "description": "Building lived in, with no leaf that fits.",
+   "models": []
+  },
+  {
+   "id": "str-building-industrial",
+   "name": "Industrial",
+   "type": "kind",
+   "description": "Building where material is worked or milled, with no leaf that fits.",
+   "models": []
+  },
+  {
+   "id": "str-barrier-fence-mid",
+   "name": "Mid",
+   "type": "kind",
+   "description": "Fence between knee and chest height, and the gates in such a run.",
+   "models": [
+    "asia-rg/fence-rail-a",
+    "asia-rg/fence-rail-b",
+    "asia-rg/fence-rope-a",
+    "asia-rg/fence-rope-b",
+    "fs-terrain/hilly-prop-fence-boards-a",
+    "fs-terrain/hilly-prop-fence-boards-b",
+    "fs-terrain/hilly-prop-fence-boards-c",
+    "fs-terrain/hilly-prop-fence-boards-d",
+    "fs-terrain/hilly-prop-fence-curve-1x1",
+    "fs-terrain/hilly-prop-fence-curve-2x2",
+    "fs-terrain/hilly-prop-fence-curve-3x3",
+    "fs-terrain/hilly-prop-fence-gate-a",
+    "fs-terrain/hilly-prop-fence-gate-b",
+    "fs-town/wood-railing-stairs",
+    "fs-town/wood-rope-stairs",
+    "kay-hallow/fence",
+    "kay-hallow/fence-broken",
+    "kay-hallow/fence-seperate",
+    "kay-hallow/fence-seperate-broken",
+    "ken-grave/fence",
+    "ken-grave/fence-damaged",
+    "ken-grave/fence-gate",
+    "ken-grave/iron-fence",
+    "ken-grave/iron-fence-border",
+    "ken-grave/iron-fence-border-column",
+    "ken-grave/iron-fence-border-curve",
+    "ken-grave/iron-fence-border-gate",
+    "ken-grave/iron-fence-curve",
+    "ken-grave/iron-fence-damaged",
+    "ken-grave/stone-wall",
+    "ken-grave/stone-wall-column",
+    "ken-grave/stone-wall-curve",
+    "ken-grave/stone-wall-damaged",
+    "ken-platformer/fence-broken",
+    "ken-platformer/fence-corner",
+    "ken-platformer/fence-corner-curved",
+    "ken-platformer/fence-straight",
+    "ken-town/fence",
+    "ken-town/fence-broken",
+    "ken-town/fence-curved",
+    "ken-town/fence-gate",
+    "props/fence-a",
+    "wizp-grave/iron-fence-broken",
+    "wizp-grave/iron-fence-large",
+    "wizp-grave/iron-fence-medium",
+    "wizp-grave/iron-fence-post-a",
+    "wizp-grave/iron-fence-post-b",
+    "wizp-grave/iron-fence-post-c",
+    "wizp-grave/iron-fence-short",
+    "quat-medieval/fence",
+    "wizp-mediev/picket-fence-a",
+    "wizp-mediev/picket-fence-b",
+    "wizp-mediev/picket-fence-c",
+    "wizp-mediev/picket-fence-leaning",
+    "quat-farms/picket-fence",
+    "quat-farms/rail-fence",
+    "isa-playground/fence-corner",
+    "isa-playground/fence-rails",
+    "isa-playground/fence-rails-long",
+    "isa-playground/fence-straight",
+    "isa-playground/fence-straight-long",
+    "isa-playground/fence-straight-long-open",
+    "isa-playground/fence-straight-open",
+    "kay-spook/fence",
+    "kay-spook/fence-corner",
+    "kay-spook/fence-double",
+    "kay-spook/fence-single",
+    "ken-nature/fence-bend",
+    "ken-nature/fence-bend-center",
+    "ken-nature/fence-corner",
+    "ken-nature/fence-gate",
+    "ken-nature/fence-planks",
+    "ken-nature/fence-planks-double",
+    "ken-nature/fence-simple",
+    "ken-nature/fence-simple-center",
+    "ken-nature/fence-simple-diagonal",
+    "ken-nature/fence-simple-diagonal-center",
+    "ken-nature/fence-simple-high",
+    "kay-hexagon/fence-stone",
+    "kay-hexagon/fence-stone-gate",
+    "quat-shoot/fence",
+    "quat-shoot/fence-long",
+    "ken-forest-mini/fence"
+   ]
+  },
+  {
+   "id": "storeys-0-5",
+   "name": "Half storey",
+   "type": "attribute",
+   "description": "Half a storey read from the model: one low space under the roof, no full-height floor.",
+   "models": [
+    "quat-farms/chicken-coop"
+   ]
+  },
+  {
+   "id": "storeys-1",
+   "name": "1 storey",
+   "type": "attribute",
+   "description": "One storey read from the model.",
+   "models": [
+    "kay-hexagon/blacksmith",
+    "lpa-desert/medium-building-a",
+    "lpa-desert/medium-building-b",
+    "lpa-desert/medium-building-frame-a",
+    "lpa-desert/medium-building-frame-b",
+    "lpa-desert/small-building-a",
+    "lpa-desert/small-building-frame-a",
+    "quat-medieval/fantasy-house",
+    "quat-town/house-1-3-c",
+    "quat-town/house-2-3-a",
+    "quat-town/house-2-3-b",
+    "styloo-farm/barn-small",
+    "styloo-farm/windmill"
+   ]
+  },
+  {
+   "id": "storeys-1-5",
+   "name": "1.5 storeys",
+   "type": "attribute",
+   "description": "One storey with a room in the roof.",
+   "models": [
+    "architecture/cabin",
+    "architecture/cottage",
+    "asia-rg/house-d",
+    "asia-rg/house-e",
+    "kay-builder/house",
+    "kay-hexagon/house-a",
+    "quat-town/barracks-1-a",
+    "quat-town/barracks-1-b",
+    "quat-town/barracks-2-a",
+    "quat-town/house-1-1-a",
+    "quat-town/house-1-1-b",
+    "quat-town/house-2-1-a",
+    "quat-town/house-2-1-b",
+    "wizp-asia/house-a",
+    "wizp-asia/house-c",
+    "wizp-asia/market-house",
+    "wizp-mediev/house-a",
+    "wizp-mediev/house-b",
+    "wizp-mediev/smithy",
+    "wizp-village/house-a",
+    "wizp-village/house-c"
+   ]
+  },
+  {
+   "id": "storeys-2",
+   "name": "2 storeys",
+   "type": "attribute",
+   "description": "Two storeys read from the model.",
+   "models": [
+    "asia-rg/house-c",
+    "asia-rg/house-small",
+    "kay-builder/archery-range",
+    "kay-builder/barracks",
+    "kay-builder/lumbermill",
+    "kay-builder/watermill",
+    "kay-hexagon/barracks",
+    "kay-hexagon/ruin",
+    "lpa-desert/large-building-a",
+    "lpa-desert/large-building-b",
+    "lpa-desert/large-building-c",
+    "lpa-desert/large-building-d",
+    "lpa-desert/large-building-frame-a",
+    "lpa-desert/large-building-frame-b",
+    "lpa-desert/large-building-frame-c",
+    "lpa-desert/large-building-frame-d",
+    "quat-farms/barn",
+    "quat-farms/barn-open",
+    "quat-farms/barn-small",
+    "quat-medieval/fantasy-stable",
+    "quat-town/archery-1-a",
+    "quat-town/archery-2-a",
+    "quat-town/farm-2-a",
+    "quat-town/farm-2-b",
+    "quat-town/house-1-1-c",
+    "quat-town/house-1-2-a",
+    "quat-town/house-1-2-b",
+    "quat-town/house-1-2-c",
+    "quat-town/house-2-2-a",
+    "quat-town/house-2-2-b",
+    "quat-town/house-2-2-c",
+    "quat-town/house-2-3-c",
+    "quat-town/watchtower-1-a",
+    "styloo-farm/barn",
+    "styloo-farm/barn-large",
+    "wizp-asia/house-b",
+    "wizp-fish/stilt-cabin",
+    "wizp-mediev/weapon-shop",
+    "wizp-village/house-b"
+   ]
+  },
+  {
+   "id": "storeys-3",
+   "name": "3 storeys",
+   "type": "attribute",
+   "description": "Three storeys read from the model.",
+   "models": [
+    "architecture/barn",
+    "asia-rg/dojo",
+    "asia-rg/house-a",
+    "asia-rg/house-b",
+    "asia-rg/house-f",
+    "kay-hexagon/archery-range",
+    "kay-hexagon/house-b",
+    "kay-hexagon/lumbermill",
+    "kay-hexagon/tavern",
+    "kay-hexagon/tower-base",
+    "kay-hexagon/watermill",
+    "kay-hexagon/windmill",
+    "ken-pirate/tower-complete-large",
+    "ken-pirate/tower-complete-small",
+    "quat-farms/barn-large",
+    "quat-medieval/blacksmith",
+    "quat-medieval/fantasy-barracks",
+    "quat-medieval/fantasy-house-2",
+    "quat-medieval/fantasy-house-3",
+    "quat-medieval/fantasy-inn",
+    "quat-medieval/fantasy-sawmill",
+    "quat-pirate/house-1",
+    "quat-pirate/house-2",
+    "quat-pirate/house-3",
+    "quat-town/archery-1-c",
+    "quat-town/barracks-1-c",
+    "quat-town/farm-2-c",
+    "quat-town/house-2-1-c",
+    "quat-town/tower-house-2",
+    "quat-town/watchtower-1-b",
+    "quat-town/watchtower-1-c",
+    "quat-town/watchtower-2-a",
+    "quat-town/windmill-2",
+    "styloo-farm/windmill-large",
+    "wizp-mediev/windmill",
+    "wizp-mediev/wizard-tower"
+   ]
+  },
+  {
+   "id": "storeys-4",
+   "name": "4 storeys",
+   "type": "attribute",
+   "description": "Four storeys read from the model.",
+   "models": [
+    "kay-builder/castle",
+    "kay-builder/mill",
+    "kay-builder/watchtower",
+    "kay-hexagon/tower-a",
+    "kay-hexagon/tower-b",
+    "kay-hexagon/tower-catapult",
+    "quat-farms/windmill",
+    "quat-medieval/mill",
+    "quat-town/archery-1-b",
+    "quat-town/archery-2-b",
+    "quat-town/archery-2-c",
+    "quat-town/barracks-2-b",
+    "quat-town/barracks-2-c",
+    "quat-town/watchtower-2-b",
+    "quat-town/watchtower-2-c",
+    "quat-town/windmill-1",
+    "taalei-kit/lighthouse",
+    "windmill/windmill"
+   ]
+  },
+  {
+   "id": "storeys-5",
+   "name": "5 storeys",
+   "type": "attribute",
+   "description": "Five storeys read from the model.",
+   "models": [
+    "asia-rg/pagoda",
+    "kay-hexagon/castle",
+    "quat-medieval/bell-tower"
    ]
   }
  ]

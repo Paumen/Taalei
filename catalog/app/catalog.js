@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=41dceb20c8';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=41dceb20c8';
-import { colorSwatches, setBands } from './color-edits.js?v=41dceb20c8';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=41dceb20c8';
-import { mountExtractBar, setPageParts } from './extract.js?v=41dceb20c8';
-import './bouwstempel.js?v=41dceb20c8';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=cf50498fd5';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=cf50498fd5';
+import { colorSwatches, setBands } from './color-edits.js?v=cf50498fd5';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=cf50498fd5';
+import { mountExtractBar, setPageParts } from './extract.js?v=cf50498fd5';
+import './bouwstempel.js?v=cf50498fd5';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -24,7 +24,7 @@ const kindChain = (id) => {
   for (let k = id; k; k = kindParent(k)) chain.unshift(k);
   return chain;
 };
-const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'assy'];
+const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'set'];
 const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 
 const MODEL_PATH = 'kits/workfiles';
@@ -130,7 +130,7 @@ let commentDirty = false;
 const colorState = new Map();
 let colorKeys = [];
 const sizeState = new Map();
-const kindState = new Map([['assy', 'not']]);
+const kindState = new Map([['set', 'not']]);
 
 const tagState = new Map();
 const lintState = new Map();
@@ -740,6 +740,7 @@ const withParents = (ids) => {
 
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
+  { type: 'attribute', head: 'Storeys' },
   { type: 'tag', head: 'Tags' },
   { type: 'theme', head: 'Theme', extra: true },
   { type: 'artist', head: 'Artist', extra: true },
