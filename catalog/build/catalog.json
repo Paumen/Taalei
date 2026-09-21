@@ -8225,6 +8225,20 @@
    "count": 21
   },
   {
+   "id": "env-flora-plant-cactus-low",
+   "name": "Low",
+   "type": "kind",
+   "description": "Cactus or succulent that stays near the ground.",
+   "count": 9
+  },
+  {
+   "id": "env-flora-plant-cactus-high",
+   "name": "High",
+   "type": "kind",
+   "description": "Cactus that stands up, columnar or barrel.",
+   "count": 12
+  },
+  {
    "id": "env-flora-plant-flower",
    "name": "Flower",
    "type": "kind",
@@ -9342,7 +9356,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "env-flora-plant-cactus": {
+  "env-flora-plant-cactus-high": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-cactus-low": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -35007,7 +35027,7 @@
   {
    "kit": "isa-plants",
    "name": "cactus-a",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.15,
@@ -35045,7 +35065,7 @@
   {
    "kit": "isa-plants",
    "name": "cactus-b",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.1,
@@ -35083,7 +35103,7 @@
   {
    "kit": "isa-plants",
    "name": "cactus-c",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.1,
@@ -35121,7 +35141,7 @@
   {
    "kit": "isa-plants",
    "name": "cactus-d",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.15,
@@ -35852,7 +35872,7 @@
   {
    "kit": "isa-plants",
    "name": "succulent-a",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.2,
@@ -35891,7 +35911,7 @@
   {
    "kit": "isa-plants",
    "name": "succulent-b",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.2,
@@ -35929,7 +35949,7 @@
   {
    "kit": "isa-plants",
    "name": "succulent-c",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.2,
@@ -35968,7 +35988,7 @@
   {
    "kit": "isa-plants",
    "name": "succulent-d",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.2,
@@ -71133,7 +71153,7 @@
   {
    "kit": "kay-minigame",
    "name": "cactus",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.6,
@@ -118632,7 +118652,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-2",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.3,
@@ -118671,7 +118691,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-3",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.15,
@@ -118710,7 +118730,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-4",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.05,
@@ -118749,7 +118769,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-5",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "s",
    "wdh": [
     0.05,
@@ -118788,7 +118808,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-flower-1",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-low",
    "size": "s",
    "wdh": [
     0.35,
@@ -118826,7 +118846,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-flower-2",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.3,
@@ -118871,7 +118891,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-flower-3",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.2,
@@ -118916,7 +118936,7 @@
   {
    "kit": "quat-nature",
    "name": "cactus-flower-4",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.05,
@@ -151556,7 +151576,7 @@
   {
    "kit": "wizp-tree",
    "name": "cactus-flowering-round",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "s",
    "wdh": [
     0.4,
@@ -151606,7 +151626,7 @@
   {
    "kit": "wizp-tree",
    "name": "cactus-flowering-tall",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "m",
    "wdh": [
     0.4,
@@ -151656,7 +151676,7 @@
   {
    "kit": "wizp-tree",
    "name": "cactus-round",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "s",
    "wdh": [
     0.4,
@@ -151701,7 +151721,7 @@
   {
    "kit": "wizp-tree",
    "name": "cactus-tall",
-   "kind": "env-flora-plant-cactus",
+   "kind": "env-flora-plant-cactus-high",
    "size": "s",
    "wdh": [
     0.4,
