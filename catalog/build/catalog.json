@@ -8585,7 +8585,14 @@
    "name": "Half",
    "type": "kind",
    "description": "Floor piece covering half a module of the kit grid.",
-   "count": 28
+   "count": 26
+  },
+  {
+   "id": "str-part-floor-double",
+   "name": "Double",
+   "type": "kind",
+   "description": "Floor piece covering two modules of the kit grid.",
+   "count": 4
   },
   {
    "id": "str-part-floor-unit",
@@ -9139,11 +9146,18 @@
    "count": 18
   },
   {
+   "id": "str-building-farming-half",
+   "name": "Half story",
+   "type": "kind",
+   "description": "Farm building under a full story: a coop, hutch or shelter you do not walk into.",
+   "count": 1
+  },
+  {
    "id": "str-building-farming-1",
    "name": "1 story",
    "type": "kind",
    "description": "Farm building of one story.",
-   "count": 2
+   "count": 1
   },
   {
    "id": "str-building-farming-2",
@@ -10409,6 +10423,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-building-farming-half": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-building-farming-silo": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -10656,6 +10676,12 @@
    "tpu.max": 10000
   },
   "str-part-floor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-part-floor-double": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 4,
@@ -45734,7 +45760,7 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-tiles-large",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-double",
    "size": "l",
    "wdh": [
     2.3,
@@ -49403,7 +49429,7 @@
   {
    "kit": "kay-dun-1",
    "name": "tile-brick-a-large",
-   "kind": "str-part-floor-half",
+   "kind": "str-part-floor-double",
    "size": "l",
    "wdh": [
     2.4,
@@ -49441,7 +49467,7 @@
   {
    "kit": "kay-dun-1",
    "name": "tile-brick-b-large",
-   "kind": "str-part-floor-half",
+   "kind": "str-part-floor-double",
    "size": "l",
    "wdh": [
     2.4,
@@ -51917,7 +51943,7 @@
   {
    "kit": "kay-dun-2",
    "name": "floor-tile-extralarge-grates-open",
-   "kind": "str-part-floor",
+   "kind": "str-part-floor-double",
    "size": "l",
    "wdh": [
     2.15,
@@ -113692,7 +113718,7 @@
   {
    "kit": "quat-farms",
    "name": "chicken-coop",
-   "kind": "str-building-farming-1",
+   "kind": "str-building-farming-half",
    "size": "m",
    "wdh": [
     0.8,
