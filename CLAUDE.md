@@ -7,15 +7,12 @@
 * Keep docs tersely, and in plain English..
 * import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport.
 
-
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
-* Per-pack quirks — atlas grid, which source colour means what, known source defects — live in docs/pack_notes.md.
 * tools/renders/render.mjs can be used to render glbs in various ways.
-* A workfile in kits/workfiles is the asset itself. Nothing rewrites one in place; a model that is wrong is replaced or dropped.
-* catalog/tools/bron.mjs reads a source pack out of its zip. catalog/tools/bronmodellen.mjs measures what it finds.
+* A workfile in kits/workfiles is the asset itself.
 * catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/data/rejects.json), a swipe/review functionality, and model scale comparison page.
-* kits/sources contains original cc0 files in zip, kits/workfiles contains selected and normalize glb for catalog.
+* kits/sources contains original cc0 files in zip, kits/workfiles contains selected, normalize and modified glb for catalog.
 
 ## what's akready installed at setup
 installed:
