@@ -381,7 +381,7 @@ for (const slug of kitSlugs) {
   });
 }
 
-const TYPES = ['material', 'kind', 'size', 'theme', 'artist', 'tag'];
+const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
 
 const SOURCES = [

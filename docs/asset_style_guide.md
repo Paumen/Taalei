@@ -14,6 +14,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
 | `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, etc.) | open |
+| `F11` | `attribute` | a property read off the model in steps (`storeys`) | closed, **at most one per attribute** |
 
 **[F05] Term.** A term is one of:
 
@@ -24,6 +25,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `mat:<id>` | models carrying that material tag or a subtype of it |
 | `mat=<id>` | that material tag exactly |
 | `tag:<id>` | models carrying that open tag |
+| `attr:<id>` | models carrying that attribute value |
 | `size:<s\|m\|l>` | models measured at that size |
 | `<field><op><number>` | a recorded numeric field compared: `nmat>=5`, `tris<100`; ops `= > >= < <=` |
 | `D<nn>` | the models the definition's term matches |
@@ -33,7 +35,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -117,7 +119,7 @@ The measured global rows, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2
 
 Everything measured off the mesh: extents, counts, pivots, band counts.
 
-`tag:plural` and `kind:assy` are exempt.
+`tag:plural` and `kind:set` are exempt.
 
 ### 2.1 Construction & placement
 
@@ -140,7 +142,7 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 ### 2.3 Size and budget
 
-`kind:assy` is exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
+`kind:set` is exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
 
 Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is often held to several measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
@@ -150,7 +152,7 @@ Run `node lint/size.mjs`.
 
 ### 2.4 Boxes and part counts
 
-`tag:comp`, `tag:plural` and `kind:assy` are exempt.
+`tag:comp`, `tag:plural` and `kind:set` are exempt.
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
@@ -158,13 +160,23 @@ Run `node lint/size.mjs`.
 | `G18` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
-| `G23` | `kind:str-marker-flag \| kind:str-temp \| kind:obj-transport-watercraft-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G23` | `kind:str-marker-flag \| kind:str-canopy \| kind:obj-transport-watercraft-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 
 ---
 
 ## 3. Taxonomy
 
 What a model *is*, before any material or colour question.
+
+**The tiers.** Every kind sits at one of these, read off its depth in `lint/kinds.json`.
+
+| tier | role | word form | test |
+|---|---|---|---|
+| root | domain | abbreviation | `obj` `str` `env` `set` `char` |
+| root+1 | category | collective noun | "container", "flora" — you cannot hold one |
+| root+2 | sub-category or kind | collective or singular | either |
+| kind | is-a | singular noun | "a chest" |
+| variant | one axis per parent | adjective or number | siblings differ on one thing only |
 
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
@@ -173,7 +185,11 @@ What a model *is*, before any material or colour question.
 | `T03` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted |
 | `T04` | `tag:plural` | — | model | is | several instances of one thing in one model |
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
-| `T07` | `kind:str-building` | — | `kind` | is | the story leaf read from the model — door height, wall bands, floor lines; a room in the roof is its own step; a building whose stories do not read stays on the parent |
+| `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; a building whose storeys do not read carries none |
+| `T08` | `*` | — | `kind` | is | a node holding at least 4 models, unless the split it makes is significant and clear |
+| `T09` | a variant split on size or shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
+| `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |
+| `T11` | a model reading as two or more kinds from different nodes | — | `kind` | is | `set` |
 
 - **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 
@@ -183,7 +199,7 @@ What a model *is*, before any material or colour question.
 
 What a kind is made of. Colour follows from §5.
 
-`kind:assy` is exempt.
+`kind:set` is exempt.
 
 ### 4.1 In `lint/kinds.json`
 
@@ -232,7 +248,7 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 
 Every row names the set of bands its subject may draw from. How rows combine: `F08`.
 
-`kind:assy` is exempt.
+`kind:set` is exempt.
 
 ### 5.1 Material palettes
 
@@ -263,12 +279,12 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B33` | `kind:obj-food` cheese | model | is | `amber` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
-| `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-pastry` | model | is | `tan`, `camel`, `chestnut` |
+| `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut` |
 | `B40` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
 | `B42` | `kind:obj-transport-watercraft & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-watercraft-accessory` sails \| `kind:str-temp` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
+| `B43` | `kind:obj-transport-watercraft-accessory` sails \| `kind:str-canopy` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
 | `B46` | `kind:obj-equipment-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-equipment-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
@@ -292,7 +308,7 @@ Making and validating:
 
 - **`P06`** — When creating an asset, Claude first renders and looks at the reference assets.
 - **`P07`** — When validating, Claude renders 2+ references of the group beside it at the same scale.
-- **`P08`** — A `kind:assy` is not validated directly.
+- **`P08`** — A `kind:set` is not validated directly.
 - **`P09`** — Rescaling is done globally for a kit.
 
 Importing a pack:
@@ -341,5 +357,5 @@ Main:
 
 Other:
 `char` = living or acting entity, incl. any obj it may equip, wear or carry
-`assy` = a mix of different things from different kinds
+`set` = a mix of different things from different kinds
 

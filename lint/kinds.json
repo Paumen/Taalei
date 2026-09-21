@@ -38,15 +38,13 @@
         "trunk",
         "coffer",
         "strong box"
-       ],
-       "children": [
-        {
-         "id": "obj-container-chest-coffin",
-         "nouns": [
-          "coffin",
-          "sarcophagus"
-         ]
-        }
+       ]
+      },
+      {
+       "id": "obj-container-coffin",
+       "nouns": [
+        "coffin",
+        "sarcophagus"
        ]
       },
       {
@@ -118,13 +116,13 @@
        ],
        "nouns": [
         "bottle",
-        "flask",
-        "vial"
+        "flask"
        ],
        "children": [
         {
-         "id": "obj-container-bottle-potion",
+         "id": "obj-container-bottle-vial",
          "nouns": [
+          "vial",
           "potion"
          ]
         }
@@ -160,7 +158,7 @@
        "high.min": 0.1,
        "high.max": 0.4,
        "nouns": [
-        "pot (storage)",
+        "pot",
         "planter",
         "urn",
         "amphora",
@@ -190,13 +188,6 @@
        "nouns": [
         "can",
         "watering can"
-       ]
-      },
-      {
-       "id": "obj-container-pallet",
-       "high.min": 0.05,
-       "nouns": [
-        "pallet"
        ]
       }
      ]
@@ -238,17 +229,15 @@
           "plate",
           "dish",
           "saucer"
-         ],
-         "children": [
-          {
-           "id": "obj-kitchenware-tableware-plate-serving",
-           "nouns": [
-            "tray",
-            "platter",
-            "pastry stand",
-            "cloche"
-           ]
-          }
+         ]
+        },
+        {
+         "id": "obj-kitchenware-tableware-serving",
+         "nouns": [
+          "tray",
+          "platter",
+          "pastry stand",
+          "cloche"
          ]
         },
         {
@@ -329,22 +318,29 @@
          ]
         },
         {
-         "id": "obj-kitchenware-cookware-pot",
+         "id": "obj-kitchenware-cookware-cookpot",
          "band.ceramic": [
           "terracotta"
          ],
          "nouns": [
+          "cookpot",
           "cooking pot",
           "crockpot"
          ],
          "children": [
           {
-           "id": "obj-kitchenware-cookware-pot-kettle",
+           "id": "obj-kitchenware-cookware-cookpot-cauldron",
            "nouns": [
-            "kettle",
-            "teapot"
+            "cauldron"
            ]
           }
+         ]
+        },
+        {
+         "id": "obj-kitchenware-cookware-kettle",
+         "nouns": [
+          "kettle",
+          "teapot"
          ]
         },
         {
@@ -353,12 +349,6 @@
           "cutting board",
           "chopping board",
           "charcuterie board"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-cookware-cauldron",
-         "nouns": [
-          "cauldron"
          ]
         },
         {
@@ -403,17 +393,10 @@
         "ham",
         "sausage",
         "steak",
-        "roast"
-       ],
-       "children": [
-        {
-         "id": "obj-food-meat-chickenleg",
-         "nouns": [
-          "drumstick",
-          "leg",
-          "chicken leg"
-         ]
-        }
+        "roast",
+        "drumstick",
+        "leg",
+        "chicken leg"
        ]
       },
       {
@@ -446,17 +429,6 @@
        "nouns": [
         "wheat sheaf",
         "flour sack"
-       ],
-       "children": [
-        {
-         "id": "obj-food-grain-bread",
-         "nouns": [
-          "bread",
-          "loaf",
-          "roll",
-          "baguette"
-         ]
-        }
        ]
       },
       {
@@ -522,25 +494,37 @@
        ]
       },
       {
-       "id": "obj-food-pastry",
-       "nouns": [
-        "croissant",
-        "waffle",
-        "cookie",
-        "donut",
-        "muffin",
-        "cupcake",
-        "pretzel",
-        "cinnamon roll",
-        "cream puff",
-        "gingerbread"
-       ],
+       "id": "obj-food-baked",
        "children": [
         {
-         "id": "obj-food-pastry-pie",
+         "id": "obj-food-baked-bread",
+         "nouns": [
+          "bread",
+          "loaf",
+          "roll",
+          "baguette"
+         ]
+        },
+        {
+         "id": "obj-food-baked-pie",
          "nouns": [
           "cake",
           "pie"
+         ]
+        },
+        {
+         "id": "obj-food-baked-pastry",
+         "nouns": [
+          "croissant",
+          "waffle",
+          "cookie",
+          "donut",
+          "muffin",
+          "cupcake",
+          "pretzel",
+          "cinnamon roll",
+          "cream puff",
+          "gingerbread"
          ]
         }
        ]
@@ -600,8 +584,9 @@
            ],
            "children": [
             {
-             "id": "obj-equipment-weapon-melee-sword-blade",
+             "id": "obj-equipment-weapon-melee-sword-broad",
              "nouns": [
+              "broadsword",
               "blade",
               "cutlass",
               "machete"
@@ -639,11 +624,11 @@
            ]
           },
           {
-           "id": "obj-equipment-weapon-melee-hammer",
+           "id": "obj-equipment-weapon-melee-warhammer",
            "longest.min": 0.2,
            "longest.max": 0.8,
            "nouns": [
-            "hammer (war)",
+            "warhammer",
             "mace",
             "flail"
            ]
@@ -690,22 +675,11 @@
            ]
           },
           {
-           "id": "obj-equipment-weapon-ranged-accessory",
-           "children": [
-            {
-             "id": "obj-equipment-weapon-ranged-accessory-quiver",
-             "nouns": [
-              "quiver"
-             ]
-            },
-            {
-             "id": "obj-equipment-weapon-ranged-accessory-arrow",
-             "nouns": [
-              "arrow",
-              "bolt (crossbow)",
-              "dart"
-             ]
-            }
+           "id": "obj-equipment-weapon-ranged-arrow",
+           "nouns": [
+            "arrow",
+            "bolt (crossbow)",
+            "dart"
            ]
           },
           {
@@ -760,27 +734,6 @@
          ]
         },
         {
-         "id": "obj-equipment-weapon-target",
-         "children": [
-          {
-           "id": "obj-equipment-weapon-target-dummy",
-           "nouns": [
-            "training dummy",
-            "training post",
-            "armour stand",
-            "mannequin"
-           ]
-          },
-          {
-           "id": "obj-equipment-weapon-target-bullseye",
-           "nouns": [
-            "target",
-            "archery target"
-           ]
-          }
-         ]
-        },
-        {
          "id": "obj-equipment-weapon-siege",
          "mat.metal-iron": "metal-iron-cast",
          "children": [
@@ -808,6 +761,27 @@
        ]
       },
       {
+       "id": "obj-equipment-target",
+       "children": [
+        {
+         "id": "obj-equipment-target-dummy",
+         "nouns": [
+          "training dummy",
+          "training post",
+          "armour stand",
+          "mannequin"
+         ]
+        },
+        {
+         "id": "obj-equipment-target-bullseye",
+         "nouns": [
+          "target",
+          "archery target"
+         ]
+        }
+       ]
+      },
+      {
        "id": "obj-equipment-apparel",
        "mat.metal-iron": "metal-iron-steel",
        "band.textile": [
@@ -825,6 +799,14 @@
         "shoes",
         "belt",
         "glove"
+       ],
+       "children": [
+        {
+         "id": "obj-equipment-apparel-quiver",
+         "nouns": [
+          "quiver"
+         ]
+        }
        ]
       },
       {
@@ -971,7 +953,7 @@
         {
          "id": "obj-tool-hand-hammer",
          "nouns": [
-          "hammer (tool)",
+          "hammer",
           "mallet"
          ]
         },
@@ -984,7 +966,7 @@
        ]
       },
       {
-       "id": "obj-tool-long",
+       "id": "obj-tool-twohand",
        "longest.min": 0.3,
        "longest.max": 1.2,
        "mat.wood": "wood-beam",
@@ -997,14 +979,14 @@
        ],
        "children": [
         {
-         "id": "obj-tool-long-pickaxe",
+         "id": "obj-tool-twohand-pickaxe",
          "nouns": [
           "pickaxe",
           "mattock"
          ]
         },
         {
-         "id": "obj-tool-long-shovel",
+         "id": "obj-tool-twohand-shovel",
          "nouns": [
           "shovel",
           "spade"
@@ -1026,7 +1008,7 @@
        ]
       },
       {
-       "id": "obj-tool-anvil",
+       "id": "obj-tool-station",
        "nouns": [
         "anvil"
        ]
@@ -1089,6 +1071,13 @@
          ]
         }
        ]
+      },
+      {
+       "id": "obj-transport-pallet",
+       "high.min": 0.05,
+       "nouns": [
+        "pallet"
+       ]
       }
      ]
     },
@@ -1119,7 +1108,7 @@
          ]
         },
         {
-         "id": "obj-lighting-lantern-single",
+         "id": "obj-lighting-lantern-handheld",
          "nouns": [
           "hand lantern",
           "hanging lantern",
@@ -1227,12 +1216,6 @@
        ]
       },
       {
-       "id": "obj-art-fountain",
-       "nouns": [
-        "fountain"
-       ]
-      },
-      {
        "id": "obj-art-instrument",
        "tpu.max": 5000,
        "nouns": [
@@ -1245,8 +1228,9 @@
      ]
     },
     {
-     "id": "obj-icon",
+     "id": "obj-symbol",
      "nouns": [
+      "symbol",
       "icon",
       "heart (icon)",
       "star (icon)",
@@ -1422,27 +1406,32 @@
          ]
         },
         {
-         "id": "str-part-door-gate",
-         "nouns": [
-          "gate (building)",
-          "gateway",
-          "portcullis",
-          "torii"
-         ],
-         "children": [
-          {
-           "id": "str-part-door-gate-single"
-          },
-          {
-           "id": "str-part-door-gate-frame"
-          }
-         ]
-        },
-        {
          "id": "str-part-door-single"
         },
         {
-         "id": "str-part-door-frame"
+         "id": "str-part-door-doorway",
+         "nouns": [
+          "doorway"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "str-part-gate",
+       "nouns": [
+        "gate (building)",
+        "portcullis",
+        "torii"
+       ],
+       "children": [
+        {
+         "id": "str-part-gate-single"
+        },
+        {
+         "id": "str-part-gate-gateway",
+         "nouns": [
+          "gateway"
+         ]
         }
        ]
       },
@@ -1504,16 +1493,16 @@
        ],
        "children": [
         {
-         "id": "str-part-wall-fort",
+         "id": "str-part-wall-unit"
+        },
+        {
+         "id": "str-part-wall-rampart",
          "nouns": [
           "rampart",
           "curtain wall",
           "battlement",
           "perimeter wall"
          ]
-        },
-        {
-         "id": "str-part-wall-unit"
         }
        ]
       },
@@ -1554,95 +1543,21 @@
      ],
      "children": [
       {
-       "id": "str-building-tower",
-       "nouns": [
-        "tower",
-        "watchtower",
-        "belltower",
-        "lighthouse"
-       ],
+       "id": "str-building-residential",
        "children": [
         {
-         "id": "str-building-tower-2"
-        },
-        {
-         "id": "str-building-tower-3"
-        },
-        {
-         "id": "str-building-tower-4"
-        },
-        {
-         "id": "str-building-tower-5"
-        }
-       ]
-      },
-      {
-       "id": "str-building-mill",
-       "nouns": [
-        "watermill",
-        "windmill",
-        "mill"
-       ],
-       "children": [
-        {
-         "id": "str-building-mill-wheel",
+         "id": "str-building-residential-house",
          "nouns": [
-          "waterwheel",
-          "water wheel"
+          "house (whole)",
+          "hut",
+          "cottage",
+          "inn"
          ]
-        },
-        {
-         "id": "str-building-mill-blades",
-         "nouns": [
-          "windmill blade",
-          "sail (windmill)"
-         ]
-        },
-        {
-         "id": "str-building-mill-1"
-        },
-        {
-         "id": "str-building-mill-2"
-        },
-        {
-         "id": "str-building-mill-3"
-        },
-        {
-         "id": "str-building-mill-4"
         }
        ]
       },
       {
-       "id": "str-building-well",
-       "nouns": [
-        "well"
-       ]
-      },
-      {
-       "id": "str-building-dwelling",
-       "nouns": [
-        "house (whole)",
-        "hut",
-        "cottage",
-        "inn"
-       ],
-       "children": [
-        {
-         "id": "str-building-dwelling-1"
-        },
-        {
-         "id": "str-building-dwelling-1a"
-        },
-        {
-         "id": "str-building-dwelling-2"
-        },
-        {
-         "id": "str-building-dwelling-3"
-        }
-       ]
-      },
-      {
-       "id": "str-building-farming",
+       "id": "str-building-agricultural",
        "nouns": [
         "farm",
         "chicken coop",
@@ -1651,58 +1566,70 @@
        ],
        "children": [
         {
-         "id": "str-building-farming-silo",
+         "id": "str-building-agricultural-silo",
          "nouns": [
           "silo",
           "granary"
          ]
-        },
-        {
-         "id": "str-building-farming-half"
-        },
-        {
-         "id": "str-building-farming-1"
-        },
-        {
-         "id": "str-building-farming-2"
-        },
-        {
-         "id": "str-building-farming-3"
         }
        ]
       },
       {
-       "id": "str-building-workshop",
-       "nouns": [
-        "blacksmith",
-        "smithy",
-        "forge",
-        "sawmill",
-        "lumbermill"
-       ],
+       "id": "str-building-industrial",
        "children": [
         {
-         "id": "str-building-workshop-1"
-        },
-        {
-         "id": "str-building-workshop-1a"
-        },
-        {
-         "id": "str-building-workshop-2"
-        },
-        {
-         "id": "str-building-workshop-3"
-        }
-       ]
-      },
-      {
-       "id": "str-building-tomb",
-       "children": [
-        {
-         "id": "str-building-tomb-crypt",
+         "id": "str-building-industrial-workshop",
          "nouns": [
-          "crypt",
-          "mausoleum"
+          "blacksmith",
+          "smithy",
+          "forge",
+          "sawmill",
+          "lumbermill"
+         ]
+        },
+        {
+         "id": "str-building-industrial-mill",
+         "nouns": [
+          "watermill",
+          "windmill",
+          "mill",
+          "waterwheel",
+          "water wheel",
+          "windmill blade",
+          "sail (windmill)"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "str-building-military",
+       "children": [
+        {
+         "id": "str-building-military-barracks",
+         "nouns": [
+          "barracks",
+          "stable",
+          "dojo",
+          "archery range",
+          "butts",
+          "weapon shop"
+         ]
+        },
+        {
+         "id": "str-building-military-castle",
+         "nouns": [
+          "castle",
+          "fortress",
+          "keep"
+         ]
+        },
+        {
+         "id": "str-building-military-tower",
+         "nouns": [
+          "tower",
+          "watchtower",
+          "belltower",
+          "lighthouse"
          ]
         }
        ]
@@ -1723,51 +1650,12 @@
           "chapel",
           "cathedral"
          ]
-        }
-       ]
-      },
-      {
-       "id": "str-building-combat",
-       "children": [
-        {
-         "id": "str-building-combat-barracks",
-         "nouns": [
-          "barracks",
-          "stable",
-          "dojo",
-          "archery range",
-          "butts",
-          "weapon shop"
-         ],
-         "children": [
-          {
-           "id": "str-building-combat-barracks-1a"
-          },
-          {
-           "id": "str-building-combat-barracks-2"
-          },
-          {
-           "id": "str-building-combat-barracks-3"
-          },
-          {
-           "id": "str-building-combat-barracks-4"
-          }
-         ]
         },
         {
-         "id": "str-building-combat-castle",
+         "id": "str-building-religious-crypt",
          "nouns": [
-          "castle",
-          "fortress",
-          "keep"
-         ],
-         "children": [
-          {
-           "id": "str-building-combat-castle-4"
-          },
-          {
-           "id": "str-building-combat-castle-5"
-          }
+          "crypt",
+          "mausoleum"
          ]
         }
        ]
@@ -1817,6 +1705,12 @@
          "id": "str-barrier-fence-high",
          "nouns": [
           "high fence"
+         ]
+        },
+        {
+         "id": "str-barrier-fence-mid",
+         "nouns": [
+          "mid fence"
          ]
         },
         {
@@ -1928,27 +1822,20 @@
        ],
        "children": [
         {
-         "id": "str-marker-flag-half"
+         "id": "str-marker-flag-small"
         }
        ]
       },
       {
-       "id": "str-marker-tombstone",
+       "id": "str-marker-grave",
        "nouns": [
+        "grave",
+        "grave marker",
+        "gravestone",
+        "tombstone",
+        "tomb",
+        "cross (grave)",
         "memorial"
-       ],
-       "children": [
-        {
-         "id": "str-marker-tombstone-gravemarker",
-         "nouns": [
-          "grave marker",
-          "grave",
-          "gravestone",
-          "tombstone",
-          "tomb",
-          "cross (grave)"
-         ]
-        }
        ]
       },
       {
@@ -1960,37 +1847,49 @@
      ]
     },
     {
-     "id": "str-temp",
+     "id": "str-canopy",
      "nouns": [
       "canopy"
      ],
      "children": [
       {
-       "id": "str-temp-market",
+       "id": "str-canopy-stall",
        "nouns": [
+        "stall",
+        "market stand",
+        "awning",
         "market"
        ]
       },
       {
-       "id": "str-temp-stall",
-       "nouns": [
-        "stall",
-        "market stand",
-        "awning"
-       ]
-      },
-      {
-       "id": "str-temp-tent",
+       "id": "str-canopy-tent",
        "nouns": [
         "tent"
        ],
        "children": [
         {
-         "id": "str-temp-tent-camping",
+         "id": "str-canopy-tent-camping",
          "nouns": [
           "camping tent"
          ]
         }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "str-utility",
+     "children": [
+      {
+       "id": "str-utility-well",
+       "nouns": [
+        "well"
+       ]
+      },
+      {
+       "id": "str-utility-fountain",
+       "nouns": [
+        "fountain"
        ]
       }
      ]
@@ -2067,7 +1966,7 @@
          ]
         },
         {
-         "id": "env-remains-bones-single",
+         "id": "env-remains-bones-limb",
          "nouns": [
           "bone",
           "bone (single)"
@@ -2333,7 +2232,7 @@
    ]
   },
   {
-   "id": "assy",
+   "id": "set",
    "nouns": [
     "several distinct things",
     "one top-level"

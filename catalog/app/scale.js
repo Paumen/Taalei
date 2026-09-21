@@ -1,6 +1,6 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=41dceb20c8';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=41dceb20c8';
-import './bouwstempel.js?v=41dceb20c8';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=cf50498fd5';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=cf50498fd5';
+import './bouwstempel.js?v=cf50498fd5';
 
 const MODEL_PATH = 'kits/workfiles';
 
@@ -78,6 +78,7 @@ const sizeOf = (item) => {
 
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
+  { type: 'attribute', head: 'Storeys' },
   { type: 'tag', head: 'Tags' },
   { type: 'theme', head: 'Theme' },
   { type: 'artist', head: 'Artist' },

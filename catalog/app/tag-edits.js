@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=41dceb20c8';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=cf50498fd5';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -104,6 +104,18 @@ export function setKind(model, kindId, tagsById) {
   notify();
 }
 
+const attributeFamily = (id) => id.split('-')[0];
+
+export function setAttribute(model, tagId, tagsById) {
+  const family = attributeFamily(tagId);
+  const current = effectiveTags(model).find(
+    (id) => tagsById.get(id)?.type === 'attribute' && attributeFamily(id) === family);
+  if (current) stage(model, current, false);
+  if (current !== tagId) stage(model, tagId, true);
+  save();
+  notify();
+}
+
 export function pendingCount() {
   return Object.values(edits).reduce((n, e) => n + e.add.length + e.remove.length, 0);
 }
@@ -134,6 +146,8 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
     { label: 'Kind', of: (t) => t.type === 'kind', parent: (t) => kindParent(t.id),
       pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
     { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null },
+    { label: 'Storeys', of: (t) => t.type === 'attribute',
+      pick: (id) => setAttribute(model, id, tagsById) },
     { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
     { label: 'Theme', of: (t) => t.type === 'theme' },
   ];
