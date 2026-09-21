@@ -1436,6 +1436,7 @@ window.KENNEY_KITS = [
   "models": [
    "armchair",
    "bell",
+   "bell-banded",
    "bell-decorated",
    "candycane",
    "carpet-round-large",
@@ -3099,6 +3100,7 @@ window.KENNEY_KITS = [
    "barrel-a",
    "barrel-b",
    "bell",
+   "bell-loose",
    "brazier",
    "bridge-stone",
    "bridge-wood",
@@ -3107,6 +3109,7 @@ window.KENNEY_KITS = [
    "door-left",
    "door-right",
    "drum",
+   "drum-loose",
    "egg",
    "fence-a",
    "fence-b",
