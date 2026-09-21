@@ -158,7 +158,7 @@ Run `node lint/size.mjs`.
 | `G18` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
-| `G23` | `kind:str-marker-flag \| kind:str-stands \| kind:obj-transport-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G23` | `kind:str-marker-flag \| kind:str-temp \| kind:obj-transport-watercraft-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 
 ---
 
@@ -213,16 +213,16 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:`, `ceramic` |
-| `M15` | `kind:obj-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
-| `M16` | `kind:obj-weapon` | `part:strap` | is | `textile`, `leather` |
-| `M17` | `kind:obj-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
+| `M15` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
+| `M16` | `kind:obj-equipment-weapon` | `part:strap` | is | `textile`, `leather` |
+| `M17` | `kind:obj-equipment-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
 | `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
-| `M21` | `kind:obj-equipment-clothing` belt, shoe, strap | model | has | `leather` |
-| `M24` | `kind:obj-transport-accessory` | `part:sail` | is | `textile` |
-| `M25` | `kind:obj-transport-boat \| kind:obj-transport-ship` | `mat:wood` | min | 2 |
-| `M28` | `kind:obj-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
+| `M21` | `kind:obj-equipment-apparel` belt, shoe, strap | model | has | `leather` |
+| `M24` | `kind:obj-transport-watercraft-accessory` | `part:sail` | is | `textile` |
+| `M25` | `kind:obj-transport-watercraft` | `mat:wood` | min | 2 |
+| `M28` | `kind:obj-equipment-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
 | `M32` | `*` sticks, unworked poles | model | is | `wood-bark` |
-| `M33` | `kind:obj-instrument` bells | model | has | `metal-copper`, `metal-gold` |
+| `M33` | `kind:obj-art-instrument` bells | model | has | `metal-copper`, `metal-gold` |
 | `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
 
@@ -263,14 +263,14 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B33` | `kind:obj-food` cheese | model | is | `amber` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
-| `B37` | `kind:obj-food-grain & !wheat & !straw` | model | is | `tan`, `camel`, `chestnut` |
+| `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-pastry` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut` |
-| `B40` | `kind:obj-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
-| `B42` | `kind:obj-transport-ship & !sails \| kind:obj-transport-boat & !sails \| kind:obj-transport-accessory & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-accessory` sails \| `kind:str-stands` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
-| `B46` | `kind:obj-pocketitem-scroll` | `part:text` | is | `slate` |
-| `B47` | `kind:obj-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
+| `B40` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
+| `B42` | `kind:obj-transport-watercraft & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
+| `B43` | `kind:obj-transport-watercraft-accessory` sails \| `kind:str-temp` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
+| `B46` | `kind:obj-equipment-pocketitem-scroll` | `part:text` | is | `slate` |
+| `B47` | `kind:obj-equipment-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
 | `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |

@@ -34,14 +34,14 @@ const limitsOf = (kind) => {
 export const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
-    branches: ['obj', 'obj-kitchenware', 'obj-furniture', 'obj-food',
+    branches: ['obj', 'obj-kitchenware', 'obj-furnishing', 'obj-food',
       'obj-lighting', 'obj-resource'],
   },
   { id: 'obj-container', name: 'Obj container', file: 'scale-obj-container.html', branches: ['obj-container'] },
   { id: 'obj-transport', name: 'Obj transport', file: 'scale-obj-transport.html', branches: ['obj-transport'] },
   {
     id: 'obj-equip', name: 'Obj equip', file: 'scale-obj-equip.html',
-    branches: ['obj-weapon', 'obj-equipment', 'obj-tool', 'obj-pocketitem', 'char'],
+    branches: ['obj-equipment', 'obj-tool', 'char'],
   },
   { id: 'str-gen', name: 'Str gen', file: 'scale-str-gen.html', branches: ['str'] },
   { id: 'str-part', name: 'Str part', file: 'scale-str-part.html', branches: ['str-part'] },
@@ -62,16 +62,16 @@ const tabOf = (kind) => {
 };
 
 const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate',
-  'str-part-floor', 'obj-furniture', 'env-remains', 'env-terrain-ground']);
+  'str-part-floor', 'obj-furnishing', 'env-remains', 'env-terrain-ground']);
 
 export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
 
-const SHORT_RULER = new Set(['env-rock-pebble', 'env-flora-deadwood-branch',
+const SHORT_RULER = new Set(['env-rock-pebble', 'env-remains-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
   'obj-container-chest', 'obj-container-bucket', 'obj-food',
-  'obj-resource', 'obj-weapon-melee-dagger', 'obj-weapon-ranged-accessory']);
+  'obj-resource', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-accessory']);
 
-const SHORT_RULER_BRANCHES = ['obj-pocketitem', 'obj-kitchenware'];
+const SHORT_RULER_BRANCHES = ['obj-equipment-pocketitem', 'obj-kitchenware'];
 
 const SHORT_RULER_HEIGHT = 0.6;
 
@@ -80,7 +80,7 @@ const rulerHeight = (kind) =>
     ? SHORT_RULER_HEIGHT
     : undefined;
 
-const WIDE_ROW = new Set(['obj-transport-ship', 'obj-transport-boat', 'str-part', 'env-terrain-mountain']);
+const WIDE_ROW = new Set(['obj-transport-watercraft-ship', 'obj-transport-watercraft-boat', 'str-part', 'env-terrain-mountain']);
 
 const SKIP = new Set([
   'ken-pirate/ship-pirate-small', 'ken-pirate/ship-pirate-medium', 'ken-pirate/ship-pirate-large',
