@@ -7212,14 +7212,14 @@
    "name": "Pouch",
    "type": "kind",
    "description": "pouch, purse, coin bag",
-   "count": 4
+   "count": 6
   },
   {
    "id": "obj-container-bag-sack",
    "name": "Sack",
    "type": "kind",
    "description": "sack, loot sack, trash bag",
-   "count": 17
+   "count": 15
   },
   {
    "id": "obj-container-barrel",
@@ -7842,7 +7842,7 @@
    "name": "Textile",
    "type": "kind",
    "description": "textile bolt, cloth roll",
-   "count": 7
+   "count": 6
   },
   {
    "id": "obj-resource-wood",
@@ -8370,7 +8370,7 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 67
+   "count": 68
   },
   {
    "id": "env-rock-cobble",
@@ -8391,7 +8391,7 @@
    "name": "Pebble",
    "type": "kind",
    "description": "pebble, stone (small), gravel",
-   "count": 30
+   "count": 29
   },
   {
    "id": "env-terrain",
@@ -8781,7 +8781,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 52
+   "count": 53
   },
   {
    "id": "tba",
@@ -9184,6 +9184,7 @@
   "obj-pocketitem-coin",
   "obj-pocketitem-key",
   "obj-pocketitem-scroll",
+  "obj-resource",
   "obj-resource-wood-plank",
   "obj-tool",
   "obj-tool-long",
@@ -9969,6 +9970,12 @@
    "longest.min": 0.1,
    "longest.max": 0.6,
    "tpu.max": 10000
+  },
+  "obj-resource": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.4,
+   "tpu.max": 5000
   },
   "obj-resource-metal": {
    "high.max": 8,
@@ -20938,7 +20945,7 @@
   {
    "kit": "fs-terrain",
    "name": "shared-prop-boulder-c",
-   "kind": "env-rock-cobble",
+   "kind": "env-rock-boulder",
    "size": "m",
    "wdh": [
     0.45,
@@ -75225,6 +75232,7 @@
     "#8b5936"
    ],
    "tags": [
+    "broken",
     "kay",
     "robin-hood",
     "textile",
@@ -111628,7 +111636,7 @@
   {
    "kit": "quat-dun-1",
    "name": "bag-standing",
-   "kind": "obj-container-bag-sack",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.1,
@@ -112766,7 +112774,7 @@
   {
    "kit": "quat-dun-2",
    "name": "bag-standing",
-   "kind": "obj-container-bag-sack",
+   "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
     0.1,
@@ -133811,7 +133819,7 @@
   {
    "kit": "quat-town",
    "name": "rock-pebble",
-   "kind": "env-rock-pebble",
+   "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
     0.35,
@@ -137857,7 +137865,7 @@
   {
    "kit": "small-props",
    "name": "skin-hang-a",
-   "kind": "obj-resource-textile",
+   "kind": "obj-resource",
    "size": "m",
    "wdh": [
     0.6,

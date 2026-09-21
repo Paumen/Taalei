@@ -302,6 +302,71 @@
   ]
  },
  {
+  "slug": "obj-resource-textile",
+  "name": "Object › Resource › Textile",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-resources",
+    "model": "pallet-wood-covered-a",
+    "wdh": [
+     0.5,
+     0.5,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "wood-planks"
+    ],
+    "colors": [
+     "#563b2b",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "textiles-a",
+    "wdh": [
+     0.25,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "textiles-c",
+    "wdh": [
+     0.2,
+     0.45,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-furniture",
   "name": "Object › Furniture",
   "category": "obj-gen",
@@ -629,89 +694,6 @@
     ],
     "colors": [
      "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-resource-textile",
-  "name": "Object › Resource › Textile",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 1.4,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-resources",
-    "model": "pallet-wood-covered-a",
-    "wdh": [
-     0.5,
-     0.5,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "wood-planks"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "textiles-a",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "textiles-c",
-    "wdh": [
-     0.2,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "skin-hang-a",
-    "wdh": [
-     0.6,
-     1.05,
-     0.9
-    ],
-    "tags": [
-     "leather",
-     "rope",
-     "wood-log"
-    ],
-    "colors": [
-     "#8b7561",
-     "#b58158"
     ]
    }
   ]
@@ -10884,92 +10866,6 @@
   ]
  },
  {
-  "slug": "obj-container-bag-pouch",
-  "name": "Object › Container › Bag › Pouch",
-  "category": "obj-container",
-  "limits": {
-   "high.min": 0.1,
-   "high.max": 1,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "quat-dun-1",
-    "model": "bag-coins",
-    "wdh": [
-     0.2,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "metal-gold",
-     "qua",
-     "textile"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "bag-coins",
-    "wdh": [
-     0.2,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "metal-gold",
-     "qua",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "pouch-large",
-    "wdh": [
-     0.15,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "leather",
-     "metal-iron-wrought",
-     "qua"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "pouch",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "leather",
-     "qua",
-     "rope"
-    ],
-    "colors": [
-     "#563b2b",
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-container-bag",
   "name": "Object › Container › Bag",
   "category": "obj-container",
@@ -11069,6 +10965,128 @@
     "colors": [
      "#563b2b",
      "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-container-bag-pouch",
+  "name": "Object › Container › Bag › Pouch",
+  "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "quat-dun-1",
+    "model": "bag-coins",
+    "wdh": [
+     0.2,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "metal-gold",
+     "qua",
+     "textile"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "model": "bag-standing",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "qua",
+     "rope",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "bag-coins",
+    "wdh": [
+     0.2,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "metal-gold",
+     "qua",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "bag-standing",
+    "wdh": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "qua",
+     "rope",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "pouch-large",
+    "wdh": [
+     0.15,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "leather",
+     "metal-iron-wrought",
+     "qua"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "pouch",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "leather",
+     "qua",
+     "rope"
+    ],
+    "colors": [
+     "#563b2b",
+     "#8b7561"
     ]
    }
   ]
@@ -11918,6 +11936,223 @@
   ]
  },
  {
+  "slug": "obj-container-bag-sack",
+  "name": "Object › Container › Bag › Sack",
+  "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "sack-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "asia",
+     "rope",
+     "textile"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "sack-b",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "asia",
+     "rope",
+     "textile"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-apocalyp",
+    "model": "trash-bag",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "loot-sack-a",
+    "wdh": [
+     0.4,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "loot-sack-b",
+    "wdh": [
+     0.4,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "sack",
+    "wdh": [
+     0.15,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "bag-a",
+    "wdh": [
+     0.55,
+     0.5,
+     0.65
+    ],
+    "tags": [
+     "robin-hood",
+     "textile",
+     "vegetation"
+    ],
+    "colors": [
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "bag",
+    "wdh": [
+     0.2,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "qua",
+     "sailing",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "bag",
+    "wdh": [
+     0.45,
+     0.4,
+     0.55
+    ],
+    "tags": [
+     "qua",
+     "rope",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "bag-1-c",
+    "wdh": [
+     0.4,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "bag-2-c",
+    "wdh": [
+     0.15,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "bag-3-c",
+    "wdh": [
+     0.3,
+     0.25,
+     0.4
+    ],
+    "tags": [
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-bottle-potion",
   "name": "Object › Container › Bottle › Potion",
   "category": "obj-container",
@@ -12169,259 +12404,6 @@
     "colors": [
      "#7f3927",
      "#8b7561"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-bag-sack",
-  "name": "Object › Container › Bag › Sack",
-  "category": "obj-container",
-  "limits": {
-   "high.min": 0.1,
-   "high.max": 1,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "sack-a",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "asia",
-     "rope",
-     "textile"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "sack-b",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "asia",
-     "rope",
-     "textile"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-apocalyp",
-    "model": "trash-bag",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "loot-sack-a",
-    "wdh": [
-     0.4,
-     0.4,
-     0.45
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "loot-sack-b",
-    "wdh": [
-     0.4,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "model": "sack",
-    "wdh": [
-     0.15,
-     0.25,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "bag-a",
-    "wdh": [
-     0.55,
-     0.5,
-     0.65
-    ],
-    "tags": [
-     "robin-hood",
-     "textile",
-     "vegetation"
-    ],
-    "colors": [
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "model": "bag-standing",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "qua",
-     "rope",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "bag-standing",
-    "wdh": [
-     0.1,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "qua",
-     "rope",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "bag",
-    "wdh": [
-     0.2,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "qua",
-     "sailing",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "bag",
-    "wdh": [
-     0.45,
-     0.4,
-     0.55
-    ],
-    "tags": [
-     "qua",
-     "rope",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "bag-1-c",
-    "wdh": [
-     0.4,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "bag-2-c",
-    "wdh": [
-     0.15,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "bag-3-c",
-    "wdh": [
-     0.3,
-     0.25,
-     0.4
-    ],
-    "tags": [
-     "textile"
-    ],
-    "colors": [
-     "#8b7561",
-     "#b58158"
     ]
    }
   ]
@@ -21462,25 +21444,6 @@
     "colors": [
      "#1367a6",
      "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "model": "arrow-half",
-    "wdh": [
-     0.05,
-     0.05,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "robin-hood",
-     "textile",
-     "wood-beam"
-    ],
-    "colors": [
-     "#23562c",
      "#8b5936"
     ]
    },
@@ -49338,22 +49301,6 @@
     ]
    },
    {
-    "slug": "quat-town",
-    "model": "rock-pebble",
-    "wdh": [
-     0.35,
-     0.35,
-     0.45
-    ],
-    "tags": [
-     "qua",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
     "slug": "rocks",
     "model": "pebbles-dirt-a",
     "wdh": [
@@ -49960,6 +49907,21 @@
      0.7,
      0.7,
      0.55
+    ],
+    "tags": [
+     "stone-rock"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "model": "shared-prop-boulder-c",
+    "wdh": [
+     0.45,
+     0.45,
+     0.8
     ],
     "tags": [
      "stone-rock"
@@ -51117,21 +51079,6 @@
    },
    {
     "slug": "fs-terrain",
-    "model": "shared-prop-boulder-c",
-    "wdh": [
-     0.45,
-     0.45,
-     0.8
-    ],
-    "tags": [
-     "stone-rock"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
     "model": "shared-prop-boulder-d",
     "wdh": [
      0.4,
@@ -51821,6 +51768,22 @@
     ],
     "colors": [
      "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "rock-pebble",
+    "wdh": [
+     0.35,
+     0.35,
+     0.45
+    ],
+    "tags": [
+     "qua",
+     "stone-rock"
+    ],
+    "colors": [
+     "#88848a"
     ]
    },
    {
