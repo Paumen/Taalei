@@ -1576,6 +1576,99 @@
   ]
  },
  {
+  "slug": "obj-resource",
+  "name": "Object › Resource",
+  "category": "obj-gen",
+  "byLongest": true,
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "small-props",
+    "model": "skin-hang-a",
+    "wdh": [
+     0.6,
+     1.05,
+     0.9
+    ],
+    "tags": [
+     "leather",
+     "rope",
+     "wood-log"
+    ],
+    "colors": [
+     "#8b7561",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "haystack-cube",
+    "wdh": [
+     0.4,
+     0.45,
+     0.6
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "haystack-round",
+    "wdh": [
+     1.3,
+     0.9,
+     0.7
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "haystack-thick",
+    "wdh": [
+     0.6,
+     0.6,
+     0.7
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "haystack-thin",
+    "wdh": [
+     0.45,
+     0.45,
+     0.65
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-resource-stone",
   "name": "Object › Resource › Stone",
   "category": "obj-gen",
@@ -3336,6 +3429,165 @@
   ]
  },
  {
+  "slug": "obj-lighting-lantern-onpost",
+  "name": "Object › Lighting › Lantern › On post",
+  "category": "obj-gen",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-town",
+    "model": "lamp-street",
+    "wdh": [
+     0.45,
+     0.1,
+     0.55
+    ],
+    "tags": [
+     "emissive",
+     "glass",
+     "metal-iron-wrought",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "isa-park",
+    "model": "street-lantern",
+    "wdh": [
+     0.25,
+     0.25,
+     1.2
+    ],
+    "tags": [
+     "emissive",
+     "isa",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-hallow",
+    "model": "post-lantern",
+    "wdh": [
+     0.15,
+     0.4,
+     0.8
+    ],
+    "tags": [
+     "emissive",
+     "glass",
+     "halloween",
+     "kay",
+     "metal-iron-wrought",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#f2a93c",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "kay-holiday",
+    "model": "lantern-decorated",
+    "wdh": [
+     0.3,
+     0.25,
+     1.2
+    ],
+    "tags": [
+     "ceramic",
+     "emissive",
+     "foliage",
+     "kay",
+     "metal-iron-wrought",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-holiday",
+    "model": "street-lantern",
+    "wdh": [
+     0.3,
+     0.25,
+     1.2
+    ],
+    "tags": [
+     "emissive",
+     "kay",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "model": "lightpost-single",
+    "wdh": [
+     0.2,
+     0.4,
+     1.1
+    ],
+    "tags": [
+     "emissive",
+     "grave",
+     "halloween",
+     "ken",
+     "metal-iron-wrought",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-holiday",
+    "model": "lantern",
+    "wdh": [
+     0.25,
+     0.25,
+     0.9
+    ],
+    "tags": [
+     "emissive",
+     "ken",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-lighting-lantern-single",
   "name": "Object › Lighting › Lantern › Single",
   "category": "obj-gen",
@@ -3794,185 +4046,6 @@
     "colors": [
      "#8b5936",
      "#b58158"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-lighting-lantern-onpost",
-  "name": "Object › Lighting › Lantern › On post",
-  "category": "obj-gen",
-  "limits": {
-   "high.min": 0.2,
-   "high.max": 1.2,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-town",
-    "model": "lamp-street",
-    "wdh": [
-     0.45,
-     0.1,
-     0.55
-    ],
-    "tags": [
-     "emissive",
-     "glass",
-     "metal-iron-wrought",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#8b7561",
-     "#f2a93c",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "isa-park",
-    "model": "street-lantern",
-    "wdh": [
-     0.25,
-     0.25,
-     1.2
-    ],
-    "tags": [
-     "emissive",
-     "isa",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
-    "model": "post-lantern",
-    "wdh": [
-     0.15,
-     0.4,
-     0.8
-    ],
-    "tags": [
-     "emissive",
-     "glass",
-     "halloween",
-     "kay",
-     "metal-iron-wrought",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#f2a93c",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "kay-holiday",
-    "model": "lantern-decorated",
-    "wdh": [
-     0.3,
-     0.25,
-     1.2
-    ],
-    "tags": [
-     "ceramic",
-     "emissive",
-     "foliage",
-     "kay",
-     "metal-iron-wrought",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#7f3927",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-holiday",
-    "model": "lantern-mini",
-    "wdh": [
-     0.05,
-     0.05,
-     0.2
-    ],
-    "tags": [
-     "ceramic",
-     "emissive",
-     "kay",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-holiday",
-    "model": "street-lantern",
-    "wdh": [
-     0.3,
-     0.25,
-     1.2
-    ],
-    "tags": [
-     "emissive",
-     "kay",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "lightpost-single",
-    "wdh": [
-     0.2,
-     0.4,
-     1.1
-    ],
-    "tags": [
-     "emissive",
-     "grave",
-     "halloween",
-     "ken",
-     "metal-iron-wrought",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-holiday",
-    "model": "lantern",
-    "wdh": [
-     0.25,
-     0.25,
-     0.9
-    ],
-    "tags": [
-     "emissive",
-     "ken",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#f2a93c"
     ]
    }
   ]
@@ -5742,6 +5815,199 @@
   ]
  },
  {
+  "slug": "obj-food-grain",
+  "name": "Object › Food › Grain",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "isa-bakery",
+    "model": "dough-ball",
+    "wdh": [
+     0.1,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "dough-rolled-a",
+    "wdh": [
+     0.45,
+     0.4,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "dough-rolled-b",
+    "wdh": [
+     0.25,
+     0.3,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "flour-sack-open",
+    "wdh": [
+     0.15,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "flour-sack",
+    "wdh": [
+     0.15,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-bun",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "hay",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "qua",
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-nature",
+    "model": "wheat",
+    "wdh": [
+     0.15,
+     0.15,
+     0.45
+    ],
+    "tags": [
+     "qua",
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "wheat",
+    "wdh": [
+     0.25,
+     0.2,
+     0.5
+    ],
+    "tags": [
+     "vegetation"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "model": "haystack-forked",
+    "wdh": [
+     0.95,
+     1,
+     0.95
+    ],
+    "tags": [
+     "vegetation",
+     "wizp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "model": "haystack",
+    "wdh": [
+     0.9,
+     0.95,
+     0.9
+    ],
+    "tags": [
+     "vegetation",
+     "wizp"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-furniture-seating-chair",
   "name": "Object › Furniture › Seating › Chair",
   "category": "obj-gen",
@@ -7010,259 +7276,6 @@
   ]
  },
  {
-  "slug": "obj-food-grain",
-  "name": "Object › Food › Grain",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "isa-bakery",
-    "model": "dough-ball",
-    "wdh": [
-     0.1,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "dough-rolled-a",
-    "wdh": [
-     0.45,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "dough-rolled-b",
-    "wdh": [
-     0.25,
-     0.3,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "flour-sack-open",
-    "wdh": [
-     0.15,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "flour-sack",
-    "wdh": [
-     0.15,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-bun",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "hay",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "qua",
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-nature",
-    "model": "wheat",
-    "wdh": [
-     0.15,
-     0.15,
-     0.45
-    ],
-    "tags": [
-     "qua",
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "haystack-cube",
-    "wdh": [
-     0.4,
-     0.45,
-     0.6
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "haystack-round",
-    "wdh": [
-     1.3,
-     0.9,
-     0.7
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "haystack-thick",
-    "wdh": [
-     0.6,
-     0.6,
-     0.7
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "haystack-thin",
-    "wdh": [
-     0.45,
-     0.45,
-     0.65
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "wheat",
-    "wdh": [
-     0.25,
-     0.2,
-     0.5
-    ],
-    "tags": [
-     "vegetation"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "model": "haystack-forked",
-    "wdh": [
-     0.95,
-     1,
-     0.95
-    ],
-    "tags": [
-     "vegetation",
-     "wizp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "model": "haystack",
-    "wdh": [
-     0.9,
-     0.95,
-     0.9
-    ],
-    "tags": [
-     "vegetation",
-     "wizp"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-food-grain-pastry-pie",
   "name": "Object › Food › Grain › Pastry › Pie",
   "category": "obj-gen",
@@ -8486,335 +8499,6 @@
   ]
  },
  {
-  "slug": "obj-art-sculpture",
-  "name": "Object › Art › Sculpture",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "dragon-ornament",
-    "wdh": [
-     1,
-     0.1,
-     0.45
-    ],
-    "tags": [
-     "asia",
-     "metal-gold"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "geisha-a",
-    "wdh": [
-     0.6,
-     0.25,
-     0.9
-    ],
-    "tags": [
-     "asia",
-     "skin"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "geisha-b",
-    "wdh": [
-     0.6,
-     0.25,
-     0.9
-    ],
-    "tags": [
-     "asia",
-     "skin",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-hallow",
-    "model": "shrine",
-    "wdh": [
-     0.25,
-     0.25,
-     0.6
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "model": "pedestal-2",
-    "wdh": [
-     0.9,
-     0.9,
-     1.15
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "model": "pedestal",
-    "wdh": [
-     1,
-     1,
-     1.1
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "pedestal-2",
-    "wdh": [
-     0.85,
-     0.85,
-     1.1
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "pedestal",
-    "wdh": [
-     0.95,
-     0.95,
-     1.05
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "model": "statue-horse",
-    "wdh": [
-     0.85,
-     1.6,
-     2.8
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "town-center-1-b",
-    "wdh": [
-     2.85,
-     2.8,
-     2.45
-    ],
-    "tags": [
-     "foliage",
-     "qua",
-     "stone-masonry",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#68872d",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "town-center-1-c",
-    "wdh": [
-     2.85,
-     2.8,
-     2.8
-    ],
-    "tags": [
-     "foliage",
-     "qua",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#68872d",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "statue-frog",
-    "wdh": [
-     0.65,
-     0.65,
-     0.55
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "statue-monk",
-    "wdh": [
-     0.65,
-     0.65,
-     0.9
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "wall-decor-a",
-    "wdh": [
-     0.3,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "metal-gold",
-     "wizp"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "wall-decor-b",
-    "wdh": [
-     0.3,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "wall-decor-c",
-    "wdh": [
-     0.4,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "wall-decor-d",
-    "wdh": [
-     0.4,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "asia",
-     "metal-gold",
-     "wizp"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "wizp-grave",
-    "model": "statue-mourner",
-    "wdh": [
-     0.35,
-     0.35,
-     0.55
-    ],
-    "tags": [
-     "halloween",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-resource-metal",
   "name": "Object › Resource › Metal",
   "category": "obj-gen",
@@ -9131,6 +8815,383 @@
     ],
     "colors": [
      "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-art-sculpture",
+  "name": "Object › Art › Sculpture",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "dragon-ornament",
+    "wdh": [
+     1,
+     0.1,
+     0.45
+    ],
+    "tags": [
+     "asia",
+     "metal-gold"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "geisha-a",
+    "wdh": [
+     0.6,
+     0.25,
+     0.9
+    ],
+    "tags": [
+     "asia",
+     "skin"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "geisha-b",
+    "wdh": [
+     0.6,
+     0.25,
+     0.9
+    ],
+    "tags": [
+     "asia",
+     "skin",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-playground",
+    "model": "sandcastle-a",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "stone-soil"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "isa-playground",
+    "model": "sandcastle-b",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "stone-soil"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "isa-playground",
+    "model": "sandcastle-c",
+    "wdh": [
+     0.45,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "stone-soil"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-hallow",
+    "model": "shrine",
+    "wdh": [
+     0.25,
+     0.25,
+     0.6
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "model": "pedestal-2",
+    "wdh": [
+     0.9,
+     0.9,
+     1.15
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "model": "pedestal",
+    "wdh": [
+     1,
+     1,
+     1.1
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "pedestal-2",
+    "wdh": [
+     0.85,
+     0.85,
+     1.1
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "pedestal",
+    "wdh": [
+     0.95,
+     0.95,
+     1.05
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "model": "statue-horse",
+    "wdh": [
+     0.85,
+     1.6,
+     2.8
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "town-center-1-b",
+    "wdh": [
+     2.85,
+     2.8,
+     2.45
+    ],
+    "tags": [
+     "foliage",
+     "qua",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#68872d",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "town-center-1-c",
+    "wdh": [
+     2.85,
+     2.8,
+     2.8
+    ],
+    "tags": [
+     "foliage",
+     "qua",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "statue-frog",
+    "wdh": [
+     0.65,
+     0.65,
+     0.55
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "statue-monk",
+    "wdh": [
+     0.65,
+     0.65,
+     0.9
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "wall-decor-a",
+    "wdh": [
+     0.3,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "metal-gold",
+     "wizp"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "wall-decor-b",
+    "wdh": [
+     0.3,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "wall-decor-c",
+    "wdh": [
+     0.4,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "wall-decor-d",
+    "wdh": [
+     0.4,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "asia",
+     "metal-gold",
+     "wizp"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "wizp-grave",
+    "model": "statue-mourner",
+    "wdh": [
+     0.35,
+     0.35,
+     0.55
+    ],
+    "tags": [
+     "halloween",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#88848a"
     ]
    }
   ]
@@ -24152,67 +24213,6 @@
      "#8b5936",
      "#8b7561",
      "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-fort",
-  "name": "Structure › Building › Fort",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "isa-playground",
-    "model": "sandcastle-a",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "stone-soil"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "isa-playground",
-    "model": "sandcastle-b",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "stone-soil"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "isa-playground",
-    "model": "sandcastle-c",
-    "wdh": [
-     0.45,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "stone-soil"
-    ],
-    "colors": [
-     "#8b7561"
     ]
    }
   ]
