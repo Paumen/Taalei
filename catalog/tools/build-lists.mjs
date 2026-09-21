@@ -3,7 +3,7 @@ import { join, dirname, resolve, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit } from './glb.mjs';
-import { readPng } from './png.mjs';
+import { readPng, writePng } from './png.mjs';
 import { readKindTree, kindName, kindFromName } from './kinds.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { alleBestanden, bronModellen, bronId, meet, kebab } from './bronmodellen.mjs';
@@ -73,11 +73,11 @@ function vormsleutel(primitieven, { laag, hoog }) {
 
 function vindTextuur(gevraagd, uitgepakt, afbeeldingen) {
   if (!gevraagd) return null;
-  if (gevraagd.includes('/') && existsSync(gevraagd)) return gevraagd;
+  if (gevraagd.includes('/') && existsSync(gevraagd)) return { pad: gevraagd, zeker: true };
   const gezocht = basename(gevraagd).toLowerCase();
   const raak = afbeeldingen.find((p) => basename(p).toLowerCase() === gezocht);
-  if (raak) return raak;
-  return afbeeldingen.length === 1 ? afbeeldingen[0] : null;
+  if (raak) return { pad: raak, zeker: true };
+  return afbeeldingen.length === 1 ? { pad: afbeeldingen[0], zeker: false } : null;
 }
 
 const ALGEMENE_WOORDEN = new Set([
@@ -95,6 +95,14 @@ const woorden = (naam) =>
 
 const overlap = (a, b) => [...a].filter((woord) => b.has(woord)).length;
 
+const DATAKAARTEN = new Set([
+  'alpha', 'ambient', 'emission', 'emissive', 'gloss', 'glossiness', 'height',
+  'mask', 'metallic', 'metalness', 'normal', 'occlusion', 'opacity', 'orm',
+  'roughness', 'specular',
+]);
+
+const isDatakaart = (pad) => [...woorden(pad)].some((woord) => DATAKAARTEN.has(woord));
+
 function gelijkendeAfbeelding(gevraagd, materiaalNaam, afbeeldingen) {
   const uitTextuur = woorden(gevraagd);
   const uitMateriaal = woorden(materiaalNaam);
@@ -103,6 +111,7 @@ function gelijkendeAfbeelding(gevraagd, materiaalNaam, afbeeldingen) {
   let beste = null;
   let besteScore = 0;
   for (const pad of afbeeldingen) {
+    if (isDatakaart(pad) && !isDatakaart(gevraagd)) continue;
     const kandidaat = woorden(pad);
     const score = overlap(uitTextuur, kandidaat) * 2 + overlap(uitMateriaal, kandidaat);
     if (score === 0) continue;
@@ -142,6 +151,49 @@ function gemiddeldeKleur(pad) {
 }
 
 const uitHex = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
+const PREVIEW_TEXEL = 1024;
+
+function kleinerePng(pad, doel) {
+  if (extname(pad).toLowerCase() !== '.png') return false;
+
+  const { width, height, pixels } = readPng(pad);
+  const factor = Math.ceil(Math.max(width, height) / PREVIEW_TEXEL);
+  if (factor < 2) return false;
+
+  const breed = Math.max(1, Math.ceil(width / factor));
+  const hoog = Math.max(1, Math.ceil(height / factor));
+  const uit = Buffer.alloc(breed * hoog * 4);
+
+  for (let y = 0; y < hoog; y++) {
+    for (let x = 0; x < breed; x++) {
+      const som = [0, 0, 0, 0];
+      let gewicht = 0;
+      for (let dy = 0; dy < factor; dy++) {
+        const by = y * factor + dy;
+        if (by >= height) break;
+        for (let dx = 0; dx < factor; dx++) {
+          const bx = x * factor + dx;
+          if (bx >= width) break;
+          const i = (by * width + bx) * 4;
+          const alpha = pixels[i + 3] / 255;
+          for (let k = 0; k < 3; k++) som[k] += (pixels[i + k] / 255) ** 2.2 * alpha;
+          som[3] += pixels[i + 3];
+          gewicht += alpha;
+        }
+      }
+      const tel = Math.min(factor, height - y * factor) * Math.min(factor, width - x * factor);
+      const j = (y * breed + x) * 4;
+      for (let k = 0; k < 3; k++) {
+        uit[j + k] = gewicht > 0 ? Math.round(((som[k] / gewicht) ** (1 / 2.2)) * 255) : 0;
+      }
+      uit[j + 3] = Math.round(som[3] / tel);
+    }
+  }
+
+  writePng(doel, { width: breed, height: hoog, pixels: uit });
+  return true;
+}
 
 function las(primitief, midden, metUvs) {
   const bron = primitief.posities;
@@ -401,7 +453,8 @@ for (const bronkit of BRONKITS) {
       }
       gebruikteNamen.add(naam);
       gekopieerd.set(sleutel, naam);
-      copyFileSync(pad, join(uitvoerMap, naam));
+      const doel = join(uitvoerMap, naam);
+      if (!kleinerePng(pad, doel)) copyFileSync(pad, doel);
       return naam;
     };
 
@@ -415,14 +468,15 @@ for (const bronkit of BRONKITS) {
       for (const primitief of model.primitieven) {
         const { textuur, naam } = primitief.materiaal;
         const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
-        texturen.push(gevonden ? neemMee(gevonden) : null);
-        if (gevonden) {
-          kleuren.push(null);
-          continue;
-        }
         const gekozen = handkleuren[naam]
           ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
           ?? handkleuren[basename(String(textuur ?? ''))];
+        if (gevonden && (gevonden.zeker || !gekozen)) {
+          texturen.push(neemMee(gevonden.pad));
+          kleuren.push(null);
+          continue;
+        }
+        texturen.push(null);
         if (gekozen) {
           kleuren.push(uitHex(gekozen));
           continue;
