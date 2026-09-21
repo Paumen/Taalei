@@ -116,12 +116,12 @@ const PAGE = `<!doctype html><meta charset="utf-8">
   model-viewer { width: ${SIZE}px; height: ${SIZE}px; display: block; --poster-color: transparent; }
 </style>
 <model-viewer id="soft" camera-orbit="35deg 68deg auto" shadow-softness="0.9" tone-mapping="neutral"
-  environment-image="/catalog/zachte-omgeving.png" shadow-intensity="0.6" exposure="1.5"
+  environment-image="/catalog/app/zachte-omgeving.png" shadow-intensity="0.6" exposure="1.5"
   interaction-prompt="none" disable-zoom loading="eager"></model-viewer>
 <model-viewer id="flat" camera-orbit="35deg 68deg auto" shadow-softness="0.9" tone-mapping="neutral"
-  environment-image="/catalog/effen-omgeving.png" shadow-intensity="0" exposure="1.3"
+  environment-image="/catalog/app/effen-omgeving.png" shadow-intensity="0" exposure="1.3"
   interaction-prompt="none" disable-zoom loading="eager"></model-viewer>
-<script type="module" src="/catalog/vendor/model-viewer.min.js"></script>
+<script type="module" src="/catalog/app/vendor/model-viewer.min.js"></script>
 <script type="module">
 const viewers = [document.querySelector('#soft'), document.querySelector('#flat')];
 const once = (el, type, timeout) => new Promise((ok, fail) => {
