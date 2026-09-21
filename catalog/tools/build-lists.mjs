@@ -3,7 +3,7 @@ import { join, dirname, resolve, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { readGlb, writeGlb, measureScene, trianglesPerUnit } from './glb.mjs';
-import { readPng } from './png.mjs';
+import { readPng, writePng } from './png.mjs';
 import { readKindTree, kindName, kindFromName } from './kinds.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { alleBestanden, bronModellen, bronId, meet, kebab } from './bronmodellen.mjs';
@@ -151,6 +151,49 @@ function gemiddeldeKleur(pad) {
 }
 
 const uitHex = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
+const PREVIEW_TEXEL = 1024;
+
+function kleinerePng(pad, doel) {
+  if (extname(pad).toLowerCase() !== '.png') return false;
+
+  const { width, height, pixels } = readPng(pad);
+  const factor = Math.ceil(Math.max(width, height) / PREVIEW_TEXEL);
+  if (factor < 2) return false;
+
+  const breed = Math.max(1, Math.ceil(width / factor));
+  const hoog = Math.max(1, Math.ceil(height / factor));
+  const uit = Buffer.alloc(breed * hoog * 4);
+
+  for (let y = 0; y < hoog; y++) {
+    for (let x = 0; x < breed; x++) {
+      const som = [0, 0, 0, 0];
+      let gewicht = 0;
+      for (let dy = 0; dy < factor; dy++) {
+        const by = y * factor + dy;
+        if (by >= height) break;
+        for (let dx = 0; dx < factor; dx++) {
+          const bx = x * factor + dx;
+          if (bx >= width) break;
+          const i = (by * width + bx) * 4;
+          const alpha = pixels[i + 3] / 255;
+          for (let k = 0; k < 3; k++) som[k] += (pixels[i + k] / 255) ** 2.2 * alpha;
+          som[3] += pixels[i + 3];
+          gewicht += alpha;
+        }
+      }
+      const tel = Math.min(factor, height - y * factor) * Math.min(factor, width - x * factor);
+      const j = (y * breed + x) * 4;
+      for (let k = 0; k < 3; k++) {
+        uit[j + k] = gewicht > 0 ? Math.round(((som[k] / gewicht) ** (1 / 2.2)) * 255) : 0;
+      }
+      uit[j + 3] = Math.round(som[3] / tel);
+    }
+  }
+
+  writePng(doel, { width: breed, height: hoog, pixels: uit });
+  return true;
+}
 
 function las(primitief, midden, metUvs) {
   const bron = primitief.posities;
@@ -410,7 +453,8 @@ for (const bronkit of BRONKITS) {
       }
       gebruikteNamen.add(naam);
       gekopieerd.set(sleutel, naam);
-      copyFileSync(pad, join(uitvoerMap, naam));
+      const doel = join(uitvoerMap, naam);
+      if (!kleinerePng(pad, doel)) copyFileSync(pad, doel);
       return naam;
     };
 

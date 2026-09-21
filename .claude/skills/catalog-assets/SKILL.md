@@ -38,6 +38,9 @@ not resolve. A pack whose only image is not the map the material asks for gets
 that image anyway, so wrongly mapped colour is the same failure. Fix either by
 hand in `catalog/data/preview-colors.json`, keyed by pack and then by material or
 texture name; a hand colour beats every texture but an exact name match.
+A map a preview carries goes in at 1024 texels at most, boxed down by a whole
+factor: a card holds its texture for as long as it is on the page, so a larger
+one costs the tab once per model in the pack.
 
 A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
