@@ -1,6 +1,6 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=2c07411020';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=2c07411020';
-import './bouwstempel.js?v=2c07411020';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=cf75c71b96';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=cf75c71b96';
+import './bouwstempel.js?v=cf75c71b96';
 
 const MODEL_PATH = 'kits/workfiles';
 
