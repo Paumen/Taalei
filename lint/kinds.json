@@ -191,6 +191,13 @@
         "can",
         "watering can"
        ]
+      },
+      {
+       "id": "obj-container-pallet",
+       "high.min": 0.05,
+       "nouns": [
+        "pallet"
+       ]
       }
      ]
     },
@@ -365,141 +372,15 @@
           "rice paddle",
           "wooden paddle"
          ]
-        },
-        {
-         "id": "obj-kitchenware-cookware-stove",
-         "nouns": [
-          "stove",
-          "oven",
-          "range"
-         ]
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "id": "obj-furniture",
-     "longest.min": 0.2,
-     "longest.max": 1.2,
-     "tpu.max": 5000,
-     "children": [
-      {
-       "id": "obj-furniture-seating",
-       "high.max": 0.9,
-       "children": [
-        {
-         "id": "obj-furniture-seating-bench",
-         "high.max": 0.8,
-         "nouns": [
-          "bench",
-          "pew"
-         ],
-         "children": [
-          {
-           "id": "obj-furniture-seating-bench-backrest",
-           "nouns": [
-            "couch",
-            "sofa",
-            "backed bench"
-           ]
-          },
-          {
-           "id": "obj-furniture-seating-bench-nobackrest",
-           "nouns": [
-            "backless bench"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-furniture-seating-chair",
-         "high.min": 0.3,
-         "high.max": 0.9,
-         "nouns": [
-          "chair",
-          "armchair",
-          "throne"
-         ]
-        },
-        {
-         "id": "obj-furniture-seating-stool",
-         "high.max": 0.6,
-         "nouns": [
-          "stool",
-          "footstool"
-         ]
         }
        ]
       },
       {
-       "id": "obj-furniture-table",
-       "high.max": 0.5,
+       "id": "obj-kitchenware-appliance",
        "nouns": [
-        "table",
-        "desk"
-       ],
-       "children": [
-        {
-         "id": "obj-furniture-table-square",
-         "nouns": [
-          "square table"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-furniture-bed",
-       "longest.min": 0.6,
-       "nouns": [
-        "bed",
-        "bedroll",
-        "bunk",
-        "cot",
-        "hammock"
-       ]
-      },
-      {
-       "id": "obj-furniture-storage",
-       "longest.min": 0.2,
-       "nouns": [
-        "chest of drawers",
-        "dresser"
-       ],
-       "children": [
-        {
-         "id": "obj-furniture-storage-cabinet",
-         "nouns": [
-          "cabinet",
-          "bookcase",
-          "wardrobe",
-          "cupboard",
-          "closet"
-         ]
-        },
-        {
-         "id": "obj-furniture-storage-shelf",
-         "nouns": [
-          "shelf",
-          "wall shelf",
-          "shelving"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-furniture-pillow",
-       "nouns": [
-        "pillow",
-        "cushion"
-       ]
-      },
-      {
-       "id": "obj-furniture-rug",
-       "nouns": [
-        "rug",
-        "carpet",
-        "picnic blanket"
+        "stove",
+        "oven",
+        "range"
        ]
       }
      ]
@@ -568,30 +449,6 @@
        ],
        "children": [
         {
-         "id": "obj-food-grain-pastry",
-         "nouns": [
-          "croissant",
-          "waffle",
-          "cookie",
-          "donut",
-          "muffin",
-          "cupcake",
-          "pretzel",
-          "cinnamon roll",
-          "cream puff",
-          "gingerbread"
-         ],
-         "children": [
-          {
-           "id": "obj-food-grain-pastry-pie",
-           "nouns": [
-            "cake",
-            "pie"
-           ]
-          }
-         ]
-        },
-        {
          "id": "obj-food-grain-bread",
          "nouns": [
           "bread",
@@ -625,6 +482,12 @@
          "nouns": [
           "apple"
          ]
+        },
+        {
+         "id": "obj-food-fruit-coconut",
+         "nouns": [
+          "coconut"
+         ]
         }
        ]
       },
@@ -653,240 +516,31 @@
        ]
       },
       {
-       "id": "obj-food-coconut",
-       "nouns": [
-        "coconut"
-       ]
-      },
-      {
        "id": "obj-food-egg",
        "nouns": [
         "egg"
        ]
-      }
-     ]
-    },
-    {
-     "id": "obj-weapon",
-     "mat.metal-iron": "metal-iron-steel",
-     "children": [
-      {
-       "id": "obj-weapon-melee",
-       "longest.min": 0.1,
-       "nouns": [
-        "scythe (weapon)",
-        "knuckles",
-        "claws",
-        "gauntlet blade"
-       ],
-       "children": [
-        {
-         "id": "obj-weapon-melee-sword",
-         "longest.min": 0.4,
-         "longest.max": 1.0,
-         "nouns": [
-          "sword",
-          "rapier",
-          "scimitar",
-          "katana"
-         ],
-         "children": [
-          {
-           "id": "obj-weapon-melee-sword-blade",
-           "nouns": [
-            "blade",
-            "cutlass",
-            "machete"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-weapon-melee-dagger",
-         "longest.max": 0.5,
-         "nouns": [
-          "dagger",
-          "knife (combat)"
-         ]
-        },
-        {
-         "id": "obj-weapon-melee-axe",
-         "longest.min": 0.2,
-         "longest.max": 0.8,
-         "children": [
-          {
-           "id": "obj-weapon-melee-axe-single",
-           "nouns": [
-            "axe",
-            "hatchet"
-           ]
-          },
-          {
-           "id": "obj-weapon-melee-axe-double",
-           "nouns": [
-            "battleaxe",
-            "double axe"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-weapon-melee-hammer",
-         "longest.min": 0.2,
-         "longest.max": 0.8,
-         "nouns": [
-          "hammer (war)",
-          "mace",
-          "flail"
-         ],
-         "children": [
-          {
-           "id": "obj-weapon-melee-hammer-club",
-           "nouns": [
-            "club",
-            "bat"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-weapon-melee-spear",
-         "nouns": [
-          "spear",
-          "pike",
-          "halberd",
-          "naginata"
-         ]
-        }
-       ]
       },
       {
-       "id": "obj-weapon-ranged",
-       "longest.max": 1.0,
+       "id": "obj-food-pastry",
        "nouns": [
-        "sling",
-        "throwing knife",
-        "javelin"
+        "croissant",
+        "waffle",
+        "cookie",
+        "donut",
+        "muffin",
+        "cupcake",
+        "pretzel",
+        "cinnamon roll",
+        "cream puff",
+        "gingerbread"
        ],
        "children": [
         {
-         "id": "obj-weapon-ranged-bow",
-         "longest.min": 0.4,
+         "id": "obj-food-pastry-pie",
          "nouns": [
-          "bow",
-          "longbow"
-         ]
-        },
-        {
-         "id": "obj-weapon-ranged-crossbow",
-         "nouns": [
-          "crossbow"
-         ]
-        },
-        {
-         "id": "obj-weapon-ranged-accessory",
-         "children": [
-          {
-           "id": "obj-weapon-ranged-accessory-quiver",
-           "nouns": [
-            "quiver"
-           ]
-          },
-          {
-           "id": "obj-weapon-ranged-accessory-arrow",
-           "nouns": [
-            "arrow",
-            "bolt (crossbow)",
-            "dart"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-weapon-ranged-firearm",
-         "nouns": [
-          "rifle",
-          "musket",
-          "blunderbuss",
-          "carbine"
-         ],
-         "children": [
-          {
-           "id": "obj-weapon-ranged-firearm-hand",
-           "nouns": [
-            "pistol",
-            "revolver"
-           ]
-          },
-          {
-           "id": "obj-weapon-ranged-firearm-shotgun",
-           "nouns": [
-            "shotgun"
-           ]
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-weapon-magic",
-       "longest.min": 0.1,
-       "longest.max": 1.2,
-       "band.paper": [
-        "umber",
-        "sienna",
-        "hunter",
-        "slate"
-       ],
-       "nouns": [
-        "wand",
-        "orb",
-        "focus (magic)"
-       ],
-       "children": [
-        {
-         "id": "obj-weapon-magic-staff",
-         "nouns": [
-          "staff",
-          "wizard staff"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-weapon-cannon",
-       "mat.metal-iron": "metal-iron-cast",
-       "nouns": [
-        "cannon"
-       ],
-       "children": [
-        {
-         "id": "obj-weapon-cannon-ball",
-         "nouns": [
-          "cannonball",
-          "bomb",
-          "catapult ball"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-weapon-target",
-       "children": [
-        {
-         "id": "obj-weapon-target-dummy",
-         "nouns": [
-          "training dummy",
-          "training post",
-          "armour stand",
-          "mannequin"
-         ]
-        },
-        {
-         "id": "obj-weapon-target-bullseye",
-         "nouns": [
-          "target",
-          "archery target"
+          "cake",
+          "pie"
          ]
         }
        ]
@@ -895,13 +549,13 @@
     },
     {
      "id": "obj-equipment",
-     "mat.metal-iron": "metal-iron-steel",
      "nouns": [
       "crown"
      ],
      "children": [
       {
        "id": "obj-equipment-armor",
+       "mat.metal-iron": "metal-iron-steel",
        "nouns": [
         "helmet",
         "chestplate",
@@ -912,6 +566,7 @@
       },
       {
        "id": "obj-equipment-shield",
+       "mat.metal-iron": "metal-iron-steel",
        "high.min": 0.2,
        "high.max": 0.6,
        "nouns": [
@@ -920,7 +575,241 @@
        ]
       },
       {
-       "id": "obj-equipment-clothing",
+       "id": "obj-equipment-weapon",
+       "mat.metal-iron": "metal-iron-steel",
+       "children": [
+        {
+         "id": "obj-equipment-weapon-melee",
+         "longest.min": 0.1,
+         "nouns": [
+          "scythe (weapon)",
+          "knuckles",
+          "claws",
+          "gauntlet blade"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-weapon-melee-sword",
+           "longest.min": 0.4,
+           "longest.max": 1.0,
+           "nouns": [
+            "sword",
+            "rapier",
+            "scimitar",
+            "katana"
+           ],
+           "children": [
+            {
+             "id": "obj-equipment-weapon-melee-sword-blade",
+             "nouns": [
+              "blade",
+              "cutlass",
+              "machete"
+             ]
+            }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-dagger",
+           "longest.max": 0.5,
+           "nouns": [
+            "dagger",
+            "knife (combat)"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-axe",
+           "longest.min": 0.2,
+           "longest.max": 0.8,
+           "children": [
+            {
+             "id": "obj-equipment-weapon-melee-axe-single",
+             "nouns": [
+              "axe",
+              "hatchet"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-melee-axe-double",
+             "nouns": [
+              "battleaxe",
+              "double axe"
+             ]
+            }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-hammer",
+           "longest.min": 0.2,
+           "longest.max": 0.8,
+           "nouns": [
+            "hammer (war)",
+            "mace",
+            "flail"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-spear",
+           "nouns": [
+            "spear",
+            "pike",
+            "halberd",
+            "naginata"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-club",
+           "nouns": [
+            "club",
+            "bat"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-equipment-weapon-ranged",
+         "longest.max": 1.0,
+         "nouns": [
+          "sling",
+          "throwing knife",
+          "javelin"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-weapon-ranged-bow",
+           "longest.min": 0.4,
+           "nouns": [
+            "bow",
+            "longbow"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-crossbow",
+           "nouns": [
+            "crossbow"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-accessory",
+           "children": [
+            {
+             "id": "obj-equipment-weapon-ranged-accessory-quiver",
+             "nouns": [
+              "quiver"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-ranged-accessory-arrow",
+             "nouns": [
+              "arrow",
+              "bolt (crossbow)",
+              "dart"
+             ]
+            }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-firearm",
+           "nouns": [
+            "rifle",
+            "musket",
+            "blunderbuss",
+            "carbine"
+           ],
+           "children": [
+            {
+             "id": "obj-equipment-weapon-ranged-firearm-hand",
+             "nouns": [
+              "pistol",
+              "revolver"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-ranged-firearm-shotgun",
+             "nouns": [
+              "shotgun"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-equipment-weapon-magic",
+         "longest.min": 0.1,
+         "longest.max": 1.2,
+         "band.paper": [
+          "umber",
+          "sienna",
+          "hunter",
+          "slate"
+         ],
+         "nouns": [
+          "wand",
+          "orb",
+          "focus (magic)"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-weapon-magic-staff",
+           "nouns": [
+            "staff",
+            "wizard staff"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-equipment-weapon-target",
+         "children": [
+          {
+           "id": "obj-equipment-weapon-target-dummy",
+           "nouns": [
+            "training dummy",
+            "training post",
+            "armour stand",
+            "mannequin"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-target-bullseye",
+           "nouns": [
+            "target",
+            "archery target"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-equipment-weapon-siege",
+         "mat.metal-iron": "metal-iron-cast",
+         "children": [
+          {
+           "id": "obj-equipment-weapon-siege-cannon",
+           "nouns": [
+            "cannon"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-siege-ammunition",
+           "children": [
+            {
+             "id": "obj-equipment-weapon-siege-ammunition-cannonball",
+             "nouns": [
+              "cannonball",
+              "bomb",
+              "catapult ball"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-equipment-apparel",
+       "mat.metal-iron": "metal-iron-steel",
        "band.textile": [
         "ivory",
         "hunter",
@@ -936,6 +825,121 @@
         "shoes",
         "belt",
         "glove"
+       ]
+      },
+      {
+       "id": "obj-equipment-pocketitem",
+       "nouns": [
+        "compass",
+        "hourglass",
+        "dice",
+        "mirror (hand)"
+       ],
+       "children": [
+        {
+         "id": "obj-equipment-pocketitem-coin",
+         "longest.max": 0.2,
+         "has": [
+          "metal-gold"
+         ],
+         "nouns": [
+          "coin",
+          "gold pile",
+          "gem (cut)"
+         ]
+        },
+        {
+         "id": "obj-equipment-pocketitem-key",
+         "longest.max": 0.2,
+         "has": [
+          [
+           "metal-iron",
+           "metal-gold"
+          ]
+         ],
+         "nouns": [
+          "key"
+         ]
+        },
+        {
+         "id": "obj-equipment-pocketitem-book",
+         "longest.min": 0.1,
+         "longest.max": 0.3,
+         "band": [
+          "umber",
+          "sienna",
+          "hunter",
+          "slate"
+         ],
+         "nouns": [
+          "book",
+          "tome",
+          "journal",
+          "spell book"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-pocketitem-book-closed",
+           "nouns": [
+            "closed book"
+           ]
+          },
+          {
+           "id": "obj-equipment-pocketitem-book-open",
+           "nouns": [
+            "open book"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-equipment-pocketitem-scroll",
+         "longest.min": 0.1,
+         "longest.max": 0.6,
+         "band.paper": [
+          "ivory"
+         ],
+         "nouns": [
+          "scroll",
+          "letter",
+          "parchment",
+          "blueprint"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-pocketitem-scroll-rolled",
+           "nouns": [
+            "map (rolled)",
+            "rolled scroll"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-equipment-jewellery",
+       "has": [
+        [
+         "metal-gold",
+         "gemstone"
+        ]
+       ],
+       "nouns": [
+        "necklace",
+        "amulet",
+        "bracelet",
+        "earring",
+        "pendant",
+        "brooch"
+       ],
+       "children": [
+        {
+         "id": "obj-equipment-jewellery-ring",
+         "nouns": [
+          "ring"
+         ]
+        }
        ]
       }
      ]
@@ -1041,25 +1045,6 @@
      ],
      "children": [
       {
-       "id": "obj-transport-ship",
-       "nouns": [
-        "ship",
-        "galleon",
-        "longship",
-        "hull (ship)"
-       ]
-      },
-      {
-       "id": "obj-transport-boat",
-       "nouns": [
-        "boat",
-        "rowboat",
-        "canoe",
-        "raft",
-        "dinghy"
-       ]
-      },
-      {
        "id": "obj-transport-cart",
        "nouns": [
         "cart",
@@ -1070,15 +1055,39 @@
        ]
       },
       {
-       "id": "obj-transport-accessory",
-       "nouns": [
-        "anchor",
-        "paddle",
-        "oar",
-        "wheel",
-        "sail",
-        "rudder",
-        "mast"
+       "id": "obj-transport-watercraft",
+       "children": [
+        {
+         "id": "obj-transport-watercraft-ship",
+         "nouns": [
+          "ship",
+          "galleon",
+          "longship",
+          "hull (ship)"
+         ]
+        },
+        {
+         "id": "obj-transport-watercraft-boat",
+         "nouns": [
+          "boat",
+          "rowboat",
+          "canoe",
+          "raft",
+          "dinghy"
+         ]
+        },
+        {
+         "id": "obj-transport-watercraft-accessory",
+         "nouns": [
+          "anchor",
+          "paddle",
+          "oar",
+          "wheel",
+          "sail",
+          "rudder",
+          "mast"
+         ]
+        }
        ]
       }
      ]
@@ -1146,121 +1155,6 @@
      ]
     },
     {
-     "id": "obj-pocketitem",
-     "nouns": [
-      "compass",
-      "hourglass",
-      "dice",
-      "mirror (hand)"
-     ],
-     "children": [
-      {
-       "id": "obj-pocketitem-coin",
-       "longest.max": 0.2,
-       "has": [
-        "metal-gold"
-       ],
-       "nouns": [
-        "coin",
-        "gold pile",
-        "gem (cut)"
-       ]
-      },
-      {
-       "id": "obj-pocketitem-key",
-       "longest.max": 0.2,
-       "has": [
-        [
-         "metal-iron",
-         "metal-gold"
-        ]
-       ],
-       "nouns": [
-        "key"
-       ]
-      },
-      {
-       "id": "obj-pocketitem-book",
-       "longest.min": 0.1,
-       "longest.max": 0.3,
-       "band": [
-        "umber",
-        "sienna",
-        "hunter",
-        "slate"
-       ],
-       "nouns": [
-        "book",
-        "tome",
-        "journal",
-        "spell book"
-       ],
-       "children": [
-        {
-         "id": "obj-pocketitem-book-closed",
-         "nouns": [
-          "closed book"
-         ]
-        },
-        {
-         "id": "obj-pocketitem-book-open",
-         "nouns": [
-          "open book"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-pocketitem-scroll",
-       "longest.min": 0.1,
-       "longest.max": 0.6,
-       "band.paper": [
-        "ivory"
-       ],
-       "nouns": [
-        "scroll",
-        "letter",
-        "parchment",
-        "blueprint"
-       ],
-       "children": [
-        {
-         "id": "obj-pocketitem-scroll-rolled",
-         "nouns": [
-          "map (rolled)",
-          "rolled scroll"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-pocketitem-jewellery",
-       "has": [
-        [
-         "metal-gold",
-         "gemstone"
-        ]
-       ],
-       "nouns": [
-        "necklace",
-        "amulet",
-        "bracelet",
-        "earring",
-        "pendant",
-        "brooch"
-       ],
-       "children": [
-        {
-         "id": "obj-pocketitem-jewellery-ring",
-         "nouns": [
-          "ring"
-         ]
-        }
-       ]
-      }
-     ]
-    },
-    {
      "id": "obj-resource",
      "longest.max": 1.4,
      "tpu.max": 5000,
@@ -1302,14 +1196,6 @@
          "nouns": [
           "plank (stock)",
           "board (loose)"
-         ],
-         "children": [
-          {
-           "id": "obj-resource-wood-plank-pallet",
-           "nouns": [
-            "pallet"
-           ]
-          }
          ]
         }
        ]
@@ -1331,16 +1217,6 @@
      ]
     },
     {
-     "id": "obj-instrument",
-     "tpu.max": 5000,
-     "nouns": [
-      "bell",
-      "gong",
-      "drum",
-      "lute"
-     ]
-    },
-    {
      "id": "obj-art",
      "children": [
       {
@@ -1355,6 +1231,16 @@
        "nouns": [
         "fountain"
        ]
+      },
+      {
+       "id": "obj-art-instrument",
+       "tpu.max": 5000,
+       "nouns": [
+        "bell",
+        "gong",
+        "drum",
+        "lute"
+       ]
       }
      ]
     },
@@ -1365,6 +1251,132 @@
       "heart (icon)",
       "star (icon)",
       "lightning bolt"
+     ]
+    },
+    {
+     "id": "obj-furnishing",
+     "longest.min": 0.2,
+     "longest.max": 1.2,
+     "tpu.max": 5000,
+     "children": [
+      {
+       "id": "obj-furnishing-seating",
+       "high.max": 0.9,
+       "children": [
+        {
+         "id": "obj-furnishing-seating-bench",
+         "high.max": 0.8,
+         "nouns": [
+          "bench",
+          "pew"
+         ],
+         "children": [
+          {
+           "id": "obj-furnishing-seating-bench-backrest",
+           "nouns": [
+            "couch",
+            "sofa",
+            "backed bench"
+           ]
+          },
+          {
+           "id": "obj-furnishing-seating-bench-nobackrest",
+           "nouns": [
+            "backless bench"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-furnishing-seating-chair",
+         "high.min": 0.3,
+         "high.max": 0.9,
+         "nouns": [
+          "chair",
+          "armchair",
+          "throne"
+         ]
+        },
+        {
+         "id": "obj-furnishing-seating-stool",
+         "high.max": 0.6,
+         "nouns": [
+          "stool",
+          "footstool"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-furnishing-table",
+       "high.max": 0.5,
+       "nouns": [
+        "table",
+        "desk"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-table-square",
+         "nouns": [
+          "square table"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-furnishing-bed",
+       "longest.min": 0.6,
+       "nouns": [
+        "bed",
+        "bedroll",
+        "bunk",
+        "cot",
+        "hammock"
+       ]
+      },
+      {
+       "id": "obj-furnishing-storage",
+       "longest.min": 0.2,
+       "nouns": [
+        "chest of drawers",
+        "dresser"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-storage-cabinet",
+         "nouns": [
+          "cabinet",
+          "bookcase",
+          "wardrobe",
+          "cupboard",
+          "closet"
+         ]
+        },
+        {
+         "id": "obj-furnishing-storage-shelf",
+         "nouns": [
+          "shelf",
+          "wall shelf",
+          "shelving"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-furnishing-pillow",
+       "nouns": [
+        "pillow",
+        "cushion"
+       ]
+      },
+      {
+       "id": "obj-furnishing-rug",
+       "nouns": [
+        "rug",
+        "carpet",
+        "picnic blanket"
+       ]
+      }
      ]
     }
    ]
@@ -1630,71 +1642,6 @@
        ]
       },
       {
-       "id": "str-building-fort",
-       "children": [
-        {
-         "id": "str-building-fort-barracks",
-         "nouns": [
-          "barracks",
-          "stable",
-          "dojo",
-          "archery range",
-          "butts",
-          "weapon shop"
-         ],
-         "children": [
-          {
-           "id": "str-building-fort-barracks-1a"
-          },
-          {
-           "id": "str-building-fort-barracks-2"
-          },
-          {
-           "id": "str-building-fort-barracks-3"
-          },
-          {
-           "id": "str-building-fort-barracks-4"
-          }
-         ]
-        },
-        {
-         "id": "str-building-fort-castle",
-         "nouns": [
-          "castle",
-          "fortress",
-          "keep"
-         ],
-         "children": [
-          {
-           "id": "str-building-fort-castle-4"
-          },
-          {
-           "id": "str-building-fort-castle-5"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "id": "str-building-religion",
-       "nouns": [
-        "shrine",
-        "temple",
-        "altar",
-        "pagoda"
-       ],
-       "children": [
-        {
-         "id": "str-building-religion-church",
-         "nouns": [
-          "church",
-          "chapel",
-          "cathedral"
-         ]
-        }
-       ]
-      },
-      {
        "id": "str-building-farming",
        "nouns": [
         "farm",
@@ -1747,39 +1694,80 @@
          "id": "str-building-workshop-3"
         }
        ]
-      }
-     ]
-    },
-    {
-     "id": "str-stands",
-     "nouns": [
-      "canopy"
-     ],
-     "children": [
+      },
       {
-       "id": "str-stands-market",
-       "nouns": [
-        "market"
+       "id": "str-building-tomb",
+       "children": [
+        {
+         "id": "str-building-tomb-crypt",
+         "nouns": [
+          "crypt",
+          "mausoleum"
+         ]
+        }
        ]
       },
       {
-       "id": "str-stands-stall",
+       "id": "str-building-religious",
        "nouns": [
-        "stall",
-        "market stand",
-        "awning"
-       ]
-      },
-      {
-       "id": "str-stands-tent",
-       "nouns": [
-        "tent"
+        "shrine",
+        "temple",
+        "altar",
+        "pagoda"
        ],
        "children": [
         {
-         "id": "str-stands-tent-camping",
+         "id": "str-building-religious-church",
          "nouns": [
-          "camping tent"
+          "church",
+          "chapel",
+          "cathedral"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "str-building-combat",
+       "children": [
+        {
+         "id": "str-building-combat-barracks",
+         "nouns": [
+          "barracks",
+          "stable",
+          "dojo",
+          "archery range",
+          "butts",
+          "weapon shop"
+         ],
+         "children": [
+          {
+           "id": "str-building-combat-barracks-1a"
+          },
+          {
+           "id": "str-building-combat-barracks-2"
+          },
+          {
+           "id": "str-building-combat-barracks-3"
+          },
+          {
+           "id": "str-building-combat-barracks-4"
+          }
+         ]
+        },
+        {
+         "id": "str-building-combat-castle",
+         "nouns": [
+          "castle",
+          "fortress",
+          "keep"
+         ],
+         "children": [
+          {
+           "id": "str-building-combat-castle-4"
+          },
+          {
+           "id": "str-building-combat-castle-5"
+          }
          ]
         }
        ]
@@ -1951,13 +1939,6 @@
        ],
        "children": [
         {
-         "id": "str-marker-tombstone-crypt",
-         "nouns": [
-          "crypt",
-          "mausoleum"
-         ]
-        },
-        {
          "id": "str-marker-tombstone-gravemarker",
          "nouns": [
           "grave marker",
@@ -1974,6 +1955,42 @@
        "id": "str-marker-banner",
        "nouns": [
         "banner"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "str-temp",
+     "nouns": [
+      "canopy"
+     ],
+     "children": [
+      {
+       "id": "str-temp-market",
+       "nouns": [
+        "market"
+       ]
+      },
+      {
+       "id": "str-temp-stall",
+       "nouns": [
+        "stall",
+        "market stand",
+        "awning"
+       ]
+      },
+      {
+       "id": "str-temp-tent",
+       "nouns": [
+        "tent"
+       ],
+       "children": [
+        {
+         "id": "str-temp-tent-camping",
+         "nouns": [
+          "camping tent"
+         ]
+        }
        ]
       }
      ]
@@ -2057,6 +2074,37 @@
          ]
         }
        ]
+      },
+      {
+       "id": "env-remains-deadwood",
+       "nouns": [
+        "fallen tree",
+        "root"
+       ],
+       "children": [
+        {
+         "id": "env-remains-deadwood-tree",
+         "nouns": [
+          "dead tree",
+          "bare tree"
+         ]
+        },
+        {
+         "id": "env-remains-deadwood-stump",
+         "nouns": [
+          "stump"
+         ]
+        },
+        {
+         "id": "env-remains-deadwood-branch",
+         "nouns": [
+          "branch",
+          "twig",
+          "log (fallen)",
+          "driftwood"
+         ]
+        }
+       ]
       }
      ]
     },
@@ -2134,19 +2182,19 @@
         "sand",
         "snow patch"
        ]
+      },
+      {
+       "id": "env-terrain-water",
+       "nouns": [
+        "water",
+        "pond",
+        "wave",
+        "waterfall",
+        "ice",
+        "pool",
+        "lake"
+       ]
       }
-     ]
-    },
-    {
-     "id": "env-water",
-     "nouns": [
-      "water",
-      "pond",
-      "wave",
-      "waterfall",
-      "ice",
-      "pool",
-      "lake"
      ]
     },
     {
@@ -2219,29 +2267,6 @@
           "grass",
           "grass tuft"
          ]
-        },
-        {
-         "id": "env-flora-plant-water",
-         "nouns": [
-          "waterplant"
-         ],
-         "children": [
-          {
-           "id": "env-flora-plant-water-cattail",
-           "nouns": [
-            "cattail",
-            "reed",
-            "bulrush"
-           ]
-          },
-          {
-           "id": "env-flora-plant-water-lilypad",
-           "nouns": [
-            "water lily",
-            "lily pad"
-           ]
-          }
-         ]
         }
        ]
       },
@@ -2281,32 +2306,24 @@
        ]
       },
       {
-       "id": "env-flora-deadwood",
+       "id": "env-flora-waterplant",
        "nouns": [
-        "fallen tree",
-        "root"
+        "waterplant"
        ],
        "children": [
         {
-         "id": "env-flora-deadwood-tree",
+         "id": "env-flora-waterplant-cattail",
          "nouns": [
-          "dead tree",
-          "bare tree"
+          "cattail",
+          "reed",
+          "bulrush"
          ]
         },
         {
-         "id": "env-flora-deadwood-stump",
+         "id": "env-flora-waterplant-lilypad",
          "nouns": [
-          "stump"
-         ]
-        },
-        {
-         "id": "env-flora-deadwood-branch",
-         "nouns": [
-          "branch",
-          "twig",
-          "log (fallen)",
-          "driftwood"
+          "water lily",
+          "lily pad"
          ]
         }
        ]
