@@ -3099,6 +3099,7 @@ window.KENNEY_KITS = [
    "barrel-a",
    "barrel-b",
    "bell",
+   "bell-loose",
    "brazier",
    "bridge-stone",
    "bridge-wood",
