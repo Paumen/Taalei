@@ -297,7 +297,7 @@ Making and validating:
 
 Importing a pack:
 
-- **`P10`** — One scale factor for the whole pack, for now.
+- **`P10`** — One scale factor for the whole pack, for now. `quat-pirate` is the only kit allowed to break this: its firearms carry half the kit factor. No other kit takes a per-model factor.
 - **`P11`** — 2 source colours: keep 2.
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.
