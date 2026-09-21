@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const TAGS = join(ROOT, 'catalog', 'data', 'tags.json');
 const MANIFEST = join(ROOT, 'catalog', 'data', 'manifest.js');
+const VARIANTEN = join(ROOT, 'catalog', 'data', 'asset_variants.json');
 
 const configs = process.argv.slice(2).map((pad) => JSON.parse(readFileSync(pad, 'utf8')));
 
@@ -25,6 +26,25 @@ for (const config of configs) {
 }
 
 writeFileSync(TAGS, JSON.stringify(tags, null, 1) + '\n');
+
+const varianten = JSON.parse(readFileSync(VARIANTEN, 'utf8'));
+const gezien = new Set(varianten.clusters.map((groep) => groep.members.join(' ')));
+
+for (const config of configs) {
+  for (const groep of config.varianten ?? []) {
+    const leden = groep.leden.map((naam) => `${config.kit}/${naam}`);
+    if (gezien.has(leden.join(' '))) continue;
+    varianten.clusters.push({
+      members: leden,
+      main: leden[0],
+      kits: [config.kit],
+      type: groep.type ?? 'detail-variant',
+      types: ['manual'],
+    });
+  }
+}
+
+writeFileSync(VARIANTEN, JSON.stringify(varianten, null, 1) + '\n');
 
 const manifestBron = readFileSync(MANIFEST, 'utf8');
 const sluit = manifestBron.lastIndexOf(']');
