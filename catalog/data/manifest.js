@@ -1435,7 +1435,6 @@ window.KENNEY_KITS = [
    "gingerbread-house-decorated",
    "gingerbread-man",
    "lantern-decorated",
-   "lantern-mini",
    "milk",
    "mug-cocoa",
    "plate-cocoa",
