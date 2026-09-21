@@ -8506,6 +8506,13 @@
    "count": 8
   },
   {
+   "id": "str-barrier-fence-low",
+   "name": "Low",
+   "type": "kind",
+   "description": "Rail or rope fence knee-high or lower, a boundary you step over.",
+   "count": 19
+  },
+  {
    "id": "str-barrier-post",
    "name": "Post",
    "type": "kind",
@@ -10388,6 +10395,12 @@
    "tpu.max": 10000
   },
   "str-barrier-fence-high": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-barrier-fence-low": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -27231,7 +27244,7 @@
   {
    "kit": "fs-town",
    "name": "wood-railing-corner",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "s",
    "wdh": [
     0.5,
@@ -27312,7 +27325,7 @@
   {
    "kit": "fs-town",
    "name": "wood-railing-straight",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "s",
    "wdh": [
     0.45,
@@ -27352,7 +27365,7 @@
   {
    "kit": "fs-town",
    "name": "wood-rope-corner",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.5,
@@ -27445,7 +27458,7 @@
   {
    "kit": "fs-town",
    "name": "wood-rope-straight",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "s",
    "wdh": [
     0.45,
@@ -87323,7 +87336,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-fence",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.55,
@@ -90747,7 +90760,7 @@
   {
    "kit": "ken-nature",
    "name": "fence-simple-low",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     1.2,
@@ -94449,7 +94462,7 @@
   {
    "kit": "ken-platformer",
    "name": "fence-low-broken",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.8,
@@ -94497,7 +94510,7 @@
   {
    "kit": "ken-platformer",
    "name": "fence-low-corner-curved",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.8,
@@ -94542,7 +94555,7 @@
   {
    "kit": "ken-platformer",
    "name": "fence-low-corner",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.8,
@@ -94587,7 +94600,7 @@
   {
    "kit": "ken-platformer",
    "name": "fence-low-straight",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.8,
@@ -94634,7 +94647,7 @@
   {
    "kit": "ken-platformer",
    "name": "fence-rope",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.75,
@@ -143753,7 +143766,7 @@
   {
    "kit": "wizp-asia",
    "name": "fence-a",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.9,
@@ -143793,7 +143806,7 @@
   {
    "kit": "wizp-asia",
    "name": "fence-b",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.9,
@@ -143833,7 +143846,7 @@
   {
    "kit": "wizp-asia",
    "name": "fence-corner",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.9,
@@ -147838,7 +147851,7 @@
   {
    "kit": "wizp-fish",
    "name": "rail-fence-a",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.55,
@@ -147883,7 +147896,7 @@
   {
    "kit": "wizp-fish",
    "name": "rail-fence-b",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.55,
@@ -147928,7 +147941,7 @@
   {
    "kit": "wizp-fish",
    "name": "rope-fence-long",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.1,
@@ -147973,7 +147986,7 @@
   {
    "kit": "wizp-fish",
    "name": "rope-fence-medium",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "m",
    "wdh": [
     0.1,
@@ -148018,7 +148031,7 @@
   {
    "kit": "wizp-fish",
    "name": "rope-fence-short",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-fence-low",
    "size": "s",
    "wdh": [
     0.1,
