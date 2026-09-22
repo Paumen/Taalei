@@ -396,7 +396,7 @@ const build = (models, weighted) => {
   kits.sort((a, b) => a.slope - b.slope);
   const refPts = pointsOf(models);
   const ref = fit(refPts, weighted);
-  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 20);
+  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
   return { kits, ref: { slope: round3(ref.slope), icpt: round3(ref.icpt) }, top };
 };
 
@@ -497,7 +497,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 <main class="curves">
 <div class="tabs" role="tablist">
   <button id="tab-curves" role="tab" aria-controls="panel-curves" aria-selected="true">Curves</button>
-  <button id="tab-outliers" role="tab" aria-controls="panel-outliers" aria-selected="false">20 biggest outliers</button>
+  <button id="tab-outliers" role="tab" aria-controls="panel-outliers" aria-selected="false">50 biggest outliers</button>
   <button id="tab-rules" role="tab" aria-controls="panel-rules" aria-selected="false">What is counted</button>
 </div>
 
@@ -519,10 +519,10 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </section>
 
 <section id="panel-outliers" role="tabpanel" aria-labelledby="tab-outliers" hidden>
-  <div class="top"><span>The 20 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve.</span></div>
+  <div class="top"><span>The 50 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
   <div class="wrap"><table id="ot"><thead><tr>
-    <th class="n">#</th><th class="n">off line</th><th></th><th>model</th><th>kit</th><th>kind</th>
-    <th class="n">measured</th><th class="n">assumed</th><th class="n">factor</th>
+    <th class="n" data-k="rank">#</th><th class="n" data-k="res">off line</th><th data-k="res"></th><th data-k="name">model</th><th data-k="kit">kit</th><th data-k="kind">kind</th>
+    <th class="n" data-k="u">measured</th><th class="n" data-k="real">assumed</th><th class="n" data-k="res">factor</th>
   </tr></thead><tbody></tbody></table></div>
 </section>
 
@@ -669,12 +669,15 @@ function render() {
 for (const th of document.querySelectorAll('#t th[data-k]')) th.addEventListener('click', () => { const k = th.dataset.k; if (sortKey === k) asc = !asc; else { sortKey = k; asc = true; } render(); });
 
 const ob = document.querySelector('#ot tbody');
+let topKey = 'rank', topAsc = true;
 function renderTop() {
   ob.replaceChildren();
-  TOP.forEach((o, i) => {
+  const ranked = TOP.map((o, i) => ({ ...o, rank: i + 1 }));
+  ranked.sort((a, b) => { const va = a[topKey], vb = b[topKey]; return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * (topAsc ? 1 : -1); });
+  ranked.forEach((o) => {
     const tr = document.createElement('tr'); tr.className = 'row'; tr.tabIndex = 0;
     const w = Math.round(Math.min(Math.abs(o.res) / 2.5, 1) * 60);
-    tr.innerHTML = \`<td class="n muted">\${i + 1}</td>\`
+    tr.innerHTML = \`<td class="n muted">\${o.rank}</td>\`
       + \`<td class="n res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</td>\`
       + \`<td><span class="bar" style="width:\${w}px;background:\${mix(-o.res / 2)}"></span></td>\`
       + \`<td>\${o.name}</td><td>\${o.kit}</td><td class="muted">\${nice(o.kind)}</td>\`
@@ -686,6 +689,7 @@ function renderTop() {
     ob.appendChild(tr);
   });
 }
+for (const th of document.querySelectorAll('#ot th[data-k]')) th.addEventListener('click', () => { const k = th.dataset.k; if (topKey === k) topAsc = !topAsc; else { topKey = k; topAsc = true; } renderTop(); });
 
 const MODES = ['weighted', 'plain'];
 function load(m) {
