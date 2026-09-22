@@ -160,7 +160,6 @@
        "nouns": [
         "pot",
         "planter",
-        "urn",
         "amphora",
         "jug",
         "pitcher",
@@ -179,6 +178,12 @@
           "jar",
           "canister",
           "tin"
+         ]
+        },
+        {
+         "id": "obj-container-pot-urn",
+         "nouns": [
+          "urn"
          ]
         }
        ]
@@ -355,12 +360,29 @@
          "id": "obj-kitchenware-cookware-utensil",
          "nouns": [
           "ladle",
-          "spatula",
-          "turner",
-          "whisk",
-          "rolling pin",
           "rice paddle",
           "wooden paddle"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-cookware-utensil-spatula",
+           "nouns": [
+            "spatula",
+            "turner"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-cookware-utensil-whisk",
+           "nouns": [
+            "whisk"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-cookware-utensil-rollingpin",
+           "nouns": [
+            "rolling pin"
+           ]
+          }
          ]
         }
        ]
@@ -390,13 +412,25 @@
        ],
        "nouns": [
         "meat",
-        "ham",
         "sausage",
-        "steak",
         "roast",
-        "drumstick",
-        "leg",
-        "chicken leg"
+        "leg"
+       ],
+       "children": [
+        {
+         "id": "obj-food-meat-ham",
+         "nouns": [
+          "ham",
+          "drumstick",
+          "chicken leg"
+         ]
+        },
+        {
+         "id": "obj-food-meat-steak",
+         "nouns": [
+          "steak"
+         ]
+        }
        ]
       },
       {
@@ -466,9 +500,16 @@
        "id": "obj-food-fish",
        "nouns": [
         "fish (as food)",
-        "sushi",
-        "sashimi",
         "tentacle"
+       ],
+       "children": [
+        {
+         "id": "obj-food-fish-sushi",
+         "nouns": [
+          "sushi",
+          "sashimi"
+         ]
+        }
        ]
       },
       {
@@ -544,6 +585,15 @@
           "loaf",
           "roll",
           "baguette"
+         ],
+         "children": [
+          {
+           "id": "obj-food-baked-bread-sandwich",
+           "nouns": [
+            "sandwich",
+            "sub"
+           ]
+          }
          ]
         },
         {
@@ -1118,9 +1168,18 @@
        "nouns": [
         "cart",
         "wagon",
-        "carriage",
-        "wheelbarrow",
-        "sled"
+        "carriage"
+       ],
+       "children": [
+        {
+         "id": "obj-transport-cart-small",
+         "nouns": [
+          "wheelbarrow",
+          "sled",
+          "minecart",
+          "small cart"
+         ]
+        }
        ]
       },
       {
@@ -1151,7 +1210,6 @@
           "anchor",
           "paddle",
           "oar",
-          "wheel",
           "sail",
           "rudder",
           "mast"
@@ -1164,6 +1222,18 @@
        "high.min": 0.05,
        "nouns": [
         "pallet"
+       ]
+      },
+      {
+       "id": "obj-transport-accessory",
+       "children": [
+        {
+         "id": "obj-transport-accessory-wheel",
+         "nouns": [
+          "wheel",
+          "tire"
+         ]
+        }
        ]
       }
      ]
@@ -1289,6 +1359,20 @@
         "textile bolt",
         "cloth roll"
        ]
+      },
+      {
+       "id": "obj-resource-wheat",
+       "nouns": [
+        "wheat"
+       ]
+      },
+      {
+       "id": "obj-resource-haystack",
+       "nouns": [
+        "haystack",
+        "hay",
+        "hay bale"
+       ]
       }
      ]
     },
@@ -1306,10 +1390,17 @@
        "id": "obj-art-instrument",
        "tpu.max": 5000,
        "nouns": [
-        "bell",
         "gong",
         "drum",
         "lute"
+       ],
+       "children": [
+        {
+         "id": "obj-art-instrument-bell",
+         "nouns": [
+          "bell"
+         ]
+        }
        ]
       }
      ]
