@@ -107,7 +107,6 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **`I01`** — Chunky, caricatured; not thin, not primitive.
 - **`I02`** — Clean facets, chamfered edges, rounded-soft.
 - **`I03`** — Few details, except. 
-- **`I04`** — Invented before 1850.
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
 
