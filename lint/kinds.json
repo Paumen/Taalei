@@ -402,11 +402,8 @@
       {
        "id": "obj-food-vegetable",
        "nouns": [
-        "cabbage",
         "turnip",
-        "onion",
-        "potato",
-        "tomato"
+        "potato"
        ],
        "children": [
         {
@@ -420,6 +417,40 @@
          "id": "obj-food-vegetable-carrot",
          "nouns": [
           "carrot"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-tomato",
+         "nouns": [
+          "tomato"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-eggplant",
+         "nouns": [
+          "eggplant"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-leafy",
+         "nouns": [
+          "lettuce",
+          "cauliflower",
+          "cabbage"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-onion",
+         "nouns": [
+          "onion"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-pepper",
+         "nouns": [
+          "pepper",
+          "capsicum",
+          "bell pepper"
          ]
         }
        ]
@@ -444,9 +475,7 @@
        "id": "obj-food-fruit",
        "nouns": [
         "fruit",
-        "banana",
-        "avocado",
-        "grapes"
+        "avocado"
        ],
        "children": [
         {
@@ -459,6 +488,18 @@
          "id": "obj-food-fruit-coconut",
          "nouns": [
           "coconut"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-banana",
+         "nouns": [
+          "banana"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-grapes",
+         "nouns": [
+          "grapes"
          ]
         }
        ]
@@ -515,16 +556,45 @@
         {
          "id": "obj-food-baked-pastry",
          "nouns": [
-          "croissant",
-          "waffle",
-          "cookie",
-          "donut",
-          "muffin",
-          "cupcake",
           "pretzel",
           "cinnamon roll",
-          "cream puff",
-          "gingerbread"
+          "cream puff"
+         ],
+         "children": [
+          {
+           "id": "obj-food-baked-pastry-cookie",
+           "nouns": [
+            "cookie",
+            "gingerbread man",
+            "gingerbread woman",
+            "gingerbread house"
+           ]
+          },
+          {
+           "id": "obj-food-baked-pastry-donut",
+           "nouns": [
+            "donut"
+           ]
+          },
+          {
+           "id": "obj-food-baked-pastry-waffle",
+           "nouns": [
+            "waffle"
+           ]
+          },
+          {
+           "id": "obj-food-baked-pastry-croissant",
+           "nouns": [
+            "croissant"
+           ]
+          },
+          {
+           "id": "obj-food-baked-pastry-cupcake",
+           "nouns": [
+            "cupcake",
+            "muffin"
+           ]
+          }
          ]
         }
        ]
@@ -533,9 +603,7 @@
     },
     {
      "id": "obj-equipment",
-     "nouns": [
-      "crown"
-     ],
+     "nouns": [],
      "children": [
       {
        "id": "obj-equipment-armor",
@@ -685,7 +753,6 @@
           {
            "id": "obj-equipment-weapon-ranged-firearm",
            "nouns": [
-            "rifle",
             "musket",
             "blunderbuss",
             "carbine"
@@ -702,6 +769,12 @@
              "id": "obj-equipment-weapon-ranged-firearm-shotgun",
              "nouns": [
               "shotgun"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-ranged-firearm-rifle",
+             "nouns": [
+              "rifle"
              ]
             }
            ]
@@ -793,8 +866,6 @@
         "cape",
         "cloak",
         "robe",
-        "hat",
-        "hood",
         "boots",
         "shoes",
         "belt",
@@ -805,6 +876,15 @@
          "id": "obj-equipment-apparel-quiver",
          "nouns": [
           "quiver"
+         ]
+        },
+        {
+         "id": "obj-equipment-apparel-headgear",
+         "nouns": [
+          "hat",
+          "hood",
+          "crown",
+          "mining helmet"
          ]
         }
        ]
@@ -935,8 +1015,7 @@
       "lever",
       "spring",
       "gear",
-      "pulley",
-      "grindstone"
+      "pulley"
      ],
      "children": [
       {
@@ -974,7 +1053,6 @@
         "rake",
         "hoe",
         "pitchfork",
-        "broom",
         "scythe (tool)"
        ],
        "children": [
@@ -990,6 +1068,12 @@
          "nouns": [
           "shovel",
           "spade"
+         ]
+        },
+        {
+         "id": "obj-tool-twohand-broom",
+         "nouns": [
+          "broom"
          ]
         }
        ]
@@ -1010,7 +1094,10 @@
       {
        "id": "obj-tool-station",
        "nouns": [
-        "anvil"
+        "anvil",
+        "grinder",
+        "grindstone",
+        "workbench (grinding)"
        ]
       }
      ]
@@ -1538,9 +1625,7 @@
     {
      "id": "str-building",
      "tpu.max": 10000,
-     "nouns": [
-      "gazebo"
-     ],
+     "nouns": [],
      "children": [
       {
        "id": "str-building-residential",
@@ -1550,8 +1635,7 @@
          "nouns": [
           "house (whole)",
           "hut",
-          "cottage",
-          "inn"
+          "cottage"
          ]
         }
        ]
@@ -1637,9 +1721,7 @@
       {
        "id": "str-building-religious",
        "nouns": [
-        "shrine",
         "temple",
-        "altar",
         "pagoda"
        ],
        "children": [
@@ -1657,7 +1739,25 @@
           "crypt",
           "mausoleum"
          ]
+        },
+        {
+         "id": "str-building-religious-shrine",
+         "nouns": [
+          "shrine",
+          "gazebo",
+          "altar"
+         ]
         }
+       ]
+      },
+      {
+       "id": "str-building-commercial",
+       "nouns": [
+        "inn",
+        "tavern",
+        "storage",
+        "warehouse",
+        "market house"
        ]
       }
      ]
@@ -1955,7 +2055,6 @@
        "id": "env-remains-bones",
        "nouns": [
         "skeleton (prop)",
-        "ribcage",
         "carcass"
        ],
        "children": [
@@ -1970,6 +2069,20 @@
          "nouns": [
           "bone",
           "bone (single)"
+         ]
+        },
+        {
+         "id": "env-remains-bones-fishbone",
+         "nouns": [
+          "fish bones",
+          "fish carcass",
+          "fish bone"
+         ]
+        },
+        {
+         "id": "env-remains-bones-ribcage",
+         "nouns": [
+          "ribcage"
          ]
         }
        ]
