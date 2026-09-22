@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented \u2014 a model carries the subtype it is, never the parent on top), kind (what it is \u2014 the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 36, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -447,7 +447,9 @@
     "aq-pond/tub-metal",
     "aq-pond/tub-wood",
     "aq-hallow/scythe",
-    "aq-hallow/sword"
+    "aq-hallow/sword",
+    "homely/bench-a",
+    "homely/bench-b"
    ],
    "parent": "metal-iron"
   },
@@ -455,7 +457,7 @@
    "id": "metal-iron-wrought",
    "name": "Wrought iron",
    "type": "material",
-   "description": "Wrought iron: forge work \u2014 hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
+   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
    "models": [
     "asia-rg/boat",
     "asia-rg/cart",
@@ -680,7 +682,9 @@
     "aq-hallow/lantern-b",
     "aq-hallow/lantern-c",
     "aq-hallow/lamp-post",
-    "aq-hallow/lantern-staff"
+    "aq-hallow/lantern-staff",
+    "nature-assets/barrel-dark",
+    "nature-assets/barrel-light"
    ],
    "parent": "metal-iron"
   },
@@ -688,7 +692,7 @@
    "id": "metal-iron-cast",
    "name": "Cast iron",
    "type": "material",
-   "description": "Cast iron: poured, heavy and brittle \u2014 cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
+   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
    "models": [
     "asia-rg/cauldron",
     "asia-rg/rampart-post",
@@ -900,7 +904,11 @@
     "ken-food/pot-stew",
     "aq-hallow/cauldron-a",
     "aq-hallow/cauldron-b",
-    "aq-hallow/cauldron-c"
+    "aq-hallow/cauldron-c",
+    "homely/gate-double-left",
+    "homely/gate-double-right",
+    "homely/gate-single",
+    "homely/mailbox"
    ],
    "parent": "metal-iron"
   },
@@ -1050,7 +1058,9 @@
     "rpg-mini/coin-stack-a",
     "rpg-mini/coin-stack-b",
     "aq-hallow/sword",
-    "aq-hallow/urn"
+    "aq-hallow/urn",
+    "homely/house",
+    "homely/mailbox"
    ],
    "parent": "metal"
   },
@@ -1073,7 +1083,8 @@
     "kay-adventurers/dagger",
     "kay-adventurers/sword-one-handed",
     "kay-adventurers/sword-two-handed",
-    "kay-adventurers/sword-two-handed-colored"
+    "kay-adventurers/sword-two-handed-colored",
+    "homely/mailbox"
    ],
    "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 and never shares a model with another metal subtype.",
    "parent": "metal"
@@ -1466,7 +1477,27 @@
     "styloo-farm/windmill-large",
     "styloo-farm/crate",
     "styloo-farm/crate-open",
-    "ken-food/cutting-board"
+    "ken-food/cutting-board",
+    "homely/bench-a",
+    "homely/bench-b",
+    "homely/fence-corner",
+    "homely/fence-open",
+    "homely/fence-open-long",
+    "homely/fence-open-wide-long",
+    "homely/fence-post",
+    "homely/fence-rails",
+    "homely/fence-rails-long",
+    "homely/fence-straight",
+    "homely/fence-straight-long",
+    "homely/fence-wide-long",
+    "homely/gate-double-left",
+    "homely/gate-double-right",
+    "homely/gate-single",
+    "homely/house",
+    "homely/mailbox",
+    "homely/package",
+    "nature-assets/barrel-light",
+    "nature-assets/fence"
    ],
    "parent": "wood"
   },
@@ -2874,7 +2905,9 @@
     "aq-hallow/fence-a",
     "aq-hallow/fence-b",
     "aq-hallow/fence-c",
-    "aq-hallow/scythe"
+    "aq-hallow/scythe",
+    "nature-assets/barrel-dark",
+    "nature-assets/house"
    ],
    "parent": "wood"
   },
@@ -2940,7 +2973,8 @@
     "kay-hexagon/stumps",
     "kay-hexagon/timber",
     "fs-terrain/hilly-prop-stump",
-    "fs-terrain/hilly-prop-camp-sitting-log"
+    "fs-terrain/hilly-prop-camp-sitting-log",
+    "nature-assets/log"
    ],
    "parent": "wood"
   },
@@ -3176,7 +3210,21 @@
     "aq-pond/branch-c",
     "aq-hallow/tree-dead-a",
     "aq-hallow/tree-dead-b",
-    "aq-hallow/tree-dead-c"
+    "aq-hallow/tree-dead-c",
+    "homely/tree",
+    "homely/tree-large",
+    "nature-assets/log",
+    "nature-assets/pine-a",
+    "nature-assets/pine-b",
+    "nature-assets/pine-c",
+    "nature-assets/pine-d",
+    "nature-assets/pine-e",
+    "nature-assets/fir-a",
+    "nature-assets/fir-b",
+    "nature-assets/fir-c",
+    "nature-assets/spruce-a",
+    "nature-assets/spruce-b",
+    "nature-assets/spruce-c"
    ],
    "parent": "wood"
   },
@@ -3726,7 +3774,9 @@
     "aq-hallow/pillar-a",
     "aq-hallow/pillar-b",
     "aq-hallow/pillar-c",
-    "aq-hallow/urn"
+    "aq-hallow/urn",
+    "homely/house",
+    "nature-assets/house"
    ],
    "parent": "stone"
   },
@@ -3987,7 +4037,17 @@
     "aq-pond/rock-a",
     "aq-pond/rock-b",
     "aq-pond/rock-c",
-    "aq-pond/rock-d"
+    "aq-pond/rock-d",
+    "homely/cobblestones",
+    "nature-assets/cobble-a",
+    "nature-assets/cobble-b",
+    "nature-assets/cobble-c",
+    "nature-assets/cobble-d",
+    "nature-assets/pebble-a",
+    "nature-assets/pebble-b",
+    "nature-assets/pebble-c",
+    "nature-assets/boulder-a",
+    "nature-assets/boulder-b"
    ],
    "parent": "stone"
   },
@@ -4164,7 +4224,9 @@
     "ken-food/chocolate-wrapper",
     "ken-food/peanut-butter",
     "aq-hallow/candy-b",
-    "aq-hallow/pumpkin-basket-full"
+    "aq-hallow/pumpkin-basket-full",
+    "homely/letter",
+    "homely/package"
    ]
   },
   {
@@ -4530,7 +4592,8 @@
     "aq-hallow/ghost-a",
     "aq-hallow/ghost-b",
     "aq-hallow/hat-wizard",
-    "aq-hallow/hat-top"
+    "aq-hallow/hat-top",
+    "homely/doormat"
    ]
   },
   {
@@ -4647,7 +4710,8 @@
     "rpg-mini/purse-b",
     "aq-hallow/hat-pirate",
     "aq-hallow/hat-top",
-    "aq-hallow/sword"
+    "aq-hallow/sword",
+    "homely/boots"
    ]
   },
   {
@@ -4994,7 +5058,22 @@
     "aq-pond/lily-pad-a",
     "aq-pond/lily-pad-b",
     "aq-pond/lily-pad-c",
-    "aq-pond/lily-pad-d"
+    "aq-pond/lily-pad-d",
+    "homely/foliage-a",
+    "homely/foliage-b",
+    "homely/tree",
+    "homely/tree-large",
+    "nature-assets/pine-a",
+    "nature-assets/pine-b",
+    "nature-assets/pine-c",
+    "nature-assets/pine-d",
+    "nature-assets/pine-e",
+    "nature-assets/fir-a",
+    "nature-assets/fir-b",
+    "nature-assets/fir-c",
+    "nature-assets/spruce-a",
+    "nature-assets/spruce-b",
+    "nature-assets/spruce-c"
    ]
   },
   {
@@ -5354,7 +5433,8 @@
     "rpg-mini/quill-black-inkbottle",
     "rpg-mini/quill-brown-inkbottle",
     "rpg-mini/quill-white-inkbottle",
-    "aq-pond/pot-clay"
+    "aq-pond/pot-clay",
+    "homely/house"
    ]
   },
   {
@@ -5781,7 +5861,12 @@
     "aq-mushroom/inkcap",
     "aq-mushroom/inkcap-large",
     "aq-mushroom/inkcap-group-a",
-    "aq-mushroom/inkcap-group-b"
+    "aq-mushroom/inkcap-group-b",
+    "nature-assets/mushroom-a",
+    "nature-assets/mushroom-b",
+    "nature-assets/mushroom-c",
+    "nature-assets/mushroom-d",
+    "nature-assets/mushroom-group"
    ]
   },
   {
@@ -6208,7 +6293,8 @@
     "kay-apocalyp/survivor-sam",
     "kay-apocalyp/survivor-lis",
     "kay-apocalyp/bat-saw",
-    "kay-minigame/bow"
+    "kay-minigame/bow",
+    "homely/package"
    ]
   },
   {
@@ -6346,23 +6432,23 @@
     "ken-town/fountain-square"
    ],
    "reasons": {
-    "ken-town/fountain-round": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
-    "ken-town/fountain-round-detail": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
-    "quat-pirate/house-3": "clear glass \u2014 N4: five bands and the clear glass of its windows; the PO kept all six.",
+    "ken-town/fountain-round": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
+    "ken-town/fountain-round-detail": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
+    "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
     "quat-pirate/pirate-captain": "M20: its boot is leather and the model takes no bark band; N4 leaves no room for a seventh and the joker is spent on M20.",
-    "quat-pirate/tentacle": "terracotta 5,0 \u2014 N1: fauna made of nothing appendix A names; the tag is its only material.",
-    "quat-nature/log-moss": "dark green 1,1 \u2014 M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
-    "kay-food/crate-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-food/food-ingredient-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-tools/compass-base": "clear glass \u2014 N4: five bands and the clear glass of its lid; the PO kept all six.",
-    "kay-tools/pencil-a-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-a-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/torch-burnt": "blue-grey 6,1 \u2014 C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
-    "fs-town/stucco-arch-half": "render \u2014 appendix A gives stucco no material and no band.",
-    "fs-town/stucco-block": "render \u2014 appendix A gives stucco no material and no band.",
-    "ken-town/fountain-square": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water."
+    "quat-pirate/tentacle": "terracotta 5,0 — N1: fauna made of nothing appendix A names; the tag is its only material.",
+    "quat-nature/log-moss": "dark green 1,1 — M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
+    "kay-food/crate-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-food/food-ingredient-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-tools/compass-base": "clear glass — N4: five bands and the clear glass of its lid; the PO kept all six.",
+    "kay-tools/pencil-a-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-a-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/torch-burnt": "blue-grey 6,1 — C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
+    "fs-town/stucco-arch-half": "render — appendix A gives stucco no material and no band.",
+    "fs-town/stucco-block": "render — appendix A gives stucco no material and no band.",
+    "ken-town/fountain-square": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water."
    },
    "po": true
   },
@@ -6513,7 +6599,12 @@
     "aq-mushroom/inkcap",
     "aq-mushroom/inkcap-large",
     "aq-mushroom/inkcap-group-a",
-    "aq-mushroom/inkcap-group-b"
+    "aq-mushroom/inkcap-group-b",
+    "nature-assets/mushroom-a",
+    "nature-assets/mushroom-b",
+    "nature-assets/mushroom-c",
+    "nature-assets/mushroom-d",
+    "nature-assets/mushroom-group"
    ],
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain."
   },
@@ -6711,7 +6802,9 @@
     "kay-resources/fuel-barrel-c",
     "kay-apocalyp/barrel",
     "quat-shoot/barrel",
-    "ken-food/barrel"
+    "ken-food/barrel",
+    "nature-assets/barrel-dark",
+    "nature-assets/barrel-light"
    ]
   },
   {
@@ -6908,7 +7001,8 @@
     "quat-shoot/cardboard-boxes-a",
     "quat-shoot/cardboard-boxes-b",
     "styloo-farm/crate-open",
-    "styloo-farm/crate-open-slate"
+    "styloo-farm/crate-open-slate",
+    "homely/package"
    ]
   },
   {
@@ -7051,7 +7145,8 @@
    "models": [
     "quat-rpg/glove",
     "kay-skeleton-1/mage-cloak",
-    "kay-skeleton-1/mage-cowl"
+    "kay-skeleton-1/mage-cowl",
+    "homely/boots"
    ]
   },
   {
@@ -7435,7 +7530,8 @@
     "isa-bakery/rug",
     "kay-holiday/carpet-round-large",
     "kay-holiday/carpet-round-small",
-    "props/carpet-a"
+    "props/carpet-a",
+    "homely/doormat"
    ]
   },
   {
@@ -7498,7 +7594,8 @@
     "kay-hallow/bench",
     "quat-medieval/bench-2",
     "styloo-farm/bench-small",
-    "ken-town/stall-bench"
+    "ken-town/stall-bench",
+    "homely/bench-b"
    ]
   },
   {
@@ -7513,7 +7610,8 @@
     "quat-medieval/bench",
     "kay-furniture/couch-pillows",
     "quat-shoot/sofa",
-    "isa-park/bench"
+    "isa-park/bench",
+    "homely/bench-a"
    ]
   },
   {
@@ -8217,7 +8315,8 @@
     "kay-tools/blueprint-stacked",
     "kay-tools/map-empty",
     "kay-tools/map",
-    "quat-pirate/papers"
+    "quat-pirate/papers",
+    "homely/letter"
    ]
   },
   {
@@ -9243,7 +9342,8 @@
     "kay-spook/branches",
     "aq-pond/branch-a",
     "aq-pond/branch-b",
-    "aq-pond/branch-c"
+    "aq-pond/branch-c",
+    "nature-assets/log"
    ]
   },
   {
@@ -9537,7 +9637,9 @@
     "fs-terrain/hilly-prop-bush-b",
     "fs-terrain/hilly-prop-bush-c",
     "fs-terrain/hilly-prop-bush-d",
-    "natuur/bush-1"
+    "natuur/bush-1",
+    "homely/foliage-a",
+    "homely/foliage-b"
    ]
   },
   {
@@ -9656,7 +9758,20 @@
     "kay-hexagon/trees-small",
     "kay-hexagon/tree",
     "isa-playground/tree-large",
-    "isa-playground/tree-small"
+    "isa-playground/tree-small",
+    "homely/tree",
+    "homely/tree-large",
+    "nature-assets/pine-a",
+    "nature-assets/pine-b",
+    "nature-assets/pine-c",
+    "nature-assets/pine-d",
+    "nature-assets/pine-e",
+    "nature-assets/fir-a",
+    "nature-assets/fir-b",
+    "nature-assets/fir-c",
+    "nature-assets/spruce-a",
+    "nature-assets/spruce-b",
+    "nature-assets/spruce-c"
    ]
   },
   {
@@ -9721,7 +9836,12 @@
     "aq-mushroom/inkcap",
     "aq-mushroom/inkcap-large",
     "aq-mushroom/inkcap-group-a",
-    "aq-mushroom/inkcap-group-b"
+    "aq-mushroom/inkcap-group-b",
+    "nature-assets/mushroom-a",
+    "nature-assets/mushroom-b",
+    "nature-assets/mushroom-c",
+    "nature-assets/mushroom-d",
+    "nature-assets/mushroom-group"
    ]
   },
   {
@@ -9912,7 +10032,9 @@
     "natuur/rock-9",
     "asia-rg/stepping-stone-f",
     "wizp-asia/rock-small-a",
-    "wizp-asia/rock-small-e"
+    "wizp-asia/rock-small-e",
+    "nature-assets/boulder-a",
+    "nature-assets/boulder-b"
    ]
   },
   {
@@ -9984,7 +10106,12 @@
     "aq-pond/rock-a",
     "aq-pond/rock-b",
     "aq-pond/rock-c",
-    "aq-pond/rock-d"
+    "aq-pond/rock-d",
+    "homely/cobblestones",
+    "nature-assets/cobble-a",
+    "nature-assets/cobble-b",
+    "nature-assets/cobble-c",
+    "nature-assets/cobble-d"
    ]
   },
   {
@@ -10055,7 +10182,10 @@
     "aq-pond/pebble-a",
     "aq-pond/pebble-b",
     "aq-pond/pebble-c",
-    "aq-pond/pebble-d"
+    "aq-pond/pebble-d",
+    "nature-assets/pebble-a",
+    "nature-assets/pebble-b",
+    "nature-assets/pebble-c"
    ]
   },
   {
@@ -10359,7 +10489,8 @@
     "kay-minigame/barrier-large",
     "kay-minigame/barrier-medium",
     "kay-minigame/barrier-small",
-    "ken-forest-mini/fence"
+    "ken-forest-mini/fence",
+    "nature-assets/fence"
    ]
   },
   {
@@ -10385,7 +10516,8 @@
     "fs-terrain/hilly-prop-fence-post-a",
     "fs-terrain/hilly-prop-fence-post-b",
     "fs-terrain/hilly-prop-fence-post-c",
-    "fs-terrain/hilly-prop-fence-post-d"
+    "fs-terrain/hilly-prop-fence-post-d",
+    "homely/fence-post"
    ]
   },
   {
@@ -11021,7 +11153,8 @@
     "quat-pirate/red-x",
     "ken-water/buoy",
     "ken-water/buoy-flag",
-    "styloo-farm/mailbox"
+    "styloo-farm/mailbox",
+    "homely/mailbox"
    ]
   },
   {
@@ -12247,7 +12380,11 @@
     "ken-town/watermill",
     "ken-town/windmill",
     "fs-town/windmill-blades",
-    "ken-town/blade"
+    "ken-town/blade",
+    "homely/fence-rails",
+    "homely/fence-rails-long",
+    "homely/gate-double-left",
+    "homely/gate-double-right"
    ]
   },
   {
@@ -12443,7 +12580,10 @@
     "aq-mushroom/agaric-group-a",
     "aq-mushroom/agaric-group-b",
     "aq-mushroom/inkcap-group-a",
-    "aq-mushroom/inkcap-group-b"
+    "aq-mushroom/inkcap-group-b",
+    "homely/boots",
+    "homely/cobblestones",
+    "nature-assets/mushroom-group"
    ]
   },
   {
@@ -13376,7 +13516,9 @@
     "quat-town/house-2-3-b",
     "quat-town/house-2-3-a",
     "quat-town/house-1-3-c",
-    "quat-medieval/fantasy-house"
+    "quat-medieval/fantasy-house",
+    "homely/house",
+    "nature-assets/house"
    ]
   },
   {
@@ -13603,7 +13745,19 @@
     "quat-shoot/fence-long",
     "aq-hallow/fence-a",
     "aq-hallow/fence-b",
-    "aq-hallow/fence-c"
+    "aq-hallow/fence-c",
+    "homely/fence-corner",
+    "homely/fence-open",
+    "homely/fence-open-long",
+    "homely/fence-open-wide-long",
+    "homely/fence-rails",
+    "homely/fence-rails-long",
+    "homely/fence-straight",
+    "homely/fence-straight-long",
+    "homely/fence-wide-long",
+    "homely/gate-double-left",
+    "homely/gate-double-right",
+    "homely/gate-single"
    ]
   },
   {
@@ -13633,7 +13787,8 @@
     "quat-town/house-2-3-a",
     "quat-town/house-2-3-b",
     "styloo-farm/barn-small",
-    "styloo-farm/windmill"
+    "styloo-farm/windmill",
+    "nature-assets/house"
    ]
   },
   {
@@ -13662,7 +13817,8 @@
     "wizp-mediev/house-b",
     "wizp-mediev/smithy",
     "wizp-village/house-a",
-    "wizp-village/house-c"
+    "wizp-village/house-c",
+    "homely/house"
    ]
   },
   {
