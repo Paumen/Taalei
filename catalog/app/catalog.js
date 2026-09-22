@@ -510,7 +510,7 @@ const WITHOUT = '_zonder';
 
 const groupingType = () => grouping;
 
-const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4, kind5: 5 };
+const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4, kind5: 5, kind6: 6 };
 
 const KIND_SPLIT_OVER = { kindauto: 48 };
 
