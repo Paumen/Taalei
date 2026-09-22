@@ -313,7 +313,7 @@ Making and validating:
 
 Importing a pack:
 
-- **`P10`** — One scale factor for the whole pack, for now. `quat-pirate` is the only kit allowed to break this: its firearms carry half the kit factor. No other kit takes a per-model factor.
+- **`P10`** — One scale factor for the whole pack, for now. Two kits break this: `quat-pirate`, whose firearms carry half the kit factor, and `styloo-farm`, whose batches carry one factor per group on top of 0.294 — ×0.7 for crops, sword, haystacks, hedges and cart; ×1.1 for fruit and garden; ×1.5 for pond, fish, rocks, fences, soil, windmills, barns and tractor; ×2.4 for smelters, tools, barrel, crate, mailbox, mixer and water drops. No other kit takes a per-model factor.
 - **`P11`** — 2 source colours: keep 2.
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.
