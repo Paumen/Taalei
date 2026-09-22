@@ -15,7 +15,13 @@ const opId = new Map(tags.tags.map((tag) => [tag.id, tag]));
 for (const config of configs) {
   for (const rij of config.modellen) {
     const model = `${config.kit}/${rij.naam}`;
-    const ids = [rij.kind, ...(rij.materialen ?? []), ...(rij.vlaggen ?? []), ...(rij.themas ?? [])];
+    const ids = [
+      rij.kind,
+      ...(rij.materialen ?? []),
+      ...(rij.vlaggen ?? []),
+      ...(rij.attributen ?? []),
+      ...(rij.themas ?? []),
+    ];
     for (const id of ids) {
       const tag = opId.get(id);
       if (!tag) throw new Error(`${model}: no tag row for ${id}`);
