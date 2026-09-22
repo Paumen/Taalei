@@ -113,4 +113,8 @@ export const BRONKITS = [
   { map: 'Free_Mushroom_Pack_AssetQuest', naam: 'Free Mushroom Pack', kit: 'aq-mushroom', formaat: 'fbx' },
   { map: 'Halloween_Kit_AssetQuest', naam: 'Halloween Kit', kit: 'aq-hallow', formaat: 'fbx' },
   { map: 'Free_Pond_Kit_AssetQuest', naam: 'Free Pond Kit', kit: 'aq-pond', formaat: 'fbx' },
+
+  { map: 'Homely_House_Set', naam: 'Homely House Set', kit: null, formaat: 'glb' },
+  { map: 'Low_Poly_Wild_West_Guns', naam: 'Low Poly Wild West Guns', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'NatureAssetsFBX', naam: 'Nature Assets', kit: null, formaat: 'fbx', alleMappen: true },
 ];
