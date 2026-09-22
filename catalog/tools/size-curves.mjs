@@ -232,20 +232,28 @@ const DROPPED_KINDS = [
   'env-flora-waterplant',
   'env-remains-bones',
   'env-remains-deadwood',
+  'env-rock-formation',
   'env-terrain-ground',
   'env-terrain-mountain',
   'env-terrain-water',
+  'obj-art-sculpture',
+  'obj-equipment-jewellery-ring',
   'obj-equipment-pocketitem',
+  'obj-equipment-pocketitem-coin',
   'obj-equipment-weapon',
   'obj-equipment-weapon-melee',
   'obj-equipment-weapon-ranged',
+  'obj-food-grain',
+  'obj-food-vegetable',
   'obj-kitchenware-cookware',
   'obj-tool-supplies',
   'obj-transport-watercraft-accessory',
   'str-access-bridge',
+  'str-access-bridge-long',
   'str-canopy-tent',
   'str-part-floor',
   'str-part-roof',
+  'str-part-wall-rampart',
   'str-platform-deck',
 ];
 
@@ -262,7 +270,6 @@ const STOREYS = {
 };
 const STOREY_M = 3;
 const ROOF_M = 1.5;
-const TRIM = 0.01;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
@@ -315,8 +322,6 @@ const counted = (model) => {
   return true;
 };
 
-const quantile = (sorted, q) => sorted[Math.min(sorted.length - 1, Math.floor(q * (sorted.length - 1)))];
-
 const gather = () => {
   const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
   const picked = [];
@@ -331,10 +336,7 @@ const gather = () => {
       u, real: assumed.real, high: assumed.high,
     });
   }
-  const sorted = picked.map((m) => m.u).sort((a, b) => a - b);
-  const lo = quantile(sorted, TRIM);
-  const hi = quantile(sorted, 1 - TRIM);
-  return picked.filter((m) => m.u >= lo && m.u <= hi);
+  return picked;
 };
 
 const pointsOf = (models) => {
@@ -391,7 +393,7 @@ const build = (models, weighted) => {
   kits.sort((a, b) => a.slope - b.slope);
   const refPts = pointsOf(models);
   const ref = fit(refPts, weighted);
-  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 20);
+  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
   return { kits, ref: { slope: round3(ref.slope), icpt: round3(ref.icpt) }, top };
 };
 
@@ -407,26 +409,16 @@ const page = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kit size curves</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — Curves: kit size curves</title>
+<meta name="description" content="Each kit's model sizes against a real-world size table, fitted per kit: flat keeps real proportions, falling enlarges small things.">
+<meta name="catalogus-versie" content="">
+<meta name="catalogus-gebouwd" content="">
+<link rel="stylesheet" href="catalog.css"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 <style>
-:root{
-  --papier:#fdfbf8; --papier-diep:#f6f1ea; --inkt:#2f2a26; --inkt-zacht:#7d7166;
-  --raster-fijn:#c6b8a5; --raster-zwaar:#6b6058; --toy:#b8563a; --lin:#3d6f8e;
-  --sel:#2f2a26; --pill:#ece4d8; --rand:#e2d8c9;
-  color-scheme:light dark;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --papier:#232120; --papier-diep:#1c1a19; --inkt:#ece3d8; --inkt-zacht:#9d9084;
-  --raster-fijn:#4a423d; --raster-zwaar:#9d9084; --toy:#d9765a; --lin:#6fa0c2;
-  --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532;
-}}
-:root[data-theme="dark"]{
-  --papier:#232120; --papier-diep:#1c1a19; --inkt:#ece3d8; --inkt-zacht:#9d9084;
-  --raster-fijn:#4a423d; --raster-zwaar:#9d9084; --toy:#d9765a; --lin:#6fa0c2;
-  --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532;
-}
-body{margin:0;background:var(--papier);color:var(--inkt);font:13px/1.4 system-ui,sans-serif;padding-block:6px 18px;padding-inline:16px}
+:root{--toy:#b8563a; --lin:#3d6f8e; --sel:#2f2a26; --pill:#ece4d8; --rand:#e2d8c9}
+@media (prefers-color-scheme:dark){:root{--toy:#d9765a; --lin:#6fa0c2; --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532}}
+.curves{font:13px/1.4 system-ui,sans-serif;padding-block:6px 18px;padding-inline:16px}
 
 .tabs{display:flex;gap:2px;border-bottom:1px solid var(--rand);margin-bottom:8px}
 .tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--inkt-zacht);
@@ -487,9 +479,22 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </head>
 <body>
 
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../../index.html">Catalog</a>
+    <a href="scale-obj-gen.html">Scale</a>
+    <span aria-current="page">Curves</span>
+    <a href="swipe.html">Swipe</a>
+    <a href="tbd.html">TBD</a>
+    <a href="reject.html">Reject</a>
+    <a href="swipe.html?source=lint">Lint</a>
+  </nav>
+</header>
+
+<main class="curves">
 <div class="tabs" role="tablist">
   <button id="tab-curves" role="tab" aria-controls="panel-curves" aria-selected="true">Curves</button>
-  <button id="tab-outliers" role="tab" aria-controls="panel-outliers" aria-selected="false">20 biggest outliers</button>
+  <button id="tab-outliers" role="tab" aria-controls="panel-outliers" aria-selected="false">50 biggest outliers</button>
   <button id="tab-rules" role="tab" aria-controls="panel-rules" aria-selected="false">What is counted</button>
 </div>
 
@@ -511,10 +516,10 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </section>
 
 <section id="panel-outliers" role="tabpanel" aria-labelledby="tab-outliers" hidden>
-  <div class="top"><span>The 20 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve.</span></div>
+  <div class="top"><span>The 50 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
   <div class="wrap"><table id="ot"><thead><tr>
-    <th class="n">#</th><th class="n">off line</th><th></th><th>model</th><th>kit</th><th>kind</th>
-    <th class="n">measured</th><th class="n">assumed</th><th class="n">factor</th>
+    <th class="n" data-k="rank">#</th><th class="n" data-k="res">off line</th><th data-k="res"></th><th data-k="name">model</th><th data-k="kit">kit</th><th data-k="kind">kind</th>
+    <th class="n" data-k="u">measured</th><th class="n" data-k="real">assumed</th><th class="n" data-k="res">factor</th>
   </tr></thead><tbody></tbody></table></div>
 </section>
 
@@ -538,8 +543,6 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         <li><code>tag:comp</code></li>
         <li><code>tag:pickup</code></li>
         <li><code>tag:piece</code></li>
-        <li>the 1% largest models</li>
-        <li>the 1% smallest models</li>
       </ul>
     </div>
     <div class="rule">
@@ -558,11 +561,12 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   </details>
 </section>
 
+</main>
 <script>
 const PAYLOAD = ${JSON.stringify(payload)};
 const SIZE_ROWS = ${JSON.stringify(sizeRows)};
 const DROPPED = ${JSON.stringify(DROPPED_KINDS)};
-const HIGH_ROWS = ${JSON.stringify([...HIGH])};
+const HIGH_ROWS = ${JSON.stringify([...HIGH].filter((k) => !DROPPED_KINDS.includes(k)))};
 
 const svg = document.getElementById('c'), NS = 'http://www.w3.org/2000/svg';
 let mode = 'weighted', DATA = PAYLOAD[mode].kits, TOP = PAYLOAD[mode].top;
@@ -660,12 +664,15 @@ function render() {
 for (const th of document.querySelectorAll('#t th[data-k]')) th.addEventListener('click', () => { const k = th.dataset.k; if (sortKey === k) asc = !asc; else { sortKey = k; asc = true; } render(); });
 
 const ob = document.querySelector('#ot tbody');
+let topKey = 'rank', topAsc = true;
 function renderTop() {
   ob.replaceChildren();
-  TOP.forEach((o, i) => {
+  const ranked = TOP.map((o, i) => ({ ...o, rank: i + 1 }));
+  ranked.sort((a, b) => { const va = a[topKey], vb = b[topKey]; return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * (topAsc ? 1 : -1); });
+  ranked.forEach((o) => {
     const tr = document.createElement('tr'); tr.className = 'row'; tr.tabIndex = 0;
     const w = Math.round(Math.min(Math.abs(o.res) / 2.5, 1) * 60);
-    tr.innerHTML = \`<td class="n muted">\${i + 1}</td>\`
+    tr.innerHTML = \`<td class="n muted">\${o.rank}</td>\`
       + \`<td class="n res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</td>\`
       + \`<td><span class="bar" style="width:\${w}px;background:\${mix(-o.res / 2)}"></span></td>\`
       + \`<td>\${o.name}</td><td>\${o.kit}</td><td class="muted">\${nice(o.kind)}</td>\`
@@ -677,6 +684,7 @@ function renderTop() {
     ob.appendChild(tr);
   });
 }
+for (const th of document.querySelectorAll('#ot th[data-k]')) th.addEventListener('click', () => { const k = th.dataset.k; if (topKey === k) topAsc = !topAsc; else { topKey = k; topAsc = true; } renderTop(); });
 
 const MODES = ['weighted', 'plain'];
 function load(m) {
@@ -721,11 +729,13 @@ load('weighted');
 </html>
 `;
 
-const out = process.argv[2];
-if (!out) {
-  process.stdout.write(page);
-} else {
-  writeFileSync(out, page);
-  const w = payload.weighted;
-  process.stderr.write(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope}\n`);
-}
+const out = process.argv[2] ?? join(ROOT, 'catalog', 'app', 'size-curves.html');
+const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
+const meta = (name) => index.match(new RegExp(`<meta name="${name}" content="([^"]*)">`))?.[1] ?? '';
+const version = meta('catalogus-versie');
+writeFileSync(out, page
+  .replace('<meta name="catalogus-versie" content="">', `<meta name="catalogus-versie" content="${version}">`)
+  .replace('<meta name="catalogus-gebouwd" content="">', `<meta name="catalogus-gebouwd" content="${meta('catalogus-gebouwd')}">`)
+  .replace('href="catalog.css"', `href="catalog.css?v=${version}"`));
+const w = payload.weighted;
+console.log(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope} → ${out}`);

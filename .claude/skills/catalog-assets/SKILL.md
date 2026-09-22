@@ -142,6 +142,7 @@ untouched so the diff stays additive.
     node lint/measures.mjs
     node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
+    node catalog/tools/size-curves.mjs
 
 Then render the models you touched and look at them, as the bible's process
 rules ask — on their own, and beside at least two catalogue models of the same
