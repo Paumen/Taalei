@@ -796,7 +796,6 @@ window.KENNEY_KITS = [
    "rock-1-o",
    "rock-1-p",
    "rock-1-q",
-   "rock-2-a",
    "rock-2-b",
    "rock-2-c",
    "rock-2-d",
