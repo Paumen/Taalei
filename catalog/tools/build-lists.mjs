@@ -15,6 +15,8 @@ const DOEL_DIR = join(ROOT, 'kits', 'tbd');
 const DOEL_PAD = 'kits/tbd';
 const AFGEWEZEN_DIR = join(ROOT, 'kits', 'reject');
 const AFGEWEZEN_PAD = 'kits/reject';
+const BRON_DIR = join(ROOT, 'kits', 'sources');
+const CACHE_FILE = join(ROOT, 'kits', '.cache', 'build-lists.json');
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
@@ -195,10 +197,12 @@ function kleinerePng(pad, doel) {
   return true;
 }
 
+const sameNumber = (a, b) => a === b || (a !== a && b !== b);
+
 function las(primitief, midden, metUvs) {
   const bron = primitief.posities;
   const aantal = bron.length / 3;
-  const perSleutel = new Map();
+  const buckets = new Map();
   const posities = [];
   const normalen = [];
   const uvs = [];
@@ -207,19 +211,46 @@ function las(primitief, midden, metUvs) {
   const heeftNormalen = Boolean(primitief.normalen);
   const heeftUvs = Boolean(primitief.uvs) && metUvs;
 
-  for (let i = 0; i < aantal; i++) {
-    const p = [0, 1, 2].map((k) => Math.fround(bron[i * 3 + k] - midden[k]));
-    const n = heeftNormalen ? [0, 1, 2].map((k) => Math.fround(primitief.normalen[i * 3 + k])) : [];
-    const t = heeftUvs ? [0, 1].map((k) => Math.fround(primitief.uvs[i * 2 + k])) : [];
-    const sleutel = [...p, ...n, ...t].join(',');
+  const values = new Float32Array(8);
+  const bits = new Int32Array(values.buffer);
+  const width = 3 + (heeftNormalen ? 3 : 0) + (heeftUvs ? 2 : 0);
+  const uvAt = width - 2;
 
-    let index = perSleutel.get(sleutel);
+  const matches = (index) => {
+    for (let k = 0; k < 3; k++) if (!sameNumber(posities[index * 3 + k], values[k])) return false;
+    if (heeftNormalen) {
+      for (let k = 0; k < 3; k++) if (!sameNumber(normalen[index * 3 + k], values[3 + k])) return false;
+    }
+    if (heeftUvs) {
+      for (let k = 0; k < 2; k++) if (!sameNumber(uvs[index * 2 + k], values[uvAt + k])) return false;
+    }
+    return true;
+  };
+
+  for (let i = 0; i < aantal; i++) {
+    for (let k = 0; k < 3; k++) values[k] = bron[i * 3 + k] - midden[k];
+    if (heeftNormalen) for (let k = 0; k < 3; k++) values[3 + k] = primitief.normalen[i * 3 + k];
+    if (heeftUvs) for (let k = 0; k < 2; k++) values[uvAt + k] = primitief.uvs[i * 2 + k];
+
+    let key = 0x811c9dc5;
+    for (let k = 0; k < width; k++) key = Math.imul(key ^ (values[k] === 0 ? 0 : bits[k]), 0x01000193);
+
+    const candidates = buckets.get(key);
+    let index;
+    if (candidates) {
+      for (const candidate of candidates) {
+        if (!matches(candidate)) continue;
+        index = candidate;
+        break;
+      }
+    }
     if (index === undefined) {
       index = posities.length / 3;
-      perSleutel.set(sleutel, index);
-      posities.push(...p);
-      if (heeftNormalen) normalen.push(...n);
-      if (heeftUvs) uvs.push(...t);
+      posities.push(values[0], values[1], values[2]);
+      if (heeftNormalen) normalen.push(values[3], values[4], values[5]);
+      if (heeftUvs) uvs.push(values[uvAt], values[uvAt + 1]);
+      if (candidates) candidates.push(index);
+      else buckets.set(key, [index]);
     }
     nieuw[i] = index;
   }
@@ -335,9 +366,7 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
   writeGlb(pad, json, bin, writeFileSync);
 }
 
-rmSync(DOEL_DIR, { recursive: true, force: true });
 mkdirSync(DOEL_DIR, { recursive: true });
-rmSync(AFGEWEZEN_DIR, { recursive: true, force: true });
 mkdirSync(AFGEWEZEN_DIR, { recursive: true });
 
 const LIJSTEN = [
@@ -345,9 +374,95 @@ const LIJSTEN = [
   { sleutel: 'afgewezen', dir: AFGEWEZEN_DIR, pad: AFGEWEZEN_PAD, bestand: 'reject.json', modellen: [], bronnen: [], varianten: [] },
 ];
 
+const force = process.argv.includes('--force');
+const cache = !force && existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, 'utf8')) : {};
+const fresh = {};
+
+const sha = (data) => createHash('sha1').update(data).digest('hex');
+
+const dirKey = (dir) =>
+  (existsSync(dir) ? readdirSync(dir).sort() : [])
+    .filter((naam) => statSync(join(dir, naam)).isFile())
+    .map((naam) => `${naam}:${sha(readFileSync(join(dir, naam)))}`)
+    .join('\n');
+
+const TOOLS_DIR = join(CATALOG_DIR, 'tools');
+const toolKey = sha(
+  readdirSync(TOOLS_DIR)
+    .filter((naam) => naam.endsWith('.mjs'))
+    .sort()
+    .map((naam) => `${naam}:${sha(readFileSync(join(TOOLS_DIR, naam)))}`)
+    .concat(`kinds:${sha(readFileSync(join(ROOT, 'lint', 'kinds.json')))}`)
+    .join('\n'),
+);
+
+const packKey = (bronkit) =>
+  sha(
+    [
+      toolKey,
+      JSON.stringify(bronkit),
+      dirKey(join(BRON_DIR, bronkit.map)),
+      bronkit.kit ? dirKey(join(WERK_DIR, bronkit.kit)) : '',
+      JSON.stringify(HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? null),
+      JSON.stringify(AFWIJZINGEN[bronId(bronkit)] ?? null),
+    ].join('\n'),
+  );
+
 const waarschuwingen = [];
 
+function snoei(dir, bekend) {
+  for (const naam of readdirSync(dir)) {
+    const pad = join(dir, naam);
+    if (bekend.has(pad)) continue;
+    if (!statSync(pad).isDirectory()) {
+      rmSync(pad, { force: true });
+      continue;
+    }
+    if ([...bekend].some((id) => id.startsWith(`${pad}/`))) {
+      snoei(pad, bekend);
+      if (readdirSync(pad).length === 0) rmSync(pad, { recursive: true, force: true });
+      continue;
+    }
+    rmSync(pad, { recursive: true, force: true });
+  }
+}
+
+function apply(entry) {
+  for (const lijst of LIJSTEN) {
+    const deel = entry.lists[lijst.sleutel];
+    const basis = lijst.modellen.length;
+    for (const regel of deel.models) lijst.modellen.push({ ...regel });
+    for (const groep of deel.groups) {
+      const id = `v${String(lijst.varianten.length + 1).padStart(3, '0')}`;
+      const leden = groep.map((i) => lijst.modellen[basis + i]);
+      for (const lid of leden) lid.variant = id;
+      lijst.varianten.push({
+        id,
+        main: `${leden[0].kit}/${leden[0].name}`,
+        members: leden.map((lid) => `${lid.kit}/${lid.name}`),
+      });
+    }
+    if (deel.source) lijst.bronnen.push(deel.source);
+  }
+  for (const regel of entry.warnings) waarschuwingen.push(regel);
+  console.log(entry.line);
+}
+
+let hergebruikt = 0;
+
 for (const bronkit of BRONKITS) {
+  const sleutel = packKey(bronkit);
+  const bekend = cache[bronId(bronkit)];
+  if (bekend?.key === sleutel && bekend.dirs.every((pad) => existsSync(join(ROOT, pad)))) {
+    fresh[bronId(bronkit)] = bekend;
+    hergebruikt++;
+    apply(bekend);
+    continue;
+  }
+
+  for (const lijst of LIJSTEN) rmSync(join(lijst.dir, bronId(bronkit)), { recursive: true, force: true });
+  const entry = { key: sleutel, dirs: [], warnings: [], line: '', lists: {} };
+
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
   const handkleuren = HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? {};
@@ -383,7 +498,7 @@ for (const bronkit of BRONKITS) {
     else rest.push(model);
   }
   if (botsingen.length) {
-    waarschuwingen.push(
+    entry.warnings.push(
       `${bronkit.kit}: ${botsingen.length} workfile name(s) clash with a different source model — ` +
         'rename the workfile, or the source model stays listed as TBD:\n' +
         botsingen
@@ -418,14 +533,14 @@ for (const bronkit of BRONKITS) {
 
   const onherkend = [...teGaan.values()].reduce((som, arr) => som + arr.length, 0);
   if (onherkend) {
-    waarschuwingen.push(
+    entry.warnings.push(
       `${bronkit.kit}: ${onherkend} of ${kit.aantal} workfiles match no model in ` +
         `${bronkit.naam} by name or by triangle count and size — renamed and edited after import, so ` +
         'that many source models are listed as TBD while they may not be',
     );
   }
   if (gevonden.length) {
-    waarschuwingen.push(
+    entry.warnings.push(
       `${bronkit.kit}: ${gevonden.length} model(s) in ${bronkit.naam} matched a catalog workfile ` +
         'only by triangle count and size, not by name — verify these by hand:\n' +
         gevonden.map((g) => `    ${g.bron} (${g.driehoeken} tris) -> ${g.catalogus}`).join('\n'),
@@ -440,6 +555,8 @@ for (const bronkit of BRONKITS) {
 
   for (const lijst of LIJSTEN) {
     const eigen = perLijst[lijst.sleutel];
+    const deel = { models: [], groups: [], source: null };
+    entry.lists[lijst.sleutel] = deel;
     const uitvoerMap = join(lijst.dir, bronId(bronkit));
     const gekopieerd = new Map();
     const gebruikteNamen = new Set();
@@ -458,7 +575,10 @@ for (const bronkit of BRONKITS) {
       return naam;
     };
 
-    if (eigen.length) mkdirSync(uitvoerMap, { recursive: true });
+    if (eigen.length) {
+      mkdirSync(uitvoerMap, { recursive: true });
+      entry.dirs.push(`${lijst.pad}/${bronId(bronkit)}`);
+    }
 
     const perVorm = new Map();
 
@@ -502,28 +622,22 @@ for (const bronkit of BRONKITS) {
         reason: afwijzingen[model.naam] ?? null,
         file: model.bestand,
       };
-      lijst.modellen.push(regel);
+      const plaats = deel.models.push(regel) - 1;
 
       const sleutel = vormsleutel(model.primitieven, model);
       const leden = perVorm.get(sleutel);
-      if (leden) leden.push(regel);
-      else perVorm.set(sleutel, [regel]);
+      if (leden) leden.push(plaats);
+      else perVorm.set(sleutel, [plaats]);
     }
 
     for (const leden of perVorm.values()) {
       if (leden.length < 2) continue;
-      const id = `v${String(lijst.varianten.length + 1).padStart(3, '0')}`;
-      for (const lid of leden) lid.variant = id;
-      lijst.varianten.push({
-        id,
-        main: `${leden[0].kit}/${leden[0].name}`,
-        members: leden.map((lid) => `${lid.kit}/${lid.name}`),
-      });
+      deel.groups.push(leden);
     }
 
     if (!eigen.length) continue;
 
-    lijst.bronnen.push({
+    deel.source = {
       slug: bronId(bronkit),
       name: bronkit.naam,
       kit: bronkit.kit,
@@ -534,17 +648,25 @@ for (const bronkit of BRONKITS) {
       unmatched: onherkend,
       scale: kit.schaal,
       folder: map.slice(uitgepakt.length + 1) || null,
-    });
+    };
   }
 
-  console.log(
+  entry.line =
     `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
-      `${String(kit.aantal).padStart(4)} in catalog → ${String(perLijst.ontbreekt.length).padStart(4)} tbd` +
-      (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} reject` : '') +
-      (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
-      (bronkit.kit ? '' : '  — never imported'),
-  );
+    `${String(kit.aantal).padStart(4)} in catalog → ${String(perLijst.ontbreekt.length).padStart(4)} tbd` +
+    (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} reject` : '') +
+    (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
+    (bronkit.kit ? '' : '  — never imported');
+
+  fresh[bronId(bronkit)] = entry;
+  apply(entry);
 }
+
+for (const lijst of LIJSTEN) snoei(lijst.dir, new Set(BRONKITS.map((b) => join(lijst.dir, bronId(b)))));
+
+mkdirSync(dirname(CACHE_FILE), { recursive: true });
+writeFileSync(CACHE_FILE, JSON.stringify(fresh) + '\n');
+console.log(`\n${hergebruikt} of ${BRONKITS.length} packs came from the cache in kits/.cache`);
 
 const afgewezenLijst = LIJSTEN.find((l) => l.sleutel === 'afgewezen');
 const geraakteAfwijzingen = new Set(afgewezenLijst.modellen.map((m) => `${m.kit}/${m.name}`));
