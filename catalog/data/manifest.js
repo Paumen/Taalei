@@ -3914,6 +3914,7 @@ window.KENNEY_KITS = [
    "sword",
    "sword-taupe",
    "tomato",
+   "tractor",
    "trowel",
    "watering-can",
    "watering-can-basalt",
