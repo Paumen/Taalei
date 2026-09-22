@@ -249,6 +249,7 @@ const DROPPED_KINDS = [
   'obj-tool-supplies',
   'obj-transport-watercraft-accessory',
   'str-access-bridge',
+  'str-access-bridge-long',
   'str-canopy-tent',
   'str-part-floor',
   'str-part-roof',
@@ -269,7 +270,6 @@ const STOREYS = {
 };
 const STOREY_M = 3;
 const ROOF_M = 1.5;
-const TRIM = 0.01;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
@@ -322,8 +322,6 @@ const counted = (model) => {
   return true;
 };
 
-const quantile = (sorted, q) => sorted[Math.min(sorted.length - 1, Math.floor(q * (sorted.length - 1)))];
-
 const gather = () => {
   const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
   const picked = [];
@@ -338,10 +336,7 @@ const gather = () => {
       u, real: assumed.real, high: assumed.high,
     });
   }
-  const sorted = picked.map((m) => m.u).sort((a, b) => a - b);
-  const lo = quantile(sorted, TRIM);
-  const hi = quantile(sorted, 1 - TRIM);
-  return picked.filter((m) => m.u >= lo && m.u <= hi);
+  return picked;
 };
 
 const pointsOf = (models) => {
@@ -548,8 +543,6 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         <li><code>tag:comp</code></li>
         <li><code>tag:pickup</code></li>
         <li><code>tag:piece</code></li>
-        <li>the 1% largest models</li>
-        <li>the 1% smallest models</li>
       </ul>
     </div>
     <div class="rule">
