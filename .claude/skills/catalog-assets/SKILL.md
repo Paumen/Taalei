@@ -165,3 +165,7 @@ comparison rather than a claim.
 `build-lists.mjs` regenerates `kits/tbd/` and the catalogue pages get a fresh
 build stamp, so even a small change touches a few hundred files. Check that
 nothing outside the set you meant to touch was written.
+
+It rebuilds only the packs whose source zips, workfiles, preview colours,
+rejects or tooling changed; the rest come from `kits/.cache`. `--force`
+rebuilds every pack.
