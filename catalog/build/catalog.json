@@ -8419,7 +8419,7 @@
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 14
+   "count": 13
   },
   {
    "id": "obj-kitchenware-tableware-drinkware",
@@ -8725,7 +8725,7 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 13
+   "count": 12
   },
   {
    "id": "obj-transport-cart",
@@ -8746,7 +8746,7 @@
    "name": "Ship",
    "type": "kind",
    "description": "ship, galleon, longship, hull (ship)",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-transport-accessory",
@@ -11084,6 +11084,12 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-cookware-utensil-whisk": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-tableware": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -16714,7 +16720,7 @@
   {
    "kit": "asia-rg",
    "name": "boat",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
     1.7,
@@ -16804,7 +16810,7 @@
   {
    "kit": "asia-rg",
    "name": "bowl",
-   "kind": "obj-kitchenware-tableware-bowl",
+   "kind": "obj-kitchenware-tableware",
    "size": "s",
    "wdh": [
     0.06,
