@@ -244,16 +244,18 @@ export function leesFbx(pad) {
 
     const schaal = property70(model, 'Lcl Scaling') ?? [1, 1, 1];
     const draai = property70(model, 'Lcl Rotation') ?? [0, 0, 0];
+    const schuif = property70(model, 'Lcl Translation') ?? [0, 0, 0];
     const geoSchaal = property70(model, 'GeometricScaling') ?? [1, 1, 1];
     const geoDraai = property70(model, 'GeometricRotation') ?? [0, 0, 0];
+    const geoSchuif = property70(model, 'GeometricTranslation') ?? [0, 0, 0];
     const draaiing = eulerMatrix(draai);
     const geoDraaiing = eulerMatrix(geoDraai);
 
     const plaats = (x, y, z) => {
       let p = [x * geoSchaal[0], y * geoSchaal[1], z * geoSchaal[2]];
-      p = applyMatrix(geoDraaiing, ...p);
+      p = applyMatrix(geoDraaiing, ...p).map((v, k) => v + geoSchuif[k]);
       p = [p[0] * schaal[0], p[1] * schaal[1], p[2] * schaal[2]];
-      p = applyMatrix(draaiing, ...p);
+      p = applyMatrix(draaiing, ...p).map((v, k) => v + schuif[k]);
       return naarYOp ? applyMatrix(naarYOp, ...p) : p;
     };
     const richt = (x, y, z) => {

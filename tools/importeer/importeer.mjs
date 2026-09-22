@@ -1,5 +1,8 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
-import { basename, dirname, join, resolve } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { basename, dirname, extname, join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeGlb } from '../../catalog/tools/glb.mjs';
 import { readPng } from '../../catalog/tools/png.mjs';
@@ -18,8 +21,15 @@ const LICHT = 0.15;
 const SPREIDING = 0.6;
 
 const atlassen = new Map();
+function alsPng(pad) {
+  if (extname(pad).toLowerCase() === '.png') return pad;
+  const uit = join(tmpdir(), `taalei-${createHash('sha1').update(pad).digest('hex').slice(0, 12)}.png`);
+  if (!existsSync(uit)) execFileSync('convert', [pad, uit]);
+  return uit;
+}
+
 function monster(pad, u, v) {
-  if (!atlassen.has(pad)) atlassen.set(pad, readPng(pad));
+  if (!atlassen.has(pad)) atlassen.set(pad, readPng(alsPng(pad)));
   const png = atlassen.get(pad);
   const x = Math.min(Math.max(Math.floor(u * png.width), 0), png.width - 1);
   const y = Math.min(Math.max(Math.floor(v * png.height), 0), png.height - 1);
@@ -81,8 +91,9 @@ function bandUv(band, normaalY) {
   return [(kolom + 0.5) / KOLOMMEN, (rij + LICHT + SPREIDING * donker) / RIJEN];
 }
 
-function bronVanModel(bronkit, uitgepakt, model) {
+function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
   const opNaam = new Map(alleBestanden(uitgepakt).map((pad) => [basename(pad).toLowerCase(), pad]));
+  const gevraagd = (pad) => texturen[basename(pad)] ?? basename(pad);
   const driehoeken = [];
   const posities = [];
   const index = new Map();
@@ -98,7 +109,7 @@ function bronVanModel(bronkit, uitgepakt, model) {
 
   for (const p of model.primitieven) {
     const textuur = p.materiaal.textuur
-      ? opNaam.get(basename(p.materiaal.textuur).toLowerCase()) ?? p.materiaal.textuur
+      ? opNaam.get(gevraagd(p.materiaal.textuur).toLowerCase()) ?? p.materiaal.textuur
       : null;
     for (let t = 0; t < p.indices.length; t += 3) {
       const hoeken = [0, 1, 2].map((k) => punt(p, p.indices[t + k]));
@@ -247,7 +258,7 @@ if (config.licentie && existsSync(join(ROOT, config.licentie))) {
 for (const rij of config.modellen) {
   const model = opBronnaam.get(rij.bron);
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
-  const bron = bronVanModel(bronkit, uitgepakt, model);
+  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen);
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
   const { json, bin } = bouwGlb(
     rij.naam,
