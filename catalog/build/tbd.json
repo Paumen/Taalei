@@ -110,10 +110,6 @@
    "name": "Modular Dungeons Pack"
   },
   {
-   "slug": "Windmill",
-   "name": "Windmill"
-  },
-  {
    "slug": "tools_mekmeesk",
    "name": "Tools (mekmeesk)"
   },
@@ -620,24 +616,12 @@
    "folder": "OBJ"
   },
   {
-   "slug": "Windmill",
-   "name": "Windmill",
-   "kit": "windmill",
-   "format": "fbx",
-   "inSource": 2,
-   "inCatalog": 1,
-   "listed": 1,
-   "unmatched": 0,
-   "scale": 0.0068,
-   "folder": "Windmill/FBX"
-  },
-  {
    "slug": "tools_mekmeesk",
    "name": "Tools (mekmeesk)",
    "kit": "mek-tools",
    "format": "fbx",
    "inSource": 33,
-   "inCatalog": 14,
+   "inCatalog": 10,
    "listed": 6,
    "unmatched": 0,
    "scale": 0.000242
@@ -783,8 +767,8 @@
    "kit": "isa-kitchen",
    "format": "gltf",
    "inSource": 118,
-   "inCatalog": 36,
-   "listed": 79,
+   "inCatalog": 33,
+   "listed": 82,
    "unmatched": 0,
    "scale": 0.32,
    "folder": "Tiny_Treats_Charming_Kitchen_1.1_FREE/Assets/gltf"
@@ -843,7 +827,7 @@
    "kit": "kay-minigame",
    "format": "glb",
    "inSource": 132,
-   "inCatalog": 27,
+   "inCatalog": 26,
    "listed": 45,
    "unmatched": 0,
    "scale": 0.296,
@@ -1008,7 +992,7 @@
    "kit": "styloo-farm",
    "format": "glb",
    "inSource": 101,
-   "inCatalog": 91,
+   "inCatalog": 88,
    "listed": 8,
    "unmatched": 0,
    "scale": 0.441,
@@ -1199,6 +1183,10 @@
    "name": "Jar"
   },
   {
+   "id": "obj-container-pot-urn",
+   "name": "Urn"
+  },
+  {
    "id": "obj-container-can",
    "name": "Can"
   },
@@ -1271,6 +1259,18 @@
    "name": "Utensil"
   },
   {
+   "id": "obj-kitchenware-cookware-utensil-spatula",
+   "name": "Spatula"
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-whisk",
+   "name": "Whisk"
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-rollingpin",
+   "name": "Rolling pin"
+  },
+  {
    "id": "obj-kitchenware-appliance",
    "name": "Appliance"
   },
@@ -1281,6 +1281,14 @@
   {
    "id": "obj-food-meat",
    "name": "Meat"
+  },
+  {
+   "id": "obj-food-meat-ham",
+   "name": "Ham"
+  },
+  {
+   "id": "obj-food-meat-steak",
+   "name": "Steak"
   },
   {
    "id": "obj-food-vegetable",
@@ -1321,6 +1329,10 @@
   {
    "id": "obj-food-fish",
    "name": "Fish"
+  },
+  {
+   "id": "obj-food-fish-sushi",
+   "name": "Sushi"
   },
   {
    "id": "obj-food-fruit",
@@ -1365,6 +1377,10 @@
   {
    "id": "obj-food-baked-bread",
    "name": "Bread"
+  },
+  {
+   "id": "obj-food-baked-bread-sandwich",
+   "name": "Sandwich"
   },
   {
    "id": "obj-food-baked-pie",
@@ -1619,6 +1635,10 @@
    "name": "Cart"
   },
   {
+   "id": "obj-transport-cart-small",
+   "name": "Small cart"
+  },
+  {
    "id": "obj-transport-watercraft",
    "name": "Watercraft"
   },
@@ -1637,6 +1657,14 @@
   {
    "id": "obj-transport-pallet",
    "name": "Pallet"
+  },
+  {
+   "id": "obj-transport-accessory",
+   "name": "Accessory"
+  },
+  {
+   "id": "obj-transport-accessory-wheel",
+   "name": "Wheel"
   },
   {
    "id": "obj-lighting",
@@ -1693,6 +1721,14 @@
   {
    "id": "obj-resource-textile",
    "name": "Textile"
+  },
+  {
+   "id": "obj-resource-wheat",
+   "name": "Wheat"
+  },
+  {
+   "id": "obj-resource-haystack",
+   "name": "Haystack"
   },
   {
    "id": "obj-art",
@@ -8125,7 +8161,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_ingredient_steak_pieces",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-steak",
    "wdh": [
     0.2,
     0.1,
@@ -9907,7 +9943,6 @@
   {
    "kit": "Modular Village",
    "name": "Prop_Cart_1_Hay",
-   "kind": "obj-transport-cart",
    "wdh": [
     0.8,
     0.6,
@@ -9923,6 +9958,7 @@
   {
    "kit": "Modular Village",
    "name": "Prop_Hay_1",
+   "kind": "obj-resource-haystack",
    "wdh": [
     0.4,
     0.3,
@@ -14475,21 +14511,6 @@
    "file": "Trap_empty.obj"
   },
   {
-   "kit": "Windmill",
-   "name": "Plane.005",
-   "wdh": [
-    24.6,
-    10,
-    24.6
-   ],
-   "tris": 82,
-   "tpu": 0,
-   "mat": 1,
-   "bytes": 3836,
-   "scaled": true,
-   "file": "Windmill.fbx"
-  },
-  {
    "kit": "tools_mekmeesk",
    "name": "saw_handsaw",
    "kind": "obj-tool-hand-saw",
@@ -16351,7 +16372,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_rubber_spatula_w_hole_yellow",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spatula",
    "wdh": [
     0.1,
     0.3,
@@ -17848,6 +17869,54 @@
    "bytes": 25040,
    "scaled": true,
    "file": "wall_tiles_kitchen_window_full_right.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Charming_Kitchen_1.1_FREE",
+   "name": "window_full_center_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.2
+   ],
+   "tris": 154,
+   "tpu": 355,
+   "mat": 2,
+   "bytes": 12424,
+   "scaled": true,
+   "file": "window_full_center_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Charming_Kitchen_1.1_FREE",
+   "name": "window_full_left_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.2
+   ],
+   "tris": 154,
+   "tpu": 384,
+   "mat": 2,
+   "bytes": 12032,
+   "scaled": true,
+   "file": "window_full_left_modular.gltf"
+  },
+  {
+   "kit": "Tiny_Treats_Charming_Kitchen_1.1_FREE",
+   "name": "window_full_right_modular",
+   "kind": "str-part-window",
+   "wdh": [
+    0.6,
+    1,
+    0.2
+   ],
+   "tris": 154,
+   "tpu": 384,
+   "mat": 2,
+   "bytes": 12036,
+   "scaled": true,
+   "file": "window_full_right_modular.gltf"
   },
   {
    "kit": "AssetPack",
@@ -21819,7 +21888,7 @@
   {
    "kit": "Post_Apocolypse_Pack",
    "name": "Wheels Stack",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-accessory-wheel",
    "wdh": [
     0.3,
     0.3,
@@ -26693,7 +26762,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Cooking Spatula",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spatula",
    "wdh": [
     0.3,
     0.1,
@@ -27159,7 +27228,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Whole Ham",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-ham",
    "wdh": [
     0.2,
     0.2,
