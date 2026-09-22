@@ -407,26 +407,16 @@ const page = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kit size curves</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — Curves: kit size curves</title>
+<meta name="description" content="Each kit's model sizes against a real-world size table, fitted per kit: flat keeps real proportions, falling enlarges small things.">
+<meta name="catalogus-versie" content="">
+<meta name="catalogus-gebouwd" content="">
+<link rel="stylesheet" href="catalog.css"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 <style>
-:root{
-  --papier:#fdfbf8; --papier-diep:#f6f1ea; --inkt:#2f2a26; --inkt-zacht:#7d7166;
-  --raster-fijn:#c6b8a5; --raster-zwaar:#6b6058; --toy:#b8563a; --lin:#3d6f8e;
-  --sel:#2f2a26; --pill:#ece4d8; --rand:#e2d8c9;
-  color-scheme:light dark;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --papier:#232120; --papier-diep:#1c1a19; --inkt:#ece3d8; --inkt-zacht:#9d9084;
-  --raster-fijn:#4a423d; --raster-zwaar:#9d9084; --toy:#d9765a; --lin:#6fa0c2;
-  --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532;
-}}
-:root[data-theme="dark"]{
-  --papier:#232120; --papier-diep:#1c1a19; --inkt:#ece3d8; --inkt-zacht:#9d9084;
-  --raster-fijn:#4a423d; --raster-zwaar:#9d9084; --toy:#d9765a; --lin:#6fa0c2;
-  --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532;
-}
-body{margin:0;background:var(--papier);color:var(--inkt);font:13px/1.4 system-ui,sans-serif;padding-block:6px 18px;padding-inline:16px}
+:root{--toy:#b8563a; --lin:#3d6f8e; --sel:#2f2a26; --pill:#ece4d8; --rand:#e2d8c9}
+@media (prefers-color-scheme:dark){:root{--toy:#d9765a; --lin:#6fa0c2; --sel:#ece3d8; --pill:#2f2b28; --rand:#3a3532}}
+.curves{font:13px/1.4 system-ui,sans-serif;padding-block:6px 18px;padding-inline:16px}
 
 .tabs{display:flex;gap:2px;border-bottom:1px solid var(--rand);margin-bottom:8px}
 .tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--inkt-zacht);
@@ -487,6 +477,19 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </head>
 <body>
 
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../../index.html">Catalog</a>
+    <a href="scale-obj-gen.html">Scale</a>
+    <span aria-current="page">Curves</span>
+    <a href="swipe.html">Swipe</a>
+    <a href="tbd.html">TBD</a>
+    <a href="reject.html">Reject</a>
+    <a href="swipe.html?source=lint">Lint</a>
+  </nav>
+</header>
+
+<main class="curves">
 <div class="tabs" role="tablist">
   <button id="tab-curves" role="tab" aria-controls="panel-curves" aria-selected="true">Curves</button>
   <button id="tab-outliers" role="tab" aria-controls="panel-outliers" aria-selected="false">20 biggest outliers</button>
@@ -558,6 +561,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   </details>
 </section>
 
+</main>
 <script>
 const PAYLOAD = ${JSON.stringify(payload)};
 const SIZE_ROWS = ${JSON.stringify(sizeRows)};
@@ -721,11 +725,13 @@ load('weighted');
 </html>
 `;
 
-const out = process.argv[2];
-if (!out) {
-  process.stdout.write(page);
-} else {
-  writeFileSync(out, page);
-  const w = payload.weighted;
-  process.stderr.write(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope}\n`);
-}
+const out = process.argv[2] ?? join(ROOT, 'catalog', 'app', 'size-curves.html');
+const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
+const meta = (name) => index.match(new RegExp(`<meta name="${name}" content="([^"]*)">`))?.[1] ?? '';
+const version = meta('catalogus-versie');
+writeFileSync(out, page
+  .replace('<meta name="catalogus-versie" content="">', `<meta name="catalogus-versie" content="${version}">`)
+  .replace('<meta name="catalogus-gebouwd" content="">', `<meta name="catalogus-gebouwd" content="${meta('catalogus-gebouwd')}">`)
+  .replace('href="catalog.css"', `href="catalog.css?v=${version}"`));
+const w = payload.weighted;
+console.log(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope} → ${out}`);
