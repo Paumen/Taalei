@@ -232,13 +232,17 @@ const DROPPED_KINDS = [
   'env-flora-waterplant',
   'env-remains-bones',
   'env-remains-deadwood',
+  'env-rock-formation',
   'env-terrain-ground',
   'env-terrain-mountain',
   'env-terrain-water',
+  'obj-art-sculpture',
   'obj-equipment-pocketitem',
   'obj-equipment-weapon',
   'obj-equipment-weapon-melee',
   'obj-equipment-weapon-ranged',
+  'obj-food-grain',
+  'obj-food-vegetable',
   'obj-kitchenware-cookware',
   'obj-tool-supplies',
   'obj-transport-watercraft-accessory',
@@ -246,6 +250,7 @@ const DROPPED_KINDS = [
   'str-canopy-tent',
   'str-part-floor',
   'str-part-roof',
+  'str-part-wall-rampart',
   'str-platform-deck',
 ];
 
@@ -566,7 +571,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 const PAYLOAD = ${JSON.stringify(payload)};
 const SIZE_ROWS = ${JSON.stringify(sizeRows)};
 const DROPPED = ${JSON.stringify(DROPPED_KINDS)};
-const HIGH_ROWS = ${JSON.stringify([...HIGH])};
+const HIGH_ROWS = ${JSON.stringify([...HIGH].filter((k) => !DROPPED_KINDS.includes(k)))};
 
 const svg = document.getElementById('c'), NS = 'http://www.w3.org/2000/svg';
 let mode = 'weighted', DATA = PAYLOAD[mode].kits, TOP = PAYLOAD[mode].top;
