@@ -41,7 +41,6 @@ export const BRONKITS = [
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', source: 'qua', formaat: 'obj' },
   { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', source: 'qua', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
-  { map: 'Windmill', naam: 'Windmill', kit: 'windmill', formaat: 'fbx', splitsPerMesh: true },
 
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },

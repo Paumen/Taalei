@@ -2395,13 +2395,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "windmill",
-  "name": "windmill",
-  "models": [
-   "windmill"
-  ]
- },
- {
   "slug": "lpa-tools",
   "name": "lpa-tools",
   "url": null,
@@ -2714,9 +2707,6 @@ window.KENNEY_KITS = [
    "wall-tiles-window-large",
    "wall-tiles-window-small",
    "window-large",
-   "window-modular-center",
-   "window-modular-left",
-   "window-modular-right",
    "window-small"
   ]
  },
@@ -2877,11 +2867,7 @@ window.KENNEY_KITS = [
    "axe-double",
    "brush",
    "hammer-bar",
-   "hammer-block",
-   "hammer-pein",
    "hammer-square",
-   "hammer-stepped",
-   "hammer-wedge",
    "pickaxe",
    "saw-coarse",
    "saw-crosscut",
@@ -3760,7 +3746,6 @@ window.KENNEY_KITS = [
   "name": "kay-minigame",
   "url": "https://www.kaylousberg.com",
   "models": [
-   "arrow",
    "barrier-ladder",
    "barrier-large",
    "barrier-medium",
@@ -3859,8 +3844,6 @@ window.KENNEY_KITS = [
    "daisies",
    "daisy",
    "daisy-head",
-   "droplets",
-   "droplets-wide",
    "egg",
    "eggplant",
    "fence-post",
@@ -3895,7 +3878,6 @@ window.KENNEY_KITS = [
    "pickaxe-curved",
    "pond",
    "pond-scene",
-   "puddle",
    "rock-a",
    "rock-b",
    "rock-c",
