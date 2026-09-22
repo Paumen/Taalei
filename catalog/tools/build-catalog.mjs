@@ -22,7 +22,7 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
-const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
+const round1 = (v) => (v < 0.1 ? Math.max(Math.round(v * 100) / 100, 0.01) : Math.round(v * 20) / 20);
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 const LINT_CHECKS = buildChecks({

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const round1 = (v) => Math.max(Math.round(v * 20) / 20, 0.05);
+const round1 = (v) => (v < 0.1 ? Math.max(Math.round(v * 100) / 100, 0.01) : Math.round(v * 20) / 20);
 
 const KIND_LIMITS = JSON.parse(readFileSync(
   join(resolve(dirname(fileURLToPath(import.meta.url)), '..', '..'), 'lint', 'kinds.json'), 'utf8'));
