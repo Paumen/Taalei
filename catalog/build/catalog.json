@@ -8712,14 +8712,14 @@
    "name": "Watercraft",
    "type": "kind",
    "description": "Watercraft with no leaf that fits.",
-   "count": 31
+   "count": 30
   },
   {
    "id": "obj-transport-watercraft-accessory",
    "name": "Accessory",
    "type": "kind",
    "description": "anchor, paddle, oar, sail, rudder, mast",
-   "count": 7
+   "count": 6
   },
   {
    "id": "obj-transport-watercraft-boat",
@@ -8754,14 +8754,14 @@
    "name": "Accessory",
    "type": "kind",
    "description": "",
-   "count": 3
+   "count": 4
   },
   {
    "id": "obj-transport-accessory-wheel",
    "name": "Wheel",
    "type": "kind",
-   "description": "wheel",
-   "count": 3
+   "description": "wheel, tire",
+   "count": 4
   },
   {
    "id": "obj-equipment-weapon-siege",
@@ -9704,8 +9704,15 @@
    "id": "obj-art-instrument",
    "name": "Instrument",
    "type": "kind",
-   "description": "Musical instrument: bell, gong, drum.",
+   "description": "Musical instrument: gong, drum.",
    "count": 14
+  },
+  {
+   "id": "obj-art-instrument-bell",
+   "name": "Bell",
+   "type": "kind",
+   "description": "bell",
+   "count": 5
   },
   {
    "id": "obj-art",
@@ -10356,6 +10363,12 @@
    "tpu.max": 10000
   },
   "obj-art-instrument": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-art-instrument-bell": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -44949,7 +44962,7 @@
   {
    "kit": "isa-playground",
    "name": "tire-azure",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-accessory-wheel",
    "size": "s",
    "wdh": [
     0.25,
@@ -78032,7 +78045,7 @@
   {
    "kit": "kay-holiday",
    "name": "bell-banded",
-   "kind": "obj-art-instrument",
+   "kind": "obj-art-instrument-bell",
    "size": "s",
    "wdh": [
     0.25,
@@ -78077,7 +78090,7 @@
   {
    "kit": "kay-holiday",
    "name": "bell-decorated",
-   "kind": "obj-art-instrument",
+   "kind": "obj-art-instrument-bell",
    "size": "s",
    "wdh": [
     0.25,
@@ -78127,7 +78140,7 @@
   {
    "kit": "kay-holiday",
    "name": "bell",
-   "kind": "obj-art-instrument",
+   "kind": "obj-art-instrument-bell",
    "size": "s",
    "wdh": [
     0.25,
@@ -133178,7 +133191,7 @@
   {
    "kit": "quat-medieval",
    "name": "bell",
-   "kind": "obj-art-instrument",
+   "kind": "obj-art-instrument-bell",
    "size": "m",
    "wdh": [
     0.75,
@@ -160272,7 +160285,7 @@
   {
    "kit": "wizp-asia",
    "name": "bell-loose",
-   "kind": "obj-art-instrument",
+   "kind": "obj-art-instrument-bell",
    "size": "m",
    "wdh": [
     0.45,
