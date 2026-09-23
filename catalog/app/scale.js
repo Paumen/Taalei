@@ -1,47 +1,8 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1a97edc2aa';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=1a97edc2aa';
-import './bouwstempel.js?v=1a97edc2aa';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f25f37f353';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=f25f37f353';
+import './bouwstempel.js?v=f25f37f353';
 
 const MODEL_PATH = 'kits/workfiles';
-
-function colorName(hex) {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const lightness = (max + min) / 2;
-  const delta = max - min;
-  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
-
-  if (saturation < 0.18) {
-    if (lightness > 0.8) return 'white';
-    if (lightness > 0.45) return 'light grey';
-    if (lightness > 0.25) return 'grey';
-    return 'dark grey';
-  }
-
-  let tint = 0;
-  if (max === r) tint = ((g - b) / delta) % 6;
-  else if (max === g) tint = (b - r) / delta + 2;
-  else tint = (r - g) / delta + 4;
-  tint = (tint * 60 + 360) % 360;
-
-  const base =
-    tint < 15 || tint >= 345 ? 'red'
-    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
-    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
-    : tint < 70 ? 'yellow'
-    : tint < 165 ? 'green'
-    : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blue'
-    : tint < 300 ? 'purple'
-    : 'pink';
-
-  if (lightness < 0.3) return `dark ${base}`;
-  if (lightness > 0.75) return `light ${base}`;
-  return base;
-}
 
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
@@ -53,6 +14,7 @@ const [allGroups, catalogData] = await Promise.all([
 const TABS = CATEGORY ? CATEGORY.split(',') : null;
 const groups = TABS ? allGroups.filter((g) => TABS.includes(g.category)) : allGroups;
 
+const bandNames = new Map((catalogData.bands ?? []).map((b) => [b.hex, b.name]));
 const kitsMap = new Map((catalogData.kits ?? []).map((k) => [k.slug, k]));
 const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, '');
 
@@ -246,7 +208,7 @@ function collectColors(items) {
     for (const hex of item.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
   }
   return [...counts]
-    .map(([hex, count]) => ({ hex, count, name: colorName(hex) }))
+    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? 'no band' }))
     .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
 }
 

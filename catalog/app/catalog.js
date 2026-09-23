@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=1a97edc2aa';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1a97edc2aa';
-import { colorSwatches, setBands } from './color-edits.js?v=1a97edc2aa';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=1a97edc2aa';
-import { mountExtractBar, setPageParts } from './extract.js?v=1a97edc2aa';
-import './bouwstempel.js?v=1a97edc2aa';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=f25f37f353';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=f25f37f353';
+import { colorSwatches, setBands } from './color-edits.js?v=f25f37f353';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=f25f37f353';
+import { mountExtractBar, setPageParts } from './extract.js?v=f25f37f353';
+import './bouwstempel.js?v=f25f37f353';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -47,7 +47,7 @@ function collectColors(models, bandNames) {
     for (const hex of model.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
   }
   return [...counts]
-    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? hex }))
+    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? 'no band' }))
     .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
 }
 

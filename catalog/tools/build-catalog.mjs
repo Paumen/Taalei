@@ -556,7 +556,7 @@ const BANDS = sharedAtlas
     .map(([name, lane]) => ({ name, hex: laneColor(sharedAtlas, lane) }))
   : [];
 const bandNameOf = new Map(BANDS.map((b) => [b.hex, b.name]));
-const colorName = (hex) => bandNameOf.get(hex) ?? hex;
+const colorName = (hex) => bandNameOf.get(hex) ?? 'no band';
 
 for (const [key, palette] of palettes) {
   palette.laneColor = new Map();
