@@ -911,8 +911,16 @@
    "name": "Wateringcan"
   },
   {
+   "id": "obj-container-can-gas",
+   "name": "Gas can"
+  },
+  {
    "id": "obj-container-cargo",
    "name": "Cargo"
+  },
+  {
+   "id": "obj-container-basket",
+   "name": "Basket"
   },
   {
    "id": "obj-kitchenware",
@@ -925,6 +933,10 @@
   {
    "id": "obj-kitchenware-tableware-cutlery",
    "name": "Cutlery"
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-chopsticks",
+   "name": "Chopsticks"
   },
   {
    "id": "obj-kitchenware-tableware-plate",
@@ -995,8 +1007,28 @@
    "name": "Rolling pin"
   },
   {
+   "id": "obj-kitchenware-cookware-utensil-knife",
+   "name": "Knife"
+  },
+  {
    "id": "obj-kitchenware-appliance",
    "name": "Appliance"
+  },
+  {
+   "id": "obj-kitchenware-appliance-fridge",
+   "name": "Fridge"
+  },
+  {
+   "id": "obj-kitchenware-appliance-oven",
+   "name": "Oven"
+  },
+  {
+   "id": "obj-kitchenware-appliance-stove",
+   "name": "Stove"
+  },
+  {
+   "id": "obj-kitchenware-appliance-toaster",
+   "name": "Toaster"
   },
   {
    "id": "obj-food",
@@ -1013,6 +1045,10 @@
   {
    "id": "obj-food-meat-steak",
    "name": "Steak"
+  },
+  {
+   "id": "obj-food-meat-sausage",
+   "name": "Sausage"
   },
   {
    "id": "obj-food-vegetable",
@@ -1089,6 +1125,10 @@
   {
    "id": "obj-food-sweet-icecream",
    "name": "Ice cream"
+  },
+  {
+   "id": "obj-food-sweet-lollipop",
+   "name": "Lollipop"
   },
   {
    "id": "obj-food-egg",
@@ -1271,6 +1311,10 @@
    "name": "Headgear"
   },
   {
+   "id": "obj-equipment-apparel-glove",
+   "name": "Glove"
+  },
+  {
    "id": "obj-equipment-pocketitem",
    "name": "Pocket item"
   },
@@ -1343,6 +1387,10 @@
    "name": "Broom"
   },
   {
+   "id": "obj-tool-twohand-rod",
+   "name": "Rod"
+  },
+  {
    "id": "obj-tool-supplies",
    "name": "Supplies"
   },
@@ -1379,6 +1427,10 @@
    "name": "Accessory"
   },
   {
+   "id": "obj-transport-watercraft-accessory-paddle",
+   "name": "Paddle"
+  },
+  {
    "id": "obj-transport-pallet",
    "name": "Pallet"
   },
@@ -1389,6 +1441,10 @@
   {
    "id": "obj-transport-accessory-wheel",
    "name": "Wheel"
+  },
+  {
+   "id": "obj-transport-road",
+   "name": "Road vehicle"
   },
   {
    "id": "obj-lighting",
@@ -1537,6 +1593,22 @@
   {
    "id": "obj-toy",
    "name": "Toy"
+  },
+  {
+   "id": "obj-toy-ball",
+   "name": "Ball"
+  },
+  {
+   "id": "obj-household",
+   "name": "Household"
+  },
+  {
+   "id": "obj-household-electronics",
+   "name": "Electronics"
+  },
+  {
+   "id": "obj-household-electronics-radio",
+   "name": "Radio"
   },
   {
    "id": "str",
@@ -1733,6 +1805,14 @@
   {
    "id": "str-barrier-post",
    "name": "Post"
+  },
+  {
+   "id": "str-barrier-traffic",
+   "name": "Traffic"
+  },
+  {
+   "id": "str-barrier-hedge",
+   "name": "Hedge"
   },
   {
    "id": "str-access",
@@ -3085,7 +3165,7 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "hedge-curved",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "wdh": [
     0.9,
     0.2,
@@ -3116,7 +3196,7 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "hedge-large-curved",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "wdh": [
     0.9,
     0.5,
@@ -3147,7 +3227,7 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "hedge-large",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "wdh": [
     0.4,
     0.5,
@@ -3163,7 +3243,7 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "hedge",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "wdh": [
     0.2,
     0.2,
@@ -7051,7 +7131,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "fridge_A_decorated_door_bottom",
-   "kind": "str-part-door",
    "wdh": [
     0.4,
     0.3,
@@ -7068,7 +7147,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "fridge_A_decorated_door_top",
-   "kind": "str-part-door",
    "wdh": [
     0.4,
     0.2,
@@ -7085,7 +7163,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "fridge_A_door_bottom",
-   "kind": "str-part-door",
    "wdh": [
     0.4,
     0.3,
@@ -7102,7 +7179,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "fridge_A_door_top",
-   "kind": "str-part-door",
    "wdh": [
     0.4,
     0.2,
@@ -7119,7 +7195,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "fridge_B_door",
-   "kind": "str-part-door",
    "wdh": [
     0.4,
     0.5,
@@ -12065,7 +12140,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "appliance_electric_oven",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-oven",
    "wdh": [
     0.6,
     0.4,
@@ -12280,6 +12355,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "appliance_refrigerator",
+   "kind": "obj-kitchenware-appliance-fridge",
    "wdh": [
     0.5,
     1.5,
@@ -15661,6 +15737,7 @@
   {
    "kit": "Post_Apocolypse_Pack",
    "name": "Traffic Barrier-nugx3heueH",
+   "kind": "str-barrier-traffic",
    "wdh": [
     0.8,
     0.6,
@@ -20818,6 +20895,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Monster Truck",
+   "kind": "obj-transport-road",
    "wdh": [
     446.8,
     373.1,
@@ -21000,6 +21078,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Truck",
+   "kind": "obj-transport-road",
    "wdh": [
     341.4,
     321.1,
@@ -21014,6 +21093,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Truck with trailer",
+   "kind": "obj-transport-road",
    "wdh": [
     341.4,
     404.6,
@@ -23062,6 +23142,7 @@
   {
    "kit": "kenney_furniture-kit",
    "name": "computerMouse",
+   "kind": "obj-household-electronics",
    "wdh": [
     0.1,
     0.1,
@@ -24014,6 +24095,7 @@
   {
    "kit": "Kitchen_Styloo",
    "name": "fridge",
+   "kind": "obj-kitchenware-appliance-fridge",
    "wdh": [
     209,
     552.9,

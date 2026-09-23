@@ -21,7 +21,6 @@
      "high.min": 0.1,
      "high.max": 1.0,
      "nouns": [
-      "basket",
       "trough",
       "bin",
       "carton"
@@ -212,6 +211,14 @@
          "nouns": [
           "watering can"
          ]
+        },
+        {
+         "id": "obj-container-can-gas",
+         "nouns": [
+          "gas can",
+          "jerrycan",
+          "fuel can"
+         ]
         }
        ]
       },
@@ -220,6 +227,12 @@
        "nouns": [
         "shipping container",
         "cargo container"
+       ]
+      },
+      {
+       "id": "obj-container-basket",
+       "nouns": [
+        "basket"
        ]
       }
      ]
@@ -240,6 +253,14 @@
           "knife (table)",
           "fork",
           "spoon"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-tableware-cutlery-chopsticks",
+           "nouns": [
+            "chopsticks"
+           ]
+          }
          ]
         },
         {
@@ -388,8 +409,7 @@
          "nouns": [
           "ladle",
           "rice paddle",
-          "wooden paddle",
-          "cleaver"
+          "wooden paddle"
          ],
          "children": [
           {
@@ -410,6 +430,13 @@
            "nouns": [
             "rolling pin"
            ]
+          },
+          {
+           "id": "obj-kitchenware-cookware-utensil-knife",
+           "nouns": [
+            "cleaver",
+            "knife (kitchen)"
+           ]
           }
          ]
         }
@@ -418,11 +445,37 @@
       {
        "id": "obj-kitchenware-appliance",
        "nouns": [
-        "stove",
-        "oven",
-        "range",
-        "toaster",
         "blender"
+       ],
+       "children": [
+        {
+         "id": "obj-kitchenware-appliance-fridge",
+         "nouns": [
+          "fridge",
+          "refrigerator",
+          "freezer"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-appliance-oven",
+         "nouns": [
+          "oven"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-appliance-stove",
+         "nouns": [
+          "stove",
+          "range",
+          "cooktop"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-appliance-toaster",
+         "nouns": [
+          "toaster"
+         ]
+        }
        ]
       }
      ]
@@ -442,7 +495,6 @@
        ],
        "nouns": [
         "meat",
-        "sausage",
         "roast",
         "leg"
        ],
@@ -459,6 +511,14 @@
          "id": "obj-food-meat-steak",
          "nouns": [
           "steak"
+         ]
+        },
+        {
+         "id": "obj-food-meat-sausage",
+         "nouns": [
+          "sausage",
+          "hot dog",
+          "hotdog"
          ]
         }
        ]
@@ -595,6 +655,13 @@
          "nouns": [
           "ice cream",
           "popsicle"
+         ]
+        },
+        {
+         "id": "obj-food-sweet-lollipop",
+         "nouns": [
+          "lollipop",
+          "lollypop"
          ]
         }
        ]
@@ -949,8 +1016,7 @@
         "robe",
         "boots",
         "shoes",
-        "belt",
-        "glove"
+        "belt"
        ],
        "children": [
         {
@@ -966,6 +1032,14 @@
           "hood",
           "crown",
           "mining helmet"
+         ]
+        },
+        {
+         "id": "obj-equipment-apparel-glove",
+         "nouns": [
+          "glove",
+          "mitt",
+          "oven mitt"
          ]
         }
        ]
@@ -1156,6 +1230,12 @@
          "nouns": [
           "broom"
          ]
+        },
+        {
+         "id": "obj-tool-twohand-rod",
+         "nouns": [
+          "fishing rod"
+         ]
         }
        ]
       },
@@ -1240,11 +1320,18 @@
          "id": "obj-transport-watercraft-accessory",
          "nouns": [
           "anchor",
-          "paddle",
-          "oar",
           "sail",
           "rudder",
           "mast"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-watercraft-accessory-paddle",
+           "nouns": [
+            "paddle",
+            "oar"
+           ]
+          }
          ]
         }
        ]
@@ -1266,6 +1353,14 @@
           "tire"
          ]
         }
+       ]
+      },
+      {
+       "id": "obj-transport-road",
+       "nouns": [
+        "car",
+        "truck",
+        "tractor"
        ]
       }
      ]
@@ -1578,10 +1673,48 @@
      "bands.max": 7,
      "nouns": [
       "toy",
-      "ball",
       "frisbee",
       "plushie",
       "puzzle cube"
+     ],
+     "children": [
+      {
+       "id": "obj-toy-ball",
+       "nouns": [
+        "ball",
+        "football",
+        "basketball",
+        "beach ball"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "obj-household",
+     "nouns": [],
+     "children": [
+      {
+       "id": "obj-household-electronics",
+       "nouns": [
+        "television",
+        "laptop",
+        "computer",
+        "keyboard (computer)",
+        "speaker",
+        "camera",
+        "phone",
+        "battery",
+        "cash register"
+       ],
+       "children": [
+        {
+         "id": "obj-household-electronics-radio",
+         "nouns": [
+          "radio"
+         ]
+        }
+       ]
+      }
      ]
     }
    ]
@@ -1920,7 +2053,6 @@
      "id": "str-barrier",
      "nouns": [
       "wall (low, garden)",
-      "hedge (trimmed)",
       "barricade"
      ],
      "children": [
@@ -1968,6 +2100,20 @@
         "post",
         "bollard",
         "stake"
+       ]
+      },
+      {
+       "id": "str-barrier-traffic",
+       "nouns": [
+        "traffic cone",
+        "traffic barrier",
+        "traffic drum"
+       ]
+      },
+      {
+       "id": "str-barrier-hedge",
+       "nouns": [
+        "hedge (trimmed)"
        ]
       }
      ]
