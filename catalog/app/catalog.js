@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=fba6091e47';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=fba6091e47';
-import { colorSwatches, setBands } from './color-edits.js?v=fba6091e47';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=fba6091e47';
-import { mountExtractBar, setPageParts } from './extract.js?v=fba6091e47';
-import './bouwstempel.js?v=fba6091e47';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=1a97edc2aa';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1a97edc2aa';
+import { colorSwatches, setBands } from './color-edits.js?v=1a97edc2aa';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=1a97edc2aa';
+import { mountExtractBar, setPageParts } from './extract.js?v=1a97edc2aa';
+import './bouwstempel.js?v=1a97edc2aa';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -41,52 +41,13 @@ function hydrate(m) {
   return m;
 }
 
-function colorName(hex) {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const lightness = (max + min) / 2;
-  const delta = max - min;
-  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
-
-  if (saturation < 0.18) {
-    if (lightness > 0.8) return 'white';
-    if (lightness > 0.45) return 'light grey';
-    if (lightness > 0.25) return 'grey';
-    return 'dark grey';
-  }
-
-  let tint = 0;
-  if (max === r) tint = ((g - b) / delta) % 6;
-  else if (max === g) tint = (b - r) / delta + 2;
-  else tint = (r - g) / delta + 4;
-  tint = (tint * 60 + 360) % 360;
-
-  const base =
-    tint < 15 || tint >= 345 ? 'red'
-    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
-    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
-    : tint < 70 ? 'yellow'
-    : tint < 165 ? 'green'
-    : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blue'
-    : tint < 300 ? 'purple'
-    : 'pink';
-
-  if (lightness < 0.3) return `dark ${base}`;
-  if (lightness > 0.75) return `light ${base}`;
-  return base;
-}
-
-function collectColors(models) {
+function collectColors(models, bandNames) {
   const counts = new Map();
   for (const model of models) {
     for (const hex of model.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
   }
   return [...counts]
-    .map(([hex, count]) => ({ hex, count, name: colorName(hex) }))
+    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? hex }))
     .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
 }
 
@@ -740,7 +701,7 @@ const withParents = (ids) => {
 
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
-  { type: 'attribute', head: 'Storeys' },
+  { type: 'attribute', head: 'Storeys', extra: true },
   { type: 'tag', head: 'Tags' },
   { type: 'theme', head: 'Theme', extra: true },
   { type: 'artist', head: 'Artist', extra: true },
@@ -1336,9 +1297,10 @@ async function start() {
 
   await loadThumbs();
 
-  const colors = collectColors(data.models);
+  const bands = data.bands ?? [];
+  const colors = collectColors(data.models, new Map(bands.map((b) => [b.hex, b.name])));
   buildColorBar(colors);
-  setBands([...colors].sort((a, b) => a.name.localeCompare(b.name) || a.hex.localeCompare(b.hex)));
+  setBands(bands);
   buildTagBar(data.tags ?? []);
   setPageParts();
   refreshExtract = mountExtractBar();
