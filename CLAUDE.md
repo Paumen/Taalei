@@ -1,5 +1,5 @@
 ## Claude contract:
-* It is strictly forbidden to look at any previous commits or prs and related files.
+* Never look at any previous commits or prs and related files.
 * If you doubt, you ask clarification.
 * never write assumptions, comments, requirements, statements, rules or similar in code files.
 ** All new code is written in English.
