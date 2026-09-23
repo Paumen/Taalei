@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — Overview: kits and kinds</title>
+<meta name="description" content="Every kit with its source, licence, scale, shading and size curve, and the kinds tree with its counts, limits, lint rules and exceptions.">
+<meta name="catalogus-versie" content="81ced1955c">
+<meta name="catalogus-gebouwd" content="2026-09-23T17:42:05Z">
+<link rel="stylesheet" href="catalog.css?v=81ced1955c"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<style>
+:root{--pill:#ece4d8; --rand:#e2d8c9; --lin:#3d6f8e}
+@media (prefers-color-scheme:dark){:root{--pill:#2f2b28; --rand:#3a3532; --lin:#6fa0c2}}
+.overzicht{font:12.5px/1.35 system-ui,sans-serif;padding-block:4px 16px;padding-inline:16px}
+.tabs{display:flex;gap:2px;align-items:flex-end;border-bottom:1px solid var(--rand);margin-bottom:6px}
+.tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--inkt-zacht);
+  font:600 12.5px/1 system-ui,sans-serif;padding:7px 10px;cursor:pointer;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--inkt);border-bottom-color:var(--accent)}
+.tabs button:focus-visible{outline:2px solid var(--lin);outline-offset:-2px}
+.tabs .telling{margin-left:auto;padding:0 0 6px;color:var(--inkt-zacht);font-size:12px}
+.knoppen{display:flex;gap:6px;margin-bottom:4px}
+.knoppen button{appearance:none;font:inherit;padding:1px 8px;border:1px solid var(--raster-fijn);border-radius:9px;background:none;color:var(--inkt-zacht);cursor:pointer}
+.wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;width:100%}
+th,td{text-align:left;padding:3px 8px 3px 0;border-bottom:1px solid var(--lijn);white-space:nowrap;vertical-align:top}
+th{position:sticky;top:0;background:var(--papier);color:var(--inkt-zacht);font-weight:500;font-size:11px;letter-spacing:.03em;text-transform:uppercase}
+th button{appearance:none;background:none;border:0;padding:0;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer}
+th button:focus-visible{outline:2px solid var(--lin);outline-offset:1px}
+th[aria-sort="ascending"] button::after{content:" ▲"}
+th[aria-sort="descending"] button::after{content:" ▼"}
+td.n,th.n{text-align:right}
+td.wrapt{white-space:normal;min-width:160px;max-width:320px}
+.muted{color:var(--inkt-zacht)}
+.extra{color:var(--inkt-zacht);font-size:11px;margin-left:3px}
+.afwijk{color:var(--accent);font-weight:600}
+a{color:inherit}
+.boom{cursor:pointer;user-select:none}
+.boom:focus-visible{outline:2px solid var(--lin);outline-offset:-2px}
+.pijl{display:inline-block;width:12px;color:var(--inkt-zacht)}
+.chip{display:inline-block;margin:0 3px 2px 0;padding:0 5px;border-radius:7px;background:var(--pill);font-size:11px;white-space:nowrap}
+.chip.uit{background:none;border:1px dashed var(--raster-fijn)}
+</style>
+</head>
+<body>
+
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../../index.html">Catalog</a>
+    <a href="scale-obj-gen.html">Scale</a>
+    <a href="size-curves.html">Curves</a>
+    <span aria-current="page">Overview</span>
+    <a href="swipe.html">Swipe</a>
+    <a href="tbd.html">TBD</a>
+    <a href="reject.html">Reject</a>
+    <a href="swipe.html?source=lint">Lint</a>
+  </nav>
+  <span class="bouwstempel" id="bouwstempel"></span>
+</header>
+
+<main class="overzicht">
+  <div class="tabs" role="tablist">
+    <button id="tab-kits" role="tab" aria-controls="panel-kits" aria-selected="true">Kits</button>
+    <button id="tab-kinds" role="tab" aria-controls="panel-kinds" aria-selected="false">Kinds</button>
+    <span class="telling" id="telling"></span>
+  </div>
+
+  <section id="panel-kits" role="tabpanel" aria-labelledby="tab-kits">
+    <div class="wrap"><table id="kits"></table></div>
+  </section>
+
+  <section id="panel-kinds" role="tabpanel" aria-labelledby="tab-kinds" hidden>
+    <div class="knoppen">
+      <button type="button" id="alles-open">Expand all</button>
+      <button type="button" id="alles-dicht">Collapse all</button>
+    </div>
+    <div class="wrap"><table id="kinds"></table></div>
+  </section>
+</main>
+
+<script src="bouwstempel.js" type="module"></script>
+<script src="overview.js?v=81ced1955c" type="module"></script>
+</body>
+</html>

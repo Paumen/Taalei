@@ -472,6 +472,7 @@ for (const bronkit of BRONKITS) {
     : { modellen: [], schaal: null, aantal: 0 };
 
   const gemeten = bron.map((model) => ({ ...model, ...meet(model.primitieven) }));
+  entry.inSource = gemeten.length;
 
   const opBron = new Map();
   for (const model of kit.modellen) {
@@ -681,6 +682,14 @@ if (losseAfwijzingen.length) {
       losseAfwijzingen.map((id) => `    ${id}`).join('\n'),
   );
 }
+
+const packs = BRONKITS.map((b) => ({
+  name: b.naam,
+  kit: b.kit,
+  format: [b.formaat, ...(b.extraFormaten ?? [])],
+  inSource: fresh[bronId(b)].inSource,
+}));
+writeFileSync(join(CATALOG_DIR, 'build', 'packs.json'), JSON.stringify(packs, (k, v) => (v === null ? undefined : v), 1) + '\n');
 
 const soorten = [...readKindTree().keys()].map((id) => ({ id, name: kindName(id) }));
 
