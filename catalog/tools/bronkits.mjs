@@ -59,7 +59,6 @@ export const BRONKITS = [
 
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', source: 'qua', formaat: 'glb' },
   { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'lpa-desert', formaat: 'fbx', alleMappen: true },
-  { map: 'JellySquish_Forest_Asset_Pack_Sample_Version', naam: 'JellySquish Forest Asset Pack (sample)', kit: 'jelly-forest', formaat: 'glb' },
 
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'wizp-asia', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'wizp-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
