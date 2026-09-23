@@ -314,7 +314,7 @@ Making and validating:
 
 Importing a pack:
 
-- **`P10`** — One scale factor for the whole pack, for now. Three kits break this: `quat-pirate`, whose firearms carry half the kit factor; `styloo-farm`, whose batches carry one factor per group on top of 0.294 — ×0.7 for crops, sword, haystacks, hedges and cart; ×1.1 for fruit and garden; ×1.5 for pond, fish, rocks, fences, soil, windmills, barns and tractor; ×2.4 for smelters, tools, barrel, crate, mailbox, mixer, gas can and water drops; and `styloo-kitchen`, 0.294 with ×3 for cutlery, mug, eggs, egg carton and yoghurt. No other kit takes a per-model factor.
+- **`P10`** — One scale factor for the whole pack, for now. Four kits break this: `styloo-food`, 0.6 with ×0.5 for sushi pieces and sushi boards; `quat-pirate`, whose firearms carry half the kit factor; `styloo-farm`, whose batches carry one factor per group on top of 0.294 — ×0.7 for crops, sword, haystacks, hedges and cart; ×1.1 for fruit and garden; ×1.5 for pond, fish, rocks, fences, soil, windmills, barns and tractor; ×2.4 for smelters, tools, barrel, crate, mailbox, mixer, gas can and water drops; and `styloo-kitchen`, 0.294 with ×3 for cutlery, mug, eggs, egg carton and yoghurt. No other kit takes a per-model factor.
 - **`P11`** — 2 source colours: keep 2.
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.

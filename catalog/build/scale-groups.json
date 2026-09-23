@@ -91,67 +91,6 @@
   ]
  },
  {
-  "slug": "obj-food-baked-pastry-croissant",
-  "name": "Object › Food › Baked › Pastry › Croissant",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "isa-food",
-    "model": "croissant",
-    "wdh": [
-     0.25,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "croissant",
-    "wdh": [
-     0.2,
-     0.25,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "croissant",
-    "wdh": [
-     0.2,
-     0.1,
-     0.09
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-food-baked-pastry-waffle",
   "name": "Object › Food › Baked › Pastry › Waffle",
   "category": "obj-gen",
@@ -668,6 +607,67 @@
   ]
  },
  {
+  "slug": "obj-kitchenware-tableware-cutlery-chopsticks",
+  "name": "Object › Kitchenware › Tableware › Cutlery › Chopsticks",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-food",
+    "model": "chopsticks",
+    "wdh": [
+     0.01,
+     0.25,
+     0.01
+    ],
+    "tags": [
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "chopstick",
+    "wdh": [
+     0.01,
+     0.3,
+     0.01
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "chopsticks",
+    "wdh": [
+     0.04,
+     0.3,
+     0.01
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-lighting",
   "name": "Object › Lighting",
   "category": "obj-gen",
@@ -935,89 +935,6 @@
      "#7f3927",
      "#d8d1bd",
      "#f2a93c"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-meat-steak",
-  "name": "Object › Food › Meat › Steak",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "meat-cut",
-    "wdh": [
-     0.15,
-     0.2,
-     0.02
-    ],
-    "tags": [
-     "bone",
-     "food"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-steak",
-    "wdh": [
-     0.2,
-     0.2,
-     0.06
-    ],
-    "tags": [
-     "bone",
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "meat-raw",
-    "wdh": [
-     0.25,
-     0.3,
-     0.03
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "steak",
-    "wdh": [
-     0.2,
-     0.35,
-     0.06
-    ],
-    "tags": [
-     "bone",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
     ]
    }
   ]
@@ -1467,8 +1384,8 @@
   ]
  },
  {
-  "slug": "obj-food-baked-pastry",
-  "name": "Object › Food › Baked › Pastry",
+  "slug": "obj-food-baked-pastry-croissant",
+  "name": "Object › Food › Baked › Pastry › Croissant",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -1478,46 +1395,12 @@
   },
   "items": [
    {
-    "slug": "isa-bakery",
-    "model": "cream-puff",
+    "slug": "isa-food",
+    "model": "croissant",
     "wdh": [
-     0.1,
-     0.1,
-     0.09
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "macaron-pink",
-    "wdh": [
-     0.08,
-     0.08,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "pretzel",
-    "wdh": [
-     0.2,
-     0.05,
-     0.15
+     0.25,
+     0.15,
+     0.1
     ],
     "tags": [
      "food",
@@ -1528,29 +1411,28 @@
     ]
    },
    {
-    "slug": "isa-food",
-    "model": "cinnamon-roll",
+    "slug": "ken-food",
+    "model": "croissant",
     "wdh": [
-     0.15,
-     0.15,
-     0.08
+     0.2,
+     0.25,
+     0.1
     ],
     "tags": [
      "food",
-     "isa"
+     "ken"
     ],
     "colors": [
-     "#b58158",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "gyoza",
+    "slug": "quat-food",
+    "model": "croissant",
     "wdh": [
-     0.07,
-     0.15,
-     0.06
+     0.2,
+     0.1,
+     0.09
     ],
     "tags": [
      "food",
@@ -1558,6 +1440,37 @@
     ],
     "colors": [
      "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "croissant-half",
+    "wdh": [
+     0.15,
+     0.15,
+     0.08
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "croissant",
+    "wdh": [
+     0.25,
+     0.15,
+     0.08
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#b58158"
     ]
    }
   ]
@@ -1966,8 +1879,110 @@
   ]
  },
  {
-  "slug": "obj-food-sweet-lollipop",
-  "name": "Object › Food › Sweet › Lollipop",
+  "slug": "obj-kitchenware",
+  "name": "Object › Kitchenware",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "isa-kitchen",
+    "model": "dishrack",
+    "wdh": [
+     0.2,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "paper-towel-holder",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "isa",
+     "paper",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "wall-paper-towel-holder",
+    "wdh": [
+     0.5,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-wrought",
+     "paper",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "dishrack",
+    "wdh": [
+     0.25,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "paper-towel",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "paper",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-baked-pastry",
+  "name": "Object › Food › Baked › Pastry",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -1977,98 +1992,101 @@
   },
   "items": [
    {
-    "slug": "aq-hallow",
-    "model": "candy-c-moss",
+    "slug": "isa-bakery",
+    "model": "cream-puff",
     "wdh": [
-     0.06,
-     0.06,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "halloween"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "aq-hallow",
-    "model": "candy-c",
-    "wdh": [
-     0.07,
-     0.07,
-     0.2
-    ],
-    "tags": [
-     "aq",
-     "food",
-     "halloween"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-spook",
-    "model": "lollipop-a",
-    "wdh": [
-     0.2,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "food",
-     "halloween",
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#1367a6",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-spook",
-    "model": "lollipop-b",
-    "wdh": [
-     0.2,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "food",
-     "halloween",
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "lollypop",
-    "wdh": [
-     0.02,
      0.1,
-     0.2
+     0.1,
+     0.09
     ],
     "tags": [
      "food",
-     "ken",
-     "wood-worked"
+     "isa"
     ],
     "colors": [
-     "#7f3927",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "macaron-pink",
+    "wdh": [
+     0.08,
+     0.08,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "pretzel",
+    "wdh": [
+     0.2,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cinnamon-roll",
+    "wdh": [
+     0.15,
+     0.15,
+     0.08
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
      "#b58158",
      "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "gyoza",
+    "wdh": [
+     0.07,
+     0.15,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "pain-au-chocolat",
+    "wdh": [
+     0.2,
+     0.15,
+     0.09
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#8b5936"
     ]
    }
   ]
@@ -2167,107 +2185,259 @@
     "colors": [
      "#68872d"
     ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lettuce-leaf",
+    "wdh": [
+     0.2,
+     0.15,
+     0.02
+    ],
+    "tags": [
+     "foliage",
+     "piece"
+    ],
+    "colors": [
+     "#68872d"
+    ]
    }
   ]
  },
  {
-  "slug": "obj-kitchenware",
-  "name": "Object › Kitchenware",
+  "slug": "obj-resource-stone",
+  "name": "Object › Resource › Stone",
   "category": "obj-gen",
-  "rulerHeight": 0.6,
   "limits": {
-   "high.max": 0.5,
+   "high.max": 8,
    "longest.min": 0.05,
-   "longest.max": 10,
+   "longest.max": 1.4,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "isa-kitchen",
-    "model": "dishrack",
-    "wdh": [
-     0.2,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "paper-towel-holder",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "isa",
-     "paper",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "wall-paper-towel-holder",
-    "wdh": [
-     0.5,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-wrought",
-     "paper",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "dishrack",
+    "slug": "kay-apocalyp",
+    "model": "cinder-block",
     "wdh": [
      0.25,
-     0.25,
+     0.1,
      0.1
     ],
     "tags": [
      "kay",
-     "metal-iron-steel"
+     "stone-masonry"
     ],
     "colors": [
      "#88848a"
     ]
    },
    {
-    "slug": "kay-food",
-    "model": "paper-towel",
+    "slug": "kay-dun-1",
+    "model": "bricks",
     "wdh": [
-     0.1,
-     0.1,
+     0.55,
+     0.5,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "stone-brick",
+    "wdh": [
+     0.15,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "stone-chunks-large",
+    "wdh": [
+     0.55,
+     0.5,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "stone-rock"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "model": "stone-chunks-small",
+    "wdh": [
+     0.4,
+     0.3,
      0.2
     ],
     "tags": [
      "kay",
-     "paper",
-     "wood-beam"
+     "stone-rock"
     ],
     "colors": [
-     "#8b5936",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "wizp-grave",
+    "model": "stone-block",
+    "wdh": [
+     0.4,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "halloween",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-meat-steak",
+  "name": "Object › Food › Meat › Steak",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "meat-cut",
+    "wdh": [
+     0.15,
+     0.2,
+     0.02
+    ],
+    "tags": [
+     "bone",
+     "food"
+    ],
+    "colors": [
+     "#7f3927",
      "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-steak",
+    "wdh": [
+     0.2,
+     0.2,
+     0.06
+    ],
+    "tags": [
+     "bone",
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "meat-raw",
+    "wdh": [
+     0.25,
+     0.3,
+     0.03
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "steak",
+    "wdh": [
+     0.2,
+     0.35,
+     0.06
+    ],
+    "tags": [
+     "bone",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "steak-b",
+    "wdh": [
+     0.1,
+     0.1,
+     0.02
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "steak-raw",
+    "wdh": [
+     0.15,
+     0.1,
+     0.02
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "steak",
+    "wdh": [
+     0.15,
+     0.1,
+     0.02
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927"
     ]
    }
   ]
@@ -2384,512 +2554,21 @@
     "colors": [
      "#8b7561"
     ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-vegetable-tomato",
-  "name": "Object › Food › Vegetable › Tomato",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "tomato",
-    "wdh": [
-     0.09,
-     0.09,
-     0.08
-    ],
-    "tags": [
-     "foliage",
-     "food"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927"
-    ]
    },
    {
-    "slug": "kay-food",
-    "model": "food-ingredient-tomato-slice",
+    "slug": "styloo-food",
+    "model": "onion-slice",
     "wdh": [
-     0.15,
-     0.15,
-     0.02
+     0.1,
+     0.1,
+     0.01
     ],
     "tags": [
      "food",
-     "kay",
      "piece"
     ],
     "colors": [
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-tomato",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "tomato-slice",
-    "wdh": [
-     0.09,
-     0.09,
-     0.02
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "piece"
-    ],
-    "colors": [
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "tomato",
-    "wdh": [
-     0.09,
-     0.09,
-     0.07
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "tomato",
-    "wdh": [
-     0.1,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "foliage",
-     "food"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-resource-stone",
-  "name": "Object › Resource › Stone",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 1.4,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-apocalyp",
-    "model": "cinder-block",
-    "wdh": [
-     0.25,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "bricks",
-    "wdh": [
-     0.55,
-     0.5,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "stone-brick",
-    "wdh": [
-     0.15,
-     0.25,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "stone-chunks-large",
-    "wdh": [
-     0.55,
-     0.5,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "model": "stone-chunks-small",
-    "wdh": [
-     0.4,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "kay",
-     "stone-rock"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "wizp-grave",
-    "model": "stone-block",
-    "wdh": [
-     0.4,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "halloween",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-baked-bread-sandwich",
-  "name": "Object › Food › Baked › Bread › Sandwich",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "burger-sesame",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "foliage",
-     "food"
-    ],
-    "colors": [
-     "#68872d",
      "#7f3927",
-     "#b58158",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "burger",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "foliage",
-     "food"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-picnic",
-    "model": "sandwich",
-    "wdh": [
-     0.3,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#b58158",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "burger-cheese",
-    "wdh": [
-     0.25,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "burger",
-    "wdh": [
-     0.25,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#8b5936",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "sandwich",
-    "wdh": [
-     0.2,
-     0.2,
-     0.08
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#8b5936",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "sub",
-    "wdh": [
-     0.15,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#b58158",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-grain",
-  "name": "Object › Food › Grain",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "isa-bakery",
-    "model": "dough-ball",
-    "wdh": [
-     0.1,
-     0.1,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "dough-rolled-a",
-    "wdh": [
-     0.45,
-     0.4,
-     0.02
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "dough-rolled-b",
-    "wdh": [
-     0.25,
-     0.3,
-     0.02
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "flour-sack-open",
-    "wdh": [
-     0.15,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "flour-sack",
-    "wdh": [
-     0.15,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "isa",
-     "vegetation"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-bun",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "rice-ball",
-    "wdh": [
-     0.04,
-     0.06,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#343745",
      "#d8d1bd"
     ]
    }
@@ -3040,137 +2719,6 @@
      "#343745",
      "#5b5550",
      "#8b7561",
-     "#b58158"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-kitchenware-cookware-utensil-spatula",
-  "name": "Object › Kitchenware › Cookware › Utensil › Spatula",
-  "category": "obj-gen",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 0.5,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "cooking-assets",
-    "model": "spatula-rubber",
-    "wdh": [
-     0.08,
-     0.01,
-     0.3
-    ],
-    "tags": [
-     "plastic"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "spatula",
-    "wdh": [
-     0.1,
-     0.05,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "turner",
-    "wdh": [
-     0.1,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "spatula",
-    "wdh": [
-     0.09,
-     0.03,
-     0.25
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "spatula",
-    "wdh": [
-     0.35,
-     0.1,
-     0.04
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "spatula",
-    "wdh": [
-     0.03,
-     0.01,
-     0.15
-    ],
-    "tags": [
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "turner",
-    "wdh": [
-     0.06,
-     0.01,
-     0.2
-    ],
-    "tags": [
-     "wood-worked"
-    ],
-    "colors": [
      "#b58158"
     ]
    }
@@ -3602,8 +3150,8 @@
   ]
  },
  {
-  "slug": "obj-food-egg",
-  "name": "Object › Food › Egg",
+  "slug": "obj-food-baked-bread-sandwich",
+  "name": "Object › Food › Baked › Bread › Sandwich",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -3613,132 +3161,312 @@
   },
   "items": [
    {
-    "slug": "isa-bakery",
-    "model": "egg-camel",
+    "slug": "food-pack",
+    "model": "burger-sesame",
     "wdh": [
-     0.08,
-     0.08,
+     0.15,
+     0.15,
      0.1
     ],
     "tags": [
-     "food",
-     "isa"
+     "foliage",
+     "food"
     ],
     "colors": [
-     "#b58158"
+     "#68872d",
+     "#7f3927",
+     "#b58158",
+     "#dbae80",
+     "#f2a93c"
     ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "egg-ivory",
+    "slug": "food-pack",
+    "model": "burger",
     "wdh": [
-     0.08,
-     0.08,
+     0.15,
+     0.15,
      0.1
     ],
     "tags": [
-     "bone",
-     "food",
-     "isa"
+     "foliage",
+     "food"
     ],
     "colors": [
-     "#d8d1bd"
+     "#68872d",
+     "#7f3927",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-picnic",
+    "model": "sandwich",
+    "wdh": [
+     0.3,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#b58158",
+     "#dbae80",
+     "#f2a93c"
     ]
    },
    {
     "slug": "ken-food",
-    "model": "egg",
+    "model": "burger-cheese",
     "wdh": [
-     0.06,
-     0.07,
-     0.08
+     0.25,
+     0.25,
+     0.15
     ],
     "tags": [
      "food",
      "ken"
     ],
     "colors": [
-     "#d8d1bd"
+     "#8b5936",
+     "#dbae80",
+     "#f2a93c"
     ]
    },
    {
-    "slug": "quat-food",
-    "model": "egg-whole-white",
+    "slug": "ken-food",
+    "model": "burger",
     "wdh": [
-     0.06,
-     0.06,
+     0.25,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#8b5936",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "sandwich",
+    "wdh": [
+     0.2,
+     0.2,
      0.08
     ],
     "tags": [
-     "bone",
+     "foliage",
      "food",
-     "qua"
+     "ken"
     ],
     "colors": [
-     "#d8d1bd"
+     "#68872d",
+     "#8b5936",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "sub",
+    "wdh": [
+     0.15,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "burger",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b5936",
+     "#b58158",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-vegetable-tomato",
+  "name": "Object › Food › Vegetable › Tomato",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "tomato",
+    "wdh": [
+     0.09,
+     0.09,
+     0.08
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-tomato-slice",
+    "wdh": [
+     0.15,
+     0.15,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-tomato",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "tomato-slice",
+    "wdh": [
+     0.09,
+     0.09,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "tomato",
+    "wdh": [
+     0.09,
+     0.09,
+     0.07
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927"
     ]
    },
    {
     "slug": "styloo-farm",
-    "model": "egg",
+    "model": "tomato",
     "wdh": [
-     0.07,
-     0.07,
+     0.1,
+     0.1,
      0.1
     ],
     "tags": [
-     "bone",
+     "foliage",
      "food"
     ],
     "colors": [
-     "#d8d1bd"
+     "#68872d",
+     "#7f3927"
     ]
    },
    {
-    "slug": "styloo-kitchen",
-    "model": "egg-ivory",
+    "slug": "styloo-food",
+    "model": "tomato-half",
     "wdh": [
      0.08,
-     0.08,
-     0.1
+     0.1,
+     0.04
     ],
     "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "tomato",
+    "wdh": [
+     0.1,
+     0.1,
+     0.09
+    ],
+    "tags": [
+     "foliage",
      "food"
     ],
     "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "egg",
-    "wdh": [
-     0.08,
-     0.08,
-     0.1
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "egg",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "asia",
-     "bone",
-     "wizp"
-    ],
-    "colors": [
-     "#d8d1bd"
+     "#68872d",
+     "#7f3927"
     ]
    }
   ]
@@ -4477,8 +4205,8 @@
   ]
  },
  {
-  "slug": "obj-food-baked-pastry-cookie",
-  "name": "Object › Food › Baked › Pastry › Cookie",
+  "slug": "obj-food-egg",
+  "name": "Object › Food › Egg",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -4488,165 +4216,156 @@
   },
   "items": [
    {
-    "slug": "food-pack",
-    "model": "cookie",
+    "slug": "isa-bakery",
+    "model": "egg-camel",
     "wdh": [
-     0.1,
-     0.1,
-     0.01
+     0.08,
+     0.08,
+     0.1
     ],
     "tags": [
-     "food"
+     "food",
+     "isa"
     ],
     "colors": [
-     "#8b5936",
      "#b58158"
     ]
    },
    {
     "slug": "isa-bakery",
-    "model": "cookie",
+    "model": "egg-ivory",
     "wdh": [
-     0.15,
-     0.15,
-     0.04
+     0.08,
+     0.08,
+     0.1
     ],
     "tags": [
+     "bone",
      "food",
      "isa"
     ],
     "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cookie",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-holiday",
-    "model": "cookie",
-    "wdh": [
-     0.15,
-     0.15,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-holiday",
-    "model": "gingerbread-man",
-    "wdh": [
-     0.15,
-     0.2,
-     0.03
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158",
      "#d8d1bd"
     ]
    },
    {
     "slug": "ken-food",
-    "model": "cookie-chocolate",
+    "model": "egg",
     "wdh": [
      0.06,
      0.07,
-     0.03
+     0.08
     ],
     "tags": [
      "food",
      "ken"
     ],
     "colors": [
-     "#8b5936",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-food",
-    "model": "gingerbread-man",
+    "slug": "quat-food",
+    "model": "egg-whole-white",
     "wdh": [
-     0.15,
-     0.1,
+     0.06,
+     0.06,
+     0.08
+    ],
+    "tags": [
+     "bone",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "egg",
+    "wdh": [
+     0.07,
+     0.07,
+     0.1
+    ],
+    "tags": [
+     "bone",
+     "food"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "egg-half",
+    "wdh": [
+     0.04,
+     0.07,
      0.02
     ],
     "tags": [
      "food",
-     "ken"
+     "piece"
     ],
     "colors": [
-     "#b58158",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "egg-ivory",
+    "wdh": [
+     0.08,
+     0.08,
+     0.1
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-holiday",
-    "model": "gingerbread-man",
+    "slug": "styloo-kitchen",
+    "model": "egg",
     "wdh": [
-     0.15,
-     0.04,
-     0.2
+     0.08,
+     0.08,
+     0.1
     ],
     "tags": [
-     "food",
-     "ken"
+     "food"
     ],
     "colors": [
-     "#8b5936",
-     "#b58158",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "ken-holiday",
-    "model": "gingerbread-woman",
+    "slug": "wizp-asia",
+    "model": "egg",
     "wdh": [
      0.15,
-     0.06,
+     0.15,
      0.2
     ],
     "tags": [
-     "food",
-     "ken"
+     "asia",
+     "bone",
+     "wizp"
     ],
     "colors": [
-     "#8b5936",
-     "#b58158",
      "#d8d1bd"
     ]
    }
   ]
  },
  {
-  "slug": "obj-food-meat",
-  "name": "Object › Food › Meat",
+  "slug": "obj-food-grain",
+  "name": "Object › Food › Grain",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -4656,168 +4375,327 @@
   },
   "items": [
    {
-    "slug": "kay-dun-2",
-    "model": "plate-food-a",
+    "slug": "isa-bakery",
+    "model": "dough-ball",
     "wdh": [
-     0.3,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "bone",
-     "ceramic",
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#23562c",
-     "#7f3927",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "plate-food-b",
-    "wdh": [
-     0.3,
-     0.3,
-     0.07
-    ],
-    "tags": [
-     "bone",
-     "ceramic",
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#23562c",
-     "#7f3927",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-patty-burnt",
-    "wdh": [
-     0.15,
-     0.15,
-     0.04
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-patty",
-    "wdh": [
-     0.15,
-     0.15,
-     0.04
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "skewer-vegetables",
-    "wdh": [
-     0.3,
-     0.06,
+     0.1,
+     0.1,
      0.06
     ],
     "tags": [
-     "foliage",
      "food",
-     "ken",
-     "wood-worked"
+     "isa"
     ],
     "colors": [
-     "#68872d",
-     "#7f3927",
-     "#8b5936",
-     "#b58158"
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "dough-rolled-a",
+    "wdh": [
+     0.45,
+     0.4,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "dough-rolled-b",
+    "wdh": [
+     0.25,
+     0.3,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "flour-sack-open",
+    "wdh": [
+     0.15,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "flour-sack",
+    "wdh": [
+     0.15,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "isa",
+     "vegetation"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-bun",
+    "wdh": [
+     0.15,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
     ]
    },
    {
     "slug": "ken-food",
-    "model": "turkey",
+    "model": "rice-ball",
     "wdh": [
-     0.5,
-     0.35,
-     0.2
+     0.04,
+     0.06,
+     0.06
     ],
     "tags": [
      "food",
      "ken"
     ],
     "colors": [
+     "#343745",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "flour-sack-open",
+    "wdh": [
+     0.35,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "food",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "flour-sack",
+    "wdh": [
+     0.35,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "textile"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-sweet-lollipop",
+  "name": "Object › Food › Sweet › Lollipop",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "aq-hallow",
+    "model": "candy-c-moss",
+    "wdh": [
+     0.06,
+     0.06,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "halloween"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "aq-hallow",
+    "model": "candy-c",
+    "wdh": [
+     0.07,
+     0.07,
+     0.2
+    ],
+    "tags": [
+     "aq",
+     "food",
+     "halloween"
+    ],
+    "colors": [
      "#7f3927",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "props",
-    "model": "roast-a",
+    "slug": "kay-spook",
+    "model": "lollipop-a",
     "wdh": [
-     0.25,
      0.2,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "food",
+     "halloween",
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#1367a6",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-spook",
+    "model": "lollipop-b",
+    "wdh": [
+     0.2,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "food",
+     "halloween",
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "lollypop",
+    "wdh": [
+     0.02,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lollipop-amber",
+    "wdh": [
+     0.05,
+     0.05,
      0.15
     ],
     "tags": [
-     "bone",
-     "food"
+     "food",
+     "paper"
     ],
     "colors": [
-     "#7f3927",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lollipop-azure",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "paper"
+    ],
+    "colors": [
+     "#1367a6",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "quat-food",
-    "model": "bacon-cooked",
+    "slug": "styloo-food",
+    "model": "lollipop-moss",
     "wdh": [
-     0.2,
      0.05,
-     0.01
+     0.05,
+     0.15
     ],
     "tags": [
      "food",
-     "qua"
+     "paper"
     ],
     "colors": [
-     "#7f3927",
-     "#d07b56",
-     "#dbae80"
+     "#68872d",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "quat-food",
-    "model": "bacon-uncooked",
+    "slug": "styloo-food",
+    "model": "lollipop-sienna",
     "wdh": [
-     0.2,
      0.05,
-     0.01
+     0.05,
+     0.15
     ],
     "tags": [
      "food",
-     "qua"
+     "paper"
     ],
     "colors": [
      "#7f3927",
-     "#d07b56",
-     "#dbae80"
+     "#d8d1bd"
     ]
    }
   ]
@@ -4989,187 +4867,6 @@
     "colors": [
      "#68872d",
      "#d07b56"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-lighting-lantern",
-  "name": "Object › Lighting › Lantern",
-  "category": "obj-gen",
-  "limits": {
-   "high.min": 0.2,
-   "high.max": 1.2,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "asia-rg",
-    "model": "lantern-paper-a",
-    "wdh": [
-     0.15,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "asia",
-     "emissive",
-     "rope"
-    ],
-    "colors": [
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "lantern-paper-b",
-    "wdh": [
-     0.1,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "asia",
-     "emissive",
-     "rope"
-    ],
-    "colors": [
-     "#8b7561",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "asia-rg",
-    "model": "stone-lantern",
-    "wdh": [
-     0.3,
-     0.3,
-     0.6
-    ],
-    "tags": [
-     "asia",
-     "grave",
-     "halloween",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "lamp-wall",
-    "wdh": [
-     0.35,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "emissive",
-     "glass",
-     "metal-iron-wrought",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#8b7561",
-     "#f2a93c",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "kay-furniture",
-    "model": "lamp-table",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-round-table",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-square-ceiling",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-square-table",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "textile"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "stone-lantern",
-    "wdh": [
-     0.3,
-     0.3,
-     0.6
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-wrought",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b7561"
     ]
    }
   ]
@@ -5599,6 +5296,190 @@
   ]
  },
  {
+  "slug": "obj-food-baked-pastry-cookie",
+  "name": "Object › Food › Baked › Pastry › Cookie",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "cookie",
+    "wdh": [
+     0.1,
+     0.1,
+     0.01
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "cookie",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cookie",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-holiday",
+    "model": "cookie",
+    "wdh": [
+     0.15,
+     0.15,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-holiday",
+    "model": "gingerbread-man",
+    "wdh": [
+     0.15,
+     0.2,
+     0.03
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cookie-chocolate",
+    "wdh": [
+     0.06,
+     0.07,
+     0.03
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "gingerbread-man",
+    "wdh": [
+     0.15,
+     0.1,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-holiday",
+    "model": "gingerbread-man",
+    "wdh": [
+     0.15,
+     0.04,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-holiday",
+    "model": "gingerbread-woman",
+    "wdh": [
+     0.15,
+     0.06,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "cookie",
+    "wdh": [
+     0.06,
+     0.06,
+     0.01
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-food-baked-pastry-donut",
   "name": "Object › Food › Baked › Pastry › Donut",
   "category": "obj-gen",
@@ -5990,6 +5871,199 @@
   ]
  },
  {
+  "slug": "obj-food-meat",
+  "name": "Object › Food › Meat",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-dun-2",
+    "model": "plate-food-a",
+    "wdh": [
+     0.3,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "bone",
+     "ceramic",
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#23562c",
+     "#7f3927",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "plate-food-b",
+    "wdh": [
+     0.3,
+     0.3,
+     0.07
+    ],
+    "tags": [
+     "bone",
+     "ceramic",
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#23562c",
+     "#7f3927",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-patty-burnt",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-patty",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "skewer-vegetables",
+    "wdh": [
+     0.3,
+     0.06,
+     0.06
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "turkey",
+    "wdh": [
+     0.5,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "roast-a",
+    "wdh": [
+     0.25,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "bone",
+     "food"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "bacon-cooked",
+    "wdh": [
+     0.2,
+     0.05,
+     0.01
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d07b56",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "bacon-uncooked",
+    "wdh": [
+     0.2,
+     0.05,
+     0.01
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d07b56",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "patty",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-furnishing-table-square",
   "name": "Object › Furnishing › Table › Square",
   "category": "obj-gen",
@@ -6171,8 +6245,8 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-appliance-fridge",
-  "name": "Object › Kitchenware › Appliance › Fridge",
+  "slug": "obj-kitchenware-cookware-utensil-spatula",
+  "name": "Object › Kitchenware › Cookware › Utensil › Spatula",
   "category": "obj-gen",
   "rulerHeight": 0.6,
   "limits": {
@@ -6183,203 +6257,363 @@
   },
   "items": [
    {
-    "slug": "isa-kitchen",
-    "model": "fridge",
+    "slug": "cooking-assets",
+    "model": "spatula-rubber",
     "wdh": [
-     0.65,
-     0.5,
-     0.95
+     0.08,
+     0.01,
+     0.3
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "spatula",
+    "wdh": [
+     0.1,
+     0.05,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "turner",
+    "wdh": [
+     0.1,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "spatula",
+    "wdh": [
+     0.09,
+     0.03,
+     0.25
     ],
     "tags": [
      "isa",
      "metal-iron-steel",
-     "paper",
-     "plastic"
+     "wood-beam"
     ],
     "colors": [
-     "#7f3927",
      "#88848a",
-     "#d8d1bd",
-     "#f2a93c"
+     "#8b5936"
     ]
    },
    {
-    "slug": "kay-food",
-    "model": "fridge-a",
-    "wdh": [
-     0.4,
-     0.45,
-     0.5
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "fridge-b",
-    "wdh": [
-     0.4,
-     0.45,
-     0.5
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-fridge-built-in",
+    "slug": "ken-food",
+    "model": "spatula",
     "wdh": [
      0.35,
-     0.4,
-     0.75
+     0.1,
+     0.04
     ],
     "tags": [
-     "glass",
      "ken",
      "metal-iron-steel",
-     "plastic",
-     "wood-beam",
      "wood-worked"
     ],
     "colors": [
      "#88848a",
-     "#8b5936",
-     "#b58158",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-fridge-large",
+    "slug": "styloo-furniture",
+    "model": "turner",
     "wdh": [
-     0.45,
-     0.35,
-     0.8
+     0.01,
+     0.09,
+     0.25
     ],
     "tags": [
-     "ken",
-     "metal-iron-steel",
-     "plastic"
+     "metal-iron-steel"
     ],
     "colors": [
-     "#88848a",
-     "#d8d1bd"
+     "#88848a"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-fridge-small",
+    "slug": "styloo-furniture",
+    "model": "wooden-spatula",
     "wdh": [
-     0.35,
-     0.25,
-     0.5
+     0.04,
+     0.04,
+     0.25
     ],
     "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel",
-     "plastic"
+     "wood-worked"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-fridge",
+    "slug": "styloo-furniture",
+    "model": "wooden-turner",
     "wdh": [
-     0.35,
-     0.25,
-     0.8
+     0.01,
+     0.09,
+     0.25
     ],
     "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel",
-     "plastic"
+     "wood-worked"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "ken-market",
-    "model": "freezers-standing",
+    "slug": "styloo-kitchen",
+    "model": "spatula",
     "wdh": [
-     1,
-     0.5,
-     0.9
+     0.03,
+     0.01,
+     0.15
     ],
     "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel",
-     "metal-iron-wrought"
+     "wood-worked"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
+     "#b58158"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "drinks-fridge",
+    "slug": "styloo-kitchen",
+    "model": "turner",
     "wdh": [
-     0.55,
+     0.06,
+     0.01,
+     0.2
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-lighting-lantern",
+  "name": "Object › Lighting › Lantern",
+  "category": "obj-gen",
+  "limits": {
+   "high.min": 0.2,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "asia-rg",
+    "model": "lantern-paper-a",
+    "wdh": [
+     0.15,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "asia",
+     "emissive",
+     "rope"
+    ],
+    "colors": [
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "lantern-paper-b",
+    "wdh": [
+     0.1,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "asia",
+     "emissive",
+     "rope"
+    ],
+    "colors": [
+     "#8b7561",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "asia-rg",
+    "model": "stone-lantern",
+    "wdh": [
      0.3,
-     1
+     0.3,
+     0.6
     ],
     "tags": [
-     "glass",
-     "plastic",
-     "qua"
+     "asia",
+     "grave",
+     "halloween",
+     "stone-masonry"
     ],
     "colors": [
-     "#1367a6",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "lamp-wall",
+    "wdh": [
+     0.35,
+     0.1,
+     0.3
+    ],
+    "tags": [
+     "emissive",
+     "glass",
+     "metal-iron-wrought",
+     "wood-beam"
+    ],
+    "colors": [
      "#5b5550",
-     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#f2a93c",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "model": "lamp-table",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-round-table",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-square-ceiling",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-square-table",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "textile"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "lamp",
+    "wdh": [
+     0.15,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
      "#d8d1bd",
      "#f2a93c"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "fridge",
+    "slug": "wizp-asia",
+    "model": "stone-lantern",
     "wdh": [
-     0.55,
-     0.5,
-     0.95
+     0.3,
+     0.3,
+     0.6
     ],
     "tags": [
-     "metal-iron-steel",
-     "plastic",
-     "qua"
+     "asia",
+     "metal-iron-wrought",
+     "stone-masonry",
+     "wizp"
     ],
     "colors": [
-     "#1367a6",
-     "#88848a",
-     "#d8d1bd"
+     "#5b5550",
+     "#8b7561"
     ]
    }
   ]
@@ -6592,193 +6826,6 @@
     "colors": [
      "#343745",
      "#5b5550"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-cheese",
-  "name": "Object › Food › Cheese",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "cheese-wedge-holes",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "cheese-wedge",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "cheese-wheel-cut-holes",
-    "wdh": [
-     0.35,
-     0.35,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "cheese-wheel-cut",
-    "wdh": [
-     0.35,
-     0.35,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "cheese-wheel",
-    "wdh": [
-     0.35,
-     0.35,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-picnic",
-    "model": "cheese-wedge",
-    "wdh": [
-     0.1,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-picnic",
-    "model": "cheese-wheel",
-    "wdh": [
-     0.2,
-     0.2,
-     0.07
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-cheese-chopped",
-    "wdh": [
-     0.2,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "piece"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-cheese",
-    "wdh": [
-     0.2,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "special"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cheese-cut",
-    "wdh": [
-     0.2,
-     0.15,
-     0.01
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "piece"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "cheese",
-    "wdh": [
-     0.2,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
     ]
    }
   ]
@@ -7197,6 +7244,236 @@
   ]
  },
  {
+  "slug": "obj-kitchenware-appliance-fridge",
+  "name": "Object › Kitchenware › Appliance › Fridge",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "isa-kitchen",
+    "model": "fridge",
+    "wdh": [
+     0.65,
+     0.5,
+     0.95
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-steel",
+     "paper",
+     "plastic"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "fridge-a",
+    "wdh": [
+     0.4,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "fridge-b",
+    "wdh": [
+     0.4,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-fridge-built-in",
+    "wdh": [
+     0.35,
+     0.4,
+     0.75
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel",
+     "plastic",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-fridge-large",
+    "wdh": [
+     0.45,
+     0.35,
+     0.8
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-fridge-small",
+    "wdh": [
+     0.35,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-fridge",
+    "wdh": [
+     0.35,
+     0.25,
+     0.8
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-market",
+    "model": "freezers-standing",
+    "wdh": [
+     1,
+     0.5,
+     0.9
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "drinks-fridge",
+    "wdh": [
+     0.55,
+     0.3,
+     1
+    ],
+    "tags": [
+     "glass",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "fridge",
+    "wdh": [
+     0.55,
+     0.5,
+     0.95
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "fridge",
+    "wdh": [
+     0.25,
+     0.35,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-kitchenware-appliance-stove",
   "name": "Object › Kitchenware › Appliance › Stove",
   "category": "obj-gen",
@@ -7432,6 +7709,209 @@
   ]
  },
  {
+  "slug": "obj-food-cheese",
+  "name": "Object › Food › Cheese",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "cheese-wedge-holes",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "cheese-wedge",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "cheese-wheel-cut-holes",
+    "wdh": [
+     0.35,
+     0.35,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "cheese-wheel-cut",
+    "wdh": [
+     0.35,
+     0.35,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "cheese-wheel",
+    "wdh": [
+     0.35,
+     0.35,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-picnic",
+    "model": "cheese-wedge",
+    "wdh": [
+     0.1,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-picnic",
+    "model": "cheese-wheel",
+    "wdh": [
+     0.2,
+     0.2,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-cheese-chopped",
+    "wdh": [
+     0.2,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "piece"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-cheese",
+    "wdh": [
+     0.2,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "special"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cheese-cut",
+    "wdh": [
+     0.2,
+     0.15,
+     0.01
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "piece"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "cheese",
+    "wdh": [
+     0.2,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "cheese-slice",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-kitchenware-tableware-serving",
   "name": "Object › Kitchenware › Tableware › Serving",
   "category": "obj-gen",
@@ -7620,237 +8100,20 @@
     "colors": [
      "#b58158"
     ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-sweet-icecream",
-  "name": "Object › Food › Sweet › Ice cream",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "ken-food",
-    "model": "ice-cream",
-    "wdh": [
-     0.1,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#7f3927",
-     "#dbae80"
-    ]
    },
    {
-    "slug": "ken-food",
-    "model": "popsicle-chocolate",
+    "slug": "styloo-food",
+    "model": "sushi-board",
     "wdh": [
-     0.03,
-     0.09,
-     0.25
+     0.45,
+     0.15,
+     0.02
     ],
     "tags": [
-     "food",
-     "ken",
      "wood-worked"
     ],
     "colors": [
-     "#7f3927",
-     "#8b5936",
      "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "popsicle",
-    "wdh": [
-     0.03,
-     0.09,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "sundae",
-    "wdh": [
-     0.15,
-     0.15,
-     0.4
-    ],
-    "tags": [
-     "food",
-     "glass",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-1",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-2",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d07b56",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-3",
-    "wdh": [
-     0.09,
-     0.09,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-4",
-    "wdh": [
-     0.09,
-     0.09,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#d07b56",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-cone-waffle",
-    "wdh": [
-     0.08,
-     0.08,
-     0.1
-    ],
-    "tags": [
-     "comp",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "ice-cream-cone",
-    "wdh": [
-     0.09,
-     0.09,
-     0.15
-    ],
-    "tags": [
-     "comp",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "popsicle-chocolate",
-    "wdh": [
-     0.05,
-     0.01,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "popsicle-multiple",
-    "wdh": [
-     0.05,
-     0.01,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158",
-     "#d07b56",
-     "#d8d1bd"
     ]
    }
   ]
@@ -8376,231 +8639,6 @@
     "colors": [
      "#7f3927",
      "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-kitchenware-cookware-pan-frying",
-  "name": "Object › Kitchenware › Cookware › Pan › Frying",
-  "category": "obj-gen",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 0.5,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "cooking-assets",
-    "model": "frying-pan",
-    "wdh": [
-     0.15,
-     0.3,
-     0.06
-    ],
-    "tags": [
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "saute-pan",
-    "wdh": [
-     0.3,
-     0.5,
-     0.1
-    ],
-    "tags": [
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "skillet-cast",
-    "wdh": [
-     0.15,
-     0.25,
-     0.04
-    ],
-    "tags": [
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "skillet",
-    "wdh": [
-     0.3,
-     0.5,
-     0.1
-    ],
-    "tags": [
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "pan",
-    "wdh": [
-     0.2,
-     0.3,
-     0.06
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "pan-a",
-    "wdh": [
-     0.2,
-     0.3,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "pan-b",
-    "wdh": [
-     0.2,
-     0.3,
-     0.05
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pan-frying",
-    "wdh": [
-     0.35,
-     0.5,
-     0.06
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-cast",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "frying-pan-steel",
-    "wdh": [
-     0.3,
-     0.45,
-     0.04
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "qua",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "frying-pan",
-    "wdh": [
-     0.3,
-     0.45,
-     0.04
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "qua",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "pan",
-    "wdh": [
-     0.25,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "qua",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "pan",
-    "wdh": [
-     0.3,
-     0.5,
-     0.06
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "qua"
-    ],
-    "colors": [
-     "#343745"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "frying-pan",
-    "wdh": [
-     0.45,
-     0.25,
-     0.05
-    ],
-    "tags": [
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745"
     ]
    }
   ]
@@ -9599,39 +9637,24 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-tableware-bowl",
-  "name": "Object › Kitchenware › Tableware › Bowl",
+  "slug": "obj-kitchenware-cookware-pan-frying",
+  "name": "Object › Kitchenware › Cookware › Pan › Frying",
   "category": "obj-gen",
   "rulerHeight": 0.6,
   "limits": {
    "high.max": 0.5,
    "longest.min": 0.05,
-   "longest.max": 0.4,
+   "longest.max": 10,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "clay-props",
-    "model": "bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
     "slug": "cooking-assets",
-    "model": "mixing-bowl",
+    "model": "frying-pan",
     "wdh": [
-     0.1,
-     0.1,
-     0.05
+     0.15,
+     0.3,
+     0.06
     ],
     "tags": [
      "metal-iron-steel"
@@ -9642,26 +9665,56 @@
    },
    {
     "slug": "cooking-assets",
-    "model": "serving-bowl",
+    "model": "saute-pan",
     "wdh": [
-     0.2,
-     0.2,
+     0.3,
+     0.5,
      0.1
     ],
     "tags": [
-     "ceramic"
+     "metal-iron-steel"
     ],
     "colors": [
-     "#d07b56"
+     "#88848a"
     ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "mixing-bowl",
+    "slug": "cooking-assets",
+    "model": "skillet-cast",
+    "wdh": [
+     0.15,
+     0.25,
+     0.04
+    ],
+    "tags": [
+     "metal-iron-cast"
+    ],
+    "colors": [
+     "#343745"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "skillet",
+    "wdh": [
+     0.3,
+     0.5,
+     0.1
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "pan",
     "wdh": [
      0.2,
-     0.2,
-     0.1
+     0.3,
+     0.06
     ],
     "tags": [
      "isa",
@@ -9672,170 +9725,155 @@
     ]
    },
    {
-    "slug": "isa-picnic",
-    "model": "bowl",
+    "slug": "kay-food",
+    "model": "pan-a",
     "wdh": [
      0.2,
-     0.2,
-     0.1
+     0.3,
+     0.05
     ],
     "tags": [
-     "ceramic",
-     "isa"
+     "kay",
+     "metal-iron-steel"
     ],
     "colors": [
-     "#d07b56"
+     "#88848a"
     ]
    },
    {
     "slug": "kay-food",
-    "model": "bowl-dirty",
+    "model": "pan-b",
     "wdh": [
      0.2,
-     0.2,
-     0.06
+     0.3,
+     0.05
     ],
     "tags": [
-     "ceramic",
-     "food",
-     "kay"
+     "kay",
+     "metal-iron-cast"
     ],
     "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "bowl-small",
-    "wdh": [
-     0.15,
-     0.15,
-     0.06
-    ],
-    "tags": [
-     "ceramic",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.06
-    ],
-    "tags": [
-     "ceramic",
-     "kay"
-    ],
-    "colors": [
-     "#d8d1bd"
+     "#343745"
     ]
    },
    {
     "slug": "ken-food",
-    "model": "bowl-soup",
+    "model": "pan-frying",
     "wdh": [
-     0.25,
-     0.3,
-     0.1
+     0.35,
+     0.5,
+     0.06
     ],
     "tags": [
-     "ceramic",
-     "foliage",
-     "food",
-     "ken"
+     "ken",
+     "metal-iron-cast",
+     "wood-worked"
     ],
     "colors": [
-     "#68872d",
-     "#b58158",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "model": "detail-bowl",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "ceramic",
-     "ken"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "plate-b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.09
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
+     "#343745",
+     "#b58158"
     ]
    },
    {
     "slug": "quat-food",
-    "model": "soy-sauce",
+    "model": "frying-pan-steel",
     "wdh": [
-     0.1,
-     0.1,
+     0.3,
+     0.45,
+     0.04
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "qua",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "frying-pan",
+    "wdh": [
+     0.3,
+     0.45,
+     0.04
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "qua",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "pan",
+    "wdh": [
+     0.25,
+     0.4,
      0.05
     ],
     "tags": [
-     "ceramic",
-     "liquid",
-     "qua"
+     "metal-iron-cast",
+     "qua",
+     "wood-beam"
     ],
     "colors": [
-     "#7f3927",
-     "#d8d1bd"
+     "#343745",
+     "#8b5936"
     ]
    },
    {
     "slug": "quat-sushi",
-    "model": "bowl",
+    "model": "pan",
     "wdh": [
-     0.25,
-     0.25,
-     0.1
+     0.3,
+     0.5,
+     0.06
     ],
     "tags": [
-     "ceramic",
+     "metal-iron-cast",
      "qua"
     ],
     "colors": [
-     "#d07b56"
+     "#343745"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "frying-pan",
+    "wdh": [
+     0.15,
+     0.25,
+     0.01
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
     ]
    },
    {
     "slug": "styloo-kitchen",
-    "model": "bowl",
+    "model": "frying-pan",
     "wdh": [
-     0.15,
-     0.15,
-     0.06
+     0.45,
+     0.25,
+     0.05
     ],
     "tags": [
-     "ceramic"
+     "metal-iron-cast"
     ],
     "colors": [
-     "#d8d1bd"
+     "#343745"
     ]
    }
   ]
@@ -10363,8 +10401,8 @@
   ]
  },
  {
-  "slug": "obj-food-fish-sushi",
-  "name": "Object › Food › Fish › Sushi",
+  "slug": "obj-food-sweet-icecream",
+  "name": "Object › Food › Sweet › Ice cream",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
@@ -10375,46 +10413,158 @@
   "items": [
    {
     "slug": "ken-food",
-    "model": "sushi-egg",
+    "model": "ice-cream",
     "wdh": [
-     0.06,
-     0.09,
-     0.04
+     0.1,
+     0.15,
+     0.25
     ],
     "tags": [
      "food",
      "ken"
     ],
     "colors": [
-     "#343745",
-     "#d8d1bd",
+     "#7f3927",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "popsicle-chocolate",
+    "wdh": [
+     0.03,
+     0.09,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "popsicle",
+    "wdh": [
+     0.03,
+     0.09,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
      "#f2a93c"
     ]
    },
    {
     "slug": "ken-food",
-    "model": "sushi-salmon",
+    "model": "sundae",
     "wdh": [
-     0.06,
-     0.1,
-     0.05
+     0.15,
+     0.15,
+     0.4
     ],
     "tags": [
      "food",
+     "glass",
      "ken"
     ],
     "colors": [
-     "#d07b56",
+     "#68872d",
+     "#7f3927",
+     "#8b5936",
      "#d8d1bd"
     ]
    },
    {
     "slug": "quat-food",
-    "model": "sashimi-salmon",
+    "model": "ice-cream-1",
     "wdh": [
      0.1,
-     0.05,
-     0.03
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "ice-cream-2",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "ice-cream-3",
+    "wdh": [
+     0.09,
+     0.09,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "ice-cream-4",
+    "wdh": [
+     0.09,
+     0.09,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "ice-cream-cone-waffle",
+    "wdh": [
+     0.08,
+     0.08,
+     0.1
     ],
     "tags": [
      "comp",
@@ -10422,224 +10572,110 @@
      "qua"
     ],
     "colors": [
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "sushi-nigiri-1",
-    "wdh": [
-     0.1,
-     0.05,
-     0.04
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "sushi-roll-1",
-    "wdh": [
-     0.05,
-     0.05,
-     0.03
-    ],
-    "tags": [
-     "ceramic",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "sushi-roll-2",
-    "wdh": [
-     0.05,
-     0.05,
-     0.03
-    ],
-    "tags": [
-     "ceramic",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "ebi-nigiri",
-    "wdh": [
-     0.08,
-     0.2,
-     0.07
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#d07b56",
-     "#d8d1bd",
      "#dbae80"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "maguro-nigiri",
+    "slug": "quat-food",
+    "model": "ice-cream-cone",
     "wdh": [
      0.09,
-     0.15,
-     0.07
+     0.09,
+     0.15
+    ],
+    "tags": [
+     "comp",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "popsicle-chocolate",
+    "wdh": [
+     0.05,
+     0.01,
+     0.15
     ],
     "tags": [
      "food",
-     "qua"
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "popsicle-multiple",
+    "wdh": [
+     0.05,
+     0.01,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua",
+     "wood-worked"
     ],
     "colors": [
      "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "maki",
-    "wdh": [
-     0.1,
-     0.07,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
+     "#b58158",
      "#d07b56",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "octopus-nigiri",
-    "wdh": [
-     0.1,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "salmon-fillet",
+    "slug": "styloo-food",
+    "model": "ice-cream-chocolate",
     "wdh": [
      0.15,
-     0.2,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "piece",
-     "qua"
-    ],
-    "colors": [
-     "#d07b56",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "salmon-nigiri",
-    "wdh": [
-     0.08,
      0.15,
-     0.07
+     0.3
     ],
     "tags": [
-     "food",
-     "qua"
+     "food"
     ],
     "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
+     "#8b5936",
+     "#b58158"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "salmon-roll",
+    "slug": "styloo-food",
+    "model": "ice-cream-strawberry",
     "wdh": [
-     0.1,
-     0.07,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "shrimp",
-    "wdh": [
-     0.05,
-     0.09,
-     0.03
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#d07b56",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "tamago-nigiri",
-    "wdh": [
-     0.08,
      0.15,
-     0.06
+     0.15,
+     0.3
     ],
     "tags": [
-     "food",
-     "qua"
+     "food"
     ],
     "colors": [
-     "#5b5550",
-     "#d8d1bd",
-     "#f2a93c"
+     "#b58158",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "ice-cream-vanilla",
+    "wdh": [
+     0.15,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd"
     ]
    }
   ]
@@ -11194,23 +11230,23 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-tableware-drinkware",
-  "name": "Object › Kitchenware › Tableware › Drinkware",
+  "slug": "obj-kitchenware-tableware-bowl",
+  "name": "Object › Kitchenware › Tableware › Bowl",
   "category": "obj-gen",
   "rulerHeight": 0.6,
   "limits": {
-   "high.max": 0.2,
+   "high.max": 0.5,
    "longest.min": 0.05,
-   "longest.max": 10,
+   "longest.max": 0.4,
    "tpu.max": 5000
   },
   "items": [
    {
     "slug": "clay-props",
-    "model": "cup",
+    "model": "bowl",
     "wdh": [
-     0.08,
-     0.08,
+     0.2,
+     0.2,
      0.1
     ],
     "tags": [
@@ -11222,152 +11258,110 @@
    },
    {
     "slug": "cooking-assets",
-    "model": "demitasse",
+    "model": "mixing-bowl",
     "wdh": [
-     0.15,
      0.1,
-     0.07
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "glass",
-    "wdh": [
-     0.08,
-     0.08,
-     0.1
-    ],
-    "tags": [
-     "glass"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "pilsner-glass",
-    "wdh": [
-     0.08,
-     0.08,
-     0.15
-    ],
-    "tags": [
-     "glass"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "shot-glass",
-    "wdh": [
-     0.05,
-     0.05,
-     0.06
-    ],
-    "tags": [
-     "glass"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "tankard",
-    "wdh": [
-     0.09,
-     0.07,
-     0.1
-    ],
-    "tags": [
-     "ceramic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "teacup",
-    "wdh": [
-     0.15,
      0.1,
-     0.09
+     0.05
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "serving-bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
     ],
     "tags": [
      "ceramic"
     ],
     "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "vodka-glass",
-    "wdh": [
-     0.07,
-     0.07,
-     0.09
-    ],
-    "tags": [
-     "glass"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "weizen-glass",
-    "wdh": [
-     0.05,
-     0.05,
-     0.1
-    ],
-    "tags": [
-     "glass"
-    ],
-    "colors": [
-     "#d8d1bd"
+     "#d07b56"
     ]
    },
    {
     "slug": "isa-bakery",
-    "model": "cup-takeaway",
+    "model": "mixing-bowl",
     "wdh": [
-     0.1,
-     0.1,
-     0.15
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-picnic",
+    "model": "bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
     ],
     "tags": [
      "ceramic",
-     "isa",
-     "paper"
+     "isa"
     ],
     "colors": [
-     "#d07b56",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "bowl-dirty",
+    "wdh": [
+     0.2,
+     0.2,
+     0.06
+    ],
+    "tags": [
+     "ceramic",
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#8b7561",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "kay-holiday",
-    "model": "milk",
+    "slug": "kay-food",
+    "model": "bowl-small",
     "wdh": [
-     0.09,
-     0.09,
-     0.2
+     0.15,
+     0.15,
+     0.06
     ],
     "tags": [
-     "glass",
+     "ceramic",
+     "kay"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.06
+    ],
+    "tags": [
+     "ceramic",
      "kay"
     ],
     "colors": [
@@ -11376,48 +11370,31 @@
    },
    {
     "slug": "ken-food",
-    "model": "cup-tea-a",
+    "model": "bowl-soup",
     "wdh": [
-     0.1,
-     0.1,
+     0.25,
+     0.3,
      0.1
     ],
     "tags": [
      "ceramic",
+     "foliage",
      "food",
-     "ken",
-     "liquid"
+     "ken"
     ],
     "colors": [
      "#68872d",
-     "#7f3927",
+     "#b58158",
+     "#d07b56",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-food",
-    "model": "cup-tea-b",
+    "slug": "ken-grave",
+    "model": "detail-bowl",
     "wdh": [
-     0.15,
-     0.1,
-     0.07
-    ],
-    "tags": [
-     "ceramic",
-     "ken",
-     "liquid"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cup",
-    "wdh": [
-     0.1,
-     0.1,
+     0.2,
+     0.2,
      0.1
     ],
     "tags": [
@@ -11429,39 +11406,96 @@
     ]
    },
    {
-    "slug": "ken-food",
-    "model": "frappe",
+    "slug": "props",
+    "model": "plate-b",
     "wdh": [
-     0.15,
-     0.15,
-     0.3
+     0.25,
+     0.25,
+     0.09
     ],
     "tags": [
-     "food",
-     "ken",
-     "plastic"
+     "ceramic"
     ],
     "colors": [
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-food",
-    "model": "soda",
+    "slug": "quat-food",
+    "model": "soy-sauce",
+    "wdh": [
+     0.1,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "ceramic",
+     "liquid",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "bowl",
+    "wdh": [
+     0.25,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "bowl",
+    "wdh": [
+     0.1,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "ramen-bowl",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "bowl",
     "wdh": [
      0.15,
      0.15,
-     0.25
+     0.06
     ],
     "tags": [
-     "ken",
-     "paper",
-     "plastic"
+     "ceramic"
     ],
     "colors": [
-     "#343745",
      "#d8d1bd"
     ]
    }
@@ -12093,663 +12127,292 @@
   ]
  },
  {
-  "slug": "obj-food-baked-pie",
-  "name": "Object › Food › Baked › Pie",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "isa-food",
-    "model": "cake-birthday-cut",
-    "wdh": [
-     0.4,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "emissive",
-     "food",
-     "isa",
-     "wax"
-    ],
-    "colors": [
-     "#1367a6",
-     "#b58158",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-birthday-slice",
-    "wdh": [
-     0.15,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "emissive",
-     "food",
-     "isa",
-     "piece",
-     "wax"
-    ],
-    "colors": [
-     "#1367a6",
-     "#b58158",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-birthday",
-    "wdh": [
-     0.4,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "emissive",
-     "food",
-     "isa",
-     "wax"
-    ],
-    "colors": [
-     "#1367a6",
-     "#b58158",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-chocolate-cut",
-    "wdh": [
-     0.4,
-     0.4,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-chocolate-slice",
-    "wdh": [
-     0.15,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-chocolate",
-    "wdh": [
-     0.4,
-     0.4,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-strawberry-cut",
-    "wdh": [
-     0.4,
-     0.4,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-strawberry-slice",
-    "wdh": [
-     0.15,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "cake-strawberry",
-    "wdh": [
-     0.4,
-     0.4,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56",
-     "#d8d1bd",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-apple-cut",
-    "wdh": [
-     0.35,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-apple-slice",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-apple",
-    "wdh": [
-     0.35,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-cherry-cut",
-    "wdh": [
-     0.35,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-cherry-slice",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#7f3927",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "pie-cherry",
-    "wdh": [
-     0.35,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cake-birthday",
-    "wdh": [
-     0.35,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pie",
-    "wdh": [
-     0.5,
-     0.5,
-     0.08
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936",
-     "#b58158",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-kitchenware-appliance",
-  "name": "Object › Kitchenware › Appliance",
+  "slug": "obj-kitchenware-tableware-drinkware",
+  "name": "Object › Kitchenware › Tableware › Drinkware",
   "category": "obj-gen",
   "rulerHeight": 0.6,
   "limits": {
-   "high.max": 0.5,
+   "high.max": 0.2,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "cooking-assets",
-    "model": "blender",
+    "slug": "clay-props",
+    "model": "cup",
     "wdh": [
-     0.2,
-     0.2,
-     0.4
+     0.08,
+     0.08,
+     0.1
     ],
     "tags": [
-     "glass",
-     "metal-iron-steel",
-     "plastic"
+     "ceramic"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
+     "#d07b56"
     ]
    },
    {
     "slug": "cooking-assets",
-    "model": "food-processor",
+    "model": "demitasse",
     "wdh": [
      0.15,
-     0.2,
-     0.3
+     0.1,
+     0.07
     ],
     "tags": [
-     "metal-iron-steel",
-     "plastic"
+     "ceramic"
     ],
     "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "glass",
+    "wdh": [
+     0.08,
+     0.08,
+     0.1
+    ],
+    "tags": [
+     "glass"
+    ],
+    "colors": [
      "#d8d1bd"
     ]
    },
    {
     "slug": "cooking-assets",
-    "model": "rice-cooker",
+    "model": "pilsner-glass",
     "wdh": [
-     0.45,
-     0.35,
-     0.35
+     0.08,
+     0.08,
+     0.15
     ],
     "tags": [
-     "metal-iron-steel",
-     "plastic"
+     "glass"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a",
-     "#8b7561",
      "#d8d1bd"
     ]
    },
    {
     "slug": "cooking-assets",
-    "model": "toaster-oven",
+    "model": "shot-glass",
     "wdh": [
-     0.4,
-     0.25,
-     0.3
+     0.05,
+     0.05,
+     0.06
     ],
     "tags": [
-     "glass",
-     "metal-iron-steel",
-     "plastic"
+     "glass"
     ],
     "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "tankard",
+    "wdh": [
+     0.09,
+     0.07,
+     0.1
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "teacup",
+    "wdh": [
+     0.15,
+     0.1,
+     0.09
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "vodka-glass",
+    "wdh": [
+     0.07,
+     0.07,
+     0.09
+    ],
+    "tags": [
+     "glass"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "weizen-glass",
+    "wdh": [
+     0.05,
+     0.05,
+     0.1
+    ],
+    "tags": [
+     "glass"
+    ],
+    "colors": [
      "#d8d1bd"
     ]
    },
    {
     "slug": "isa-bakery",
-    "model": "coffee-machine",
-    "wdh": [
-     0.3,
-     0.35,
-     0.45
-    ],
-    "tags": [
-     "ceramic",
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "stand-mixer",
-    "wdh": [
-     0.35,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "ceramic",
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "extractor-hood",
-    "wdh": [
-     0.65,
-     0.5,
-     0.65
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "extractor-hood",
-    "wdh": [
-     0.4,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "wood-stove",
-    "wdh": [
-     0.35,
-     0.35,
-     0.8
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-cast",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "hood-large",
-    "wdh": [
-     0.35,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "hood-modern",
-    "wdh": [
-     0.35,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-blender",
+    "model": "cup-takeaway",
     "wdh": [
      0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "paper"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-holiday",
+    "model": "milk",
+    "wdh": [
+     0.09,
      0.09,
      0.2
     ],
     "tags": [
      "glass",
-     "ken",
-     "metal-iron-steel"
+     "kay"
     ],
     "colors": [
-     "#88848a",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-coffee-machine",
+    "slug": "ken-food",
+    "model": "cup-tea-a",
+    "wdh": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "ceramic",
+     "food",
+     "ken",
+     "liquid"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cup-tea-b",
     "wdh": [
      0.15,
-     0.2,
-     0.15
+     0.1,
+     0.07
     ],
     "tags": [
      "ceramic",
      "ken",
-     "metal-iron-steel"
+     "liquid"
     ],
     "colors": [
-     "#88848a",
+     "#7f3927",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-microwave",
+    "slug": "ken-food",
+    "model": "cup",
     "wdh": [
-     0.25,
-     0.2,
-     0.15
+     0.1,
+     0.1,
+     0.1
     ],
     "tags": [
-     "glass",
-     "ken",
-     "plastic"
+     "ceramic",
+     "ken"
     ],
     "colors": [
-     "#5b5550",
-     "#8b7561",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-market",
-    "model": "freezer-chest",
-    "wdh": [
-     0.8,
-     0.6,
-     0.35
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "blender",
+    "slug": "ken-food",
+    "model": "frappe",
     "wdh": [
      0.15,
      0.15,
      0.3
     ],
     "tags": [
-     "glass",
+     "food",
+     "ken",
      "plastic"
     ],
     "colors": [
-     "#23562c",
-     "#5b5550",
-     "#7f3927",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "soda",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "paper",
+     "plastic"
+    ],
+    "colors": [
+     "#343745",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "styloo-kitchen",
-    "model": "toaster",
+    "slug": "styloo-food",
+    "model": "iced-coffee",
     "wdh": [
-     0.15,
-     0.09,
-     0.1
+     0.1,
+     0.1,
+     0.2
     ],
     "tags": [
-     "metal-iron-steel",
+     "paper",
      "plastic"
     ],
     "colors": [
-     "#5b5550",
-     "#88848a"
+     "#7f3927",
+     "#d8d1bd"
     ]
    }
   ]
@@ -13068,658 +12731,6 @@
     "colors": [
      "#563b2b",
      "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-baked-bread",
-  "name": "Object › Food › Baked › Bread",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "toast",
-    "wdh": [
-     0.15,
-     0.1,
-     0.01
-    ],
-    "tags": [
-     "food",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "bread",
-    "wdh": [
-     0.1,
-     0.15,
-     0.07
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "baguette-half",
-    "wdh": [
-     0.1,
-     0.25,
-     0.09
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "baguette-slice",
-    "wdh": [
-     0.1,
-     0.03,
-     0.09
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "baguette",
-    "wdh": [
-     0.1,
-     0.4,
-     0.09
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "bread-half",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "bread-roll",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "bread-slice",
-    "wdh": [
-     0.15,
-     0.03,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "isa",
-     "piece"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-food",
-    "model": "bread",
-    "wdh": [
-     0.15,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "isa"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-bun-bottom",
-    "wdh": [
-     0.15,
-     0.15,
-     0.04
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "food-ingredient-bun-top",
-    "wdh": [
-     0.15,
-     0.15,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "baguette",
-    "wdh": [
-     0.4,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "bread",
-    "wdh": [
-     0.25,
-     0.2,
-     0.02
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "piece"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "loaf-round",
-    "wdh": [
-     0.4,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "loaf",
-    "wdh": [
-     0.3,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "bread-slice",
-    "wdh": [
-     0.1,
-     0.02,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "piece",
-     "qua"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "bread",
-    "wdh": [
-     0.1,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "bun",
-    "wdh": [
-     0.06,
-     0.06,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-fruit",
-  "name": "Object › Food › Fruit",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.6,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack",
-    "model": "orange",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "pear",
-    "wdh": [
-     0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "food-pack",
-    "model": "pineapple",
-    "wdh": [
-     0.15,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "foliage",
-     "food"
-    ],
-    "colors": [
-     "#68872d",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cherries",
-    "wdh": [
-     0.05,
-     0.08,
-     0.09
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "lemon-half",
-    "wdh": [
-     0.09,
-     0.1,
-     0.06
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "piece"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "lemon",
-    "wdh": [
-     0.09,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "vegetation"
-    ],
-    "colors": [
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "orange",
-    "wdh": [
-     0.09,
-     0.09,
-     0.08
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pear-half",
-    "wdh": [
-     0.05,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "piece"
-    ],
-    "colors": [
-     "#68872d",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pear",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pineapple",
-    "wdh": [
-     0.1,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "watermelon",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "avocado",
-    "wdh": [
-     0.15,
-     0.09,
-     0.2
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "avocado",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "cherries",
-    "wdh": [
-     0.1,
-     0.06,
-     0.15
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "wood-bark"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "mango",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "mango",
-    "wdh": [
-     0.08,
-     0.08,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "orange",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "watermelon",
-    "wdh": [
-     0.3,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#23562c"
     ]
    }
   ]
@@ -14101,41 +13112,510 @@
   ]
  },
  {
-  "slug": "obj-furnishing-storage-shelf",
-  "name": "Object › Furnishing › Storage › Shelf",
+  "slug": "obj-food-baked-pie",
+  "name": "Object › Food › Baked › Pie",
   "category": "obj-gen",
   "limits": {
    "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "isa-bakery",
-    "model": "wall-shelf-a",
+    "slug": "isa-food",
+    "model": "cake-birthday-cut",
     "wdh": [
-     0.65,
-     0.25,
-     0.3
+     0.4,
+     0.4,
+     0.25
     ],
     "tags": [
+     "emissive",
+     "food",
      "isa",
-     "metal-iron-wrought",
-     "wood-planks"
+     "wax"
     ],
     "colors": [
-     "#5b5550",
+     "#1367a6",
+     "#b58158",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-birthday-slice",
+    "wdh": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "emissive",
+     "food",
+     "isa",
+     "piece",
+     "wax"
+    ],
+    "colors": [
+     "#1367a6",
+     "#b58158",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-birthday",
+    "wdh": [
+     0.4,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "emissive",
+     "food",
+     "isa",
+     "wax"
+    ],
+    "colors": [
+     "#1367a6",
+     "#b58158",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-chocolate-cut",
+    "wdh": [
+     0.4,
+     0.4,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-chocolate-slice",
+    "wdh": [
+     0.15,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-chocolate",
+    "wdh": [
+     0.4,
+     0.4,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-strawberry-cut",
+    "wdh": [
+     0.4,
+     0.4,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-strawberry-slice",
+    "wdh": [
+     0.15,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "cake-strawberry",
+    "wdh": [
+     0.4,
+     0.4,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-apple-cut",
+    "wdh": [
+     0.35,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-apple-slice",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-apple",
+    "wdh": [
+     0.35,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-cherry-cut",
+    "wdh": [
+     0.35,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-cherry-slice",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "pie-cherry",
+    "wdh": [
+     0.35,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cake-birthday",
+    "wdh": [
+     0.35,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "pie",
+    "wdh": [
+     0.5,
+     0.5,
+     0.08
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936",
+     "#b58158",
      "#dbae80"
     ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "wall-shelf-b",
+    "slug": "styloo-food",
+    "model": "cake-chocolate-slice",
     "wdh": [
-     0.65,
+     0.2,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "cake-slice",
+    "wdh": [
+     0.15,
+     0.09,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-kitchenware-appliance",
+  "name": "Object › Kitchenware › Appliance",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "cooking-assets",
+    "model": "blender",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "food-processor",
+    "wdh": [
+     0.15,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "rice-cooker",
+    "wdh": [
+     0.45,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "toaster-oven",
+    "wdh": [
+     0.4,
      0.25,
      0.3
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "coffee-machine",
+    "wdh": [
+     0.3,
+     0.35,
+     0.45
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "stand-mixer",
+    "wdh": [
+     0.35,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "extractor-hood",
+    "wdh": [
+     0.65,
+     0.5,
+     0.65
     ],
     "tags": [
      "isa",
@@ -14148,291 +13628,215 @@
     ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "wall-shelf-c",
+    "slug": "kay-food",
+    "model": "extractor-hood",
     "wdh": [
-     0.6,
-     0.04,
+     0.4,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "wood-stove",
+    "wdh": [
+     0.35,
+     0.35,
+     0.8
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-cast",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "hood-large",
+    "wdh": [
+     0.35,
+     0.25,
      0.3
     ],
     "tags": [
-     "isa",
-     "metal-iron-wrought"
+     "ken",
+     "metal-iron-steel"
     ],
     "colors": [
-     "#5b5550"
+     "#88848a"
     ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "wall-shelf-end",
+    "slug": "ken-furniture",
+    "model": "hood-modern",
     "wdh": [
-     0.6,
-     0.04,
-     0.07
+     0.35,
+     0.25,
+     0.35
     ],
     "tags": [
-     "comp",
-     "isa",
-     "metal-iron-wrought"
+     "ken",
+     "metal-iron-steel"
     ],
     "colors": [
-     "#5b5550"
+     "#88848a"
     ]
    },
    {
-    "slug": "isa-kitchen",
-    "model": "wall-shelf-corner",
+    "slug": "ken-furniture",
+    "model": "kitchen-blender",
     "wdh": [
-     0.55,
-     0.55,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-wrought",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "wall-shelf-hooks",
-    "wdh": [
-     0.65,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-wrought",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "wall-shelf",
-    "wdh": [
-     0.65,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-wrought",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "shelf-large",
-    "wdh": [
-     0.6,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-dun-2",
-    "model": "shelf-small",
-    "wdh": [
-     0.3,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "shelf-paper-towel",
-    "wdh": [
-     0.4,
      0.1,
+     0.09,
      0.2
     ],
     "tags": [
-     "kay",
-     "paper",
-     "wood-beam",
-     "wood-worked"
+     "glass",
+     "ken",
+     "metal-iron-steel"
     ],
     "colors": [
-     "#8b5936",
-     "#b58158",
+     "#88848a",
      "#d8d1bd"
     ]
    },
    {
-    "slug": "kay-furniture",
-    "model": "shelf-a-big",
+    "slug": "ken-furniture",
+    "model": "kitchen-coffee-machine",
     "wdh": [
-     0.6,
      0.15,
-     0.1
+     0.2,
+     0.15
     ],
     "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
+     "ceramic",
+     "ken",
+     "metal-iron-steel"
     ],
     "colors": [
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-furniture",
-    "model": "shelf-a-small",
-    "wdh": [
-     0.3,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-furniture",
-    "model": "shelf-b-large",
-    "wdh": [
-     0.6,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-furniture",
-    "model": "shelf-b-small",
-    "wdh": [
-     0.3,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
+     "#88848a",
+     "#d8d1bd"
     ]
    },
    {
     "slug": "ken-furniture",
-    "model": "bookcase-open-low",
+    "model": "kitchen-microwave",
     "wdh": [
-     0.35,
+     0.25,
      0.2,
+     0.15
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-market",
+    "model": "freezer-chest",
+    "wdh": [
+     0.8,
+     0.6,
      0.35
     ],
     "tags": [
+     "glass",
      "ken",
-     "wood-worked"
+     "metal-iron-steel"
     ],
     "colors": [
-     "#b58158"
+     "#88848a",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "bookcase-open",
+    "slug": "styloo-furniture",
+    "model": "extractor-hood",
+    "wdh": [
+     0.3,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "washing-machine",
     "wdh": [
      0.35,
-     0.2,
-     0.75
+     0.3,
+     0.4
     ],
     "tags": [
-     "ken",
-     "wood-worked"
+     "metal-iron-steel",
+     "plastic"
     ],
     "colors": [
-     "#b58158"
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "kitchen-cabinet-upper-corner",
+    "slug": "styloo-kitchen",
+    "model": "blender",
     "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "cabinet-shelves-plain",
-    "wdh": [
-     0.9,
-     0.4,
+     0.15,
+     0.15,
      0.3
     ],
     "tags": [
-     "qua",
-     "wood-beam"
+     "glass",
+     "plastic"
     ],
     "colors": [
-     "#8b5936"
+     "#23562c",
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "quat-sushi",
-    "model": "cabinet-shelves",
+    "slug": "styloo-kitchen",
+    "model": "toaster",
     "wdh": [
-     0.9,
-     0.4,
-     0.3
+     0.15,
+     0.09,
+     0.1
     ],
     "tags": [
-     "qua",
-     "wood-beam"
+     "metal-iron-steel",
+     "plastic"
     ],
     "colors": [
-     "#8b5936"
+     "#5b5550",
+     "#88848a"
     ]
    }
   ]
@@ -15155,305 +14559,46 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-cookware-utensil",
-  "name": "Object › Kitchenware › Cookware › Utensil",
+  "slug": "obj-furnishing-storage-shelf",
+  "name": "Object › Furnishing › Storage › Shelf",
   "category": "obj-gen",
-  "rulerHeight": 0.6,
   "limits": {
-   "high.max": 0.5,
-   "longest.min": 0.05,
-   "longest.max": 10,
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "cooking-assets",
-    "model": "bottle-opener",
+    "slug": "isa-bakery",
+    "model": "wall-shelf-a",
     "wdh": [
-     0.06,
-     0.01,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "cooking-spoon",
-    "wdh": [
-     0.09,
-     0.05,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "funnel",
-    "wdh": [
-     0.09,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "plastic"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "ice-cream-scoop",
-    "wdh": [
-     0.08,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "ladle-a",
-    "wdh": [
-     0.15,
-     0.07,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "ladle-b",
-    "wdh": [
-     0.09,
-     0.15,
+     0.65,
+     0.25,
      0.3
     ],
     "tags": [
-     "metal-iron-steel"
+     "isa",
+     "metal-iron-wrought",
+     "wood-planks"
     ],
     "colors": [
-     "#88848a"
+     "#5b5550",
+     "#dbae80"
     ]
    },
    {
-    "slug": "cooking-assets",
-    "model": "measuring-cup-large",
+    "slug": "isa-bakery",
+    "model": "wall-shelf-b",
     "wdh": [
+     0.65,
      0.25,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "plastic"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "measuring-cup-small",
-    "wdh": [
-     0.2,
-     0.1,
-     0.1
-    ],
-    "tags": [
-     "plastic"
-    ],
-    "colors": [
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "rice-paddle",
-    "wdh": [
-     0.08,
-     0.03,
-     0.2
-    ],
-    "tags": [
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "wooden-paddle",
-    "wdh": [
-     0.08,
-     0.01,
      0.3
     ],
     "tags": [
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "wooden-spoon",
-    "wdh": [
-     0.04,
-     0.25,
-     0.02
-    ],
-    "tags": [
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cake-slicer",
-    "wdh": [
-     0.35,
-     0.1,
-     0.04
-    ],
-    "tags": [
-     "ken",
+     "isa",
      "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cheese-slicer",
-    "wdh": [
-     0.3,
-     0.1,
-     0.02
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cookie-cutter",
-    "wdh": [
-     0.15,
-     0.15,
-     0.02
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "cooking-fork",
-    "wdh": [
-     0.35,
-     0.04,
-     0.04
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "pizza-cutter",
-    "wdh": [
-     0.25,
-     0.15,
-     0.03
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "spoon-cooking",
-    "wdh": [
-     0.35,
-     0.09,
-     0.01
-    ],
-    "tags": [
-     "ken",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "cleaver",
-    "wdh": [
-     0.04,
-     0.01,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
+     "metal-iron-wrought"
     ],
     "colors": [
      "#5b5550",
@@ -15461,14 +14606,103 @@
     ]
    },
    {
-    "slug": "styloo-kitchen",
-    "model": "wooden-spoon-a",
+    "slug": "isa-bakery",
+    "model": "wall-shelf-c",
     "wdh": [
-     0.03,
-     0.01,
+     0.6,
+     0.04,
+     0.3
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "wall-shelf-end",
+    "wdh": [
+     0.6,
+     0.04,
+     0.07
+    ],
+    "tags": [
+     "comp",
+     "isa",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "wall-shelf-corner",
+    "wdh": [
+     0.55,
+     0.55,
      0.15
     ],
     "tags": [
+     "isa",
+     "metal-iron-wrought",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "wall-shelf-hooks",
+    "wdh": [
+     0.65,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-wrought",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "wall-shelf",
+    "wdh": [
+     0.65,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-wrought",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-dun-2",
+    "model": "shelf-large",
+    "wdh": [
+     0.6,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "kay",
      "wood-worked"
     ],
     "colors": [
@@ -15476,33 +14710,952 @@
     ]
    },
    {
-    "slug": "styloo-kitchen",
-    "model": "wooden-spoon-b",
+    "slug": "kay-dun-2",
+    "model": "shelf-small",
     "wdh": [
-     0.05,
+     0.3,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "shelf-paper-towel",
+    "wdh": [
+     0.4,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "kay",
+     "paper",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "model": "shelf-a-big",
+    "wdh": [
+     0.6,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "model": "shelf-a-small",
+    "wdh": [
+     0.3,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "model": "shelf-b-large",
+    "wdh": [
+     0.6,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "model": "shelf-b-small",
+    "wdh": [
+     0.3,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "bookcase-open-low",
+    "wdh": [
+     0.35,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "bookcase-open",
+    "wdh": [
+     0.35,
+     0.2,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-cabinet-upper-corner",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "cabinet-shelves-plain",
+    "wdh": [
+     0.9,
+     0.4,
+     0.3
+    ],
+    "tags": [
+     "qua",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "cabinet-shelves",
+    "wdh": [
+     0.9,
+     0.4,
+     0.3
+    ],
+    "tags": [
+     "qua",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "shelf",
+    "wdh": [
+     0.15,
+     0.8,
+     0.3
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-baked-bread",
+  "name": "Object › Food › Baked › Bread",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "toast",
+    "wdh": [
+     0.15,
+     0.1,
+     0.01
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "bread",
+    "wdh": [
+     0.1,
+     0.15,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "baguette-half",
+    "wdh": [
+     0.1,
+     0.25,
+     0.09
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "baguette-slice",
+    "wdh": [
+     0.1,
+     0.03,
+     0.09
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "baguette",
+    "wdh": [
+     0.1,
+     0.4,
+     0.09
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "bread-half",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "bread-roll",
+    "wdh": [
+     0.15,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "bread-slice",
+    "wdh": [
+     0.15,
+     0.03,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "isa",
+     "piece"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "isa-food",
+    "model": "bread",
+    "wdh": [
+     0.15,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "isa"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-bun-bottom",
+    "wdh": [
+     0.15,
+     0.15,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "food-ingredient-bun-top",
+    "wdh": [
+     0.15,
+     0.15,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "baguette",
+    "wdh": [
+     0.4,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "bread",
+    "wdh": [
+     0.25,
+     0.2,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "loaf-round",
+    "wdh": [
+     0.4,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "loaf",
+    "wdh": [
+     0.3,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "bread-slice",
+    "wdh": [
+     0.1,
      0.02,
      0.15
     ],
     "tags": [
-     "wood-worked"
+     "food",
+     "piece",
+     "qua"
     ],
     "colors": [
      "#b58158"
     ]
    },
    {
-    "slug": "styloo-kitchen",
-    "model": "wooden-spoon-c",
+    "slug": "quat-food",
+    "model": "bread",
     "wdh": [
-     0.04,
-     0.03,
+     0.1,
+     0.2,
      0.15
     ],
     "tags": [
-     "wood-worked"
+     "food",
+     "qua"
     ],
     "colors": [
      "#b58158"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "bun",
+    "wdh": [
+     0.06,
+     0.06,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "bread-slice",
+    "wdh": [
+     0.15,
+     0.15,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "bun-bottom",
+    "wdh": [
+     0.15,
+     0.15,
+     0.03
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "bun-top",
+    "wdh": [
+     0.15,
+     0.15,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#b58158",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-fish-sushi",
+  "name": "Object › Food › Fish › Sushi",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-food",
+    "model": "sushi-egg",
+    "wdh": [
+     0.06,
+     0.09,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#343745",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "sushi-salmon",
+    "wdh": [
+     0.06,
+     0.1,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "sashimi-salmon",
+    "wdh": [
+     0.1,
+     0.05,
+     0.03
+    ],
+    "tags": [
+     "comp",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "sushi-nigiri-1",
+    "wdh": [
+     0.1,
+     0.05,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "sushi-roll-1",
+    "wdh": [
+     0.05,
+     0.05,
+     0.03
+    ],
+    "tags": [
+     "ceramic",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "sushi-roll-2",
+    "wdh": [
+     0.05,
+     0.05,
+     0.03
+    ],
+    "tags": [
+     "ceramic",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#68872d",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "ebi-nigiri",
+    "wdh": [
+     0.08,
+     0.2,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "maguro-nigiri",
+    "wdh": [
+     0.09,
+     0.15,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "maki",
+    "wdh": [
+     0.1,
+     0.07,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "octopus-nigiri",
+    "wdh": [
+     0.1,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "salmon-fillet",
+    "wdh": [
+     0.15,
+     0.2,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "piece",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "salmon-nigiri",
+    "wdh": [
+     0.08,
+     0.15,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "salmon-roll",
+    "wdh": [
+     0.1,
+     0.07,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "shrimp",
+    "wdh": [
+     0.05,
+     0.09,
+     0.03
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#d07b56",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "tamago-nigiri",
+    "wdh": [
+     0.08,
+     0.15,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "maki-salmon",
+    "wdh": [
+     0.05,
+     0.05,
+     0.04
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#23562c",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "maki-tuna",
+    "wdh": [
+     0.05,
+     0.05,
+     0.04
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#23562c",
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "nigiri-salmon",
+    "wdh": [
+     0.1,
+     0.05,
+     0.05
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "nigiri-tuna",
+    "wdh": [
+     0.1,
+     0.05,
+     0.06
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "sashimi-salmon",
+    "wdh": [
+     0.1,
+     0.05,
+     0.01
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "sashimi-tuna",
+    "wdh": [
+     0.1,
+     0.04,
+     0.02
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#7f3927"
     ]
    }
   ]
@@ -15902,6 +16055,374 @@
     "colors": [
      "#8b7561",
      "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-kitchenware-cookware-utensil",
+  "name": "Object › Kitchenware › Cookware › Utensil",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "cooking-assets",
+    "model": "bottle-opener",
+    "wdh": [
+     0.06,
+     0.01,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "cooking-spoon",
+    "wdh": [
+     0.09,
+     0.05,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "funnel",
+    "wdh": [
+     0.09,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "ice-cream-scoop",
+    "wdh": [
+     0.08,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "ladle-a",
+    "wdh": [
+     0.15,
+     0.07,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "ladle-b",
+    "wdh": [
+     0.09,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "measuring-cup-large",
+    "wdh": [
+     0.25,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "measuring-cup-small",
+    "wdh": [
+     0.2,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "rice-paddle",
+    "wdh": [
+     0.08,
+     0.03,
+     0.2
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "wooden-paddle",
+    "wdh": [
+     0.08,
+     0.01,
+     0.3
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "wooden-spoon",
+    "wdh": [
+     0.04,
+     0.25,
+     0.02
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cake-slicer",
+    "wdh": [
+     0.35,
+     0.1,
+     0.04
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cheese-slicer",
+    "wdh": [
+     0.3,
+     0.1,
+     0.02
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cookie-cutter",
+    "wdh": [
+     0.15,
+     0.15,
+     0.02
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cooking-fork",
+    "wdh": [
+     0.35,
+     0.04,
+     0.04
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "pizza-cutter",
+    "wdh": [
+     0.25,
+     0.15,
+     0.03
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "spoon-cooking",
+    "wdh": [
+     0.35,
+     0.09,
+     0.01
+    ],
+    "tags": [
+     "ken",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "wooden-spoon",
+    "wdh": [
+     0.01,
+     0.07,
+     0.25
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "cleaver",
+    "wdh": [
+     0.04,
+     0.01,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "wooden-spoon-a",
+    "wdh": [
+     0.03,
+     0.01,
+     0.15
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "wooden-spoon-b",
+    "wdh": [
+     0.05,
+     0.02,
+     0.15
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "wooden-spoon-c",
+    "wdh": [
+     0.04,
+     0.03,
+     0.15
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
     ]
    }
   ]
@@ -16318,6 +16839,433 @@
     ],
     "colors": [
      "#88848a"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-fruit",
+  "name": "Object › Food › Fruit",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack",
+    "model": "orange",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "pear",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "food-pack",
+    "model": "pineapple",
+    "wdh": [
+     0.15,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#68872d",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "cherries",
+    "wdh": [
+     0.05,
+     0.08,
+     0.09
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "lemon-half",
+    "wdh": [
+     0.09,
+     0.1,
+     0.06
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "piece"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "lemon",
+    "wdh": [
+     0.09,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "vegetation"
+    ],
+    "colors": [
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "orange",
+    "wdh": [
+     0.09,
+     0.09,
+     0.08
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "pear-half",
+    "wdh": [
+     0.05,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "piece"
+    ],
+    "colors": [
+     "#68872d",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "pear",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "ken",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "pineapple",
+    "wdh": [
+     0.1,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "watermelon",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "avocado",
+    "wdh": [
+     0.15,
+     0.09,
+     0.2
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "avocado",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "cherries",
+    "wdh": [
+     0.1,
+     0.06,
+     0.15
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "wood-bark"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "mango",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lemon-half",
+    "wdh": [
+     0.06,
+     0.08,
+     0.08
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lemon-slice-half",
+    "wdh": [
+     0.01,
+     0.08,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lemon-slice",
+    "wdh": [
+     0.01,
+     0.08,
+     0.08
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "lemon",
+    "wdh": [
+     0.1,
+     0.08,
+     0.08
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "strawberry-half",
+    "wdh": [
+     0.04,
+     0.02,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "piece"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "strawberry",
+    "wdh": [
+     0.04,
+     0.03,
+     0.05
+    ],
+    "tags": [
+     "foliage",
+     "food"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "mango",
+    "wdh": [
+     0.08,
+     0.08,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "orange",
+    "wdh": [
+     0.15,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "watermelon",
+    "wdh": [
+     0.3,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#23562c"
     ]
    }
   ]
@@ -17105,6 +18053,51 @@
     ]
    },
    {
+    "slug": "styloo-food",
+    "model": "ramen-spoon",
+    "wdh": [
+     0.09,
+     0.25,
+     0.08
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "fork",
+    "wdh": [
+     0.03,
+     0.15,
+     0.01
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "spoon",
+    "wdh": [
+     0.03,
+     0.1,
+     0.01
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
     "slug": "styloo-kitchen",
     "model": "fork",
     "wdh": [
@@ -17611,6 +18604,51 @@
      "#7f3927",
      "#8b5936"
     ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "chair-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "chair-b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.4
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "chair-c",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
    }
   ]
  },
@@ -18076,6 +19114,23 @@
     "colors": [
      "#88848a",
      "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "cookpot",
+    "wdh": [
+     0.1,
+     0.2,
+     0.07
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
     ]
    },
    {
@@ -18567,6 +19622,36 @@
     "tags": [
      "ceramic",
      "qua"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "plate",
+    "wdh": [
+     0.3,
+     0.3,
+     0.02
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "plate",
+    "wdh": [
+     0.2,
+     0.2,
+     0.01
+    ],
+    "tags": [
+     "ceramic"
     ],
     "colors": [
      "#d8d1bd"
@@ -22389,358 +23474,21 @@
      "#7f3927",
      "#dbae80"
     ]
-   }
-  ]
- },
- {
-  "slug": "obj-container",
-  "name": "Object › Container",
-  "category": "obj-container",
-  "limits": {
-   "high.min": 0.1,
-   "high.max": 1,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "aq-pond",
-    "model": "bathtub",
-    "wdh": [
-     0.65,
-     0.35,
-     0.3
-    ],
-    "tags": [
-     "ceramic",
-     "liquid",
-     "metal-gold"
-    ],
-    "colors": [
-     "#1367a6",
-     "#8b7561",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
    },
    {
-    "slug": "isa-bakery",
-    "model": "milk-carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "paper"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-park",
-    "model": "trashcan",
-    "wdh": [
-     0.3,
-     0.3,
-     0.35
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "isa-pond",
-    "model": "clawfoot-bathtub",
-    "wdh": [
-     0.5,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "ceramic",
-     "isa",
-     "liquid",
-     "metal-gold"
-    ],
-    "colors": [
-     "#1367a6",
-     "#8b7561",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-apocalyp",
-    "model": "container-sienna",
-    "wdh": [
-     2.85,
-     1.3,
-     1.3
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton-small",
-    "wdh": [
-     0.1,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "ken",
-     "paper"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "paper"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "takeaway-box",
-    "wdh": [
-     0.75,
-     0.45,
-     0.5
-    ],
-    "tags": [
-     "ken",
-     "plastic"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "trashcan",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "cage-small",
-    "wdh": [
-     0.6,
-     0.6,
-     0.55
-    ],
-    "tags": [
-     "halloween",
-     "hero",
-     "metal-iron-wrought",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "quat-shoot",
-    "model": "dumpster",
-    "wdh": [
-     0.85,
-     0.45,
-     0.7
-    ],
-    "tags": [
-     "metal",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "first-aid-kit",
-    "wdh": [
-     0.3,
-     0.1,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "matchbox",
-    "wdh": [
-     0.08,
-     0.03,
-     0.15
-    ],
-    "tags": [
-     "paper",
-     "qua",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "propane-tank",
-    "wdh": [
-     0.3,
-     0.3,
-     0.45
-    ],
-    "tags": [
-     "metal-copper",
-     "metal-iron-steel",
-     "qua"
-    ],
-    "colors": [
-     "#88848a",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "rpg-mini",
-    "model": "inkbottle",
+    "slug": "styloo-furniture",
+    "model": "jar",
     "wdh": [
      0.06,
      0.06,
-     0.05
+     0.06
     ],
     "tags": [
-     "ceramic"
+     "plastic"
     ],
     "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "trough-1-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "trough-3-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "liquid",
-     "metal-iron-wrought",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "egg-carton",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#23562c",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "milk-carton",
-    "wdh": [
-     0.05,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
+     "#7f3927",
+     "#f2a93c"
     ]
    }
   ]
@@ -23116,6 +23864,390 @@
     "colors": [
      "#88848a",
      "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-container",
+  "name": "Object › Container",
+  "category": "obj-container",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "aq-pond",
+    "model": "bathtub",
+    "wdh": [
+     0.65,
+     0.35,
+     0.3
+    ],
+    "tags": [
+     "ceramic",
+     "liquid",
+     "metal-gold"
+    ],
+    "colors": [
+     "#1367a6",
+     "#8b7561",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "milk-carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "paper"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-park",
+    "model": "trashcan",
+    "wdh": [
+     0.3,
+     0.3,
+     0.35
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "isa-pond",
+    "model": "clawfoot-bathtub",
+    "wdh": [
+     0.5,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "liquid",
+     "metal-gold"
+    ],
+    "colors": [
+     "#1367a6",
+     "#8b7561",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-apocalyp",
+    "model": "container-sienna",
+    "wdh": [
+     2.85,
+     1.3,
+     1.3
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton-small",
+    "wdh": [
+     0.1,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "ken",
+     "paper"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.3
+    ],
+    "tags": [
+     "ken",
+     "paper"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "takeaway-box",
+    "wdh": [
+     0.75,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "ken",
+     "plastic"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "trashcan",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "cage-small",
+    "wdh": [
+     0.6,
+     0.6,
+     0.55
+    ],
+    "tags": [
+     "halloween",
+     "hero",
+     "metal-iron-wrought",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "quat-shoot",
+    "model": "dumpster",
+    "wdh": [
+     0.85,
+     0.45,
+     0.7
+    ],
+    "tags": [
+     "metal",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "first-aid-kit",
+    "wdh": [
+     0.3,
+     0.1,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "matchbox",
+    "wdh": [
+     0.08,
+     0.03,
+     0.15
+    ],
+    "tags": [
+     "paper",
+     "qua",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "propane-tank",
+    "wdh": [
+     0.3,
+     0.3,
+     0.45
+    ],
+    "tags": [
+     "metal-copper",
+     "metal-iron-steel",
+     "qua"
+    ],
+    "colors": [
+     "#88848a",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "rpg-mini",
+    "model": "inkbottle",
+    "wdh": [
+     0.06,
+     0.06,
+     0.05
+    ],
+    "tags": [
+     "ceramic"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "trough-1-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "trough-3-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "liquid",
+     "metal-iron-wrought",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "pizza-box",
+    "wdh": [
+     0.3,
+     0.3,
+     0.04
+    ],
+    "tags": [
+     "paper"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "trash-can",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "egg-carton",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "paper"
+    ],
+    "colors": [
+     "#23562c",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "milk-carton",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "paper"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd"
     ]
    }
   ]
@@ -23924,6 +25056,21 @@
     ],
     "colors": [
      "#23562c"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "utensil-holder",
+    "wdh": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "tags": [
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
     ]
    },
    {
@@ -25080,6 +26227,23 @@
     "colors": [
      "#5b5550",
      "#8b7561"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "salt-shaker",
+    "wdh": [
+     0.05,
+     0.05,
+     0.08
+    ],
+    "tags": [
+     "ceramic",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
     ]
    }
   ]
@@ -61741,6 +62905,24 @@
     "colors": [
      "#68872d",
      "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-food",
+    "model": "sunflower",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "foliage",
+     "vegetation"
+    ],
+    "colors": [
+     "#563b2b",
+     "#68872d",
      "#f2a93c"
     ]
    }
