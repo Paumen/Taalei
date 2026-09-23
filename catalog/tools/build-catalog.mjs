@@ -25,10 +25,11 @@ const ROWS = 4;
 const round1 = (v) => (v < 0.1 ? Math.max(Math.round(v * 100) / 100, 0.01) : Math.round(v * 20) / 20);
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
+const LINT_MATERIALS = JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8'));
 const LINT_CHECKS = buildChecks({
   vars: LINT_VARS,
   kinds: JSON.parse(readFileSync(join(ROOT, LINT_VARS.kinds), 'utf8')),
-  materials: JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8')),
+  materials: LINT_MATERIALS,
   measures: JSON.parse(readFileSync(join(ROOT, LINT_VARS.measures), 'utf8')),
 });
 const MATERIAL_TREE = LINT_CHECKS.materialIds;
@@ -180,58 +181,6 @@ function laneColor(atlas, lane) {
   const y = Math.floor(row * cellHeight + cellHeight / 2);
   const i4 = (y * atlas.width + x) * 4;
   return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
-}
-
-function hsl(hex) {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const lightness = (max + min) / 2;
-  const delta = max - min;
-  const saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
-
-  let tint = 0;
-  if (delta === 0) tint = 0;
-  else if (max === r) tint = ((g - b) / delta) % 6;
-  else if (max === g) tint = (b - r) / delta + 2;
-  else tint = (r - g) / delta + 4;
-
-  return { tint: (tint * 60 + 360) % 360, saturation, lightness };
-}
-
-function colorFamily(hex) {
-  const { tint, saturation, lightness } = hsl(hex);
-  if (saturation < 0.18) return 'neutral';
-
-  return (
-    tint < 15 || tint >= 345 ? 'red'
-    : tint < 40 ? (lightness < 0.45 ? 'brown' : 'orange')
-    : tint < 50 ? (lightness < 0.5 ? 'brown' : 'orange')
-    : tint < 70 ? 'yellow'
-    : tint < 165 ? 'green'
-    : tint < 200 ? 'turquoise'
-    : tint < 260 ? 'blue'
-    : tint < 300 ? 'purple'
-    : 'pink'
-  );
-}
-
-function colorName(hex) {
-  const { saturation, lightness } = hsl(hex);
-
-  if (saturation < 0.18) {
-    if (lightness > 0.8) return 'white';
-    if (lightness > 0.45) return 'light grey';
-    if (lightness > 0.25) return 'grey';
-    return 'dark grey';
-  }
-
-  const base = colorFamily(hex);
-  if (lightness < 0.3) return `dark ${base}`;
-  if (lightness > 0.75) return `light ${base}`;
-  return base;
 }
 
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
@@ -599,7 +548,15 @@ for (const model of models) {
 }
 
 const SHARED_ATLAS = join(KITS_DIR, 'colormap.png');
-const sharedKey = existsSync(SHARED_ATLAS) ? readAtlas(SHARED_ATLAS).key : null;
+const sharedAtlas = existsSync(SHARED_ATLAS) ? readAtlas(SHARED_ATLAS) : null;
+const sharedKey = sharedAtlas?.key ?? null;
+const BANDS = sharedAtlas
+  ? Object.entries(LINT_MATERIALS.bands)
+    .filter(([, lane]) => lane)
+    .map(([name, lane]) => ({ name, hex: laneColor(sharedAtlas, lane) }))
+  : [];
+const bandNameOf = new Map(BANDS.map((b) => [b.hex, b.name]));
+const colorName = (hex) => bandNameOf.get(hex) ?? 'no band';
 
 for (const [key, palette] of palettes) {
   palette.laneColor = new Map();
@@ -684,6 +641,7 @@ const output = {
     smooth: k.smooth,
   })),
   variants: variants.groups,
+  bands: BANDS,
   tags: tags.tags.map((t) => ({
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
