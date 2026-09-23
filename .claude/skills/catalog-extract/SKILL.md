@@ -12,9 +12,16 @@ refers to, which the bible does not cover.
 `CLAUDE.md` binds every step: never look at earlier commits or PRs, and never
 leave assumptions or commentary in a code file.
 
-A tag edit is applied. A colour mark is diagnosed and reported: nothing in the
-repo rewrites a workfile's bands, so a model whose colour is wrong is replaced
-or dropped, and the report says which parts carry the marked band.
+A tag edit is applied. A colour mark is diagnosed first, then applied with
+`tools/import/recolour.mjs`, which moves a band, or the part of it on named
+parts, to another cell and keeps the gradient.
+
+The browser keeps its staged edits and marks across rebuilds, so an extract can
+carry ones already done or made against a kind that has since moved. Compare
+every edit and mark against the current tags and the model's `colors` in
+`catalog/build/catalog.json` first: a `wrong` hex the model no longer carries
+or an `add` hex it already carries is done, and a kind edit whose `remove` side
+no longer holds is stale.
 
 ## 1. A band is not a part
 
@@ -73,9 +80,17 @@ one mesh:
 ## 4. Report what the mark costs
 
 Say which parts carry the marked band and which of them should keep their
-colour. A band that carries only the marked part is a clean swap; a band that
-also carries something that reads correctly cannot move as a whole, and the
-model is a replace-or-drop, not a recolour.
+colour. A band that carries only the marked part is a clean swap. A band that
+also carries something that reads correctly moves only on the marked parts:
+
+    node tools/import/recolour.mjs --list --want 32 <file>.glb
+    node tools/import/recolour.mjs --from <band> --to <band> --parts <n> --want 32 <file>.glb
+
+`--list` numbers the parts; `render.mjs --isolate` tiles them in its own order,
+so take the number from `--list` and check it on a copy first. A mark with no
+`add` names no target: ask. After a recolour, run `palette.mjs` — a material
+tag that only held through the old band now fails, and the tag is the PO's
+call.
 
 `P11`–`P14` in the bible: a pack's source colours have to survive the import.
 Two source colours on one band is a bug, not a style choice, so say so rather

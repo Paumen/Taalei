@@ -270,6 +270,10 @@
    "name": "Food Asset Pack"
   },
   {
+   "slug": "Free_Pond_Kit_AssetQuest",
+   "name": "Free Pond Kit"
+  },
+  {
    "slug": "NatureAssetsFBX",
    "name": "Nature Assets"
   }
@@ -812,8 +816,8 @@
    "kit": "wizp-tree",
    "format": "glb",
    "inSource": 93,
-   "inCatalog": 27,
-   "listed": 54,
+   "inCatalog": 26,
+   "listed": 55,
    "unmatched": 0,
    "scale": 0.216
   },
@@ -869,8 +873,8 @@
    "kit": "kay-mixed",
    "format": "gltf",
    "inSource": 41,
-   "inCatalog": 34,
-   "listed": 6,
+   "inCatalog": 33,
+   "listed": 8,
    "unmatched": 0,
    "scale": 0.3,
    "folder": "KayKit_Mixed_Bag_1_FREE/Assets/gltf"
@@ -1063,6 +1067,18 @@
    "folder": "Food Asset Pack/Food Asset Pack/FBX"
   },
   {
+   "slug": "Free_Pond_Kit_AssetQuest",
+   "name": "Free Pond Kit",
+   "kit": "aq-pond",
+   "format": "fbx",
+   "inSource": 89,
+   "inCatalog": 35,
+   "listed": 2,
+   "unmatched": 0,
+   "scale": 0.004,
+   "folder": "Meshes"
+  },
+  {
    "slug": "NatureAssetsFBX",
    "name": "Nature Assets",
    "kit": "nature-assets",
@@ -1155,6 +1171,10 @@
   {
    "id": "obj-container-can-wateringcan",
    "name": "Wateringcan"
+  },
+  {
+   "id": "obj-container-cargo",
+   "name": "Cargo"
   },
   {
    "id": "obj-kitchenware",
@@ -1775,6 +1795,10 @@
   {
    "id": "obj-furnishing-rug",
    "name": "Rug"
+  },
+  {
+   "id": "obj-toy",
+   "name": "Toy"
   },
   {
    "id": "str",
@@ -24753,6 +24777,22 @@
    "file": "TreesPack.glb"
   },
   {
+   "kit": "Trees_Pack",
+   "name": "waterlily_yellow2",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 296,
+   "tpu": 863,
+   "mat": 1,
+   "bytes": 13644,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "TreesPack.glb"
+  },
+  {
    "kit": "Village_Pack",
    "name": "altar",
    "kind": "str-building-religious-shrine",
@@ -26486,6 +26526,22 @@
   },
   {
    "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "guitar_A",
+   "wdh": [
+    0.3,
+    0.6,
+    0.1
+   ],
+   "tris": 1018,
+   "tpu": 2968,
+   "mat": 1,
+   "bytes": 51812,
+   "scaled": true,
+   "reason": "style",
+   "file": "guitar_A.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
    "name": "guitar_B",
    "wdh": [
     0.3,
@@ -26499,6 +26555,22 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "guitar_B.gltf"
+  },
+  {
+   "kit": "KayKit_Mixed_Bag_1_FREE",
+   "name": "idol_A",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 892,
+   "tpu": 2601,
+   "mat": 1,
+   "bytes": 23944,
+   "scaled": true,
+   "reason": "style",
+   "file": "idol_A.gltf"
   },
   {
    "kit": "KayKit_Mixed_Bag_1_FREE",
@@ -30257,6 +30329,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamBlue",
+   "kind": "obj-toy",
    "wdh": [
     0.6,
     0.6,
@@ -30274,6 +30347,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamRed",
+   "kind": "obj-toy",
    "wdh": [
     0.6,
     0.6,
@@ -30291,6 +30365,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "ball_teamYellow",
+   "kind": "obj-toy",
    "wdh": [
     0.6,
     0.6,
@@ -34912,6 +34987,7 @@
   {
    "kit": "kenney_watercraft-pack_1",
    "name": "cargo-container-a",
+   "kind": "obj-container-cargo",
    "wdh": [
     0.4,
     0.3,
@@ -34928,6 +35004,7 @@
   {
    "kit": "kenney_watercraft-pack_1",
    "name": "cargo-container-c",
+   "kind": "obj-container-cargo",
    "wdh": [
     0.4,
     0.3,
@@ -36810,6 +36887,40 @@
    "scaled": true,
    "reason": "style",
    "file": "Ribs.fbx"
+  },
+  {
+   "kit": "Free_Pond_Kit_AssetQuest",
+   "name": "Water_Lily_Leaf_3",
+   "kind": "env-flora-waterplant-lilypad",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bytes": 1928,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Water_Lily_Leaf_3.fbx"
+  },
+  {
+   "kit": "Free_Pond_Kit_AssetQuest",
+   "name": "Water_Lily_Leaf_4",
+   "kind": "env-flora-waterplant-lilypad",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bytes": 1928,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Water_Lily_Leaf_4.fbx"
   },
   {
    "kit": "NatureAssetsFBX",
