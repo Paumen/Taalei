@@ -8234,7 +8234,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 87
+   "count": 47
   },
   {
    "id": "metal-iron",
@@ -8289,14 +8289,14 @@
    "name": "Wood",
    "type": "material",
    "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
-   "count": 14
+   "count": 0
   },
   {
    "id": "wood-planks",
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 383,
+   "count": 386,
    "parent": "wood"
   },
   {
@@ -8312,7 +8312,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 864,
+   "count": 861,
    "parent": "wood"
   },
   {
@@ -8320,7 +8320,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 58,
+   "count": 60,
    "parent": "wood"
   },
   {
@@ -8328,7 +8328,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 247,
+   "count": 245,
    "parent": "wood"
   },
   {
@@ -8657,7 +8657,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 347,
+   "count": 345,
    "color": "#6b5b95"
   },
   {
@@ -9138,7 +9138,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 80,
+   "count": 78,
    "color": "#f1976c"
   },
   {
@@ -10373,7 +10373,7 @@
    "name": "Toy",
    "type": "kind",
    "description": "Thing made to play with: ball, frisbee, plushie.",
-   "count": 6
+   "count": 8
   },
   {
    "id": "str-utility-fountain",
@@ -10704,14 +10704,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1691
+   "count": 1710
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1458
+   "count": 1439
   },
   {
    "id": "l",
@@ -16085,7 +16085,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber sienna"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -16135,7 +16142,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber sienna"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -16180,7 +16194,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -16797,13 +16818,6 @@
     "aq",
     "liquid",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has liquid metal-iron-steel (obj-container-bucket)"
-    }
    ]
   },
   {
@@ -42190,7 +42204,6 @@
    ],
    "tags": [
     "isa",
-    "metal",
     "metal-iron-wrought"
    ]
   },
@@ -46589,8 +46602,14 @@
    ],
    "tags": [
     "isa",
-    "metal",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
    ]
   },
   {
@@ -47565,24 +47584,17 @@
    "vpt": 1.04,
    "grad": 0.66,
    "spread": {
-    "2,0": [
+    "0,0": [
      0.242,
      0.906
     ]
    },
    "colors": [
-    "#8b5936"
+    "#dbae80"
    ],
    "tags": [
     "isa",
-    "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    }
+    "wood-planks"
    ]
   },
   {
@@ -48163,7 +48175,6 @@
    ],
    "tags": [
     "isa",
-    "metal",
     "metal-iron-steel",
     "plastic"
    ],
@@ -48214,7 +48225,6 @@
    ],
    "tags": [
     "isa",
-    "metal",
     "metal-iron-steel",
     "plastic"
    ],
@@ -48620,7 +48630,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ]
   },
@@ -48664,7 +48673,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ]
   },
@@ -48934,13 +48942,6 @@
     "isa",
     "liquid",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has liquid metal-iron-wrought (obj-container-bucket)"
-    }
    ]
   },
   {
@@ -49196,7 +49197,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ],
    "variant": "v286"
@@ -49241,7 +49241,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ],
    "variant": "v286"
@@ -49286,7 +49285,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ],
    "variant": "v286"
@@ -49331,7 +49329,6 @@
    ],
    "tags": [
     "isa",
-    "wood",
     "wood-bark"
    ],
    "variant": "v286"
@@ -52227,15 +52224,7 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-cast"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-cast (obj-container-barrel)"
-    }
    ]
   },
   {
@@ -52390,7 +52379,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-cast",
     "metal-iron-steel",
     "wood-beam"
@@ -52447,7 +52435,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-cast",
     "metal-iron-steel",
     "wood-beam"
@@ -52532,7 +52519,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-wrought"
    ],
    "variant": "v744",
@@ -52584,7 +52570,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-wrought"
    ],
    "variant": "v744",
@@ -52977,14 +52962,7 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v486",
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
-   ]
+   "variant": "v486"
   },
   {
    "kit": "kay-apocalyp",
@@ -53023,14 +53001,7 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v486",
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
-   ]
+   "variant": "v486"
   },
   {
    "kit": "kay-apocalyp",
@@ -53077,7 +53048,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-cast",
     "plural"
    ]
@@ -53598,7 +53568,6 @@
    "tags": [
     "kay",
     "leather",
-    "metal",
     "metal-iron-steel",
     "rope",
     "skin",
@@ -53769,13 +53738,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -53824,13 +53786,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -53953,7 +53908,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel"
    ],
    "variant": "v745"
@@ -53998,7 +53952,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "plural"
    ],
@@ -77684,14 +77637,7 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v229",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has stone-masonry (str-barrier-post)"
-    }
-   ]
+   "variant": "v229"
   },
   {
    "kit": "kay-hallow",
@@ -77732,14 +77678,7 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v229",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has stone-masonry (str-barrier-post)"
-    }
-   ]
+   "variant": "v229"
   },
   {
    "kit": "kay-hallow",
@@ -81918,13 +81857,6 @@
    "tags": [
     "kay",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
    ]
   },
   {
@@ -85750,13 +85682,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -85799,7 +85724,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel"
    ],
    "variant": "v667"
@@ -85844,7 +85768,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel"
    ],
    "variant": "v667"
@@ -85889,7 +85812,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel"
    ],
    "variant": "v667"
@@ -86629,7 +86551,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel"
    ]
   },
@@ -87405,7 +87326,6 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-cast"
    ]
   },
@@ -87728,7 +87648,6 @@
     "ceramic",
     "kay",
     "leather",
-    "metal",
     "metal-iron-steel"
    ]
   },
@@ -87841,7 +87760,7 @@
   {
    "kit": "kay-mixed",
    "name": "puzzle-cube-center",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-toy",
    "size": "s",
    "wdh": [
     0.15,
@@ -87910,19 +87829,14 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 7 wants max 2"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 5"
+     "text": "G12 bands 7 wants max 3"
     }
    ]
   },
   {
    "kit": "kay-mixed",
    "name": "puzzle-cube-incomplete",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-toy",
    "size": "s",
    "wdh": [
     0.15,
@@ -87991,12 +87905,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 7 wants max 2"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 5"
+     "text": "G12 bands 7 wants max 3"
     }
    ]
   },
@@ -88885,18 +88794,10 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v735"
   },
   {
    "kit": "kay-resources",
@@ -88943,18 +88844,10 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v659"
   },
   {
    "kit": "kay-resources",
@@ -89001,18 +88894,10 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v735"
   },
   {
    "kit": "kay-resources",
@@ -89059,18 +88944,10 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v659"
   },
   {
    "kit": "kay-resources",
@@ -89123,18 +89000,10 @@
    "tags": [
     "kay",
     "liquid",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has liquid metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v735"
   },
   {
    "kit": "kay-resources",
@@ -89181,18 +89050,10 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v659"
   },
   {
    "kit": "kay-resources",
@@ -89239,19 +89100,11 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v736"
   },
   {
    "kit": "kay-resources",
@@ -89298,19 +89151,11 @@
    ],
    "tags": [
     "kay",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v736"
   },
   {
    "kit": "kay-resources",
@@ -89363,19 +89208,11 @@
    "tags": [
     "kay",
     "liquid",
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has liquid metal metal-iron-steel metal-iron-wrought (obj-container-barrel)"
-    }
-   ]
+   "variant": "v736"
   },
   {
    "kit": "kay-resources",
@@ -90228,13 +90065,6 @@
    "tags": [
     "kay",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
    ]
   },
   {
@@ -94776,13 +94606,6 @@
     "halloween",
     "kay",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has stone-masonry (str-barrier-post)"
-    }
    ]
   },
   {
@@ -95739,13 +95562,6 @@
     "kay",
     "metal-iron-steel",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal-iron-steel metal-iron-wrought (obj-container-bucket)"
-    }
    ]
   },
   {
@@ -100693,9 +100509,9 @@
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
+    0.04,
     0.07,
-    0.15,
-    0.15
+    0.07
    ],
    "tris": 132,
    "tpu": 385,
@@ -100706,8 +100522,8 @@
    "vtx": 127,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00035,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
    "anglePct": 40,
    "vpt": 0.96,
    "grad": 0.48,
@@ -100743,9 +100559,9 @@
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.07,
+    0.07,
+    0.07
    ],
    "tris": 136,
    "tpu": 397,
@@ -100756,8 +100572,8 @@
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00049,
+   "minEdge": 0.004,
+   "avgTri": 0.00012,
    "anglePct": 12,
    "vpt": 0.63,
    "grad": 0.56,
@@ -100794,9 +100610,9 @@
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
-    0.5,
-    0.35,
-    0.15
+    0.25,
+    0.2,
+    0.07
    ],
    "tris": 114,
    "tpu": 332,
@@ -100807,8 +100623,8 @@
    "vtx": 117,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00333,
+   "minEdge": 0.012,
+   "avgTri": 0.00083,
    "anglePct": 15,
    "vpt": 1.03,
    "grad": 0.6,
@@ -100825,7 +100641,14 @@
     "ken",
     "textile"
    ],
-   "variant": "v680"
+   "variant": "v680",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.07 under min 0.1 (obj-container)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -100833,9 +100656,9 @@
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
+    0.08,
     0.15,
-    0.3,
-    0.45
+    0.2
    ],
    "tris": 46,
    "tpu": 134,
@@ -100846,8 +100669,8 @@
    "vtx": 57,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "avgTri": 0.00963,
+   "minEdge": 0.018,
+   "avgTri": 0.00241,
    "anglePct": 13,
    "vpt": 1.24,
    "grad": 0.59,
@@ -100870,11 +100693,11 @@
    "kit": "ken-food",
    "name": "baguette",
    "kind": "obj-food-baked-bread",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.6,
-    0.2,
-    0.2
+    0.3,
+    0.09,
+    0.09
    ],
    "tris": 122,
    "tpu": 356,
@@ -100885,8 +100708,8 @@
    "vtx": 97,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00367,
+   "minEdge": 0.007,
+   "avgTri": 0.00092,
    "anglePct": 61,
    "vpt": 0.8,
    "grad": 0.44,
@@ -100915,9 +100738,9 @@
    "kind": "obj-food-fruit-banana",
    "size": "s",
    "wdh": [
-    0.1,
-    0.45,
-    0.15
+    0.05,
+    0.25,
+    0.07
    ],
    "tris": 104,
    "tpu": 303,
@@ -100928,8 +100751,8 @@
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00106,
+   "minEdge": 0.007,
+   "avgTri": 0.00026,
    "anglePct": 19,
    "vpt": 0.75,
    "grad": 0.54,
@@ -100957,11 +100780,11 @@
    "kit": "ken-food",
    "name": "barrel",
    "kind": "obj-container-barrel",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.5,
-    0.5
+    0.3,
+    0.25,
+    0.25
    ],
    "tris": 308,
    "tpu": 898,
@@ -100972,8 +100795,8 @@
    "vtx": 368,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00458,
+   "minEdge": 0.002,
+   "avgTri": 0.00114,
    "anglePct": 99,
    "vpt": 1.19,
    "grad": 0.6,
@@ -101003,9 +100826,9 @@
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.4,
-    0.45,
-    0.15
+    0.2,
+    0.2,
+    0.08
    ],
    "tris": 180,
    "tpu": 525,
@@ -101016,8 +100839,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00222,
+   "minEdge": 0.007,
+   "avgTri": 0.00056,
    "anglePct": 55,
    "vpt": 0.98,
    "grad": 0.39,
@@ -101050,13 +100873,6 @@
     "foliage",
     "food",
     "ken"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 over max 0.4 (obj-kitchenware-tableware-bowl)"
-    }
    ]
   },
   {
@@ -101065,9 +100881,9 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.35,
-    0.25,
-    0.03
+    0.15,
+    0.15,
+    0.02
    ],
    "tris": 116,
    "tpu": 338,
@@ -101078,8 +100894,8 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00149,
+   "minEdge": 0.007,
+   "avgTri": 0.00037,
    "anglePct": 90,
    "vpt": 1.1,
    "grad": 0.6,
@@ -101109,9 +100925,9 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.15,
+    0.15,
+    0.15
    ],
    "tris": 260,
    "tpu": 758,
@@ -101122,8 +100938,8 @@
    "vtx": 210,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00112,
+   "minEdge": 0.003,
+   "avgTri": 0.00028,
    "anglePct": 9,
    "vpt": 0.81,
    "grad": 0.57,
@@ -101153,9 +100969,9 @@
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.25
+    0.15,
+    0.15,
+    0.1
    ],
    "tris": 144,
    "tpu": 420,
@@ -101166,8 +100982,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.041,
-   "avgTri": 0.00401,
+   "minEdge": 0.021,
+   "avgTri": 0.001,
    "anglePct": 22,
    "vpt": 1,
    "grad": 0.44,
@@ -101197,9 +101013,9 @@
    "kind": "obj-food-baked-pie",
    "size": "s",
    "wdh": [
-    0.5,
-    0.5,
-    0.25
+    0.25,
+    0.25,
+    0.15
    ],
    "tris": 1332,
    "tpu": 3883,
@@ -101208,10 +101024,11 @@
    "calls": 1,
    "bytes": 52788,
    "vtx": 1352,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.0009,
+   "minEdge": 0.001,
+   "avgTri": 0.00023,
    "anglePct": 78,
    "vpt": 1.02,
    "grad": 0.49,
@@ -101243,11 +101060,11 @@
    "kit": "ken-food",
    "name": "cake-slicer",
    "kind": "obj-kitchenware-cookware-utensil",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.15,
-    0.05
+    0.25,
+    0.07,
+    0.03
    ],
    "tris": 36,
    "tpu": 105,
@@ -101258,8 +101075,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00203,
+   "minEdge": 0.006,
+   "avgTri": 0.00051,
    "anglePct": 85,
    "vpt": 1.33,
    "grad": 0.6,
@@ -101289,9 +101106,9 @@
    "kind": "obj-food-vegetable-pepper",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.06,
+    0.06,
+    0.08
    ],
    "tris": 132,
    "tpu": 385,
@@ -101302,8 +101119,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00047,
+   "minEdge": 0.005,
+   "avgTri": 0.00012,
    "anglePct": 18,
    "vpt": 0.85,
    "grad": 0.5,
@@ -101331,11 +101148,11 @@
    "kit": "ken-food",
    "name": "carrot",
    "kind": "obj-food-vegetable-carrot",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.55
+    0.15,
+    0.15,
+    0.25
    ],
    "tris": 148,
    "tpu": 431,
@@ -101344,11 +101161,10 @@
    "calls": 1,
    "bytes": 6620,
    "vtx": 132,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00107,
+   "minEdge": 0.008,
+   "avgTri": 0.00027,
    "anglePct": 20,
    "vpt": 0.89,
    "grad": 0.57,
@@ -101378,9 +101194,9 @@
    "kind": "obj-container",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.3
+    0.09,
+    0.09,
+    0.15
    ],
    "tris": 74,
    "tpu": 216,
@@ -101391,8 +101207,8 @@
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00298,
+   "minEdge": 0.008,
+   "avgTri": 0.00075,
    "anglePct": 69,
    "vpt": 1.38,
    "grad": 0.41,
@@ -101422,9 +101238,9 @@
    "kind": "obj-container",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.45
+    0.09,
+    0.09,
+    0.2
    ],
    "tris": 94,
    "tpu": 274,
@@ -101435,8 +101251,8 @@
    "vtx": 129,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00344,
+   "minEdge": 0.008,
+   "avgTri": 0.00086,
    "anglePct": 79,
    "vpt": 1.37,
    "grad": 0.45,
@@ -101466,9 +101282,9 @@
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.25
+    0.15,
+    0.15,
+    0.1
    ],
    "tris": 156,
    "tpu": 455,
@@ -101479,8 +101295,8 @@
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "avgTri": 0.00374,
+   "minEdge": 0.018,
+   "avgTri": 0.00093,
    "anglePct": 21,
    "vpt": 1,
    "grad": 0.43,
@@ -101510,9 +101326,9 @@
    "kind": "obj-food-cheese",
    "size": "s",
    "wdh": [
-    0.3,
-    0.2,
-    0.02
+    0.15,
+    0.1,
+    0.01
    ],
    "tris": 160,
    "tpu": 466,
@@ -101523,8 +101339,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00073,
+   "minEdge": 0.006,
+   "avgTri": 0.00018,
    "anglePct": 100,
    "vpt": 1.1,
    "grad": 0.23,
@@ -101554,9 +101370,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.45,
-    0.15,
-    0.02
+    0.25,
+    0.07,
+    0.01
    ],
    "tris": 44,
    "tpu": 128,
@@ -101567,8 +101383,8 @@
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00141,
+   "minEdge": 0.006,
+   "avgTri": 0.00035,
    "anglePct": 84,
    "vpt": 1.27,
    "grad": 0.6,
@@ -101592,9 +101408,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.07,
-    0.1,
-    0.15
+    0.03,
+    0.06,
+    0.06
    ],
    "tris": 134,
    "tpu": 391,
@@ -101605,8 +101421,8 @@
    "vtx": 121,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00023,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 24,
    "vpt": 0.9,
    "grad": 0.49,
@@ -101642,9 +101458,9 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.2,
-    0.15,
-    0.05
+    0.1,
+    0.08,
+    0.02
    ],
    "tris": 120,
    "tpu": 350,
@@ -101655,8 +101471,8 @@
    "vtx": 142,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00069,
+   "minEdge": 0.002,
+   "avgTri": 0.00017,
    "anglePct": 78,
    "vpt": 1.18,
    "grad": 0.6,
@@ -101692,9 +101508,9 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.2,
     0.1,
-    0.03
+    0.06,
+    0.01
    ],
    "tris": 140,
    "tpu": 408,
@@ -101705,8 +101521,8 @@
    "vtx": 101,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00047,
+   "minEdge": 0.005,
+   "avgTri": 0.00012,
    "anglePct": 77,
    "vpt": 0.72,
    "grad": 0.6,
@@ -101731,9 +101547,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.02,
-    0.35,
-    0.02
+    0.01,
+    0.15,
+    0.01
    ],
    "tris": 36,
    "tpu": 105,
@@ -101744,8 +101560,8 @@
    "vtx": 32,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00043,
+   "minEdge": 0.004,
+   "avgTri": 0.00011,
    "anglePct": 100,
    "vpt": 0.89,
    "grad": 0.49,
@@ -101774,9 +101590,9 @@
    "kind": "obj-food-fruit-coconut",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.09
+    0.09,
+    0.09,
+    0.05
    ],
    "tris": 98,
    "tpu": 286,
@@ -101787,8 +101603,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00115,
+   "minEdge": 0.006,
+   "avgTri": 0.00029,
    "anglePct": 39,
    "vpt": 0.73,
    "grad": 0.58,
@@ -101819,9 +101635,9 @@
    "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
-    0.09,
-    0.1,
-    0.05
+    0.05,
+    0.05,
+    0.02
    ],
    "tris": 116,
    "tpu": 338,
@@ -101832,8 +101648,8 @@
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00031,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
    "anglePct": 100,
    "vpt": 1.03,
    "grad": 0.54,
@@ -101862,9 +101678,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.03
+    0.1,
+    0.1,
+    0.02
    ],
    "tris": 136,
    "tpu": 397,
@@ -101875,8 +101691,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00048,
+   "minEdge": 0.006,
+   "avgTri": 0.00012,
    "anglePct": 57,
    "vpt": 1,
    "grad": 0.6,
@@ -101898,11 +101714,11 @@
    "kit": "ken-food",
    "name": "cooking-fork",
    "kind": "obj-kitchenware-cookware-utensil",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.06,
-    0.05
+    0.25,
+    0.03,
+    0.03
    ],
    "tris": 36,
    "tpu": 105,
@@ -101913,8 +101729,8 @@
    "vtx": 52,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00115,
+   "minEdge": 0.006,
+   "avgTri": 0.00029,
    "anglePct": 68,
    "vpt": 1.44,
    "grad": 0.6,
@@ -101944,21 +101760,21 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.25
+    0.15,
+    0.1,
+    0.1
    ],
    "tris": 128,
    "tpu": 373,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5944,
+   "bytes": 5948,
    "vtx": 114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00123,
+   "minEdge": 0.008,
+   "avgTri": 0.00031,
    "anglePct": 9,
    "vpt": 0.89,
    "grad": 0.53,
@@ -101988,9 +101804,9 @@
    "kind": "obj-food-baked-pastry-croissant",
    "size": "s",
    "wdh": [
-    0.25,
-    0.35,
-    0.15
+    0.15,
+    0.2,
+    0.07
    ],
    "tris": 162,
    "tpu": 472,
@@ -102001,8 +101817,8 @@
    "vtx": 208,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00138,
+   "minEdge": 0.004,
+   "avgTri": 0.00034,
    "anglePct": 62,
    "vpt": 1.28,
    "grad": 0.59,
@@ -102026,9 +101842,9 @@
    "kind": "obj-kitchenware-tableware-drinkware",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.09,
+    0.08,
+    0.08
    ],
    "tris": 108,
    "tpu": 315,
@@ -102039,8 +101855,8 @@
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00101,
+   "minEdge": 0.005,
+   "avgTri": 0.00025,
    "anglePct": 39,
    "vpt": 0.93,
    "grad": 0.43,
@@ -102077,9 +101893,9 @@
    "kind": "obj-kitchenware-tableware-drinkware",
    "size": "s",
    "wdh": [
-    0.25,
-    0.15,
-    0.1
+    0.1,
+    0.08,
+    0.05
    ],
    "tris": 136,
    "tpu": 397,
@@ -102090,8 +101906,8 @@
    "vtx": 126,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00077,
+   "minEdge": 0.002,
+   "avgTri": 0.00019,
    "anglePct": 36,
    "vpt": 0.93,
    "grad": 0.57,
@@ -102122,9 +101938,9 @@
    "kind": "obj-kitchenware-tableware-drinkware",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.08,
+    0.09,
+    0.08
    ],
    "tris": 80,
    "tpu": 233,
@@ -102135,8 +101951,8 @@
    "vtx": 74,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00177,
+   "minEdge": 0.007,
+   "avgTri": 0.00044,
    "anglePct": 55,
    "vpt": 0.93,
    "grad": 0.55,
@@ -102160,9 +101976,9 @@
    "kind": "obj-food-baked-pastry-cupcake",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.3
+    0.15,
+    0.1,
+    0.15
    ],
    "tris": 204,
    "tpu": 595,
@@ -102173,8 +101989,8 @@
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0014,
+   "minEdge": 0.002,
+   "avgTri": 0.00035,
    "anglePct": 26,
    "vpt": 0.78,
    "grad": 0.52,
@@ -102206,11 +102022,11 @@
    "kit": "ken-food",
    "name": "cutting-board",
    "kind": "obj-kitchenware-cookware-board",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.45,
-    0.6,
-    0.03
+    0.2,
+    0.3,
+    0.02
    ],
    "tris": 120,
    "tpu": 350,
@@ -102221,8 +102037,8 @@
    "vtx": 131,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.00491,
+   "minEdge": 0.009,
+   "avgTri": 0.00123,
    "anglePct": 99,
    "vpt": 1.09,
    "grad": 0.6,
@@ -102246,9 +102062,9 @@
    "kind": "obj-food-baked-pastry-donut",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.07
+    0.09,
+    0.1,
+    0.03
    ],
    "tris": 120,
    "tpu": 350,
@@ -102259,8 +102075,8 @@
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00074,
+   "minEdge": 0.008,
+   "avgTri": 0.00019,
    "anglePct": 49,
    "vpt": 0.65,
    "grad": 0.4,
@@ -102290,9 +102106,9 @@
    "kind": "obj-food-baked-pastry-donut",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.07
+    0.09,
+    0.1,
+    0.04
    ],
    "tris": 240,
    "tpu": 700,
@@ -102303,8 +102119,8 @@
    "vtx": 242,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00038,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
    "anglePct": 48,
    "vpt": 1.01,
    "grad": 0.32,
@@ -102339,9 +102155,9 @@
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
-    0.09,
-    0.1,
-    0.1
+    0.04,
+    0.05,
+    0.06
    ],
    "tris": 44,
    "tpu": 128,
@@ -102352,8 +102168,8 @@
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.0009,
+   "minEdge": 0.013,
+   "avgTri": 0.00022,
    "anglePct": 53,
    "vpt": 0.55,
    "grad": 0.52,
@@ -102377,9 +102193,9 @@
    "kind": "obj-food-vegetable-eggplant",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.3
+    0.08,
+    0.08,
+    0.15
    ],
    "tris": 124,
    "tpu": 362,
@@ -102390,8 +102206,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00089,
+   "minEdge": 0.006,
+   "avgTri": 0.00022,
    "anglePct": 0,
    "vpt": 0.65,
    "grad": 0.37,
@@ -102421,9 +102237,9 @@
    "kind": "env-remains-bones-fishbone",
    "size": "s",
    "wdh": [
+    0.1,
     0.25,
-    0.5,
-    0.05
+    0.03
    ],
    "tris": 384,
    "tpu": 1120,
@@ -102434,8 +102250,8 @@
    "vtx": 528,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00036,
+   "minEdge": 0.003,
+   "avgTri": 0.00009,
    "anglePct": 17,
    "vpt": 1.38,
    "grad": 0.6,
@@ -102459,9 +102275,9 @@
    "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.15,
-    0.45,
-    0.25
+    0.07,
+    0.25,
+    0.1
    ],
    "tris": 233,
    "tpu": 679,
@@ -102473,7 +102289,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00077,
+   "avgTri": 0.00019,
    "anglePct": 5,
    "vpt": 1.07,
    "grad": 0.59,
@@ -102502,8 +102318,8 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.4,
-    0.06,
+    0.2,
+    0.03,
     0.01
    ],
    "tris": 44,
@@ -102515,8 +102331,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00062,
+   "minEdge": 0.004,
+   "avgTri": 0.00016,
    "anglePct": 43,
    "vpt": 1.09,
    "grad": 0.6,
@@ -102532,13 +102348,6 @@
    "tags": [
     "ken",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.35 (obj-kitchenware-tableware-cutlery)"
-    }
    ]
   },
   {
@@ -102547,9 +102356,9 @@
    "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.02
+    0.1,
+    0.09,
+    0.01
    ],
    "tris": 80,
    "tpu": 233,
@@ -102560,8 +102369,8 @@
    "vtx": 73,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00064,
+   "minEdge": 0.007,
+   "avgTri": 0.00016,
    "anglePct": 64,
    "vpt": 0.91,
    "grad": 0.54,
@@ -102590,9 +102399,9 @@
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.35
+    0.09,
+    0.07,
+    0.2
    ],
    "tris": 232,
    "tpu": 676,
@@ -102603,8 +102412,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00154,
+   "minEdge": 0.004,
+   "avgTri": 0.00038,
    "anglePct": 44,
    "vpt": 0.62,
    "grad": 0.6,
@@ -102620,13 +102429,6 @@
    "tags": [
     "glass",
     "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.35 over max 0.2 (obj-kitchenware-tableware-drinkware)"
-    }
    ]
   },
   {
@@ -102635,9 +102437,9 @@
    "kind": "obj-food-fruit-grapes",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.3
+    0.1,
+    0.09,
+    0.15
    ],
    "tris": 668,
    "tpu": 1948,
@@ -102648,8 +102450,8 @@
    "vtx": 465,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00027,
+   "minEdge": 0,
+   "avgTri": 0.00007,
    "anglePct": 17,
    "vpt": 0.7,
    "grad": 0.57,
@@ -102685,9 +102487,9 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.3,
-    0.5,
-    0.35
+    0.15,
+    0.25,
+    0.15
    ],
    "tris": 128,
    "tpu": 373,
@@ -102698,8 +102500,8 @@
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00289,
+   "minEdge": 0.008,
+   "avgTri": 0.00072,
    "anglePct": 20,
    "vpt": 0.94,
    "grad": 0.59,
@@ -102729,9 +102531,9 @@
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.25
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 140,
    "tpu": 408,
@@ -102740,11 +102542,10 @@
    "calls": 1,
    "bytes": 6128,
    "vtx": 118,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00154,
+   "minEdge": 0.007,
+   "avgTri": 0.00039,
    "anglePct": 21,
    "vpt": 0.84,
    "grad": 0.37,
@@ -102779,9 +102580,9 @@
    "kind": "obj-food-meat",
    "size": "s",
    "wdh": [
-    0.45,
-    0.15,
-    0.1
+    0.2,
+    0.08,
+    0.06
    ],
    "tris": 272,
    "tpu": 793,
@@ -102792,8 +102593,8 @@
    "vtx": 262,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00099,
+   "minEdge": 0.002,
+   "avgTri": 0.00025,
    "anglePct": 71,
    "vpt": 0.96,
    "grad": 0.44,
@@ -102827,9 +102628,9 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.35
+    0.09,
+    0.1,
+    0.15
    ],
    "tris": 84,
    "tpu": 245,
@@ -102840,8 +102641,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.0019,
+   "minEdge": 0.004,
+   "avgTri": 0.00047,
    "anglePct": 19,
    "vpt": 0.57,
    "grad": 0.44,
@@ -102870,21 +102671,21 @@
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.5,
-    0.15,
-    0.5
+    0.25,
+    0.08,
+    0.25
    ],
    "tris": 148,
    "tpu": 431,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8980,
+   "bytes": 8984,
    "vtx": 205,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00374,
+   "minEdge": 0.004,
+   "avgTri": 0.00094,
    "anglePct": 74,
    "vpt": 1.39,
    "grad": 0.43,
@@ -102914,9 +102715,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.45,
-    0.15,
-    0.02
+    0.2,
+    0.08,
+    0.01
    ],
    "tris": 64,
    "tpu": 187,
@@ -102927,8 +102728,8 @@
    "vtx": 66,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00155,
+   "minEdge": 0.002,
+   "avgTri": 0.00039,
    "anglePct": 94,
    "vpt": 1.03,
    "grad": 0.6,
@@ -102951,24 +102752,17 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v686",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-cutlery)"
-    }
-   ]
+   "variant": "v686"
   },
   {
    "kit": "ken-food",
    "name": "knife-cooking",
    "kind": "obj-kitchenware-tableware-cutlery",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.1,
-    0.02
+    0.25,
+    0.05,
+    0.01
    ],
    "tris": 36,
    "tpu": 105,
@@ -102979,8 +102773,8 @@
    "vtx": 44,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00188,
+   "minEdge": 0.004,
+   "avgTri": 0.00047,
    "anglePct": 91,
    "vpt": 1.22,
    "grad": 0.6,
@@ -103003,14 +102797,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v686",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.55 over max 0.35 (obj-kitchenware-tableware-cutlery)"
-    }
-   ]
+   "variant": "v686"
   },
   {
    "kit": "ken-food",
@@ -103018,8 +102805,8 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.45,
-    0.06,
+    0.25,
+    0.03,
     0.01
    ],
    "tris": 18,
@@ -103031,8 +102818,8 @@
    "vtx": 22,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00163,
+   "minEdge": 0.004,
+   "avgTri": 0.00041,
    "anglePct": 46,
    "vpt": 1.22,
    "grad": 0.6,
@@ -103048,24 +102835,17 @@
    "tags": [
     "ken",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-cutlery)"
-    }
    ]
   },
   {
    "kit": "ken-food",
    "name": "leek",
    "kind": "obj-food-vegetable",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.65
+    0.1,
+    0.1,
+    0.3
    ],
    "tris": 172,
    "tpu": 501,
@@ -103076,8 +102856,8 @@
    "vtx": 184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00107,
+   "minEdge": 0.004,
+   "avgTri": 0.00027,
    "anglePct": 17,
    "vpt": 1.07,
    "grad": 0.43,
@@ -103104,13 +102884,6 @@
     "foliage",
     "food",
     "ken"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.65 over max 0.6 (obj-food)"
-    }
    ]
   },
   {
@@ -103119,9 +102892,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.08
+    0.07,
+    0.08,
+    0.04
    ],
    "tris": 116,
    "tpu": 338,
@@ -103132,8 +102905,8 @@
    "vtx": 99,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0004,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
    "anglePct": 34,
    "vpt": 0.85,
    "grad": 0.59,
@@ -103164,9 +102937,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.07,
+    0.08,
+    0.08
    ],
    "tris": 104,
    "tpu": 303,
@@ -103177,8 +102950,8 @@
    "vtx": 66,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00061,
+   "minEdge": 0.007,
+   "avgTri": 0.00015,
    "anglePct": 4,
    "vpt": 0.63,
    "grad": 0.56,
@@ -103207,11 +102980,11 @@
    "kit": "ken-food",
    "name": "loaf-round",
    "kind": "obj-food-baked-bread",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.6,
-    0.4,
-    0.2
+    0.3,
+    0.2,
+    0.1
    ],
    "tris": 116,
    "tpu": 338,
@@ -103222,8 +102995,8 @@
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00457,
+   "minEdge": 0.011,
+   "avgTri": 0.00114,
    "anglePct": 30,
    "vpt": 0.88,
    "grad": 0.47,
@@ -103252,9 +103025,9 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.45,
-    0.25,
-    0.35
+    0.2,
+    0.15,
+    0.15
    ],
    "tris": 116,
    "tpu": 338,
@@ -103265,8 +103038,8 @@
    "vtx": 126,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00512,
+   "minEdge": 0.007,
+   "avgTri": 0.00128,
    "anglePct": 57,
    "vpt": 1.09,
    "grad": 0.47,
@@ -103295,9 +103068,9 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.03,
-    0.15,
-    0.3
+    0.01,
+    0.07,
+    0.15
    ],
    "tris": 108,
    "tpu": 315,
@@ -103308,8 +103081,8 @@
    "vtx": 114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00041,
+   "minEdge": 0.006,
+   "avgTri": 0.0001,
    "anglePct": 100,
    "vpt": 1.06,
    "grad": 0.37,
@@ -103344,9 +103117,9 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.35,
-    0.45,
-    0.05
+    0.2,
+    0.2,
+    0.02
    ],
    "tris": 110,
    "tpu": 321,
@@ -103357,8 +103130,8 @@
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0026,
+   "minEdge": 0.005,
+   "avgTri": 0.00065,
    "anglePct": 93,
    "vpt": 0.98,
    "grad": 0.52,
@@ -103387,9 +103160,9 @@
    "kind": "obj-tool-hand-hammer",
    "size": "s",
    "wdh": [
-    0.4,
     0.2,
-    0.09
+    0.1,
+    0.04
    ],
    "tris": 322,
    "tpu": 939,
@@ -103400,8 +103173,8 @@
    "vtx": 340,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00047,
+   "minEdge": 0.005,
+   "avgTri": 0.00012,
    "anglePct": 81,
    "vpt": 1.06,
    "grad": 0.6,
@@ -103430,9 +103203,9 @@
    "kind": "obj-food-baked-pastry-cupcake",
    "size": "s",
    "wdh": [
-    0.25,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.09
    ],
    "tris": 84,
    "tpu": 245,
@@ -103443,8 +103216,8 @@
    "vtx": 50,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.0016,
+   "minEdge": 0.009,
+   "avgTri": 0.0004,
    "anglePct": 16,
    "vpt": 0.6,
    "grad": 0.44,
@@ -103473,9 +103246,9 @@
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
-    0.25,
-    0.2,
-    0.2
+    0.15,
+    0.1,
+    0.1
    ],
    "tris": 232,
    "tpu": 676,
@@ -103486,8 +103259,8 @@
    "vtx": 282,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00119,
+   "minEdge": 0.002,
+   "avgTri": 0.0003,
    "anglePct": 100,
    "vpt": 1.22,
    "grad": 0.6,
@@ -103517,9 +103290,9 @@
    "kind": "env-fungi",
    "size": "s",
    "wdh": [
+    0.02,
     0.05,
-    0.1,
-    0.1
+    0.05
    ],
    "tris": 68,
    "tpu": 198,
@@ -103531,7 +103304,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00032,
+   "avgTri": 0.00008,
    "anglePct": 43,
    "vpt": 1.06,
    "grad": 0.5,
@@ -103563,9 +103336,9 @@
    "kind": "env-fungi",
    "size": "s",
    "wdh": [
-    0.09,
-    0.1,
-    0.1
+    0.05,
+    0.05,
+    0.05
    ],
    "tris": 80,
    "tpu": 233,
@@ -103576,8 +103349,8 @@
    "vtx": 54,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0004,
+   "minEdge": 0.005,
+   "avgTri": 0.0001,
    "anglePct": 23,
    "vpt": 0.68,
    "grad": 0.49,
@@ -103608,9 +103381,9 @@
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.08,
-    0.2,
-    0.2
+    0.04,
+    0.09,
+    0.09
    ],
    "tris": 108,
    "tpu": 315,
@@ -103621,8 +103394,8 @@
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.0006,
+   "minEdge": 0.005,
+   "avgTri": 0.00015,
    "anglePct": 40,
    "vpt": 0.93,
    "grad": 0.35,
@@ -103653,9 +103426,9 @@
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.15,
-    0.2,
-    0.2
+    0.08,
+    0.09,
+    0.09
    ],
    "tris": 68,
    "tpu": 198,
@@ -103666,8 +103439,8 @@
    "vtx": 36,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00126,
+   "minEdge": 0.006,
+   "avgTri": 0.00031,
    "anglePct": 8,
    "vpt": 0.53,
    "grad": 0.52,
@@ -103692,9 +103465,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.1
+    0.06,
+    0.06,
+    0.06
    ],
    "tris": 116,
    "tpu": 338,
@@ -103705,8 +103478,8 @@
    "vtx": 92,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00041,
+   "minEdge": 0.003,
+   "avgTri": 0.0001,
    "anglePct": 15,
    "vpt": 0.79,
    "grad": 0.47,
@@ -103734,11 +103507,11 @@
    "kit": "ken-food",
    "name": "pan-frying",
    "kind": "obj-kitchenware-cookware-pan-frying",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.75,
-    0.09
+    0.25,
+    0.4,
+    0.05
    ],
    "tris": 200,
    "tpu": 583,
@@ -103747,11 +103520,10 @@
    "calls": 1,
    "bytes": 7724,
    "vtx": 156,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00245,
+   "minEdge": 0.006,
+   "avgTri": 0.00061,
    "anglePct": 57,
    "vpt": 0.78,
    "grad": 0.59,
@@ -103779,11 +103551,11 @@
    "kit": "ken-food",
    "name": "pan-stew",
    "kind": "obj-kitchenware-cookware-pan",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.55,
-    0.15
+    0.25,
+    0.3,
+    0.07
    ],
    "tris": 412,
    "tpu": 1201,
@@ -103794,8 +103566,8 @@
    "vtx": 372,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00162,
+   "minEdge": 0.002,
+   "avgTri": 0.0004,
    "anglePct": 47,
    "vpt": 0.9,
    "grad": 0.45,
@@ -103835,23 +103607,23 @@
    "kit": "ken-food",
    "name": "pan",
    "kind": "obj-kitchenware-cookware-pan",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.55,
-    0.15
+    0.25,
+    0.3,
+    0.07
    ],
    "tris": 252,
    "tpu": 735,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10404,
+   "bytes": 10408,
    "vtx": 230,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00218,
+   "minEdge": 0.002,
+   "avgTri": 0.00054,
    "anglePct": 36,
    "vpt": 0.91,
    "grad": 0.59,
@@ -103881,9 +103653,9 @@
    "kind": "obj-food-baked-pastry",
    "size": "s",
    "wdh": [
-    0.35,
-    0.4,
-    0.09
+    0.15,
+    0.2,
+    0.05
    ],
    "tris": 506,
    "tpu": 1475,
@@ -103894,8 +103666,8 @@
    "vtx": 402,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00076,
+   "minEdge": 0,
+   "avgTri": 0.00019,
    "anglePct": 82,
    "vpt": 0.79,
    "grad": 0.59,
@@ -103930,9 +103702,9 @@
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.09,
+    0.09,
+    0.1
    ],
    "tris": 172,
    "tpu": 501,
@@ -103943,8 +103715,8 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00096,
+   "minEdge": 0.005,
+   "avgTri": 0.00024,
    "anglePct": 23,
    "vpt": 0.74,
    "grad": 0.46,
@@ -103979,9 +103751,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
+    0.04,
     0.07,
-    0.15,
-    0.2
+    0.1
    ],
    "tris": 134,
    "tpu": 391,
@@ -103992,8 +103764,8 @@
    "vtx": 125,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00038,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
    "anglePct": 38,
    "vpt": 0.93,
    "grad": 0.48,
@@ -104029,9 +103801,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.2
+    0.07,
+    0.07,
+    0.1
    ],
    "tris": 136,
    "tpu": 397,
@@ -104042,8 +103814,8 @@
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00052,
+   "minEdge": 0.004,
+   "avgTri": 0.00013,
    "anglePct": 6,
    "vpt": 0.63,
    "grad": 0.56,
@@ -104074,9 +103846,9 @@
    "kind": "obj-food-vegetable-pepper",
    "size": "s",
    "wdh": [
-    0.08,
-    0.25,
-    0.06
+    0.04,
+    0.1,
+    0.03
    ],
    "tris": 100,
    "tpu": 292,
@@ -104087,8 +103859,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00031,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
    "anglePct": 12,
    "vpt": 0.72,
    "grad": 0.53,
@@ -104116,14 +103888,14 @@
    "kit": "ken-food",
    "name": "pie",
    "kind": "obj-food-baked-pie",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.7,
-    0.7,
-    0.1
+    0.35,
+    0.35,
+    0.06
    ],
    "tris": 292,
-   "tpu": 825,
+   "tpu": 851,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -104131,8 +103903,8 @@
    "vtx": 265,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00307,
+   "minEdge": 0.012,
+   "avgTri": 0.00077,
    "anglePct": 63,
    "vpt": 0.91,
    "grad": 0.25,
@@ -104164,13 +103936,6 @@
     "food",
     "ken",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.7 over max 0.6 (obj-food)"
-    }
    ]
   },
   {
@@ -104179,9 +103944,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.35
+    0.09,
+    0.09,
+    0.2
    ],
    "tris": 196,
    "tpu": 571,
@@ -104192,8 +103957,8 @@
    "vtx": 164,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00093,
+   "minEdge": 0.002,
+   "avgTri": 0.00023,
    "anglePct": 16,
    "vpt": 0.84,
    "grad": 0.59,
@@ -104223,9 +103988,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.4,
     0.2,
-    0.04
+    0.1,
+    0.02
    ],
    "tris": 96,
    "tpu": 280,
@@ -104236,8 +104001,8 @@
    "vtx": 110,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00085,
+   "minEdge": 0.003,
+   "avgTri": 0.00021,
    "anglePct": 70,
    "vpt": 1.15,
    "grad": 0.6,
@@ -104267,9 +104032,9 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.04,
-    0.15,
-    0.35
+    0.02,
+    0.07,
+    0.2
    ],
    "tris": 340,
    "tpu": 991,
@@ -104280,8 +104045,8 @@
    "vtx": 357,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00029,
+   "minEdge": 0.002,
+   "avgTri": 0.00007,
    "anglePct": 89,
    "vpt": 1.05,
    "grad": 0.3,
@@ -104317,9 +104082,9 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.04,
-    0.15,
-    0.35
+    0.02,
+    0.07,
+    0.2
    ],
    "tris": 212,
    "tpu": 618,
@@ -104330,8 +104095,8 @@
    "vtx": 221,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00046,
+   "minEdge": 0.002,
+   "avgTri": 0.00012,
    "anglePct": 89,
    "vpt": 1.04,
    "grad": 0.52,
@@ -104360,11 +104125,11 @@
    "kit": "ken-food",
    "name": "pot-stew",
    "kind": "obj-kitchenware-cookware-cookpot",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.6,
-    0.25
+    0.25,
+    0.3,
+    0.15
    ],
    "tris": 448,
    "tpu": 1306,
@@ -104375,8 +104140,8 @@
    "vtx": 367,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00191,
+   "minEdge": 0.002,
+   "avgTri": 0.00048,
    "anglePct": 49,
    "vpt": 0.82,
    "grad": 0.41,
@@ -104417,9 +104182,9 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.3,
-    0.25,
-    0.2
+    0.15,
+    0.15,
+    0.1
    ],
    "tris": 80,
    "tpu": 233,
@@ -104430,8 +104195,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00287,
+   "minEdge": 0.008,
+   "avgTri": 0.00072,
    "anglePct": 49,
    "vpt": 0.6,
    "grad": 0.45,
@@ -104462,9 +104227,9 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.15
+    0.15,
+    0.15,
+    0.09
    ],
    "tris": 188,
    "tpu": 548,
@@ -104475,8 +104240,8 @@
    "vtx": 103,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00143,
+   "minEdge": 0.005,
+   "avgTri": 0.00036,
    "anglePct": 35,
    "vpt": 0.55,
    "grad": 0.54,
@@ -104507,9 +104272,9 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.45
+    0.15,
+    0.15,
+    0.2
    ],
    "tris": 166,
    "tpu": 484,
@@ -104518,11 +104283,10 @@
    "calls": 1,
    "bytes": 7240,
    "vtx": 148,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00074,
+   "minEdge": 0.005,
+   "avgTri": 0.00019,
    "anglePct": 25,
    "vpt": 0.89,
    "grad": 0.49,
@@ -104557,9 +104321,9 @@
    "kind": "obj-food-grain",
    "size": "s",
    "wdh": [
-    0.05,
-    0.09,
-    0.09
+    0.03,
+    0.04,
+    0.05
    ],
    "tris": 160,
    "tpu": 466,
@@ -104570,8 +104334,8 @@
    "vtx": 172,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00018,
+   "minEdge": 0.002,
+   "avgTri": 0.00005,
    "anglePct": 59,
    "vpt": 1.08,
    "grad": 0.58,
@@ -104598,23 +104362,23 @@
    "kit": "ken-food",
    "name": "rolling-pin",
    "kind": "obj-kitchenware-cookware-utensil-rollingpin",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.6,
-    0.1,
-    0.1
+    0.3,
+    0.06,
+    0.05
    ],
    "tris": 140,
    "tpu": 408,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5848,
+   "bytes": 5852,
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00128,
+   "minEdge": 0.007,
+   "avgTri": 0.00032,
    "anglePct": 81,
    "vpt": 0.77,
    "grad": 0.56,
@@ -104638,21 +104402,21 @@
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
    "wdh": [
-    0.3,
-    0.35,
-    0.1
+    0.15,
+    0.15,
+    0.06
    ],
    "tris": 171,
    "tpu": 499,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 8844,
+   "bytes": 8848,
    "vtx": 196,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00212,
+   "minEdge": 0.003,
+   "avgTri": 0.00053,
    "anglePct": 98,
    "vpt": 1.15,
    "grad": 0.56,
@@ -104692,9 +104456,9 @@
    "kind": "obj-food-meat",
    "size": "s",
    "wdh": [
-    0.45,
-    0.08,
-    0.08
+    0.2,
+    0.04,
+    0.04
    ],
    "tris": 156,
    "tpu": 455,
@@ -104705,8 +104469,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00068,
+   "minEdge": 0.004,
+   "avgTri": 0.00017,
    "anglePct": 57,
    "vpt": 0.87,
    "grad": 0.57,
@@ -104745,11 +104509,11 @@
    "kit": "ken-food",
    "name": "spatula",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.15,
-    0.05
+    0.25,
+    0.07,
+    0.03
    ],
    "tris": 72,
    "tpu": 210,
@@ -104760,8 +104524,8 @@
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.0009,
+   "minEdge": 0.006,
+   "avgTri": 0.00023,
    "anglePct": 43,
    "vpt": 1.08,
    "grad": 0.6,
@@ -104791,9 +104555,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.5,
-    0.15,
-    0.02
+    0.25,
+    0.07,
+    0.01
    ],
    "tris": 56,
    "tpu": 163,
@@ -104804,8 +104568,8 @@
    "vtx": 60,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00119,
+   "minEdge": 0.002,
+   "avgTri": 0.0003,
    "anglePct": 61,
    "vpt": 1.07,
    "grad": 0.6,
@@ -104829,9 +104593,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.02
+    0.2,
+    0.05,
+    0.01
    ],
    "tris": 46,
    "tpu": 134,
@@ -104842,8 +104606,8 @@
    "vtx": 38,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.0007,
+   "minEdge": 0.006,
+   "avgTri": 0.00017,
    "anglePct": 14,
    "vpt": 0.83,
    "grad": 0.6,
@@ -104867,9 +104631,9 @@
    "kind": "obj-kitchenware-cookware",
    "size": "s",
    "wdh": [
-    0.5,
-    0.5,
-    0.45
+    0.25,
+    0.25,
+    0.2
    ],
    "tris": 486,
    "tpu": 1417,
@@ -104878,10 +104642,11 @@
    "calls": 1,
    "bytes": 21100,
    "vtx": 521,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00452,
+   "minEdge": 0.004,
+   "avgTri": 0.00113,
    "anglePct": 47,
    "vpt": 1.07,
    "grad": 0.51,
@@ -104914,11 +104679,11 @@
    "kit": "ken-food",
    "name": "sub",
    "kind": "obj-food-baked-bread-sandwich",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.2,
-    0.5,
-    0.15
+    0.1,
+    0.25,
+    0.08
    ],
    "tris": 880,
    "tpu": 2566,
@@ -104929,8 +104694,8 @@
    "vtx": 736,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00153,
+   "minEdge": 0.002,
+   "avgTri": 0.00038,
    "anglePct": 71,
    "vpt": 0.84,
    "grad": 0.59,
@@ -104970,9 +104735,9 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.08,
-    0.15,
-    0.05
+    0.04,
+    0.07,
+    0.03
    ],
    "tris": 264,
    "tpu": 770,
@@ -104983,8 +104748,8 @@
    "vtx": 296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00023,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 92,
    "vpt": 1.12,
    "grad": 0.6,
@@ -105018,9 +104783,9 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
+    0.04,
     0.08,
-    0.15,
-    0.07
+    0.03
    ],
    "tris": 256,
    "tpu": 746,
@@ -105031,8 +104796,8 @@
    "vtx": 294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00023,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 83,
    "vpt": 1.15,
    "grad": 0.6,
@@ -105061,9 +104826,9 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.02
+    0.07,
+    0.07,
+    0.01
    ],
    "tris": 140,
    "tpu": 408,
@@ -105074,8 +104839,8 @@
    "vtx": 148,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00027,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
    "anglePct": 67,
    "vpt": 1.06,
    "grad": 0.6,
@@ -105101,9 +104866,9 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.1
+    0.06,
+    0.06,
+    0.05
    ],
    "tris": 124,
    "tpu": 362,
@@ -105114,8 +104879,8 @@
    "vtx": 84,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00035,
+   "minEdge": 0.003,
+   "avgTri": 0.00009,
    "anglePct": 16,
    "vpt": 0.68,
    "grad": 0.59,
@@ -105144,11 +104909,11 @@
    "kit": "ken-food",
    "name": "turkey",
    "kind": "obj-food-meat",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.7,
-    0.5,
-    0.3
+    0.35,
+    0.25,
+    0.15
    ],
    "tris": 368,
    "tpu": 1073,
@@ -105159,8 +104924,8 @@
    "vtx": 351,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00287,
+   "minEdge": 0.002,
+   "avgTri": 0.00072,
    "anglePct": 38,
    "vpt": 0.95,
    "grad": 0.59,
@@ -105181,13 +104946,6 @@
    "tags": [
     "food",
     "ken"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.7 over max 0.6 (obj-food)"
-    }
    ]
   },
   {
@@ -105196,9 +104954,9 @@
    "kind": "obj-food-baked-pastry-waffle",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.03
+    0.1,
+    0.1,
+    0.02
    ],
    "tris": 588,
    "tpu": 1714,
@@ -105207,11 +104965,10 @@
    "calls": 1,
    "bytes": 18352,
    "vtx": 416,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00028,
+   "minEdge": 0.002,
+   "avgTri": 0.00007,
    "anglePct": 78,
    "vpt": 0.71,
    "grad": 0.6,
@@ -105235,21 +104992,21 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.35
+    0.15,
+    0.15,
+    0.2
    ],
    "tris": 1376,
    "tpu": 4012,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 64160,
+   "bytes": 64164,
    "vtx": 1698,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00082,
+   "minEdge": 0.003,
+   "avgTri": 0.00021,
    "anglePct": 69,
    "vpt": 1.23,
    "grad": 0.35,
@@ -105287,11 +105044,11 @@
    "kit": "ken-food",
    "name": "whisk",
    "kind": "obj-kitchenware-cookware-utensil-whisk",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.1,
-    0.1
+    0.25,
+    0.06,
+    0.06
    ],
    "tris": 150,
    "tpu": 437,
@@ -105302,8 +105059,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00078,
+   "minEdge": 0.006,
+   "avgTri": 0.00019,
    "anglePct": 99,
    "vpt": 1.17,
    "grad": 0.6,
@@ -107646,13 +107403,6 @@
     "halloween",
     "ken",
     "metal-iron-cast"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal-iron-cast (str-barrier-post)"
-    }
    ]
   },
   {
@@ -114273,7 +114023,6 @@
     "foliage",
     "ken",
     "pirate",
-    "wood",
     "wood-planks"
    ],
    "variant": "v208"
@@ -115752,7 +115501,6 @@
     "ken",
     "metal-iron-steel",
     "pirate",
-    "wood",
     "wood-beam"
    ]
   },
@@ -118025,17 +117773,9 @@
    ],
    "tags": [
     "ken",
-    "metal",
     "metal-iron-steel"
    ],
-   "variant": "v734",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel (obj-container-barrel)"
-    }
-   ]
+   "variant": "v734"
   },
   {
    "kit": "ken-survival",
@@ -118077,17 +117817,9 @@
    ],
    "tags": [
     "ken",
-    "metal",
     "metal-iron-steel"
    ],
-   "variant": "v734",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel (obj-container-barrel)"
-    }
-   ]
+   "variant": "v734"
   },
   {
    "kit": "ken-survival",
@@ -120485,28 +120217,21 @@
      0.102,
      0.891
     ],
-    "2,0": [
+    "0,0": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#88848a",
-    "#8b5936"
+    "#dbae80"
    ],
    "tags": [
     "ken",
     "metal-iron-steel",
-    "wood-beam"
+    "wood-planks"
    ],
-   "variant": "v313",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    }
-   ]
+   "variant": "v313"
   },
   {
    "kit": "ken-survival",
@@ -120537,28 +120262,21 @@
      0.102,
      0.891
     ],
-    "2,0": [
+    "0,0": [
      0.102,
      0.891
     ]
    },
    "colors": [
     "#88848a",
-    "#8b5936"
+    "#dbae80"
    ],
    "tags": [
     "ken",
     "metal-iron-steel",
-    "wood-beam"
+    "wood-planks"
    ],
-   "variant": "v313",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-tool-hand)"
-    }
-   ]
+   "variant": "v313"
   },
   {
    "kit": "ken-survival",
@@ -121057,7 +120775,6 @@
     "ken",
     "metal-iron-steel",
     "metal-iron-wrought",
-    "wood",
     "wood-beam",
     "wood-planks"
    ]
@@ -124727,7 +124444,6 @@
     "comp",
     "ken",
     "metal-iron-wrought",
-    "wood",
     "wood-beam",
     "wood-planks"
    ]
@@ -126330,7 +126046,6 @@
    ],
    "tags": [
     "ken",
-    "metal",
     "metal-iron-steel",
     "sailing"
    ]
@@ -134650,7 +134365,6 @@
    ],
    "tags": [
     "robin-hood",
-    "wood",
     "wood-bark"
    ],
    "variant": "v105"
@@ -134695,7 +134409,6 @@
    ],
    "tags": [
     "robin-hood",
-    "wood",
     "wood-bark"
    ],
    "variant": "v105"
@@ -134740,7 +134453,6 @@
    ],
    "tags": [
     "robin-hood",
-    "wood",
     "wood-bark"
    ]
   },
@@ -145332,10 +145044,16 @@
    ],
    "tags": [
     "qua",
-    "wood",
     "wood-bark"
    ],
-   "variant": "v172"
+   "variant": "v172",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -155563,7 +155281,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal",
     "metal-iron-wrought",
     "qua"
    ],
@@ -155577,6 +155294,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 22.55 over max 10 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -155789,15 +155511,14 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal",
     "metal-iron-steel",
     "qua"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel (obj-container-barrel)"
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -155855,7 +155576,6 @@
     "#f2a93c"
    ],
    "tags": [
-    "metal",
     "metal-iron-cast",
     "qua",
     "textile",
@@ -156042,14 +155762,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156094,14 +155807,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156147,14 +155853,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156200,14 +155899,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156248,7 +155940,6 @@
     "#88848a"
    ],
    "tags": [
-    "metal",
     "metal-iron-steel",
     "qua"
    ],
@@ -156256,7 +155947,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel (obj-container-crate)"
+     "text": "— needs wood or paper, has metal-iron-steel (obj-container-crate)"
     }
    ]
   },
@@ -156524,9 +156215,15 @@
     "#f2a93c"
    ],
    "tags": [
-    "metal",
     "metal-iron-steel",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
    ]
   },
   {
@@ -156578,11 +156275,17 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal",
     "metal-iron-cast",
     "qua"
    ],
-   "variant": "v782"
+   "variant": "v782",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 4 wants max 2"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -156678,7 +156381,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal",
     "metal-iron-wrought",
     "qua"
    ],
@@ -156688,6 +156390,11 @@
      "level": "error",
      "check": "mat",
      "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (obj-equipment-weapon-siege)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -157273,7 +156980,6 @@
     "#88848a"
    ],
    "tags": [
-    "metal",
     "metal-iron-steel",
     "metal-iron-wrought",
     "qua"
@@ -157398,7 +157104,6 @@
     "#88848a"
    ],
    "tags": [
-    "metal",
     "metal-iron-steel",
     "qua"
    ]
@@ -167641,7 +167346,14 @@
     "piece",
     "vegetation"
    ],
-   "variant": "v556"
+   "variant": "v556",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has amber ivory"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -168693,7 +168405,14 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v552"
+   "variant": "v552",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has amber"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -170236,7 +169955,14 @@
     "foliage",
     "metal-iron-cast"
    ],
-   "variant": "v548"
+   "variant": "v548",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has slate terracotta amber ivory"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -180888,16 +180614,9 @@
    "tags": [
     "foliage",
     "wizp",
-    "wood-bark"
+    "wood-log"
    ],
-   "variant": "v445",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-bark wants umber, has camel moss"
-    }
-   ]
+   "variant": "v445"
   },
   {
    "kit": "wizp-tree",
@@ -180940,16 +180659,9 @@
    "tags": [
     "foliage",
     "wizp",
-    "wood-bark"
+    "wood-log"
    ],
-   "variant": "v445",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-bark wants umber, has camel moss"
-    }
-   ]
+   "variant": "v445"
   },
   {
    "kit": "wizp-tree",
