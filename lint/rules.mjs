@@ -1,4 +1,5 @@
 export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
+export const KIND_FIELDS = ['bands.max'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -6,12 +7,12 @@ const BAND = 'band';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
-export function buildLimits(kinds) {
+export function buildLimits(kinds, fields = LIMIT_FIELDS) {
   const own = new Map();
   const parent = new Map();
   const walk = (node, from) => {
     own.set(node.id, Object.fromEntries(
-      LIMIT_FIELDS.filter((f) => node[f] !== undefined).map((f) => [f, node[f]]),
+      fields.filter((f) => node[f] !== undefined).map((f) => [f, node[f]]),
     ));
     parent.set(node.id, from);
     for (const child of node.children ?? []) walk(child, node.id);
@@ -28,7 +29,7 @@ export function buildLimits(kinds) {
   for (const id of own.keys()) {
     const chain = chainOf(id);
     const out = {};
-    for (const field of LIMIT_FIELDS) {
+    for (const field of fields) {
       const from = chain.find((at) => own.get(at)?.[field] !== undefined);
       if (from) out[field] = { value: own.get(from)[field], from };
       else if (kinds.defaults?.[field] !== undefined) out[field] = { value: kinds.defaults[field], from: 'defaults' };
@@ -36,6 +37,24 @@ export function buildLimits(kinds) {
     limits.set(id, out);
   }
   return limits;
+}
+
+export function buildKindFields(kinds) {
+  const byKind = new Map();
+  const defaults = Object.fromEntries(KIND_FIELDS.filter((f) => kinds.defaults?.[f] !== undefined)
+    .map((f) => [f, { value: kinds.defaults[f], from: 'defaults' }]));
+  byKind.set(null, defaults);
+  for (const [id, fields] of buildLimits(kinds, KIND_FIELDS)) byKind.set(id, fields);
+  return byKind;
+}
+
+function withKindFields(model, kindFields) {
+  if (!kindFields) return model;
+  const fields = kindFields.get(model.kind) ?? kindFields.get(null);
+  return {
+    ...model,
+    ...Object.fromEntries(Object.entries(fields).map(([field, { value }]) => [field.replace('.', ''), value])),
+  };
 }
 
 export function buildMaterialRules(kinds) {
@@ -82,6 +101,10 @@ export function materialsOf(model, materialIds, vars) {
 export function materialFindingsFor(model, rules, materialIds, vars) {
   const out = [];
   const mats = materialsOf(model, materialIds, vars);
+  for (const parent of mats) {
+    const under = mats.filter((m) => m !== parent && idUnder(m, parent));
+    if (under.length) out.push({ family: parent, required: 'no parent tag', from: 'tags', present: [parent, ...under].join(' ') });
+  }
   for (const [family, { required, from }] of rules?.subtype ?? []) {
     const present = mats.filter((m) => idUnder(m, family));
     if (!present.length || present.some((m) => idUnder(m, required))) continue;
@@ -234,7 +257,8 @@ function holds(assert, actual, wanted) {
   }
 }
 
-export function measureFindingsFor(model, rows, materialIds, vars) {
+export function measureFindingsFor(subject, rows, materialIds, vars, kindFields) {
+  const model = withKindFields(subject, kindFields);
   const out = [];
   for (const row of rows) {
     if (!matchTerm(row.when, model, materialIds, vars)) continue;
@@ -281,6 +305,7 @@ export function buildChecks({ vars, kinds, materials, measures }) {
     palettes: buildPalettes(materials, vars),
     bands: buildKindBands(kinds),
     measures: measures.rows,
+    kindFields: buildKindFields(kinds),
   };
 }
 
@@ -307,7 +332,7 @@ export function checkModel(model, checks) {
   }
 
   const mark = [];
-  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars)) {
+  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields)) {
     if (vars.mark.includes(row.rule)) mark.push(row.field);
     else push('measures', row.level, [row]);
   }

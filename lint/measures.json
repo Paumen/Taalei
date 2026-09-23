@@ -6,9 +6,9 @@
   { "id": "G05", "when": "*", "except": "tag:plural | kind:set", "field": "grounded", "assert": "is", "value": true, "level": "warning" },
   { "id": "G06", "when": "*", "except": "tag:plural | kind:set", "field": "centered", "assert": "is", "value": true, "level": "warning" },
   { "id": "G09", "when": "*", "except": "kind:env-fauna | tag:plural | kind:set", "field": "nmat", "assert": "min", "value": 1 },
-  { "id": "G11", "when": "*", "except": "kind:obj-food | kind:env-fauna | nmat<1 | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 2" },
-  { "id": "G12", "when": "kind:obj-food | kind:env-fauna", "except": "nmat<1 | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 3" },
-  { "id": "G13", "when": "*", "except": "kind:char | size:l | tag:plural | kind:set", "field": "bands", "assert": "max", "value": 5 },
+  { "id": "G11", "when": "*", "except": "kind:obj-food | kind:env-fauna | mat:plastic | nmat<1 | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 2" },
+  { "id": "G12", "when": "kind:obj-food | kind:env-fauna | mat:plastic", "except": "nmat<1 | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 3" },
+  { "id": "G13", "when": "*", "except": "kind:char | size:l | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "bandsmax" },
   { "id": "G14", "when": "kind:char", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
   { "id": "G15", "when": "size:l", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
   { "id": "G19", "when": "kind:obj-container-barrel", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" }

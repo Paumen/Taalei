@@ -1,13 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { measureFindingsFor } from './rules.mjs';
+import { measureFindingsFor, buildKindFields } from './rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
 
 const VARS = read('lint/variables.json');
 const { rows } = read(VARS.measures);
+const KIND_FIELDS = buildKindFields(read(VARS.kinds));
 const { models } = read(VARS.models);
 
 const materialIds = new Set();
@@ -24,7 +25,7 @@ const active = only.length ? rows.filter((r) => only.includes(r.id)) : rows;
 
 const findings = [];
 for (const m of models) {
-  for (const f of measureFindingsFor(m, active, materialIds, VARS)) {
+  for (const f of measureFindingsFor(m, active, materialIds, VARS, KIND_FIELDS)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }

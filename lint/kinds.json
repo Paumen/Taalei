@@ -2,7 +2,8 @@
  "defaults": {
   "high.max": 8,
   "longest.min": 0.05,
-  "longest.max": 30
+  "longest.max": 30,
+  "bands.max": 5
  },
  "kinds": [
   {
@@ -52,7 +53,10 @@
        "high.min": 0.2,
        "mat.metal": "metal-iron",
        "has": [
-        "wood"
+        [
+         "wood",
+         "metal"
+        ]
        ],
        "nouns": [
         "barrel",
@@ -73,7 +77,10 @@
        "high.max": 0.4,
        "mat.metal": "metal-iron",
        "has": [
-        "wood"
+        [
+         "wood",
+         "metal"
+        ]
        ],
        "nouns": [
         "bucket",
@@ -87,7 +94,10 @@
        "high.min": 0.2,
        "mat.metal": "metal-iron",
        "has": [
-        "wood"
+        [
+         "wood",
+         "paper"
+        ]
        ],
        "nouns": [
         "crate",
@@ -200,6 +210,13 @@
           "watering can"
          ]
         }
+       ]
+      },
+      {
+       "id": "obj-container-cargo",
+       "nouns": [
+        "shipping container",
+        "cargo container"
        ]
       }
      ]
@@ -1161,7 +1178,7 @@
     },
     {
      "id": "obj-transport",
-     "band.wood": [
+     "band.wood-worked": [
       "camel",
       "chestnut"
      ],
@@ -1547,6 +1564,17 @@
        ]
       }
      ]
+    },
+    {
+     "id": "obj-toy",
+     "bands.max": 7,
+     "nouns": [
+      "toy",
+      "ball",
+      "frisbee",
+      "plushie",
+      "puzzle cube"
+     ]
     }
    ]
   },
@@ -1922,7 +1950,11 @@
       {
        "id": "str-barrier-post",
        "has": [
-        "wood"
+        [
+         "wood",
+         "metal",
+         "stone"
+        ]
        ],
        "nouns": [
         "post",
