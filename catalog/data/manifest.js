@@ -3613,6 +3613,7 @@ window.KENNEY_KITS = [
    "barracks",
    "barrel",
    "blacksmith",
+   "blacksmith-anim",
    "bridge-a",
    "bridge-b",
    "bucket",
@@ -3792,6 +3793,7 @@ window.KENNEY_KITS = [
    "sawmill",
    "silo",
    "smithy",
+   "smithy-anim",
    "weapon-shop",
    "windmill",
    "wizard-tower"
@@ -4315,6 +4317,7 @@ window.KENNEY_KITS = [
    "sign-board",
    "smelter",
    "smelter-large",
+   "smelter-large-anim",
    "smelter-medium",
    "soil",
    "sword",
