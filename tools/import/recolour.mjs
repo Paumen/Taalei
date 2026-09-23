@@ -3,12 +3,13 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, meshShells, meshParts, readAccessor } from '../../catalog/tools/glb.mjs';
 
-const HELP = `recolour.mjs --from <band> --to <band> [--parts <n,n>] [--want <n>] <workfile.glb> [...]
+const HELP = `recolour.mjs --from <band> --to <band> [--parts <n,n>] [--want <n>] [--where <test,test>] <workfile.glb> [...]
 recolour.mjs --list [--want <n>] <workfile.glb>
 
 Moves every vertex in the --from band into the --to band of kits/colormap.png,
 keeping its place in the cell, so the gradient carries over. With --parts only
-the vertices of those parts move. --list prints the parts with their triangles,
+the vertices of those parts move. --where keeps only vertices whose mesh-space
+position passes every test, each an axis, < or >, and a number: y>1.3,x<0. --list prints the parts with their triangles,
 bands and bounds; the split is the one render.mjs --isolate --parts <want> makes,
 8 when --want is not given, but render.mjs numbers its tiles in its own order.`;
 
@@ -34,7 +35,7 @@ function uvWriter(glb, accessorIndex) {
   return at;
 }
 
-function recolour(file, from, to, partNumbers, want) {
+function recolour(file, from, to, partNumbers, want, where) {
   const glb = readGlb(file);
   const allowed = new Map();
   if (partNumbers) {
@@ -55,9 +56,11 @@ function recolour(file, from, to, partNumbers, want) {
     if (partNumbers && !allowed.has(shell.uv)) continue;
     const only = allowed.get(shell.uv);
     const at = uvWriter(glb, shell.uv);
+    const pos = where && readAccessor(glb, shell.prim.attributes.POSITION).data;
     for (let i = 0; i < shell.count; i++) {
       total++;
       if (only && !only.has(i)) continue;
+      if (where && !where.every(([axis, op, value]) => (op === '<' ? pos[i * 3 + axis] < value : pos[i * 3 + axis] > value))) continue;
       const uv = at(i);
       if (Math.floor(uv[0] * 16) !== from[0] || Math.floor(uv[1] * 4) !== from[1]) continue;
       uv[0] += shift[0];
@@ -107,8 +110,15 @@ if (options.list) {
 if (!options.from || !options.to) throw new Error('--from and --to are required');
 if (!files.length) throw new Error('name at least one workfile');
 const partNumbers = options.parts ? options.parts.split(',').map(Number) : null;
+const where = options.where
+  ? options.where.split(',').map((test) => {
+      const m = test.match(/^([xyz])([<>])(-?[\d.]+)$/);
+      if (!m) throw new Error(`bad --where test: ${test}`);
+      return ['xyz'.indexOf(m[1]), m[2], Number(m[3])];
+    })
+  : null;
 
 for (const file of files) {
-  const { moved, total } = recolour(file, cellOf(options.from), cellOf(options.to), partNumbers, want);
+  const { moved, total } = recolour(file, cellOf(options.from), cellOf(options.to), partNumbers, want, where);
   console.log(`${file}: ${moved}/${total} vertices ${options.from} -> ${options.to}`);
 }
