@@ -116,9 +116,9 @@ export const BRONKITS = [
   { map: 'Homely_House_Set', naam: 'Homely House Set', kit: 'isa-homely', source: 'isa', formaat: 'glb' },
   { map: 'Low_Poly_Wild_West_Guns', naam: 'Low Poly Wild West Guns', kit: null, formaat: 'fbx', alleMappen: true },
   { map: 'NatureAssetsFBX', naam: 'Nature Assets', kit: 'nature-assets', formaat: 'fbx', alleMappen: true },
-  { map: 'kenney_furniture-kit', naam: 'Kenney Furniture Kit', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_mini-market', naam: 'Kenney Mini Market', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'Modular_Sushi_Restaurant_Kit', naam: 'Modular Sushi Restaurant Kit', kit: null, formaat: 'glb' },
+  { map: 'kenney_furniture-kit', naam: 'Kenney Furniture Kit', kit: 'ken-furniture', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_mini-market', naam: 'Kenney Mini Market', kit: 'ken-market', source: 'ken', formaat: 'glb' },
+  { map: 'Modular_Sushi_Restaurant_Kit', naam: 'Modular Sushi Restaurant Kit', kit: 'quat-sushi', source: 'qua', formaat: 'glb' },
   { map: 'Animated_Fish_Bundle', naam: 'Animated Fish Bundle', kit: null, formaat: 'glb' },
-  { map: 'Survival_Pack', naam: 'Survival Pack', kit: null, formaat: 'glb' },
+  { map: 'Survival_Pack', naam: 'Survival Pack', kit: 'quat-survival', source: 'qua', formaat: 'glb' },
 ];

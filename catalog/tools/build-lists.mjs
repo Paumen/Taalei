@@ -489,7 +489,7 @@ for (const bronkit of BRONKITS) {
   const rest = [];
   const botsingen = [];
   for (const model of gemeten) {
-    let namen = opBron.get(model.naam) ?? null;
+    let namen = opBron.get(model.naam) ?? opBron.get(model.bestand) ?? null;
     if (namen === null && opNaamKit.has(kebab(model.naam))) {
       const gedraaid = opNaamKit.get(kebab(model.naam));
       if (gedraaid && gedraaid !== model.naam) botsingen.push([model.naam, kebab(model.naam), gedraaid]);
