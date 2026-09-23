@@ -125,4 +125,5 @@ export const BRONKITS = [
   { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: null, formaat: 'fbx' },
   { map: 'Tiny_Planes_Styloo', naam: 'Tiny Planes', kit: null, formaat: 'fbx' },
   { map: '3D_Food_Styloo', naam: '3D Food', kit: null, formaat: 'gltf' },
+  { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: null, formaat: 'glb' },
 ];
