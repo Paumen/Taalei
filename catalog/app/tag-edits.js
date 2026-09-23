@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=b1dd60f631';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=9c19cccbe5';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -104,6 +104,26 @@ export function setKind(model, kindId, tagsById) {
   notify();
 }
 
+const materialAncestors = (id, tagsById) => {
+  const out = [];
+  for (let p = tagsById.get(id)?.parent; p; p = tagsById.get(p)?.parent) out.push(p);
+  return out;
+};
+
+export function setMaterial(model, tagId, tagsById) {
+  const current = effectiveTags(model);
+  if (current.includes(tagId)) stage(model, tagId, false);
+  else {
+    const above = materialAncestors(tagId, tagsById);
+    for (const id of current) {
+      if (above.includes(id) || materialAncestors(id, tagsById).includes(tagId)) stage(model, id, false);
+    }
+    stage(model, tagId, true);
+  }
+  save();
+  notify();
+}
+
 const attributeFamily = (id) => id.split('-')[0];
 
 export function setAttribute(model, tagId, tagsById) {
@@ -145,7 +165,8 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
   const rows = [
     { label: 'Kind', of: (t) => t.type === 'kind', parent: (t) => kindParent(t.id),
       pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
-    { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null },
+    { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null,
+      pick: (id) => { expanded.add(id); setMaterial(model, id, tagsById); } },
     { label: 'Storeys', of: (t) => t.type === 'attribute',
       pick: (id) => setAttribute(model, id, tagsById) },
     { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },

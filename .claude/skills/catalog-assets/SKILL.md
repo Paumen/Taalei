@@ -95,6 +95,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   belongs there. `set` is a kind, not a tag: several distinct things in one
   model.
 - **material** — what it is made of; the subtype, never the parent on top.
+  `build-catalog.mjs` and `zet-catalogus.mjs` throw on a parent carried with its
+  subtype; the tag editor drops the other one when either is picked.
 - **attribute** — at most one value per attribute. `storeys-0-5` … `storeys-5`
   on a `kind:str-building` model whose storeys read; none when they do not.
 - **use** — zero or more of the eight `use:` tags.
