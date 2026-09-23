@@ -493,6 +493,16 @@ function readTags(known) {
   const noKind = [...known].filter((id) => !kindsPer.has(id));
   if (noKind.length) console.warn(`! ${noKind.length} model(s) without a kind (K1): ${noKind.join(', ')}`);
 
+  const parentOnTop = [];
+  for (const [id, own] of perModel) {
+    for (const tagId of own) {
+      for (let p = parentOfTag.get(tagId); p; p = parentOfTag.get(p)) {
+        if (own.includes(p)) parentOnTop.push(`${id}: ${p} + ${tagId}`);
+      }
+    }
+  }
+  if (parentOnTop.length) throw new Error(`material carried with its own subtype: ${parentOnTop.join('; ')}`);
+
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
 

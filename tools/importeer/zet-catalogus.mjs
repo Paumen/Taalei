@@ -22,6 +22,11 @@ for (const config of configs) {
       ...(rij.attributen ?? []),
       ...(rij.themas ?? []),
     ];
+    for (const id of rij.materialen ?? []) {
+      for (let p = opId.get(id)?.parent; p; p = opId.get(p)?.parent) {
+        if (rij.materialen.includes(p)) throw new Error(`${model}: ${p} carried with its own subtype ${id}`);
+      }
+    }
     for (const id of ids) {
       const tag = opId.get(id);
       if (!tag) throw new Error(`${model}: no tag row for ${id}`);
