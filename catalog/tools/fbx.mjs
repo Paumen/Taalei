@@ -206,6 +206,9 @@ export function leesFbx(pad) {
   const hangtOnder = (id, soort) =>
     (kinderen.get(id) ?? []).map((k) => perId.get(k)).filter((r) => r?.name === soort);
 
+  const ouderModel = (knoop) =>
+    (parents.get(knoop.props[0]) ?? []).map((id) => perId.get(id)).find((r) => r?.name === 'Model');
+
   const naast = dirname(pad);
 
   const beschrijf = (materiaal) => {
@@ -242,24 +245,34 @@ export function leesFbx(pad) {
       .map((id) => perId.get(id))
       .find((r) => r?.name === 'Model');
 
-    const schaal = property70(model, 'Lcl Scaling') ?? [1, 1, 1];
-    const draai = property70(model, 'Lcl Rotation') ?? [0, 0, 0];
-    const schuif = property70(model, 'Lcl Translation') ?? [0, 0, 0];
-    const geoSchaal = property70(model, 'GeometricScaling') ?? [1, 1, 1];
-    const geoDraai = property70(model, 'GeometricRotation') ?? [0, 0, 0];
-    const geoSchuif = property70(model, 'GeometricTranslation') ?? [0, 0, 0];
-    const draaiing = eulerMatrix(draai);
-    const geoDraaiing = eulerMatrix(geoDraai);
+    const stap = (schaal, draai, schuif) => ({ schaal, draaiing: eulerMatrix(draai), schuif });
+    const stappen = [
+      stap(
+        property70(model, 'GeometricScaling') ?? [1, 1, 1],
+        property70(model, 'GeometricRotation') ?? [0, 0, 0],
+        property70(model, 'GeometricTranslation') ?? [0, 0, 0],
+      ),
+    ];
+    for (let knoop = model; knoop; knoop = ouderModel(knoop)) {
+      stappen.push(
+        stap(
+          property70(knoop, 'Lcl Scaling') ?? [1, 1, 1],
+          property70(knoop, 'Lcl Rotation') ?? [0, 0, 0],
+          property70(knoop, 'Lcl Translation') ?? [0, 0, 0],
+        ),
+      );
+    }
 
     const plaats = (x, y, z) => {
-      let p = [x * geoSchaal[0], y * geoSchaal[1], z * geoSchaal[2]];
-      p = applyMatrix(geoDraaiing, ...p).map((v, k) => v + geoSchuif[k]);
-      p = [p[0] * schaal[0], p[1] * schaal[1], p[2] * schaal[2]];
-      p = applyMatrix(draaiing, ...p).map((v, k) => v + schuif[k]);
+      let p = [x, y, z];
+      for (const { schaal, draaiing, schuif } of stappen) {
+        p = applyMatrix(draaiing, p[0] * schaal[0], p[1] * schaal[1], p[2] * schaal[2]).map((v, k) => v + schuif[k]);
+      }
       return naarYOp ? applyMatrix(naarYOp, ...p) : p;
     };
     const richt = (x, y, z) => {
-      const p = applyMatrix(draaiing, ...applyMatrix(geoDraaiing, x, y, z));
+      let p = [x, y, z];
+      for (const { draaiing } of stappen) p = applyMatrix(draaiing, ...p);
       const q = naarYOp ? applyMatrix(naarYOp, ...p) : p;
       const lengte = Math.hypot(...q) || 1;
       return q.map((v) => v / lengte);
