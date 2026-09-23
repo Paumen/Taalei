@@ -245,7 +245,7 @@ const fileIn = (name) => join(name.endsWith('.json') ? BUILD_DIR : APP_DIR, name
 
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
-    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'list.css', 'list.js', 'thumbs.json', ...MODULES]
+    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'list.css', 'list.js', 'thumbs.json', 'overview.js', ...MODULES]
     .filter((name) => existsSync(fileIn(name)))
     .map((name) => unstamped(readFileSync(fileIn(name), 'utf8')))
     .join('');
@@ -294,9 +294,13 @@ function writeVersion() {
       [/src="list\.js(?:\?v=[a-f0-9]+)?"/, `src="list.js?v=${version}"`],
     ]);
   }
+  stamp(join(APP_DIR, 'overview.html'), [
+    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+    [/src="overview\.js(?:\?v=[a-f0-9]+)?"/, `src="overview.js?v=${version}"`],
+  ]);
   console.log(
     `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/app/${p}`).join(', ')},` +
-      ' catalog/app/swipe.html, catalog/app/tbd.html, catalog/app/reject.html',
+      ' catalog/app/swipe.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/overview.html',
   );
 }
 
@@ -323,12 +327,21 @@ for (const slug of kitSlugs) {
     .sort();
   if (files.length === 0) continue;
 
+  const scales = {};
+  const smooth = {};
+  const origins = {};
+  const tally = (counts, key) => { counts[key] = (counts[key] ?? 0) + 1; };
+
   for (const file of files) {
     const name = file.replace(/\.glb$/, '');
     const path = `${MODEL_PATH}/${slug}/${file}`;
     const glb = readGlb(join(dir, file));
     const gltf = glb.json;
     const scene = measureScene(glb);
+    const origin = gltf.asset?.extras?.taaleiland ?? {};
+    tally(scales, origin.schaal ?? 'none');
+    tally(smooth, origin.schaduw?.modus === 'glad' ? origin.schaduw.drempel : 'none');
+    tally(origins, origin.bron ?? 'none');
     const read = readColors(glb, dir);
     if (read.lanes.size === 0 && read.materials.size === 0) noColor.push(`${slug}/${name}`);
     const paletteKey = read.atlas ? readAtlas(read.atlas).key : `material:${slug}`;
@@ -378,6 +391,9 @@ for (const slug of kitSlugs) {
     ownPalette: meta?.ownPalette ?? false,
     note: meta?.note ?? null,
     palette: null,
+    scales,
+    smooth,
+    origins,
   });
 }
 
@@ -657,7 +673,16 @@ const catalog = {
 };
 
 const output = {
-  kits: kits.map((k) => ({ slug: k.slug, name: k.name, url: k.url, note: k.note })),
+  kits: kits.map((k) => ({
+    slug: k.slug, name: k.name, url: k.url, note: k.note,
+    artist: SOURCES.find((s) => s.id === SOURCE_PER_KIT.get(k.slug))?.name,
+    licenseLabel: k.licenseLabel,
+    count: k.count,
+    packs: BRONKITS.filter((b) => b.kit === k.slug).map((b) => b.naam),
+    origins: k.origins,
+    scales: k.scales,
+    smooth: k.smooth,
+  })),
   variants: variants.groups,
   tags: tags.tags.map((t) => ({
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,

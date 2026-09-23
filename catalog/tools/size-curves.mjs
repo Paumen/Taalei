@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readKindTree } from './kinds.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -406,6 +407,22 @@ const sizeRows = Object.entries(SIZES)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind) || isBuilding(kind), storeys: isBuilding(kind) }));
 
+const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
+  const building = isBuilding(kind);
+  const row = { kind, real: SIZES[kind], high: HIGH.has(kind) || building || undefined, storeys: building || undefined };
+  if (DROPPED_KINDS.includes(kind)) return { ...row, curve: false, reason: 'dropped' };
+  if (kind !== 'char' && kind !== 'env-fungi' && depth(kind) < 3) return { ...row, curve: false, reason: 'too broad' };
+  if (row.real === undefined && !building) return { ...row, curve: false, reason: 'no real size' };
+  return { ...row, curve: true };
+});
+writeFileSync(join(ROOT, 'catalog', 'build', 'size-curves.json'), JSON.stringify({
+  kits: payload.weighted.kits.map(({ kit, n, slope, mad }) => ({ kit, n, slope, scatter: mad })),
+  droppedTags: DROPPED_TAGS,
+  storeyM: STOREY_M,
+  roofM: ROOF_M,
+  kinds: curveKinds,
+}, null, 1) + '\n');
+
 const page = `<!doctype html>
 <html lang="en">
 <head>
@@ -485,6 +502,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     <a href="../../index.html">Catalog</a>
     <a href="scale-obj-gen.html">Scale</a>
     <span aria-current="page">Curves</span>
+    <a href="overview.html">Overview</a>
     <a href="swipe.html">Swipe</a>
     <a href="tbd.html">TBD</a>
     <a href="reject.html">Reject</a>
