@@ -13,9 +13,9 @@ Two rules from `CLAUDE.md` bind every step: never look at earlier commits or
 PRs, and never leave assumptions, rules or commentary as comments in a code
 file — put them here, in the bible, or in the PR.
 
-A workfile in `kits/workfiles` is the asset itself. Nothing in the repo
-rewrites one in place, so a model that is wrong in its geometry, scale or
-bands is replaced or dropped, never patched by a tool.
+A workfile in `kits/workfiles` is the asset itself. A model that is wrong in
+its geometry or scale is replaced or dropped. A wrong band is moved in place
+with `tools/import/recolour.mjs`, for the whole band or for named parts.
 
 ## 1. Is the source pack already in the repo?
 
