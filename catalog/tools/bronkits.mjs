@@ -120,4 +120,10 @@ export const BRONKITS = [
   { map: 'Modular_Sushi_Restaurant_Kit', naam: 'Modular Sushi Restaurant Kit', kit: 'quat-sushi', source: 'qua', formaat: 'glb' },
   { map: 'Animated_Fish_Bundle', naam: 'Animated Fish Bundle', kit: 'quat-fishing', source: 'qua', formaat: 'glb' },
   { map: 'Survival_Pack', naam: 'Survival Pack', kit: 'quat-survival', source: 'qua', formaat: 'glb' },
+
+  { map: 'Weapons_Assets_Pack_Styloo', naam: 'Weapons Assets Pack', kit: null, formaat: 'fbx' },
+  { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: null, formaat: 'fbx' },
+  { map: 'Tiny_Planes_Styloo', naam: 'Tiny Planes', kit: null, formaat: 'fbx' },
+  { map: '3D_Food_Styloo', naam: '3D Food', kit: null, formaat: 'gltf' },
+  { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: null, formaat: 'glb' },
 ];
