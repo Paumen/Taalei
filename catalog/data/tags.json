@@ -8042,32 +8042,54 @@
     "ken-platformer/lock",
     "quat-rpg/padlock",
     "small-props/fireplace-1-1-a",
-    "kay-mixed/instant-camera-a",
     "isa-playground/stepping-stumps",
     "isa-playground/stepping-stump-large",
     "isa-playground/stepping-stump-medium",
     "isa-playground/stepping-stump-small",
-    "isa-picnic/radio",
-    "kay-mixed/instant-camera-green",
+    "ken-market/bottle-return-machine",
+    "quat-survival/match-burnt",
+    "quat-survival/match",
+    "isa-bakery/pricing-card",
+    "kay-food/menu"
+   ]
+  },
+  {
+   "id": "obj-household",
+   "name": "Household",
+   "type": "kind",
+   "description": "Household item in everyday use."
+  },
+  {
+   "id": "obj-household-electronics",
+   "name": "Electronics",
+   "type": "kind",
+   "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
+   "models": [
+    "quat-survival/battery-slim",
+    "quat-survival/battery",
+    "ken-market/cash-register",
     "ken-furniture/computer-keyboard",
     "ken-furniture/computer-screen",
     "ken-furniture/laptop",
-    "ken-furniture/radio",
+    "kay-mixed/instant-camera-a",
+    "kay-mixed/instant-camera-green",
     "ken-furniture/speaker",
     "ken-furniture/speaker-small",
-    "ken-furniture/television-antenna",
-    "ken-furniture/television-modern",
     "ken-furniture/television-vintage",
-    "ken-market/bottle-return-machine",
-    "ken-market/cash-register",
-    "quat-survival/battery",
-    "quat-survival/battery-slim",
-    "quat-survival/match-burnt",
-    "quat-survival/match",
-    "quat-survival/phone",
-    "quat-survival/radio",
-    "isa-bakery/pricing-card",
-    "kay-food/menu"
+    "ken-furniture/television-modern",
+    "ken-furniture/television-antenna",
+    "quat-survival/phone"
+   ]
+  },
+  {
+   "id": "obj-household-electronics-radio",
+   "name": "Radio",
+   "type": "kind",
+   "description": "radio",
+   "models": [
+    "isa-picnic/radio",
+    "ken-furniture/radio",
+    "quat-survival/radio"
    ]
   },
   {
@@ -8091,30 +8113,23 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin",
+   "description": "tub, trough, bin",
    "color": "#dd9f79",
    "models": [
     "quat-props/cage-small",
     "small-props/trough-1-a",
     "small-props/trough-3-a",
-    "isa-picnic/basket-round",
-    "isa-picnic/basket-square",
-    "isa-bakery/basket-a",
-    "isa-bakery/basket-b",
     "isa-bakery/milk-carton",
-    "aq-hallow/pumpkin-basket",
     "ken-food/carton",
     "ken-food/carton-small",
     "rpg-mini/inkbottle",
     "isa-pond/clawfoot-bathtub",
-    "isa-picnic/cooler",
     "isa-park/trashcan",
     "kay-apocalyp/container-sienna",
     "quat-shoot/dumpster",
     "quat-shoot/health-kit",
     "aq-pond/bathtub",
     "ken-furniture/trashcan",
-    "ken-market/shopping-basket",
     "quat-survival/first-aid-kit",
     "quat-survival/matchbox",
     "quat-survival/propane-tank",
@@ -8124,26 +8139,49 @@
    ]
   },
   {
+   "id": "obj-container-basket",
+   "name": "Basket",
+   "type": "kind",
+   "description": "Basket or carrier with a handle: basket, shopping basket.",
+   "models": [
+    "isa-picnic/basket-round",
+    "isa-picnic/basket-square",
+    "isa-bakery/basket-a",
+    "isa-bakery/basket-b",
+    "ken-market/shopping-basket",
+    "aq-hallow/pumpkin-basket",
+    "isa-picnic/cooler"
+   ]
+  },
+  {
    "id": "obj-container-can",
    "name": "Can",
    "type": "kind",
    "description": "can",
    "models": [
     "isa-picnic/drink-can",
-    "styloo-farm/gas-can",
-    "kay-resources/fuel-jerrycan-a",
     "quat-shoot/gas-tank",
-    "quat-shoot/gas-can",
     "quat-survival/can-broken",
     "quat-survival/can-red",
     "quat-survival/can",
-    "quat-survival/gas-can",
     "ken-food/soda-can",
     "ken-food/soda-can-crushed",
     "ken-food/can",
     "ken-food/can-open",
     "ken-food/can-small",
     "styloo-kitchen/soda-can"
+   ]
+  },
+  {
+   "id": "obj-container-can-gas",
+   "name": "Gas can",
+   "type": "kind",
+   "description": "Can for fuel: gas can, jerrycan.",
+   "models": [
+    "kay-resources/fuel-jerrycan-a",
+    "quat-shoot/gas-can",
+    "styloo-farm/gas-can",
+    "quat-survival/gas-can"
    ]
   },
   {
@@ -8649,16 +8687,24 @@
    "type": "kind",
    "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
    "models": [
-    "quat-rpg/glove",
     "kay-skeleton-1/mage-cloak",
     "kay-skeleton-1/mage-cowl",
     "isa-homely/boots",
     "kay-mixed/rollerskate-a",
     "kay-mixed/rollerskate-b",
     "kay-mixed/rollerskate-pair",
-    "cooking-assets/oven-mitts",
-    "isa-kitchen/oven-glove",
     "ken-holiday/stocking"
+   ]
+  },
+  {
+   "id": "obj-equipment-apparel-glove",
+   "name": "Glove",
+   "type": "kind",
+   "description": "Glove or mitt worn on the hand.",
+   "models": [
+    "quat-rpg/glove",
+    "isa-kitchen/oven-glove",
+    "cooking-assets/oven-mitts"
    ]
   },
   {
@@ -8844,15 +8890,23 @@
     "kay-dun-2/plate-food-a",
     "kay-dun-2/plate-food-b",
     "props/roast-a",
-    "quat-food/hotdog",
     "quat-food/bacon-cooked",
-    "ken-food/hot-dog",
     "ken-food/skewer-vegetables",
     "ken-food/turkey",
-    "food-pack/sausage",
     "quat-food/bacon-uncooked",
     "kay-food/food-ingredient-patty",
     "kay-food/food-ingredient-patty-burnt"
+   ]
+  },
+  {
+   "id": "obj-food-meat-sausage",
+   "name": "Sausage",
+   "type": "kind",
+   "description": "Sausage, on its own or in a bun: sausage, hot dog.",
+   "models": [
+    "ken-food/hot-dog",
+    "quat-food/hotdog",
+    "food-pack/sausage"
    ]
   },
   {
@@ -9071,21 +9125,29 @@
    "models": [
     "kay-spook/candy-a",
     "kay-spook/candy-b",
-    "kay-spook/lollipop-a",
-    "kay-spook/lollipop-b",
     "quat-food/chocolate-bar",
     "ken-holiday/candy-cane",
     "kay-holiday/candycane",
     "ken-food/chocolate-wrapper",
     "ken-food/chocolate",
-    "ken-food/lollypop",
     "aq-hallow/candy-a",
     "aq-hallow/candy-b",
-    "aq-hallow/candy-c",
     "quat-sushi/dango",
-    "aq-hallow/candy-c-moss",
     "aq-hallow/candy-a-sienna",
     "aq-hallow/candy-b-moss"
+   ]
+  },
+  {
+   "id": "obj-food-sweet-lollipop",
+   "name": "Lollipop",
+   "type": "kind",
+   "description": "Candy on a stick: lollipop.",
+   "models": [
+    "aq-hallow/candy-c",
+    "aq-hallow/candy-c-moss",
+    "kay-spook/lollipop-a",
+    "kay-spook/lollipop-b",
+    "ken-food/lollypop"
    ]
   },
   {
@@ -9354,14 +9416,8 @@
     "ken-furniture/kitchen-cabinet-upper",
     "ken-furniture/kitchen-cabinet-upper-double",
     "ken-furniture/kitchen-cabinet-upper-low",
-    "ken-furniture/kitchen-fridge",
-    "ken-furniture/kitchen-fridge-built-in",
-    "ken-furniture/kitchen-fridge-large",
-    "ken-furniture/kitchen-fridge-small",
     "ken-furniture/kitchen-sink",
-    "ken-market/freezers-standing",
     "quat-sushi/cabinet-doors",
-    "quat-sushi/drinks-fridge",
     "quat-sushi/counter-corner",
     "quat-sushi/counter-door",
     "quat-sushi/counter-doors",
@@ -9370,19 +9426,15 @@
     "quat-sushi/counter-sink",
     "quat-sushi/counter-straight",
     "quat-sushi/counter-straight-ledge",
-    "quat-sushi/fridge",
     "isa-bakery/display-case-short",
     "isa-bakery/display-case-long",
     "isa-kitchen/counter-sink",
     "isa-kitchen/counter-single",
-    "isa-kitchen/fridge",
     "isa-kitchen/wall-cabinet-corner",
     "isa-kitchen/wall-cabinet-left",
     "isa-kitchen/wall-cabinet-right",
     "isa-kitchen/wall-cabinet",
     "kay-dun-1/bookcase-broken",
-    "kay-food/fridge-a",
-    "kay-food/fridge-b",
     "kay-food/cabinet",
     "kay-food/cabinet-corner",
     "kay-food/counter-inner-corner",
@@ -9512,43 +9564,85 @@
    "id": "obj-kitchenware-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Appliance that cooks or heats: stove, oven, range.",
+   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender.",
    "models": [
     "kay-mixed/wood-stove",
-    "kay-food/stove",
-    "isa-kitchen/stove",
     "ken-furniture/hood-large",
     "ken-furniture/hood-modern",
     "ken-furniture/kitchen-blender",
     "ken-furniture/kitchen-coffee-machine",
     "ken-furniture/kitchen-microwave",
-    "ken-furniture/kitchen-stove",
-    "ken-furniture/kitchen-stove-electric",
-    "ken-furniture/toaster",
     "ken-market/freezer-chest",
-    "quat-sushi/oven",
-    "cooking-assets/toaster",
-    "cooking-assets/oven",
-    "cooking-assets/stove",
     "cooking-assets/rice-cooker",
-    "cooking-assets/stove-b",
-    "cooking-assets/stove-induction",
     "cooking-assets/food-processor",
     "cooking-assets/blender",
     "isa-bakery/coffee-machine",
-    "isa-bakery/bread-oven",
     "isa-bakery/stand-mixer",
     "isa-kitchen/extractor-hood",
-    "isa-kitchen/toaster",
     "kay-food/extractor-hood",
-    "kay-food/oven-door",
-    "kay-food/oven",
-    "kay-food/stove-single",
-    "kay-food/stove-single-countertop",
-    "kay-food/stove-countertop",
     "cooking-assets/toaster-oven",
     "styloo-kitchen/blender",
     "styloo-kitchen/toaster"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-toaster",
+   "name": "Toaster",
+   "type": "kind",
+   "description": "toaster",
+   "models": [
+    "cooking-assets/toaster",
+    "isa-kitchen/toaster",
+    "ken-furniture/toaster"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-stove",
+   "name": "Stove",
+   "type": "kind",
+   "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
+   "models": [
+    "ken-furniture/kitchen-stove",
+    "ken-furniture/kitchen-stove-electric",
+    "quat-sushi/oven",
+    "isa-kitchen/stove",
+    "kay-food/stove",
+    "cooking-assets/stove",
+    "cooking-assets/stove-b",
+    "kay-food/stove-countertop",
+    "kay-food/stove-single-countertop",
+    "cooking-assets/stove-induction",
+    "kay-food/stove-single"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-oven",
+   "name": "Oven",
+   "type": "kind",
+   "description": "Appliance that bakes in a closed chamber: oven, bread oven.",
+   "models": [
+    "cooking-assets/oven",
+    "kay-food/oven",
+    "kay-food/oven-door",
+    "isa-bakery/bread-oven"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-fridge",
+   "name": "Fridge",
+   "type": "kind",
+   "description": "Appliance that keeps food or drink cold: fridge, freezer.",
+   "models": [
+    "quat-sushi/drinks-fridge",
+    "ken-furniture/kitchen-fridge",
+    "ken-furniture/kitchen-fridge-built-in",
+    "ken-furniture/kitchen-fridge-large",
+    "ken-furniture/kitchen-fridge-small",
+    "kay-food/fridge-a",
+    "kay-food/fridge-b",
+    "quat-sushi/fridge",
+    "isa-kitchen/fridge",
+    "ken-market/freezers-standing"
    ]
   },
   {
@@ -9572,20 +9666,28 @@
     "cooking-assets/bottle-opener",
     "cooking-assets/measuring-cup-small",
     "cooking-assets/measuring-cup-large",
-    "cooking-assets/bread-knife",
-    "cooking-assets/chef-knife",
-    "cooking-assets/cleaver",
     "cooking-assets/cooking-spoon",
-    "cooking-assets/nakiri-knife",
-    "cooking-assets/paring-knife",
-    "cooking-assets/peeling-knife",
-    "cooking-assets/santoku-knife",
     "cooking-assets/wooden-spoon",
-    "ken-food/knife-cooking",
     "styloo-kitchen/cleaver",
     "styloo-kitchen/wooden-spoon-a",
     "styloo-kitchen/wooden-spoon-b",
     "styloo-kitchen/wooden-spoon-c"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-knife",
+   "name": "Knife",
+   "type": "kind",
+   "description": "Kitchen knife for cutting food: chef knife, bread knife, cleaver.",
+   "models": [
+    "cooking-assets/nakiri-knife",
+    "cooking-assets/santoku-knife",
+    "cooking-assets/paring-knife",
+    "cooking-assets/peeling-knife",
+    "cooking-assets/chef-knife",
+    "cooking-assets/cleaver",
+    "cooking-assets/bread-knife",
+    "ken-food/knife-cooking"
    ]
   },
   {
@@ -9773,14 +9875,11 @@
     "isa-kitchen/knife",
     "isa-kitchen/spoon",
     "cooking-assets/butter-knife",
-    "cooking-assets/chopsticks",
     "cooking-assets/fork",
     "cooking-assets/spoon",
-    "quat-food/chopsticks",
     "isa-picnic/fork",
     "isa-picnic/knife",
     "isa-picnic/spoon",
-    "ken-food/chopsticks",
     "ken-food/knife-chopping",
     "ken-food/fork",
     "ken-food/knife",
@@ -9790,6 +9889,17 @@
     "styloo-kitchen/knife",
     "styloo-kitchen/spoon",
     "styloo-kitchen/spoon-long"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-chopsticks",
+   "name": "Chopsticks",
+   "type": "kind",
+   "description": "chopsticks",
+   "models": [
+    "cooking-assets/chopsticks",
+    "ken-food/chopsticks",
+    "quat-food/chopsticks"
    ]
   },
   {
@@ -10548,18 +10658,26 @@
    "description": "Tool swung or pushed with both hands on a long shaft.",
    "models": [
     "asia-rg/rake",
-    "small-props/fishing-rod-a",
     "small-props/fishing-rod-b",
     "small-props/fishing-rod-c",
     "small-props/pitchfork-a",
-    "styloo-farm/fishing-rod",
     "styloo-farm/fishing-rod-hunter",
     "aq-hallow/scythe",
-    "quat-fishing/fishing-rod-a",
-    "quat-fishing/fishing-rod-b",
     "quat-fishing/fishing-rod-c",
     "quat-fishing/fishing-rod-d",
     "quat-fishing/fishing-rod-e"
+   ]
+  },
+  {
+   "id": "obj-tool-twohand-rod",
+   "name": "Rod",
+   "type": "kind",
+   "description": "Long rod held in both hands: fishing rod.",
+   "models": [
+    "styloo-farm/fishing-rod",
+    "quat-fishing/fishing-rod-a",
+    "small-props/fishing-rod-a",
+    "quat-fishing/fishing-rod-b"
    ]
   },
   {
@@ -10634,10 +10752,6 @@
     "taalei-kit/balloon",
     "taalei-kit/balloon-basket-round",
     "taalei-kit/balloon-basket-square",
-    "styloo-farm/tractor",
-    "quat-shoot/car-broken",
-    "quat-sushi/sushi-truck",
-    "ken-proto/vehicle",
     "ken-proto/vehicle-convertible",
     "quat-shoot/tank",
     "ken-proto/wheelchair",
@@ -10657,6 +10771,18 @@
    ]
   },
   {
+   "id": "obj-transport-road",
+   "name": "Road vehicle",
+   "type": "kind",
+   "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
+   "models": [
+    "quat-shoot/car-broken",
+    "quat-sushi/sushi-truck",
+    "styloo-farm/tractor",
+    "ken-proto/vehicle"
+   ]
+  },
+  {
    "id": "obj-transport-watercraft",
    "name": "Watercraft",
    "description": "Watercraft with no leaf that fits.",
@@ -10673,11 +10799,19 @@
    "models": [
     "ken-pirate/mast",
     "ken-pirate/mast-ropes",
+    "quat-pirate/anchor"
+   ]
+  },
+  {
+   "id": "obj-transport-watercraft-accessory-paddle",
+   "name": "Paddle",
+   "type": "kind",
+   "description": "Paddle or oar for rowing a boat.",
+   "models": [
     "ken-pirate/tool-paddle",
-    "quat-pirate/anchor",
+    "quat-survival/raft-paddle",
     "fs-town/boat-oars-a",
-    "fs-town/boat-oars-b",
-    "quat-survival/raft-paddle"
+    "fs-town/boat-oars-b"
    ]
   },
   {
@@ -12502,7 +12636,7 @@
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
-   "description": "wall (low, garden), hedge (trimmed), barricade",
+   "description": "wall (low, garden), barricade",
    "color": "#b08968",
    "models": [
     "wizp-asia/garden-wall-a",
@@ -12513,25 +12647,41 @@
     "quat-shoot/sandbags",
     "quat-shoot/sandbags-small",
     "quat-shoot/barrier",
-    "styloo-farm/hedge",
-    "styloo-farm/hedge-amber",
     "styloo-farm/fence-rail",
     "styloo-farm/fence-rail-clean",
     "styloo-farm/fence-rail-mirror",
-    "isa-park/hedge-straight-long",
-    "isa-park/hedge-straight",
-    "isa-park/hedge-corner",
-    "ken-platformer/hedge-corner",
-    "ken-platformer/hedge",
-    "kay-apocalyp/plastic-barrier",
-    "kay-apocalyp/traffic-cone",
-    "kay-apocalyp/traffic-drum",
-    "kay-apocalyp/traffic-barrier",
     "wizp-village/wall-stone-low",
-    "quat-shoot/traffic-cone",
     "quat-shoot/barricade-junk",
     "quat-shoot/barrier-single",
     "quat-shoot/barrier-large"
+   ]
+  },
+  {
+   "id": "str-barrier-hedge",
+   "name": "Hedge",
+   "type": "kind",
+   "description": "Trimmed hedge used as a barrier.",
+   "models": [
+    "isa-park/hedge-straight",
+    "isa-park/hedge-straight-long",
+    "ken-platformer/hedge-corner",
+    "isa-park/hedge-corner",
+    "styloo-farm/hedge",
+    "styloo-farm/hedge-amber",
+    "ken-platformer/hedge"
+   ]
+  },
+  {
+   "id": "str-barrier-traffic",
+   "name": "Traffic",
+   "type": "kind",
+   "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
+   "models": [
+    "kay-apocalyp/traffic-barrier",
+    "kay-apocalyp/plastic-barrier",
+    "kay-apocalyp/traffic-drum",
+    "quat-shoot/traffic-cone",
+    "kay-apocalyp/traffic-cone"
    ]
   },
   {
@@ -15682,9 +15832,6 @@
    "description": "Thing made to play with: ball, frisbee, plushie.",
    "models": [
     "isa-picnic/frisbee",
-    "kay-holiday/basketball",
-    "kay-holiday/football",
-    "kay-minigame/beach-ball",
     "kay-mixed/plushie-chicken-a",
     "kay-mixed/plushie-chicken-b",
     "kay-mixed/puzzle-cube-center",
@@ -15692,6 +15839,17 @@
     "kay-holiday/snowball-pile",
     "kay-holiday/snowball",
     "ken-holiday/nutcracker"
+   ]
+  },
+  {
+   "id": "obj-toy-ball",
+   "name": "Ball",
+   "type": "kind",
+   "description": "Ball to play with: football, basketball, beach ball.",
+   "models": [
+    "kay-holiday/football",
+    "kay-minigame/beach-ball",
+    "kay-holiday/basketball"
    ]
   },
   {
