@@ -2835,18 +2835,6 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "jelly-forest",
-  "name": "jelly-forest",
-  "url": null,
-  "licenseLabel": "JellySquish asset licence",
-  "models": [
-   "log",
-   "mushrooms-1",
-   "tent",
-   "tree-3"
-  ]
- },
- {
   "slug": "medieval-forge",
   "name": "medieval-forge",
   "url": null,
