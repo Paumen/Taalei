@@ -122,8 +122,8 @@ export const BRONKITS = [
   { map: 'Survival_Pack', naam: 'Survival Pack', kit: 'quat-survival', source: 'qua', formaat: 'glb' },
 
   { map: 'Weapons_Assets_Pack_Styloo', naam: 'Weapons Assets Pack', kit: 'styloo-weapons', formaat: 'fbx' },
-  { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: null, formaat: 'fbx' },
+  { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: 'styloo-furniture', formaat: 'fbx' },
   { map: 'Tiny_Planes_Styloo', naam: 'Tiny Planes', kit: 'styloo-planes', formaat: 'fbx' },
-  { map: '3D_Food_Styloo', naam: '3D Food', kit: null, formaat: 'gltf' },
+  { map: '3D_Food_Styloo', naam: '3D Food', kit: 'styloo-food', formaat: 'gltf' },
   { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: 'styloo-kitchen', formaat: 'glb' },
 ];
