@@ -119,6 +119,6 @@ export const BRONKITS = [
   { map: 'kenney_furniture-kit', naam: 'Kenney Furniture Kit', kit: 'ken-furniture', source: 'ken', formaat: 'glb' },
   { map: 'kenney_mini-market', naam: 'Kenney Mini Market', kit: 'ken-market', source: 'ken', formaat: 'glb' },
   { map: 'Modular_Sushi_Restaurant_Kit', naam: 'Modular Sushi Restaurant Kit', kit: 'quat-sushi', source: 'qua', formaat: 'glb' },
-  { map: 'Animated_Fish_Bundle', naam: 'Animated Fish Bundle', kit: null, formaat: 'glb' },
+  { map: 'Animated_Fish_Bundle', naam: 'Animated Fish Bundle', kit: 'quat-fishing', source: 'qua', formaat: 'glb' },
   { map: 'Survival_Pack', naam: 'Survival Pack', kit: 'quat-survival', source: 'qua', formaat: 'glb' },
 ];
