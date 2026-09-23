@@ -26,7 +26,7 @@ const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'rejects.j
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 
-function kitGegevens(slug) {
+function kitGegevens(slug, bron) {
   const dir = join(WERK_DIR, slug);
   if (!existsSync(dir)) return { modellen: [], schaal: null, aantal: 0 };
 
@@ -35,6 +35,7 @@ function kitGegevens(slug) {
   for (const bestand of readdirSync(dir).filter((n) => n.endsWith('.glb'))) {
     const glb = readGlb(join(dir, bestand));
     const extras = glb.json.asset?.extras?.taaleiland ?? {};
+    if (bron && extras.bron !== bron) continue;
     const gemeten = measureScene(glb);
     modellen.push({
       naam: basename(bestand, '.glb'),
@@ -467,7 +468,7 @@ for (const bronkit of BRONKITS) {
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
   const handkleuren = HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? {};
   const kit = bronkit.kit
-    ? kitGegevens(bronkit.kit)
+    ? kitGegevens(bronkit.kit, BRONKITS.filter((b) => b.kit === bronkit.kit).length > 1 ? bronkit.naam : null)
     : { modellen: [], schaal: null, aantal: 0 };
 
   const gemeten = bron.map((model) => ({ ...model, ...meet(model.primitieven) }));

@@ -43,6 +43,7 @@ const SIZES = {
   'obj-container-bottle-vial': 0.18,
   'obj-container-bucket': 0.3,
   'obj-container-can': 0.12,
+  'obj-container-can-wateringcan': 0.5,
   'obj-container-chest': 0.8,
   'obj-container-coffin': 2,
   'obj-container-crate': 0.6,

@@ -27,7 +27,9 @@ bands is replaced or dropped, never patched by a tool.
 Put the zip in `kits/sources/<pack>/` and add a `BRONKITS` row: `map` (the
 folder), `naam` (human name), `kit` (slug, `null` until adopted), `formaat`
 (`glb`, `gltf`, `obj`, `fbx`), plus `extraFormaten`, `submap`, `alleMappen` or
-`splitsPerMesh` where the pack needs them.
+`splitsPerMesh` where the pack needs them. Two packs may share one kit slug;
+`build-lists.mjs` then matches each pack only against the workfiles whose
+`bron` is that pack's `naam`.
 
     node catalog/tools/build-lists.mjs
 
