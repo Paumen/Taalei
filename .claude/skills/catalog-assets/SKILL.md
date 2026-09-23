@@ -70,16 +70,18 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
   cast and slate, never steel. `obj-container-*` sets `mat.metal: metal-iron`,
   so hoops and bands on a barrel, bucket or crate take an iron subtype rather
   than bare `metal`.
-- A material with no `bands` of its own (`foliage`, `food`, `vegetation`,
-  `emissive`, bare `metal`) is unconstrained by §5.1.
+- `foliage` is moss or hunter; `emissive` is amber.
+- A material with no `bands` of its own (`food`, `vegetation`, bare `metal`)
+  is unconstrained by §5.1.
 - The §5.1 check is coverage-based: it passes when at least one of the model's
   bands is in the material's list. That is weak enough to let a wrong band
   through, so do not lean on it as proof.
 
 ### Band budget
 
-`lint/measures.json` caps bands at `nmat × 2` (G11), at 5 for most models and 6
-for `size:l` (G13, G15), and size is measured on the longest extent against
+`lint/measures.json` caps bands at `nmat × 2` (G11; `nmat × 3` for food, fauna
+and plastic, G12), at the kind's `bands.max` (5 unless the kind in
+`lint/kinds.json` raises it) for most models and 6 for `size:l` (G13, G15), and size is measured on the longest extent against
 `lint/variables.json` (`s` ≤ 0.5, `m` ≤ 1.5, `l` above). `tag:plural` and
 `kind:set` are exempt. A model over its budget is a model to drop, not to
 bend the lint around.
@@ -93,6 +95,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   belongs there. `set` is a kind, not a tag: several distinct things in one
   model.
 - **material** — what it is made of; the subtype, never the parent on top.
+  `build-catalog.mjs` and `zet-catalogus.mjs` throw on a parent carried with its
+  subtype; the tag editor drops the other one when either is picked.
 - **attribute** — at most one value per attribute. `storeys-0-5` … `storeys-5`
   on a `kind:str-building` model whose storeys read; none when they do not.
 - **use** — zero or more of the eight `use:` tags.
