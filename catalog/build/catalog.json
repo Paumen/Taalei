@@ -954,18 +954,19 @@
    "url": "https://kenney.nl/assets/nature-kit",
    "artist": "Kenney",
    "licenseLabel": "CC0",
-   "count": 52,
+   "count": 102,
    "packs": [
     "Kenney Nature Kit"
    ],
    "origins": {
-    "Kenney Nature Kit": 52
+    "Kenney Nature Kit": 102
    },
    "scales": {
-    "1.2": 52
+    "1.2": 102
    },
    "smooth": {
-    "60": 52
+    "60": 52,
+    "none": 50
    }
   },
   {
@@ -10845,7 +10846,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 61,
+   "count": 62,
    "parent": "wood"
   },
   {
@@ -10853,7 +10854,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 248,
+   "count": 260,
    "parent": "wood"
   },
   {
@@ -10868,7 +10869,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 558,
+   "count": 563,
    "parent": "stone"
   },
   {
@@ -10876,7 +10877,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains. Hewn stone is stone-masonry.",
-   "count": 266,
+   "count": 297,
    "parent": "stone"
   },
   {
@@ -10884,7 +10885,7 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose ground and loose dirt: sand and dirt patches, dirt floors and tiles, the soil filling a plant pot. Laid paving is stone-masonry.",
-   "count": 62,
+   "count": 63,
    "parent": "stone"
   },
   {
@@ -10913,7 +10914,7 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 400
+   "count": 413
   },
   {
    "id": "ceramic",
@@ -11026,8 +11027,29 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2112,
+   "count": 2115,
    "color": "#c07c8a"
+  },
+  {
+   "id": "obj-household",
+   "name": "Household",
+   "type": "kind",
+   "description": "Household item in everyday use.",
+   "count": 17
+  },
+  {
+   "id": "obj-household-electronics",
+   "name": "Electronics",
+   "type": "kind",
+   "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
+   "count": 17
+  },
+  {
+   "id": "obj-household-electronics-radio",
+   "name": "Radio",
+   "type": "kind",
+   "description": "radio",
+   "count": 3
   },
   {
    "id": "obj-symbol",
@@ -11040,9 +11062,16 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "basket, tub, trough, bin",
+   "description": "tub, trough, bin",
    "count": 367,
    "color": "#dd9f79"
+  },
+  {
+   "id": "obj-container-basket",
+   "name": "Basket",
+   "type": "kind",
+   "description": "Basket or carrier with a handle: basket, shopping basket.",
+   "count": 7
   },
   {
    "id": "obj-container-can",
@@ -11050,6 +11079,13 @@
    "type": "kind",
    "description": "can",
    "count": 23
+  },
+  {
+   "id": "obj-container-can-gas",
+   "name": "Gas can",
+   "type": "kind",
+   "description": "Can for fuel: gas can, jerrycan.",
+   "count": 4
   },
   {
    "id": "obj-container-can-wateringcan",
@@ -11200,6 +11236,13 @@
    "count": 24
   },
   {
+   "id": "obj-equipment-apparel-glove",
+   "name": "Glove",
+   "type": "kind",
+   "description": "Glove or mitt worn on the hand.",
+   "count": 3
+  },
+  {
    "id": "obj-equipment-shield",
    "name": "Shield",
    "type": "kind",
@@ -11269,6 +11312,13 @@
    "type": "kind",
    "description": "meat, sausage, roast, leg",
    "count": 21
+  },
+  {
+   "id": "obj-food-meat-sausage",
+   "name": "Sausage",
+   "type": "kind",
+   "description": "Sausage, on its own or in a bun: sausage, hot dog.",
+   "count": 3
   },
   {
    "id": "obj-food-meat-ham",
@@ -11348,6 +11398,13 @@
    "count": 29
   },
   {
+   "id": "obj-food-sweet-lollipop",
+   "name": "Lollipop",
+   "type": "kind",
+   "description": "Candy on a stick: lollipop.",
+   "count": 5
+  },
+  {
    "id": "obj-food-sweet-icecream",
    "name": "Ice cream",
    "type": "kind",
@@ -11359,7 +11416,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 257,
+   "count": 247,
    "color": "#c07c8a"
   },
   {
@@ -11430,14 +11487,14 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser",
-   "count": 83
+   "count": 73
   },
   {
    "id": "obj-furnishing-storage-cabinet",
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
-   "count": 64
+   "count": 54
   },
   {
    "id": "obj-furnishing-storage-shelf",
@@ -11465,7 +11522,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 296,
+   "count": 306,
    "color": "#9c3f2e"
   },
   {
@@ -11479,8 +11536,36 @@
    "id": "obj-kitchenware-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Appliance that cooks or heats: stove, oven, range.",
-   "count": 35
+   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender.",
+   "count": 45
+  },
+  {
+   "id": "obj-kitchenware-appliance-toaster",
+   "name": "Toaster",
+   "type": "kind",
+   "description": "toaster",
+   "count": 3
+  },
+  {
+   "id": "obj-kitchenware-appliance-stove",
+   "name": "Stove",
+   "type": "kind",
+   "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
+   "count": 11
+  },
+  {
+   "id": "obj-kitchenware-appliance-oven",
+   "name": "Oven",
+   "type": "kind",
+   "description": "Appliance that bakes in a closed chamber: oven, bread oven.",
+   "count": 4
+  },
+  {
+   "id": "obj-kitchenware-appliance-fridge",
+   "name": "Fridge",
+   "type": "kind",
+   "description": "Appliance that keeps food or drink cold: fridge, freezer.",
+   "count": 10
   },
   {
    "id": "obj-kitchenware-cookware-utensil",
@@ -11488,6 +11573,13 @@
    "type": "kind",
    "description": "ladle, rice paddle, wooden paddle",
    "count": 42
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-knife",
+   "name": "Knife",
+   "type": "kind",
+   "description": "Kitchen knife for cutting food: chef knife, bread knife, cleaver.",
+   "count": 8
   },
   {
    "id": "obj-kitchenware-cookware-utensil-spatula",
@@ -11565,6 +11657,13 @@
    "type": "kind",
    "description": "knife (table), fork, spoon",
    "count": 27
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-chopsticks",
+   "name": "Chopsticks",
+   "type": "kind",
+   "description": "chopsticks",
+   "count": 3
   },
   {
    "id": "obj-kitchenware-tableware-plate",
@@ -11844,6 +11943,13 @@
    "count": 34
   },
   {
+   "id": "obj-tool-twohand-rod",
+   "name": "Rod",
+   "type": "kind",
+   "description": "Long rod held in both hands: fishing rod.",
+   "count": 4
+  },
+  {
    "id": "obj-tool-twohand-pickaxe",
    "name": "Pickaxe",
    "type": "kind",
@@ -11873,6 +11979,13 @@
    "color": "#5a7a9c"
   },
   {
+   "id": "obj-transport-road",
+   "name": "Road vehicle",
+   "type": "kind",
+   "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
+   "count": 4
+  },
+  {
    "id": "obj-transport-watercraft",
    "name": "Watercraft",
    "type": "kind",
@@ -11885,6 +11998,13 @@
    "type": "kind",
    "description": "anchor, paddle, oar, sail, rudder, mast",
    "count": 7
+  },
+  {
+   "id": "obj-transport-watercraft-accessory-paddle",
+   "name": "Paddle",
+   "type": "kind",
+   "description": "Paddle or oar for rowing a boat.",
+   "count": 4
   },
   {
    "id": "obj-transport-watercraft-boat",
@@ -12138,7 +12258,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 775,
+   "count": 820,
    "color": "#6cb588"
   },
   {
@@ -12161,7 +12281,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 287,
+   "count": 299,
    "color": "#6cb588"
   },
   {
@@ -12169,14 +12289,14 @@
    "name": "Deadwood",
    "type": "kind",
    "description": "dead tree, fallen tree, root",
-   "count": 84
+   "count": 85
   },
   {
    "id": "env-remains-deadwood-branch",
    "name": "Branch",
    "type": "kind",
    "description": "branch, twig, log, driftwood",
-   "count": 18
+   "count": 19
   },
   {
    "id": "env-remains-deadwood-stump",
@@ -12281,14 +12401,14 @@
    "name": "Tree",
    "type": "kind",
    "description": "tree, oak, birch, willow, bush (tree-sized)",
-   "count": 101
+   "count": 113
   },
   {
    "id": "env-flora-tree-conifer",
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 52
+   "count": 59
   },
   {
    "id": "env-flora-tree-palm",
@@ -12310,7 +12430,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "shell, egg (wild), nest, feather",
-   "count": 142,
+   "count": 143,
    "color": "#cfc6ad"
   },
   {
@@ -12339,7 +12459,7 @@
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
-   "count": 226,
+   "count": 256,
    "color": "#9da4c4"
   },
   {
@@ -12347,21 +12467,21 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 93
+   "count": 99
   },
   {
    "id": "env-rock-cobble",
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose)",
-   "count": 70
+   "count": 84
   },
   {
    "id": "env-rock-formation",
    "name": "Formation",
    "type": "kind",
    "description": "arch (rock), monolith, spire, cliff, outcrop",
-   "count": 17
+   "count": 27
   },
   {
    "id": "env-rock-pebble",
@@ -12375,7 +12495,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 41,
+   "count": 43,
    "color": "#8a5d4b"
   },
   {
@@ -12383,7 +12503,7 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, dirt path, stone path, sand, snow patch",
-   "count": 30
+   "count": 32
   },
   {
    "id": "env-terrain-mountain",
@@ -12405,7 +12525,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1150,
+   "count": 1152,
    "color": "#877a63"
   },
   {
@@ -12469,9 +12589,23 @@
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
-   "description": "wall (low, garden), hedge (trimmed), barricade",
+   "description": "wall (low, garden), barricade",
    "count": 178,
    "color": "#b08968"
+  },
+  {
+   "id": "str-barrier-hedge",
+   "name": "Hedge",
+   "type": "kind",
+   "description": "Trimmed hedge used as a barrier.",
+   "count": 7
+  },
+  {
+   "id": "str-barrier-traffic",
+   "name": "Traffic",
+   "type": "kind",
+   "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
+   "count": 5
   },
   {
    "id": "str-barrier-fence",
@@ -12514,7 +12648,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 480,
+   "count": 482,
    "color": "#a8762a"
   },
   {
@@ -12613,7 +12747,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 34
+   "count": 36
   },
   {
    "id": "str-part-roof",
@@ -12828,7 +12962,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 70
+   "count": 71
   },
   {
    "id": "piece",
@@ -12884,14 +13018,14 @@
    "name": "Art",
    "type": "kind",
    "description": "Art object with no leaf that fits.",
-   "count": 52
+   "count": 55
   },
   {
    "id": "obj-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
    "description": "Statue.",
-   "count": 20
+   "count": 23
   },
   {
    "id": "obj-toy",
@@ -12899,6 +13033,13 @@
    "type": "kind",
    "description": "Thing made to play with: ball, frisbee, plushie.",
    "count": 11
+  },
+  {
+   "id": "obj-toy-ball",
+   "name": "Ball",
+   "type": "kind",
+   "description": "Ball to play with: football, basketball, beach ball.",
+   "count": 3
   },
   {
    "id": "str-utility-fountain",
@@ -13229,28 +13370,28 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2038
+   "count": 2044
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1597
+   "count": 1633
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 558
+   "count": 566
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 778
+   "count": 828
   },
   {
    "id": "kay",
@@ -13602,6 +13743,13 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-basket": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-bottle": {
    "high.min": 0.1,
    "high.max": 0.4,
@@ -13624,6 +13772,13 @@
    "tpu.max": 10000
   },
   "obj-container-can": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-can-gas": {
    "high.min": 0.1,
    "high.max": 1,
    "longest.min": 0.05,
@@ -13707,6 +13862,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-apparel": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-equipment-apparel-glove": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -14079,6 +14240,12 @@
    "longest.max": 0.6,
    "tpu.max": 5000
   },
+  "obj-food-meat-sausage": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
   "obj-food-meat-steak": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -14092,6 +14259,12 @@
    "tpu.max": 5000
   },
   "obj-food-sweet-icecream": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-food-sweet-lollipop": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.6,
@@ -14224,6 +14397,18 @@
    "longest.max": 1.2,
    "tpu.max": 5000
   },
+  "obj-household-electronics": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-household-electronics-radio": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-kitchenware": {
    "high.max": 0.5,
    "longest.min": 0.05,
@@ -14231,6 +14416,30 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-appliance": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-appliance-fridge": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-appliance-oven": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-appliance-stove": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-appliance-toaster": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -14284,6 +14493,12 @@
    "longest.max": 10,
    "tpu.max": 5000
   },
+  "obj-kitchenware-cookware-utensil-knife": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
   "obj-kitchenware-cookware-utensil-rollingpin": {
    "high.max": 0.5,
    "longest.min": 0.05,
@@ -14315,6 +14530,12 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-tableware-cutlery": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-tableware-cutlery-chopsticks": {
    "high.max": 0.5,
    "longest.min": 0.05,
    "longest.max": 0.35,
@@ -14507,6 +14728,12 @@
    "longest.max": 1.2,
    "tpu.max": 10000
   },
+  "obj-tool-twohand-rod": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
   "obj-tool-twohand-shovel": {
    "high.max": 8,
    "longest.min": 0.3,
@@ -14514,6 +14741,12 @@
    "tpu.max": 10000
   },
   "obj-toy": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-toy-ball": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -14550,6 +14783,12 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-transport-road": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-transport-watercraft": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -14557,6 +14796,12 @@
    "tpu.max": 10000
   },
   "obj-transport-watercraft-accessory": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-transport-watercraft-accessory-paddle": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 10,
@@ -14651,7 +14896,19 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-barrier-hedge": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-barrier-post": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-traffic": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -15355,7 +15612,7 @@
   {
    "kit": "aq-hallow",
    "name": "candy-c-moss",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
     0.06,
@@ -15404,7 +15661,7 @@
   {
    "kit": "aq-hallow",
    "name": "candy-c",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
     0.07,
@@ -16869,7 +17126,7 @@
   {
    "kit": "aq-hallow",
    "name": "pumpkin-basket",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
     0.3,
@@ -24840,7 +25097,7 @@
   {
    "kit": "cooking-assets",
    "name": "bread-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.04,
@@ -25032,7 +25289,7 @@
   {
    "kit": "cooking-assets",
    "name": "chef-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.05,
@@ -25075,7 +25332,7 @@
   {
    "kit": "cooking-assets",
    "name": "chopsticks",
-   "kind": "obj-kitchenware-tableware-cutlery",
+   "kind": "obj-kitchenware-tableware-cutlery-chopsticks",
    "size": "s",
    "wdh": [
     0.02,
@@ -25120,7 +25377,7 @@
   {
    "kit": "cooking-assets",
    "name": "cleaver",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.07,
@@ -26253,7 +26510,7 @@
   {
    "kit": "cooking-assets",
    "name": "nakiri-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.06,
@@ -26296,7 +26553,7 @@
   {
    "kit": "cooking-assets",
    "name": "oven-mitts",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glove",
    "size": "s",
    "wdh": [
     0.25,
@@ -26334,7 +26591,7 @@
   {
    "kit": "cooking-assets",
    "name": "oven",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-oven",
    "size": "m",
    "wdh": [
     0.55,
@@ -26432,7 +26689,7 @@
   {
    "kit": "cooking-assets",
    "name": "paring-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.04,
@@ -26476,7 +26733,7 @@
   {
    "kit": "cooking-assets",
    "name": "peeling-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.03,
@@ -26851,7 +27108,7 @@
   {
    "kit": "cooking-assets",
    "name": "santoku-knife",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.05,
@@ -27409,7 +27666,7 @@
   {
    "kit": "cooking-assets",
    "name": "stove-b",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "m",
    "wdh": [
     0.6,
@@ -27459,7 +27716,7 @@
   {
    "kit": "cooking-assets",
    "name": "stove-induction",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.25,
@@ -27502,7 +27759,7 @@
   {
    "kit": "cooking-assets",
    "name": "stove",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.3,
@@ -27680,7 +27937,7 @@
   {
    "kit": "cooking-assets",
    "name": "toaster",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-toaster",
    "size": "s",
    "wdh": [
     0.2,
@@ -28919,7 +29176,7 @@
   {
    "kit": "food-pack",
    "name": "sausage",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
     0.15,
@@ -32904,7 +33161,7 @@
   {
    "kit": "fs-town",
    "name": "boat-oars-a",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "m",
    "wdh": [
     0.3,
@@ -32945,7 +33202,7 @@
   {
    "kit": "fs-town",
    "name": "boat-oars-b",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "m",
    "wdh": [
     0.2,
@@ -39468,7 +39725,7 @@
   {
    "kit": "isa-bakery",
    "name": "basket-a",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
     0.3,
@@ -39507,7 +39764,7 @@
   {
    "kit": "isa-bakery",
    "name": "basket-b",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
     0.3,
@@ -39546,7 +39803,7 @@
   {
    "kit": "isa-bakery",
    "name": "bread-oven",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-oven",
    "size": "m",
    "wdh": [
     0.7,
@@ -45836,7 +46093,7 @@
   {
    "kit": "isa-kitchen",
    "name": "fridge",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.65,
@@ -45886,6 +46143,13 @@
     "metal-iron-steel",
     "paper",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.95 over max 0.5 (obj-kitchenware)"
+    }
    ]
   },
   {
@@ -46141,7 +46405,7 @@
   {
    "kit": "isa-kitchen",
    "name": "oven-glove",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glove",
    "size": "s",
    "wdh": [
     0.15,
@@ -46420,7 +46684,7 @@
   {
    "kit": "isa-kitchen",
    "name": "stove",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "m",
    "wdh": [
     0.65,
@@ -46611,7 +46875,7 @@
   {
    "kit": "isa-kitchen",
    "name": "toaster",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-toaster",
    "size": "s",
    "wdh": [
     0.3,
@@ -48006,7 +48270,7 @@
   {
    "kit": "isa-park",
    "name": "hedge-corner",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     0.9,
@@ -48044,7 +48308,7 @@
   {
    "kit": "isa-park",
    "name": "hedge-straight-long",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     1.3,
@@ -48083,7 +48347,7 @@
   {
    "kit": "isa-park",
    "name": "hedge-straight",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     0.65,
@@ -48449,7 +48713,7 @@
   {
    "kit": "isa-picnic",
    "name": "basket-round",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "m",
    "wdh": [
     0.6,
@@ -48494,7 +48758,7 @@
   {
    "kit": "isa-picnic",
    "name": "basket-square",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "m",
    "wdh": [
     0.75,
@@ -48659,7 +48923,7 @@
   {
    "kit": "isa-picnic",
    "name": "cooler",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "m",
    "wdh": [
     0.5,
@@ -49615,7 +49879,7 @@
   {
    "kit": "isa-picnic",
    "name": "radio",
-   "kind": "obj",
+   "kind": "obj-household-electronics-radio",
    "size": "s",
    "wdh": [
     0.35,
@@ -58934,7 +59198,7 @@
   {
    "kit": "kay-apocalyp",
    "name": "plastic-barrier",
-   "kind": "str-barrier",
+   "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
     0.5,
@@ -59468,7 +59732,7 @@
   {
    "kit": "kay-apocalyp",
    "name": "traffic-barrier",
-   "kind": "str-barrier",
+   "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
     0.8,
@@ -59517,7 +59781,7 @@
   {
    "kit": "kay-apocalyp",
    "name": "traffic-cone",
-   "kind": "str-barrier",
+   "kind": "str-barrier-traffic",
    "size": "s",
    "wdh": [
     0.25,
@@ -59566,7 +59830,7 @@
   {
    "kit": "kay-apocalyp",
    "name": "traffic-drum",
-   "kind": "str-barrier",
+   "kind": "str-barrier-traffic",
    "size": "s",
    "wdh": [
     0.3,
@@ -77347,7 +77611,7 @@
   {
    "kit": "kay-food",
    "name": "fridge-a",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.4,
@@ -77397,7 +77661,7 @@
   {
    "kit": "kay-food",
    "name": "fridge-b",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.4,
@@ -77868,7 +78132,7 @@
   {
    "kit": "kay-food",
    "name": "oven-door",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-oven",
    "size": "s",
    "wdh": [
     0.25,
@@ -77919,7 +78183,7 @@
   {
    "kit": "kay-food",
    "name": "oven",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-oven",
    "size": "s",
    "wdh": [
     0.4,
@@ -78789,7 +79053,7 @@
   {
    "kit": "kay-food",
    "name": "stove-countertop",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.35,
@@ -78890,7 +79154,7 @@
   {
    "kit": "kay-food",
    "name": "stove-single-countertop",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.35,
@@ -78941,7 +79205,7 @@
   {
    "kit": "kay-food",
    "name": "stove-single",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.4,
@@ -78991,7 +79255,7 @@
   {
    "kit": "kay-food",
    "name": "stove",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.4,
@@ -92223,7 +92487,7 @@
   {
    "kit": "kay-holiday",
    "name": "basketball",
-   "kind": "obj-toy",
+   "kind": "obj-toy-ball",
    "size": "s",
    "wdh": [
     0.2,
@@ -92786,7 +93050,7 @@
   {
    "kit": "kay-holiday",
    "name": "football",
-   "kind": "obj-toy",
+   "kind": "obj-toy-ball",
    "size": "s",
    "wdh": [
     0.15,
@@ -94721,7 +94985,7 @@
   {
    "kit": "kay-minigame",
    "name": "beach-ball",
-   "kind": "obj-toy",
+   "kind": "obj-toy-ball",
    "size": "m",
    "wdh": [
     0.6,
@@ -96526,7 +96790,7 @@
   {
    "kit": "kay-mixed",
    "name": "instant-camera-a",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.2,
@@ -96588,7 +96852,7 @@
   {
    "kit": "kay-mixed",
    "name": "instant-camera-green",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.2,
@@ -98311,7 +98575,7 @@
   {
    "kit": "kay-resources",
    "name": "fuel-jerrycan-a",
-   "kind": "obj-container-can",
+   "kind": "obj-container-can-gas",
    "size": "s",
    "wdh": [
     0.1,
@@ -103999,7 +104263,7 @@
   {
    "kit": "kay-spook",
    "name": "lollipop-a",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
     0.2,
@@ -104050,7 +104314,7 @@
   {
    "kit": "kay-spook",
    "name": "lollipop-b",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
     0.2,
@@ -111010,7 +111274,7 @@
   {
    "kit": "ken-food",
    "name": "chopsticks",
-   "kind": "obj-kitchenware-tableware-cutlery",
+   "kind": "obj-kitchenware-tableware-cutlery-chopsticks",
    "size": "s",
    "wdh": [
     0.01,
@@ -112150,7 +112414,7 @@
   {
    "kit": "ken-food",
    "name": "hot-dog",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
     0.3,
@@ -112330,7 +112594,7 @@
   {
    "kit": "ken-food",
    "name": "knife-cooking",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.35,
@@ -112638,7 +112902,7 @@
   {
    "kit": "ken-food",
    "name": "lollypop",
-   "kind": "obj-food-sweet",
+   "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
     0.02,
@@ -117107,7 +117371,7 @@
   {
    "kit": "ken-furniture",
    "name": "computer-keyboard",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.25,
@@ -117150,7 +117414,7 @@
   {
    "kit": "ken-furniture",
    "name": "computer-screen",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.35,
@@ -118174,7 +118438,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-fridge-built-in",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.35,
@@ -118227,12 +118491,19 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v812"
+   "variant": "v812",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.75 over max 0.5 (obj-kitchenware)"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
    "name": "kitchen-fridge-large",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.45,
@@ -118272,12 +118543,19 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v812"
+   "variant": "v812",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.8 over max 0.5 (obj-kitchenware)"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
    "name": "kitchen-fridge-small",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.35,
@@ -118328,7 +118606,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-fridge",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.35,
@@ -118374,7 +118652,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v812"
+   "variant": "v812",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.8 over max 0.5 (obj-kitchenware)"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -118484,7 +118769,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-stove-electric",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.35,
@@ -118542,7 +118827,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-stove",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
     0.35,
@@ -118819,7 +119104,7 @@
   {
    "kit": "ken-furniture",
    "name": "laptop",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.2,
@@ -119365,7 +119650,7 @@
   {
    "kit": "ken-furniture",
    "name": "radio",
-   "kind": "obj",
+   "kind": "obj-household-electronics-radio",
    "size": "s",
    "wdh": [
     0.25,
@@ -119818,7 +120103,7 @@
   {
    "kit": "ken-furniture",
    "name": "speaker-small",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.15,
@@ -119863,7 +120148,7 @@
   {
    "kit": "ken-furniture",
    "name": "speaker",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "m",
    "wdh": [
     0.15,
@@ -120601,7 +120886,7 @@
   {
    "kit": "ken-furniture",
    "name": "television-antenna",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.25,
@@ -120639,7 +120924,7 @@
   {
    "kit": "ken-furniture",
    "name": "television-modern",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "m",
    "wdh": [
     0.6,
@@ -120682,7 +120967,7 @@
   {
    "kit": "ken-furniture",
    "name": "television-vintage",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.35,
@@ -120736,7 +121021,7 @@
   {
    "kit": "ken-furniture",
    "name": "toaster",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-toaster",
    "size": "s",
    "wdh": [
     0.15,
@@ -126230,7 +126515,7 @@
   {
    "kit": "ken-market",
    "name": "cash-register",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "m",
    "wdh": [
     0.85,
@@ -126406,7 +126691,7 @@
   {
    "kit": "ken-market",
    "name": "freezers-standing",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     1,
@@ -126452,6 +126737,13 @@
     "ken",
     "metal-iron-steel",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.9 over max 0.5 (obj-kitchenware)"
+    }
    ]
   },
   {
@@ -126668,7 +126960,7 @@
   {
    "kit": "ken-market",
    "name": "shopping-basket",
-   "kind": "obj-container",
+   "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
     0.35,
@@ -129189,6 +129481,50 @@
   },
   {
    "kit": "ken-nature",
+   "name": "log",
+   "kind": "env-remains-deadwood-branch",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.85,
+    0.2
+   ],
+   "tris": 200,
+   "tpu": 583,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12596,
+   "vtx": 312,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "avgTri": 0.00714,
+   "anglePct": 96,
+   "vpt": 1.56,
+   "grad": 0,
+   "spread": {
+    "0,0": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-bark",
+    "wood-log"
+   ]
+  },
+  {
+   "kit": "ken-nature",
    "name": "patch-sand",
    "kind": "env-terrain-ground",
    "size": "m",
@@ -129500,6 +129836,93 @@
   },
   {
    "kit": "ken-nature",
+   "name": "platform-grass",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    1.05,
+    0.85,
+    0.1
+   ],
+   "tris": 186,
+   "tpu": 285,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11312,
+   "vtx": 274,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.0076,
+   "anglePct": 76,
+   "vpt": 1.47,
+   "grad": 0,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
+    "3,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#8b7561"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "stone-soil"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "platform-stone",
+   "kind": "env-terrain-ground",
+   "size": "m",
+   "wdh": [
+    1.05,
+    0.85,
+    0.1
+   ],
+   "tris": 192,
+   "tpu": 294,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11988,
+   "vtx": 294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00733,
+   "anglePct": 75,
+   "vpt": 1.53,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
    "name": "sign",
    "kind": "str-marker-sign",
    "size": "s",
@@ -129540,6 +129963,1363 @@
     "ken",
     "wood-beam",
     "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "statue-column-damaged",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    0.85
+   ],
+   "tris": 108,
+   "tpu": 262,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7720,
+   "vtx": 176,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.024,
+   "avgTri": 0.01084,
+   "anglePct": 100,
+   "vpt": 1.63,
+   "grad": 0,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "broken",
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "statue-column",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    1.2
+   ],
+   "tris": 122,
+   "tpu": 207,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8800,
+   "vtx": 208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "avgTri": 0.01624,
+   "anglePct": 100,
+   "vpt": 1.7,
+   "grad": 0,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "statue-head",
+   "kind": "obj-art-sculpture",
+   "size": "m",
+   "wdh": [
+    0.85,
+    0.65,
+    1.2
+   ],
+   "tris": 196,
+   "tpu": 282,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 12696,
+   "vtx": 316,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.04,
+   "avgTri": 0.01567,
+   "anglePct": 29,
+   "vpt": 1.61,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "statue-obelisk",
+   "kind": "obj-art-sculpture",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    1.05
+   ],
+   "tris": 38,
+   "tpu": 74,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 3956,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.066,
+   "avgTri": 0.02539,
+   "anglePct": 19,
+   "vpt": 1.89,
+   "grad": 0,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "statue-ring",
+   "kind": "obj-art-sculpture",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.5,
+    0.95
+   ],
+   "tris": 76,
+   "tpu": 162,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5656,
+   "vtx": 118,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.083,
+   "avgTri": 0.03119,
+   "anglePct": 100,
+   "vpt": 1.55,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-a",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    0.95,
+    1.2,
+    0.3
+   ],
+   "tris": 80,
+   "tpu": 100,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6448,
+   "vtx": 142,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.082,
+   "avgTri": 0.02529,
+   "anglePct": 39,
+   "vpt": 1.78,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-b",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    0.9,
+    1.2,
+    0.5
+   ],
+   "tris": 85,
+   "tpu": 108,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6576,
+   "vtx": 145,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.059,
+   "avgTri": 0.03707,
+   "anglePct": 49,
+   "vpt": 1.71,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-c",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    1.3,
+    1.2,
+    0.4
+   ],
+   "tris": 72,
+   "tpu": 66,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6080,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.082,
+   "avgTri": 0.04029,
+   "anglePct": 41,
+   "vpt": 1.83,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-d",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    1.3,
+    1.25,
+    0.7
+   ],
+   "tris": 80,
+   "tpu": 72,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6128,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.08,
+   "avgTri": 0.05851,
+   "anglePct": 45,
+   "vpt": 1.65,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-e",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    1.3,
+    1.1,
+    0.35
+   ],
+   "tris": 64,
+   "tpu": 63,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5580,
+   "vtx": 118,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.095,
+   "avgTri": 0.04054,
+   "anglePct": 44,
+   "vpt": 1.84,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-large-f",
+   "kind": "env-rock-boulder",
+   "size": "m",
+   "wdh": [
+    1.3,
+    1.1,
+    0.6
+   ],
+   "tris": 73,
+   "tpu": 73,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5796,
+   "vtx": 123,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.079,
+   "avgTri": 0.05273,
+   "anglePct": 47,
+   "vpt": 1.68,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-a",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.25
+   ],
+   "tris": 16,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2472,
+   "vtx": 30,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.064,
+   "avgTri": 0.02431,
+   "anglePct": 37,
+   "vpt": 1.88,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-b",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.2
+   ],
+   "tris": 24,
+   "tpu": 70,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2908,
+   "vtx": 42,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.026,
+   "avgTri": 0.01793,
+   "anglePct": 64,
+   "vpt": 1.75,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-c",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.15
+   ],
+   "tris": 16,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2472,
+   "vtx": 30,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.03,
+   "avgTri": 0.01707,
+   "anglePct": 43,
+   "vpt": 1.88,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-d",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.45,
+    0.3
+   ],
+   "tris": 32,
+   "tpu": 93,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3336,
+   "vtx": 54,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.027,
+   "avgTri": 0.01859,
+   "anglePct": 38,
+   "vpt": 1.69,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-e",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.4,
+    0.3
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5072,
+   "vtx": 102,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00748,
+   "anglePct": 37,
+   "vpt": 1.59,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-f",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.35,
+    0.3
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4856,
+   "vtx": 96,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00706,
+   "anglePct": 39,
+   "vpt": 1.6,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-flat-a",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.5,
+    0.08
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2700,
+   "vtx": 36,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.082,
+   "avgTri": 0.02531,
+   "anglePct": 73,
+   "vpt": 1.8,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-flat-b",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.08
+   ],
+   "tris": 16,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2480,
+   "vtx": 30,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.085,
+   "avgTri": 0.0224,
+   "anglePct": 67,
+   "vpt": 1.88,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-flat-c",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.45,
+    0.08
+   ],
+   "tris": 40,
+   "tpu": 117,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3780,
+   "vtx": 66,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.024,
+   "avgTri": 0.01019,
+   "anglePct": 70,
+   "vpt": 1.65,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-g",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.8,
+    0.3
+   ],
+   "tris": 32,
+   "tpu": 78,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3528,
+   "vtx": 60,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.116,
+   "avgTri": 0.04077,
+   "anglePct": 45,
+   "vpt": 1.88,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-h",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.5
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5368,
+   "vtx": 112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.129,
+   "avgTri": 0.0163,
+   "anglePct": 18,
+   "vpt": 1.87,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-i",
+   "kind": "env-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.5,
+    0.35
+   ],
+   "tris": 44,
+   "tpu": 128,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4376,
+   "vtx": 84,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.09,
+   "avgTri": 0.01424,
+   "anglePct": 24,
+   "vpt": 1.91,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-top-a",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.25
+   ],
+   "tris": 52,
+   "tpu": 152,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4428,
+   "vtx": 84,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.04,
+   "avgTri": 0.01401,
+   "anglePct": 50,
+   "vpt": 1.62,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-small-top-b",
+   "kind": "env-rock-cobble",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.35
+   ],
+   "tris": 76,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5728,
+   "vtx": 120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.039,
+   "avgTri": 0.01489,
+   "anglePct": 50,
+   "vpt": 1.58,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-a",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    1.2,
+    0.8,
+    1.2
+   ],
+   "tris": 136,
+   "tpu": 118,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9536,
+   "vtx": 228,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.02298,
+   "anglePct": 31,
+   "vpt": 1.68,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-b",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.9,
+    0.9,
+    1.05
+   ],
+   "tris": 172,
+   "tpu": 191,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10836,
+   "vtx": 262,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01757,
+   "anglePct": 31,
+   "vpt": 1.52,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-c",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.5,
+    0.95
+   ],
+   "tris": 37,
+   "tpu": 80,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3720,
+   "vtx": 65,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.074,
+   "avgTri": 0.04023,
+   "anglePct": 20,
+   "vpt": 1.76,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-d",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.95
+   ],
+   "tris": 38,
+   "tpu": 84,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3820,
+   "vtx": 68,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.049,
+   "avgTri": 0.03168,
+   "anglePct": 19,
+   "vpt": 1.79,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-e",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.65,
+    0.55
+   ],
+   "tris": 38,
+   "tpu": 111,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3820,
+   "vtx": 68,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.066,
+   "avgTri": 0.02901,
+   "anglePct": 29,
+   "vpt": 1.79,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-f",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.6,
+    0.7
+   ],
+   "tris": 46,
+   "tpu": 134,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4248,
+   "vtx": 80,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.02688,
+   "anglePct": 28,
+   "vpt": 1.74,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-g",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.6,
+    0.95
+   ],
+   "tris": 62,
+   "tpu": 135,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5252,
+   "vtx": 108,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "avgTri": 0.02493,
+   "anglePct": 22,
+   "vpt": 1.74,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-h",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.8,
+    0.85
+   ],
+   "tris": 78,
+   "tpu": 166,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6244,
+   "vtx": 136,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.02458,
+   "anglePct": 36,
+   "vpt": 1.74,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-i",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.95
+   ],
+   "tris": 44,
+   "tpu": 92,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4176,
+   "vtx": 78,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.031,
+   "avgTri": 0.03478,
+   "anglePct": 18,
+   "vpt": 1.77,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "stone-tall-j",
+   "kind": "env-rock-formation",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.65,
+    0.75
+   ],
+   "tris": 42,
+   "tpu": 115,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4100,
+   "vtx": 76,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.044,
+   "avgTri": 0.03218,
+   "anglePct": 27,
+   "vpt": 1.81,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-rock"
    ]
   },
   {
@@ -129721,6 +131501,528 @@
     "wood-beam"
    ],
    "variant": "v505"
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-cone-dark",
+   "kind": "env-flora-tree",
+   "size": "l",
+   "wdh": [
+    0.65,
+    0.65,
+    1.7
+   ],
+   "tris": 264,
+   "tpu": 314,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17856,
+   "vtx": 464,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.024,
+   "avgTri": 0.01603,
+   "anglePct": 10,
+   "vpt": 1.76,
+   "grad": 0,
+   "spread": {
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-detailed-dark",
+   "kind": "env-flora-tree",
+   "size": "l",
+   "wdh": [
+    1,
+    0.9,
+    1.6
+   ],
+   "tris": 402,
+   "tpu": 270,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 28036,
+   "vtx": 756,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00892,
+   "anglePct": 80,
+   "vpt": 1.88,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-default-a",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.65,
+    0.65,
+    1.85
+   ],
+   "tris": 230,
+   "tpu": 253,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 13312,
+   "vtx": 328,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.024,
+   "avgTri": 0.0083,
+   "anglePct": 24,
+   "vpt": 1.43,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-ground-a",
+   "kind": "env-flora-tree-conifer",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.65,
+    1.1
+   ],
+   "tris": 82,
+   "tpu": 153,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6148,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.027,
+   "avgTri": 0.019,
+   "anglePct": 26,
+   "vpt": 1.61,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c"
+   ],
+   "tags": [
+    "foliage",
+    "ken"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-round-c",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.6,
+    0.65,
+    1.5
+   ],
+   "tris": 206,
+   "tpu": 280,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 13616,
+   "vtx": 342,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.01117,
+   "anglePct": 30,
+   "vpt": 1.66,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-round-e",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.65,
+    0.65,
+    1.5
+   ],
+   "tris": 198,
+   "tpu": 268,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11580,
+   "vtx": 280,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.031,
+   "avgTri": 0.00891,
+   "anglePct": 26,
+   "vpt": 1.41,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-small-b",
+   "kind": "env-flora-tree-conifer",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.45,
+    1.2
+   ],
+   "tris": 86,
+   "tpu": 145,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6812,
+   "vtx": 152,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.03,
+   "avgTri": 0.01708,
+   "anglePct": 24,
+   "vpt": 1.77,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-tall-a",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.45,
+    0.45,
+    1.85
+   ],
+   "tris": 78,
+   "tpu": 87,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6252,
+   "vtx": 136,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.03,
+   "avgTri": 0.02112,
+   "anglePct": 35,
+   "vpt": 1.74,
+   "grad": 0,
+   "spread": {
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-pine-tall-c",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.6,
+    0.65,
+    2
+   ],
+   "tris": 98,
+   "tpu": 100,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7008,
+   "vtx": 156,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.01997,
+   "anglePct": 28,
+   "vpt": 1.59,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-plateau-dark",
+   "kind": "env-flora-tree",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    1.5
+   ],
+   "tris": 215,
+   "tpu": 249,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14528,
+   "vtx": 369,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.01166,
+   "anglePct": 61,
+   "vpt": 1.72,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-small-dark",
+   "kind": "env-flora-tree",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.5,
+    1.35
+   ],
+   "tris": 124,
+   "tpu": 190,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9848,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.062,
+   "avgTri": 0.02297,
+   "anglePct": 40,
+   "vpt": 1.94,
+   "grad": 0,
+   "spread": {
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-nature",
+   "name": "tree-tall-dark",
+   "kind": "env-flora-tree",
+   "size": "l",
+   "wdh": [
+    0.5,
+    0.55,
+    2.05
+   ],
+   "tris": 72,
+   "tpu": 73,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6080,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.054,
+   "avgTri": 0.03226,
+   "anglePct": 3,
+   "vpt": 1.83,
+   "grad": 0,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
   },
   {
    "kit": "ken-nature",
@@ -132219,7 +134521,7 @@
   {
    "kit": "ken-pirate",
    "name": "tool-paddle",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "m",
    "wdh": [
     0.2,
@@ -133312,7 +135614,7 @@
   {
    "kit": "ken-platformer",
    "name": "hedge-corner",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     0.8,
@@ -133356,7 +135658,7 @@
   {
    "kit": "ken-platformer",
    "name": "hedge",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     0.8,
@@ -134661,7 +136963,7 @@
   {
    "kit": "ken-proto",
    "name": "vehicle",
-   "kind": "obj-transport",
+   "kind": "obj-transport-road",
    "size": "m",
    "wdh": [
     1.05,
@@ -157581,7 +159883,7 @@
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-a",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.05,
@@ -157627,7 +159929,7 @@
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-b",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.08,
@@ -159105,7 +161407,7 @@
   {
    "kit": "quat-food",
    "name": "chopsticks",
-   "kind": "obj-kitchenware-tableware-cutlery",
+   "kind": "obj-kitchenware-tableware-cutlery-chopsticks",
    "size": "s",
    "wdh": [
     0.01,
@@ -160063,7 +162365,7 @@
   {
    "kit": "quat-food",
    "name": "hotdog",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
     0.15,
@@ -171492,7 +173794,7 @@
   {
    "kit": "quat-rpg",
    "name": "glove",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glove",
    "size": "s",
    "wdh": [
     0.2,
@@ -174496,7 +176798,7 @@
   {
    "kit": "quat-shoot",
    "name": "car-broken",
-   "kind": "obj-transport",
+   "kind": "obj-transport-road",
    "size": "l",
    "wdh": [
     0.9,
@@ -175042,7 +177344,7 @@
   {
    "kit": "quat-shoot",
    "name": "gas-can",
-   "kind": "obj-container-can",
+   "kind": "obj-container-can-gas",
    "size": "s",
    "wdh": [
     0.3,
@@ -176791,7 +179093,7 @@
   {
    "kit": "quat-shoot",
    "name": "traffic-cone",
-   "kind": "str-barrier",
+   "kind": "str-barrier-traffic",
    "size": "s",
    "wdh": [
     0.25,
@@ -177438,7 +179740,7 @@
   {
    "kit": "quat-survival",
    "name": "battery-slim",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.03,
@@ -177487,7 +179789,7 @@
   {
    "kit": "quat-survival",
    "name": "battery",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.05,
@@ -177999,7 +180301,7 @@
   {
    "kit": "quat-survival",
    "name": "gas-can",
-   "kind": "obj-container-can",
+   "kind": "obj-container-can-gas",
    "size": "s",
    "wdh": [
     0.3,
@@ -178278,7 +180580,7 @@
   {
    "kit": "quat-survival",
    "name": "phone",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "s",
    "wdh": [
     0.06,
@@ -178465,7 +180767,7 @@
   {
    "kit": "quat-survival",
    "name": "radio",
-   "kind": "obj",
+   "kind": "obj-household-electronics-radio",
    "size": "s",
    "wdh": [
     0.25,
@@ -178514,7 +180816,7 @@
   {
    "kit": "quat-survival",
    "name": "raft-paddle",
-   "kind": "obj-transport-watercraft-accessory",
+   "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "l",
    "wdh": [
     0.25,
@@ -179964,7 +182266,7 @@
   {
    "kit": "quat-sushi",
    "name": "drinks-fridge",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.55,
@@ -180021,9 +182323,14 @@
    ],
    "lint": [
     {
+     "level": "error",
+     "check": "size",
+     "text": "high 1 over max 0.5 (obj-kitchenware)"
+    },
+    {
      "level": "warning",
      "check": "size",
-     "text": "tpu 6076 over max 5000 (obj-furnishing)"
+     "text": "tpu 6076 over max 5000 (obj-kitchenware)"
     }
    ]
   },
@@ -180370,7 +182677,7 @@
   {
    "kit": "quat-sushi",
    "name": "fridge",
-   "kind": "obj-furnishing-storage-cabinet",
+   "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
     0.55,
@@ -180414,6 +182721,13 @@
     "metal-iron-steel",
     "plastic",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.95 over max 0.5 (obj-kitchenware)"
+    }
    ]
   },
   {
@@ -180832,7 +183146,7 @@
   {
    "kit": "quat-sushi",
    "name": "oven",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "m",
    "wdh": [
     0.5,
@@ -181916,7 +184230,7 @@
   {
    "kit": "quat-sushi",
    "name": "sushi-truck",
-   "kind": "obj-transport",
+   "kind": "obj-transport-road",
    "size": "l",
    "wdh": [
     1.15,
@@ -189642,7 +191956,7 @@
   {
    "kit": "small-props",
    "name": "fishing-rod-a",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.09,
@@ -192219,7 +194533,7 @@
   {
    "kit": "styloo-farm",
    "name": "fishing-rod",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.6,
@@ -192276,7 +194590,7 @@
   {
    "kit": "styloo-farm",
    "name": "gas-can",
-   "kind": "obj-container-can",
+   "kind": "obj-container-can-gas",
    "size": "s",
    "wdh": [
     0.3,
@@ -192558,7 +194872,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge-amber",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     1,
@@ -192640,7 +194954,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge",
-   "kind": "str-barrier",
+   "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
     1,
@@ -193891,7 +196205,7 @@
   {
    "kit": "styloo-farm",
    "name": "tractor",
-   "kind": "obj-transport",
+   "kind": "obj-transport-road",
    "size": "m",
    "wdh": [
     1,
