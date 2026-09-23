@@ -137,6 +137,8 @@ Every rule that asserts on one recorded field of one model lives here as a row: 
 
 Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09` and `G11`–`G15` (materials and the band budget), `G19` (barrel triangles).
 
+`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself.
+
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 ### 2.3 Size and budget
@@ -214,7 +216,7 @@ has: [ «material», [«material», …] ]        a plain entry is required outr
 
 `mat.` only asks a model that already carries the material to carry the right subtype. `has` asks for the material in the first place. Because the deepest row wins, none of these rows carries a `!` term.
 
-`lint/materials.json` says which tags count as under `«material»`. `special` is held out of the check.
+`lint/materials.json` says which tags count as under `«material»`. `special` is held out of the check. The same run flags a model carrying a material together with a subtype of it.
 
 Run `node lint/mat.mjs`.
 

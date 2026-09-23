@@ -8320,7 +8320,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 58,
+   "count": 60,
    "parent": "wood"
   },
   {
@@ -8328,7 +8328,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 247,
+   "count": 245,
    "parent": "wood"
   },
   {
@@ -16085,7 +16085,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber sienna"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -16135,7 +16142,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber sienna"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -16180,7 +16194,14 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has ivory amber"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -42185,6 +42206,13 @@
     "isa",
     "metal",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-wrought (tags)"
+    }
    ]
   },
   {
@@ -46584,6 +46612,13 @@
     "isa",
     "metal",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -48160,7 +48195,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v758"
+   "variant": "v758",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-playground",
@@ -48211,7 +48253,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v758"
+   "variant": "v758",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-playground",
@@ -48615,6 +48664,13 @@
     "isa",
     "wood",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
    ]
   },
   {
@@ -48659,6 +48715,13 @@
     "isa",
     "wood",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
    ]
   },
   {
@@ -49185,7 +49248,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v286"
+   "variant": "v286",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-pond",
@@ -49230,7 +49300,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v286"
+   "variant": "v286",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-pond",
@@ -49275,7 +49352,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v286"
+   "variant": "v286",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-pond",
@@ -49320,7 +49404,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v286"
+   "variant": "v286",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "isa-pond",
@@ -52215,6 +52306,13 @@
     "kay",
     "metal",
     "metal-iron-cast"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast (tags)"
+    }
    ]
   },
   {
@@ -52374,7 +52472,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v485"
+   "variant": "v485",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-apocalyp",
@@ -52431,7 +52536,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v485"
+   "variant": "v485",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-apocalyp",
@@ -52520,6 +52632,11 @@
      "level": "error",
      "check": "size",
      "text": "high 1.3 over max 1 (obj-container)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-wrought (tags)"
     }
    ]
   },
@@ -52572,6 +52689,11 @@
      "level": "error",
      "check": "size",
      "text": "high 1.3 over max 1 (obj-container)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-wrought (tags)"
     }
    ]
   },
@@ -52956,14 +53078,7 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v486",
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
-   ]
+   "variant": "v486"
   },
   {
    "kit": "kay-apocalyp",
@@ -53002,14 +53117,7 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v486",
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
-   ]
+   "variant": "v486"
   },
   {
    "kit": "kay-apocalyp",
@@ -53059,6 +53167,13 @@
     "metal",
     "metal-iron-cast",
     "plural"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast (tags)"
+    }
    ]
   },
   {
@@ -53583,6 +53698,13 @@
     "skin",
     "textile",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -53748,13 +53870,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -53803,13 +53918,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -53935,7 +54043,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v745"
+   "variant": "v745",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-apocalyp",
@@ -53981,7 +54096,14 @@
     "metal-iron-steel",
     "plural"
    ],
-   "variant": "v745"
+   "variant": "v745",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-builder",
@@ -81883,13 +82005,6 @@
    "tags": [
     "kay",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
    ]
   },
   {
@@ -85715,13 +85830,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -85767,7 +85875,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v667"
+   "variant": "v667",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-minigame",
@@ -85812,7 +85927,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v667"
+   "variant": "v667",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-minigame",
@@ -85857,7 +85979,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v667"
+   "variant": "v667",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-minigame",
@@ -86596,6 +86725,13 @@
     "kay",
     "metal",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -87372,6 +87508,13 @@
     "kay",
     "metal",
     "metal-iron-cast"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast (tags)"
+    }
    ]
   },
   {
@@ -87695,6 +87838,13 @@
     "leather",
     "metal",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -87875,7 +88025,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 7 wants max 2"
+     "text": "G12 bands 7 wants max 3"
     },
     {
      "level": "error",
@@ -87956,7 +88106,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 7 wants max 2"
+     "text": "G12 bands 7 wants max 3"
     },
     {
      "level": "error",
@@ -88854,7 +89004,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735"
+   "variant": "v735",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -88905,7 +89062,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659"
+   "variant": "v659",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -88956,7 +89120,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735"
+   "variant": "v735",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89007,7 +89178,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659"
+   "variant": "v659",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89064,7 +89242,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v735"
+   "variant": "v735",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89115,7 +89300,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v659"
+   "variant": "v659",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89167,7 +89359,14 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736"
+   "variant": "v736",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89219,7 +89418,14 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736"
+   "variant": "v736",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -89277,7 +89483,14 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v736"
+   "variant": "v736",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -90130,13 +90343,6 @@
    "tags": [
     "kay",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "wood-planks wants camel chestnut, has tan (obj-transport)"
-    }
    ]
   },
   {
@@ -114098,7 +114304,14 @@
     "wood",
     "wood-planks"
    ],
-   "variant": "v208"
+   "variant": "v208",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-planks (tags)"
+    }
+   ]
   },
   {
    "kit": "ken-pirate",
@@ -115576,6 +115789,13 @@
     "pirate",
     "wood",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-beam (tags)"
+    }
    ]
   },
   {
@@ -117850,7 +118070,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v734"
+   "variant": "v734",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -117895,7 +118122,14 @@
     "metal",
     "metal-iron-steel"
    ],
-   "variant": "v734"
+   "variant": "v734",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -124538,6 +124772,13 @@
     "wood",
     "wood-beam",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-beam wood-planks (tags)"
+    }
    ]
   },
   {
@@ -126141,6 +126382,13 @@
     "metal",
     "metal-iron-steel",
     "sailing"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -134461,7 +134709,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v105"
+   "variant": "v105",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -134506,7 +134761,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v105"
+   "variant": "v105",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -134550,6 +134812,13 @@
     "robin-hood",
     "wood",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
    ]
   },
   {
@@ -145143,7 +145412,14 @@
     "wood",
     "wood-bark"
    ],
-   "variant": "v172"
+   "variant": "v172",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs no parent tag, has wood wood-bark (tags)"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -155385,6 +155661,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 22.55 over max 10 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-wrought (tags)"
     }
    ]
   },
@@ -155600,6 +155881,13 @@
     "metal",
     "metal-iron-steel",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -155661,6 +155949,13 @@
     "qua",
     "textile",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast (tags)"
+    }
    ]
   },
   {
@@ -155843,14 +156138,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -155895,14 +156183,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -155948,14 +156229,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156001,14 +156275,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v453",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has paper textile (obj-container-crate)"
-    }
-   ]
+   "variant": "v453"
   },
   {
    "kit": "quat-shoot",
@@ -156057,7 +156324,12 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "— needs wood, has metal metal-iron-steel (obj-container-crate)"
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood or paper, has metal metal-iron-steel (obj-container-crate)"
     }
    ]
   },
@@ -156328,6 +156600,13 @@
     "metal",
     "metal-iron-steel",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -156383,7 +156662,14 @@
     "metal-iron-cast",
     "qua"
    ],
-   "variant": "v782"
+   "variant": "v782",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-cast (tags)"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -156485,6 +156771,11 @@
    ],
    "variant": "v782",
    "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-wrought (tags)"
+    },
     {
      "level": "error",
      "check": "mat",
@@ -157078,6 +157369,13 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel metal-iron-wrought (tags)"
+    }
    ]
   },
   {
@@ -157202,6 +157500,13 @@
     "metal",
     "metal-iron-steel",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs no parent tag, has metal metal-iron-steel (tags)"
+    }
    ]
   },
   {
@@ -167442,7 +167747,14 @@
     "piece",
     "vegetation"
    ],
-   "variant": "v556"
+   "variant": "v556",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has amber ivory"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -168494,7 +168806,14 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v552"
+   "variant": "v552",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has amber"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -170037,7 +170356,14 @@
     "foliage",
     "metal-iron-cast"
    ],
-   "variant": "v548"
+   "variant": "v548",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has slate terracotta amber ivory"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -180689,16 +181015,9 @@
    "tags": [
     "foliage",
     "wizp",
-    "wood-bark"
+    "wood-log"
    ],
-   "variant": "v445",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-bark wants umber, has camel moss"
-    }
-   ]
+   "variant": "v445"
   },
   {
    "kit": "wizp-tree",
@@ -180741,16 +181060,9 @@
    "tags": [
     "foliage",
     "wizp",
-    "wood-bark"
+    "wood-log"
    ],
-   "variant": "v445",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-bark wants umber, has camel moss"
-    }
-   ]
+   "variant": "v445"
   },
   {
    "kit": "wizp-tree",

@@ -2,7 +2,8 @@
  "defaults": {
   "high.max": 8,
   "longest.min": 0.05,
-  "longest.max": 30
+  "longest.max": 30,
+  "bands.max": 5
  },
  "kinds": [
   {
@@ -93,7 +94,10 @@
        "high.min": 0.2,
        "mat.metal": "metal-iron",
        "has": [
-        "wood"
+        [
+         "wood",
+         "paper"
+        ]
        ],
        "nouns": [
         "crate",
@@ -1174,7 +1178,7 @@
     },
     {
      "id": "obj-transport",
-     "band.wood": [
+     "band.wood-worked": [
       "camel",
       "chestnut"
      ],
