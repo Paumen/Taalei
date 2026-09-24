@@ -3503,6 +3503,7 @@ window.KENNEY_KITS = [
    "wall-decor-c",
    "wall-decor-d",
    "waterwheel",
+   "waterwheel-anim",
    "well"
   ]
  },
