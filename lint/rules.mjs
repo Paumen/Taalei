@@ -7,6 +7,9 @@ const BAND = 'band';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 
+const SIZE_MEASURES = ['high', 'longest'];
+const measureOf = (field) => field.split('.')[0];
+
 export function buildLimits(kinds, fields = LIMIT_FIELDS) {
   const own = new Map();
   const parent = new Map();
@@ -25,18 +28,127 @@ export function buildLimits(kinds, fields = LIMIT_FIELDS) {
     return out;
   };
 
+  const measuresOf = (at) => new Set(Object.keys(own.get(at) ?? {}).map(measureOf).filter((m) => SIZE_MEASURES.includes(m)));
+  const localDefaults = new Map();
+  const walkDefaults = (node) => {
+    if (node.defaults) localDefaults.set(node.id, node.defaults);
+    for (const child of node.children ?? []) walkDefaults(child);
+  };
+  for (const root of kinds.kinds) walkDefaults(root);
+  const defaultOf = (chain, field) => {
+    const at = chain.find((id) => localDefaults.get(id)?.[field] !== undefined);
+    return at ? localDefaults.get(at)[field] : kinds.defaults?.[field];
+  };
+
   const limits = new Map();
   for (const id of own.keys()) {
     const chain = chainOf(id);
+    const owner = chain.find((at) => measuresOf(at).size);
+    const measures = owner ? measuresOf(owner) : null;
     const out = {};
     for (const field of fields) {
-      const from = chain.find((at) => own.get(at)?.[field] !== undefined);
+      const other = measures && SIZE_MEASURES.includes(measureOf(field)) && !measures.has(measureOf(field));
+      const from = other ? undefined : chain.find((at) => own.get(at)?.[field] !== undefined);
       if (from) out[field] = { value: own.get(from)[field], from };
-      else if (kinds.defaults?.[field] !== undefined) out[field] = { value: kinds.defaults[field], from: 'defaults' };
+      else if (defaultOf(chain, field) !== undefined) out[field] = { value: defaultOf(chain, field), from: 'defaults' };
     }
     limits.set(id, out);
   }
   return limits;
+}
+
+export const SCALE_PREFIX = 'scale-';
+
+export function buildScales(kinds) {
+  const scales = new Map();
+  const walk = (node, from) => {
+    const at = node.scale ? { config: node.scale, from: node.id } : from;
+    scales.set(node.id, at);
+    for (const child of node.children ?? []) walk(child, at);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+  return scales;
+}
+
+const roundLimit = (v) => Math.round(v * 1e6) / 1e6;
+
+function scaledLimits(limits, tag, scale) {
+  const rule = scale?.config[tag.slice(SCALE_PREFIX.length)];
+  if (rule === undefined) return null;
+  const out = {};
+  for (const [field, entry] of Object.entries(limits ?? {})) {
+    if (field.startsWith('tpu.')) out[field] = entry;
+    else if (typeof rule === 'number' && entry.from === 'defaults') out[field] = entry;
+    else if (typeof rule === 'number') out[field] = { value: roundLimit(entry.value * rule), from: `${entry.from} ${tag}` };
+    else if (rule[field] !== undefined) out[field] = { value: rule[field], from: `${scale.from} ${tag}` };
+    else out[field] = entry;
+  }
+  if (typeof rule === 'object') {
+    for (const [field, value] of Object.entries(rule)) out[field] ??= { value, from: `${scale.from} ${tag}` };
+  }
+  return out;
+}
+
+export function attributeKinds(tagId, vars, scales) {
+  const [family, ...rest] = tagId.split('-');
+  if (`${family}-` === SCALE_PREFIX) {
+    return [...scales].filter(([id, at]) => at?.from === id && at.config[rest.join('-')] !== undefined).map(([id]) => id);
+  }
+  return vars.attributeKinds?.[family] ?? null;
+}
+
+export function scaleTagOf(model) {
+  const found = (model.tags ?? []).filter((t) => t.startsWith(SCALE_PREFIX));
+  return found.length ? found : null;
+}
+
+export function limitsForModel(model, limits, scales) {
+  const tags = scaleTagOf(model);
+  if (!tags) return { limits };
+  if (tags.length > 1) return { refused: tags.join(' '), why: 'one scale value at most' };
+  const scale = scales?.get(model.kind);
+  const scaled = scaledLimits(limits, tags[0], scale);
+  if (scaled) return { limits: scaled, scale: tags[0] };
+  return { refused: tags[0], why: scale ? `${scale.from} sets no ${tags[0]}` : 'kind sets no scale' };
+}
+
+const median = (values) => {
+  const s = [...values].sort((a, b) => a - b);
+  const n = s.length;
+  return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2;
+};
+
+const rangeOf = (limits) => {
+  for (const m of SIZE_MEASURES) {
+    const lo = limits?.[`${m}.min`];
+    const hi = limits?.[`${m}.max`];
+    if (lo && hi && lo.from !== 'defaults' && hi.from !== 'defaults') return { measure: m, lo: lo.value, hi: hi.value };
+  }
+  return null;
+};
+
+export function buildKitScales(models, { vars, limits: kindLimits, scales }) {
+  const byKit = new Map();
+  for (const m of models) {
+    if (!m.kind || isExempt(m, vars) || (m.tags ?? []).some((t) => vars.exemptTags.includes(t))) continue;
+    const range = rangeOf(limitsForModel(m, kindLimits.get(m.kind), scales).limits);
+    const value = range && (range.measure === 'high' ? m.wdh[2] : Math.max(...m.wdh));
+    if (!(value > 0)) continue;
+    const group = `${m.kind} ${scaleTagOf(m)?.join(' ') ?? ''}`;
+    const kit = byKit.get(m.kit) ?? { groups: new Map(), kinds: new Set() };
+    kit.groups.set(group, [...(kit.groups.get(group) ?? []), Math.log(value / Math.sqrt(range.lo * range.hi))]);
+    kit.kinds.add(m.kind);
+    byKit.set(m.kit, kit);
+  }
+  const out = new Map();
+  for (const [slug, { groups, kinds }] of byKit) {
+    if (kinds.size < vars.kit.minKinds) continue;
+    const factor = Math.round(Math.exp(median([...groups.values()].map(median))) * 100) / 100;
+    const off = Math.abs(Math.log(factor));
+    const level = off > Math.log(vars.kit.error) + EPSILON ? 'error' : off > Math.log(vars.kit.warn) + EPSILON ? 'warning' : undefined;
+    out.set(slug, { factor, kinds: kinds.size, level });
+  }
+  return out;
 }
 
 export function buildKindFields(kinds) {
@@ -232,6 +344,7 @@ export function matchTerm(term, model, materialIds, vars) {
       return op === ':' ? mats.some((m) => idUnder(m, value)) : mats.includes(value);
     }
     case 'tag': return (model.tags ?? []).includes(value);
+    case 'attr': return (model.tags ?? []).includes(value);
     case 'size': return model.size === value;
     default: return NUMERIC_OPS[op](fieldOf(model, key, materialIds, vars), Number(value));
   }
@@ -280,7 +393,11 @@ export function measureFindingsFor(subject, rows, materialIds, vars, kindFields)
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
 const CHECK_TEXT = {
-  size: (f) => `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`,
+  size: (f) => (f.measure === 'kit'
+    ? `kit ${f.value} off the size curve (${f.from})`
+    : f.measure === 'scale'
+    ? `${f.value} not on ${f.limit} (${f.from})`
+    : `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`),
   mat: (f) => `${f.family} needs ${f.required}, has ${f.present} (${f.from})`,
   palette: (f) => `${f.material} wants ${f.wants}, has ${f.has}`,
   bands: (f) => `${f.material} wants ${f.wants}, has ${f.has} (${f.from})`,
@@ -301,6 +418,7 @@ export function buildChecks({ vars, kinds, materials, measures }) {
     vars,
     materialIds,
     limits: buildLimits(kinds),
+    scales: buildScales(kinds),
     mat: buildMaterialRules(kinds),
     palettes: buildPalettes(materials, vars),
     bands: buildKindBands(kinds),
@@ -318,7 +436,11 @@ export function checkModel(model, checks) {
   };
 
   if (model.kind) {
-    if (!isExempt(model, vars)) push('size', null, findingsFor(model, checks.limits.get(model.kind), vars));
+    if (!isExempt(model, vars)) {
+      const kit = checks.kitScales?.get(model.kit);
+      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales, kit));
+      if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${model.kit}, ${kit.kinds} kinds` }]);
+    }
     if (!exempt('mat')) {
       push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));
     }
@@ -340,8 +462,11 @@ export function checkModel(model, checks) {
   return { lint: found.length ? found : undefined, mark: mark.length ? mark : undefined };
 }
 
-export function findingsFor(model, limits, vars) {
+export function findingsFor(model, kindLimits, vars, scales, kitScale) {
   const out = [];
+  const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
+  if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
+  const factor = kitScale?.factor ?? 1;
   const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
   const tags = model.tags ?? [];
   for (const [field, { value: limit, from }] of Object.entries(limits ?? {})) {
@@ -349,11 +474,13 @@ export function findingsFor(model, limits, vars) {
     const value = measures[measure];
     if (value === null || value === undefined) continue;
     if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
-    const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
+    const byKit = factor !== 1 && measure !== 'tpu' && from !== 'defaults';
+    const compared = byKit ? Math.round((value / factor) * 1000) / 1000 : value;
+    const deviation = bound === 'min' ? (limit - compared) / limit : (compared - limit) / limit;
     if (deviation <= EPSILON) continue;
     out.push({
       level: deviation <= vars.warnBand + EPSILON ? 'warning' : 'error',
-      measure, value, bound, limit, from,
+      measure, value, bound, limit, from: byKit ? `${from} · ${compared} at kit ×${factor}` : from,
     });
   }
   return out;

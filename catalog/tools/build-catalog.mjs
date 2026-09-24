@@ -7,7 +7,7 @@ import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs'
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
-import { buildChecks, checkModel } from '../../lint/rules.mjs';
+import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -629,6 +629,56 @@ const catalog = {
   models,
 };
 
+const rows = models.map((m) => {
+  const row = {
+    kit: m.kit,
+    name: m.name,
+    kind: m.kind,
+    size: m.size,
+    wdh: m.wdh.map(round1),
+    tris: m.triangles,
+    tpu: m.trianglesPerUnit,
+    mat: m.materials,
+    bands: m.bands,
+    calls: m.calls,
+    bytes: m.bytes,
+    vtx: m.vertices,
+    gridMod: m.isGridModular || undefined,
+    grounded: m.isGrounded || undefined,
+    centered: m.pivotIsCenter || undefined,
+    minEdge: round(m.minEdgeLength, 4),
+    avgTri: round(m.averageTriangleArea, 5),
+    anglePct: Math.round(m.strictAnglePercent),
+    vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
+    grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
+    spread: m.laneSpread ?? undefined,
+    colors: m.colors.length ? m.colors : undefined,
+    tags: m.tags,
+    anim: m.animations,
+    alpha: m.alpha || undefined,
+    pbr: m.pbr || undefined,
+    variant: m.variant,
+  };
+  return row;
+});
+LINT_CHECKS.kitScales = buildKitScales(rows.map((row, i) => ({ ...row, wdh: models[i].wdh })), LINT_CHECKS);
+const kitCheckOf = (slug) => {
+  const k = LINT_CHECKS.kitScales.get(slug);
+  return k && { factor: k.factor, kinds: k.kinds, level: k.level };
+};
+const scaledLimitKeys = () => {
+  const out = {};
+  for (const [kind, scale] of LINT_CHECKS.scales) {
+    if (!scale) continue;
+    for (const value of Object.keys(scale.config)) {
+      const tag = `${SCALE_PREFIX}${value}`;
+      const { limits } = limitsForModel({ kind, tags: [tag] }, LINT_CHECKS.limits.get(kind), LINT_CHECKS.scales);
+      if (limits) out[`${kind} ${tag}`] = Object.fromEntries(Object.entries(limits).map(([field, { value: v }]) => [field, v]));
+    }
+  }
+  return out;
+};
+
 const output = {
   kits: kits.map((k) => ({
     slug: k.slug, name: k.name, url: k.url, note: k.note,
@@ -639,6 +689,7 @@ const output = {
     origins: k.origins,
     scales: k.scales,
     smooth: k.smooth,
+    kitCheck: kitCheckOf(k.slug),
   })),
   variants: variants.groups,
   bands: BANDS,
@@ -646,44 +697,14 @@ const output = {
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
     ...(t.color ? { color: t.color } : {}),
+    ...(t.type === 'attribute' ? { kinds: attributeKinds(t.id, LINT_CHECKS.vars, LINT_CHECKS.scales) ?? undefined } : {}),
   })),
   byLongest: [...new Set(models.map((m) => m.kind).filter(Boolean))].sort().filter(byLongest),
   limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()
     .map((kind) => [kind, Object.fromEntries(
       Object.entries(LINT_CHECKS.limits.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
-    )])),
-  models: models.map((m) => {
-    const row = {
-      kit: m.kit,
-      name: m.name,
-      kind: m.kind,
-      size: m.size,
-      wdh: m.wdh.map(round1),
-      tris: m.triangles,
-      tpu: m.trianglesPerUnit,
-      mat: m.materials,
-      bands: m.bands,
-      calls: m.calls,
-      bytes: m.bytes,
-      vtx: m.vertices,
-      gridMod: m.isGridModular || undefined,
-      grounded: m.isGrounded || undefined,
-      centered: m.pivotIsCenter || undefined,
-      minEdge: round(m.minEdgeLength, 4),
-      avgTri: round(m.averageTriangleArea, 5),
-      anglePct: Math.round(m.strictAnglePercent),
-      vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
-      grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
-      spread: m.laneSpread ?? undefined,
-      colors: m.colors.length ? m.colors : undefined,
-      tags: m.tags,
-      anim: m.animations,
-      alpha: m.alpha || undefined,
-      pbr: m.pbr || undefined,
-      variant: m.variant,
-    };
-    return { ...row, ...checkModel(row, LINT_CHECKS) };
-  }),
+    )]).concat(Object.entries(scaledLimitKeys()))),
+  models: rows.map((row) => ({ ...row, ...checkModel(row, LINT_CHECKS) })),
 };
 
 writeFileSync(join(BUILD_DIR, 'catalog.json'), JSON.stringify(output, stripNull, 1) + '\n');

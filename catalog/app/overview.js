@@ -66,6 +66,9 @@ function kitRows() {
       angleTitle: breakdown(angles, (k) => `${k}°`),
       slope: fit?.slope ?? null,
       scatter: fit?.scatter ?? null,
+      kitSize: kit.kitCheck?.factor ?? null,
+      kitSizeLevel: kit.kitCheck?.level ?? null,
+      kitSizeKinds: kit.kitCheck?.kinds ?? null,
     };
   });
 }
@@ -83,6 +86,8 @@ const KIT_COLUMNS = [
   { key: 'angle', label: 'Angle °', num: true, cell: (r) => (r.angle === null ? DASH : r.angle + extra(r.angleRest, r.angleTitle)) },
   { key: 'slope', label: 'Slope', num: true, cell: (r) => (r.slope === null ? DASH : r.slope.toFixed(2)) },
   { key: 'scatter', label: 'Scatter', num: true, cell: (r) => (r.scatter === null ? DASH : r.scatter.toFixed(2)) },
+  { key: 'kitSize', label: 'Kit size', num: true, cell: (r) => (r.kitSize === null ? DASH
+    : `<span title="median over ${r.kitSizeKinds} kinds">×${r.kitSize.toFixed(2)}</span>${r.kitSizeLevel ? ` <span class="extra">${r.kitSizeLevel}</span>` : ''}`) },
 ];
 
 function sortableTable(table, columns, rows, initial) {
@@ -160,8 +165,18 @@ function rulesByKind() {
 }
 
 const OWN_SKIP = new Set(['id', 'nouns', 'children', 'high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max', ...KIND_FIELDS]);
+const scaleRule = (value) => {
+  if (typeof value === 'number') return `×${value}`;
+  const fields = Object.entries(value);
+  if (!fields.length) return 'no limits yet';
+  const measures = [...new Set(fields.map(([f]) => f.split('.')[0]))];
+  return measures.map((m) => `${m} ${value[`${m}.min`] ?? '…'}–${value[`${m}.max`] ?? '…'}`).join(', ');
+};
+
 const ownRules = (node) => Object.entries(node).filter(([k]) => !OWN_SKIP.has(k)).map(([k, v]) => {
   if (k === 'has') return `has ${v.map((alt) => (Array.isArray(alt) ? alt.join(' | ') : alt)).join(' & ')}`;
+  if (k === 'scale') return `scale ${Object.entries(v).map(([name, rule]) => `${name} ${scaleRule(rule)}`).join(', ')}`;
+  if (k === 'defaults') return `defaults ${Object.entries(v).map(([field, value]) => `${field} ${value}`).join(', ')}`;
   return `${k} ${Array.isArray(v) ? v.join(', ') : v}`;
 });
 
@@ -218,7 +233,9 @@ function tpuCell(limits, id) {
 function curveCell(c) {
   if (!c) return DASH;
   if (!c.curve) return `No <span class="extra">${esc(c.reason)}</span>`;
-  const size = c.storeys ? 'storeys' : `${c.real} m${c.high ? ' high' : ''}`;
+  const scale = c.scale ? Object.entries(c.scale).map(([k, v]) => `${k} ${v} m`).join(', ') : '';
+  const base = c.real === undefined ? '' : `${c.real} m`;
+  const size = c.storeys ? 'storeys' : `${[base, scale].filter(Boolean).join(' · ')}${c.high ? ' high' : ''}`;
   return `Yes <span class="extra">${size}</span>`;
 }
 
