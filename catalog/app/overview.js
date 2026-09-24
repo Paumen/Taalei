@@ -165,8 +165,17 @@ function rulesByKind() {
 }
 
 const OWN_SKIP = new Set(['id', 'nouns', 'children', 'high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max', ...KIND_FIELDS]);
+const scaleRule = (value) => {
+  if (typeof value === 'number') return `×${value}`;
+  const fields = Object.entries(value);
+  if (!fields.length) return 'no limits yet';
+  const measures = [...new Set(fields.map(([f]) => f.split('.')[0]))];
+  return measures.map((m) => `${m} ${value[`${m}.min`] ?? '…'}–${value[`${m}.max`] ?? '…'}`).join(', ');
+};
+
 const ownRules = (node) => Object.entries(node).filter(([k]) => !OWN_SKIP.has(k)).map(([k, v]) => {
   if (k === 'has') return `has ${v.map((alt) => (Array.isArray(alt) ? alt.join(' | ') : alt)).join(' & ')}`;
+  if (k === 'scale') return `scale ${Object.entries(v).map(([name, rule]) => `${name} ${scaleRule(rule)}`).join(', ')}`;
   return `${k} ${Array.isArray(v) ? v.join(', ') : v}`;
 });
 
