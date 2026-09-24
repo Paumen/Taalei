@@ -481,11 +481,20 @@
          "longest.min": 0.1,
          "longest.max": 0.35,
          "nouns": [
-          "ladle",
           "rice paddle",
           "wooden paddle"
          ],
          "children": [
+          {
+           "id": "obj-kitchenware-cookware-utensil-spoon",
+           "longest.min": 0.1,
+           "longest.max": 0.4,
+           "nouns": [
+            "wooden spoon",
+            "cooking spoon",
+            "ladle"
+           ]
+          },
           {
            "id": "obj-kitchenware-cookware-utensil-spatula",
            "longest.min": 0.15,
@@ -526,10 +535,26 @@
       },
       {
        "id": "obj-kitchenware-appliance",
-       "nouns": [
-        "blender"
-       ],
        "children": [
+        {
+         "id": "obj-kitchenware-appliance-blender",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "blender",
+          "food processor"
+         ]
+        },
+        {
+         "id": "obj-kitchenware-appliance-extractor",
+         "longest.min": 0.3,
+         "longest.max": 0.7,
+         "nouns": [
+          "extractor hood",
+          "range hood",
+          "cooker hood"
+         ]
+        },
         {
          "id": "obj-kitchenware-appliance-fridge",
          "longest.min": 0.4,
@@ -1482,9 +1507,7 @@
       "chestnut"
      ],
      "nouns": [
-      "saddle",
-      "balloon",
-      "airplane"
+      "saddle"
      ],
      "children": [
       {
@@ -1600,6 +1623,16 @@
         "tram",
         "railway carriage",
         "freight wagon"
+       ]
+      },
+      {
+       "id": "obj-transport-air",
+       "nouns": [
+        "airplane",
+        "plane",
+        "airliner",
+        "balloon",
+        "hot-air balloon"
        ]
       }
      ]
