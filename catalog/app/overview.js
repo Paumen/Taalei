@@ -218,7 +218,9 @@ function tpuCell(limits, id) {
 function curveCell(c) {
   if (!c) return DASH;
   if (!c.curve) return `No <span class="extra">${esc(c.reason)}</span>`;
-  const size = c.storeys ? 'storeys' : `${c.real} m${c.high ? ' high' : ''}`;
+  const scale = c.scale ? Object.entries(c.scale).map(([k, v]) => `${k} ${v} m`).join(', ') : '';
+  const base = c.real === undefined ? '' : `${c.real} m`;
+  const size = c.storeys ? 'storeys' : `${[base, scale].filter(Boolean).join(' · ')}${c.high ? ' high' : ''}`;
   return `Yes <span class="extra">${size}</span>`;
 }
 

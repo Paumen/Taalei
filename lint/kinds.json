@@ -1841,13 +1841,11 @@
        ],
        "children": [
         {
-         "id": "str-part-floor-unit"
-        },
-        {
-         "id": "str-part-floor-half"
-        },
-        {
-         "id": "str-part-floor-double"
+         "id": "str-part-floor-unit",
+         "scale": {
+          "small": 0.5,
+          "big": 2
+         }
         }
        ]
       },
@@ -2131,22 +2129,16 @@
        ],
        "children": [
         {
-         "id": "str-barrier-fence-high",
-         "nouns": [
-          "high fence"
-         ]
-        },
-        {
          "id": "str-barrier-fence-mid",
          "nouns": [
-          "mid fence"
-         ]
-        },
-        {
-         "id": "str-barrier-fence-low",
-         "nouns": [
-          "low fence"
-         ]
+          "mid fence",
+          "low fence",
+          "high fence"
+         ],
+         "scale": {
+          "small": 0.5,
+          "big": 2
+         }
         }
        ]
       },
@@ -2196,22 +2188,14 @@
       {
        "id": "str-access-ladder",
        "nouns": [
-        "ladder"
+        "ladder",
+        "short ladder",
+        "long ladder"
        ],
-       "children": [
-        {
-         "id": "str-access-ladder-short",
-         "nouns": [
-          "short ladder"
-         ]
-        },
-        {
-         "id": "str-access-ladder-long",
-         "nouns": [
-          "long ladder"
-         ]
-        }
-       ]
+       "scale": {
+        "small": {},
+        "big": {}
+       }
       },
       {
        "id": "str-access-bridge",
@@ -2279,11 +2263,9 @@
         "flag",
         "pennant"
        ],
-       "children": [
-        {
-         "id": "str-marker-flag-small"
-        }
-       ]
+       "scale": {
+        "small": 0.5
+       }
       },
       {
        "id": "str-marker-grave",
@@ -2643,14 +2625,10 @@
           "cactus",
           "succulent"
          ],
-         "children": [
-          {
-           "id": "env-flora-plant-cactus-low"
-          },
-          {
-           "id": "env-flora-plant-cactus-high"
-          }
-         ]
+         "scale": {
+          "small": {},
+          "big": {}
+         }
         },
         {
          "id": "env-flora-plant-flower",

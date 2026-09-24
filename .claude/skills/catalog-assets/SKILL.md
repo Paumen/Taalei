@@ -99,6 +99,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   subtype; the tag editor drops the other one when either is picked.
 - **attribute** — at most one value per attribute. `storeys-0-5` … `storeys-5`
   on a `kind:str-building` model whose storeys read; none when they do not.
+  `scale-small` or `scale-big` only on a kind that sets `scale` in
+  `lint/kinds.json`, for a clearly smaller or bigger version of it.
 - **use** — zero or more of the eight `use:` tags.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
   `robin-hood`, `asia`, `grave`, `sailing`. A new theme is worth opening

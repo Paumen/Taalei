@@ -14,7 +14,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
 | `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, etc.) | open |
-| `F11` | `attribute` | a property read off the model in steps (`storeys`) | closed, **at most one per attribute** |
+| `F11` | `attribute` | a property read off the model in steps (`storeys`, `scale`) | closed, **at most one per attribute** |
 
 **[F05] Term.** A term is one of:
 
@@ -147,6 +147,8 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is often held to several measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
+A `scale-small` or `scale-big` model is held to its kind's `scale` in `lint/kinds.json`: a number multiplies the kind's own limits, not the `defaults`; an object gives the limits for that value. A kind without `scale` refuses both.
+
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
 Run `node lint/size.mjs`.
@@ -188,9 +190,10 @@ What a model *is*, before any material or colour question.
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
 | `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; a building whose storeys do not read carries none |
 | `T08` | `*` | — | `kind` | is | a node holding at least 4 models, unless the split it makes is significant and clear |
-| `T09` | a variant split on size or shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
+| `T09` | a variant split on shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
 | `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |
 | `T11` | a model reading as two or more kinds from different nodes | — | `kind` | is | `set` |
+| `T12` | a kind with `scale` in `lint/kinds.json` | — | `scale` | is | `scale-small` for a clearly smaller version (half, low, short, small), `scale-big` for a clearly bigger one (double, high, long, tall); none for the regular size. Size is an attribute, never a kind split |
 
 - **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 

@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=2a9114fab6';
+import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=d30c94065a';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -167,7 +167,7 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
       pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
     { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null,
       pick: (id) => { expanded.add(id); setMaterial(model, id, tagsById); } },
-    { label: 'Storeys', of: (t) => t.type === 'attribute',
+    { label: 'Attributes', of: (t) => t.type === 'attribute',
       pick: (id) => setAttribute(model, id, tagsById) },
     { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
     { label: 'Theme', of: (t) => t.type === 'theme' },
