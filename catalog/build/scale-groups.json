@@ -668,81 +668,6 @@
   ]
  },
  {
-  "slug": "obj-lighting",
-  "name": "Object › Lighting",
-  "category": "obj-gen",
-  "limits": {
-   "high.min": 0.1,
-   "high.max": 1.2,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "ken-furniture",
-    "model": "ceiling-fan",
-    "wdh": [
-     0.4,
-     0.45,
-     0.1
-    ],
-    "tags": [
-     "emissive",
-     "ken",
-     "metal-iron-steel",
-     "tba",
-     "wood-worked"
-    ],
-    "colors": [
-     "#88848a",
-     "#b58158",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-holiday",
-    "model": "lights-colored",
-    "wdh": [
-     0.5,
-     0.03,
-     0.15
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "forge",
-    "wdh": [
-     0.45,
-     0.45,
-     0.35
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-cast",
-     "metal-iron-wrought",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-resource-textile",
   "name": "Object › Resource › Textile",
   "category": "obj-gen",
@@ -1279,6 +1204,103 @@
     ],
     "colors": [
      "#d07b56"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-lighting",
+  "name": "Object › Lighting",
+  "category": "obj-gen",
+  "limits": {
+   "high.min": 0.1,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-furniture",
+    "model": "ceiling-fan-anim",
+    "wdh": [
+     0.4,
+     0.45,
+     0.1
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "emissive",
+     "ken",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "ceiling-fan",
+    "wdh": [
+     0.4,
+     0.45,
+     0.1
+    ],
+    "tags": [
+     "emissive",
+     "ken",
+     "metal-iron-steel",
+     "tba",
+     "wood-worked"
+    ],
+    "colors": [
+     "#88848a",
+     "#b58158",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-holiday",
+    "model": "lights-colored",
+    "wdh": [
+     0.5,
+     0.03,
+     0.15
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "forge",
+    "wdh": [
+     0.45,
+     0.45,
+     0.35
+    ],
+    "tags": [
+     "asia",
+     "metal-iron-cast",
+     "metal-iron-wrought",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#8b7561"
     ]
    }
   ]
@@ -13483,369 +13505,6 @@
   ]
  },
  {
-  "slug": "obj-kitchenware-appliance",
-  "name": "Object › Kitchenware › Appliance",
-  "category": "obj-gen",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 0.5,
-   "longest.min": 0.05,
-   "longest.max": 10,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "cooking-assets",
-    "model": "blender",
-    "wdh": [
-     0.2,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "glass",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "food-processor",
-    "wdh": [
-     0.15,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "rice-cooker",
-    "wdh": [
-     0.45,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "cooking-assets",
-    "model": "toaster-oven",
-    "wdh": [
-     0.4,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "glass",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "coffee-machine",
-    "wdh": [
-     0.3,
-     0.35,
-     0.45
-    ],
-    "tags": [
-     "ceramic",
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "model": "stand-mixer",
-    "wdh": [
-     0.35,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "ceramic",
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "tba"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "model": "extractor-hood",
-    "wdh": [
-     0.65,
-     0.5,
-     0.65
-    ],
-    "tags": [
-     "isa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "model": "extractor-hood",
-    "wdh": [
-     0.4,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "wood-stove",
-    "wdh": [
-     0.35,
-     0.35,
-     0.8
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-cast",
-     "metal-iron-wrought",
-     "tba"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "hood-large",
-    "wdh": [
-     0.35,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "hood-modern",
-    "wdh": [
-     0.35,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-blender",
-    "wdh": [
-     0.1,
-     0.09,
-     0.2
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-coffee-machine",
-    "wdh": [
-     0.15,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "ceramic",
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-microwave",
-    "wdh": [
-     0.25,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-market",
-    "model": "freezer-chest",
-    "wdh": [
-     0.8,
-     0.6,
-     0.35
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-furniture",
-    "model": "extractor-hood",
-    "wdh": [
-     0.3,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "styloo-furniture",
-    "model": "washing-machine",
-    "wdh": [
-     0.35,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "blender",
-    "wdh": [
-     0.15,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "glass",
-     "plastic"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "toaster",
-    "wdh": [
-     0.15,
-     0.09,
-     0.1
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-resource-metal",
   "name": "Object › Resource › Metal",
   "category": "obj-gen",
@@ -14910,6 +14569,391 @@
     ],
     "colors": [
      "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-kitchenware-appliance",
+  "name": "Object › Kitchenware › Appliance",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "cooking-assets",
+    "model": "blender",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "food-processor",
+    "wdh": [
+     0.15,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "rice-cooker",
+    "wdh": [
+     0.45,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "cooking-assets",
+    "model": "toaster-oven",
+    "wdh": [
+     0.4,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "coffee-machine",
+    "wdh": [
+     0.3,
+     0.35,
+     0.45
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "stand-mixer-anim",
+    "wdh": [
+     0.35,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "model": "stand-mixer",
+    "wdh": [
+     0.35,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "ceramic",
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "tba"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "model": "extractor-hood",
+    "wdh": [
+     0.65,
+     0.5,
+     0.65
+    ],
+    "tags": [
+     "isa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "model": "extractor-hood",
+    "wdh": [
+     0.4,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "wood-stove",
+    "wdh": [
+     0.35,
+     0.35,
+     0.8
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-cast",
+     "metal-iron-wrought",
+     "tba"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "hood-large",
+    "wdh": [
+     0.35,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "hood-modern",
+    "wdh": [
+     0.35,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-blender",
+    "wdh": [
+     0.1,
+     0.09,
+     0.2
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-coffee-machine",
+    "wdh": [
+     0.15,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-microwave",
+    "wdh": [
+     0.25,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-market",
+    "model": "freezer-chest",
+    "wdh": [
+     0.8,
+     0.6,
+     0.35
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "extractor-hood",
+    "wdh": [
+     0.3,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "washing-machine",
+    "wdh": [
+     0.35,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "blender",
+    "wdh": [
+     0.15,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "glass",
+     "plastic"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "toaster",
+    "wdh": [
+     0.15,
+     0.09,
+     0.1
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a"
     ]
    }
   ]
@@ -29012,6 +29056,52 @@
    },
    {
     "slug": "styloo-planes",
+    "model": "plane-azer-anim",
+    "wdh": [
+     1.25,
+     0.8,
+     0.3
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
+    "model": "plane-azer-hunter-anim",
+    "wdh": [
+     1.25,
+     0.8,
+     0.3
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#23562c",
+     "#5b5550",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
     "model": "plane-azer-hunter",
     "wdh": [
      1.25,
@@ -29092,6 +29182,52 @@
    },
    {
     "slug": "styloo-planes",
+    "model": "plane-sty-anim",
+    "wdh": [
+     1.25,
+     1.1,
+     0.25
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
+    "model": "plane-sty-b-anim",
+    "wdh": [
+     1.25,
+     1.1,
+     0.4
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
     "model": "plane-sty-b",
     "wdh": [
      1.25,
@@ -29108,6 +29244,29 @@
      "#1367a6",
      "#5b5550",
      "#7f3927",
+     "#88848a",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
+    "model": "plane-sty-hunter-anim",
+    "wdh": [
+     1.25,
+     1.1,
+     0.25
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#23562c",
+     "#5b5550",
      "#88848a",
      "#d8d1bd"
     ]
@@ -29158,6 +29317,29 @@
    },
    {
     "slug": "styloo-planes",
+    "model": "plane-stylized-amber-anim",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
     "model": "plane-stylized-amber",
     "wdh": [
      0.65,
@@ -29176,6 +29358,51 @@
      "#7f3927",
      "#88848a",
      "#f2a93c"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
+    "model": "plane-stylized-anim",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#23562c",
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "styloo-planes",
+    "model": "plane-stylized-sienna-anim",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "glass",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#7f3927",
+     "#88848a"
     ]
    },
    {
@@ -29398,6 +29625,28 @@
     ],
     "colors": [
      "#8b5936"
+    ]
+   },
+   {
+    "slug": "ken-water",
+    "model": "boat-fan-anim",
+    "wdh": [
+     0.55,
+     0.85,
+     0.65
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ken",
+     "metal",
+     "plastic",
+     "sailing"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#f2a93c"
     ]
    },
    {
@@ -32625,132 +32874,6 @@
   ]
  },
  {
-  "slug": "obj-tool-station",
-  "name": "Object › Tool › Station",
-  "category": "obj-equip",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 1.2,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-tools",
-    "model": "anvil",
-    "wdh": [
-     0.5,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "kay-tools",
-    "model": "grindstone",
-    "wdh": [
-     0.6,
-     0.7,
-     0.45
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "hero",
-     "kay",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "robin-hood",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "workbench-grind",
-    "wdh": [
-     0.35,
-     0.45,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "anvil",
-    "wdh": [
-     0.65,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "grinder",
-    "wdh": [
-     0.5,
-     0.6,
-     0.5
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "metal-iron-steel",
-     "stone-rock",
-     "tba",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "small-props",
-    "model": "anvil-b",
-    "wdh": [
-     0.35,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-equipment-target-bullseye",
   "name": "Object › Equipment › Target › Bullseye",
   "category": "obj-equip",
@@ -33323,6 +33446,154 @@
      "#88848a",
      "#8b5936",
      "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-tool-station",
+  "name": "Object › Tool › Station",
+  "category": "obj-equip",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-tools",
+    "model": "anvil",
+    "wdh": [
+     0.5,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "kay-tools",
+    "model": "grindstone",
+    "wdh": [
+     0.6,
+     0.7,
+     0.45
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "hero",
+     "kay",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "robin-hood",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "workbench-grind",
+    "wdh": [
+     0.35,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "anvil",
+    "wdh": [
+     0.65,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "grinder-anim",
+    "wdh": [
+     0.5,
+     0.6,
+     0.5
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "grinder",
+    "wdh": [
+     0.5,
+     0.6,
+     0.5
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "stone-rock",
+     "tba",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "small-props",
+    "model": "anvil-b",
+    "wdh": [
+     0.35,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#88848a"
     ]
    }
   ]
@@ -39517,146 +39788,6 @@
   ]
  },
  {
-  "slug": "str",
-  "name": "Structure",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "architecture",
-    "model": "ferris-wheel",
-    "wdh": [
-     3,
-     0.6,
-     3.4
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "tba",
-     "textile"
-    ],
-    "colors": [
-     "#343745",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-apocalyp",
-    "model": "fire-hydrant",
-    "wdh": [
-     0.25,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "metal"
-    ],
-    "colors": [
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "model": "mine",
-    "wdh": [
-     2.9,
-     3.4,
-     1.5
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-cast",
-     "stone-rock",
-     "stone-soil",
-     "wood-bark",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#563b2b",
-     "#88848a",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "model": "mine",
-    "wdh": [
-     2.75,
-     3.25,
-     1.95
-    ],
-    "tags": [
-     "kay",
-     "liquid",
-     "stone-masonry",
-     "stone-rock",
-     "textile",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "fire-hydrant",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-cast"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "mine",
-    "wdh": [
-     2.85,
-     3,
-     2.55
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "qua",
-     "stone-masonry",
-     "wood-bark",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#563b2b",
-     "#88848a",
-     "#8b5936",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-building-agricultural-silo",
   "name": "Structure › Building › Agricultural › Silo",
   "category": "str-gen",
@@ -40048,6 +40179,167 @@
     "colors": [
      "#8b5936",
      "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str",
+  "name": "Structure",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "architecture",
+    "model": "ferris-wheel-anim",
+    "wdh": [
+     3,
+     0.6,
+     3.4
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "metal-iron-cast",
+     "stone-masonry",
+     "textile"
+    ],
+    "colors": [
+     "#343745",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "architecture",
+    "model": "ferris-wheel",
+    "wdh": [
+     3,
+     0.6,
+     3.4
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "tba",
+     "textile"
+    ],
+    "colors": [
+     "#343745",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-apocalyp",
+    "model": "fire-hydrant",
+    "wdh": [
+     0.25,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "metal"
+    ],
+    "colors": [
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "mine",
+    "wdh": [
+     2.9,
+     3.4,
+     1.5
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-cast",
+     "stone-rock",
+     "stone-soil",
+     "wood-bark",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#563b2b",
+     "#88848a",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "mine",
+    "wdh": [
+     2.75,
+     3.25,
+     1.95
+    ],
+    "tags": [
+     "kay",
+     "liquid",
+     "stone-masonry",
+     "stone-rock",
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "fire-hydrant",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-cast"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "mine",
+    "wdh": [
+     2.85,
+     3,
+     2.55
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "qua",
+     "stone-masonry",
+     "wood-bark",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#563b2b",
+     "#88848a",
+     "#8b5936",
+     "#dbae80"
     ]
    }
   ]
@@ -40963,174 +41255,6 @@
   ]
  },
  {
-  "slug": "str-utility-fountain",
-  "name": "Structure › Utility › Fountain",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "isa-park",
-    "model": "fountain",
-    "wdh": [
-     1.3,
-     1.3,
-     0.5
-    ],
-    "tags": [
-     "isa",
-     "liquid",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "fountain-round-detail",
-    "wdh": [
-     1.8,
-     1.8,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "liquid",
-     "special",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "fountain-round",
-    "wdh": [
-     1.8,
-     1.8,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "liquid",
-     "special",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "fountain-square-detail",
-    "wdh": [
-     1.8,
-     1.8,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "liquid",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "fountain-square",
-    "wdh": [
-     1.8,
-     1.8,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "liquid",
-     "special",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "well",
-    "wdh": [
-     0.75,
-     1.1,
-     1.4
-    ],
-    "tags": [
-     "ceramic",
-     "hero",
-     "qua",
-     "rope",
-     "stone-masonry",
-     "tba",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "town-center-2-a",
-    "wdh": [
-     4.1,
-     4.1,
-     2.8
-    ],
-    "tags": [
-     "liquid",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#88848a"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "town-center-2-c",
-    "wdh": [
-     4.1,
-     4.1,
-     2.8
-    ],
-    "tags": [
-     "foliage",
-     "liquid",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#1367a6",
-     "#68872d",
-     "#88848a"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-barrier-fence-high",
   "name": "Structure › Barrier › Fence › High",
   "category": "str-gen",
@@ -41479,8 +41603,8 @@
   ]
  },
  {
-  "slug": "str-utility-well",
-  "name": "Structure › Utility › Well",
+  "slug": "str-utility-fountain",
+  "name": "Structure › Utility › Fountain",
   "category": "str-gen",
   "limits": {
    "high.max": 8,
@@ -41490,177 +41614,182 @@
   },
   "items": [
    {
-    "slug": "fs-town",
-    "model": "well-a",
+    "slug": "isa-park",
+    "model": "fountain",
     "wdh": [
-     0.6,
-     0.5,
-     0.7
+     1.3,
+     1.3,
+     0.5
+    ],
+    "tags": [
+     "isa",
+     "liquid",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "fountain-round-detail",
+    "wdh": [
+     1.8,
+     1.8,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "liquid",
+     "special",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "fountain-round",
+    "wdh": [
+     1.8,
+     1.8,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "liquid",
+     "special",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "fountain-square-detail",
+    "wdh": [
+     1.8,
+     1.8,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "liquid",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "fountain-square",
+    "wdh": [
+     1.8,
+     1.8,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "liquid",
+     "special",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#1367a6",
+     "#88848a"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "well-anim",
+    "wdh": [
+     0.75,
+     1.1,
+     1.4
     ],
     "tags": [
      "animation",
      "animation",
      "ceramic",
      "hero",
+     "qua",
      "rope",
      "stone-masonry",
-     "wood-beam",
-     "wood-planks"
+     "wood-beam"
     ],
     "colors": [
      "#7f3927",
      "#8b5936",
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "well-base-cobblestone",
-    "wdh": [
-     0.45,
-     0.45,
-     0.1
-    ],
-    "tags": [
-     "comp",
-     "stone-masonry"
-    ],
-    "colors": [
      "#8b7561"
     ]
    },
    {
-    "slug": "fs-town",
-    "model": "well-base-dirt",
-    "wdh": [
-     0.45,
-     0.45,
-     0.09
-    ],
-    "tags": [
-     "comp",
-     "stone-soil"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "well-base-grass",
-    "wdh": [
-     0.45,
-     0.45,
-     0.09
-    ],
-    "tags": [
-     "comp",
-     "foliage"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "well-inside",
-    "wdh": [
-     0.3,
-     0.3,
-     0.45
-    ],
-    "tags": [
-     "comp",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "kay-builder",
+    "slug": "quat-medieval",
     "model": "well",
     "wdh": [
-     1.2,
-     1.55,
-     1.3
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "liquid",
-     "stone-masonry",
-     "stone-soil",
-     "tba",
-     "wood-beam"
-    ],
-    "colors": [
-     "#1367a6",
-     "#7f3927",
-     "#88848a",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "model": "well",
-    "wdh": [
+     0.75,
      1.1,
-     1.3,
      1.4
     ],
     "tags": [
      "ceramic",
-     "kay",
-     "liquid",
+     "hero",
+     "qua",
+     "rope",
      "stone-masonry",
      "tba",
-     "wood-beam",
-     "wood-worked"
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "town-center-2-a",
+    "wdh": [
+     4.1,
+     4.1,
+     2.8
+    ],
+    "tags": [
+     "liquid",
+     "qua",
+     "stone-masonry"
     ],
     "colors": [
      "#1367a6",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#b58158"
+     "#88848a"
     ]
    },
    {
-    "slug": "lpa-desert",
-    "model": "well",
+    "slug": "quat-town",
+    "model": "town-center-2-c",
     "wdh": [
-     0.65,
-     0.65,
-     0.65
+     4.1,
+     4.1,
+     2.8
     ],
     "tags": [
-     "stone-masonry",
-     "wood-beam"
+     "foliage",
+     "liquid",
+     "qua",
+     "stone-masonry"
     ],
     "colors": [
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "well",
-    "wdh": [
-     0.7,
-     0.75,
-     0.3
-    ],
-    "tags": [
-     "asia",
-     "stone-masonry",
-     "wizp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561"
+     "#1367a6",
+     "#68872d",
+     "#88848a"
     ]
    }
   ]
@@ -42754,6 +42883,244 @@
      "#8b7561",
      "#b58158",
      "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-utility-well",
+  "name": "Structure › Utility › Well",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-town",
+    "model": "well-a",
+    "wdh": [
+     0.6,
+     0.5,
+     0.7
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "hero",
+     "rope",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "well-base-cobblestone",
+    "wdh": [
+     0.45,
+     0.45,
+     0.1
+    ],
+    "tags": [
+     "comp",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "well-base-dirt",
+    "wdh": [
+     0.45,
+     0.45,
+     0.09
+    ],
+    "tags": [
+     "comp",
+     "stone-soil"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "well-base-grass",
+    "wdh": [
+     0.45,
+     0.45,
+     0.09
+    ],
+    "tags": [
+     "comp",
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "well-inside",
+    "wdh": [
+     0.3,
+     0.3,
+     0.45
+    ],
+    "tags": [
+     "comp",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "well-anim",
+    "wdh": [
+     1.2,
+     1.55,
+     1.3
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "kay",
+     "liquid",
+     "stone-masonry",
+     "stone-soil",
+     "wood-beam"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "well",
+    "wdh": [
+     1.2,
+     1.55,
+     1.3
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "liquid",
+     "stone-masonry",
+     "stone-soil",
+     "tba",
+     "wood-beam"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#88848a",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "well-anim",
+    "wdh": [
+     1.1,
+     1.3,
+     1.4
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "kay",
+     "liquid",
+     "stone-masonry",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "well",
+    "wdh": [
+     1.1,
+     1.3,
+     1.4
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "liquid",
+     "stone-masonry",
+     "tba",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "well",
+    "wdh": [
+     0.65,
+     0.65,
+     0.65
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "well",
+    "wdh": [
+     0.7,
+     0.75,
+     0.3
+    ],
+    "tags": [
+     "asia",
+     "stone-masonry",
+     "wizp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561"
     ]
    }
   ]
@@ -44622,6 +44989,27 @@
   "items": [
    {
     "slug": "isa-playground",
+    "model": "merry-go-round-anim",
+    "wdh": [
+     1.3,
+     1.3,
+     0.8
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "isa",
+     "metal",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "isa-playground",
     "model": "merry-go-round",
     "wdh": [
      1.3,
@@ -46378,576 +46766,6 @@
   ]
  },
  {
-  "slug": "str-building-industrial-mill",
-  "name": "Structure › Building › Industrial › Mill",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-brace-double",
-    "wdh": [
-     0.45,
-     0.05,
-     0.45
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-brace",
-    "wdh": [
-     0.45,
-     0.02,
-     0.45
-    ],
-    "tags": [
-     "comp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-curved",
-    "wdh": [
-     0.35,
-     0.35,
-     0.1
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-end",
-    "wdh": [
-     0.35,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-ramp-supported",
-    "wdh": [
-     0.45,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-ramp",
-    "wdh": [
-     0.45,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel-flume-straight",
-    "wdh": [
-     0.45,
-     0.25,
-     0.1
-    ],
-    "tags": [
-     "comp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "waterwheel",
-    "wdh": [
-     0.7,
-     2,
-     2
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "comp",
-     "hero",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "model": "windmill-blades",
-    "wdh": [
-     0.45,
-     3.15,
-     3.15
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "comp",
-     "hero",
-     "textile",
-     "wood-planks"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "model": "mill",
-    "wdh": [
-     3.05,
-     3,
-     3.55
-    ],
-    "tags": [
-     "kay",
-     "stone-masonry",
-     "stone-soil",
-     "storeys-4",
-     "tba",
-     "textile",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "model": "watermill",
-    "wdh": [
-     2.75,
-     2.55,
-     2.9
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "stone-masonry",
-     "storeys-2",
-     "tba",
-     "textile",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "model": "watermill",
-    "wdh": [
-     1.8,
-     2.1,
-     2.65
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "stone-masonry",
-     "storeys-3",
-     "tba",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "model": "windmill",
-    "wdh": [
-     1.9,
-     1.4,
-     2.5
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "stone-masonry",
-     "storeys-3",
-     "tba",
-     "textile",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "blade",
-    "wdh": [
-     0.1,
-     0.4,
-     1.8
-    ],
-    "tags": [
-     "comp",
-     "ken",
-     "wood-planks"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "watermill-wide",
-    "wdh": [
-     0.95,
-     1.6,
-     1.6
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "comp",
-     "ken",
-     "metal-iron-cast",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "watermill",
-    "wdh": [
-     0.75,
-     1.6,
-     1.6
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "comp",
-     "ken",
-     "metal-iron-cast",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "model": "windmill",
-    "wdh": [
-     0.4,
-     2.8,
-     2.8
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "comp",
-     "hero",
-     "ken",
-     "textile",
-     "wood-planks"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-farms",
-    "model": "windmill",
-    "wdh": [
-     2.4,
-     1.5,
-     3.4
-    ],
-    "tags": [
-     "ceramic",
-     "qua",
-     "stone-masonry",
-     "storeys-4",
-     "tba",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#8b7561",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "mill",
-    "wdh": [
-     3.75,
-     3,
-     5.3
-    ],
-    "tags": [
-     "ceramic",
-     "foliage",
-     "glass",
-     "hero",
-     "qua",
-     "stone-masonry",
-     "storeys-4",
-     "tba",
-     "textile",
-     "wood-beam"
-    ],
-    "colors": [
-     "#68872d",
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "windmill-1",
-    "wdh": [
-     2.95,
-     1.45,
-     4.2
-    ],
-    "tags": [
-     "qua",
-     "storeys-4",
-     "tba",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#23562c",
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "model": "windmill-2",
-    "wdh": [
-     2.95,
-     2.05,
-     3.55
-    ],
-    "tags": [
-     "ceramic",
-     "qua",
-     "stone-masonry",
-     "storeys-3",
-     "tba",
-     "textile",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#88848a",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill-large",
-    "wdh": [
-     2.25,
-     1.65,
-     3.25
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "metal-iron-cast",
-     "stone-masonry",
-     "storeys-3",
-     "tba",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill-small",
-    "wdh": [
-     1.5,
-     1.55,
-     2.05
-    ],
-    "tags": [
-     "stone-masonry",
-     "tba",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill",
-    "wdh": [
-     1.6,
-     1.9,
-     2.6
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "storeys-1",
-     "tba",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "model": "waterwheel",
-    "wdh": [
-     1,
-     1.5,
-     1.5
-    ],
-    "tags": [
-     "asia",
-     "comp",
-     "tba",
-     "wizp",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "model": "windmill",
-    "wdh": [
-     2,
-     1.35,
-     2.9
-    ],
-    "tags": [
-     "ceramic",
-     "stone-masonry",
-     "storeys-3",
-     "tba",
-     "textile",
-     "wizp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#8b5936",
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-access-stairs",
   "name": "Structure › Access › Stairs",
   "category": "str-gen",
@@ -48195,6 +48013,829 @@
     ],
     "colors": [
      "#88848a"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-industrial-mill",
+  "name": "Structure › Building › Industrial › Mill",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-brace-double",
+    "wdh": [
+     0.45,
+     0.05,
+     0.45
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-brace",
+    "wdh": [
+     0.45,
+     0.02,
+     0.45
+    ],
+    "tags": [
+     "comp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-curved",
+    "wdh": [
+     0.35,
+     0.35,
+     0.1
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-end",
+    "wdh": [
+     0.35,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-ramp-supported",
+    "wdh": [
+     0.45,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-ramp",
+    "wdh": [
+     0.45,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel-flume-straight",
+    "wdh": [
+     0.45,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "comp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "waterwheel",
+    "wdh": [
+     0.7,
+     2,
+     2
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "comp",
+     "hero",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "model": "windmill-blades",
+    "wdh": [
+     0.45,
+     3.15,
+     3.15
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "comp",
+     "hero",
+     "textile",
+     "wood-planks"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "mill-anim",
+    "wdh": [
+     3.05,
+     3,
+     3.55
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "kay",
+     "stone-masonry",
+     "stone-soil",
+     "storeys-4",
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "mill",
+    "wdh": [
+     3.05,
+     3,
+     3.55
+    ],
+    "tags": [
+     "kay",
+     "stone-masonry",
+     "stone-soil",
+     "storeys-4",
+     "tba",
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "watermill-anim",
+    "wdh": [
+     2.75,
+     2.55,
+     2.9
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-2",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "model": "watermill",
+    "wdh": [
+     2.75,
+     2.55,
+     2.9
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-2",
+     "tba",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "watermill-anim",
+    "wdh": [
+     1.8,
+     2.1,
+     2.65
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-3",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "watermill",
+    "wdh": [
+     1.8,
+     2.1,
+     2.65
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-3",
+     "tba",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "windmill-anim",
+    "wdh": [
+     1.9,
+     1.4,
+     2.5
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-3",
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "model": "windmill",
+    "wdh": [
+     1.9,
+     1.4,
+     2.5
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "stone-masonry",
+     "storeys-3",
+     "tba",
+     "textile",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "blade",
+    "wdh": [
+     0.1,
+     0.4,
+     1.8
+    ],
+    "tags": [
+     "comp",
+     "ken",
+     "wood-planks"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "watermill-wide",
+    "wdh": [
+     0.95,
+     1.6,
+     1.6
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "comp",
+     "ken",
+     "metal-iron-cast",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "watermill",
+    "wdh": [
+     0.75,
+     1.6,
+     1.6
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "comp",
+     "ken",
+     "metal-iron-cast",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "model": "windmill",
+    "wdh": [
+     0.4,
+     2.8,
+     2.8
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "comp",
+     "hero",
+     "ken",
+     "textile",
+     "wood-planks"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-farms",
+    "model": "windmill-anim",
+    "wdh": [
+     2.4,
+     1.5,
+     3.4
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "qua",
+     "stone-masonry",
+     "storeys-4",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-farms",
+    "model": "windmill",
+    "wdh": [
+     2.4,
+     1.5,
+     3.4
+    ],
+    "tags": [
+     "ceramic",
+     "qua",
+     "stone-masonry",
+     "storeys-4",
+     "tba",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#8b7561",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "mill",
+    "wdh": [
+     3.75,
+     3,
+     5.3
+    ],
+    "tags": [
+     "ceramic",
+     "foliage",
+     "glass",
+     "hero",
+     "qua",
+     "stone-masonry",
+     "storeys-4",
+     "tba",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#68872d",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "windmill-1",
+    "wdh": [
+     2.95,
+     1.45,
+     4.2
+    ],
+    "tags": [
+     "qua",
+     "storeys-4",
+     "tba",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#23562c",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "model": "windmill-2",
+    "wdh": [
+     2.95,
+     2.05,
+     3.55
+    ],
+    "tags": [
+     "ceramic",
+     "qua",
+     "stone-masonry",
+     "storeys-3",
+     "tba",
+     "textile",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#88848a",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-anim",
+    "wdh": [
+     1.6,
+     1.9,
+     2.6
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "metal-iron-cast",
+     "stone-masonry",
+     "storeys-1",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-large-anim",
+    "wdh": [
+     2.25,
+     1.65,
+     3.25
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "glass",
+     "metal-iron-cast",
+     "stone-masonry",
+     "storeys-3",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-large",
+    "wdh": [
+     2.25,
+     1.65,
+     3.25
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "metal-iron-cast",
+     "stone-masonry",
+     "storeys-3",
+     "tba",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd",
+     "#ffffff"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-small-anim",
+    "wdh": [
+     1.5,
+     1.55,
+     2.05
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "stone-masonry",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-small",
+    "wdh": [
+     1.5,
+     1.55,
+     2.05
+    ],
+    "tags": [
+     "stone-masonry",
+     "tba",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill",
+    "wdh": [
+     1.6,
+     1.9,
+     2.6
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "storeys-1",
+     "tba",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "waterwheel-anim",
+    "wdh": [
+     1,
+     1.5,
+     1.5
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "asia",
+     "comp",
+     "wizp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "model": "waterwheel",
+    "wdh": [
+     1,
+     1.5,
+     1.5
+    ],
+    "tags": [
+     "asia",
+     "comp",
+     "tba",
+     "wizp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "model": "windmill-anim",
+    "wdh": [
+     2,
+     1.35,
+     2.9
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "ceramic",
+     "stone-masonry",
+     "storeys-3",
+     "textile",
+     "wizp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "model": "windmill",
+    "wdh": [
+     2,
+     1.35,
+     2.9
+    ],
+    "tags": [
+     "ceramic",
+     "stone-masonry",
+     "storeys-3",
+     "tba",
+     "textile",
+     "wizp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936",
+     "#8b7561",
+     "#d8d1bd"
     ]
    }
   ]
