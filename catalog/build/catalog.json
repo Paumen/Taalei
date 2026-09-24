@@ -136,8 +136,8 @@
     "none": 82
    },
    "kitCheck": {
-    "factor": 1.17,
-    "kinds": 23
+    "factor": 1.16,
+    "kinds": 24
    }
   },
   {
@@ -1084,8 +1084,8 @@
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.22,
-    "kinds": 49
+    "factor": 1.23,
+    "kinds": 50
    }
   },
   {
@@ -2245,7 +2245,7 @@
    },
    "kitCheck": {
     "factor": 0.9,
-    "kinds": 17
+    "kinds": 18
    }
   },
   {
@@ -12908,8 +12908,15 @@
    "id": "obj-kitchenware-cookware-utensil",
    "name": "Utensil",
    "type": "kind",
-   "description": "ladle, rice paddle, wooden paddle",
+   "description": "rice paddle, wooden paddle",
    "count": 46
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-spoon",
+   "name": "Spoon",
+   "type": "kind",
+   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-utensil-knife",
@@ -14931,6 +14938,7 @@
   "obj-kitchenware-cookware-utensil-knife",
   "obj-kitchenware-cookware-utensil-rollingpin",
   "obj-kitchenware-cookware-utensil-spatula",
+  "obj-kitchenware-cookware-utensil-spoon",
   "obj-kitchenware-cookware-utensil-whisk",
   "obj-kitchenware-tableware-cutlery",
   "obj-kitchenware-tableware-cutlery-chopsticks",
@@ -16050,6 +16058,12 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-utensil-spoon": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.4,
    "tpu.max": 5000
   },
   "obj-kitchenware-cookware-utensil-whisk": {
@@ -26501,14 +26515,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware-goblet · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware-goblet · 0.086 at kit ×1.16)"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "cooking-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.09,
@@ -26626,7 +26640,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.171 at kit ×1.17)"
+     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.172 at kit ×1.16)"
     }
    ]
   },
@@ -26671,7 +26685,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.171 at kit ×1.17)"
+     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.172 at kit ×1.16)"
     }
    ]
   },
@@ -26715,7 +26729,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.171 at kit ×1.17)"
+     "text": "longest 0.2 under min 0.2 (obj-kitchenware-cookware-board · 0.172 at kit ×1.16)"
     }
    ]
   },
@@ -26960,7 +26974,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-cookware-utensil · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-cookware-utensil · 0.086 at kit ×1.16)"
     }
    ]
   },
@@ -27004,7 +27018,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.086 at kit ×1.16)"
     }
    ]
   },
@@ -27171,7 +27185,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-a",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.15,
@@ -27214,7 +27228,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-b",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.09,
@@ -27448,7 +27462,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.05 under min 0.05 (obj-kitchenware-tableware-bowl · 0.043 at kit ×1.17)"
+     "text": "high 0.05 under min 0.05 (obj-kitchenware-tableware-bowl · 0.043 at kit ×1.16)"
     }
    ]
   },
@@ -27907,7 +27921,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-serving · 0.128 at kit ×1.17)"
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-serving · 0.129 at kit ×1.16)"
     }
    ]
   },
@@ -27988,7 +28002,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-plate · 0.385 at kit ×1.17)"
+     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-plate · 0.388 at kit ×1.16)"
     }
    ]
   },
@@ -28367,7 +28381,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.086 at kit ×1.16)"
     }
    ]
   },
@@ -28874,7 +28888,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.086 at kit ×1.16)"
     }
    ]
   },
@@ -29192,7 +29206,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.09 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.077 at kit ×1.17)"
+     "text": "longest 0.09 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.078 at kit ×1.16)"
     }
    ]
   },
@@ -29236,7 +29250,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.085 at kit ×1.17)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.086 at kit ×1.16)"
     }
    ]
   },
@@ -29360,7 +29374,7 @@
   {
    "kit": "cooking-assets",
    "name": "wooden-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.04,
@@ -124554,7 +124568,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
     }
    ]
   },
@@ -124644,7 +124658,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
     }
    ]
   },
@@ -127451,7 +127465,7 @@
   {
    "kit": "ken-food",
    "name": "spoon-cooking",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.35,
@@ -127684,7 +127698,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.328 at kit ×1.22)"
+     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.325 at kit ×1.23)"
     }
    ]
   },
@@ -223886,7 +223900,7 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.01,
@@ -225078,7 +225092,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-a",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.03,
@@ -225116,7 +225130,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-b",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.05,
@@ -225154,7 +225168,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-c",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.04,
