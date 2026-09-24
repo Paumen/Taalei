@@ -1540,18 +1540,18 @@
    "note": "Quaternius; source zip carries no licence file.",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 32,
+   "count": 33,
    "packs": [
     "Survival Pack"
    ],
    "origins": {
-    "Survival Pack": 32
+    "Survival Pack": 33
    },
    "scales": {
-    "0.15": 32
+    "0.15": 33
    },
    "smooth": {
-    "60": 31,
+    "60": 32,
     "none": 1
    }
   },
@@ -11152,6 +11152,15 @@
     "quat-medieval/well-anim",
     "quat-medieval/well"
    ]
+  },
+  {
+   "id": "v944",
+   "type": "detail-variant",
+   "main": "quat-survival/compass-anim",
+   "members": [
+    "quat-survival/compass-anim",
+    "quat-survival/compass"
+   ]
   }
  ],
  "bands": [
@@ -11261,7 +11270,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 154,
+   "count": 155,
    "parent": "metal"
   },
   {
@@ -11390,7 +11399,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 211
+   "count": 212
   },
   {
    "id": "bone",
@@ -11489,7 +11498,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2208,
+   "count": 2209,
    "color": "#c07c8a"
   },
   {
@@ -11680,7 +11689,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 365,
+   "count": 366,
    "color": "#6b5b95"
   },
   {
@@ -12224,7 +12233,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 79,
+   "count": 80,
    "color": "#f1976c"
   },
   {
@@ -13445,7 +13454,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries an animation clip. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.",
-   "count": 90
+   "count": 91
   },
   {
    "id": "asia",
@@ -13839,7 +13848,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2119
+   "count": 2120
   },
   {
    "id": "m",
@@ -13874,7 +13883,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 695
+   "count": 696
   },
   {
    "id": "isa",
@@ -13895,7 +13904,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 90
+   "count": 91
   }
  ],
  "byLongest": [
@@ -106482,7 +106491,7 @@
    "mat": 2,
    "bands": 6,
    "calls": 4,
-   "bytes": 139408,
+   "bytes": 168700,
    "vtx": 3960,
    "grounded": true,
    "centered": true,
@@ -106539,7 +106548,13 @@
     "special"
    ],
    "anim": [
-    "open"
+    "open",
+    "settle",
+    "search",
+    "settle-long",
+    "reveal",
+    "hop",
+    "hop-settle"
    ],
    "alpha": true,
    "pbr": true
@@ -106559,7 +106574,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 4,
-   "bytes": 121572,
+   "bytes": 141780,
    "vtx": 3432,
    "minEdge": 0.001,
    "avgTri": 0.00004,
@@ -106584,7 +106599,10 @@
     "sailing"
    ],
    "anim": [
-    "spin"
+    "spin",
+    "spread",
+    "scribe",
+    "walk"
    ],
    "mark": [
     "grounded",
@@ -182709,6 +182727,72 @@
   },
   {
    "kit": "quat-survival",
+   "name": "compass-anim",
+   "kind": "obj-equipment-pocketitem",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.1,
+    0.1
+   ],
+   "tris": 656,
+   "tpu": 1913,
+   "mat": 1,
+   "bands": 4,
+   "calls": 3,
+   "bytes": 63304,
+   "vtx": 640,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "anglePct": 37,
+   "vpt": 0.98,
+   "grad": 0.59,
+   "spread": {
+    "6,0": [
+     0.273,
+     0.875
+    ],
+    "13,3": [
+     0.445,
+     0.445
+    ],
+    "8,0": [
+     0.18,
+     0.734
+    ],
+    "5,2": [
+     0.156,
+     0.711
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "animation",
+    "animation",
+    "metal-gold",
+    "plastic",
+    "qua"
+   ],
+   "anim": [
+    "open",
+    "settle",
+    "search",
+    "settle-long",
+    "reveal",
+    "hop",
+    "hop-settle"
+   ],
+   "variant": "v944"
+  },
+  {
+   "kit": "quat-survival",
    "name": "compass",
    "kind": "obj-equipment-pocketitem",
    "size": "s",
@@ -182760,7 +182844,8 @@
     "plastic",
     "qua",
     "tba"
-   ]
+   ],
+   "variant": "v944"
   },
   {
    "kit": "quat-survival",
