@@ -12703,7 +12703,7 @@
    "name": "On post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
-   "count": 15
+   "count": 13
   },
   {
    "id": "obj-lighting-torch",
@@ -15590,7 +15590,7 @@
   },
   "obj-lighting-lantern": {
    "high.min": 0.2,
-   "high.max": 1.2,
+   "high.max": 2.2,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 5000
@@ -17686,7 +17686,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.6 over max 1.2 (obj-lighting-lantern)"
+     "text": "high 1.6 over max 1.2 (obj-lighting-lantern-onpost)"
     }
    ]
   },
@@ -49701,7 +49701,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.45 over max 1.2 (obj-lighting-lantern)"
+     "text": "high 1.45 over max 1.2 (obj-lighting-lantern-onpost)"
     }
    ]
   },
@@ -63281,14 +63281,7 @@
     "kay",
     "paper"
    ],
-   "variant": "v959",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory, has tan"
-    }
-   ]
+   "variant": "v959"
   },
   {
    "kit": "kay-city",
@@ -65215,7 +65208,7 @@
   {
    "kit": "kay-city",
    "name": "street-light",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern",
    "size": "l",
    "wdh": [
     0.55,
@@ -65254,13 +65247,6 @@
     "emissive",
     "kay",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 1.9 over max 1.2 (obj-lighting-lantern)"
-    }
    ]
   },
   {
@@ -98674,7 +98660,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory, has amber sienna"
+     "text": "paper wants ivory tan, has amber sienna"
     }
    ]
   },
@@ -98727,7 +98713,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory, has amber sienna"
+     "text": "paper wants ivory tan, has amber sienna"
     }
    ]
   },
@@ -126594,7 +126580,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory, has camel"
+     "text": "paper wants ivory tan, has camel"
     }
    ]
   },
@@ -126640,7 +126626,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory, has camel"
+     "text": "paper wants ivory tan, has camel"
     }
    ]
   },
@@ -194117,7 +194103,7 @@
   {
    "kit": "quat-shoot",
    "name": "street-light",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern",
    "size": "l",
    "wdh": [
     0.15,
@@ -194156,13 +194142,6 @@
     "glass",
     "metal-iron-steel",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 2 over max 1.2 (obj-lighting-lantern)"
-    }
    ]
   },
   {
@@ -196019,13 +195998,6 @@
     "paper",
     "qua",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory, has amber tan sienna"
-    }
    ]
   },
   {
