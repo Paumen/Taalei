@@ -29,6 +29,16 @@ export function buildLimits(kinds, fields = LIMIT_FIELDS) {
   };
 
   const measuresOf = (at) => new Set(Object.keys(own.get(at) ?? {}).map(measureOf).filter((m) => SIZE_MEASURES.includes(m)));
+  const localDefaults = new Map();
+  const walkDefaults = (node) => {
+    if (node.defaults) localDefaults.set(node.id, node.defaults);
+    for (const child of node.children ?? []) walkDefaults(child);
+  };
+  for (const root of kinds.kinds) walkDefaults(root);
+  const defaultOf = (chain, field) => {
+    const at = chain.find((id) => localDefaults.get(id)?.[field] !== undefined);
+    return at ? localDefaults.get(at)[field] : kinds.defaults?.[field];
+  };
 
   const limits = new Map();
   for (const id of own.keys()) {
@@ -40,7 +50,7 @@ export function buildLimits(kinds, fields = LIMIT_FIELDS) {
       const other = measures && SIZE_MEASURES.includes(measureOf(field)) && !measures.has(measureOf(field));
       const from = other ? undefined : chain.find((at) => own.get(at)?.[field] !== undefined);
       if (from) out[field] = { value: own.get(from)[field], from };
-      else if (kinds.defaults?.[field] !== undefined) out[field] = { value: kinds.defaults[field], from: 'defaults' };
+      else if (defaultOf(chain, field) !== undefined) out[field] = { value: defaultOf(chain, field), from: 'defaults' };
     }
     limits.set(id, out);
   }
@@ -334,6 +344,7 @@ export function matchTerm(term, model, materialIds, vars) {
       return op === ':' ? mats.some((m) => idUnder(m, value)) : mats.includes(value);
     }
     case 'tag': return (model.tags ?? []).includes(value);
+    case 'attr': return (model.tags ?? []).includes(value);
     case 'size': return model.size === value;
     default: return NUMERIC_OPS[op](fieldOf(model, key, materialIds, vars), Number(value));
   }
@@ -382,7 +393,9 @@ export function measureFindingsFor(subject, rows, materialIds, vars, kindFields)
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
 const CHECK_TEXT = {
-  size: (f) => (f.measure === 'scale'
+  size: (f) => (f.measure === 'kit'
+    ? `kit ${f.value} off the size curve (${f.from})`
+    : f.measure === 'scale'
     ? `${f.value} not on ${f.limit} (${f.from})`
     : `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`),
   mat: (f) => `${f.family} needs ${f.required}, has ${f.present} (${f.from})`,
@@ -424,7 +437,9 @@ export function checkModel(model, checks) {
 
   if (model.kind) {
     if (!isExempt(model, vars)) {
-      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales, checks.kitScales?.get(model.kit)));
+      const kit = checks.kitScales?.get(model.kit);
+      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales, kit));
+      if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${model.kit}, ${kit.kinds} kinds` }]);
     }
     if (!exempt('mat')) {
       push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));
