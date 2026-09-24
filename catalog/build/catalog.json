@@ -11723,7 +11723,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 597,
+   "count": 596,
    "parent": "metal-iron"
   },
   {
@@ -11731,7 +11731,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 290,
+   "count": 291,
    "parent": "metal-iron"
   },
   {
@@ -11739,7 +11739,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 260,
+   "count": 259,
    "parent": "metal-iron"
   },
   {
@@ -11778,7 +11778,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 734,
+   "count": 735,
    "parent": "wood"
   },
   {
@@ -11848,7 +11848,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 483
+   "count": 484
   },
   {
    "id": "leather",
@@ -11869,7 +11869,7 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 498
+   "count": 497
   },
   {
    "id": "plastic",
@@ -41573,13 +41573,13 @@
      0.438,
      0.773
     ],
-    "5,0": [
+    "4,2": [
      0.672,
      0.992
     ]
    },
    "colors": [
-    "#d07b56",
+    "#1367a6",
     "#d8d1bd"
    ],
    "tags": [
@@ -41622,13 +41622,13 @@
      0,
      0.984
     ],
-    "1,1": [
+    "8,0": [
      0.188,
      0.852
     ]
    },
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#b58158",
     "#d8d1bd"
    ],
@@ -42745,13 +42745,13 @@
      0.484,
      0.797
     ],
-    "5,0": [
+    "8,0": [
      0.828,
      0.836
     ]
    },
    "colors": [
-    "#d07b56",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -43001,7 +43001,7 @@
      0.414,
      0.703
     ],
-    "1,1": [
+    "8,0": [
      0.484,
      0.492
     ],
@@ -43011,7 +43011,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -51184,7 +51184,7 @@
      0.43,
      0.594
     ],
-    "5,0": [
+    "6,0": [
      0.383,
      0.648
     ]
@@ -51193,7 +51193,7 @@
     "#1367a6",
     "#5b5550",
     "#88848a",
-    "#d07b56"
+    "#f2a93c"
    ],
    "tags": [
     "isa",
@@ -51585,13 +51585,13 @@
    "vpt": 0.86,
    "grad": 0.5,
    "spread": {
-    "1,1": [
+    "5,2": [
      0.063,
      0.563
     ]
    },
    "colors": [
-    "#23562c"
+    "#d8d1bd"
    ],
    "tags": [
     "glass",
@@ -79351,7 +79351,7 @@
    "tris": 686,
    "tpu": 2000,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 30648,
    "vtx": 785,
@@ -79361,19 +79361,24 @@
    "avgTri": 0.00126,
    "anglePct": 89,
    "vpt": 1.14,
-   "grad": 0.96,
+   "grad": 0.66,
    "spread": {
-    "15,3": [
+    "2,0": [
      0.016,
-     0.977
+     0.227
     ],
     "1,0": [
      0.016,
      0.969
+    ],
+    "15,3": [
+     0.32,
+     0.977
     ]
    },
    "colors": [
     "#88848a",
+    "#8b5936",
     "#b58158"
    ],
    "tags": [
@@ -98764,7 +98769,7 @@
    "tris": 1600,
    "tpu": 4665,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 37912,
    "vtx": 840,
@@ -98774,19 +98779,14 @@
    "avgTri": 0.0003,
    "anglePct": 0,
    "vpt": 0.53,
-   "grad": 0.37,
+   "grad": 0.45,
    "spread": {
-    "4,2": [
+    "5,2": [
      0.344,
      0.797
-    ],
-    "5,2": [
-     0.375,
-     0.617
     ]
    },
    "colors": [
-    "#1367a6",
     "#d8d1bd"
    ],
    "tags": [
@@ -98794,7 +98794,14 @@
     "liquid",
     "plural"
    ],
-   "variant": "v867"
+   "variant": "v867",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "liquid wants sienna hunter azure, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -98809,7 +98816,7 @@
    "tris": 80,
    "tpu": 233,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 3236,
    "vtx": 42,
@@ -98819,26 +98826,28 @@
    "avgTri": 0.0003,
    "anglePct": 0,
    "vpt": 0.53,
-   "grad": 0.37,
+   "grad": 0.45,
    "spread": {
-    "4,2": [
+    "5,2": [
      0.344,
      0.797
-    ],
-    "5,2": [
-     0.375,
-     0.617
     ]
    },
    "colors": [
-    "#1367a6",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
     "liquid"
    ],
-   "variant": "v867"
+   "variant": "v867",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "liquid wants sienna hunter azure, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -112808,7 +112817,7 @@
    "tris": 438,
    "tpu": 894,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 19708,
    "vtx": 488,
@@ -112831,9 +112840,14 @@
     "15,3": [
      0.148,
      0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
     ]
    },
    "colors": [
+    "#1367a6",
     "#343745",
     "#88848a",
     "#d8d1bd"
@@ -112923,7 +112937,7 @@
    "avgTri": 0.00881,
    "anglePct": 65,
    "vpt": 1.19,
-   "grad": 0.53,
+   "grad": 0.58,
    "spread": {
     "15,3": [
      0.148,
@@ -112934,12 +112948,12 @@
      0.75
     ],
     "5,0": [
-     0.164,
+     0.148,
      0.75
     ],
     "6,0": [
      0.148,
-     0.508
+     0.75
     ],
     "5,2": [
      0.375,
@@ -113355,14 +113369,14 @@
    "avgTri": 0.00535,
    "anglePct": 66,
    "vpt": 1.17,
-   "grad": 0.53,
+   "grad": 0.54,
    "spread": {
     "15,3": [
      0.148,
      0.742
     ],
     "6,1": [
-     0.32,
+     0.445,
      0.75
     ],
     "5,2": [
@@ -120853,7 +120867,7 @@
      0.148,
      0.75
     ],
-    "2,0": [
+    "3,0": [
      0.148,
      0.75
     ],
@@ -120864,7 +120878,7 @@
    },
    "colors": [
     "#343745",
-    "#8b5936",
+    "#563b2b",
     "#d8d1bd"
    ],
    "tags": [
@@ -121890,13 +121904,13 @@
    "vpt": 0.62,
    "grad": 0.6,
    "spread": {
-    "1,1": [
+    "5,2": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#23562c"
+    "#d8d1bd"
    ],
    "tags": [
     "glass",
@@ -122744,7 +122758,7 @@
    "vpt": 1.22,
    "grad": 0.41,
    "spread": {
-    "5,0": [
+    "1,0": [
      0.672,
      0.992
     ],
@@ -122755,12 +122769,12 @@
    },
    "colors": [
     "#88848a",
-    "#d07b56"
+    "#b58158"
    ],
    "tags": [
-    "ceramic",
     "ken",
-    "metal-iron-steel"
+    "metal-iron-steel",
+    "wood-worked"
    ]
   },
   {
@@ -124137,7 +124151,7 @@
    "vpt": 1.09,
    "grad": 0,
    "spread": {
-    "6,1": [
+    "4,2": [
      0.492,
      0.492
     ],
@@ -124147,7 +124161,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#1367a6",
     "#d8d1bd"
    ],
    "tags": [
@@ -134045,18 +134059,18 @@
      0.5,
      0.891
     ],
-    "6,1": [
+    "13,3": [
      0.102,
      0.891
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#dbae80"
    ],
    "tags": [
     "ken",
-    "metal-iron-cast",
+    "metal-iron-wrought",
     "wood-planks"
    ],
    "variant": "v527"
@@ -139708,7 +139722,7 @@
    "vpt": 1.34,
    "grad": 0.18,
    "spread": {
-    "1,1": [
+    "8,0": [
      0.031,
      0.211
     ],
@@ -139722,7 +139736,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -176642,13 +176656,13 @@
    "vpt": 1.32,
    "grad": 0.21,
    "spread": {
-    "2,0": [
+    "3,0": [
      0.75,
      0.961
     ]
    },
    "colors": [
-    "#8b5936"
+    "#563b2b"
    ],
    "tags": [
     "food",
@@ -199659,18 +199673,18 @@
      0.148,
      0.75
     ],
-    "15,3": [
+    "8,0": [
      0.148,
      0.742
     ]
    },
    "colors": [
-    "#88848a",
+    "#7f3927",
     "#8b5936"
    ],
    "tags": [
-    "metal-iron-steel",
     "qua",
+    "textile",
     "wood-beam"
    ]
   },
@@ -213530,13 +213544,13 @@
      0.148,
      0.727
     ],
-    "8,0": [
+    "2,0": [
      0.188,
      0.75
     ]
    },
    "colors": [
-    "#7f3927",
+    "#8b5936",
     "#d8d1bd"
    ],
    "tags": [
@@ -214120,13 +214134,13 @@
    "avgTri": 0.00012,
    "anglePct": 50,
    "vpt": 1.3,
-   "grad": 0.6,
+   "grad": 0.43,
    "spread": {
-    "5,2": [
-     0.148,
-     0.75
-    ],
     "8,0": [
+     0.445,
+     0.445
+    ],
+    "5,2": [
      0.148,
      0.75
     ]
