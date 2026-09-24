@@ -137,7 +137,7 @@
    },
    "kitCheck": {
     "factor": 1.16,
-    "kinds": 22
+    "kinds": 24
    }
   },
   {
@@ -330,8 +330,8 @@
     "none": 52
    },
    "kitCheck": {
-    "factor": 1,
-    "kinds": 23
+    "factor": 1.01,
+    "kinds": 24
    }
   },
   {
@@ -624,7 +624,7 @@
    },
    "kitCheck": {
     "factor": 0.89,
-    "kinds": 29
+    "kinds": 30
    }
   },
   {
@@ -1084,8 +1084,8 @@
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.22,
-    "kinds": 49
+    "factor": 1.23,
+    "kinds": 50
    }
   },
   {
@@ -1134,8 +1134,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.91,
-    "kinds": 25
+    "factor": 0.9,
+    "kinds": 27
    }
   },
   {
@@ -1769,8 +1769,8 @@
     "none": 27
    },
    "kitCheck": {
-    "factor": 2.35,
-    "kinds": 6,
+    "factor": 2.22,
+    "kinds": 5,
     "level": "error"
    }
   },
@@ -2141,7 +2141,7 @@
     "none": 28
    },
    "kitCheck": {
-    "factor": 1.28,
+    "factor": 1.26,
     "kinds": 13,
     "level": "warning"
    }
@@ -2170,8 +2170,8 @@
     "none": 96
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 35
+    "factor": 1.06,
+    "kinds": 34
    }
   },
   {
@@ -2219,8 +2219,8 @@
     "60": 20
    },
    "kitCheck": {
-    "factor": 0.85,
-    "kinds": 11
+    "factor": 0.88,
+    "kinds": 12
    }
   },
   {
@@ -2244,8 +2244,8 @@
     "none": 32
    },
    "kitCheck": {
-    "factor": 0.88,
-    "kinds": 16
+    "factor": 0.9,
+    "kinds": 18
    }
   },
   {
@@ -12859,8 +12859,22 @@
    "id": "obj-kitchenware-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender.",
+   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender, extractor hood.",
    "count": 48
+  },
+  {
+   "id": "obj-kitchenware-appliance-extractor",
+   "name": "Extractor",
+   "type": "kind",
+   "description": "Hood that draws cooking fumes away above a stove: extractor hood, range hood.",
+   "count": 5
+  },
+  {
+   "id": "obj-kitchenware-appliance-blender",
+   "name": "Blender",
+   "type": "kind",
+   "description": "Appliance that blends or chops food in a jug or bowl: blender, food processor.",
+   "count": 4
   },
   {
    "id": "obj-kitchenware-appliance-toaster",
@@ -12894,8 +12908,15 @@
    "id": "obj-kitchenware-cookware-utensil",
    "name": "Utensil",
    "type": "kind",
-   "description": "ladle, rice paddle, wooden paddle",
+   "description": "rice paddle, wooden paddle",
    "count": 46
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-spoon",
+   "name": "Spoon",
+   "type": "kind",
+   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-utensil-knife",
@@ -13270,7 +13291,7 @@
    "name": "Rod",
    "type": "kind",
    "description": "Long rod held in both hands: fishing rod.",
-   "count": 4
+   "count": 10
   },
   {
    "id": "obj-tool-twohand-pickaxe",
@@ -13297,7 +13318,7 @@
    "id": "obj-transport",
    "name": "Transport",
    "type": "kind",
-   "description": "saddle, balloon",
+   "description": "saddle",
    "count": 197,
    "color": "#5a7a9c"
   },
@@ -13307,6 +13328,13 @@
    "type": "kind",
    "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
    "count": 22
+  },
+  {
+   "id": "obj-transport-air",
+   "name": "Air",
+   "type": "kind",
+   "description": "Aircraft: airplane, airliner, hot-air balloon.",
+   "count": 24
   },
   {
    "id": "obj-transport-road",
@@ -14894,6 +14922,8 @@
   "obj-furnishing-storage-shelf",
   "obj-household-electronics-arcade",
   "obj-household-electronics-radio",
+  "obj-kitchenware-appliance-blender",
+  "obj-kitchenware-appliance-extractor",
   "obj-kitchenware-appliance-fridge",
   "obj-kitchenware-appliance-oven",
   "obj-kitchenware-appliance-stove",
@@ -14908,6 +14938,7 @@
   "obj-kitchenware-cookware-utensil-knife",
   "obj-kitchenware-cookware-utensil-rollingpin",
   "obj-kitchenware-cookware-utensil-spatula",
+  "obj-kitchenware-cookware-utensil-spoon",
   "obj-kitchenware-cookware-utensil-whisk",
   "obj-kitchenware-tableware-cutlery",
   "obj-kitchenware-tableware-cutlery-chopsticks",
@@ -15933,6 +15964,18 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "obj-kitchenware-appliance-blender": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.45,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-appliance-extractor": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 5000
+  },
   "obj-kitchenware-appliance-fridge": {
    "high.max": 8,
    "longest.min": 0.4,
@@ -16021,6 +16064,12 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-cookware-utensil-spoon": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.4,
    "tpu.max": 5000
   },
   "obj-kitchenware-cookware-utensil-whisk": {
@@ -16275,6 +16324,12 @@
    "high.max": 30,
    "longest.min": 0.35,
    "longest.max": 0.75,
+   "tpu.max": 10000
+  },
+  "obj-transport-air": {
+   "high.max": 30,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-transport-cart": {
@@ -25934,7 +25989,7 @@
   {
    "kit": "cooking-assets",
    "name": "blender",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-blender",
    "size": "s",
    "wdh": [
     0.2,
@@ -26467,7 +26522,7 @@
   {
    "kit": "cooking-assets",
    "name": "cooking-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.09,
@@ -26755,7 +26810,7 @@
   {
    "kit": "cooking-assets",
    "name": "food-processor",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-blender",
    "size": "s",
    "wdh": [
     0.15,
@@ -27130,7 +27185,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-a",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.15,
@@ -27173,7 +27228,7 @@
   {
    "kit": "cooking-assets",
    "name": "ladle-b",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.09,
@@ -29319,7 +29374,7 @@
   {
    "kit": "cooking-assets",
    "name": "wooden-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.04,
@@ -47406,6 +47461,13 @@
    "tags": [
     "ceramic",
     "isa"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.099 at kit ×1.01)"
+    }
    ]
   },
   {
@@ -47445,7 +47507,14 @@
     "ceramic",
     "isa"
    ],
-   "variant": "v625"
+   "variant": "v625",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.099 at kit ×1.01)"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -47775,7 +47844,7 @@
   {
    "kit": "isa-kitchen",
    "name": "extractor-hood",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-extractor",
    "size": "m",
    "wdh": [
     0.6,
@@ -47857,7 +47926,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit)"
+     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.594 at kit ×1.01)"
     }
    ]
   },
@@ -48202,6 +48271,13 @@
    "tags": [
     "isa",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-equipment-apparel-glove · 0.149 at kit ×1.01)"
+    }
    ]
   },
   {
@@ -48503,7 +48579,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-kitchenware-appliance-stove)"
+     "text": "longest 0.6 over max 0.55 (obj-kitchenware-appliance-stove · 0.594 at kit ×1.01)"
     }
    ]
   },
@@ -48840,7 +48916,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.297 at kit ×1.01)"
     }
    ]
   },
@@ -48892,7 +48968,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.297 at kit ×1.01)"
     }
    ]
   },
@@ -81996,7 +82072,7 @@
   {
    "kit": "kay-food",
    "name": "extractor-hood",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-extractor",
    "size": "s",
    "wdh": [
     0.4,
@@ -124518,7 +124594,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
     }
    ]
   },
@@ -124608,7 +124684,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
     }
    ]
   },
@@ -127415,7 +127491,7 @@
   {
    "kit": "ken-food",
    "name": "spoon-cooking",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.35,
@@ -127648,7 +127724,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.328 at kit ×1.22)"
+     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.325 at kit ×1.23)"
     }
    ]
   },
@@ -129093,6 +129169,13 @@
     "ken",
     "textile",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 1.05 (obj-furnishing-bed · 1.056 at kit ×0.9)"
+    }
    ]
   },
   {
@@ -129149,7 +129232,14 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v798"
+   "variant": "v798",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 1.05 (obj-furnishing-bed · 1.056 at kit ×0.9)"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -129205,7 +129295,14 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v798"
+   "variant": "v798",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 1.05 (obj-furnishing-bed · 1.056 at kit ×0.9)"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -129539,7 +129636,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.75 over max 0.8 (obj-furnishing-storage-shelf · 0.824 at kit ×0.91)"
+     "text": "longest 0.75 over max 0.8 (obj-furnishing-storage-shelf · 0.833 at kit ×0.9)"
     }
    ]
   },
@@ -130695,7 +130792,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.85 over max 0.625 (str-part-floor-unit scale-small · 0.934 at kit ×0.91)"
+     "text": "longest 0.85 over max 0.625 (str-part-floor-unit scale-small · 0.944 at kit ×0.9)"
     }
    ]
   },
@@ -130740,7 +130837,7 @@
   {
    "kit": "ken-furniture",
    "name": "hood-large",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-extractor",
    "size": "s",
    "wdh": [
     0.35,
@@ -130779,7 +130876,7 @@
   {
    "kit": "ken-furniture",
    "name": "hood-modern",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-extractor",
    "size": "s",
    "wdh": [
     0.35,
@@ -130913,7 +131010,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-blender",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-blender",
    "size": "s",
    "wdh": [
     0.1,
@@ -133146,7 +133243,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 1.3 (str-access-stairs · 1.648 at kit ×0.91)"
+     "text": "longest 1.5 over max 1.3 (str-access-stairs · 1.667 at kit ×0.9)"
     }
    ]
   },
@@ -133198,7 +133295,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
+     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.722 at kit ×0.9)"
     }
    ]
   },
@@ -133256,7 +133353,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
+     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.722 at kit ×0.9)"
     }
    ]
   },
@@ -133307,7 +133404,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
+     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.722 at kit ×0.9)"
     }
    ]
   },
@@ -134297,7 +134394,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.1 over max 1.2 (str-part-wall-unit · 1.209 at kit ×0.91)"
+     "text": "high 1.1 over max 1.2 (str-part-wall-unit · 1.222 at kit ×0.9)"
     }
    ]
   },
@@ -180637,12 +180734,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.4 (env-fauna-fish · 0.511 at kit ×2.35)"
+     "text": "longest 1.2 over max 0.4 (env-fauna-fish · 0.541 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180696,12 +180793,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.25 over max 0.4 (env-fauna-fish · 0.532 at kit ×2.35)"
+     "text": "longest 1.25 over max 0.4 (env-fauna-fish · 0.563 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180749,14 +180846,14 @@
    "variant": "v882",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.489 at kit ×2.35)"
+     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180809,14 +180906,14 @@
    "variant": "v882",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.489 at kit ×2.35)"
+     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180869,7 +180966,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180928,7 +181025,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -180980,7 +181077,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181039,7 +181136,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181083,14 +181180,9 @@
    "variant": "v877",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.4 under min 0.6 (obj-tool-twohand-rod · 0.596 at kit ×2.35)"
-    },
-    {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181141,14 +181233,14 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-c",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "l",
    "wdh": [
     0.15,
@@ -181192,14 +181284,14 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-d",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "l",
    "wdh": [
     0.15,
@@ -181244,14 +181336,14 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-e",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.1,
@@ -181296,7 +181388,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181355,12 +181447,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.05 over max 0.4 (env-fauna-fish · 0.447 at kit ×2.35)"
+     "text": "longest 1.05 over max 0.4 (env-fauna-fish · 0.473 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181410,12 +181502,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 0.4 (env-fauna-fish · 0.638 at kit ×2.35)"
+     "text": "longest 1.5 over max 0.4 (env-fauna-fish · 0.676 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181475,12 +181567,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.4 over max 0.4 (env-fauna-fish · 0.596 at kit ×2.35)"
+     "text": "longest 1.4 over max 0.4 (env-fauna-fish · 0.631 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181537,7 +181629,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181594,7 +181686,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181646,7 +181738,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181708,7 +181800,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181770,7 +181862,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181822,7 +181914,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181876,12 +181968,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.4 (env-fauna-fish · 0.426 at kit ×2.35)"
+     "text": "longest 1 over max 0.4 (env-fauna-fish · 0.45 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181933,9 +182025,14 @@
    ],
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.9 over max 0.4 (env-fauna-fish · 0.405 at kit ×2.22)"
+    },
+    {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -181985,14 +182082,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2 under min 0.9 (obj-transport-watercraft-boat · 0.851 at kit ×2.35)"
-    },
-    {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -182049,14 +182141,14 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.489 at kit ×2.35)"
+     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -182105,7 +182197,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.35 off the size curve (quat-fishing, 6 kinds)"
+     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -214730,12 +214822,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.3 (obj-tool-station · 0.273 at kit ×1.28)"
+     "text": "longest 0.35 under min 0.3 (obj-tool-station · 0.278 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -214785,7 +214877,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -214835,12 +214927,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-container-bag-sack · 0.117 at kit ×1.28)"
+     "text": "longest 0.15 under min 0.15 (obj-container-bag-sack · 0.119 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -214890,7 +214982,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -214940,7 +215032,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -214986,7 +215078,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215036,7 +215128,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215093,12 +215185,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.156 at kit ×1.28)"
+     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.159 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215152,12 +215244,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.95 over max 1.15 (obj-transport-cart · 1.523 at kit ×1.28)"
+     "text": "longest 1.95 over max 1.15 (obj-transport-cart · 1.548 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ],
    "mark": [
@@ -215210,12 +215302,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-resource-wood-log · 0.234 at kit ×1.28)"
+     "text": "longest 0.3 under min 0.3 (obj-resource-wood-log · 0.238 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215313,7 +215405,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215374,7 +215466,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ],
    "mark": [
@@ -215384,7 +215481,7 @@
   {
    "kit": "small-props",
    "name": "fishing-rod-b",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.09,
@@ -215433,12 +215530,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.4 over max 0.95 (obj-tool-twohand · 1.094 at kit ×1.28)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ],
    "mark": [
@@ -215448,7 +215545,7 @@
   {
    "kit": "small-props",
    "name": "fishing-rod-c",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.09,
@@ -215503,12 +215600,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.4 over max 0.95 (obj-tool-twohand · 1.094 at kit ×1.28)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ],
    "mark": [
@@ -215561,7 +215658,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215687,7 +215784,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215762,7 +215859,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     },
     {
      "level": "error",
@@ -215811,7 +215908,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215866,7 +215963,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215928,12 +216025,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.35 (obj-equipment-target-bullseye · 0.313 at kit ×1.28)"
+     "text": "longest 0.4 under min 0.35 (obj-equipment-target-bullseye · 0.317 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -215995,7 +216092,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -216046,7 +216143,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -216090,12 +216187,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.156 at kit ×1.28)"
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.159 at kit ×1.26)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -216152,7 +216249,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -216215,7 +216312,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -216266,7 +216363,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (small-props, 13 kinds)"
+     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
     }
    ]
   },
@@ -217122,7 +217219,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.943 at kit ×1.06)"
     }
    ]
   },
@@ -217179,7 +217276,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.943 at kit ×1.06)"
     }
    ]
   },
@@ -217688,7 +217785,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
     }
    ]
   },
@@ -217739,7 +217836,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
     }
    ]
   },
@@ -217790,7 +217887,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
     }
    ]
   },
@@ -217841,7 +217938,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
     }
    ]
   },
@@ -217977,7 +218074,7 @@
   {
    "kit": "styloo-farm",
    "name": "fishing-rod-hunter",
-   "kind": "obj-tool-twohand",
+   "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.6,
@@ -218025,9 +218122,9 @@
    "variant": "v543",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 0.95 (obj-tool-twohand · 1.215 at kit ×1.07)"
+     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.226 at kit ×1.06)"
     }
    ]
   },
@@ -218084,7 +218181,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.215 at kit ×1.07)"
+     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.226 at kit ×1.06)"
     }
    ]
   },
@@ -218260,7 +218357,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.374 at kit ×1.07)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.377 at kit ×1.06)"
     }
    ]
   },
@@ -218380,7 +218477,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.425 at kit ×1.06)"
     }
    ]
   },
@@ -218425,7 +218522,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.33 at kit ×1.06)"
     },
     {
      "level": "error",
@@ -218512,7 +218609,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.33 at kit ×1.06)"
     }
    ]
   },
@@ -219163,7 +219260,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (env-rock-cobble · 0.14 at kit ×1.07)"
+     "text": "longest 0.15 under min 0.15 (env-rock-cobble · 0.142 at kit ×1.06)"
     }
    ]
   },
@@ -223242,7 +223339,7 @@
   {
    "kit": "styloo-furniture",
    "name": "extractor-hood",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-extractor",
    "size": "s",
    "wdh": [
     0.3,
@@ -223449,7 +223546,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.06 under min 0.1 (obj-container-pot-jar · 0.071 at kit ×0.85)"
+     "text": "longest 0.06 under min 0.1 (obj-container-pot-jar · 0.068 at kit ×0.88)"
     }
    ]
   },
@@ -223584,7 +223681,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 over max 0.8 (obj-furnishing-storage-shelf · 0.941 at kit ×0.85)"
+     "text": "longest 0.8 over max 0.8 (obj-furnishing-storage-shelf · 0.909 at kit ×0.88)"
     }
    ]
   },
@@ -223628,7 +223725,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.114 at kit ×0.88)"
     }
    ]
   },
@@ -223677,7 +223774,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-container-trashcan · 0.235 at kit ×0.85)"
+     "text": "longest 0.2 under min 0.25 (obj-container-trashcan · 0.227 at kit ×0.88)"
     }
    ]
   },
@@ -223844,7 +223941,7 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.01,
@@ -224005,7 +224102,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "blender",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-blender",
    "size": "s",
    "wdh": [
     0.15,
@@ -224214,13 +224311,6 @@
    ],
    "tags": [
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 over max 0.5 (obj-kitchenware-cookware-board · 0.511 at kit ×0.88)"
-    }
    ]
   },
   {
@@ -224501,9 +224591,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.114 at kit ×0.88)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.111 at kit ×0.9)"
     }
    ]
   },
@@ -225043,7 +225133,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-a",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.03,
@@ -225081,7 +225171,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-b",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.05,
@@ -225119,7 +225209,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-c",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.04,
@@ -225194,7 +225284,7 @@
   {
    "kit": "styloo-planes",
    "name": "airliner",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     10.25,
@@ -225247,7 +225337,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-animal-b",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     1.85,
@@ -225291,7 +225381,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-animal",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     1.85,
@@ -225335,7 +225425,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-azer-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225400,7 +225490,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-azer-hunter-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225465,7 +225555,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-azer-hunter",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225526,7 +225616,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-azer",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225587,7 +225677,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-helice-b",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.4,
@@ -225636,7 +225726,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-helice",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.4,
@@ -225685,7 +225775,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225750,7 +225840,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225815,7 +225905,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225876,7 +225966,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-hunter-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -225941,7 +226031,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-hunter",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -226002,7 +226092,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     2.5,
@@ -226063,7 +226153,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-amber-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -226135,7 +226225,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-amber",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -226203,7 +226293,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -226275,7 +226365,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-sienna-anim",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -226342,7 +226432,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-sienna",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -226405,7 +226495,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "m",
    "wdh": [
     1.3,
@@ -227267,7 +227357,7 @@
   {
    "kit": "taalei-kit",
    "name": "balloon-basket-round",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     3,
@@ -227337,7 +227427,7 @@
   {
    "kit": "taalei-kit",
    "name": "balloon-basket-square",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     3,
@@ -227407,7 +227497,7 @@
   {
    "kit": "taalei-kit",
    "name": "balloon",
-   "kind": "obj-transport",
+   "kind": "obj-transport-air",
    "size": "l",
    "wdh": [
     3,
