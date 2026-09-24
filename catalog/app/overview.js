@@ -66,6 +66,9 @@ function kitRows() {
       angleTitle: breakdown(angles, (k) => `${k}°`),
       slope: fit?.slope ?? null,
       scatter: fit?.scatter ?? null,
+      kitSize: kit.kitCheck?.factor ?? null,
+      kitSizeLevel: kit.kitCheck?.level ?? null,
+      kitSizeKinds: kit.kitCheck?.kinds ?? null,
     };
   });
 }
@@ -83,6 +86,8 @@ const KIT_COLUMNS = [
   { key: 'angle', label: 'Angle °', num: true, cell: (r) => (r.angle === null ? DASH : r.angle + extra(r.angleRest, r.angleTitle)) },
   { key: 'slope', label: 'Slope', num: true, cell: (r) => (r.slope === null ? DASH : r.slope.toFixed(2)) },
   { key: 'scatter', label: 'Scatter', num: true, cell: (r) => (r.scatter === null ? DASH : r.scatter.toFixed(2)) },
+  { key: 'kitSize', label: 'Kit size', num: true, cell: (r) => (r.kitSize === null ? DASH
+    : `<span title="median over ${r.kitSizeKinds} kinds">×${r.kitSize.toFixed(2)}</span>${r.kitSizeLevel ? ` <span class="extra">${r.kitSizeLevel}</span>` : ''}`) },
 ];
 
 function sortableTable(table, columns, rows, initial) {
