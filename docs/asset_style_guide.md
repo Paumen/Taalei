@@ -14,7 +14,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
 | `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, etc.) | open |
-| `F11` | `attribute` | a property read off the model in steps (`storeys`) | closed, **at most one per attribute** |
+| `F11` | `attribute` | a property read off the model in steps (`storeys`, `scale`) | closed, **at most one per attribute** |
 
 **[F05] Term.** A term is one of:
 
@@ -35,7 +35,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `scale`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -62,11 +62,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 **[F10] Rules that live in the JSON.** Five checks read their rows from `lint/*.json` rather than from a table here: measures (§2.2) from `lint/measures.json`, and four tree checks from `lint/kinds.json` and `lint/materials.json`: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). A measures row carries its own `when` and `except` terms. The tree checks read the same way:
 
-- **Inheritance.** A field set on a kind or a material holds for everything under it. Where a chain sets the same field more than once, only the deepest is read (`F08` rule 3) — this is how a palm takes `moss` where the trees above it take `hunter`. Fields naming different materials all apply at once. `has` is the exception: every `has` entry down the chain holds.
+- **Inheritance.** A field set on a kind or a material holds for everything under it. Where a chain sets the same field more than once, only the deepest is read (`F08` rule 3) — this is how a palm takes `moss` where the trees above it take `hunter`. Fields naming different materials all apply at once. `has` is one exception: every `has` entry down the chain holds. Size limits are the other: a kind takes limits of one measure only (§2.3).
 - **Coverage.** Bands are recorded per model, not per material, so a band row passes when the model shows at least one band from the list. A list admitting `transparent` holds no band and is not checked.
 - **Exemptions** live in `lint/variables.json`, per check.
 - **Each check reads only its own rows**, so §5.1 and §5.2 never widen or fault each other.
-- **In the catalogue.** All five run in the catalogue build as well as from the command line. A finding shows as the ⚠ glyph on the card, as a row under Lint in the model panel, under the Lint and Check filters, and in the lint swipe. The measures rows named under `mark` in `lint/variables.json` show instead as their own value, bold and red, in the model panel.
+- **In the catalogue.** All five run in the catalogue build as well as from the command line. A finding shows as the ⚠ glyph on the card, as a row under Lint in the model panel, under the Lint and Check filters, and in the lint swipe. A kit size (§2.3) past `kit.warn` shows as a size finding on each model of the kit, and in the overview's Kit size column. The measures rows named under `mark` in `lint/variables.json` show instead as their own value, bold and red, in the model panel.
 
 **Definitions**
 
@@ -143,9 +143,13 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 ### 2.3 Size and budget
 
-`kind:set` is exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
+`kind:set`, `kind:str-building-commercial-skyscraper`, `kind:str-building-military-castle` and `kind:str-platform-deck` are exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken`, `tag:pickup` and `tag:piece` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
 
-Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is often held to several measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
+Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. A kind can also set `defaults` of its own, which replace the global ones for everything under it: `obj-transport` raises `high.max` to 30. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is held to one measure, `high` or `longest`: the nearest kind in its chain that sets either decides which. Limits of that measure inherit per `F10`; limits of the other come only from `defaults`.
+
+A kit with models in at least `kit.minKinds` kinds that have their own min and max gets a kit size: the median, over those kinds (small and big versions counted apart), of how far its models sit from the middle of their range. Past `kit.warn` either way is a warning, past `kit.error` an error, both in `lint/variables.json`. Each model is then held to its kind's own limits after dividing by its kit size; `defaults` apply to its size as it is. A kit at the wrong scale shows as one kit line on each of its models instead of a size finding against every range, and a size finding names both the model's size and the size it reads at its kit size.
+
+A `scale-small` or `scale-big` model is held to its kind's `scale` in `lint/kinds.json`: a number multiplies the kind's own `high` and `longest` limits, not `tpu.max` or the `defaults`; an object gives the limits for that value. A kind refuses a value its `scale` does not set, and both values when it has no `scale`. `attributeKinds` in `lint/variables.json` names the kinds each other attribute is offered on: `storeys` on `str-building`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
@@ -188,9 +192,10 @@ What a model *is*, before any material or colour question.
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
 | `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; a building whose storeys do not read carries none |
 | `T08` | `*` | — | `kind` | is | a node holding at least 4 models, unless the split it makes is significant and clear |
-| `T09` | a variant split on size or shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
+| `T09` | a variant split on shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
 | `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |
 | `T11` | a model reading as two or more kinds from different nodes | — | `kind` | is | `set` |
+| `T12` | a kind with `scale` in `lint/kinds.json` | — | `scale` | is | `scale-small` for a clearly smaller version (half, low, short, small), `scale-big` for a clearly bigger one (double, high, long, tall); none for the regular size. A new split on size is an attribute, not a kind |
 
 - **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 

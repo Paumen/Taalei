@@ -2,16 +2,16 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readKindTree } from './kinds.mjs';
+import { isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 
 const SIZES = {
   'char': 1.7,
 
   'env-flora-plant-bamboo': 4,
   'env-flora-plant-bush': 1.2,
-  'env-flora-plant-cactus-high': 1.5,
-  'env-flora-plant-cactus-low': 0.3,
   'env-flora-plant-flower': 0.3,
   'env-flora-plant-grass': 0.4,
   'env-flora-plant-leafy': 0.6,
@@ -167,11 +167,7 @@ const SIZES = {
 
   'str-access-bridge-long': 12,
   'str-access-bridge-section': 4,
-  'str-access-ladder-long': 4,
-  'str-access-ladder-short': 2,
   'str-access-stairs': 3,
-  'str-barrier-fence-high': 2,
-  'str-barrier-fence-low': 0.6,
   'str-barrier-fence-mid': 1.2,
   'str-barrier-post': 1.2,
   'str-building-agricultural': 7.5,
@@ -190,15 +186,12 @@ const SIZES = {
   'str-canopy-tent-camping': 2.5,
   'str-marker-banner': 2,
   'str-marker-flag': 1.5,
-  'str-marker-flag-small': 0.75,
   'str-marker-grave': 1,
   'str-marker-sign': 2,
   'str-part-door': 2.1,
   'str-part-door-doorway': 3,
   'str-part-door-single': 2.1,
   'str-part-door-trapdoor': 1,
-  'str-part-floor-double': 6,
-  'str-part-floor-half': 1.5,
   'str-part-floor-unit': 3,
   'str-part-frame': 2.5,
   'str-part-frame-scaffold': 3,
@@ -222,8 +215,6 @@ const HIGH = new Set([
   'obj-furnishing-seating-bench-nobackrest',
   'obj-furnishing-table',
   'obj-furnishing-table-square',
-  'str-barrier-fence-high',
-  'str-barrier-fence-low',
   'str-barrier-fence-mid',
   'str-part-wall-rampart',
 ]);
@@ -259,7 +250,15 @@ const DROPPED_KINDS = [
   'str-platform-deck',
 ];
 
-const DROPPED_TAGS = ['plural', 'broken', 'comp', 'pickup', 'piece'];
+const SCALE_SIZES = {
+  'env-flora-plant-cactus': { small: 0.3, big: 1.5 },
+  'str-access-ladder': { small: 2, big: 4 },
+  'str-barrier-fence-mid': { small: 0.6, big: 2 },
+  'str-marker-flag': { small: 0.75 },
+  'str-part-floor-unit': { small: 1.5, big: 6 },
+};
+
+const DROPPED_TAGS = VARS.exemptTags;
 
 const STOREYS = {
   'storeys-0-5': 0.5,
@@ -312,13 +311,14 @@ const realOf = (model) => {
     const flat = SIZES[model.kind];
     return flat === undefined ? null : { real: flat, high: true };
   }
-  const real = SIZES[model.kind];
+  const scale = scaleTagOf(model)?.[0]?.slice(SCALE_PREFIX.length);
+  const real = scale ? SCALE_SIZES[model.kind]?.[scale] : SIZES[model.kind];
   if (real === undefined) return null;
-  return { real, high: HIGH.has(model.kind) };
+  return { real, high: HIGH.has(model.kind), group: scale ? `${model.kind} ${SCALE_PREFIX}${scale}` : model.kind };
 };
 
 const counted = (model) => {
-  if (DROPPED_KINDS.includes(model.kind)) return false;
+  if (DROPPED_KINDS.includes(model.kind) || isExempt(model, VARS)) return false;
   if (model.kind !== 'char' && model.kind !== 'env-fungi' && depth(model.kind) < 3) return false;
   if ((model.tags ?? []).some((t) => DROPPED_TAGS.includes(t))) return false;
   return true;
@@ -334,7 +334,7 @@ const gather = () => {
     const u = assumed.high ? model.wdh[2] : Math.max(...model.wdh);
     if (!(u > 0)) continue;
     picked.push({
-      kit: model.kit, name: model.name, kind: model.kind, wdh: model.wdh.join(','),
+      kit: model.kit, name: model.name, kind: assumed.group ?? model.kind, wdh: model.wdh.join(','),
       u, real: assumed.real, high: assumed.high,
     });
   }
@@ -402,17 +402,18 @@ const build = (models, weighted) => {
 const models = gather();
 const payload = { weighted: build(models, true), plain: build(models, false) };
 
-const sizeRows = Object.entries(SIZES)
+const sizeRows = [...Object.entries(SIZES), ...Object.entries(SCALE_SIZES)
+  .flatMap(([kind, by]) => Object.entries(by).map(([scale, real]) => [`${kind} ${SCALE_PREFIX}${scale}`, real]))]
   .filter(([k]) => !DROPPED_KINDS.includes(k))
   .sort(([a], [b]) => a.localeCompare(b))
-  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind) || isBuilding(kind), storeys: isBuilding(kind) }));
+  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind.split(' ')[0]) || isBuilding(kind), storeys: isBuilding(kind) }));
 
 const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
   const building = isBuilding(kind);
-  const row = { kind, real: SIZES[kind], high: HIGH.has(kind) || building || undefined, storeys: building || undefined };
-  if (DROPPED_KINDS.includes(kind)) return { ...row, curve: false, reason: 'dropped' };
+  const row = { kind, real: SIZES[kind], scale: SCALE_SIZES[kind], high: HIGH.has(kind) || building || undefined, storeys: building || undefined };
+  if (DROPPED_KINDS.includes(kind) || isExempt({ kind }, VARS)) return { ...row, curve: false, reason: 'dropped' };
   if (kind !== 'char' && kind !== 'env-fungi' && depth(kind) < 3) return { ...row, curve: false, reason: 'too broad' };
-  if (row.real === undefined && !building) return { ...row, curve: false, reason: 'no real size' };
+  if (row.real === undefined && !row.scale && !building) return { ...row, curve: false, reason: 'no real size' };
   return { ...row, curve: true };
 });
 writeFileSync(join(ROOT, 'catalog', 'build', 'size-curves.json'), JSON.stringify({
@@ -557,11 +558,8 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
       <ul>
         <li>all root kinds except <code>char</code> &mdash; <code>set</code> among them</li>
         <li>all root +1 except <code>env-fungi</code></li>
-        <li><code>tag:plural</code></li>
-        <li><code>tag:broken</code></li>
-        <li><code>tag:comp</code></li>
-        <li><code>tag:pickup</code></li>
-        <li><code>tag:piece</code></li>
+        ${VARS.exemptKinds.map((k) => `<li><code>kind:${k}</code></li>`).join('\n        ')}
+        ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
       </ul>
     </div>
     <div class="rule">

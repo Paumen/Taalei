@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=9d7181daca';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=9d7181daca';
-import { colorSwatches, setBands } from './color-edits.js?v=9d7181daca';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=9d7181daca';
-import { mountExtractBar, setPageParts } from './extract.js?v=9d7181daca';
-import './bouwstempel.js?v=9d7181daca';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=38a9a59522';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=38a9a59522';
+import { colorSwatches, setBands } from './color-edits.js?v=38a9a59522';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=38a9a59522';
+import { mountExtractBar, setPageParts } from './extract.js?v=38a9a59522';
+import './bouwstempel.js?v=38a9a59522';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -701,7 +701,7 @@ const withParents = (ids) => {
 
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
-  { type: 'attribute', head: 'Storeys', extra: true },
+  { type: 'attribute', head: 'Attributes', extra: true },
   { type: 'tag', head: 'Tags' },
   { type: 'theme', head: 'Theme', extra: true },
   { type: 'artist', head: 'Artist', extra: true },

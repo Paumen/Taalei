@@ -8,9 +8,11 @@
   { "id": "m", "limit": 1.5 },
   { "id": "l", "limit": null }
  ],
- "exemptTags": ["comp", "plural", "pickup", "broken"],
- "exemptKinds": ["set"],
+ "exemptTags": ["comp", "plural", "pickup", "broken", "piece"],
+ "exemptKinds": ["set", "str-building-commercial-skyscraper", "str-building-military-castle", "str-platform-deck"],
  "warnBand": 0.25,
+ "kit": { "warn": 1.25, "error": 1.4, "minKinds": 3 },
+ "attributeKinds": { "storeys": ["str-building"] },
  "mark": ["G05", "G06"],
  "tpu": { "exemptTags": ["plural"] },
  "mat": {
