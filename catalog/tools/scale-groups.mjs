@@ -125,6 +125,7 @@ export function buildScaleGroups(models) {
       limits: limitsOf(kind, scale),
       items: items.map((m) => ({
         slug: m.kit,
+        collection: m.collection,
         model: m.name,
         wdh: m.wdh.map(round1),
         tags: m.tags?.length ? m.tags : undefined,

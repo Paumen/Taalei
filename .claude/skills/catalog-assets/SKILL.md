@@ -48,6 +48,9 @@ A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius); anything else takes the kit's own word. Two words at
 most. A kit needs its row in `catalog/data/manifest.js` (slug, name, url, note,
 licence label); `zetManifest` fills the model list but will not create the row.
+Kits that share style and source units go in a collection row there
+(`collection`, `name`, `kits`), per the bible's `P15`; give them one scale
+factor first.
 
 ## 3. Colour and bands
 

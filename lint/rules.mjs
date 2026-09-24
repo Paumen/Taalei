@@ -135,10 +135,11 @@ export function buildKitScales(models, { vars, limits: kindLimits, scales }) {
     const value = range && (range.measure === 'high' ? m.wdh[2] : Math.max(...m.wdh));
     if (!(value > 0)) continue;
     const group = `${m.kind} ${scaleTagOf(m)?.join(' ') ?? ''}`;
-    const kit = byKit.get(m.kit) ?? { groups: new Map(), kinds: new Set() };
+    const slug = m.collection ?? m.kit;
+    const kit = byKit.get(slug) ?? { groups: new Map(), kinds: new Set() };
     kit.groups.set(group, [...(kit.groups.get(group) ?? []), Math.log(value / Math.sqrt(range.lo * range.hi))]);
     kit.kinds.add(m.kind);
-    byKit.set(m.kit, kit);
+    byKit.set(slug, kit);
   }
   const out = new Map();
   for (const [slug, { groups, kinds }] of byKit) {
@@ -437,9 +438,10 @@ export function checkModel(model, checks) {
 
   if (model.kind) {
     if (!isExempt(model, vars)) {
-      const kit = checks.kitScales?.get(model.kit);
+      const slug = model.collection ?? model.kit;
+      const kit = checks.kitScales?.get(slug);
       push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales, kit));
-      if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${model.kit}, ${kit.kinds} kinds` }]);
+      if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${slug}, ${kit.kinds} kinds` }]);
     }
     if (!exempt('mat')) {
       push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));

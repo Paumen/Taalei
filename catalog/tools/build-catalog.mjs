@@ -47,7 +47,12 @@ function readKitMetadata() {
   }
 
   const meta = new Map();
+  const collections = [];
   for (const kit of kits) {
+    if (kit.collection) {
+      collections.push({ slug: kit.collection, name: kit.name ?? kit.collection, note: kit.note ?? null, kits: kit.kits });
+      continue;
+    }
     meta.set(kit.slug, {
       name: kit.name,
       url: kit.url,
@@ -62,7 +67,11 @@ function readKitMetadata() {
       listed: Array.isArray(kit.models) ? kit.models : null,
     });
   }
-  return meta;
+  for (const c of collections) {
+    const unknown = c.kits.filter((k) => !meta.has(k));
+    if (unknown.length) throw new Error(`manifest.js collection ${c.slug} names unknown kits: ${unknown.join(', ')}`);
+  }
+  return { meta, collections };
 }
 
 function readVariants(idsInCatalog) {
@@ -253,7 +262,8 @@ function writeVersion() {
   );
 }
 
-const kitMeta = readKitMetadata();
+const { meta: kitMeta, collections } = readKitMetadata();
+const collectionOf = new Map(collections.flatMap((c) => c.kits.map((k) => [k, c.slug])));
 const kitSlugs = readdirSync(MODEL_DIR)
   .filter((name) => statSync(join(MODEL_DIR, name)).isDirectory())
   .filter((name) => !kitMeta.get(name)?.outsideCatalog)
@@ -300,6 +310,7 @@ for (const slug of kitSlugs) {
       id: `${slug}/${name}`,
       name,
       kit: slug,
+      collection: collectionOf.get(slug),
       palette: null,
       colors: [],
       path,
@@ -632,6 +643,7 @@ const catalog = {
 const rows = models.map((m) => {
   const row = {
     kit: m.kit,
+    collection: m.collection,
     name: m.name,
     kind: m.kind,
     size: m.size,
@@ -679,18 +691,45 @@ const scaledLimitKeys = () => {
   return out;
 };
 
+const kitRow = (k) => ({
+  slug: k.slug, name: k.name, url: k.url, note: k.note,
+  artist: SOURCES.find((s) => s.id === SOURCE_PER_KIT.get(k.slug))?.name,
+  licenseLabel: k.licenseLabel,
+  count: k.count,
+  packs: BRONKITS.filter((b) => b.kit === k.slug).map((b) => b.naam),
+  origins: k.origins,
+  scales: k.scales,
+  smooth: k.smooth,
+});
+const addCounts = (rows, key) => {
+  const out = {};
+  for (const row of rows) for (const [value, n] of Object.entries(row[key] ?? {})) out[value] = (out[value] ?? 0) + n;
+  return out;
+};
+const collectionRow = (c) => {
+  const members = kits.filter((k) => collectionOf.get(k.slug) === c.slug).map(kitRow);
+  const one = (key) => (new Set(members.map((m) => m[key])).size === 1 ? members[0][key] : undefined);
+  return {
+    slug: c.slug, name: c.name, url: one('url'), note: c.note,
+    artist: one('artist'),
+    licenseLabel: one('licenseLabel'),
+    count: members.reduce((sum, m) => sum + m.count, 0),
+    packs: members.flatMap((m) => m.packs),
+    origins: addCounts(members, 'origins'),
+    scales: addCounts(members, 'scales'),
+    smooth: addCounts(members, 'smooth'),
+    members,
+  };
+};
+const kitRows = [];
+for (const k of kits) {
+  const slug = collectionOf.get(k.slug);
+  if (!slug) kitRows.push(kitRow(k));
+  else if (!kitRows.some((r) => r.slug === slug && r.members)) kitRows.push(collectionRow(collections.find((c) => c.slug === slug)));
+}
+
 const output = {
-  kits: kits.map((k) => ({
-    slug: k.slug, name: k.name, url: k.url, note: k.note,
-    artist: SOURCES.find((s) => s.id === SOURCE_PER_KIT.get(k.slug))?.name,
-    licenseLabel: k.licenseLabel,
-    count: k.count,
-    packs: BRONKITS.filter((b) => b.kit === k.slug).map((b) => b.naam),
-    origins: k.origins,
-    scales: k.scales,
-    smooth: k.smooth,
-    kitCheck: kitCheckOf(k.slug),
-  })),
+  kits: kitRows.map((row) => ({ ...row, kitCheck: kitCheckOf(row.slug) })),
   variants: variants.groups,
   bands: BANDS,
   tags: tags.tags.map((t) => ({
