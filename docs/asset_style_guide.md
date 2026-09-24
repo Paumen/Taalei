@@ -143,7 +143,7 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 ### 2.3 Size and budget
 
-`kind:set` is exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
+`kind:set` and `kind:str-building-commercial-skyscraper` are exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken` and `tag:pickup` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
 
 Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is often held to several measures at once: `obj-container-barrel` takes `high.min` from itself, `high.max` from `obj-container`, `longest.max` from `obj` and `longest.min` from `defaults`.
 
